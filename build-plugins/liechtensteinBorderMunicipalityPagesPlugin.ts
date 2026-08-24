@@ -41,6 +41,7 @@ import path from 'node:path';
 import type { Plugin } from 'vite';
 import { WriteCollector } from './batchWrite';
 import { CALC_HREF } from './shared/calcHref';
+import { renderNearestComparison } from './shared/nearestMunicipalityComparison';
 import { formatSourceAttribution } from './shared/authoritativeSources';
 import { CALCULATOR_REGIME_SCOPE_NOTICE, CALCULATOR_REGIME_SCOPE_TAG } from './shared/calculatorRegimeScope';
 import { BASE_URL, countHtmlBodyWords, MIN_INDEXABLE_WORDS } from './constants';
@@ -154,7 +155,10 @@ interface Copy {
   tileCustoms: string;
   crossTitle: string;
   calcLink: string;
-  relatedTitle: string;
+  /** Column headers and prose labels of the nearest-comune comparison block. */
+  colPopulation: string;
+  spreadComparison: string;
+  comparisonSource: string;
   faqTitle: string;
   disclaimer: string;
   bridgeLede: (n: string) => string;
@@ -180,7 +184,9 @@ const COPY: Record<LiechtensteinLocale, Copy> = {
     tileCustoms: 'Unione doganale dal',
     crossTitle: 'Approfondimenti utili',
     calcLink: 'Calcola il tuo stipendio netto',
-    relatedTitle: 'Altri comuni del Liechtenstein',
+    colPopulation: 'Abitanti',
+    spreadComparison: 'la popolazione',
+    comparisonSource: 'Popolazione dal dataset comunale del Liechtenstein (Amt für Statistik).',
     faqTitle: 'Domande frequenti',
     disclaimer:
       'Stime a scopo orientativo. Verifica sempre con un consulente fiscale o le autorità competenti prima di decidere.',
@@ -206,7 +212,9 @@ const COPY: Record<LiechtensteinLocale, Copy> = {
     tileCustoms: 'Customs union since',
     crossTitle: 'Useful reading',
     calcLink: 'Calculate your net salary',
-    relatedTitle: 'Other Liechtenstein municipalities',
+    colPopulation: 'Population',
+    spreadComparison: 'the population',
+    comparisonSource: 'Population from the Liechtenstein municipal dataset (Amt für Statistik).',
     faqTitle: 'FAQ',
     disclaimer: 'Estimates for guidance only. Always check with a tax adviser or the competent authorities before deciding.',
     bridgeLede: (n) =>
@@ -231,7 +239,9 @@ const COPY: Record<LiechtensteinLocale, Copy> = {
     tileCustoms: 'Zollunion seit',
     crossTitle: 'Nützliche Lektüre',
     calcLink: 'Nettolohn berechnen',
-    relatedTitle: 'Weitere Gemeinden Liechtensteins',
+    colPopulation: 'Einwohner',
+    spreadComparison: 'die Einwohnerzahl',
+    comparisonSource: 'Einwohnerzahl aus dem liechtensteinischen Gemeindedatensatz (Amt für Statistik).',
     faqTitle: 'Häufige Fragen',
     disclaimer: 'Schätzungen nur zur Orientierung. Immer mit einer Steuerberatung oder den zuständigen Behörden prüfen.',
     bridgeLede: (n) =>
@@ -256,7 +266,9 @@ const COPY: Record<LiechtensteinLocale, Copy> = {
     tileCustoms: 'Union douanière depuis',
     crossTitle: 'À lire aussi',
     calcLink: 'Calculez votre salaire net',
-    relatedTitle: 'Autres communes du Liechtenstein',
+    colPopulation: 'Habitants',
+    spreadComparison: 'la population',
+    comparisonSource: 'Population issue du jeu de données communal du Liechtenstein (Amt für Statistik).',
     faqTitle: 'Questions fréquentes',
     disclaimer: "Estimations à titre indicatif. Vérifiez toujours avec un conseiller fiscal ou les autorités compétentes avant de décider.",
     bridgeLede: (n) =>
@@ -291,19 +303,42 @@ function breadcrumbLd(locale: LiechtensteinLocale, name: string, canonicalUrl: s
 
 // ── Page renderers ──────────────────────────────────────────────
 
+/**
+ * The comparison block that used to be a flat link grid.
+ *
+ * Before (issue #5002): every one of the 11 pages listed all the OTHER
+ * comuni, in dataset order, with nothing but their names — so the block was
+ * byte-identical across the family modulo the omitted self, and the family
+ * measured a median Information Gain of 0,0 % on 2026-08-24 (8 of 8 sampled
+ * pages contributing nothing their siblings did not already carry).
+ *
+ * After: the nearest comuni with their population, plus prose placing THIS
+ * comune inside the group. Liechtenstein has no per-comune commuting figure in
+ * the dataset (no `distanceKm`: the whole principality is inside one commuting
+ * basin), so population is the one real magnitude available — stated as such
+ * rather than padded with a figure the dataset does not have.
+ *
+ * Renderer, determinism argument and shared copy: `nearestMunicipalityComparison`.
+ */
 function renderRelated(locale: LiechtensteinLocale, current: LiechtensteinBorderMunicipality): string {
-  const others = LIECHTENSTEIN_ABOVE_FLOOR.filter((m) => m.slug !== current.slug);
-  if (others.length === 0) return '';
-  const links = others
-    .map(
-      (m) =>
-        `<a class="rounded-md border border-edge bg-surface-raised p-3 text-sm font-semibold text-heading hover:border-accent-border" href="${liechtensteinMunicipalityPathFor(locale, m.slug)}">${esc(m.name)}</a>`,
-    )
-    .join('');
-  return `<section class="mt-6 rounded-md border border-edge bg-surface p-5">
-      <h2 class="text-xl font-bold text-heading">${esc(COPY[locale].relatedTitle)}</h2>
-      <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">${links}</div>
-    </section>`;
+  const c = COPY[locale];
+  return renderNearestComparison<LiechtensteinBorderMunicipality>({
+    locale,
+    current,
+    pool: LIECHTENSTEIN_ABOVE_FLOOR,
+    hrefFor: (m) => liechtensteinMunicipalityPathFor(locale, m.slug),
+    keyOf: (m) => m.slug,
+    columns: [
+      {
+        header: c.colPopulation,
+        value: (m) => intFmt(m.population, locale),
+        numeric: (m) => m.population,
+        formatNumeric: (value) => intFmt(value, locale),
+        spreadLabel: c.spreadComparison,
+      },
+    ],
+    sourceNote: c.comparisonSource,
+  });
 }
 
 function renderFaqSection(locale: LiechtensteinLocale, faqTitle: string): string {

@@ -1,20 +1,54 @@
 {
   "key": "recruitingapp-1123",
   "label": "BIG & ARE Stellen",
-  "generatedAt": "2026-08-23T21:31:12.327Z",
-  "total": 10,
+  "generatedAt": "2026-08-24T10:22:25.068Z",
+  "total": 11,
   "discovered": null,
-  "written": 10,
-  "newCount": 0,
-  "updatedCount": 10,
+  "written": 11,
+  "newCount": 1,
+  "updatedCount": 9,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 7797,
-  "avgDurationMs": 7797,
+  "unchangedCount": 1,
+  "durationMs": 6788,
+  "avgDurationMs": 6788,
   "durationHistory": [
-    7797
+    6788
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "recruitingapp-1123-ee08b7105086",
+      "slug": "technische-r-objektmanager-in-hochbau-m-w-d-ab-30-wochenstunden-recruitingapp-1123-ch",
+      "company": "BIG & ARE Stellen",
+      "companyKey": "recruitingapp-1123",
+      "companyDomain": "recruitingapp-1123.umantis.com",
+      "title": "Technische:r Objektmanager:in Hochbau (m/w/d) - ab 30 Wochenstunden",
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://recruitingapp-1123.umantis.com/Vacancies/2482/Description/1",
+      "source": "BIG & ARE Stellen Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-24T10:22:21.026Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://recruitingapp-1123.umantis.com/Vacancies/2482/Description/1",
+      "_qualityScore": 43,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 0,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "recruitingapp-1123-5be949021b27",
@@ -28,7 +62,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2497/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:31:05.889Z",
+      "crawledAt": "2026-08-24T10:22:19.480Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -63,7 +97,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2479/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:31:06.206Z",
+      "crawledAt": "2026-08-24T10:22:19.807Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -98,7 +132,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2473/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:31:06.508Z",
+      "crawledAt": "2026-08-24T10:22:20.114Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -133,7 +167,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2465/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:31:06.811Z",
+      "crawledAt": "2026-08-24T10:22:20.419Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -168,7 +202,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2426/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:31:07.114Z",
+      "crawledAt": "2026-08-24T10:22:20.723Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -203,7 +237,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2507/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:31:07.418Z",
+      "crawledAt": "2026-08-24T10:22:21.330Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -238,7 +272,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2505/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-23T21:31:07.720Z",
+      "crawledAt": "2026-08-24T10:22:21.634Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -273,7 +307,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2506/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-23T21:31:08.022Z",
+      "crawledAt": "2026-08-24T10:22:21.936Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -308,7 +342,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2504/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-23T21:31:08.325Z",
+      "crawledAt": "2026-08-24T10:22:22.238Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -330,10 +364,13 @@
         "translation": 15,
         "completeness": 14
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "recruitingapp-1123-7addc805f288",
-      "slug": "informationssicherheits-compliance-expert-in-m-w-d-recruitingapp-1123-ch",
+      "slug": "informationssicherheits-compliance-expert-in-m-w-d-big-are-stellen-lugano",
       "company": "BIG & ARE Stellen",
       "companyKey": "recruitingapp-1123",
       "companyDomain": "recruitingapp-1123.umantis.com",
@@ -358,15 +395,17 @@
       "applyUrl": "https://recruitingapp-1123.umantis.com/Vacancies/2480/Description/1",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T09:37:56.558Z",
-      "_qualityScore": 54,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "addressRegion": "TI",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
         "translation": 15,
-        "completeness": 14
+        "completeness": 19
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

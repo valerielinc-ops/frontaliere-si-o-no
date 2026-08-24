@@ -1,0 +1,128 @@
+{
+  "crawlerKey": "albergo-gardenia",
+  "assembledAt": "2026-08-24T10:32:31.253Z",
+  "jobs": [
+    {
+      "id": "albergo-gardenia-bf0d61d0f1cd",
+      "slug": "previdenza-per-la-vecchiaia-albergo-gardenia-ch",
+      "slugByLocale": {
+        "it": "previdenza-per-la-vecchiaia-albergo-gardenia-ch",
+        "en": "previdenza-per-la-vecchiaia-albergo-gardenia-ch",
+        "de": "previdenza-per-la-vecchiaia-albergo-gardenia-ch",
+        "fr": "previdenza-per-la-vecchiaia-albergo-gardenia-ch"
+      },
+      "company": "Albergo Gardenia",
+      "companyKey": "albergo-gardenia",
+      "companyDomain": "hotelleriesuisse.ch",
+      "title": "Previdenza per la vecchiaia",
+      "titleByLocale": {
+        "it": "Previdenza per la vecchiaia",
+        "de": "Previdenza per la vecchiaia",
+        "en": "Previdenza per la vecchiaia",
+        "fr": "Previdenza per la vecchiaia"
+      },
+      "description": "Previdenza per la vecchiaia — Albergo Gardenia",
+      "descriptionByLocale": {
+        "it": "Previdenza per la vecchiaia — Albergo Gardenia"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.hotelleriesuisse.ch/it/politica/lavoro-e-istruzione/previdenza-per-la-vecchiaia",
+      "source": "Albergo Gardenia Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-24T10:32:28.546Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://www.hotelleriesuisse.ch/it/politica/lavoro-e-istruzione/previdenza-per-la-vecchiaia",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-24T10:32:28.546Z"
+    },
+    {
+      "id": "albergo-gardenia-a58372a459dc",
+      "slug": "carenza-di-personale-qualificato-albergo-gardenia-ch",
+      "slugByLocale": {
+        "it": "carenza-di-personale-qualificato-albergo-gardenia-ch",
+        "en": "carenza-di-personale-qualificato-albergo-gardenia-ch",
+        "de": "carenza-di-personale-qualificato-albergo-gardenia-ch",
+        "fr": "carenza-di-personale-qualificato-albergo-gardenia-ch"
+      },
+      "company": "Albergo Gardenia",
+      "companyKey": "albergo-gardenia",
+      "companyDomain": "hotelleriesuisse.ch",
+      "title": "Carenza di personale qualificato",
+      "titleByLocale": {
+        "it": "Carenza di personale qualificato",
+        "en": "Carenza di personale qualificato",
+        "de": "Carenza di personale qualificato",
+        "fr": "Carenza di personale qualificato"
+      },
+      "description": "Carenza di personale qualificato — Albergo Gardenia",
+      "descriptionByLocale": {
+        "it": "Carenza di personale qualificato — Albergo Gardenia"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.hotelleriesuisse.ch/it/politica/lavoro-e-istruzione/carenza-di-personale-qualificato",
+      "source": "Albergo Gardenia Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-24T10:32:28.227Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Risorse Umane",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://www.hotelleriesuisse.ch/it/politica/lavoro-e-istruzione/carenza-di-personale-qualificato",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-24T10:32:28.227Z"
+    }
+  ]
+}

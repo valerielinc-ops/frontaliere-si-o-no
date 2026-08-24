@@ -1110,8 +1110,13 @@ const PROFESSION_STRINGS_BY_LOCALE: Record<ProfessionLocale, Record<ProfessionId
 // ─────────────────────────────────────────────────────────────────
 
 interface LocaleShell {
-  titleTemplate: (role: string) => string;
-  descriptionTemplate: (role: string, median: number) => string;
+  /**
+   * `liveCount` is the live aggregate, already in scope where these are
+   * called. It must stay zero-aware: a page with no openings falls back to the
+   * countless form rather than advertising "0 offerte" (#5365).
+   */
+  titleTemplate: (role: string, liveCount: number) => string;
+  descriptionTemplate: (role: string, median: number, liveCount: number) => string;
   h1Template: (role: string) => string;
   ledeTemplate: (strings: ProfessionStrings, median: number, jobs: number) => string;
   updatedLabel: string;
@@ -1153,9 +1158,20 @@ interface LocaleShell {
 }
 
 const IT_SHELL: LocaleShell = {
-  titleTemplate: (role) => `Lavoro da ${role} in Ticino 2026`,
-  descriptionTemplate: (role, median) =>
-    `Guida 2026 per frontalieri al lavoro da ${role} in Ticino: salario medio CHF ${median.toLocaleString('it-CH')}, CCL applicabile, riconoscimento titolo italiano, principali datori di lavoro. Aggiornato ${buildMonthYearLabel('it')}.`,
+  // Someone searching "lavoro ticino autista" wants openings, not a guide.
+  // The live count says both "there is something here" and "this is current",
+  // which is what a guide-shaped title failed to do at position 5,7.
+  titleTemplate: (role, liveCount) =>
+    liveCount > 0
+      ? `Lavoro da ${role} in Ticino: ${liveCount} offerte`
+      : `Lavoro da ${role} in Ticino 2026`,
+  // Was 186 chars, so clampMetaDescription cut it at 160 and the trailing
+  // "Aggiornato <mese> <anno>." — the entire freshness signal — never reached
+  // the SERP. Both branches below stay under 160 with the month label intact.
+  descriptionTemplate: (role, median, liveCount) =>
+    liveCount > 0
+      ? `${liveCount} offerte di lavoro da ${role} in Ticino, aggiornate ${buildMonthYearLabel('it')}. Salario medio CHF ${median.toLocaleString('it-CH')}, CCL e riconoscimento del titolo italiano.`
+      : `Lavoro da ${role} in Ticino: salario medio CHF ${median.toLocaleString('it-CH')}, CCL applicabile, riconoscimento del titolo italiano. Aggiornato ${buildMonthYearLabel('it')}.`,
   h1Template: (role) => `Lavoro da ${role} in Ticino: guida 2026 per frontalieri`,
   ledeTemplate: (s, median, jobs) =>
     jobs > 0
@@ -1214,10 +1230,14 @@ const IT_SHELL: LocaleShell = {
 };
 
 const EN_SHELL: LocaleShell = {
-  titleTemplate: (role) =>
-    `${role.charAt(0).toUpperCase()}${role.slice(1)} jobs Ticino 2026`,
-  descriptionTemplate: (role, median) =>
-    `2026 cross-border guide to ${role} jobs in Ticino: average CHF ${median.toLocaleString('en-CH')} gross per year, applicable collective agreement, Italian diploma recognition, top employers.`,
+  titleTemplate: (role, liveCount) =>
+    liveCount > 0
+      ? `${role.charAt(0).toUpperCase()}${role.slice(1)} jobs Ticino: ${liveCount} openings`
+      : `${role.charAt(0).toUpperCase()}${role.slice(1)} jobs Ticino 2026`,
+  descriptionTemplate: (role, median, liveCount) =>
+    liveCount > 0
+      ? `${liveCount} ${role} jobs in Ticino, updated ${buildMonthYearLabel('en')}. Average CHF ${median.toLocaleString('en-CH')} gross per year, collective agreement and Italian diploma recognition.`
+      : `${role} jobs in Ticino: average CHF ${median.toLocaleString('en-CH')} gross per year, collective agreement, Italian diploma recognition. Updated ${buildMonthYearLabel('en')}.`,
   h1Template: (role) =>
     `${role.charAt(0).toUpperCase()}${role.slice(1)} jobs in Ticino: 2026 cross-border guide`,
   ledeTemplate: (s, median, jobs) =>
@@ -1277,9 +1297,12 @@ const EN_SHELL: LocaleShell = {
 };
 
 const DE_SHELL: LocaleShell = {
-  titleTemplate: (role) => `${role} im Tessin 2026`,
-  descriptionTemplate: (role, median) =>
-    `Grenzgänger-Leitfaden 2026 für ${role} im Tessin: Durchschnittslohn CHF ${median.toLocaleString('de-CH')} brutto/Jahr, geltender GAV, Anerkennung italienischer Diplome, wichtigste Arbeitgeber.`,
+  titleTemplate: (role, liveCount) =>
+    liveCount > 0 ? `${role} im Tessin: ${liveCount} Stellen` : `${role} im Tessin 2026`,
+  descriptionTemplate: (role, median, liveCount) =>
+    liveCount > 0
+      ? `${liveCount} Stellen als ${role} im Tessin, Stand ${buildMonthYearLabel('de')}. Durchschnittslohn CHF ${median.toLocaleString('de-CH')} brutto/Jahr, GAV und Anerkennung italienischer Diplome.`
+      : `${role} im Tessin: Durchschnittslohn CHF ${median.toLocaleString('de-CH')} brutto/Jahr, geltender GAV, Anerkennung italienischer Diplome. Stand ${buildMonthYearLabel('de')}.`,
   h1Template: (role) => `${role} im Tessin: Grenzgänger-Leitfaden 2026`,
   ledeTemplate: (s, median, jobs) =>
     jobs > 0
@@ -1338,10 +1361,18 @@ const DE_SHELL: LocaleShell = {
 };
 
 const FR_SHELL: LocaleShell = {
-  titleTemplate: (role) =>
-    `${role.charAt(0).toUpperCase()}${role.slice(1)} au Tessin 2026`,
-  descriptionTemplate: (role, median) =>
-    `Guide frontalier 2026 pour les postes de ${role} au Tessin : salaire moyen CHF ${median.toLocaleString('fr-CH')} brut/an, CCT applicable, reconnaissance du diplôme italien, principaux employeurs.`,
+  titleTemplate: (role, liveCount) =>
+    liveCount > 0
+      ? `${role.charAt(0).toUpperCase()}${role.slice(1)} au Tessin : ${liveCount} offres`
+      : `${role.charAt(0).toUpperCase()}${role.slice(1)} au Tessin 2026`,
+  // Leads with the role rather than "offres de ${role}": French role nouns here
+  // are long ("assistant en soins et santé communautaire", 41 chars) and the
+  // "de + vowel" form would also need elision. Fronting the role avoids both,
+  // and keeps the longest profession under META_DESCRIPTION_MAX_CHARS.
+  descriptionTemplate: (role, median, liveCount) =>
+    liveCount > 0
+      ? `${role.charAt(0).toUpperCase()}${role.slice(1)} au Tessin : ${liveCount} offres (${buildMonthYearLabel('fr')}). Salaire moyen CHF ${median.toLocaleString('fr-CH')} brut/an, CCT applicable, diplôme italien reconnu.`
+      : `${role.charAt(0).toUpperCase()}${role.slice(1)} au Tessin (${buildMonthYearLabel('fr')}) : salaire moyen CHF ${median.toLocaleString('fr-CH')} brut/an, CCT applicable, diplôme italien reconnu.`,
   h1Template: (role) =>
     `${role.charAt(0).toUpperCase()}${role.slice(1)} au Tessin : guide frontalier 2026`,
   ledeTemplate: (s, median, jobs) =>
@@ -1830,8 +1861,8 @@ export function buildProfessionLandingCopy(
   const displayCount = snapshot.liveCount;
 
   return {
-    title: shell.titleTemplate(strings.role),
-    description: shell.descriptionTemplate(strings.role, facts.medianSalaryChf),
+    title: shell.titleTemplate(strings.role, displayCount),
+    description: shell.descriptionTemplate(strings.role, facts.medianSalaryChf, displayCount),
     h1: shell.h1Template(strings.role),
     lede: shell.ledeTemplate(strings, facts.medianSalaryChf, displayCount),
     denseLede: shell.denseLedeTemplate({

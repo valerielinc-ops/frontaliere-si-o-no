@@ -1,6 +1,6 @@
 {
   "crawlerKey": "efg-international",
-  "assembledAt": "2026-08-23T21:24:03.392Z",
+  "assembledAt": "2026-08-24T09:59:25.365Z",
   "jobs": [
     {
       "id": "efg-6385",
@@ -123,7 +123,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-23T21:23:59.658Z",
+      "crawledAt": "2026-08-24T09:59:18.679Z",
       "slugByLocale": {
         "it": "responsabile-rischio-aziendale-pb-coo-brm-efg-international-ag-lugano",
         "en": "business-risk-manager-pb-coo-brm-efg-lugano",
@@ -294,7 +294,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-23T21:23:59.648Z",
+      "crawledAt": "2026-08-24T09:59:18.676Z",
       "slugByLocale": {
         "it": "business-risk-manager-pb-coo-brm-temp-efg-zurich",
         "en": "business-risk-manager-pb-coo-brm-temp-efg-zurich",
@@ -319,7 +319,8 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "firstSeenAt": "2026-07-20T22:01:00.554Z"
+      "firstSeenAt": "2026-07-20T22:01:00.554Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6336",
@@ -515,7 +516,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-23T21:23:59.646Z",
+      "crawledAt": "2026-08-24T09:59:18.675Z",
       "slugByLocale": {
         "it": "responsabile-governance-e-supervisione-del-rischio-legale-e-conformita-efg-international-ag-geneve",
         "en": "governance-risk-oversight-manager-legal-compliance-efg-geneve",
@@ -552,7 +553,8 @@
       },
       "previousSlugs": [
         "governance-risk-oversight-manager-legal-compliance-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6327",
@@ -697,7 +699,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-23T21:23:59.641Z",
+      "crawledAt": "2026-08-24T09:59:18.672Z",
       "slugByLocale": {
         "it": "ricevitore-efg-international-ag-zurich",
         "en": "receptionist-efg-international-ag-zurich",
@@ -736,7 +738,8 @@
       },
       "previousSlugs": [
         "receptionist-efg-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6317",
@@ -861,7 +864,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-23T21:23:59.637Z",
+      "crawledAt": "2026-08-24T09:59:18.671Z",
       "slugByLocale": {
         "it": "iam-support-specialista-efg-international-ag-geneve",
         "en": "iam-support-specialist-efg-geneve",
@@ -900,7 +903,8 @@
       },
       "previousSlugs": [
         "iam-support-specialist-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6219",
@@ -951,7 +955,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-23T21:23:59.631Z",
+      "crawledAt": "2026-08-24T09:59:18.670Z",
       "slugByLocale": {
         "it": "data-ops-ingegnere-efg-international-ag-geneve",
         "en": "data-ops-engineer-efg-geneve",
@@ -994,7 +998,8 @@
         "data-ops-engineer-efg-geneve",
         "ingenieur-des-operations-de-donnees-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6210",
@@ -1017,7 +1022,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "General Services Employee",
-        "de": "Mitarbeiter für allgemeine Dienstleistungen",
+        "de": "General Services Employee",
         "it": "Servizi generali Dipendenti",
         "fr": "Services généraux Employé"
       },
@@ -1045,11 +1050,11 @@
           }
         }
       },
-      "crawledAt": "2026-08-23T21:23:59.622Z",
+      "crawledAt": "2026-08-24T09:59:18.668Z",
       "slugByLocale": {
         "it": "servizi-generali-dipendenti-efg-international-ag-geneve",
         "en": "general-services-employee-efg-geneve",
-        "de": "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
+        "de": "general-services-employee-efg-international-ag-geneve",
         "fr": "services-generaux-employe-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
@@ -1082,14 +1087,17 @@
         ],
         "de": [
           "general-services-employee-efg-geneve",
+          "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
           "general-services-employee-efg-international-ag-geneve"
         ]
       },
       "previousSlugs": [
         "general-services-employee-efg-geneve",
         "g-id-1-impiegata-servizi-generali-g-g-id-2-g-efg-international-ag-geneve",
+        "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
         "general-services-employee-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6175",
@@ -1215,7 +1223,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-23T21:23:59.616Z",
+      "crawledAt": "2026-08-24T09:59:18.666Z",
       "slugByLocale": {
         "it": "specialista-supporto-pb-medio-oriente-ch-efg-international-ag-geneve",
         "en": "pb-support-specialist-middle-east-ch-efg-geneve",
@@ -1260,7 +1268,8 @@
         "pb-support-specialista-middle-east-ch-efg-international-ag-geneve",
         "pb-support-specialist-middle-east-ch-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6163",
@@ -1413,7 +1422,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-23T21:23:59.609Z",
+      "crawledAt": "2026-08-24T09:59:18.662Z",
       "slugByLocale": {
         "it": "learning-development-specialista-efg-international-ag-lugano-n932z9",
         "en": "learning-development-specialist-efg-international-ag-lugano-n932z9",
@@ -1538,7 +1547,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-23T21:23:59.602Z",
+      "crawledAt": "2026-08-24T09:59:18.660Z",
       "slugByLocale": {
         "it": "responsabile-del-servizio-dati-it-efg-international-ag-geneve",
         "en": "it-data-service-manager-efg-geneve",
@@ -1720,7 +1729,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-23T21:23:59.595Z",
+      "crawledAt": "2026-08-24T09:59:18.657Z",
       "slugByLocale": {
         "it": "client-services-officer-geneva-talent-pool-efg-geneve",
         "en": "client-services-officer-geneva-talent-pool-efg-geneve",
@@ -1758,7 +1767,8 @@
         "cybersecurity-internal-penetration-tester-efg-geneve",
         "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6039",
@@ -1809,7 +1819,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-23T21:23:59.589Z",
+      "crawledAt": "2026-08-24T09:59:18.655Z",
       "slugByLocale": {
         "it": "sviluppatore-epm-onestream-analista-dati-business-efg-international-ag-lugano",
         "en": "epm-onestream-developer-business-data-analyst-efg-lugano",
@@ -1847,7 +1857,8 @@
         "epm-onestream-developer-business-data-analyst-efg-lugano"
       ],
       "firstSeenAt": "2026-04-13T10:28:21.934Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5984",
@@ -1870,7 +1881,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "Switchboard operator",
-        "it": "Operatore di commutazione",
+        "it": "Switchboard operator",
         "de": "Schaltstelle-Operator",
         "fr": "Opérateur de central"
       },
@@ -1898,11 +1909,11 @@
           }
         }
       },
-      "crawledAt": "2026-08-23T21:23:59.545Z",
+      "crawledAt": "2026-08-24T09:59:18.647Z",
       "slugByLocale": {
-        "it": "operatore-di-commutazione-efg-international-ag-lugano",
+        "it": "switchboard-operator-efg-international-ag-lugano",
         "en": "switchboard-operator-efg-lugano",
-        "de": "schaltnetzbetreiber-efg-international-ag-lugano",
+        "de": "schaltstelle-operator-efg-international-ag-lugano",
         "fr": "switchboard-operateur-efg-international-ag-lugano"
       },
       "addressLocality": "Lugano",
@@ -1929,6 +1940,7 @@
       "previousSlugsByLocale": {
         "it": [
           "switchboard-operator-efg-lugano",
+          "operatore-di-commutazione-efg-international-ag-lugano",
           "switchboard-operator-efg-international-ag-lugano"
         ],
         "de": [
@@ -1939,10 +1951,12 @@
       },
       "previousSlugs": [
         "switchboard-operator-efg-lugano",
+        "operatore-di-commutazione-efg-international-ag-lugano",
         "schaltnetzbetreiber-efg-international-ag-lugano",
         "switchboard-operator-efg-international-ag-lugano",
         "schaltstelle-operator-efg-international-ag-lugano"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-5967",
@@ -2089,7 +2103,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-23T21:23:59.521Z",
+      "crawledAt": "2026-08-24T09:59:18.637Z",
       "slugByLocale": {
         "it": "responsabile-della-fondazione-efg-international-ag-zurich",
         "en": "foundation-manager-efg-international-ag-lugano-n93k14",
@@ -2149,7 +2163,8 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5892",
@@ -2200,7 +2215,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-23T21:23:59.517Z",
+      "crawledAt": "2026-08-24T09:59:18.635Z",
       "slugByLocale": {
         "it": "data-ingegnere-efg-international-ag-geneve",
         "en": "data-engineer-efg-geneve",
@@ -2270,7 +2285,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "Group Financial Controller",
-        "fr": "Contrôleur financier du groupe",
+        "fr": "Group Financial Controller",
         "it": "Gruppo Controllore finanziario",
         "de": "Konzern Finanzverantwortlicher"
       },
@@ -2404,7 +2419,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-23T21:23:59.510Z",
+      "crawledAt": "2026-08-24T09:59:18.632Z",
       "slugByLocale": {
         "it": "gruppo-controllore-finanziario-efg-international-ag-geneve",
         "en": "group-financial-controller-efg-geneve",
@@ -2442,7 +2457,8 @@
       "previousSlugs": [
         "group-financial-controller-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6456",
@@ -2560,7 +2576,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-23T21:23:59.501Z",
+      "crawledAt": "2026-08-24T09:59:18.628Z",
       "slugByLocale": {
         "it": "responsabile-del-rischio-efg-international-ag-geneve",
         "en": "risk-manager-efg-geneve",
@@ -2598,7 +2614,8 @@
       },
       "previousSlugs": [
         "risk-manager-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6413",
@@ -2649,7 +2666,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-23T21:23:59.476Z",
+      "crawledAt": "2026-08-24T09:59:18.616Z",
       "slugByLocale": {
         "it": "finanza-internship-efg-international-ag-geneve",
         "en": "finance-internship-efg-geneve",
@@ -2687,7 +2704,8 @@
       },
       "previousSlugs": [
         "finance-internship-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6046",
@@ -2781,7 +2799,8 @@
         "senior-private-markets-product-specialist-efg-zurich",
         "specialiste-principal-des-produits-des-marches-prives-efg-international-ag-zurich"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6326",
@@ -2973,7 +2992,8 @@
         "back-office-cash-reconciliation-specialist-efg-geneve",
         "back-office-cash-reconciliation-spezialist-efg-international-ag-geneve",
         "back-office-cash-reconciliation-specialiste-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6137",
@@ -3477,7 +3497,8 @@
         "client-services-officer-geneva-talent-pool-efg-international-ag-geneve",
         "client-services-officer-geneva-talent-pool-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5969",
@@ -3792,7 +3813,8 @@
         "network-proxy-support-team-lead-efg-geneve",
         "network-proxy-support-capo-team-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6334",
@@ -3960,7 +3982,8 @@
       },
       "previousSlugs": [
         "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6266",
@@ -4212,7 +4235,8 @@
         "cis-specialist-onboarding-periodic-reviews-compliance-officer-efg-geneve",
         "cis-specialist-onboarding-recensioni-periodiche-compliance-officer-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6203",
@@ -4234,7 +4258,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
-        "fr": "EFG Programme d'études supérieures 2026 - Fonctions corporatives - Ressources humaines - Lugano",
+        "fr": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
         "it": "Programma di Laurea EFG 2026 - Funzioni Corporate - Risorse Umane - Lugano",
         "de": "EFG Graduate Programme 2026 - Corporate Functions - Personalwesen - Lugano"
       },
@@ -4319,7 +4343,8 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6177",
@@ -4408,177 +4433,6 @@
           "funzionario-dell-assistenza-clienti-efg-international-ag-st"
         ]
       },
-      "country": "CH"
-    },
-    {
-      "id": "efg-6190",
-      "slug": "pb-support-specialista-americas-geneva-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "PB Support Specialist Americas Geneva",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "## Job Description\n\nThe role bridges business needs with regulatory standards and ensures the smooth execution of regulatory, compliance, and operational processes for activities in the Americas region.\n\n## Main responsibilities\n\n- Responsible for the output of the PB Support work area within the discipline, with a focus on implementing and executing strategies and ensuring alignment with Swiss standards and regulatory expectations\n\n- Support the Client Relationship Officers in proactively identifying, managing and mitigating risks arising from day-to-day business activities, applying advanced professional expertise and conceptual thinking to complex cases\n\n- Perform due diligence on prospective and existing client relationships, ensuring a consistent approach and applying frameworks, processes, and routines aligned with regulatory expectations in a timely and qualitative manner\n\n- Approve funds and securities transfers, credit granting, overrides and transactions involving sanctions sensitivity, within delegated authority, ensuring decisions reflect the standards and specifications applicable to the business\n\n- Distribute market knowledge and best practices among Client Relationship Officers, Client Service Officers and Account Managers, defining and embedding standard around which others will operate\n\n- Ensure timely completion and remediation of pending follow-ups relating to client lifecycle activities, being accountable for delivery of assigned processes/programmes impacting the department\n\n- Approve clients and business introducers new accounts, oversee KYC lifecycle and periodic reviews within the authority delegated by HoPB, ensuring oversight and compliance standards are met through in-depth professional expertise\n\n- Act as a key senior partner to Front Office and control Functions and as a key link between FLOD and SLOD, ensuring consistent communication and escalation paths, and networking with key contacts across multipe levels and teams internally and externally\n\n- Review account openings, CIP modifications and periodic reviews for the local PBS teams across the Region, while providing guidance to strengthen their understanding of requirements and control standards. Through continuous support and best practice sharing, provide guidance to more junior members of the team and help develop the capability to perform these reviews independently.\n\n## Skills and Experience\n\n- Lead medium-sized projects/BAU assignments to improve control standards documentation quality checks and risk mitigation measures\n\n- Provide guidance and deliver presentation sessions to Front Office teams on risk topics, control obligations and regulatory expectations, frequently advising on complex matters related to the area of expertise\n\n- Conduct risk assessment, control checks and thematic reviews assigned by Senior Management (Line Manager, HOPB & RBH), applying judgement and innovation where issues may be unclearly defined\n\n- Prepare and present high-risk and sensitive cases on behalf of HoPB to CAC committee\n\n- Resolve audit issues by coordinating with stakeholders to implement corrective actions, being accountable for the delivery of remediation plans impacting the department and the business unit\n\n- Support the local PBS team in enhancing their operational processes, providing guidance on control requirements, workflow improvements, and risk-mitigation measures, including developing solutions and frameworks with a longer-term view, to ensure alignment with Swiss standards\n\n## Our Values\n\n-  Accountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n-  Hands-on : Being proactive to rapidly deliver high-quality results\n\n-  Passionate : Being committed and striving for excellence\n\n-  Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n-  Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-      "requirements": [
-        "Lead medium-sized projects/BAU assignments to improve control standards documentation quality checks and risk mitigation measures",
-        "Provide guidance and deliver presentation sessions to Front Office teams on risk topics, control obligations and regulatory expectations, frequently advising on complex matters related to the area of expertise",
-        "Conduct risk assessment, control checks and thematic reviews assigned by Senior Management (Line Manager, HOPB & RBH), applying judgement and innovation where issues may be unclearly defined",
-        "Prepare and present high-risk and sensitive cases on behalf of HoPB to CAC committee",
-        "Resolve audit issues by coordinating with stakeholders to implement corrective actions, being accountable for the delivery of remediation plans impacting the department and the business unit",
-        "Support the local PBS team in enhancing their operational processes, providing guidance on control requirements, workflow improvements, and risk-mitigation measures, including developing solutions and frameworks with a longer-term view, to ensure alignment with Swiss standards<br>"
-      ],
-      "featured": false,
-      "postedDate": "2026-04-15",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6190",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "PB Support Specialist Americas Geneva",
-        "it": "PB Support Specialista Americas Geneva",
-        "de": "PB Support Spezialist Americas Geneva",
-        "fr": "PB Support Spécialiste Americas Geneva"
-      },
-      "descriptionByLocale": {
-        "en": "## Job Description\n\nThe role bridges business needs with regulatory standards and ensures the smooth execution of regulatory, compliance, and operational processes for activities in the Americas region.\n\n## Main responsibilities\n\n- Responsible for the output of the PB Support work area within the discipline, with a focus on implementing and executing strategies and ensuring alignment with Swiss standards and regulatory expectations\n\n- Support the Client Relationship Officers in proactively identifying, managing and mitigating risks arising from day-to-day business activities, applying advanced professional expertise and conceptual thinking to complex cases\n\n- Perform due diligence on prospective and existing client relationships, ensuring a consistent approach and applying frameworks, processes, and routines aligned with regulatory expectations in a timely and qualitative manner\n\n- Approve funds and securities transfers, credit granting, overrides and transactions involving sanctions sensitivity, within delegated authority, ensuring decisions reflect the standards and specifications applicable to the business\n\n- Distribute market knowledge and best practices among Client Relationship Officers, Client Service Officers and Account Managers, defining and embedding standard around which others will operate\n\n- Ensure timely completion and remediation of pending follow-ups relating to client lifecycle activities, being accountable for delivery of assigned processes/programmes impacting the department\n\n- Approve clients and business introducers new accounts, oversee KYC lifecycle and periodic reviews within the authority delegated by HoPB, ensuring oversight and compliance standards are met through in-depth professional expertise\n\n- Act as a key senior partner to Front Office and control Functions and as a key link between FLOD and SLOD, ensuring consistent communication and escalation paths, and networking with key contacts across multipe levels and teams internally and externally\n\n- Review account openings, CIP modifications and periodic reviews for the local PBS teams across the Region, while providing guidance to strengthen their understanding of requirements and control standards. Through continuous support and best practice sharing, provide guidance to more junior members of the team and help develop the capability to perform these reviews independently.\n\n## Skills and Experience\n\n- Lead medium-sized projects/BAU assignments to improve control standards documentation quality checks and risk mitigation measures\n\n- Provide guidance and deliver presentation sessions to Front Office teams on risk topics, control obligations and regulatory expectations, frequently advising on complex matters related to the area of expertise\n\n- Conduct risk assessment, control checks and thematic reviews assigned by Senior Management (Line Manager, HOPB & RBH), applying judgement and innovation where issues may be unclearly defined\n\n- Prepare and present high-risk and sensitive cases on behalf of HoPB to CAC committee\n\n- Resolve audit issues by coordinating with stakeholders to implement corrective actions, being accountable for the delivery of remediation plans impacting the department and the business unit\n\n- Support the local PBS team in enhancing their operational processes, providing guidance on control requirements, workflow improvements, and risk-mitigation measures, including developing solutions and frameworks with a longer-term view, to ensure alignment with Swiss standards\n\n## Our Values\n\n-  Accountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n-  Hands-on : Being proactive to rapidly deliver high-quality results\n\n-  Passionate : Being committed and striving for excellence\n\n-  Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n-  Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-        "it": "Descrizione del lavoro\n\nIl ruolo collega le esigenze aziendali con gli standard normativi e garantisce l'esecuzione regolare, la conformità e i processi operativi per le attività nella regione Americas.\n\nPrincipali responsabilità\n- Responsabile per l'output dell'area di lavoro PB Support all'interno della disciplina, con l'obiettivo di implementare ed eseguire strategie e garantire l'allineamento con gli standard svizzeri e le aspettative normative\n- Sostenere i responsabili delle relazioni con i clienti nell'identificazione proattiva, nella gestione e nella mitigazione dei rischi derivanti dalle attività aziendali quotidiane, nell'applicazione di competenze professionali avanzate e di pensiero concettuale a casi complessi\n- Eseguire la due diligenza sulle relazioni prospettiche e dei clienti esistenti, garantendo un approccio coerente e applicando quadri, processi e routine allineati alle aspettative normative in modo tempestivo e qualitativo\n- Approva fondi e trasferimenti di titoli, concessione di crediti, overrides e operazioni che comportano sanzioni sensibili, all'interno dell'autorità delegata, assicurando che le decisioni riflettano gli standard e le specifiche applicabili al business\n- Distribuire le conoscenze di mercato e le migliori pratiche tra Client Relationship Officers, Client Service Officers e Account Managers, definendo e incorporando lo standard intorno al quale altri opereranno\n- Assicurare il completamento tempestivo e la bonifica dei follow-up in sospeso relativi alle attività del ciclo di vita del cliente, essendo responsabile per la consegna di processi/programmi assegnati che influiscono sul reparto\n- Approva i clienti e gli introduttori di business nuovi account, supervisiona il ciclo di vita di KYC e revisioni periodiche all'interno dell'autorità delegato da HoPB, assicurando che gli standard di supervisione e conformità siano rispettati attraverso una profonda competenza professionale\n- Agire come partner senior chiave per le funzioni di front office e di controllo e come un collegamento chiave tra FLOD e SLOD, assicurando percorsi di comunicazione e di escalation coerenti, e in rete con contatti chiave tra i livelli multipe e i team internamente ed esternamente\n- Rivedere le aperture del conto, le modifiche CIP e le revisioni periodiche per le squadre PBS locali in tutta la Regione, fornendo al contempo indicazioni per rafforzare la loro comprensione dei requisiti e degli standard di controllo. Attraverso il supporto continuo e la migliore condivisione delle pratiche, fornire una guida ai membri più giovani del team e contribuire a sviluppare la capacità di eseguire queste recensioni in modo indipendente.\n\nCompetenze ed Esperienza\n\n- portare progetti di medie dimensioni/assegnazione di BAU per migliorare le norme di controllo documentazione controlli di qualità e misure di mitigazione del rischio\n\n- fornire indicazioni e fornire sessioni di presentazione ai team di Front Office su temi di rischio, obblighi di controllo e aspettative di regolamentazione, consigliando frequentemente su questioni complesse legate al settore delle competenze\n- Condurre la valutazione del rischio, i controlli di controllo e le recensioni tematiche assegnate da Senior Management (Line Manager, HOPB & RBH), applicando il giudizio e l'innovazione in cui le questioni possono essere chiaramente definite\n- Preparare e presentare casi ad alto rischio e sensibili a nome del comitato HoPB-CAC\n- Risolvere i problemi di audit coordinando con gli stakeholder per implementare azioni correttive, essendo responsabile per la consegna dei piani di bonifica che influenzano il dipartimento e l'unità aziendale\n- Sostenere il team PBS locale nel migliorare i propri processi operativi, fornendo indicazioni sui requisiti di controllo, sui miglioramenti del flusso di lavoro e sulle misure di riduzione del rischio, tra cui lo sviluppo di soluzioni e quadri con una visione a più lungo termine, per garantire l'allineamento con gli standard svizzeri\n\nI nostri valori\n- Responsabilità: Assumere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n- Passionato: Impegnarsi e lottare per l'eccellenza\n- Soluzione-driven: Concentrarsi sui risultati del cliente e trattare i clienti in modo corretto con una mentalità di rischio\n- Partenariato: promozione della collaborazione e del lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.",
-        "de": "Job Description\n\nDie Rolle überbrückt die Geschäftsanforderungen mit regulatorischen Standards und gewährleistet die reibungslose Durchführung von regulatorischen, Compliance- und operativen Prozessen für Aktivitäten in der Region Amerika.\n\nHauptaufgaben\n- Verantwortlich für die Produktion des PB Support-Arbeitsbereichs innerhalb der Disziplin, mit Schwerpunkt auf der Umsetzung und Durchführung von Strategien und Sicherstellung der Angleichung an Schweizer Standards und regulatorische Erwartungen\n- Unterstützung der Client Relationship Officers bei der proaktiven Identifizierung, Verwaltung und Minderung von Risiken, die sich aus täglichen Geschäftsaktivitäten ergeben, Anwendung fortschrittlicher fachlicher Expertise und konzeptionellem Denken auf komplexe Fälle\n- Führen Sie Due Diligence auf prospektive und bestehende Kundenbeziehungen durch, um einen konsequenten Ansatz zu gewährleisten und Rahmen, Prozesse und Routinen anzuwenden, die den regulatorischen Erwartungen zeitnah und qualitativ entsprechen\n- Genehmigung von Geldern und Wertpapierübertragungen, Krediterteilungen, Überweisungen und Transaktionen mit Sanktionen, die die Sensitivität der Sanktionen betreffen, innerhalb der delegierten Behörde;\n- Verteilen Sie Marktkenntnisse und Best Practices unter Client Relationship Officers, Client Service Officers und Account Managers, definieren und einbetten Standard, um den andere bedienen werden\n- Gewährleistung der rechtzeitigen Fertigstellung und Abhilfe von anhängigen Follow-ups im Zusammenhang mit dem Lebenszyklus der Kunden, die für die Lieferung von zugewiesenen Prozessen/Programmen verantwortlich sind, die die Abteilung betreffen\n- Berechtigen Sie Kunden und Unternehmer neue Konten, beaufsichtigen Sie KYC-Lebenszyklus und regelmäßige Überprüfungen innerhalb der von HoPB delegierten Behörde, um sicherzustellen, dass Aufsichts- und Compliance-Standards durch gründliche fachliche Expertise erfüllt werden\n- Aktivieren Sie als wichtiger Senior Partner bei Front Office und Control Functions und als Schlüsselverbindung zwischen FLOD und SLOD, um einheitliche Kommunikations- und Eskalationswege zu gewährleisten und die Vernetzung mit Schlüsselkontakten über Multipe Levels und Teams intern und extern zu gewährleisten\n- Überprüfen Sie Kontoeröffnungen, CIP-Änderungen und regelmäßige Bewertungen für die lokalen PBS-Teams in der ganzen Region, während Sie Leitlinien für ihr Verständnis von Anforderungen und Kontrollstandards bieten. Durch die kontinuierliche Unterstützung und den bestmöglichen Übungsaustausch bieten wir mehr Junior-Mitglieder des Teams und helfen, die Fähigkeit zu entwickeln, diese Bewertungen unabhängig durchzuführen.\n\nFähigkeiten und Erfahrungen\n- Führen Sie mittelständische Projekte/BAU-Beauftragungen zur Verbesserung der Kontrollstandards Dokumentation Qualitätskontrollen und Risikominderungsmaßnahmen\n- Beratung und Präsentationssitzungen an Front Office-Teams zu Risikothemen, Kontrollpflichten und regulatorischen Erwartungen, häufig Beratung in komplexen Fragen rund um den Fachbereich\n- Durchführung von Risikobewertungen, Kontrollkontrollen und thematischen Bewertungen, die von Senior Management (Line Manager, HOPB & RBH) vergeben werden, bei der Beurteilung und Innovation, bei denen Probleme unklar definiert werden können\n- Vorbereiten und präsentieren hochrisikoreiche und sensible Fälle im Namen von HoPB zum CAC-Ausschuss\n- Behebung von Audit-Problemen durch Koordinierung mit Interessenvertretern zur Umsetzung von Korrekturmaßnahmen, die für die Lieferung von Sanierungsplänen, die die Abteilung und die Geschäftseinheit betreffen, verantwortlich sind\n- Unterstützung des lokalen PBS-Teams bei der Verbesserung ihrer operativen Prozesse, Beratung zu Steuerungsanforderungen, Workflow-Verbesserungen und Risikomitigationsmaßnahmen, einschließlich der Entwicklung von Lösungen und Rahmenbedingungen mit längerer Sicht, um die Angleichung an die Schweizer Standards zu gewährleisten\n\nUnsere Werte\n- Rechenschaftspflicht: Eigentumsbesitz für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n- Hands-on: Als proaktiv, schnell qualitativ hochwertige Ergebnisse zu liefern\n- Leidenschaftlich: Engagement und Streben nach Exzellenz\n- Lösungsgetrieben : Konzentrieren Sie sich auf Client-Ergebnisse und Behandlung von Kunden ziemlich mit einem risikobewussten Mindset\n- Partnerschaftsorientiert: Förderung von Zusammenarbeit und Teamarbeit. Gemeinsam mit einem Unternehmergeist.",
-        "fr": "Description de l'emploi\n\nLe rôle est de relier les besoins des entreprises aux normes réglementaires et d'assurer la bonne exécution des processus réglementaires, de conformité et opérationnels des activités dans la région des Amériques.\n\nPrincipales responsabilités\n- Responsable de la production du domaine de travail PB Support au sein de la discipline, en mettant l'accent sur la mise en œuvre et l'exécution des stratégies et en assurant l'alignement sur les normes suisses et les attentes réglementaires\n- Aider les agents de relations avec la clientèle à cerner, gérer et atténuer les risques découlant des activités courantes, en appliquant une expertise professionnelle avancée et une réflexion conceptuelle à des cas complexes\n- Faire preuve de diligence raisonnable en ce qui concerne les relations avec les clients potentiels et existants, en assurant une approche cohérente et en appliquant des cadres, des processus et des routines conformes aux attentes réglementaires en temps opportun et de manière qualitative\n- Approuver les transferts de fonds et de valeurs mobilières, l'octroi de crédits, les dérogations et les opérations touchant la sensibilité aux sanctions, dans le cadre des pouvoirs délégués, en veillant à ce que les décisions reflètent les normes et spécifications applicables à l'entreprise\n- Distribuer les connaissances du marché et les pratiques exemplaires entre les agents des relations avec la clientèle, les agents des services à la clientèle et les gestionnaires de comptes, en définissant et en intégrant la norme autour de laquelle les autres fonctionneront\n- Veiller à ce que les activités de suivi relatives au cycle de vie des clients soient menées à bien en temps voulu et à ce qu ' elles soient remises en état;\n- Approuver les nouveaux comptes des clients et des initiateurs d'entreprises, superviser le cycle de vie des CJK et les examens périodiques dans le cadre des pouvoirs délégués par HoPB, s'assurer que les normes de surveillance et de conformité sont respectées grâce à une expertise professionnelle approfondie\n- Agir en tant que partenaire principal clé du Front Office et des fonctions de contrôle et en tant que lien clé entre FLOD et SLOD, assurer des voies de communication et d'escalade cohérentes, et établir des réseaux avec des contacts clés à plusieurs niveaux et équipes internes et externes\n- Examiner les ouvertures de comptes, les modifications du CIP et les examens périodiques pour les équipes locales de BSP de la région, tout en fournissant des conseils pour mieux comprendre les exigences et les normes de contrôle. Grâce à un soutien continu et au partage des pratiques exemplaires, fournir des conseils à un plus grand nombre de membres subalternes de l'équipe et aider à développer la capacité d'effectuer ces examens de façon indépendante.\n\nCompétences et expérience\n- Diriger les projets de taille moyenne et les missions de l ' UAB pour améliorer les normes de contrôle\n- Fournir des conseils et des séances de présentation aux équipes de la Direction générale sur les risques, les obligations en matière de contrôle et les attentes en matière de réglementation, en donnant souvent des conseils sur des questions complexes liées au domaine de compétence\n- Effectuer des évaluations des risques, des contrôles et des examens thématiques assignés par la haute direction (gestionnaire de ligne, HOPB & RBH), appliquer le jugement et l'innovation là où les questions peuvent être mal définies\n- Préparer et présenter des cas à risque élevé et délicats au nom de HoPB au comité CAC\n- Résoudre les problèmes de vérification en coordonnant avec les intervenants la mise en oeuvre des mesures correctives, en rendant compte de l'exécution des plans d'assainissement touchant le Ministère et l'unité opérationnelle\n- Aider l ' équipe locale du Bureau à améliorer ses processus opérationnels, en donnant des orientations sur les exigences en matière de contrôle, l ' amélioration des flux de travail et les mesures d ' atténuation des risques, y compris en élaborant des solutions et des cadres dans une perspective à long terme, pour assurer l ' alignement sur les normes suisses\n\nNos valeurs\n- Responsabilité : Prise en charge des tâches et des défis, ainsi que recherche d'amélioration continue\n- Hands-on : être proactif pour obtenir rapidement des résultats de haute qualité\n- Passionnée : être engagée et s'efforcer d'excellence\n- Déterminé par la solution : Se concentrer sur les résultats des clients et traiter les clients avec équité avec un état d'esprit conscient des risques\n- Objectif partenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise."
-      },
-      "requirementsByLocale": {
-        "en": [
-          "Lead medium-sized projects/BAU assignments to improve control standards documentation quality checks and risk mitigation measures",
-          "Provide guidance and deliver presentation sessions to Front Office teams on risk topics, control obligations and regulatory expectations, frequently advising on complex matters related to the area of expertise",
-          "Conduct risk assessment, control checks and thematic reviews assigned by Senior Management (Line Manager, HOPB & RBH), applying judgement and innovation where issues may be unclearly defined",
-          "Prepare and present high-risk and sensitive cases on behalf of HoPB to CAC committee",
-          "Resolve audit issues by coordinating with stakeholders to implement corrective actions, being accountable for the delivery of remediation plans impacting the department and the business unit",
-          "Support the local PBS team in enhancing their operational processes, providing guidance on control requirements, workflow improvements, and risk-mitigation measures, including developing solutions and frameworks with a longer-term view, to ensure alignment with Swiss standards<br>"
-        ]
-      },
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "The role bridges business needs with regulatory standards and ensures the smooth execution of regulatory, compliance, and operational processes for activities in the Americas region."
-            ],
-            "responsibilities": [
-              "Responsible for the output of the PB Support work area within the discipline, with a focus on implementing and executing strategies and ensuring alignment with Swiss standards and regulatory expectations",
-              "Support the Client Relationship Officers in proactively identifying, managing and mitigating risks arising from day-to-day business activities, applying advanced professional expertise and conceptual thinking to complex cases",
-              "Perform due diligence on prospective and existing client relationships, ensuring a consistent approach and applying frameworks, processes, and routines aligned with regulatory expectations in a timely and qualitative manner",
-              "Approve funds and securities transfers, credit granting, overrides and transactions involving sanctions sensitivity, within delegated authority, ensuring decisions reflect the standards and specifications applicable to the business",
-              "Distribute market knowledge and best practices among Client Relationship Officers, Client Service Officers and Account Managers, defining and embedding standard around which others will operate",
-              "Ensure timely completion and remediation of pending follow-ups relating to client lifecycle activities, being accountable for delivery of assigned processes/programmes impacting the department",
-              "Approve clients and business introducers new accounts, oversee KYC lifecycle and periodic reviews within the authority delegated by HoPB, ensuring oversight and compliance standards are met through in-depth professional expertise",
-              "Act as a key senior partner to Front Office and control Functions and as a key link between FLOD and SLOD, ensuring consistent communication and escalation paths, and networking with key contacts across multipe levels and teams internally and externally",
-              "Review account openings, CIP modifications and periodic reviews for the local PBS teams across the Region, while providing guidance to strengthen their understanding of requirements and control standards. Through continuous support and best practice sharing, provide guidance to more junior members of the team and help develop the capability to perform these reviews independently."
-            ],
-            "requirements": [
-              "Lead medium-sized projects/BAU assignments to improve control standards documentation quality checks and risk mitigation measures",
-              "Provide guidance and deliver presentation sessions to Front Office teams on risk topics, control obligations and regulatory expectations, frequently advising on complex matters related to the area of expertise",
-              "Conduct risk assessment, control checks and thematic reviews assigned by Senior Management (Line Manager, HOPB & RBH), applying judgement and innovation where issues may be unclearly defined",
-              "Prepare and present high-risk and sensitive cases on behalf of HoPB to CAC committee",
-              "Resolve audit issues by coordinating with stakeholders to implement corrective actions, being accountable for the delivery of remediation plans impacting the department and the business unit",
-              "Support the local PBS team in enhancing their operational processes, providing guidance on control requirements, workflow improvements, and risk-mitigation measures, including developing solutions and frameworks with a longer-term view, to ensure alignment with Swiss standards<br>"
-            ],
-            "benefits": [
-              "<strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results",
-              "<strong>Passionate</strong>: Being committed and striving for excellence",
-              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
-              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
-            ],
-            "process": [],
-            "highlights": [
-              "Responsible for the output of the PB Support work area within the discipline, with a focus on implementing and executing strategies and ensuring alignment with Swiss standards and regulatory expectations",
-              "Support the Client Relationship Officers in proactively identifying, managing and mitigating risks arising from day-to-day business activities, applying advanced professional expertise and conceptual thinking to complex cases",
-              "Perform due diligence on prospective and existing client relationships, ensuring a consistent approach and applying frameworks, processes, and routines aligned with regulatory expectations in a timely and qualitative manner",
-              "Lead medium-sized projects/BAU assignments to improve control standards documentation quality checks and risk mitigation measures",
-              "Provide guidance and deliver presentation sessions to Front Office teams on risk topics, control obligations and regulatory expectations, frequently advising on complex matters related to the area of expertise",
-              "Conduct risk assessment, control checks and thematic reviews assigned by Senior Management (Line Manager, HOPB & RBH), applying judgement and innovation where issues may be unclearly defined",
-              "<strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results"
-            ],
-            "keywords": [
-              "Lead medium-sized projects/BAU assignments to improve control standards documentation quality checks and risk mitigation measures",
-              "Provide guidance and deliver presentation sessions to Front Office teams on risk topics",
-              "Conduct risk assessment",
-              "Prepare and present high-risk and sensitive cases on behalf of HoPB to CAC committee",
-              "Resolve audit issues by coordinating with stakeholders to implement corrective actions",
-              "Responsible for the output of the PB Support work area within the discipline",
-              "Support the Client Relationship Officers in proactively identifying",
-              "Perform due diligence on prospective and existing client relationships",
-              "Approve funds and securities transfers"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 4
-          }
-        }
-      },
-      "crawledAt": "2026-06-24T21:53:50.479Z",
-      "slugByLocale": {
-        "it": "pb-support-specialista-americas-geneva-efg-international-ag-geneve",
-        "en": "pb-support-specialist-americas-geneva-efg-geneve",
-        "de": "pb-support-spezialist-americas-geneva-efg-international-ag-geneve",
-        "fr": "pb-support-specialiste-americas-geneva-efg-international-ag-geneve"
-      },
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-15",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 150000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "",
-      "postalCode": "1204",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.905Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "pb-support-specialist-americas-geneva-efg-geneve",
-          "pb-specialist-americas-ginevra-efg-international-ag-geneve"
-        ],
-        "de": [
-          "pb-support-specialist-americas-geneva-efg-geneve"
-        ],
-        "fr": [
-          "pb-support-specialist-americas-geneva-efg-geneve"
-        ]
-      },
-      "previousSlugs": [
-        "pb-support-specialist-americas-geneva-efg-geneve",
-        "pb-specialist-americas-ginevra-efg-international-ag-geneve"
-      ],
       "country": "CH"
     }
   ]
