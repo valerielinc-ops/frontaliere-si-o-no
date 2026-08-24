@@ -4111,6 +4111,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.domicilio-c-canton-basilea-diritti.title': 'Permesso C Basilea Città: requisiti diritti e naturalizzazione',
     'blog.article.domicilio-c-canton-basilea-diritti.excerpt': 'Permesso di domicilio C nel Canton Basilea Città: 10 anni residenza (5 UE/AELS), integrazione federale, procedura cantonale e percorso verso naturalizzazione ordinaria svizzera.',
     'blog.article.domicilio-c-canton-basilea-diritti.imageAlt': 'Edificio amministrativo cantonale di Basilea Città con bandiera svizzera, sede delle autorità per il rilascio del permesso di domicilio C',
+    'blog.article.identita-rubata-pornhub.title': 'Ruba l\'identità a un\'altra donna...per utilizzare Pornhub e contattare ospedali',
+    'blog.article.identita-rubata-pornhub.excerpt': 'Una donna del canton Berna è stata condannata per abuso d\'identità, diffamazione e ingiuria dopo aver utilizzato la falsa identità per creare account su piattaforme erotiche e contattare istituzioni sanitarie',
+    'blog.article.identita-rubata-pornhub.imageAlt': 'Una donna del canton Berna che ruba l\'identità di un\'altra persona',
 };
 
 export default blogMetaChIt;
