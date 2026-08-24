@@ -1,18 +1,54 @@
 {
   "key": "relewant",
   "label": "ReleWant",
-  "generatedAt": "2026-08-24T10:32:03.621Z",
+  "generatedAt": "2026-08-24T21:48:48.030Z",
   "total": 19,
   "newCount": 4,
   "updatedCount": 3,
   "removedCount": 16,
   "unchangedCount": 0,
-  "durationMs": 6431,
-  "avgDurationMs": 6431,
+  "durationMs": 8660,
+  "avgDurationMs": 8660,
   "durationHistory": [
-    6431
+    8660
   ],
   "newJobs": [
+    {
+      "title": "Consulente Expert – Senior Program & Project Manager",
+      "slug": "consulente-expert-senior-program-project-manager-relewant-chiasso",
+      "url": "https://relewant.zohorecruit.com/jobs/Careers/467189000019111019/Consulente-Expert-Senior-Program-Project-Manager",
+      "applyUrl": "https://relewant.zohorecruit.com/jobs/Careers/467189000019111019/Consulente-Expert-Senior-Program-Project-Manager/apply",
+      "company": "ReleWant",
+      "companyKey": "relewant",
+      "companyDomain": "zohorecruit.com",
+      "location": "Chiasso",
+      "addressLocality": "Chiasso",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "consulting",
+      "sector": "Consulenza IT",
+      "source": "relewant-dedicated-crawler",
+      "sourceLang": "fr",
+      "postedDate": "2026-08-24",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "salaryMin": 100500,
+      "salaryMax": 136500,
+      "currency": "CHF",
+      "streetAddress": "Via Cantonale 2A",
+      "postalCode": "6928",
+      "firstSeenAt": "2026-04-13T22:18:42.772Z",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 21,
+        "completeness": 25
+      }
+    },
     {
       "title": "Network Security Engineer",
       "slug": "network-security-engineer-relewant-chiasso",
@@ -101,42 +137,6 @@
         "richness": 24,
         "translation": 16,
         "completeness": 14
-      }
-    },
-    {
-      "title": "Consulente Expert – Senior Program & Project Manager",
-      "slug": "consulente-expert-senior-program-project-manager-relewant-chiasso",
-      "url": "https://relewant.zohorecruit.com/jobs/Careers/467189000019111019/Consulente-Expert-Senior-Program-Project-Manager",
-      "applyUrl": "https://relewant.zohorecruit.com/jobs/Careers/467189000019111019/Consulente-Expert-Senior-Program-Project-Manager/apply",
-      "company": "ReleWant",
-      "companyKey": "relewant",
-      "companyDomain": "zohorecruit.com",
-      "location": "Chiasso",
-      "addressLocality": "Chiasso",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "consulting",
-      "sector": "Consulenza IT",
-      "source": "relewant-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2026-08-24",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "salaryMin": 100500,
-      "salaryMax": 136500,
-      "currency": "CHF",
-      "streetAddress": "Via Cantonale 2A",
-      "postalCode": "6928",
-      "firstSeenAt": "2026-04-13T22:18:42.772Z",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 21,
-        "completeness": 25
       }
     }
   ],
@@ -423,6 +423,7 @@
       "streetAddress": "Via Cantonale 2A",
       "postalCode": "6928",
       "firstSeenAt": "2026-04-13T22:18:42.772Z",
+      "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -819,6 +820,7 @@
       "streetAddress": "Via Cantonale 2A",
       "postalCode": "6928",
       "firstSeenAt": "2026-04-13T22:18:42.772Z",
+      "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
