@@ -10653,6 +10653,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-grandola-uniti-lavorare-ticino.title': 'De Grandola ed Uniti au Tessin : guide frontalier',
     'blog.article.vivere-grandola-uniti-lavorare-ticino.excerpt': 'Déménager à Grandola ed Uniti pour travailler au Tessin comporte des avantages fiscaux et des risques contributifs. Voici ce qu\'il faut vérifier avant le transfert.',
     'blog.article.vivere-grandola-uniti-lavorare-ticino.imageAlt': 'Vue du soir sur Mendrisio, la ville frontaliere du Tessin, avec le clocher s\'elevant sur les toits rouges',
+    'blog.article.vivere-lezzeno-lavorare-ticino-frontaliere.title': 'Frontière Lezzeno-Ticino : permis G, taxes et procédures',
+    'blog.article.vivere-lezzeno-lavorare-ticino-frontaliere.excerpt': 'Ceux qui vivent à Lezzeno et travaillent au Tessin peuvent travailler avec le permis G en tant que frontalier. Taxe à la source en Suisse, restaurations, AVS, LPP et LAMal : tout ce qu\'il faut savoir.',
+    'blog.article.vivere-lezzeno-lavorare-ticino-frontaliere.imageAlt': 'Vue aérienne de Lezzeno sur le lac de Côme avec architecture italienne et montagnes en arrière-plan',
 };
 
 export default blogMetaFr;
