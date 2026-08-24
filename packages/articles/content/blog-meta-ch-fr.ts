@@ -4132,6 +4132,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-attivita-basilea-citt-registro-commercio-e-costi.title': 'Ouvrir une entreprise à Bâle-Ville : coûts et formalités',
     'blog.article.aprire-attivita-basilea-citt-registro-commercio-e-costi.excerpt': 'La forme juridique pour ouvrir une entreprise dans le canton de Bâle-Ville est soumise à plusieurs options. L\'inscription au registre du commerce nécessite un capital minimum spécifique et les frais d\'inscription doivent être payés.',
     'blog.article.aprire-attivita-basilea-citt-registro-commercio-e-costi.imageAlt': 'Image d\'un entrepreneur qui travaille dans un bureau dans le canton de Bâle-Ville.',
+    'blog.article.imposta-successione-basilea-citta.title': 'Droit de succession dans le canton de Bâle-Ville : taux et procédures',
+    'blog.article.imposta-successione-basilea-citta.excerpt': 'Droit de succession dans le canton de Bâle-Ville : taux par degré de parenté, exonérations pour conjoint et descendants, déclaration et délais de présentation.',
+    'blog.article.imposta-successione-basilea-citta.imageAlt': 'Bureau d\'administration fiscale avec documents de succession et registres d\'impôts',
 };
 
 export default blogMetaChFr;
