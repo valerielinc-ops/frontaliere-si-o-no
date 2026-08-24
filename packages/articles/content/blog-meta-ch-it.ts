@@ -4126,6 +4126,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cieli-affollati-estate-2026.title': 'Cieli affollati in estate: 240mila voli in Svizzera',
     'blog.article.cieli-affollati-estate-2026.excerpt': 'Dal 26 giugno al 17 agosto Skyguide ha monitorato 240.108 voli. Il 24 luglio il giorno record con 4.761 movimenti.',
     'blog.article.cieli-affollati-estate-2026.imageAlt': 'Traffico aereo affollato durante l\'estate: aeroporto svizzero con aerei in coda nei giorni di picco',
+    'blog.article.registro-commercio-basilea-citta.title': 'Aprire attività Basilea Città: registro e costi',
+    'blog.article.registro-commercio-basilea-citta.excerpt': 'Guida completa su forme giuridiche, iscrizione al registro di commercio, contributi sociali AVS/AI/LAMal e imposte federali, cantonali e comunali nel cantone di Basilea Città.',
+    'blog.article.registro-commercio-basilea-citta.imageAlt': 'Ufficio del registro di commercio con moduli di iscrizione e documenti amministrativi per apertura attività nel cantone di Basilea Città',
 };
 
 export default blogMetaChIt;

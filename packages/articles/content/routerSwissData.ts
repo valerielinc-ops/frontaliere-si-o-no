@@ -1401,6 +1401,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'comprare-casa-basilea-prezzi-mutuo': { it: 'comprare-casa-basilea-prezzi-mutuo', en: 'buy-home-basel-city-prices-mortgage', de: 'haus-kaufen-basel-stadt-preise-hypothek', fr: 'acheter-maison-bale-ville-prix-hypotheque' },
  'aprire-attivita-canton-basilea-citta': { it: 'aprire-attivita-canton-basilea-citta', en: 'opening-business-basel-city-canton', de: 'unternehmen-grunden-basel-stadt', fr: 'ouvrir-activite-canton-bale-ville' },
  'cieli-affollati-estate-2026': { it: 'cieli-affollati-estate-2026', en: 'crowded-skies-summer-2026', de: 'volle-himmel-sommer-2026', fr: 'ciels-encombres-ete-2026' },
+ 'registro-commercio-basilea-citta': { it: 'registro-commercio-basilea-citta', en: 'business-registration-basel-stadt', de: 'gewerbeanmeldung-basel-stadt', fr: 'inscription-registre-commerce-bale-ville' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

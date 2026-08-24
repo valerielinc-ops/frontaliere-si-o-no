@@ -4126,6 +4126,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.cieli-affollati-estate-2026.title': 'Le ciel est bondé en été : 240 000 vols en Suisse',
     'blog.article.cieli-affollati-estate-2026.excerpt': 'Du 26 juin au 17 août, Skyguide a surveillé 240 108 vols. Le 24 juillet, la journée record avec 4 761 mouvements.',
     'blog.article.cieli-affollati-estate-2026.imageAlt': 'Trafic aérien congestionné à l\'aéroport suisse durant les vacances d\'été avec avions en attente',
+    'blog.article.registro-commercio-basilea-citta.title': 'Ouvrir l\'activité Bâle-Ville : registre et coûts',
+    'blog.article.registro-commercio-basilea-citta.excerpt': 'Guide complet sur les formes juridiques, l\'inscription au registre du commerce, les cotisations sociales AVS/AI/LAMal et les impôts fédéraux, cantonaux et communaux dans le canton de Bâle-Ville.',
+    'blog.article.registro-commercio-basilea-citta.imageAlt': 'Bureau d\'enregistrement commercial avec formulaires d\'inscription et documents administratifs pour l\'ouverture d\'une activité au canton de Bâle-Ville',
 };
 
 export default blogMetaChFr;
