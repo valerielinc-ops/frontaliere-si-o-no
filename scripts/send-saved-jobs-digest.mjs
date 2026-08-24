@@ -37,6 +37,7 @@ import { fileURLToPath } from 'node:url';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 import { isCrossChannelStop } from '../services/emailSuppression.mjs';
 import { deriveSavedJobsAlertCriteria } from '../services/savedJobsAlertCriteria.ts';
+import { SLUG_TABLES } from '../services/routeSlugs.data.ts';
 // Shared with send-job-alerts.mjs's coverage numbers (#5536 measurement,
 // 2.548-job sample): resolveLogoUrl joins the SAME manifest that measurement
 // used (data/company-logos-manifest.json, 453 companies), and parseDateField
@@ -102,6 +103,17 @@ function jobTitle(job, locale) {
   return job.titleByLocale?.[locale] || job.titleByLocale?.it || job.title || '';
 }
 
+// The saved-jobs section of the personal area lives at the real `profile`
+// route (`/profilo/` it, `/profile/` en, `/profil/` de, `tableau-de-bord`
+// sibling for fr — see services/routeSlugs.data.ts), not at `/area-personale/`,
+// which is not a route anywhere in services/router.ts and falls through to
+// the SPA's 404 screen. SLUG_TABLES is the same shared table router.ts reads,
+// so this can't drift from the real route the way a hand-typed path did.
+function profileUrl(locale) {
+  const slug = SLUG_TABLES[locale]?.profile || SLUG_TABLES.it.profile;
+  return `${BASE_URL}${localePathPrefix(locale)}/${slug}/`;
+}
+
 // ── Firebase Admin SDK (lazy init, same pattern as send-job-alerts.mjs) ─────
 
 let _db = null;
@@ -146,9 +158,9 @@ function loadJobsById() {
 // from scripts/ — same constraint documented in
 // functions/src/lib/emailSuppression.js (shim/re-export, never the reverse). ──
 
-function makeUnsubscribeUrl(uid, email) {
+function makeUnsubscribeUrl(uid, email, locale = 'it') {
   const secret = process.env.NEWSLETTER_SECRET;
-  if (!secret) return `${BASE_URL}/area-personale/`;
+  if (!secret) return profileUrl(locale);
   const token = createHmac('sha256', secret).update(`saved_jobs_digest_unsub:${uid}`).digest('hex');
   return `${UNSUB_URL}?uid=${encodeURIComponent(uid)}&email=${encodeURIComponent(email)}&token=${token}`;
 }
@@ -362,11 +374,10 @@ function renderJobCard(entry, locale, s, { expired }) {
 
 // Structure aligned with buildAlertEmail in send-job-alerts.mjs: dark top
 // bar, dark hero, white section header, white panel holding the (dark) job
-// cards, closer card, dark footer with the same social row + copyright line.
-// Two deliberate differences from job-alert, both requested (#6104): the
-// revenue block sits right after the hero — above the job cards, i.e. above
-// the fold — instead of after them, and there is a single unsubscribe link
-// (this channel has no "alerts" to unsubscribe from individually).
+// cards, revenue block, closer card, dark footer with the same social row +
+// copyright line. One deliberate difference from job-alert: there is a
+// single unsubscribe link (this channel has no "alerts" to unsubscribe from
+// individually).
 function buildEmailHtml({ locale, s, savedEntries, recommendations, manageUrl, unsubUrl, email }) {
   const cardsHtml = savedEntries.map((e) => renderJobCard(e, locale, s, { expired: e.expired })).join('');
   const recoHtml = recommendations.length
@@ -377,9 +388,8 @@ function buildEmailHtml({ locale, s, savedEntries, recommendations, manageUrl, u
 
   // Recommended (revenue) block — config-driven affiliate/sponsor slot
   // (#4450/#4449), same shared renderer as job-alert/newsletter/drip.
-  // Placed ABOVE the fold (right after the hero, before the saved-job
-  // cards) rather than below the cards like job-alert — deliberate for this
-  // channel, per #6104.
+  // Placed after the job cards, same position as buildAlertEmail's job-alert
+  // layout in send-job-alerts.mjs.
   const recommendedBlockHtml = renderRecommendedBlock({
     locale,
     interest: 'jobs',
@@ -429,8 +439,6 @@ table{border-collapse:collapse;}
           <div style="font-size:13px;color:${MUTED_ON_DARK};margin-top:6px;">${escapeHtml(s.heroDesc)}</div>
         </td></tr>
 
-        ${recommendedBlockHtml}
-
         <!-- Section header -->
         <tr><td class="section-pad" style="background:${WHITE};padding:24px 28px 8px;">
           <div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin:0 0 2px;">${escapeHtml(s.sectionLabel)}</div>
@@ -448,6 +456,8 @@ table{border-collapse:collapse;}
             </td></tr>
           </table>
         </td></tr>
+
+        ${recommendedBlockHtml}
 
         <!-- Closer -->
         <tr><td class="section-pad" style="background:${WHITE};padding:0 28px 20px;">
@@ -534,8 +544,8 @@ async function persistSavedJobsDigestDelivery({ uid, email, campaignId }, sendRe
 
 async function sendDigest({ uid, email, locale, savedEntries, recommendations, campaignId }) {
   const s = getStrings(locale);
-  const manageUrl = `${BASE_URL}${localePathPrefix(locale)}/area-personale/`;
-  const unsubUrl = makeUnsubscribeUrl(uid, email);
+  const manageUrl = profileUrl(locale);
+  const unsubUrl = makeUnsubscribeUrl(uid, email, locale);
   const html = buildEmailHtml({ locale, s, savedEntries, recommendations, manageUrl, unsubUrl, email });
   const text = buildEmailText({ locale, s, savedEntries, recommendations, manageUrl, unsubUrl });
   const subject = s.subject(savedEntries.length);
