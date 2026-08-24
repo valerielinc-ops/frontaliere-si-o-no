@@ -23150,17 +23150,17 @@
           "impressions": 1
         },
         {
-          "query": "si.",
+          "query": "ofertas activas",
           "clicks": 0,
           "impressions": 1
         },
         {
-          "query": "sto cercando",
+          "query": "si.",
           "clicks": 0,
           "impressions": 1
         }
       ],
-      "totalImpressions": 53,
+      "totalImpressions": 54,
       "totalClicks": 2,
       "topQuery": "corporate driver in zurich",
       "title": "Drivers",
@@ -46679,6 +46679,68 @@
       ]
     },
     {
+      "slug": "pharmaciens",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-uri/pharmaciens/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-uri/pharmaciens/"
+      },
+      "queries": [
+        {
+          "query": "agence de recrutement altdorf ur",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "salaire pharmacien",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "agence de recrutement altdorf ur",
+      "title": "Pharmaciens",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "pharmaciens",
+        "en": "pharmaciens",
+        "de": "pharmaciens",
+        "fr": "pharmaciens"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-uri/pharmaciens",
+        "en": "/en/find-jobs-uri/pharmaciens",
+        "de": "/de/jobs-im-uri/pharmaciens",
+        "fr": "/fr/trouver-emploi-uri/pharmaciens"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "pharmacist-or-health-expert-for-continence-and-daily-living-aid-consultation-schweizer-paraplegiker-gruppe-nottwil",
       "locale": "en",
       "path": "/en/find-jobs-ticino/pharmacist-or-health-expert-for-continence-and-daily-living-aid-consultation-schweizer-paraplegiker-gruppe-nottwil",
@@ -57282,10 +57344,10 @@
         "fr": "consultant-en-ventes-en-deco-jumbo-division-der-coop-genossenschaft-reinach"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-svitto/sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-reinach",
-        "en": "/en/find-jobs-schwyz/sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-reinach",
+        "it": "/cerca-lavoro-grigioni/sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-reinach",
+        "en": "/en/find-jobs-graubunden/sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-reinach",
         "de": "/de/jobs-im-bern/sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-reinach",
-        "fr": "/fr/trouver-emploi-schwytz/sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-reinach"
+        "fr": "/fr/trouver-emploi-grisons/sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-reinach"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -75705,10 +75767,10 @@
         "it": "consulente-di-vendita-do-it-jumbo-schwyz"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-svitto/verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz",
-        "en": "/en/find-jobs-schwyz/verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz",
+        "it": "/cerca-lavoro-turgovia/verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz",
+        "en": "/en/find-jobs-thurgau/verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz",
         "de": "/de/jobs-im-bern/verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz",
-        "fr": "/fr/trouver-emploi-schwytz/verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz"
+        "fr": "/fr/trouver-emploi-thurgovie/verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

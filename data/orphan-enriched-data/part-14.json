@@ -17646,10 +17646,10 @@
         "fr": "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-glarus"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-uri/consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-glarus",
-        "en": "/en/find-jobs-uri/consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-glarus",
+        "it": "/cerca-lavoro-argovia/consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-glarus",
+        "en": "/en/find-jobs-aargau/consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-glarus",
         "de": "/de/jobs-im-glarus/consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-glarus",
-        "fr": "/fr/trouver-emploi-uri/consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-glarus"
+        "fr": "/fr/trouver-emploi-argovie/consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-glarus"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -19316,6 +19316,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "cooks",
+      "locale": "en",
+      "path": "/en/find-jobs-valais/cooks/",
+      "observedPaths": {
+        "en": "/en/find-jobs-valais/cooks/"
+      },
+      "queries": [
+        {
+          "query": "i am looking at chef jobs in valais and i want to know what pay is realistic.",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "i am looking at chef jobs in valais and i want to know what pay is realistic.",
+      "title": "Cooks",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "cooks",
+        "en": "cooks",
+        "de": "cooks",
+        "fr": "cooks"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-vallese/cooks",
+        "en": "/en/find-jobs-valais/cooks",
+        "de": "/de/jobs-im-wallis/cooks",
+        "fr": "/fr/trouver-emploi-valais/cooks"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -55552,12 +55609,12 @@
           "impressions": 9
         },
         {
-          "query": "emploi restauration neuchatel",
+          "query": "je cherche un travail de cuisinier à lugano",
           "clicks": 0,
-          "impressions": 1
+          "impressions": 2
         },
         {
-          "query": "je cherche un travail de cuisinier à lugano",
+          "query": "emploi restauration neuchatel",
           "clicks": 0,
           "impressions": 1
         },
@@ -55572,7 +55629,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 13,
+      "totalImpressions": 14,
       "totalClicks": 0,
       "topQuery": "agence interim altdorf ur",
       "title": "Restauration",
