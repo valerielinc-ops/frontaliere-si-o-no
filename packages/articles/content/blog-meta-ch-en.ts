@@ -4030,6 +4030,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-dimora-b-soletta-requisiti-rinnovo.title': 'Residence permit B Slab: requirements and renewal',
     'blog.article.permesso-dimora-b-soletta-requisiti-rinnovo.excerpt': 'Complete guide to permit B in the canton of Solothurn. Discover requirements, documents to be produced, duration 5 years and renewal procedure within 3 months of expiry.',
     'blog.article.permesso-dimora-b-soletta-requisiti-rinnovo.imageAlt': 'Swiss residence permit type B showing personal data and renewal expiration date on desk',
+    'blog.article.apprendistato-tirocinio-soletta.title': 'Apprenticeship and training in the Canton of Solothurn',
+    'blog.article.apprendistato-tirocinio-soletta.excerpt': 'How to find an internship position, enter into the contract, understand pay and social protections, AFC certification in the canton of Solothurn.',
+    'blog.article.apprendistato-tirocinio-soletta.imageAlt': 'Young apprentice working in a modern Swiss workshop laboratory with tools',
 };
 
 export default blogMetaChEn;

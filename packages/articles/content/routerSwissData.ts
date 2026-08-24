@@ -1369,6 +1369,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'avvio-attivita-cantone-friburgo': { it: 'avvio-attivita-cantone-friburgo', en: 'starting-business-fribourg-canton', de: 'unternehmensgruendung-kanton-freiburg', fr: 'lancement-activite-canton-fribourg' },
  'aprire-attivita-canton-friburgo-costi': { it: 'aprire-attivita-canton-friburgo-costi', en: 'start-business-canton-fribourg-costs', de: 'unternehmen-grunden-kanton-freiburg-kosten', fr: 'creer-entreprise-canton-fribourg-couts' },
  'permesso-dimora-b-soletta-requisiti-rinnovo': { it: 'permesso-dimora-b-soletta-requisiti-rinnovo', en: 'residence-permit-b-soletta-requirements-renewal', de: 'aufenthaltserlaubnis-b-soletta-anforderungen-erneuerung', fr: 'permis-de-sejour-b-soletta-exigences-renouvellement' },
+ 'apprendistato-tirocinio-soletta': { it: 'apprendistato-tirocinio-soletta', en: 'apprenticeship-canton-soletta', de: 'lehre-kanton-soletta', fr: 'apprentissage-canton-soletta' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

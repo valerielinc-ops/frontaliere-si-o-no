@@ -4030,6 +4030,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-dimora-b-soletta-requisiti-rinnovo.title': 'Permis de séjour B Soleure : exigences et renouvellement',
     'blog.article.permesso-dimora-b-soletta-requisiti-rinnovo.excerpt': 'Guide complet du permis B dans le canton de Soleure. Découvrez les exigences, les documents à produire, la durée de 5 ans et la procédure de renouvellement dans les 3 mois suivant l\'expiration.',
     'blog.article.permesso-dimora-b-soletta-requisiti-rinnovo.imageAlt': 'Permis de séjour type B suisse affichant les données personnelles et la date de renouvellement',
+    'blog.article.apprendistato-tirocinio-soletta.title': 'Apprentissage et formation dans le canton de Soleure',
+    'blog.article.apprendistato-tirocinio-soletta.excerpt': 'Comment trouver un poste d\'apprentissage, conclure le contrat, inclure la rémunération et les protections sociales, la certification AFC dans le canton de Soleure.',
+    'blog.article.apprendistato-tirocinio-soletta.imageAlt': 'Jeune apprenti travaillant dans un atelier professionnel suisse moderne',
 };
 
 export default blogMetaChFr;
