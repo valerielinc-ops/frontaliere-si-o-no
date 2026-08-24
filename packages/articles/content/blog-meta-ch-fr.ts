@@ -4024,6 +4024,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avvio-attivita-cantone-friburgo.title': 'Démarrage des activités à Fribourg : guide du registre et des coûts',
     'blog.article.avvio-attivita-cantone-friburgo.excerpt': 'Les démarches pour démarrer une entreprise dans le canton de Fribourg : de l\'inscription au registre du commerce à la gestion des impôts, de la prévoyance et des obligations fiscales.',
     'blog.article.avvio-attivita-cantone-friburgo.imageAlt': 'Bureau administratif dans le contexte urbain suisse',
+    'blog.article.aprire-attivita-canton-friburgo-costi.title': 'Ouvrir des activités à Fribourg : registre du commerce et des coûts',
+    'blog.article.aprire-attivita-canton-friburgo-costi.excerpt': 'Guide pratique pour démarrer une activité dans le canton de Fribourg : formes juridiques, inscription au registre du commerce, capital minimum, taxes et obligations d\'assurance pour indépendants.',
+    'blog.article.aprire-attivita-canton-friburgo-costi.imageAlt': 'Bâtiments de bureaux suisses représentant l\'environnement commercial pour démarrer une activité.',
 };
 
 export default blogMetaChFr;

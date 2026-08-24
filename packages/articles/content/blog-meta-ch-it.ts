@@ -4024,6 +4024,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avvio-attivita-cantone-friburgo.title': 'Avvio attività a Friburgo: guida a registro e costi',
     'blog.article.avvio-attivita-cantone-friburgo.excerpt': 'I passi per avviare un\'impresa nel Cantone di Friburgo: dall\'iscrizione al registro di commercio alla gestione di tasse, previdenza e obblighi fiscali.',
     'blog.article.avvio-attivita-cantone-friburgo.imageAlt': 'Ufficio amministrativo nel contesto urbano svizzero',
+    'blog.article.aprire-attivita-canton-friburgo-costi.title': 'Aprire attività a Friburgo: registro commercio e costi',
+    'blog.article.aprire-attivita-canton-friburgo-costi.excerpt': 'Guida pratica per avviare un\'attività nel canton Friburgo: forme giuridiche, iscrizione al registro di commercio, capitale minimo, tasse e obblighi assicurativi per autonomi.',
+    'blog.article.aprire-attivita-canton-friburgo-costi.imageAlt': 'Uffici di una città svizzera, ambiente economico e imprenditoriale per aprire un\'attività commerciale.',
 };
 
 export default blogMetaChIt;
