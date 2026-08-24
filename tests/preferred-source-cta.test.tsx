@@ -161,11 +161,12 @@ describe('PreferredSourceCTA — e montato dove la issue 5004 lo chiede', () => 
 });
 
 describe('Fase 1 della issue 5004 — checklist di eleggibilita', () => {
-  it('docs/preferred-sources-checklist.md esiste e nomina i passi manuali bloccati', () => {
+  it('docs/preferred-sources-checklist.md esiste, registra lo stato verificato di Publisher Center e nomina cio che resta bloccato', () => {
     // Il deliverable della fase 1 non era mai stato creato: la issue e' stata
     // chiusa `completed` con la checklist inesistente. Il file e' la sola cosa
-    // che dice al proprietario cosa resta da fare a mano su
-    // publishercenter.google.com, quindi la sua assenza e' un regresso.
+    // che documenta lo stato reale su publishercenter.google.com (verificato
+    // dal vivo: gia' completo) e cosa resta bloccato su una persona (il post
+    // social), quindi la sua assenza e' un regresso.
     const doc = read('docs/preferred-sources-checklist.md');
     expect(doc).toContain('publishercenter.google.com');
     expect(doc).toMatch(/blocked:/);

@@ -178,9 +178,26 @@ jobs:
         # file, con le stesse soglie e gli stessi assert che avevano dentro
         # tests.yml. Nessuna env di tolleranza, nessuno `--bail`, nessun
         # `continue-on-error`: se questo step è rosso, il job è rosso.
+        #
+        # `tee` verso un file, non solo verso stdout: lo step "Report failure"
+        # sotto gira `if: failure()` DENTRO questo stesso job, e per la Jobs
+        # API il job è ancora "in corso" finché anche quello step non finisce
+        # — l'API non ha nessun log da offrirgli (limite documentato in
+        # .github/actions/report-failure/action.yml: "il log di un job in
+        # corso non esiste ancora per l'API"). L'UNICO modo di avere un
+        # estratto in questa posizione è un `diag-file` scritto da uno step
+        # precedente. Misurato senza: la issue #6315 ha accumulato tre
+        # commenti 🔁 il 2026-08-23 con "nessun estratto disponibile" in
+        # ognuno — mai il tasso misurato, mai quale dei sette gate era rosso.
+        # `set -o pipefail` esplicito perché l'exit code che deve propagarsi
+        # è quello di `npm test`, non quello di `tee` (di norma è già il
+        # default della shell bash di Actions, ma una `run:` su più righe
+        # come questa merita di non dipendere da un default silenzioso).
         env:
           VITEST_CORPUS_GROUP: only
-        run: npm test -- --reporter=default
+        run: |
+          set -o pipefail
+          npm test -- --reporter=default 2>&1 | tee corpus-wide-vitest.log
 
       # ─── LA METÀ CHE RENDE LO SPOSTAMENTO ONESTO ────────────────────────
       #
@@ -205,6 +222,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           priority: '2'
           labels: Bug
+          diag-file: corpus-wide-vitest.log
           context: |
             Uno o più gate corpus-wide sono rossi su `main`.
 
