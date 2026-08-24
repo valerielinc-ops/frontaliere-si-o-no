@@ -4063,6 +4063,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-soletta.title': 'Sole Salaries: Sectors and Levels of Training',
     'blog.article.salari-mercato-lavoro-soletta.excerpt': 'How wages work in the Canton of Solothurn depending on training. Discover salary levels, collective agreements and taxation in Switzerland.',
     'blog.article.salari-mercato-lavoro-soletta.imageAlt': 'Swiss professionals working in a modern office environment with team collaboration and desk paperwork',
+    'blog.article.tassazione-forfettaria-ticino-incassi.title': 'Ticino collects record from flat-rate taxation',
+    'blog.article.tassazione-forfettaria-ticino-incassi.excerpt': 'In 2024 Ticino collected CHF 189.5 million from flat-rate taxpayers, 71 million more than in 2016. The paradox: fewer wealthy foreigners, but higher incomes.',
+    'blog.article.tassazione-forfettaria-ticino-incassi.imageAlt': 'Lugano lakeside with modern banking buildings overlooking mountains, representing wealth management in Ticino',
 };
 
 export default blogMetaChEn;

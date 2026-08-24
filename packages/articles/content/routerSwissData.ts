@@ -1380,6 +1380,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'soletta-affitti-canoni-diritto': { it: 'soletta-affitti-canoni-diritto', en: 'solothurn-rents-market-and-tenancy-law', de: 'solothurn-mietmarkt-und-mietrecht', fr: 'soleure-marche-loyers-droit-bail' },
  'primo-pilastro-soletta-prestazioni': { it: 'primo-pilastro-soletta-prestazioni', en: 'first-pillar-soletta-benefits', de: 'erste-saeule-soletta-leistungen', fr: 'premier-pilier-soletta-prestations' },
  'salari-mercato-lavoro-soletta': { it: 'salari-mercato-lavoro-soletta', en: 'salaries-labor-market-soletta-sectors', de: 'lohne-arbeitsmarkt-soletta-sektoren', fr: 'salaires-marche-travail-soletta-secteurs' },
+ 'tassazione-forfettaria-ticino-incassi': { it: 'tassazione-forfettaria-ticino-incassi', en: 'flat-rate-taxation-ticino-record-revenue', de: 'pauschalbesteuerung-tessin-einnahmen', fr: 'imposition-forfaitaire-tessin-recettes' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

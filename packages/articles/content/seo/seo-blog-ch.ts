@@ -52709,6 +52709,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tassazione-forfettaria-ticino-incassi': {
+    title: 'Ticino incassa record da tassazione forfettaria',
+    description: 'Nel 2024 il Ticino ha riscosso 189,5 milioni CHF dalla tassazione forfettaria stranieri, 71 milioni in più rispetto al 2016. Scopri il paradosso: meno',
+    keywords: 'frontalieri, ticino, svizzera, italia, incassa, record, tassazione, forfettaria',
+    ogTitle: 'Ticino incassa record da tassazione forfettaria',
+    ogDescription: 'La tassazione forfettaria genera 189,5 milioni CHF al Ticino nel 2024. Scopri il paradosso: meno contribuenti stranieri facoltosi scelgono il regime, ma le entrate salgono. Analisi della fiscalità svizzera e delle implicazioni economiche',
+    canonicalPath: '/articoli-svizzera/tassazione-forfettaria-ticino-incassi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino incassa record da tassazione forfettaria",
+      "description": "Nel 2024 il Ticino ha riscosso 189,5 milioni CHF dalla tassazione forfettaria stranieri, 71 milioni in più rispetto al 2016. Scopri il paradosso: meno",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tassazione-forfettaria-ticino-incassi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Lugano con edifici bancari moderni affacciati sul lago, simbolo della gestione patrimoniale in Ticino"
+      },
+      "datePublished": "2026-08-24T09:22:08+00:00",
+      "dateModified": "2026-08-24T09:22:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tassazione-forfettaria-ticino-incassi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

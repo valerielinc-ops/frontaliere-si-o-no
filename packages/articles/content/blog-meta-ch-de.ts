@@ -4063,6 +4063,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-soletta.title': 'Löhne Solothurn: Branchen und Ausbildungsstufen',
     'blog.article.salari-mercato-lavoro-soletta.excerpt': 'Wie die Löhne im Kanton Solothurn je nach Ausbildung funktionieren. Entdecken Sie Lohnniveaus, Tarifverträge und Steuern in der Schweiz.',
     'blog.article.salari-mercato-lavoro-soletta.imageAlt': 'Schweizer Fachleute arbeiten in einem modernen Büro mit Teamzusammenarbeit und Schreibtischarbeit',
+    'blog.article.tassazione-forfettaria-ticino-incassi.title': 'Das Tessin erzielt Rekordeinnahmen durch Pauschalsteuer',
+    'blog.article.tassazione-forfettaria-ticino-incassi.excerpt': 'Im Jahr 2024 erhielt das Tessin 189,5 Millionen Franken von Pauschalsteuerzahlern, 71 Millionen mehr als 2016. Das Paradoxe: Weniger wohlhabende Ausländer, aber höhere Einnahmen.',
+    'blog.article.tassazione-forfettaria-ticino-incassi.imageAlt': 'Lugano-Seeblick mit modernen Bankgebäuden und Berglandschaft, Symbol der Vermögensverwaltung im Tessin',
 };
 
 export default blogMetaChDe;
