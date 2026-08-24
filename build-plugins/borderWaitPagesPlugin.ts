@@ -2047,7 +2047,9 @@ function renderLeafPage(inp: LeafInputs): string {
   const title = buildTitleWithBrand(titleH1);
   // Differentiate H1 from <title> after brand-strip (audit:h1-title-duplicates).
   h1 = differentiateH1FromTitle(h1, title, locale);
-  const description = intro.slice(0, 180);
+  // No 180-char pre-cut: clampMetaDescription (160) always won, so this only
+  // handed it a string already broken mid-word. Let it do the clause-aware cut.
+  const description = intro;
 
   // Related-links helper context
   const relatedCtx = {
@@ -2741,7 +2743,9 @@ function renderArchivePage(inp: ArchiveInputs): string {
   const title = buildTitleWithBrand(h1);
   // Differentiate H1 from <title> after brand-strip (audit:h1-title-duplicates).
   h1 = differentiateH1FromTitle(h1, title, locale);
-  const description = intro.slice(0, 180);
+  // No 180-char pre-cut: clampMetaDescription (160) always won, so this only
+  // handed it a string already broken mid-word. Let it do the clause-aware cut.
+  const description = intro;
 
   const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',

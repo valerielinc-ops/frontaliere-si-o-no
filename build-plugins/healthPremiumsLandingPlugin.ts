@@ -2932,7 +2932,9 @@ function renderRootHubPage(inp: RootHubInputs): string {
   });
 
   const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
-  const description = intro.slice(0, 180);
+  // No 180-char pre-cut: clampMetaDescription (160) always won, so this only
+  // handed it a string already broken mid-word. Let it do the clause-aware cut.
+  const description = intro;
 
   // Tagline 1-line (≤120 chars) — replaces the long intro in the page
   // header. Numbers live in the stats tiles below; the long intro
