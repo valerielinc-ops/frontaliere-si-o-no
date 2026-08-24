@@ -1,14 +1,14 @@
 {
   "crawlerKey": "kzu-recruiting",
-  "assembledAt": "2026-08-23T21:28:51.769Z",
+  "assembledAt": "2026-08-24T09:59:10.398Z",
   "jobs": [
     {
       "id": "kzu-recruiting-bd9b969abcfa",
       "slug": "dipl-pflegefachfrau-mann-hf-40-60-spitex-winkel-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-mann-hf-40-60-spitex-winkel-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach",
-        "de": "dipl-pflegefachfrau-mann-hf-40-60-spitex-winkel-kzu-embrach",
         "en": "dipl-pflegefachfrau-mann-hf-40-60-spitex-winkel-kzu-embrach",
+        "de": "dipl-pflegefachfrau-mann-hf-40-60-spitex-winkel-kzu-embrach",
         "fr": "dipl-pflegefachfrau-mann-hf-40-60-spitex-winkel-kzu-embrach"
       },
       "company": "KZU Recruiting",
@@ -30,7 +30,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2075/Description/1",
       "source": "KZU Recruiting Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-23T21:28:48.263Z",
+      "crawledAt": "2026-08-24T09:59:07.847Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -44,18 +44,19 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-1251.umantis.com/Vacancies/2075/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-40-60-spitex-winkel-kzu-recruiting-ch"
+          "dipl-pflegefachfrau-mann-hf-40-60-spitex-winkel-kzu-recruiting-ch",
+          "dipl-pflegefachfrau-mann-hf-40-60-spitex-winkel-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-40-60-spitex-winkel-kzu-recruiting-ch"
+        "dipl-pflegefachfrau-mann-hf-40-60-spitex-winkel-kzu-recruiting-ch",
+        "dipl-pflegefachfrau-mann-hf-40-60-spitex-winkel-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach"
       ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:28:48.263Z",
       "salaryMin": 29700,
       "salaryMax": 45000,
       "baseSalary": {
@@ -68,26 +69,25 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:28:48.263Z"
+      "addressRegion": "TI"
     },
     {
       "id": "kzu-recruiting-f4104ee601ac",
       "slug": "specialista-di-salute-10-80-spitex-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach",
       "slugByLocale": {
-        "de": "fachfrau-mann-gesundheit-10-80-spitex-kzu-embrach",
+        "it": "specialista-di-salute-10-80-spitex-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach",
         "en": "health-specialist-10-80-spitex-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach",
-        "fr": "specialiste-de-la-sante-10-80-spitex-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach",
-        "it": "specialista-di-salute-10-80-spitex-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach"
+        "de": "fachfrau-mann-gesundheit-10-80-spitex-kzu-embrach",
+        "fr": "specialiste-de-la-sante-10-80-spitex-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach"
       },
       "company": "KZU Recruiting",
       "companyKey": "kzu-recruiting",
       "companyDomain": "recruitingapp-1251.umantis.com",
       "title": "Fachfrau/-mann Gesundheit 30-80% (Spitex)",
       "titleByLocale": {
-        "de": "Fachfrau/-mann Gesundheit 30-80% (Spitex)",
         "it": "Salute professionale 30-80% (Spitex)",
         "en": "Professional Health 30-80% (Spitex)",
+        "de": "Fachfrau/-mann Gesundheit 30-80% (Spitex)",
         "fr": "Santé professionnelle 30-80% (Spitex)"
       },
       "description": "Fachfrau/-mann Gesundheit 30-80% (Spitex) — KZU Recruiting",
@@ -99,7 +99,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/1949/Description/1",
       "source": "KZU Recruiting Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:28:47.960Z",
+      "crawledAt": "2026-08-24T09:59:07.544Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -113,21 +113,24 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-1251.umantis.com/Vacancies/1949/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-mann-gesundheit-30-80-spitex-kzu-recruiting-ch"
-        ],
         "de": [
-          "fachfrau-mann-gesundheit-30-80-spitex-kzu-recruiting-ch"
+          "fachfrau-mann-gesundheit-30-80-spitex-kzu-recruiting-ch",
+          "fachfrau-mann-gesundheit-10-80-spitex-kzu-embrach"
+        ],
+        "it": [
+          "fachfrau-mann-gesundheit-30-80-spitex-kzu-recruiting-ch",
+          "specialista-di-salute-10-80-spitex-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-30-80-spitex-kzu-recruiting-ch"
+        "fachfrau-mann-gesundheit-30-80-spitex-kzu-recruiting-ch",
+        "fachfrau-mann-gesundheit-10-80-spitex-kzu-embrach",
+        "specialista-di-salute-10-80-spitex-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach"
       ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:28:47.960Z",
       "salaryMin": 39600,
       "salaryMax": 60000,
       "baseSalary": {
@@ -140,16 +143,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:28:47.960Z"
+      "addressRegion": "TI"
     },
     {
       "id": "kzu-recruiting-c8dfaa803103",
       "slug": "dipl-pflegefachmann-frau-hf-fh-30-100-spitex-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach",
       "slugByLocale": {
         "it": "dipl-pflegefachmann-frau-hf-fh-30-100-spitex-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach",
-        "de": "dipl-pflegefachmann-frau-hf-fh-30-100-spitex-kzu-embrach",
         "en": "dipl-pflegefachmann-frau-hf-fh-30-100-spitex-kzu-embrach",
+        "de": "dipl-pflegefachmann-frau-hf-fh-30-100-spitex-kzu-embrach",
         "fr": "dipl-pflegefachmann-frau-hf-fh-30-100-spitex-kzu-embrach"
       },
       "company": "KZU Recruiting",
@@ -171,7 +173,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2067/Description/1",
       "source": "KZU Recruiting Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-23T21:28:47.657Z",
+      "crawledAt": "2026-08-24T09:59:07.242Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -185,18 +187,19 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-1251.umantis.com/Vacancies/2067/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachmann-frau-hf-fh-30-100-spitex-kzu-recruiting-ch"
+          "dipl-pflegefachmann-frau-hf-fh-30-100-spitex-kzu-recruiting-ch",
+          "dipl-pflegefachmann-frau-hf-fh-30-100-spitex-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachmann-frau-hf-fh-30-100-spitex-kzu-recruiting-ch"
+        "dipl-pflegefachmann-frau-hf-fh-30-100-spitex-kzu-recruiting-ch",
+        "dipl-pflegefachmann-frau-hf-fh-30-100-spitex-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach"
       ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:28:47.657Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -209,16 +212,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:28:47.657Z"
+      "addressRegion": "TI"
     },
     {
       "id": "kzu-recruiting-1d78d42a9505",
       "slug": "salute-specialista-20-40-servizio-serale-kzu-spitex-kzu-recruiting-lugano",
       "slugByLocale": {
-        "de": "fachfrau-mann-gesundheit-20-40-abenddienst-kzu-spitex-kzu-recruiting-ch",
         "it": "salute-specialista-20-40-servizio-serale-kzu-spitex-kzu-recruiting-lugano",
         "en": "health-specialist-20-40-evening-service-kzu-spitex-kzu-recruiting-lugano",
+        "de": "fachfrau-mann-gesundheit-20-40-abenddienst-kzu-spitex-kzu-recruiting-ch",
         "fr": "specialiste-de-la-sante-20-40-service-en-soiree-kzu-spitex-kzu-recruiting-lugano"
       },
       "company": "KZU Recruiting",
@@ -226,9 +228,9 @@
       "companyDomain": "recruitingapp-1251.umantis.com",
       "title": "Fachfrau/-mann Gesundheit 20-40% Abenddienst (KZU-Spitex)",
       "titleByLocale": {
-        "de": "Fachfrau/-mann Gesundheit 20-40% Abenddienst (KZU-Spitex)",
         "it": "Salute specialista 20-40% servizio serale (KZU-Spitex)",
         "en": "Health specialist 20-40% evening service (KZU-Spitex)",
+        "de": "Fachfrau/-mann Gesundheit 20-40% Abenddienst (KZU-Spitex)",
         "fr": "Spécialiste de la santé 20-40% service en soirée (KZU-Spitex)"
       },
       "description": "Fachfrau/-mann Gesundheit 20-40% Abenddienst (KZU-Spitex) — KZU Recruiting",
@@ -240,7 +242,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2086/Description/1",
       "source": "KZU Recruiting Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:28:47.354Z",
+      "crawledAt": "2026-08-24T09:59:06.940Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -254,14 +256,17 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-1251.umantis.com/Vacancies/2086/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachfrau-mann-gesundheit-20-40-abenddienst-kzu-spitex-kzu-recruiting-ch",
+        "fachfrau-mann-gesundheit-20-40-abenddienst-kzu-spitex-kzu-recruiting-lugano",
+        "salute-specialista-20-40-servizio-serale-kzu-spitex-kzu-recruiting-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-20-40-abenddienst-kzu-spitex-kzu-recruiting-ch",
-          "fachfrau-mann-gesundheit-20-40-abenddienst-kzu-spitex-kzu-recruiting-lugano"
+          "fachfrau-mann-gesundheit-20-40-abenddienst-kzu-spitex-kzu-recruiting-lugano",
+          "salute-specialista-20-40-servizio-serale-kzu-spitex-kzu-recruiting-lugano"
         ],
         "en": [
           "fachfrau-mann-gesundheit-20-40-abenddienst-kzu-spitex-kzu-recruiting-ch"
@@ -270,10 +275,8 @@
           "fachfrau-mann-gesundheit-20-40-abenddienst-kzu-spitex-kzu-recruiting-ch"
         ]
       },
-      "previousSlugs": [
-        "fachfrau-mann-gesundheit-20-40-abenddienst-kzu-spitex-kzu-recruiting-ch",
-        "fachfrau-mann-gesundheit-20-40-abenddienst-kzu-spitex-kzu-recruiting-lugano"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:28:47.354Z",
       "salaryMin": 19800,
       "salaryMax": 30000,
       "baseSalary": {
@@ -286,16 +289,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:28:47.354Z"
+      "addressRegion": "TI"
     },
     {
       "id": "kzu-recruiting-48fabefee15d",
       "slug": "salute-professionale-30-100-kzu-spitex-kzu-recruiting-lugano",
       "slugByLocale": {
-        "de": "fachfrau-mann-gesundheit-30-100-kzu-spitex-kzu-recruiting-ch",
         "it": "salute-professionale-30-100-kzu-spitex-kzu-recruiting-lugano",
         "en": "professional-health-30-100-kzu-spitex-kzu-recruiting-lugano",
+        "de": "fachfrau-mann-gesundheit-30-100-kzu-spitex-kzu-recruiting-ch",
         "fr": "sante-professionnelle-30-100-kzu-spitex-kzu-recruiting-lugano"
       },
       "company": "KZU Recruiting",
@@ -303,9 +305,9 @@
       "companyDomain": "recruitingapp-1251.umantis.com",
       "title": "Fachfrau/-mann Gesundheit 30-100% (KZU-Spitex)",
       "titleByLocale": {
-        "de": "Fachfrau/-mann Gesundheit 30-100% (KZU-Spitex)",
         "it": "Salute professionale 30-100% (KZU-Spitex)",
         "en": "Professional Health 30-100% (KZU-Spitex)",
+        "de": "Fachfrau/-mann Gesundheit 30-100% (KZU-Spitex)",
         "fr": "Santé professionnelle 30-100 % (KZU-Spitex)"
       },
       "description": "Fachfrau/-mann Gesundheit 30-100% (KZU-Spitex) — KZU Recruiting",
@@ -317,7 +319,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2085/Description/1",
       "source": "KZU Recruiting Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:28:47.051Z",
+      "crawledAt": "2026-08-24T09:59:06.637Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -331,14 +333,17 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-1251.umantis.com/Vacancies/2085/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachfrau-mann-gesundheit-30-100-kzu-spitex-kzu-recruiting-ch",
+        "fachfrau-mann-gesundheit-30-100-kzu-spitex-kzu-recruiting-lugano",
+        "salute-professionale-30-100-kzu-spitex-kzu-recruiting-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-30-100-kzu-spitex-kzu-recruiting-ch",
-          "fachfrau-mann-gesundheit-30-100-kzu-spitex-kzu-recruiting-lugano"
+          "fachfrau-mann-gesundheit-30-100-kzu-spitex-kzu-recruiting-lugano",
+          "salute-professionale-30-100-kzu-spitex-kzu-recruiting-lugano"
         ],
         "en": [
           "fachfrau-mann-gesundheit-30-100-kzu-spitex-kzu-recruiting-ch"
@@ -347,10 +352,8 @@
           "fachfrau-mann-gesundheit-30-100-kzu-spitex-kzu-recruiting-ch"
         ]
       },
-      "previousSlugs": [
-        "fachfrau-mann-gesundheit-30-100-kzu-spitex-kzu-recruiting-ch",
-        "fachfrau-mann-gesundheit-30-100-kzu-spitex-kzu-recruiting-lugano"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:28:47.051Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -363,16 +366,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:28:47.051Z"
+      "addressRegion": "TI"
     },
     {
       "id": "kzu-recruiting-619ea3ca9f37",
       "slug": "berufsbildungsfunktion-akut-e-ubergangspflege-80-100-fage-cfc-o-dipl-pflegefachperson-hf-fh-kzu-recruiting-lugano",
       "slugByLocale": {
-        "de": "berufsbildungsfunktion-akut-und-ubergangspflege-80-100-fage-efz-oder-dipl-pflegefachperson",
         "it": "berufsbildungsfunktion-akut-e-ubergangspflege-80-100-fage-cfc-o-dipl-pflegefachperson-hf-fh-kzu-recruiting-lugano",
         "en": "vocational-training-function-acute-and-transitional-care-80-100-fage-efz-or-dipl-care-professional-hf-fh-kzu-recruiting",
+        "de": "berufsbildungsfunktion-akut-und-ubergangspflege-80-100-fage-efz-oder-dipl-pflegefachperson",
         "fr": "fonction-de-formation-professionnelle-soins-aigus-et-de-transition-80-100-fage-efz-ou-dipl-soins-professionnels-b292b4"
       },
       "company": "KZU Recruiting",
@@ -380,9 +382,9 @@
       "companyDomain": "recruitingapp-1251.umantis.com",
       "title": "Berufsbildungsfunktion Akut- und Übergangspflege 80–100 % (FaGe EFZ oder Dipl. Pflegefachperson HF/FH)",
       "titleByLocale": {
-        "de": "Berufsbildungsfunktion Akut- und Übergangspflege 80–100 % (FaGe EFZ oder Dipl. Pflegefachperson HF/FH)",
         "it": "Berufsbildungsfunktion Akut- e Übergangspflege 80–100 % (FaGe CFC o Dipl. Pflegefachperson HF/FH)",
         "en": "Vocational training function acute and transitional care 80-100% (FaGe EFZ or Dipl.) Care professional HF/FH",
+        "de": "Berufsbildungsfunktion Akut- und Übergangspflege 80–100 % (FaGe EFZ oder Dipl. Pflegefachperson HF/FH)",
         "fr": "Fonction de formation professionnelle soins aigus et de transition 80-100% (FaGe EFZ ou Dipl.) Soins professionnels HF/FH"
       },
       "description": "Berufsbildungsfunktion Akut- und Übergangspflege 80–100 % (FaGe EFZ oder Dipl. Pflegefachperson HF/FH) — KZU Recruiting",
@@ -394,7 +396,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2090/Description/1",
       "source": "KZU Recruiting Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:28:46.747Z",
+      "crawledAt": "2026-08-24T09:59:06.335Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -408,13 +410,15 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-1251.umantis.com/Vacancies/2090/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "berufsbildungsfunktion-akut-und-ubergangspflege-80-100-fage-efz-oder-dipl-pflegefachperson",
+        "berufsbildungsfunktion-akut-e-ubergangspflege-80-100-fage-cfc-o-dipl-pflegefachperson-hf-fh-kzu-recruiting-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "berufsbildungsfunktion-akut-und-ubergangspflege-80-100-fage-efz-oder-dipl-pflegefachperson"
+          "berufsbildungsfunktion-akut-und-ubergangspflege-80-100-fage-efz-oder-dipl-pflegefachperson",
+          "berufsbildungsfunktion-akut-e-ubergangspflege-80-100-fage-cfc-o-dipl-pflegefachperson-hf-fh-kzu-recruiting-lugano"
         ],
         "en": [
           "berufsbildungsfunktion-akut-und-ubergangspflege-80-100-fage-efz-oder-dipl-pflegefachperson"
@@ -423,9 +427,8 @@
           "berufsbildungsfunktion-akut-und-ubergangspflege-80-100-fage-efz-oder-dipl-pflegefachperson"
         ]
       },
-      "previousSlugs": [
-        "berufsbildungsfunktion-akut-und-ubergangspflege-80-100-fage-efz-oder-dipl-pflegefachperson"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:28:46.747Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -438,16 +441,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:28:46.747Z"
+      "addressRegion": "TI"
     },
     {
       "id": "kzu-recruiting-35975853535f",
       "slug": "diplomato-a-in-assistenza-infermieristica-hf-fh-40-100-cura-palliativa-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach",
       "slugByLocale": {
         "it": "diplomato-a-in-assistenza-infermieristica-hf-fh-40-100-cura-palliativa-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach",
-        "de": "dipl-pflegefachfrau-mann-hf-fh-40-100-palliative-care-kzu-embrach",
         "en": "dipl-pflegefachfrau-mann-hf-fh-40-100-palliative-care-kzu-embrach",
+        "de": "dipl-pflegefachfrau-mann-hf-fh-40-100-palliative-care-kzu-embrach",
         "fr": "diplome-e-en-soins-infirmiers-hf-fh-40-100-soins-palliatifs-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach"
       },
       "company": "KZU Recruiting",
@@ -455,7 +457,7 @@
       "companyDomain": "recruitingapp-1251.umantis.com",
       "title": "Dipl. Pflegefachfrau/-mann HF/ FH 40-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann HF/FH 40-100%",
+        "it": "Dipl. Pflegefachfrau/-mann HF/ FH 40-100%",
         "en": "Dipl. Pflegefachfrau/-mann HF/ FH 40-100%",
         "de": "Dipl. Pflegefachfrau/-mann HF/FH 40-100%",
         "fr": "Dipl. Pflegefachfrau/-mann HF/ FH 40-100%"
@@ -469,7 +471,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2029/Description/1",
       "source": "KZU Recruiting Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-23T21:28:46.444Z",
+      "crawledAt": "2026-08-24T09:59:06.032Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -483,18 +485,19 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-1251.umantis.com/Vacancies/2029/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-fh-40-100-kzu-recruiting-ch"
+          "dipl-pflegefachfrau-mann-hf-fh-40-100-kzu-recruiting-ch",
+          "diplomato-a-in-assistenza-infermieristica-hf-fh-40-100-cura-palliativa-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-fh-40-100-kzu-recruiting-ch"
+        "dipl-pflegefachfrau-mann-hf-fh-40-100-kzu-recruiting-ch",
+        "diplomato-a-in-assistenza-infermieristica-hf-fh-40-100-cura-palliativa-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach"
       ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:28:46.444Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -507,16 +510,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:28:46.444Z"
+      "addressRegion": "TI"
     },
     {
       "id": "kzu-recruiting-b74d18e78e70",
       "slug": "dipl-pflegefachfrau-mann-hf-fh-40-80-spitex-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-mann-hf-fh-40-80-spitex-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach",
-        "de": "dipl-pflegefachfrau-mann-hf-fh-40-80-spitex-kzu-embrach",
         "en": "dipl-nursing-professional-hf-fh-40-80-spitex-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach",
+        "de": "dipl-pflegefachfrau-mann-hf-fh-40-80-spitex-kzu-embrach",
         "fr": "dipl-infirmier-ere-hf-fh-40-80-spitex-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach"
       },
       "company": "KZU Recruiting",
@@ -538,7 +540,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2011/Description/1",
       "source": "KZU Recruiting Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-23T21:28:46.118Z",
+      "crawledAt": "2026-08-24T09:59:05.713Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -552,18 +554,19 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-1251.umantis.com/Vacancies/2011/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-fh-40-80-spitex-kzu-recruiting-ch"
+          "dipl-pflegefachfrau-mann-hf-fh-40-80-spitex-kzu-recruiting-ch",
+          "dipl-pflegefachfrau-mann-hf-fh-40-80-spitex-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-fh-40-80-spitex-kzu-recruiting-ch"
+        "dipl-pflegefachfrau-mann-hf-fh-40-80-spitex-kzu-recruiting-ch",
+        "dipl-pflegefachfrau-mann-hf-fh-40-80-spitex-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach"
       ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:28:46.118Z",
       "salaryMin": 39600,
       "salaryMax": 60000,
       "baseSalary": {
@@ -576,8 +579,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:28:46.118Z"
+      "addressRegion": "TI"
     }
   ]
 }
