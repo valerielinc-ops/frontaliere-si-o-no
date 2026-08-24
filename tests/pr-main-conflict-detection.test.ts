@@ -35,21 +35,26 @@ const SRC = fs.readFileSync(
 
 const oid = (seed: string) => seed.padEnd(40, '0');
 
+// I path del fixture sono inventati di proposito. Quelli veri dell'incidente
+// stavano sotto una radice di dati vivi, e `live-data-test-guard` rifiuta —
+// giustamente — un test il cui CODICE nomina quelle radici: non distingue una
+// stringa di fixture da una lettura, e non deve farlo.
+
 describe('parseMergeTreeConflicts', () => {
   it('estrae i path dalle righe di stage, una volta sola per file', () => {
     const out = [
       oid('f1f48db'),
-      `100644 ${oid('07652f4')} 1\tcomponents/community/WhatsNewModal.tsx`,
-      `100644 ${oid('0d26300')} 2\tcomponents/community/WhatsNewModal.tsx`,
-      `100644 ${oid('aaaaaaa')} 3\tcomponents/community/WhatsNewModal.tsx`,
-      `100644 ${oid('bbbbbbb')} 1\tservices/locales/it-core.ts`,
-      `100644 ${oid('ccccccc')} 2\tservices/locales/it-core.ts`,
+      `100644 ${oid('07652f4')} 1\tapp/alpha/Widget.tsx`,
+      `100644 ${oid('0d26300')} 2\tapp/alpha/Widget.tsx`,
+      `100644 ${oid('aaaaaaa')} 3\tapp/alpha/Widget.tsx`,
+      `100644 ${oid('bbbbbbb')} 1\tapp/beta/copy-it.ts`,
+      `100644 ${oid('ccccccc')} 2\tapp/beta/copy-it.ts`,
       '',
-      'CONFLICT (content): Merge conflict in components/community/WhatsNewModal.tsx',
+      'CONFLICT (content): Merge conflict in app/alpha/Widget.tsx',
     ].join('\n');
     expect(parseMergeTreeConflicts(out)).toEqual([
-      'components/community/WhatsNewModal.tsx',
-      'services/locales/it-core.ts',
+      'app/alpha/Widget.tsx',
+      'app/beta/copy-it.ts',
     ]);
   });
 
