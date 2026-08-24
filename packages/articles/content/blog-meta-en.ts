@@ -10674,6 +10674,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.malesco-frontaliere-ticino.title': 'Living in Malesco, working in Ticino: practical guide',
     'blog.article.malesco-frontaliere-ticino.excerpt': 'Moving to Malesco to work in Ticino: access points, journey times, advantageous taxation and reduced costs for border workers.',
     'blog.article.malesco-frontaliere-ticino.imageAlt': 'Sunset view of Lugano with Ticino mountains in the background.',
+    'blog.article.svizzera-lavoro-temporaneo-frontalieri.title': 'Switzerland, temporary work restarts: what effects for border workers',
+    'blog.article.svizzera-lavoro-temporaneo-frontalieri.excerpt': 'The Swiss labour market registers a sign of recovery in the temporary work sector, with an increase in temporary working hours of 1.5% in the first half of 2026.',
+    'blog.article.svizzera-lavoro-temporaneo-frontalieri.imageAlt': 'Frontalier looking at the city of Lugano.',
 };
 
 export default blogMetaEn;
