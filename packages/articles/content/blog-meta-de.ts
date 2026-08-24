@@ -10706,6 +10706,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-veduggio-frontaliere-ticino.title': 'Wohnen in Veduggio und Arbeiten im Tessin: Grenzgänger',
     'blog.article.vivere-veduggio-frontaliere-ticino.excerpt': 'Vollständiger Leitfaden für diejenigen, die in Veduggio wohnen und im Tessin als Grenzgänger arbeiten: Schweizer Steuern, G-Bewilligung, Lohnabrechnung, AHV, KVG und Schritt-für-Schritt-Verfahren.',
     'blog.article.vivere-veduggio-frontaliere-ticino.imageAlt': 'Veduggio mit Colzano an der Grenze zwischen Italien und der Schweiz, Alpendorf mit Bergen im Hintergrund.',
+    'blog.article.vivere-valbrona-lavorare-ticino-frontaliere.title': 'Leben in Valbrona, Arbeiten im Tessin: Grenzführer',
+    'blog.article.vivere-valbrona-lavorare-ticino-frontaliere.excerpt': 'Valbrona in Como bietet niedrigere Lebenshaltungskosten als das Tessin. Entdecken Sie Grenzübergänge, Genehmigung G, Grenzbesteuerung und wie Sie sich in 4 praktischen Schritten bewegen können.',
+    'blog.article.vivere-valbrona-lavorare-ticino-frontaliere.imageAlt': 'Blick auf Lugano und die Tessiner Grenzlandschaft mit alpinem Panorama',
 };
 
 export default blogMetaDe;

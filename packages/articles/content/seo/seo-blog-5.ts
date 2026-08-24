@@ -77525,6 +77525,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-valbrona-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Valbrona, lavorare in Ticino: guida frontaliere',
+    description: 'Trasferimento a Valbrona per frontalieri Ticino: Permesso G, fiscalità 2024, costo della vita, valichi Brogeda-Chiasso, LAMal, checklist 4-fasi. Scopri',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, valbrona, lavorare, como',
+    ogTitle: 'Vivere a Valbrona, lavorare in Ticino: guida frontaliere',
+    ogDescription: 'Vuoi trasferirsi a Valbrona e lavorare in Ticino? Scopri Permesso G, fiscalità frontalieri dal 2024, differenza costo della vita, valichi e procedura completa passo-passo.',
+    canonicalPath: '/articoli-frontaliere/vivere-valbrona-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Valbrona, lavorare in Ticino: guida frontaliere",
+      "description": "Trasferimento a Valbrona per frontalieri Ticino: Permesso G, fiscalità 2024, costo della vita, valichi Brogeda-Chiasso, LAMal, checklist 4-fasi. Scopri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-valbrona-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Lugano e del confine Ticino-Lombardia con paesaggio alpino al tramonto"
+      },
+      "datePublished": "2026-08-24T20:24:55+00:00",
+      "dateModified": "2026-08-24T20:24:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-valbrona-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

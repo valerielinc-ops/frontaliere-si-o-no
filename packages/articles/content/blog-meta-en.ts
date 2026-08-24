@@ -10707,6 +10707,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-veduggio-frontaliere-ticino.title': 'Living in Veduggio and working in Ticino: border crossing',
     'blog.article.vivere-veduggio-frontaliere-ticino.excerpt': 'Complete guide for those who reside in Veduggio and work in Ticino as border workers: Swiss taxation, G permit, payroll, AVS, LAMal and step-by-step procedure.',
     'blog.article.vivere-veduggio-frontaliere-ticino.imageAlt': 'Veduggio with Colzano at the Italy-Switzerland border, Alpine village with mountains in the background.',
+    'blog.article.vivere-valbrona-lavorare-ticino-frontaliere.title': 'Living in Valbrona, working in Ticino: border guide',
+    'blog.article.vivere-valbrona-lavorare-ticino-frontaliere.excerpt': 'Valbrona in Como offers a lower cost of living than Ticino. Discover crossings, G Permit, border taxation and how to move in 4 practical steps.',
+    'blog.article.vivere-valbrona-lavorare-ticino-frontaliere.imageAlt': 'View of Lugano and Ticino-Lombardy border landscape with alpine scenery',
 };
 
 export default blogMetaEn;

@@ -10708,6 +10708,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-veduggio-frontaliere-ticino.title': 'Vivere a Veduggio e lavorare in Ticino: frontaliere',
     'blog.article.vivere-veduggio-frontaliere-ticino.excerpt': 'Guida completa per chi risiede a Veduggio e lavora in Ticino da frontaliere: fiscalità svizzera, permesso G, busta paga, AVS, LAMal e procedura step-by-step.',
     'blog.article.vivere-veduggio-frontaliere-ticino.imageAlt': 'Veduggio con Colzano al confine Italia-Svizzera, villaggio alpino con montagne sullo sfondo.',
+    'blog.article.vivere-valbrona-lavorare-ticino-frontaliere.title': 'Vivere a Valbrona, lavorare in Ticino: guida frontaliere',
+    'blog.article.vivere-valbrona-lavorare-ticino-frontaliere.excerpt': 'Valbrona in Como offre costo della vita inferiore al Ticino. Scopri valichi, Permesso G, fiscalità frontalieri e come trasferirsi in 4 fasi pratiche.',
+    'blog.article.vivere-valbrona-lavorare-ticino-frontaliere.imageAlt': 'Vista di Lugano e del confine Ticino-Lombardia con paesaggio alpino al tramonto',
 };
 
 export default blogMetaIt;
