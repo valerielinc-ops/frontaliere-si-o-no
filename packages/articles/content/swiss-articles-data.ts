@@ -12502,6 +12502,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'permesso-domicilio-c-sciaffusa-requisiti',
+    category: 'pratico',
+    date: '2026-08-24T18:52:11.886Z',
+    image: '/images/blog/permesso-domicilio-c-sciaffusa-requisiti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

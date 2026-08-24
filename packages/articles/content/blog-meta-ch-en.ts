@@ -4168,6 +4168,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-successione-donazione-basilea-campagna.title': 'Inheritance and Donation Tax: Basel Countryside',
     'blog.article.imposta-successione-donazione-basilea-campagna.excerpt': 'How inheritance and gift taxes work in the canton of Basel-Country: rates, family exemptions and reporting procedures.',
     'blog.article.imposta-successione-donazione-basilea-campagna.imageAlt': 'Basel-Landschaft tax office representing cantonal fiscal administration in Switzerland.',
+    'blog.article.permesso-domicilio-c-sciaffusa-requisiti.title': 'Residence permit and Schaffhausen: requirements',
+    'blog.article.permesso-domicilio-c-sciaffusa-requisiti.excerpt': 'Guide to the requirements for the C permit in the Canton of Schaffhausen: years of residence, integration criteria, languages and application procedure. Details on reduced terms for EU/EFTA nationals.',
+    'blog.article.permesso-domicilio-c-sciaffusa-requisiti.imageAlt': 'Office for residence permit C applications at Swiss cantonal administration',
 };
 
 export default blogMetaChEn;

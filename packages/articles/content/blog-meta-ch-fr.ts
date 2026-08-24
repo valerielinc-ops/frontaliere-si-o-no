@@ -4168,6 +4168,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-successione-donazione-basilea-campagna.title': 'Droits de succession et de donation : Bâle-Campagne',
     'blog.article.imposta-successione-donazione-basilea-campagna.excerpt': 'Comment fonctionnent les impôts sur les successions et les donations dans le canton de Bâle-Campagne : taux, exonérations pour les membres de la famille et procédures de déclaration.',
     'blog.article.imposta-successione-donazione-basilea-campagna.imageAlt': 'Bureau des impôts du canton de Bâle-Campagne, représentant l\'administration fiscale cantonale.',
+    'blog.article.permesso-domicilio-c-sciaffusa-requisiti.title': 'Permis domicile c Schaffhouse : exigences',
+    'blog.article.permesso-domicilio-c-sciaffusa-requisiti.excerpt': 'Guide des exigences pour le permis C dans le canton de Schaffhouse : années de résidence, critères d\'intégration, langues et procédure de demande. Détails sur les conditions réduites pour les citoyens de l\'UE/AELE.',
+    'blog.article.permesso-domicilio-c-sciaffusa-requisiti.imageAlt': 'Bureau pour les demandes de permis de domicile C auprès de l\'administration cantonale suisse',
 };
 
 export default blogMetaChFr;
