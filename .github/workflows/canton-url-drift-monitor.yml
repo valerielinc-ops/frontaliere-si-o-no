@@ -75,33 +75,20 @@ jobs:
           # prende ~9.700 commit a settimana dai bot, quindi qualunque --depth
           # fisso atterrerebbe in un punto arbitrario. Blobless (#4120) tiene il
           # costo giu': i blob dei soli shard richiesti arrivano su domanda.
+          #
+          # NIENTE sparse-checkout, deliberatamente: scripts/ci/apply-checkout-profiles.mjs
+          # (--only canton-url-drift-monitor.yml) segue la chiusura transitiva
+          # dei DUE script condivisi che questo job invoca oltre al proprio
+          # (scripts/lib/git-push-with-retry.sh, scripts/lib/github-issue-creator.mjs)
+          # e conclude che il residuo minimo e' 1.531 MB — sopra CROSSOVER_MB
+          # (1.500 MB), la soglia oltre la quale lo sparse e' controproducente.
+          # La causa e' in commenti storici di quei moduli condivisi (menzionano
+          # data/jobs/, data/seo-404-compat/, docs/ come esempi passati, non come
+          # dipendenze reali di QUESTO job) — non e' chirurgico ripulirli qui solo
+          # per questo job. Rigenerare con lo stesso comando se main cambia quei
+          # moduli in un modo che abbassa il residuo sotto la soglia.
           fetch-depth: 0
           filter: blob:none
-          # data/all-known-job-slugs/ (141 MB) e' il dato misurato, quindi e'
-          # l'unico bucket pesante che resta. Gli altri 19 di
-          # scripts/ci/checkout-buckets.json sono esclusi: ~339 MB invece di 6,8 GB.
-          sparse-checkout: |
-            /*
-            !/public/images/
-            !/data/jobs/
-            !/data/seo-404-compat/
-            !/data/translation-cache/
-            !/packages/articles/content/
-            !/data/orphan-enriched-data/
-            !/docs/
-            !/public/data/
-            !/data/related-search-candidates.json
-            !/data/cf-hot-404s.json
-            !/data/jobs-ai-cache.json
-            !/data/dist-size-history.jsonl
-            !/data/jobs-stats-history.json
-            !/data/url-first-seen.json
-            !/data/jobs-snapshots-history/
-            !/data/slug-registry.json
-            !/data/evidence-index.json
-            !/data/health-premiums/
-            !/data/jobs-crawler-summaries/
-          sparse-checkout-cone-mode: false
         # Tetto sullo step: senza, un fetch degenere consuma il budget del job e
         # muore `cancelled`, stato invisibile agli `if: failure()`.
         timeout-minutes: 12
@@ -111,8 +98,9 @@ jobs:
         with:
           node-version: '22'
 
-      # Nessun `npm ci`: lo script importa solo scripts/lib/target-swiss-locations.mjs,
-      # che a sua volta legge un JSON del repo. Zero dipendenze esterne.
+      # Nessun `npm ci`: gli unici moduli importati sono scripts/lib/*.mjs del
+      # repo (nessuna dipendenza esterna oltre quelle gia' in node_modules per
+      # gli altri due script invocati piu' sotto).
       - name: Measure drift
         env:
           DRIFT_DAYS: ${{ inputs.days || '7' }}

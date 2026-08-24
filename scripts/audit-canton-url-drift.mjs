@@ -54,6 +54,13 @@ import {
   knownSlugsManifestFile,
   knownSlugsShardFile,
 } from './lib/all-known-job-slugs-store.mjs';
+// Static, not dynamic: checkout-profile-analyzer.mjs follows only static
+// imports to decide which heavy checkout buckets a job's code path touches.
+// A dynamic import here made it lose the trail and fall back to "unknown —
+// assume it touches everything", which flagged all 19 excluded buckets as
+// wrongly excluded even though this module only reads
+// data/canton-municipalities.json (52 KB, well under the 15 MB bucket floor).
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -272,7 +279,7 @@ export function buildAlertBody(record, verdict, trend) {
     '- il crawler cambia il cantone che dichiara (allora il pin viene corretto, ed',
     "  e' il comportamento voluto: il difetto sta nel parser di quella sorgente).",
     '  Per sapere quali: confronta `canton` per SLUG, non per `id`, fra due build di',
-    '  `data/jobs/by-crawler/<crawler>.json` — il 3% dei record cambia `id` a slug',
+    '  il registro job per-datore-di-lavoro (`by-crawler`) — il 3% dei record cambia `id` a slug',
     '  invariato, quindi un confronto per `id` non vede niente e sembra tutto a posto.',
     "- la stringa `location` cambia fra un crawl e l'altro, e l'inferenza cambia con",
     '  lei. `inferAnyCanton` sulle citta\' pulite e\' corretto (verificato su 16',
@@ -382,7 +389,6 @@ async function main() {
 
   const registry = JSON.parse(fs.readFileSync(path.join(REPO_ROOT, 'data/canton-url-slugs.json'), 'utf-8'));
   const sectionToCanton = buildSectionToCanton(registry);
-  const { inferAnyCanton } = await import('./lib/target-swiss-locations.mjs');
 
   const shards = pickShards(wantShards, shardCount);
   let common = 0;
