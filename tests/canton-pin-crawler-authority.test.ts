@@ -180,6 +180,25 @@ describe('resolveCantonAgainstPin — an inference may not re-section an indexed
     expect(d).toEqual({ canton: 'NW', pin: 'NW', outcome: 'pin-corrected' });
   });
 
+  it('heals with the CRAWLER value, not `job`, when inference has overwritten job.canton to a THIRD value (review finding, PR #6318)', () => {
+    // Same Obbürgen trigger as #4838 (crawler NW ≠ stale pin TI, so the heal
+    // branch fires), but this build's inference resolves the job's `location`
+    // to something else — BE — AND that resolution has already been written
+    // into `job.canton` by the caller's fill step BEFORE this function runs.
+    // `jobCanton` here is that post-fill value, exactly as the real call site
+    // passes it. If the heal branch returned `job` (as the pre-review-fix code
+    // did), the ledger would be written to BE — the inference's guess, not the
+    // crawler's evidence — which is the very drift `crawlerCanton` exists to
+    // stop, only reached through the branch meant to be immune to it.
+    const d = resolveCantonAgainstPin({
+      jobCanton: 'BE', // job.canton AFTER the inference fill step overwrote it
+      inferredCanton: 'BE',
+      pinnedCanton: 'TI',
+      crawlerCanton: 'NW', // what the crawler itself actually declared
+    });
+    expect(d).toEqual({ canton: 'NW', pin: 'NW', outcome: 'pin-corrected' });
+  });
+
   it('still lets the crawler heal a COLLIDED pin (galenica, 220 jobs)', () => {
     // One listing URL shared by every posting collapsed the identity, so a
     // single early TI pin held non-TI jobs on the Ticino section.

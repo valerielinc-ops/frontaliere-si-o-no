@@ -1204,6 +1204,18 @@ export function resolveCantonAgainstPin({ jobCanton, inferredCanton, pinnedCanto
   if (crawlerHasSpoken && (!crawler || crawler === pinned)) {
     return { canton: pinned, pin: pinned, outcome: 'pin-frozen' };
   }
+  // Heal: the CRAWLER is what disagrees with the pin, so the crawler's own
+  // evidence is what must enter the ledger — NOT `job`. `job` is `jobCanton`
+  // AFTER the inference fill step, so it can already carry a THIRD value that
+  // matches neither the pin nor the crawler (stale TI pin, crawler says NW,
+  // but this build's inference resolves the job's `location` to BE and
+  // overwrites `job.canton` before this function ever runs). Writing `job`
+  // here would let that inference value into the ledger through the heal
+  // branch — the exact drift `crawlerCanton` exists to stop, only rerouted
+  // through the one branch that was supposed to be safe from it.
+  if (crawlerHasSpoken) {
+    return { canton: crawler, pin: crawler, outcome: 'pin-corrected' };
+  }
   return { canton: job, pin: job, outcome: 'pin-corrected' };
 }
 
