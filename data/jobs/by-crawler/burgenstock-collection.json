@@ -1,6 +1,6 @@
 {
   "crawlerKey": "burgenstock-collection",
-  "assembledAt": "2026-08-24T10:24:24.423Z",
+  "assembledAt": "2026-08-24T21:46:02.080Z",
   "jobs": [
     {
       "id": "burgenstock-collection-9c944e2fa95f",
@@ -30,7 +30,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1566/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:24:22.006Z",
+      "crawledAt": "2026-08-24T21:45:58.143Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -78,11 +78,11 @@
     },
     {
       "id": "burgenstock-collection-27f776f8effe",
-      "slug": "responsabile-spa-benessere-al-100-w-m-i-burgenstock-collection-lugano",
+      "slug": "spa-wellness-manager-100-w-m-i-burgenstock-collection-ch",
       "slugByLocale": {
-        "it": "responsabile-spa-benessere-al-100-w-m-i-burgenstock-collection-lugano",
-        "de": "spa-wellness-manager-100-w-m-i-buergenstock-hotels-obburgen",
+        "it": "spa-wellness-manager-100-w-m-i-burgenstock-collection-ch",
         "en": "spa-wellness-manager-100-w-m-i-burgenstock-collection-ch",
+        "de": "spa-wellness-manager-100-w-m-i-buergenstock-hotels-obburgen",
         "fr": "spa-wellness-manager-100-w-m-i-burgenstock-collection-ch"
       },
       "company": "Bürgenstock Collection",
@@ -90,10 +90,10 @@
       "companyDomain": "recruitingapp-2850.umantis.com",
       "title": "Spa & Wellness Manager 100% (w/m/i)",
       "titleByLocale": {
-        "it": "Responsabile Spa & Benessere al 100% (w/m/i)",
-        "fr": "Spa & Wellness Manager 100% (w/m/i)",
+        "it": "Spa & Wellness Manager 100% (w/m/i)",
         "en": "Spa & Wellness Manager 100% (w/m/i)",
-        "de": "Spa & Wellness Manager zu 100 % (w/m/i)"
+        "de": "Spa & Wellness Manager zu 100 % (w/m/i)",
+        "fr": "Spa & Wellness Manager 100% (w/m/i)"
       },
       "description": "Spa & Wellness Manager 100% (w/m/i) — Bürgenstock Collection",
       "descriptionByLocale": {
@@ -104,7 +104,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1488/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T10:24:21.703Z",
+      "crawledAt": "2026-08-24T21:45:57.839Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -119,7 +119,18 @@
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1488/Description/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "it": [
+          "responsabile-spa-benessere-al-100-w-m-i-burgenstock-collection-lugano",
+          "spa-wellness-manager-100-w-m-i-burgenstock-collection-ch"
+        ]
+      },
+      "previousSlugs": [
+        "responsabile-spa-benessere-al-100-w-m-i-burgenstock-collection-lugano",
+        "spa-wellness-manager-100-w-m-i-burgenstock-collection-ch"
+      ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:38:22.992Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -132,16 +143,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:38:22.992Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "spa-wellness-manager-100-w-m-i-burgenstock-collection-ch"
-        ]
-      },
-      "previousSlugs": [
-        "spa-wellness-manager-100-w-m-i-burgenstock-collection-ch"
-      ]
+      "addressRegion": "TI"
     },
     {
       "id": "burgenstock-collection-296a84d3bc06",
@@ -171,7 +173,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1564/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T10:24:21.400Z",
+      "crawledAt": "2026-08-24T21:45:57.536Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -239,10 +241,10 @@
       "companyDomain": "recruitingapp-2850.umantis.com",
       "title": "Head Sommelier 100% (w/m/i)",
       "titleByLocale": {
-        "de": "Chef-Sommelier zu 100 % (w/m/i)",
-        "fr": "Head Sommelier 100% (w/m/i)",
         "it": "Sommelier testa 100% (w/m/i)",
-        "en": "Head Sommelier 100% (w/m/i)"
+        "en": "Head Sommelier 100% (w/m/i)",
+        "de": "Head Sommelier 100% (w/m/i)",
+        "fr": "Head Sommelier 100% (w/m/i)"
       },
       "description": "Head Sommelier 100% (w/m/i) — Bürgenstock Collection",
       "descriptionByLocale": {
@@ -253,7 +255,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1482/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T10:24:21.097Z",
+      "crawledAt": "2026-08-24T21:45:57.232Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -284,6 +286,7 @@
         "sommelier-capo-100-w-m-i-burgenstock-hotels-ag-obburgen"
       ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:38:22.386Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -296,15 +299,14 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:38:22.386Z"
+      "addressRegion": "TI"
     },
     {
       "id": "burgenstock-collection-eb923773c6b8",
       "slug": "sommelier-100-m-w-i-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
         "it": "sommelier-100-m-w-i-burgenstock-hotels-ag-obburgen",
-        "en": "sommelier-100-m-w-i-burgenstock-hotels-ag-obburgen",
+        "en": "100-sommelier-w-m-i-burgenstock-collection-lugano",
         "de": "sommelier-100-m-w-i-buergenstock-hotels-obburgen",
         "fr": "sommelier-100-m-w-i-burgenstock-hotels-ag-obburgen"
       },
@@ -313,10 +315,10 @@
       "companyDomain": "recruitingapp-2850.umantis.com",
       "title": "Sommelier 100% (w/m/i)",
       "titleByLocale": {
-        "de": "Sommelier 100 % (w/m/i)",
-        "it": "Sommelier al 100% (w/m/i)",
-        "fr": "Sommelier 100% (w/m/i)",
-        "en": "100% Sommelier (w/m/i)"
+        "it": "Sommelier 100% (w/m/i)",
+        "en": "100% Sommelier (w/m/i)",
+        "de": "Sommelier 100% (w/m/i)",
+        "fr": "Sommelier 100% (w/m/i)"
       },
       "description": "Sommelier 100% (w/m/i) — Bürgenstock Collection",
       "descriptionByLocale": {
@@ -327,7 +329,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1521/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T10:24:20.793Z",
+      "crawledAt": "2026-08-24T21:45:56.929Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -358,6 +360,7 @@
         "sommelier-100-m-w-i-burgenstock-hotels-ag-obburgen"
       ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:38:22.083Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -370,8 +373,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:38:22.083Z"
+      "addressRegion": "TI"
     },
     {
       "id": "burgenstock-collection-6a02672ec704",
@@ -401,7 +403,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1512/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T10:24:20.490Z",
+      "crawledAt": "2026-08-24T21:45:56.624Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -468,7 +470,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1492/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T10:24:20.188Z",
+      "crawledAt": "2026-08-24T21:45:56.321Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -528,10 +530,10 @@
       "companyDomain": "recruitingapp-2850.umantis.com",
       "title": "Restaurant Manager 100 % (w/m/i)",
       "titleByLocale": {
-        "fr": "Restaurant Manager 100 % (w/m/i)",
         "it": "Ristorante Manager 100% (w/m/i)",
         "en": "Restaurant Manager 100% (w/m/i)",
-        "de": "Restaurantleiter 100 % (w/m/i)"
+        "de": "Restaurantleiter 100 % (w/m/i)",
+        "fr": "Restaurant Manager 100 % (w/m/i)"
       },
       "description": "Restaurant Manager 100 % (w/m/i) — Bürgenstock Collection",
       "descriptionByLocale": {
@@ -542,7 +544,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1534/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T10:24:19.886Z",
+      "crawledAt": "2026-08-24T21:45:56.019Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -573,6 +575,7 @@
         "ristorante-manager-100-f-m-i-burgenstock-hotels-ag-obburgen"
       ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:38:21.176Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -585,8 +588,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:38:21.176Z"
+      "addressRegion": "TI"
     },
     {
       "id": "burgenstock-collection-880b8b640527",
@@ -616,7 +618,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1438/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T10:24:19.582Z",
+      "crawledAt": "2026-08-24T21:45:55.715Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -690,7 +692,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1560/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:24:19.261Z",
+      "crawledAt": "2026-08-24T21:45:55.393Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
