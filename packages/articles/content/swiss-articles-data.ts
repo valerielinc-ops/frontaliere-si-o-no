@@ -12097,6 +12097,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'classi-scolastiche-create-algoritmo',
+    category: 'fiscale',
+    date: '2026-08-24T05:51:30.507Z',
+    image: '/images/blog/classi-scolastiche-create-algoritmo.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
