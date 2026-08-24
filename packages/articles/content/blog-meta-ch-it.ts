@@ -4159,6 +4159,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.naturalizzazione-basilea-campagna-procedura.title': 'Naturalizzazione Basilea campagna: come procedere',
     'blog.article.naturalizzazione-basilea-campagna-procedura.excerpt': 'Requisiti federali e cantonali per naturalizzarsi a Basilea Campagna: 10 anni di residenza, test di lingua, procedura amministrativa e costi da versare.',
     'blog.article.naturalizzazione-basilea-campagna-procedura.imageAlt': 'Ufficio dell\'amministrazione cantonale svizzera con moduli di naturalizzazione',
+    'blog.article.stabilita-svizzera-bilaterali-neutralita.title': 'Svizzera-Ue: bilaterali e neutralità tra stabilità geopolitica',
+    'blog.article.stabilita-svizzera-bilaterali-neutralita.excerpt': 'Cassis annuncia il ritorno della Svizzera a Horizon Europe. Il 27 settembre votazione cruciale sull\'iniziativa di neutralità. Il capo DFAE illustra il cammino dai negoziati sospesi del 2021 agli accordi attuali.',
+    'blog.article.stabilita-svizzera-bilaterali-neutralita.imageAlt': 'Veduta di Bellinzona: simbolo della stabilità politica e della capacità decisionale della Svizzera',
 };
 
 export default blogMetaChIt;

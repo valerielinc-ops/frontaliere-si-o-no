@@ -4159,6 +4159,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.naturalizzazione-basilea-campagna-procedura.title': 'Einbürgerung Basel-Landschaft: Vorgehensweise',
     'blog.article.naturalizzazione-basilea-campagna-procedura.excerpt': 'Eidgenössische und kantonale Voraussetzungen für die Einbürgerung in Basel-Landschaft: 10 Jahre Aufenthalt, Sprachtest, Verwaltungsverfahren und Kosten.',
     'blog.article.naturalizzazione-basilea-campagna-procedura.imageAlt': 'Kantonsamt mit Einbürgerungsanträgen und amtlichen Formularen',
+    'blog.article.stabilita-svizzera-bilaterali-neutralita.title': 'Schweiz-EU: Bilaterale und Neutralität zwischen geopolitischer Stabilität',
+    'blog.article.stabilita-svizzera-bilaterali-neutralita.excerpt': 'Cassis kündigt die Rückkehr der Schweiz zu Horizon Europe an. Entscheidende Abstimmung über die Neutralitätsinitiative am 27. September. Der EDA-Vorsteher zeigt den Weg von den ausgesetzten Verhandlungen 2021 zu den aktuellen Abkommen.',
+    'blog.article.stabilita-svizzera-bilaterali-neutralita.imageAlt': 'Bellinzona Skyline als Symbol der Schweizer politischen Stabilität und Handlungsfähigkeit',
 };
 
 export default blogMetaChDe;
