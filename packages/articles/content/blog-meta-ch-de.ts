@@ -4039,6 +4039,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sunrise-salt-rete-cooperazione.title': 'Sunrise und Salt erwägen eine engere Zusammenarbeit im Mobilfunknetz',
     'blog.article.sunrise-salt-rete-cooperazione.excerpt': 'Die Zusammenarbeit zwischen Sunrise und Salt könnte die Abdeckung, den Empfang und die Qualität der Verbindung in der Schweiz verbessern, insbesondere in ländlichen und dünn besiedelten Gebieten.',
     'blog.article.sunrise-salt-rete-cooperazione.imageAlt': 'Bild eines Nutzers mit Smartphone in einer schweizerischen Landwirtschaftsgebiet, mit stabiler und schneller Verbindung.',
+    'blog.article.tirocinio-retribuzione-soletta-guida.title': 'Praktikum und Entlohnung im Kanton Solothurn: Praxisleitfaden',
+    'blog.article.tirocinio-retribuzione-soletta-guida.excerpt': 'Erfahren Sie, wie Sie ein Praktikum im Kanton Solothurn finden, die vertraglichen Pflichten und die Entlohnung des Lernenden mit Steuerabzügen und Sozialversicherungsbeiträgen.',
+    'blog.article.tirocinio-retribuzione-soletta-guida.imageAlt': 'Ein Lehrling arbeitet praktisch in einer Werkstatt während der beruflichen Ausbildung in der Schweiz.',
+    'blog.article.custodia-bambini-svizzera-costi-sussidi.title': 'Kinderbetreuung in der Schweiz: Kosten und kantonale Zuschüsse',
+    'blog.article.custodia-bambini-svizzera-costi-sussidi.excerpt': 'Wie funktioniert die Kinderbetreuung in der Schweiz, welche Kosten gibt es für Kinderkrippen und welche kantonalen Familienbeiträge stehen zur Verfügung?',
+    'blog.article.custodia-bambini-svizzera-costi-sussidi.imageAlt': 'Schweizer Kinderbetreuungszentrum mit Kindern, die an einem sonnigen Frühjahrstag draußen spielen',
 };
 
 export default blogMetaChDe;

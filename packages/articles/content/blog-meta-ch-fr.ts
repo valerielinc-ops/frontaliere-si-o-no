@@ -4039,6 +4039,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sunrise-salt-rete-cooperazione.title': 'Sunrise et Salt envisagent une coopération plus étroite sur le réseau mobile',
     'blog.article.sunrise-salt-rete-cooperazione.excerpt': 'La coopération entre Sunrise et Salt pourrait améliorer la couverture, la réception et la qualité de la connexion en Suisse, en particulier dans les zones rurales et moins peuplées.',
     'blog.article.sunrise-salt-rete-cooperazione.imageAlt': 'Image d\'un utilisateur avec smartphone dans une zone rurale suisse, avec connexion stable et rapide.',
+    'blog.article.tirocinio-retribuzione-soletta-guida.title': 'Stage et rémunération dans le canton de Soleure : guide pratique',
+    'blog.article.tirocinio-retribuzione-soletta-guida.excerpt': 'Découvrez comment trouver un stage dans le canton de Soleure, les obligations contractuelles et la rémunération de l\'apprenti avec déductions fiscales et cotisations sociales.',
+    'blog.article.tirocinio-retribuzione-soletta-guida.imageAlt': 'Un apprenti travaille sur un chantier pratique de formation professionnelle en Suisse.',
+    'blog.article.custodia-bambini-svizzera-costi-sussidi.title': 'Garde d\'enfants en Suisse : coûts et subventions cantonales',
+    'blog.article.custodia-bambini-svizzera-costi-sussidi.excerpt': 'Comment fonctionne la garde des enfants en Suisse, quels sont les coûts des crèches et les allocations disponibles pour les familles au niveau cantonal.',
+    'blog.article.custodia-bambini-svizzera-costi-sussidi.imageAlt': 'Centre de garde d\'enfants suisse avec des enfants jouant dehors par une belle journée de printemps',
 };
 
 export default blogMetaChFr;

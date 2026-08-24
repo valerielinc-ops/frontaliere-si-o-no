@@ -1,301 +1,371 @@
 {
-  "generatedAt": "2026-08-17T06:36:59.380Z",
+  "generatedAt": "2026-08-24T06:40:41.757Z",
   "degraded": false,
-  "currentWeek": "2026-34",
-  "previousWeek": "2026-33",
+  "currentWeek": "2026-35",
+  "previousWeek": "2026-34",
   "cities": {
     "ticino": {
-      "totalActive": 22814,
+      "totalActive": 25997,
       "topCompanies": [
         {
-          "employer": "Solothurner Spitäler (soH)",
-          "employerKey": "solothurner-spitaeler",
-          "active": 157,
-          "delta": 157
+          "employer": "fachkraft.ch GmbH",
+          "employerKey": "fachkraft",
+          "active": 2927,
+          "delta": 2927
         },
         {
-          "employer": "railCare",
+          "employer": "Coop Genossenschaft",
           "employerKey": "coop-ticino",
-          "active": 2066,
-          "delta": 76
-        },
-        {
-          "employer": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
-          "employerKey": "ksml",
-          "active": 148,
-          "delta": 50
+          "active": 2146,
+          "delta": 80
         },
         {
           "employer": "Zurich Insurance (sede Ticino)",
           "employerKey": "zurich-insurance-sede-ticino",
-          "active": 689,
-          "delta": 38
+          "active": 732,
+          "delta": 43
         },
         {
-          "employer": "Kantonsspital St. Gallen (KSSG / HOCH)",
-          "employerKey": "kssg",
-          "active": 139,
+          "employer": "GKB JobService",
+          "employerKey": "gkb-jobservice",
+          "active": 25,
+          "delta": 25
+        },
+        {
+          "employer": "LANDI Aare Genossenschaft",
+          "employerKey": "volg-fenaco",
+          "active": 584,
+          "delta": 23
+        },
+        {
+          "employer": "Emil Egger AG",
+          "employerKey": "ete",
+          "active": 22,
+          "delta": 22
+        },
+        {
+          "employer": "Nestlé",
+          "employerKey": "nestle",
+          "active": 81,
           "delta": 21
         },
         {
-          "employer": "LANDI Aarau-West AG",
-          "employerKey": "volg-fenaco",
-          "active": 561,
+          "employer": "E-Recruiting LLB-Gruppe Stellen",
+          "employerKey": "recruitingapp-2677",
+          "active": 20,
           "delta": 20
         },
         {
-          "employer": "Kantonale Verwaltung Zürich",
-          "employerKey": "kanton-zuerich",
-          "active": 174,
-          "delta": 20
-        },
-        {
-          "employer": "Stadt Zürich",
-          "employerKey": "stadt-zuerich",
-          "active": 424,
-          "delta": 17
-        },
-        {
-          "employer": "Manor AG",
-          "employerKey": "manor",
-          "active": 176,
-          "delta": 17
-        },
-        {
-          "employer": "Weisse Arena Gruppe",
-          "employerKey": "weisse-arena",
-          "active": 27,
-          "delta": 14
-        },
-        {
-          "employer": "Helvetia Versicherungen",
-          "employerKey": "helvetia",
-          "active": 148,
-          "delta": 13
-        },
-        {
-          "employer": "ALDI SUISSE",
-          "employerKey": "aldi-suisse",
-          "active": 49,
-          "delta": 13
-        },
-        {
-          "employer": "Kantonale Verwaltung Basel-Landschaft",
-          "employerKey": "kanton-basel-landschaft",
-          "active": 53,
-          "delta": 10
-        },
-        {
-          "employer": "Implenia",
-          "employerKey": "implenia",
-          "active": 75,
-          "delta": 9
-        },
-        {
-          "employer": "Hirslanden Klinik",
-          "employerKey": "hirslanden",
-          "active": 408,
-          "delta": 7
+          "employer": "Michael Page",
+          "employerKey": "michaelpage",
+          "active": 18,
+          "delta": 18
         },
         {
           "employer": "La Poste Suisse",
           "employerKey": "posta-svizzera-centro-regionale",
-          "active": 178,
-          "delta": 7
+          "active": 194,
+          "delta": 16
         },
         {
-          "employer": "Emil Frey",
-          "employerKey": "emil-frey",
-          "active": 64,
-          "delta": 7
+          "employer": "HOCH Health Ostschweiz",
+          "employerKey": "hoch-health",
+          "active": 88,
+          "delta": 15
         },
         {
-          "employer": "Spital Limmattal",
-          "employerKey": "spital-limmattal",
-          "active": 55,
-          "delta": 7
+          "employer": "iPersonal AG",
+          "employerKey": "ipersonal",
+          "active": 15,
+          "delta": 15
         },
         {
-          "employer": "Groupe Mutuel",
-          "employerKey": "groupe-mutuel",
-          "active": 35,
-          "delta": 7
+          "employer": "MediPersonal",
+          "employerKey": "med-ipersonal",
+          "active": 15,
+          "delta": 15
         },
         {
-          "employer": "Abraxas Informatik AG",
-          "employerKey": "abraxas",
-          "active": 26,
-          "delta": 7
+          "employer": "Senevita",
+          "employerKey": "senevita",
+          "active": 189,
+          "delta": 13
+        },
+        {
+          "employer": "Interdiscount",
+          "employerKey": "interdiscount",
+          "active": 19,
+          "delta": 13
+        },
+        {
+          "employer": "J. Safra Sarasin",
+          "employerKey": "jsafrasarasin",
+          "active": 13,
+          "delta": 13
+        },
+        {
+          "employer": "Bewerbermanagement Stellen",
+          "employerKey": "bewerbermanagement-stellen",
+          "active": 13,
+          "delta": 13
+        },
+        {
+          "employer": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+          "employerKey": "ksml",
+          "active": 159,
+          "delta": 11
+        },
+        {
+          "employer": "IKEA",
+          "employerKey": "ikea",
+          "active": 48,
+          "delta": 11
+        },
+        {
+          "employer": "SRO AG (Spital Region Oberaargau)",
+          "employerKey": "sro",
+          "active": 44,
+          "delta": 11
         }
       ],
       "newcomers": [
         {
-          "employer": "Solothurner Spitäler (soH)",
-          "employerKey": "solothurner-spitaeler",
-          "active": 157
+          "employer": "fachkraft.ch GmbH",
+          "employerKey": "fachkraft",
+          "active": 2927
         },
         {
-          "employer": "Agroscope",
-          "employerKey": "agroscope",
-          "active": 6
+          "employer": "GKB JobService",
+          "employerKey": "gkb-jobservice",
+          "active": 25
         },
         {
-          "employer": "Spital Nidwalden",
-          "employerKey": "spital-nidwalden",
-          "active": 2
+          "employer": "Emil Egger AG",
+          "employerKey": "ete",
+          "active": 22
         },
         {
-          "employer": "Comadur SA",
-          "employerKey": "comadur-swatch-group",
-          "active": 1
+          "employer": "E-Recruiting LLB-Gruppe Stellen",
+          "employerKey": "recruitingapp-2677",
+          "active": 20
+        },
+        {
+          "employer": "Michael Page",
+          "employerKey": "michaelpage",
+          "active": 18
+        },
+        {
+          "employer": "iPersonal AG",
+          "employerKey": "ipersonal",
+          "active": 15
+        },
+        {
+          "employer": "MediPersonal",
+          "employerKey": "med-ipersonal",
+          "active": 15
+        },
+        {
+          "employer": "J. Safra Sarasin",
+          "employerKey": "jsafrasarasin",
+          "active": 13
+        },
+        {
+          "employer": "Bewerbermanagement Stellen",
+          "employerKey": "bewerbermanagement-stellen",
+          "active": 13
+        },
+        {
+          "employer": "BIG & ARE Stellen",
+          "employerKey": "recruitingapp-1123",
+          "active": 10
         }
       ]
     },
     "lugano": {
-      "totalActive": 693,
+      "totalActive": 3867,
       "topCompanies": [
+        {
+          "employer": "fachkraft.ch GmbH",
+          "employerKey": "fachkraft",
+          "active": 2927,
+          "delta": 2927
+        },
         {
           "employer": "Zurich Insurance (sede Ticino)",
           "employerKey": "zurich-insurance-sede-ticino",
-          "active": 500,
-          "delta": 47
+          "active": 543,
+          "delta": 43
         },
         {
-          "employer": "EOC – Ente Ospedaliero Cantonale",
-          "employerKey": "eoc-ente-ospedaliero-cantonale",
-          "active": 37,
-          "delta": 1
+          "employer": "GKB JobService",
+          "employerKey": "gkb-jobservice",
+          "active": 25,
+          "delta": 25
         },
         {
-          "employer": "SUPSI / DTI",
-          "employerKey": "supsi-dti",
-          "active": 8,
-          "delta": 1
+          "employer": "Emil Egger AG",
+          "employerKey": "ete",
+          "active": 22,
+          "delta": 22
         },
         {
-          "employer": "Lidl Svizzera",
-          "employerKey": "lidl-svizzera",
-          "active": 1,
-          "delta": 1
+          "employer": "E-Recruiting LLB-Gruppe Stellen",
+          "employerKey": "recruitingapp-2677",
+          "active": 20,
+          "delta": 20
         },
         {
-          "employer": "Livit AG",
-          "employerKey": "livit",
-          "active": 1,
-          "delta": 1
+          "employer": "Michael Page",
+          "employerKey": "michaelpage",
+          "active": 18,
+          "delta": 18
         },
         {
-          "employer": "USI – Università della Svizzera italiana",
-          "employerKey": "usi-universita-della-svizzera-italiana",
-          "active": 16,
-          "delta": 0
+          "employer": "iPersonal AG",
+          "employerKey": "ipersonal",
+          "active": 15,
+          "delta": 15
         },
         {
-          "employer": "LWP Ledermann Wieting & Partners",
-          "employerKey": "lwphr",
-          "active": 12,
-          "delta": 0
+          "employer": "MediPersonal",
+          "employerKey": "med-ipersonal",
+          "active": 15,
+          "delta": 15
         },
         {
-          "employer": "Centiel",
-          "employerKey": "centiel",
+          "employer": "J. Safra Sarasin",
+          "employerKey": "jsafrasarasin",
+          "active": 13,
+          "delta": 13
+        },
+        {
+          "employer": "Bewerbermanagement Stellen",
+          "employerKey": "bewerbermanagement-stellen",
+          "active": 13,
+          "delta": 13
+        },
+        {
+          "employer": "BIG & ARE Stellen",
+          "employerKey": "recruitingapp-1123",
           "active": 10,
-          "delta": 0
+          "delta": 10
         },
         {
-          "employer": "Città di Lugano",
-          "employerKey": "citta-di-lugano",
-          "active": 9,
-          "delta": 0
+          "employer": "Bürgenstock Collection",
+          "employerKey": "burgenstock-collection",
+          "active": 10,
+          "delta": 10
         },
         {
-          "employer": "EFG International AG",
-          "employerKey": "efg-international",
+          "employer": "Bewerbungsmanagement Spital Davos",
+          "employerKey": "bewerbungsmanagement-spital-davos",
+          "active": 10,
+          "delta": 10
+        },
+        {
+          "employer": "KZU Recruiting",
+          "employerKey": "kzu-recruiting",
           "active": 8,
-          "delta": 0
+          "delta": 8
         },
         {
-          "employer": "Duferco",
-          "employerKey": "duferco",
-          "active": 6,
-          "delta": 0
+          "employer": "SGKB Bewerbermanagement Stellen",
+          "employerKey": "recruitingapp-1154",
+          "active": 7,
+          "delta": 7
         },
         {
-          "employer": "BPS (Banca Popolare di Sondrio) SUISSE",
-          "employerKey": "bps-suisse",
+          "employer": "Hotel International au Lac",
+          "employerKey": "hotel-international",
+          "active": 5,
+          "delta": 5
+        },
+        {
+          "employer": "Alexander von Humboldt-Stiftung Stellen",
+          "employerKey": "recruitingapp-2649",
           "active": 4,
-          "delta": 0
+          "delta": 4
         },
         {
-          "employer": "Fincons Group",
-          "employerKey": "fincons-group",
-          "active": 4,
-          "delta": 0
-        },
-        {
-          "employer": "Pro Senectute Ticino e Moesano",
-          "employerKey": "prosenectute-ti",
-          "active": 4,
-          "delta": 0
-        },
-        {
-          "employer": "McDonald's Switzerland",
-          "employerKey": "mcdonald-s-switzerland",
+          "employer": "EOC candiDati Posizioni",
+          "employerKey": "eoc-candidati-posizioni",
           "active": 3,
-          "delta": 0
+          "delta": 3
         },
         {
-          "employer": "ETH Zürich",
-          "employerKey": "eth-zurich",
-          "active": 3,
-          "delta": 0
+          "employer": "PEMSA",
+          "employerKey": "pemsa",
+          "active": 13,
+          "delta": 2
         },
         {
-          "employer": "Artisa Group",
-          "employerKey": "artisa-group",
-          "active": 3,
-          "delta": 0
-        },
-        {
-          "employer": "Helvetia Versicherungen",
-          "employerKey": "helvetia",
+          "employer": "Switch Bewerbermanagement Stellen",
+          "employerKey": "recruitingapp-2563",
           "active": 2,
-          "delta": 0
-        },
-        {
-          "employer": "PwC Switzerland",
-          "employerKey": "pwc",
-          "active": 2,
-          "delta": 0
-        },
-        {
-          "employer": "Convit Holding GmbH",
-          "employerKey": "convit-holding",
-          "active": 2,
-          "delta": 0
+          "delta": 2
         }
       ],
       "newcomers": [
         {
-          "employer": "Lidl Svizzera",
-          "employerKey": "lidl-svizzera",
-          "active": 1
+          "employer": "fachkraft.ch GmbH",
+          "employerKey": "fachkraft",
+          "active": 2927
         },
         {
-          "employer": "Livit AG",
-          "employerKey": "livit",
-          "active": 1
+          "employer": "GKB JobService",
+          "employerKey": "gkb-jobservice",
+          "active": 25
+        },
+        {
+          "employer": "Emil Egger AG",
+          "employerKey": "ete",
+          "active": 22
+        },
+        {
+          "employer": "E-Recruiting LLB-Gruppe Stellen",
+          "employerKey": "recruitingapp-2677",
+          "active": 20
+        },
+        {
+          "employer": "Michael Page",
+          "employerKey": "michaelpage",
+          "active": 18
+        },
+        {
+          "employer": "iPersonal AG",
+          "employerKey": "ipersonal",
+          "active": 15
+        },
+        {
+          "employer": "MediPersonal",
+          "employerKey": "med-ipersonal",
+          "active": 15
+        },
+        {
+          "employer": "J. Safra Sarasin",
+          "employerKey": "jsafrasarasin",
+          "active": 13
+        },
+        {
+          "employer": "Bewerbermanagement Stellen",
+          "employerKey": "bewerbermanagement-stellen",
+          "active": 13
+        },
+        {
+          "employer": "BIG & ARE Stellen",
+          "employerKey": "recruitingapp-1123",
+          "active": 10
         }
       ]
     },
     "mendrisio": {
-      "totalActive": 64,
+      "totalActive": 62,
       "topCompanies": [
         {
-          "employer": "McDonald's Switzerland",
-          "employerKey": "mcdonald-s-switzerland",
-          "active": 1,
-          "delta": 1
+          "employer": "EOC – Ente Ospedaliero Cantonale",
+          "employerKey": "eoc-ente-ospedaliero-cantonale",
+          "active": 17,
+          "delta": 0
         },
         {
           "employer": "Delvitech SA",
@@ -313,6 +383,12 @@
           "employer": "Damiani Group",
           "employerKey": "damiani-group",
           "active": 7,
+          "delta": 0
+        },
+        {
+          "employer": "Organizzazione Sociopsichiatrica Cantonale (OSC) — Cantone Ticino",
+          "employerKey": "canton-ticino-osc",
+          "active": 4,
           "delta": 0
         },
         {
@@ -337,12 +413,6 @@
           "employer": "Amavita (Galenica)",
           "employerKey": "galenica",
           "active": 2,
-          "delta": 0
-        },
-        {
-          "employer": "SUPSI / DTI",
-          "employerKey": "supsi-dti",
-          "active": 1,
           "delta": 0
         },
         {
@@ -376,35 +446,23 @@
           "delta": 0
         },
         {
-          "employer": "EOC – Ente Ospedaliero Cantonale",
-          "employerKey": "eoc-ente-ospedaliero-cantonale",
-          "active": 17,
-          "delta": -1
-        },
-        {
           "employer": "Città di Mendrisio",
           "employerKey": "citta-di-mendrisio",
           "active": 1,
-          "delta": -1
-        },
-        {
-          "employer": "Organizzazione Sociopsichiatrica Cantonale (OSC) — Cantone Ticino",
-          "employerKey": "canton-ticino-osc",
-          "active": 4,
-          "delta": -3
+          "delta": 0
         }
       ],
-      "newcomers": [
-        {
-          "employer": "McDonald's Switzerland",
-          "employerKey": "mcdonald-s-switzerland",
-          "active": 1
-        }
-      ]
+      "newcomers": []
     },
     "chiasso": {
-      "totalActive": 27,
+      "totalActive": 26,
       "topCompanies": [
+        {
+          "employer": "PEMSA",
+          "employerKey": "pemsa",
+          "active": 3,
+          "delta": 1
+        },
         {
           "employer": "ReleWant",
           "employerKey": "relewant",
@@ -424,20 +482,8 @@
           "delta": 0
         },
         {
-          "employer": "Confederazione Svizzera",
-          "employerKey": "confederazione-ticino",
-          "active": 1,
-          "delta": 0
-        },
-        {
           "employer": "CambiaValute.ch",
           "employerKey": "cambiavalute",
-          "active": 1,
-          "delta": 0
-        },
-        {
-          "employer": "Board International",
-          "employerKey": "board-international",
           "active": 1,
           "delta": 0
         },
@@ -446,12 +492,6 @@
           "employerKey": "lastminute-com",
           "active": 1,
           "delta": 0
-        },
-        {
-          "employer": "PEMSA",
-          "employerKey": "pemsa",
-          "active": 2,
-          "delta": -1
         }
       ],
       "newcomers": []
@@ -463,13 +503,13 @@
           "employer": "VF International (The North Face, Timberland)",
           "employerKey": "vf-international-the-north-face-timberland",
           "active": 37,
-          "delta": 2
+          "delta": 0
         },
         {
           "employer": "Rapelli - ORIOR Food AG",
           "employerKey": "rapelli",
           "active": 9,
-          "delta": 1
+          "delta": 0
         },
         {
           "employer": "Guess Europe Sagl",
@@ -505,29 +545,41 @@
       "newcomers": []
     },
     "bellinzona": {
-      "totalActive": 115,
+      "totalActive": 120,
       "topCompanies": [
         {
-          "employer": "FFS Officine (Ferrovie Federali)",
-          "employerKey": "ffs-officine-ferrovie-federali",
-          "active": 4,
+          "employer": "Die Schweizerische Post",
+          "employerKey": "posta-svizzera-centro-regionale",
+          "active": 3,
+          "delta": 3
+        },
+        {
+          "employer": "EOC – Ente Ospedaliero Cantonale",
+          "employerKey": "eoc-ente-ospedaliero-cantonale",
+          "active": 82,
           "delta": 2
         },
         {
-          "employer": "PostFinance",
-          "employerKey": "postfinance",
-          "active": 1,
+          "employer": "Città di Bellinzona",
+          "employerKey": "citta-di-bellinzona",
+          "active": 3,
+          "delta": 2
+        },
+        {
+          "employer": "Amministrazione Cantonale Ticino",
+          "employerKey": "amministrazione-cantonale-ti",
+          "active": 5,
+          "delta": 1
+        },
+        {
+          "employer": "AFRY",
+          "employerKey": "afry",
+          "active": 3,
           "delta": 1
         },
         {
           "employer": "Organizzazione Sociopsichiatrica Cantonale (OSC) — Cantone Ticino",
           "employerKey": "canton-ticino-osc",
-          "active": 2,
-          "delta": 0
-        },
-        {
-          "employer": "AFRY",
-          "employerKey": "afry",
           "active": 2,
           "delta": 0
         },
@@ -592,56 +644,56 @@
           "delta": 0
         },
         {
+          "employer": "PostFinance",
+          "employerKey": "postfinance",
+          "active": 1,
+          "delta": 0
+        },
+        {
           "employer": "Swiss Medical Network",
           "employerKey": "swiss-medical-network",
           "active": 1,
           "delta": 0
         },
         {
-          "employer": "EOC – Ente Ospedaliero Cantonale",
-          "employerKey": "eoc-ente-ospedaliero-cantonale",
-          "active": 80,
-          "delta": -1
-        },
-        {
-          "employer": "Amministrazione Cantonale Ticino",
-          "employerKey": "amministrazione-cantonale-ti",
-          "active": 4,
-          "delta": -1
-        },
-        {
           "employer": "PEMSA",
           "employerKey": "pemsa",
-          "active": 8,
+          "active": 6,
           "delta": -2
         },
         {
-          "employer": "Città di Bellinzona",
-          "employerKey": "citta-di-bellinzona",
-          "active": 1,
+          "employer": "FFS Officine (Ferrovie Federali)",
+          "employerKey": "ffs-officine-ferrovie-federali",
+          "active": 2,
           "delta": -2
         }
       ],
       "newcomers": [
         {
-          "employer": "PostFinance",
-          "employerKey": "postfinance",
-          "active": 1
+          "employer": "Die Schweizerische Post",
+          "employerKey": "posta-svizzera-centro-regionale",
+          "active": 3
         }
       ]
     },
     "locarno": {
-      "totalActive": 28,
+      "totalActive": 32,
       "topCompanies": [
         {
-          "employer": "FART – Ferrovie Autolinee Regionali Ticinesi",
-          "employerKey": "fart",
-          "active": 2,
+          "employer": "PEMSA",
+          "employerKey": "pemsa",
+          "active": 7,
+          "delta": 5
+        },
+        {
+          "employer": "EOC – Ente Ospedaliero Cantonale",
+          "employerKey": "eoc-ente-ospedaliero-cantonale",
+          "active": 16,
           "delta": 0
         },
         {
-          "employer": "USI – Università della Svizzera italiana",
-          "employerKey": "usi-universita-della-svizzera-italiana",
+          "employer": "FART – Ferrovie Autolinee Regionali Ticinesi",
+          "employerKey": "fart",
           "active": 2,
           "delta": 0
         },
@@ -682,16 +734,10 @@
           "delta": 0
         },
         {
-          "employer": "EOC – Ente Ospedaliero Cantonale",
-          "employerKey": "eoc-ente-ospedaliero-cantonale",
-          "active": 16,
+          "employer": "USI – Università della Svizzera italiana",
+          "employerKey": "usi-universita-della-svizzera-italiana",
+          "active": 1,
           "delta": -1
-        },
-        {
-          "employer": "PEMSA",
-          "employerKey": "pemsa",
-          "active": 2,
-          "delta": -4
         }
       ],
       "newcomers": []
