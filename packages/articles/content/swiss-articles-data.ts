@@ -12295,6 +12295,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'usi-supsi-aumentano-tasse-studenti',
+    category: 'fiscale',
+    date: '2026-08-24T12:17:40.404Z',
+    image: '/images/blog/usi-supsi-aumentano-tasse-studenti.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

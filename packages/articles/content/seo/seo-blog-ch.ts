@@ -53177,6 +53177,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-usi-supsi-aumentano-tasse-studenti': {
+    title: 'USI e SUPSI: aumenteranno le tasse semestrali per gli studenti',
+    description: 'Le università ticinesi aumenteranno le tasse semestrali per gli studenti a partire dall\'anno accademico 2027/2028. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, supsi, aumenteranno, tasse, semestrali',
+    ogTitle: 'USI e SUPSI: aumenteranno le tasse semestrali per gli studenti',
+    ogDescription: 'Le università ticinesi aumenteranno le tasse semestrali per gli studenti a partire dall\'anno accademico 2027/2028, a causa della riduzione del sostegno pubblico da parte della Confederazione.',
+    canonicalPath: '/articoli-svizzera/usi-supsi-aumentano-tasse-studenti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "USI e SUPSI: aumenteranno le tasse semestrali per gli studenti",
+      "description": "Le università ticinesi aumenteranno le tasse semestrali per gli studenti a partire dall'anno accademico 2027/2028. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/usi-supsi-aumentano-tasse-studenti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un studente in una università svizzera"
+      },
+      "datePublished": "2026-08-24T12:17:40+00:00",
+      "dateModified": "2026-08-24T12:17:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/usi-supsi-aumentano-tasse-studenti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

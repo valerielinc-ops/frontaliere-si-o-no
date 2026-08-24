@@ -4099,6 +4099,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dimora-b-basilea-rinnovo.title': 'Permit B Basel: Requirements and Renewal',
     'blog.article.dimora-b-basilea-rinnovo.excerpt': 'The B permit in Switzerland is renewable. Guide to requirements, documents and renewal procedure in the Canton of Basel-City.',
     'blog.article.dimora-b-basilea-rinnovo.imageAlt': 'Federal and cantonal administrative office for migration and residence permits in Basel-Stadt canton',
+    'blog.article.usi-supsi-aumentano-tasse-studenti.title': 'USES and SUPSI: semester fees for students will increase',
+    'blog.article.usi-supsi-aumentano-tasse-studenti.excerpt': 'Ticino universities will increase semester fees for students starting from the academic year 2027/2028, due to the reduction in public support by the Confederation.',
+    'blog.article.usi-supsi-aumentano-tasse-studenti.imageAlt': 'Image of a student in a Swiss university',
 };
 
 export default blogMetaChEn;
