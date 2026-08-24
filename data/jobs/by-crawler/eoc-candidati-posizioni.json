@@ -1,6 +1,6 @@
 {
   "crawlerKey": "eoc-candidati-posizioni",
-  "assembledAt": "2026-08-23T21:46:16.658Z",
+  "assembledAt": "2026-08-24T10:13:41.736Z",
   "jobs": [
     {
       "id": "eoc-candidati-posizioni-97590d817683",
@@ -30,7 +30,7 @@
       "url": "https://recruitingapp-2761.umantis.com/Vacancies/2762/Description/4",
       "source": "EOC candiDati Posizioni Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-23T21:46:13.856Z",
+      "crawledAt": "2026-08-24T10:13:39.144Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -44,10 +44,9 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2762/Description/4",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:46:13.856Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -60,16 +59,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:46:13.856Z"
+      "addressRegion": "TI"
     },
     {
       "id": "eoc-candidati-posizioni-a6ebb891a108",
       "slug": "medico-capoclinica-70-100-eoc-ente-ospedaliero-cantonale-lugano",
       "slugByLocale": {
         "it": "medico-capoclinica-70-100-eoc-ente-ospedaliero-cantonale-lugano",
-        "de": "chefarzt-70-100-eoc-ente-ospedaliero-cantonale-lugano",
         "en": "clinic-leader-70-100-eoc-ente-ospedaliero-cantonale-lugano",
+        "de": "chefarzt-70-100-eoc-ente-ospedaliero-cantonale-lugano",
         "fr": "medecin-chef-70-100-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "company": "EOC candiDati Posizioni",
@@ -91,7 +89,7 @@
       "url": "https://recruitingapp-2761.umantis.com/Vacancies/2741/Description/4",
       "source": "EOC candiDati Posizioni Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-23T21:46:13.553Z",
+      "crawledAt": "2026-08-24T10:13:38.842Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -105,18 +103,19 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2741/Description/4",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "medico-capoclinica-eoc-candidati-posizioni-ch"
+          "medico-capoclinica-eoc-candidati-posizioni-ch",
+          "medico-capoclinica-70-100-eoc-ente-ospedaliero-cantonale-lugano"
         ]
       },
       "previousSlugs": [
-        "medico-capoclinica-eoc-candidati-posizioni-ch"
+        "medico-capoclinica-eoc-candidati-posizioni-ch",
+        "medico-capoclinica-70-100-eoc-ente-ospedaliero-cantonale-lugano"
       ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:46:13.553Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -129,8 +128,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:46:13.553Z"
+      "addressRegion": "TI"
     },
     {
       "id": "eoc-candidati-posizioni-d6c7eb67db40",
@@ -160,7 +158,7 @@
       "url": "https://recruitingapp-2761.umantis.com/Vacancies/2764/Description/4",
       "source": "EOC candiDati Posizioni Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-23T21:46:13.250Z",
+      "crawledAt": "2026-08-24T10:13:38.539Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -174,18 +172,19 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2764/Description/4",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "capo-area-ricerca-e-insegnamento-ari-eoc-candidati-posizioni-ch"
+          "capo-area-ricerca-e-insegnamento-ari-eoc-candidati-posizioni-ch",
+          "capo-area-ricerca-e-insegnamento-ari-50-80-eoc-ente-ospedaliero-cantonale-bellinzona-fefpps"
         ]
       },
       "previousSlugs": [
-        "capo-area-ricerca-e-insegnamento-ari-eoc-candidati-posizioni-ch"
+        "capo-area-ricerca-e-insegnamento-ari-eoc-candidati-posizioni-ch",
+        "capo-area-ricerca-e-insegnamento-ari-50-80-eoc-ente-ospedaliero-cantonale-bellinzona-fefpps"
       ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:46:13.250Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -198,8 +197,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:46:13.250Z"
+      "addressRegion": "TI"
     },
     {
       "id": "eoc-candidati-posizioni-0f9932086a1e",
@@ -229,7 +227,7 @@
       "url": "https://recruitingapp-2761.umantis.com/Vacancies/2768/Description/4",
       "source": "EOC candiDati Posizioni Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-23T21:46:12.943Z",
+      "crawledAt": "2026-08-24T10:13:38.236Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -243,10 +241,9 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2768/Description/4",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:46:12.943Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -259,8 +256,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:46:12.943Z"
+      "addressRegion": "TI"
     },
     {
       "id": "eoc-candidati-posizioni-7f2e2d8888f0",
@@ -290,7 +286,7 @@
       "url": "https://recruitingapp-2761.umantis.com/Vacancies/2767/Description/4",
       "source": "EOC candiDati Posizioni Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-23T21:46:12.640Z",
+      "crawledAt": "2026-08-24T10:13:37.934Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -304,10 +300,9 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2767/Description/4",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:46:12.640Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -320,27 +315,26 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:46:12.640Z"
+      "addressRegion": "TI"
     },
     {
       "id": "eoc-candidati-posizioni-d628b29a21af",
       "slug": "responsabile-della-gestione-eoc-candidati-posizioni-lugano",
       "slugByLocale": {
-        "fr": "responsabile-segretariati-medici-eoc-candidati-posizioni-ch",
         "it": "responsabile-della-gestione-eoc-candidati-posizioni-lugano",
         "en": "responsabile-segretariati-medici-eoc-candidati-posizioni-ch",
-        "de": "responsabile-segretariati-medici-eoc-candidati-posizioni-ch"
+        "de": "responsabile-segretariati-medici-eoc-candidati-posizioni-ch",
+        "fr": "responsabile-segretariati-medici-eoc-candidati-posizioni-ch"
       },
       "company": "EOC candiDati Posizioni",
       "companyKey": "eoc-candidati-posizioni",
       "companyDomain": "recruitingapp-2761.umantis.com",
       "title": "Responsabile Segretariati medici",
       "titleByLocale": {
-        "fr": "Responsable Segretariati medici",
-        "it": "Responsabile della gestione",
+        "it": "Responsabile Segretariati medici",
         "en": "Manager Segretariati medici",
-        "de": "Verantwortlicher Segretariati medici"
+        "de": "Verantwortlicher Segretariati medici",
+        "fr": "Responsable Segretariati medici"
       },
       "description": "Responsabile Segretariati medici — EOC candiDati Posizioni",
       "descriptionByLocale": {
@@ -351,7 +345,7 @@
       "url": "https://recruitingapp-2761.umantis.com/Vacancies/2765/Description/4",
       "source": "EOC candiDati Posizioni Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-23T21:46:12.336Z",
+      "crawledAt": "2026-08-24T10:13:37.631Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -365,10 +359,19 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2765/Description/4",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "responsabile-segretariati-medici-eoc-candidati-posizioni-ch",
+        "responsabile-della-gestione-eoc-candidati-posizioni-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "responsabile-segretariati-medici-eoc-candidati-posizioni-ch",
+          "responsabile-della-gestione-eoc-candidati-posizioni-lugano"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:46:12.336Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -381,35 +384,26 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:46:12.336Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "responsabile-segretariati-medici-eoc-candidati-posizioni-ch"
-        ]
-      },
-      "previousSlugs": [
-        "responsabile-segretariati-medici-eoc-candidati-posizioni-ch"
-      ]
+      "addressRegion": "TI"
     },
     {
       "id": "eoc-candidati-posizioni-8ef277978afa",
       "slug": "impiegata-o-economia-domestica-eoc-candidati-posizioni-ch",
       "slugByLocale": {
-        "fr": "impiegata-o-economie-domestiquea-eoc-candidati-posizioni-lugano",
         "it": "impiegata-o-economia-domestica-eoc-candidati-posizioni-ch",
         "en": "impiegata-o-economia-domestica-eoc-candidati-posizioni-ch",
-        "de": "impiegata-o-economia-domestica-eoc-candidati-posizioni-ch"
+        "de": "impiegata-o-economia-domestica-eoc-candidati-posizioni-ch",
+        "fr": "impiegata-o-economia-domestica-eoc-candidati-posizioni-ch"
       },
       "company": "EOC candiDati Posizioni",
       "companyKey": "eoc-candidati-posizioni",
       "companyDomain": "recruitingapp-2761.umantis.com",
       "title": "Impiegata/o economia domestica",
       "titleByLocale": {
-        "fr": "Impiegata/o économie domestiquea",
-        "en": "Impiegata/o economia domestica",
         "it": "Impiegata/o economia domestica",
-        "de": "Impiegata/o economia domestica"
+        "en": "Impiegata/o economia domestica",
+        "de": "Impiegata/o economia domestica",
+        "fr": "Impiegata/o economia domestica"
       },
       "description": "Impiegata/o economia domestica — EOC candiDati Posizioni",
       "descriptionByLocale": {
@@ -420,7 +414,7 @@
       "url": "https://recruitingapp-2761.umantis.com/Vacancies/2770/Description/4",
       "source": "EOC candiDati Posizioni Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-23T21:46:12.035Z",
+      "crawledAt": "2026-08-24T10:13:37.328Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -434,10 +428,17 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2770/Description/4",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "fr": [
+          "impiegata-o-economie-domestiquea-eoc-candidati-posizioni-lugano"
+        ]
       },
+      "previousSlugs": [
+        "impiegata-o-economie-domestiquea-eoc-candidati-posizioni-lugano"
+      ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:46:12.035Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -450,8 +451,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:46:12.035Z"
+      "addressRegion": "TI"
     },
     {
       "id": "eoc-candidati-posizioni-d931914425da",
@@ -481,7 +481,7 @@
       "url": "https://recruitingapp-2761.umantis.com/Vacancies/2769/Description/4",
       "source": "EOC candiDati Posizioni Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-23T21:46:11.730Z",
+      "crawledAt": "2026-08-24T10:13:37.024Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -495,10 +495,9 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2769/Description/4",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:46:11.730Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -511,8 +510,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:46:11.730Z"
+      "addressRegion": "TI"
     },
     {
       "id": "eoc-candidati-posizioni-6d8875674b4e",
@@ -542,7 +540,7 @@
       "url": "https://recruitingapp-2761.umantis.com/Vacancies/2771/Description/4",
       "source": "EOC candiDati Posizioni Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-23T21:46:11.427Z",
+      "crawledAt": "2026-08-24T10:13:36.719Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -556,10 +554,9 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2771/Description/4",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:46:11.427Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -572,8 +569,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:46:11.427Z"
+      "addressRegion": "TI"
     },
     {
       "id": "eoc-candidati-posizioni-1d8af37250c6",
@@ -582,7 +578,7 @@
         "it": "candidato-a-medico-clinica-di-radiologia-eoc-candidati-posizioni-ch",
         "en": "candidato-a-medico-clinica-di-radiologia-eoc-candidati-posizioni-ch",
         "de": "candidato-a-medico-clinica-di-radiologia-eoc-candidati-posizioni-ch",
-        "fr": "candidato-a-medico-clinica-di-radiologia-eoc-candidati-posizioni-ch"
+        "fr": "candidato-un-medicament-clinica-di-radiologia-eoc-candidati-posizioni-lugano"
       },
       "company": "EOC candiDati Posizioni",
       "companyKey": "eoc-candidati-posizioni",
@@ -603,7 +599,7 @@
       "url": "https://recruitingapp-2761.umantis.com/Vacancies/2773/Description/4",
       "source": "EOC candiDati Posizioni Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-23T21:46:11.107Z",
+      "crawledAt": "2026-08-24T10:13:36.399Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -617,10 +613,9 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2761.umantis.com/Vacancies/2773/Description/4",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:46:11.107Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -633,8 +628,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:46:11.107Z"
+      "addressRegion": "TI"
     }
   ]
 }
