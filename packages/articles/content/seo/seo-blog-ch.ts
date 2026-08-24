@@ -53879,6 +53879,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-acquistare-casa-basilea-campagna-mutuo': {
+    title: 'Comprare casa in Basilea Campagna: mutuo e fiscalità',
+    description: 'Guida all\'acquisto di una casa nel Cantone Basilea Campagna: mutuo ipotecario, imposta sui trapassi, spese notarili e sostenibilità finanziaria. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, basilea, campagna',
+    ogTitle: 'Comprare casa in Basilea Campagna: mutuo e fiscalità',
+    ogDescription: 'Acquistare una casa nel Cantone Basilea Campagna è complesso: scopri il sistema fiscale svizzero a tre livelli, come funzionano i mutui ipotecari, l\'imposta sui trapassi, le spese notarili e come valutare la sostenibilità finanziaria del tuo',
+    canonicalPath: '/articoli-svizzera/acquistare-casa-basilea-campagna-mutuo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa in Basilea Campagna: mutuo e fiscalità",
+      "description": "Guida all'acquisto di una casa nel Cantone Basilea Campagna: mutuo ipotecario, imposta sui trapassi, spese notarili e sostenibilità finanziaria. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/acquistare-casa-basilea-campagna-mutuo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Abitazioni residenziali in una zona suburbana della Svizzera nord-occidentale con stile architettonico contemporaneo"
+      },
+      "datePublished": "2026-08-24T16:17:19+00:00",
+      "dateModified": "2026-08-24T16:17:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/acquistare-casa-basilea-campagna-mutuo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

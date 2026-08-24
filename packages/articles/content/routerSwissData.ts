@@ -1410,6 +1410,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-dimora-b-basilea-campagna': { it: 'permesso-dimora-b-basilea-campagna', en: 'residence-permit-b-basel-landschaft-requirements-renewal', de: 'aufenthaltserlaubnis-b-baselland-anforderungen-erneuerung', fr: 'permis-sejour-b-bale-campagne-renouvellement' },
  'permesso-l-basilea-campagna': { it: 'permesso-l-basilea-campagna', en: 'permit-l-basel-landschaft', de: 'permit-l-baselland', fr: 'permis-l-bale-campagne' },
  'permesso-l-breve-durata-basilea-campagna': { it: 'permesso-l-breve-durata-basilea-campagna', en: 'l-permit-short-term-basel-land', de: 'aufenthaltsbewilligung-l-kurzaufenthalt-basel-landschaft', fr: 'permis-l-courte-duree-bale-campagne' },
+ 'acquistare-casa-basilea-campagna-mutuo': { it: 'acquistare-casa-basilea-campagna-mutuo', en: 'buy-house-basel-landschaft-mortgage', de: 'haus-kaufen-basel-landschaft-hypothek', fr: 'acheter-maison-bale-campagne-hypotheque' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

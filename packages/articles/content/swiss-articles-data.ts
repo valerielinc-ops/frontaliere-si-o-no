@@ -12457,6 +12457,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'acquistare-casa-basilea-campagna-mutuo',
+    category: 'pratico',
+    date: '2026-08-24T16:17:19.873Z',
+    image: '/images/blog/acquistare-casa-basilea-campagna-mutuo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

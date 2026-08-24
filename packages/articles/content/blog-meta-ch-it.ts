@@ -4153,6 +4153,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-basilea-campagna.title': 'Permesso L breve durata: validità e proroga',
     'blog.article.permesso-l-breve-durata-basilea-campagna.excerpt': 'Permesso L di breve durata: durata massima di 1 anno, condizioni di proroga, vincoli al datore di lavoro e procedura di transizione al permesso B di dimora in Svizzera.',
     'blog.article.permesso-l-breve-durata-basilea-campagna.imageAlt': 'Ufficio del Segretariato di Stato della migrazione (SEM) con documenti di permesso L',
+    'blog.article.acquistare-casa-basilea-campagna-mutuo.title': 'Comprare casa in Basilea Campagna: mutuo e fiscalità',
+    'blog.article.acquistare-casa-basilea-campagna-mutuo.excerpt': 'Come comprare casa nel Cantone Basilea Campagna: guida ai tre livelli fiscali, mutuo ipotecario e costi nascosti',
+    'blog.article.acquistare-casa-basilea-campagna-mutuo.imageAlt': 'Abitazioni residenziali in una zona suburbana della Svizzera nord-occidentale con stile architettonico contemporaneo',
 };
 
 export default blogMetaChIt;

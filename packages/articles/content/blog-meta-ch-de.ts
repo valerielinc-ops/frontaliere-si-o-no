@@ -4153,6 +4153,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-basilea-campagna.title': 'Kurzzeitbewilligung: Gültigkeit und Verlängerung',
     'blog.article.permesso-l-breve-durata-basilea-campagna.excerpt': 'Kurzaufenthaltsbewilligung L: Höchstdauer von 1 Jahr, Verlängerungsbedingungen, Verpflichtungen gegenüber dem Arbeitgeber und Übergangsverfahren zur Aufenthaltsbewilligung B in der Schweiz.',
     'blog.article.permesso-l-breve-durata-basilea-campagna.imageAlt': 'Büro des Staatssekretariats für Migration (SEM) mit Aufenthaltsbewilligung L Unterlagen',
+    'blog.article.acquistare-casa-basilea-campagna-mutuo.title': 'Haus kaufen in Basel-Landschaft: Hypothek und Steuern',
+    'blog.article.acquistare-casa-basilea-campagna-mutuo.excerpt': 'So kaufen Sie ein Haus im Kanton Basel-Landschaft: Leitfaden zu den drei Steuerstufen, Hypothekendarlehen und versteckte Kosten',
+    'blog.article.acquistare-casa-basilea-campagna-mutuo.imageAlt': 'Moderne Wohnhäuser in einer Vorstadtgegend der Nordwestschweiz mit zeitgenössischem Baustil',
 };
 
 export default blogMetaChDe;
