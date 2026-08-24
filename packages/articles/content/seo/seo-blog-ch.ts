@@ -53411,6 +53411,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comprare-casa-basilea-prezzi-mutuo': {
+    title: 'Comprare casa a Basilea Città: mutuo e costi | Frontaliere Ticino',
+    description: 'Guida completa all\'acquisto immobiliare nel canton Basilea Città: mutuo ipotecario, imposte sui trapassi, spese notarili e procedura step-by-step',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, basilea, città',
+    ogTitle: 'Comprare casa a Basilea Città: mutuo e costi',
+    ogDescription: 'Guida pratica all\'acquisto immobiliare nel canton Basilea Città: finanziamento ipotecario, imposte cantonali sui trapassi, spese notarili e procedura. Scopri dove informarsi per i dati locali specifici e come calcolare la sostenibilità del mutuo.',
+    canonicalPath: '/articoli-svizzera/comprare-casa-basilea-prezzi-mutuo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa a Basilea Città: mutuo e costi",
+      "description": "Guida completa all'acquisto immobiliare nel canton Basilea Città: mutuo ipotecario, imposte sui trapassi, spese notarili e procedura step-by-step",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/comprare-casa-basilea-prezzi-mutuo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Casa moderna in stile svizzero nel canton Basilea Città con vista su contesto urbano"
+      },
+      "datePublished": "2026-08-24T13:26:29+00:00",
+      "dateModified": "2026-08-24T13:26:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/comprare-casa-basilea-prezzi-mutuo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

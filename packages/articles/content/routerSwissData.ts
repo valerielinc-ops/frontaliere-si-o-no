@@ -1398,6 +1398,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'domicilio-c-canton-basilea-diritti': { it: 'domicilio-c-canton-basilea-diritti', en: 'residence-permit-c-canton-basel-rights', de: 'aufenthalt-c-kanton-basel-rechte', fr: 'permis-residence-c-canton-bale-droits' },
  'identita-rubata-pornhub': { it: 'identita-rubata-pornhub', en: 'identity-stolen-for-pornhub', de: 'identitaent-stiehlt-fuer-pornhub', fr: 'identite-voluee-pour-pornhub' },
  'asilo-nido-custodia-bambini-svizzera': { it: 'asilo-nido-custodia-bambini-svizzera', en: 'childcare-nursery-costs-switzerland', de: 'kinderbetreuung-kinderhort-schweiz-kosten', fr: 'garde-enfants-couts-suisse' },
+ 'comprare-casa-basilea-prezzi-mutuo': { it: 'comprare-casa-basilea-prezzi-mutuo', en: 'buy-home-basel-city-prices-mortgage', de: 'haus-kaufen-basel-stadt-preise-hypothek', fr: 'acheter-maison-bale-ville-prix-hypotheque' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

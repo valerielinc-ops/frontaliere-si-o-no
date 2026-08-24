@@ -4117,6 +4117,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-svizzera.title': 'Garderie et garde d\'enfants : coûts et subventions en Suisse',
     'blog.article.asilo-nido-custodia-bambini-svizzera.excerpt': 'Découvrez comment fonctionne la garde d\'enfants en Suisse : crèches, tarifs, allocations cantonales et déductions fiscales. Guide pratique pour les familles.',
     'blog.article.asilo-nido-custodia-bambini-svizzera.imageAlt': 'Enfants dans une garderie suisse pendant le jeu dans une structure moderne et lumineuse.',
+    'blog.article.comprare-casa-basilea-prezzi-mutuo.title': 'Acheter une maison à Bâle-Ville : hypothèque et coûts',
+    'blog.article.comprare-casa-basilea-prezzi-mutuo.excerpt': 'Guide pratique de l\'achat immobilier dans le canton de Bâle-Ville : financement hypothécaire, taxes de passage, frais de notaire et procédure étape par étape. Où se renseigner pour les données locales spécifiques.',
+    'blog.article.comprare-casa-basilea-prezzi-mutuo.imageAlt': 'Propriété résidentielle moderne de style suisse dans le canton de Bâle-Ville',
 };
 
 export default blogMetaChFr;
