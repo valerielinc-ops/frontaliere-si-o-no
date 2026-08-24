@@ -1,20 +1,21 @@
 {
   "key": "albergo-gardenia",
   "label": "Albergo Gardenia",
-  "generatedAt": "2026-08-24T10:32:31.254Z",
+  "generatedAt": "2026-08-24T21:58:39.380Z",
   "total": 2,
   "discovered": null,
   "written": 2,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3918,
-  "avgDurationMs": 3918,
+  "durationMs": 4653,
+  "avgDurationMs": 4653,
   "durationHistory": [
-    3918
+    4653
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "albergo-gardenia-a58372a459dc",
       "slug": "carenza-di-personale-qualificato-albergo-gardenia-ch",
@@ -27,7 +28,7 @@
       "url": "https://www.hotelleriesuisse.ch/it/politica/lavoro-e-istruzione/carenza-di-personale-qualificato",
       "source": "Albergo Gardenia Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-24T10:32:28.227Z",
+      "crawledAt": "2026-08-24T21:58:35.622Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -40,11 +41,13 @@
       "featured": false,
       "postedDate": "2026-08-24",
       "applyUrl": "https://www.hotelleriesuisse.ch/it/politica/lavoro-e-istruzione/carenza-di-personale-qualificato",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T10:32:28.227Z",
+      "_qualityScore": 49,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 10,
         "completeness": 14
       }
     },
@@ -60,7 +63,7 @@
       "url": "https://www.hotelleriesuisse.ch/it/politica/lavoro-e-istruzione/previdenza-per-la-vecchiaia",
       "source": "Albergo Gardenia Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-24T10:32:28.546Z",
+      "crawledAt": "2026-08-24T21:58:35.939Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -73,16 +76,17 @@
       "featured": false,
       "postedDate": "2026-08-24",
       "applyUrl": "https://www.hotelleriesuisse.ch/it/politica/lavoro-e-istruzione/previdenza-per-la-vecchiaia",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T10:32:28.546Z",
+      "_qualityScore": 49,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 10,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
