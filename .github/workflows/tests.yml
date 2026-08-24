@@ -432,6 +432,7 @@ jobs:
           # suite INTERA. La direzione del fail-safe è quella giusta: un
           # guasto qui costa tempo, mai copertura.
           : > changed-paths.txt
+          cap=3000
           if [ -n "$PR_NUMBER" ]; then
             gh api "repos/${GITHUB_REPOSITORY}/pulls/${PR_NUMBER}/files" \
               --paginate -q '.[].filename' > changed-paths.txt 2>/dev/null || : > changed-paths.txt
@@ -440,10 +441,24 @@ jobs:
             # `compare` invece di `pulls/<n>/files`: un push a main non ha una
             # PR associata (o non è quella che ci interessa — un push può
             # arrivare anche da un commit diretto di un bot/crawler), ma
-            # confronta comunque due SHA con la stessa identica API,
-            # senza bisogno di storia locale.
+            # confronta comunque due SHA con la stessa identica API, senza
+            # bisogno di storia locale. NIENTE `--paginate` qui: la risposta
+            # è UN oggetto (nessun Link header da seguire), quindi sarebbe
+            # inerte — e la documentazione GitHub (Compare two commits,
+            # "Working with large comparisons") dichiara che `files` copre
+            # SOLO la prima pagina e si ferma a 300 file, senza un campo di
+            # troncamento nel payload. `pulls/<n>/files` è tutt'altro
+            # endpoint, paginato per davvero, con un cap più alto (3000):
+            # da qui il `cap` per-ramo sotto, review-finding #6339 su questa
+            # stessa PR — con la soglia unica ereditata dal ramo PR (3000) un
+            # push che tocca più di 300 file (i backfill/migrate su
+            # `data/jobs/**` li toccano regolarmente) sarebbe finito sotto
+            # quella soglia con un `changed-paths.txt` già troncato in
+            # silenzio, ed è esattamente lo scenario che il controllo sotto
+            # dichiara di coprire.
+            cap=300
             gh api "repos/${GITHUB_REPOSITORY}/compare/${BEFORE_SHA}...${AFTER_SHA}" \
-              --paginate -q '.files[].filename' > changed-paths.txt 2>/dev/null || : > changed-paths.txt
+              -q '.files[].filename' > changed-paths.txt 2>/dev/null || : > changed-paths.txt
           fi
           if [ ! -s changed-paths.txt ] && [ -n "$PR_NUMBER" ]; then
             echo "API senza risposta utile → fallback su git"
@@ -459,16 +474,23 @@ jobs:
             exit 0
           fi
           # Sia `pulls/<n>/files` che `compare` troncano su un diff enorme
-          # (rispondono 200 con una lista PARZIALE, non un errore) — il
-          # fail-safe sul fallimento non lo copre: un path corpus caduto oltre
-          # il taglio farebbe escludere un gate che invece doveva restare
-          # bloccante. Sopra la soglia si rinuncia a decidere e gira la suite
-          # intera, la stessa direzione di ogni altro fallimento qui. Anche se
-          # il vero cap di troncamento differisse fra i due endpoint, sbagliare
-          # per eccesso qui costa solo tempo: `corpus-wide-gates.yml` misura
-          # questi stessi sette gate in modo indipendente ad ogni push su main.
-          if [ "$count" -ge 3000 ]; then
-            echo "elenco al cap dell'API ($count): possibile troncamento → suite intera"
+          # (rispondono 200 con una lista PARZIALE, non un errore, e senza un
+          # campo che dichiari il troncamento) — il fail-safe sul fallimento
+          # non lo copre: un path corpus caduto oltre il taglio farebbe
+          # escludere un gate che invece doveva restare bloccante. La soglia
+          # è quella del ramo che ha prodotto `changed-paths.txt` ($cap,
+          # impostato sopra): 3000 per `pulls/<n>/files` (verificato, quella
+          # API pagina per davvero), 300 per `compare` (documentato, "Working
+          # with large comparisons": copre solo la prima pagina e non va
+          # oltre). Usare 3000 anche sul ramo `compare` — la versione
+          # precedente di questo step lo faceva — lascerebbe passare
+          # indisturbato un push fra 300 e 2999 file con `changed-paths.txt`
+          # già troncato, cioè esattamente il rischio che questo controllo
+          # esiste per intercettare. Sopra la soglia si rinuncia a decidere e
+          # gira la suite intera, la stessa direzione di ogni altro
+          # fallimento qui.
+          if [ "$count" -ge "$cap" ]; then
+            echo "elenco al cap dell'API ($count >= $cap): possibile troncamento → suite intera"
             exit 0
           fi
           decision="$(node scripts/ci/corpus-wide-tests.mjs --gha-output < changed-paths.txt || true)"
