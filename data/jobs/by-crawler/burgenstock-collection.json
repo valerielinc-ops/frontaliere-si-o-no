@@ -18,8 +18,8 @@
       "titleByLocale": {
         "de": "Mitarbeiter Gebäudeunterhalt 100% (m/w/i)",
         "it": "Collaboratore/trice Gebäudeunterhalt 100% (m/w/i)",
-        "en": "Mitarbeiter Gebäudeunterhalt 100% (m/w/i)",
-        "fr": "Mitarbeiter Gebäudeunterhalt 100% (m/w/i)"
+        "en": "Employees Building Maintenance 100% (m/f/i)",
+        "fr": "Employés Entretien des bâtiments 100% (m/f/i)"
       },
       "description": "Mitarbeiter Gebäudeunterhalt 100% (m/w/i) — Bürgenstock Collection",
       "descriptionByLocale": {
@@ -150,7 +150,7 @@
       "title": "F&B Supervisor 100% (w/m/i)",
       "titleByLocale": {
         "de": "F&B Vorgesetzter 100% (w/m/i)",
-        "it": "F&B Supervisor 100% (w/m/i)",
+        "it": "Supervisore F&B 100% (w/m/i)",
         "fr": "F&B Superviseur 100% (w/m/i)",
         "en": "F&B Supervisor 100% (w/m/i)"
       },
@@ -182,14 +182,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "f-b-supervisor-100-w-m-i-burgenstock-collection-ch"
+          "f-b-supervisor-100-w-m-i-burgenstock-collection-ch",
+          "f-b-supervisor-100-m-f-d-burgenstock-hotels-ag-obburgen",
+          "f-b-supervisor-zu-100-w-m-i-burgenstock-hotels-ag-obburgen",
+          "superviseur-de-chambre-100-w-m-i-burgenstock-hotels-ag-obburgen",
+          "superviseur-f-b-100-h-f-d-burgenstock-hotels-ag-obburgen"
         ],
         "de": [
           "f-b-supervisor-100-w-m-i-burgenstock-collection-ch"
         ]
       },
       "previousSlugs": [
-        "f-b-supervisor-100-w-m-i-burgenstock-collection-ch"
+        "f-b-supervisor-100-w-m-i-burgenstock-collection-ch",
+        "f-b-supervisor-100-m-f-d-burgenstock-hotels-ag-obburgen",
+        "f-b-supervisor-zu-100-w-m-i-burgenstock-hotels-ag-obburgen",
+        "superviseur-de-chambre-100-w-m-i-burgenstock-hotels-ag-obburgen",
+        "superviseur-f-b-100-h-f-d-burgenstock-hotels-ag-obburgen"
       ],
       "needsRetranslation": true,
       "salaryMin": 49500,
@@ -223,7 +231,7 @@
       "titleByLocale": {
         "de": "Head Sommelier 100% (w/m/i)",
         "fr": "Head Sommelier 100% (w/m/i)",
-        "it": "Head Sommelier 100% (w/m/i)",
+        "it": "Sommelier testa 100% (w/m/i)",
         "en": "Head Sommelier 100% (w/m/i)"
       },
       "description": "Head Sommelier 100% (w/m/i) — Bürgenstock Collection",
@@ -366,8 +374,8 @@
       "title": "Assistant Banqueting Manager 100% (w/m/i)",
       "titleByLocale": {
         "fr": "Assistant Banqueting Manager 100% (w/m/i)",
-        "it": "Assistant Banqueting Manager 100% (w/m/i)",
-        "en": "Assistant Banqueting Manager 100% (w/m/i)",
+        "it": "Assistente al 100% (w/m/i)",
+        "en": "Banqueting Manager Assistant 100% (w/m/i)",
         "de": "Assistent Banqueting Manager 100% (w/m/i)"
       },
       "description": "Assistant Banqueting Manager 100% (w/m/i) — Bürgenstock Collection",
@@ -427,7 +435,7 @@
       "title": "Bankett Supervisor 100% (w/m/i)",
       "titleByLocale": {
         "de": "Bankett Vorgesetzter 100% (w/m/i)",
-        "it": "Bankett Supervisor 100% (w/m/i)",
+        "it": "Supervisore Bankett 100% (w/m/i)",
         "fr": "Bankett Superviseur 100% (w/m/i)",
         "en": "Bankett Supervisor 100% (w/m/i)"
       },
@@ -499,9 +507,9 @@
       "title": "Restaurant Manager 100 % (w/m/i)",
       "titleByLocale": {
         "fr": "Restaurant Manager 100 % (w/m/i)",
-        "it": "Restaurant Manager 100 % (w/m/i)",
-        "en": "Restaurant Manager 100 % (w/m/i)",
-        "de": "Restaurant Manager 100 % (w/m/i)"
+        "it": "Ristorante Manager 100% (w/m/i)",
+        "en": "Restaurant Manager 100% (w/m/i)",
+        "de": "Restaurant Manager 100% (w/m/i)"
       },
       "description": "Restaurant Manager 100 % (w/m/i) — Bürgenstock Collection",
       "descriptionByLocale": {
@@ -571,8 +579,8 @@
       "title": "Assistant Restaurant Manager 100% (w/m/i)",
       "titleByLocale": {
         "fr": "Assistant Restaurant Manager 100% (w/m/i)",
-        "it": "Assistant Restaurant Manager 100% (w/m/i)",
-        "en": "Assistant Restaurant Manager 100% (w/m/i)",
+        "it": "Ristorante Manager Assistant 100% (w/m/i)",
+        "en": "Restaurant Manager Assistant 100% (w/m/i)",
         "de": "Assistent Restaurant Manager 100% (w/m/i)"
       },
       "description": "Assistant Restaurant Manager 100% (w/m/i) — Bürgenstock Collection",
@@ -643,9 +651,9 @@
       "title": "Aushilfe F&B Service 40% - 60% (m/w/d) - Stundenlohn",
       "titleByLocale": {
         "de": "Aushilfe F&B Service 40% - 60% (m/w/d) - Stundenlohn",
-        "it": "Aushilfe F&B Service 40% - 60% (m/w/d) - Stundenlohn",
-        "en": "Aushilfe F&B Service 40% - 60% (m/w/d) - Stundenlohn",
-        "fr": "Aushilfe F&B Service 40% - 60% (m/w/d) - Stundenlohn"
+        "it": "F&B Service 40% - 60% (m/f/d) - salario orario",
+        "en": "F&B Service 40% - 60% (m/f/d) - hourly wage",
+        "fr": "F&B Service 40% - 60% (h/f/d) - salaire horaire"
       },
       "description": "Aushilfe F&B Service 40% - 60% (m/w/d) - Stundenlohn — Bürgenstock Collection",
       "descriptionByLocale": {

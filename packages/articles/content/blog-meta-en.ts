@@ -10660,6 +10660,20 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-monguzzo-lavorare-ticino-da-frontaliere.title': 'Living in Monguzzo and working in Ticino as a border worker',
     'blog.article.vivere-monguzzo-lavorare-ticino-da-frontaliere.excerpt': 'Tax setting, permits and benefits for border workers working in Ticino and residing in Monguzzo',
     'blog.article.vivere-monguzzo-lavorare-ticino-da-frontaliere.imageAlt': 'Image of a frontier worker who works in Ticino and resides in Monguzzo',
+    'blog.article.vivere-novedrate-lavorare-ticino-frontaliere.title': 'Living in Novedrate and working in Ticino',
+    'blog.article.vivere-novedrate-lavorare-ticino-frontaliere.excerpt': 'New Frontier Agreement, G permit, tax at source, AVS and LPP: the complete guide to living in Lombardy and commuting to Ticino.',
+    'blog.article.vivere-novedrate-lavorare-ticino-frontaliere.imageAlt': 'Lake Como at the border between Novedrate and Canton Ticino, symbol of Italian-Swiss cross-border commuting',
+    'blog.article.vivere-rezzago-lavorare-ticino.title': 'Living in Rezzago and working in Ticino as a border worker',
+    'blog.article.vivere-rezzago-lavorare-ticino.excerpt': 'Setting up the tax at source, new rates and deductibles for border workers.',
+    'blog.article.vivere-rezzago-lavorare-ticino.imageAlt': 'Image of a frontaliere in Ticino with family and work',
+    'blog.article.bollettino-frontaliere-2026-08-24.title': 'Cross-border daily brief – August 24, 2026: 447 new job listings yesterday',
+    'blog.article.bollettino-frontaliere-2026-08-24.excerpt': 'Today\'s numbers, August 24, 2026, for cross-border commuters: the waits measured at every crossing this morning, the municipalities where fuel is cheapest, the franc-euro rate at yesterday\'s close and the jobs newly posted in Switzerland. Measured daily by our own monitoring.',
+    'blog.article.bollettino-frontaliere-2026-08-24.imageAlt': 'The day\'s numbers for cross-border commuters – August 24, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
+    'blog.article.bollettino-frontaliere-2026-08-24.seoDescription': 'Cross-border brief, August 24, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
+    'blog.article.bollettino-frontaliere-2026-08-24.ogDescription': 'The numbers for August 24, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.malesco-frontaliere-ticino.title': 'Living in Malesco, working in Ticino: practical guide',
+    'blog.article.malesco-frontaliere-ticino.excerpt': 'Moving to Malesco to work in Ticino: access points, journey times, advantageous taxation and reduced costs for border workers.',
+    'blog.article.malesco-frontaliere-ticino.imageAlt': 'Sunset view of Lugano with Ticino mountains in the background.',
 };
 
 export default blogMetaEn;

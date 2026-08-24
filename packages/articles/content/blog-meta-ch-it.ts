@@ -4027,6 +4027,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-attivita-canton-friburgo-costi.title': 'Aprire attività a Friburgo: registro commercio e costi',
     'blog.article.aprire-attivita-canton-friburgo-costi.excerpt': 'Guida pratica per avviare un\'attività nel canton Friburgo: forme giuridiche, iscrizione al registro di commercio, capitale minimo, tasse e obblighi assicurativi per autonomi.',
     'blog.article.aprire-attivita-canton-friburgo-costi.imageAlt': 'Uffici di una città svizzera, ambiente economico e imprenditoriale per aprire un\'attività commerciale.',
+    'blog.article.permesso-dimora-b-soletta-requisiti-rinnovo.title': 'Permesso dimora B Soletta: requisiti e rinnovo',
+    'blog.article.permesso-dimora-b-soletta-requisiti-rinnovo.excerpt': 'Guida completa al permesso B nel cantone Soletta. Scopri requisiti, documenti da produrre, durata 5 anni e procedura di rinnovo entro 3 mesi dalla scadenza.',
+    'blog.article.permesso-dimora-b-soletta-requisiti-rinnovo.imageAlt': 'Documento del permesso di dimora B svizzero con dati personali e data di rinnovo su scrivania',
+    'blog.article.apprendistato-tirocinio-soletta.title': 'Apprendistato e formazione nel Canton Soletta',
+    'blog.article.apprendistato-tirocinio-soletta.excerpt': 'Come trovare un posto di tirocinio, stipulare il contratto, comprendere retribuzione e protezioni sociali, certificazione AFC nel Canton Soletta.',
+    'blog.article.apprendistato-tirocinio-soletta.imageAlt': 'Un giovane apprendista al lavoro in un laboratorio svizzero moderno con attrezzi professionali',
+    'blog.article.classi-scolastiche-create-algoritmo.title': 'Classi scolastiche create con un algoritmo, l\'esperimento di Uster',
+    'blog.article.classi-scolastiche-create-algoritmo.excerpt': 'La città di Uster ha implementato un software per creare classi scolastiche più equilibrate, garantendo pari opportunità a tutti gli studenti.',
+    'blog.article.classi-scolastiche-create-algoritmo.imageAlt': 'La città di Uster implementa un software per creare classi scolastiche più equilibrate, garantendo pari opportunità a tutti gli studenti.',
 };
 
 export default blogMetaChIt;

@@ -205,6 +205,17 @@ export function decomposedChildNumbers(comments) {
 const AGEOUT_DAYS = Number(process.env.FOLLOWUP_AGEOUT_DAYS || 10);
 const AGEOUT_INACTIVE_DAYS = Number(process.env.FOLLOWUP_AGEOUT_INACTIVE_DAYS || 7);
 const AGEOUT_MAX_PER_RUN = Number(process.env.FOLLOWUP_AGEOUT_MAX_PER_RUN || 20);
+// Cap dello stadio VERDICT-EXIT. Ogni item costa una lettura commenti + una
+// coppia comment/close o una edit: con 87 parked e un budget di run di ~277s
+// leggerli tutti a ogni tick non ci sta. Il cap è alto perché lo stadio è
+// TERMINALE — ciò che tocca esce dal pool e non torna, quindi il backlog si
+// drena e non si ripresenta al tick dopo, a differenza di uno stadio che
+// ri-valuta sempre lo stesso insieme.
+const VERDICT_EXIT_MAX_PER_RUN = Number(process.env.FOLLOWUP_VERDICT_EXIT_MAX_PER_RUN || 12);
+// Interruttore gemello di `NO_AUTOCLOSE` in reconcile-followups.mjs: degrada la
+// chiusura di `already-fixed` a `maybe-resolved` + commento.
+const VERDICT_EXIT_NO_AUTOCLOSE = process.env.FOLLOWUP_NO_AUTOCLOSE === '1' || process.env.NO_AUTOCLOSE === '1';
+const LBL_RESOLVED_AUTO = 'fu-resolved-auto';
 // Quante candidate all'age-out possono essere rivalutate sull'ultimo evento
 // significativo in una run. Stesso modello del cap del PARKED-RETRY, e stesso
 // motivo: la lettura commenti è l'unica parte cara del passo.
@@ -251,6 +262,79 @@ export const NON_RETRYABLE = new Set([
   'already-fixed',
 ]);
 
+// --- USCITA TERMINALE PER VERDETTO (misurato 2026-08-24) ---------------------
+// `NON_RETRYABLE` dice soltanto «non ri-accodare»: la issue resta `fu-parked` e
+// APERTA, e nessuno stadio la guarda più. È uno stato assorbente, e si misura:
+//
+//   Sul sito, 87 issue `fu-parked`. Verdetto dell'ultimo giro del fixer:
+//   23 `already-fixed`, 15 `no-root-cause`, 11 `revenue-tracker-manual`,
+//   5 `blocked-secrets`, 1 `blocked-workflows-scope` — 55 su 87 con un verdetto
+//   NON_RETRYABLE, cioè con una diagnosi già pagata e nessuna uscita.
+//   Sul corpus, 44 parked: 9 `no-root-cause`, 8 `blocked-workflows-scope`,
+//   7 `already-fixed`, 4 `blocked-admin-settings` → 28 su 44.
+//
+// Peggio: il PARKED-RETRY non legge il verdetto (`isReparkableCandidate` guarda
+// solo le label), quindi spende la sua UNICA generazione proprio su queste. Le 8
+// issue del sito che portano `fu-reparked:1` hanno TUTTE un verdetto
+// NON_RETRYABLE (4 `already-fixed`, 2 `no-root-cause`, 2 `blocked-secrets`):
+// 8 su 8, non una parte. Verificato su #6020 il 2026-08-24: parcheggiata il
+// 08-19 con `no-root-cause`, ri-accodata dal retry alle 01:26, promossa, una run
+// Claude INTERA fino alle 02:35, stesso `no-root-cause`, ri-parcheggiata con la
+// generazione bruciata. Un verdetto deterministico ri-derivato al prezzo pieno.
+//
+// Questo stadio dà a ogni verdetto NON_RETRYABLE l'uscita che gli manca, e lo fa
+// PRIMA del parked-retry così il pool che il retry vede è già ripulito:
+//
+//   `already-fixed`  → CHIUSA. È il verdetto «sono andato a guardare e il
+//                      difetto non c'è più»: più forte del token-match con cui
+//                      `reconcile-followups.mjs` già auto-chiude. Reversibile —
+//                      il monitor che l'ha aperta riapre alla ricorrenza.
+//   gli altri        → `needs-human`. Sono capacità che la CI non ha (secret,
+//                      admin, scope workflows), lavoro editoriale/manuale, o una
+//                      causa che il fixer non ha trovato: nessuno dei tre si
+//                      sblocca ri-provando. `needs-human` li mette nello sweep
+//                      del lunedì (VISION.md), che è la sola porta di rientro.
+//
+// `FOLLOWUP_NO_AUTOCLOSE=1` degrada la chiusura a `maybe-resolved` + commento,
+// stesso interruttore semantico di `NO_AUTOCLOSE` in reconcile-followups.mjs:
+// serve a chi vuole l'osservabilità senza la mutazione.
+export const VERDICT_ESCALATE = new Set([
+  'no-root-cause',
+  'blocked-workflows-scope',
+  'skip-duplicate-diagnosis',
+  'blocked-secrets',
+  'blocked-admin-settings',
+  'revenue-tracker-manual',
+]);
+
+/**
+ * Uscita terminale per una issue parcheggiata, dal solo verdetto. Pura → testabile.
+ *
+ * Fail-safe in DUE direzioni, entrambe volute:
+ * - `hasPR: true` → `none`. Una PR fix aperta significa che il lavoro è in volo:
+ *   il verdetto in coda è vecchio e chiudere o escalare qui ammazzerebbe una PR
+ *   viva. Stessa guardia di `hasFixPR` nell'age-out.
+ * - verdetto assente o non-NON_RETRYABLE → `none`. Un `null` è «non ho potuto
+ *   leggere» oppure «run morta, ri-tentabile»: in entrambi i casi la issue resta
+ *   dov'è e il parked-retry fa il suo lavoro. Non si inventa un'uscita da
+ *   un'assenza di informazione.
+ *
+ * @param {string|null} outcome ultimo FIX_OUTCOME, o null
+ * @param {{hasPR?: boolean, noAutoclose?: boolean}} [opts]
+ * @returns {{action: 'close'|'flag'|'escalate'|'none', reason: string}}
+ */
+export function verdictExitDecision(outcome, { hasPR = false, noAutoclose = false } = {}) {
+  if (hasPR) return { action: 'none', reason: 'PR fix aperta: il lavoro è in volo' };
+  if (!outcome) return { action: 'none', reason: 'nessun verdetto: ri-tentabile' };
+  if (!NON_RETRYABLE.has(outcome)) return { action: 'none', reason: `verdetto ri-tentabile: ${outcome}` };
+  if (outcome === 'already-fixed') {
+    return noAutoclose
+      ? { action: 'flag', reason: 'already-fixed, autoclose disattivato → solo maybe-resolved' }
+      : { action: 'close', reason: 'already-fixed: difetto verificato assente' };
+  }
+  return { action: 'escalate', reason: `capacità/causa fuori dalla portata della CI: ${outcome}` };
+}
+
 // Esiti ZERO-WORK: la run è morta PRIMA che l'agent leggesse la issue, quindi
 // non ha prodotto alcuna informazione — né un fix, né un verdetto, né una
 // diagnosi. Sono l'esatto opposto sia di NON_RETRYABLE (verdetto fermo → park)
@@ -295,7 +379,15 @@ export function latestFixOutcomeFromComments(comments) {
     if (body.includes(BACKSTOP_MARKER)) continue;
     const m = FIX_OUTCOME_RE.exec(body);
     if (!m) continue;
-    const at = Date.parse(c?.createdAt);
+    // `createdAt ?? created_at`: le due forme in cui GitHub espone lo stesso
+    // campo — GraphQL (`gh issue view --json comments`) e REST
+    // (`gh api .../comments`). Con la sola forma GraphQL questa funzione
+    // restituiva `null` su OGNI lista REST, perché `Date.parse(undefined)` è
+    // NaN e il ramo qui sotto la scartava: un verdetto invisibile, non un
+    // errore. `lastSignificantActivityAt` accetta già entrambe le forme, e
+    // questa funzione va letta sugli stessi commenti (vedi il pool del
+    // parked-retry, che li ha già in mano dalla REST).
+    const at = Date.parse(c?.createdAt ?? c?.created_at);
     // `>=` così, a parità (o data illeggibile → NaN ignorato), vince l'ultimo
     // in ordine di lista (i commenti gh sono cronologici).
     if (!Number.isNaN(at) && at >= latestAt) { latestAt = at; latest = m[1].toLowerCase(); }
@@ -1067,6 +1159,34 @@ export function canPushWorkflowsFromEnv(env = process.env) {
 }
 
 /**
+ * Capacità EFFETTIVA di pushare `.github/workflows/**` con l'identità di questo
+ * run, da qualunque delle due sorgenti la porti.
+ *
+ * `APP_TOKEN_WORKFLOWS` descrive UNA sola identità — la GitHub App del sito,
+ * scritta da `mint-app-token.mjs`. Il corpus non usa una App: pusha con
+ * `GITHUB_PAT_NANAKO`, e su quel PAT lo scope `workflow` c'è (misurato il
+ * 2026-08-24 su `x-oauth-scopes`: `…, repo, user, workflow, …`). Con il solo
+ * controllo su `APP_TOKEN_WORKFLOWS` la risposta là era `false` per
+ * costruzione, e il pre-flight parcheggiava come `blocked-workflows-scope` fix
+ * che il PAT pushava benissimo: 8 verdetti in 7 giorni sul corpus, TUTTI emessi
+ * dal pre-flight e non da Claude, con un messaggio che parla di «token GitHub
+ * App» su un repo che non ne usa uno. Il guard bloccava una capacità posseduta.
+ *
+ * `PAT_WORKFLOWS_SCOPE` è l'altra metà, e la sua provenienza è la lezione di
+ * #5288: la capacità si LEGGE, non si deduce dalla presenza di un token. La
+ * scrive `scripts/ci/probe-workflow-scope.mjs` leggendo `x-oauth-scopes` dalla
+ * risposta dell'API, esattamente come il conio della App legge `permissions`.
+ * Questa funzione resta pura e legge solo env — deliberatamente: sondare qui
+ * l'identità ambientale di `gh` legherebbe un guard di produzione a qualunque
+ * token si trovi nella shell di chi lo esegue, incluso un laptop.
+ *
+ * FAIL-CLOSED in entrambi i rami: una variabile non scritta è `!== 'true'`.
+ */
+export function canPushWorkflows(env = process.env) {
+  return canPushWorkflowsFromEnv(env) || env?.PAT_WORKFLOWS_SCOPE === 'true';
+}
+
+/**
  * Capability-guard UNICO per il parked-retry: WF-scope **o** secrets-scope, con una
  * sola `gh issue view` invece di due.
  *
@@ -1100,13 +1220,13 @@ export function isCapabilityScoped(iss, {
   // Seam di test (#5544): entrambe le direzioni del guard vanno provate senza rete.
   // Default = comportamento di produzione, invariato.
   fetchIssue = (num) => gh(['issue', 'view', String(num), '--repo', REPO, '--json', 'title,body,labels']),
-  canPushWorkflows = canPushWorkflowsFromEnv(),
+  canPushWorkflows: canPushWorkflowsOpt = canPushWorkflows(),
 } = {}) {
   if (isSecretsScoped(iss)) return true; // label nota → gratis, nessuna fetch
   try {
     const d = fetchIssue(iss.number);
     // WF-scope esclude SOLO se il push di quei file è davvero impossibile (#5544).
-    if (!canPushWorkflows && isWorkflowScoped(iss.number, d)) return true;
+    if (!canPushWorkflowsOpt && isWorkflowScoped(iss.number, d)) return true;
     return Boolean(matchSecretsScopedShape({
       labels: names(d),
       text: `${d?.title || ''}\n${d?.body || ''}`,
@@ -1498,6 +1618,109 @@ export function runDrain() {
     }
   }
 
+  // --- VERDICT-EXIT: uscita terminale per i verdetti NON_RETRYABLE -----------
+  // Gira PRIMA di too-large e del parked-retry, e l'ordine è la metà della fix:
+  // ciò che questo stadio chiude o escala non è più nel pool che il retry legge,
+  // quindi il retry non può più spendere la sua unica generazione su un verdetto
+  // che per definizione non cambierà (misura e prove nel commento di
+  // `verdictExitDecision`). Zero Claude: legge un marker e applica una label.
+  {
+    const parked = listIssues(LBL_PARKED)
+      .filter((iss) => isQueueManaged(iss))
+      // Chi è già in coda, in lavoro, nello stadio decompose o già escalato non
+      // ha bisogno di un'uscita: ce l'ha. `needs-human` incluso, altrimenti
+      // questo stadio ri-commenterebbe a ogni tick ciò che ha già instradato.
+      .filter((iss) => !has(iss, LBL_FIX) && !has(iss, LBL_QUEUED) && !has(iss, 'needs-human'))
+      .filter((iss) => !has(iss, LBL_DECOMP_QUEUED) && !has(iss, LBL_DECOMP) && !has(iss, LBL_DECOMPOSED))
+      // Già flaggata da un giro precedente del ramo `flag`: rientrare non
+      // produce nulla (il ramo fa `continue` sul marker) ma consuma uno slot del
+      // cap, e con `FOLLOWUP_NO_AUTOCLOSE=1` e più di `VERDICT_EXIT_MAX_PER_RUN`
+      // flaggate lo esaurirebbe sui no-op prima di arrivare alle candidate
+      // nuove. Stessa esclusione già presente in `isDecomposeEligible` (#6275).
+      .filter((iss) => !has(iss, LBL_MAYBE_RESOLVED))
+      // Un tracker permanente non si chiude e non si escala: è aperto per scelta.
+      .filter((iss) => !isPermanentTracker(iss));
+
+    // La rotazione serve alla stessa ragione del cooldown-scan: senza, il cap
+    // taglia SEMPRE dalla stessa coda della lista (`gh issue list` ordina dalla
+    // più recente), e le parcheggiate da più tempo — esattamente quelle che
+    // aspettano un'uscita da più giorni — non verrebbero mai lette.
+    const rotated = rotateForScan(parked, {
+      scanMax: VERDICT_EXIT_MAX_PER_RUN,
+      now: Date.now(),
+      periodMs: SCAN_ROTATION_PERIOD_MS,
+    });
+
+    let acted = 0;
+    let scanned = 0;
+    for (const iss of rotated) {
+      if (acted >= VERDICT_EXIT_MAX_PER_RUN) {
+        console.log(`verdict-exit: cap ${VERDICT_EXIT_MAX_PER_RUN}/run raggiunto, ${parked.length - scanned} candidate rinviate al prossimo tick (no silent cap).`);
+        break;
+      }
+      // Coppia non atomica (comment → close/edit): non si comincia se non c'è il
+      // tempo di finire, o si resta con una issue commentata e non instradata
+      // che al tick dopo viene ri-commentata.
+      if (!budget.take(`#${iss.number} (verdict-exit)`, ITEM_COST_MS)) break;
+      scanned++;
+      const outcome = latestFixOutcome(iss.number);
+      const d = verdictExitDecision(outcome, {
+        hasPR: hasFixPR(iss.number),
+        noAutoclose: VERDICT_EXIT_NO_AUTOCLOSE,
+      });
+      if (d.action === 'none') continue;
+      acted++;
+
+      if (d.action === 'close') {
+        const note = `✅ **Auto-chiusa dal followup-drainer (zero-Claude)**: l'ultimo giro del fixer ha emesso \`FIX_OUTCOME: already-fixed\`, cioè è andato a guardare il codice e il difetto non c'era più. Il verdetto è più forte del token-match con cui \`reconcile-followups.mjs\` già auto-chiude, quindi non serve una seconda run per confermarlo.\n\n**Riapri** se il difetto ricorre — il monitor che ha aperto questa issue lo fa da sé. Per disattivare questa chiusura: \`FOLLOWUP_NO_AUTOCLOSE=1\`.`;
+        if (DRY) { console.log(`[dry] close #${iss.number} (verdict-exit: ${d.reason}) — "${iss.title}"`); continue; }
+        // ORDINE: label → close → commento, e NON commento → close come
+        // nell'age-out. Il motivo è la mutazione non atomica: se il commento va
+        // a buon fine e la close lancia (l'errore è catturato e loggato), la
+        // issue resta `fu-parked` col verdetto invariato e al tick successivo
+        // rientra nel pool e ri-commenta — un «Auto-chiusa» duplicato su una
+        // issue ancora aperta. Chiudendo per prima, un fallimento non lascia
+        // traccia da duplicare, e una close riuscita toglie la issue dal pool
+        // (`listIssues` legge solo le aperte) anche se il commento poi salta.
+        // Si può commentare una issue chiusa, quindi non si perde la spiegazione.
+        try {
+          edit(iss.number, { add: [LBL_RESOLVED_AUTO], remove: [LBL_PARKED] });
+          gh(['issue', 'close', String(iss.number), '--repo', REPO, '--reason', 'completed'], { json: false });
+        } catch (e) {
+          console.log(`::warning::verdict-exit close #${iss.number} fallito: ${String(e).slice(0, 120)}`);
+          continue;
+        }
+        try { gh(['issue', 'comment', String(iss.number), '--repo', REPO, '--body', note], { json: false }); }
+        catch { console.log(`::warning::verdict-exit #${iss.number}: chiusa, ma il commento di spiegazione non è stato postato.`); }
+        console.log(`VERDICT-EXIT close #${iss.number} (already-fixed) — "${iss.title?.slice(0, 50)}"`);
+        continue;
+      }
+
+      if (d.action === 'flag') {
+        if (DRY) { console.log(`[dry] flag #${iss.number} (verdict-exit: ${d.reason})`); continue; }
+        if (has(iss, LBL_MAYBE_RESOLVED)) continue; // già flaggata: niente commento duplicato
+        try {
+          gh(['issue', 'comment', String(iss.number), '--repo', REPO, '--body',
+            `🔎 **followup-drainer (zero-Claude)**: verdetto \`already-fixed\` — il fixer ha verificato che il difetto non c'è più. Chiusura automatica disattivata (\`FOLLOWUP_NO_AUTOCLOSE=1\`), quindi resta aperta per conferma umana.`], { json: false });
+        } catch { /* il flag è advisory: un commento perso non è un blocco */ }
+        edit(iss.number, { add: [LBL_MAYBE_RESOLVED], remove: [] });
+        console.log(`VERDICT-EXIT flag #${iss.number} (already-fixed, autoclose off) — "${iss.title?.slice(0, 50)}"`);
+        continue;
+      }
+
+      // escalate
+      if (DRY) { console.log(`[dry] escalate #${iss.number} → needs-human (verdict-exit: ${d.reason})`); continue; }
+      try {
+        gh(['issue', 'comment', String(iss.number), '--repo', REPO, '--body',
+          `🙋 **Escalata dal followup-drainer (zero-Claude)**: verdetto \`FIX_OUTCOME: ${outcome}\`. È una capacità che la CI non ha (secret, admin, scope \`workflows\`), un lavoro manuale/editoriale, o una causa che il fixer non ha trovato: ri-provare riproduce lo stesso verdetto allo stesso prezzo.\n\nPrima di questa escalation la issue restava \`fu-parked\` e nessuno stadio la guardava. Ora entra nello sweep \`needs-human\` (VISION.md), che è la porta di rientro.`], { json: false });
+      } catch { /* il commento è la spiegazione, non il meccanismo */ }
+      edit(iss.number, { add: ['needs-human'], remove: [] });
+      console.log(`VERDICT-EXIT escalate #${iss.number} → needs-human (${outcome}) — "${iss.title?.slice(0, 50)}"`);
+    }
+    if (acted) console.log(`verdict-exit: ${acted} uscite terminali su ${scanned} candidate lette (pool parked ${parked.length}).`);
+    else if (scanned) console.log(`verdict-exit: ${scanned} candidate lette, nessun verdetto NON_RETRYABLE da instradare (pool parked ${parked.length}).`);
+  }
+
   // --- TOO-LARGE ESCALATION (no cooldown) ------------------------------------
   // Un follow-up parkato che ha GIÀ avuto un giro di parked-retry (reparkGen≥1)
   // col fixer migliorato e NON ha MAI prodotto una PR = pure-run-death
@@ -1560,6 +1783,7 @@ export function runDrain() {
     // chi lo supera è eleggibile per costruzione e non serve leggerne i commenti.
     let commentScans = 0;
     let scanCapped = 0;
+    let verdictSkipped = 0;
     let unreadable = 0;
     const eligible = [];
     // Rotazione dell'offset di scansione (2026-08-21): col cap fisso a
@@ -1592,6 +1816,16 @@ export function runDrain() {
       commentScans++;
       const comments = issueCommentsRest(iss.number);
       if (comments === null) { unreadable++; continue; } // glitch gh → si rivaluta al prossimo tick
+      // Cintura oltre alle bretelle dello stadio VERDICT-EXIT: quello ha un cap
+      // per tick, quindi una parcheggiata con verdetto NON_RETRYABLE può arrivare
+      // qui prima di essere stata instradata. Ri-accodarla è spreco GARANTITO —
+      // il drain la ri-parcheggia sul verdetto e la generazione è bruciata (le 8
+      // `fu-reparked:1` del sito sono 8 su 8 così). Il controllo è GRATIS: i
+      // commenti sono già in mano da `issueCommentsRest`, e da quando
+      // `latestFixOutcomeFromComments` accetta anche la forma REST li legge
+      // davvero — prima, su una lista REST, restituiva `null` sempre.
+      const parkedVerdict = latestFixOutcomeFromComments(comments);
+      if (parkedVerdict && NON_RETRYABLE.has(parkedVerdict)) { verdictSkipped++; continue; }
       if (!isRetryCooldownElapsed(iss, comments, { now, cooldownDays: RETRY_COOLDOWN_DAYS })) continue;
       eligible.push({ iss, at: lastSignificantActivityAt(iss, comments) });
     }
@@ -1603,6 +1837,9 @@ export function runDrain() {
     }
     if (scanCapped) {
       console.log(`parked-retry: cap di scansione commenti ${RETRY_COMMENT_SCAN_MAX}/run raggiunto, ${scanCapped} candidate non valutate in questo tick (no silent cap).`);
+    }
+    if (verdictSkipped) {
+      console.log(`parked-retry: ${verdictSkipped} candidate con verdetto NON_RETRYABLE non ri-accodate (il drain le ri-parcheggerebbe bruciando la generazione) → le instrada lo stadio verdict-exit.`);
     }
     if (unreadable) {
       console.log(`parked-retry: ${unreadable} candidate con commenti illeggibili (glitch gh) → nessuna decisione presa, rivalutate al prossimo tick.`);
@@ -1641,7 +1878,9 @@ export function runDrain() {
       // WF-scope` è ambiguo — non si distingue «parcheggiata perché manca il
       // permesso» da «parcheggiata per secrets-scope», ed è esattamente
       // l'ambiguità che ha tenuto il difetto invisibile per 13 run.
-      const cap = canPushWorkflowsFromEnv() ? 'concessa' : 'assente';
+      const cap = canPushWorkflows()
+        ? (canPushWorkflowsFromEnv() ? 'concessa (GitHub App)' : 'concessa (PAT con scope workflow)')
+        : 'assente';
       console.log(`parked-retry: ${skippedWf} skip capability-guard (workflows: write ${cap} — APP_TOKEN_WORKFLOWS; secrets-scope sempre escluso) → restano parked/age-out.`);
     }
   }
