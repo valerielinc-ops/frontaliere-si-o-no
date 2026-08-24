@@ -1,6 +1,6 @@
 {
   "crawlerKey": "zfv-unternehmungen",
-  "assembledAt": "2026-08-24T10:27:20.988Z",
+  "assembledAt": "2026-08-24T09:54:09.917Z",
   "jobs": [
     {
       "id": "zfv-unternehmungen-f46ab91fe5ae",
@@ -1718,18 +1718,31 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachfrau-mann-hotellerie-hauswirtschaft-efz-lehrstelle-2027-zfv-unternehmungen-zurich",
-        "fachfrau-mann-hotellerie-hauswirtschaft-cfc-apprendistato-2027-zfv-unternehmungen-zurich"
+        "fachfrau-mann-hotellerie-hauswirtschaft-cfc-apprendistato-2027-zfv-unternehmungen-zurich",
+        "ict-fachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-zurich",
+        "ict-specialist-efz-apprenticeship-2027-zfv-unternehmungen-zurich",
+        "ict-fachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-zurich",
+        "specialiste-des-tic-apprentissage-efz-2027-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-hotellerie-hauswirtschaft-efz-lehrstelle-2027-zfv-unternehmungen-zurich",
-          "fachfrau-mann-hotellerie-hauswirtschaft-cfc-apprendistato-2027-zfv-unternehmungen-zurich"
+          "fachfrau-mann-hotellerie-hauswirtschaft-cfc-apprendistato-2027-zfv-unternehmungen-zurich",
+          "ict-fachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-zurich",
+          "ict-specialist-efz-apprenticeship-2027-zfv-unternehmungen-zurich",
+          "ict-fachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-zurich",
+          "specialiste-des-tic-apprentissage-efz-2027-zfv-unternehmungen-zurich"
         ],
         "en": [
-          "fachfrau-mann-hotellerie-hauswirtschaft-efz-lehrstelle-2027-zfv-unternehmungen-zurich"
+          "fachfrau-mann-hotellerie-hauswirtschaft-efz-lehrstelle-2027-zfv-unternehmungen-zurich",
+          "ict-specialist-efz-apprenticeship-2027-zfv-unternehmungen-zurich"
         ],
         "fr": [
-          "fachfrau-mann-hotellerie-hauswirtschaft-efz-lehrstelle-2027-zfv-unternehmungen-zurich"
+          "fachfrau-mann-hotellerie-hauswirtschaft-efz-lehrstelle-2027-zfv-unternehmungen-zurich",
+          "specialiste-des-tic-apprentissage-efz-2027-zfv-unternehmungen-zurich"
+        ],
+        "de": [
+          "ict-fachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-zurich"
         ]
       },
       "firstSeenAt": "2026-07-31T22:13:27.443Z",
@@ -5752,7 +5765,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-08-24T10:26:28.884Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8044",
       "streetAddress": "Orellistrasse 21",
@@ -5771,18 +5783,28 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "office-mitarbeiter-in-zfv-unternehmungen-zurich",
-        "office-collaboratore-trice-zfv-unternehmungen-zurich"
+        "office-collaboratore-trice-zfv-unternehmungen-zurich",
+        "cafeteria-collaboratore-trice-80-100-zfv-unternehmungen-zurich",
+        "cafeteria-mitarbeiter-in-80-100-zfv-unternehmungen-zurich",
+        "cafeteria-collaborateur-trice-80-100-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "office-mitarbeiter-in-zfv-unternehmungen-zurich",
-          "office-collaboratore-trice-zfv-unternehmungen-zurich"
+          "office-collaboratore-trice-zfv-unternehmungen-zurich",
+          "cafeteria-collaboratore-trice-80-100-zfv-unternehmungen-zurich",
+          "cafeteria-mitarbeiter-in-80-100-zfv-unternehmungen-zurich",
+          "cafeteria-collaborateur-trice-80-100-zfv-unternehmungen-zurich"
         ],
         "en": [
           "office-mitarbeiter-in-zfv-unternehmungen-zurich"
         ],
         "fr": [
-          "office-mitarbeiter-in-zfv-unternehmungen-zurich"
+          "office-mitarbeiter-in-zfv-unternehmungen-zurich",
+          "cafeteria-collaborateur-trice-80-100-zfv-unternehmungen-zurich"
+        ],
+        "de": [
+          "cafeteria-mitarbeiter-in-80-100-zfv-unternehmungen-zurich"
         ]
       },
       "firstSeenAt": "2026-08-14T10:17:13.930Z",
@@ -5797,7 +5819,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zfv-unternehmungen-e8680facfee8",
@@ -7209,7 +7232,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-08-24T10:26:18.192Z",
-      "needsRetranslation": true,
       "addressLocality": "Bern",
       "postalCode": "3001",
       "streetAddress": "Laupenstrasse 15",
@@ -7228,18 +7250,31 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "service-mitarbeiter-in-40-zfv-unternehmungen-bern",
-        "service-collaboratore-trice-40-zfv-unternehmungen-bern"
+        "service-collaboratore-trice-40-zfv-unternehmungen-bern",
+        "cafeteria-collaboratore-trice-60-zfv-unternehmungen-bern",
+        "cafeteria-associate-60-zfv-unternehmungen-bern",
+        "cafeteria-mitarbeiter-in-60-zfv-unternehmungen-bern",
+        "cafeteria-collaborateur-trice-60-zfv-unternehmungen-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "service-mitarbeiter-in-40-zfv-unternehmungen-bern",
-          "service-collaboratore-trice-40-zfv-unternehmungen-bern"
+          "service-collaboratore-trice-40-zfv-unternehmungen-bern",
+          "cafeteria-collaboratore-trice-60-zfv-unternehmungen-bern",
+          "cafeteria-associate-60-zfv-unternehmungen-bern",
+          "cafeteria-mitarbeiter-in-60-zfv-unternehmungen-bern",
+          "cafeteria-collaborateur-trice-60-zfv-unternehmungen-bern"
         ],
         "en": [
-          "service-mitarbeiter-in-40-zfv-unternehmungen-bern"
+          "service-mitarbeiter-in-40-zfv-unternehmungen-bern",
+          "cafeteria-associate-60-zfv-unternehmungen-bern"
         ],
         "fr": [
-          "service-mitarbeiter-in-40-zfv-unternehmungen-bern"
+          "service-mitarbeiter-in-40-zfv-unternehmungen-bern",
+          "cafeteria-collaborateur-trice-60-zfv-unternehmungen-bern"
+        ],
+        "de": [
+          "cafeteria-mitarbeiter-in-60-zfv-unternehmungen-bern"
         ]
       },
       "firstSeenAt": "2026-08-13T21:53:09.979Z",
@@ -7254,7 +7289,8 @@
           "maxValue": 41600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zfv-unternehmungen-e20a9e670f7b",

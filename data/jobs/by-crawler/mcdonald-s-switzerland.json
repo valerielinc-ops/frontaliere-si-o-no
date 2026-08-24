@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mcdonald-s-switzerland",
-  "assembledAt": "2026-08-24T09:57:43.058Z",
+  "assembledAt": "2026-08-24T09:16:33.827Z",
   "jobs": [
     {
       "title": "Hôte / Hôtesse",
@@ -2475,19 +2475,27 @@
       "id": "mcdonald-s-switzerland-5089be13f23a",
       "previousSlugs": [
         "crew-mcdonalds-switzerland-st-gallen-p8-317758-2",
-        "crew-mcdonalds-switzerland-st-gallen-p8-317760-2"
+        "crew-mcdonalds-switzerland-st-gallen-p8-317760-2",
+        "crew-mcdonalds-switzerland-st-margrethen-p8-317759-2",
+        "crew-mcdonald-s-switzerland-st-margrethen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "crew-mcdonalds-switzerland-st-gallen-p8-317758-2",
-          "crew-mcdonalds-switzerland-st-gallen-p8-317760-2"
+          "crew-mcdonalds-switzerland-st-gallen-p8-317760-2",
+          "crew-mcdonalds-switzerland-st-margrethen-p8-317759-2",
+          "crew-mcdonald-s-switzerland-st-margrethen"
         ],
         "en": [
           "crew-mcdonalds-switzerland-st-gallen-p8-317760-2"
         ],
         "de": [
           "crew-mcdonalds-switzerland-st-gallen-p8-317758-2",
-          "crew-mcdonalds-switzerland-st-gallen-p8-317760-2"
+          "crew-mcdonalds-switzerland-st-gallen-p8-317760-2",
+          "crew-mcdonalds-switzerland-st-margrethen-p8-317759-2"
+        ],
+        "fr": [
+          "crew-mcdonald-s-switzerland-st-margrethen"
         ]
       },
       "needsRetranslation": true,
@@ -3543,7 +3551,23 @@
         }
       },
       "addressLocality": "MELS - SG",
-      "addressRegion": "SG"
+      "addressRegion": "SG",
+      "previousSlugsByLocale": {
+        "it": [
+          "crew-mcdonalds-switzerland-staad-sg-p8-317757-2",
+          "crew-mcdonald-s-switzerland-staad-sg"
+        ],
+        "de": [
+          "crew-mcdonalds-switzerland-staad-sg-p8-317757-2"
+        ],
+        "fr": [
+          "crew-mcdonald-s-switzerland-staad-sg"
+        ]
+      },
+      "previousSlugs": [
+        "crew-mcdonalds-switzerland-staad-sg-p8-317757-2",
+        "crew-mcdonald-s-switzerland-staad-sg"
+      ]
     },
     {
       "title": "Crew",

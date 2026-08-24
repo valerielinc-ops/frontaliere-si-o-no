@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fachkraft",
-  "assembledAt": "2026-08-24T10:30:51.192Z",
+  "assembledAt": "2026-08-24T08:48:28.459Z",
   "jobs": [
     {
       "id": "fachkraft-7b79b41b2ff1",
@@ -79911,7 +79911,7 @@
         "it": "Montage-Elektriker/in mit Erfahrung in Elektroinstallationen",
         "en": "Montage-Elektriker/in mit Erfahrung in Elektroinstallationen",
         "de": "Montage-Elektriker/in mit Erfahrung in Elektroinstallationen",
-        "fr": "Montage-Elektriker/in mit Erfahrung in Elektroinstallationen"
+        "fr": "Montage-Elektriker/in mit Erfahrung à Elektroinstallationen"
       },
       "description": "Montage-Elektriker/in mit Erfahrung in Elektroinstallationen — fachkraft.ch GmbH",
       "descriptionByLocale": {
@@ -79938,7 +79938,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T21:50:07.613Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "baseSalary": {
@@ -79951,7 +79950,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-23T21:50:07.613Z"
     },
     {
       "id": "fachkraft-285b6e6905fa",
@@ -84845,9 +84845,9 @@
       "title": "Metallbaupraktiker/in für Chromnickelstahl-Prototypenbau",
       "titleByLocale": {
         "it": "Metallbaupraktiker/in per Chromnickelstahl-Prototypenbau",
-        "en": "Metallbaupraktiker/in für Chromnickelstahl-Prototypenbau",
         "de": "Metallbaupraktiker/in für Chromnickelstahl-Prototypenbau",
-        "fr": "Metallbaupraktiker/in für Chromnickelstahl-Prototypenbau"
+        "en": "Metallbaupraktiker/in für Chromnickelstahl-Prototypenbau",
+        "fr": "Métallbaupraktiker/in für Chromnickelstahl-Prototypenbau"
       },
       "description": "Metallbaupraktiker/in für Chromnickelstahl-Prototypenbau — fachkraft.ch GmbH",
       "descriptionByLocale": {
@@ -84874,7 +84874,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T21:49:44.031Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -84887,7 +84886,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-23T21:49:44.031Z"
     },
     {
       "id": "fachkraft-0366c814f634",
@@ -92677,7 +92677,7 @@
         "it": "Metallbauer/in mit Erfahrung im traditionellen Metallbau",
         "en": "Metallbauer/in mit Erfahrung im traditionellen Metallbau",
         "de": "Metallbauer/in mit Erfahrung im traditionellen Metallbau",
-        "fr": "Metallbauer/in mit Erfahrung im traditionellen Metallbau"
+        "fr": "MATÉRIEL/EN MATÉRIEL"
       },
       "description": "Metallbauer/in mit Erfahrung im traditionellen Metallbau — fachkraft.ch GmbH",
       "descriptionByLocale": {
@@ -92704,7 +92704,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T21:49:08.973Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -92717,7 +92716,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-23T21:49:08.973Z"
     },
     {
       "id": "fachkraft-78fe4aae498f",
@@ -95866,10 +95866,10 @@
       "companyDomain": "fachkraft.ch",
       "title": "Metallbauer/in für Produktion",
       "titleByLocale": {
-        "it": "Metallbauer/in per Produktion",
         "en": "Metallbauer/in für Produktion",
         "de": "Metallbauer/in für Produktion",
-        "fr": "Metallbauer/in für Produktion"
+        "it": "Metallbauer/in per Produktion",
+        "fr": "Métallbauer/in für Produktion"
       },
       "description": "Metallbauer/in für Produktion — fachkraft.ch GmbH",
       "descriptionByLocale": {
@@ -95895,18 +95895,17 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/19631-stazh/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "metallbauer-in-fur-produktion-fachkraft-ch",
-        "metallbauer-in-per-produktion-fachkraft-ch-gmbh-lugano"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "metallbauer-in-fur-produktion-fachkraft-ch",
           "metallbauer-in-per-produktion-fachkraft-ch-gmbh-lugano"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T21:48:54.467Z",
+      "previousSlugs": [
+        "metallbauer-in-fur-produktion-fachkraft-ch",
+        "metallbauer-in-per-produktion-fachkraft-ch-gmbh-lugano"
+      ],
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -95919,7 +95918,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-23T21:48:54.467Z"
     },
     {
       "id": "fachkraft-3ed7ae064438",
@@ -120643,7 +120643,7 @@
       "titleByLocale": {
         "it": "Maler/in Attraktiver Lohn + Spesen",
         "en": "Maler/in Attraktiver Lohn + Spesen",
-        "de": "Maler/in Attraktiver Lohn + Spesen",
+        "de": "Männlich/in Attraktivlohn + Spesen",
         "fr": "Maler/in Attraktiver Lohn + Spesen"
       },
       "description": "Maler/in Attraktiver Lohn + Spesen — fachkraft.ch GmbH",
@@ -120671,7 +120671,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T21:46:52.967Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -120684,7 +120683,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-23T21:46:52.967Z"
     },
     {
       "id": "fachkraft-71eb99a56f7b",
@@ -134699,10 +134699,10 @@
       "companyDomain": "fachkraft.ch",
       "title": "Heizungspraktiker/in für Heizungsinstallationen",
       "titleByLocale": {
+        "de": "Heizungspraktiker/in für Heizungsinstallationen",
         "it": "Heizungspraktiker/in per Heizungsinstallationen",
         "en": "Heizungspraktiker/in für Heizungsinstallationen",
-        "de": "Heizungspraktiker/in für Heizungsinstallationen",
-        "fr": "Heizungspraktiker/in für Heizungsinstallationen"
+        "fr": "für Heizungsinstallationen"
       },
       "description": "Heizungspraktiker/in für Heizungsinstallationen — fachkraft.ch GmbH",
       "descriptionByLocale": {
@@ -134728,18 +134728,17 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/38936-stssu/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "heizungspraktiker-in-fur-heizungsinstallationen-fachkraft-ch",
-        "heizungspraktiker-in-per-heizungsinstallationen-fachkraft-ch-gmbh-lugano"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "heizungspraktiker-in-fur-heizungsinstallationen-fachkraft-ch",
           "heizungspraktiker-in-per-heizungsinstallationen-fachkraft-ch-gmbh-lugano"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T21:45:49.193Z",
+      "previousSlugs": [
+        "heizungspraktiker-in-fur-heizungsinstallationen-fachkraft-ch",
+        "heizungspraktiker-in-per-heizungsinstallationen-fachkraft-ch-gmbh-lugano"
+      ],
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -134752,7 +134751,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-23T21:45:49.193Z"
     },
     {
       "id": "fachkraft-31edc7004cc6",
@@ -171047,7 +171047,7 @@
       "titleByLocale": {
         "it": "Elektroinstallateur/in für Service",
         "en": "Electrical Installer für Service",
-        "de": "Elektroinstallateur/in für Service",
+        "de": "Elektroinstallateur/in Dienst",
         "fr": "Installateur/trice électricien/ne für Service"
       },
       "description": "Elektroinstallateur/in für Service — fachkraft.ch GmbH",
@@ -171074,19 +171074,7 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/42964-staof/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "elektroinstallateur-in-fur-service-fachkraft-ch-gmbh-lugano"
-      ],
-      "previousSlugsByLocale": {
-        "en": [
-          "elektroinstallateur-in-fur-service-fachkraft-ch-gmbh-lugano"
-        ],
-        "fr": [
-          "elektroinstallateur-in-fur-service-fachkraft-ch-gmbh-lugano"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T21:42:49.612Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "baseSalary": {
@@ -171099,7 +171087,19 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-23T21:42:49.612Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "elektroinstallateur-in-fur-service-fachkraft-ch-gmbh-lugano"
+        ],
+        "fr": [
+          "elektroinstallateur-in-fur-service-fachkraft-ch-gmbh-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "elektroinstallateur-in-fur-service-fachkraft-ch-gmbh-lugano"
+      ]
     },
     {
       "id": "fachkraft-9022659ccdc9",
@@ -174571,8 +174571,8 @@
       "title": "Elektroinstallateur/in als Service-Techniker",
       "titleByLocale": {
         "it": "Installatore/trice elettrico/a/in come Service-Techniker",
+        "de": "Elektroinstallateur/in als Servicetechniker",
         "en": "Electrical Installer als Service-Techniker",
-        "de": "Elektroinstallateur/in als Service-Techniker",
         "fr": "Installateur/trice électricien/ne als Service-Techniker"
       },
       "description": "Elektroinstallateur/in als Service-Techniker — fachkraft.ch GmbH",
@@ -174600,7 +174600,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T21:42:33.594Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "baseSalary": {
@@ -174613,7 +174612,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-23T21:42:33.594Z"
     },
     {
       "id": "fachkraft-6d0f0fd7f770",
