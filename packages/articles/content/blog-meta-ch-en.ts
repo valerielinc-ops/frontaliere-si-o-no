@@ -4147,6 +4147,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-dimora-b-basilea-campagna.title': 'Residence Permit B Basel Countryside: Requirements and Renewal',
     'blog.article.permesso-dimora-b-basilea-campagna.excerpt': 'Guide to the requirements and procedure for renewing the B permit in the Basel-Country Canton. Duration, documents and useful contacts.',
     'blog.article.permesso-dimora-b-basilea-campagna.imageAlt': 'Cantonal migration office building, residence permit B renewal procedures',
+    'blog.article.permesso-l-basilea-campagna.title': 'Permit L in Basel Countryside: validity and extension',
+    'blog.article.permesso-l-basilea-campagna.excerpt': 'The L permit allows work for up to 12 months in Basel-Country. Discover maximum duration, renewal rules, transition to permit B and employer constraints.',
+    'blog.article.permesso-l-basilea-campagna.imageAlt': 'Administrative office of Basel-Landschaft Canton, migration and work permits department',
 };
 
 export default blogMetaChEn;

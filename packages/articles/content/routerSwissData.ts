@@ -1408,6 +1408,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'pagamenti-offline-negozi-svizzera': { it: 'pagamenti-offline-negozi-svizzera', en: 'offline-payments-swiss-shops', de: 'offline-zahlungen-schweizer-geschaefte', fr: 'paiements-hors-ligne-magasins-suisses' },
  'carte-credito-pagamenti-offline-2027': { it: 'carte-credito-pagamenti-offline-2027', en: 'credit-card-offline-payments-2027', de: 'kreditkarte-offline-zahlungen-2027', fr: 'paiements-hors-ligne-cartes-2027' },
  'permesso-dimora-b-basilea-campagna': { it: 'permesso-dimora-b-basilea-campagna', en: 'residence-permit-b-basel-landschaft-requirements-renewal', de: 'aufenthaltserlaubnis-b-baselland-anforderungen-erneuerung', fr: 'permis-sejour-b-bale-campagne-renouvellement' },
+ 'permesso-l-basilea-campagna': { it: 'permesso-l-basilea-campagna', en: 'permit-l-basel-landschaft', de: 'permit-l-baselland', fr: 'permis-l-bale-campagne' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

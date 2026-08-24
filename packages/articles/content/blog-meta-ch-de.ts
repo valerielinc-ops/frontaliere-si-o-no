@@ -4147,6 +4147,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-dimora-b-basilea-campagna.title': 'Aufenthaltsbewilligung B Basel-Landschaft: Voraussetzungen und Verlängerung',
     'blog.article.permesso-dimora-b-basilea-campagna.excerpt': 'Leitfaden zu den Anforderungen und Verfahren für die Erneuerung der B-Bewilligung im Kanton Basel-Landschaft. Dauer, Dokumente und nützliche Kontakte.',
     'blog.article.permesso-dimora-b-basilea-campagna.imageAlt': 'Kantonales Migrationsamt Baselland, Aufenthaltserlaubnis B Erneuerung',
+    'blog.article.permesso-l-basilea-campagna.title': 'Ausweis L in Basel-Landschaft: Gültigkeit und Verlängerung',
+    'blog.article.permesso-l-basilea-campagna.excerpt': 'Mit der Bewilligung L können Sie bis zu 12 Monate in Basel-Landschaft arbeiten. Entdecken Sie die maximale Dauer, die Verlängerungsregeln, den Übergang zur B-Bewilligung und die Einschränkungen des Arbeitgebers.',
+    'blog.article.permesso-l-basilea-campagna.imageAlt': 'Verwaltungsgebäude des Kantons Baselland, Abteilung Arbeitsgenehmigungen und Migration',
 };
 
 export default blogMetaChDe;
