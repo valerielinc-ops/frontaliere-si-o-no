@@ -31989,6 +31989,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'briosco-pendolare-ticino-lavoro',
+ category: 'pratico',
+ date: '2026-08-24T16:57:34.433Z',
+ image: '/images/blog/briosco-pendolare-ticino-lavoro.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

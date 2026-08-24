@@ -10690,6 +10690,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.toceno-lavoro-frontaliere-ticino.title': 'Toceno e frontalieri Ticino: lavoro, tasse e trasferimento',
     'blog.article.toceno-lavoro-frontaliere-ticino.excerpt': 'Toceno al confine con il Ticino: una scelta abitativa per frontalieri tra imposta alla fonte e pendolarismo verso la Svizzera.',
     'blog.article.toceno-lavoro-frontaliere-ticino.imageAlt': 'Pendolari al valico confine tra Toceno (Piemonte) e Canton Ticino durante il pendolarismo mattutino',
+    'blog.article.briosco-pendolare-ticino-lavoro.title': 'Vivere a Briosco, lavorare in Ticino: guida del frontaliere',
+    'blog.article.briosco-pendolare-ticino-lavoro.excerpt': 'Dal 1° gennaio 2024 il Nuovo Accordo Frontalieri governa la fiscalità tra Italia e Ticino. Briosco è a 70 km dal valico: guida pratica per residenti e lavoratori ticinesi.',
+    'blog.article.briosco-pendolare-ticino-lavoro.imageAlt': 'Vista di Lugano con le Alpi sullo sfondo, rappresentando il panorama visto dai frontalieri che lavorano in Ticino',
 };
 
 export default blogMetaIt;
