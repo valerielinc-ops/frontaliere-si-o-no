@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides sur la Suisse : économie, travail, fiscalité et vie quotidienne</description>
     <language>fr</language>
-    <lastBuildDate>Mon, 24 Aug 2026 17:05:07 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 24 Aug 2026 17:27:43 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Suisse</title>
@@ -16,6 +16,42 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Blackout Internet : en Suisse, vous pouvez payer par carte</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/plan-urgence-paiements-numeriques/</link>
+      <description><![CDATA[Présentation du plan d'urgence pour les paiements numériques sans internet en Suisse. Opérationnel avant la fin de l'année prochaine pour les biens de première nécessité.]]></description>
+      <content:encoded><![CDATA[## En bref
+- Plan d'urgence présenté pour les paiements numériques
+- Fonctionnant avant la fin de l'année prochaine
+- Deux millions de transactions par carte par jour
+- Réseau d'urgence uniquement pour les biens de première nécessité
+
+## Faits clés
+- **Quoi** : Plan pour garantir les paiements numériques sans Internet
+- Quand : Présenté le lundi
+- Où : Berne
+- Qui : Guy Parmelin, Martin Schlegel et Roland Pfister
+- Montant : Deux millions de transactions quotidiennes par carte
+
+Un plan d'urgence destiné à assurer la continuité des paiements numériques même en cas de panne du réseau Internet a été présenté à Berne. L'annonce a été faite par le président de la Confédération Guy Parmelin, avec le président de la direction générale de la Banque nationale suisse Martin Schlegel et le délégué à l'approvisionnement économique du pays Roland Pfister. Cette initiative vise à rendre le système opérationnel d'ici la fin de l'année prochaine, en alignant la Suisse sur d'autres États d'Europe du Nord qui possèdent déjà un dispositif similaire. La nécessité découle d'estimations concrètes indiquant environ deux millions de transactions quotidiennes effectuées dans la Confédération grâce à l'utilisation de cartes physiques, ce qui rend indispensable une solution pratique et solide pour la population résidente et pour les activités commerciales du territoire national.
+
+### Le fonctionnement du mécanisme hors ligne
+Le fonctionnement technique décrit par le plan prévoit que, en cas de panne du réseau Internet, les
+Les restrictions opérationnelles prévues par le protocole d'urgence stipulent que le réseau hors ligne ne pourra pas être utilisé pour tout type d'achat, mais sera strictement limité aux biens de première nécessité. Cette mesure concernera principalement les épiceries, les pharmacies et les stations-service, dans le but déclaré de sauvegarder l'approvisionnement quotidien de la population résidente. Le plan prévoit également l'introduction de limites de dépenses spécifiques et d'un nombre maximal de transactions autorisées pour chaque utilisateur ou terminal. Ces limitations servent à atténuer le principal risque lié à ce mode de fonctionnement, à savoir l'impossibilité temporaire pour le commerçant de vérifier en temps réel la couverture financière disponible sur le compte du client, un contrôle qui, dans des conditions normales, a lieu instantanément avant l'approbation du paiement numérique.
+
+### Les évaluations des experts en sécurité
+Du point de vue de la cybersécurité, l'initiative a reçu des commentaires positifs de spécialistes du secteur, tels que l'expert Alessandro Trivilini, qui a souligné l'importance du principe fondamental de se préparer à des crises systémiques potentielles. Cependant, le plan introduit également certaines criticités importantes pour le tissu économique. Lors de l'interruption du réseau, la responsabilité de la gestion des transactions est partiellement transférée des banques aux commerçants
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
+La préparation de scénarios d'interruption du réseau représente un test complexe pour la chaîne de paiement en Suisse, impliquant directement les institutions, les banques et les opérateurs commerciaux individuels. Pour les citoyens et les travailleurs résidents, comprendre l'évolution des infrastructures numériques et des services financiers est essentiel pour s'orienter parmi les changements économiques du pays. Vérifier sa situation financière, la gestion de ses comptes et ses modes de paiement fait partie des bonnes pratiques quotidiennes pour faire face aux urgences technologiques sans subir de perturbations soudaines dans la vie quotidienne. Pour en savoir plus sur la gestion de vos finances personnelles et l'impact des services bancaires sur le coût de la vie et les revenus, vous pouvez consulter les outils dédiés disponibles en ligne. Calculez votre situation économique globale et planifiez au mieux vos ressources en utilisant le [calcolatore stipendio e imposte](nav:calculator).
+
+*Source: [rsi.ch](https://www.rsi.ch/s/4009563)*]]></content:encoded>
+      <pubDate>Mon, 24 Aug 2026 17:27:43 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/piano-emergenza-pagamenti-digitali</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/piano-emergenza-pagamenti-digitali.webp" medium="image"/>
+    </item>
     <item>
       <title>Suisse-UE : bilatéraux et neutralité entre stabilité géopolitique</title>
       <link>https://frontaliereticino.ch/fr/articles-suisse/stabilite-suisse-bilateraux-neutralite/</link>
@@ -2999,77 +3035,6 @@ Si vous souhaitez comparer le coût entre différents produits d'abonnement (ann
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/abbonamenti-friburgo-zone-tariffe</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/abbonamenti-friburgo-zone-tariffe.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Abonnements transports Fribourg : zones et tarifs</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/abonnements-transports-publics-fribourg/</link>
-      <description><![CDATA[Comment fonctionnent les zones tarifaires, demi-tarif, AG et réductions pour étudiants dans les abonnements transports du canton de Fribourg.]]></description>
-      <content:encoded><![CDATA[## En bref
-- Fribourg intègre le système national (demi-tarif, AG) avec des zones tarifaires locales
-- Abonnements mensuels et annuels disponibles, combinables avec des réductions fédérales
-- Les étudiants et apprentis ont accès à des réductions spécifiques
-
-## Faits clés
-- **Quoi** : Abonnements de transport avec systèmes de zones tarifaires
-- Où : Canton de Fribourg, Suisse
-- Qui : Opérateurs de transport cantonaux ; demi-tarif et AG gérés au niveau fédéral
-- Quand : Abonnements renouvelables annuellement
-- Disponibilité : Mensuelle et annuelle, avec des réductions par catégorie
-
-Le canton de Fribourg organise les transports publics via un système de zones tarifaires intégré aux options fédérales : le demi-tarif, qui offre une réduction de 50 % sur les trajets ferroviaires dans toute la Suisse, et l'AG (abonnement général 365 jours pour des trajets nationaux illimités). Ce système permet de choisir facilement entre des abonnements annuels, mensuels et journaliers pour ceux qui se déplacent quotidiennement sur le territoire cantonal.
-
-Les zones tarifaires fonctionnent selon un principe simple : le prix de l'abonnement augmente avec le nombre de zones couvertes. En Suisse, chaque canton structure son propre schéma de zones — un mécanisme national standardisé qui facilite la mobilité intercantonale. Dans le canton de Fribourg, comme dans d'autres cantons suisses, les zones permettent aux passagers de choisir la couverture géographique adaptée à leurs besoins, du trajet urbain au trajet régional.
-
-### Demi-tarif et AG : les options fédérales
-
-Le demi-tarif est un outil fédéral géré par le système ferroviaire national et accepté par de nombreux opérateurs régionaux : il permet une réduction fixe de 50 % sur les billets et abonnements pour toute la Suisse. L'AG, en complément, couvre l'accès aux transports publics de toute la nation pendant 365 jours consécutifs — une solution pour ceux qui voyagent fréquemment au-delà des frontières cantonales. [Comparer les options de transport suisse](nav:transport)
-
-Dans le canton de Fribourg, ces deux options se combinent avec le système local de zones, permettant aux résidents d'optimiser le coût du transport selon leur rayon de déplacement : uniquement urbain, mixte urbain-régional, ou extra-provincial.
-### Abonnements mensuels et annuels
-
-La différence structurelle entre les abonnements mensuels et annuels reflète des choix de mobilité différents. Un abonnement annuel convient à ceux qui utilisent les transports quotidiennement et de manière prévisible ; un abonnement mensuel offre de la flexibilité à ceux qui alternent entre travail au bureau et télétravail, ou à ceux qui changent fréquemment de lieu de travail ou de résidence.
-
-En Suisse, de nombreux cantons — y compris Fribourg — permettent de souscrire des abonnements bloqués sur des périodes spécifiques (12 mois, 6 mois ou des mois individuels), souvent avec des tarifs dégressifs : plus l'engagement est long, plus le coût journalier moyen est bas. Certains résidents calculent le seuil de rentabilité en choisissant d'acheter des abonnements mensuels uniquement pour les mois d'utilisation intensive (par ex. l'hiver avec plus de déplacements), en alternant avec des billets individuels durant les saisons intermédiaires.
-
-### Réductions pour les étudiants et les apprentis
-
-Une réduction vérifiée au niveau suisse concerne les étudiants et les apprentis inscrits à des cursus reconnus (écoles secondaires, formation professionnelle, universités). La réduction varie selon le canton mais est généralement significative — atteignant parfois 25 à 50 % du coût de l'abonnement annuel. Dans le canton de Fribourg, comme dans d'autres cantons, cette réduction est conçue pour soutenir la mobilité des jeunes vers les écoles et les lieux d'apprentissage, reconnaissant l'importance de la formation pour la société.
-
-Pour accéder à la réduction, il suffit de présenter un document d'inscription valide (carte d'étudiant, certificat d'apprentissage) auprès d'un point de vente autorisé ou lors de la souscription en ligne. La documentation varie légèrement selon le canton, mais les opérateurs locaux fournissent des listes de contrôle mises à jour sur leur site internet.
-
-### Combiner demi-tarif et AG
-
-Une stratégie courante parmi ceux qui se déplacent intensément en Suisse consiste à combiner le demi-tarif avec un abonnement régional (plutôt que l'AG complet, qui serait moins économique si la mobilité est limitée). Par exemple, un abonnement Fribourg + zones extérieures, combiné au demi-tarif, réduit encore le tarif final par rapport à un AG unique. [Calculez votre coût de transport idéal](nav:transport)
-
-Certains résidents du canton choisissent en revanche l'AG pur si leur mobilité dépasse un certain seuil mensuel — le calcul dépend des tarifs cantonaux locaux et de la fréquence des voyages hors province. La combinaison optimale varie selon la personne : les pendulaires intercantonaux trouvent souvent avantageux l'AG + demi-tarif, tandis que les pendulaires urbains conservent des abonnements locaux.
-
-## Outils utiles pour protéger votre net
-Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
-### Comment acheter et où s'informer
-
-L'achat d'un abonnement de transport dans le canton de Fribourg suit trois canaux principaux, chacun présentant des avantages spécifiques :
-
-**1. Points de vente physiques** : Les gares ferroviaires principales et les commerces autorisés vendent des abonnements ; le personnel peut fournir des conseils sur le choix de la zone et de la durée optimale. Ce canal est idéal pour ceux qui souhaitent des éclaircissements immédiats ou qui préfèrent souscrire en personne.
-
-2. En ligne : De nombreux opérateurs cantonaux proposent des plateformes numériques pour comparer les prix et souscrire à distance. Une pièce d'identité et un moyen de paiement suffisent pour compléter l'inscription. L'abonnement numérique est activé en quelques heures, ce qui réduit les délais d'attente.
-
-3. Application mobile : Plusieurs gestionnaires suisses, dont certains actifs à Fribourg, fournissent des applications pour acheter des abonnements directement sur smartphone, avec un renouvellement automatique en option. Les applications permettent également de suivre les consommations, les échéances et les changements tarifaires en temps réel.
-
-### Liste de contrôle pratique avant l'achat
-
-Pour choisir l'abonnement le plus avantageux :
-
-- Déterminez combien de zones vous couvrez lors de vos déplacements réguliers (demandez au point de vente ou comptez les arrêts)
-- Vérifiez si vous êtes éligible à des réductions pour étudiants, apprentis ou catégories spéciales (plus de 65 ans, personnes invalides, jeunes familles)
-- Comparez le coût d'un abonnement annuel avec celui d'un abonnement mensuel multiplié par 12
-- Calculez si l'abonnement demi-tarif ou l'AG intégré conviennent à votre profil de voyage (jours d'utilisation × prix moyen par voyage)
-- Demandez des informations sur les promotions saisonnières ou les périodes d'essai (certains cantons proposent des abonnements d'essai à prix réduit)
-
-Utilisez le [calculateur de mobilité suisse](nav:transport) pour une estimation plus précise. Pour des détails actuels sur les prix spécifiques, les zones définies, les promoteurs autorisés et les conventions locales du canton de Fribourg, contactez directement les opérateurs de transport cantonaux ou visitez la plateforme officielle d'information sur la mobilité du canton.]]></content:encoded>
-      <pubDate>Mon, 24 Aug 2026 01:48:56 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/abbonamenti-trasporti-friburgo</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/abbonamenti-trasporti-friburgo.webp" medium="image"/>
     </item>
   </channel>
 </rss>
