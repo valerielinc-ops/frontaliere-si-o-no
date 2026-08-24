@@ -11,7 +11,7 @@
     "https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/"
   ],
   "notes": "Dedicated PEMSA crawler. National listing (all cantons). Detail pages have JSON-LD JobPosting with full location data; canton inferred per-job from the city. Construction/trades staffing agency.",
-  "updatedAt": "2026-08-23T09:43:46.741Z",
+  "updatedAt": "2026-08-24T10:06:17.660Z",
   "seedMetaByUrl": {
     "https://www.pemsa.ch/it/job/operatore-per-la-bonifica-dallamianto-m-f-2688907/": {
       "location": "Genève",
@@ -220,12 +220,6 @@
     "https://www.pemsa.ch/it/job/addetto-alla-sicurezza-m-f-2688196/": {
       "location": "Biel/Bienne",
       "canton": "BE",
-      "company": "PEMSA",
-      "postedDate": "2026-08-19"
-    },
-    "https://www.pemsa.ch/it/job/montatore-di-gru-2688194/": {
-      "location": "Lausanne",
-      "canton": "VD",
       "company": "PEMSA",
       "postedDate": "2026-08-19"
     },
@@ -559,12 +553,6 @@
       "company": "PEMSA",
       "postedDate": "2026-08-10"
     },
-    "https://www.pemsa.ch/it/job/operatore-addetto-alla-rastrellatura-operatore-addetto-alla-stesura-dellasfalto-2686527/": {
-      "location": "Lausanne",
-      "canton": "VD",
-      "company": "PEMSA",
-      "postedDate": "2026-08-10"
-    },
     "https://www.pemsa.ch/it/job/installatore-idraulico-afc-2686519/": {
       "location": "Mendrisio",
       "canton": "TI",
@@ -589,63 +577,15 @@
       "company": "PEMSA",
       "postedDate": "2026-08-10"
     },
-    "https://www.pemsa.ch/it/job/operatore-di-macchine-m1-e-m2-2686511/": {
-      "location": "Lausanne",
-      "canton": "VD",
-      "company": "PEMSA",
-      "postedDate": "2026-08-10"
-    },
     "https://www.pemsa.ch/it/job/saldatore-tubista-2686503/": {
       "location": "Cadempino",
       "canton": "TI",
       "company": "PEMSA",
       "postedDate": "2026-08-10"
     },
-    "https://www.pemsa.ch/it/job/muratore-tradizionale-qualificato-2686505/": {
-      "location": "Lausanne",
-      "canton": "VD",
-      "company": "PEMSA",
-      "postedDate": "2026-08-10"
-    },
     "https://www.pemsa.ch/it/job/idraulico-2686489/": {
       "location": "Lugano",
       "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-08-10"
-    },
-    "https://www.pemsa.ch/it/job/muratore-esperto-in-ingegneria-civile-2686496/": {
-      "location": "Lausanne",
-      "canton": "VD",
-      "company": "PEMSA",
-      "postedDate": "2026-08-10"
-    },
-    "https://www.pemsa.ch/it/job/perforatore-assistente-perforatore-con-esperienza-2686491/": {
-      "location": "Lausanne",
-      "canton": "VD",
-      "company": "PEMSA",
-      "postedDate": "2026-08-10"
-    },
-    "https://www.pemsa.ch/it/job/operatore-addetto-alla-regolazione-e-alla-finitura-lavori-stradali-m-f-2686483/": {
-      "location": "Lausanne",
-      "canton": "VD",
-      "company": "PEMSA",
-      "postedDate": "2026-08-10"
-    },
-    "https://www.pemsa.ch/it/job/operatore-di-macchina-m6-operatori-di-finitrici-per-asfalto-2686480/": {
-      "location": "Lausanne",
-      "canton": "VD",
-      "company": "PEMSA",
-      "postedDate": "2026-08-10"
-    },
-    "https://www.pemsa.ch/it/job/operatore-di-macchinari-m2-con-esperienza-2686477/": {
-      "location": "Lausanne",
-      "canton": "VD",
-      "company": "PEMSA",
-      "postedDate": "2026-08-10"
-    },
-    "https://www.pemsa.ch/it/job/autista-esperto-di-finitrice-2686473/": {
-      "location": "Lausanne",
-      "canton": "VD",
       "company": "PEMSA",
       "postedDate": "2026-08-10"
     },
@@ -666,12 +606,6 @@
       "canton": "VD",
       "company": "PEMSA",
       "postedDate": "2026-08-10"
-    },
-    "https://www.pemsa.ch/it/job/cameriere-a-2686195/": {
-      "location": "Lugano",
-      "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-08-08"
     },
     "https://www.pemsa.ch/it/job/installatore-di-impianti-solari-m-f-d-2686146/": {
       "location": "Basel",
@@ -895,12 +829,6 @@
       "company": "PEMSA",
       "postedDate": "2026-07-30"
     },
-    "https://www.pemsa.ch/it/job/muratore-afc-2685293/": {
-      "location": "Fribourg",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-30"
-    },
     "https://www.pemsa.ch/it/job/architetto-m-f-d-2685289/": {
       "location": "Genève",
       "canton": "GE",
@@ -936,18 +864,6 @@
       "canton": "VD",
       "company": "PEMSA",
       "postedDate": "2026-07-29"
-    },
-    "https://www.pemsa.ch/it/job/installatore-elettricista-afc-2685161/": {
-      "location": "Romont FR",
-      "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-29"
-    },
-    "https://www.pemsa.ch/it/job/tecnico-di-officina-elettronica-tecnico-elettronico-2685119/": {
-      "location": "Vevey",
-      "canton": "VD",
-      "company": "PEMSA",
-      "postedDate": "2026-07-28"
     },
     "https://www.pemsa.ch/it/job/addetto-alla-logistica-afc-con-patente-per-carrelli-elevatori-60-100-m-f-d-2685089/": {
       "location": "Basel",
