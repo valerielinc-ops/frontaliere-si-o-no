@@ -53333,6 +53333,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-identita-rubata-pornhub': {
+    title: 'Ruba l\'identità a un\'altra donna...per utilizzare Pornhub e contattare ospedali',
+    description: 'Una donna del canton Berna è stata condannata per abuso d\'identità, diffamazione e ingiuria dopo aver utilizzato la falsa identità per creare account',
+    keywords: 'frontalieri, ticino, svizzera, italia, ruba, identità, altra, donna',
+    ogTitle: 'Ruba l\'identità a un\'altra donna...per utilizzare Pornhub e contattare ospedali',
+    ogDescription: 'Una donna del canton Berna è stata condannata per abuso d\'identità, diffamazione e ingiuria dopo aver utilizzato la falsa identità per creare account su piattaforme erotiche e contattare istituzioni sanitarie',
+    canonicalPath: '/articoli-svizzera/identita-rubata-pornhub/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ruba l'identità a un'altra donna...per utilizzare Pornhub e contattare ospedali",
+      "description": "Una donna del canton Berna è stata condannata per abuso d'identità, diffamazione e ingiuria dopo aver utilizzato la falsa identità per creare account",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/identita-rubata-pornhub.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una donna del canton Berna che ruba l'identità di un'altra persona"
+      },
+      "datePublished": "2026-08-24T12:57:22+00:00",
+      "dateModified": "2026-08-24T12:57:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/identita-rubata-pornhub/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -12331,6 +12331,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'identita-rubata-pornhub',
+    category: 'fiscale',
+    date: '2026-08-24T12:57:22.672Z',
+    image: '/images/blog/identita-rubata-pornhub.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -4111,6 +4111,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.domicilio-c-canton-basilea-diritti.title': 'Permis C Bâle-Ville : conditions de droits et naturalisation',
     'blog.article.domicilio-c-canton-basilea-diritti.excerpt': 'Permis de séjour C dans le canton de Bâle-Ville : 10 ans de résidence (5 UE/AELE), intégration fédérale, procédure cantonale et parcours vers la naturalisation ordinaire suisse.',
     'blog.article.domicilio-c-canton-basilea-diritti.imageAlt': 'Bâtiment administratif du canton de Bâle-Ville avec drapeau suisse, siège des autorités pour la délivrance du permis C',
+    'blog.article.identita-rubata-pornhub.title': 'Identité volée pour Pornhub et hôpitaux',
+    'blog.article.identita-rubata-pornhub.excerpt': 'Une femme du canton de Berne a été condamnée pour abus d\'identité, diffamation et injure après avoir utilisé la fausse identité pour créer des comptes sur des plateformes érotiques et contacter des établissements de santé',
+    'blog.article.identita-rubata-pornhub.imageAlt': 'Une femme du canton de Berne qui vole l\'identité d\'une autre personne',
 };
 
 export default blogMetaChFr;

@@ -4111,6 +4111,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.domicilio-c-canton-basilea-diritti.title': 'Permit C Basel City: rights and naturalization requirements',
     'blog.article.domicilio-c-canton-basilea-diritti.excerpt': 'Residence permit C in the Canton of Basel City: 10 years residence (5 EU/EFTA), federal integration, cantonal procedure and path to Swiss ordinary naturalization.',
     'blog.article.domicilio-c-canton-basilea-diritti.imageAlt': 'Administrative building of Canton Basel-Stadt with Swiss flag, headquarters of authorities issuing residence permit C',
+    'blog.article.identita-rubata-pornhub.title': 'Steal another woman\'s identity…to use Pornhub and contact hospitals',
+    'blog.article.identita-rubata-pornhub.excerpt': 'A woman in the canton of Bern has been convicted of identity abuse, defamation and insult after using false identity to create accounts on erotic platforms and contact health institutions',
+    'blog.article.identita-rubata-pornhub.imageAlt': 'A woman from the canton of Bern who steals the identity of another person',
 };
 
 export default blogMetaChEn;

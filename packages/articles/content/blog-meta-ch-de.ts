@@ -4111,6 +4111,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.domicilio-c-canton-basilea-diritti.title': 'Ausweis C Basel-Stadt: Voraussetzungen Rechte und Einbürgerung',
     'blog.article.domicilio-c-canton-basilea-diritti.excerpt': 'Niederlassungsbewilligung C im Kanton Basel-Stadt: 10 Jahre Wohnsitz (5 EU/EFTA), eidgenössische Integration, kantonales Verfahren und Weg zur ordentlichen Schweizer Einbürgerung.',
     'blog.article.domicilio-c-canton-basilea-diritti.imageAlt': 'Verwaltungsgebäude des Kantons Basel-Stadt mit Schweizer Flagge, Behördensitz für die Erteilung des Aufenthaltserlaubnis C',
+    'blog.article.identita-rubata-pornhub.title': 'Identità rubata per Pornhub e ospedali',
+    'blog.article.identita-rubata-pornhub.excerpt': 'Eine Frau aus dem Kanton Bern wurde wegen Identitätsmissbrauchs, Verleumdung und Beleidigung verurteilt, nachdem sie mit falscher Identität Konten auf erotischen Plattformen erstellt und Gesundheitseinrichtungen kontaktiert hatte',
+    'blog.article.identita-rubata-pornhub.imageAlt': 'Eine Frau aus dem Kanton Bern, die die Identität einer anderen Person stiehlt',
 };
 
 export default blogMetaChDe;
