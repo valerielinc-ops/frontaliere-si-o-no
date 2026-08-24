@@ -30,10 +30,60 @@ import { CAREER_LANDING_IDS, CAREER_LOCALES } from '../../build-plugins/careerLa
  * the copy was written to carry. Nothing failed; the snippet was just worse.
  */
 
-/** `clampMetaDescription` is lossless exactly when the input already fits. */
+/**
+ * True only when `clampMetaDescription` actually *drops* text.
+ *
+ * It does two things: collapse `\s+` to a single space, then word-aware
+ * truncate. Comparing its output against the RAW input conflates the two — and
+ * JS `\s` matches U+00A0 and U+202F, so any non-breaking space in the copy
+ * reads as "truncated" even in a 94-char string with no ellipsis in sight.
+ *
+ * That is not hypothetical: `median.toLocaleString('fr-CH')` emits the group
+ * separator chosen by the host ICU. macOS Node gives `62'000` (apostrophe),
+ * the CI image gives `62 000` with U+202F — so the whole FR locale, every
+ * profession, every opening count, failed in CI while passing locally. Only
+ * `fr-CH` diverges; `it-CH`/`de-CH`/`en-CH` all use the apostrophe, which is
+ * exactly why no other locale failed.
+ *
+ * Comparing against the normalized form isolates real truncation from
+ * harmless whitespace normalization. The 160-char budget itself is unchanged
+ * and still asserted separately.
+ */
 function isTruncated(description: string): boolean {
-  return clampMetaDescription(description) !== description;
+  const normalized = String(description).replace(/\s+/g, ' ').trim();
+  return clampMetaDescription(description) !== normalized;
 }
+
+describe('isTruncated — host-ICU independence', () => {
+  // Guards the confound that made this very file red in CI and green on
+  // macOS: a non-breaking space must never be mistaken for a dropped tail.
+  it.each([
+    ['U+202F narrow no-break space (fr-CH group separator on some ICU)', ' '],
+    ['U+00A0 no-break space', ' '],
+  ])('does not report truncation for %s', (_label, space) => {
+    const short = `Salaire moyen CHF 62${space}000 brut/an, CCT applicable.`;
+    expect(short.length).toBeLessThan(META_DESCRIPTION_MAX_CHARS);
+    expect(clampMetaDescription(short)).not.toContain('…');
+    expect(isTruncated(short)).toBe(false);
+  });
+
+  it('still reports truncation when text is genuinely dropped', () => {
+    const tooLong = `${'mot '.repeat(60)}fin.`;
+    expect(tooLong.length).toBeGreaterThan(META_DESCRIPTION_MAX_CHARS);
+    expect(isTruncated(tooLong)).toBe(true);
+  });
+
+  it('the FR median really is locale-formatted (the input to the confound)', () => {
+    // Documents the moving part: whatever separator the host ICU picks, the
+    // rendered description must still be within budget and untruncated.
+    const rendered = buildProfessionLandingCopy('fr', 'autista', {
+      liveCount: 19,
+      fresh30Count: 0,
+    }).description;
+    expect(rendered).toMatch(/62.000/); // separator is host-dependent
+    expect(isTruncated(rendered)).toBe(false);
+  });
+});
 
 describe('SERP snippet budgets — profession landings', () => {
   // Zero exercises the countless branch; the others exercise the counted one
