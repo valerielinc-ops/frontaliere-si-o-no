@@ -2399,9 +2399,9 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "collaboratore-trice-in-logistik-food-transit-bzm-genossenschaft-migros-basel-munchenstein-w26an7",
-        "en": "employee-in-logistik-food-transit-bzm-genossenschaft-migros-basel-munchenstein",
+        "en": "logistics-food-transit-staff-member-bzm-genossenschaft-migros-basel-munchenstein",
         "de": "mitarbeiter-in-logistik-food-transit-bzm-genossenschaft-migros-basel-munchenstein-w26an7",
-        "fr": "employe-dans-logistik-food-transit-bzm-genossenschaft-migros-basel-munchenstein"
+        "fr": "collaborateur-collaboratrice-logistique-food-transit-bzm-genossenschaft-migros-basel-munchenstein"
       },
       "requirementsByLocale": {
         "it": [],
@@ -2422,15 +2422,19 @@
           "mitarbeiter-in-logistik-food-transit-bzm-genossenschaft-migros-basel-munchenstein"
         ],
         "en": [
-          "mitarbeiter-in-logistik-food-transit-bzm-genossenschaft-migros-basel-munchenstein-w26an7"
+          "mitarbeiter-in-logistik-food-transit-bzm-genossenschaft-migros-basel-munchenstein-w26an7",
+          "employee-in-logistik-food-transit-bzm-genossenschaft-migros-basel-munchenstein"
         ],
         "fr": [
-          "mitarbeiter-in-logistik-food-transit-bzm-genossenschaft-migros-basel-munchenstein-w26an7"
+          "mitarbeiter-in-logistik-food-transit-bzm-genossenschaft-migros-basel-munchenstein-w26an7",
+          "employe-dans-logistik-food-transit-bzm-genossenschaft-migros-basel-munchenstein"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-logistik-food-transit-bzm-genossenschaft-migros-basel-munchenstein",
-        "mitarbeiter-in-logistik-food-transit-bzm-genossenschaft-migros-basel-munchenstein-w26an7"
+        "mitarbeiter-in-logistik-food-transit-bzm-genossenschaft-migros-basel-munchenstein-w26an7",
+        "employee-in-logistik-food-transit-bzm-genossenschaft-migros-basel-munchenstein",
+        "employe-dans-logistik-food-transit-bzm-genossenschaft-migros-basel-munchenstein"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
