@@ -1,55 +1,52 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-08-23T21:26:55.326Z",
-  "total": 381,
+  "generatedAt": "2026-08-24T10:02:08.003Z",
+  "total": 379,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 121003,
-  "avgDurationMs": 121003,
+  "unchangedCount": 0,
+  "durationMs": 170690,
+  "avgDurationMs": 170690,
   "durationHistory": [
-    121003
+    170690
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "title": "Sachbearbeiter / Sachbearbeiterin Frontoffice (w/m/d)",
-      "company": "Galenica (Galenica)",
+      "title": "Assistente di farmacia AFC",
+      "company": "Sun Store Apotheke (Galenica)",
       "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=3125351.4043894",
-      "location": "Bern",
-      "canton": "BE",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=12692536",
+      "location": "Chêne-Bourg",
+      "canton": "GE",
       "country": "CH",
       "category": "healthcare",
-      "descriptionIt": "Sachbearbeiter / Sachbearbeiterin Frontoffice (w/m/d) presso Galenica (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
-      "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "descriptionIt": "Assistente di farmacia AFC presso Sun Store Apotheke (Gruppo Galenica), con sede a Chêne-Bourg, Centre Commercial Migros Chêne-Vert, Place de la Gare 6, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+      "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12692536-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-chene-bourg-ge-sun-store-apotheke?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "sachbearbeiter-sachbearbeiterin-frontoffice-m-w-d-galenica-bern",
-      "id": "galenica-992cee2a6de8",
-      "needsRetranslation": true,
+      "slug": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-chene-bourg",
+      "id": "galenica-48519f3a9585",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "currency": "CHF",
-      "streetAddress": "Untermattweg 8",
-      "postalCode": "3027",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
+      "addressLocality": "Chêne-Bourg",
+      "addressRegion": "GE",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 86,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
         "translation": 25,
-        "completeness": 22
+        "completeness": 14
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
