@@ -1,4 +1,5 @@
 import { borderCrossings } from '../data/borderCrossings';
+import { haversineKm } from '../scripts/lib/haversine.mjs';
 import type { BorderCrossingId } from './router';
 import { slugifyCrossingName } from './borderCrossingSlug';
 
@@ -255,14 +256,8 @@ function normalize(value = ''): string {
  .trim();
 }
 
-function haversineKm(lat1: number, lng1: number, lat2: number, lng2: number): number {
- const toRad = (deg: number) => (deg * Math.PI) / 180;
- const dLat = toRad(lat2 - lat1);
- const dLng = toRad(lng2 - lng1);
- const a = Math.sin(dLat / 2) ** 2
- + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng / 2) ** 2;
- return 6371 * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-}
+// haversineKm: ora dal modulo condiviso scripts/lib/haversine.mjs
+// (era una delle sei copie byte-equivalenti della stessa formula, #5002).
 
 /**
  * True when the explicit locality is consistent with a postal code — i.e. the
