@@ -310,10 +310,13 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // Issue #6337: articleId -> reviewerAuthorSlug map for the `reviewedBy`
  // JSON-LD signal (E-E-A-T on fiscal/legal YMYL content). Section-agnostic,
  // same map for every section — see shared/articleReviewOverrides.ts header.
- const articleReviewOverrides = loadArticleReviewOverrides(
- fs,
+ // Candidate list, not one path: `mirror-articles-engine.yml` copies this
+ // engine subtree to `engine/shared/…` in the corpus repo that actually
+ // renders article pages, so the second candidate is what resolves there.
+ const articleReviewOverrides = loadArticleReviewOverrides(fs, [
  np.resolve(rootDir, 'packages/articles/engine/shared/article-reviewed-by.json'),
- );
+ np.resolve(rootDir, 'engine/shared/article-reviewed-by.json'),
+ ]);
 
  // Parse article categories from blog-articles-data.ts for FAQ schema filtering
  const EVERGREEN_CATEGORIES = new Set(['fiscale', 'pratico', 'pensione']);
@@ -1310,15 +1313,22 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // author must match the byline. Person/Organization object defined once
  // above (authorObj), resolved from the article's real authorSlug.
  author: authorObj,
- // Issue #6337: expert-review signal, present only when the article
- // has an entry in articleReviewOverrides — absent (not a fabricated
- // default) for every article until an editor marks it reviewed.
- ...(reviewedByObj ? { reviewedBy: reviewedByObj } : {}),
  // Same canonical entity as index.html / SPA (#3524); ORGANIZATION_LD is
  // the single source of truth (services/seo/organizationLd.ts) — was a
  // hand-rolled duplicate pointing at a 404'd logo (/images/logo-192.png).
  publisher: ORGANIZATION_LD,
- mainEntityOfPage: full,
+ // Issue #6337: expert-review signal, present only when the article has
+ // an entry in articleReviewOverrides — absent (not a fabricated default)
+ // for every article until an editor marks it reviewed. schema.org's
+ // `reviewedBy` has `domainIncludes: WebPage` only (verified against
+ // schema.org; Article/NewsArticle isn't a listed domain and Google's own
+ // Article structured-data guidance doesn't mention the property at all),
+ // so it is nested on the `WebPage` entity via `mainEntityOfPage` instead
+ // of attached directly to this NewsArticle node — the placement schema.org
+ // actually defines, not the type this PR happens to be building.
+ mainEntityOfPage: reviewedByObj
+ ? { '@type': 'WebPage', '@id': full, reviewedBy: reviewedByObj }
+ : full,
  isPartOf: { '@type': 'WebSite', '@id': `${BASE_URL}/#website`, name: 'Frontaliere Ticino' },
  speakable: {
  '@type': 'SpeakableSpecification',
