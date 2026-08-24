@@ -12466,6 +12466,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'naturalizzazione-basilea-campagna-procedura',
+    category: 'pratico',
+    date: '2026-08-24T16:44:37.250Z',
+    image: '/images/blog/naturalizzazione-basilea-campagna-procedura.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

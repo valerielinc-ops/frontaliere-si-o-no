@@ -53918,6 +53918,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-naturalizzazione-basilea-campagna-procedura': {
+    title: 'Naturalizzazione Basilea campagna: come procedere',
+    description: 'Guida alla naturalizzazione in Basilea Campagna: requisiti di residenza, test di lingua, procedura amministrativa e costi per chi vuol naturalizzarsi',
+    keywords: 'frontalieri, ticino, svizzera, italia, naturalizzazione, basilea, campagna, procedere',
+    ogTitle: 'Naturalizzazione Basilea Campagna: requisiti e procedura',
+    ogDescription: 'Scopri come naturalizzarsi nel canton Basilea Campagna. Leggi i requisiti federali e cantonali, test di lingua, procedura amministrativa completa e costi per acquisire la cittadinanza svizzera ordinaria.',
+    canonicalPath: '/articoli-svizzera/naturalizzazione-basilea-campagna-procedura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Naturalizzazione Basilea campagna: come procedere",
+      "description": "Guida alla naturalizzazione in Basilea Campagna: requisiti di residenza, test di lingua, procedura amministrativa e costi per chi vuol naturalizzarsi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/naturalizzazione-basilea-campagna-procedura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio dell'amministrazione cantonale svizzera con moduli di naturalizzazione"
+      },
+      "datePublished": "2026-08-24T16:44:37+00:00",
+      "dateModified": "2026-08-24T16:44:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/naturalizzazione-basilea-campagna-procedura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

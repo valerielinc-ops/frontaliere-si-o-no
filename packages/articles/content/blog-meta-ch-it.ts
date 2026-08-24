@@ -4156,6 +4156,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.acquistare-casa-basilea-campagna-mutuo.title': 'Comprare casa in Basilea Campagna: mutuo e fiscalità',
     'blog.article.acquistare-casa-basilea-campagna-mutuo.excerpt': 'Come comprare casa nel Cantone Basilea Campagna: guida ai tre livelli fiscali, mutuo ipotecario e costi nascosti',
     'blog.article.acquistare-casa-basilea-campagna-mutuo.imageAlt': 'Abitazioni residenziali in una zona suburbana della Svizzera nord-occidentale con stile architettonico contemporaneo',
+    'blog.article.naturalizzazione-basilea-campagna-procedura.title': 'Naturalizzazione Basilea campagna: come procedere',
+    'blog.article.naturalizzazione-basilea-campagna-procedura.excerpt': 'Requisiti federali e cantonali per naturalizzarsi a Basilea Campagna: 10 anni di residenza, test di lingua, procedura amministrativa e costi da versare.',
+    'blog.article.naturalizzazione-basilea-campagna-procedura.imageAlt': 'Ufficio dell\'amministrazione cantonale svizzera con moduli di naturalizzazione',
 };
 
 export default blogMetaChIt;
