@@ -5,6 +5,7 @@ import { lazyRetry } from '@/services/lazyRetry';
 
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 import { calculateMunicipalityTaxImpact } from '@/services/calculationService';
+import FaqAccordion from '@/components/shared/FaqAccordion';
 import { useExchangeRate } from '@/services/exchangeRateService';
 import { Hammer, Euro, Calculator, Info, CheckCircle2, Home, Leaf, Zap, ChevronDown, ChevronUp, AlertTriangle, HelpCircle, TrendingUp, BarChart3, FileText, CreditCard, Clock } from 'lucide-react';
 
@@ -50,8 +51,45 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
  const [selectedITBonus, setSelectedITBonus] = useState('ristrutturazione');
  const [propertyType, setPropertyType] = useState<'prima_casa' | 'seconda_casa'>('prima_casa');
  const [openSections, setOpenSections] = useState<Set<string>>(new Set(['result', 'bonuses', 'categories', 'faq', 'capienza']));
- const [expandedFaq, setExpandedFaq] = useState<string | null>(null);
  const [stipendioLordo, setStipendioLordo] = useState(100000);
+
+ // Le stesse 5 Q&A rese dall'accordion, anche come FAQPage per i bot.
+ const faqItems = FAQ_KEYS.map(fk => ({
+ question: t(`renovation.faq.${fk}.q`),
+ answer: t(`renovation.faq.${fk}.a`),
+ }));
+
+ // Guard identico a quello delle pagine guida: se la pagina porta gia' un
+ // FAQPage (shell statica o seoService) non se ne aggiunge un secondo, che e'
+ // l'errore "duplicate FAQPage" dei rich results. Nessun data-dynamic-ld:
+ // quell'attributo e' di seoService, che ripulisce ogni script che lo porta.
+ const faqLdJson = JSON.stringify({
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: faqItems.map(item => ({
+ '@type': 'Question',
+ name: item.question,
+ acceptedAnswer: { '@type': 'Answer', text: item.answer },
+ })),
+ });
+
+ useEffect(() => {
+ const LD_ID = 'renovation-faq-jsonld';
+ const alreadyOnPage = Array.from(
+ document.querySelectorAll('script[type="application/ld+json"]')
+ ).some(el => {
+ if (el.id === LD_ID) return false;
+ try { return JSON.parse(el.textContent || '')?.['@type'] === 'FAQPage'; } catch { return false; }
+ });
+ if (alreadyOnPage) return;
+ document.getElementById(LD_ID)?.remove();
+ const script = document.createElement('script');
+ script.type = 'application/ld+json';
+ script.id = LD_ID;
+ script.textContent = faqLdJson;
+ document.head.appendChild(script);
+ return () => { document.getElementById(LD_ID)?.remove(); };
+ }, [faqLdJson]);
 
  // Check if simulation data is available
  const hasSimulation = !!simulationResult && !!simulationInputs;
@@ -474,24 +512,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
  </button>
  {openSections.has('faq') && (
  <div className="px-4 pb-4 space-y-2 border-t border-edge pt-4 animate-fade-in">
- {FAQ_KEYS.map(fk => (
- <div key={fk} className="rounded-xl border border-edge overflow-hidden">
- <button
- onClick={() => setExpandedFaq(expandedFaq === fk ? null : fk)}
- className="w-full flex items-center justify-between p-3 text-left" aria-expanded={expandedFaq === fk}
- >
- <span className="text-sm font-medium text-body pr-2">{t(`renovation.faq.${fk}.q`)}</span>
- {expandedFaq === fk
- ? <ChevronUp size={16} className="text-muted shrink-0" />
- : <ChevronDown size={16} className="text-muted shrink-0" />}
- </button>
- {expandedFaq === fk && (
- <div className="px-3 pb-3 text-xs text-subtle leading-relaxed border-t border-edge pt-2">
- {t(`renovation.faq.${fk}.a`)}
- </div>
- )}
- </div>
- ))}
+ <FaqAccordion items={faqItems} />
  </div>
  )}
  </div>
