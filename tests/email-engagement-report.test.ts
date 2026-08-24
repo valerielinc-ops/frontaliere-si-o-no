@@ -6,6 +6,7 @@ import {
   aggregateMessages,
   detectRegressions,
   REGRESSION_RULES,
+  WRITER_FIX_LANDED_AT,
 } from '../scripts/report-email-engagement.mjs';
 
 describe('classifyEmailType', () => {
@@ -92,6 +93,25 @@ describe('aggregateMessages', () => {
   it('does not call a Mailgun lifecycle message unmeasurable — that webhook carries the recipient', () => {
     const agg = aggregateMessages([msg({ provider: 'mailgun', emailType: 'welcome' })]);
     expect(agg.unmeasurable).toBe(0);
+  });
+
+  it('does not call a Maileroo lifecycle message unmeasurable once seen after the writer fix — #6317', () => {
+    // Before #6317 this counted onboarding_drip/welcome/etc. as unmeasurable by
+    // type alone forever, even once the shared ref writer (#6195) covered every
+    // sender: a message seen well after the fix landed, with a real open on
+    // record, is proof the ref resolved — the exact opposite of unmeasurable.
+    const after = new Date(WRITER_FIX_LANDED_AT.getTime() + 24 * 60 * 60 * 1000);
+    const agg = aggregateMessages([
+      msg({ emailType: 'onboarding_drip', open: 1, firstSeenAt: after }),
+      msg({ emailType: 'welcome', firstSeenAt: after }),
+    ]);
+    expect(agg.unmeasurable).toBe(0);
+  });
+
+  it('still calls a Maileroo lifecycle message unmeasurable when seen before the writer fix', () => {
+    const before = new Date(WRITER_FIX_LANDED_AT.getTime() - 24 * 60 * 60 * 1000);
+    const agg = aggregateMessages([msg({ emailType: 'onboarding_drip', firstSeenAt: before })]);
+    expect(agg.unmeasurable).toBe(1);
   });
 
   it('splits by provider and by type from the same pass', () => {
