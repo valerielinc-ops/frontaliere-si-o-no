@@ -4183,6 +4183,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assegni-familiari-sciaffusa.title': 'Assegni familiari Canton Sciaffusa: importi e domanda',
     'blog.article.assegni-familiari-sciaffusa.excerpt': 'I frontalieri residenti nel Canton Sciaffusa possono beneficiare di un importo base federale minimo.',
     'blog.article.assegni-familiari-sciaffusa.imageAlt': 'Un frontaliere residente nel Canton Sciaffusa presenta una domanda per l\'assegno di formazione.',
+    'blog.article.apprendistato-canton-sciaffusa-contratto.title': 'Apprendistato e formazione professionale Sciaffusa',
+    'blog.article.apprendistato-canton-sciaffusa-contratto.excerpt': 'Il Canton Sciaffusa offre percorsi di apprendistato tutelati da contratto federale. Scopri come trovare un tirocinio, i diritti in un contratto e i percorsi verso la maturità professionale.',
+    'blog.article.apprendistato-canton-sciaffusa-contratto.imageAlt': 'Un giovane apprendista impara un mestiere in un\'officina svizzera, circondato da attrezzi e macchinari professionali.',
 };
 
 export default blogMetaChIt;

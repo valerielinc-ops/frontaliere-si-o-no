@@ -4183,6 +4183,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assegni-familiari-sciaffusa.title': 'Familienzulagen Kanton Schaffhausen: Beträge und Antrag',
     'blog.article.assegni-familiari-sciaffusa.excerpt': 'Grenzgängerinnen und Grenzgänger mit Wohnsitz im Kanton Schaffhausen können von einem eidgenössischen Mindestgrundbetrag profitieren.',
     'blog.article.assegni-familiari-sciaffusa.imageAlt': 'Ein Grenzgänger, der im Kanton Schaffhausen wohnt, stellt eine Antrag für die Ausbildungszulage.',
+    'blog.article.apprendistato-canton-sciaffusa-contratto.title': 'Lehre und Berufsausbildung Schaffhausen',
+    'blog.article.apprendistato-canton-sciaffusa-contratto.excerpt': 'Der Kanton Schaffhausen bietet bundesvertraglich geschützte Lehrgänge an. Erfahren Sie, wie Sie ein Praktikum, die Rechte in einem Vertrag und die Wege zur Berufsmaturität finden.',
+    'blog.article.apprendistato-canton-sciaffusa-contratto.imageAlt': 'Ein junger Lehrling erlernt sein Handwerk in einer Schweizer Werkstatt mit beruflichen Werkzeugen.',
 };
 
 export default blogMetaChDe;

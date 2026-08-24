@@ -10716,6 +10716,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-oliveto-lario-lavorare-ticino-da-frontaliere.title': 'Living in Oliveto Lario and working in Ticino as a border worker',
     'blog.article.vivere-oliveto-lario-lavorare-ticino-da-frontaliere.excerpt': 'Connections, travel times, cost of living, recommended areas, advantages and disadvantages of the transfer',
     'blog.article.vivere-oliveto-lario-lavorare-ticino-da-frontaliere.imageAlt': 'Frontalier working in Ticino',
+    'blog.article.inarzo-lavoro-ticino-frontaliere.title': 'Living in Inarzo and working in Ticino as a border worker',
+    'blog.article.inarzo-lavoro-ticino-frontaliere.excerpt': 'Living in Varese and working in Ticino: tax exemptions, short commutes, lower housing costs. Complete guide for border guards with G licence.',
+    'blog.article.inarzo-lavoro-ticino-frontaliere.imageAlt': 'View of Lake Lugano from the Italian-Swiss border region with Alps in the distance and residential neighborhoods on both shores',
 };
 
 export default blogMetaEn;
