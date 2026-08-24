@@ -4150,6 +4150,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-l-basilea-campagna.title': 'Permit L in Basel Countryside: validity and extension',
     'blog.article.permesso-l-basilea-campagna.excerpt': 'The L permit allows work for up to 12 months in Basel-Country. Discover maximum duration, renewal rules, transition to permit B and employer constraints.',
     'blog.article.permesso-l-basilea-campagna.imageAlt': 'Administrative office of Basel-Landschaft Canton, migration and work permits department',
+    'blog.article.permesso-l-breve-durata-basilea-campagna.title': 'Permit L short duration: validity and extension',
+    'blog.article.permesso-l-breve-durata-basilea-campagna.excerpt': 'Short-term permit L: maximum duration of 1 year, extension conditions, constraints on the employer and procedure for transition to residence permit B in Switzerland.',
+    'blog.article.permesso-l-breve-durata-basilea-campagna.imageAlt': 'Swiss State Secretariat for Migration (SEM) office with L permit documentation',
 };
 
 export default blogMetaChEn;

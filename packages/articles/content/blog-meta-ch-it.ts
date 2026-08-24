@@ -4150,6 +4150,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-l-basilea-campagna.title': 'Permesso L in Basilea Campagna: validità e proroga',
     'blog.article.permesso-l-basilea-campagna.excerpt': 'Il permesso L consente lavoro fino a 12 mesi in Basilea-Campagna. Scopri durata massima, regole di rinnovo, transizione al permesso B e vincoli del datore di lavoro.',
     'blog.article.permesso-l-basilea-campagna.imageAlt': 'Ufficio amministrativo del Canton Basilea-Campagna per permessi e migrazioni lavorative',
+    'blog.article.permesso-l-breve-durata-basilea-campagna.title': 'Permesso L breve durata: validità e proroga',
+    'blog.article.permesso-l-breve-durata-basilea-campagna.excerpt': 'Permesso L di breve durata: durata massima di 1 anno, condizioni di proroga, vincoli al datore di lavoro e procedura di transizione al permesso B di dimora in Svizzera.',
+    'blog.article.permesso-l-breve-durata-basilea-campagna.imageAlt': 'Ufficio del Segretariato di Stato della migrazione (SEM) con documenti di permesso L',
 };
 
 export default blogMetaChIt;

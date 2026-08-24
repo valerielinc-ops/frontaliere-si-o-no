@@ -4150,6 +4150,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-l-basilea-campagna.title': 'Permis L à Bâle-Campagne : validité et prolongation',
     'blog.article.permesso-l-basilea-campagna.excerpt': 'Le permis L permet de travailler jusqu\'à 12 mois à Bâle-Campagne. Découvrez la durée maximale, les règles de renouvellement, la transition vers le permis B et les contraintes de l\'employeur.',
     'blog.article.permesso-l-basilea-campagna.imageAlt': 'Bâtiment administratif du canton de Bâle-Campagne, département des permis de travail',
+    'blog.article.permesso-l-breve-durata-basilea-campagna.title': 'Permis L courte durée : validité et prolongation',
+    'blog.article.permesso-l-breve-durata-basilea-campagna.excerpt': 'Permis L de courte durée : durée maximale de 1 an, conditions de prolongation, contraintes à l\'employeur et procédure de transition au permis B de séjour en Suisse.',
+    'blog.article.permesso-l-breve-durata-basilea-campagna.imageAlt': 'Bureau du Secrétariat d\'État aux migrations (SEM) avec dossiers de permis L',
 };
 
 export default blogMetaChFr;
