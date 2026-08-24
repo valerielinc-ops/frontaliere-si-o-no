@@ -52436,6 +52436,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-custodia-bambini-svizzera-costi-sussidi': {
+    title: 'Custodia bambini in Svizzera: costi e sussidi cantonali',
+    description: 'Guida alla custodia dei bambini in Svizzera: asili nido, famiglie diurne, doposcuola, tariffe calcolate sul reddito e sussidi cantonali. Scopri come accedere',
+    keywords: 'frontalieri, ticino, svizzera, italia, custodia, bambini, costi, sussidi',
+    ogTitle: 'Custodia bambini in Svizzera: costi e sussidi',
+    ogDescription: 'Guida completa sulla custodia dei bambini in Svizzera: asili nido, tariffe calcolate sul reddito, sussidi cantonali, congedi maternità e paternità federali. Scopri come accedere ai servizi e stimare i costi della custodia.',
+    canonicalPath: '/articoli-svizzera/custodia-bambini-svizzera-costi-sussidi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Custodia bambini in Svizzera: costi e sussidi cantonali",
+      "description": "Guida alla custodia dei bambini in Svizzera: asili nido, famiglie diurne, doposcuola, tariffe calcolate sul reddito e sussidi cantonali. Scopri come accedere",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/custodia-bambini-svizzera-costi-sussidi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro di custodia svizzero con bambini che giocano all'aperto in una bella giornata di primavera"
+      },
+      "datePublished": "2026-08-24T07:33:47+00:00",
+      "dateModified": "2026-08-24T07:33:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/custodia-bambini-svizzera-costi-sussidi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

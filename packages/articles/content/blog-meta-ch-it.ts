@@ -4042,6 +4042,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tirocinio-retribuzione-soletta-guida.title': 'Tirocinio e retribuzione nel canton Soletta: guida pratica',
     'blog.article.tirocinio-retribuzione-soletta-guida.excerpt': 'Scopri come trovare un tirocinio nel canton Soletta, gli obblighi del contratto e la retribuzione dell\'apprendista con deduzioni fiscali e contributi sociali.',
     'blog.article.tirocinio-retribuzione-soletta-guida.imageAlt': 'Un apprendista lavora in laboratorio durante la formazione pratica del tirocinio professionale svizzero.',
+    'blog.article.custodia-bambini-svizzera-costi-sussidi.title': 'Custodia bambini in Svizzera: costi e sussidi cantonali',
+    'blog.article.custodia-bambini-svizzera-costi-sussidi.excerpt': 'Come funziona la custodia dei bambini in Svizzera, quali sono i costi degli asili nido e i sussidi disponibili per le famiglie a livello cantonale.',
+    'blog.article.custodia-bambini-svizzera-costi-sussidi.imageAlt': 'Centro di custodia svizzero con bambini che giocano all\'aperto in una bella giornata di primavera',
 };
 
 export default blogMetaChIt;

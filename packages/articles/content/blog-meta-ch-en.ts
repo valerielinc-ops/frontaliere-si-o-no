@@ -4042,6 +4042,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tirocinio-retribuzione-soletta-guida.title': 'Internship and salary in the canton of Solothurn: practical guide',
     'blog.article.tirocinio-retribuzione-soletta-guida.excerpt': 'Find out how to find an internship in the canton of Solothurn, the obligations of the contract and the remuneration of the apprentice with tax deductions and social contributions.',
     'blog.article.tirocinio-retribuzione-soletta-guida.imageAlt': 'An apprentice works hands-on in a workshop during practical vocational training in Switzerland.',
+    'blog.article.custodia-bambini-svizzera-costi-sussidi.title': 'Childcare in Switzerland: cantonal costs and subsidies',
+    'blog.article.custodia-bambini-svizzera-costi-sussidi.excerpt': 'How childcare works in Switzerland, what are the costs of kindergartens and the subsidies available to families at cantonal level.',
+    'blog.article.custodia-bambini-svizzera-costi-sussidi.imageAlt': 'Swiss daycare center with children playing outside on a sunny spring day',
 };
 
 export default blogMetaChEn;
