@@ -12493,6 +12493,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'imposta-successione-donazione-basilea-campagna',
+    category: 'fiscale',
+    date: '2026-08-24T17:56:22.422Z',
+    image: '/images/blog/imposta-successione-donazione-basilea-campagna.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

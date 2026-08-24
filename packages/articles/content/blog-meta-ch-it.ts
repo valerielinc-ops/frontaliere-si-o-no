@@ -4165,6 +4165,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.piano-emergenza-pagamenti-digitali.title': 'Blackout internet: in Svizzera si potrà pagare con la carta',
     'blog.article.piano-emergenza-pagamenti-digitali.excerpt': 'Presentato il piano d\'emergenza per i pagamenti digitali senza internet in Svizzera. Operativo entro la fine del prossimo anno per i beni di prima necessità.',
     'blog.article.piano-emergenza-pagamenti-digitali.imageAlt': 'Terminali di pagamento e carte di credito in Svizzera',
+    'blog.article.imposta-successione-donazione-basilea-campagna.title': 'Imposta di successione e donazione: Basilea Campagna',
+    'blog.article.imposta-successione-donazione-basilea-campagna.excerpt': 'Come funzionano le imposte su successioni e donazioni nel cantone di Basilea Campagna: aliquote, esenzioni per familiari e procedure di dichiarazione.',
+    'blog.article.imposta-successione-donazione-basilea-campagna.imageAlt': 'Ufficio tributario del cantone di Basilea Campagna, simbolo dell\'amministrazione fiscale cantonale svizzera.',
 };
 
 export default blogMetaChIt;

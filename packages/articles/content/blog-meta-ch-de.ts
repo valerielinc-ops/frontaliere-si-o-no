@@ -4165,6 +4165,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.piano-emergenza-pagamenti-digitali.title': 'Internet-Blackout: In der Schweiz kann man mit der Karte bezahlen',
     'blog.article.piano-emergenza-pagamenti-digitali.excerpt': 'Notfallplan für digitales Bezahlen ohne Internet in der Schweiz vorgestellt. Betriebsbereit bis Ende nächsten Jahres für lebensnotwendige Güter.',
     'blog.article.piano-emergenza-pagamenti-digitali.imageAlt': 'Zahlungsterminals und Kreditkarten in der Schweiz',
+    'blog.article.imposta-successione-donazione-basilea-campagna.title': 'Erbschafts- und Schenkungssteuer: Basel-Landschaft',
+    'blog.article.imposta-successione-donazione-basilea-campagna.excerpt': 'Wie funktionieren Erbschafts- und Schenkungssteuern im Kanton Basel-Landschaft: Steuersätze, Steuerbefreiungen für Angehörige und Meldeverfahren.',
+    'blog.article.imposta-successione-donazione-basilea-campagna.imageAlt': 'Finanzbehörde Baselland - Symbol der kantonalen Steuerverwaltung in der Schweiz.',
 };
 
 export default blogMetaChDe;
