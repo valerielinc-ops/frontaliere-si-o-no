@@ -4168,6 +4168,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposta-successione-donazione-basilea-campagna.title': 'Imposta di successione e donazione: Basilea Campagna',
     'blog.article.imposta-successione-donazione-basilea-campagna.excerpt': 'Come funzionano le imposte su successioni e donazioni nel cantone di Basilea Campagna: aliquote, esenzioni per familiari e procedure di dichiarazione.',
     'blog.article.imposta-successione-donazione-basilea-campagna.imageAlt': 'Ufficio tributario del cantone di Basilea Campagna, simbolo dell\'amministrazione fiscale cantonale svizzera.',
+    'blog.article.permesso-domicilio-c-sciaffusa-requisiti.title': 'Permesso domicilio c Sciaffusa: requisiti',
+    'blog.article.permesso-domicilio-c-sciaffusa-requisiti.excerpt': 'Guida ai requisiti per il permesso C nel Canton Sciaffusa: anni di residenza, criteri di integrazione, lingue e procedura di domanda. Dettagli sui termini ridotti per cittadini UE/AELS.',
+    'blog.article.permesso-domicilio-c-sciaffusa-requisiti.imageAlt': 'Ufficio competente per i permessi di domicilio C presso l\'amministrazione cantonale svizzera',
 };
 
 export default blogMetaChIt;

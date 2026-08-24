@@ -1415,6 +1415,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'stabilita-svizzera-bilaterali-neutralita': { it: 'stabilita-svizzera-bilaterali-neutralita', en: 'swiss-stability-bilaterals-neutrality', de: 'schweizer-stabilitaet-bilaterale-neutralitaet', fr: 'stabilite-suisse-bilateraux-neutralite' },
  'piano-emergenza-pagamenti-digitali': { it: 'piano-emergenza-pagamenti-digitali', en: 'emergency-digital-payment-plan', de: 'notfallplan-digitale-zahlungen', fr: 'plan-urgence-paiements-numeriques' },
  'imposta-successione-donazione-basilea-campagna': { it: 'imposta-successione-donazione-basilea-campagna', en: 'inheritance-donation-tax-basel-landschaft', de: 'erbschafts-donationsteuer-baselland', fr: 'impot-succession-donation-bale-campagne' },
+ 'permesso-domicilio-c-sciaffusa-requisiti': { it: 'permesso-domicilio-c-sciaffusa-requisiti', en: 'residence-permit-c-schaffhausen-requirements', de: 'aufenthaltserlaubnis-c-schaffhausen-voraussetzungen', fr: 'permis-domicile-c-schaffhausen-conditions' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

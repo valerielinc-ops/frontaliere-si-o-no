@@ -4168,6 +4168,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-successione-donazione-basilea-campagna.title': 'Erbschafts- und Schenkungssteuer: Basel-Landschaft',
     'blog.article.imposta-successione-donazione-basilea-campagna.excerpt': 'Wie funktionieren Erbschafts- und Schenkungssteuern im Kanton Basel-Landschaft: Steuersätze, Steuerbefreiungen für Angehörige und Meldeverfahren.',
     'blog.article.imposta-successione-donazione-basilea-campagna.imageAlt': 'Finanzbehörde Baselland - Symbol der kantonalen Steuerverwaltung in der Schweiz.',
+    'blog.article.permesso-domicilio-c-sciaffusa-requisiti.title': 'Niederlassungsbewilligung c Schaffhausen: Voraussetzungen',
+    'blog.article.permesso-domicilio-c-sciaffusa-requisiti.excerpt': 'Leitfaden zu den Voraussetzungen für die C-Bewilligung im Kanton Schaffhausen: Wohnsitzjahre, Integrationskriterien, Sprachen und Antragsverfahren. Details zu verkürzten Fristen für EU-/EFTA-Bürger.',
+    'blog.article.permesso-domicilio-c-sciaffusa-requisiti.imageAlt': 'Amtsstelle für Aufenthaltsgenehmigungen C bei der Schweizer Kantonsverwaltung',
 };
 
 export default blogMetaChDe;

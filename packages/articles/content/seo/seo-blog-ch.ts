@@ -54074,6 +54074,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-domicilio-c-sciaffusa-requisiti': {
+    title: 'Permesso domicilio c Sciaffusa: requisiti | Frontaliere Ticino',
+    description: 'Guida ai requisiti per il permesso C nel Canton Sciaffusa: anni di residenza, criteri di integrazione, lingue, procedura di domanda e rilascio anticipato',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, domicilio, sciaffusa, requisiti',
+    ogTitle: 'Permesso C Sciaffusa: requisiti e domanda',
+    ogDescription: 'Scopri i requisiti per ottenere il permesso di domicilio C nel Canton Sciaffusa. Guida completa su anni di residenza, integrazione, conoscenze linguistiche, procedura di domanda e rilascio anticipato per cittadini UE/AELS secondo la legge federale',
+    canonicalPath: '/articoli-svizzera/permesso-domicilio-c-sciaffusa-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso domicilio c Sciaffusa: requisiti",
+      "description": "Guida ai requisiti per il permesso C nel Canton Sciaffusa: anni di residenza, criteri di integrazione, lingue, procedura di domanda e rilascio anticipato",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-domicilio-c-sciaffusa-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio competente per i permessi di domicilio C presso l'amministrazione cantonale svizzera"
+      },
+      "datePublished": "2026-08-24T18:52:11+00:00",
+      "dateModified": "2026-08-24T18:52:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-domicilio-c-sciaffusa-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
