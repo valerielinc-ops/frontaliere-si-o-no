@@ -24,9 +24,10 @@
  * dropped rather than blocking forever on something nobody can fix from here.
  */
 import { execFileSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { readEntries, writeEntries, removeEntry } from './lib/pr-watch-store.mjs';
+import { readEntries, writeEntries, removeEntry, entriesForSession, entriesOfOtherSessions } from './lib/pr-watch-store.mjs';
 import { classifyPr, RESOLVED_STATUSES } from './lib/pr-watch-classify.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -59,13 +60,41 @@ function checkOne(ref) {
   return classifyPr({ state, headSha, reviews });
 }
 
-function main() {
-  let entries;
+/**
+ * `session_id` dall'input dell'hook Stop, se c'è.
+ *
+ * Lettura sincrona di stdin: l'hook riceve un JSON, ma un harness che non lo
+ * passasse lascerebbe il fd vuoto e non deve far fallire il gate — senza id si
+ * torna al comportamento precedente (enforce tutto).
+ */
+function readSessionId() {
   try {
-    entries = readEntries(REPO_ROOT);
+    const raw = readFileSync(0, 'utf-8');
+    if (!raw.trim()) return null;
+    const payload = JSON.parse(raw);
+    return typeof payload?.session_id === 'string' ? payload.session_id : null;
+  } catch {
+    return null;
+  }
+}
+
+function main() {
+  let allEntries;
+  try {
+    allEntries = readEntries(REPO_ROOT);
   } catch {
     return; // can't even read the store — nothing to enforce
   }
+  if (allEntries.length === 0) return;
+
+  // Blocca solo sulle PR di QUESTA sessione (più quelle senza padrone). Lo
+  // store è per-checkout e gli hook della root puntano al checkout principale
+  // con un path assoluto, quindi ogni sessione del clone — worktree compresi —
+  // legge lo stesso file: senza questo filtro la sessione A resta bloccata
+  // sulle PR della sessione B, con l'istruzione di andarci a lavorare sopra.
+  const sessionId = readSessionId();
+  const entries = entriesForSession(allEntries, sessionId);
+  const foreign = entriesOfOtherSessions(allEntries, sessionId);
   if (entries.length === 0) return;
 
   // Confirm `gh` is usable at all before treating any failure as a real
@@ -88,7 +117,10 @@ function main() {
   }
 
   try {
-    writeEntries(REPO_ROOT, remaining);
+    // Le entry delle altre sessioni tornano nel file INVARIATE: il filtro
+    // restringe chi blocca, non chi è tracciato. Scrivendo solo `remaining` le
+    // cancelleremmo, e le PR degli altri non le seguirebbe più nessuno.
+    writeEntries(REPO_ROOT, [...foreign, ...remaining]);
   } catch {
     // Persisting the shrunk list failed; still decide this turn's block
     // below from what was just computed.

@@ -13,6 +13,8 @@ import {
   addEntry,
   removeEntry,
   extractPrRef,
+  entriesForSession,
+  entriesOfOtherSessions,
   STORE_REL_PATH,
 } from '../../scripts/ci/lib/pr-watch-store.mjs';
 
@@ -95,5 +97,40 @@ describe('readEntries / writeEntries — file round-trip, and tolerance of a bad
     fs.mkdirSync(path.dirname(storePath(dir)), { recursive: true });
     fs.writeFileSync(storePath(dir), '{not json');
     expect(readEntries(dir)).toEqual([]);
+  });
+});
+
+describe('scoping per sessione — una sessione non blocca sulle PR di un’altra', () => {
+  const mine = { owner: 'o', repo: 'r', number: 1, openedAt: 'x', sessionId: 'A' };
+  const theirs = { owner: 'o', repo: 'r', number: 2, openedAt: 'x', sessionId: 'B' };
+  const legacy = { owner: 'o', repo: 'r', number: 3, openedAt: 'x' };
+
+  it('enforce le proprie e quelle senza padrone, non quelle altrui', () => {
+    // Il messaggio del gate dice «leggi la review e applica il fix»: bloccare
+    // la sessione A sulla PR della sessione B la manda a pushare sul branch di
+    // un altro agente, cioè la collisione che il resto del ciclo previene.
+    expect(entriesForSession([mine, theirs, legacy], 'A')).toEqual([mine, legacy]);
+  });
+
+  it('senza session id enforce TUTTO — un gate che si spegne quando non sa non protegge', () => {
+    expect(entriesForSession([mine, theirs, legacy], null)).toEqual([mine, theirs, legacy]);
+    expect(entriesForSession([mine, theirs, legacy], '')).toEqual([mine, theirs, legacy]);
+  });
+
+  it('le entry altrui restano tracciate: il filtro restringe chi blocca, non chi è seguito', () => {
+    // Il gate riscrive il file con ciò che resta: senza questa metà, filtrare
+    // per sessione cancellerebbe le PR degli altri dallo store e nessuno le
+    // seguirebbe più.
+    expect(entriesOfOtherSessions([mine, theirs, legacy], 'A')).toEqual([theirs]);
+  });
+
+  it('senza session id nessuna entry è «di altri» — niente da riscrivere a parte', () => {
+    expect(entriesOfOtherSessions([mine, theirs, legacy], null)).toEqual([]);
+  });
+
+  it('unione e complemento coprono tutte le entry, senza perderne né duplicarne', () => {
+    const all = [mine, theirs, legacy];
+    const union = [...entriesOfOtherSessions(all, 'A'), ...entriesForSession(all, 'A')];
+    expect(union.map((e) => e.number).sort()).toEqual([1, 2, 3]);
   });
 });
