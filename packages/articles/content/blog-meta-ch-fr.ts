@@ -4180,6 +4180,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-l-sciaffusa-rinnovamento-dimora.title': 'Permis L Schaffhouse : validité, prorogation et passage B',
     'blog.article.permesso-l-sciaffusa-rinnovamento-dimora.excerpt': 'Le permis L permet de travailler jusqu\'à 1 an en Suisse. Découvrez comment le prolonger, changer d\'employeur et transiter par des permis B ou C dans le canton.',
     'blog.article.permesso-l-sciaffusa-rinnovamento-dimora.imageAlt': 'Vue d\'une ville suisse représentant le contexte professionnel et les opportunités de mobilité',
+    'blog.article.assegni-familiari-sciaffusa.title': 'Allocations familiales Canton de Schaffhouse : montants et demande',
+    'blog.article.assegni-familiari-sciaffusa.excerpt': 'Les frontaliers résidant dans le canton de Schaffhouse peuvent bénéficier d\'un montant de base fédéral minimum.',
+    'blog.article.assegni-familiari-sciaffusa.imageAlt': 'Un travailleur frontalier résidant dans le canton de Schaffhouse dépose une demande pour l\'allocation de formation.',
 };
 
 export default blogMetaChFr;

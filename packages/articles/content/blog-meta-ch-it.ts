@@ -4180,6 +4180,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-l-sciaffusa-rinnovamento-dimora.title': 'Permesso L Sciaffusa: validità, proroga e passaggio B',
     'blog.article.permesso-l-sciaffusa-rinnovamento-dimora.excerpt': 'Il permesso L permette lavoro fino a 1 anno in Svizzera. Scopri come prolungarlo, cambiare datore e transitare a permessi B o C nel cantone.',
     'blog.article.permesso-l-sciaffusa-rinnovamento-dimora.imageAlt': 'Veduta di una città svizzera che rappresenta il contesto lavorativo e le opportunità di mobilità professionale',
+    'blog.article.assegni-familiari-sciaffusa.title': 'Assegni familiari Canton Sciaffusa: importi e domanda',
+    'blog.article.assegni-familiari-sciaffusa.excerpt': 'I frontalieri residenti nel Canton Sciaffusa possono beneficiare di un importo base federale minimo.',
+    'blog.article.assegni-familiari-sciaffusa.imageAlt': 'Un frontaliere residente nel Canton Sciaffusa presenta una domanda per l\'assegno di formazione.',
 };
 
 export default blogMetaChIt;

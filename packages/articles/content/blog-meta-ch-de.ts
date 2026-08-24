@@ -4180,6 +4180,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-l-sciaffusa-rinnovamento-dimora.title': 'Erlaubnis L Schaffhausen: Gültigkeit, Verlängerung und Durchgang B',
     'blog.article.permesso-l-sciaffusa-rinnovamento-dimora.excerpt': 'Die Bewilligung L erlaubt Arbeit bis zu 1 Jahr in der Schweiz. Erfahren Sie, wie Sie es verlängern, den Arbeitgeber wechseln und zu B- oder C-Bewilligungen im Kanton übergehen können.',
     'blog.article.permesso-l-sciaffusa-rinnovamento-dimora.imageAlt': 'Ansicht einer Schweizer Stadt, die den Arbeitskontext und berufliche Mobilitätsmöglichkeiten symbolisiert',
+    'blog.article.assegni-familiari-sciaffusa.title': 'Familienzulagen Kanton Schaffhausen: Beträge und Antrag',
+    'blog.article.assegni-familiari-sciaffusa.excerpt': 'Grenzgängerinnen und Grenzgänger mit Wohnsitz im Kanton Schaffhausen können von einem eidgenössischen Mindestgrundbetrag profitieren.',
+    'blog.article.assegni-familiari-sciaffusa.imageAlt': 'Ein Grenzgänger, der im Kanton Schaffhausen wohnt, stellt eine Antrag für die Ausbildungszulage.',
 };
 
 export default blogMetaChDe;

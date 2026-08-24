@@ -4180,6 +4180,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-l-sciaffusa-rinnovamento-dimora.title': 'Permit L Schaffhausen: validity, extension and step B',
     'blog.article.permesso-l-sciaffusa-rinnovamento-dimora.excerpt': 'The L permit allows work for up to 1 year in Switzerland. Learn how to extend it, change employer, and transition to B or C permits in the canton.',
     'blog.article.permesso-l-sciaffusa-rinnovamento-dimora.imageAlt': 'View of a Swiss city representing the employment context and professional mobility opportunities',
+    'blog.article.assegni-familiari-sciaffusa.title': 'Family allowances Canton Schaffhausen: amounts and demand',
+    'blog.article.assegni-familiari-sciaffusa.excerpt': 'Border workers residing in the Canton of Schaffhausen can benefit from a minimum federal base amount.',
+    'blog.article.assegni-familiari-sciaffusa.imageAlt': 'A frontier worker resident in the canton of Schaffhausen submits an application for the training allowance.',
 };
 
 export default blogMetaChEn;
