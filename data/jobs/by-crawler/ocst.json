@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ocst",
-  "assembledAt": "2026-08-24T10:18:09.733Z",
+  "assembledAt": "2026-08-24T21:53:46.372Z",
   "jobs": [
     {
       "id": "ocst-67c3bd8ad1d0",
@@ -30,7 +30,7 @@
       "url": "https://www.ocst.ch/il-lavoro/548-approfondimenti/2607-ladi-un-fondo-ricco-e-troppi-bisogni-ignorati",
       "source": "OCST Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-24T10:18:07.162Z",
+      "crawledAt": "2026-08-24T21:53:42.943Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -44,10 +44,9 @@
       "postedDate": "2026-08-24",
       "applyUrl": "https://www.ocst.ch/il-lavoro/548-approfondimenti/2607-ladi-un-fondo-ricco-e-troppi-bisogni-ignorati",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T10:18:07.162Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -60,8 +59,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T10:18:07.162Z"
+      "addressRegion": "TI"
     },
     {
       "id": "ocst-c1281694f537",
@@ -78,9 +76,9 @@
       "title": "Salute in azienda - Il benessere organizzativo è possibile?",
       "titleByLocale": {
         "it": "Salute in azienda - Il benessere organizzativo è possibile?",
-        "fr": "Salute in azienda - Il benessere organizzativo è possibile?",
         "en": "Salute in azienda - Il benessere organizzativo è possibile?",
-        "de": "Salute in azienda - Il benessere organizzativo è possibile?"
+        "de": "Salute in azienda - Il benessere organizzativo è possibile?",
+        "fr": "Salute in azienda - Il benessere organizzativo è possibile?"
       },
       "description": "Salute in azienda - Il benessere organizzativo è possibile? — OCST",
       "descriptionByLocale": {
@@ -91,7 +89,7 @@
       "url": "https://www.ocst.ch/il-lavoro/548-approfondimenti/2608-salute-in-azienda-il-benessere-organizzativo-e-possibile",
       "source": "OCST Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-24T10:18:06.839Z",
+      "crawledAt": "2026-08-24T21:53:42.624Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -105,10 +103,9 @@
       "postedDate": "2026-08-24",
       "applyUrl": "https://www.ocst.ch/il-lavoro/548-approfondimenti/2608-salute-in-azienda-il-benessere-organizzativo-e-possibile",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T10:18:06.839Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -121,8 +118,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T10:18:06.839Z"
+      "addressRegion": "TI"
     }
   ]
 }
