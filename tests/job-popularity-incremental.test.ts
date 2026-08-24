@@ -48,15 +48,28 @@ describe('job popularity snapshot stays incremental', () => {
     expect(fallback).toContain('fs.rmSync(META_PATH');
   });
 
-  it('commits the metadata the incremental path reads back', () => {
-    // Both the normal commit and the rebase-retry regeneration: the retry path
-    // re-runs the fetch, so a stale `git add` there loses the metadata exactly
-    // when two data workflows race — the rarest and least visible case.
+  it('keeps the metadata tracked, so the workflow pathspec always matches', () => {
+    // The workflow stages the metadata with `git add -A <pathspec>`. That form
+    // also stages the REMOVAL writeFallback() performs — but a pathspec that
+    // matches neither the worktree nor the index is a hard error under
+    // `bash -e`. A committed seed is what guarantees the index match on every
+    // run, including the first one after a failed fetch.
+    expect(fs.existsSync(path.join(ROOT, 'data/job-popularity.meta.json'))).toBe(true);
+    const seed = JSON.parse(read('data/job-popularity.meta.json'));
+    expect(typeof seed.scannedAt).toBe('string');
+  });
+
+  it('stages both files, with the removal, in every git add it issues', () => {
+    // Two places matter, and the second is the one that gets forgotten: the
+    // normal commit AND the rebase-retry regeneration, which re-runs the fetch
+    // when two data workflows race to push. A stale `git add` there loses the
+    // metadata exactly in the rarest and least visible case.
     const addLines = workflow
       .split('\n')
-      .filter((l) => l.includes('git add data/job-popularity.json'));
+      .filter((l) => l.includes('git add') && l.includes('job-popularity.json'));
     expect(addLines.length).toBeGreaterThanOrEqual(2);
     for (const line of addLines) {
+      expect(line).toContain('git add -A');
       expect(line).toContain('data/job-popularity.meta.json');
     }
   });
