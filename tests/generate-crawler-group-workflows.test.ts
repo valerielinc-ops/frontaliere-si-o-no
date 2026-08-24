@@ -524,3 +524,53 @@ describe('push-contention class (exit 42) in generated steps', () => {
   });
 });
 
+describe('real-corpus invariant: every manifest crawler in exactly one committed crawler-group-*.yml', () => {
+  // Guards the COMMITTED OUTPUT, not just packGroups() in isolation (which
+  // the tests above already cover with synthetic data). generate() throws if
+  // its own in-memory packGroups() result mismatches its input crawlers, but
+  // that check never runs against what actually landed on disk — a
+  // regeneration that silently skipped a file write, a stale file left over
+  // from a previous manifest, or a manual edit to a crawler-group-*.yml would
+  // all pass that in-memory check while still breaking the real invariant
+  // (follow-up of #6320: a 22-file rebalance was verified only 5/5 on the new
+  // entries, not against the full committed corpus). Extracts each group's
+  // background-step crawler slugs the same way the generator names them
+  // (`id: crawler-<slug>`) and diffs the union against
+  // data/crawler-manifest.json's slugs.
+  it('data/crawler-manifest.json slugs == union of all crawler-group-*.yml background steps, each exactly once', () => {
+    const REPO_ROOT = path.resolve(import.meta.dirname, '..');
+    const WORKFLOWS_DIR = path.join(REPO_ROOT, '.github/workflows');
+    const { manifest } = JSON.parse(fs.readFileSync(path.join(REPO_ROOT, 'data/crawler-manifest.json'), 'utf8'));
+    const manifestSlugs = manifest.map((c) => c.slug);
+
+    const files = fs.readdirSync(WORKFLOWS_DIR).filter((f) => /^crawler-group-\d+\.yml$/.test(f));
+    expect(files.length).toBeGreaterThan(0);
+
+    const occurrences = new Map<string, string[]>(); // slug -> file names it was found in
+    for (const f of files) {
+      const doc = YAML.parse(fs.readFileSync(path.join(WORKFLOWS_DIR, f), 'utf8'));
+      const jobKey = Object.keys(doc.jobs)[0];
+      const steps = doc.jobs[jobKey].steps;
+      for (const step of steps) {
+        if (!step.background) continue;
+        const match = /^crawler-(.+)$/.exec(step.id ?? '');
+        expect(match, `background step in ${f} has no 'crawler-<slug>' id: ${JSON.stringify(step.id)}`).not.toBeNull();
+        const slug = match[1];
+        const list = occurrences.get(slug) ?? [];
+        list.push(f);
+        occurrences.set(slug, list);
+      }
+    }
+
+    const missing = manifestSlugs.filter((slug) => !occurrences.has(slug));
+    expect(missing, `crawlers in manifest but absent from every crawler-group-*.yml: ${missing.join(', ')}`).toEqual([]);
+
+    const duplicated = [...occurrences.entries()].filter(([, files]) => files.length > 1);
+    expect(duplicated, `crawlers present in more than one group: ${duplicated.map(([slug, files]) => `${slug} in [${files.join(', ')}]`).join('; ')}`).toEqual([]);
+
+    const manifestSlugSet = new Set(manifestSlugs);
+    const extraneous = [...occurrences.keys()].filter((slug) => !manifestSlugSet.has(slug));
+    expect(extraneous, `crawlers in group workflows but absent from data/crawler-manifest.json: ${extraneous.join(', ')}`).toEqual([]);
+  });
+});
+
