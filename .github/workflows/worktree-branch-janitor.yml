@@ -115,10 +115,31 @@ jobs:
               # calcolabile → EC1 sotto li risparmierebbe PER SEMPRE. Issue CLOSED =
               # lavoro risolto → delete (recuperabile da reflog remoto se mai servisse).
               ISSUE_N=$(echo "$NAME" | sed -nE 's#^fix/issue-([0-9]+)$#\1#p')
-              ISTATE=""
-              [ -n "$ISSUE_N" ] && ISTATE=$(gh api "repos/$REPO/issues/$ISSUE_N" --jq '.state' 2>/dev/null || true)
-              if [ "$ISTATE" = "closed" ]; then
-                REASON="fix/issue-$ISSUE_N, issue #$ISSUE_N CLOSED, no live PR (leftover issue-fix)"
+              ISTATE=""; IREASON=""
+              if [ -n "$ISSUE_N" ]; then
+                IJSON=$(gh api "repos/$REPO/issues/$ISSUE_N" --jq '.state + " " + (.state_reason // "")' 2>/dev/null || true)
+                ISTATE=${IJSON%% *}; IREASON=${IJSON#* }
+              fi
+              # `state_reason` e non solo `state`, ed e' una distinzione che PROTEGGE
+              # lavoro pagato. «Issue CLOSED = lavoro risolto» vale per `completed`;
+              # per `not_planned` no — quella e' la chiusura dell'age-out del
+              # drainer («nessun evento significativo da N giorni»), che non dice
+              # nulla sul contenuto del branch. Cancellare su quel segnale butta i
+              # commit di una run morta per `max-turns` dopo il checkpoint WIP:
+              # misurati 5 branch cosi' sul 2026-08-24 (`fix/issue-6315`, `#6270`,
+              # `#6206` con 3 commit, `#6147`, `#5975`).
+              #
+              # La pressione e' AUMENTATA con lo stadio VERDICT-EXIT (#6323), che
+              # chiude issue parcheggiate: prima ne veniva chiusa una manciata,
+              # ora 15 in 15 minuti. Un ramo di delete tarato su «closed» generico
+              # incontra molti piu' casi di quanti ne incontrava quando e' stato
+              # scritto.
+              #
+              # Su `not_planned` NON si decide qui: si cade nell'ahead-check sotto,
+              # che cancella se il branch e' a 0 commit e lo segnala (report-only)
+              # se ha lavoro. Nessuna perdita silenziosa in nessuno dei due rami.
+              if [ "$ISTATE" = "closed" ] && [ "$IREASON" != "not_planned" ]; then
+                REASON="fix/issue-$ISSUE_N, issue #$ISSUE_N CLOSED (${IREASON:-completed}), no live PR (leftover issue-fix)"
               else
               # ahead via API compare (.ahead_by). EC1: un branch orfano
               # (history non correlata, es. content-branch) dà 404 "No common
