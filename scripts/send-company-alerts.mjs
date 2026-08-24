@@ -14,16 +14,38 @@
  * crawlers and publisher-jobs-sync make when a new ad lands — plus an hourly
  * safety-net cron.
  *
- * ── NO NEW FIRESTORE QUERY SHAPE ──────────────────────────────────────────
- * The alert load is byte-for-byte the digest's:
- *   db.collectionGroup('alerts').where('active','==',true)
- * and the company/immediate selection is done IN MEMORY. Filtering on
- * `specificCompanyKey` server-side would need a new composite index, and
- * `firestore.indexes.json` is NOT applied by CI (deploy-firestore-rules.yml
- * ships `firestore:rules` only) — the query would go live and fail with
- * FAILED_PRECONDITION after a green merge. Same reasoning as #5151's
- * `findCompanyAlert`. Do not "optimise" this into a `where` clause without
- * also shipping the index by hand.
+ * ── THE FIRESTORE QUERY, AND WHY IT NOW NARROWS SERVER-SIDE ───────────────
+ * The alert load used to be byte-for-byte the digest's —
+ * `db.collectionGroup('alerts').where('active','==',true)` — with the
+ * company/immediate selection done entirely IN MEMORY. The header justifying
+ * that said any extra `where` would need a composite index, and that
+ * `firestore.indexes.json` is not applied by CI (deploy-firestore-rules.yml
+ * ships `firestore:rules` only), so the query would go live and fail with
+ * FAILED_PRECONDITION after a green merge.
+ *
+ * The premise held; the conclusion did not. Firestore only needs a COMPOSITE
+ * index when a query mixes an equality with a range/orderBy on another field.
+ * `active == true AND frequency == 'immediate'` is two equalities, which the
+ * automatic single-field COLLECTION_GROUP indexes already serve by
+ * intersection. Measured read-only against production on 2026-08-24, with
+ * zero composite indexes deployed (the API reports 0):
+ *
+ *   active == true                             6.969 docs   (what we read)
+ *   active == true AND frequency == 'immediate'   53 docs   (what we use)
+ *   frequency == 'immediate' alone              FAILED_PRECONDITION
+ *
+ * The third line is the trap worth naming: dropping `active` is what needs an
+ * index we do not have. `active` must stay first and stay in the query.
+ *
+ * This runner fires ~24x/day (hourly cron + one per crawler push), so the
+ * in-memory filter was reading ~164k documents a day to keep 53 — about a
+ * fifth of the whole project's Firestore read bill. The query is wrapped in a
+ * FAILED_PRECONDITION fallback to the old shape anyway: a wrong reading of
+ * Firestore's index rules must cost reads, never a missed alert.
+ *
+ * `isImmediateCompanyAlert` still runs in memory, and still owns the
+ * partition: it also demands `specificCompanyKey` and `!paused`, neither of
+ * which this query expresses.
  *
  * ── WHAT COUNTS AS "NEW" ──────────────────────────────────────────────────
  * `firstSeenAt` inside IMMEDIATE_WINDOW_MS — the genuine novelty field
@@ -73,7 +95,7 @@ import { generateAutologinCode, makeAuthenticatedUrl } from '../services/newslet
 import { normalizeSentMap, filterUnsentJobs, mergeSentJobs, DEDUP_WINDOW_MS } from './lib/alert-sent-jobs.mjs';
 import { makeAlertUnsubscribeUrl, makeAllAlertsUnsubscribeUrl, BASE_URL } from './lib/job-alert-unsub-urls.mjs';
 import { commitInChunks, FIRESTORE_BATCH_SIZE } from './lib/firestore-batch.mjs';
-import { isImmediateCompanyAlert } from './lib/company-alert-routing.mjs';
+import { isImmediateCompanyAlert, IMMEDIATE_FREQUENCY } from './lib/company-alert-routing.mjs';
 /**
  * `/aziende-seguite/` per locale — ONE literal segment for every language, like
  * `/aziende/` in services/companyAlertEmail.mjs.
@@ -409,6 +431,30 @@ async function sendBatch(emails) {
   return result;
 }
 
+/**
+ * Load the alert docs this sender may own, narrowed server-side.
+ *
+ * `active` stays in the query and stays first: `frequency` alone is not
+ * servable by the indexes that exist (measured 2026-08-24 —
+ * FAILED_PRECONDITION). The fallback re-issues the digest's wide query if
+ * Firestore ever refuses the narrowed one, so an index regression degrades
+ * into a more expensive run rather than into unsent alerts.
+ *
+ * @param {FirebaseFirestore.Firestore} db
+ * @returns {Promise<FirebaseFirestore.QuerySnapshot>}
+ */
+async function loadImmediateAlertDocs(db) {
+  const base = db.collectionGroup('alerts').where('active', '==', true);
+  try {
+    return await base.where('frequency', '==', IMMEDIATE_FREQUENCY).get();
+  } catch (err) {
+    const msg = String(err?.message || '');
+    if (!msg.includes('index') && err?.code !== 9) throw err;
+    console.warn(`   \u26a0\ufe0f Narrowed alert query refused (${msg.slice(0, 120)}) — falling back to the wide scan.`);
+    return base.get();
+  }
+}
+
 async function main() {
   console.log('🏢 CompanyAlert — immediate sender');
 
@@ -427,8 +473,9 @@ async function main() {
 
   const db = await getFirestoreAdmin();
 
-  // Same query shape as scripts/send-job-alerts.mjs — see the header note.
-  const snap = await db.collectionGroup('alerts').where('active', '==', true).get();
+  // Narrowed server-side on the cadence half of isImmediateCompanyAlert —
+  // see the header note for the production measurement and the fallback.
+  const snap = await loadImmediateAlertDocs(db);
   let alerts = snap.docs
     .filter((d) => d.ref.parent.parent?.parent?.id === 'job_alert_subscribers')
     .map((d) => {
