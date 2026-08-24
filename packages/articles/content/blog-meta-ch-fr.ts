@@ -4087,6 +4087,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.premi-lamal-basilea-franchigie-sussidi.title': 'Prix LAMal Bâle-Ville : guide des franchises et subventions',
     'blog.article.premi-lamal-basilea-franchigie-sussidi.excerpt': 'Franchises LAMal dans le canton de Bâle-Ville de 300 CHF à 2 500 CHF, primes par habitant privées et allocations cantonales pour résidents à revenu limité.',
     'blog.article.premi-lamal-basilea-franchigie-sussidi.imageAlt': 'Cabinet médical suisse avec documents d\'assurance maladie et calendrier de rendez-vous',
+    'blog.article.risanamento-abitazioni-co2-berna.title': 'Assainissement des logements : 2\'650 tonnes de CO2 économisées',
+    'blog.article.risanamento-abitazioni-co2-berna.excerpt': 'Le programme fédéral 2021–2025 a assainit 2 413 logements d\'utilité publique en Suisse, réduisant la consommation d\'énergie de 75 %. Investissement : 119 millions de CHF avec 71 prêts à taux zéro.',
+    'blog.article.risanamento-abitazioni-co2-berna.imageAlt': 'Programme fédéral de rénovation énergétique: immeubles modernes aux façades efficaces et panneaux solaires, Suisse',
 };
 
 export default blogMetaChFr;

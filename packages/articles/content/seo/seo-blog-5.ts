@@ -77174,6 +77174,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-leggiuno-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Leggiuno e lavorare in Ticino da frontaliere',
+    description: 'Guida pratica per chi vive a Leggiuno e lavora in Ticino: collegamenti, imposta alla fonte, previdenza AVS, LAMal e regole fiscali per frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, leggiuno, lavorare, pratica',
+    ogTitle: 'Vivere a Leggiuno e lavorare in Ticino da frontaliere',
+    ogDescription: 'Tutto quello che c\'è da sapere per vivere a Leggiuno e lavorare in Canton Ticino: aspetti fiscali, imposta alla fonte, previdenza AVS e collegamenti per frontalieri.',
+    canonicalPath: '/articoli-frontaliere/vivere-leggiuno-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Leggiuno e lavorare in Ticino da frontaliere",
+      "description": "Guida pratica per chi vive a Leggiuno e lavora in Ticino: collegamenti, imposta alla fonte, previdenza AVS, LAMal e regole fiscali per frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-leggiuno-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama della zona di confine tra Italia e Svizzera per frontalieri"
+      },
+      "datePublished": "2026-08-24T10:54:50+00:00",
+      "dateModified": "2026-08-24T10:54:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-leggiuno-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

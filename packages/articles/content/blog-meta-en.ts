@@ -10680,6 +10680,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-locate-varesino-lavorare-ticino-da-frontaliere.title': 'Living in Locate Varesino and working in Ticino: advantages and disadvantages',
     'blog.article.vivere-locate-varesino-lavorare-ticino-da-frontaliere.excerpt': 'Border workers working in Ticino from Locate Varesino can benefit from efficient connections and reasonable journey times. The cost of living is generally higher than in border Italy, but the recommended areas offer a balance between urban life and nature.',
     'blog.article.vivere-locate-varesino-lavorare-ticino-da-frontaliere.imageAlt': 'A frontaliere working in Ticino from Locate Varesino',
+    'blog.article.vivere-leggiuno-lavorare-ticino-frontaliere.title': 'Living in Leggiuno and working in Ticino as a border worker',
+    'blog.article.vivere-leggiuno-lavorare-ticino-frontaliere.excerpt': 'Practical guide for those who live in Leggiuno and work in Canton Ticino: connections, tax at source, AVS pension, LAMal and tax rules for border workers.',
+    'blog.article.vivere-leggiuno-lavorare-ticino-frontaliere.imageAlt': 'Border region landscape between Italy and Switzerland',
 };
 
 export default blogMetaEn;

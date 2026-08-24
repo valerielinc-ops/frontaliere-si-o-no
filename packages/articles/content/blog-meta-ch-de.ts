@@ -4087,6 +4087,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-lamal-basilea-franchigie-sussidi.title': 'KVG-Prämien Basel-Stadt: Leitfaden zu Franchisen und Beiträgen',
     'blog.article.premi-lamal-basilea-franchigie-sussidi.excerpt': 'KVG-Franchisen im Kanton Basel-Stadt von CHF 300 bis CHF 2.500, private Pro-Kopf-Prämien und Kantonsbeiträge für einkommensschwache Einwohner.',
     'blog.article.premi-lamal-basilea-franchigie-sussidi.imageAlt': 'Schweizer Arztpraxis mit Krankenversicherungsdokumenten und Terminkalender',
+    'blog.article.risanamento-abitazioni-co2-berna.title': 'Haussanierung: 2\'650 Tonnen CO2 eingespart',
+    'blog.article.risanamento-abitazioni-co2-berna.excerpt': 'Das Bundesprogramm 2021–2025 hat 2\'413 gemeinnützige Wohnungen in der Schweiz saniert und den Energieverbrauch um 75% gesenkt. Investition: CHF 119 Mio. mit 71 zinslosen Darlehen.',
+    'blog.article.risanamento-abitazioni-co2-berna.imageAlt': 'Bundeswohnungssanierungsprogramm: moderne Wohngebäude mit energieeffizienten Fassaden und Solaranlagen, Schweiz',
 };
 
 export default blogMetaChDe;

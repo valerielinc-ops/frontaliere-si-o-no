@@ -10679,6 +10679,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-locate-varesino-lavorare-ticino-da-frontaliere.title': 'Wohnen in Varesino und Arbeiten im Tessin: Vor- und Nachteile',
     'blog.article.vivere-locate-varesino-lavorare-ticino-da-frontaliere.excerpt': 'Grenzgänger, die im Tessin bei Locate Varesino arbeiten, profitieren von effizienten Verbindungen und angemessenen Reisezeiten. Die Lebenshaltungskosten sind im Allgemeinen höher als im Grenzland Italiens, aber die empfohlenen Gebiete bieten ein Gleichgewicht zwischen Stadtleben und Natur.',
     'blog.article.vivere-locate-varesino-lavorare-ticino-da-frontaliere.imageAlt': 'Ein Frontalier, der in Ticino von Locate Varesino arbeitet',
+    'blog.article.vivere-leggiuno-lavorare-ticino-frontaliere.title': 'Wohnen in Leggiuno und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-leggiuno-lavorare-ticino-frontaliere.excerpt': 'Praktischer Leitfaden für diejenigen, die in Leggiuno leben und im Kanton Tessin arbeiten: Verbindungen, Quellensteuer, AHV-, KVG- und Steuervorschriften für Grenzgänger.',
+    'blog.article.vivere-leggiuno-lavorare-ticino-frontaliere.imageAlt': 'Grenzregion zwischen Italien und der Schweiz',
 };
 
 export default blogMetaDe;

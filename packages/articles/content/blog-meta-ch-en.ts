@@ -4087,6 +4087,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.premi-lamal-basilea-franchigie-sussidi.title': 'LAMal Basel City Awards: Deductible and Subsidy Guide',
     'blog.article.premi-lamal-basilea-franchigie-sussidi.excerpt': 'LAMal deductibles in the canton Basel City from CHF 300 to CHF 2,500, private per capita premiums and cantonal subsidies for residents with limited income.',
     'blog.article.premi-lamal-basilea-franchigie-sussidi.imageAlt': 'Swiss medical office with health insurance documents and appointment calendar',
+    'blog.article.risanamento-abitazioni-co2-berna.title': 'Housing renovation: 2,650 tons of CO2 saved',
+    'blog.article.risanamento-abitazioni-co2-berna.excerpt': 'The 2021–2025 federal programme rehabilitated 2,413 public utility homes in Switzerland, reducing energy consumption by 75%. Investment: CHF 119 million with 71 zero-interest mortgages.',
+    'blog.article.risanamento-abitazioni-co2-berna.imageAlt': 'Federal housing renovation program: modern residential buildings with energy-efficient facades and solar panels, Switzerland',
 };
 
 export default blogMetaChEn;
