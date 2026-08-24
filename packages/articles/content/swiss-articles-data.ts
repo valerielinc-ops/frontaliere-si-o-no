@@ -12556,6 +12556,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'tirocinio-contratto-sciaffusa',
+    category: 'pratico',
+    date: '2026-08-24T22:24:05.754Z',
+    image: '/images/blog/tirocinio-contratto-sciaffusa.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

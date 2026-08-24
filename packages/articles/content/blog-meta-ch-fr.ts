@@ -4186,6 +4186,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-canton-sciaffusa-contratto.title': 'Apprentissage et formation professionnelle Schaffhouse',
     'blog.article.apprendistato-canton-sciaffusa-contratto.excerpt': 'Le canton de Schaffhouse propose des parcours d\'apprentissage protégés par contrat fédéral. Découvrez comment trouver un stage, les droits dans un contrat et les parcours vers la maturité professionnelle.',
     'blog.article.apprendistato-canton-sciaffusa-contratto.imageAlt': 'Un jeune apprenti apprend son métier dans un atelier professionnel suisse entouré d\'outils.',
+    'blog.article.tirocinio-contratto-sciaffusa.title': 'Apprentissage : guide pratique dans le canton de Schaffhouse',
+    'blog.article.tirocinio-contratto-sciaffusa.excerpt': 'Comment trouver une place d\'apprentissage, les salaires de l\'apprenti, les contrats et la maturité professionnelle dans le système suisse.',
+    'blog.article.tirocinio-contratto-sciaffusa.imageAlt': 'Apprenti travaillant avec un mentor dans un atelier pendant la formation professionnelle suisse',
 };
 
 export default blogMetaChFr;
