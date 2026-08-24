@@ -34,6 +34,29 @@
  * blocco: il costo per round-trip resta lo stesso, ma il NUMERO di
  * round-trip per minuto crolla. Il sonno vive nel processo dell'hook, non
  * nel turno dell'agente: non consuma token di ragionamento.
+ *
+ * COOLDOWN, seconda misura (2026-08-24, stessa sera): 45s bastava a
+ * spezzare i cicli a tempo-zero, ma su un vitest da ~15-20 minuti produceva
+ * comunque ~20+ round-trip identici ("ancora in corso") prima che la review
+ * arrivasse — ognuno rigonfia il contesto della sessione con lo stesso
+ * output, anche se il TEMPO reale passa. Il cooldown non protegge dai
+ * round-trip ridondanti quando semplicemente non c'è nulla di nuovo da
+ * dire, solo da quelli a tempo-zero.
+ *
+ * Soglia ricalibrata sui tempi REALI misurati (2026-08-24, `gh run list` su
+ * 10-15 run recenti, non un numero scelto a naso): `pr-body-contract`
+ * 2-5 min, `tests` (vitest) media 905s/15.1min mediana 882s/14.7min
+ * (outlier osservato: 1324s/22min), `pr-review-loop` una volta triggerato
+ * da `tests`==success 4-10min (media ~385s/6.4min su 3 run correlate).
+ * Ciclo intero push→LGTM osservato su 3 PR correlate: ~19.5min, ~20.7min,
+ * ~25.1min (media ~21.8min). A 300s di cooldown questo produce ~4-5
+ * round-trip per ciclo invece di 20+, restando comunque sotto la durata
+ * minima osservata della fase `tests` (quindi non si perde mai la
+ * transizione tests→review per un cooldown troppo lungo). Un evento REALE
+ * (LGTM, 🔴, merge) non aspetta comunque il cooldown: arriva via il Monitor
+ * della sessione, che ririsveglia il turno fuori da questo gate — il
+ * cooldown si applica solo quando il gate STA PER bloccare di nuovo con lo
+ * stesso verdetto "non ancora risolto".
  */
 import { execFileSync } from 'node:child_process';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
@@ -46,12 +69,13 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = join(__dirname, '..', '..');
 const GH_TIMEOUT_MS = 12_000;
 
-// Deve stare sotto il timeout dell'hook Stop in settings.json (75s) con
+// Deve stare sotto il timeout dell'hook Stop in settings.json (330s) con
 // margine per i controlli `gh` che seguono (auth-status + checkOne per
-// entry). Abbastanza lungo da tagliare drasticamente il numero di round-trip
-// su un'attesa di minuti/ore; abbastanza corto da restare reattivo su una
-// review che arriva in fretta.
-const COOLDOWN_MS = 45_000;
+// entry). 300s scelto sui tempi reali misurati (vedi commento sopra): sotto
+// la durata minima osservata di `tests` (~13min), quindi non salta mai la
+// transizione tests→review; abbastanza lungo da portare un'attesa tipica
+// (~22min push→LGTM) da 20+ round-trip a 4-5.
+const COOLDOWN_MS = 300_000;
 const LAST_BLOCK_PATH = join(REPO_ROOT, '.claude', 'pr-watch-last-block.json');
 
 /** Dorme in modo sincrono, bloccando il processo dell'hook — non il modello:

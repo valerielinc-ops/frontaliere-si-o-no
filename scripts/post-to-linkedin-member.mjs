@@ -41,7 +41,6 @@
  * on the second slot can never cause the first to be reposted tomorrow.
  */
 
-import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -50,6 +49,9 @@ import {
   loadLedger,
   appendLedger,
   truncateBody,
+  loadJobSections,
+  loadJobIndex,
+  formatDayIt,
 } from './lib/social-post-utils.mjs';
 import {
   linkedinUrl,
@@ -61,12 +63,7 @@ import {
   rankCandidates,
   pickFirstUnposted,
 } from './lib/daily-top-content.mjs';
-import {
-  DEFAULT_GA4_PROPERTY_ID,
-  getServiceAccountToken,
-  fetchRetry,
-} from './lib/ga4-service-account.mjs';
-import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/cantonResolvers.mjs';
+import { fetchGa4PageReport } from './lib/ga4-service-account.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -145,130 +142,14 @@ function getAuthorUrn() {
 }
 
 // ─────────────────────────── GA4 ───────────────────────────
+// loadJobSections/loadJobIndex moved to scripts/lib/social-post-utils.mjs —
+// the Instagram/TikTok carousel posters need the identical logic (project
+// rule: a helper duplicated literally in ≥2 files MUST live in ONE shared
+// module).
 
-/**
- * Italian job-board section slugs: the 24 canton sections, the legacy Ticino
- * one, and the AGGREGATE section.
- *
- * `_AGGREGATE_` resolves to `cerca-lavoro-svizzera` and is easy to forget
- * because it is not in the `cantons` table — omitting it silently dropped every
- * job living under the Swiss-wide board from the ranking.
- */
-function loadJobSections() {
-  try {
-    const cantonSlugFile = JSON.parse(
-      fs.readFileSync(path.join(ROOT, 'data', 'canton-url-slugs.json'), 'utf-8'),
-    );
-    const municipalitiesFile = JSON.parse(
-      fs.readFileSync(path.join(ROOT, 'data', 'canton-municipalities.json'), 'utf-8'),
-    );
-    const { resolveCantonSection } = createCantonResolvers({
-      cantonSlugFile,
-      municipalitiesFile,
-    });
-    const out = new Set();
-    const codes = [...Object.keys(cantonSlugFile.cantons || {}), 'TI', AGGREGATE_KEY];
-    for (const code of codes) {
-      const section = resolveCantonSection('it', code);
-      if (section) out.add(section);
-    }
-    return out;
-  } catch (err) {
-    console.warn(`⚠️  could not build the job-section set: ${err.message}`);
-    return new Set();
-  }
-}
-
-/**
- * slug → job record, across every locale slug variant.
- *
- * WHY this is mandatory and not a nicety: under a canton section the URL shape
- * of a job detail page and of a generated SEO landing page are identical.
- * `/cerca-lavoro-ticino/infermieri/` topped 2026-08-23 with 271 views and is a
- * "37 offerte" profession page, not an offer — posting it as "the most clicked
- * job" would be simply false. Membership in the real dataset is the only
- * non-rotting way to tell them apart, so when the dataset is unavailable this
- * returns an empty Map and the caller SKIPS the job slot rather than guessing.
- *
- * @returns {Map<string, object>}
- */
-function loadJobIndex() {
-  /** @type {Map<string, object>} */
-  const index = new Map();
-  const add = (slug, job) => {
-    const s = String(slug || '').trim();
-    if (s) index.set(s, job);
-  };
-
-  const ingest = (jobs) => {
-    for (const job of jobs || []) {
-      add(job?.slug, job);
-      for (const v of Object.values(job?.slugByLocale || {})) add(v, job);
-    }
-  };
-
-  try {
-    const assembled = path.join(ROOT, 'data', 'jobs.json');
-    if (fs.existsSync(assembled)) {
-      const parsed = JSON.parse(fs.readFileSync(assembled, 'utf-8'));
-      ingest(Array.isArray(parsed) ? parsed : parsed.jobs);
-      return index;
-    }
-    const dir = path.join(ROOT, 'data', 'jobs', 'by-crawler');
-    if (fs.existsSync(dir)) {
-      for (const file of fs.readdirSync(dir)) {
-        if (!file.endsWith('.json')) continue;
-        try {
-          ingest(JSON.parse(fs.readFileSync(path.join(dir, file), 'utf-8')).jobs);
-        } catch {
-          /* one unreadable crawler file must not void the whole index */
-        }
-      }
-    }
-  } catch (err) {
-    console.warn(`⚠️  could not build the job index: ${err.message}`);
-  }
-  return index;
-}
-
-async function fetchGa4Day(day) {
-  const token = await getServiceAccountToken([
-    'https://www.googleapis.com/auth/analytics.readonly',
-  ]);
-  if (!token) return null;
-
-  const raw = process.env.GA4_PROPERTY_ID || DEFAULT_GA4_PROPERTY_ID;
-  const property = raw.startsWith('properties/') ? raw : `properties/${raw}`;
-
-  const res = await fetchRetry(
-    `https://analyticsdata.googleapis.com/v1beta/${property}:runReport`,
-    {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        dateRanges: [{ startDate: day, endDate: day }],
-        dimensions: [{ name: 'pagePath' }, { name: 'pageTitle' }],
-        metrics: [{ name: 'screenPageViews' }],
-        orderBys: [{ metric: { metricName: 'screenPageViews' }, desc: true }],
-        limit: 10000,
-      }),
-    },
-  );
-  if (!res?.ok) {
-    console.warn(`⚠️  GA4 runReport failed (${res?.status}) — nothing to post`);
-    return null;
-  }
-  const data = await res.json();
-  if (data.error) {
-    console.warn(`⚠️  GA4 error: ${JSON.stringify(data.error).slice(0, 200)}`);
-    return null;
-  }
-  return (data.rows || []).map((r) => ({
-    path: r.dimensionValues?.[0]?.value || '',
-    title: r.dimensionValues?.[1]?.value || '',
-    views: parseInt(r.metricValues?.[0]?.value || '0', 10),
-  }));
-}
+// fetchGa4Day moved to scripts/lib/ga4-service-account.mjs#fetchGa4PageReport
+// — Instagram/TikTok posters need the identical report (project rule: a
+// helper duplicated literally in ≥2 files MUST live in ONE shared module).
 
 // ─────────────────────────── copy ───────────────────────────
 
@@ -303,12 +184,7 @@ function buildCommentary({ kind, title, url, views, day, location }) {
 
   return truncateBody(body, COMMENTARY_MAX);
 }
-
-/** '2026-08-23' → '23/08/2026' (the post copy is Italian). */
-function formatDayIt(day) {
-  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(day || ''));
-  return m ? `${m[3]}/${m[2]}/${m[1]}` : String(day || '');
-}
+// formatDayIt moved to scripts/lib/social-post-utils.mjs (same rule as above).
 
 // ─────────────────────────── posting ───────────────────────────
 
@@ -363,7 +239,7 @@ async function main() {
 
   console.log(`─── LinkedIn member daily — day ${day}${dryRun ? ' (dry run)' : ''} ───`);
 
-  const rows = await fetchGa4Day(day);
+  const rows = await fetchGa4PageReport(day);
   if (!rows) {
     console.log('ℹ️  no GA4 data available — nothing to do');
     return;

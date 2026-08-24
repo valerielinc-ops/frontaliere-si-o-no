@@ -10700,6 +10700,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-albizzate-lavorare-ticino-frontaliere.title': 'Vivre à Albizzate et travailler au Tessin : guide 2026',
     'blog.article.vivere-albizzate-lavorare-ticino-frontaliere.excerpt': 'Permis G, fiscalité, AVS et LAMal : tout ce qui change depuis le 1er janvier 2024 pour les frontaliers Albizzate-Ticino.',
     'blog.article.vivere-albizzate-lavorare-ticino-frontaliere.imageAlt': 'Vue de Locarno sur le Lac Majeur avec les Alpes, symbole de la vie frontalière au Tessin',
+    'blog.article.vivere-bosisio-parini-lavorare-ticino-da-frontaliere.title': 'Transfert Bosisio Parini : avantages et inconvénients',
+    'blog.article.vivere-bosisio-parini-lavorare-ticino-da-frontaliere.excerpt': 'Bosisio Parini, une commune de 1 017 habitants dans la province de Lecco, est un endroit idéal pour les frontaliers qui souhaitent vivre en Italie et travailler en Suisse.',
+    'blog.article.vivere-bosisio-parini-lavorare-ticino-da-frontaliere.imageAlt': 'Frontalieri Ticino',
 };
 
 export default blogMetaFr;
