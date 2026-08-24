@@ -1421,6 +1421,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-l-sciaffusa-rinnovamento-dimora': { it: 'permesso-l-sciaffusa-rinnovamento-dimora', en: 'permit-l-schaffhausen-renewal-residence', de: 'erlaubnis-l-schaffhausen-verlaengerung-aufenthalt', fr: 'permis-l-schaffhouse-renouvellement-sejour' },
  'assegni-familiari-sciaffusa': { it: 'assegni-familiari-sciaffusa', en: 'family-allowances-canton-schaffhausen-amounts-and-demand', de: 'familienzulagen-kanton-schaffhausen-betrage-und-antrag', fr: 'allocations-familiales-canton-de-schaffhouse-montants-et-demande' },
  'apprendistato-canton-sciaffusa-contratto': { it: 'apprendistato-canton-sciaffusa-contratto', en: 'apprenticeship-canton-schaffhausen-contract', de: 'lehre-kanton-schaffhausen-vertrag', fr: 'apprentissage-canton-schaffhouse-contrat' },
+ 'tirocinio-contratto-sciaffusa': { it: 'tirocinio-contratto-sciaffusa', en: 'apprenticeship-contract-schaffhausen', de: 'lehre-vertrag-schaffhausen', fr: 'apprentissage-contrat-schaffhouse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

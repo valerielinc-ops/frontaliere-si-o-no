@@ -4186,6 +4186,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-canton-sciaffusa-contratto.title': 'Lehre und Berufsausbildung Schaffhausen',
     'blog.article.apprendistato-canton-sciaffusa-contratto.excerpt': 'Der Kanton Schaffhausen bietet bundesvertraglich geschützte Lehrgänge an. Erfahren Sie, wie Sie ein Praktikum, die Rechte in einem Vertrag und die Wege zur Berufsmaturität finden.',
     'blog.article.apprendistato-canton-sciaffusa-contratto.imageAlt': 'Ein junger Lehrling erlernt sein Handwerk in einer Schweizer Werkstatt mit beruflichen Werkzeugen.',
+    'blog.article.tirocinio-contratto-sciaffusa.title': 'Lehre: Praxisleitfaden im Kanton Schaffhausen',
+    'blog.article.tirocinio-contratto-sciaffusa.excerpt': 'So finden Sie eine Lehrstelle, Lehrlingsgehälter, Verträge und Berufsmaturität im Schweizer System.',
+    'blog.article.tirocinio-contratto-sciaffusa.imageAlt': 'Lehrling arbeitet mit Mentor in einer Werkstatt während der Schweizer Berufsausbildung',
 };
 
 export default blogMetaChDe;

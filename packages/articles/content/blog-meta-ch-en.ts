@@ -4186,6 +4186,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-canton-sciaffusa-contratto.title': 'Apprenticeship and vocational training Schaffhausen',
     'blog.article.apprendistato-canton-sciaffusa-contratto.excerpt': 'Canton Schaffhausen offers federally contracted apprenticeships. Learn how to find an internship, the rights in a contract, and pathways to professional maturity.',
     'blog.article.apprendistato-canton-sciaffusa-contratto.imageAlt': 'A young apprentice learning a trade in a Swiss workshop with professional tools and machinery in the background.',
+    'blog.article.tirocinio-contratto-sciaffusa.title': 'Apprenticeship: practical guide in the Schaffhausen Canton',
+    'blog.article.tirocinio-contratto-sciaffusa.excerpt': 'How to find an internship position, apprentice salaries, contracts and professional maturity in the Swiss system.',
+    'blog.article.tirocinio-contratto-sciaffusa.imageAlt': 'Apprentice working with mentor in professional workshop during Swiss vocational training',
 };
 
 export default blogMetaChEn;

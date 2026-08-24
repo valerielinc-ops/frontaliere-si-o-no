@@ -4186,6 +4186,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-canton-sciaffusa-contratto.title': 'Apprendistato e formazione professionale Sciaffusa',
     'blog.article.apprendistato-canton-sciaffusa-contratto.excerpt': 'Il Canton Sciaffusa offre percorsi di apprendistato tutelati da contratto federale. Scopri come trovare un tirocinio, i diritti in un contratto e i percorsi verso la maturità professionale.',
     'blog.article.apprendistato-canton-sciaffusa-contratto.imageAlt': 'Un giovane apprendista impara un mestiere in un\'officina svizzera, circondato da attrezzi e macchinari professionali.',
+    'blog.article.tirocinio-contratto-sciaffusa.title': 'Apprendistato: guida pratica nel Cantone Sciaffusa',
+    'blog.article.tirocinio-contratto-sciaffusa.excerpt': 'Come trovare un posto di tirocinio, stipendi dell\'apprendista, contratti e maturità professionale nel sistema svizzero.',
+    'blog.article.tirocinio-contratto-sciaffusa.imageAlt': 'Apprendista al lavoro in officina insieme a un mentor durante la formazione professionale svizzera',
 };
 
 export default blogMetaChIt;
