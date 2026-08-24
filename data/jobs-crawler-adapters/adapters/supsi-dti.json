@@ -13,36 +13,18 @@
     "https://www.supsi.ch/lavora-con-noi"
   ],
   "notes": "Dedicated SUPSI crawler seeds from lavora-con-noi (including pagination via POST) and canonicalizes job URLs under supsi.ch.",
-  "updatedAt": "2026-08-23T21:46:03.198Z",
+  "updatedAt": "2026-08-24T10:31:06.656Z",
   "seedDetailUrls": [
-    "https://www.supsi.ch/bando26_2004",
-    "https://www.supsi.ch/bando26_2005",
     "https://www.supsi.ch/bando26_5036",
     "https://www.supsi.ch/bando26_5035",
     "https://www.supsi.ch/bando26_5020",
     "https://www.supsi.ch/bando26_5028",
     "https://www.supsi.ch/bando26_5021",
-    "https://www.supsi.ch/bando26_5022"
+    "https://www.supsi.ch/bando26_5022",
+    "https://www.supsi.ch/bando26_5023",
+    "https://www.supsi.ch/bando26_5027"
   ],
   "seedMetaByUrl": {
-    "https://www.supsi.ch/bando26_2004": {
-      "location": "Manno",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "contract": "Part-time",
-      "expiresAt": "2026-08-23"
-    },
-    "https://www.supsi.ch/bando26_2005": {
-      "location": "Manno",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "contract": "Part-time",
-      "expiresAt": "2026-08-23"
-    },
     "https://www.supsi.ch/bando26_5036": {
       "location": "Lugano",
       "canton": "TI",
@@ -89,6 +71,24 @@
       "expiresAt": "2026-08-31"
     },
     "https://www.supsi.ch/bando26_5022": {
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "company": "SUPSI / DTI",
+      "companyDomain": "supsi.ch",
+      "contract": "Part-time",
+      "expiresAt": "2026-08-31"
+    },
+    "https://www.supsi.ch/bando26_5023": {
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "company": "SUPSI / DTI",
+      "companyDomain": "supsi.ch",
+      "contract": "Part-time",
+      "expiresAt": "2026-08-31"
+    },
+    "https://www.supsi.ch/bando26_5027": {
       "location": "Lugano",
       "canton": "TI",
       "country": "CH",
