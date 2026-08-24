@@ -77291,6 +77291,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-briosco-pendolare-ticino-lavoro': {
+    title: 'Vivere a Briosco, lavorare in Ticino: guida del frontaliere',
+    description: 'Trasferirsi a Briosco per lavorare in Ticino: guida completa su pendolarismo, imposte da frontaliere, Permesso G e scadenze amministrative. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, briosco, lavorare, gennaio',
+    ogTitle: 'Briosco e Ticino: guida pratica per il frontaliere',
+    ogDescription: 'Vivere a Briosco, lavorare in Ticino: tutto quello che devi sapere su Permesso G, imposte, pendolarismo, e come gestire la doppia imposizione tra Italia e Svizzera. Scopri vantaggi, svantaggi e procedura di trasferimento.',
+    canonicalPath: '/articoli-frontaliere/briosco-pendolare-ticino-lavoro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Briosco, lavorare in Ticino: guida del frontaliere",
+      "description": "Trasferirsi a Briosco per lavorare in Ticino: guida completa su pendolarismo, imposte da frontaliere, Permesso G e scadenze amministrative. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/briosco-pendolare-ticino-lavoro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Lugano con le Alpi sullo sfondo, rappresentando il panorama visto dai frontalieri che lavorano in Ticino"
+      },
+      "datePublished": "2026-08-24T16:57:34+00:00",
+      "dateModified": "2026-08-24T16:57:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/briosco-pendolare-ticino-lavoro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

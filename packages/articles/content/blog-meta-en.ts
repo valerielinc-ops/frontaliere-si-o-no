@@ -10689,6 +10689,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.toceno-lavoro-frontaliere-ticino.title': 'Toceno and border workers Ticino: work, taxes and transfer',
     'blog.article.toceno-lavoro-frontaliere-ticino.excerpt': 'Toceno on the border with Ticino: a choice of accommodation for border crossers between tax at source and commuting to Switzerland.',
     'blog.article.toceno-lavoro-frontaliere-ticino.imageAlt': 'Commuters at the border checkpoint between Toceno (Piedmont) and Canton Ticino during morning rush',
+    'blog.article.briosco-pendolare-ticino-lavoro.title': 'Living in Briosco, working in Ticino: frontier guide',
+    'blog.article.briosco-pendolare-ticino-lavoro.excerpt': 'From 1 January 2024, the New Frontier Agreement governs taxation between Italy and Ticino. Briosco is 70 km from the crossing: a practical guide for Ticino residents and workers.',
+    'blog.article.briosco-pendolare-ticino-lavoro.imageAlt': 'View of Lugano with Alps in the background, representing the landscape seen by cross-border workers in Ticino',
 };
 
 export default blogMetaEn;

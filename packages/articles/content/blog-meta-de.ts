@@ -10688,6 +10688,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.toceno-lavoro-frontaliere-ticino.title': 'Toceno und Grenzgänger Tessin: Arbeit, Steuern und Versetzung',
     'blog.article.toceno-lavoro-frontaliere-ticino.excerpt': 'Toceno an der Grenze zum Tessin: eine Wahl für Grenzgänger zwischen Quellensteuer und Pendeln in die Schweiz.',
     'blog.article.toceno-lavoro-frontaliere-ticino.imageAlt': 'Pendler an der Grenzstation zwischen Toceno (Piemont) und Kanton Tessin während des Morgenverkehrs',
+    'blog.article.briosco-pendolare-ticino-lavoro.title': 'Wohnen in Briosco, Arbeiten im Tessin: Grenzgängerführer',
+    'blog.article.briosco-pendolare-ticino-lavoro.excerpt': 'Seit dem 1. Januar 2024 regelt das Neue Frontalieri-Abkommen die Besteuerung zwischen Italien und dem Tessin. Briosco ist 70 km vom Pass entfernt: ein praktischer Leitfaden für Einwohner und Arbeiter des Tessins.',
+    'blog.article.briosco-pendolare-ticino-lavoro.imageAlt': 'Blick auf Lugano mit Alpen im Hintergrund, die Landschaft zeigt, die Grenzgänger in Tessin sehen',
 };
 
 export default blogMetaDe;

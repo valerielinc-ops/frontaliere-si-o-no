@@ -10691,6 +10691,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.toceno-lavoro-frontaliere-ticino.title': 'Toceno et frontaliers Tessin : travail, taxes et transfert',
     'blog.article.toceno-lavoro-frontaliere-ticino.excerpt': 'Toceno à la frontière avec le Tessin : un choix de logement pour les frontaliers entre impôt à la source et déplacement vers la Suisse.',
     'blog.article.toceno-lavoro-frontaliere-ticino.imageAlt': 'Navetteurs au poste frontalier entre Toceno (Piémont) et Canton du Tessin lors des trajets du matin',
+    'blog.article.briosco-pendolare-ticino-lavoro.title': 'Vivre à Briosco, travailler au Tessin : guide du frontalier',
+    'blog.article.briosco-pendolare-ticino-lavoro.excerpt': 'Depuis le 1er janvier 2024, le nouvel accord frontalier régit la fiscalité entre l\'Italie et le Tessin. Briosco est à 70 km du passage : guide pratique pour les résidents et les travailleurs tessinois.',
+    'blog.article.briosco-pendolare-ticino-lavoro.imageAlt': 'Vue de Lugano avec les Alpes en arrière-plan, paysage vu par les travailleurs transfrontaliers au Tessin',
 };
 
 export default blogMetaFr;
