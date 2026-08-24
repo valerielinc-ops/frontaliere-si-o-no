@@ -4108,6 +4108,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aziende-bio-foraggio-convenzionale.title': 'Bio-Betriebe können 20% konventionelles Futter kaufen',
     'blog.article.aziende-bio-foraggio-convenzionale.excerpt': 'Das Bundesamt für Landwirtschaft lockert die Vorschriften für Biobetriebe: 20% konventionelles Futter zur Deckung des Gesamtbedarfs der eigenen Tiere',
     'blog.article.aziende-bio-foraggio-convenzionale.imageAlt': 'Biobetriebe',
+    'blog.article.domicilio-c-canton-basilea-diritti.title': 'Ausweis C Basel-Stadt: Voraussetzungen Rechte und Einbürgerung',
+    'blog.article.domicilio-c-canton-basilea-diritti.excerpt': 'Niederlassungsbewilligung C im Kanton Basel-Stadt: 10 Jahre Wohnsitz (5 EU/EFTA), eidgenössische Integration, kantonales Verfahren und Weg zur ordentlichen Schweizer Einbürgerung.',
+    'blog.article.domicilio-c-canton-basilea-diritti.imageAlt': 'Verwaltungsgebäude des Kantons Basel-Stadt mit Schweizer Flagge, Behördensitz für die Erteilung des Aufenthaltserlaubnis C',
 };
 
 export default blogMetaChDe;

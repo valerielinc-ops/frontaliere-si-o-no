@@ -4108,6 +4108,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aziende-bio-foraggio-convenzionale.title': 'Organic companies can buy 20% conventional fodder',
     'blog.article.aziende-bio-foraggio-convenzionale.excerpt': 'The Federal Office of Agriculture relaxes the rules for organic farms: 20% conventional fodder to cover the total needs of their animals',
     'blog.article.aziende-bio-foraggio-convenzionale.imageAlt': 'Bio farms',
+    'blog.article.domicilio-c-canton-basilea-diritti.title': 'Permit C Basel City: rights and naturalization requirements',
+    'blog.article.domicilio-c-canton-basilea-diritti.excerpt': 'Residence permit C in the Canton of Basel City: 10 years residence (5 EU/EFTA), federal integration, cantonal procedure and path to Swiss ordinary naturalization.',
+    'blog.article.domicilio-c-canton-basilea-diritti.imageAlt': 'Administrative building of Canton Basel-Stadt with Swiss flag, headquarters of authorities issuing residence permit C',
 };
 
 export default blogMetaChEn;

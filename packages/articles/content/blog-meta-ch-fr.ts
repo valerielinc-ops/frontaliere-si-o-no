@@ -4108,6 +4108,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aziende-bio-foraggio-convenzionale.title': 'Les entreprises bio peuvent acheter 20 % de fourrage conventionnel',
     'blog.article.aziende-bio-foraggio-convenzionale.excerpt': 'L\'Office fédéral de l\'agriculture assouplit les règles pour les exploitations biologiques : 20 % de fourrage conventionnel pour couvrir l\'ensemble des besoins de ses animaux',
     'blog.article.aziende-bio-foraggio-convenzionale.imageAlt': 'Exploitations biologiques',
+    'blog.article.domicilio-c-canton-basilea-diritti.title': 'Permis C Bâle-Ville : conditions de droits et naturalisation',
+    'blog.article.domicilio-c-canton-basilea-diritti.excerpt': 'Permis de séjour C dans le canton de Bâle-Ville : 10 ans de résidence (5 UE/AELE), intégration fédérale, procédure cantonale et parcours vers la naturalisation ordinaire suisse.',
+    'blog.article.domicilio-c-canton-basilea-diritti.imageAlt': 'Bâtiment administratif du canton de Bâle-Ville avec drapeau suisse, siège des autorités pour la délivrance du permis C',
 };
 
 export default blogMetaChFr;
