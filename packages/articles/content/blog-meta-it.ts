@@ -10687,6 +10687,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-asso-lavorare-ticino-da-frontaliere.title': 'Vivere a Asso, lavorare in Ticino: cosa considerare',
     'blog.article.vivere-asso-lavorare-ticino-da-frontaliere.excerpt': 'Ecco alcuni dei punti chiave da considerare prima di trasferirsi a Asso e lavorare in Ticino come frontaliere.',
     'blog.article.vivere-asso-lavorare-ticino-da-frontaliere.imageAlt': 'Immagine di un frontaliere che guarda il panorama del lago di Lugano',
+    'blog.article.toceno-lavoro-frontaliere-ticino.title': 'Toceno e frontalieri Ticino: lavoro, tasse e trasferimento',
+    'blog.article.toceno-lavoro-frontaliere-ticino.excerpt': 'Toceno al confine con il Ticino: una scelta abitativa per frontalieri tra imposta alla fonte e pendolarismo verso la Svizzera.',
+    'blog.article.toceno-lavoro-frontaliere-ticino.imageAlt': 'Pendolari al valico confine tra Toceno (Piemonte) e Canton Ticino durante il pendolarismo mattutino',
 };
 
 export default blogMetaIt;

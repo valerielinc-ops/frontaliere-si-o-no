@@ -10686,6 +10686,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-asso-lavorare-ticino-da-frontaliere.title': 'Living in Ace, working in Ticino: what to consider',
     'blog.article.vivere-asso-lavorare-ticino-da-frontaliere.excerpt': 'Here are some of the key points to consider before moving to Ace and working in Ticino as a border worker.',
     'blog.article.vivere-asso-lavorare-ticino-da-frontaliere.imageAlt': 'Image of a cross-border commuter looking at the Lake Lugano landscape',
+    'blog.article.toceno-lavoro-frontaliere-ticino.title': 'Toceno and border workers Ticino: work, taxes and transfer',
+    'blog.article.toceno-lavoro-frontaliere-ticino.excerpt': 'Toceno on the border with Ticino: a choice of accommodation for border crossers between tax at source and commuting to Switzerland.',
+    'blog.article.toceno-lavoro-frontaliere-ticino.imageAlt': 'Commuters at the border checkpoint between Toceno (Piedmont) and Canton Ticino during morning rush',
 };
 
 export default blogMetaEn;
