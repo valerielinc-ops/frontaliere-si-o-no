@@ -12178,6 +12178,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'salari-mercato-lavoro-soletta',
+    category: 'pratico',
+    date: '2026-08-24T09:16:07.835Z',
+    image: '/images/blog/salari-mercato-lavoro-soletta.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

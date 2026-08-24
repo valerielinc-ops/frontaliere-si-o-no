@@ -4060,6 +4060,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.primo-pilastro-soletta-prestazioni.title': 'AHV und Ergänzungsleistungen im Kanton Solothurn',
     'blog.article.primo-pilastro-soletta-prestazioni.excerpt': 'AHV im Kanton Solothurn: Ausgleichskasse, Rentenberechnung, Beitragslücken schliessen, Ergänzungsleistungen bei Lebensminimum. Komplette Anleitung.',
     'blog.article.primo-pilastro-soletta-prestazioni.imageAlt': 'Altersversorgungsdokumente und AHV-Formulare auf einem Schreibtisch mit Rechner',
+    'blog.article.salari-mercato-lavoro-soletta.title': 'Löhne Solothurn: Branchen und Ausbildungsstufen',
+    'blog.article.salari-mercato-lavoro-soletta.excerpt': 'Wie die Löhne im Kanton Solothurn je nach Ausbildung funktionieren. Entdecken Sie Lohnniveaus, Tarifverträge und Steuern in der Schweiz.',
+    'blog.article.salari-mercato-lavoro-soletta.imageAlt': 'Schweizer Fachleute arbeiten in einem modernen Büro mit Teamzusammenarbeit und Schreibtischarbeit',
 };
 
 export default blogMetaChDe;

@@ -4060,6 +4060,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.primo-pilastro-soletta-prestazioni.title': 'AVS e prestazioni complementari nel Canton Soletta',
     'blog.article.primo-pilastro-soletta-prestazioni.excerpt': 'AVS nel Canton Soletta: cassa di compensazione, calcolo rendita, colmare lacune contributive, prestazioni complementari per minimo vitale. Guida completa.',
     'blog.article.primo-pilastro-soletta-prestazioni.imageAlt': 'Documenti di previdenza e moduli AVS su scrivania con calcolatrice e caffè',
+    'blog.article.salari-mercato-lavoro-soletta.title': 'Salari Soletta: settori e livelli di formazione',
+    'blog.article.salari-mercato-lavoro-soletta.excerpt': 'Come funzionano i salari nel Canton Soletta a seconda della formazione. Scopri livelli salariali, contratti collettivi e tassazione in Svizzera.',
+    'blog.article.salari-mercato-lavoro-soletta.imageAlt': 'Professionisti svizzeri che lavorano in un moderno ufficio con collaborazione di team e documenti sulla scrivania',
 };
 
 export default blogMetaChIt;

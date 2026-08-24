@@ -52670,6 +52670,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salari-mercato-lavoro-soletta': {
+    title: 'Salari Soletta: settori e livelli di formazione',
+    description: 'Scopri come funzionano salari e livelli di formazione nel Canton Soletta. Contratti collettivi, contributi obbligatori e calcolo del netto dal lordo',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, soletta, settori, livelli',
+    ogTitle: 'Salari Soletta: settori e livelli di formazione',
+    ogDescription: 'Come funzionano i salari nel Canton Soletta a seconda della formazione. Scopri livelli salariali, contributi obbligatori (AVS, LPP, LAINF) e come calcolare il netto dal lordo. Contratti collettivi e tassazione federale/cantonale in Svizzera.',
+    canonicalPath: '/articoli-svizzera/salari-mercato-lavoro-soletta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari Soletta: settori e livelli di formazione",
+      "description": "Scopri come funzionano salari e livelli di formazione nel Canton Soletta. Contratti collettivi, contributi obbligatori e calcolo del netto dal lordo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salari-mercato-lavoro-soletta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Professionisti svizzeri che lavorano in un moderno ufficio con collaborazione di team e documenti sulla scrivania"
+      },
+      "datePublished": "2026-08-24T09:16:07+00:00",
+      "dateModified": "2026-08-24T09:16:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salari-mercato-lavoro-soletta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
