@@ -10704,6 +10704,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-cesana-brianza-lavorare-ticino-frontaliere.title': 'Living in Cesana Brianza and working in Ticino as a border worker',
     'blog.article.vivere-cesana-brianza-lavorare-ticino-frontaliere.excerpt': 'Key facts about the lives of border workers in Cesana Brianza and Ticino',
     'blog.article.vivere-cesana-brianza-lavorare-ticino-frontaliere.imageAlt': 'A frontaliere living in Cesana Brianza and working in Ticino',
+    'blog.article.vivere-veduggio-frontaliere-ticino.title': 'Living in Veduggio and working in Ticino: border crossing',
+    'blog.article.vivere-veduggio-frontaliere-ticino.excerpt': 'Complete guide for those who reside in Veduggio and work in Ticino as border workers: Swiss taxation, G permit, payroll, AVS, LAMal and step-by-step procedure.',
+    'blog.article.vivere-veduggio-frontaliere-ticino.imageAlt': 'Veduggio with Colzano at the Italy-Switzerland border, Alpine village with mountains in the background.',
 };
 
 export default blogMetaEn;
