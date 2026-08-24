@@ -4054,6 +4054,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.storia-sicurezza-sociale-rilancio.title': 'Geschichte der sozialen Sicherheit: Neustart der Website',
     'blog.article.storia-sicurezza-sociale-rilancio.excerpt': 'Die Website www.storiadellasicurezzasociale.ch präsentiert sich in einem neuen Erscheinungsbild mit einer neuen Benutzeroberfläche und einem grafischen Erscheinungsbild, die für die Kompatibilität mit allen Terminals und die Zugänglichkeit optimiert sind.',
     'blog.article.storia-sicurezza-sociale-rilancio.imageAlt': 'Blick auf Lugano mit einem historischen Archiv im Vordergrund',
+    'blog.article.soletta-affitti-canoni-diritto.title': 'Mietmarkt in Solothurn: Durchschnitts- und Rechtsmieten',
+    'blog.article.soletta-affitti-canoni-diritto.excerpt': 'Analyse der Mietzins-, Kautions- und Streitverfahren im Kanton Solothurn.',
+    'blog.article.soletta-affitti-canoni-diritto.imageAlt': 'Immobilienmarkt und Mieten im Kanton Solothurn',
 };
 
 export default blogMetaChDe;

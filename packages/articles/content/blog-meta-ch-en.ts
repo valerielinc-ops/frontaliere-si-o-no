@@ -4054,6 +4054,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.storia-sicurezza-sociale-rilancio.title': 'Social security history: website relaunch',
     'blog.article.storia-sicurezza-sociale-rilancio.excerpt': 'The website www.storiadellasicurezzasociale.ch is presented in a new guise, with a new interface and graphics optimised for compatibility with all terminals and accessibility.',
     'blog.article.storia-sicurezza-sociale-rilancio.imageAlt': 'View of Lugano with a historical archive in the foreground',
+    'blog.article.soletta-affitti-canoni-diritto.title': 'Rentals market in Solothurn: average fees and legal fees',
+    'blog.article.soletta-affitti-canoni-diritto.excerpt': 'Analysis of rent, security deposit and dispute procedures in the Canton of Solothurn.',
+    'blog.article.soletta-affitti-canoni-diritto.imageAlt': 'Real estate market and rents in the Canton of Solothurn',
 };
 
 export default blogMetaChEn;

@@ -4054,6 +4054,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.storia-sicurezza-sociale-rilancio.title': 'Storia della sicurezza sociale: rilancio del sito Internet',
     'blog.article.storia-sicurezza-sociale-rilancio.excerpt': 'Il sito Internet www.storiadellasicurezzasociale.ch si presenta in una nuova veste, con una nuova interfaccia e una veste grafica ottimizzate per la compatibilità con tutti i terminali e l\'accessibilità.',
     'blog.article.storia-sicurezza-sociale-rilancio.imageAlt': 'Vista di Lugano con un archivio storico in primo piano',
+    'blog.article.soletta-affitti-canoni-diritto.title': 'Mercato affitti a Soletta: canoni medi e diritto',
+    'blog.article.soletta-affitti-canoni-diritto.excerpt': 'Analisi dei canoni di locazione, del deposito di garanzia e delle procedure di contestazione nel Cantone di Soletta.',
+    'blog.article.soletta-affitti-canoni-diritto.imageAlt': 'Mercato immobiliare e affitti nel Cantone di Soletta',
 };
 
 export default blogMetaChIt;

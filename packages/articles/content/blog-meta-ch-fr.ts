@@ -4054,6 +4054,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.storia-sicurezza-sociale-rilancio.title': 'Histoire de la sécurité sociale : relance du site Internet',
     'blog.article.storia-sicurezza-sociale-rilancio.excerpt': 'Le site Internet www.storiadellasicurezzasociale.ch se présente sous un nouveau jour, avec une nouvelle interface et un graphisme optimisés pour la compatibilité avec tous les terminaux et l\'accessibilité.',
     'blog.article.storia-sicurezza-sociale-rilancio.imageAlt': 'Vue de Lugano avec un archive historique en premier plan',
+    'blog.article.soletta-affitti-canoni-diritto.title': 'Marché des loyers à Soleure : loyers moyens et droit',
+    'blog.article.soletta-affitti-canoni-diritto.excerpt': 'Analyse des loyers, du dépôt de garantie et des procédures de contestation dans le canton de Soleure.',
+    'blog.article.soletta-affitti-canoni-diritto.imageAlt': 'Marche immobilier et loyers dans le canton de Soleure',
 };
 
 export default blogMetaChFr;

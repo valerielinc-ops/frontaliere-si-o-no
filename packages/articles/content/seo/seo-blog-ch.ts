@@ -52592,6 +52592,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-soletta-affitti-canoni-diritto': {
+    title: 'Mercato affitti a Soletta: canoni medi e diritto',
+    description: 'Guida al mercato immobiliare nel Cantone di Soletta: analisi dei canoni medi, deposito di garanzia, contestazione del canone e autorità di conciliazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercato, affitti, soletta, canoni',
+    ogTitle: 'Mercato degli affitti nel Cantone di Soletta: canoni medi e diritto di locazione',
+    ogDescription: 'Approfondimento completo sul mercato immobiliare e delle locazioni nel Cantone di Soletta. Scopri le regole sui canoni medi, la cauzione, le contestazioni e il ruolo dell\'autorità di conciliazione.',
+    canonicalPath: '/articoli-svizzera/soletta-affitti-canoni-diritto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercato affitti a Soletta: canoni medi e diritto",
+      "description": "Guida al mercato immobiliare nel Cantone di Soletta: analisi dei canoni medi, deposito di garanzia, contestazione del canone e autorità di conciliazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/soletta-affitti-canoni-diritto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Mercato immobiliare e affitti nel Cantone di Soletta"
+      },
+      "datePublished": "2026-08-24T08:37:12+00:00",
+      "dateModified": "2026-08-24T08:37:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/soletta-affitti-canoni-diritto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
