@@ -15,6 +15,7 @@ import {
 } from '@/services/newsletterSubscribers';
 import { consentProof } from '@/services/consentTexts';
 import ConsentNotice from '@/components/shared/ConsentNotice';
+import TelegramChannelCta from '@/components/shared/TelegramChannelCta';
 
 // Firebase Firestore will be lazily imported
 let firestoreInitialized = false;
@@ -288,6 +289,11 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  )}
  {status === 'error' && <p className="text-danger text-xs mt-2">{errorMessage}</p>}
  {status === 'exists' && <p className="text-warning text-xs mt-2">{t('newsletter.alreadySubscribed')}</p>}
+ {/* Second subscription channel. Shown in every state: before subscribing
+   * it is an alternative for who will not give an email, after it is the
+   * natural "and also" moment. Self-gating — renders null when the channel
+   * is not configured. */}
+ <TelegramChannelCta tone="on-accent" className="mt-4" />
  </div>
  );
  }
@@ -472,6 +478,10 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  </p>
  </form>
  )}
+
+ {/* Second subscription channel, outside the success/form ternary so it is
+   * offered in BOTH states (see the compact variant above). */}
+ <TelegramChannelCta />
  </div>
  );
 };

@@ -255,6 +255,50 @@ export function buildJobUrl(job) {
   return `${SITE_URL}/${section}/${slug}/`;
 }
 
+/**
+ * Append UTM campaign parameters to an absolute site URL.
+ *
+ * WHY this exists: a link posted to a social channel with no UTM lands in GA4
+ * as Direct or as an untagged Referral, so the channel reads as ZERO sessions
+ * even while it is actually sending clicks. Measured 2026-08-24: the Telegram
+ * channel had posted a jobs digest every day yet GA4 (property 524485296)
+ * reported 0 sessions from `t.me` over 30 days — the links carried no UTM.
+ *
+ * Convention (matches scripts/send-job-alerts.mjs, scripts/newsletter-template.mjs
+ * and build-plugins/jobsSeoPagesPlugin.ts): `utm_medium` is the CHANNEL CLASS
+ * (email / social / referral) and `utm_source` is the specific IDENTIFIER
+ * (job_alert / newsletter / telegram).
+ *
+ * Never throws: a URL the `URL` parser rejects is returned unchanged, so a
+ * malformed input can only cost the attribution, never the link itself.
+ * Existing query params on the input are preserved; only the `utm_*` keys
+ * passed here are set. Empty/absent fields are skipped rather than written as
+ * empty strings (an empty `utm_content=` is noise in GA4 reports).
+ *
+ * @param {string} url — absolute URL.
+ * @param {{ source: string, medium: string, campaign: string, content?: string }} params
+ * @returns {string} the tagged URL, or `url` verbatim when it cannot be parsed.
+ */
+export function withUtm(url, { source, medium, campaign, content } = {}) {
+  if (!url) return url;
+  try {
+    const u = new URL(url);
+    const pairs = [
+      ['utm_source', source],
+      ['utm_medium', medium],
+      ['utm_campaign', campaign],
+      ['utm_content', content],
+    ];
+    for (const [key, value] of pairs) {
+      const v = String(value ?? '').trim();
+      if (v) u.searchParams.set(key, v);
+    }
+    return u.toString();
+  } catch {
+    return url;
+  }
+}
+
 // ── Posted-jobs ledger I/O ──────────────────────────────────
 
 /**
