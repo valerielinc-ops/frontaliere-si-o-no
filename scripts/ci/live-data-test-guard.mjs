@@ -162,6 +162,17 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   { file: 'tests/slug-active-loss-regression-5229.test.ts', roots: ['data/jobs/'] },
   { file: 'tests/slug-leak-allowlist-liveness.test.ts', roots: ['packages/articles/content/'] },
   { file: 'tests/static-pages-blog-skip.test.ts', roots: ['packages/articles/'] },
+  // Corpus genuinely the subject, not a lazy read: the 'description-field
+  // corpus sweep (issue #6393)' describe block (read in full — the two `it`s
+  // at the file's tail) iterates `data/jobs/by-crawler/*.json` to assert
+  // `sanitizeSuccessFactorsField` has never wiped a live description to ''
+  // and no live description still contains widget chrome. That's the same
+  // shape as `crawler-regression-quality-guards.test.ts`'s "CORPUS INVARIANT"
+  // test above (also `data/jobs/by-crawler/`, also already in this list): a
+  // regression anchor on the PUBLISHED corpus, where a red from new data is
+  // the intended signal, not noise. Pinning it to a fixture would stop it
+  // from ever catching a real production wipe.
+  { file: 'tests/successfactors-jobs2web-widget-guard.test.ts', roots: ['data/jobs/'] },
   { file: 'tests/topic-cluster-hubs.test.ts', roots: ['services/locales/'] },
   { file: 'tests/weekly-employers.test.ts', roots: ['services/locales/'] },
   { file: 'tests/whats-new-localization-guard.test.ts', roots: ['services/locales/'] },
