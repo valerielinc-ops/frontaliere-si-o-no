@@ -35,15 +35,27 @@ interface Release {
 
 export const RELEASES: Release[] = [
   {
+    version: '3.94.0',
+    date: '2026-08-24',
+    titleKey: 'whatsNew.v3940.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3940.comuniCompare.title',
+        descKey: 'whatsNew.v3940.comuniCompare.desc',
+        href: '/tasse-frontalieri-comune/',
+      },
+    ],
+  },
+  {
     version: '3.93.0',
     date: '2026-08-24',
     titleKey: 'whatsNew.v3930.title',
     items: [
       {
         type: 'feature',
-        titleKey: 'whatsNew.v3930.comuniCompare.title',
-        descKey: 'whatsNew.v3930.comuniCompare.desc',
-        href: '/tasse-frontalieri-comune/',
+        titleKey: 'whatsNew.v3930.preferredSource.title',
+        descKey: 'whatsNew.v3930.preferredSource.desc',
       },
     ],
   },

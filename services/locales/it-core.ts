@@ -656,6 +656,11 @@ const translations: Record<string, string> = {
  'donation.button': 'Offrici un caffè',
  'donation.dismiss': 'Chiudi',
 
+ // Google Preferred Sources (fase 4 della issue 5004) — CTA footer / fine-articolo
+ 'preferredSource.title': 'Rendici una delle tue fonti preferite su Google',
+ 'preferredSource.body': 'Su Google puoi scegliere le fonti che vuoi vedere più spesso nei risultati e nelle risposte AI. Un click e Frontaliere Ticino entra nella tua lista.',
+ 'preferredSource.button': 'Aggiungi alle fonti preferite',
+
  // Consulting
  'jobBoard.badge': 'Offerte di Lavoro',
  'jobBoard.badge.new': 'Nuovo',
@@ -2883,9 +2888,12 @@ Regole:
  'whatsNew.v3870.title': 'Vivere in Francia, lavorare in Svizzera',
  'whatsNew.v3870.frenchBorderMunicipality.title': 'Comuni di confine francesi: affitti, tasse e distanza',
  'whatsNew.v3870.frenchBorderMunicipality.desc': 'Nuove pagine per i comuni francesi della fascia di confine (Ginevra, Vaud, Neuchâtel, Giura, Vallese): affitto medio, meccanismo fiscale (imposta alla fonte a Ginevra o dichiarazione francese negli altri cantoni) e distanza dal valico più vicino.',
- 'whatsNew.v3930.title': "Ogni pagina comune ora si confronta con i suoi vicini",
- 'whatsNew.v3930.comuniCompare.title': "Confronto con i comuni più vicini",
- 'whatsNew.v3930.comuniCompare.desc': "Sulle pagine dei comuni — guida fiscale, comuni di frontiera, Francia, Germania, Austria, Liechtenstein — c'è una tabella con i sei comuni geograficamente più vicini e le cifre che tra loro cambiano davvero: addizionale comunale, affitto indicativo, distanza dal confine. Sotto, in chiaro, quanto vale la differenza: «rispetto a Cairate, il più basso del gruppo, circa 22 € l'anno di netto». Prima quel blocco mostrava sempre gli stessi sei comuni, uguali su ogni pagina.",
+ 'whatsNew.v3940.title': "Ogni pagina comune ora si confronta con i suoi vicini",
+ 'whatsNew.v3940.comuniCompare.title': "Confronto con i comuni più vicini",
+ 'whatsNew.v3940.comuniCompare.desc': "Sulle pagine dei comuni — guida fiscale, comuni di frontiera, Francia, Germania, Austria, Liechtenstein — c'è una tabella con i sei comuni geograficamente più vicini e le cifre che tra loro cambiano davvero: addizionale comunale, affitto indicativo, distanza dal confine. Sotto, in chiaro, quanto vale la differenza: «rispetto a Cairate, il più basso del gruppo, circa 22 € l'anno di netto». Prima quel blocco mostrava sempre gli stessi sei comuni, uguali su ogni pagina.",
+ 'whatsNew.v3930.title': 'Sceglici come fonte preferita su Google',
+ 'whatsNew.v3930.preferredSource.title': 'Un click per farci comparire più spesso',
+ 'whatsNew.v3930.preferredSource.desc': 'Google permette di indicare le fonti che vuoi vedere più spesso nei risultati e nelle risposte AI, ma la scelta la fai tu dal tuo account: nessun sito può farlo al posto tuo. Ora trovi il link diretto a quel pannello nel footer, alla fine di ogni articolo e nella newsletter, con il nostro dominio già precompilato.',
  'whatsNew.v3920.title': 'Quali email ricevi, e come fermarle',
  'whatsNew.v3920.communications.title': 'La pagina delle comunicazioni',
  'whatsNew.v3920.communications.desc': 'Un elenco di tutte le email che possiamo inviarti, con la frequenza reale di ciascuna e il link per disattivarla. È generato dalla configurazione degli invii, quindi non può divergere da ciò che spediamo davvero. La formula di consenso, ora mostrata a ogni iscrizione, rimanda qui invece di dichiarare una frequenza che potrebbe cambiare.',

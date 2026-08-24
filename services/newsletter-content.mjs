@@ -204,6 +204,49 @@ export function normalizeContract(contract, locale = 'it') {
   return labels.default;
 }
 
+// Format a job salary (annual/monthly/hourly) into a compact, locale-aware
+// label, e.g. "CHF 75K–90K/anno". Returns null if the job has no salary data
+// — caller should not render the chip. Shared by send-job-alerts.mjs and
+// send-saved-jobs-digest.mjs (#6104: was duplicated in send-job-alerts.mjs
+// only, extracted here so the two job-card renderers can't drift — AGENTS.md
+// Non-Negotiable #6).
+export function formatSalary(job, locale = 'it') {
+  const min = Number(job.salaryMin) || Number(job.baseSalary?.value?.minValue) || 0;
+  const max = Number(job.salaryMax) || Number(job.baseSalary?.value?.maxValue) || 0;
+  if (!min && !max) return null;
+  const currency = String(job.currency || job.baseSalary?.currency || 'CHF').toUpperCase();
+  const unit = String(job.baseSalary?.value?.unitText || 'YEAR').toUpperCase();
+  const periodSuffix = {
+    it: { YEAR: '/anno', MONTH: '/mese', WEEK: '/settimana', HOUR: '/ora', DAY: '/giorno' },
+    en: { YEAR: '/year', MONTH: '/month', WEEK: '/week', HOUR: '/hour', DAY: '/day' },
+    de: { YEAR: '/Jahr', MONTH: '/Monat', WEEK: '/Woche', HOUR: '/Std.', DAY: '/Tag' },
+    fr: { YEAR: '/an', MONTH: '/mois', WEEK: '/semaine', HOUR: '/heure', DAY: '/jour' },
+  };
+  const suffix = (periodSuffix[locale] || periodSuffix.it)[unit] || '';
+  const compact = (n) => {
+    if (!n) return '';
+    if (n >= 1000) {
+      const k = n / 1000;
+      // Render as 49.5K (one decimal if the half-step matters) or 75K (integer).
+      return (Number.isInteger(k) ? k.toFixed(0) : k.toFixed(1).replace(/\.0$/, '')) + 'K';
+    }
+    return String(n);
+  };
+  const range = min && max && min !== max
+    ? `${compact(min)}–${compact(max)}` // en-dash separator
+    : compact(min || max);
+  return `${currency} ${range}${suffix}`;
+}
+
+// Small pill-shaped chip used on job cards (NEW / salary / contract /
+// location) — shared HTML fragment so job-alert and saved-jobs-digest emails
+// render the exact same chip, not two hand-tuned copies (#6104).
+export function emailTagChip(label, palette = 'orange') {
+  const bg = palette === 'green' ? 'rgba(34,197,94,0.2)' : palette === 'blue' ? 'rgba(59,130,246,0.18)' : 'rgba(249,115,22,0.15)';
+  const color = palette === 'green' ? '#86efac' : palette === 'blue' ? '#93c5fd' : '#fdba74';
+  return `<span style="font-size:10px;background:${bg};color:${color};padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${label}</span>`;
+}
+
 function dedupeBy(items, keyFn) {
   const seen = new Set();
   return items.filter((item) => {
