@@ -23,10 +23,10 @@
       },
       "description": "Technical Documentation Specialist (60% - all identities and backgrounds*) in Zürich — Switch Bewerbermanagement Stellen",
       "descriptionByLocale": {
-        "it": "Technical Documentation Specialist (60% - all identities and backgrounds*) in Zürich — Switch Bewerbermanagement Stellen",
         "en": "Technical Documentation Specialist (60% - all identities and backgrounds*) in Zürich — Switch Bewerbermanagement Stellen",
-        "de": "Technical Documentation Specialist (60% - all identities and backgrounds*) in Zürich — Switch Bewerbermanagement Stellen",
-        "fr": "Technical Documentation Specialist (60% - all identities and backgrounds*) in Zürich — Switch Bewerbermanagement Stellen"
+        "it": "Specialista di documentazione tecnica (60% - tutte le identità e gli sfondi*) in Zurigo — Switch Bewerbermanagement Stellen",
+        "de": "Spezialist für technische Dokumentation (60% - alle Identitäten und Hintergründe*) in Zürich — Switch Bewerbermanagement Stellen",
+        "fr": "Spécialiste de la documentation technique (60% - toutes identités et origines*) à Zurich — Switch Bewerbermanagement Stellen"
       },
       "location": "Lugano",
       "canton": "TI",
@@ -48,7 +48,19 @@
       "applyUrl": "https://recruitingapp-2563.umantis.com/Vacancies/557/Description/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
+      "salaryMin": 34800,
+      "salaryMax": 52800,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 34800,
+          "maxValue": 52800,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
       "firstSeenAt": "2026-08-23T09:47:24.585Z",
       "previousSlugsByLocale": {
         "it": [
@@ -63,20 +75,7 @@
       },
       "previousSlugs": [
         "technical-documentation-specialist-60-all-identities-and-backgrounds-in-zurich"
-      ],
-      "salaryMin": 34800,
-      "salaryMax": 52800,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 34800,
-          "maxValue": 52800,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI"
+      ]
     },
     {
       "id": "recruitingapp-2563-052f9f19df69",

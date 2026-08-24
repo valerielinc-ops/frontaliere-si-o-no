@@ -75746,12 +75746,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pharma-technical-regulatory-submission-intern-roche-ch",
-        "pharma-technical-regulatory-submission-tirocinante-roche-mississauga"
+        "pharma-technical-regulatory-submission-tirocinante-roche-mississauga",
+        "pharma-technical-regulatory-submission-tirocinante-roche-la-roche"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pharma-technical-regulatory-submission-intern-roche-ch",
-          "pharma-technical-regulatory-submission-tirocinante-roche-mississauga"
+          "pharma-technical-regulatory-submission-tirocinante-roche-mississauga",
+          "pharma-technical-regulatory-submission-tirocinante-roche-la-roche"
         ],
         "de": [
           "pharma-technical-regulatory-submission-intern-roche-ch"
@@ -75823,15 +75825,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medical-strategy-intern-roche-ch",
-        "medical-strategy-tirocinante-roche-mississauga"
+        "medical-strategy-tirocinante-roche-mississauga",
+        "medical-strategy-praktikant-roche-la-roche"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medical-strategy-intern-roche-ch",
-          "medical-strategy-tirocinante-roche-mississauga"
+          "medical-strategy-tirocinante-roche-mississauga",
+          "medical-strategy-praktikant-roche-la-roche"
         ],
         "de": [
-          "medical-strategy-intern-roche-ch"
+          "medical-strategy-intern-roche-ch",
+          "medical-strategy-praktikant-roche-la-roche"
         ],
         "fr": [
           "medical-strategy-intern-roche-ch"
@@ -76057,13 +76062,15 @@
       "previousSlugs": [
         "regulatory-affairs-intern-roche-ch",
         "cmc-regulatory-affairs-intern-roche-ch",
-        "cmc-regulatory-affairs-tirocinante-roche-mississauga"
+        "cmc-regulatory-affairs-tirocinante-roche-mississauga",
+        "cmc-regulatory-affairs-tirocinante-roche-la-roche"
       ],
       "previousSlugsByLocale": {
         "it": [
           "regulatory-affairs-intern-roche-ch",
           "cmc-regulatory-affairs-intern-roche-ch",
-          "cmc-regulatory-affairs-tirocinante-roche-mississauga"
+          "cmc-regulatory-affairs-tirocinante-roche-mississauga",
+          "cmc-regulatory-affairs-tirocinante-roche-la-roche"
         ],
         "de": [
           "cmc-regulatory-affairs-intern-roche-ch"
@@ -84195,11 +84202,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-08-19T09:47:42.553Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "operations-associate-intern-roche-ch",
-          "enterprise-operations-intern-roche-ch"
+          "enterprise-operations-intern-roche-ch",
+          "enterprise-operations-tirocinante-roche-la-roche"
         ],
         "en": [
           "operations-associate-intern-roche-ch",
@@ -84208,7 +84215,8 @@
       },
       "previousSlugs": [
         "operations-associate-intern-roche-ch",
-        "enterprise-operations-intern-roche-ch"
+        "enterprise-operations-intern-roche-ch",
+        "enterprise-operations-tirocinante-roche-la-roche"
       ],
       "salaryMin": 50500,
       "salaryMax": 68000,
@@ -84222,7 +84230,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "needsRetranslation": true
     },
     {
       "id": "roche-bceaba1bd6d2",

@@ -464,7 +464,7 @@
       },
       "titleByLocale": {
         "it": "Store Manager Apprendista (a) 80-100% per la Region Netstal",
-        "en": "Store Manager Trainee (a) 80-100% für die Region Netstal",
+        "en": "Store Manager Trainee (a) 80-100% for the Netstal region",
         "de": "Store Manager Auszubildender (a) 80-100% für die Region Netstal",
         "fr": "Store Manager Apprenti (a) 80-100% für die Region Netstal"
       },
@@ -869,7 +869,7 @@
       "firstSeenAt": "2026-08-14T21:39:43.868Z",
       "titleByLocale": {
         "it": "Store Manager Apprendista (a) 80-100% per la Filiale St. Gallen",
-        "en": "Store Manager Trainee (a) 80-100% für die Filiale St. Gallen",
+        "en": "Store Manager Trainee (a) 80-100% for the St. Gallen branch",
         "de": "Store Manager Auszubildender (a) 80-100% für die Filiale St. Gallen",
         "fr": "Store Manager Apprenti (a) 80-100% für die Filiale St. Gallen"
       },
@@ -1076,7 +1076,7 @@
       "firstSeenAt": "2026-08-14T21:39:43.868Z",
       "titleByLocale": {
         "it": "Store Manager Apprendista (a) 80-100% per la Filiale Herisau",
-        "en": "Store Manager Trainee (a) 80-100% für die Filiale Herisau",
+        "en": "Store Manager Trainee (a) 80-100% for the Herisau branch",
         "de": "Store Manager Auszubildender (a) 80-100% für die Filiale Herisau",
         "fr": "Store Manager Apprenti (a) 80-100% für die Filiale Herisau"
       },
@@ -1637,7 +1637,7 @@
       "firstSeenAt": "2026-08-10T10:55:12.345Z",
       "titleByLocale": {
         "it": "Store Manager Apprendista (a) 80-100% per la Region Thun - Interlaken",
-        "en": "Store Manager Trainee (a) 80-100% für die Region Thun - Interlaken",
+        "en": "Store Manager Trainee (a) 80-100% for the Thun - Interlaken region",
         "de": "Store Manager Auszubildender (a) 80-100% für die Region Thun - Interlaken",
         "fr": "Store Manager Apprenti (a) 80-100% für die Region Thun - Interlaken"
       },
@@ -3723,7 +3723,8 @@
       "addressRegion": "BS",
       "salaryMin": 52000,
       "salaryMax": 78500,
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "id": "company-mku4mw",
@@ -4786,7 +4787,8 @@
       ],
       "salaryMin": 58500,
       "salaryMax": 89000,
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "id": "company-hsnuwg",
@@ -5485,7 +5487,7 @@
       },
       "titleByLocale": {
         "it": "Store Manager Apprendista (a) 100% per la Region Luzern",
-        "en": "Store Manager Trainee (a) 100% für die Region Luzern",
+        "en": "Store Manager Trainee (a) 100% for the Lucerne region",
         "de": "Store Manager Auszubildender (a) 100% für die Region Luzern",
         "fr": "Store Manager Apprenti (a) 100% für die Region Luzern"
       },
@@ -5778,7 +5780,7 @@
       "crawledAt": "2026-07-06T22:30:32.370Z",
       "firstSeenAt": "2026-07-06T22:30:32.370Z",
       "titleByLocale": {
-        "en": "Store Manager Trainee (a) 100% für die Region Basel",
+        "en": "Store Manager Trainee (a) 100% for the Basel region",
         "it": "Store Manager Apprendista (a) 100% per la Region Basel",
         "de": "Store Manager Auszubildender (a) 100% für die Region Basel",
         "fr": "Store Manager Apprenti (a) 100% für die Region Basel"

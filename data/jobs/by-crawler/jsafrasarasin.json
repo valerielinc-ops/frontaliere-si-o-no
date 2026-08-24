@@ -16,10 +16,10 @@
       "companyDomain": "jsafrasarasin.umantis.com",
       "title": "Team-Head Legal Entities / Client Data Management Office",
       "titleByLocale": {
-        "it": "Team-Head Legal Entities / Client Data Management Office",
+        "fr": "Team-Head Legal Entities / Client Data Management Office",
         "en": "Team-Head Legal Entities / Client Data Management Office",
-        "de": "Team-Head Legal Entities / Client Data Management Office",
-        "fr": "Team-Head Legal Entities / Client Data Management Office"
+        "it": "Team-Head Legal Entità / Ufficio Gestione Dati del Cliente",
+        "de": "Team-Head Legal Entities / Client Data Management Office"
       },
       "description": "Team-Head Legal Entities / Client Data Management Office — J. Safra Sarasin",
       "descriptionByLocale": {
@@ -46,7 +46,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T09:42:52.269Z",
       "salaryMin": 87000,
       "salaryMax": 149500,
       "baseSalary": {
@@ -59,7 +58,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-23T09:42:52.269Z"
     },
     {
       "id": "jsafrasarasin-2921e30a87e1",
@@ -75,10 +75,10 @@
       "companyDomain": "jsafrasarasin.umantis.com",
       "title": "Cross-Border Business Expert",
       "titleByLocale": {
-        "it": "Cross-Border Business Expert",
         "en": "Cross-Border Business Expert",
-        "de": "Cross-Border Business Expert",
-        "fr": "Cross-Border Business Expert"
+        "it": "Esperto di affari transfrontaliero",
+        "de": "Grenzüberschreitender Wirtschaftsexperte",
+        "fr": "Expert en commerce transfrontalier"
       },
       "description": "Cross-Border Business Expert — J. Safra Sarasin",
       "descriptionByLocale": {
@@ -105,7 +105,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T09:42:51.967Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -118,7 +117,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-23T09:42:51.967Z"
     },
     {
       "id": "jsafrasarasin-ae76fde355e4",
@@ -420,10 +420,10 @@
       "companyDomain": "jsafrasarasin.umantis.com",
       "title": "Fachspezialist/in Zahlungsverkehr",
       "titleByLocale": {
-        "it": "Fachspezialist/in Zahlungsverkehr",
-        "en": "Fachspezialist/in Zahlungsverkehr",
         "de": "Fachspezialist/in Zahlungsverkehr",
-        "fr": "Fachspezialist/in Zahlungsverkehr"
+        "it": "Operazioni special/in pagamento",
+        "en": "Specialist/in payment transactions",
+        "fr": "Spécialiste/dans les opérations de paiement"
       },
       "description": "Fachspezialist/in Zahlungsverkehr — J. Safra Sarasin",
       "descriptionByLocale": {
@@ -449,18 +449,17 @@
       "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/498/Description/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachspezialist-in-zahlungsverkehr-jsafrasarasin-ch",
-        "fachspezialist-in-zahlungsverkehr-j-safra-sarasin-lugano"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-in-zahlungsverkehr-jsafrasarasin-ch",
           "fachspezialist-in-zahlungsverkehr-j-safra-sarasin-lugano"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T09:42:50.455Z",
+      "previousSlugs": [
+        "fachspezialist-in-zahlungsverkehr-jsafrasarasin-ch",
+        "fachspezialist-in-zahlungsverkehr-j-safra-sarasin-lugano"
+      ],
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -473,7 +472,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-23T09:42:50.455Z"
     },
     {
       "id": "jsafrasarasin-4f7483040f1b",
@@ -492,7 +492,7 @@
         "it": "Lead Auditor - Group Internal Audit",
         "en": "Lead Auditor - Group Internal Audit",
         "de": "Lead Auditor - Group Internal Audit",
-        "fr": "Lead Auditor - Group Internal Audit"
+        "fr": "Vérificateur principal - Groupe Vérification interne"
       },
       "description": "Lead Auditor - Group Internal Audit — J. Safra Sarasin",
       "descriptionByLocale": {
@@ -519,7 +519,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T09:42:50.151Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -532,7 +531,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-23T09:42:50.151Z"
     },
     {
       "id": "jsafrasarasin-36022dbbf26f",
@@ -607,10 +607,10 @@
       "companyDomain": "jsafrasarasin.umantis.com",
       "title": "Client Service Executive",
       "titleByLocale": {
-        "it": "Client Service Executive",
         "en": "Client Service Executive",
-        "de": "Client Service Executive",
-        "fr": "Client Service Executive"
+        "it": "Client Service Executive",
+        "de": "Kundenservice Executive",
+        "fr": "Service à la clientèle"
       },
       "description": "Client Service Executive — J. Safra Sarasin",
       "descriptionByLocale": {
@@ -636,18 +636,17 @@
       "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/503/Description/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "client-service-executive-jsafrasarasin-ch",
-        "client-service-executive-j-safra-sarasin-lugano"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "client-service-executive-jsafrasarasin-ch",
           "client-service-executive-j-safra-sarasin-lugano"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T09:42:49.545Z",
+      "previousSlugs": [
+        "client-service-executive-jsafrasarasin-ch",
+        "client-service-executive-j-safra-sarasin-lugano"
+      ],
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -660,7 +659,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-23T09:42:49.545Z"
     },
     {
       "id": "jsafrasarasin-9c72c25f05c4",
