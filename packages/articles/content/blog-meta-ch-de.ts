@@ -4156,6 +4156,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.acquistare-casa-basilea-campagna-mutuo.title': 'Haus kaufen in Basel-Landschaft: Hypothek und Steuern',
     'blog.article.acquistare-casa-basilea-campagna-mutuo.excerpt': 'So kaufen Sie ein Haus im Kanton Basel-Landschaft: Leitfaden zu den drei Steuerstufen, Hypothekendarlehen und versteckte Kosten',
     'blog.article.acquistare-casa-basilea-campagna-mutuo.imageAlt': 'Moderne Wohnhäuser in einer Vorstadtgegend der Nordwestschweiz mit zeitgenössischem Baustil',
+    'blog.article.naturalizzazione-basilea-campagna-procedura.title': 'Einbürgerung Basel-Landschaft: Vorgehensweise',
+    'blog.article.naturalizzazione-basilea-campagna-procedura.excerpt': 'Eidgenössische und kantonale Voraussetzungen für die Einbürgerung in Basel-Landschaft: 10 Jahre Aufenthalt, Sprachtest, Verwaltungsverfahren und Kosten.',
+    'blog.article.naturalizzazione-basilea-campagna-procedura.imageAlt': 'Kantonsamt mit Einbürgerungsanträgen und amtlichen Formularen',
 };
 
 export default blogMetaChDe;

@@ -4156,6 +4156,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.acquistare-casa-basilea-campagna-mutuo.title': 'Buying a house in Basel Countryside: mortgage and taxation',
     'blog.article.acquistare-casa-basilea-campagna-mutuo.excerpt': 'How to buy a house in the Canton of Basel-Country: guide to the three tax levels, mortgage and hidden costs',
     'blog.article.acquistare-casa-basilea-campagna-mutuo.imageAlt': 'Modern residential chalets in a suburban Swiss area with contemporary architectural design',
+    'blog.article.naturalizzazione-basilea-campagna-procedura.title': 'Naturalization Basel countryside: how to proceed',
+    'blog.article.naturalizzazione-basilea-campagna-procedura.excerpt': 'Federal and cantonal requirements for naturalisation in Basel-Landschaft: 10 years of residence, language test, administrative procedure and costs.',
+    'blog.article.naturalizzazione-basilea-campagna-procedura.imageAlt': 'Swiss cantonal administration office with naturalization forms and official documents',
 };
 
 export default blogMetaChEn;

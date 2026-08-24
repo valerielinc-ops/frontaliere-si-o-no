@@ -4156,6 +4156,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.acquistare-casa-basilea-campagna-mutuo.title': 'Acheter une maison à Bâle-Campagne : hypothèque et fiscalité',
     'blog.article.acquistare-casa-basilea-campagna-mutuo.excerpt': 'Comment acheter une maison dans le canton de Bâle-Campagne : guide des trois niveaux fiscaux, du prêt hypothécaire et des coûts cachés',
     'blog.article.acquistare-casa-basilea-campagna-mutuo.imageAlt': 'Maisons résidentielles modernes dans une zone banlieusarde de la Suisse nord-occidentale',
+    'blog.article.naturalizzazione-basilea-campagna-procedura.title': 'Naturalisation de la campagne de Bâle : comment procéder',
+    'blog.article.naturalizzazione-basilea-campagna-procedura.excerpt': 'Exigences fédérales et cantonales pour la naturalisation à Bâle-Campagne : 10 ans de résidence, test de langue, procédure administrative et frais à payer.',
+    'blog.article.naturalizzazione-basilea-campagna-procedura.imageAlt': 'Bureau cantonal suisse avec demandes de naturalisation et formulaires officiels',
 };
 
 export default blogMetaChFr;
