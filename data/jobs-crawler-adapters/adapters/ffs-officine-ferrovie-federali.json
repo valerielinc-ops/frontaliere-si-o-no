@@ -10,6 +10,10 @@
     "jsonld"
   ],
   "seedUrls": [
+    "https://jobs.sbb.ch/v2/offene-stellen/strategische-r-einkaeufer-in/50ee6764-1c0b-437d-9032-8467d4c34c49",
+    "https://jobs.sbb.ch/v2/offene-stellen/assistante-clientele-en-charge-du-releve-des-frequences-en-reconversion-professionnelle/9cffe872-001c-47d6-a862-9bc2c9dce1ab",
+    "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-feuerwehrmann-oder-feuerwehrfrau-und-lokfuehrer-in/e67d01c1-18ab-46fd-9816-dbad8ad77bd6",
+    "https://jobs.sbb.ch/v2/offene-stellen/system-engineer-m-w-d/90aafb96-0967-4833-8bd8-eaafaa654e57",
     "https://jobs.sbb.ch/v2/offene-stellen/teamleiter-in-nutzung-akquisition-grossraum-zuerich/1602362e-b2f0-42d5-9ecb-4ebdecf18f2e",
     "https://jobs.sbb.ch/v2/offene-stellen/cheffe-d-equipe-utilisation-acquisition-region-zurich-metropole/daf6881e-f0bf-4d19-a6ae-818d39e91f58",
     "https://jobs.sbb.ch/v2/offene-stellen/capo-a-team-utilizzo-e-acquisizione-area-metropolitana-di-zurigo/e71e5739-ad45-4de3-ae19-b06878698ede",
@@ -34,7 +38,6 @@
     "https://jobs.sbb.ch/v2/offene-stellen/responsabile-della-divisione-sviluppo-gestione-del-traffico-ferroviario/ccd22e28-993a-45b1-ae99-0aafccfb24b4",
     "https://jobs.sbb.ch/v2/offene-stellen/cheffe-d-equipe-voie-ferree/3a786780-ea93-4009-8d9a-726315237a47",
     "https://jobs.sbb.ch/v2/offene-stellen/teamleiter-in-logistik/0c2a5f7b-55e4-4a0d-a9c0-081e2710a9d5",
-    "https://jobs.sbb.ch/v2/offene-stellen/hr-berater-in/e4e8f5db-fbb8-4ca4-bfa6-176ee5ed70da",
     "https://jobs.sbb.ch/v2/offene-stellen/reiniger-in/79914939-e5dc-4c59-999c-685a5e1b4075",
     "https://jobs.sbb.ch/v2/offene-stellen/specialiste-de-la-manuvre-en-reconversion-professionnelle/da9f932d-0c5b-4f05-a361-47ddde094c95",
     "https://jobs.sbb.ch/v2/offene-stellen/experts-en-examen-specialiste-du-commerce-de-detail-cfc-dans-le-secteur-des-transports-publics/1413f68b-f9ed-4f48-903c-78be59177e95",
@@ -171,5 +174,5 @@
     "https://jobs.sbb.ch/v2/offene-stellen/responsable-des-cie-pour-les-agentes-de-transport-ferroviaire-cfc/9afa011e-3030-492b-a1d5-6fa693f6d017"
   ],
   "notes": "SBB dedicated seeds from company.sbb.ch AEM JSON API + login.org apprenticeship listing (partner SBB CFF FFS, canton Ticino).",
-  "updatedAt": "2026-08-24T10:20:46.745Z"
+  "updatedAt": "2026-08-24T21:44:05.953Z"
 }
