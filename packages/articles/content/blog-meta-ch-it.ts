@@ -4114,6 +4114,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.identita-rubata-pornhub.title': 'Ruba l\'identità a un\'altra donna...per utilizzare Pornhub e contattare ospedali',
     'blog.article.identita-rubata-pornhub.excerpt': 'Una donna del canton Berna è stata condannata per abuso d\'identità, diffamazione e ingiuria dopo aver utilizzato la falsa identità per creare account su piattaforme erotiche e contattare istituzioni sanitarie',
     'blog.article.identita-rubata-pornhub.imageAlt': 'Una donna del canton Berna che ruba l\'identità di un\'altra persona',
+    'blog.article.asilo-nido-custodia-bambini-svizzera.title': 'Asilo nido e custodia: costi e sussidi in Svizzera',
+    'blog.article.asilo-nido-custodia-bambini-svizzera.excerpt': 'Scopri come funziona la custodia bambini in Svizzera: asili nido, tariffe, sussidi cantonali e deduzioni fiscali. Guida pratica per le famiglie.',
+    'blog.article.asilo-nido-custodia-bambini-svizzera.imageAlt': 'Bambini in un asilo nido svizzero durante l\'attività ricreativa in una struttura moderna e luminosa.',
 };
 
 export default blogMetaChIt;

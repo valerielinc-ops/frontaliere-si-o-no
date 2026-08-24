@@ -4114,6 +4114,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.identita-rubata-pornhub.title': 'Identità rubata per Pornhub e ospedali',
     'blog.article.identita-rubata-pornhub.excerpt': 'Eine Frau aus dem Kanton Bern wurde wegen Identitätsmissbrauchs, Verleumdung und Beleidigung verurteilt, nachdem sie mit falscher Identität Konten auf erotischen Plattformen erstellt und Gesundheitseinrichtungen kontaktiert hatte',
     'blog.article.identita-rubata-pornhub.imageAlt': 'Eine Frau aus dem Kanton Bern, die die Identität einer anderen Person stiehlt',
+    'blog.article.asilo-nido-custodia-bambini-svizzera.title': 'Kindertagesstätte und Obhut: Kosten und Leistungen in der Schweiz',
+    'blog.article.asilo-nido-custodia-bambini-svizzera.excerpt': 'Erfahren Sie, wie die Kinderbetreuung in der Schweiz funktioniert: Kindergärten, Tarife, Kantonsbeiträge und Steuerabzüge. Praktischer Leitfaden für Familien.',
+    'blog.article.asilo-nido-custodia-bambini-svizzera.imageAlt': 'Kinder in einem Schweizer Kindergarten während der Spielzeit in einer modernen hellen Einrichtung.',
 };
 
 export default blogMetaChDe;

@@ -4114,6 +4114,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.identita-rubata-pornhub.title': 'Steal another woman\'s identity…to use Pornhub and contact hospitals',
     'blog.article.identita-rubata-pornhub.excerpt': 'A woman in the canton of Bern has been convicted of identity abuse, defamation and insult after using false identity to create accounts on erotic platforms and contact health institutions',
     'blog.article.identita-rubata-pornhub.imageAlt': 'A woman from the canton of Bern who steals the identity of another person',
+    'blog.article.asilo-nido-custodia-bambini-svizzera.title': 'Nursery and childcare: costs and subsidies in Switzerland',
+    'blog.article.asilo-nido-custodia-bambini-svizzera.excerpt': 'Find out how childcare works in Switzerland: kindergartens, fees, cantonal subsidies and tax deductions. Practical guide for families.',
+    'blog.article.asilo-nido-custodia-bambini-svizzera.imageAlt': 'Children at a Swiss daycare center during play time in a modern bright facility.',
 };
 
 export default blogMetaChEn;
