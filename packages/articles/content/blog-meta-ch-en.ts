@@ -4051,6 +4051,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.acquistare-immobile-canton-soletta-mutuo.title': 'Buying a house in Canton Solothurn: prices and mortgage',
     'blog.article.acquistare-immobile-canton-soletta-mutuo.excerpt': 'Buying a home in the Canton of Solothurn requires careful financial planning. Learn how mortgage, equity, transfer tax, and notary fees work.',
     'blog.article.acquistare-immobile-canton-soletta-mutuo.imageAlt': 'Modern residential property in Swiss canton with garden and countryside view',
+    'blog.article.storia-sicurezza-sociale-rilancio.title': 'Social security history: website relaunch',
+    'blog.article.storia-sicurezza-sociale-rilancio.excerpt': 'The website www.storiadellasicurezzasociale.ch is presented in a new guise, with a new interface and graphics optimised for compatibility with all terminals and accessibility.',
+    'blog.article.storia-sicurezza-sociale-rilancio.imageAlt': 'View of Lugano with a historical archive in the foreground',
 };
 
 export default blogMetaChEn;

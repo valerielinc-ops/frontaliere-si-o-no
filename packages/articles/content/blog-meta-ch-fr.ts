@@ -4051,6 +4051,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.acquistare-immobile-canton-soletta-mutuo.title': 'Acheter une maison dans le canton de Soleure : prix et hypothèque',
     'blog.article.acquistare-immobile-canton-soletta-mutuo.excerpt': 'Acheter une maison dans le canton de Soleure nécessite une planification financière minutieuse. Découvrez comment fonctionnent les prêts hypothécaires, l\'adéquation du capital, l\'impôt sur les transferts et les frais de notaire.',
     'blog.article.acquistare-immobile-canton-soletta-mutuo.imageAlt': 'Maison résidentielle moderne dans un canton suisse avec jardin et vue campagnarde',
+    'blog.article.storia-sicurezza-sociale-rilancio.title': 'Histoire de la sécurité sociale : relance du site Internet',
+    'blog.article.storia-sicurezza-sociale-rilancio.excerpt': 'Le site Internet www.storiadellasicurezzasociale.ch se présente sous un nouveau jour, avec une nouvelle interface et un graphisme optimisés pour la compatibilité avec tous les terminaux et l\'accessibilité.',
+    'blog.article.storia-sicurezza-sociale-rilancio.imageAlt': 'Vue de Lugano avec un archive historique en premier plan',
 };
 
 export default blogMetaChFr;

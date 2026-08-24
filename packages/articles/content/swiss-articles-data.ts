@@ -12151,6 +12151,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'storia-sicurezza-sociale-rilancio',
+    category: 'novita',
+    date: '2026-08-24T08:19:30.278Z',
+    image: '/images/blog/storia-sicurezza-sociale-rilancio.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
