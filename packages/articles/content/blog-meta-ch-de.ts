@@ -4138,6 +4138,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposte-canton-basilea-campagna.title': 'Steuern Kanton Basel-Landschaft: Steuersätze und Abzüge',
     'blog.article.imposte-canton-basilea-campagna.excerpt': 'Vollständiger Leitfaden zu den Kantons- und Gemeindesteuern im Kanton Basel-Landschaft: Sätze, zulässige Abzüge, Deklarationsfristen und Online-Steuerportal.',
     'blog.article.imposte-canton-basilea-campagna.imageAlt': 'Verwaltungsgebäude der Kantonalen Steuerverwaltung Basel-Landschaft mit Steuererklärungsformularen und amtlichen Dokumenten.',
+    'blog.article.pagamenti-offline-negozi-svizzera.title': 'Offline-Zahlungen in Geschäften: Die Lösung kommt',
+    'blog.article.pagamenti-offline-negozi-svizzera.excerpt': 'Ab 2027 können Sie in Schweizer Geschäften auch ohne Internet mit Karte bezahlen. Das WBF verwendet ein neues Offline-System, um die Kontinuität bei Stromausfällen zu gewährleisten.',
+    'blog.article.pagamenti-offline-negozi-svizzera.imageAlt': 'Zahlungsterminal im Geschäft während kontaktloser Kartentransaktion, Symbol der Offline-Zahlungstechnologie',
 };
 
 export default blogMetaChDe;

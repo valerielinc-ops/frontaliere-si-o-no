@@ -12412,6 +12412,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'pagamenti-offline-negozi-svizzera',
+    category: 'novita',
+    date: '2026-08-24T15:15:06.609Z',
+    image: '/images/blog/pagamenti-offline-negozi-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Notizie e guide sulla Svizzera: economia, lavoro, fisco e vita quotidiana</description>
     <language>it</language>
-    <lastBuildDate>Mon, 24 Aug 2026 15:07:39 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 24 Aug 2026 15:15:06 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Svizzera</title>
@@ -16,6 +16,88 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Pagamenti offline nei negozi: arriva la soluzione</title>
+      <link>https://frontaliereticino.ch/articoli-svizzera/pagamenti-offline-negozi-svizzera/</link>
+      <description><![CDATA[Dal 2027 potrai pagare con carta anche senza internet nei negozi svizzeri. Il DEFR adotta un nuovo sistema offline per garantire la continuità durante blackout.]]></description>
+      <content:encoded><![CDATA[## In breve
+- Pagamenti offline con carta dal 2027: funzionano anche senza internet
+- Il terminale registra la transazione e la trasmette al ripristino della rete
+- Svizzera primo Paese centroeuropeo; Svezia già usa questa tecnologia
+- Carte non vanno sostituite, solo riconfigurare i lettori
+
+## Fatti chiave
+- **Cosa**: Misura per pagamenti offline nei negozi con carte di credito/debito
+- Quando: Entro fine 2027, ampia diffusione
+- Dove: Svizzera, annunciato a Berna
+- Chi: DEFR, rappresentanti imprese, Guy Parmelin (Consiglio federale), Martin Schlegel (BNS), Roland Pfister (delegato Approvvigionamento economico)
+- Modalità: Pagamento con PIN su carta fisica; terminale registra e trasmette al ripristino della rete
+- Alimentazione: Lettore di carte deve essere alimentato (batteria/generatore in caso di blackout)
+
+### Una dichiarazione d'intenti per la resilienza dei pagamenti
+
+Il Dipartimento federale dell'economia ha annunciato una dichiarazione d'intenti che garantirà la continuità dei pagamenti elettronici anche durante blackout o interruzioni della rete internet. L'obiettivo è permettere ai clienti dei negozi svizzeri di pagare con carta di credito o di debito anche in assenza di connessione, entro la fine del 2027.
+
+All'evento tenutosi a Berna hanno partecipato il presidente della Confederazione Guy Parmelin, il presidente della Banca nazionale svizzera Martin Schlegel, il delegato all'Approvvigionamento economico Roland Pfister e rappresentanti delle imprese. La soluzione verrà introdotta in modo graduale, con l'obiettivo di un'ampia diffusione entro il 2027. Questo approccio consensuale rappresenta una risposta coordinata alle vulnerabilità dell'infrastruttura di pagamento nazionale.
+
+### Come funziona il sistema offline
+
+Il meccanismo è diretto: quando la connessione internet viene meno, il terminale di pagamento registra la transazione localmente. Non appena la rete torna disponibile, il terminale trasmette automaticamente i dati alla banca per l'elaborazione e l'addebito sul conto del cliente.
+
+L'operazione richiede però due condizioni essenziali. Il pagamento deve avvenire con una carta di credito o di debito fisica — le carte virtuali non funzionano — e il cliente deve inserire il codice PIN per autorizzare la transazione. Inoltre, il lettore della carta deve rimanere collegato alla corrente: in caso di blackout totale, è indispensabile alimentarlo tramite una batteria esterna o un generatore.
+
+Una buona notizia per i titolari di carte: non sarà necessario sostituire le carte già in circolazione. Solo gli apparecchi di lettura presenti nei negozi dovranno essere riconfigurati per abilitare la modalità offline. Questo riduce i costi di transizione per le imprese e limita i disagi per i clienti.
+
+La dichiarazione d'intenti è stata sottoscritta dalle rappresentanze delle imprese partecipanti all'evento di Berna, segnalando un ampio consenso sul tema.
+### La Svizzera segue il modello nordico
+
+Il sistema di pagamento offline non è una novità assoluta. La Svezia lo utilizza già da anni, rispondendo a preoccupazioni sulla resilienza dell'infrastruttura digitale durante interruzioni critiche. Paesi come Finlandia, Norvegia ed Estonia stanno introducendo misure analoghe.
+
+Con questa dichiarazione d'intenti, la Svizzera diventa il primo Paese centroeuropeo a adottare una soluzione ampiamente condivisa e coordinata per rafforzare la resilienza dei pagamenti elettronici. Secondo il Dipartimento federale dell'economia, l'approccio svizzero si distingue per il consenso raggiunto tra settore pubblico (Consiglio federale, BNS) e settore privato (rappresentanze di imprese).
+
+### Implicazioni concrete per commercianti e clienti
+
+I titolari di piccoli e medi negozi svizzeri potranno continuare a incassare anche quando la rete telecomunicativa si interrompe — una garanzia di continuità della vendita in caso di emergenza. I clienti non dovranno temere di rimanere isolati dai loro pagamenti durante un blackout.
+
+Tuttavia, la diffusione della soluzione richiede un doppio sforzo. Da un lato, i terminali di pagamento devono essere riconfigurati. Dall'altro, i lettori di carte devono avere una fonte di alimentazione alternativa (batteria o generatore) per funzionare durante le interruzioni di corrente. Per chi non ha batterie di backup, la soluzione non è automatica e richiede investimenti.
+
+La modalità offline funziona solo con carte fisiche munite di chip e con l'inserimento del PIN. Le transazioni contactless senza PIN o i pagamenti tramite wallet digitali (smartphone) rimangono bloccati in caso di mancanza di rete. Questo rappresenta un compromesso tra sicurezza e praticità: la richiesta del PIN riduce il rischio di frodi durante le transazioni offline.
+
+### Cronologia: quanto tempo prima della piena operatività?
+
+La dichiarazione d'intents è stata adottata recentemente. Il DEFR precisa che la soluzione sarà introdotta «in modo graduale», con l'obiettivo di una «ampia diffusione entro la fine del 2027». Questo significa che nei prossimi mesi e anni, i commercianti dovranno progressivamente aggiornare i loro sistemi. Alcuni negozi potrebbero essere pronti prima del 2027, altri più tardi. La Confederazione non ha fissato una scadenza vincolante per la completa operatività, ma ha indicato il 2027 come orizzonte realista.
+
+## Tool utili per massimizzare il netto
+Per ridurre la perdita sul cambio, confronta il [cambio CHF-EUR](nav:exchange) e le [banche per frontalieri](nav:banks).
+### Cosa devono fare i commercianti e i clienti
+
+I titolari di negozi che desiderano adottare il sistema di pagamento offline devono cominciare a valutare i loro attuali terminali di pagamento. La riconfigurazione dei lettori di carte è il primo step. Non è necessario acquistare nuovi dispositivi (nella maggior parte dei casi), ma è indispensabile che tecnici specializzati riconfigurassero il firmware e i sistemi di sicurezza per abilitare la modalità offline.
+
+Il secondo step riguarda l'alimentazione di backup. Ogni terminale deve avere accesso a una batteria esterna o a un generatore durante i blackout. I commercianti dovranno quindi pianificare:
+- L'acquisto di UPS (sistemi di continuità dell'alimentazione) o batterie portatili per i terminali
+- La manutenzione periodica di tali dispositivi
+- La formazione del personale su come gestire i pagamenti offline manualmente se necessario
+
+Per i clienti, la comunicazione è cruciale. I titolari di negozi dovrebbero segnalare sui social media, sui siti web e con cartelli in negozio che i pagamenti offline saranno disponibili. Molti clienti non sono consapevoli di questa opzione e potrebbero temere di non poter pagare durante un blackout. Una campagna di comunicazione chiara ridurrà l'ansia e aumenterà la fiducia nel sistema.
+
+### Timeline e risorse disponibili
+
+Entro la fine del 2027, il DEFR stima che la soluzione avrà una «ampia diffusione» in Svizzera. Tuttavia, non tutti i negozi saranno pronti contemporaneamente. Le piccole attività commerciali potrebbero procedere più lentamente rispetto alle grandi catene, che hanno risorse IT dedicate.
+
+È consigliabile che i commercianti si informino presso i loro fornitori di terminali di pagamento circa i tempi e i costi della riconfigurazione. Le associazioni di categoria locali potranno fornire linee guida specifiche per settore e supporto tecnico durante la transizione.
+
+### Resti informato sui pagamenti e le decisioni federali
+
+Per restare aggiornato su questa evoluzione e sulle implicazioni per la tua gestione finanziaria, è utile seguire le comunicazioni del DEFR e della BNS. Inoltre, consultare uno specialista di pagamenti digitali o il tuo istituto bancario per capire come questa misura si integra nella tua strategia commerciale (se sei un commerciante) o nei tuoi pagamenti quotidiani (se sei cliente).
+
+La resilienza dell'infrastruttura di pagamento è una priorità federale. Per pianificare la tua strategia di continuità operativa o per comprendere l'impatto sui tuoi pagamenti, [consulta il nostro calcolatore](nav:calculator) che ti aiuta a valutare scenari finanziari e di liquidità.
+
+*Fonte: [tio.ch](https://www.tio.ch/svizzera/economia/1945743/defr-internet-credito-negozi-carta)*]]></content:encoded>
+      <pubDate>Mon, 24 Aug 2026 15:15:06 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/pagamenti-offline-negozi-svizzera</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/pagamenti-offline-negozi-svizzera.webp" medium="image"/>
+    </item>
     <item>
       <title>Imposte canton Basilea Campagna: aliquote e deduzioni</title>
       <link>https://frontaliereticino.ch/articoli-svizzera/imposte-canton-basilea-campagna/</link>
@@ -4058,92 +4140,6 @@ Vuoi sapere esattamente quanti CHF rimangono nel tuo conto ogni mese dopo impost
       <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/salari-zugo-formazione-livelli</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/salari-zugo-formazione-livelli.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Salari e mercato del lavoro: il Canton Zugo</title>
-      <link>https://frontaliereticino.ch/articoli-svizzera/salari-mercato-zugo-settori/</link>
-      <description><![CDATA[Livelli salariali per formazione, settori, orari massimi, contributi federali e contratti collettivi in vigore nel Canton Zugo.]]></description>
-      <content:encoded><![CDATA[## In breve
-- Nessun salario minimo federale: alcuni cantoni hanno normative proprie, nel Canton Zugo valgono i contratti collettivi
-- Orario massimo 45-50 ore settimanali a dipendenza dal settore lavorativo
-- Contributi AVS/AI 5.3% lordo, AD/AC 1.1%, LAINF 0.7–1.5% trattenuti in busta paga
-- Previdenza professionale (LPP) obbligatoria con contributi per fascia d'età: 7–18%
-
-## Fatti chiave
-- **Cosa**: Struttura salariale, normative federali e cantonali sul lavoro nel Canton Zugo
-- Dove: Canton Zugo, Svizzera centrale
-- Chi: Dipendenti, aziende, uffici cantonali e federali (SECO)
-- Quando: Normative attualmente vigenti nel 2026
-- Orario massimo: 45 ore/sett. (industria, uffici, vendita); 50 ore altri settori
-- Vacanze minime: 4 settimane (5 per lavoratori sotto i 20 anni)
-- Contributi AVS/AI: 5.3% dipendente, 5.3% datore (totale 10.6%)
-
-### Mercato del lavoro svizzero e il ruolo dei cantoni
-
-Il mercato del lavoro svizzero si fonda su una struttura federale che combina normative uniformi a livello nazionale con regolamentazioni cantonali specifiche. Nel Canton Zugo, come negli altri cantoni, vigono linee guida comuni sulla durata massima dell'orario di lavoro, il diritto alle vacanze e i contributi obbligatori alla previdenza sociale federale (AVS/AI). Tuttavia, la strategia salariale e le condizioni di impiego rimangono determinate da fattori locali, dalla domanda di settore e dal livello di formazione raggiunto.
-
-A differenza di molti Paesi europei, la Svizzera non ha stabilito un salario minimo federale. Questa scelta consente ai cantoni di definire propri parametri normativi, mentre i contratti collettivi di lavoro (CCL) fissano i minimi salariali per settori specifici. Nel Canton Zugo, l'assenza di un salario minimo federale significa che le aziende operano secondo le condizioni di mercato, salvo nei settori coperti da contratti collettivi sottoscritti tra sindacati e associazioni datoriali.
-
-### Orari di lavoro, vacanze e tutele contrattuali
-
-La giornata lavorativa massima non può superare le 45 ore settimanali per i settori dell'industria, degli uffici e del commercio. In altri settori, il limite è fissato a 50 ore. Questi massimali sono definiti dalla legislazione federale sul lavoro ed è fondamentale che datori e dipendenti li rispettino. Le vacanze minime garantite sono di 4 settimane annuali, con un'estensione a 5 settimane per i lavoratori sotto i 20 anni.
-
-I diritti di disdetta seguono uno schema graduato per anzianità: 1 mese durante il primo anno di rapporto, 2 mesi dal 2° al 9° anno, 3 mesi dal 10° anno in poi. Questa protezione è uniforme in tutti i cantoni svizzeri e garantisce una stabilità minima occupazionale, indipendentemente dal settore.
-
-### Contributi federali in busta paga
-
-Sulla busta paga svizzera, i dipendenti vedono trattenute per i contributi alla previdenza sociale federale. L'AVS (Assicurazioni per la vecchiaia e i superstiti) e l'AI (Assicurazione per l'invalidità) assorbono il 5.3% dello stipendio lordo del dipendente; il datore versa ulteriormente il 5.3%, per un totale del 10.6%. L'assicurazione contro la disoccupazione (AD) e l'indennità per insolvibilità (AC) rappresentano un ulteriore 1.1% fino al raggiungimento del massimale annuo. L'assicurazione infortuni sul lavoro (LAINF) varia tra lo 0.7% e l'1.5% a seconda del settore di attività.
-### Livelli salariali per grado di formazione
-
-La struttura salariale svizzera riflette fortemente il grado di formazione raggiunto. I dati sul mercato del lavoro nazionale mostrano differenziali significativi tra chi ha completato solo l'obbligo scolastico, chi ha un diploma di formazione professionale (apprendistato/AFC), e chi possiede una qualifica terziaria (università, scuola universitaria professionale, master). Nel Canton Zugo, la domanda di competenze è particolarmente elevata in settori quali finanza, assicurazioni, tecnologia dell'informazione, costruzioni, sanità e logistica.
-
-Gli stipendi variano considerevolmente tra i livelli di formazione. Un apprendista in corso di formazione riceve una remunerazione inferiore, mentre un professionista con certificato di formazione continua o con laurea universitaria accede a posizioni e salari significativamente superiori. Per valutare il valore reale della propria compensazione, è utile ricorrere a un [calcolatore di stipendio](nav:calculator) che consente di stimare il netto dopo le trattenute federali, cantonali e comunali.
-
-### Contratti collettivi di lavoro e salario minimo
-
-A livello federale, la Svizzera non ha un salario minimo uniforme. Tuttavia, molti settori sono regolati da contratti collettivi di lavoro (CCL), negoziati tra sindacati e associazioni datoriali, che fissano minimi salariali vincolanti. Nel Canton Zugo, alcuni settori chiave hanno CCL in vigore, mentre altri operano in regime di libera determinazione dei salari secondo le condizioni di mercato.
-
-Alcuni cantoni svizzeri hanno introdotto salari minimi cantonali (ad esempio, Ginevra, Neuchâtel, Basilea-Città), ma il Canton Zugo non ha attualmente un salario minimo cantonale uniforme. Le condizioni di lavoro rimangono coperte dalle normative federali su orari massimi, vacanze minime e tutele contro licenziamenti arbitrari.
-
-### Previdenza professionale (LPP) e imposte sulla busta paga
-
-La previdenza professionale (LPP), il secondo pilastro della previdenza svizzera, è obbligatoria per i dipendenti con salario coordinato superiore a una soglia annua stabilita. I contributi alla LPP variano per fascia d'età: 7% per chi ha tra 25 e 34 anni, 10% per chi ha tra 35 e 44 anni, 15% per chi ha tra 45 e 54 anni, e 18% per chi ha tra 55 anni e l'età di riferimento per la pensione. Questi contributi sono divisi tra dipendente e datore (normalmente 50/50 con varianti secondo il piano aziendale). I contributi LPP sono deducibili dall'imponibile fiscale cantonale e comunale, rappresentando un vantaggio significativo al momento della dichiarazione annuale.
-
-La struttura delle imposte nel Canton Zugo segue il modello federale: imposta federale diretta (IFD) + imposta cantonale + imposta comunale su base di moltiplicatore cantonale. Un dipendente che guadagna CHF 80.000 lordi annui affronta una tassazione combinata che, nel Canton Zugo, ammonta mediamente al 18–22% dell'imponibile, a dipendenza dalla comune di residenza e dallo stato civile. Le deduzioni fiscali (contributi LPP, spese di formazione, interessi ipotecari per proprietari) riducono significativamente l'imponibile effettivo.
-
-## Tool utili per il tuo caso
-Per verificare in modo pratico il tuo scenario entro/oltre 20 km, usa il [calcolatore stipendio netto](nav:calculator) e la [guida dichiarazione redditi](nav:tax-return).
-### Come orientarsi nel mercato del lavoro svizzero
-
-Per chi cerca lavoro nel Canton Zugo o intende trasferirsi per motivi occupazionali, è utile comprendere i principali strumenti e canali di ricerca. Le offerte di lavoro sono pubblicate su piattaforme federali, portali cantonali e siti settoriali specializzati. L'ufficio regionale di collocamento, gestito dalla SECO a livello federale con uffici operativi a livello cantonale, offre consulenza gratuita e supporto nei processi di ricerca occupazionale.
-
-Prima di negoziare un contratto di lavoro, è consigliabile:
-
-1. **Verificare il settore di appartenenza**: identifica se il tuo settore è coperto da un contratto collettivo. Se sì, il datore è vincolato ai minimi salariali CCL, che generalmente offrono protezioni e benefici aggiuntivi (bonus annuali, premi di fedeltà, diritto a formazione continuativa).
-
-2. Calcolare il netto dello stipendio: la busta paga svizzera è complessa a causa delle multiple trattenute (AVS/AI, AD/AC, LAINF, IFD, imposta cantonale e comunale). Utilizza un [calcolatore di stipendio](nav:calculator) per stimare quanto percepirai effettivamente. I risultati variano significativamente a dipendenza del comune di residenza.
-
-3. Valutare la previdenza professionale (LPP): verifica con il datore quale piano previdenziale offre e quale sia il tasso di contribuzione. Una LPP generosa aumenta il valore reale della compensazione nel lungo termine e accelera l'accumulo per la pensione.
-
-4. Leggere il contratto con attenzione: i termini di disdetta variano (1, 2 o 3 mesi a dipendenza dall'anzianità). La clausola sulla non-concorrenza, se presente, può limitare future opportunità occupazionali. Accertati che tutte le condizioni verbali siano riportate per iscritto.
-
-5. Documentare le aspettative di congedo: la maternità è garantita per 14 settimane all'80% dello stipendio (coperta dall'indennità per la gravidanza e la maternità, IPG federale). La paternità è di 2 settimane retribuite. Verifica con il datore se ci sono condizioni supplementari oltre il minimo federale.
-
-### Annunci di lavoro e orientamento professionale
-
-Nel Canton Zugo, le principali fonti di ricerca occupazionale includono i [portali di annunci nazionali](nav:jobs), le associazioni di categoria per settore specifico e le agenzie di collocamento private. La SECO gestisce anche una piattaforma federale di ricerca lavoro accessibile online. È sempre utile consultare il sito dell'amministrazione cantonale zurighese per eventuali iniziative di formazione continua o re-skilling cofinanziate dalla regione.
-
-Fare rete con professionisti del tuo settore (via LinkedIn, associazioni professionali, eventi di networking) spesso porta a opportunità non pubblicizzate pubblicamente. Nel mercato del lavoro svizzero, le referenze personali e la reputazione professionale contano particolarmente.
-
-### Strumenti per la gestione del reddito e la dichiarazione fiscale
-
-Una volta assunto, è essenziale tenere traccia della propria [busta paga](nav:payslip) e verificare che le trattenute siano corrette. Ogni anno, è obbligatorio presentare una dichiarazione fiscale cantonale e comunale (la dichiarazione IFD è già decurtata dal datore per i dipendenti tramite ritenuta alla fonte). La dichiarazione annuale consente di richiedere deduzioni aggiuntive e, potenzialmente, ricevere rimborsi se le ritenute sono state eccessive.
-
-Per chi ha redditi aggiuntivi (lavoro autonomo, investimenti, rendita immobiliare), è consigliabile ricorrere a un consulente fiscale per ottimizzare la posizione tributaria. Nel Canton Zugo, come nel resto della Svizzera, il fisco è gestito a livello cantonale e comunale, con differenze significative di carico tributario tra comuni.]]></content:encoded>
-      <pubDate>Sun, 23 Aug 2026 21:12:41 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/salari-mercato-zugo-settori</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/salari-mercato-zugo-settori.webp" medium="image"/>
     </item>
   </channel>
 </rss>

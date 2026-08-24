@@ -53684,6 +53684,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pagamenti-offline-negozi-svizzera': {
+    title: 'Pagamenti offline nei negozi: arriva la soluzione',
+    description: 'Dal 2027 potrai pagare con carta anche senza internet nei negozi svizzeri. Il DEFR adotta un nuovo sistema offline per garantire la continuità durante blackout.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pagamenti, offline, negozi, arriva',
+    ogTitle: 'Pagamenti offline nei negozi: arriva la soluzione',
+    ogDescription: 'Scopri come la Svizzera introduce un nuovo sistema di pagamenti offline. Dal 2027 potrai pagare con carta anche durante blackout e interruzioni internet nei negozi. Il DEFR, la BNS e le imprese svizzere hanno sottoscritto la dichiarazione d\'intenti.',
+    canonicalPath: '/articoli-svizzera/pagamenti-offline-negozi-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pagamenti offline nei negozi: arriva la soluzione",
+      "description": "Dal 2027 potrai pagare con carta anche senza internet nei negozi svizzeri. Il DEFR adotta un nuovo sistema offline per garantire la continuità durante blackout.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pagamenti-offline-negozi-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Terminale di pagamento in negozio durante transazione contactless con carta di credito, simbolo del pagamento offline"
+      },
+      "datePublished": "2026-08-24T15:15:06+00:00",
+      "dateModified": "2026-08-24T15:15:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pagamenti-offline-negozi-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

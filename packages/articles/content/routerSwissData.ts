@@ -1405,6 +1405,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'aprire-attivita-basilea-citt-registro-commercio-e-costi': { it: 'aprire-attivita-basilea-citt-registro-commercio-e-costi', en: 'open-business-in-basel-city-registro-di-commercio-and-costs', de: 'unternehmen-in-basel-stadt-registrieren-und-kosten', fr: 'ouvrir-une-entreprise-a-bale-ville-registre-de-commerce-et-couts' },
  'imposta-successione-basilea-citta': { it: 'imposta-successione-basilea-citta', en: 'inheritance-tax-basel-city', de: 'erbschaftssteuer-basel-stadt', fr: 'impot-succession-bale-ville' },
  'imposte-canton-basilea-campagna': { it: 'imposte-canton-basilea-campagna', en: 'basel-landschaft-taxes-rates-deductions', de: 'imposte-kanton-basel-landschaft-satze-abzuge', fr: 'impots-canton-bale-campagne-taux-deductions' },
+ 'pagamenti-offline-negozi-svizzera': { it: 'pagamenti-offline-negozi-svizzera', en: 'offline-payments-swiss-shops', de: 'offline-zahlungen-schweizer-geschaefte', fr: 'paiements-hors-ligne-magasins-suisses' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
