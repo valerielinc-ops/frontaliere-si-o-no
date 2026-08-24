@@ -10671,6 +10671,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-24.imageAlt': 'The day\'s numbers for cross-border commuters – August 24, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-08-24.seoDescription': 'Cross-border brief, August 24, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-08-24.ogDescription': 'The numbers for August 24, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.malesco-frontaliere-ticino.title': 'Living in Malesco, working in Ticino: practical guide',
+    'blog.article.malesco-frontaliere-ticino.excerpt': 'Moving to Malesco to work in Ticino: access points, journey times, advantageous taxation and reduced costs for border workers.',
+    'blog.article.malesco-frontaliere-ticino.imageAlt': 'Sunset view of Lugano with Ticino mountains in the background.',
 };
 
 export default blogMetaEn;

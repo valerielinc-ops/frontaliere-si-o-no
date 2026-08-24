@@ -10670,6 +10670,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-24.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 24. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-08-24.seoDescription': 'Grenzgänger-Bulletin vom 24. August 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-08-24.ogDescription': 'Die Zahlen vom 24. August 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.malesco-frontaliere-ticino.title': 'Leben in Malesco, Arbeiten im Tessin: Praktischer Leitfaden',
+    'blog.article.malesco-frontaliere-ticino.excerpt': 'Umzug nach Malesco, um im Tessin zu arbeiten: Zugangspässe, Reisezeiten, vorteilhafte Besteuerung und reduzierte Kosten für Grenzgänger.',
+    'blog.article.malesco-frontaliere-ticino.imageAlt': 'Sonnenuntergang über Lugano mit Tessiner Bergen im Hintergrund.',
 };
 
 export default blogMetaDe;
