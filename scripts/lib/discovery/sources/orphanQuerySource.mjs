@@ -17,7 +17,7 @@ const JOB_SEARCH_INTENT_STRONG_RE =
 
 /**
  * Tokens that mean "job search" only next to a job word, and something else
- * entirely on their own — same ambiguity `VACANCY_PATH_WEAK_RX` in
+ * entirely on their own — same ambiguity the vacancy-path classifier in
  * `scripts/lib/prospector/extract.mjs` was split out for (PR #6375):
  * `offerte` is retail/promo as often as vacancies ("offerte black friday"),
  * `posti` is parking spaces and rental beds as often as "posti di lavoro".
