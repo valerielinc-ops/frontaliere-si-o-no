@@ -10700,6 +10700,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-bosisio-parini-lavorare-ticino-da-frontaliere.title': 'Transfer Bosisio Parini: Vor- und Nachteile',
     'blog.article.vivere-bosisio-parini-lavorare-ticino-da-frontaliere.excerpt': 'Bosisio Parini, eine Gemeinde mit 1.017 Einwohnern in der Provinz Lecco, ist ein idealer Ort für Grenzgänger, die in Italien leben und in der Schweiz arbeiten möchten.',
     'blog.article.vivere-bosisio-parini-lavorare-ticino-da-frontaliere.imageAlt': 'Frontalieri Ticino',
+    'blog.article.vivere-cesana-brianza-lavorare-ticino-frontaliere.title': 'Wohnen in Cesana Brianza und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-cesana-brianza-lavorare-ticino-frontaliere.excerpt': 'Wichtige Fakten über das Leben der Grenzgänger in Cesana Brianza und im Tessin',
+    'blog.article.vivere-cesana-brianza-lavorare-ticino-frontaliere.imageAlt': 'Ein Frontalier lebt in Cesana Brianza und arbeitet in Ticino',
 };
 
 export default blogMetaDe;
