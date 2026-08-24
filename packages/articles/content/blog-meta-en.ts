@@ -10719,6 +10719,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.inarzo-lavoro-ticino-frontaliere.title': 'Living in Inarzo and working in Ticino as a border worker',
     'blog.article.inarzo-lavoro-ticino-frontaliere.excerpt': 'Living in Varese and working in Ticino: tax exemptions, short commutes, lower housing costs. Complete guide for border guards with G licence.',
     'blog.article.inarzo-lavoro-ticino-frontaliere.imageAlt': 'View of Lake Lugano from the Italian-Swiss border region with Alps in the distance and residential neighborhoods on both shores',
+    'blog.article.solbiate-olona-vivere-lavorare.title': 'Solbiate Olona-Ticino: living as a frontier worker in 2024',
+    'blog.article.solbiate-olona-vivere-lavorare.excerpt': 'From 1 January 2024, the tax at source is withheld only in Switzerland. Frontier category G pay AVS 5.3%, LPP 7–18%, LAMal from CHF 300–2500 per annum. Complete guide.',
+    'blog.article.solbiate-olona-vivere-lavorare.imageAlt': 'Lugano lakefront view with modern office buildings: typical Ticino landscape where cross-border workers commute daily',
 };
 
 export default blogMetaEn;
