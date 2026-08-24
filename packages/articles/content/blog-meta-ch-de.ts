@@ -4015,6 +4015,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-friburgo.title': 'Fahrkarten Freiburg: Zonen und Tarife',
     'blog.article.abbonamenti-trasporti-friburgo.excerpt': 'Wie Tarifzonen, Halbtax, GA und Studentenrabatte in den Verkehrsabos des Kantons Freiburg funktionieren.',
     'blog.article.abbonamenti-trasporti-friburgo.imageAlt': 'Schweizer Verkehrshaltestelle mit Fahrkartenautomat und Tarifzonenschildern',
+    'blog.article.abbonamenti-friburgo-zone-tariffe.title': 'Öffentliche Verkehrsmittel Kanton Freiburg: Zonen und Tarife',
+    'blog.article.abbonamenti-friburgo-zone-tariffe.excerpt': 'Progressive Tarifzonen, Jahres- und Monatsabonnements, Studentenrabatte: Kompletter Leitfaden für den öffentlichen Verkehr in Freiburg und im Inland.',
+    'blog.article.abbonamenti-friburgo-zone-tariffe.imageAlt': 'Schweizer Bahnhof mit Tarifzonierungsinformationen und Fahrkartendisplays für Öffentliche Verkehrsmittel.',
 };
 
 export default blogMetaChDe;
