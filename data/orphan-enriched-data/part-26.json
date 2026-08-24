@@ -46748,10 +46748,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "nurse-pool-clinique-de-genolier-genolier",
+        "it": "infermiera-piscina-clinique-de-genolier-genolier",
         "en": "nurse-pool-clinique-de-genolier-genolier",
-        "de": "nurse-pool-clinique-de-genolier-genolier",
-        "fr": "nurse-pool-clinique-de-genolier-genolier"
+        "fr": "infirmier-ere-pool-clinique-de-genolier"
       },
       "localePaths": {
         "it": "/cerca-lavoro-vaud/nurse-pool-clinique-de-genolier-genolier",
@@ -46759,12 +46758,13 @@
         "de": "/de/jobs-im-waadt/nurse-pool-clinique-de-genolier-genolier",
         "fr": "/fr/trouver-emploi-vaud/nurse-pool-clinique-de-genolier-genolier"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000144314829-infirmier-ere-pool",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
