@@ -1,6 +1,6 @@
 {
   "crawlerKey": "givaudan",
-  "assembledAt": "2026-08-24T10:18:30.708Z",
+  "assembledAt": "2026-08-24T08:54:07.106Z",
   "jobs": [
     {
       "id": "givaudan-96a8f03d0a12",
@@ -648,7 +648,11 @@
         "head-of-procurement-im-s-givaudan-ch",
         "head-of-procurement-im-s-givaudan-vernier",
         "responsabile-procurement-im-s-givaudan-vernier",
-        "responsabile-procurement-im-s-givaudan-vernier-switzerland"
+        "responsabile-procurement-im-s-givaudan-vernier-switzerland",
+        "responsabile-approvvigionamento-ingredienti-givaudan-vernier",
+        "head-of-procurement-ingredients-givaudan-ch",
+        "leiter-beschaffung-zutaten-givaudan-vernier",
+        "responsable-des-achats-ingredients-givaudan-vernier"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -661,18 +665,25 @@
           "global-responsable-im-s-givaudan-kemptthal-switzerland",
           "head-of-procurement-im-s-givaudan-ch",
           "responsabile-procurement-im-s-givaudan-vernier",
-          "responsabile-procurement-im-s-givaudan-vernier-switzerland"
+          "responsabile-procurement-im-s-givaudan-vernier-switzerland",
+          "responsabile-approvvigionamento-ingredienti-givaudan-vernier",
+          "head-of-procurement-ingredients-givaudan-ch",
+          "leiter-beschaffung-zutaten-givaudan-vernier",
+          "responsable-des-achats-ingredients-givaudan-vernier"
         ],
         "en": [
-          "head-of-procurement-im-s-givaudan-vernier"
+          "head-of-procurement-im-s-givaudan-vernier",
+          "head-of-procurement-ingredients-givaudan-ch"
         ],
         "de": [
           "leiter-procurement-im-s-givaudan-kemptthal-switzerland",
-          "head-of-procurement-im-s-givaudan-ch"
+          "head-of-procurement-im-s-givaudan-ch",
+          "leiter-beschaffung-zutaten-givaudan-vernier"
         ],
         "fr": [
           "responsable-procurement-im-s-givaudan-kemptthal-switzerland",
-          "head-of-procurement-im-s-givaudan-ch"
+          "head-of-procurement-im-s-givaudan-ch",
+          "responsable-des-achats-ingredients-givaudan-vernier"
         ]
       },
       "needsRetranslation": true,

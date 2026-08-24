@@ -3955,7 +3955,7 @@
       "title": "Manager – Treuhand / Business Tax – Tax & Legal",
       "titleByLocale": {
         "it": "Manager – Treuhand / Fiscalità Aziendale – Fiscalità e Legale",
-        "en": "Manager – Treuhand / Business Tax – Tax & Legal",
+        "en": "Manager – Trust / Business Tax – Tax & Legal",
         "de": "Manager – Treuhand / Business Tax – Tax & Legal",
         "fr": "Gestionnaire – Treuhand / Fiscalité des entreprises – Fiscalité et juridique"
       },
@@ -4007,7 +4007,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:47:03.248Z",
-      "needsRetranslation": true,
       "salaryMin": 122000,
       "salaryMax": 209000,
       "baseSalary": {
@@ -4019,7 +4018,8 @@
           "maxValue": 209000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "deloitte-c48f299c7959",

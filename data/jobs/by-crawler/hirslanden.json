@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hirslanden",
-  "assembledAt": "2026-08-24T10:20:36.217Z",
+  "assembledAt": "2026-08-24T08:57:25.689Z",
   "jobs": [
     {
       "id": "hirslanden-1146e80f7cc2",
@@ -27654,7 +27654,8 @@
           "krankenschwester-in-cdd-von-6-monaten-bis-80-100-hirslanden-klinik-lausanne",
           "infirmier-ere-en-cdd-de-6-mois-a-80-100-hirslanden-lausanne",
           "80-infermiera-in-cdd-hirslanden-klinik-lausanne",
-          "infermiera-flessibile-60-cdd-hirslanden-klinik-lausanne"
+          "infermiera-flessibile-60-cdd-hirslanden-klinik-lausanne",
+          "infirmier-ere-a-80-en-cdd-hirslanden-klinik-lausanne"
         ],
         "en": [
           "infirmier-ere-en-cdd-a-60-flexible-hirslanden-lausanne",
@@ -27676,10 +27677,10 @@
         "infirmier-ere-en-cdd-de-6-mois-a-80-100-hirslanden-lausanne",
         "80-infermiera-in-cdd-hirslanden-klinik-lausanne",
         "krankenschwester-in-flexiblen-60-cdd-hirslanden-klinik-lausanne",
-        "infermiera-flessibile-60-cdd-hirslanden-klinik-lausanne"
+        "infermiera-flessibile-60-cdd-hirslanden-klinik-lausanne",
+        "infirmier-ere-a-80-en-cdd-hirslanden-klinik-lausanne"
       ],
       "firstSeenAt": "2026-07-21T11:17:33.157Z",
-      "needsRetranslation": true,
       "salaryMin": 51900,
       "salaryMax": 72300,
       "baseSalary": {
@@ -27691,7 +27692,8 @@
           "maxValue": 72300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "hirslanden-cf1df25f28c6",

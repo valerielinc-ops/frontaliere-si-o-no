@@ -1,6 +1,6 @@
 {
   "crawlerKey": "uzh",
-  "assembledAt": "2026-08-24T09:58:59.821Z",
+  "assembledAt": "2026-08-24T09:46:53.912Z",
   "jobs": [
     {
       "id": "uzh-2ab8c75d9083",
@@ -439,12 +439,22 @@
       "previousSlugs": [
         "dentalassistent-in-mit-rontgenberechtigung-uzh-zurich-2",
         "dentalassistent-in-mit-rontgenberechtigung-uzh-zurich",
-        "dentalassistent-in-mit-rontgenberechtigung-universitat-zurich-zurich"
+        "dentalassistent-in-mit-rontgenberechtigung-universitat-zurich-zurich",
+        "dentalassistent-in-universitat-zurich-zurich",
+        "dentalassistent-in-uzh-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dentalassistent-in-mit-rontgenberechtigung-uzh-zurich",
-          "dentalassistent-in-mit-rontgenberechtigung-universitat-zurich-zurich"
+          "dentalassistent-in-mit-rontgenberechtigung-universitat-zurich-zurich",
+          "dentalassistent-in-universitat-zurich-zurich",
+          "dentalassistent-in-uzh-zurich"
+        ],
+        "de": [
+          "dentalassistent-in-uzh-zurich"
+        ],
+        "fr": [
+          "dentalassistent-in-universitat-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.840Z",

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bkw",
-  "assembledAt": "2026-08-24T10:07:59.499Z",
+  "assembledAt": "2026-08-24T08:11:35.453Z",
   "jobs": [
     {
       "id": "bkw-4f0a6bacc40f",
@@ -6796,16 +6796,36 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-luftung-klima-w-m-bkw-ch",
-        "project-manager-ventilation-climate-f-m-bkw-st-gallen"
+        "project-manager-ventilation-climate-f-m-bkw-st-gallen",
+        "responsabile-di-progetto-luftung-klima-alle-bkw-winterthur",
+        "project-manager-ventilation-air-conditioning-all-bkw-winterthur",
+        "projektleiter-in-luftung-klima-alle-bkw-ch",
+        "chef-de-projet-luftung-klima-alle-bkw-winterthur",
+        "project-manager-ventilazione-aria-condizionata-tutti-bkw-winterthur",
+        "chef-de-projet-ventilation-climatisation-tout-bkw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-luftung-klima-w-m-bkw-ch",
-          "project-manager-ventilation-climate-f-m-bkw-st-gallen"
+          "project-manager-ventilation-climate-f-m-bkw-st-gallen",
+          "responsabile-di-progetto-luftung-klima-alle-bkw-winterthur",
+          "project-manager-ventilation-air-conditioning-all-bkw-winterthur",
+          "projektleiter-in-luftung-klima-alle-bkw-ch",
+          "chef-de-projet-luftung-klima-alle-bkw-winterthur",
+          "project-manager-ventilazione-aria-condizionata-tutti-bkw-winterthur",
+          "chef-de-projet-ventilation-climatisation-tout-bkw-winterthur"
+        ],
+        "en": [
+          "project-manager-ventilation-air-conditioning-all-bkw-winterthur"
+        ],
+        "de": [
+          "projektleiter-in-luftung-klima-alle-bkw-ch"
+        ],
+        "fr": [
+          "chef-de-projet-luftung-klima-alle-bkw-winterthur"
         ]
       },
       "firstSeenAt": "2026-06-10T07:58:50.637Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -6817,7 +6837,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bkw-7a4ae46a5cc8",
