@@ -38,7 +38,16 @@ async function main() {
 
   try {
     const entries = readEntries(REPO_ROOT);
-    const next = addEntry(entries, { ...ref, openedAt: new Date().toISOString() });
+    // `session_id` è nell'input documentato degli hook. Serve al gate per
+    // bloccare solo CHI ha aperto la PR: lo store è per-checkout e tutte le
+    // sessioni dello stesso clone (worktree compresi) ne condividono uno solo.
+    // Assente → entry senza padrone, che il gate enforce-a per chiunque.
+    const sessionId = typeof payload?.session_id === 'string' ? payload.session_id : undefined;
+    const next = addEntry(entries, {
+      ...ref,
+      openedAt: new Date().toISOString(),
+      ...(sessionId ? { sessionId } : {}),
+    });
     writeEntries(REPO_ROOT, next);
   } catch {
     // Store write failed — the Stop gate will simply not know about this PR.
