@@ -263,6 +263,27 @@ describe('e\' davvero un annuncio di lavoro?', () => {
     expect(g.jobHits.length).toBeGreaterThanOrEqual(2);
   });
 
+  it('non scambia i benefit di un annuncio per vocabolario promozionale', () => {
+    // Estratto reale dell'apprendistato Griesser: `Sprachaufenthalte` e
+    // «CHF 1000 Gutschein fuer einen Laptop» sono cio' che il datore OFFRE, non
+    // cio' che vende. Con `aufenthalt` e `gutschein` fra i segnali contrari
+    // questo annuncio vero veniva bocciato — una prima versione del vocabolario
+    // lo faceva davvero.
+    const apprendistato = `Lehrstelle Informatiker:in EFZ Plattformentwicklung (all genders) Aadorf 100%
+      Deine Aufgaben: Entwicklung von Plattformen. Jetzt bewerben.
+      Wir bieten: Kostenbeteiligung bei internationalen Sprachdiplomen, zusaetzlicher bezahlter
+      Urlaub fuer Sprachaufenthalte, CHF 1000 Gutschein fuer einen Laptop fuer die Berufsfachschule.`;
+    expect(gradeJobLike(apprendistato).jobLike).toBe(true);
+  });
+
+  it('tiene la percentuale nuda fuori dal veto, dentro il grado', () => {
+    // «Aadorf 100%» e «50% di sconto» hanno la stessa forma. Nel grado il
+    // margine la assorbe; in un veto — che UN gruppo decide da solo —
+    // salverebbe la pagina commerciale che il chiamante deve scartare.
+    expect(hasAnyJobSignal('approfitta del 50% di sconto sulla camera')).toBe(false);
+    expect(gradeJobLike('Lehrstelle Aadorf 100% Deine Aufgaben Jetzt bewerben').jobLike).toBe(true);
+  });
+
   it('boccia una pagina istituzionale senza segnale in nessuna direzione', () => {
     expect(gradeJobLike(paginaAziendale).jobLike).toBe(false);
   });

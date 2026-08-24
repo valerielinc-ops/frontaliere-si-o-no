@@ -42,7 +42,12 @@ const JOB_SIGNALS = [
   ['apply', /(candidat|candidar|postul|bewerb|apply now|apply for|how to apply|invia(?:re)? (?:il tuo |la )?(?:cv|candidatura)|jetzt bewerben)/i],
   ['cv', /(curriculum vitae|\bcv\b|lebenslauf|dossier de candidature|\bresume\b|bewerbungsunterlagen|lettera di motivazione|motivationsschreiben|lettre de motivation|cover letter)/i],
   ['pay', /(stipendio|salario|retribuzione|salaire|r[eé]mun[eé]ration|gehalt|\blohn\b|salary|compensation package)/i],
-  ['workload', /(tempo pieno|tempo parziale|vollzeit|teilzeit|temps plein|temps partiel|full.?time|part.?time|\bpensum\b|grado di occupazione|besch[aä]ftigungsgrad|taux d.occupation|\b\d{1,3}\s?[-–]\s?100\s?%|\b(?:50|60|70|80|90|100)\s?%)/i],
+  // La percentuale nuda e' la notazione svizzera del grado d'occupazione — un
+  // annuncio scrive «Aadorf 100%» e nient'altro — ma e' anche «50% di sconto».
+  // Resta quindi un segnale per `gradeJobLike`, dove il margine la assorbe (una
+  // pagina promo porta sei gruppi contrari, non ne basta uno a favore), ed e'
+  // esclusa dal veto: vedi VETO_EXCLUDED.
+  ['workload', /(tempo pieno|tempo parziale|vollzeit|teilzeit|temps plein|temps partiel|full.?time|part.?time|\bpensum\b|grado di occupazione|besch[aä]ftigungsgrad|taux d.occupation|\b\d{1,3}\s?[-–]\s?100\s?%|\b(?:20|30|40|50|60|70|80|90|100)\s?%)/i],
   ['contract', /(contratto (?:di|a|d.) |tipo di contratto|arbeitsvertrag|unbefristet|befristet|contrat (?:[aà] dur[eé]e|de travail)|permanent (?:position|contract)|employment type|rapporto di lavoro)/i],
   ['requirements', /(requisiti|profilo (?:richiesto|ricercato)|competenze richieste|anforderungen|voraussetzungen|dein profil|ihr profil|exigences|profil recherch[eé]|votre profil|requirements|qualifications|your profile|what you bring)/i],
   ['duties', /(mansioni|compiti|le tue attivit|i tuoi compiti|aufgaben|t[aä]tigkeiten|deine aufgaben|ihre aufgaben|vos missions|responsabilit[eé]s|t[aâ]ches|responsibilities|your role|il tuo ruolo|what you.ll do)/i],
@@ -58,14 +63,24 @@ const JOB_SIGNALS = [
  */
 const NOT_JOB_SIGNALS = [
   ['booking', /(prenot|buchen sie|jetzt buchen|r[eé]server|r[eé]servation|book now|booking|verf[uü]gbarkeit pr[uü]fen|verifica disponibilit)/i],
-  ['stay', /(camera doppia|camere|zimmer|chambre|\brooms?\b|\bsuite\b|pernottament|[uü]bernachtung|nuit[eé]e|soggiorno|aufenthalt|s[eé]jour|\d+\s?(?:notti|n[aä]chte|nuits|nights))/i],
+  // Niente `aufenthalt` nudo: in tedesco vale «permanenza» in generale, e un
+  // annuncio vero lo usa fra i benefit — `Sprachaufenthalte` (soggiorni
+  // linguistici) su un apprendistato Griesser bastava a farlo bocciare. Il
+  // senso alberghiero e' gia' coperto da `übernachtung` e `zimmer`.
+  ['stay', /(camera doppia|camere|zimmer|chambre|\brooms?\b|\bsuite\b|pernottament|[uü]bernachtung|nuit[eé]e|soggiorno|s[eé]jour|\d+\s?(?:notti|n[aä]chte|nuits|nights))/i],
   ['board', /(prima colazione|colazione inclusa|fr[uü]hst[uü]ck|petit.d[eé]jeuner|breakfast included|mezza pensione|halbpension|demi.pension|all inclusive)/i],
-  ['promo', /(offerta speciale|prezzo speciale|miglior prezzo|sonderangebot|bestpreis|offre sp[eé]ciale|meilleur prix|special offer|best price|sconto|rabatt|r[eé]duction|\bdiscount\b|risparmia|sparen sie|buono regalo|gutschein|bon cadeau|gift card)/i],
+  // Niente buoni regalo: `Gutschein`/`buono regalo`/`gift card` compaiono fra i
+  // benefit di un annuncio quanto in una promo — «CHF 1000 Gutschein fuer einen
+  // Laptop» era l'altra meta' del falso positivo su Griesser.
+  ['promo', /(offerta speciale|prezzo speciale|miglior prezzo|sonderangebot|bestpreis|offre sp[eé]ciale|meilleur prix|special offer|best price|sconto|rabatt|r[eé]duction|\bdiscount\b|risparmia|sparen sie)/i],
   ['price', /(a partire da chf|ab chf|d[eè]s chf|from chf|per notte|pro nacht|par nuit|per night|iva inclusa|inkl\. mwst|tva incluse)/i],
   ['ecommerce', /(carrello|warenkorb|panier|aggiungi al carrello|in den warenkorb|add to cart|acquista ora|jetzt kaufen|acheter maintenant|buy now|spedizione|versandkosten|frais de livraison|shipping costs)/i],
   ['payment', /(carta di credito|kreditkarte|carte de cr[eé]dit|credit card|pagamento sicuro|sichere zahlung|paiement s[eé]curis[eé]|secure payment)/i],
   ['checkin', /(check.?in|check.?out|arrivo e partenza|anreise|abreise|arriv[eé]e et d[eé]part)/i],
-  ['amenities', /(piscina|schwimmbad|piscine|\bspa\b|wellness|\bsauna\b|vista lago|seesicht|vue sur le lac|lake view)/i],
+  // Niente `\bspa\b`: in italiano «SPA» e' anche la forma societaria (ACME SPA),
+  // quindi su un annuncio vero varrebbe come segnale d'albergo. Il gruppo scatta
+  // gia' su qualunque pagina alberghiera vera con gli altri termini.
+  ['amenities', /(piscina|schwimmbad|piscine|wellness|\bsauna\b|vista lago|seesicht|vue sur le lac|lake view)/i],
 ];
 
 /** @param {string} text @param {[string, RegExp][]} groups @returns {string[]} */
@@ -107,9 +122,21 @@ export function gradeJobLike(text = '') {
  * @param {string} text
  * @returns {boolean}
  */
+/**
+ * Gruppi che valgono come evidenza in `gradeJobLike` ma NON come veto.
+ *
+ * `workload` prende anche una percentuale nuda, perche' un annuncio svizzero
+ * scrive spesso «Aadorf 100%» e nient'altro. In `gradeJobLike` quel rischio e'
+ * assorbito dal margine — una pagina promozionale porta cinque o sei gruppi
+ * contrari e un solo gruppo a favore non la salva. In un veto no: un veto lo
+ * decide UN gruppo, e «50% di sconto» basterebbe a tenere in vita esattamente la
+ * pagina commerciale che il rilevatore chiamante deve scartare.
+ */
+const VETO_EXCLUDED = new Set(['workload']);
+
 export function hasAnyJobSignal(text = '') {
   const t = String(text || '');
-  return JOB_SIGNALS.some(([, rx]) => rx.test(t));
+  return JOB_SIGNALS.some(([name, rx]) => !VETO_EXCLUDED.has(name) && rx.test(t));
 }
 
 export const JOB_LIKE_SIGNAL_NAMES = JOB_SIGNALS.map(([n]) => n);
