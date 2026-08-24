@@ -10693,6 +10693,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.briosco-pendolare-ticino-lavoro.title': 'Vivere a Briosco, lavorare in Ticino: guida del frontaliere',
     'blog.article.briosco-pendolare-ticino-lavoro.excerpt': 'Dal 1° gennaio 2024 il Nuovo Accordo Frontalieri governa la fiscalità tra Italia e Ticino. Briosco è a 70 km dal valico: guida pratica per residenti e lavoratori ticinesi.',
     'blog.article.briosco-pendolare-ticino-lavoro.imageAlt': 'Vista di Lugano con le Alpi sullo sfondo, rappresentando il panorama visto dai frontalieri che lavorano in Ticino',
+    'blog.article.albizzate-lavorare-ticino-frontaliere.title': 'Albizzate-Ticino da frontaliere: guida pratica',
+    'blog.article.albizzate-lavorare-ticino-frontaliere.excerpt': 'Vivere ad Albizzate e lavorare in Ticino: permessi G, fiscalità 2024, AVS, LAMal e doppia imposizione. Tutto ciò che serve sapere per il trasferimento.',
+    'blog.article.albizzate-lavorare-ticino-frontaliere.imageAlt': 'Frontaliere al valico di confine tra Italia e Ticino al mattino',
 };
 
 export default blogMetaIt;

@@ -10691,6 +10691,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.briosco-pendolare-ticino-lavoro.title': 'Wohnen in Briosco, Arbeiten im Tessin: Grenzgängerführer',
     'blog.article.briosco-pendolare-ticino-lavoro.excerpt': 'Seit dem 1. Januar 2024 regelt das Neue Frontalieri-Abkommen die Besteuerung zwischen Italien und dem Tessin. Briosco ist 70 km vom Pass entfernt: ein praktischer Leitfaden für Einwohner und Arbeiter des Tessins.',
     'blog.article.briosco-pendolare-ticino-lavoro.imageAlt': 'Blick auf Lugano mit Alpen im Hintergrund, die Landschaft zeigt, die Grenzgänger in Tessin sehen',
+    'blog.article.albizzate-lavorare-ticino-frontaliere.title': 'Albizzate-Ticino als Grenzgänger: praktischer Leitfaden',
+    'blog.article.albizzate-lavorare-ticino-frontaliere.excerpt': 'Leben in Albizzate und Arbeiten im Tessin: Bewilligungen G, Steuern 2024, AHV, KVG und Doppelbesteuerung. Alles, was Sie für den Transfer wissen müssen.',
+    'blog.article.albizzate-lavorare-ticino-frontaliere.imageAlt': 'Grenzgänger am Schweizer-italienischen Grenzübergang in der Nähe von Mendrisio',
 };
 
 export default blogMetaDe;
