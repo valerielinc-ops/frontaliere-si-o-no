@@ -4105,6 +4105,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-b-basilea-citta.title': 'Aufenthaltsbewilligung B Basel-Stadt: Voraussetzungen und Erneuerung',
     'blog.article.permesso-b-basilea-citta.excerpt': 'Praktischer Leitfaden zur erneuerbaren Aufenthaltsbewilligung im Kanton Basel-Stadt: Voraussetzungen, Dokumente, Dauer, Erneuerungsverfahren und Kontakte der Migrationsstelle.',
     'blog.article.permesso-b-basilea-citta.imageAlt': 'Schweizer Behördenbüro mit Aufenthaltserlaubnisformularen und amtlichen Dokumenten',
+    'blog.article.aziende-bio-foraggio-convenzionale.title': 'Bio-Betriebe können 20% konventionelles Futter kaufen',
+    'blog.article.aziende-bio-foraggio-convenzionale.excerpt': 'Das Bundesamt für Landwirtschaft lockert die Vorschriften für Biobetriebe: 20% konventionelles Futter zur Deckung des Gesamtbedarfs der eigenen Tiere',
+    'blog.article.aziende-bio-foraggio-convenzionale.imageAlt': 'Biobetriebe',
 };
 
 export default blogMetaChDe;

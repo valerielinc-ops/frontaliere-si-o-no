@@ -4105,6 +4105,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-b-basilea-citta.title': 'Residence permit B Basel City: requirements and renewal',
     'blog.article.permesso-b-basilea-citta.excerpt': 'Practical guide to the renewable residence permit in the Canton of Basel-City: requirements, documents, duration, renewal procedure and contacts of the migration office.',
     'blog.article.permesso-b-basilea-citta.imageAlt': 'Swiss administrative office with residence permit application forms and official documents',
+    'blog.article.aziende-bio-foraggio-convenzionale.title': 'Organic companies can buy 20% conventional fodder',
+    'blog.article.aziende-bio-foraggio-convenzionale.excerpt': 'The Federal Office of Agriculture relaxes the rules for organic farms: 20% conventional fodder to cover the total needs of their animals',
+    'blog.article.aziende-bio-foraggio-convenzionale.imageAlt': 'Bio farms',
 };
 
 export default blogMetaChEn;

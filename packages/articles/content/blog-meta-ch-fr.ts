@@ -4105,6 +4105,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-b-basilea-citta.title': 'Permis de séjour B Bâle-Ville : exigences et renouvellement',
     'blog.article.permesso-b-basilea-citta.excerpt': 'Guide pratique du permis de séjour renouvelable dans le canton de Bâle-Ville : exigences, documents, durée, procédure de renouvellement et contacts de l\'Office des migrations.',
     'blog.article.permesso-b-basilea-citta.imageAlt': 'Bureau administratif suisse avec formulaires de demande de permis de séjour et documents officiels',
+    'blog.article.aziende-bio-foraggio-convenzionale.title': 'Les entreprises bio peuvent acheter 20 % de fourrage conventionnel',
+    'blog.article.aziende-bio-foraggio-convenzionale.excerpt': 'L\'Office fédéral de l\'agriculture assouplit les règles pour les exploitations biologiques : 20 % de fourrage conventionnel pour couvrir l\'ensemble des besoins de ses animaux',
+    'blog.article.aziende-bio-foraggio-convenzionale.imageAlt': 'Exploitations biologiques',
 };
 
 export default blogMetaChFr;
