@@ -4099,6 +4099,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dimora-b-basilea-rinnovo.title': 'Ausweis B Basel: Voraussetzungen und Erneuerung',
     'blog.article.dimora-b-basilea-rinnovo.excerpt': 'Der Ausweis B in der Schweiz ist erneuerbar. Leitfaden zu Anforderungen, Dokumenten und Erneuerungsverfahren im Kanton Basel-Stadt.',
     'blog.article.dimora-b-basilea-rinnovo.imageAlt': 'Verwaltung für Migrations- und Aufenthaltserlaubnisse im Kanton Basel-Stadt',
+    'blog.article.usi-supsi-aumentano-tasse-studenti.title': 'USI und SUPSI: Die Semestergebühren für Studenten werden erhöht',
+    'blog.article.usi-supsi-aumentano-tasse-studenti.excerpt': 'Die Tessiner Hochschulen werden die Semestergebühren für Studierende ab dem Studienjahr 2027/2028 aufgrund des Rückgangs der öffentlichen Förderung durch den Bund erhöhen.',
+    'blog.article.usi-supsi-aumentano-tasse-studenti.imageAlt': 'Bild eines Studierenden in einer Schweizer Universität',
 };
 
 export default blogMetaChDe;

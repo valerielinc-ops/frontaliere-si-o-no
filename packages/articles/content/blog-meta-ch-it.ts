@@ -4099,6 +4099,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dimora-b-basilea-rinnovo.title': 'Permesso B Basilea: requisiti e rinnovo',
     'blog.article.dimora-b-basilea-rinnovo.excerpt': 'Il permesso B in Svizzera è rinnovabile. Guida a requisiti, documenti e procedura di rinnovo nel Cantone di Basilea Città.',
     'blog.article.dimora-b-basilea-rinnovo.imageAlt': 'Ufficio amministrativo federale e cantonale per permessi di migrazione e dimora nel Cantone di Basilea Città',
+    'blog.article.usi-supsi-aumentano-tasse-studenti.title': 'USI e SUPSI: aumenteranno le tasse semestrali per gli studenti',
+    'blog.article.usi-supsi-aumentano-tasse-studenti.excerpt': 'Le università ticinesi aumenteranno le tasse semestrali per gli studenti a partire dall\'anno accademico 2027/2028, a causa della riduzione del sostegno pubblico da parte della Confederazione.',
+    'blog.article.usi-supsi-aumentano-tasse-studenti.imageAlt': 'Immagine di un studente in una università svizzera',
 };
 
 export default blogMetaChIt;

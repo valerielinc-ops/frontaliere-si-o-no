@@ -4099,6 +4099,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.dimora-b-basilea-rinnovo.title': 'Permis B Bâle : exigences et renouvellement',
     'blog.article.dimora-b-basilea-rinnovo.excerpt': 'Le permis B en Suisse est renouvelable. Guide des exigences, des documents et de la procédure de renouvellement dans le canton de Bâle-Ville.',
     'blog.article.dimora-b-basilea-rinnovo.imageAlt': 'Bureau administratif pour permis de migration et de séjour du canton de Bâle-Ville',
+    'blog.article.usi-supsi-aumentano-tasse-studenti.title': 'UTILISATIONS et SUPSI : les frais semestriels pour les étudiants augmenteront',
+    'blog.article.usi-supsi-aumentano-tasse-studenti.excerpt': 'Les universités tessinoises augmenteront les frais semestriels pour les étudiants à partir de l\'année académique 2027/2028, en raison de la réduction du soutien public de la Confédération.',
+    'blog.article.usi-supsi-aumentano-tasse-studenti.imageAlt': 'Image d\'un étudiant dans une université suisse',
 };
 
 export default blogMetaChFr;
