@@ -1,76 +1,7 @@
 {
   "crawlerKey": "recruitingapp-1123",
-  "assembledAt": "2026-08-23T21:31:12.326Z",
+  "assembledAt": "2026-08-24T10:22:25.067Z",
   "jobs": [
-    {
-      "id": "recruitingapp-1123-7addc805f288",
-      "slug": "informationssicherheits-compliance-expert-in-m-w-d-big-are-stellen-lugano",
-      "slugByLocale": {
-        "it": "informationssicherheits-compliance-expert-in-m-w-d-big-are-stellen-lugano",
-        "en": "informationssicherheits-compliance-expert-in-m-w-d-recruitingapp-1123-ch",
-        "de": "informationssicherheit-compliance-expertin-in-m-w-d-big-are-stellen-lugano",
-        "fr": "informationssicherheits-compliance-expert-in-m-w-d-big-are-stellen-lugano"
-      },
-      "company": "BIG & ARE Stellen",
-      "companyKey": "recruitingapp-1123",
-      "companyDomain": "recruitingapp-1123.umantis.com",
-      "title": "Informationssicherheits- & Compliance Expert:in (m/w/d)",
-      "titleByLocale": {
-        "it": "Informationssicherheits- & Compliance Expert:in (m/f/d)",
-        "en": "Informationssicherheits- & Compliance Expert:in (m/w/d)",
-        "de": "Informationssicherheit- & Compliance-Expertin:in (m/w/d)",
-        "fr": "Informationssicherheits- & Compliance Expert:in (h/f/d)"
-      },
-      "description": "Informationssicherheits- & Compliance Expert:in (m/w/d) — BIG & ARE Stellen",
-      "descriptionByLocale": {
-        "en": "Informationssicherheits- & Compliance Expert:in (m/w/d) — BIG & ARE Stellen"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://recruitingapp-1123.umantis.com/Vacancies/2480/Description/1",
-      "source": "BIG & ARE Stellen Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-23T21:31:08.628Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-23",
-      "applyUrl": "https://recruitingapp-1123.umantis.com/Vacancies/2480/Description/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "informationssicherheits-compliance-expert-in-m-w-d-recruitingapp-1123-ch",
-        "informationssicherheits-compliance-expert-in-m-w-d-big-are-stellen-lugano"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "informationssicherheits-compliance-expert-in-m-w-d-recruitingapp-1123-ch",
-          "informationssicherheits-compliance-expert-in-m-w-d-big-are-stellen-lugano"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T09:37:56.558Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI"
-    },
     {
       "id": "recruitingapp-1123-25184cd67246",
       "slug": "servicetechniker-in-hkls-campus-wu-m-w-d-big-are-stellen-lugano",
@@ -87,8 +18,8 @@
       "titleByLocale": {
         "it": "Servicetechniker:in HKLS Campus WU (m/w/d)",
         "en": "Servicetechniker:in HKLS Campus WU (m/f/d)",
-        "de": "Servicetechniker: in HKLS Campus WU (m/w/d)",
-        "fr": "Servicetechniker:in HKLS Campus WU (h/f/d)"
+        "de": "Servicetechniker:in HKLS Campus WU (m/w/d)",
+        "fr": "Servicetechniker:in HKLS Campus WU (m/w/d)"
       },
       "description": "Servicetechniker:in HKLS Campus WU (m/w/d) — BIG & ARE Stellen",
       "descriptionByLocale": {
@@ -99,7 +30,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2504/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-23T21:31:08.325Z",
+      "crawledAt": "2026-08-24T10:22:22.238Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -155,8 +86,8 @@
       "title": "Servicetechniker:in Brandschutz (m/w/d)",
       "titleByLocale": {
         "it": "Servicetechniker:in Brandschutz (m/w/d)",
-        "en": "Servicetechniker:in Brandschutz (m/f/d)",
-        "de": "Servicetechniker: in Brandschutz (m/w/d)",
+        "en": "Servicetechniker:in Brandschutz (m/w/d)",
+        "de": "Servicetechniker:in Brandschutz (m/w/d)",
         "fr": "Servicetechniker:in Brandschutz (h/f/d)"
       },
       "description": "Servicetechniker:in Brandschutz (m/w/d) — BIG & ARE Stellen",
@@ -168,7 +99,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2506/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-23T21:31:08.022Z",
+      "crawledAt": "2026-08-24T10:22:21.936Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -225,8 +156,8 @@
       "titleByLocale": {
         "it": "Servicetechniker:in MSR Campus WU (m/w/d)",
         "en": "Servicetechniker:in MSR Campus WU (m/f/d)",
-        "de": "Servicetechniker: im MSR Campus WU (m/w/d)",
-        "fr": "Servicetechniker:in MSR Campus WU (h/f/d)"
+        "de": "Servicetechniker:in MSR Campus WU (m/w/d)",
+        "fr": "Servicetechniker:in MSR Campus WU (m/w/d)"
       },
       "description": "Servicetechniker:in MSR Campus WU (m/w/d) — BIG & ARE Stellen",
       "descriptionByLocale": {
@@ -237,7 +168,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2505/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-23T21:31:07.720Z",
+      "crawledAt": "2026-08-24T10:22:21.634Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -306,7 +237,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2507/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:31:07.418Z",
+      "crawledAt": "2026-08-24T10:22:21.330Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -354,6 +285,67 @@
       "addressRegion": "TI"
     },
     {
+      "id": "recruitingapp-1123-ee08b7105086",
+      "slug": "technische-r-objektmanager-in-hochbau-m-w-d-ab-30-wochenstunden-recruitingapp-1123-ch",
+      "slugByLocale": {
+        "de": "technische-r-objektmanager-in-hochbau-m-w-d-ab-30-wochenstunden-recruitingapp-1123-ch",
+        "it": "technische-r-objektmanager-in-hochbau-m-w-d-ab-30-wochenstunden-recruitingapp-1123-ch",
+        "en": "technische-r-objektmanager-in-hochbau-m-w-d-ab-30-wochenstunden-recruitingapp-1123-ch",
+        "fr": "technische-r-objektmanager-in-hochbau-m-w-d-ab-30-wochenstunden-recruitingapp-1123-ch"
+      },
+      "company": "BIG & ARE Stellen",
+      "companyKey": "recruitingapp-1123",
+      "companyDomain": "recruitingapp-1123.umantis.com",
+      "title": "Technische:r Objektmanager:in Hochbau (m/w/d) - ab 30 Wochenstunden",
+      "titleByLocale": {
+        "de": "Technische:r Objektmanager:in Hochbau (m/w/d) - ab 30 Wochenstunden",
+        "it": "Technische:r Objektmanager:in Hochbau (m/w/d) - ab 30 Wochenstunden",
+        "en": "Technische:r Objektmanager:in Hochbau (m/w/d) - ab 30 Wochenstunden",
+        "fr": "Technische:r Objektmanager:in Hochbau (m/w/d) - ab 30 Wochenstunden"
+      },
+      "description": "Technische:r Objektmanager:in Hochbau (m/w/d) - ab 30 Wochenstunden — BIG & ARE Stellen",
+      "descriptionByLocale": {
+        "de": "Technische:r Objektmanager:in Hochbau (m/w/d) - ab 30 Wochenstunden — BIG & ARE Stellen"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://recruitingapp-1123.umantis.com/Vacancies/2482/Description/1",
+      "source": "BIG & ARE Stellen Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-24T10:22:21.026Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://recruitingapp-1123.umantis.com/Vacancies/2482/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-24T10:22:21.026Z"
+    },
+    {
       "id": "recruitingapp-1123-fd9661f7604f",
       "slug": "property-manager-focus-sugli-appartamenti-di-nuova-costruzione-m-f-d-big-are-stellen-lugano",
       "slugByLocale": {
@@ -381,7 +373,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2426/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:31:07.114Z",
+      "crawledAt": "2026-08-24T10:22:20.723Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -446,7 +438,7 @@
       "titleByLocale": {
         "it": "Immobilienverwalter:in (m/w/d) VZ/TZ ab 30h/Woche",
         "en": "Immobilienverwalter: in (m/f/d) VZ/TZ ab 30h/Woche",
-        "de": "Immobilienverwalter: in (m/w/d) VZ/TZ ab 30h/Woche",
+        "de": "Immobilienverwalter:in (m/w/d) VZ/TZ ab 30h/Woche",
         "fr": "Immobilienverwalter: en (h/f/d) VZ/TZ ab 30h/Woche"
       },
       "description": "Immobilienverwalter:in (m/w/d) VZ/TZ ab 30h/Woche — BIG & ARE Stellen",
@@ -458,7 +450,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2465/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-23T21:31:06.811Z",
+      "crawledAt": "2026-08-24T10:22:20.419Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -527,7 +519,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2473/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:31:06.508Z",
+      "crawledAt": "2026-08-24T10:22:20.114Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -602,7 +594,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2479/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:31:06.206Z",
+      "crawledAt": "2026-08-24T10:22:19.807Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -679,7 +671,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2497/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:31:05.889Z",
+      "crawledAt": "2026-08-24T10:22:19.480Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -727,6 +719,76 @@
         }
       },
       "addressRegion": "TI"
+    },
+    {
+      "id": "recruitingapp-1123-7addc805f288",
+      "slug": "informationssicherheits-compliance-expert-in-m-w-d-big-are-stellen-lugano",
+      "slugByLocale": {
+        "it": "informationssicherheits-compliance-expert-in-m-w-d-big-are-stellen-lugano",
+        "en": "informationssicherheits-compliance-expert-in-m-w-d-recruitingapp-1123-ch",
+        "de": "informationssicherheit-compliance-expertin-in-m-w-d-big-are-stellen-lugano",
+        "fr": "informationssicherheits-compliance-expert-in-m-w-d-big-are-stellen-lugano"
+      },
+      "company": "BIG & ARE Stellen",
+      "companyKey": "recruitingapp-1123",
+      "companyDomain": "recruitingapp-1123.umantis.com",
+      "title": "Informationssicherheits- & Compliance Expert:in (m/w/d)",
+      "titleByLocale": {
+        "it": "Informationssicherheits- & Compliance Expert:in (m/f/d)",
+        "en": "Informationssicherheits- & Compliance Expert:in (m/w/d)",
+        "de": "Informationssicherheits- & Compliance Expert:in (m/w/d)",
+        "fr": "Informationssicherheits- & Compliance Expert:in (h/f/d)"
+      },
+      "description": "Informationssicherheits- & Compliance Expert:in (m/w/d) — BIG & ARE Stellen",
+      "descriptionByLocale": {
+        "en": "Informationssicherheits- & Compliance Expert:in (m/w/d) — BIG & ARE Stellen"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://recruitingapp-1123.umantis.com/Vacancies/2480/Description/1",
+      "source": "BIG & ARE Stellen Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-23T21:31:08.628Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-23",
+      "applyUrl": "https://recruitingapp-1123.umantis.com/Vacancies/2480/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "informationssicherheits-compliance-expert-in-m-w-d-recruitingapp-1123-ch",
+        "informationssicherheits-compliance-expert-in-m-w-d-big-are-stellen-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "informationssicherheits-compliance-expert-in-m-w-d-recruitingapp-1123-ch",
+          "informationssicherheits-compliance-expert-in-m-w-d-big-are-stellen-lugano"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:37:56.558Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "crawlerMissStreak": 1
     }
   ]
 }
