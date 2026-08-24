@@ -78,11 +78,11 @@
     },
     {
       "id": "burgenstock-collection-27f776f8effe",
-      "slug": "spa-wellness-manager-100-w-m-i-burgenstock-collection-ch",
+      "slug": "responsabile-spa-benessere-al-100-w-m-i-burgenstock-collection-lugano",
       "slugByLocale": {
-        "it": "spa-wellness-manager-100-w-m-i-burgenstock-collection-ch",
-        "en": "spa-wellness-manager-100-w-m-i-burgenstock-collection-ch",
+        "it": "responsabile-spa-benessere-al-100-w-m-i-burgenstock-collection-lugano",
         "de": "spa-wellness-manager-100-w-m-i-buergenstock-hotels-obburgen",
+        "en": "spa-wellness-manager-100-w-m-i-burgenstock-collection-ch",
         "fr": "spa-wellness-manager-100-w-m-i-burgenstock-collection-ch"
       },
       "company": "Bürgenstock Collection",
@@ -90,10 +90,10 @@
       "companyDomain": "recruitingapp-2850.umantis.com",
       "title": "Spa & Wellness Manager 100% (w/m/i)",
       "titleByLocale": {
-        "it": "Spa & Wellness Manager 100% (w/m/i)",
+        "it": "Responsabile Spa & Benessere al 100% (w/m/i)",
+        "fr": "Spa & Wellness Manager 100% (w/m/i)",
         "en": "Spa & Wellness Manager 100% (w/m/i)",
-        "de": "Spa & Wellness Manager 100% (w/m/i)",
-        "fr": "Spa & Wellness Manager 100% (w/m/i)"
+        "de": "Spa & Wellness Manager zu 100 % (w/m/i)"
       },
       "description": "Spa & Wellness Manager 100% (w/m/i) — Bürgenstock Collection",
       "descriptionByLocale": {
@@ -120,7 +120,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T21:38:22.992Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -133,7 +132,16 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-23T21:38:22.992Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spa-wellness-manager-100-w-m-i-burgenstock-collection-ch"
+        ]
+      },
+      "previousSlugs": [
+        "spa-wellness-manager-100-w-m-i-burgenstock-collection-ch"
+      ]
     },
     {
       "id": "burgenstock-collection-296a84d3bc06",
@@ -231,10 +239,10 @@
       "companyDomain": "recruitingapp-2850.umantis.com",
       "title": "Head Sommelier 100% (w/m/i)",
       "titleByLocale": {
+        "de": "Chef-Sommelier zu 100 % (w/m/i)",
+        "fr": "Head Sommelier 100% (w/m/i)",
         "it": "Sommelier testa 100% (w/m/i)",
-        "en": "Head Sommelier 100% (w/m/i)",
-        "de": "Head Sommelier 100% (w/m/i)",
-        "fr": "Head Sommelier 100% (w/m/i)"
+        "en": "Head Sommelier 100% (w/m/i)"
       },
       "description": "Head Sommelier 100% (w/m/i) — Bürgenstock Collection",
       "descriptionByLocale": {
@@ -276,7 +284,6 @@
         "sommelier-capo-100-w-m-i-burgenstock-hotels-ag-obburgen"
       ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T21:38:22.386Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -289,7 +296,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-23T21:38:22.386Z"
     },
     {
       "id": "burgenstock-collection-eb923773c6b8",
@@ -305,10 +313,10 @@
       "companyDomain": "recruitingapp-2850.umantis.com",
       "title": "Sommelier 100% (w/m/i)",
       "titleByLocale": {
-        "it": "Sommelier 100% (w/m/i)",
-        "en": "Sommelier 100% (w/m/i)",
-        "de": "Sommelier 100% (w/m/i)",
-        "fr": "Sommelier 100% (w/m/i)"
+        "de": "Sommelier 100 % (w/m/i)",
+        "it": "Sommelier al 100% (w/m/i)",
+        "fr": "Sommelier 100% (w/m/i)",
+        "en": "100% Sommelier (w/m/i)"
       },
       "description": "Sommelier 100% (w/m/i) — Bürgenstock Collection",
       "descriptionByLocale": {
@@ -350,7 +358,6 @@
         "sommelier-100-m-w-i-burgenstock-hotels-ag-obburgen"
       ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T21:38:22.083Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -363,7 +370,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-23T21:38:22.083Z"
     },
     {
       "id": "burgenstock-collection-6a02672ec704",
@@ -520,10 +528,10 @@
       "companyDomain": "recruitingapp-2850.umantis.com",
       "title": "Restaurant Manager 100 % (w/m/i)",
       "titleByLocale": {
+        "fr": "Restaurant Manager 100 % (w/m/i)",
         "it": "Ristorante Manager 100% (w/m/i)",
         "en": "Restaurant Manager 100% (w/m/i)",
-        "de": "Restaurant Manager 100% (w/m/i)",
-        "fr": "Restaurant Manager 100 % (w/m/i)"
+        "de": "Restaurantleiter 100 % (w/m/i)"
       },
       "description": "Restaurant Manager 100 % (w/m/i) — Bürgenstock Collection",
       "descriptionByLocale": {
@@ -565,7 +573,6 @@
         "ristorante-manager-100-f-m-i-burgenstock-hotels-ag-obburgen"
       ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T21:38:21.176Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -578,7 +585,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-23T21:38:21.176Z"
     },
     {
       "id": "burgenstock-collection-880b8b640527",
