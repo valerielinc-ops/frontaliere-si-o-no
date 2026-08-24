@@ -1,20 +1,21 @@
 {
   "key": "burgenstock-collection",
   "label": "Bürgenstock Collection",
-  "generatedAt": "2026-08-23T21:38:27.122Z",
+  "generatedAt": "2026-08-24T10:24:24.424Z",
   "total": 10,
   "discovered": null,
   "written": 10,
-  "newCount": 10,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7959,
-  "avgDurationMs": 7959,
+  "durationMs": 6221,
+  "avgDurationMs": 6221,
   "durationHistory": [
-    7959
+    6221
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "burgenstock-collection-d2f0a409dd10",
       "slug": "aushilfe-f-b-service-40-60-m-w-d-stundenlohn-burgenstock-collection-ch",
@@ -27,7 +28,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1560/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:38:20.549Z",
+      "crawledAt": "2026-08-24T10:24:19.261Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -40,11 +41,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1560/Description/1",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:38:20.549Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -60,7 +63,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1438/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-23T21:38:20.873Z",
+      "crawledAt": "2026-08-24T10:24:19.582Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -73,11 +76,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1438/Description/1",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:38:20.873Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -93,7 +98,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1534/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-23T21:38:21.176Z",
+      "crawledAt": "2026-08-24T10:24:19.886Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -106,11 +111,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1534/Description/1",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:38:21.176Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -126,7 +133,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1492/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:38:21.478Z",
+      "crawledAt": "2026-08-24T10:24:20.188Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -139,11 +146,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1492/Description/1",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:38:21.478Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -159,7 +168,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1512/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-23T21:38:21.780Z",
+      "crawledAt": "2026-08-24T10:24:20.490Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -172,11 +181,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1512/Description/1",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:38:21.780Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -192,7 +203,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1521/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:38:22.083Z",
+      "crawledAt": "2026-08-24T10:24:20.793Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -205,11 +216,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1521/Description/1",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:38:22.083Z",
+      "_qualityScore": 49,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 10,
         "completeness": 14
       }
     },
@@ -225,7 +238,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1482/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:38:22.386Z",
+      "crawledAt": "2026-08-24T10:24:21.097Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -238,11 +251,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1482/Description/1",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:38:22.386Z",
+      "_qualityScore": 52,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 13,
         "completeness": 14
       }
     },
@@ -258,7 +273,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1564/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:38:22.689Z",
+      "crawledAt": "2026-08-24T10:24:21.400Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -271,11 +286,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1564/Description/1",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:38:22.689Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -291,7 +308,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1488/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-23T21:38:22.992Z",
+      "crawledAt": "2026-08-24T10:24:21.703Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -304,11 +321,13 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1488/Description/1",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:38:22.992Z",
+      "_qualityScore": 49,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 10,
         "completeness": 14
       }
     },
@@ -324,7 +343,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1566/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:38:23.295Z",
+      "crawledAt": "2026-08-24T10:24:22.006Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -337,16 +356,17 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1566/Description/1",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:38:23.295Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
