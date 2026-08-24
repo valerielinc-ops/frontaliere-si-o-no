@@ -4183,6 +4183,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assegni-familiari-sciaffusa.title': 'Allocations familiales Canton de Schaffhouse : montants et demande',
     'blog.article.assegni-familiari-sciaffusa.excerpt': 'Les frontaliers résidant dans le canton de Schaffhouse peuvent bénéficier d\'un montant de base fédéral minimum.',
     'blog.article.assegni-familiari-sciaffusa.imageAlt': 'Un travailleur frontalier résidant dans le canton de Schaffhouse dépose une demande pour l\'allocation de formation.',
+    'blog.article.apprendistato-canton-sciaffusa-contratto.title': 'Apprentissage et formation professionnelle Schaffhouse',
+    'blog.article.apprendistato-canton-sciaffusa-contratto.excerpt': 'Le canton de Schaffhouse propose des parcours d\'apprentissage protégés par contrat fédéral. Découvrez comment trouver un stage, les droits dans un contrat et les parcours vers la maturité professionnelle.',
+    'blog.article.apprendistato-canton-sciaffusa-contratto.imageAlt': 'Un jeune apprenti apprend son métier dans un atelier professionnel suisse entouré d\'outils.',
 };
 
 export default blogMetaChFr;

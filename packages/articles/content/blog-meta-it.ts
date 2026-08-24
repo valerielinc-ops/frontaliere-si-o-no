@@ -10717,6 +10717,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-oliveto-lario-lavorare-ticino-da-frontaliere.title': 'Vivere a Oliveto Lario e lavorare in Ticino da frontaliere',
     'blog.article.vivere-oliveto-lario-lavorare-ticino-da-frontaliere.excerpt': 'Collegamenti, tempi di percorrenza, costo della vita, zone consigliate, vantaggi e svantaggi del trasferimento',
     'blog.article.vivere-oliveto-lario-lavorare-ticino-da-frontaliere.imageAlt': 'Frontaliere che lavora in Ticino',
+    'blog.article.inarzo-lavoro-ticino-frontaliere.title': 'Vivere a Inarzo e lavorare in Ticino da frontaliere',
+    'blog.article.inarzo-lavoro-ticino-frontaliere.excerpt': 'Vivere nel Varesotto e lavorare in Ticino: franchigie fiscali, pendolarismo breve, costi abitativi inferiori. Guida completa per frontalieri con permesso G.',
+    'blog.article.inarzo-lavoro-ticino-frontaliere.imageAlt': 'Vista del Lago Lugano dalla regione di confine italo-svizzera con le Alpi sullo sfondo e paesi residenziali su entrambe le sponde',
 };
 
 export default blogMetaIt;

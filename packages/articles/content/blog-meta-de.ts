@@ -10715,6 +10715,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-oliveto-lario-lavorare-ticino-da-frontaliere.title': 'Leben in Oliveto Lario und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-oliveto-lario-lavorare-ticino-da-frontaliere.excerpt': 'Verbindungen, Reisezeiten, Lebenshaltungskosten, empfohlene Gebiete, Vor- und Nachteile des Transfers',
     'blog.article.vivere-oliveto-lario-lavorare-ticino-da-frontaliere.imageAlt': 'Frontalier arbeitet in Tessin',
+    'blog.article.inarzo-lavoro-ticino-frontaliere.title': 'Leben in Inarzo und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.inarzo-lavoro-ticino-frontaliere.excerpt': 'Wohnen im Varese und Arbeiten im Tessin: Steuerbefreiungen, Kurzzeitpendeln, geringere Wohnkosten. Komplette Anleitung für Grenzgänger mit G-Genehmigung.',
+    'blog.article.inarzo-lavoro-ticino-frontaliere.imageAlt': 'Blick auf den Luganersee aus der italienisch-Schweizer Grenzregion mit den Alpen im Hintergrund und Wohngebieten auf beiden Ufern',
 };
 
 export default blogMetaDe;

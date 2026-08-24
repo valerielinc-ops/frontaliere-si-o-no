@@ -54269,6 +54269,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-apprendistato-canton-sciaffusa-contratto': {
+    title: 'Apprendistato e formazione professionale Sciaffusa',
+    description: 'Scopri come trovare un tirocinio nel Canton Sciaffusa, i diritti in un contratto di apprendistato, retribuzioni e i percorsi verso la maturità professionale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, formazione, professionale, sciaffusa',
+    ogTitle: 'Apprendistato nel Canton Sciaffusa: guida completa',
+    ogDescription: 'Guida pratica all\'apprendistato nel Canton Sciaffusa: come trovare un tirocinio, stipulare il contratto, retribuzioni, diritti dell\'apprendista e maturità professionale. Procedura step-by-step.',
+    canonicalPath: '/articoli-svizzera/apprendistato-canton-sciaffusa-contratto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato e formazione professionale Sciaffusa",
+      "description": "Scopri come trovare un tirocinio nel Canton Sciaffusa, i diritti in un contratto di apprendistato, retribuzioni e i percorsi verso la maturità professionale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apprendistato-canton-sciaffusa-contratto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un giovane apprendista impara un mestiere in un'officina svizzera, circondato da attrezzi e macchinari professionali."
+      },
+      "datePublished": "2026-08-24T22:04:28+00:00",
+      "dateModified": "2026-08-24T22:04:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendistato-canton-sciaffusa-contratto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

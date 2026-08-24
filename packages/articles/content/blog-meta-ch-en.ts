@@ -4183,6 +4183,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assegni-familiari-sciaffusa.title': 'Family allowances Canton Schaffhausen: amounts and demand',
     'blog.article.assegni-familiari-sciaffusa.excerpt': 'Border workers residing in the Canton of Schaffhausen can benefit from a minimum federal base amount.',
     'blog.article.assegni-familiari-sciaffusa.imageAlt': 'A frontier worker resident in the canton of Schaffhausen submits an application for the training allowance.',
+    'blog.article.apprendistato-canton-sciaffusa-contratto.title': 'Apprenticeship and vocational training Schaffhausen',
+    'blog.article.apprendistato-canton-sciaffusa-contratto.excerpt': 'Canton Schaffhausen offers federally contracted apprenticeships. Learn how to find an internship, the rights in a contract, and pathways to professional maturity.',
+    'blog.article.apprendistato-canton-sciaffusa-contratto.imageAlt': 'A young apprentice learning a trade in a Swiss workshop with professional tools and machinery in the background.',
 };
 
 export default blogMetaChEn;
