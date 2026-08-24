@@ -32016,6 +32016,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-bosisio-parini-lavorare-ticino-da-frontaliere',
+ category: 'fiscale',
+ date: '2026-08-24T18:36:00.509Z',
+ image: '/images/blog/vivere-bosisio-parini-lavorare-ticino-da-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
