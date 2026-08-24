@@ -12565,6 +12565,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'borse-studio-sciaffusa',
+    category: 'pratico',
+    date: '2026-08-24T22:45:58.882Z',
+    image: '/images/blog/borse-studio-sciaffusa.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

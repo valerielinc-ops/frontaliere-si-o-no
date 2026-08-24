@@ -4189,6 +4189,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tirocinio-contratto-sciaffusa.title': 'Apprenticeship: practical guide in the Schaffhausen Canton',
     'blog.article.tirocinio-contratto-sciaffusa.excerpt': 'How to find an internship position, apprentice salaries, contracts and professional maturity in the Swiss system.',
     'blog.article.tirocinio-contratto-sciaffusa.imageAlt': 'Apprentice working with mentor in professional workshop during Swiss vocational training',
+    'blog.article.borse-studio-sciaffusa.title': 'Canton Schaffhausen Scholarships: Requirements and Amounts',
+    'blog.article.borse-studio-sciaffusa.excerpt': 'Canton Schaffhausen offers scholarships for students and apprentices, but maximum amounts and submission deadlines are not yet specified.',
+    'blog.article.borse-studio-sciaffusa.imageAlt': 'Students and apprentices in Switzerland',
 };
 
 export default blogMetaChEn;
