@@ -356,15 +356,32 @@ describe('immediate cadence — the two senders partition the alerts (#5012 phas
     expect(digest.includes("a.frequency === 'immediate'")).toBe(false);
   });
 
-  it('the immediate sender uses the digest\'s EXISTING query shape (no new index)', () => {
-    // firestore.indexes.json is not applied by CI, so a new `where` clause here
-    // would merge green and then throw FAILED_PRECONDITION in production on the
-    // first real run. Both senders must issue the identical collectionGroup
-    // query and filter in memory.
+  it('the immediate sender narrows on cadence server-side, keeping `active` in the query', () => {
+    // The old shape read every active alert (6.969 docs, production
+    // 2026-08-24) to keep the 53 immediate ones, ~24 times a day. Two
+    // equalities need no composite index — the automatic single-field
+    // COLLECTION_GROUP indexes serve them by intersection — but `frequency`
+    // WITHOUT `active` does throw FAILED_PRECONDITION, measured the same day.
+    // So `active` stays, and it stays first.
     const sender = readRepoFile('scripts/send-company-alerts.mjs');
     expect(sender).toContain("collectionGroup('alerts').where('active', '==', true)");
+    expect(sender).toContain("where('frequency', '==', IMMEDIATE_FREQUENCY)");
+    // The cadence value is not re-derived here: it comes from the file that
+    // owns the partition, same as isImmediateCompanyAlert.
+    expect(sender).toContain("IMMEDIATE_FREQUENCY } from './lib/company-alert-routing.mjs'");
+    expect(sender.includes("where('frequency', '==', 'immediate')")).toBe(false);
+    // specificCompanyKey stays in memory: "has a value" is not an equality,
+    // so it is the one filter that would need an index we do not deploy.
     expect(sender.includes("where('specificCompanyKey'")).toBe(false);
-    expect(sender.includes("where('frequency'")).toBe(false);
+  });
+
+  it('a refused narrow query falls back to the wide scan instead of sending nothing', () => {
+    // If the index situation ever changes under us, the failure mode must be a
+    // costlier run, never a silent never-send — the exact defect #5151 exists
+    // to kill.
+    const sender = readRepoFile('scripts/send-company-alerts.mjs');
+    expect(sender).toContain('async function loadImmediateAlertDocs(db)');
+    expect(sender).toContain('return base.get();');
   });
 });
 

@@ -613,6 +613,100 @@ jobs:
             - Se il fix richiede credenziali/segreti non disponibili in CI → documenta in commento e TERMINA senza PR.
             - **Telemetria outcome (OBBLIGATORIO):** ogni volta che termini, l'ULTIMO commento che posti sulla issue DEVE iniziare con un marker HTML su riga propria: `<!-- FIX_OUTCOME: <code> -->`. `<code>` ∈ `pr-created` (PR aperta) · `blocked-workflows-scope` · `blocked-secrets` · `blocked-admin-settings` · `no-root-cause` · `overlap-skip` · `pr-already-open` · `already-fixed` · `revenue-tracker-manual`. Se apri una PR (passo 9) e non posti altri commenti, aggiungi comunque un commento col solo marker `<!-- FIX_OUTCOME: pr-created -->`. Il lessons-harvester aggrega questi marker per rilevare classi di blocco ricorrenti e proporre migliorie ai doc/prompt (vedi ISSUES.md → "Auto-improvement loop").
 
+      - name: Salva il lavoro parziale (WIP checkpoint deterministico, zero-Claude)
+        # PERCHÉ ESISTE (misurato il 2026-08-24). Il checkpoint WIP c'era già —
+        # ma come PASSO DEL PROMPT (passo 4), cioè affidato alla scelta
+        # dell'agente. Un run che muore per `error_max_turns` muore proprio
+        # quando non ha più turni per eseguirlo, quindi l'istruzione arriva
+        # esattamente quando non può più essere seguita. Sulle 29 issue del sito
+        # parcheggiate con verdetto `max-turns`, **20 non hanno alcun branch
+        # `fix/issue-N` su origin**: il diff è morto col container, ed è lo
+        # stesso modo in cui #4337 ha perso 71 turni e $6.58 di edit reali.
+        #
+        # Questo step è la metà deterministica: gira `if: always()`, dopo Claude
+        # e prima di qualunque telemetria, quindi coglie l'albero di lavoro anche
+        # quando la CLI è stata uccisa. La resume-logic del passo 1 del prompt
+        # esiste già e sa riprendere da `fix/issue-N`: senza questo step non
+        # aveva quasi mai un branch da riprendere.
+        #
+        # NON tocca niente quando c'è già una PR (il lavoro è consegnato) e
+        # quando l'albero è pulito e non c'è nulla davanti a origin/main (non
+        # c'era lavoro da salvare). Best-effort in senso stretto: qualunque
+        # fallimento è un warning, mai un job rosso — un salvataggio mancato non
+        # deve trasformare un run terminato in un run fallito.
+        if: always() && steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          APP_TOKEN: ${{ env.APP_TOKEN }}
+          REPO: ${{ github.repository }}
+          ISSUE: ${{ github.event.issue.number }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -uo pipefail
+          BRANCH="fix/issue-$ISSUE"
+
+          PR_STATE=$(gh pr list --head "$BRANCH" --state all --json state             --jq '[.[] | select(.state=="OPEN" or .state=="MERGED")] | length' 2>/dev/null || echo 0)
+          if [ "${PR_STATE:-0}" != "0" ]; then
+            echo "wip-salvage: PR già aperta/mergiata su $BRANCH → il lavoro è consegnato, niente da salvare."
+            exit 0
+          fi
+
+          # Il branch di lavoro può non essere quello corrente se l'agente è
+          # morto prima del checkout: in quel caso si crea qui.
+          CUR=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo HEAD)
+          if [ "$CUR" != "$BRANCH" ]; then
+            git checkout -B "$BRANCH" >/dev/null 2>&1 || true
+          fi
+
+          DIRTY=$(git status --porcelain 2>/dev/null | head -c 1)
+          AHEAD=$(git rev-list --count origin/main..HEAD 2>/dev/null || echo 0)
+          if [ -z "$DIRTY" ] && [ "${AHEAD:-0}" = "0" ]; then
+            echo "wip-salvage: albero pulito e 0 commit davanti a origin/main → nessun lavoro da salvare."
+            exit 0
+          fi
+
+          if [ -n "$DIRTY" ]; then
+            # `git add -A` e non un elenco: qui non si sa cosa l'agente ha
+            # toccato, ed è proprio ciò che va conservato. Il checkout di questo
+            # job non è sparse (lo è solo nei worktree locali), quindi non c'è
+            # il rischio di perdere modifiche fuori dal cono.
+            git add -A
+            git commit -q -m "wip(issue-$ISSUE): checkpoint automatico di un run terminato senza PR"               -m "Salvato da issue-fix.yml (step deterministico), non dall'agente: il run è finito senza aprire una PR e senza eseguire il checkpoint del prompt — il caso tipico è error_max_turns, che finisce i turni proprio prima di poterlo fare."               -m "Run: $RUN_URL" || echo "wip-salvage: commit vuoto o rifiutato, continuo."
+          fi
+
+          # Ri-applica l'identità di push: dopo claude-code-action il remote può
+          # portare la sua credenziale, e l'extraheader di actions/checkout ha
+          # comunque la precedenza sull'URL (stessa trappola documentata in
+          # 'Configure git identity').
+          if [ -n "${APP_TOKEN:-}" ]; then
+            git config --unset-all http."https://github.com/".extraheader 2>/dev/null || true
+            git remote set-url origin "https://x-access-token:${APP_TOKEN}@github.com/${REPO}.git"
+          fi
+
+          if git push -u origin "$BRANCH" 2>&1 | tail -3; then
+            SHA=$(git rev-parse --short HEAD)
+            FILES=$(git diff --name-only origin/main..HEAD | head -20)
+            N=$(git diff --name-only origin/main..HEAD | wc -l | tr -d ' ')
+            echo "wip-salvage: $BRANCH pushato ($N file, $SHA)."
+            {
+              echo "💾 **Lavoro parziale salvato** (step deterministico di \`issue-fix\`, zero-Claude)"
+              echo
+              echo "Questo run è terminato senza aprire una PR, quindi il diff che aveva in mano sarebbe morto col container. È stato committato e pushato su \`$BRANCH\` (\`$SHA\`, $N file):"
+              echo
+              echo '```'
+              echo "$FILES"
+              echo '```'
+              echo
+              echo "Il prossimo tentativo **riprende da qui** invece di ripartire da zero (resume-logic del fixer). Se il diff non è pertinente, il fixer lo scarta da sé con un \`git reset --hard origin/main\`."
+              echo
+              echo "Run: $RUN_URL"
+            } > /tmp/wip-note.md
+            gh issue comment "$ISSUE" --body-file /tmp/wip-note.md >/dev/null 2>&1               || echo "::warning::wip-salvage: commento sulla issue non postato (il branch però è salvo)."
+          else
+            echo "::warning::wip-salvage: push di $BRANCH fallito — il lavoro resta solo nel container e andrà perso."
+          fi
+
       - name: Claude usage metrics
         # Skip when the pre-flight short-circuited (Claude never ran → no execution file).
         if: always() && steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'

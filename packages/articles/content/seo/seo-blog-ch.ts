@@ -52202,6 +52202,240 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aprire-attivita-canton-friburgo-costi': {
+    title: 'Aprire attività a Friburgo: registro commercio e costi',
+    description: 'Guida pratica per avviare un\'attività nel canton Friburgo: forme giuridiche, iscrizione al registro di commercio, capitale minimo, tasse e obblighi assicurativi',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, friburgo, registro',
+    ogTitle: 'Aprire attività a Friburgo: registro commercio e costi',
+    ogDescription: 'Guida pratica per avviare un\'attività nel canton Friburgo: forme giuridiche, iscrizione al registro di commercio, capitale minimo, tasse e obblighi assicurativi per autonomi.',
+    canonicalPath: '/articoli-svizzera/aprire-attivita-canton-friburgo-costi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire attività a Friburgo: registro commercio e costi",
+      "description": "Guida pratica per avviare un'attività nel canton Friburgo: forme giuridiche, iscrizione al registro di commercio, capitale minimo, tasse e obblighi assicurativi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aprire-attivita-canton-friburgo-costi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Uffici di una città svizzera, ambiente economico e imprenditoriale per aprire un'attività commerciale."
+      },
+      "datePublished": "2026-08-24T04:30:15+00:00",
+      "dateModified": "2026-08-24T04:30:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aprire-attivita-canton-friburgo-costi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-permesso-dimora-b-soletta-requisiti-rinnovo': {
+    title: 'Permesso dimora B Soletta: requisiti e rinnovo',
+    description: 'Permesso B cantone Soletta: requisiti, documenti, durata 5 anni. Procedura rinnovo entro 3 mesi dalla scadenza, ufficio migrazione, AVS-LPP-LAMal.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, dimora, soletta, requisiti',
+    ogTitle: 'Permesso dimora B Soletta: requisiti e rinnovo',
+    ogDescription: 'Guida completa al permesso B nel cantone Soletta: requisiti federali per cittadini UE e stranieri, documenti da produrre, durata 5 anni, procedura rinnovo step-by-step, contatti ufficio migrazione e implicazioni fiscali-previdenziali.',
+    canonicalPath: '/articoli-svizzera/permesso-dimora-b-soletta-requisiti-rinnovo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso dimora B Soletta: requisiti e rinnovo",
+      "description": "Permesso B cantone Soletta: requisiti, documenti, durata 5 anni. Procedura rinnovo entro 3 mesi dalla scadenza, ufficio migrazione, AVS-LPP-LAMal.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-dimora-b-soletta-requisiti-rinnovo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documento del permesso di dimora B svizzero con dati personali e data di rinnovo su scrivania"
+      },
+      "datePublished": "2026-08-24T04:51:47+00:00",
+      "dateModified": "2026-08-24T04:51:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-dimora-b-soletta-requisiti-rinnovo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-apprendistato-tirocinio-soletta': {
+    title: 'Apprendistato e formazione nel Canton Soletta | Frontaliere Ticino',
+    description: 'Guida completa su ricerca, contratto, retribuzione e certificazione AFC per apprendistati nel Canton Soletta e in Svizzera: tutto ciò che serve sapere.',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, formazione, canton, soletta',
+    ogTitle: 'Apprendistato nel Canton Soletta: guida pratica completa',
+    ogDescription: 'Come trovare un apprendistato nel Canton Soletta: candidatura, contratto, retribuzione, assicurazioni sociali (AVS, AI, LAMal), diritti e certificazione AFC. Guida per giovani.',
+    canonicalPath: '/articoli-svizzera/apprendistato-tirocinio-soletta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato e formazione nel Canton Soletta",
+      "description": "Guida completa su ricerca, contratto, retribuzione e certificazione AFC per apprendistati nel Canton Soletta e in Svizzera: tutto ciò che serve sapere.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apprendistato-tirocinio-soletta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un giovane apprendista al lavoro in un laboratorio svizzero moderno con attrezzi professionali"
+      },
+      "datePublished": "2026-08-24T05:25:13+00:00",
+      "dateModified": "2026-08-24T05:25:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendistato-tirocinio-soletta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-classi-scolastiche-create-algoritmo': {
+    title: 'Classi scolastiche create con un algoritmo, l\'esperimento di Uster',
+    description: 'La città di Uster implementa un software per creare classi scolastiche più equilibrate, garantendo pari opportunità a tutti gli studenti. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, classi, scolastiche, create, algoritmo',
+    ogTitle: 'Classi scolastiche create con un algoritmo, l\'esperimento di Uster',
+    ogDescription: 'La città di Uster mette in pratica un software per creare classi scolastiche più equilibrate, garantendo opportunità pari a tutti gli studenti.',
+    canonicalPath: '/articoli-svizzera/classi-scolastiche-create-algoritmo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Classi scolastiche create con un algoritmo, l'esperimento di Uster",
+      "description": "La città di Uster implementa un software per creare classi scolastiche più equilibrate, garantendo pari opportunità a tutti gli studenti. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/classi-scolastiche-create-algoritmo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La città di Uster implementa un software per creare classi scolastiche più equilibrate, garantendo pari opportunità a tutti gli studenti."
+      },
+      "datePublished": "2026-08-24T05:51:30+00:00",
+      "dateModified": "2026-08-24T05:51:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/classi-scolastiche-create-algoritmo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sunrise-salt-rete-cooperazione': {
+    title: 'Sunrise e Salt valutano una cooperazione più stretta sulla rete mobile',
+    description: 'La cooperazione tra Sunrise e Salt potrebbe migliorare la copertura e la qualità della connessione in Svizzera, soprattutto nelle aree rurali e meno popolate.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sunrise, salt, valutano, cooperazione',
+    ogTitle: 'Sunrise e Salt valutano una cooperazione più stretta sulla rete mobile',
+    ogDescription: 'La cooperazione tra Sunrise e Salt potrebbe migliorare la copertura e la qualità della connessione in Svizzera, soprattutto nelle aree rurali e meno popolate.',
+    canonicalPath: '/articoli-svizzera/sunrise-salt-rete-cooperazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sunrise e Salt valutano una cooperazione più stretta sulla rete mobile",
+      "description": "La cooperazione tra Sunrise e Salt potrebbe migliorare la copertura e la qualità della connessione in Svizzera, soprattutto nelle aree rurali e meno popolate.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sunrise-salt-rete-cooperazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un utente con smartphone in una zona rurale svizzera, con connessione stabile e veloce."
+      },
+      "datePublished": "2026-08-24T06:19:30+00:00",
+      "dateModified": "2026-08-24T06:19:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sunrise-salt-rete-cooperazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tirocinio-retribuzione-soletta-guida': {
+    title: 'Tirocinio e retribuzione nel canton Soletta: guida pratica',
+    description: 'Scopri come trovare un tirocinio nel canton Soletta, gli obblighi del contratto e la retribuzione dell\'apprendista con deduzioni fiscali e contributi sociali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tirocinio, retribuzione, canton, soletta',
+    ogTitle: 'Tirocinio e retribuzione nel canton Soletta: guida',
+    ogDescription: 'Scopri come trovare un tirocinio nel canton Soletta, gli obblighi del contratto e la retribuzione dell\'apprendista con deduzioni fiscali e contributi sociali.',
+    canonicalPath: '/articoli-svizzera/tirocinio-retribuzione-soletta-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tirocinio e retribuzione nel canton Soletta: guida pratica",
+      "description": "Scopri come trovare un tirocinio nel canton Soletta, gli obblighi del contratto e la retribuzione dell'apprendista con deduzioni fiscali e contributi sociali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tirocinio-retribuzione-soletta-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un apprendista lavora in laboratorio durante la formazione pratica del tirocinio professionale svizzero."
+      },
+      "datePublished": "2026-08-24T06:47:04+00:00",
+      "dateModified": "2026-08-24T06:47:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tirocinio-retribuzione-soletta-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

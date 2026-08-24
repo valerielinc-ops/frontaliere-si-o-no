@@ -617,6 +617,11 @@ const enCore: Record<string, string> = {
  'donation.message': 'If this tool is useful to you, buy us a coffee to help keep it free!',
  'donation.button': 'Buy us a coffee',
  'donation.dismiss': 'Close',
+
+ // Google Preferred Sources (phase 4 of issue 5004) — footer / end-of-article CTA
+ 'preferredSource.title': 'Make us one of your preferred sources on Google',
+ 'preferredSource.body': 'Google lets you pick the sources you want to see more often in results and AI answers. One click adds Frontaliere Ticino to your list.',
+ 'preferredSource.button': 'Add to preferred sources',
  'jobBoard.badge': 'Job Offers',
  'jobBoard.badge.new': 'New',
  'jobBoard.location.multiLocation': 'Switzerland (multiple locations)',
@@ -2793,6 +2798,9 @@ Rules:
  'whatsNew.v3870.title': 'Living in France, working in Switzerland',
  'whatsNew.v3870.frenchBorderMunicipality.title': 'French border municipalities: rent, taxes and distance',
  'whatsNew.v3870.frenchBorderMunicipality.desc': 'New pages for French municipalities in the border band (Geneva, Vaud, Neuchâtel, Jura, Valais): average rent, the tax mechanism (source tax in Geneva or a French declaration in the other cantons) and distance to the nearest crossing.',
+ 'whatsNew.v3930.title': 'Pick us as a preferred source on Google',
+ 'whatsNew.v3930.preferredSource.title': 'One click to see us more often',
+ 'whatsNew.v3930.preferredSource.desc': 'Google lets you name the sources you want to see more often in results and AI answers, but the choice is yours to make from your own account — no site can do it for you. The direct link to that panel is now in the footer, at the end of every article and in the newsletter, with our domain already filled in.',
  'whatsNew.v3920.title': 'Which emails you get, and how to stop them',
  'whatsNew.v3920.communications.title': 'The communications page',
  'whatsNew.v3920.communications.desc': 'A list of every email we can send you, with its real cadence and the link to turn it off. It is generated from the send configuration, so it cannot drift from what actually goes out. The consent formula, now shown at every signup, points here instead of stating a cadence that could change.',
