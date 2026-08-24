@@ -17,9 +17,9 @@ on:
         options:
           - all
       delay_seconds:
-        description: 'Seconds to wait between dispatches (10-60)'
+        description: 'Seconds to wait between dispatches (10-90)'
         required: false
-        default: '20'
+        default: '60'
         type: string
       dry_run:
         description: 'Log which workflows would run without dispatching'
@@ -45,7 +45,7 @@ env:
 jobs:
   dispatch:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 40
     # Consolidation (2026-07): the crawler set collapsed from 581 individual
     # `update-jobs-*.yml` workflows to 23 grouped `crawler-group-*.yml`
     # workflows (each group bundles multiple crawlers as concurrent
@@ -154,7 +154,7 @@ jobs:
       - name: Discover and dispatch crawler group workflows
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DELAY: ${{ inputs.delay_seconds || '20' }}
+          DELAY: ${{ inputs.delay_seconds || '60' }}
           DRY_RUN: ${{ inputs.dry_run || 'false' }}
         run: |
           set -euo pipefail
@@ -171,7 +171,36 @@ jobs:
           # job-count tier) no longer applies at this granularity: there are
           # only 23 dispatch calls total instead of ~580, so GitHub API
           # rate-limit / runner-contention risk is already far lower. A single
-          # flat delay between dispatches is enough headroom.
+          # flat delay between dispatches is enough headroom for the dispatch
+          # RPCs themselves.
+          #
+          # issue #6314 (follow-up of #6296): the flat delay ALSO doubles as
+          # the lever for reducing write contention on `main` at the source.
+          # Every group's ~25-28 member crawlers start crawling concurrently
+          # right after that group's own short setup phase, then each does an
+          # individual flock-serialized commit+push as soon as it personally
+          # finishes (git-commit-data.sh / git-push-with-retry.sh — unchanged
+          # per-crawler mechanism, owner-mandated, see docs/CRAWLERS.md
+          # "Crawler-Group Workflows"). Duration is heavy-tailed (measured from
+          # data/crawler-workflow-duration-baseline.json: p10=4.7min,
+          # p25=9.9min, median=24.5min) — a quarter of all crawlers finish (and
+          # push) inside 10 minutes of their group starting. With the old 20s
+          # flat delay, all 23 groups start within ~7min of each other, so
+          # every group's fast-finishing quarter lands its push burst in
+          # roughly the SAME few-minute window — the exact contention this
+          # issue traces (measured on refresh-thin-promotions.yml: 40 retries
+          # exhausted against 157 commits in ~19min during the crawler-dispatch
+          # queue). Raising the delay to 60s spreads the 23 dispatches across
+          # ~22min instead of ~7min, spreading each group's fast-crawler push
+          # burst proportionally and lowering how many groups can be in their
+          # commit-and-push moment at the same wall-clock instant. This does
+          # NOT reduce the total number of pushes (batching them would — see
+          # the issue — but that conflicts with the owner-mandated "every
+          # crawler's own unchanged commit-and-push mechanism, no shared/
+          # generic step" constraint in generate-crawler-group-workflows.mjs),
+          # only how clustered they are in time. Observable via the existing
+          # "push contention loss (exit 42)" step-summary warning already
+          # emitted per crawler — frequency should drop post-fix.
           get_delay() {
             echo "$DELAY"
           }

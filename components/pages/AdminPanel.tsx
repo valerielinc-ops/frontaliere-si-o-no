@@ -2053,7 +2053,7 @@ export default function AdminPanel() {
  const orchRunning = orchState.status === 'in_progress' || orchState.status === 'queued' || orchState.loading;
  return (
  <button
- onClick={() => void runWorkflowAction('orchestrate-crawlers.yml', { group: 'all', delay_seconds: '20', dry_run: 'false' })}
+ onClick={() => void runWorkflowAction('orchestrate-crawlers.yml', { group: 'all', delay_seconds: '60', dry_run: 'false' })}
  disabled={orchRunning}
  className={`inline-flex items-center gap-1.5 ${failedCrawlers.length === 0 ? 'ml-auto' : ''} px-3 py-1.5 rounded-md bg-accent hover:bg-accent-hover disabled:opacity-60 text-on-accent text-[11px] font-semibold transition-colors`}
  aria-label="Avvia orchestratore crawler"
