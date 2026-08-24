@@ -114,6 +114,10 @@ for (const spec of specs) {
       titleMatchRate: report.titleMatchRate,
       contentfulRate: report.contentfulRate,
       distinctRate: report.distinctRate,
+      // The promotion gate reads this key and treats ABSENT as "never
+      // measured" (blocking) while `null` means "measured, unreadable bytes"
+      // (not blocking) — so it must be written on every entry, including null.
+      jobLikeRate: report.jobLikeRate ?? null,
     });
     setStatus(store, candidate.key, next, {
       qualityScore: report.score,

@@ -20,9 +20,48 @@
 import { normalizeHost, safeDecodePath } from './registrable.mjs';
 import { decodeEntities } from './entities.mjs';
 
-/** Tokens that mark a URL path or heading as vacancy-related, all four locales. */
-const VACANCY_PATH_RX =
-  /(annunci|offerte|posizioni|posti|lavoro|lavora|carrier|job|jobs|stelle|stellen|karriere|vacan|emploi|poste|career|opportunit|apply|bewerb|candidat|recruit|ausschreib|offene)/i;
+/**
+ * Tokens that mark a URL path or heading as vacancy-related on their own, in
+ * all four locales. Everything listed here means "vacancy" and nothing else.
+ */
+const VACANCY_PATH_STRONG_RX =
+  /(annunci|posizioni|lavoro|lavora|carrier|jobs?|stellen|karriere|vacan|emploi|poste|career|opportunit|apply|bewerb|candidat|recruit|ausschreib|offene)/i;
+
+/**
+ * Tokens that mean "vacancy" only next to a job word, and something else
+ * entirely on their own — the ambiguity is real and it has already cost us a
+ * live crawler.
+ *
+ * `offerte` was in the strong list. Hotel International au Lac serves a
+ * `/it/jobs/` page that today carries NO vacancy at all (it says applications
+ * are welcome by post in January/February) but does carry the site's promo
+ * carousel: nine `/it/offerte/<slug>/` links. With no real vacancy cluster to
+ * compete against, `/it/offerte/*​/` scored the `jobish` bonus below, won as
+ * best cluster, and four room-rate promos ("Offerta speciale 3 notti",
+ * "Prenota SENZA carta di credito!") shipped as job listings.
+ *
+ * Same shape for the others: `posti` is parking spaces and theatre seats as
+ * often as "posti vacanti"; `stelle` is an Italian hotel's star rating, while
+ * the German vacancy sense is always the plural `stellen`, which stays strong
+ * above. They only count when the same path also carries a job word.
+ */
+const VACANCY_PATH_WEAK_RX = /(offert[ae]|posti|stelle)/i;
+
+/** Job words that disambiguate a weak token appearing in the same path. */
+const VACANCY_PATH_QUALIFIER_RX =
+  /(lavoro|lavori|impiego|occupazione|assunzion|jobs?|work|emploi|travail|arbeit|beruf|stellen|karriere|career|vacan|candidat|recruit|hiring)/i;
+
+/**
+ * Whether a URL path (or heading) reads as vacancy-related.
+ *
+ * @param {string} value
+ * @returns {boolean}
+ */
+export function isVacancyPath(value = '') {
+  const s = String(value || '');
+  if (VACANCY_PATH_STRONG_RX.test(s)) return true;
+  return VACANCY_PATH_WEAK_RX.test(s) && VACANCY_PATH_QUALIFIER_RX.test(s);
+}
 
 /** Words that appear on a page listing vacancies but rarely elsewhere. */
 const VACANCY_TEXT_RX =
@@ -222,7 +261,7 @@ export function extractByTemplate(links, pageUrl) {
   let best = null;
   for (const [tpl, items] of clusters) {
     if (items.length < 2) continue;
-    const jobish = VACANCY_PATH_RX.test(tpl) ? 2 : 0;
+    const jobish = isVacancyPath(tpl) ? 2 : 0;
     const titled = items.filter((i) => i.text && i.text.length > 8).length / items.length;
     const score = jobish + titled + Math.min(items.length, 30) / 30;
     if (!best || score > best.score) best = { tpl, items, score, jobish };
@@ -261,7 +300,7 @@ export function scoreVacancyPage(html, pageUrl, links = []) {
   if (VACANCY_TEXT_RX.test(text)) { score += 2; signals.push('vacancy-copy'); }
   let p = '';
   p = safeDecodePath(pageUrl);
-  if (VACANCY_PATH_RX.test(p)) { score += 1; signals.push('vacancy-path'); }
+  if (isVacancyPath(p)) { score += 1; signals.push('vacancy-path'); }
   if (/<form\b[^>]*>[\s\S]{0,4000}?(cv|curriculum|bewerbung|candidatur|resume)/i.test(html)) {
     score += 1; signals.push('apply-form');
   }

@@ -13,13 +13,14 @@ import {
   loadRegistry, observePlatform, isPlatformEligible, enumerablePlatforms,
   sharedHostPlatforms, listingPathHints,
 } from '../scripts/lib/prospector/platform-registry.mjs';
-import { pathTemplate, extractByTemplate, extractJsonLd, scoreVacancyPage, textOf } from '../scripts/lib/prospector/extract.mjs';
+import { pathTemplate, extractByTemplate, extractJsonLd, scoreVacancyPage, textOf, isVacancyPath } from '../scripts/lib/prospector/extract.mjs';
 import { cleanAnchorText, extractLinks, isCareerLink, externalAtsLinks } from '../scripts/lib/prospector/careers-trail.mjs';
 import { tenantSlugCandidates, tenantIdsAreNameLike, employerNameFromPage } from '../scripts/lib/prospector/tenant-enum.mjs';
 import { normalizeCompanyName, isCovered } from '../scripts/lib/prospector/coverage.mjs';
 import { isTransportLogistics } from '../scripts/lib/prospector/sector-signal.mjs';
 import { domainGuesses, verifyOwnership } from '../scripts/lib/prospector/domain-resolve.mjs';
-import { tokenOverlap, gradeExtraction } from '../scripts/lib/prospector/validate.mjs';
+import { tokenOverlap, gradeExtraction, isReadableText } from '../scripts/lib/prospector/validate.mjs';
+import { gradeJobLike, hasAnyJobSignal } from '../scripts/lib/job-like.mjs';
 import { commonUrlTemplate, crawlerKeyFor, detectPageLang, isExpectedSynthesisError } from '../scripts/lib/prospector/synthesize.mjs';
 import { evaluatePromotion, selectForPromotion, clampMinDays, findOpenPromotionPr, GATE_DEFAULTS } from '../scripts/lib/prospector/promotion-gate.mjs';
 import { templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
@@ -186,6 +187,125 @@ describe('vacancy extraction', () => {
   it('strips scripts and styles from text', () => {
     expect(textOf('<style>a{}</style><script>var x=1</script><p>Ciao</p>')).toBe('Ciao');
   });
+
+  // Regressione hotel-international (2026-08-24). `/it/jobs/` dell'albergo non
+  // ha UN annuncio — dice che le candidature si mandano per posta a gennaio —
+  // ma linka il carosello promozionale del sito, nove `/it/offerte/<slug>/`.
+  // Con `offerte` fra i token forti quel cluster prendeva il bonus job-ish,
+  // vinceva senza concorrenti e quattro offerte di camere sono finite in
+  // produzione come annunci di lavoro.
+  it('rifiuta il carosello promozionale di un albergo sulla sua pagina jobs', () => {
+    const links = [
+      { url: 'https://hotel.example/it/offerte/offerta-speciale-3-notti/', text: 'Offerta speciale 3 notti' },
+      { url: 'https://hotel.example/it/offerte/prenota-senza-carta-di-credito/', text: 'Prenota SENZA carta di credito!' },
+      { url: 'https://hotel.example/it/offerte/perche-prenotare-direttamente/', text: 'Perché prenotare direttamente' },
+      { url: 'https://hotel.example/it/offerte/weekend-romantico/', text: 'Weekend romantico' },
+    ];
+    expect(extractByTemplate(links, 'https://hotel.example/it/jobs/')).toEqual([]);
+  });
+
+  it('riconosce ancora «offerte di lavoro», che e\' il senso legittimo del token', () => {
+    const links = [
+      { url: 'https://x.example/offerte-di-lavoro/autista-ce-111111/', text: 'Autista categoria CE' },
+      { url: 'https://x.example/offerte-di-lavoro/magazziniere-222222/', text: 'Magazziniere turni' },
+    ];
+    expect(extractByTemplate(links, 'https://x.example/')).toHaveLength(2);
+  });
+
+  it('distingue i token forti da quelli che valgono solo accanto a una parola di lavoro', () => {
+    expect(isVacancyPath('/it/annunci-lavoro/*')).toBe(true);
+    expect(isVacancyPath('/de/offene-stellen/*')).toBe(true);
+    expect(isVacancyPath('/fr/emploi/*')).toBe(true);
+    // Ambigui da soli...
+    expect(isVacancyPath('/it/offerte/*/')).toBe(false);
+    expect(isVacancyPath('/it/posti/*/')).toBe(false);
+    expect(isVacancyPath('/it/hotel-3-stelle/*/')).toBe(false);
+    // ...ma non accanto a una parola di lavoro.
+    expect(isVacancyPath('/it/offerte-lavoro/*/')).toBe(true);
+    expect(isVacancyPath('/it/offerte-di-impiego/*/')).toBe(true);
+    expect(isVacancyPath('/de/stellenangebote/*/')).toBe(true);
+  });
+});
+
+describe('e\' davvero un annuncio di lavoro?', () => {
+  // Estratto reale della pagina promo che il crawler pubblicava come "lavoro".
+  const promoAlbergo = `Prenotare Garanzia del miglior prezzo Prenota qui e ricevi il Ticino-Ticket
+    Offerta speciale 3 notti 3 Pernottamenti consecutivi scontati fino al 15% e incluso ricco buffet
+    della prima colazione prenotabile solo qui sul nostro sito Internet Prenota ora - paga alla partenza
+    Conferma immediata tramite e-mail Prenotazione sicura. da 240 CHF Doppia Classic con vista laterale
+    aria condizionata WiFi gratuito Camere Giardino e piscina Check-in dalle 14:00
+    scegli la tariffa che ti permette di prenotare senza dover inserire i dati della carta di credito`;
+
+  // Annuncio vero di un albergo: porta lo STESSO chrome di sito (camere,
+  // colazione, prenota) piu' cio' che una promo non ha mai.
+  const annuncioAlbergo = `Prenota la tua camera Camere Colazione Piscina Wellness
+    Receptionist 80-100% Le tue mansioni: accoglienza degli ospiti, gestione delle prenotazioni,
+    check-in e check-out. Il tuo profilo: esperienza nel settore alberghiero, ottime conoscenze
+    di italiano e tedesco. Ti offriamo: un contratto a tempo indeterminato, stipendio secondo il CCNL.
+    Invia la tua candidatura con curriculum vitae all'ufficio del personale. Sede di lavoro: Lugano.`;
+
+  const paginaAziendale = `Chi siamo La nostra storia dal 1906 Il nostro team Rassegna stampa
+    Dove siamo Come raggiungerci Contatti Impressum Protezione dei dati`;
+
+  it('boccia il contenuto promozionale', () => {
+    const g = gradeJobLike(promoAlbergo);
+    expect(g.jobLike).toBe(false);
+    expect(g.notJobHits.length).toBeGreaterThan(g.jobHits.length);
+  });
+
+  it('promuove un annuncio vero anche quando porta il chrome di un sito alberghiero', () => {
+    // Il punto della soglia a margine invece del veto su un vocabolario
+    // proibito: in Ticino l'ospitalita' e' il settore, e una regola che
+    // respinge «prenota»/«camere» cancellerebbe proprio i datori che il loop
+    // esiste per trovare.
+    const g = gradeJobLike(annuncioAlbergo);
+    expect(g.jobLike).toBe(true);
+    expect(g.jobHits.length).toBeGreaterThanOrEqual(2);
+  });
+
+  it('non scambia i benefit di un annuncio per vocabolario promozionale', () => {
+    // Estratto reale dell'apprendistato Griesser: `Sprachaufenthalte` e
+    // «CHF 1000 Gutschein fuer einen Laptop» sono cio' che il datore OFFRE, non
+    // cio' che vende. Con `aufenthalt` e `gutschein` fra i segnali contrari
+    // questo annuncio vero veniva bocciato — una prima versione del vocabolario
+    // lo faceva davvero.
+    const apprendistato = `Lehrstelle Informatiker:in EFZ Plattformentwicklung (all genders) Aadorf 100%
+      Deine Aufgaben: Entwicklung von Plattformen. Jetzt bewerben.
+      Wir bieten: Kostenbeteiligung bei internationalen Sprachdiplomen, zusaetzlicher bezahlter
+      Urlaub fuer Sprachaufenthalte, CHF 1000 Gutschein fuer einen Laptop fuer die Berufsfachschule.`;
+    expect(gradeJobLike(apprendistato).jobLike).toBe(true);
+  });
+
+  it('tiene la percentuale nuda fuori dal veto, dentro il grado', () => {
+    // «Aadorf 100%» e «50% di sconto» hanno la stessa forma. Nel grado il
+    // margine la assorbe; in un veto — che UN gruppo decide da solo —
+    // salverebbe la pagina commerciale che il chiamante deve scartare.
+    expect(hasAnyJobSignal('approfitta del 50% di sconto sulla camera')).toBe(false);
+    expect(gradeJobLike('Lehrstelle Aadorf 100% Deine Aufgaben Jetzt bewerben').jobLike).toBe(true);
+  });
+
+  it('boccia una pagina istituzionale senza segnale in nessuna direzione', () => {
+    expect(gradeJobLike(paginaAziendale).jobLike).toBe(false);
+  });
+
+  it('il veto condiviso riconosce i token che shared-jobs-crawler gli ha ceduto', () => {
+    // `isLikelyCommercialPromoContent` in `scripts/lib/shared-jobs-crawler.mjs`
+    // scarta un record quando abbastanza vocabolario commerciale scatta E
+    // nessun vocabolario di lavoro lo fa. Questi cinque token stavano nel suo
+    // elenco locale e ora arrivano da qui: se smettessero di essere coperti, il
+    // veto si restringerebbe e quel rilevatore butterebbe annunci veri.
+    for (const t of ['responsibilities', 'requirements', 'requisiti', 'employment type', 'apply now']) {
+      expect(hasAnyJobSignal(t)).toBe(true);
+    }
+    expect(hasAnyJobSignal('carrello spedizione shipping wishlist sneakers denim 5% off')).toBe(false);
+  });
+
+  it('non giudica byte che non sa leggere', () => {
+    // Diversi datori pubblicano l'annuncio in PDF: letto come testo e' binario,
+    // e bocciarlo sarebbe un difetto della misura, non un esito.
+    expect(isReadableText('%PDF-1.7\n%âãÏÓ')).toBe(false);
+    expect(isReadableText('<html><body>Offerte di lavoro</body></html>')).toBe(true);
+  });
 });
 
 describe('careers trail', () => {
@@ -301,6 +421,14 @@ describe('quality grading', () => {
     expect(report.distinctRate).toBeLessThan(0.6);
     expect(report.problems.join(' ')).toMatch(/titoli ripetuti/);
   });
+
+  it('riporta jobLikeRate null quando non ha giudicato nessuna pagina', () => {
+    // `null` = non misurato, mai "misurato e va bene": e' la distinzione su cui
+    // poggia il gate.
+    return gradeExtraction({ companyKey: 'x' }, [], { sampleSize: 0 }).then((report) => {
+      expect(report.jobLikeRate).toBeNull();
+    });
+  });
 });
 
 describe('crawler synthesis', () => {
@@ -343,6 +471,7 @@ describe('promotion gate', () => {
       titleMatchRate: 1,
       contentfulRate: 1,
       distinctRate: 1,
+      jobLikeRate: 1,
       vacancyCount: 6,
     })),
     ...over,
@@ -356,6 +485,38 @@ describe('promotion gate', () => {
     const res = evaluatePromotion(graded(1));
     expect(res.passed).toBe(false);
     expect(res.reasons.join(' ')).toMatch(/giorno/);
+  });
+
+  // Regressione hotel-international (2026-08-24): quattro offerte di camere
+  // d'albergo promosse in produzione con reachable/titleMatch/contentful/
+  // distinct tutti a 1.00. Nessuna delle quattro chiedeva se la pagina fosse
+  // un annuncio di lavoro; questa quinta lo chiede.
+  it('rifiuta un listing che estrae contenuto promozionale, per quanto coerente', () => {
+    const promo = graded(2);
+    promo.validationHistory.forEach((h) => { h.jobLikeRate = 0; h.score = 0.83; });
+    const res = evaluatePromotion(promo);
+    expect(res.passed).toBe(false);
+    expect(res.checks.jobLike).toBe(false);
+    expect(res.reasons.join(' ')).toMatch(/annuncio di lavoro/);
+  });
+
+  it('rifiuta un candidato la cui ultima validazione e\' anteriore al controllo semantico', () => {
+    // Campo ASSENTE = mai misurato. Trattarlo come "passato" riaprirebbe
+    // esattamente il buco: i candidati gia' in coda sono stati graduati dal
+    // gate cieco, e la prossima validazione fornisce il dato.
+    const legacy = graded(2);
+    legacy.validationHistory.forEach((h) => { delete h.jobLikeRate; });
+    const res = evaluatePromotion(legacy);
+    expect(res.passed).toBe(false);
+    expect(res.checks.jobLike).toBe(false);
+    expect(res.reasons.join(' ')).toMatch(/nuova validazione/);
+  });
+
+  it('non punisce un datore che pubblica gli annunci in PDF', () => {
+    // `null` = misurato, byte illeggibili. Diverso da assente.
+    const pdf = graded(2);
+    pdf.validationHistory.forEach((h) => { h.jobLikeRate = null; });
+    expect(evaluatePromotion(pdf).checks.jobLike).toBe(true);
   });
 
   it('refuses two gradings that landed on the SAME day', () => {
