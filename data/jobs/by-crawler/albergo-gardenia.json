@@ -1,6 +1,6 @@
 {
   "crawlerKey": "albergo-gardenia",
-  "assembledAt": "2026-08-24T10:32:31.253Z",
+  "assembledAt": "2026-08-24T21:58:39.380Z",
   "jobs": [
     {
       "id": "albergo-gardenia-bf0d61d0f1cd",
@@ -17,8 +17,8 @@
       "title": "Previdenza per la vecchiaia",
       "titleByLocale": {
         "it": "Previdenza per la vecchiaia",
-        "de": "Previdenza per la vecchiaia",
         "en": "Previdenza per la vecchiaia",
+        "de": "Previdenza per la vecchiaia",
         "fr": "Previdenza per la vecchiaia"
       },
       "description": "Previdenza per la vecchiaia — Albergo Gardenia",
@@ -30,7 +30,7 @@
       "url": "https://www.hotelleriesuisse.ch/it/politica/lavoro-e-istruzione/previdenza-per-la-vecchiaia",
       "source": "Albergo Gardenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:32:28.546Z",
+      "crawledAt": "2026-08-24T21:58:35.939Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -44,10 +44,9 @@
       "postedDate": "2026-08-24",
       "applyUrl": "https://www.hotelleriesuisse.ch/it/politica/lavoro-e-istruzione/previdenza-per-la-vecchiaia",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T10:32:28.546Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -60,8 +59,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T10:32:28.546Z"
+      "addressRegion": "TI"
     },
     {
       "id": "albergo-gardenia-a58372a459dc",
@@ -91,7 +89,7 @@
       "url": "https://www.hotelleriesuisse.ch/it/politica/lavoro-e-istruzione/carenza-di-personale-qualificato",
       "source": "Albergo Gardenia Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-24T10:32:28.227Z",
+      "crawledAt": "2026-08-24T21:58:35.622Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -105,10 +103,9 @@
       "postedDate": "2026-08-24",
       "applyUrl": "https://www.hotelleriesuisse.ch/it/politica/lavoro-e-istruzione/carenza-di-personale-qualificato",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T10:32:28.227Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -121,8 +118,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T10:32:28.227Z"
+      "addressRegion": "TI"
     }
   ]
 }
