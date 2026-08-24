@@ -19,6 +19,7 @@ import {
   SITE_URL,
 } from './social-post-utils.mjs';
 import { escapeHtml } from './telegram-client.mjs';
+import { telegramUrl, TELEGRAM_CAMPAIGN_JOBS } from './telegram-links.mjs';
 
 // Default number of jobs per daily digest. Conservative — a broadcast channel
 // wants a scannable shortlist, not a wall of every job crawled today.
@@ -29,7 +30,12 @@ export const JOB_BOARD_HUB_URL = `${SITE_URL}/cerca-lavoro-ticino/`;
 
 /** One numbered job entry: linked title + a meta line (city · salary · type). */
 function jobEntry(job, index) {
-  const url = buildJobUrl(job);
+  // UTM-tagged so the click is attributable in GA4. `buildJobUrl` still decides
+  // whether the job is linkable at all — tagging never invents a URL.
+  const canonical = buildJobUrl(job);
+  const url = canonical
+    ? telegramUrl(canonical, TELEGRAM_CAMPAIGN_JOBS, job?.slug || job?.id || '')
+    : canonical;
   const title = escapeHtml((job?.titleByLocale?.it || job?.title || 'Offerta di lavoro').trim());
   const linkedTitle = url ? `<a href="${escapeHtml(url)}">${title}</a>` : title;
 
@@ -73,7 +79,8 @@ export function buildDailyJobsDigest(jobs, { limit = DEFAULT_JOBS_LIMIT, dateLab
 
   const header = `💼 <b>Offerte di lavoro in Ticino${dateLabel ? ` — ${escapeHtml(dateLabel)}` : ''}</b>`;
   const entries = usable.map((job, i) => jobEntry(job, i));
-  const cta = `👉 <a href="${escapeHtml(JOB_BOARD_HUB_URL)}">Tutte le offerte in Ticino</a>`;
+  const ctaUrl = telegramUrl(JOB_BOARD_HUB_URL, TELEGRAM_CAMPAIGN_JOBS, 'hub');
+  const cta = `👉 <a href="${escapeHtml(ctaUrl)}">Tutte le offerte in Ticino</a>`;
 
   const text = [header, '', entries.join('\n\n'), '', cta].join('\n');
   return { text, jobIds: usable.map((j) => j.id), count: usable.length };

@@ -4045,6 +4045,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.custodia-bambini-svizzera-costi-sussidi.title': 'Custodia bambini in Svizzera: costi e sussidi cantonali',
     'blog.article.custodia-bambini-svizzera-costi-sussidi.excerpt': 'Come funziona la custodia dei bambini in Svizzera, quali sono i costi degli asili nido e i sussidi disponibili per le famiglie a livello cantonale.',
     'blog.article.custodia-bambini-svizzera-costi-sussidi.imageAlt': 'Centro di custodia svizzero con bambini che giocano all\'aperto in una bella giornata di primavera',
+    'blog.article.roche-acquisisce-diritti-trattamento-obesita.title': 'Roche acquisisce i diritti su un trattamento sperimentale contro l\'obesità',
+    'blog.article.roche-acquisisce-diritti-trattamento-obesita.excerpt': 'L\'accordo con la società sudcoreana Hanmi potrebbe valere fino a 2,3 miliardi di dollari.',
+    'blog.article.roche-acquisisce-diritti-trattamento-obesita.imageAlt': 'Roche acquisisce i diritti su un trattamento sperimentale contro l\'obesità',
+    'blog.article.acquistare-immobile-canton-soletta-mutuo.title': 'Comprare casa in Canton Soletta: prezzi e mutuo',
+    'blog.article.acquistare-immobile-canton-soletta-mutuo.excerpt': 'Acquistare una casa nel Canton Soletta richiede pianificazione finanziaria accurata. Scopri come funzionano mutuo ipotecario, fondi propri, imposta sui trapassi e spese notarili.',
+    'blog.article.acquistare-immobile-canton-soletta-mutuo.imageAlt': 'Casa moderna in cantone svizzero con giardino e vista sulla campagna',
 };
 
 export default blogMetaChIt;

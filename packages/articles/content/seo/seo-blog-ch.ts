@@ -52475,6 +52475,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-roche-acquisisce-diritti-trattamento-obesita': {
+    title: 'Roche acquisisce i diritti su un trattamento sperimentale contro l\'obesità',
+    description: 'L\'accordo con la società sudcoreana Hanmi potrebbe valere fino a 2,3 miliardi di dollari. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, roche, acquisisce, diritti, trattamento',
+    ogTitle: 'Roche acquisisce i diritti su un trattamento sperimentale contro l\'obesità',
+    ogDescription: 'L\'accordo con la società sudcoreana Hanmi potrebbe valere fino a 2,3 miliardi di dollari.',
+    canonicalPath: '/articoli-svizzera/roche-acquisisce-diritti-trattamento-obesita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Roche acquisisce i diritti su un trattamento sperimentale contro l'obesità",
+      "description": "L'accordo con la società sudcoreana Hanmi potrebbe valere fino a 2,3 miliardi di dollari. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/roche-acquisisce-diritti-trattamento-obesita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Roche acquisisce i diritti su un trattamento sperimentale contro l'obesità"
+      },
+      "datePublished": "2026-08-24T07:44:45+00:00",
+      "dateModified": "2026-08-24T07:44:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/roche-acquisisce-diritti-trattamento-obesita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-acquistare-immobile-canton-soletta-mutuo': {
+    title: 'Comprare casa in Canton Soletta: prezzi e mutuo',
+    description: 'Guida all\'acquisto di casa nel Canton Soletta: procedura, mutuo ipotecario, imposta sui trapassi, spese notarili e fondi propri. Informazioni pratiche',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, canton, soletta',
+    ogTitle: 'Comprare casa in Canton Soletta: prezzi e mutuo',
+    ogDescription: 'Comprare una casa nel Canton Soletta richiede comprensione della fiscalità immobiliare svizzera, dei mutui ipotecari e delle spese notarili. Leggi la nostra guida pratica con procedura step-by-step, documenti richiesti e strumenti utili.',
+    canonicalPath: '/articoli-svizzera/acquistare-immobile-canton-soletta-mutuo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa in Canton Soletta: prezzi e mutuo",
+      "description": "Guida all'acquisto di casa nel Canton Soletta: procedura, mutuo ipotecario, imposta sui trapassi, spese notarili e fondi propri. Informazioni pratiche",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/acquistare-immobile-canton-soletta-mutuo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Casa moderna in cantone svizzero con giardino e vista sulla campagna"
+      },
+      "datePublished": "2026-08-24T08:06:59+00:00",
+      "dateModified": "2026-08-24T08:06:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/acquistare-immobile-canton-soletta-mutuo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
