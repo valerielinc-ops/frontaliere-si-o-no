@@ -10,6 +10,9 @@
     "jsonld"
   ],
   "seedUrls": [
+    "https://jobs.fust.ch/offene-stellen/outsystems-developer/40e5f933-a80d-4f42-872a-f2c578ced43d",
+    "https://jobs.fust.ch/offene-stellen/product-owner/e0edb55b-834e-414e-8cef-a7ca88fe5f6f",
+    "https://jobs.fust.ch/offene-stellen/outsystems-tech-lead/5d9b00de-d726-45e2-8581-754ece8d2be5",
     "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-und-multimedia/aa18c7ad-b730-4e7b-b43f-559bdba86773",
     "https://jobs.fust.ch/offene-stellen/application-developer-java/f30ae74d-d5b8-4e4a-8dc9-b2ed4706cc17",
     "https://jobs.fust.ch/offene-stellen/trainee-category-management/5f56c1d2-2270-4585-9c9c-dd2aa1ded1aa",
@@ -93,6 +96,24 @@
     "https://jobs.fust.ch/offene-stellen/schreinermonteur-in-kuechen-baeder/334cbd70-7c82-47c9-a3a0-31f1fe77caae"
   ],
   "seedMetaByUrl": {
+    "https://jobs.fust.ch/offene-stellen/outsystems-developer/40e5f933-a80d-4f42-872a-f2c578ced43d": {
+      "location": "San Gallo",
+      "canton": "SG",
+      "company": "Fust",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.fust.ch/offene-stellen/product-owner/e0edb55b-834e-414e-8cef-a7ca88fe5f6f": {
+      "location": "San Gallo",
+      "canton": "SG",
+      "company": "Fust",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.fust.ch/offene-stellen/outsystems-tech-lead/5d9b00de-d726-45e2-8581-754ece8d2be5": {
+      "location": "San Gallo",
+      "canton": "SG",
+      "company": "Fust",
+      "contract": "A tempo indeterminato"
+    },
     "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-und-multimedia/aa18c7ad-b730-4e7b-b43f-559bdba86773": {
       "location": "Zurigo",
       "canton": "ZH",
@@ -581,5 +602,5 @@
     }
   },
   "notes": "Fust (Coop Group) — Prospective.ch JobBooster (Career Center 1000103). Detail pages on jobs.fust.ch with JSON-LD JobPosting.",
-  "updatedAt": "2026-08-24T10:44:25.731Z"
+  "updatedAt": "2026-08-24T21:30:44.093Z"
 }
