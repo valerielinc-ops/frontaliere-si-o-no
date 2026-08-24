@@ -4030,6 +4030,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-dimora-b-soletta-requisiti-rinnovo.title': 'Permesso dimora B Soletta: requisiti e rinnovo',
     'blog.article.permesso-dimora-b-soletta-requisiti-rinnovo.excerpt': 'Guida completa al permesso B nel cantone Soletta. Scopri requisiti, documenti da produrre, durata 5 anni e procedura di rinnovo entro 3 mesi dalla scadenza.',
     'blog.article.permesso-dimora-b-soletta-requisiti-rinnovo.imageAlt': 'Documento del permesso di dimora B svizzero con dati personali e data di rinnovo su scrivania',
+    'blog.article.apprendistato-tirocinio-soletta.title': 'Apprendistato e formazione nel Canton Soletta',
+    'blog.article.apprendistato-tirocinio-soletta.excerpt': 'Come trovare un posto di tirocinio, stipulare il contratto, comprendere retribuzione e protezioni sociali, certificazione AFC nel Canton Soletta.',
+    'blog.article.apprendistato-tirocinio-soletta.imageAlt': 'Un giovane apprendista al lavoro in un laboratorio svizzero moderno con attrezzi professionali',
 };
 
 export default blogMetaChIt;
