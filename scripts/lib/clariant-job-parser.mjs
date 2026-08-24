@@ -69,6 +69,7 @@ import { createHash } from 'node:crypto';
 import { fetchHtml, slugify, normalizeSpace, stripHtml } from './crawler-template.mjs';
 import { detectLang, guessCategory, normalizeContract, decodeHtmlEntities } from './dedicated-crawler-common.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -232,6 +233,10 @@ export function parseClariantListing(html = '') {
 
     const title = cleanText(titleMatch[2]);
     if (!title || title.length < 3) continue;
+    // A row whose anchor text is j2w page chrome (cookie-consent widget,
+    // search/alert box) isn't a job at all — discard the row, don't clean it,
+    // or it becomes a posting with no title.
+    if (isSuccessFactorsWidgetText(title)) continue;
 
     const locMatch = row.match(/class="colLocation[^"]*"[\s\S]*?class="jobLocation">([\s\S]*?)<\/span>/i);
     const deptMatch = row.match(/class="colDepartment[^"]*"[\s\S]*?class="jobDepartment">([\s\S]*?)<\/span>/i);
@@ -380,7 +385,9 @@ export async function fetchAllClariantJobs() {
     }
 
     const microdata = parseClariantMicrodata(detailHtml);
-    const detailDescription = extractClariantDetailContent(detailHtml);
+    // Same j2w widget bleed can land in the description block; sanitize
+    // before it's used verbatim (or falls back to the department line).
+    const detailDescription = sanitizeSuccessFactorsField(extractClariantDetailContent(detailHtml));
     const jobReqId = parseClariantJobId(detailDescription);
 
     const title = tile.title;
