@@ -1632,6 +1632,12 @@ export function runDrain() {
       // questo stadio ri-commenterebbe a ogni tick ciò che ha già instradato.
       .filter((iss) => !has(iss, LBL_FIX) && !has(iss, LBL_QUEUED) && !has(iss, 'needs-human'))
       .filter((iss) => !has(iss, LBL_DECOMP_QUEUED) && !has(iss, LBL_DECOMP) && !has(iss, LBL_DECOMPOSED))
+      // Già flaggata da un giro precedente del ramo `flag`: rientrare non
+      // produce nulla (il ramo fa `continue` sul marker) ma consuma uno slot del
+      // cap, e con `FOLLOWUP_NO_AUTOCLOSE=1` e più di `VERDICT_EXIT_MAX_PER_RUN`
+      // flaggate lo esaurirebbe sui no-op prima di arrivare alle candidate
+      // nuove. Stessa esclusione già presente in `isDecomposeEligible` (#6275).
+      .filter((iss) => !has(iss, LBL_MAYBE_RESOLVED))
       // Un tracker permanente non si chiude e non si escala: è aperto per scelta.
       .filter((iss) => !isPermanentTracker(iss));
 
@@ -1668,14 +1674,25 @@ export function runDrain() {
       if (d.action === 'close') {
         const note = `✅ **Auto-chiusa dal followup-drainer (zero-Claude)**: l'ultimo giro del fixer ha emesso \`FIX_OUTCOME: already-fixed\`, cioè è andato a guardare il codice e il difetto non c'era più. Il verdetto è più forte del token-match con cui \`reconcile-followups.mjs\` già auto-chiude, quindi non serve una seconda run per confermarlo.\n\n**Riapri** se il difetto ricorre — il monitor che ha aperto questa issue lo fa da sé. Per disattivare questa chiusura: \`FOLLOWUP_NO_AUTOCLOSE=1\`.`;
         if (DRY) { console.log(`[dry] close #${iss.number} (verdict-exit: ${d.reason}) — "${iss.title}"`); continue; }
+        // ORDINE: label → close → commento, e NON commento → close come
+        // nell'age-out. Il motivo è la mutazione non atomica: se il commento va
+        // a buon fine e la close lancia (l'errore è catturato e loggato), la
+        // issue resta `fu-parked` col verdetto invariato e al tick successivo
+        // rientra nel pool e ri-commenta — un «Auto-chiusa» duplicato su una
+        // issue ancora aperta. Chiudendo per prima, un fallimento non lascia
+        // traccia da duplicare, e una close riuscita toglie la issue dal pool
+        // (`listIssues` legge solo le aperte) anche se il commento poi salta.
+        // Si può commentare una issue chiusa, quindi non si perde la spiegazione.
         try {
-          gh(['issue', 'comment', String(iss.number), '--repo', REPO, '--body', note], { json: false });
           edit(iss.number, { add: [LBL_RESOLVED_AUTO], remove: [LBL_PARKED] });
           gh(['issue', 'close', String(iss.number), '--repo', REPO, '--reason', 'completed'], { json: false });
-          console.log(`VERDICT-EXIT close #${iss.number} (already-fixed) — "${iss.title?.slice(0, 50)}"`);
         } catch (e) {
           console.log(`::warning::verdict-exit close #${iss.number} fallito: ${String(e).slice(0, 120)}`);
+          continue;
         }
+        try { gh(['issue', 'comment', String(iss.number), '--repo', REPO, '--body', note], { json: false }); }
+        catch { console.log(`::warning::verdict-exit #${iss.number}: chiusa, ma il commento di spiegazione non è stato postato.`); }
+        console.log(`VERDICT-EXIT close #${iss.number} (already-fixed) — "${iss.title?.slice(0, 50)}"`);
         continue;
       }
 
