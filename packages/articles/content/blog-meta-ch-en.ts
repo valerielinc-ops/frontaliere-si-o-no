@@ -4015,6 +4015,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-friburgo.title': 'Freiburg Transport Subscriptions: Zones and Rates',
     'blog.article.abbonamenti-trasporti-friburgo.excerpt': 'How fare zones, half-price, AG and student discounts work in the transport subscriptions of the Canton of Fribourg.',
     'blog.article.abbonamenti-trasporti-friburgo.imageAlt': 'Swiss public transport station with ticket machines and fare zone signs',
+    'blog.article.abbonamenti-friburgo-zone-tariffe.title': 'Public transport tickets canton Freiburg: zones and fares',
+    'blog.article.abbonamenti-friburgo-zone-tariffe.excerpt': 'Progressive fare zones, annual and monthly subscriptions, discounts for students: a complete guide to public transport in Freiburg and the country.',
+    'blog.article.abbonamenti-friburgo-zone-tariffe.imageAlt': 'Swiss railway station with tariff zones information and public transport subscription displays.',
 };
 
 export default blogMetaChEn;

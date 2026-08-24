@@ -4015,6 +4015,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-friburgo.title': 'Abonnements transports Fribourg : zones et tarifs',
     'blog.article.abbonamenti-trasporti-friburgo.excerpt': 'Comment fonctionnent les zones tarifaires, demi-tarif, AG et réductions pour étudiants dans les abonnements transports du canton de Fribourg.',
     'blog.article.abbonamenti-trasporti-friburgo.imageAlt': 'Station de transport public suisse avec distributeur de billets et panneaux de zones tarifaires',
+    'blog.article.abbonamenti-friburgo-zone-tariffe.title': 'Abonnements transports publics canton de Fribourg : zones et tarifs',
+    'blog.article.abbonamenti-friburgo-zone-tariffe.excerpt': 'Zones tarifaires progressives, abonnements annuels et mensuels, réductions pour étudiants : guide complet des transports publics fribourgeois et nationaux.',
+    'blog.article.abbonamenti-friburgo-zone-tariffe.imageAlt': 'Gare suisse avec informations tarifaires par zones et affichage des abonnements aux transports publics.',
 };
 
 export default blogMetaChFr;
