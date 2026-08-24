@@ -4135,6 +4135,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-successione-basilea-citta.title': 'Droit de succession dans le canton de Bâle-Ville : taux et procédures',
     'blog.article.imposta-successione-basilea-citta.excerpt': 'Droit de succession dans le canton de Bâle-Ville : taux par degré de parenté, exonérations pour conjoint et descendants, déclaration et délais de présentation.',
     'blog.article.imposta-successione-basilea-citta.imageAlt': 'Bureau d\'administration fiscale avec documents de succession et registres d\'impôts',
+    'blog.article.imposte-canton-basilea-campagna.title': 'Impôts canton Bâle-Campagne : taux et déductions',
+    'blog.article.imposte-canton-basilea-campagna.excerpt': 'Guide complet des impôts cantonaux et communaux dans le canton de Bâle-Campagne : taux, déductions admises, délais de déclaration et portail fiscal en ligne.',
+    'blog.article.imposte-canton-basilea-campagna.imageAlt': 'Bureau de l\'administration fiscale cantonale du canton de Bâle-Campagne avec documents de déclaration d\'impôts officiels.',
 };
 
 export default blogMetaChFr;

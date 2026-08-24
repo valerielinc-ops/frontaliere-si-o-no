@@ -12403,6 +12403,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'imposte-canton-basilea-campagna',
+    category: 'fiscale',
+    date: '2026-08-24T15:07:39.075Z',
+    image: '/images/blog/imposte-canton-basilea-campagna.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

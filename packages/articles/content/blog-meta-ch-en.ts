@@ -4135,6 +4135,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-successione-basilea-citta.title': 'Inheritance tax in the canton of Basel-City: rates and procedures',
     'blog.article.imposta-successione-basilea-citta.excerpt': 'Inheritance tax in the Canton of Basel-City: rates for degree of kinship, exemptions for spouse and descendants, declaration and filing deadlines.',
     'blog.article.imposta-successione-basilea-citta.imageAlt': 'Tax administration office with fiscal documents and tax records on desk',
+    'blog.article.imposte-canton-basilea-campagna.title': 'Canton taxes Basel Countryside: rates and deductions',
+    'blog.article.imposte-canton-basilea-campagna.excerpt': 'Complete guide to cantonal and municipal taxes in the canton of Basel-Country: rates, allowable deductions, reporting deadlines and online tax portal.',
+    'blog.article.imposte-canton-basilea-campagna.imageAlt': 'Basel-Landschaft cantonal tax administration office with official tax declaration documents and fiscal forms.',
 };
 
 export default blogMetaChEn;
