@@ -1120,17 +1120,30 @@ export function isWeakCantonOnlyLabelOverride(existingCanton, locationText) {
  * the stale value stayed in the ledger and would take over again the moment the
  * location text degraded.
  *
- * Precedence, highest first:
- *   1. the job's own resolved canton (crawler-declared, or BFS-inferred by the
- *      fill step above) — per-job evidence, and stable across builds because it
- *      comes from parser config / the posting itself, not from a growing DB;
- *   2. the pin — used only to fill a canton the job does not have.
+ * Precedence, highest first — four branches once the job contradicts the pin,
+ * decided by WHO contradicts it and how (see inline comments below for the
+ * measurements behind each one):
+ *   1. crawler-heal — the crawler has spoken, is on-funnel, and disagrees with
+ *      the pin: the crawler wins (#4838, galenica). Per-job evidence beats a
+ *      stale ledger even when a BFS inference disagrees with the crawler too
+ *      — see the trade-off note on that branch below.
+ *   2. off-funnel guard — the crawler wrote a non-funnel value ("CH"): never
+ *      unlocks the freeze, regardless of what the inference says.
+ *   3. freeze on silent/agreeing crawler — the crawler offers no evidence
+ *      against the pin, and a lone BFS inference is not per-job evidence on
+ *      its own (it re-derives from a municipality DB that grows over time):
+ *      freeze to the pin.
+ *   4. inference-wins-on-a-third-value — UNLESS a confident inference
+ *      converges on a value neither the pin NOR the crawler agree with, in
+ *      which case the crawler's agreement with the pin is not independent
+ *      confirmation (Jegensdorf) and the inference wins.
  *
- * When (1) contradicts the ledger the ledger is REWRITTEN, so the correction is
- * durable instead of being re-applied (and re-lost) every build. Re-sectioning
- * an already-indexed URL is covered by the cross-canton relocation bridge
- * (#3144, `activeDriftRealPathByCompat` in build-plugins/jobsSeoPagesPlugin.ts),
- * which serves the legacy path as a canonical bridge to the live page.
+ * When the job's own resolved canton contradicts the ledger the ledger is
+ * REWRITTEN, so the correction is durable instead of being re-applied (and
+ * re-lost) every build. Re-sectioning an already-indexed URL is covered by the
+ * cross-canton relocation bridge (#3144, `activeDriftRealPathByCompat` in
+ * build-plugins/jobsSeoPagesPlugin.ts), which serves the legacy path as a
+ * canonical bridge to the live page.
  *
  * Exported for unit testing.
  *
@@ -1138,6 +1151,11 @@ export function isWeakCantonOnlyLabelOverride(existingCanton, locationText) {
  * @param {string} args.jobCanton      job's canton AFTER the inference fill step.
  * @param {string|null} args.inferredCanton  accepted `inferAnyCanton` result, or null.
  * @param {string|undefined} args.pinnedCanton  ledger value for this identity.
+ * @param {string|undefined} args.crawlerCanton  the crawler's OWN canton field,
+ *   captured BEFORE the inference fill step overwrote `jobCanton` — provenance
+ *   the branches above need to tell a stale pin (crawler may heal) from a
+ *   drifting inference (crawler may not). `undefined` (vs. `''`) means the
+ *   caller cannot supply provenance at all; see the note on `crawlerHasSpoken`.
  * @returns {{canton: string, pin: string, outcome: 'pin-frozen'|'pin-agrees'|'pin-corrected'|'pin-added'|'unpinned'}}
  *   `canton` = the canton to emit; `pin` = the value the ledger must hold
  *   (`''` means "do not record a pin for this identity").
@@ -1194,6 +1212,32 @@ export function resolveCantonAgainstPin({ jobCanton, inferredCanton, pinnedCanto
   // it disagrees with the pin, the pin is usually the stale one — that is
   // #4838 (Obbürgen frozen to a TI pin) and the galenica identity collision
   // (220 non-TI jobs on TI) — and it must heal the ledger.
+  //
+  // This wins unconditionally over `inferred`, even when `inferred` disagrees
+  // with the crawler too — deliberately, not an oversight (test "heals with
+  // the CRAWLER value, not `job`, when inference has overwritten job.canton to
+  // a THIRD value", tests/canton-pin-crawler-authority.test.ts): #6318 was
+  // exactly the opposite bug, a BFS guess overriding a crawler's specific,
+  // stable, per-job evidence (Obbürgen, crawler=NW) — letting `inferred` win
+  // here whenever it forms a "third value" would silently reopen that
+  // regression. Review finding (PR #6364) asked whether the SAME skepticism
+  // that protects the agree branch below (a same-crawler self-inconsistency,
+  // Jegensdorf) should gate this branch too. Measured 2026-08-24 on the real
+  // assembled dataset (25,997 active jobs; instrumented this branch, forced a
+  // full non-cached run): of the jobs where this branch fires, exactly ONE has
+  // a confident `inferred` that diverges from BOTH crawler and pin —
+  // jobs.galenica.com job.id=12692413, city "Seewen" (crawler=SZ, pin=BL
+  // stale from the galenica identity collision, inferred=SO). That is not a
+  // demonstrated-unreliable crawler like coop-ticino/Jegensdorf (which stamps
+  // FIVE different cantons on the identical location, provably self-
+  // inconsistent evidence in THIS dataset) — Seewen is a genuinely ambiguous
+  // town name shared by a SZ and an SO municipality, so there is no dataset
+  // evidence either value is wrong. Given the volume (1 of 25,997) and the
+  // absence of the kind of self-inconsistency that justified the agree-branch
+  // guard, adding the same guard here would trade a proven, tested fix
+  // (#4838/#6318) for an unproven one on a single ambiguous case — not taken.
+  // If canton-url-drift-monitor.yml (added alongside this fix) ever shows this
+  // branch producing real misclassifications, re-measure from there.
   if (crawlerHasSpoken && !crawlerOffFunnel && crawler && crawler !== pinned) {
     return { canton: crawler, pin: crawler, outcome: 'pin-corrected' };
   }
