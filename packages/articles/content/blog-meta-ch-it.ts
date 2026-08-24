@@ -4138,6 +4138,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposte-canton-basilea-campagna.title': 'Imposte canton Basilea Campagna: aliquote e deduzioni',
     'blog.article.imposte-canton-basilea-campagna.excerpt': 'Guida completa alle imposte cantonali e comunali nel canton Basilea Campagna: aliquote, deduzioni ammesse, scadenze di dichiarazione e portale online fiscale.',
     'blog.article.imposte-canton-basilea-campagna.imageAlt': 'Ufficio amministrazione fiscale cantonale del canton Basilea Campagna con documenti e moduli di dichiarazione imposte.',
+    'blog.article.pagamenti-offline-negozi-svizzera.title': 'Pagamenti offline nei negozi: arriva la soluzione',
+    'blog.article.pagamenti-offline-negozi-svizzera.excerpt': 'Dal 2027 potrai pagare con carta anche senza internet nei negozi svizzeri. Il DEFR adotta un nuovo sistema offline per garantire la continuità durante blackout.',
+    'blog.article.pagamenti-offline-negozi-svizzera.imageAlt': 'Terminale di pagamento in negozio durante transazione contactless con carta di credito, simbolo del pagamento offline',
 };
 
 export default blogMetaChIt;

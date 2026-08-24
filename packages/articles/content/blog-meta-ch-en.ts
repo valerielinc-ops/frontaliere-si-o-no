@@ -4138,6 +4138,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposte-canton-basilea-campagna.title': 'Canton taxes Basel Countryside: rates and deductions',
     'blog.article.imposte-canton-basilea-campagna.excerpt': 'Complete guide to cantonal and municipal taxes in the canton of Basel-Country: rates, allowable deductions, reporting deadlines and online tax portal.',
     'blog.article.imposte-canton-basilea-campagna.imageAlt': 'Basel-Landschaft cantonal tax administration office with official tax declaration documents and fiscal forms.',
+    'blog.article.pagamenti-offline-negozi-svizzera.title': 'Offline payments in stores: here comes the solution',
+    'blog.article.pagamenti-offline-negozi-svizzera.excerpt': 'From 2027 you can pay by card even without internet in Swiss stores. The DEFR adopts a new offline system to ensure continuity during blackouts.',
+    'blog.article.pagamenti-offline-negozi-svizzera.imageAlt': 'Payment terminal in retail shop during contactless card transaction, symbol of offline payment technology',
 };
 
 export default blogMetaChEn;

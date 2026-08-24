@@ -4138,6 +4138,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposte-canton-basilea-campagna.title': 'Impôts canton Bâle-Campagne : taux et déductions',
     'blog.article.imposte-canton-basilea-campagna.excerpt': 'Guide complet des impôts cantonaux et communaux dans le canton de Bâle-Campagne : taux, déductions admises, délais de déclaration et portail fiscal en ligne.',
     'blog.article.imposte-canton-basilea-campagna.imageAlt': 'Bureau de l\'administration fiscale cantonale du canton de Bâle-Campagne avec documents de déclaration d\'impôts officiels.',
+    'blog.article.pagamenti-offline-negozi-svizzera.title': 'Paiements hors ligne dans les magasins : la solution arrive',
+    'blog.article.pagamenti-offline-negozi-svizzera.excerpt': 'À partir de 2027, vous pourrez également payer par carte sans internet dans les magasins suisses. Le DEFR adopte un nouveau système hors ligne pour assurer la continuité pendant les pannes de courant.',
+    'blog.article.pagamenti-offline-negozi-svizzera.imageAlt': 'Terminal de paiement en magasin lors d\'une transaction par carte sans contact, symbole de la technologie de paiement hors ligne',
 };
 
 export default blogMetaChFr;

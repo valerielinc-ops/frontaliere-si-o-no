@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Mon, 24 Aug 2026 15:07:39 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 24 Aug 2026 15:15:06 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -16,6 +16,74 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Offline payments in stores: here comes the solution</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/offline-payments-swiss-shops/</link>
+      <description><![CDATA[From 2027 you can pay by card even without internet in Swiss stores. The DEFR adopts a new offline system to ensure continuity during blackouts.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- Offline card payments from 2027: they also work without internet
+- The terminal records the transaction and transmits it to the network restore
+- Switzerland is the first Central European country; Sweden already uses this technology
+- Cards should not be replaced, just reconfigure the readers
+
+## Key facts
+- **What**: Measure for offline payments in stores with credit/debit cards
+- When: By the end of 2027, widespread
+- Where: Switzerland, announced in Bern
+- Who: DEFR, business representatives, Guy Parmelin (Federal Council), Martin Schlegel (SNB), Roland Pfister (Economic Supply Delegate)
+- Mode: Payment with PIN on physical card; terminal records and transmits when the network is restored
+- Power supply: Card reader must be powered (battery/generator in case of blackout)
+
+### A Statement of Intent for Payment Resilience
+
+The Federal Department of the Economy has announced a statement of intent that will ensure the continuity of electronic payments even during internet blackouts or outages. The goal is to allow customers in Swiss stores to pay by credit or debit card even without a connection, by the end of 2027.
+
+The event held in Bern was attended by the President of the Confederation Guy Parmelin, the President of the Swiss National Bank Martin Schlegel, the Delegate for Economic Supply Roland Pfister and representatives of companies.
+### Switzerland follows the Nordic model
+
+The offline payment system is not an absolute novelty. Sweden has been using it for years, responding to concerns about the resilience of digital infrastructure during critical outages. Countries such as Finland, Norway and Estonia are introducing similar measures.
+
+With this mission statement, Switzerland becomes the first Central European country to adopt a widely shared and coordinated solution to strengthen the resilience of electronic payments. According to the Federal Department of Economics, the Swiss approach is distinguished by the consensus reached between the public sector (Federal Council, SNB) and the private sector (business representatives).
+
+### Concrete implications for merchants and customers
+
+Owners of small and medium-sized Swiss stores will be able to continue to cash out even when the telecommunications network is interrupted — a guarantee of sales continuity in the event of an emergency. Customers will not have to fear being cut off from their payments during a blackout.
+
+However, the diffusion of the solution requires a double effort. On the one hand, payment terminals must be reconfigured. On the other hand, card readers must have an alternative power source (battery or generator) to operate during power outages. For those who do not have backup batteries, the solution is not automatic and requires investment.
+
+Offline mode works only with cards
+
+## Useful tools to protect your net income
+To reduce FX leakage, compare [CHF-EUR exchange options](nav:exchange) and [banks for cross-border workers](nav:banks).
+### What merchants and customers must do
+
+Store owners who wish to adopt the offline payment system must begin evaluating their current payment terminals. Reconfiguring the card readers is the first step. It is not necessary to purchase new devices (in most cases), but it is essential for specialized technicians to reconfigure the firmware and security systems to enable offline mode.
+
+The second step concerns backup power. Every terminal must have access to an external battery or a generator during blackouts. Merchants will therefore need to plan for:
+- The purchase of UPS (uninterruptible power supply systems) or portable batteries for the terminals
+- Periodic maintenance of these devices
+- Staff training on how to handle offline payments manually if necessary
+
+For customers, communication is crucial. Store owners should signal on social media, websites, and with in-store signs that offline payments will be available. Many customers are unaware of this option and might fear being unable to pay during a blackout. A clear communication campaign will reduce anxiety and increase trust in the system.
+
+### Timeline and available resources
+
+By the end of 2027, the EAER estimates that the solution will see 'widespread adoption' in Switzerland. However, not all stores will be ready at the same time. Small businesses may proceed more slowly than large chains, which have dedicated IT resources.
+
+It is advisable for merchants to inquire with their payment terminal providers about the timing and costs of reconfiguration. Local trade associations will be able to provide sector-specific guidelines and technical support during the transition.
+
+### Stay informed on payments and federal decisions
+
+To stay updated on this evolution and the implications for your financial management, it is useful to follow the communications of the EAER and the SNB. Furthermore, consulting a digital payment specialist or your banking institution will help you understand how this measure integrates into your business strategy (if you are a merchant) or your daily payments (if you are a customer).
+
+The resilience of the payment infrastructure is a federal priority. To plan your business continuity strategy or to understand the impact on your payments, [consult our calculator](nav:calculator) which helps you evaluate financial and liquidity scenarios.
+
+*Source: [tio.ch](https://www.tio.ch/svizzera/economia/1945743/defr-internet-credito-negozi-carta)*]]></content:encoded>
+      <pubDate>Mon, 24 Aug 2026 15:15:06 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/pagamenti-offline-negozi-svizzera</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/pagamenti-offline-negozi-svizzera.webp" medium="image"/>
+    </item>
     <item>
       <title>Canton taxes Basel Countryside: rates and deductions</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/basel-landschaft-taxes-rates-deductions/</link>
@@ -2934,74 +3002,6 @@ Do you want to know exactly how much CHF remains in your account each month afte
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/salari-zugo-formazione-livelli</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/salari-zugo-formazione-livelli.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Wages and the labour market: the Canton of Zug</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/wages-labour-market-zug-sectors/</link>
-      <description><![CDATA[Salary levels for training, sectors, maximum hours, federal contributions and collective agreements in force in the Canton of Zug.]]></description>
-      <content:encoded><![CDATA[## In a nutshell
-- No federal minimum wage: some cantons have their own regulations, in the Canton of Zug collective agreements apply
-- Maximum hours 45-50 hours per week depending on the work sector
-- AVS/AI contributions 5.3% gross, AD/AC 1.1%, LAINF 0.7–1.5% withheld in paycheck
-- Compulsory occupational pension (LPP) with contributions by age group: 7–18%
-
-## Key facts
-- **What**: Wage structure, federal and cantonal labour regulations in the Canton of Zug
-- Where: Canton of Zug, central Switzerland
-- Who: Employees, companies, cantonal and federal offices (SECO)
-- When: Regulations currently in force in 2026
-- Maximum hours: 45 hours/week (industry, offices, sales); 50 hours other sectors
-- Minimum holiday: 4 weeks (5 for workers under 20)
-- AVS/AI contributions: 5.3% employee, 5.3% employer (total 10.6%)
-
-### Swiss labour market and the role of the cantons
-
-The Swiss labour market is based on a federal structure that combines uniform national regulations with specific cantonal regulations. In the canton of Zug, as in the other cantons, there are common guidelines on the maximum duration of working hours, the right to holidays and compulsory contributions to federal social security (AVS/AI). However, wage strategy and employment conditions remain determined by local factors, sector demand and the level of training achieved.
-
-Unlike many European countries, Switzerland has no
-### Salary levels by level of training
-
-The Swiss wage structure strongly reflects the degree of training achieved. Data on the national labour market show significant differences between those who have only completed compulsory schooling, those who have a vocational training diploma (apprenticeship/AFC), and those who have a tertiary qualification (university, vocational university school, master's degree). In the Canton of Zug, the demand for skills is particularly high in sectors such as finance, insurance, information technology, construction, healthcare and logistics.
-
-Salaries vary considerably between levels of training. An apprentice in training receives a lower remuneration, while a professional with a certificate of continuous training or with a university degree accesses significantly higher positions and salaries. To assess the real value of your compensation, it is useful to use a [calcolatore di stipendio](nav:calculator) that allows you to estimate the net after federal, cantonal and municipal deductions.
-
-### Collective bargaining agreements and minimum wage
-
-At the federal level, Switzerland does not have a uniform minimum wage. However, many sectors are regulated by collective labour agreements (CLAs), negotiated between trade unions and employers' associations, which set binding wage minimums. In the Canton of Zug, some key sectors have CCLs in force, while others operate under the regime of free determination of wages according to the
-
-## Useful planning tools
-To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
-### How to navigate the Swiss job market
-
-For those looking for a job in the canton of Zug or planning to move for occupational reasons, it's helpful to understand the main tools and channels for searching. Job offers are published on federal platforms, cantonal portals, and sector-specific websites. The regional employment office, managed by the SECO at the federal level with operational offices at the cantonal level, offers free consultation and support in occupational search processes.
-
-Before negotiating a work contract, it's advisable to:
-
-1. **Verify the sector**: identify if your sector is covered by a collective contract. If so, the employer is bound by the CCL minimum wages, which generally offer additional protections and benefits (annual bonuses, loyalty premiums, right to continuous training).
-
-2. Calculate the net salary: the Swiss salary slip is complex due to multiple deductions (AVS/AI, AD/AC, LAINF, IFD, cantonal and communal tax). Use a [salary calculator](nav:calculator) to estimate how much you will actually receive. Results vary significantly depending on the municipality of residence.
-
-3. Evaluate professional pension (LPP): check with the employer which pension plan is offered and what the contribution rate is. A generous LPP increases the real value of compensation in the long term and accelerates the accumulation for the pension.
-
-4. Read the contract carefully: notice periods vary (1, 2, or 3 months depending on seniority). The non-compete clause, if present, can limit future job opportunities. Ensure that all verbal conditions are written down.
-
-5. Document maternity leave expectations: maternity leave is guaranteed for 14 weeks at 80% of salary (covered by the federal maternity and parental leave allowance, IPG). Paternity leave is 2 weeks paid. Check with the employer if there are any additional conditions beyond the federal minimum.
-
-### Job announcements and professional orientation
-
-In the canton of Zug, the main sources of occupational search include national job portals, sector-specific category associations, and private employment agencies. The SECO also manages a federal online job search platform. It's always a good idea to consult the website of the cantonal administration for any regionally cofinanced re-skilling or continuous training initiatives.
-
-Networking with professionals in your sector (via LinkedIn, professional associations, networking events) often leads to unadvertised opportunities. In the Swiss job market, personal references and professional reputation are particularly important.
-
-### Tools for income management and tax declaration
-
-Once employed, it's essential to keep track of your [salary slip](nav:payslip) and verify that deductions are correct. Every year, it's mandatory to submit a cantonal and communal tax declaration (the IFD declaration is already deducted by the employer for employees through withholding at source). The annual declaration allows for additional deductions to be claimed and, potentially, reimbursement if withholding was excessive.
-
-For those with additional income (self-employment, investments, rental income), it's recommended to consult a tax advisor to optimize their tax position. In the canton of Zug, as in the rest of Switzerland, taxation is managed at the cantonal and communal level, with significant differences in tax burden between municipalities.]]></content:encoded>
-      <pubDate>Sun, 23 Aug 2026 21:12:41 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/salari-mercato-zugo-settori</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/salari-mercato-zugo-settori.webp" medium="image"/>
     </item>
   </channel>
 </rss>
