@@ -654,7 +654,7 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     intro: (f, where, priceFmt, date) =>
       `Prezzo medio ${itFuelGenitive(f)} ${where} il ${date}: ${priceFmt} CHF/litro. Le 3 stazioni più economiche entro 20 km dal confine, aggiornate ogni mattina da TCS.`,
     paragraph: (f, z, price, dYest, d7) =>
-      `Oggi a ${z} il ${f.toLowerCase()} costa in media ${price} CHF/litro, ${dYest} rispetto a ieri e ${d7} rispetto a 7 giorni fa. La pagina viene rigenerata automaticamente ogni giorno alle prime ore del mattino con i dati più freschi disponibili dalle stazioni di rifornimento della zona. Confronta le tre stazioni più economiche e verifica l'andamento della settimana per pianificare il rifornimento prima del pieno della tua settimana di frontaliere.`,
+      `Oggi ${z} il ${f.toLowerCase()} costa in media ${price} CHF/litro, ${dYest} rispetto a ieri e ${d7} rispetto a 7 giorni fa. La pagina viene rigenerata automaticamente ogni giorno alle prime ore del mattino con i dati più freschi disponibili dalle stazioni di rifornimento della zona. Confronta le tre stazioni più economiche e verifica l'andamento della settimana per pianificare il rifornimento prima del pieno della tua settimana di frontaliere.`,
     historySection:
       "Il grafico qui sotto mostra l'andamento del prezzo nel tempo — utile per capire se conviene rifornirsi oggi o aspettare. Usa i pulsanti per cambiare l'intervallo (1 mese, 3 mesi, 6 mesi, 1 anno, 5 anni). Lo storico si popola giorno per giorno: gli intervalli più lunghi diventano disponibili man mano che raccogliamo nuovi dati.",
     updatedLabel: 'Aggiornamento',
@@ -674,12 +674,12 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     periodAvgUnavailableNote: 'Media dei 7 giorni non ancora disponibile: lo storico si popola giorno per giorno.',
     periodAvgLabel: 'Media 7 giorni',
     chartAriaLabel: (f, z, avgFmt) =>
-      `Andamento storico del prezzo ${f.toLowerCase()} a ${z}: media ${avgFmt} CHF/litro nell'intervallo selezionato.`,
+      `Andamento storico del prezzo ${f.toLowerCase()} ${z}: media ${avgFmt} CHF/litro nell'intervallo selezionato.`,
     faq: [
       {
         q: 'Ogni quanto viene aggiornato il prezzo?',
         a: (f, z) =>
-          `Il prezzo ${itFuelGenitive(f)} a ${z} viene aggiornato ogni giorno. I dati provengono da TCS Benzinpreis, che raccoglie in tempo reale i listini delle stazioni in Svizzera.`,
+          `Il prezzo ${itFuelGenitive(f)} ${z} viene aggiornato ogni giorno. I dati provengono da TCS Benzinpreis, che raccoglie in tempo reale i listini delle stazioni in Svizzera.`,
       },
       {
         q: 'Conviene rifornirsi in Italia o in Svizzera?',
@@ -699,7 +699,7 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     intro: (f, where, priceFmt, date) =>
       `Average ${f.toLowerCase()} price ${where} on ${date}: ${priceFmt} CHF per litre. The 3 cheapest stations near the border, updated every morning from TCS.`,
     paragraph: (f, z, price, dYest, d7) =>
-      `Today in ${z} the ${f.toLowerCase()} costs ${price} CHF per litre on average, ${dYest} compared to yesterday and ${d7} compared to 7 days ago. This page is regenerated automatically every morning with the freshest data from stations in the area. Compare the three cheapest stations and check the weekly trend before you fill up during your cross-border commute.`,
+      `Today ${z} the ${f.toLowerCase()} costs ${price} CHF per litre on average, ${dYest} compared to yesterday and ${d7} compared to 7 days ago. This page is regenerated automatically every morning with the freshest data from stations in the area. Compare the three cheapest stations and check the weekly trend before you fill up during your cross-border commute.`,
     historySection:
       'The chart below shows the price trend over time — handy to decide whether to fill up today or wait. Use the buttons to switch the range (1 month, 3 months, 6 months, 1 year, 5 years). History is built day by day: longer ranges fill in as we collect more snapshots.',
     updatedLabel: 'Updated',
@@ -719,12 +719,12 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     periodAvgUnavailableNote: 'Seven-day average not available yet: the history fills in day by day.',
     periodAvgLabel: '7-day average',
     chartAriaLabel: (f, z, avgFmt) =>
-      `Historical ${f.toLowerCase()} price trend in ${z}: average ${avgFmt} CHF/litre over the selected range.`,
+      `Historical ${f.toLowerCase()} price trend ${z}: average ${avgFmt} CHF/litre over the selected range.`,
     faq: [
       {
         q: 'How often is the price updated?',
         a: (f, z) =>
-          `The ${f.toLowerCase()} price in ${z} is updated daily. Data is sourced from TCS Benzinpreis, which aggregates real-time station listings across Switzerland.`,
+          `The ${f.toLowerCase()} price ${z} is updated daily. Data is sourced from TCS Benzinpreis, which aggregates real-time station listings across Switzerland.`,
       },
       {
         q: 'Is it cheaper to refuel in Italy or in Switzerland?',
@@ -744,7 +744,7 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     intro: (f, where, priceFmt, date) =>
       `Durchschnittlicher ${f}preis ${where} am ${date}: ${priceFmt} CHF pro Liter. Die 3 günstigsten Tankstellen nahe der Grenze, täglich von TCS aktualisiert.`,
     paragraph: (f, z, price, dYest, d7) =>
-      `Heute kostet ${f} in ${z} durchschnittlich ${price} CHF pro Liter, ${dYest} gegenüber gestern und ${d7} gegenüber vor 7 Tagen. Diese Seite wird jeden Morgen automatisch mit den frischesten Preisdaten der Tankstellen in der Region neu erzeugt. Vergleichen Sie die drei günstigsten Tankstellen und prüfen Sie den Wochentrend, bevor Sie im Rahmen Ihres Grenzgänger-Alltags tanken.`,
+      `Heute kostet ${f} ${z} durchschnittlich ${price} CHF pro Liter, ${dYest} gegenüber gestern und ${d7} gegenüber vor 7 Tagen. Diese Seite wird jeden Morgen automatisch mit den frischesten Preisdaten der Tankstellen in der Region neu erzeugt. Vergleichen Sie die drei günstigsten Tankstellen und prüfen Sie den Wochentrend, bevor Sie im Rahmen Ihres Grenzgänger-Alltags tanken.`,
     historySection:
       'Das folgende Diagramm zeigt den Preisverlauf über die Zeit — hilfreich, um zu entscheiden, ob Sie heute tanken oder warten. Mit den Buttons wechseln Sie den Zeitraum (1 Monat, 3 Monate, 6 Monate, 1 Jahr, 5 Jahre). Die Historie baut sich Tag für Tag auf: längere Zeiträume werden verfügbar, sobald wir mehr Daten erfassen.',
     updatedLabel: 'Aktualisiert',
@@ -764,12 +764,12 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     periodAvgUnavailableNote: '7-Tage-Durchschnitt noch nicht verfügbar: die Historie baut sich Tag für Tag auf.',
     periodAvgLabel: '7-Tage-Durchschnitt',
     chartAriaLabel: (f, z, avgFmt) =>
-      `Historischer Preisverlauf für ${f} in ${z}: Durchschnitt ${avgFmt} CHF/Liter im ausgewählten Zeitraum.`,
+      `Historischer Preisverlauf für ${f} ${z}: Durchschnitt ${avgFmt} CHF/Liter im ausgewählten Zeitraum.`,
     faq: [
       {
         q: 'Wie oft wird der Preis aktualisiert?',
         a: (f, z) =>
-          `Der ${f}preis in ${z} wird täglich aktualisiert. Die Daten stammen von TCS Benzinpreis, das die Preise der Schweizer Tankstellen in Echtzeit aggregiert.`,
+          `Der ${f}preis ${z} wird täglich aktualisiert. Die Daten stammen von TCS Benzinpreis, das die Preise der Schweizer Tankstellen in Echtzeit aggregiert.`,
       },
       {
         q: 'Ist Tanken in Italien oder in der Schweiz günstiger?',
@@ -789,7 +789,7 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     intro: (f, where, priceFmt, date) =>
       `Prix moyen ${frFuelOf(f)} ${where} le ${date} : ${priceFmt} CHF par litre. Les 3 stations les moins chères près de la frontière, actualisées chaque matin par TCS.`,
     paragraph: (f, z, price, dYest, d7) =>
-      `Aujourd'hui à ${z} ${frFuelThe(f)} coûte ${price} CHF par litre en moyenne, ${dYest} par rapport à hier et ${d7} par rapport à il y a 7 jours. Cette page est régénérée chaque matin avec les données les plus récentes des stations de la région. Comparez les trois stations les moins chères et consultez la tendance hebdomadaire avant de faire le plein lors de votre trajet frontalier.`,
+      `Aujourd'hui ${z} ${frFuelThe(f)} coûte ${price} CHF par litre en moyenne, ${dYest} par rapport à hier et ${d7} par rapport à il y a 7 jours. Cette page est régénérée chaque matin avec les données les plus récentes des stations de la région. Comparez les trois stations les moins chères et consultez la tendance hebdomadaire avant de faire le plein lors de votre trajet frontalier.`,
     historySection:
       "Le graphique ci-dessous montre l'évolution du prix dans le temps — utile pour décider si faire le plein aujourd'hui ou attendre. Utilisez les boutons pour changer la période (1 mois, 3 mois, 6 mois, 1 an, 5 ans). L'historique se construit jour après jour : les périodes plus longues deviennent disponibles au fil du temps.",
     updatedLabel: 'Mis à jour',
@@ -809,12 +809,12 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     periodAvgUnavailableNote: "Moyenne 7 jours pas encore disponible : l'historique se remplit jour après jour.",
     periodAvgLabel: 'Moyenne 7 jours',
     chartAriaLabel: (f, z, avgFmt) =>
-      `Tendance historique du prix ${frFuelOf(f)} à ${z} : moyenne ${avgFmt} CHF/litre sur la période sélectionnée.`,
+      `Tendance historique du prix ${frFuelOf(f)} ${z} : moyenne ${avgFmt} CHF/litre sur la période sélectionnée.`,
     faq: [
       {
         q: 'À quelle fréquence le prix est-il mis à jour ?',
         a: (f, z) =>
-          `Le prix ${frFuelOf(f)} à ${z} est mis à jour chaque jour. Les données proviennent de TCS Benzinpreis, qui agrège en temps réel les tarifs des stations en Suisse.`,
+          `Le prix ${frFuelOf(f)} ${z} est mis à jour chaque jour. Les données proviennent de TCS Benzinpreis, qui agrège en temps réel les tarifs des stations en Suisse.`,
       },
       {
         q: 'Est-il plus avantageux de faire le plein en Italie ou en Suisse ?',
@@ -1716,7 +1716,7 @@ function renderPage(inp: PageInputs): string {
   const h1 = zone ? copy.zoneH1(fuelLabel, zoneLabel) : copy.regionalH1(fuelLabel);
   const whereLabel = fuelWhere(locale, zoneLabel, Boolean(zone));
   const intro = copy.intro(fuelLabel, whereLabel, priceFmt, dateDisplay);
-  const paragraph = copy.paragraph(fuelLabel, zoneLabel, priceFmt, deltaYestFmt, delta7Fmt);
+  const paragraph = copy.paragraph(fuelLabel, whereLabel, priceFmt, deltaYestFmt, delta7Fmt);
   // Above-the-fold tagline (≤120 chars) — replaces the long intro in
   // the page header so mobile-first hierarchy stays clean (H1 →
   // tagline → tile → editorial review → top stations). The full intro
@@ -1802,7 +1802,7 @@ function renderPage(inp: PageInputs): string {
   const historyCard = renderFuelHistoryCard({
     locale,
     trendLabel: copy.trendLabel,
-    buildAriaLabel: (avgFmt) => copy.chartAriaLabel(fuelLabel, zoneLabel, avgFmt),
+    buildAriaLabel: (avgFmt) => copy.chartAriaLabel(fuelLabel, whereLabel, avgFmt),
     seriesByRange: swissSeriesByRange,
     currency: 'CHF',
   });
@@ -1853,7 +1853,7 @@ function renderPage(inp: PageInputs): string {
       .map(
         (f) => `<details class="s-card" style="margin-bottom:8px">
         <summary class="s-HBR0NM">${esc(f.q)}</summary>
-        <p class="s-OCic8j">${esc(f.a(fuelLabel, zoneLabel))}</p>
+        <p class="s-OCic8j">${esc(f.a(fuelLabel, whereLabel))}</p>
       </details>`,
       )
       .join('')}
@@ -1880,7 +1880,7 @@ function renderPage(inp: PageInputs): string {
     mainEntity: faqItems.map((f) => ({
       '@type': 'Question',
       name: f.q,
-      acceptedAnswer: { '@type': 'Answer', text: f.a(fuelLabel, zoneLabel) },
+      acceptedAnswer: { '@type': 'Answer', text: f.a(fuelLabel, whereLabel) },
     })),
   });
 
@@ -2098,6 +2098,7 @@ function renderArchive(inp: ArchiveInputs): string {
   const copy = COPY[locale];
   const fuelLabel = FUEL_TYPE_LABEL[locale][fuel];
   const zoneLabel = FUEL_ZONE_DISPLAY[zone];
+  const whereLabel = fuelWhere(locale, zoneLabel, true);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
 
   const rows = snapshots
@@ -2151,7 +2152,7 @@ function renderArchive(inp: ArchiveInputs): string {
     .filter((r): r is { date: string; price: number } => typeof r.price === 'number')
     .map((r) => ({ date: r.date, value: Number(r.price.toFixed(3)) }));
   const chartStats = computeFuelStats(chartSeries);
-  const chartAriaLabel = copy.chartAriaLabel(fuelLabel, zoneLabel, formatPrice(chartStats?.avg ?? null, locale));
+  const chartAriaLabel = copy.chartAriaLabel(fuelLabel, whereLabel, formatPrice(chartStats?.avg ?? null, locale));
   const chartSvg = renderFuelAreaChartSvg({
     series: chartSeries,
     rangeKey: '1M',

@@ -134,6 +134,18 @@ describe('fuel daily pages — Italian copy regressions', () => {
     expect(introSignatures).toHaveLength(4);
     expect(source).toMatch(/function fuelWhere/);
     expect(source).not.toMatch(/oggi a \$\{zoneLabel\}/);
+
+    // Every prose consumer is fed the locative. The only templates still
+    // gluing their own preposition onto `${z}` are the four `zoneH1`, which
+    // by construction only ever receive a city name ("oggi a Chiasso").
+    const todayCopy = source.slice(
+      source.indexOf('const COPY: Record<FuelDailyLocale, FuelCopy>'),
+      source.indexOf('function renderPage'),
+    );
+    // `\b` would not fire before "à" (not a word char), so anchor on space.
+    const glued = todayCopy.match(/\s(?:a|in|à) \$\{z\}/g) ?? [];
+    expect(glued).toHaveLength(4);
+    expect((todayCopy.match(/zoneH1: \(f, z\) =>/g) ?? []).length).toBe(4);
   });
 
   it('agrees the Italian article with the fuel noun everywhere', () => {
