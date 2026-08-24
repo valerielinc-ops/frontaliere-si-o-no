@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abraxas",
-  "assembledAt": "2026-08-24T09:58:31.138Z",
+  "assembledAt": "2026-08-24T21:32:21.943Z",
   "jobs": [
     {
       "id": "abraxas-162b4d32f534",
@@ -33,7 +33,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/solution-architektin-querschnittservices-80-100-6399",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T09:58:28.275Z",
+      "crawledAt": "2026-08-24T21:32:18.691Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -101,7 +101,7 @@
       "title": "Software Engineer – Data Migration 80 - 100%",
       "titleByLocale": {
         "it": "Software Ingegnere – Data Migration 80 - 100%",
-        "en": "Software Engineer - Data Migration 80 - 100%",
+        "en": "Software Engineer – Data Migration 80 - 100%",
         "de": "Software Ingenieur – Data Migration 80 - 100%",
         "fr": "Software Ingénieur – Data Migration 80 - 100%"
       },
@@ -117,7 +117,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-data-migration-80-100-9034",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T09:58:27.793Z",
+      "crawledAt": "2026-08-24T21:32:18.220Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -151,8 +152,7 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-b69666f6a186",
@@ -185,7 +185,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-architekt-mit-fokus-ki-im-ssdlc-80-100-4924",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T09:58:27.306Z",
+      "crawledAt": "2026-08-24T21:32:17.754Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -245,7 +245,7 @@
       "title": "ServiceNow KI Solutions Engineer 80-100 %",
       "titleByLocale": {
         "it": "ServiceNow KI Solutions Ingegnere 80-100 %",
-        "en": "ServiceNow AI Solutions Engineer 80-100%",
+        "en": "ServiceNow KI Solutions Engineer 80-100 %",
         "de": "ServiceNow KI Solutions Ingenieur 80-100 %",
         "fr": "ServiceNow KI Solutions Ingénieur 80-100 %"
       },
@@ -261,7 +261,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/servicenow-ki-solutions-engineer-80-100-3109",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T09:58:26.823Z",
+      "crawledAt": "2026-08-24T21:32:17.284Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -308,8 +309,7 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-ff54e957aa41",
@@ -342,7 +342,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-software-engineer-80-100-8049",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T09:58:26.342Z",
+      "crawledAt": "2026-08-24T21:32:16.814Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -423,7 +423,7 @@
       "title": "Senior ServiceNow KI Engineer 80-100 %",
       "titleByLocale": {
         "it": "Senior ServiceNow KI Ingegnere 80-100 %",
-        "en": "Senior ServiceNow AI Engineer 80-100%",
+        "en": "Senior ServiceNow KI Engineer 80-100 %",
         "de": "Senior ServiceNow KI Ingenieur 80-100 %",
         "fr": "Senior ServiceNow KI Ingénieur 80-100 %"
       },
@@ -439,7 +439,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-servicenow-ki-engineer-80-100-1142",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T09:58:25.862Z",
+      "crawledAt": "2026-08-24T21:32:16.349Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -486,8 +487,7 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-f3e387a7f60a",
@@ -520,7 +520,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-openstack-engineer-80-100-6985",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T09:58:25.380Z",
+      "crawledAt": "2026-08-24T21:32:15.872Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -601,7 +601,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-linux-engineer-9441",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T09:58:24.904Z",
+      "crawledAt": "2026-08-24T21:32:15.403Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -682,7 +682,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/leiterin-solution-architektur-80-100-7399",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T09:58:24.426Z",
+      "crawledAt": "2026-08-24T21:32:14.936Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -749,90 +749,6 @@
       }
     },
     {
-      "id": "abraxas-6737244018ad",
-      "slug": "apprendistato-come-informatiker-in-plattformentwicklung-abraxas-informatik-ag-zurich-flughafen",
-      "slugByLocale": {
-        "it": "apprendistato-come-informatiker-in-plattformentwicklung-abraxas-informatik-ag-zurich-flughafen",
-        "en": "apprenticeship-as-computer-scientist-in-platform-development-abraxas-informatik-ag-zurich-flughafen",
-        "de": "lehrstelle-als-informatiker-in-plattformentwicklung-abraxas-zurich-flughafen",
-        "fr": "apprentissage-en-informatique-in-developpement-de-la-plateforme-abraxas-informatik-ag-zurich-flughafen"
-      },
-      "company": "Abraxas Informatik AG",
-      "companyKey": "abraxas",
-      "companyDomain": "abraxas.ch",
-      "title": "Lehrstelle als Informatiker:in - Plattformentwicklung",
-      "titleByLocale": {
-        "it": "Apprendistato come Informatiker:in - Plattformentwicklung",
-        "en": "Apprenticeship as computer scientist:in - Platform development",
-        "de": "Lehrstelle als Informatiker:in - Plattformentwicklung",
-        "fr": "Apprentissage en informatique:in - Développement de la plateforme"
-      },
-      "description": "Du willst wissen, wie Server, Netzwerke und Cloud wirklich funktionieren? Als Informatiker:in Plattformentwicklung bei Abraxas sorgst du dafür, dass Systeme stabil laufen und moderne IT-Infrastrukturen entstehen. Entdecke in deiner Lehre bei uns, wie spannend die Welt hinter den Kulissen der IT ist.\nDeine Rolle\nAls Informatiker:in der Fachrichtung Plattformentwicklung bist du Spezialist:in für den Aufbau und Betrieb von IT-Infrastrukturen . Du installierst und konfigurierst Serversysteme, Netzwerke sowie Software und automatisierst Abläufe mit Skripten und Tools. Dabei arbeitest du in den Bereichen Planung, Installation, Betrieb und Wartung von Informatiksystemen und deren Anwendungen.\nDu kümmerst dich während der vier Lehrjahre um Hard- und Software – von einzelnen Geräten bis hin zu vernetzten Systemlandschaften. Dazu gehört auch das Erkennen, Analysieren und Beheben von Störungen. Zudem führst du Updates durch und koordinierst bei Bedarf Hardware-Reparaturen mit externen Partnern.\nDein Profil\n• Abgeschlossene Sekundarschule der höchsten Stufe mit guten Leistungen in den naturwissenschaftlichen / mathematischen Fächern und in Deutsch.\n• Sehr gutes logisch-abstraktes Denkvermögen\n• Sinn für theoretische Vorgänge und Abläufe\n• Freude an exakter Denk- und Arbeitsweise\n• Interesse am Lösen komplexer Aufgabenstellungen\n• Freude am Experimentieren\n• Geduld und Freude an der Arbeit mit Informatiksystemen\n• Permanente Leistungsbereitschaft\nBeachte bitte auch die schulischen Anforderungen, die für diese Lehre vorausgesetzt werden und lese dazu die Dokumente des BIZ .\nUnser Angebot\nBrauchst du zwischendurch Abstand vom Digitalen? Bei uns stehen dir jederzeit Stifte, Papier und beschreibbare Wände für kreative Ideen zur Verfügung. Zum Abschalten kannst du eine Runde um den Circle drehen oder in unserem Ruheraum entspannen. Freu dich ausserdem auf Benefits wie vergünstigtes Fitness-Training, die Möglichkeit zum Ferienkauf und einen jährlichen Ausflug für alle Lernenden.\nBei uns in der Lehre erwarten dich flexible Arbeitszeiten, 6 Wochen Ferien, finanzielle Unterstützung bei Schulmitteln und viele weitere Goodies. Während deiner Ausbildung wirst du von engagierten Praxisausbildner:innen begleitet und übernimmst bereits früh Verantwortung – denn unsere Lernenden sind ein wichtiger Teil des Teams.\nKlingt spannend? Dann bewerbe dich für die Lehrstelle als Informatiker:in EFZ in der Fachrichtung Plattformentwicklung mit Start im August 2027.\nSo bewirbst du dich:\nBewirb dich direkt über dieses Inserat. Nach der Prüfung deiner Unterlagen melden wir uns bei dir und teilen dir mit, ob und an welchem Datum wir dich zu einem Vorstellungsgespräch einladen können.\nDiese Unterlagen benötigen wir von dir:\n• Motivationsschreiben\n• Aktueller Lebenslauf mit Foto\n• Alle Oberstufenzeugnisse\n• Stellwerk / Multicheck (falls vorhanden)\nBitte beachte: Bewerbungen nehmen wir aus Sicherheitsgründen nur online über unsere Stellenausschreibungen entgegen.\nBei Fragen zum Bewerbungsprozess hilft dir unser Berufsbildner Bruno Bertelli gerne weiter.",
-      "descriptionByLocale": {
-        "it": "Vuoi sapere come funzionano davvero server, reti e cloud? In qualità di informatico: nello sviluppo della piattaforma ad Abraxas, si assicura che i sistemi gestiscano infrastrutture IT stabili e moderne. Nel tuo insegnamento con noi, scopri quanto sia emozionante il mondo dietro le quinte dell'IT.\nIl tuo ruolo\nCome informatico: nel campo dello sviluppo della piattaforma, sei uno specialista: nello sviluppo e nel funzionamento delle infrastrutture IT. Installa e configura sistemi server, reti e software e automatizza i processi con script e strumenti. Si lavora nei settori di pianificazione, installazione, funzionamento e manutenzione dei sistemi informatici e delle loro applicazioni.\nDurante i quattro anni di apprendistato, si prenderanno cura di hardware e software – dai singoli dispositivi ai paesaggi di sistema in rete. Questo include rilevare, analizzare e correggere disturbi. Si effettuano anche aggiornamenti e coordinate riparazioni hardware con partner esterni, se necessario.\nIl tuo profilo\n• Scuola secondaria di livello superiore con buone prestazioni in scienze / materie matematiche e in tedesco.\n• Molto buon pensiero logico-astratto\n• Senso di processi e processi teorici\n• Divertimento dei metodi di pensiero e di lavoro esatti\n• Interessi nella risoluzione di compiti complessi\n• La gioia della sperimentazione\n• Pazienza e gioia nel lavorare con i sistemi informatici\n• Preparazione permanente\nSi prega inoltre di notare i requisiti scolastici richiesti per questo insegnamento e leggere i documenti del BIS.\nLa nostra offerta\nHai bisogno di una distanza dal digitale? Con noi, penne, carta e pareti descrivibili sono sempre disponibili per idee creative. Per spegnere, è possibile girare il cerchio o rilassarsi nella nostra stanza di riposo. Si può anche aspettare a benefici come l'allenamento di fitness scontato, l'opportunità di acquistare una vacanza e un'escursione annuale per tutti gli studenti.\nCon noi nell'insegnamento, ci si può aspettare orari di lavoro flessibili, 6 settimane vacanze, supporto finanziario per i fondi scolastici e molte altre buoneies. Durante il vostro apprendistato, sarete accompagnati da formatori dedicati e vi assumete presto la responsabilità – perché i nostri studenti sono una parte importante della squadra.\nSembra eccitante? Poi si applica per l'apprendistato come scienziato informatico: in EFZ nel campo dello sviluppo della piattaforma a partire dall'agosto 2027.\nEcco come si applica:\nApplicare direttamente attraverso questo elenco. Dopo aver esaminato i tuoi documenti, ti contatteremo e ti faremo sapere se e in quale data possiamo invitarti ad un colloquio.\nAbbiamo bisogno di questi documenti da voi:\n• Lettera di motivazione\n• CV corrente con foto\n• Tutti i certificati di livello superiore\n• Interlocking / Multicheck (se disponibile)\nNota: Per motivi di sicurezza, accettiamo solo le applicazioni online tramite le nostre postazioni di lavoro.\nSe avete domande sul processo di applicazione, il nostro trainer Bruno Bertelli sarà lieto di aiutarvi.",
-        "en": "Want to know how servers, networks and the cloud really work? As a computer scientist: in platform development at Abraxas, you ensure that systems run stable and modern IT infrastructures are created. In your teaching with us, discover how exciting the world behind the scenes of IT is.\nYour role\nAs a computer scientist: in the field of platform development, you are a specialist: in the development and operation of IT infrastructures. You install and configure server systems, networks and software and automate processes with scripts and tools. You work in the areas of planning, installation, operation and maintenance of computer systems and their applications.\nDuring the four apprenticeship years, you will take care of hardware and software – from individual devices to networked system landscapes. This includes detecting, analyzing and correcting disturbances. You also carry out updates and coordinate hardware repairs with external partners if necessary.\nYour profile\n• Highest level secondary school with good performance in science/mathematical subjects and in German.\n• Very good logical-abstract thinking\n• Sense of theoretical processes and processes\n• Enjoyment of exact thinking and working methods\n• Interest in solving complex tasks\n• The joy of experimentation\n• Patience and joy in working with computer systems\n• Permanent preparedness\nPlease also note the school requirements required for this teaching and read the documents of the BIS.\nOur offer\nDo you need a distance from the digital? With us, pens, paper and describable walls are always available for creative ideas. To switch off, you can turn around the circle or relax in our rest room. You can also look forward to benefits such as discounted fitness training, the opportunity to buy a holiday and an annual excursion for all learners.\nWith us in teaching, you can expect flexible working hours, 6 weeks holidays, financial support for school funds and many other goodies. During your apprenticeship, you will be accompanied by dedicated trainers and take on responsibility early on – because our learners are an important part of the team.\nSounds exciting? Then apply for the apprenticeship as a computer scientist: in EFZ in the field of platform development starting in August 2027.\nThis is how you apply:\nApply directly through this listing. After reviewing your documents, we will contact you and let you know if and on what date we can invite you to an interview.\nWe need these documents from you:\n• Letter of motivation\n• Current CV with photo\n• All upper-level certificates\n• Interlocking / Multicheck (if available)\nPlease note: For security reasons, we only accept applications online via our job postings.\nIf you have any questions about the application process, our trainer Bruno Bertelli will be happy to help you.",
-        "de": "Du willst wissen, wie Server, Netzwerke und Cloud wirklich funktionieren? Als Informatiker:in Plattformentwicklung bei Abraxas sorgst du dafür, dass Systeme stabil laufen und moderne IT-Infrastrukturen entstehen. Entdecke in deiner Lehre bei uns, wie spannend die Welt hinter den Kulissen der IT ist.\nDeine Rolle\nAls Informatiker:in der Fachrichtung Plattformentwicklung bist du Spezialist:in für den Aufbau und Betrieb von IT-Infrastrukturen . Du installierst und konfigurierst Serversysteme, Netzwerke sowie Software und automatisierst Abläufe mit Skripten und Tools. Dabei arbeitest du in den Bereichen Planung, Installation, Betrieb und Wartung von Informatiksystemen und deren Anwendungen.\nDu kümmerst dich während der vier Lehrjahre um Hard- und Software – von einzelnen Geräten bis hin zu vernetzten Systemlandschaften. Dazu gehört auch das Erkennen, Analysieren und Beheben von Störungen. Zudem führst du Updates durch und koordinierst bei Bedarf Hardware-Reparaturen mit externen Partnern.\nDein Profil\n• Abgeschlossene Sekundarschule der höchsten Stufe mit guten Leistungen in den naturwissenschaftlichen / mathematischen Fächern und in Deutsch.\n• Sehr gutes logisch-abstraktes Denkvermögen\n• Sinn für theoretische Vorgänge und Abläufe\n• Freude an exakter Denk- und Arbeitsweise\n• Interesse am Lösen komplexer Aufgabenstellungen\n• Freude am Experimentieren\n• Geduld und Freude an der Arbeit mit Informatiksystemen\n• Permanente Leistungsbereitschaft\nBeachte bitte auch die schulischen Anforderungen, die für diese Lehre vorausgesetzt werden und lese dazu die Dokumente des BIZ .\nUnser Angebot\nBrauchst du zwischendurch Abstand vom Digitalen? Bei uns stehen dir jederzeit Stifte, Papier und beschreibbare Wände für kreative Ideen zur Verfügung. Zum Abschalten kannst du eine Runde um den Circle drehen oder in unserem Ruheraum entspannen. Freu dich ausserdem auf Benefits wie vergünstigtes Fitness-Training, die Möglichkeit zum Ferienkauf und einen jährlichen Ausflug für alle Lernenden.\nBei uns in der Lehre erwarten dich flexible Arbeitszeiten, 6 Wochen Ferien, finanzielle Unterstützung bei Schulmitteln und viele weitere Goodies. Während deiner Ausbildung wirst du von engagierten Praxisausbildner:innen begleitet und übernimmst bereits früh Verantwortung – denn unsere Lernenden sind ein wichtiger Teil des Teams.\nKlingt spannend? Dann bewerbe dich für die Lehrstelle als Informatiker:in EFZ in der Fachrichtung Plattformentwicklung mit Start im August 2027.\nSo bewirbst du dich:\nBewirb dich direkt über dieses Inserat. Nach der Prüfung deiner Unterlagen melden wir uns bei dir und teilen dir mit, ob und an welchem Datum wir dich zu einem Vorstellungsgespräch einladen können.\nDiese Unterlagen benötigen wir von dir:\n• Motivationsschreiben\n• Aktueller Lebenslauf mit Foto\n• Alle Oberstufenzeugnisse\n• Stellwerk / Multicheck (falls vorhanden)\nBitte beachte: Bewerbungen nehmen wir aus Sicherheitsgründen nur online über unsere Stellenausschreibungen entgegen.\nBei Fragen zum Bewerbungsprozess hilft dir unser Berufsbildner Bruno Bertelli gerne weiter.",
-        "fr": "Vous voulez savoir comment fonctionnent les serveurs, les réseaux et le cloud ? En tant qu'informaticien: dans le développement de plateforme à Abraxas, vous assurez que les systèmes fonctionnent des infrastructures informatiques stables et modernes sont créés. Dans votre enseignement avec nous, découvrez à quel point le monde en coulisse est passionnant.\nVotre rôle\nEn tant qu'informatologue: dans le domaine du développement de plateformes, vous êtes un spécialiste: dans le développement et le fonctionnement des infrastructures informatiques. Vous installez et configurez des systèmes de serveurs, des réseaux et des logiciels et automatisez les processus avec des scripts et des outils. Vous travaillez dans les domaines de la planification, de l'installation, de l'exploitation et de la maintenance des systèmes informatiques et de leurs applications.\nAu cours des quatre années d'apprentissage, vous vous occuperez du matériel et des logiciels – des appareils individuels aux paysages en réseau. Cela comprend la détection, l'analyse et la correction des perturbations. Vous effectuez également des mises à jour et coordonnez les réparations du matériel avec des partenaires externes si nécessaire.\nVotre profil\n• L'enseignement secondaire le plus élevé avec de bonnes performances en sciences/mathématiques et en allemand.\n• Très bonne pensée logique-abstract\n• Sens des processus théoriques\n• Appréciation de la pensée exacte et des méthodes de travail\n• Intérêt pour la résolution de tâches complexes\n• La joie de l'expérimentation\n• Patience et joie de travailler avec les systèmes informatiques\n• Préparation permanente\nVeuillez également noter les exigences scolaires requises pour cet enseignement et lire les documents de la BRI.\nNotre offre\nVous avez besoin d'une distance par rapport au numérique? Avec nous, des stylos, du papier et des murs déchiffrables sont toujours disponibles pour des idées créatives. Pour éteindre, vous pouvez tourner autour du cercle ou vous détendre dans notre salle de repos. Vous pouvez également compter sur des avantages tels que l'entraînement physique à prix réduit, la possibilité d'acheter des vacances et une excursion annuelle pour tous les apprenants.\nAvec nous dans l'enseignement, vous pouvez vous attendre à des horaires de travail flexibles, 6 semaines de vacances, un soutien financier pour les fonds scolaires et beaucoup d'autres goodies. Durant votre apprentissage, vous serez accompagné de formateurs dévoués et assumerez vos responsabilités dès le début, car nos apprenants sont une partie importante de l'équipe.\nÇa semble excitant ? Puis postulez à l'apprentissage en tant qu'informaticien: en EFZ dans le domaine du développement de plateforme à partir d'août 2027.\nVoici comment vous appliquez :\nAppliquer directement sur cette liste. Après avoir examiné vos documents, nous vous contacterons et vous ferons savoir si et à quelle date nous pouvons vous inviter à une entrevue.\nNous avons besoin de ces documents de votre part :\n• Lettre de motivation\n• CV actuel avec photo\n• Tous les certificats de niveau supérieur\n• Interlockage / Multivérification (si disponible)\nRemarque : Pour des raisons de sécurité, nous n'acceptons les candidatures en ligne que via nos offres d'emploi.\nSi vous avez des questions sur le processus de candidature, notre formateur Bruno Bertelli sera heureux de vous aider."
-      },
-      "location": "Zürich-Flughafen",
-      "canton": "ZH",
-      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/lehrstelle-als-informatikerin-plattformentwicklung-2149",
-      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-24T09:58:23.946Z",
-      "needsRetranslation": true,
-      "addressLocality": "Zürich-Flughafen",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8058",
-      "streetAddress": "",
-      "category": "IT / Infrastruttura",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "entry",
-      "sector": "IT / Informatica per la pubblica amministrazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-31",
-      "applyUrl": "https://apply.refline.ch/215876/2445/index.html?lang=de&cid=1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "215876-2445",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "previousSlugs": [
-        "lehrstelle-als-informatiker-in-plattformentwicklung-abraxas-zurich-flughafen",
-        "apprendistato-come-informatiker-in-plattformentwicklung-abraxas-informatik-ag-zurich-flughafen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-als-informatiker-in-plattformentwicklung-abraxas-zurich-flughafen",
-          "apprendistato-come-informatiker-in-plattformentwicklung-abraxas-informatik-ag-zurich-flughafen"
-        ],
-        "en": [
-          "lehrstelle-als-informatiker-in-plattformentwicklung-abraxas-zurich-flughafen"
-        ],
-        "fr": [
-          "lehrstelle-als-informatiker-in-plattformentwicklung-abraxas-zurich-flughafen"
-        ]
-      },
-      "firstSeenAt": "2026-07-31T22:08:23.589Z",
-      "salaryMin": 71000,
-      "salaryMax": 120500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 71000,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "abraxas-15d94a78c738",
       "slug": "apprendistato-come-fachfrau-fachmann-kundendialog-cfc-abraxas-informatik-ag-zurich-flughafen",
       "slugByLocale": {
@@ -863,7 +779,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/lehrstelle-als-fachfrau-fachmann-kundendialog-efz-6830",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T09:58:23.467Z",
+      "crawledAt": "2026-08-24T21:32:14.468Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -931,7 +847,7 @@
       "title": "Lead Software Engineer – Data Migration 80 - 100%",
       "titleByLocale": {
         "it": "Lead Software Ingegnere – Data Migration 80 - 100%",
-        "en": "Lead Software Engineer - Data Migration 80 - 100%",
+        "en": "Lead Software Engineer – Data Migration 80 - 100%",
         "de": "Lead Software Ingenieur – Data Migration 80 - 100%",
         "fr": "Lead Software Ingénieur – Data Migration 80 - 100%"
       },
@@ -947,7 +863,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/lead-software-engineer-data-migration-80-100-6215",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T09:58:22.992Z",
+      "crawledAt": "2026-08-24T21:32:14.000Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -981,8 +898,7 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-09133f677de5",
@@ -1015,7 +931,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ki-consultant-80-100-9837",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T09:58:22.512Z",
+      "crawledAt": "2026-08-24T21:32:13.533Z",
       "needsRetranslation": true,
       "addressLocality": "Bern",
       "addressRegion": "BE",
@@ -1105,7 +1021,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ims-praktikum-12-monate-4196",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T09:58:22.029Z",
+      "crawledAt": "2026-08-24T21:32:13.065Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1189,7 +1105,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-citrix-80-100-3914",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T09:58:21.552Z",
+      "crawledAt": "2026-08-24T21:32:12.591Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -1268,7 +1184,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-betrieb-80-100-3478",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T09:58:21.072Z",
+      "crawledAt": "2026-08-24T21:32:12.124Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1349,7 +1265,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-betrieb-80-100-9116",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T09:58:20.594Z",
+      "crawledAt": "2026-08-24T21:32:11.656Z",
       "needsRetranslation": true,
       "addressLocality": "Bern",
       "addressRegion": "BE",
@@ -1416,6 +1332,76 @@
       }
     },
     {
+      "id": "abraxas-ef84e9748cd1",
+      "slug": "ict-system-engineer-mit-projektleitungserfahrung-80-100-abraxas-zurich-flughafen",
+      "slugByLocale": {
+        "de": "ict-system-engineer-mit-projektleitungserfahrung-80-100-abraxas-zurich-flughafen",
+        "it": "ict-system-engineer-mit-projektleitungserfahrung-80-100-abraxas-zurich-flughafen",
+        "en": "ict-system-engineer-mit-projektleitungserfahrung-80-100-abraxas-zurich-flughafen",
+        "fr": "ict-system-engineer-mit-projektleitungserfahrung-80-100-abraxas-zurich-flughafen"
+      },
+      "company": "Abraxas Informatik AG",
+      "companyKey": "abraxas",
+      "companyDomain": "abraxas.ch",
+      "title": "ICT System Engineer mit Projektleitungserfahrung 80–100 %",
+      "titleByLocale": {
+        "de": "ICT System Ingenieur mit Projektleitungserfahrung 80–100 %",
+        "en": "ICT System Engineer mit Projektleitungserfahrung 80–100 %",
+        "it": "ICT System Ingegnere con Projektleitungserfahrung 80–100 %",
+        "fr": "ICT System Ingénieur mit Projektleitungserfahrung 80–100 %"
+      },
+      "description": "Im S ystems Engineering Team der Abteilung Professional Services gestalten und realisieren wir moderne ICT-Lösungen für unsere Kunden.\nIn der Rolle als ICT System Engineer mit Projektleitungserfahrung begleitest du vorwiegend Gemeinden bei der Transformation ihrer bestehenden IT-Infrastrukturen hin zu einem modernen Managed Workplace mit Microsoft 365 , sei es in einem hybriden oder Cloud-only Ansatz. Du übernimmst die technische Verantwortung in Projekten, planst und koordinierst die Umsetzung und stellst die reibungslose Übergabe am Betrieb sicher.\nDein Arbeitsort kann Zürich Flughafen – The Circle , St. Gallen oder Bern sein. Werde Teil eines engagierten Teams, das mit Leidenschaft moderne Lösungen gestaltet und gemeinsam viel bewegt.\nDeine Rolle\n• Technische Umsetzung von Projekten im Bereich Modern Workplace mit Microsoft-Produkten (Microsoft 365, Intune, Entra ID etc.)\n• Ausführen administrativer Tätigkeiten im Rahmen der Projektabwicklung\n• Selbständige Abwicklung und Koordination von kleineren Aufträgen mit mehreren Schnittstellen (intern sowie beim Kunden)\n• Projektadministration innerhalb der Projekte, einschliesslich Verwaltung von Projektdokumenten, Anpassung von Projektplänen sowie Mitarbeit beim Management von Lieferobjekten, Terminen, Kosten und Projektrisiken\n• Aufbereiten von Präsentationen, Protokollen und weiteren projektbezogenen Unterlagen\n• Wahrnehmen von Kommunikations-, Informations- und Dokumentationsaufgaben\nDein Profil\n• Abgeschlossene Berufsausbildung im Bereich Informatik, im Medienbereich (z. B. Mediamatiker:in) oder im kaufmännischen Bereich mit gutem technischem Verständnis\n• Fundierte Grundkenntnisse in Windows Server, Clients, Netzwerk, Microsoft 365 und Intune\n• Rasche Auffassungsgabe und hohe Lernbereitschaft\n• Flexibilität sowie Offenheit für neue Ideen und die Bereitschaft, auch vor Ort beim Kunden zu arbeiten\n• Selbständige, gut organisierte und verantwortungsbewusste Arbeitsweise\n• Kooperative und kommunikative Persönlichkeit mit Freude an der Zusammenarbeit im Team\n• Fliessende Deutschkenntnisse in Wort und Schrift (mindestens C1-Niveau)\nDeine Benefits\n• Interessante und zukunftsorientierte Tätigkeit in einem innovativen Unternehmen\n• Mit unserem Jahresarbeitszeit-Modell kannst du deine tägliche Arbeitszeit selbst bestimmen und verwalten\n• Arbeitspensum (80–100 %) und Arbeitsort bei Anstellung flexibel regelbar\n• Moderne Arbeitsbedingungen (z. B. Home-Office, Infrastruktur)\n• Attraktive Weiterbildungs- und Entwicklungsmöglichkeiten\n• Familiäre Firmenkultur, Du-Kultur\n• SBB-Halbtaxabo für alle Mitarbeitenden\n• Firmen- und Teamevents",
+      "descriptionByLocale": {
+        "de": "Im S ystems Engineering Team der Abteilung Professional Services gestalten und realisieren wir moderne ICT-Lösungen für unsere Kunden.\nIn der Rolle als ICT System Engineer mit Projektleitungserfahrung begleitest du vorwiegend Gemeinden bei der Transformation ihrer bestehenden IT-Infrastrukturen hin zu einem modernen Managed Workplace mit Microsoft 365 , sei es in einem hybriden oder Cloud-only Ansatz. Du übernimmst die technische Verantwortung in Projekten, planst und koordinierst die Umsetzung und stellst die reibungslose Übergabe am Betrieb sicher.\nDein Arbeitsort kann Zürich Flughafen – The Circle , St. Gallen oder Bern sein. Werde Teil eines engagierten Teams, das mit Leidenschaft moderne Lösungen gestaltet und gemeinsam viel bewegt.\nDeine Rolle\n• Technische Umsetzung von Projekten im Bereich Modern Workplace mit Microsoft-Produkten (Microsoft 365, Intune, Entra ID etc.)\n• Ausführen administrativer Tätigkeiten im Rahmen der Projektabwicklung\n• Selbständige Abwicklung und Koordination von kleineren Aufträgen mit mehreren Schnittstellen (intern sowie beim Kunden)\n• Projektadministration innerhalb der Projekte, einschliesslich Verwaltung von Projektdokumenten, Anpassung von Projektplänen sowie Mitarbeit beim Management von Lieferobjekten, Terminen, Kosten und Projektrisiken\n• Aufbereiten von Präsentationen, Protokollen und weiteren projektbezogenen Unterlagen\n• Wahrnehmen von Kommunikations-, Informations- und Dokumentationsaufgaben\nDein Profil\n• Abgeschlossene Berufsausbildung im Bereich Informatik, im Medienbereich (z. B. Mediamatiker:in) oder im kaufmännischen Bereich mit gutem technischem Verständnis\n• Fundierte Grundkenntnisse in Windows Server, Clients, Netzwerk, Microsoft 365 und Intune\n• Rasche Auffassungsgabe und hohe Lernbereitschaft\n• Flexibilität sowie Offenheit für neue Ideen und die Bereitschaft, auch vor Ort beim Kunden zu arbeiten\n• Selbständige, gut organisierte und verantwortungsbewusste Arbeitsweise\n• Kooperative und kommunikative Persönlichkeit mit Freude an der Zusammenarbeit im Team\n• Fliessende Deutschkenntnisse in Wort und Schrift (mindestens C1-Niveau)\nDeine Benefits\n• Interessante und zukunftsorientierte Tätigkeit in einem innovativen Unternehmen\n• Mit unserem Jahresarbeitszeit-Modell kannst du deine tägliche Arbeitszeit selbst bestimmen und verwalten\n• Arbeitspensum (80–100 %) und Arbeitsort bei Anstellung flexibel regelbar\n• Moderne Arbeitsbedingungen (z. B. Home-Office, Infrastruktur)\n• Attraktive Weiterbildungs- und Entwicklungsmöglichkeiten\n• Familiäre Firmenkultur, Du-Kultur\n• SBB-Halbtaxabo für alle Mitarbeitenden\n• Firmen- und Teamevents",
+        "it": "Im S ystems Engineering Team der Abteilung Professional Services gestalten und realisieren wir moderne ICT-Lösungen für unsere Kunden.\nIn der Rolle als ICT System Engineer mit Projektleitungserfahrung begleitest du vorwiegend Gemeinden bei der Transformation ihrer bestehenden IT-Infrastrukturen hin zu einem modernen Managed Workplace mit Microsoft 365 , sei es in einem hybriden oder Cloud-only Ansatz. Du übernimmst die technische Verantwortung in Projekten, planst und koordinierst die Umsetzung und stellst die reibungslose Übergabe am Betrieb sicher.\nDein Arbeitsort kann Zürich Flughafen – The Circle , St. Gallen oder Bern sein. Werde Teil eines engagierten Teams, das mit Leidenschaft moderne Lösungen gestaltet und gemeinsam viel bewegt.\nDeine Rolle\n• Technische Umsetzung von Projekten im Bereich Modern Workplace mit Microsoft-Produkten (Microsoft 365, Intune, Entra ID etc.)\n• Ausführen administrativer Tätigkeiten im Rahmen der Projektabwicklung\n• Selbständige Abwicklung und Koordination von kleineren Aufträgen mit mehreren Schnittstellen (intern sowie beim Kunden)\n• Projektadministration innerhalb der Projekte, einschliesslich Verwaltung von Projektdokumenten, Anpassung von Projektplänen sowie Mitarbeit beim Management von Lieferobjekten, Terminen, Kosten und Projektrisiken\n• Aufbereiten von Präsentationen, Protokollen und weiteren projektbezogenen Unterlagen\n• Wahrnehmen von Kommunikations-, Informations- und Dokumentationsaufgaben\nDein Profil\n• Abgeschlossene Berufsausbildung im Bereich Informatik, im Medienbereich (z. B. Mediamatiker:in) oder im kaufmännischen Bereich mit gutem technischem Verständnis\n• Fundierte Grundkenntnisse in Windows Server, Clients, Netzwerk, Microsoft 365 und Intune\n• Rasche Auffassungsgabe und hohe Lernbereitschaft\n• Flexibilität sowie Offenheit für neue Ideen und die Bereitschaft, auch vor Ort beim Kunden zu arbeiten\n• Selbständige, gut organisierte und verantwortungsbewusste Arbeitsweise\n• Kooperative und kommunikative Persönlichkeit mit Freude an der Zusammenarbeit im Team\n• Fliessende Deutschkenntnisse in Wort und Schrift (mindestens C1-Niveau)\nDeine Benefits\n• Interessante und zukunftsorientierte Tätigkeit in einem innovativen Unternehmen\n• Mit unserem Jahresarbeitszeit-Modell kannst du deine tägliche Arbeitszeit selbst bestimmen und verwalten\n• Arbeitspensum (80–100 %) und Arbeitsort bei Anstellung flexibel regelbar\n• Moderne Arbeitsbedingungen (z. B. Home-Office, Infrastruktur)\n• Attraktive Weiterbildungs- und Entwicklungsmöglichkeiten\n• Familiäre Firmenkultur, Du-Kultur\n• SBB-Halbtaxabo für alle Mitarbeitenden\n• Firmen- und Teamevents",
+        "en": "Im S ystems Engineering Team der Abteilung Professional Services gestalten und realisieren wir moderne ICT-Lösungen für unsere Kunden.\nIn der Rolle als ICT System Engineer mit Projektleitungserfahrung begleitest du vorwiegend Gemeinden bei der Transformation ihrer bestehenden IT-Infrastrukturen hin zu einem modernen Managed Workplace mit Microsoft 365 , sei es in einem hybriden oder Cloud-only Ansatz. Du übernimmst die technische Verantwortung in Projekten, planst und koordinierst die Umsetzung und stellst die reibungslose Übergabe am Betrieb sicher.\nDein Arbeitsort kann Zürich Flughafen – The Circle , St. Gallen oder Bern sein. Werde Teil eines engagierten Teams, das mit Leidenschaft moderne Lösungen gestaltet und gemeinsam viel bewegt.\nDeine Rolle\n• Technische Umsetzung von Projekten im Bereich Modern Workplace mit Microsoft-Produkten (Microsoft 365, Intune, Entra ID etc.)\n• Ausführen administrativer Tätigkeiten im Rahmen der Projektabwicklung\n• Selbständige Abwicklung und Koordination von kleineren Aufträgen mit mehreren Schnittstellen (intern sowie beim Kunden)\n• Projektadministration innerhalb der Projekte, einschliesslich Verwaltung von Projektdokumenten, Anpassung von Projektplänen sowie Mitarbeit beim Management von Lieferobjekten, Terminen, Kosten und Projektrisiken\n• Aufbereiten von Präsentationen, Protokollen und weiteren projektbezogenen Unterlagen\n• Wahrnehmen von Kommunikations-, Informations- und Dokumentationsaufgaben\nDein Profil\n• Abgeschlossene Berufsausbildung im Bereich Informatik, im Medienbereich (z. B. Mediamatiker:in) oder im kaufmännischen Bereich mit gutem technischem Verständnis\n• Fundierte Grundkenntnisse in Windows Server, Clients, Netzwerk, Microsoft 365 und Intune\n• Rasche Auffassungsgabe und hohe Lernbereitschaft\n• Flexibilität sowie Offenheit für neue Ideen und die Bereitschaft, auch vor Ort beim Kunden zu arbeiten\n• Selbständige, gut organisierte und verantwortungsbewusste Arbeitsweise\n• Kooperative und kommunikative Persönlichkeit mit Freude an der Zusammenarbeit im Team\n• Fliessende Deutschkenntnisse in Wort und Schrift (mindestens C1-Niveau)\nDeine Benefits\n• Interessante und zukunftsorientierte Tätigkeit in einem innovativen Unternehmen\n• Mit unserem Jahresarbeitszeit-Modell kannst du deine tägliche Arbeitszeit selbst bestimmen und verwalten\n• Arbeitspensum (80–100 %) und Arbeitsort bei Anstellung flexibel regelbar\n• Moderne Arbeitsbedingungen (z. B. Home-Office, Infrastruktur)\n• Attraktive Weiterbildungs- und Entwicklungsmöglichkeiten\n• Familiäre Firmenkultur, Du-Kultur\n• SBB-Halbtaxabo für alle Mitarbeitenden\n• Firmen- und Teamevents",
+        "fr": "Im S ystems Engineering Team der Abteilung Professional Services gestalten und realisieren wir moderne ICT-Lösungen für unsere Kunden.\nIn der Rolle als ICT System Engineer mit Projektleitungserfahrung begleitest du vorwiegend Gemeinden bei der Transformation ihrer bestehenden IT-Infrastrukturen hin zu einem modernen Managed Workplace mit Microsoft 365 , sei es in einem hybriden oder Cloud-only Ansatz. Du übernimmst die technische Verantwortung in Projekten, planst und koordinierst die Umsetzung und stellst die reibungslose Übergabe am Betrieb sicher.\nDein Arbeitsort kann Zürich Flughafen – The Circle , St. Gallen oder Bern sein. Werde Teil eines engagierten Teams, das mit Leidenschaft moderne Lösungen gestaltet und gemeinsam viel bewegt.\nDeine Rolle\n• Technische Umsetzung von Projekten im Bereich Modern Workplace mit Microsoft-Produkten (Microsoft 365, Intune, Entra ID etc.)\n• Ausführen administrativer Tätigkeiten im Rahmen der Projektabwicklung\n• Selbständige Abwicklung und Koordination von kleineren Aufträgen mit mehreren Schnittstellen (intern sowie beim Kunden)\n• Projektadministration innerhalb der Projekte, einschliesslich Verwaltung von Projektdokumenten, Anpassung von Projektplänen sowie Mitarbeit beim Management von Lieferobjekten, Terminen, Kosten und Projektrisiken\n• Aufbereiten von Präsentationen, Protokollen und weiteren projektbezogenen Unterlagen\n• Wahrnehmen von Kommunikations-, Informations- und Dokumentationsaufgaben\nDein Profil\n• Abgeschlossene Berufsausbildung im Bereich Informatik, im Medienbereich (z. B. Mediamatiker:in) oder im kaufmännischen Bereich mit gutem technischem Verständnis\n• Fundierte Grundkenntnisse in Windows Server, Clients, Netzwerk, Microsoft 365 und Intune\n• Rasche Auffassungsgabe und hohe Lernbereitschaft\n• Flexibilität sowie Offenheit für neue Ideen und die Bereitschaft, auch vor Ort beim Kunden zu arbeiten\n• Selbständige, gut organisierte und verantwortungsbewusste Arbeitsweise\n• Kooperative und kommunikative Persönlichkeit mit Freude an der Zusammenarbeit im Team\n• Fliessende Deutschkenntnisse in Wort und Schrift (mindestens C1-Niveau)\nDeine Benefits\n• Interessante und zukunftsorientierte Tätigkeit in einem innovativen Unternehmen\n• Mit unserem Jahresarbeitszeit-Modell kannst du deine tägliche Arbeitszeit selbst bestimmen und verwalten\n• Arbeitspensum (80–100 %) und Arbeitsort bei Anstellung flexibel regelbar\n• Moderne Arbeitsbedingungen (z. B. Home-Office, Infrastruktur)\n• Attraktive Weiterbildungs- und Entwicklungsmöglichkeiten\n• Familiäre Firmenkultur, Du-Kultur\n• SBB-Halbtaxabo für alle Mitarbeitenden\n• Firmen- und Teamevents"
+      },
+      "location": "Zürich-Flughafen",
+      "canton": "ZH",
+      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-mit-projektleitungserfahrung-80-100-7205",
+      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-24T21:32:11.188Z",
+      "needsRetranslation": true,
+      "addressLocality": "Zürich-Flughafen",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8058",
+      "streetAddress": "",
+      "category": "IT / Sicurezza",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / Informatica per la pubblica amministrazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://apply.refline.ch/215876/2426/index.html?lang=de&cid=1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "215876-2426",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "salaryMin": 79000,
+      "salaryMax": 134500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 134500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-24T21:32:11.188Z"
+    },
+    {
       "id": "abraxas-2ee0dcad4ad9",
       "slug": "ict-system-engineer-devops-80-100-abraxas-zurich-flughafen",
       "slugByLocale": {
@@ -1430,7 +1416,7 @@
       "title": "ICT System Engineer DevOps 80–100 %",
       "titleByLocale": {
         "it": "ICT System Ingegnere DevOps 80–100 %",
-        "en": "ICT System Engineer DevOps 80-100%",
+        "en": "ICT System Engineer DevOps 80–100 %",
         "de": "ICT System Ingenieur DevOps 80–100 %",
         "fr": "ICT System Ingénieur DevOps 80–100 %"
       },
@@ -1446,7 +1432,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-devops-80-100-6206",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T09:58:20.117Z",
+      "crawledAt": "2026-08-24T21:32:10.718Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1480,8 +1467,7 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "abraxas-0b494c346556",
@@ -1514,7 +1500,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-iam-wafidp-80-100-9599",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T09:58:19.636Z",
+      "crawledAt": "2026-08-24T21:32:10.248Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -1582,7 +1568,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/cybersecurity-engineer-im-oeffentlichen-sektor-80-100-9583",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T09:58:19.154Z",
+      "crawledAt": "2026-08-24T21:32:09.775Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1647,7 +1633,7 @@
       "title": "Business-Analyst:in 80–100 %",
       "titleByLocale": {
         "it": "Business-Analista:in 80–100 %",
-        "en": "BusinessAnalyst 80-100%",
+        "en": "Business-Analyst:in 80–100 %",
         "de": "Business-Analyst:in 80–100 %",
         "fr": "Business-Analyste:in 80–100 %"
       },
@@ -1663,7 +1649,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/business-analystin-80-100-1603",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T09:58:18.674Z",
+      "crawledAt": "2026-08-24T21:32:09.307Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -1688,9 +1674,8 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "business-analyst-in-80-100-abraxas-zurich-flughafen",
-        "businessanalyst-80-100-abraxas-informatik-ag-zurich-flughafen",
-        "business-analista-in-80-100-abraxas-informatik-ag-zurich-flughafen",
-        "business-analyst-in-80-100-abraxas-informatik-ag-zurich-flughafen"
+        "business-analyst-in-80-100-abraxas-informatik-ag-zurich-flughafen",
+        "business-analista-in-80-100-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1750,7 +1735,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/business-analyst-im-bereich-steuern-80-100-2625",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T09:58:18.194Z",
+      "crawledAt": "2026-08-24T21:32:08.824Z",
       "needsRetranslation": true,
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
@@ -1831,7 +1816,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/bereichscontrollerin-60-80-7514",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T09:58:17.661Z",
+      "crawledAt": "2026-08-24T21:32:08.356Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1854,13 +1839,32 @@
       "pensumMin": 60,
       "pensumMax": 80,
       "pensum": "60 - 80%",
+      "previousSlugs": [
+        "bereichscontroller-in-60-80-abraxas-st-gallen",
+        "bereichscontroller-in-60-80-abraxas-informatik-ag-st-gallen",
+        "senior-software-ingenieur-c-net-80-100-abraxas-informatik-ag-st-gallen",
+        "devops-ingegnere-80-100-abraxas-informatik-ag-st-gallen",
+        "devops-engineer-80-100-abraxas-st-gallen",
+        "devops-ingenieur-80-100-abraxas-informatik-ag-st-gallen",
+        "cybersecurity-ingegnere-im-offentlichen-sektor-80-100-abraxas-informatik-ag-st-gallen",
+        "cybersecurity-engineer-in-the-public-sector-80-100-abraxas-informatik-ag-st-gallen-3c39f8",
+        "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen",
+        "cybersecurity-ingenieur-im-offentlichen-sektor-80-100-abraxas-informatik-ag-st-gallen",
+        "cybersecurity-engineer-in-the-public-sector-80-100-abraxas-informatik-ag-st-gallen",
+        "software-ingegnere-80-100-abraxas-informatik-ag-st-gallen",
+        "software-architekt-in-80-100-abraxas-st-gallen",
+        "software-architect-in-80-100-abraxas-informatik-ag-st-gallen",
+        "architecte-logiciel-en-80-100-abraxas-informatik-ag-st-gallen",
+        "software-ingegnere-c-net-80-100-abraxas-informatik-ag-st-gallen",
+        "software-engineer-c-net-80-100-abraxas-st-gallen",
+        "software-ingenieur-c-net-80-100-abraxas-informatik-ag-st-gallen",
+        "senior-software-ingegnere-c-net-80-100-abraxas-informatik-ag-st-gallen",
+        "senior-software-engineer-c-net-80-100-abraxas-st-gallen",
+        "software-engineer-80-100-abraxas-st-gallen",
+        "software-ingenieur-80-100-abraxas-informatik-ag-st-gallen",
+        "area-controller-in-60-80-abraxas-informatik-ag-st-gallen"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "software-engineer-80-100-abraxas-st-gallen",
-          "devops-engineer-80-100-abraxas-st-gallen",
-          "bereichscontroller-in-60-80-abraxas-informatik-ag-st-gallen",
-          "bereichscontroller-in-60-80-abraxas-st-gallen"
-        ],
         "it": [
           "bereichscontroller-in-60-80-abraxas-st-gallen",
           "bereichscontroller-in-60-80-abraxas-informatik-ag-st-gallen",
@@ -1887,37 +1891,18 @@
           "senior-software-engineer-c-net-80-100-abraxas-st-gallen",
           "bereichscontroller-in-60-80-abraxas-informatik-ag-st-gallen"
         ],
+        "de": [
+          "software-engineer-80-100-abraxas-st-gallen",
+          "devops-engineer-80-100-abraxas-st-gallen",
+          "bereichscontroller-in-60-80-abraxas-informatik-ag-st-gallen",
+          "bereichscontroller-in-60-80-abraxas-st-gallen"
+        ],
         "fr": [
           "bereichscontroller-in-60-80-abraxas-informatik-ag-st-gallen",
           "software-ingenieur-80-100-abraxas-informatik-ag-st-gallen",
           "devops-ingenieur-80-100-abraxas-informatik-ag-st-gallen"
         ]
       },
-      "previousSlugs": [
-        "bereichscontroller-in-60-80-abraxas-st-gallen",
-        "bereichscontroller-in-60-80-abraxas-informatik-ag-st-gallen",
-        "senior-software-ingenieur-c-net-80-100-abraxas-informatik-ag-st-gallen",
-        "devops-ingegnere-80-100-abraxas-informatik-ag-st-gallen",
-        "devops-engineer-80-100-abraxas-st-gallen",
-        "devops-ingenieur-80-100-abraxas-informatik-ag-st-gallen",
-        "cybersecurity-ingegnere-im-offentlichen-sektor-80-100-abraxas-informatik-ag-st-gallen",
-        "cybersecurity-engineer-in-the-public-sector-80-100-abraxas-informatik-ag-st-gallen-3c39f8",
-        "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen",
-        "cybersecurity-ingenieur-im-offentlichen-sektor-80-100-abraxas-informatik-ag-st-gallen",
-        "cybersecurity-engineer-in-the-public-sector-80-100-abraxas-informatik-ag-st-gallen",
-        "software-ingegnere-80-100-abraxas-informatik-ag-st-gallen",
-        "software-architekt-in-80-100-abraxas-st-gallen",
-        "software-architect-in-80-100-abraxas-informatik-ag-st-gallen",
-        "architecte-logiciel-en-80-100-abraxas-informatik-ag-st-gallen",
-        "software-ingegnere-c-net-80-100-abraxas-informatik-ag-st-gallen",
-        "software-engineer-c-net-80-100-abraxas-st-gallen",
-        "software-ingenieur-c-net-80-100-abraxas-informatik-ag-st-gallen",
-        "senior-software-ingegnere-c-net-80-100-abraxas-informatik-ag-st-gallen",
-        "senior-software-engineer-c-net-80-100-abraxas-st-gallen",
-        "software-engineer-80-100-abraxas-st-gallen",
-        "software-ingenieur-80-100-abraxas-informatik-ag-st-gallen",
-        "area-controller-in-60-80-abraxas-informatik-ag-st-gallen"
-      ],
       "firstSeenAt": "2026-07-23T22:07:19.673Z",
       "salaryMin": 48000,
       "salaryMax": 81600,
@@ -1963,7 +1948,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/applikations-supporterin-epsipol-ordnungsbussen-deutsch-amp-franzoesisch-80-100-5077",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T09:58:17.167Z",
+      "crawledAt": "2026-08-24T21:32:07.887Z",
       "needsRetranslation": true,
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
@@ -2047,7 +2032,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-teamleiterin-80-100-3906",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T09:58:16.677Z",
+      "crawledAt": "2026-08-24T21:32:07.409Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -2131,7 +2116,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-kundenbetreuer-finanzen-debitoren-kreditoren-und-electronic-banking-80-100-8245",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T09:58:16.198Z",
+      "crawledAt": "2026-08-24T21:32:06.940Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -2215,7 +2200,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-svm-amp-proj-80-100-3900",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T09:58:15.713Z",
+      "crawledAt": "2026-08-24T21:32:06.469Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -2299,7 +2284,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-finanzen-80-100-5481",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T09:58:15.081Z",
+      "crawledAt": "2026-08-24T21:32:06.000Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -2383,7 +2368,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-bpe-rest-amp-abareport-80-100-2411",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T09:58:14.443Z",
+      "crawledAt": "2026-08-24T21:32:05.525Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -2419,6 +2404,91 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "abraxas-6737244018ad",
+      "slug": "apprendistato-come-informatiker-in-plattformentwicklung-abraxas-informatik-ag-zurich-flughafen",
+      "slugByLocale": {
+        "it": "apprendistato-come-informatiker-in-plattformentwicklung-abraxas-informatik-ag-zurich-flughafen",
+        "en": "apprenticeship-as-computer-scientist-in-platform-development-abraxas-informatik-ag-zurich-flughafen",
+        "de": "lehrstelle-als-informatiker-in-plattformentwicklung-abraxas-zurich-flughafen",
+        "fr": "apprentissage-en-informatique-in-developpement-de-la-plateforme-abraxas-informatik-ag-zurich-flughafen"
+      },
+      "company": "Abraxas Informatik AG",
+      "companyKey": "abraxas",
+      "companyDomain": "abraxas.ch",
+      "title": "Lehrstelle als Informatiker:in - Plattformentwicklung",
+      "titleByLocale": {
+        "it": "Apprendistato come Informatiker:in - Plattformentwicklung",
+        "en": "Apprenticeship as computer scientist:in - Platform development",
+        "de": "Lehrstelle als Informatiker:in - Plattformentwicklung",
+        "fr": "Apprentissage en informatique:in - Développement de la plateforme"
+      },
+      "description": "Du willst wissen, wie Server, Netzwerke und Cloud wirklich funktionieren? Als Informatiker:in Plattformentwicklung bei Abraxas sorgst du dafür, dass Systeme stabil laufen und moderne IT-Infrastrukturen entstehen. Entdecke in deiner Lehre bei uns, wie spannend die Welt hinter den Kulissen der IT ist.\nDeine Rolle\nAls Informatiker:in der Fachrichtung Plattformentwicklung bist du Spezialist:in für den Aufbau und Betrieb von IT-Infrastrukturen . Du installierst und konfigurierst Serversysteme, Netzwerke sowie Software und automatisierst Abläufe mit Skripten und Tools. Dabei arbeitest du in den Bereichen Planung, Installation, Betrieb und Wartung von Informatiksystemen und deren Anwendungen.\nDu kümmerst dich während der vier Lehrjahre um Hard- und Software – von einzelnen Geräten bis hin zu vernetzten Systemlandschaften. Dazu gehört auch das Erkennen, Analysieren und Beheben von Störungen. Zudem führst du Updates durch und koordinierst bei Bedarf Hardware-Reparaturen mit externen Partnern.\nDein Profil\n• Abgeschlossene Sekundarschule der höchsten Stufe mit guten Leistungen in den naturwissenschaftlichen / mathematischen Fächern und in Deutsch.\n• Sehr gutes logisch-abstraktes Denkvermögen\n• Sinn für theoretische Vorgänge und Abläufe\n• Freude an exakter Denk- und Arbeitsweise\n• Interesse am Lösen komplexer Aufgabenstellungen\n• Freude am Experimentieren\n• Geduld und Freude an der Arbeit mit Informatiksystemen\n• Permanente Leistungsbereitschaft\nBeachte bitte auch die schulischen Anforderungen, die für diese Lehre vorausgesetzt werden und lese dazu die Dokumente des BIZ .\nUnser Angebot\nBrauchst du zwischendurch Abstand vom Digitalen? Bei uns stehen dir jederzeit Stifte, Papier und beschreibbare Wände für kreative Ideen zur Verfügung. Zum Abschalten kannst du eine Runde um den Circle drehen oder in unserem Ruheraum entspannen. Freu dich ausserdem auf Benefits wie vergünstigtes Fitness-Training, die Möglichkeit zum Ferienkauf und einen jährlichen Ausflug für alle Lernenden.\nBei uns in der Lehre erwarten dich flexible Arbeitszeiten, 6 Wochen Ferien, finanzielle Unterstützung bei Schulmitteln und viele weitere Goodies. Während deiner Ausbildung wirst du von engagierten Praxisausbildner:innen begleitet und übernimmst bereits früh Verantwortung – denn unsere Lernenden sind ein wichtiger Teil des Teams.\nKlingt spannend? Dann bewerbe dich für die Lehrstelle als Informatiker:in EFZ in der Fachrichtung Plattformentwicklung mit Start im August 2027.\nSo bewirbst du dich:\nBewirb dich direkt über dieses Inserat. Nach der Prüfung deiner Unterlagen melden wir uns bei dir und teilen dir mit, ob und an welchem Datum wir dich zu einem Vorstellungsgespräch einladen können.\nDiese Unterlagen benötigen wir von dir:\n• Motivationsschreiben\n• Aktueller Lebenslauf mit Foto\n• Alle Oberstufenzeugnisse\n• Stellwerk / Multicheck (falls vorhanden)\nBitte beachte: Bewerbungen nehmen wir aus Sicherheitsgründen nur online über unsere Stellenausschreibungen entgegen.\nBei Fragen zum Bewerbungsprozess hilft dir unser Berufsbildner Bruno Bertelli gerne weiter.",
+      "descriptionByLocale": {
+        "it": "Vuoi sapere come funzionano davvero server, reti e cloud? In qualità di informatico: nello sviluppo della piattaforma ad Abraxas, si assicura che i sistemi gestiscano infrastrutture IT stabili e moderne. Nel tuo insegnamento con noi, scopri quanto sia emozionante il mondo dietro le quinte dell'IT.\nIl tuo ruolo\nCome informatico: nel campo dello sviluppo della piattaforma, sei uno specialista: nello sviluppo e nel funzionamento delle infrastrutture IT. Installa e configura sistemi server, reti e software e automatizza i processi con script e strumenti. Si lavora nei settori di pianificazione, installazione, funzionamento e manutenzione dei sistemi informatici e delle loro applicazioni.\nDurante i quattro anni di apprendistato, si prenderanno cura di hardware e software – dai singoli dispositivi ai paesaggi di sistema in rete. Questo include rilevare, analizzare e correggere disturbi. Si effettuano anche aggiornamenti e coordinate riparazioni hardware con partner esterni, se necessario.\nIl tuo profilo\n• Scuola secondaria di livello superiore con buone prestazioni in scienze / materie matematiche e in tedesco.\n• Molto buon pensiero logico-astratto\n• Senso di processi e processi teorici\n• Divertimento dei metodi di pensiero e di lavoro esatti\n• Interessi nella risoluzione di compiti complessi\n• La gioia della sperimentazione\n• Pazienza e gioia nel lavorare con i sistemi informatici\n• Preparazione permanente\nSi prega inoltre di notare i requisiti scolastici richiesti per questo insegnamento e leggere i documenti del BIS.\nLa nostra offerta\nHai bisogno di una distanza dal digitale? Con noi, penne, carta e pareti descrivibili sono sempre disponibili per idee creative. Per spegnere, è possibile girare il cerchio o rilassarsi nella nostra stanza di riposo. Si può anche aspettare a benefici come l'allenamento di fitness scontato, l'opportunità di acquistare una vacanza e un'escursione annuale per tutti gli studenti.\nCon noi nell'insegnamento, ci si può aspettare orari di lavoro flessibili, 6 settimane vacanze, supporto finanziario per i fondi scolastici e molte altre buoneies. Durante il vostro apprendistato, sarete accompagnati da formatori dedicati e vi assumete presto la responsabilità – perché i nostri studenti sono una parte importante della squadra.\nSembra eccitante? Poi si applica per l'apprendistato come scienziato informatico: in EFZ nel campo dello sviluppo della piattaforma a partire dall'agosto 2027.\nEcco come si applica:\nApplicare direttamente attraverso questo elenco. Dopo aver esaminato i tuoi documenti, ti contatteremo e ti faremo sapere se e in quale data possiamo invitarti ad un colloquio.\nAbbiamo bisogno di questi documenti da voi:\n• Lettera di motivazione\n• CV corrente con foto\n• Tutti i certificati di livello superiore\n• Interlocking / Multicheck (se disponibile)\nNota: Per motivi di sicurezza, accettiamo solo le applicazioni online tramite le nostre postazioni di lavoro.\nSe avete domande sul processo di applicazione, il nostro trainer Bruno Bertelli sarà lieto di aiutarvi.",
+        "en": "Want to know how servers, networks and the cloud really work? As a computer scientist: in platform development at Abraxas, you ensure that systems run stable and modern IT infrastructures are created. In your teaching with us, discover how exciting the world behind the scenes of IT is.\nYour role\nAs a computer scientist: in the field of platform development, you are a specialist: in the development and operation of IT infrastructures. You install and configure server systems, networks and software and automate processes with scripts and tools. You work in the areas of planning, installation, operation and maintenance of computer systems and their applications.\nDuring the four apprenticeship years, you will take care of hardware and software – from individual devices to networked system landscapes. This includes detecting, analyzing and correcting disturbances. You also carry out updates and coordinate hardware repairs with external partners if necessary.\nYour profile\n• Highest level secondary school with good performance in science/mathematical subjects and in German.\n• Very good logical-abstract thinking\n• Sense of theoretical processes and processes\n• Enjoyment of exact thinking and working methods\n• Interest in solving complex tasks\n• The joy of experimentation\n• Patience and joy in working with computer systems\n• Permanent preparedness\nPlease also note the school requirements required for this teaching and read the documents of the BIS.\nOur offer\nDo you need a distance from the digital? With us, pens, paper and describable walls are always available for creative ideas. To switch off, you can turn around the circle or relax in our rest room. You can also look forward to benefits such as discounted fitness training, the opportunity to buy a holiday and an annual excursion for all learners.\nWith us in teaching, you can expect flexible working hours, 6 weeks holidays, financial support for school funds and many other goodies. During your apprenticeship, you will be accompanied by dedicated trainers and take on responsibility early on – because our learners are an important part of the team.\nSounds exciting? Then apply for the apprenticeship as a computer scientist: in EFZ in the field of platform development starting in August 2027.\nThis is how you apply:\nApply directly through this listing. After reviewing your documents, we will contact you and let you know if and on what date we can invite you to an interview.\nWe need these documents from you:\n• Letter of motivation\n• Current CV with photo\n• All upper-level certificates\n• Interlocking / Multicheck (if available)\nPlease note: For security reasons, we only accept applications online via our job postings.\nIf you have any questions about the application process, our trainer Bruno Bertelli will be happy to help you.",
+        "de": "Du willst wissen, wie Server, Netzwerke und Cloud wirklich funktionieren? Als Informatiker:in Plattformentwicklung bei Abraxas sorgst du dafür, dass Systeme stabil laufen und moderne IT-Infrastrukturen entstehen. Entdecke in deiner Lehre bei uns, wie spannend die Welt hinter den Kulissen der IT ist.\nDeine Rolle\nAls Informatiker:in der Fachrichtung Plattformentwicklung bist du Spezialist:in für den Aufbau und Betrieb von IT-Infrastrukturen . Du installierst und konfigurierst Serversysteme, Netzwerke sowie Software und automatisierst Abläufe mit Skripten und Tools. Dabei arbeitest du in den Bereichen Planung, Installation, Betrieb und Wartung von Informatiksystemen und deren Anwendungen.\nDu kümmerst dich während der vier Lehrjahre um Hard- und Software – von einzelnen Geräten bis hin zu vernetzten Systemlandschaften. Dazu gehört auch das Erkennen, Analysieren und Beheben von Störungen. Zudem führst du Updates durch und koordinierst bei Bedarf Hardware-Reparaturen mit externen Partnern.\nDein Profil\n• Abgeschlossene Sekundarschule der höchsten Stufe mit guten Leistungen in den naturwissenschaftlichen / mathematischen Fächern und in Deutsch.\n• Sehr gutes logisch-abstraktes Denkvermögen\n• Sinn für theoretische Vorgänge und Abläufe\n• Freude an exakter Denk- und Arbeitsweise\n• Interesse am Lösen komplexer Aufgabenstellungen\n• Freude am Experimentieren\n• Geduld und Freude an der Arbeit mit Informatiksystemen\n• Permanente Leistungsbereitschaft\nBeachte bitte auch die schulischen Anforderungen, die für diese Lehre vorausgesetzt werden und lese dazu die Dokumente des BIZ .\nUnser Angebot\nBrauchst du zwischendurch Abstand vom Digitalen? Bei uns stehen dir jederzeit Stifte, Papier und beschreibbare Wände für kreative Ideen zur Verfügung. Zum Abschalten kannst du eine Runde um den Circle drehen oder in unserem Ruheraum entspannen. Freu dich ausserdem auf Benefits wie vergünstigtes Fitness-Training, die Möglichkeit zum Ferienkauf und einen jährlichen Ausflug für alle Lernenden.\nBei uns in der Lehre erwarten dich flexible Arbeitszeiten, 6 Wochen Ferien, finanzielle Unterstützung bei Schulmitteln und viele weitere Goodies. Während deiner Ausbildung wirst du von engagierten Praxisausbildner:innen begleitet und übernimmst bereits früh Verantwortung – denn unsere Lernenden sind ein wichtiger Teil des Teams.\nKlingt spannend? Dann bewerbe dich für die Lehrstelle als Informatiker:in EFZ in der Fachrichtung Plattformentwicklung mit Start im August 2027.\nSo bewirbst du dich:\nBewirb dich direkt über dieses Inserat. Nach der Prüfung deiner Unterlagen melden wir uns bei dir und teilen dir mit, ob und an welchem Datum wir dich zu einem Vorstellungsgespräch einladen können.\nDiese Unterlagen benötigen wir von dir:\n• Motivationsschreiben\n• Aktueller Lebenslauf mit Foto\n• Alle Oberstufenzeugnisse\n• Stellwerk / Multicheck (falls vorhanden)\nBitte beachte: Bewerbungen nehmen wir aus Sicherheitsgründen nur online über unsere Stellenausschreibungen entgegen.\nBei Fragen zum Bewerbungsprozess hilft dir unser Berufsbildner Bruno Bertelli gerne weiter.",
+        "fr": "Vous voulez savoir comment fonctionnent les serveurs, les réseaux et le cloud ? En tant qu'informaticien: dans le développement de plateforme à Abraxas, vous assurez que les systèmes fonctionnent des infrastructures informatiques stables et modernes sont créés. Dans votre enseignement avec nous, découvrez à quel point le monde en coulisse est passionnant.\nVotre rôle\nEn tant qu'informatologue: dans le domaine du développement de plateformes, vous êtes un spécialiste: dans le développement et le fonctionnement des infrastructures informatiques. Vous installez et configurez des systèmes de serveurs, des réseaux et des logiciels et automatisez les processus avec des scripts et des outils. Vous travaillez dans les domaines de la planification, de l'installation, de l'exploitation et de la maintenance des systèmes informatiques et de leurs applications.\nAu cours des quatre années d'apprentissage, vous vous occuperez du matériel et des logiciels – des appareils individuels aux paysages en réseau. Cela comprend la détection, l'analyse et la correction des perturbations. Vous effectuez également des mises à jour et coordonnez les réparations du matériel avec des partenaires externes si nécessaire.\nVotre profil\n• L'enseignement secondaire le plus élevé avec de bonnes performances en sciences/mathématiques et en allemand.\n• Très bonne pensée logique-abstract\n• Sens des processus théoriques\n• Appréciation de la pensée exacte et des méthodes de travail\n• Intérêt pour la résolution de tâches complexes\n• La joie de l'expérimentation\n• Patience et joie de travailler avec les systèmes informatiques\n• Préparation permanente\nVeuillez également noter les exigences scolaires requises pour cet enseignement et lire les documents de la BRI.\nNotre offre\nVous avez besoin d'une distance par rapport au numérique? Avec nous, des stylos, du papier et des murs déchiffrables sont toujours disponibles pour des idées créatives. Pour éteindre, vous pouvez tourner autour du cercle ou vous détendre dans notre salle de repos. Vous pouvez également compter sur des avantages tels que l'entraînement physique à prix réduit, la possibilité d'acheter des vacances et une excursion annuelle pour tous les apprenants.\nAvec nous dans l'enseignement, vous pouvez vous attendre à des horaires de travail flexibles, 6 semaines de vacances, un soutien financier pour les fonds scolaires et beaucoup d'autres goodies. Durant votre apprentissage, vous serez accompagné de formateurs dévoués et assumerez vos responsabilités dès le début, car nos apprenants sont une partie importante de l'équipe.\nÇa semble excitant ? Puis postulez à l'apprentissage en tant qu'informaticien: en EFZ dans le domaine du développement de plateforme à partir d'août 2027.\nVoici comment vous appliquez :\nAppliquer directement sur cette liste. Après avoir examiné vos documents, nous vous contacterons et vous ferons savoir si et à quelle date nous pouvons vous inviter à une entrevue.\nNous avons besoin de ces documents de votre part :\n• Lettre de motivation\n• CV actuel avec photo\n• Tous les certificats de niveau supérieur\n• Interlockage / Multivérification (si disponible)\nRemarque : Pour des raisons de sécurité, nous n'acceptons les candidatures en ligne que via nos offres d'emploi.\nSi vous avez des questions sur le processus de candidature, notre formateur Bruno Bertelli sera heureux de vous aider."
+      },
+      "location": "Zürich-Flughafen",
+      "canton": "ZH",
+      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/lehrstelle-als-informatikerin-plattformentwicklung-2149",
+      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-24T09:58:23.946Z",
+      "needsRetranslation": true,
+      "addressLocality": "Zürich-Flughafen",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8058",
+      "streetAddress": "",
+      "category": "IT / Infrastruttura",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "entry",
+      "sector": "IT / Informatica per la pubblica amministrazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-31",
+      "applyUrl": "https://apply.refline.ch/215876/2445/index.html?lang=de&cid=1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "215876-2445",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "previousSlugs": [
+        "lehrstelle-als-informatiker-in-plattformentwicklung-abraxas-zurich-flughafen",
+        "apprendistato-come-informatiker-in-plattformentwicklung-abraxas-informatik-ag-zurich-flughafen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-als-informatiker-in-plattformentwicklung-abraxas-zurich-flughafen",
+          "apprendistato-come-informatiker-in-plattformentwicklung-abraxas-informatik-ag-zurich-flughafen"
+        ],
+        "en": [
+          "lehrstelle-als-informatiker-in-plattformentwicklung-abraxas-zurich-flughafen"
+        ],
+        "fr": [
+          "lehrstelle-als-informatiker-in-plattformentwicklung-abraxas-zurich-flughafen"
+        ]
+      },
+      "firstSeenAt": "2026-07-31T22:08:23.589Z",
+      "salaryMin": 71000,
+      "salaryMax": 120500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 71000,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }
