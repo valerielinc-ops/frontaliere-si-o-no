@@ -70,7 +70,7 @@
           {
             "type": "command",
             "command": "node \"$CLAUDE_PROJECT_DIR/scripts/ci/pr-watch-gate.mjs\"",
-            "timeout": 75
+            "timeout": 330
           }
         ]
       }
