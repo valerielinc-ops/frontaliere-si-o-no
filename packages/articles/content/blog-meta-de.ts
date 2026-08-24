@@ -10694,6 +10694,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.albizzate-lavorare-ticino-frontaliere.title': 'Albizzate-Ticino als Grenzgänger: praktischer Leitfaden',
     'blog.article.albizzate-lavorare-ticino-frontaliere.excerpt': 'Leben in Albizzate und Arbeiten im Tessin: Bewilligungen G, Steuern 2024, AHV, KVG und Doppelbesteuerung. Alles, was Sie für den Transfer wissen müssen.',
     'blog.article.albizzate-lavorare-ticino-frontaliere.imageAlt': 'Grenzgänger am Schweizer-italienischen Grenzübergang in der Nähe von Mendrisio',
+    'blog.article.vivere-albizzate-lavorare-ticino-frontaliere.title': 'Leben in Albizzate und Arbeiten im Tessin: Leitfaden 2026',
+    'blog.article.vivere-albizzate-lavorare-ticino-frontaliere.excerpt': 'Bewilligung G, Steuern, AHV und KVG: alles, was sich ab dem 1. Januar 2024 für die Grenzgänger Albizzate-Ticino ändert.',
+    'blog.article.vivere-albizzate-lavorare-ticino-frontaliere.imageAlt': 'Locarno am Lago Maggiore mit Alpen, Symbol des Tessin und des Grenzgängerlebens',
 };
 
 export default blogMetaDe;
