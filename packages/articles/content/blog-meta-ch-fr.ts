@@ -4165,6 +4165,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.piano-emergenza-pagamenti-digitali.title': 'Blackout Internet : en Suisse, vous pouvez payer par carte',
     'blog.article.piano-emergenza-pagamenti-digitali.excerpt': 'Présentation du plan d\'urgence pour les paiements numériques sans internet en Suisse. Opérationnel avant la fin de l\'année prochaine pour les biens de première nécessité.',
     'blog.article.piano-emergenza-pagamenti-digitali.imageAlt': 'Terminaux de paiement et cartes de crédit en Suisse',
+    'blog.article.imposta-successione-donazione-basilea-campagna.title': 'Droits de succession et de donation : Bâle-Campagne',
+    'blog.article.imposta-successione-donazione-basilea-campagna.excerpt': 'Comment fonctionnent les impôts sur les successions et les donations dans le canton de Bâle-Campagne : taux, exonérations pour les membres de la famille et procédures de déclaration.',
+    'blog.article.imposta-successione-donazione-basilea-campagna.imageAlt': 'Bureau des impôts du canton de Bâle-Campagne, représentant l\'administration fiscale cantonale.',
 };
 
 export default blogMetaChFr;
