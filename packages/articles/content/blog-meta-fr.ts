@@ -10659,6 +10659,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-longone-segrino-lavorare-ticino-frontaliere.title': 'Longone al Segrino-Ticino : guide pour les frontaliers',
     'blog.article.vivere-longone-segrino-lavorare-ticino-frontaliere.excerpt': 'Vivre à Longone al Segrino et travailler au Tessin : franchise € 7 500- € 10 000, impôt à la source, AVS, LAMal, temps de trajet et coût de la vie.',
     'blog.article.vivere-longone-segrino-lavorare-ticino-frontaliere.imageAlt': 'Vue panoramique de la rive orientale du lac de Côme avec pics alpins',
+    'blog.article.vivere-monguzzo-lavorare-ticino-da-frontaliere.title': 'Vivre à Monguzzo et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-monguzzo-lavorare-ticino-da-frontaliere.excerpt': 'Réglage fiscal, permis et avantages pour les frontaliers qui travaillent au Tessin et résident à Monguzzo',
+    'blog.article.vivere-monguzzo-lavorare-ticino-da-frontaliere.imageAlt': 'Image d\'un travailleur frontalier qui travaille en Tessin et réside à Monguzzo',
 };
 
 export default blogMetaFr;

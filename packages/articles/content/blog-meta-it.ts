@@ -10658,6 +10658,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-longone-segrino-lavorare-ticino-frontaliere.title': 'Longone al Segrino-Ticino: guida per frontalieri',
     'blog.article.vivere-longone-segrino-lavorare-ticino-frontaliere.excerpt': 'Vivere a Longone al Segrino e lavorare in Ticino: franchigia €7.500–€10.000, imposta alla fonte, AVS, LAMal, tempi di pendolarismo e costo della vita.',
     'blog.article.vivere-longone-segrino-lavorare-ticino-frontaliere.imageAlt': 'Veduta del Lago di Como con montagne alpine, paesi frontalieri tra Italia e Ticino',
+    'blog.article.vivere-monguzzo-lavorare-ticino-da-frontaliere.title': 'Vivere a Monguzzo e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-monguzzo-lavorare-ticino-da-frontaliere.excerpt': 'Impostazione fiscale, permessi e vantaggi per i frontalieri che lavorano in Ticino e risiedono in Monguzzo',
+    'blog.article.vivere-monguzzo-lavorare-ticino-da-frontaliere.imageAlt': 'Immagine di un frontaliere che lavora in Ticino e risiede a Monguzzo',
 };
 
 export default blogMetaIt;
