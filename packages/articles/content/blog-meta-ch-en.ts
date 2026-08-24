@@ -4177,6 +4177,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ticino-solare-fotovoltaico-1982.title': 'The sun as a building material',
     'blog.article.ticino-solare-fotovoltaico-1982.excerpt': 'Ticino has been a pioneer of European photovoltaics since 1982. Today, ViverTI and Sun Appeal are reinventing residential solar: 2,100 hours of sunshine per year, smart and sustainable homes.',
     'blog.article.ticino-solare-fotovoltaico-1982.imageAlt': 'Aerial view of Lugano showing homes with solar panels integrated into design, sunny Ticino',
+    'blog.article.permesso-l-sciaffusa-rinnovamento-dimora.title': 'Permit L Schaffhausen: validity, extension and step B',
+    'blog.article.permesso-l-sciaffusa-rinnovamento-dimora.excerpt': 'The L permit allows work for up to 1 year in Switzerland. Learn how to extend it, change employer, and transition to B or C permits in the canton.',
+    'blog.article.permesso-l-sciaffusa-rinnovamento-dimora.imageAlt': 'View of a Swiss city representing the employment context and professional mobility opportunities',
 };
 
 export default blogMetaChEn;

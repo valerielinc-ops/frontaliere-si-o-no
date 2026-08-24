@@ -1418,6 +1418,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-domicilio-c-sciaffusa-requisiti': { it: 'permesso-domicilio-c-sciaffusa-requisiti', en: 'residence-permit-c-schaffhausen-requirements', de: 'aufenthaltserlaubnis-c-schaffhausen-voraussetzungen', fr: 'permis-domicile-c-schaffhausen-conditions' },
  'permesso-l-sciaffusa-validita-proroga': { it: 'permesso-l-sciaffusa-validita-proroga', en: 'permit-l-schaffhausen-validity-renewal', de: 'aufenthalts-l-schaffhausen-gueltig-verlaengerung', fr: 'permis-l-schaffhouse-validite-renouvellement' },
  'ticino-solare-fotovoltaico-1982': { it: 'ticino-solare-fotovoltaico-1982', en: 'ticino-solar-photovoltaic-1982', de: 'tessin-solaranlage-photovoltaik-1982', fr: 'tessin-solaire-photovoltaique-1982' },
+ 'permesso-l-sciaffusa-rinnovamento-dimora': { it: 'permesso-l-sciaffusa-rinnovamento-dimora', en: 'permit-l-schaffhausen-renewal-residence', de: 'erlaubnis-l-schaffhausen-verlaengerung-aufenthalt', fr: 'permis-l-schaffhouse-renouvellement-sejour' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -54191,6 +54191,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-l-sciaffusa-rinnovamento-dimora': {
+    title: 'Permesso L Sciaffusa: validità, proroga e passaggio B',
+    description: 'Guida completa al permesso L di breve durata in Sciaffusa: durata massima di 1 anno, condizioni di proroga, vincoli con il datore e transazione verso B.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, sciaffusa, validità, proroga',
+    ogTitle: 'Permesso L Sciaffusa: validità, proroga e passaggio B',
+    ogDescription: 'Scopri come funziona il permesso L di breve durata nel cantone Sciaffusa: durata massima 1 anno, procedure di proroga, vincoli al datore, passaggio al permesso di dimora. Guida pratica per lavoratori stranieri.',
+    canonicalPath: '/articoli-svizzera/permesso-l-sciaffusa-rinnovamento-dimora/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso L Sciaffusa: validità, proroga e passaggio B",
+      "description": "Guida completa al permesso L di breve durata in Sciaffusa: durata massima di 1 anno, condizioni di proroga, vincoli con il datore e transazione verso B.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-l-sciaffusa-rinnovamento-dimora.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di una città svizzera che rappresenta il contesto lavorativo e le opportunità di mobilità professionale"
+      },
+      "datePublished": "2026-08-24T20:34:29+00:00",
+      "dateModified": "2026-08-24T20:34:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-l-sciaffusa-rinnovamento-dimora/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
