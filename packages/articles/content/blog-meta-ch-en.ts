@@ -4153,6 +4153,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-basilea-campagna.title': 'Permit L short duration: validity and extension',
     'blog.article.permesso-l-breve-durata-basilea-campagna.excerpt': 'Short-term permit L: maximum duration of 1 year, extension conditions, constraints on the employer and procedure for transition to residence permit B in Switzerland.',
     'blog.article.permesso-l-breve-durata-basilea-campagna.imageAlt': 'Swiss State Secretariat for Migration (SEM) office with L permit documentation',
+    'blog.article.acquistare-casa-basilea-campagna-mutuo.title': 'Buying a house in Basel Countryside: mortgage and taxation',
+    'blog.article.acquistare-casa-basilea-campagna-mutuo.excerpt': 'How to buy a house in the Canton of Basel-Country: guide to the three tax levels, mortgage and hidden costs',
+    'blog.article.acquistare-casa-basilea-campagna-mutuo.imageAlt': 'Modern residential chalets in a suburban Swiss area with contemporary architectural design',
 };
 
 export default blogMetaChEn;
