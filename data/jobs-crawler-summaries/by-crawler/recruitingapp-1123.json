@@ -1,20 +1,21 @@
 {
   "key": "recruitingapp-1123",
   "label": "BIG & ARE Stellen",
-  "generatedAt": "2026-08-24T10:22:25.068Z",
+  "generatedAt": "2026-08-24T22:01:22.660Z",
   "total": 11,
   "discovered": null,
   "written": 11,
-  "newCount": 1,
-  "updatedCount": 9,
+  "newCount": 0,
+  "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6788,
-  "avgDurationMs": 6788,
+  "durationMs": 7787,
+  "avgDurationMs": 7787,
   "durationHistory": [
-    6788
+    7787
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "recruitingapp-1123-ee08b7105086",
       "slug": "technische-r-objektmanager-in-hochbau-m-w-d-ab-30-wochenstunden-recruitingapp-1123-ch",
@@ -27,7 +28,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2482/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:22:21.026Z",
+      "crawledAt": "2026-08-24T22:01:17.808Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -40,16 +41,16 @@
       "featured": false,
       "postedDate": "2026-08-24",
       "applyUrl": "https://recruitingapp-1123.umantis.com/Vacancies/2482/Description/1",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T10:22:21.026Z",
+      "_qualityScore": 49,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 10,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "recruitingapp-1123-5be949021b27",
       "slug": "assistenz-immobilienverwaltung-m-w-d-recruitingapp-1123-ch",
@@ -62,7 +63,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2497/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:22:19.480Z",
+      "crawledAt": "2026-08-24T22:01:16.269Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -97,7 +98,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2479/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:22:19.807Z",
+      "crawledAt": "2026-08-24T22:01:16.595Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -132,7 +133,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2473/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:22:20.114Z",
+      "crawledAt": "2026-08-24T22:01:16.898Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -167,7 +168,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2465/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:22:20.419Z",
+      "crawledAt": "2026-08-24T22:01:17.201Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -202,7 +203,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2426/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:22:20.723Z",
+      "crawledAt": "2026-08-24T22:01:17.505Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -237,7 +238,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2507/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:22:21.330Z",
+      "crawledAt": "2026-08-24T22:01:18.114Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -272,7 +273,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2505/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T10:22:21.634Z",
+      "crawledAt": "2026-08-24T22:01:18.417Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -287,11 +288,11 @@
       "applyUrl": "https://recruitingapp-1123.umantis.com/Vacancies/2505/Description/1",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T09:37:55.648Z",
-      "_qualityScore": 54,
+      "_qualityScore": 52,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 15,
+        "translation": 13,
         "completeness": 14
       }
     },
@@ -307,7 +308,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2506/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-24T10:22:21.936Z",
+      "crawledAt": "2026-08-24T22:01:18.719Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -322,11 +323,11 @@
       "applyUrl": "https://recruitingapp-1123.umantis.com/Vacancies/2506/Description/1",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T09:37:55.952Z",
-      "_qualityScore": 54,
+      "_qualityScore": 52,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 15,
+        "translation": 13,
         "completeness": 14
       }
     },
@@ -342,7 +343,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2504/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T10:22:22.238Z",
+      "crawledAt": "2026-08-24T22:01:19.021Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -357,11 +358,11 @@
       "applyUrl": "https://recruitingapp-1123.umantis.com/Vacancies/2504/Description/1",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T09:37:56.254Z",
-      "_qualityScore": 54,
+      "_qualityScore": 52,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 15,
+        "translation": 13,
         "completeness": 14
       }
     }
@@ -398,7 +399,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
