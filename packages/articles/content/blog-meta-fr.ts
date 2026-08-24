@@ -10712,6 +10712,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-valbrona-lavorare-ticino-frontaliere.title': 'Vivre à Valbrona, travailler au Tessin : guide frontalier',
     'blog.article.vivere-valbrona-lavorare-ticino-frontaliere.excerpt': 'Valbrona à Côme offre un coût de la vie inférieur au Tessin. Découvrez les passages, le permis G, la fiscalité frontalière et comment vous déplacer en 4 étapes pratiques.',
     'blog.article.vivere-valbrona-lavorare-ticino-frontaliere.imageAlt': 'Vue sur Lugano et le paysage frontalier Tessin-Lombardie avec panorama alpin',
+    'blog.article.vivere-druogno-lavorare-ticino.title': 'Vivre à Druogno et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-druogno-lavorare-ticino.excerpt': 'Informations pratiques sur la fiscalité, permis et avantages pour les frontaliers qui vivent à Druogno et travaillent au Tessin',
+    'blog.article.vivere-druogno-lavorare-ticino.imageAlt': 'Frontalier italien travaillant en Suisse, vue du lac Majeur',
 };
 
 export default blogMetaFr;
