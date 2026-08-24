@@ -33,9 +33,22 @@
  * rimasta bloccata su tre PR (#6363, #6364, #6365) aperte da un'altra sessione
  * nello stesso clone, con l'istruzione di andarci a lavorare sopra.
  *
- * Le entry SENZA `sessionId` (scritte prima di questo campo) restano
- * enforce-ate da chiunque: perdere la protezione su una PR reale sarebbe un
- * danno peggiore del rumore che questo campo toglie.
+ * STRETTO, non "enforce-ate da chiunque" (2026-08-24, incidente in diretta):
+ * la prima versione di questo file faceva enforce-are da OGNI sessione le
+ * entry senza `sessionId` — scelta pensata come fail-safe, letta come "meglio
+ * bloccare di troppo che perdere un watch reale". Con 6+ sessioni interattive
+ * aperte in parallelo sullo stesso checkout (il caso normale di questo
+ * workspace, non l'eccezione), due entry legacy (#6364, #6370, scritte
+ * nella manciata di minuti prima che questo campo esistesse) hanno bloccato
+ * OGNI sessione contemporaneamente — l'utente l'ha segnalato mentre
+ * succedeva. `entriesForSession` ora e' rigorosa: un'entry senza `sessionId`
+ * (o di un'altra sessione) NON blocca chi non l'ha aperta. Non viene pero'
+ * MAI cancellata dal file — resta scritta invariata (vedi
+ * `entriesOfOtherSessions`, che ora la include) finche' la sua sessione
+ * reale (o un intervento umano) non la risolve. Il costo accettato: un'entry
+ * senza padrone non viene piu' controllata da nessuno finche' qualcuno non
+ * arriva con l'id giusto — stesso trade-off gia' accettato per le entry di
+ * altre sessioni (Nit dichiarato in PR #6368).
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -114,16 +127,18 @@ export function removeEntry(entries, target) {
 }
 
 /**
- * Le entry che questa sessione deve enforce-are.
+ * Le entry che questa sessione deve enforce-are: SOLO le proprie (stessa
+ * `sessionId`, uguaglianza stretta). Un'entry senza padrone o di un'altra
+ * sessione non blocca chi non l'ha aperta — chi l'ha aperta la sta già
+ * seguendo, ed è l'unico che può pushare sul loro branch senza collidere.
  *
- * Le proprie (stessa `sessionId`) e quelle senza padrone (legacy, o hook
- * invocato senza `session_id`). Quelle di ALTRE sessioni si vedono ma non
- * bloccano: chi le ha aperte le sta già seguendo, ed è l'unico che può
- * pushare sul loro branch senza collidere.
- *
- * `sessionId` assente o vuoto sul chiamante → nessun discriminante
- * disponibile → enforce TUTTO, che è il comportamento di prima di questo
- * campo. Un gate che si spegne quando non sa è un gate che non protegge.
+ * `sessionId` assente o vuoto sul CHIAMANTE (questa sessione non sa chi è) →
+ * nessun discriminante disponibile → enforce TUTTO, comportamento invariato
+ * da prima di questo campo: un gate che si spegne quando non sa chi è è un
+ * gate che non protegge. Diverso — e va tenuto distinto — dal caso di
+ * un'ENTRY senza `sessionId` quando il chiamante il proprio lo conosce: quella
+ * non è "nessuno sa chi è", è "un'altra sessione, o un residuo legacy" (vedi
+ * `entriesOfOtherSessions`, che la include per non perderla dal file).
  *
  * @param {Array<object>} entries
  * @param {string|null|undefined} sessionId
@@ -131,16 +146,19 @@ export function removeEntry(entries, target) {
  */
 export function entriesForSession(entries, sessionId) {
   if (!sessionId) return entries;
-  return entries.filter((e) => !e.sessionId || e.sessionId === sessionId);
+  return entries.filter((e) => e.sessionId === sessionId);
 }
 
 /**
- * Le entry di ALTRE sessioni, da riscrivere invariate.
+ * Le entry NON di questa sessione (altra sessione reale, o senza padrone),
+ * da riscrivere invariate.
  *
  * Il gate riscrive il file con ciò che resta da seguire: senza questa metà,
- * filtrare per sessione cancellerebbe dal file le PR degli altri, e nessuno
- * le seguirebbe più. Il filtro deve restringere CHI blocca, non CHI è
- * tracciato.
+ * filtrare per sessione cancellerebbe dal file le PR degli altri (comprese
+ * quelle senza `sessionId`), e nessuno le seguirebbe più. Il filtro deve
+ * restringere CHI blocca, non CHI è tracciato — e deve essere il complemento
+ * esatto di `entriesForSession` sullo stesso `sessionId`, altrimenti un'entry
+ * sparisce dal file senza che nessuna delle due funzioni l'abbia enforce-ata.
  *
  * @param {Array<object>} entries
  * @param {string|null|undefined} sessionId
@@ -148,7 +166,7 @@ export function entriesForSession(entries, sessionId) {
  */
 export function entriesOfOtherSessions(entries, sessionId) {
   if (!sessionId) return [];
-  return entries.filter((e) => e.sessionId && e.sessionId !== sessionId);
+  return entries.filter((e) => e.sessionId !== sessionId);
 }
 
 /**
