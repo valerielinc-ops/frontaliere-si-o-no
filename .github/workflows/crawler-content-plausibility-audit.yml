@@ -145,7 +145,7 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload shortlist
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: job-content-shortlist
           path: |
@@ -193,7 +193,7 @@ jobs:
           node-version: '22'
 
       - name: Download shortlist
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           name: job-content-shortlist
 
