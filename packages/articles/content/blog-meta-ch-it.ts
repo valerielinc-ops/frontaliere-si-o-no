@@ -4123,6 +4123,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-attivita-canton-basilea-citta.title': 'Aprire un\'attivita a Basilea Citta: costi e procedure',
     'blog.article.aprire-attivita-canton-basilea-citta.excerpt': 'Guida completa: forme giuridiche, registrazione, tassazione federale/cantonale, contributi AVS/LPP (5,3-18%), LAINF (0,7-1,5%) e obblighi LAMal.',
     'blog.article.aprire-attivita-canton-basilea-citta.imageAlt': 'Ufficio di registrazione commerciale svizzero con moduli aziendali e ambiente professionale',
+    'blog.article.cieli-affollati-estate-2026.title': 'Cieli affollati in estate: 240mila voli in Svizzera',
+    'blog.article.cieli-affollati-estate-2026.excerpt': 'Dal 26 giugno al 17 agosto Skyguide ha monitorato 240.108 voli. Il 24 luglio il giorno record con 4.761 movimenti.',
+    'blog.article.cieli-affollati-estate-2026.imageAlt': 'Traffico aereo affollato durante l\'estate: aeroporto svizzero con aerei in coda nei giorni di picco',
 };
 
 export default blogMetaChIt;

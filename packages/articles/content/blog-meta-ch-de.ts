@@ -4123,6 +4123,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-attivita-canton-basilea-citta.title': 'Ein Geschäft in Basel-Stadt eröffnen: Kosten und Verfahren',
     'blog.article.aprire-attivita-canton-basilea-citta.excerpt': 'Vollständiger Leitfaden: Rechtsformen, Registrierung, eidgenössische/kantonale Veranlagung, AHV/BVG-BEITRÄGE (5,3-18%), UVG (0,7-1,5%) und KVG-Verpflichtungen.',
     'blog.article.aprire-attivita-canton-basilea-citta.imageAlt': 'Schweizer Geschaeftsregistrierungsbuero mit Unternehmensunterlagen und Arbeitsumgebung',
+    'blog.article.cieli-affollati-estate-2026.title': 'Überfüllter Himmel im Sommer: 240 \'000 Flüge in die Schweiz',
+    'blog.article.cieli-affollati-estate-2026.excerpt': 'Vom 26. Juni bis 17. August verfolgte Skyguide 240.108 Flüge. Am 24. Juli der Rekordtag mit 4.761 Bewegungen.',
+    'blog.article.cieli-affollati-estate-2026.imageAlt': 'Dichtes Flugverkehr am Schweizer Flughafen während der Sommerferien mit wartenden Flugzeugen',
 };
 
 export default blogMetaChDe;

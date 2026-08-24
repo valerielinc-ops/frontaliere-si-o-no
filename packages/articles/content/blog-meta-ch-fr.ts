@@ -4123,6 +4123,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-attivita-canton-basilea-citta.title': 'Ouvrir une entreprise à Bâle-Ville : coûts et procédures',
     'blog.article.aprire-attivita-canton-basilea-citta.excerpt': 'Guide complet : formes juridiques, enregistrement, fiscalité fédérale/cantonale, cotisations AVS/LPP (5,3-18%), LAA (0,7-1,5%) et obligations LAMal.',
     'blog.article.aprire-attivita-canton-basilea-citta.imageAlt': 'Bureau d\'enregistrement commercial suisse avec documents d\'entreprise et environnement de travail',
+    'blog.article.cieli-affollati-estate-2026.title': 'Le ciel est bondé en été : 240 000 vols en Suisse',
+    'blog.article.cieli-affollati-estate-2026.excerpt': 'Du 26 juin au 17 août, Skyguide a surveillé 240 108 vols. Le 24 juillet, la journée record avec 4 761 mouvements.',
+    'blog.article.cieli-affollati-estate-2026.imageAlt': 'Trafic aérien congestionné à l\'aéroport suisse durant les vacances d\'été avec avions en attente',
 };
 
 export default blogMetaChFr;
