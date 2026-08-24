@@ -4003,6 +4003,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-b-friburgo-rinnovo-procedura.title': 'B-Bewilligung Freiburg: Voraussetzungen und Erneuerung',
     'blog.article.permesso-b-friburgo-rinnovo-procedura.excerpt': 'Erneuerbare B-Bewilligung in Freiburg: Anforderungen, Dokumente und Verfahren beim kantonalen Migrationsamt. Leitfaden für die Beantragung und Erneuerung.',
     'blog.article.permesso-b-friburgo-rinnovo-procedura.imageAlt': 'Kantonales Migrationsamt: Verwaltungsgebäude für die Ausstellung von Aufenthaltserlaubnis B in Freiburg',
+    'blog.article.domicilio-c-friburgo-procedura-richiesta.title': 'Niederlassungsbewilligung C Freiburg: Jahre und Antragsverfahren',
+    'blog.article.domicilio-c-friburgo-procedura-richiesta.excerpt': 'Die Niederlassungsbewilligung C im Kanton Freiburg erfordert 10 Jahre Aufenthalt (5 für EU/EFTA-Staatsangehörige). Informieren Sie sich über die nationalen Anforderungen, das Schritt-für-Schritt-Verfahren und die nächsten Schritte zur Einbürgerung.',
+    'blog.article.domicilio-c-friburgo-procedura-richiesta.imageAlt': 'Schweizer Verwaltungsbüro mit Schalter für Migrationsdienste und Aufenthaltserlaubnis-Anträge',
 };
 
 export default blogMetaChDe;

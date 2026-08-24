@@ -4003,6 +4003,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-b-friburgo-rinnovo-procedura.title': 'Permis B Fribourg : exigences et renouvellement',
     'blog.article.permesso-b-friburgo-rinnovo-procedura.excerpt': 'Permis B renouvelable à Fribourg : exigences, documents et procédure auprès de l\'Office cantonal des migrations. Guide de la demande et du renouvellement.',
     'blog.article.permesso-b-friburgo-rinnovo-procedura.imageAlt': 'Office cantonal de la migration : bâtiment administratif pour l\'émission de permis de séjour B à Fribourg',
+    'blog.article.domicilio-c-friburgo-procedura-richiesta.title': 'Permis domicile C Fribourg : années et procédure de demande',
+    'blog.article.domicilio-c-friburgo-procedura-richiesta.excerpt': 'Le permis de séjour C dans le canton de Fribourg nécessite 10 ans de résidence (5 ans pour les citoyens de l\'UE/AELE). Découvrez les exigences nationales, la procédure étape par étape et les prochaines étapes vers la naturalisation.',
+    'blog.article.domicilio-c-friburgo-procedura-richiesta.imageAlt': 'Bureau administratif suisse avec guichet de services d\'immigration et demandes de permis de séjour',
 };
 
 export default blogMetaChFr;

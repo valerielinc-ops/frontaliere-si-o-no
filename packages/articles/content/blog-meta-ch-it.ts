@@ -4003,6 +4003,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-b-friburgo-rinnovo-procedura.title': 'Permesso B Friburgo: requisiti e rinnovo',
     'blog.article.permesso-b-friburgo-rinnovo-procedura.excerpt': 'Permesso B rinnovabile a Friburgo: requisiti, documenti e procedura presso l\'ufficio cantonale della migrazione. Guida alla richiesta e rinnovo.',
     'blog.article.permesso-b-friburgo-rinnovo-procedura.imageAlt': 'Ufficio cantonale della migrazione: sede per il rilascio dei permessi di dimora B in Friburgo',
+    'blog.article.domicilio-c-friburgo-procedura-richiesta.title': 'Permesso domicilio C Friburgo: anni e procedura di richiesta',
+    'blog.article.domicilio-c-friburgo-procedura-richiesta.excerpt': 'Il permesso di domicilio C nel Cantone di Friburgo richiede 10 anni di residenza (5 per cittadini UE/AELS). Scopri i requisiti nazionali, la procedura step-by-step e i prossimi passi verso la naturalizzazione.',
+    'blog.article.domicilio-c-friburgo-procedura-richiesta.imageAlt': 'Ufficio amministrativo svizzero con sportello per servizi di migrazione e richiesta permessi di soggiorno',
 };
 
 export default blogMetaChIt;
