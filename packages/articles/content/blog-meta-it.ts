@@ -10702,6 +10702,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-bosisio-parini-lavorare-ticino-da-frontaliere.title': 'Trasferimento Bosisio Parini: vantaggi e svantaggi',
     'blog.article.vivere-bosisio-parini-lavorare-ticino-da-frontaliere.excerpt': 'Bosisio Parini, un comune di 1.017 abitanti in provincia di Lecco, è un luogo ideale per i frontalieri che desiderano vivere in Italia e lavorare in Svizzera.',
     'blog.article.vivere-bosisio-parini-lavorare-ticino-da-frontaliere.imageAlt': 'Frontalieri Ticino',
+    'blog.article.vivere-cesana-brianza-lavorare-ticino-frontaliere.title': 'Vivere a Cesana Brianza e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-cesana-brianza-lavorare-ticino-frontaliere.excerpt': 'Fatti chiave sulla vita dei frontalieri a Cesana Brianza e in Ticino',
+    'blog.article.vivere-cesana-brianza-lavorare-ticino-frontaliere.imageAlt': 'Un frontaliere vive a Cesana Brianza e lavora in Ticino',
 };
 
 export default blogMetaIt;

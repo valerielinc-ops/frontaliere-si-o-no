@@ -32025,6 +32025,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'vivere-cesana-brianza-lavorare-ticino-frontaliere',
+ category: 'fiscale',
+ date: '2026-08-24T19:05:32.378Z',
+ image: '/images/blog/vivere-cesana-brianza-lavorare-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
