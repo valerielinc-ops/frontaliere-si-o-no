@@ -77369,6 +77369,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-albizzate-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Albizzate e lavorare in Ticino: guida 2026',
+    description: 'Permesso G, fiscalità, AVS e LAMal: tutto quello che cambia dal 1° gennaio 2024 per i frontalieri Albizzate-Ticino. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, albizzate, lavorare, permesso',
+    ogTitle: 'Vivere a Albizzate e lavorare in Ticino: guida 2026',
+    ogDescription: 'Permesso G, fiscalità, AVS e LAMal: tutto quello che cambia dal 1° gennaio 2024 per i frontalieri Albizzate-Ticino.',
+    canonicalPath: '/articoli-frontaliere/vivere-albizzate-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Albizzate e lavorare in Ticino: guida 2026",
+      "description": "Permesso G, fiscalità, AVS e LAMal: tutto quello che cambia dal 1° gennaio 2024 per i frontalieri Albizzate-Ticino. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-albizzate-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Locarno sul Lago Maggiore con montagne alpine, simbolo del Ticino e della vita del frontaliere"
+      },
+      "datePublished": "2026-08-24T17:35:10+00:00",
+      "dateModified": "2026-08-24T17:35:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-albizzate-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

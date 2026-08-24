@@ -10697,6 +10697,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.albizzate-lavorare-ticino-frontaliere.title': 'Albizzate-Ticino da frontaliere : guide pratique',
     'blog.article.albizzate-lavorare-ticino-frontaliere.excerpt': 'Vivre à Albizzate et travailler au Tessin : permis G, fiscalité 2024, AVS, LAMal et double imposition. Tout ce qu\'il faut savoir pour le transfert.',
     'blog.article.albizzate-lavorare-ticino-frontaliere.imageAlt': 'Travailleur frontalier au poste de douane Suisse-Italie près de Mendrisio',
+    'blog.article.vivere-albizzate-lavorare-ticino-frontaliere.title': 'Vivre à Albizzate et travailler au Tessin : guide 2026',
+    'blog.article.vivere-albizzate-lavorare-ticino-frontaliere.excerpt': 'Permis G, fiscalité, AVS et LAMal : tout ce qui change depuis le 1er janvier 2024 pour les frontaliers Albizzate-Ticino.',
+    'blog.article.vivere-albizzate-lavorare-ticino-frontaliere.imageAlt': 'Vue de Locarno sur le Lac Majeur avec les Alpes, symbole de la vie frontalière au Tessin',
 };
 
 export default blogMetaFr;

@@ -10695,6 +10695,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.albizzate-lavorare-ticino-frontaliere.title': 'Albizada-Ticino from the border: practical guide',
     'blog.article.albizzate-lavorare-ticino-frontaliere.excerpt': 'Living in Albizzate and working in Ticino: G permits, taxation 2024, AVS, LAMal and double taxation. Everything you need to know about the transfer.',
     'blog.article.albizzate-lavorare-ticino-frontaliere.imageAlt': 'Frontalier at the Switzerland-Italy border crossing near Mendrisio at dawn',
+    'blog.article.vivere-albizzate-lavorare-ticino-frontaliere.title': 'Living in Albizzate and working in Ticino: guide 2026',
+    'blog.article.vivere-albizzate-lavorare-ticino-frontaliere.excerpt': 'Permit G, taxation, AVS and LAMal: everything that changes from 1 January 2024 for border crossers Albizzate-Ticino.',
+    'blog.article.vivere-albizzate-lavorare-ticino-frontaliere.imageAlt': 'Locarno lakeside view on Lake Maggiore with Alpine mountains, symbol of Ticino cross-border life',
 };
 
 export default blogMetaEn;
