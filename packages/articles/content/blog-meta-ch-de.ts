@@ -4192,6 +4192,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.borse-studio-sciaffusa.title': 'Stipendien Kanton Schaffhausen: Voraussetzungen und Beträge',
     'blog.article.borse-studio-sciaffusa.excerpt': 'Der Kanton Schaffhausen bietet Stipendien für Studierende und Auszubildende an, die Höchstbeträge und Bewerbungsfristen sind jedoch noch nicht festgelegt.',
     'blog.article.borse-studio-sciaffusa.imageAlt': 'Studierende und Praktikanten in der Schweiz',
+    'blog.article.apprendistato-zurigo-contratto-tirocinio.title': 'Lehre in Zürich: So finden Sie Ihren Praktikumsplatz',
+    'blog.article.apprendistato-zurigo-contratto-tirocinio.excerpt': 'Praktischer Leitfaden für die Lehre im Kanton Zürich: Forschung, Vertrag, Vergütung und Berufsmaturität. Alles, was Sie über das duale Bildungssystem Schweiz wissen müssen.',
+    'blog.article.apprendistato-zurigo-contratto-tirocinio.imageAlt': 'Lehrlinge während praktischer Berufsausbildung an einer Schweizer Schule',
 };
 
 export default blogMetaChDe;

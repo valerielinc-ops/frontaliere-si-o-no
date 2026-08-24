@@ -54386,6 +54386,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-apprendistato-zurigo-contratto-tirocinio': {
+    title: 'Apprendistato in Zurigo: come trovare il tuo posto di tirocinio',
+    description: 'Guida pratica all\'apprendistato nel Cantone di Zurigo: ricerca, contratto, retribuzione e maturità professionale. Tutto quello che devi sapere. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, zurigo, trovare, posto',
+    ogTitle: 'Apprendistato in Zurigo: guida completa per giovani',
+    ogDescription: 'Scopri come funziona l\'apprendistato nel Cantone di Zurigo: dalla ricerca del posto di tirocinio al contratto, dalla retribuzione dell\'apprendista alla maturità professionale. Tutto quello che devi sapere.',
+    canonicalPath: '/articoli-svizzera/apprendistato-zurigo-contratto-tirocinio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato in Zurigo: come trovare il tuo posto di tirocinio",
+      "description": "Guida pratica all'apprendistato nel Cantone di Zurigo: ricerca, contratto, retribuzione e maturità professionale. Tutto quello che devi sapere. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apprendistato-zurigo-contratto-tirocinio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una classe di apprendisti durante una lezione pratica di formazione professionale in una scuola svizzera"
+      },
+      "datePublished": "2026-08-24T23:04:34+00:00",
+      "dateModified": "2026-08-24T23:04:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendistato-zurigo-contratto-tirocinio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
