@@ -32043,6 +32043,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-valbrona-lavorare-ticino-frontaliere',
+ category: 'pratico',
+ date: '2026-08-24T20:24:55.798Z',
+ image: '/images/blog/vivere-valbrona-lavorare-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

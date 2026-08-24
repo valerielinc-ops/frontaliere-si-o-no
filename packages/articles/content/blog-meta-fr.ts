@@ -10709,6 +10709,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-veduggio-frontaliere-ticino.title': 'Vivre à Veduggio et travailler au Tessin : frontalier',
     'blog.article.vivere-veduggio-frontaliere-ticino.excerpt': 'Guide complet pour ceux qui résident à Veduggio et travaillent au Tessin en tant que frontalier : fiscalité suisse, permis G, paie, AVS, LAMal et procédure étape par étape.',
     'blog.article.vivere-veduggio-frontaliere-ticino.imageAlt': 'Veduggio avec Colzano à la frontière Italie-Suisse, village alpin avec montagnes en arrière-plan.',
+    'blog.article.vivere-valbrona-lavorare-ticino-frontaliere.title': 'Vivre à Valbrona, travailler au Tessin : guide frontalier',
+    'blog.article.vivere-valbrona-lavorare-ticino-frontaliere.excerpt': 'Valbrona à Côme offre un coût de la vie inférieur au Tessin. Découvrez les passages, le permis G, la fiscalité frontalière et comment vous déplacer en 4 étapes pratiques.',
+    'blog.article.vivere-valbrona-lavorare-ticino-frontaliere.imageAlt': 'Vue sur Lugano et le paysage frontalier Tessin-Lombardie avec panorama alpin',
 };
 
 export default blogMetaFr;
