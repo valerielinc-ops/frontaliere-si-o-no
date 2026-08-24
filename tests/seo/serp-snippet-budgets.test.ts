@@ -8,6 +8,7 @@ import {
   TITLE_MAX_CHARS,
   META_DESCRIPTION_MAX_CHARS,
 } from '../../build-plugins/shared/titleSuffix';
+import { clampSiteSuffix } from '../../build-plugins/shared/seoContentTokens';
 import { buildProfessionLandingCopy } from '../../build-plugins/professionLandingsCopy';
 import { PROFESSION_IDS, PROFESSION_LOCALES } from '../../build-plugins/professionLandingsData';
 import { CAREER_LANDING_COPY } from '../../build-plugins/careerLandingsCopy';
@@ -210,6 +211,32 @@ describe('fuel daily pages — Italian copy regressions', () => {
     const itIntro = source.match(/intro: \(f, where, priceFmt, date\) =>\s*\n\s*`Prezzo medio[^`]*`/);
     expect(itIntro).not.toBeNull();
     expect(itIntro?.[0]).not.toMatch(/\bSwiss\b/);
+  });
+
+  it('the price-bearing title can never overflow the budget', () => {
+    // Adversarial check from review: is the fallback in `renderPage` sound at
+    // the boundary, once `clampSiteSuffix` has had its turn? The guard picks
+    // the price form only at <= TITLE_MAX_CHARS, and clampSiteSuffix appends
+    // the brand only if the total still fits — so the final string is never
+    // longer than the dated form it would otherwise have produced.
+    expect(source).toMatch(
+      /const titleBase = titleWithPrice\.length <= 66 \? titleWithPrice : titleWithDate;/,
+    );
+
+    const brand = 'Frontaliere Ticino';
+    const exactly66 = 'x'.repeat(TITLE_MAX_CHARS);
+    expect(clampSiteSuffix(exactly66, brand)).toBe(exactly66); // brand dropped
+    expect(clampSiteSuffix(exactly66, brand).length).toBe(TITLE_MAX_CHARS);
+
+    // Longest base that still keeps the brand: 66 - " | Frontaliere Ticino".
+    const fits = 'y'.repeat(TITLE_MAX_CHARS - ` | ${brand}`.length);
+    expect(clampSiteSuffix(fits, brand)).toBe(`${fits} | ${brand}`);
+    expect(clampSiteSuffix(fits, brand).length).toBe(TITLE_MAX_CHARS);
+
+    // One char more and the brand must go rather than overflow.
+    const oneOver = `${fits}z`;
+    expect(clampSiteSuffix(oneOver, brand)).toBe(oneOver);
+    expect(clampSiteSuffix(oneOver, brand).length).toBeLessThanOrEqual(TITLE_MAX_CHARS);
   });
 
   it('keeps the ISO date stamp for schema.org and a display date for prose', () => {

@@ -2398,7 +2398,10 @@ function renderLeafPage(inp: LeafInputs): string {
 
   // Phase 3A: clamp brand suffix only when it fits the 60-char SERP budget.
   const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
-  const description = introLong.slice(0, 180);
+  // Pre-cut removed: clampMetaDescription (160) runs downstream and is
+  // word-aware. Slicing first only handed it a string already broken
+  // mid-word, which is what reached the SERP snippet.
+  const description = introLong;
 
   const bodyHtml = `<article class="s-xzWvwM">
   <nav class="s-bcr">
@@ -2705,7 +2708,10 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
   });
 
   const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
-  const description = introLong.slice(0, 180);
+  // Pre-cut removed: clampMetaDescription (160) runs downstream and is
+  // word-aware. Slicing first only handed it a string already broken
+  // mid-word, which is what reached the SERP snippet.
+  const description = introLong;
 
   const bodyHtml = `<article class="s-xzWvwM">
   <nav class="s-bcr">

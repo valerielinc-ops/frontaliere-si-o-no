@@ -2182,7 +2182,10 @@ function renderArchive(inp: ArchiveInputs): string {
   // two strings collide. Differentiate the H1 so audit:h1-title-duplicates
   // accepts the page (baseline 0).
   h1 = differentiateH1FromTitle(h1, title, locale);
-  const description = intro.slice(0, 180);
+  // Pre-cut removed: clampMetaDescription (160) runs downstream and is
+  // word-aware. Slicing first only handed it a string already broken
+  // mid-word, which is what reached the SERP snippet.
+  const description = intro;
 
   const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
@@ -3222,7 +3225,10 @@ function renderStationPage(opts: {
   // Guarantee H1 ≠ <title> after brand-strip — see Italian-station branch
   // for the full rationale (audit:h1-title-duplicates ratchet baseline 0).
   h1 = differentiateH1FromTitle(h1, title, locale);
-  const description = intro.slice(0, 180);
+  // Pre-cut removed: clampMetaDescription (160) runs downstream and is
+  // word-aware. Slicing first only handed it a string already broken
+  // mid-word, which is what reached the SERP snippet.
+  const description = intro;
 
   const zonePath = `${BASE_URL}${buildFuelTodayPath(locale, fuel, ctx.zone)}`;
   const hasGeo =
@@ -3927,7 +3933,10 @@ function renderItalianCityPage(opts: {
   const title = clampSiteSuffix(titleWithDate60, 'Frontaliere Ticino');
   // Differentiate H1 ↔ <title> after brand drop. See station-detail branch.
   h1 = differentiateH1FromTitle(h1, title, locale);
-  const description = intro.slice(0, 180);
+  // Pre-cut removed: clampMetaDescription (160) runs downstream and is
+  // word-aware. Slicing first only handed it a string already broken
+  // mid-word, which is what reached the SERP snippet.
+  const description = intro;
 
   const bodyHtml = `<article class="s-xzWvwM">
   <nav aria-label="Breadcrumb" class="s-bcr">
@@ -4962,7 +4971,10 @@ function renderItalianStationPage(opts: {
   // helper appends a locale-aware narrative tag so the
   // `audit:h1-title-duplicates` ratchet (baseline 0) accepts the page.
   h1 = differentiateH1FromTitle(h1, title, locale);
-  const description = intro.slice(0, 180);
+  // Pre-cut removed: clampMetaDescription (160) runs downstream and is
+  // word-aware. Slicing first only handed it a string already broken
+  // mid-word, which is what reached the SERP snippet.
+  const description = intro;
 
   const nearestZoneLabel = FUEL_ZONE_DISPLAY[ctx.cityEntry.nearestZone];
   const cityHubPath = buildFuelItalianCityPath(locale, fuel, ctx.cityEntry.slug);

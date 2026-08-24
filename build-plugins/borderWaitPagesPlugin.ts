@@ -2299,7 +2299,10 @@ function renderHubPage(inp: HubInputs): string {
   const title = buildTitleWithBrand(h1);
   // Differentiate H1 from <title> after brand-strip (audit:h1-title-duplicates).
   h1 = differentiateH1FromTitle(h1, title, locale);
-  const description = introLong.slice(0, 180);
+  // Pre-cut removed: clampMetaDescription (160) runs downstream and is
+  // word-aware. Slicing first only handed it a string already broken
+  // mid-word, which is what reached the SERP snippet.
+  const description = introLong;
 
   // The Ticino–Italy corridor has named, verified webcam towns (Brogeda,
   // Stabio, Mendrisio, Chiasso) and a Ticino-specific commuter cost model.
