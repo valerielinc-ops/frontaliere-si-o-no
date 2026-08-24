@@ -53645,6 +53645,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposte-canton-basilea-campagna': {
+    title: 'Imposte canton Basilea Campagna: aliquote e deduzioni',
+    description: 'Guida alle imposte cantonali e comunali nel canton Basilea Campagna. Aliquote, deduzioni ammesse, scadenze di consegna e accesso al portale online fiscale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposte, canton, basilea, campagna',
+    ogTitle: 'Imposte canton Basilea Campagna: guida alle aliquote',
+    ogDescription: 'Scopri il sistema fiscale del canton Basilea Campagna: aliquote, deduzioni, scadenze di dichiarazione e portale online. Guida completa per contribuenti residenti nel cantone.',
+    canonicalPath: '/articoli-svizzera/imposte-canton-basilea-campagna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposte canton Basilea Campagna: aliquote e deduzioni",
+      "description": "Guida alle imposte cantonali e comunali nel canton Basilea Campagna. Aliquote, deduzioni ammesse, scadenze di consegna e accesso al portale online fiscale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposte-canton-basilea-campagna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrazione fiscale cantonale del canton Basilea Campagna con documenti e moduli di dichiarazione imposte."
+      },
+      "datePublished": "2026-08-24T15:07:39+00:00",
+      "dateModified": "2026-08-24T15:07:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposte-canton-basilea-campagna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

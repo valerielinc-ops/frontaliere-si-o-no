@@ -4135,6 +4135,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposta-successione-basilea-citta.title': 'Imposta di successione nel Canton Basilea-Città: aliquote e procedure',
     'blog.article.imposta-successione-basilea-citta.excerpt': 'Imposta di successione nel Canton Basilea-Città: aliquote per grado di parentela, esenzioni per coniuge e discendenti, dichiarazione e termini di presentazione.',
     'blog.article.imposta-successione-basilea-citta.imageAlt': 'Ufficio dell\'amministrazione tributaria con documenti fiscali e registri delle imposte',
+    'blog.article.imposte-canton-basilea-campagna.title': 'Imposte canton Basilea Campagna: aliquote e deduzioni',
+    'blog.article.imposte-canton-basilea-campagna.excerpt': 'Guida completa alle imposte cantonali e comunali nel canton Basilea Campagna: aliquote, deduzioni ammesse, scadenze di dichiarazione e portale online fiscale.',
+    'blog.article.imposte-canton-basilea-campagna.imageAlt': 'Ufficio amministrazione fiscale cantonale del canton Basilea Campagna con documenti e moduli di dichiarazione imposte.',
 };
 
 export default blogMetaChIt;

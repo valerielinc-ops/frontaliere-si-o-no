@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Mon, 24 Aug 2026 14:42:33 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 24 Aug 2026 15:07:39 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -16,6 +16,58 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Canton taxes Basel Countryside: rates and deductions</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/basel-landschaft-taxes-rates-deductions/</link>
+      <description><![CDATA[Complete guide to cantonal and municipal taxes in the canton of Basel-Country: rates, allowable deductions, reporting deadlines and online tax portal.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- Tax system at 3 levels: federal (IFD) + cantonal + municipal
+- Progressive rates on taxable income brackets
+- Annual declaration within cantonal deadlines; online portal available
+- Municipalities apply a multiplier on the cantonal basis
+
+## Key facts
+- **What**: Taxation on income, wealth and capital in the canton
+- Where: Canton Basel-Country (North-West Switzerland)
+- Who: Residents and people with income from cantonal source
+- Levels: Federal (IFD) + cantonal + municipal
+- Deductions: Professional expenses, AVS/LPP contributions, LAMal premiums according to federal law
+
+### 3-level tax structure in the canton of Basel-Country
+The tax system of the Canton of Basel-Country is structured on three levels of taxation: the direct federal tax (IFD) paid to the Confederation and managed by the Federal Tax Administration (AFC), the cantonal tax administered by the regional tax office, and the municipal tax collected by the individual municipalities of the canton according to a fixed multiplier on the cantonal tax base. Each level applies progressive rates on the various brackets of taxable income, determined after the application of deductions allowed by federal legislation and specific cantonal provisions. Taxpayers resident in the canton are obliged to submit an annual tax return within the deadlines set by the cantonal administration, indicating income from employment and
+### Practical implications for residents of the Canton of Basel-Country
+Those who reside in the canton of Basel-Country and receive income from any source are subject to taxation at all three levels: federal, cantonal and municipal. The total annual tax burden therefore depends both on the cantonal rate set by regional legislation and on the multiplier applied by the municipality of residence. Taxpayers with the same income but residing in different municipalities of the canton of Basel-Country will pay different municipal taxes, sometimes to a significant extent. For this reason, it is useful to check the municipal multiplier of your municipality and calculate the total tax burden starting from the net tax base after all allowable deductions. A preliminary estimate before the declaration makes it possible to organise the payment and assess the effect of additional deductions (e.g. voluntary payments to the third pillar 3a) on the net tax due.
+
+### Differences between declaration of employees and independent workers
+Employees have income taxed directly by the employer, who pays tax advances according to cantonal calendars (usually monthly or quarterly). The cantonal tax administration verifies the payment of advances and settles the differences at the end of the tax year. Self-employed persons and business owners must submit a complete declaration with accounting annexes and detailed administrative management,
+
+## Useful planning tools
+To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
+### Procedure step-by-step for the cantonal tax declaration
+For those residing in the Canton Basel-Landschaft and required to submit the annual declaration, the process follows these concrete steps:
+
+**Phase 1: Collecting documentation** — Gather pay slips received, bank statements, AVS/LPP payment receipts, professional expense justifications (if self-employed), LAMal/KVG premium payment attestations during the year, documentation of donations to recognized institutions, bank account statements and investment records if subject to wealth taxation.
+
+Phase 2: Authentication on the online portal — Reach the official website of the cantonal tax administration and authenticate with personal credentials (federal social insurance number + password, or digital signature via Swiss e-banking). The portal is available in German and French; informative texts, downloadable forms, and guides are available in Italian at the counters or upon request.
+
+Phase 3: Filling out the declaration — Enter gross income, deduct documented expenses, indicate AVS/LPP payments made, LAMal premiums paid, and other allowed deductions. The system automatically calculates the cantonal and communal tax based on the net taxable income and applicable legislation.
+
+Phase 4: Attaching justifications — Digitally upload required documents (pay slips, receipts, bank statements) within the file size limit set by the portal.
+
+Phase 5: Submission and confirmation — Submit the digitally signed declaration. The portal generates a receipt with the date and time of submission; a copy remains archived in the personal account.
+
+Phase 6: Monitoring the status — Periodically access the portal to verify the evaluation status and receive communication of the result (tax due, refund, or zero payment).
+
+### Terms of delivery and administrative contacts
+The ordinary deadline for submitting the cantonal declaration is typically set between April and May of the following year of income; exact deadlines are communicated by the cantonal tax administration in documents sent to the taxpayer and visible on the official online portal. Extensions are granted upon motivated request submitted within the set terms. For clarifications on specific cantonal tax rates, allowed deductions in the canton, technical issues with accessing the portal, or other administrative matters, it is possible to contact the cantonal administration's counters in the detached capitals, the dedicated phone number for tax support (retrievable from the official website), or the email service of the tax office for non-urgent communications.
+
+### Fiscal planning tools and tax estimates
+Many taxpayers use online calculators provided by federal entities (AFC) or the canton itself, where they can enter gross income and receive an accurate estimate of the total tax due (federal + cantonal + communal). This tool allows them to evaluate the concrete effect of additional deductions (third pillar 3a voluntary payments to a third-party pillar, professional pension contributions) on the net tax due and plan in advance for payment. Conscious fiscal planning enables taxpayers to avoid end-of-year surprises and identify legitimate opportunities for reducing their tax burden in compliance with federal and cantonal legislation.]]></content:encoded>
+      <pubDate>Mon, 24 Aug 2026 15:07:39 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/imposte-canton-basilea-campagna</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/imposte-canton-basilea-campagna.webp" medium="image"/>
+    </item>
     <item>
       <title>Inheritance tax in the canton of Basel-City: rates and procedures</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/inheritance-tax-basel-city/</link>
@@ -2950,73 +3002,6 @@ For those with additional income (self-employment, investments, rental income), 
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/salari-mercato-zugo-settori</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/salari-mercato-zugo-settori.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Opening a business in Zug: registration and obligations</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/activity-zug-registration-contributions-obligations/</link>
-      <description><![CDATA[Register activities in Zug: legal forms, trade register registration, social security obligations (AVS/AI, LPP) and insurance. Federal and cantonal guidance.]]></description>
-      <content:encoded><![CDATA[## In a nutshell
-- Registration in the commercial register: mandatory federal procedure within 2 weeks of the start of activity
-- Legal forms: sole proprietorship, SA, Sàrl, cooperatives with different responsibilities
-- Social security obligations: AVS/AI (5.3% employee), LPP, LAINF, AD/AC to be calculated
-- Taxes and costs: vary per canton Zug — check with cantonal administration
-
-## Key facts
-- **What**: Company registration in the trade register and social security obligations
-- Where: Canton of Zug (competent cantonal administration)
-- Who: Entrepreneurs, freelancers, employers
-- AVS/AI contributions: 5.3% paid by employees, 10.6% total with employer
-- LPP: 7% (25–34 years), 10% (35–44), 15% (45–54), 18% (55+ up to reference age)
-- Registration deadline: within about 2 weeks from the start of the activity
-
-### Starting activities in Zug: the basic procedures
-
-Opening a business in the Canton of Zug means following a unambiguous federal procedure, combined with specific cantonal obligations. The first stage consists of registration in the commercial register, a federal obligation that makes the identity of the owner and the data of the company public.
-
-The trade register is managed at cantonal level. In Zug, the cantonal administration accepts requests for registration and verifies the data provided: company name, address, legal form, personal data holder. Once approved, the registration becomes public and receives the identification number
-### Compulsory employee contributions and insurance
-
-Whoever starts a business in Zug with employees (or as an employee of a capital company) must pay federal social security contributions at verified national rates:
-
-AVS/AI/IPG (Old Age Insurance, Disability, Maternity Benefit): the employee pays 5.3% gross; the employer completes up to 10.6% total. These contributions fund pension (AVS), disability insurance (AI), and 80% maternity leave (IPG).
-
-**AD/AC (Unemployment/Disaster Insurance)**: The rate is 1.1% up to a fixed annual cap at the federal level. Protects the employee in the event of job loss or natural disaster.
-
-LAINF/LAA (Accident Insurance): the employer pays between 0.7% and 1.5% of the gross salary, depending on the sector of activity (the risk class determines the rate). It is mandatory if the company employs at least one employee.
-
-LPP (Occupational pension, pillar 2): the employer is obliged to enter into an old-age insurance contract with a pension institution. The rate on the coordinated salary varies by age group: 7% (25–34 years), 10% (35–44), 15% (45–54), 18% (55+ up to the reference age). Those who work alone as a sole proprietorship can register voluntarily.
-
-In addition to contributions, the employer must take out professional indemnity insurance if the business so
-
-## Useful planning tools
-To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
-### Federal Procedure Step-by-Step and Deadlines
-
-If you decide to start an activity in the Canton of Zug, follow this federal and cantonal procedure:
-
-Step 1 — Choice of Legal Form: Consult a tax consultant or the Chamber of Commerce of the Canton of Zug to determine which form (sole proprietorship, SA, Sàrl, cooperative) is best suited to your industry, assets, and future projects.
-
-**Step 2 — Document Preparation**: Collect identification documents, registration application (cantonally available on the Zurich administration website), and possibly a founding act if a company is established. If required, prepare the authorized signature declaration.
-
-Step 3 — Registration with the Commercial Register: Visit the Commercial Register Office of the Canton of Zug (managed by the cantonal administration, sometimes delegated to authorized municipal offices). Present the documentation and pay the registration fee. The amount varies for the Canton of Zug and the legal form — check with the competent office.
-
-Step 4 — ID Number: Once the registration is approved (usually within 1–2 weeks), you will receive the federal identification number for the business (ID number). This number is used for communication with the Federal Tax Administration (AFC/ESTV) and the Zurich cantonal administration.
-
-Step 5 — Tax Registration: By the cantonal deadline of Zurich (check exactly), declare the start of the activity to the cantonal tax administration. You will receive the taxpayer number for cantonal and municipal taxes. Note that Zug, like every canton, has its own multipliers for cantonal taxes, and the municipalities of Zurich apply their own multipliers — contact the cantonal administration for precise rates.
-
-Step 6 — Signing of Social Insurance: Register with AVS/AI as an employer at the AVS cantonal compensation office (decentralized federal office). Sign a LAINF contract (accident insurance) with an authorized SUVA or private company. If you intend to hire employees, sign a LPP contract (occupational pension) with a recognized pension institution.
-
-Step 7 — LAMal Communication to Employees: Inform employees that they have 3 months from the date of hire to sign up for private LAMal coverage with a company of their choice (not tied to the company). You yourself, if an employee of your company, must sign up for coverage within 3 months of arriving in the canton.
-
-Step 8 — VAT Registration (if applicable): If the annual turnover exceeds the federal threshold set annually, request registration with the VAT register at the AFC/ESTV. The threshold is indexed annually.
-
-Step 9 — Verification of Cantonal Specific Requirements: The Canton of Zug may have additional specific requirements for certain sectors (sectoral licenses, professional registrations, building permits). Check with the Zurich cantonal administration.
-
-Critical Deadlines: Registrations must be completed within federal deadlines (commercial register, within approximately 2 weeks from the start) and cantonal deadlines (taxes, AVS by specific deadlines of Zug). Delays result in administrative fines and interest. Contact the Chamber of Commerce of the Canton of Zug for operational support. Use the [Swiss salary and contributions calculator](nav:calculator) to estimate the social insurance costs of a first employee.]]></content:encoded>
-      <pubDate>Sun, 23 Aug 2026 19:50:57 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/attivita-zugo-iscrizione-contributi-obblighi</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/attivita-zugo-iscrizione-contributi-obblighi.webp" medium="image"/>
     </item>
   </channel>
 </rss>

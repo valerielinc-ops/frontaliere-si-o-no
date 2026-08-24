@@ -4135,6 +4135,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-successione-basilea-citta.title': 'Erbschaftssteuer im Kanton Basel-Stadt: Sätze und Verfahren',
     'blog.article.imposta-successione-basilea-citta.excerpt': 'Erbschaftssteuer im Kanton Basel-Stadt: Sätze pro Verwandtschaftsgrad, Befreiungen für Ehegatten und Nachkommen, Erklärung und Einreichungsfristen.',
     'blog.article.imposta-successione-basilea-citta.imageAlt': 'Finanzbehörde mit Steuerdokumenten und Registerunterlagen auf dem Schreibtisch',
+    'blog.article.imposte-canton-basilea-campagna.title': 'Steuern Kanton Basel-Landschaft: Steuersätze und Abzüge',
+    'blog.article.imposte-canton-basilea-campagna.excerpt': 'Vollständiger Leitfaden zu den Kantons- und Gemeindesteuern im Kanton Basel-Landschaft: Sätze, zulässige Abzüge, Deklarationsfristen und Online-Steuerportal.',
+    'blog.article.imposte-canton-basilea-campagna.imageAlt': 'Verwaltungsgebäude der Kantonalen Steuerverwaltung Basel-Landschaft mit Steuererklärungsformularen und amtlichen Dokumenten.',
 };
 
 export default blogMetaChDe;
