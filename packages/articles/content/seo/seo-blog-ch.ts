@@ -53801,6 +53801,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-l-basilea-campagna': {
+    title: 'Permesso L in Basilea Campagna: validità e proroga',
+    description: 'Il permesso L consente lavoro fino a 12 mesi in Basilea-Campagna. Scopri durata massima, regole di rinnovo, transizione al permesso B e vincoli del datore',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, basilea, campagna, validità',
+    ogTitle: 'Permesso L in Basilea Campagna: validità e proroga',
+    ogDescription: 'Guida completa al permesso L di breve durata in Canton Basilea-Campagna: durata massima di 12 mesi, regole di rinnovo, passaggio a permesso B di dimora e vincoli legati al datore di lavoro svizzero.',
+    canonicalPath: '/articoli-svizzera/permesso-l-basilea-campagna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso L in Basilea Campagna: validità e proroga",
+      "description": "Il permesso L consente lavoro fino a 12 mesi in Basilea-Campagna. Scopri durata massima, regole di rinnovo, transizione al permesso B e vincoli del datore",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-l-basilea-campagna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrativo del Canton Basilea-Campagna per permessi e migrazioni lavorative"
+      },
+      "datePublished": "2026-08-24T15:51:43+00:00",
+      "dateModified": "2026-08-24T15:51:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-l-basilea-campagna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

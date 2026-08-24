@@ -4147,6 +4147,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-dimora-b-basilea-campagna.title': 'Permis de séjour B Bâle-Campagne : exigences et renouvellement',
     'blog.article.permesso-dimora-b-basilea-campagna.excerpt': 'Guide des exigences et de la procédure de renouvellement du permis B dans le canton de Bâle-Campagne. Durée, documents et contacts utiles.',
     'blog.article.permesso-dimora-b-basilea-campagna.imageAlt': 'Bureau cantonal de migration Bâle-Campagne, renouvellement permis séjour B',
+    'blog.article.permesso-l-basilea-campagna.title': 'Permis L à Bâle-Campagne : validité et prolongation',
+    'blog.article.permesso-l-basilea-campagna.excerpt': 'Le permis L permet de travailler jusqu\'à 12 mois à Bâle-Campagne. Découvrez la durée maximale, les règles de renouvellement, la transition vers le permis B et les contraintes de l\'employeur.',
+    'blog.article.permesso-l-basilea-campagna.imageAlt': 'Bâtiment administratif du canton de Bâle-Campagne, département des permis de travail',
 };
 
 export default blogMetaChFr;
