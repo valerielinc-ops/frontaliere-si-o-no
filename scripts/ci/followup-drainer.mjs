@@ -1159,6 +1159,34 @@ export function canPushWorkflowsFromEnv(env = process.env) {
 }
 
 /**
+ * Capacità EFFETTIVA di pushare `.github/workflows/**` con l'identità di questo
+ * run, da qualunque delle due sorgenti la porti.
+ *
+ * `APP_TOKEN_WORKFLOWS` descrive UNA sola identità — la GitHub App del sito,
+ * scritta da `mint-app-token.mjs`. Il corpus non usa una App: pusha con
+ * `GITHUB_PAT_NANAKO`, e su quel PAT lo scope `workflow` c'è (misurato il
+ * 2026-08-24 su `x-oauth-scopes`: `…, repo, user, workflow, …`). Con il solo
+ * controllo su `APP_TOKEN_WORKFLOWS` la risposta là era `false` per
+ * costruzione, e il pre-flight parcheggiava come `blocked-workflows-scope` fix
+ * che il PAT pushava benissimo: 8 verdetti in 7 giorni sul corpus, TUTTI emessi
+ * dal pre-flight e non da Claude, con un messaggio che parla di «token GitHub
+ * App» su un repo che non ne usa uno. Il guard bloccava una capacità posseduta.
+ *
+ * `PAT_WORKFLOWS_SCOPE` è l'altra metà, e la sua provenienza è la lezione di
+ * #5288: la capacità si LEGGE, non si deduce dalla presenza di un token. La
+ * scrive `scripts/ci/probe-workflow-scope.mjs` leggendo `x-oauth-scopes` dalla
+ * risposta dell'API, esattamente come il conio della App legge `permissions`.
+ * Questa funzione resta pura e legge solo env — deliberatamente: sondare qui
+ * l'identità ambientale di `gh` legherebbe un guard di produzione a qualunque
+ * token si trovi nella shell di chi lo esegue, incluso un laptop.
+ *
+ * FAIL-CLOSED in entrambi i rami: una variabile non scritta è `!== 'true'`.
+ */
+export function canPushWorkflows(env = process.env) {
+  return canPushWorkflowsFromEnv(env) || env?.PAT_WORKFLOWS_SCOPE === 'true';
+}
+
+/**
  * Capability-guard UNICO per il parked-retry: WF-scope **o** secrets-scope, con una
  * sola `gh issue view` invece di due.
  *
@@ -1192,13 +1220,13 @@ export function isCapabilityScoped(iss, {
   // Seam di test (#5544): entrambe le direzioni del guard vanno provate senza rete.
   // Default = comportamento di produzione, invariato.
   fetchIssue = (num) => gh(['issue', 'view', String(num), '--repo', REPO, '--json', 'title,body,labels']),
-  canPushWorkflows = canPushWorkflowsFromEnv(),
+  canPushWorkflows: canPushWorkflowsOpt = canPushWorkflows(),
 } = {}) {
   if (isSecretsScoped(iss)) return true; // label nota → gratis, nessuna fetch
   try {
     const d = fetchIssue(iss.number);
     // WF-scope esclude SOLO se il push di quei file è davvero impossibile (#5544).
-    if (!canPushWorkflows && isWorkflowScoped(iss.number, d)) return true;
+    if (!canPushWorkflowsOpt && isWorkflowScoped(iss.number, d)) return true;
     return Boolean(matchSecretsScopedShape({
       labels: names(d),
       text: `${d?.title || ''}\n${d?.body || ''}`,
@@ -1833,7 +1861,9 @@ export function runDrain() {
       // WF-scope` è ambiguo — non si distingue «parcheggiata perché manca il
       // permesso» da «parcheggiata per secrets-scope», ed è esattamente
       // l'ambiguità che ha tenuto il difetto invisibile per 13 run.
-      const cap = canPushWorkflowsFromEnv() ? 'concessa' : 'assente';
+      const cap = canPushWorkflows()
+        ? (canPushWorkflowsFromEnv() ? 'concessa (GitHub App)' : 'concessa (PAT con scope workflow)')
+        : 'assente';
       console.log(`parked-retry: ${skippedWf} skip capability-guard (workflows: write ${cap} — APP_TOKEN_WORKFLOWS; secrets-scope sempre escluso) → restano parked/age-out.`);
     }
   }
