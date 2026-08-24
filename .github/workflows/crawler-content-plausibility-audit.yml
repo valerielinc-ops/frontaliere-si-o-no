@@ -1,0 +1,294 @@
+name: Crawler Content Plausibility Audit (weekly)
+
+# Trova la classe di difetto "il contenuto crawlato NON e' un annuncio di
+# lavoro" — record che sono in realta' offerte commerciali, widget di consenso
+# cookie, voci di menu o placeholder di template del sito sorgente.
+#
+# Perche' esiste (2026-08-24). Due difetti trovati A MANO dal proprietario
+# navigando il sito, mai segnalati da nessuno strumento automatico:
+#   1. `hotel-international` (crawler promosso dal prospector) pubblicava 5/5
+#      "annunci" che erano promozioni di camere d'hotel ("Prenota SENZA carta
+#      di credito!", "Offerta speciale 3 notti").
+#   2. `schindler` aveva 11 record col titolo "Manager fur Cookie-
+#      Einwilligungen" — il widget di consenso del sito sorgente — abbinato
+#      alla descrizione di un ruolo reale diverso.
+#
+# Il buco che coprono, e che nessuno degli strumenti esistenti copriva:
+#   - `crawler-health-monitor.yml` / `check-crawler-health.mjs`: freshness e
+#     non-vuoto. Un crawler che pubblica 5 offerte alberghiere e' UP e fresco.
+#   - `audit-parser-quality.mjs`: descrizioni thin/duplicate, struttura, URL
+#     stale. Le descrizioni dei due casi sono lunghe, uniche e ben formate.
+#   - `crawler-data-quality-audit.yml`: slug, previousSlugs, traduzioni, merge.
+#     Nessuna delle sue 5 categorie chiede se il titolo E' un lavoro.
+#
+# Perche' un workflow NUOVO e non una sesta categoria di
+# `crawler-data-quality-audit.yml`: quello legge la git-history (ha uno step di
+# deepen dedicato e un input `window_days`), questo legge solo lo stato
+# corrente e gli basta `fetch-depth: 1`; e soprattutto il budget turni di
+# quello e' gia' stato alzato due volte (40→65→80) dopo `error_max_turns`
+# raggiunto senza completare le 5 categorie che ha — aggiungerne una sesta le
+# metterebbe in competizione fra loro.
+#
+# FORMA: filtro deterministico economico → lista corta → giudizio LLM sulla
+# lista corta (lo stesso split di `scripts/audit-ai-crawlers.mjs`). Il job
+# `verify` con Claude parte SOLO se lo script ha trovato qualcosa: su un corpus
+# pulito questo workflow costa zero invocazioni Claude, che e' esattamente la
+# leva di frugalita' descritta in AGENTS.md → "Auth automazioni & frugalita'
+# quota" (ridurre il NUMERO di invocazioni per architettura, non tagliare i
+# turni).
+#
+# Misurato il 2026-08-24 sul corpus reale: 30.320 job su 573 crawler → 19
+# findings su 3 crawler, zero falsi positivi. I due incidenti sopra sono
+# entrambi presi, piu' un terzo che nessuno aveva notato (`gemeinde-st-moritz`,
+# 5/5 record col titolo della sidebar "Wichtige Kontakte" e il menu di
+# navigazione come descrizione).
+#
+# ROUTING — coda, non fix immediato. Le issue non portano ne' un titolo che
+# matcha `/Crawler Failure|crawler-health|\[parser-health\]/i` ne' la label
+# `parser-broken`, quindi `scripts/lib/classify-issue.mjs` le classifica
+# `other` → `agent:fix-queued`, drenata una alla volta da `followup-drainer`.
+# E' la stessa posizione del `crawler-data-quality-audit.yml` esistente e per
+# la stessa ragione: `route: 'fix'` e' documentato in classify-issue.mjs come
+# "l'UNICA eccezione, provata sicura da mesi", e la conferma qui resta un
+# giudizio LLM su una lista corta. La leva per il fix immediato esiste ed e'
+# umana e deliberata: `scripts/report-crawler-content-error.mjs --urgent`.
+#
+# Zero-issue run silenzioso, come gli altri audit (evergreen-refresh-audit,
+# dmarc-monitor): si apre una issue solo con evidenza reale.
+
+on:
+  schedule:
+    # Lunedi 09:10 UTC. Sgombro da crawler-health-monitor (06:30), dmarc-monitor
+    # (07:10), crawler-data-quality-audit (08:20), e fuori dall'ora 07Z che la
+    # fairness di quota riserva al corpus.
+    - cron: '10 9 * * 1'
+  workflow_dispatch:
+    inputs:
+      crawler:
+        description: 'Limita l''audit a un singolo crawler (chiave, es. schindler). Vuoto = tutti.'
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+  issues: write
+  id-token: write
+
+concurrency:
+  group: crawler-content-plausibility-audit
+  cancel-in-progress: false
+
+jobs:
+  shortlist:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      has_findings: ${{ steps.scan.outputs.has_findings }}
+      summary: ${{ steps.scan.outputs.summary }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      # Nessun `npm ci`: lo script e' Node puro senza dipendenze, apposta —
+      # e' la meta' che deve poter girare ovunque e costare nulla.
+      - name: Run deterministic pre-filter
+        id: scan
+        env:
+          CRAWLER: ${{ inputs.crawler }}
+        run: |
+          set -euo pipefail
+          ARGS=(--out=job-content-shortlist.json)
+          if [ -n "${CRAWLER}" ]; then ARGS+=("--crawler=${CRAWLER}"); fi
+          node scripts/audit-job-content-plausibility.mjs "${ARGS[@]}" | tee scan-summary.txt
+          COUNT=$(node -e "process.stdout.write(String(JSON.parse(require('fs').readFileSync('job-content-shortlist.json','utf8')).findings.length))")
+          echo "has_findings=$([ "$COUNT" -gt 0 ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+          {
+            echo "summary<<__EOF__"
+            head -c 4000 scan-summary.txt
+            echo
+            echo "__EOF__"
+          } >> "$GITHUB_OUTPUT"
+          {
+            echo "## Job-content plausibility"
+            echo '```'
+            head -c 8000 scan-summary.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload shortlist
+        uses: actions/upload-artifact@v7
+        with:
+          name: job-content-shortlist
+          path: |
+            job-content-shortlist.json
+            scan-summary.txt
+          retention-days: 14
+
+  verify:
+    needs: shortlist
+    # Il passo pagato parte SOLO con una lista corta non vuota.
+    if: needs.shortlist.outputs.has_findings == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Download shortlist
+        uses: actions/download-artifact@v7
+        with:
+          name: job-content-shortlist
+
+      # La label deve esistere PRIMA dello step Claude: `gh issue create --label`
+      # su una label inesistente fallisce la chiamata e brucia turni in retry
+      # per qualcosa che uno step deterministico previene (stessa nota di
+      # crawler-data-quality-audit.yml).
+      - name: Ensure label exists
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create "job-content-quality" --color "B60205" \
+            --description "Record crawlato che non e' un annuncio di lavoro (audit di plausibilita' + segnalazioni manuali)" \
+            --force 2>/dev/null || true
+
+      - name: Setup Headroom compression proxy
+        uses: ./.github/actions/setup-headroom
+
+      - name: Verify shortlist and open issues
+        id: verify
+        uses: anthropics/claude-code-action@v1
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # Obbligatorio accanto a claude_code_oauth_token: senza,
+          # allowed_non_write_users e' un no-op silenzioso (post-merge-followup,
+          # PR #3182).
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          allowed_bots: "github-actions[bot], claude[bot], frontaliere-automation[bot]"
+          allowed_non_write_users: "github-actions[bot], claude[bot], frontaliere-automation[bot]"
+          show_full_output: true
+          # `--dangerously-skip-permissions` NON funziona su trigger
+          # schedule/workflow_dispatch (issue #3269, 3 run live): permissionMode
+          # resolve "default" e blocca ~75% delle Bash. Si usa l'allowlist
+          # scoped, che per un audit read-only basta.
+          claude_args: "--max-turns 50 --model claude-sonnet-5 --allowedTools 'Bash(gh:*),Bash(node:*),Read,Grep,Glob'"
+          prompt: |
+            Verifica una lista corta di record crawlati che un filtro deterministico ha marcato come "probabilmente NON un annuncio di lavoro", e apri una issue per ciascun difetto REALE.
+
+            **Contesto.** Due difetti reali hanno innescato questa pipeline il 2026-08-24, trovati a mano dal proprietario perche' nessuno strumento li segnalava:
+            - `hotel-international` pubblicava offerte promozionali di camere d'hotel come annunci di lavoro;
+            - `schindler` aveva 11 record col titolo "Manager fur Cookie-Einwilligungen" (il widget di consenso cookie del sito sorgente) abbinato alla descrizione di un ruolo reale diverso.
+
+            Il tuo compito e' confermare o scartare i candidati, NON ri-scansionare il corpus.
+
+            **Input.** `job-content-shortlist.json` nella working directory. Campi per finding: `crawlerKey`, `jobId`, `title`, `url`, `codes`, `why`, `titleDescriptionOverlap`, `descriptionHead`. In cima: `crawlerVerdicts` con `level` (`crawler` = il crawler intero sembra puntare a una pagina che non e' una lista di lavori; `job` = record singoli dentro un crawler sano).
+
+            **Come verificare ogni candidato:**
+            1. Leggi il `title` e la `url`. **La `url` e' l'oracolo piu' forte**: se lo slug dell'URL descrive un lavoro vero ("...Lehrstelle-als-Anlagen-und-Apparatebauerin-EFZ...") ma il `title` e' altro, il parser sta prendendo il titolo dal posto sbagliato — difetto REALE e confermato.
+            2. `titleDescriptionOverlap` e' una CORROBORAZIONE, non una prova: vale 1.00 anche su `hotel-international`, dove titolo e descrizione sono sbagliati entrambi in modo coerente. Non scartare un candidato solo perche' l'overlap e' alto.
+            3. Per un verdetto `no-job-signal` guarda i titoli campionati: se sono lavori veri ma laconici → FALSO POSITIVO, scarta e dillo nel log.
+            4. Se serve contesto: `node scripts/audit-job-content-plausibility.mjs --crawler=<chiave>`.
+
+            **Falsi positivi da scartare senza aprire nulla** (il lessico e' legato apposta per evitarli, ma verifica): "Spa Therapist 80%", "Reservation Agent", "Newsletter Manager", "Datenschutzbeauftragte" sono lavori VERI. Un titolo e' sospetto per cosa DESCRIVE, non per le parole che contiene.
+
+            **Dedup, PRIMA di creare qualunque issue:**
+            `gh issue list --state open --label job-content-quality --json number,title --limit 50`.
+            Una issue aperta per lo STESSO `crawlerKey` copre gia' il caso → commenta li' con l'evidenza nuova invece di aprirne una seconda.
+
+            **Per ogni difetto confermato (max 3 issue per run, aggrega i correlati):**
+            `gh issue create --title "[job-content] <crawlerKey>: <sintesi breve>" --label job-content-quality --body "<corpo>"`
+
+            Il titolo DEVE cominciare con `[job-content] <crawlerKey>:` — il dedup di `scripts/lib/github-issue-creator.mjs` lavora sui primi 60 caratteri e la chiave del crawler deve starci dentro, altrimenti due crawler diversi collassano sulla stessa issue.
+
+            Il corpo deve contenere: i record interessati con titolo E url, quale `code` e' scattato, perche' e' un difetto vero (una riga), il comando per riprodurre, e il link a questo run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+            Aggiungi sempre questa indicazione nel corpo: *la riparazione va fatta nel parser/selettore o nella definizione del crawler, non cancellando i record da `data/jobs/by-crawler/` — il prossimo crawl li riscriverebbe identici.*
+
+            **NON** usare le label `crawler`, `parser-broken`, `priority:high`, e **non** mettere le parole "crawler" o "parser" nel titolo: instraderebbero l'issue nella route `agent:fix` IMMEDIATA (`scripts/lib/classify-issue.mjs`), riservata al caso production-critical gia' provato sicuro. Queste issue entrano comunque in auto-fix, dalla coda `agent:fix-queued`.
+
+            **Se ogni candidato e' un falso positivo:** non aprire niente, log pulito. Non e' un errore — ed e' un segnale utile: dillo nel log, perche' significa che il lessico in `scripts/lib/job-content-plausibility.mjs` va stretto.
+
+            **Constraint:**
+            - Read-only sul repo: niente commit/push/edit. L'unica scrittura ammessa e' `gh issue create` / `gh issue comment`.
+            - Non tentare il fix: questo audit trova, non ripara.
+            - Bash e' allowlisted per binario ma NON accetta comandi composti: niente `cd ... && ...`, niente redirect `> file`, niente `xargs -I{}`. Un comando per invocazione (causa di #3679).
+
+      - name: Claude usage metrics
+        if: always()
+        run: node scripts/ci/claude-usage-summary.mjs "${{ steps.verify.outputs.execution_file }}" "crawler-content-plausibility-audit"
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

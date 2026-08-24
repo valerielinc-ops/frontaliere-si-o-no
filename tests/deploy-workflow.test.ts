@@ -144,7 +144,19 @@ describe('post-deploy-validate-dist.yml — parallel SEO audit gates', () => {
     //   `audit-dist-from-run.yml` replays and for operators.
     //   The claim "it still runs" is not left on trust — the assertion below
     //   this loop pins the consolidated validator's invocation.
+    // - `audit:job-content-plausibility` reads `data/jobs/by-crawler/*.json` in
+    //   the SOURCE tree and never walks dist/ — a dist-walking block has nothing
+    //   to hand it. Same shape as `audit:job-locations`: it runs on its own
+    //   weekly workflow (crawler-content-plausibility-audit.yml), report-only,
+    //   as the cheap pre-filter feeding an LLM verification step. It is
+    //   deliberately NOT deploy-blocking: a defective crawler landing in the
+    //   dataset would otherwise turn every branch red until someone fixed a
+    //   third-party site's markup (AGENTS.md → "main rosso blocca a cascata").
+    //   Enforcement of its logic is not deferred — the recognizer is pinned
+    //   per-rule, on the real incident data, in tests/job-content-plausibility.test.ts,
+    //   which runs on every PR.
     const GATES_NOT_IN_DIST_PARALLEL = new Set([
+      'audit:job-content-plausibility',
       'audit:title-uniqueness',
       'audit:dist-multi',
       'audit:parser-quality',

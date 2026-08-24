@@ -231,3 +231,100 @@ where the mismatch is understood; it never reports the run as verified.
 When a job's slug changes (via relocalize or hardenJobLocaleFields), the old slug is preserved in `previousSlugs[]` on the job object. The build plugin (`jobsSeoPagesPlugin`) uses `previousSlugs` to generate **bridge pages** (canonical redirect pages) so old indexed URLs don't 404.
 
 When a job is **deleted**, the expired entry captures `slugByLocale` + `previousSlugs`. The build plugin indexes both current + previous slugs from expired entries in `expiredBySlug`, ensuring all old URLs get **enriched soft-landing pages** (title, company, salary visible) rather than generic 404 pages.
+
+## Job-Content Plausibility — Is the Record a Job Ad at All?
+
+Every check above asks whether a slice is *fresh*, *complete*, or *internally
+consistent*. None of them asks the prior question: **is this record a job
+advertisement in the first place?** Two defects found by hand on 2026-08-24
+showed that gap is real and that nothing automated was watching it.
+
+- **`hotel-international`** — a crawler promoted by the prospector — published
+  5 of 5 "jobs" that were room promotions: *"Prenota SENZA carta di credito!"*,
+  *"Offerta speciale 3 notti"*, *"Perché prenotare direttamente"*.
+- **`schindler`** carried 11 records titled *"Manager für Cookie-
+  Einwilligungen"* (and its `it`/`fr` translations) — the source site's cookie
+  consent widget — attached to the description of a different, real role.
+
+Both slices were fresh, non-empty, richly described and structurally valid, so
+`crawler-health-monitor.yml`, `audit-parser-quality.mjs` and
+`crawler-data-quality-audit.yml` all passed them.
+
+**`scripts/lib/job-content-plausibility.mjs`** holds the recognizer;
+**`scripts/audit-job-content-plausibility.mjs`** (`npm run
+audit:job-content-plausibility`) runs it over `data/jobs/by-crawler/*.json` and
+emits a shortlist. It reports at two levels: `job` for bad records inside an
+otherwise healthy crawler (schindler, 13/91), and `crawler` when the crawler
+itself appears pointed at a page that is not a job listing
+(hotel-international, 5/5) — one finding instead of N, because the repair is
+one thing, not N things.
+
+Three properties are load-bearing, and each one is a measurement on the real
+corpus rather than an intuition:
+
+- **A positive signal never cancels a decisive rule.** *"Manager für Cookie-
+  Einwilligungen"* contains "Manager", a role noun. If role vocabulary could
+  outvote the consent-widget rule, the defect that motivated this audit would
+  stay invisible.
+- **The vocabulary is bound, never single-token.** `cookie` alone would reject
+  a real "Category Manager Cookies"; `reservation` alone would reject
+  "Reservation Agent"; `newsletter` alone would reject "Newsletter Manager".
+  Every rule needs two co-occurring elements, or an imperative form ("Prenota…",
+  "Buchen Sie…") that a job title never takes. `tests/job-content-plausibility.test.ts`
+  pins these adjacent-but-real titles as explicit negatives.
+- **Title↔description divergence corroborates, it never triggers.** 2,670 jobs
+  (8.8% of the corpus, across 214 crawlers) have zero lexical overlap and are
+  overwhelmingly legitimate. It would also have missed hotel-international
+  entirely, where title and description agree perfectly — both wrong. Repeated
+  titles inside one crawler were rejected as a signal for the same reason: 584
+  cases, nearly all legitimate multi-location retail postings.
+
+Measured on 2026-08-24: **30,320 jobs across 573 crawlers → 19 findings on 3
+crawlers, no false positives.** The third was previously unknown —
+`gemeinde-st-moritz`, whose 5 records all carried the sidebar heading *"Wichtige
+Kontakte"* as title and the site's navigation menu as description, while their
+URLs named real vacancies.
+
+### The loop: weekly audit and one-command human reporting
+
+`.github/workflows/crawler-content-plausibility-audit.yml` runs the
+deterministic filter weekly (Monday 09:10 UTC), and starts the paid Claude job
+**only when the shortlist is non-empty** — a clean corpus costs zero Claude
+invocations. Claude confirms or discards each candidate and opens at most 3
+issues, labelled `job-content-quality`. The `url` field is the strongest
+oracle: an URL slug naming a real vacancy under a title that is something else
+proves the parser is reading the title from the wrong node.
+
+`scripts/report-crawler-content-error.mjs` closes the other half — the case
+that actually happened, a human noticing a bad page while browsing:
+
+```bash
+node scripts/report-crawler-content-error.mjs schindler "titolo = widget cookie"
+node scripts/report-crawler-content-error.mjs https://www.hotel-international.ch/it/offerte/... "sono offerte hotel"
+```
+
+It accepts a crawler key **or any job URL** (resolving the key from the
+dataset), attaches whatever the deterministic detector independently finds on
+that crawler, and files the issue through `scripts/lib/github-issue-creator.mjs`
+so it dedups like every other automated reporter. From there it is the ordinary
+autonomous loop — `issue-triage` → `issue-fix` → PR → `## LGTM` → auto-merge —
+with no further human action.
+
+**Routing is a deliberate choice, and it differs between the two entry points.**
+Audit findings and default manual reports carry no routing label, so
+`scripts/lib/classify-issue.mjs` classifies them `other` → `agent:fix-queued`,
+drained one at a time by `followup-drainer`. `route: 'fix'` is documented there
+as "the ONLY exception, proven safe for months", and an LLM confirmation is not
+that case. A human who has seen the bad page with their own eyes can pass
+`--urgent`, which adds `parser-broken` — enough on its own to classify the issue
+`crawler` and route it to an immediate `agent:fix`.
+
+When a report turns out to describe something the detector did **not** flag, the
+fix is not finished at the parser: add the rule to
+`scripts/lib/job-content-plausibility.mjs` and the case to
+`tests/job-content-plausibility.test.ts`, so the class is covered next time. The
+issue body says so explicitly.
+
+**Repair the parser, never the data.** Deleting bad records from
+`data/jobs/by-crawler/<key>.json` by hand accomplishes nothing — the next crawl
+rewrites them identically.
