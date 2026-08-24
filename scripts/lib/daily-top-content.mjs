@@ -277,3 +277,33 @@ export function pickFirstUnposted(candidates, postedSet) {
   }
   return { pick: null, skipped, exhausted: list.length > 0 };
 }
+
+/**
+ * First `limit` candidates whose slug is not already in the ledger — the
+ * carousel-format sibling of pickFirstUnposted (single item vs Instagram/
+ * TikTok's "top N of the day" carousel). Same fall-through rule: an
+ * already-posted candidate is skipped, not dropped from the count, so the
+ * carousel still fills to `limit` from further down the ranking instead of
+ * shipping short.
+ *
+ * @param {Array<{slug: string}>} candidates ranked desc
+ * @param {Set<string>} postedSet slugs already posted
+ * @param {number} limit max picks to return
+ * @returns {{ picks: object[], skipped: number }}
+ */
+export function pickTopNUnposted(candidates, postedSet, limit) {
+  const list = candidates || [];
+  const posted = postedSet instanceof Set ? postedSet : new Set(postedSet || []);
+  const max = Math.max(0, limit | 0);
+  const picks = [];
+  let skipped = 0;
+  for (const candidate of list) {
+    if (picks.length >= max) break;
+    if (posted.has(candidate.slug)) {
+      skipped += 1;
+      continue;
+    }
+    picks.push(candidate);
+  }
+  return { picks, skipped };
+}
