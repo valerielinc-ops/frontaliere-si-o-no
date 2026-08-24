@@ -4174,6 +4174,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-l-sciaffusa-validita-proroga.title': 'Genehmigung Schaffhausen: Gültigkeit und Verlängerung',
     'blog.article.permesso-l-sciaffusa-validita-proroga.excerpt': 'L-Genehmigung bis 1 Jahr in der Schweiz. Im Kanton Schaffhausen ist sie erneuerbar und kann zur Aufenthaltsbewilligung führen. Bedingungen, Verfahren und Einschränkungen.',
     'blog.article.permesso-l-sciaffusa-validita-proroga.imageAlt': 'Verwaltungsburo des Kantons mit Schweizer Flagge, modernes Gebaude im schweizer Stil, professionelle Umgebung',
+    'blog.article.ticino-solare-fotovoltaico-1982.title': 'Die Sonne als Baumaterial',
+    'blog.article.ticino-solare-fotovoltaico-1982.excerpt': 'Tessin ist seit 1982 Pionier der europäischen Photovoltaik. Heute erfinden ViverTI und Sun Appeal die Wohnsolaranlage neu: 2.100 Sonnenstunden/Jahr, intelligentes und nachhaltiges Wohnen.',
+    'blog.article.ticino-solare-fotovoltaico-1982.imageAlt': 'Luftansicht von Lugano mit Häusern mit in die Architektur integrierten Solarpaneelen, sonniges Tessin',
 };
 
 export default blogMetaChDe;

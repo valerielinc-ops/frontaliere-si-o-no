@@ -4174,6 +4174,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-l-sciaffusa-validita-proroga.title': 'Permis L Schaffhouse : validité et prolongation',
     'blog.article.permesso-l-sciaffusa-validita-proroga.excerpt': 'Permis L jusqu\'à 1 an en Suisse. Dans le canton de Schaffhouse et renouvelable et peut conduire à l\'autorisation de séjour. Conditions, procédures et contraintes.',
     'blog.article.permesso-l-sciaffusa-validita-proroga.imageAlt': 'Bureau administratif cantonal avec drapeau suisse, batiment moderne de style suisse, environnement professionnel',
+    'blog.article.ticino-solare-fotovoltaico-1982.title': 'Le soleil comme matériau de construction',
+    'blog.article.ticino-solare-fotovoltaico-1982.excerpt': 'Tessin pionnier du photovoltaïque européen depuis 1982. Aujourd\'hui, ViverTI et Sun Appeal réinventent le solaire résidentiel : 2 100 heures de soleil/an, des maisons intelligentes et durables.',
+    'blog.article.ticino-solare-fotovoltaico-1982.imageAlt': 'Vue aérienne de Lugano montrant maisons avec panneaux solaires intégrés à l\'architecture, Tessin ensoleillé',
 };
 
 export default blogMetaChFr;

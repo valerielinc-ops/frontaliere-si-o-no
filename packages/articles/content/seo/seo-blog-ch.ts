@@ -54152,6 +54152,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ticino-solare-fotovoltaico-1982': {
+    title: 'Il sole come materiale da costruzione | Frontaliere Ticino',
+    description: 'Ticino pioniere del fotovoltaico europeo dal 1982. Oggi agenzie immobiliari ticinesi reinventano il solare residenziale con design integrato, 2.100 ore',
+    keywords: 'frontalieri, ticino, svizzera, italia, sole, materiale, costruzione, pioniere',
+    ogTitle: 'Il sole come materiale da costruzione',
+    ogDescription: 'Nel 1982 il Ticino ha installato il primo impianto fotovoltaico europeo. Oggi ViverTI e Sun Appeal reinventano le case solari con design moderno e integrato, 2.100 ore sole/anno, energia pulita per 40 anni.',
+    canonicalPath: '/articoli-svizzera/ticino-solare-fotovoltaico-1982/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il sole come materiale da costruzione",
+      "description": "Ticino pioniere del fotovoltaico europeo dal 1982. Oggi agenzie immobiliari ticinesi reinventano il solare residenziale con design integrato, 2.100 ore",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ticino-solare-fotovoltaico-1982.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con case con pannelli solari integrati nella struttura, sole su Ticino"
+      },
+      "datePublished": "2026-08-24T20:08:15+00:00",
+      "dateModified": "2026-08-24T20:08:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ticino-solare-fotovoltaico-1982/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

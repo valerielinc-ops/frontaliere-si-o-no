@@ -1417,6 +1417,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'imposta-successione-donazione-basilea-campagna': { it: 'imposta-successione-donazione-basilea-campagna', en: 'inheritance-donation-tax-basel-landschaft', de: 'erbschafts-donationsteuer-baselland', fr: 'impot-succession-donation-bale-campagne' },
  'permesso-domicilio-c-sciaffusa-requisiti': { it: 'permesso-domicilio-c-sciaffusa-requisiti', en: 'residence-permit-c-schaffhausen-requirements', de: 'aufenthaltserlaubnis-c-schaffhausen-voraussetzungen', fr: 'permis-domicile-c-schaffhausen-conditions' },
  'permesso-l-sciaffusa-validita-proroga': { it: 'permesso-l-sciaffusa-validita-proroga', en: 'permit-l-schaffhausen-validity-renewal', de: 'aufenthalts-l-schaffhausen-gueltig-verlaengerung', fr: 'permis-l-schaffhouse-validite-renouvellement' },
+ 'ticino-solare-fotovoltaico-1982': { it: 'ticino-solare-fotovoltaico-1982', en: 'ticino-solar-photovoltaic-1982', de: 'tessin-solaranlage-photovoltaik-1982', fr: 'tessin-solaire-photovoltaique-1982' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
