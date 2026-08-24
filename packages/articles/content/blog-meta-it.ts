@@ -10678,6 +10678,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-lavoro-temporaneo-frontalieri.title': 'Svizzera, riparte il lavoro temporaneo: quali effetti per i frontalieri',
     'blog.article.svizzera-lavoro-temporaneo-frontalieri.excerpt': 'Il mercato del lavoro svizzero registra un segnale di ripresa nel settore del lavoro temporaneo, con un aumento delle ore lavorate interinali del 1,5% nel primo semestre 2026.',
     'blog.article.svizzera-lavoro-temporaneo-frontalieri.imageAlt': 'Lavoratore frontaliere che guarda verso la città di Lugano.',
+    'blog.article.vivere-locate-varesino-lavorare-ticino-da-frontaliere.title': 'Vivere a Locate Varesino e lavorare in Ticino: vantaggi e svantaggi',
+    'blog.article.vivere-locate-varesino-lavorare-ticino-da-frontaliere.excerpt': 'I frontalieri che lavorano in Ticino da Locate Varesino possono beneficiare di collegamenti efficienti e tempi di percorrenza ragionevoli. Il costo della vita è generalmente più alto rispetto all\'Italia di confine, ma le zone consigliate offrono un equilibrio tra la vita urbana e la natura.',
+    'blog.article.vivere-locate-varesino-lavorare-ticino-da-frontaliere.imageAlt': 'Un frontaliere che lavora in Ticino da Locate Varesino',
 };
 
 export default blogMetaIt;

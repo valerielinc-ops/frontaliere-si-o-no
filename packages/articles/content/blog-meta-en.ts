@@ -10677,6 +10677,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-lavoro-temporaneo-frontalieri.title': 'Switzerland, temporary work restarts: what effects for border workers',
     'blog.article.svizzera-lavoro-temporaneo-frontalieri.excerpt': 'The Swiss labour market registers a sign of recovery in the temporary work sector, with an increase in temporary working hours of 1.5% in the first half of 2026.',
     'blog.article.svizzera-lavoro-temporaneo-frontalieri.imageAlt': 'Frontalier looking at the city of Lugano.',
+    'blog.article.vivere-locate-varesino-lavorare-ticino-da-frontaliere.title': 'Living in Locate Varesino and working in Ticino: advantages and disadvantages',
+    'blog.article.vivere-locate-varesino-lavorare-ticino-da-frontaliere.excerpt': 'Border workers working in Ticino from Locate Varesino can benefit from efficient connections and reasonable journey times. The cost of living is generally higher than in border Italy, but the recommended areas offer a balance between urban life and nature.',
+    'blog.article.vivere-locate-varesino-lavorare-ticino-da-frontaliere.imageAlt': 'A frontaliere working in Ticino from Locate Varesino',
 };
 
 export default blogMetaEn;

@@ -31953,6 +31953,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-locate-varesino-lavorare-ticino-da-frontaliere',
+ category: 'fiscale',
+ date: '2026-08-24T07:15:14.652Z',
+ image: '/images/blog/vivere-locate-varesino-lavorare-ticino-da-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
