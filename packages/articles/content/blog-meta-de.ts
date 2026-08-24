@@ -10641,6 +10641,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.formazione-riqualifica-frontaliere-figli.title': 'Grenzgänger: Umschulung 2026, Kinder und Besteuerung',
     'blog.article.formazione-riqualifica-frontaliere-figli.excerpt': 'Als berufliche Umschulung im Jahr 2026 ändert sich die Besteuerung, die Familienzulagen und die Vorsorge für Grenzgänger mit Kindern: operative Anleitung mit Checkliste.',
     'blog.article.formazione-riqualifica-frontaliere-figli.imageAlt': 'Bücher zur beruflichen Weiterbildung auf Schreibtisch mit Tessiner Universitätshintergrund und natürlichem Licht.',
+    'blog.article.frontaliere-formazione-professionale-riqualifica-corsi-2026-simulazione-pratica.title': 'Grenzgänger: anerkannte Kurse und Finanzierung',
+    'blog.article.frontaliere-formazione-professionale-riqualifica-corsi-2026-simulazione-pratica.excerpt': 'Grenzgängerinnen und Grenzgänger können an Aus- und Weiterbildungskursen teilnehmen, um ihre Kompetenzen zu verbessern und ihre Beschäftigungsfähigkeit zu erhöhen.',
+    'blog.article.frontaliere-formazione-professionale-riqualifica-corsi-2026-simulazione-pratica.imageAlt': 'Frontalier in Tessin, der sich weiterbildet',
 };
 
 export default blogMetaDe;

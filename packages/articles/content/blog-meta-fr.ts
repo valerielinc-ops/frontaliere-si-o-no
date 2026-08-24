@@ -10644,6 +10644,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.formazione-riqualifica-frontaliere-figli.title': 'Frontalier : requalification 2026, enfants et fiscalité',
     'blog.article.formazione-riqualifica-frontaliere-figli.excerpt': 'Comment une requalification professionnelle en 2026 change la fiscalité, les allocations familiales et la prévoyance pour frontaliers avec enfants : guide opérationnel avec checklist.',
     'blog.article.formazione-riqualifica-frontaliere-figli.imageAlt': 'Livres de formation professionnelle et documents sur bureau en contexte universitaire tessinois avec lumière naturelle.',
+    'blog.article.frontaliere-formazione-professionale-riqualifica-corsi-2026-simulazione-pratica.title': 'Frontière : cours reconnus et financements',
+    'blog.article.frontaliere-formazione-professionale-riqualifica-corsi-2026-simulazione-pratica.excerpt': 'Les frontaliers peuvent accéder à des cours de formation professionnelle et de recyclage pour améliorer leurs compétences et augmenter leurs possibilités d\'emploi.',
+    'blog.article.frontaliere-formazione-professionale-riqualifica-corsi-2026-simulazione-pratica.imageAlt': 'Frontalier en Tessin en formation',
 };
 
 export default blogMetaFr;

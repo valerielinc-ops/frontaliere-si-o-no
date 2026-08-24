@@ -31854,6 +31854,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-formazione-professionale-riqualifica-corsi-2026-simulazione-pratica',
+ category: 'pratico',
+ date: '2026-08-24T01:37:12.657Z',
+ image: '/images/blog/frontaliere-formazione-professionale-riqualifica-corsi-2026-simulazione-pratica.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
