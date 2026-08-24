@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-24T04:52:01.453Z",
+  "updatedAt": "2026-08-24T04:52:56.199Z",
   "candidates": {
     "bofrost@mezzovico": {
       "key": "bofrost@mezzovico",
@@ -801,12 +801,12 @@
     },
     "michael-page": {
       "key": "michael-page",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T07:47:23.369Z",
-      "updatedAt": "2026-08-24T04:16:11.777Z",
+      "updatedAt": "2026-08-24T04:52:40.791Z",
       "name": "Michael Page",
       "city": "",
       "zip": "",
@@ -917,7 +917,8 @@
         }
       ],
       "promotionPr": "6292",
-      "promotionBranch": "prospector/promote-2026-08-22"
+      "promotionBranch": "prospector/promote-2026-08-22",
+      "promotedAt": "2026-08-24T04:52:40.790Z"
     },
     "bundesamt-fur-sport-baspo": {
       "key": "bundesamt-fur-sport-baspo",
@@ -1193,12 +1194,12 @@
     },
     "ipersonal": {
       "key": "ipersonal",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T07:47:23.371Z",
-      "updatedAt": "2026-08-23T04:39:39.888Z",
+      "updatedAt": "2026-08-24T04:52:41.094Z",
       "name": "iPersonal",
       "city": "",
       "zip": "",
@@ -1269,7 +1270,8 @@
         }
       ],
       "promotionPr": "6297",
-      "promotionBranch": "prospector/promote-2026-08-23"
+      "promotionBranch": "prospector/promote-2026-08-23",
+      "promotedAt": "2026-08-24T04:52:41.094Z"
     },
     "scherler@breganzona": {
       "key": "scherler@breganzona",
@@ -3713,12 +3715,12 @@
     },
     "med-ipersonal.ch": {
       "key": "med-ipersonal.ch",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T07:47:23.378Z",
-      "updatedAt": "2026-08-24T04:16:11.774Z",
+      "updatedAt": "2026-08-24T04:52:41.440Z",
       "name": "MediPersonal",
       "city": "Wallisellen",
       "zip": "8304",
@@ -3827,7 +3829,8 @@
         }
       ],
       "promotionPr": "6292",
-      "promotionBranch": "prospector/promote-2026-08-22"
+      "promotionBranch": "prospector/promote-2026-08-22",
+      "promotedAt": "2026-08-24T04:52:41.440Z"
     },
     "prime-international-jobs-by-von-arx@coira": {
       "key": "prime-international-jobs-by-von-arx@coira",
@@ -3888,12 +3891,12 @@
     },
     "ok-job-mendrisio@mendrisio": {
       "key": "ok-job-mendrisio@mendrisio",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T07:47:23.379Z",
-      "updatedAt": "2026-08-24T04:14:35.199Z",
+      "updatedAt": "2026-08-24T04:52:41.773Z",
       "name": "OK Job SA, succursale di Mendrisio",
       "city": "Mendrisio",
       "zip": "6850",
@@ -4002,7 +4005,8 @@
         }
       ],
       "promotionPr": "6292",
-      "promotionBranch": "prospector/promote-2026-08-22"
+      "promotionBranch": "prospector/promote-2026-08-22",
+      "promotedAt": "2026-08-24T04:52:41.773Z"
     },
     "girard-catherine-e-gabucci-tomaso@cureglia": {
       "key": "girard-catherine-e-gabucci-tomaso@cureglia",
@@ -9055,12 +9059,12 @@
     },
     "ocst.ch": {
       "key": "ocst.ch",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T07:53:20.308Z",
-      "updatedAt": "2026-08-24T04:51:40.292Z",
+      "updatedAt": "2026-08-24T04:52:56.199Z",
       "name": "OCST",
       "domain": "ocst.ch",
       "city": "Locarno",
@@ -9153,7 +9157,9 @@
           "contentfulRate": 1,
           "distinctRate": 1
         }
-      ]
+      ],
+      "promotionPr": "6320",
+      "promotionBranch": "prospector/promote-2026-08-24"
     },
     "tingenia.ch": {
       "key": "tingenia.ch",
@@ -9676,12 +9682,12 @@
     },
     "ete.ch": {
       "key": "ete.ch",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T07:53:20.314Z",
-      "updatedAt": "2026-08-23T04:39:39.888Z",
+      "updatedAt": "2026-08-24T04:52:42.134Z",
       "name": "Emil Egger AG",
       "domain": "ete.ch",
       "city": "",
@@ -9767,7 +9773,8 @@
         }
       ],
       "promotionPr": "6297",
-      "promotionBranch": "prospector/promote-2026-08-23"
+      "promotionBranch": "prospector/promote-2026-08-23",
+      "promotedAt": "2026-08-24T04:52:42.134Z"
     },
     "lexcon@suhr": {
       "key": "lexcon@suhr",
@@ -11862,12 +11869,12 @@
     },
     "fachkraft.ch": {
       "key": "fachkraft.ch",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:25:27.609Z",
-      "updatedAt": "2026-08-23T04:39:39.888Z",
+      "updatedAt": "2026-08-24T04:52:42.392Z",
       "name": "fachkraft.ch GmbH",
       "city": "Luzern",
       "zip": "6003",
@@ -11963,7 +11970,8 @@
         }
       ],
       "promotionPr": "6297",
-      "promotionBranch": "prospector/promote-2026-08-23"
+      "promotionBranch": "prospector/promote-2026-08-23",
+      "promotedAt": "2026-08-24T04:52:42.392Z"
     },
     "bauhaus-fachcentren@oftringen": {
       "key": "bauhaus-fachcentren@oftringen",
@@ -136558,12 +136566,12 @@
     },
     "de@umantis.com": {
       "key": "de@umantis.com",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.403Z",
-      "updatedAt": "2026-08-24T04:50:02.087Z",
+      "updatedAt": "2026-08-24T04:52:56.199Z",
       "name": "MPI AGE",
       "tenantHost": "mpi-age.de.umantis.com",
       "platform": "umantis.com",
@@ -136648,7 +136656,9 @@
           "contentfulRate": 1,
           "distinctRate": 1
         }
-      ]
+      ],
+      "promotionPr": "6320",
+      "promotionBranch": "prospector/promote-2026-08-24"
     },
     "recruitingapp-2696@umantis.com": {
       "key": "recruitingapp-2696@umantis.com",
@@ -137294,12 +137304,12 @@
     },
     "recruitingapp-1154@umantis.com": {
       "key": "recruitingapp-1154@umantis.com",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.413Z",
-      "updatedAt": "2026-08-22T19:08:23.053Z",
+      "updatedAt": "2026-08-24T04:52:42.718Z",
       "name": "SGKB Bewerbermanagement Stellen",
       "tenantHost": "recruitingapp-1154.umantis.com",
       "platform": "umantis.com",
@@ -137386,16 +137396,17 @@
         }
       ],
       "promotionPr": "6292",
-      "promotionBranch": "prospector/promote-2026-08-22"
+      "promotionBranch": "prospector/promote-2026-08-22",
+      "promotedAt": "2026-08-24T04:52:42.718Z"
     },
     "recruitingapp-2649@umantis.com": {
       "key": "recruitingapp-2649@umantis.com",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.413Z",
-      "updatedAt": "2026-08-22T19:08:23.054Z",
+      "updatedAt": "2026-08-24T04:52:43.164Z",
       "name": "Alexander von Humboldt-Stiftung Stellen",
       "tenantHost": "recruitingapp-2649.umantis.com",
       "platform": "umantis.com",
@@ -137460,16 +137471,17 @@
         }
       ],
       "promotionPr": "6292",
-      "promotionBranch": "prospector/promote-2026-08-22"
+      "promotionBranch": "prospector/promote-2026-08-22",
+      "promotedAt": "2026-08-24T04:52:43.164Z"
     },
     "recruitingapp-2677@umantis.com": {
       "key": "recruitingapp-2677@umantis.com",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.413Z",
-      "updatedAt": "2026-08-22T19:08:23.053Z",
+      "updatedAt": "2026-08-24T04:52:43.523Z",
       "name": "E-Recruiting LLB-Gruppe Stellen",
       "tenantHost": "recruitingapp-2677.umantis.com",
       "platform": "umantis.com",
@@ -137523,7 +137535,8 @@
         }
       ],
       "promotionPr": "6292",
-      "promotionBranch": "prospector/promote-2026-08-22"
+      "promotionBranch": "prospector/promote-2026-08-22",
+      "promotedAt": "2026-08-24T04:52:43.523Z"
     },
     "recruitingapp-2678@umantis.com": {
       "key": "recruitingapp-2678@umantis.com",
@@ -138009,12 +138022,12 @@
     },
     "recruitingapp-1123@umantis.com": {
       "key": "recruitingapp-1123@umantis.com",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.415Z",
-      "updatedAt": "2026-08-22T19:08:23.053Z",
+      "updatedAt": "2026-08-24T04:52:43.790Z",
       "name": "BIG & ARE Stellen",
       "tenantHost": "recruitingapp-1123.umantis.com",
       "platform": "umantis.com",
@@ -138101,16 +138114,17 @@
         }
       ],
       "promotionPr": "6292",
-      "promotionBranch": "prospector/promote-2026-08-22"
+      "promotionBranch": "prospector/promote-2026-08-22",
+      "promotedAt": "2026-08-24T04:52:43.790Z"
     },
     "recruitingapp-2563@umantis.com": {
       "key": "recruitingapp-2563@umantis.com",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.415Z",
-      "updatedAt": "2026-08-22T19:08:23.054Z",
+      "updatedAt": "2026-08-24T04:52:44.094Z",
       "name": "Switch Bewerbermanagement Stellen",
       "tenantHost": "recruitingapp-2563.umantis.com",
       "platform": "umantis.com",
@@ -138174,7 +138188,8 @@
         }
       ],
       "promotionPr": "6292",
-      "promotionBranch": "prospector/promote-2026-08-22"
+      "promotionBranch": "prospector/promote-2026-08-22",
+      "promotedAt": "2026-08-24T04:52:44.094Z"
     },
     "recruitingapp-2783@umantis.com": {
       "key": "recruitingapp-2783@umantis.com",
@@ -138297,12 +138312,12 @@
     },
     "jsafrasarasin@umantis.com": {
       "key": "jsafrasarasin@umantis.com",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.416Z",
-      "updatedAt": "2026-08-23T04:34:19.494Z",
+      "updatedAt": "2026-08-24T04:52:44.365Z",
       "name": "J. Safra Sarasin",
       "tenantHost": "jsafrasarasin.umantis.com",
       "platform": "umantis.com",
@@ -138388,7 +138403,8 @@
         }
       ],
       "promotionPr": "6292",
-      "promotionBranch": "prospector/promote-2026-08-22"
+      "promotionBranch": "prospector/promote-2026-08-22",
+      "promotedAt": "2026-08-24T04:52:44.365Z"
     },
     "beinspired@umantis.com": {
       "key": "beinspired@umantis.com",
@@ -138541,12 +138557,12 @@
     },
     "hotel-international.ch": {
       "key": "hotel-international.ch",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.566Z",
-      "updatedAt": "2026-08-23T04:39:39.888Z",
+      "updatedAt": "2026-08-24T04:52:44.604Z",
       "name": "Hotel International au Lac",
       "domain": "hotel-international.ch",
       "city": "Lugano",
@@ -138617,7 +138633,8 @@
         }
       ],
       "promotionPr": "6297",
-      "promotionBranch": "prospector/promote-2026-08-23"
+      "promotionBranch": "prospector/promote-2026-08-23",
+      "promotedAt": "2026-08-24T04:52:44.604Z"
     },
     "besomi-statione.ch": {
       "key": "besomi-statione.ch",
@@ -139781,12 +139798,12 @@
     },
     "albergo-gardenia.ch": {
       "key": "albergo-gardenia.ch",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.591Z",
-      "updatedAt": "2026-08-24T04:49:01.698Z",
+      "updatedAt": "2026-08-24T04:52:56.199Z",
       "name": "Albergo Gardenia",
       "domain": "albergo-gardenia.ch",
       "city": "",
@@ -139903,7 +139920,9 @@
           "contentfulRate": 1,
           "distinctRate": 1
         }
-      ]
+      ],
+      "promotionPr": "6320",
+      "promotionBranch": "prospector/promote-2026-08-24"
     },
     "ascona-locarno.com": {
       "key": "ascona-locarno.com",
@@ -161216,12 +161235,12 @@
     },
     "gmo.ch": {
       "key": "gmo.ch",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "web"
       ],
       "firstSeenAt": "2026-08-21T09:48:05.288Z",
-      "updatedAt": "2026-08-22T19:08:23.053Z",
+      "updatedAt": "2026-08-24T04:52:44.896Z",
       "name": "gmo",
       "domain": "gmo.ch",
       "careersUrl": "https://www.arsante.ch/emploi",
@@ -161316,7 +161335,8 @@
         }
       ],
       "promotionPr": "6292",
-      "promotionBranch": "prospector/promote-2026-08-22"
+      "promotionBranch": "prospector/promote-2026-08-22",
+      "promotedAt": "2026-08-24T04:52:44.896Z"
     },
     "gmppsa.ch": {
       "key": "gmppsa.ch",
@@ -161690,12 +161710,12 @@
     },
     "lepatron.ch": {
       "key": "lepatron.ch",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "web"
       ],
       "firstSeenAt": "2026-08-21T09:48:05.292Z",
-      "updatedAt": "2026-08-24T04:49:54.951Z",
+      "updatedAt": "2026-08-24T04:52:56.199Z",
       "name": "lepatron",
       "domain": "lepatron.ch",
       "careersUrl": "https://careers.orior.ch/go/Le-Patron/4574301/",
@@ -161809,7 +161829,9 @@
           "contentfulRate": 1,
           "distinctRate": 1
         }
-      ]
+      ],
+      "promotionPr": "6320",
+      "promotionBranch": "prospector/promote-2026-08-24"
     },
     "leperolles.ch": {
       "key": "leperolles.ch",
@@ -163651,12 +163673,12 @@
     },
     "cippatrasporti@altamiraweb.com": {
       "key": "cippatrasporti@altamiraweb.com",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "tenant:altamiraweb.com"
       ],
       "firstSeenAt": "2026-08-21T11:13:18.075Z",
-      "updatedAt": "2026-08-24T04:49:58.870Z",
+      "updatedAt": "2026-08-24T04:52:56.199Z",
       "name": "Cippà Trasporti S.A.",
       "tenantHost": "cippatrasporti.altamiraweb.com",
       "platform": "altamiraweb.com",
@@ -163763,7 +163785,9 @@
           "contentfulRate": 1,
           "distinctRate": 1
         }
-      ]
+      ],
+      "promotionPr": "6320",
+      "promotionBranch": "prospector/promote-2026-08-24"
     },
     "workmanagement@magenwil": {
       "key": "workmanagement@magenwil",
@@ -209636,12 +209660,12 @@
     },
     "recruitingapp-2761@umantis.com": {
       "key": "recruitingapp-2761@umantis.com",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-22T04:28:47.142Z",
-      "updatedAt": "2026-08-23T04:39:39.888Z",
+      "updatedAt": "2026-08-24T04:52:45.219Z",
       "name": "EOC candiDati Posizioni",
       "tenantHost": "recruitingapp-2761.umantis.com",
       "platform": "umantis.com",
@@ -209716,16 +209740,17 @@
         }
       ],
       "promotionPr": "6297",
-      "promotionBranch": "prospector/promote-2026-08-23"
+      "promotionBranch": "prospector/promote-2026-08-23",
+      "promotedAt": "2026-08-24T04:52:45.219Z"
     },
     "recruitingapp-2904@umantis.com": {
       "key": "recruitingapp-2904@umantis.com",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-22T04:28:47.143Z",
-      "updatedAt": "2026-08-23T04:39:39.888Z",
+      "updatedAt": "2026-08-24T04:52:45.469Z",
       "name": "Bewerbermanagement Stellen",
       "tenantHost": "recruitingapp-2904.umantis.com",
       "platform": "umantis.com",
@@ -209800,7 +209825,8 @@
         }
       ],
       "promotionPr": "6297",
-      "promotionBranch": "prospector/promote-2026-08-23"
+      "promotionBranch": "prospector/promote-2026-08-23",
+      "promotedAt": "2026-08-24T04:52:45.469Z"
     },
     "recruitingapp-3030@umantis.com": {
       "key": "recruitingapp-3030@umantis.com",
@@ -209827,12 +209853,12 @@
     },
     "recruitingapp-2850@umantis.com": {
       "key": "recruitingapp-2850@umantis.com",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-22T04:28:47.143Z",
-      "updatedAt": "2026-08-23T04:39:39.888Z",
+      "updatedAt": "2026-08-24T04:52:45.719Z",
       "name": "Bürgenstock Collection",
       "tenantHost": "recruitingapp-2850.umantis.com",
       "platform": "umantis.com",
@@ -209907,16 +209933,17 @@
         }
       ],
       "promotionPr": "6297",
-      "promotionBranch": "prospector/promote-2026-08-23"
+      "promotionBranch": "prospector/promote-2026-08-23",
+      "promotedAt": "2026-08-24T04:52:45.719Z"
     },
     "recruitingapp-2607@umantis.com": {
       "key": "recruitingapp-2607@umantis.com",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-22T04:28:47.144Z",
-      "updatedAt": "2026-08-23T04:39:39.888Z",
+      "updatedAt": "2026-08-24T04:52:45.975Z",
       "name": "GKB JobService",
       "tenantHost": "recruitingapp-2607.umantis.com",
       "platform": "umantis.com",
@@ -209991,7 +210018,8 @@
         }
       ],
       "promotionPr": "6297",
-      "promotionBranch": "prospector/promote-2026-08-23"
+      "promotionBranch": "prospector/promote-2026-08-23",
+      "promotedAt": "2026-08-24T04:52:45.975Z"
     },
     "recruitingapp-2736@umantis.com": {
       "key": "recruitingapp-2736@umantis.com",
@@ -210017,12 +210045,12 @@
     },
     "recruitingapp-2966@umantis.com": {
       "key": "recruitingapp-2966@umantis.com",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-22T04:28:47.145Z",
-      "updatedAt": "2026-08-23T04:39:39.888Z",
+      "updatedAt": "2026-08-24T04:52:46.344Z",
       "name": "Bewerbungsmanagement Spital Davos",
       "tenantHost": "recruitingapp-2966.umantis.com",
       "platform": "umantis.com",
@@ -210098,7 +210126,8 @@
         }
       ],
       "promotionPr": "6297",
-      "promotionBranch": "prospector/promote-2026-08-23"
+      "promotionBranch": "prospector/promote-2026-08-23",
+      "promotedAt": "2026-08-24T04:52:46.344Z"
     },
     "recruitingapp-2998@umantis.com": {
       "key": "recruitingapp-2998@umantis.com",
@@ -210294,12 +210323,12 @@
     },
     "recruitingapp-1251@umantis.com": {
       "key": "recruitingapp-1251@umantis.com",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-22T04:28:47.146Z",
-      "updatedAt": "2026-08-23T04:39:39.888Z",
+      "updatedAt": "2026-08-24T04:52:46.681Z",
       "name": "KZU Recruiting",
       "tenantHost": "recruitingapp-1251.umantis.com",
       "platform": "umantis.com",
@@ -210374,7 +210403,8 @@
         }
       ],
       "promotionPr": "6297",
-      "promotionBranch": "prospector/promote-2026-08-23"
+      "promotionBranch": "prospector/promote-2026-08-23",
+      "promotedAt": "2026-08-24T04:52:46.681Z"
     },
     "recruitingapp-2997@umantis.com": {
       "key": "recruitingapp-2997@umantis.com",
