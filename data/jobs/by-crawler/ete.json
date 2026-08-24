@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "ete-8e1b044575dd",
-      "slug": "operateur-logistique-maintenance-magasin-automatise-ete-ch",
+      "slug": "operatore-logistico-e-manutenzione-negozio-automatizzato-emil-egger-ag-lugano",
       "slugByLocale": {
         "fr": "operateur-logistique-maintenance-magasin-automatise-ete-ch",
-        "it": "operateur-logistique-maintenance-magasin-automatise-ete-ch",
-        "en": "operateur-logistique-maintenance-magasin-automatise-ete-ch",
-        "de": "operateur-logistique-maintenance-magasin-automatise-ete-ch"
+        "it": "operatore-logistico-e-manutenzione-negozio-automatizzato-emil-egger-ag-lugano",
+        "en": "logistics-maintenance-operator-automated-store-emil-egger-ag-lugano",
+        "de": "logistik-und-wartungsbetreiber-automated-store-emil-egger-ag-lugano"
       },
       "company": "Emil Egger AG",
       "companyKey": "ete",
@@ -61,7 +61,21 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:34:46.434Z"
+      "firstSeenAt": "2026-08-23T21:34:46.434Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operateur-logistique-maintenance-magasin-automatise-ete-ch"
+        ],
+        "en": [
+          "operateur-logistique-maintenance-magasin-automatise-ete-ch"
+        ],
+        "de": [
+          "operateur-logistique-maintenance-magasin-automatise-ete-ch"
+        ]
+      },
+      "previousSlugs": [
+        "operateur-logistique-maintenance-magasin-automatise-ete-ch"
+      ]
     },
     {
       "id": "ete-6517d9344dcf",
@@ -69,8 +83,8 @@
       "slugByLocale": {
         "de": "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-ete-ch",
         "it": "lehre-zum-kaufmann-kauffrau-cfc-start-ab-sommer-2027-emil-egger-ag-lugano",
-        "en": "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-lugano",
-        "fr": "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-lugano"
+        "en": "apprenticeship-to-the-merchant-merchant-efz-start-from-summer-2027-emil-egger-ag-lugano",
+        "fr": "apprentissage-au-marchand-marchand-efz-a-partir-de-l-ete-2027-emil-egger-ag-lugano"
       },
       "company": "Emil Egger AG",
       "companyKey": "ete",
@@ -112,10 +126,17 @@
       "previousSlugsByLocale": {
         "it": [
           "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-ete-ch"
+        ],
+        "en": [
+          "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-lugano"
+        ],
+        "fr": [
+          "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-lugano"
         ]
       },
       "previousSlugs": [
-        "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-ete-ch"
+        "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-ete-ch",
+        "lehre-zum-kaufmann-kauffrau-efz-start-ab-sommer-2027-emil-egger-ag-lugano"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -138,8 +159,8 @@
       "slugByLocale": {
         "de": "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete",
         "it": "chauffeur-chauffeuse-per-kat-c-e-per-hebebuhnen-e-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano",
-        "en": "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano",
-        "fr": "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano"
+        "en": "chauffeur-chauffeuse-for-cat-c-e-for-lifting-platform-and-construction-machines-semitrailers-100-emil-egger-ag-lugano",
+        "fr": "chauffeur-chauffeuse-pour-cat-c-e-pour-plate-forme-de-levage-et-machines-de-construction-semi-remorques-100-emil-egger"
       },
       "company": "Emil Egger AG",
       "companyKey": "ete",
@@ -181,10 +202,17 @@
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete"
+        ],
+        "en": [
+          "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano"
+        ],
+        "fr": [
+          "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano"
         ]
       },
       "previousSlugs": [
-        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete"
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-ete",
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-hebebuhnen-und-baumaschinen-sattelschlepper-100-emil-egger-ag-lugano"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -203,11 +231,11 @@
     },
     {
       "id": "ete-4f890e1dbbc4",
-      "slug": "chauffeur-c-e-transports-speciaux-h-f-ete-ch",
+      "slug": "driver-c-e-trasporto-speciale-m-f-emil-egger-ag-lugano",
       "slugByLocale": {
-        "de": "chauffeur-c-e-transports-speciaux-h-f-ete-ch",
-        "it": "chauffeur-c-e-transports-speciaux-h-f-ete-ch",
-        "en": "chauffeur-c-e-transports-speciaux-h-f-ete-ch",
+        "de": "fahrer-c-e-sondertransport-m-w-emil-egger-ag-lugano",
+        "it": "driver-c-e-trasporto-speciale-m-f-emil-egger-ag-lugano",
+        "en": "driver-c-e-special-transport-m-f-emil-egger-ag-lugano",
         "fr": "chauffeur-c-e-transports-speciaux-h-f-emil-egger-ag-lugano"
       },
       "company": "Emil Egger AG",
@@ -260,16 +288,30 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:34:45.214Z"
+      "firstSeenAt": "2026-08-23T21:34:45.214Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-c-e-transports-speciaux-h-f-ete-ch"
+        ],
+        "en": [
+          "chauffeur-c-e-transports-speciaux-h-f-ete-ch"
+        ],
+        "de": [
+          "chauffeur-c-e-transports-speciaux-h-f-ete-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-c-e-transports-speciaux-h-f-ete-ch"
+      ]
     },
     {
       "id": "ete-7672e8ba0187",
-      "slug": "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-emil-egger-ag-lugano",
+      "slug": "supporto-clienti-elaborazione-ordini-logistica-di-trasporto-100-m-f-emil-egger-ag-lugano",
       "slugByLocale": {
         "de": "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-ete-ch",
-        "it": "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-emil-egger-ag-lugano",
-        "en": "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-emil-egger-ag-lugano",
-        "fr": "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-emil-egger-ag-lugano"
+        "it": "supporto-clienti-elaborazione-ordini-logistica-di-trasporto-100-m-f-emil-egger-ag-lugano",
+        "en": "customer-support-order-processing-transport-logistics-100-m-f-emil-egger-ag-lugano",
+        "fr": "assistance-client-traitement-des-commandes-transport-logistique-100-h-f-emil-egger-ag-lugano"
       },
       "company": "Emil Egger AG",
       "companyKey": "ete",
@@ -310,11 +352,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-ete-ch"
+          "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-ete-ch",
+          "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-emil-egger-ag-lugano"
+        ],
+        "en": [
+          "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-emil-egger-ag-lugano"
+        ],
+        "fr": [
+          "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-emil-egger-ag-lugano"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-ete-ch"
+        "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-ete-ch",
+        "sachbearbeiterin-kundenbetreuung-auftragsbearbeitung-transport-logistik-100-m-w-emil-egger-ag-lugano"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -394,12 +444,12 @@
     },
     {
       "id": "ete-b3aa4e179045",
-      "slug": "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-emil-egger-ag-lugano",
+      "slug": "dipendenti-nella-movimentazione-delle-merci-cambio-notturno-permanente-emil-egger-ag-lugano",
       "slugByLocale": {
         "de": "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-ete-ch",
-        "it": "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-emil-egger-ag-lugano",
-        "en": "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-emil-egger-ag-lugano",
-        "fr": "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-emil-egger-ag-lugano"
+        "it": "dipendenti-nella-movimentazione-delle-merci-cambio-notturno-permanente-emil-egger-ag-lugano",
+        "en": "employee-in-freight-handling-permanent-night-shift-emil-egger-ag-lugano",
+        "fr": "employe-dans-la-manutention-du-fret-poste-de-nuit-permanent-emil-egger-ag-lugano"
       },
       "company": "Emil Egger AG",
       "companyKey": "ete",
@@ -440,11 +490,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-ete-ch"
+          "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-ete-ch",
+          "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-emil-egger-ag-lugano"
+        ],
+        "en": [
+          "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-emil-egger-ag-lugano"
+        ],
+        "fr": [
+          "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-emil-egger-ag-lugano"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-ete-ch"
+        "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-ete-ch",
+        "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-emil-egger-ag-lugano"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -467,8 +525,8 @@
       "slugByLocale": {
         "de": "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-ete-ch",
         "it": "chauffeur-kat-c-e-per-wechselpritschen-100-m-w-d-emil-egger-ag-lugano",
-        "en": "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-lugano",
-        "fr": "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-lugano"
+        "en": "chauffeur-cat-c-e-for-changeable-platforms-100-m-f-d-emil-egger-ag-lugano",
+        "fr": "chauffeur-cat-c-e-pour-plates-formes-modifiables-100-h-f-d-emil-egger-ag-lugano"
       },
       "company": "Emil Egger AG",
       "companyKey": "ete",
@@ -510,10 +568,17 @@
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-ete-ch"
+        ],
+        "en": [
+          "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-lugano"
+        ],
+        "fr": [
+          "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-lugano"
         ]
       },
       "previousSlugs": [
-        "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-ete-ch"
+        "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-ete-ch",
+        "chauffeur-kat-c-e-fur-wechselpritschen-100-m-w-d-emil-egger-ag-lugano"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -536,8 +601,8 @@
       "slugByLocale": {
         "de": "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-ete",
         "it": "chauffeur-chauffeuse-per-kat-c-e-per-spezialtransporte-per-offenen-sattelschlepper-100-emil-egger-ag-lugano",
-        "en": "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-emil-egger-ag-lugano",
-        "fr": "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-emil-egger-ag-lugano"
+        "en": "chauffeur-chauffeuse-for-cat-c-e-for-special-transports-for-open-semi-trailers-100-emil-egger-ag-lugano",
+        "fr": "chauffeur-chauffeuse-pour-cat-c-e-pour-les-transports-speciaux-pour-semi-remorques-ouvertes-100-emil-egger-ag-lugano"
       },
       "company": "Emil Egger AG",
       "companyKey": "ete",
@@ -579,10 +644,17 @@
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-ete"
+        ],
+        "en": [
+          "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-emil-egger-ag-lugano"
+        ],
+        "fr": [
+          "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-emil-egger-ag-lugano"
         ]
       },
       "previousSlugs": [
-        "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-ete"
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-ete",
+        "chauffeur-chauffeuse-fur-kat-c-e-fur-spezialtransporte-fur-offenen-sattelschlepper-100-emil-egger-ag-lugano"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -604,9 +676,9 @@
       "slug": "disponent-in-lw-krane-100-ete-ch",
       "slugByLocale": {
         "it": "disponent-in-lw-krane-100-ete-ch",
-        "en": "disponent-in-lw-krane-100-ete-ch",
-        "de": "disponent-in-lw-krane-100-ete-ch",
-        "fr": "disponent-in-lw-krane-100-ete-ch"
+        "en": "equipped-in-lw-krane-100-emil-egger-ag-lugano",
+        "de": "ausgestattet-in-lw-krane-100-emil-egger-ag-lugano",
+        "fr": "equipe-en-lw-krane-100-emil-egger-ag-lugano"
       },
       "company": "Emil Egger AG",
       "companyKey": "ete",
@@ -727,8 +799,8 @@
       "slugByLocale": {
         "de": "quereinsteigerin-fur-kat-c-ete-ch",
         "it": "quereinsteigerin-per-kat-c-emil-egger-ag-lugano",
-        "en": "quereinsteigerin-fur-kat-c-emil-egger-ag-lugano",
-        "fr": "quereinsteigerin-fur-kat-c-emil-egger-ag-lugano"
+        "en": "newcomer-to-kat-c-emil-egger-ag-lugano",
+        "fr": "nouveau-venu-a-kat-c-emil-egger-ag-lugano"
       },
       "company": "Emil Egger AG",
       "companyKey": "ete",
@@ -770,10 +842,17 @@
       "previousSlugsByLocale": {
         "it": [
           "quereinsteigerin-fur-kat-c-ete-ch"
+        ],
+        "en": [
+          "quereinsteigerin-fur-kat-c-emil-egger-ag-lugano"
+        ],
+        "fr": [
+          "quereinsteigerin-fur-kat-c-emil-egger-ag-lugano"
         ]
       },
       "previousSlugs": [
-        "quereinsteigerin-fur-kat-c-ete-ch"
+        "quereinsteigerin-fur-kat-c-ete-ch",
+        "quereinsteigerin-fur-kat-c-emil-egger-ag-lugano"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -792,12 +871,12 @@
     },
     {
       "id": "ete-224fcb1aaccf",
-      "slug": "ausnahmetransportbegleiter-in-100-emil-egger-ag-lugano",
+      "slug": "assistenti-di-trasporto-eccezionali-100-emil-egger-ag-lugano",
       "slugByLocale": {
         "de": "ausnahmetransportbegleiter-in-100-ete-ch",
-        "it": "ausnahmetransportbegleiter-in-100-emil-egger-ag-lugano",
-        "en": "ausnahmetransportbegleiter-in-100-emil-egger-ag-lugano",
-        "fr": "ausnahmetransportbegleiter-in-100-emil-egger-ag-lugano"
+        "it": "assistenti-di-trasporto-eccezionali-100-emil-egger-ag-lugano",
+        "en": "exceptional-transport-attendants-100-emil-egger-ag-lugano",
+        "fr": "agents-de-transport-exceptionnels-100-emil-egger-ag-lugano"
       },
       "company": "Emil Egger AG",
       "companyKey": "ete",
@@ -838,11 +917,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "ausnahmetransportbegleiter-in-100-ete-ch"
+          "ausnahmetransportbegleiter-in-100-ete-ch",
+          "ausnahmetransportbegleiter-in-100-emil-egger-ag-lugano"
+        ],
+        "en": [
+          "ausnahmetransportbegleiter-in-100-emil-egger-ag-lugano"
+        ],
+        "fr": [
+          "ausnahmetransportbegleiter-in-100-emil-egger-ag-lugano"
         ]
       },
       "previousSlugs": [
-        "ausnahmetransportbegleiter-in-100-ete-ch"
+        "ausnahmetransportbegleiter-in-100-ete-ch",
+        "ausnahmetransportbegleiter-in-100-emil-egger-ag-lugano"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -861,10 +948,10 @@
     },
     {
       "id": "ete-d82a5625610a",
-      "slug": "chauffeur-chauffeuse-kat-c-e-ete-ch",
+      "slug": "chauffeur-chauffeuse-cat-c-e-emil-egger-ag-lugano",
       "slugByLocale": {
         "de": "chauffeur-chauffeuse-kat-c-e-ete-ch",
-        "it": "chauffeur-chauffeuse-kat-c-e-ete-ch",
+        "it": "chauffeur-chauffeuse-cat-c-e-emil-egger-ag-lugano",
         "en": "chauffeur-chauffeuse-kat-c-e-ete-ch",
         "fr": "chauffeur-chauffeuse-kat-c-e-ete-ch"
       },
@@ -918,7 +1005,15 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:34:41.568Z"
+      "firstSeenAt": "2026-08-23T21:34:41.568Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-chauffeuse-kat-c-e-ete-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-chauffeuse-kat-c-e-ete-ch"
+      ]
     },
     {
       "id": "ete-692f3baf5d3f",
@@ -926,8 +1021,8 @@
       "slugByLocale": {
         "de": "chauffeur-in-kat-c-e-fur-spezialtransporte-4-4-man-100-ete-ch",
         "it": "chauffeur-in-kat-c-e-per-spezialtransporte-4-man-100-emil-egger-ag-lugano",
-        "en": "chauffeur-in-kat-c-e-fur-spezialtransporte-4-4-man-100-emil-egger-ag-lugano",
-        "fr": "chauffeur-in-kat-c-e-fur-spezialtransporte-4-4-man-100-emil-egger-ag-lugano"
+        "en": "chauffeur-in-cat-c-e-for-special-transports-4-4-man-100-emil-egger-ag-lugano",
+        "fr": "chauffeur-en-cat-c-e-pour-les-transports-speciaux-4-4-man-100-emil-egger-ag-lugano"
       },
       "company": "Emil Egger AG",
       "companyKey": "ete",
@@ -969,10 +1064,17 @@
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-in-kat-c-e-fur-spezialtransporte-4-4-man-100-ete-ch"
+        ],
+        "en": [
+          "chauffeur-in-kat-c-e-fur-spezialtransporte-4-4-man-100-emil-egger-ag-lugano"
+        ],
+        "fr": [
+          "chauffeur-in-kat-c-e-fur-spezialtransporte-4-4-man-100-emil-egger-ag-lugano"
         ]
       },
       "previousSlugs": [
-        "chauffeur-in-kat-c-e-fur-spezialtransporte-4-4-man-100-ete-ch"
+        "chauffeur-in-kat-c-e-fur-spezialtransporte-4-4-man-100-ete-ch",
+        "chauffeur-in-kat-c-e-fur-spezialtransporte-4-4-man-100-emil-egger-ag-lugano"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -991,12 +1093,12 @@
     },
     {
       "id": "ete-2d4d449cf0c5",
-      "slug": "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-ete-ch",
+      "slug": "all-rounder-in-logistica-di-merci-pesanti-attenzione-su-accompagnamento-80-100-emil-egger-ag-lugano",
       "slugByLocale": {
         "de": "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-ete-ch",
-        "it": "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-ete-ch",
-        "en": "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-ete-ch",
-        "fr": "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-ete-ch"
+        "it": "all-rounder-in-logistica-di-merci-pesanti-attenzione-su-accompagnamento-80-100-emil-egger-ag-lugano",
+        "en": "all-rounder-in-heavy-goods-logistics-focus-on-accompaniment-80-100-emil-egger-ag-lugano",
+        "fr": "logistique-des-marchandises-lourdes-ensembles-accent-sur-l-accompagnement-80-100-emil-egger-ag-lugano"
       },
       "company": "Emil Egger AG",
       "companyKey": "ete",
@@ -1048,16 +1150,30 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:34:40.961Z"
+      "firstSeenAt": "2026-08-23T21:34:40.961Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-ete-ch"
+        ],
+        "en": [
+          "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-ete-ch"
+        ],
+        "fr": [
+          "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-ete-ch"
+        ]
+      },
+      "previousSlugs": [
+        "allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100-ete-ch"
+      ]
     },
     {
       "id": "ete-d5ea0472e9b7",
-      "slug": "lw-kranchauffeur-in-kat-ce-100-36mt-fassi-kran-ete-ch",
+      "slug": "lw-gru-driver-in-kat-ce-100-36mt-fassi-gru-emil-egger-ag-lugano",
       "slugByLocale": {
         "de": "lw-kranchauffeur-in-kat-ce-100-36mt-fassi-kran-ete-ch",
-        "it": "lw-kranchauffeur-in-kat-ce-100-36mt-fassi-kran-ete-ch",
-        "en": "lw-kranchauffeur-in-kat-ce-100-36mt-fassi-kran-ete-ch",
-        "fr": "lw-kranchauffeur-in-kat-ce-100-36mt-fassi-kran-ete-ch"
+        "it": "lw-gru-driver-in-kat-ce-100-36mt-fassi-gru-emil-egger-ag-lugano",
+        "en": "lw-crane-driver-in-kat-ce-100-36mt-fassi-crane-emil-egger-ag-lugano",
+        "fr": "conducteur-de-grue-lw-dans-kat-ce-100-36mt-grue-fassi-emil-egger-ag-lugano"
       },
       "company": "Emil Egger AG",
       "companyKey": "ete",
@@ -1109,16 +1225,30 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:34:40.355Z"
+      "firstSeenAt": "2026-08-23T21:34:40.355Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lw-kranchauffeur-in-kat-ce-100-36mt-fassi-kran-ete-ch"
+        ],
+        "en": [
+          "lw-kranchauffeur-in-kat-ce-100-36mt-fassi-kran-ete-ch"
+        ],
+        "fr": [
+          "lw-kranchauffeur-in-kat-ce-100-36mt-fassi-kran-ete-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lw-kranchauffeur-in-kat-ce-100-36mt-fassi-kran-ete-ch"
+      ]
     },
     {
       "id": "ete-0b498480610d",
-      "slug": "atb-fahrer-ausnahmetransportbegleiter-a-100-emil-egger-ag-lugano",
+      "slug": "driver-atb-operatore-di-trasporto-eccezionale-a-100-emil-egger-ag-lugano",
       "slugByLocale": {
         "de": "atb-fahrer-ausnahmetransportbegleiter-a-100-ete-ch",
-        "it": "atb-fahrer-ausnahmetransportbegleiter-a-100-emil-egger-ag-lugano",
-        "en": "atb-fahrer-ausnahmetransportbegleiter-a-100-emil-egger-ag-lugano",
-        "fr": "atb-fahrer-ausnahmetransportbegleiter-a-100-emil-egger-ag-lugano"
+        "it": "driver-atb-operatore-di-trasporto-eccezionale-a-100-emil-egger-ag-lugano",
+        "en": "atb-driver-exceptional-transport-attendant-a-100-emil-egger-ag-lugano",
+        "fr": "conducteur-atb-agent-de-transport-exceptionnel-a-100-emil-egger-ag-lugano"
       },
       "company": "Emil Egger AG",
       "companyKey": "ete",
@@ -1159,11 +1289,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "atb-fahrer-ausnahmetransportbegleiter-a-100-ete-ch"
+          "atb-fahrer-ausnahmetransportbegleiter-a-100-ete-ch",
+          "atb-fahrer-ausnahmetransportbegleiter-a-100-emil-egger-ag-lugano"
+        ],
+        "en": [
+          "atb-fahrer-ausnahmetransportbegleiter-a-100-emil-egger-ag-lugano"
+        ],
+        "fr": [
+          "atb-fahrer-ausnahmetransportbegleiter-a-100-emil-egger-ag-lugano"
         ]
       },
       "previousSlugs": [
-        "atb-fahrer-ausnahmetransportbegleiter-a-100-ete-ch"
+        "atb-fahrer-ausnahmetransportbegleiter-a-100-ete-ch",
+        "atb-fahrer-ausnahmetransportbegleiter-a-100-emil-egger-ag-lugano"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1186,8 +1324,8 @@
       "slugByLocale": {
         "de": "quereinsteiger-in-fur-kat-c-ete-ch",
         "it": "candidato-a-in-riqualificazione-per-kat-c-emil-egger-ag-lugano",
-        "en": "quereinsteiger-in-fur-kat-c-ete-ch",
-        "fr": "quereinsteiger-in-fur-kat-c-ete-ch"
+        "en": "join-the-team-for-cat-c-emil-egger-ag-lugano",
+        "fr": "rejoignez-l-equipe-pour-cat-c-emil-egger-ag-lugano"
       },
       "company": "Emil Egger AG",
       "companyKey": "ete",
@@ -1229,6 +1367,12 @@
       "previousSlugsByLocale": {
         "it": [
           "quereinsteiger-in-fur-kat-c-ete-ch"
+        ],
+        "en": [
+          "quereinsteiger-in-fur-kat-c-ete-ch"
+        ],
+        "fr": [
+          "quereinsteiger-in-fur-kat-c-ete-ch"
         ]
       },
       "previousSlugs": [
@@ -1251,12 +1395,12 @@
     },
     {
       "id": "ete-a74ebdca32fe",
-      "slug": "lkw-mechaniker-in-80-100-ete-ch",
+      "slug": "meccanico-del-camion-in-80-100-emil-egger-ag-lugano",
       "slugByLocale": {
         "de": "lkw-mechaniker-in-80-100-ete-ch",
-        "it": "lkw-mechaniker-in-80-100-ete-ch",
-        "en": "lkw-mechaniker-in-80-100-ete-ch",
-        "fr": "lkw-mechaniker-in-80-100-ete-ch"
+        "it": "meccanico-del-camion-in-80-100-emil-egger-ag-lugano",
+        "en": "truck-mechanic-in-80-100-emil-egger-ag-lugano",
+        "fr": "mecanicien-de-camion-en-80-100-emil-egger-ag-lugano"
       },
       "company": "Emil Egger AG",
       "companyKey": "ete",
@@ -1308,7 +1452,21 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:34:39.144Z"
+      "firstSeenAt": "2026-08-23T21:34:39.144Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lkw-mechaniker-in-80-100-ete-ch"
+        ],
+        "en": [
+          "lkw-mechaniker-in-80-100-ete-ch"
+        ],
+        "fr": [
+          "lkw-mechaniker-in-80-100-ete-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lkw-mechaniker-in-80-100-ete-ch"
+      ]
     },
     {
       "id": "ete-d64e4252831f",
@@ -1377,8 +1535,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-maschinenumzuge-spezialtransporte-100-ete-ch",
         "it": "collaboratore-trice-maschinenumzuge-spezialtransporte-100-emil-egger-ag-lugano",
-        "en": "mitarbeiter-in-maschinenumzuge-spezialtransporte-100-emil-egger-ag-lugano",
-        "fr": "mitarbeiter-in-maschinenumzuge-spezialtransporte-100-emil-egger-ag-lugano"
+        "en": "employees-in-machine-removals-special-transports-100-emil-egger-ag-lugano",
+        "fr": "employes-demenagements-et-transports-speciaux-100-emil-egger-ag-lugano"
       },
       "company": "Emil Egger AG",
       "companyKey": "ete",
@@ -1420,10 +1578,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-maschinenumzuge-spezialtransporte-100-ete-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-maschinenumzuge-spezialtransporte-100-emil-egger-ag-lugano"
+        ],
+        "fr": [
+          "mitarbeiter-in-maschinenumzuge-spezialtransporte-100-emil-egger-ag-lugano"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-maschinenumzuge-spezialtransporte-100-ete-ch"
+        "mitarbeiter-in-maschinenumzuge-spezialtransporte-100-ete-ch",
+        "mitarbeiter-in-maschinenumzuge-spezialtransporte-100-emil-egger-ag-lugano"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

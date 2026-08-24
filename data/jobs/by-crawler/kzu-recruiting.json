@@ -214,12 +214,12 @@
     },
     {
       "id": "kzu-recruiting-1d78d42a9505",
-      "slug": "fachfrau-mann-gesundheit-20-40-abenddienst-kzu-spitex-kzu-recruiting-lugano",
+      "slug": "salute-specialista-20-40-servizio-serale-kzu-spitex-kzu-recruiting-lugano",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-20-40-abenddienst-kzu-spitex-kzu-recruiting-ch",
-        "it": "fachfrau-mann-gesundheit-20-40-abenddienst-kzu-spitex-kzu-recruiting-lugano",
-        "en": "fachfrau-mann-gesundheit-20-40-abenddienst-kzu-spitex-kzu-recruiting-ch",
-        "fr": "fachfrau-mann-gesundheit-20-40-abenddienst-kzu-spitex-kzu-recruiting-ch"
+        "it": "salute-specialista-20-40-servizio-serale-kzu-spitex-kzu-recruiting-lugano",
+        "en": "health-specialist-20-40-evening-service-kzu-spitex-kzu-recruiting-lugano",
+        "fr": "specialiste-de-la-sante-20-40-service-en-soiree-kzu-spitex-kzu-recruiting-lugano"
       },
       "company": "KZU Recruiting",
       "companyKey": "kzu-recruiting",
@@ -260,11 +260,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-20-40-abenddienst-kzu-spitex-kzu-recruiting-ch",
+          "fachfrau-mann-gesundheit-20-40-abenddienst-kzu-spitex-kzu-recruiting-lugano"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-20-40-abenddienst-kzu-spitex-kzu-recruiting-ch"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-20-40-abenddienst-kzu-spitex-kzu-recruiting-ch"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-20-40-abenddienst-kzu-spitex-kzu-recruiting-ch"
+        "fachfrau-mann-gesundheit-20-40-abenddienst-kzu-spitex-kzu-recruiting-ch",
+        "fachfrau-mann-gesundheit-20-40-abenddienst-kzu-spitex-kzu-recruiting-lugano"
       ],
       "salaryMin": 19800,
       "salaryMax": 30000,
@@ -283,12 +291,12 @@
     },
     {
       "id": "kzu-recruiting-48fabefee15d",
-      "slug": "fachfrau-mann-gesundheit-30-100-kzu-spitex-kzu-recruiting-lugano",
+      "slug": "salute-professionale-30-100-kzu-spitex-kzu-recruiting-lugano",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-30-100-kzu-spitex-kzu-recruiting-ch",
-        "it": "fachfrau-mann-gesundheit-30-100-kzu-spitex-kzu-recruiting-lugano",
-        "en": "fachfrau-mann-gesundheit-30-100-kzu-spitex-kzu-recruiting-ch",
-        "fr": "fachfrau-mann-gesundheit-30-100-kzu-spitex-kzu-recruiting-ch"
+        "it": "salute-professionale-30-100-kzu-spitex-kzu-recruiting-lugano",
+        "en": "professional-health-30-100-kzu-spitex-kzu-recruiting-lugano",
+        "fr": "sante-professionnelle-30-100-kzu-spitex-kzu-recruiting-lugano"
       },
       "company": "KZU Recruiting",
       "companyKey": "kzu-recruiting",
@@ -329,11 +337,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-30-100-kzu-spitex-kzu-recruiting-ch",
+          "fachfrau-mann-gesundheit-30-100-kzu-spitex-kzu-recruiting-lugano"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-30-100-kzu-spitex-kzu-recruiting-ch"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-30-100-kzu-spitex-kzu-recruiting-ch"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-30-100-kzu-spitex-kzu-recruiting-ch"
+        "fachfrau-mann-gesundheit-30-100-kzu-spitex-kzu-recruiting-ch",
+        "fachfrau-mann-gesundheit-30-100-kzu-spitex-kzu-recruiting-lugano"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -356,8 +372,8 @@
       "slugByLocale": {
         "de": "berufsbildungsfunktion-akut-und-ubergangspflege-80-100-fage-efz-oder-dipl-pflegefachperson",
         "it": "berufsbildungsfunktion-akut-e-ubergangspflege-80-100-fage-cfc-o-dipl-pflegefachperson-hf-fh-kzu-recruiting-lugano",
-        "en": "berufsbildungsfunktion-akut-und-ubergangspflege-80-100-fage-efz-oder-dipl-pflegefachperson",
-        "fr": "berufsbildungsfunktion-akut-und-ubergangspflege-80-100-fage-efz-oder-dipl-pflegefachperson"
+        "en": "vocational-training-function-acute-and-transitional-care-80-100-fage-efz-or-dipl-care-professional-hf-fh-kzu-recruiting",
+        "fr": "fonction-de-formation-professionnelle-soins-aigus-et-de-transition-80-100-fage-efz-ou-dipl-soins-professionnels-b292b4"
       },
       "company": "KZU Recruiting",
       "companyKey": "kzu-recruiting",
@@ -398,6 +414,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "berufsbildungsfunktion-akut-und-ubergangspflege-80-100-fage-efz-oder-dipl-pflegefachperson"
+        ],
+        "en": [
+          "berufsbildungsfunktion-akut-und-ubergangspflege-80-100-fage-efz-oder-dipl-pflegefachperson"
+        ],
+        "fr": [
           "berufsbildungsfunktion-akut-und-ubergangspflege-80-100-fage-efz-oder-dipl-pflegefachperson"
         ]
       },

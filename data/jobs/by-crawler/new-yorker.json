@@ -502,8 +502,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-bern",
         "it": "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-bern",
-        "en": "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-bern",
-        "fr": "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-bern"
+        "en": "mitarbeiter-m-w-d-im-sales-80-new-yorker-bern",
+        "fr": "mitarbeiter-m-w-d-im-vente-80-new-yorker-bern"
       },
       "company": "New Yorker",
       "companyKey": "new-yorker",
@@ -549,6 +549,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-bern"
+        ],
+        "en": [
+          "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-bern"
+        ],
+        "fr": [
           "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-bern"
         ]
       },
@@ -620,8 +626,7 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-zurich-sihlcity",
-          "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-zurich-sihlcity"
+          "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-zurich-sihlcity"
         ],
         "en": [
           "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-zurich-sihlcity"
@@ -631,8 +636,7 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-zurich-sihlcity",
-        "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-zurich-sihlcity"
+        "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-zurich-sihlcity"
       ],
       "salaryMin": 58800,
       "salaryMax": 89200,
@@ -1250,8 +1254,7 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-spreitenbach",
-          "collaboratore-trice-m-w-d-im-vendita-60-new-yorker-spreitenbach"
+          "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-spreitenbach"
         ],
         "en": [
           "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-spreitenbach"
@@ -1261,8 +1264,7 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-spreitenbach",
-        "collaboratore-trice-m-w-d-im-vendita-60-new-yorker-spreitenbach"
+        "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-spreitenbach"
       ],
       "salaryMin": 37200,
       "salaryMax": 56400,
@@ -1631,8 +1633,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-bern",
         "it": "collaboratore-trice-m-w-d-im-vendita-50-new-yorker-bern",
-        "en": "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-bern",
-        "fr": "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-bern"
+        "en": "mitarbeiter-m-w-d-im-sales-50-new-yorker-bern",
+        "fr": "mitarbeiter-m-w-d-im-vente-50-new-yorker-bern"
       },
       "company": "New Yorker",
       "companyKey": "new-yorker",
@@ -1676,8 +1678,6 @@
         "de": []
       },
       "previousSlugs": [
-        "mitarbeiter-m-w-d-im-sales-50-new-yorker-bern",
-        "mitarbeiter-m-w-d-im-vente-50-new-yorker-bern",
         "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-bern"
       ],
       "previousSlugsByLocale": {
@@ -1685,10 +1685,10 @@
           "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-bern"
         ],
         "en": [
-          "mitarbeiter-m-w-d-im-sales-50-new-yorker-bern"
+          "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-bern"
         ],
         "fr": [
-          "mitarbeiter-m-w-d-im-vente-50-new-yorker-bern"
+          "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-bern"
         ]
       },
       "needsRetranslation": true,
@@ -1757,8 +1757,7 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-volketswil",
-          "collaboratore-trice-m-w-d-im-vendita-50-new-yorker-volketswil"
+          "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-volketswil"
         ],
         "en": [
           "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-volketswil"
@@ -1768,8 +1767,7 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-volketswil",
-        "collaboratore-trice-m-w-d-im-vendita-50-new-yorker-volketswil"
+        "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-volketswil"
       ],
       "salaryMin": 36800,
       "salaryMax": 55800,
@@ -2078,8 +2076,7 @@
         "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-interlaken",
         "mitarbeiter-m-w-d-im-sales-80-new-yorker-interlaken",
         "mitarbeiter-m-w-d-im-vente-80-new-yorker-interlaken",
-        "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-interlaken",
-        "collaboratore-trice-m-w-d-im-vendita-100-new-yorker-lyssach"
+        "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-interlaken"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2100,8 +2097,7 @@
           "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-interlaken",
           "mitarbeiter-m-w-d-im-sales-80-new-yorker-interlaken",
           "mitarbeiter-m-w-d-im-vente-80-new-yorker-interlaken",
-          "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-interlaken",
-          "collaboratore-trice-m-w-d-im-vendita-100-new-yorker-lyssach"
+          "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-interlaken"
         ],
         "en": [
           "mitarbeiter-m-w-d-im-sales-80-new-yorker-ebikon",
