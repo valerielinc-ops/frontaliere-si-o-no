@@ -4123,6 +4123,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-attivita-canton-basilea-citta.title': 'Opening an activity in Basel City: costs and procedures',
     'blog.article.aprire-attivita-canton-basilea-citta.excerpt': 'Complete guide: legal forms, registration, federal/cantonal taxation, AVS/LPP contributions (5.3-18%), LAINF (0.7-1.5%) and LAMal obligations.',
     'blog.article.aprire-attivita-canton-basilea-citta.imageAlt': 'Swiss commercial registration office with business documents and professional workspace',
+    'blog.article.cieli-affollati-estate-2026.title': 'Crowded skies in summer: 240,000 flights to Switzerland',
+    'blog.article.cieli-affollati-estate-2026.excerpt': 'From 26 June to 17 August Skyguide monitored 240,108 flights. On July 24, the record day with 4,761 movements.',
+    'blog.article.cieli-affollati-estate-2026.imageAlt': 'Congested air traffic at Swiss airport during summer peak season with queued aircraft on tarmac',
 };
 
 export default blogMetaChEn;
