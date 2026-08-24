@@ -4171,6 +4171,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-domicilio-c-sciaffusa-requisiti.title': 'Permesso domicilio c Sciaffusa: requisiti',
     'blog.article.permesso-domicilio-c-sciaffusa-requisiti.excerpt': 'Guida ai requisiti per il permesso C nel Canton Sciaffusa: anni di residenza, criteri di integrazione, lingue e procedura di domanda. Dettagli sui termini ridotti per cittadini UE/AELS.',
     'blog.article.permesso-domicilio-c-sciaffusa-requisiti.imageAlt': 'Ufficio competente per i permessi di domicilio C presso l\'amministrazione cantonale svizzera',
+    'blog.article.permesso-l-sciaffusa-validita-proroga.title': 'Permesso L Sciaffusa: validita e proroga',
+    'blog.article.permesso-l-sciaffusa-validita-proroga.excerpt': 'Permesso L fino a 1 anno in Svizzera. Nel Canton Sciaffusa e rinnovabile e puo portare al permesso di dimora. Condizioni, procedure e vincoli.',
+    'blog.article.permesso-l-sciaffusa-validita-proroga.imageAlt': 'Ufficio amministrativo cantonale con bandiera svizzera, edificio moderno in stile svizzero, setting professionale',
 };
 
 export default blogMetaChIt;

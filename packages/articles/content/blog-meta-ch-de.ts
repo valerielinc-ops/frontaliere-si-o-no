@@ -4171,6 +4171,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-domicilio-c-sciaffusa-requisiti.title': 'Niederlassungsbewilligung c Schaffhausen: Voraussetzungen',
     'blog.article.permesso-domicilio-c-sciaffusa-requisiti.excerpt': 'Leitfaden zu den Voraussetzungen für die C-Bewilligung im Kanton Schaffhausen: Wohnsitzjahre, Integrationskriterien, Sprachen und Antragsverfahren. Details zu verkürzten Fristen für EU-/EFTA-Bürger.',
     'blog.article.permesso-domicilio-c-sciaffusa-requisiti.imageAlt': 'Amtsstelle für Aufenthaltsgenehmigungen C bei der Schweizer Kantonsverwaltung',
+    'blog.article.permesso-l-sciaffusa-validita-proroga.title': 'Genehmigung Schaffhausen: Gültigkeit und Verlängerung',
+    'blog.article.permesso-l-sciaffusa-validita-proroga.excerpt': 'L-Genehmigung bis 1 Jahr in der Schweiz. Im Kanton Schaffhausen ist sie erneuerbar und kann zur Aufenthaltsbewilligung führen. Bedingungen, Verfahren und Einschränkungen.',
+    'blog.article.permesso-l-sciaffusa-validita-proroga.imageAlt': 'Verwaltungsburo des Kantons mit Schweizer Flagge, modernes Gebaude im schweizer Stil, professionelle Umgebung',
 };
 
 export default blogMetaChDe;
