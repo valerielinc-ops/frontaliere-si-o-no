@@ -4165,6 +4165,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.piano-emergenza-pagamenti-digitali.title': 'Internet blackout: in Switzerland you can pay by card',
     'blog.article.piano-emergenza-pagamenti-digitali.excerpt': 'The emergency plan for internet-free digital payments in Switzerland has been presented. Operational by the end of next year for basic goods.',
     'blog.article.piano-emergenza-pagamenti-digitali.imageAlt': 'Payment terminals and credit cards in Switzerland',
+    'blog.article.imposta-successione-donazione-basilea-campagna.title': 'Inheritance and Donation Tax: Basel Countryside',
+    'blog.article.imposta-successione-donazione-basilea-campagna.excerpt': 'How inheritance and gift taxes work in the canton of Basel-Country: rates, family exemptions and reporting procedures.',
+    'blog.article.imposta-successione-donazione-basilea-campagna.imageAlt': 'Basel-Landschaft tax office representing cantonal fiscal administration in Switzerland.',
 };
 
 export default blogMetaChEn;
