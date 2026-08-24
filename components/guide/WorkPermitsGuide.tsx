@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Shield, Clock, FileText, Users, CheckCircle2, AlertCircle, ChevronDown, ChevronUp, Briefcase, Globe, Calendar, Info, ArrowRight, Building2, AlertTriangle, RefreshCw, Scale } from 'lucide-react';
+import { Shield, Clock, FileText, Users, CheckCircle2, AlertCircle, ChevronDown, ChevronUp, Briefcase, Calendar, Info, ArrowRight, Building2, AlertTriangle, RefreshCw, Scale } from 'lucide-react';
 import { Analytics } from '@/services/analytics';
 import { useTranslation } from '@/services/i18n';
 import { scrollToAnchor, parsePermitSectionHash, getPermitSectionSlug, type PermitSectionKey } from '@/services/router';
+import AiExtractableTable from '@/components/shared/AiExtractableTable';
+import FaqAccordion from '@/components/shared/FaqAccordion';
 
 interface PermitType {
  id: 'G' | 'B' | 'C' | 'L';
@@ -265,6 +267,88 @@ const WorkPermitsGuide: React.FC = () => {
  const permits = getPermits(t);
  const permit = permits.find(p => p.id === selectedPermit)!;
 
+ // FAQ costruita sulle Q&A gia' tradotte del sito (4 locali): nessuna copia nuova.
+ // La domanda sul cambio permesso e' specifica del G, quindi compare solo li'.
+ const faqItems = [
+ ...(selectedPermit === 'G'
+ ? [{
+ question: t('permits.g.switchQuestion'),
+ answer: `${t('permits.g.switchAnswer')} ${t('permits.g.switchExplanation')}`,
+ }]
+ : []),
+ { question: t('faq.questions.permits.q1'), answer: t('faq.questions.permits.a1') },
+ { question: t('faq.questions.permits.q3'), answer: t('faq.questions.permits.a3') },
+ { question: t('faq.questions.permits.q5'), answer: t('faq.questions.permits.a5') },
+ { question: t('faq.questions.permits.q6'), answer: t('faq.questions.permits.a6') },
+ ];
+
+ // Le due tabelle sotto leggono i permessi nell'ordine di getPermits(): la riga
+ // per valori posizionali resta agganciata all'id, non all'indice.
+ const valuesByPermit = (values: string[]) =>
+ permits.reduce<Record<string, string>>((acc, p, i) => { acc[p.id] = values[i] ?? ''; return acc; }, {});
+ const fieldByPermit = (pick: (p: PermitType) => string) =>
+ permits.reduce<Record<string, string>>((acc, p) => { acc[p.id] = pick(p); return acc; }, {});
+
+ const comparisonColumns = [
+ { header: t('permits.feature'), accessor: 'feature' },
+ ...permits.map(p => ({ header: `${p.icon} ${p.name}`, accessor: p.id })),
+ ];
+
+ const comparisonRows = [
+ { feature: t('permits.cmp.residenceCH'), ...valuesByPermit(['\u274c', '\u2705', '\u2705', '\u2705']) },
+ { feature: t('permits.cmp.duration'), ...valuesByPermit([t('permits.cmp.5years'), t('permits.cmp.5years'), '\u221e', t('permits.cmp.max1year')]) },
+ { feature: t('permits.cmp.jobChange'), ...valuesByPermit([t('permits.cmp.limited'), t('permits.cmp.free'), t('permits.cmp.free'), '\u274c']) },
+ { feature: t('permits.cmp.familyCH'), ...valuesByPermit(['\u274c', '\u2705', '\u2705', t('permits.cmp.limited')]) },
+ { feature: t('permits.cmp.toPermitC'), ...valuesByPermit(['\u274c', t('permits.cmp.5yearsParens'), '\u2014', '\u274c']) },
+ { feature: t('permits.cmp.selfEmployed'), ...valuesByPermit([t('permits.cmp.limited'), '\u2705', '\u2705', '\u274c']) },
+ { feature: t('permits.cmp.pillar3'), ...valuesByPermit(['\u274c', '\u2705', '\u2705', '\u274c']) },
+ // Soglie per tipo di permesso: dati gia' presenti in getPermits(), finora
+ // leggibili solo per il permesso selezionato nelle card in cima alla pagina.
+ { feature: t('permits.duration'), ...fieldByPermit(p => p.duration) },
+ { feature: t('permits.processingTime'), ...fieldByPermit(p => p.processingTime) },
+ { feature: t('permits.cost'), ...fieldByPermit(p => p.cost) },
+ { feature: t('permits.sectionRenewal'), ...fieldByPermit(p => p.renewal) },
+ ];
+
+ // FAQPage JSON-LD. Stesso guard di FaqSection.tsx, query compresa: si guardano
+ // solo i JSON-LD STATICI — `:not([data-dynamic-ld])` — cioe' la shell emessa da
+ // staticPagesPlugin. Se c'e' gia' un FAQPage li' dentro non se ne aggiunge un
+ // secondo, che e' l'errore "duplicate FAQPage" dei rich results.
+ // I blocchi con data-dynamic-ld sono di seoService.updateStructuredData(), che
+ // li rimuove tutti a ogni aggiornamento SEO. Vanno esclusi dal guard: in una
+ // navigazione SPA l'effect di questo componente (figlio) gira PRIMA di quello
+ // del parent, quindi vedrebbe ancora lo script della pagina precedente e
+ // salterebbe l'iniezione per sempre, in silenzio e senza retry.
+ // Per la stessa ragione lo script iniettato qui non porta quell'attributo: se
+ // lo portasse, seoService lo cancellerebbe col componente ancora montato.
+ const faqLdJson = JSON.stringify({
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: faqItems.map(item => ({
+ '@type': 'Question',
+ name: item.question,
+ acceptedAnswer: { '@type': 'Answer', text: item.answer },
+ })),
+ });
+
+ useEffect(() => {
+ const LD_ID = 'permits-faq-jsonld';
+ const alreadyOnPage = Array.from(
+ document.querySelectorAll('script[type="application/ld+json"]:not([data-dynamic-ld])')
+ ).some(el => {
+ if (el.id === LD_ID) return false;
+ try { return JSON.parse(el.textContent || '')?.['@type'] === 'FAQPage'; } catch { return false; }
+ });
+ if (alreadyOnPage) return;
+ document.getElementById(LD_ID)?.remove();
+ const script = document.createElement('script');
+ script.type = 'application/ld+json';
+ script.id = LD_ID;
+ script.textContent = faqLdJson;
+ document.head.appendChild(script);
+ return () => { document.getElementById(LD_ID)?.remove(); };
+ }, [faqLdJson]);
+
  const toggleSection = (section: string) => {
  const next = expandedSection === section ? null : section;
  setExpandedSection(next);
@@ -395,14 +479,12 @@ const WorkPermitsGuide: React.FC = () => {
  </Section>
 
  <Section id="documents" icon={FileText} title={t('permits.documents')}>
- <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
- {permit.documents.map((doc, i) => (
- <div key={i} className="flex items-center gap-2 p-2.5 bg-surface-alt rounded-lg text-sm text-body">
- <FileText size={14} className="text-accent flex-shrink-0" />
- {doc}
- </div>
- ))}
- </div>
+ <AiExtractableTable
+ className="mt-2"
+ caption={`${t('permits.documents')} \u2014 ${permit.name} (${permit.fullName})`}
+ columns={[{ header: t('permits.table.col.document'), accessor: 'document' }]}
+ rows={permit.documents.map(doc => ({ document: doc }))}
+ />
  </Section>
 
  <Section id="rights" icon={Shield} title={t('permits.sectionRights')}>
@@ -508,47 +590,23 @@ const WorkPermitsGuide: React.FC = () => {
  </Section>
  </div>
 
- {/* Comparison table */}
+ {/* Comparison table — AiExtractableTable: <caption>, header semantici e
+ data-speakable, la stessa forma che i bot AI leggono su Fisco/Calcolatore. */}
  <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-6">
- <h3 className="text-lg font-bold font-display text-strong mb-4 flex items-center gap-2">
- <Globe size={20} className="text-accent" />
- {t('permits.comparisonTitle')}
- </h3>
- <div className="relative overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
- <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-surface sm:hidden z-10" />
- <table className="w-full text-sm min-w-[600px] sm:min-w-0">
- <thead>
- <tr className="border-b-2 border-edge">
- <th className="text-left py-3 text-muted font-bold">{t('permits.feature')}</th>
- {permits.map(p => (
- <th key={p.id} className="text-center py-3 font-bold">
- <span className="text-lg">{p.icon}</span>
- <div className={`text-xs mt-1 ${selectedPermit === p.id ? 'text-link' : 'text-subtle'}`}>{p.name}</div>
- </th>
- ))}
- </tr>
- </thead>
- <tbody className="text-body">
- {[
- { label: t('permits.cmp.residenceCH'), values: ['❌', '✅', '✅', '✅'] },
- { label: t('permits.cmp.duration'), values: [t('permits.cmp.5years'), t('permits.cmp.5years'), '∞', t('permits.cmp.max1year')] },
- { label: t('permits.cmp.jobChange'), values: [t('permits.cmp.limited'), t('permits.cmp.free'), t('permits.cmp.free'), '❌'] },
- { label: t('permits.cmp.familyCH'), values: ['❌', '✅', '✅', t('permits.cmp.limited')] },
- { label: t('permits.cmp.toPermitC'), values: ['❌', t('permits.cmp.5yearsParens'), '—', '❌'] },
- { label: t('permits.cmp.selfEmployed'), values: [t('permits.cmp.limited'), '✅', '✅', '❌'] },
- { label: t('permits.cmp.pillar3'), values: ['❌', '✅', '✅', '❌'] },
- ].map((row, i) => (
- <tr key={i} className="border-b border-edge">
- <td className="py-2.5 font-medium">{row.label}</td>
- {row.values.map((v, j) => (
- <td key={j} className="text-center py-2.5">{v}</td>
- ))}
- </tr>
- ))}
- </tbody>
- </table>
+ <AiExtractableTable
+ caption={t('permits.comparisonTitle')}
+ columns={comparisonColumns}
+ rows={comparisonRows}
+ className="-mx-4 px-4 sm:mx-0 sm:px-0"
+ />
  </div>
- </div>
+
+ {/* FAQ — le stesse Q&A finite nel FAQPage JSON-LD qui sopra */}
+ <FaqAccordion
+ title={t('faq.title')}
+ items={faqItems}
+ className="bg-surface rounded-2xl border border-edge p-5 sm:p-6"
+ />
  </div>
  );
 };
