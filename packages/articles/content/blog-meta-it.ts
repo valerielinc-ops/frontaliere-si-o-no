@@ -10681,6 +10681,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-locate-varesino-lavorare-ticino-da-frontaliere.title': 'Vivere a Locate Varesino e lavorare in Ticino: vantaggi e svantaggi',
     'blog.article.vivere-locate-varesino-lavorare-ticino-da-frontaliere.excerpt': 'I frontalieri che lavorano in Ticino da Locate Varesino possono beneficiare di collegamenti efficienti e tempi di percorrenza ragionevoli. Il costo della vita è generalmente più alto rispetto all\'Italia di confine, ma le zone consigliate offrono un equilibrio tra la vita urbana e la natura.',
     'blog.article.vivere-locate-varesino-lavorare-ticino-da-frontaliere.imageAlt': 'Un frontaliere che lavora in Ticino da Locate Varesino',
+    'blog.article.vivere-leggiuno-lavorare-ticino-frontaliere.title': 'Vivere a Leggiuno e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-leggiuno-lavorare-ticino-frontaliere.excerpt': 'Guida pratica per chi vive a Leggiuno e lavora in Canton Ticino: collegamenti, imposta alla fonte, previdenza AVS, LAMal e regole fiscali per i frontalieri.',
+    'blog.article.vivere-leggiuno-lavorare-ticino-frontaliere.imageAlt': 'Panorama della zona di confine tra Italia e Svizzera per frontalieri',
 };
 
 export default blogMetaIt;

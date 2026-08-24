@@ -12259,6 +12259,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'risanamento-abitazioni-co2-berna',
+    category: 'pratico',
+    date: '2026-08-24T10:59:37.042Z',
+    image: '/images/blog/risanamento-abitazioni-co2-berna.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -10682,6 +10682,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-locate-varesino-lavorare-ticino-da-frontaliere.title': 'Vivre à Locate Varesino et travailler au Tessin : avantages et inconvénients',
     'blog.article.vivere-locate-varesino-lavorare-ticino-da-frontaliere.excerpt': 'Les frontaliers qui travaillent au Tessin depuis Locate Varesino peuvent bénéficier de liaisons efficaces et de temps de trajet raisonnables. Le coût de la vie est généralement plus élevé qu\'en Italie frontalière, mais les zones recommandées offrent un équilibre entre vie urbaine et nature.',
     'blog.article.vivere-locate-varesino-lavorare-ticino-da-frontaliere.imageAlt': 'Un frontalier travaillant en Suisse du nord-ouest de Locarno',
+    'blog.article.vivere-leggiuno-lavorare-ticino-frontaliere.title': 'Vivre à Leyuno et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-leggiuno-lavorare-ticino-frontaliere.excerpt': 'Guide pratique pour ceux qui vivent à Leyuno et travaillent dans le canton du Tessin : liens, impôt à la source, prévoyance AVS, LAMal et règles fiscales pour les frontaliers.',
+    'blog.article.vivere-leggiuno-lavorare-ticino-frontaliere.imageAlt': 'Paysage de la région frontalière entre l\'Italie et la Suisse',
 };
 
 export default blogMetaFr;

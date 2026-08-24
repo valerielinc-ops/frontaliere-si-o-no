@@ -53021,6 +53021,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-risanamento-abitazioni-co2-berna': {
+    title: 'Risanamento abitazioni: 2\'650 tonnellate CO2 risparmiate',
+    description: 'Programma federale 2021–2025: risanate 2\'413 abitazioni di utilità pubblica in Svizzera con 119 milioni CHF. Consumi energetici ridotti del 75%, 95% raggiunge',
+    keywords: 'frontalieri, ticino, svizzera, italia, risanamento, abitazioni, tonnellate, risparmiate',
+    ogTitle: 'Risanamento abitazioni: 2\'650 tonnellate CO2 risparmiate',
+    ogDescription: 'Nel 2021–2025 il programma federale della Confederazione ha risanato 2\'413 abitazioni di utilità pubblica in tutta la Svizzera, abbattendo i consumi energetici del 75% e risparmiando 2\'650 tonnellate di CO2 all\'anno. Il 95% raggiunge lo standard CECE',
+    canonicalPath: '/articoli-svizzera/risanamento-abitazioni-co2-berna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Risanamento abitazioni: 2'650 tonnellate CO2 risparmiate",
+      "description": "Programma federale 2021–2025: risanate 2'413 abitazioni di utilità pubblica in Svizzera con 119 milioni CHF. Consumi energetici ridotti del 75%, 95% raggiunge",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/risanamento-abitazioni-co2-berna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Programma federale di risanamento energetico: edifici residenziali moderni con facciate efficienti e pannelli solari, Svizzera"
+      },
+      "datePublished": "2026-08-24T10:59:37+00:00",
+      "dateModified": "2026-08-24T10:59:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/risanamento-abitazioni-co2-berna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

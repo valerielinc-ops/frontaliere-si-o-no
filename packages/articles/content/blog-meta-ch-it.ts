@@ -4087,6 +4087,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.premi-lamal-basilea-franchigie-sussidi.title': 'Premi LAMal Basilea Città: guida a franchigie e sussidi',
     'blog.article.premi-lamal-basilea-franchigie-sussidi.excerpt': 'Franchigie LAMal nel canton Basilea Città da CHF 300 a CHF 2.500, premi pro capite privati e sussidi cantonali per residenti a reddito limitato.',
     'blog.article.premi-lamal-basilea-franchigie-sussidi.imageAlt': 'Studio medico svizzero con documenti di assicurazione malattia e calendario appuntamenti',
+    'blog.article.risanamento-abitazioni-co2-berna.title': 'Risanamento abitazioni: 2\'650 tonnellate CO2 risparmiate',
+    'blog.article.risanamento-abitazioni-co2-berna.excerpt': 'Il programma federale 2021–2025 ha risanato 2\'413 abitazioni di utilità pubblica in Svizzera, riducendo i consumi energetici del 75%. Investimento: 119 milioni CHF con 71 mutui a tasso zero.',
+    'blog.article.risanamento-abitazioni-co2-berna.imageAlt': 'Programma federale di risanamento energetico: edifici residenziali moderni con facciate efficienti e pannelli solari, Svizzera',
 };
 
 export default blogMetaChIt;
