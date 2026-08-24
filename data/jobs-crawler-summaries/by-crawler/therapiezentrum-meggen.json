@@ -1,24 +1,64 @@
 {
   "key": "therapiezentrum-meggen",
   "label": "Therapiezentrum Meggen",
-  "generatedAt": "2026-08-24T10:03:32.188Z",
+  "generatedAt": "2026-08-24T21:37:01.381Z",
   "total": 2,
   "discovered": null,
   "written": 2,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3155,
-  "avgDurationMs": 3155,
+  "unchangedCount": 1,
+  "durationMs": 4039,
+  "avgDurationMs": 4039,
   "durationHistory": [
-    3155
+    4039
   ],
   "newJobs": [],
   "updatedJobs": [
     {
+      "id": "therapiezentrum-meggen-psychotherapie-stellenausschreibung-erfahren-mit-z-7c520020f93c",
+      "slug": "psychotherapeut-psychotherapeutin-80-100-mit-zusatzaufgaben-therapiezentrum-meggen-meggen",
+      "company": "Therapiezentrum Meggen",
+      "companyKey": "therapiezentrum-meggen",
+      "companyDomain": "tzm.ch",
+      "title": "Psychotherapeut/Psychotherapeutin (80 - 100%) mit Zusatzaufgaben",
+      "needsRetranslation": true,
+      "location": "Meggen",
+      "canton": "LU",
+      "url": "https://www.tzm.ch/app/download/14369181133/Psychotherapie%20Stellenausschreibung_erfahren_mit_Zusatzaufgaben.pdf?t=1590756941",
+      "applyUrl": "https://www.tzm.ch/offene-stellen/",
+      "source": "Therapiezentrum Meggen Dedicated Parser (Jimdo HTML + PDF)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-24T21:36:58.563Z",
+      "addressLocality": "Meggen",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6045",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Gesundheitswesen / Psychotherapie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-20",
+      "firstSeenAt": "2026-05-20T05:41:04.793Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 17
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
       "id": "therapiezentrum-meggen-stellenausschreibung-psychotherapie-ab-oktober2026-58b9f8dc9359",
-      "slug": "psychologische-psychotherapeutin-psychologischer-psychotherapeut-60-100-therapiezentrum",
+      "slug": "psicoterapeuta-psicologica-psicoterapeuta-psicologica-60-100-therapiezentrum-meggen-meggen-164c80",
       "company": "Therapiezentrum Meggen",
       "companyKey": "therapiezentrum-meggen",
       "companyDomain": "tzm.ch",
@@ -45,52 +85,16 @@
       "featured": false,
       "postedDate": "2026-07-22",
       "firstSeenAt": "2026-07-22T12:42:48.156Z",
-      "_qualityScore": 85,
+      "salaryMin": 74500,
+      "salaryMax": 127000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "therapiezentrum-meggen-psychotherapie-stellenausschreibung-erfahren-mit-z-7c520020f93c",
-      "slug": "psychotherapeut-psychotherapeutin-80-100-mit-zusatzaufgaben-therapiezentrum-meggen-meggen",
-      "company": "Therapiezentrum Meggen",
-      "companyKey": "therapiezentrum-meggen",
-      "companyDomain": "tzm.ch",
-      "title": "Psychotherapeut/Psychotherapeutin (80 - 100%) mit Zusatzaufgaben",
-      "needsRetranslation": true,
-      "location": "Meggen",
-      "canton": "LU",
-      "url": "https://www.tzm.ch/app/download/14369181133/Psychotherapie%20Stellenausschreibung_erfahren_mit_Zusatzaufgaben.pdf?t=1590756941",
-      "applyUrl": "https://www.tzm.ch/offene-stellen/",
-      "source": "Therapiezentrum Meggen Dedicated Parser (Jimdo HTML + PDF)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:03:30.114Z",
-      "addressLocality": "Meggen",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6045",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Gesundheitswesen / Psychotherapie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-20",
-      "firstSeenAt": "2026-05-20T05:41:04.793Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
