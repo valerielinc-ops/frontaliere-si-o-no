@@ -10713,6 +10713,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-druogno-lavorare-ticino.title': 'Living in Druogno and working in Ticino as a border worker',
     'blog.article.vivere-druogno-lavorare-ticino.excerpt': 'Practical information on taxation, permits and benefits for border workers living in Druogno and working in Ticino',
     'blog.article.vivere-druogno-lavorare-ticino.imageAlt': 'Italian frontier worker working in Switzerland, view of Lake Maggiore',
+    'blog.article.vivere-oliveto-lario-lavorare-ticino-da-frontaliere.title': 'Living in Oliveto Lario and working in Ticino as a border worker',
+    'blog.article.vivere-oliveto-lario-lavorare-ticino-da-frontaliere.excerpt': 'Connections, travel times, cost of living, recommended areas, advantages and disadvantages of the transfer',
+    'blog.article.vivere-oliveto-lario-lavorare-ticino-da-frontaliere.imageAlt': 'Frontalier working in Ticino',
 };
 
 export default blogMetaEn;

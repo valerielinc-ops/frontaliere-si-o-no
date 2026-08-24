@@ -10715,6 +10715,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-druogno-lavorare-ticino.title': 'Vivre à Druogno et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-druogno-lavorare-ticino.excerpt': 'Informations pratiques sur la fiscalité, permis et avantages pour les frontaliers qui vivent à Druogno et travaillent au Tessin',
     'blog.article.vivere-druogno-lavorare-ticino.imageAlt': 'Frontalier italien travaillant en Suisse, vue du lac Majeur',
+    'blog.article.vivere-oliveto-lario-lavorare-ticino-da-frontaliere.title': 'Vivre à Oliveto Lario et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-oliveto-lario-lavorare-ticino-da-frontaliere.excerpt': 'Liaisons, temps de trajet, coût de la vie, zones recommandées, avantages et inconvénients du transfert',
+    'blog.article.vivere-oliveto-lario-lavorare-ticino-da-frontaliere.imageAlt': 'Frontalier travaillant en Tessin',
 };
 
 export default blogMetaFr;

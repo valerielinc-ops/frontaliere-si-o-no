@@ -10714,6 +10714,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-druogno-lavorare-ticino.title': 'Vivere a Druogno e lavorare in Ticino da frontaliere',
     'blog.article.vivere-druogno-lavorare-ticino.excerpt': 'Informazioni pratiche sulla fiscalità, permessi e vantaggi per i frontalieri che vivono a Druogno e lavorano in Ticino',
     'blog.article.vivere-druogno-lavorare-ticino.imageAlt': 'Frontaliere italiano che lavora in Svizzera, vista del lago Maggiore',
+    'blog.article.vivere-oliveto-lario-lavorare-ticino-da-frontaliere.title': 'Vivere a Oliveto Lario e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-oliveto-lario-lavorare-ticino-da-frontaliere.excerpt': 'Collegamenti, tempi di percorrenza, costo della vita, zone consigliate, vantaggi e svantaggi del trasferimento',
+    'blog.article.vivere-oliveto-lario-lavorare-ticino-da-frontaliere.imageAlt': 'Frontaliere che lavora in Ticino',
 };
 
 export default blogMetaIt;
