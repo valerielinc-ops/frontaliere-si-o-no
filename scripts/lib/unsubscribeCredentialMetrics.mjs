@@ -194,7 +194,7 @@ function dedupeRepeatedActions(records) {
   const kept = [];
   let duplicatesDropped = 0;
   for (const item of withKey) {
-    const key = `${item.email} ${item.credential}`;
+    const key = `${item.email} ${item.credential}`;
     const prevTs = lastKeptTs.get(key);
     if (prevTs !== undefined && item.ts - prevTs <= DUPLICATE_EVENT_WINDOW_MS) {
       duplicatesDropped += 1;
