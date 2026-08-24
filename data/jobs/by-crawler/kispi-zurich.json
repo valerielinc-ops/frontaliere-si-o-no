@@ -1,86 +1,7 @@
 {
   "crawlerKey": "kispi-zurich",
-  "assembledAt": "2026-08-24T10:05:39.611Z",
+  "assembledAt": "2026-08-24T21:34:40.783Z",
   "jobs": [
-    {
-      "id": "kispi-zurich-d534c7fd61e3",
-      "slug": "scuola-ospedale-trainee-zurigo-m-f-100-universitats-kinderspital-zurich-kispi-zurich",
-      "slugByLocale": {
-        "it": "scuola-ospedale-trainee-zurigo-m-f-100-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "trainee-hospital-school-zurich-m-f-100-universitats-kinderspital-zurich-kispi-zurich",
-        "de": "praktikantin-spitalschule-zurich-m-w-100-kispi-zurich-zurich",
-        "fr": "ecole-d-hopital-pour-stagiaires-zurich-h-f-100-universitats-kinderspital-zurich-kispi-zurich"
-      },
-      "company": "Universitäts-Kinderspital Zürich (Kispi)",
-      "companyKey": "kispi-zurich",
-      "companyDomain": "kispi.uzh.ch",
-      "title": "Praktikantin Spitalschule Zürich (m/w) 100%",
-      "titleByLocale": {
-        "it": "Scuola Ospedale Trainee Zurigo (m/f) 100%",
-        "en": "Trainee Hospital School Zurich (m/f) 100%",
-        "de": "Praktikantin Spitalschule Zürich (m/w) 100%",
-        "fr": "École d'hôpital pour stagiaires Zurich (h/f) 100%"
-      },
-      "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 17.08.2026 Zeitraum: 1. März 2027 - 13. August 2027 Deine Aufgaben\n• Du betreust und unterrichtest Patientinnen und Patienten im Alter von 3-16 Jahren (einzeln oder in Kleingruppen).",
-      "descriptionByLocale": {
-        "it": "Ospedale dei Bambini Zurigo Eleonorenstiftung | online da: 17.08.2026 Periodo: 1 Marzo 2027 - 13. Agosto 2027\n• Supporti e insegni ai pazienti di età compresa tra 3 e 16 anni (individualmente o in piccoli gruppi).",
-        "en": "Children's Hospital Zurich Eleonorenstiftung | online since : 17.08.2026 Period: 1 March 2027 - 13. August 2027 Your Tasks\n• You support and teach patients aged 3-16 years (individually or in small groups).",
-        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 17.08.2026 Zeitraum: 1. März 2027 - 13. August 2027 Deine Aufgaben\n• Du betreust und unterrichtest Patientinnen und Patienten im Alter von 3-16 Jahren (einzeln oder in Kleingruppen).",
-        "fr": "L'hôpital pour enfants Zurich Eleonorenstiftung en ligne depuis : 17.08.2026 Période : 1 mars 2027 - 13. août 2027 Vos tâches\n• Vous aidez et enseignez aux patients âgés de 3 à 16 ans (individuellement ou en petits groupes)."
-      },
-      "needsRetranslation": false,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3508/Description/1",
-      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:05:35.410Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8032",
-      "category": "Formazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-17",
-      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3508/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "praktikantin-spitalschule-zurich-m-w-100-kispi-zurich-zurich",
-        "scuola-ospedale-trainee-zurigo-m-f-100-universitats-kinderspital-zurich-kispi-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikantin-spitalschule-zurich-m-w-100-kispi-zurich-zurich",
-          "scuola-ospedale-trainee-zurigo-m-f-100-universitats-kinderspital-zurich-kispi-zurich"
-        ],
-        "en": [
-          "praktikantin-spitalschule-zurich-m-w-100-kispi-zurich-zurich"
-        ],
-        "fr": [
-          "praktikantin-spitalschule-zurich-m-w-100-kispi-zurich-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-08-17T09:52:27.964Z",
-      "salaryMin": 53500,
-      "salaryMax": 98500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 53500,
-          "maxValue": 98500,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "kispi-zurich-cdab13f6214f",
       "slug": "apprendista-apprendista-informatik-cfc-w-m-universitats-kinderspital-zurich-kispi-zurich",
@@ -113,7 +34,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3728/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:05:34.473Z",
+      "crawledAt": "2026-08-24T21:34:36.789Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -192,7 +113,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3437/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:05:33.576Z",
+      "crawledAt": "2026-08-24T21:34:35.963Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -275,7 +196,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3576/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:05:32.695Z",
+      "crawledAt": "2026-08-24T21:34:35.126Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -354,7 +275,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3680/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:05:31.801Z",
+      "crawledAt": "2026-08-24T21:34:34.308Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -439,7 +360,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3730/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:05:30.900Z",
+      "crawledAt": "2026-08-24T21:34:33.487Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -518,7 +439,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3721/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:05:29.998Z",
+      "crawledAt": "2026-08-24T21:34:32.699Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -624,7 +545,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/1566/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:05:29.086Z",
+      "crawledAt": "2026-08-24T21:34:31.858Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -675,9 +596,9 @@
       "id": "kispi-zurich-8576f22f63af",
       "slug": "fachfrau-apotheke-drogistin-m-w-60-kispi-zurich-zurich",
       "slugByLocale": {
-        "de": "fachfrau-apotheke-drogistin-m-w-60-kispi-zurich-zurich",
         "it": "fachfrau-apotheke-drogistin-m-w-60-kispi-zurich-zurich",
         "en": "fachfrau-apotheke-drogistin-m-w-60-kispi-zurich-zurich",
+        "de": "fachfrau-apotheke-drogistin-m-w-60-kispi-zurich-zurich",
         "fr": "fachfrau-apotheke-drogistin-m-w-60-kispi-zurich-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
@@ -685,16 +606,16 @@
       "companyDomain": "kispi.uzh.ch",
       "title": "Fachfrau Apotheke / Drogistin (m/w) 60%",
       "titleByLocale": {
-        "de": "Fachfrau Apotheke / Drogistin (m/w) 60%",
         "it": "Fachfrau Apotheke / Drogistin (m/w) 60%",
         "en": "Fachfrau Apotheke / Drogistin (m/w) 60%",
+        "de": "Fachfrau Apotheke / Drogistin (m/w) 60%",
         "fr": "Fachfrau Apotheke / Drogistin (m/w) 60%"
       },
       "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 24.08.2026 Bereich Apotheke für Patientinnen und Patienten Deine Aufgaben\n• Zu deinen Aufgaben gehört das Ausführen von Rezepten für austretende und ambulante Patientinnen und Patienten.\n\n• Art: Teilzeit\n• Befristung: unbefristet",
       "descriptionByLocale": {
-        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 24.08.2026 Bereich Apotheke für Patientinnen und Patienten Deine Aufgaben\n• Zu deinen Aufgaben gehört das Ausführen von Rezepten für austretende und ambulante Patientinnen und Patienten.\n\n• Art: Teilzeit\n• Befristung: unbefristet",
         "it": "Kinderspital Zürich Eleonorenstiftung | online seit : 24.08.2026 Bereich Apotheke für Patientinnen und Patienten Deine Aufgaben\n• Zu deinen Aufgaben gehört das Ausführen von Rezepten für austretende und ambulante Patientinnen und Patienten.\n\n• Art: Teilzeit\n• Befristung: unbefristet",
         "en": "Kinderspital Zürich Eleonorenstiftung | online seit : 24.08.2026 Bereich Apotheke für Patientinnen und Patienten Deine Aufgaben\n• Zu deinen Aufgaben gehört das Ausführen von Rezepten für austretende und ambulante Patientinnen und Patienten.\n\n• Art: Teilzeit\n• Befristung: unbefristet",
+        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 24.08.2026 Bereich Apotheke für Patientinnen und Patienten Deine Aufgaben\n• Zu deinen Aufgaben gehört das Ausführen von Rezepten für austretende und ambulante Patientinnen und Patienten.\n\n• Art: Teilzeit\n• Befristung: unbefristet",
         "fr": "Kinderspital Zürich Eleonorenstiftung | online seit : 24.08.2026 Bereich Apotheke für Patientinnen und Patienten Deine Aufgaben\n• Zu deinen Aufgaben gehört das Ausführen von Rezepten für austretende und ambulante Patientinnen und Patienten.\n\n• Art: Teilzeit\n• Befristung: unbefristet"
       },
       "needsRetranslation": true,
@@ -703,7 +624,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3731/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:05:28.195Z",
+      "crawledAt": "2026-08-24T21:34:31.034Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -719,9 +640,8 @@
       "postedDate": "2026-08-24",
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3731/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-08-24T10:05:28.195Z",
       "salaryMin": 54900,
       "salaryMax": 76800,
       "baseSalary": {
@@ -733,8 +653,7 @@
           "maxValue": 76800,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-24T10:05:28.195Z"
+      }
     },
     {
       "id": "kispi-zurich-68c752d460e6",
@@ -768,7 +687,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3628/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:05:27.304Z",
+      "crawledAt": "2026-08-24T21:34:30.208Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -814,6 +733,151 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "kispi-zurich-9a4dece2b049",
+      "slug": "diplomausbildung-hohere-fachschule-operationstechnik-kispi-zurich-zurich",
+      "slugByLocale": {
+        "de": "diplomausbildung-hohere-fachschule-operationstechnik-kispi-zurich-zurich",
+        "it": "diplomausbildung-hohere-fachschule-operationstechnik-kispi-zurich-zurich",
+        "en": "diplomausbildung-hohere-fachschule-operationstechnik-kispi-zurich-zurich",
+        "fr": "diplomausbildung-hohere-fachschule-operationstechnik-kispi-zurich-zurich"
+      },
+      "company": "Universitäts-Kinderspital Zürich (Kispi)",
+      "companyKey": "kispi-zurich",
+      "companyDomain": "kispi.uzh.ch",
+      "title": "Diplomausbildung Höhere Fachschule Operationstechnik",
+      "titleByLocale": {
+        "de": "Diplomausbildung Höhere Fachschule Operationstechnik",
+        "it": "Diplomausbildung Höhere Fachschule Operationstechnik",
+        "en": "Diplomausbildung Höhere Fachschule Operationstechnik",
+        "fr": "Diplomausbildung Höhere Fachschule Operationstechnik"
+      },
+      "description": "Diplomausbildung Höhere Fachschule Operationstechnik bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+      "descriptionByLocale": {
+        "de": "Diplomausbildung Höhere Fachschule Operationstechnik bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+        "it": "Diplomausbildung Höhere Fachschule Operationstechnik bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+        "en": "Diplomausbildung Höhere Fachschule Operationstechnik bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+        "fr": "Diplomausbildung Höhere Fachschule Operationstechnik bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)"
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2316.umantis.com/Vacancies/1645/Description/1",
+      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-24T21:34:29.363Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8032",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/1645/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-24T21:34:29.363Z"
+    },
+    {
+      "id": "kispi-zurich-d534c7fd61e3",
+      "slug": "scuola-ospedale-trainee-zurigo-m-f-100-universitats-kinderspital-zurich-kispi-zurich",
+      "slugByLocale": {
+        "it": "scuola-ospedale-trainee-zurigo-m-f-100-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "trainee-hospital-school-zurich-m-f-100-universitats-kinderspital-zurich-kispi-zurich",
+        "de": "praktikantin-spitalschule-zurich-m-w-100-kispi-zurich-zurich",
+        "fr": "ecole-d-hopital-pour-stagiaires-zurich-h-f-100-universitats-kinderspital-zurich-kispi-zurich"
+      },
+      "company": "Universitäts-Kinderspital Zürich (Kispi)",
+      "companyKey": "kispi-zurich",
+      "companyDomain": "kispi.uzh.ch",
+      "title": "Praktikantin Spitalschule Zürich (m/w) 100%",
+      "titleByLocale": {
+        "it": "Scuola Ospedale Trainee Zurigo (m/f) 100%",
+        "en": "Trainee Hospital School Zurich (m/f) 100%",
+        "de": "Praktikantin Spitalschule Zürich (m/w) 100%",
+        "fr": "École d'hôpital pour stagiaires Zurich (h/f) 100%"
+      },
+      "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 17.08.2026 Zeitraum: 1. März 2027 - 13. August 2027 Deine Aufgaben\n• Du betreust und unterrichtest Patientinnen und Patienten im Alter von 3-16 Jahren (einzeln oder in Kleingruppen).",
+      "descriptionByLocale": {
+        "it": "Ospedale dei Bambini Zurigo Eleonorenstiftung | online da: 17.08.2026 Periodo: 1 Marzo 2027 - 13. Agosto 2027\n• Supporti e insegni ai pazienti di età compresa tra 3 e 16 anni (individualmente o in piccoli gruppi).",
+        "en": "Children's Hospital Zurich Eleonorenstiftung | online since : 17.08.2026 Period: 1 March 2027 - 13. August 2027 Your Tasks\n• You support and teach patients aged 3-16 years (individually or in small groups).",
+        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 17.08.2026 Zeitraum: 1. März 2027 - 13. August 2027 Deine Aufgaben\n• Du betreust und unterrichtest Patientinnen und Patienten im Alter von 3-16 Jahren (einzeln oder in Kleingruppen).",
+        "fr": "L'hôpital pour enfants Zurich Eleonorenstiftung en ligne depuis : 17.08.2026 Période : 1 mars 2027 - 13. août 2027 Vos tâches\n• Vous aidez et enseignez aux patients âgés de 3 à 16 ans (individuellement ou en petits groupes)."
+      },
+      "needsRetranslation": false,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3508/Description/1",
+      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-24T10:05:35.410Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8032",
+      "category": "Formazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-17",
+      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3508/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "praktikantin-spitalschule-zurich-m-w-100-kispi-zurich-zurich",
+        "scuola-ospedale-trainee-zurigo-m-f-100-universitats-kinderspital-zurich-kispi-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikantin-spitalschule-zurich-m-w-100-kispi-zurich-zurich",
+          "scuola-ospedale-trainee-zurigo-m-f-100-universitats-kinderspital-zurich-kispi-zurich"
+        ],
+        "en": [
+          "praktikantin-spitalschule-zurich-m-w-100-kispi-zurich-zurich"
+        ],
+        "fr": [
+          "praktikantin-spitalschule-zurich-m-w-100-kispi-zurich-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-08-17T09:52:27.964Z",
+      "salaryMin": 53500,
+      "salaryMax": 98500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 53500,
+          "maxValue": 98500,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "kispi-zurich-ae0b2f3fc68d",
@@ -892,7 +956,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     }
   ]
