@@ -4009,6 +4009,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.naturalizzazione-friburgo-requisiti-procedura.title': 'Naturalisation canton de Fribourg : exigences et procédure',
     'blog.article.naturalizzazione-friburgo-requisiti-procedura.excerpt': 'Guide complet de la naturalisation ordinaire dans le canton de Fribourg : procédure fédérale, exigences linguistiques, taxes et délais municipaux.',
     'blog.article.naturalizzazione-friburgo-requisiti-procedura.imageAlt': 'Certificat de naturalisation suisse devant la mairie de Fribourg',
+    'blog.article.avs-prestazioni-complementari-friburgo-cassa.title': 'AVS et prestations complémentaires dans le canton de Fribourg : guide de rente',
+    'blog.article.avs-prestazioni-complementari-friburgo-cassa.excerpt': 'Comment fonctionne le premier pilier fédéral dans le canton de Fribourg : taux AVS, rôle de la caisse de compensation cantonale, calcul de la rente et prestations complémentaires pour le minimum vital.',
+    'blog.article.avs-prestazioni-complementari-friburgo-cassa.imageAlt': 'Bureau de caisse de compensation du canton de Fribourg pour AVS et prestations complémentaires',
 };
 
 export default blogMetaChFr;

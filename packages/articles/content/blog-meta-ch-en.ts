@@ -4009,6 +4009,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.naturalizzazione-friburgo-requisiti-procedura.title': 'Naturalization Canton of Fribourg: requirements and procedure',
     'blog.article.naturalizzazione-friburgo-requisiti-procedura.excerpt': 'Complete guide to ordinary naturalization in the Canton of Fribourg: federal procedure, language requirements, taxes and municipal deadlines.',
     'blog.article.naturalizzazione-friburgo-requisiti-procedura.imageAlt': 'Swiss naturalization certificate in front of Friburgo municipality building',
+    'blog.article.avs-prestazioni-complementari-friburgo-cassa.title': 'AVS and complementary services in the canton of Fribourg: an income guide',
+    'blog.article.avs-prestazioni-complementari-friburgo-cassa.excerpt': 'How the first federal pillar works in the canton of Freiburg: AVS rates, the role of the cantonal compensation fund, pension calculation and supplementary benefits for the living minimum.',
+    'blog.article.avs-prestazioni-complementari-friburgo-cassa.imageAlt': 'Fribourg cantonal compensation office for AVS pension administration and supplementary benefits',
 };
 
 export default blogMetaChEn;
