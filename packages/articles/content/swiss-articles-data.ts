@@ -12385,6 +12385,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'aprire-attivita-basilea-citt-registro-commercio-e-costi',
+    category: 'fiscale',
+    date: '2026-08-24T14:25:04.055Z',
+    image: '/images/blog/aprire-attivita-basilea-citt-registro-commercio-e-costi.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

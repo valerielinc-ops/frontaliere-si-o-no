@@ -4129,6 +4129,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.registro-commercio-basilea-citta.title': 'Geschäftstätigkeit Basel-Stadt eröffnen: Register und Kosten',
     'blog.article.registro-commercio-basilea-citta.excerpt': 'Vollständiger Leitfaden zu Rechtsformen, Handelsregistereintrag, Sozialbeiträgen AHV/IV/KVG und Steuern von Bund, Kantonen und Gemeinden im Kanton Basel-Stadt.',
     'blog.article.registro-commercio-basilea-citta.imageAlt': 'Geschäftsregisterbüro mit Gründungsformularen und administrativen Dokumenten für Unternehmenseröffnung im Kanton Basel-Stadt',
+    'blog.article.aprire-attivita-basilea-citt-registro-commercio-e-costi.title': 'Geschäft im Kanton Basel-Stadt eröffnen: Handelsregister und Kosten',
+    'blog.article.aprire-attivita-basilea-citt-registro-commercio-e-costi.excerpt': 'Die Rechtsform für die Gründung eines Unternehmens im Kanton Basel-Stadt unterliegt verschiedenen Optionen. Die Eintragung in das Handelsregister erfordert ein spezifisches Mindestkapital und die Eintragungsgebühren sind zu entrichten.',
+    'blog.article.aprire-attivita-basilea-citt-registro-commercio-e-costi.imageAlt': 'Bild eines Unternehmers, der in einem Büro im Kanton Basel-Stadt arbeitet.',
 };
 
 export default blogMetaChDe;

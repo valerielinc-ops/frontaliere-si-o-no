@@ -4129,6 +4129,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.registro-commercio-basilea-citta.title': 'Open activities Basel City: register and costs',
     'blog.article.registro-commercio-basilea-citta.excerpt': 'Complete guide on legal forms, registration in the trade register, AVS/AI/LAMal social contributions and federal, cantonal and municipal taxes in the canton of Basel-City.',
     'blog.article.registro-commercio-basilea-citta.imageAlt': 'Business registration office desk with official forms and documents for company registration in Basel-Stadt canton, Switzerland',
+    'blog.article.aprire-attivita-basilea-citt-registro-commercio-e-costi.title': 'Opening a business in the Canton of Basel-City: trade register and costs',
+    'blog.article.aprire-attivita-basilea-citt-registro-commercio-e-costi.excerpt': 'The legal form for opening a business in the Canton of Basel-City is subject to several options. Registration in the trade register requires a specific minimum capital and registration fees must be paid.',
+    'blog.article.aprire-attivita-basilea-citt-registro-commercio-e-costi.imageAlt': 'Image of an entrepreneur working in an office in Basel-Stadt Canton.',
 };
 
 export default blogMetaChEn;
