@@ -1,6 +1,6 @@
 {
   "crawlerKey": "recruitingapp-2563",
-  "assembledAt": "2026-08-23T21:32:47.923Z",
+  "assembledAt": "2026-08-24T10:24:38.314Z",
   "jobs": [
     {
       "id": "recruitingapp-2563-97a2b838b3bd",
@@ -23,8 +23,8 @@
       },
       "description": "Technical Documentation Specialist (60% - all identities and backgrounds*) in Zürich — Switch Bewerbermanagement Stellen",
       "descriptionByLocale": {
-        "en": "Technical Documentation Specialist (60% - all identities and backgrounds*) in Zürich — Switch Bewerbermanagement Stellen",
         "it": "Specialista di documentazione tecnica (60% - tutte le identità e gli sfondi*) in Zurigo — Switch Bewerbermanagement Stellen",
+        "en": "Technical Documentation Specialist (60% - all identities and backgrounds*) in Zürich — Switch Bewerbermanagement Stellen",
         "de": "Spezialist für technische Dokumentation (60% - alle Identitäten und Hintergründe*) in Zürich — Switch Bewerbermanagement Stellen",
         "fr": "Spécialiste de la documentation technique (60% - toutes identités et origines*) à Zurich — Switch Bewerbermanagement Stellen"
       },
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2563.umantis.com/Vacancies/557/Description/1",
       "source": "Switch Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-23T21:32:44.718Z",
+      "crawledAt": "2026-08-24T10:24:35.538Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -48,6 +48,23 @@
       "applyUrl": "https://recruitingapp-2563.umantis.com/Vacancies/557/Description/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "technical-documentation-specialist-60-all-identities-and-backgrounds-in-zurich",
+        "technical-documentation-specialista-60-all-identities-and-backgrounds-in-zurich-switch-bewerbermanagement-stellen-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-documentation-specialist-60-all-identities-and-backgrounds-in-zurich",
+          "technical-documentation-specialista-60-all-identities-and-backgrounds-in-zurich-switch-bewerbermanagement-stellen-lugano"
+        ],
+        "de": [
+          "technical-documentation-specialist-60-all-identities-and-backgrounds-in-zurich"
+        ],
+        "fr": [
+          "technical-documentation-specialist-60-all-identities-and-backgrounds-in-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-08-23T09:47:24.585Z",
       "salaryMin": 34800,
       "salaryMax": 52800,
       "baseSalary": {
@@ -61,21 +78,7 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:47:24.585Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "technical-documentation-specialist-60-all-identities-and-backgrounds-in-zurich"
-        ],
-        "de": [
-          "technical-documentation-specialist-60-all-identities-and-backgrounds-in-zurich"
-        ],
-        "fr": [
-          "technical-documentation-specialist-60-all-identities-and-backgrounds-in-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "technical-documentation-specialist-60-all-identities-and-backgrounds-in-zurich"
-      ]
+      "needsRetranslation": true
     },
     {
       "id": "recruitingapp-2563-052f9f19df69",
@@ -106,7 +109,7 @@
       "url": "https://recruitingapp-2563.umantis.com/Vacancies/547/Description/1",
       "source": "Switch Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:32:44.399Z",
+      "crawledAt": "2026-08-24T10:24:35.212Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -121,11 +124,14 @@
       "applyUrl": "https://recruitingapp-2563.umantis.com/Vacancies/547/Description/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T09:47:24.267Z",
+      "previousSlugs": [
+        "network-security-engineer-80-100-all-identities-and-backgrounds-recruitingapp-2563-ch",
+        "network-security-ingegnere-80-100-all-identities-and-backgrounds-switch-bewerbermanagement-stellen-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "network-security-engineer-80-100-all-identities-and-backgrounds-recruitingapp-2563-ch"
+          "network-security-engineer-80-100-all-identities-and-backgrounds-recruitingapp-2563-ch",
+          "network-security-ingegnere-80-100-all-identities-and-backgrounds-switch-bewerbermanagement-stellen-lugano"
         ],
         "de": [
           "network-security-engineer-80-100-all-identities-and-backgrounds-recruitingapp-2563-ch"
@@ -134,9 +140,8 @@
           "network-security-engineer-80-100-all-identities-and-backgrounds-recruitingapp-2563-ch"
         ]
       },
-      "previousSlugs": [
-        "network-security-engineer-80-100-all-identities-and-backgrounds-recruitingapp-2563-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:47:24.267Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "baseSalary": {
