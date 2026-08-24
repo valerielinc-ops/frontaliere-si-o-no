@@ -54464,6 +54464,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-apprendistato-zurigo-ricerca-contratto': {
+    title: 'Apprendistato Zurigo: come trovare e contrattare',
+    description: 'Guida pratica all\'apprendistato nel cantone di Zurigo: ricerca del posto, contratto di tirocinio, retribuzione dell\'apprendista e maturità professionale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, zurigo, trovare, contrattare',
+    ogTitle: 'Apprendistato Zurigo: come trovare e contrattare',
+    ogDescription: 'Scopri come trovare un posto di apprendistato a Zurigo, sottoscrivere il contratto, conoscere retribuzione, diritti e opportunità di certificazione professionale nel sistema formativo svizzero.',
+    canonicalPath: '/articoli-svizzera/apprendistato-zurigo-ricerca-contratto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato Zurigo: come trovare e contrattare",
+      "description": "Guida pratica all'apprendistato nel cantone di Zurigo: ricerca del posto, contratto di tirocinio, retribuzione dell'apprendista e maturità professionale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apprendistato-zurigo-ricerca-contratto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giovane apprendista in formazione pratica presso un'azienda in Svizzera"
+      },
+      "datePublished": "2026-08-24T23:19:34+00:00",
+      "dateModified": "2026-08-24T23:19:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendistato-zurigo-ricerca-contratto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -4198,6 +4198,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.formazione-professionale-zurigo.title': 'Praktikum Zürich: Gehalt, Vertrag, Maturität',
     'blog.article.formazione-professionale-zurigo.excerpt': 'Lehre im Kanton Zürich: So finden Sie eine Lehrstelle, Bundesrechte, Lohn, AHV/KVG-Beiträge und Verfahren zur Vertragsanbahnung.',
     'blog.article.formazione-professionale-zurigo.imageAlt': 'Lehrling in einer Berufswerkstatt während der Berufsausbildung in der Schweiz',
+    'blog.article.apprendistato-zurigo-ricerca-contratto.title': 'Lehre Zürich: So finden und verhandeln',
+    'blog.article.apprendistato-zurigo-ricerca-contratto.excerpt': 'Praktischer Leitfaden für die Lehre im Kanton Zürich: Stellensuche, Lehrvertrag, Lehrlingsvergütung und Berufsmaturität.',
+    'blog.article.apprendistato-zurigo-ricerca-contratto.imageAlt': 'Junger Lehrling in praktischer Ausbildung bei einem Schweizer Betrieb',
 };
 
 export default blogMetaChDe;

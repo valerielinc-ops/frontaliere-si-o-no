@@ -4198,6 +4198,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.formazione-professionale-zurigo.title': 'Tirocinio Zurigo: stipendio, contratto, maturità',
     'blog.article.formazione-professionale-zurigo.excerpt': 'Apprendistato nel Canton Zurigo: come trovare un posto di tirocinio, diritti federali, stipendio, contributi AVS/LAMal e procedura per avviare il contratto.',
     'blog.article.formazione-professionale-zurigo.imageAlt': 'Apprendista in laboratorio durante formazione professionale svizzera con istruttore',
+    'blog.article.apprendistato-zurigo-ricerca-contratto.title': 'Apprendistato Zurigo: come trovare e contrattare',
+    'blog.article.apprendistato-zurigo-ricerca-contratto.excerpt': 'Guida pratica all\'apprendistato nel cantone di Zurigo: ricerca del posto, contratto di tirocinio, retribuzione dell\'apprendista e maturità professionale.',
+    'blog.article.apprendistato-zurigo-ricerca-contratto.imageAlt': 'Giovane apprendista in formazione pratica presso un\'azienda in Svizzera',
 };
 
 export default blogMetaChIt;

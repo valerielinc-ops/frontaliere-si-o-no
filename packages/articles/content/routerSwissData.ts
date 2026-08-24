@@ -1425,6 +1425,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'borse-studio-sciaffusa': { it: 'borse-studio-sciaffusa', en: 'sciaffusa-study-grants', de: 'studienbeihilfe-kanton-sciaffusa', fr: 'bourses-d-etudes-canton-sciaffusa' },
  'apprendistato-zurigo-contratto-tirocinio': { it: 'apprendistato-zurigo-contratto-tirocinio', en: 'zurich-apprenticeship-vocational-training', de: 'lehrausbildung-zurich-berufsausbildung', fr: 'apprentissage-zurich-formation-professionnelle' },
  'formazione-professionale-zurigo': { it: 'formazione-professionale-zurigo', en: 'vocational-training-zurich', de: 'berufslehre-zurich', fr: 'apprentissage-zurich' },
+ 'apprendistato-zurigo-ricerca-contratto': { it: 'apprendistato-zurigo-ricerca-contratto', en: 'apprenticeship-zurich-find-position', de: 'lehre-zuerich-stelle-suchen', fr: 'apprentissage-zurich-trouver-poste' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

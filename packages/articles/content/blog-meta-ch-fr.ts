@@ -4198,6 +4198,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.formazione-professionale-zurigo.title': 'Stage Zurich : salaire, contrat, maturité',
     'blog.article.formazione-professionale-zurigo.excerpt': 'Apprentissage dans le canton de Zurich : comment trouver un poste d\'apprentissage, droits fédéraux, salaire, cotisations AVS/LAMal et procédure de démarrage du contrat.',
     'blog.article.formazione-professionale-zurigo.imageAlt': 'Apprenti apprenant un métier dans un atelier professionnel suisse avec instructeur',
+    'blog.article.apprendistato-zurigo-ricerca-contratto.title': 'Apprentissage Zurich : comment trouver et négocier',
+    'blog.article.apprendistato-zurigo-ricerca-contratto.excerpt': 'Guide pratique de l\'apprentissage dans le canton de Zurich : recherche d\'emploi, contrat de stage, rémunération de l\'apprenti et maturité professionnelle.',
+    'blog.article.apprendistato-zurigo-ricerca-contratto.imageAlt': 'Jeune apprenti en formation pratique dans une entreprise suisse',
 };
 
 export default blogMetaChFr;
