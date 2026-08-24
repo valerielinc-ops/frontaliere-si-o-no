@@ -4012,6 +4012,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-friburgo-cassa.title': 'AHV und Ergänzungsleistungen im Kanton Freiburg: Rentenleitfaden',
     'blog.article.avs-prestazioni-complementari-friburgo-cassa.excerpt': 'Wie die erste Säule des Bundes im Kanton Freiburg funktioniert: AHV-Sätze, Rolle der kantonalen Ausgleichskasse, Rentenberechnung und Ergänzungsleistungen für das Lebensminimum.',
     'blog.article.avs-prestazioni-complementari-friburgo-cassa.imageAlt': 'Friburger Kantonsausgleichskasse für AVS-Rentenverwaltung und Ergänzungsleistungen',
+    'blog.article.abbonamenti-trasporti-friburgo.title': 'Fahrkarten Freiburg: Zonen und Tarife',
+    'blog.article.abbonamenti-trasporti-friburgo.excerpt': 'Wie Tarifzonen, Halbtax, GA und Studentenrabatte in den Verkehrsabos des Kantons Freiburg funktionieren.',
+    'blog.article.abbonamenti-trasporti-friburgo.imageAlt': 'Schweizer Verkehrshaltestelle mit Fahrkartenautomat und Tarifzonenschildern',
 };
 
 export default blogMetaChDe;
