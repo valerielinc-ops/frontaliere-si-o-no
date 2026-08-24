@@ -27,7 +27,7 @@ import { fileURLToPath } from 'node:url';
 import { EXIT_BLOCK } from './lib/hook-exit-codes.mjs';
 // La tassonomia degli stati vive in UN posto solo: riscriverla qui produrrebbe
 // due copie che divergono al primo stato nuovo, in silenzio.
-import { bulletsWithoutState, extractSection, filesUncitedInBody } from '../lib/pr-body-sections-check.mjs';
+import { bulletsWithoutState, checkPrBodySections, extractSection, filesUncitedInBody } from '../lib/pr-body-sections-check.mjs';
 
 const HEADER_IMPL_RE = /^\s{0,3}#{2,3}\s+Implementato\b/im;
 const HEADER_NON_RE = /^\s{0,3}#{2,3}\s+Non implementato\b/im;
@@ -198,6 +198,24 @@ async function main() {
   try {
     warnAboutUncitedFiles(body);
   } catch { /* advisory: non blocca mai */ }
+
+  // BLOCKING (issue #6300 / recidiva #6289): un bullet «PR concatenata»
+  // senza `#N` non è uno stato tracciabile. Solo questa classe — non
+  // promuoviamo tutti i `bullet-without-state` a bloccanti. Importa
+  // `checkPrBodySections` dal modulo shipped, non reimplementa il regex.
+  try {
+    const { violations } = checkPrBodySections(body);
+    const chainedNoNum = violations.filter((v) => v.type === 'chained-pr-no-number');
+    if (chainedNoNum.length > 0) {
+      process.stderr.write(
+        '\n\u{1F6AB} pr-body-check-gate: PR bloccata — `PR concatenata` senza `#N` in ' +
+          '`## Non implementato (ancora)`.\n' +
+          chainedNoNum.map((v) => `  ${v.message}\n`).join('') +
+          'Lo stato letterale è `PR concatenata #N` (AGENTS.md #8): senza numero la voce non è tracciabile (recidiva: PR #6289).\n\n',
+      );
+      process.exit(EXIT_BLOCK);
+    }
+  } catch { /* checkPrBodySections è puro; se lancia, fail-safe sotto */ }
 
   if (hasImpl && hasNon) {
     process.exit(0);

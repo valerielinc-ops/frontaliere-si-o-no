@@ -138,4 +138,33 @@ describe('pr-body-check-gate hook (process behavior)', () => {
     const res = runGate('gh pr create --title "x"');
     expect(res.status).toBe(0);
   });
+
+  // #6300 / recidiva #6289: `PR concatenata` senza `#N` deve bloccare
+  // `gh pr create` (EXIT_BLOCK), non solo avvisare. I restanti bullet
+  // senza stato restano advisory.
+  it('blocks (EXIT_BLOCK=2) when a residual bullet says "PR concatenata" without #N', () => {
+    const body =
+      '## Implementato\n\n- fatto in questa PR\n\n## Non implementato (ancora)\n\n- foo — PR concatenata, non ancora aperta\n';
+    const cmd = `gh pr create --title "x" --body '${body}'`;
+    const res = runGate(cmd);
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/PR concatenata/);
+    expect(res.stderr).toMatch(/PR bloccata/);
+  });
+
+  it('allows (exit 0) when the residual bullet is "PR concatenata #6287"', () => {
+    const body =
+      '## Implementato\n\n- fatto in questa PR\n\n## Non implementato (ancora)\n\n- foo — PR concatenata #6287\n';
+    const cmd = `gh pr create --title "x" --body '${body}'`;
+    const res = runGate(cmd);
+    expect(res.status).toBe(0);
+  });
+
+  it('does not promote a generic stateless bullet to EXIT_BLOCK', () => {
+    const body =
+      '## Implementato\n\n- fatto in questa PR\n\n## Non implementato (ancora)\n\n- foo resta da fare più tardi\n';
+    const cmd = `gh pr create --title "x" --body '${body}'`;
+    const res = runGate(cmd);
+    expect(res.status).toBe(0);
+  });
 });

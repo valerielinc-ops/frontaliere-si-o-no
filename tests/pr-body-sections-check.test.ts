@@ -462,3 +462,43 @@ describe('checkPrBodySections — diff-vs-body citation (advisory)', () => {
     expect(res.warnings.some((w) => w.type === 'files-uncited-in-body')).toBe(false);
   });
 });
+
+// ---------------------------------------------------------------------------
+// checkPrBodySections — `PR concatenata` senza `#N` (#6300 / recidiva #6289)
+// Osservatore: importa `checkPrBodySections` dal modulo spedito, non
+// reimplementa il regex. Un bullet che dice lo stato senza il numero è
+// SEMPRE violazione (`chained-pr-no-number`), mai solo warning.
+// ---------------------------------------------------------------------------
+describe('checkPrBodySections — chained-pr-no-number (#6300)', () => {
+  it('flags "PR concatenata" without #N as a blocking violation', () => {
+    const body = makeBody({
+      implContent: '- fatto in questa PR\n',
+      nonImplContent: '- foo — PR concatenata, non ancora aperta\n',
+    });
+    const res = checkPrBodySections(body);
+    expect(res.ok).toBe(false);
+    expect(res.violations.some((v) => v.type === 'chained-pr-no-number')).toBe(true);
+    expect(res.warnings.some((w) => w.type === 'bullet-without-state')).toBe(false);
+  });
+
+  it('accepts "PR concatenata #6287" as a valid literal state', () => {
+    const body = makeBody({
+      implContent: '- fatto in questa PR\n',
+      nonImplContent: '- foo — PR concatenata #6287\n',
+    });
+    const res = checkPrBodySections(body);
+    expect(res.ok).toBe(true);
+    expect(res.violations.some((v) => v.type === 'chained-pr-no-number')).toBe(false);
+  });
+
+  it('a bullet without "PR concatenata" and without state stays a warning, not this violation', () => {
+    const body = makeBody({
+      implContent: '- fatto in questa PR\n',
+      nonImplContent: '- foo resta da fare più tardi\n',
+    });
+    const res = checkPrBodySections(body);
+    expect(res.ok).toBe(true);
+    expect(res.violations.some((v) => v.type === 'chained-pr-no-number')).toBe(false);
+    expect(res.warnings.some((w) => w.type === 'bullet-without-state')).toBe(true);
+  });
+});
