@@ -141,15 +141,112 @@ pagina**, cioè lo stesso difetto che la PR #5107 ha rimosso dagli articoli
 cinque). Quel costrutto è ora vietato da un test sui sorgenti
 (`tests/nearest-municipality-comparison.test.ts`).
 
-Effetto misurato rendendo le pagine nuove e ripassandole all'auditor:
+Effetto misurato rendendo **tutte** le pagine above-floor di ognuna delle sei
+famiglie e ripassandole all'auditor (le quattro famiglie estere vanno misurate
+così: le loro pagine live sono ancora quelle di prima della fix):
 
-| coorte | prima | dopo | pagine a gain zero |
-|---|---|---|---|
-| `it:/tasse-frontalieri-comune/` | 0,0 % | **9,1 %** | 29 → **0** |
-| `it:/vivere-in-ticino/comuni-di-frontiera/` | 11,5-15,4 % | **15,6 %** | 0 → 0 |
+| coorte | pagine | prima | dopo | pagine a gain zero |
+|---|---|---|---|---|
+| `it:/vivere-in-ticino/comuni-di-frontiera/` | 27 | 11,5-15,4 % | **15,6 %** | 0 → 0 |
+| `it:/vivere-in-germania-lavorare-in-svizzera/` | 22 | 5,1 % | **11,1 %** | 0 → 0 |
+| `it:/tasse-frontalieri-comune/` | 27 | 0,0 % | **9,1 %** | 29 → **0** |
+| `it:/vivere-in-liechtenstein-lavorare-in-svizzera/` | 8 | 0,0 % | **6,1 %** | 8 → **0** |
+| `it:/vivere-in-francia-lavorare-in-svizzera/` | 8 | 0,0 % | **5,6 %** | 3 → **0** |
+| `it:/vivere-in-austria-lavorare-in-svizzera/` | 8 | 1,8 % | **4,2 %** | 0 → 0 |
 
 Il numero che conta più della percentuale è la colonna a destra: **nessuna
 pagina resta senza niente di proprio**.
+
+Cinque famiglie su sei passano il floor. L'Austria no, e sta
+nell'inventario col suo valore post-fix: quel corridoio non ha alcun regime
+frontalieri (art. 15 §4 DBA-A abrogato nel 2006), quindi la pagina è dominata da
+un unico spiegatore legale che è **identicamente vero** per ogni comune — ~29 dei
+~32 segmenti contati. Non c'è una realtà per-comune nascosta dal template: il
+dataset dà popolazione, distanza su strada e valico più vicino, e il blocco del
+confronto le espone già tutte e tre. Alzare quella coorte vuol dire trovare un
+fatto per-comune che oggi non abbiamo, non riscrivere quello che c'è.
+
+## La catena automatica
+
+Il gate su `dist/` risponde a «l'emissione si è rotta?» e blocca. Non risponde
+alle due domande che fanno **migliorare** il meccanismo: quale famiglia è la
+peggiore fra quelle che passano, e se una famiglia dell'inventario è risalita.
+Per quelle c'è `information-gain-scan.yml`, cron giornaliero alle 05:25 UTC.
+
+```
+information-gain-scan.yml  (cron 05:25 UTC + workflow_dispatch)
+  │  scripts/ci/information-gain-live-scan.mjs
+  │    campiona 12 URL per famiglia dalle sitemap LIVE, un locale solo,
+  │    equispaziati; nessun build, nessun dist, nessun npm ci (~150 GET, ~30 s)
+  ↓
+  │  scripts/ci/information-gain-loop-issues.mjs
+  │    tre bucket → tre issue diverse, con la misura DENTRO
+  ↓
+issue-triage  (deterministico, zero Claude)  →  agent:fix-queued
+  ↓
+issue-fix  →  PR  →  pr-review-loop  →  auto-merge-on-lgtm
+  ↓
+deploy  →  post-deploy-validate-dist.yml  (il gate che blocca)
+  ↓
+information-gain-scan, il giorno dopo: rimisura e CHIUDE la issue
+```
+
+Non c'è un fixer nuovo: le issue sono scritte nella forma che il ciclo autonomo
+di questo repo già consuma.
+
+### I tre bucket
+
+| bucket | quando | cosa chiede | effetto sul gate |
+|---|---|---|---|
+| `regression` | coorte fuori inventario sotto il floor, o coorte in inventario peggiorata oltre 1,5 punti | dare alle pagine un elemento proprio | torna verde da sé |
+| `ratchet` | coorte **in** inventario ora sopra il floor | togliere la riga da `KNOWN_LOW_GAIN_COHORTS` | **si stringe** |
+| `opportunity` | coorte sopra il floor ma sotto il 40 % — solo la peggiore, una alla volta | migliorare il payload | nessuno |
+
+Il bucket `ratchet` è la metà auto-migliorante: è l'unico modo in cui
+l'inventario scende, e prima esisteva solo come riga stampata in un log.
+
+`opportunity` esce **una alla volta**, la peggiore: è una coda di
+miglioramento, e una coda che apre dieci issue al giorno viene silenziata.
+
+### Le tre scelte che tengono il ciclo silenzioso quando deve
+
+- **Esce sempre 0.** Un cron rosso su una metrica di contenuto è un cron che
+  qualcuno silenzia, perché nessuna PR può farlo tornare verde. Il gate che
+  blocca resta quello su `dist/`.
+- **Titoli senza numeri, etichetta della coorte per prima.** `createGithubIssue`
+  dedupa sui primi 60 caratteri: una percentuale nel titolo aprirebbe una issue
+  nuova a ogni run, e un'etichetta non in testa farebbe deduplicare due
+  famiglie diverse l'una nell'altra.
+- **`consecutiveGate: 2` sulle regressioni.** Fra il merge e le pagine servite
+  c'è un deploy: una singola run che vede l'HTML vecchio è lo stato normale
+  subito dopo una fix, non una regressione.
+
+### Auto-chiusura
+
+Ogni coorte misurata in una run e **non** nel proprio bucket vede la issue
+corrispondente risolta. È la metà che rende il ciclo chiuso: senza, resterebbero
+issue che nessuno chiude — la classe di difetto di #5437, un titolo che promette
+un auto-resolve inesistente. L'unica eccezione voluta: la issue di
+`opportunity` si chiude solo quando la coorte **raggiunge** il target, non
+quando un'altra famiglia diventa la peggiore, altrimenti il lavoro in corso
+verrebbe chiuso sotto i piedi di chi lo sta facendo.
+
+### Allargare la copertura
+
+`MONITORED_SITEMAPS` in `information-gain-live-scan.mjs`. Sono dichiarate a mano
+e non derivate da `sitemap.xml`: quell'indice elenca ~60 sitemap, in gran parte
+hub singoli, feed e archivi, dove «questa pagina ripete le sorelle?» non è una
+domanda con una risposta — e campionarle tutte sarebbe ~700 richieste al giorno
+per non misurare niente.
+
+Provarlo senza toccare niente:
+
+```bash
+gh workflow run information-gain-scan.yml --ref main -f dry_run=true
+# oppure in locale, che è la stessa cosa senza le issue:
+node scripts/ci/information-gain-live-scan.mjs --per-family=12 --out=verdict.json
+node scripts/ci/information-gain-loop-issues.mjs --verdict=verdict.json --dry-run
+```
 
 ## Rifare la misura
 

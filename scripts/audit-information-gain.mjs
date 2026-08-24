@@ -94,11 +94,19 @@ const MIN_COHORT_PAGES = 12;
  * inventoried. SHRINK-ONLY: adding a line is not an option, it is how the
  * defect spreads. Removing one is the point.
  *
- * Every entry here is a mail-merge family: the page's prose is its siblings'
- * prose with the place name and a couple of figures swapped. PR for #5002
- * added a per-page nearest-neighbour comparison to the six municipality
- * families, which is why the four Italian/foreign municipality cohorts are
- * NOT in this list — they are expected above the floor from that PR onward.
+ * Every entry here is a family whose pages are mostly their siblings' pages.
+ *
+ * NOT inventoried, and deliberately so — the six municipality families that
+ * #5002 gave the nearest-neighbour comparison to. Measured AFTER the fix, by
+ * rendering every above-floor page of each family and running this auditor on
+ * the output (the four foreign families were measured this way because their
+ * live pages predate the fix):
+ *
+ *   it:/vivere-in-ticino/comuni-di-frontiera/       15,6 %   (era 11,5-15,4 %)
+ *   it:/vivere-in-germania-lavorare-in-svizzera/    11,1 %   (era 5,1 %)
+ *   it:/tasse-frontalieri-comune/                    9,1 %   (era 0,0 %)
+ *   it:/vivere-in-liechtenstein-lavorare-in-svizzera/ 6,1 %  (era 0,0 %)
+ *   it:/vivere-in-francia-lavorare-in-svizzera/       5,6 %  (era 0,0 %)
  *
  * Values measured on the production sample of 2026-08-24 (see the calibration
  * note above for the method).
@@ -107,9 +115,25 @@ const KNOWN_LOW_GAIN_COHORTS = new Map([
   // Salary landings built from one BFS row each: the row IS the page, and the
   // surrounding prose is one template. Fixing it means giving each page a
   // payload of its own (the same move #5002 made for the comuni), which is
-  // real content work on a different dataset — tracked, not silently accepted.
+  // real content work on a different dataset — tracked in #6328.
   ['it:/stipendio-medio-svizzera-', 0],
   ['de:/de/durchschnittslohn-schweiz-', 0],
+  // The one municipality family that the #5002 block did NOT lift over the
+  // floor: 0,0 % → 4,2 % measured on all 8 above-floor pages. Inventoried with
+  // its post-fix value rather than left out, because "it will be above the
+  // floor from now on" was an expectation and this one turned out false — and
+  // an uninventoried cohort fails HARD the day the dataset grows past
+  // MIN_COHORT_PAGES (8 above-floor comuni per locale today).
+  //
+  // Why it is the odd one out: the Austrian corridor has no frontalieri regime
+  // at all (art. 15 §4 DBA-A repealed in 2006), so the page is dominated by one
+  // long legal explainer that is IDENTICALLY true for every comune — ~29 of its
+  // ~32 counted segments. There is no per-comune reality being hidden by
+  // template prose: the dataset offers population, road distance and nearest
+  // crossing, and the comparison block already surfaces all three. Raising this
+  // cohort means finding a genuinely per-comune fact that we do not have yet,
+  // not rewording what is there.
+  ['it:/vivere-in-austria-lavorare-in-svizzera/', 4.2],
 ]);
 
 /** @returns {import('./lib/audit-runner.mjs').Auditor} */
