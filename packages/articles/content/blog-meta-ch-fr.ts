@@ -4045,6 +4045,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.custodia-bambini-svizzera-costi-sussidi.title': 'Garde d\'enfants en Suisse : coûts et subventions cantonales',
     'blog.article.custodia-bambini-svizzera-costi-sussidi.excerpt': 'Comment fonctionne la garde des enfants en Suisse, quels sont les coûts des crèches et les allocations disponibles pour les familles au niveau cantonal.',
     'blog.article.custodia-bambini-svizzera-costi-sussidi.imageAlt': 'Centre de garde d\'enfants suisse avec des enfants jouant dehors par une belle journée de printemps',
+    'blog.article.roche-acquisisce-diritti-trattamento-obesita.title': 'Roche acquiert les droits sur un traitement expérimental contre l\'obésité',
+    'blog.article.roche-acquisisce-diritti-trattamento-obesita.excerpt': 'L\'accord avec la société sud-coréenne Hanmi pourrait valoir jusqu\'à 2,3 milliards de dollars.',
+    'blog.article.roche-acquisisce-diritti-trattamento-obesita.imageAlt': 'Roche acquiert les droits à un traitement expérimental contre l\'obésité',
 };
 
 export default blogMetaChFr;

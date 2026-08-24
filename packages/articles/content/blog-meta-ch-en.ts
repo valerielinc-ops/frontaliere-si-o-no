@@ -4045,6 +4045,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.custodia-bambini-svizzera-costi-sussidi.title': 'Childcare in Switzerland: cantonal costs and subsidies',
     'blog.article.custodia-bambini-svizzera-costi-sussidi.excerpt': 'How childcare works in Switzerland, what are the costs of kindergartens and the subsidies available to families at cantonal level.',
     'blog.article.custodia-bambini-svizzera-costi-sussidi.imageAlt': 'Swiss daycare center with children playing outside on a sunny spring day',
+    'blog.article.roche-acquisisce-diritti-trattamento-obesita.title': 'Roche Acquires Rights to Experimental Obesity Treatment',
+    'blog.article.roche-acquisisce-diritti-trattamento-obesita.excerpt': 'The deal with South Korean company Hanmi could be worth up to $2.3 billion.',
+    'blog.article.roche-acquisisce-diritti-trattamento-obesita.imageAlt': 'Roche acquires rights to obesity treatment',
 };
 
 export default blogMetaChEn;

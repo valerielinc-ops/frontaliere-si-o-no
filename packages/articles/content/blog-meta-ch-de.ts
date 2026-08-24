@@ -4045,6 +4045,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.custodia-bambini-svizzera-costi-sussidi.title': 'Kinderbetreuung in der Schweiz: Kosten und kantonale Zuschüsse',
     'blog.article.custodia-bambini-svizzera-costi-sussidi.excerpt': 'Wie funktioniert die Kinderbetreuung in der Schweiz, welche Kosten gibt es für Kinderkrippen und welche kantonalen Familienbeiträge stehen zur Verfügung?',
     'blog.article.custodia-bambini-svizzera-costi-sussidi.imageAlt': 'Schweizer Kinderbetreuungszentrum mit Kindern, die an einem sonnigen Frühjahrstag draußen spielen',
+    'blog.article.roche-acquisisce-diritti-trattamento-obesita.title': 'Roche erwirbt Rechte an einer experimentellen Behandlung gegen Fettleibigkeit',
+    'blog.article.roche-acquisisce-diritti-trattamento-obesita.excerpt': 'Der Deal mit dem südkoreanischen Unternehmen Hanmi könnte bis zu 2,3 Milliarden Dollar wert sein.',
+    'blog.article.roche-acquisisce-diritti-trattamento-obesita.imageAlt': 'Roche erwirbt Rechte an einer Widerstandsstoff Behandlung gegen Adipositas',
 };
 
 export default blogMetaChDe;

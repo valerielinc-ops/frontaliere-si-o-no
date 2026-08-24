@@ -12133,6 +12133,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'roche-acquisisce-diritti-trattamento-obesita',
+    category: 'novita',
+    date: '2026-08-24T07:44:45.365Z',
+    image: '/images/blog/roche-acquisisce-diritti-trattamento-obesita.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
