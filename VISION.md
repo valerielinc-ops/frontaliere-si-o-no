@@ -8,11 +8,18 @@ commenti sparsi) o questioni che un driver scritto avrebbe risolto da solo. Il
 parcheggiati per sbaglio.
 
 Chi lo legge: il fixer (`issue-fix.yml`), il decompositore (`issue-decompose.yml`),
-lo sweep delle `needs-human` (`needs-human-sweep.yml`), il reviewer, e qualunque
-sessione interattiva. Regola d'uso: **quando un driver copre la decisione, si
-decide e si procede, citando il driver nel body della PR o nel commento**. Si
-scala a umano SOLO ciò che la sezione «Sempre umano» riserva, o ciò che nessun
-driver copre.
+lo sweep delle `needs-human` (`needs-human-sweep.yml`), il reviewer, il growth
+report, e qualunque sessione interattiva. Regola d'uso: **quando un driver copre
+la decisione, si decide e si procede, citando il driver nel body della PR o nel
+commento**.
+
+Dal 2026-08-24 (istruzione diretta del proprietario) NON esiste più una lista di
+categorie riservate all'umano: la sezione «Sempre umano» che stava qui, e che
+per un mese ha coperto LPD, denaro, invii massivi, ritiro editoriale, scope
+prodotto e infrastruttura irreversibile, è stata rimossa in blocco — vedi la
+riga del 2026-08-24 nel registro sotto. `needs-human` resta per i soli blocchi
+di CAPACITÀ reale (credenziale mancante, scope insufficiente, causa non
+trovata): non più per categorie di decisione.
 
 ## Missione e north-star
 
@@ -43,10 +50,13 @@ Crescono insieme o non crescono: contenuto scadente = traffico che non torna.
   misura è giusta?». Se la misura sbaglia si corregge la misura; se è giusta si
   corregge la causa. MAI alzare/abbassare soglie per far passare (AGENTS.md #1,
   con l'unica eccezione delimitata del corpus riassemblato, owner 2026-08-20).
-- **D3 — La pipeline si corregge in automatico, il contenuto pubblicato si
-  ritira solo con decisione umana.** Un difetto sistemico di generazione si fixa
-  alla fonte in autonomia; il ritiro/riscrittura di articoli già pubblicati è
-  una scelta editoriale (vedi «Sempre umano»).
+- **D3 — La pipeline si corregge in automatico; il ritiro editoriale è una
+  scelta fra versioni legittime, non più riservata.** Un difetto sistemico di
+  generazione si fixa alla fonte in autonomia. Dal 2026-08-24 anche il
+  ritiro/riscrittura di articoli già pubblicati si decide in autonomia — era
+  l'ultima voce di «Sempre umano» (rimossa) che D3 citava: documenta il criterio
+  di scelta nel body della PR, così la decisione resta verificabile a posteriori
+  anche senza approvazione preventiva.
 - **D4 — Quota Claude = risorsa condivisa e scarsa.** Ogni nuovo consumer di
   quota nasce con cap, kill-switch e telemetria. In conflitto, vince chi produce
   più valore per token: fix piccole con scheda > run esplorativi. La frugalità
@@ -54,8 +64,9 @@ Crescono insieme o non crescono: contenuto scadente = traffico che non torna.
   la soglia che tronca il lavoro.
 - **D5 — Un'issue grande si scorpora, non si parcheggia.** Lo stadio di
   decomposizione (ISSUES.md → «Stadio di decomposizione») è il percorso di
-  default per tutto ciò che non sta in un run. `needs-human` è riservato a ciò
-  che «Sempre umano» elenca.
+  default per tutto ciò che non sta in un run — comprese le decisioni di
+  prodotto/business, dal 2026-08-24. `needs-human` è riservato ai soli blocchi
+  di capacità reale.
 - **D6 — Famiglie, non istanze.** Se la stessa fix si sta applicando alla
   N-esima istanza (allowlist che cresce, timeout alzato di nuovo, stessa entry
   ripetuta), la N-esima PR DEVE aggredire la causa di famiglia o aprire
@@ -70,21 +81,41 @@ Crescono insieme o non crescono: contenuto scadente = traffico che non torna.
   corpus è parte dello stesso task, non un follow-up opzionale. 8 issue
   «gemello non portato» aperte sono debito del ciclo, non backlog nuovo.
 
-## Sempre umano (nessun driver può coprirlo)
+## Sempre umano — RIMOSSA (2026-08-24)
 
-- **Dati personali e LPD**: qualunque azione su dati di utenti reali
-  (cancellazioni di massa, campagne di re-permission, purge di log con PII,
-  cambi alle regole di consenso). Anche quando la fix tecnica è ovvia.
-- **Denaro**: spese nuove, upgrade di piani, quote a pagamento, contratti.
-- **Invii massivi**: qualunque email/notifica a più di un pugno di utenti reali
-  fuori dagli automatismi già approvati (newsletter/alert esistenti).
-- **Ritiro editoriale**: rimozione/riscrittura di contenuti già pubblicati
-  quando la scelta è fra versioni legittime (es. quale duplicato ritirare).
-- **Espansione di scope del prodotto**: nuovi paesi, nuovi domini, nuove
-  verticali (es. estendere oltre l'Italia: #5374/#5375 — mai deciso).
-- **Infrastruttura irreversibile**: cancellazioni di repo/branch protetti,
-  rotazioni di credenziali (declinata il 2026-08-18: PAT e Gemini key restano — la **rotazione** resta umana, l'**uso** è autorizzato dal 2026-08-24: sono due cose diverse e confonderle ha già prodotto 5 issue parcheggiate),
-  deploy di indici/regole su produzione Firebase.
+Fino al 2026-08-24 questa sezione elencava sei categorie riservate a una
+decisione esplicita del proprietario prima che il ciclo potesse agire: dati
+personali/LPD, denaro, invii massivi, ritiro editoriale, espansione di scope
+del prodotto, infrastruttura irreversibile. Il proprietario ha revocato la
+riserva IN BLOCCO con istruzione diretta (registro sotto, riga 2026-08-24):
+nessuna di queste categorie richiede più un'approvazione prima di procedere.
+
+Resta il testo originale, perché il registro sbagliato è peggio di nessun
+registro (vedi «Manutenzione»), e perché sapere COSA era gated aiuta a leggere
+le PR più vecchie che lo citavano:
+
+> Dati personali e LPD: qualunque azione su dati di utenti reali (cancellazioni
+> di massa, campagne di re-permission, purge di log con PII, cambi alle regole
+> di consenso). Denaro: spese nuove, upgrade di piani, quote a pagamento,
+> contratti. Invii massivi: email/notifica a più di un pugno di utenti reali
+> fuori dagli automatismi già approvati. Ritiro editoriale: rimozione/
+> riscrittura di contenuti già pubblicati fra versioni legittime. Espansione di
+> scope del prodotto: nuovi paesi, nuovi domini, nuove verticali. Infrastruttura
+> irreversibile: cancellazioni di repo/branch protetti, rotazioni di
+> credenziali, deploy di indici/regole su produzione Firebase.
+
+Cosa resta invariato, perché non è mai stato parte di questa sezione:
+
+- La **rotazione** delle credenziali resta una scelta specifica già presa
+  (declinata il 2026-08-18: PAT e Gemini key restano) — non una categoria
+  riservata. Una rotazione futura la valuta chi la propone sui suoi meriti,
+  come qualunque altra PR, non più bloccata a monte.
+- Il gate `## LGTM` del reviewer su OGNI PR resta. Rimuovere l'approvazione
+  preventiva non rimuove la revisione: la scrutina lo stesso ciclo che scrutina
+  tutto il resto, e un finding rosso ferma il merge come sempre.
+- I vincoli tecnici non-negoziabili di AGENTS.md (mai disabilitare Auto Ads,
+  mai committare path/email personali, ecc.) non sono decisioni di business:
+  restano regole di igiene del codice, invariate.
 
 ## Decisioni del proprietario già prese (NON ri-chiedere)
 
@@ -101,6 +132,14 @@ Crescono insieme o non crescono: contenuto scadente = traffico che non torna.
 | 2026-08-18 | Rotazione credenziali declinata (PAT e Gemini key restano) | sessione 18-08 |
 | 2026-08-20 | Eccezione delimitata: i gate sul corpus RIASSEMBLATO misurano il tasso, non la perfezione storica | AGENTS.md #1 |
 | 2026-08-24 | **Uso dei secret dal ciclo autonomo: AUTORIZZATO in modo permanente.** Non va più chiesto caso per caso. `blocked-secrets` non è un limite di capacità: è un verdetto da usare solo quando la variabile è davvero vuota, e allora è un difetto della mappa `RC_TO_ENV` | istruzione diretta, sessione 24-08 |
+| 2026-08-24 | **«Sempre umano» RIMOSSA in blocco**: LPD, denaro, invii massivi, ritiro editoriale, espansione di scope, infrastruttura irreversibile non richiedono più un'approvazione prima di procedere. Resta il gate `## LGTM` del reviewer su ogni PR | istruzione diretta, sessione 24-08 |
+| 2026-08-24 | #6280 (candidatura assistita 0,99€, A/B 60/40): **SÌ, procedi** | istruzione diretta, sessione 24-08 |
+| 2026-08-24 | #6173 (verticale farmacie svizzere): **SÌ, procedi** | istruzione diretta, sessione 24-08 |
+| 2026-08-24 | #4854 (verticale aste targhe cantonali): **SÌ, procedi** | istruzione diretta, sessione 24-08 |
+| 2026-08-24 | #6227 (bande salariali stimate): **opzione A** — scrivere `salarySource`, far comparire l'etichetta "(stima)" dove il codice già la prevede, dato sempre incluso in `baseSalary` per Google — **+ fix del mapping settore IT→EN** (bug indipendente dalla decisione: 70,1% degli annunci ripiega su Logistics per mancata traduzione delle categorie) | istruzione diretta, sessione 24-08 |
+| 2026-08-24 | #5926 (CMP unificata ads+comunicazioni): **SÌ**, con vincolo esplicito: l'implementazione deve preservare la compatibilità della frase di consenso col parser publisher-blast (vedi issue → rischio di azzerare l'audience) e mantenere la prova di consenso per la CMP. Requisito tecnico, non approvazione preventiva | istruzione diretta, sessione 24-08 |
+| 2026-08-24 | #5928 (regole Firestore fase 3, consenso dietro callable con prova di possesso): **SÌ, e i futuri deploy di regole/indici Firebase su produzione sono autonomi da ora** — non solo per questa issue | istruzione diretta, sessione 24-08 |
+| 2026-08-24 | #5995 (repo weight): leve **1** (batch commit bot), **3** (cache derivate fuori git), **4** (file append-only partizionati per shard) autorizzate. Leve **2** (snapshot fuori git) e **5** (immagini→CDN, tentativo precedente ritirato) restano BACKLOG, non autorizzate: non aprire lavoro su quelle finché non arriva una decisione dedicata | istruzione diretta, sessione 24-08 |
 
 Prima di parcheggiare per «decisione del proprietario», cerca nei commenti:
 
@@ -109,26 +148,18 @@ gh api repos/<owner>/<repo>/issues/<n>/comments --paginate \
   -q '.[]|select(.body|test("Decision[ei] del proprietario|proprietario ha (deciso|scelto)|NON si fa"))|.body[0:200]'
 ```
 
-## Decisioni RICHIESTE (aperte, e nessun driver le copre)
+## Decisioni RICHIESTE — sezione svuotata (2026-08-24)
 
-Sette delle 59 issue `needs-human` del 2026-08-24 sono decisioni vere; le altre
-sono mis-park tecnici e non vanno qui. Ognuna è formulata per essere decidibile
-in una riga: se una domanda qui sotto non si può chiudere con una scelta fra le
-opzioni date, è mal scritta e va riscritta, non ampliata.
+Le 7 decisioni che stavano qui — #6280, #6173, #4854, #6227, #5926, #5928,
+#5995 — sono state prese tutte lo stesso giorno; ogni riga è nel registro sopra
+con la data 2026-08-24. Non è rimasto niente in questa sezione perché non c'è
+più un meccanismo che vi aggiunga voci: «Sempre umano» è rimossa, quindi la
+prossima issue candidata a finire qui non esiste (vedi la sezione ritirata
+sopra per cosa copriva).
 
-| Issue | Classe «Sempre umano» | La scelta | Cosa serve per scegliere |
-|---|---|---|---|
-| #6280 | Denaro | Candidatura assistita a 0,99 € (upload CV + sottomissione manuale del team), A/B 60/40. **Si fa / non si fa / si fa senza pagamento** (sola raccolta d'interesse) | È l'unico esperimento del backlog che incassa e che impegna lavoro umano per ogni conversione. Il costo non è il codice: è il presidio manuale delle candidature |
-| #6173 | Espansione di scope | Nuova verticale **farmacie svizzere** (ricerca per cantone/città, farmacie di turno, pagine `/farmacie/**`, evergreen giornalieri) | Verticale fuori dal frontalierato. La domanda è se il dominio deve ospitarla, non se è fattibile |
-| #4854 | Espansione di scope | Portare `targhe personalizzate` a **portale aste targhe cantonali** (crawler per cantone, classifiche, storico, settimanali) | Idem: è un prodotto nuovo dentro lo stesso dominio |
-| #6227 | Ritiro editoriale | Le bande salariali sono **stime servite senza marcatore**, e il settore ripiega su Logistics nel 70% degli annunci. **Marcarle come stima / non servirle quando non dichiarate / lasciare così** | Misurato sull'indice live (21.552 annunci). È una scelta fra versioni legittime del dato, non un bug |
-| #5926 | Dati personali e LPD | Unificare il consenso ads (Google) con il consenso comunicazioni sotto una CMP certificata | Tocca la frase di consenso, che è parsata a valle: riscriverla può azzerare un'audience esistente |
-| #5928 | Dati personali e LPD + infra | Regole Firestore fase 3: consenso dietro un callable con prova di possesso | Il server trusted è fatto; questa è la chiusura delle regole ancora aperte |
-| #5995 | — (menù di leve misurate) | Peso del repo: 5 opzioni misurate in `docs/REPO-WEIGHT-STRATEGY.md`, **una alla volta**. Cambiano il comportamento di pipeline di produzione | 93.438 commit, il 42% creato nell'ultimo mese; 12,44 GB di blob, `data/` 66% |
-
-Non è in questa lista, ed è di proposito: **#5924** è un promemoria datato al
-2026-09-10 (rimisurare la conversione dei consensi travaso) — prima di quella
-data non c'è niente da decidere, e chiederlo adesso sarebbe rumore.
+Questa sezione resta come intestazione, non come promemoria vuoto: se in futuro
+la lista «Sempre umano» viene reintrodotta (parzialmente o in blocco), qui è
+dove tornerebbero a comparire le decisioni aperte.
 
 ## Manutenzione di questo documento
 
