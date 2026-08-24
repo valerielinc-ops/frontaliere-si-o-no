@@ -22,6 +22,7 @@ import { createHash } from 'node:crypto';
 import { callLLM, isAnyModelAvailable, getPreferredModel, getStats as getAiStats, initScoreStore, flushScores, flushScoresBeforeExit, printRunSummary } from './ai-models.mjs';
 import { validateJobUrls } from './validate-job-url.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
+import { hasAnyJobSignal } from './job-like.mjs';
 import { assertJsonListShape, assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
@@ -1047,21 +1048,32 @@ function isLikelyCommercialPromoContent({ title = '', description = '', pageUrl 
     'acessórios',
     'denim',
   ];
-  const jobSignals = [
-    'responsibilities',
-    'requirements',
-    'requisiti',
+  // Vocabolario di lavoro condiviso con il gate del prospector
+  // (`scripts/lib/job-like.mjs`), piu' i marcatori d'ATS che restano specifici
+  // di questo strato. Erano due elenchi separati per la stessa domanda «questo
+  // testo e' un annuncio?», destinati a divergere: quello del prospector e'
+  // multilingue e per gruppi, questo undici stringhe nate da un incidente.
+  //
+  // Solo il VETO attinge al modulo condiviso, non la soglia commerciale: un
+  // vocabolario di lavoro piu' ampio puo' soltanto salvare piu' annunci veri
+  // dallo scarto, mai scartarne di piu'. Allargare anche `commerceSignals`
+  // renderebbe il rilevatore piu' aggressivo su 600 crawler di produzione, che
+  // e' l'unica direzione in cui un falso positivo costa un annuncio reale.
+  // Restano qui i token che il modulo condiviso NON copre alla lettera:
+  // `profil` e' una sottostringa nuda (prende anche "profilo"/"profile"), e
+  // toglierla restringerebbe il veto invece di allargarlo. I cinque token che
+  // il modulo copre parola per parola — responsibilities, requirements,
+  // requisiti, employment type, apply now — sono stati tolti da qui.
+  const atsSignals = [
     'stellenbeschreibung',
     'profil',
     'skills for success',
     'hiring organization',
     'job requisition id',
-    'employment type',
-    'apply now',
     'candidate profile',
   ];
   const commerceHits = commerceSignals.reduce((acc, s) => acc + (text.includes(s) ? 1 : 0), 0);
-  const hasJobSignal = jobSignals.some((s) => text.includes(s));
+  const hasJobSignal = atsSignals.some((s) => text.includes(s)) || hasAnyJobSignal(text);
   return commerceHits >= 4 && !hasJobSignal;
 }
 
