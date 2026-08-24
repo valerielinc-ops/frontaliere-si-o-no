@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-24T04:52:56.199Z",
+  "updatedAt": "2026-08-24T09:32:04.516Z",
   "candidates": {
     "bofrost@mezzovico": {
       "key": "bofrost@mezzovico",
@@ -138557,12 +138557,12 @@
     },
     "hotel-international.ch": {
       "key": "hotel-international.ch",
-      "status": "production",
+      "status": "rejected",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.566Z",
-      "updatedAt": "2026-08-24T04:52:44.604Z",
+      "updatedAt": "2026-08-24T09:32:04.511Z",
       "name": "Hotel International au Lac",
       "domain": "hotel-international.ch",
       "city": "Lugano",
@@ -138575,17 +138575,19 @@
       ],
       "platform": null,
       "tenantHost": null,
-      "vacancyCount": 5,
+      "vacancyCount": 0,
       "selfHosted": true,
       "trailVia": [
         "homepage-link"
       ],
-      "crawlerKey": "hotel-international",
+      "crawlerKey": null,
       "mode": "template",
       "sourceLang": "it",
-      "qualityScore": 1,
-      "qualityVerdict": "good",
-      "qualityProblems": [],
+      "qualityScore": 0,
+      "qualityVerdict": "bad",
+      "qualityProblems": [
+        "le pagine di dettaglio sono offerte di soggiorno, non annunci di lavoro"
+      ],
       "validationHistory": [
         {
           "at": "2026-08-22T09:25:39.502Z",
@@ -138634,7 +138636,8 @@
       ],
       "promotionPr": "6297",
       "promotionBranch": "prospector/promote-2026-08-23",
-      "promotedAt": "2026-08-24T04:52:44.604Z"
+      "promotedAt": "2026-08-24T04:52:44.604Z",
+      "reason": "estrazione non-lavorativa: /it/jobs/ non elenca annunci (le candidature si inviano per posta a gennaio/febbraio) e il cluster vincente era il carosello promozionale /it/offerte/*/. Crawler ritirato, spec rimossa."
     },
     "besomi-statione.ch": {
       "key": "besomi-statione.ch",
