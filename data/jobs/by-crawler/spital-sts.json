@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-sts",
-  "assembledAt": "2026-08-24T10:06:54.044Z",
+  "assembledAt": "2026-08-24T21:42:36.593Z",
   "jobs": [
     {
       "id": "spital-sts-ae7a89566714",
@@ -34,7 +34,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/29467efe-5e8b-429f-8866-eeb96322cc47/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:06:51.273Z",
+      "crawledAt": "2026-08-24T21:42:33.551Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/8ceb3598-123e-4a0f-8ef3-8dbfc9c20299/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:06:50.417Z",
+      "crawledAt": "2026-08-24T21:42:32.937Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -192,7 +192,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/3c7ddde3-c80d-4d93-92d5-26cc5f644fcb/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:06:49.817Z",
+      "crawledAt": "2026-08-24T21:42:32.394Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -269,7 +269,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/03724723-1150-4ddd-80c4-0d433565a74e/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:06:49.213Z",
+      "crawledAt": "2026-08-24T21:42:31.688Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -348,7 +348,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/261c3e48-e9f4-4b94-98f4-9320db88f13a/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:06:48.599Z",
+      "crawledAt": "2026-08-24T21:42:30.982Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -456,7 +456,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/93b14957-805a-4228-a89b-28d8f286e304/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:06:48.001Z",
+      "crawledAt": "2026-08-24T21:42:30.424Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -473,10 +473,12 @@
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/93b14957-805a-4228-a89b-28d8f286e304",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachperson-dipl-oder-fage-als-springer-in-chirurgie-befristet-mit-option-auf",
+        "dipl-pflegefachperson-dipl-oder-fage-als-springer-in-chirurgie-regelmassige-arbeitszeiten",
+        "dipl-pflegefachperson-dipl-o-fage-come-springer-in-chirurgie-befristet-con-option-auf-festanstellung-spital-sts-thun"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "dipl-pflegefachperson-dipl-oder-fage-als-springer-in-chirurgie-befristet-mit-option-auf"
-        ],
         "it": [
           "dipl-pflegefachperson-dipl-oder-fage-als-springer-in-chirurgie-befristet-mit-option-auf",
           "dipl-pflegefachperson-dipl-oder-fage-als-springer-in-chirurgie-regelmassige-arbeitszeiten",
@@ -485,15 +487,13 @@
         "en": [
           "dipl-pflegefachperson-dipl-oder-fage-als-springer-in-chirurgie-befristet-mit-option-auf"
         ],
+        "de": [
+          "dipl-pflegefachperson-dipl-oder-fage-als-springer-in-chirurgie-befristet-mit-option-auf"
+        ],
         "fr": [
           "dipl-pflegefachperson-dipl-oder-fage-als-springer-in-chirurgie-befristet-mit-option-auf"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachperson-dipl-oder-fage-als-springer-in-chirurgie-befristet-mit-option-auf",
-        "dipl-pflegefachperson-dipl-oder-fage-als-springer-in-chirurgie-regelmassige-arbeitszeiten",
-        "dipl-pflegefachperson-dipl-o-fage-come-springer-in-chirurgie-befristet-con-option-auf-festanstellung-spital-sts-thun"
-      ],
       "firstSeenAt": "2026-08-14T10:15:16.306Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -540,7 +540,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/aaa0f523-1dc2-461b-a77d-8328fc4d5e2b/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:06:47.387Z",
+      "crawledAt": "2026-08-24T21:42:29.836Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -619,7 +619,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/39acf9e7-6acb-45d6-9378-18ec2beb7a69/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:06:46.366Z",
+      "crawledAt": "2026-08-24T21:42:29.135Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -682,7 +682,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/5d0b469e-cf82-4f48-817f-f5bcb8fa9150/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:06:45.645Z",
+      "crawledAt": "2026-08-24T21:42:28.425Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -761,7 +761,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/ff4bf947-1859-4029-88b8-e7c49381df7a/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:06:44.930Z",
+      "crawledAt": "2026-08-24T21:42:27.705Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
