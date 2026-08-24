@@ -4150,6 +4150,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-l-basilea-campagna.title': 'Ausweis L in Basel-Landschaft: Gültigkeit und Verlängerung',
     'blog.article.permesso-l-basilea-campagna.excerpt': 'Mit der Bewilligung L können Sie bis zu 12 Monate in Basel-Landschaft arbeiten. Entdecken Sie die maximale Dauer, die Verlängerungsregeln, den Übergang zur B-Bewilligung und die Einschränkungen des Arbeitgebers.',
     'blog.article.permesso-l-basilea-campagna.imageAlt': 'Verwaltungsgebäude des Kantons Baselland, Abteilung Arbeitsgenehmigungen und Migration',
+    'blog.article.permesso-l-breve-durata-basilea-campagna.title': 'Kurzzeitbewilligung: Gültigkeit und Verlängerung',
+    'blog.article.permesso-l-breve-durata-basilea-campagna.excerpt': 'Kurzaufenthaltsbewilligung L: Höchstdauer von 1 Jahr, Verlängerungsbedingungen, Verpflichtungen gegenüber dem Arbeitgeber und Übergangsverfahren zur Aufenthaltsbewilligung B in der Schweiz.',
+    'blog.article.permesso-l-breve-durata-basilea-campagna.imageAlt': 'Büro des Staatssekretariats für Migration (SEM) mit Aufenthaltsbewilligung L Unterlagen',
 };
 
 export default blogMetaChDe;

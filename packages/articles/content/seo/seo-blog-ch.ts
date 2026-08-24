@@ -53840,6 +53840,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-l-breve-durata-basilea-campagna': {
+    title: 'Permesso L breve durata: validità e proroga | Frontaliere Ticino',
+    description: 'Permesso L di breve durata: durata massima 1 anno, condizioni di proroga, passaggio a permesso B, vincoli datore lavoro e procedura richiesta SEM.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, breve, durata, validità',
+    ogTitle: 'Permesso L: validità, proroga e transizione a dimora',
+    ogDescription: 'Permesso L di breve durata: validità massima 1 anno, proroga, cambio datore di lavoro, transizione a permesso B di dimora, obblighi AVS/AI e fiscali in Svizzera.',
+    canonicalPath: '/articoli-svizzera/permesso-l-breve-durata-basilea-campagna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso L breve durata: validità e proroga",
+      "description": "Permesso L di breve durata: durata massima 1 anno, condizioni di proroga, passaggio a permesso B, vincoli datore lavoro e procedura richiesta SEM.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-l-breve-durata-basilea-campagna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio del Segretariato di Stato della migrazione (SEM) con documenti di permesso L"
+      },
+      "datePublished": "2026-08-24T15:59:21+00:00",
+      "dateModified": "2026-08-24T15:59:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-l-breve-durata-basilea-campagna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
