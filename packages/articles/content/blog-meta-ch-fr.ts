@@ -4006,6 +4006,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.domicilio-c-friburgo-procedura-richiesta.title': 'Permis domicile C Fribourg : années et procédure de demande',
     'blog.article.domicilio-c-friburgo-procedura-richiesta.excerpt': 'Le permis de séjour C dans le canton de Fribourg nécessite 10 ans de résidence (5 ans pour les citoyens de l\'UE/AELE). Découvrez les exigences nationales, la procédure étape par étape et les prochaines étapes vers la naturalisation.',
     'blog.article.domicilio-c-friburgo-procedura-richiesta.imageAlt': 'Bureau administratif suisse avec guichet de services d\'immigration et demandes de permis de séjour',
+    'blog.article.naturalizzazione-friburgo-requisiti-procedura.title': 'Naturalisation canton de Fribourg : exigences et procédure',
+    'blog.article.naturalizzazione-friburgo-requisiti-procedura.excerpt': 'Guide complet de la naturalisation ordinaire dans le canton de Fribourg : procédure fédérale, exigences linguistiques, taxes et délais municipaux.',
+    'blog.article.naturalizzazione-friburgo-requisiti-procedura.imageAlt': 'Certificat de naturalisation suisse devant la mairie de Fribourg',
 };
 
 export default blogMetaChFr;
