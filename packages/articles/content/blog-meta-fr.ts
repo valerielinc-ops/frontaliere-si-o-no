@@ -10694,6 +10694,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.briosco-pendolare-ticino-lavoro.title': 'Vivre à Briosco, travailler au Tessin : guide du frontalier',
     'blog.article.briosco-pendolare-ticino-lavoro.excerpt': 'Depuis le 1er janvier 2024, le nouvel accord frontalier régit la fiscalité entre l\'Italie et le Tessin. Briosco est à 70 km du passage : guide pratique pour les résidents et les travailleurs tessinois.',
     'blog.article.briosco-pendolare-ticino-lavoro.imageAlt': 'Vue de Lugano avec les Alpes en arrière-plan, paysage vu par les travailleurs transfrontaliers au Tessin',
+    'blog.article.albizzate-lavorare-ticino-frontaliere.title': 'Albizzate-Ticino da frontaliere : guide pratique',
+    'blog.article.albizzate-lavorare-ticino-frontaliere.excerpt': 'Vivre à Albizzate et travailler au Tessin : permis G, fiscalité 2024, AVS, LAMal et double imposition. Tout ce qu\'il faut savoir pour le transfert.',
+    'blog.article.albizzate-lavorare-ticino-frontaliere.imageAlt': 'Travailleur frontalier au poste de douane Suisse-Italie près de Mendrisio',
 };
 
 export default blogMetaFr;

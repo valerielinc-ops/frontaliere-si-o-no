@@ -10692,6 +10692,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.briosco-pendolare-ticino-lavoro.title': 'Living in Briosco, working in Ticino: frontier guide',
     'blog.article.briosco-pendolare-ticino-lavoro.excerpt': 'From 1 January 2024, the New Frontier Agreement governs taxation between Italy and Ticino. Briosco is 70 km from the crossing: a practical guide for Ticino residents and workers.',
     'blog.article.briosco-pendolare-ticino-lavoro.imageAlt': 'View of Lugano with Alps in the background, representing the landscape seen by cross-border workers in Ticino',
+    'blog.article.albizzate-lavorare-ticino-frontaliere.title': 'Albizada-Ticino from the border: practical guide',
+    'blog.article.albizzate-lavorare-ticino-frontaliere.excerpt': 'Living in Albizzate and working in Ticino: G permits, taxation 2024, AVS, LAMal and double taxation. Everything you need to know about the transfer.',
+    'blog.article.albizzate-lavorare-ticino-frontaliere.imageAlt': 'Frontalier at the Switzerland-Italy border crossing near Mendrisio at dawn',
 };
 
 export default blogMetaEn;
