@@ -4090,6 +4090,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.risanamento-abitazioni-co2-berna.title': 'Housing renovation: 2,650 tons of CO2 saved',
     'blog.article.risanamento-abitazioni-co2-berna.excerpt': 'The 2021–2025 federal programme rehabilitated 2,413 public utility homes in Switzerland, reducing energy consumption by 75%. Investment: CHF 119 million with 71 zero-interest mortgages.',
     'blog.article.risanamento-abitazioni-co2-berna.imageAlt': 'Federal housing renovation program: modern residential buildings with energy-efficient facades and solar panels, Switzerland',
+    'blog.article.skyguide-luglio-2026-voli-record.title': 'Air traffic in the skies: 4761 flights on 24 July',
+    'blog.article.skyguide-luglio-2026-voli-record.excerpt': 'On July 24, 2026, the record: Skyguide counted 4761 flights in Swiss skies. Summer season with 240,108 flights, 93% punctual, 65% bad weather delays.',
+    'blog.article.skyguide-luglio-2026-voli-record.imageAlt': 'Aerial view of Zurich airport with busy runways during summer season',
 };
 
 export default blogMetaChEn;

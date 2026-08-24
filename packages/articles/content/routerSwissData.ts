@@ -1389,6 +1389,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'truffe-spoofing-in-calo': { it: 'truffe-spoofing-in-calo', en: 'spoofing-calls-in-decline', de: 'spoofing-anrufe-in-abnahme', fr: 'appels-spoofing-en-declin' },
  'premi-lamal-basilea-franchigie-sussidi': { it: 'premi-lamal-basilea-franchigie-sussidi', en: 'basel-city-health-insurance-premiums-subsidies', de: 'basel-stadt-krankenkasse-pramien-subventionen', fr: 'bale-assurance-maladie-primes-reductions' },
  'risanamento-abitazioni-co2-berna': { it: 'risanamento-abitazioni-co2-berna', en: 'federal-housing-renovation-co2-bern', de: 'wohnungssanierung-co2-bern', fr: 'renovation-logements-co2-berne' },
+ 'skyguide-luglio-2026-voli-record': { it: 'skyguide-luglio-2026-voli-record', en: 'skyguide-july-2026-flight-record', de: 'skyguide-juli-2026-flugrekord', fr: 'skyguide-juillet-2026-record-vols' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
