@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fachkraft",
-  "assembledAt": "2026-08-23T21:58:16.964Z",
+  "assembledAt": "2026-08-24T08:48:28.459Z",
   "jobs": [
     {
       "id": "fachkraft-7b79b41b2ff1",
@@ -52225,75 +52225,6 @@
       "previousSlugs": [
         "produktionsmechaniker-in-montage-im-feinbereich-fachkraft-ch"
       ]
-    },
-    {
-      "id": "fachkraft-bc7f000b3f61",
-      "slug": "produktionsmechaniker-in-montage-per-kaffeemaschinen-fachkraft-ch-gmbh-lugano",
-      "slugByLocale": {
-        "fr": "produktionsmechaniker-in-montage-fur-kaffeemaschinen-fachkraft-ch",
-        "it": "produktionsmechaniker-in-montage-per-kaffeemaschinen-fachkraft-ch-gmbh-lugano",
-        "en": "produktionsmechaniker-in-montage-fur-kaffeemaschinen-fachkraft-ch",
-        "de": "produktionsmechaniker-in-montage-fur-kaffeemaschinen-fachkraft-ch"
-      },
-      "company": "fachkraft.ch GmbH",
-      "companyKey": "fachkraft",
-      "companyDomain": "fachkraft.ch",
-      "title": "Produktionsmechaniker/in - Montage für Kaffeemaschinen",
-      "titleByLocale": {
-        "fr": "Produktionsmechaniker/in - Montage für Kaffeemaschinen",
-        "de": "Produktionsmechaniker/in - Montage für Kaffeemaschinen",
-        "it": "Produktionsmechaniker/in - Montage per Kaffeemaschinen",
-        "en": "Produktionsmechaniker/in - Assembly for Kaffeemaschinen"
-      },
-      "description": "Produktionsmechaniker/in - Montage für Kaffeemaschinen — fachkraft.ch GmbH",
-      "descriptionByLocale": {
-        "fr": "Produktionsmechaniker/in - Montage für Kaffeemaschinen — fachkraft.ch GmbH"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://www.fachkraft.ch/stellen/43082-staof/",
-      "source": "fachkraft.ch GmbH Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-23T21:52:37.248Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-23",
-      "applyUrl": "https://www.fachkraft.ch/stellen/43082-staof/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "produktionsmechaniker-in-montage-fur-kaffeemaschinen-fachkraft-ch"
-        ]
-      },
-      "previousSlugs": [
-        "produktionsmechaniker-in-montage-fur-kaffeemaschinen-fachkraft-ch"
-      ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T21:52:37.248Z"
     },
     {
       "id": "fachkraft-fcf202c5514e",
