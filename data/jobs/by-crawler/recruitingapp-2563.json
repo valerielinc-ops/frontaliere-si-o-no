@@ -1,6 +1,6 @@
 {
   "crawlerKey": "recruitingapp-2563",
-  "assembledAt": "2026-08-24T10:24:38.314Z",
+  "assembledAt": "2026-08-24T21:48:49.066Z",
   "jobs": [
     {
       "id": "recruitingapp-2563-97a2b838b3bd",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2563.umantis.com/Vacancies/557/Description/1",
       "source": "Switch Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-24T10:24:35.538Z",
+      "crawledAt": "2026-08-24T21:48:45.630Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -64,6 +64,7 @@
           "technical-documentation-specialist-60-all-identities-and-backgrounds-in-zurich"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T09:47:24.585Z",
       "salaryMin": 34800,
       "salaryMax": 52800,
@@ -77,8 +78,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "needsRetranslation": true
+      "addressRegion": "TI"
     },
     {
       "id": "recruitingapp-2563-052f9f19df69",
@@ -109,7 +109,7 @@
       "url": "https://recruitingapp-2563.umantis.com/Vacancies/547/Description/1",
       "source": "Switch Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:24:35.212Z",
+      "crawledAt": "2026-08-24T21:48:45.310Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
