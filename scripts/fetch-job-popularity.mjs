@@ -144,7 +144,19 @@ async function main() {
 
 function writeFallback() {
   fs.writeFileSync(OUTPUT_PATH, '{}\n');
-  console.log(`📄 Wrote empty popularity fallback to ${path.relative(ROOT, OUTPUT_PATH)}`);
+  // The metadata has to go with it. Before the incremental path, a failed run
+  // wrote a day of empty data and the NEXT run healed it — every run was a
+  // full scan. Leaving a still-fresh `scannedAt` next to an empty map breaks
+  // exactly that: the next run would read `{}` as a legitimate baseline and
+  // merge a day of deltas onto nothing, and the outage would last until the
+  // 7-day floor instead of one cron tick. Deleting it forces the full scan.
+  try {
+    fs.rmSync(META_PATH, { force: true });
+  } catch {
+    // best-effort: a read-only FS here still leaves the run no worse than the
+    // pre-incremental behaviour for today's data.
+  }
+  console.log(`📄 Wrote empty popularity fallback to ${path.relative(ROOT, OUTPUT_PATH)} (incremental metadata cleared — next run is a full scan)`);
 }
 
 main().catch((err) => {

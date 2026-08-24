@@ -448,8 +448,12 @@ async function loadImmediateAlertDocs(db) {
   try {
     return await base.where('frequency', '==', IMMEDIATE_FREQUENCY).get();
   } catch (err) {
+    // gRPC FAILED_PRECONDITION is 9; some firebase-admin versions surface the
+    // string form instead, and the message wording is not something to rely on
+    // alone. Any of the three is enough to prefer a costlier run over a
+    // missed alert; anything else is a real error and must propagate.
     const msg = String(err?.message || '');
-    if (!msg.includes('index') && err?.code !== 9) throw err;
+    if (!msg.includes('index') && err?.code !== 9 && err?.code !== 'failed-precondition') throw err;
     console.warn(`   \u26a0\ufe0f Narrowed alert query refused (${msg.slice(0, 120)}) — falling back to the wide scan.`);
     return base.get();
   }
