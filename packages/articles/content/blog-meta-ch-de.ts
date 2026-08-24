@@ -4072,6 +4072,21 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.pausa-estiva-apprendimento-scuola.title': 'Sommerpause und Lernen: wie man sie nutzt',
     'blog.article.pausa-estiva-apprendimento-scuola.excerpt': 'Schweizer Schulen öffnen vom 11. bis 31. August wieder. Sommerpause verursacht vorübergehende Stagnation, ist aber entscheidend für die Ruhe des Gehirns. So organisieren Sie den Jungs-Sommer effektiv!',
     'blog.article.pausa-estiva-apprendimento-scuola.imageAlt': 'Blick auf den Lugano-See im Sommer, Symbol für Ruhe und Jugendentwicklung in den Schulferien',
+    'blog.article.salari-mercato-soletta-formazione.title': 'Löhne und Markt: Branchen, Ausbildung und Verträge',
+    'blog.article.salari-mercato-soletta-formazione.excerpt': 'Schweizer Lohnsystem nach Bildungsabschluss und Branche. Tarifverträge, wo der kantonale Mindestlohn besteht und wie das Netto aus der Lohnabrechnung zu berechnen ist.',
+    'blog.article.salari-mercato-soletta-formazione.imageAlt': 'Schweizer Fachleute im Büro bei Besprechung von Arbeitsverträgen und Gehältern.',
+    'blog.article.mercato-soletta-occupazione-settori.title': 'Arbeitsmarkt Solothurn: Löhne, Branchen und Niveaus',
+    'blog.article.mercato-soletta-occupazione-settori.excerpt': 'Löhne, Bildungsstufen, Kollektivverträge und Sozialversicherungsbeiträge im Kanton Solothurn. Leitfaden zur Stellensuche und Einstellungsverfahren in der Schweiz.',
+    'blog.article.mercato-soletta-occupazione-settori.imageAlt': 'Schweizer Arbeitsplatz mit Dokumenten und Computer während der Bürozeit, das berufliche Umfeld darstellend.',
+    'blog.article.siccita-2026-risposte.title': 'Trockenheit 2026: Häufig gestellte Fragen und Antworten',
+    'blog.article.siccita-2026-risposte.excerpt': 'Die Dürre in der Schweiz im Jahr 2026: Ursachen, Folgen und wie man das Problem löst.',
+    'blog.article.siccita-2026-risposte.imageAlt': 'Ein See mit historisch niedrigen Wasserständen.',
+    'blog.article.truffe-spoofing-in-calo.title': 'Schwindende Betrügereien dank Anti-Spoofing-Maßnahmen',
+    'blog.article.truffe-spoofing-in-calo.excerpt': 'Die Zahl der betrügerischen Anrufe im Namen der Behörden ist durch die Pflicht, Anrufe aus dem Ausland mit schweizerischen Rufnummern zu kennzeichnen, deutlich gesunken.',
+    'blog.article.truffe-spoofing-in-calo.imageAlt': 'Frontalier in der Schweiz, der die Herkunft einer Telefonanruf überprüft',
+    'blog.article.premi-lamal-basilea-franchigie-sussidi.title': 'KVG-Prämien Basel-Stadt: Leitfaden zu Franchisen und Beiträgen',
+    'blog.article.premi-lamal-basilea-franchigie-sussidi.excerpt': 'KVG-Franchisen im Kanton Basel-Stadt von CHF 300 bis CHF 2.500, private Pro-Kopf-Prämien und Kantonsbeiträge für einkommensschwache Einwohner.',
+    'blog.article.premi-lamal-basilea-franchigie-sussidi.imageAlt': 'Schweizer Arztpraxis mit Krankenversicherungsdokumenten und Terminkalender',
 };
 
 export default blogMetaChDe;

@@ -4072,6 +4072,21 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.pausa-estiva-apprendimento-scuola.title': 'Pausa estiva e apprendimento: come sfruttarla',
     'blog.article.pausa-estiva-apprendimento-scuola.excerpt': 'Scuole svizzere riaprono tra l\'11 e il 31 agosto. Pausa estiva causa stagnazione temporanea, ma è fondamentale per il riposo cerebrale. Come organizzare l\'estate dei ragazzi efficacemente.',
     'blog.article.pausa-estiva-apprendimento-scuola.imageAlt': 'Vista del Lago di Lugano durante l\'estate, simbolo di riposo e sviluppo dei ragazzi in pausa scolastica',
+    'blog.article.salari-mercato-soletta-formazione.title': 'Salari e mercato: settori, formazione e contratti',
+    'blog.article.salari-mercato-soletta-formazione.excerpt': 'Sistema salariale svizzero per grado di formazione e settore. Contratti collettivi, dove esiste il salario minimo cantonale e come calcolare il netto dalla busta paga.',
+    'blog.article.salari-mercato-soletta-formazione.imageAlt': 'Team di professionisti svizzeri in riunione per discutere salari e contratti di lavoro in ufficio moderno.',
+    'blog.article.mercato-soletta-occupazione-settori.title': 'Mercato lavoro Soletta: salari, settori e livelli',
+    'blog.article.mercato-soletta-occupazione-settori.excerpt': 'Salari, fasce formative, contratti collettivi e contributi previdenziali nel Canton Soletta. Guida alla ricerca di lavoro e procedure di assunzione in Svizzera.',
+    'blog.article.mercato-soletta-occupazione-settori.imageAlt': 'Professionista al lavoro in uno studio moderno svizzero con documenti e computer durante le ore di ufficio.',
+    'blog.article.siccita-2026-risposte.title': 'Siccità 2026: domande frequenti e risposte',
+    'blog.article.siccita-2026-risposte.excerpt': 'La siccità in Svizzera nel 2026: cause, conseguenze e come risolvere il problema.',
+    'blog.article.siccita-2026-risposte.imageAlt': 'Un lago con livelli di acqua ai minimi storici.',
+    'blog.article.truffe-spoofing-in-calo.title': 'Truffe in calo grazie alle misure contro lo spoofing',
+    'blog.article.truffe-spoofing-in-calo.excerpt': 'Il numero di chiamate fraudolente a nome delle autorità è nettamente diminuito grazie all\'obbligo di contrassegnare le chiamate provenienti dall\'estero con numeri svizzeri spoofati.',
+    'blog.article.truffe-spoofing-in-calo.imageAlt': 'Frontaliere in Svizzera che verifica la provenienza di una chiamata telefonica',
+    'blog.article.premi-lamal-basilea-franchigie-sussidi.title': 'Premi LAMal Basilea Città: guida a franchigie e sussidi',
+    'blog.article.premi-lamal-basilea-franchigie-sussidi.excerpt': 'Franchigie LAMal nel canton Basilea Città da CHF 300 a CHF 2.500, premi pro capite privati e sussidi cantonali per residenti a reddito limitato.',
+    'blog.article.premi-lamal-basilea-franchigie-sussidi.imageAlt': 'Studio medico svizzero con documenti di assicurazione malattia e calendario appuntamenti',
 };
 
 export default blogMetaChIt;
