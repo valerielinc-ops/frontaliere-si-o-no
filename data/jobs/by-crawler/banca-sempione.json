@@ -1,6 +1,6 @@
 {
   "crawlerKey": "banca-sempione",
-  "assembledAt": "2026-08-24T10:38:35.610Z",
+  "assembledAt": "2026-08-24T21:45:11.662Z",
   "jobs": [
     {
       "title": "Global Wealth Management – Assistente alla Consulenza (Lugano)",
@@ -36,9 +36,9 @@
         "de": "Global Wealth Management – Berater bei der Banca del Sempione, einer Schweizer Privatbank mit Sitz in Lugano (Tessin). Die Rolle: Als Teil der Division Global Wealth Management – Area Private Banking werden Sie in das Team aufgenommen, das die Berater unterstützt, indem es die Investitions- und Asset-Management-Prozesse des Kunden unterstützt und sie verbindet, um die Bedürfnisse und...",
         "fr": "Global Wealth Management – Consultant à Banca del Sempione, une banque privée suisse basée à Lugano (Ticino). Le rôle : Dans le cadre de la division Global Wealth Management – Area Private Banking, vous serez inclus dans l'équipe qui soutient les Consultants en soutenant les processus d'investissement et de gestion d'actifs du Client, en les connectant..."
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-21T22:03:26.436Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "currency": "CHF",
@@ -108,6 +108,7 @@
           "chef-de-la-banque-du-sempione-branche-milan-banca-del-sempione-lugano"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
       "salaryMin": 87000,
@@ -127,8 +128,7 @@
       "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Global Wealth Management – Private Banker (Zurigo)",
@@ -154,7 +154,7 @@
         "it": "Global Wealth Management – Private Banker (Zurigo)",
         "en": "Global Wealth Management.",
         "de": "Global Wealth Management.",
-        "fr": "Global Wealth Management – Private Banker (Zurich)"
+        "fr": "Global Wealth Management – Private Banker (Zurigo)"
       },
       "sourceLang": "it",
       "id": "banca-sempione-f9feccc2fb3b",
@@ -182,6 +182,7 @@
           "global-wealth-management-private-banker-zurigo-banca-del-sempione-zurich"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
       "salaryMin": 113000,
@@ -199,8 +200,7 @@
       },
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Global Wealth Management – Private Banker (Lugano)",
@@ -226,7 +226,7 @@
         "it": "Global Wealth Management – Private Banker (Lugano)",
         "en": "Global Wealth Management.",
         "de": "Global Wealth Management.",
-        "fr": "Gestion mondiale de patrimoine – banquier privé (Lugano)"
+        "fr": "Global Wealth Management – Private Banker (Lugano)"
       },
       "sourceLang": "it",
       "id": "banca-sempione-a117dec221e9",
@@ -270,6 +270,7 @@
       },
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "currency": "CHF",
@@ -345,9 +346,9 @@
           "gestion-globale-de-patrimoine-assistant-banque-privee-zurich-banca-del-sempione-zurich"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "currency": "CHF",
