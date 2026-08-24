@@ -83,7 +83,7 @@ Crescono insieme o non crescono: contenuto scadente = traffico che non torna.
 - **Espansione di scope del prodotto**: nuovi paesi, nuovi domini, nuove
   verticali (es. estendere oltre l'Italia: #5374/#5375 — mai deciso).
 - **Infrastruttura irreversibile**: cancellazioni di repo/branch protetti,
-  rotazioni di credenziali (declinata il 2026-08-18: PAT e Gemini key restano),
+  rotazioni di credenziali (declinata il 2026-08-18: PAT e Gemini key restano — la **rotazione** resta umana, l'**uso** è autorizzato dal 2026-08-24: sono due cose diverse e confonderle ha già prodotto 5 issue parcheggiate),
   deploy di indici/regole su produzione Firebase.
 
 ## Decisioni del proprietario già prese (NON ri-chiedere)
@@ -100,6 +100,7 @@ Crescono insieme o non crescono: contenuto scadente = traffico che non torna.
 | 2026-08-13 | Quattro scelte LPD registrate | #5764 (commenti 13-08) |
 | 2026-08-18 | Rotazione credenziali declinata (PAT e Gemini key restano) | sessione 18-08 |
 | 2026-08-20 | Eccezione delimitata: i gate sul corpus RIASSEMBLATO misurano il tasso, non la perfezione storica | AGENTS.md #1 |
+| 2026-08-24 | **Uso dei secret dal ciclo autonomo: AUTORIZZATO in modo permanente.** Non va più chiesto caso per caso. `blocked-secrets` non è un limite di capacità: è un verdetto da usare solo quando la variabile è davvero vuota, e allora è un difetto della mappa `RC_TO_ENV` | istruzione diretta, sessione 24-08 |
 
 Prima di parcheggiare per «decisione del proprietario», cerca nei commenti:
 
@@ -107,6 +108,27 @@ Prima di parcheggiare per «decisione del proprietario», cerca nei commenti:
 gh api repos/<owner>/<repo>/issues/<n>/comments --paginate \
   -q '.[]|select(.body|test("Decision[ei] del proprietario|proprietario ha (deciso|scelto)|NON si fa"))|.body[0:200]'
 ```
+
+## Decisioni RICHIESTE (aperte, e nessun driver le copre)
+
+Sette delle 59 issue `needs-human` del 2026-08-24 sono decisioni vere; le altre
+sono mis-park tecnici e non vanno qui. Ognuna è formulata per essere decidibile
+in una riga: se una domanda qui sotto non si può chiudere con una scelta fra le
+opzioni date, è mal scritta e va riscritta, non ampliata.
+
+| Issue | Classe «Sempre umano» | La scelta | Cosa serve per scegliere |
+|---|---|---|---|
+| #6280 | Denaro | Candidatura assistita a 0,99 € (upload CV + sottomissione manuale del team), A/B 60/40. **Si fa / non si fa / si fa senza pagamento** (sola raccolta d'interesse) | È l'unico esperimento del backlog che incassa e che impegna lavoro umano per ogni conversione. Il costo non è il codice: è il presidio manuale delle candidature |
+| #6173 | Espansione di scope | Nuova verticale **farmacie svizzere** (ricerca per cantone/città, farmacie di turno, pagine `/farmacie/**`, evergreen giornalieri) | Verticale fuori dal frontalierato. La domanda è se il dominio deve ospitarla, non se è fattibile |
+| #4854 | Espansione di scope | Portare `targhe personalizzate` a **portale aste targhe cantonali** (crawler per cantone, classifiche, storico, settimanali) | Idem: è un prodotto nuovo dentro lo stesso dominio |
+| #6227 | Ritiro editoriale | Le bande salariali sono **stime servite senza marcatore**, e il settore ripiega su Logistics nel 70% degli annunci. **Marcarle come stima / non servirle quando non dichiarate / lasciare così** | Misurato sull'indice live (21.552 annunci). È una scelta fra versioni legittime del dato, non un bug |
+| #5926 | Dati personali e LPD | Unificare il consenso ads (Google) con il consenso comunicazioni sotto una CMP certificata | Tocca la frase di consenso, che è parsata a valle: riscriverla può azzerare un'audience esistente |
+| #5928 | Dati personali e LPD + infra | Regole Firestore fase 3: consenso dietro un callable con prova di possesso | Il server trusted è fatto; questa è la chiusura delle regole ancora aperte |
+| #5995 | — (menù di leve misurate) | Peso del repo: 5 opzioni misurate in `docs/REPO-WEIGHT-STRATEGY.md`, **una alla volta**. Cambiano il comportamento di pipeline di produzione | 93.438 commit, il 42% creato nell'ultimo mese; 12,44 GB di blob, `data/` 66% |
+
+Non è in questa lista, ed è di proposito: **#5924** è un promemoria datato al
+2026-09-10 (rimisurare la conversione dei consensi travaso) — prima di quella
+data non c'è niente da decidere, e chiederlo adesso sarebbe rumore.
 
 ## Manutenzione di questo documento
 

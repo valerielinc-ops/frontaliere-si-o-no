@@ -21,6 +21,13 @@ name: Needs-human sweep (Claude, weekly)
 on:
   schedule:
     - cron: '37 5 * * 1' # lunedì 05:37Z, fuori dalle ore di punta del ciclo
+    # Il pre-pass deterministico gira OGNI GIORNO; il run Claude resta settimanale
+    # (vedi l'`if:` del job `sweep`). Lo scarto e' la fix del 2026-08-24: un run
+    # Claude a settimana con cap 15 contro 59 issue `needs-human` sono quattro
+    # settimane di coda nel caso migliore, mentre VERDICT-EXIT (#6323) ne aggiunge
+    # a ogni tick del drainer — 15 escalation nei primi 15 minuti dal suo merge.
+    # Un'uscita che riceve piu' di quanto emette non e' un'uscita.
+    - cron: '37 4 * * *' # ogni giorno 04:37Z, un'ora prima dello sweep del lunedi'
   workflow_dispatch:
 
 concurrency:
@@ -33,7 +40,42 @@ permissions:
   id-token: write
 
 jobs:
+  # Zero Claude, zero quota: riconosce POSITIVAMENTE le famiglie di issue aperte
+  # da un monitor (`Crawler Failure:`, `CI Failure:`, `[crawler-health]`, …) e le
+  # rimette in coda, cosi' il cap del run Claude qui sotto si spende solo sulle
+  # issue dove un giudizio serve davvero. Misurato il 2026-08-24 sulle 59
+  # `needs-human` del sito: 26 instradabili senza giudizio (17 re-queue + 9
+  # scorpori), e le 7 decisioni vere restavano tutte in `keep`.
+  #
+  # L'allowlist e' deliberata: ri-accodare per sbaglio una decisione del
+  # proprietario farebbe implementare al fixer una scelta che non gli spetta
+  # (scope, denaro, consenso), mentre lasciare una tecnica al run Claude costa
+  # solo un'azione del suo cap. La direzione dell'errore non e' simmetrica.
+  prepass:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          filter: blob:none
+          sparse-checkout: |
+            /scripts/ci/needs-human-prepass.mjs
+          sparse-checkout-cone-mode: false
+        timeout-minutes: 10
+
+      - name: Pre-pass deterministico (zero-Claude)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: node scripts/ci/needs-human-prepass.mjs
+
   sweep:
+    # Il run Claude resta SETTIMANALE: e' il giudizio, non il drenaggio. Gira sul
+    # cron del lunedi' e su dispatch, mai sul cron giornaliero del pre-pass —
+    # altrimenti il costo si moltiplicherebbe per sette senza che il lavoro da
+    # giudicare aumenti.
+    if: github.event_name != 'schedule' || github.event.schedule == '37 5 * * 1'
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:

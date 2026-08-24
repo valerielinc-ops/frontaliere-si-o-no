@@ -256,11 +256,29 @@ export const NON_RETRYABLE = new Set([
   'no-root-cause',
   'blocked-workflows-scope',
   'skip-duplicate-diagnosis',
-  'blocked-secrets',
   'blocked-admin-settings',
   'revenue-tracker-manual',
   'already-fixed',
 ]);
+
+// `blocked-secrets` NON e' piu' qui, e la ragione e' una decisione del
+// proprietario del 2026-08-24 (registro in VISION.md): l'uso dei secret dal
+// ciclo autonomo e' autorizzato in modo permanente. `issue-fix.yml` carica
+// Remote Config prima del run, quindi la credenziale che il verdetto dichiarava
+// mancante ORA c'e' — e un verdetto emesso prima di quella data descrive una
+// configurazione che non esiste piu'.
+//
+// Toglierlo da `NON_RETRYABLE` e' cio' che rende quelle issue ri-tentabili
+// invece di terminali: 5 sul sito al momento della decisione (#5999 PostHog,
+// #5964 alias di locale, #5953 campaign goal, #5824 token legacy, #5429
+// copertura professioni), tutte parcheggiate su un blocco che era una scelta di
+// configurazione e non una capacita' mancante.
+//
+// Il verdetto resta nel VOCABOLARIO, e deve: se la mappa `RC_TO_ENV` non porta
+// un parametro, chi lo legge trova `undefined` per quanto sia impostato in
+// Remote Config — e allora `blocked-secrets` e' la diagnosi giusta, con il nome
+// della variabile. Quello e' un difetto della mappa, ri-tentabile appena e'
+// riparata, non uno stato assorbente.
 
 // --- USCITA TERMINALE PER VERDETTO (misurato 2026-08-24) ---------------------
 // `NON_RETRYABLE` dice soltanto «non ri-accodare»: la issue resta `fu-parked` e
@@ -302,7 +320,6 @@ export const VERDICT_ESCALATE = new Set([
   'no-root-cause',
   'blocked-workflows-scope',
   'skip-duplicate-diagnosis',
-  'blocked-secrets',
   'blocked-admin-settings',
   'revenue-tracker-manual',
 ]);
@@ -1222,7 +1239,16 @@ export function isCapabilityScoped(iss, {
   fetchIssue = (num) => gh(['issue', 'view', String(num), '--repo', REPO, '--json', 'title,body,labels']),
   canPushWorkflows: canPushWorkflowsOpt = canPushWorkflows(),
 } = {}) {
-  if (isSecretsScoped(iss)) return true; // label nota → gratis, nessuna fetch
+  // `isSecretsScoped` NON esclude piu': decisione del proprietario del
+  // 2026-08-24 (VISION.md). Le credenziali sono caricate nel run del fixer,
+  // quindi una issue secrets-scoped e' lavoro normale. Prima di quella data
+  // questo ramo la teneva fuori dal parked-retry per sempre — ed era la ragione
+  // per cui le due sole candidate che superavano il cooldown venivano scartate
+  // entrambe («secrets-scope sempre escluso» nei log del 2026-08-24).
+  //
+  // La forma del guard resta perche' serve all'altra meta': `matchSecretsScopedShape`
+  // qui sotto continua a girare, e cio' che ora tiene fuori una issue e' SOLO
+  // l'impossibilita' vera di pushare i workflow.
   try {
     const d = fetchIssue(iss.number);
     // WF-scope esclude SOLO se il push di quei file è davvero impossibile (#5544).

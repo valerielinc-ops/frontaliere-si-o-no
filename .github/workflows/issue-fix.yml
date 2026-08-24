@@ -163,6 +163,46 @@ jobs:
         if: steps.quota.outputs.quota_blocked != 'true'
         run: npm ci
 
+      # DECISIONE DEL PROPRIETARIO, 2026-08-24 (registro in VISION.md): l'uso dei
+      # secret dal ciclo autonomo è autorizzato in modo permanente e non va più
+      # chiesto caso per caso.
+      #
+      # Prima di questa decisione il fixer del sito girava SENZA credenziali —
+      # a differenza di quello del corpus, che le carica da sempre — e il prompt
+      # gli diceva di dichiarare `blocked-secrets` e terminare. Misurato il
+      # 2026-08-24: 4 verdetti in 7 giorni, e 5 issue parcheggiate su un blocco
+      # che era una scelta di configurazione, non una capacità mancante (#5999
+      # PostHog, #5964 alias di locale, #5953 campaign goal, #5824 token legacy,
+      # #5429 copertura professioni). `blocked-secrets` cessa quindi di essere un
+      # verdetto strutturale: se un fix richiede una credenziale, ora c'è.
+      #
+      # `continue-on-error` e il ramo `else` sono la parte che NON va toccata: il
+      # loader esce 0 anche quando non carica niente (per non rompere i workflow),
+      # quindi l'unico modo di distinguere «caricati» da «silenzio» è dirlo nel
+      # log. Un fixer che crede di avere le credenziali e non le ha spende un run
+      # intero per scoprirlo al primo uso.
+      - name: Firebase SA per Remote Config (decisione 2026-08-24)
+        if: steps.quota.outputs.quota_blocked != 'true'
+        continue-on-error: true
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "⚠️ Nessuna Firebase SA in questo run → Remote Config non leggibile: un fix che richiede una credenziale resta bloccato, e il verdetto giusto in quel caso è ancora \`blocked-secrets\`."
+          fi
+
+      - name: Load secrets from Remote Config (decisione 2026-08-24)
+        id: rc_env
+        if: steps.quota.outputs.quota_blocked != 'true'
+        continue-on-error: true
+        run: |
+          node scripts/load-rc-env.mjs
+          # Il loader esce 0 anche a mani vuote: il conteggio è l'unico segnale.
+          echo "rc_loaded=$( [ -n "${CF_API_TOKEN:-}${POSTHOG_API_KEY:-}${GITHUB_PAT:-}" ] && echo true || echo unknown )" >> "$GITHUB_OUTPUT"
+
       - name: Pre-flight — already-resolved gate (zero-Claude)
         id: preflight
         if: steps.quota.outputs.quota_blocked != 'true'
@@ -548,7 +588,7 @@ jobs:
             **Pre-condizioni (abort se falliscono):**
             - Se esiste già una PR aperta che cita "#$ISSUE_NUMBER" (`gh pr list --state open --search "$ISSUE_NUMBER in:body" --json number`) → posta commento "PR già in volo: #<n>, skip." e TERMINA. No doppioni.
             - **Overlap-file** (no race su lavoro in corso): estrai i path target dal body della issue (file citati in `## Suggested action` / `## Item` / blocchi codice). Per ogni PR aperta (`gh pr list --state open --json number,title`) confronta i suoi file (`gh pr diff <n> --name-only`) coi target: se una PR aperta **modifica già** uno dei file target → posta commento "File `<path>` già in volo nella PR #<n> (<title>) — skip per evitare conflitto/duplicazione; riaprire l'auto-fix dopo il merge se ancora pertinente." e TERMINA. Razionale: un'altra PR può riscrivere quel file rendendo il fix moot o conflittuale (es. #934 hardening vs #943 rewrite di `submit-indexnow-batch.yml`). Nel dubbio (issue non file-specifica) → procedi.
-            - **Capability guard (valuta SUBITO, prima di implementare — risparmio token):** ${{ env.APP_TOKEN_WORKFLOWS == 'true' && 'il push di questo run usa il token della GitHub App, e la risposta API del conio ha CONFERMATO `permissions.workflows == write` (letto, non dedotto dalla presenza del token): modificare file in `.github/workflows/**` è consentito e il `git push` passa. Trattali come qualunque altro file — non auto-bloccarti su quel path.' || 'il push di questo run NON ha lo scope `workflows`: o non esiste un token App, o il token è stato coniato ma il permesso `workflows` non risulta concesso sulla installazione (verificato leggendo `permissions` dalla risposta API). Dai path target estratti dal body: se il fix richiederebbe di modificare file in `.github/workflows/**` → il `git push` fallirebbe sempre (push di workflow rifiutato senza scope `workflows`) → niente PR. Allora NON implementare: posta un commento col diff/azione proposta + "blocco scope `workflows`: serve la GitHub App abilitata o mano umana" e TERMINA SUBITO.' }} In ogni caso NON hai PAT/Firebase SA: se il fix è puramente una repo-setting/branch-protection/admin-API (es. `gh api .../branches/main/protection` → 403) o richiede segreti non in CI (`CF_API_TOKEN`, `POSTHOG_*`, `GEMINI_API_KEY`), documenta e TERMINA senza implementare. Razionale: fare il fix completo per poi scoprire il blocco al push spreca ~1M token/run (vedi #983); il blocco è deterministico dalle capability, va rilevato a turno 1.
+            - **Capability guard (valuta SUBITO, prima di implementare — risparmio token):** ${{ env.APP_TOKEN_WORKFLOWS == 'true' && 'il push di questo run usa il token della GitHub App, e la risposta API del conio ha CONFERMATO `permissions.workflows == write` (letto, non dedotto dalla presenza del token): modificare file in `.github/workflows/**` è consentito e il `git push` passa. Trattali come qualunque altro file — non auto-bloccarti su quel path.' || 'il push di questo run NON ha lo scope `workflows`: o non esiste un token App, o il token è stato coniato ma il permesso `workflows` non risulta concesso sulla installazione (verificato leggendo `permissions` dalla risposta API). Dai path target estratti dal body: se il fix richiederebbe di modificare file in `.github/workflows/**` → il `git push` fallirebbe sempre (push di workflow rifiutato senza scope `workflows`) → niente PR. Allora NON implementare: posta un commento col diff/azione proposta + "blocco scope `workflows`: serve la GitHub App abilitata o mano umana" e TERMINA SUBITO.' }} **I SEGRETI CI SONO** (decisione del proprietario del 2026-08-24, registro in VISION.md): questo run carica Remote Config prima di partire, quindi `CF_API_TOKEN`, `POSTHOG_*`, `GEMINI_API_KEY`, `GITHUB_PAT` e gli altri ~90 parametri sono in `process.env`. Un fix che richiede una credenziale va IMPLEMENTATO, non documentato: `blocked-secrets` non è più un verdetto strutturale e va usato SOLO se leggi la variabile e la trovi davvero vuota — in quel caso dillo con il nome esatto della variabile mancante, perché è un difetto della mappa `RC_TO_ENV`, non un limite di capacità. Resta valido il freno sulle **repo-setting/branch-protection/admin-API** (es. `gh api .../branches/main/protection` → 403): là il PAT c'è ma il permesso è un'altra cosa, e vale ancora `blocked-admin-settings`. Razionale invariato: fare il fix completo per poi scoprire il blocco al push spreca ~1M token/run (vedi #983), quindi le capability si valutano a turno 1 — solo che ora la risposta sui segreti è «sì».
 
             - **Stati già dichiarati nei residui (leggi PRIMA di implementare):** se questa issue nasce da una PR (follow-up, `Addresses`/`da PR #N` nel body, o una qualunque PR citata come origine), leggi il body di quella PR e classificane i residui. Tre comandi, in quest'ordine:
               1. `gh pr view <N> --json body -q .body > /tmp/pr-body.md`
@@ -610,7 +650,7 @@ jobs:
             - Mai disabilitare AdSense Auto Ads (non-negotiable #7).
             - Mai committare path home assoluti o email personali (Privacy).
             - Se la root cause non è determinabile con confidenza → NON forzare un fix; posta su issue "Root cause non determinata: <cosa hai trovato>. Serve indagine umana." rimuovi nulla e TERMINA senza PR.
-            - Se il fix richiede credenziali/segreti non disponibili in CI → documenta in commento e TERMINA senza PR.
+            - Se il fix richiede una credenziale, USALA: Remote Config è caricato in questo run (decisione del 2026-08-24). Termina con `blocked-secrets` solo se la variabile che ti serve è davvero vuota in `process.env`, e nominala.
             - **Telemetria outcome (OBBLIGATORIO):** ogni volta che termini, l'ULTIMO commento che posti sulla issue DEVE iniziare con un marker HTML su riga propria: `<!-- FIX_OUTCOME: <code> -->`. `<code>` ∈ `pr-created` (PR aperta) · `blocked-workflows-scope` · `blocked-secrets` · `blocked-admin-settings` · `no-root-cause` · `overlap-skip` · `pr-already-open` · `already-fixed` · `revenue-tracker-manual`. Se apri una PR (passo 9) e non posti altri commenti, aggiungi comunque un commento col solo marker `<!-- FIX_OUTCOME: pr-created -->`. Il lessons-harvester aggrega questi marker per rilevare classi di blocco ricorrenti e proporre migliorie ai doc/prompt (vedi ISSUES.md → "Auto-improvement loop").
 
       - name: Salva il lavoro parziale (WIP checkpoint deterministico, zero-Claude)
