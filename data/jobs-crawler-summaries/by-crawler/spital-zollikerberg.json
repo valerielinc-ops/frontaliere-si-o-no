@@ -1,43 +1,41 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-08-25T09:43:07.904Z",
-  "total": 9,
+  "generatedAt": "2026-08-25T21:30:00.535Z",
+  "total": 10,
   "discovered": null,
-  "written": 9,
+  "written": 10,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 36559,
-  "avgDurationMs": 36559,
+  "unchangedCount": 0,
+  "durationMs": 37071,
+  "avgDurationMs": 37071,
   "durationHistory": [
-    36559
+    37071
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "id": "spital-zollikerberg-7064705447f1",
-      "slug": "gastronomia-neumunster-park-diet-chef-diet-chef-menu-management-gastronomia-spital-zollikerberg-zollikerberg",
+      "id": "spital-zollikerberg-8e0b4220e251",
+      "slug": "berufsbildner-berufsbildnerin-per-dipl-fachfrau-dipl-fachmann-operationstechnik-e-operationspflege-medizintechnische-bereiche-spital-zollikerberg",
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
       "companyDomain": "spitalzollikerberg.ch",
-      "title": "Gastronomie Neumünster Park Diätkoch / Diätköchin – Menümanagement Gastronomie",
+      "title": "Berufsbildner / Berufsbildnerin für Dipl. Fachfrau / Dipl. Fachmann Operationstechnik und Operationspflege Medizintechnische Bereiche",
       "needsRetranslation": true,
       "location": "Zollikerberg",
       "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=5fcf87f4-2e11-41f6-9561-3d6b5621d722,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=0c0792ed-948d-486d-8b1a-6eb1932d0622,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T09:57:27.593Z",
+      "crawledAt": "2026-08-24T21:30:13.158Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8125",
-      "category": "Ospitalità",
+      "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "OTHER",
       "experienceLevel": "mid",
@@ -45,10 +43,10 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-15",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=5fcf87f4-2e11-41f6-9561-3d6b5621d722,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=0c0792ed-948d-486d-8b1a-6eb1932d0622,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
-      "salaryMin": 73000,
-      "salaryMax": 91500,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -58,5 +56,7 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
