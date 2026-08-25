@@ -1463,6 +1463,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'immobiliare-berna-mutuo-costi': { it: 'immobiliare-berna-mutuo-costi', en: 'real-estate-berna-mortgage-costs', de: 'immobilien-bern-hypothek-kosten', fr: 'immobilier-berne-hypotheque-couts' },
  'fondo-esercito-iva-compromesso': { it: 'fondo-esercito-iva-compromesso', en: 'military-fund-iva-compromise', de: 'armeefonds-mwst-kompromiss', fr: 'fonds-armee-tva-compromis' },
  'compromesso-fondo-difesa': { it: 'compromesso-fondo-difesa', en: 'defense-fund-compromise', de: 'verteidigungsfonds-kompromiss', fr: 'compromis-fonds-defense' },
+ 'iniziativa-neutralita-svizzera-pace': { it: 'iniziativa-neutralita-svizzera-pace', en: 'neutrality-initiative-switzerland-peace', de: 'neutralitaetsinitiative-schweiz-frieden', fr: 'initiative-neutralite-suisse-paix' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

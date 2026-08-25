@@ -78539,6 +78539,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-quart-lavorare-vallese-frontaliere': {
+    title: 'Vivere a Quart e lavorare in Vallese da frontaliere',
+    description: 'Guida pratica per frontalieri Italia-Svizzera: permesso G, fiscalità 2024, AVS, LAMal, procedure e costi amministrativi prima del trasferimento. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, quart, lavorare, vallese',
+    ogTitle: 'Vivere a Quart e lavorare in Vallese: guida frontaliere',
+    ogDescription: 'Scopri come organizzare il trasferimento vivendo a Quart e lavorando in Vallese: permessi G, fiscalità post-2024, esenzioni €10.000, assicurazione malattia, contributi previdenziali svizzeri (AVS/LPP) e procedure amministrative complete',
+    canonicalPath: '/articoli-frontaliere/vivere-quart-lavorare-vallese-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Quart e lavorare in Vallese da frontaliere",
+      "description": "Guida pratica per frontalieri Italia-Svizzera: permesso G, fiscalità 2024, AVS, LAMal, procedure e costi amministrativi prima del trasferimento. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-quart-lavorare-vallese-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio montano della valle di confine tra Svizzera e Italia con strada di montagna"
+      },
+      "datePublished": "2026-08-25T22:08:05+00:00",
+      "dateModified": "2026-08-25T22:08:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-quart-lavorare-vallese-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

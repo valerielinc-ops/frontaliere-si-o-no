@@ -10786,6 +10786,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-pollein-lavorare-vallese-frontaliere.title': 'Wohnen in Pollein und Arbeiten im Wallis als Grenzgänger',
     'blog.article.vivere-pollein-lavorare-vallese-frontaliere.excerpt': 'Grenzgänger Italien-Schweiz im Wallis: Steuervorschriften 2024, Bewilligung G, Quellensteuer, AHV, BVG, KVG, Rückerstattungen und praktische Verfahren.',
     'blog.article.vivere-pollein-lavorare-vallese-frontaliere.imageAlt': 'Alpenpfad zwischen Italien und der Schweiz mit Blick auf Walliser Alpen bei Sonnenuntergang',
+    'blog.article.vivere-quart-lavorare-vallese-frontaliere.title': 'Wohnen in Quart und Arbeiten im Wallis als Grenzgänger',
+    'blog.article.vivere-quart-lavorare-vallese-frontaliere.excerpt': 'Praktischer Leitfaden für Grenzgänger Italien-Schweiz: G-Bewilligung, Steuern, AHV, KVG, Verwaltungsverfahren und Kosten, die vor dem Umzug zu berücksichtigen sind.',
+    'blog.article.vivere-quart-lavorare-vallese-frontaliere.imageAlt': 'Berglandschaft im Grenzgebiet zwischen der Schweiz und Italien mit Bergstraße',
 };
 
 export default blogMetaDe;

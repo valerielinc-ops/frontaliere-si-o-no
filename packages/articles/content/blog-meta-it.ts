@@ -10788,6 +10788,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-pollein-lavorare-vallese-frontaliere.title': 'Vivere a Pollein e lavorare in Vallese da frontaliere',
     'blog.article.vivere-pollein-lavorare-vallese-frontaliere.excerpt': 'Frontaliere Italia-Svizzera nel Vallese: norme fiscali 2024, permesso G, imposta alla fonte, AVS, LPP, LAMal, ristorni e procedure pratiche.',
     'blog.article.vivere-pollein-lavorare-vallese-frontaliere.imageAlt': 'Sentiero alpino tra Italia e Svizzera con vista sulle Alpi del Vallese al tramonto',
+    'blog.article.vivere-quart-lavorare-vallese-frontaliere.title': 'Vivere a Quart e lavorare in Vallese da frontaliere',
+    'blog.article.vivere-quart-lavorare-vallese-frontaliere.excerpt': 'Guida pratica per frontalieri Italia-Svizzera: permesso G, fiscalità, AVS, LAMal, procedure amministrative e costi da considerare prima del trasferimento.',
+    'blog.article.vivere-quart-lavorare-vallese-frontaliere.imageAlt': 'Paesaggio montano della valle di confine tra Svizzera e Italia con strada di montagna',
 };
 
 export default blogMetaIt;
