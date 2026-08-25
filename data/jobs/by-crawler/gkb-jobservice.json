@@ -1,7 +1,68 @@
 {
   "crawlerKey": "gkb-jobservice",
-  "assembledAt": "2026-08-24T21:43:19.248Z",
+  "assembledAt": "2026-08-25T09:52:50.761Z",
   "jobs": [
+    {
+      "id": "gkb-jobservice-d056cc6ab21f",
+      "slug": "kauffrau-kaufmann-bank-in-poschiavo-lehrbeginn-2027-gkb-jobservice-ch",
+      "slugByLocale": {
+        "de": "kauffrau-kaufmann-bank-in-poschiavo-lehrbeginn-2027-gkb-jobservice-ch",
+        "it": "kauffrau-kaufmann-bank-in-poschiavo-lehrbeginn-2027-gkb-jobservice-ch",
+        "en": "kauffrau-kaufmann-bank-in-poschiavo-lehrbeginn-2027-gkb-jobservice-ch",
+        "fr": "kauffrau-kaufmann-bank-in-poschiavo-lehrbeginn-2027-gkb-jobservice-ch"
+      },
+      "company": "GKB JobService",
+      "companyKey": "gkb-jobservice",
+      "companyDomain": "recruitingapp-2607.umantis.com",
+      "title": "Kauffrau / Kaufmann Bank in Poschiavo (Lehrbeginn 2027)",
+      "titleByLocale": {
+        "de": "Kauffrau / Kaufmann Bank in Poschiavo (Lehrbeginn 2027)",
+        "it": "Kauffrau / Kaufmann Bank in Poschiavo (Lehrbeginn 2027)",
+        "en": "Kauffrau / Kaufmann Bank in Poschiavo (Lehrbeginn 2027)",
+        "fr": "Kauffrau / Kaufmann Bank in Poschiavo (Lehrbeginn 2027)"
+      },
+      "description": "Kauffrau / Kaufmann Bank in Poschiavo (Lehrbeginn 2027) — GKB JobService",
+      "descriptionByLocale": {
+        "de": "Kauffrau / Kaufmann Bank in Poschiavo (Lehrbeginn 2027) — GKB JobService"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://recruitingapp-2607.umantis.com/Vacancies/1920/Description/1",
+      "source": "GKB JobService Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T09:52:47.045Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-25",
+      "applyUrl": "https://recruitingapp-2607.umantis.com/Vacancies/1920/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-25T09:52:47.045Z"
+    },
     {
       "id": "gkb-jobservice-03ceacb72d2d",
       "slug": "kauffrau-kaufmann-bank-in-arosa-inizio-dell-insegnamento-2027-gkb-jobservice-lugano",
@@ -30,7 +91,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1919/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:43:16.483Z",
+      "crawledAt": "2026-08-25T09:52:46.742Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -105,7 +166,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1921/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:43:16.181Z",
+      "crawledAt": "2026-08-25T09:52:46.434Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -180,7 +241,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1922/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:43:15.880Z",
+      "crawledAt": "2026-08-25T09:52:46.133Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -255,7 +316,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1929/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-24T21:43:15.576Z",
+      "crawledAt": "2026-08-25T09:52:45.827Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -330,7 +391,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1935/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T21:43:15.273Z",
+      "crawledAt": "2026-08-25T09:52:45.519Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -397,7 +458,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1904/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-24T21:43:14.970Z",
+      "crawledAt": "2026-08-25T09:52:45.216Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -474,7 +535,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1905/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-24T21:43:14.666Z",
+      "crawledAt": "2026-08-25T09:52:44.912Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -546,7 +607,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1906/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-24T21:43:14.364Z",
+      "crawledAt": "2026-08-25T09:52:44.609Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -618,7 +679,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1892/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-24T21:43:14.061Z",
+      "crawledAt": "2026-08-25T09:52:44.307Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -690,7 +751,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1871/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:43:13.750Z",
+      "crawledAt": "2026-08-25T09:52:44.003Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -765,7 +826,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1925/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T21:43:13.446Z",
+      "crawledAt": "2026-08-25T09:52:43.696Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -837,7 +898,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1941/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:43:13.143Z",
+      "crawledAt": "2026-08-25T09:52:43.389Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -909,7 +970,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1936/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:43:12.840Z",
+      "crawledAt": "2026-08-25T09:52:43.086Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -969,7 +1030,7 @@
       "titleByLocale": {
         "it": "Fachspezialist: in Rechtsdienst/Compliance (80-100%)",
         "en": "Fachspezialist:in Rechtsdienst/Compliance (80-100%)",
-        "de": "Facharzt: im Rechtsdienst/Compliance (80-100%)",
+        "de": "Fachspezialist:in Rechtsdienst/Compliance (80-100%)",
         "fr": "Fachspezialist:in Rechtsdienst/Compliance (80-100%)"
       },
       "description": "Fachspezialist:in Rechtsdienst/Compliance (80-100%) — GKB JobService",
@@ -981,7 +1042,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1930/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T21:43:12.538Z",
+      "crawledAt": "2026-08-25T09:52:42.780Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1040,7 +1101,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1948/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:43:12.236Z",
+      "crawledAt": "2026-08-25T09:52:42.476Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1112,7 +1173,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1945/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:43:11.934Z",
+      "crawledAt": "2026-08-25T09:52:42.174Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1188,7 +1249,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1946/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T21:43:11.632Z",
+      "crawledAt": "2026-08-25T09:52:41.871Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1262,7 +1323,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1949/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-24T21:43:11.329Z",
+      "crawledAt": "2026-08-25T09:52:41.569Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1336,7 +1397,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1950/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:43:11.026Z",
+      "crawledAt": "2026-08-25T09:52:41.266Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1375,6 +1436,370 @@
           "@type": "QuantitativeValue",
           "minValue": 59500,
           "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
+    },
+    {
+      "id": "gkb-jobservice-1567f9376450",
+      "slug": "posizione-degli-studenti-di-marketing-60-graubundner-kantonalbank-chur",
+      "slugByLocale": {
+        "it": "posizione-degli-studenti-di-marketing-60-graubundner-kantonalbank-chur",
+        "en": "marketing-student-position-60-graubundner-kantonalbank-chur",
+        "de": "studentenstelle-marketing-60-gkb-ch",
+        "fr": "position-etudiante-en-marketing-60-graubundner-kantonalbank-chur"
+      },
+      "company": "GKB JobService",
+      "companyKey": "gkb-jobservice",
+      "companyDomain": "recruitingapp-2607.umantis.com",
+      "title": "Studentenstelle Marketing (60%)",
+      "titleByLocale": {
+        "it": "Posizione degli studenti di marketing (60%)",
+        "en": "Studentenstelle Marketing (60%)",
+        "de": "Studentenstelle Marketing (60%)",
+        "fr": "Position étudiante en marketing (60%)"
+      },
+      "description": "Studentenstelle Marketing (60%) — GKB JobService",
+      "descriptionByLocale": {
+        "de": "Studentenstelle Marketing (60%) — GKB JobService"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://recruitingapp-2607.umantis.com/Vacancies/1954/Description/1",
+      "source": "GKB JobService Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T09:52:40.956Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Marketing",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-23",
+      "applyUrl": "https://recruitingapp-2607.umantis.com/Vacancies/1954/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "de": [
+          "studentenstelle-marketing-60-gkb-jobservice-ch",
+          "studentenstelle-marketing-60-gkb-ch"
+        ],
+        "it": [
+          "studentenstelle-marketing-60-gkb-jobservice-ch",
+          "posizione-degli-studenti-di-marketing-60-graubundner-kantonalbank-chur"
+        ]
+      },
+      "previousSlugs": [
+        "studentenstelle-marketing-60-gkb-jobservice-ch",
+        "studentenstelle-marketing-60-gkb-ch",
+        "posizione-degli-studenti-di-marketing-60-graubundner-kantonalbank-chur"
+      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:29:46.360Z",
+      "salaryMin": 30300,
+      "salaryMax": 53400,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 30300,
+          "maxValue": 53400,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
+    },
+    {
+      "id": "gkb-jobservice-e04d45465bb9",
+      "slug": "senior-consulente-in-finanziamento-speciale-80-100-graubundner-kantonalbank-chur",
+      "slugByLocale": {
+        "it": "senior-consulente-in-finanziamento-speciale-80-100-graubundner-kantonalbank-chur",
+        "en": "senior-consultant-in-special-financing-80-100-graubundner-kantonalbank-chur",
+        "de": "senior-berater-in-spezialfinanzierungen-80-100-gkb-ch",
+        "fr": "consultant-principal-financement-special-80-100-graubundner-kantonalbank-chur"
+      },
+      "company": "GKB JobService",
+      "companyKey": "gkb-jobservice",
+      "companyDomain": "recruitingapp-2607.umantis.com",
+      "title": "(Senior) Berater:in Spezialfinanzierungen (80-100%)",
+      "titleByLocale": {
+        "it": "(Senior) Consulente: in finanziamento speciale (80-100%)",
+        "en": "(Senior) Consultant: in special financing (80-100%)",
+        "de": "(Senior) Berater:in Spezialfinanzierungen (80-100%)",
+        "fr": "Consultant principal : financement spécial (80-100%)"
+      },
+      "description": "(Senior) Berater:in Spezialfinanzierungen (80-100%) — GKB JobService",
+      "descriptionByLocale": {
+        "de": "(Senior) Berater:in Spezialfinanzierungen (80-100%) — GKB JobService"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://recruitingapp-2607.umantis.com/Vacancies/1955/Description/1",
+      "source": "GKB JobService Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T09:52:40.653Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-23",
+      "applyUrl": "https://recruitingapp-2607.umantis.com/Vacancies/1955/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-berater-in-spezialfinanzierungen-80-100-gkb-jobservice-ch",
+        "senior-consulente-in-finanziamento-speciale-80-100-graubundner-kantonalbank-chur"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-berater-in-spezialfinanzierungen-80-100-gkb-jobservice-ch",
+          "senior-consulente-in-finanziamento-speciale-80-100-graubundner-kantonalbank-chur"
+        ],
+        "de": [
+          "senior-berater-in-spezialfinanzierungen-80-100-gkb-jobservice-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:29:46.055Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
+    },
+    {
+      "id": "gkb-jobservice-e99f4a0da052",
+      "slug": "assistente-in-mortgage-lenzerheide-80-graubundner-kantonalbank-lenzerheide",
+      "slugByLocale": {
+        "it": "assistente-in-mortgage-lenzerheide-80-graubundner-kantonalbank-lenzerheide",
+        "en": "assistant-in-mortgage-lenzerheide-80-graubundner-kantonalbank-lenzerheide",
+        "de": "assistent-in-hypotheken-lenzerheide-80-gkb-ch",
+        "fr": "assistant-en-hypotheque-lenzerheide-80-graubundner-kantonalbank-lenzerheide"
+      },
+      "company": "GKB JobService",
+      "companyKey": "gkb-jobservice",
+      "companyDomain": "recruitingapp-2607.umantis.com",
+      "title": "Assistent:in Hypotheken Lenzerheide (80%)",
+      "titleByLocale": {
+        "it": "Assistente: in Mortgage Lenzerheide (80%)",
+        "en": "Assistant:in Mortgage Lenzerheide (80%)",
+        "de": "Assistent:in Hypotheken Lenzerheide (80%)",
+        "fr": "Assistant: en hypothèque Lenzerheide (80%)"
+      },
+      "description": "Assistent:in Hypotheken Lenzerheide (80%) — GKB JobService",
+      "descriptionByLocale": {
+        "de": "Assistent:in Hypotheken Lenzerheide (80%) — GKB JobService"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://recruitingapp-2607.umantis.com/Vacancies/1937/Description/1",
+      "source": "GKB JobService Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T09:52:40.349Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-23",
+      "applyUrl": "https://recruitingapp-2607.umantis.com/Vacancies/1937/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistent-in-hypotheken-lenzerheide-80-gkb-jobservice-ch",
+        "assistente-in-mortgage-lenzerheide-80-graubundner-kantonalbank-lenzerheide"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-hypotheken-lenzerheide-80-gkb-jobservice-ch",
+          "assistente-in-mortgage-lenzerheide-80-graubundner-kantonalbank-lenzerheide"
+        ],
+        "de": [
+          "assistent-in-hypotheken-lenzerheide-80-gkb-jobservice-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:29:45.748Z",
+      "salaryMin": 39600,
+      "salaryMax": 60000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 39600,
+          "maxValue": 60000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
+    },
+    {
+      "id": "gkb-jobservice-c44db2684cff",
+      "slug": "direzione-della-sala-operatoria-e-della-disposizione-dei-letti-80-100-m-f-d-spital-mannedorf-mannedorf",
+      "slugByLocale": {
+        "de": "leitung-op-und-bettendisposition-80-100-m-w-d-spital-mannedorf-mannedorf",
+        "it": "direzione-della-sala-operatoria-e-della-disposizione-dei-letti-80-100-m-f-d-spital-mannedorf-mannedorf",
+        "en": "head-of-or-and-bed-disposition-80-100-m-f-d-spital-mannedorf-mannedorf",
+        "fr": "direction-de-la-planification-du-bloc-operatoire-et-des-lits-80-100-m-f-d-spital-mannedorf-mannedorf"
+      },
+      "company": "GKB JobService",
+      "companyKey": "gkb-jobservice",
+      "companyDomain": "recruitingapp-2607.umantis.com",
+      "title": "Immobilienbewirtschafter:in (100%)",
+      "titleByLocale": {
+        "it": "Responsabile della proprietà:in (100%)",
+        "en": "Property manager:in (100%)",
+        "de": "Immobilienbewirtschafter:in (100%)",
+        "fr": "Gestionnaire immobilier: en (100%)"
+      },
+      "description": "Immobilienbewirtschafter:in (100%) — GKB JobService",
+      "descriptionByLocale": {
+        "de": "Immobilienbewirtschafter:in (100%) — GKB JobService"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://recruitingapp-2607.umantis.com/Vacancies/1943/Description/1",
+      "source": "GKB JobService Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T09:52:40.045Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-23",
+      "applyUrl": "https://recruitingapp-2607.umantis.com/Vacancies/1943/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "de": [
+          "immobilienbewirtschafter-in-100-gkb-jobservice-ch",
+          "leitung-op-und-bettendisposition-80-100-m-w-d-spital-mannedorf-mannedorf"
+        ],
+        "it": [
+          "immobilienbewirtschafter-in-100-gkb-jobservice-ch",
+          "direzione-della-sala-operatoria-e-della-disposizione-dei-letti-80-100-m-f-d-spital-mannedorf-mannedorf"
+        ]
+      },
+      "previousSlugs": [
+        "immobilienbewirtschafter-in-100-gkb-jobservice-ch",
+        "leitung-op-und-bettendisposition-80-100-m-w-d-spital-mannedorf-mannedorf",
+        "direzione-della-sala-operatoria-e-della-disposizione-dei-letti-80-100-m-f-d-spital-mannedorf-mannedorf"
+      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:29:45.444Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
+    },
+    {
+      "id": "gkb-jobservice-db0ce8b565a1",
+      "slug": "assistente-in-mortgage-sois-40-graubundner-kantonalbank-thusis",
+      "slugByLocale": {
+        "it": "assistente-in-mortgage-sois-40-graubundner-kantonalbank-thusis",
+        "en": "assistant-in-mortgage-thusis-40-graubundner-kantonalbank-thusis",
+        "de": "assistent-in-hypotheken-thusis-40-gkb-ch",
+        "fr": "assistante-en-hypotheques-de-base-40-graubundner-kantonalbank-thusis"
+      },
+      "company": "GKB JobService",
+      "companyKey": "gkb-jobservice",
+      "companyDomain": "recruitingapp-2607.umantis.com",
+      "title": "Assistent:in Hypotheken Thusis (40%)",
+      "titleByLocale": {
+        "it": "Assistente: in Mortgage Sois (40%)",
+        "en": "Assistant: in Mortgage Thusis (40%)",
+        "de": "Assistent:in Hypotheken Thusis (40%)",
+        "fr": "Assistante : en hypothèques de Sosis (40%)"
+      },
+      "description": "Assistent:in Hypotheken Thusis (40%) — GKB JobService",
+      "descriptionByLocale": {
+        "de": "Assistent:in Hypotheken Thusis (40%) — GKB JobService"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://recruitingapp-2607.umantis.com/Vacancies/1924/Description/1",
+      "source": "GKB JobService Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T09:52:39.727Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-23",
+      "applyUrl": "https://recruitingapp-2607.umantis.com/Vacancies/1924/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistent-in-hypotheken-thusis-40-gkb-jobservice-ch",
+        "assistente-in-mortgage-sois-40-graubundner-kantonalbank-thusis"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-hypotheken-thusis-40-gkb-jobservice-ch",
+          "assistente-in-mortgage-sois-40-graubundner-kantonalbank-thusis"
+        ],
+        "de": [
+          "assistent-in-hypotheken-thusis-40-gkb-jobservice-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:29:45.108Z",
+      "salaryMin": 19800,
+      "salaryMax": 30000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 19800,
+          "maxValue": 30000,
           "unitText": "YEAR"
         }
       },
@@ -1452,371 +1877,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
-    },
-    {
-      "id": "gkb-jobservice-1567f9376450",
-      "slug": "posizione-degli-studenti-di-marketing-60-graubundner-kantonalbank-chur",
-      "slugByLocale": {
-        "it": "posizione-degli-studenti-di-marketing-60-graubundner-kantonalbank-chur",
-        "en": "marketing-student-position-60-graubundner-kantonalbank-chur",
-        "de": "studentenstelle-marketing-60-gkb-ch",
-        "fr": "position-etudiante-en-marketing-60-graubundner-kantonalbank-chur"
-      },
-      "company": "GKB JobService",
-      "companyKey": "gkb-jobservice",
-      "companyDomain": "recruitingapp-2607.umantis.com",
-      "title": "Studentenstelle Marketing (60%)",
-      "titleByLocale": {
-        "it": "Posizione degli studenti di marketing (60%)",
-        "en": "Marketing student position (60%)",
-        "de": "Studentenstelle Marketing (60%)",
-        "fr": "Position étudiante en marketing (60%)"
-      },
-      "description": "Studentenstelle Marketing (60%) — GKB JobService",
-      "descriptionByLocale": {
-        "de": "Studentenstelle Marketing (60%) — GKB JobService"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://recruitingapp-2607.umantis.com/Vacancies/1954/Description/1",
-      "source": "GKB JobService Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:43:10.420Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Marketing",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-23",
-      "applyUrl": "https://recruitingapp-2607.umantis.com/Vacancies/1954/Description/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "studentenstelle-marketing-60-gkb-jobservice-ch",
-          "studentenstelle-marketing-60-gkb-ch"
-        ],
-        "it": [
-          "studentenstelle-marketing-60-gkb-jobservice-ch",
-          "posizione-degli-studenti-di-marketing-60-graubundner-kantonalbank-chur"
-        ]
-      },
-      "previousSlugs": [
-        "studentenstelle-marketing-60-gkb-jobservice-ch",
-        "studentenstelle-marketing-60-gkb-ch",
-        "posizione-degli-studenti-di-marketing-60-graubundner-kantonalbank-chur"
-      ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T21:29:46.360Z",
-      "salaryMin": 30300,
-      "salaryMax": 53400,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 30300,
-          "maxValue": 53400,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI"
-    },
-    {
-      "id": "gkb-jobservice-e04d45465bb9",
-      "slug": "senior-consulente-in-finanziamento-speciale-80-100-graubundner-kantonalbank-chur",
-      "slugByLocale": {
-        "it": "senior-consulente-in-finanziamento-speciale-80-100-graubundner-kantonalbank-chur",
-        "en": "senior-consultant-in-special-financing-80-100-graubundner-kantonalbank-chur",
-        "de": "senior-berater-in-spezialfinanzierungen-80-100-gkb-ch",
-        "fr": "consultant-principal-financement-special-80-100-graubundner-kantonalbank-chur"
-      },
-      "company": "GKB JobService",
-      "companyKey": "gkb-jobservice",
-      "companyDomain": "recruitingapp-2607.umantis.com",
-      "title": "(Senior) Berater:in Spezialfinanzierungen (80-100%)",
-      "titleByLocale": {
-        "it": "(Senior) Consulente: in finanziamento speciale (80-100%)",
-        "en": "(Senior) Consultant: in special financing (80-100%)",
-        "de": "(Senior) Berater:in Spezialfinanzierungen (80-100%)",
-        "fr": "Consultant principal : financement spécial (80-100%)"
-      },
-      "description": "(Senior) Berater:in Spezialfinanzierungen (80-100%) — GKB JobService",
-      "descriptionByLocale": {
-        "de": "(Senior) Berater:in Spezialfinanzierungen (80-100%) — GKB JobService"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://recruitingapp-2607.umantis.com/Vacancies/1955/Description/1",
-      "source": "GKB JobService Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:43:10.117Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-23",
-      "applyUrl": "https://recruitingapp-2607.umantis.com/Vacancies/1955/Description/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-berater-in-spezialfinanzierungen-80-100-gkb-jobservice-ch",
-        "senior-consulente-in-finanziamento-speciale-80-100-graubundner-kantonalbank-chur"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-berater-in-spezialfinanzierungen-80-100-gkb-jobservice-ch",
-          "senior-consulente-in-finanziamento-speciale-80-100-graubundner-kantonalbank-chur"
-        ],
-        "de": [
-          "senior-berater-in-spezialfinanzierungen-80-100-gkb-jobservice-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T21:29:46.055Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI"
-    },
-    {
-      "id": "gkb-jobservice-e99f4a0da052",
-      "slug": "assistente-in-mortgage-lenzerheide-80-graubundner-kantonalbank-lenzerheide",
-      "slugByLocale": {
-        "it": "assistente-in-mortgage-lenzerheide-80-graubundner-kantonalbank-lenzerheide",
-        "en": "assistant-in-mortgage-lenzerheide-80-graubundner-kantonalbank-lenzerheide",
-        "de": "assistent-in-hypotheken-lenzerheide-80-gkb-ch",
-        "fr": "assistant-en-hypotheque-lenzerheide-80-graubundner-kantonalbank-lenzerheide"
-      },
-      "company": "GKB JobService",
-      "companyKey": "gkb-jobservice",
-      "companyDomain": "recruitingapp-2607.umantis.com",
-      "title": "Assistent:in Hypotheken Lenzerheide (80%)",
-      "titleByLocale": {
-        "it": "Assistente: in Mortgage Lenzerheide (80%)",
-        "en": "Assistant:in Mortgage Lenzerheide (80%)",
-        "de": "Assistent:in Hypotheken Lenzerheide (80%)",
-        "fr": "Assistant: en hypothèque Lenzerheide (80%)"
-      },
-      "description": "Assistent:in Hypotheken Lenzerheide (80%) — GKB JobService",
-      "descriptionByLocale": {
-        "de": "Assistent:in Hypotheken Lenzerheide (80%) — GKB JobService"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://recruitingapp-2607.umantis.com/Vacancies/1937/Description/1",
-      "source": "GKB JobService Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:43:09.814Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-23",
-      "applyUrl": "https://recruitingapp-2607.umantis.com/Vacancies/1937/Description/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "assistent-in-hypotheken-lenzerheide-80-gkb-jobservice-ch",
-        "assistente-in-mortgage-lenzerheide-80-graubundner-kantonalbank-lenzerheide"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistent-in-hypotheken-lenzerheide-80-gkb-jobservice-ch",
-          "assistente-in-mortgage-lenzerheide-80-graubundner-kantonalbank-lenzerheide"
-        ],
-        "de": [
-          "assistent-in-hypotheken-lenzerheide-80-gkb-jobservice-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T21:29:45.748Z",
-      "salaryMin": 39600,
-      "salaryMax": 60000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 39600,
-          "maxValue": 60000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI"
-    },
-    {
-      "id": "gkb-jobservice-c44db2684cff",
-      "slug": "direzione-della-sala-operatoria-e-della-disposizione-dei-letti-80-100-m-f-d-spital-mannedorf-mannedorf",
-      "slugByLocale": {
-        "de": "leitung-op-und-bettendisposition-80-100-m-w-d-spital-mannedorf-mannedorf",
-        "it": "direzione-della-sala-operatoria-e-della-disposizione-dei-letti-80-100-m-f-d-spital-mannedorf-mannedorf",
-        "en": "head-of-or-and-bed-disposition-80-100-m-f-d-spital-mannedorf-mannedorf",
-        "fr": "direction-de-la-planification-du-bloc-operatoire-et-des-lits-80-100-m-f-d-spital-mannedorf-mannedorf"
-      },
-      "company": "GKB JobService",
-      "companyKey": "gkb-jobservice",
-      "companyDomain": "recruitingapp-2607.umantis.com",
-      "title": "Immobilienbewirtschafter:in (100%)",
-      "titleByLocale": {
-        "it": "Responsabile della proprietà:in (100%)",
-        "en": "Property manager:in (100%)",
-        "de": "Immobilienbewirtschafter:in (100%)",
-        "fr": "Gestionnaire immobilier: en (100%)"
-      },
-      "description": "Immobilienbewirtschafter:in (100%) — GKB JobService",
-      "descriptionByLocale": {
-        "de": "Immobilienbewirtschafter:in (100%) — GKB JobService"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://recruitingapp-2607.umantis.com/Vacancies/1943/Description/1",
-      "source": "GKB JobService Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:43:09.509Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-23",
-      "applyUrl": "https://recruitingapp-2607.umantis.com/Vacancies/1943/Description/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "immobilienbewirtschafter-in-100-gkb-jobservice-ch",
-          "leitung-op-und-bettendisposition-80-100-m-w-d-spital-mannedorf-mannedorf"
-        ],
-        "it": [
-          "immobilienbewirtschafter-in-100-gkb-jobservice-ch",
-          "direzione-della-sala-operatoria-e-della-disposizione-dei-letti-80-100-m-f-d-spital-mannedorf-mannedorf"
-        ]
-      },
-      "previousSlugs": [
-        "immobilienbewirtschafter-in-100-gkb-jobservice-ch",
-        "leitung-op-und-bettendisposition-80-100-m-w-d-spital-mannedorf-mannedorf",
-        "direzione-della-sala-operatoria-e-della-disposizione-dei-letti-80-100-m-f-d-spital-mannedorf-mannedorf"
-      ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T21:29:45.444Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI"
-    },
-    {
-      "id": "gkb-jobservice-db0ce8b565a1",
-      "slug": "assistente-in-mortgage-sois-40-graubundner-kantonalbank-thusis",
-      "slugByLocale": {
-        "it": "assistente-in-mortgage-sois-40-graubundner-kantonalbank-thusis",
-        "en": "assistant-in-mortgage-thusis-40-graubundner-kantonalbank-thusis",
-        "de": "assistent-in-hypotheken-thusis-40-gkb-ch",
-        "fr": "assistante-en-hypotheques-de-base-40-graubundner-kantonalbank-thusis"
-      },
-      "company": "GKB JobService",
-      "companyKey": "gkb-jobservice",
-      "companyDomain": "recruitingapp-2607.umantis.com",
-      "title": "Assistent:in Hypotheken Thusis (40%)",
-      "titleByLocale": {
-        "it": "Assistente: in Mortgage Sois (40%)",
-        "en": "Assistant: in Mortgage Thusis (40%)",
-        "de": "Assistent:in Hypotheken Thusis (40%)",
-        "fr": "Assistante : en hypothèques de Sosis (40%)"
-      },
-      "description": "Assistent:in Hypotheken Thusis (40%) — GKB JobService",
-      "descriptionByLocale": {
-        "de": "Assistent:in Hypotheken Thusis (40%) — GKB JobService"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://recruitingapp-2607.umantis.com/Vacancies/1924/Description/1",
-      "source": "GKB JobService Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:43:09.191Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-23",
-      "applyUrl": "https://recruitingapp-2607.umantis.com/Vacancies/1924/Description/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "assistent-in-hypotheken-thusis-40-gkb-jobservice-ch",
-        "assistente-in-mortgage-sois-40-graubundner-kantonalbank-thusis"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistent-in-hypotheken-thusis-40-gkb-jobservice-ch",
-          "assistente-in-mortgage-sois-40-graubundner-kantonalbank-thusis"
-        ],
-        "de": [
-          "assistent-in-hypotheken-thusis-40-gkb-jobservice-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T21:29:45.108Z",
-      "salaryMin": 19800,
-      "salaryMax": 30000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 19800,
-          "maxValue": 30000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "crawlerMissStreak": 1
     }
   ]
 }
