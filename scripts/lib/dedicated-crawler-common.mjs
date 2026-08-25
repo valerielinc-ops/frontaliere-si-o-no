@@ -4522,13 +4522,28 @@ export function validateDedicatedLocaleCoverage({
     // Tolerate translation-related issues up to the base tolerance (FRO-317) —
     // applies even when AI infrastructure looks healthy, e.g. a transient
     // single-model 429 that left a couple of jobs untranslated.
+    //
+    // The tolerance itself (both the ratio floor above and an explicit
+    // maxToleratedMissingDescriptions) is dimensioned per-JOB ("a single
+    // untranslated job", FRO-628 comment above) — but until now it was
+    // compared against the raw per-LOCALE issue count. A crawler with N
+    // non-source locales turns ONE untranslated job into N blocking issues
+    // (title+description across it/de/fr, say), so the same "one bad job"
+    // scenario the floor was built to absorb silently stopped being
+    // absorbed as soon as a crawler had more than 2 locales — hard-failing
+    // (and discarding the whole successfully-crawled batch) on exactly the
+    // single-job gap this tolerance exists for (#6270: grace-la-margna, 4
+    // locales, ratio floor 2, one untranslated job → 3 issues > 2, stale
+    // 11+ days). Count distinct affected jobs instead, matching the
+    // per-job intent of both tolerance sources.
     if (blockingIssues.length > 0 && effectiveTolerance > 0) {
       const translationIssues = blockingIssues.filter((i) => TRANSLATION_ISSUES.has(i.reason));
       const otherIssues = blockingIssues.filter((i) => !TRANSLATION_ISSUES.has(i.reason));
-      if (translationIssues.length <= effectiveTolerance && otherIssues.length === 0) {
+      const affectedJobCount = new Set(translationIssues.map((i) => i.slug)).size;
+      if (affectedJobCount <= effectiveTolerance && otherIssues.length === 0) {
         const sample = translationIssues.slice(0, 10).map((i) => `${i.slug} [${i.locale}] ${i.reason}`).join(', ');
         const suffix = translationIssues.length > 10 ? ` ... and ${translationIssues.length - 10} more` : '';
-        console.warn(`⚠️  Tolerating ${translationIssues.length} translation issue(s) (tolerance ${effectiveTolerance}): ${sample}${suffix}`);
+        console.warn(`⚠️  Tolerating ${translationIssues.length} translation issue(s) across ${affectedJobCount} job(s) (tolerance ${effectiveTolerance} jobs): ${sample}${suffix}`);
         softIssues.push(...translationIssues);
         blockingIssues.length = 0;
         // FRO-628 visibility: this specific commit-would-succeed path only
