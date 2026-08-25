@@ -4258,6 +4258,21 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.verdi-richiesta-clima-2026.title': 'Greens call for Secretary of State for climate',
     'blog.article.verdi-richiesta-clima-2026.excerpt': 'The Swiss Greens are calling for a Secretariat of State for Climate Protection and Exit from Fossil Energies. Rösti admitted: Switzerland will not meet the 2030 climate goals.',
     'blog.article.verdi-richiesta-clima-2026.imageAlt': 'Lake Lugano in scorching summer: climate change impacts in Switzerland.',
+    'blog.article.diesel-rincaro-geopolitica-svizzera.title': 'Fly the price of diesel in Switzerland',
+    'blog.article.diesel-rincaro-geopolitica-svizzera.excerpt': 'Diesel costs over CHF 2.20/litre in Switzerland, towed by damaged refineries in the Gulf, the closed Strait of Hormuz and Russian reductions. Effects on supermarket and agricultural prices.',
+    'blog.article.diesel-rincaro-geopolitica-svizzera.imageAlt': 'Swiss highway with truck at sunset, representing the logistics sector impacted by diesel price increases',
+    'blog.article.amrize-cfo-lascia-sorpresa-borsa.title': 'Amrize: the CFO leaves a surprise, down in the bag',
+    'blog.article.amrize-cfo-lascia-sorpresa-borsa.excerpt': 'Baris Oran leaves after 5 months as finance manager. Samuel Poletti new CFO. Amrize shares fell 2% on the Zurich Stock Exchange, -20% since January.',
+    'blog.article.amrize-cfo-lascia-sorpresa-borsa.imageAlt': 'Zurich stock exchange building with Amrize stock market performance chart, representing market reaction to CFO transition.',
+    'blog.article.pagamenti-offline-carte-2026.title': 'Offline card payments: launch August 2026',
+    'blog.article.pagamenti-offline-carte-2026.excerpt': 'Offline payments with cards from 24 August 2026: terminal also registers without a network. Ensures continuity in essential purchases during outages.',
+    'blog.article.pagamenti-offline-carte-2026.imageAlt': 'Offline card payment at a terminal in a Swiss shop during network outage',
+    'blog.article.amnesty-neutralita-crimini-guerra.title': 'Amnesty vs Swiss neutrality initiative',
+    'blog.article.amnesty-neutralita-crimini-guerra.excerpt': 'Amnesty International Switzerland opposes the neutrality initiative: it would limit economic and diplomatic sanctions. Vote on 27 September 2026.',
+    'blog.article.amnesty-neutralita-crimini-guerra.imageAlt': 'Swiss Federal Parliament building Bundeshaus in Bern with Swiss flag',
+    'blog.article.premi-lamal-berna-sussidio.title': 'LAMal Canton Bern Awards: bands and reductions',
+    'blog.article.premi-lamal-berna-sussidio.excerpt': 'In the Canton of Bern, LAMal premiums vary according to the deductible chosen. Here\'s how the system works and how to access reduction subsidies.',
+    'blog.article.premi-lamal-berna-sussidio.imageAlt': 'Administrative office with health insurance documents displayed on desk.',
 };
 
 export default blogMetaChEn;
