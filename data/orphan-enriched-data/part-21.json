@@ -26047,10 +26047,10 @@
         "fr": "f-b-supervisor-100-m-f-d-burgenstock-hotels-ag-obburgen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/f-b-supervisor-100-m-f-d-burgenstock-hotels-ag-obburgen",
-        "en": "/en/find-jobs-ticino/f-b-supervisor-100-m-f-d-burgenstock-hotels-ag-obburgen",
-        "de": "/de/jobs-im-tessin/f-b-supervisor-100-m-f-d-burgenstock-hotels-ag-obburgen",
-        "fr": "/fr/trouver-emploi-tessin/f-b-supervisor-100-m-f-d-burgenstock-hotels-ag-obburgen"
+        "it": "/cerca-lavoro-nidvaldo/f-b-supervisor-100-m-f-d-burgenstock-hotels-ag-obburgen",
+        "en": "/en/find-jobs-nidwalden/f-b-supervisor-100-m-f-d-burgenstock-hotels-ag-obburgen",
+        "de": "/de/jobs-in-nidwalden/f-b-supervisor-100-m-f-d-burgenstock-hotels-ag-obburgen",
+        "fr": "/fr/trouver-emploi-nidwald/f-b-supervisor-100-m-f-d-burgenstock-hotels-ag-obburgen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -47258,6 +47258,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "pharmaceutique",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-valais/pharmaceutique/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-valais/pharmaceutique/"
+      },
+      "queries": [
+        {
+          "query": "offre d'emploi pharma lyss",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "offre d'emploi pharma lyss",
+      "title": "Pharmaceutique",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "pharmaceutique",
+        "en": "pharmaceutique",
+        "de": "pharmaceutique",
+        "fr": "pharmaceutique"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-vallese/pharmaceutique",
+        "en": "/en/find-jobs-valais/pharmaceutique",
+        "de": "/de/jobs-im-wallis/pharmaceutique",
+        "fr": "/fr/trouver-emploi-valais/pharmaceutique"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {

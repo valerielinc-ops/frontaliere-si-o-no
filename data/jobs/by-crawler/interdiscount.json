@@ -9297,7 +9297,6 @@
         "distribuzione-della-catena-di-fornitura-junior-interdiscount-jegenstorf"
       ],
       "firstSeenAt": "2026-08-11T22:16:05.052Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -9309,7 +9308,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "interdiscount-33d9003c-541",
@@ -26744,12 +26744,20 @@
           "• Abgeschlossene Verkaufsausbildung; Berufserfahrung in Heim-/Unterhaltungselektronik von Vorteil"
         ]
       },
-      "previousSlugs": [
-        "verkaufsberater-in-interdiscount-mels",
-        "sales-consultant-in-interdiscount-mels",
-        "consultant-en-ventes-interdiscount-mels",
-        "consulente-commerciale-in-interdiscount-mels"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T10:05:47.205Z",
+      "salaryMin": 68500,
+      "salaryMax": 105000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 105000,
+          "unitText": "YEAR"
+        }
+      },
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-interdiscount-mels",
@@ -26767,20 +26775,12 @@
           "verkaufsberater-in-interdiscount-mels"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-24T10:05:47.205Z",
-      "salaryMin": 68500,
-      "salaryMax": 105000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 105000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "verkaufsberater-in-interdiscount-mels",
+        "sales-consultant-in-interdiscount-mels",
+        "consultant-en-ventes-interdiscount-mels",
+        "consulente-commerciale-in-interdiscount-mels"
+      ]
     }
   ]
 }

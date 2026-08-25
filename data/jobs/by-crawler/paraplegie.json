@@ -3170,12 +3170,6 @@
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/mitarbeiter-in-hauswirtschaft-events/9a2ab0d8-78c2-4996-9275-da4c9cd63819",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-hauswirtschaft-events-paraplegie-nottwil",
-        "mitarbeiter-in-hauswirtschaft-events-schweizer-paraplegiker-gruppe-nottwil",
-        "employe-en-menage-et-evenements-schweizer-paraplegiker-gruppe-nottwil",
-        "collaboratore-trice-in-hauswirtschaft-events-schweizer-paraplegiker-gruppe-nottwil"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-hauswirtschaft-events-paraplegie-nottwil",
@@ -3189,7 +3183,12 @@
           "mitarbeiter-in-hauswirtschaft-events-schweizer-paraplegiker-gruppe-nottwil"
         ]
       },
-      "firstSeenAt": "2026-08-24T10:12:58.835Z",
+      "previousSlugs": [
+        "mitarbeiter-in-hauswirtschaft-events-paraplegie-nottwil",
+        "mitarbeiter-in-hauswirtschaft-events-schweizer-paraplegiker-gruppe-nottwil",
+        "employe-en-menage-et-evenements-schweizer-paraplegiker-gruppe-nottwil",
+        "collaboratore-trice-in-hauswirtschaft-events-schweizer-paraplegiker-gruppe-nottwil"
+      ],
       "salaryMin": 69000,
       "salaryMax": 86500,
       "baseSalary": {
@@ -3201,7 +3200,8 @@
           "maxValue": 86500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-24T10:12:58.835Z"
     }
   ]
 }

@@ -404,15 +404,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "de": [
-          "mitarbeiter-in-patientenservice-stgag-munsterlingen",
-          "mitarbeiter-in-patientenservice-stgag-ch"
-        ],
         "it": [
           "mitarbeiter-in-patientenservice-stgag-munsterlingen",
           "mitarbeiter-in-patientenservice-stgag-ch-3",
           "mitarbeiter-in-patientenservice-stgag-ch",
           "collaboratore-trice-in-patientenservice-spital-thurgau-stgag-diessenhofen"
+        ],
+        "de": [
+          "mitarbeiter-in-patientenservice-stgag-munsterlingen"
         ],
         "en": [
           "mitarbeiter-in-patientenservice-spital-thurgau-stgag-diessenhofen"
@@ -428,7 +427,6 @@
         "mitarbeiter-in-patientenservice-spital-thurgau-stgag-diessenhofen",
         "collaboratore-trice-in-patientenservice-spital-thurgau-stgag-diessenhofen"
       ],
-      "firstSeenAt": "2026-08-24T10:07:51.355Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -440,7 +438,9 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-24T10:07:51.355Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "stgag-8ed4c0737eb7",
@@ -456,17 +456,17 @@
       "companyDomain": "stgag.ch",
       "title": "Mitarbeiter/-in Patientenservice",
       "titleByLocale": {
+        "de": "Mitarbeiter/-in Patientenservice",
         "it": "Collaboratore/trice/-in Patientenservice",
         "en": "Employee/patient service",
-        "de": "Mitarbeiter/-in Patientenservice",
         "fr": "Service aux employés/patients"
       },
       "description": "Wir suchen für unseren Patientenservice der Hotellerie per sofort oder nach Vereinbarung eine/n Mitarbeiter/-in Patientenservice 60-80% Du übernimmst interessante und anspruchsvolle Aufgaben, welche den gepflegten Speise- und Getränkeservice in den Patientenzimmern beinhalten\n\nDienste zwischen 7.00 und 20.00 Uhr, teilweise auch mit Zimmerstunde, an allen Tagen im Jahr\n\ndie Beratung der Patienten/-innen bei unserem einzigartigen Menubestellsystem «serve on demand»\n\nArbeiten mit Kassensystem inklusive Abrechnung\n\ndie Bereitstellung der exklusiven Zimmerausstattung für Neueintritte\n\neine enge Zusammenarbeit als Schnittstellenfunktion mit Pflege, Ernährungsberatung und Küche\n\nGrundausbildung (EFZ) in der Hotellerie, Gastronomie oder Hauswirtschaft\n\nroutinierter Umgang mit elektronischen Hilfsmitteln\n\n• Bereich: Hotellerie\n• Art: Teilzeit\n• Befristung: Unbefristet",
       "descriptionByLocale": {
-        "it": "Stiamo cercando il nostro servizio paziente dell'industria alberghiera immediatamente o d'accordo un dipendente / in servizio paziente 60-80% Si svolgono compiti interessanti e impegnativi, che includono il servizio di cibo e bevande ben tenuto nelle camere del paziente\n\nServizi tra le 7:00 e le 8:00, a volte con orario della camera, in tutti i giorni dell'anno\n\nconsigliare i pazienti sul nostro unico sistema di menu “serve on demand”\n\nLavorare con il sistema di cassa incluso fatturazione\n\nla fornitura di attrezzature per camere esclusive per nuove voci\n\nuna stretta collaborazione come funzione di interfaccia con cura, consulenza nutrizionale e cucina\n\nFormazione di base (EFZ) nel settore dell'ospitalità, della ristorazione o della pulizia\n\nuso di routine degli aiuti elettronici\n\n• Area: Industria alberghiera\n• Tipo: Tempo parziale\n• Termine temporaneo: illimitato",
-        "en": "We are looking for our patient service of the hotel industry immediately or by agreement an employee / in patient service 60-80% You take on interesting and challenging tasks, which include the well-kept food and drink service in the patient rooms\n\nServices between 7 a.m. and 8 p.m., sometimes with room hour, on all days of the year\n\nadvising patients on our unique “serve on demand” menu system\n\nWorking with cash system including billing\n\nthe provision of exclusive room equipment for new entries\n\na close cooperation as an interface function with care, nutritional advice and kitchen\n\nBasic training (EFZ) in the hospitality, catering or housekeeping industry\n\nroutine use of electronic aids\n\n• Area: Hotel industry\n• Type: Part-time\n• Temporary term: unlimited",
         "de": "Wir suchen für unseren Patientenservice der Hotellerie per sofort oder nach Vereinbarung eine/n Mitarbeiter/-in Patientenservice 60-80% Du übernimmst interessante und anspruchsvolle Aufgaben, welche den gepflegten Speise- und Getränkeservice in den Patientenzimmern beinhalten\n\nDienste zwischen 7.00 und 20.00 Uhr, teilweise auch mit Zimmerstunde, an allen Tagen im Jahr\n\ndie Beratung der Patienten/-innen bei unserem einzigartigen Menubestellsystem «serve on demand»\n\nArbeiten mit Kassensystem inklusive Abrechnung\n\ndie Bereitstellung der exklusiven Zimmerausstattung für Neueintritte\n\neine enge Zusammenarbeit als Schnittstellenfunktion mit Pflege, Ernährungsberatung und Küche\n\nGrundausbildung (EFZ) in der Hotellerie, Gastronomie oder Hauswirtschaft\n\nroutinierter Umgang mit elektronischen Hilfsmitteln\n\n• Bereich: Hotellerie\n• Art: Teilzeit\n• Befristung: Unbefristet",
-        "fr": "Nous sommes à la recherche de notre service patient de l'industrie hôtelière immédiatement ou par accord un employé / en service patient 60-80% Vous assumez des tâches intéressantes et difficiles, qui incluent le service de nourriture et de boisson bien entretenu dans les chambres des patients\n\nServices entre 7 h et 20 h, parfois avec heure de chambre, tous les jours de l'année\n\nconseiller les patients sur notre unique système de menus de service à la demande\n\nTravailler avec le système de trésorerie, y compris la facturation\n\nla fourniture d'équipements de chambre exclusifs pour les nouvelles rubriques\n\nune coopération étroite en tant qu'interface avec les soins, les conseils nutritionnels et la cuisine\n\nFormation de base (EFZ) dans l'hôtellerie, la restauration ou le ménage\n\nutilisation courante des aides électroniques\n\n• Zone: Industrie hôtelière\n• Type: Temps partiel\n• Terme temporaire : illimité"
+        "it": "Stiamo cercando il nostro servizio paziente dell'industria alberghiera immediatamente o d'accordo un dipendente / in servizio paziente 60-80% Si svolgono attività interessanti e impegnative, che includono il servizio di cibo e bevande ben tenuto nelle camere del paziente\n\nServizi tra le 7:00 e le 8:00, a volte con orario della camera, in tutti i giorni dell'anno\n\nconsigliare i pazienti sul nostro sistema menu unico “servare su richiesta”\n\nLavorare con il sistema di cassa, compresa la fatturazione\n\nla fornitura di servizi esclusivi per le nuove voci\n\nuna stretta collaborazione come funzione di interfaccia con cura, consigli nutrizionali e cucina\n\nFormazione di base (EFZ) nel settore dell'ospitalità, della ristorazione o delle pulizie\n\nuso di routine degli aiuti elettronici\n\n• Area: Industria alberghiera\n• Tipo: part-time\n• Termine temporaneo: perpetuo",
+        "en": "We are looking for our patient service of the hotel industry immediately or by agreement an employee / in patient service 60-80% You take on interesting and challenging tasks, which include the well-kept food and drink service in the patient rooms\n\nServices between 7 a.m. and 8 p.m., sometimes with room hour, on all days of the year\n\nadvising patients on our unique menu system “serve on demand”\n\nWorking with cash system including billing\n\nthe provision of exclusive room facilities for new entries\n\na close cooperation as an interface function with care, nutritional advice and kitchen\n\nBasic training (EFZ) in the hospitality, catering or housekeeping sector\n\nroutine use of electronic aids\n\n• Area: Hotel industry\n• Type: part-time\n• Temporary term: perpetual",
+        "fr": "Nous sommes à la recherche de notre service patient de l'industrie hôtelière immédiatement ou par accord un employé / en service patient 60-80% Vous assumez des tâches intéressantes et difficiles, qui incluent le service de nourriture et de boissons bien gardé dans les chambres des patients\n\nServices entre 7 h et 20 h, parfois avec heure de chambre, tous les jours de l'année\n\nconseiller les patients sur notre système de menu unique\n\nTravailler avec le système de trésorerie, y compris la facturation\n\nla fourniture de locaux exclusifs pour les nouvelles entrées\n\nune coopération étroite en tant qu'interface avec les soins, les conseils nutritionnels et la cuisine\n\nFormation de base (EFZ) dans le secteur de l'accueil, de la restauration ou de l'entretien ménager\n\nutilisation courante des aides électroniques\n\n• Zone: Industrie hôtelière\n• Type: temps partiel\n• Terme temporaire : perpétuel"
       },
       "needsRetranslation": true,
       "location": "Münsterlingen",
@@ -506,7 +506,6 @@
         "mitarbeiter-in-patientenservice-stgag-ch",
         "collaboratore-trice-in-patientenservice-spital-thurgau-stgag-kantonsspital-frauenfeld"
       ],
-      "firstSeenAt": "2026-08-24T21:41:05.601Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -518,7 +517,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-24T21:41:05.601Z"
     },
     {
       "id": "stgag-4b54fed30a5c",
@@ -534,17 +534,17 @@
       "companyDomain": "stgag.ch",
       "title": "Mitarbeiter/-in Patientenservice",
       "titleByLocale": {
+        "de": "Mitarbeiter/-in Patientenservice",
         "it": "Collaboratore/trice/-in Patientenservice",
         "en": "Employee/patient service",
-        "de": "Mitarbeiter/-in Patientenservice",
         "fr": "Service aux employés/patients"
       },
       "description": "Wir suchen für unseren Patientenservice der Hotellerie per sofort oder nach Vereinbarung eine/n Mitarbeiter/-in Patientenservice 50% Du übernimmst die Betreuung unserer Patienten auf der Privée Station und bist ein Teil unseres Guest Relations Ambassador Teams\n\ninteressante und anspruchsvolle Aufgaben, welche den gepflegten Speise- und Getränkeservice in den Patientenzimmern wie auch im Speisesaal der zusatzversicherten Patienten beinhalten\n\nDienste zwischen 7.00 und 20.00 Uhr, teilweise auch mit Zimmerstunde, an allen Tagen im Jahr\n\ndie Beratung der Patienten/-innen sowie deren Gäste bei der täglichen Menuwahl\n\nArbeiten mit dem Kassensystem inklusive Inkasso und Abrechnung\n\ndie Bereitstellung der Zimmerausstattung für Neueintritte sowie das Führen eines Eintrittsgespräches im Auftrag der Hotellerie\n\neine enge Zusammenarbeit als Schnittstellenfunktion mit Pflege, Ernährungsberatung und Küche\n\nGrundausbildung (EFZ) in der Hotellerie, Gastronomie oder Hauswirtschaft\n\n• Bereich: Hotellerie\n• Art: Teilzeit\n• Befristung: Unbefristet",
       "descriptionByLocale": {
-        "it": "Stiamo cercando il nostro servizio paziente dell'industria alberghiera immediatamente o d'accordo un dipendente / in servizio paziente 50% Si prende cura dei nostri pazienti sulla stazione Privée e fanno parte del nostro Guest Relations Ambassador Team\n\nattività interessanti e impegnative, che includono il servizio di cibo e bevande ben tenuto nelle stanze del paziente e nella sala da pranzo dei pazienti assicurati aggiuntivi\n\nServizi tra le 7:00 e le 8:00, a volte con orario della camera, in tutti i giorni dell'anno\n\nil consiglio dei pazienti e dei loro ospiti nella selezione dei menu giornalieri\n\nLavorare con il sistema di cassa tra cui raccolta e regolamento\n\nla fornitura di attrezzature per la camera per i nuovi partecipanti e la tenuta di un'intervista iniziale a nome dell'industria alberghiera\n\nuna stretta collaborazione come funzione di interfaccia con cura, consulenza nutrizionale e cucina\n\nFormazione di base (EFZ) nel settore dell'ospitalità, della ristorazione o della pulizia\n\n• Area: Industria alberghiera\n• Tipo: Tempo parziale\n• Termine temporaneo: illimitato",
-        "en": "We are looking for our patient service of the hotel industry immediately or by agreement an employee / in patient service 50% You take care of our patients on the Privée Station and are part of our Guest Relations Ambassador Team\n\ninteresting and challenging tasks, which include the well-kept food and drink service in the patient rooms as well as in the dining room of the additional insured patients\n\nServices between 7 a.m. and 8 p.m., sometimes with room hour, on all days of the year\n\nthe advice of patients and their guests in the daily menu selection\n\nWorking with the cash system including collection and settlement\n\nthe provision of room equipment for new entrants and the holding of an initial interview on behalf of the hotel industry\n\na close cooperation as an interface function with care, nutritional advice and kitchen\n\nBasic training (EFZ) in the hospitality, catering or housekeeping industry\n\n• Area: Hotel industry\n• Type: Part-time\n• Temporary term: unlimited",
         "de": "Wir suchen für unseren Patientenservice der Hotellerie per sofort oder nach Vereinbarung eine/n Mitarbeiter/-in Patientenservice 50% Du übernimmst die Betreuung unserer Patienten auf der Privée Station und bist ein Teil unseres Guest Relations Ambassador Teams\n\ninteressante und anspruchsvolle Aufgaben, welche den gepflegten Speise- und Getränkeservice in den Patientenzimmern wie auch im Speisesaal der zusatzversicherten Patienten beinhalten\n\nDienste zwischen 7.00 und 20.00 Uhr, teilweise auch mit Zimmerstunde, an allen Tagen im Jahr\n\ndie Beratung der Patienten/-innen sowie deren Gäste bei der täglichen Menuwahl\n\nArbeiten mit dem Kassensystem inklusive Inkasso und Abrechnung\n\ndie Bereitstellung der Zimmerausstattung für Neueintritte sowie das Führen eines Eintrittsgespräches im Auftrag der Hotellerie\n\neine enge Zusammenarbeit als Schnittstellenfunktion mit Pflege, Ernährungsberatung und Küche\n\nGrundausbildung (EFZ) in der Hotellerie, Gastronomie oder Hauswirtschaft\n\n• Bereich: Hotellerie\n• Art: Teilzeit\n• Befristung: Unbefristet",
-        "fr": "Nous sommes à la recherche de notre service patient de l'industrie hôtelière immédiatement ou d'un accord un employé / en service patient 50% Vous prenez soin de nos patients sur la Station Privée et faites partie de notre équipe ambassadrice des relations client\n\ntâches intéressantes et stimulantes, qui comprennent le service de restauration et de boissons bien entretenu dans les salles des patients ainsi que dans la salle à manger des patients assurés supplémentaires\n\nServices entre 7 h et 20 h, parfois avec heure de chambre, tous les jours de l'année\n\nles conseils des patients et de leurs invités dans la sélection quotidienne des menus\n\nTravailler avec le système de trésorerie, y compris la collecte et le règlement\n\nla fourniture de matériel de chambre aux nouveaux arrivants et la tenue d'un premier entretien pour le compte de l'industrie hôtelière;\n\nune coopération étroite en tant qu'interface avec les soins, les conseils nutritionnels et la cuisine\n\nFormation de base (EFZ) dans l'hôtellerie, la restauration ou le ménage\n\n• Zone: Industrie hôtelière\n• Type: Temps partiel\n• Terme temporaire : illimité"
+        "it": "Stiamo cercando il nostro servizio paziente dell'industria alberghiera immediatamente o d'accordo un dipendente / in servizio paziente 50% Si prende cura dei nostri pazienti sulla stazione Privée e fanno parte del nostro Guest Relations Ambassador Team\n\nattività interessanti e impegnative, che includono il servizio di cibo e bevande ben tenuto nelle stanze del paziente e nella sala da pranzo dei pazienti assicurati aggiuntivi\n\nServizi tra le 7:00 e le 8:00, a volte con orario della camera, in tutti i giorni dell'anno\n\nil consiglio dei pazienti e dei loro ospiti nella selezione dei menu giornalieri\n\nLavorare con il sistema di cassa tra cui la raccolta del debito e l'insediamento\n\nla fornitura di attrezzature per la camera per i nuovi partecipanti e la tenuta di un'intervista iniziale a nome dell'industria alberghiera\n\nuna stretta collaborazione come funzione di interfaccia con cura, consigli nutrizionali e cucina\n\nFormazione di base (EFZ) nel settore dell'ospitalità, della ristorazione o delle pulizie\n\n• Area: Industria alberghiera\n• Tipo: part-time\n• Termine temporaneo: perpetuo",
+        "en": "We are looking for our patient service of the hotel industry immediately or by agreement an employee / in patient service 50% You take care of our patients on the Privée Station and are part of our Guest Relations Ambassador Team\n\ninteresting and challenging tasks, which include the well-kept food and drink service in the patient rooms as well as in the dining room of the additional insured patients\n\nServices between 7 a.m. and 8 p.m., sometimes with room hour, on all days of the year\n\nthe advice of patients and their guests in the daily menu selection\n\nWorking with the cash system including debt collection and settlement\n\nthe provision of room equipment for new entrants and the holding of an initial interview on behalf of the hotel industry\n\na close cooperation as an interface function with care, nutritional advice and kitchen\n\nBasic training (EFZ) in the hospitality, catering or housekeeping sector\n\n• Area: Hotel industry\n• Type: part-time\n• Temporary term: perpetual",
+        "fr": "Nous sommes à la recherche de notre service aux patients de l'industrie hôtelière immédiatement ou par accord un employé / en service aux patients 50% Vous prenez soin de nos patients à la Gare Privée et faites partie de notre équipe ambassadrice des relations avec les clients\n\ntâches intéressantes et stimulantes, qui comprennent le service de nourriture et de boisson bien entretenu dans les chambres des patients ainsi que dans la salle à manger des patients assurés supplémentaires\n\nServices entre 7 h et 20 h, parfois avec heure de chambre, tous les jours de l'année\n\nles conseils des patients et de leurs invités dans la sélection quotidienne des menus\n\nTravailler avec le système de trésorerie, y compris le recouvrement et le règlement de la dette\n\nla fourniture de matériel de chambre aux nouveaux arrivants et la tenue d'un premier entretien pour le compte de l'industrie hôtelière;\n\nune coopération étroite en tant qu'interface avec les soins, les conseils nutritionnels et la cuisine\n\nFormation de base (EFZ) dans le secteur de l'accueil, de la restauration ou de l'entretien ménager\n\n• Zone: Industrie hôtelière\n• Type: temps partiel\n• Terme temporaire : perpétuel"
       },
       "needsRetranslation": true,
       "location": "Münsterlingen",
@@ -584,7 +584,6 @@
         "mitarbeiter-in-patientenservice-stgag-ch",
         "collaboratore-trice-in-patientenservice-spital-thurgau-stgag-kantonsspital-munsterlingen"
       ],
-      "firstSeenAt": "2026-08-24T21:41:04.633Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -596,7 +595,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-24T21:41:04.633Z"
     },
     {
       "id": "stgag-6916db7778eb",
@@ -612,19 +612,18 @@
       "companyDomain": "stgag.ch",
       "title": "Oberarzt/-ärztin (je nach Qualifikation mbF) Pneumologie",
       "titleByLocale": {
+        "de": "Oberarzt/-ärztin (je nach Qualifikation mbF) Pneumologie",
         "it": "Medico senior (a seconda della qualifica mbF) Pneumologia",
         "en": "Senior physician (depending on the qualification mbF) Pneumology",
-        "de": "Oberarzt/-ärztin (je nach Qualifikation mbF) Pneumologie",
         "fr": "Médecin principal (selon la qualification mbF) Pneumologie"
       },
       "description": "Für die Medizinische Klinik am Kantonsspital Frauenfeld suchen wir per 1. November 2026 oder nach Vereinbarung eine/n Oberarzt/-ärztin (je nach Qualifikation mbF) Pneumologie 60-100% Die Pneumologie der STGAG am Kantonsspital Frauenfeld bietet ein breites Spektrum an diagnostischen und therapeutischen Verfahren und deckt einen Grossteil der Pneumologie in ihrer fachlichen Breite ab. Sie übernehmen Eigene Sprechstundentätigkeit in unserem vielseitigen pneumologischen Ambulatorium\n\nMitbetreuung und Konsiliardienst für alle stationären Patienten des Hauses mit pneumologischen Problemen\n\nDurchführung von Bronchoskopie und Pleurapunktionen. Erfahrung im EBUS ist wünschenswert\n\nBeteiligung am Fortbildungsprogramm im Team Pneumologie und der Medizinischen Klinik\n\nEidgenössischer bzw. in der Schweiz anerkannter Facharzttitel in Pneumologie (oder höchstens ein Jahr davor), Facharzttitel Allgemeine Innere Medizin wünschenswert\n\nEinfühlsame, sozialkompetente und teamfähige Persönlichkeit mit Freude an interdisziplinärer und interprofessioneller Zusammenarbeit\n\nFreude am Teaching von Assistenzärzten/innen der Pneumologie und der allgemeinen Inneren Medizin\n\nAusgezeichnete Deutschkenntnisse\n\n• Bereich: Ärztliches Personal\n• Art: Vollzeit, Teilzeit möglich\n• Befristung: Unbefristet",
       "descriptionByLocale": {
-        "it": "Per la clinica medica presso l'ospedale cantonale Frauenfeld stiamo cercando 1. Novembre 2026 o su appuntamento un medico senior (a seconda della qualifica mbF) pneumologia 60-100% La pneumologia di STGAG presso l'Ospedale cantonale Frauenfeld offre una vasta gamma di procedure diagnostiche e terapeutiche e copre una gran parte della pneumologia nella sua ampiezza professionale. Prendete le vostre ore di ufficio nel nostro versatile ambulatorio pneumologico\n\nAssistenza e consulenza per tutti gli ospedali della casa con problemi pneumologici\n\nEseguire broncoscopia e punture pleurali. L'esperienza in EBUS è auspicabile\n\nPartecipazione al programma di formazione del team Pneumology e della clinica medica\n\nTitolo specialistico svizzero o svizzero riconosciuto in pneumologia (o al massimo un anno prima), titolo specialistico Medicina interna auspicabile\n\nSensibile, socialmente competente e team capace personalità con piacere nella cooperazione interdisciplinare e interprofessionale\n\nDelizia nell'insegnamento di medici assistenti in pneumologia e medicina interna generale\n\nOttima conoscenza del tedesco\n\n• Area: Personale medico\n• Tipo: A tempo pieno, part-time\n• Termine temporaneo: illimitato",
-        "en": "For the medical clinic at the Cantonal Hospital Frauenfeld we are looking for 1. November 2026 or by appointment a senior physician (depending on the qualification mbF) pneumology 60-100% The pneumology of STGAG at the Cantonal Hospital Frauenfeld offers a wide range of diagnostic and therapeutic procedures and covers a large part of pneumology in its professional breadth. You take on your own office hours in our versatile pneumological ambulatorium\n\nAssistance and consultancy for all inpatients of the house with pneumological problems\n\nPerform bronchoscopy and pleural punctures. Experience in EBUS is desirable\n\nParticipation in the training programme in the team Pneumology and the Medical Clinic\n\nSwiss or Swiss-recognised specialist title in pneumology (or at most one year before), specialist title General Internal Medicine desirable\n\nSensitive, socially competent and team capable personality with pleasure in interdisciplinary and interprofessional cooperation\n\nDelight in the teaching of assistant doctors in pneumology and general internal medicine\n\nExcellent knowledge of German\n\n• Area: Medical staff\n• Type: Full-time, part-time\n• Temporary term: unlimited",
         "de": "Für die Medizinische Klinik am Kantonsspital Frauenfeld suchen wir per 1. November 2026 oder nach Vereinbarung eine/n Oberarzt/-ärztin (je nach Qualifikation mbF) Pneumologie 60-100% Die Pneumologie der STGAG am Kantonsspital Frauenfeld bietet ein breites Spektrum an diagnostischen und therapeutischen Verfahren und deckt einen Grossteil der Pneumologie in ihrer fachlichen Breite ab. Sie übernehmen Eigene Sprechstundentätigkeit in unserem vielseitigen pneumologischen Ambulatorium\n\nMitbetreuung und Konsiliardienst für alle stationären Patienten des Hauses mit pneumologischen Problemen\n\nDurchführung von Bronchoskopie und Pleurapunktionen. Erfahrung im EBUS ist wünschenswert\n\nBeteiligung am Fortbildungsprogramm im Team Pneumologie und der Medizinischen Klinik\n\nEidgenössischer bzw. in der Schweiz anerkannter Facharzttitel in Pneumologie (oder höchstens ein Jahr davor), Facharzttitel Allgemeine Innere Medizin wünschenswert\n\nEinfühlsame, sozialkompetente und teamfähige Persönlichkeit mit Freude an interdisziplinärer und interprofessioneller Zusammenarbeit\n\nFreude am Teaching von Assistenzärzten/innen der Pneumologie und der allgemeinen Inneren Medizin\n\nAusgezeichnete Deutschkenntnisse\n\n• Bereich: Ärztliches Personal\n• Art: Vollzeit, Teilzeit möglich\n• Befristung: Unbefristet",
-        "fr": "Pour la clinique médicale de l'hôpital cantonal de Frauenfeld nous cherchons 1. Novembre 2026 ou sur rendez-vous un médecin principal (selon la qualification mbF) pneumologie 60-100% La pneumologie de STGAG à l'hôpital cantonal de Frauenfeld offre un large éventail de procédures diagnostiques et thérapeutiques et couvre une grande partie de la pneumologie dans son étendue professionnelle. Vous prenez vos propres heures de bureau dans notre ambulateur pneumologique polyvalent\n\nAssistance et conseil pour tous les malades hospitalisés ayant des problèmes pneumologiques\n\nEffectuer la bronchoscopie et les perforations pleurales. L'expérience de l'EBUS est souhaitable\n\nParticipation au programme de formation de l'équipe Pneumologie et clinique médicale\n\nTitre de spécialiste suisse ou suisse reconnu en pneumologie (ou au plus un an avant), titre de spécialiste Médecine interne générale souhaitable\n\nPersonnalité sensible, socialement compétente et capable d'équipe avec plaisir dans la coopération interdisciplinaire et interprofessionnelle\n\nPlaisir dans l'enseignement des médecins adjoints en pneumologie et médecine interne générale\n\nExcellente connaissance de l'allemand\n\n• Secteur : personnel médical\n• Type: Temps plein, temps partiel\n• Terme temporaire : illimité"
+        "it": "Per la clinica medica presso l'ospedale cantonale Frauenfeld stiamo cercando 1. Novembre 2026 o su appuntamento un medico senior (a seconda della qualifica mbF) pneumologia 60-100% La pneumologia di STGAG presso l'Ospedale cantonale Frauenfeld offre una vasta gamma di procedure diagnostiche e terapeutiche e copre una gran parte della pneumologia nella sua ampiezza professionale. Prendete le vostre ore di ufficio nel nostro versatile ambulatorio pneumologico\n\nAssistenza e consulenza per tutti gli ospedali della casa con problemi pneumologici\n\nEseguire broncoscopia e punture pleurali. L'esperienza in EBUS è auspicabile\n\nPartecipazione al programma di formazione del team Pneumology e della clinica medica\n\nTitolo specialistico svizzero o svizzero riconosciuto in pneumologia (o al massimo un anno prima), titolo specialistico Medicina Interna Generale auspicabile\n\nPersonalità sensibile, socialmente competente e responsabile del team con piacere nella cooperazione interdisciplinare e interprofessionale\n\nDelizia nell'insegnamento dei medici assistenti in pneumologia e medicina interna generale\n\nOttima conoscenza del tedesco\n\n• Area: Personale medico\n• Tipo: A tempo pieno, part-time\n• Termine temporaneo: perpetuo",
+        "en": "For the medical clinic at the Cantonal Hospital Frauenfeld we are looking for 1. November 2026 or by appointment a senior physician (depending on the qualification mbF) pneumology 60-100% The pneumology of STGAG at the Cantonal Hospital Frauenfeld offers a wide range of diagnostic and therapeutic procedures and covers a large part of pneumology in its professional breadth. You take on your own office hours in our versatile pneumological ambulatorium\n\nAssistance and consultancy for all inpatients of the house with pneumological problems\n\nPerform bronchoscopy and pleural punctures. Experience in EBUS is desirable\n\nParticipation in the training programme in the team Pneumology and the Medical Clinic\n\nSwiss or Swiss recognised specialist title in pneumology (or at most one year before), specialist title General Internal Medicine desirable\n\nSensitive, socially competent and team-capable personality with pleasure in interdisciplinary and interprofessional cooperation\n\nDelight in the teaching of assistant doctors in pneumology and general internal medicine\n\nExcellent knowledge of German\n\n• Area: Medical staff\n• Type: Full-time, part-time\n• Temporary term: perpetual",
+        "fr": "Pour la clinique médicale de l'hôpital cantonal de Frauenfeld nous cherchons 1. Novembre 2026 ou sur rendez-vous un médecin principal (selon la qualification mbF) pneumologie 60-100% La pneumologie de STGAG à l'hôpital cantonal de Frauenfeld offre un large éventail de procédures diagnostiques et thérapeutiques et couvre une grande partie de la pneumologie dans son étendue professionnelle. Vous prenez vos propres heures de bureau dans notre ambulateur pneumologique polyvalent\n\nAssistance et conseil pour tous les malades hospitalisés ayant des problèmes pneumologiques\n\nEffectuer la bronchoscopie et les perforations pleurales. L'expérience de l'EBUS est souhaitable\n\nParticipation au programme de formation à l ' équipe de pneumologie et à la clinique médicale\n\nTitre de spécialiste suisse ou suisse reconnu en pneumologie (ou au plus un an avant), titre de spécialiste Médecine interne générale souhaitable\n\nPersonnalité sensible, socialement compétente et capable de travailler en équipe avec plaisir dans la coopération interdisciplinaire et interprofessionnelle\n\nPlaisir dans l'enseignement des médecins adjoints en pneumologie et médecine interne générale\n\nExcellente connaissance de l'allemand\n\n• Zone : personnel médical\n• Type: Temps plein, temps partiel\n• Terme temporaire : perpétuel"
       },
-      "needsRetranslation": false,
       "location": "Münsterlingen",
       "canton": "TG",
       "url": "https://rekrutierung.stgag.ch/Vacancies/3763/Description/1",
@@ -647,24 +646,6 @@
       "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3763/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-ch"
-        ],
-        "en": [
-          "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-ch"
-        ],
-        "fr": [
-          "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-ch"
-        ],
-        "de": [
-          "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-ch"
-        ]
-      },
-      "firstSeenAt": "2026-08-24T21:41:03.611Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -676,6 +657,24 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
+      },
+      "firstSeenAt": "2026-08-24T21:41:03.611Z",
+      "previousSlugs": [
+        "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-ch"
+        ],
+        "en": [
+          "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-ch"
+        ],
+        "de": [
+          "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-ch"
+        ],
+        "fr": [
+          "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-ch"
+        ]
       }
     },
     {

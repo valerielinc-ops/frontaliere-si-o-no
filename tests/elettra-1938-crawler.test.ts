@@ -170,13 +170,19 @@ describe('Elettra 1938 crawler parser', () => {
       expect(jobs).toEqual([]);
     });
 
-    it('throws when .vacancy__render is absent from the markup entirely (true selector drift)', async () => {
+    it('throws when the vacancyListCareer AJAX loader is absent from the markup entirely (true selector/template drift)', async () => {
       fetchHtml.mockResolvedValueOnce('<html><body><div class="unexpected-layout">No cards here</div></body></html>');
-      await expect(fetchAllElettra1938Jobs()).rejects.toThrow(/selector drift/i);
+      await expect(fetchAllElettra1938Jobs()).rejects.toThrow(/selector\/template drift/i);
     });
 
-    it('returns an empty array when zero cards render but .vacancy__render is still referenced in the page markup (genuine portal-wide lull, #5970)', async () => {
-      fetchHtml.mockResolvedValueOnce('<html><head><style>.vacancy__render { display: block; }</style></head><body><div id="vacancyList"></div></body></html>');
+    it('returns an empty array when zero cards render but .vacancy__render is (only) referenced in an unrelated custom-CSS override, with the AJAX loader present (genuine portal-wide lull, #5970/#6066)', async () => {
+      fetchHtml.mockResolvedValueOnce('<html><head><style>.vacancy__render { display: block; }</style></head><body><div id="vacancyList"></div><script>act1: "vacancyListCareer"</script></body></html>');
+      const jobs = await fetchAllElettra1938Jobs();
+      expect(jobs).toEqual([]);
+    });
+
+    it('returns an empty array when zero cards render and the .vacancy__render CSS string is entirely absent, as long as the vacancyListCareer AJAX loader is present (#6066: the CSS string is not a reliable intact-signal)', async () => {
+      fetchHtml.mockResolvedValueOnce('<html><body><div id="vacancyList"></div><script>act1: "vacancyListCareer"</script></body></html>');
       const jobs = await fetchAllElettra1938Jobs();
       expect(jobs).toEqual([]);
     });

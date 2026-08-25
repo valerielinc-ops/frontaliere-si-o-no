@@ -79,6 +79,8 @@
         "transmission-equipment-mechanic-confederazione-svizzera-mels",
         "mecanicien-du-materiel-de-transmission-confederazione-svizzera-mels"
       ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -91,9 +93,7 @@
       },
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 68500,
-      "salaryMax": 104000
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-9fswyc",

@@ -13475,20 +13475,17 @@
       "requirementsByLocale": {},
       "department": "Hotellerie",
       "contractDuration": "permanent",
-      "previousSlugs": [
-        "mitarbeiter-in-patientenservice-stgag-ch",
-        "mitarbeiter-in-patientenservice-stgag-ch-2",
-        "collaboratore-trice-in-patientenservice-spital-thurgau-stgag-kantonsspital-frauenfeld"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-patientenservice-stgag-ch",
-          "mitarbeiter-in-patientenservice-stgag-ch-2",
-          "collaboratore-trice-in-patientenservice-spital-thurgau-stgag-kantonsspital-frauenfeld"
+          "mitarbeiter-in-patientenservice-stgag-ch-2"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-24T10:07:48.194Z",
+      "previousSlugs": [
+        "mitarbeiter-in-patientenservice-stgag-ch",
+        "mitarbeiter-in-patientenservice-stgag-ch-2"
+      ],
       "salaryMin": 62000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -13500,7 +13497,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-24T10:07:48.194Z"
     },
     {
       "id": "spital-thurgau-283bc8c1d47a",
@@ -13552,22 +13550,19 @@
       "requirementsByLocale": {},
       "department": "Hotellerie",
       "contractDuration": "permanent",
-      "previousSlugs": [
-        "mitarbeiter-in-patientenservice-stgag-ch-2",
-        "mitarbeiter-in-patientenservice-stgag-ch",
-        "mitarbeiter-in-patientenservice-stgag-ch-3",
-        "collaboratore-trice-in-patientenservice-spital-thurgau-stgag-kantonsspital-munsterlingen"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-patientenservice-stgag-ch-2",
           "mitarbeiter-in-patientenservice-stgag-ch",
-          "mitarbeiter-in-patientenservice-stgag-ch-3",
-          "collaboratore-trice-in-patientenservice-spital-thurgau-stgag-kantonsspital-munsterlingen"
+          "mitarbeiter-in-patientenservice-stgag-ch-3"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-24T10:07:48.194Z",
+      "previousSlugs": [
+        "mitarbeiter-in-patientenservice-stgag-ch-2",
+        "mitarbeiter-in-patientenservice-stgag-ch",
+        "mitarbeiter-in-patientenservice-stgag-ch-3"
+      ],
       "salaryMin": 62000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -13579,7 +13574,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-24T10:07:48.194Z"
     },
     {
       "id": "spital-thurgau-8eb65bcfa7cb",
@@ -14098,9 +14094,9 @@
       "id": "spital-thurgau-f4324ab7229e",
       "slug": "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-munsterlingen",
       "slugByLocale": {
+        "de": "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-ch",
         "it": "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-munsterlingen",
         "en": "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-munsterlingen",
-        "de": "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-ch",
         "fr": "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
@@ -14108,17 +14104,17 @@
       "companyDomain": "stgag.ch",
       "title": "Oberarzt/-ärztin (je nach Qualifikation mbF) Pneumologie",
       "titleByLocale": {
+        "de": "Oberarzt/-ärztin (je nach Qualifikation mbF) Pneumologie",
         "it": "Medico senior (a seconda della qualifica mbF) Pneumologia",
         "en": "Senior physician (depending on the qualification mbF) Pneumology",
-        "de": "Oberarzt/-ärztin (je nach Qualifikation mbF) Pneumologie",
         "fr": "Médecin principal (selon la qualification mbF) Pneumologie"
       },
       "description": "Oberarzt/-ärztin (je nach Qualifikation mbF) Pneumologie — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Ärztliches Personal\n• Bereich: Kantonsspital Frauenfeld\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.11.2026",
       "descriptionByLocale": {
-        "it": "Medico senior (a seconda della qualifica mbF) Pneumologie — Spital Thurgau (STGAG).\n\n• Posizione: Ospedale cantonale Frauenfeld\n• Dipartimento: Personale medico\n• Area: Ospedale cantonale Frauenfeld\n• Pensum: Tempo pieno, tempo parziale possibile\n• Occupazione: permanente\n• Data di entrata: 01.11.2026",
-        "en": "Senior physician (depending on qualification mbF) Pneumologie — Spital Thurgau (STGAG).\n\n• Location: Cantonal Hospital Frauenfeld\n• Department: Medical staff\n• Area: Cantonal Hospital Frauenfeld\n• Pensum: Full time, part time possible\n• Employment: Permanent\n• Entry date: 01.11.2026",
         "de": "Oberarzt/-ärztin (je nach Qualifikation mbF) Pneumologie — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Ärztliches Personal\n• Bereich: Kantonsspital Frauenfeld\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.11.2026",
-        "fr": "Médecin principal (selon la qualification mbF) Pneumologie — Spital Thurgau (STGAG).\n\n• Lieu: Hôpital cantonal Frauenfeld\n• Département : Personnel médical\n• Région : Hôpital cantonal Frauenfeld\n• Pensum: Temps plein, temps partiel possible\n• Emploi permanent\n• Date d'entrée: 01.11.2026"
+        "it": "Medico senior (a seconda della qualifica mbF) Pneumologie — Spital Thurgau (STGAG).\n\n• Posizione: Ospedale cantonale Frauenfeld\n• Dipartimento: Personale medico\n• Area: Ospedale cantonale Frauenfeld\n• Pensum: tempo pieno, tempo parziale possibile\n• Occupazione: permanente\n• Data di entrata: 01.11.2026",
+        "en": "Senior physician (depending on qualification mbF) Pneumologie — Spital Thurgau (STGAG).\n\n• Location: Cantonal Hospital Frauenfeld\n• Department: Medical staff\n• Area: Cantonal Hospital Frauenfeld\n• Pensum: full time, part time possible\n• Employment: Permanent\n• Date of entry: 01.11.2026",
+        "fr": "Médecin principal (selon qualification mbF) Pneumologie — Spital Thurgau (STGAG).\n\n• Lieu: Hôpital cantonal Frauenfeld\n• Département : Personnel médical\n• Région : Hôpital cantonal de Frauenfeld\n• Pensum: temps plein, temps partiel possible\n• Emploi permanent\n• Date d'entrée: 01.11.2026"
       },
       "location": "Kantonsspital Frauenfeld",
       "canton": "TG",
@@ -14144,15 +14140,6 @@
       "requirementsByLocale": {},
       "department": "Ärztliches Personal",
       "contractDuration": "permanent",
-      "firstSeenAt": "2026-08-24T21:41:02.878Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-ch"
-        ]
-      },
-      "previousSlugs": [
-        "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-ch"
-      ],
       "salaryMin": 110500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -14164,7 +14151,16 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-24T21:41:02.878Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-ch"
+      ]
     },
     {
       "id": "spital-thurgau-e87f64242ccb",
@@ -14216,17 +14212,11 @@
       "requirementsByLocale": {},
       "department": "Hotellerie",
       "contractDuration": "permanent",
-      "previousSlugs": [
-        "mitarbeiter-in-patientenservice-stgag-ch-3",
-        "mitarbeiter-in-patientenservice-stgag-ch",
-        "mitarbeiter-in-patientenservice-spital-thurgau-stgag-diessenhofen",
-        "collaboratore-trice-in-patientenservice-spital-thurgau-stgag-diessenhofen"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-patientenservice-stgag-ch-3",
-          "mitarbeiter-in-patientenservice-stgag-ch",
-          "collaboratore-trice-in-patientenservice-spital-thurgau-stgag-diessenhofen"
+          "mitarbeiter-in-patientenservice-stgag-ch"
         ],
         "en": [
           "mitarbeiter-in-patientenservice-spital-thurgau-stgag-diessenhofen"
@@ -14235,8 +14225,12 @@
           "mitarbeiter-in-patientenservice-spital-thurgau-stgag-diessenhofen"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-24T10:07:48.192Z",
+      "previousSlugs": [
+        "mitarbeiter-in-patientenservice-stgag-ch-3",
+        "mitarbeiter-in-patientenservice-stgag-ch",
+        "mitarbeiter-in-patientenservice-spital-thurgau-stgag-diessenhofen",
+        "collaboratore-trice-in-patientenservice-spital-thurgau-stgag-diessenhofen"
+      ],
       "salaryMin": 62000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -14248,7 +14242,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-24T10:07:48.192Z"
     },
     {
       "id": "spital-thurgau-5a3f60b8efbd",

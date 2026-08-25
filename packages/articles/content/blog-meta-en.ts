@@ -10778,6 +10778,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-paisco-loveno-lavorare-grigioni-frontaliere.title': 'Paisco Loveno-Grisioni: border guide, taxes, permits',
     'blog.article.vivere-paisco-loveno-lavorare-grigioni-frontaliere.excerpt': 'Working in Grisons from Paisco Loveno: G Permit, withholding tax, €10,000 exemption, LAMal, tax credit and procedure from 2024.',
     'blog.article.vivere-paisco-loveno-lavorare-grigioni-frontaliere.imageAlt': 'Mountain road towards Grisons at the Swiss-Italian border, Alpine village views',
+    'blog.article.fusine-guida-frontaliere.title': 'Living in Fusine as a border crosser: the complete guide',
+    'blog.article.fusine-guida-frontaliere.excerpt': 'Fusine offers lower housing costs and proximity to Ticino for border workers working in Graubünden. Discover permit G, taxation, refunds, AVS, LAMal.',
+    'blog.article.fusine-guida-frontaliere.imageAlt': 'Aerial view of the valley between Fusine and the Ticino border, transborder landscape between Lombardy and Switzerland',
 };
 
 export default blogMetaEn;

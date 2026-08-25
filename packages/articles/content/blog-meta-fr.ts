@@ -10780,6 +10780,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-paisco-loveno-lavorare-grigioni-frontaliere.title': 'Paisco Loveno-Grigioni : guide frontalier, taxes, permis',
     'blog.article.vivere-paisco-loveno-lavorare-grigioni-frontaliere.excerpt': 'Travailler dans les Grisons de Paisco Loveno : Permis G, retenues à la source, exonération € 10\'000, LAMal, crédit d\'impôt et procédure à partir de 2024.',
     'blog.article.vivere-paisco-loveno-lavorare-grigioni-frontaliere.imageAlt': 'Route de montagne vers les Grisons à la frontière Suisse-Italienne, vue sur villages alpins',
+    'blog.article.fusine-guida-frontaliere.title': 'Vivre à Fusine en tant que frontalier : le guide complet',
+    'blog.article.fusine-guida-frontaliere.excerpt': 'Fusine offre des coûts de logement inférieurs et la proximité du Tessin pour les frontaliers travaillant dans les Grisons. Découvrez le permis G, la fiscalité, la restauration, l\'AVS, la LAMal.',
+    'blog.article.fusine-guida-frontaliere.imageAlt': 'Vue aérienne de la vallée entre Fusine et la frontière tessinoise, paysage transfrontalier entre la Lombardie et la Suisse',
 };
 
 export default blogMetaFr;

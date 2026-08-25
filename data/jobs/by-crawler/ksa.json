@@ -1304,14 +1304,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Pilot ohne Motivationsbrief",
-      "previousSlugs": [
-        "fachexpertin-fachexperte-pflege-ksa-ch",
-        "fachexpertin-fachexperte-pflege-ksa-ch-2-9ztjpb",
-        "specialist-care-expert-kantonsspital-aarau-ksa-aarau-bebb8b",
-        "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau-bebb8b",
-        "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau",
-        "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau-59e039"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "fachexpertin-fachexperte-pflege-ksa-ch",
@@ -1327,7 +1319,14 @@
           "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau-59e039"
         ]
       },
-      "firstSeenAt": "2026-08-24T21:34:35.239Z",
+      "previousSlugs": [
+        "fachexpertin-fachexperte-pflege-ksa-ch",
+        "fachexpertin-fachexperte-pflege-ksa-ch-2-9ztjpb",
+        "specialist-care-expert-kantonsspital-aarau-ksa-aarau-bebb8b",
+        "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau-bebb8b",
+        "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau",
+        "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau-59e039"
+      ],
       "salaryMin": 88000,
       "salaryMax": 123000,
       "baseSalary": {
@@ -1339,7 +1338,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-24T21:34:35.239Z"
     },
     {
       "id": "ksa-c1bb3020ef83",
@@ -2197,7 +2197,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.791Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "baseSalary": {
@@ -2209,7 +2208,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-50d01a54c105",
@@ -2951,7 +2951,7 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-3",
         "en": "registered-nurse-nursing-professional-kantonsspital-aarau-ksa-aarau",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -3021,7 +3021,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "baseSalary": {
@@ -3033,7 +3032,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-b6e1ec77798d",
@@ -4134,7 +4134,7 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "en": "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -4198,7 +4198,6 @@
         ]
       },
       "firstSeenAt": "2026-08-21T21:48:21.989Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "baseSalary": {
@@ -4210,7 +4209,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-e64a36808add",

@@ -1450,6 +1450,12 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'pagamenti-offline-carte-2026': { it: 'pagamenti-offline-carte-2026', en: 'offline-card-payments-2026', de: 'offline-kartenzahlungen-2026', fr: 'paiements-sans-connexion-cartes-2026' },
  'amnesty-neutralita-crimini-guerra': { it: 'amnesty-neutralita-crimini-guerra', en: 'amnesty-neutrality-war-crimes', de: 'amnesty-neutralitaet-kriegsverbrechen', fr: 'amnesty-neutralite-crimes-guerre' },
  'premi-lamal-berna-sussidio': { it: 'premi-lamal-berna-sussidio', en: 'health-insurance-premiums-canton-berne-subsidies', de: 'versicherungspraemien-kanton-bern-subventionen', fr: 'primes-assurance-maladie-canton-berne-subventions' },
+ 'berna-custodia-bambini-tariffe-costi': { it: 'berna-custodia-bambini-tariffe-costi', en: 'bern-childcare-costs-tariffs', de: 'bern-kinderbetreuung-kosten-tarife', fr: 'berne-garde-enfants-tarifs-couts' },
+ 'export-orologi-2026-prudenza-mercati': { it: 'export-orologi-2026-prudenza-mercati', en: 'watch-export-2026-caution-markets', de: 'uhr-export-2026-vorsicht-maerkte', fr: 'export-montres-2026-prudence-marches' },
+ 'richieste-asilo-sotto-10-mila-primo-semestre': { it: 'richieste-asilo-sotto-10-mila-primo-semestre', en: 'asylum-requests-under-10-thousand-first-half', de: 'asylgesuche-unter-10000-erste-halfte', fr: 'demandes-asile-moins-10000-premier-semestre' },
+ 'benzina-diesel-paradosso-petrolio': { it: 'benzina-diesel-paradosso-petrolio', en: 'petrol-diesel-prices-paradox', de: 'benzin-diesel-preisparadoxon', fr: 'essence-diesel-paradoxe-prix' },
+ 'spionaggio-svizzera-controlli': { it: 'spionaggio-svizzera-controlli', en: 'espionage-switzerland-controls', de: 'spionage-schweiz-kontrollen', fr: 'espionnage-suisse-controles' },
+ 'argovia-divieto-velo-scuole': { it: 'argovia-divieto-velo-scuole', en: 'aargau-veil-ban-schools', de: 'aargau-kopftuch-verbot-schulen', fr: 'argovie-interdiction-voile-ecoles' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

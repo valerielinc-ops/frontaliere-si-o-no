@@ -55439,6 +55439,239 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-berna-custodia-bambini-tariffe-costi': {
+    title: 'Custodia bambini nel Canton Berna: costi e sussidi',
+    description: 'Guida ai servizi di custodia bambini (asilo nido, famiglia diurna, doposcuola) nel Canton Berna con tariffe su reddito e sussidi cantonali disponibili.',
+    keywords: 'frontalieri, ticino, svizzera, italia, custodia, bambini, canton, berna',
+    ogTitle: 'Custodia bambini Canton Berna: costi e sussidi',
+    ogDescription: 'Scopri come funzionano i servizi di custodia bambini nel Canton Berna: tariffe calcolate su reddito, sussidi disponibili e procedure di accesso per famiglie.',
+    canonicalPath: '/articoli-svizzera/berna-custodia-bambini-tariffe-costi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Custodia bambini nel Canton Berna: costi e sussidi",
+      "description": "Guida ai servizi di custodia bambini (asilo nido, famiglia diurna, doposcuola) nel Canton Berna con tariffe su reddito e sussidi cantonali disponibili.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/berna-custodia-bambini-tariffe-costi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Asilo nido svizzero con bambini che giocano in un ambiente sicuro, moderno e accogliente con attività educative."
+      },
+      "datePublished": "2026-08-25T12:30:01+00:00",
+      "dateModified": "2026-08-25T12:30:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/berna-custodia-bambini-tariffe-costi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-export-orologi-2026-prudenza-mercati': {
+    title: 'Export orologi aumenta: crescita cauta, Cina difficile',
+    description: 'Export orologi svizzeri cresce giugno-luglio 2026 ma con cautela. USA +14,9%, Cina -16,5% e -18,5%. Accordo Berna-Pechino riduce dazi, Francia diventa hub',
+    keywords: 'frontalieri, ticino, svizzera, italia, export, orologi, aumenta, crescita',
+    ogTitle: 'Export orologi svizzeri: crescita ma con cautela',
+    ogDescription: 'Dopo due mesi di aumento, il presidente della FH invita alla prudenza. USA forte con +14,9% vs luglio 2024, Cina debole: -16,5% giugno, -18,5% luglio. Nuovo accordo Berna-Pechino ridurrà dazi doganali gradualmente.',
+    canonicalPath: '/articoli-svizzera/export-orologi-2026-prudenza-mercati/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Export orologi aumenta: crescita cauta, Cina difficile",
+      "description": "Export orologi svizzeri cresce giugno-luglio 2026 ma con cautela. USA +14,9%, Cina -16,5% e -18,5%. Accordo Berna-Pechino riduce dazi, Francia diventa hub",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/export-orologi-2026-prudenza-mercati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Orologiaio svizzero al banco di lavoro assembla un orologio di lusso con strumenti di precisione"
+      },
+      "datePublished": "2026-08-25T13:53:51+00:00",
+      "dateModified": "2026-08-25T13:53:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/export-orologi-2026-prudenza-mercati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-richieste-asilo-sotto-10-mila-primo-semestre': {
+    title: 'Richieste d\'asilo: la SEM abbassa le stime per il 2026',
+    description: 'Nel primo semestre 2026, meno di 10.000 richieste d\'asilo in Svizzera. SEM prevede 22.000 per l\'intero anno, non 26.000 come stimato inizialmente.',
+    keywords: 'frontalieri, ticino, svizzera, italia, richieste, asilo, abbassa, stime',
+    ogTitle: 'Asilo in Svizzera: calano le richieste nel 2026',
+    ogDescription: 'Nel primo semestre 2026, meno di 10.000 richieste d\'asilo (primo calo dal 2022). SEM rivede al ribasso: 22.000 domande attese a fine anno, non 26.000. Calo afghani, turchi, eritrei. Statuto S: 12.000 ucraini.',
+    canonicalPath: '/articoli-svizzera/richieste-asilo-sotto-10-mila-primo-semestre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Richieste d'asilo: la SEM abbassa le stime per il 2026",
+      "description": "Nel primo semestre 2026, meno di 10.000 richieste d'asilo in Svizzera. SEM prevede 22.000 per l'intero anno, non 26.000 come stimato inizialmente.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/richieste-asilo-sotto-10-mila-primo-semestre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta panoramica di Lugano sulle sponde del Lago Ceresio con le montagne svizzere sullo sfondo"
+      },
+      "datePublished": "2026-08-25T14:27:13+00:00",
+      "dateModified": "2026-08-25T14:27:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/richieste-asilo-sotto-10-mila-primo-semestre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-benzina-diesel-paradosso-petrolio': {
+    title: 'Benzina e diesel cari, ma il petrolio scende | Frontaliere Ticino',
+    description: 'Nonostante il calo del petrolio del 28%, in Svizzera fare il pieno costa sempre di più. Benzina a 2,13 CHF/litro, diesel a 2,27 CHF/litro: l\'aumento ha superato',
+    keywords: 'frontalieri, ticino, svizzera, italia, benzina, diesel, cari, petrolio',
+    ogTitle: 'Benzina e diesel cari, ma il petrolio scende',
+    ogDescription: 'Nonostante il calo del petrolio del 28%, in Svizzera fare il pieno costa sempre di più. Benzina a 2,13 CHF/litro, diesel a 2,27 CHF/litro: l\'aumento ha superato i 40 centesimi dal febbraio.',
+    canonicalPath: '/articoli-svizzera/benzina-diesel-paradosso-petrolio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Benzina e diesel cari, ma il petrolio scende",
+      "description": "Nonostante il calo del petrolio del 28%, in Svizzera fare il pieno costa sempre di più. Benzina a 2,13 CHF/litro, diesel a 2,27 CHF/litro: l'aumento ha superato",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/benzina-diesel-paradosso-petrolio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pompa di benzina presso una stazione di servizio svizzera con sfondo colline alpine"
+      },
+      "datePublished": "2026-08-25T15:29:11+00:00",
+      "dateModified": "2026-08-25T15:29:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/benzina-diesel-paradosso-petrolio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-spionaggio-svizzera-controlli': {
+    title: 'La Svizzera rafforza i controlli sullo spionaggio',
+    description: 'La Commissione della politica estera propone misure contro lo spionaggio straniero con controlli sulla carta di legittimazione e espulsione di agenti esteri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, rafforza, controlli, sullo, spionaggio',
+    ogTitle: 'Svizzera: nuovi controlli contro lo spionaggio straniero',
+    ogDescription: 'La Commissione della politica estera del Consiglio nazionale propone misure per difendersi dallo spionaggio straniero: negare la carta di legittimazione a chi rappresenta un rischio e espellere agenti esteri che operano sotto copertura per Stati',
+    canonicalPath: '/articoli-svizzera/spionaggio-svizzera-controlli/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La Svizzera rafforza i controlli sullo spionaggio",
+      "description": "La Commissione della politica estera propone misure contro lo spionaggio straniero con controlli sulla carta di legittimazione e espulsione di agenti esteri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/spionaggio-svizzera-controlli.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale svizzero a Berna, simbolo delle istituzioni nazionali e della sicurezza nazionale"
+      },
+      "datePublished": "2026-08-25T16:20:54+00:00",
+      "dateModified": "2026-08-25T16:20:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/spionaggio-svizzera-controlli/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-argovia-divieto-velo-scuole': {
+    title: 'Argovia verso il divieto del velo nelle scuole',
+    description: 'Parlamento argoviese approva mozione per vietare il velo nelle scuole con 78 voti. Governo si oppone per dubbi di costituzionalità sulla sentenza del 2015',
+    keywords: 'frontalieri, ticino, svizzera, italia, argovia, verso, divieto, velo',
+    ogTitle: 'Argovia verso il divieto del velo nelle scuole',
+    ogDescription: 'Gran Consiglio argoviese approva mozione per vietare il velo alle alunne fino ai 16 anni nelle scuole pubbliche. Governo cantonale si oppone, invocando dubbi sulla costituzionalità e la giurisprudenza del Tribunale federale del 2015. Leggi gli',
+    canonicalPath: '/articoli-svizzera/argovia-divieto-velo-scuole/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Argovia verso il divieto del velo nelle scuole",
+      "description": "Parlamento argoviese approva mozione per vietare il velo nelle scuole con 78 voti. Governo si oppone per dubbi di costituzionalità sulla sentenza del 2015",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/argovia-divieto-velo-scuole.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio scolastico svizzero con studenti di diverse origini nel cortile interno, architettura elvetica."
+      },
+      "datePublished": "2026-08-25T16:30:23+00:00",
+      "dateModified": "2026-08-25T16:30:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/argovia-divieto-velo-scuole/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
 };
 
 export default BLOG_CH_SEO_METADATA;

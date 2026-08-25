@@ -10777,6 +10777,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-paisco-loveno-lavorare-grigioni-frontaliere.title': 'Paisco Loveno-Graubünden: Grenzführer, Steuern, Genehmigungen',
     'blog.article.vivere-paisco-loveno-lavorare-grigioni-frontaliere.excerpt': 'Arbeiten in Graubünden ab Paisco Loveno: Bewilligung G, Quellensteuer, Befreiung € 10\'000, KVG, Steuergutschrift und Verfahren ab 2024.',
     'blog.article.vivere-paisco-loveno-lavorare-grigioni-frontaliere.imageAlt': 'Bergstraße zu den Bündner Alpen an der Schweizer-Italiener Grenze mit Alpendörfern',
+    'blog.article.fusine-guida-frontaliere.title': 'Leben in Fusine da Frontier: der vollständige Leitfaden',
+    'blog.article.fusine-guida-frontaliere.excerpt': 'Fusine bietet niedrigere Wohnkosten und die Nähe zum Tessin für Grenzgänger, die in Graubünden arbeiten. Entdecken Sie G-Bewilligung, Besteuerung, Rückerstattungen, AHV, KVG.',
+    'blog.article.fusine-guida-frontaliere.imageAlt': 'Luftaufnahme des Tals zwischen Fusine und der Grenze zum Tessin, Grenzlandschaft zwischen Lombardei und der Schweiz',
 };
 
 export default blogMetaDe;

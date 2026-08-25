@@ -1194,10 +1194,13 @@ console.log(`
 
   6. FOLD INTO A CRAWLER-GROUP WORKFLOW
      node scripts/generate-crawler-group-workflows.mjs
-     # Regenerates all .github/workflows/crawler-group-*.yml from
-     # data/crawler-manifest.json (already updated above) — '${companyKey}'
-     # is assigned to a group using the corpus median duration until a real
-     # sample lands in data/crawler-workflow-duration-baseline.json.
+     # Rewrites .github/workflows/crawler-group-*.yml from
+     # data/crawler-manifest.json (already updated above). Since #6482 the
+     # crawler -> group assignment is PINNED in
+     # data/crawler-group-assignments.json, so only the ONE group that gains
+     # '${companyKey}' changes; the other 22 files are left byte-identical.
+     # Commit that pin file together with the .yml — it is the source of
+     # truth, and a .yml committed without it gets reshuffled next run.
 
   7. PUSH & TRIGGER
      git add -A && git commit -m "feat(crawler): add ${companyName} dedicated crawler"
