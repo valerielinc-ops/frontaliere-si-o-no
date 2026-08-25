@@ -4255,6 +4255,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-successione-zurigo-aliquote.title': 'Impôt sur les successions Zurich : taux et déductions',
     'blog.article.imposta-successione-zurigo-aliquote.excerpt': 'Comment fonctionne la fiscalité successorale dans le canton de Zurich : système progressif, exonérations pour conjoint et descendants, déclaration et délais.',
     'blog.article.imposta-successione-zurigo-aliquote.imageAlt': 'Bureau de l\'administration fiscale suisse avec documents de succession et formulaires',
+    'blog.article.verdi-richiesta-clima-2026.title': 'Les Verts demandent le Secrétariat d\'État pour le climat',
+    'blog.article.verdi-richiesta-clima-2026.excerpt': 'Les Verts suisses réclament un Secrétariat d\'Etat à la protection du climat et à la sortie des énergies fossiles. Rösti a admis : la Suisse n\'atteindra pas les objectifs climatiques 2030.',
+    'blog.article.verdi-richiesta-clima-2026.imageAlt': 'Lac de Lugano en été brûlant: impacts du changement climatique en Suisse.',
 };
 
 export default blogMetaChFr;

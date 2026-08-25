@@ -4255,6 +4255,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-successione-zurigo-aliquote.title': 'Zurich Inheritance Tax: Rates and Deductions',
     'blog.article.imposta-successione-zurigo-aliquote.excerpt': 'How inheritance taxation works in the Canton of Zurich: progressive system, exemptions for spouse and descendants, declaration and deadlines.',
     'blog.article.imposta-successione-zurigo-aliquote.imageAlt': 'Swiss tax office desk with inheritance documents, calculator, and official forms',
+    'blog.article.verdi-richiesta-clima-2026.title': 'Greens call for Secretary of State for climate',
+    'blog.article.verdi-richiesta-clima-2026.excerpt': 'The Swiss Greens are calling for a Secretariat of State for Climate Protection and Exit from Fossil Energies. Rösti admitted: Switzerland will not meet the 2030 climate goals.',
+    'blog.article.verdi-richiesta-clima-2026.imageAlt': 'Lake Lugano in scorching summer: climate change impacts in Switzerland.',
 };
 
 export default blogMetaChEn;

@@ -4255,6 +4255,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-successione-zurigo-aliquote.title': 'Erbschaftssteuer Zürich: Steuersätze und Abzüge',
     'blog.article.imposta-successione-zurigo-aliquote.excerpt': 'Wie die Erbschaftsbesteuerung im Kanton Zürich funktioniert: progressives System, Befreiungen für Ehegatten und Nachkommen, Erklärung und Fristen.',
     'blog.article.imposta-successione-zurigo-aliquote.imageAlt': 'Schreibtisch eines Schweizer Finanzamts mit Erbschaftsdokumenten und Steuererklärungen',
+    'blog.article.verdi-richiesta-clima-2026.title': 'Grüne fordern Staatssekretariat für Klima',
+    'blog.article.verdi-richiesta-clima-2026.excerpt': 'Die Schweizer Grünen fordern ein Staatssekretariat für Klimaschutz und den Ausstieg aus fossilen Energien. Rösti räumte ein: Die Schweiz werde die Klimaziele 2030 nicht erreichen.',
+    'blog.article.verdi-richiesta-clima-2026.imageAlt': 'Luganersee im Hochsommer: Auswirkungen des Klimawandels in der Schweiz.',
 };
 
 export default blogMetaChDe;
