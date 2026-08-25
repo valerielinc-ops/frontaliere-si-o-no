@@ -1434,6 +1434,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'apprendistato-canton-appenzello-esterno': { it: 'apprendistato-canton-appenzello-esterno', en: 'apprenticeship-appenzell-external', de: 'lehrling-appenzell-aussen', fr: 'apprentissage-appenzell-exterieur' },
  'avs-prestazioni-complementari-appenzello': { it: 'avs-prestazioni-complementari-appenzello', en: 'avs-supplementary-benefits-appenzell', de: 'ahv-ergaenzungsleistungen-appenzell', fr: 'ava-prestations-complementaires-appenzell' },
  'appenzello-esterno-avs-primo-pilastro': { it: 'appenzello-esterno-avs-primo-pilastro', en: 'avs-benefits-appenzell-rhodes-compensation-fund', de: 'avs-leistungen-appenzell-ausserrhoden-kasse', fr: 'avs-prestations-appenzell-rhodes-caisse' },
+ 'sistema-sanitario-difficolta-cittadini': { it: 'sistema-sanitario-difficolta-cittadini', en: 'healthcare-system-user-difficulties', de: 'gesundheitssystem-nutzer-schwierigkeiten', fr: 'systeme-de-sante-difficultes-usagers' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

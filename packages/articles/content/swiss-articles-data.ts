@@ -12673,6 +12673,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'sistema-sanitario-difficolta-cittadini',
+    category: 'pratico',
+    date: '2026-08-25T05:32:41.892Z',
+    image: '/images/blog/sistema-sanitario-difficolta-cittadini.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

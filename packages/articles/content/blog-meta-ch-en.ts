@@ -4225,6 +4225,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.appenzello-esterno-avs-primo-pilastro.title': 'AVS and complementary services: External Appenzello',
     'blog.article.appenzello-esterno-avs-primo-pilastro.excerpt': 'First pillar in the Canton of Outer Appenzell: how the compensation fund works, calculation of the AVS pension, management of contribution gaps and access to supplementary benefits to cover the minimum living wage.',
     'blog.article.appenzello-esterno-avs-primo-pilastro.imageAlt': 'Cantonal compensation fund office with seniors consulting pension and benefits documentation',
+    'blog.article.sistema-sanitario-difficolta-cittadini.title': 'Health system: difficulties for many Swiss citizens',
+    'blog.article.sistema-sanitario-difficolta-cittadini.excerpt': 'A Careum study reveals that half of Swiss people have poor health skills. Three out of four struggle to navigate the system between bureaucracy and jargon.',
+    'blog.article.sistema-sanitario-difficolta-cittadini.imageAlt': 'Modern building in Mendrisio hosting institutional health meetings',
 };
 
 export default blogMetaChEn;
