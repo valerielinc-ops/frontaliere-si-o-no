@@ -54815,6 +54815,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sistema-sanitario-difficolta-cittadini': {
+    title: 'Sistema sanitario: difficoltà per molti cittadini svizzeri',
+    description: 'Uno studio Careum evidenzia che metà degli svizzeri ha difficoltà sanitarie. Tre persone su quattro faticano a orientarsi nel sistema complesso e burocratico.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sistema, sanitario, difficoltà, molti',
+    ogTitle: 'Sistema sanitario: difficoltà per molti cittadini svizzeri',
+    ogDescription: 'Dati preoccupanti dallo studio Careum: il 50% degli svizzeri ha scarse competenze sanitarie. Il sistema sanitario risulta un labirinto burocratico per tre persone su quattro.',
+    canonicalPath: '/articoli-svizzera/sistema-sanitario-difficolta-cittadini/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sistema sanitario: difficoltà per molti cittadini svizzeri",
+      "description": "Uno studio Careum evidenzia che metà degli svizzeri ha difficoltà sanitarie. Tre persone su quattro faticano a orientarsi nel sistema complesso e burocratico.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sistema-sanitario-difficolta-cittadini.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio moderno a Mendrisio sede di incontri istituzionali sulla sanità"
+      },
+      "datePublished": "2026-08-25T05:32:41+00:00",
+      "dateModified": "2026-08-25T05:32:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sistema-sanitario-difficolta-cittadini/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

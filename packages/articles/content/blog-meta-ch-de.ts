@@ -4225,6 +4225,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.appenzello-esterno-avs-primo-pilastro.title': 'AHV und Ergänzungsleistungen: Appenzell Ausserrhoden',
     'blog.article.appenzello-esterno-avs-primo-pilastro.excerpt': 'Erste Säule im Kanton Appenzell Ausserrhoden: Funktionsweise der Ausgleichskasse, AHV-Rentenberechnung, Umgang mit Beitragslücken und Zugang zu Ergänzungsleistungen zur Deckung des Existenzminimums.',
     'blog.article.appenzello-esterno-avs-primo-pilastro.imageAlt': 'Kantonales Ausgleichskassenbüro mit Senioren, die Rentendokumente konsultieren',
+    'blog.article.sistema-sanitario-difficolta-cittadini.title': 'Gesundheitssystem: Schwierigkeiten für viele Schweizer Bürger',
+    'blog.article.sistema-sanitario-difficolta-cittadini.excerpt': 'Eine Careum-Studie zeigt, dass die Hälfte der Schweizerinnen und Schweizer über schlechte Gesundheitskompetenzen verfügt. Drei von vier haben Mühe, sich im System zwischen Bürokratie und Jargon zurechtzufinden.',
+    'blog.article.sistema-sanitario-difficolta-cittadini.imageAlt': 'Modernes Gebäude in Mendrisio für institutionelle Gesundheitstreffen',
 };
 
 export default blogMetaChDe;

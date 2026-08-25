@@ -4225,6 +4225,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.appenzello-esterno-avs-primo-pilastro.title': 'AVS et prestations complémentaires : Appenzell Extérieur',
     'blog.article.appenzello-esterno-avs-primo-pilastro.excerpt': 'Premier pilier dans le canton d\'Appenzell Extérieur : comment fonctionne la caisse de compensation, calcul de la rente AVS, gestion des lacunes de cotisation et accès aux prestations complémentaires pour couvrir le minimum vital.',
     'blog.article.appenzello-esterno-avs-primo-pilastro.imageAlt': 'Bureau de la caisse de compensation cantonale avec des seniors consultant des documents de retraite',
+    'blog.article.sistema-sanitario-difficolta-cittadini.title': 'Système de santé : difficultés pour de nombreux citoyens suisses',
+    'blog.article.sistema-sanitario-difficolta-cittadini.excerpt': 'Une étude Careum révèle que la moitié des Suisses ont peu de compétences en santé. Trois sur quatre peinent à s\'orienter dans le système entre bureaucratie et jargon.',
+    'blog.article.sistema-sanitario-difficolta-cittadini.imageAlt': 'Bâtiment moderne à Mendrisio accueillant des réunions sur la santé',
 };
 
 export default blogMetaChFr;
