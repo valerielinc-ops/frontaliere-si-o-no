@@ -10771,6 +10771,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sluderno-guida-frontaliera.title': 'Vivre à Sluderno, travailler dans les Grisons : frontalier',
     'blog.article.sluderno-guida-frontaliera.excerpt': 'Guide complet : permis G, fiscalité frontalière, LAMal et procédures étape par étape pour ceux qui veulent déménager à Sluderno et travailler en Suisse.',
     'blog.article.sluderno-guida-frontaliera.imageAlt': 'Vue de Bellinzona : paysage alpin tessinois représentant le contexte géographique pour les travailleurs frontaliers',
+    'blog.article.vivere-prata-camportaccio-lavorare-grigioni.title': 'Prata Camportaccio frontalier : vivre et travailler',
+    'blog.article.vivere-prata-camportaccio-lavorare-grigioni.excerpt': 'Déménager à Prata Camportaccio pour travailler dans les Grisons : permis G, nouvel accord frontalier, fiscalité, AVS/LPP et logement abordable',
+    'blog.article.vivere-prata-camportaccio-lavorare-grigioni.imageAlt': 'Paysage alpin à la frontière Suisse-Italie avec vallées et chalets traditionnels',
 };
 
 export default blogMetaFr;

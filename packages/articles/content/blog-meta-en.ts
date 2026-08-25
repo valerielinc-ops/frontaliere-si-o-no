@@ -10769,6 +10769,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sluderno-guida-frontaliera.title': 'Living in Sluderno, working in Graubünden: cross-border',
     'blog.article.sluderno-guida-frontaliera.excerpt': 'Complete guide: G permit, border tax, LAMal and step-by-step procedures for those who want to move to Sluderno and work in Switzerland.',
     'blog.article.sluderno-guida-frontaliera.imageAlt': 'View of Bellinzona: Alpine Ticino landscape representing the geographic context for those working in Switzerland',
+    'blog.article.vivere-prata-camportaccio-lavorare-grigioni.title': 'Prata Camportaccio border: living and working',
+    'blog.article.vivere-prata-camportaccio-lavorare-grigioni.excerpt': 'Moving to Prata Camportaccio to work in the Graubünden: G Permit, New Frontier Agreement, taxation, AVS/LPP and housing affordability',
+    'blog.article.vivere-prata-camportaccio-lavorare-grigioni.imageAlt': 'Alpine mountain landscape at Switzerland-Italy border with traditional chalets and valleys',
 };
 
 export default blogMetaEn;

@@ -10768,6 +10768,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sluderno-guida-frontaliera.title': 'Wohnen in Schluderns, Arbeiten in Graubünden: Grenzgänger',
     'blog.article.sluderno-guida-frontaliera.excerpt': 'Komplette Anleitung: G-Genehmigung, Grenzbesteuerung, KVG und Schritt-für-Schritt-Verfahren für diejenigen, die nach Schluderns ziehen und in der Schweiz arbeiten möchten.',
     'blog.article.sluderno-guida-frontaliera.imageAlt': 'Blick auf Bellinzona: Alpine Tessiner Landschaft, die den geografischen Kontext für Grenzgänger darstellt',
+    'blog.article.vivere-prata-camportaccio-lavorare-grigioni.title': 'Rasen Grenzwiese: Leben und Arbeiten',
+    'blog.article.vivere-prata-camportaccio-lavorare-grigioni.excerpt': 'Umzug nach Camportaccio-Wiese, um in Graubünden zu arbeiten: Bewilligung G, Neue Grenzgängervereinbarung, Steuern, AHV/BVG und Wohnkomfort',
+    'blog.article.vivere-prata-camportaccio-lavorare-grigioni.imageAlt': 'Alpine Berglandschaft an der Grenze Schweiz-Italien mit traditionellen Chalets',
 };
 
 export default blogMetaDe;
