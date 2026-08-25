@@ -27,6 +27,7 @@
 import { describe, expect, it } from 'vitest';
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { matchQuotedLiteral, stripCommentLines } from '../scripts/lib/js-string-literal.mjs';
@@ -175,10 +176,12 @@ describe('data/crawler-companies-auto.json — invarianti della directory', () =
     //
     //  - un pavimento assoluto invecchia: 500 oggi e' il 82% dei runner, fra
     //    duecento crawler sarebbe il 60% e non direbbe piu' niente;
-    //  - un'uguaglianza esatta sarebbe un wedge: i runner arrivano dalla PR di
-    //    promozione del prospector, che non rigenera questo file, e ogni
-    //    promozione renderebbe `main` rosso finche' qualcuno non lancia
-    //    `npm run companies:generate`.
+    //  - un'uguaglianza esatta resterebbe un wedge anche adesso che la PR di
+    //    promozione del prospector rigenera il file da sola (vedi il describe
+    //    «il registro si rigenera a ogni promozione»): la rigenerazione ha un
+    //    ramo di fallimento dichiarato, che lascia apposta il file alla
+    //    versione precedente invece di committarne uno a meta'. Al 100% quel
+    //    ramo — l'esito PREVISTO di un guasto — renderebbe `main` rosso.
     //
     // Il 90% lascia passare il ritardo fisiologico di una manciata di crawler
     // appena promossi (misurato: 602/609 = 98,9%) e non lascia passare lo
@@ -242,5 +245,122 @@ describe('data/crawler-companies-auto.json — invarianti della directory', () =
     // una stringa brutta in un file di dati.
     const leaked = companies.filter((e) => /\$\{/.test(JSON.stringify(e)));
     expect(leaked.map((e) => e.key)).toEqual([]);
+  });
+});
+
+/**
+ * Il registro sopra puo' essere perfetto e comunque sbagliato, se nessuno lo
+ * rigenera.
+ *
+ * E' successo per mesi: `generate-crawler-companies.mjs` esisteva, `npm run
+ * companies:generate` esisteva, e non li chiamava NIENTE — ne' un workflow, ne'
+ * uno stadio del prospector. Il file e' rimasto a 213 voci mentre i runner
+ * arrivavano a 614, cioe' 401 datori con crawler dedicato invisibili nella
+ * directory pubblica, e gli invarianti qui sopra restavano tutti verdi: erano
+ * veri su uno snapshot vecchio.
+ *
+ * Il gancio e' `scripts/prospect-promote.mjs`, l'unico punto del repo che
+ * cambia l'insieme dei crawler in produzione. Questi test lo tengono agganciato.
+ *
+ * Sono osservatori SUL SORGENTE, ed e' una scelta, non una scorciatoia:
+ * `prospect-promote.mjs` e' uno script top-level che al primo import aprirebbe
+ * PR vere e leggerebbe lo store dei candidati, quindi non ha superficie
+ * importabile da esercitare. Cio' che deve restare vero e' comunque strutturale
+ * — chi chiama chi, e in che ordine rispetto ai due guard che lo delimitano —
+ * e su quello un'asserzione sul sorgente non e' un'approssimazione.
+ */
+describe('il registro si rigenera a ogni promozione, non a mano', () => {
+  const promoteSrc = fs.readFileSync(path.join(ROOT, 'scripts', 'prospect-promote.mjs'), 'utf8');
+  const generatorSrc = fs.readFileSync(path.join(ROOT, 'scripts', 'generate-crawler-companies.mjs'), 'utf8');
+
+  /** Indice della prima occorrenza, con un messaggio utile se manca. */
+  const at = (src: string, needle: string): number => {
+    const i = src.indexOf(needle);
+    expect(i, `atteso nel sorgente: ${needle}`).toBeGreaterThan(-1);
+    return i;
+  };
+
+  it('prospect-promote.mjs invoca il generatore', () => {
+    expect(promoteSrc).toContain("'scripts/generate-crawler-companies.mjs'");
+  });
+
+  it('lo invoca DOPO il guard sui promossi, cosi’ un giro a zero non tocca il file', () => {
+    // Il vincolo: nessuna rigenerazione se l'insieme dei crawler non e'
+    // cambiato. Il guard `!shipped.length` esce dal processo, quindi «dopo il
+    // guard» e' letteralmente cio' che lo garantisce — non un `if` in piu' da
+    // tenere allineato.
+    const guard = at(promoteSrc, 'if (!shipped.length) {');
+    const regen = at(promoteSrc, "'scripts/generate-crawler-companies.mjs'");
+    expect(regen).toBeGreaterThan(guard);
+
+    // E anche dopo l'uscita per `--dry-run`, che non ha scaffoldato niente.
+    expect(regen).toBeGreaterThan(at(promoteSrc, "console.log('\\n--dry-run: niente scritto.')"));
+  });
+
+  it('lo invoca PRIMA del commit, cosi’ il diff viaggia nella stessa PR', () => {
+    // Se la rigenerazione finisse dopo `git commit`, il file resterebbe
+    // modificato e non committato: la PR di promozione arriverebbe senza il
+    // registro aggiornato e `main` resterebbe incoerente — esattamente lo stato
+    // che questo aggancio esiste per chiudere.
+    const regen = at(promoteSrc, "'scripts/generate-crawler-companies.mjs'");
+    expect(regen).toBeLessThan(at(promoteSrc, "git('add'"));
+    expect(regen).toBeLessThan(at(promoteSrc, "git('commit'"));
+  });
+
+  it('committa il registro solo se la rigenerazione e’ riuscita', () => {
+    // Il ramo di fallimento non interrompe la promozione, quindi senza questo
+    // guard un fallimento committerebbe comunque cio' che c'e' sul disco.
+    expect(promoteSrc).toContain("if (companiesRegenerated) paths.push('data/crawler-companies-auto.json');");
+  });
+
+  it('il corpo della PR nomina il file di dati che il diff tocca', () => {
+    // Stesso gap di #6301/#6279: un file pubblico modificato dal diff e mai
+    // citato nel body. Entrambi i rami devono dire qualcosa — anche quello di
+    // fallimento, che informa che la directory e' indietro.
+    const bodyStart = at(promoteSrc, 'const body = `## Implementato');
+    const nonImpl = promoteSrc.indexOf('## Non implementato (ancora)', bodyStart);
+    const implementato = promoteSrc.slice(bodyStart, nonImpl);
+    expect(implementato).toContain('${companiesNote}');
+    expect(promoteSrc).toContain('const companiesNote = companiesRegenerated');
+  });
+
+  it('il generatore scrive in modo atomico: mai un JSON troncato su disco', () => {
+    // `data/crawler-companies-auto.json` e' importato a build time da
+    // `TicinoCompanies`: un file scritto a meta' non e' un dato sbagliato, e'
+    // una build rotta — e da quando lo produce una pipeline non presidiata,
+    // sarebbe una build rotta committata dentro una PR che nessuno legge.
+    //
+    // L'atomicita' arriva dal modulo condiviso (`writeJsonAtomic`, issue
+    // #2805), non da una tmp+rename riscritta qui: una copia locale sarebbe la
+    // numero 96 e deriverebbe dal resto il giorno dopo.
+    expect(generatorSrc).toContain('writeJsonAtomic(OUTPUT, companies)');
+    expect(generatorSrc).toContain("from './lib/atomic-write-json.mjs'");
+    // La scrittura diretta sulla destinazione e' proprio cio' che il modulo
+    // sostituisce: se ricompare, l'atomicita' e' persa senza che nulla lo dica.
+    expect(generatorSrc).not.toMatch(/fs\.writeFileSync\(\s*OUTPUT\b/);
+  });
+
+  it('writeJsonAtomic scrive davvero via rename, e ripulisce il temporaneo', async () => {
+    // L'unica asserzione qui che NON e' sul sorgente: il modulo condiviso e'
+    // importabile, quindi la garanzia si esercita invece di descriverla.
+    const { writeJsonAtomic } = await import('../scripts/lib/atomic-write-json.mjs');
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-companies-'));
+    const target = path.join(dir, 'registry.json');
+    try {
+      fs.writeFileSync(target, '["vecchio"]\n', 'utf8');
+      writeJsonAtomic(target, [{ name: 'ACME SA', key: 'acme' }]);
+      expect(JSON.parse(fs.readFileSync(target, 'utf8'))).toEqual([{ name: 'ACME SA', key: 'acme' }]);
+      // Byte identici a cio' che il generatore scriveva prima: 2 spazi di
+      // indentazione e newline finale, cosi' il passaggio al modulo condiviso
+      // non produce un diff cosmetico su 600 voci.
+      expect(fs.readFileSync(target, 'utf8')).toBe(
+        JSON.stringify([{ name: 'ACME SA', key: 'acme' }], null, 2) + '\n',
+      );
+      // Nessun `.tmp` sopravvissuto accanto alla destinazione: in `data/` un
+      // residuo untracked confonde il `git status` della PR senza dire niente.
+      expect(fs.readdirSync(dir).filter((f) => f.includes('.tmp'))).toEqual([]);
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
   });
 });
