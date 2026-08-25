@@ -4324,6 +4324,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.calo-domande-asilo-2026.title': 'Asilo: domande calano in Svizzera nel 2026',
     'blog.article.calo-domande-asilo-2026.excerpt': 'Nel primo semestre 2026, per la prima volta dal 2022, meno di 10mila richieste. La SEM rivede al ribasso: da 26mila a 22mila domande annuali.',
     'blog.article.calo-domande-asilo-2026.imageAlt': 'Documentazione della Segreteria di Stato della migrazione svizzera con referti ufficiali di richieste d\'asilo',
+    'blog.article.parlamento-svizzero-velo-divieto-diritti.title': 'Velo nelle scuole argoviesi: diritti e costituzione',
+    'blog.article.parlamento-svizzero-velo-divieto-diritti.excerpt': 'Il Parlamento di Argovia ha votato per vietare il velo nelle scuole pubbliche fino ai 16 anni con 78 sì e 54 no, ma il Tribunale federale mette in dubbio la legalità della misura.',
+    'blog.article.parlamento-svizzero-velo-divieto-diritti.imageAlt': 'Aula scolastica svizzera con studenti e banchi, luce naturale, rappresentazione dei diritti nell\'istruzione',
 };
 
 export default blogMetaChIt;

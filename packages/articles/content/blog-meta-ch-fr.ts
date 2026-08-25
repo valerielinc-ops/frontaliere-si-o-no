@@ -4324,6 +4324,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.calo-domande-asilo-2026.title': 'Asile : les demandes chutent en Suisse en 2026',
     'blog.article.calo-domande-asilo-2026.excerpt': 'Au premier semestre 2026, pour la première fois depuis 2022, moins de 10 000 demandes. Le SEM révise à la baisse : de 26 000 à 22 000 demandes annuelles.',
     'blog.article.calo-domande-asilo-2026.imageAlt': 'Documentation officielle du Secrétariat d\'État suisse aux migrations sur les demandes d\'asile',
+    'blog.article.parlamento-svizzero-velo-divieto-diritti.title': 'Voile dans les écoles argoviennes : droits et constitution',
+    'blog.article.parlamento-svizzero-velo-divieto-diritti.excerpt': 'Le Parlement d\'Argovie a voté pour interdire le voile dans les écoles publiques jusqu\'à 16 ans avec 78 oui et 54 non, mais le Tribunal fédéral met en doute la légalité de la mesure.',
+    'blog.article.parlamento-svizzero-velo-divieto-diritti.imageAlt': 'Salle de classe suisse avec étudiants, lumière naturelle, symbole des enjeux éducatifs et constitutionnels',
 };
 
 export default blogMetaChFr;
