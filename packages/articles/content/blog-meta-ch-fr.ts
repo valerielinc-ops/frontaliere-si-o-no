@@ -4216,6 +4216,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposte-appenzello-esterno-aliquote.title': 'Impôts cantonaux Appenzell Extérieur : taux et déductions',
     'blog.article.imposte-appenzello-esterno-aliquote.excerpt': 'Guide complet des impôts cantonaux et communaux à Appenzell Extérieur : structure à 3 niveaux, taux, déductions admises, délais déclaratifs et procédure en ligne.',
     'blog.article.imposte-appenzello-esterno-aliquote.imageAlt': 'Bâtiment de l\'administration fiscale cantonale suisse avec paysage alpin',
+    'blog.article.apprendistato-canton-appenzello-esterno.title': 'Apprentissage et formation professionnelle dans le canton d\'Appenzell Externe',
+    'blog.article.apprendistato-canton-appenzello-esterno.excerpt': 'Découvrez comment trouver un poste d\'apprentissage, un contrat d\'apprentissage, une rémunération d\'apprenti et une maturité professionnelle dans le canton d\'Appenzell Extérieur.',
+    'blog.article.apprendistato-canton-appenzello-esterno.imageAlt': 'Un jeune apprenti dans le canton d\'Appenzell, en une scène de travail réelle.',
 };
 
 export default blogMetaChFr;

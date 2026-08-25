@@ -4216,6 +4216,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposte-appenzello-esterno-aliquote.title': 'Cantonal taxes External Appenzell: rates and deductions',
     'blog.article.imposte-appenzello-esterno-aliquote.excerpt': 'Complete guide to cantonal and municipal taxes in Appenzello Esterno: 3-level structure, rates, allowable deductions, declaratory deadlines and online procedure.',
     'blog.article.imposte-appenzello-esterno-aliquote.imageAlt': 'Swiss cantonal tax administration building with alpine mountain landscape in background',
+    'blog.article.apprendistato-canton-appenzello-esterno.title': 'Apprenticeship and vocational training in the Canton of Appenzello Outer',
+    'blog.article.apprendistato-canton-appenzello-esterno.excerpt': 'Find out how to find a traineeship, traineeship contract, apprentice salary and professional maturity in the Outer Appenzell Canton.',
+    'blog.article.apprendistato-canton-appenzello-esterno.imageAlt': 'A young apprentice in Appenzell Innerrhoden, in a real work scene.',
 };
 
 export default blogMetaChEn;

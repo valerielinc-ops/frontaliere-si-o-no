@@ -1431,6 +1431,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'aprire-attivita-sciaffusa-registro-commercio': { it: 'aprire-attivita-sciaffusa-registro-commercio', en: 'opening-business-sciaffusa-commercial-register', de: 'unternehmen-gruenden-sciaffusa-handelsregister', fr: 'ouvrir-entreprise-sciaffusa-registre-commerciaux' },
  'salari-mercato-lavoro-svizzera-settori': { it: 'salari-mercato-lavoro-svizzera-settori', en: 'salaries-labor-market-switzerland-sectors', de: 'loehne-arbeitsmarkt-schweiz-sektoren', fr: 'salaires-marche-travail-suisse-secteurs' },
  'imposte-appenzello-esterno-aliquote': { it: 'imposte-appenzello-esterno-aliquote', en: 'canton-appenzell-ausserrhoden-cantonal-taxes-rates', de: 'kanton-appenzell-ausserrhoden-kantonale-steuern-saetze', fr: 'canton-appenzell-rhodes-exterieures-impots-cantonaux-taux' },
+ 'apprendistato-canton-appenzello-esterno': { it: 'apprendistato-canton-appenzello-esterno', en: 'apprenticeship-appenzell-external', de: 'lehrling-appenzell-aussen', fr: 'apprentissage-appenzell-exterieur' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
