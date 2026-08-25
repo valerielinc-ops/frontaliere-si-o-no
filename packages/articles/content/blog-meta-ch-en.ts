@@ -4309,6 +4309,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.fondo-esercito-iva-compromesso.title': 'A compromise to fund the army',
     'blog.article.fondo-esercito-iva-compromesso.excerpt': 'The Finance Commission of the Council of States approves the plan. Fund with debt of up to 6 billion per year from 2027, financed by an increase in VAT and residual credit.',
     'blog.article.fondo-esercito-iva-compromesso.imageAlt': 'Lugano cityscape with Swiss urban architecture and lake backdrop.',
+    'blog.article.compromesso-fondo-difesa.title': 'Army, the compromise on financing',
+    'blog.article.compromesso-fondo-difesa.excerpt': 'The Finance Commission proposes a fund with debt of up to 6 billion per year from 2027. Financing: VAT +0.2%, credit residuals and surpluses 2026. Voting in September and December 2026.',
+    'blog.article.compromesso-fondo-difesa.imageAlt': 'Swiss Federal Parliament building in Bern, venue for defense fund vote',
 };
 
 export default blogMetaChEn;

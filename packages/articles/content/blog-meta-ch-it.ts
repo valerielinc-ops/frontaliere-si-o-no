@@ -4309,6 +4309,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.fondo-esercito-iva-compromesso.title': 'Un compromesso per finanziare l\'esercito',
     'blog.article.fondo-esercito-iva-compromesso.excerpt': 'La Commissione finanze del Consiglio degli Stati approva il piano. Fondo con indebitamento fino a 6 miliardi annui dal 2027, finanziato da aumento IVA e residui di credito.',
     'blog.article.fondo-esercito-iva-compromesso.imageAlt': 'Veduta di Lugano con architetture urbane svizzere sullo sfondo del lago.',
+    'blog.article.compromesso-fondo-difesa.title': 'Esercito, il compromesso sul finanziamento',
+    'blog.article.compromesso-fondo-difesa.excerpt': 'La Commissione finanze propone un fondo con indebitamento fino a 6 miliardi annui dal 2027. Finanziamento: IVA +0,2%, residui di credito e eccedenze 2026. Votazione a settembre e dicembre 2026.',
+    'blog.article.compromesso-fondo-difesa.imageAlt': 'Palazzo del Parlamento federale svizzero a Berna, sede della votazione sul fondo esercito',
 };
 
 export default blogMetaChIt;

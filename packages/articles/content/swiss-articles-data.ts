@@ -12925,6 +12925,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'compromesso-fondo-difesa',
+    category: 'fiscale',
+    date: '2026-08-25T21:22:58.002Z',
+    image: '/images/blog/compromesso-fondo-difesa.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
