@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import {
+  INFEED_AD_AB_TEST_SUPPRESSED_CANTONS,
   JOBLIST_AD_EVERY_N,
   JOBLIST_AD_MAX_PER_LIST,
   shouldPlaceInfeedAd,
@@ -91,6 +92,79 @@ describe('adsenseSlots — shouldPlaceInfeedAd cadence + density cap', () => {
       expect(adPositionsForListLength(35).length).toBe(11);
       expect(adPositionsForListLength(36).length).toBe(12);
       expect(adPositionsForListLength(37).length).toBe(12);
+    });
+  });
+
+  /**
+   * Canton in-feed A/B test (2026-08-25, owner request): Lucerna ('LU') is
+   * the TREATMENT canton for the manual in-feed slot on the canton
+   * job-search listing (JOBLIST_INFEED_DESKTOP/MOBILE) — Basilea
+   * ('BASILEA', the merged BS+BL URL-group key) is the CONTROL and MUST
+   * stay on the unmodified cadence, same as every other canton. The two
+   * call sites that opt into this (components/community/JobBoard.tsx
+   * `displayJobs.map` main list, build-plugins/jobsSeoPagesPlugin.ts
+   * canton-index `cantonJobs.map`) both pass `{ canton }` straight through
+   * to this shared predicate — it is the single point that decides
+   * suppression, so pinning its contract here covers both render paths.
+   */
+  describe('canton in-feed A/B test (opt-in `opts.canton`)', () => {
+    it('suppresses every in-feed placement for the treatment canton (LU), regardless of cadence', () => {
+      for (const pos of [3, 6, 9, 12, 36]) {
+        expect(shouldPlaceInfeedAd(pos, { canton: 'LU' })).toBe(false);
+      }
+    });
+
+    it('is case-insensitive on the canton code', () => {
+      expect(shouldPlaceInfeedAd(3, { canton: 'lu' })).toBe(false);
+      expect(shouldPlaceInfeedAd(3, { canton: 'Lu' })).toBe(false);
+    });
+
+    it('never suppresses positions that were already non-cadence (no false "it never fires at all" pass)', () => {
+      expect(shouldPlaceInfeedAd(1, { canton: 'LU' })).toBe(false);
+      expect(shouldPlaceInfeedAd(2, { canton: 'LU' })).toBe(false);
+      // Still false, but for the ORIGINAL cadence reason, not the A/B one —
+      // both a suppressed canton and a non-multiple-of-N position independently
+      // return false, so this only guards against a future refactor that makes
+      // the canton branch mask the cadence branch's own test coverage.
+    });
+
+    it('leaves the control canton (BASILEA) on the unmodified cadence', () => {
+      const hits = [1, 2, 3, 4, 5, 6, 7, 8, 9].filter((p) =>
+        shouldPlaceInfeedAd(p, { canton: 'BASILEA' }),
+      );
+      expect(hits).toEqual([3, 6, 9]);
+    });
+
+    it('leaves every other canton on the unmodified cadence', () => {
+      for (const canton of ['TI', 'ZH', 'GE', 'BS', 'BL', 'VD', 'AG']) {
+        const hits = [1, 2, 3, 4, 5, 6].filter((p) => shouldPlaceInfeedAd(p, { canton }));
+        expect(hits).toEqual([3, 6]);
+      }
+    });
+
+    it('leaves callers that pass no canton at all untouched (every existing call site)', () => {
+      expect(shouldPlaceInfeedAd(3)).toBe(true);
+      expect(shouldPlaceInfeedAd(3, {})).toBe(true);
+      expect(shouldPlaceInfeedAd(3, { canton: null })).toBe(true);
+      expect(shouldPlaceInfeedAd(3, { canton: undefined })).toBe(true);
+      expect(shouldPlaceInfeedAd(3, { canton: '' })).toBe(true);
+    });
+
+    it('stays safe under the `.filter(shouldPlaceInfeedAd)` idiom used throughout this suite and its callers', () => {
+      // Array.prototype.filter calls the predicate as (value, index, array) —
+      // the existing cadence tests above rely on `.filter(shouldPlaceInfeedAd)`
+      // passing the array index as the SECOND argument (this file's own
+      // `opts` position). A number has no `.canton` property, so the A/B
+      // branch must stay inert for every call shaped this way; this regression
+      // test is the one thing standing between "adding an options param" and
+      // silently breaking every `.filter(shouldPlaceInfeedAd)` call site.
+      const hits = [1, 2, 3, 4, 5, 6, 7, 8, 9].filter(shouldPlaceInfeedAd);
+      expect(hits).toEqual([3, 6, 9]);
+    });
+
+    it('INFEED_AD_AB_TEST_SUPPRESSED_CANTONS contains exactly the documented treatment set', () => {
+      expect([...INFEED_AD_AB_TEST_SUPPRESSED_CANTONS]).toEqual(['LU']);
+      expect(INFEED_AD_AB_TEST_SUPPRESSED_CANTONS.has('BASILEA')).toBe(false);
     });
   });
 });
