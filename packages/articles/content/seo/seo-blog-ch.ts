@@ -55750,6 +55750,46 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
+
+  'blog-orologi-export-fh-prudenza': {
+    title: 'Export orologi svizzeri: FH invita alla prudenza',
+    description: 'Giugno-luglio 2026: aumento export orologi, ma presidente FH Bugmann avverte cautela. USA stabile (+14,9%), Cina crisi (-7,1%), Francia anomala (+70%). Accordo',
+    keywords: 'frontalieri, ticino, svizzera, italia, export, orologi, svizzeri, invita',
+    ogTitle: 'Export orologi svizzeri: FH invita alla prudenza',
+    ogDescription: 'Due mesi di aumento export orologi svizzeri, ma incertezza globale frenate l\'ottimismo. USA solido (+14,9%), Cina in crisi (-7,1%), Francia centro logistico (+70%). Accordo Cina apre opportunità tariffarie.',
+    canonicalPath: '/articoli-svizzera/orologi-export-fh-prudenza/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Export orologi svizzeri: FH invita alla prudenza",
+      "description": "Giugno-luglio 2026: aumento export orologi, ma presidente FH Bugmann avverte cautela. USA stabile (+14,9%), Cina crisi (-7,1%), Francia anomala (+70%). Accordo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/orologi-export-fh-prudenza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Laboratorio di orologeria svizzera con componenti di precisione e orologio di lusso, tavolo da lavoro tradizionale."
+      },
+      "datePublished": "2026-08-25T18:00:13+00:00",
+      "dateModified": "2026-08-25T18:00:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/orologi-export-fh-prudenza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

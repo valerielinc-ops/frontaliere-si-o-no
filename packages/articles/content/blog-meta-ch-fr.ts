@@ -4297,6 +4297,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.mps-sisa-tasse-usi-supsi.title': 'MPS et SISA contre l\'augmentation des frais de scolarité',
     'blog.article.mps-sisa-tasse-usi-supsi.excerpt': 'Le 25 août, MPS et SISA protestent contre les hausses de taxes chez USI et SUPSI. Les lignes droites tessinoises étaient déjà au-dessus de la moyenne suisse ; préoccupation pour les bilatérales III.',
     'blog.article.mps-sisa-tasse-usi-supsi.imageAlt': 'Étudiants tessinois au campus de l\'USI à Lugano exprimant des préoccupations face aux augmentations de frais de scolarité.',
+    'blog.article.orologi-export-fh-prudenza.title': 'Exportation montres suisses : FH appelle à la prudence',
+    'blog.article.orologi-export-fh-prudenza.excerpt': 'Juin et juillet augmentent, mais l\'incertitude mondiale freine l\'optimisme. USA stable (+14,9%), Chine crise (-7,1%), France boom anormal (+70%). Accord La Chine réduira les droits de douane.',
+    'blog.article.orologi-export-fh-prudenza.imageAlt': 'Atelier d\'horlogerie suisse avec pièces de précision et montre de luxe, établi de travail traditionnel.',
 };
 
 export default blogMetaChFr;
