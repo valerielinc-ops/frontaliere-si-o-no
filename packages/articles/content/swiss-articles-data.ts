@@ -12880,6 +12880,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'mps-sisa-tasse-usi-supsi',
+    category: 'novita',
+    date: '2026-08-25T17:35:54.022Z',
+    image: '/images/blog/mps-sisa-tasse-usi-supsi.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'orologi-export-fh-prudenza',
+    category: 'novita',
+    date: '2026-08-25T18:00:13.525Z',
+    image: '/images/blog/orologi-export-fh-prudenza.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'asilo-reati-prigioni-maghreb',
+    category: 'novita',
+    date: '2026-08-25T18:58:14.298Z',
+    image: '/images/blog/asilo-reati-prigioni-maghreb.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

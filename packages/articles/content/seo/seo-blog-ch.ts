@@ -55712,6 +55712,123 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mps-sisa-tasse-usi-supsi': {
+    title: 'MPS e SISA contro l\'aumento tasse universitarie',
+    description: 'MPS e SISA contestano l\'aumento tasse universitarie a USI e SUPSI. Le tariffe ticinesi erano già sopra la media svizzera. Preoccupazione per ulteriori rincari.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sisa, contro, aumento, tasse',
+    ogTitle: 'MPS e SISA contro l\'aumento tasse',
+    ogDescription: 'Il Movimento per il Socialismo e il Sindacato Indipendente Studenti contestano l\'aumento delle tasse universitarie presso USI e SUPSI, sottolineando come le tariffe ticinesi fossero già superiori alla media nazionale svizzera. Critica ai tagli',
+    canonicalPath: '/articoli-svizzera/mps-sisa-tasse-usi-supsi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "MPS e SISA contro l'aumento tasse universitarie",
+      "description": "MPS e SISA contestano l'aumento tasse universitarie a USI e SUPSI. Le tariffe ticinesi erano già sopra la media svizzera. Preoccupazione per ulteriori rincari.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mps-sisa-tasse-usi-supsi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studenti ticinesi davanti al campus dell'USI a Lugano manifestano preoccupazione per l'aumento delle tasse universitarie."
+      },
+      "datePublished": "2026-08-25T17:35:54+00:00",
+      "dateModified": "2026-08-25T17:35:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mps-sisa-tasse-usi-supsi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-orologi-export-fh-prudenza': {
+    title: 'Export orologi svizzeri: FH invita alla prudenza',
+    description: 'Giugno-luglio 2026: aumento export orologi, ma presidente FH Bugmann avverte cautela. USA stabile (+14,9%), Cina crisi (-7,1%), Francia anomala (+70%). Accordo',
+    keywords: 'frontalieri, ticino, svizzera, italia, export, orologi, svizzeri, invita',
+    ogTitle: 'Export orologi svizzeri: FH invita alla prudenza',
+    ogDescription: 'Due mesi di aumento export orologi svizzeri, ma incertezza globale frenate l\'ottimismo. USA solido (+14,9%), Cina in crisi (-7,1%), Francia centro logistico (+70%). Accordo Cina apre opportunità tariffarie.',
+    canonicalPath: '/articoli-svizzera/orologi-export-fh-prudenza/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Export orologi svizzeri: FH invita alla prudenza",
+      "description": "Giugno-luglio 2026: aumento export orologi, ma presidente FH Bugmann avverte cautela. USA stabile (+14,9%), Cina crisi (-7,1%), Francia anomala (+70%). Accordo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/orologi-export-fh-prudenza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Laboratorio di orologeria svizzera con componenti di precisione e orologio di lusso, tavolo da lavoro tradizionale."
+      },
+      "datePublished": "2026-08-25T18:00:13+00:00",
+      "dateModified": "2026-08-25T18:00:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/orologi-export-fh-prudenza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-asilo-reati-prigioni-maghreb': {
+    title: 'Asilo e reati, l\'esperto: prigioni non fanno paura',
+    description: 'Tasso criminalità 80% richiedenti asilo Maghreb. Analisi SEM 2024: cause socio-economiche, prigioni svizzere deterrente nullo, rimpatri ostacoli burocratici.',
+    keywords: 'frontalieri, ticino, svizzera, italia, asilo, reati, esperto, prigioni',
+    ogTitle: 'Asilo e reati: prigioni svizzere non fanno paura',
+    ogDescription: 'Secondo Beat Stauffer, esperto di Maghreb, il tasso di criminalità tra richiedenti asilo dal Maghreb supera l\'80% per ragioni socio-economiche, non culturali. Le prigioni svizzere hanno effetto deterrente quasi nullo. Proposte di cooperazione',
+    canonicalPath: '/articoli-svizzera/asilo-reati-prigioni-maghreb/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Asilo e reati, l'esperto: prigioni non fanno paura",
+      "description": "Tasso criminalità 80% richiedenti asilo Maghreb. Analisi SEM 2024: cause socio-economiche, prigioni svizzere deterrente nullo, rimpatri ostacoli burocratici.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/asilo-reati-prigioni-maghreb.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio dell'amministrazione federale svizzera a Berna che ospita la Segreteria di Stato della migrazione"
+      },
+      "datePublished": "2026-08-25T18:58:14+00:00",
+      "dateModified": "2026-08-25T18:58:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/asilo-reati-prigioni-maghreb/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

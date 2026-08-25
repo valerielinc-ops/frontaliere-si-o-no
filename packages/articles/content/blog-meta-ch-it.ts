@@ -4294,6 +4294,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.verdi-segretaria-stato-clima.title': 'Segretaria di Stato per il clima: la richiesta dei Verdi',
     'blog.article.verdi-segretaria-stato-clima.excerpt': 'I Verdi chiedono una Segretaria di Stato per il clima e l\'uscita dalle energie fossili. Lisa Mazzone attacca frontalmente il consigliere federale Rösti.',
     'blog.article.verdi-segretaria-stato-clima.imageAlt': 'Conferenza stampa dei Verdi sulla richiesta di una Segretaria di Stato per il clima federale',
+    'blog.article.mps-sisa-tasse-usi-supsi.title': 'MPS e SISA contro l\'aumento tasse universitarie',
+    'blog.article.mps-sisa-tasse-usi-supsi.excerpt': 'Il 25 agosto MPS e SISA protestano contro gli aumenti di tasse presso USI e SUPSI. Le rette ticinesi erano già sopra media svizzera; preoccupazione per i Bilaterali III.',
+    'blog.article.mps-sisa-tasse-usi-supsi.imageAlt': 'Studenti ticinesi davanti al campus dell\'USI a Lugano manifestano preoccupazione per l\'aumento delle tasse universitarie.',
+    'blog.article.orologi-export-fh-prudenza.title': 'Export orologi svizzeri: FH invita alla prudenza',
+    'blog.article.orologi-export-fh-prudenza.excerpt': 'Giugno e luglio in aumento, ma incertezza globale frenate ottimismo. USA stabile (+14,9%), Cina crisi (-7,1%), Francia boom anomalo (+70%). Accordo Cina ridurrà dazi doganali.',
+    'blog.article.orologi-export-fh-prudenza.imageAlt': 'Laboratorio di orologeria svizzera con componenti di precisione e orologio di lusso, tavolo da lavoro tradizionale.',
+    'blog.article.asilo-reati-prigioni-maghreb.title': 'Asilo e reati, l\'esperto: prigioni non fanno paura',
+    'blog.article.asilo-reati-prigioni-maghreb.excerpt': 'Tasso di criminalità oltre l\'80% tra richiedenti asilo dal Maghreb. Secondo l\'esperto Beat Stauffer, le cause sono socio-economiche e le prigioni svizzere hanno effetto deterrente quasi nullo.',
+    'blog.article.asilo-reati-prigioni-maghreb.imageAlt': 'Edificio dell\'amministrazione federale svizzera a Berna che ospita la Segreteria di Stato della migrazione',
 };
 
 export default blogMetaChIt;

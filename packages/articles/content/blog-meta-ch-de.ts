@@ -4294,6 +4294,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.verdi-segretaria-stato-clima.title': 'Staatssekretärin für Klima: Die Forderung der Grünen',
     'blog.article.verdi-segretaria-stato-clima.excerpt': 'Die Grünen fordern eine Staatssekretärin für Klima und den Ausstieg aus fossilen Energien. Lisa Mazzone greift Bundesrat Rösti frontal an.',
     'blog.article.verdi-segretaria-stato-clima.imageAlt': 'Pressekonferenz der Grünen zur Forderung eines Klimastaatssekretariats auf Bundesebene',
+    'blog.article.mps-sisa-tasse-usi-supsi.title': 'MPS und SISA gegen die Erhöhung der Studiengebühren',
+    'blog.article.mps-sisa-tasse-usi-supsi.excerpt': 'Am 25. August protestieren MPS und SISA gegen Steuererhöhungen bei USI und SUPSI. Die Tessiner Strafen lagen bereits über dem Schweizer Durchschnitt; Sorge um die Bilateralen III.',
+    'blog.article.mps-sisa-tasse-usi-supsi.imageAlt': 'Tessiner Studierende am USI-Campus in Lugano äußern Bedenken zu den erhöhten Studiengebühren.',
+    'blog.article.orologi-export-fh-prudenza.title': 'Schweizer Uhrenexport: FH mahnt zur Vorsicht',
+    'blog.article.orologi-export-fh-prudenza.excerpt': 'Juni und Juli auf dem Vormarsch, aber globale Unsicherheit bremst Optimismus. USA stabil (+14,9%), China Krise (-7,1%), Frankreich abnormaler Boom (+70%). Chinas Abkommen wird die Zölle senken.',
+    'blog.article.orologi-export-fh-prudenza.imageAlt': 'Schweizer Uhrmacherwerkstatt mit Präzisionsteilen und Luxusuhr auf traditionellem Arbeitstisch.',
+    'blog.article.asilo-reati-prigioni-maghreb.title': 'Asyl und Straftaten, der Experte: Gefängnisse machen keine Angst',
+    'blog.article.asilo-reati-prigioni-maghreb.excerpt': 'Kriminalitätsrate über 80% unter Asylbewerbern aus dem Maghreb. Gemäss Experte Beat Stauffer sind die Ursachen sozioökonomisch und die Schweizer Gefängnisse haben kaum abschreckende Wirkung.',
+    'blog.article.asilo-reati-prigioni-maghreb.imageAlt': 'Schweizer Bundesverwaltungsgebäude in Bern, Sitz des Staatssekretariats für Migration',
 };
 
 export default blogMetaChDe;

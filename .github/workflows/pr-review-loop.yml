@@ -401,6 +401,7 @@ jobs:
           expected=$(echo "$result" | jq -r '.expected // 0')
           count=$(echo "$result" | jq -r '.count // 0')
           files_complete=$(echo "$result" | jq -r 'if .complete then 1 else 0 end')
+          reason=$(echo "$result" | jq -r '.reason // "unknown"')
           files=$(echo "$result" | jq -r '(.files // [])[]')
           # Guard PR vuota (rebase-only, base == head): files vuoto. Default tier
           # normal: reviewer posta comunque `## LGTM` (no finding) e auto-merge
@@ -424,7 +425,11 @@ jobs:
           # PR che tocca `scripts/` o `src/` passi con 12 turni, senza
           # adversarial check, chiudendo con `## LGTM` e auto-merge.
           if [ "$files_complete" != "1" ]; then
-            echo "Elenco file INCOMPLETO ($count/$expected) → tier high forzato: niente minimal, niente decisione funnel su un campione."
+            if [ "$reason" = "rest-hard-limit" ]; then
+              echo "Elenco file INCOMPLETO ($count/$expected, causa: rest-hard-limit — tetto rigido di 3000 file della REST GitHub, non riparabile con retry) → tier high forzato: niente minimal, niente decisione funnel su un campione."
+            else
+              echo "Elenco file INCOMPLETO ($count/$expected, causa: $reason) → tier high forzato: niente minimal, niente decisione funnel su un campione."
+            fi
             set_tier high claude-sonnet-5 60
             exit 0
           fi
