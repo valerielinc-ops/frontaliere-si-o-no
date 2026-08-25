@@ -4273,6 +4273,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.premi-lamal-berna-sussidio.title': 'Premi LAMal Canton Berna: fasce e riduzioni',
     'blog.article.premi-lamal-berna-sussidio.excerpt': 'Nel Canton Berna i premi LAMal variano secondo la franchigia scelta. Ecco come funziona il sistema e come accedere ai sussidi per la riduzione.',
     'blog.article.premi-lamal-berna-sussidio.imageAlt': 'Uno sportello amministrativo con documenti di assicurazione malattia su una scrivania.',
+    'blog.article.berna-custodia-bambini-tariffe-costi.title': 'Custodia bambini nel Canton Berna: costi e sussidi',
+    'blog.article.berna-custodia-bambini-tariffe-costi.excerpt': 'Asili nido, famiglie diurne, doposcuola: come funzionano le tariffe calcolate su reddito e quali sussidi cantonali disponibili riducono l\'onere economico per le famiglie.',
+    'blog.article.berna-custodia-bambini-tariffe-costi.imageAlt': 'Asilo nido svizzero con bambini che giocano in un ambiente sicuro, moderno e accogliente con attività educative.',
 };
 
 export default blogMetaChIt;

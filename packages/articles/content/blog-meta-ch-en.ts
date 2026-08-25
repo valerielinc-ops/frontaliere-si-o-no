@@ -4273,6 +4273,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.premi-lamal-berna-sussidio.title': 'LAMal Canton Bern Awards: bands and reductions',
     'blog.article.premi-lamal-berna-sussidio.excerpt': 'In the Canton of Bern, LAMal premiums vary according to the deductible chosen. Here\'s how the system works and how to access reduction subsidies.',
     'blog.article.premi-lamal-berna-sussidio.imageAlt': 'Administrative office with health insurance documents displayed on desk.',
+    'blog.article.berna-custodia-bambini-tariffe-costi.title': 'Child care in the Canton of Bern: costs and subsidies',
+    'blog.article.berna-custodia-bambini-tariffe-costi.excerpt': 'Nurseries, day families, after-school: how income-based rates work and what cantonal subsidies are available that reduce the economic burden on families.',
+    'blog.article.berna-custodia-bambini-tariffe-costi.imageAlt': 'Swiss daycare center with children playing in a safe, modern and welcoming environment with educational activities.',
 };
 
 export default blogMetaChEn;

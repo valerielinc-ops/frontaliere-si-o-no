@@ -55439,6 +55439,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-berna-custodia-bambini-tariffe-costi': {
+    title: 'Custodia bambini nel Canton Berna: costi e sussidi',
+    description: 'Guida ai servizi di custodia bambini (asilo nido, famiglia diurna, doposcuola) nel Canton Berna con tariffe su reddito e sussidi cantonali disponibili.',
+    keywords: 'frontalieri, ticino, svizzera, italia, custodia, bambini, canton, berna',
+    ogTitle: 'Custodia bambini Canton Berna: costi e sussidi',
+    ogDescription: 'Scopri come funzionano i servizi di custodia bambini nel Canton Berna: tariffe calcolate su reddito, sussidi disponibili e procedure di accesso per famiglie.',
+    canonicalPath: '/articoli-svizzera/berna-custodia-bambini-tariffe-costi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Custodia bambini nel Canton Berna: costi e sussidi",
+      "description": "Guida ai servizi di custodia bambini (asilo nido, famiglia diurna, doposcuola) nel Canton Berna con tariffe su reddito e sussidi cantonali disponibili.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/berna-custodia-bambini-tariffe-costi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Asilo nido svizzero con bambini che giocano in un ambiente sicuro, moderno e accogliente con attività educative."
+      },
+      "datePublished": "2026-08-25T12:30:01+00:00",
+      "dateModified": "2026-08-25T12:30:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/berna-custodia-bambini-tariffe-costi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
