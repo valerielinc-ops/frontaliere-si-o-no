@@ -32286,6 +32286,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'bionaz-lavorare-vallese-frontaliere',
+ category: 'pratico',
+ date: '2026-08-25T22:45:41.322Z',
+ image: '/images/blog/bionaz-lavorare-vallese-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

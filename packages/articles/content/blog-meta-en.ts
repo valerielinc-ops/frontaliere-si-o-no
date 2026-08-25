@@ -10790,6 +10790,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-quart-lavorare-vallese-frontaliere.title': 'Living in Quart and working in Valais as a border worker',
     'blog.article.vivere-quart-lavorare-vallese-frontaliere.excerpt': 'Practical guide for Italy-Switzerland border workers: G permit, taxation, AVS, LAMal, administrative procedures and costs to be considered before the transfer.',
     'blog.article.vivere-quart-lavorare-vallese-frontaliere.imageAlt': 'Alpine mountain valley landscape on the Switzerland-Italy border with winding mountain road',
+    'blog.article.bionaz-lavorare-vallese-frontaliere.title': 'Living in Bionaz and working in Valais: a guide',
+    'blog.article.bionaz-lavorare-vallese-frontaliere.excerpt': 'Permit G, tax at source in Switzerland, LAMal and Double Tax Convention: everything you need to know to move to Valle d \'Aosta and work in the Valais.',
+    'blog.article.bionaz-lavorare-vallese-frontaliere.imageAlt': 'Panoramic view of the Valais and Aosta Valley from Simplon Pass, showing Alpine mountain landscape.',
 };
 
 export default blogMetaEn;

@@ -78578,6 +78578,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bionaz-lavorare-vallese-frontaliere': {
+    title: 'Vivere a Bionaz e lavorare in Vallese: guida | Frontaliere Ticino',
+    description: 'Permesso G frontaliere, imposta alla fonte Svizzera, LAMal e tassazione italo-svizzera: la guida completa per trasferirsi a Bionaz e lavorare nella Vallese.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, bionaz, lavorare, vallese',
+    ogTitle: 'Vivere a Bionaz e lavorare in Vallese: guida',
+    ogDescription: 'Come trasferirsi a Bionaz e lavorare nella Vallese: Permesso G, fiscalità italo-svizzera, imposta alla fonte in Svizzera, LAMal, scadenze e procedure per il frontaliere. Guida pratica 2024–2025.',
+    canonicalPath: '/articoli-frontaliere/bionaz-lavorare-vallese-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Bionaz e lavorare in Vallese: guida",
+      "description": "Permesso G frontaliere, imposta alla fonte Svizzera, LAMal e tassazione italo-svizzera: la guida completa per trasferirsi a Bionaz e lavorare nella Vallese.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bionaz-lavorare-vallese-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama della Vallese e della Valle d'Aosta dal valico del Sempione, con paesaggio montuoso alpino."
+      },
+      "datePublished": "2026-08-25T22:45:41+00:00",
+      "dateModified": "2026-08-25T22:45:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bionaz-lavorare-vallese-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

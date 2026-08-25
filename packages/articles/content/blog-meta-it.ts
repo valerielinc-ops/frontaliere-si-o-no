@@ -10791,6 +10791,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-quart-lavorare-vallese-frontaliere.title': 'Vivere a Quart e lavorare in Vallese da frontaliere',
     'blog.article.vivere-quart-lavorare-vallese-frontaliere.excerpt': 'Guida pratica per frontalieri Italia-Svizzera: permesso G, fiscalità, AVS, LAMal, procedure amministrative e costi da considerare prima del trasferimento.',
     'blog.article.vivere-quart-lavorare-vallese-frontaliere.imageAlt': 'Paesaggio montano della valle di confine tra Svizzera e Italia con strada di montagna',
+    'blog.article.bionaz-lavorare-vallese-frontaliere.title': 'Vivere a Bionaz e lavorare in Vallese: guida',
+    'blog.article.bionaz-lavorare-vallese-frontaliere.excerpt': 'Permesso G, imposta alla fonte in Svizzera, LAMal e Convenzione doppia imposizione: tutto ciò che serve sapere per trasferirsi in Valle d\'Aosta e lavorare nella Vallese.',
+    'blog.article.bionaz-lavorare-vallese-frontaliere.imageAlt': 'Panorama della Vallese e della Valle d\'Aosta dal valico del Sempione, con paesaggio montuoso alpino.',
 };
 
 export default blogMetaIt;

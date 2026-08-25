@@ -10792,6 +10792,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-quart-lavorare-vallese-frontaliere.title': 'Vivre à Quart et travailler en Valais comme frontalier',
     'blog.article.vivere-quart-lavorare-vallese-frontaliere.excerpt': 'Guide pratique pour les frontaliers Italie-Suisse : permis G, fiscalité, AVS, LAMal, procédures administratives et coûts à prendre en compte avant le transfert.',
     'blog.article.vivere-quart-lavorare-vallese-frontaliere.imageAlt': 'Paysage de vallée alpine à la frontière entre la Suisse et l\'Italie avec route de montagne',
+    'blog.article.bionaz-lavorare-vallese-frontaliere.title': 'Vivre à Bionaz et travailler en Valais : guide',
+    'blog.article.bionaz-lavorare-vallese-frontaliere.excerpt': 'Permis G, impôt à la source en Suisse, LAMal et Convention double imposition : tout ce qu\'il faut savoir pour déménager en Vallée d\'Aoste et travailler en Valais.',
+    'blog.article.bionaz-lavorare-vallese-frontaliere.imageAlt': 'Vue panoramique du Valais et de la Vallée d\'Aoste depuis le col du Simplon avec paysage alpin.',
 };
 
 export default blogMetaFr;
