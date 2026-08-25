@@ -54893,6 +54893,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salari-appenzello-esterno-settori-livelli': {
+    title: 'Salari e lavoro in Appenzello Esterno: settori e livelli',
+    description: 'Scopri come funzionano i salari nel Canton Appenzello Esterno: contratti collettivi, livelli retributivi per formazione, orario massimo e contributi sociali',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, lavoro, appenzello, esterno',
+    ogTitle: 'Salari e lavoro in Appenzello Esterno: settori e livelli',
+    ogDescription: 'Nel cantone il mercato del lavoro segue regole federali svizzere: scopri come funzionano i salari, i contratti collettivi e i livelli retributivi per diversi gradi di formazione e contributi sociali.',
+    canonicalPath: '/articoli-svizzera/salari-appenzello-esterno-settori-livelli/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari e lavoro in Appenzello Esterno: settori e livelli",
+      "description": "Scopri come funzionano i salari nel Canton Appenzello Esterno: contratti collettivi, livelli retributivi per formazione, orario massimo e contributi sociali",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salari-appenzello-esterno-settori-livelli.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio moderno in Svizzera con professionisti al lavoro, che rappresenta il mercato del lavoro contemporaneo svizzero."
+      },
+      "datePublished": "2026-08-25T06:45:23+00:00",
+      "dateModified": "2026-08-25T06:45:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salari-appenzello-esterno-settori-livelli/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

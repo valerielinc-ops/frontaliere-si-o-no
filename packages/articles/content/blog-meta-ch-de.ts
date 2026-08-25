@@ -4231,6 +4231,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tx-group-penalizzato-svalutazioni.title': 'Mehr noch: TX Group durch Abwertungen im ersten Halbjahr benachteiligt',
     'blog.article.tx-group-penalizzato-svalutazioni.excerpt': 'Der Zürcher Medienkonzern TX Group verzeichnet im ersten Halbjahr einen steilen Anstieg seiner bereinigten Ergebnisse, wird aber durch Abwertungen belastet.',
     'blog.article.tx-group-penalizzato-svalutazioni.imageAlt': 'Schweizer Zeitungsbüro',
+    'blog.article.salari-appenzello-esterno-settori-livelli.title': 'Löhne und Arbeit in Appenzell Ausserrhoden: Branchen und Ebenen',
+    'blog.article.salari-appenzello-esterno-settori-livelli.excerpt': 'Arbeitsmarkt in Appenzell Ausserrhoden: Wie Löhne, Tarifverträge und Lohnniveaus nach Bildungsstufen funktionieren.',
+    'blog.article.salari-appenzello-esterno-settori-livelli.imageAlt': 'Modernes Schweizer Büro mit Fachleuten bei der Arbeit, die den zeitgenössischen Schweizer Arbeitsmarkt repräsentieren.',
 };
 
 export default blogMetaChDe;

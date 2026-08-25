@@ -4231,6 +4231,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tx-group-penalizzato-svalutazioni.title': 'More: TX Group penalized by write-downs in the first half',
     'blog.article.tx-group-penalizzato-svalutazioni.excerpt': 'The Zurich media group TX Group recorded a surge in its adjusted results in the first half, but was penalised by write-downs.',
     'blog.article.tx-group-penalizzato-svalutazioni.imageAlt': 'Swiss newspaper office',
+    'blog.article.salari-appenzello-esterno-settori-livelli.title': 'Wages and work in Appenzello Esterno: sectors and levels',
+    'blog.article.salari-appenzello-esterno-settori-livelli.excerpt': 'Labour market in the Outer Appenzell: how wages, collective agreements and pay levels work by degree of training.',
+    'blog.article.salari-appenzello-esterno-settori-livelli.imageAlt': 'Modern Swiss office workspace with professionals working, representing contemporary Swiss labor market.',
 };
 
 export default blogMetaChEn;
