@@ -1,18 +1,18 @@
 {
   "key": "fondation-domus",
   "label": "Fondation Domus",
-  "generatedAt": "2026-08-25T21:42:23.506Z",
-  "total": 2,
+  "generatedAt": "2026-08-25T22:42:54.750Z",
+  "total": 1,
   "discovered": null,
-  "written": 2,
+  "written": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3863,
-  "avgDurationMs": 3863,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 3937,
+  "avgDurationMs": 3937,
   "durationHistory": [
-    3863
+    3937
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/5c523a8f-69e1-437e-9137-58d38ab67258/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-25T21:42:21.399Z",
+      "crawledAt": "2026-08-25T22:42:52.661Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -53,8 +53,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "fondation-domus-a4da05256506",
       "slug": "fornello-100-fondation-domus-ardon",
@@ -94,5 +93,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
