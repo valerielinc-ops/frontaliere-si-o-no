@@ -1,0 +1,76 @@
+name: Evergreen Pool Snapshot (weekly)
+
+# Persists a dated history of the evergreen topic pool consumption so a
+# consumption RATE can be computed (parent #6019 item 2b — the tool from
+# #6445 could measure the pool at a single point in time, but with 0
+# snapshots stored there was no way to see how fast it was shrinking or
+# predict when it would run out).
+#
+# Reuses `scripts/evergreen-pool-consumption.mjs --json` (one source of
+# truth for the pool math, no duplicated logic) and appends a compact entry
+# to the append-only `data/evergreen-pool-history.json`, same pattern as
+# `funnel-metrics-snapshot.yml` / `data/funnel-metrics-history.json`.
+#
+# Runs Sunday 05:00 UTC, ahead of the Monday funnel-metrics snapshot.
+
+on:
+  schedule:
+    - cron: '0 5 * * 0'
+  workflow_dispatch: {}
+
+concurrency:
+  group: evergreen-pool-snapshot
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Measure evergreen pool
+        run: node scripts/evergreen-pool-consumption.mjs --json > /tmp/pool.json
+
+      - name: Build snapshot + append history + render summary
+        run: |
+          node scripts/evergreen-pool-history-snapshot.mjs \
+            --in=/tmp/pool.json \
+            --history=data/evergreen-pool-history.json \
+            --summary-out=/tmp/pool-summary.md
+          echo "## Evergreen pool snapshot" >> "$GITHUB_STEP_SUMMARY"
+          cat /tmp/pool-summary.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit snapshot history
+        run: |
+          if [ -n "$(git status --porcelain data/evergreen-pool-history.json)" ]; then
+            git config user.name "Valerie Linc"
+            git config user.email "valerielinc@gmail.com"
+            git add data/evergreen-pool-history.json
+            git commit -m "🌲 Evergreen pool history snapshot $(date -u +%Y-%m-%d)"
+            # Abort any conflicting rebase before retrying, otherwise the loop
+            # wedges on "unmerged files" until the job is canceled.
+            for i in 1 2 3; do
+              git pull --rebase origin main && git push && exit 0
+              git rebase --abort 2>/dev/null || true
+              sleep $((i * 5))
+            done
+            echo "::warning::Failed to push evergreen-pool history after 3 attempts"
+          else
+            echo "No snapshot changes to commit"
+          fi
