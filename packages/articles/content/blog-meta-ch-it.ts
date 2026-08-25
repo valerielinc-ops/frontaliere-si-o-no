@@ -4315,6 +4315,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.iniziativa-neutralita-svizzera-pace.title': 'Iniziativa neutralità indebolisce ruolo Svizzera',
     'blog.article.iniziativa-neutralita-svizzera-pace.excerpt': 'Un\'alleanza di 22 organizzazioni avverte che l\'approvazione dell\'iniziativa sulla neutralità comporterebbe disimpegno dal diritto internazionale e indebolimento della posizione svizzera nel promuovere la pace.',
     'blog.article.iniziativa-neutralita-svizzera-pace.imageAlt': 'L\'edificio del Parlamento federale svizzero a Berna, dove si dibatte l\'iniziativa sulla neutralità',
+    'blog.article.utilizzo-ia-svizzera-2026.title': 'Intelligenza artificiale: 80% svizzeri la usa',
+    'blog.article.utilizzo-ia-svizzera-2026.excerpt': 'L\'80% degli svizzeri usa l\'IA. Raddoppiato in due anni secondo IGEM-Digimonitor. YouTube 80%, Instagram 45%, X cala al 10%.',
+    'blog.article.utilizzo-ia-svizzera-2026.imageAlt': 'Mani che interagiscono con dispositivi digitali in ambiente di lavoro svizzero con vista sul lago',
 };
 
 export default blogMetaChIt;

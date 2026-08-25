@@ -4315,6 +4315,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.iniziativa-neutralita-svizzera-pace.title': 'L\'initiative neutralité affaiblit le rôle de la Suisse',
     'blog.article.iniziativa-neutralita-svizzera-pace.excerpt': 'Une alliance de 22 organisations avertit que l\'approbation de l\'initiative sur la neutralité entraînerait un désengagement du droit international et un affaiblissement de la position suisse dans la promotion de la paix.',
     'blog.article.iniziativa-neutralita-svizzera-pace.imageAlt': 'Le Palais fédéral à Berne, où se déroule le débat sur l\'initiative de neutralité',
+    'blog.article.utilizzo-ia-svizzera-2026.title': 'Intelligence artificielle : 80 % de Suisses aux États-Unis',
+    'blog.article.utilizzo-ia-svizzera-2026.excerpt': '80 % des Suisses utilisent l\'IA. Doublé en deux ans selon IGEM-Digimonitor. YouTube 80 %, Instagram 45 %, X chute à 10 %.',
+    'blog.article.utilizzo-ia-svizzera-2026.imageAlt': 'Mains interagissant avec des appareils numériques sur le lieu de travail suisse avec vue sur le lac',
 };
 
 export default blogMetaChFr;

@@ -1464,6 +1464,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'fondo-esercito-iva-compromesso': { it: 'fondo-esercito-iva-compromesso', en: 'military-fund-iva-compromise', de: 'armeefonds-mwst-kompromiss', fr: 'fonds-armee-tva-compromis' },
  'compromesso-fondo-difesa': { it: 'compromesso-fondo-difesa', en: 'defense-fund-compromise', de: 'verteidigungsfonds-kompromiss', fr: 'compromis-fonds-defense' },
  'iniziativa-neutralita-svizzera-pace': { it: 'iniziativa-neutralita-svizzera-pace', en: 'neutrality-initiative-switzerland-peace', de: 'neutralitaetsinitiative-schweiz-frieden', fr: 'initiative-neutralite-suisse-paix' },
+ 'utilizzo-ia-svizzera-2026': { it: 'utilizzo-ia-svizzera-2026', en: 'ai-usage-switzerland-2026', de: 'ki-nutzung-schweiz-2026', fr: 'utilisation-ia-suisse-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
