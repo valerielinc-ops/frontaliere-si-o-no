@@ -4291,6 +4291,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.argovia-divieto-velo-scuole.title': 'Aargau auf dem Weg zum Kopftuchverbot in Schulen',
     'blog.article.argovia-divieto-velo-scuole.excerpt': 'Der Grosse Aargauer Rat nimmt die Motion mit 78 Stimmen an. Die Kantonsregierung wendet sich aus verfassungsrechtlichen Gründen gegen das Bundesgerichtsurteil von 2015.',
     'blog.article.argovia-divieto-velo-scuole.imageAlt': 'Schweizer Schulgebäude mit Schülern verschiedener Herkunft im Schulhof, authentische Architektur.',
+    'blog.article.verdi-segretaria-stato-clima.title': 'Staatssekretärin für Klima: Die Forderung der Grünen',
+    'blog.article.verdi-segretaria-stato-clima.excerpt': 'Die Grünen fordern eine Staatssekretärin für Klima und den Ausstieg aus fossilen Energien. Lisa Mazzone greift Bundesrat Rösti frontal an.',
+    'blog.article.verdi-segretaria-stato-clima.imageAlt': 'Pressekonferenz der Grünen zur Forderung eines Klimastaatssekretariats auf Bundesebene',
 };
 
 export default blogMetaChDe;
