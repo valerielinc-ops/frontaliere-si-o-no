@@ -78383,6 +78383,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-paisco-loveno-lavorare-grigioni-frontaliere': {
+    title: 'Paisco Loveno-Grigioni: guida frontaliere, tasse, permessi',
+    description: 'Lavorare in Grigioni da Paisco Loveno: Permesso G, trattenute alla fonte, esenzione €10\'000, LAMal, credito d\'imposta e procedura dal 2024. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, paisco, loveno-grigioni, tasse, permessi',
+    ogTitle: 'Paisco Loveno-Grigioni: frontaliere, tasse, procedura 2024',
+    ogDescription: 'Vivere a Paisco Loveno e lavorare in Grigioni: Permesso G, trattenute alla fonte Svizzera, esenzione €10\'000, LAMal e dichiarazione 730 con credito d\'imposta. Tutto ciò che serve sapere dal 2024.',
+    canonicalPath: '/articoli-frontaliere/vivere-paisco-loveno-lavorare-grigioni-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Paisco Loveno-Grigioni: guida frontaliere, tasse, permessi",
+      "description": "Lavorare in Grigioni da Paisco Loveno: Permesso G, trattenute alla fonte, esenzione €10'000, LAMal, credito d'imposta e procedura dal 2024. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-paisco-loveno-lavorare-grigioni-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada di montagna verso i Grigioni al confine tra Italia e Svizzera, con vista su paesi alpini"
+      },
+      "datePublished": "2026-08-25T10:25:07+00:00",
+      "dateModified": "2026-08-25T10:25:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-paisco-loveno-lavorare-grigioni-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

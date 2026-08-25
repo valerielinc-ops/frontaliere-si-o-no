@@ -10777,6 +10777,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-incudine-lavorare-grigioni-frontaliere.title': 'Vivre à Incudine et travailler dans les Grisons en tant que frontalier',
     'blog.article.vivere-incudine-lavorare-grigioni-frontaliere.excerpt': 'Liaisons, temps de trajet, coût de la vie, zones recommandées, avantages et inconvénients du transfert.',
     'blog.article.vivere-incudine-lavorare-grigioni-frontaliere.imageAlt': 'Un frontalié vivant à Incudine et travaillant à Grigioni, en Suisse.',
+    'blog.article.vivere-paisco-loveno-lavorare-grigioni-frontaliere.title': 'Paisco Loveno-Grigioni : guide frontalier, taxes, permis',
+    'blog.article.vivere-paisco-loveno-lavorare-grigioni-frontaliere.excerpt': 'Travailler dans les Grisons de Paisco Loveno : Permis G, retenues à la source, exonération € 10\'000, LAMal, crédit d\'impôt et procédure à partir de 2024.',
+    'blog.article.vivere-paisco-loveno-lavorare-grigioni-frontaliere.imageAlt': 'Route de montagne vers les Grisons à la frontière Suisse-Italienne, vue sur villages alpins',
 };
 
 export default blogMetaFr;
