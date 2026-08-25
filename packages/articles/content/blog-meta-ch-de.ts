@@ -4216,6 +4216,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposte-appenzello-esterno-aliquote.title': 'Kantonssteuern Appenzell Ausserrhoden: Steuersätze und Abzüge',
     'blog.article.imposte-appenzello-esterno-aliquote.excerpt': 'Vollständiger Leitfaden zu den Kantons- und Gemeindesteuern in Appenzell Ausserrhoden: 3-stufige Struktur, Steuersätze, zulässige Abzüge, Deklarationsfristen und Online-Verfahren.',
     'blog.article.imposte-appenzello-esterno-aliquote.imageAlt': 'Kantonales Steuerverwaltungsgebäude in der Schweiz mit Berglandschaft',
+    'blog.article.apprendistato-canton-appenzello-esterno.title': 'Lehre und Berufsausbildung im Kanton Appenzell Ausserrhoden',
+    'blog.article.apprendistato-canton-appenzello-esterno.excerpt': 'Erfahren Sie, wie Sie eine Lehrstelle, einen Lehrvertrag, eine Lehrlingsvergütung und eine Berufsmaturität im Kanton Appenzell Ausserrhoden finden.',
+    'blog.article.apprendistato-canton-appenzello-esterno.imageAlt': 'Ein junger Lehrling im Kanton Appenzell Innerrhoden, in einer realen Arbeits Szene.',
 };
 
 export default blogMetaChDe;
