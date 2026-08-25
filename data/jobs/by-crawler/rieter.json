@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rieter",
-  "assembledAt": "2026-08-24T21:36:59.399Z",
+  "assembledAt": "2026-08-25T09:50:19.639Z",
   "jobs": [
     {
       "id": "rieter-b24c2360cc8b",
@@ -33,7 +33,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Trainer-Customer-Training--4048838",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-24T21:36:55.520Z",
+      "crawledAt": "2026-08-25T09:50:13.511Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -53,11 +53,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "trainer-customer-training-rieter-winterthur"
+        "trainer-customer-training-rieter-winterthur",
+        "allenatore-allenamento-clienti-rieter-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "trainer-customer-training-rieter-winterthur"
+          "trainer-customer-training-rieter-winterthur",
+          "allenatore-allenamento-clienti-rieter-winterthur"
         ],
         "de": [
           "trainer-customer-training-rieter-winterthur"
@@ -111,7 +113,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Senior-System-Engineer-100-wmd---4046390",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-24T21:36:54.464Z",
+      "crawledAt": "2026-08-25T09:50:12.805Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -132,12 +134,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-system-engineer-rieter-winterthur",
-        "senior-system-engineer-100-w-m-d-rieter-winterthur"
+        "senior-system-engineer-100-w-m-d-rieter-winterthur",
+        "senior-system-ingegnere-rieter-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-system-engineer-rieter-winterthur",
-          "senior-system-engineer-100-w-m-d-rieter-winterthur"
+          "senior-system-engineer-100-w-m-d-rieter-winterthur",
+          "senior-system-ingegnere-rieter-winterthur"
         ],
         "de": [
           "senior-system-engineer-rieter-winterthur"
@@ -191,7 +195,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Senior-Network-Engineer--4058728",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-24T21:36:53.780Z",
+      "crawledAt": "2026-08-25T09:50:12.225Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Rieter AG",
@@ -210,11 +214,14 @@
       "employerBrand": "Rieter AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-24T10:10:44.643Z",
+      "previousSlugs": [
+        "senior-network-engineer-rieter-winterthur",
+        "senior-network-ingegnere-rieter-winterthur"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-network-engineer-rieter-winterthur"
+          "senior-network-engineer-rieter-winterthur",
+          "senior-network-ingegnere-rieter-winterthur"
         ],
         "de": [
           "senior-network-engineer-rieter-winterthur"
@@ -223,9 +230,8 @@
           "senior-network-engineer-rieter-winterthur"
         ]
       },
-      "previousSlugs": [
-        "senior-network-engineer-rieter-winterthur"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T10:10:44.643Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "baseSalary": {
@@ -243,9 +249,9 @@
       "id": "rieter-f4fb4b48f764",
       "slug": "sachbearbeiter-in-export-e-sales-administration-80-100-rieter-pfaffikon",
       "slugByLocale": {
-        "de": "sachbearbeiter-in-export-und-sales-administration-80-100-rieter-pfaffikon-zh",
         "it": "sachbearbeiter-in-export-e-sales-administration-80-100-rieter-pfaffikon",
         "en": "sachbearbeiter-in-export-und-sales-administration-80-100-rieter-pfaffikon-zh",
+        "de": "sachbearbeiter-in-export-und-sales-administration-80-100-rieter-pfaffikon-zh",
         "fr": "administration-des-exportations-et-des-ventes-80-100-rieter-pfaffikon-zh"
       },
       "company": "Rieter",
@@ -253,16 +259,16 @@
       "companyDomain": "rieter.com",
       "title": "Sachbearbeiter/in Export und Sales Administration (80 % - 100 %)",
       "titleByLocale": {
-        "de": "Sachbearbeiter/in Export und Sales Administration (80 % - 100 %)",
-        "en": "Export and Sales Administration (80 % - 100 %)",
         "it": "Sachbearbeiter/in Export e Sales Administration (80 % - 100 %)",
+        "en": "Sachbearbeiter/in Export und Sales Administration (80 % - 100 %)",
+        "de": "Sachbearbeiter/in Export und Sales Administration (80 % - 100 %)",
         "fr": "Administration des exportations et des ventes (80 % - 100 %)"
       },
       "description": "Bräcker AG, weltweit führender Anbieter von Ringen und Ringläufern für Ringspinnmaschinen, ist eine Tochtergesellschaft des Rieter-Konzerns. Mit Hauptsitz im schweizerischen Pfäffikon bietet Bräcker Mehrwert für seine Kunden mit hoch entwickeltem Branchenwissen, innovativen Lösungen, ausgezeichneten Leistungen im After-Sales-Bereich und einer globalen Präsenz. Die Hauptprodukte des Unternehmens – Ringe und Ringläufer für Ringspinnmaschinen – werden in Pfäffikon und Wintzenheim (Frankreich) hergestellt. Das Produktspektrum des Unternehmens beinhaltet ferner Schleifmaschinen für die Wartung von Walzenbezügen.\n\nFür unser Team im Verkaufsinnendienst suchen wir eine offene, humorvolle und initiative Persönlichkeit als\n\nIhre Hauptaufgaben und Verantwortlichkeiten\n\n• Technische und kommerzielle Klärung von Offerten und Aufträgen\n\n• Preis- und Terminbestimmungen anhand Unterlagen und in Zusammenarbeit mit internen Stellen (Lager, Produktionsplanung)\n\n• Offertstellung und Auftragsabwicklung inkl. Versand/Export\n\n• Terminüberwachung der Aufträge und der nötigen Freigabe-Dokumente wie Importlizenzen, Akkreditive etc.\n\n• Versand der Aufträge auf dem Luft-, See- und Landweg mit Erstellung der Rechnungen und sämtlicher Exportpapiere unter Beachtung allfälliger L/C-, CAD- oder anderen Vorschriften\n\n• Schriftliche und telefonische Kontakte mit Spediteuren, Kontrollstellen, Handelskammer, Konsulaten, Banken\n\n• Bemusterungen\n\n• Nachfassen von Offerten\n\n• Zahlungserinnerungen an Kunden\n\nIhr Anforderungsprofil\n\n• Kaufmännische Grundausbildung; Weiterbildung im Bereich Export von Vorteil\n\n• Erfahrung in der Auftragsbearbeitung und Export in einem Industriebetrieb\n\n• Gute SAP-Kenntnisse (SD Modul) & MS Office-Kenntnisse\n\n• Gute Sprachkenntnisse in Englisch, weitere Sprachen von Vorteil\n\n• Kundenorientiertes Verhalten\n\nUnsere Versprechen\n\n• Die Mitarbeit in einem führenden Unternehmen\n\n• Eine vielseitige Tätigkeit mit Raum zur Eigeninitiative\n\n• Faire Anstellungsbedingungen und ein angenehmes Arbeitsklima\n\n• Die Möglichkeit teilweise im Home-Office zu arbeiten\n\nWenn Sie Freude an einer selbständigen Tätigkeit haben und gerne in einem internationalen Umfeld arbeiten, dann erwartet Frau Carmela Greter gerne Ihre Bewerbungsunterlagen per E-Mail. Direktbewerbungen werden bevorzugt.\n\nBereich: Administration\n\nLevel: Berufserfahrene",
       "descriptionByLocale": {
-        "de": "Bräcker AG, weltweit führender Anbieter von Ringen und Ringläufern für Ringspinnmaschinen, ist eine Tochtergesellschaft des Rieter-Konzerns. Mit Hauptsitz im schweizerischen Pfäffikon bietet Bräcker Mehrwert für seine Kunden mit hoch entwickeltem Branchenwissen, innovativen Lösungen, ausgezeichneten Leistungen im After-Sales-Bereich und einer globalen Präsenz. Die Hauptprodukte des Unternehmens – Ringe und Ringläufer für Ringspinnmaschinen – werden in Pfäffikon und Wintzenheim (Frankreich) hergestellt. Das Produktspektrum des Unternehmens beinhaltet ferner Schleifmaschinen für die Wartung von Walzenbezügen.\n\nFür unser Team im Verkaufsinnendienst suchen wir eine offene, humorvolle und initiative Persönlichkeit als\n\nIhre Hauptaufgaben und Verantwortlichkeiten\n\n• Technische und kommerzielle Klärung von Offerten und Aufträgen\n\n• Preis- und Terminbestimmungen anhand Unterlagen und in Zusammenarbeit mit internen Stellen (Lager, Produktionsplanung)\n\n• Offertstellung und Auftragsabwicklung inkl. Versand/Export\n\n• Terminüberwachung der Aufträge und der nötigen Freigabe-Dokumente wie Importlizenzen, Akkreditive etc.\n\n• Versand der Aufträge auf dem Luft-, See- und Landweg mit Erstellung der Rechnungen und sämtlicher Exportpapiere unter Beachtung allfälliger L/C-, CAD- oder anderen Vorschriften\n\n• Schriftliche und telefonische Kontakte mit Spediteuren, Kontrollstellen, Handelskammer, Konsulaten, Banken\n\n• Bemusterungen\n\n• Nachfassen von Offerten\n\n• Zahlungserinnerungen an Kunden\n\nIhr Anforderungsprofil\n\n• Kaufmännische Grundausbildung; Weiterbildung im Bereich Export von Vorteil\n\n• Erfahrung in der Auftragsbearbeitung und Export in einem Industriebetrieb\n\n• Gute SAP-Kenntnisse (SD Modul) & MS Office-Kenntnisse\n\n• Gute Sprachkenntnisse in Englisch, weitere Sprachen von Vorteil\n\n• Kundenorientiertes Verhalten\n\nUnsere Versprechen\n\n• Die Mitarbeit in einem führenden Unternehmen\n\n• Eine vielseitige Tätigkeit mit Raum zur Eigeninitiative\n\n• Faire Anstellungsbedingungen und ein angenehmes Arbeitsklima\n\n• Die Möglichkeit teilweise im Home-Office zu arbeiten\n\nWenn Sie Freude an einer selbständigen Tätigkeit haben und gerne in einem internationalen Umfeld arbeiten, dann erwartet Frau Carmela Greter gerne Ihre Bewerbungsunterlagen per E-Mail. Direktbewerbungen werden bevorzugt.\n\nBereich: Administration\n\nLevel: Berufserfahrene",
         "it": "Bräcker AG, il fornitore leader mondiale di anelli e ring per macchine per la filatura anelli, è una filiale del Gruppo Rieter. Con sede a Pfäffikon, Svizzera, Bräcker offre un valore aggiunto ai propri clienti con conoscenze di settore altamente sviluppate, soluzioni innovative, servizi post-vendita eccellenti e una presenza globale. I principali prodotti dell’azienda – anelli e anelli per macchine a gironi – sono prodotti in Pfäffikon e Wintzenheim (Francia). La gamma di prodotti dell'azienda comprende anche rettificatrici per la manutenzione di coperture.\n\nPer il nostro team di vendita stiamo cercando una personalità aperta, umoristica e di iniziativa come\n\nI vostri compiti principali e responsabilità\n\n• Chiari tecnici e commerciali delle offerte e degli ordini\n\n• Prezzi e scadenze basate su documenti e in collaborazione con gli organismi interni (stock, pianificazione della produzione)\n\n• Elaborazione di offerte e ordini incl. Spedizione/esportazione\n\n• Programma di monitoraggio degli ordini e dei documenti di rilascio necessari come licenze di importazione, lettere di credito ecc.\n\n• Erogazione di ordini per via aerea, marittima e terrestre con preparazione di fatture e di tutti i documenti di esportazione in conformità a qualsiasi L/C, CAD o altre normative\n\n• Contatti scritti e telefonici con spedizionieri, organi di controllo, camere di commercio, consolati, banche\n\n• Campioni\n\n• Replica delle offerte\n\n• Promemoria di pagamento ai clienti\n\nIl tuo profilo di richiesta\n\n• Formazione commerciale di base; La formazione all'esportazione è un vantaggio\n\n• Esperienza nell'elaborazione degli ordini ed esportazione in un'azienda industriale\n\n• Buone conoscenze SAP (modulo SD) e conoscenze MS Office\n\n• Buone competenze linguistiche in inglese, altre lingue benefiche\n\n• Comportamento orientato al cliente\n\nLe nostre promesse\n\n• Lavorare in una società leader\n\n• Un'attività versatile con spazio per propria iniziativa\n\n• Condizioni di lavoro eque e un ambiente di lavoro piacevole\n\n• La possibilità di lavorare parzialmente nell'ufficio\n\nSe ti piace il lavoro autonomo e vuoi lavorare in un ambiente internazionale, la signora Carmela Greter è felice di aspettarti i tuoi documenti di candidatura via e-mail. Le applicazioni dirette sono preferite.\n\nArea: Amministrazione\n\nLivello: professionisti esperti",
         "en": "Bräcker AG, the world’s leading supplier of rings and ring travelers for ring spinning machines, is a subsidiary of the Rieter Group. Headquartered in Pfäffikon, Switzerland, Bräcker offers added value to its customers with highly developed industry knowledge, innovative solutions, excellent after-sales services and a global presence. The company’s main products – rings and ring travelers for ring spinning machines – are manufactured in Pfäffikon and Wintzenheim (France). The company’s product range also includes grinding machines for the maintenance of roll covers.\n\nFor our sales team we are looking for an open, humorous and initiative personality as\n\nYour main tasks and responsibilities\n\n• Technical and commercial clarification of offers and orders\n\n• Pricing and deadlines based on documents and in cooperation with internal bodies (stocks, production planning)\n\n• Offering and order processing incl. Shipping/export\n\n• Schedule monitoring of orders and the necessary release documents such as import licenses, letters of credit etc.\n\n• Dispatch of orders by air, sea and land with preparation of invoices and all export documents in compliance with any L/C, CAD or other regulations\n\n• Written and telephone contacts with forwarders, control bodies, chambers of commerce, consulates, banks\n\n• Samples\n\n• Replication of offers\n\n• Payment reminders to customers\n\nYour requirement profile\n\n• Basic commercial training; Export training is an advantage\n\n• Experience in order processing and export in an industrial company\n\n• Good SAP knowledge (SD module) & MS Office knowledge\n\n• Good language skills in English, other languages beneficial\n\n• Customer-oriented behaviour\n\nOur promises\n\n• Working in a leading company\n\n• A versatile activity with space for own initiative\n\n• Fair employment conditions and a pleasant working environment\n\n• The possibility to work partially in the home office\n\nIf you enjoy self-employment and would like to work in an international environment, then Mrs. Carmela Greter is happy to expect your application documents by e-mail. Direct applications are preferred.\n\nArea: Administration\n\nLevel: Experienced professionals",
+        "de": "Bräcker AG, weltweit führender Anbieter von Ringen und Ringläufern für Ringspinnmaschinen, ist eine Tochtergesellschaft des Rieter-Konzerns. Mit Hauptsitz im schweizerischen Pfäffikon bietet Bräcker Mehrwert für seine Kunden mit hoch entwickeltem Branchenwissen, innovativen Lösungen, ausgezeichneten Leistungen im After-Sales-Bereich und einer globalen Präsenz. Die Hauptprodukte des Unternehmens – Ringe und Ringläufer für Ringspinnmaschinen – werden in Pfäffikon und Wintzenheim (Frankreich) hergestellt. Das Produktspektrum des Unternehmens beinhaltet ferner Schleifmaschinen für die Wartung von Walzenbezügen.\n\nFür unser Team im Verkaufsinnendienst suchen wir eine offene, humorvolle und initiative Persönlichkeit als\n\nIhre Hauptaufgaben und Verantwortlichkeiten\n\n• Technische und kommerzielle Klärung von Offerten und Aufträgen\n\n• Preis- und Terminbestimmungen anhand Unterlagen und in Zusammenarbeit mit internen Stellen (Lager, Produktionsplanung)\n\n• Offertstellung und Auftragsabwicklung inkl. Versand/Export\n\n• Terminüberwachung der Aufträge und der nötigen Freigabe-Dokumente wie Importlizenzen, Akkreditive etc.\n\n• Versand der Aufträge auf dem Luft-, See- und Landweg mit Erstellung der Rechnungen und sämtlicher Exportpapiere unter Beachtung allfälliger L/C-, CAD- oder anderen Vorschriften\n\n• Schriftliche und telefonische Kontakte mit Spediteuren, Kontrollstellen, Handelskammer, Konsulaten, Banken\n\n• Bemusterungen\n\n• Nachfassen von Offerten\n\n• Zahlungserinnerungen an Kunden\n\nIhr Anforderungsprofil\n\n• Kaufmännische Grundausbildung; Weiterbildung im Bereich Export von Vorteil\n\n• Erfahrung in der Auftragsbearbeitung und Export in einem Industriebetrieb\n\n• Gute SAP-Kenntnisse (SD Modul) & MS Office-Kenntnisse\n\n• Gute Sprachkenntnisse in Englisch, weitere Sprachen von Vorteil\n\n• Kundenorientiertes Verhalten\n\nUnsere Versprechen\n\n• Die Mitarbeit in einem führenden Unternehmen\n\n• Eine vielseitige Tätigkeit mit Raum zur Eigeninitiative\n\n• Faire Anstellungsbedingungen und ein angenehmes Arbeitsklima\n\n• Die Möglichkeit teilweise im Home-Office zu arbeiten\n\nWenn Sie Freude an einer selbständigen Tätigkeit haben und gerne in einem internationalen Umfeld arbeiten, dann erwartet Frau Carmela Greter gerne Ihre Bewerbungsunterlagen per E-Mail. Direktbewerbungen werden bevorzugt.\n\nBereich: Administration\n\nLevel: Berufserfahrene",
         "fr": "Bräcker AG, premier fournisseur mondial d'anneaux et de voyageurs d'anneaux pour machines à filer, est une filiale du groupe Rieter. Basé à Pfäffikon, en Suisse, Bräcker offre une valeur ajoutée à ses clients avec une connaissance de l'industrie hautement développée, des solutions innovantes, d'excellents services après-vente et une présence mondiale. Les principaux produits de la société – bagues et voyageurs de bagues pour machines à filer – sont fabriqués à Pfäffikon et Wintzenheim (France). La gamme de produits de l'entreprise comprend également des machines à meuler pour l'entretien des couvertures en rouleaux.\n\nPour notre équipe commerciale, nous recherchons une personnalité ouverte, humoristique et d'initiative\n\nVos principales tâches et responsabilités\n\n• Clarification technique et commerciale des offres et commandes\n\n• Prix et délais basés sur des documents et en coopération avec des organismes internes (stocks, planification de la production)\n\n• Offre et traitement des commandes incl. Expédition/exportation\n\n• Planifier la surveillance des commandes et des documents de mainlevée nécessaires, comme les licences d'importation, les lettres de crédit, etc.\n\n• Livraison des commandes par voie aérienne, maritime et terrestre avec établissement des factures et de tous les documents d'exportation conformément à tout règlement L/C, CAD ou autre\n\n• Contacts écrits et téléphoniques avec transitaires, organes de contrôle, chambres de commerce, consulats, banques\n\n• Échantillons\n\n• Réplication des offres\n\n• Rappels de paiement aux clients\n\nVotre profil de demande\n\n• Formation commerciale de base; La formation à l'exportation est un avantage\n\n• Expérience dans le traitement des commandes et l'exportation dans une entreprise industrielle\n\n• Bonnes connaissances SAP (module SD) et connaissances MS Office\n\n• Bonnes compétences linguistiques en anglais, autres langues bénéfiques\n\n• Comportement orienté vers le client\n\nNos promesses\n\n• Travailler dans une entreprise leader\n\n• Une activité polyvalente avec un espace pour sa propre initiative\n\n• Des conditions d'emploi équitables et un environnement de travail agréable\n\n• La possibilité de travailler partiellement dans le bureau à domicile\n\nSi vous aimez le travail indépendant et que vous souhaitez travailler dans un environnement international, Mme Carmela Greter est heureuse d'attendre vos documents de candidature par courriel. Les demandes directes sont préférées.\n\nDomaine: Administration\n\nNiveau: Professionnels expérimentés"
       },
       "location": "Pfäffikon ZH",
@@ -270,7 +276,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Sachbearbeiterin-Export-und-Sales-Administration-80-100---4059400",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:36:53.049Z",
+      "crawledAt": "2026-08-25T09:50:11.287Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "Zürich",
       "streetAddress": "Obermattstrasse 65",
@@ -288,24 +294,23 @@
       "jobReqId": "2601080745cg",
       "employerBrand": "Bräcker AG",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-in-export-und-sales-administration-80-100-rieter-pfaffikon-zh",
+        "administration-des-exportations-et-des-ventes-80-100-rieter-pfaffikon-zh"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-export-und-sales-administration-80-100-rieter-pfaffikon-zh",
           "administration-des-exportations-et-des-ventes-80-100-rieter-pfaffikon-zh"
         ],
         "fr": [
-          "administration-des-exportations-et-des-ventes-80-100-rieter-pfaffikon-zh",
-          "sachbearbeiter-in-export-und-sales-administration-80-100-rieter-pfaffikon-zh"
+          "sachbearbeiter-in-export-und-sales-administration-80-100-rieter-pfaffikon-zh",
+          "administration-des-exportations-et-des-ventes-80-100-rieter-pfaffikon-zh"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiter-in-export-und-sales-administration-80-100-rieter-pfaffikon-zh",
-        "administration-des-exportations-et-des-ventes-80-100-rieter-pfaffikon-zh"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:36:53.049Z",
       "salaryMin": 113000,
       "salaryMax": 198500,
       "baseSalary": {
@@ -317,8 +322,7 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-24T21:36:53.049Z"
+      }
     },
     {
       "id": "rieter-0800f06a9a7a",
@@ -351,7 +355,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/SAP-Technical-Service-Delivery-Lead-100-fmd---4052910",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-24T21:36:52.345Z",
+      "crawledAt": "2026-08-25T09:50:10.545Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -416,7 +420,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/SAP-Senior-Consultant-Service-and-Repair-CS-100-wmd---4048335",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-24T21:36:51.636Z",
+      "crawledAt": "2026-08-25T09:50:09.950Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -480,7 +484,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Product-Manager-Automation-100-wmd---4048539",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-24T21:36:50.876Z",
+      "crawledAt": "2026-08-25T09:50:09.362Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -504,7 +508,8 @@
         "product-manager-automation-rieter-winterthur",
         "produktmanager-automatisierung-rieter-winterthur",
         "gestionnaire-de-produits-automatisation-rieter-winterthur",
-        "product-manager-automation-100-w-m-d-rieter-winterthur"
+        "product-manager-automation-100-w-m-d-rieter-winterthur",
+        "automazione-100-w-m-d-rieter-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -512,7 +517,8 @@
           "product-manager-automation-rieter-winterthur",
           "produktmanager-automatisierung-rieter-winterthur",
           "gestionnaire-de-produits-automatisation-rieter-winterthur",
-          "product-manager-automation-100-w-m-d-rieter-winterthur"
+          "product-manager-automation-100-w-m-d-rieter-winterthur",
+          "automazione-100-w-m-d-rieter-winterthur"
         ],
         "en": [
           "product-manager-automation-rieter-winterthur"
@@ -571,7 +577,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/OT-Development-Lead-Digital-Controls-Architecture-100-fmd---4051990",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-24T21:36:50.177Z",
+      "crawledAt": "2026-08-25T09:50:08.780Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -591,6 +597,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-08-10T10:27:28.480Z",
+      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "baseSalary": {
@@ -635,7 +642,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Lehrstelle-als-Konstrukteurin-EFZ-mit-BM-m%C3%B6glich---4051090",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:36:49.467Z",
+      "crawledAt": "2026-08-25T09:50:08.184Z",
       "addressLocality": "Wädenswil",
       "addressRegion": "Zürich",
       "streetAddress": "Rütihof 8",
@@ -655,11 +662,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-konstrukteur-in-efz-mit-bm-moglich-rieter-wadenswil"
+        "lehrstelle-als-konstrukteur-in-efz-mit-bm-moglich-rieter-wadenswil",
+        "apprendistato-come-konstrukteur-in-cfc-con-bm-moglich-rieter-wadenswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-konstrukteur-in-efz-mit-bm-moglich-rieter-wadenswil"
+          "lehrstelle-als-konstrukteur-in-efz-mit-bm-moglich-rieter-wadenswil",
+          "apprendistato-come-konstrukteur-in-cfc-con-bm-moglich-rieter-wadenswil"
         ],
         "en": [
           "lehrstelle-als-konstrukteur-in-efz-mit-bm-moglich-rieter-wadenswil"
@@ -714,7 +723,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Head-of-Trade-Compliance--4054686",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-24T21:36:48.729Z",
+      "crawledAt": "2026-08-25T09:50:07.572Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -734,11 +743,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-of-trade-compliance-rieter-winterthur"
+        "head-of-trade-compliance-rieter-winterthur",
+        "responsabile-trade-compliance-rieter-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-trade-compliance-rieter-winterthur"
+          "head-of-trade-compliance-rieter-winterthur",
+          "responsabile-trade-compliance-rieter-winterthur"
         ],
         "de": [
           "head-of-trade-compliance-rieter-winterthur"
@@ -792,7 +803,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Application-Engineer-Technology-Preparation-100-wmd---4042993",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-24T21:36:48.039Z",
+      "crawledAt": "2026-08-25T09:50:06.957Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -888,7 +899,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
