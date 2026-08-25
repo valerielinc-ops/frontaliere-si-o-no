@@ -4237,6 +4237,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.pil-svizzera-2025-crescita.title': 'BIP Schweiz 2025: +1,6% Wirtschaftswachstum',
     'blog.article.pil-svizzera-2025-crescita.excerpt': 'Die Schweizer Wirtschaft wächst im Jahr 2025 um 1,6%, gestützt durch die Inlandsnachfrage (+2,5%) und Investitionen (+3,5%). Offizielle UST-DATEN mit Auswirkungen auf Arbeit und Löhne.',
     'blog.article.pil-svizzera-2025-crescita.imageAlt': 'Lugano-Skyline mit Wirtschaftswachstumsindikatoren und Schweizer BIP-Daten 2025',
+    'blog.article.20-minuten-utile-pubblicita-digitale.title': '20 Minuten, es boomt mit Gewinn und digitaler Werbung',
+    'blog.article.20-minuten-utile-pubblicita-digitale.excerpt': 'Die Online-Zeitung 20 Minuten verzeichnet einen Anstieg der Nutzerzahlen und der digitalen Werbeeinnahmen mit einem Gewinn von 11,7 Millionen Franken im ersten Halbjahr 2026',
+    'blog.article.20-minuten-utile-pubblicita-digitale.imageAlt': 'Die Online-Zeitung 20 Minuten registriert ein Wachstum der Nutzer und der digitalen Werbeeinnahmen',
 };
 
 export default blogMetaChDe;

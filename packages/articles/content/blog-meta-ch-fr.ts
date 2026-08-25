@@ -4237,6 +4237,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.pil-svizzera-2025-crescita.title': 'PIB Suisse 2025 : +1,6% de croissance économique',
     'blog.article.pil-svizzera-2025-crescita.excerpt': 'L\'économie suisse croît de 1,6% en 2025 soutenue par la demande intérieure (+2,5%) et les investissements (+3,5%). Données OFS officielles avec des implications pour le travail et les salaires.',
     'blog.article.pil-svizzera-2025-crescita.imageAlt': 'Skyline de Lugano avec indicateurs de croissance économique et données du PIB suisse 2025',
+    'blog.article.20-minuten-utile-pubblicita-digitale.title': '20 Minuten, c\'est le boom avec le bénéfice et la publicité numérique',
+    'blog.article.20-minuten-utile-pubblicita-digitale.excerpt': 'Le quotidien en ligne 20 Minuten enregistre une augmentation des utilisateurs et des revenus publicitaires numériques, avec un bénéfice de 11,7 millions de francs au premier semestre 2026',
+    'blog.article.20-minuten-utile-pubblicita-digitale.imageAlt': 'Le journal en ligne 20 Minuten enregistre une augmentation des utilisateurs et des revenus publicitaires numériques',
 };
 
 export default blogMetaChFr;

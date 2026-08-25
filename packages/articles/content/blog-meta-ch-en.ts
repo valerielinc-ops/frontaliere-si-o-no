@@ -4237,6 +4237,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.pil-svizzera-2025-crescita.title': 'GDP Switzerland 2025: +1.6% economic growth',
     'blog.article.pil-svizzera-2025-crescita.excerpt': 'The Swiss economy grows by 1.6% in 2025, supported by domestic demand (+2.5%) and investment (+3.5%). Official UST data with implications for work and salaries.',
     'blog.article.pil-svizzera-2025-crescita.imageAlt': 'Lugano skyline with economic growth indicators and Swiss GDP 2025 data visualization',
+    'blog.article.20-minuten-utile-pubblicita-digitale.title': '20 Minuten, it\'s boom with profit and digital advertising',
+    'blog.article.20-minuten-utile-pubblicita-digitale.excerpt': 'The online newspaper 20 Minuten records an increase in users and digital advertising revenues, with a profit of 11.7 million francs in the first half of 2026',
+    'blog.article.20-minuten-utile-pubblicita-digitale.imageAlt': '20 Minuten online newspaper records increase in users and digital advertising revenue',
 };
 
 export default blogMetaChEn;
