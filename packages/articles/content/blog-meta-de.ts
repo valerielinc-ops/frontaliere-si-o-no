@@ -10789,6 +10789,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-quart-lavorare-vallese-frontaliere.title': 'Wohnen in Quart und Arbeiten im Wallis als Grenzgänger',
     'blog.article.vivere-quart-lavorare-vallese-frontaliere.excerpt': 'Praktischer Leitfaden für Grenzgänger Italien-Schweiz: G-Bewilligung, Steuern, AHV, KVG, Verwaltungsverfahren und Kosten, die vor dem Umzug zu berücksichtigen sind.',
     'blog.article.vivere-quart-lavorare-vallese-frontaliere.imageAlt': 'Berglandschaft im Grenzgebiet zwischen der Schweiz und Italien mit Bergstraße',
+    'blog.article.bionaz-lavorare-vallese-frontaliere.title': 'Leben in Bionaz und Arbeiten im Wallis: Leitfaden',
+    'blog.article.bionaz-lavorare-vallese-frontaliere.excerpt': 'G-Bewilligung, Quellensteuer in der Schweiz, KVG und Doppelbesteuerungsabkommen: Alles, was Sie wissen müssen, um ins Aostatal zu ziehen und im Wallis zu arbeiten.',
+    'blog.article.bionaz-lavorare-vallese-frontaliere.imageAlt': 'Aussicht auf das Wallis und das Aostatal vom Simplonpass mit alpiner Berglandschaft.',
 };
 
 export default blogMetaDe;
