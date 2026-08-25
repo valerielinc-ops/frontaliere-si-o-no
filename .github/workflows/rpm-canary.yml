@@ -16,6 +16,15 @@ name: rpm-canary
 # UTC day is never measured (its earnings aren't settled). See
 # scripts/lib/canaryRpmClassify.mjs for the unit-tested classifier.
 #
+# SECOND, COMPLEMENTARY check (issue #4610): the ratio gate above compares
+# against a trailing 7-day MOVING baseline, which adapts once a degradation
+# outlasts that window — #4610 fired once (2026-07-20) and stayed green for
+# weeks afterward while AdSense account AD_REQUESTS_COVERAGE kept falling
+# (58%→41%→21%, June→August 2026), because the baseline had drifted down
+# alongside it. This canary also averages AD_REQUESTS_COVERAGE over the
+# last 3 fully-closed days and compares it to a FIXED floor (default 45%)
+# that never adapts — either check failing fails the run.
+#
 # Catches ANY revenue-affecting regression within ~24h — article stubs,
 # ads.txt issues, AdSense policy hits, ad slot misconfig, demand drops.
 # Incident 2026-05-28 (3.04 → 1.74 CHF/day) would have triggered the
@@ -45,6 +54,16 @@ on:
         description: 'Only alert if earnings also < (earnings_floor × baseline earnings). Default 0.65.'
         required: false
         default: '0.65'
+        type: string
+      coverage_floor:
+        description: 'Alert if the trailing-window average AD_REQUESTS_COVERAGE < coverage_floor (fraction 0..1). Not baseline-relative — a fixed floor. Default 0.45.'
+        required: false
+        default: '0.45'
+        type: string
+      coverage_sustain_days:
+        description: 'Consecutive fully-closed days averaged for the coverage floor check. Default 3.'
+        required: false
+        default: '3'
         type: string
 
 concurrency:
@@ -123,6 +142,8 @@ jobs:
           RATIO_FLOOR: ${{ github.event.inputs.ratio_floor || '0.65' }}
           ABSOLUTE_FLOOR: ${{ github.event.inputs.absolute_floor || '1.0' }}
           EARNINGS_FLOOR: ${{ github.event.inputs.earnings_floor || '0.65' }}
+          COVERAGE_FLOOR: ${{ github.event.inputs.coverage_floor || '0.45' }}
+          COVERAGE_SUSTAIN_DAYS: ${{ github.event.inputs.coverage_sustain_days || '3' }}
         run: |
           set -o pipefail
           node scripts/canary-rpm.mjs \
@@ -130,6 +151,8 @@ jobs:
             --ratio-floor="$RATIO_FLOOR" \
             --absolute-floor="$ABSOLUTE_FLOOR" \
             --earnings-floor="$EARNINGS_FLOOR" \
+            --coverage-floor="$COVERAGE_FLOOR" \
+            --coverage-sustain-days="$COVERAGE_SUSTAIN_DAYS" \
             > rpm-canary-result.json 2> rpm-canary.log
           echo "exit_code=$?" >> "$GITHUB_OUTPUT"
 
@@ -190,8 +213,8 @@ jobs:
             --workflow "rpm-canary" \
             --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
-      - name: Fail the workflow if RPM regression detected
+      - name: Fail the workflow if a regression was detected
         if: steps.canary.outcome == 'failure' || steps.canary.outputs.exit_code == '1'
         run: |
-          echo "::error::AdSense RPM regression detected — see GitHub issue + artifact"
+          echo "::error::AdSense RPM regression (acute or sustained coverage) detected — see GitHub issue + artifact"
           exit 1
