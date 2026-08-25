@@ -10762,6 +10762,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.como-frontaliere-grigioni.title': 'Torre di Santa Maria: Arbeiten in Graubünden als Grenzgänger',
     'blog.article.como-frontaliere-grigioni.excerpt': 'Ab dem 1. Januar 2024 wandelt das neue Grenzgängerabkommen die Besteuerung um. Bewilligung G, Franchise € 10 \'000, Steuer in der Schweiz, AHV/BVG, Rückvergütungen: So leben und arbeiten Sie als Grenzgänger.',
     'blog.article.como-frontaliere-grigioni.imageAlt': 'Blick auf den Luganersee mit Graubündner Bergen im Hintergrund an der Grenze Tessin-Lombardei',
+    'blog.article.torre-santa-maria-lavoro-grigioni-frontaliere.title': 'Wohnen in Marienturm und Arbeiten in Graubünden: Leitfaden für Grenzgänger',
+    'blog.article.torre-santa-maria-lavoro-grigioni-frontaliere.excerpt': 'G-Bewilligung, Quellensteuer, KVG und AHV/BVG: Wie funktioniert das Steuer- und Vorsorgesystem für Personen, die in der Schweiz von der Tessiner Grenze aus arbeiten?',
+    'blog.article.torre-santa-maria-lavoro-grigioni-frontaliere.imageAlt': 'Grenztal zwischen Italien und der Schweiz mit typischer Tessiner und Bündner Berglandschaft',
 };
 
 export default blogMetaDe;

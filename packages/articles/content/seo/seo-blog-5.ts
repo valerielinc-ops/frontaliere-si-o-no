@@ -78227,6 +78227,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-torre-santa-maria-lavoro-grigioni-frontaliere': {
+    title: 'Vivere a Torre di Santa Maria e lavorare in Grigioni: guida per frontalieri',
+    description: 'Permesso G, imposta alla fonte, LAMal e AVS/LPP: come funziona il regime fiscale e previdenziale per frontalieri che lavorano in Svizzera dal Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, torre, santa, maria',
+    ogTitle: 'Frontalieri Ticino-Grigioni: tasse, permessi e previdenza dal 2024',
+    ogDescription: 'Guida pratica per chi vive a Torre di Santa Maria e lavora in Svizzera: come funziona il Permesso G, l\'imposta alla fonte, AVS/LPP/LAMal e il Nuovo Accordo Frontalieri 2024.',
+    canonicalPath: '/articoli-frontaliere/torre-santa-maria-lavoro-grigioni-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Torre di Santa Maria e lavorare in Grigioni: guida per frontalieri",
+      "description": "Permesso G, imposta alla fonte, LAMal e AVS/LPP: come funziona il regime fiscale e previdenziale per frontalieri che lavorano in Svizzera dal Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/torre-santa-maria-lavoro-grigioni-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Valle di confine tra Italia e Svizzera con paesaggio montano tipico del Ticino e Grigioni"
+      },
+      "datePublished": "2026-08-25T08:40:42+00:00",
+      "dateModified": "2026-08-25T08:40:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/torre-santa-maria-lavoro-grigioni-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

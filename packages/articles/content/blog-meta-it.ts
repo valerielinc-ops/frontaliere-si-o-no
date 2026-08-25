@@ -10764,6 +10764,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.como-frontaliere-grigioni.title': 'Torre di Santa Maria: lavorare in Grigioni da frontaliere',
     'blog.article.como-frontaliere-grigioni.excerpt': 'Dal 1° gennaio 2024, il nuovo accordo frontalieri trasforma la tassazione. Permesso G, franchigia €10.000, imposta in Svizzera, AVS/LPP, ristorni: ecco come vivere e lavorare da frontaliere.',
     'blog.article.como-frontaliere-grigioni.imageAlt': 'Veduta del Lago di Lugano con le montagne dei Grigioni sullo sfondo al confine Ticino-Lombardia',
+    'blog.article.torre-santa-maria-lavoro-grigioni-frontaliere.title': 'Vivere a Torre di Santa Maria e lavorare in Grigioni: guida per frontalieri',
+    'blog.article.torre-santa-maria-lavoro-grigioni-frontaliere.excerpt': 'Permesso G, imposta alla fonte, LAMal e AVS/LPP: come funziona il regime fiscale e previdenziale per chi lavora in Svizzera dal confine ticinese.',
+    'blog.article.torre-santa-maria-lavoro-grigioni-frontaliere.imageAlt': 'Valle di confine tra Italia e Svizzera con paesaggio montano tipico del Ticino e Grigioni',
 };
 
 export default blogMetaIt;
