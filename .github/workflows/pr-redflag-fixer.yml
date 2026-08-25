@@ -286,9 +286,14 @@ jobs:
           expected=$(echo "$result" | jq -r '.expected // 0')
           count=$(echo "$result" | jq -r '.count // 0')
           files_complete=$(echo "$result" | jq -r 'if .complete then 1 else 0 end')
+          reason=$(echo "$result" | jq -r '.reason // "unknown"')
           files=$(echo "$result" | jq -r '(.files // [])[]')
           if [ "$files_complete" != "1" ]; then
-            echo "::warning::Elenco file INCOMPLETO ($count/$expected) → capability guard e tier trattano la PR come se toccasse workflow + code funnel-critical."
+            if [ "$reason" = "rest-hard-limit" ]; then
+              echo "::warning::Elenco file INCOMPLETO ($count/$expected, causa: rest-hard-limit — tetto rigido di 3000 file della REST GitHub, non riparabile con retry) → capability guard e tier trattano la PR come se toccasse workflow + code funnel-critical."
+            else
+              echo "::warning::Elenco file INCOMPLETO ($count/$expected, causa: $reason) → capability guard e tier trattano la PR come se toccasse workflow + code funnel-critical."
+            fi
           fi
           touches_wf=$(echo "$files" | grep -E '^\.github/workflows/' || true)
           # Elenco incompleto = «non lo so», e su un capability guard «non lo so»
