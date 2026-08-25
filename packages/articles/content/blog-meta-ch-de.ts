@@ -4306,6 +4306,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.immobiliare-berna-mutuo-costi.title': 'Haus kaufen in Bern: Preise, Hypothek und Steuern',
     'blog.article.immobiliare-berna-mutuo-costi.excerpt': 'Leitfaden zu den Immobilienkaufkosten im Kanton Bern: Hypothekendarlehen, Eigenmittel, Ablösesummen und Notarkosten für Hauskäufer in der Schweiz.',
     'blog.article.immobiliare-berna-mutuo-costi.imageAlt': 'Modernes Haus im Kanton Bern mit Berghintergrund, Symbol des Schweizer Immobilienmarkts',
+    'blog.article.fondo-esercito-iva-compromesso.title': 'Ein Kompromiss zur Finanzierung der Armee',
+    'blog.article.fondo-esercito-iva-compromesso.excerpt': 'Die Finanzkommission des Ständerates genehmigt den Plan. Fonds mit einer jährlichen Verschuldung von bis zu 6 Milliarden ab 2027, finanziert durch Mehrwertsteuererhöhung und Kreditrückstände.',
+    'blog.article.fondo-esercito-iva-compromesso.imageAlt': 'Luganer Stadtansicht mit Schweizer Architektur am Seeufer.',
 };
 
 export default blogMetaChDe;
