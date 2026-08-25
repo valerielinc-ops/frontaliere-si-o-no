@@ -54932,6 +54932,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pil-svizzera-2025-crescita': {
+    title: 'PIL Svizzera 2025: +1,6% di crescita economica',
+    description: 'Economia svizzera in crescita dell\'1,6% nel 2025, trainata da domanda interna (+2,5%) e investimenti (+3,5%). Analisi UST con implicazioni per lavoro',
+    keywords: 'frontalieri, ticino, svizzera, italia, crescita, economica, economia, cresce',
+    ogTitle: 'PIL Svizzera 2025: +1,6% di crescita economica',
+    ogDescription: 'L\'economia svizzera cresce dell\'1,6% nel 2025 sostenuta da domanda interna (+2,5%) e investimenti (+3,5%). Settore finanziario e chimico-farmaceutico trainano la ripresa economica. Scopri i dati ufficiali dell\'UST e le implicazioni per il mercato',
+    canonicalPath: '/articoli-svizzera/pil-svizzera-2025-crescita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "PIL Svizzera 2025: +1,6% di crescita economica",
+      "description": "Economia svizzera in crescita dell'1,6% nel 2025, trainata da domanda interna (+2,5%) e investimenti (+3,5%). Analisi UST con implicazioni per lavoro",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pil-svizzera-2025-crescita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Lugano con simboli di crescita economica e dati sul PIL svizzero 2025"
+      },
+      "datePublished": "2026-08-25T07:04:59+00:00",
+      "dateModified": "2026-08-25T07:04:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pil-svizzera-2025-crescita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

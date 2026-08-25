@@ -1437,6 +1437,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'sistema-sanitario-difficolta-cittadini': { it: 'sistema-sanitario-difficolta-cittadini', en: 'healthcare-system-user-difficulties', de: 'gesundheitssystem-nutzer-schwierigkeiten', fr: 'systeme-de-sante-difficultes-usagers' },
  'tx-group-penalizzato-svalutazioni': { it: 'tx-group-penalizzato-svalutazioni', en: 'tx-group-penalized-by-devaluations', de: 'tx-gruppe-geschadigt-durch-abwertungen', fr: 'groupe-tx-peniete-par-les-devaluations' },
  'salari-appenzello-esterno-settori-livelli': { it: 'salari-appenzello-esterno-settori-livelli', en: 'salaries-appenzello-esterno-sectors-levels', de: 'lohne-appenzell-ausserrhoden-sektoren-niveaus', fr: 'salaires-appenzell-rhodes-exterieures-secteurs-niveaux' },
+ 'pil-svizzera-2025-crescita': { it: 'pil-svizzera-2025-crescita', en: 'swiss-gdp-2025-growth', de: 'bip-schweiz-2025-wachstum', fr: 'pib-suisse-2025-croissance' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

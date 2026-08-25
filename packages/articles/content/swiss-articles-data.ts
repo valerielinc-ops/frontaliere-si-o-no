@@ -12700,6 +12700,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'pil-svizzera-2025-crescita',
+    category: 'novita',
+    date: '2026-08-25T07:04:59.178Z',
+    image: '/images/blog/pil-svizzera-2025-crescita.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

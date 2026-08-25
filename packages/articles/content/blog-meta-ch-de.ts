@@ -4234,6 +4234,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salari-appenzello-esterno-settori-livelli.title': 'Löhne und Arbeit in Appenzell Ausserrhoden: Branchen und Ebenen',
     'blog.article.salari-appenzello-esterno-settori-livelli.excerpt': 'Arbeitsmarkt in Appenzell Ausserrhoden: Wie Löhne, Tarifverträge und Lohnniveaus nach Bildungsstufen funktionieren.',
     'blog.article.salari-appenzello-esterno-settori-livelli.imageAlt': 'Modernes Schweizer Büro mit Fachleuten bei der Arbeit, die den zeitgenössischen Schweizer Arbeitsmarkt repräsentieren.',
+    'blog.article.pil-svizzera-2025-crescita.title': 'BIP Schweiz 2025: +1,6% Wirtschaftswachstum',
+    'blog.article.pil-svizzera-2025-crescita.excerpt': 'Die Schweizer Wirtschaft wächst im Jahr 2025 um 1,6%, gestützt durch die Inlandsnachfrage (+2,5%) und Investitionen (+3,5%). Offizielle UST-DATEN mit Auswirkungen auf Arbeit und Löhne.',
+    'blog.article.pil-svizzera-2025-crescita.imageAlt': 'Lugano-Skyline mit Wirtschaftswachstumsindikatoren und Schweizer BIP-Daten 2025',
 };
 
 export default blogMetaChDe;

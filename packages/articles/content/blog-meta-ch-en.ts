@@ -4234,6 +4234,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salari-appenzello-esterno-settori-livelli.title': 'Wages and work in Appenzello Esterno: sectors and levels',
     'blog.article.salari-appenzello-esterno-settori-livelli.excerpt': 'Labour market in the Outer Appenzell: how wages, collective agreements and pay levels work by degree of training.',
     'blog.article.salari-appenzello-esterno-settori-livelli.imageAlt': 'Modern Swiss office workspace with professionals working, representing contemporary Swiss labor market.',
+    'blog.article.pil-svizzera-2025-crescita.title': 'GDP Switzerland 2025: +1.6% economic growth',
+    'blog.article.pil-svizzera-2025-crescita.excerpt': 'The Swiss economy grows by 1.6% in 2025, supported by domestic demand (+2.5%) and investment (+3.5%). Official UST data with implications for work and salaries.',
+    'blog.article.pil-svizzera-2025-crescita.imageAlt': 'Lugano skyline with economic growth indicators and Swiss GDP 2025 data visualization',
 };
 
 export default blogMetaChEn;
