@@ -4270,6 +4270,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.amnesty-neutralita-crimini-guerra.title': 'Amnesty gegen Neutralitätsinitiative Schweiz',
     'blog.article.amnesty-neutralita-crimini-guerra.excerpt': 'Amnesty International Schweiz lehnt die Neutralitätsinitiative ab: Sie würde wirtschaftliche und diplomatische Sanktionen einschränken. Abstimmung am 27. September 2026.',
     'blog.article.amnesty-neutralita-crimini-guerra.imageAlt': 'Bundeshaus in Bern mit Schweizer Flagge, Sitz von Nationalrat und Ständerat',
+    'blog.article.premi-lamal-berna-sussidio.title': 'KVG-Prämien Kanton Bern: Zeitabschnitte und Kürzungen',
+    'blog.article.premi-lamal-berna-sussidio.excerpt': 'Im Kanton Bern variieren die KVG-Prämien je nach gewählter Franchise. So funktioniert das System und wie Sie auf die Reduktionszuschüsse zugreifen können.',
+    'blog.article.premi-lamal-berna-sussidio.imageAlt': 'Verwaltungsbüro mit Krankenversicherungsdokumenten auf dem Schreibtisch.',
 };
 
 export default blogMetaChDe;

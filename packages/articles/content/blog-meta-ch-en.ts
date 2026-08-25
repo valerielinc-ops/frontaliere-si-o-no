@@ -4270,6 +4270,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.amnesty-neutralita-crimini-guerra.title': 'Amnesty vs Swiss neutrality initiative',
     'blog.article.amnesty-neutralita-crimini-guerra.excerpt': 'Amnesty International Switzerland opposes the neutrality initiative: it would limit economic and diplomatic sanctions. Vote on 27 September 2026.',
     'blog.article.amnesty-neutralita-crimini-guerra.imageAlt': 'Swiss Federal Parliament building Bundeshaus in Bern with Swiss flag',
+    'blog.article.premi-lamal-berna-sussidio.title': 'LAMal Canton Bern Awards: bands and reductions',
+    'blog.article.premi-lamal-berna-sussidio.excerpt': 'In the Canton of Bern, LAMal premiums vary according to the deductible chosen. Here\'s how the system works and how to access reduction subsidies.',
+    'blog.article.premi-lamal-berna-sussidio.imageAlt': 'Administrative office with health insurance documents displayed on desk.',
 };
 
 export default blogMetaChEn;

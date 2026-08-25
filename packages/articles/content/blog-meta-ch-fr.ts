@@ -4270,6 +4270,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.amnesty-neutralita-crimini-guerra.title': 'Amnesty contre l\'initiative neutralité suisse',
     'blog.article.amnesty-neutralita-crimini-guerra.excerpt': 'Amnesty International Suisse s\'oppose à l\'initiative sur la neutralité : elle limiterait les sanctions économiques et diplomatiques. Vote le 27 septembre 2026.',
     'blog.article.amnesty-neutralita-crimini-guerra.imageAlt': 'Palais fédéral Bundeshaus à Berne avec drapeau suisse',
+    'blog.article.premi-lamal-berna-sussidio.title': 'Prix LAMal canton Berne : fourchettes et réductions',
+    'blog.article.premi-lamal-berna-sussidio.excerpt': 'Dans le canton de Berne, les primes LAMal varient selon la franchise choisie. Voici comment fonctionne le système et comment accéder aux subventions pour la réduction.',
+    'blog.article.premi-lamal-berna-sussidio.imageAlt': 'Bureau administratif avec des documents d\'assurance maladie sur le bureau.',
 };
 
 export default blogMetaChFr;
