@@ -1,8 +1,32 @@
 #!/usr/bin/env node
 /**
- * Montagetechnik BERNER AG job parser — Fetcher and job builder.
+ * Montagetechnik BERNER AG job parser — Workday ATS.
  *
- * Source: https://shop.berner.eu/ch-de/vacancies/
+ * The company career page (https://shop.berner.eu/ch-de/vacancies/) that this
+ * crawler originally scraped was retired — the URL now 404s on the Berner
+ * shop site (issue #6269: 6 consecutive empty runs). The Akamai edge in front
+ * of `shop.berner.eu` also returns a blanket "Access Denied" to plain HTTP
+ * clients (even for `/robots.txt`), which is why the old fetcher looked like
+ * a bot block; a real browser hits the SAME 404, confirming the page is
+ * genuinely gone rather than fenced. Berner Group career pages now link out
+ * to a shared Workday tenant instead:
+ *   https://shop.berner.eu/ch-de/career/welcome → "Hier bewerben" →
+ *   https://bernergroup.wd3.myworkdayjobs.com/de-DE/Careers_Berner_Group
+ *
+ * Tenant host: bernergroup.wd3.myworkdayjobs.com
+ * Site path:   Careers_Berner_Group
+ *
+ * Confirmed live via the public CXS API:
+ *   curl -X POST https://bernergroup.wd3.myworkdayjobs.com/wday/cxs/bernergroup/Careers_Berner_Group/jobs \
+ *     -H 'Content-Type: application/json' \
+ *     -d '{"appliedFacets":{"locationCountry":["187134fccb084a0ea9b4b95f23890dbe"]},"limit":20,"offset":0}'
+ *
+ * The Swiss-country facet on this tenant returns only postings for the CH
+ * subsidiary (`bulletFields` tagged "Montagetechnik Berner AG" / "Montagetechnik AG"),
+ * so no extra per-listing company filter is needed beyond the country facet.
+ *
+ * HQ (per https://shop.berner.eu/ch-de/imprint):
+ *   Montagetechnik Berner AG, Kägenstrasse 8, 4153 Reinach BL, Schweiz.
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllBernerMontageJobs()  — Fetch and parse all jobs
@@ -11,17 +35,44 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
-
+import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
+import { slugify, stripHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
+import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {
+  buildWorkdayApiBase,
+  fetchWorkdayJobs,
+  fetchWorkdayJobDetail,
+  parseWorkdayPostedDate,
+  extractWorkdayJobIdentity,
+  WorkdayAuthError,
+} from './ats-clients/workday-client.mjs';
 /* ── Constants ─────────────────────────────────────────────── */
 
 export const BERNER_MONTAGE_KEY = 'berner-montage';
 export const BERNER_MONTAGE_COMPANY_NAME = 'Montagetechnik BERNER AG';
 export const BERNER_MONTAGE_COMPANY_DOMAIN = 'berner.eu';
 
-const CAREER_URL = 'https://shop.berner.eu/ch-de/vacancies/';
+const WORKDAY_TENANT_HOST = 'bernergroup.wd3.myworkdayjobs.com';
+const WORKDAY_SITE_PATH = 'Careers_Berner_Group';
+const WORKDAY_API_BASE = buildWorkdayApiBase(WORKDAY_TENANT_HOST, WORKDAY_SITE_PATH);
+const WORKDAY_PUBLIC_BASE = `https://${WORKDAY_TENANT_HOST}/${WORKDAY_SITE_PATH}`;
+
+const CAREER_URL = 'https://shop.berner.eu/ch-de/career/welcome';
+
+// Standard Workday Switzerland country facet UUID (same across nearly all
+// tenants — see workday-swiss-job-parser-common.mjs).
+const WORKDAY_SWISS_LOCATION_ID = '187134fccb084a0ea9b4b95f23890dbe';
+
+/* ── HQ address (Montagetechnik Berner AG, Kägenstrasse 8, 4153 Reinach BL) ── */
+
+const HQ = {
+  city: 'Reinach',
+  canton: 'BL',
+  postalCode: '4153',
+  streetAddress: 'Kägenstrasse 8',
+};
+
+const SECTOR = 'Bau / Montage';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -29,6 +80,22 @@ function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
 }
 
+function normalizeSpace(value = '') {
+  return String(value || '').replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * The Workday CXS `locationsText` field (listing AND detail payloads) is
+ * either `"City, Switzerland"` (single location) or the placeholder
+ * `"N Locations"` when a posting spans multiple sites — the placeholder is
+ * not a usable city name. Strips the country suffix from the former and
+ * discards the latter.
+ */
+function cityFromLocationText(raw = '') {
+  const cleaned = normalizeSpace(raw);
+  if (!cleaned || /^\d+\s+location/i.test(cleaned)) return '';
+  return cleaned.split(',')[0].trim();
+}
 
 /* ── Company Matchers ──────────────────────────────────────── */
 
@@ -39,7 +106,7 @@ function normalize(value = '') {
 export function isBernerMontageJob(job) {
   const key = normalize(job?.companyKey || job?.company || '')
     .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[̀-ͯ]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
@@ -54,12 +121,15 @@ export function isBernerMontageJob(job) {
 }
 
 /**
- * Validate that a URL belongs to Montagetechnik BERNER AG's domain.
+ * Validate that a URL belongs to Montagetechnik BERNER AG's domain OR the
+ * Workday ATS host that actually serves postings.
  */
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === 'berner.eu' || host.endsWith('.berner.eu');
+    if (host === 'berner.eu' || host.endsWith('.berner.eu')) return true;
+    if (host === WORKDAY_TENANT_HOST || host.endsWith('.myworkdayjobs.com')) return true;
+    return false;
   } catch {
     return false;
   }
@@ -72,7 +142,7 @@ function detectCategory(title = '') {
   if (/\b(ingegner|engineer|entwickl)/.test(t)) return 'Ingegneria';
   if (/\b(techni|tecnic|mecanic|elektr|install)/.test(t)) return 'Tecnica';
   if (/\b(admin|segret|contab|buchhalt|account)/.test(t)) return 'Amministrazione';
-  if (/\b(vendita|sales|verkauf|commerce)/.test(t)) return 'Commerciale';
+  if (/\b(vendita|sales|verkauf|commerce|aussendienst|regional|commercial)/.test(t)) return 'Commerciale';
   if (/\b(logist|magazz|lager|warehouse)/.test(t)) return 'Logistica';
   if (/\b(produz|operat|operator|manufactur)/.test(t)) return 'Produzione';
   if (/\b(qualit|qa|qc|quality)/.test(t)) return 'Qualità';
@@ -92,275 +162,166 @@ function detectExperienceLevel(title = '') {
   return 'mid';
 }
 
-function detectEmploymentType(text = '') {
-  const t = normalize(text);
+function detectEmploymentType(timeType = '', title = '') {
+  const t = normalize(`${timeType} ${title}`);
   if (/\b(part.?time|teilzeit|tempo parziale|temps partiel)/.test(t)) return 'PART_TIME';
   if (/\b(full.?time|vollzeit|tempo pieno|temps plein)/.test(t)) return 'FULL_TIME';
   return 'OTHER';
 }
 
-/* ── HTML Scraping ────────────────────────────────────────── */
-
-/**
- * Montagetechnik BERNER AG (part of Berner Group) posts jobs at
- * shop.berner.eu/ch-de/vacancies/. The page renders job listings
- * as HTML with links to individual job detail pages.
- *
- * The site requires browser-like headers to avoid 403 responses.
- * Job listings contain title, location, and link to detail page.
- * Detail pages may contain richer descriptions.
+/* ── Address resolution ───────────────────────────────────────
+ * Only apply the HQ street/postal-code fallback when the job's own
+ * resolved city TEXT matches the HQ city (Reinach) — never gate on canton
+ * equality. Pattern mirrors scripts/lib/bossard-job-parser.mjs's
+ * resolveAddress().
  */
+function resolveAddress(rawCity = '') {
+  const city = normalizeSpace(rawCity || '');
+  const isHqCity = !city || /\breinach\b/i.test(city);
 
-const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
-  || 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36';
-
-const BROWSER_HEADERS = {
-  Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-  'Accept-Language': 'de-CH,de;q=0.9,en;q=0.8',
-  'Accept-Encoding': 'gzip, deflate, br',
-  'User-Agent': USER_AGENT,
-  'Cache-Control': 'no-cache',
-  Connection: 'keep-alive',
-  'Sec-Fetch-Dest': 'document',
-  'Sec-Fetch-Mode': 'navigate',
-  'Sec-Fetch-Site': 'none',
-  'Sec-Fetch-User': '?1',
-  'Upgrade-Insecure-Requests': '1',
-};
-
-/**
- * Fetch the career page HTML with browser-like headers.
- */
-async function fetchCareerPage() {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20_000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-
-  try {
-    const res = await fetch(CAREER_URL, {
-      signal: controller.signal,
-      headers: BROWSER_HEADERS,
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from career page`);
-    return await res.text();
-  } finally {
-    clearTimeout(timer);
-  }
+  return {
+    city: city || HQ.city,
+    postalCode: isHqCity ? HQ.postalCode : '',
+    streetAddress: isHqCity ? HQ.streetAddress : '',
+  };
 }
 
-/**
- * Fetch a job detail page for richer description.
- */
-async function fetchDetailPage(url) {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15_000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
+/* ── Fetch + Parse ─────────────────────────────────────────── */
 
+/**
+ * Fetch Switzerland-only Montagetechnik BERNER AG postings from the Workday
+ * CXS API.
+ */
+async function fetchJobListings() {
+  const out = [];
   try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: BROWSER_HEADERS,
-    });
-    if (!res.ok) return null;
-    const html = await res.text();
-
-    // Try to extract JSON-LD for structured job data
-    const ldRegex = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/gi;
-    let ldMatch;
-    while ((ldMatch = ldRegex.exec(html)) !== null) {
-      try {
-        const data = JSON.parse(ldMatch[1]);
-        if (data['@type'] === 'JobPosting') {
-          return {
-            description: stripHtml(data.description || ''),
-            location: normalizeSpace(data.jobLocation?.address?.addressLocality || ''),
-            datePosted: data.datePosted || '',
-            employmentType: data.employmentType || '',
-          };
-        }
-      } catch { /* ignore */ }
+    for await (const posting of fetchWorkdayJobs(WORKDAY_API_BASE, {
+      appliedFacets: { locationCountry: [WORKDAY_SWISS_LOCATION_ID] },
+      maxPages: 100000,
+    })) {
+      const id = extractWorkdayJobIdentity(posting, {
+        apiBase: WORKDAY_API_BASE,
+        company: BERNER_MONTAGE_COMPANY_NAME,
+      });
+      out.push({
+        title: id.title,
+        location: cityFromLocationText(posting.locationsText || ''),
+        url: id.applyUrl,
+        postedAt: id.postedAt || (posting.postedOn ? parseWorkdayPostedDate(posting.postedOn) : null),
+        externalPath: id.externalPath,
+        jobReqId: id.jobReqId,
+        timeType: posting.timeType || '',
+      });
     }
-
-    // Fallback: extract all text-media-combo blocks (detail pages use these
-    // for "Was dich erwartet", "Was dich auszeichnet", "Was wir bieten", etc.)
-    const comboRegex = /<div[^>]*class="text-media-combo-container[^"]*"[^>]*>([\s\S]*?)(?=<div[^>]*class="text-media-combo-container|<\/main|$)/gi;
-    const comboParts = [];
-    let cm;
-    while ((cm = comboRegex.exec(html)) !== null) {
-      const text = stripHtml(cm[1]).trim();
-      if (text.length > 20) comboParts.push(text);
+  } catch (err) {
+    if (err instanceof WorkdayAuthError) {
+      console.error(`❌ Workday anti-bot block (${BERNER_MONTAGE_COMPANY_NAME}): ${err.message}`);
+      return [];
     }
-    if (comboParts.length > 0) {
-      return { description: comboParts.join('\n\n').substring(0, 4000), location: '', datePosted: '', employmentType: '' };
-    }
-
-    // Last resort: main/article
-    const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
-      || html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
-    if (mainMatch) {
-      return { description: stripHtml(mainMatch[1]).substring(0, 2000), location: '', datePosted: '', employmentType: '' };
-    }
-
-    return null;
-  } catch {
-    return null;
-  } finally {
-    clearTimeout(timer);
-  }
-}
-
-/**
- * Parse job listings from the career page HTML.
- *
- * The shop.berner.eu career page uses "text-media-combo-container" divs
- * for each job listing, with:
- *   - <h1> containing the job title
- *   - <div class="text-media-combo-description"> with contact info text
- *   - <a href="..."> with "Zum Stelleninserat" / "Vers l'offre d'emploi"
- *     pointing to the detail page
- *
- * Returns array of { title, url, description }.
- */
-function parseJobsFromHtml(html = '') {
-  const listings = [];
-  const seen = new Set();
-
-  // Strategy 1: Find JSON-LD JobPosting entries (if present)
-  const ldRegex = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/gi;
-  let ldMatch;
-  while ((ldMatch = ldRegex.exec(html)) !== null) {
-    try {
-      const data = JSON.parse(ldMatch[1]);
-      const items = Array.isArray(data) ? data : [data];
-      for (const item of items) {
-        if (item?.['@type'] === 'JobPosting' && item.title) {
-          const url = item.url || item.sameAs || '';
-          const key = `${item.title}|${url}`;
-          if (!seen.has(key)) {
-            seen.add(key);
-            listings.push({
-              title: normalizeSpace(item.title),
-              url: normalizeSpace(url),
-              location: normalizeSpace(item.jobLocation?.address?.addressLocality || ''),
-              description: stripHtml(item.description || ''),
-              datePosted: item.datePosted || '',
-              employmentType: item.employmentType || '',
-            });
-          }
-        }
-      }
-    } catch { /* ignore */ }
-  }
-
-  // Strategy 2: Parse text-media-combo-container blocks
-  // Each block is a job listing with h1 title and detail link
-  const comboRegex = /<div[^>]*class="text-media-combo-container[^"]*"[^>]*>([\s\S]*?)(?=<div[^>]*class="text-media-combo-container|$)/gi;
-  let comboMatch;
-  while ((comboMatch = comboRegex.exec(html)) !== null) {
-    const block = comboMatch[1];
-
-    // Extract title from <h1>
-    const h1Match = block.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
-    if (!h1Match) continue;
-    const title = normalizeSpace(stripHtml(h1Match[1]));
-    if (!title || title.length < 5) continue;
-    // Skip the main page heading "Aktuelle Stellenangebote"
-    if (/^aktuelle\s+stellenangebote$/i.test(title)) continue;
-
-    // Extract detail URL from the "Zum Stelleninserat" / "Vers l'offre d'emploi" link
-    const linkMatch = block.match(/<a[^>]+href=["']([^"']+)["'][^>]*>[\s\S]*?(?:Stelleninserat|offre d'emploi)/i);
-    const detailUrl = linkMatch ? linkMatch[1].trim() : '';
-    const fullUrl = detailUrl.startsWith('http')
-      ? detailUrl
-      : (detailUrl ? `https://shop.berner.eu${detailUrl}` : CAREER_URL);
-
-    // Extract description text from the combo description div
-    const descMatch = block.match(/<div[^>]*class="text-media-combo-description[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
-    const descText = descMatch ? normalizeDescriptionSpace(stripHtml(descMatch[1])) : '';
-
-    const key = `${title}|${fullUrl}`;
-    if (!seen.has(key)) {
-      seen.add(key);
-      listings.push({
-        title,
-        url: fullUrl,
-        location: '', // Will be inferred from detail page or defaults
-        description: descText,
-        datePosted: '',
-        employmentType: '',
+    // Some tenants reject an unrecognised locationCountry facet outright —
+    // fall back to the unfiltered board and rely on the per-listing
+    // foreign guard below.
+    console.warn(`⚠️ ${BERNER_MONTAGE_COMPANY_NAME}: Swiss facet fetch failed (${err?.message || err}). Refetching unfiltered.`);
+    out.length = 0;
+    for await (const posting of fetchWorkdayJobs(WORKDAY_API_BASE, { maxPages: 100000 })) {
+      const id = extractWorkdayJobIdentity(posting, {
+        apiBase: WORKDAY_API_BASE,
+        company: BERNER_MONTAGE_COMPANY_NAME,
+      });
+      out.push({
+        title: id.title,
+        location: cityFromLocationText(posting.locationsText || ''),
+        url: id.applyUrl,
+        postedAt: id.postedAt || (posting.postedOn ? parseWorkdayPostedDate(posting.postedOn) : null),
+        externalPath: id.externalPath,
+        jobReqId: id.jobReqId,
+        timeType: posting.timeType || '',
       });
     }
   }
-
-  return listings;
+  return out;
 }
 
 /**
- * Fetch all Montagetechnik BERNER AG jobs.
+ * Fetch all Montagetechnik BERNER AG jobs (Switzerland only).
  * Returns an array of ParsedJob objects (source-locale only).
  *
- * Flow:
- *   1. Fetch career page HTML (with browser-like headers)
- *   2. Parse job listings from HTML/JSON-LD
- *   3. Optionally fetch detail pages for richer descriptions
- *   4. Build ParsedJob objects
- *
- * Note: The shop.berner.eu site may block automated requests with 403.
- * If so, the crawler will return an empty array gracefully and retry next cycle.
+ * IMPORTANT: Only source-locale fields are set here. Other locales are
+ * filled later by the AI localization pipeline (translate-pending).
  */
 export async function fetchAllBernerMontageJobs() {
-  console.log(`🔍 Fetching Montagetechnik BERNER AG jobs`);
-  console.log(`   Source: ${CAREER_URL}\n`);
+  console.log(`🔍 Fetching ${BERNER_MONTAGE_COMPANY_NAME} jobs`);
+  console.log(`   Source: ${CAREER_URL}`);
+  console.log(`   Workday: ${WORKDAY_API_BASE}\n`);
 
-  let html;
-  try {
-    html = await fetchCareerPage();
-  } catch (err) {
-    console.warn(`⚠️ Career page fetch failed: ${err?.message}`);
-    console.warn('   The site may be blocking automated requests. Will retry next cycle.');
-    return [];
-  }
-
-  const listings = parseJobsFromHtml(html);
+  const listings = await fetchJobListings();
   if (!listings || listings.length === 0) {
-    console.warn('⚠️ No job listings found on career page.');
+    console.warn('⚠️ No job listings returned.');
     return [];
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
 
   const jobs = [];
+  const seen = new Set();
+
   for (const listing of listings) {
-    const title = listing.title;
+    const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    // Fetch detail page if we have a URL and no/thin description
-    const listingWordCount = (listing.description || '').split(/\s+/).filter(Boolean).length;
+    const publicUrl = listing.url || WORKDAY_PUBLIC_BASE;
+    if (seen.has(publicUrl)) continue;
+    seen.add(publicUrl);
+
+    // Workday listing endpoint never returns the job body, and its
+    // `locationsText` collapses to a useless "N Locations" placeholder for
+    // multi-site postings — the detail payload's `jobPostingInfo.location`
+    // carries the single primary site instead, so fetch it unconditionally.
     let detail = null;
-    if (listing.url && listing.url !== CAREER_URL && listingWordCount < 50) {
-      try {
-        detail = await fetchDetailPage(listing.url);
-        console.log(`  ✅ ${title.substring(0, 60)}${detail?.description ? '' : ' (no detail content)'}`);
-      } catch (err) {
-        console.warn(`  ⚠️ Detail fetch failed for ${title}: ${err?.message}`);
-      }
-      await new Promise((r) => setTimeout(r, 500));
+    try {
+      detail = await fetchWorkdayJobDetail(WORKDAY_API_BASE, listing.externalPath);
+    } catch {
+      detail = null;
+    }
+    // Be polite to the Workday tenant between per-job detail fetches.
+    await new Promise((r) => setTimeout(r, 400));
+
+    const rawLocation = cityFromLocationText(detail?.jobPostingInfo?.location || '') || listing.location || '';
+    if (isLocationExplicitlyForeign(rawLocation)) {
+      console.log(`  ⏭️ Skipped foreign location: ${rawLocation} — ${title}`);
+      continue;
     }
 
-    const city = listing.location || detail?.location || 'Visp';
-    const canton = inferAnyCanton(city) || 'VS';
-    // Prefer detail page description when it's richer than the listing excerpt
-    const detailWords = (detail?.description || '').split(/\s+/).filter(Boolean).length;
-    const listingWords = (listing.description || '').split(/\s+/).filter(Boolean).length;
-    const description = (detailWords > listingWords ? detail.description : listing.description)
-      || `${title} — Montagetechnik BERNER AG, ${city}`;
-    const publicUrl = listing.url || CAREER_URL;
+    const { city, postalCode, streetAddress } = resolveAddress(rawLocation);
+    const location = rawLocation || city || HQ.city;
+    const canton = inferSwissTargetCanton(location) || inferSwissTargetCanton(city) || HQ.canton;
+
+    const descriptionHtml = String(detail?.jobPostingInfo?.jobDescription || '').trim();
+    const detailDescription = descriptionHtml
+      ? normalizeDescriptionBullets(
+          stripHtml(descriptionHtml)
+            .replace(/[ \t]+/g, ' ')
+            .replace(/[ \t]*\n[ \t]*/g, '\n')
+            .replace(/\n{3,}/g, '\n\n')
+            .trim(),
+        ).slice(0, 4000)
+      : '';
+
+    const fallbackDescription = [
+      `${title} — ${BERNER_MONTAGE_COMPANY_NAME}, ${location}.`,
+      '',
+      'Key details:',
+      `• Standort: ${location}${canton ? `, Kanton ${canton}` : ''}, Schweiz`,
+      '• Arbeitgeber: Montagetechnik Berner AG',
+      '• Bewerbung über: Berner Group Karriereportal (Workday)',
+    ].join('\n');
+    const description = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
 
     const sourceLang = detectLang(description || title, 'de');
     const jobSlug = slugify(`${title} berner-montage ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-
-    const datePosted = listing.datePosted || detail?.datePosted || '';
+    const employmentType = detectEmploymentType(listing.timeType || '', title);
+    const postedDate = listing.postedAt || new Date().toISOString().split('T')[0];
 
     const job = {
       // ── Required fields ──
@@ -374,27 +335,34 @@ export async function fetchAllBernerMontageJobs() {
       titleByLocale: { [sourceLang]: title },
       description,
       descriptionByLocale: { [sourceLang]: description },
-      location: city,
+      // Newly-discovered jobs ship with source-locale-only fields. The shared
+      // AI-localization step clears this flag when it fills the remaining 3
+      // locales; if it can't, translate-pending.yml picks the job up.
+      needsRetranslation: true,
+      location,
       canton,
       url: publicUrl,
-      source: 'Montagetechnik BERNER AG Dedicated Parser',
+      source: `${BERNER_MONTAGE_COMPANY_NAME} Dedicated Parser (Workday)`,
       sourceLang,
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields ──
-      addressLocality: city,
-      postalCode: '3930',
+      addressLocality: city || location,
+      addressRegion: canton,
+      streetAddress,
+      postalCode,
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
-      contract: 'full-time',
-      employmentType: detectEmploymentType(listing.employmentType || detail?.employmentType || title),
+      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType,
       experienceLevel: detectExperienceLevel(title),
-      sector: 'Bau / Montage',
+      sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate: datePosted ? datePosted.split('T')[0] : new Date().toISOString().split('T')[0],
+      postedDate,
       applyUrl: publicUrl,
+      jobReqId: listing.jobReqId || null,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
     };
@@ -402,6 +370,6 @@ export async function fetchAllBernerMontageJobs() {
     jobs.push(job);
   }
 
-  console.log(`\n📋 Total Montagetechnik BERNER AG jobs discovered: ${jobs.length}`);
+  console.log(`\n📋 Total ${BERNER_MONTAGE_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }
