@@ -4309,6 +4309,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.fondo-esercito-iva-compromesso.title': 'Ein Kompromiss zur Finanzierung der Armee',
     'blog.article.fondo-esercito-iva-compromesso.excerpt': 'Die Finanzkommission des Ständerates genehmigt den Plan. Fonds mit einer jährlichen Verschuldung von bis zu 6 Milliarden ab 2027, finanziert durch Mehrwertsteuererhöhung und Kreditrückstände.',
     'blog.article.fondo-esercito-iva-compromesso.imageAlt': 'Luganer Stadtansicht mit Schweizer Architektur am Seeufer.',
+    'blog.article.compromesso-fondo-difesa.title': 'Armee, der Finanzierungskompromiss',
+    'blog.article.compromesso-fondo-difesa.excerpt': 'Die Finanzkommission schlägt einen Fonds mit einer jährlichen Verschuldung von bis zu 6 Milliarden ab 2027 vor. Finanzierung: MwSt. +0,2%, Kreditrückstände und Überschüsse 2026. Abstimmung im September und Dezember 2026.',
+    'blog.article.compromesso-fondo-difesa.imageAlt': 'Schweizer Bundesparlament in Bern, Abstimmungsort zum Rüstungsfonds',
 };
 
 export default blogMetaChDe;

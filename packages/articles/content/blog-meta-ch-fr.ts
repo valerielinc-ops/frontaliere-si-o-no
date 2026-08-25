@@ -4309,6 +4309,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.fondo-esercito-iva-compromesso.title': 'Un compromis pour financer l\'armée',
     'blog.article.fondo-esercito-iva-compromesso.excerpt': 'La Commission des finances du Conseil des Etats approuve le plan. Fonds avec un endettement jusqu\'à 6 milliards par an à partir de 2027, financé par une augmentation de la TVA et des reliquats de crédit.',
     'blog.article.fondo-esercito-iva-compromesso.imageAlt': 'Vue de Lugano avec architecture urbaine suisse au bord du lac.',
+    'blog.article.compromesso-fondo-difesa.title': 'Armée, le compromis sur le financement',
+    'blog.article.compromesso-fondo-difesa.excerpt': 'La Commission des finances propose un fonds avec un endettement allant jusqu\'à 6 milliards par an à partir de 2027. Financement : TVA +0,2%, soldes de crédit et excédents 2026. Vote en septembre et décembre 2026.',
+    'blog.article.compromesso-fondo-difesa.imageAlt': 'Palais fédéral suisse à Berne, lieu du vote sur le fonds de défense',
 };
 
 export default blogMetaChFr;
