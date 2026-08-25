@@ -11,8 +11,32 @@
     "https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/"
   ],
   "notes": "Dedicated PEMSA crawler. National listing (all cantons). Detail pages have JSON-LD JobPosting with full location data; canton inferred per-job from the city. Construction/trades staffing agency.",
-  "updatedAt": "2026-08-25T09:53:24.148Z",
+  "updatedAt": "2026-08-25T21:39:49.180Z",
   "seedMetaByUrl": {
+    "https://www.pemsa.ch/it/job/falegname-a-installatore-trice-2689770/": {
+      "location": "Plan les Ouates",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-08-25"
+    },
+    "https://www.pemsa.ch/it/job/falegname-a-ebanista-di-laboratorio-2689767/": {
+      "location": "Vernier",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-08-25"
+    },
+    "https://www.pemsa.ch/it/job/imbianchino-imbianchina-2689763/": {
+      "location": "Genève",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-08-25"
+    },
+    "https://www.pemsa.ch/it/job/installatore-di-tubazioni-saldatore-nel-settore-del-riscaldamento-fr-2689667/": {
+      "location": "Bulle",
+      "canton": "FR",
+      "company": "PEMSA",
+      "postedDate": "2026-08-25"
+    },
     "https://www.pemsa.ch/it/job/montatore-di-pannelli-solari-2689655/": {
       "location": "Locarno",
       "canton": "TI",
@@ -535,21 +559,9 @@
       "company": "PEMSA",
       "postedDate": "2026-08-17"
     },
-    "https://www.pemsa.ch/it/job/falegname-a-ebanista-di-laboratorio-2687245/": {
-      "location": "Genève",
-      "canton": "GE",
-      "company": "PEMSA",
-      "postedDate": "2026-08-14"
-    },
     "https://www.pemsa.ch/it/job/addetta-o-alle-pulizie-2687236/": {
       "location": "Locarno",
       "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-08-14"
-    },
-    "https://www.pemsa.ch/it/job/falegname-a-installatore-trice-2687240/": {
-      "location": "Genève",
-      "canton": "GE",
       "company": "PEMSA",
       "postedDate": "2026-08-14"
     },
@@ -666,12 +678,6 @@
       "canton": "NE",
       "company": "PEMSA",
       "postedDate": "2026-08-12"
-    },
-    "https://www.pemsa.ch/it/job/impermeabilizzatore-m-f-2686681/": {
-      "location": "Plan les Ouates",
-      "canton": "GE",
-      "company": "PEMSA",
-      "postedDate": "2026-08-11"
     },
     "https://www.pemsa.ch/it/job/autista-di-camion-2686561/": {
       "location": "Chiasso",
