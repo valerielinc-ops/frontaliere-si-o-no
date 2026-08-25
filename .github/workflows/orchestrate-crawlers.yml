@@ -151,24 +151,27 @@ jobs:
             done
           fi
 
-      # Second attempt at the crawler-group-23 cross-repo migration (first
-      # was #6485, a composite action, reverted in #6517 — see
-      # crawler-group-23-logic.yml's header for why). Same routing
-      # mechanism as before: crawler-group-23 only, dispatched onto
-      # nanakokyobashi-rgb/frontaliere-articles instead of this repo, so its
-      # Actions minutes land on nanako's separate, less-saturated pool
-      # instead of this account's ~20-concurrent-job Free-plan pool. Needs
-      # GITHUB_PAT_NANAKO (write/workflow-scoped PAT on nanako's repos) —
-      # like every other secret this repo uses, it only exists in Firebase
-      # Remote Config, not as a GitHub Actions secret. These two steps
-      # follow the same "Prepare Firebase credentials" + "Load secrets from
-      # Remote Config" pattern every other workflow that needs an RC secret
-      # uses (see scripts/load-rc-env.mjs). Fail-soft by design if the
-      # Firebase creds are unset: GITHUB_PAT_NANAKO simply stays empty, and
-      # the dispatch loop below turns that into one failed target within
-      # DISPATCH_FAIL_TOLERANCE instead of failing the whole job over a
-      # single one of 23 targets.
-      - name: Prepare Firebase credentials (needed only for the crawler-group-23 cross-repo dispatch)
+      # Cross-repo migration of every crawler-group-*.yml (started as the
+      # crawler-group-23 pilot: first attempt #6485, a composite action,
+      # reverted in #6517 — see crawler-group-23-logic.yml's header for why
+      # — second attempt #6520, a reusable workflow, dispatch-tested for
+      # real; then applied to the remaining 22 groups + translate-pending.yml
+      # in the same batch). Every crawler-group-*.yml AND translate-pending.yml
+      # now dispatch onto nanakokyobashi-rgb/frontaliere-articles instead of
+      # this repo, so their Actions minutes land on nanako's separate,
+      # less-saturated pool instead of this account's ~20-concurrent-job
+      # Free-plan pool. Needs GITHUB_PAT_NANAKO (write/workflow-scoped PAT on
+      # nanako's repos) — like every other secret this repo uses, it only
+      # exists in Firebase Remote Config, not as a GitHub Actions secret.
+      # These two steps follow the same "Prepare Firebase credentials" +
+      # "Load secrets from Remote Config" pattern every other workflow that
+      # needs an RC secret uses (see scripts/load-rc-env.mjs). Fail-soft by
+      # design if the Firebase creds are unset: GITHUB_PAT_NANAKO simply
+      # stays empty, and the dispatch loop below turns that into one failed
+      # target within DISPATCH_FAIL_TOLERANCE per group instead of failing
+      # the whole job (the translate-pending dispatch step further down is
+      # independently fail-soft too, via its own empty-token check).
+      - name: Prepare Firebase credentials (needed for the cross-repo dispatches below)
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |-
@@ -176,10 +179,10 @@ jobs:
             printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
             echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
           else
-            echo "ℹ️ Firebase secrets not set — GITHUB_PAT_NANAKO won't load; the crawler-group-23 cross-repo dispatch will fail-soft below."
+            echo "ℹ️ Firebase secrets not set — GITHUB_PAT_NANAKO won't load; the cross-repo dispatches below will fail-soft."
           fi
 
-      - name: Load secrets from Remote Config (GITHUB_PAT_NANAKO — needed only for the crawler-group-23 cross-repo dispatch)
+      - name: Load secrets from Remote Config (GITHUB_PAT_NANAKO — needed for the cross-repo dispatches below)
         run: node scripts/load-rc-env.mjs
 
       - name: Discover and dispatch crawler group workflows
@@ -255,11 +258,12 @@ jobs:
           # slow-but-successful dispatch is not double-fired.
           DISPATCH_ATTEMPTS=3
           # target_repo/target_token optional (default: this repo, $GH_TOKEN) —
-          # the crawler-group-23 cross-repo dispatch passes both explicitly to
-          # dispatch onto nanakokyobashi-rgb/frontaliere-articles with
+          # every crawler-group-*.yml now passes both explicitly to dispatch
+          # onto nanakokyobashi-rgb/frontaliere-articles with
           # GITHUB_PAT_NANAKO instead of the local repo with the default
-          # token. Every other crawler-group-*.yml calls this with 1 arg,
-          # unchanged from before.
+          # token (see the `if` below). Any OTHER target this function might
+          # be called for in the future can still omit args 2/3 to fall back
+          # to the local-repo default, unchanged from before the migration.
           dispatch_and_verify() {
             local filename="$1"
             local target_repo="${2:-$GITHUB_REPOSITORY}"
@@ -323,21 +327,28 @@ jobs:
 
             this_delay=$(get_delay "$filename")
 
-            # Second attempt (reusable workflow, see crawler-group-23-logic.yml)
-            # at the crawler-group-23 pilot — dispatch onto
+            # Cross-repo migration (reusable workflow, see
+            # crawler-group-NN-logic.yml), validated by the crawler-group-23
+            # pilot then applied to every remaining group in the same batch:
+            # EVERY crawler-group-*.yml dispatches onto
             # nanakokyobashi-rgb/frontaliere-articles instead of this repo, so
             # its Actions minutes land on nanako's separate, less-saturated
             # pool instead of this account's ~20-concurrent-job Free-plan
-            # pool. The local crawler-group-23.yml here is disabled (see its
-            # own header comment) — its logic now lives as a reusable
-            # workflow consumed by the frontaliere-articles copy of this
-            # filename. Every other group falls through to the default (this
-            # repo, $GH_TOKEN).
-            # Rollback: delete this `if` block (falls through to default) and
-            # re-enable crawler-group-23.yml's local dispatch.
+            # pool. The local crawler-group-NN.yml files here are all
+            # disabled (see each one's own header comment) — their logic now
+            # lives as reusable workflows consumed by the frontaliere-articles
+            # copies of this filename. The regex match (rather than a fixed
+            # list) means a future crawler-group-NN.yml added by the
+            # generator routes here automatically too — if a group is ever
+            # migrated BACK to running locally, its filename simply needs to
+            # stop matching (e.g. rename, or narrow the regex), not be added
+            # to an exclude list.
+            # Rollback (all groups): delete this `if` block (falls through to
+            # the default) and re-enable every crawler-group-NN.yml's local
+            # dispatch (undo each one's own "DISABLED" header first).
             target_repo="$GITHUB_REPOSITORY"
             target_token="$GH_TOKEN"
-            if [ "$filename" = "crawler-group-23.yml" ]; then
+            if [[ "$filename" =~ ^crawler-group-[0-9]+\.yml$ ]]; then
               target_repo="nanakokyobashi-rgb/frontaliere-articles"
               target_token="${GITHUB_PAT_NANAKO:-}"
               echo -n "  [$counter/$total] $filename → ${target_repo} (reusable-workflow) (delay: ${this_delay}s)"
@@ -394,6 +405,41 @@ jobs:
           elif [ "$failed" -gt 0 ]; then
             echo "✅ $failed transient dispatch failure(s) within tolerance ($DISPATCH_FAIL_TOLERANCE) — not failing the job; they retry next cron cycle."
           fi
+
+      # translate-pending.yml migrated to frontaliere-articles alongside the
+      # crawler groups (same batch as the crawler-group-01..22 migration on
+      # top of the crawler-group-23 pilot). Its old same-repo trigger —
+      # `workflow_run: workflows: ["Orchestrate Job Crawlers"], types:
+      # [completed]` — fired as soon as THIS job finished (it only dispatches
+      # the crawler groups above, it does not wait for them to actually
+      # crawl), and cannot be replicated on the frontaliere-articles side:
+      # workflow_run only observes workflows in the SAME repo, and this
+      # orchestrator stays here. Firing the cross-repo dispatch explicitly,
+      # right here (i.e. at the same point in the run this job used to
+      # finish), reproduces the same timing. `if: always()` so it still
+      # fires even if some crawler-group dispatches above failed or this job
+      # is about to fail — the old workflow_run trigger fired on completion
+      # regardless of this job's conclusion, success or failure. Never fails
+      # the job over this: translate-pending.yml's own 5 daily crons
+      # (unchanged) are the safety net if this dispatch is missed.
+      - name: Dispatch translate-pending (frontaliere-articles)
+        if: always()
+        continue-on-error: true
+        run: |
+          if [ -z "${GITHUB_PAT_NANAKO:-}" ]; then
+            echo "ℹ️ GITHUB_PAT_NANAKO not loaded — skipping the translate-pending cross-repo dispatch (its 5 daily crons remain the safety net)."
+            exit 0
+          fi
+          for attempt in 1 2 3; do
+            if GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run translate-pending.yml \
+                --repo nanakokyobashi-rgb/frontaliere-articles --ref main; then
+              echo "✅ translate-pending.yml dispatched onto nanakokyobashi-rgb/frontaliere-articles"
+              exit 0
+            fi
+            echo "⚠️  dispatch attempt $attempt failed, retrying in 5s..."
+            sleep 5
+          done
+          echo "::warning::translate-pending.yml cross-repo dispatch failed after 3 attempts — its 5 daily crons remain the safety net."
 
       - name: Report failure to GitHub Issues
         if: failure()
