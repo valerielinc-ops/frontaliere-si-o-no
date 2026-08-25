@@ -12853,6 +12853,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'spionaggio-svizzera-controlli',
+    category: 'novita',
+    date: '2026-08-25T16:20:54.764Z',
+    image: '/images/blog/spionaggio-svizzera-controlli.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'argovia-divieto-velo-scuole',
+    category: 'novita',
+    date: '2026-08-25T16:30:23.961Z',
+    image: '/images/blog/argovia-divieto-velo-scuole.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'verdi-segretaria-stato-clima',
+    category: 'novita',
+    date: '2026-08-25T17:21:00.749Z',
+    image: '/images/blog/verdi-segretaria-stato-clima.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'mps-sisa-tasse-usi-supsi',
+    category: 'novita',
+    date: '2026-08-25T17:35:54.022Z',
+    image: '/images/blog/mps-sisa-tasse-usi-supsi.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

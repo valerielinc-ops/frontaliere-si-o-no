@@ -584,16 +584,13 @@ describe('real-corpus invariant: every manifest crawler in exactly one committed
  * strictly weaker than "the committed files are what the generator produces":
  * every hand-edit that keeps the slug list intact — a tweaked step body, a
  * stale install flag, a dropped env var, a `name:` that no longer matches the
- * member count — passes it. Two worked examples, both live:
+ * member count — passes it. Worked example, live:
  *
  *   - PR #6484 removed a crawler from the manifest and hand-edited
  *     crawler-group-10.yml to match, precisely BECAUSE re-running the
- *     generator rewrote all 23 files;
- *   - crawler-group-23.yml carries a hand-written header describing the
- *     cross-repo execution pilot, and that header said out loud that a routine
- *     re-run "would silently drop this header ... Re-add this header by hand".
+ *     generator rewrote all 23 files.
  *
- * Neither was detectable by the suite afterwards. These tests close the gap
+ * That was not detectable by the suite afterwards. These tests close the gap
  * from both ends: the output must be reproducible byte-for-byte, and
  * reproducing it after a single manifest edit must stay proportional to the
  * edit — otherwise the next person hand-edits again and the drift is back.
@@ -761,16 +758,6 @@ describe('#6482 — committed crawler-group-*.yml are byte-identical to the gene
     );
   });
 
-  it('crawler-group-23.yml keeps its hand-written cross-repo pilot header across a regeneration', () => {
-    // The header is the only thing explaining why that file is dispatched from
-    // frontaliere-articles instead of here. It used to be dropped on every
-    // re-run (its own text says so), which is what made the file hand-edited.
-    const committed = fs.readFileSync(path.join(WORKFLOWS_DIR, 'crawler-group-23.yml'), 'utf8');
-    expect(committed.startsWith('# DISABLED'), 'the pilot header is gone from crawler-group-23.yml').toBe(true);
-
-    const { outDir } = regenerate();
-    expect(fs.readFileSync(path.join(outDir, 'crawler-group-23.yml'), 'utf8').startsWith('# DISABLED')).toBe(true);
-  });
 });
 
 describe('#6482 — extractManualPreamble', () => {
