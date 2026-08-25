@@ -32097,6 +32097,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-gallarate-lavorare-ticino-frontaliere',
+ category: 'pratico',
+ date: '2026-08-25T02:19:34.826Z',
+ image: '/images/blog/vivere-gallarate-lavorare-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

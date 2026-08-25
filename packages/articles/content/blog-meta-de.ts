@@ -10724,6 +10724,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cassano-magnago-frontaliere-ticino.title': 'Leben in Cassano Magnago, Arbeit im Tessin',
     'blog.article.cassano-magnago-frontaliere-ticino.excerpt': 'Cassano Magnago grenzüberschreitender Pendler Tessin: Quellensteuer, AHV, KVG, Rabatte. Leitfaden zum Abkommen 2020 und Verfahren für Grenzpendler G.',
     'blog.article.cassano-magnago-frontaliere-ticino.imageAlt': 'Grenzlandschaft zwischen Varese und Tessin mit Straßenverkehrszeichen und Pendlerverkehr',
+    'blog.article.vivere-gallarate-lavorare-ticino-frontaliere.title': 'Leben in Gallarate und Arbeiten im Tessin: Grenzführer',
+    'blog.article.vivere-gallarate-lavorare-ticino-frontaliere.excerpt': 'Grenzübergänge, Steuersätze, AHV und Lebenshaltungskosten: Alles, was Sie brauchen, um den Umzug von Gallarate ins Tessin zu organisieren.',
+    'blog.article.vivere-gallarate-lavorare-ticino-frontaliere.imageAlt': 'Panoramablick auf Lugano und Tessiner Berge von der italienischen Grenze',
 };
 
 export default blogMetaDe;

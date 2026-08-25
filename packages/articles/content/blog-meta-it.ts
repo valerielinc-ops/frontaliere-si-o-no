@@ -10726,6 +10726,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cassano-magnago-frontaliere-ticino.title': 'Vivere a Cassano Magnago, lavorare in Ticino',
     'blog.article.cassano-magnago-frontaliere-ticino.excerpt': 'Cassano Magnago frontaliere Ticino: imposta alla fonte, AVS, LAMal, ristorni. Guida all\'Accordo 2020 e procedure per frontalieri G.',
     'blog.article.cassano-magnago-frontaliere-ticino.imageAlt': 'Paesaggio di confine tra Varese e Ticino con segnaletica stradale e traffico pendolare verso Mendrisio',
+    'blog.article.vivere-gallarate-lavorare-ticino-frontaliere.title': 'Vivere a Gallarate e lavorare in Ticino: Guida frontaliere',
+    'blog.article.vivere-gallarate-lavorare-ticino-frontaliere.excerpt': 'Valichi, aliquote fiscali, AVS e costi della vita: tutto ciò che serve per organizzare il trasferimento da Gallarate al Ticino.',
+    'blog.article.vivere-gallarate-lavorare-ticino-frontaliere.imageAlt': 'Panorama di Lugano e delle montagne ticinesi viste dal confine italiano',
 };
 
 export default blogMetaIt;
