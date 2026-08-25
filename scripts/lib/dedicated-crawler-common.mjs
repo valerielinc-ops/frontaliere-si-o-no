@@ -1859,8 +1859,19 @@ function saveTranslationCache(companySlug, cache) {
   fs.writeFileSync(filePath, `${JSON.stringify(cache, null, 2)}\n`, 'utf-8');
 }
 
+/**
+ * Nome del file di cache traduzioni quando il chiamante non passa `companySlug`.
+ *
+ * Si parte da `companyKey`, non da `company`: la chiave e' UNIFORME su tutto lo
+ * slice (misurato: 609/609 slice hanno una sola `companyKey`), mentre il nome
+ * non lo e' — su uno slice di gruppo (`coop-ticino` copre Fust/Jumbo/
+ * Interdiscount) `jobs[0].company` e' il marchio del primo record, e due
+ * crawler diversi finivano a condividere lo stesso file di cache. Non e' un
+ * difetto di correttezza — le entry sono validate per hash — ma e' una
+ * partizione instabile che cambia nome a ogni riordino del crawl.
+ */
 function deriveCompanySlug(jobs) {
-  const company = (jobs[0]?.company || 'unknown').trim();
+  const company = (jobs[0]?.companyKey || jobs[0]?.company || 'unknown').trim();
   return company.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 }
 
