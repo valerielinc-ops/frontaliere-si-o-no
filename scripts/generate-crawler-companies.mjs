@@ -20,6 +20,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import {
   extractDeclaredIdentity,
   isNonEmployerSlug,
@@ -248,7 +249,25 @@ for (const slug of slugs) {
 // Sort alphabetically by name
 companies.sort((a, b) => a.name.localeCompare(b.name, 'it'));
 
-fs.writeFileSync(OUTPUT, JSON.stringify(companies, null, 2) + '\n', 'utf8');
+// Scrittura ATOMICA, dal modulo condiviso — non una tmp+rename riscritta qui.
+//
+// `fs.writeFileSync` diretto sulla destinazione non e' una write sola: sono
+// ~600 voci, ~150 KB, e un'interruzione a meta' — ENOSPC, kill del runner,
+// timeout del job — lascia sul disco un JSON troncato al posto di quello buono.
+// Questo file non e' un log: `TicinoCompanies` lo importa, quindi un
+// troncamento non produce un dato sbagliato ma una BUILD ROTTA.
+//
+// Finche' il generatore girava solo a mano, il danno restava sul disco di chi
+// lo lanciava. Da quando lo invoca `prospect-promote.mjs` (vedi li'), quel file
+// a meta' finirebbe dentro il commit della PR di promozione, spedito da una
+// pipeline che nessuno guarda — ed e' l'unico motivo per cui il `catch` di
+// quello script puo' permettersi di non interrompere la promozione.
+//
+// `writeJsonAtomic` e' gia' la sorgente unica per i ~95 script di dati crawler
+// (issue #2805) e produce byte identici a prima (`JSON.stringify(v, null, 2)`
+// + newline). Riscrivere qui la stessa tmp+rename sarebbe la copia numero 96,
+// cioe' il difetto che quel modulo esiste per rendere impossibile.
+writeJsonAtomic(OUTPUT, companies);
 
 console.log(`✅ Generated ${companies.length} crawler company entries → ${path.relative(ROOT, OUTPUT)}`);
 
