@@ -85,12 +85,12 @@
     },
     {
       "id": "ipw-23cf53fb042f",
-      "slug": "assistenzarztin-assistenzarzt-ipw-winterthur",
+      "slug": "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
-        "it": "assistenzarztin-assistenzarzt-ipw-winterthur",
-        "en": "assistenzarztin-assistenzarzt-ipw-winterthur",
         "de": "assistenzarztin-assistenzarzt-ipw-winterthur",
-        "fr": "assistenzarztin-assistenzarzt-ipw-winterthur"
+        "it": "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "en": "assistant-doctor-assistant-doctor-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "fr": "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -147,7 +147,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-24T10:10:41.669Z"
+      "firstSeenAt": "2026-08-24T10:10:41.669Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-ipw-winterthur"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-ipw-winterthur"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-ipw-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-ipw-winterthur"
+      ]
     },
     {
       "id": "ipw-1af23e9d90cc",
@@ -206,15 +220,13 @@
         "psychologist-psychologist-integrierte-psychiatrie-winterthur-ipw-winterthur-f1261f",
         "psychologue-psychologue-integrierte-psychiatrie-winterthur-ipw-winterthur-f1261f",
         "psychologin-psychologe-ipw-winterthur",
-        "psicologa-psicologo-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "psicologo-psicologo-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "psicologa-psicologo-integrierte-psychiatrie-winterthur-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psicologo-psicologo-integrierte-psychiatrie-winterthur-ipw-winterthur-f1261f",
           "psychologin-psychologe-ipw-winterthur",
-          "psicologa-psicologo-integrierte-psychiatrie-winterthur-ipw-winterthur",
-          "psicologo-psicologo-integrierte-psychiatrie-winterthur-ipw-winterthur"
+          "psicologa-psicologo-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ],
         "en": [
           "psychologist-psychologist-integrierte-psychiatrie-winterthur-ipw-winterthur-f1261f",
@@ -394,13 +406,11 @@
       "pensumMax": 60,
       "pensum": "60%",
       "previousSlugs": [
-        "oberpsychologin-oberpsychologe-mutterschaftsvertretung-ipw-glattbrugg",
-        "psicologo-senior-psicologo-senior-rappresentazione-della-maternita-integrierte-psychiatrie-winterthur-ipw-glattbrugg"
+        "oberpsychologin-oberpsychologe-mutterschaftsvertretung-ipw-glattbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberpsychologin-oberpsychologe-mutterschaftsvertretung-ipw-glattbrugg",
-          "psicologo-senior-psicologo-senior-rappresentazione-della-maternita-integrierte-psychiatrie-winterthur-ipw-glattbrugg"
+          "oberpsychologin-oberpsychologe-mutterschaftsvertretung-ipw-glattbrugg"
         ],
         "en": [
           "oberpsychologin-oberpsychologe-mutterschaftsvertretung-ipw-glattbrugg"
@@ -476,13 +486,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-home-treatment-ipw-winterthur",
-        "assistente-medico-assistente-medico-home-trattamento-integrierte-psychiatrie-winterthur-ipw-winterthur-af8cf4"
+        "assistenzarztin-assistenzarzt-home-treatment-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-home-treatment-ipw-winterthur",
-          "assistente-medico-assistente-medico-home-trattamento-integrierte-psychiatrie-winterthur-ipw-winterthur-af8cf4"
+          "assistenzarztin-assistenzarzt-home-treatment-ipw-winterthur"
         ],
         "en": [
           "assistenzarztin-assistenzarzt-home-treatment-ipw-winterthur"
@@ -559,14 +567,12 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "oberpsychologin-oberpsychologe-ipw-winterthur",
-        "psychologue-senior-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "psicologo-senior-psicologo-senior-integrierte-psychiatrie-winterthur-ipw-winterthur-72a313"
+        "psychologue-senior-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberpsychologin-oberpsychologe-ipw-winterthur",
-          "psychologue-senior-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur",
-          "psicologo-senior-psicologo-senior-integrierte-psychiatrie-winterthur-ipw-winterthur-72a313"
+          "psychologue-senior-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ],
         "en": [
           "oberpsychologin-oberpsychologe-ipw-winterthur"
@@ -643,13 +649,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "datenbankmanagerin-datenbankmanager-ipw-winterthur",
-        "gestione-database-gestione-database-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "datenbankmanagerin-datenbankmanager-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "datenbankmanagerin-datenbankmanager-ipw-winterthur",
-          "gestione-database-gestione-database-integrierte-psychiatrie-winterthur-ipw-winterthur"
+          "datenbankmanagerin-datenbankmanager-ipw-winterthur"
         ],
         "en": [
           "datenbankmanagerin-datenbankmanager-ipw-winterthur"
@@ -726,13 +730,11 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "oberarztin-oberarzt-ipw-glattbrugg",
-        "medico-senior-medico-senior-integrierte-psychiatrie-winterthur-ipw-glattbrugg"
+        "oberarztin-oberarzt-ipw-glattbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-ipw-glattbrugg",
-          "medico-senior-medico-senior-integrierte-psychiatrie-winterthur-ipw-glattbrugg"
+          "oberarztin-oberarzt-ipw-glattbrugg"
         ],
         "en": [
           "oberarztin-oberarzt-ipw-glattbrugg"
@@ -809,13 +811,11 @@
       "pensumMax": 30,
       "pensum": "30%",
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-peer-ipw-winterthur",
-        "mitarbeiterin-collaboratore-trice-peer-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "mitarbeiterin-mitarbeiter-peer-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-peer-ipw-winterthur",
-          "mitarbeiterin-collaboratore-trice-peer-integrierte-psychiatrie-winterthur-ipw-winterthur"
+          "mitarbeiterin-mitarbeiter-peer-ipw-winterthur"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-peer-ipw-winterthur"
@@ -892,13 +892,11 @@
       "pensumMax": 90,
       "pensum": "80 - 90%",
       "previousSlugs": [
-        "stv-stationsleiterin-stationsleiter-ipw-winterthur",
-        "stv-station-manager-station-manager-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "stv-stationsleiterin-stationsleiter-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-stationsleiterin-stationsleiter-ipw-winterthur",
-          "stv-station-manager-station-manager-integrierte-psychiatrie-winterthur-ipw-winterthur"
+          "stv-stationsleiterin-stationsleiter-ipw-winterthur"
         ],
         "en": [
           "stv-stationsleiterin-stationsleiter-ipw-winterthur"
@@ -974,13 +972,11 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "praktikantin-praktikant-kindertagesstatte-ipw-winterthur",
-        "intern-internship-day-career-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "praktikantin-praktikant-kindertagesstatte-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikantin-praktikant-kindertagesstatte-ipw-winterthur",
-          "intern-internship-day-career-integrierte-psychiatrie-winterthur-ipw-winterthur"
+          "praktikantin-praktikant-kindertagesstatte-ipw-winterthur"
         ],
         "en": [
           "praktikantin-praktikant-kindertagesstatte-ipw-winterthur"
@@ -1005,9 +1001,9 @@
     },
     {
       "id": "ipw-0ee93460245a",
-      "slug": "pflegefachfrau-pflegefachmann-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
+      "slug": "infermiera-infermiera-specialista-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
-        "it": "pflegefachfrau-pflegefachmann-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "it": "infermiera-infermiera-specialista-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "en": "nurse-nurse-specialist-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur-bc843f",
         "de": "pflegefachfrau-pflegefachmann-hf-fh-ipw-winterthur",
         "fr": "infirmiere-infirmiere-specialiste-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur-bc843f"
@@ -1059,7 +1055,6 @@
         "pflegefachfrau-pflegefachmann-hf-fh-ipw-winterthur",
         "infermiera-infermiera-specialista-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur-bc843f",
         "care-specialist-hf-or-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "infermiera-infermiera-specialista-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "pflegefachfrau-pflegefachmann-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
@@ -1067,7 +1062,6 @@
           "pflegefachfrau-pflegefachmann-hf-fh-ipw-winterthur",
           "infermiera-infermiera-specialista-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur-bc843f",
           "care-specialist-hf-or-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
-          "infermiera-infermiera-specialista-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "pflegefachfrau-pflegefachmann-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ],
         "en": [
@@ -1225,13 +1219,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-ipw-glattbrugg",
-        "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-glattbrugg"
+        "assistenzarztin-assistenzarzt-ipw-glattbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-ipw-glattbrugg",
-          "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-glattbrugg"
+          "assistenzarztin-assistenzarzt-ipw-glattbrugg"
         ],
         "en": [
           "assistenzarztin-assistenzarzt-ipw-glattbrugg"
@@ -1392,8 +1384,7 @@
         "dipl-care-specialist-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "dipl-care-specialist-hf-fh-60-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "dipl-specialista-in-allattamento-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "dipl-infermiera-infermiera-specialista-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1401,8 +1392,7 @@
           "dipl-care-specialist-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "dipl-care-specialist-hf-fh-60-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "dipl-specialista-in-allattamento-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
-          "dipl-infermiera-infermiera-specialista-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ],
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-ipw-winterthur"
@@ -1480,14 +1470,12 @@
       "pensum": "80%",
       "previousSlugs": [
         "oberarztin-oberarzt-ipw-winterthur",
-        "medecin-superieur-ou-psychologue-superieur-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "medico-senior-medico-senior-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "medecin-superieur-ou-psychologue-superieur-integrierte-psychiatrie-winterthur-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-ipw-winterthur",
-          "medecin-superieur-ou-psychologue-superieur-integrierte-psychiatrie-winterthur-ipw-winterthur",
-          "medico-senior-medico-senior-integrierte-psychiatrie-winterthur-ipw-winterthur"
+          "medecin-superieur-ou-psychologue-superieur-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ],
         "en": [
           "oberarztin-oberarzt-ipw-winterthur"
@@ -1563,13 +1551,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-ipw-bulach",
-        "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-bulach-f3edb9"
+        "assistenzarztin-assistenzarzt-ipw-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-ipw-bulach",
-          "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-bulach-f3edb9"
+          "assistenzarztin-assistenzarzt-ipw-bulach"
         ],
         "en": [
           "assistenzarztin-assistenzarzt-ipw-bulach"
@@ -1647,13 +1633,11 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "stv-stationsleiterin-stationsleiter-hometreatment-ipw-winterthur",
-        "stv-stationsleiterin-stationsleiter-hometreatment-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "stv-station-manager-station-manager-hometreatment-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "stv-stationsleiterin-stationsleiter-hometreatment-integrierte-psychiatrie-winterthur-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-stationsleiterin-stationsleiter-hometreatment-ipw-winterthur",
-          "stv-station-manager-station-manager-hometreatment-integrierte-psychiatrie-winterthur-ipw-winterthur"
+          "stv-stationsleiterin-stationsleiter-hometreatment-ipw-winterthur"
         ],
         "en": [
           "stv-stationsleiterin-stationsleiter-hometreatment-ipw-winterthur"
@@ -1813,15 +1797,13 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-ipw-winterthur",
         "dipl-infermiera-infermiera-specialista-hf-integrierte-psychiatrie-winterthur-ipw-winterthur-d45e78",
-        "dipl-pflegefachfrau-pflegefachmann-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "dipl-infermiera-infermiera-specialista-hf-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "dipl-pflegefachfrau-pflegefachmann-hf-integrierte-psychiatrie-winterthur-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-ipw-winterthur",
           "dipl-infermiera-infermiera-specialista-hf-integrierte-psychiatrie-winterthur-ipw-winterthur-d45e78",
-          "dipl-pflegefachfrau-pflegefachmann-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
-          "dipl-infermiera-infermiera-specialista-hf-integrierte-psychiatrie-winterthur-ipw-winterthur"
+          "dipl-pflegefachfrau-pflegefachmann-hf-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ],
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-hf-ipw-winterthur"
@@ -1848,10 +1830,10 @@
       "id": "ipw-a250f301e4f4",
       "slug": "pflegefachfrau-pflegefachmann-hf-fh-o-sozialpadagogin-sozialpadagoge-hf-fh-50-integrierte-psychiatrie-winterthur-ipw-glattbrugg",
       "slugByLocale": {
-        "it": "pflegefachfrau-pflegefachmann-hf-fh-o-sozialpadagogin-sozialpadagoge-hf-fh-50-integrierte-psychiatrie-winterthur-ipw-glattbrugg",
-        "en": "pflegefachfrau-pflegefachmann-hf-fh-oder-sozialpadagogin-sozialpadagoge-hf-fh-50-ipw",
         "de": "pflegefachfrau-pflegefachmann-hf-fh-oder-sozialpadagogin-sozialpadagoge-hf-fh-50-ipw",
-        "fr": "pflegefachfrau-pflegefachmann-hf-fh-oder-sozialpadagogin-sozialpadagoge-hf-fh-50-ipw"
+        "it": "pflegefachfrau-pflegefachmann-hf-fh-o-sozialpadagogin-sozialpadagoge-hf-fh-50-integrierte-psychiatrie-winterthur-ipw-glattbrugg",
+        "en": "nursing-specialist-hf-fh-or-social-pedagogue-social-pedagogue-hf-fh-50-integrierte-psychiatrie-winterthur-ipw-glattbrugg",
+        "fr": "specialiste-des-soins-infirmiers-hf-fh-ou-pedagogie-sociale-pedagogie-sociale-hf-fh-50-integrierte-psychiatrie"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -1899,6 +1881,12 @@
       "pensum": "50%",
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachfrau-pflegefachmann-hf-fh-oder-sozialpadagogin-sozialpadagoge-hf-fh-50-ipw"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-hf-fh-oder-sozialpadagogin-sozialpadagoge-hf-fh-50-ipw"
+        ],
+        "fr": [
           "pflegefachfrau-pflegefachmann-hf-fh-oder-sozialpadagogin-sozialpadagoge-hf-fh-50-ipw"
         ]
       },
@@ -1973,13 +1961,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "senior-controllerin-controller-ipw-winterthur",
-        "controller-senior-controller-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "senior-controllerin-controller-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-controllerin-controller-ipw-winterthur",
-          "controller-senior-controller-integrierte-psychiatrie-winterthur-ipw-winterthur"
+          "senior-controllerin-controller-ipw-winterthur"
         ],
         "en": [
           "senior-controllerin-controller-ipw-winterthur"
@@ -2053,13 +2039,11 @@
       "pensumMax": 40,
       "pensum": "40%",
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-medizincontrolling-und-ruckfragemanagement-ipw-winterthur",
-        "mitarbeiterin-collaboratore-trice-medizincontrolling-e-ruckfragemanagement-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "mitarbeiterin-mitarbeiter-medizincontrolling-und-ruckfragemanagement-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-medizincontrolling-und-ruckfragemanagement-ipw-winterthur",
-          "mitarbeiterin-collaboratore-trice-medizincontrolling-e-ruckfragemanagement-integrierte-psychiatrie-winterthur-ipw-winterthur"
+          "mitarbeiterin-mitarbeiter-medizincontrolling-und-ruckfragemanagement-ipw-winterthur"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-medizincontrolling-und-ruckfragemanagement-ipw-winterthur"

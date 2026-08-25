@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-no0m50",
-      "slug": "anlagefuhrer-in-produktion-coop-genossenschaft-bitsch-wallis-no0m50",
+      "slug": "operatore-di-sistema-in-produzione-coop-genossenschaft-bitsch-wallis",
       "company": "Coop Genossenschaft",
       "title": "Anlageführer:in Produktion",
       "location": "Bitsch, Wallis",
@@ -38,10 +38,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "anlagefuhrer-in-produktion-coop-genossenschaft-bitsch-wallis-no0m50",
-        "en": "anlagefuhrer-in-produktion-coop-genossenschaft-bitsch-wallis-no0m50",
+        "it": "operatore-di-sistema-in-produzione-coop-genossenschaft-bitsch-wallis",
+        "en": "system-operator-in-production-coop-genossenschaft-bitsch-wallis",
         "de": "anlagefuhrer-in-produktion-coop-genossenschaft-bitsch-wallis-no0m50",
-        "fr": "anlagefuhrer-in-produktion-coop-genossenschaft-bitsch-wallis-no0m50"
+        "fr": "operateur-de-reseau-en-production-coop-genossenschaft-bitsch-wallis"
       },
       "requirementsByLocale": {
         "it": [],
@@ -54,11 +54,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "anlagefuhrer-in-produktion-coop-genossenschaft-bitsch-wallis"
+          "anlagefuhrer-in-produktion-coop-genossenschaft-bitsch-wallis",
+          "anlagefuhrer-in-produktion-coop-genossenschaft-bitsch-wallis-no0m50"
+        ],
+        "en": [
+          "anlagefuhrer-in-produktion-coop-genossenschaft-bitsch-wallis-no0m50"
+        ],
+        "fr": [
+          "anlagefuhrer-in-produktion-coop-genossenschaft-bitsch-wallis-no0m50"
         ]
       },
       "previousSlugs": [
-        "anlagefuhrer-in-produktion-coop-genossenschaft-bitsch-wallis"
+        "anlagefuhrer-in-produktion-coop-genossenschaft-bitsch-wallis",
+        "anlagefuhrer-in-produktion-coop-genossenschaft-bitsch-wallis-no0m50"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -78,7 +86,7 @@
     },
     {
       "id": "company-hxij50",
-      "slug": "verkaufsberater-in-textil-young-fashion-coop-genossenschaft-bern-hxij50",
+      "slug": "consulente-di-vendita-in-tessile-young-fashion-coop-genossenschaft-bern",
       "company": "Coop Genossenschaft",
       "title": "Verkaufsberater:in Textil \"Young Fashion\"",
       "location": "Bern",
@@ -110,10 +118,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufsberater-in-textil-young-fashion-coop-genossenschaft-bern-hxij50",
-        "en": "verkaufsberater-in-textil-young-fashion-coop-genossenschaft-bern-hxij50",
+        "it": "consulente-di-vendita-in-tessile-young-fashion-coop-genossenschaft-bern",
+        "en": "sales-consultant-in-textile-young-fashion-coop-genossenschaft-bern",
         "de": "verkaufsberater-in-textil-young-fashion-coop-genossenschaft-bern-hxij50",
-        "fr": "verkaufsberater-in-textil-young-fashion-coop-genossenschaft-bern-hxij50"
+        "fr": "consultant-en-ventes-en-textile-jeune-mode-coop-genossenschaft-bern"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -123,16 +131,19 @@
           "consulente-commerciale-in-tessile-young-fashion-coop-genossenschaft-bern",
           "verkaufsberater-in-textil-young-fashion-coop-genossenschaft-bern-69bv8f",
           "sales-consultant-in-textile-young-fashion-coop-genossenschaft-bern-69bv8f",
-          "consultant-en-ventes-en-textile-jeune-mode-coop-genossenschaft-bern-69bv8f"
+          "consultant-en-ventes-en-textile-jeune-mode-coop-genossenschaft-bern-69bv8f",
+          "verkaufsberater-in-textil-young-fashion-coop-genossenschaft-bern-hxij50"
         ],
         "en": [
-          "sales-consultant-in-textile-young-fashion-coop-genossenschaft-bern-69bv8f"
+          "sales-consultant-in-textile-young-fashion-coop-genossenschaft-bern-69bv8f",
+          "verkaufsberater-in-textil-young-fashion-coop-genossenschaft-bern-hxij50"
         ],
         "de": [
           "verkaufsberater-in-textil-young-fashion-coop-genossenschaft-bern-69bv8f"
         ],
         "fr": [
-          "consultant-en-ventes-en-textile-jeune-mode-coop-genossenschaft-bern-69bv8f"
+          "consultant-en-ventes-en-textile-jeune-mode-coop-genossenschaft-bern-69bv8f",
+          "verkaufsberater-in-textil-young-fashion-coop-genossenschaft-bern-hxij50"
         ]
       },
       "previousSlugs": [
@@ -140,7 +151,8 @@
         "consulente-commerciale-in-tessile-young-fashion-coop-genossenschaft-bern",
         "verkaufsberater-in-textil-young-fashion-coop-genossenschaft-bern-69bv8f",
         "sales-consultant-in-textile-young-fashion-coop-genossenschaft-bern-69bv8f",
-        "consultant-en-ventes-en-textile-jeune-mode-coop-genossenschaft-bern-69bv8f"
+        "consultant-en-ventes-en-textile-jeune-mode-coop-genossenschaft-bern-69bv8f",
+        "verkaufsberater-in-textil-young-fashion-coop-genossenschaft-bern-hxij50"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -192,9 +204,9 @@
       },
       "slugByLocale": {
         "it": "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-swiss-household-services-ag-zurich-xgatco",
-        "en": "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-swiss-household-services-ag-zurich-xgatco",
+        "en": "sales-consultant-in-electrical-household-and-multimedia-fust-zurich",
         "de": "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-swiss-household-services-ag-zurich-xgatco",
-        "fr": "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-swiss-household-services-ag-zurich-xgatco"
+        "fr": "consultant-en-ventes-en-electromenager-et-multimedia-fust-zurich"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -220,6 +232,12 @@
           "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-luzern",
           "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
           "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-visp"
+        ],
+        "en": [
+          "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-swiss-household-services-ag-zurich-xgatco"
+        ],
+        "fr": [
+          "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-swiss-household-services-ag-zurich-xgatco"
         ]
       },
       "previousSlugs": [
@@ -243,7 +261,8 @@
         "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-grenchen",
         "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-luzern",
         "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
-        "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-visp"
+        "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-visp",
+        "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-swiss-household-services-ag-zurich-xgatco"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -269,7 +288,7 @@
     },
     {
       "id": "company-opvqbe",
-      "slug": "verkaufsberater-in-interdiscount-jegenstorf",
+      "slug": "consulente-commerciale-in-interdiscount-jegenstorf",
       "company": "Interdiscount",
       "title": "Verkaufsberater:in",
       "location": "Jegenstorf",
@@ -301,29 +320,33 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufsberater-in-interdiscount-jegenstorf",
-        "en": "verkaufsberater-in-interdiscount-jegenstorf",
+        "it": "consulente-commerciale-in-interdiscount-jegenstorf",
+        "en": "sales-consultant-in-interdiscount-jegenstorf",
         "de": "verkaufsberater-in-interdiscount-jegenstorf",
-        "fr": "verkaufsberater-in-interdiscount-jegenstorf"
+        "fr": "consultant-en-ventes-interdiscount-jegenstorf"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-interdiscount-jegenstorf-opvqbe"
+          "verkaufsberater-in-interdiscount-jegenstorf-opvqbe",
+          "verkaufsberater-in-interdiscount-jegenstorf"
         ],
         "en": [
-          "verkaufsberater-in-interdiscount-jegenstorf-opvqbe"
+          "verkaufsberater-in-interdiscount-jegenstorf-opvqbe",
+          "verkaufsberater-in-interdiscount-jegenstorf"
         ],
         "de": [
           "verkaufsberater-in-interdiscount-jegenstorf-opvqbe"
         ],
         "fr": [
-          "verkaufsberater-in-interdiscount-jegenstorf-opvqbe"
+          "verkaufsberater-in-interdiscount-jegenstorf-opvqbe",
+          "verkaufsberater-in-interdiscount-jegenstorf"
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-interdiscount-jegenstorf-opvqbe"
+        "verkaufsberater-in-interdiscount-jegenstorf-opvqbe",
+        "verkaufsberater-in-interdiscount-jegenstorf"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -7539,7 +7562,7 @@
     },
     {
       "id": "company-cn01fy",
-      "slug": "geschaftsfuhrer-in-two-spice-ag-dietlikon-cn01fy",
+      "slug": "amministratore-delegato-two-spice-ag-dietlikon",
       "company": "Two Spice AG",
       "title": "Geschäftsführer:in",
       "location": "Dietlikon",
@@ -7570,20 +7593,28 @@
         "fr": "Deux épices – c'est nous! Une entreprise créative et innovante de gastronomie et de style de vie de Zurich. Depuis 1990, nous apportons de nouvelles idées à la table et développons des concepts et des marques uniques qui inspirent. Nos entreprises polyvalentes sont à la maison dans les hotspots centraux de diverses villes et sont synonymes de qualité, de design et de pur plaisir.\nBienvenue à Nooba, inspirée par les rues animées de l'Asie et servant une cuisine panasiatique diversifiée. Nos plats sont une fusion des saveurs traditionnelles de la Thaïlande, du Japon et de l'Inde, jumelées au style urbain. Plongez dans le monde de Nooba et faites partie d'une équipe qui a redéfini les frontières de la cuisine asiatique avec passion et créativité. Tu veux faire partie de notre équipe ? C'est votre chance !\n\nTâche\n\n- Gestion opérationnelle et responsabilité de l'ensemble de l'opération\n\n- Participation active au service en tant que personnalité d'accueil engagée\n\n- Élaboration et mise en œuvre de mesures visant à atteindre les objectifs des entreprises\n\n- Planification du déploiement du personnel, y compris le contrôle des coûts et des heures\n\n- Planification et mise en œuvre de toutes les actions, manifestations et mesures promotionnelles\n\n- Responsabilité du contrôle et de la commande des coûts et du budget\n\n- Leadership, perfectionnement et promotion de l'équipe\n\n- Achèvement des tâches administratives telles que la comptabilité, les comptes mensuels et les stocks\n\n- Assurer, mettre en œuvre et contrôler les directives en matière d'hygiène et de sécurité\n\nExigences\n\n- Formation ou études dans la gastronomie, l'hôtellerie, l'administration d'entreprise ou une spécialisation similaire\n\n- Plusieurs années d'expérience de leadership dans la gastronomie ou l'hôtellerie\n\n- Expérience en gestion opérationnelle et en développement stratégique d'une entreprise\n\n- Un fort sens des responsabilités et de la pensée entrepreneuriale\n\n- Forte capacité de leadership et de prise de décisions\n\n- Méthode de travail analytique, structurée et orientée vers la solution\n\n- Approche souveraine et professionnelle à l'égard des clients, des employés et des partenaires commerciaux\n\n- Les compétences en allemand au niveau C1 en paroles et en écriture sont une condition préalable, d'autres langues sont un plus\n\nCe que nous offrons\n\nVotre personne à contacter\nMarion Heinzle, Ressources humaines"
       },
       "slugByLocale": {
-        "it": "geschaftsfuhrer-in-two-spice-ag-dietlikon-cn01fy",
-        "en": "geschaftsfuhrer-in-two-spice-ag-dietlikon-cn01fy",
+        "it": "amministratore-delegato-two-spice-ag-dietlikon",
+        "en": "managing-director-two-spice-ag-dietlikon",
         "de": "geschaftsfuhrer-in-two-spice-ag-dietlikon-cn01fy",
-        "fr": "geschaftsfuhrer-in-two-spice-ag-dietlikon-cn01fy"
+        "fr": "directeur-general-two-spice-ag-dietlikon"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "geschaftsfuhrer-in-two-spice-ag-dietlikon"
+          "geschaftsfuhrer-in-two-spice-ag-dietlikon",
+          "geschaftsfuhrer-in-two-spice-ag-dietlikon-cn01fy"
+        ],
+        "en": [
+          "geschaftsfuhrer-in-two-spice-ag-dietlikon-cn01fy"
+        ],
+        "fr": [
+          "geschaftsfuhrer-in-two-spice-ag-dietlikon-cn01fy"
         ]
       },
       "previousSlugs": [
-        "geschaftsfuhrer-in-two-spice-ag-dietlikon"
+        "geschaftsfuhrer-in-two-spice-ag-dietlikon",
+        "geschaftsfuhrer-in-two-spice-ag-dietlikon-cn01fy"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -7603,7 +7634,7 @@
     },
     {
       "id": "company-lfu6tq",
-      "slug": "crewmember-burger-king-auf-abruf-m-w-d-marche-restaurants-schweiz-ag-dietlikon-lfu6tq",
+      "slug": "crewmember-burger-king-su-richiesta-m-f-d-marche-restaurants-schweiz-ag-dietlikon",
       "company": "Marché Restaurants Schweiz AG",
       "title": "Crewmember Burger King Auf Abruf (w/m/d)",
       "location": "Dietlikon",
@@ -7634,20 +7665,28 @@
         "fr": "Marché Restaurants Schweiz AG est l'une des 10 entreprises suisses ayant le chiffre d'affaires le plus élevé dans le domaine de la gastronomie complète et est le numéro 1 de la gastronomie autoroutière avec la marque \"Marché\". Depuis 2014, Marché Restaurants Schweiz AG fait partie du groupe Coop en tant que filiale indépendante. Avec nos marques et concepts – Marché, Zopf & Zöpfli, Burger King, Popeyes et Firehouse Subs – nous sommes non seulement présents sur les autoroutes ou à l'aéroport de Zurich, mais aussi dans les plus grandes gares de Zurich, Berne et Bâle ainsi que dans certains centres commerciaux populaires en Suisse germanophone. Ou en d'autres termes : Nous peaufinons la vie quotidienne de nos invités, où que les gens se traitent à une pause alimentaire sur le chemin.\n\n100% bœuf pur, flammes ouvertes pour les vraies lanières de grill, grills professionnels high-tech des États-Unis et plus de 50 ans d'expérience – ce sont les ingrédients pour le meilleur goût de grill! Chaque hamburger est préparé à la main avec beaucoup de passion et des ingrédients frais. Êtes-vous aussi un feu et une flamme pour le meilleur goût de grill et le meilleur plaisir de burger? Faites partie de notre équipe de Burger King !\n\nTâche\n\n- Servir et conseiller les invités, servir la caisse\n\n- Compilation des ordres selon Burger King Standard\n\n- Préparer et fabriquer des produits selon nos normes de qualité\n\n- Travail sur les différents postes de cuisine\n\n- Contrôle de durabilité de tous les produits\n\n- Hygiène et propreté selon les normes HACCP\n\nExigences\n\n- Expérience professionnelle en gastronomie\n\n- Orientation vers les services\n\n- Bonne connaissance de l'allemand, d'autres langues bénéfiques\n\n- Charisme positif, amical et motivé\n\n- Joueur d'équipe, résilient et de bonnes compétences organisationnelles\n\n- Flexible et mobile en termes de temps (soir et week-end)\n\nCe que nous offrons\n\nVotre personne à contacter\nRessources humaines"
       },
       "slugByLocale": {
-        "it": "crewmember-burger-king-auf-abruf-m-w-d-marche-restaurants-schweiz-ag-dietlikon-lfu6tq",
-        "en": "crewmember-burger-king-auf-abruf-m-w-d-marche-restaurants-schweiz-ag-dietlikon-lfu6tq",
+        "it": "crewmember-burger-king-su-richiesta-m-f-d-marche-restaurants-schweiz-ag-dietlikon",
+        "en": "crewmember-burger-king-on-demand-m-f-d-marche-restaurants-schweiz-ag-dietlikon",
         "de": "crewmember-burger-king-auf-abruf-m-w-d-marche-restaurants-schweiz-ag-dietlikon-lfu6tq",
-        "fr": "crewmember-burger-king-auf-abruf-m-w-d-marche-restaurants-schweiz-ag-dietlikon-lfu6tq"
+        "fr": "membre-d-equipage-burger-king-sur-demande-h-f-d-marche-restaurants-schweiz-ag-dietlikon"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "crewmember-burger-king-auf-abruf-m-w-d-marche-restaurants-schweiz-ag-dietlikon"
+          "crewmember-burger-king-auf-abruf-m-w-d-marche-restaurants-schweiz-ag-dietlikon",
+          "crewmember-burger-king-auf-abruf-m-w-d-marche-restaurants-schweiz-ag-dietlikon-lfu6tq"
+        ],
+        "en": [
+          "crewmember-burger-king-auf-abruf-m-w-d-marche-restaurants-schweiz-ag-dietlikon-lfu6tq"
+        ],
+        "fr": [
+          "crewmember-burger-king-auf-abruf-m-w-d-marche-restaurants-schweiz-ag-dietlikon-lfu6tq"
         ]
       },
       "previousSlugs": [
-        "crewmember-burger-king-auf-abruf-m-w-d-marche-restaurants-schweiz-ag-dietlikon"
+        "crewmember-burger-king-auf-abruf-m-w-d-marche-restaurants-schweiz-ag-dietlikon",
+        "crewmember-burger-king-auf-abruf-m-w-d-marche-restaurants-schweiz-ag-dietlikon-lfu6tq"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -7667,7 +7706,7 @@
     },
     {
       "id": "company-rir5o9",
-      "slug": "teamleiter-in-abteilung-ultrafrische-coop-genossenschaft-gossau-sankt-gallen-rir5o9",
+      "slug": "team-leader-nel-reparto-ultrafreshness-coop-genossenschaft-gossau-sankt-gallen",
       "company": "Coop Genossenschaft",
       "title": "Teamleiter:in Abteilung Ultrafrische",
       "location": "Gossau, Sankt Gallen",
@@ -7699,20 +7738,28 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "teamleiter-in-abteilung-ultrafrische-coop-genossenschaft-gossau-sankt-gallen-rir5o9",
-        "en": "teamleiter-in-abteilung-ultrafrische-coop-genossenschaft-gossau-sankt-gallen-rir5o9",
+        "it": "team-leader-nel-reparto-ultrafreshness-coop-genossenschaft-gossau-sankt-gallen",
+        "en": "team-leader-in-ultrafreshness-department-coop-genossenschaft-gossau-sankt-gallen",
         "de": "teamleiter-in-abteilung-ultrafrische-coop-genossenschaft-gossau-sankt-gallen-rir5o9",
-        "fr": "teamleiter-in-abteilung-ultrafrische-coop-genossenschaft-gossau-sankt-gallen-rir5o9"
+        "fr": "chef-d-equipe-service-ultrafreshness-coop-genossenschaft-gossau-sankt-gallen"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-abteilung-ultrafrische-coop-genossenschaft-gossau-sankt-gallen"
+          "teamleiter-in-abteilung-ultrafrische-coop-genossenschaft-gossau-sankt-gallen",
+          "teamleiter-in-abteilung-ultrafrische-coop-genossenschaft-gossau-sankt-gallen-rir5o9"
+        ],
+        "en": [
+          "teamleiter-in-abteilung-ultrafrische-coop-genossenschaft-gossau-sankt-gallen-rir5o9"
+        ],
+        "fr": [
+          "teamleiter-in-abteilung-ultrafrische-coop-genossenschaft-gossau-sankt-gallen-rir5o9"
         ]
       },
       "previousSlugs": [
-        "teamleiter-in-abteilung-ultrafrische-coop-genossenschaft-gossau-sankt-gallen"
+        "teamleiter-in-abteilung-ultrafrische-coop-genossenschaft-gossau-sankt-gallen",
+        "teamleiter-in-abteilung-ultrafrische-coop-genossenschaft-gossau-sankt-gallen-rir5o9"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -7732,7 +7779,7 @@
     },
     {
       "id": "company-ru076r",
-      "slug": "kochin-koch-m-w-d-coop-genossenschaft-koniz-bern-ru076r",
+      "slug": "chef-chef-m-f-d-coop-genossenschaft-koniz-bern",
       "company": "Coop Genossenschaft",
       "title": "Köchin / Koch (w/m/d)",
       "location": "Köniz, Bern",
@@ -7765,10 +7812,10 @@
         "fr": "Tâche\n\n- Vous apportez de la nourriture froide et chaude fraîche sur l'assiette.\n\n- Toujours sympathique: Les invités apprécient beaucoup la façon dont vous servez et les conseillez au buffet.\n\n- Avec vos plats rafraîchissants, vous garantissez des moments de plaisir.\n\n- Il va sans dire que vous respectez en tout temps les normes de qualité et d'hygiène.\n\nExigences\n\n- Vous êtes formé comme cuisinier/chef EFZ/EBA (h/f/d).\n\n- Vous connaissez la gastronomie du système.\n\n- Bon pour parler et écrire l'allemand? Tu peux le faire.\n\n- Tu aimes aussi être avec des gens au travail.\n\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du Groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Carte Reka: réduction sur l'achat, réduction sur Mobility CarSharing, réduction personnelle également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA, réductions sur les événements culturels, réductions sur les activités de loisirs\n\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par la Coop, les conditions d'emploi attractives et l'égalité de rémunération certifiée, les primes de fidélité, le régime d'épargne de la Caisse de retraite, le contrat d'emploi total, 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n\n- Formation: Plus de 600 formations internes, gestion des talents avec des opportunités de développement diverses, formation et offres de formation continue du L-GAV et du Coop\n\n- Durabilité: Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n\n- Communication: application interne pour les salariés\n\n- Santé: Mise à jour de la condition physique: 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités de l'entreprise, offres de sports maison\n\nVotre personne à contacter\nAllemand Steiner\nMarketing des ressources humaines"
       },
       "slugByLocale": {
-        "it": "kochin-koch-m-w-d-coop-genossenschaft-koniz-bern-ru076r",
+        "it": "chef-chef-m-f-d-coop-genossenschaft-koniz-bern",
         "en": "kochin-koch-m-w-d-coop-genossenschaft-koniz-bern-ru076r",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-koniz-bern-ru076r",
-        "fr": "kochin-koch-m-w-d-coop-genossenschaft-koniz-bern-ru076r"
+        "fr": "chef-chef-h-f-d-coop-genossenschaft-koniz-bern"
       },
       "requirementsByLocale": {
         "it": [],
@@ -7781,11 +7828,16 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-m-w-d-coop-genossenschaft-koniz-bern"
+          "kochin-koch-m-w-d-coop-genossenschaft-koniz-bern",
+          "kochin-koch-m-w-d-coop-genossenschaft-koniz-bern-ru076r"
+        ],
+        "fr": [
+          "kochin-koch-m-w-d-coop-genossenschaft-koniz-bern-ru076r"
         ]
       },
       "previousSlugs": [
-        "kochin-koch-m-w-d-coop-genossenschaft-koniz-bern"
+        "kochin-koch-m-w-d-coop-genossenschaft-koniz-bern",
+        "kochin-koch-m-w-d-coop-genossenschaft-koniz-bern-ru076r"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -7805,7 +7857,7 @@
     },
     {
       "id": "company-rcup55",
-      "slug": "lokfuhrer-in-regional-railcare-hunzenschwil-aargau-rcup55",
+      "slug": "train-driver-in-regional-railcare-hunzenschwil-aargau",
       "company": "railCare",
       "title": "Lokführer:in Regional",
       "location": "Hunzenschwil, Aargau",
@@ -7837,20 +7889,25 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "lokfuhrer-in-regional-railcare-hunzenschwil-aargau-rcup55",
+        "it": "train-driver-in-regional-railcare-hunzenschwil-aargau",
         "en": "lokfuhrer-in-regional-railcare-hunzenschwil-aargau-rcup55",
         "de": "lokfuhrer-in-regional-railcare-hunzenschwil-aargau-rcup55",
-        "fr": "lokfuhrer-in-regional-railcare-hunzenschwil-aargau-rcup55"
+        "fr": "conducteur-de-train-en-regional-railcare-hunzenschwil-aargau"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "lokfuhrer-in-regional-railcare-hunzenschwil-aargau"
+          "lokfuhrer-in-regional-railcare-hunzenschwil-aargau",
+          "lokfuhrer-in-regional-railcare-hunzenschwil-aargau-rcup55"
+        ],
+        "fr": [
+          "lokfuhrer-in-regional-railcare-hunzenschwil-aargau-rcup55"
         ]
       },
       "previousSlugs": [
-        "lokfuhrer-in-regional-railcare-hunzenschwil-aargau"
+        "lokfuhrer-in-regional-railcare-hunzenschwil-aargau",
+        "lokfuhrer-in-regional-railcare-hunzenschwil-aargau-rcup55"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -7870,7 +7927,7 @@
     },
     {
       "id": "company-6z9ze6",
-      "slug": "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-heimberg-bern-6z9ze6",
+      "slug": "consulente-commerciale-a-deco-jumbo-division-der-coop-genossenschaft-heimberg-bern",
       "company": "Jumbo, Division der Coop Genossenschaft",
       "title": "Verkaufsberater:in Deco",
       "location": "Heimberg, Bern",
@@ -7904,10 +7961,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-heimberg-bern-6z9ze6",
-        "en": "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-heimberg-bern-6z9ze6",
+        "it": "consulente-commerciale-a-deco-jumbo-division-der-coop-genossenschaft-heimberg-bern",
+        "en": "sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-heimberg-bern",
         "de": "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-heimberg-bern-6z9ze6",
-        "fr": "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-heimberg-bern-6z9ze6"
+        "fr": "consultant-en-ventes-en-deco-jumbo-division-der-coop-genossenschaft-heimberg-bern"
       },
       "requirementsByLocale": {
         "it": [],
@@ -7920,11 +7977,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-heimberg-bern"
+          "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-heimberg-bern",
+          "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-heimberg-bern-6z9ze6"
+        ],
+        "en": [
+          "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-heimberg-bern-6z9ze6"
+        ],
+        "fr": [
+          "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-heimberg-bern-6z9ze6"
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-heimberg-bern"
+        "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-heimberg-bern",
+        "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-heimberg-bern-6z9ze6"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -8001,7 +8066,7 @@
     },
     {
       "id": "company-kfvidt",
-      "slug": "transportdisponent-in-coop-genossenschaft-gossau-sankt-gallen-kfvidt",
+      "slug": "trasporti-speditore-in-coop-genossenschaft-gossau-sankt-gallen",
       "company": "Coop Genossenschaft",
       "title": "Transportdisponent:in",
       "location": "Gossau, Sankt Gallen",
@@ -8033,20 +8098,28 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "transportdisponent-in-coop-genossenschaft-gossau-sankt-gallen-kfvidt",
-        "en": "transportdisponent-in-coop-genossenschaft-gossau-sankt-gallen-kfvidt",
+        "it": "trasporti-speditore-in-coop-genossenschaft-gossau-sankt-gallen",
+        "en": "transport-dispatcher-in-coop-genossenschaft-gossau-sankt-gallen",
         "de": "transportdisponent-in-coop-genossenschaft-gossau-sankt-gallen-kfvidt",
-        "fr": "transportdisponent-in-coop-genossenschaft-gossau-sankt-gallen-kfvidt"
+        "fr": "expediteur-de-transport-en-coop-genossenschaft-gossau-sankt-gallen"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "transportdisponent-in-coop-genossenschaft-gossau-sankt-gallen"
+          "transportdisponent-in-coop-genossenschaft-gossau-sankt-gallen",
+          "transportdisponent-in-coop-genossenschaft-gossau-sankt-gallen-kfvidt"
+        ],
+        "en": [
+          "transportdisponent-in-coop-genossenschaft-gossau-sankt-gallen-kfvidt"
+        ],
+        "fr": [
+          "transportdisponent-in-coop-genossenschaft-gossau-sankt-gallen-kfvidt"
         ]
       },
       "previousSlugs": [
-        "transportdisponent-in-coop-genossenschaft-gossau-sankt-gallen"
+        "transportdisponent-in-coop-genossenschaft-gossau-sankt-gallen",
+        "transportdisponent-in-coop-genossenschaft-gossau-sankt-gallen-kfvidt"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -8430,9 +8503,9 @@
       "firstSeenAt": "2026-08-22T09:42:05.820Z",
       "slugByLocale": {
         "de": "kommissionierer-in-coop-genossenschaft-schafisheim-aargau-92z0a4",
-        "it": "addetto-al-picking-coop-genossenschaft-schafisheim-aargau",
+        "it": "picker-d-ordine-in-coop-genossenschaft-schafisheim",
         "en": "order-picker-in-coop-genossenschaft-schafisheim",
-        "fr": "preparateur-de-commandes-coop-genossenschaft-schafisheim-aargau"
+        "fr": "commandeur-in-coop-genossenschaft-schafisheim"
       },
       "titleByLocale": {
         "de": "Kommissionierer:in",
@@ -8473,8 +8546,7 @@
           "kommissionierer-in-coop-genossenschaft-schafisheim-aargau-92z0a4",
           "picker-d-ordine-in-coop-genossenschaft-schafisheim-aargau",
           "kommissionierer-in-coop-genossenschaft-schafisheim-aargau",
-          "commissionista-coop-genossenschaft-schafisheim",
-          "picker-d-ordine-in-coop-genossenschaft-schafisheim"
+          "commissionista-coop-genossenschaft-schafisheim"
         ],
         "en": [
           "kommissionierer-in-coop-genossenschaft-schafisheim-aargau-92z0a4",
@@ -8485,7 +8557,6 @@
           "kommissionierer-in-coop-genossenschaft-schafisheim-aargau-92z0a4",
           "recuperateur-de-commande-in-coop-genossenschaft-schafisheim-aargau",
           "preparateur-de-commandes-coop-genossenschaft-schafisheim",
-          "commandeur-in-coop-genossenschaft-schafisheim",
           "preparateur-de-commandes-coop-genossenschaft-schafisheim-aargau"
         ]
       },
@@ -8498,8 +8569,6 @@
         "commissionista-coop-genossenschaft-schafisheim",
         "order-picker-coop-genossenschaft-schafisheim",
         "preparateur-de-commandes-coop-genossenschaft-schafisheim",
-        "picker-d-ordine-in-coop-genossenschaft-schafisheim",
-        "commandeur-in-coop-genossenschaft-schafisheim",
         "preparateur-de-commandes-coop-genossenschaft-schafisheim-aargau"
       ],
       "salaryMin": 62000,
@@ -8529,9 +8598,9 @@
       "firstSeenAt": "2026-08-22T09:42:05.820Z",
       "slugByLocale": {
         "de": "kochin-koch-m-w-d-coop-genossenschaft-kriens-luzern-172wz6",
-        "it": "cuoca-cuoco-m-w-d-coop-genossenschaft-kriens-luzern",
+        "it": "chef-chef-m-f-d-coop-genossenschaft-kriens",
         "en": "kochin-koch-m-w-d-coop-ristorante-kriens-luzern-172wz6",
-        "fr": "cuisinier-cuisiniere-m-w-d-coop-genossenschaft-kriens-luzern"
+        "fr": "chef-chef-h-f-d-coop-genossenschaft-kriens"
       },
       "titleByLocale": {
         "en": "Chef / Chef (m/f/d)",
@@ -8572,8 +8641,7 @@
           "kochin-koch-m-w-d-coop-genossenschaft-kriens-luzern-172wz6",
           "chef-chef-m-f-d-coop-genossenschaft-kriens-luzern",
           "kochin-koch-m-w-d-coop-genossenschaft-kriens-luzern",
-          "cuoca-cuoco-f-m-d-coop-genossenschaft-kriens",
-          "chef-chef-m-f-d-coop-genossenschaft-kriens"
+          "cuoca-cuoco-f-m-d-coop-genossenschaft-kriens"
         ],
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-kriens-luzern-172wz6",
@@ -8583,7 +8651,6 @@
           "kochin-koch-m-w-d-coop-genossenschaft-kriens-luzern-172wz6",
           "chef-chef-h-f-d-coop-genossenschaft-kriens-luzern",
           "cuisiniere-cuisinier-f-m-d-coop-genossenschaft-kriens",
-          "chef-chef-h-f-d-coop-genossenschaft-kriens",
           "cuisinier-cuisiniere-m-w-d-coop-genossenschaft-kriens-luzern"
         ]
       },
@@ -8594,8 +8661,6 @@
         "kochin-koch-m-w-d-coop-genossenschaft-kriens-luzern",
         "cuoca-cuoco-f-m-d-coop-genossenschaft-kriens",
         "cuisiniere-cuisinier-f-m-d-coop-genossenschaft-kriens",
-        "chef-chef-m-f-d-coop-genossenschaft-kriens",
-        "chef-chef-h-f-d-coop-genossenschaft-kriens",
         "cuisinier-cuisiniere-m-w-d-coop-genossenschaft-kriens-luzern"
       ],
       "salaryMin": 69500,
@@ -9484,9 +9549,9 @@
       "firstSeenAt": "2026-08-22T09:42:05.820Z",
       "slugByLocale": {
         "de": "kochin-koch-m-w-d-coop-genossenschaft-seewen-schwyz-yjd50j",
-        "it": "cuoca-cuoco-donna-uomo-altro-coop-genossenschaft-seewen-schwyz",
+        "it": "chef-chef-m-f-d-coop-genossenschaft-seewen",
         "en": "kochin-koch-m-w-d-coop-ristorante-seewen-schwyz-yjd50j",
-        "fr": "cuisinier-cuisiniere-h-f-autre-coop-genossenschaft-seewen-schwyz"
+        "fr": "chef-chef-h-f-d-coop-genossenschaft-seewen"
       },
       "titleByLocale": {
         "en": "Chef / Chef (m/f/d)",
@@ -9529,14 +9594,12 @@
           "kochin-koch-m-w-d-coop-genossenschaft-seewen-schwyz-yjd50j",
           "chef-chef-m-f-d-coop-genossenschaft-seewen-schwyz",
           "kochin-koch-m-w-d-coop-genossenschaft-seewen-schwyz",
-          "cuoca-cuoco-coop-genossenschaft-seewen",
-          "chef-chef-m-f-d-coop-genossenschaft-seewen"
+          "cuoca-cuoco-coop-genossenschaft-seewen"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-genossenschaft-seewen-schwyz-yjd50j",
           "chef-chef-h-f-d-coop-genossenschaft-seewen-schwyz",
           "cuisinier-cuisiniere-coop-genossenschaft-seewen",
-          "chef-chef-h-f-d-coop-genossenschaft-seewen",
           "cuisinier-cuisiniere-h-f-autre-coop-genossenschaft-seewen-schwyz"
         ],
         "en": [
@@ -9551,8 +9614,6 @@
         "kochin-koch-m-w-d-coop-genossenschaft-seewen-schwyz",
         "cuoca-cuoco-coop-genossenschaft-seewen",
         "cuisinier-cuisiniere-coop-genossenschaft-seewen",
-        "chef-chef-m-f-d-coop-genossenschaft-seewen",
-        "chef-chef-h-f-d-coop-genossenschaft-seewen",
         "cuisinier-cuisiniere-h-f-autre-coop-genossenschaft-seewen-schwyz"
       ]
     },
@@ -10287,7 +10348,7 @@
         "it": "consulente-di-vendita-in-do-it-jumbo-mels",
         "en": "sales-consultant-in-do-it-jumbo-mels-88f5b6",
         "de": "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen-lq8p6z",
-        "fr": "verkaufsberater-en-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen"
+        "fr": "consultant-en-ventes-a-do-it-jumbo-mels"
       },
       "requirementsByLocale": {
         "it": [],
@@ -10315,7 +10376,6 @@
         "fr": [
           "consultant-en-ventes-a-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen",
           "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen-lq8p6z",
-          "consultant-en-ventes-a-do-it-jumbo-mels",
           "verkaufsberater-en-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen"
         ]
       },
@@ -10329,7 +10389,6 @@
         "verkaufsberater-in-do-it-jumbo-mels-sankt-gallen",
         "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-mels",
         "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-mels",
-        "consultant-en-ventes-a-do-it-jumbo-mels",
         "verkaufsberater-en-do-it-jumbo-division-der-coop-genossenschaft-mels-sankt-gallen"
       ],
       "salaryMin": 57500,
@@ -11529,9 +11588,9 @@
       "firstSeenAt": "2026-08-19T21:48:15.306Z",
       "slugByLocale": {
         "de": "ladendetektiv-in-coop-schafisheim-aargau-6xv2hw",
-        "it": "addetto-a-alla-sorveglianza-negozi-coop-genossenschaft-schafisheim-aargau",
+        "it": "negozio-detective-in-coop-genossenschaft-schafisheim",
         "en": "shop-detective-in-coop-genossenschaft-schafisheim",
-        "fr": "detective-magasin-coop-genossenschaft-schafisheim-aargau"
+        "fr": "inspecteur-coop-genossenschaft-schafisheim"
       },
       "titleByLocale": {
         "de": "Ladendetektiv:in",
@@ -11559,15 +11618,13 @@
           "ladendetektiv-in-coop-schafisheim-aargau-6xv2hw",
           "ladendetektiv-in-coop-schafisheim-aargau",
           "ladendetektiv-in-coop-genossenschaft-schafisheim-aargau",
-          "addetto-a-alla-sorveglianza-negozi-coop-genossenschaft-schafisheim",
-          "negozio-detective-in-coop-genossenschaft-schafisheim"
+          "addetto-a-alla-sorveglianza-negozi-coop-genossenschaft-schafisheim"
         ],
         "en": [
           "ladendetektiv-in-coop-schafisheim-aargau-6xv2hw"
         ],
         "fr": [
           "ladendetektiv-in-coop-schafisheim-aargau-6xv2hw",
-          "inspecteur-coop-genossenschaft-schafisheim",
           "detective-magasin-coop-genossenschaft-schafisheim-aargau"
         ]
       },
@@ -11576,8 +11633,6 @@
         "ladendetektiv-in-coop-schafisheim-aargau",
         "ladendetektiv-in-coop-genossenschaft-schafisheim-aargau",
         "addetto-a-alla-sorveglianza-negozi-coop-genossenschaft-schafisheim",
-        "negozio-detective-in-coop-genossenschaft-schafisheim",
-        "inspecteur-coop-genossenschaft-schafisheim",
         "detective-magasin-coop-genossenschaft-schafisheim-aargau"
       ],
       "salaryMin": 62000,
@@ -14451,8 +14506,8 @@
       "firstSeenAt": "2026-08-15T21:29:09.820Z",
       "slugByLocale": {
         "de": "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau-0pl416",
-        "it": "cuoca-cuoco-m-w-d-coop-genossenschaft-oftringen-aargau",
-        "fr": "cuisiniere-cuisinier-m-w-d-coop-genossenschaft-oftringen-aargau",
+        "it": "chef-chef-m-f-d-coop-genossenschaft-oftringen",
+        "fr": "chef-chef-h-f-d-coop-genossenschaft-oftringen",
         "en": "chef-chef-m-f-d-coop-genossenschaft-oftringen-aargau"
       },
       "titleByLocale": {
@@ -14480,18 +14535,15 @@
         "it": [
           "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau",
           "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau-0pl416",
-          "cuoca-cuoco-m-w-d-coop-genossenschaft-oftringen",
-          "chef-chef-m-f-d-coop-genossenschaft-oftringen"
+          "cuoca-cuoco-m-w-d-coop-genossenschaft-oftringen"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau",
           "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau-0pl416",
-          "chef-chef-h-f-d-coop-genossenschaft-oftringen",
           "cuisiniere-cuisinier-m-w-d-coop-genossenschaft-oftringen-aargau"
         ],
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau-0pl416",
-          "chef-chef-m-f-d-coop-genossenschaft-oftringen-aargau",
           "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau"
         ]
       },
@@ -14499,9 +14551,6 @@
         "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau",
         "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau-0pl416",
         "cuoca-cuoco-m-w-d-coop-genossenschaft-oftringen",
-        "chef-chef-m-f-d-coop-genossenschaft-oftringen",
-        "chef-chef-h-f-d-coop-genossenschaft-oftringen",
-        "chef-chef-m-f-d-coop-genossenschaft-oftringen-aargau",
         "cuisiniere-cuisinier-m-w-d-coop-genossenschaft-oftringen-aargau"
       ],
       "salaryMin": 62000,
@@ -14651,7 +14700,6 @@
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-wettingen-aargau-15rrqh",
           "kochin-koch-m-w-d-coop-ristorante-wettingen-aargau-15rrqh",
-          "chef-chef-m-f-d-coop-genossenschaft-wettingen",
           "kochin-koch-m-w-d-coop-genossenschaft-wettingen-aargau"
         ],
         "de": [
@@ -14666,8 +14714,7 @@
         "kochin-koch-m-w-d-coop-genossenschaft-wettingen-aargau",
         "kochin-koch-m-w-d-coop-genossenschaft-wettingen-aargau-15rrqh",
         "kochin-koch-m-w-d-coop-ristorante-wettingen-aargau-15rrqh",
-        "kochin-koch-m-w-d-coop-ristorante-wettingen-aargau",
-        "chef-chef-m-f-d-coop-genossenschaft-wettingen"
+        "kochin-koch-m-w-d-coop-ristorante-wettingen-aargau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -14709,7 +14756,7 @@
       "firstSeenAt": "2026-08-15T21:29:09.820Z",
       "slugByLocale": {
         "de": "kommissionierer-in-coop-genossenschaft-bern-xs2tsd",
-        "it": "addetto-a-al-picking-coop-genossenschaft-bern",
+        "it": "picker-d-ordine-in-coop-genossenschaft-bern-65fc45",
         "en": "kommissionierer-in-coop-bern-xs2tsd",
         "fr": "kommissionierer-in-coop-bern-xs2tsd"
       },
@@ -14738,8 +14785,7 @@
         "it": [
           "kommissionierer-in-coop-genossenschaft-bern",
           "kommissionierer-in-coop-genossenschaft-bern-xs2tsd",
-          "kommissionierer-in-coop-bern",
-          "picker-d-ordine-in-coop-genossenschaft-bern-65fc45"
+          "kommissionierer-in-coop-bern"
         ],
         "en": [
           "kommissionierer-in-coop-genossenschaft-bern-xs2tsd",
@@ -14759,8 +14805,7 @@
         "kommissionierer-in-coop-bern",
         "order-picker-in-coop-genossenschaft-bern-65fc45",
         "kommissionierer-in-coop-bern-xs2tsd",
-        "commandeur-in-coop-genossenschaft-bern-65fc45",
-        "picker-d-ordine-in-coop-genossenschaft-bern-65fc45"
+        "commandeur-in-coop-genossenschaft-bern-65fc45"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -15410,7 +15455,7 @@
         "it": "direttore-di-filiale-in-interdiscount-bern",
         "en": "branch-manager-in-interdiscount-bern",
         "de": "filialleiter-in-interdiscount-bern-5lbjpp",
-        "fr": "responsable-de-succursale-interdiscount-bern"
+        "fr": "directeur-de-branche-en-interdiscount-bern"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -15430,7 +15475,6 @@
           "filialleiter-in-interdiscount-bern-5lbjpp",
           "filialleiter-in-interdiscount-bern",
           "directeur-de-branche-interdiscount-bern",
-          "directeur-de-branche-en-interdiscount-bern",
           "responsable-de-succursale-interdiscount-bern"
         ]
       },
@@ -15438,7 +15482,6 @@
         "filialleiter-in-interdiscount-bern-5lbjpp",
         "filialleiter-in-interdiscount-bern",
         "directeur-de-branche-interdiscount-bern",
-        "directeur-de-branche-en-interdiscount-bern",
         "responsable-de-succursale-interdiscount-bern"
       ],
       "salaryMin": 68500,
@@ -15495,7 +15538,7 @@
         "it": "venditore-in-food-coop-genossenschaft-leuk",
         "en": "seller-in-food-coop-genossenschaft-leuk",
         "de": "verkaufer-in-food-coop-genossenschaft-leuk-wallis-vhzi54",
-        "fr": "employe-e-de-commerce-de-detail-food-coop-genossenschaft-leuk-wallis"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-leuk"
       },
       "requirementsByLocale": {
         "it": [],
@@ -15526,7 +15569,6 @@
           "verkaufer-in-food-coop-genossenschaft-leuk-wallis-vhzi54",
           "vendeur-dans-la-nourriture-coop-genossenschaft-leuk-wallis",
           "vendeur-dans-la-nourriture-coop-genossenschaft-suhr",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-leuk",
           "employe-e-de-commerce-de-detail-food-coop-genossenschaft-leuk-wallis"
         ],
         "de": [
@@ -15544,7 +15586,6 @@
         "vendeur-dans-la-nourriture-coop-genossenschaft-suhr",
         "venditore-in-food-coop-genossenschaft-leuk-wallis",
         "verkaufer-in-food-coop-leuk-wallis",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-leuk",
         "employe-e-de-commerce-de-detail-food-coop-genossenschaft-leuk-wallis"
       ],
       "salaryMin": 60500,
@@ -15840,7 +15881,7 @@
         "it": "consulente-commerciale-in-interdiscount-heimberg",
         "en": "sales-consultant-in-interdiscount-heimberg",
         "de": "verkaufsberater-in-interdiscount-heimberg-bern-fzz950",
-        "fr": "conseiller-de-vente-interdiscount-heimberg-bern"
+        "fr": "consultant-en-ventes-interdiscount-heimberg"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -15857,7 +15898,6 @@
         "fr": [
           "verkaufsberater-in-interdiscount-heimberg-bern-fzz950",
           "consultant-en-ventes-interdiscount-heimberg-bern",
-          "consultant-en-ventes-interdiscount-heimberg",
           "conseiller-de-vente-interdiscount-heimberg-bern"
         ]
       },
@@ -15867,7 +15907,6 @@
         "sales-consultant-in-interdiscount-heimberg-bern",
         "consultant-en-ventes-interdiscount-heimberg-bern",
         "consulente-commerciale-in-interdiscount-heimberg-bern",
-        "consultant-en-ventes-interdiscount-heimberg",
         "conseiller-de-vente-interdiscount-heimberg-bern"
       ],
       "salaryMin": 68500,
@@ -16030,7 +16069,6 @@
         ],
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen-5v5ad7",
-          "chef-chef-m-f-d-coop-genossenschaft-st-gallen",
           "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen"
         ],
         "fr": [
@@ -16040,8 +16078,7 @@
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen",
         "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen-5v5ad7",
-        "kochin-koch-m-w-d-coop-st-gallen-sankt-gallen",
-        "chef-chef-m-f-d-coop-genossenschaft-st-gallen"
+        "kochin-koch-m-w-d-coop-st-gallen-sankt-gallen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -16208,7 +16245,6 @@
           "ict-supporter-in-coop-genossenschaft-schafisheim-aargau-0g50id",
           "soutien-aux-tic-en-coop-genossenschaft-schafisheim-ef70b8",
           "ict-supporter-in-coop-schafisheim-aargau-0g50id",
-          "soutien-aux-tic-en-coop-genossenschaft-schafisheim-aargau",
           "technicien-technicienne-support-ict-coop-genossenschaft-schafisheim-aargau"
         ],
         "en": [
@@ -16223,7 +16259,6 @@
         "ict-supporter-in-coop-genossenschaft-schafisheim",
         "ict-supporter-in-coop-genossenschaft-schafisheim-aargau",
         "ict-supporter-in-coop-schafisheim-aargau-0g50id",
-        "soutien-aux-tic-en-coop-genossenschaft-schafisheim-aargau",
         "technicien-technicienne-support-ict-coop-genossenschaft-schafisheim-aargau"
       ],
       "salaryMin": 64500,
@@ -17702,10 +17737,10 @@
         "fr": "Consultant en ventes :\n\nCode Interdis — Wettingen, Aargau, Sizzera\n\nChez Interdis Mark, nous offrons à nos clients la meilleure expérience d'achat en Suisse. Installez-vous dans un environnement de travail dynamique et entrepreneurial.\n\nTâches - Vous conseillez nos clients professionnellement et avec engagement. - Vous vendez notre gamme de produits de manière convaincante et avec passion. - Vous êtes conjointement responsable d'une présentation attrayante et l'utilisez avec profit. - Vous traitez notre réception de marchandises et sortez avec soin.\n\nExigences - Appréciation des conseils des clients - Fiabilité, honnêteté et loyauté - Motivation pour la formation personnelle et professionnelle - Flair pour les nouveaux produits techniques - Formation commerciale terminée; Expérience professionnelle en électronique de divertissement/maison d'avantage\n\nCe que nous offrons\n\nVotre personne de contact Federica Blumetti HR Marketing +41 31 764 42 68\n\nTipo: Sede à temps partiel: Wettingen"
       },
       "slugByLocale": {
-        "it": "venditore-a-interdiscount-wettingen-aargau",
+        "it": "consulente-commerciale-in-interdiscount-wettingen-ffb287",
         "en": "sales-consultant-in-interdiscount-wettingen-ffb287",
         "de": "verkaufsberater-in-interdiscount-wettingen-aargau-hh69tt",
-        "fr": "conseiller-e-de-vente-interdiscount-wettingen-aargau"
+        "fr": "consultant-en-ventes-interdiscount-wettingen-ffb287"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -17715,8 +17750,7 @@
           "verkaufsberater-in-interdiscount-wettingen-aargau-hh69tt",
           "consulente-commerciale-in-interdiscount-wettingen-aargau",
           "consulente-commerciale-in-interdiscount-wettingen",
-          "venditore-a-interdiscount-wettingen",
-          "consulente-commerciale-in-interdiscount-wettingen-ffb287"
+          "venditore-a-interdiscount-wettingen"
         ],
         "en": [
           "verkaufsberater-in-interdiscount-wettingen-aargau-hh69tt",
@@ -17727,7 +17761,6 @@
           "verkaufsberater-in-interdiscount-wettingen-aargau-hh69tt",
           "consultant-en-ventes-interdiscount-wettingen-aargau",
           "consultant-en-ventes-interdiscount-wettingen",
-          "consultant-en-ventes-interdiscount-wettingen-ffb287",
           "conseiller-e-de-vente-interdiscount-wettingen-aargau"
         ]
       },
@@ -17741,8 +17774,6 @@
         "sales-consultant-in-interdiscount-wettingen",
         "consultant-en-ventes-interdiscount-wettingen",
         "venditore-a-interdiscount-wettingen",
-        "consulente-commerciale-in-interdiscount-wettingen-ffb287",
-        "consultant-en-ventes-interdiscount-wettingen-ffb287",
         "conseiller-e-de-vente-interdiscount-wettingen-aargau"
       ],
       "salaryMin": 62000,
@@ -17922,7 +17953,6 @@
         "fr": [
           "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-4x3rhq",
           "consultant-en-ventes-coop-genossenschaft-winterthur",
-          "consultant-en-ventes-coop-genossenschaft-winterthur-zurich",
           "vendeur-vendeuse-coop-genossenschaft-winterthur-zurich"
         ]
       },
@@ -21293,7 +21323,7 @@
         "it": "verkaufsberater-in-haushalt-coop-genossenschaft-aarau-aargau-8or41l",
         "en": "verkaufsberater-coop-genossenschaft-aarau-aargau",
         "de": "verkaufsberater-in-haushalt-coop-city-aarau-aargau-8or41l",
-        "fr": "consultant-en-ventes-dans-le-menage-coop-genossenschaft-aarau-aargau"
+        "fr": "oui-coop-genossenschaft-aarau-aargau"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -21308,7 +21338,6 @@
         ],
         "fr": [
           "consultant-en-ventes-dans-les-menages-coop-genossenschaft-aarau-aargau",
-          "oui-coop-genossenschaft-aarau-aargau",
           "consultant-en-ventes-dans-le-menage-coop-genossenschaft-aarau-aargau"
         ]
       },
@@ -21318,7 +21347,6 @@
         "sales-consultant-in-household-coop-genossenschaft-aarau-aargau",
         "consultant-en-ventes-dans-les-menages-coop-genossenschaft-aarau-aargau",
         "verkaufsberater-in-haushalt-coop-city-aarau-aargau",
-        "oui-coop-genossenschaft-aarau-aargau",
         "consultant-en-ventes-dans-le-menage-coop-genossenschaft-aarau-aargau"
       ],
       "baseSalary": {
@@ -21624,7 +21652,7 @@
       },
       "slugByLocale": {
         "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-rickenbach-thurgau",
-        "en": "kochin-koch-m-w-d-coop-genossenschaft-rickenbach-thurgau",
+        "en": "chef-chef-m-f-d-coop-genossenschaft-rickenbach-thurgau",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-rickenbach-thurgau-rb7ga6",
         "fr": "cuire-cuire-f-m-d-coop-genossenschaft-rickenbach-thurgau"
       },
@@ -21645,7 +21673,6 @@
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-rickenbach-thurgau-rb7ga6",
           "cook-cook-f-m-d-coop-genossenschaft-rickenbach-thurgau",
-          "chef-chef-m-f-d-coop-genossenschaft-rickenbach-thurgau",
           "kochin-koch-m-w-d-coop-genossenschaft-rickenbach-thurgau"
         ],
         "fr": [
@@ -21655,8 +21682,7 @@
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-genossenschaft-rickenbach-thurgau",
         "kochin-koch-m-w-d-coop-genossenschaft-rickenbach-thurgau-rb7ga6",
-        "cook-cook-f-m-d-coop-genossenschaft-rickenbach-thurgau",
-        "chef-chef-m-f-d-coop-genossenschaft-rickenbach-thurgau"
+        "cook-cook-f-m-d-coop-genossenschaft-rickenbach-thurgau"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -24372,7 +24398,7 @@
         "fr": "## Spécialiste du commerce de détail:mann EFZ \"La forme des expériences de shopping\"\n\n**Coop** — Bâle, Bâle, Svizzera\n\n## Vos tâches\n- Vous conseillez, servez nos clients et dirigez des discussions de vente exigeantes.\n- Vous commandez les marchandises et êtes responsable de la gestion.\n- Vous concevez des expériences d'achat orientées produits et services.\n- Vous vous spécialisez dans un de vos sujets choisis.\n\n## Apporte ça avec toi.\n- Travail d'équipe et joie de contact avec les gens\n- Capacité organisationnelle et flexibilité\n- Volonté de travailler indépendamment et d'assumer des responsabilités\n- Profitez du développement dans une entreprise dynamique\n- Capacité de communication\n- Flair à vendre\n\n## C'est ce que nous vous offrons.\n- Abonnement annuel \"mise à jour Fitness\"\n- CHF 500 pour ordinateur portable ou tablette\n- 50% sur le premier abonnement mobile de Coop Mobile\n- CFF demi-taxe ou action GA CHF 650\n- De nombreux avantages pour les employés\nDoriana Aquaro\nRH Formation professionnelle\nChoisissez votre personnage – Créer votre avenir\nConcevoir votre avenir avec un enseignement approprié. Coop offre un large éventail d'apprentissages et de possibilités de formation continue.\n\n**Tipo:** Temps plein\n**Sécurité :** Bâle"
       },
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-basel",
+        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-basel-5h8uvp",
         "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-jumbo-basel",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-basel-5h8uvp",
         "fr": "specialiste-du-commerce-de-detail-mann-efz-la-forme-des-experiences-de-shopping-jumbo-basel"
@@ -24570,7 +24596,7 @@
         "it": "magazziniere-a-coop-genossenschaft-oberentfelden",
         "en": "warehouse-associate-coop-genossenschaft-oberentfelden",
         "de": "lagerist-in-coop-genossenschaft-oberentfelden-aargau-cncnay",
-        "fr": "agent-agente-de-magasin-coop-genossenschaft-oberentfelden-aargau"
+        "fr": "lageriste-in-coop-genossenschaft-oberentfelden-aargau"
       },
       "requirementsByLocale": {
         "it": [],
@@ -24597,7 +24623,6 @@
         "fr": [
           "lagerist-in-coop-genossenschaft-oberentfelden-aargau-cncnay",
           "lageriste-in-coop-genossenschaft-oberentfelden",
-          "lageriste-in-coop-genossenschaft-oberentfelden-aargau",
           "agent-agente-de-magasin-coop-genossenschaft-oberentfelden-aargau"
         ],
         "de": [
@@ -24613,7 +24638,6 @@
         "warehouse-worker-coop-genossenschaft-oberentfelden",
         "lagerist-in-livique-oberentfelden-aargau-cncnay",
         "lageriste-in-coop-genossenschaft-oberentfelden",
-        "lageriste-in-coop-genossenschaft-oberentfelden-aargau",
         "agent-agente-de-magasin-coop-genossenschaft-oberentfelden-aargau"
       ],
       "salaryMin": 62000,
@@ -24692,7 +24716,6 @@
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-olten-solothurn-7c9gqx",
           "cook-cook-f-m-d-coop-genossenschaft-olten",
-          "cook-cook-f-m-d-coop-genossenschaft-olten-solothurn",
           "kochin-koch-m-w-d-coop-genossenschaft-olten-solothurn"
         ],
         "fr": [
@@ -24705,8 +24728,7 @@
         "kochin-koch-m-w-d-coop-genossenschaft-olten-solothurn-7c9gqx",
         "cucinare-cucinare-f-m-d-coop-genossenschaft-olten",
         "cook-cook-f-m-d-coop-genossenschaft-olten",
-        "cuire-cuire-f-m-d-coop-genossenschaft-olten",
-        "cook-cook-f-m-d-coop-genossenschaft-olten-solothurn"
+        "cuire-cuire-f-m-d-coop-genossenschaft-olten"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -25193,9 +25215,9 @@
       "firstSeenAt": "2026-08-05T22:26:51.551Z",
       "slugByLocale": {
         "de": "kochin-koch-m-w-d-coop-genossenschaft-chur-graubunden-8lg5yl",
-        "it": "chef-m-w-d-coop-genossenschaft-chur-graubunden",
-        "en": "kochin-koch-m-w-d-coop-genossenschaft-chur-graubunden",
-        "fr": "cuisiniere-en-poids-m-j-coop-genossenschaft-chur-graubunden"
+        "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-chur",
+        "en": "cook-cook-f-m-d-coop-genossenschaft-chur",
+        "fr": "cuire-cuire-f-m-d-coop-genossenschaft-chur"
       },
       "titleByLocale": {
         "en": "Chef / Chef (m/f/d)",
@@ -25252,20 +25274,17 @@
           "kochin-koch-m-w-d-coop-genossenschaft-chur-4j1lnt",
           "kochin-koch-m-w-d-coop-genossenschaft-chur-b9c935",
           "kochin-koch-w-m-d-coop-genossenschaft-chur-46pqaj",
-          "cuisiniere-en-poids-m-j-coop-genossenschaft-chur",
-          "cucinare-cucinare-f-m-d-coop-genossenschaft-chur"
+          "cuisiniere-en-poids-m-j-coop-genossenschaft-chur"
         ],
         "de": [
           "kochin-koch-m-w-d-coop-chur-graubunden-g9vlif"
         ],
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-chur-graubunden-8lg5yl",
-          "cook-cook-f-m-d-coop-genossenschaft-chur",
           "kochin-koch-m-w-d-coop-genossenschaft-chur-graubunden"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-genossenschaft-chur-graubunden-8lg5yl",
-          "cuire-cuire-f-m-d-coop-genossenschaft-chur",
           "cuisiniere-en-poids-m-j-coop-genossenschaft-chur-graubunden"
         ]
       },
@@ -25286,7 +25305,6 @@
         "kochin-koch-m-w-d-coop-genossenschaft-chur-b9c935",
         "kochin-koch-w-m-d-coop-genossenschaft-chur-46pqaj",
         "cuisiniere-en-poids-m-j-coop-genossenschaft-chur",
-        "cucinare-cucinare-f-m-d-coop-genossenschaft-chur",
         "cuisiniere-en-poids-m-j-coop-genossenschaft-chur-graubunden"
       ]
     },

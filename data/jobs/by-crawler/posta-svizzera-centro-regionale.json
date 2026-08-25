@@ -443,9 +443,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-escholzmatt",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-escholzmatt",
-        "en": "zusteller-in-briefe-und-pakete-post",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-escholzmatt",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-escholzmatt"
       },
       "sourceLang": "de",
       "department": "",
@@ -482,6 +482,12 @@
       "firstSeenAt": "2026-08-24T10:19:32.642Z",
       "previousSlugsByLocale": {
         "it": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
           "zusteller-in-briefe-und-pakete-post"
         ]
       },
@@ -816,7 +822,7 @@
       },
       "slug": "fachspezialist-in-kundenservice-inkasso-postauto-zurich",
       "slugByLocale": {
-        "it": "fachspezialist-in-kundenservice-inkasso-postauto-zurich",
+        "it": "specialista-nella-raccolta-del-debito-del-servizio-clienti-postauto-ag-zurich",
         "en": "specialist-in-customer-service-debt-collection-postauto-ag-zurich",
         "de": "fachspezialist-in-kundenservice-inkasso-postauto-zurich",
         "fr": "specialiste-dans-le-recouvrement-des-dettes-du-service-a-la-clientele-postauto-ag-zurich"
@@ -857,8 +863,7 @@
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-in-kundenservice-inkasso-post",
-          "specialista-nella-raccolta-del-debito-del-servizio-clienti-postauto-zurich",
-          "specialista-nella-raccolta-del-debito-del-servizio-clienti-postauto-ag-zurich"
+          "specialista-nella-raccolta-del-debito-del-servizio-clienti-postauto-zurich"
         ],
         "en": [
           "fachspezialist-in-kundenservice-inkasso-post",
@@ -873,8 +878,7 @@
         "fachspezialist-in-kundenservice-inkasso-post",
         "specialista-nella-raccolta-del-debito-del-servizio-clienti-postauto-zurich",
         "specialist-in-customer-service-debt-collection-postauto-zurich",
-        "specialiste-dans-le-recouvrement-des-dettes-du-service-a-la-clientele-postauto-zurich",
-        "specialista-nella-raccolta-del-debito-del-servizio-clienti-postauto-ag-zurich"
+        "specialiste-dans-le-recouvrement-des-dettes-du-service-a-la-clientele-postauto-zurich"
       ],
       "retranslationAttempts": 1
     },
@@ -1496,7 +1500,7 @@
       },
       "slug": "postauto-fahrer-in-im-stundenlohn-postauto-einsiedeln",
       "slugByLocale": {
-        "it": "postauto-fahrer-in-im-stundenlohn-postauto-einsiedeln",
+        "it": "postbus-driver-nel-salario-orario-postauto-ag-einsiedeln",
         "en": "postbus-driver-in-the-hourly-wage-postauto-ag-einsiedeln",
         "de": "postauto-fahrer-in-im-stundenlohn-postauto-einsiedeln",
         "fr": "conducteur-postbus-dans-le-salaire-horaire-postauto-ag-einsiedeln"
@@ -1537,8 +1541,7 @@
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-im-stundenlohn-post",
-          "postbus-driver-nel-salario-orario-postauto-einsiedeln",
-          "postbus-driver-nel-salario-orario-postauto-ag-einsiedeln"
+          "postbus-driver-nel-salario-orario-postauto-einsiedeln"
         ],
         "en": [
           "postauto-fahrer-in-im-stundenlohn-post",
@@ -1553,8 +1556,7 @@
         "postauto-fahrer-in-im-stundenlohn-post",
         "postbus-driver-nel-salario-orario-postauto-einsiedeln",
         "postbus-driver-in-the-hourly-wage-postauto-einsiedeln",
-        "conducteur-postbus-dans-le-salaire-horaire-postauto-einsiedeln",
-        "postbus-driver-nel-salario-orario-postauto-ag-einsiedeln"
+        "conducteur-postbus-dans-le-salaire-horaire-postauto-einsiedeln"
       ],
       "retranslationAttempts": 1
     },
@@ -3718,7 +3720,7 @@
       },
       "slug": "postauto-fahrer-in-postauto-reichenburg",
       "slugByLocale": {
-        "it": "postauto-fahrer-in-postauto-reichenburg",
+        "it": "postbus-driver-in-postauto-ag-reichenburg",
         "en": "postbus-driver-in-postauto-reichenburg",
         "de": "postauto-fahrer-in-postauto-reichenburg",
         "fr": "pilote-postbus-in-postauto-ag-reichenburg"
@@ -3758,8 +3760,7 @@
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-post",
-          "postbus-driver-in-postauto-reichenburg",
-          "postbus-driver-in-postauto-ag-reichenburg"
+          "postbus-driver-in-postauto-reichenburg"
         ],
         "fr": [
           "postauto-fahrer-in-post",
@@ -3772,8 +3773,7 @@
       "previousSlugs": [
         "postauto-fahrer-in-post",
         "postbus-driver-in-postauto-reichenburg",
-        "pilote-postbus-in-postauto-reichenburg",
-        "postbus-driver-in-postauto-ag-reichenburg"
+        "pilote-postbus-in-postauto-reichenburg"
       ],
       "retranslationAttempts": 3,
       "localeMismatchSuppressed": true,
@@ -13839,7 +13839,7 @@
       "slug": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
       "slugByLocale": {
         "it": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
-        "en": "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel",
+        "en": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
         "de": "swc-retail-manager-learning-neuenburg-la-poste-suisse-la-chaux-de-fonds",
         "fr": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-la-poste-suisse-la-chaux-de-fonds"
       },
@@ -13863,7 +13863,6 @@
           "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post"
         ],
         "en": [
-          "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
           "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel"
         ]
       },

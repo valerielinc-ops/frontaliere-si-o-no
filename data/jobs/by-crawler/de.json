@@ -6,10 +6,10 @@
       "id": "de-a1b65c3223c4",
       "slug": "anlagenmechaniker-m-w-d-schwerpunkt-sanitar-e-gastechnik-mpi-age-lugano",
       "slugByLocale": {
-        "it": "anlagenmechaniker-m-w-d-schwerpunkt-sanitar-e-gastechnik-mpi-age-lugano",
-        "en": "anlagenmechaniker-m-w-d-schwerpunkt-sanitar-und-gastechnik-de-ch",
         "de": "anlagenmechaniker-m-w-d-schwerpunkt-sanitar-und-gastechnik-de-ch",
-        "fr": "anlagenmechaniker-m-w-d-schwerpunkt-sanitar-und-gastechnik-de-ch"
+        "it": "anlagenmechaniker-m-w-d-schwerpunkt-sanitar-e-gastechnik-mpi-age-lugano",
+        "en": "plant-mechanic-m-f-d-focus-on-sanitary-and-gas-technology-mpi-age-lugano",
+        "fr": "mecanicien-d-usine-h-f-d-focus-sur-la-technologie-sanitaire-et-gaziere-mpi-age-lugano"
       },
       "company": "MPI AGE",
       "companyKey": "de",
@@ -49,6 +49,12 @@
       "previousSlugsByLocale": {
         "it": [
           "anlagenmechaniker-m-w-d-schwerpunkt-sanitar-und-gastechnik-de-ch"
+        ],
+        "en": [
+          "anlagenmechaniker-m-w-d-schwerpunkt-sanitar-und-gastechnik-de-ch"
+        ],
+        "fr": [
+          "anlagenmechaniker-m-w-d-schwerpunkt-sanitar-und-gastechnik-de-ch"
         ]
       },
       "previousSlugs": [
@@ -71,12 +77,12 @@
     },
     {
       "id": "de-dfc4921b55ae",
-      "slug": "elektroniker-betriebstechnik-energieanlagen-m-w-d-schwerpunkt-raumlufttechnik-rlt-de-ch",
+      "slug": "ingegneria-dell-elettronica-sistemi-energetici-m-f-d-focus-on-indoor-air-technology-rlt-mpi-age-lugano",
       "slugByLocale": {
-        "it": "elektroniker-betriebstechnik-energieanlagen-m-w-d-schwerpunkt-raumlufttechnik-rlt-de-ch",
-        "en": "elektroniker-betriebstechnik-energieanlagen-m-w-d-schwerpunkt-raumlufttechnik-rlt-de-ch",
         "de": "elektroniker-betriebstechnik-energieanlagen-m-w-d-schwerpunkt-raumlufttechnik-rlt-de-ch",
-        "fr": "elektroniker-betriebstechnik-energieanlagen-m-w-d-schwerpunkt-raumlufttechnik-rlt-de-ch"
+        "it": "ingegneria-dell-elettronica-sistemi-energetici-m-f-d-focus-on-indoor-air-technology-rlt-mpi-age-lugano",
+        "en": "electronics-engineer-operating-engineering-energy-systems-m-f-d-focus-on-indoor-air-technology-rlt-mpi-age-lugano",
+        "fr": "ingenieur-en-electronique-genie-d-exploitation-systemes-energetiques-h-f-d-focus-sur-la-technologie-de-l-air-interieur"
       },
       "company": "MPI AGE",
       "companyKey": "de",
@@ -126,7 +132,21 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T10:28:17.192Z"
+      "firstSeenAt": "2026-08-24T10:28:17.192Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "elektroniker-betriebstechnik-energieanlagen-m-w-d-schwerpunkt-raumlufttechnik-rlt-de-ch"
+        ],
+        "en": [
+          "elektroniker-betriebstechnik-energieanlagen-m-w-d-schwerpunkt-raumlufttechnik-rlt-de-ch"
+        ],
+        "fr": [
+          "elektroniker-betriebstechnik-energieanlagen-m-w-d-schwerpunkt-raumlufttechnik-rlt-de-ch"
+        ]
+      },
+      "previousSlugs": [
+        "elektroniker-betriebstechnik-energieanlagen-m-w-d-schwerpunkt-raumlufttechnik-rlt-de-ch"
+      ]
     }
   ]
 }

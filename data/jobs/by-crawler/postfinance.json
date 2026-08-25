@@ -54,16 +54,14 @@
         "security-officer-kryptographie-postfinance",
         "security-officer-kryptographie-w-m-d-postfinance",
         "cryptography-f-m-d-postfinance-bern",
-        "security-officer-kryptographie-m-w-d-postfinance-bern",
-        "agente-di-sicurezza-cryptography-m-f-d-postfinance-bern"
+        "security-officer-kryptographie-m-w-d-postfinance-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "security-officer-kryptographie-postfinance",
           "security-officer-kryptographie-w-m-d-postfinance",
           "cryptography-f-m-d-postfinance-bern",
-          "security-officer-kryptographie-m-w-d-postfinance-bern",
-          "agente-di-sicurezza-cryptography-m-f-d-postfinance-bern"
+          "security-officer-kryptographie-m-w-d-postfinance-bern"
         ],
         "en": [
           "security-officer-kryptographie-postfinance",
@@ -148,16 +146,14 @@
         "fachverantwortliche-r-data-leaking-prevention-postfinance",
         "responsabile-per-la-prevenzione-di-leaking-dati-postfinance-bern",
         "fachverantwortliche-r-data-leakage-prevention-postfinance",
-        "fachverantwortliche-r-data-leakage-prevention-postfinance-bern",
-        "responsabile-per-la-prevenzione-delle-perdite-di-dati-postfinance-bern"
+        "fachverantwortliche-r-data-leakage-prevention-postfinance-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachverantwortliche-r-data-leaking-prevention-postfinance",
           "responsabile-per-la-prevenzione-di-leaking-dati-postfinance-bern",
           "fachverantwortliche-r-data-leakage-prevention-postfinance",
-          "fachverantwortliche-r-data-leakage-prevention-postfinance-bern",
-          "responsabile-per-la-prevenzione-delle-perdite-di-dati-postfinance-bern"
+          "fachverantwortliche-r-data-leakage-prevention-postfinance-bern"
         ],
         "en": [
           "fachverantwortliche-r-data-leaking-prevention-postfinance",
@@ -212,12 +208,12 @@
         "de": "Senior Produktmanager:in Firmenkonto",
         "fr": "Senior Product Manager: dans le compte d'entreprise"
       },
-      "slug": "senior-produktmanager-in-firmenkonto-postfinance",
+      "slug": "senior-product-manager-in-conto-aziendale-postfinance-bern",
       "slugByLocale": {
-        "it": "senior-produktmanager-in-firmenkonto-postfinance",
-        "en": "senior-produktmanager-in-firmenkonto-postfinance",
+        "it": "senior-product-manager-in-conto-aziendale-postfinance-bern",
+        "en": "senior-product-manager-in-company-account-postfinance-bern",
         "de": "senior-produktmanager-in-firmenkonto-postfinance",
-        "fr": "senior-produktmanager-in-firmenkonto-postfinance"
+        "fr": "senior-product-manager-dans-le-compte-d-entreprise-postfinance-bern"
       },
       "sourceLang": "de",
       "department": [
@@ -255,7 +251,21 @@
         }
       },
       "addressLocality": "Bern",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-produktmanager-in-firmenkonto-postfinance"
+        ],
+        "en": [
+          "senior-produktmanager-in-firmenkonto-postfinance"
+        ],
+        "fr": [
+          "senior-produktmanager-in-firmenkonto-postfinance"
+        ]
+      },
+      "previousSlugs": [
+        "senior-produktmanager-in-firmenkonto-postfinance"
+      ]
     },
     {
       "url": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center/72476-de_DE",
@@ -279,12 +289,12 @@
         "de": "Kundenbetreuer:in Customer Center",
         "fr": "Gestionnaire client: dans le centre client"
       },
-      "slug": "kundenbetreuer-in-customer-center-postfinance",
+      "slug": "responsabile-clienti-nel-centro-clienti-postfinance-zofingen",
       "slugByLocale": {
-        "it": "kundenbetreuer-in-customer-center-postfinance",
+        "it": "responsabile-clienti-nel-centro-clienti-postfinance-zofingen",
         "en": "kundenbetreuer-in-customer-center-postfinance",
         "de": "kundenbetreuer-in-customer-center-postfinance",
-        "fr": "kundenbetreuer-in-customer-center-postfinance"
+        "fr": "gestionnaire-client-dans-le-centre-client-postfinance-zofingen"
       },
       "sourceLang": "de",
       "department": [
@@ -322,7 +332,18 @@
         }
       },
       "addressLocality": "Zofingen",
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenbetreuer-in-customer-center-postfinance"
+        ],
+        "fr": [
+          "kundenbetreuer-in-customer-center-postfinance"
+        ]
+      },
+      "previousSlugs": [
+        "kundenbetreuer-in-customer-center-postfinance"
+      ]
     },
     {
       "url": "https://jobs.postfinance.ch/job/Embedded-Tester-Test-Automation-Engineer-Chatbot-&-Voicebot-%28wmd%29/74589-de_DE",
@@ -441,13 +462,11 @@
       },
       "id": "postfinance-0ecc8812c887",
       "previousSlugs": [
-        "leiter-in-customer-care-firmenkunden-massenmarkt-postfinance",
-        "responsabile-customer-care-firmenkunden-massenmarkt-postfinance-bern"
+        "leiter-in-customer-care-firmenkunden-massenmarkt-postfinance"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-customer-care-firmenkunden-massenmarkt-postfinance",
-          "responsabile-customer-care-firmenkunden-massenmarkt-postfinance-bern"
+          "leiter-in-customer-care-firmenkunden-massenmarkt-postfinance"
         ]
       },
       "firstSeenAt": "2026-08-21T21:43:00.013Z",
@@ -595,13 +614,11 @@
       },
       "id": "postfinance-ac2729fb9d3c",
       "previousSlugs": [
-        "mitarbeiter-in-interaction-management-postfinance",
-        "collaboratore-trice-interaction-management-postfinance-bern"
+        "mitarbeiter-in-interaction-management-postfinance"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-interaction-management-postfinance",
-          "collaboratore-trice-interaction-management-postfinance-bern"
+          "mitarbeiter-in-interaction-management-postfinance"
         ],
         "en": [
           "mitarbeiter-in-interaction-management-postfinance"
@@ -830,13 +847,11 @@
       },
       "id": "postfinance-c9ee5b6e1609",
       "previousSlugs": [
-        "senior-fachspezialist-in-prozessdesign-digitalisierung-postfinance",
-        "specialista-senior-nella-progettazione-e-digitalizzazione-dei-processi-postfinance-bern"
+        "senior-fachspezialist-in-prozessdesign-digitalisierung-postfinance"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-fachspezialist-in-prozessdesign-digitalisierung-postfinance",
-          "specialista-senior-nella-progettazione-e-digitalizzazione-dei-processi-postfinance-bern"
+          "senior-fachspezialist-in-prozessdesign-digitalisierung-postfinance"
         ],
         "en": [
           "senior-fachspezialist-in-prozessdesign-digitalisierung-postfinance"
@@ -913,13 +928,11 @@
       },
       "id": "postfinance-33a109abb910",
       "previousSlugs": [
-        "senior-technical-product-owner-w-m-d-postfinance",
-        "titolare-del-prodotto-tecnico-senior-m-f-d-postfinance-bern"
+        "senior-technical-product-owner-w-m-d-postfinance"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-technical-product-owner-w-m-d-postfinance",
-          "titolare-del-prodotto-tecnico-senior-m-f-d-postfinance-bern"
+          "senior-technical-product-owner-w-m-d-postfinance"
         ],
         "fr": [
           "senior-technical-product-owner-w-m-d-postfinance"
@@ -992,13 +1005,11 @@
       },
       "id": "postfinance-fe195634dcc0",
       "previousSlugs": [
-        "mitarbeiter-in-kompetenz-center-kreditkarten-postfinance",
-        "collaboratore-trice-kompetenz-center-kreditkarten-postfinance-niederurnen"
+        "mitarbeiter-in-kompetenz-center-kreditkarten-postfinance"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-kompetenz-center-kreditkarten-postfinance",
-          "collaboratore-trice-kompetenz-center-kreditkarten-postfinance-niederurnen"
+          "mitarbeiter-in-kompetenz-center-kreditkarten-postfinance"
         ],
         "en": [
           "mitarbeiter-in-kompetenz-center-kreditkarten-postfinance"
@@ -1076,14 +1087,12 @@
       "id": "postfinance-424081800635",
       "previousSlugs": [
         "spezialist-in-fund-operations-postfinance",
-        "spezialist-in-fund-operations-postfinance-bern",
-        "specialista-nelle-operazioni-del-fondo-postfinance-bern"
+        "spezialist-in-fund-operations-postfinance-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spezialist-in-fund-operations-postfinance",
-          "spezialist-in-fund-operations-postfinance-bern",
-          "specialista-nelle-operazioni-del-fondo-postfinance-bern"
+          "spezialist-in-fund-operations-postfinance-bern"
         ],
         "fr": [
           "spezialist-in-fund-operations-postfinance"
@@ -1226,16 +1235,14 @@
         "gestionnaire-client-centre-client-postfinance-zofingen",
         "responsabile-del-centro-clienti-postfinance-zofingen",
         "kundenbetreuer-in-customer-center-postfinance",
-        "kundenbetreuer-in-customer-center-postfinance-bellinzona",
-        "responsabile-clienti-nel-centro-clienti-postfinance-bellinzona"
+        "kundenbetreuer-in-customer-center-postfinance-bellinzona"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-client-centre-client-postfinance-zofingen",
           "responsabile-del-centro-clienti-postfinance-zofingen",
           "kundenbetreuer-in-customer-center-postfinance",
-          "kundenbetreuer-in-customer-center-postfinance-bellinzona",
-          "responsabile-clienti-nel-centro-clienti-postfinance-bellinzona"
+          "kundenbetreuer-in-customer-center-postfinance-bellinzona"
         ],
         "fr": [
           "kundenbetreuer-in-customer-center-postfinance"
@@ -1309,13 +1316,11 @@
       "id": "postfinance-51f060b33bd7",
       "previousSlugs": [
         "mitarbeiter-in-chargeback-postfinance",
-        "mitarbeiter-in-chargeback-postfinance-bern",
-        "collaboratore-trice-chargeback-postfinance-bern"
+        "mitarbeiter-in-chargeback-postfinance-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-chargeback-postfinance",
-          "collaboratore-trice-chargeback-postfinance-bern"
+          "mitarbeiter-in-chargeback-postfinance"
         ],
         "en": [
           "mitarbeiter-in-chargeback-postfinance-bern"

@@ -253,12 +253,12 @@
     },
     {
       "id": "prada-5792b8208e19",
-      "slug": "fidenza-outlet-sales-assistant-prada-group-fidenza-fidenza-outlet-sales-assistant",
+      "slug": "fidenza-outlet-assistente-commerciale-prada-group-fidenza-fidenza-outlet-sales-assistant",
       "slugByLocale": {
         "en": "fidenza-outlet-sales-assistant-prada-group-fidenza-fidenza-outlet-sales-assistant",
-        "it": "fidenza-outlet-sales-assistant-prada-group-fidenza-fidenza-outlet-sales-assistant",
+        "it": "fidenza-outlet-assistente-commerciale-prada-group-fidenza-fidenza-outlet-sales-assistant",
         "de": "fidenza-outlet-sales-assistant-prada-group-fidenza-fidenza-outlet-sales-assistant",
-        "fr": "fidenza-outlet-sales-assistant-prada-group-fidenza-fidenza-outlet-sales-assistant"
+        "fr": "fidenza-outlet-assistant-aux-ventes-prada-group-fidenza-fidenza-outlet-sales-assistant"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -309,7 +309,18 @@
       },
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-24T10:28:12.457Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "fidenza-outlet-sales-assistant-prada-group-fidenza-fidenza-outlet-sales-assistant"
+        ],
+        "fr": [
+          "fidenza-outlet-sales-assistant-prada-group-fidenza-fidenza-outlet-sales-assistant"
+        ]
+      },
+      "previousSlugs": [
+        "fidenza-outlet-sales-assistant-prada-group-fidenza-fidenza-outlet-sales-assistant"
+      ]
     }
   ]
 }
