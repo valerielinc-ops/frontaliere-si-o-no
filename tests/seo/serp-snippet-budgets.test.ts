@@ -25,6 +25,8 @@ import {
   WEEKLY_EMPLOYERS_CITIES,
   WEEKLY_EMPLOYERS_CITY_DISPLAY,
 } from '../../build-plugins/weeklyEmployersData';
+import { titleFor as fuelIndexTitleFor, FUEL_INDEX_SLUG } from '../../build-plugins/fuelStationIndexPages';
+import { FUEL_DAILY_LOCALES, FUEL_TYPES } from '../../build-plugins/fuelDailyData';
 
 /**
  * SERP snippet budgets for the hand-authored landing families.
@@ -306,6 +308,38 @@ describe('SERP snippet budgets — weekly-employers hero copy (#6417)', () => {
         copy.companyCityHeroNoDelta({ employer: LONG_EMPLOYER, city: CITY_DISPLAY, jobsCount: 999 }),
       );
     });
+  }
+});
+
+describe('SERP snippet budgets — fuel station index pages (#6417 item 3)', () => {
+  // Adversarial follow-up to #6346's pre-cut removal, item 3 — unlike the
+  // fuel-daily intros, `titleFor().description` was never rewritten, so the
+  // word-aware clamp in `clampMetaDescription` is the only thing standing
+  // between an over-budget description and a mid-word SERP snippet. Nothing
+  // ever sampled the real output across kind × locale × fuel to confirm the
+  // clamp lands cleanly.
+  function assertClampsToWordBoundary(description: string) {
+    expect(description.length).toBeGreaterThan(0);
+    const clamped = clampMetaDescription(description);
+    expect(clamped.length).toBeLessThanOrEqual(META_DESCRIPTION_MAX_CHARS);
+
+    if (isTruncated(description)) {
+      expect(clamped.endsWith('…')).toBe(true);
+      expect(clamped).not.toMatch(/\s…$/);
+    } else {
+      expect(clamped).toBe(description.replace(/\s+/g, ' ').trim());
+    }
+    expect(clamped.replace(/…$/, '').trim().length).toBeGreaterThan(40);
+  }
+
+  for (const kind of Object.keys(FUEL_INDEX_SLUG) as (keyof typeof FUEL_INDEX_SLUG)[]) {
+    for (const locale of FUEL_DAILY_LOCALES) {
+      for (const fuel of FUEL_TYPES) {
+        it(`${kind}/${locale}/${fuel} description clamps to a natural word boundary`, () => {
+          assertClampsToWordBoundary(fuelIndexTitleFor(kind, locale, fuel).description);
+        });
+      }
+    }
   }
 });
 

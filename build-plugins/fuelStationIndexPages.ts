@@ -532,7 +532,7 @@ const COPY: Record<FuelDailyLocale, IndexCopy> = {
 // + frontaliere refuelling habits, and includes the fuel name + index kind
 // to keep titles unique.
 
-interface IndexTitleSet {
+export interface IndexTitleSet {
   readonly title: string;
   readonly description: string;
   readonly h1: string;
@@ -541,7 +541,7 @@ interface IndexTitleSet {
   readonly frontaliereContext: string;
 }
 
-function titleFor(
+export function titleFor(
   kind: FuelIndexKind,
   locale: FuelDailyLocale,
   fuel: FuelType,
