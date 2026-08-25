@@ -4210,6 +4210,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-attivita-sciaffusa-registro-commercio.title': 'Geschäft im Kanton Schaffhausen eröffnen: Handelsregister und Kosten',
     'blog.article.aprire-attivita-sciaffusa-registro-commercio.excerpt': 'Die Wahl der Rechtsform bestimmt nicht die Steuern und Verbindlichkeiten. Die Eintragung ins Handelsregister ist für alle Unternehmen obligatorisch.',
     'blog.article.aprire-attivita-sciaffusa-registro-commercio.imageAlt': 'Locarno und Handelsregisteramt Sciaffusa',
+    'blog.article.salari-mercato-lavoro-svizzera-settori.title': 'Löhne und Arbeitsmarkt in der Schweiz: Ausbildung und Branchen',
+    'blog.article.salari-mercato-lavoro-svizzera-settori.excerpt': 'Wie sich die Löhne je nach Ausbildungsgrad, Branche und Erfahrung verändern. Leitfaden für Tarifverträge, gesetzliche Arbeitszeiten, Mindestferien und Lohnbeiträge.',
+    'blog.article.salari-mercato-lavoro-svizzera-settori.imageAlt': 'Schweizer Büroangestellte überprüfen Gehaltsunterlagen mit Stadtlandschaft im Hintergrund',
 };
 
 export default blogMetaChDe;

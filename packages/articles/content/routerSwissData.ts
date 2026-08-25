@@ -1429,6 +1429,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'avviare-impresa-svizzera-passaggi-costi': { it: 'avviare-impresa-svizzera-passaggi-costi', en: 'start-business-switzerland-steps-costs', de: 'unternehmen-gruenden-schweiz-schritte-kosten', fr: 'creer-entreprise-suisse-etapes-couts' },
  'aprire-attivita-sciaffusa-procedure-fiscali': { it: 'aprire-attivita-sciaffusa-procedure-fiscali', en: 'start-business-schaffhausen-procedures', de: 'betrieb-eroffnen-schaffhausen-verfahren', fr: 'demarrer-entreprise-schaffhouse-procedures' },
  'aprire-attivita-sciaffusa-registro-commercio': { it: 'aprire-attivita-sciaffusa-registro-commercio', en: 'opening-business-sciaffusa-commercial-register', de: 'unternehmen-gruenden-sciaffusa-handelsregister', fr: 'ouvrir-entreprise-sciaffusa-registre-commerciaux' },
+ 'salari-mercato-lavoro-svizzera-settori': { it: 'salari-mercato-lavoro-svizzera-settori', en: 'salaries-labor-market-switzerland-sectors', de: 'loehne-arbeitsmarkt-schweiz-sektoren', fr: 'salaires-marche-travail-suisse-secteurs' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

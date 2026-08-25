@@ -4210,6 +4210,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-attivita-sciaffusa-registro-commercio.title': 'Opening a business in the Canton of Schaffhausen: Trade Register and costs',
     'blog.article.aprire-attivita-sciaffusa-registro-commercio.excerpt': 'The choice of legal form does not determine taxes and liabilities. Registration in the commercial register is mandatory for all companies.',
     'blog.article.aprire-attivita-sciaffusa-registro-commercio.imageAlt': 'Locarno and Sciaffusa Commercial Registry Office',
+    'blog.article.salari-mercato-lavoro-svizzera-settori.title': 'Wages and the labour market in Switzerland: training and sectors',
+    'blog.article.salari-mercato-lavoro-svizzera-settori.excerpt': 'How salaries vary by degree of training, sector and experience. Guide to collective agreements, legal hours, minimum holidays and salary contributions.',
+    'blog.article.salari-mercato-lavoro-svizzera-settori.imageAlt': 'Swiss office professionals reviewing salary documents with urban landscape background',
 };
 
 export default blogMetaChEn;

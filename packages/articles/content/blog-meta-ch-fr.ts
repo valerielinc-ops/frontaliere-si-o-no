@@ -4210,6 +4210,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-attivita-sciaffusa-registro-commercio.title': 'Ouvrir une entreprise à Schaffhouse : coûts et registre du commerce',
     'blog.article.aprire-attivita-sciaffusa-registro-commercio.excerpt': 'Le choix de la forme juridique ne détermine pas les impôts et les responsabilités. L\'inscription au registre du commerce est obligatoire pour toutes les entreprises.',
     'blog.article.aprire-attivita-sciaffusa-registro-commercio.imageAlt': 'Locarno et Registre commercial cantonal de Sciaffusa',
+    'blog.article.salari-mercato-lavoro-svizzera-settori.title': 'Salaires et marché du travail en Suisse : formation et secteurs',
+    'blog.article.salari-mercato-lavoro-svizzera-settori.excerpt': 'Comment les salaires varient selon le degré de formation, le secteur et l\'expérience. Guide des conventions collectives, des horaires légaux, des vacances minimales et des cotisations salariales.',
+    'blog.article.salari-mercato-lavoro-svizzera-settori.imageAlt': 'Professionnels de bureaux suisses examinant les documents de salaire avec paysage urbain',
 };
 
 export default blogMetaChFr;
