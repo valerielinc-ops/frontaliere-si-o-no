@@ -54776,6 +54776,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-appenzello-esterno-avs-primo-pilastro': {
+    title: 'AVS e prestazioni complementari: Appenzello Esterno',
+    description: 'Guida alla cassa di compensazione, calcolo rendita AVS, lacune contributive e prestazioni complementari nel Canton Appenzello Esterno per il minimo vitale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, appenzello, esterno',
+    ogTitle: 'AVS e prestazioni complementari: Appenzello Esterno',
+    ogDescription: 'Guida completa al primo pilastro nel Canton Appenzello Esterno: cassa di compensazione cantonale, calcolo della rendita AVS, lacune contributive e prestazioni complementari per coprire il minimo vitale. Procedure, scadenze e contatti.',
+    canonicalPath: '/articoli-svizzera/appenzello-esterno-avs-primo-pilastro/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e prestazioni complementari: Appenzello Esterno",
+      "description": "Guida alla cassa di compensazione, calcolo rendita AVS, lacune contributive e prestazioni complementari nel Canton Appenzello Esterno per il minimo vitale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/appenzello-esterno-avs-primo-pilastro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio della cassa di compensazione cantonale con anziani che consultano documenti di previdenza e prestazioni"
+      },
+      "datePublished": "2026-08-25T05:20:21+00:00",
+      "dateModified": "2026-08-25T05:20:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/appenzello-esterno-avs-primo-pilastro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

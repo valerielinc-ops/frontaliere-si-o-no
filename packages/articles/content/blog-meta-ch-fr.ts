@@ -4222,6 +4222,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-appenzello.title': 'AVS et prestations complémentaires : le premier pilier',
     'blog.article.avs-prestazioni-complementari-appenzello.excerpt': 'Comment fonctionne l\'assurance-vieillesse suisse : cotisations obligatoires, lacunes de cotisations, rentes et prestations complémentaires pour couvrir le minimum vital.',
     'blog.article.avs-prestazioni-complementari-appenzello.imageAlt': 'Bâtiment administratif dans un canton alpin suisse: siège de la caisse de compensation AVS',
+    'blog.article.appenzello-esterno-avs-primo-pilastro.title': 'AVS et prestations complémentaires : Appenzell Extérieur',
+    'blog.article.appenzello-esterno-avs-primo-pilastro.excerpt': 'Premier pilier dans le canton d\'Appenzell Extérieur : comment fonctionne la caisse de compensation, calcul de la rente AVS, gestion des lacunes de cotisation et accès aux prestations complémentaires pour couvrir le minimum vital.',
+    'blog.article.appenzello-esterno-avs-primo-pilastro.imageAlt': 'Bureau de la caisse de compensation cantonale avec des seniors consultant des documents de retraite',
 };
 
 export default blogMetaChFr;

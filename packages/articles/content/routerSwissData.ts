@@ -1433,6 +1433,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'imposte-appenzello-esterno-aliquote': { it: 'imposte-appenzello-esterno-aliquote', en: 'canton-appenzell-ausserrhoden-cantonal-taxes-rates', de: 'kanton-appenzell-ausserrhoden-kantonale-steuern-saetze', fr: 'canton-appenzell-rhodes-exterieures-impots-cantonaux-taux' },
  'apprendistato-canton-appenzello-esterno': { it: 'apprendistato-canton-appenzello-esterno', en: 'apprenticeship-appenzell-external', de: 'lehrling-appenzell-aussen', fr: 'apprentissage-appenzell-exterieur' },
  'avs-prestazioni-complementari-appenzello': { it: 'avs-prestazioni-complementari-appenzello', en: 'avs-supplementary-benefits-appenzell', de: 'ahv-ergaenzungsleistungen-appenzell', fr: 'ava-prestations-complementaires-appenzell' },
+ 'appenzello-esterno-avs-primo-pilastro': { it: 'appenzello-esterno-avs-primo-pilastro', en: 'avs-benefits-appenzell-rhodes-compensation-fund', de: 'avs-leistungen-appenzell-ausserrhoden-kasse', fr: 'avs-prestations-appenzell-rhodes-caisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
