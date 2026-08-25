@@ -72,12 +72,22 @@ jobs:
         if: success() && github.event.inputs.dry_run != 'true'
         run: |
           set -euo pipefail
-          if git diff --quiet data/fb-posted-articles.json; then
+          # Same fix as linkedin-member-daily.yml (#6424): `git diff --quiet
+          # <path>` on a path that has never existed exits 128, not 0/1, so a
+          # failed/skipped post (no ledger write yet) would fall through into
+          # `git add` on a missing pathspec and hard-fail the step. The file
+          # is already tracked today, but the check is hardened to match the
+          # rest of the ledger-commit class rather than leaving it a latent
+          # trap for a future reset/rename.
+          if [ ! -f data/fb-posted-articles.json ]; then
+            echo "no ledger file written — nothing to commit"; exit 0
+          fi
+          git add data/fb-posted-articles.json
+          if git diff --cached --quiet; then
             echo "no changes"; exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/fb-posted-articles.json
           git commit -m "chore(fb): track posted articles [skip ci]"
           # In-place resolver unions by article-id when another commit lands on
           # main mid-run, so the ledger commit is never lost (a lost commit
