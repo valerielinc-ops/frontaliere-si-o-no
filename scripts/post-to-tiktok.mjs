@@ -93,9 +93,10 @@ import {
   rankCandidates,
   pickTopNUnposted,
 } from './lib/daily-top-content.mjs';
-import { fetchGa4PageReport, fetchRetry, sleep } from './lib/ga4-service-account.mjs';
+import { fetchGa4PageReport } from './lib/ga4-service-account.mjs';
 import { renderCarouselSlides } from './lib/social-carousel-image.mjs';
 import { uploadCarouselSlides } from './lib/social-carousel-upload.mjs';
+import { TIKTOK_API, publishCarousel } from './lib/tiktok-publish.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -104,10 +105,6 @@ const POSTED_TRIM_LIMIT = 1000;
 
 const DEDUP_WINDOW_DAYS = 30;
 const CAROUSEL_SIZE = 5;
-
-const TIKTOK_API = 'https://open.tiktokapis.com/v2';
-const PUBLISH_STATUS_MAX_ATTEMPTS = 6;
-const PUBLISH_STATUS_DELAY_MS = 3000;
 
 // ─────────────────────────── credentials ───────────────────────────
 
@@ -151,76 +148,12 @@ async function getAccessToken() {
   return staticToken;
 }
 
-function getPrivacyLevel() {
-  // SELF_ONLY is the only level an unaudited app is allowed to use — see
-  // header point 4. Override via env once TikTok grants the app audit.
-  return String(process.env.TIKTOK_PRIVACY_LEVEL || 'SELF_ONLY').trim();
-}
-
 // ─────────────────────────── Content Posting API ───────────────────────────
-
-async function tiktokPost(pathSuffix, body, accessToken) {
-  const res = await fetchRetry(`${TIKTOK_API}${pathSuffix}`, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-      'Content-Type': 'application/json; charset=UTF-8',
-    },
-    body: JSON.stringify(body),
-  });
-  const data = await res.json().catch(() => ({}));
-  if (!res?.ok || data?.error?.code !== 'ok') {
-    return { ok: false, status: res?.status, error: data?.error || { message: 'no response body' } };
-  }
-  return { ok: true, data: data.data };
-}
-
-async function waitForPublishComplete(publishId, accessToken) {
-  for (let attempt = 1; attempt <= PUBLISH_STATUS_MAX_ATTEMPTS; attempt++) {
-    const res = await tiktokPost('/post/publish/status/fetch/', { publish_id: publishId }, accessToken);
-    if (!res.ok) return { ok: false, reason: res.error?.message || `status ${res.status}` };
-    const status = res.data?.status;
-    if (status === 'PUBLISH_COMPLETE') return { ok: true, postId: res.data?.publicaly_available_post_id?.[0] || publishId };
-    if (status === 'FAILED') return { ok: false, reason: res.data?.fail_reason || 'FAILED' };
-    await sleep(PUBLISH_STATUS_DELAY_MS);
-  }
-  return { ok: false, reason: 'status never reached PUBLISH_COMPLETE within the poll budget' };
-}
-
-/**
- * Full photo-carousel publish: init (PULL_FROM_URL, all image URLs at once —
- * unlike Instagram, TikTok's photo endpoint takes the whole set in one call,
- * no per-image child container) → poll until PUBLISH_COMPLETE.
- */
-async function publishCarousel({ accessToken, imageUrls, caption }) {
-  const initRes = await tiktokPost(
-    '/post/publish/content/init/',
-    {
-      post_info: {
-        title: caption,
-        privacy_level: getPrivacyLevel(),
-        disable_duet: true,
-        disable_comment: false,
-        disable_stitch: true,
-        auto_add_music: true,
-      },
-      source_info: {
-        source: 'PULL_FROM_URL',
-        photo_cover_index: 0,
-        photo_images: imageUrls,
-      },
-      post_mode: 'DIRECT_POST',
-      media_type: 'PHOTO',
-    },
-    accessToken,
-  );
-  if (!initRes.ok) return { ok: false, reason: `init failed: ${initRes.error?.message || initRes.status}` };
-
-  const publishId = initRes.data?.publish_id;
-  if (!publishId) return { ok: false, reason: 'init succeeded but returned no publish_id' };
-
-  return waitForPublishComplete(publishId, accessToken);
-}
+//
+// The request/response layer lives in scripts/lib/tiktok-publish.mjs so that
+// tests/tiktok-content-posting-contract.test.ts can drive the whole two-call
+// async flow against mocked payloads — this file calls main() at module scope
+// and cannot be imported from a test. See that lib's header.
 
 // ─────────────────────────── job/article (daily) ───────────────────────────
 

@@ -115,6 +115,25 @@ const ENTITY_DISCRIMINANTS: Record<string, string[]> = {
   // `${{ matrix.section }}` would satisfy this list by reopening that finding.
   // The env token is the correct shape; the allowlist is what has to know it.
   'rerender-article-hubs.yml': ['$INPUT_SECTION'], // one issue per section shard
+  // One issue per social channel. `CH` ranges over a CLOSED set of three names
+  // (instagram, tiktok, reddit) produced by
+  // `scripts/check-social-publish-readiness.mjs --ready-channels`, so it says
+  // WHICH channel became publishable — never when, never how many. The same
+  // channel flipping ready again resolves to the same 60-char prefix and lands
+  // on the existing issue as a `🔁 Recurrence` comment, which is what is wanted:
+  // a channel that is unblocked and still not activated is one standing
+  // condition, not a new one per morning.
+  //
+  // The discriminant is deliberately FIRST in the title ("$CH publishing is
+  // unblocked — …"): the dedup window is 60 characters, and a title that opened
+  // with the shared prose would collapse all three channels onto whichever
+  // issue was minted first.
+  //
+  // Spelled `$CH` because the value is a shell loop variable over
+  // `$READY_CHANNELS`, which the workflow hands to the step through `env:`
+  // rather than interpolating `${{ }}` into the script text — the form
+  // scripts/ci/check-workflow-input-injection.mjs requires.
+  'social-publish-readiness-watch.yml': ['$CH'], // one issue per social channel
 };
 
 function stripStableSubstitutions(s: string, file: string): string {
