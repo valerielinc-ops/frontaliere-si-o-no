@@ -10733,6 +10733,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-stazzona-lavorare-ticino-frontaliere.title': 'Vivre à Stazzona et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-stazzona-lavorare-ticino-frontaliere.excerpt': 'Le nouvel accord fiscal pour les frontaliers suisses en Italie',
     'blog.article.vivere-stazzona-lavorare-ticino-frontaliere.imageAlt': 'Image éditoriale relative à: Vivere a Stazzona e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-abbadia-lariana-lavorare-ticino-da-frontaliere.title': 'Vivre à Abbadia Lariana et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-abbadia-lariana-lavorare-ticino-da-frontaliere.excerpt': 'Qui sont les frontaliers qui travaillent au Tessin et résident à Abbadia Lariana ?',
+    'blog.article.vivere-abbadia-lariana-lavorare-ticino-da-frontaliere.imageAlt': 'frontalier en Ticino, Abbadia Lariana',
 };
 
 export default blogMetaFr;
