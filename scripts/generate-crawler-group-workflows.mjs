@@ -63,7 +63,14 @@
  * Re-run this script any time a crawler is added/removed/renamed, or the
  * duration baseline is refreshed (see
  * data/crawler-workflow-duration-baseline.json header). Output is fully
- * deterministic given the same manifest + baseline inputs.
+ * deterministic given the same manifest + baseline + assignment inputs.
+ *
+ * Since #6482 the crawler -> group assignment is NOT re-derived on every run:
+ * it is pinned in data/crawler-group-assignments.json and only reconciled
+ * against the manifest, so adding or removing one crawler rewrites ONE file,
+ * not all 23. See the STABLE ASSIGNMENT block below. Deliberate redistribution
+ * of the whole corpus: `--rebalance`. Rebuild the pins from the committed .yml
+ * (after a hand-edit or a rebase that touched a group): `--bootstrap-from-workflows`.
  */
 
 import fs from 'node:fs';
@@ -78,6 +85,7 @@ const REPO_ROOT = path.resolve(__dirname, '..');
 const MANIFEST_PATH = path.join(REPO_ROOT, 'data/crawler-manifest.json');
 const BASELINE_PATH = path.join(REPO_ROOT, 'data/crawler-workflow-duration-baseline.json');
 const WORKFLOWS_DIR = path.join(REPO_ROOT, '.github/workflows');
+const ASSIGNMENTS_PATH = path.join(REPO_ROOT, 'data/crawler-group-assignments.json');
 
 export const GROUP_COUNT = 23;
 // Coop's ~160min run is a wall-clock outlier ~2.75x the next-longest crawler,
@@ -93,6 +101,147 @@ export const SAFETY_CEILING_MS = JOB_TIMEOUT_MINUTES * 60 * 1000;
 
 function loadJson(p) {
   return JSON.parse(fs.readFileSync(p, 'utf8'));
+}
+
+/**
+ * ---------------------------------------------------------------------------
+ * STABLE ASSIGNMENT (#6482) — why packGroups() no longer decides membership on
+ * a normal run.
+ * ---------------------------------------------------------------------------
+ *
+ * packGroups() below is a GLOBAL bin-pack: its phase 2 deals the tail of the
+ * duration-sorted corpus round-robin across the groups. That makes every
+ * crawler's group a function of its POSITION in the sorted corpus, so removing
+ * (or adding) a single crawler shifts every crawler after it by one slot and
+ * reshuffles all 23 groups at once. Measured on #6482: dropping one entry
+ * (`eoc-candidati-posizioni`) from data/crawler-manifest.json moved 14 crawlers
+ * out of crawler-group-02 and 14 different ones in, and rewrote all 23 files
+ * (~5000 lines) — an unreviewable diff that changes WHICH crawler runs in WHICH
+ * window in production, which nobody asked for. The practical outcome was the
+ * worst of both worlds: the .yml got hand-edited instead (PR #6484), leaving
+ * the generator even further adrift from its own output.
+ *
+ * Fix: the membership decision is PERSISTED, in
+ * data/crawler-group-assignments.json, as an ORDERED member list per group
+ * (order matters too — it is the order of the generated background steps, so
+ * re-sorting it would rewrite every file for no reason). On a normal run the
+ * generator READS that file:
+ *
+ *   - a crawler already pinned stays exactly where it is, at the same position;
+ *   - a crawler removed from the manifest is spliced out of its own group only;
+ *   - a crawler new to the manifest is APPENDED to one group, chosen
+ *     deterministically (fewest members, then lowest wall-clock, then lowest
+ *     index) so the choice never depends on corpus ordering;
+ *   - the reconciled file is written back, so the pins cannot drift from the
+ *     manifest without the drift showing up in the same commit.
+ *
+ * The diff of a one-crawler change is therefore one group's file, not 23.
+ *
+ * packGroups() is NOT dead: `--rebalance` runs it and overwrites the pins with
+ * its result. That is the deliberate, reviewed "redistribute the whole corpus"
+ * action — it simply no longer happens by accident on every unrelated edit.
+ */
+
+/** Read the pin file. Missing file = no pins (every crawler is treated as new). */
+function loadAssignments(assignmentsPath, groupCount) {
+  if (!fs.existsSync(assignmentsPath)) {
+    return Array.from({ length: groupCount }, () => []);
+  }
+  const doc = loadJson(assignmentsPath);
+  const groups = Array.isArray(doc.groups) ? doc.groups : [];
+  return Array.from({ length: groupCount }, (_, i) =>
+    Array.isArray(groups[i]) ? groups[i].filter((s) => typeof s === 'string') : [],
+  );
+}
+
+function serializeAssignments(memberSlugsByGroup) {
+  const doc = {
+    _comment: [
+      'PINNED crawler -> group assignment. Source of truth for which crawler runs in which',
+      'crawler-group-NN.yml, and in which position (position = order of the generated',
+      'background steps). Maintained BY scripts/generate-crawler-group-workflows.mjs: edit',
+      'data/crawler-manifest.json and re-run the generator, never hand-edit this file.',
+      'A deliberate redistribution of the whole corpus is an explicit --rebalance run (#6482).',
+    ].join(' '),
+    groupCount: memberSlugsByGroup.length,
+    groups: memberSlugsByGroup,
+  };
+  return `${JSON.stringify(doc, null, 2)}\n`;
+}
+
+/**
+ * Reconcile the pinned assignment against the crawlers actually in the manifest.
+ *
+ * Returns `{ groups, assignments, added, removed }`, where `groups` has exactly
+ * the `{ members, wallClockMs }` shape packGroups() returns, so nothing
+ * downstream needs to know which of the two produced it.
+ *
+ * A slug pinned in two groups (hand-edit accident) is kept at its FIRST position
+ * only: tolerating the duplicate would emit the same crawler twice in one job,
+ * i.e. two concurrent `git commit` racers on the same data file.
+ */
+export function assignGroupsStable(crawlers, pinnedGroups, medianMs) {
+  const bySlug = new Map(crawlers.map((c) => [c.slug, c]));
+  const groupCount = pinnedGroups.length;
+  const memberSlugsByGroup = Array.from({ length: groupCount }, () => []);
+  const placed = new Set();
+
+  // Pass 1: keep every pin that still matches a manifest crawler, at its
+  // recorded position. Pins whose crawler left the manifest simply do not
+  // survive this pass — that is the "a removal touches one file" property.
+  for (let i = 0; i < groupCount; i++) {
+    for (const slug of pinnedGroups[i]) {
+      if (!bySlug.has(slug) || placed.has(slug)) continue;
+      memberSlugsByGroup[i].push(slug);
+      placed.add(slug);
+    }
+  }
+
+  const removed = pinnedGroups.flat().filter((slug) => !bySlug.has(slug));
+
+  // Pass 2: crawlers the pin file has never seen. Sorted by slug (NOT by
+  // duration): a stable, input-order-independent order, so promoting two
+  // crawlers in either order lands on the same assignment.
+  const added = crawlers.map((c) => c.slug).filter((slug) => !placed.has(slug)).sort();
+
+  // A group holding a single genuine duration outlier (Coop's ~160min) is
+  // reserved: its whole reason to exist is that nothing else pays that
+  // wall-clock. Never grow it by accident.
+  const isReserved = (i) =>
+    memberSlugsByGroup[i].length === 1 &&
+    (bySlug.get(memberSlugsByGroup[i][0])?.durationMs ?? 0) > medianMs * OUTLIER_MEDIAN_MULTIPLE;
+
+  const wallClockOf = (i) =>
+    memberSlugsByGroup[i].reduce((max, slug) => Math.max(max, bySlug.get(slug)?.durationMs ?? 0), 0);
+
+  for (const slug of added) {
+    let target = -1;
+    for (let i = 0; i < groupCount; i++) {
+      if (isReserved(i)) continue;
+      if (target === -1) {
+        target = i;
+        continue;
+      }
+      const size = memberSlugsByGroup[i].length;
+      const best = memberSlugsByGroup[target].length;
+      if (size < best || (size === best && wallClockOf(i) < wallClockOf(target))) target = i;
+    }
+    // Every group reserved (only reachable with a tiny corpus): fall back to
+    // group 0 rather than dropping the crawler on the floor.
+    if (target === -1) target = 0;
+    memberSlugsByGroup[target].push(slug);
+    placed.add(slug);
+  }
+
+  const groups = memberSlugsByGroup.map((slugs) => {
+    const members = slugs.map((s) => bySlug.get(s));
+    return {
+      members,
+      wallClockMs: members.reduce((max, m) => Math.max(max, m.durationMs), 0),
+    };
+  });
+
+  return { groups, assignments: memberSlugsByGroup, added, removed };
 }
 
 /**
@@ -568,6 +717,40 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
   };
 }
 
+const GENERATED_MARKER = '# AUTO-GENERATED by scripts/generate-crawler-group-workflows.mjs';
+
+/**
+ * Carry over a hand-written comment block sitting ABOVE the AUTO-GENERATED
+ * marker of the file being overwritten.
+ *
+ * crawler-group-23.yml on main has a 30-line header explaining that the group
+ * is disabled and dispatched cross-repo to frontaliere-articles instead (the
+ * execution pilot). The generator used to drop it on every re-run, and the
+ * header itself says so — "would silently drop this header ... Re-add this
+ * header by hand if that happens". That is the same defect as #6482 seen from
+ * the other side: a regeneration that is not surgical, so the artefact and the
+ * generator drift apart and the artefact gets hand-maintained.
+ *
+ * Everything from the marker down is still regenerated from scratch, so this
+ * cannot be used to smuggle body edits past the generator — only to keep the
+ * "why is this file special" note attached to the file it describes.
+ *
+ * Only a leading run of comment/blank lines qualifies: anything else means the
+ * file is not shaped the way we think, and we leave it out rather than splice
+ * unknown text into a workflow.
+ */
+export function extractManualPreamble(existingText) {
+  if (!existingText) return '';
+  const markerAt = existingText.indexOf(GENERATED_MARKER);
+  if (markerAt <= 0) return '';
+  const prefix = existingText.slice(0, markerAt);
+  const lines = prefix.split('\n');
+  // The last element is the empty string before the marker's own line start.
+  if (lines[lines.length - 1] !== '') return '';
+  if (!lines.slice(0, -1).every((l) => l.trim() === '' || l.trimStart().startsWith('#'))) return '';
+  return prefix;
+}
+
 function workflowHeaderComment(groupIndex, group) {
   const members = group.members.map((m) => `${m.slug} (~${Math.round(m.durationMs / 60000)}min)`).join(', ');
   const wallClockMin = Math.round(group.wallClockMs / 60000);
@@ -581,7 +764,23 @@ function workflowHeaderComment(groupIndex, group) {
   ].join('\n');
 }
 
-export function generate({ manifestPath = MANIFEST_PATH, baselinePath = BASELINE_PATH, outDir = WORKFLOWS_DIR, write = true } = {}) {
+export function generate({
+  manifestPath = MANIFEST_PATH,
+  baselinePath = BASELINE_PATH,
+  outDir = WORKFLOWS_DIR,
+  // Il default SEGUE outDir, non e' fisso su data/: generare in una cartella
+  // di scratch (test, dry-run, ispezione) non deve poter riscrivere i pin del
+  // repo. Ci sono gia' cascati i test di generate() qui accanto, che passano un
+  // outDir temporaneo e nessun assignmentsPath.
+  assignmentsPath = outDir === WORKFLOWS_DIR
+    ? ASSIGNMENTS_PATH
+    : path.join(outDir, 'crawler-group-assignments.json'),
+  write = true,
+  // `--rebalance`: throw the pins away and re-derive membership with the global
+  // bin-pack. Rewrites all 23 files by design — a deliberate, reviewed action,
+  // never a side effect of adding or removing one crawler (#6482).
+  rebalance = false,
+} = {}) {
   const { manifest } = loadJson(manifestPath);
   const baseline = loadJson(baselinePath);
   const medianMs = baseline.medianDurationMs;
@@ -592,7 +791,15 @@ export function generate({ manifestPath = MANIFEST_PATH, baselinePath = BASELINE
     return { ...c, durationMs };
   });
 
-  const groups = packGroups(crawlers, GROUP_COUNT, medianMs);
+  // Membership comes from the persisted pins, not from a fresh global
+  // bin-pack — see the STABLE ASSIGNMENT block above (#6482). `--rebalance` is
+  // the one path that still lets packGroups() decide, and it then overwrites
+  // the pins with its result.
+  const pinned = rebalance
+    ? packGroups(crawlers, GROUP_COUNT, medianMs).map((g) => g.members.map((m) => m.slug))
+    : loadAssignments(assignmentsPath, GROUP_COUNT);
+
+  const { groups, assignments, added, removed } = assignGroupsStable(crawlers, pinned, medianMs);
 
   // Sanity: every crawler appears exactly once.
   const seen = new Set();
@@ -611,6 +818,13 @@ export function generate({ manifestPath = MANIFEST_PATH, baselinePath = BASELINE
     }
   }
 
+  // Persist the reconciled pins in the same run that writes the .yml, so the
+  // two can never be committed out of sync (tests/generate-crawler-group-workflows.ts
+  // asserts exactly that on the committed tree).
+  if (write) {
+    fs.writeFileSync(assignmentsPath, serializeAssignments(assignments), 'utf8');
+  }
+
   const results = [];
   groups.forEach((group, i) => {
     const groupIndex = i + 1;
@@ -622,9 +836,14 @@ export function generate({ manifestPath = MANIFEST_PATH, baselinePath = BASELINE
     );
     const obj = buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnoreScripts);
     const yamlBody = YAML.stringify(obj, { lineWidth: 0 });
-    const fileContent = `${workflowHeaderComment(groupIndex, group)}\n\n${yamlBody}`;
     const fileName = `crawler-group-${String(groupIndex).padStart(2, '0')}.yml`;
     const filePath = path.join(outDir, fileName);
+    // Il preambolo scritto a mano sopra il marker AUTO-GENERATED sopravvive alla
+    // rigenerazione: e' la nota che spiega perche' QUEL file e' speciale (il
+    // pilota cross-repo di crawler-group-23), e riscriverla a mano a ogni giro e'
+    // la stessa deriva che questa PR chiude. Il corpo resta rigenerato da zero.
+    const preamble = extractManualPreamble(fs.existsSync(filePath) ? fs.readFileSync(filePath, 'utf8') : '');
+    const fileContent = `${preamble}${workflowHeaderComment(groupIndex, group)}\n\n${yamlBody}`;
 
     let finalContent = fileContent;
     if (write) {
@@ -651,13 +870,63 @@ export function generate({ manifestPath = MANIFEST_PATH, baselinePath = BASELINE
     });
   });
 
+  results.assignmentsAdded = added;
+  results.assignmentsRemoved = removed;
   return results;
+}
+
+/**
+ * Rebuild the pin file from the COMMITTED crawler-group-*.yml files.
+ *
+ * The recovery path, and the way the pins were seeded in the first place: the
+ * .yml files are the artefact that actually describes production, so when the
+ * pins and the .yml disagree (a hand-edit like PR #6484, a rebase onto a branch
+ * that touched a group, a pin file lost in a merge) the .yml wins and this
+ * reads the truth back out of them. Reads the ordered `id: crawler-<slug>`
+ * background steps — the same identity the generator writes.
+ */
+export function extractAssignmentsFromWorkflows(outDir = WORKFLOWS_DIR) {
+  const files = fs
+    .readdirSync(outDir)
+    .filter((f) => /^crawler-group-\d+\.yml$/.test(f))
+    .sort();
+  return files.map((f) => {
+    const doc = YAML.parse(fs.readFileSync(path.join(outDir, f), 'utf8'));
+    const jobKey = Object.keys(doc.jobs)[0];
+    return (doc.jobs[jobKey].steps || [])
+      .filter((s) => s && s.background && typeof s.id === 'string')
+      .map((s) => /^crawler-(.+)$/.exec(s.id))
+      .filter(Boolean)
+      .map((m) => m[1]);
+  });
+}
+
+/** Write the pin file derived from the committed workflows. Returns the path. */
+export function bootstrapAssignmentsFromWorkflows({
+  outDir = WORKFLOWS_DIR,
+  assignmentsPath = ASSIGNMENTS_PATH,
+} = {}) {
+  const groups = extractAssignmentsFromWorkflows(outDir);
+  fs.writeFileSync(assignmentsPath, serializeAssignments(groups), 'utf8');
+  return { assignmentsPath, groups };
 }
 
 // CLI entry point
 const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 if (isMain) {
-  const results = generate();
+  if (process.argv.includes('--bootstrap-from-workflows')) {
+    const { assignmentsPath, groups } = bootstrapAssignmentsFromWorkflows();
+    console.log(`Pins rebuilt from the committed workflows -> ${assignmentsPath}`);
+    console.log(`  ${groups.length} groups, ${groups.flat().length} crawlers`);
+    process.exit(0);
+  }
+  const rebalance = process.argv.includes('--rebalance');
+  const results = generate({ rebalance });
+  if (rebalance) {
+    console.log('⚠️  --rebalance: membership re-derived from scratch — expect all 23 files to change.');
+  }
+  for (const slug of results.assignmentsRemoved) console.log(`  - unassigned (gone from the manifest): ${slug}`);
+  for (const slug of results.assignmentsAdded) console.log(`  + newly assigned: ${slug}`);
   console.log(`Generated ${results.length} group workflows:`);
   for (const r of results) {
     console.log(`  ${r.fileName}: ${r.memberCount} crawlers, ~${Math.round(r.wallClockMs / 60000)}min wall-clock`);
