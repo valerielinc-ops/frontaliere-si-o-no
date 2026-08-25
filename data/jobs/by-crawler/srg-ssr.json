@@ -1,6 +1,6 @@
 {
   "crawlerKey": "srg-ssr",
-  "assembledAt": "2026-08-25T09:48:57.391Z",
+  "assembledAt": "2026-08-25T21:35:03.884Z",
   "jobs": [
     {
       "id": "srg-ssr-25dd75af254b",
@@ -33,7 +33,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/fufragnadi-emprendissadi-da-prova/b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-25T09:48:41.639Z",
+      "crawledAt": "2026-08-25T21:35:00.878Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -100,7 +100,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/praticanta-praticant/4a660497-3bdc-452a-ab3f-d9b8493cc46f",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-25T09:48:40.890Z",
+      "crawledAt": "2026-08-25T21:34:59.788Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -140,16 +140,16 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "firstSeenAt": "2026-06-29T11:35:50.122Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "pratique-pratique-srg-ssr-cuira"
+      ],
       "previousSlugsByLocale": {
         "fr": [
           "pratique-pratique-srg-ssr-cuira"
         ]
       },
-      "previousSlugs": [
-        "pratique-pratique-srg-ssr-cuira"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-29T11:35:50.122Z",
       "salaryMin": 42640,
       "salaryMax": 61000,
       "baseSalary": {
@@ -194,7 +194,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/service-operator/b7aea4ab-5915-4645-a639-79a98c2543ff",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:48:40.087Z",
+      "crawledAt": "2026-08-25T21:34:59.031Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -257,16 +257,16 @@
         "pensumMin": 80,
         "pensumMax": 80
       },
-      "firstSeenAt": "2026-06-29T11:35:27.904Z",
+      "previousSlugs": [
+        "operatore-di-servizio-srg-ssr-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "operatore-di-servizio-srg-ssr-bern"
         ]
       },
-      "previousSlugs": [
-        "operatore-di-servizio-srg-ssr-bern"
-      ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-29T11:35:27.904Z",
       "salaryMin": 71500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -312,7 +312,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/emprendista-commerziala-emprendist-commerzial/c7a3bf5e-4660-4325-baee-e0cc14f79df0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-25T09:48:39.193Z",
+      "crawledAt": "2026-08-25T21:34:58.269Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -411,7 +411,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistente-finanze/7d7fc044-dae7-4d32-a1b3-da4e2848ad33",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-25T09:48:38.247Z",
+      "crawledAt": "2026-08-25T21:34:57.527Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -450,8 +450,8 @@
         "pensumMin": 60,
         "pensumMax": 80
       },
-      "firstSeenAt": "2026-06-30T23:26:53.483Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-30T23:26:53.483Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -497,7 +497,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistent-in-finanzen/c68706e7-6382-4b0a-8976-cc7fa737e98e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:48:37.463Z",
+      "crawledAt": "2026-08-25T21:34:56.774Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -600,7 +600,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/geschaeftsfuehrer-in-srg-bern-freiburg-wallis/ae1a3c73-c6e0-46fe-b28d-c26344b65afe",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:48:36.361Z",
+      "crawledAt": "2026-08-25T21:34:55.863Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -696,7 +696,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nel-settore-musicale-rsi/cc678ff7-4831-4a38-833a-f8b0f2fe249a",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-25T09:48:35.521Z",
+      "crawledAt": "2026-08-25T21:34:55.052Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -761,8 +761,8 @@
           "phase-de-communication-rsi-srg-ssr-comano"
         ]
       },
-      "firstSeenAt": "2026-08-05T22:40:13.924Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-05T22:40:13.924Z",
       "salaryMin": 41600,
       "salaryMax": 74000,
       "baseSalary": {
@@ -808,7 +808,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-veranstaltungsfachmann-fachfrau-efz/6ceb5b23-a763-4947-88be-2df9ce20cca3",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:48:34.744Z",
+      "crawledAt": "2026-08-25T21:34:54.253Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -904,7 +904,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz/91370784-d240-4500-8efe-5f54893b9dfa",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:48:33.994Z",
+      "crawledAt": "2026-08-25T21:34:53.537Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -998,7 +998,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-digital-marketing-specialist/1e879fb8-8d71-4bac-a620-735a66901ba8",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-25T09:48:33.223Z",
+      "crawledAt": "2026-08-25T21:34:52.806Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1040,8 +1040,8 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "firstSeenAt": "2026-08-24T21:34:39.952Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:34:39.952Z",
       "salaryMin": 46000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -1087,7 +1087,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/praktikant-in-digitale-kanaele-unterhaltung-gesellschaft/33a25346-6b53-400e-87f8-97e7f8bb01a3",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:48:32.387Z",
+      "crawledAt": "2026-08-25T21:34:51.956Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1184,7 +1184,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/projekt-und-investitionscontroller-in-mit-fokus-strategische-projekte/c19f548f-3961-4b5a-9ad8-a4d3d9ad42a4",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:48:31.538Z",
+      "crawledAt": "2026-08-25T21:34:45.450Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1282,7 +1282,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/controleur-se-strategique-de-projets-et-d-investissements/e949b34a-1f5a-49f0-8b9a-3bee723d0545",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-25T09:48:29.116Z",
+      "crawledAt": "2026-08-25T21:34:38.871Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1334,8 +1334,8 @@
           "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
         ]
       },
-      "firstSeenAt": "2026-08-13T21:48:14.284Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-13T21:48:14.284Z",
       "salaryMin": 105500,
       "salaryMax": 185000,
       "baseSalary": {
@@ -1381,7 +1381,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/responsable-marketing-rts/1450473c-6543-418d-82f5-a4ef2dcfc0b9",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-25T09:48:19.437Z",
+      "crawledAt": "2026-08-25T21:34:38.089Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1421,8 +1421,8 @@
         "pensumMin": 80,
         "pensumMax": 80
       },
-      "firstSeenAt": "2026-08-14T10:12:26.743Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T10:12:26.743Z",
       "salaryMin": 106500,
       "salaryMax": 188500,
       "baseSalary": {
@@ -1468,7 +1468,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel/3e3fcff3-e194-4a1b-831f-f105b491094e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:48:18.679Z",
+      "crawledAt": "2026-08-25T21:34:37.318Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -1569,7 +1569,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern/0d740af4-8667-4a66-a530-ccc338291c67",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:48:17.886Z",
+      "crawledAt": "2026-08-25T21:34:36.494Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -1670,7 +1670,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/praktikant-in-news-inland/1e86685a-44f9-4f3b-8a07-c7e65b35428d",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:48:17.050Z",
+      "crawledAt": "2026-08-25T21:34:35.699Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1752,7 +1752,7 @@
       "url": "https://jobs.srgssr.ch/swi/offene-stellen/fachverantwortliche-r-produktentwicklung-swissinfo/62bdb575-3d14-49e3-a8ab-e8c69e6e5425",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:48:16.169Z",
+      "crawledAt": "2026-08-25T21:34:34.863Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1804,8 +1804,8 @@
           "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
         ]
       },
-      "firstSeenAt": "2026-08-21T09:46:05.638Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-21T09:46:05.638Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1851,7 +1851,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/hostess-steward-servizio-eventi/3e7ba70d-5105-4c69-a753-d1a91815a68b",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-25T09:48:15.133Z",
+      "crawledAt": "2026-08-25T21:34:34.023Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1899,8 +1899,8 @@
         "org": "rsi",
         "orgLabel": "RSI"
       },
-      "firstSeenAt": "2026-08-24T10:00:42.039Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T10:00:42.039Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -1919,9 +1919,9 @@
       "id": "srg-ssr-f6cddd196e33",
       "slug": "hr-partner-in-srg-ssr-zurich",
       "slugByLocale": {
-        "de": "hr-partner-in-srg-ssr-zurich",
         "it": "hr-partner-in-srg-ssr-zurich",
         "en": "hr-partner-in-srg-ssr-zurich",
+        "de": "hr-partner-in-srg-ssr-zurich",
         "fr": "hr-partner-in-srg-ssr-zurich"
       },
       "company": "SRG SSR",
@@ -1929,16 +1929,16 @@
       "companyDomain": "srgssr.ch",
       "title": "HR Partner:in",
       "titleByLocale": {
-        "de": "HR Partner:in",
         "it": "Risorse Umane Partner:in",
         "en": "HR Partner:in",
+        "de": "HR Partner:in",
         "fr": "Ressources Humaines Partner:in"
       },
       "description": "Was sind Ihre Aufgaben? Wir suchen per sofort oder nach Vereinbarung eine:n HR Partner:in befristet bis 31. Dezember 2027. Innerhalb des HR Beratungs- Teams engagieren Sie sich in dem Bereich Angebot für folgende Themen:\n• Sie agieren als strategische Schnittstelle zwischen Management und Mitarbeitenden, tragen die Gesamtverantwortung für sämtliche HR-Prozesse in Ihrem Betreuungsbereich und begleiten den nationalen Bereich Angebot während der aktuellen Transformationsphase\n• Sie unterstützen und beraten die Vorgesetzten in sämtlichen personellen Fragestellungen, insbesondere bei der Rekrutierung, der Lohnfindung, der Durchführung von Mitarbeitendengesprächen sowie bei Entwicklungs- und Laufbahnfragen und stellen die Einhaltung interner Richtlinien, gesetzlicher Vorgaben und unternehmensweiter Standards sicher\n• Sie beraten kompetent in arbeitsrechtlichen, organisatorischen und betrieblichen Themen und übernehmen als erste Anlaufstelle die Verantwortung für alle arbeitsvertraglich relevanten Fragestellungen\n• Sie begleiten sensible Fälle (z. B. Konflikte, Absenzen oder disziplinarische Themen) mit grossem Fingerspitzengefühl und hoher Professionalität\n• Sie tragen in enger Zusammenarbeit mit den Vorgesetzten die Verantwortung für die Umsetzung der Personalpolitik und die Sicherstellung der HR-Standards Was bringen Sie mit?\n• Lösungsorientierte und empathische Persönlichkeit, mit der Fähigkeit Mitarbeitende und Führungskräfte aktiv durch Transformationsprozesse zu begleiten\n• Fundierte, mehrjährige HR-Beratungserfahrung in einem komplexen und dynamischen Unternehmensumfeld vergleichbarer Grösse\n• Breites und umfassendes HR-Fachwissen, inklusive zukunftsgerichteter Methoden und Entwicklungen\n• Kommunikationsstarke Persönlichkeit mit der Fähigkeit, auf allen Ebenen klar, adressatengerecht und souverän zu agieren\n• Bereitschaft zur regelmässigen Arbeit an den Standorten Bern und Zürich\n• Sehr gute Französischkenntnisse (mindestens auf Niveau B2) Worauf können Sie sich freuen?\n• Ein spannendes, lebendiges und dynamisches Umfeld mit viel Gestaltungsmöglichkeiten\n• Ein interessantes, vielseitiges und herausforderndes Aufgabengebiet\n• Sympathische Teamkolleg:innen, die Ihre professionelle Erfahrung gerne mit Ihnen teilen\n• Modernes Arbeitsumfeld mit flexiblen Arbeitszeiten sowie der Option, teilweise im Home-Office zu arbeiten zum Bewerbungsprozess Patrik Porchet HR Business Partner SRF +41 58 135 02 65 Der national geführte Bereich Human Resources verantwortet und steuert die Personalgeschäfte der gesamten SRG. Human Resources begleitet die Mitarbeiter:innen der SRG in allen personellen Themenstellungen, bietet ein zeitgemässes Aus- sowie Weiterbildungsangebot an und verantwortet die ganzheitliche Umsetzung modernster HR-Kernprozesse.",
       "descriptionByLocale": {
-        "de": "Was sind Ihre Aufgaben? Wir suchen per sofort oder nach Vereinbarung eine:n HR Partner:in befristet bis 31. Dezember 2027. Innerhalb des HR Beratungs- Teams engagieren Sie sich in dem Bereich Angebot für folgende Themen:\n• Sie agieren als strategische Schnittstelle zwischen Management und Mitarbeitenden, tragen die Gesamtverantwortung für sämtliche HR-Prozesse in Ihrem Betreuungsbereich und begleiten den nationalen Bereich Angebot während der aktuellen Transformationsphase\n• Sie unterstützen und beraten die Vorgesetzten in sämtlichen personellen Fragestellungen, insbesondere bei der Rekrutierung, der Lohnfindung, der Durchführung von Mitarbeitendengesprächen sowie bei Entwicklungs- und Laufbahnfragen und stellen die Einhaltung interner Richtlinien, gesetzlicher Vorgaben und unternehmensweiter Standards sicher\n• Sie beraten kompetent in arbeitsrechtlichen, organisatorischen und betrieblichen Themen und übernehmen als erste Anlaufstelle die Verantwortung für alle arbeitsvertraglich relevanten Fragestellungen\n• Sie begleiten sensible Fälle (z. B. Konflikte, Absenzen oder disziplinarische Themen) mit grossem Fingerspitzengefühl und hoher Professionalität\n• Sie tragen in enger Zusammenarbeit mit den Vorgesetzten die Verantwortung für die Umsetzung der Personalpolitik und die Sicherstellung der HR-Standards Was bringen Sie mit?\n• Lösungsorientierte und empathische Persönlichkeit, mit der Fähigkeit Mitarbeitende und Führungskräfte aktiv durch Transformationsprozesse zu begleiten\n• Fundierte, mehrjährige HR-Beratungserfahrung in einem komplexen und dynamischen Unternehmensumfeld vergleichbarer Grösse\n• Breites und umfassendes HR-Fachwissen, inklusive zukunftsgerichteter Methoden und Entwicklungen\n• Kommunikationsstarke Persönlichkeit mit der Fähigkeit, auf allen Ebenen klar, adressatengerecht und souverän zu agieren\n• Bereitschaft zur regelmässigen Arbeit an den Standorten Bern und Zürich\n• Sehr gute Französischkenntnisse (mindestens auf Niveau B2) Worauf können Sie sich freuen?\n• Ein spannendes, lebendiges und dynamisches Umfeld mit viel Gestaltungsmöglichkeiten\n• Ein interessantes, vielseitiges und herausforderndes Aufgabengebiet\n• Sympathische Teamkolleg:innen, die Ihre professionelle Erfahrung gerne mit Ihnen teilen\n• Modernes Arbeitsumfeld mit flexiblen Arbeitszeiten sowie der Option, teilweise im Home-Office zu arbeiten zum Bewerbungsprozess Patrik Porchet HR Business Partner SRF +41 58 135 02 65 Der national geführte Bereich Human Resources verantwortet und steuert die Personalgeschäfte der gesamten SRG. Human Resources begleitet die Mitarbeiter:innen der SRG in allen personellen Themenstellungen, bietet ein zeitgemässes Aus- sowie Weiterbildungsangebot an und verantwortet die ganzheitliche Umsetzung modernster HR-Kernprozesse.",
         "it": "Was sind Ihre Aufgaben? Wir suchen per sofort oder nach Vereinbarung eine:n HR Partner:in befristet bis 31. Dezember 2027. Innerhalb des HR Beratungs- Teams engagieren Sie sich in dem Bereich Angebot für folgende Themen:\n• Sie agieren als strategische Schnittstelle zwischen Management und Mitarbeitenden, tragen die Gesamtverantwortung für sämtliche HR-Prozesse in Ihrem Betreuungsbereich und begleiten den nationalen Bereich Angebot während der aktuellen Transformationsphase\n• Sie unterstützen und beraten die Vorgesetzten in sämtlichen personellen Fragestellungen, insbesondere bei der Rekrutierung, der Lohnfindung, der Durchführung von Mitarbeitendengesprächen sowie bei Entwicklungs- und Laufbahnfragen und stellen die Einhaltung interner Richtlinien, gesetzlicher Vorgaben und unternehmensweiter Standards sicher\n• Sie beraten kompetent in arbeitsrechtlichen, organisatorischen und betrieblichen Themen und übernehmen als erste Anlaufstelle die Verantwortung für alle arbeitsvertraglich relevanten Fragestellungen\n• Sie begleiten sensible Fälle (z. B. Konflikte, Absenzen oder disziplinarische Themen) mit grossem Fingerspitzengefühl und hoher Professionalität\n• Sie tragen in enger Zusammenarbeit mit den Vorgesetzten die Verantwortung für die Umsetzung der Personalpolitik und die Sicherstellung der HR-Standards Was bringen Sie mit?\n• Lösungsorientierte und empathische Persönlichkeit, mit der Fähigkeit Mitarbeitende und Führungskräfte aktiv durch Transformationsprozesse zu begleiten\n• Fundierte, mehrjährige HR-Beratungserfahrung in einem komplexen und dynamischen Unternehmensumfeld vergleichbarer Grösse\n• Breites und umfassendes HR-Fachwissen, inklusive zukunftsgerichteter Methoden und Entwicklungen\n• Kommunikationsstarke Persönlichkeit mit der Fähigkeit, auf allen Ebenen klar, adressatengerecht und souverän zu agieren\n• Bereitschaft zur regelmässigen Arbeit an den Standorten Bern und Zürich\n• Sehr gute Französischkenntnisse (mindestens auf Niveau B2) Worauf können Sie sich freuen?\n• Ein spannendes, lebendiges und dynamisches Umfeld mit viel Gestaltungsmöglichkeiten\n• Ein interessantes, vielseitiges und herausforderndes Aufgabengebiet\n• Sympathische Teamkolleg:innen, die Ihre professionelle Erfahrung gerne mit Ihnen teilen\n• Modernes Arbeitsumfeld mit flexiblen Arbeitszeiten sowie der Option, teilweise im Home-Office zu arbeiten zum Bewerbungsprozess Patrik Porchet HR Business Partner SRF +41 58 135 02 65 Der national geführte Bereich Human Resources verantwortet und steuert die Personalgeschäfte der gesamten SRG. Human Resources begleitet die Mitarbeiter:innen der SRG in allen personellen Themenstellungen, bietet ein zeitgemässes Aus- sowie Weiterbildungsangebot an und verantwortet die ganzheitliche Umsetzung modernster HR-Kernprozesse.",
         "en": "Was sind Ihre Aufgaben? Wir suchen per sofort oder nach Vereinbarung eine:n HR Partner:in befristet bis 31. Dezember 2027. Innerhalb des HR Beratungs- Teams engagieren Sie sich in dem Bereich Angebot für folgende Themen:\n• Sie agieren als strategische Schnittstelle zwischen Management und Mitarbeitenden, tragen die Gesamtverantwortung für sämtliche HR-Prozesse in Ihrem Betreuungsbereich und begleiten den nationalen Bereich Angebot während der aktuellen Transformationsphase\n• Sie unterstützen und beraten die Vorgesetzten in sämtlichen personellen Fragestellungen, insbesondere bei der Rekrutierung, der Lohnfindung, der Durchführung von Mitarbeitendengesprächen sowie bei Entwicklungs- und Laufbahnfragen und stellen die Einhaltung interner Richtlinien, gesetzlicher Vorgaben und unternehmensweiter Standards sicher\n• Sie beraten kompetent in arbeitsrechtlichen, organisatorischen und betrieblichen Themen und übernehmen als erste Anlaufstelle die Verantwortung für alle arbeitsvertraglich relevanten Fragestellungen\n• Sie begleiten sensible Fälle (z. B. Konflikte, Absenzen oder disziplinarische Themen) mit grossem Fingerspitzengefühl und hoher Professionalität\n• Sie tragen in enger Zusammenarbeit mit den Vorgesetzten die Verantwortung für die Umsetzung der Personalpolitik und die Sicherstellung der HR-Standards Was bringen Sie mit?\n• Lösungsorientierte und empathische Persönlichkeit, mit der Fähigkeit Mitarbeitende und Führungskräfte aktiv durch Transformationsprozesse zu begleiten\n• Fundierte, mehrjährige HR-Beratungserfahrung in einem komplexen und dynamischen Unternehmensumfeld vergleichbarer Grösse\n• Breites und umfassendes HR-Fachwissen, inklusive zukunftsgerichteter Methoden und Entwicklungen\n• Kommunikationsstarke Persönlichkeit mit der Fähigkeit, auf allen Ebenen klar, adressatengerecht und souverän zu agieren\n• Bereitschaft zur regelmässigen Arbeit an den Standorten Bern und Zürich\n• Sehr gute Französischkenntnisse (mindestens auf Niveau B2) Worauf können Sie sich freuen?\n• Ein spannendes, lebendiges und dynamisches Umfeld mit viel Gestaltungsmöglichkeiten\n• Ein interessantes, vielseitiges und herausforderndes Aufgabengebiet\n• Sympathische Teamkolleg:innen, die Ihre professionelle Erfahrung gerne mit Ihnen teilen\n• Modernes Arbeitsumfeld mit flexiblen Arbeitszeiten sowie der Option, teilweise im Home-Office zu arbeiten zum Bewerbungsprozess Patrik Porchet HR Business Partner SRF +41 58 135 02 65 Der national geführte Bereich Human Resources verantwortet und steuert die Personalgeschäfte der gesamten SRG. Human Resources begleitet die Mitarbeiter:innen der SRG in allen personellen Themenstellungen, bietet ein zeitgemässes Aus- sowie Weiterbildungsangebot an und verantwortet die ganzheitliche Umsetzung modernster HR-Kernprozesse.",
+        "de": "Was sind Ihre Aufgaben? Wir suchen per sofort oder nach Vereinbarung eine:n HR Partner:in befristet bis 31. Dezember 2027. Innerhalb des HR Beratungs- Teams engagieren Sie sich in dem Bereich Angebot für folgende Themen:\n• Sie agieren als strategische Schnittstelle zwischen Management und Mitarbeitenden, tragen die Gesamtverantwortung für sämtliche HR-Prozesse in Ihrem Betreuungsbereich und begleiten den nationalen Bereich Angebot während der aktuellen Transformationsphase\n• Sie unterstützen und beraten die Vorgesetzten in sämtlichen personellen Fragestellungen, insbesondere bei der Rekrutierung, der Lohnfindung, der Durchführung von Mitarbeitendengesprächen sowie bei Entwicklungs- und Laufbahnfragen und stellen die Einhaltung interner Richtlinien, gesetzlicher Vorgaben und unternehmensweiter Standards sicher\n• Sie beraten kompetent in arbeitsrechtlichen, organisatorischen und betrieblichen Themen und übernehmen als erste Anlaufstelle die Verantwortung für alle arbeitsvertraglich relevanten Fragestellungen\n• Sie begleiten sensible Fälle (z. B. Konflikte, Absenzen oder disziplinarische Themen) mit grossem Fingerspitzengefühl und hoher Professionalität\n• Sie tragen in enger Zusammenarbeit mit den Vorgesetzten die Verantwortung für die Umsetzung der Personalpolitik und die Sicherstellung der HR-Standards Was bringen Sie mit?\n• Lösungsorientierte und empathische Persönlichkeit, mit der Fähigkeit Mitarbeitende und Führungskräfte aktiv durch Transformationsprozesse zu begleiten\n• Fundierte, mehrjährige HR-Beratungserfahrung in einem komplexen und dynamischen Unternehmensumfeld vergleichbarer Grösse\n• Breites und umfassendes HR-Fachwissen, inklusive zukunftsgerichteter Methoden und Entwicklungen\n• Kommunikationsstarke Persönlichkeit mit der Fähigkeit, auf allen Ebenen klar, adressatengerecht und souverän zu agieren\n• Bereitschaft zur regelmässigen Arbeit an den Standorten Bern und Zürich\n• Sehr gute Französischkenntnisse (mindestens auf Niveau B2) Worauf können Sie sich freuen?\n• Ein spannendes, lebendiges und dynamisches Umfeld mit viel Gestaltungsmöglichkeiten\n• Ein interessantes, vielseitiges und herausforderndes Aufgabengebiet\n• Sympathische Teamkolleg:innen, die Ihre professionelle Erfahrung gerne mit Ihnen teilen\n• Modernes Arbeitsumfeld mit flexiblen Arbeitszeiten sowie der Option, teilweise im Home-Office zu arbeiten zum Bewerbungsprozess Patrik Porchet HR Business Partner SRF +41 58 135 02 65 Der national geführte Bereich Human Resources verantwortet und steuert die Personalgeschäfte der gesamten SRG. Human Resources begleitet die Mitarbeiter:innen der SRG in allen personellen Themenstellungen, bietet ein zeitgemässes Aus- sowie Weiterbildungsangebot an und verantwortet die ganzheitliche Umsetzung modernster HR-Kernprozesse.",
         "fr": "Was sind Ihre Aufgaben? Wir suchen per sofort oder nach Vereinbarung eine:n HR Partner:in befristet bis 31. Dezember 2027. Innerhalb des HR Beratungs- Teams engagieren Sie sich in dem Bereich Angebot für folgende Themen:\n• Sie agieren als strategische Schnittstelle zwischen Management und Mitarbeitenden, tragen die Gesamtverantwortung für sämtliche HR-Prozesse in Ihrem Betreuungsbereich und begleiten den nationalen Bereich Angebot während der aktuellen Transformationsphase\n• Sie unterstützen und beraten die Vorgesetzten in sämtlichen personellen Fragestellungen, insbesondere bei der Rekrutierung, der Lohnfindung, der Durchführung von Mitarbeitendengesprächen sowie bei Entwicklungs- und Laufbahnfragen und stellen die Einhaltung interner Richtlinien, gesetzlicher Vorgaben und unternehmensweiter Standards sicher\n• Sie beraten kompetent in arbeitsrechtlichen, organisatorischen und betrieblichen Themen und übernehmen als erste Anlaufstelle die Verantwortung für alle arbeitsvertraglich relevanten Fragestellungen\n• Sie begleiten sensible Fälle (z. B. Konflikte, Absenzen oder disziplinarische Themen) mit grossem Fingerspitzengefühl und hoher Professionalität\n• Sie tragen in enger Zusammenarbeit mit den Vorgesetzten die Verantwortung für die Umsetzung der Personalpolitik und die Sicherstellung der HR-Standards Was bringen Sie mit?\n• Lösungsorientierte und empathische Persönlichkeit, mit der Fähigkeit Mitarbeitende und Führungskräfte aktiv durch Transformationsprozesse zu begleiten\n• Fundierte, mehrjährige HR-Beratungserfahrung in einem komplexen und dynamischen Unternehmensumfeld vergleichbarer Grösse\n• Breites und umfassendes HR-Fachwissen, inklusive zukunftsgerichteter Methoden und Entwicklungen\n• Kommunikationsstarke Persönlichkeit mit der Fähigkeit, auf allen Ebenen klar, adressatengerecht und souverän zu agieren\n• Bereitschaft zur regelmässigen Arbeit an den Standorten Bern und Zürich\n• Sehr gute Französischkenntnisse (mindestens auf Niveau B2) Worauf können Sie sich freuen?\n• Ein spannendes, lebendiges und dynamisches Umfeld mit viel Gestaltungsmöglichkeiten\n• Ein interessantes, vielseitiges und herausforderndes Aufgabengebiet\n• Sympathische Teamkolleg:innen, die Ihre professionelle Erfahrung gerne mit Ihnen teilen\n• Modernes Arbeitsumfeld mit flexiblen Arbeitszeiten sowie der Option, teilweise im Home-Office zu arbeiten zum Bewerbungsprozess Patrik Porchet HR Business Partner SRF +41 58 135 02 65 Der national geführte Bereich Human Resources verantwortet und steuert die Personalgeschäfte der gesamten SRG. Human Resources begleitet die Mitarbeiter:innen der SRG in allen personellen Themenstellungen, bietet ein zeitgemässes Aus- sowie Weiterbildungsangebot an und verantwortet die ganzheitliche Umsetzung modernster HR-Kernprozesse."
       },
       "location": "Zürich",
@@ -1946,7 +1946,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/hr-partner-in/1432cf4e-143c-4306-901f-03755cdb69ad",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:48:14.107Z",
+      "crawledAt": "2026-08-25T21:34:33.149Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1971,7 +1971,6 @@
       ],
       "requirementsByLocale": {
         "de": [
-          "Lösungsorientierte und empathische Persönlichkeit, mit der Fähigkeit Mitarbeitende und Führungskräfte aktiv durch Transformationsprozesse zu begleiten",
           "Fundierte, mehrjährige HR-Beratungserfahrung in einem komplexen und dynamischen Unternehmensumfeld vergleichbarer Grösse",
           "Breites und umfassendes HR-Fachwissen, inklusive zukunftsgerichteter Methoden und Entwicklungen",
           "Kommunikationsstarke Persönlichkeit mit der Fähigkeit, auf allen Ebenen klar, adressatengerecht und souverän zu agieren",
@@ -1987,6 +1986,7 @@
         "pensumMax": 100
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-25T09:48:14.107Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "baseSalary": {
@@ -1999,8 +1999,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-25T09:48:14.107Z"
+      "addressRegion": "ZH"
     }
   ]
 }
