@@ -10742,6 +10742,11 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-tubre-lavorare-grigioni-frontaliere.title': 'Wohnen in Taufers und Arbeiten in Graubünden als Grenzgänger',
     'blog.article.vivere-tubre-lavorare-grigioni-frontaliere.excerpt': 'Bewilligung G, Steuern, AHV, KVG: Praktischer Leitfaden für Grenzgänger Italien-Schweiz. Kosten, Besteuerung, Verfahren zum Wohnen in Taufers und Arbeiten in Graubünden.',
     'blog.article.vivere-tubre-lavorare-grigioni-frontaliere.imageAlt': 'Alpental aus großer Höhe mit italienischem Dorf im Talgrund, Herbstlaubwälder und goldenes Licht. Symbol der Grenzgängerregion zwischen Italien und der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-08-25.title': 'Grenzgänger-Tagesbulletin – 25. August 2026: 3\'779 neue Stellenangebote gestern',
+    'blog.article.bollettino-frontaliere-2026-08-25.excerpt': 'Die Zahlen von heute, 25. August 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-08-25.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 25. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-08-25.seoDescription': 'Grenzgänger-Bulletin vom 25. August 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-08-25.ogDescription': 'Die Zahlen vom 25. August 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
 };
 
 export default blogMetaDe;
