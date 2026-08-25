@@ -1,29 +1,9 @@
 {
   "version": 1,
   "runCounter": 1340,
-  "currentQuota": 75,
-  "lastTune": "2026-08-24T04:45:57.363Z",
+  "currentQuota": 80,
+  "lastTune": "2026-08-25T04:41:23.851Z",
   "history": [
-    {
-      "tunedAt": "2026-05-14T06:45:40.342Z",
-      "prevQuota": 80,
-      "newQuota": 80,
-      "decision": "hold",
-      "reason": "cold-start no aged articles",
-      "provenWinRate": 0,
-      "discoveryWinRate": 0,
-      "ratio": null,
-      "samples": {
-        "proven": {
-          "winners": 0,
-          "total": 0
-        },
-        "discovery": {
-          "winners": 0,
-          "total": 0
-        }
-      }
-    },
     {
       "tunedAt": "2026-05-15T06:54:34.421Z",
       "prevQuota": 80,
@@ -1997,6 +1977,26 @@
         "proven": {
           "winners": 32,
           "total": 40
+        },
+        "discovery": {
+          "winners": 16,
+          "total": 28
+        }
+      }
+    },
+    {
+      "tunedAt": "2026-08-25T04:41:23.851Z",
+      "prevQuota": 75,
+      "newQuota": 80,
+      "decision": "less discovery",
+      "reason": "ratio=0.70",
+      "provenWinRate": 0.8205,
+      "discoveryWinRate": 0.5714,
+      "ratio": 0.6964,
+      "samples": {
+        "proven": {
+          "winners": 32,
+          "total": 39
         },
         "discovery": {
           "winners": 16,
