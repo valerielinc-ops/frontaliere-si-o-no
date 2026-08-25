@@ -4288,6 +4288,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.spionaggio-svizzera-controlli.title': 'La Svizzera rafforza i controlli sullo spionaggio',
     'blog.article.spionaggio-svizzera-controlli.excerpt': 'La Commissione della politica estera propone misure contro lo spionaggio straniero: controlli sulla carta di legittimazione ed espulsione per agenti esteri.',
     'blog.article.spionaggio-svizzera-controlli.imageAlt': 'Palazzo federale svizzero a Berna, simbolo delle istituzioni nazionali e della sicurezza nazionale',
+    'blog.article.argovia-divieto-velo-scuole.title': 'Argovia verso il divieto del velo nelle scuole',
+    'blog.article.argovia-divieto-velo-scuole.excerpt': 'Gran Consiglio argoviese approva mozione con 78 voti. Governo cantonale si oppone per dubbi costituzionali sulla base della sentenza del Tribunale federale del 2015.',
+    'blog.article.argovia-divieto-velo-scuole.imageAlt': 'Edificio scolastico svizzero con studenti di diverse origini nel cortile interno, architettura elvetica.',
 };
 
 export default blogMetaChIt;
