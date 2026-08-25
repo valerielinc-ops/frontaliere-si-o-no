@@ -4282,6 +4282,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.richieste-asilo-sotto-10-mila-primo-semestre.title': 'Asylum applications: SEM lowers estimates for 2026',
     'blog.article.richieste-asilo-sotto-10-mila-primo-semestre.excerpt': 'In the first half of 2026, fewer than 10,000 asylum applications (the first drop since 2022). SEM forecasts 22,000 for the full year, vs. 26,000 initially estimated.',
     'blog.article.richieste-asilo-sotto-10-mila-primo-semestre.imageAlt': 'Panoramic view of Lugano on Lake Ceresio with Swiss mountains in the background',
+    'blog.article.benzina-diesel-paradosso-petrolio.title': 'Expensive petrol and diesel, but oil goes down',
+    'blog.article.benzina-diesel-paradosso-petrolio.excerpt': 'Despite the 28% drop in oil prices, it is increasingly expensive to fill up in Switzerland. Petrol at 2.13 CHF/litre, diesel at 2.27 CHF/litre: the increase has exceeded 40 cents since February.',
+    'blog.article.benzina-diesel-paradosso-petrolio.imageAlt': 'Fuel pump at a Swiss service station with Alpine foothills in the background',
 };
 
 export default blogMetaChEn;

@@ -12844,6 +12844,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'benzina-diesel-paradosso-petrolio',
+    category: 'pratico',
+    date: '2026-08-25T15:29:10.960Z',
+    image: '/images/blog/benzina-diesel-paradosso-petrolio.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
