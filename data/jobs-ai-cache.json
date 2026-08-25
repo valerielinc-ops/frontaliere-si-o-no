@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "savedAt": "2026-08-25T21:42:59.024Z",
+  "savedAt": "2026-08-25T21:51:15.210Z",
   "entries": [
     {
       "key": "4d181669bd96e760b80bf41b0663154ae9024869b2756f658ebfeb01434c9337",
@@ -232027,11 +232027,11 @@
     },
     {
       "key": "8bfe89095c446577f001e822de93f4e4c1c5be7503214904c9d33127d4a64a48",
-      "touchedAt": 1787434528514,
+      "touchedAt": 1787694608072,
       "value": {
         "isJob": true,
-        "confidence": 0.95,
-        "reason": "Concrete single job posting with specific role title (Responsable d'équipe sinistres complexes), detailed responsibilities section (Ce que tu fais), explicit requirements (Ce que tu apportes), application instructions, hiring contact info, location (Crissier), and employment terms (80-100%). URL structure includes job ID (1368899857). All hallmarks of a genuine job detail page, not a generic careers listing or company information page."
+        "confidence": 0.97,
+        "reason": "Concrete single job posting with specific role title (Responsable d'équipe sinistres complexes 80-100%), detailed responsibilities section (Ce que tu fais), explicit qualifications (Ce que tu apportes), specific location (Crissier/Lausanne), employment terms (80-100% hybrid), job ID (135946), and direct application contact (Manuela Trezzini). All markers of an authentic single job detail page."
       }
     },
     {
@@ -249703,6 +249703,87 @@
         "isJob": true,
         "confidence": 0.96,
         "reason": "Concrete apprenticeship role (Polymécanicien(ne) CFC 4-year) with specific responsibilities (fabrication, programming, maintenance), explicit requirements (motivation, technical skills, language proficiency), application process details (documents needed, interview, observation week), named contact person (Francesco Monteleone), exact work location (Grenches, SO), and start date (August 2027). Not a generic careers listing or category page."
+      }
+    },
+    {
+      "key": "24d86c4c2b846d65de872aff5bdb42c969263ec1bfe25cc40dc15ef01911f391",
+      "touchedAt": 1787694591101,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "Contains concrete role title (AVP, Underwriting Manager - Middle Market), detailed responsibilities and team management scope, explicit required and preferred qualifications with years of experience thresholds, salary range ($182,900-$299,400), location (Seattle), employment type (Full Time, Hybrid), and clear application mechanism. All hallmarks of a single job posting, not a generic careers page."
+      }
+    },
+    {
+      "key": "4aaa7cddcbfbee082828839ff95707d3b619115e14445260808e606b4b4ff0dd",
+      "touchedAt": 1787694649832,
+      "value": {
+        "isJob": true,
+        "confidence": 0.97,
+        "reason": "This is a concrete single job posting with specific role title (Kundenberatung Region OST), job ID (124758), specific locations (Wien, Niederösterreich, Burgenland), detailed responsibilities (customer care, tailored insurance concepts, relationship building), required qualifications (empathy, sales talent, German language), salary range (EUR 32.294,97-35.000 + commissions), and explicit application context ('Jetzt bewerben'). Not a generic careers listing or category page."
+      }
+    },
+    {
+      "key": "526b6771f137f684541ed2e05288f16f7278f4628a654585a058c4a9fd0c6a7a",
+      "touchedAt": 1787694650117,
+      "value": {
+        "isJob": true,
+        "confidence": 0.95,
+        "reason": "Concrete role title (Junior PowerApps Developer Intern) with specific Barcelona location, detailed responsibilities (Power Platform development, cross-functional collaboration, production support), explicit requirements (BS/MS in CS/Engineering, language fluency, programming knowledge), application mechanism (Apply now), and recruiter context (Álvaro). This is a specific job detail page, not a generic careers listing or category page."
+      }
+    },
+    {
+      "key": "4fc00f420d2bac9b723ee6f0289d439f75ff9ab7d90b3314ebec14129de3a998",
+      "touchedAt": 1787694650601,
+      "value": {
+        "isJob": true,
+        "confidence": 0.95,
+        "reason": "Concrete single job posting with specific role title (Responsable d'équipe Broker Account Management West), detailed responsibilities section (Ce que tu fais), specific requirements (Ce que tu apportes), job ID (135086), location (Lausanne/Crissier), employment terms (80-100%, hybrid up to 40%), contact person for application (Manuela Trezzini), and multiple call-to-action buttons. All hallmarks of a dedicated job detail page, not a generic careers listing or company overview."
+      }
+    },
+    {
+      "key": "fb5a53f941da73d0d28d6d1aae56b9fe20ef73573699ab57aa46e72761684808",
+      "touchedAt": 1787694650897,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "Concrete single role: HR Labor Relations Internship (ID: 136334) in Barcelona with detailed responsibilities (labor relations support, documentation, employee lifecycle management), specific requirements (Bachelor's/Master's in HR/Law/related fields, internship eligibility), recruiter introduction, and clear application context. Not a generic careers listing or category page."
+      }
+    },
+    {
+      "key": "625722b56f22e5185e9755715ba67f161ddd32e6a6ec523d55e6436fd2b51459",
+      "touchedAt": 1787694651237,
+      "value": {
+        "isJob": true,
+        "confidence": 98,
+        "reason": "This is a concrete single job detail page with specific role title ('Strategic Relationship Leader, Construction, Commercial Insurance, West Region'), comprehensive job responsibilities section, detailed basic and preferred qualifications, specific reporting structure (reports to Head of CRM), concrete location details (West Region with preferred cities), job ID (136371), and application mechanism ('Apply now'). Contains all hallmarks of a real job posting, not a generic careers listing or company information page."
+      }
+    },
+    {
+      "key": "2c382c0d3b0a011094629a4efa5a890e464f249a1c916f665ab1c3bac0423e70",
+      "touchedAt": 1787694651573,
+      "value": {
+        "isJob": true,
+        "confidence": 0.97,
+        "reason": "Page contains concrete role title (Strategic Relationship Leader, Commercial Insurance, South Region), specific location (Houston/Dallas, TX), job ID (136224), detailed key responsibilities with bullet points, basic and preferred qualifications sections, reporting structure (Head of Customer Relationship Management), travel requirements, and active application mechanism. All markers of a real single job detail page are present."
+      }
+    },
+    {
+      "key": "01dc13228146b9859f0f37fa038faf6bec49bc784a7457ab7dc59560b0c52700",
+      "touchedAt": 1787694651888,
+      "value": {
+        "isJob": true,
+        "confidence": 0.97,
+        "reason": "Concrete single job posting with specific role title (General Liability Claims Specialist I - Dedicated Account), job ID (136387), multiple specific locations (Rocky Hill, Schaumburg, Parsippany, Addison, Atlanta), detailed responsibilities for CGL claims handling, comprehensive basic and preferred qualifications, specific salary range ($49,500-$81,000), work model details (hybrid), and clear application context ('Apply Now' buttons). URL structure also confirms (/job/[title]/[jobID])."
+      }
+    },
+    {
+      "key": "a7a1e600761e36c596b10538c4476384714e6248072c18b43d259fad90e700ba",
+      "touchedAt": 1787694652198,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "Concrete single job posting with specific role title (Strategic Relationship Leader, Commercial Insurance), detailed key responsibilities, comprehensive basic and preferred qualifications, job ID (136225), specific location (Southeast Region), reporting line, and active application workflow. All hallmarks of a genuine job detail page."
       }
     }
   ]
