@@ -4288,6 +4288,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.spionaggio-svizzera-controlli.title': 'La Suisse renforce les contrôles de l\'espionnage',
     'blog.article.spionaggio-svizzera-controlli.excerpt': 'La Commission de la politique étrangère propose des mesures contre l\'espionnage étranger : contrôles sur la carte de légitimation et expulsion des agents étrangers.',
     'blog.article.spionaggio-svizzera-controlli.imageAlt': 'Palais fédéral suisse à Berne, symbole des institutions nationales et de la sécurité',
+    'blog.article.argovia-divieto-velo-scuole.title': 'Argovie vers l\'interdiction du voile dans les écoles',
+    'blog.article.argovia-divieto-velo-scuole.excerpt': 'Le Grand Conseil argovien approuve la motion par 78 voix. Le gouvernement cantonal s\'y oppose pour des doutes constitutionnels sur la base de l\'arrêt du Tribunal fédéral de 2015.',
+    'blog.article.argovia-divieto-velo-scuole.imageAlt': 'Bâtiment scolaire suisse avec des étudiants diversifiés dans la cour, architecture authentique.',
+    'blog.article.verdi-segretaria-stato-clima.title': 'Secrétaire d\'État au climat : la demande des Verts',
+    'blog.article.verdi-segretaria-stato-clima.excerpt': 'Les Verts demandent une secrétaire d\'État pour le climat et la sortie des énergies fossiles. Lisa Mazzone attaque frontalement le conseiller fédéral Rösti.',
+    'blog.article.verdi-segretaria-stato-clima.imageAlt': 'Conférence de presse des Verts demandant un Secrétariat d\'État fédéral pour le climat',
+    'blog.article.mps-sisa-tasse-usi-supsi.title': 'MPS et SISA contre l\'augmentation des frais de scolarité',
+    'blog.article.mps-sisa-tasse-usi-supsi.excerpt': 'Le 25 août, MPS et SISA protestent contre les hausses de taxes chez USI et SUPSI. Les lignes droites tessinoises étaient déjà au-dessus de la moyenne suisse ; préoccupation pour les bilatérales III.',
+    'blog.article.mps-sisa-tasse-usi-supsi.imageAlt': 'Étudiants tessinois au campus de l\'USI à Lugano exprimant des préoccupations face aux augmentations de frais de scolarité.',
+    'blog.article.orologi-export-fh-prudenza.title': 'Exportation montres suisses : FH appelle à la prudence',
+    'blog.article.orologi-export-fh-prudenza.excerpt': 'Juin et juillet augmentent, mais l\'incertitude mondiale freine l\'optimisme. USA stable (+14,9%), Chine crise (-7,1%), France boom anormal (+70%). Accord La Chine réduira les droits de douane.',
+    'blog.article.orologi-export-fh-prudenza.imageAlt': 'Atelier d\'horlogerie suisse avec pièces de précision et montre de luxe, établi de travail traditionnel.',
 };
 
 export default blogMetaChFr;

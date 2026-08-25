@@ -55634,6 +55634,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-argovia-divieto-velo-scuole': {
+    title: 'Argovia verso il divieto del velo nelle scuole',
+    description: 'Parlamento argoviese approva mozione per vietare il velo nelle scuole con 78 voti. Governo si oppone per dubbi di costituzionalità sulla sentenza del 2015',
+    keywords: 'frontalieri, ticino, svizzera, italia, argovia, verso, divieto, velo',
+    ogTitle: 'Argovia verso il divieto del velo nelle scuole',
+    ogDescription: 'Gran Consiglio argoviese approva mozione per vietare il velo alle alunne fino ai 16 anni nelle scuole pubbliche. Governo cantonale si oppone, invocando dubbi sulla costituzionalità e la giurisprudenza del Tribunale federale del 2015. Leggi gli',
+    canonicalPath: '/articoli-svizzera/argovia-divieto-velo-scuole/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Argovia verso il divieto del velo nelle scuole",
+      "description": "Parlamento argoviese approva mozione per vietare il velo nelle scuole con 78 voti. Governo si oppone per dubbi di costituzionalità sulla sentenza del 2015",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/argovia-divieto-velo-scuole.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio scolastico svizzero con studenti di diverse origini nel cortile interno, architettura elvetica."
+      },
+      "datePublished": "2026-08-25T16:30:23+00:00",
+      "dateModified": "2026-08-25T16:30:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/argovia-divieto-velo-scuole/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-verdi-segretaria-stato-clima': {
+    title: 'Segretaria di Stato per il clima: la richiesta dei Verdi',
+    description: 'I Verdi chiedono una nuova Segretaria di Stato per il clima e l\'uscita programmata dalle energie fossili. Attacco diretto al consigliere federale Rösti',
+    keywords: 'frontalieri, ticino, svizzera, italia, segretaria, stato, clima, richiesta',
+    ogTitle: 'Verdi: nuova Segretaria di Stato per il clima',
+    ogDescription: 'I Verdi alzano la pressione sulla politica climatica federale: chiedono una Segretaria di Stato dedicata al clima e un\'uscita programmata dalle energie fossili. Nel mirino il consigliere federale Rösti, accusato di inazione. Leggi cosa cambia per gli',
+    canonicalPath: '/articoli-svizzera/verdi-segretaria-stato-clima/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Segretaria di Stato per il clima: la richiesta dei Verdi",
+      "description": "I Verdi chiedono una nuova Segretaria di Stato per il clima e l'uscita programmata dalle energie fossili. Attacco diretto al consigliere federale Rösti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/verdi-segretaria-stato-clima.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Conferenza stampa dei Verdi sulla richiesta di una Segretaria di Stato per il clima federale"
+      },
+      "datePublished": "2026-08-25T17:21:00+00:00",
+      "dateModified": "2026-08-25T17:21:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/verdi-segretaria-stato-clima/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-mps-sisa-tasse-usi-supsi': {
+    title: 'MPS e SISA contro l\'aumento tasse universitarie',
+    description: 'MPS e SISA contestano l\'aumento tasse universitarie a USI e SUPSI. Le tariffe ticinesi erano già sopra la media svizzera. Preoccupazione per ulteriori rincari.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sisa, contro, aumento, tasse',
+    ogTitle: 'MPS e SISA contro l\'aumento tasse',
+    ogDescription: 'Il Movimento per il Socialismo e il Sindacato Indipendente Studenti contestano l\'aumento delle tasse universitarie presso USI e SUPSI, sottolineando come le tariffe ticinesi fossero già superiori alla media nazionale svizzera. Critica ai tagli',
+    canonicalPath: '/articoli-svizzera/mps-sisa-tasse-usi-supsi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "MPS e SISA contro l'aumento tasse universitarie",
+      "description": "MPS e SISA contestano l'aumento tasse universitarie a USI e SUPSI. Le tariffe ticinesi erano già sopra la media svizzera. Preoccupazione per ulteriori rincari.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mps-sisa-tasse-usi-supsi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studenti ticinesi davanti al campus dell'USI a Lugano manifestano preoccupazione per l'aumento delle tasse universitarie."
+      },
+      "datePublished": "2026-08-25T17:35:54+00:00",
+      "dateModified": "2026-08-25T17:35:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mps-sisa-tasse-usi-supsi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-orologi-export-fh-prudenza': {
+    title: 'Export orologi svizzeri: FH invita alla prudenza',
+    description: 'Giugno-luglio 2026: aumento export orologi, ma presidente FH Bugmann avverte cautela. USA stabile (+14,9%), Cina crisi (-7,1%), Francia anomala (+70%). Accordo',
+    keywords: 'frontalieri, ticino, svizzera, italia, export, orologi, svizzeri, invita',
+    ogTitle: 'Export orologi svizzeri: FH invita alla prudenza',
+    ogDescription: 'Due mesi di aumento export orologi svizzeri, ma incertezza globale frenate l\'ottimismo. USA solido (+14,9%), Cina in crisi (-7,1%), Francia centro logistico (+70%). Accordo Cina apre opportunità tariffarie.',
+    canonicalPath: '/articoli-svizzera/orologi-export-fh-prudenza/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Export orologi svizzeri: FH invita alla prudenza",
+      "description": "Giugno-luglio 2026: aumento export orologi, ma presidente FH Bugmann avverte cautela. USA stabile (+14,9%), Cina crisi (-7,1%), Francia anomala (+70%). Accordo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/orologi-export-fh-prudenza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Laboratorio di orologeria svizzera con componenti di precisione e orologio di lusso, tavolo da lavoro tradizionale."
+      },
+      "datePublished": "2026-08-25T18:00:13+00:00",
+      "dateModified": "2026-08-25T18:00:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/orologi-export-fh-prudenza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

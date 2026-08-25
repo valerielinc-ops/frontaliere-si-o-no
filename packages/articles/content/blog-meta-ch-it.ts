@@ -4288,6 +4288,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.spionaggio-svizzera-controlli.title': 'La Svizzera rafforza i controlli sullo spionaggio',
     'blog.article.spionaggio-svizzera-controlli.excerpt': 'La Commissione della politica estera propone misure contro lo spionaggio straniero: controlli sulla carta di legittimazione ed espulsione per agenti esteri.',
     'blog.article.spionaggio-svizzera-controlli.imageAlt': 'Palazzo federale svizzero a Berna, simbolo delle istituzioni nazionali e della sicurezza nazionale',
+    'blog.article.argovia-divieto-velo-scuole.title': 'Argovia verso il divieto del velo nelle scuole',
+    'blog.article.argovia-divieto-velo-scuole.excerpt': 'Gran Consiglio argoviese approva mozione con 78 voti. Governo cantonale si oppone per dubbi costituzionali sulla base della sentenza del Tribunale federale del 2015.',
+    'blog.article.argovia-divieto-velo-scuole.imageAlt': 'Edificio scolastico svizzero con studenti di diverse origini nel cortile interno, architettura elvetica.',
+    'blog.article.verdi-segretaria-stato-clima.title': 'Segretaria di Stato per il clima: la richiesta dei Verdi',
+    'blog.article.verdi-segretaria-stato-clima.excerpt': 'I Verdi chiedono una Segretaria di Stato per il clima e l\'uscita dalle energie fossili. Lisa Mazzone attacca frontalmente il consigliere federale Rösti.',
+    'blog.article.verdi-segretaria-stato-clima.imageAlt': 'Conferenza stampa dei Verdi sulla richiesta di una Segretaria di Stato per il clima federale',
+    'blog.article.mps-sisa-tasse-usi-supsi.title': 'MPS e SISA contro l\'aumento tasse universitarie',
+    'blog.article.mps-sisa-tasse-usi-supsi.excerpt': 'Il 25 agosto MPS e SISA protestano contro gli aumenti di tasse presso USI e SUPSI. Le rette ticinesi erano già sopra media svizzera; preoccupazione per i Bilaterali III.',
+    'blog.article.mps-sisa-tasse-usi-supsi.imageAlt': 'Studenti ticinesi davanti al campus dell\'USI a Lugano manifestano preoccupazione per l\'aumento delle tasse universitarie.',
+    'blog.article.orologi-export-fh-prudenza.title': 'Export orologi svizzeri: FH invita alla prudenza',
+    'blog.article.orologi-export-fh-prudenza.excerpt': 'Giugno e luglio in aumento, ma incertezza globale frenate ottimismo. USA stabile (+14,9%), Cina crisi (-7,1%), Francia boom anomalo (+70%). Accordo Cina ridurrà dazi doganali.',
+    'blog.article.orologi-export-fh-prudenza.imageAlt': 'Laboratorio di orologeria svizzera con componenti di precisione e orologio di lusso, tavolo da lavoro tradizionale.',
 };
 
 export default blogMetaChIt;

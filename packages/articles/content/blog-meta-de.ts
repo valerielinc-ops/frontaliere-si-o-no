@@ -10780,6 +10780,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fusine-guida-frontaliere.title': 'Leben in Fusine da Frontier: der vollständige Leitfaden',
     'blog.article.fusine-guida-frontaliere.excerpt': 'Fusine bietet niedrigere Wohnkosten und die Nähe zum Tessin für Grenzgänger, die in Graubünden arbeiten. Entdecken Sie G-Bewilligung, Besteuerung, Rückerstattungen, AHV, KVG.',
     'blog.article.fusine-guida-frontaliere.imageAlt': 'Luftaufnahme des Tals zwischen Fusine und der Grenze zum Tessin, Grenzlandschaft zwischen Lombardei und der Schweiz',
+    'blog.article.vilminore-scalve-grigioni-frontaliere.title': 'Leben in Vilminore und Arbeiten in Graubünden: Grenzführer',
+    'blog.article.vilminore-scalve-grigioni-frontaliere.excerpt': 'G-Bewilligung, Besteuerung, AHV und KVG: Kompletter Leitfaden für diejenigen, die von Vilminore di Scalve nach Graubünden ziehen, um dort zu arbeiten. Dokumente, Rückerstattungen und Verfahren.',
+    'blog.article.vilminore-scalve-grigioni-frontaliere.imageAlt': 'Blick auf den Luganosee zwischen der Schweiz und Italien, alpine Grenzregion',
 };
 
 export default blogMetaDe;

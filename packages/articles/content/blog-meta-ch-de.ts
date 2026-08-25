@@ -4288,6 +4288,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.spionaggio-svizzera-controlli.title': 'Schweiz verstärkt Spionagekontrollen',
     'blog.article.spionaggio-svizzera-controlli.excerpt': 'Die Aussenpolitische Kommission schlägt Massnahmen gegen ausländische Spionage vor: Legitimationskartenkontrollen und Ausweisung ausländischer Agenten.',
     'blog.article.spionaggio-svizzera-controlli.imageAlt': 'Schweizer Bundeshaus in Bern, Symbol nationaler Institutionen und Sicherheit',
+    'blog.article.argovia-divieto-velo-scuole.title': 'Aargau auf dem Weg zum Kopftuchverbot in Schulen',
+    'blog.article.argovia-divieto-velo-scuole.excerpt': 'Der Grosse Aargauer Rat nimmt die Motion mit 78 Stimmen an. Die Kantonsregierung wendet sich aus verfassungsrechtlichen Gründen gegen das Bundesgerichtsurteil von 2015.',
+    'blog.article.argovia-divieto-velo-scuole.imageAlt': 'Schweizer Schulgebäude mit Schülern verschiedener Herkunft im Schulhof, authentische Architektur.',
+    'blog.article.verdi-segretaria-stato-clima.title': 'Staatssekretärin für Klima: Die Forderung der Grünen',
+    'blog.article.verdi-segretaria-stato-clima.excerpt': 'Die Grünen fordern eine Staatssekretärin für Klima und den Ausstieg aus fossilen Energien. Lisa Mazzone greift Bundesrat Rösti frontal an.',
+    'blog.article.verdi-segretaria-stato-clima.imageAlt': 'Pressekonferenz der Grünen zur Forderung eines Klimastaatssekretariats auf Bundesebene',
+    'blog.article.mps-sisa-tasse-usi-supsi.title': 'MPS und SISA gegen die Erhöhung der Studiengebühren',
+    'blog.article.mps-sisa-tasse-usi-supsi.excerpt': 'Am 25. August protestieren MPS und SISA gegen Steuererhöhungen bei USI und SUPSI. Die Tessiner Strafen lagen bereits über dem Schweizer Durchschnitt; Sorge um die Bilateralen III.',
+    'blog.article.mps-sisa-tasse-usi-supsi.imageAlt': 'Tessiner Studierende am USI-Campus in Lugano äußern Bedenken zu den erhöhten Studiengebühren.',
+    'blog.article.orologi-export-fh-prudenza.title': 'Schweizer Uhrenexport: FH mahnt zur Vorsicht',
+    'blog.article.orologi-export-fh-prudenza.excerpt': 'Juni und Juli auf dem Vormarsch, aber globale Unsicherheit bremst Optimismus. USA stabil (+14,9%), China Krise (-7,1%), Frankreich abnormaler Boom (+70%). Chinas Abkommen wird die Zölle senken.',
+    'blog.article.orologi-export-fh-prudenza.imageAlt': 'Schweizer Uhrmacherwerkstatt mit Präzisionsteilen und Luxusuhr auf traditionellem Arbeitstisch.',
 };
 
 export default blogMetaChDe;

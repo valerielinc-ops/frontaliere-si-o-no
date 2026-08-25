@@ -10781,6 +10781,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fusine-guida-frontaliere.title': 'Living in Fusine as a border crosser: the complete guide',
     'blog.article.fusine-guida-frontaliere.excerpt': 'Fusine offers lower housing costs and proximity to Ticino for border workers working in Graubünden. Discover permit G, taxation, refunds, AVS, LAMal.',
     'blog.article.fusine-guida-frontaliere.imageAlt': 'Aerial view of the valley between Fusine and the Ticino border, transborder landscape between Lombardy and Switzerland',
+    'blog.article.vilminore-scalve-grigioni-frontaliere.title': 'Living in Vilminore and working in Graubünden: border guide',
+    'blog.article.vilminore-scalve-grigioni-frontaliere.excerpt': 'Permit G, taxation, AVS and LAMal: complete guide for those who move from Vilminore di Scalve to work in Graubünden. Documents, refreshments and procedures.',
+    'blog.article.vilminore-scalve-grigioni-frontaliere.imageAlt': 'Lake Lugano landscape between Switzerland and Italy, alpine border villages',
 };
 
 export default blogMetaEn;
