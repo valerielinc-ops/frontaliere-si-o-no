@@ -10766,6 +10766,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.torre-santa-maria-lavoro-grigioni-frontaliere.title': 'Torre di Santa Maria: Guide for Border Workers',
     'blog.article.torre-santa-maria-lavoro-grigioni-frontaliere.excerpt': 'Permit G, tax at source, LAMal and AVS/LPP: how the tax and social security regime works for those who work in Switzerland from the Ticino border.',
     'blog.article.torre-santa-maria-lavoro-grigioni-frontaliere.imageAlt': 'Border valley between Italy and Switzerland showing typical Ticino and Grisons mountain landscape',
+    'blog.article.sluderno-guida-frontaliera.title': 'Living in Sluderno, working in Graubünden: cross-border',
+    'blog.article.sluderno-guida-frontaliera.excerpt': 'Complete guide: G permit, border tax, LAMal and step-by-step procedures for those who want to move to Sluderno and work in Switzerland.',
+    'blog.article.sluderno-guida-frontaliera.imageAlt': 'View of Bellinzona: Alpine Ticino landscape representing the geographic context for those working in Switzerland',
 };
 
 export default blogMetaEn;

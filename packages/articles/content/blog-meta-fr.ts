@@ -10768,6 +10768,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.torre-santa-maria-lavoro-grigioni-frontaliere.title': 'Travailler en Grisons, vivre à Torre di Santa Maria',
     'blog.article.torre-santa-maria-lavoro-grigioni-frontaliere.excerpt': 'Permis G, impôt à la source, LAMal et AVS/LPP : comment fonctionne le régime fiscal et de sécurité sociale pour ceux qui travaillent en Suisse depuis la frontière tessinoise.',
     'blog.article.torre-santa-maria-lavoro-grigioni-frontaliere.imageAlt': 'Vallée frontalière entre l\'Italie et la Suisse avec paysage montagneux typique du Tessin et des Grisons',
+    'blog.article.sluderno-guida-frontaliera.title': 'Vivre à Sluderno, travailler dans les Grisons : frontalier',
+    'blog.article.sluderno-guida-frontaliera.excerpt': 'Guide complet : permis G, fiscalité frontalière, LAMal et procédures étape par étape pour ceux qui veulent déménager à Sluderno et travailler en Suisse.',
+    'blog.article.sluderno-guida-frontaliera.imageAlt': 'Vue de Bellinzona : paysage alpin tessinois représentant le contexte géographique pour les travailleurs frontaliers',
 };
 
 export default blogMetaFr;

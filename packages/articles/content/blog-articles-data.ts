@@ -32214,6 +32214,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'sluderno-guida-frontaliera',
+ category: 'pratico',
+ date: '2026-08-25T08:55:37.785Z',
+ image: '/images/blog/sluderno-guida-frontaliera.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
