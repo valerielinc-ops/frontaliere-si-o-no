@@ -940,6 +940,10 @@ export const newsletterRecordConsent = onRequest(
  : null,
  consent_user_agent: truncateUserAgent(req.get('user-agent')),
  consent_upgraded_at: FieldValue.serverTimestamp(),
+ // Server-owned, forced true unconditionally: this handler only runs past
+ // decideRecordConsent's email_verified===true gate, so every write it makes
+ // IS a verified proof of possession — never read from the body (#5926).
+ consent_proof_verified: true,
  ...ipStamp,
  };
  // Field-level merge: `status`, `active` and every counter are left exactly
