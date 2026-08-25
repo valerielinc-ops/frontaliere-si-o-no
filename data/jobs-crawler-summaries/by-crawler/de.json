@@ -1,20 +1,54 @@
 {
   "key": "de",
   "label": "MPI AGE",
-  "generatedAt": "2026-08-25T10:19:07.913Z",
+  "generatedAt": "2026-08-25T21:44:41.298Z",
   "total": 2,
   "discovered": null,
   "written": 2,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4746,
-  "avgDurationMs": 4746,
+  "durationMs": 5862,
+  "avgDurationMs": 5862,
   "durationHistory": [
-    4746
+    5862
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "de-b774c5cb8a54",
+      "slug": "tierpfleger-in-w-m-d-de-ch",
+      "company": "MPI AGE",
+      "companyKey": "de",
+      "companyDomain": "mpi-age.de.umantis.com",
+      "title": "Tierpfleger/in (w/m/d)",
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://mpi-age.de.umantis.com/Vacancies/506/Description/1",
+      "source": "MPI AGE Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T21:44:36.975Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-25",
+      "applyUrl": "https://mpi-age.de.umantis.com/Vacancies/506/Description/1",
+      "_qualityScore": 43,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 0,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "de-dfc4921b55ae",
@@ -28,7 +62,7 @@
       "url": "https://mpi-age.de.umantis.com/Vacancies/504/Description/1",
       "source": "MPI AGE Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T10:19:04.643Z",
+      "crawledAt": "2026-08-25T21:44:37.317Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -63,7 +97,7 @@
       "url": "https://mpi-age.de.umantis.com/Vacancies/505/Description/1",
       "source": "MPI AGE Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T10:19:04.965Z",
+      "crawledAt": "2026-08-25T21:44:37.622Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
