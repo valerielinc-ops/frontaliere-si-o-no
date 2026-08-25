@@ -10750,6 +10750,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-sondrio-lavorare-grigioni.title': 'Wohnen in Sondrio und Arbeiten in Graubünden als Grenzgänger',
     'blog.article.vivere-sondrio-lavorare-grigioni.excerpt': 'Praktischer Leitfaden für diejenigen, die in Sondrio leben und im Kanton Graubünden arbeiten: Verbindungen, Quellensteuer, Vorsorge und Schlüsselaspekte.',
     'blog.article.vivere-sondrio-lavorare-grigioni.imageAlt': 'Alpine Landschaft zwischen Italien und der Schweiz für Grenzgänger',
+    'blog.article.mazzo-valtellina-frontaliere-pratica.title': 'Vivere in Mazzo, lavorare in Grigioni: guida frontaliere',
+    'blog.article.mazzo-valtellina-frontaliere-pratica.excerpt': 'Bewilligung G, Doppelbesteuerung, AHV, BVG, KVG: der praktische Leitfaden für das grenzüberschreitende Pendeln zwischen Veltlin und Graubünden ab 2024.',
+    'blog.article.mazzo-valtellina-frontaliere-pratica.imageAlt': 'Alpine Berglandschaft an der Grenze zwischen Tessin und Graubünden mit Bergwiesen und entfernten Tälern.',
 };
 
 export default blogMetaDe;

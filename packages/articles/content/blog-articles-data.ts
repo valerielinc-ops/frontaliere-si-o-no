@@ -32169,6 +32169,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'mazzo-valtellina-frontaliere-pratica',
+ category: 'fiscale',
+ date: '2026-08-25T06:23:04.400Z',
+ image: '/images/blog/mazzo-valtellina-frontaliere-pratica.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
