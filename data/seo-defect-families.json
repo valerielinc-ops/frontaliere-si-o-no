@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "_comment": "Per-family ledger for the content-defect SEO families aggregated by follow-up issues #5845 and #6222. One entry per family: which gate MEASURES it, what its ceiling is, and the run the ceiling was sealed from. Read scripts/lib/seoDefectRatchet.mjs for the semantics and for why a ceiling is not a threshold relaxation here (AGENTS.md non-negotiable #1's delimited reassembled-corpus exception, owner 2026-08-20). `ceilingRatePct` is offenders per 100 files SCANNED — a rate, because post-deploy-validate-dist.yml pins AUDIT_SAMPLE_RATE=0.25 and a sampled count is not comparable to a full walk. Ceilings only DESCEND: scripts/lib/seoDefectRatchet.mjs::tightenLedger throws on a raise, and tests/seo/seo-defect-ratchet.test.ts asserts that it does.",
+  "_enforcement": {
+    "ratchet": "the auditor reads this entry and fails only above the ceiling. Used ONLY where the pre-existing verdict was zero tolerance over a corpus with a large historical population, i.e. permanently red.",
+    "zero-tolerance": "the auditor keeps its own hard 0 and does NOT read this file. The entry exists so the family is tracked and so a regression from 0 is attributable to a named issue bullet. Zero is already the tightest ceiling reachable — putting a ratchet here would be a relaxation.",
+    "existing-baseline": "the family already had a rate ratchet before this ledger, in its own baseline file. Recorded here for traceability; the ceiling lives in the file named by `baselineFile`.",
+    "unmeasured": "no corpus-wide automatic measure exists at a granularity this ledger can ratchet. No ceiling is invented. `blocker` says what would unblock it."
+  },
+  "_measurementSource": {
+    "workflow": "deploy-publish.yml → post-deploy-validate-dist.yml (validate-dist-postbuild), npm run audit:all",
+    "sampleRate": 0.25,
+    "note": "AUDIT_SAMPLE_RATE=0.25 walks a rotating quarter of dist/ per run; four consecutive runs cover the corpus. Every ceiling below was sealed from the WORST (highest) of the four buckets listed in `buckets`, so the ratchet starts green on any of them rather than on the lucky one.",
+    "buckets": [
+      { "runId": "32805180708", "ranAt": "2026-08-25T03:26Z", "bucket": "1/4", "filesScanned": 1006183 },
+      { "runId": "32814834232", "ranAt": "2026-08-25T05:56Z", "bucket": "2/4", "filesScanned": 1006669 },
+      { "runId": "32796049139", "ranAt": "2026-08-25T01:03Z", "bucket": "3/4", "filesScanned": 1006879 },
+      { "runId": "32826787615", "ranAt": "2026-08-25T08:28Z", "bucket": "4/4", "filesScanned": 1007060 }
+    ]
+  },
+  "families": {
+    "single-h1-per-page": {
+      "issue": "#5845 item 1 — 12 job pages with multiple H1 (embedded ATS markup)",
+      "gate": "audit:all/single-h1-per-page",
+      "script": "scripts/audit-single-h1-per-page.mjs",
+      "enforcement": "zero-tolerance",
+      "ceilingRatePct": 0,
+      "status": "at zero",
+      "measurement": {
+        "observedOffenders": [0, 0, 0, 0],
+        "acrossBuckets": "1/4..4/4",
+        "measuredAt": "2026-08-25",
+        "note": "0 offenders on all four buckets, i.e. 0 across the whole ~4.03M-file dist/. The 12 pages the issue cites no longer exist in the corpus; the bullet is closable on this measurement."
+      }
+    },
+    "link-anchor-text-non-descriptive": {
+      "issue": "#5845 item 2 — 48 non-descriptive anchors; also the anchor half of #6222 item 1",
+      "gate": "audit:all/link-anchor-text",
+      "script": "scripts/audit-link-anchor-text.mjs",
+      "enforcement": "ratchet",
+      "ceilingRatePct": 0.0016896,
+      "tolerance": { "relPct": 20, "absPp": 0, "minAbsDelta": 12 },
+      "status": "red before this ledger — the auditor's `nonDescriptiveTotal === 0` clause is a hard zero next to a carefully-built rate gate for its own sibling half (`unnamedAnchors`, which passes)",
+      "measurement": {
+        "observedOffenders": [17, 9, 11, 11],
+        "acrossBuckets": "1/4..4/4",
+        "worstBucket": { "runId": "32805180708", "offenders": 17, "filesScanned": 1006183, "ratePct": 0.0016896 },
+        "corpusEstimate": 48,
+        "measuredAt": "2026-08-25",
+        "note": "Sealed from the worst bucket. THE NOISE FLOOR IS WIDE AND THAT IS NOT HIDDEN: at ~12 offenders per draw the Poisson sigma is ~3.5, so `minAbsDelta: 12` (~3 sigma) means the gate fires around 30 in a bucket, i.e. it catches a doubling of the population and not a drift of five. That is the honest limit of ratcheting a small count on a 25 % sample. The real close for this family is not a tighter ceiling: all offenders are enumerated in the failure message and in dist/audit-reports/link-anchor-text.json, and they are two templates — `/cerca-lavoro-ticino/ricerca/page-N/` pagination ('scopri'/'continua'/'mehr') plus one article using 'qui'."
+      }
+    },
+    "cluster-canonical-hreflang": {
+      "issue": "#5845 item 3 — 347 non-conforming canonical/hreflang lines (cluster-contract)",
+      "gate": "gate:dist-quality → tests/seo/related-search-clusters-emitted.test.ts",
+      "enforcement": "unmeasured",
+      "ceilingRatePct": null,
+      "status": "blocked",
+      "blocker": "No corpus-wide automatic measure exists at ratchet granularity. The 347 came from a measurement that the gate's own header now records as ~100 % false positive (the regexes required `rel=\"canonical\"` where the build's minifier emits `rel=canonical`; 146 canonical and 199-of-199 hreflang offenders on run 31891126686 were all artifacts). What replaced it, in #6216, is a fixed SYSTEMIC_RATE_CEILING over a stride sample of 50 cluster pages per locale — n=200. A ceiling ratchet on n=200 at a ~1 % rate has a binomial sigma near the signal itself and would flap on which stride the sample took, which is the failure mode that gets a gate switched off. Inventing a threshold here would be a fake ratchet, so none is written.",
+      "corroboration": "The two canonical/hreflang gates that DO walk the corpus were green on the same run 32826787615: audit:hreflang 0 offenders, audit:canonical-trailing-slash 1 (passing). That is independent evidence the 347 was the measurement bug and not a population — but neither gate is scoped to cluster pages, so neither can close this bullet on its own.",
+      "unblockedBy": "a cluster-scoped canonical/hreflang auditor folded into audit:all's single walk. scripts/audit-hreflang.mjs and scripts/audit-canonical-trailing-slash.mjs already walk dist/ corpus-wide, but as separate Node processes outside the unified runner and without the cluster-page scoping this family needs, so their counts are not on this ledger's scale. Folding them in is the same migration #5845 item 6 performed for the four auditors above."
+    },
+    "title-length": {
+      "issue": "#5845 item 4 — 475 titles over 66 chars",
+      "gate": "audit:all/title-length",
+      "script": "scripts/audit-title-length.mjs",
+      "enforcement": "existing-baseline",
+      "baselineFile": "data/title-length-baseline.json",
+      "ceilingRatePct": null,
+      "status": "already ratcheted before this ledger",
+      "measurement": {
+        "observedOffenders": [1346, 1400, 1412, 1357],
+        "acrossBuckets": "1/4..4/4",
+        "measuredAt": "2026-08-25",
+        "note": "Passing, with baselineDelta.regression = 0. The per-feature rate ratchet in data/title-length-baseline.json already does what this ledger would do; duplicating the ceiling here would create two sources of truth for one family."
+      }
+    },
+    "breadcrumb-coverage": {
+      "issue": "#5845 item 5 — 53 pages missing BreadcrumbList",
+      "gate": "audit:all/breadcrumb-coverage",
+      "script": "scripts/audit-breadcrumb-coverage.mjs",
+      "enforcement": "zero-tolerance",
+      "ceilingRatePct": 0,
+      "status": "at zero",
+      "measurement": {
+        "observedOffenders": [0, 0, 0, 0],
+        "acrossBuckets": "1/4..4/4",
+        "measuredAt": "2026-08-25",
+        "note": "0 offenders on all four buckets. The 53 pages the issue cites are gone; the bullet is closable on this measurement."
+      }
+    },
+    "duplicate-meta-description": {
+      "issue": "#6222 item 1 — duplicate meta descriptions stay red on the same run",
+      "gate": "audit:all/duplicate-meta-description",
+      "script": "scripts/audit-duplicate-meta-description.mjs",
+      "enforcement": "ratchet",
+      "ceilingRatePct": 4.9043,
+      "tolerance": { "relPct": 0, "absPp": 0.1, "minAbsDelta": 500 },
+      "status": "red before this ledger — zero tolerance over ~197'000 historical offender pages",
+      "measurement": {
+        "observedOffenders": [49228, 49141, 49379, 49372],
+        "acrossBuckets": "1/4..4/4",
+        "worstBucket": { "runId": "32796049139", "offenders": 49379, "filesScanned": 1006879, "ratePct": 4.904164 },
+        "corpusEstimate": 197120,
+        "measuredAt": "2026-08-25",
+        "note": "The offender unit is a DESCRIPTION GROUP over 2 pages, not a page. Bucket-to-bucket the rate moves only 4.8815..4.9042 %, so unlike the anchor family this one ratchets tightly: relPct 0 with absPp 0.10 caps at 5.0043 %, ~3 sigma on n=49k. Concentrated, not diffuse: the top group alone is 11'179 pages sharing one expired-job boilerplate ('This position has been updated or removed' and its three locale twins), so a single template fix moves the rate by a visible amount and the ceiling descends with it."
+      }
+    },
+    "duplicate-structured-data": {
+      "issue": "not named in #5845/#6222 — sibling auditor folded in by #5845 item 6, tracked so the fold's four auditors are all accounted for",
+      "gate": "audit:all/duplicate-structured-data",
+      "script": "scripts/audit-duplicate-structured-data.mjs",
+      "enforcement": "zero-tolerance",
+      "ceilingRatePct": 0,
+      "status": "at zero",
+      "measurement": {
+        "observedOffenders": [0, 0, 0, 0],
+        "acrossBuckets": "1/4..4/4",
+        "measuredAt": "2026-08-25"
+      }
+    }
+  }
+}
