@@ -4261,6 +4261,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.diesel-rincaro-geopolitica-svizzera.title': 'Vola il prezzo del diesel in Svizzera',
     'blog.article.diesel-rincaro-geopolitica-svizzera.excerpt': 'Il diesel costa oltre CHF 2,20/litro in Svizzera, trainato da raffinerie danneggiate nel Golfo, lo Stretto di Hormuz chiuso e riduzioni russe. Effetti sui prezzi al supermercato e agricoltura.',
     'blog.article.diesel-rincaro-geopolitica-svizzera.imageAlt': 'Camion su autostrada svizzera al tramonto, simbolo dell\'impatto del rincaro del diesel su trasporti e logistica',
+    'blog.article.amrize-cfo-lascia-sorpresa-borsa.title': 'Amrize: il CFO lascia a sorpresa, giù in borsa',
+    'blog.article.amrize-cfo-lascia-sorpresa-borsa.excerpt': 'Baris Oran lascia dopo 5 mesi da responsabile finanze. Samuel Poletti nuovo CFO. Titolo Amrize scende del 2% alla borsa di Zurigo, -20% da gennaio.',
+    'blog.article.amrize-cfo-lascia-sorpresa-borsa.imageAlt': 'Palazzo della borsa di Zurigo con grafico del titolo Amrize, rappresentando la reazione del mercato al cambio di CFO.',
 };
 
 export default blogMetaChIt;

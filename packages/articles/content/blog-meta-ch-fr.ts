@@ -4261,6 +4261,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.diesel-rincaro-geopolitica-svizzera.title': 'Voler le prix du diesel en Suisse',
     'blog.article.diesel-rincaro-geopolitica-svizzera.excerpt': 'Le diesel coûte plus de CHF 2,20/litre en Suisse, tiré par des raffineries endommagées dans le golfe, le détroit d\'Ormuz fermé et des réductions russes. Effets sur les prix au supermarché et dans l\'agriculture.',
     'blog.article.diesel-rincaro-geopolitica-svizzera.imageAlt': 'Autoroute suisse avec camion au coucher du soleil, représentant le secteur des transports affecté par la hausse du diesel',
+    'blog.article.amrize-cfo-lascia-sorpresa-borsa.title': 'Amrize : le directeur financier laisse la surprise, en baisse en bourse',
+    'blog.article.amrize-cfo-lascia-sorpresa-borsa.excerpt': 'Baris Oran quitte après 5 mois de responsable des finances. Samuel Poletti nouveau CFO. Le titre Amrize chute de 2% à la Bourse de Zurich, -20% depuis janvier.',
+    'blog.article.amrize-cfo-lascia-sorpresa-borsa.imageAlt': 'Immeuble de la bourse de Zurich avec graphique du titre Amrize, représentant la réaction du marché au changement de direction.',
 };
 
 export default blogMetaChFr;

@@ -4261,6 +4261,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.diesel-rincaro-geopolitica-svizzera.title': 'Fly the price of diesel in Switzerland',
     'blog.article.diesel-rincaro-geopolitica-svizzera.excerpt': 'Diesel costs over CHF 2.20/litre in Switzerland, towed by damaged refineries in the Gulf, the closed Strait of Hormuz and Russian reductions. Effects on supermarket and agricultural prices.',
     'blog.article.diesel-rincaro-geopolitica-svizzera.imageAlt': 'Swiss highway with truck at sunset, representing the logistics sector impacted by diesel price increases',
+    'blog.article.amrize-cfo-lascia-sorpresa-borsa.title': 'Amrize: the CFO leaves a surprise, down in the bag',
+    'blog.article.amrize-cfo-lascia-sorpresa-borsa.excerpt': 'Baris Oran leaves after 5 months as finance manager. Samuel Poletti new CFO. Amrize shares fell 2% on the Zurich Stock Exchange, -20% since January.',
+    'blog.article.amrize-cfo-lascia-sorpresa-borsa.imageAlt': 'Zurich stock exchange building with Amrize stock market performance chart, representing market reaction to CFO transition.',
 };
 
 export default blogMetaChEn;

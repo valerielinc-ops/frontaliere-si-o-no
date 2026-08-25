@@ -55283,6 +55283,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-amrize-cfo-lascia-sorpresa-borsa': {
+    title: 'Amrize: il CFO lascia a sorpresa, giù in borsa',
+    description: 'Baris Oran lascia Amrize dopo 5 mesi da CFO. Samuel Poletti nuovo responsabile finanze. Titolo perde il 2% a Zurigo, -20% da gennaio. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, amrize, lascia, sorpresa, borsa',
+    ogTitle: 'Amrize: il CFO lascia a sorpresa, giù in borsa',
+    ogDescription: 'Sorpresa ai vertici di Amrize: il CFO Baris Oran se ne va dopo appena 5 mesi. Samuel Poletti nominato nuovo responsabile finanze. La borsa di Zurigo reagisce: titolo perde il 2% in prima seduta, proseguendo un calo del 20% da gennaio. L\'azienda conta',
+    canonicalPath: '/articoli-svizzera/amrize-cfo-lascia-sorpresa-borsa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Amrize: il CFO lascia a sorpresa, giù in borsa",
+      "description": "Baris Oran lascia Amrize dopo 5 mesi da CFO. Samuel Poletti nuovo responsabile finanze. Titolo perde il 2% a Zurigo, -20% da gennaio. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/amrize-cfo-lascia-sorpresa-borsa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo della borsa di Zurigo con grafico del titolo Amrize, rappresentando la reazione del mercato al cambio di CFO."
+      },
+      "datePublished": "2026-08-25T10:57:25+00:00",
+      "dateModified": "2026-08-25T10:57:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/amrize-cfo-lascia-sorpresa-borsa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
