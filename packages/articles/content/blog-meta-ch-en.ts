@@ -4288,6 +4288,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.spionaggio-svizzera-controlli.title': 'Switzerland strengthens controls on espionage',
     'blog.article.spionaggio-svizzera-controlli.excerpt': 'The Foreign Policy Commission proposes measures against foreign espionage: checks on the legitimacy card and expulsion for foreign agents.',
     'blog.article.spionaggio-svizzera-controlli.imageAlt': 'Swiss Federal Palace in Bern, symbol of national institutions and security',
+    'blog.article.argovia-divieto-velo-scuole.title': 'Aargau towards a ban on headscarves in schools',
+    'blog.article.argovia-divieto-velo-scuole.excerpt': 'The Argovian Grand Council approved the motion with 78 votes. Cantonal government objects due to constitutional doubts on the basis of the 2015 Federal Court ruling.',
+    'blog.article.argovia-divieto-velo-scuole.imageAlt': 'Swiss school building with diverse students in courtyard, authentic educational setting.',
 };
 
 export default blogMetaChEn;

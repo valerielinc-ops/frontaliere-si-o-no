@@ -4288,6 +4288,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.spionaggio-svizzera-controlli.title': 'La Suisse renforce les contrôles de l\'espionnage',
     'blog.article.spionaggio-svizzera-controlli.excerpt': 'La Commission de la politique étrangère propose des mesures contre l\'espionnage étranger : contrôles sur la carte de légitimation et expulsion des agents étrangers.',
     'blog.article.spionaggio-svizzera-controlli.imageAlt': 'Palais fédéral suisse à Berne, symbole des institutions nationales et de la sécurité',
+    'blog.article.argovia-divieto-velo-scuole.title': 'Argovie vers l\'interdiction du voile dans les écoles',
+    'blog.article.argovia-divieto-velo-scuole.excerpt': 'Le Grand Conseil argovien approuve la motion par 78 voix. Le gouvernement cantonal s\'y oppose pour des doutes constitutionnels sur la base de l\'arrêt du Tribunal fédéral de 2015.',
+    'blog.article.argovia-divieto-velo-scuole.imageAlt': 'Bâtiment scolaire suisse avec des étudiants diversifiés dans la cour, architecture authentique.',
 };
 
 export default blogMetaChFr;
