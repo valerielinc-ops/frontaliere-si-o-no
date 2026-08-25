@@ -27,11 +27,24 @@
  *    posting 400s until the audit is granted. TIKTOK_PRIVACY_LEVEL below
  *    defaults to the safe pre-audit value; the owner can override once
  *    audited.
+ * 5. Access tokens last 24h (vs LinkedIn member's ~60 days) — this is a
+ *    daily/weekly cron, so getAccessToken() below refreshes via
+ *    TIKTOK_REFRESH_TOKEN before falling back to the static
+ *    TIKTOK_ACCESS_TOKEN, same shape as post-to-linkedin-member.mjs. TikTok
+ *    may rotate the refresh token on use (per its own docs, "the returned
+ *    refresh_token may [be a new] one"); this script does not persist a
+ *    rotated token back to Remote Config — same known limitation as the
+ *    LinkedIn member poster. Re-run scripts/tiktok-auth.mjs if refresh
+ *    starts failing near the 365-day refresh-token expiry.
  *
  * The exact request/response shape below is written from TikTok's published
- * Content Posting API docs, NOT verified against a live call — there is no
- * TIKTOK_ACCESS_TOKEN yet (no developer app / audit exists as of this
- * writing, see CLAUDE.md). Re-check developers.tiktok.com/doc/content-posting-api-reference-direct-post
+ * Content Posting API docs, cross-checked field-by-field against the docs a
+ * second time when scripts/tiktok-auth.mjs was added (including the
+ * `publicaly_available_post_id` misspelling in TikTok's own response, which
+ * is intentional here, not a bug) — but still never exercised against a live
+ * call, because TIKTOK_ACCESS_TOKEN is not minted until the owner runs
+ * scripts/tiktok-auth.mjs and TikTok's app review is still pending (see
+ * CLAUDE.md). Re-check developers.tiktok.com/doc/content-posting-api-reference-direct-post
  * against this code the first time a real token is available, before
  * trusting the first non-dry-run post.
  *
@@ -43,8 +56,12 @@
  *   npx tsx scripts/post-to-tiktok.mjs --date=2026-08-23
  *
  * Env (all via Firebase Remote Config → scripts/load-rc-env.mjs):
- *   TIKTOK_ACCESS_TOKEN    required — no TikTok developer app exists yet, so
- *                           this is unset today and the poster soft-skips.
+ *   TIKTOK_ACCESS_TOKEN    required unless the refresh trio below is set —
+ *                           mint both via `node scripts/tiktok-auth.mjs`.
+ *                           ABSENT until the owner runs that helper, so the
+ *                           poster soft-skips until then.
+ *   TIKTOK_REFRESH_TOKEN   + TIKTOK_CLIENT_KEY + TIKTOK_CLIENT_SECRET →
+ *                           auto-refresh before each run (see point 5 above)
  *   TIKTOK_PRIVACY_LEVEL   optional, defaults to SELF_ONLY (see point 4 above)
  *   GA4_PROPERTY_ID        defaults to properties/524485296
  *   R2_ACCESS_KEY_ID / R2_SECRET_ACCESS_KEY / R2_S3_ENDPOINT / R2_BUCKET
@@ -94,9 +111,44 @@ const PUBLISH_STATUS_DELAY_MS = 3000;
 
 // ─────────────────────────── credentials ───────────────────────────
 
-function getAccessToken() {
-  const token = String(process.env.TIKTOK_ACCESS_TOKEN || '').trim();
-  return token || null;
+/**
+ * Resolve the TikTok user access token, refreshing first when possible.
+ *
+ * Mirrors post-to-linkedin-member.mjs's getAccessToken(): try the
+ * refresh_token grant when the trio is present, fall back to the static
+ * token. Necessary here in a way it barely is for LinkedIn — TikTok access
+ * tokens last 24h (see header point 5), so a purely-static token would work
+ * on the first cron run after `tiktok-auth.mjs` and fail every run after.
+ */
+async function getAccessToken() {
+  const refreshToken = String(process.env.TIKTOK_REFRESH_TOKEN || '').trim();
+  const clientKey = String(process.env.TIKTOK_CLIENT_KEY || '').trim();
+  const clientSecret = String(process.env.TIKTOK_CLIENT_SECRET || '').trim();
+  const staticToken = String(process.env.TIKTOK_ACCESS_TOKEN || '').trim() || null;
+
+  if (refreshToken && clientKey && clientSecret) {
+    try {
+      const res = await fetch(`${TIKTOK_API}/oauth/token/`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          grant_type: 'refresh_token',
+          refresh_token: refreshToken,
+          client_key: clientKey,
+          client_secret: clientSecret,
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (data.access_token) {
+        console.log(`🔄 access token refreshed (expires in ${data.expires_in}s)`);
+        return data.access_token;
+      }
+      console.warn(`⚠️  token refresh failed (${res.status}) — falling back to the static token`);
+    } catch (err) {
+      console.warn(`⚠️  token refresh threw: ${err.message}`);
+    }
+  }
+  return staticToken;
 }
 
 function getPrivacyLevel() {
@@ -369,7 +421,7 @@ async function main() {
 
   console.log(`─── TikTok daily/weekly — day ${day}${dryRun ? ' (dry run)' : ''} ───`);
 
-  const accessToken = dryRun ? null : getAccessToken();
+  const accessToken = dryRun ? null : await getAccessToken();
 
   // border is weekly and never runs implicitly — only when explicitly asked
   // for (the dedicated weekly cron passes --only=border).
