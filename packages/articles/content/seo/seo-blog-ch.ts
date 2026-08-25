@@ -55829,6 +55829,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-immobiliare-berna-mutuo-costi': {
+    title: 'Comprare casa in Berna: prezzi, mutuo e imposte',
+    description: 'Guida agli acquisti immobiliari nel Canton Berna: costi di mutuo, fondi propri, imposte trapassi, spese notarili e procedura di registrazione fondiaria',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, berna, prezzi',
+    ogTitle: 'Comprare casa in Berna: costi e mutuo ipotecario',
+    ogDescription: 'Vuoi acquistare casa nel Canton Berna? Scopri come funzionano i mutui ipotecari svizzeri, quanto investire di fondi propri, quali imposte pagare e come procedere con la registrazione. Guida completa ai costi e alla procedura di compravendita',
+    canonicalPath: '/articoli-svizzera/immobiliare-berna-mutuo-costi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa in Berna: prezzi, mutuo e imposte",
+      "description": "Guida agli acquisti immobiliari nel Canton Berna: costi di mutuo, fondi propri, imposte trapassi, spese notarili e procedura di registrazione fondiaria",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/immobiliare-berna-mutuo-costi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Casa moderna nel Canton Berna con montagne sullo sfondo, simbolo del mercato immobiliare svizzero"
+      },
+      "datePublished": "2026-08-25T20:21:08+00:00",
+      "dateModified": "2026-08-25T20:21:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/immobiliare-berna-mutuo-costi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

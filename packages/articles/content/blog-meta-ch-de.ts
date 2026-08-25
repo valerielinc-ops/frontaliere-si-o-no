@@ -4303,6 +4303,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.asilo-reati-prigioni-maghreb.title': 'Asyl und Straftaten, der Experte: Gefängnisse machen keine Angst',
     'blog.article.asilo-reati-prigioni-maghreb.excerpt': 'Kriminalitätsrate über 80% unter Asylbewerbern aus dem Maghreb. Gemäss Experte Beat Stauffer sind die Ursachen sozioökonomisch und die Schweizer Gefängnisse haben kaum abschreckende Wirkung.',
     'blog.article.asilo-reati-prigioni-maghreb.imageAlt': 'Schweizer Bundesverwaltungsgebäude in Bern, Sitz des Staatssekretariats für Migration',
+    'blog.article.immobiliare-berna-mutuo-costi.title': 'Haus kaufen in Bern: Preise, Hypothek und Steuern',
+    'blog.article.immobiliare-berna-mutuo-costi.excerpt': 'Leitfaden zu den Immobilienkaufkosten im Kanton Bern: Hypothekendarlehen, Eigenmittel, Ablösesummen und Notarkosten für Hauskäufer in der Schweiz.',
+    'blog.article.immobiliare-berna-mutuo-costi.imageAlt': 'Modernes Haus im Kanton Bern mit Berghintergrund, Symbol des Schweizer Immobilienmarkts',
 };
 
 export default blogMetaChDe;

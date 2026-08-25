@@ -4303,6 +4303,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.asilo-reati-prigioni-maghreb.title': 'Asilo e reati, l\'esperto: prigioni non fanno paura',
     'blog.article.asilo-reati-prigioni-maghreb.excerpt': 'Tasso di criminalità oltre l\'80% tra richiedenti asilo dal Maghreb. Secondo l\'esperto Beat Stauffer, le cause sono socio-economiche e le prigioni svizzere hanno effetto deterrente quasi nullo.',
     'blog.article.asilo-reati-prigioni-maghreb.imageAlt': 'Edificio dell\'amministrazione federale svizzera a Berna che ospita la Segreteria di Stato della migrazione',
+    'blog.article.immobiliare-berna-mutuo-costi.title': 'Comprare casa in Berna: prezzi, mutuo e imposte',
+    'blog.article.immobiliare-berna-mutuo-costi.excerpt': 'Guida ai costi di acquisto immobiliare nel Canton Berna: mutuo ipotecario, fondi propri, imposte sui trapassi e spese notarili per chi compra casa in Svizzera.',
+    'blog.article.immobiliare-berna-mutuo-costi.imageAlt': 'Casa moderna nel Canton Berna con montagne sullo sfondo, simbolo del mercato immobiliare svizzero',
 };
 
 export default blogMetaChIt;

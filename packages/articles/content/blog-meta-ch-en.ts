@@ -4303,6 +4303,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.asilo-reati-prigioni-maghreb.title': 'Asylum and crimes, the expert: prisons are not scary',
     'blog.article.asilo-reati-prigioni-maghreb.excerpt': 'Crime rate over 80% among asylum seekers from the Maghreb. According to expert Beat Stauffer, the causes are socio-economic and Swiss prisons have almost no deterrent effect.',
     'blog.article.asilo-reati-prigioni-maghreb.imageAlt': 'Swiss federal administration building in Bern housing the State Secretariat for Migration',
+    'blog.article.immobiliare-berna-mutuo-costi.title': 'Buying a house in Bern: prices, mortgage and taxes',
+    'blog.article.immobiliare-berna-mutuo-costi.excerpt': 'Guide to real estate purchase costs in the Canton of Bern: mortgage loan, own funds, transfer taxes and notary fees for those who buy a house in Switzerland.',
+    'blog.article.immobiliare-berna-mutuo-costi.imageAlt': 'Modern Swiss home in Canton Berna with alpine mountains backdrop, representing Swiss real estate market',
 };
 
 export default blogMetaChEn;
