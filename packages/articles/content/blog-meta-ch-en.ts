@@ -4285,6 +4285,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.benzina-diesel-paradosso-petrolio.title': 'Expensive petrol and diesel, but oil goes down',
     'blog.article.benzina-diesel-paradosso-petrolio.excerpt': 'Despite the 28% drop in oil prices, it is increasingly expensive to fill up in Switzerland. Petrol at 2.13 CHF/litre, diesel at 2.27 CHF/litre: the increase has exceeded 40 cents since February.',
     'blog.article.benzina-diesel-paradosso-petrolio.imageAlt': 'Fuel pump at a Swiss service station with Alpine foothills in the background',
+    'blog.article.spionaggio-svizzera-controlli.title': 'Switzerland strengthens controls on espionage',
+    'blog.article.spionaggio-svizzera-controlli.excerpt': 'The Foreign Policy Commission proposes measures against foreign espionage: checks on the legitimacy card and expulsion for foreign agents.',
+    'blog.article.spionaggio-svizzera-controlli.imageAlt': 'Swiss Federal Palace in Bern, symbol of national institutions and security',
+    'blog.article.argovia-divieto-velo-scuole.title': 'Aargau towards a ban on headscarves in schools',
+    'blog.article.argovia-divieto-velo-scuole.excerpt': 'The Argovian Grand Council approved the motion with 78 votes. Cantonal government objects due to constitutional doubts on the basis of the 2015 Federal Court ruling.',
+    'blog.article.argovia-divieto-velo-scuole.imageAlt': 'Swiss school building with diverse students in courtyard, authentic educational setting.',
 };
 
 export default blogMetaChEn;

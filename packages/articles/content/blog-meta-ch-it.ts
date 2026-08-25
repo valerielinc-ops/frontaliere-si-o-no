@@ -4285,6 +4285,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.benzina-diesel-paradosso-petrolio.title': 'Benzina e diesel cari, ma il petrolio scende',
     'blog.article.benzina-diesel-paradosso-petrolio.excerpt': 'Nonostante il calo del petrolio del 28%, in Svizzera fare il pieno costa sempre di più. Benzina a 2,13 CHF/litro, diesel a 2,27 CHF/litro: l\'aumento ha superato i 40 centesimi dal febbraio.',
     'blog.article.benzina-diesel-paradosso-petrolio.imageAlt': 'Pompa di benzina presso una stazione di servizio svizzera con sfondo colline alpine',
+    'blog.article.spionaggio-svizzera-controlli.title': 'La Svizzera rafforza i controlli sullo spionaggio',
+    'blog.article.spionaggio-svizzera-controlli.excerpt': 'La Commissione della politica estera propone misure contro lo spionaggio straniero: controlli sulla carta di legittimazione ed espulsione per agenti esteri.',
+    'blog.article.spionaggio-svizzera-controlli.imageAlt': 'Palazzo federale svizzero a Berna, simbolo delle istituzioni nazionali e della sicurezza nazionale',
+    'blog.article.argovia-divieto-velo-scuole.title': 'Argovia verso il divieto del velo nelle scuole',
+    'blog.article.argovia-divieto-velo-scuole.excerpt': 'Gran Consiglio argoviese approva mozione con 78 voti. Governo cantonale si oppone per dubbi costituzionali sulla base della sentenza del Tribunale federale del 2015.',
+    'blog.article.argovia-divieto-velo-scuole.imageAlt': 'Edificio scolastico svizzero con studenti di diverse origini nel cortile interno, architettura elvetica.',
 };
 
 export default blogMetaChIt;
