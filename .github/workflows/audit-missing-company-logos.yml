@@ -1,0 +1,103 @@
+name: Audit Missing Company Logos (weekly)
+
+# Trova le aziende per cui services/jobDataNormalization.ts::resolveCompanyLogoUrl()
+# ritorna `null` per TUTTI i loro annunci — quelle pagine mostrano il badge
+# iniziali colorato invece di un logo reale (vedi
+# scripts/audit-missing-company-logos.mjs per il dettaglio). Distinto da
+# verify-company-logos-weekly.yml, che verifica URL di logo GIA' assegnati ma
+# rotti: qui nessun logo e' mai stato assegnato.
+#
+# Scrive data/company-logos-missing.json e, se ci sono aziende senza logo,
+# apre/aggiorna UNA issue con l'elenco — la riprende il loop autonomo del
+# repo (issue-triage -> agent:fix-queued -> issue-fix -> PR -> pr-review-loop
+# -> auto-merge).
+#
+# Runs every Sunday 05:15 UTC (poco dopo verify-company-logos-weekly, 04:00).
+
+on:
+  schedule:
+    - cron: '15 5 * * 0' # Every Sunday 05:15 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+          # Stesso profilo di verify-company-logos-weekly.yml: non esclude
+          # data/jobs/by-crawler/ ne' services/jobDataNormalization.ts ne'
+          # data/company-logos-manifest.json, tutti necessari qui.
+          filter: blob:none
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+        # Tetto sullo step → `failure` diagnosticabile invece di `cancelled`.
+        timeout-minutes: 12
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      # --report-issue: calcola il report E apre/aggiorna l'issue nello
+      # stesso step (createGithubIssue dedupe sul titolo stabile, quindi run
+      # ripetute commentano sulla issue canonica invece di duplicarla).
+      - name: Audit missing company logos
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx tsx scripts/audit-missing-company-logos.mjs --report-issue
+
+      - name: Commit + push missing-logos report
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/company-logos-missing.json
+          if git diff --cached --quiet; then
+            echo "No missing-logo changes — nothing to commit."
+            exit 0
+          fi
+          git commit -m "chore(seo): refresh missing-company-logos report"
+
+          # Rigenera SENZA --report-issue: un retry su conflitto di rebase non
+          # deve riaprire/ricommentare la issue una seconda volta.
+          bash scripts/lib/git-push-with-retry.sh \
+            --regenerate-cmd "npx tsx scripts/audit-missing-company-logos.mjs || true; git add data/company-logos-missing.json"
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
