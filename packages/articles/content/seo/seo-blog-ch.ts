@@ -55322,6 +55322,123 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pagamenti-offline-carte-2026': {
+    title: 'Pagamenti offline con carte: lancio agosto 2026',
+    description: 'Dal 24 agosto 2026 pagamenti offline con carte di debito e credito in Svizzera. Continuità garantita presso negozi, farmacie e distributori, senza rete.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pagamenti, offline, carte, lancio',
+    ogTitle: 'Pagamenti offline: Svizzera lancia soluzione agosto 2026',
+    ogDescription: 'Il 24 agosto 2026 pagamenti offline con carte di debito e credito in Svizzera. Terminale registra anche senza rete presso negozi, farmacie e distributori. Diffusione entro fine 2027 tramite impegno congiunto BNS, banche e fornitori di pagamento.',
+    canonicalPath: '/articoli-svizzera/pagamenti-offline-carte-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pagamenti offline con carte: lancio agosto 2026",
+      "description": "Dal 24 agosto 2026 pagamenti offline con carte di debito e credito in Svizzera. Continuità garantita presso negozi, farmacie e distributori, senza rete.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pagamenti-offline-carte-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pagamenti con carta offline presso un terminale nel negozio durante interruzione della rete in Svizzera"
+      },
+      "datePublished": "2026-08-25T11:17:06+00:00",
+      "dateModified": "2026-08-25T11:17:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pagamenti-offline-carte-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-amnesty-neutralita-crimini-guerra': {
+    title: 'Amnesty contro iniziativa neutralità svizzera | Frontaliere Ticino',
+    description: 'Amnesty International Svizzera si oppone all\'iniziativa sulla neutralità, che limiterebbe sanzioni economiche e diplomatiche. Votazione il 27 settembre 2026.',
+    keywords: 'frontalieri, ticino, svizzera, italia, amnesty, contro, iniziativa, neutralità',
+    ogTitle: 'Amnesty contro iniziativa neutralità svizzera',
+    ogDescription: 'Amnesty International Svizzera e altre organizzazioni chiedono il no all\'iniziativa sulla neutralità che limiterebbe la capacità della Confederazione di reagire ai crimini di guerra con sanzioni economiche e diplomatiche. La votazione è il 27',
+    canonicalPath: '/articoli-svizzera/amnesty-neutralita-crimini-guerra/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Amnesty contro iniziativa neutralità svizzera",
+      "description": "Amnesty International Svizzera si oppone all'iniziativa sulla neutralità, che limiterebbe sanzioni economiche e diplomatiche. Votazione il 27 settembre 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/amnesty-neutralita-crimini-guerra.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Palazzo federale Bundeshaus di Berna con bandiera svizzera, sede del Consiglio nazionale e Ständerat"
+      },
+      "datePublished": "2026-08-25T11:22:28+00:00",
+      "dateModified": "2026-08-25T11:22:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/amnesty-neutralita-crimini-guerra/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-premi-lamal-berna-sussidio': {
+    title: 'Premi LAMal Canton Berna: fasce e riduzioni | Frontaliere Ticino',
+    description: 'Premi LAMal a Berna: guida completa alle fasce di franchigia, modelli assicurativi e procedura per ottenere la riduzione attraverso i sussidi cantonali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, lamal, canton, berna',
+    ogTitle: 'Premi LAMal Canton Berna: fasce e riduzioni',
+    ogDescription: 'Guida ai premi dell\'assicurazione malattia nel Canton Berna: scopri le fasce di franchigia disponibili, come scegliere il modello assicurativo più conveniente e i criteri per ottenere la riduzione dei premi con i sussidi cantonali.',
+    canonicalPath: '/articoli-svizzera/premi-lamal-berna-sussidio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi LAMal Canton Berna: fasce e riduzioni",
+      "description": "Premi LAMal a Berna: guida completa alle fasce di franchigia, modelli assicurativi e procedura per ottenere la riduzione attraverso i sussidi cantonali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-lamal-berna-sussidio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Uno sportello amministrativo con documenti di assicurazione malattia su una scrivania."
+      },
+      "datePublished": "2026-08-25T11:39:39+00:00",
+      "dateModified": "2026-08-25T11:39:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-lamal-berna-sussidio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

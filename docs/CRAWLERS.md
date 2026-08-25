@@ -328,3 +328,82 @@ issue body says so explicitly.
 **Repair the parser, never the data.** Deleting bad records from
 `data/jobs/by-crawler/<key>.json` by hand accomplishes nothing — the next crawl
 rewrites them identically.
+
+## Aggregator-Sourced Crawlers — the Data Can Be Genuine and the Destination Still Wrong
+
+Every gate above (structured-data validation, parser health, job-content
+plausibility) asks whether a record is a real vacancy. None of them asks
+*whose* site we send the visitor to. A dedicated crawler can source an
+employer's postings — and its `url`/`applyUrl` — from a third-party job-board
+aggregator (jobs.ch, jobup.ch, indeed, ...) instead of the employer's own
+domain. The vacancy is genuine, every existing gate stays green, and we still
+hand the click to a competing job board instead of the direct employer. Four
+crawlers did this — `equans`, `cham-swiss-properties`, `city-pop`, `dic-sa` —
+all built by hand in PR #3428 (2026-07-04), before the prospector existed —
+see `docs/PROSPECTOR.md` for why the prospector's own crawler-synthesis
+pipeline does not create these by construction.
+
+**The shared domain list**: `scripts/lib/known-aggregator-domains.mjs` is the
+single source of truth for which registrable domains are multi-employer
+marketplaces rather than a rentable single-tenant ATS. The prospector's
+`NON_PLATFORM_HOSTS` (`scripts/lib/prospector/config.mjs`) imports it, so a
+board added here is excluded from the prospector's platform registry too —
+adding it in only one place would leave the other creation path unguarded.
+
+**The gate**: `tests/aggregator-sourced-crawler-gate.test.ts`
+(`scripts/lib/aggregator-source-gate.mjs`) scans every `*-job-parser.mjs` for
+an import of a registered aggregator-backed shared client — today
+`jobs-ch-search-common.mjs` (jobs.ch/jobup.ch, whole file) and
+`jobup-ch-feed-common.mjs` (jobup.ch "mask" feed — only its
+`createJobupChFeedParser`/`fetchJobupDetailDescription` exports count; the
+same file's `detectEmploymentTypeFromOccupation` is a generic percentage
+classifier reused by non-jobup.ch parsers and must NOT trigger the gate) —
+and fails unless the file declares one of three tags, checked against the
+employer's own site:
+
+| tag | means |
+|---|---|
+| `@outsourced-ats-confirmed: <evidence>` | checked — the employer has no independent direct listing, or explicitly delegates to this board |
+| `@outsourced-ats-needs-migration: <evidence>` | checked — a direct or better-outsourced source DOES exist; open debt |
+| `@outsourced-ats-needs-verification: <reason>` | not yet checked (e.g. the employer's site blocks automated fetches) |
+
+All three satisfy the gate — disclosure is the requirement, not instant
+perfection — but only `confirmed` closes the question, and it does not mean
+"stuck on jobs.ch forever": of the four crawlers this surfaced, two were
+migrated off jobs.ch/jobup.ch entirely once a real browser check found a
+better source. `equans` is `confirmed` (its own careers page explicitly hands
+off to jobs.ch/jobup.ch tabs, no listing of its own exists — jobs.ch genuinely
+is the employer's chosen channel). `city-pop` is `confirmed` too, but for the
+opposite reason: a real-browser check found no careers/jobs section anywhere
+on its own site (both `/careers` and `/jobs` 404) — jobs.ch is its only
+discoverable channel, not a bypassed alternative. `cham-swiss-properties` and
+`dic-sa` were `needs-migration` — a real browser found each one's own site
+embedding/linking a genuine direct source (a Dualoo portal at
+`jobs.dualoo.com/portal/6j9quii0`, and a WordPress `job-offers` REST API at
+`dic-ing.ch/wp-json/wp/v2/job-offers`, respectively) — and are now `confirmed`
+under the migrated source: their `url`/`applyUrl` point at the employer's own
+domain (or, for Dualoo, the employer's own single-tenant ATS portal — not a
+multi-employer marketplace) instead of jobs.ch/jobup.ch. This is why a *test*
+enforces the tag rather than a one-time review: the day someone repeats the
+2026-07-04 shortcut — a new `*-job-parser.mjs` importing
+`jobs-ch-search-common.mjs` with no tag — `npm test` fails immediately instead
+of shipping another silent redirect to a competitor's board. A static fetch
+cannot always answer the tag's question (bot protection, JS-only rendering) —
+that failure mode is exactly what escalates a crawler from
+`needs-verification` to a real-browser check, not a reason to leave it
+unverified indefinitely.
+
+The same gate covers `jobup-ch-feed-common.mjs`'s "mask" feed
+(`jobup.ch/masks/{key}/list_{key}.asp?cmd=json`), a second, independently
+built jobup.ch integration. `cnp`, `pole-sante-pays-enhaut` and
+`fondation-soins-lausanne` all import it and are all `confirmed`: the first
+two employers' own career pages embed the jobup.ch mask widget directly (same
+shape as `equans`); the third's real direct source (a shared AVASAD portal)
+is confirmed dead for automated fetches (403, including through a clean-IP
+proxy — issue #4168), making jobup.ch its genuine current channel, not a
+bypassed one.
+
+An unmarked import is the one state the gate refuses. A tagged one is not
+blocked, because the loop this repo runs cannot review every PR by hand —
+the tag **is** the review, exactly like the promotion gate's rejection
+reasons in `docs/PROSPECTOR.md`.

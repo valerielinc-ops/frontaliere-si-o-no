@@ -4264,6 +4264,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.amrize-cfo-lascia-sorpresa-borsa.title': 'Amrize : le directeur financier laisse la surprise, en baisse en bourse',
     'blog.article.amrize-cfo-lascia-sorpresa-borsa.excerpt': 'Baris Oran quitte après 5 mois de responsable des finances. Samuel Poletti nouveau CFO. Le titre Amrize chute de 2% à la Bourse de Zurich, -20% depuis janvier.',
     'blog.article.amrize-cfo-lascia-sorpresa-borsa.imageAlt': 'Immeuble de la bourse de Zurich avec graphique du titre Amrize, représentant la réaction du marché au changement de direction.',
+    'blog.article.pagamenti-offline-carte-2026.title': 'Paiements hors ligne par cartes : lancement août 2026',
+    'blog.article.pagamenti-offline-carte-2026.excerpt': 'Paiements hors ligne par cartes à partir du 24 août 2026 : terminal enregistre également sans réseau. Assure la continuité des achats essentiels pendant les interruptions.',
+    'blog.article.pagamenti-offline-carte-2026.imageAlt': 'Paiement par carte sans connexion à un terminal dans un magasin suisse lors d\'une panne réseau',
+    'blog.article.amnesty-neutralita-crimini-guerra.title': 'Amnesty contre l\'initiative neutralité suisse',
+    'blog.article.amnesty-neutralita-crimini-guerra.excerpt': 'Amnesty International Suisse s\'oppose à l\'initiative sur la neutralité : elle limiterait les sanctions économiques et diplomatiques. Vote le 27 septembre 2026.',
+    'blog.article.amnesty-neutralita-crimini-guerra.imageAlt': 'Palais fédéral Bundeshaus à Berne avec drapeau suisse',
+    'blog.article.premi-lamal-berna-sussidio.title': 'Prix LAMal canton Berne : fourchettes et réductions',
+    'blog.article.premi-lamal-berna-sussidio.excerpt': 'Dans le canton de Berne, les primes LAMal varient selon la franchise choisie. Voici comment fonctionne le système et comment accéder aux subventions pour la réduction.',
+    'blog.article.premi-lamal-berna-sussidio.imageAlt': 'Bureau administratif avec des documents d\'assurance maladie sur le bureau.',
 };
 
 export default blogMetaChFr;

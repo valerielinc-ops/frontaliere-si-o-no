@@ -4264,6 +4264,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.amrize-cfo-lascia-sorpresa-borsa.title': 'Amrize: CFO verlässt überraschend die Börse',
     'blog.article.amrize-cfo-lascia-sorpresa-borsa.excerpt': 'Baris Oran verlässt nach 5 Monaten den Finanzvorstand. Samuel Poletti neuer CFO. Titel Amrize sinkt an der Zürcher Börse um 2%, -20% seit Januar.',
     'blog.article.amrize-cfo-lascia-sorpresa-borsa.imageAlt': 'Gebäude der Züricher Börse mit Amrize-Aktienchart als Reaktion auf den CFO-Wechsel.',
+    'blog.article.pagamenti-offline-carte-2026.title': 'Offline-Zahlungen mit Karten: Start August 2026',
+    'blog.article.pagamenti-offline-carte-2026.excerpt': 'Offline-Zahlungen mit Karten ab 24. August 2026: Terminal erfasst auch netzunabhängig. Gewährleistet Kontinuität bei wesentlichen Einkäufen während Unterbrechungen.',
+    'blog.article.pagamenti-offline-carte-2026.imageAlt': 'Offline-Kartenzahlung an einem Terminal in einem Schweizer Geschäft bei Netzunterbrechung',
+    'blog.article.amnesty-neutralita-crimini-guerra.title': 'Amnesty gegen Neutralitätsinitiative Schweiz',
+    'blog.article.amnesty-neutralita-crimini-guerra.excerpt': 'Amnesty International Schweiz lehnt die Neutralitätsinitiative ab: Sie würde wirtschaftliche und diplomatische Sanktionen einschränken. Abstimmung am 27. September 2026.',
+    'blog.article.amnesty-neutralita-crimini-guerra.imageAlt': 'Bundeshaus in Bern mit Schweizer Flagge, Sitz von Nationalrat und Ständerat',
+    'blog.article.premi-lamal-berna-sussidio.title': 'KVG-Prämien Kanton Bern: Zeitabschnitte und Kürzungen',
+    'blog.article.premi-lamal-berna-sussidio.excerpt': 'Im Kanton Bern variieren die KVG-Prämien je nach gewählter Franchise. So funktioniert das System und wie Sie auf die Reduktionszuschüsse zugreifen können.',
+    'blog.article.premi-lamal-berna-sussidio.imageAlt': 'Verwaltungsbüro mit Krankenversicherungsdokumenten auf dem Schreibtisch.',
 };
 
 export default blogMetaChDe;

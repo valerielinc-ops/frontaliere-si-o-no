@@ -4264,6 +4264,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.amrize-cfo-lascia-sorpresa-borsa.title': 'Amrize: il CFO lascia a sorpresa, giù in borsa',
     'blog.article.amrize-cfo-lascia-sorpresa-borsa.excerpt': 'Baris Oran lascia dopo 5 mesi da responsabile finanze. Samuel Poletti nuovo CFO. Titolo Amrize scende del 2% alla borsa di Zurigo, -20% da gennaio.',
     'blog.article.amrize-cfo-lascia-sorpresa-borsa.imageAlt': 'Palazzo della borsa di Zurigo con grafico del titolo Amrize, rappresentando la reazione del mercato al cambio di CFO.',
+    'blog.article.pagamenti-offline-carte-2026.title': 'Pagamenti offline con carte: lancio agosto 2026',
+    'blog.article.pagamenti-offline-carte-2026.excerpt': 'Pagamenti offline con carte dal 24 agosto 2026: terminale registra anche senza rete. Garantisce continuità negli acquisti essenziali durante interruzioni.',
+    'blog.article.pagamenti-offline-carte-2026.imageAlt': 'Pagamenti con carta offline presso un terminale nel negozio durante interruzione della rete in Svizzera',
+    'blog.article.amnesty-neutralita-crimini-guerra.title': 'Amnesty contro iniziativa neutralità svizzera',
+    'blog.article.amnesty-neutralita-crimini-guerra.excerpt': 'Amnesty International Svizzera si oppone all\'iniziativa sulla neutralità: limiterebbe sanzioni economiche e diplomatiche. Votazione il 27 settembre 2026.',
+    'blog.article.amnesty-neutralita-crimini-guerra.imageAlt': 'Il Palazzo federale Bundeshaus di Berna con bandiera svizzera, sede del Consiglio nazionale e Ständerat',
+    'blog.article.premi-lamal-berna-sussidio.title': 'Premi LAMal Canton Berna: fasce e riduzioni',
+    'blog.article.premi-lamal-berna-sussidio.excerpt': 'Nel Canton Berna i premi LAMal variano secondo la franchigia scelta. Ecco come funziona il sistema e come accedere ai sussidi per la riduzione.',
+    'blog.article.premi-lamal-berna-sussidio.imageAlt': 'Uno sportello amministrativo con documenti di assicurazione malattia su una scrivania.',
 };
 
 export default blogMetaChIt;

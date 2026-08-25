@@ -12790,6 +12790,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'pagamenti-offline-carte-2026',
+    category: 'novita',
+    date: '2026-08-25T11:17:05.999Z',
+    image: '/images/blog/pagamenti-offline-carte-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'amnesty-neutralita-crimini-guerra',
+    category: 'novita',
+    date: '2026-08-25T11:22:28.684Z',
+    image: '/images/blog/amnesty-neutralita-crimini-guerra.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'premi-lamal-berna-sussidio',
+    category: 'pratico',
+    date: '2026-08-25T11:39:39.350Z',
+    image: '/images/blog/premi-lamal-berna-sussidio.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
