@@ -4213,6 +4213,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-svizzera-settori.title': 'Löhne und Arbeitsmarkt in der Schweiz: Ausbildung und Branchen',
     'blog.article.salari-mercato-lavoro-svizzera-settori.excerpt': 'Wie sich die Löhne je nach Ausbildungsgrad, Branche und Erfahrung verändern. Leitfaden für Tarifverträge, gesetzliche Arbeitszeiten, Mindestferien und Lohnbeiträge.',
     'blog.article.salari-mercato-lavoro-svizzera-settori.imageAlt': 'Schweizer Büroangestellte überprüfen Gehaltsunterlagen mit Stadtlandschaft im Hintergrund',
+    'blog.article.imposte-appenzello-esterno-aliquote.title': 'Kantonssteuern Appenzell Ausserrhoden: Steuersätze und Abzüge',
+    'blog.article.imposte-appenzello-esterno-aliquote.excerpt': 'Vollständiger Leitfaden zu den Kantons- und Gemeindesteuern in Appenzell Ausserrhoden: 3-stufige Struktur, Steuersätze, zulässige Abzüge, Deklarationsfristen und Online-Verfahren.',
+    'blog.article.imposte-appenzello-esterno-aliquote.imageAlt': 'Kantonales Steuerverwaltungsgebäude in der Schweiz mit Berglandschaft',
 };
 
 export default blogMetaChDe;

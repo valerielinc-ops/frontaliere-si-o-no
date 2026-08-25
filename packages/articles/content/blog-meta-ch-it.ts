@@ -4213,6 +4213,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-svizzera-settori.title': 'Salari e mercato del lavoro in Svizzera: formazione e settori',
     'blog.article.salari-mercato-lavoro-svizzera-settori.excerpt': 'Come variano i salari per grado di formazione, settore e esperienza. Guida ai contratti collettivi, orari legali, vacanze minime e contributi salariali.',
     'blog.article.salari-mercato-lavoro-svizzera-settori.imageAlt': 'Professionisti svizzeri in ufficio esaminano documenti di stipendio con sfondo di paesaggio urbano',
+    'blog.article.imposte-appenzello-esterno-aliquote.title': 'Imposte cantonali Appenzello Esterno: aliquote e deduzioni',
+    'blog.article.imposte-appenzello-esterno-aliquote.excerpt': 'Guida completa alle imposte cantonali e comunali in Appenzello Esterno: struttura a 3 livelli, aliquote, deduzioni ammesse, scadenze dichiarative e procedura online.',
+    'blog.article.imposte-appenzello-esterno-aliquote.imageAlt': 'Edificio dell\'amministrazione fiscale cantonale svizzera con paesaggio montano sullo sfondo',
 };
 
 export default blogMetaChIt;
