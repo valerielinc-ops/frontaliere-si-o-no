@@ -1432,6 +1432,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'salari-mercato-lavoro-svizzera-settori': { it: 'salari-mercato-lavoro-svizzera-settori', en: 'salaries-labor-market-switzerland-sectors', de: 'loehne-arbeitsmarkt-schweiz-sektoren', fr: 'salaires-marche-travail-suisse-secteurs' },
  'imposte-appenzello-esterno-aliquote': { it: 'imposte-appenzello-esterno-aliquote', en: 'canton-appenzell-ausserrhoden-cantonal-taxes-rates', de: 'kanton-appenzell-ausserrhoden-kantonale-steuern-saetze', fr: 'canton-appenzell-rhodes-exterieures-impots-cantonaux-taux' },
  'apprendistato-canton-appenzello-esterno': { it: 'apprendistato-canton-appenzello-esterno', en: 'apprenticeship-appenzell-external', de: 'lehrling-appenzell-aussen', fr: 'apprentissage-appenzell-exterieur' },
+ 'avs-prestazioni-complementari-appenzello': { it: 'avs-prestazioni-complementari-appenzello', en: 'avs-supplementary-benefits-appenzell', de: 'ahv-ergaenzungsleistungen-appenzell', fr: 'ava-prestations-complementaires-appenzell' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
