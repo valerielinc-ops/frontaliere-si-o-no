@@ -55049,6 +55049,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-single-paga-di-piu-svizzera': {
+    title: 'Da soli si paga di più: tasche vuote per i single in Svizzera',
+    description: 'Gli affitti e le spese fisse pesano di più per i single in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, soli, paga, tasche, vuote',
+    ogTitle: 'Single in Svizzera: i costi della vita',
+    ogDescription: 'Gli affitti e le spese fisse pesano di più per i single in Svizzera.',
+    canonicalPath: '/articoli-svizzera/single-paga-di-piu-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Da soli si paga di più: tasche vuote per i single in Svizzera",
+      "description": "Gli affitti e le spese fisse pesano di più per i single in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/single-paga-di-piu-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un uomo solo che guarda fuori dalla finestra di una stanza d'albergo"
+      },
+      "datePublished": "2026-08-25T08:47:56+00:00",
+      "dateModified": "2026-08-25T08:47:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/single-paga-di-piu-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

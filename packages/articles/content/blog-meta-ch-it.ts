@@ -4243,6 +4243,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-formazione-appenzello-interno.title': 'Apprendistato nel canton Appenzello interno',
     'blog.article.apprendistato-formazione-appenzello-interno.excerpt': 'Guida pratica: come trovare un tirocinio, stipulare il contratto, comprendere retribuzione e maturità professionale nel Canton Appenzello Interno.',
     'blog.article.apprendistato-formazione-appenzello-interno.imageAlt': 'Giovane apprendista al lavoro in un laboratorio svizzero concentrato su un compito tecnico',
+    'blog.article.single-paga-di-piu-svizzera.title': 'Da soli si paga di più: tasche vuote per i single in Svizzera',
+    'blog.article.single-paga-di-piu-svizzera.excerpt': 'Gli affitti pesano di più per i single, che destano circa il 20% del proprio budget ad abitazione ed energia.',
+    'blog.article.single-paga-di-piu-svizzera.imageAlt': 'Un uomo solo che guarda fuori dalla finestra di una stanza d\'albergo',
 };
 
 export default blogMetaChIt;

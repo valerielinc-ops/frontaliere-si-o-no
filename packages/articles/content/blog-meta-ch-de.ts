@@ -4243,6 +4243,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-formazione-appenzello-interno.title': 'Lehre im Kanton Appenzell Innerrhoden',
     'blog.article.apprendistato-formazione-appenzello-interno.excerpt': 'Praktischer Leitfaden: Wie finde ich ein Praktikum, schließe den Vertrag ab, verstehe Gehalt und Berufsmaturität im Kanton Appenzell Innerrhoden.',
     'blog.article.apprendistato-formazione-appenzello-interno.imageAlt': 'Junger Lehrling bei der Arbeit in einer Schweizer Werkstatt an einer technischen Aufgabe',
+    'blog.article.single-paga-di-piu-svizzera.title': 'Allein zahlt man mehr: Leere Taschen für Singles in der Schweiz',
+    'blog.article.single-paga-di-piu-svizzera.excerpt': 'Die Mieten sind für Singles höher, die rund 20% ihres Budgets für Wohnen und Energie aufwenden.',
+    'blog.article.single-paga-di-piu-svizzera.imageAlt': 'Ein einzelner Mensch, der aus einem Hotelzimmerfenster schaut',
 };
 
 export default blogMetaChDe;
