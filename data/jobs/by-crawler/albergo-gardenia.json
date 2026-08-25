@@ -17,9 +17,9 @@
       "title": "Previdenza per la vecchiaia",
       "titleByLocale": {
         "it": "Previdenza per la vecchiaia",
-        "en": "Previdenza per la vecchiaia",
         "de": "Previdenza per la vecchiaia",
-        "fr": "Previdenza per la vecchiaia"
+        "en": "Previdenza per la vecchiaa’",
+        "fr": "Prévidenza par la vecchiaa"
       },
       "description": "Previdenza per la vecchiaia — Albergo Gardenia",
       "descriptionByLocale": {
@@ -46,7 +46,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-24T10:32:28.546Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -59,7 +58,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-24T10:32:28.546Z"
     },
     {
       "id": "albergo-gardenia-a58372a459dc",
@@ -76,9 +76,9 @@
       "title": "Carenza di personale qualificato",
       "titleByLocale": {
         "it": "Carenza di personale qualificato",
-        "en": "Carenza di personale qualificato",
-        "de": "Carenza di personale qualificato",
-        "fr": "Carenza di personale qualificato"
+        "en": "Qualified personnel",
+        "de": "Qualifiziertes Personal",
+        "fr": "Personnel qualifié"
       },
       "description": "Carenza di personale qualificato — Albergo Gardenia",
       "descriptionByLocale": {
@@ -105,7 +105,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-24T10:32:28.227Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -118,7 +117,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-24T10:32:28.227Z"
     }
   ]
 }

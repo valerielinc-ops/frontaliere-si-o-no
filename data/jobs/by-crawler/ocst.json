@@ -16,9 +16,9 @@
       "companyDomain": "ocst.ch",
       "title": "LADI - Un fondo ricco e troppi bisogni ignorati",
       "titleByLocale": {
-        "it": "LADI - Un fondo ricco e troppi bisogni ignorati",
+        "it": "LADI - Un fondo ricco e sviluppi ignorantti",
         "en": "LADI - Un fondo ricco e troppi bisogni ignorati",
-        "de": "LADI - Un fondo ricco e troppi bisogni ignorati",
+        "de": "LADI — Un fondo ricco e troppi bisogni ignorati",
         "fr": "LADI - Un fondo ricco e troppi bisogni ignorati"
       },
       "description": "LADI - Un fondo ricco e troppi bisogni ignorati — OCST",
@@ -46,7 +46,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-24T10:18:07.162Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -59,7 +58,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-24T10:18:07.162Z"
     },
     {
       "id": "ocst-c1281694f537",
@@ -76,9 +76,9 @@
       "title": "Salute in azienda - Il benessere organizzativo è possibile?",
       "titleByLocale": {
         "it": "Salute in azienda - Il benessere organizzativo è possibile?",
-        "en": "Salute in azienda - Il benessere organizzativo è possibile?",
-        "de": "Salute in azienda - Il benessere organizzativo è possibile?",
-        "fr": "Salute in azienda - Il benessere organizzativo è possibile?"
+        "fr": "La santé dans l'entreprise - Le bien-être organisationnel est-il possible?",
+        "en": "Health in the company - Is organizational well-being possible?",
+        "de": "Gesundheit im Unternehmen – Ist organisatorisches Wohlbefinden möglich?"
       },
       "description": "Salute in azienda - Il benessere organizzativo è possibile? — OCST",
       "descriptionByLocale": {
@@ -105,7 +105,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-24T10:18:06.839Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -118,7 +117,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-24T10:18:06.839Z"
     }
   ]
 }

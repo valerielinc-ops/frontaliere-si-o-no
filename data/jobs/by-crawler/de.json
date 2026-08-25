@@ -16,10 +16,10 @@
       "companyDomain": "mpi-age.de.umantis.com",
       "title": "Anlagenmechaniker (m/w/d) - Schwerpunkt Sanitär- und Gastechnik",
       "titleByLocale": {
-        "it": "Anlagenmechaniker (m/w/d) - Schwerpunkt Sanitär- e Gastechnik",
-        "en": "Anlagenmechaniker (m/w/d) - Schwerpunkt Sanitär- und Gastechnik",
         "de": "Anlagenmechaniker (m/w/d) - Schwerpunkt Sanitär- und Gastechnik",
-        "fr": "Anlagenmechaniker (m/w/d) - Schwerpunkt Sanitär- und Gastechnik"
+        "it": "Anlagenmechaniker (m/w/d) - Schwerpunkt Sanitär- e Gastechnik",
+        "en": "Plant mechanic (m/f/d) - Focus on sanitary and gas technology",
+        "fr": "Mécanicien d'usine (h/f/d) - Focus sur la technologie sanitaire et gazière"
       },
       "description": "Anlagenmechaniker (m/w/d) - Schwerpunkt Sanitär- und Gastechnik — MPI AGE",
       "descriptionByLocale": {
@@ -45,16 +45,15 @@
       "applyUrl": "https://mpi-age.de.umantis.com/Vacancies/505/Description/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "anlagenmechaniker-m-w-d-schwerpunkt-sanitar-und-gastechnik-de-ch"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "anlagenmechaniker-m-w-d-schwerpunkt-sanitar-und-gastechnik-de-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-24T10:28:17.522Z",
+      "previousSlugs": [
+        "anlagenmechaniker-m-w-d-schwerpunkt-sanitar-und-gastechnik-de-ch"
+      ],
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -67,7 +66,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-24T10:28:17.522Z"
     },
     {
       "id": "de-dfc4921b55ae",
@@ -83,10 +83,10 @@
       "companyDomain": "mpi-age.de.umantis.com",
       "title": "Elektroniker Betriebstechnik / Energieanlagen (m/w/d) - Schwerpunkt Raumlufttechnik (RLT)",
       "titleByLocale": {
-        "it": "Elektroniker Betriebstechnik / Energieanlagen (m/w/d) - Schwerpunkt Raumlufttechnik (RLT)",
-        "en": "Elektroniker Betriebstechnik / Energieanlagen (m/w/d) - Schwerpunkt Raumlufttechnik (RLT)",
         "de": "Elektroniker Betriebstechnik / Energieanlagen (m/w/d) - Schwerpunkt Raumlufttechnik (RLT)",
-        "fr": "Elektroniker Betriebstechnik / Energieanlagen (m/w/d) - Schwerpunkt Raumlufttechnik (RLT)"
+        "it": "Ingegneria dell'elettronica / Sistemi energetici (m/f/d) - Focus on Indoor Air Technology (RLT)",
+        "en": "Electronics engineer Operating Engineering / Energy Systems (m/f/d) - Focus on Indoor Air Technology (RLT)",
+        "fr": "Ingénieur en électronique Génie d'exploitation / Systèmes énergétiques (h/f/d) - Focus sur la technologie de l'air intérieur (RLT)"
       },
       "description": "Elektroniker Betriebstechnik / Energieanlagen (m/w/d) - Schwerpunkt Raumlufttechnik (RLT) — MPI AGE",
       "descriptionByLocale": {
@@ -113,7 +113,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-24T10:28:17.192Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "baseSalary": {
@@ -126,7 +125,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-24T10:28:17.192Z"
     }
   ]
 }
