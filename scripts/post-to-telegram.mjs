@@ -123,8 +123,8 @@ async function buildForMode(mode, { env, repoRoot, now, log }) {
   if (mode === 'preferred-source') {
     const ledgerPath = postedAnnouncementsPath(repoRoot);
     const ledger = loadLedger(ledgerPath);
-    const alreadySent = ledger.posted.some((e) => e?.id === PREFERRED_SOURCE_ANNOUNCEMENT_ID);
-    if (alreadySent) {
+    const announcementAlreadyPosted = ledger.posted.some((e) => e?.id === PREFERRED_SOURCE_ANNOUNCEMENT_ID);
+    if (announcementAlreadyPosted) {
       log('ℹ️', 'preferred-source announcement already posted — skipping (one-off, not a recurring digest)');
       return { text: '', onSent: null };
     }
