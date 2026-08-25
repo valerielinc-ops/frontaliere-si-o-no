@@ -1227,7 +1227,7 @@ ${hreflangs}${xDefault}${prevLink}${nextLink}
       <nav class="s-AxRVCF" aria-label="Breadcrumb">
         <a class="s-wfUMYx" href="/">Home</a>
         <span> / </span>
-        <a class="s-wfUMYx" href="${esc(basePath)}">${esc(sectionLabel)}</a>
+        <span>${esc(sectionLabel)}</span>
       </nav>
       <header class="s-S1RSUf">
         <h1 class="s-e3gkVi">${esc(sectionOverride ? (page > 1 ? `${sectionOverride.h1} — ${pageLabel(locale, page)}` : sectionOverride.h1) : buildHubH1(locale, hubKey, displayCount, page))}</h1>
