@@ -11806,6 +11806,12 @@ export { normalizeTitleCasing, collapseShoutingTitle, applyMicrocopyGuard, gener
 // it. Pure re-export — no behavior change for the internal caller above.
 export { llmFactCheck };
 
+// Re-exported so external tooling (e.g. scripts/evergreen-pool-consumption.mjs,
+// issue #6445) can measure how much of the evergreen topic pool is still free
+// without duplicating the pool-assembly logic at L10545-10547 or the
+// duplicate-check it feeds into. Pure re-export — no behavior change.
+export { PRIORITY_EVERGREEN_TOPICS, PRIORITY_EVERGREEN_TOPICS_SVIZZERA, buildDynamicEvergreenTopics, buildDynamicEvergreenTopicsSvizzera, preFlightEvergreenTopicCheck, loadExistingArticleSummaries };
+
 // Only run the AI generation pipeline when invoked directly as a CLI — importing
 // this module (to reuse registerArticleFiles/buildBodyFile) must NOT execute it.
 const invokedDirectly = (() => {
