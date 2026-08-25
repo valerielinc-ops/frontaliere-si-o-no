@@ -477,6 +477,7 @@ jobs:
           fi
 
       - name: Build (BUILD_LOCALE=${{ matrix.locale }})
+        id: build_step
         shell: bash
         env:
           # Redundant with the job-level `MALLOC_ARENA_MAX` above, which has
@@ -528,6 +529,16 @@ jobs:
           trap 'kill "$sampler" 2>/dev/null || true' EXIT
 
           npm run build:ci 2>&1 | tee /tmp/build.log
+          build_exit="${PIPESTATUS[0]}"
+          # Wall-time del leg (SECONDS e' un builtin bash, azzerato a inizio
+          # step): serve al follow-up #6174 item 1 per accumulare storia
+          # comparabile, per ora scritta qui e persistita dallo step
+          # "Append build memory history row" sotto. Va dopo la build, non
+          # prima dell'exit, cosi' viene emesso anche sui leg che falliscono
+          # (host-kill escluso: quello termina il processo prima di questa
+          # riga, e non produce mai il referto memguard letto sotto).
+          echo "wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"
+          exit "$build_exit"
 
       # Legge il referto che `buildMemoryGuardPlugin` scrive SEMPRE (verde o
       # rosso) in /tmp/build-memory-peak.json, e lo espone come output. Sta
@@ -638,6 +649,88 @@ jobs:
           # Runs ONLY step_push_cdn (+ nothing else) and returns.
           DEPLOY_CDN_PUSH_ONLY: '1'
         run: bash scripts/lib/deploy-it-pages-prep.sh
+
+      # Persiste peak_anon_mb/peak_rss_mb/wall_seconds per-leg cross-run:
+      # senza questo, il referto letto da "Read build memory report" e'
+      # ephemeral (/tmp, sparisce a fine job) e non esiste storia su cui
+      # calibrare il detector automatico dei revert-trigger a tempo (oggi
+      # manuali, vedi "Grow swap" sopra) — vedi follow-up #6174 item 1. Riusa
+      # lo STESSO pattern gia' in produzione per data/dist-size-history.jsonl
+      # (append JSONL + merge=union in .gitattributes + retry-con-rebase):
+      # coi 4 leg del matrix che scrivono in concorrenza, un push diretto
+      # senza rebase-retry wedgerebbe come gia' successo prima che quel
+      # pattern esistesse.
+      #
+      # Deliberatamente DOPO "Push generated assets to CDN (early…)" sopra,
+      # non subito dopo "Read build memory report": il gate #2569 sull'IT leg
+      # ha gia' margine zero (de leg atteso 2714s su budget 2700s, run
+      # 31076991699, un run RIUSCITO — vedi commento sopra). Uno step con
+      # fino a 5 retry a backoff 5/10/15/25/40s (~95s worst-case) PRIMA della
+      # CDN push avrebbe eroso quel margine; qui non ritarda piu' nulla che
+      # gli altri leg stiano aspettando.
+      - name: Append build memory history row
+        if: always()
+        continue-on-error: true
+        shell: bash
+        env:
+          ROW_LOCALE: ${{ matrix.locale }}
+          ROW_RUN_ID: ${{ github.run_id }}
+          ROW_SHA: ${{ github.sha }}
+          ROW_BREACH: ${{ steps.memguard.outputs.breach }}
+          ROW_PEAK_ANON: ${{ steps.memguard.outputs.peak_anon_mb }}
+          ROW_PEAK_RSS: ${{ steps.memguard.outputs.peak_rss_mb }}
+          ROW_AVAIL: ${{ steps.memguard.outputs.min_host_avail_mb }}
+          ROW_SWAP: ${{ steps.memguard.outputs.min_swap_free_mb }}
+          ROW_WALL: ${{ steps.build_step.outputs.wall_seconds }}
+        run: |
+          set -o pipefail
+          if [ -z "$ROW_PEAK_ANON" ]; then
+            echo "[build-history] nessun referto memguard (host-kill o guard mai armato), niente da appendere"
+            exit 0
+          fi
+          mkdir -p data/build-history
+          node -e '
+            const fs = require("fs");
+            const num = (v) => (v === undefined || v === "" ? null : Number(v));
+            const row = {
+              ts: new Date().toISOString(),
+              locale: process.env.ROW_LOCALE,
+              run_id: process.env.ROW_RUN_ID,
+              sha: process.env.ROW_SHA,
+              breach: process.env.ROW_BREACH || null,
+              peak_anon_mb: num(process.env.ROW_PEAK_ANON),
+              peak_rss_mb: num(process.env.ROW_PEAK_RSS),
+              min_host_avail_mb: num(process.env.ROW_AVAIL),
+              min_swap_free_mb: num(process.env.ROW_SWAP),
+              wall_seconds: num(process.env.ROW_WALL),
+            };
+            fs.appendFileSync("data/build-history/memory-peaks.jsonl", JSON.stringify(row) + "\n");
+          '
+          git config user.name "build-history-bot"
+          git config user.email "build-history-bot@frontaliereticino.ch"
+          git add data/build-history/memory-peaks.jsonl
+          git commit -m "chore(build-history): append ${ROW_LOCALE} leg run ${ROW_RUN_ID}"
+          # Stesso retry-con-rebase di "Commit dist-size-history row" sopra
+          # (5 tentativi, backoff 5/10/15/25/40s): 4 leg concorrenti + gli
+          # altri produttori su main (crawlers/thin-promotions/fuel/weather)
+          # regolarmente out-race una finestra piu' corta.
+          for i in 1 2 3 4 5; do
+            if git -c rebase.autoStash=true -c rebase.backend=merge \
+                pull --rebase origin main \
+                && git push origin HEAD:main; then
+              echo "[build-history] pushed on attempt $i"
+              exit 0
+            fi
+            git rebase --abort 2>/dev/null || true
+            case "$i" in
+              1) sleep 5 ;;
+              2) sleep 10 ;;
+              3) sleep 15 ;;
+              4) sleep 25 ;;
+              5) sleep 40 ;;
+            esac
+          done
+          echo "::warning::[build-history] push failed after 5 attempts — this leg's memory-peak row will not be in history"
 
       # ── Section shards (keep the IT apex under the 10 GB Pages cap) ────────
       # Push each oversized job-board section (ticino/svizzera/zurigo) to its
