@@ -77954,6 +77954,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-tubre-lavorare-grigioni-frontaliere': {
+    title: 'Vivere a Tubre e lavorare in Grigioni da frontaliere',
+    description: 'Guida pratica per frontalieri Italia-Svizzera: Permesso G, fiscalità, AVS, LPP, LAMal, imposta alla fonte. Come vivere a Tubre e lavorare in Grigioni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, tubre, lavorare, grigioni',
+    ogTitle: 'Vivere a Tubre e lavorare in Grigioni da frontaliere',
+    ogDescription: 'Frontaliere tra Italia e Svizzera: Permesso G, contributi AVS/LPP/LAINF, LAMal, imposta alla fonte, franchigia €7\'500-€10\'000, ristorni, procedure rinnovo annuale. Guida completa e step-by-step.',
+    canonicalPath: '/articoli-frontaliere/vivere-tubre-lavorare-grigioni-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Tubre e lavorare in Grigioni da frontaliere",
+      "description": "Guida pratica per frontalieri Italia-Svizzera: Permesso G, fiscalità, AVS, LPP, LAMal, imposta alla fonte. Come vivere a Tubre e lavorare in Grigioni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-tubre-lavorare-grigioni-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Valle alpina vista dall'alto con villaggio italiano nel fondovalle, boschi autunnali e luce dorata. Simbolo del paesaggio di lavoro frontaliere tra Italia e Svizzera."
+      },
+      "datePublished": "2026-08-25T05:26:28+00:00",
+      "dateModified": "2026-08-25T05:26:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-tubre-lavorare-grigioni-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

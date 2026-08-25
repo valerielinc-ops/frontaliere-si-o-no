@@ -10739,6 +10739,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-prato-allo-lavorare-grigioni.title': 'Wohnen in Prad am Stilfserjoch und Arbeiten in Graubünden',
     'blog.article.vivere-prato-allo-lavorare-grigioni.excerpt': 'Praktischer Leitfaden für Grenzgänger zwischen Italien und der Schweiz: Bewilligungen, Besteuerung, AHV und KVG, Lebenshaltungskosten und was vor dem Umzug zu beachten ist',
     'blog.article.vivere-prato-allo-lavorare-grigioni.imageAlt': 'Alpine Straße an der Grenze zwischen der Schweiz und Italien mit Bergblick der Bündnerland-Region',
+    'blog.article.vivere-tubre-lavorare-grigioni-frontaliere.title': 'Wohnen in Taufers und Arbeiten in Graubünden als Grenzgänger',
+    'blog.article.vivere-tubre-lavorare-grigioni-frontaliere.excerpt': 'Bewilligung G, Steuern, AHV, KVG: Praktischer Leitfaden für Grenzgänger Italien-Schweiz. Kosten, Besteuerung, Verfahren zum Wohnen in Taufers und Arbeiten in Graubünden.',
+    'blog.article.vivere-tubre-lavorare-grigioni-frontaliere.imageAlt': 'Alpental aus großer Höhe mit italienischem Dorf im Talgrund, Herbstlaubwälder und goldenes Licht. Symbol der Grenzgängerregion zwischen Italien und der Schweiz.',
 };
 
 export default blogMetaDe;

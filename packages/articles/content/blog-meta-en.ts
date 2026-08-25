@@ -10740,6 +10740,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-prato-allo-lavorare-grigioni.title': 'Living in Prato Allo Stelvio and working in Grisons',
     'blog.article.vivere-prato-allo-lavorare-grigioni.excerpt': 'Practical guide for border workers between Italy and Switzerland: permits, taxation, AVS and LAMal, costs of living and what to consider before moving',
     'blog.article.vivere-prato-allo-lavorare-grigioni.imageAlt': 'Alpine road at the Switzerland-Italy border with mountain views of the Graubünden region',
+    'blog.article.vivere-tubre-lavorare-grigioni-frontaliere.title': 'Living in Tubre and working in Graubünden as a border worker',
+    'blog.article.vivere-tubre-lavorare-grigioni-frontaliere.excerpt': 'Permit G, taxation, AVS, LAMal: practical guide for Italy-Switzerland border workers. Costs, taxation, procedure to live in Tubre and work in Grisons.',
+    'blog.article.vivere-tubre-lavorare-grigioni-frontaliere.imageAlt': 'Alpine valley from high altitude with distant Italian village in the valley floor, autumn forests, golden light. Represents the frontier commuter landscape between Italy and Switzerland.',
 };
 
 export default blogMetaEn;
