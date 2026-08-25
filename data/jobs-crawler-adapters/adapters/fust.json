@@ -10,6 +10,8 @@
     "jsonld"
   ],
   "seedUrls": [
+    "https://jobs.fust.ch/offene-stellen/sanitaermonteur-in-kuechen-baeder/a73e12df-c595-43e8-8d95-10cc31722879",
+    "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-und-multimedia/887ac0ea-4fa2-4a4c-82a3-c03bcc720eac",
     "https://jobs.fust.ch/offene-stellen/servicetechniker-in-professional-solutions/39d91ce7-0871-4de7-af86-96b5cea5ed0a",
     "https://jobs.fust.ch/offene-stellen/heimliefermonteur-in-von-elektrohaushaltgeraeten/bfd4ef3c-485c-4552-b1c3-1b3f35bb08b2",
     "https://jobs.fust.ch/offene-stellen/heimliefermonteur-in-von-elektrohaushaltgeraeten/68888899-5c82-4f7e-8792-ab8d8d3ea5ca",
@@ -102,6 +104,18 @@
     "https://jobs.fust.ch/offene-stellen/schreinermonteur-in-kuechen-baeder/334cbd70-7c82-47c9-a3a0-31f1fe77caae"
   ],
   "seedMetaByUrl": {
+    "https://jobs.fust.ch/offene-stellen/sanitaermonteur-in-kuechen-baeder/a73e12df-c595-43e8-8d95-10cc31722879": {
+      "location": "Berna",
+      "canton": "BE",
+      "company": "Fust",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-und-multimedia/887ac0ea-4fa2-4a4c-82a3-c03bcc720eac": {
+      "location": "Zurigo",
+      "canton": "ZH",
+      "company": "Fust",
+      "contract": "A tempo indeterminato"
+    },
     "https://jobs.fust.ch/offene-stellen/servicetechniker-in-professional-solutions/39d91ce7-0871-4de7-af86-96b5cea5ed0a": {
       "location": "Lucerna",
       "canton": "LU",
@@ -644,5 +658,5 @@
     }
   },
   "notes": "Fust (Coop Group) — Prospective.ch JobBooster (Career Center 1000103). Detail pages on jobs.fust.ch with JSON-LD JobPosting.",
-  "updatedAt": "2026-08-25T10:10:48.203Z"
+  "updatedAt": "2026-08-25T21:51:47.649Z"
 }
