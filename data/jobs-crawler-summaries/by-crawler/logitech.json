@@ -1,7 +1,7 @@
 {
   "key": "logitech",
   "label": "Logitech",
-  "generatedAt": "2026-08-25T10:23:10.802Z",
+  "generatedAt": "2026-08-25T21:55:28.023Z",
   "total": 4,
   "discovered": null,
   "written": 4,
@@ -9,10 +9,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 32543,
-  "avgDurationMs": 32543,
+  "durationMs": 31937,
+  "avgDurationMs": 31937,
   "durationHistory": [
-    32543
+    31937
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-AI-ML-Engineer_146488",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-25T10:23:06.644Z",
+      "crawledAt": "2026-08-25T21:55:22.142Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -41,6 +41,7 @@
       "featured": false,
       "postedDate": "2026-06-02",
       "applyUrl": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-AI-ML-Engineer_146488",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-06-02T13:52:52.987Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
@@ -62,7 +63,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-Hardware-Product-User-Experience-Designer_146581",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-25T10:23:07.559Z",
+      "crawledAt": "2026-08-25T21:55:23.255Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -75,6 +76,7 @@
       "featured": false,
       "postedDate": "2026-05-28",
       "applyUrl": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-Hardware-Product-User-Experience-Designer_146581",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-05-28T13:21:21.034Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -96,7 +98,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Head-of-Product-Security_146199",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-25T10:23:08.450Z",
+      "crawledAt": "2026-08-25T21:55:24.334Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -150,7 +152,8 @@
       "salaryMin": 97500,
       "salaryMax": 148000,
       "addressRegion": "VD",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
