@@ -95,13 +95,24 @@ jobs:
       # soli baseline PNG visivi sotto tests/ non deve escalare al tier high per
       # "diff binario".
       NONCODE_RE: '^(data/|public/|reports/|_newsletter_variants/|docs/)|(^|/)(package-lock\.json|pnpm-lock\.yaml|yarn\.lock)$|\.(snap|png|jpe?g|webp|gif|svg|ico|woff2?)$'
-    # Gate evento: SOLO `tests` concluso success (vitest verde) E triggerato da
-    # un `pull_request` (i `workflow_dispatch` dell'autorebase e i `push` su main
-    # sono esclusi — vedi header). Il filtro draft + l'esistenza della PR sono
-    # verificati nello step `resolve` (un evento workflow_run non porta la PR).
-    if: >-
-      github.event.workflow_run.conclusion == 'success' &&
-      github.event.workflow_run.event == 'pull_request'
+    # Gate evento: SOLO triggerato da un `pull_request` (i `workflow_dispatch`
+    # dell'autorebase e i `push` su main sono esclusi — vedi header). Il filtro
+    # draft + l'esistenza della PR + il verdetto vitest REALE sono verificati
+    # nello step `resolve` sotto (un evento workflow_run non porta la PR).
+    #
+    # `workflow_run.conclusion == 'success'` viveva qui: è il
+    # ROLLUP dell'intera run di `tests.yml`, e un job scorrelato (`collision`,
+    # lock GLOBALE condiviso con lo scan periodico, `cancel-in-progress: false`
+    # — vedi tests.yml) cancellato per contesa trascina l'intera run a
+    # `cancelled` anche quando `vitest (unit + integration)` è `success`.
+    # Misurato 2026-08-25: ~1/3 delle PR aperte in quel momento — nessuna delle
+    # quali otteneva MAI una review, finché non interveniva la rete di
+    # sicurezza a 2h di stale-pr-rescuer.yml (lo stato assorbente è descritto
+    # in scripts/ci/lib/vitestCheck.mjs::vitestVerdictIsTransientCancellation).
+    # Il job ora parte sempre per un evento `pull_request` e verifica il
+    # check-run vitest SPECIFICO nello step `resolve`, stessa fonte di verità
+    # di auto-merge-eval.mjs — non il rollup.
+    if: github.event.workflow_run.event == 'pull_request'
     # Auth via CLAUDE_CODE_OAUTH_TOKEN da subscription Max (consuma quota piano,
     # non API credits). Verificato zero-cost: nessuna org Anthropic Console,
     # Usage credits $0.00 spent, "Extra usage not enabled". I total_cost_usd nel
@@ -138,6 +149,33 @@ jobs:
           title=$(echo "$meta" | jq -r '.title // ""')
           if [ "$is_draft" = "true" ]; then
             echo "PR #$PRN è draft → skip review (parità col vecchio if: draft == false)."
+            { echo "pr_number=$PRN"; echo "should_review=false"; } >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          # ── Il check-run vitest specifico, non il rollup della run ──────────
+          # Il job `if:` sopra non guarda più `workflow_run.conclusion`: quel
+          # campo è il ROLLUP di TUTTA la run di `tests.yml`, e un job scorrelato
+          # (`collision`, lock GLOBALE condiviso con lo scan periodico —
+          # `cancel-in-progress: false` in tests.yml) può essere cancellato per
+          # contesa e trascinare l'intera run a `cancelled` anche quando
+          # `vitest (unit + integration)` è `success`. Qui verifichiamo QUEL
+          # check-run specifico — stessa fonte di verità di auto-merge-eval.mjs.
+          #
+          # Selezione "ultimo COMPLETATO per completed_at" (non il primo per
+          # ordine API): mirror ESATTO di latestCompletedRunByName in
+          # scripts/ci/lib/vitestCheck.mjs — quel modulo esiste apposta perché
+          # un SHA immutabile può portare più check-run con lo stesso nome (un
+          # workflow_dispatch manuale sullo stesso branch), e prendere il primo
+          # per ordine API pesca un verdetto arbitrario, non il più recente.
+          # Non importabile qui: questo step gira PRIMA del checkout apposta
+          # (vedi commento sopra il nome step) — se la selezione in
+          # vitestCheck.mjs cambia, aggiornare anche questa.
+          VITEST_CONCLUSION=$(gh api "repos/$REPO/commits/$RUN_HEAD_SHA/check-runs" --jq '
+            [.check_runs[] | select(.name == "vitest (unit + integration)" and .status == "completed" and .completed_at != null)]
+            | sort_by(.completed_at) | last | .conclusion // ""
+          ' 2>/dev/null || echo "")
+          if [ "$VITEST_CONCLUSION" != "success" ]; then
+            echo "PR #$PRN: la run di tests.yml ha concluso '${{ github.event.workflow_run.conclusion }}' ma il check-run vitest è '${VITEST_CONCLUSION:-<assente>}' (non 'success') → skip review."
             { echo "pr_number=$PRN"; echo "should_review=false"; } >> "$GITHUB_OUTPUT"
             exit 0
           fi
@@ -401,6 +439,7 @@ jobs:
           expected=$(echo "$result" | jq -r '.expected // 0')
           count=$(echo "$result" | jq -r '.count // 0')
           files_complete=$(echo "$result" | jq -r 'if .complete then 1 else 0 end')
+          reason=$(echo "$result" | jq -r '.reason // "unknown"')
           files=$(echo "$result" | jq -r '(.files // [])[]')
           # Guard PR vuota (rebase-only, base == head): files vuoto. Default tier
           # normal: reviewer posta comunque `## LGTM` (no finding) e auto-merge
@@ -424,7 +463,11 @@ jobs:
           # PR che tocca `scripts/` o `src/` passi con 12 turni, senza
           # adversarial check, chiudendo con `## LGTM` e auto-merge.
           if [ "$files_complete" != "1" ]; then
-            echo "Elenco file INCOMPLETO ($count/$expected) → tier high forzato: niente minimal, niente decisione funnel su un campione."
+            if [ "$reason" = "rest-hard-limit" ]; then
+              echo "Elenco file INCOMPLETO ($count/$expected, causa: rest-hard-limit — tetto rigido di 3000 file della REST GitHub, non riparabile con retry) → tier high forzato: niente minimal, niente decisione funnel su un campione."
+            else
+              echo "Elenco file INCOMPLETO ($count/$expected, causa: $reason) → tier high forzato: niente minimal, niente decisione funnel su un campione."
+            fi
             set_tier high claude-sonnet-5 60
             exit 0
           fi

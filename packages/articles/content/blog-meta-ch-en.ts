@@ -4300,6 +4300,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.orologi-export-fh-prudenza.title': 'Swiss watch exports: FH urges caution',
     'blog.article.orologi-export-fh-prudenza.excerpt': 'June and July on the rise, but global uncertainty curbs optimism. US stable (+14.9%), China crisis (-7.1%), France anomalous boom (+70%). China Agreement will reduce customs duties.',
     'blog.article.orologi-export-fh-prudenza.imageAlt': 'Swiss watchmaker workshop with precision components and luxury watch, traditional work bench with detailed movements.',
+    'blog.article.asilo-reati-prigioni-maghreb.title': 'Asylum and crimes, the expert: prisons are not scary',
+    'blog.article.asilo-reati-prigioni-maghreb.excerpt': 'Crime rate over 80% among asylum seekers from the Maghreb. According to expert Beat Stauffer, the causes are socio-economic and Swiss prisons have almost no deterrent effect.',
+    'blog.article.asilo-reati-prigioni-maghreb.imageAlt': 'Swiss federal administration building in Bern housing the State Secretariat for Migration',
 };
 
 export default blogMetaChEn;
