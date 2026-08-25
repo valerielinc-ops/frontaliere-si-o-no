@@ -25,6 +25,7 @@ import { isNewsletterExcluded } from './lib/emailSuppression.js';
 import { isNewsletterOptOutBinding } from './lib/newsletterOptOut.js';
 import { hasConfirmationProof } from './lib/subscriberConsent.js';
 import { resolveWelcomeContext } from './lib/welcomeSegment.js';
+import { resolveSubscriberLocale } from './lib/subscriberLocale.js';
 import { buildWelcomeEmail } from './lib/welcomeEmailTemplate.js';
 import { buildLifecycleEmailHeaders } from './lib/lifecycleEmailHeaders.js';
 import { makeOneClickUnsubscribeUrl, makePreferencesUrl, wrapAuthenticatedHrefs } from './lib/newsletterUrls.js';
@@ -276,7 +277,7 @@ export async function sendNewsletterWelcomeEmail({ email, locale, db: injectedDb
   }
 
   const ctx = resolveWelcomeContext(data);
-  const resolvedLocale = locale || data.preferred_locale || data.signup_locale || data.locale || 'it';
+  const resolvedLocale = resolveSubscriberLocale(data, locale);
 
   // Whether to say "your alert is active" or to OFFER one. Since #5705 the
   // backfillJobAlertOnNewsletterSignup trigger creates nothing without an

@@ -51,9 +51,9 @@
  */
 import { execFileSync } from 'node:child_process';
 import { commentOnce as commentOnceShared } from './lib/prComments.mjs';
-import { fetchPrFiles, GRAPHQL_FILES_CAP } from './lib/fetchPrFiles.mjs';
+import { fetchPrFiles, GRAPHQL_FILES_CAP, REST_FILES_HARD_CAP } from './lib/fetchPrFiles.mjs';
 
-export { fetchPrFiles, GRAPHQL_FILES_CAP };
+export { fetchPrFiles, GRAPHQL_FILES_CAP, REST_FILES_HARD_CAP };
 
 const DRY = process.argv.includes('--dry-run');
 const REPO = process.env.GITHUB_REPOSITORY || '';
@@ -188,12 +188,18 @@ function main() {
       listComplete.set(pr.number, true);
       continue;
     }
-    const { files, complete } = fetchPrFiles(pr.number, pr.changedFiles, gh, REPO);
+    const { files, complete, reason } = fetchPrFiles(pr.number, pr.changedFiles, gh, REPO);
     const set = new Set(files.filter(isFunnel));
     funnelFiles.set(pr.number, set);
     listComplete.set(pr.number, complete);
     if (!complete) {
-      console.log(`PR #${pr.number}: elenco file INCOMPLETO (${files.length}/${pr.changedFiles ?? '?'} attesi) → una collisione puo' sfuggire, la label non verra' rimossa.`);
+      // La causa cambia cosa farsene: `rest-hard-limit` e' il tetto dell'API e
+      // non rientra da solo, gli altri sono transitori (follow-up #6206 item 1).
+      const hardLimit = reason === 'rest-hard-limit';
+      console.log(`PR #${pr.number}: elenco file INCOMPLETO (${files.length}/${pr.changedFiles ?? '?'} attesi, causa: ${reason}) → una collisione puo' sfuggire, la label non verra' rimossa.`);
+      if (hardLimit) {
+        console.log(`PR #${pr.number}: ⚠️  il troncamento e' il tetto rigido di ${REST_FILES_HARD_CAP} file della REST GitHub, non un errore transitorio — nessun retry lo risolve.`);
+      }
     }
     if (set.size) console.log(`PR #${pr.number}: ${set.size} file funnel-critical.`);
   }

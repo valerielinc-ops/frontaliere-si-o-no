@@ -41,6 +41,7 @@ import { timingSafeEqual } from 'node:crypto';
 import admin from 'firebase-admin';
 import { ensureAdminApp, getAdminDb } from './newsletterResendWebhookCore.js';
 import { t, htmlLang, normalizeLocale } from './emailI18n.js';
+import { resolveSubscriberLocale } from './lib/subscriberLocale.js';
 import { forensicsFields } from './lib/requestForensics.js';
 import { isNewsletterOptOutBinding, toEpochMillis } from './lib/newsletterOptOut.js';
 import {
@@ -456,7 +457,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  const subDoc = await db.collection('newsletter_subscribers').doc(normalizedEmail).get();
  if (subDoc.exists) {
  const subData = subDoc.data();
- lang = normalizeLocale(subData.preferred_locale || subData.signup_locale);
+ lang = resolveSubscriberLocale(subData);
  }
  } catch { /* fallback to 'it' */ }
  }

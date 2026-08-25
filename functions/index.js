@@ -84,6 +84,7 @@ import { syncAuthAccountForSubscriber } from './src/newsletterSubscriberAuthSync
 import { cleanupSavedJobsForDeletedUser } from './src/authAccountCleanup.js';
 import { handleNewsletterSubscriberCreated } from './src/jobAlertBackfillTrigger.js';
 import { signalTierChanged, getSignalTier } from './src/jobAlertBackfillCore.js';
+import { resolveSubscriberLocale } from './src/lib/subscriberLocale.js';
 
 ensureAdminApp();
 
@@ -784,7 +785,16 @@ export const welcomeOnConfirmation = onDocumentWritten(
     try {
       const result = await sendNewsletterWelcomeEmail({
         email,
-        locale: after.locale || after.source_locale || 'it',
+        // `after` E' il documento iscritto, quindi la catena canonica si
+        // applica qui senza una lettura in piu'. La riga di prima
+        // (`after.locale || after.source_locale || 'it'`) sbagliava due volte:
+        // `source_locale` vive solo sugli `events` e non su questo documento,
+        // e rendendo sempre un valore veritiero cortocircuitava la catena del
+        // chiamato, che `preferred_locale` non lo vedeva mai. Per un iscritto
+        // che ha espresso una preferenza dopo l'iscrizione, trigger e path
+        // `confirm` mandavano la stessa welcome in due lingue diverse a
+        // seconda di chi vinceva la corsa (follow-up #6273).
+        locale: resolveSubscriberLocale(after),
         trigger: 'firestore_trigger',
       });
       console.log('[welcomeOnConfirmation] outcome:', result.success ? 'sent' : (result.skipped || result.error || 'unknown'));

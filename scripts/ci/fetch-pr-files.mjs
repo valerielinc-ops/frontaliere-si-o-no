@@ -61,8 +61,8 @@ function main() {
     process.exit(1);
   }
   const expected = fetchExpectedChangedFiles(pr, gh, repo);
-  const { files, complete } = fetchPrFiles(Number(pr), expected, gh, repo);
-  process.stdout.write(JSON.stringify({ expected, count: files.length, complete, files }));
+  const { files, complete, reason } = fetchPrFiles(Number(pr), expected, gh, repo);
+  process.stdout.write(JSON.stringify({ expected, count: files.length, complete, reason, files }));
 }
 
 if (process.argv[1]?.endsWith('fetch-pr-files.mjs')) {

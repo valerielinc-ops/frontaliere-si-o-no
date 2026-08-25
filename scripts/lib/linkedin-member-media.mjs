@@ -22,6 +22,20 @@ export const LINKEDIN_IMAGES_VERSION = LINKEDIN_REST_VERSION;
 const FETCH_TIMEOUT_MS = 15000;
 const MAX_EDGE_PX = 1920;
 
+// Tetto in byte per il buffer che finisce nel PUT su Images API.
+//
+// Ogni ramo tranne la GIF era gia' limitato per costruzione: `sharp().resize()`
+// a 1920px riporta qualunque originale a pochi centinaia di KB. La GIF no —
+// tornava il buffer scaricato cosi' com'era, quindi una `og:image` GIF animata
+// e pesante andava al PUT senza che nulla la guardasse (follow-up #6450 item 3).
+// Il fail-soft assorbe il reject, ma assorbendolo perde la thumbnail in
+// silenzio: il post esce senza card.
+//
+// 5 MB sta sotto il limite documentato da LinkedIn per l'upload immagini
+// (10 MB) con un margine che copre l'overhead di trasferimento; una GIF sopra
+// questa soglia non e' una thumbnail, e' un asset fuori posto.
+export const MAX_UPLOAD_BYTES = 5_000_000;
+
 /**
  * @param {string} pageUrl
  * @param {typeof fetch} [fetchImpl]
@@ -68,7 +82,12 @@ export async function convertImageForLinkedIn(buffer, meta = {}) {
   const isPng = type.includes('png') || /\.png$/i.test(path);
   const isGif = type.includes('gif') || /\.gif$/i.test(path);
 
-  if (isGif) {
+  // Una GIF entro il tetto passa intatta: e' l'unico formato in cui
+  // l'animazione e' il contenuto, e ricodificarla la ucciderebbe.
+  // Sopra il tetto non si scarta — si degrada al primo fotogramma, che e'
+  // esattamente cio' che ogni altro ramo produce. Una thumbnail statica vale
+  // piu' di un PUT rifiutato e assorbito dal fail-soft (follow-up #6450).
+  if (isGif && buf.length <= MAX_UPLOAD_BYTES) {
     return { buffer: buf, contentType: 'image/gif' };
   }
 

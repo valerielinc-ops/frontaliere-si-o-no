@@ -30,8 +30,26 @@ const ORG_URN_PREFIX = 'urn:li:organization:';
 const ORG_URN_RE = /^urn:li:organization:\d+$/;
 const IMAGE_URN_RE = /^urn:li:image:\S+$/;
 
-const VIEWS_SOCIAL_PROOF_RE =
-  /📊\s*|\d[\d.'\u00a0\s]*\s*visualizzazion[ie]?(?:\s+il\s+\d{1,2}\/\d{1,2}\/\d{2,4})?\.?|\bvisualizzazion[ie]?\b/gi;
+// «Social proof» e' un CONTEGGIO di visualizzazioni, non la parola.
+//
+// L'alternativa nuda `\bvisualizzazion[ie]?\b` toglieva la parola ovunque
+// comparisse: un excerpt legittimo — «una feature di visualizzazione dati»,
+// «la visualizzazione mobile della pagina» — usciva mutilato in silenzio, e
+// il fail-soft del poster non aveva modo di accorgersene (follow-up #6450
+// item 2). Le alternative qui sotto chiedono tutte un contesto di conteggio:
+// una cifra prima, una cifra dopo, o il marcatore 📊 che questo sito emette
+// solo davanti alle proprie metriche.
+const VIEWS_SOCIAL_PROOF_RE = new RegExp(
+  [
+    // «30 visualizzazioni», «1.234 visualizzazioni il 3/4/2026»
+    "\\d[\\d.'\\u00a0\\s]*\\s*visualizzazion[ie]?(?:\\s+il\\s+\\d{1,2}/\\d{1,2}/\\d{2,4})?\\.?",
+    // «Visualizzazioni: 1.234», «visualizzazioni 30»
+    "visualizzazion[ie]?\\s*[:=]?\\s*\\d[\\d.'\\u00a0]*",
+    // Il marcatore, con o senza la parola attaccata.
+    '📊\\s*(?:visualizzazion[ie]?)?',
+  ].join('|'),
+  'gi',
+);
 
 const ARTICLE_ANGLES = 7;
 const JOB_ANGLES = 7;
@@ -66,7 +84,35 @@ export function formatCompanyMention(name, orgUrn) {
   const n = String(name || '').trim();
   if (!n) return '';
   const urn = normalizeOrganizationUrn(orgUrn);
-  return urn ? `@[${n}](${urn})` : n;
+  return urn ? `@[${sanitizeMentionLabel(n)}](${urn})` : n;
+}
+
+/**
+ * Rende un nome azienda sicuro dentro l'etichetta di `@[…](urn)`.
+ *
+ * L'etichetta e' delimitata da parentesi QUADRE, quindi sono `[` e `]` — non
+ * le tonde — a poterla chiudere in anticipo e a rompere la mention: un nome
+ * come "ACME [CH] AG" produrrebbe `@[ACME [CH](urn)` e il resto finirebbe
+ * come testo. Le tonde di "ABC (Schweiz) AG", frequentissime sulle filiali
+ * svizzere, stanno DENTRO l'etichetta e non la terminano: restano intatte,
+ * perche' mutilare il nome legale di un datore per una paura non misurata
+ * sarebbe un danno peggiore del rischio (follow-up #6450 item 1).
+ *
+ * Anche un a capo rompe la sintassi — il parser di LinkedIn non attraversa la
+ * riga — quindi ogni spazio bianco collassa in uno solo.
+ *
+ * Il fail-soft del poster assorbe il 400 e salta il post del giorno: senza
+ * questa normalizzazione un datore col nome sbagliato costerebbe una
+ * pubblicazione senza lasciare traccia.
+ *
+ * @param {string} label
+ * @returns {string}
+ */
+export function sanitizeMentionLabel(label) {
+  return String(label || '')
+    .replace(/[[\]]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 /**
