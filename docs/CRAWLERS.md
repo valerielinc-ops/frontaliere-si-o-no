@@ -338,10 +338,10 @@ employer's postings — and its `url`/`applyUrl` — from a third-party job-boar
 aggregator (jobs.ch, jobup.ch, indeed, ...) instead of the employer's own
 domain. The vacancy is genuine, every existing gate stays green, and we still
 hand the click to a competing job board instead of the direct employer. Four
-crawlers do this today (`equans`, `cham-swiss-properties`, `city-pop`,
-`dic-sa`), all built by hand in PR #3428 (2026-07-04), before the prospector
-existed — see `docs/PROSPECTOR.md` for why the prospector's own crawler-
-synthesis pipeline does not create these by construction.
+crawlers did this — `equans`, `cham-swiss-properties`, `city-pop`, `dic-sa` —
+all built by hand in PR #3428 (2026-07-04), before the prospector existed —
+see `docs/PROSPECTOR.md` for why the prospector's own crawler-synthesis
+pipeline does not create these by construction.
 
 **The shared domain list**: `scripts/lib/known-aggregator-domains.mjs` is the
 single source of truth for which registrable domains are multi-employer
@@ -364,19 +364,30 @@ declares one of three tags, checked against the employer's own site:
 | `@outsourced-ats-needs-verification: <reason>` | not yet checked (e.g. the employer's site blocks automated fetches) |
 
 All three satisfy the gate — disclosure is the requirement, not instant
-perfection — but only `confirmed` closes the question. The other two are
-grep-able debt: `equans` is `confirmed` (its own careers page explicitly
-hands off to jobs.ch/jobup.ch tabs, no listing of its own exists);
-`cham-swiss-properties` is `needs-migration` (its own site's apply CTA points
-to `jobs.dualoo.com`, a platform this repo already has a family parser
-economy for — the crawler sources from jobs.ch, the wrong third party,
-not even the one the employer actually uses); `city-pop` and `dic-sa` are
-`needs-verification` (their own sites could not be conclusively checked with
-a plain fetch). This is why a *test* enforces the tag rather than a one-time
-review: the day someone repeats the 2026-07-04 shortcut — a new
-`*-job-parser.mjs` importing `jobs-ch-search-common.mjs` with no tag — `npm
-test` fails immediately instead of shipping another silent redirect to a
-competitor's board.
+perfection — but only `confirmed` closes the question, and it does not mean
+"stuck on jobs.ch forever": of the four crawlers this surfaced, two were
+migrated off jobs.ch/jobup.ch entirely once a real browser check found a
+better source. `equans` is `confirmed` (its own careers page explicitly hands
+off to jobs.ch/jobup.ch tabs, no listing of its own exists — jobs.ch genuinely
+is the employer's chosen channel). `city-pop` is `confirmed` too, but for the
+opposite reason: a real-browser check found no careers/jobs section anywhere
+on its own site (both `/careers` and `/jobs` 404) — jobs.ch is its only
+discoverable channel, not a bypassed alternative. `cham-swiss-properties` and
+`dic-sa` were `needs-migration` — a real browser found each one's own site
+embedding/linking a genuine direct source (a Dualoo portal at
+`jobs.dualoo.com/portal/6j9quii0`, and a WordPress `job-offers` REST API at
+`dic-ing.ch/wp-json/wp/v2/job-offers`, respectively) — and are now `confirmed`
+under the migrated source: their `url`/`applyUrl` point at the employer's own
+domain (or, for Dualoo, the employer's own single-tenant ATS portal — not a
+multi-employer marketplace) instead of jobs.ch/jobup.ch. This is why a *test*
+enforces the tag rather than a one-time review: the day someone repeats the
+2026-07-04 shortcut — a new `*-job-parser.mjs` importing
+`jobs-ch-search-common.mjs` with no tag — `npm test` fails immediately instead
+of shipping another silent redirect to a competitor's board. A static fetch
+cannot always answer the tag's question (bot protection, JS-only rendering) —
+that failure mode is exactly what escalates a crawler from
+`needs-verification` to a real-browser check, not a reason to leave it
+unverified indefinitely.
 
 An unmarked import is the one state the gate refuses. A tagged one is not
 blocked, because the loop this repo runs cannot review every PR by hand —

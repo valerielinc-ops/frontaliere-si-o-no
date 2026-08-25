@@ -1,22 +1,21 @@
 #!/usr/bin/env node
 /**
- * Cham Swiss Properties AG job parser — jobs.ch public search API + JSON-LD detail.
+ * Cham Swiss Properties AG job parser — Dualoo ATS (portal 6j9quii0).
  *
- * Source: https://www.jobs.ch/en/companies/142189-cham-swiss-properties-ag/
- * (public company profile page; the jobs.ch API discovery below is what
- * actually feeds this parser — see ./jobs-ch-search-common.mjs)
+ * Public career site: https://champroperties.ch/en/company/karriere
+ *   → embeds Dualoo portal https://jobs.dualoo.com/portal/6j9quii0
  *
- * @outsourced-ats-needs-migration: champroperties.ch's own careers page
- * (https://champroperties.ch/en/company/karriere, re-checked live
- * 2026-08-25) links its "Jetzt bewerben" CTA to jobs.dualoo.com — its actual
- * chosen outsourced ATS is Dualoo, not jobs.ch/jobup.ch. This parser sources
- * from the wrong third party entirely (an aggregator this employer does not
- * even use for applications), not merely a suboptimal-but-genuine one.
- * Dualoo is already a known shared-host platform elsewhere in this repo's
- * crawler fleet (see the `own` prospector discovery source in
- * `scripts/lib/prospector/sources/known-crawlers.mjs`) — migrate this
- * parser to source from the employer's Dualoo tenant directly instead of
- * jobs.ch.
+ * @outsourced-ats-confirmed: this is the migration promised by the
+ * @outsourced-ats-needs-migration tag this file previously carried. The
+ * employer's own careers page embeds the Dualoo portal directly (confirmed
+ * live 2026-08-25 via the iframe src on champroperties.ch/en/company/karriere)
+ * — Dualoo is the employer's actual chosen outsourced ATS, not jobs.ch/jobup.ch,
+ * which this parser used to source from instead (the wrong third party
+ * entirely). Dualoo is a single-tenant-per-portal ATS (not a multi-employer
+ * marketplace — see scripts/lib/known-aggregator-domains.mjs, which does NOT
+ * list dualoo.com), the same pattern already used by 6 other crawlers in this
+ * fleet (cereneo, forel-klinik, klinik-aadorf, klinik-arlesheim,
+ * spital-affoltern, uroviva).
  *
  * Cham Swiss Properties AG (SIX: CHAM) is a listed Swiss real-estate
  * development / project-management company headquartered in Cham (ZG),
@@ -25,39 +24,17 @@
  * develops residential/mixed-use urban quarters (Papieri-Areal Cham,
  * Bredella Pratteln, plus projects in Zurich and Geneva) on a CHF ~1.7bn
  * portfolio. Confirmed GENUINE DIRECT EMPLOYER, not a staffing/placement
- * agency:
- *   - own company careers page (champroperties.ch/en/company/karriere)
- *     lists open positions as its own headcount, with an in-house HR
- *     contact (Fachverantwortliche Personaladministration) — not a
- *     third-party recruiter.
- *   - jobs.ch company profile posts directly under "Cham Swiss
- *     Properties AG" as `hiringOrganization`, no client/mandate framing.
- *   - Small (~50 employee) in-house team; postings are corporate/real-
- *     estate development roles (contract management, project management,
- *     IT), consistent with an owner-developer, not a placement agency.
+ * agency — own company careers page lists open positions as its own
+ * headcount, with an in-house HR contact (Fachverantwortliche
+ * Personaladministration), and the Dualoo portal posts directly under
+ * "Cham Swiss Properties AG" as employer, no client/mandate framing.
  *
- * jobs.ch company profile id: 142189.
+ * HQ fallback address (jobs.ch company profile + LinkedIn, unaffected by
+ * the ATS migration): Fabrikstrasse 5, 6330 Cham, ZG.
  *
- * IMPORTANT — re-verified 2026-07-06 (follow-up #3637, item 2) whether this
- * numeric id risks going stale the way DIC SA's did (see ./dic-sa-job-parser.mjs:
- * that company had a duplicate legacy numeric profile with jobCount: 0,
- * requiring a switch to its separate active UUID profile). Cham Swiss
- * Properties AG has NO such duplicate:
- *   - `job-search-api.jobs.ch/search?companyIds=142189` → totalHits: 1
- *     (confirmed live, same posting as at crawler creation).
- *   - the profile's own React state carries `"id":"142189"`,
- *     `"redirectToCompanyId":null`, `"redirectToCompanySlug":null` — i.e.
- *     jobs.ch itself does not consider 142189 superseded/redirected.
- *   - a jobs.ch company-name search for "Cham Swiss Properties" returns
- *     exactly one record (142189, jobCount: 1) — no second/UUID-only entry
- *     exists to migrate to (unlike DIC SA, which had two distinct company
- *     records for the same employer).
- * Conclusion: 142189 is the sole, active, stable id — no UUID migration
- * applies here. Keep as-is; re-check only if the search API starts
- * returning 0 hits for it.
- *
- * HQ fallback address (confirmed via jobs.ch company profile JSON-LD,
- * company website imprint and LinkedIn): Fabrikstrasse 5, 6330 Cham, ZG.
+ * Modelled on `forel-klinik-job-parser.mjs` (same Dualoo HTML shape,
+ * confirmed byte-for-byte matching `jobElement`/`data-eventData` markup and
+ * `advertisement*Text` detail classes on 2026-08-25).
  *
  * Exports the 3 functions used by the crawler template:
  *   - fetchAllChamSwissPropertiesJobs()  — Fetch and parse all Swiss jobs
@@ -66,14 +43,10 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferAnyCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
+import { slugify, classAttrRx } from './crawler-template.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { detectEmploymentTypeFromOccupation } from './jobup-ch-feed-common.mjs';
-import {
-  fetchJobsChCompanyListings,
-  fetchJobsChJobPostingLd,
-  jobsChDetailUrl,
-} from './jobs-ch-search-common.mjs';
+import { fetchHtml, decodeEntities, normalizeSpace } from './hospital-custom-html-helpers.mjs';
 
 /* Constants ─────────────────────────────────────────────── */
 
@@ -81,8 +54,11 @@ export const CHAM_SWISS_PROPERTIES_KEY = 'cham-swiss-properties';
 export const CHAM_SWISS_PROPERTIES_COMPANY_NAME = 'Cham Swiss Properties';
 export const CHAM_SWISS_PROPERTIES_COMPANY_DOMAIN = 'champroperties.ch';
 
-const COMPANY_IDS = ['142189'];
-const CAREER_URL = 'https://www.jobs.ch/en/companies/142189-cham-swiss-properties-ag/';
+const DUALOO_PORTAL = '6j9quii0';
+const PORTAL_URL = `https://jobs.dualoo.com/portal/${DUALOO_PORTAL}?lang=DE`;
+const DETAIL_BASE = `https://jobs.dualoo.com/portal/${DUALOO_PORTAL}`;
+const PUBLIC_CAREER_URL = 'https://champroperties.ch/en/company/karriere';
+const DETAIL_DELAY_MS = 250;
 
 /* HQ fallback: Fabrikstrasse 5, 6330 Cham (jobs.ch company profile + LinkedIn). */
 const HQ = {
@@ -92,16 +68,20 @@ const HQ = {
   streetAddress: 'Fabrikstrasse 5',
 };
 
+// Both live postings today sit at the Cham HQ; the docblock's other project
+// sites (Pratteln, Zurich, Geneva) are development sites, not confirmed
+// office/hiring locations, so they are deliberately absent here — an
+// unconfirmed guess is worse than falling back to HQ.
+const CITY_POSTAL_MAP = new Map([
+  ['Cham', '6330'],
+]);
+
 const SECTOR = 'Immobiliare / Project Management';
 
 /* Helpers ───────────────────────────────────────────────── */
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
-}
-
-function normalizeSpace(s = '') {
-  return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -119,16 +99,17 @@ export function isChamSwissPropertiesJob(job) {
     key === CHAM_SWISS_PROPERTIES_KEY ||
     key.startsWith('cham-swiss-properties') ||
     company.includes('cham swiss properties') ||
-    url.includes('champroperties.ch')
+    url.includes('champroperties.ch') ||
+    url.includes(`/${DUALOO_PORTAL}/`)
   );
 }
 
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    if (host === 'champroperties.ch' || host.endsWith('.champroperties.ch')) return true;
-    if (host === 'jobs.ch' || host.endsWith('.jobs.ch')) return true;
-    return false;
+    return host === 'champroperties.ch'
+      || host.endsWith('.champroperties.ch')
+      || host === 'jobs.dualoo.com';
   } catch {
     return false;
   }
@@ -157,18 +138,98 @@ function detectExperienceLevel(title = '') {
 }
 
 /**
- * Map jobs.ch's free-text `employmentType` (JSON-LD) + posting workload
- * grades to the schema.org employmentType enum consumed downstream.
+ * Dualoo job titles carry the workload as a trailing "80-100%" (or single
+ * "100%") token — there is no separate structured employmentType field on
+ * this ATS, unlike jobs.ch's JSON-LD. Reuses the same occupation-percentage
+ * classifier the jobs.ch-sourced version of this file already relied on.
  */
-function resolveEmploymentType(ldEmploymentType = '', grades = []) {
-  const t = normalize(ldEmploymentType);
-  if (/\b(intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ]))/.test(t)) return 'INTERN';
-  if (/temporary|fixed.term|contract/.test(t)) return 'TEMPORARY';
-  if (/supplementary/.test(t)) return 'PER_DIEM';
-  const nums = (Array.isArray(grades) ? grades : []).map(Number).filter(Number.isFinite);
-  const min = nums.length ? Math.min(...nums) : 0;
-  const max = nums.length ? Math.max(...nums) : 100;
+function resolveEmploymentTypeFromTitle(title = '') {
+  const m = title.match(/(\d{2,3})\s*[-–]\s*(\d{2,3})\s*%/) || title.match(/(\d{2,3})\s*%/);
+  const min = m ? Number(m[1]) : 100;
+  const max = m && m[2] ? Number(m[2]) : min;
   return detectEmploymentTypeFromOccupation(min, max) === 'PART_TIME' ? 'PART_TIME' : 'FULL_TIME';
+}
+
+/* ── Dualoo portal parsing (mirrors forel-klinik-job-parser.mjs) ──────── */
+
+function parseDualooPortal(html) {
+  const out = [];
+  const seen = new Set();
+  const blockRe = /<a[^>]*class="[^"]*\bjobElement\b[^"]*"[^>]*>[\s\S]*?<\/a>/g;
+  let m;
+  while ((m = blockRe.exec(html))) {
+    const block = m[0];
+    const hrefMatch = block.match(/\shref="([^"]+)"/);
+    const evMatch = block.match(/\sdata-eventData="([^"]+)"/);
+    const spanMatch = block.match(/<span[^>]*class="jobName"[^>]*>([\s\S]*?)<\/span>/i);
+    if (!hrefMatch) continue;
+    const rel = hrefMatch[1];
+    let meta = {};
+    if (evMatch) {
+      const evRaw = evMatch[1].replace(/&quot;/g, '"').replace(/&amp;/g, '&');
+      try { meta = JSON.parse(evRaw); } catch { meta = {}; }
+    }
+    const spanTitle = spanMatch
+      ? normalizeSpace(decodeEntities(spanMatch[1].replace(/<[^>]+>/g, ' ')))
+      : '';
+    const evTitle = normalizeSpace(decodeEntities(String(meta.jobName || '')));
+    const title = spanTitle || evTitle;
+    if (!title || title.length < 3) continue;
+    const uuidMatch = rel.match(/([a-f0-9-]{36})\/detail/);
+    const uuid = uuidMatch ? uuidMatch[1] : rel;
+    if (seen.has(uuid)) continue;
+    seen.add(uuid);
+    const url = rel.startsWith('http')
+      ? rel
+      : `${DETAIL_BASE}/${rel.replace(new RegExp(`^${DUALOO_PORTAL}/`), '')}`;
+    out.push({
+      uuid,
+      url,
+      title,
+      location: normalizeSpace(decodeEntities(String(meta.location || ''))),
+      startDate: normalizeSpace(decodeEntities(String(meta.startDate || ''))),
+    });
+  }
+  return out;
+}
+
+async function fetchDualooDetail(detailUrl) {
+  try {
+    const html = await fetchHtml(detailUrl);
+    const sections = [];
+    const grab = (cls, label) => {
+      const rx = new RegExp(`${classAttrRx(cls)}[^>]*>([\\s\\S]*?)</div>`, 'i');
+      const mm = html.match(rx);
+      if (!mm) return;
+      const text = mm[1]
+        .replace(/<li[^>]*>/gi, '\n• ')
+        .replace(/<\/li>/gi, '')
+        .replace(/<br\s*\/?>/gi, '\n')
+        .replace(/<[^>]+>/g, ' ')
+        .replace(/&nbsp;/gi, ' ')
+        .replace(/\s+\n/g, '\n')
+        .replace(/\s{2,}/g, ' ')
+        .trim();
+      if (text) sections.push(`${label}\n${text}`);
+    };
+    grab('advertisementResponsibilitiesText', 'Aufgaben:');
+    grab('advertisementRequirementsText', 'Anforderungen:');
+    grab('advertisementBenefitsText', 'Wir bieten:');
+    return sections.join('\n\n');
+  } catch {
+    return '';
+  }
+}
+
+function extractCity(rawLocation) {
+  if (!rawLocation) return HQ.city;
+  const parts = rawLocation.split(/\s*-\s*/).map((s) => s.trim()).filter(Boolean);
+  const last = parts[parts.length - 1] || HQ.city;
+  return last;
+}
+
+function postalFor(city) {
+  return CITY_POSTAL_MAP.get(city) || (city === HQ.city ? HQ.postalCode : '');
 }
 
 /* ── Fetch + Parse ─────────────────────────────────────────── */
@@ -180,76 +241,49 @@ function resolveEmploymentType(ldEmploymentType = '', grades = []) {
  */
 export async function fetchAllChamSwissPropertiesJobs() {
   console.log(`🔍 Fetching ${CHAM_SWISS_PROPERTIES_COMPANY_NAME} jobs`);
-  console.log(`   Source: ${CAREER_URL}\n`);
+  console.log(`   Portal: ${PORTAL_URL}`);
+  console.log(`   Public: ${PUBLIC_CAREER_URL}\n`);
 
-  const listings = await fetchJobsChCompanyListings({ companyIds: COMPANY_IDS });
-  if (!listings || listings.length === 0) {
-    console.warn('⚠️ No job listings returned.');
-    return [];
-  }
+  const html = await fetchHtml(PORTAL_URL);
+  const items = parseDualooPortal(html);
+  console.log(`  ✓ ${items.length} Dualoo job cards parsed`);
+  if (!items.length) return [];
+  console.log(`  📄 Fetching detail pages for rich descriptions...`);
 
-  console.log(`  📋 Listings found: ${listings.length}`);
-
+  const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
-  const seen = new Set();
   const seenSlugs = new Set();
+  let detailHits = 0;
 
-  for (const listing of listings) {
-    const title = normalizeSpace(listing.title || '');
-    if (!title || title.length < 3) continue;
-    if (seen.has(listing.id)) continue;
-    seen.add(listing.id);
+  for (let i = 0; i < items.length; i += 1) {
+    const it = items[i];
+    if (i > 0) await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
+    const detailContent = await fetchDualooDetail(it.url);
+    if (detailContent) detailHits += 1;
 
-    let ld = null;
-    let detailUrl = jobsChDetailUrl(listing.id, 'en');
-    try {
-      const detail = await fetchJobsChJobPostingLd(listing.id, { locale: 'en' });
-      ld = detail.ld;
-      detailUrl = detail.url;
-    } catch (err) {
-      console.warn(`⚠️ Failed to fetch detail for ${listing.id}: ${err?.message || err}`);
-    }
+    const city = extractCity(it.location);
+    const canton = inferAnyCanton(city) || HQ.canton;
+    const description = [
+      detailContent,
+      it.location ? `Standort: ${it.location}` : '',
+      it.startDate ? `Eintritt: ${it.startDate}` : '',
+      `${CHAM_SWISS_PROPERTIES_COMPANY_NAME} — Immobilienentwicklung mit Sitz in ${HQ.city} (Kanton ${HQ.canton}).`,
+    ].filter(Boolean).join('\n\n');
 
-    const loc0 = Array.isArray(listing.locations) ? listing.locations[0] : null;
-    const place = normalizeSpace(listing.place || loc0?.city || '');
-    const canton =
-      normalizeCantonCode(loc0?.cantonCode || '') ||
-      inferAnyCanton(place) ||
-      HQ.canton;
+    // The Dualoo portal is fetched at `?lang=DE` (its only locale for this
+    // tenant, confirmed live 2026-08-25 — both postings are German-only) —
+    // 'de' is a real default here, not a guess.
+    const sourceLang = detectLang(description || it.title, 'de');
+    const urlHash = createHash('sha1').update(it.uuid).digest('hex').slice(0, 12);
+    const employmentType = resolveEmploymentTypeFromTitle(it.title);
 
-    const descriptionHtml = ld?.description || '';
-    const descriptionText = stripHtml(descriptionHtml);
-    const description = descriptionText || `${title} presso ${CHAM_SWISS_PROPERTIES_COMPANY_NAME} a ${place || HQ.city}.`;
-    // No hardcoded language fallback: Cham Swiss Properties develops projects
-    // in Cham/Zug (DE) AND Geneva (FR) — a single-locale default would
-    // silently mistag an ambiguous FR posting as 'de', freezing the wrong
-    // locale key in slugByLocale/descriptionByLocale downstream. `null` on a
-    // genuinely ambiguous/short text is handled gracefully: mergeLocaleTextMap()
-    // treats a falsy sourceLocale as "unknown" (symmetric merge, no forced
-    // locale overwrite) and hardenJobLocaleFields() re-derives + backfills the
-    // real source locale from the job's own title/description on the very
-    // next pipeline step.
-    const sourceLang = detectLang(descriptionText || title, null);
-
-    const urlHash = createHash('sha1').update(listing.id).digest('hex').slice(0, 12);
-
-    // Two distinct postings can legitimately share title+location —
-    // disambiguate in-run collisions with a short id suffix so both jobs
-    // keep a stable, unique slug instead of silently colliding.
-    let jobSlug = slugify(`${title} cham-swiss-properties ${place || HQ.city}`);
+    let jobSlug = slugify(`${it.title} cham-swiss-properties ${city}`);
     if (seenSlugs.has(jobSlug)) {
-      jobSlug = slugify(`${title} cham-swiss-properties ${place || HQ.city} ${urlHash.slice(0, 6)}`);
+      jobSlug = slugify(`${it.title} cham-swiss-properties ${city} ${urlHash.slice(0, 6)}`);
     }
     seenSlugs.add(jobSlug);
 
-    const employmentType = resolveEmploymentType(ld?.employmentType || '', listing.employmentGrades);
-    const postedDate = (listing.publicationDate && String(listing.publicationDate).slice(0, 10))
-      || (listing.initialPublicationDate && String(listing.initialPublicationDate).slice(0, 10))
-      || new Date().toISOString().split('T')[0];
-
-    const hiringOrganizationName = ld?.hiringOrganization?.name || listing.company?.name || CHAM_SWISS_PROPERTIES_COMPANY_NAME;
-
-    const job = {
+    jobs.push({
       // ── Required fields ──
       id: `${CHAM_SWISS_PROPERTIES_KEY}-${urlHash}`,
       slug: jobSlug,
@@ -257,41 +291,43 @@ export async function fetchAllChamSwissPropertiesJobs() {
       company: CHAM_SWISS_PROPERTIES_COMPANY_NAME,
       companyKey: CHAM_SWISS_PROPERTIES_KEY,
       companyDomain: CHAM_SWISS_PROPERTIES_COMPANY_DOMAIN,
-      title,
-      titleByLocale: { [sourceLang]: title },
+      title: it.title,
+      titleByLocale: { [sourceLang]: it.title },
       description,
       descriptionByLocale: { [sourceLang]: description },
-      location: place || HQ.city,
+      needsRetranslation: true,
+      location: city,
       canton,
-      url: detailUrl,
-      source: 'Cham Swiss Properties Dedicated Parser (jobs.ch)',
+      url: it.url,
+      source: `${CHAM_SWISS_PROPERTIES_COMPANY_NAME} Dedicated Parser (Dualoo)`,
       sourceLang,
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields ──
-      addressLocality: loc0?.city || place || HQ.city,
+      addressLocality: city,
       addressRegion: canton,
-      streetAddress: normalizeSpace(loc0?.street || '') || (canton === HQ.canton ? HQ.streetAddress : ''),
-      postalCode: normalizeSpace(loc0?.postalCode || '') || (canton === HQ.canton ? HQ.postalCode : ''),
+      streetAddress: city === HQ.city ? HQ.streetAddress : '',
+      postalCode: postalFor(city),
       addressCountry: 'CH',
       country: 'CH',
-      category: detectCategory(title),
+      category: detectCategory(it.title),
       contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
       employmentType,
-      experienceLevel: detectExperienceLevel(title),
+      experienceLevel: detectExperienceLevel(it.title),
       sector: SECTOR,
       currency: 'CHF',
       featured: false,
-      postedDate,
-      applyUrl: detailUrl,
-      hiringOrganizationName,
+      postedDate: todayIso,
+      applyUrl: it.url,
+      hiringOrganizationName: `${CHAM_SWISS_PROPERTIES_COMPANY_NAME} AG`,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
-    };
-
-    jobs.push(job);
+    });
   }
 
-  console.log(`\n📋 Total ${CHAM_SWISS_PROPERTIES_COMPANY_NAME} jobs discovered: ${jobs.length}`);
+  console.log(
+    `\n📋 Total ${CHAM_SWISS_PROPERTIES_COMPANY_NAME} jobs discovered: ${jobs.length} `
+    + `(${detailHits}/${items.length} with rich detail content)`,
+  );
   return jobs;
 }
