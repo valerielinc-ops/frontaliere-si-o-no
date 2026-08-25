@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hess-carrosserie",
-  "assembledAt": "2026-08-24T21:44:30.490Z",
+  "assembledAt": "2026-08-25T10:19:46.696Z",
   "jobs": [
     {
       "id": "hess-carrosserie-f7daf95cfb41",
@@ -17,7 +17,7 @@
       "title": "Carrosseriespengler",
       "titleByLocale": {
         "it": "Idraulico carrozzeria",
-        "en": "Carrosseries Pengler",
+        "en": "Carrosseriespengler",
         "de": "Carrosseriespengler",
         "fr": "Panteau de carrosseries"
       },
@@ -33,7 +33,7 @@
       "url": "https://jobs.hess-ag.ch/publication/carrosseriespengler/jcxfkduwb7hw872kevj67iv7pycb2jbdeo3fvgbhdei6473x8hvy361dqxt2rqep",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:28.581Z",
+      "crawledAt": "2026-08-25T10:19:43.454Z",
       "addressLocality": "Rothenburg",
       "addressRegion": "LU",
       "streetAddress": "Stationsstrasse 88",
@@ -88,6 +88,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:53:37.519Z",
+      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 119000,
       "baseSalary": {
@@ -132,7 +133,7 @@
       "url": "https://jobs.hess-ag.ch/publication/fahrzeugelektriker-nutzfahrzeuge/dhujcozfzpocrjxvkkgsciw5q3r5l3lgguw5786xthuv74rta2veskfekb64esfe",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:28.115Z",
+      "crawledAt": "2026-08-25T10:19:43.017Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -169,6 +170,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:53:37.094Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -213,7 +215,7 @@
       "url": "https://jobs.hess-ag.ch/publication/fahrzeugschlosser/jeko2k44k8kouv0f5ehi7lj8iq5zp008rbz86tljmzmb7ou5go4v0cac10ejwmqc",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:27.633Z",
+      "crawledAt": "2026-08-25T10:19:42.567Z",
       "addressLocality": "Rothenburg",
       "addressRegion": "LU",
       "streetAddress": "Stationsstrasse 88",
@@ -266,37 +268,37 @@
       }
     },
     {
-      "id": "hess-carrosserie-e38dcd3ad453",
-      "slug": "automobilmechatroniker-come-pdi-spezialist-m-w-d-carrosserie-hess-ag-bellach",
+      "id": "hess-carrosserie-0c1d25adc7b5",
+      "slug": "automobilmechatroniker-nutzfahrzeuge-m-w-d-hess-bellach",
       "slugByLocale": {
-        "it": "automobilmechatroniker-come-pdi-spezialist-m-w-d-carrosserie-hess-ag-bellach",
-        "en": "automotive-mechatronics-specialist-as-pdi-specialist-m-f-d-carrosserie-hess-ag-bellach",
-        "de": "automobilmechatroniker-als-pdi-spezialist-m-w-d-hess-bellach",
-        "fr": "specialiste-mecatronique-automobile-en-tant-que-specialiste-pdi-m-f-d-carrosserie-hess-ag-bellach"
+        "de": "automobilmechatroniker-nutzfahrzeuge-m-w-d-hess-bellach",
+        "it": "automobilmechatroniker-nutzfahrzeuge-m-w-d-hess-bellach",
+        "en": "automobilmechatroniker-nutzfahrzeuge-m-w-d-hess-bellach",
+        "fr": "automobilmechatroniker-nutzfahrzeuge-m-w-d-hess-bellach"
       },
       "company": "Carrosserie HESS AG",
       "companyKey": "hess-carrosserie",
       "companyDomain": "hess-ag.ch",
-      "title": "Automobilmechatroniker als PDI-Spezialist (m/w/d)",
+      "title": "Automobilmechatroniker Nutzfahrzeuge (m/w/d)",
       "titleByLocale": {
-        "it": "Automobilmechatroniker come PDI-Spezialist (m/w/d)",
-        "en": "Automotive mechatronics specialist as PDI specialist (m/f/d)",
-        "de": "Automobilmechatroniker als PDI-Spezialist (m/w/d)",
-        "fr": "Spécialiste mécatronique automobile en tant que spécialiste PDI (m/f/d)"
+        "de": "Automobilmechatroniker Nutzfahrzeuge (m/w/d)",
+        "it": "Automobilmechatroniker Nutzfahrzeuge (m/w/d)",
+        "en": "Automobilmechatroniker Nutzfahrzeuge (m/w/d)",
+        "fr": "Automobilmechatroniker Nutzfahrzeuge (m/w/d)"
       },
-      "description": "Automobilmechatroniker als PDI-Spezialist\n (m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\n Als führendes Schweizer Unternehmen für Entwicklung, Herstellung und Reparatur von Fahrzeugen und Bausätzen beschäftigen wir in Bellach (SO) 600 MitarbeiterInnen. Nebst unserer lokalen Produktion betreuen und beliefern wir Lizenzpartner auf fünf Kontinenten mit unserem Baukasten-System \"Co-Bolt\". Als einziger Schweizer Bushersteller bewegen wir uns weit über die Grenzen mit unseren hochwertigen Elektro- und Trolleybussen. Die Innovationskultur ist der Treibstoff unserer Firma.\n\nZur Verstärkung unseres Teams in der Endmontage unserer Sparte Bus & Trolley suchen wir motivierte Spezialisten mit Know-How in der Fahrzeugmechanik für die PDI-Arbeiten am Ende des Herstellungsprozesses unserer Elektrobusse.\n\nAls PDI-Spezialist für unsere innovativen Elektrobusse spielst du eine entscheidende Rolle in der Fertigungskette. Deine Aufgabe ist es, sicherzustellen, dass jeder Bus, der unsere Produktionshallen verlässt, in einwandfreiem Zustand ist und den höchsten Sicherheitsstandards entspricht. Wenn du Verantwortung übernehmen möchtest, bist du bei uns genau richtig!\n Deine Aufgaben\n\n• Durchführung sämtlicher \"Pre-Delivery Inspection\"-Arbeiten an unseren Elektrobussen (nach Vorgabe der Entwicklungsabteilung)\n\n• Inbetriebnahme von Tachographen und der RAG\n\n• Prüfung und Inbetriebnahme der Bremsen unter WABCO-Systemvorgaben inkl. Erstellung von Prüfprotokollen für offizielle Stellen\n\n• Vermessung und Einstellung der kompletten Lenkgeometrie und der Antriebsmotoren\n\n• Vornehmen von Wendekreismessungen\n\n• Kalibrierung der Bus-Gelenke und der Lenkwinkelsensoren\n\n• Planung der auszuführenden Arbeiten in Absprache mit der Montageleitung\n\n• Gestaltung und Umsetzung eines sinnvollen Zeitmanagements für die Umsetzung der PDI-Termine\n\n• Fahren von Gelenk- und Doppelgelenkbussen bei Fahrzeugumzügen und -verschiebungen\n\n• Mithilfe bei der Optimierung der Arbeitsprozesse und Arbeitsplätze\n\nUnsere Anforderungen\n\n• Abgeschlossene Berufslehre als Automobil-Mechatroniker Fachrichtung Nutzfahrzeuge, Landmaschinenmechaniker oder Baumaschinenmechaniker\n\n• Fahrberechtigung für schwere Nutzfahrzeuge (Kategorie C) oder Bereitschaft, die Führerprüfung zu absolvieren (Kostenübernahme durch den Arbeitgeber)\n\n• Ausgeprägte Macher-Mentalität\n\n• Selbständige Arbeitsweise und Umgang mit sensitiven Einrichtungen\n\n• Flexibilität und Zuverlässigkeit\n\nWir bieten dir\n\n• Abwechslungsreiche, interessante und langfristige Tätigkeit am Puls der Elektromobilität\n\n• Festanstellung in einem erfolgreichen Traditionsunternehmen, das grossen Wert auf Qualität legt\n\n• Gleitende Arbeitszeit\n\n• Gute Entlöhnung\n\n• Möglichkeit zur Weiterbildung und Weiterentwicklung\n\nWenn du dich angesprochen fühlst, sende uns deine kompletten Bewerbungsunterlagen inkl. Motivationsschreiben per Link (Jetzt bewerben).\n\nDeine FRAGEN zu dieser Stelle beantwortet dir\n Christoph Wenger (Leiter Personal)\n+41 32 617 34 33\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\n jobs@hess-ag.ch | www.hess-ag.ch",
+      "description": "Automobilmechatroniker Nutzfahrzeuge\n (m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\n Als führendes Schweizer Unternehmen für Entwicklung, Herstellung und Reparatur von Fahrzeugen und Bausätzen beschäftigen wir in Bellach (SO) 600 MitarbeiterInnen. Nebst unserer lokalen Produktion betreuen und beliefern wir Lizenzpartner auf fünf Kontinenten mit unserem Baukasten-System \"Co-Bolt\". Als einziger Schweizer Bushersteller bewegen wir uns weit über die Grenzen mit unseren hochwertigen Elektro- und Trolleybussen. Die Innovationskultur ist der Treibstoff unserer Firma.\n\nZur Verstärkung unseres Teams in der Montage der Busfertigung im Bereich Operation suchen wir motivierte Spezialisten mit Know-How in der Fahrzeugmechanik für die PDI-Arbeiten am Ende des Herstellungsprozesses unserer Elektrobusse.\n\nAls PDI-Spezialist für unsere innovativen Elektrobusse spielst du eine entscheidende Rolle in der Fertigungskette. Deine Aufgabe ist es, sicherzustellen, dass jeder Bus, der unsere Produktionshallen verlässt, in einwandfreiem Zustand ist und den höchsten Sicherheitsstandards entspricht. Wenn du Verantwortung übernehmen möchtest, bist du bei uns genau richtig!\n Deine Aufgaben\n\n• Durchführung sämtlicher \"Pre-Delivery Inspection\"-Arbeiten an unseren Elektrobussen (nach Vorgabe der Entwicklungsabteilung)\n\n• Inbetriebnahme von Tachographen und der RAG\n\n• Prüfung und Inbetriebnahme der Bremsen unter WABCO-Systemvorgaben inkl. Erstellung von Prüfprotokollen für offizielle Stellen\n\n• Vermessung und Einstellung der kompletten Lenkgeometrie und der Antriebsmotoren\n\n• Vornehmen von Wendekreismessungen\n\n• Kalibrierung der Bus-Gelenke und der Lenkwinkelsensoren\n\n• Planung der auszuführenden Arbeiten in Absprache mit der Montageleitung\n\n• Gestaltung und Umsetzung eines sinnvollen Zeitmanagements für die Umsetzung der PDI-Termine\n\n• Fahren von Gelenk- und Doppelgelenkbussen bei Fahrzeugumzügen und -verschiebungen\n\n• Mithilfe bei der Optimierung der Arbeitsprozesse und Arbeitsplätze\n\nUnsere Anforderungen\n\n• Abgeschlossene Berufslehre als Automobil-Mechatroniker Fachrichtung Nutzfahrzeuge, Landmaschinenmechaniker oder Baumaschinenmechaniker\n\n• Fahrberechtigung für schwere Nutzfahrzeuge (Kategorie C) oder Bereitschaft, die Führerprüfung zu absolvieren (Kostenübernahme durch den Arbeitgeber)\n\n• Ausgeprägte Macher-Mentalität\n\n• Selbständige Arbeitsweise und Umgang mit sensitiven Einrichtungen\n\n• Flexibilität und Zuverlässigkeit\n\nWir bieten dir\n\n• Abwechslungsreiche, interessante und langfristige Tätigkeit am Puls der Elektromobilität\n\n• Festanstellung in einem erfolgreichen Traditionsunternehmen, das grossen Wert auf Qualität legt\n\n• Gleitende Arbeitszeit\n\n• Gute Entlöhnung\n\n• Möglichkeit zur Weiterbildung und Weiterentwicklung\n\nWenn du dich angesprochen fühlst, sende uns deine kompletten Bewerbungsunterlagen inkl. Motivationsschreiben per Link (Jetzt bewerben).\n\nDeine FRAGEN zu dieser Stelle beantwortet dir\n Christoph Wenger (Leiter Personal)\n+41 32 617 34 33\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\n jobs@hess-ag.ch | www.hess-ag.ch",
       "descriptionByLocale": {
-        "it": "Specialista di meccatronica automobilistica come specialista PDI (m/f/d | 100%) HESS - Il pioniere svizzero nella costruzione di veicoli Come azienda svizzera leader per lo sviluppo, la produzione e la riparazione di veicoli e kit, utilizziamo 500 persone a Bellach (SO). Oltre alla nostra produzione locale, supportiamo e forniamo partner di licenza in cinque continenti con il nostro sistema modulare \"Co-Bolt\". Come unico produttore di autobus svizzero, ci muoviamo ben oltre i confini con i nostri autobus elettrici e carrelli di alta qualità. La cultura dell'innovazione è il combustibile della nostra azienda. Per rafforzare il nostro team nell'assemblea finale della nostra divisione Bus & Trolley, stiamo cercando specialisti motivati con know-how nella meccanica dei veicoli per il lavoro PDI alla fine del processo di produzione dei nostri autobus elettrici. Come specialista PDI per i nostri bus elettrici innovativi, si gioca un ruolo decisivo nella catena di produzione. Il vostro lavoro è quello di garantire che ogni bus che lascia le nostre sale di produzione è in perfette condizioni e soddisfa i più alti standard di sicurezza. Se vuoi assumerti la responsabilità, hai esattamente ragione con noi! I tuoi compiti\n• Effettuare tutti i lavori di \"ispezione preventiva\" sui nostri autobus elettrici (secondo le specifiche del reparto sviluppo)\n• Commissione dei tachigrafi e della RAG\n• Test e messa in servizio dei freni secondo le specifiche del sistema WABCO incl. Preparazione dei rapporti di audit per gli organismi ufficiali\n• Misurazione e regolazione della geometria dello sterzo e dei motori di azionamento\n• Misurazione del cerchio di svolta\n• Calibrazione delle giunzioni degli autobus e dei sensori di angolo di sterzo\n• Pianificazione dei lavori da realizzare in accordo con la linea di montaggio\n• Progettazione e realizzazione di una gestione significativa del tempo per l'implementazione di appuntamenti PDI\n• Guida di autobus articolati e a doppia articolazione nel caso di veicoli in movimento e veicoli in movimento\n• Assistenza nell'ottimizzazione dei processi di lavoro e dei luoghi di lavoro I nostri requisiti\n• Apprendistato professionale completo come specialista di meccatronica automobilistica specializzata in veicoli commerciali, meccanica di macchine agricole o meccanica di costruzione\n• Autorizzazione di guida per veicoli pesanti (categoria C) o la volontà di superare il test del conducente (copertura dei costi da parte del datore di lavoro)\n• Forte mentalità dei creatori\n• Funzionamento indipendente e gestione di apparecchiature sensibili\n• Flessibilità e affidabilità Vi offriamo\n• Variazione, attività interessante e a lungo termine al polso dell'elettromobilità\n• Occupazione permanente in una società tradizionale di successo che attribuisce grande importanza alla qualità\n• Tempo di lavoro mobile\n• Buona compensazione\n• Opportunità per l'ulteriore istruzione e sviluppo Se ti senti indirizzato, inviaci i tuoi documenti applicativi completi incl. Lettera di motivazione tramite link (Applica ora). Le vostre domande a questo punto vi risponderanno Christoph Wenger (Capo di Personale) +41 32 617 34 33 Applicare ora Carrosserie HESS AG | Bielstrasse 7 | 4512 Bellach job@hess-ag.ch | www.hess-ag.ch",
-        "en": "Automotive mechatronics specialist as PDI specialist (m/f/d | 100%) HESS - The Swiss pioneer in vehicle construction As a leading Swiss company for the development, manufacture and repair of vehicles and kits, we employ 500 people in Bellach (SO). In addition to our local production, we support and supply license partners on five continents with our \"Co-Bolt\" modular system. As the only Swiss bus manufacturer, we move far beyond the borders with our high-quality electric and trolley buses. The innovation culture is the fuel of our company. To strengthen our team in the final assembly of our Bus & Trolley division, we are looking for motivated specialists with know-how in vehicle mechanics for the PDI work at the end of the production process of our electric buses. As a PDI specialist for our innovative electric buses, you play a decisive role in the production chain. Your job is to ensure that every bus leaving our production halls is in perfect condition and meets the highest safety standards. If you want to take responsibility, you are exactly right with us! Your tasks\n• Carrying out all \"pre-delivery inspection\" work on our electric buses (according to the specifications of the development department)\n• Commissioning of tachographs and the RAG\n• Testing and commissioning of the brakes under WABCO system specifications incl. Preparation of audit reports for official bodies\n• Measurement and adjustment of the complete steering geometry and drive motors\n• Performing turning circle measurements\n• Calibration of the bus joints and the steering angle sensors\n• Planning of the work to be carried out in agreement with the assembly line\n• Design and implementation of meaningful time management for the implementation of PDI appointments\n• Driving of articulated and double-articulated buses in the case of moving vehicles and moving vehicles\n• Assistance in optimising work processes and workplaces Our requirements\n• Completed vocational apprenticeship as an automotive mechatronics specialist specialising in commercial vehicles, agricultural machinery mechanic or construction machinery mechanic\n• Driving authorization for heavy goods vehicles (category C) or willingness to pass the driver test (cost coverage by the employer)\n• Strong makers mentality\n• Independent operation and handling of sensitive equipment\n• Flexibility and reliability We offer you\n• Varied, interesting and long-term activity at the pulse of electromobility\n• Permanent employment in a successful traditional company that attaches great importance to quality\n• Moving working time\n• Good compensation\n• Opportunity for further education and development If you feel addressed, send us your complete application documents incl. Letter of motivation by link (Apply now). Your questions at this point will answer you Christoph Wenger (Head of Staff) +41 32 617 34 33 Apply now Carrosserie HESS AG | Bielstrasse 7 | 4512 Bellach jobs@hess-ag.ch | www.hess-ag.ch",
-        "de": "Automobilmechatroniker als PDI-Spezialist\n(m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\nAls führendes Schweizer Unternehmen für Entwicklung, Herstellung und Reparatur von Fahrzeugen und Bausätzen beschäftigen wir in Bellach (SO) 600 MitarbeiterInnen. Nebst unserer lokalen Produktion betreuen und beliefern wir Lizenzpartner auf fünf Kontinenten mit unserem Baukasten-System \"Co-Bolt\". Als einziger Schweizer Bushersteller bewegen wir uns weit über die Grenzen mit unseren hochwertigen Elektro- und Trolleybussen. Die Innovationskultur ist der Treibstoff unserer Firma.\n\nZur Verstärkung unseres Teams in der Endmontage unserer Sparte Bus & Trolley suchen wir motivierte Spezialisten mit Know-How in der Fahrzeugmechanik für die PDI-Arbeiten am Ende des Herstellungsprozesses unserer Elektrobusse.\n\nAls PDI-Spezialist für unsere innovativen Elektrobusse spielst du eine entscheidende Rolle in der Fertigungskette. Deine Aufgabe ist es, sicherzustellen, dass jeder Bus, der unsere Produktionshallen verlässt, in einwandfreiem Zustand ist und den höchsten Sicherheitsstandards entspricht. Wenn du Verantwortung übernehmen möchtest, bist du bei uns genau richtig!\nDeine Aufgaben\n\n• Durchführung sämtlicher \"Pre-Delivery Inspection\"-Arbeiten an unseren Elektrobussen (nach Vorgabe der Entwicklungsabteilung)\n\n• Inbetriebnahme von Tachographen und der RAG\n\n• Prüfung und Inbetriebnahme der Bremsen unter WABCO-Systemvorgaben inkl. Erstellung von Prüfprotokollen für offizielle Stellen\n\n• Vermessung und Einstellung der kompletten Lenkgeometrie und der Antriebsmotoren\n\n• Vornehmen von Wendekreismessungen\n\n• Kalibrierung der Bus-Gelenke und der Lenkwinkelsensoren\n\n• Planung der auszuführenden Arbeiten in Absprache mit der Montageleitung\n\n• Gestaltung und Umsetzung eines sinnvollen Zeitmanagements für die Umsetzung der PDI-Termine\n\n• Fahren von Gelenk- und Doppelgelenkbussen bei Fahrzeugumzügen und -verschiebungen\n\n• Mithilfe bei der Optimierung der Arbeitsprozesse und Arbeitsplätze\n\nUnsere Anforderungen\n\n• Abgeschlossene Berufslehre als Automobil-Mechatroniker Fachrichtung Nutzfahrzeuge, Landmaschinenmechaniker oder Baumaschinenmechaniker\n\n• Fahrberechtigung für schwere Nutzfahrzeuge (Kategorie C) oder Bereitschaft, die Führerprüfung zu absolvieren (Kostenübernahme durch den Arbeitgeber)\n\n• Ausgeprägte Macher-Mentalität\n\n• Selbständige Arbeitsweise und Umgang mit sensitiven Einrichtungen\n\n• Flexibilität und Zuverlässigkeit\n\nWir bieten dir\n\n• Abwechslungsreiche, interessante und langfristige Tätigkeit am Puls der Elektromobilität\n\n• Festanstellung in einem erfolgreichen Traditionsunternehmen, das grossen Wert auf Qualität legt\n\n• Gleitende Arbeitszeit\n\n• Gute Entlöhnung\n\n• Möglichkeit zur Weiterbildung und Weiterentwicklung\n\nWenn du dich angesprochen fühlst, sende uns deine kompletten Bewerbungsunterlagen inkl. Motivationsschreiben per Link (Jetzt bewerben).\n\nDeine FRAGEN zu dieser Stelle beantwortet dir\nChristoph Wenger (Leiter Personal)\n+41 32 617 34 33\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\njobs@hess-ag.ch | www.hess-ag.ch",
-        "fr": "Spécialiste mécatronique automobile comme spécialiste PDI (m/f/d=100 %) HESS - Le pionnier suisse de la construction de véhicules En tant que leader suisse pour le développement, la fabrication et la réparation de véhicules et de kits, nous employons 500 personnes à Bellach (SO). En plus de notre production locale, nous soutenons et fournissons des partenaires de licence sur cinq continents avec notre système modulaire \"Co-Bolt\". En tant que seul constructeur suisse de bus, nous déambulons bien au-delà des frontières avec nos bus électriques et chariots de haute qualité. La culture de l'innovation est le carburant de notre entreprise. Pour renforcer notre équipe dans l'assemblage final de notre division Bus & Trolley, nous recherchons des spécialistes motivés avec le savoir-faire en mécanique des véhicules pour le travail PDI à la fin du processus de production de nos bus électriques. En tant que spécialiste PDI pour nos bus électriques innovants, vous jouez un rôle décisif dans la chaîne de production. Votre travail est de vous assurer que chaque bus quittant nos salles de production est en parfait état et répond aux normes de sécurité les plus élevées. Si vous voulez prendre la responsabilité, vous avez raison avec nous ! Vos tâches\n• Effectuer tous les travaux d'inspection \"prélivraison\" sur nos bus électriques (selon les spécifications du département développement)\n• Mise en service des tachygraphes et du RAG\n• Essai et mise en service des freins selon les spécifications du système WABCO, y compris Établissement de rapports d ' audit à l ' intention des organes officiels\n• Mesure et réglage de la géométrie complète de la direction et des moteurs d'entraînement\n• Effectuer des mesures du cercle de virage\n• Étalonnage des joints de bus et des capteurs d'angle de direction\n• Planification des travaux à réaliser en accord avec la chaîne de montage\n• Conception et mise en oeuvre d'une gestion du temps utile pour la mise en oeuvre des nominations aux postes d'IPD\n• Conduite d'autobus articulés et à double articulation dans le cas de véhicules en mouvement et de véhicules en mouvement\n• Aide à l'optimisation des processus de travail et des lieux de travail Nos exigences\n• Achevé l'apprentissage professionnel en tant que spécialiste en mécatronique automobile spécialisée dans les véhicules commerciaux, mécaniciens de machines agricoles ou mécaniciens de machines de construction\n• Autorisation de conduire des poids lourds (catégorie C) ou volonté de réussir l ' essai du conducteur (couverture des coûts par l ' employeur)\n• Une mentalité forte\n• Exploitation et manutention indépendantes des équipements sensibles\n• Flexibilité et fiabilité Nous vous offrons\n• Activité variée, intéressante et à long terme à l'impulsion de l'électromobilité\n• Emploi permanent dans une entreprise traditionnelle prospère qui attache une grande importance à la qualité\n• Déplacement du temps de travail\n• Bonne indemnisation\n• Possibilités de poursuivre l ' éducation et le développement Si vous vous sentez adressé, envoyez-nous vos documents de candidature complets, y compris. Lettre de motivation par lien (Appliquer maintenant). Vos questions à ce stade vous répondront Christoph Wenger (chef d'état-major) +41 32 617 34 33 Appliquer maintenant Carrosserie HESS AG-Bielstrasse 7-4512 Bellach emplois@hess-ag.ch"
+        "de": "Automobilmechatroniker Nutzfahrzeuge\n (m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\n Als führendes Schweizer Unternehmen für Entwicklung, Herstellung und Reparatur von Fahrzeugen und Bausätzen beschäftigen wir in Bellach (SO) 600 MitarbeiterInnen. Nebst unserer lokalen Produktion betreuen und beliefern wir Lizenzpartner auf fünf Kontinenten mit unserem Baukasten-System \"Co-Bolt\". Als einziger Schweizer Bushersteller bewegen wir uns weit über die Grenzen mit unseren hochwertigen Elektro- und Trolleybussen. Die Innovationskultur ist der Treibstoff unserer Firma.\n\nZur Verstärkung unseres Teams in der Montage der Busfertigung im Bereich Operation suchen wir motivierte Spezialisten mit Know-How in der Fahrzeugmechanik für die PDI-Arbeiten am Ende des Herstellungsprozesses unserer Elektrobusse.\n\nAls PDI-Spezialist für unsere innovativen Elektrobusse spielst du eine entscheidende Rolle in der Fertigungskette. Deine Aufgabe ist es, sicherzustellen, dass jeder Bus, der unsere Produktionshallen verlässt, in einwandfreiem Zustand ist und den höchsten Sicherheitsstandards entspricht. Wenn du Verantwortung übernehmen möchtest, bist du bei uns genau richtig!\n Deine Aufgaben\n\n• Durchführung sämtlicher \"Pre-Delivery Inspection\"-Arbeiten an unseren Elektrobussen (nach Vorgabe der Entwicklungsabteilung)\n\n• Inbetriebnahme von Tachographen und der RAG\n\n• Prüfung und Inbetriebnahme der Bremsen unter WABCO-Systemvorgaben inkl. Erstellung von Prüfprotokollen für offizielle Stellen\n\n• Vermessung und Einstellung der kompletten Lenkgeometrie und der Antriebsmotoren\n\n• Vornehmen von Wendekreismessungen\n\n• Kalibrierung der Bus-Gelenke und der Lenkwinkelsensoren\n\n• Planung der auszuführenden Arbeiten in Absprache mit der Montageleitung\n\n• Gestaltung und Umsetzung eines sinnvollen Zeitmanagements für die Umsetzung der PDI-Termine\n\n• Fahren von Gelenk- und Doppelgelenkbussen bei Fahrzeugumzügen und -verschiebungen\n\n• Mithilfe bei der Optimierung der Arbeitsprozesse und Arbeitsplätze\n\nUnsere Anforderungen\n\n• Abgeschlossene Berufslehre als Automobil-Mechatroniker Fachrichtung Nutzfahrzeuge, Landmaschinenmechaniker oder Baumaschinenmechaniker\n\n• Fahrberechtigung für schwere Nutzfahrzeuge (Kategorie C) oder Bereitschaft, die Führerprüfung zu absolvieren (Kostenübernahme durch den Arbeitgeber)\n\n• Ausgeprägte Macher-Mentalität\n\n• Selbständige Arbeitsweise und Umgang mit sensitiven Einrichtungen\n\n• Flexibilität und Zuverlässigkeit\n\nWir bieten dir\n\n• Abwechslungsreiche, interessante und langfristige Tätigkeit am Puls der Elektromobilität\n\n• Festanstellung in einem erfolgreichen Traditionsunternehmen, das grossen Wert auf Qualität legt\n\n• Gleitende Arbeitszeit\n\n• Gute Entlöhnung\n\n• Möglichkeit zur Weiterbildung und Weiterentwicklung\n\nWenn du dich angesprochen fühlst, sende uns deine kompletten Bewerbungsunterlagen inkl. Motivationsschreiben per Link (Jetzt bewerben).\n\nDeine FRAGEN zu dieser Stelle beantwortet dir\n Christoph Wenger (Leiter Personal)\n+41 32 617 34 33\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\n jobs@hess-ag.ch | www.hess-ag.ch",
+        "it": "Automobilmechatroniker Nutzfahrzeuge\n (m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\n Als führendes Schweizer Unternehmen für Entwicklung, Herstellung und Reparatur von Fahrzeugen und Bausätzen beschäftigen wir in Bellach (SO) 600 MitarbeiterInnen. Nebst unserer lokalen Produktion betreuen und beliefern wir Lizenzpartner auf fünf Kontinenten mit unserem Baukasten-System \"Co-Bolt\". Als einziger Schweizer Bushersteller bewegen wir uns weit über die Grenzen mit unseren hochwertigen Elektro- und Trolleybussen. Die Innovationskultur ist der Treibstoff unserer Firma.\n\nZur Verstärkung unseres Teams in der Montage der Busfertigung im Bereich Operation suchen wir motivierte Spezialisten mit Know-How in der Fahrzeugmechanik für die PDI-Arbeiten am Ende des Herstellungsprozesses unserer Elektrobusse.\n\nAls PDI-Spezialist für unsere innovativen Elektrobusse spielst du eine entscheidende Rolle in der Fertigungskette. Deine Aufgabe ist es, sicherzustellen, dass jeder Bus, der unsere Produktionshallen verlässt, in einwandfreiem Zustand ist und den höchsten Sicherheitsstandards entspricht. Wenn du Verantwortung übernehmen möchtest, bist du bei uns genau richtig!\n Deine Aufgaben\n\n• Durchführung sämtlicher \"Pre-Delivery Inspection\"-Arbeiten an unseren Elektrobussen (nach Vorgabe der Entwicklungsabteilung)\n\n• Inbetriebnahme von Tachographen und der RAG\n\n• Prüfung und Inbetriebnahme der Bremsen unter WABCO-Systemvorgaben inkl. Erstellung von Prüfprotokollen für offizielle Stellen\n\n• Vermessung und Einstellung der kompletten Lenkgeometrie und der Antriebsmotoren\n\n• Vornehmen von Wendekreismessungen\n\n• Kalibrierung der Bus-Gelenke und der Lenkwinkelsensoren\n\n• Planung der auszuführenden Arbeiten in Absprache mit der Montageleitung\n\n• Gestaltung und Umsetzung eines sinnvollen Zeitmanagements für die Umsetzung der PDI-Termine\n\n• Fahren von Gelenk- und Doppelgelenkbussen bei Fahrzeugumzügen und -verschiebungen\n\n• Mithilfe bei der Optimierung der Arbeitsprozesse und Arbeitsplätze\n\nUnsere Anforderungen\n\n• Abgeschlossene Berufslehre als Automobil-Mechatroniker Fachrichtung Nutzfahrzeuge, Landmaschinenmechaniker oder Baumaschinenmechaniker\n\n• Fahrberechtigung für schwere Nutzfahrzeuge (Kategorie C) oder Bereitschaft, die Führerprüfung zu absolvieren (Kostenübernahme durch den Arbeitgeber)\n\n• Ausgeprägte Macher-Mentalität\n\n• Selbständige Arbeitsweise und Umgang mit sensitiven Einrichtungen\n\n• Flexibilität und Zuverlässigkeit\n\nWir bieten dir\n\n• Abwechslungsreiche, interessante und langfristige Tätigkeit am Puls der Elektromobilität\n\n• Festanstellung in einem erfolgreichen Traditionsunternehmen, das grossen Wert auf Qualität legt\n\n• Gleitende Arbeitszeit\n\n• Gute Entlöhnung\n\n• Möglichkeit zur Weiterbildung und Weiterentwicklung\n\nWenn du dich angesprochen fühlst, sende uns deine kompletten Bewerbungsunterlagen inkl. Motivationsschreiben per Link (Jetzt bewerben).\n\nDeine FRAGEN zu dieser Stelle beantwortet dir\n Christoph Wenger (Leiter Personal)\n+41 32 617 34 33\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\n jobs@hess-ag.ch | www.hess-ag.ch",
+        "en": "Automobilmechatroniker Nutzfahrzeuge\n (m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\n Als führendes Schweizer Unternehmen für Entwicklung, Herstellung und Reparatur von Fahrzeugen und Bausätzen beschäftigen wir in Bellach (SO) 600 MitarbeiterInnen. Nebst unserer lokalen Produktion betreuen und beliefern wir Lizenzpartner auf fünf Kontinenten mit unserem Baukasten-System \"Co-Bolt\". Als einziger Schweizer Bushersteller bewegen wir uns weit über die Grenzen mit unseren hochwertigen Elektro- und Trolleybussen. Die Innovationskultur ist der Treibstoff unserer Firma.\n\nZur Verstärkung unseres Teams in der Montage der Busfertigung im Bereich Operation suchen wir motivierte Spezialisten mit Know-How in der Fahrzeugmechanik für die PDI-Arbeiten am Ende des Herstellungsprozesses unserer Elektrobusse.\n\nAls PDI-Spezialist für unsere innovativen Elektrobusse spielst du eine entscheidende Rolle in der Fertigungskette. Deine Aufgabe ist es, sicherzustellen, dass jeder Bus, der unsere Produktionshallen verlässt, in einwandfreiem Zustand ist und den höchsten Sicherheitsstandards entspricht. Wenn du Verantwortung übernehmen möchtest, bist du bei uns genau richtig!\n Deine Aufgaben\n\n• Durchführung sämtlicher \"Pre-Delivery Inspection\"-Arbeiten an unseren Elektrobussen (nach Vorgabe der Entwicklungsabteilung)\n\n• Inbetriebnahme von Tachographen und der RAG\n\n• Prüfung und Inbetriebnahme der Bremsen unter WABCO-Systemvorgaben inkl. Erstellung von Prüfprotokollen für offizielle Stellen\n\n• Vermessung und Einstellung der kompletten Lenkgeometrie und der Antriebsmotoren\n\n• Vornehmen von Wendekreismessungen\n\n• Kalibrierung der Bus-Gelenke und der Lenkwinkelsensoren\n\n• Planung der auszuführenden Arbeiten in Absprache mit der Montageleitung\n\n• Gestaltung und Umsetzung eines sinnvollen Zeitmanagements für die Umsetzung der PDI-Termine\n\n• Fahren von Gelenk- und Doppelgelenkbussen bei Fahrzeugumzügen und -verschiebungen\n\n• Mithilfe bei der Optimierung der Arbeitsprozesse und Arbeitsplätze\n\nUnsere Anforderungen\n\n• Abgeschlossene Berufslehre als Automobil-Mechatroniker Fachrichtung Nutzfahrzeuge, Landmaschinenmechaniker oder Baumaschinenmechaniker\n\n• Fahrberechtigung für schwere Nutzfahrzeuge (Kategorie C) oder Bereitschaft, die Führerprüfung zu absolvieren (Kostenübernahme durch den Arbeitgeber)\n\n• Ausgeprägte Macher-Mentalität\n\n• Selbständige Arbeitsweise und Umgang mit sensitiven Einrichtungen\n\n• Flexibilität und Zuverlässigkeit\n\nWir bieten dir\n\n• Abwechslungsreiche, interessante und langfristige Tätigkeit am Puls der Elektromobilität\n\n• Festanstellung in einem erfolgreichen Traditionsunternehmen, das grossen Wert auf Qualität legt\n\n• Gleitende Arbeitszeit\n\n• Gute Entlöhnung\n\n• Möglichkeit zur Weiterbildung und Weiterentwicklung\n\nWenn du dich angesprochen fühlst, sende uns deine kompletten Bewerbungsunterlagen inkl. Motivationsschreiben per Link (Jetzt bewerben).\n\nDeine FRAGEN zu dieser Stelle beantwortet dir\n Christoph Wenger (Leiter Personal)\n+41 32 617 34 33\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\n jobs@hess-ag.ch | www.hess-ag.ch",
+        "fr": "Automobilmechatroniker Nutzfahrzeuge\n (m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\n Als führendes Schweizer Unternehmen für Entwicklung, Herstellung und Reparatur von Fahrzeugen und Bausätzen beschäftigen wir in Bellach (SO) 600 MitarbeiterInnen. Nebst unserer lokalen Produktion betreuen und beliefern wir Lizenzpartner auf fünf Kontinenten mit unserem Baukasten-System \"Co-Bolt\". Als einziger Schweizer Bushersteller bewegen wir uns weit über die Grenzen mit unseren hochwertigen Elektro- und Trolleybussen. Die Innovationskultur ist der Treibstoff unserer Firma.\n\nZur Verstärkung unseres Teams in der Montage der Busfertigung im Bereich Operation suchen wir motivierte Spezialisten mit Know-How in der Fahrzeugmechanik für die PDI-Arbeiten am Ende des Herstellungsprozesses unserer Elektrobusse.\n\nAls PDI-Spezialist für unsere innovativen Elektrobusse spielst du eine entscheidende Rolle in der Fertigungskette. Deine Aufgabe ist es, sicherzustellen, dass jeder Bus, der unsere Produktionshallen verlässt, in einwandfreiem Zustand ist und den höchsten Sicherheitsstandards entspricht. Wenn du Verantwortung übernehmen möchtest, bist du bei uns genau richtig!\n Deine Aufgaben\n\n• Durchführung sämtlicher \"Pre-Delivery Inspection\"-Arbeiten an unseren Elektrobussen (nach Vorgabe der Entwicklungsabteilung)\n\n• Inbetriebnahme von Tachographen und der RAG\n\n• Prüfung und Inbetriebnahme der Bremsen unter WABCO-Systemvorgaben inkl. Erstellung von Prüfprotokollen für offizielle Stellen\n\n• Vermessung und Einstellung der kompletten Lenkgeometrie und der Antriebsmotoren\n\n• Vornehmen von Wendekreismessungen\n\n• Kalibrierung der Bus-Gelenke und der Lenkwinkelsensoren\n\n• Planung der auszuführenden Arbeiten in Absprache mit der Montageleitung\n\n• Gestaltung und Umsetzung eines sinnvollen Zeitmanagements für die Umsetzung der PDI-Termine\n\n• Fahren von Gelenk- und Doppelgelenkbussen bei Fahrzeugumzügen und -verschiebungen\n\n• Mithilfe bei der Optimierung der Arbeitsprozesse und Arbeitsplätze\n\nUnsere Anforderungen\n\n• Abgeschlossene Berufslehre als Automobil-Mechatroniker Fachrichtung Nutzfahrzeuge, Landmaschinenmechaniker oder Baumaschinenmechaniker\n\n• Fahrberechtigung für schwere Nutzfahrzeuge (Kategorie C) oder Bereitschaft, die Führerprüfung zu absolvieren (Kostenübernahme durch den Arbeitgeber)\n\n• Ausgeprägte Macher-Mentalität\n\n• Selbständige Arbeitsweise und Umgang mit sensitiven Einrichtungen\n\n• Flexibilität und Zuverlässigkeit\n\nWir bieten dir\n\n• Abwechslungsreiche, interessante und langfristige Tätigkeit am Puls der Elektromobilität\n\n• Festanstellung in einem erfolgreichen Traditionsunternehmen, das grossen Wert auf Qualität legt\n\n• Gleitende Arbeitszeit\n\n• Gute Entlöhnung\n\n• Möglichkeit zur Weiterbildung und Weiterentwicklung\n\nWenn du dich angesprochen fühlst, sende uns deine kompletten Bewerbungsunterlagen inkl. Motivationsschreiben per Link (Jetzt bewerben).\n\nDeine FRAGEN zu dieser Stelle beantwortet dir\n Christoph Wenger (Leiter Personal)\n+41 32 617 34 33\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\n jobs@hess-ag.ch | www.hess-ag.ch"
       },
       "location": "Bellach",
       "canton": "SO",
-      "url": "https://jobs.hess-ag.ch/publication/automobilmechatroniker-als-pdi-spezialist/ibfe6zdqn4jc2lz3rjac2zhe8abdx3onblfx2k0p7cgtcett0g2agz3zf5pq78mi",
+      "url": "https://jobs.hess-ag.ch/publication/automobilmechatroniker-nutzfahrzeuge/ibfe6zdqn4jc2lz3rjac2zhe8abdx3onblfx2k0p7cgtcett0g2agz3zf5pq78mi",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:27.162Z",
+      "crawledAt": "2026-08-25T10:19:42.133Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -311,27 +313,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2025-12-09",
-      "applyUrl": "https://jobs.hess-ag.ch/publication/automobilmechatroniker-als-pdi-spezialist/ibfe6zdqn4jc2lz3rjac2zhe8abdx3onblfx2k0p7cgtcett0g2agz3zf5pq78mi",
+      "applyUrl": "https://jobs.hess-ag.ch/publication/automobilmechatroniker-nutzfahrzeuge/ibfe6zdqn4jc2lz3rjac2zhe8abdx3onblfx2k0p7cgtcett0g2agz3zf5pq78mi",
       "jobReqId": "72012",
       "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Bus und Trolley",
-      "previousSlugs": [
-        "automobilmechatroniker-als-pdi-spezialist-m-w-d-hess-bellach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "automobilmechatroniker-als-pdi-spezialist-m-w-d-hess-bellach"
-        ],
-        "en": [
-          "automobilmechatroniker-als-pdi-spezialist-m-w-d-hess-bellach"
-        ],
-        "fr": [
-          "automobilmechatroniker-als-pdi-spezialist-m-w-d-hess-bellach"
-        ]
+      "requirementsByLocale": {
+        "de": []
       },
+      "department": "Bus und Trolley",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-04T10:53:35.374Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -343,7 +332,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-25T10:19:42.133Z"
     },
     {
       "id": "hess-carrosserie-99420c6700e9",
@@ -376,7 +366,7 @@
       "url": "https://jobs.hess-ag.ch/publication/mechatroniker-oder-automatiker-inbetriebnahme-elektrobusse/ou0ygiwfa5jyc4ve8a4s7cyzgl3c3t9t6ed6215t44faqq7xmcqr5irr58qzzvt0",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:26.665Z",
+      "crawledAt": "2026-08-25T10:19:41.680Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -456,7 +446,7 @@
       "url": "https://jobs.hess-ag.ch/publication/linienleiter-bus-montage/m37qf7qd2duoxrvpey16f7gw06aq5mpraec3xd3ifub5r8sizhfhr7twc7xpzw7y",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:26.171Z",
+      "crawledAt": "2026-08-25T10:19:41.221Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -493,6 +483,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:53:34.500Z",
+      "needsRetranslation": true,
       "salaryMin": 124000,
       "salaryMax": 167500,
       "baseSalary": {
@@ -537,7 +528,7 @@
       "url": "https://jobs.hess-ag.ch/publication/projektleiter-homologation/6qwlim2ob7h4ammxdyhx6uq20bmw7knsf3s1gipjwop0nvcf5z7hryffxbo2frif",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:25.685Z",
+      "crawledAt": "2026-08-25T10:19:40.759Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -588,6 +579,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:53:33.724Z",
+      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 160000,
       "baseSalary": {
@@ -632,7 +624,7 @@
       "url": "https://jobs.hess-ag.ch/publication/stv-leiter-einkauf/0y7700v54crw3bokpo1qn5ouia9tkt5synnydvl6dm6d1lfs1segirasojmfsh2i",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:25.190Z",
+      "crawledAt": "2026-08-25T10:19:40.303Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -732,7 +724,7 @@
       "url": "https://jobs.hess-ag.ch/publication/bus-fluesterer-als-servicetechniker/lflbii3v0dsxjrzie641koeqyz0ieu1bo5lpn8bs224zqdj8ncqncflo052n22pm",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:24.701Z",
+      "crawledAt": "2026-08-25T10:19:39.849Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -812,7 +804,7 @@
       "url": "https://jobs.hess-ag.ch/publication/werkstattmueder-mechaniker-als-keyboard-hero/odidxxfdvr4zl16pxw4omfne5tw9l4d7ddyg266j8aeo1y2uoo95ji0xuste3rci",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:24.216Z",
+      "crawledAt": "2026-08-25T10:19:39.390Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -876,7 +868,7 @@
       "title": "Werkstattmüder Mechaniker als After Sales Solutions Expert 80 - 100 % (m/w/d)",
       "titleByLocale": {
         "it": "Werkstattmüder Mechaniker come After Sales Solutions Expert 80 - 100 % (m/w/d)",
-        "en": "Workshop tired mechanic as After Sales Solutions Expert 80 - 100% (m/f/d)",
+        "en": "Werkstattmüder Mechaniker als After Sales Solutions Expert 80 - 100 % (m/w/d)",
         "de": "Werkstattmüder Mechaniker als After Sales Solutions Expert 80 - 100 % (m/w/d)",
         "fr": "Atelier mécanicien fatigué comme expert des solutions après vente 80 - 100% (m/f/d)"
       },
@@ -892,7 +884,7 @@
       "url": "https://jobs.hess-ag.ch/publication/werkstattmueder-mechaniker-als-after-sales-solutions-expert/mzclooxzv0n2xh4jmzd6ccnlxbk3803qih4fkb15f5oqv0up6feercnb6thnrmyr",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:23.718Z",
+      "crawledAt": "2026-08-25T10:19:38.923Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -960,7 +952,7 @@
         "it": "System-Detektiv come Traktionsingenieur 80 - 100 % (m/w/d)",
         "en": "System detective as traction engineer 80 - 100% (m/w/d)",
         "de": "System-Detektiv als Traktionsingenieur 80 - 100 % (m/w/d)",
-        "fr": "Inspecteur système en tant qu'ingénieur de traction 80 - 100% (h/f/d)"
+        "fr": "System-Detektiv als Traktionsingenieur 80 - 100 % (m/w/d)"
       },
       "description": "System-Detektiv als Traktionsingenieur (m/w/d | 80-100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\n Als führendes Schweizer Unternehmen für Entwicklung, Herstellung und Reparatur von Fahrzeugen und Bausätzen beschäftigen wir in Bellach (SO) 600 MitarbeiterInnen. Nebst unserer lokalen Produktion betreuen und beliefern wir Lizenzpartner auf fünf Kontinenten mit unserem Baukasten-System \"Co-Bolt\". Als einziger Schweizer Bushersteller bewegen wir uns weit über die Grenzen mit unseren hochwertigen Elektro- und Trolleybussen. Die Innovationskultur ist der Treibstoff unserer Firma.\n\nZur Ergänzung unseres weltweit tätigen Life-Cycle-Management Team in der Sparte Bus & Trolley suchen wir einen qualifizierten und dynamischen System-Detektiv als Traktionsingenieur .\n\nSie lieben es, tief in Systeme einzutauchen, Zusammenhänge zu analysieren und komplexe Fehler nachhaltig zu lösen? Dann erwartet Sie bei uns eine spannende Herausforderung, in der Sie Ihr technisches Know-how und Ihre analytischen Fähigkeiten gezielt einsetzen und weiterentwickeln können. Als Rückfallebene bei komplexen und zusammenhängenden Störungen tragen Sie massgeblich zur Stabilität und Weiterentwicklung unserer Produkte bei und gestalten zukunftsfähige Lösungen aktiv mit.\n Ihre Aufgaben\n\n• Entgegennahme der Kundenanliegen im Bereich der Traktion und Mechatronik von Batterie- und Trolleybussen\n\n• Fehlerdiagnose bei komplexen und systemübergreifenden Fehlernbildern\n\n• Unterstützung der Servicetechniker (remote und vor Ort)\n\n• Selbstständiges Austauschen von elektronischen Komponenten beim Kunden\n\n• Unterstützung der ET-Bewirtschaftung und Erstellung technischer Dokumentationen\n\n• Mithilfe in der Kundenschulung sowie betriebsinterne Befähigungsmassnahmen\n\n• Erstellen von Projekt- und Baugruppenspezifischen technischen Auswertungen\n\n• Beantworten der Anfrage via Ticketsystem\n\nUnsere Anforderungen\n\n• Technische Grundausbildung als Automobilmechatroniker oder im Elektrobereich\n\n• Weiterbildung (Elektrotechniker TS/HF, Automobildiagnostiker FA, BSc in Automobiltechnik o.ä.)\n\n• Kenntnisse in Hochvoltsystemen\n\n• Grundkenntnisse der Regelungstechnik und in der Programmierung\n\n• Gute Sprachkenntnisse (Deutsch zwingend, zweite Landessprache von Vorteil)\n\n• Selbstständiges Arbeiten\n\n• Gute Kommunikationsfähigkeit\n\n• Reisebereitschaft im In- und angrenzenden Ausland (Reisetätigkeit von ca. 20-40%)\n\nWir bieten Ihnen\n\n• Spannende, abwechslungsreiche Tätigkeit mit hoher Eigenverantwortung\n\n• Dauerstelle\n\n• Gleitende Arbeitszeit\n\n• Möglichkeit zur Teilzeitarbeit\n\n• Mitarbeit in einem kollegialen Team mit sehr gutem Zusammenhalt\n\n• Modernes Elektrofahrzeug als Geschäftswagen\n\nWenn Sie sich angesprochen fühlen, senden Sie uns Ihre kompletten Bewerbungsunterlagen inklusive Motivationsschreiben per Link (Jetzt bewerben).\n\nIhre FRAGEN zu dieser Stelle beantwortet Ihnen\n Christoph Wenger (Leiter Personal)\n+41 32 617 34 33\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\n jobs@hess-ag.ch | www.hess-ag.ch",
       "descriptionByLocale": {
@@ -974,7 +966,7 @@
       "url": "https://jobs.hess-ag.ch/publication/system-detektiv-als-traktionsingenieur/75fm335fhsz46mn1hpbz3v6vtgd0aymh7gz6q50qa7sqiklo5ucttz0f7yv7e33t",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:23.213Z",
+      "crawledAt": "2026-08-25T10:19:38.460Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -1013,6 +1005,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:53:31.087Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1022,88 +1015,6 @@
           "@type": "QuantitativeValue",
           "minValue": 68500,
           "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "hess-carrosserie-e591e7a8bfb7",
-      "slug": "idraulico-carrozzeria-restauratore-di-veicoli-carrosserie-hess-ag-bellach",
-      "slugByLocale": {
-        "it": "idraulico-carrozzeria-restauratore-di-veicoli-carrosserie-hess-ag-bellach",
-        "en": "carrosseriespengler-vehicle-restorer-carrosserie-hess-ag-bellach",
-        "de": "carrosseriespengler-fahrzeugrestaurator-hess-bellach",
-        "fr": "carrosseriespengler-recuperateur-de-vehicule-carrosserie-hess-ag-bellach"
-      },
-      "company": "Carrosserie HESS AG",
-      "companyKey": "hess-carrosserie",
-      "companyDomain": "hess-ag.ch",
-      "title": "Carrosseriespengler / Fahrzeugrestaurator",
-      "titleByLocale": {
-        "it": "Idraulico carrozzeria / restauratore di veicoli",
-        "en": "Carrosseriespengler / Vehicle Restorer",
-        "de": "Carrosseriespengler / Fahrzeugrestaurator",
-        "fr": "Carrosseriespengler / Récupérateur de véhicule"
-      },
-      "description": "Carrosseriespengler / Fahrzeugrestaurator (m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\n Als führendes Schweizer Unternehmen für Entwicklung, Herstellung und Reparatur von Fahrzeugen und Bausätzen beschäftigen wir in Bellach (SO) 600 MitarbeiterInnen. Nebst unserer lokalen Produktion betreuen und beliefern wir Lizenzpartner auf fünf Kontinenten mit unserem Baukasten-System \"Co-Bolt\". Als einziger Schweizer Bushersteller bewegen wir uns weit über die Grenzen mit unseren hochwertigen Elektro- und Trolleybussen. Die Innovationskultur ist der Treibstoff unserer Firma.\n\nInfolge Pensionierung suchen wir für unsere Grosswagen-Reparatur-Abteilung in der Sparte Reparatur & Service einen qualifizierten Carrosseriespengler & Fahrzeugrestaurator .\n Haben Sie eine Leidenschaft für Fahrzeuge – von modernen Bussen bis hin zu liebevoll restaurierten Oldtimern – und möchten Sie Ihr Fachwissen vielseitig einsetzen? Bei uns erwarten Sie nicht nur spannende Reparatur-Aufgaben für Busse und andere Grossfahrzeuge, sondern auch die Möglichkeit, historische Fahrzeuge und Oldtimer-Busse mit handwerklichem Können und technischem Know-how wieder zum Leben zu erwecken. Werden Sie Teil eines engagierten Teams, das Innovation mit Tradition verbindet, und bringen Sie Ihre Begeisterung für Fahrzeuge in all ihren Facetten ein. Bewerben Sie sich noch heute!\n Ihre Aufgaben\n\n• Ausführen von Reparatur- und Revisionsarbeiten an Grossfahrzeugen und Bussen\n\n• Fahrzeugrestaurationen für Oldtimer-Busse und andere historische Fahrzeuge\n\n• Ausmessen, Zeichnen und Herstellen sowie Ausbeulen und Richten von Carrosserieteilen historischer Fahrzeuge\n\n• Vornehmen von Ein- und Umbauten im Bus Fahrgastraum\n\n• Ausführen von abwechslungsreichen und herausfordernden Spengler- und Schlosserarbeiten\n\nUnsere Anforderungen\n\n• Abgeschlossene Berufslehre als Metallbauer, Fahrzeugschlosser, Carrosseriespengler oder eine andere Berufsausbildung in einem metallverarbeitenden Beruf\n\n• Weiterbildung zum Fahrzeugrestaurator erwünscht\n\n• Berufserfahrung in ähnlicher Funktion oder Interesse zur Weiterentwicklung im Bereich Fahrzeugrestaurationen\n\n• Selbständige Arbeitsweise\n\n• Flexibilität\n\n• Teamfähigkeit\n\nWir bieten Ihnen\n\n• Abwechslungsreiche und interessante Daueranstellung\n\n• Herausfordernde und spannende Aufgaben\n\n• Gleitende Arbeitszeit\n\n• Leistungsgerechte Anstellungsbedingungen\n\nWenn Sie sich angesprochen fühlen, senden Sie uns Ihre kompletten Bewerbungsunterlagen inklusive Motivationsschreiben per Link (Jetzt bewerben).\n\nIhre FRAGEN zu dieser Stelle beantwortet Ihnen\n Christoph Wenger (Leiter Personal)\n+41 32 617 34 33\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\n jobs@hess-ag.ch | www.hess-ag.ch",
-      "descriptionByLocale": {
-        "it": "Carrosseriespengler / restauratore del veicolo (m/f/d | 100%) HESS - Il pioniere svizzero nella costruzione di veicoli Come azienda svizzera leader per lo sviluppo, la produzione e la riparazione di veicoli e kit, utilizziamo 500 persone a Bellach (SO). Oltre alla nostra produzione locale, supportiamo e forniamo partner di licenza in cinque continenti con il nostro sistema modulare \"Co-Bolt\". Come unico produttore di autobus svizzero, ci muoviamo ben oltre i confini con i nostri autobus elettrici e carrelli di alta qualità. La cultura dell'innovazione è il combustibile della nostra azienda. Come risultato del pensionamento, stiamo cercando un Carrosseriespengler & Vehicle Restorator qualificato per il nostro grande reparto di riparazione auto nella divisione riparazione e servizio. Avete una passione per i veicoli – dagli autobus moderni ai tesori di auto classici amorevolmente restaurati – e volete mettere la vostra esperienza a buon uso? Allora questa è la tua occasione! Con noi non solo ti aspetterai interessanti compiti di riparazione per autobus e altri veicoli di grandi dimensioni, ma anche l'opportunità di portare veicoli storici e autobus vintage con artigianalità e know-how tecnico di nuovo alla vita. Entra a far parte di un team dedicato che combina innovazione con la tradizione e porta il tuo entusiasmo per i veicoli in tutte le loro sfaccettature. Applicare oggi! I loro compiti\n• Eseguire lavori di riparazione e ispezione su veicoli di grandi dimensioni e autobus\n• Restauro veicoli per autobus d'epoca e altri veicoli storici\n• Misurazione, disegno e fabbricazione, buckling e raddrizzamento di corpi auto di veicoli storici\n• Effettuare installazioni e conversioni nel vano passeggeri dell'autobus\n• Esecuzione vario e impegnativo lavoro spengler e fabbro I nostri requisiti\n• Apprendistato completo come metalmeccanico, automobilista, carosserie pendolari o altra formazione professionale in una professione di metallurgia\n• Ulteriore sviluppo del veicolo restauratore desiderato\n• Esperienza professionale in una simile capacità o interesse per un ulteriore sviluppo nel settore dei restauri del veicolo\n• Lavoro autonomo\n• Flessibilità\n• Lavoro di squadra Noi li offriamo\n• Occupazione permanente varia e interessante\n• Compiti impegnativi ed emozionanti\n• Tempo di lavoro mobile\n• Prestazioni basate sull'occupazione Se ti senti indirizzato, inviaci i tuoi documenti applicativi completi, comprese le lettere di motivazione tramite link (Applica ora). Le vostre domande a questo punto vi risponderanno Christoph Wenger (Capo di Personale) +41 32 617 34 33 Applicare ora Carrosserie HESS AG | Bielstrasse 7 | 4512 Bellach job@hess-ag.ch | www.hess-ag.ch",
-        "en": "Carrosseriespengler / vehicle restorer (m/f/d | 100%) HESS - The Swiss pioneer in vehicle construction As a leading Swiss company for the development, manufacture and repair of vehicles and kits, we employ 500 people in Bellach (SO). In addition to our local production, we support and supply license partners on five continents with our \"Co-Bolt\" modular system. As the only Swiss bus manufacturer, we move far beyond the borders with our high-quality electric and trolley buses. The innovation culture is the fuel of our company. As a result of retirement, we are looking for a qualified Carrosseriespengler & Vehicle Restorator for our large car repair department in the Repair & Service division. Do you have a passion for vehicles – from modern buses to lovingly restored classic car treasures – and would you like to put your expertise to good use? Then this is your chance! With us you will not only expect exciting repair tasks for buses and other large vehicles, but also the opportunity to bring historic vehicles and vintage buses with craftsmanship and technical know-how back to life. Become part of a dedicated team that combines innovation with tradition and bring your enthusiasm for vehicles in all their facets. Apply today! Their tasks\n• Carrying out repair and inspection work on large vehicles and buses\n• Vehicle restorations for vintage buses and other historic vehicles\n• Measuring, drawing and manufacturing, buckling and straightening of car bodies of historic vehicles\n• Carrying out installations and conversions in the bus passenger compartment\n• Performing varied and challenging spengler and locksmith work Our requirements\n• Completed apprenticeship as a metalworker, vehicle maker, carrosseries commuter or other vocational training in a metalworking profession\n• Further development of the vehicle restorer desired\n• Professional experience in a similar capacity or interest in further development in the field of vehicle restorations\n• Self-employed work\n• Flexibility\n• Teamwork We offer them\n• Varied and interesting permanent employment\n• Challenging and exciting tasks\n• Moving working time\n• Performance-based conditions of employment If you feel addressed, send us your complete application documents including letters of motivation via link (Apply now). Your questions at this point will answer you Christoph Wenger (Head of Staff) +41 32 617 34 33 Apply now Carrosserie HESS AG | Bielstrasse 7 | 4512 Bellach jobs@hess-ag.ch | www.hess-ag.ch",
-        "de": "Carrosseriespengler / Fahrzeugrestaurator (m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\nAls führendes Schweizer Unternehmen für Entwicklung, Herstellung und Reparatur von Fahrzeugen und Bausätzen beschäftigen wir in Bellach (SO) 600 MitarbeiterInnen. Nebst unserer lokalen Produktion betreuen und beliefern wir Lizenzpartner auf fünf Kontinenten mit unserem Baukasten-System \"Co-Bolt\". Als einziger Schweizer Bushersteller bewegen wir uns weit über die Grenzen mit unseren hochwertigen Elektro- und Trolleybussen. Die Innovationskultur ist der Treibstoff unserer Firma.\n\nInfolge Pensionierung suchen wir für unsere Grosswagen-Reparatur-Abteilung in der Sparte Reparatur & Service einen qualifizierten Carrosseriespengler & Fahrzeugrestaurator .\nHaben Sie eine Leidenschaft für Fahrzeuge – von modernen Bussen bis hin zu liebevoll restaurierten Oldtimern – und möchten Sie Ihr Fachwissen vielseitig einsetzen? Bei uns erwarten Sie nicht nur spannende Reparatur-Aufgaben für Busse und andere Grossfahrzeuge, sondern auch die Möglichkeit, historische Fahrzeuge und Oldtimer-Busse mit handwerklichem Können und technischem Know-how wieder zum Leben zu erwecken. Werden Sie Teil eines engagierten Teams, das Innovation mit Tradition verbindet, und bringen Sie Ihre Begeisterung für Fahrzeuge in all ihren Facetten ein. Bewerben Sie sich noch heute!\nIhre Aufgaben\n\n• Ausführen von Reparatur- und Revisionsarbeiten an Grossfahrzeugen und Bussen\n\n• Fahrzeugrestaurationen für Oldtimer-Busse und andere historische Fahrzeuge\n\n• Ausmessen, Zeichnen und Herstellen sowie Ausbeulen und Richten von Carrosserieteilen historischer Fahrzeuge\n\n• Vornehmen von Ein- und Umbauten im Bus Fahrgastraum\n\n• Ausführen von abwechslungsreichen und herausfordernden Spengler- und Schlosserarbeiten\n\nUnsere Anforderungen\n\n• Abgeschlossene Berufslehre als Metallbauer, Fahrzeugschlosser, Carrosseriespengler oder eine andere Berufsausbildung in einem metallverarbeitenden Beruf\n\n• Weiterbildung zum Fahrzeugrestaurator erwünscht\n\n• Berufserfahrung in ähnlicher Funktion oder Interesse zur Weiterentwicklung im Bereich Fahrzeugrestaurationen\n\n• Selbständige Arbeitsweise\n\n• Flexibilität\n\n• Teamfähigkeit\n\nWir bieten Ihnen\n\n• Abwechslungsreiche und interessante Daueranstellung\n\n• Herausfordernde und spannende Aufgaben\n\n• Gleitende Arbeitszeit\n\n• Leistungsgerechte Anstellungsbedingungen\n\nWenn Sie sich angesprochen fühlen, senden Sie uns Ihre kompletten Bewerbungsunterlagen inklusive Motivationsschreiben per Link (Jetzt bewerben).\n\nIhre FRAGEN zu dieser Stelle beantwortet Ihnen\nChristoph Wenger (Leiter Personal)\n+41 32 617 34 33\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\njobs@hess-ag.ch | www.hess-ag.ch",
-        "fr": "Carrosseriespengler / restaurateur de véhicule (m/f/d) 100% HESS - Le pionnier suisse de la construction de véhicules En tant que leader suisse pour le développement, la fabrication et la réparation de véhicules et de kits, nous employons 500 personnes à Bellach (SO). En plus de notre production locale, nous soutenons et fournissons des partenaires de licence sur cinq continents avec notre système modulaire \"Co-Bolt\". En tant que seul constructeur suisse de bus, nous déambulons bien au-delà des frontières avec nos bus électriques et chariots de haute qualité. La culture de l'innovation est le carburant de notre entreprise. À la suite de la retraite, nous recherchons un Carrosseriepengler & Vehicle Restorator qualifié pour notre grand service de réparation automobile dans la division Réparation & Service. Avez-vous une passion pour les véhicules – des bus modernes aux trésors de voitures classiques restaurés avec amour – et souhaitez-vous mettre votre expertise à profit? Alors c'est votre chance ! Avec nous, vous vous attendrez non seulement à des travaux de réparation passionnants pour les bus et autres grands véhicules, mais aussi à l'occasion de remettre en vie des véhicules historiques et des bus d'époque avec artisanat et savoir-faire technique. Faites partie d'une équipe dédiée qui allie l'innovation et la tradition et apportez votre enthousiasme pour les véhicules dans toutes leurs facettes. Faites votre demande aujourd'hui ! Leurs tâches\n• Travaux de réparation et d ' inspection des grands véhicules et des autobus\n• Remise en état de véhicules pour autobus anciens et autres véhicules historiques\n• Mesure, dessin et fabrication, flambage et redressage de carrosseries de véhicules historiques\n• Réalisation d'installations et de conversions dans l'habitacle des autobus\n• Effectuer des travaux variés et stimulants de speengler et de serrurier Nos exigences\n• Achevé l'apprentissage comme métallurgiste, constructeur de véhicules, carrosseuse ou autre formation professionnelle dans une profession de métallurgie\n• Développement du restaurateur de véhicules souhaité\n• Expérience professionnelle dans le domaine de la remise en état des véhicules\n• Travail indépendant\n• Flexibilité\n• Travail d'équipe Nous leur offrons\n• Emploi permanent varié et intéressant\n• Des tâches stimulantes et stimulantes\n• Déplacement du temps de travail\n• Conditions d'emploi fondées sur les résultats Si vous vous sentez adressé, envoyez-nous vos documents de candidature complets, y compris les lettres de motivation, via un lien (Appliquer maintenant). Vos questions à ce stade vous répondront Christoph Wenger (chef d'état-major) +41 32 617 34 33 Appliquer maintenant Carrosserie HESS AG-Bielstrasse 7-4512 Bellach emplois@hess-ag.ch"
-      },
-      "location": "Bellach",
-      "canton": "SO",
-      "url": "https://jobs.hess-ag.ch/publication/carrosseriespengler-fahrzeugrestaurator/b6as2rt74vmuv8gv34gr5z2kyvabi0ym2jr7mqdh0mlcv4pn05r1oan8rlbfraqy",
-      "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:22.707Z",
-      "addressLocality": "Bellach",
-      "addressRegion": "SO",
-      "streetAddress": "Bielstrasse 7",
-      "postalCode": "4512",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Manifattura",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-14",
-      "applyUrl": "https://jobs.hess-ag.ch/publication/carrosseriespengler-fahrzeugrestaurator/b6as2rt74vmuv8gv34gr5z2kyvabi0ym2jr7mqdh0mlcv4pn05r1oan8rlbfraqy",
-      "jobReqId": "75890",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Reparatur und Service",
-      "previousSlugs": [
-        "carrosseriespengler-fahrzeugrestaurator-hess-bellach",
-        "idraulico-carrozzeria-restauratore-di-veicoli-carrosserie-hess-ag-bellach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "carrosseriespengler-fahrzeugrestaurator-hess-bellach",
-          "idraulico-carrozzeria-restauratore-di-veicoli-carrosserie-hess-ag-bellach"
-        ],
-        "en": [
-          "carrosseriespengler-fahrzeugrestaurator-hess-bellach"
-        ],
-        "fr": [
-          "carrosseriespengler-fahrzeugrestaurator-hess-bellach"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-04T10:53:30.647Z",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77000,
-          "maxValue": 116500,
           "unitText": "YEAR"
         }
       }
@@ -1123,7 +1034,7 @@
       "title": "Projektleiter Process Improvement (m/w/d)",
       "titleByLocale": {
         "it": "Project Manager Miglioramento dei Processi (m/f/d)",
-        "en": "Project Manager Process Improvement (m/f/d)",
+        "en": "Projektleiter Process Improvement (m/w/d)",
         "de": "Projektleiter Process Improvement (m/w/d)",
         "fr": "Amélioration du processus du gestionnaire de projet (m/f/d)"
       },
@@ -1139,7 +1050,7 @@
       "url": "https://jobs.hess-ag.ch/publication/projektleiter-process-improvement/r5sxjy5ssjl8l6jlou5lmroom36onphwjiceef5c2lbmfq440cx3pd2cfbd1jkzg",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:22.223Z",
+      "crawledAt": "2026-08-25T10:19:37.993Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -1179,6 +1090,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:53:30.219Z",
+      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 160000,
       "baseSalary": {
@@ -1223,7 +1135,7 @@
       "url": "https://jobs.hess-ag.ch/publication/fahrzeugschlosser-nutzfahrzeuge/mec06ha3o2t82dtbwoejw3t4qgv647ym6be9hqjtxuhsnsrs3vrgsis487pxii1d",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:21.736Z",
+      "crawledAt": "2026-08-25T10:19:37.530Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -1301,7 +1213,7 @@
       "title": "E/E-Product Security Engineer (m/w/d)",
       "titleByLocale": {
         "it": "E/E-Product Security Ingegnere (m/w/d)",
-        "en": "E/E Product Security Engineer (m/f/d)",
+        "en": "E/E-Product Security Engineer (m/w/d)",
         "de": "E/E-Product Security Ingenieur (m/w/d)",
         "fr": "E/E-Product Security Ingénieur (m/w/d)"
       },
@@ -1317,7 +1229,7 @@
       "url": "https://jobs.hess-ag.ch/publication/e-product-security-engineer/delfid3dirok4kog8dg241xs20k150v67vsv06qxw3nj0zyr4lwt2ty232dspa4x",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:21.260Z",
+      "crawledAt": "2026-08-25T10:19:37.087Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -1351,6 +1263,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:53:29.353Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "baseSalary": {
@@ -1395,7 +1308,7 @@
       "url": "https://jobs.hess-ag.ch/publication/schlosser-metallbauer-vormontage-interne-fertigung/us34tqclbkvzqiktciofqz3bv7kqjmoqjszkmm5vehpyzc5sjqestumil5aw0zo7",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:20.760Z",
+      "crawledAt": "2026-08-25T10:19:36.610Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -1477,7 +1390,7 @@
       "url": "https://jobs.hess-ag.ch/publication/techniker-fuer-die-inbetriebnahme-von-elektrobussen/sw38ulglko7lv4etrdkxtakqu3mn556v4b8ue9f8awm563ascbyi6dix4i8fcz8w",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:20.272Z",
+      "crawledAt": "2026-08-25T10:19:36.146Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -1559,7 +1472,7 @@
       "url": "https://jobs.hess-ag.ch/publication/elektroinstallateur-oder-elektromonteur-mit-lust-zur-veraenderung/w3mbxqtmgzvpqyx3hyo7z4y53dcs4ibb0i346bl6hqcoh5chfpsxxxsh07ayuhyi",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:19.788Z",
+      "crawledAt": "2026-08-25T10:19:35.675Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -1627,7 +1540,7 @@
         "it": "Tecnico di Servizio Aria Condizionata ed Elettricità 100% (lunedì/venedì/d)",
         "en": "Service technician Climate & Electrics 100% (m/f/d)",
         "de": "Servicetechniker Klima & Elektrik 100% (m/w/d)",
-        "fr": "Technicien de service Climate & Electrics 100% (h/f/d)"
+        "fr": "Servicetechniker Klima & Elektrik 100% (m/w/d)"
       },
       "description": "Servicetechniker Klima & Elektrik 100% (m/w/d)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\n Als führendes Schweizer Unternehmen für Entwicklung, Herstellung und Reparatur von Fahrzeugen und Bausätzen beschäftigen wir in Bellach (SO) 600 MitarbeiterInnen. Nebst unserer lokalen Produktion betreuen und beliefern wir Lizenzpartner auf fünf Kontinenten mit unserem Baukasten-System \"Co-Bolt\". Wir bieten auch eine umfassende Reparatur- und Servicepalette für Fahrzeuge aller Art an (Busse, Nutzfahrzeuge, Personenwagen, Camper etc.).\n\nZur Verstärkung unseres Teams in der Sparte Reparatur & Service suchen wir für die Gruppe Klima & Elektrik einen erfahrenen Servicetechniker Klima & Elektrik.\n Suchen Sie eine neue Herausforderung? Bei uns finden Sie eine interessante Anstellung im Fahrzeugbau. Mit Ihrem Fachwissen im Bereich Kältetechnik wirken Sie beim Bau und bei der Reparatur von innovativen Elektrobussen und anderen Nutzfahrzeugen mit.\n Ihre Aufgaben\n\n• Installation und Inbetriebnahme von Klimaanlagen in Bussen und anderen Nutzfahrzeugen\n\n• Instandhaltung, Wartung und Reparatur von Klima- und Kühlanlagen in Grossfahrzeugen\n\n• Schweizweite Einsätze als Servicetechniker direkt beim Kunden\n\nUnsere Anforderungen\n\n• Abgeschlossene Berufslehre als Automobilmechatroniker (Fahrzeugelektriker), Landmaschinenmechaniker, Baumaschinenmechaniker, Automobilfachmann oder Kältesystem-Monteur\n\n• Vorhandene Fachbewilligung für Kältemittel oder Bereitschaft zur Absolvierung der entsprechenden Kurse\n\n• Berufserfahrung in der Fahrzeugelektrik und Klimatechnik, bzw. die Bereitschaft, sich ins jeweils neue Thema einzuarbeiten\n\n• Freude an selbständiger Auswärtsarbeit bei Kunden\n\n• Selbständige und qualitätsbewusste Arbeitsweise\n\n• Zuverlässigkeit, Teamfähigkeit und Flexibilität\n\n• Bereitschaft Neues zu erlernen\n\nWir bieten Ihnen\n\n• Selbständige, interessante und herausfordernde Tätigkeit\n\n• Festanstellung in einem erfolgreichen Traditionsunternehmen\n\n• Gleitende Arbeitszeit\n\n• Leistungsgerechte Anstellungsbedingungen\n\nWenn Sie sich angesprochen fühlen, senden Sie Ihre kompletten Bewerbungsunterlagen inklusive Motivationsschreiben per Link (Jetzt bewerben).\n\nIhre FRAGEN zu dieser Stelle beantwortet Ihnen\n Christoph Wenger (Leiter Personal)\n+ 4132 617 34 33\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\n jobs@hess-ag.ch | www.hess-ag.ch",
       "descriptionByLocale": {
@@ -1641,7 +1554,7 @@
       "url": "https://jobs.hess-ag.ch/publication/servicetechniker-klima-elektrik/6iucqvd4iatgq5mmm5wdyfwimb49hm7vo3dotvxczeqhru6shkhm9czb46aal55z",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:19.302Z",
+      "crawledAt": "2026-08-25T10:19:35.145Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -1683,6 +1596,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:53:26.676Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "baseSalary": {
@@ -1713,7 +1627,7 @@
         "it": "Postvendita specialistica e elaborazione in garanzia 80-100% (lunedì/venerdì/giunderia)",
         "en": "Specialist Aftersales & Warranty Processing 80-100% (m/f/d)",
         "de": "Spezialist Aftersales & Garantieabwicklung 80-100 % (m/w/d)",
-        "fr": "Spécialiste après-vente et traitement de garantie 80-100 % (h/f/d)"
+        "fr": "Spezialist Aftersales & Garantieabwicklung 80-100 % (m/w/d)"
       },
       "description": "Spezialist Aftersales & Garantieabwicklung\n (m/w/d | 80 - 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\n Als führendes Schweizer Unternehmen für Entwicklung, Herstellung und Reparatur von Fahrzeugen und Bausätzen beschäftigen wir in Bellach (SO) 600 MitarbeiterInnen. Nebst unserer lokalen Produktion betreuen und beliefern wir Lizenzpartner auf fünf Kontinenten mit unserem Baukasten-System \"Co-Bolt\". Als einziger Schweizer Bushersteller bewegen wir uns weit über die Grenzen mit unseren hochwertigen Elektro- und Trolleybussen. Die Innovationskultur ist der Treibstoff unserer Firma.\n\nZur Ergänzung unseres LIFE-CYCLE-MANAGEMENTS in der Sparte Bus & Trolley suchen wir einen qualifizierten und dynamischen Mechaniker für spannende Aufgaben im Bereich Aftersales & Garantieabwicklung als Schnittstelle zwischen Büro und Service.\n Sie haben eine technische Ausbildung – zum Beispiel als Automobil-Mechatroniker – abgeschlossen, sind werkstattmüde und möchten Ihr Know-how zukünftig im administrativen Kundendienst einsetzen? Bei uns haben Sie die Möglichkeit, den nächsten Schritt zu gehen. In unserem Lifecycle-Management-Team übernehmen Sie administrative Aufgaben, bearbeiten Garantiefälle und unterstützen bei Kundenanfragen.\n Ihre Aufgaben\n\n• Mithilfe beim Pflegen und Erstellen von technischen Excellisten (z.B. Wartungsplan)\n\n• Erstellen von Projektauswertungen\n\n• Sicherstellung der Garantieabwicklungen in Zusammenarbeit mit den Lieferanten\n\n• Mithilfe beim Erstellen von komplexen Kostenkalkulationen (inkl. Reporting)\n\n• Kontrolle und Kontierung von Rechnungen\n\n• Erstellen von technischen Dokumentationen für Kunden im Bereich Aftersales (z.B. Service- und Schulungskonzepte)\n\n• Bearbeiten von Garantieanträgen\n\n• Beantworten von Kundenanfragen\n\n• Allgemeine administrative Tätigkeiten\n\nUnsere Anforderungen\n\n• Technische Grundausbildung (von Vorteil im Automobilgewerbe) mit kaufmännischer oder technischer Weiterbildung\n\n• Gute Sprachkenntnisse in Deutsch zwingend (Französisch und Englisch von Vorteil)\n\n• Gute EDV-Kenntnisse (Excel, Outlook usw.)\n\n• Hohe Kommunikationsfähigkeit und Selbständigkeit\n\n• Gute Umgangsformen und ein einwandfreies Auftreten\n\nWir bieten Ihnen\n\n• Interessante und abwechslungsreiche Dauerstelle\n\n• Flexible Arbeitszeit und Möglichkeit zur Teilzeitarbeit und Homeoffice\n\n• Leistungsgerechte Anstellungsbedingungen\n\n• Mitarbeit in einem kollegialen Team mit sehr gutem Zusammenhalt\n\nWenn Sie sich angesprochen fühlen, senden Sie uns Ihre kompletten Bewerbungsunterlagen inklusive Motivationsschreiben per Link (Jetzt bewerben).\n\nIhre FRAGEN zu dieser Stelle beantwortet Ihnen\n\nChristoph Wenger (Leiter Personal)\n +41 32 617 34 33\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\n jobs@hess-ag.ch | www.hess-ag.ch",
       "descriptionByLocale": {
@@ -1727,7 +1641,7 @@
       "url": "https://jobs.hess-ag.ch/publication/spezialist-aftersales-garantieabwicklung/wdcc2kcqzoi5oyxaqpzj9d0jx0gt7mbdk0r8u4ipjwkb0axdg7h2wkl0v6fh3gjv",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:18.820Z",
+      "crawledAt": "2026-08-25T10:19:34.690Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -1768,6 +1682,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:53:26.240Z",
+      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "baseSalary": {
@@ -1812,7 +1727,7 @@
       "url": "https://jobs.hess-ag.ch/publication/teamleiter-wareneingang-spedition/wlsu2vzrwvdflxhybzblqbh166o7ijv8tkb6o5rfjk0b5rh3zjvjrlveasyxhfoy",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:18.325Z",
+      "crawledAt": "2026-08-25T10:19:34.222Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -1849,6 +1764,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:31:30.183Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1893,7 +1809,7 @@
       "url": "https://jobs.hess-ag.ch/publication/schreiner-im-busbau/xzpfwulm3hu3vi2jskyw0dyxsrlf6lc558rlyth6l36t4aa3kchg4trrzy4ihoki",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:17.822Z",
+      "crawledAt": "2026-08-25T10:19:33.758Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -1974,7 +1890,7 @@
       "url": "https://jobs.hess-ag.ch/publication/sachbearbeiterin-personenwagen-reparaturen/bassntrbtywixy22vxt7srhqzuwr7yd2tejpi3chbxemdre2t648wzhyri674ec2",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:17.344Z",
+      "crawledAt": "2026-08-25T10:19:33.309Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -2041,14 +1957,14 @@
       "title": "Inbetriebnahmespezialist \"Hot Commissioning\" 80-100% (m/w/d)",
       "titleByLocale": {
         "it": "Inbetriebnahmespezialist \"Hot Commissioning\" 80-100% (m/p/g)",
-        "en": "Inbetriebnahmespezialist \"Hot Commissioning\" 80-100% (m/f/d)",
+        "en": "Inbetriebnahmespezialist \"Hot Commissioning\" 80-100% (m/w/d)",
         "de": "Inbetriebnahmespezialist \"Hot Commissioning\" 80-100%",
         "fr": "Spécialiste de mise en service \"Hot Commissioning\" 80-100%"
       },
       "description": "Inbetriebnahmespezialist \"Hot Commissioning\" 80-100% (m/w/d) bei Carrosserie HESS AG in Bellach. HESS ist der Schweizer Pionier im Fahrzeugbau (Bus- und Nutzfahrzeugbau) mit Sitz in Bellach (SO).",
       "descriptionByLocale": {
         "it": "Descrizione\n- Inbetriebnahmespezialist \"Hot Commissioning\" 80-100% (m/w/d) bei Carrosserie HESS AG in Bellach.\n- HESS ist der Schweizer Pionier im Fahrzeugbau (Bus- und Nutzfahrzeugbau) mit Sitz in Bellach (SO).",
-        "en": "Inbetriebnahmespezialist \"Hot Commissioning\" 80-100% (m/f/d) bei Carrosserie HESS AG in Bellach. HESS ist der Schweizer Pionier im Fahrzeugbau (Bus- und Nutzfahrzeugbau) mit Sitz in Bellach (SO).",
+        "en": "Inbetriebnahmespezialist \"Hot Commissioning\" 80-100% (m/w/d) bei Carrosserie HESS AG in Bellach. HESS ist der Schweizer Pionier im Fahrzeugbau (Bus- und Nutzfahrzeugbau) mit Sitz in Bellach (SO).",
         "de": "Beschreibung -Visionspetialist \"Hot Commissioning\" 80-100% (m/w/d) mit Carrosseriese HESS AG in Bellach. - HESS ist der Schwezer Pionier im Fahrzeugbau (Bus- und39bau) mit Sitz in Bellach (SO).",
         "fr": "Description - Inbetriebnahmespetialiste \"Hot Commissioning\" 80-100% (m/w/d) bei Carrosseriese HESS AG à Bellach. - HESS ist der Schwezer Pionier im Fahrzeugbau (Bus- und Nutzfahrzeugbau) mit Sitz à Bellach (SO)."
       },
@@ -2057,7 +1973,7 @@
       "url": "https://jobs.hess-ag.ch/publication/inbetriebnahmespezialist-hot-commissioning/cuwbzf30l5dbo0dpvywcpzrme217y1wyimkprryrzyuf7ts3zqfruz47lfbq2lze",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-24T21:44:16.863Z",
+      "crawledAt": "2026-08-25T10:19:32.850Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -2109,7 +2025,7 @@
         "it": "Produzione di autobus meccanici (m/f/d)",
         "en": "Mechanical assembler bus production (m/f/d)",
         "de": "Mechanik-Monteur Bus Produktion(m/w/d)",
-        "fr": "Production de bus d'assemblage mécanique(h/f/d)"
+        "fr": "Mechanik-Monteur Bus Produktion(m/w/d)"
       },
       "description": "Mechanik-Monteur Bus Produktion (m/w/d | 80 - 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\n Als führendes Schweizer Unternehmen für Entwicklung, Herstellung und Reparatur von Fahrzeugen und Bausätzen beschäftigen wir in Bellach (SO) 600 MitarbeiterInnen. Nebst unserer lokalen Produktion betreuen und beliefern wir Lizenzpartner auf fünf Kontinenten mit unserem Baukasten-System \"Co-Bolt\". Als einziger Schweizer Bushersteller bewegen wir uns weit über die Grenzen mit unseren hochwertigen Elektro- und Trolleybussen. Die Innovationskultur ist der Treibstoff unserer Firma.\n\nZur Verstärkung unseres Teams in der Sparte Bus & Trolley suchen wir für die Gruppe Endmontage einen motivierten Mechanik-Monteur .\n Suchen Sie eine abwechslungsreiche Tätigkeit im industriellen Umfeld? Bei uns finden Sie Ihre neue Herausforderung! Wir suchen für die Gruppe Bus-Endmontage eine mechanische Fachkraft, die bei der Montage unserer innovativen Elektrobusse spannende Aufgaben übernehmen will!\n Ihre Aufgaben\n\n• Montage von mechanischen Traktionskomponenten und Antriebsmotoren in Bussen (Batterien, Umrichter, Bremswiderstände etc.)\n\n• Montage von komplexen Baugruppen nach technischen Zeichnung und Stücklisten\n\n• Termingerechte Abwicklung der Montagetätigkeit unter Berücksichtigung der Qualitätsrichtlinen und Einhaltung der Vorgabezeiten\n\nUnsere Anforderungen\n\n• Abgeschlossene technische Grundbildung in der Mechanik (z.B. Produktionsmechaniker, Lastwagenmechaniker, Automobilfachmann, Automobilmechatroniker etc.)\n\n• Gute mechanische Kenntnisse (Berufserfahrung in der Elektrotechnik von Vorteil)\n\n• Selbständige und zuverlässige Arbeitsweise\n\n• Teamfähigkeit und Flexibilität\n\n• Interesse, Neues zu erlernen\n\nWir bieten Ihnen\n\n• Abwechslungsreiche und interessante Tätigkeit für die Herstellung von innovativen Elektrobussen\n\n• Interne Aus- und Weiterbildung\n\n• Festanstellung in einem erfolgreichen Traditionsunternehmen\n\n• Gleitende Arbeitszeit\n\n• Leistungsgerechte Anstellungsbedingungen\n\nWenn Sie sich angesprochen fühlen, senden Sie uns Ihre kompletten Bewerbungsunterlagen inklusive Motivationsschreiben per Link (Jetzt bewerben).\n\nIhre FRAGEN zu dieser Stelle beantwortet Ihnen\n Christoph Wenger (Leiter Personal)\n+41 32 617 34 33\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\n jobs@hess-ag.ch | www.hess-ag.ch",
       "descriptionByLocale": {
@@ -2123,7 +2039,7 @@
       "url": "https://jobs.hess-ag.ch/publication/mechanik-monteur-bus-produktion/zjmp1q6melvw80ko2kq23j5e5gl7xqk6r242oahbe30xgo8yibrcc5yfkz7j0s76",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:16.356Z",
+      "crawledAt": "2026-08-25T10:19:32.367Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -2162,6 +2078,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:53:24.058Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "baseSalary": {
@@ -2190,7 +2107,7 @@
       "title": "Entwicklungsingenieur Mechatronik Schwerpunkt Software (m/w/d)",
       "titleByLocale": {
         "it": "Software di messa a fuoco dell'ingegnere di sviluppo (m/f/d)",
-        "en": "Development Engineer Mechatronics Focus Software (m/f/d)",
+        "en": "Entwicklungsingenieur Mechatronik Schwerpunkt Software (m/w/d)",
         "de": "Entwicklungsingenieur Mechatronik Schwerpunkt Software (m/w/d)",
         "fr": "Ingénieur de développement Mecatronics Focus Software (m/f/d)"
       },
@@ -2206,7 +2123,7 @@
       "url": "https://jobs.hess-ag.ch/publication/entwicklungsingenieur-mechatronik-schwerpunkt-software/peaqlnduf6apm1ytfcjvu3zd8pjux7c5beqzwtxrgp0y24yhgpxuiyxcqa2aqv55",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:15.878Z",
+      "crawledAt": "2026-08-25T10:19:31.916Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -2243,6 +2160,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:19:07.058Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "baseSalary": {
@@ -2287,7 +2205,7 @@
       "url": "https://jobs.hess-ag.ch/publication/teamleiter-leitstand-in-logistik/pot41t2mmuq4zvyc2le3ncvmzbp6yxoe7edfw0vvoqpo51b65jbt7brg6xao4qt4",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:15.373Z",
+      "crawledAt": "2026-08-25T10:19:31.454Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -2368,7 +2286,7 @@
       "url": "https://jobs.hess-ag.ch/publication/stv-leiter-logistik/nw7n0imb8afiyf6wpd0q6nvedikjol2au6nqkdxqg3i7cxfcfh3ccn2wmm6b8our",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:14.878Z",
+      "crawledAt": "2026-08-25T10:19:30.986Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -2435,7 +2353,7 @@
       "title": "Reisefreudiger Allrounder 80 - 100% (m/w/d)",
       "titleByLocale": {
         "it": "Allrounder 80 - 100% (m/f/d)",
-        "en": "Traveling All-Rounder 80 - 100% (m/f/d)",
+        "en": "Reisefreudiger Allrounder 80 - 100% (m/w/d)",
         "de": "Reisefreudiger Allrounder 80 - 100% (m/w/d)",
         "fr": "Voyageur tout-terrain 80 - 100% (m/f/d)"
       },
@@ -2451,7 +2369,7 @@
       "url": "https://jobs.hess-ag.ch/publication/reisefreudiger-allrounder/ohydxf5255z1efsjbbqhf0o09n82q4ahnsk0n1fif2y60ax15s33zssgokydu2kh",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:14.384Z",
+      "crawledAt": "2026-08-25T10:19:30.519Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -2485,6 +2403,7 @@
         ]
       },
       "firstSeenAt": "2026-07-15T22:34:41.073Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2529,7 +2448,7 @@
       "url": "https://jobs.hess-ag.ch/publication/strategischer-einkaeufer-scm/pk2izroxskfxp00p0g63p1zbbutyltr0op4sbgs4h5ofws5cd8a7kd5romb1re6i",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:13.903Z",
+      "crawledAt": "2026-08-25T10:19:30.064Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -2623,7 +2542,7 @@
       "url": "https://jobs.hess-ag.ch/publication/gestalter-werbetechnik/vxrcq35cayuwxk3sw16aac0h42hpbjsx3j5o3b8sioa3xscyl2w0lcfmnx54c0b4",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:13.413Z",
+      "crawledAt": "2026-08-25T10:19:29.588Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -2670,6 +2589,7 @@
         ]
       },
       "firstSeenAt": "2026-07-24T11:30:46.736Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2714,7 +2634,7 @@
       "url": "https://jobs.hess-ag.ch/publication/projekteinkaeufer-scm/8j554cjigcpv8x6kcr5e6sdhsqpqpb2gth14lkr1covm8q3w2kkv516kq4sz7g2h",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:12.931Z",
+      "crawledAt": "2026-08-25T10:19:29.133Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -2795,7 +2715,7 @@
       "url": "https://jobs.hess-ag.ch/publication/montageelektriker-fuer-den-busbau/gptinsnsbxk9qvv28avd0s72oil64dol3xs7oxqv6xtez5c7ufm2dycwfvctbcvk",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:12.430Z",
+      "crawledAt": "2026-08-25T10:19:28.655Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -2875,7 +2795,7 @@
       "url": "https://jobs.hess-ag.ch/publication/projektleiter-industrialisierung/edeccfft5u2cnddmmlyaqxdbqca7ebgsf6nrqydcfgps9y1q5xre5c7lrwyltqvq",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:11.947Z",
+      "crawledAt": "2026-08-25T10:19:28.203Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -2958,7 +2878,7 @@
       "url": "https://jobs.hess-ag.ch/publication/chauffeur-fuer-das-rangieren-von-elektrobussen/0pjw6df5yq3cihgz5n4xvmrs5sorrypw4kcnlbvj0wi1orf86hwdfjt3ig60fyrd",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:44:11.464Z",
+      "crawledAt": "2026-08-25T10:19:27.723Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
@@ -3008,74 +2928,72 @@
       }
     },
     {
-      "id": "hess-carrosserie-73ad213f1f2b",
-      "slug": "kaufmannischer-sachbearbeiter-per-la-bus-montage-m-w-d-carrosserie-hess-ag-bellach",
+      "id": "hess-carrosserie-e38dcd3ad453",
+      "slug": "automobilmechatroniker-come-pdi-spezialist-m-w-d-carrosserie-hess-ag-bellach",
       "slugByLocale": {
-        "it": "kaufmannischer-sachbearbeiter-per-la-bus-montage-m-w-d-carrosserie-hess-ag-bellach",
-        "en": "commercial-clerk-for-bus-assembly-m-f-d-carrosserie-hess-ag-bellach",
-        "de": "kaufmannischer-sachbearbeiter-fur-die-bus-montage-m-w-d-hess-bellach",
-        "fr": "commis-commercial-pour-l-assemblage-des-autobus-m-f-d-carrosserie-hess-ag-bellach"
+        "it": "automobilmechatroniker-come-pdi-spezialist-m-w-d-carrosserie-hess-ag-bellach",
+        "en": "automotive-mechatronics-specialist-as-pdi-specialist-m-f-d-carrosserie-hess-ag-bellach",
+        "de": "automobilmechatroniker-als-pdi-spezialist-m-w-d-hess-bellach",
+        "fr": "specialiste-mecatronique-automobile-en-tant-que-specialiste-pdi-m-f-d-carrosserie-hess-ag-bellach"
       },
       "company": "Carrosserie HESS AG",
       "companyKey": "hess-carrosserie",
       "companyDomain": "hess-ag.ch",
-      "title": "Kaufmännischer Sachbearbeiter für die Bus Montage (m/w/d)",
+      "title": "Automobilmechatroniker als PDI-Spezialist (m/w/d)",
       "titleByLocale": {
-        "it": "Kaufmännischer Sachbearbeiter per la Bus Montage (m/w/d)",
-        "en": "Commercial clerk for bus assembly (m/f/d)",
-        "de": "Kaufmännischer Sachbearbeiter für die Bus Montage (m/w/d)",
-        "fr": "Commis commercial pour l'assemblage des autobus (m/f/d)"
+        "it": "Automobilmechatroniker come PDI-Spezialist (m/w/d)",
+        "en": "Automotive mechatronics specialist as PDI specialist (m/f/d)",
+        "de": "Automobilmechatroniker als PDI-Spezialist (m/w/d)",
+        "fr": "Spécialiste mécatronique automobile en tant que spécialiste PDI (m/f/d)"
       },
-      "description": "Kaufmännischer Sachbearbeiter Bus Montage\n (m/w/d | 80 - 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\n Als führendes Schweizer Unternehmen für Entwicklung, Herstellung und Reparatur von Fahrzeugen und Bausätzen beschäftigen wir in Bellach (SO) 600 MitarbeiterInnen. Nebst unserer lokalen Produktion betreuen und beliefern wir Lizenzpartner auf fünf Kontinenten mit unserem Baukasten-System \"Co-Bolt\". Als einziger Schweizer Bushersteller bewegen wir uns weit über die Grenzen mit unseren hochwertigen Elektro- und Trolleybussen. Die Innovationskultur ist der Treibstoff unserer Firma.\n\nZur Verstärkung unseres Teams in der Sparte Bus & Trolley suchen wir für die Bus Montage einen engagierten, zuverlässigen und strukturierten Kaufmännischen Sachbearbeiter als administrative Unterstützung für die Montageleitung.\n In dieser vielseitigen Funktion unterstützen Sie die Bus Montage durch administrativen Tätigkeiten, die Überwachung von Prozessen sowie die Erstellung von Auswertungen und Dokumentationen. Mit Ihrer sorgfältigen Arbeitsweise tragen Sie dazu bei, effiziente Abläufe sicherzustellen und die kontinuierliche Verbesserung unserer Produktionsprozesse zu fördern.\n Ihre Aufgaben\n\n• Erfassung und Überwachung von Änderungsanträgen (BCR) in der Montage\n\n• Fortlaufende Überwachung der Auftragszeiterfassung unserer Mitarbeiter in der Montage\n\n• Erstellen und aktualisieren von Prozessdokumenten\n\n• Erstellen und pflegen von Auswertungen und Analysen\n\n• Sonstige administrative Tätigkeiten zur Unterstützung der Montageleitung\n\nUnsere Anforderungen\n\n• Abgeschlossene technische Grundbildung in einem Produktionsbetrieb mit kaufmännischer Weiterbildung oder abgeschlossene kafumännische Grundbildung mit Erfahrung im technischen Umfeld\n\n• Selbständige und zuverlässige Arbeitsweise\n\n• Teamfähigkeit und Flexibilität\n\n• Sprachen: D/E in Wort und Schrift\n\nWir bieten Ihnen\n\n• Abwechslungsreiche und interessante Tätigkeit für die Herstellung von innovativen Elektrobussen\n\n• Festanstellung in einem erfolgreichen Traditionsunternehmen\n\n• Gleitende Arbeitszeit\n\n• Leistungsgerechte Anstellungsbedingungen\n\nWenn Sie sich angesprochen fühlen, senden Sie uns Ihre kompletten Bewerbungsunterlagen inklusive Motivationsschreiben per Link (Jetzt bewerben).\n\nIhre FRAGEN zu dieser Stelle beantwortet Ihnen\n Christoph Wenger (Leiter Personal)\n+41 32 617 34 33\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\n jobs@hess-ag.ch | www.hess-ag.ch",
+      "description": "Automobilmechatroniker als PDI-Spezialist\n (m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\n Als führendes Schweizer Unternehmen für Entwicklung, Herstellung und Reparatur von Fahrzeugen und Bausätzen beschäftigen wir in Bellach (SO) 600 MitarbeiterInnen. Nebst unserer lokalen Produktion betreuen und beliefern wir Lizenzpartner auf fünf Kontinenten mit unserem Baukasten-System \"Co-Bolt\". Als einziger Schweizer Bushersteller bewegen wir uns weit über die Grenzen mit unseren hochwertigen Elektro- und Trolleybussen. Die Innovationskultur ist der Treibstoff unserer Firma.\n\nZur Verstärkung unseres Teams in der Endmontage unserer Sparte Bus & Trolley suchen wir motivierte Spezialisten mit Know-How in der Fahrzeugmechanik für die PDI-Arbeiten am Ende des Herstellungsprozesses unserer Elektrobusse.\n\nAls PDI-Spezialist für unsere innovativen Elektrobusse spielst du eine entscheidende Rolle in der Fertigungskette. Deine Aufgabe ist es, sicherzustellen, dass jeder Bus, der unsere Produktionshallen verlässt, in einwandfreiem Zustand ist und den höchsten Sicherheitsstandards entspricht. Wenn du Verantwortung übernehmen möchtest, bist du bei uns genau richtig!\n Deine Aufgaben\n\n• Durchführung sämtlicher \"Pre-Delivery Inspection\"-Arbeiten an unseren Elektrobussen (nach Vorgabe der Entwicklungsabteilung)\n\n• Inbetriebnahme von Tachographen und der RAG\n\n• Prüfung und Inbetriebnahme der Bremsen unter WABCO-Systemvorgaben inkl. Erstellung von Prüfprotokollen für offizielle Stellen\n\n• Vermessung und Einstellung der kompletten Lenkgeometrie und der Antriebsmotoren\n\n• Vornehmen von Wendekreismessungen\n\n• Kalibrierung der Bus-Gelenke und der Lenkwinkelsensoren\n\n• Planung der auszuführenden Arbeiten in Absprache mit der Montageleitung\n\n• Gestaltung und Umsetzung eines sinnvollen Zeitmanagements für die Umsetzung der PDI-Termine\n\n• Fahren von Gelenk- und Doppelgelenkbussen bei Fahrzeugumzügen und -verschiebungen\n\n• Mithilfe bei der Optimierung der Arbeitsprozesse und Arbeitsplätze\n\nUnsere Anforderungen\n\n• Abgeschlossene Berufslehre als Automobil-Mechatroniker Fachrichtung Nutzfahrzeuge, Landmaschinenmechaniker oder Baumaschinenmechaniker\n\n• Fahrberechtigung für schwere Nutzfahrzeuge (Kategorie C) oder Bereitschaft, die Führerprüfung zu absolvieren (Kostenübernahme durch den Arbeitgeber)\n\n• Ausgeprägte Macher-Mentalität\n\n• Selbständige Arbeitsweise und Umgang mit sensitiven Einrichtungen\n\n• Flexibilität und Zuverlässigkeit\n\nWir bieten dir\n\n• Abwechslungsreiche, interessante und langfristige Tätigkeit am Puls der Elektromobilität\n\n• Festanstellung in einem erfolgreichen Traditionsunternehmen, das grossen Wert auf Qualität legt\n\n• Gleitende Arbeitszeit\n\n• Gute Entlöhnung\n\n• Möglichkeit zur Weiterbildung und Weiterentwicklung\n\nWenn du dich angesprochen fühlst, sende uns deine kompletten Bewerbungsunterlagen inkl. Motivationsschreiben per Link (Jetzt bewerben).\n\nDeine FRAGEN zu dieser Stelle beantwortet dir\n Christoph Wenger (Leiter Personal)\n+41 32 617 34 33\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\n jobs@hess-ag.ch | www.hess-ag.ch",
       "descriptionByLocale": {
-        "it": "Assemblaggio commerciale dell'autobus (m/f/d | 80 - 100%) HESS - Il pioniere svizzero nella costruzione di veicoli Come azienda svizzera leader per lo sviluppo, la produzione e la riparazione di veicoli e kit, utilizziamo 500 persone a Bellach (SO). Oltre alla nostra produzione locale, supportiamo e forniamo partner di licenza in cinque continenti con il nostro sistema modulare \"Co-Bolt\". Come unico produttore di autobus svizzero, ci muoviamo ben oltre i confini con i nostri autobus elettrici e carrelli di alta qualità. La cultura dell'innovazione è il combustibile della nostra azienda. Al fine di rafforzare il nostro team nella divisione Bus & Trolley, stiamo cercando un agente commerciale dedicato, affidabile e strutturato per il montaggio degli autobus come supporto amministrativo per la gestione del montaggio. Supporto in questa funzione versatile Si assembla il bus attraverso attività amministrative, il monitoraggio dei processi e la preparazione di valutazioni e documentazione. Con il vostro modo di lavorare attento, aiutate a garantire processi efficienti e a promuovere il continuo miglioramento dei nostri processi produttivi. I loro compiti\n• Acquisizione e monitoraggio delle richieste di cambiamento (BCR) durante il montaggio\n• Monitoraggio continuo della registrazione del tempo d'ordine dei nostri dipendenti nell'assemblaggio\n• Creazione e aggiornamento dei documenti di processo\n• Creazione e mantenimento di valutazioni e analisi\n• Altre attività di supporto amministrativo per la gestione del montaggio I nostri requisiti\n• Formazione tecnica completata in un impianto di produzione con formazione commerciale o formazione di base completa di Kafumänn con esperienza nell'ambiente tecnico\n• Metodi di lavoro autonomi e affidabili\n• Lavoro di squadra e flessibilità\n• Lingue: D/E in Word e scrittura Noi li offriamo\n• Attività variegata e interessante per la produzione di bus elettrici innovativi\n• Lavoro permanente in una società tradizionale di successo\n• Tempo di lavoro mobile\n• Prestazioni basate sull'occupazione Se ti senti indirizzato, inviaci i tuoi documenti applicativi completi, comprese le lettere di motivazione tramite link (Applica ora). Le vostre domande a questo punto vi risponderanno Christoph Wenger (Capo di Personale) +41 32 617 34 33 Applicare ora Carrosserie HESS AG | Bielstrasse 7 | 4512 Bellach job@hess-ag.ch | www.hess-ag.ch",
-        "en": "Commercial clerk bus assembly (m/f/d | 80 - 100%) HESS - The Swiss pioneer in vehicle construction As a leading Swiss company for the development, manufacture and repair of vehicles and kits, we employ 500 people in Bellach (SO). In addition to our local production, we support and supply license partners on five continents with our \"Co-Bolt\" modular system. As the only Swiss bus manufacturer, we move far beyond the borders with our high-quality electric and trolley buses. The innovation culture is the fuel of our company. In order to strengthen our team in the Bus & Trolley division, we are looking for a dedicated, reliable and structured commercial agent for bus assembly as administrative support for assembly management. Support in this versatile function You assemble the bus through administrative activities, the monitoring of processes as well as the preparation of evaluations and documentation. With your careful way of working, you help to ensure efficient processes and promote the continuous improvement of our production processes. Their tasks\n• Acquisition and monitoring of change requests (BCR) during assembly\n• Continuous monitoring of the order time recording of our employees in the assembly\n• Creating and updating process documents\n• Creating and maintaining evaluations and analyses\n• Other administrative support activities for assembly management Our requirements\n• Completed basic technical training in a production plant with commercial training or completed basic Kafumänn training with experience in the technical environment\n• Self-employed and reliable working methods\n• Teamwork and flexibility\n• Languages: D/E in Word and Writing We offer them\n• Varied and interesting activity for the production of innovative electric buses\n• Permanent employment in a successful traditional company\n• Moving working time\n• Performance-based conditions of employment If you feel addressed, send us your complete application documents including letters of motivation via link (Apply now). Your questions at this point will answer you Christoph Wenger (Head of Staff) +41 32 617 34 33 Apply now Carrosserie HESS AG | Bielstrasse 7 | 4512 Bellach jobs@hess-ag.ch | www.hess-ag.ch",
-        "de": "Kaufmännischer Sachbearbeiter Bus Montage\n(m/w/d | 80 - 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\nAls führendes Schweizer Unternehmen für Entwicklung, Herstellung und Reparatur von Fahrzeugen und Bausätzen beschäftigen wir in Bellach (SO) 600 MitarbeiterInnen. Nebst unserer lokalen Produktion betreuen und beliefern wir Lizenzpartner auf fünf Kontinenten mit unserem Baukasten-System \"Co-Bolt\". Als einziger Schweizer Bushersteller bewegen wir uns weit über die Grenzen mit unseren hochwertigen Elektro- und Trolleybussen. Die Innovationskultur ist der Treibstoff unserer Firma.\n\nZur Verstärkung unseres Teams in der Sparte Bus & Trolley suchen wir für die Bus Montage einen engagierten, zuverlässigen und strukturierten Kaufmännischen Sachbearbeiter als administrative Unterstützung für die Montageleitung.\nIn dieser vielseitigen Funktion unterstützen Sie die Bus Montage durch administrativen Tätigkeiten, die Überwachung von Prozessen sowie die Erstellung von Auswertungen und Dokumentationen. Mit Ihrer sorgfältigen Arbeitsweise tragen Sie dazu bei, effiziente Abläufe sicherzustellen und die kontinuierliche Verbesserung unserer Produktionsprozesse zu fördern.\nIhre Aufgaben\n\n• Erfassung und Überwachung von Änderungsanträgen (BCR) in der Montage\n\n• Fortlaufende Überwachung der Auftragszeiterfassung unserer Mitarbeiter in der Montage\n\n• Erstellen und aktualisieren von Prozessdokumenten\n\n• Erstellen und pflegen von Auswertungen und Analysen\n\n• Sonstige administrative Tätigkeiten zur Unterstützung der Montageleitung\n\nUnsere Anforderungen\n\n• Abgeschlossene technische Grundbildung in einem Produktionsbetrieb mit kaufmännischer Weiterbildung oder abgeschlossene kafumännische Grundbildung mit Erfahrung im technischen Umfeld\n\n• Selbständige und zuverlässige Arbeitsweise\n\n• Teamfähigkeit und Flexibilität\n\n• Sprachen: D/E in Wort und Schrift\n\nWir bieten Ihnen\n\n• Abwechslungsreiche und interessante Tätigkeit für die Herstellung von innovativen Elektrobussen\n\n• Festanstellung in einem erfolgreichen Traditionsunternehmen\n\n• Gleitende Arbeitszeit\n\n• Leistungsgerechte Anstellungsbedingungen\n\nWenn Sie sich angesprochen fühlen, senden Sie uns Ihre kompletten Bewerbungsunterlagen inklusive Motivationsschreiben per Link (Jetzt bewerben).\n\nIhre FRAGEN zu dieser Stelle beantwortet Ihnen\nChristoph Wenger (Leiter Personal)\n+41 32 617 34 33\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\njobs@hess-ag.ch | www.hess-ag.ch",
-        "fr": "Montage d'autobus pour commis commerciaux (m/f/j) 80 - 100%) HESS - Le pionnier suisse de la construction de véhicules En tant que leader suisse pour le développement, la fabrication et la réparation de véhicules et de kits, nous employons 500 personnes à Bellach (SO). En plus de notre production locale, nous soutenons et fournissons des partenaires de licence sur cinq continents avec notre système modulaire \"Co-Bolt\". En tant que seul constructeur suisse de bus, nous déambulons bien au-delà des frontières avec nos bus électriques et chariots de haute qualité. La culture de l'innovation est le carburant de notre entreprise. Afin de renforcer notre équipe dans la division Bus & Trolley, nous recherchons un agent commercial dédié, fiable et structuré pour l'assemblage de bus comme support administratif pour la gestion de montage. Support dans cette fonction polyvalente Vous assemblez le bus par des activités administratives, le suivi des processus ainsi que la préparation des évaluations et de la documentation. Avec votre façon de travailler soignée, vous contribuez à assurer des processus efficaces et à promouvoir l'amélioration continue de nos processus de production. Leurs tâches\n• Acquisition et surveillance des demandes de changement (RCO) pendant l'assemblage\n• Surveillance continue de l'enregistrement du temps de commande de nos employés dans l'assemblage\n• Création et mise à jour de documents de processus\n• Créer et maintenir des évaluations et des analyses\n• Autres activités de soutien administratif pour la gestion des assemblages Nos exigences\n• Formation technique de base dans une usine de production avec formation commerciale ou formation de base Kafumänn avec expérience dans l'environnement technique\n• Travailleurs indépendants et méthodes de travail fiables\n• Travail d'équipe et flexibilité\n• Langues: D/E en Word et écriture Nous leur offrons\n• Activité variée et intéressante pour la production de bus électriques innovants\n• Emploi permanent dans une entreprise traditionnelle réussie\n• Déplacement du temps de travail\n• Conditions d'emploi fondées sur les résultats Si vous vous sentez adressé, envoyez-nous vos documents de candidature complets, y compris les lettres de motivation, via un lien (Appliquer maintenant). Vos questions à ce stade vous répondront Christoph Wenger (chef d'état-major) +41 32 617 34 33 Appliquer maintenant Carrosserie HESS AG-Bielstrasse 7-4512 Bellach emplois@hess-ag.ch"
+        "it": "Specialista di meccatronica automobilistica come specialista PDI (m/f/d | 100%) HESS - Il pioniere svizzero nella costruzione di veicoli Come azienda svizzera leader per lo sviluppo, la produzione e la riparazione di veicoli e kit, utilizziamo 500 persone a Bellach (SO). Oltre alla nostra produzione locale, supportiamo e forniamo partner di licenza in cinque continenti con il nostro sistema modulare \"Co-Bolt\". Come unico produttore di autobus svizzero, ci muoviamo ben oltre i confini con i nostri autobus elettrici e carrelli di alta qualità. La cultura dell'innovazione è il combustibile della nostra azienda. Per rafforzare il nostro team nell'assemblea finale della nostra divisione Bus & Trolley, stiamo cercando specialisti motivati con know-how nella meccanica dei veicoli per il lavoro PDI alla fine del processo di produzione dei nostri autobus elettrici. Come specialista PDI per i nostri bus elettrici innovativi, si gioca un ruolo decisivo nella catena di produzione. Il vostro lavoro è quello di garantire che ogni bus che lascia le nostre sale di produzione è in perfette condizioni e soddisfa i più alti standard di sicurezza. Se vuoi assumerti la responsabilità, hai esattamente ragione con noi! I tuoi compiti\n• Effettuare tutti i lavori di \"ispezione preventiva\" sui nostri autobus elettrici (secondo le specifiche del reparto sviluppo)\n• Commissione dei tachigrafi e della RAG\n• Test e messa in servizio dei freni secondo le specifiche del sistema WABCO incl. Preparazione dei rapporti di audit per gli organismi ufficiali\n• Misurazione e regolazione della geometria dello sterzo e dei motori di azionamento\n• Misurazione del cerchio di svolta\n• Calibrazione delle giunzioni degli autobus e dei sensori di angolo di sterzo\n• Pianificazione dei lavori da realizzare in accordo con la linea di montaggio\n• Progettazione e realizzazione di una gestione significativa del tempo per l'implementazione di appuntamenti PDI\n• Guida di autobus articolati e a doppia articolazione nel caso di veicoli in movimento e veicoli in movimento\n• Assistenza nell'ottimizzazione dei processi di lavoro e dei luoghi di lavoro I nostri requisiti\n• Apprendistato professionale completo come specialista di meccatronica automobilistica specializzata in veicoli commerciali, meccanica di macchine agricole o meccanica di costruzione\n• Autorizzazione di guida per veicoli pesanti (categoria C) o la volontà di superare il test del conducente (copertura dei costi da parte del datore di lavoro)\n• Forte mentalità dei creatori\n• Funzionamento indipendente e gestione di apparecchiature sensibili\n• Flessibilità e affidabilità Vi offriamo\n• Variazione, attività interessante e a lungo termine al polso dell'elettromobilità\n• Occupazione permanente in una società tradizionale di successo che attribuisce grande importanza alla qualità\n• Tempo di lavoro mobile\n• Buona compensazione\n• Opportunità per l'ulteriore istruzione e sviluppo Se ti senti indirizzato, inviaci i tuoi documenti applicativi completi incl. Lettera di motivazione tramite link (Applica ora). Le vostre domande a questo punto vi risponderanno Christoph Wenger (Capo di Personale) +41 32 617 34 33 Applicare ora Carrosserie HESS AG | Bielstrasse 7 | 4512 Bellach job@hess-ag.ch | www.hess-ag.ch",
+        "en": "Automotive mechatronics specialist as PDI specialist (m/f/d | 100%) HESS - The Swiss pioneer in vehicle construction As a leading Swiss company for the development, manufacture and repair of vehicles and kits, we employ 500 people in Bellach (SO). In addition to our local production, we support and supply license partners on five continents with our \"Co-Bolt\" modular system. As the only Swiss bus manufacturer, we move far beyond the borders with our high-quality electric and trolley buses. The innovation culture is the fuel of our company. To strengthen our team in the final assembly of our Bus & Trolley division, we are looking for motivated specialists with know-how in vehicle mechanics for the PDI work at the end of the production process of our electric buses. As a PDI specialist for our innovative electric buses, you play a decisive role in the production chain. Your job is to ensure that every bus leaving our production halls is in perfect condition and meets the highest safety standards. If you want to take responsibility, you are exactly right with us! Your tasks\n• Carrying out all \"pre-delivery inspection\" work on our electric buses (according to the specifications of the development department)\n• Commissioning of tachographs and the RAG\n• Testing and commissioning of the brakes under WABCO system specifications incl. Preparation of audit reports for official bodies\n• Measurement and adjustment of the complete steering geometry and drive motors\n• Performing turning circle measurements\n• Calibration of the bus joints and the steering angle sensors\n• Planning of the work to be carried out in agreement with the assembly line\n• Design and implementation of meaningful time management for the implementation of PDI appointments\n• Driving of articulated and double-articulated buses in the case of moving vehicles and moving vehicles\n• Assistance in optimising work processes and workplaces Our requirements\n• Completed vocational apprenticeship as an automotive mechatronics specialist specialising in commercial vehicles, agricultural machinery mechanic or construction machinery mechanic\n• Driving authorization for heavy goods vehicles (category C) or willingness to pass the driver test (cost coverage by the employer)\n• Strong makers mentality\n• Independent operation and handling of sensitive equipment\n• Flexibility and reliability We offer you\n• Varied, interesting and long-term activity at the pulse of electromobility\n• Permanent employment in a successful traditional company that attaches great importance to quality\n• Moving working time\n• Good compensation\n• Opportunity for further education and development If you feel addressed, send us your complete application documents incl. Letter of motivation by link (Apply now). Your questions at this point will answer you Christoph Wenger (Head of Staff) +41 32 617 34 33 Apply now Carrosserie HESS AG | Bielstrasse 7 | 4512 Bellach jobs@hess-ag.ch | www.hess-ag.ch",
+        "de": "Automobilmechatroniker als PDI-Spezialist\n(m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\nAls führendes Schweizer Unternehmen für Entwicklung, Herstellung und Reparatur von Fahrzeugen und Bausätzen beschäftigen wir in Bellach (SO) 600 MitarbeiterInnen. Nebst unserer lokalen Produktion betreuen und beliefern wir Lizenzpartner auf fünf Kontinenten mit unserem Baukasten-System \"Co-Bolt\". Als einziger Schweizer Bushersteller bewegen wir uns weit über die Grenzen mit unseren hochwertigen Elektro- und Trolleybussen. Die Innovationskultur ist der Treibstoff unserer Firma.\n\nZur Verstärkung unseres Teams in der Endmontage unserer Sparte Bus & Trolley suchen wir motivierte Spezialisten mit Know-How in der Fahrzeugmechanik für die PDI-Arbeiten am Ende des Herstellungsprozesses unserer Elektrobusse.\n\nAls PDI-Spezialist für unsere innovativen Elektrobusse spielst du eine entscheidende Rolle in der Fertigungskette. Deine Aufgabe ist es, sicherzustellen, dass jeder Bus, der unsere Produktionshallen verlässt, in einwandfreiem Zustand ist und den höchsten Sicherheitsstandards entspricht. Wenn du Verantwortung übernehmen möchtest, bist du bei uns genau richtig!\nDeine Aufgaben\n\n• Durchführung sämtlicher \"Pre-Delivery Inspection\"-Arbeiten an unseren Elektrobussen (nach Vorgabe der Entwicklungsabteilung)\n\n• Inbetriebnahme von Tachographen und der RAG\n\n• Prüfung und Inbetriebnahme der Bremsen unter WABCO-Systemvorgaben inkl. Erstellung von Prüfprotokollen für offizielle Stellen\n\n• Vermessung und Einstellung der kompletten Lenkgeometrie und der Antriebsmotoren\n\n• Vornehmen von Wendekreismessungen\n\n• Kalibrierung der Bus-Gelenke und der Lenkwinkelsensoren\n\n• Planung der auszuführenden Arbeiten in Absprache mit der Montageleitung\n\n• Gestaltung und Umsetzung eines sinnvollen Zeitmanagements für die Umsetzung der PDI-Termine\n\n• Fahren von Gelenk- und Doppelgelenkbussen bei Fahrzeugumzügen und -verschiebungen\n\n• Mithilfe bei der Optimierung der Arbeitsprozesse und Arbeitsplätze\n\nUnsere Anforderungen\n\n• Abgeschlossene Berufslehre als Automobil-Mechatroniker Fachrichtung Nutzfahrzeuge, Landmaschinenmechaniker oder Baumaschinenmechaniker\n\n• Fahrberechtigung für schwere Nutzfahrzeuge (Kategorie C) oder Bereitschaft, die Führerprüfung zu absolvieren (Kostenübernahme durch den Arbeitgeber)\n\n• Ausgeprägte Macher-Mentalität\n\n• Selbständige Arbeitsweise und Umgang mit sensitiven Einrichtungen\n\n• Flexibilität und Zuverlässigkeit\n\nWir bieten dir\n\n• Abwechslungsreiche, interessante und langfristige Tätigkeit am Puls der Elektromobilität\n\n• Festanstellung in einem erfolgreichen Traditionsunternehmen, das grossen Wert auf Qualität legt\n\n• Gleitende Arbeitszeit\n\n• Gute Entlöhnung\n\n• Möglichkeit zur Weiterbildung und Weiterentwicklung\n\nWenn du dich angesprochen fühlst, sende uns deine kompletten Bewerbungsunterlagen inkl. Motivationsschreiben per Link (Jetzt bewerben).\n\nDeine FRAGEN zu dieser Stelle beantwortet dir\nChristoph Wenger (Leiter Personal)\n+41 32 617 34 33\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\njobs@hess-ag.ch | www.hess-ag.ch",
+        "fr": "Spécialiste mécatronique automobile comme spécialiste PDI (m/f/d=100 %) HESS - Le pionnier suisse de la construction de véhicules En tant que leader suisse pour le développement, la fabrication et la réparation de véhicules et de kits, nous employons 500 personnes à Bellach (SO). En plus de notre production locale, nous soutenons et fournissons des partenaires de licence sur cinq continents avec notre système modulaire \"Co-Bolt\". En tant que seul constructeur suisse de bus, nous déambulons bien au-delà des frontières avec nos bus électriques et chariots de haute qualité. La culture de l'innovation est le carburant de notre entreprise. Pour renforcer notre équipe dans l'assemblage final de notre division Bus & Trolley, nous recherchons des spécialistes motivés avec le savoir-faire en mécanique des véhicules pour le travail PDI à la fin du processus de production de nos bus électriques. En tant que spécialiste PDI pour nos bus électriques innovants, vous jouez un rôle décisif dans la chaîne de production. Votre travail est de vous assurer que chaque bus quittant nos salles de production est en parfait état et répond aux normes de sécurité les plus élevées. Si vous voulez prendre la responsabilité, vous avez raison avec nous ! Vos tâches\n• Effectuer tous les travaux d'inspection \"prélivraison\" sur nos bus électriques (selon les spécifications du département développement)\n• Mise en service des tachygraphes et du RAG\n• Essai et mise en service des freins selon les spécifications du système WABCO, y compris Établissement de rapports d ' audit à l ' intention des organes officiels\n• Mesure et réglage de la géométrie complète de la direction et des moteurs d'entraînement\n• Effectuer des mesures du cercle de virage\n• Étalonnage des joints de bus et des capteurs d'angle de direction\n• Planification des travaux à réaliser en accord avec la chaîne de montage\n• Conception et mise en oeuvre d'une gestion du temps utile pour la mise en oeuvre des nominations aux postes d'IPD\n• Conduite d'autobus articulés et à double articulation dans le cas de véhicules en mouvement et de véhicules en mouvement\n• Aide à l'optimisation des processus de travail et des lieux de travail Nos exigences\n• Achevé l'apprentissage professionnel en tant que spécialiste en mécatronique automobile spécialisée dans les véhicules commerciaux, mécaniciens de machines agricoles ou mécaniciens de machines de construction\n• Autorisation de conduire des poids lourds (catégorie C) ou volonté de réussir l ' essai du conducteur (couverture des coûts par l ' employeur)\n• Une mentalité forte\n• Exploitation et manutention indépendantes des équipements sensibles\n• Flexibilité et fiabilité Nous vous offrons\n• Activité variée, intéressante et à long terme à l'impulsion de l'électromobilité\n• Emploi permanent dans une entreprise traditionnelle prospère qui attache une grande importance à la qualité\n• Déplacement du temps de travail\n• Bonne indemnisation\n• Possibilités de poursuivre l ' éducation et le développement Si vous vous sentez adressé, envoyez-nous vos documents de candidature complets, y compris. Lettre de motivation par lien (Appliquer maintenant). Vos questions à ce stade vous répondront Christoph Wenger (chef d'état-major) +41 32 617 34 33 Appliquer maintenant Carrosserie HESS AG-Bielstrasse 7-4512 Bellach emplois@hess-ag.ch"
       },
       "location": "Bellach",
       "canton": "SO",
-      "url": "https://jobs.hess-ag.ch/publication/kaufmaennischer-sachbearbeiter-fuer-die-bus-montage/e1v8re75o4qrkm62x64jf79ytqit1ybl0op8lsktsidkffahgqsejsthxsgspir2",
+      "url": "https://jobs.hess-ag.ch/publication/automobilmechatroniker-als-pdi-spezialist/ibfe6zdqn4jc2lz3rjac2zhe8abdx3onblfx2k0p7cgtcett0g2agz3zf5pq78mi",
       "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:39:49.560Z",
+      "crawledAt": "2026-08-24T21:44:27.162Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "streetAddress": "Bielstrasse 7",
       "postalCode": "4512",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Amministrazione",
+      "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Industria / Manifattura",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-22",
-      "applyUrl": "https://jobs.hess-ag.ch/publication/kaufmaennischer-sachbearbeiter-fuer-die-bus-montage/e1v8re75o4qrkm62x64jf79ytqit1ybl0op8lsktsidkffahgqsejsthxsgspir2",
-      "jobReqId": "78479",
+      "postedDate": "2025-12-09",
+      "applyUrl": "https://jobs.hess-ag.ch/publication/automobilmechatroniker-als-pdi-spezialist/ibfe6zdqn4jc2lz3rjac2zhe8abdx3onblfx2k0p7cgtcett0g2agz3zf5pq78mi",
+      "jobReqId": "72012",
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Bus und Trolley",
       "previousSlugs": [
-        "kaufmannischer-sachbearbeiter-fur-die-bus-montage-m-w-d-hess-bellach",
-        "kaufmannischer-sachbearbeiter-per-la-bus-montage-m-w-d-carrosserie-hess-ag-bellach"
+        "automobilmechatroniker-als-pdi-spezialist-m-w-d-hess-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kaufmannischer-sachbearbeiter-fur-die-bus-montage-m-w-d-hess-bellach",
-          "kaufmannischer-sachbearbeiter-per-la-bus-montage-m-w-d-carrosserie-hess-ag-bellach"
+          "automobilmechatroniker-als-pdi-spezialist-m-w-d-hess-bellach"
         ],
         "en": [
-          "kaufmannischer-sachbearbeiter-fur-die-bus-montage-m-w-d-hess-bellach"
+          "automobilmechatroniker-als-pdi-spezialist-m-w-d-hess-bellach"
         ],
         "fr": [
-          "kaufmannischer-sachbearbeiter-fur-die-bus-montage-m-w-d-hess-bellach"
+          "automobilmechatroniker-als-pdi-spezialist-m-w-d-hess-bellach"
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-04T10:53:24.928Z",
+      "firstSeenAt": "2026-07-04T10:53:35.374Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3088,7 +3006,90 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
+    },
+    {
+      "id": "hess-carrosserie-e591e7a8bfb7",
+      "slug": "idraulico-carrozzeria-restauratore-di-veicoli-carrosserie-hess-ag-bellach",
+      "slugByLocale": {
+        "it": "idraulico-carrozzeria-restauratore-di-veicoli-carrosserie-hess-ag-bellach",
+        "en": "carrosseriespengler-vehicle-restorer-carrosserie-hess-ag-bellach",
+        "de": "carrosseriespengler-fahrzeugrestaurator-hess-bellach",
+        "fr": "carrosseriespengler-recuperateur-de-vehicule-carrosserie-hess-ag-bellach"
+      },
+      "company": "Carrosserie HESS AG",
+      "companyKey": "hess-carrosserie",
+      "companyDomain": "hess-ag.ch",
+      "title": "Carrosseriespengler / Fahrzeugrestaurator",
+      "titleByLocale": {
+        "it": "Idraulico carrozzeria / restauratore di veicoli",
+        "en": "Carrosseriespengler / Vehicle Restorer",
+        "de": "Carrosseriespengler / Fahrzeugrestaurator",
+        "fr": "Carrosseriespengler / Récupérateur de véhicule"
+      },
+      "description": "Carrosseriespengler / Fahrzeugrestaurator (m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\n Als führendes Schweizer Unternehmen für Entwicklung, Herstellung und Reparatur von Fahrzeugen und Bausätzen beschäftigen wir in Bellach (SO) 600 MitarbeiterInnen. Nebst unserer lokalen Produktion betreuen und beliefern wir Lizenzpartner auf fünf Kontinenten mit unserem Baukasten-System \"Co-Bolt\". Als einziger Schweizer Bushersteller bewegen wir uns weit über die Grenzen mit unseren hochwertigen Elektro- und Trolleybussen. Die Innovationskultur ist der Treibstoff unserer Firma.\n\nInfolge Pensionierung suchen wir für unsere Grosswagen-Reparatur-Abteilung in der Sparte Reparatur & Service einen qualifizierten Carrosseriespengler & Fahrzeugrestaurator .\n Haben Sie eine Leidenschaft für Fahrzeuge – von modernen Bussen bis hin zu liebevoll restaurierten Oldtimern – und möchten Sie Ihr Fachwissen vielseitig einsetzen? Bei uns erwarten Sie nicht nur spannende Reparatur-Aufgaben für Busse und andere Grossfahrzeuge, sondern auch die Möglichkeit, historische Fahrzeuge und Oldtimer-Busse mit handwerklichem Können und technischem Know-how wieder zum Leben zu erwecken. Werden Sie Teil eines engagierten Teams, das Innovation mit Tradition verbindet, und bringen Sie Ihre Begeisterung für Fahrzeuge in all ihren Facetten ein. Bewerben Sie sich noch heute!\n Ihre Aufgaben\n\n• Ausführen von Reparatur- und Revisionsarbeiten an Grossfahrzeugen und Bussen\n\n• Fahrzeugrestaurationen für Oldtimer-Busse und andere historische Fahrzeuge\n\n• Ausmessen, Zeichnen und Herstellen sowie Ausbeulen und Richten von Carrosserieteilen historischer Fahrzeuge\n\n• Vornehmen von Ein- und Umbauten im Bus Fahrgastraum\n\n• Ausführen von abwechslungsreichen und herausfordernden Spengler- und Schlosserarbeiten\n\nUnsere Anforderungen\n\n• Abgeschlossene Berufslehre als Metallbauer, Fahrzeugschlosser, Carrosseriespengler oder eine andere Berufsausbildung in einem metallverarbeitenden Beruf\n\n• Weiterbildung zum Fahrzeugrestaurator erwünscht\n\n• Berufserfahrung in ähnlicher Funktion oder Interesse zur Weiterentwicklung im Bereich Fahrzeugrestaurationen\n\n• Selbständige Arbeitsweise\n\n• Flexibilität\n\n• Teamfähigkeit\n\nWir bieten Ihnen\n\n• Abwechslungsreiche und interessante Daueranstellung\n\n• Herausfordernde und spannende Aufgaben\n\n• Gleitende Arbeitszeit\n\n• Leistungsgerechte Anstellungsbedingungen\n\nWenn Sie sich angesprochen fühlen, senden Sie uns Ihre kompletten Bewerbungsunterlagen inklusive Motivationsschreiben per Link (Jetzt bewerben).\n\nIhre FRAGEN zu dieser Stelle beantwortet Ihnen\n Christoph Wenger (Leiter Personal)\n+41 32 617 34 33\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\n jobs@hess-ag.ch | www.hess-ag.ch",
+      "descriptionByLocale": {
+        "it": "Carrosseriespengler / restauratore del veicolo (m/f/d | 100%) HESS - Il pioniere svizzero nella costruzione di veicoli Come azienda svizzera leader per lo sviluppo, la produzione e la riparazione di veicoli e kit, utilizziamo 500 persone a Bellach (SO). Oltre alla nostra produzione locale, supportiamo e forniamo partner di licenza in cinque continenti con il nostro sistema modulare \"Co-Bolt\". Come unico produttore di autobus svizzero, ci muoviamo ben oltre i confini con i nostri autobus elettrici e carrelli di alta qualità. La cultura dell'innovazione è il combustibile della nostra azienda. Come risultato del pensionamento, stiamo cercando un Carrosseriespengler & Vehicle Restorator qualificato per il nostro grande reparto di riparazione auto nella divisione riparazione e servizio. Avete una passione per i veicoli – dagli autobus moderni ai tesori di auto classici amorevolmente restaurati – e volete mettere la vostra esperienza a buon uso? Allora questa è la tua occasione! Con noi non solo ti aspetterai interessanti compiti di riparazione per autobus e altri veicoli di grandi dimensioni, ma anche l'opportunità di portare veicoli storici e autobus vintage con artigianalità e know-how tecnico di nuovo alla vita. Entra a far parte di un team dedicato che combina innovazione con la tradizione e porta il tuo entusiasmo per i veicoli in tutte le loro sfaccettature. Applicare oggi! I loro compiti\n• Eseguire lavori di riparazione e ispezione su veicoli di grandi dimensioni e autobus\n• Restauro veicoli per autobus d'epoca e altri veicoli storici\n• Misurazione, disegno e fabbricazione, buckling e raddrizzamento di corpi auto di veicoli storici\n• Effettuare installazioni e conversioni nel vano passeggeri dell'autobus\n• Esecuzione vario e impegnativo lavoro spengler e fabbro I nostri requisiti\n• Apprendistato completo come metalmeccanico, automobilista, carosserie pendolari o altra formazione professionale in una professione di metallurgia\n• Ulteriore sviluppo del veicolo restauratore desiderato\n• Esperienza professionale in una simile capacità o interesse per un ulteriore sviluppo nel settore dei restauri del veicolo\n• Lavoro autonomo\n• Flessibilità\n• Lavoro di squadra Noi li offriamo\n• Occupazione permanente varia e interessante\n• Compiti impegnativi ed emozionanti\n• Tempo di lavoro mobile\n• Prestazioni basate sull'occupazione Se ti senti indirizzato, inviaci i tuoi documenti applicativi completi, comprese le lettere di motivazione tramite link (Applica ora). Le vostre domande a questo punto vi risponderanno Christoph Wenger (Capo di Personale) +41 32 617 34 33 Applicare ora Carrosserie HESS AG | Bielstrasse 7 | 4512 Bellach job@hess-ag.ch | www.hess-ag.ch",
+        "en": "Carrosseriespengler / vehicle restorer (m/f/d | 100%) HESS - The Swiss pioneer in vehicle construction As a leading Swiss company for the development, manufacture and repair of vehicles and kits, we employ 500 people in Bellach (SO). In addition to our local production, we support and supply license partners on five continents with our \"Co-Bolt\" modular system. As the only Swiss bus manufacturer, we move far beyond the borders with our high-quality electric and trolley buses. The innovation culture is the fuel of our company. As a result of retirement, we are looking for a qualified Carrosseriespengler & Vehicle Restorator for our large car repair department in the Repair & Service division. Do you have a passion for vehicles – from modern buses to lovingly restored classic car treasures – and would you like to put your expertise to good use? Then this is your chance! With us you will not only expect exciting repair tasks for buses and other large vehicles, but also the opportunity to bring historic vehicles and vintage buses with craftsmanship and technical know-how back to life. Become part of a dedicated team that combines innovation with tradition and bring your enthusiasm for vehicles in all their facets. Apply today! Their tasks\n• Carrying out repair and inspection work on large vehicles and buses\n• Vehicle restorations for vintage buses and other historic vehicles\n• Measuring, drawing and manufacturing, buckling and straightening of car bodies of historic vehicles\n• Carrying out installations and conversions in the bus passenger compartment\n• Performing varied and challenging spengler and locksmith work Our requirements\n• Completed apprenticeship as a metalworker, vehicle maker, carrosseries commuter or other vocational training in a metalworking profession\n• Further development of the vehicle restorer desired\n• Professional experience in a similar capacity or interest in further development in the field of vehicle restorations\n• Self-employed work\n• Flexibility\n• Teamwork We offer them\n• Varied and interesting permanent employment\n• Challenging and exciting tasks\n• Moving working time\n• Performance-based conditions of employment If you feel addressed, send us your complete application documents including letters of motivation via link (Apply now). Your questions at this point will answer you Christoph Wenger (Head of Staff) +41 32 617 34 33 Apply now Carrosserie HESS AG | Bielstrasse 7 | 4512 Bellach jobs@hess-ag.ch | www.hess-ag.ch",
+        "de": "Carrosseriespengler / Fahrzeugrestaurator (m/w/d | 100%)\n\nHESS - Der Schweizer Pionier im Fahrzeugbau\nAls führendes Schweizer Unternehmen für Entwicklung, Herstellung und Reparatur von Fahrzeugen und Bausätzen beschäftigen wir in Bellach (SO) 600 MitarbeiterInnen. Nebst unserer lokalen Produktion betreuen und beliefern wir Lizenzpartner auf fünf Kontinenten mit unserem Baukasten-System \"Co-Bolt\". Als einziger Schweizer Bushersteller bewegen wir uns weit über die Grenzen mit unseren hochwertigen Elektro- und Trolleybussen. Die Innovationskultur ist der Treibstoff unserer Firma.\n\nInfolge Pensionierung suchen wir für unsere Grosswagen-Reparatur-Abteilung in der Sparte Reparatur & Service einen qualifizierten Carrosseriespengler & Fahrzeugrestaurator .\nHaben Sie eine Leidenschaft für Fahrzeuge – von modernen Bussen bis hin zu liebevoll restaurierten Oldtimern – und möchten Sie Ihr Fachwissen vielseitig einsetzen? Bei uns erwarten Sie nicht nur spannende Reparatur-Aufgaben für Busse und andere Grossfahrzeuge, sondern auch die Möglichkeit, historische Fahrzeuge und Oldtimer-Busse mit handwerklichem Können und technischem Know-how wieder zum Leben zu erwecken. Werden Sie Teil eines engagierten Teams, das Innovation mit Tradition verbindet, und bringen Sie Ihre Begeisterung für Fahrzeuge in all ihren Facetten ein. Bewerben Sie sich noch heute!\nIhre Aufgaben\n\n• Ausführen von Reparatur- und Revisionsarbeiten an Grossfahrzeugen und Bussen\n\n• Fahrzeugrestaurationen für Oldtimer-Busse und andere historische Fahrzeuge\n\n• Ausmessen, Zeichnen und Herstellen sowie Ausbeulen und Richten von Carrosserieteilen historischer Fahrzeuge\n\n• Vornehmen von Ein- und Umbauten im Bus Fahrgastraum\n\n• Ausführen von abwechslungsreichen und herausfordernden Spengler- und Schlosserarbeiten\n\nUnsere Anforderungen\n\n• Abgeschlossene Berufslehre als Metallbauer, Fahrzeugschlosser, Carrosseriespengler oder eine andere Berufsausbildung in einem metallverarbeitenden Beruf\n\n• Weiterbildung zum Fahrzeugrestaurator erwünscht\n\n• Berufserfahrung in ähnlicher Funktion oder Interesse zur Weiterentwicklung im Bereich Fahrzeugrestaurationen\n\n• Selbständige Arbeitsweise\n\n• Flexibilität\n\n• Teamfähigkeit\n\nWir bieten Ihnen\n\n• Abwechslungsreiche und interessante Daueranstellung\n\n• Herausfordernde und spannende Aufgaben\n\n• Gleitende Arbeitszeit\n\n• Leistungsgerechte Anstellungsbedingungen\n\nWenn Sie sich angesprochen fühlen, senden Sie uns Ihre kompletten Bewerbungsunterlagen inklusive Motivationsschreiben per Link (Jetzt bewerben).\n\nIhre FRAGEN zu dieser Stelle beantwortet Ihnen\nChristoph Wenger (Leiter Personal)\n+41 32 617 34 33\n\nJetzt bewerben\n\nCarrosserie HESS AG | Bielstrasse 7 | 4512 Bellach\njobs@hess-ag.ch | www.hess-ag.ch",
+        "fr": "Carrosseriespengler / restaurateur de véhicule (m/f/d) 100% HESS - Le pionnier suisse de la construction de véhicules En tant que leader suisse pour le développement, la fabrication et la réparation de véhicules et de kits, nous employons 500 personnes à Bellach (SO). En plus de notre production locale, nous soutenons et fournissons des partenaires de licence sur cinq continents avec notre système modulaire \"Co-Bolt\". En tant que seul constructeur suisse de bus, nous déambulons bien au-delà des frontières avec nos bus électriques et chariots de haute qualité. La culture de l'innovation est le carburant de notre entreprise. À la suite de la retraite, nous recherchons un Carrosseriepengler & Vehicle Restorator qualifié pour notre grand service de réparation automobile dans la division Réparation & Service. Avez-vous une passion pour les véhicules – des bus modernes aux trésors de voitures classiques restaurés avec amour – et souhaitez-vous mettre votre expertise à profit? Alors c'est votre chance ! Avec nous, vous vous attendrez non seulement à des travaux de réparation passionnants pour les bus et autres grands véhicules, mais aussi à l'occasion de remettre en vie des véhicules historiques et des bus d'époque avec artisanat et savoir-faire technique. Faites partie d'une équipe dédiée qui allie l'innovation et la tradition et apportez votre enthousiasme pour les véhicules dans toutes leurs facettes. Faites votre demande aujourd'hui ! Leurs tâches\n• Travaux de réparation et d ' inspection des grands véhicules et des autobus\n• Remise en état de véhicules pour autobus anciens et autres véhicules historiques\n• Mesure, dessin et fabrication, flambage et redressage de carrosseries de véhicules historiques\n• Réalisation d'installations et de conversions dans l'habitacle des autobus\n• Effectuer des travaux variés et stimulants de speengler et de serrurier Nos exigences\n• Achevé l'apprentissage comme métallurgiste, constructeur de véhicules, carrosseuse ou autre formation professionnelle dans une profession de métallurgie\n• Développement du restaurateur de véhicules souhaité\n• Expérience professionnelle dans le domaine de la remise en état des véhicules\n• Travail indépendant\n• Flexibilité\n• Travail d'équipe Nous leur offrons\n• Emploi permanent varié et intéressant\n• Des tâches stimulantes et stimulantes\n• Déplacement du temps de travail\n• Conditions d'emploi fondées sur les résultats Si vous vous sentez adressé, envoyez-nous vos documents de candidature complets, y compris les lettres de motivation, via un lien (Appliquer maintenant). Vos questions à ce stade vous répondront Christoph Wenger (chef d'état-major) +41 32 617 34 33 Appliquer maintenant Carrosserie HESS AG-Bielstrasse 7-4512 Bellach emplois@hess-ag.ch"
+      },
+      "location": "Bellach",
+      "canton": "SO",
+      "url": "https://jobs.hess-ag.ch/publication/carrosseriespengler-fahrzeugrestaurator/b6as2rt74vmuv8gv34gr5z2kyvabi0ym2jr7mqdh0mlcv4pn05r1oan8rlbfraqy",
+      "source": "Carrosserie HESS AG Dedicated Parser (Ostendis)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-24T21:44:22.707Z",
+      "addressLocality": "Bellach",
+      "addressRegion": "SO",
+      "streetAddress": "Bielstrasse 7",
+      "postalCode": "4512",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Manifattura",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-14",
+      "applyUrl": "https://jobs.hess-ag.ch/publication/carrosseriespengler-fahrzeugrestaurator/b6as2rt74vmuv8gv34gr5z2kyvabi0ym2jr7mqdh0mlcv4pn05r1oan8rlbfraqy",
+      "jobReqId": "75890",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Reparatur und Service",
+      "previousSlugs": [
+        "carrosseriespengler-fahrzeugrestaurator-hess-bellach",
+        "idraulico-carrozzeria-restauratore-di-veicoli-carrosserie-hess-ag-bellach"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "carrosseriespengler-fahrzeugrestaurator-hess-bellach",
+          "idraulico-carrozzeria-restauratore-di-veicoli-carrosserie-hess-ag-bellach"
+        ],
+        "en": [
+          "carrosseriespengler-fahrzeugrestaurator-hess-bellach"
+        ],
+        "fr": [
+          "carrosseriespengler-fahrzeugrestaurator-hess-bellach"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:53:30.647Z",
+      "salaryMin": 77000,
+      "salaryMax": 116500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77000,
+          "maxValue": 116500,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }
