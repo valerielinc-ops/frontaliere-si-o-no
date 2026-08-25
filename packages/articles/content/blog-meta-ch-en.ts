@@ -4207,6 +4207,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-attivita-sciaffusa-procedure-fiscali.title': 'Opening a business in Schaffhausen: procedures and costs',
     'blog.article.aprire-attivita-sciaffusa-procedure-fiscali.excerpt': 'Legal forms, registration in the Trade Register, minimum capital and three-level tax system to start a business in the canton of Schaffhausen.',
     'blog.article.aprire-attivita-sciaffusa-procedure-fiscali.imageAlt': 'Professional desk with business startup documents and calculator',
+    'blog.article.aprire-attivita-sciaffusa-registro-commercio.title': 'Opening a business in the Canton of Schaffhausen: Trade Register and costs',
+    'blog.article.aprire-attivita-sciaffusa-registro-commercio.excerpt': 'The choice of legal form does not determine taxes and liabilities. Registration in the commercial register is mandatory for all companies.',
+    'blog.article.aprire-attivita-sciaffusa-registro-commercio.imageAlt': 'Locarno and Sciaffusa Commercial Registry Office',
 };
 
 export default blogMetaChEn;

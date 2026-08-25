@@ -4207,6 +4207,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-attivita-sciaffusa-procedure-fiscali.title': 'Ein Geschäft in Schaffhausen eröffnen: Verfahren und Kosten',
     'blog.article.aprire-attivita-sciaffusa-procedure-fiscali.excerpt': 'Rechtsformen, Handelsregistereintragung, Mindestkapital und dreistufiges Steuersystem zur Unternehmensgründung im Kanton Schaffhausen.',
     'blog.article.aprire-attivita-sciaffusa-procedure-fiscali.imageAlt': 'Professioneller Schreibtisch mit Geschäftsgründungsdokumenten und Taschenrechner',
+    'blog.article.aprire-attivita-sciaffusa-registro-commercio.title': 'Geschäft im Kanton Schaffhausen eröffnen: Handelsregister und Kosten',
+    'blog.article.aprire-attivita-sciaffusa-registro-commercio.excerpt': 'Die Wahl der Rechtsform bestimmt nicht die Steuern und Verbindlichkeiten. Die Eintragung ins Handelsregister ist für alle Unternehmen obligatorisch.',
+    'blog.article.aprire-attivita-sciaffusa-registro-commercio.imageAlt': 'Locarno und Handelsregisteramt Sciaffusa',
 };
 
 export default blogMetaChDe;

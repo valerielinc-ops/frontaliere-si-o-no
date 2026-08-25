@@ -4207,6 +4207,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-attivita-sciaffusa-procedure-fiscali.title': 'Aprire un\'attività a Sciaffusa: procedure e costi',
     'blog.article.aprire-attivita-sciaffusa-procedure-fiscali.excerpt': 'Forme giuridiche, registrazione al Registro di commercio, capitale minimo e sistema fiscale a tre livelli per avviare un\'impresa nel cantone Sciaffusa.',
     'blog.article.aprire-attivita-sciaffusa-procedure-fiscali.imageAlt': 'Scrivania professionale con documenti di avvio aziendale e calcolatrice',
+    'blog.article.aprire-attivita-sciaffusa-registro-commercio.title': 'Aprire un\'attività nel Canton Sciaffusa: Registro di Commercio e costi',
+    'blog.article.aprire-attivita-sciaffusa-registro-commercio.excerpt': 'La scelta della forma giuridica non determina le imposte e le responsabilità. L\'iscrizione al registro di commercio è obbligatoria per tutte le imprese.',
+    'blog.article.aprire-attivita-sciaffusa-registro-commercio.imageAlt': 'Locarno e Registro di Commercio Cantonale di Sciaffusa',
 };
 
 export default blogMetaChIt;
