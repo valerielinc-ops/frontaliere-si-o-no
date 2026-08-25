@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gavi",
-  "assembledAt": "2026-08-25T09:45:57.262Z",
+  "assembledAt": "2026-08-25T21:32:48.558Z",
   "jobs": [
     {
       "id": "gavi-b02c416d7edd",
@@ -33,7 +33,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2524&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-25T09:45:54.779Z",
+      "crawledAt": "2026-08-25T21:32:44.717Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -98,7 +98,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2523&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-25T09:45:54.071Z",
+      "crawledAt": "2026-08-25T21:32:43.755Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -133,8 +133,8 @@
           "manager-strategy-design-and-delivery-temp-gavi-le-grand-saconnex"
         ]
       },
-      "firstSeenAt": "2026-08-20T21:36:32.939Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-20T21:36:32.939Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -227,7 +227,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     }
   ]
