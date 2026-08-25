@@ -10759,6 +10759,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-grosio-lavorare-grigioni-frontaliere.title': 'Vivre à Grosio et travailler dans les Grisons en tant que frontalier',
     'blog.article.vivere-grosio-lavorare-grigioni-frontaliere.excerpt': 'Faits et chiffres sur la fiscalité, les permis et la vie quotidienne des frontaliers tessinois',
     'blog.article.vivere-grosio-lavorare-grigioni-frontaliere.imageAlt': 'Lac de Lugano',
+    'blog.article.lanzada-grigioni-frontaliere-guida.title': 'Vivre à Lanzada, travailler dans les Grisons : frontalier',
+    'blog.article.lanzada-grigioni-frontaliere-guida.excerpt': 'Guide complet pour les frontaliers Italie-Suisse : Permis G, fiscalité, AVS/LPP/LAMal, procédures de transfert et déclarations de revenus à Lanzada.',
+    'blog.article.lanzada-grigioni-frontaliere-guida.imageAlt': 'Paysage montagneux alpin avec route sinueuse reliant l\'Italie et la Suisse, pics rocheux et prairies vertes',
 };
 
 export default blogMetaFr;

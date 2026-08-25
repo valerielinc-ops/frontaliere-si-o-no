@@ -10758,6 +10758,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-grosio-lavorare-grigioni-frontaliere.title': 'Vivere a Grosio e lavorare in Grigioni da frontaliere',
     'blog.article.vivere-grosio-lavorare-grigioni-frontaliere.excerpt': 'Fatti e cifre sulla fiscalità, permessi e vita quotidiana dei frontalieri ticinesi',
     'blog.article.vivere-grosio-lavorare-grigioni-frontaliere.imageAlt': 'Lago di Lugano',
+    'blog.article.lanzada-grigioni-frontaliere-guida.title': 'Vivere a Lanzada, lavorare nei Grigioni: frontaliere',
+    'blog.article.lanzada-grigioni-frontaliere-guida.excerpt': 'Guida completa per frontalieri Italia-Svizzera: Permesso G, fiscalità, AVS/LPP/LAMal, procedure di trasferimento e dichiarazioni redditi a Lanzada.',
+    'blog.article.lanzada-grigioni-frontaliere-guida.imageAlt': 'Paesaggio alpino con strada sinuosa che collega Italia e Svizzera, picchi rocciosi e prati verdi',
 };
 
 export default blogMetaIt;

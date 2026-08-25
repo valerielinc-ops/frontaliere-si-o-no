@@ -10756,6 +10756,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-grosio-lavorare-grigioni-frontaliere.title': 'Wohnen in Grosio und Arbeiten in Graubünden als Grenzgänger',
     'blog.article.vivere-grosio-lavorare-grigioni-frontaliere.excerpt': 'Zahlen und Fakten zur Besteuerung, Bewilligungen und zum Alltag der Tessiner Grenzgänger',
     'blog.article.vivere-grosio-lavorare-grigioni-frontaliere.imageAlt': 'Lago di Lugano',
+    'blog.article.lanzada-grigioni-frontaliere-guida.title': 'Leben in Lanzada, Arbeiten in Graubünden: Grenzgänger',
+    'blog.article.lanzada-grigioni-frontaliere-guida.excerpt': 'Vollständiger Leitfaden für Grenzgänger Italien-Schweiz: Bewilligung G, Steuern, AHV/BVG/KVG, Verlegungsverfahren und Steuererklärungen in Lanzada.',
+    'blog.article.lanzada-grigioni-frontaliere-guida.imageAlt': 'Alpines Berglandschaftspanorama mit kurviger Straße zwischen Italien und der Schweiz, Felsengipfel und grüne Wiesen',
 };
 
 export default blogMetaDe;

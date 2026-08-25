@@ -10757,6 +10757,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-grosio-lavorare-grigioni-frontaliere.title': 'Living in Grosio and working in Graubünden as a border worker',
     'blog.article.vivere-grosio-lavorare-grigioni-frontaliere.excerpt': 'Facts and figures on taxation, permits and daily life of Ticino border workers',
     'blog.article.vivere-grosio-lavorare-grigioni-frontaliere.imageAlt': 'Lake Lugano',
+    'blog.article.lanzada-grigioni-frontaliere-guida.title': 'Living in Lanzada, working in Graubünden: cross-border',
+    'blog.article.lanzada-grigioni-frontaliere-guida.excerpt': 'Complete guide for Italy-Switzerland border workers: G Permit, taxation, AVS/LPP/LAMal, transfer procedures and tax returns in Lanzada.',
+    'blog.article.lanzada-grigioni-frontaliere-guida.imageAlt': 'Alpine mountain landscape with winding road connecting Italy and Switzerland, rocky peaks and green meadows',
 };
 
 export default blogMetaEn;
