@@ -1,0 +1,32 @@
+name: 'CI npm setup'
+description: >-
+  Shared post-checkout setup for tests.yml's parallel jobs (collision,
+  typecheck, vitest): actions/setup-node + npm ci, factored into one place so
+  the three call sites can't drift (node version, cache config) independently.
+
+  Deliberately does NOT include the checkout step itself, even though that
+  would DRY up more duplicated lines: a local composite action is resolved
+  from files already present in the runner's checkout of THIS repo, so it
+  cannot also perform the checkout that fetches it — verified in CI (a first
+  attempt that folded checkout in here failed every caller with "Can't find
+  'action.yml' ... Did you forget to run actions/checkout before running
+  local action?"). The three callers also genuinely need different checkout
+  profiles (collision: sparse, fetch-depth 1; typecheck: sparse, broader;
+  vitest: full checkout, above the ~1.5GB blob:none crossover — see
+  docs/REPO-WEIGHT-STRATEGY.md), so forcing one shared profile on all three
+  would regress whichever job currently has the cheaper one.
+inputs:
+  npm-ci-args:
+    description: 'Extra args appended to `npm ci` (e.g. --ignore-scripts for collision).'
+    required: false
+    default: ''
+runs:
+  using: 'composite'
+  steps:
+    - uses: actions/setup-node@v5
+      with:
+        node-version: '22'
+        cache: 'npm'
+    - name: npm ci
+      shell: bash
+      run: npm ci ${{ inputs.npm-ci-args }}
