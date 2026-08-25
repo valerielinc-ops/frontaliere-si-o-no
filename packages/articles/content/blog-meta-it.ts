@@ -10729,6 +10729,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-gallarate-lavorare-ticino-frontaliere.title': 'Vivere a Gallarate e lavorare in Ticino: Guida frontaliere',
     'blog.article.vivere-gallarate-lavorare-ticino-frontaliere.excerpt': 'Valichi, aliquote fiscali, AVS e costi della vita: tutto ciò che serve per organizzare il trasferimento da Gallarate al Ticino.',
     'blog.article.vivere-gallarate-lavorare-ticino-frontaliere.imageAlt': 'Panorama di Lugano e delle montagne ticinesi viste dal confine italiano',
+    'blog.article.vivere-stazzona-lavorare-ticino-frontaliere.title': 'Vivere a Stazzona e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-stazzona-lavorare-ticino-frontaliere.excerpt': 'Il nuovo accordo fiscale per i frontalieri svizzeri in Italia',
+    'blog.article.vivere-stazzona-lavorare-ticino-frontaliere.imageAlt': 'Immagine editoriale relativa a: Vivere a Stazzona e lavorare in Ticino da frontaliere',
 };
 
 export default blogMetaIt;
