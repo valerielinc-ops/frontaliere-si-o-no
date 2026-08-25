@@ -1603,6 +1603,25 @@ jobs:
           wait "$DIST_MULTI_PID" || true
           wait
 
+          # dist:quality-tests's own rate line, unconditionally (issue
+          # #6192 item 1). tests/seo/related-search-clusters-emitted.test.ts
+          # prints `[related-search-clusters] ...: <rate>` on every run, pass
+          # or fail — that's the number a future PR calibrates
+          # SYSTEMIC_RATE_CEILING on. But /tmp/g-dist-quality.log itself is
+          # only `cat`-ed by the FAIL aggregator below, which only runs when
+          # dist:quality-tests lands in post-build-failures.txt, i.e. only on
+          # RED. On every green run the rate was measured and then discarded
+          # with the runner — no log, no artifact, nothing to calibrate on.
+          # Grep it out here, same "no failure branch by construction"
+          # pattern as the Discover/job-title-locale/meta-description reports
+          # right below.
+          echo ""
+          echo "══════════════════════════════════════════════════════════════════════"
+          echo "related-search-clusters rate — dist:quality-tests, printed every run"
+          echo "══════════════════════════════════════════════════════════════════════"
+          grep '^\[related-search-clusters\]' /tmp/g-dist-quality.log 2>/dev/null || true
+          echo "══════════════════════════════════════════════════════════════════════"
+
           # The Discover report's own output. spawn_capped-style logs are only
           # `cat`-ed in the FAILURE branch below, and this one has no failure
           # branch by construction — without this it would run and print
