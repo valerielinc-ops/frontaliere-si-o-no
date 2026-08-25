@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-24T04:52:01.452Z",
+  "generatedAt": "2026-08-25T04:42:03.399Z",
   "tally": {
-    "good": 29,
+    "good": 27,
     "weak": 7,
     "bad": 1,
-    "insufficient": 3
+    "insufficient": 5
   },
-  "promotedVacancies": 3658,
+  "promotedVacancies": 3518,
   "reports": [
     {
       "companyKey": "115west",
@@ -16,9 +16,12 @@
       "titleMatchRate": 1,
       "contentfulRate": 1,
       "distinctRate": 1,
-      "score": 1,
+      "jobLikeRate": 0.333,
+      "score": 0.9,
       "verdict": "good",
-      "problems": [],
+      "problems": [
+        "67% delle pagine di dettaglio non legge come annuncio di lavoro: probabile contenuto promozionale o editoriale"
+      ],
       "samples": [
         {
           "url": "https://www.115west.ch/projekte/wettbewerbe/2017-schulanlage-bruehl-solothurn",
@@ -26,7 +29,12 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 681,
-          "status": 200
+          "status": 200,
+          "jobLike": false,
+          "jobSignals": [
+            "apply"
+          ],
+          "notJobSignals": []
         },
         {
           "url": "https://www.115west.ch/projekte/wettbewerbe/2013-esplanade-bielbienne",
@@ -34,7 +42,13 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 511,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload"
+          ],
+          "notJobSignals": []
         },
         {
           "url": "https://www.115west.ch/projekte/wettbewerbe/2012-neumarktplatz-biel",
@@ -42,7 +56,12 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 535,
-          "status": 200
+          "status": 200,
+          "jobLike": false,
+          "jobSignals": [
+            "apply"
+          ],
+          "notJobSignals": []
         }
       ],
       "companyName": "115west",
@@ -59,33 +78,74 @@
       "titleMatchRate": 1,
       "contentfulRate": 1,
       "distinctRate": 1,
+      "jobLikeRate": 1,
       "score": 1,
       "verdict": "good",
       "problems": [],
       "samples": [
         {
-          "url": "https://careers.accor.com/fr/fr/job/chef-de-partie-pastry-in-swissotel-nusantara-nusantara-indonesia-jid-105965",
+          "url": "https://careers.accor.com/fr/fr/job/bellman-in-novotel-mumbai-juhu-beach-mumbai-india-jid-107479",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1937,
-          "status": 200
+          "words": 1865,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "pay",
+            "workload",
+            "duties",
+            "gender-tag",
+            "hr"
+          ],
+          "notJobSignals": [
+            "stay",
+            "checkin"
+          ]
         },
         {
-          "url": "https://careers.accor.com/fr/fr/job/demi-chef-in-95-charlotte-street-4000-brisbane-aus-jid-107329",
+          "url": "https://careers.accor.com/fr/fr/job/banquet-manager-in-novotel-darwin-airport-darwin-australia-jid-107474",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 2044,
-          "status": 200
+          "words": 2197,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "pay",
+            "workload",
+            "requirements",
+            "duties",
+            "hr"
+          ],
+          "notJobSignals": [
+            "stay"
+          ]
         },
         {
-          "url": "https://careers.accor.com/fr/fr/job/chef-fixed-term-in-state-highway-8-7945-lake-tekapo-nzl-jid-107326",
+          "url": "https://careers.accor.com/fr/fr/job/concierge-supervisor-hotel-franchised-in-south-palms-resort-and-spa-panglao-mgallery-collec-jid-107471",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 2061,
-          "status": 200
+          "words": 1894,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "pay",
+            "workload",
+            "duties",
+            "offer",
+            "gender-tag",
+            "hr"
+          ],
+          "notJobSignals": [
+            "stay",
+            "checkin",
+            "amenities"
+          ]
         }
       ],
       "companyName": "Ibis Budget",
@@ -96,83 +156,45 @@
     },
     {
       "companyKey": "albergo-gardenia",
-      "vacancyCount": 2,
-      "sampled": 2,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "distinctRate": 1,
-      "score": 1,
-      "verdict": "good",
+      "vacancyCount": 0,
+      "sampled": 0,
+      "reachableRate": 0,
+      "titleMatchRate": 0,
+      "contentfulRate": 0,
+      "distinctRate": 0,
+      "jobLikeRate": null,
+      "score": 0,
+      "verdict": "insufficient",
       "problems": [],
-      "samples": [
-        {
-          "url": "https://www.hotelleriesuisse.ch/it/politica/lavoro-e-istruzione/carenza-di-personale-qualificato",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 832,
-          "status": 200
-        },
-        {
-          "url": "https://www.hotelleriesuisse.ch/it/politica/lavoro-e-istruzione/previdenza-per-la-vecchiaia",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 1226,
-          "status": 200
-        }
-      ],
+      "samples": [],
       "companyName": "Albergo Gardenia",
       "companyHost": "hotelleriesuisse.ch",
       "platform": "hotelleriesuisse.ch",
       "mode": "template",
-      "runErrors": []
+      "runErrors": [
+        "https://www.hotelleriesuisse.ch/it/: HTTP 0"
+      ]
     },
     {
       "companyKey": "anker-swiss",
-      "vacancyCount": 215,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "distinctRate": 0.335,
-      "score": 0.933,
-      "verdict": "good",
-      "problems": [
-        "titoli ripetuti: il selettore ha agganciato un elemento ricorrente"
-      ],
-      "samples": [
-        {
-          "url": "https://anker-swiss.ch/stellen/bauarbeiter-bauhauptgewerbe-1154917/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 613,
-          "status": 200
-        },
-        {
-          "url": "https://anker-swiss.ch/stellen/schaler-1183800/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 593,
-          "status": 200
-        },
-        {
-          "url": "https://anker-swiss.ch/stellen/plattenleger-1117544/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 581,
-          "status": 200
-        }
-      ],
+      "vacancyCount": 0,
+      "sampled": 0,
+      "reachableRate": 0,
+      "titleMatchRate": 0,
+      "contentfulRate": 0,
+      "distinctRate": 0,
+      "jobLikeRate": null,
+      "score": 0,
+      "verdict": "insufficient",
+      "problems": [],
+      "samples": [],
       "companyName": "Anker Swiss Ticino AG",
       "companyHost": "anker-swiss.ch",
       "platform": null,
       "mode": "template",
-      "runErrors": []
+      "runErrors": [
+        "https://anker-swiss.ch/stellen/: HTTP 0"
+      ]
     },
     {
       "companyKey": "apleona-schweiz-ag",
@@ -181,34 +203,67 @@
       "reachableRate": 1,
       "titleMatchRate": 1,
       "contentfulRate": 1,
-      "distinctRate": 0.7,
-      "score": 0.97,
+      "distinctRate": 0.8,
+      "jobLikeRate": 1,
+      "score": 0.983,
       "verdict": "good",
       "problems": [],
       "samples": [
         {
-          "url": "https://recruitingapp-2765.umantis.com/Vacancies/2548/Description/1",
+          "url": "https://recruitingapp-2765.umantis.com/Vacancies/2549/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 307,
-          "status": 200
+          "words": 310,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "requirements",
+            "duties",
+            "offer",
+            "gender-tag",
+            "hr"
+          ],
+          "notJobSignals": []
         },
         {
-          "url": "https://recruitingapp-2765.umantis.com/Vacancies/2542/Description/1",
+          "url": "https://recruitingapp-2765.umantis.com/Vacancies/2505/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 417,
-          "status": 200
+          "words": 287,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "requirements",
+            "duties",
+            "offer",
+            "gender-tag",
+            "hr"
+          ],
+          "notJobSignals": []
         },
         {
-          "url": "https://recruitingapp-2765.umantis.com/Vacancies/2490/Description/1",
+          "url": "https://recruitingapp-2765.umantis.com/Vacancies/2489/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 329,
-          "status": 200
+          "words": 413,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "requirements",
+            "duties",
+            "offer",
+            "workplace"
+          ],
+          "notJobSignals": []
         }
       ],
       "companyName": "Apleona Schweiz AG",
@@ -225,7 +280,8 @@
       "titleMatchRate": 0.56,
       "contentfulRate": 1,
       "distinctRate": 1,
-      "score": 0.846,
+      "jobLikeRate": 1,
+      "score": 0.869,
       "verdict": "good",
       "problems": [],
       "samples": [
@@ -235,7 +291,17 @@
           "titleMatch": 0.3684210526315789,
           "contentful": true,
           "words": 1797,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "pay",
+            "duties",
+            "offer"
+          ],
+          "notJobSignals": [
+            "stay",
+            "promo"
+          ]
         },
         {
           "url": "https://www.helvetia.com/ch/web/it/ci-presentiamo/carriera/apprendistato/sviluppatore-business-digitale.html",
@@ -243,7 +309,15 @@
           "titleMatch": 0.3125,
           "contentful": true,
           "words": 1721,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "pay",
+            "duties"
+          ],
+          "notJobSignals": [
+            "promo"
+          ]
         },
         {
           "url": "https://www.helvetia.com/ch/web/it/ci-presentiamo/carriera/apprendistato/apprendistato-sportiva.html",
@@ -251,7 +325,17 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 1657,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "pay",
+            "duties",
+            "offer"
+          ],
+          "notJobSignals": [
+            "promo"
+          ]
         }
       ],
       "companyName": "Basilese",
@@ -262,39 +346,79 @@
     },
     {
       "companyKey": "bewerbermanagement-stellen",
-      "vacancyCount": 13,
+      "vacancyCount": 14,
       "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
       "contentfulRate": 1,
       "distinctRate": 1,
+      "jobLikeRate": 1,
       "score": 1,
       "verdict": "good",
       "problems": [],
       "samples": [
         {
-          "url": "https://recruitingapp-2904.umantis.com/Vacancies/1388/Description/1",
+          "url": "https://recruitingapp-2904.umantis.com/Vacancies/1390/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 307,
-          "status": 200
+          "words": 414,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "contract",
+            "requirements",
+            "duties",
+            "gender-tag"
+          ],
+          "notJobSignals": [
+            "stay",
+            "promo"
+          ]
         },
         {
-          "url": "https://recruitingapp-2904.umantis.com/Vacancies/1385/Description/1",
+          "url": "https://recruitingapp-2904.umantis.com/Vacancies/1383/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 293,
-          "status": 200
+          "words": 538,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "requirements",
+            "duties",
+            "gender-tag",
+            "workplace"
+          ],
+          "notJobSignals": [
+            "stay",
+            "promo"
+          ]
         },
         {
-          "url": "https://recruitingapp-2904.umantis.com/Vacancies/1051/Description/1",
+          "url": "https://recruitingapp-2904.umantis.com/Vacancies/1067/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 191,
-          "status": 200
+          "words": 176,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "contract",
+            "requirements",
+            "duties",
+            "gender-tag"
+          ],
+          "notJobSignals": [
+            "stay"
+          ]
         }
       ],
       "companyName": "Bewerbermanagement Stellen",
@@ -311,6 +435,7 @@
       "titleMatchRate": 1,
       "contentfulRate": 1,
       "distinctRate": 1,
+      "jobLikeRate": 1,
       "score": 1,
       "verdict": "good",
       "problems": [],
@@ -321,7 +446,16 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 620,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "requirements",
+            "duties",
+            "offer"
+          ],
+          "notJobSignals": []
         },
         {
           "url": "https://recruitingapp-2966.umantis.com/Vacancies/723/Description/1",
@@ -329,7 +463,16 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 1003,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "requirements",
+            "duties",
+            "offer"
+          ],
+          "notJobSignals": []
         },
         {
           "url": "https://recruitingapp-2966.umantis.com/Vacancies/649/Description/1",
@@ -337,7 +480,15 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 570,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "requirements",
+            "offer"
+          ],
+          "notJobSignals": []
         }
       ],
       "companyName": "Bewerbungsmanagement Spital Davos",
@@ -354,6 +505,7 @@
       "titleMatchRate": 1,
       "contentfulRate": 1,
       "distinctRate": 1,
+      "jobLikeRate": 1,
       "score": 1,
       "verdict": "insufficient",
       "problems": [],
@@ -364,13 +516,77 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 480,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "requirements",
+            "workplace"
+          ],
+          "notJobSignals": []
         }
       ],
       "companyName": "buersten-technik",
       "companyHost": "yousty.ch",
       "platform": "yousty.ch",
       "mode": "jsonld",
+      "runErrors": []
+    },
+    {
+      "companyKey": "bul",
+      "vacancyCount": 2,
+      "sampled": 2,
+      "reachableRate": 1,
+      "titleMatchRate": 0.536,
+      "contentfulRate": 1,
+      "distinctRate": 1,
+      "jobLikeRate": 1,
+      "score": 0.862,
+      "verdict": "good",
+      "problems": [],
+      "samples": [
+        {
+          "url": "https://www.bul.ch/aktuell/stellen/717/employe-administratif-employee-administrative",
+          "reachable": true,
+          "titleMatch": 0.2857142857142857,
+          "contentful": true,
+          "words": 559,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "requirements",
+            "offer"
+          ],
+          "notJobSignals": [
+            "stay",
+            "ecommerce"
+          ]
+        },
+        {
+          "url": "https://www.bul.ch/aktuell/stellen/698/fachspezialistin-fuer-die-praeventionsarbeit-in-der-landwirtschaft-",
+          "reachable": true,
+          "titleMatch": 0.7857142857142857,
+          "contentful": true,
+          "words": 492,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "requirements",
+            "duties",
+            "offer"
+          ],
+          "notJobSignals": [
+            "ecommerce"
+          ]
+        }
+      ],
+      "companyName": "bul",
+      "companyHost": "bul.ch",
+      "platform": null,
+      "mode": "template",
       "runErrors": []
     },
     {
@@ -381,6 +597,7 @@
       "titleMatchRate": 1,
       "contentfulRate": 1,
       "distinctRate": 1,
+      "jobLikeRate": 1,
       "score": 1,
       "verdict": "good",
       "problems": [],
@@ -391,7 +608,18 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 343,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "offer",
+            "gender-tag",
+            "hr"
+          ],
+          "notJobSignals": [
+            "board"
+          ]
         },
         {
           "url": "https://recruitingapp-2850.umantis.com/Vacancies/1492/Description/1",
@@ -399,7 +627,20 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 588,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "offer",
+            "workplace"
+          ],
+          "notJobSignals": [
+            "stay",
+            "checkin",
+            "amenities"
+          ]
         },
         {
           "url": "https://recruitingapp-2850.umantis.com/Vacancies/1482/Description/1",
@@ -407,7 +648,20 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 690,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "offer",
+            "workplace"
+          ],
+          "notJobSignals": [
+            "stay",
+            "checkin",
+            "amenities"
+          ]
         }
       ],
       "companyName": "Bürgenstock Collection",
@@ -424,10 +678,12 @@
       "titleMatchRate": 0.194,
       "contentfulRate": 1,
       "distinctRate": 1,
+      "jobLikeRate": null,
       "score": 0.718,
       "verdict": "weak",
       "problems": [
-        "i titoli estratti non corrispondono alla pagina ufficiale"
+        "i titoli estratti non corrispondono alla pagina ufficiale",
+        "nessuna pagina di dettaglio leggibile come testo: controllo semantico non eseguito"
       ],
       "samples": [
         {
@@ -436,7 +692,10 @@
           "titleMatch": 0.16666666666666666,
           "contentful": true,
           "words": 6531,
-          "status": 200
+          "status": 200,
+          "jobLike": null,
+          "jobSignals": [],
+          "notJobSignals": []
         },
         {
           "url": "https://www.sac-cas.ch/fileadmin/Der_SAC/Stellenausschreibungen/LeiterIn_Value_Stream_Marketing_100__DE.pdf",
@@ -444,7 +703,10 @@
           "titleMatch": 0.2222222222222222,
           "contentful": true,
           "words": 7575,
-          "status": 200
+          "status": 200,
+          "jobLike": null,
+          "jobSignals": [],
+          "notJobSignals": []
         }
       ],
       "companyName": "Capanna Alzasca",
@@ -461,10 +723,12 @@
       "titleMatchRate": 0.194,
       "contentfulRate": 1,
       "distinctRate": 1,
+      "jobLikeRate": null,
       "score": 0.718,
       "verdict": "weak",
       "problems": [
-        "i titoli estratti non corrispondono alla pagina ufficiale"
+        "i titoli estratti non corrispondono alla pagina ufficiale",
+        "nessuna pagina di dettaglio leggibile come testo: controllo semantico non eseguito"
       ],
       "samples": [
         {
@@ -473,7 +737,10 @@
           "titleMatch": 0.16666666666666666,
           "contentful": true,
           "words": 6531,
-          "status": 200
+          "status": 200,
+          "jobLike": null,
+          "jobSignals": [],
+          "notJobSignals": []
         },
         {
           "url": "https://www.sac-cas.ch/fileadmin/Der_SAC/Stellenausschreibungen/LeiterIn_Value_Stream_Marketing_100__DE.pdf",
@@ -481,7 +748,10 @@
           "titleMatch": 0.2222222222222222,
           "contentful": true,
           "words": 7575,
-          "status": 200
+          "status": 200,
+          "jobLike": null,
+          "jobSignals": [],
+          "notJobSignals": []
         }
       ],
       "companyName": "Capanna Basodino CAS",
@@ -498,6 +768,7 @@
       "titleMatchRate": 1,
       "contentfulRate": 1,
       "distinctRate": 1,
+      "jobLikeRate": 1,
       "score": 1,
       "verdict": "good",
       "problems": [],
@@ -508,7 +779,14 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 356,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "offer",
+            "hr"
+          ],
+          "notJobSignals": []
         },
         {
           "url": "https://careers.orior.ch/job/B%C3%B6ckten-Betriebsmechaniker-in-Instandhaltung%2C-80-100-BL/1402889733/",
@@ -516,7 +794,16 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 546,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "requirements",
+            "duties",
+            "hr"
+          ],
+          "notJobSignals": []
         }
       ],
       "companyName": "lepatron",
@@ -533,6 +820,7 @@
       "titleMatchRate": 1,
       "contentfulRate": 1,
       "distinctRate": 1,
+      "jobLikeRate": 1,
       "score": 1,
       "verdict": "good",
       "problems": [],
@@ -543,7 +831,14 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 354,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "duties",
+            "offer"
+          ],
+          "notJobSignals": []
         },
         {
           "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Ocean-Freight-Operations-Specialist-FCL-Project-Cargo-Trasporti-Chiasso-662670289.htm",
@@ -551,7 +846,17 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 323,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "contract",
+            "offer"
+          ],
+          "notJobSignals": [
+            "ecommerce"
+          ]
         }
       ],
       "companyName": "Cippà Trasporti SA",
@@ -568,6 +873,7 @@
       "titleMatchRate": 1,
       "contentfulRate": 1,
       "distinctRate": 1,
+      "jobLikeRate": 1,
       "score": 1,
       "verdict": "good",
       "problems": [],
@@ -578,7 +884,20 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 564,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "contract",
+            "requirements",
+            "duties",
+            "offer",
+            "gender-tag"
+          ],
+          "notJobSignals": [
+            "stay"
+          ]
         },
         {
           "url": "https://mpi-age.de.umantis.com/Vacancies/505/Description/1",
@@ -586,7 +905,20 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 522,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "contract",
+            "requirements",
+            "duties",
+            "offer",
+            "gender-tag"
+          ],
+          "notJobSignals": [
+            "stay"
+          ]
         }
       ],
       "companyName": "MPI AGE",
@@ -603,6 +935,7 @@
       "titleMatchRate": 1,
       "contentfulRate": 1,
       "distinctRate": 1,
+      "jobLikeRate": 1,
       "score": 1,
       "verdict": "good",
       "problems": [],
@@ -613,7 +946,14 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 522,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "requirements"
+          ],
+          "notJobSignals": []
         },
         {
           "url": "https://recruitingapp-2761.umantis.com/Vacancies/2770/Description/4",
@@ -621,7 +961,13 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 279,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "requirements"
+          ],
+          "notJobSignals": []
         },
         {
           "url": "https://recruitingapp-2761.umantis.com/Vacancies/2768/Description/4",
@@ -629,7 +975,15 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 376,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "requirements"
+          ],
+          "notJobSignals": []
         }
       ],
       "companyName": "EOC candiDati Posizioni",
@@ -646,7 +1000,8 @@
       "titleMatchRate": 1,
       "contentfulRate": 1,
       "distinctRate": 0.857,
-      "score": 0.986,
+      "jobLikeRate": 1,
+      "score": 0.988,
       "verdict": "good",
       "problems": [],
       "samples": [
@@ -655,24 +1010,62 @@
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1705,
-          "status": 200
+          "words": 1707,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "requirements",
+            "duties",
+            "offer",
+            "gender-tag",
+            "workplace"
+          ],
+          "notJobSignals": [
+            "stay"
+          ]
         },
         {
           "url": "https://www.ete.ch/jobs/allrounder-in-schwergut-logistik-schwerpunkt-begleitungen-80-100/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1686,
-          "status": 200
+          "words": 1684,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "requirements",
+            "duties",
+            "offer",
+            "gender-tag",
+            "workplace"
+          ],
+          "notJobSignals": [
+            "stay"
+          ]
         },
         {
           "url": "https://www.ete.ch/jobs/chauffeur-kat-c-e-fuer-wechselpritschen-100-m-w-d-4/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1625,
-          "status": 200
+          "words": 1624,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "duties",
+            "offer",
+            "gender-tag",
+            "workplace"
+          ],
+          "notJobSignals": [
+            "stay"
+          ]
         }
       ],
       "companyName": "Emil Egger AG",
@@ -683,13 +1076,14 @@
     },
     {
       "companyKey": "fachkraft",
-      "vacancyCount": 3170,
+      "vacancyCount": 3262,
       "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
       "contentfulRate": 1,
       "distinctRate": 0.908,
-      "score": 0.991,
+      "jobLikeRate": 1,
+      "score": 0.992,
       "verdict": "good",
       "problems": [],
       "samples": [
@@ -699,23 +1093,45 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 498,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "requirements",
+            "duties",
+            "workplace"
+          ],
+          "notJobSignals": []
         },
         {
-          "url": "https://www.fachkraft.ch/stellen/43028-staof/",
+          "url": "https://www.fachkraft.ch/stellen/38623-stssu/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 498,
-          "status": 200
+          "words": 489,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "requirements",
+            "duties"
+          ],
+          "notJobSignals": []
         },
         {
-          "url": "https://www.fachkraft.ch/stellen/19532-stazh/",
+          "url": "https://www.fachkraft.ch/stellen/18976-stazh/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 541,
-          "status": 200
+          "words": 550,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "requirements",
+            "duties"
+          ],
+          "notJobSignals": []
         }
       ],
       "companyName": "fachkraft.ch GmbH",
@@ -732,6 +1148,7 @@
       "titleMatchRate": 1,
       "contentfulRate": 1,
       "distinctRate": 1,
+      "jobLikeRate": 1,
       "score": 1,
       "verdict": "good",
       "problems": [],
@@ -742,7 +1159,15 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 202,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "duties",
+            "workplace"
+          ],
+          "notJobSignals": []
         },
         {
           "url": "https://recruitingapp-2607.umantis.com/Vacancies/1946/Description/1",
@@ -750,7 +1175,14 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 220,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "workplace"
+          ],
+          "notJobSignals": []
         },
         {
           "url": "https://recruitingapp-2607.umantis.com/Vacancies/1892/Description/1",
@@ -758,7 +1190,13 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 219,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "offer"
+          ],
+          "notJobSignals": []
         }
       ],
       "companyName": "GKB JobService",
@@ -775,10 +1213,12 @@
       "titleMatchRate": 0,
       "contentfulRate": 1,
       "distinctRate": 0.5,
+      "jobLikeRate": null,
       "score": 0.6,
       "verdict": "weak",
       "problems": [
-        "i titoli estratti non corrispondono alla pagina ufficiale"
+        "i titoli estratti non corrispondono alla pagina ufficiale",
+        "nessuna pagina di dettaglio leggibile come testo: controllo semantico non eseguito"
       ],
       "samples": [
         {
@@ -787,7 +1227,10 @@
           "titleMatch": 0,
           "contentful": true,
           "words": 5889,
-          "status": 200
+          "status": 200,
+          "jobLike": null,
+          "jobSignals": [],
+          "notJobSignals": []
         },
         {
           "url": "https://www.swiss-solidarity.org/fileadmin/user_upload/Offres_d_emploi/260511_ToR_Consultancy_Evaluation_Small_Grants_Final.pdf",
@@ -795,7 +1238,10 @@
           "titleMatch": 0,
           "contentful": true,
           "words": 6064,
-          "status": 200
+          "status": 200,
+          "jobLike": null,
+          "jobSignals": [],
+          "notJobSignals": []
         }
       ],
       "companyName": "glueckskette",
@@ -812,33 +1258,59 @@
       "titleMatchRate": 1,
       "contentfulRate": 1,
       "distinctRate": 1,
+      "jobLikeRate": 1,
       "score": 1,
       "verdict": "good",
       "problems": [],
       "samples": [
         {
-          "url": "https://www.arsante.ch/emploi/conducteur-rice-de-travaux-junior-97",
+          "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-98",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 513,
-          "status": 200
+          "words": 281,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload"
+          ],
+          "notJobSignals": []
         },
         {
-          "url": "https://www.arsante.ch/emploi/psychologue-psychotherapeute-fsp-94",
+          "url": "https://www.arsante.ch/emploi/infirmier-ere-pediatrique-95",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 308,
-          "status": 200
+          "words": 432,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "requirements",
+            "duties",
+            "offer"
+          ],
+          "notJobSignals": []
         },
         {
-          "url": "https://www.arsante.ch/emploi/medecin-specialiste-fmh-en-gynecologie-et-obstetrique-90",
+          "url": "https://www.arsante.ch/emploi/pharmacien-ne-92",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 309,
-          "status": 200
+          "words": 335,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "requirements"
+          ],
+          "notJobSignals": []
         }
       ],
       "companyName": "gmo",
@@ -855,7 +1327,8 @@
       "titleMatchRate": 1,
       "contentfulRate": 1,
       "distinctRate": 0.667,
-      "score": 0.967,
+      "jobLikeRate": 1,
+      "score": 0.972,
       "verdict": "good",
       "problems": [],
       "samples": [
@@ -865,7 +1338,15 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 259,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "duties",
+            "offer"
+          ],
+          "notJobSignals": []
         },
         {
           "url": "https://recruitingapp-2690.umantis.com/Vacancies/1269/Description/1",
@@ -873,7 +1354,14 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 305,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "duties"
+          ],
+          "notJobSignals": []
         },
         {
           "url": "https://recruitingapp-2690.umantis.com/Vacancies/1271/Description/1",
@@ -881,7 +1369,17 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 259,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "pay",
+            "workload",
+            "duties",
+            "offer",
+            "workplace"
+          ],
+          "notJobSignals": []
         }
       ],
       "companyName": "Griesser",
@@ -892,25 +1390,52 @@
     },
     {
       "companyKey": "gruppomulti",
-      "vacancyCount": 3,
+      "vacancyCount": 4,
       "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 0.667,
       "contentfulRate": 1,
-      "distinctRate": 0.333,
-      "score": 0.817,
+      "distinctRate": 0.25,
+      "jobLikeRate": 1,
+      "score": 0.837,
       "verdict": "good",
       "problems": [
         "titoli ripetuti: il selettore ha agganciato un elemento ricorrente"
       ],
       "samples": [
         {
+          "url": "https://gruppomulti.ch/annuncio/amministratore-amministratrice-immobiliare/",
+          "reachable": true,
+          "titleMatch": 0.5,
+          "contentful": true,
+          "words": 529,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "requirements",
+            "offer"
+          ],
+          "notJobSignals": []
+        },
+        {
           "url": "https://gruppomulti.ch/annuncio/junior-real-estate-consultant/",
           "reachable": true,
           "titleMatch": 0.5,
           "contentful": true,
           "words": 564,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "requirements",
+            "offer"
+          ],
+          "notJobSignals": []
         },
         {
           "url": "https://gruppomulti.ch/annuncio/stage-contabilita-fiscalita-e-hr/",
@@ -918,62 +1443,20 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 356,
-          "status": 200
-        },
-        {
-          "url": "https://gruppomulti.ch/annuncio/contabile-fiscalista-con-esperienza/",
-          "reachable": true,
-          "titleMatch": 0.5,
-          "contentful": true,
-          "words": 416,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "requirements",
+            "offer"
+          ],
+          "notJobSignals": []
         }
       ],
       "companyName": "Gruppo Multi",
       "companyHost": "gruppomulti.ch",
-      "platform": null,
-      "mode": "template",
-      "runErrors": []
-    },
-    {
-      "companyKey": "hotel-international",
-      "vacancyCount": 5,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "distinctRate": 1,
-      "score": 1,
-      "verdict": "good",
-      "problems": [],
-      "samples": [
-        {
-          "url": "https://www.hotel-international.ch/it/offerte/perche-prenotare-direttamente/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 565,
-          "status": 200
-        },
-        {
-          "url": "https://www.hotel-international.ch/it/offerte/alla-scoperta-delle-camere-rinnovate-a-superprezzi/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 355,
-          "status": 200
-        },
-        {
-          "url": "https://www.hotel-international.ch/it/offerte/offerta-speciale-3-notti/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 427,
-          "status": 200
-        }
-      ],
-      "companyName": "Hotel International au Lac",
-      "companyHost": "hotel-international.ch",
       "platform": null,
       "mode": "template",
       "runErrors": []
@@ -986,6 +1469,7 @@
       "titleMatchRate": 1,
       "contentfulRate": 1,
       "distinctRate": 1,
+      "jobLikeRate": 1,
       "score": 1,
       "verdict": "insufficient",
       "problems": [],
@@ -995,8 +1479,17 @@
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 852,
-          "status": 200
+          "words": 851,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "offer"
+          ],
+          "notJobSignals": [
+            "checkin"
+          ]
         }
       ],
       "companyName": "& im Bethesda Spital",
@@ -1009,37 +1502,67 @@
       "companyKey": "ipersonal",
       "vacancyCount": 15,
       "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
+      "reachableRate": 0.667,
+      "titleMatchRate": 0.667,
+      "contentfulRate": 0.667,
       "distinctRate": 1,
-      "score": 1,
-      "verdict": "good",
-      "problems": [],
+      "jobLikeRate": 1,
+      "score": 0.745,
+      "verdict": "weak",
+      "problems": [
+        "33% degli URL non risolve"
+      ],
       "samples": [
         {
-          "url": "https://med-ipersonal.ch/jobs/fachfrau-fachmann-langzeitpflege-betreuung-efz-80-100-in-uster-und-umgebung-gesucht-mit-herz-und-fachkompetenz-fuer-die-langzeitpflege/",
+          "url": "https://med-ipersonal.ch/jobs/fachfrau-fachmann-gesundheit-efz-fage-spitex-80-100-in-landquart-und-umgebung-gesucht-selbststaendige-pflege-und-betreuung-zu-hause/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1269,
-          "status": 200
+          "words": 1296,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "requirements",
+            "duties",
+            "offer",
+            "workplace",
+            "hr"
+          ],
+          "notJobSignals": []
         },
         {
-          "url": "https://med-ipersonal.ch/jobs/fachfrau-fachmann-langzeitpflege-betreuung-efz-80-100-in-zihlschlacht-und-umgebung-gesucht-mit-herz-und-fachkompetenz-fuer-die-langzeitpflege/",
+          "url": "https://med-ipersonal.ch/jobs/fachfrau-fachmann-gesundheit-efz-fage-spitex-80-100-in-arosa-und-umgebung-gesucht-selbststaendige-pflege-und-betreuung-zu-hause/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1292,
-          "status": 200
+          "words": 1278,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "requirements",
+            "duties",
+            "offer",
+            "workplace",
+            "hr"
+          ],
+          "notJobSignals": []
         },
         {
-          "url": "https://med-ipersonal.ch/jobs/fachfrau-fachmann-betreuung-efz-80-100-in-emmenbruecke-und-umgebung-gesucht-ihr-engagement-fuer-eine-liebevolle-begleitung/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 1243,
-          "status": 200
+          "url": "https://med-ipersonal.ch/jobs/fachfrau-fachmann-gesundheit-efz-fage-spitex-80-100-in-obbuergen-und-umgebung-gesucht-selbststaendige-pflege-und-betreuung-zu-hause/",
+          "reachable": false,
+          "titleMatch": 0,
+          "contentful": false,
+          "words": 0,
+          "status": 0,
+          "jobLike": null,
+          "jobSignals": [],
+          "notJobSignals": []
         }
       ],
       "companyName": "iPersonal AG",
@@ -1056,10 +1579,12 @@
       "titleMatchRate": 0.028,
       "contentfulRate": 1,
       "distinctRate": 1,
-      "score": 0.66,
+      "jobLikeRate": 0,
+      "score": 0.561,
       "verdict": "weak",
       "problems": [
-        "i titoli estratti non corrispondono alla pagina ufficiale"
+        "i titoli estratti non corrispondono alla pagina ufficiale",
+        "100% delle pagine di dettaglio non legge come annuncio di lavoro: probabile contenuto promozionale o editoriale"
       ],
       "samples": [
         {
@@ -1068,7 +1593,12 @@
           "titleMatch": 0,
           "contentful": true,
           "words": 380,
-          "status": 200
+          "status": 200,
+          "jobLike": false,
+          "jobSignals": [
+            "pay"
+          ],
+          "notJobSignals": []
         },
         {
           "url": "https://apps.apple.com/ch/developer/jobcloud-ag/id391497381",
@@ -1076,7 +1606,12 @@
           "titleMatch": 0.05555555555555555,
           "contentful": true,
           "words": 380,
-          "status": 200
+          "status": 200,
+          "jobLike": false,
+          "jobSignals": [
+            "pay"
+          ],
+          "notJobSignals": []
         }
       ],
       "companyName": "Jobup",
@@ -1093,36 +1628,47 @@
       "titleMatchRate": 0,
       "contentfulRate": 0,
       "distinctRate": 1,
-      "score": 0.45,
+      "jobLikeRate": 0,
+      "score": 0.382,
       "verdict": "bad",
       "problems": [
         "i titoli estratti non corrispondono alla pagina ufficiale",
-        "pagine di dettaglio senza testo: probabile render lato client"
+        "pagine di dettaglio senza testo: probabile render lato client",
+        "100% delle pagine di dettaglio non legge come annuncio di lavoro: probabile contenuto promozionale o editoriale"
       ],
       "samples": [
         {
-          "url": "https://app.jobconvo.com/job/ODYzMjM4-adecco-recoloca-adote-um-cv-2022/08cdf219-f66f-4a15-b30f-b116aba18dc9/?career_page=7b3711ce-e38f-4f76-ab5c-1fbef972c147&source=P%C3%A1gina%20de%20Carreiras",
+          "url": "https://app.jobconvo.com/job/NjQwMTEwMg-01-vaga-padrao-adecco/68079b69-7706-4d9b-a31e-96d6959c233e/?career_page=7b3711ce-e38f-4f76-ab5c-1fbef972c147&source=P%C3%A1gina%20de%20Carreiras",
           "reachable": true,
           "titleMatch": 0,
           "contentful": false,
           "words": 1,
-          "status": 200
+          "status": 200,
+          "jobLike": false,
+          "jobSignals": [],
+          "notJobSignals": []
         },
         {
-          "url": "https://app.jobconvo.com/job/NjI4NTc1OQ-agente-saneamento-agua/152242b5-91f0-421f-9f42-5efef346faf8/?career_page=7b3711ce-e38f-4f76-ab5c-1fbef972c147&source=P%C3%A1gina%20de%20Carreiras",
+          "url": "https://app.jobconvo.com/job/NjI4NTc1OQ-agente-saneamento-agua/a19eab0d-22d3-4356-871d-da583c592707/?career_page=7b3711ce-e38f-4f76-ab5c-1fbef972c147&source=P%C3%A1gina%20de%20Carreiras",
           "reachable": true,
           "titleMatch": 0,
           "contentful": false,
           "words": 1,
-          "status": 200
+          "status": 200,
+          "jobLike": false,
+          "jobSignals": [],
+          "notJobSignals": []
         },
         {
-          "url": "https://app.jobconvo.com/job/MzYwOTQ1Ng-ajudante-de-producao-i-manaus-1/5831f29d-1c7c-46c7-a209-dadd5b4c02e8/?career_page=7b3711ce-e38f-4f76-ab5c-1fbef972c147&source=P%C3%A1gina%20de%20Carreiras",
+          "url": "https://app.jobconvo.com/job/NjE5OTcwMg-ajudante-de-producao-i-manaus-2/d28f07c8-b396-43a3-8664-69a46e84bf99/?career_page=7b3711ce-e38f-4f76-ab5c-1fbef972c147&source=P%C3%A1gina%20de%20Carreiras",
           "reachable": true,
           "titleMatch": 0,
           "contentful": false,
           "words": 1,
-          "status": 200
+          "status": 200,
+          "jobLike": false,
+          "jobSignals": [],
+          "notJobSignals": []
         }
       ],
       "companyName": "Adecco",
@@ -1133,39 +1679,64 @@
     },
     {
       "companyKey": "jsafrasarasin",
-      "vacancyCount": 14,
+      "vacancyCount": 12,
       "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
       "contentfulRate": 1,
       "distinctRate": 1,
+      "jobLikeRate": 1,
       "score": 1,
       "verdict": "good",
       "problems": [],
       "samples": [
         {
-          "url": "https://jsafrasarasin.umantis.com/Vacancies/467/Description/2",
+          "url": "https://jsafrasarasin.umantis.com/Vacancies/506/Description/2",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 435,
-          "status": 200
+          "words": 542,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "workload",
+            "requirements",
+            "duties",
+            "offer"
+          ],
+          "notJobSignals": []
         },
         {
-          "url": "https://jsafrasarasin.umantis.com/Vacancies/503/Description/1",
+          "url": "https://jsafrasarasin.umantis.com/Vacancies/477/Description/2",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 466,
-          "status": 200
+          "words": 552,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "workload",
+            "requirements",
+            "duties",
+            "offer"
+          ],
+          "notJobSignals": []
         },
         {
-          "url": "https://jsafrasarasin.umantis.com/Vacancies/455/Description/2",
+          "url": "https://jsafrasarasin.umantis.com/Vacancies/482/Description/2",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 525,
-          "status": 200
+          "words": 462,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "workload",
+            "requirements",
+            "duties",
+            "offer"
+          ],
+          "notJobSignals": []
         }
       ],
       "companyName": "J. Safra Sarasin",
@@ -1182,8 +1753,9 @@
       "titleMatchRate": 0.5,
       "contentfulRate": 0.5,
       "distinctRate": 1,
-      "score": 0.725,
-      "verdict": "weak",
+      "jobLikeRate": 1,
+      "score": 0.766,
+      "verdict": "good",
       "problems": [],
       "samples": [
         {
@@ -1191,16 +1763,29 @@
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 181,
-          "status": 200
+          "words": 184,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "workload",
+            "contract",
+            "hr"
+          ],
+          "notJobSignals": []
         },
         {
           "url": "https://recruitingapp-2316.umantis.com/Jobs/1?Extended=Search",
           "reachable": true,
           "titleMatch": 0,
           "contentful": false,
-          "words": 105,
-          "status": 200
+          "words": 104,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "contract",
+            "hr"
+          ],
+          "notJobSignals": []
         }
       ],
       "companyName": "Kinderspital Zürich",
@@ -1217,6 +1802,7 @@
       "titleMatchRate": 1,
       "contentfulRate": 1,
       "distinctRate": 1,
+      "jobLikeRate": 1,
       "score": 1,
       "verdict": "good",
       "problems": [],
@@ -1227,7 +1813,19 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 223,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "requirements",
+            "duties",
+            "offer",
+            "hr"
+          ],
+          "notJobSignals": [
+            "promo"
+          ]
         },
         {
           "url": "https://recruitingapp-1251.umantis.com/Vacancies/2090/Description/1",
@@ -1235,7 +1833,17 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 274,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "requirements",
+            "duties",
+            "offer",
+            "hr"
+          ],
+          "notJobSignals": []
         },
         {
           "url": "https://recruitingapp-1251.umantis.com/Vacancies/2086/Description/1",
@@ -1243,7 +1851,17 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 211,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "requirements",
+            "duties",
+            "offer",
+            "hr"
+          ],
+          "notJobSignals": []
         }
       ],
       "companyName": "KZU Recruiting",
@@ -1260,10 +1878,12 @@
       "titleMatchRate": 0,
       "contentfulRate": 1,
       "distinctRate": 1,
+      "jobLikeRate": null,
       "score": 0.65,
       "verdict": "weak",
       "problems": [
-        "i titoli estratti non corrispondono alla pagina ufficiale"
+        "i titoli estratti non corrispondono alla pagina ufficiale",
+        "nessuna pagina di dettaglio leggibile come testo: controllo semantico non eseguito"
       ],
       "samples": [
         {
@@ -1272,7 +1892,10 @@
           "titleMatch": 0,
           "contentful": true,
           "words": 7181,
-          "status": 200
+          "status": 200,
+          "jobLike": null,
+          "jobSignals": [],
+          "notJobSignals": []
         },
         {
           "url": "https://www.adelboden-lenk.ch/Dokumente/Stelleninserate/Gastro/Koch%20Winter%2026-27%20Standort%20Lenk%20und%20Adelboden%20.pdf",
@@ -1280,7 +1903,10 @@
           "titleMatch": 0,
           "contentful": true,
           "words": 5193,
-          "status": 200
+          "status": 200,
+          "jobLike": null,
+          "jobSignals": [],
+          "notJobSignals": []
         },
         {
           "url": "https://www.adelboden-lenk.ch/Dokumente/Stelleninserate/Gastro/Betriebsassistent%20Winter%2026-27%20Standort%20Lenk%20und%20Adelboden%20.pdf",
@@ -1288,7 +1914,10 @@
           "titleMatch": 0,
           "contentful": true,
           "words": 6240,
-          "status": 200
+          "status": 200,
+          "jobLike": null,
+          "jobSignals": [],
+          "notJobSignals": []
         }
       ],
       "companyName": "lenk-simmental",
@@ -1305,33 +1934,73 @@
       "titleMatchRate": 1,
       "contentfulRate": 1,
       "distinctRate": 1,
+      "jobLikeRate": 1,
       "score": 1,
       "verdict": "good",
       "problems": [],
       "samples": [
         {
-          "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-in-der-region-ebikon-gesucht-jetzt-bewerben/",
+          "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-uster-stellenangebot/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1361,
-          "status": 200
+          "words": 1380,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "pay",
+            "workload",
+            "requirements",
+            "duties",
+            "offer",
+            "workplace",
+            "hr"
+          ],
+          "notJobSignals": []
         },
         {
-          "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-luzern-offene-stelle/",
+          "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-wetzikon-zh-temporaer-dauerstelle/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1342,
-          "status": 200
+          "words": 1418,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "pay",
+            "workload",
+            "requirements",
+            "duties",
+            "offer",
+            "workplace",
+            "hr"
+          ],
+          "notJobSignals": []
         },
         {
-          "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-schoetz-jobangebot/",
+          "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-fuer-die-region-buelach-gesucht/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1349,
-          "status": 200
+          "words": 1364,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "pay",
+            "workload",
+            "requirements",
+            "duties",
+            "offer",
+            "workplace",
+            "hr"
+          ],
+          "notJobSignals": []
         }
       ],
       "companyName": "MediPersonal",
@@ -1348,9 +2017,12 @@
       "titleMatchRate": 1,
       "contentfulRate": 1,
       "distinctRate": 1,
-      "score": 1,
+      "jobLikeRate": 0,
+      "score": 0.85,
       "verdict": "good",
-      "problems": [],
+      "problems": [
+        "100% delle pagine di dettaglio non legge come annuncio di lavoro: probabile contenuto promozionale o editoriale"
+      ],
       "samples": [
         {
           "url": "https://mendrisio.ch/home/lavorare/economia-e-commercio-a-Mendrisio.html",
@@ -1358,7 +2030,10 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 480,
-          "status": 200
+          "status": 200,
+          "jobLike": false,
+          "jobSignals": [],
+          "notJobSignals": []
         },
         {
           "url": "https://mendrisio.ch/home/lavorare/lavorare-per-la-citta.html",
@@ -1366,7 +2041,10 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 282,
-          "status": 200
+          "status": 200,
+          "jobLike": false,
+          "jobSignals": [],
+          "notJobSignals": []
         }
       ],
       "companyName": "Casa Comunale Meride",
@@ -1383,7 +2061,8 @@
       "titleMatchRate": 1,
       "contentfulRate": 1,
       "distinctRate": 0.95,
-      "score": 0.995,
+      "jobLikeRate": 1,
+      "score": 0.996,
       "verdict": "good",
       "problems": [],
       "samples": [
@@ -1392,8 +2071,16 @@
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1443,
-          "status": 200
+          "words": 1452,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "pay",
+            "hr"
+          ],
+          "notJobSignals": []
         },
         {
           "url": "https://www.pageexecutive.com/job-detail/vice-president-global-strategic-sourcing-chemicals/ref/jn-022026-6936300",
@@ -1401,15 +2088,31 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 1289,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "pay",
+            "hr"
+          ],
+          "notJobSignals": []
         },
         {
-          "url": "https://www.pageexecutive.com/job-detail/associate-energy-infrastructure-and-natural-resources/ref/jn-082026-7088309",
+          "url": "https://www.pageexecutive.com/job-detail/director-senior-counsel-esoteric-abs-tx/ref/jn-082026-7085935",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1161,
-          "status": 200
+          "words": 1083,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "pay",
+            "hr"
+          ],
+          "notJobSignals": []
         }
       ],
       "companyName": "Michael Page",
@@ -1426,6 +2129,7 @@
       "titleMatchRate": 1,
       "contentfulRate": 1,
       "distinctRate": 1,
+      "jobLikeRate": 1,
       "score": 1,
       "verdict": "good",
       "problems": [],
@@ -1436,7 +2140,14 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 2330,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "pay",
+            "duties",
+            "hr"
+          ],
+          "notJobSignals": []
         },
         {
           "url": "https://www.ocst.ch/il-lavoro/548-approfondimenti/2607-ladi-un-fondo-ricco-e-troppi-bisogni-ignorati",
@@ -1444,7 +2155,15 @@
           "titleMatch": 1,
           "contentful": true,
           "words": 1435,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "pay",
+            "workload"
+          ],
+          "notJobSignals": [
+            "stay"
+          ]
         }
       ],
       "companyName": "OCST",
@@ -1455,39 +2174,69 @@
     },
     {
       "companyKey": "okjob",
-      "vacancyCount": 11,
+      "vacancyCount": 10,
       "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
       "contentfulRate": 1,
       "distinctRate": 1,
+      "jobLikeRate": 1,
       "score": 1,
       "verdict": "good",
       "problems": [],
       "samples": [
         {
-          "url": "https://www.okjob.ch/offres-demplois/menuisier-pvc-alu-atelier-h-f-bulle/?ref=41683",
+          "url": "https://www.okjob.ch/offres-demplois/charpentier-bois-h-f-poseur-bulle/?ref=41688",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 670,
-          "status": 200
+          "words": 696,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "requirements",
+            "duties",
+            "hr"
+          ],
+          "notJobSignals": [
+            "stay"
+          ]
         },
         {
-          "url": "https://www.okjob.ch/offres-demplois/menuisie-bois-atelier-h-f-bulle/?ref=41690",
+          "url": "https://www.okjob.ch/offres-demplois/demolisseur-h-f-bulle/?ref=41680",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 648,
-          "status": 200
+          "words": 685,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "requirements",
+            "duties",
+            "hr"
+          ],
+          "notJobSignals": [
+            "stay"
+          ]
         },
         {
-          "url": "https://www.okjob.ch/offres-demplois/installateur-en-chauffage-h-f-bulle/?ref=41676",
+          "url": "https://www.okjob.ch/offres-demplois/etancheur-h-f-bulle/?ref=41686",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 658,
-          "status": 200
+          "words": 660,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "requirements",
+            "hr"
+          ],
+          "notJobSignals": [
+            "stay"
+          ]
         }
       ],
       "companyName": "OK Job SA, succursale di Mendrisio",
@@ -1504,7 +2253,8 @@
       "titleMatchRate": 0.333,
       "contentfulRate": 1,
       "distinctRate": 0.111,
-      "score": 0.678,
+      "jobLikeRate": 1,
+      "score": 0.726,
       "verdict": "weak",
       "problems": [
         "titoli ripetuti: il selettore ha agganciato un elemento ricorrente",
@@ -1517,7 +2267,19 @@
           "titleMatch": 0.3333333333333333,
           "contentful": true,
           "words": 1151,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "requirements",
+            "duties",
+            "offer"
+          ],
+          "notJobSignals": [
+            "stay",
+            "checkin"
+          ]
         },
         {
           "url": "https://www.oks.ch/de/stellen/fellowausbildungs-stelle-interdisziplin%C3%A4re-kinder-notfallmedizin-%2850-100%25%29-2937",
@@ -1525,7 +2287,19 @@
           "titleMatch": 0.3333333333333333,
           "contentful": true,
           "words": 1182,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "requirements",
+            "duties",
+            "offer"
+          ],
+          "notJobSignals": [
+            "stay",
+            "checkin"
+          ]
         },
         {
           "url": "https://www.oks.ch/de/stellen/medizinische-praxisassistenz-mpa-%2830%25%29-2925",
@@ -1533,7 +2307,19 @@
           "titleMatch": 0.3333333333333333,
           "contentful": true,
           "words": 1166,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "requirements",
+            "duties",
+            "offer"
+          ],
+          "notJobSignals": [
+            "stay",
+            "checkin"
+          ]
         }
       ],
       "companyName": "Ostschweizer Kinderspital",
@@ -1550,6 +2336,7 @@
       "titleMatchRate": 0,
       "contentfulRate": 0,
       "distinctRate": 0,
+      "jobLikeRate": null,
       "score": 0,
       "verdict": "insufficient",
       "problems": [],
@@ -1564,39 +2351,69 @@
     },
     {
       "companyKey": "physioswiss",
-      "vacancyCount": 7,
+      "vacancyCount": 9,
       "sampled": 3,
       "reachableRate": 1,
-      "titleMatchRate": 0.667,
+      "titleMatchRate": 0.786,
       "contentfulRate": 1,
       "distinctRate": 1,
-      "score": 0.883,
+      "jobLikeRate": 1,
+      "score": 0.936,
       "verdict": "good",
       "problems": [],
       "samples": [
+        {
+          "url": "https://physioswiss.ch/stelleninserate/152719/physio-pelvi-perineologie-dlm-therapie-manuelle/",
+          "reachable": true,
+          "titleMatch": 0.75,
+          "contentful": true,
+          "words": 978,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "requirements",
+            "duties",
+            "gender-tag",
+            "workplace"
+          ],
+          "notJobSignals": []
+        },
         {
           "url": "https://physioswiss.ch/stelleninserate/152344/sport-physiotherapeutin-40-100-aktiv-manuell-menschlich/",
           "reachable": true,
           "titleMatch": 0.75,
           "contentful": true,
           "words": 912,
-          "status": 200
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "workload",
+            "contract"
+          ],
+          "notJobSignals": [
+            "amenities"
+          ]
         },
         {
-          "url": "https://physioswiss.ch/stelleninserate/151842/physiotherapeut-in-60-100/",
+          "url": "https://physioswiss.ch/stelleninserate/152731/dipl-physiotherapeutin-physiotherapeut-pensum-80-bis-100-per-1-november-2026-oder-nach-vereinbarung/",
           "reachable": true,
-          "titleMatch": 0.5,
+          "titleMatch": 0.8571428571428571,
           "contentful": true,
-          "words": 885,
-          "status": 200
-        },
-        {
-          "url": "https://physioswiss.ch/stelleninserate/151466/physiotherapeut-physiotherapeutin-80-100-fuer-uster-gesucht/",
-          "reachable": true,
-          "titleMatch": 0.75,
-          "contentful": true,
-          "words": 731,
-          "status": 200
+          "words": 808,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "offer"
+          ],
+          "notJobSignals": [
+            "stay"
+          ]
         }
       ],
       "companyName": "Physio swiss",
