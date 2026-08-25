@@ -244,7 +244,55 @@ export function transitiveClosure(entries) {
   return resolved;
 }
 
-/** Un testo nomina questo bucket? Forma piena/spezzata, indizio debole, o enumerazione del padre. */
+/**
+ * Alcuni percorsi sotto `services/`, `data/`, `build-plugins/shared/` sono
+ * symlink verso un bucket (es. `services/seo/seo-blog-2.ts` -> `packages/
+ * articles/content/seo/seo-blog-2.ts`): un consumer che legge/enumera l'alias
+ * (`readdirSync(path.join(rootDir, 'services', 'seo'))`) non nomina mai la
+ * stringa del bucket reale, quindi il matching testuale sopra non lo vede e
+ * il bucket finisce escluso mentre il job lo legge davvero — ENOENT a runtime
+ * sotto sparse-checkout (issue #6319: `services/seo/seo-blog-2.ts` risolto in
+ * `packages/articles/content/seo/seo-blog-2.ts`, mai referenziato per nome).
+ *
+ * Cache per processo: il walk (skip `node_modules`/`.git`, profondita' <= 4 —
+ * misurato: tutti i symlink noti del repo stanno entro 4 livelli da ROOT)
+ * gira una volta sola.
+ */
+let ALIAS_CACHE = null;
+function bucketAliasPaths() {
+  if (ALIAS_CACHE) return ALIAS_CACHE;
+  const aliases = new Map(); // bucketId -> Set<string> (path dell'alias + sua dir padre)
+  const bucketAbs = BUCKETS.map((b) => ({ id: b.id, abs: path.join(ROOT, b.id.replace(/\/$/, '')) }));
+  const SKIP = new Set(['node_modules', '.git']);
+  const addAlias = (bucketId, rel) => {
+    if (!aliases.has(bucketId)) aliases.set(bucketId, new Set());
+    aliases.get(bucketId).add(rel);
+    const par = parentOf(rel);
+    if (par) aliases.get(bucketId).add(par);
+  };
+  const walk = (dir, depth) => {
+    if (depth > 4) return;
+    let entries;
+    try { entries = fs.readdirSync(dir, { withFileTypes: true }); } catch { return; }
+    for (const e of entries) {
+      if (SKIP.has(e.name)) continue;
+      const abs = path.join(dir, e.name);
+      if (e.isSymbolicLink()) {
+        let real;
+        try { real = fs.realpathSync(abs); } catch { continue; }
+        const bucket = bucketAbs.find((b) => real === b.abs || real.startsWith(b.abs + path.sep));
+        if (bucket) addAlias(bucket.id, path.relative(ROOT, abs));
+      } else if (e.isDirectory()) {
+        walk(abs, depth + 1);
+      }
+    }
+  };
+  walk(ROOT, 0);
+  ALIAS_CACHE = aliases;
+  return aliases;
+}
+
+/** Un testo nomina questo bucket? Forma piena/spezzata, indizio debole, alias-symlink, o enumerazione del padre. */
 export function bucketsReferencedBy(text) {
   const norm = normalizeJoins(text);
   const rawEnum = enumerationTargets(text).join('\n');
@@ -262,6 +310,12 @@ export function bucketsReferencedBy(text) {
   for (const b of BUCKETS) {
     const clean = b.id.replace(/\/$/, '');
     if (refersTo(clean, norm, text)) { hit.add(b.id); continue; }
+    const aliasPaths = bucketAliasPaths().get(b.id);
+    if (aliasPaths) {
+      let aliased = false;
+      for (const alias of aliasPaths) { if (refersTo(alias, norm, text)) { aliased = true; break; } }
+      if (aliased) { hit.add(b.id); continue; }
+    }
     const par = parentOf(b.id);
     if (!par || !refersTo(par, norm, text)) continue;
     // Indizio debole: il padre e' nominato e il segmento finale compare come token
