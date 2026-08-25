@@ -4273,6 +4273,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.premi-lamal-berna-sussidio.title': 'Prix LAMal canton Berne : fourchettes et réductions',
     'blog.article.premi-lamal-berna-sussidio.excerpt': 'Dans le canton de Berne, les primes LAMal varient selon la franchise choisie. Voici comment fonctionne le système et comment accéder aux subventions pour la réduction.',
     'blog.article.premi-lamal-berna-sussidio.imageAlt': 'Bureau administratif avec des documents d\'assurance maladie sur le bureau.',
+    'blog.article.berna-custodia-bambini-tariffe-costi.title': 'Garde d\'enfants dans le canton de Berne : coûts et subventions',
+    'blog.article.berna-custodia-bambini-tariffe-costi.excerpt': 'Crèches, familles de jour, après l\'école : comment fonctionnent les tarifs calculés sur le revenu et quelles allocations cantonales disponibles réduisent la charge économique pour les familles.',
+    'blog.article.berna-custodia-bambini-tariffe-costi.imageAlt': 'Crèche suisse avec des enfants jouant dans un environnement sûr, moderne et accueillant avec des activités éducatives.',
 };
 
 export default blogMetaChFr;

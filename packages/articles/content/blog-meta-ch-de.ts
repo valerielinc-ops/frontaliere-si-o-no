@@ -4273,6 +4273,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-lamal-berna-sussidio.title': 'KVG-Prämien Kanton Bern: Zeitabschnitte und Kürzungen',
     'blog.article.premi-lamal-berna-sussidio.excerpt': 'Im Kanton Bern variieren die KVG-Prämien je nach gewählter Franchise. So funktioniert das System und wie Sie auf die Reduktionszuschüsse zugreifen können.',
     'blog.article.premi-lamal-berna-sussidio.imageAlt': 'Verwaltungsbüro mit Krankenversicherungsdokumenten auf dem Schreibtisch.',
+    'blog.article.berna-custodia-bambini-tariffe-costi.title': 'Kinderbetreuung im Kanton Bern: Kosten und Leistungen',
+    'blog.article.berna-custodia-bambini-tariffe-costi.excerpt': 'Kindertagesstätten, Tagesfamilien, Nachschule: Wie Einkommenstarife funktionieren und welche kantonalen Zuschüsse zur Verfügung stehen, reduziert die finanzielle Belastung der Familien.',
+    'blog.article.berna-custodia-bambini-tariffe-costi.imageAlt': 'Schweizer Kindertagesstätte mit Kindern in einer sicheren, modernen und einladenden Umgebung mit pädagogischen Aktivitäten.',
 };
 
 export default blogMetaChDe;
