@@ -1443,6 +1443,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'single-paga-di-piu-svizzera': { it: 'single-paga-di-piu-svizzera', en: 'single-pays-more-switzerland', de: 'single-zahlt-mehr-schweiz', fr: 'single-paye-plus-suisse' },
  'lacune-contributive-avs-zurigo': { it: 'lacune-contributive-avs-zurigo', en: 'contribution-gaps-avs-zurich', de: 'beitragslucken-avs-zurich', fr: 'lacunes-cotisations-avs-zurich' },
  'successione-donazione-zurigo-guida': { it: 'successione-donazione-zurigo-guida', en: 'succession-donation-zurich-guide', de: 'erbschaft-schenkung-zuerich-leitfaden', fr: 'succession-donation-zurich-guide' },
+ 'imposta-successione-zurigo-aliquote': { it: 'imposta-successione-zurigo-aliquote', en: 'inheritance-tax-zurich-rates', de: 'erbschaftssteuer-zuerich-saetze', fr: 'impot-succession-zurich-taux' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

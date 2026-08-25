@@ -32232,6 +32232,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-incudine-lavorare-grigioni-frontaliere',
+ category: 'fiscale',
+ date: '2026-08-25T10:07:17.271Z',
+ image: '/images/blog/vivere-incudine-lavorare-grigioni-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

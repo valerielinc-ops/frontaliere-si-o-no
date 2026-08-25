@@ -10773,6 +10773,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-prata-camportaccio-lavorare-grigioni.title': 'Prata Camportaccio frontaliere: vivere e lavorare',
     'blog.article.vivere-prata-camportaccio-lavorare-grigioni.excerpt': 'Trasferirsi a Prata Camportaccio per lavorare nei Grigioni: Permesso G, Nuovo Accordo Frontalieri, fiscalità, AVS/LPP e convenienza abitativa',
     'blog.article.vivere-prata-camportaccio-lavorare-grigioni.imageAlt': 'Paesaggio alpino al confine Ticino-Italia con vallata e chalets tradizionali',
+    'blog.article.vivere-incudine-lavorare-grigioni-frontaliere.title': 'Vivere a Incudine e lavorare in Grigioni da frontaliere',
+    'blog.article.vivere-incudine-lavorare-grigioni-frontaliere.excerpt': 'Collegamenti, tempi di percorrenza, costo della vita, zone consigliate, vantaggi e svantaggi del trasferimento.',
+    'blog.article.vivere-incudine-lavorare-grigioni-frontaliere.imageAlt': 'Un frontaliere che vive a Incudine e lavora in Grigioni, Svizzera.',
 };
 
 export default blogMetaIt;

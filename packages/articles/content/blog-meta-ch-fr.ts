@@ -4252,6 +4252,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.successione-donazione-zurigo-guida.title': 'Impôt succession Zurich : taux et exonérations 2026',
     'blog.article.successione-donazione-zurigo-guida.excerpt': 'Droits de succession et de donation dans le canton de Zurich : taux par degré de parenté, exonérations totales pour conjoint et enfants, déclaration obligatoire et délais à respecter.',
     'blog.article.successione-donazione-zurigo-guida.imageAlt': 'Bureau administratif du canton de Zurich avec formulaires d\'impôt sur les successions.',
+    'blog.article.imposta-successione-zurigo-aliquote.title': 'Impôt sur les successions Zurich : taux et déductions',
+    'blog.article.imposta-successione-zurigo-aliquote.excerpt': 'Comment fonctionne la fiscalité successorale dans le canton de Zurich : système progressif, exonérations pour conjoint et descendants, déclaration et délais.',
+    'blog.article.imposta-successione-zurigo-aliquote.imageAlt': 'Bureau de l\'administration fiscale suisse avec documents de succession et formulaires',
 };
 
 export default blogMetaChFr;
