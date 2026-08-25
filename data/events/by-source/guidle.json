@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "guidle",
   "sourceName": "Guidle",
-  "assembledAt": "2026-08-24T06:28:10.213Z",
+  "assembledAt": "2026-08-25T06:25:28.068Z",
   "events": [
     {
       "id": "guidle:AJdd68h",
@@ -2952,43 +2952,6 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-ANXM6pp.jpg"
-    },
-    {
-      "id": "guidle:AkbMDGD",
-      "title": "Wolfmother Openair",
-      "titleByLocale": {
-        "it": "Wolfmother Openair",
-        "en": "Wolfmother Openair",
-        "de": "Wolfmother Openair",
-        "fr": "Wolfmother Openair"
-      },
-      "description": "Wenn Andrew Stockdale die Gitarre einstöpselt, gibt’s kein Zurück mehr: fette Riffs, wuchtige Drums und dieser unverkennbare Retro-70s-Sound, der nach staubigen Verstärkern und purem Rock’n’Roll",
-      "descriptionByLocale": {
-        "it": "Wenn Andrew Stockdale die Gitarre einstöpselt, gibt’s kein Zurück mehr: fette Riffs, wuchtige Drums und dieser unverkennbare Retro-70s-Sound, der nach staubigen Verstärkern und purem Rock’n’Roll",
-        "en": "Wenn Andrew Stockdale die Gitarre einstöpselt, gibt’s kein Zurück mehr: fette Riffs, wuchtige Drums und dieser unverkennbare Retro-70s-Sound, der nach staubigen Verstärkern und purem Rock’n’Roll",
-        "de": "Wenn Andrew Stockdale die Gitarre einstöpselt, gibt’s kein Zurück mehr: fette Riffs, wuchtige Drums und dieser unverkennbare Retro-70s-Sound, der nach staubigen Verstärkern und purem Rock’n’Roll",
-        "fr": "Wenn Andrew Stockdale die Gitarre einstöpselt, gibt’s kein Zurück mehr: fette Riffs, wuchtige Drums und dieser unverkennbare Retro-70s-Sound, der nach staubigen Verstärkern und purem Rock’n’Roll"
-      },
-      "startDate": "2026-08-24",
-      "endDate": "2026-08-24",
-      "startTime": "19:00",
-      "category": "Rock generalmente",
-      "venue": "Mühle Hunziken",
-      "comune": "Rubigen",
-      "canton": "BE",
-      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/rubigen/wolfmother-openair_AkbMDGD",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "address": {
-        "street": "Hunziken 101",
-        "postalCode": "3113"
-      },
-      "geo": {
-        "lat": 46.8907188,
-        "lng": 7.5418315
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AkbMDGD.jpg"
     },
     {
       "id": "guidle:A69Va7m",
@@ -14015,90 +13978,6 @@
       "imageUrl": "/images/events/guidle-A3hy1nn.jpg"
     },
     {
-      "id": "guidle:AxHLcB7",
-      "title": "Schubertiade Schwarzenberg - Andrè Schuen, Daniel Heide",
-      "titleByLocale": {
-        "it": "Schubertiade Schwarzenberg - Andrè Schuen, Daniel Heide",
-        "en": "Schubertiade Schwarzenberg - Andrè Schuen, Daniel Heide",
-        "de": "Schubertiade Schwarzenberg - Andrè Schuen, Daniel Heide",
-        "fr": "Schubertiade Schwarzenberg - Andrè Schuen, Daniel Heide"
-      },
-      "description": "Liederabend",
-      "descriptionByLocale": {
-        "it": "Liederabend",
-        "en": "Liederabend",
-        "de": "Liederabend",
-        "fr": "Liederabend"
-      },
-      "startDate": "2026-08-24",
-      "endDate": "2026-08-24",
-      "startTime": "16:00",
-      "category": "Festival / Incontro",
-      "venue": "Angelika-Kauffmann-Saal",
-      "comune": "Schwarzenberg",
-      "canton": "LU",
-      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/schwarzenberg/schubertiade-schwarzenberg-andre-schuen-daniel-heide_AxHLcB7",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 43,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Hof 454",
-        "postalCode": "6867"
-      },
-      "geo": {
-        "lat": 47.4139925,
-        "lng": 9.8548089
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AxHLcB7.jpg"
-    },
-    {
-      "id": "guidle:AYgS4jY",
-      "title": "Schubertiade Schwarzenberg - Veronika Eberle, Julia Hagen, Lukas Sternath",
-      "titleByLocale": {
-        "it": "Schubertiade Schwarzenberg - Veronika Eberle, Julia Hagen, Lukas Sternath",
-        "en": "Schubertiade Schwarzenberg - Veronika Eberle, Julia Hagen, Lukas Sternath",
-        "de": "Schubertiade Schwarzenberg - Veronika Eberle, Julia Hagen, Lukas Sternath",
-        "fr": "Schubertiade Schwarzenberg - Veronika Eberle, Julia Hagen, Lukas Sternath"
-      },
-      "description": "Kammerkonzert",
-      "descriptionByLocale": {
-        "it": "Kammerkonzert",
-        "en": "Kammerkonzert",
-        "de": "Kammerkonzert",
-        "fr": "Kammerkonzert"
-      },
-      "startDate": "2026-08-24",
-      "endDate": "2026-08-24",
-      "startTime": "20:00",
-      "category": "Festival / Incontro",
-      "venue": "Angelika-Kauffmann-Saal",
-      "comune": "Schwarzenberg",
-      "canton": "LU",
-      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/schwarzenberg/schubertiade-schwarzenberg-veronika-eberle-julia-hagen-lukas-sternath_AYgS4jY",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 39,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Hof 454",
-        "postalCode": "6867"
-      },
-      "geo": {
-        "lat": 47.4139925,
-        "lng": 9.8548089
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AYgS4jY.jpg"
-    },
-    {
       "id": "guidle:AVxXbDv",
       "title": "Schubertiade Schwarzenberg- Marc-André Hamelin",
       "titleByLocale": {
@@ -17229,48 +17108,6 @@
       "imageUrl": "/images/events/guidle-ALkgJgN.webp"
     },
     {
-      "id": "guidle:A6v7NpY",
-      "title": "Summer-Festival: Rezital Augustin Hadelich & Seong-Jin Cho",
-      "titleByLocale": {
-        "it": "Summer-Festival: Rezital Augustin Hadelich & Seong-Jin Cho",
-        "en": "Summer-Festival: Recital Augustin Hadelich & Seong-Jin Cho",
-        "de": "Summer-Festival: Rezital Augustin Hadelich & Seong-Jin Cho",
-        "fr": "Summer-Festival: Rezital Augustin Hadelich & Seong-Jin Cho"
-      },
-      "description": "Augustin Hadelich | Seong-Jin Cho | Brahms | Janáček | Beach | Prokofjew",
-      "descriptionByLocale": {
-        "it": "Augustin Hadelich | Seong-Jin Cho | Brahms | Janáček | Beach | Prokofjew",
-        "en": "Augustin Hadelich | Seong-Jin Cho | Brahms | Janáček | Beach | Prokofiev",
-        "de": "Augustin Hadelich | Seong-Jin Cho | Brahms | Janáček | Beach | Prokofjew",
-        "fr": "Augustin Hadelich | Seong-Jin Cho | Brahms | Janáček | Beach | Prokofjew"
-      },
-      "startDate": "2026-08-24",
-      "endDate": "2026-08-24",
-      "startTime": "19:30",
-      "category": "Musica da Camera",
-      "venue": "KKL Luzern",
-      "comune": "Luzern",
-      "canton": "LU",
-      "url": "https://www.guidle.com/it/events/classical/lucerne/summer-festival-recital-augustin-hadelich-und-seong-jin-cho_A6v7NpY",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 30,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Europaplatz 1",
-        "postalCode": "6005"
-      },
-      "geo": {
-        "lat": 47.0501561,
-        "lng": 8.3130727
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-A6v7NpY.webp"
-    },
-    {
       "id": "guidle:AdB7mTJ",
       "title": "Summer-Festival: Debut Yuki Hirano",
       "titleByLocale": {
@@ -20331,48 +20168,6 @@
       "imageUrl": "/images/events/guidle-AKyDNHX.webp"
     },
     {
-      "id": "guidle:AiXLDfn",
-      "title": "Daniil Trifonov & Sergei Dogadin",
-      "titleByLocale": {
-        "it": "Daniil Trifonov & Sergei Dogadin",
-        "en": "Daniil Trifonov & Sergei Dogadin",
-        "de": "Daniil Trifonov & Sergei Dogadin",
-        "fr": "Daniil Trifonov & Sergei Dogadin"
-      },
-      "description": "Ein Starpianist trifft auf einen jungen Geiger der russischen Schule. Nach Prokofjews ergreifender Violinsonate zeigt Daniil Trifonov mit 24 Präludien ein eindrucksvolles Panorama aller Tonarten.",
-      "descriptionByLocale": {
-        "it": "Ein Starpianist trifft auf einen jungen Geiger der russischen Schule. Nach Prokofjews ergreifender Violinsonate zeigt Daniil Trifonov mit 24 Präludien ein eindrucksvolles Panorama aller Tonarten.",
-        "en": "Ein Starpianist trifft auf einen jungen Geiger der russischen Schule. Nach Prokofjews ergreifender Violinsonate zeigt Daniil Trifonov mit 24 Präludien ein eindrucksvolles Panorama aller Tonarten.",
-        "de": "Ein Starpianist trifft auf einen jungen Geiger der russischen Schule. Nach Prokofjews ergreifender Violinsonate zeigt Daniil Trifonov mit 24 Präludien ein eindrucksvolles Panorama aller Tonarten.",
-        "fr": "Ein Starpianist trifft auf einen jungen Geiger der russischen Schule. Nach Prokofjews ergreifender Violinsonate zeigt Daniil Trifonov mit 24 Präludien ein eindrucksvolles Panorama aller Tonarten."
-      },
-      "startDate": "2026-08-24",
-      "endDate": "2026-08-24",
-      "startTime": "19:30",
-      "category": "Musica classica",
-      "venue": "Evang.-ref. Mauritiuskirche",
-      "comune": "Saanen",
-      "canton": "BE",
-      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/saanen/daniil-trifonov-und-sergei-dogadin_AiXLDfn",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 40,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Chilchgasse 5",
-        "postalCode": "3792"
-      },
-      "geo": {
-        "lat": 46.4906314,
-        "lng": 7.2589692
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AiXLDfn.webp"
-    },
-    {
       "id": "guidle:AySHQXQ",
       "title": "Julia Lezhneva & Kammerorchester Basel",
       "titleByLocale": {
@@ -22152,6 +21947,1585 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-AYkkZSL.webp"
+    },
+    {
+      "id": "guidle:Au4X9PZ",
+      "title": "Bordei - Centovalli | Musica e piacere - Music & Pleasure",
+      "titleByLocale": {
+        "it": "Bordei – Centovalli | Musica e piacere – Musica & Piacere",
+        "en": "Bordei – Centovalli | Musica e piacere – music & enjoyment",
+        "de": "Bordei – Centovalli | Musica e piacere – Musik & Genuss",
+        "fr": "Bordei - Centovalli | Musica e piacere - Musique & Plaisir"
+      },
+      "description": "Con Maurice Steger, Daniele Caminiti e Pietro Leemann",
+      "descriptionByLocale": {
+        "it": "Con Maurice Steger, Daniele Caminiti e Pietro Leemann",
+        "en": "With Maurice Steger, Daniele Caminiti & Pietro Leemann",
+        "de": "Mit Maurice Steger, Daniele Caminiti & Pietro Leemann",
+        "fr": "Avec Maurice Steger, Daniele Caminiti & Pietro Leemann"
+      },
+      "startDate": "2026-09-22",
+      "endDate": "2026-09-22",
+      "startTime": "11:30",
+      "category": "Cibo con un teatro / concerto",
+      "venue": "Bordei, Chiesa und Osteria Giardino",
+      "comune": "Centovalli",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/events/classical/palagnedra/bordei-centovalli-musica-e-piacere-music-und-pleasure_Au4X9PZ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 50,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Via Santi Pietro e Paolo 9",
+        "postalCode": "6657"
+      },
+      "geo": {
+        "lat": 46.1482923,
+        "lng": 8.6458845
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-Au4X9PZ.webp"
+    },
+    {
+      "id": "guidle:AcUmW7N",
+      "title": "Next Generation III | Concerto finale masterclass Julia Lezhneva",
+      "titleByLocale": {
+        "it": "Next Generation III | Concerto finale masterclass Julia Lezhneva",
+        "en": "Next Generation III | Final concert master class Julia Lezhneva",
+        "de": "Next Generation III | Abschlusskonzert Meisterkurs Julia Lezhneva",
+        "fr": "Next Generation III | Concert de clôture du cours de maître Julia Lezhneva"
+      },
+      "description": "Studenti della masterclass con Julia Lezhneva (voce).",
+      "descriptionByLocale": {
+        "it": "Studenti della masterclass con Julia Lezhneva (voce).",
+        "en": "Students of the master class with Julia Lezhneva (voice).",
+        "de": "Studierende des Meisterkurses mit Julia Lezhneva (Gesang).",
+        "fr": "Étudiants du cours de maître avec Julia Lezhneva (chant)."
+      },
+      "startDate": "2026-09-23",
+      "endDate": "2026-09-23",
+      "startTime": "17:00",
+      "category": "Musica per piano / organo",
+      "venue": "Chiesa dei Santi Pietro e Paolo",
+      "comune": "Ascona",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/events/classical/ascona/next-generation-iii-final-concert-master-class-julia-lezhneva_AcUmW7N",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Piazzetta S. Pietro",
+        "postalCode": "6612"
+      },
+      "geo": {
+        "lat": 46.1550329,
+        "lng": 8.7677247
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AcUmW7N.webp"
+    },
+    {
+      "id": "guidle:AhFUs4B",
+      "title": "Età dell'oro | Julia Lezhneva II",
+      "titleByLocale": {
+        "it": "Età dell'oro | Julia Lezhneva II",
+        "en": "Golden Age | Julia Lezhneva II",
+        "de": "Goldenes Zeitalter | Julia Lezhneva II",
+        "fr": "Âge d'or | Julia Lezhneva II"
+      },
+      "description": "Julia Lezhneva | Luca Pianca",
+      "descriptionByLocale": {
+        "it": "Julia Lezhneva | Luca Pianca",
+        "en": "Julia Lezhneva / Luca Pianca",
+        "de": "Portugulia Lezhneva / Luca Pianca",
+        "fr": "Julia Lejneva | Luca Pianca"
+      },
+      "startDate": "2026-09-23",
+      "endDate": "2026-09-23",
+      "startTime": "19:30",
+      "category": "Arte vocale",
+      "venue": "Chiesa San Martino",
+      "comune": "Ronco sopra Ascona",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/events/classical/ronco-sopra-ascona/golden-age-julia-lezhneva-ii_AhFUs4B",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 20,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "postalCode": "6622"
+      },
+      "geo": {
+        "lat": 46.1442047,
+        "lng": 8.7278126
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AhFUs4B.webp"
+    },
+    {
+      "id": "guidle:AhZpYB4",
+      "title": "Ispirazione Ungheria Folk Ungherese | Vilde Frang I",
+      "titleByLocale": {
+        "it": "Ispirazione Ungheria Folk Ungherese | Vilde Frang I",
+        "en": "Hungarian Folk Inspiration | Vilde Frang I",
+        "de": "Inspiration Ungarn Ungarisches Folk | Vilde Frang I",
+        "fr": "Ispirazione Ungheria Folk hongrois | Vilde Frang I"
+      },
+      "description": "Vilde Frang | Martin Helmchen | Benjamin e Salamon Eredics",
+      "descriptionByLocale": {
+        "it": "Vilde Frang | Martin Helmchen | Benjamin e Salamon Eredics",
+        "en": "Vilde Frang | Martin Helmchen | Benjamin and Salamon Eredics",
+        "de": "Vilde Frang | Martin Helmchen | Benjamin und Salamon Eredics",
+        "fr": "Vilde Frang | Martin Helmchen | Benjamin et Salamon Eredics"
+      },
+      "startDate": "2026-09-24",
+      "endDate": "2026-09-24",
+      "startTime": "19:30",
+      "category": "Musica moderna / seria",
+      "venue": "Chiesa di Santa Maria della Misericordia",
+      "comune": "Ascona",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/events/classical/ascona/ispirazione-ungheria-hungarian-folk-vilde-frang-i_AhZpYB4",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 40,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Via delle Cappelle 1",
+        "postalCode": "6612"
+      },
+      "geo": {
+        "lat": 46.1551272,
+        "lng": 8.7699176
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AhZpYB4.webp"
+    },
+    {
+      "id": "guidle:A6WfsA7",
+      "title": "Costellazione giovani | Next Generation IV | Seohyun Kim",
+      "titleByLocale": {
+        "it": "Costellazione giovani | Next Generation IV | Seohyun Kim",
+        "en": "Youth constellation | Next Generation IV | Seohyun Kim",
+        "de": "Aufstellung Jugend | Next Generation IV | Seohyun Kim",
+        "fr": "Constellation des jeunes | Next Generation IV | Seohyun Kim"
+      },
+      "description": "Seohyun Kim | Ryan Wang",
+      "descriptionByLocale": {
+        "it": "Seohyun Kim | Ryan Wang",
+        "en": "Seoh Kim",
+        "de": "Seoh Zucchumun Kim / R Graffutan Zucchurauf",
+        "fr": "Théo Kim"
+      },
+      "startDate": "2026-09-25",
+      "endDate": "2026-09-25",
+      "startTime": "17:45",
+      "category": "Musica moderna / seria",
+      "venue": "Chiesa di Santa Maria della Misericordia",
+      "comune": "Ascona",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/ascona/costellazione-giovani-next-generation-iv-seohyun-kim_A6WfsA7",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 25,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Via delle Cappelle 1",
+        "postalCode": "6612"
+      },
+      "geo": {
+        "lat": 46.1551272,
+        "lng": 8.7699176
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A6WfsA7.webp"
+    },
+    {
+      "id": "guidle:AZfwrUm",
+      "title": "Pathétique",
+      "titleByLocale": {
+        "it": "Pathétique",
+        "en": "Pathetic",
+        "de": "Pathetique",
+        "fr": "Pathétique"
+      },
+      "description": "Nemanja Radulovic | Krystof Urbanski | Orchestra della Svizzera Italiana",
+      "descriptionByLocale": {
+        "it": "Nemanja Radulovic | Krystof Urbanski | Orchestra della Svizzera Italiana",
+        "en": "Nemanja Radulovic | Krystof Urbanski | Orchestra of Italian Switzerland",
+        "de": "Nemanja Radulovic | Krystof Urbanski | Orchester der italienischen Schweiz",
+        "fr": "Nemanja Radulovic | Krystof Urbanski | Orchestre de la Suisse italienne"
+      },
+      "startDate": "2026-09-25",
+      "endDate": "2026-09-25",
+      "startTime": "19:30",
+      "category": "Musica romantica",
+      "venue": "Chiesa San Francesco Locarno",
+      "comune": "Locarno",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/evenements/classique/locarno/pathetique_AZfwrUm",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 40,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Piazza San Francesco 19",
+        "postalCode": "6600"
+      },
+      "geo": {
+        "lat": 46.1675704,
+        "lng": 8.791564
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AZfwrUm.webp"
+    },
+    {
+      "id": "guidle:ATCbgym",
+      "title": "Recital di pianoforte nel villaggio musicale di Ernen | András Schiff | Masterclass",
+      "titleByLocale": {
+        "it": "Recital di pianoforte nel villaggio musicale di Ernen | András Schiff | Masterclass",
+        "en": "Piano recital in the music village of Ernen | András Schiff | Master class",
+        "de": "Klavierrezitals im Musikdorf Ernen | András Schiff | Meisterkurs",
+        "fr": "Récital de piano au village musical d'Ernen | András Schiff | Cours de maître"
+      },
+      "description": "Sir András Schiff è uno dei pianisti più importanti del nostro tempo. Nel villaggio musicale di Ernen si sente chiaramente a casa. Nell'estate del 2026, caratterizzerà sia la Settimana pianistica che il \"Klavier kompakt\".",
+      "descriptionByLocale": {
+        "it": "Sir András Schiff è uno dei pianisti più importanti del nostro tempo. Nel villaggio musicale di Ernen si sente chiaramente a casa. Nell'estate del 2026, caratterizzerà sia la Settimana pianistica che il \"Klavier kompakt\".",
+        "en": "Sir András Schiff is one of the most important pianists of our time. He clearly feels at home in the music village of Ernen. In summer 2026, he will shape both the Piano Week and \"Klavier kompakt\".",
+        "de": "Sir András Schiff ist einer der bedeutendsten Pianisten unserer Zeit. Im Musikdorf Ernen fühlt er sich sichtlich wohl. Im Sommer 2026 prägt er sowohl die Klavierwoche als auch \"Klavier kompakt\".",
+        "fr": "Sir András Schiff est l'un des pianistes les plus importants de notre époque. Il se sent visiblement bien dans le village musical d'Ernen. En été 2026, il marquera de son empreinte aussi bien la semaine du piano que \"Klavier kompakt\"."
+      },
+      "startDate": "2026-08-27",
+      "endDate": "2026-08-30",
+      "startTime": "20:00",
+      "category": "Musica da Camera",
+      "venue": "Verein Musikdorf Ernen",
+      "comune": "Ernen",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/events/classical/ernen/piano-recitals-at-musikdorf-ernen-andrs-schiff-master-class_ATCbgym",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Kirchweg 6",
+        "postalCode": "3995"
+      },
+      "geo": {
+        "lat": 46.3983786,
+        "lng": 8.1447817
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-ATCbgym.webp"
+    },
+    {
+      "id": "guidle:AHmfQLD",
+      "title": "Spiaggia Castello del Sole | Musica & Piacere",
+      "titleByLocale": {
+        "it": "Spiaggia Castello del Sole | Musica & Piacere",
+        "en": "Spiaggia Castello del Sole | Music & Pleasure",
+        "de": "Spiaggia Castello del Sole | Musik & Genuss",
+        "fr": "Spiaggia Castello del Sole | Musique & Saveurs"
+      },
+      "description": "Nini Nutsubidze | Giorgi Gigashvili",
+      "descriptionByLocale": {
+        "it": "Nini Nutsubidze | Giorgi Gigashvili",
+        "en": "Nini Nutsubidze / Giorgi Gigashvili",
+        "de": "Nini Nutsubidze / Giorgi Gigashvili",
+        "fr": "Nini Nutsubidzé | Giorgi Gigachvili"
+      },
+      "startDate": "2026-09-26",
+      "endDate": "2026-09-26",
+      "startTime": "12:00",
+      "category": "Musica moderna / seria",
+      "venue": "Castello del Sole Beach Resort & SPA",
+      "comune": "Ascona",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/events/classical/ascona/spiaggia-castello-del-sole-music-und-pleasure_AHmfQLD",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 50,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Via Muraccio 142",
+        "postalCode": "6612"
+      },
+      "geo": {
+        "lat": 46.152585,
+        "lng": 8.7919734
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AHmfQLD.webp"
+    },
+    {
+      "id": "guidle:AXiEiD5",
+      "title": "Next Generation V | Accademia Barocca di Ascona - Concerto Finale I",
+      "titleByLocale": {
+        "it": "Next Generation V | Accademia Barocca di Ascona - Concerto Finale I",
+        "en": "Next Generation V | Ascona Baroque Academy - Final Concert I",
+        "de": "Next Generation V | Ascona Baroque Academy – Abschlusskonzert I",
+        "fr": "Next Generation V | Ascona Baroque Academy - Concert de clôture I"
+      },
+      "description": "Maurice Steger | Direttore:all'interno dell'Orchestra Barocca \"Il Pomo d'Oro",
+      "descriptionByLocale": {
+        "it": "Maurice Steger | Direttore:all'interno dell'Orchestra Barocca \"Il Pomo d'Oro",
+        "en": "Maurice Steger | Conductor:inside Baroque Orchestra \"Il Pomo d'Oro\"",
+        "de": "Maurice Steger | Stimmführer:innen Barockorchester „Il Pomo d’Oro“",
+        "fr": "Maurice Steger | Stimmführer:innen Orchestre baroque \"Il Pomo d'Oro"
+      },
+      "startDate": "2026-09-26",
+      "endDate": "2026-09-26",
+      "startTime": "16:00",
+      "category": "Barocco",
+      "venue": "Chiesa di Santa Maria Assunta",
+      "comune": "Locarno",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/locarno/next-generation-v-ascona-baroque-academy-abschlusskonzert-i_AXiEiD5",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Via Cittadella 17",
+        "postalCode": "6600"
+      },
+      "geo": {
+        "lat": 46.1694825,
+        "lng": 8.793725
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AXiEiD5.webp"
+    },
+    {
+      "id": "guidle:Arc6UMJ",
+      "title": "Mondi da sogno - Dreamworlds | Vilde Frang II",
+      "titleByLocale": {
+        "it": "Mondi da sogno | Vilde Frang II",
+        "en": "Mondi da sogno – Dream Worlds | Vilde Frang II",
+        "de": "Mondi da sogno – Traumwelten | Vilde Frang II",
+        "fr": "Mondi da sogno - Mondes de rêve | Vilde Frang II"
+      },
+      "description": "Vilde Frang | Ilya Gringolts | Lawrence Power",
+      "descriptionByLocale": {
+        "it": "Vilde Frang | Ilya Gringolts | Lawrence Power",
+        "en": "Vilde Frang | The Gr",
+        "de": "Vilde Frang | Ilja Gringolts | Lawrence Power",
+        "fr": "Vildé Frang | Ilya Gringolts | Laurent Puissance"
+      },
+      "startDate": "2026-09-29",
+      "endDate": "2026-09-29",
+      "startTime": "19:30",
+      "category": "Musica da Camera",
+      "venue": "Chiesa Madonna di Ponte",
+      "comune": "Brissago",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/eventi/classica/brissago/mondi-da-sogno-dreamworlds-vilde-frang-ii_Arc6UMJ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 20,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Via Valmara 7",
+        "postalCode": "6614"
+      },
+      "geo": {
+        "lat": 46.1119965,
+        "lng": 8.7052207
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-Arc6UMJ.webp"
+    },
+    {
+      "id": "guidle:ArNsEV7",
+      "title": "Next Generation VI | Scuola di musica del Conservatorio della Svizzera italiana",
+      "titleByLocale": {
+        "it": "Next Generation VI | Scuola di musica del Conservatorio della Svizzera italiana",
+        "en": "Next Generation VI | Music School of the Conservatorio della Svizzera italiana",
+        "de": "Next Generation VI | Musikschule des Konservatoriums der italienischen Schweiz",
+        "fr": "Next Generation VI | École de musique du Conservatoire de la Suisse italienne"
+      },
+      "description": "Orchestra 1 della Scuola di musica del Conservatorio della Svizzera italiana",
+      "descriptionByLocale": {
+        "it": "Orchestra 1 della Scuola di musica del Conservatorio della Svizzera italiana",
+        "en": "Orchestra 1 of the Music School of the Conservatory of Italian Switzerland",
+        "de": "Orchester 1 der Musikschule des Konservatoriums der italienischen Schweiz",
+        "fr": "Orchestre 1 de l'École de musique du Conservatoire de la Suisse italienne"
+      },
+      "startDate": "2026-09-26",
+      "endDate": "2026-09-26",
+      "startTime": "17:30",
+      "category": "Musica da Camera",
+      "venue": "Lungolago Ascona",
+      "comune": "Ascona",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/ascona/next-generation-vi-scuola-di-musica-del-conservatorio-della-svizzera-italiana_ArNsEV7",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Piazza Giuseppe Motta",
+        "postalCode": "6612"
+      },
+      "geo": {
+        "lat": 46.1537183,
+        "lng": 8.7692132
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ArNsEV7.webp"
+    },
+    {
+      "id": "guidle:AhEY1qv",
+      "title": "Orfeo ed Euridice",
+      "titleByLocale": {
+        "it": "Orfeo ed Euridice",
+        "en": "Orpheus and Eurydice",
+        "de": "Orpheus und Eurydike",
+        "fr": "- Orphee et Eurydice. - Super ! Super idee !"
+      },
+      "description": "Cecilia Bartoli | Mélissa Petit | Il Canto di Orfeo | Les Musiciens du Prince (Monaco) | Gianluca Capuano",
+      "descriptionByLocale": {
+        "it": "Cecilia Bartoli | Mélissa Petit | Il Canto di Orfeo | Les Musiciens du Prince (Monaco) | Gianluca Capuano",
+        "en": "Cecilia Bartoli - Italia | Mélissa Petit | The Song of Orpheus | Les Musiciens du Prince (Monaco) | Gianluca Capuano",
+        "de": "Cecilia Bartoli - Italia | Mélissa Petit | Das Lied des Orpheus | Les Musiciens du Prince (Monaco) | Gianluca Capuano",
+        "fr": "Cecilia Bartoli | Mélissa Petit | Le Chant d'Orphée | Les Musiciens du Prince (Monaco) | Gianluca Capuano"
+      },
+      "startDate": "2026-09-26",
+      "endDate": "2026-09-26",
+      "startTime": "19:30",
+      "category": "Opera",
+      "venue": "Chiesa San Francesco Locarno",
+      "comune": "Locarno",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/locarno/orfeo-ed-euridice_AhEY1qv",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 95,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Piazza San Francesco 19",
+        "postalCode": "6600"
+      },
+      "geo": {
+        "lat": 46.1675704,
+        "lng": 8.791564
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AhEY1qv.webp"
+    },
+    {
+      "id": "guidle:A1siZc9",
+      "title": "Next Generation VII | Accademia Barocca di Ascona - Concerto finale II",
+      "titleByLocale": {
+        "it": "Next Generation VII | Accademia Barocca di Ascona - Concerto finale II",
+        "en": "Next Generation VII | Ascona Baroque Academy - Final Concert II",
+        "de": "Next Generation VII | Ascona Baroque Academy – Abschlusskonzert II",
+        "fr": "Next Generation VII | Ascona Baroque Academy - Concert de clôture II"
+      },
+      "description": "Maurice Steger | Direttore:all'interno dell'Orchestra Barocca \"Il Pomo d'Oro",
+      "descriptionByLocale": {
+        "it": "Maurice Steger | Direttore:all'interno dell'Orchestra Barocca \"Il Pomo d'Oro",
+        "en": "Maurice Steger | Conductor:inside Baroque Orchestra \"Il Pomo d'Oro\"",
+        "de": "Maurice Steger | Stimmführer:innen Barockorchester „Il Pomo d’Oro“",
+        "fr": "Maurice Steger | Stimmführer:innen Orchestre baroque \"Il Pomo d'Oro"
+      },
+      "startDate": "2026-09-27",
+      "endDate": "2026-09-27",
+      "startTime": "11:00",
+      "category": "Barocco",
+      "venue": "Chiesa di Sant’Antonio Abate",
+      "comune": "Ascona",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/arcegno/next-generation-vii-ascona-baroque-academy-abschlusskonzert-ii_A1siZc9",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Via Cantonale",
+        "postalCode": "6618"
+      },
+      "geo": {
+        "lat": 46.1614161,
+        "lng": 8.7460028
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A1siZc9.webp"
+    },
+    {
+      "id": "guidle:AG9AChs",
+      "title": "Castello Visconteo | Musica e letteratura | San Gottardo II",
+      "titleByLocale": {
+        "it": "Castello Visconteo | Musica e letteratura | San Gottardo II",
+        "en": "Castello Visconteo | Musica e letteratura - Music & Literature | San Gottardo II",
+        "de": "Castello Visconteo | Musica e letteratura – Musik & Literatur | San Gottardo II",
+        "fr": "Castello Visconteo | Musica e letteratura - Musique et littérature"
+      },
+      "description": "Zora del Buono (lettura DE & IT) | Fiati solisti: all'interno del Conservatorio della Svizzera Italiana | Alain Claude Sulzer",
+      "descriptionByLocale": {
+        "it": "Zora del Buono (lettura DE & IT) | Fiati solisti: all'interno del Conservatorio della Svizzera Italiana | Alain Claude Sulzer",
+        "en": "Zora del Buono (reading DE & IT) | Wind soloist:inside the Conservatorio della Svizzera Italiana | Alain Claude Sulzer",
+        "de": "Zora del Buono (Lesung DE & IT) | Bläsersolist:innen des Conservatorio della Svizzera Italiana | Alain Claude Sulzer",
+        "fr": "Zora del Buono (lecture DE & IT) | Solistes à vent:internes du Conservatorio della Svizzera Italiana | Alain Claude Sulzer"
+      },
+      "startDate": "2026-09-27",
+      "endDate": "2026-09-27",
+      "startTime": "15:00",
+      "category": "Musica da Camera",
+      "venue": "Castello Visconteo",
+      "comune": "Locarno",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/events/classical/locarno/castello-visconteo-musica-e-letteratura-music-und-literature-san-gottardo-ii_AG9AChs",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 50,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Via Al Castello",
+        "postalCode": "6600"
+      },
+      "geo": {
+        "lat": 46.1683652,
+        "lng": 8.7937709
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AG9AChs.webp"
+    },
+    {
+      "id": "guidle:A46qq8L",
+      "title": "Tempesta e desiderio | Sol Gabetta I",
+      "titleByLocale": {
+        "it": "Tempesta e desiderio | Sol Gabetta I",
+        "en": "Storm and Desire | Sol Gabetta I",
+        "de": "Sturm und Sehnsucht | Sol Gabetta I",
+        "fr": "Tempête et nostalgie | Sol Gabetta I"
+      },
+      "description": "Sol Gabetta | Aurel Dawidiuk | La Deutsche Kammerphilharmonie Bremen",
+      "descriptionByLocale": {
+        "it": "Sol Gabetta | Aurel Dawidiuk | La Deutsche Kammerphilharmonie di Brema",
+        "en": "Sol Gabetta | Aurel Dawidiuk | The Deutsche Kammerphilharmonie Bremen",
+        "de": "Sol Gabetta | Aurel Dawidiuk | Die Deutsche Kammerphilharmonie Bremen",
+        "fr": "Sol Gabetta | Aurel Dawidiuk | La Deutsche Kammerphilharmonie de Brême"
+      },
+      "startDate": "2026-09-27",
+      "endDate": "2026-09-27",
+      "startTime": "18:30",
+      "category": "Musica sinfonica",
+      "venue": "Chiesa San Francesco Locarno",
+      "comune": "Locarno",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/evenements/classique/locarno/tempete-et-nostalgie-sol-gabetta-i_A46qq8L",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 40,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Piazza San Francesco 19",
+        "postalCode": "6600"
+      },
+      "geo": {
+        "lat": 46.1675704,
+        "lng": 8.791564
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A46qq8L.webp"
+    },
+    {
+      "id": "guidle:AJQXWe8",
+      "title": "Next Generation VIII | Concerto finale Masterclass Vilde Frang",
+      "titleByLocale": {
+        "it": "Next Generation VIII | Concerto finale Masterclass Vilde Frang",
+        "en": "Next Generation VIII | Final concert master class Vilde Frang",
+        "de": "Next Generation VIII | Abschlusskonzert Meisterkurs Vilde Frang",
+        "fr": "Next Generation VIII | Concert de clôture du Masterclass Vilde Frang"
+      },
+      "description": "Studenti della masterclass con Vilde Frang (violino)",
+      "descriptionByLocale": {
+        "it": "Studenti della masterclass con Vilde Frang (violino)",
+        "en": "Students of the master class with Vilde Frang (violin)",
+        "de": "Studierende des Meisterkurses mit Vilde Frang (Violine)",
+        "fr": "Étudiants du cours de maître avec Vilde Frang (violon)"
+      },
+      "startDate": "2026-09-28",
+      "endDate": "2026-09-28",
+      "startTime": "17:00",
+      "category": "Musica per piano / organo",
+      "venue": "Chiesa dei Santi Pietro e Paolo",
+      "comune": "Ascona",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/ascona/next-generation-viii-abschlusskonzert-meisterkurs-vilde-frang_AJQXWe8",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Piazzetta S. Pietro",
+        "postalCode": "6612"
+      },
+      "geo": {
+        "lat": 46.1550329,
+        "lng": 8.7677247
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AJQXWe8.webp"
+    },
+    {
+      "id": "guidle:ANgiDXe",
+      "title": "JazzAscona incontra il classicAscona Vision String Quartet & Elina Duni",
+      "titleByLocale": {
+        "it": "JazzAscona incontra il classicAscona Vision String Quartet & Elina Duni",
+        "en": "JazzAscona meets classicAscona Vision String Quartet & Elina Duni",
+        "de": "JazzAscona meets classicAscona Vision String Quartet & Elina Duni",
+        "fr": "JazzAscona meets classicAscona Vision String Quartet & Elina Duni"
+      },
+      "description": "Elina Duni & Rob Luft con Matthieu Michel | Vision String Quartet",
+      "descriptionByLocale": {
+        "it": "Elina Duni & Rob Luft con Matthieu Michel | Vision String Quartet",
+        "en": "Elina Duni & Rob Luft feat. Matthieu Michel | Vision String Quartet",
+        "de": "Elina Duni & Rob Luft feat. Matthieu Michel | Vision String Quartet",
+        "fr": "Elina Duni & Rob Luft feat. Matthieu Michel | Vision String Quartet"
+      },
+      "startDate": "2026-09-28",
+      "endDate": "2026-09-28",
+      "startTime": "19:30",
+      "category": "Musica da Camera",
+      "venue": "Teatro del Gatto",
+      "comune": "Ascona",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/eventi/classica/ascona/jazzascona-incontra-il-classicascona-vision-string-quartet-und-elina-duni_ANgiDXe",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 50,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Via Muraccio 21",
+        "postalCode": "6612"
+      },
+      "geo": {
+        "lat": 46.1543294,
+        "lng": 8.7749739
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ANgiDXe.webp"
+    },
+    {
+      "id": "guidle:Av86LTk",
+      "title": "Costellazione giovani | Next Generation IX | Luka Coetzee",
+      "titleByLocale": {
+        "it": "Costellazione giovani | Next Generation IX | Luka Coetzee",
+        "en": "Costellazione giovani | Next Generation IX | Luka Coetzee",
+        "de": "Costellazione giovani | Next Generation IX | Luka Coetzee",
+        "fr": "Costellazione giovani | Next Generation IX | Luka Coetzee"
+      },
+      "description": "Luka Coetzee | Yukino Kaihara",
+      "descriptionByLocale": {
+        "it": "Luka Coetzee | Yukino Kaihara",
+        "en": "Luka Coetzee | Yukino Kaihara",
+        "de": "Luka Coetzee | Yukino Kaihara",
+        "fr": "Luka Coetzee | Yukino Kaihara"
+      },
+      "startDate": "2026-09-29",
+      "endDate": "2026-09-29",
+      "startTime": "17:30",
+      "category": "Musica da Camera",
+      "venue": "Chiesa dei Santi Pietro e Paolo",
+      "comune": "Ascona",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/evenements/classique/ascona/costellazione-giovani-next-generation-ix-luka-coetzee_Av86LTk",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 25,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Piazzetta S. Pietro",
+        "postalCode": "6612"
+      },
+      "geo": {
+        "lat": 46.1550329,
+        "lng": 8.7677247
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-Av86LTk.webp"
+    },
+    {
+      "id": "guidle:AdXr7r6",
+      "title": "Moving Shadows (DE) - On Fire",
+      "titleByLocale": {
+        "it": "Moving Shadows (DE) - On Fire",
+        "en": "Moving Shadows (DE) - On Fire",
+        "de": "Moving Shadows (DE) - On Fire",
+        "fr": "Moving Shadows (DE) - On Fire"
+      },
+      "description": "Tauchen Sie ein, in die «World’s Best Shadowshow». Faszinierend, dynamisch und unvergleichlich! Da lodert die Fantasie, da brennt die Leidenschaft. Einzigartige Schattenshow voller Magie und Bewegung.",
+      "descriptionByLocale": {
+        "it": "Tauchen Sie ein, in die «World’s Best Shadowshow». Faszinierend, dynamisch und unvergleichlich! Da lodert die Fantasie, da brennt die Leidenschaft. Einzigartige Schattenshow voller Magie und Bewegung.",
+        "en": "Tauchen Sie ein, in die «World’s Best Shadowshow». Faszinierend, dynamisch und unvergleichlich! Da lodert die Fantasie, da brennt die Leidenschaft. Einzigartige Schattenshow voller Magie und Bewegung.",
+        "de": "Tauchen Sie ein, in die «World’s Best Shadowshow». Faszinierend, dynamisch und unvergleichlich! Da lodert die Fantasie, da brennt die Leidenschaft. Einzigartige Schattenshow voller Magie und Bewegung.",
+        "fr": "Tauchen Sie ein, in die «World’s Best Shadowshow». Faszinierend, dynamisch und unvergleichlich! Da lodert die Fantasie, da brennt die Leidenschaft. Einzigartige Schattenshow voller Magie und Bewegung."
+      },
+      "startDate": "2026-09-19",
+      "endDate": "2026-09-19",
+      "startTime": "20:00",
+      "category": "Show",
+      "venue": "Obere Mühle",
+      "comune": "Dübendorf",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/duebendorf/moving-shadows-de-on-fire_AdXr7r6",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 16,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Oberdorfstrasse 15",
+        "postalCode": "8600"
+      },
+      "geo": {
+        "lat": 47.3953957,
+        "lng": 8.6242726
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AdXr7r6.webp"
+    },
+    {
+      "id": "guidle:Atj2sX3",
+      "title": "Prossima Generazione X | Sogni",
+      "titleByLocale": {
+        "it": "Prossima Generazione X | Sogni",
+        "en": "Next Generation X | Sogni",
+        "de": "Next Generation X | Sogni",
+        "fr": "Next Generation X | Sogni"
+      },
+      "description": "Progetto bambini e ragazzi Accademia | Dimitri Verscio in collaborazione con la Scuola di Musica/Conservatorio del Locarnese e le scuole di Ascona/Locarno",
+      "descriptionByLocale": {
+        "it": "Progetto bambini e ragazzi Accademia | Dimitri Verscio in collaborazione con la Scuola di Musica/Conservatorio del Locarnese e le scuole di Ascona/Locarno",
+        "en": "Children and youth project Accademia | Dimitri Verscio in collaboration with the Locarnese Music School/Conservatorio and the Ascona/Locarno schools",
+        "de": "Kinder- und Jugendprojekt Accademia | Dimitri Verscio in Zusammenarbeit mit Musikschule/Conservatorio des Locarnese und den Schulen Ascona/Locarno",
+        "fr": "Projet pour enfants et jeunes Accademia | Dimitri Verscio en collaboration avec l'école de musique/Conservatorio du Locarnese et les écoles Ascona/Locarno"
+      },
+      "startDate": "2026-09-30",
+      "endDate": "2026-10-01",
+      "startTime": "17:00",
+      "category": "Musica da Camera",
+      "venue": "Collegio Papio",
+      "comune": "Ascona",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/evenements/classique/ascona/next-generation-x-sogni_Atj2sX3",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 25,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Via delle Cappelle 1",
+        "postalCode": "6612"
+      },
+      "geo": {
+        "lat": 46.1551272,
+        "lng": 8.7699176
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-Atj2sX3.webp"
+    },
+    {
+      "id": "guidle:A8CuJ51",
+      "title": "Dall'oscurità alle luce - Dall'oscurità alla luce Sol Gabetta II",
+      "titleByLocale": {
+        "it": "Dall'oscurità alle luce - Dall'oscurità alla luce Sol Gabetta II",
+        "en": "Dall'oscurità alle luce - From darkness to light Sol Gabetta II",
+        "de": "Dall’oscurità alle luce – Vom Dunkel ins Licht Sol Gabetta II",
+        "fr": "Dall'oscurità alle luce - De l'obscurité à la lumière Sol Gabetta II"
+      },
+      "description": "Sol Gabetta | Bertrand Chamayou",
+      "descriptionByLocale": {
+        "it": "Sol Gabetta | Bertrand Chamayou",
+        "en": "Sol Gabetta | Bertrand Chamayou",
+        "de": "Sol Gabetta | Bertrand Chamayou",
+        "fr": "Sol Gabetta | Bertrand Chamayou"
+      },
+      "startDate": "2026-09-30",
+      "endDate": "2026-09-30",
+      "startTime": "19:30",
+      "category": "Musica per piano / organo",
+      "venue": "Collegio Papio",
+      "comune": "Ascona",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/eventi/classica/ascona/dalloscurita-alle-luce-dalloscurita-alla-luce-sol-gabetta-ii_A8CuJ51",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 40,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Via delle Cappelle 1",
+        "postalCode": "6612"
+      },
+      "geo": {
+        "lat": 46.1551272,
+        "lng": 8.7699176
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A8CuJ51.webp"
+    },
+    {
+      "id": "guidle:AK4yFh8",
+      "title": "Next Generation XI | Concerto finale masterclass Sol Gabetta",
+      "titleByLocale": {
+        "it": "Next Generation XI | Concerto finale masterclass Sol Gabetta",
+        "en": "Next Generation XI | Final concert master class Sol Gabetta",
+        "de": "Next Generation XI | Abschlusskonzert Meisterkurs Sol Gabetta",
+        "fr": "Next Generation XI | Concert de clôture du cours de maître Sol Gabetta"
+      },
+      "description": "Studenti della masterclass con Sol Gabetta (violoncello)",
+      "descriptionByLocale": {
+        "it": "Studenti della masterclass con Sol Gabetta (violoncello)",
+        "en": "Students of the master class with Sol Gabetta (violoncello)",
+        "de": "Studierende des Meisterkurses mit Sol Gabetta (Violoncello)",
+        "fr": "Étudiants du cours de maître avec Sol Gabetta (violoncelle)"
+      },
+      "startDate": "2026-10-01",
+      "endDate": "2026-10-01",
+      "startTime": "17:00",
+      "category": "Musica per piano / organo",
+      "venue": "Chiesa dei Santi Pietro e Paolo",
+      "comune": "Ascona",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/events/classical/ascona/next-generation-xi-final-concert-master-class-sol-gabetta_AK4yFh8",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Piazzetta S. Pietro",
+        "postalCode": "6612"
+      },
+      "geo": {
+        "lat": 46.1550329,
+        "lng": 8.7677247
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AK4yFh8.webp"
+    },
+    {
+      "id": "guidle:A1SGtQV",
+      "title": "Felice & Cortes (DE) - The Little Giftshop (Familien-Show)",
+      "titleByLocale": {
+        "it": "Felice & Cortes (DE) - The Little Giftshop (Familien-Show)",
+        "en": "Felice & Cortes (DE) - The Little Giftshop (Familien-Show)",
+        "de": "Felice & Cortes (DE) - The Little Giftshop (Familien-Show)",
+        "fr": "Felice & Cortes (DE) - The Little Giftshop (Familien-Show)"
+      },
+      "description": "Eine Show so einzigartig und neu, in einer Welt, in der wir denken, wir hätten schon alles gesehen! Jonglage, Gesang & Live-Musik, Stop-Motion-Filme, Schauspiel, Puppenspiel, Zauberei, Poesie!",
+      "descriptionByLocale": {
+        "it": "Eine Show so einzigartig und neu, in einer Welt, in der wir denken, wir hätten schon alles gesehen! Jonglage, Gesang & Live-Musik, Stop-Motion-Filme, Schauspiel, Puppenspiel, Zauberei, Poesie!",
+        "en": "Eine Show so einzigartig und neu, in einer Welt, in der wir denken, wir hätten schon alles gesehen! Jonglage, Gesang & Live-Musik, Stop-Motion-Filme, Schauspiel, Puppenspiel, Zauberei, Poesie!",
+        "de": "Eine Show so einzigartig und neu, in einer Welt, in der wir denken, wir hätten schon alles gesehen! Jonglage, Gesang & Live-Musik, Stop-Motion-Filme, Schauspiel, Puppenspiel, Zauberei, Poesie!",
+        "fr": "Eine Show so einzigartig und neu, in einer Welt, in der wir denken, wir hätten schon alles gesehen! Jonglage, Gesang & Live-Musik, Stop-Motion-Filme, Schauspiel, Puppenspiel, Zauberei, Poesie!"
+      },
+      "startDate": "2026-09-27",
+      "endDate": "2026-09-27",
+      "startTime": "17:00",
+      "category": "Genere drammativo",
+      "venue": "Obere Mühle",
+      "comune": "Dübendorf",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/duebendorf/felice-und-cortes-de-the-little-giftshop-familien-show_A1SGtQV",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 16,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Oberdorfstrasse 15",
+        "postalCode": "8600"
+      },
+      "geo": {
+        "lat": 47.3953957,
+        "lng": 8.6242726
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A1SGtQV.webp"
+    },
+    {
+      "id": "guidle:APTQ3eH",
+      "title": "Musica dal Cielo | Vilde Frang III",
+      "titleByLocale": {
+        "it": "Musica dal Cielo | Vilde Frang III",
+        "en": "Musica dal Cielo - Music from Heaven | Vilde Frang III",
+        "de": "Musica dal Cielo – Himmelsmusik | Vilde Frang III",
+        "fr": "Musica dal Cielo - Musique céleste | Vilde Frang III"
+      },
+      "description": "Vilde Frang | Anna Prohaska | Ilya Gringolts | Nils Mönkemeyer | Olli Mustonen | Domenico Melchiorre",
+      "descriptionByLocale": {
+        "it": "Vilde Frang | Anna Prohaska | Ilya Gringolts | Nils Mönkemeyer | Olli Mustonen | Domenico Melchiorre",
+        "en": "Vilde Frang | Anna Prohaska | Ilya Gringolts | Nils Mönkemeyer | Olli Mustonen | Domenico Melchiorre",
+        "de": "Vilde Frang | Anna Prohaska | Ilya Gringolts | Nils Mönkemeyer | Olli Mustonen | Domenico Melchiorre",
+        "fr": "Vilde Frang | Anna Prohaska | Ilya Gringolts | Nils Mönkemeyer | Olli Mustonen | Domenico Melchiorre"
+      },
+      "startDate": "2026-10-01",
+      "endDate": "2026-10-01",
+      "startTime": "19:30",
+      "category": "Musica moderna / seria",
+      "venue": "Collegio Papio",
+      "comune": "Ascona",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/events/classical/ascona/musica-dal-cielo-music-from-heaven-vilde-frang-iii_APTQ3eH",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 40,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Via delle Cappelle 1",
+        "postalCode": "6612"
+      },
+      "geo": {
+        "lat": 46.1551272,
+        "lng": 8.7699176
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-APTQ3eH.webp"
+    },
+    {
+      "id": "guidle:AQxFvRn",
+      "title": "Egal",
+      "titleByLocale": {
+        "it": "Egal",
+        "en": "Egal",
+        "de": "Egal",
+        "fr": "Egal"
+      },
+      "description": "Marius von Mayenburg | Box | ab 16 Jahren",
+      "descriptionByLocale": {
+        "it": "Marius von Mayenburg | Box | ab 16 Jahren",
+        "en": "Marius von Mayenburg | Box | ab 16 Jahren",
+        "de": "Marius von Mayenburg | Box | ab 16 Jahren",
+        "fr": "Marius von Mayenburg | Box | ab 16 Jahren"
+      },
+      "startDate": "2026-09-12",
+      "endDate": "2026-10-31",
+      "startTime": "20:00",
+      "category": "Genere drammativo",
+      "venue": "Luzerner Theater",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/luzern/egal_AQxFvRn",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 30,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Theaterplatz",
+        "postalCode": "6003"
+      },
+      "geo": {
+        "lat": 47.0506024,
+        "lng": 8.3059444
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AQxFvRn.webp"
+    },
+    {
+      "id": "guidle:ACQhhN4",
+      "title": "Costellazione giovani | Next Generation XII | Elias David Moncado",
+      "titleByLocale": {
+        "it": "Costellazione giovani | Next Generation XII | Elias David Moncado",
+        "en": "Costellazione giovani | Next Generation XII | Elias David Moncado",
+        "de": "Costellazione giovani | Next Generation XII | Elias David Moncado",
+        "fr": "Costellazione giovani | Next Generation XII | Elias David Moncado"
+      },
+      "description": "Elias David Moncado | Lauma Skride",
+      "descriptionByLocale": {
+        "it": "Elias David Moncado | Lauma Skride",
+        "en": "Elias David Moncado | Lauma Skride",
+        "de": "Elias David Moncado | Lauma Skride",
+        "fr": "Elias David Moncado | Lauma Skride"
+      },
+      "startDate": "2026-10-02",
+      "endDate": "2026-10-02",
+      "startTime": "17:45",
+      "category": "Musica moderna / seria",
+      "venue": "Sala Sopracenerina",
+      "comune": "Locarno",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/events/classical/locarno/costellazione-giovani-next-generation-xii-elias-david-moncado_ACQhhN4",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 25,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Piazza Grande 1",
+        "postalCode": "6600"
+      },
+      "geo": {
+        "lat": 46.1692223,
+        "lng": 8.7974429
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ACQhhN4.webp"
+    },
+    {
+      "id": "guidle:ACpJiQf",
+      "title": "Il dolce far niente | Sol Gabetta III",
+      "titleByLocale": {
+        "it": "Il dolce far niente | Sol Gabetta III",
+        "en": "Il dolce far niente | Sol Gabetta III",
+        "de": "Il dolce far niente | Sol Gabetta III",
+        "fr": "Il dolce far niente | Sol Gabetta III"
+      },
+      "description": "Sol Gabetta | Giovanni Antonini | Il Giardino Armonico",
+      "descriptionByLocale": {
+        "it": "Sol Gabetta | Giovanni Antonini | Il Giardino Armonico",
+        "en": "Sol Gabetta | Giovanni Antonini | Il Giardino Armonico",
+        "de": "Sol Gabetta | Giovanni Antonini | Il Giardino Armonico",
+        "fr": "Sol Gabetta | Giovanni Antonini | Il Giardino Armonico"
+      },
+      "startDate": "2026-10-02",
+      "endDate": "2026-10-02",
+      "startTime": "19:30",
+      "category": "Musica classica",
+      "venue": "Chiesa San Francesco Locarno",
+      "comune": "Locarno",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/locarno/il-dolce-far-niente-sol-gabetta-iii_ACpJiQf",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 40,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Piazza San Francesco 19",
+        "postalCode": "6600"
+      },
+      "geo": {
+        "lat": 46.1675704,
+        "lng": 8.791564
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ACpJiQf.webp"
+    },
+    {
+      "id": "guidle:AgXQB6E",
+      "title": "Valle Maggia | Musica e piacere - Music & Pleasure",
+      "titleByLocale": {
+        "it": "Valle Maggia | Musica e piacere - Music & Pleasure",
+        "en": "Valle Maggia | Musica e piacere - Music & Pleasure",
+        "de": "Valle Maggia | Musica e piacere – Musik & Genuss",
+        "fr": "Valle Maggia | Musica e piacere - Musique & Plaisir"
+      },
+      "description": "Mario Brunello",
+      "descriptionByLocale": {
+        "it": "Mario Brunello",
+        "en": "Mario Brunello",
+        "de": "Mario Brunello",
+        "fr": "Mario Brunello"
+      },
+      "startDate": "2026-10-03",
+      "endDate": "2026-10-03",
+      "startTime": "12:30",
+      "category": "Musica classica",
+      "venue": "Chiesa Mogno, Vallemaggia",
+      "comune": "Maggia",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/fusio/valle-maggia-musica-e-piacere-musik-und-genuss_AgXQB6E",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 50,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Via Cantonale",
+        "postalCode": "6696"
+      },
+      "geo": {
+        "lat": 46.4284532,
+        "lng": 8.6574036
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AgXQB6E.webp"
+    },
+    {
+      "id": "guidle:AsUS9FT",
+      "title": "La prossima generazione XIII",
+      "titleByLocale": {
+        "it": "La prossima generazione XIII",
+        "en": "Next Generation XIII",
+        "de": "Next Generation XIII",
+        "fr": "Next Generation XIII"
+      },
+      "description": "Ensemble di chitarre del Conservatorio della Svizzera italiana",
+      "descriptionByLocale": {
+        "it": "Ensemble di chitarre del Conservatorio della Svizzera italiana",
+        "en": "Guitar ensemble of the Conservatorio della Svizzera italiana",
+        "de": "Gitarrenensemble des Conservatorio della Svizzera italiana",
+        "fr": "Ensemble de guitares du Conservatorio della Svizzera italiana"
+      },
+      "startDate": "2026-10-03",
+      "endDate": "2026-10-03",
+      "startTime": "17:30",
+      "category": "Altra musica classica & contemporanea",
+      "venue": "Collegio Papio",
+      "comune": "Ascona",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/events/classical/ascona/next-generation-xiii_AsUS9FT",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Via delle Cappelle 1",
+        "postalCode": "6612"
+      },
+      "geo": {
+        "lat": 46.1551272,
+        "lng": 8.7699176
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AsUS9FT.webp"
+    },
+    {
+      "id": "guidle:ABSny47",
+      "title": "Arie di baule - Arie di valigia: Stelle del canto in viaggio Julia Lezhneva III",
+      "titleByLocale": {
+        "it": "Arie di baule - Arie di valigia: Stelle del canto in viaggio Julia Lezhneva III",
+        "en": "Arie di baule - Suitcase arias: Singstars on the road Julia Lezhneva III",
+        "de": "Arie di baule – Kofferarien: Singstars auf Reisen Julia Lezhneva III",
+        "fr": "Arie di baule - Aires de valise : Singstars en voyage Julia Lezhneva III"
+      },
+      "description": "Julia Lezhneva | Orchestra da camera di Basilea | Dmitry Smirnov",
+      "descriptionByLocale": {
+        "it": "Julia Lezhneva | Orchestra da camera di Basilea | Dmitry Smirnov",
+        "en": "Julia Lezhneva | Basel Chamber Orchestra | Dmitry Smirnov",
+        "de": "Julia Lezhneva | Kammerorchester Basel | Dmitry Smirnov",
+        "fr": "Julia Lezhneva | Orchestre de chambre de Bâle | Dmitry Smirnov"
+      },
+      "startDate": "2026-10-03",
+      "endDate": "2026-10-03",
+      "startTime": "19:30",
+      "category": "Opera",
+      "venue": "Collegio Papio",
+      "comune": "Ascona",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/events/classical/ascona/arie-di-baule-suitcase-arias-singstars-on-the-road-julia-lezhneva-iii_ABSny47",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 40,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Via delle Cappelle 1",
+        "postalCode": "6612"
+      },
+      "geo": {
+        "lat": 46.1551272,
+        "lng": 8.7699176
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ABSny47.webp"
+    },
+    {
+      "id": "guidle:AxBcTA9",
+      "title": "Isola di Brissago | Musica e letteratura Musica e letteratura | San Gottardo III",
+      "titleByLocale": {
+        "it": "Isola di Brissago | Musica e letteratura Musica e letteratura | San Gottardo III",
+        "en": "Isola di Brissago | Musica e letteratura Music & Literature | San Gottardo III",
+        "de": "Isola di Brissago | Musica e letteratura Musik & Literatur | San Gottardo III",
+        "fr": "Isola di Brissago | Musica e letteratura Musique & littérature"
+      },
+      "description": "Zora del Buono (lettura DE e IT) | Andriy Dragan | Alain Claude Sulzer",
+      "descriptionByLocale": {
+        "it": "Zora del Buono (lettura DE e IT) | Andriy Dragan | Alain Claude Sulzer",
+        "en": "Zora del Buono (reading DE & IT) | Andriy Dragan | Alain Claude Sulzer",
+        "de": "Zora del Buono (Lesung DE & IT) | Andriy Dragan | Alain Claude Sulzer",
+        "fr": "Zora del Buono (lecture DE & IT) | Andriy Dragan | Alain Claude Sulzer"
+      },
+      "startDate": "2026-10-04",
+      "endDate": "2026-10-04",
+      "startTime": "14:00",
+      "category": "Musica da Camera",
+      "venue": "Villa Emden",
+      "comune": "Brissago",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/isole-di-brissago/isola-di-brissago-musica-e-letteratura-musik-und-literatur-san-gottardo-iii_AxBcTA9",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 50,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Isola Grande SA",
+        "postalCode": "6614"
+      },
+      "geo": {
+        "lat": 46.13247,
+        "lng": 8.73566
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AxBcTA9.webp"
+    },
+    {
+      "id": "guidle:A2L45W7",
+      "title": "Orbita Chopin",
+      "titleByLocale": {
+        "it": "Orbita Chopin",
+        "en": "Chopin Orbit",
+        "de": "Chopin Orbit",
+        "fr": "Chopin Orbit"
+      },
+      "description": "Hayato Sumino",
+      "descriptionByLocale": {
+        "it": "Hayato Sumino",
+        "en": "Hayato Sumino",
+        "de": "Hayato Sumino",
+        "fr": "Hayato Sumino"
+      },
+      "startDate": "2026-10-04",
+      "endDate": "2026-10-04",
+      "startTime": "18:30",
+      "category": "Musica per piano / organo",
+      "venue": "Collegio Papio",
+      "comune": "Ascona",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/events/classical/ascona/chopin-orbit_A2L45W7",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 40,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Via delle Cappelle 1",
+        "postalCode": "6612"
+      },
+      "geo": {
+        "lat": 46.1551272,
+        "lng": 8.7699176
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A2L45W7.webp"
+    },
+    {
+      "id": "guidle:A4q7piF",
+      "title": "«La Critica» Erasmus klingt! – Festival Lab",
+      "titleByLocale": {
+        "it": "«La Critica» Erasmus klingt! – Festival Lab",
+        "en": "«La Critica» Erasmus klingt! – Festival Lab",
+        "de": "«La Critica» Erasmus klingt! – Festival Lab",
+        "fr": "«La Critica» Erasmus klingt! – Festival Lab"
+      },
+      "description": "Die Schola Cantorum Basilliensis liefert zum Abschluss des Festivals die charmanteste Satire auf den Opernbetrieb mit der Oper «La Critica». La Critica ist mehr als eine charmante Satire auf den...",
+      "descriptionByLocale": {
+        "it": "Die Schola Cantorum Basilliensis liefert zum Abschluss des Festivals die charmanteste Satire auf den Opernbetrieb mit der Oper «La Critica». La Critica ist mehr als eine charmante Satire auf den...",
+        "en": "Die Schola Cantorum Basilliensis liefert zum Abschluss des Festivals die charmanteste Satire auf den Opernbetrieb mit der Oper «La Critica». La Critica ist mehr als eine charmante Satire auf den...",
+        "de": "Die Schola Cantorum Basilliensis liefert zum Abschluss des Festivals die charmanteste Satire auf den Opernbetrieb mit der Oper «La Critica». La Critica ist mehr als eine charmante Satire auf den...",
+        "fr": "Die Schola Cantorum Basilliensis liefert zum Abschluss des Festivals die charmanteste Satire auf den Opernbetrieb mit der Oper «La Critica». La Critica ist mehr als eine charmante Satire auf den..."
+      },
+      "startDate": "2026-09-13",
+      "endDate": "2026-09-13",
+      "startTime": "18:00",
+      "category": "Festival / Incontro",
+      "venue": "Eptingerstrasse 27",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/basel/la-critica-erasmus-klingt-festival-lab_A4q7piF",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Eptingerstrasse, 27",
+        "postalCode": "4052"
+      },
+      "geo": {
+        "lat": 47.5542756,
+        "lng": 7.6085989
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A4q7piF.webp"
+    },
+    {
+      "id": "guidle:ASUS1dH",
+      "title": "Spiel mir das Lied von Baden",
+      "titleByLocale": {
+        "it": "Spiel mir das Lied von Baden",
+        "en": "Spiel mir das Lied von Baden",
+        "de": "Spiel mir das Lied von Baden",
+        "fr": "Spiel mir das Lied von Baden"
+      },
+      "description": "High Noon mit Männern, Ponys und anderen schrägen Gestalten",
+      "descriptionByLocale": {
+        "it": "High Noon mit Männern, Ponys und anderen schrägen Gestalten",
+        "en": "High Noon mit Männern, Ponys und anderen schrägen Gestalten",
+        "de": "High Noon mit Männern, Ponys und anderen schrägen Gestalten",
+        "fr": "High Noon mit Männern, Ponys und anderen schrägen Gestalten"
+      },
+      "startDate": "2026-09-04",
+      "endDate": "2026-09-04",
+      "startTime": "20:00",
+      "category": "Genere drammativo",
+      "venue": "Kurtheater Baden",
+      "comune": "Baden",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/baden/spiel-mir-das-lied-von-baden_ASUS1dH",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Parkstrasse 20",
+        "postalCode": "5400"
+      },
+      "geo": {
+        "lat": 47.4802454,
+        "lng": 8.3102615
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ASUS1dH.webp"
+    },
+    {
+      "id": "guidle:ABnRghM",
+      "title": "Langenargener Schlosskonzerte | Streichquartett · Klarinette",
+      "titleByLocale": {
+        "it": "Langenargener Schlosskonzerte | Streichquartett · Klarinette",
+        "en": "Langenargener Schlosskonzerte | Streichquartett · Klarinette",
+        "de": "Langenargener Schlosskonzerte | Streichquartett · Klarinette",
+        "fr": "Langenargener Schlosskonzerte | Streichquartett · Klarinette"
+      },
+      "description": "Zum Abschluss des Sommerfestivals steht am 18. September mit dem AMAR Quartett eine weitere feste Größe der Schlosskonzerte auf der Bühne.",
+      "descriptionByLocale": {
+        "it": "Zum Abschluss des Sommerfestivals steht am 18. September mit dem AMAR Quartett eine weitere feste Größe der Schlosskonzerte auf der Bühne.",
+        "en": "Zum Abschluss des Sommerfestivals steht am 18. September mit dem AMAR Quartett eine weitere feste Größe der Schlosskonzerte auf der Bühne.",
+        "de": "Zum Abschluss des Sommerfestivals steht am 18. September mit dem AMAR Quartett eine weitere feste Größe der Schlosskonzerte auf der Bühne.",
+        "fr": "Zum Abschluss des Sommerfestivals steht am 18. September mit dem AMAR Quartett eine weitere feste Größe der Schlosskonzerte auf der Bühne."
+      },
+      "startDate": "2026-09-18",
+      "endDate": "2026-09-18",
+      "startTime": "19:30",
+      "category": "Altra musica classica & contemporanea",
+      "venue": "Schloss Montfort",
+      "canton": "",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/langenargen/langenargener-schlosskonzerte-streichquartett-klarinette_ABnRghM",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 2,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Untere Seestraße 3",
+        "postalCode": "88085"
+      },
+      "geo": {
+        "lat": 47.597084,
+        "lng": 9.5362346
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ABnRghM.webp"
+    },
+    {
+      "id": "guidle:ATHMt9h",
+      "title": "Langenargener Schlosskonzerte | Soul at it's best!",
+      "titleByLocale": {
+        "it": "Langenargener Schlosskonzerte | Soul at it's best!",
+        "en": "Langenargener Schlosskonzerte | Soul at it's best!",
+        "de": "Langenargener Schlosskonzerte | Soul at it's best!",
+        "fr": "Langenargener Schlosskonzerte | Soul at it's best!"
+      },
+      "description": "Am 11. September werden der amerikanische Soulsänger Karl Frierson und Peter Vogel am Klavier „Soul at it‘s best“ darbieten.",
+      "descriptionByLocale": {
+        "it": "Am 11. September werden der amerikanische Soulsänger Karl Frierson und Peter Vogel am Klavier „Soul at it‘s best“ darbieten.",
+        "en": "Am 11. September werden der amerikanische Soulsänger Karl Frierson und Peter Vogel am Klavier „Soul at it‘s best“ darbieten.",
+        "de": "Am 11. September werden der amerikanische Soulsänger Karl Frierson und Peter Vogel am Klavier „Soul at it‘s best“ darbieten.",
+        "fr": "Am 11. September werden der amerikanische Soulsänger Karl Frierson und Peter Vogel am Klavier „Soul at it‘s best“ darbieten."
+      },
+      "startDate": "2026-09-11",
+      "endDate": "2026-09-11",
+      "startTime": "19:30",
+      "category": "Altra musica classica & contemporanea",
+      "venue": "Schloss Montfort",
+      "canton": "",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/langenargen/langenargener-schlosskonzerte-soul-at-its-best_ATHMt9h",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 2,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Untere Seestraße 3",
+        "postalCode": "88085"
+      },
+      "geo": {
+        "lat": 47.597084,
+        "lng": 9.5362346
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ATHMt9h.webp"
+    },
+    {
+      "id": "guidle:Aiv6qdH",
+      "title": "Langenargener Schlosskonzerte | Klaviertrio",
+      "titleByLocale": {
+        "it": "Langenargener Schlosskonzerte | Klaviertrio",
+        "en": "Langenargener Schlosskonzerte | Klaviertrio",
+        "de": "Langenargener Schlosskonzerte | Klaviertrio",
+        "fr": "Langenargener Schlosskonzerte | Klaviertrio"
+      },
+      "description": "Im Mittelpunkt des letzten Konzerts im August stehen die „Vier Jahreszeiten“ vom argentinischen Tangokomponisten Astor Piazolla.",
+      "descriptionByLocale": {
+        "it": "Im Mittelpunkt des letzten Konzerts im August stehen die „Vier Jahreszeiten“ vom argentinischen Tangokomponisten Astor Piazolla.",
+        "en": "Im Mittelpunkt des letzten Konzerts im August stehen die „Vier Jahreszeiten“ vom argentinischen Tangokomponisten Astor Piazolla.",
+        "de": "Im Mittelpunkt des letzten Konzerts im August stehen die „Vier Jahreszeiten“ vom argentinischen Tangokomponisten Astor Piazolla.",
+        "fr": "Im Mittelpunkt des letzten Konzerts im August stehen die „Vier Jahreszeiten“ vom argentinischen Tangokomponisten Astor Piazolla."
+      },
+      "startDate": "2026-08-28",
+      "endDate": "2026-08-28",
+      "startTime": "19:30",
+      "category": "Musica per piano / organo",
+      "venue": "Schloss Montfort",
+      "canton": "",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/langenargen/langenargener-schlosskonzerte-klaviertrio_Aiv6qdH",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 2,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Untere Seestraße 3",
+        "postalCode": "88085"
+      },
+      "geo": {
+        "lat": 47.597084,
+        "lng": 9.5362346
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-Aiv6qdH.webp"
+    },
+    {
+      "id": "guidle:ACDQtp8",
+      "title": "Langenargener Schlosskonzerte | Klavierquartett",
+      "titleByLocale": {
+        "it": "Langenargener Schlosskonzerte | Klavierquartett",
+        "en": "Langenargener Schlosskonzerte | Klavierquartett",
+        "de": "Langenargener Schlosskonzerte | Klavierquartett",
+        "fr": "Langenargener Schlosskonzerte | Klavierquartett"
+      },
+      "description": "Der ZF-Musikpreisträger Shaun Choo steht auch im Mittelpunkt des nächsten Konzertes am 4. September.",
+      "descriptionByLocale": {
+        "it": "Der ZF-Musikpreisträger Shaun Choo steht auch im Mittelpunkt des nächsten Konzertes am 4. September.",
+        "en": "Der ZF-Musikpreisträger Shaun Choo steht auch im Mittelpunkt des nächsten Konzertes am 4. September.",
+        "de": "Der ZF-Musikpreisträger Shaun Choo steht auch im Mittelpunkt des nächsten Konzertes am 4. September.",
+        "fr": "Der ZF-Musikpreisträger Shaun Choo steht auch im Mittelpunkt des nächsten Konzertes am 4. September."
+      },
+      "startDate": "2026-09-04",
+      "endDate": "2026-09-04",
+      "startTime": "19:30",
+      "category": "Musica per piano / organo",
+      "venue": "Schloss Montfort",
+      "canton": "",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/langenargen/langenargener-schlosskonzerte-klavierquartett_ACDQtp8",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 2,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Untere Seestraße 3",
+        "postalCode": "88085"
+      },
+      "geo": {
+        "lat": 47.597084,
+        "lng": 9.5362346
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ACDQtp8.webp"
     }
   ]
 }
