@@ -7,6 +7,11 @@
  *
  * jobup feed: https://www.jobup.ch/masks/cnp/list_cnp.asp?cmd=json
  *
+ * @outsourced-ats-confirmed: CNP's own career page embeds jobup.ch detail
+ * links directly (see the line above, present since this file was written) —
+ * jobup.ch is the employer's own chosen application channel, not a bypassed
+ * alternative.
+ *
  * CNP is the public psychiatric services network of canton Neuchâtel (NE),
  * covering ambulatory, day-care and inpatient psychiatry across multiple
  * sites (Marin, Préfargier, La Chrysalide). ~22 open positions at parser

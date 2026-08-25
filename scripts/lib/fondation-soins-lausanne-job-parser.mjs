@@ -41,6 +41,13 @@
  * `fetchJobupDetailDescription` (reused from jobup-ch-feed-common.mjs). If detail
  * enrichment is unavailable, a source-locale French fallback (well above the
  * 50-word thin-content floor) is synthesized from the card fields.
+ *
+ * @outsourced-ats-confirmed: not a bypassed direct source — the SOURCE
+ * MIGRATION note above already documents that FSL's actual previous direct
+ * source (cms-vaud.ch) is unreachable (403, including through the clean-IP
+ * Jina proxy) and that jobup.ch is FSL's real, current publishing channel,
+ * verified live 2026-07 with a strict per-employer filter to avoid pulling in
+ * other foundations' postings from the same search page.
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';

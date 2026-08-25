@@ -6,6 +6,14 @@
  * (public company profile page; the jobs.ch API discovery below is what
  * actually feeds this parser — see ./jobs-ch-search-common.mjs)
  *
+ * @outsourced-ats-confirmed: equans.ch's own careers page
+ * (https://equans.ch/de/menschen-karriere/offene-stellen, re-checked live
+ * 2026-08-25) explicitly delegates listings to "zwei Jobportalen" reachable
+ * by tab switch (jobs.ch / jobup.ch) — it carries no job listing of its own
+ * to crawl instead. Sourcing this parser's `url`/`applyUrl` from jobs.ch is
+ * therefore the employer's own chosen channel, not an aggregator substitute
+ * for a direct source that exists and was bypassed.
+ *
  * Equans Switzerland is the Swiss arm of Equans (Bouygues group), a
  * facility-management / technical-services group (HVAC, electrical,
  * maintenance, energy) with ~6500 own staff in Switzerland. Confirmed

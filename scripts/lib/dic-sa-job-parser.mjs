@@ -1,48 +1,44 @@
 #!/usr/bin/env node
 /**
- * DIC SA (ingénieurs) job parser — jobs.ch public search API + JSON-LD detail.
+ * DIC SA (ingénieurs) job parser — own WordPress REST API (job-offers CPT).
  *
- * Source: https://www.jobup.ch/fr/societes/ee30c164-1431-42ab-af87-d45a5dc3579f-dic-sa/
- * (public company profile; jobs.ch/jobup.ch are both operated by JobCloud AG
- * and share the same public search API — see ./jobs-ch-search-common.mjs)
+ * Public listing: https://www.dic-ing.ch/team/ ("Nos offres" grid)
+ * Structured source: https://www.dic-ing.ch/wp-json/wp/v2/job-offers
+ *   (public, unauthenticated WordPress REST API for the site's own
+ *   "job-offers" custom post type — confirmed live 2026-08-25, returns
+ *   clean JSON with rendered title/content/link, no scraping needed)
+ *
+ * @outsourced-ats-confirmed: this is the migration promised by the
+ * @outsourced-ats-needs-migration tag this file previously carried.
+ * dic-ing.ch's own "Rejoignez-nous" section on /team/ links directly to a
+ * job-offers detail page ON dic-ing.ch itself (confirmed live 2026-08-25:
+ * https://www.dic-ing.ch/team/job-offers/un%c2%b7e-ingenieur%c2%b7e-civil%c2%b7e-epf-chef%c2%b7fe-de-projet-3/,
+ * matching the same posting jobup.ch carried) — this parser used to source
+ * from jobup.ch instead of the employer's own, richer, always-authoritative
+ * WordPress source. Applications go to job@dic-ing.ch per the detail page,
+ * confirming dic-ing.ch (not jobup.ch) is the real, intended destination.
  *
  * DIC SA ingénieurs is a small civil-engineering consultancy ("bureau
  * d'ingénieur-conseil") headquartered in Aigle (VD), with branch offices in
  * Sion and Martigny (VS). Founded 1982, incorporated as SA in 1991
  * (CHE-105.986.545), ISO 9001 certified since 1998. Confirmed GENUINE DIRECT
- * EMPLOYER, not a staffing/placement agency:
- * - dic-ing.ch (own corporate site) describes itself as "un bureau reconnu
- *   pour la qualité et la précision de ses ouvrages" in civil engineering,
- *   structural works and road/rail infrastructure — a design/consulting firm
- *   with its own permanent engineering staff, not a temp-work intermediary.
- * - The single live posting's description uses first-person "notre équipe à
- *   taille humaine", "Depuis plus de 40 ans, DIC SA ingénieurs s'impose
- *   comme..." language, never third-party-placement/staffing phrasing.
- * - `hiringOrganization`/`company.name` on jobs.ch is consistently "DIC SA",
- *   matching the Aigle head-office entity (no unrelated client name).
+ * EMPLOYER, not a staffing/placement agency — own postings use first-person
+ * "notre équipe à taille humaine" language, never third-party-placement
+ * phrasing, and applications go directly to the firm's own email.
  *
- * IMPORTANT — jobs.ch numeric company id (81584, "dic-sa-ingenieurs" slug,
- * from https://www.jobs.ch/fr/entreprises/81584-dic-sa-ingenieurs/) returns
- * jobCount: 0 and totalHits: 0 against the search API — it is a STALE/legacy
- * profile record. The company's ACTIVE profile (confirmed live) uses a UUID
- * company id under the plain name "DIC SA":
- *   ee30c164-1431-42ab-af87-d45a5dc3579f
- * (https://www.jobup.ch/fr/societes/ee30c164-1431-42ab-af87-d45a5dc3579f-dic-sa/,
- * redirects/mirrors from legacy jobup numeric id 25347). Confirmed live via
- * `job-search-api.jobs.ch/search?companyIds=ee30c164-...` → totalHits: 1,
- * job "Ingenieur civil EPF - Chef de projet (H/F)", Aigle VD, published
- * 2026-06-29. Use the UUID id, not the numeric jobs.ch id.
+ * HQ fallback: Les Glariers, 1860 Aigle (unaffected by the source migration).
+ *
+ * Exports the 3 functions used by the crawler template:
+ *   - fetchAllDicSaJobs()  — Fetch and parse all open job-offers posts
+ *   - isDicSaJob()         — Match jobs belonging to this company
+ *   - isTrustedDomain()    — Validate URLs belong to this company
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferAnyCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
+import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { detectEmploymentTypeFromOccupation } from './jobup-ch-feed-common.mjs';
-import {
-  fetchJobsChCompanyListings,
-  fetchJobsChJobPostingLd,
-  jobsChDetailUrl,
-} from './jobs-ch-search-common.mjs';
+import { decodeEntities } from './hospital-custom-html-helpers.mjs';
 
 /* Constants ─────────────────────────────────────────────── */
 
@@ -50,10 +46,10 @@ export const DIC_SA_KEY = 'dic-sa';
 export const DIC_SA_COMPANY_NAME = 'DIC SA';
 export const DIC_SA_COMPANY_DOMAIN = 'dic-ing.ch';
 
-const COMPANY_IDS = ['ee30c164-1431-42ab-af87-d45a5dc3579f'];
-const CAREER_URL = 'https://www.jobup.ch/fr/societes/ee30c164-1431-42ab-af87-d45a5dc3579f-dic-sa/';
+const WP_API_URL = 'https://www.dic-ing.ch/wp-json/wp/v2/job-offers?per_page=100';
+const PUBLIC_CAREER_URL = 'https://www.dic-ing.ch/team/';
 
-/* HQ fallback: Les Glariers, 1860 Aigle (jobs.ch/jobup.ch listing address). */
+/* HQ fallback: Les Glariers, 1860 Aigle. */
 const HQ = {
   city: 'Aigle',
   canton: 'VD',
@@ -95,14 +91,7 @@ export function isTrustedDomain(url = '') {
   try {
     const { hostname } = new URL(url);
     const host = hostname.toLowerCase();
-    return (
-      host === DIC_SA_COMPANY_DOMAIN ||
-      host.endsWith(`.${DIC_SA_COMPANY_DOMAIN}`) ||
-      host === 'www.jobs.ch' ||
-      host === 'jobs.ch' ||
-      host === 'www.jobup.ch' ||
-      host === 'jobup.ch'
-    );
+    return host === DIC_SA_COMPANY_DOMAIN || host.endsWith(`.${DIC_SA_COMPANY_DOMAIN}`);
   } catch {
     return false;
   }
@@ -126,100 +115,75 @@ function detectExperienceLevel(title = '') {
 }
 
 /**
- * Map jobs.ch's free-text `employmentType` (JSON-LD) + posting workload
- * grades to the schema.org employmentType enum consumed downstream.
- * Confirmed live values (shared jobs.ch behaviour, see equans-job-parser.mjs):
- * "Permanent position", "Internship", "Temporary", "Supplementary income".
+ * DIC SA's own job-offers posts open with a "City | XX–YY% | <start date>"
+ * header line (confirmed live 2026-08-25: "Aigle | 80–100% | Entrée en
+ * fonction : de suite ou à convenir") — there is no separate structured
+ * location/workload field on this WordPress CPT, unlike jobup.ch's JSON-LD.
  */
-function resolveEmploymentType(ldEmploymentType = '', grades = []) {
-  const t = normalize(ldEmploymentType);
-  if (/\b(intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ]))/.test(t)) return 'INTERN';
-  if (/temporary|fixed.term|contract/.test(t)) return 'TEMPORARY';
-  if (/supplementary/.test(t)) return 'PER_DIEM';
-  const nums = (Array.isArray(grades) ? grades : []).map(Number).filter(Number.isFinite);
-  const min = nums.length ? Math.min(...nums) : 0;
-  const max = nums.length ? Math.max(...nums) : 100;
-  return detectEmploymentTypeFromOccupation(min, max) === 'PART_TIME' ? 'PART_TIME' : 'FULL_TIME';
+function parseHeaderLine(text = '') {
+  const firstLine = normalizeSpace(text.split('\n')[0] || '');
+  const parts = firstLine.split('|').map((s) => s.trim()).filter(Boolean);
+  const city = parts[0] || '';
+  const pctSource = parts[1] || firstLine;
+  const pctMatch = pctSource.match(/(\d{2,3})\s*[-–]\s*(\d{2,3})\s*%/) || pctSource.match(/(\d{2,3})\s*%/);
+  const min = pctMatch ? Number(pctMatch[1]) : 100;
+  const max = pctMatch && pctMatch[2] ? Number(pctMatch[2]) : min;
+  return { city, min, max };
 }
 
 /* ── Fetch + Parse ─────────────────────────────────────────── */
 
 /**
- * Fetch all DIC SA jobs. Returns an array of ParsedJob objects (source-locale
- * only — other locales are filled by the AI localization step and
- * translate-pending pipeline).
+ * Fetch all open DIC SA job-offers posts from the firm's own WordPress REST
+ * API. Returns an array of ParsedJob objects (source-locale only — other
+ * locales are filled by the AI localization step and translate-pending
+ * pipeline).
  */
 export async function fetchAllDicSaJobs() {
   console.log(`🔍 Fetching ${DIC_SA_COMPANY_NAME} jobs`);
-  console.log(`   Source: ${CAREER_URL}\n`);
+  console.log(`   Source: ${WP_API_URL}`);
+  console.log(`   Public: ${PUBLIC_CAREER_URL}\n`);
 
-  const listings = await fetchJobsChCompanyListings({ companyIds: COMPANY_IDS });
-  if (!listings || listings.length === 0) {
-    console.warn('⚠️ No job listings returned.');
+  let posts;
+  try {
+    posts = await fetchJson(WP_API_URL, { label: 'dic-ing.ch WordPress REST API' });
+  } catch (err) {
+    console.warn(`⚠️ Failed to fetch job-offers: ${err?.message || err}`);
+    return [];
+  }
+  if (!Array.isArray(posts) || posts.length === 0) {
+    console.warn('⚠️ No job-offers posts returned.');
     return [];
   }
 
-  console.log(`  📋 Listings found: ${listings.length}`);
+  console.log(`  📋 Posts found: ${posts.length}`);
 
   const jobs = [];
-  const seen = new Set();
   const seenSlugs = new Set();
 
-  for (const listing of listings) {
-    const title = normalizeSpace(listing.title || '');
+  for (const post of posts) {
+    const title = normalizeSpace(decodeEntities(post?.title?.rendered || ''));
     if (!title || title.length < 3) continue;
-    if (seen.has(listing.id)) continue;
-    seen.add(listing.id);
 
-    // Detail page locale MUST be 'en' — confirmed live (curl) that jobs.ch
-    // 404s on /fr/ and /de/ vacancy detail URLs for this company's posting
-    // (only /en/ resolves 200); content is served in the posting's original
-    // language regardless of the URL locale prefix (see jobs-ch-search-common.mjs
-    // header comment). Every sibling jobs.ch/jobup.ch parser (equans,
-    // city-pop, cham-swiss-properties) already uses 'en' here — this file was
-    // the sole outlier passing 'fr' (matching defaultSourceLang instead of
-    // the URL-prefix quirk), which made fetchJobsChJobPostingLd 404 on every
-    // run, leaving `ld` null and the job falling back to the thin
-    // title+company template below — the root cause of the empty by-crawler
-    // slice despite a genuine, live posting.
-    let ld = null;
-    let detailUrl = jobsChDetailUrl(listing.id, 'en');
-    try {
-      const detail = await fetchJobsChJobPostingLd(listing.id, { locale: 'en' });
-      ld = detail.ld;
-      detailUrl = detail.url;
-    } catch (err) {
-      console.warn(`⚠️ Failed to fetch detail for ${listing.id}: ${err?.message || err}`);
-    }
+    const contentText = stripHtml(decodeEntities(post?.content?.rendered || ''));
+    const { city: headerCity, min, max } = parseHeaderLine(contentText);
+    const city = headerCity || HQ.city;
+    const canton = inferAnyCanton(city) || HQ.canton;
 
-    const loc0 = Array.isArray(listing.locations) ? listing.locations[0] : null;
-    const place = normalizeSpace(listing.place || loc0?.city || '');
-    const canton =
-      normalizeCantonCode(loc0?.cantonCode || '') ||
-      inferAnyCanton(place) ||
-      HQ.canton;
+    const description = contentText || `${title} presso ${DIC_SA_COMPANY_NAME} a ${city}.`;
+    const sourceLang = detectLang(description || title, 'fr');
 
-    const descriptionHtml = ld?.description || '';
-    const descriptionText = stripHtml(descriptionHtml);
-    const description = descriptionText || `${title} presso ${DIC_SA_COMPANY_NAME} a ${place || HQ.city}.`;
-    const sourceLang = detectLang(descriptionText || title, 'fr');
+    const url = String(post?.link || '');
+    const urlHash = createHash('sha1').update(String(post?.id ?? url)).digest('hex').slice(0, 12);
 
-    const urlHash = createHash('sha1').update(listing.id).digest('hex').slice(0, 12);
-
-    // Disambiguate in-run title+location collisions with a short id suffix
-    // so multiple postings keep a stable, unique slug instead of colliding.
-    let jobSlug = slugify(`${title} dic sa ${place || HQ.city}`);
+    let jobSlug = slugify(`${title} dic sa ${city}`);
     if (seenSlugs.has(jobSlug)) {
-      jobSlug = slugify(`${title} dic sa ${place || HQ.city} ${urlHash.slice(0, 6)}`);
+      jobSlug = slugify(`${title} dic sa ${city} ${urlHash.slice(0, 6)}`);
     }
     seenSlugs.add(jobSlug);
 
-    const employmentType = resolveEmploymentType(ld?.employmentType || '', listing.employmentGrades);
-    const postedDate = (listing.publicationDate && String(listing.publicationDate).slice(0, 10))
-      || (listing.initialPublicationDate && String(listing.initialPublicationDate).slice(0, 10))
-      || new Date().toISOString().split('T')[0];
-
-    const hiringOrganizationName = ld?.hiringOrganization?.name || listing.company?.name || DIC_SA_COMPANY_NAME;
+    const employmentType = detectEmploymentTypeFromOccupation(min, max) === 'PART_TIME' ? 'PART_TIME' : 'FULL_TIME';
+    const postedDate = String(post?.date || '').slice(0, 10) || new Date().toISOString().split('T')[0];
 
     const job = {
       // ── Required fields ──
@@ -233,18 +197,18 @@ export async function fetchAllDicSaJobs() {
       titleByLocale: { [sourceLang]: title },
       description,
       descriptionByLocale: { [sourceLang]: description },
-      location: place || HQ.city,
+      location: city,
       canton,
-      url: detailUrl,
-      source: 'DIC SA Dedicated Parser (jobs.ch)',
+      url,
+      source: `${DIC_SA_COMPANY_NAME} Dedicated Parser (dic-ing.ch)`,
       sourceLang,
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields ──
-      addressLocality: loc0?.city || place || HQ.city,
+      addressLocality: city,
       addressRegion: canton,
-      streetAddress: normalizeSpace(loc0?.street || '') || (canton === HQ.canton ? HQ.streetAddress : ''),
-      postalCode: normalizeSpace(loc0?.postalCode || '') || (canton === HQ.canton ? HQ.postalCode : ''),
+      streetAddress: canton === HQ.canton && city === HQ.city ? HQ.streetAddress : '',
+      postalCode: canton === HQ.canton && city === HQ.city ? HQ.postalCode : '',
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
@@ -255,8 +219,8 @@ export async function fetchAllDicSaJobs() {
       currency: 'CHF',
       featured: false,
       postedDate,
-      applyUrl: detailUrl,
-      hiringOrganizationName,
+      applyUrl: url,
+      hiringOrganizationName: DIC_SA_COMPANY_NAME,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
     };
