@@ -77876,6 +77876,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-borgomezzavalle-lavorare-ticino': {
+    title: 'Vivere a Borgomezzavalle e lavorare in Ticino da frontaliere',
+    description: 'Informazioni pratiche e fatti chiave sulla vita dei frontaliere a Borgomezzavalle. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, borgomezzavalle, lavorare, informazioni',
+    ogTitle: 'Vivere a Borgomezzavalle e lavorare in Ticino da frontaliere',
+    ogDescription: 'Informazioni pratiche e fatti chiave sulla vita dei frontaliere a Borgomezzavalle',
+    canonicalPath: '/articoli-frontaliere/vivere-borgomezzavalle-lavorare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Borgomezzavalle e lavorare in Ticino da frontaliere",
+      "description": "Informazioni pratiche e fatti chiave sulla vita dei frontaliere a Borgomezzavalle. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-borgomezzavalle-lavorare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere in bicicletta che attraversa il confine tra l'Italia e il Ticino"
+      },
+      "datePublished": "2026-08-25T04:22:40+00:00",
+      "dateModified": "2026-08-25T04:22:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-borgomezzavalle-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

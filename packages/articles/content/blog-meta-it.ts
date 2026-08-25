@@ -10735,6 +10735,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-abbadia-lariana-lavorare-ticino-da-frontaliere.title': 'Vivere a Abbadia Lariana e lavorare in Ticino da frontaliere',
     'blog.article.vivere-abbadia-lariana-lavorare-ticino-da-frontaliere.excerpt': 'Chi sono i frontalieri che lavorano in Ticino e risiedono a Abbadia Lariana?',
     'blog.article.vivere-abbadia-lariana-lavorare-ticino-da-frontaliere.imageAlt': 'frontaliere in Ticino, Abbadia Lariana',
+    'blog.article.vivere-borgomezzavalle-lavorare-ticino.title': 'Vivere a Borgomezzavalle e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-borgomezzavalle-lavorare-ticino.excerpt': 'Informazioni pratiche e fatti chiave sulla vita dei frontalieri a Borgomezzavalle',
+    'blog.article.vivere-borgomezzavalle-lavorare-ticino.imageAlt': 'Un frontaliere in bicicletta che attraversa il confine tra l\'Italia e il Ticino',
 };
 
 export default blogMetaIt;

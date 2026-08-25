@@ -10733,6 +10733,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-abbadia-lariana-lavorare-ticino-da-frontaliere.title': 'Leben in Abbadia Lariana und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-abbadia-lariana-lavorare-ticino-da-frontaliere.excerpt': 'Wer sind die Grenzgänger, die im Tessin arbeiten und in Abbadia Lariana wohnen?',
     'blog.article.vivere-abbadia-lariana-lavorare-ticino-da-frontaliere.imageAlt': 'frontalier in Ticino, Abbadia Lariana',
+    'blog.article.vivere-borgomezzavalle-lavorare-ticino.title': 'Wohnen in Borgomezzavalle und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-borgomezzavalle-lavorare-ticino.excerpt': 'Praktische Informationen und wichtige Fakten über das Leben der Grenzgänger in Borgomezzavalle',
+    'blog.article.vivere-borgomezzavalle-lavorare-ticino.imageAlt': 'Ein Radfahrer, der die Grenze zwischen Italien und dem Tessin überschreitet',
 };
 
 export default blogMetaDe;

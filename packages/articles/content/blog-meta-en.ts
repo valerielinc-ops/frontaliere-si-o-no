@@ -10734,6 +10734,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-abbadia-lariana-lavorare-ticino-da-frontaliere.title': 'Living in Abbadia Lariana and working in Ticino as a border worker',
     'blog.article.vivere-abbadia-lariana-lavorare-ticino-da-frontaliere.excerpt': 'Who are the border workers who work in Ticino and reside in Abbadia Lariana?',
     'blog.article.vivere-abbadia-lariana-lavorare-ticino-da-frontaliere.imageAlt': 'frontalier in Ticino, Abbadia Lariana',
+    'blog.article.vivere-borgomezzavalle-lavorare-ticino.title': 'Living in Borgomezzavalle and working in Ticino as a border worker',
+    'blog.article.vivere-borgomezzavalle-lavorare-ticino.excerpt': 'Practical information and key facts about the life of border workers in Borgomezzavalle',
+    'blog.article.vivere-borgomezzavalle-lavorare-ticino.imageAlt': 'A cyclist crossing the border between Italy and Ticino',
 };
 
 export default blogMetaEn;
