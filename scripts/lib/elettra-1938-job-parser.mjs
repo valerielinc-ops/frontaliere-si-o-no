@@ -188,20 +188,35 @@ export async function fetchAllElettra1938Jobs() {
   const { jobs: listings, totalCards } = parseCareerPage(html, CAREER_URL);
   console.log(`  📋 Listings found (Stabio, Svizzera): ${listings.length} (of ${totalCards} total cards on the shared portal)`);
 
-  // Markup sanity check (#5981): the shared FIAMM Components / Gruppo Horien
-  // portal lists vacancies across MANY brands/countries, not just Elettra
-  // 1938's Stabio site — `cards` above is the portal-wide count, before the
-  // Stabio filter. Zero Stabio postings with cards > 0 is a genuine "no
-  // openings right now" (handled below, soft-exit). But zero cards means the
-  // `.vacancy__render` selector itself matched nothing anywhere on an
-  // otherwise-reachable page — that's markup/template drift, not a real
-  // empty state, and would otherwise silently look identical to a genuine
-  // zero. Throw (rather than the soft "keeping existing" return []) so the
-  // run fails loudly and distinguishably instead of masquerading as empty-ok.
+  // Markup sanity check (#5981, softened #5970): the shared FIAMM Components
+  // / Gruppo Horien portal lists vacancies across MANY brands/countries, not
+  // just Elettra 1938's Stabio site — `cards` above is the portal-wide
+  // count, before the Stabio filter. Zero Stabio postings with cards > 0 is
+  // a genuine "no openings right now" (handled below, soft-exit).
+  //
+  // Zero cards is ambiguous between two cases: (a) the whole shared portal
+  // is genuinely empty right now — confirmed live by #5970/#5980 via the
+  // portal's own `act1=vacancyListCareer` AJAX response
+  // (`{"success":true,"data":"...Nessun annuncio disponibile..."}`), a state
+  // the group portal really does reach; or (b) the `.vacancy__render`
+  // selector itself drifted (template rename/rewrite) and would silently
+  // masquerade as empty forever. Distinguish them without a live probe: the
+  // class name is also referenced in the page's own CSS/JS bundle even when
+  // no cards render, so its total absence from the raw markup is the real
+  // drift signal — its presence means the template is intact and 0 cards is
+  // the portal genuinely reporting nothing. Only throw on true absence, so a
+  // legitimate portal-wide lull self-heals instead of freezing crawler-health
+  // freshness on every run until a human re-verifies live (#5970: 8 days
+  // stale after #5980's manual verification never made it back into the
+  // parser).
   if (totalCards === 0) {
-    throw new Error(
-      `Elettra 1938: found 0 ".vacancy__render" cards on the FIAMM Components portal (${CAREER_URL}) — likely markup/selector drift, not a genuine empty listing. Investigate the parser's selectors before treating this as empty-ok.`,
-    );
+    if (!html.includes('vacancy__render')) {
+      throw new Error(
+        `Elettra 1938: found 0 ".vacancy__render" cards on the FIAMM Components portal (${CAREER_URL}), and the class isn't referenced anywhere in the page markup either — likely selector drift. Investigate the parser's selectors before treating this as empty-ok.`,
+      );
+    }
+    console.warn('⚠️ Elettra 1938: 0 cards on the shared FIAMM Components portal, but ".vacancy__render" is still referenced in the page markup — genuine portal-wide lull (confirmed pattern, #5970/#5980), not selector drift.');
+    return [];
   }
 
   if (!listings.length) {

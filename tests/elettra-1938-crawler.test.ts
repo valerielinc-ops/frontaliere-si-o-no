@@ -170,9 +170,15 @@ describe('Elettra 1938 crawler parser', () => {
       expect(jobs).toEqual([]);
     });
 
-    it('throws instead of silently returning zero when the page has no .vacancy__render cards at all (markup drift)', async () => {
+    it('throws when .vacancy__render is absent from the markup entirely (true selector drift)', async () => {
       fetchHtml.mockResolvedValueOnce('<html><body><div class="unexpected-layout">No cards here</div></body></html>');
-      await expect(fetchAllElettra1938Jobs()).rejects.toThrow(/markup\/selector drift/i);
+      await expect(fetchAllElettra1938Jobs()).rejects.toThrow(/selector drift/i);
+    });
+
+    it('returns an empty array when zero cards render but .vacancy__render is still referenced in the page markup (genuine portal-wide lull, #5970)', async () => {
+      fetchHtml.mockResolvedValueOnce('<html><head><style>.vacancy__render { display: block; }</style></head><body><div id="vacancyList"></div></body></html>');
+      const jobs = await fetchAllElettra1938Jobs();
+      expect(jobs).toEqual([]);
     });
   });
 });
