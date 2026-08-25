@@ -1,55 +1,50 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-08-25T10:17:17.241Z",
+  "generatedAt": "2026-08-25T21:47:45.187Z",
   "total": 10,
-  "newCount": 0,
-  "updatedCount": 10,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 9,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 19934,
-  "avgDurationMs": 19934,
+  "durationMs": 22691,
+  "avgDurationMs": 22691,
   "durationHistory": [
-    19934
+    22691
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
     {
-      "title": "Trainee (m/w/d)",
-      "slug": "trainee-m-w-d-engel-voelkers-zermatt",
-      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/31cf30e3-1cfb-4cfd-8a3f-ae78e4a028a4",
-      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/31cf30e3-1cfb-4cfd-8a3f-ae78e4a028a4",
-      "company": "EV Valais SA",
+      "title": "Junior Immobilienmakler/in 100%",
+      "slug": "junior-immobilienmakler-in-100-engel-voelkers-schaffhausen",
+      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/d73b3b54-fa87-47ce-b04b-ed260187c751",
+      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/d73b3b54-fa87-47ce-b04b-ed260187c751",
+      "company": "buutiq Immobilien AG",
       "companyKey": "engel-voelkers",
       "companyDomain": "engelvoelkers.com",
-      "location": "Zermatt",
-      "addressLocality": "Zermatt",
-      "addressRegion": "VS",
+      "location": "Schaffhausen",
+      "addressLocality": "Schaffhausen",
+      "addressRegion": "SH",
       "addressCountry": "CH",
-      "canton": "VS",
+      "canton": "SH",
       "country": "CH",
       "category": "sales",
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
-      "sourceLang": "it",
+      "sourceLang": "de",
       "postedDate": "2026-08-25",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "id": "engel-voelkers-f29e648fe71a",
-      "salaryMin": 57000,
-      "salaryMax": 87500,
-      "currency": "CHF",
-      "postalCode": "3920",
-      "firstSeenAt": "2026-06-23T11:25:18.539Z",
-      "_qualityScore": 88,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
-        "completeness": 22
+        "translation": 16,
+        "completeness": 14
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "title": "Immobilienberater:In (m/w/d) 100% - Rheinfelden",
       "slug": "immobilienberater-in-m-w-d-100-rheinfelden-engel-voelkers-rheinfelden",
@@ -372,6 +367,43 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Trainee (m/w/d)",
+      "slug": "apprendista-m-w-d-ev-valais-sa-zermatt",
+      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/31cf30e3-1cfb-4cfd-8a3f-ae78e4a028a4",
+      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/31cf30e3-1cfb-4cfd-8a3f-ae78e4a028a4",
+      "company": "EV Valais SA",
+      "companyKey": "engel-voelkers",
+      "companyDomain": "engelvoelkers.com",
+      "location": "Zermatt",
+      "addressLocality": "Zermatt",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "canton": "VS",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Immobiliare",
+      "source": "engelvoelkers-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-06-23",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "engel-voelkers-f29e648fe71a",
+      "salaryMin": 57000,
+      "salaryMax": 87500,
+      "currency": "CHF",
+      "postalCode": "3920",
+      "firstSeenAt": "2026-06-23T11:25:18.539Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 23,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": []
 }
