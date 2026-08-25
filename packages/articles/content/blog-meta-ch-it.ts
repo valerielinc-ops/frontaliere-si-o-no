@@ -4267,6 +4267,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.pagamenti-offline-carte-2026.title': 'Pagamenti offline con carte: lancio agosto 2026',
     'blog.article.pagamenti-offline-carte-2026.excerpt': 'Pagamenti offline con carte dal 24 agosto 2026: terminale registra anche senza rete. Garantisce continuità negli acquisti essenziali durante interruzioni.',
     'blog.article.pagamenti-offline-carte-2026.imageAlt': 'Pagamenti con carta offline presso un terminale nel negozio durante interruzione della rete in Svizzera',
+    'blog.article.amnesty-neutralita-crimini-guerra.title': 'Amnesty contro iniziativa neutralità svizzera',
+    'blog.article.amnesty-neutralita-crimini-guerra.excerpt': 'Amnesty International Svizzera si oppone all\'iniziativa sulla neutralità: limiterebbe sanzioni economiche e diplomatiche. Votazione il 27 settembre 2026.',
+    'blog.article.amnesty-neutralita-crimini-guerra.imageAlt': 'Il Palazzo federale Bundeshaus di Berna con bandiera svizzera, sede del Consiglio nazionale e Ständerat',
 };
 
 export default blogMetaChIt;

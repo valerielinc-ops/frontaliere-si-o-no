@@ -4267,6 +4267,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.pagamenti-offline-carte-2026.title': 'Offline-Zahlungen mit Karten: Start August 2026',
     'blog.article.pagamenti-offline-carte-2026.excerpt': 'Offline-Zahlungen mit Karten ab 24. August 2026: Terminal erfasst auch netzunabhängig. Gewährleistet Kontinuität bei wesentlichen Einkäufen während Unterbrechungen.',
     'blog.article.pagamenti-offline-carte-2026.imageAlt': 'Offline-Kartenzahlung an einem Terminal in einem Schweizer Geschäft bei Netzunterbrechung',
+    'blog.article.amnesty-neutralita-crimini-guerra.title': 'Amnesty gegen Neutralitätsinitiative Schweiz',
+    'blog.article.amnesty-neutralita-crimini-guerra.excerpt': 'Amnesty International Schweiz lehnt die Neutralitätsinitiative ab: Sie würde wirtschaftliche und diplomatische Sanktionen einschränken. Abstimmung am 27. September 2026.',
+    'blog.article.amnesty-neutralita-crimini-guerra.imageAlt': 'Bundeshaus in Bern mit Schweizer Flagge, Sitz von Nationalrat und Ständerat',
 };
 
 export default blogMetaChDe;

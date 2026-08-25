@@ -4267,6 +4267,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.pagamenti-offline-carte-2026.title': 'Paiements hors ligne par cartes : lancement août 2026',
     'blog.article.pagamenti-offline-carte-2026.excerpt': 'Paiements hors ligne par cartes à partir du 24 août 2026 : terminal enregistre également sans réseau. Assure la continuité des achats essentiels pendant les interruptions.',
     'blog.article.pagamenti-offline-carte-2026.imageAlt': 'Paiement par carte sans connexion à un terminal dans un magasin suisse lors d\'une panne réseau',
+    'blog.article.amnesty-neutralita-crimini-guerra.title': 'Amnesty contre l\'initiative neutralité suisse',
+    'blog.article.amnesty-neutralita-crimini-guerra.excerpt': 'Amnesty International Suisse s\'oppose à l\'initiative sur la neutralité : elle limiterait les sanctions économiques et diplomatiques. Vote le 27 septembre 2026.',
+    'blog.article.amnesty-neutralita-crimini-guerra.imageAlt': 'Palais fédéral Bundeshaus à Berne avec drapeau suisse',
 };
 
 export default blogMetaChFr;
