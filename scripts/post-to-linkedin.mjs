@@ -26,7 +26,9 @@
 import {
   linkedinUrl,
   LINKEDIN_COMPANY_CAMPAIGN_ARTICLE,
+  LINKEDIN_REST_VERSION,
 } from './lib/linkedin-links.mjs';
+import { buildArticleContent } from './lib/linkedin-member-copy.mjs';
 
 const CATEGORY_HASHTAGS = {
   fiscale:  '#frontalieri #ticino #tasse #fisco #svizzera #italia',
@@ -159,11 +161,11 @@ async function main() {
         thirdPartyDistributionChannels: [],
       },
       content: {
-        article: {
+        article: buildArticleContent({
           source: taggedUrl,
           title: ogTitle,
-          ...(description && { description }),
-        },
+          description,
+        }),
       },
       lifecycleState: 'PUBLISHED',
       isReshareDisabledByAuthor: false,
@@ -174,7 +176,7 @@ async function main() {
       headers: {
         'Authorization': `Bearer ${accessToken}`,
         'Content-Type': 'application/json',
-        'LinkedIn-Version': '202608',
+        'LinkedIn-Version': LINKEDIN_REST_VERSION,
         'X-Restli-Protocol-Version': '2.0.0',
       },
       body: JSON.stringify(payload),
