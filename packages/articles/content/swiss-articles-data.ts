@@ -12781,6 +12781,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'amrize-cfo-lascia-sorpresa-borsa',
+    category: 'novita',
+    date: '2026-08-25T10:57:25.031Z',
+    image: '/images/blog/amrize-cfo-lascia-sorpresa-borsa.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
