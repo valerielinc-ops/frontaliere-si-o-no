@@ -149,6 +149,47 @@ describe('information-gain: utility di percorso', () => {
     expect(commonPathPrefix(['/lavoro-ticino-infermiere/', '/lavoro-ticino-muratore/'])).toBe('/lavoro-ticino-');
   });
 
+  it('due famiglie flat-slug DISTINTE che collidono sul prefisso di caratteri non finiscono con la stessa etichetta', () => {
+    // `commonPathPrefix` calcola l'etichetta di ogni coorte in isolamento, senza
+    // vedere le coorti sorelle: due template realmente diversi (skeletonHash
+    // diverso) possono ridursi allo stesso prefisso di caratteri se i loro slug
+    // condividono un tratto iniziale abbastanza lungo. La collisione non è
+    // cosmetica: `audit-information-gain.mjs` indicizza `KNOWN_LOW_GAIN_COHORTS`
+    // per etichetta, quindi due coorti con la stessa etichetta condividerebbero
+    // silenziosamente una baseline registrata per la famiglia sbagliata.
+    const professionPage = (job: string): string => `<!doctype html>
+<html lang="it"><head><title>Lavoro Ticino ${job}</title></head>
+<body>
+  <h1>Offerte di lavoro come ${job} in Ticino</h1>
+  <p>Cerchi lavoro come ${job} in Ticino? Consulta le offerte aperte oggi.</p>
+</body></html>`;
+    const comparisonPage = (thing: string): string => `<!doctype html>
+<html lang="it"><head><title>Confronto Ticino ${thing}</title></head>
+<body>
+  <h1>Confronto ${thing} tra i comuni del Ticino</h1>
+  <p>Ecco come cambia ${thing} da un comune all'altro del cantone.</p>
+</body></html>`;
+
+    const professionFingerprints = [
+      ['lavoro-ticino-infermiere/index.html', professionPage('infermiere')],
+      ['lavoro-ticino-muratore/index.html', professionPage('muratore')],
+    ].map(([path, html]) => fingerprintPage(path, html));
+    const comparisonFingerprints = [
+      ['lavoro-ticino-affitti/index.html', comparisonPage('gli affitti')],
+      ['lavoro-ticino-stipendi/index.html', comparisonPage('gli stipendi')],
+    ].map(([path, html]) => fingerprintPage(path, html));
+
+    const { cohorts } = scoreCohorts([...professionFingerprints, ...comparisonFingerprints], { minCohortPages: 2 });
+
+    expect(cohorts).toHaveLength(2);
+    const [labelA, labelB] = cohorts.map((c) => c.label);
+    expect(labelA).not.toBe(labelB);
+    // Entrambe restano riconoscibili come la famiglia flat-slug che erano:
+    // il disambiguatore è un suffisso, non una sostituzione dell'etichetta.
+    expect(labelA.startsWith('it:/lavoro-ticino-')).toBe(true);
+    expect(labelB.startsWith('it:/lavoro-ticino-')).toBe(true);
+  });
+
   it('riconosce il locale dal prefisso, con it come default non prefissato', () => {
     expect(localeOfPath('de/leben-im-tessin/x/index.html')).toBe('de');
     expect(localeOfPath('vivere-in-ticino/x/index.html')).toBe('it');
