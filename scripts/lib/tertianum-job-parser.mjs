@@ -38,7 +38,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, stripScriptsAndStyles } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
-import { readMetaContent } from './html-attr.mjs';
+import { readAllAttr, readAttr, readMetaContent, readTagByAttr } from './html-attr.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -148,17 +148,22 @@ export function parseTertianumDetailPage(html = '') {
 
   // Date posted — schema.org itemprop or `data-careersite-propertyid="latestHireDate"`
   let postedDate = '';
-  const dp = html.match(/itemprop=["']datePosted["'][^>]*content=["']([^"']+)["']/i);
+  const dpTag = readTagByAttr(html, 'itemprop', 'datePosted');
+  const dp = dpTag ? readAttr(dpTag, 'content') : '';
   if (dp) {
-    const d = new Date(dp[1]);
+    const d = new Date(dp);
     if (!Number.isNaN(d.getTime())) postedDate = d.toISOString().slice(0, 10);
   }
 
   // Apply URL — SF "Apply Now" widget points at /sfcareer/jobreqcareer or the
   // talentcommunity endpoint. Fall back to canonical URL.
-  const applyMatch = html.match(/href=["']([^"']*sfcareer\/jobreqcareer[^"']+)["']/i)
-    || html.match(/href=["']([^"']*talentcommunity\/apply[^"']+)["']/i);
-  const applyUrl = applyMatch ? applyMatch[1] : '';
+  // The substring constraint lives in JS, not in the attribute regex: baking it
+  // into `href=["']([^"']*sfcareer[^"']+)["']` is what let an apostrophe in the
+  // URL cut the match short (#6480).
+  const hrefs = readAllAttr(html, 'href');
+  const applyUrl = hrefs.find((h) => h.includes('sfcareer/jobreqcareer'))
+    || hrefs.find((h) => h.includes('talentcommunity/apply'))
+    || '';
 
   return { title, descriptionText, language, postedDate, applyUrl };
 }

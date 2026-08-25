@@ -40,7 +40,18 @@ import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
 const JOB_SLICE_DIR = 'data/jobs/by-crawler';
-const QUOTE_RX = /["'‘’“”]/;
+/**
+ * A quote at the cut point — as a raw character, or as an HTML entity that was
+ * never decoded.
+ *
+ * The entity half is not theoretical: scanning the 30'758 stored titles finds
+ * one that still carries `&#34;` (`Pflegepraktikant:in ... &#34;Häfelipraktikum&#34;`),
+ * so entities do survive into the dataset from parsers that skip `decodeEntities`.
+ * A truncation whose cut point landed on `&#39;` instead of `'` would otherwise
+ * be invisible to this detector.
+ */
+const QUOTE_AT_CUT_RX =
+  /^(?:["'‘’“”]|&(?:quot|apos|[lr]squo|[lr]dquo|#0*3[49]|#x0*2[27]);)/i;
 
 /**
  * The corrupted-title detector.
@@ -56,7 +67,7 @@ export function detectQuoteTruncatedTitle(raw = '') {
     const B = s.slice(i + 1);
     if (!B.length || B.length >= A.length) continue;
     if (A.slice(0, B.length) !== B) continue;
-    if (!QUOTE_RX.test(A[B.length])) continue;
+    if (!QUOTE_AT_CUT_RX.test(A.slice(B.length))) continue;
     return { clean: A, echo: B };
   }
   return null;

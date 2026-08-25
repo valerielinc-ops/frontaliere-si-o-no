@@ -22,7 +22,13 @@
  * here to survive untouched.
  */
 import { describe, it, expect } from 'vitest';
-import { readAttr, readMetaContent } from '../scripts/lib/html-attr.mjs';
+import {
+  readAllAttr,
+  readAttr,
+  readMetaContent,
+  readTagByAttr,
+} from '../scripts/lib/html-attr.mjs';
+import { extractJsonLd, scoreVacancyPage } from '../scripts/lib/prospector/extract.mjs';
 import {
   cleanAnchorText,
   extractLinks,
@@ -104,6 +110,61 @@ describe('joinAnchorParts', () => {
   });
 });
 
+describe('readTagByAttr / readAllAttr — the two-attribute shapes', () => {
+  it('finds an itemprop tag and reads its content past an apostrophe', () => {
+    const block = `<meta itemprop="title" content="Operatore dell'infanzia 80%"><span>x</span>`;
+    const tag = readTagByAttr(block, 'itemprop', 'title');
+    expect(readAttr(tag, 'content')).toBe("Operatore dell'infanzia 80%");
+  });
+
+  it('does not confuse itemprop=name with itemprop=nameOfSomething', () => {
+    const block = `<meta itemprop="nameExtra" content="wrong"><meta itemprop="name" content="right">`;
+    expect(readAttr(readTagByAttr(block, 'itemprop', 'name'), 'content')).toBe('right');
+  });
+
+  it('collects every href, apostrophes intact, so filtering happens in JS', () => {
+    const html = `<a href="/x/d'impiego/1">a</a><a href="/sfcareer/jobreqcareer?n=O'Brien">b</a>`;
+    const hrefs = readAllAttr(html, 'href');
+    expect(hrefs).toEqual(["/x/d'impiego/1", "/sfcareer/jobreqcareer?n=O'Brien"]);
+    expect(hrefs.find((h) => h.includes('sfcareer/jobreqcareer'))).toBe(
+      "/sfcareer/jobreqcareer?n=O'Brien",
+    );
+  });
+
+  it('an unterminated attribute cannot swallow the rest of the document', () => {
+    const html = `<a title="unterminated><span>next card title</span></a><a href="/b">b</a>`;
+    // Bounded by `[^<]`: the runaway value stops at the first `<`, so it can
+    // never reach into the following elements.
+    expect(readAttr(html, 'title')).not.toContain('next card title');
+  });
+});
+
+describe('extractMicrodata — same defect, same library (#6480 review)', () => {
+  const REAL = "Collaboratrice-ore dell'economia domestica a ore";
+
+  it('does not truncate a microdata title at an apostrophe', () => {
+    const html = `<div itemscope itemtype="http://schema.org/JobPosting">`
+      + `<meta itemprop="title" content="${REAL}">`
+      + `<a href="/vacancy/2762">apri</a></div>`;
+    const { vacancies } = scoreVacancyPage(html, 'https://www.eoc.ch/posizioni');
+    expect(vacancies.some((v) => v.title === REAL)).toBe(true);
+  });
+
+  it('keeps a microdata href containing an apostrophe', () => {
+    const html = `<div itemscope itemtype="http://schema.org/JobPosting">`
+      + `<meta itemprop="title" content="Posto">`
+      + `<a href="/offerte/d'impiego/12">apri</a></div>`;
+    const { vacancies } = scoreVacancyPage(html, 'https://example.ch/');
+    expect(vacancies.some((v) => v.url === "https://example.ch/offerte/d'impiego/12")).toBe(true);
+  });
+
+  it('extractJsonLd is unaffected (it parses JSON, never attributes)', () => {
+    const html = `<script type="application/ld+json">`
+      + `{"@type":"JobPosting","title":"${REAL}","url":"https://x.ch/1"}</script>`;
+    expect(extractJsonLd(html, 'https://x.ch/').some((v) => v.title === REAL)).toBe(true);
+  });
+});
+
 describe('detectQuoteTruncatedTitle — the discriminant #6480 was missing', () => {
   it('flags both titles that actually shipped corrupted', () => {
     expect(
@@ -131,6 +192,26 @@ describe('detectQuoteTruncatedTitle — the discriminant #6480 was missing', () 
 
   it('does not flag a repeated prefix with no quote at the cut point', () => {
     expect(detectQuoteTruncatedTitle('Project Manager Project')).toBeNull();
+  });
+
+  it('flags a cut point that is an undecoded HTML entity, not a raw quote', () => {
+    // Entities do survive into stored titles (one live title carries `&#34;`),
+    // so a truncation at `&#39;` must not be invisible.
+    expect(
+      detectQuoteTruncatedTitle('Collaboratrice-ore dell&#39;economia Collaboratrice-ore dell')
+        ?.clean,
+    ).toBe('Collaboratrice-ore dell&#39;economia');
+    expect(
+      detectQuoteTruncatedTitle('Jack&rsquo;s Brasserie Jack')?.clean,
+    ).toBe('Jack&rsquo;s Brasserie');
+  });
+
+  it('leaves the one real entity-bearing title alone (it is not truncated)', () => {
+    expect(
+      detectQuoteTruncatedTitle(
+        'Pflegepraktikant:in während Medizinstudium &#34;Häfelipraktikum&#34;',
+      ),
+    ).toBeNull();
   });
 
   it('returns null for a clean title', () => {
