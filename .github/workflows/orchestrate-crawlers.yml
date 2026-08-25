@@ -305,7 +305,15 @@ jobs:
           # order — crawler-group-01..23.yml sorts correctly since indices are
           # zero-padded). LC_ALL=C pins a byte-wise collation regardless of
           # runner locale for determinism.
-          mapfile -t workflows < <(find .github/workflows -name 'crawler-group-*.yml' -type f | LC_ALL=C sort)
+          # -not -name '*-logic.yml' excludes the 23 reusable-workflow files
+          # (crawler-group-NN-logic.yml) that the migration to nanako added
+          # alongside each disabled crawler-group-NN.yml — the glob
+          # 'crawler-group-*.yml' matches them too, but they declare only
+          # `on: workflow_call` (no workflow_dispatch), so any dispatch
+          # attempt on them always fails. Without this exclusion every run
+          # produced 23 guaranteed failures (one per group), well past
+          # DISPATCH_FAIL_TOLERANCE, failing the whole orchestrator job.
+          mapfile -t workflows < <(find .github/workflows -name 'crawler-group-*.yml' -not -name '*-logic.yml' -type f | LC_ALL=C sort)
           total=${#workflows[@]}
 
           if [ "$total" -eq 0 ]; then
