@@ -4252,6 +4252,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.successione-donazione-zurigo-guida.title': 'Zurich inheritance tax: rates and exemptions 2026',
     'blog.article.successione-donazione-zurigo-guida.excerpt': 'Inheritance and gift taxes in the Canton of Zurich: rates for degree of kinship, total exemptions for spouse and children, mandatory declaration and deadlines to be met.',
     'blog.article.successione-donazione-zurigo-guida.imageAlt': 'Zurich canton administrative office with inheritance tax forms and legal documentation.',
+    'blog.article.imposta-successione-zurigo-aliquote.title': 'Zurich Inheritance Tax: Rates and Deductions',
+    'blog.article.imposta-successione-zurigo-aliquote.excerpt': 'How inheritance taxation works in the Canton of Zurich: progressive system, exemptions for spouse and descendants, declaration and deadlines.',
+    'blog.article.imposta-successione-zurigo-aliquote.imageAlt': 'Swiss tax office desk with inheritance documents, calculator, and official forms',
 };
 
 export default blogMetaChEn;
