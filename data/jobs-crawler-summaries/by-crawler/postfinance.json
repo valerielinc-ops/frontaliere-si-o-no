@@ -1,16 +1,16 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-08-24T21:41:24.940Z",
+  "generatedAt": "2026-08-25T10:05:05.041Z",
   "total": 20,
   "newCount": 1,
   "updatedCount": 19,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 35811,
-  "avgDurationMs": 35811,
+  "durationMs": 36135,
+  "avgDurationMs": 36135,
   "durationHistory": [
-    35811
+    36135
   ],
   "newJobs": [
     {
@@ -77,7 +77,7 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "60-100%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
@@ -118,7 +118,7 @@
       "experienceLevel": "",
       "sector": "IT",
       "workload": "80-100%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
@@ -144,7 +144,7 @@
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
-      "slug": "senior-produktmanager-in-firmenkonto-postfinance",
+      "slug": "senior-product-manager-in-conto-aziendale-postfinance-bern",
       "sourceLang": "de",
       "department": [
         "Büro-Marketing und Kommunikation"
@@ -167,11 +167,11 @@
       "id": "postfinance-70dce380a6a6",
       "firstSeenAt": "2026-08-24T10:13:19.972Z",
       "crawledAt": "",
-      "_qualityScore": 72,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 18,
+        "translation": 23,
         "completeness": 9
       }
     },
@@ -184,7 +184,7 @@
       "location": "Zofingen",
       "canton": "AG",
       "country": "CH",
-      "slug": "kundenbetreuer-in-customer-center-postfinance",
+      "slug": "responsabile-clienti-nel-centro-clienti-postfinance-zofingen",
       "sourceLang": "de",
       "department": [
         "Verkauf und Kundenberatung"
@@ -207,11 +207,11 @@
       "id": "postfinance-8ebbe8fb16f1",
       "firstSeenAt": "2026-08-24T10:13:19.972Z",
       "crawledAt": "",
-      "_qualityScore": 68,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 9
       }
     },
@@ -359,7 +359,7 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "60-80%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
@@ -439,52 +439,12 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "80-100%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
       },
       "id": "postfinance-34a5ac0273bf",
-      "firstSeenAt": "2026-08-17T21:49:16.998Z",
-      "crawledAt": "",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Senior-Fachspezialistin-Prozessdesign-&-Digitalisierung/74462-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Fachspezialistin-Prozessdesign-&-Digitalisierung/74462-de_DE",
-      "title": "Senior Fachspezialist:in Prozessdesign & Digitalisierung",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "specialista-senior-nella-progettazione-e-digitalizzazione-dei-processi-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Büro-Projektmanagement"
-      ],
-      "category": [
-        "Büro-Projektmanagement"
-      ],
-      "datePosted": "17.08.26",
-      "validThrough": "17.09.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "80-100%",
-      "needsRetranslation": true,
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-c9ee5b6e1609",
       "firstSeenAt": "2026-08-17T21:49:16.998Z",
       "crawledAt": "",
       "_qualityScore": 79,
@@ -527,11 +487,11 @@
       "id": "postfinance-33a109abb910",
       "firstSeenAt": "2026-08-17T10:02:05.031Z",
       "crawledAt": "",
-      "_qualityScore": 77,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 23,
+        "translation": 25,
         "completeness": 9
       }
     },
@@ -544,7 +504,7 @@
       "location": "Niederurnen",
       "canton": "GL",
       "country": "CH",
-      "slug": "collaboratore-trice-kompetenz-center-kreditkarten-postfinance-niederurnen",
+      "slug": "mitarbeiter-in-kompetenz-center-kreditkarten-postfinance",
       "sourceLang": "de",
       "department": [
         "Büro-Administration"
@@ -559,7 +519,7 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "80-100%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "_targetScope": {
         "canton": "GL",
         "location": "Niederurnen"
@@ -607,11 +567,11 @@
       "id": "postfinance-424081800635",
       "firstSeenAt": "2026-08-14T10:18:27.800Z",
       "crawledAt": "",
-      "_qualityScore": 77,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 23,
+        "translation": 25,
         "completeness": 9
       }
     },
@@ -639,7 +599,7 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "60-100%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
@@ -719,7 +679,7 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "80-100%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
@@ -807,12 +767,58 @@
       "id": "postfinance-d5dbcaad5f86",
       "firstSeenAt": "2026-08-05T11:43:40.821Z",
       "crawledAt": "",
-      "_qualityScore": 69,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 12,
-        "translation": 23,
+        "translation": 25,
         "completeness": 9
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Senior-Fachspezialistin-Prozessdesign-&-Digitalisierung/74462-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Fachspezialistin-Prozessdesign-&-Digitalisierung/74462-de_DE",
+      "title": "Senior Fachspezialist:in Prozessdesign & Digitalisierung",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "specialista-senior-nella-progettazione-e-digitalizzazione-dei-processi-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Büro-Projektmanagement"
+      ],
+      "category": [
+        "Büro-Projektmanagement"
+      ],
+      "datePosted": "17.08.26",
+      "validThrough": "17.09.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "needsRetranslation": true,
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-c9ee5b6e1609",
+      "firstSeenAt": "2026-08-17T21:49:16.998Z",
+      "crawledAt": "",
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "currency": "CHF",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 14
       }
     }
   ],
