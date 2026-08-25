@@ -4249,6 +4249,21 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lacune-contributive-avs-zurigo.title': 'AHV und Ergänzungsleistungen: Ausgleichskasse',
     'blog.article.lacune-contributive-avs-zurigo.excerpt': 'Erste Säule im Kanton Zürich: Ausgleichskasse, AHV-Rentenberechnung, Beitragslücken und Ergänzungsleistungen für das Lebensminimum.',
     'blog.article.lacune-contributive-avs-zurigo.imageAlt': 'Verwaltungsbüro mit Rentendokumenten, Taschenrechner und Pensionierungsplanungsgrafik auf dem Schreibtisch. Schweizer Alpen sichtbar.',
+    'blog.article.successione-donazione-zurigo-guida.title': 'Erbschaftssteuer Zürich: Steuersätze und Befreiungen 2026',
+    'blog.article.successione-donazione-zurigo-guida.excerpt': 'Erbschafts- und Schenkungssteuern im Kanton Zürich: Sätze pro Verwandtschaftsgrad, Totalbefreiungen für Ehepartner und Kinder, Meldepflicht und einzuhaltende Fristen.',
+    'blog.article.successione-donazione-zurigo-guida.imageAlt': 'Verwaltungsbüro Kanton Zürich mit Erbschaftssteuererklärungsformularen und Rechtsdokumenten.',
+    'blog.article.imposta-successione-zurigo-aliquote.title': 'Erbschaftssteuer Zürich: Steuersätze und Abzüge',
+    'blog.article.imposta-successione-zurigo-aliquote.excerpt': 'Wie die Erbschaftsbesteuerung im Kanton Zürich funktioniert: progressives System, Befreiungen für Ehegatten und Nachkommen, Erklärung und Fristen.',
+    'blog.article.imposta-successione-zurigo-aliquote.imageAlt': 'Schreibtisch eines Schweizer Finanzamts mit Erbschaftsdokumenten und Steuererklärungen',
+    'blog.article.verdi-richiesta-clima-2026.title': 'Grüne fordern Staatssekretariat für Klima',
+    'blog.article.verdi-richiesta-clima-2026.excerpt': 'Die Schweizer Grünen fordern ein Staatssekretariat für Klimaschutz und den Ausstieg aus fossilen Energien. Rösti räumte ein: Die Schweiz werde die Klimaziele 2030 nicht erreichen.',
+    'blog.article.verdi-richiesta-clima-2026.imageAlt': 'Luganersee im Hochsommer: Auswirkungen des Klimawandels in der Schweiz.',
+    'blog.article.diesel-rincaro-geopolitica-svizzera.title': 'Dieselpreis in der Schweiz in die Höhe geschossen',
+    'blog.article.diesel-rincaro-geopolitica-svizzera.excerpt': 'Diesel kostet in der Schweiz über CHF 2,20/Liter, geschleppt aus beschädigten Raffinerien im Golf, der geschlossenen Straße von Hormus und russischen Reduktionen. Auswirkungen auf die Preise im Supermarkt und in der Landwirtschaft.',
+    'blog.article.diesel-rincaro-geopolitica-svizzera.imageAlt': 'Schweizer Autobahn mit Lastwagen, Symbol für den Transportsektor und die Auswirkungen der Dieselverteuerung',
+    'blog.article.amrize-cfo-lascia-sorpresa-borsa.title': 'Amrize: CFO verlässt überraschend die Börse',
+    'blog.article.amrize-cfo-lascia-sorpresa-borsa.excerpt': 'Baris Oran verlässt nach 5 Monaten den Finanzvorstand. Samuel Poletti neuer CFO. Titel Amrize sinkt an der Zürcher Börse um 2%, -20% seit Januar.',
+    'blog.article.amrize-cfo-lascia-sorpresa-borsa.imageAlt': 'Gebäude der Züricher Börse mit Amrize-Aktienchart als Reaktion auf den CFO-Wechsel.',
 };
 
 export default blogMetaChDe;

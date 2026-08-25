@@ -11,7 +11,7 @@
     "https://www.hitachienergy.com/careers/open-jobs?filterable587622750-location=Switzerland"
   ],
   "notes": "Dedicated Hitachi Energy crawler uses the AEM JSON listing API filtered to Switzerland, then filters for Ticino/GR locations. Descriptions enriched from detail pages.",
-  "updatedAt": "2026-08-24T21:35:15.859Z",
+  "updatedAt": "2026-08-25T09:46:56.167Z",
   "seedMetaByUrl": {
     "https://www.hitachienergy.com/careers/open-jobs/details/JID3-212319": {
       "location": "Lenzburg, Switzerland",
@@ -378,12 +378,6 @@
       "canton": "AG",
       "company": "Hitachi Energy",
       "postedDate": "2026-06-17"
-    },
-    "https://www.hitachienergy.com/careers/open-jobs/details/JID3-199551": {
-      "location": "Baden-Daettwil, Switzerland",
-      "canton": "AG",
-      "company": "Hitachi Energy",
-      "postedDate": "2026-06-12"
     },
     "https://www.hitachienergy.com/careers/open-jobs/details/JID3-199155": {
       "location": "Zurich, Switzerland",

@@ -14,6 +14,7 @@ import admin from 'firebase-admin';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { isTransactionalHardBlock } from './lib/emailSuppression.js';
 import { normalizeLocale } from './emailI18n.js';
+import { resolveSubscriberLocale } from './lib/subscriberLocale.js';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './emailCascade.js';
 import { bridgeEmailCascadeCredentialsToEnv, getNewsletterTokenPolicyConfig } from './remoteConfigSecrets.js';
 import {
@@ -160,7 +161,7 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
 
  // Always use the locale the caller sent (= the language the user is browsing in).
  // Only fall back to subscriber's stored locale if no locale was provided.
- const emailLocale = lang || normalizeLocale(data.preferred_locale || data.signup_locale || 'it');
+ const emailLocale = resolveSubscriberLocale(data, lang);
 
  // Read the token policy from Remote Config, exactly like the welcome email
  // reads the `ac` policy (#5726): NEWSLETTER_TOKEN_* is not in this runtime's

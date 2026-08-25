@@ -55127,6 +55127,201 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-successione-donazione-zurigo-guida': {
+    title: 'Imposta successione Zurigo: aliquote e esenzioni 2026',
+    description: 'Guida alle imposte di successione e donazione nel Canton Zurigo: aliquote per gradi di parentela, esenzioni per familiari diretti, dichiarazione e scadenze.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, successione, zurigo, aliquote',
+    ogTitle: 'Imposta successione Zurigo: aliquote e esenzioni 2026',
+    ogDescription: 'Successione e donazione nel Canton Zurigo: aliquote progressive per grado di parentela, esenzione totale per coniuge e figli, procedura di dichiarazione e termini. Guida pratica 2026.',
+    canonicalPath: '/articoli-svizzera/successione-donazione-zurigo-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta successione Zurigo: aliquote e esenzioni 2026",
+      "description": "Guida alle imposte di successione e donazione nel Canton Zurigo: aliquote per gradi di parentela, esenzioni per familiari diretti, dichiarazione e scadenze.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/successione-donazione-zurigo-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrativo del Canton Zurigo con moduli fiscali di successione e documenti normativi."
+      },
+      "datePublished": "2026-08-25T09:33:40+00:00",
+      "dateModified": "2026-08-25T09:33:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/successione-donazione-zurigo-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-imposta-successione-zurigo-aliquote': {
+    title: 'Imposta di successione Zurigo: aliquote e deduzioni',
+    description: 'Come funziona la tassazione di successione nel Canton Zurigo: sistema progressivo, esenzioni per coniuge e discendenti, dichiarazione e scadenze.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, successione, zurigo, aliquote',
+    ogTitle: 'Imposta di successione Zurigo: aliquote e deduzioni',
+    ogDescription: 'Come funziona la tassazione di successione nel Canton Zurigo: sistema progressivo, esenzioni per coniuge e discendenti, dichiarazione e scadenze.',
+    canonicalPath: '/articoli-svizzera/imposta-successione-zurigo-aliquote/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta di successione Zurigo: aliquote e deduzioni",
+      "description": "Come funziona la tassazione di successione nel Canton Zurigo: sistema progressivo, esenzioni per coniuge e discendenti, dichiarazione e scadenze.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-successione-zurigo-aliquote.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scrivania di un ufficio fiscale svizzero con documenti di successione, calcolatrice e moduli ufficiali"
+      },
+      "datePublished": "2026-08-25T10:18:42+00:00",
+      "dateModified": "2026-08-25T10:18:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-successione-zurigo-aliquote/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-verdi-richiesta-clima-2026': {
+    title: 'Verdi chiedono Segreteria Stato per clima | Frontaliere Ticino',
+    description: 'I Verdi svizzeri chiedono una Segreteria di Stato per la protezione del clima e l\'uscita dalle energie fossili. Rösti ha ammesso che la Svizzera non raggiungerà',
+    keywords: 'frontalieri, ticino, svizzera, italia, verdi, chiedono, segreteria, stato',
+    ogTitle: 'Verdi chiedono Segreteria Stato per clima',
+    ogDescription: 'Estate torrida e carenza d\'acqua spingono i Verdi a richiedere una Segreteria di Stato per il clima. Lisa Mazzone attacca il consigliere Rösti sui mancati obiettivi climatici. Richiesta sostenuta anche da verdi-liberali, centristi e socialisti.',
+    canonicalPath: '/articoli-svizzera/verdi-richiesta-clima-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Verdi chiedono Segreteria Stato per clima",
+      "description": "I Verdi svizzeri chiedono una Segreteria di Stato per la protezione del clima e l'uscita dalle energie fossili. Rösti ha ammesso che la Svizzera non raggiungerà",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/verdi-richiesta-clima-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano in estate torrida: impatti del cambiamento climatico sulla Svizzera."
+      },
+      "datePublished": "2026-08-25T10:33:39+00:00",
+      "dateModified": "2026-08-25T10:33:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/verdi-richiesta-clima-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-diesel-rincaro-geopolitica-svizzera': {
+    title: 'Vola il prezzo del diesel in Svizzera | Frontaliere Ticino',
+    description: 'Il diesel in Svizzera supera CHF 2,20/litro. Cause: raffinerie danneggiate nel Golfo, Stretto di Hormuz chiuso, Russia riduce esportazioni. Impatto sui prezzi',
+    keywords: 'frontalieri, ticino, svizzera, italia, vola, prezzo, diesel, costa',
+    ogTitle: 'Vola il prezzo del diesel in Svizzera',
+    ogDescription: 'Il diesel in Svizzera raggiunge CHF 2,20/litro: la colpa è della geopolitica. Raffinerie danneggiate nel Golfo, Stretto di Hormuz chiuso, Russia riduce esportazioni. Come impatta questo sulla tua spesa e sui prezzi dei beni?',
+    canonicalPath: '/articoli-svizzera/diesel-rincaro-geopolitica-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vola il prezzo del diesel in Svizzera",
+      "description": "Il diesel in Svizzera supera CHF 2,20/litro. Cause: raffinerie danneggiate nel Golfo, Stretto di Hormuz chiuso, Russia riduce esportazioni. Impatto sui prezzi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/diesel-rincaro-geopolitica-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Camion su autostrada svizzera al tramonto, simbolo dell'impatto del rincaro del diesel su trasporti e logistica"
+      },
+      "datePublished": "2026-08-25T10:48:50+00:00",
+      "dateModified": "2026-08-25T10:48:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/diesel-rincaro-geopolitica-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-amrize-cfo-lascia-sorpresa-borsa': {
+    title: 'Amrize: il CFO lascia a sorpresa, giù in borsa',
+    description: 'Baris Oran lascia Amrize dopo 5 mesi da CFO. Samuel Poletti nuovo responsabile finanze. Titolo perde il 2% a Zurigo, -20% da gennaio. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, amrize, lascia, sorpresa, borsa',
+    ogTitle: 'Amrize: il CFO lascia a sorpresa, giù in borsa',
+    ogDescription: 'Sorpresa ai vertici di Amrize: il CFO Baris Oran se ne va dopo appena 5 mesi. Samuel Poletti nominato nuovo responsabile finanze. La borsa di Zurigo reagisce: titolo perde il 2% in prima seduta, proseguendo un calo del 20% da gennaio. L\'azienda conta',
+    canonicalPath: '/articoli-svizzera/amrize-cfo-lascia-sorpresa-borsa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Amrize: il CFO lascia a sorpresa, giù in borsa",
+      "description": "Baris Oran lascia Amrize dopo 5 mesi da CFO. Samuel Poletti nuovo responsabile finanze. Titolo perde il 2% a Zurigo, -20% da gennaio. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/amrize-cfo-lascia-sorpresa-borsa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo della borsa di Zurigo con grafico del titolo Amrize, rappresentando la reazione del mercato al cambio di CFO."
+      },
+      "datePublished": "2026-08-25T10:57:25+00:00",
+      "dateModified": "2026-08-25T10:57:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/amrize-cfo-lascia-sorpresa-borsa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

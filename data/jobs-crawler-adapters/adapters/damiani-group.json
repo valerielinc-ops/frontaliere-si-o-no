@@ -11,8 +11,14 @@
     "https://careers.damianigroup.com/search/?locale=it_IT"
   ],
   "notes": "Dedicated Damiani Group crawler parses SuccessFactors search pages and keeps TI + GR jobs from the Damiani careers portal.",
-  "updatedAt": "2026-08-24T21:41:39.194Z",
+  "updatedAt": "2026-08-25T09:50:57.114Z",
   "seedMetaByUrl": {
+    "https://careers.damianigroup.com/job/Mendrisio-Customer-Service-Specialist-Arabic-or-Russian-Speaking/1344099155/": {
+      "location": "Mendrisio",
+      "canton": "TI",
+      "company": "Damiani Group",
+      "postedDate": "2026-08-25"
+    },
     "https://careers.damianigroup.com/job/Mendrisio-Ecommerce-Merchandising-Specialist/1353588155/": {
       "location": "Mendrisio",
       "canton": "TI",
@@ -48,12 +54,6 @@
       "canton": "TI",
       "company": "Damiani Group",
       "postedDate": "2026-07-30"
-    },
-    "https://careers.damianigroup.com/job/Mendrisio-Customer-Service-Specialist-Arabic-or-Russian-Speaking/1344099155/": {
-      "location": "Mendrisio",
-      "canton": "TI",
-      "company": "Damiani Group",
-      "postedDate": "2026-07-27"
     }
   }
 }

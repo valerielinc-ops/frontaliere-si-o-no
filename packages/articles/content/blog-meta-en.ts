@@ -10772,6 +10772,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-prata-camportaccio-lavorare-grigioni.title': 'Prata Camportaccio border: living and working',
     'blog.article.vivere-prata-camportaccio-lavorare-grigioni.excerpt': 'Moving to Prata Camportaccio to work in the Graubünden: G Permit, New Frontier Agreement, taxation, AVS/LPP and housing affordability',
     'blog.article.vivere-prata-camportaccio-lavorare-grigioni.imageAlt': 'Alpine mountain landscape at Switzerland-Italy border with traditional chalets and valleys',
+    'blog.article.vivere-incudine-lavorare-grigioni-frontaliere.title': 'Living in Anvil and working in Graubünden as a border worker',
+    'blog.article.vivere-incudine-lavorare-grigioni-frontaliere.excerpt': 'Connections, travel times, cost of living, recommended areas, advantages and disadvantages of the transfer.',
+    'blog.article.vivere-incudine-lavorare-grigioni-frontaliere.imageAlt': 'A frontaliere living in Incudine and working in Grigioni, Switzerland.',
+    'blog.article.vivere-paisco-loveno-lavorare-grigioni-frontaliere.title': 'Paisco Loveno-Grisioni: border guide, taxes, permits',
+    'blog.article.vivere-paisco-loveno-lavorare-grigioni-frontaliere.excerpt': 'Working in Grisons from Paisco Loveno: G Permit, withholding tax, €10,000 exemption, LAMal, tax credit and procedure from 2024.',
+    'blog.article.vivere-paisco-loveno-lavorare-grigioni-frontaliere.imageAlt': 'Mountain road towards Grisons at the Swiss-Italian border, Alpine village views',
 };
 
 export default blogMetaEn;

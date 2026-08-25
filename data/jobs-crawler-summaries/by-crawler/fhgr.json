@@ -1,18 +1,18 @@
 {
   "key": "fhgr",
   "label": "Fachhochschule Graubünden",
-  "generatedAt": "2026-08-24T21:45:41.329Z",
-  "total": 2,
+  "generatedAt": "2026-08-25T10:00:18.849Z",
+  "total": 1,
   "discovered": null,
-  "written": 2,
+  "written": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6788,
-  "avgDurationMs": 6788,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5222,
+  "avgDurationMs": 5222,
   "durationHistory": [
-    6788
+    5222
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:45:37.795Z",
+      "crawledAt": "2026-08-25T10:00:15.691Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -44,7 +44,6 @@
       "applyUrl": "https://jobs.fhgr.ch/Vacancies/749/Application/CheckLogin/1",
       "department": "Institut für Bauen im alpinen Raum (IBAR)",
       "contractDuration": "temporary",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-04-13T10:32:26.327Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -55,8 +54,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "fhgr-e0b13eea1efe",
       "slug": "assistenza-organizzativa-fachhochschule-graubunden-zurich",
@@ -98,5 +96,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

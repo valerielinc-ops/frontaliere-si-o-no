@@ -1,21 +1,63 @@
 {
   "key": "guess-europe",
   "label": "Guess Europe Sagl",
-  "generatedAt": "2026-08-24T21:43:29.954Z",
+  "generatedAt": "2026-08-25T09:52:49.499Z",
   "total": 14,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 13,
-  "durationMs": 4194,
-  "avgDurationMs": 4194,
+  "unchangedCount": 14,
+  "durationMs": 3620,
+  "avgDurationMs": 3620,
   "durationHistory": [
-    4194
+    3620
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "title": "Accessories Product Management Intern",
+      "slug": "accessories-product-management-intern-guess-europe-sagl-bioggio-ticino-switzerland",
+      "url": "https://apply.workable.com/guess-europe-sagl/j/D3715FD111/",
+      "applyUrl": "https://apply.workable.com/guess-europe-sagl/j/D3715FD111/apply/",
+      "company": "Guess Europe Sagl",
+      "companyKey": "guess-europe",
+      "companyDomain": "guess.eu",
+      "location": "Bioggio",
+      "addressLocality": "Bioggio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "employmentType": "temporary",
+      "contractType": "temporary",
+      "category": "other",
+      "sector": "Lusso & Moda",
+      "source": "guess-europe-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-08-24",
+      "validThrough": "",
+      "benefits": [
+        "An International, fresh and dynamic working environment",
+        "Physical & Mental Health programs, sustainable projects and workshop promoted by Guess Cares",
+        "Arts, sports and social events outside the office, thanks to our Guess Fun activities!",
+        "Training & Development platform and paths",
+        "Discount on our products both online and in stores"
+      ],
+      "id": "guess-europe-0198885135e1",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-24T21:43:29.951Z",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
     {
       "title": "Designer Outlet",
       "slug": "outlet-di-design-guess-europe-sagl-bioggio",
@@ -447,7 +489,6 @@
       "salaryMax": 103000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-03T12:38:55.276Z",
-      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,

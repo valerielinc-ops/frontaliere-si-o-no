@@ -1,7 +1,7 @@
 {
   "key": "de",
   "label": "MPI AGE",
-  "generatedAt": "2026-08-24T21:43:52.331Z",
+  "generatedAt": "2026-08-25T10:19:07.913Z",
   "total": 2,
   "discovered": null,
   "written": 2,
@@ -9,10 +9,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4423,
-  "avgDurationMs": 4423,
+  "durationMs": 4746,
+  "avgDurationMs": 4746,
   "durationHistory": [
-    4423
+    4746
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://mpi-age.de.umantis.com/Vacancies/504/Description/1",
       "source": "MPI AGE Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:43:49.185Z",
+      "crawledAt": "2026-08-25T10:19:04.643Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -43,11 +43,11 @@
       "applyUrl": "https://mpi-age.de.umantis.com/Vacancies/504/Description/1",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T10:28:17.192Z",
-      "_qualityScore": 49,
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 10,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -63,7 +63,7 @@
       "url": "https://mpi-age.de.umantis.com/Vacancies/505/Description/1",
       "source": "MPI AGE Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:43:49.501Z",
+      "crawledAt": "2026-08-25T10:19:04.965Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -78,11 +78,11 @@
       "applyUrl": "https://mpi-age.de.umantis.com/Vacancies/505/Description/1",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T10:28:17.522Z",
-      "_qualityScore": 52,
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 13,
+        "translation": 15,
         "completeness": 14
       }
     }

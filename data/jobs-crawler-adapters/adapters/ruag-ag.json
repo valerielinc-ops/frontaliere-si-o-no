@@ -42,9 +42,6 @@
     "https://jobs.ruag.ch/offene-stellen/werkpilotin-helikopter/de249484-dfbe-4492-8443-de5f373d6322",
     "https://jobs.ruag.ch/offene-stellen/netzwerk-architektin-mit-devsecops-flair/af7f31ee-2182-4328-ab14-63933b5ed641",
     "https://jobs.ruag.ch/offene-stellen/logistikerin/74b70f82-db11-44b3-b309-2faa86cd668c",
-    "https://jobs.ruag.ch/offene-stellen/administration-officer-liquidation-diposal/5c1c6685-96c5-4506-901e-2cd0d4ad02a3",
-    "https://jobs.ruag.ch/offene-stellen/ict-business-analyst-senior/9df05669-a412-44ec-ae20-048dbc5030b0",
-    "https://jobs.ruag.ch/offene-stellen/ict-business-analyst-professional/cfdb58d3-f24f-4942-b4aa-e0570fbdd251",
     "https://jobs.ruag.ch/offene-stellen/senior-network-engineer/7300565d-900a-402d-b0d0-9b76ede89d48",
     "https://jobs.ruag.ch/offene-stellen/logistiker-in-efz/a67c362a-8012-4184-9217-20a78fe47c86",
     "https://jobs.ruag.ch/offene-stellen/senior-business-development-strategy-manager-air/68447b2a-32dc-4bfc-a57e-a673f7ad4b39",
@@ -69,12 +66,12 @@
     "https://jobs.ruag.ch/offene-stellen/head-of-ils-service-unit-ground-thun/78db1b8f-533e-4b2d-84c1-a8aaf7366c66",
     "https://jobs.ruag.ch/offene-stellen/technician-avionics/df130dc2-08b6-425d-8f27-85f1ed988397",
     "https://jobs.ruag.ch/offene-stellen/head-of-investigation/550fce55-0d27-41b0-b587-25feff9c2118",
-    "https://jobs.ruag.ch/offene-stellen/system-manager/8442d791-1a59-47c8-99e3-35b525583cba",
     "https://jobs.ruag.ch/offene-stellen/flugzeugspenglerin-technician-sheet-metal-f-a-18/2e912bf8-73e1-4f79-b93a-abd11401a6f6",
-    "https://jobs.ruag.ch/offene-stellen/administrative-coordinator-c5i/09662a9a-c72e-40f3-a213-ac43ab30a4e9"
+    "https://jobs.ruag.ch/offene-stellen/group-business-development-manager/8e685f65-12fe-4df2-9a48-ab02c46f48a1",
+    "https://jobs.ruag.ch/offene-stellen/ict-business-analyst-senior/0eee0b4e-edc6-472b-ba64-a8135f08936c"
   ],
   "notes": "Dedicated RUAG crawler uses official jobs.ruag.ch detail pages and recursive discovery from internal similar-job links because the public listing often returns 400.",
-  "updatedAt": "2026-08-24T22:05:06.910Z",
+  "updatedAt": "2026-08-25T10:09:57.990Z",
   "seedMetaByUrl": {
     "https://jobs.ruag.ch/offene-stellen/betriebselektrikerin/190b7508-d7e8-403d-b49f-7c2f57a59965": {
       "location": "Altdorf",
@@ -268,24 +265,6 @@
       "company": "RUAG AG",
       "postedDate": "2026-07-23"
     },
-    "https://jobs.ruag.ch/offene-stellen/administration-officer-liquidation-diposal/5c1c6685-96c5-4506-901e-2cd0d4ad02a3": {
-      "location": "Thun",
-      "canton": "BE",
-      "company": "RUAG AG",
-      "postedDate": "2026-07-23"
-    },
-    "https://jobs.ruag.ch/offene-stellen/ict-business-analyst-senior/9df05669-a412-44ec-ae20-048dbc5030b0": {
-      "location": "Bern",
-      "canton": "BE",
-      "company": "RUAG AG",
-      "postedDate": "2026-07-23"
-    },
-    "https://jobs.ruag.ch/offene-stellen/ict-business-analyst-professional/cfdb58d3-f24f-4942-b4aa-e0570fbdd251": {
-      "location": "Bern",
-      "canton": "BE",
-      "company": "RUAG AG",
-      "postedDate": "2026-07-23"
-    },
     "https://jobs.ruag.ch/offene-stellen/senior-network-engineer/7300565d-900a-402d-b0d0-9b76ede89d48": {
       "location": "Bern,Wangen",
       "canton": "BE",
@@ -430,23 +409,23 @@
       "company": "RUAG AG",
       "postedDate": "2026-08-24"
     },
-    "https://jobs.ruag.ch/offene-stellen/system-manager/8442d791-1a59-47c8-99e3-35b525583cba": {
-      "location": "Bern",
-      "canton": "BE",
-      "company": "RUAG AG",
-      "postedDate": "2026-08-24"
-    },
     "https://jobs.ruag.ch/offene-stellen/flugzeugspenglerin-technician-sheet-metal-f-a-18/2e912bf8-73e1-4f79-b93a-abd11401a6f6": {
       "location": "Emmen",
       "canton": "LU",
       "company": "RUAG AG",
       "postedDate": "2026-08-24"
     },
-    "https://jobs.ruag.ch/offene-stellen/administrative-coordinator-c5i/09662a9a-c72e-40f3-a213-ac43ab30a4e9": {
-      "location": "Thun",
+    "https://jobs.ruag.ch/offene-stellen/group-business-development-manager/8e685f65-12fe-4df2-9a48-ab02c46f48a1": {
+      "location": "Emmen",
+      "canton": "LU",
+      "company": "RUAG AG",
+      "postedDate": "2026-08-25"
+    },
+    "https://jobs.ruag.ch/offene-stellen/ict-business-analyst-senior/0eee0b4e-edc6-472b-ba64-a8135f08936c": {
+      "location": "Bern",
       "canton": "BE",
       "company": "RUAG AG",
-      "postedDate": "2026-08-24"
+      "postedDate": "2026-08-25"
     }
   }
 }

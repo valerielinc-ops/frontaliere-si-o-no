@@ -4249,6 +4249,21 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lacune-contributive-avs-zurigo.title': 'AVS and complementary services: compensation fund',
     'blog.article.lacune-contributive-avs-zurigo.excerpt': 'First pillar in the Canton of Zurich: compensation fund, calculation of AVS annuity, contribution gaps and supplementary benefits for the minimum living wage.',
     'blog.article.lacune-contributive-avs-zurigo.imageAlt': 'Administrative office with pension documents, calculator, and retirement planning chart. Swiss Alps visible through window.',
+    'blog.article.successione-donazione-zurigo-guida.title': 'Zurich inheritance tax: rates and exemptions 2026',
+    'blog.article.successione-donazione-zurigo-guida.excerpt': 'Inheritance and gift taxes in the Canton of Zurich: rates for degree of kinship, total exemptions for spouse and children, mandatory declaration and deadlines to be met.',
+    'blog.article.successione-donazione-zurigo-guida.imageAlt': 'Zurich canton administrative office with inheritance tax forms and legal documentation.',
+    'blog.article.imposta-successione-zurigo-aliquote.title': 'Zurich Inheritance Tax: Rates and Deductions',
+    'blog.article.imposta-successione-zurigo-aliquote.excerpt': 'How inheritance taxation works in the Canton of Zurich: progressive system, exemptions for spouse and descendants, declaration and deadlines.',
+    'blog.article.imposta-successione-zurigo-aliquote.imageAlt': 'Swiss tax office desk with inheritance documents, calculator, and official forms',
+    'blog.article.verdi-richiesta-clima-2026.title': 'Greens call for Secretary of State for climate',
+    'blog.article.verdi-richiesta-clima-2026.excerpt': 'The Swiss Greens are calling for a Secretariat of State for Climate Protection and Exit from Fossil Energies. Rösti admitted: Switzerland will not meet the 2030 climate goals.',
+    'blog.article.verdi-richiesta-clima-2026.imageAlt': 'Lake Lugano in scorching summer: climate change impacts in Switzerland.',
+    'blog.article.diesel-rincaro-geopolitica-svizzera.title': 'Fly the price of diesel in Switzerland',
+    'blog.article.diesel-rincaro-geopolitica-svizzera.excerpt': 'Diesel costs over CHF 2.20/litre in Switzerland, towed by damaged refineries in the Gulf, the closed Strait of Hormuz and Russian reductions. Effects on supermarket and agricultural prices.',
+    'blog.article.diesel-rincaro-geopolitica-svizzera.imageAlt': 'Swiss highway with truck at sunset, representing the logistics sector impacted by diesel price increases',
+    'blog.article.amrize-cfo-lascia-sorpresa-borsa.title': 'Amrize: the CFO leaves a surprise, down in the bag',
+    'blog.article.amrize-cfo-lascia-sorpresa-borsa.excerpt': 'Baris Oran leaves after 5 months as finance manager. Samuel Poletti new CFO. Amrize shares fell 2% on the Zurich Stock Exchange, -20% since January.',
+    'blog.article.amrize-cfo-lascia-sorpresa-borsa.imageAlt': 'Zurich stock exchange building with Amrize stock market performance chart, representing market reaction to CFO transition.',
 };
 
 export default blogMetaChEn;

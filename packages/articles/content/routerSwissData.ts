@@ -1442,6 +1442,11 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'apprendistato-formazione-appenzello-interno': { it: 'apprendistato-formazione-appenzello-interno', en: 'apprenticeship-vocational-training-appenzell-innerrhoden', de: 'lehre-berufsbildung-appenzell-innerrhoden', fr: 'apprentissage-formation-professionnelle-appenzell-rhodes-interieures' },
  'single-paga-di-piu-svizzera': { it: 'single-paga-di-piu-svizzera', en: 'single-pays-more-switzerland', de: 'single-zahlt-mehr-schweiz', fr: 'single-paye-plus-suisse' },
  'lacune-contributive-avs-zurigo': { it: 'lacune-contributive-avs-zurigo', en: 'contribution-gaps-avs-zurich', de: 'beitragslucken-avs-zurich', fr: 'lacunes-cotisations-avs-zurich' },
+ 'successione-donazione-zurigo-guida': { it: 'successione-donazione-zurigo-guida', en: 'succession-donation-zurich-guide', de: 'erbschaft-schenkung-zuerich-leitfaden', fr: 'succession-donation-zurich-guide' },
+ 'imposta-successione-zurigo-aliquote': { it: 'imposta-successione-zurigo-aliquote', en: 'inheritance-tax-zurich-rates', de: 'erbschaftssteuer-zuerich-saetze', fr: 'impot-succession-zurich-taux' },
+ 'verdi-richiesta-clima-2026': { it: 'verdi-richiesta-clima-2026', en: 'greens-demand-state-secretariat-climate', de: 'gruene-fordern-staatssekretariat-klimaschutz', fr: 'verts-demandent-secretariat-etat-climat' },
+ 'diesel-rincaro-geopolitica-svizzera': { it: 'diesel-rincaro-geopolitica-svizzera', en: 'diesel-price-increase-geopolitics-switzerland', de: 'diesel-teuerung-geopolitik-schweiz', fr: 'diesel-hausse-geopolitique-suisse' },
+ 'amrize-cfo-lascia-sorpresa-borsa': { it: 'amrize-cfo-lascia-sorpresa-borsa', en: 'amrize-cfo-leaves-surprise-zurich', de: 'amrize-cfo-verlasst-ueberraschung-zuerich', fr: 'amrize-cfo-quitte-surprise-bourse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

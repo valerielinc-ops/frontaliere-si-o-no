@@ -1,21 +1,23 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-08-24T21:30:15.884Z",
-  "total": 7,
+  "generatedAt": "2026-08-25T09:43:07.904Z",
+  "total": 9,
   "discovered": null,
-  "written": 7,
+  "written": 9,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 35345,
-  "avgDurationMs": 35345,
+  "unchangedCount": 1,
+  "durationMs": 36559,
+  "avgDurationMs": 36559,
   "durationHistory": [
-    35345
+    36559
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "spital-zollikerberg-7064705447f1",
       "slug": "gastronomia-neumunster-park-diet-chef-diet-chef-menu-management-gastronomia-spital-zollikerberg-zollikerberg",
@@ -47,7 +49,7 @@
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
       "salaryMin": 73000,
       "salaryMax": 91500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -56,7 +58,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

@@ -80,30 +80,31 @@ Crescono insieme o non crescono: contenuto scadente = traffico che non torna.
   `loop-sync-manifest.json` nel corpus): la fix nasce sul sito e la discesa al
   corpus è parte dello stesso task, non un follow-up opzionale. 8 issue
   «gemello non portato» aperte sono debito del ciclo, non backlog nuovo.
-- **D9 — Gate SEO "nice-to-have" migliorati: rebaseline in autonomia; bloccare
-  publish per un warning non richiesto da Google non ha senso.** Owner
-  instruction 2026-08-25 (registro sotto, issue #5983): un gate di content
-  quality che (a) misura un'euristica opportunistica non richiesta da Google
-  come requisito di indicizzazione/ranking (es. text-to-html ratio, profondità
-  BFS — non uno structured-data field mandatory, non un errore di markup, non
-  un 404/redirect rotto), e (b) è MIGLIORATO rispetto alla baseline committata
-  (`current < baseline`, mai il contrario) → il rebaseline si applica in
-  autonomia via il comando `npm run audit:*:rebaseline` che l'issue del gate
-  stesso dichiara, citando questo driver nel commento di chiusura. Non è
-  un'eccezione a D2 («mai alzare/abbassare soglie per far passare»): D2 vieta
-  di allentare una soglia per FAR PASSARE un rosso, questo è l'opposto —
-  STRINGERE una soglia perché il dato reale è migliorato, un caso che D1
-  (reversibile+misurato+osservato) già copre da solo. Il carve-out serve solo
-  a rimuovere l'obbligo di attesa umana caso-per-caso che AGENTS.md #1
-  imponeva su OGNI baseline widening senza distinguere gate "hard" (errori
-  reali, richiesti da Google) da gate "nice-to-have" (euristiche interne).
-  Restano a tolleranza zero e MAI autonomi: qualunque gate che verifica dati/
-  markup effettivamente richiesti da Google (structured data mandatory,
+- **D9 — Gate SEO "nice-to-have": NON si stringe la baseline quando il dato
+  migliora; il gate diventa advisory, non blocking.** Owner instruction
+  2026-08-25 (registro sotto, issue #5983), **corretta lo stesso giorno**: la
+  prima lettura di questa istruzione era al contrario — leggeva "rendiamo le
+  baseline più ampie" come «stringi il ratchet quando l'offender count cala»,
+  e ha fatto quasi partire un rebaseline che tighteniva `text-html-ratio`
+  6912→2562 e `max-bfs-depth` 26398→11108. Il proprietario ha fermato
+  l'esecuzione: "più ampie" significa **larghe/permissive**, l'opposto di
+  stringere. Un gate di content quality che misura un'euristica opportunistica
+  non richiesta da Google come requisito di indicizzazione/ranking (es.
+  text-to-html ratio, profondità BFS — non uno structured-data field
+  mandatory, non un errore di markup, non un 404/redirect rotto) **non va
+  ottimizzato/ristretto ogni volta che il dato migliora** — quel ratchet è
+  esattamente il meccanismo che rende il gate via via più severo su una metrica
+  che a Google non interessa. La direzione giusta non è "quando migliora,
+  stringi in autonomia": è **rendere il gate stesso advisory** (report, non
+  `publish`-blocking) — lavoro scorporato in issue #6462, che è la vera resa di
+  questo driver. Nel frattempo, un'issue "possible rebaseline opportunity" su
+  un gate nice-to-have si chiude **senza toccare il file di baseline** (resta
+  quello attuale, anche se largo), citando questo driver — mai `npm run
+  audit:*:rebaseline` in autonomia solo perché il dato è migliorato. Restano a
+  tolleranza zero e MAI autonomi: qualunque gate che verifica dati/markup
+  effettivamente richiesti da Google (structured data mandatory,
   canonical/hreflang, status code), e qualunque REGRESSIONE (`current >
-  baseline`) — quella resta sempre root-cause-first (D2). La riclassificazione
-  gate-per-gate (quali sono "hard" vs "nice-to-have" oggi) è lavoro separato,
-  tracciato per non restare solo una riga qui — vedi l'issue aperta il
-  2026-08-25 che la scorpora.
+  baseline`) — quella resta sempre root-cause-first (D2, invariato).
 
 ## Sempre umano — RIMOSSA (2026-08-24)
 
@@ -164,7 +165,7 @@ Cosa resta invariato, perché non è mai stato parte di questa sezione:
 | 2026-08-24 | #5926 (CMP unificata ads+comunicazioni): **SÌ**, con vincolo esplicito: l'implementazione deve preservare la compatibilità della frase di consenso col parser publisher-blast (vedi issue → rischio di azzerare l'audience) e mantenere la prova di consenso per la CMP. Requisito tecnico, non approvazione preventiva | istruzione diretta, sessione 24-08 |
 | 2026-08-24 | #5928 (regole Firestore fase 3, consenso dietro callable con prova di possesso): **SÌ, e i futuri deploy di regole/indici Firebase su produzione sono autonomi da ora** — non solo per questa issue | istruzione diretta, sessione 24-08 |
 | 2026-08-24 | #5995 (repo weight): leve **1** (batch commit bot), **3** (cache derivate fuori git), **4** (file append-only partizionati per shard) autorizzate. Leve **2** (snapshot fuori git) e **5** (immagini→CDN, tentativo precedente ritirato) restano BACKLOG, non autorizzate: non aprire lavoro su quelle finché non arriva una decisione dedicata | istruzione diretta, sessione 24-08 |
-| 2026-08-25 | #5983 (rebaseline text-html-ratio + max-bfs-depth, entrambi migliorati): **SÌ, procedi** — e la stessa logica si applica ad OGNI futuro gate SEO "nice-to-have" migliorato, non solo a questo. Bloccare publish/validate per un warning che Google non richiede non ha senso: il meccanismo va reso più flessibile (advisory, non blocking) quando non si tratta di un errore reale — vedi driver **D9** | istruzione diretta, sessione 25-08, issue #6458 |
+| 2026-08-25 | #5983 (text-html-ratio + max-bfs-depth, entrambi migliorati): **NO, non stringere la baseline** — i due file restano com'erano (6912/26398). Lettura iniziale errata ("migliorato → rebaseline in autonomia"), corretta lo stesso giorno: "rendiamo le baseline più ampie" significava lasciarle larghe/permissive, non ottimizzarle verso il basso. La stessa logica vale per OGNI futuro gate SEO "nice-to-have": bloccare publish/validate per un warning che Google non richiede non ha senso, quindi il gate diventa advisory (issue #6462) — non si stringe la soglia — vedi driver **D9** | istruzione diretta, sessione 25-08, issue #6458 (corretta stessa sessione) |
 | 2026-08-25 | #5921 (PostHog fermo dal 23-07 per quota, monitor Source Liveness riapre a vuoto ogni giorno): **non si paga più quota subito** — si crea invece un fallback: o si duplica il tracking PostHog su GA4 (fallback quando PostHog satura), o si spostano direttamente i monitor a leggere da GA4, che è già la fonte affidabile. Lavoro scorporato in issue dedicata (vedi sotto), #5921 non resta needs-human in attesa | istruzione diretta, sessione 25-08, issue #6458 |
 
 Prima di parcheggiare per «decisione del proprietario», cerca nei commenti:

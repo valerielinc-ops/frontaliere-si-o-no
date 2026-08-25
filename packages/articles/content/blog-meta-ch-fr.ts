@@ -4249,6 +4249,21 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lacune-contributive-avs-zurigo.title': 'AVS et prestations complémentaires : caisse de compensation',
     'blog.article.lacune-contributive-avs-zurigo.excerpt': 'Premier pilier dans le canton de Zurich : caisse de compensation, calcul rente AVS, lacunes contributives et prestations complémentaires pour le minimum vital.',
     'blog.article.lacune-contributive-avs-zurigo.imageAlt': 'Bureau administratif avec documents de retraite, calculatrice et tableau de planification de la retraite. Les Alpes suisses visibles par la fenêtre.',
+    'blog.article.successione-donazione-zurigo-guida.title': 'Impôt succession Zurich : taux et exonérations 2026',
+    'blog.article.successione-donazione-zurigo-guida.excerpt': 'Droits de succession et de donation dans le canton de Zurich : taux par degré de parenté, exonérations totales pour conjoint et enfants, déclaration obligatoire et délais à respecter.',
+    'blog.article.successione-donazione-zurigo-guida.imageAlt': 'Bureau administratif du canton de Zurich avec formulaires d\'impôt sur les successions.',
+    'blog.article.imposta-successione-zurigo-aliquote.title': 'Impôt sur les successions Zurich : taux et déductions',
+    'blog.article.imposta-successione-zurigo-aliquote.excerpt': 'Comment fonctionne la fiscalité successorale dans le canton de Zurich : système progressif, exonérations pour conjoint et descendants, déclaration et délais.',
+    'blog.article.imposta-successione-zurigo-aliquote.imageAlt': 'Bureau de l\'administration fiscale suisse avec documents de succession et formulaires',
+    'blog.article.verdi-richiesta-clima-2026.title': 'Les Verts demandent le Secrétariat d\'État pour le climat',
+    'blog.article.verdi-richiesta-clima-2026.excerpt': 'Les Verts suisses réclament un Secrétariat d\'Etat à la protection du climat et à la sortie des énergies fossiles. Rösti a admis : la Suisse n\'atteindra pas les objectifs climatiques 2030.',
+    'blog.article.verdi-richiesta-clima-2026.imageAlt': 'Lac de Lugano en été brûlant: impacts du changement climatique en Suisse.',
+    'blog.article.diesel-rincaro-geopolitica-svizzera.title': 'Voler le prix du diesel en Suisse',
+    'blog.article.diesel-rincaro-geopolitica-svizzera.excerpt': 'Le diesel coûte plus de CHF 2,20/litre en Suisse, tiré par des raffineries endommagées dans le golfe, le détroit d\'Ormuz fermé et des réductions russes. Effets sur les prix au supermarché et dans l\'agriculture.',
+    'blog.article.diesel-rincaro-geopolitica-svizzera.imageAlt': 'Autoroute suisse avec camion au coucher du soleil, représentant le secteur des transports affecté par la hausse du diesel',
+    'blog.article.amrize-cfo-lascia-sorpresa-borsa.title': 'Amrize : le directeur financier laisse la surprise, en baisse en bourse',
+    'blog.article.amrize-cfo-lascia-sorpresa-borsa.excerpt': 'Baris Oran quitte après 5 mois de responsable des finances. Samuel Poletti nouveau CFO. Le titre Amrize chute de 2% à la Bourse de Zurich, -20% depuis janvier.',
+    'blog.article.amrize-cfo-lascia-sorpresa-borsa.imageAlt': 'Immeuble de la bourse de Zurich avec graphique du titre Amrize, représentant la réaction du marché au changement de direction.',
 };
 
 export default blogMetaChFr;

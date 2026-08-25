@@ -1,4 +1,5 @@
 import { parseEmailField } from './parseEmailField.mjs';
+import { resolveSubscriberLocale } from '../../functions/src/lib/subscriberLocale.js';
 import { deriveNameFromEmail, recognizeFirstName } from './deriveNameFromEmail.mjs';
 import { sanitizeFirstName } from '../../services/newsletter-template.mjs';
 import { calculateEngagementScore } from '../../functions/src/lib/engagementScore.js';
@@ -61,7 +62,8 @@ export function subscriberFromFirestoreRow(row) {
     // When the doc has no stored firstName yet but we resolved one, persist it
     // on the next send so future runs skip re-derivation (see persistDelivery).
     firstNameToPersist: !row.firstName && firstName ? firstName : null,
-    locale: (row.preferred_locale || row.locale || 'it').split(/[-_]/)[0] || 'it',
+    // Catena condivisa: qui saltava `signup_locale` (follow-up #6273).
+    locale: resolveSubscriberLocale(row),
     sourceChannel: row.source_channel || row.source || 'newsletter_page',
     locationInterest: row.location_interest || null,
     sectorInterest: row.sector_interest || null,
