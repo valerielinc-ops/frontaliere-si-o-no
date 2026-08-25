@@ -267,6 +267,13 @@ describe('apertura e chiusura delle issue di fallimento sono accoppiate (#5437)'
       // reconciler orario centrale invece di uno step gemello: il gate riparte
       // da solo a ogni cron e il primo verde chiude la issue.
       'corpus-wide-gates.yml': 'close-recovered-failure-issues',
+      // quinta adozione: l'audit giornaliero dei crawler duplicati. Apre una
+      // issue SOLO su errore operativo dell'audit (directory assente, script
+      // rotto) — un FINDING esce 0 e diventa backlog, non un run rosso. Titolo
+      // canonico `Workflow Failure: <name:>`, quindi lo chiude il reconciler
+      // centrale al primo verde: il workflow gira a cron ogni giorno, perciò il
+      // verde successivo arriva da solo entro 24h senza intervento.
+      'audit-duplicate-crawlers.yml': 'close-recovered-failure-issues',
     };
     expect(adopted.map((r) => r.file).sort()).toEqual(Object.keys(EXPECTED).sort());
     for (const r of adopted) expect(r.closedBy).toBe(EXPECTED[r.file]);

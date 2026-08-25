@@ -33,6 +33,11 @@ on:
 permissions:
   contents: read
   issues: write
+  # jobs API: il reporter diagnostico (.github/actions/report-failure) la
+  # interroga per sapere QUALE step e' fallito. Un blocco permissions esplicito
+  # AZZERA gli scope non elencati: senza questa riga la chiamata risponde 403 e
+  # il body degrada in silenzio.
+  actions: read
 
 concurrency:
   group: audit-duplicate-crawlers
@@ -88,16 +93,18 @@ jobs:
 
       # Only an operational failure reaches here — a finding exits 0 by design,
       # because a finding is a backlog item and not a broken workflow.
+      #
+      # Il titolo DEVE restare `Workflow Failure: <name:>`: e' il pattern che
+      # scripts/ci/close-recovered-failure-issues.mjs riconosce, e quel cron
+      # chiude la issue al primo run verde successivo facendo
+      # `gh run list -w <nome>`. Un titolo custom qui resterebbe aperto per
+      # sempre col dedup sui primi 60 char — la classe di guasto di #5432/#5470.
       - name: Report failure to GitHub Issues
         if: failure()
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_REPO: ${{ github.repository }}
-        run: |
-          node scripts/lib/github-issue-creator.mjs \
-            --title "Audit duplicate crawlers: run fallita" \
-            --description "Il workflow audit-duplicate-crawlers è fallito (non un finding: un errore operativo). Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
-            --priority 3 \
-            --label "crawler" \
-            --workflow "audit-duplicate-crawlers"
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'Workflow Failure: ${{ github.workflow }}'
+          closed-by: close-recovered-failure-issues
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          priority: '3'
+          labels: Bug

@@ -238,23 +238,26 @@ export function matchExistingCrawler(urls, ownership, opts = {}) {
  *   being the vacancies each side has that the other does not — a coverage gap.
  */
 export function findOverlappingCrawlers(ownership) {
-  /** @type {Map<string, Set<string>>} `a b` -> shared URLs */
+  // Value carries the pair explicitly: the Map key is an identity, never
+  // something to parse back. The first version joined the two keys with a NUL and
+  // split it again, which planted a control character in a file under
+  // `scripts/lib` — exactly what tests/sanitize-control-chars.test.ts forbids.
+  /** @type {Map<string, { keys: [string, string], urls: Set<string> }>} */
   const pairs = new Map();
   for (const [url, owners] of ownership.sharedUrls) {
     const keys = [...owners].sort();
     for (let i = 0; i < keys.length; i++) {
       for (let j = i + 1; j < keys.length; j++) {
-        const id = `${keys[i]} ${keys[j]}`;
-        let set = pairs.get(id);
-        if (!set) pairs.set(id, (set = new Set()));
-        set.add(url);
+        const id = `${keys[i]}--${keys[j]}`;
+        let entry = pairs.get(id);
+        if (!entry) pairs.set(id, (entry = { keys: [keys[i], keys[j]], urls: new Set() }));
+        entry.urls.add(url);
       }
     }
   }
 
   const out = [];
-  for (const [id, shared] of pairs) {
-    const [a, b] = id.split(' ');
+  for (const { keys: [a, b], urls: shared } of pairs.values()) {
     const urlsA = ownership.urlsByKey.get(a) || new Set();
     const urlsB = ownership.urlsByKey.get(b) || new Set();
     out.push({
