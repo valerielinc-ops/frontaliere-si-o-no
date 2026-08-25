@@ -81,6 +81,16 @@ const TEMPLATE_DF_SHARE = 0.5;
  * covers every page family this repo emits (the longest, the job-board hubs,
  * land around 300) and caps the engine at ~130k × 400 × 8 B ≈ 400 MB worst
  * case, ~40 MB at the observed average of ~40 segments.
+ *
+ * When a page DOES exceed the cap, which segments survive matters: keeping
+ * only the first N in document order would bias the metric toward whichever
+ * end of the page happens to be boilerplate. Some templates front-load nav
+ * chrome before the page-specific content, others append a per-item list
+ * after a shared intro — either way, cutting at a fixed offset can drop the
+ * one part of the page that IS the payload and understate IGS exactly on the
+ * richest pages. `segmentsFromText` below samples at an even stride across
+ * the whole document instead, so a page over the cap still gets a spread of
+ * segments from its beginning, middle and end.
  */
 const MAX_SEGMENTS_PER_PAGE = 400;
 
@@ -159,9 +169,28 @@ export function segmentsFromText(text) {
     for (const sentence of trimmed.split(/(?<=[.!?])\s+/)) {
       const s = sentence.trim();
       if (s.length >= MIN_SEGMENT_CHARS) out.push(s);
-      if (out.length >= MAX_SEGMENTS_PER_PAGE) return out;
     }
   }
+  return sampleEvenlyOverCap(out, MAX_SEGMENTS_PER_PAGE);
+}
+
+/**
+ * Above `limit`, keep an even stride across the WHOLE array instead of the
+ * first `limit` entries. See `MAX_SEGMENTS_PER_PAGE` above for why: a
+ * fixed-offset cut is biased by where a template happens to put its
+ * boilerplate, an even stride is not — it still touches the tail of a long
+ * page. Order-preserving (stride selection keeps ascending indices), so a
+ * downstream de-dup pass sees the same relative order it always did.
+ */
+function sampleEvenlyOverCap(items, limit) {
+  if (items.length <= limit) return items;
+  if (limit <= 1) return items.slice(0, limit);
+  // Endpoint-inclusive stride: (n-1)/(limit-1) puts sample 0 at index 0 and
+  // sample (limit-1) at the LAST index, so the tail of the document is
+  // always represented — not just "close to the end" but the end itself.
+  const stride = (items.length - 1) / (limit - 1);
+  const out = [];
+  for (let i = 0; i < limit; i += 1) out.push(items[Math.round(i * stride)]);
   return out;
 }
 
