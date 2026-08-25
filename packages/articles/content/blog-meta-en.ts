@@ -10728,6 +10728,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-gallarate-lavorare-ticino-frontaliere.title': 'Living in Gallarate and working in Ticino: Border Guide',
     'blog.article.vivere-gallarate-lavorare-ticino-frontaliere.excerpt': 'Crossings, tax rates, AVS and living costs: everything you need to organise the transfer from Gallarate to Ticino.',
     'blog.article.vivere-gallarate-lavorare-ticino-frontaliere.imageAlt': 'Panoramic view of Lugano and Ticino mountains from the Italian border',
+    'blog.article.vivere-stazzona-lavorare-ticino-frontaliere.title': 'Living in Stazzona and working in Ticino as a border worker',
+    'blog.article.vivere-stazzona-lavorare-ticino-frontaliere.excerpt': 'The new tax agreement for Swiss border workers in Italy',
+    'blog.article.vivere-stazzona-lavorare-ticino-frontaliere.imageAlt': 'Editorial image related to: Vivere a Stazzona e lavorare in Ticino da frontaliere',
 };
 
 export default blogMetaEn;
