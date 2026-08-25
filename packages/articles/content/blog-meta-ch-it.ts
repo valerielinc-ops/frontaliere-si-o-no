@@ -4279,6 +4279,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.export-orologi-2026-prudenza-mercati.title': 'Export orologi aumenta: crescita cauta, Cina difficile',
     'blog.article.export-orologi-2026-prudenza-mercati.excerpt': 'Dopo due mesi di aumento, il presidente della FH invita alla prudenza. USA +14,9% vs luglio 2024; Cina -16,5% giugno, -18,5% luglio. Nuovo accordo Berna-Pechino ridurrà dazi gradualmente.',
     'blog.article.export-orologi-2026-prudenza-mercati.imageAlt': 'Orologiaio svizzero al banco di lavoro assembla un orologio di lusso con strumenti di precisione',
+    'blog.article.richieste-asilo-sotto-10-mila-primo-semestre.title': 'Richieste d\'asilo: la SEM abbassa le stime per il 2026',
+    'blog.article.richieste-asilo-sotto-10-mila-primo-semestre.excerpt': 'Nel primo semestre 2026, meno di 10.000 richieste d\'asilo (primo calo dal 2022). SEM prevede 22.000 per l\'intero anno, vs. 26.000 inizialmente stimate.',
+    'blog.article.richieste-asilo-sotto-10-mila-primo-semestre.imageAlt': 'Veduta panoramica di Lugano sulle sponde del Lago Ceresio con le montagne svizzere sullo sfondo',
 };
 
 export default blogMetaChIt;
