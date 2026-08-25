@@ -10748,6 +10748,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-25.imageAlt': 'The day\'s numbers for cross-border commuters – August 25, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-08-25.seoDescription': 'Cross-border brief, August 25, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-08-25.ogDescription': 'The numbers for August 25, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.vivere-sondrio-lavorare-grigioni.title': 'Living in Sondrio and working in Graubünden as a border worker',
+    'blog.article.vivere-sondrio-lavorare-grigioni.excerpt': 'Practical guide for those who live in Sondrio and work in the Canton of Graubünden: connections, tax at source, social security and key aspects.',
+    'blog.article.vivere-sondrio-lavorare-grigioni.imageAlt': 'Alpine landscape between Italy and Switzerland for cross-border workers',
 };
 
 export default blogMetaEn;
