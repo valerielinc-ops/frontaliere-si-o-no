@@ -1,0 +1,144 @@
+name: Social Publish Readiness Watch
+
+# Watches the three social publishing channels (Instagram, TikTok, Reddit) whose
+# posters are merged, complete and fail-soft — and which therefore publish
+# NOTHING, silently, for as long as their platform-side approval is missing.
+#
+# Why this exists rather than "we'll notice". The Instagram/TikTok Remote Config
+# parameters existed for days while scripts/load-rc-env.mjs did not map them, so
+# the posters read `undefined`, soft-skipped every scheduled run, and reported
+# success. A channel that is credential-READY and still silent is invisible by
+# construction here: the whole design of the posters is to never fail. Nothing
+# in the repo asked "did the approval land?", so the answer was re-derived by
+# hand each time somebody wondered — three follow-up issues in a row were filed
+# as "owner decision" when two of them were platform review queues already
+# running and the third was a refusal nobody had recorded.
+#
+# Shape and alert channel are the sibling of app-auth-health-monitor.yml /
+# gh-pat-expiry-monitor.yml: daily cron, read-only probe, stable-title dedup via
+# scripts/lib/github-issue-creator.mjs, zero-Claude bash+node (see AGENTS.md
+# "Auth automazioni & frugalità quota" — no claude-code-action, no Max quota).
+#
+# It alerts on READY, not on blocked. A channel waiting on Meta's or TikTok's
+# review queue is tracked by its follow-up issue and needs no daily reminder;
+# a channel that CAN post and isn't is a live regression. Reddit's refused
+# Data API path is likewise not re-alerted — it is a decided state, recorded in
+# docs/REDDIT-POSTING.md, not a queue to poll.
+
+on:
+  schedule:
+    # 07:50 UTC — after gh-pat-expiry-monitor (06:30) and app-auth-health
+    # (07:10), before the Instagram/TikTok broadcasts (08:20 / 08:25), so a
+    # channel that flipped ready is flagged on the same morning its first real
+    # post would have gone out.
+    - cron: '50 7 * * *'
+  workflow_dispatch: {}
+
+concurrency:
+  group: social-publish-readiness-watch
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: { node-version: 22, cache: npm }
+
+      # No `npm ci`: the prober and its lib use only Node builtins + global
+      # fetch. Skipping the install keeps this monitor at well under a minute,
+      # which is the difference between a daily check and a daily tax.
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          echo "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/sa.json" >> "$GITHUB_ENV"
+
+      - name: Load secrets from RC
+        run: node scripts/load-rc-env.mjs
+
+      - name: Probe every channel
+        id: probe
+        run: |
+          set -euo pipefail
+          node scripts/check-social-publish-readiness.mjs | tee readiness.txt
+          READY="$(node scripts/check-social-publish-readiness.mjs --ready-channels)"
+          echo "ready=$READY" >> "$GITHUB_OUTPUT"
+
+      # One issue per newly-ready channel. The title's first 60 chars are stable
+      # and carry the channel name FIRST, so the dedup key discriminates between
+      # channels instead of collapsing all three onto one issue (see the
+      # dedup-title rule in AGENTS.md → "Dedup a MONTE").
+      - name: Alert on any channel that can publish (dedup, zero-Claude)
+        if: steps.probe.outputs.ready != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          READY_CHANNELS: ${{ steps.probe.outputs.ready }}
+        run: |
+          set -euo pipefail
+          for CH in $READY_CHANNELS; do
+            REASON="$(node scripts/check-social-publish-readiness.mjs "--reason=$CH")"
+            node scripts/lib/github-issue-creator.mjs \
+              --title "$CH publishing is unblocked — activate the poster" \
+              --description "$(printf '%s\n' \
+                "## ✅ ${CH}: the platform-side block is gone" \
+                "" \
+                "\`scripts/check-social-publish-readiness.mjs\` reports this channel as **ready**:" \
+                "" \
+                "> ${REASON}" \
+                "" \
+                "### Why this is an alert and not good news on its own" \
+                "The poster fail-soft-skips when a credential is missing and reports success either way, so a channel that becomes able to publish stays silent until somebody looks. That is exactly how the Instagram/TikTok Remote Config values sat unused while \`load-rc-env.mjs\` did not map them." \
+                "" \
+                "### What to check" \
+                "- the channel's daily broadcast workflow is no longer logging a soft-skip" \
+                "- for TikTok, whether the audit also cleared (\`TIKTOK_PRIVACY_LEVEL\` past \`SELF_ONLY\`) or posts are still \`SELF_ONLY\`" \
+                "- the follow-up issue that tracked this channel's block can be closed" \
+                "" \
+                "Full probe output:" \
+                "" \
+                '```' \
+                "$(cat readiness.txt)" \
+                '```')" \
+              --priority 2 \
+              --label follow-up \
+              --workflow "Social Publish Readiness Watch" \
+              --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          done
+
+      # Watcher-of-the-watcher, mirroring app-auth-health-monitor.yml: if the
+      # probe step itself breaks, nobody notices that readiness detection is
+      # dead. Every non-crash outcome resolves the self-alert.
+      - name: Self-alert on monitor crash (dedup, zero-Claude)
+        if: failure() && steps.probe.conclusion == 'failure'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Social readiness monitor crashed: social-publish-readiness-watch failing" \
+            --description "The daily social readiness probe failed before producing a verdict, so a channel becoming publishable would no longer be detected." \
+            --priority 3 \
+            --workflow "Social Publish Readiness Watch" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - name: Resolve the self-alert when the monitor itself is healthy
+        if: always() && steps.probe.conclusion != 'failure'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs --resolve \
+            --title "Social readiness monitor crashed: social-publish-readiness-watch failing" \
+            --workflow "Social Publish Readiness Watch" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
