@@ -101,6 +101,18 @@ describe('previousReportDay — the GA4 window is the PROPERTY timezone', () => 
       expect(previousReportDay(Date.parse(iso))).toMatch(/^\d{4}-\d{2}-\d{2}$/);
     }
   });
+
+  it('uses calendar arithmetic on the DST fall-back day (25h local day)', () => {
+    // 2026-10-25 is the Europe/Zurich fall-back (CEST→CET at 03:00→02:00).
+    // The local day is 25 hours long. 23:30 local = 22:30 UTC. Subtracting
+    // 86400000ms from that instant lands at 00:30 the SAME local day.
+    expect(previousReportDay(Date.parse('2026-10-25T22:30:00Z'))).toBe('2026-10-24');
+  });
+
+  it('uses calendar arithmetic on the DST spring-forward morning', () => {
+    // 2026-03-29 skips 02:00-03:00. 00:30 CEST on 2026-03-30 = 22:30 UTC on the 29th.
+    expect(previousReportDay(Date.parse('2026-03-29T22:30:00Z'))).toBe('2026-03-29');
+  });
 });
 
 describe('normalizeGa4Path', () => {
