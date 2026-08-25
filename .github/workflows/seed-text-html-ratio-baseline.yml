@@ -67,11 +67,15 @@ permissions:
 jobs:
   seed:
     runs-on: ubuntu-latest
-    # Was 25 — the locale/Ticino shard rehydrate below can fall back to
-    # sequential git clones (~14min/locale, ~12min combined for the 4 Ticino
-    # legs per post-deploy-validate-dist.yml's own measured worst case) when
-    # the same-run tar artifacts are missing, so give it the same headroom.
-    timeout-minutes: 60
+    # Was 25, poi 60 — misurato il 2026-08-25 (run 32825496252): rehydrate
+    # 30min (varianza vs i 20min del run gemello di seed-bfs-depth-baseline.yml
+    # nello stesso batch) ha lasciato solo 30min allo step "Generate
+    # text-html-ratio seed", che scansiona ogni file dist/**/*.html byte per
+    # byte (più pesante del walker BFS, che nello stesso batch ha chiuso in
+    # 12min) — cancellato dal timeout a metà scansione, zero output. 90min dà
+    # margine sia alla varianza del rehydrate (14min/locale via fallback clone
+    # sequenziale nel caso peggiore) sia allo scan stesso.
+    timeout-minutes: 90
     # Same walker family as the audits in post-deploy-validate-dist.yml, which
     # runs audit-text-html-ratio inside `npm run audit:all` at 4096. Mirror that
     # here so a manual reseed on a complete dist can't die on the default heap
