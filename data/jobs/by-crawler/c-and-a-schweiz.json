@@ -4391,7 +4391,6 @@
         ]
       },
       "firstSeenAt": "2026-08-18T09:46:04.894Z",
-      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "baseSalary": {
@@ -4404,7 +4403,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "c-and-a-schweiz-d8d7eefea51b",

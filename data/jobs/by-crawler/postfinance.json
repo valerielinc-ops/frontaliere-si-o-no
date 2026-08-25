@@ -324,21 +324,6 @@
         "location": "Zofingen"
       },
       "id": "postfinance-8ebbe8fb16f1",
-      "previousSlugs": [
-        "kundenbetreuer-in-customer-center-postfinance",
-        "assistenza-clienti-nel-centro-clienti-postfinance-zofingen",
-        "responsabile-clienti-nel-centro-clienti-postfinance-zofingen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kundenbetreuer-in-customer-center-postfinance",
-          "assistenza-clienti-nel-centro-clienti-postfinance-zofingen",
-          "responsabile-clienti-nel-centro-clienti-postfinance-zofingen"
-        ],
-        "fr": [
-          "kundenbetreuer-in-customer-center-postfinance"
-        ]
-      },
       "firstSeenAt": "2026-08-24T10:13:19.972Z",
       "crawledAt": "",
       "salaryMin": 103500,
@@ -355,7 +340,22 @@
         }
       },
       "addressLocality": "Zofingen",
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenbetreuer-in-customer-center-postfinance",
+          "assistenza-clienti-nel-centro-clienti-postfinance-zofingen",
+          "responsabile-clienti-nel-centro-clienti-postfinance-zofingen"
+        ],
+        "fr": [
+          "kundenbetreuer-in-customer-center-postfinance"
+        ]
+      },
+      "previousSlugs": [
+        "kundenbetreuer-in-customer-center-postfinance",
+        "assistenza-clienti-nel-centro-clienti-postfinance-zofingen",
+        "responsabile-clienti-nel-centro-clienti-postfinance-zofingen"
+      ]
     },
     {
       "url": "https://jobs.postfinance.ch/job/Embedded-Tester-Test-Automation-Engineer-Chatbot-&-Voicebot-%28wmd%29/74589-de_DE",

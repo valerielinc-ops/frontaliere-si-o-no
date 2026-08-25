@@ -13184,5 +13184,161 @@
         "pending": 214
       }
     ]
+  },
+  {
+    "timestamp": "2026-08-25T12:33:41.552Z",
+    "label": "before",
+    "total": 30668,
+    "needsRetranslation": 13762,
+    "suppressed": 51,
+    "incomplete": 14921,
+    "complete": 15747,
+    "slotsPresent": 15747,
+    "flaggedAmongSlotsPresent": 27,
+    "verifiedTranslated": 15720,
+    "sourceCopyExcused": 619,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 3331,
+      "en": 3317,
+      "de": 3343,
+      "fr": 3340
+    },
+    "queueAge": {
+      "count": 13762,
+      "withTimestamp": 13762,
+      "oldestAgeDays": 134.1,
+      "p50AgeDays": 19,
+      "p90AgeDays": 63,
+      "buckets": {
+        "0-7d": 4685,
+        "7-30d": 5165,
+        "30-90d": 3382,
+        "90-180d": 530,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 3045
+      },
+      {
+        "company": "Marché Restaurants Schweiz AG",
+        "pending": 1926
+      },
+      {
+        "company": "Roche",
+        "pending": 550
+      },
+      {
+        "company": "Denner AG",
+        "pending": 365
+      },
+      {
+        "company": "Ramseier Suisse AG",
+        "pending": 287
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 264
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 256
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 254
+      },
+      {
+        "company": "BKW",
+        "pending": 222
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 212
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-25T13:24:02.356Z",
+    "label": "after",
+    "total": 30668,
+    "needsRetranslation": 13737,
+    "suppressed": 51,
+    "incomplete": 14921,
+    "complete": 15747,
+    "slotsPresent": 15747,
+    "flaggedAmongSlotsPresent": 0,
+    "verifiedTranslated": 15747,
+    "sourceCopyExcused": 619,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 3331,
+      "en": 3317,
+      "de": 3343,
+      "fr": 3340
+    },
+    "queueAge": {
+      "count": 13737,
+      "withTimestamp": 13737,
+      "oldestAgeDays": 134.1,
+      "p50AgeDays": 19.1,
+      "p90AgeDays": 63,
+      "buckets": {
+        "0-7d": 4678,
+        "7-30d": 5162,
+        "30-90d": 3367,
+        "90-180d": 530,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 3045
+      },
+      {
+        "company": "Marché Restaurants Schweiz AG",
+        "pending": 1926
+      },
+      {
+        "company": "Roche",
+        "pending": 550
+      },
+      {
+        "company": "Denner AG",
+        "pending": 365
+      },
+      {
+        "company": "Ramseier Suisse AG",
+        "pending": 287
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 264
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 256
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 254
+      },
+      {
+        "company": "BKW",
+        "pending": 222
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 212
+      }
+    ]
   }
 ]

@@ -2648,7 +2648,7 @@
       "contractType": "full-time",
       "description": "Sanitärinstallateur/in (100%) presso M. Kunz AG Klosters, Klosters Dorf",
       "titleByLocale": {
-        "it": "Sanitärinstallateur/in (100%)",
+        "it": "Installatore sanitario (100%)",
         "en": "Sanitary fitter (100%)",
         "de": "Sanit ①rinstallateur/in (100%)",
         "fr": "Installateur/trice sanitaire (100%)"
@@ -2898,7 +2898,7 @@
       "contractType": "full-time",
       "description": "Heizungsinstallateur/in (100%) presso M. Kunz AG Davos, Davos Platz",
       "titleByLocale": {
-        "it": "Heizungsinstallateur/in (100%)",
+        "it": "Riscaldamento installatore (100%)",
         "en": "Heating fitter (100%)",
         "de": "Heizungsinstallateur / in (100%)",
         "fr": "Installateur/trice en chauffage (100%)"
@@ -2982,7 +2982,7 @@
       "contractType": "full-time",
       "description": "Sanitärinstallateur/in (100%) presso M. Kunz AG Davos, Davos Platz",
       "titleByLocale": {
-        "it": "Sanitärinstallateur/in (100%)",
+        "it": "Installatore sanitario (100%)",
         "en": "Sanitary fitter (100%)",
         "de": "Sanit ①rinstallateur/in (100%)",
         "fr": "Installateur/trice sanitaire (100%)"
@@ -3020,13 +3020,6 @@
       "streetAddress": "",
       "postalCode": "7270",
       "id": "burkhalter-group-310a3e18471e",
-      "previousSlugs": [
-        "installateur-sanitaire-100-m-kunz-ag-davos-davos-platz",
-        "sanitarinstallateur-in-100-m-kunz-ag-davos-davos-platz",
-        "sanitary-fitter-100-m-kunz-ag-davos-davos-platz",
-        "installateur-trice-sanitaire-100-m-kunz-ag-davos-davos-platz"
-      ],
-      "firstSeenAt": "2026-04-13T10:09:28.518Z",
       "previousSlugsByLocale": {
         "it": [
           "sanitarinstallateur-in-100-m-kunz-ag-davos-davos-platz"
@@ -3039,7 +3032,14 @@
           "installateur-trice-sanitaire-100-m-kunz-ag-davos-davos-platz",
           "sanitarinstallateur-in-100-m-kunz-ag-davos-davos-platz"
         ]
-      }
+      },
+      "previousSlugs": [
+        "installateur-sanitaire-100-m-kunz-ag-davos-davos-platz",
+        "sanitarinstallateur-in-100-m-kunz-ag-davos-davos-platz",
+        "sanitary-fitter-100-m-kunz-ag-davos-davos-platz",
+        "installateur-trice-sanitaire-100-m-kunz-ag-davos-davos-platz"
+      ],
+      "firstSeenAt": "2026-04-13T10:09:28.518Z"
     },
     {
       "title": "Bauleitende/r Heizungsinstallateur/in (100%)",
@@ -3144,7 +3144,7 @@
         "it": "Tecnico di assistenza solare (100%)",
         "en": "Solar service technician (100%)",
         "de": "Solarservicetechniker/in (100 %)",
-        "fr": "Solarservicetechniker/in (100%)"
+        "fr": "Technicien des services solaires (100%)"
       },
       "descriptionByLocale": {
         "it": "Vacancies Solarservicetechniker/in Solarservicetechniker/in 100% Bist du unser/e neue/r Solarservicetechniker/in? Die Elektro Hunziker AG ist mit rund 100 Mitarbeitenden führende Anbieterin für Elektroinstallationen in Neu- und Umbauten in der Region Thun, Spiez und Kandersteg. Wir planen und realisieren Stark- und Schwachstrominstallationen genauso sicher wie ICT-Projekte, KNX-Gebäudeautomationen und Photovoltaikanlagen. Zur Verstärkung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/n Deine\n• Aufgaben Sie führen selbständig Installationen und Wartungen, Reparaturen an Energiespeichern, Ladestationen und Wechselrichtern aus. Sie erstellen kundenindividuelle Energieoptimierungen und betreuen bestehende Anlagen. Sie helfen aktiv mit Kundenbeziehungen aufzubauen und bestehende zu vertiefen. Unsere Kunden überzeugen Sie durch Ihre Qualitätsarbeit, ein gepflegtes Auftreten und einen angenehmen Umgang. Unsere\n• Anforderungen Als gelernte/r Elektroinstallateur/in EFZ mit Erfahrung im Bereich Installation, Wartung von Energiespeichern, Ladestationen und Wechselrichtern, Energieoptimierungen sind Sie es sich gewohnt, selbständig zu arbeiten und flexibel zu sein. Eigeninitiative, Teamfähigkeit, Zuverlässigkeit und technisches Geschick runden\n• Ihr Profil ab. Zudem ist Erfahrung in der Kundenbetreuung sehr wünschenswert. Wir bieten Ihnen eine nicht-alltägliche Herausforderung im Rahmen spannender Projekte in einem jungen motivierten Team sowie attraktive Anstellungsbedingungen, Sozialleistungen und Entwicklungsmöglichkeiten in einem zukunftsorientierten Unternehmen. Wir freuen uns auf die Zusendung Ihrer schriftlichen Bewerbung per Post oder E-Mail an: Elektro Hunziker AG Reto Bigler Moosweg 10 3645 Gwatt +41 33 225 10 10 info@elektrohunziker.ch More information about us: www.elektrohunziker.ch",
@@ -3180,7 +3180,10 @@
       "streetAddress": "",
       "postalCode": "3001",
       "firstSeenAt": "2026-05-17T09:50:14.823Z",
-      "retranslationAttempts": 0,
+      "previousSlugs": [
+        "solarservicetechniker-in-100-elektro-hunziker-ag-gwatt",
+        "technicien-des-services-solaires-100-elektro-hunziker-ag-gwatt"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "solarservicetechniker-in-100-elektro-hunziker-ag-gwatt"
@@ -3193,10 +3196,7 @@
           "solarservicetechniker-in-100-elektro-hunziker-ag-gwatt"
         ]
       },
-      "previousSlugs": [
-        "solarservicetechniker-in-100-elektro-hunziker-ag-gwatt",
-        "technicien-des-services-solaires-100-elektro-hunziker-ag-gwatt"
-      ]
+      "retranslationAttempts": 0
     },
     {
       "title": "Kalkulator/in Heizungstechnik (100%)",
@@ -15790,15 +15790,15 @@
       "postalCode": "1003",
       "firstSeenAt": "2026-05-19T21:43:30.915Z",
       "previousSlugsByLocale": {
-        "it": [
-          "depanneur-installateur-electricien-avec-cfc-depanneuse-installatrice-electricienne-avec-cfc-100-merinat-s-a-succursale-d",
-          "riparatore-installatore-elettricista-con-cfc-riparatore-installatore-elettricista-con-cfc-100-merinat-s-a-succursale-de"
-        ],
         "en": [
           "depanneur-installateur-electricien-avec-cfc-depanneuse-installatrice-electricienne-avec-cfc-100-merinat-s-a-succursale-d"
         ],
         "de": [
           "depanneur-installateur-electricien-avec-cfc-depanneuse-installatrice-electricienne-avec-cfc-100-merinat-s-a-succursale-d"
+        ],
+        "it": [
+          "depanneur-installateur-electricien-avec-cfc-depanneuse-installatrice-electricienne-avec-cfc-100-merinat-s-a-succursale-d",
+          "riparatore-installatore-elettricista-con-cfc-riparatore-installatore-elettricista-con-cfc-100-merinat-s-a-succursale-de"
         ]
       },
       "previousSlugs": [

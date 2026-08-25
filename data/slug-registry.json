@@ -190029,7 +190029,11 @@
     "canonicalSlug": "conseiller-a-la-clientele-assurances-vevey-h-f-d-100",
     "canton": "VD",
     "createdAt": "2026-06-12",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "team-head-legal-entita-ufficio-gestione-dati-del-cliente-j-safra-sarasin-lugano",
+      "en": "team-head-legal-entities-client-data-management-office-j-safra-sarasin-lugano",
+      "fr": "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch"
+    }
   },
   "id|umantis.com|461": {
     "canonicalSlug": "psicologo-a-assistente-a-lenzburg-m-f-d-80-klinik-im-hasel-gontenschwil",
@@ -282420,7 +282424,7 @@
     "slugByLocale": {
       "it": "solution-architetto-sap-c4c-v2-buhler-group-uzwil",
       "en": "solution-architect-sap-c4c-v2-buehler-uzwil",
-      "de": "solution-architect-sap-c4c-v2-buehler-uzwil",
+      "de": "losungsarchitekt-sap-c4c-v2-buhler-group-uzwil",
       "fr": "solution-architecte-sap-c4c-v2-buhler-group-uzwil"
     },
     "createdAt": "2026-07-07",
@@ -419496,7 +419500,8 @@
     "slugByLocale": {
       "it": "solution-architetto-sap-ps-sd-buhler-group-uzwil",
       "en": "solution-architect-sap-ps-amp-sd-buehler-uzwil",
-      "fr": "solution-architecte-sap-ps-sd-buhler-group-uzwil"
+      "fr": "solution-architecte-sap-ps-sd-buhler-group-uzwil",
+      "de": "losungsarchitekt-sap-ps-sd-buhler-group-uzwil"
     },
     "createdAt": "2026-07-29",
     "canton": "SG"
@@ -456351,7 +456356,8 @@
     "slugByLocale": {
       "en": "team-manager-r-amp-d-software-buehler-uzwil",
       "fr": "gestionnaire-d-equipe-logiciel-de-r-d-buhler-group-uzwil",
-      "it": "software-di-team-manager-r-d-buhler-group-uzwil"
+      "it": "software-di-team-manager-r-d-buhler-group-uzwil",
+      "de": "teamleiter-f-e-software-buhler-group-uzwil"
     },
     "createdAt": "2026-08-03",
     "canton": "SG"
@@ -555084,8 +555090,8 @@
     "slugByLocale": {
       "it": "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-swiss-household-services-ag-zurich-xgatco",
       "de": "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-swiss-household-services-ag-zurich-xgatco",
-      "en": "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-zurich-xgatco",
-      "fr": "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-zurich-xgatco"
+      "en": "sales-consultant-in-electrical-household-and-multimedia-fust-zurich",
+      "fr": "consultant-en-ventes-en-electromenager-et-multimedia-fust-zurich"
     },
     "createdAt": "2026-08-25",
     "canton": "ZH"
@@ -555116,8 +555122,8 @@
     "canonicalSlug": "lokfuhrer-in-regional-railcare-hunzenschwil-aargau-rcup55",
     "slugByLocale": {
       "de": "lokfuhrer-in-regional-railcare-hunzenschwil-aargau-rcup55",
-      "it": "train-driver-in-regional-railcare-hunzenschwil",
-      "fr": "conducteur-de-train-en-regional-railcare-hunzenschwil"
+      "it": "train-driver-in-regional-railcare-hunzenschwil-aargau",
+      "fr": "conducteur-de-train-en-regional-railcare-hunzenschwil-aargau"
     },
     "createdAt": "2026-08-25",
     "canton": "AG"
@@ -555167,7 +555173,8 @@
   "id|recruitingapp-2761.umantis.com|2770": {
     "canonicalSlug": "impiegata-o-economia-domestica-eoc-candidati-posizioni-ch",
     "slugByLocale": {
-      "en": "impiegata-o-economia-domestica-eoc-candidati-posizioni-ch"
+      "en": "impiegata-o-economia-domestica-eoc-candidati-posizioni-ch",
+      "fr": "impiegata-o-economie-domestiquea-eoc-candidati-posizioni-lugano"
     },
     "createdAt": "2026-08-25",
     "canton": "TI"
@@ -556588,9 +556595,9 @@
     "canonicalSlug": "verkaufsberater-in-garden-jumbo-schanis",
     "slugByLocale": {
       "de": "verkaufsberater-in-garden-jumbo-schanis",
-      "it": "consulente-vendite-in-garden-jumbo-division-der-coop-genossenschaft-schanis",
-      "en": "sales-advisor-in-garden-jumbo-division-der-coop-genossenschaft-schanis",
-      "fr": "conseiller-commercial-a-garden-jumbo-division-der-coop-genossenschaft-schanis"
+      "it": "consulente-vendite-in-garden-jumbo-schanis",
+      "en": "sales-advisor-in-garden-jumbo-schanis",
+      "fr": "conseiller-commercial-a-garden-jumbo-schanis"
     },
     "createdAt": "2026-08-25",
     "canton": "SG"
@@ -556599,9 +556606,9 @@
     "canonicalSlug": "verkaufsberater-in-deco-jumbo-heimberg",
     "slugByLocale": {
       "de": "verkaufsberater-in-deco-jumbo-heimberg",
-      "it": "consulente-commerciale-a-deco-jumbo-division-der-coop-genossenschaft-heimberg",
-      "en": "sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-heimberg",
-      "fr": "consultant-en-ventes-en-deco-jumbo-division-der-coop-genossenschaft-heimberg"
+      "it": "consulente-commerciale-a-deco-jumbo-heimberg",
+      "en": "sales-consultant-in-deco-jumbo-heimberg",
+      "fr": "consultant-en-ventes-en-deco-jumbo-heimberg"
     },
     "createdAt": "2026-08-25",
     "canton": "BE"
@@ -559008,6 +559015,370 @@
     "slugByLocale": {
       "de": "mitarbeiterin-mitarbeiter-empfang-telefonzentrale-60-m-w-d-balgrist-zurich",
       "it": "mitarbeiterin-collaboratore-trice-empfang-telefonzentrale-60-m-w-d-universitatsklinik-balgrist-zurich"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "ZH"
+  },
+  "id|recruitingapp-1123.umantis.com|2504": {
+    "canonicalSlug": "servicetechniker-in-hkls-campus-wu-m-w-d-big-are-stellen-lugano",
+    "slugByLocale": {
+      "it": "servicetechniker-in-hkls-campus-wu-m-w-d-big-are-stellen-lugano",
+      "fr": "servicetechniker-in-hkls-campus-wu-m-w-d-recruitingapp-1123-ch"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "TI"
+  },
+  "id|recruitingapp-1123.umantis.com|2506": {
+    "canonicalSlug": "servicetechniker-in-brandschutz-m-w-d-big-are-stellen-lugano",
+    "slugByLocale": {
+      "it": "servicetechniker-in-brandschutz-m-w-d-big-are-stellen-lugano",
+      "en": "servicetechniker-in-brandschutz-m-w-d-recruitingapp-1123-ch"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "TI"
+  },
+  "id|recruitingapp-1123.umantis.com|2505": {
+    "canonicalSlug": "servicetechniker-in-msr-campus-wu-m-w-d-big-are-stellen-lugano",
+    "slugByLocale": {
+      "it": "servicetechniker-in-msr-campus-wu-m-w-d-big-are-stellen-lugano",
+      "fr": "servicetechniker-in-msr-campus-wu-m-w-d-recruitingapp-1123-ch"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "TI"
+  },
+  "id|recruitingapp-1123.umantis.com|2507": {
+    "canonicalSlug": "assistenza-team-management-m-f-d-da-30h-settimana-big-are-stellen-lugano",
+    "slugByLocale": {
+      "it": "assistenza-team-management-m-f-d-da-30h-settimana-big-are-stellen-lugano",
+      "en": "team-management-assistance-m-f-d-from-30h-week-big-are-stellen-lugano",
+      "de": "assistenz-der-teamleitung-m-w-d-ab-30h-woche-recruitingapp-1123-ch",
+      "fr": "assistance-a-la-gestion-de-l-equipe-h-f-d-a-partir-de-30h-semaine-big-are-stellen-lugano"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "TI"
+  },
+  "id|recruitingapp-1123.umantis.com|2482": {
+    "canonicalSlug": "technical-r-object-manager-in-building-construction-m-f-d-da-30-ore-a-settimana-big-are-stellen-lugano",
+    "slugByLocale": {
+      "de": "technische-r-objektmanager-in-hochbau-m-w-d-ab-30-wochenstunden-recruitingapp-1123-ch",
+      "it": "technical-r-object-manager-in-building-construction-m-f-d-da-30-ore-a-settimana-big-are-stellen-lugano",
+      "en": "technical-r-object-manager-in-building-construction-m-f-d-from-30-hours-per-week-big-are-stellen-lugano",
+      "fr": "technical-r-object-manager-in-construction-de-batiments-h-f-d-a-partir-de-30-heures-par-semaine-big-are-stellen-lugano"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "TI"
+  },
+  "id|recruitingapp-1123.umantis.com|2426": {
+    "canonicalSlug": "property-manager-focus-sugli-appartamenti-di-nuova-costruzione-m-f-d-big-are-stellen-lugano",
+    "slugByLocale": {
+      "it": "property-manager-focus-sugli-appartamenti-di-nuova-costruzione-m-f-d-big-are-stellen-lugano",
+      "en": "property-managers-focus-on-newly-built-apartments-m-f-d-big-are-stellen-lugano",
+      "de": "immobilienverwalter-in-schwerpunkt-neubau-wohnungen-m-w-d-recruitingapp-1123-ch",
+      "fr": "gestionnaires-de-proprietes-focus-sur-les-appartements-nouvellement-construits-h-f-d-big-are-stellen-lugano"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "TI"
+  },
+  "id|recruitingapp-1123.umantis.com|2465": {
+    "canonicalSlug": "immobilienverwalter-in-m-w-d-vz-tz-ab-30h-woche-big-are-stellen-lugano",
+    "slugByLocale": {
+      "it": "immobilienverwalter-in-m-w-d-vz-tz-ab-30h-woche-big-are-stellen-lugano",
+      "de": "immobilienverwalter-in-m-w-d-vz-tz-ab-30h-woche-recruitingapp-1123-ch"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "TI"
+  },
+  "id|recruitingapp-1123.umantis.com|2473": {
+    "canonicalSlug": "partiefuhrer-in-vorarbeiter-in-elektrotechnik-per-gebaudetechnik-m-w-d-big-are-stellen-lugano",
+    "slugByLocale": {
+      "it": "partiefuhrer-in-vorarbeiter-in-elektrotechnik-per-gebaudetechnik-m-w-d-big-are-stellen-lugano",
+      "en": "participant-in-foreman-in-electrical-engineering-for-building-technology-m-f-d-big-are-stellen-lugano",
+      "de": "partiefuhrer-in-vorarbeiter-in-elektrotechnik-fur-gebaudetechnik-m-w-d-recruitingapp-1123",
+      "fr": "participant-in-foreman-in-electrical-engineering-for-building-technology-h-f-d-big-are-stellen-lugano"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "TI"
+  },
+  "id|recruitingapp-1123.umantis.com|2479": {
+    "canonicalSlug": "tecnico-edile-negli-appartamenti-di-manutenzione-m-f-d-big-are-stellen-lugano",
+    "slugByLocale": {
+      "it": "tecnico-edile-negli-appartamenti-di-manutenzione-m-f-d-big-are-stellen-lugano",
+      "en": "building-technician-in-maintenance-apartments-m-f-d-big-are-stellen-lugano",
+      "de": "hochbautechniker-in-instandhaltung-wohnungen-m-w-d-recruitingapp-1123-ch",
+      "fr": "technicien-du-batiment-dans-les-appartements-d-entretien-h-f-d-big-are-stellen-lugano"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "TI"
+  },
+  "id|recruitingapp-1123.umantis.com|2497": {
+    "canonicalSlug": "gestione-aggiuntiva-della-proprieta-m-f-d-big-are-stellen-lugano",
+    "slugByLocale": {
+      "it": "gestione-aggiuntiva-della-proprieta-m-f-d-big-are-stellen-lugano",
+      "en": "assistant-property-management-m-f-d-big-are-stellen-lugano",
+      "de": "assistenz-immobilienverwaltung-m-w-d-recruitingapp-1123-ch",
+      "fr": "assistant-a-la-gestion-des-biens-h-f-d-big-are-stellen-lugano"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "TI"
+  },
+  "id|recruitingapp-1123.umantis.com|2480": {
+    "canonicalSlug": "informationssicherheits-compliance-expert-in-m-w-d-big-are-stellen-lugano",
+    "slugByLocale": {
+      "it": "informationssicherheits-compliance-expert-in-m-w-d-big-are-stellen-lugano",
+      "en": "informationssicherheits-compliance-expert-in-m-w-d-recruitingapp-1123-ch",
+      "de": "informationssicherheit-compliance-expertin-in-m-w-d-big-are-stellen-lugano",
+      "fr": "informationssicherheits-compliance-expert-in-m-w-d-big-are-stellen-lugano"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "TI"
+  },
+  "id|umantis.com|472": {
+    "canonicalSlug": "esperto-di-affari-transfrontaliero-j-safra-sarasin-lugano",
+    "slugByLocale": {
+      "it": "esperto-di-affari-transfrontaliero-j-safra-sarasin-lugano",
+      "en": "cross-border-business-expert-jsafrasarasin-ch",
+      "de": "grenzuberschreitender-wirtschaftsexperte-j-safra-sarasin-lugano",
+      "fr": "expert-en-commerce-transfrontalier-j-safra-sarasin-lugano"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "TI"
+  },
+  "id|umantis.com|474": {
+    "canonicalSlug": "senior-banking-systems-integration-ingegnere-j-safra-sarasin-lugano",
+    "slugByLocale": {
+      "it": "senior-banking-systems-integration-ingegnere-j-safra-sarasin-lugano",
+      "en": "senior-banking-systems-integration-engineer-jsafrasarasin-ch",
+      "de": "senior-banking-systems-integration-ingenieur-j-safra-sarasin-lugano",
+      "fr": "senior-banking-systems-integration-ingenieur-j-safra-sarasin-lugano"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "TI"
+  },
+  "id|umantis.com|482": {
+    "canonicalSlug": "senior-backup-ingegnere-j-safra-sarasin-lugano",
+    "slugByLocale": {
+      "it": "senior-backup-ingegnere-j-safra-sarasin-lugano",
+      "en": "senior-backup-engineer-j-safra-sarasin-lugano",
+      "de": "senior-backup-engineer-jsafrasarasin-ch",
+      "fr": "senior-backup-ingenieur-j-safra-sarasin-lugano"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "TI"
+  },
+  "id|umantis.com|490": {
+    "canonicalSlug": "ai-platform-system-ingegnere-j-safra-sarasin-lugano",
+    "slugByLocale": {
+      "it": "ai-platform-system-ingegnere-j-safra-sarasin-lugano",
+      "en": "ai-platform-system-engineer-j-safra-sarasin-lugano",
+      "de": "ai-platform-system-engineer-jsafrasarasin-ch",
+      "fr": "ai-platform-system-ingenieur-j-safra-sarasin-lugano"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "TI"
+  },
+  "id|umantis.com|455": {
+    "canonicalSlug": "treasury-operations-specialista-j-safra-sarasin-lugano",
+    "slugByLocale": {
+      "it": "treasury-operations-specialista-j-safra-sarasin-lugano",
+      "en": "treasury-operations-specialist-jsafrasarasin-ch",
+      "de": "treasury-operations-spezialist-j-safra-sarasin-lugano",
+      "fr": "treasury-operations-specialiste-j-safra-sarasin-lugano"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "TI"
+  },
+  "id|umantis.com|498": {
+    "canonicalSlug": "operazioni-special-in-pagamento-j-safra-sarasin-lugano",
+    "slugByLocale": {
+      "it": "operazioni-special-in-pagamento-j-safra-sarasin-lugano",
+      "en": "specialist-in-payment-transactions-j-safra-sarasin-lugano",
+      "de": "fachspezialist-in-zahlungsverkehr-jsafrasarasin-ch",
+      "fr": "specialiste-dans-les-operations-de-paiement-j-safra-sarasin-lugano"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "TI"
+  },
+  "id|umantis.com|477": {
+    "canonicalSlug": "lead-auditor-group-internal-audit-jsafrasarasin-ch",
+    "slugByLocale": {
+      "it": "lead-auditor-group-internal-audit-jsafrasarasin-ch",
+      "en": "lead-auditor-group-internal-audit-j-safra-sarasin-lugano",
+      "fr": "verificateur-principal-groupe-verification-interne-j-safra-sarasin-lugano"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "TI"
+  },
+  "id|umantis.com|503": {
+    "canonicalSlug": "client-service-executive-j-safra-sarasin-lugano",
+    "slugByLocale": {
+      "it": "client-service-executive-j-safra-sarasin-lugano",
+      "en": "client-service-executive-jsafrasarasin-ch",
+      "de": "kundenservice-executive-j-safra-sarasin-lugano",
+      "fr": "service-a-la-clientele-j-safra-sarasin-lugano"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "TI"
+  },
+  "id|umantis.com|496": {
+    "canonicalSlug": "senior-fix-ingegnere-specialista-j-safra-sarasin-lugano",
+    "slugByLocale": {
+      "it": "senior-fix-ingegnere-specialista-j-safra-sarasin-lugano",
+      "en": "senior-fix-engineer-specialist-j-safra-sarasin-lugano",
+      "de": "senior-fix-engineer-specialist-jsafrasarasin-ch",
+      "fr": "senior-fix-ingenieur-specialiste-j-safra-sarasin-lugano"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "TI"
+  },
+  "id|umantis.com|506": {
+    "canonicalSlug": "stewardship-specialista-j-safra-sarasin-lugano",
+    "slugByLocale": {
+      "it": "stewardship-specialista-j-safra-sarasin-lugano",
+      "en": "stewardship-specialist-jsafrasarasin-ch",
+      "de": "stewardship-spezialist-j-safra-sarasin-lugano",
+      "fr": "stewardship-specialiste-j-safra-sarasin-lugano"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "TI"
+  },
+  "id|umantis.com|495": {
+    "canonicalSlug": "risk-officer-management-company-jsafrasarasin-ch",
+    "slugByLocale": {
+      "fr": "risk-officer-management-company-jsafrasarasin-ch"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "TI"
+  },
+  "id|umantis.com|467": {
+    "canonicalSlug": "junior-quantitative-portfolio-manager-jsafrasarasin-ch",
+    "slugByLocale": {
+      "en": "junior-quantitative-portfolio-manager-j-safra-sarasin-lugano",
+      "fr": "junior-quantitative-portfolio-manager-jsafrasarasin-ch"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "TI"
+  },
+  "id|buhlergroup.com|f03c7409-8d94-424f-acab-55e11f3a403f": {
+    "canonicalSlug": "identity-access-management-architetto-buhler-group-uzwil",
+    "slugByLocale": {
+      "it": "identity-access-management-architetto-buhler-group-uzwil",
+      "en": "identity-amp-access-management-architect-buehler-uzwil",
+      "de": "identity-access-management-architekt-buhler-group-uzwil",
+      "fr": "identity-access-management-architect-buhler-group-uzwil"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "SG"
+  },
+  "id|buhlergroup.com|59da47cd-479c-4480-8b24-587afaa9526d": {
+    "canonicalSlug": "responsabile-del-prodotto-buhler-group-uzwil-9fc439",
+    "slugByLocale": {
+      "en": "product-manager-buhler-group-uzwil",
+      "it": "responsabile-del-prodotto-buhler-group-uzwil-9fc439",
+      "de": "produktmanager-buhler-group-uzwil-9fc439",
+      "fr": "gestionnaire-de-produits-buhler-group-uzwil-9fc439"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "SG"
+  },
+  "id|stadt-zuerich.ch|1332438057": {
+    "canonicalSlug": "assistent-in-gesundheit-e-soziales-stadtspital-zurich",
+    "slugByLocale": {
+      "de": "assistent-in-gesundheit-und-soziales-stadtspital-zuerich-48179",
+      "it": "assistent-in-gesundheit-e-soziales-stadtspital-zurich"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1369192557": {
+    "canonicalSlug": "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich",
+    "slugByLocale": {
+      "it": "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich",
+      "en": "dipl-nursing-specialist-heart-surgery-and-traumatology-triemli-stadtspital-zurich-zurich",
+      "de": "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-51306",
+      "fr": "dipl-specialiste-des-soins-infirmiers-chirurgie-cardiaque-et-traumatologie-triemli-stadtspital-zurich-zurich"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1369974357": {
+    "canonicalSlug": "personale-di-pulizia-nella-pulizia-serale-stadtspital-zurich-zurich",
+    "slugByLocale": {
+      "it": "personale-di-pulizia-nella-pulizia-serale-stadtspital-zurich-zurich",
+      "en": "cleaning-staff-in-evening-cleaning-stadtspital-zurich-zurich",
+      "de": "reinigungsmitarbeiter-in-abendreinigung-stadtspital-zuerich-51381",
+      "fr": "personnel-de-nettoyage-en-soiree-stadtspital-zurich-zurich"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1369836857": {
+    "canonicalSlug": "expert-expert-anesthesia-care-stadtspital-zurich-zurich",
+    "slugByLocale": {
+      "it": "expert-expert-anesthesia-care-stadtspital-zurich-zurich",
+      "en": "expert-expert-anesthesia-care-stadtspital-zurich-zurich",
+      "de": "fachexpertin-fachexperte-anasthesiepflege-stadtspital-zuerich-51362",
+      "fr": "soins-d-anesthesie-expert-expert-stadtspital-zurich-zurich"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1369848757": {
+    "canonicalSlug": "dati-master-responsabili-professionali-r-stadtspital-zurich-zurich",
+    "slugByLocale": {
+      "it": "dati-master-responsabili-professionali-r-stadtspital-zurich-zurich",
+      "en": "professional-responsible-r-master-data-stadtspital-zurich-zurich",
+      "de": "fachverantwortliche-r-stammdaten-stadtspital-zuerich-51363",
+      "fr": "donnees-de-reference-professionnelles-stadtspital-zurich-zurich"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1369720157": {
+    "canonicalSlug": "praktikant-in-arztsekretariat-institut-per-notfallmedizin-stadtspital-zurich",
+    "slugByLocale": {
+      "it": "praktikant-in-arztsekretariat-institut-per-notfallmedizin-stadtspital-zurich",
+      "en": "internship-in-medical-secretariat-institute-for-emergency-medicine-stadtspital-zurich-zurich",
+      "de": "praktikant-in-arztsekretariat-institut-fur-notfallmedizin-stadtspital-zuerich-51347",
+      "fr": "stage-au-secretariat-medical-institut-de-medecine-d-urgence-stadtspital-zurich-zurich"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1369723957": {
+    "canonicalSlug": "segreteria-medica-stadtspital-zurich-zurich-0301a3",
+    "slugByLocale": {
+      "it": "segreteria-medica-stadtspital-zurich-zurich-0301a3",
+      "en": "trainee-in-medical-secretariat-stadtspital-zurich-zurich-0301a3",
+      "de": "praktikant-in-arztsekretariat-stadtspital-zuerich-51349",
+      "fr": "stagiaire-au-secretariat-medical-stadtspital-zurich-zurich-0301a3"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1369652957": {
+    "canonicalSlug": "assistente-psicologo-in-neuropsicologia-stadtspital-zurich-zurich",
+    "slugByLocale": {
+      "it": "assistente-psicologo-in-neuropsicologia-stadtspital-zurich-zurich",
+      "en": "assistant-psychologist-in-neuropsychology-stadtspital-zurich-zurich",
+      "de": "assistenzpsycholog-in-neuropsychologie-stadtspital-zuerich-51344",
+      "fr": "assistant-psychologue-en-neuropsychologie-stadtspital-zurich-zurich"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1370204657": {
+    "canonicalSlug": "gruppenleiter-in-pflege-universitare-klinik-per-altersmedizin-stadtspital-zurich",
+    "slugByLocale": {
+      "de": "gruppenleiter-in-pflege-universitare-klinik-fur-altersmedizin-stadtspital-zuerich-51403",
+      "it": "gruppenleiter-in-pflege-universitare-klinik-per-altersmedizin-stadtspital-zurich"
+    },
+    "createdAt": "2026-08-25",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1370208857": {
+    "canonicalSlug": "fachexpert-in-onkologie-stadtspital-zuerich-51404",
+    "slugByLocale": {
+      "de": "fachexpert-in-onkologie-stadtspital-zuerich-51404"
     },
     "createdAt": "2026-08-25",
     "canton": "ZH"
