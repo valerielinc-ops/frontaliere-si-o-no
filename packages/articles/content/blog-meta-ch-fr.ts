@@ -4204,6 +4204,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avviare-impresa-svizzera-passaggi-costi.title': 'Ouvrir une entreprise en Suisse : formes et frais d\'inscription',
     'blog.article.avviare-impresa-svizzera-passaggi-costi.excerpt': 'Entreprise individuelle, Srl, SA : quelle forme choisir ? Découvrez les étapes pour l\'inscription au registre du commerce, le capital minimum requis et les obligations envers AVS et LAMal.',
     'blog.article.avviare-impresa-svizzera-passaggi-costi.imageAlt': 'Un bureau avec des documents d\'enregistrement commercial et des formulaires de création d\'entreprise.',
+    'blog.article.aprire-attivita-sciaffusa-procedure-fiscali.title': 'Ouvrir une entreprise à Schaffhouse : procédures et coûts',
+    'blog.article.aprire-attivita-sciaffusa-procedure-fiscali.excerpt': 'Formes juridiques, inscription au registre du commerce, capital minimum et système fiscal à trois niveaux pour démarrer une entreprise dans le canton de Schaffhouse.',
+    'blog.article.aprire-attivita-sciaffusa-procedure-fiscali.imageAlt': 'Bureau professionnel avec documents de création d\'entreprise et calculatrice',
 };
 
 export default blogMetaChFr;

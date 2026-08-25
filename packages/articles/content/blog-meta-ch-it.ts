@@ -4204,6 +4204,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avviare-impresa-svizzera-passaggi-costi.title': 'Aprire un\'attività in Svizzera: forme e costi di iscrizione',
     'blog.article.avviare-impresa-svizzera-passaggi-costi.excerpt': 'Ditta individuale, Srl, SA: quale forma scegliere? Scopri gli step per l\'iscrizione al registro di commercio, il capitale minimo richiesto e gli obblighi verso AVS e LAMal.',
     'blog.article.avviare-impresa-svizzera-passaggi-costi.imageAlt': 'Una scrivania d\'ufficio con documenti di registrazione commerciale e moduli per costituire un\'impresa.',
+    'blog.article.aprire-attivita-sciaffusa-procedure-fiscali.title': 'Aprire un\'attività a Sciaffusa: procedure e costi',
+    'blog.article.aprire-attivita-sciaffusa-procedure-fiscali.excerpt': 'Forme giuridiche, registrazione al Registro di commercio, capitale minimo e sistema fiscale a tre livelli per avviare un\'impresa nel cantone Sciaffusa.',
+    'blog.article.aprire-attivita-sciaffusa-procedure-fiscali.imageAlt': 'Scrivania professionale con documenti di avvio aziendale e calcolatrice',
 };
 
 export default blogMetaChIt;

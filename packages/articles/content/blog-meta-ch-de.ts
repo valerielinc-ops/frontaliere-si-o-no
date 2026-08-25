@@ -4204,6 +4204,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avviare-impresa-svizzera-passaggi-costi.title': 'Gründung eines Unternehmens in der Schweiz: Formen und Kosten der Einschreibung',
     'blog.article.avviare-impresa-svizzera-passaggi-costi.excerpt': 'Einzelunternehmen, SRL, SA: Welche Form soll gewählt werden? Entdecken Sie die Schritte für die Eintragung ins Handelsregister, das erforderliche Mindestkapital und die Verpflichtungen gegenüber AHV und KVG.',
     'blog.article.avviare-impresa-svizzera-passaggi-costi.imageAlt': 'Ein Büroschreibtisch mit Geschäftsregistrierungsdokumenten und Gründungsformularen.',
+    'blog.article.aprire-attivita-sciaffusa-procedure-fiscali.title': 'Ein Geschäft in Schaffhausen eröffnen: Verfahren und Kosten',
+    'blog.article.aprire-attivita-sciaffusa-procedure-fiscali.excerpt': 'Rechtsformen, Handelsregistereintragung, Mindestkapital und dreistufiges Steuersystem zur Unternehmensgründung im Kanton Schaffhausen.',
+    'blog.article.aprire-attivita-sciaffusa-procedure-fiscali.imageAlt': 'Professioneller Schreibtisch mit Geschäftsgründungsdokumenten und Taschenrechner',
 };
 
 export default blogMetaChDe;
