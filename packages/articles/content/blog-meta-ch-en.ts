@@ -4273,6 +4273,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.premi-lamal-berna-sussidio.title': 'LAMal Canton Bern Awards: bands and reductions',
     'blog.article.premi-lamal-berna-sussidio.excerpt': 'In the Canton of Bern, LAMal premiums vary according to the deductible chosen. Here\'s how the system works and how to access reduction subsidies.',
     'blog.article.premi-lamal-berna-sussidio.imageAlt': 'Administrative office with health insurance documents displayed on desk.',
+    'blog.article.berna-custodia-bambini-tariffe-costi.title': 'Child care in the Canton of Bern: costs and subsidies',
+    'blog.article.berna-custodia-bambini-tariffe-costi.excerpt': 'Nurseries, day families, after-school: how income-based rates work and what cantonal subsidies are available that reduce the economic burden on families.',
+    'blog.article.berna-custodia-bambini-tariffe-costi.imageAlt': 'Swiss daycare center with children playing in a safe, modern and welcoming environment with educational activities.',
+    'blog.article.export-orologi-2026-prudenza-mercati.title': 'Export Watches Rises: Cautious Growth, China Difficult',
+    'blog.article.export-orologi-2026-prudenza-mercati.excerpt': 'After two months of increase, the president of the FH calls for caution. USA +14.9% vs July 2024; China -16.5% June, -18.5% July. New Bern-Beijing agreement will reduce tariffs gradually.',
+    'blog.article.export-orologi-2026-prudenza-mercati.imageAlt': 'Swiss watchmaker at workbench assembling luxury watch with precision tools and components',
+    'blog.article.richieste-asilo-sotto-10-mila-primo-semestre.title': 'Asylum applications: SEM lowers estimates for 2026',
+    'blog.article.richieste-asilo-sotto-10-mila-primo-semestre.excerpt': 'In the first half of 2026, fewer than 10,000 asylum applications (the first drop since 2022). SEM forecasts 22,000 for the full year, vs. 26,000 initially estimated.',
+    'blog.article.richieste-asilo-sotto-10-mila-primo-semestre.imageAlt': 'Panoramic view of Lugano on Lake Ceresio with Swiss mountains in the background',
 };
 
 export default blogMetaChEn;

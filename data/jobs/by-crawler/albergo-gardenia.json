@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "albergo-gardenia-bf0d61d0f1cd",
-      "slug": "previdenza-per-la-vecchiaia-albergo-gardenia-ch",
+      "slug": "previsione-per-la-vecchia-albergo-gardenia-lugano",
       "slugByLocale": {
-        "it": "previdenza-per-la-vecchiaia-albergo-gardenia-ch",
+        "it": "previsione-per-la-vecchia-albergo-gardenia-lugano",
         "en": "previdenza-per-la-vecchiaa-albergo-gardenia-lugano",
         "de": "previdenza-per-la-vecchiaia-albergo-gardenia-ch",
         "fr": "previdenza-par-la-vecchiaa-albergo-gardenia-lugano"
@@ -16,7 +16,7 @@
       "companyDomain": "hotelleriesuisse.ch",
       "title": "Previdenza per la vecchiaia",
       "titleByLocale": {
-        "it": "Previdenza per la vecchiaia",
+        "it": "Previsione per la vecchia",
         "de": "Previdenza per la vecchiaia",
         "en": "Previdenza per la vecchiaa’",
         "fr": "Prévidenza par la vecchiaa"
@@ -59,7 +59,15 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T10:32:28.546Z"
+      "firstSeenAt": "2026-08-24T10:32:28.546Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "previdenza-per-la-vecchiaia-albergo-gardenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "previdenza-per-la-vecchiaia-albergo-gardenia-ch"
+      ]
     },
     {
       "id": "albergo-gardenia-a58372a459dc",

@@ -4273,6 +4273,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-lamal-berna-sussidio.title': 'KVG-Prämien Kanton Bern: Zeitabschnitte und Kürzungen',
     'blog.article.premi-lamal-berna-sussidio.excerpt': 'Im Kanton Bern variieren die KVG-Prämien je nach gewählter Franchise. So funktioniert das System und wie Sie auf die Reduktionszuschüsse zugreifen können.',
     'blog.article.premi-lamal-berna-sussidio.imageAlt': 'Verwaltungsbüro mit Krankenversicherungsdokumenten auf dem Schreibtisch.',
+    'blog.article.berna-custodia-bambini-tariffe-costi.title': 'Kinderbetreuung im Kanton Bern: Kosten und Leistungen',
+    'blog.article.berna-custodia-bambini-tariffe-costi.excerpt': 'Kindertagesstätten, Tagesfamilien, Nachschule: Wie Einkommenstarife funktionieren und welche kantonalen Zuschüsse zur Verfügung stehen, reduziert die finanzielle Belastung der Familien.',
+    'blog.article.berna-custodia-bambini-tariffe-costi.imageAlt': 'Schweizer Kindertagesstätte mit Kindern in einer sicheren, modernen und einladenden Umgebung mit pädagogischen Aktivitäten.',
+    'blog.article.export-orologi-2026-prudenza-mercati.title': 'Beobachten Sie steigende Exporte: vorsichtiges Wachstum, schwieriges China',
+    'blog.article.export-orologi-2026-prudenza-mercati.excerpt': 'Nach zwei Monaten Gehaltserhöhung mahnt der FH-Präsident zur Vorsicht. USA +14,9% vs. Juli 2024; China -16,5% Juni, -18,5% Juli. Das neue Abkommen zwischen Bern und Peking wird die Zölle schrittweise senken.',
+    'blog.article.export-orologi-2026-prudenza-mercati.imageAlt': 'Schweizer Uhrmacher montiert eine Luxusuhr an der Werkbank mit Präzisionswerkzeugen',
+    'blog.article.richieste-asilo-sotto-10-mila-primo-semestre.title': 'Asylanträge: sem senkt Schätzungen für 2026',
+    'blog.article.richieste-asilo-sotto-10-mila-primo-semestre.excerpt': 'Im ersten Halbjahr 2026 weniger als 10.000 Asylanträge (erster Rückgang seit 2022). Sem prognostiziert 22.000 für das ganze Jahr, gegenüber 26.000 ursprünglich geschätzt.',
+    'blog.article.richieste-asilo-sotto-10-mila-primo-semestre.imageAlt': 'Panoramablick auf Lugano am Comer See mit Schweizer Bergen im Hintergrund',
 };
 
 export default blogMetaChDe;

@@ -4273,6 +4273,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.premi-lamal-berna-sussidio.title': 'Premi LAMal Canton Berna: fasce e riduzioni',
     'blog.article.premi-lamal-berna-sussidio.excerpt': 'Nel Canton Berna i premi LAMal variano secondo la franchigia scelta. Ecco come funziona il sistema e come accedere ai sussidi per la riduzione.',
     'blog.article.premi-lamal-berna-sussidio.imageAlt': 'Uno sportello amministrativo con documenti di assicurazione malattia su una scrivania.',
+    'blog.article.berna-custodia-bambini-tariffe-costi.title': 'Custodia bambini nel Canton Berna: costi e sussidi',
+    'blog.article.berna-custodia-bambini-tariffe-costi.excerpt': 'Asili nido, famiglie diurne, doposcuola: come funzionano le tariffe calcolate su reddito e quali sussidi cantonali disponibili riducono l\'onere economico per le famiglie.',
+    'blog.article.berna-custodia-bambini-tariffe-costi.imageAlt': 'Asilo nido svizzero con bambini che giocano in un ambiente sicuro, moderno e accogliente con attività educative.',
+    'blog.article.export-orologi-2026-prudenza-mercati.title': 'Export orologi aumenta: crescita cauta, Cina difficile',
+    'blog.article.export-orologi-2026-prudenza-mercati.excerpt': 'Dopo due mesi di aumento, il presidente della FH invita alla prudenza. USA +14,9% vs luglio 2024; Cina -16,5% giugno, -18,5% luglio. Nuovo accordo Berna-Pechino ridurrà dazi gradualmente.',
+    'blog.article.export-orologi-2026-prudenza-mercati.imageAlt': 'Orologiaio svizzero al banco di lavoro assembla un orologio di lusso con strumenti di precisione',
+    'blog.article.richieste-asilo-sotto-10-mila-primo-semestre.title': 'Richieste d\'asilo: la SEM abbassa le stime per il 2026',
+    'blog.article.richieste-asilo-sotto-10-mila-primo-semestre.excerpt': 'Nel primo semestre 2026, meno di 10.000 richieste d\'asilo (primo calo dal 2022). SEM prevede 22.000 per l\'intero anno, vs. 26.000 inizialmente stimate.',
+    'blog.article.richieste-asilo-sotto-10-mila-primo-semestre.imageAlt': 'Veduta panoramica di Lugano sulle sponde del Lago Ceresio con le montagne svizzere sullo sfondo',
 };
 
 export default blogMetaChIt;

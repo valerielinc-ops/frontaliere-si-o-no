@@ -12817,6 +12817,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'berna-custodia-bambini-tariffe-costi',
+    category: 'pratico',
+    date: '2026-08-25T12:30:01.590Z',
+    image: '/images/blog/berna-custodia-bambini-tariffe-costi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'export-orologi-2026-prudenza-mercati',
+    category: 'novita',
+    date: '2026-08-25T13:53:51.512Z',
+    image: '/images/blog/export-orologi-2026-prudenza-mercati.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'richieste-asilo-sotto-10-mila-primo-semestre',
+    category: 'novita',
+    date: '2026-08-25T14:27:13.195Z',
+    image: '/images/blog/richieste-asilo-sotto-10-mila-primo-semestre.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

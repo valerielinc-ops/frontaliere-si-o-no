@@ -754,9 +754,9 @@
       "id": "kispi-zurich-9a4dece2b049",
       "slug": "diploma-formazione-scuola-superiore-ingegneria-operativa-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
+        "de": "diplomausbildung-hohere-fachschule-operationstechnik-kispi-zurich-zurich",
         "it": "diploma-formazione-scuola-superiore-ingegneria-operativa-universitats-kinderspital-zurich-kispi-zurich",
         "en": "diploma-training-higher-school-operational-engineering-universitats-kinderspital-zurich-kispi-zurich",
-        "de": "diplomausbildung-hohere-fachschule-operationstechnik-kispi-zurich-zurich",
         "fr": "diplome-formation-ecole-superieure-ingenierie-operationnelle-universitats-kinderspital-zurich-kispi-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
@@ -764,19 +764,18 @@
       "companyDomain": "kispi.uzh.ch",
       "title": "Diplomausbildung Höhere Fachschule Operationstechnik",
       "titleByLocale": {
+        "de": "Diplomausbildung Höhere Fachschule Operationstechnik",
         "it": "Diploma Formazione Scuola superiore Ingegneria operativa",
         "en": "Diploma Training Higher School Operational Engineering",
-        "de": "Diplomausbildung Höhere Fachschule Operationstechnik",
         "fr": "Diplôme Formation École supérieure Ingénierie opérationnelle"
       },
       "description": "Diplomausbildung Höhere Fachschule Operationstechnik bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
       "descriptionByLocale": {
-        "it": "Scuola Superiore di Ingegneria Operativa presso Children's Hospital Zurich Eleonorenstiftung a Zurigo (8032, ZH), Svizzera.\n\n• Tipo: Tempo pieno\n• Termine temporaneo: temporaneo\n• Posizione: Zurigo (ZH)\n• Applicazione tramite il Portale Umantis Career dell'Ospedale pediatrico dell'Università di Zurigo (Kispi)",
-        "en": "Higher School of Operational Engineering at Children's Hospital Zurich Eleonorenstiftung in Zurich (8032, ZH), Switzerland.\n\n• Type: Full-time\n• Temporary term: temporary\n• Location: Zurich (ZH)\n• Application via the Umantis Career Portal of the University Children's Hospital Zurich (Kispi)",
         "de": "Diplomausbildung Höhere Fachschule Operationstechnik bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-        "fr": "École supérieure d'ingénierie opérationnelle de l'hôpital pour enfants Zurich Eleonorenstiftung à Zurich (8032, ZH), Suisse.\n\n• Type: Temps plein\n• Durée temporaire : temporaire\n• Lieu: Zurich (ZH)\n• Application via le portail de carrière Umantis de l'hôpital universitaire pour enfants Zurich (Kispi)"
+        "it": "Scuola Superiore di Ingegneria Operativa presso l'Ospedale dei Bambini di Zurigo Eleonorenstiftung a Zurigo (8032, ZH), Svizzera.\n\n• Tipo: Tempo pieno\n• Termine temporaneo: temporaneo\n• Posizione: Zurigo (ZH)\n• Applicazione tramite il Portale Umantis Career dell'Ospedale pediatrico dell'Università di Zurigo (Kispi)",
+        "en": "Higher School of Operational Engineering at Children's Hospital Zurich Eleonorenstiftung in Zurich (8032, ZH), Switzerland.\n\n• Type: Full-time\n• Temporary term: temporary\n• Location: Zurich (ZH)\n• Application via the Umantis Career Portal of the University Children's Hospital Zurich (Kispi)",
+        "fr": "École supérieure d'ingénierie opérationnelle de l'hôpital pour enfants Zurich Eleonorenstiftung à Zurich (8032, ZH), Suisse.\n\n• Type: Temps plein\n• Terme temporaire : temporaire\n• Lieu: Zurich (ZH)\n• Application via le portail de carrière Umantis de l'hôpital universitaire pour enfants Zurich (Kispi)"
       },
-      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/1645/Description/1",
@@ -799,6 +798,19 @@
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/1645/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-24T21:34:29.363Z",
       "previousSlugs": [
         "diplomausbildung-hohere-fachschule-operationstechnik-kispi-zurich-zurich",
         "diploma-formazione-scuola-superiore-ingegneria-operativa-universitats-kinderspital-zurich-kispi-zurich"
@@ -814,19 +826,6 @@
         "fr": [
           "diplomausbildung-hohere-fachschule-operationstechnik-kispi-zurich-zurich"
         ]
-      },
-      "firstSeenAt": "2026-08-24T21:34:29.363Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
       }
     },
     {
