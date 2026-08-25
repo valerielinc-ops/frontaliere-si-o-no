@@ -1,6 +1,6 @@
 {
   "crawlerKey": "groupe-e",
-  "assembledAt": "2026-08-25T09:56:45.856Z",
+  "assembledAt": "2026-08-25T21:44:32.393Z",
   "jobs": [
     {
       "id": "groupe-e-8eb543166230",
@@ -34,7 +34,7 @@
       "url": "https://job.groupe-e.ch/job/S%C3%A2les-Electricien%C2%B7ne-de-r%C3%A9seau-Installateur-ou-installatrice-%C3%A9lectricien%C2%B7ne-80-100-Frib/1166312955/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:42.310Z",
+      "crawledAt": "2026-08-25T21:44:29.511Z",
       "addressLocality": "Sâles",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -119,7 +119,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-4-Responsable-d'entit%C3%A9-T%C3%A9l%C3%A9com-IT-%28HF%29-80-100-Frib/1358894455/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:41.691Z",
+      "crawledAt": "2026-08-25T21:44:28.929Z",
       "addressLocality": "Matran - Mad 4",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -165,6 +165,83 @@
       }
     },
     {
+      "id": "groupe-e-096e47f70b2b",
+      "slug": "installatore-elettrico-efz-80-100-groupe-e-chateau-d-oex",
+      "slugByLocale": {
+        "it": "installatore-elettrico-efz-80-100-groupe-e-chateau-d-oex",
+        "en": "cfc-electrical-installer-80-100-groupe-e-chateau-d-oex",
+        "de": "cfc-elektroinstallateur-80-100-groupe-e-chateau-d-oex",
+        "fr": "installatrice-ou-installateur-electricien-ne-cfc-80-100-groupe-e-chateau-d-oex"
+      },
+      "company": "Groupe E",
+      "companyKey": "groupe-e",
+      "companyDomain": "groupe-e.ch",
+      "title": "Installatrice ou installateur électricien·ne CFC 80-100%",
+      "titleByLocale": {
+        "it": "Installatrice ou installateur électricien·ne CFC 80-100%",
+        "en": "CFC electrical installer 80-100%",
+        "de": "CFC Elektroinstallateur 80-100%",
+        "fr": "Installatrice ou installateur électricien·ne CFC 80-100%"
+      },
+      "description": "Installatrice ou installateur électricien·ne CFC 80-100% bei Groupe E in Château-d'Oex.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+      "descriptionByLocale": {
+        "it": "Installatrice ou installateur électricien·ne CFC 80-100% a Groupe E in Château-d'Oex.\n\nGroupe E è un fornitore sanitario svizzero consolidato. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
+        "en": "Installatrice ou installateur électricien·ne CFC 80-100% at Groupe E in Château-d'Oex.\n\nGroupe E is an established Swiss healthcare provider. This position offers a modern working environment, attractive employment conditions and a wide range of training opportunities.",
+        "de": "Installatrice ou installateur électricien·ne CFC 80-100% bei Groupe E in Château-d'Oex.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "Installatrice ou installateur électricien·ne CFC 80-100% bei Groupe E in Château-d'Oex.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+      },
+      "needsRetranslation": true,
+      "location": "Château-d'Oex",
+      "canton": "VD",
+      "url": "https://job.groupe-e.ch/job/Ch%C3%A2teau-d'Oex-Installatrice-ou-installateur-%C3%A9lectricien%C2%B7ne-CFC-80-100-Frib/1351064855/",
+      "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T21:44:28.343Z",
+      "addressLocality": "Château-d'Oex",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Energia / Utility",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-01",
+      "applyUrl": "https://job.groupe-e.ch/talentcommunity/apply/1351064855/?locale=fr_FR",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "installatrice-ou-installateur-electricien-ne-cfc-80-100-groupe-e-chateau-d-oex"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "installatrice-ou-installateur-electricien-ne-cfc-80-100-groupe-e-chateau-d-oex"
+        ],
+        "en": [
+          "installatrice-ou-installateur-electricien-ne-cfc-80-100-groupe-e-chateau-d-oex"
+        ],
+        "de": [
+          "installatrice-ou-installateur-electricien-ne-cfc-80-100-groupe-e-chateau-d-oex"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T11:06:52.598Z",
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 71000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "groupe-e-69aaa27352d6",
       "slug": "responsabile-del-sito-80-100-groupe-e-epagny",
       "slugByLocale": {
@@ -196,7 +273,7 @@
       "url": "https://job.groupe-e.ch/job/Epagny-Cheffe-ou-Chef-de-chantier-80-100-Frib/1332672255/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:41.062Z",
+      "crawledAt": "2026-08-25T21:44:27.746Z",
       "addressLocality": "Epagny",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -275,7 +352,7 @@
       "url": "https://job.groupe-e.ch/job/Ch%C3%A2teau-d'Oex-Electricienne-ou-%C3%A9lectricien-de-r%C3%A9seau-80-100-Vaud/1332742055/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:40.411Z",
+      "crawledAt": "2026-08-25T21:44:27.150Z",
       "addressLocality": "Château-d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -321,83 +398,6 @@
       }
     },
     {
-      "id": "groupe-e-096e47f70b2b",
-      "slug": "installatore-elettrico-efz-80-100-groupe-e-chateau-d-oex",
-      "slugByLocale": {
-        "it": "installatore-elettrico-efz-80-100-groupe-e-chateau-d-oex",
-        "en": "cfc-electrical-installer-80-100-groupe-e-chateau-d-oex",
-        "de": "cfc-elektroinstallateur-80-100-groupe-e-chateau-d-oex",
-        "fr": "installatrice-ou-installateur-electricien-ne-cfc-80-100-groupe-e-chateau-d-oex"
-      },
-      "company": "Groupe E",
-      "companyKey": "groupe-e",
-      "companyDomain": "groupe-e.ch",
-      "title": "Installatrice ou installateur électricien·ne CFC 80-100%",
-      "titleByLocale": {
-        "it": "Installatrice ou installateur électricien·ne CFC 80-100%",
-        "en": "CFC electrical installer 80-100%",
-        "de": "CFC Elektroinstallateur 80-100%",
-        "fr": "Installatrice ou installateur électricien·ne CFC 80-100%"
-      },
-      "description": "Installatrice ou installateur électricien·ne CFC 80-100% bei Groupe E in Château-d'Oex.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-      "descriptionByLocale": {
-        "it": "Installatrice ou installateur électricien·ne CFC 80-100% a Groupe E in Château-d'Oex.\n\nGroupe E è un fornitore sanitario svizzero consolidato. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
-        "en": "Installatrice ou installateur électricien·ne CFC 80-100% at Groupe E in Château-d'Oex.\n\nGroupe E is an established Swiss healthcare provider. This position offers a modern working environment, attractive employment conditions and a wide range of training opportunities.",
-        "de": "Installatrice ou installateur électricien·ne CFC 80-100% bei Groupe E in Château-d'Oex.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Installatrice ou installateur électricien·ne CFC 80-100% bei Groupe E in Château-d'Oex.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
-      },
-      "needsRetranslation": true,
-      "location": "Château-d'Oex",
-      "canton": "VD",
-      "url": "https://job.groupe-e.ch/job/Ch%C3%A2teau-d'Oex-Installatrice-ou-installateur-%C3%A9lectricien%C2%B7ne-CFC-80-100-Frib/1351064855/",
-      "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:39.767Z",
-      "addressLocality": "Château-d'Oex",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Energia / Utility",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-01",
-      "applyUrl": "https://job.groupe-e.ch/talentcommunity/apply/1351064855/?locale=fr_FR",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "installatrice-ou-installateur-electricien-ne-cfc-80-100-groupe-e-chateau-d-oex"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "installatrice-ou-installateur-electricien-ne-cfc-80-100-groupe-e-chateau-d-oex"
-        ],
-        "en": [
-          "installatrice-ou-installateur-electricien-ne-cfc-80-100-groupe-e-chateau-d-oex"
-        ],
-        "de": [
-          "installatrice-ou-installateur-electricien-ne-cfc-80-100-groupe-e-chateau-d-oex"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T11:06:52.598Z",
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 71000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "groupe-e-7ca714208b59",
       "slug": "manutenzione-tecnica-energia-industriale-100-groupe-e-matran-mad-6",
       "slugByLocale": {
@@ -429,7 +429,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-6-Technicien-ou-Technicienne-de-maintenance-Energie-industrielle-100-Frib/1362677555/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:39.124Z",
+      "crawledAt": "2026-08-25T21:44:26.552Z",
       "addressLocality": "Matran - Mad 6",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -508,7 +508,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-4-Cheffe-ou-chef-de-projet-en-chauffage-80-100-Frib/1359187255/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:38.478Z",
+      "crawledAt": "2026-08-25T21:44:25.947Z",
       "addressLocality": "Matran - Mad 4",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -589,7 +589,7 @@
       "url": "https://job.groupe-e.ch/job/Epagny-Installatrice-ou-installateur-%C3%A9lectricien%C2%B7ne-CFC-80-100-Frib/1330596555/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:37.837Z",
+      "crawledAt": "2026-08-25T21:44:25.355Z",
       "addressLocality": "Epagny",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -668,7 +668,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-4-Cheffe-ou-Chef-d'%C3%A9quipe-en-infrastructures-industrielle-moyenne-tension-%28MT%29-100-Frib/1362892755/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:37.216Z",
+      "crawledAt": "2026-08-25T21:44:24.751Z",
       "addressLocality": "Matran - Mad 4",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -745,7 +745,7 @@
       "url": "https://job.groupe-e.ch/job/Tavannes-Cheffe-ou-chef-de-chantier-installations-%C3%A9lectriques-80-100-Bern/1348645955/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:36.582Z",
+      "crawledAt": "2026-08-25T21:44:24.166Z",
       "addressLocality": "Tavannes",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -837,7 +837,7 @@
       "url": "https://job.groupe-e.ch/job/Tavannes-Installatrice-ou-installateur-%C3%A9lectricien%C2%B7ne-80-100-Bern/1348647155/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:35.941Z",
+      "crawledAt": "2026-08-25T21:44:23.593Z",
       "addressLocality": "Tavannes",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -929,7 +929,7 @@
       "url": "https://job.groupe-e.ch/job/Mont-sur-Rolle-Cheffe-ou-chef-de-chantier-infrastructures-routi%C3%A8res-et-ferroviaires-Vaud/1359620755/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:35.308Z",
+      "crawledAt": "2026-08-25T21:44:22.999Z",
       "addressLocality": "Mont-sur-Rolle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1008,7 +1008,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Sab-Einheitsleiter-Netzbau-Direktion-Stromverteilung-%28MW%29-80-100-Frei/1354738855/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:34.677Z",
+      "crawledAt": "2026-08-25T21:44:22.388Z",
       "addressLocality": "Matran - Sab",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1087,7 +1087,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Sab-Responsable-d'%C3%A9quipe-Construction-Distribution-%C3%A9lectricit%C3%A9-%28HF%29-80-100-Frib/1354738955/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:34.050Z",
+      "crawledAt": "2026-08-25T21:44:21.802Z",
       "addressLocality": "Matran - Sab",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1164,7 +1164,7 @@
       "url": "https://job.groupe-e.ch/job/Boudry-Installatrice-ou-installateur-%C3%A9lectricien%C2%B7ne-CFC-80-100-Neuc/1359614355/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:33.408Z",
+      "crawledAt": "2026-08-25T21:44:21.206Z",
       "addressLocality": "Boudry",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1256,7 +1256,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-4-Technicienne-ou-technicien-de-maintenance-Tableaux-%C3%A9lectriques-Frib/1351513555/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:32.763Z",
+      "crawledAt": "2026-08-25T21:44:20.614Z",
       "addressLocality": "Matran - Mad 4",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1337,7 +1337,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-6-Technicienne-ou-Technicien-chef%C2%B7fe-de-projet-CVC-100-Frib/1355089455/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:32.124Z",
+      "crawledAt": "2026-08-25T21:44:20.012Z",
       "addressLocality": "Matran - Mad 6",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1416,7 +1416,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-4-Cheffe-ou-Chef-de-Projet-Bureau-Technique-Infrastructures-Frib/1360032755/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:31.479Z",
+      "crawledAt": "2026-08-25T21:44:19.427Z",
       "addressLocality": "Matran - Mad 4",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1487,7 +1487,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-4-Installatrice-ou-installateur-%C3%A9lectricien%C2%B7ne-CFC-80-100-Frib/1343768055/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:30.838Z",
+      "crawledAt": "2026-08-25T21:44:18.833Z",
       "addressLocality": "Matran - Mad 4",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1587,7 +1587,7 @@
       "url": "https://job.groupe-e.ch/job/Granges-Paccot-Plexus-Gestionnaire-cadastre-r%C3%A9seaux-%28HF%29-80-100-Frib/1363626155/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:30.204Z",
+      "crawledAt": "2026-08-25T21:44:18.218Z",
       "addressLocality": "Granges-Paccot - Plexus",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1638,85 +1638,6 @@
       "streetAddress": "Route de Morat 135"
     },
     {
-      "id": "groupe-e-7d5f4f7b0f59",
-      "slug": "impianti-elettrici-capo-o-costruzione-80-100-groupe-e-sion",
-      "slugByLocale": {
-        "it": "impianti-elettrici-capo-o-costruzione-80-100-groupe-e-sion",
-        "en": "chief-or-construction-manager-electrical-installations-80-100-groupe-e-sion",
-        "de": "chef-oder-bauleiter-elektrische-anlagen-80-100-groupe-e-sion",
-        "fr": "cheffe-ou-chef-de-chantier-installations-electriques-80-100-groupe-e-sion"
-      },
-      "company": "Groupe E",
-      "companyKey": "groupe-e",
-      "companyDomain": "groupe-e.ch",
-      "title": "Cheffe ou chef de chantier installations électriques 80-100%",
-      "titleByLocale": {
-        "it": "Impianti elettrici Capo o Costruzione 80-100%",
-        "en": "Chief or construction manager electrical installations 80-100%",
-        "de": "Chef oder Bauleiter elektrische Anlagen 80-100%",
-        "fr": "Cheffe ou chef de chantier installations électriques 80-100%"
-      },
-      "description": "Cheffe ou chef de chantier installations électriques 80-100% bei Groupe E in Sion.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-      "descriptionByLocale": {
-        "it": "Cheffe ou chef de chantier installazioni électriques 80-100% a Groupe E in Sion.\n\nGroupe E è un fornitore sanitario svizzero consolidato. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
-        "en": "Cheffe ou chef de chantier installations électriques 80-100% at Groupe E in Sion.\n\nGroupe E is an established Swiss healthcare provider. This position offers a modern working environment, attractive employment conditions and a wide range of training opportunities.",
-        "de": "Cheffe ou chef de chantier installations électriques 80-100% bei Groupe E in Sion.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Cheffe ou chef de chantier installations électriques 80-100% bei Groupe E in Sion.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
-      },
-      "needsRetranslation": true,
-      "location": "Sion",
-      "canton": "VS",
-      "url": "https://job.groupe-e.ch/job/Sion-Cheffe-ou-chef-de-chantier-installations-%C3%A9lectriques-80-100-Vala/1337640755/",
-      "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:29.569Z",
-      "addressLocality": "Sion",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Energia / Utility",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-12",
-      "applyUrl": "https://job.groupe-e.ch/talentcommunity/apply/1337640755/?locale=fr_FR",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "cheffe-ou-chef-de-chantier-installations-electriques-80-100-groupe-e-sion",
-        "impianti-elettrici-capo-o-costruzione-80-100-groupe-e-sion"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "cheffe-ou-chef-de-chantier-installations-electriques-80-100-groupe-e-sion",
-          "impianti-elettrici-capo-o-costruzione-80-100-groupe-e-sion"
-        ],
-        "en": [
-          "cheffe-ou-chef-de-chantier-installations-electriques-80-100-groupe-e-sion"
-        ],
-        "de": [
-          "cheffe-ou-chef-de-chantier-installations-electriques-80-100-groupe-e-sion"
-        ]
-      },
-      "firstSeenAt": "2026-08-11T22:00:55.119Z",
-      "salaryMin": 97500,
-      "salaryMax": 148000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 97500,
-          "maxValue": 148000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "groupe-e-a0d3090ba41e",
       "slug": "installatore-o-installatore-80-100-groupe-e-sion",
       "slugByLocale": {
@@ -1748,7 +1669,7 @@
       "url": "https://job.groupe-e.ch/job/Sion-Installatrice-ou-installateur-%C3%A9lectricien%C2%B7ne-80-100-Vala/1349278555/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:28.951Z",
+      "crawledAt": "2026-08-25T21:44:17.605Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1796,6 +1717,85 @@
       }
     },
     {
+      "id": "groupe-e-7d5f4f7b0f59",
+      "slug": "impianti-elettrici-capo-o-costruzione-80-100-groupe-e-sion",
+      "slugByLocale": {
+        "it": "impianti-elettrici-capo-o-costruzione-80-100-groupe-e-sion",
+        "en": "chief-or-construction-manager-electrical-installations-80-100-groupe-e-sion",
+        "de": "chef-oder-bauleiter-elektrische-anlagen-80-100-groupe-e-sion",
+        "fr": "cheffe-ou-chef-de-chantier-installations-electriques-80-100-groupe-e-sion"
+      },
+      "company": "Groupe E",
+      "companyKey": "groupe-e",
+      "companyDomain": "groupe-e.ch",
+      "title": "Cheffe ou chef de chantier installations électriques 80-100%",
+      "titleByLocale": {
+        "it": "Impianti elettrici Capo o Costruzione 80-100%",
+        "en": "Chief or construction manager electrical installations 80-100%",
+        "de": "Chef oder Bauleiter elektrische Anlagen 80-100%",
+        "fr": "Cheffe ou chef de chantier installations électriques 80-100%"
+      },
+      "description": "Cheffe ou chef de chantier installations électriques 80-100% bei Groupe E in Sion.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+      "descriptionByLocale": {
+        "it": "Cheffe ou chef de chantier installazioni électriques 80-100% a Groupe E in Sion.\n\nGroupe E è un fornitore sanitario svizzero consolidato. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
+        "en": "Cheffe ou chef de chantier installations électriques 80-100% at Groupe E in Sion.\n\nGroupe E is an established Swiss healthcare provider. This position offers a modern working environment, attractive employment conditions and a wide range of training opportunities.",
+        "de": "Cheffe ou chef de chantier installations électriques 80-100% bei Groupe E in Sion.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "Cheffe ou chef de chantier installations électriques 80-100% bei Groupe E in Sion.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+      },
+      "needsRetranslation": true,
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://job.groupe-e.ch/job/Sion-Cheffe-ou-chef-de-chantier-installations-%C3%A9lectriques-80-100-Vala/1337640755/",
+      "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T21:44:17.005Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Energia / Utility",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-12",
+      "applyUrl": "https://job.groupe-e.ch/talentcommunity/apply/1337640755/?locale=fr_FR",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "cheffe-ou-chef-de-chantier-installations-electriques-80-100-groupe-e-sion",
+        "impianti-elettrici-capo-o-costruzione-80-100-groupe-e-sion"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "cheffe-ou-chef-de-chantier-installations-electriques-80-100-groupe-e-sion",
+          "impianti-elettrici-capo-o-costruzione-80-100-groupe-e-sion"
+        ],
+        "en": [
+          "cheffe-ou-chef-de-chantier-installations-electriques-80-100-groupe-e-sion"
+        ],
+        "de": [
+          "cheffe-ou-chef-de-chantier-installations-electriques-80-100-groupe-e-sion"
+        ]
+      },
+      "firstSeenAt": "2026-08-11T22:00:55.119Z",
+      "salaryMin": 97500,
+      "salaryMax": 148000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 97500,
+          "maxValue": 148000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "groupe-e-cc97cb371ee0",
       "slug": "pianificatore-dei-pannelli-elettrici-edificio-80-100-groupe-e-matran-mad-4",
       "slugByLocale": {
@@ -1827,7 +1827,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-4-Planificatrice-ou-planificateur-tableaux-%C3%A9lectriques-Building-80-100-Frib/1355626155/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:28.324Z",
+      "crawledAt": "2026-08-25T21:44:16.415Z",
       "addressLocality": "Matran - Mad 4",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1875,6 +1875,83 @@
       }
     },
     {
+      "id": "groupe-e-1b80b0a76124",
+      "slug": "responsabile-della-piattaforma-dati-m-f-80-100-groupe-e-granges-paccot-plexus",
+      "slugByLocale": {
+        "it": "responsabile-della-piattaforma-dati-m-f-80-100-groupe-e-granges-paccot-plexus",
+        "en": "responsable-de-la-data-platform-h-f-80-100-groupe-e-granges-paccot-plexus",
+        "de": "leiter-der-datenplattform-m-w-80-100-groupe-e-granges-paccot-plexus",
+        "fr": "responsable-de-la-data-platform-h-f-80-100-groupe-e-granges-paccot-plexus"
+      },
+      "company": "Groupe E",
+      "companyKey": "groupe-e",
+      "companyDomain": "groupe-e.ch",
+      "title": "Responsable de la Data Platform (H/F) 80-100%",
+      "titleByLocale": {
+        "it": "Responsabile della piattaforma dati (M/F) 80-100%",
+        "en": "Head of Data Platform (M/F) 80-100%",
+        "de": "Leiter der Datenplattform (M/W) 80-100%",
+        "fr": "Responsable de la Data Platform (H/F) 80-100%"
+      },
+      "description": "Responsable de la Data Platform (H/F) 80-100% bei Groupe E in Granges-Paccot - Plexus.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+      "descriptionByLocale": {
+        "it": "Piattaforma di dati responsabile (M/F) 80-100% a Groupe E in Granges-Paccot - Plexus.\n\nGroupe E è un fornitore sanitario svizzero consolidato. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
+        "en": "Responsable Data Platform (M/F) 80-100% at Groupe E in Granges-Paccot - Plexus.\n\nGroupe E is an established Swiss healthcare provider. This position offers a modern working environment, attractive employment conditions and a wide range of training opportunities.",
+        "de": "Responsable de la Data Platform (H/F) 80-100% bei Groupe E in Granges-Paccot - Plexus.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "Responsable de la Data Platform (H/F) 80-100% bei Groupe E in Granges-Paccot - Plexus.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+      },
+      "needsRetranslation": true,
+      "location": "Granges-Paccot - Plexus",
+      "canton": "FR",
+      "url": "https://job.groupe-e.ch/job/Granges-Paccot-Plexus-Responsable-de-la-Data-Platform-%28HF%29-80-100-Frib/1364601655/",
+      "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T21:44:15.829Z",
+      "addressLocality": "Granges-Paccot - Plexus",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1763",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Energia / Utility",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-14",
+      "applyUrl": "https://job.groupe-e.ch/talentcommunity/apply/1364601655/?locale=fr_FR",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "responsable-de-la-data-platform-h-f-80-100-groupe-e-granges-paccot-plexus",
+        "responsabile-della-piattaforma-dati-m-f-80-100-groupe-e-granges-paccot-plexus"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-de-la-data-platform-h-f-80-100-groupe-e-granges-paccot-plexus",
+          "responsabile-della-piattaforma-dati-m-f-80-100-groupe-e-granges-paccot-plexus"
+        ],
+        "de": [
+          "responsable-de-la-data-platform-h-f-80-100-groupe-e-granges-paccot-plexus"
+        ]
+      },
+      "firstSeenAt": "2026-08-14T10:55:23.255Z",
+      "salaryMin": 105500,
+      "salaryMax": 160000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 105500,
+          "maxValue": 160000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Route de Morat 135"
+    },
+    {
       "id": "groupe-e-6ad5c8c0646a",
       "slug": "elexpert-sa-consulente-per-la-sicurezza-elettrica-80-100-groupe-e-boudry",
       "slugByLocale": {
@@ -1906,7 +1983,7 @@
       "url": "https://job.groupe-e.ch/job/Boudry-Elexpert-SA-Conseill%C3%A8re-ou-conseiller-en-s%C3%A9curit%C3%A9-%C3%A9lectrique-%2880-100%29-Neuc/1364631855/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:27.684Z",
+      "crawledAt": "2026-08-25T21:44:15.244Z",
       "addressLocality": "Boudry",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1954,81 +2031,83 @@
       }
     },
     {
-      "id": "groupe-e-1b80b0a76124",
-      "slug": "responsabile-della-piattaforma-dati-m-f-80-100-groupe-e-granges-paccot-plexus",
+      "id": "groupe-e-3b5325551b73",
+      "slug": "responsabile-dei-progetti-nell-installazione-elettrica-groupe-e-boudry",
       "slugByLocale": {
-        "it": "responsabile-della-piattaforma-dati-m-f-80-100-groupe-e-granges-paccot-plexus",
-        "en": "responsable-de-la-data-platform-h-f-80-100-groupe-e-granges-paccot-plexus",
-        "de": "leiter-der-datenplattform-m-w-80-100-groupe-e-granges-paccot-plexus",
-        "fr": "responsable-de-la-data-platform-h-f-80-100-groupe-e-granges-paccot-plexus"
+        "it": "responsabile-dei-progetti-nell-installazione-elettrica-groupe-e-boudry",
+        "en": "head-of-projects-in-electrical-installation-groupe-e-boudry",
+        "de": "leiter-projekte-in-der-elektroinstallation-groupe-e-boudry",
+        "fr": "cheffe-ou-chef-de-projets-en-installation-electriques-groupe-e-boudry"
       },
       "company": "Groupe E",
       "companyKey": "groupe-e",
       "companyDomain": "groupe-e.ch",
-      "title": "Responsable de la Data Platform (H/F) 80-100%",
+      "title": "Cheffe ou Chef de projets en Installation électriques",
       "titleByLocale": {
-        "it": "Responsabile della piattaforma dati (M/F) 80-100%",
-        "en": "Head of Data Platform (M/F) 80-100%",
-        "de": "Leiter der Datenplattform (M/W) 80-100%",
-        "fr": "Responsable de la Data Platform (H/F) 80-100%"
+        "it": "Responsabile dei progetti nell'installazione elettrica",
+        "en": "Head of Projects in Electrical Installation",
+        "de": "Leiter Projekte in der Elektroinstallation",
+        "fr": "Cheffe ou Chef de projets en Installation électriques"
       },
-      "description": "Responsable de la Data Platform (H/F) 80-100% bei Groupe E in Granges-Paccot - Plexus.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+      "description": "Cheffe ou Chef de projets en Installation électriques bei Groupe E in Boudry.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
       "descriptionByLocale": {
-        "it": "Piattaforma di dati responsabile (M/F) 80-100% a Groupe E in Granges-Paccot - Plexus.\n\nGroupe E è un fornitore sanitario svizzero consolidato. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
-        "en": "Responsable Data Platform (M/F) 80-100% at Groupe E in Granges-Paccot - Plexus.\n\nGroupe E is an established Swiss healthcare provider. This position offers a modern working environment, attractive employment conditions and a wide range of training opportunities.",
-        "de": "Responsable de la Data Platform (H/F) 80-100% bei Groupe E in Granges-Paccot - Plexus.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Responsable de la Data Platform (H/F) 80-100% bei Groupe E in Granges-Paccot - Plexus.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+        "it": "Cheffe ou Chef de projets en install électriques at Groupe E in Boudry.\n\nGroupe E è un fornitore sanitario svizzero consolidato. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
+        "en": "Cheffe ou Chef de projets en installation électriques at Groupe E in Boudry.\n\nGroupe E is an established Swiss healthcare provider. This position offers a modern working environment, attractive employment conditions and a wide range of training opportunities.",
+        "de": "Cheffe ou Chef de projets en Installation électriques bei Groupe E in Boudry.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "Cheffe ou Chef de projets en Installation électriques bei Groupe E in Boudry.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
       },
       "needsRetranslation": true,
-      "location": "Granges-Paccot - Plexus",
-      "canton": "FR",
-      "url": "https://job.groupe-e.ch/job/Granges-Paccot-Plexus-Responsable-de-la-Data-Platform-%28HF%29-80-100-Frib/1364601655/",
+      "location": "Boudry",
+      "canton": "NE",
+      "url": "https://job.groupe-e.ch/job/Boudry-Cheffe-ou-Chef-de-projets-en-Installation-%C3%A9lectriques-Neuc/1360629355/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:27.046Z",
-      "addressLocality": "Granges-Paccot - Plexus",
-      "addressRegion": "FR",
+      "crawledAt": "2026-08-25T21:44:14.640Z",
+      "addressLocality": "Boudry",
+      "addressRegion": "NE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "1763",
+      "postalCode": "",
       "category": "Tecnica",
       "contract": "full-time",
-      "employmentType": "FULL_TIME",
+      "employmentType": "OTHER",
       "experienceLevel": "senior",
       "sector": "Energia / Utility",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-14",
-      "applyUrl": "https://job.groupe-e.ch/talentcommunity/apply/1364601655/?locale=fr_FR",
+      "postedDate": "2026-07-16",
+      "applyUrl": "https://job.groupe-e.ch/talentcommunity/apply/1360629355/?locale=fr_FR",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-de-la-data-platform-h-f-80-100-groupe-e-granges-paccot-plexus",
-        "responsabile-della-piattaforma-dati-m-f-80-100-groupe-e-granges-paccot-plexus"
+        "cheffe-ou-chef-de-projets-en-installation-electriques-groupe-e-boudry",
+        "responsabile-dei-progetti-nell-installazione-elettrica-groupe-e-boudry"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-de-la-data-platform-h-f-80-100-groupe-e-granges-paccot-plexus",
-          "responsabile-della-piattaforma-dati-m-f-80-100-groupe-e-granges-paccot-plexus"
+          "cheffe-ou-chef-de-projets-en-installation-electriques-groupe-e-boudry",
+          "responsabile-dei-progetti-nell-installazione-elettrica-groupe-e-boudry"
+        ],
+        "en": [
+          "cheffe-ou-chef-de-projets-en-installation-electriques-groupe-e-boudry"
         ],
         "de": [
-          "responsable-de-la-data-platform-h-f-80-100-groupe-e-granges-paccot-plexus"
+          "cheffe-ou-chef-de-projets-en-installation-electriques-groupe-e-boudry"
         ]
       },
-      "firstSeenAt": "2026-08-14T10:55:23.255Z",
-      "salaryMin": 105500,
-      "salaryMax": 160000,
+      "firstSeenAt": "2026-07-16T12:21:23.050Z",
+      "salaryMin": 96500,
+      "salaryMax": 147000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 105500,
-          "maxValue": 160000,
+          "minValue": 96500,
+          "maxValue": 147000,
           "unitText": "YEAR"
         }
-      },
-      "streetAddress": "Route de Morat 135"
+      }
     },
     {
       "id": "groupe-e-c9ddf6e9aba6",
@@ -2062,7 +2141,7 @@
       "url": "https://job.groupe-e.ch/job/Mont-sur-Rolle-Monteuse-ou-Monteur-en-infrastructures-routi%C3%A8res-et-ferroviaires-80-100-Vaud/1355675955/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:26.405Z",
+      "crawledAt": "2026-08-25T21:44:14.041Z",
       "addressLocality": "Mont-sur-Rolle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2123,85 +2202,6 @@
       }
     },
     {
-      "id": "groupe-e-3b5325551b73",
-      "slug": "responsabile-dei-progetti-nell-installazione-elettrica-groupe-e-boudry",
-      "slugByLocale": {
-        "it": "responsabile-dei-progetti-nell-installazione-elettrica-groupe-e-boudry",
-        "en": "head-of-projects-in-electrical-installation-groupe-e-boudry",
-        "de": "leiter-projekte-in-der-elektroinstallation-groupe-e-boudry",
-        "fr": "cheffe-ou-chef-de-projets-en-installation-electriques-groupe-e-boudry"
-      },
-      "company": "Groupe E",
-      "companyKey": "groupe-e",
-      "companyDomain": "groupe-e.ch",
-      "title": "Cheffe ou Chef de projets en Installation électriques",
-      "titleByLocale": {
-        "it": "Responsabile dei progetti nell'installazione elettrica",
-        "en": "Head of Projects in Electrical Installation",
-        "de": "Leiter Projekte in der Elektroinstallation",
-        "fr": "Cheffe ou Chef de projets en Installation électriques"
-      },
-      "description": "Cheffe ou Chef de projets en Installation électriques bei Groupe E in Boudry.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-      "descriptionByLocale": {
-        "it": "Cheffe ou Chef de projets en install électriques at Groupe E in Boudry.\n\nGroupe E è un fornitore sanitario svizzero consolidato. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
-        "en": "Cheffe ou Chef de projets en installation électriques at Groupe E in Boudry.\n\nGroupe E is an established Swiss healthcare provider. This position offers a modern working environment, attractive employment conditions and a wide range of training opportunities.",
-        "de": "Cheffe ou Chef de projets en Installation électriques bei Groupe E in Boudry.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Cheffe ou Chef de projets en Installation électriques bei Groupe E in Boudry.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
-      },
-      "needsRetranslation": true,
-      "location": "Boudry",
-      "canton": "NE",
-      "url": "https://job.groupe-e.ch/job/Boudry-Cheffe-ou-Chef-de-projets-en-Installation-%C3%A9lectriques-Neuc/1360629355/",
-      "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:25.751Z",
-      "addressLocality": "Boudry",
-      "addressRegion": "NE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Energia / Utility",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-16",
-      "applyUrl": "https://job.groupe-e.ch/talentcommunity/apply/1360629355/?locale=fr_FR",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "cheffe-ou-chef-de-projets-en-installation-electriques-groupe-e-boudry",
-        "responsabile-dei-progetti-nell-installazione-elettrica-groupe-e-boudry"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "cheffe-ou-chef-de-projets-en-installation-electriques-groupe-e-boudry",
-          "responsabile-dei-progetti-nell-installazione-elettrica-groupe-e-boudry"
-        ],
-        "en": [
-          "cheffe-ou-chef-de-projets-en-installation-electriques-groupe-e-boudry"
-        ],
-        "de": [
-          "cheffe-ou-chef-de-projets-en-installation-electriques-groupe-e-boudry"
-        ]
-      },
-      "firstSeenAt": "2026-07-16T12:21:23.050Z",
-      "salaryMin": 96500,
-      "salaryMax": 147000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 96500,
-          "maxValue": 147000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "groupe-e-c059b0cd30e7",
       "slug": "tecnico-di-manutenzione-hvac-al-100-groupe-e-matran-mad-6",
       "slugByLocale": {
@@ -2233,7 +2233,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-6-Technicienne-ou-Technicien-de-maintenance-CVC-100-Frib/1352851555/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:25.111Z",
+      "crawledAt": "2026-08-25T21:44:13.449Z",
       "addressLocality": "Matran - Mad 6",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2312,7 +2312,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-6-Technicienne-ou-Technicien-SAV-PAC-100-Frib/1355971955/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:24.483Z",
+      "crawledAt": "2026-08-25T21:44:12.837Z",
       "addressLocality": "Matran - Mad 6",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2391,7 +2391,7 @@
       "url": "https://job.groupe-e.ch/job/Boudevilliers-Electricien%C2%B7ne-de-r%C3%A9seau-Installateur-ou-installatrice-%C3%A9lectricien%C2%B7ne-80-100-Neuc/1350069055/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:23.836Z",
+      "crawledAt": "2026-08-25T21:44:12.236Z",
       "addressLocality": "Boudevilliers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2474,7 +2474,7 @@
       "url": "https://job.groupe-e.ch/job/Guin-D%C3%BCdingen-Servicemonteurin-oder-Servicemonteur-80-100-Frei/993073455/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:23.157Z",
+      "crawledAt": "2026-08-25T21:44:11.613Z",
       "addressLocality": "Guin - Düdingen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2551,7 +2551,7 @@
       "url": "https://job.groupe-e.ch/job/Granges-Paccot-Plexus-Ing%C3%A9nieure-ou-Ing%C3%A9nieur-de-projets-en-ouvrages-hydro%C3%A9lectriques-%28g%C3%A9nie-civil%29-80-100-Frib/1343122455/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:22.544Z",
+      "crawledAt": "2026-08-25T21:44:11.024Z",
       "addressLocality": "Granges-Paccot - Plexus",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2600,6 +2600,85 @@
       "streetAddress": "Route de Morat 135"
     },
     {
+      "id": "groupe-e-b9c4ed52ea55",
+      "slug": "responsabile-progetti-di-mobilita-elettrica-regione-centrale-groupe-e-matran-mad-4",
+      "slugByLocale": {
+        "it": "responsabile-progetti-di-mobilita-elettrica-regione-centrale-groupe-e-matran-mad-4",
+        "en": "head-of-electric-mobility-projects-central-region-groupe-e-matran-mad-4",
+        "de": "leiter-elektromobilitatsprojekte-zentralregion-groupe-e-matran-mad-4",
+        "fr": "cheffe-ou-chef-de-projets-mobilite-electrique-region-centre-groupe-e-matran-mad-4"
+      },
+      "company": "Groupe E",
+      "companyKey": "groupe-e",
+      "companyDomain": "groupe-e.ch",
+      "title": "Cheffe ou chef de projets mobilité électrique (Région Centre)",
+      "titleByLocale": {
+        "it": "Responsabile progetti di mobilità elettrica (Regione Centrale)",
+        "en": "Head of electric mobility projects (Central Region)",
+        "de": "Leiter Elektromobilitätsprojekte (Zentralregion)",
+        "fr": "Cheffe ou chef de projets mobilité électrique (Région Centre)"
+      },
+      "description": "Cheffe ou chef de projets mobilité électrique (Région Centre) bei Groupe E in Matran - Mad 4.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+      "descriptionByLocale": {
+        "it": "Cheffe ou chef de projets mobilité électrique (Région Centre) al Groupe E di Matran - Mad 4.\n\nGroupe E è un fornitore sanitario svizzero consolidato. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
+        "en": "Cheffe ou chef de projets mobilité électrique (Région Centre) at Groupe E in Matran - Mad 4.\n\nGroupe E is an established Swiss healthcare provider. This position offers a modern working environment, attractive employment conditions and a wide range of training opportunities.",
+        "de": "Cheffe ou chef de projets mobilité électrique (Région Centre) bei Groupe E in Matran - Mad 4.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "Cheffe ou chef de projets mobilité électrique (Région Centre) bei Groupe E in Matran - Mad 4.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+      },
+      "needsRetranslation": true,
+      "location": "Matran - Mad 4",
+      "canton": "FR",
+      "url": "https://job.groupe-e.ch/job/Matran-Mad-4-Cheffe-ou-chef-de-projets-mobilit%C3%A9-%C3%A9lectrique-%28R%C3%A9gion-Centre%29-Frib/1364901255/",
+      "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T21:44:10.435Z",
+      "addressLocality": "Matran - Mad 4",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Energia / Utility",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-18",
+      "applyUrl": "https://job.groupe-e.ch/talentcommunity/apply/1364901255/?locale=fr_FR",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "cheffe-ou-chef-de-projets-mobilite-electrique-region-centre-groupe-e-matran-mad-4",
+        "responsabile-progetti-di-mobilita-elettrica-regione-centrale-groupe-e-matran-mad-4"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "cheffe-ou-chef-de-projets-mobilite-electrique-region-centre-groupe-e-matran-mad-4",
+          "responsabile-progetti-di-mobilita-elettrica-regione-centrale-groupe-e-matran-mad-4"
+        ],
+        "en": [
+          "cheffe-ou-chef-de-projets-mobilite-electrique-region-centre-groupe-e-matran-mad-4"
+        ],
+        "de": [
+          "cheffe-ou-chef-de-projets-mobilite-electrique-region-centre-groupe-e-matran-mad-4"
+        ]
+      },
+      "firstSeenAt": "2026-08-18T22:08:12.208Z",
+      "salaryMin": 113000,
+      "salaryMax": 192000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 113000,
+          "maxValue": 192000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "groupe-e-ed7e7317c3f4",
       "slug": "capo-dei-progetti-di-mobilita-elettrica-regione-del-sud-groupe-e-matran-mad-4",
       "slugByLocale": {
@@ -2631,7 +2710,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-4-Cheffe-ou-chef-de-projets-mobilit%C3%A9-%C3%A9lectrique-%28R%C3%A9gion-Sud%29-Frib/1364900955/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:21.930Z",
+      "crawledAt": "2026-08-25T21:44:09.837Z",
       "addressLocality": "Matran - Mad 4",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2681,85 +2760,6 @@
       }
     },
     {
-      "id": "groupe-e-b9c4ed52ea55",
-      "slug": "responsabile-progetti-di-mobilita-elettrica-regione-centrale-groupe-e-matran-mad-4",
-      "slugByLocale": {
-        "it": "responsabile-progetti-di-mobilita-elettrica-regione-centrale-groupe-e-matran-mad-4",
-        "en": "head-of-electric-mobility-projects-central-region-groupe-e-matran-mad-4",
-        "de": "leiter-elektromobilitatsprojekte-zentralregion-groupe-e-matran-mad-4",
-        "fr": "cheffe-ou-chef-de-projets-mobilite-electrique-region-centre-groupe-e-matran-mad-4"
-      },
-      "company": "Groupe E",
-      "companyKey": "groupe-e",
-      "companyDomain": "groupe-e.ch",
-      "title": "Cheffe ou chef de projets mobilité électrique (Région Centre)",
-      "titleByLocale": {
-        "it": "Responsabile progetti di mobilità elettrica (Regione Centrale)",
-        "en": "Head of electric mobility projects (Central Region)",
-        "de": "Leiter Elektromobilitätsprojekte (Zentralregion)",
-        "fr": "Cheffe ou chef de projets mobilité électrique (Région Centre)"
-      },
-      "description": "Cheffe ou chef de projets mobilité électrique (Région Centre) bei Groupe E in Matran - Mad 4.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-      "descriptionByLocale": {
-        "it": "Cheffe ou chef de projets mobilité électrique (Région Centre) al Groupe E di Matran - Mad 4.\n\nGroupe E è un fornitore sanitario svizzero consolidato. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
-        "en": "Cheffe ou chef de projets mobilité électrique (Région Centre) at Groupe E in Matran - Mad 4.\n\nGroupe E is an established Swiss healthcare provider. This position offers a modern working environment, attractive employment conditions and a wide range of training opportunities.",
-        "de": "Cheffe ou chef de projets mobilité électrique (Région Centre) bei Groupe E in Matran - Mad 4.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Cheffe ou chef de projets mobilité électrique (Région Centre) bei Groupe E in Matran - Mad 4.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
-      },
-      "needsRetranslation": true,
-      "location": "Matran - Mad 4",
-      "canton": "FR",
-      "url": "https://job.groupe-e.ch/job/Matran-Mad-4-Cheffe-ou-chef-de-projets-mobilit%C3%A9-%C3%A9lectrique-%28R%C3%A9gion-Centre%29-Frib/1364901255/",
-      "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:21.314Z",
-      "addressLocality": "Matran - Mad 4",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Energia / Utility",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-18",
-      "applyUrl": "https://job.groupe-e.ch/talentcommunity/apply/1364901255/?locale=fr_FR",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "cheffe-ou-chef-de-projets-mobilite-electrique-region-centre-groupe-e-matran-mad-4",
-        "responsabile-progetti-di-mobilita-elettrica-regione-centrale-groupe-e-matran-mad-4"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "cheffe-ou-chef-de-projets-mobilite-electrique-region-centre-groupe-e-matran-mad-4",
-          "responsabile-progetti-di-mobilita-elettrica-regione-centrale-groupe-e-matran-mad-4"
-        ],
-        "en": [
-          "cheffe-ou-chef-de-projets-mobilite-electrique-region-centre-groupe-e-matran-mad-4"
-        ],
-        "de": [
-          "cheffe-ou-chef-de-projets-mobilite-electrique-region-centre-groupe-e-matran-mad-4"
-        ]
-      },
-      "firstSeenAt": "2026-08-18T22:08:12.208Z",
-      "salaryMin": 113000,
-      "salaryMax": 192000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 113000,
-          "maxValue": 192000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "groupe-e-70010d4de37b",
       "slug": "senior-responsabile-di-progetto-wasserkraft-genio-civile-groupe-e-granges-paccot-plexus",
       "slugByLocale": {
@@ -2791,7 +2791,7 @@
       "url": "https://job.groupe-e.ch/job/Granges-Paccot-Plexus-Senior-Projektleiterin-Wasserkraft-Tiefbau-Frei/1343241255/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:20.661Z",
+      "crawledAt": "2026-08-25T21:44:09.243Z",
       "addressLocality": "Granges-Paccot - Plexus",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2867,7 +2867,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-4-Employ%C3%A9%C2%B7e-Comptable-Frib/1365032255/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:20.015Z",
+      "crawledAt": "2026-08-25T21:44:08.659Z",
       "addressLocality": "Matran - Mad 4",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2946,7 +2946,7 @@
       "url": "https://job.groupe-e.ch/job/Granges-Paccot-Plexus-Comptable-%28HF%29-80-CDD-Frib/1365158555/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:19.389Z",
+      "crawledAt": "2026-08-25T21:44:08.059Z",
       "addressLocality": "Granges-Paccot - Plexus",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3030,7 +3030,7 @@
       "url": "https://job.groupe-e.ch/job/Granges-Paccot-Plexus-Ing%C3%A9nieure-ou-ing%C3%A9nieur-Smart-Metering-&-Data-80-100-Frib/1361850655/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:18.732Z",
+      "crawledAt": "2026-08-25T21:44:07.463Z",
       "addressLocality": "Granges-Paccot - Plexus",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3094,7 +3094,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-4-Technicienne-ou-technicien-en-mobilit%C3%A9-%C3%A9lectrique-80-100-Frib/1356470155/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:18.085Z",
+      "crawledAt": "2026-08-25T21:44:06.869Z",
       "addressLocality": "Matran - Mad 4",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3196,7 +3196,7 @@
       "url": "https://job.groupe-e.ch/job/Mont-sur-Rolle-Cheffe-ou-chef-d'%C3%A9quipe-en-montage-d'infrastructures-industrielles-rails-d'%C3%A9nergie-Frib/1361905055/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:17.453Z",
+      "crawledAt": "2026-08-25T21:44:06.269Z",
       "addressLocality": "Mont-sur-Rolle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3273,7 +3273,7 @@
       "url": "https://job.groupe-e.ch/job/Guin-D%C3%BCdingen-Elektroinstallateurin-oder-Elektroinstallateur-80-100-Frei/1325920855/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:16.830Z",
+      "crawledAt": "2026-08-25T21:44:05.681Z",
       "addressLocality": "Guin - Düdingen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3321,86 +3321,6 @@
       }
     },
     {
-      "id": "groupe-e-8b714a6374e7",
-      "slug": "supervisore-dei-lavori-80-100-groupe-e-granges-paccot-chantemerle",
-      "slugByLocale": {
-        "it": "supervisore-dei-lavori-80-100-groupe-e-granges-paccot-chantemerle",
-        "en": "work-driver-or-operator-80-100-groupe-e-granges-paccot-chantemerle",
-        "de": "fahrer-oder-bediener-80-100-groupe-e-granges-paccot-chantemerle",
-        "fr": "conductrice-ou-conducteur-de-travaux-80-100-groupe-e-granges-paccot-chantemerle"
-      },
-      "company": "Groupe E",
-      "companyKey": "groupe-e",
-      "companyDomain": "groupe-e.ch",
-      "title": "Conductrice ou conducteur de travaux 80-100%",
-      "titleByLocale": {
-        "it": "Supervisore dei lavori 80-100%",
-        "en": "Work driver or operator 80-100%",
-        "de": "Fahrer oder Bediener 80-100%",
-        "fr": "Conductrice ou conducteur de travaux 80-100%"
-      },
-      "description": "Conductrice ou conducteur de travaux 80-100% bei Groupe E in Granges-Paccot - Chantemerle.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-      "descriptionByLocale": {
-        "it": "Conductrice ou conducieur de travaux 80-100% a Groupe E in Granges-Paccot - Chantemerle.\n\nGroupe E è un fornitore sanitario svizzero consolidato. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
-        "en": "Conductrice ou conducteur de travaux 80-100% at Groupe E in Granges-Paccot - Chantemerle.\n\nGroupe E is an established Swiss healthcare provider. This position offers a modern working environment, attractive employment conditions and a wide range of training opportunities.",
-        "de": "Conductrice ou conducteur de travaux 80-100% bei Groupe E in Granges-Paccot - Chantemerle.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
-        "fr": "Conductrice ou conducteur de travaux 80-100% bei Groupe E in Granges-Paccot - Chantemerle.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
-      },
-      "needsRetranslation": true,
-      "location": "Granges-Paccot - Chantemerle",
-      "canton": "FR",
-      "url": "https://job.groupe-e.ch/job/Granges-Paccot-Chantemerle-Conductrice-ou-conducteur-de-travaux-80-100-Frib/1356589355/",
-      "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:16.169Z",
-      "addressLocality": "Granges-Paccot - Chantemerle",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1763",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Energia / Utility",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-25",
-      "applyUrl": "https://job.groupe-e.ch/talentcommunity/apply/1356589355/?locale=fr_FR",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "conductrice-ou-conducteur-de-travaux-80-100-groupe-e-granges-paccot-chantemerle",
-        "supervisore-dei-lavori-80-100-groupe-e-granges-paccot-chantemerle"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "conductrice-ou-conducteur-de-travaux-80-100-groupe-e-granges-paccot-chantemerle",
-          "supervisore-dei-lavori-80-100-groupe-e-granges-paccot-chantemerle"
-        ],
-        "en": [
-          "conductrice-ou-conducteur-de-travaux-80-100-groupe-e-granges-paccot-chantemerle"
-        ],
-        "de": [
-          "conductrice-ou-conducteur-de-travaux-80-100-groupe-e-granges-paccot-chantemerle"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T11:06:57.770Z",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77000,
-          "maxValue": 116500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Route de Morat 135"
-    },
-    {
       "id": "groupe-e-0168ba368efb",
       "slug": "leader-del-progetto-specialista-in-rete-mt-bt-80-100-groupe-e-sales",
       "slugByLocale": {
@@ -3432,7 +3352,7 @@
       "url": "https://job.groupe-e.ch/job/S%C3%A2les-Cheffe-ou-chef-de-projets-Sp%C3%A9cialiste-r%C3%A9seau-MTBT-80-100-Frib/1362030855/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:15.538Z",
+      "crawledAt": "2026-08-25T21:44:05.080Z",
       "addressLocality": "Sâles",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3511,7 +3431,7 @@
       "url": "https://job.groupe-e.ch/job/Guin-D%C3%BCdingen-Bauleiterin-oder-Bauleiter-Elektroinstallationen-80-100-Frei/1164828455/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:14.893Z",
+      "crawledAt": "2026-08-25T21:44:04.472Z",
       "addressLocality": "Guin - Düdingen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3557,6 +3477,86 @@
       }
     },
     {
+      "id": "groupe-e-8b714a6374e7",
+      "slug": "supervisore-dei-lavori-80-100-groupe-e-granges-paccot-chantemerle",
+      "slugByLocale": {
+        "it": "supervisore-dei-lavori-80-100-groupe-e-granges-paccot-chantemerle",
+        "en": "work-driver-or-operator-80-100-groupe-e-granges-paccot-chantemerle",
+        "de": "fahrer-oder-bediener-80-100-groupe-e-granges-paccot-chantemerle",
+        "fr": "conductrice-ou-conducteur-de-travaux-80-100-groupe-e-granges-paccot-chantemerle"
+      },
+      "company": "Groupe E",
+      "companyKey": "groupe-e",
+      "companyDomain": "groupe-e.ch",
+      "title": "Conductrice ou conducteur de travaux 80-100%",
+      "titleByLocale": {
+        "it": "Supervisore dei lavori 80-100%",
+        "en": "Work driver or operator 80-100%",
+        "de": "Fahrer oder Bediener 80-100%",
+        "fr": "Conductrice ou conducteur de travaux 80-100%"
+      },
+      "description": "Conductrice ou conducteur de travaux 80-100% bei Groupe E in Granges-Paccot - Chantemerle.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+      "descriptionByLocale": {
+        "it": "Conductrice ou conducieur de travaux 80-100% a Groupe E in Granges-Paccot - Chantemerle.\n\nGroupe E è un fornitore sanitario svizzero consolidato. Questa posizione offre un ambiente di lavoro moderno, condizioni di lavoro attraenti e una vasta gamma di opportunità di formazione.",
+        "en": "Conductrice ou conducteur de travaux 80-100% at Groupe E in Granges-Paccot - Chantemerle.\n\nGroupe E is an established Swiss healthcare provider. This position offers a modern working environment, attractive employment conditions and a wide range of training opportunities.",
+        "de": "Conductrice ou conducteur de travaux 80-100% bei Groupe E in Granges-Paccot - Chantemerle.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten.",
+        "fr": "Conductrice ou conducteur de travaux 80-100% bei Groupe E in Granges-Paccot - Chantemerle.\n\nGroupe E ist ein etablierter Schweizer Gesundheitsdienstleister. Diese Stelle bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen und vielfältige Weiterbildungsmöglichkeiten."
+      },
+      "needsRetranslation": true,
+      "location": "Granges-Paccot - Chantemerle",
+      "canton": "FR",
+      "url": "https://job.groupe-e.ch/job/Granges-Paccot-Chantemerle-Conductrice-ou-conducteur-de-travaux-80-100-Frib/1356589355/",
+      "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T21:44:03.887Z",
+      "addressLocality": "Granges-Paccot - Chantemerle",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1763",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Energia / Utility",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-25",
+      "applyUrl": "https://job.groupe-e.ch/talentcommunity/apply/1356589355/?locale=fr_FR",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "conductrice-ou-conducteur-de-travaux-80-100-groupe-e-granges-paccot-chantemerle",
+        "supervisore-dei-lavori-80-100-groupe-e-granges-paccot-chantemerle"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "conductrice-ou-conducteur-de-travaux-80-100-groupe-e-granges-paccot-chantemerle",
+          "supervisore-dei-lavori-80-100-groupe-e-granges-paccot-chantemerle"
+        ],
+        "en": [
+          "conductrice-ou-conducteur-de-travaux-80-100-groupe-e-granges-paccot-chantemerle"
+        ],
+        "de": [
+          "conductrice-ou-conducteur-de-travaux-80-100-groupe-e-granges-paccot-chantemerle"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T11:06:57.770Z",
+      "salaryMin": 77000,
+      "salaryMax": 116500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77000,
+          "maxValue": 116500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Route de Morat 135"
+    },
+    {
       "id": "groupe-e-bf0f322b6ec3",
       "slug": "elettricista-di-rete-installatore-elettrico-80-100-groupe-e-payerne-aeropole",
       "slugByLocale": {
@@ -3588,7 +3588,7 @@
       "url": "https://job.groupe-e.ch/job/Payerne-A%C3%A9rop%C3%B4le-Electricien%C2%B7ne-de-r%C3%A9seau-Installateur-ou-installatrice-%C3%A9lectricien%C2%B7ne-80-100-Vaud/1350907455/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:56:14.252Z",
+      "crawledAt": "2026-08-25T21:44:03.284Z",
       "addressLocality": "Payerne - Aéropôle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3721,7 +3721,7 @@
         }
       },
       "streetAddress": "Route de Morat 135",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
