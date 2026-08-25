@@ -34,6 +34,7 @@
  */
 
 import { launchChromium } from './lib/ensure-chromium.mjs';
+import { ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED } from '../services/adsConsent.ts';
 
 const args = process.argv.slice(2);
 const JSON_OUT = args.includes('--json');
@@ -141,6 +142,22 @@ await ctx.addInitScript(() => {
   // window.chrome must exist to bypass the chrome-without-chrome heuristic
   if (!('chrome' in window)) Object.defineProperty(window, 'chrome', { value: { runtime: {} } });
 });
+
+// Seed the AdSense consent gate (services/adsConsent.ts, #5842) as pre-granted.
+// Without this, isAdsConsentGranted() reads null on a fresh headless session,
+// loadAdSenseScript() returns before ever injecting adsbygoogle.js, and this
+// audit "passes" with 0 offenders on every run regardless of whether Google's
+// loader actually strips anything — because the loader never executes at all.
+// Bypassing the CONSENT gate here is the same category of deliberate,
+// audit-only bypass as the bot-fingerprint bypass above: this script only
+// ever hits public production URLs to inspect DOM state, no consent-gated
+// script is served to a real visitor because of it.
+await ctx.addInitScript(
+  ([key, value]) => {
+    try { window.localStorage.setItem(key, value); } catch { /* ignore */ }
+  },
+  [ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED],
+);
 
 const page = await ctx.newPage();
 
