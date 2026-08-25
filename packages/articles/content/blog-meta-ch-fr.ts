@@ -4318,6 +4318,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.utilizzo-ia-svizzera-2026.title': 'Intelligence artificielle : 80 % de Suisses aux États-Unis',
     'blog.article.utilizzo-ia-svizzera-2026.excerpt': '80 % des Suisses utilisent l\'IA. Doublé en deux ans selon IGEM-Digimonitor. YouTube 80 %, Instagram 45 %, X chute à 10 %.',
     'blog.article.utilizzo-ia-svizzera-2026.imageAlt': 'Mains interagissant avec des appareils numériques sur le lieu de travail suisse avec vue sur le lac',
+    'blog.article.investimento-immobiliare-berna-svizzera.title': 'Acheter maison Berne : prix, hypothèque et documents',
+    'blog.article.investimento-immobiliare-berna-svizzera.excerpt': 'Acheter une maison à Berne : le cadre légal suisse, les prêts hypothécaires, les taxes de passage et les frais de notaire illustrés dans un guide pratique pour les acheteurs.',
+    'blog.article.investimento-immobiliare-berna-svizzera.imageAlt': 'Propriété résidentielle suisse moderne dans le paysage alpin pour guide d\'achat immobilier et hypothèques.',
 };
 
 export default blogMetaChFr;
