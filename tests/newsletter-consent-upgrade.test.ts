@@ -122,6 +122,14 @@ describe('buildNewsletterConsentProof — what is stored is what was on screen',
     expect('consent_given' in proof).toBe(false);
   });
 
+  it('marks consent_proof_verified false — this builder has no proof of possession (#5926)', () => {
+    // Also used by the unauthenticated browser fallback (`recordCommunicationsConsent`
+    // below); only `newsletterRecordConsent` (functions/index.js), gated on
+    // `email_verified === true`, may ever force this `true`.
+    const proof = buildNewsletterConsentProof({ locale: 'it', stampedAt: STAMP });
+    expect(proof.consent_proof_verified).toBe(false);
+  });
+
   it('never touches consent_method: the banner is not how the address reached us', () => {
     // `consent_method` is the closed ConsentMethod union of the ORIGINAL
     // signup (email_checkbox, google_oauth, …), printed by the art. 25 export

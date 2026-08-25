@@ -114,6 +114,17 @@ export interface NewsletterConsentProof {
   readonly consent_user_agent: string | null;
   /** The timestamp of the act. Opaque here so the pure layer never imports Firestore. */
   readonly consent_upgraded_at: unknown;
+  /**
+   * Server-owned, like `ip`/`user_agent`/`upgraded_at` on the server endpoint:
+   * this builder is also used by the unauthenticated browser fallback
+   * (`recordCommunicationsConsent` below), which has no proof of possession,
+   * so it is always `false` here. `functions/index.js` forces it `true` when
+   * `newsletterRecordConsent` writes — the only path gated on
+   * `email_verified === true` (#5928). A per-record marker, not a new prompt:
+   * it lets a future reader (and firestore.rules) tell the two provenances
+   * apart on the same document instead of treating them as equivalent.
+   */
+  readonly consent_proof_verified: boolean;
 }
 
 /**
@@ -140,6 +151,8 @@ export function buildNewsletterConsentProof(opts: {
         ? navigator.userAgent
         : null,
     consent_upgraded_at: opts.stampedAt,
+    // Unauthenticated browser write: no proof of possession was checked here.
+    consent_proof_verified: false,
   };
 }
 
