@@ -10738,6 +10738,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-borgomezzavalle-lavorare-ticino.title': 'Vivere a Borgomezzavalle e lavorare in Ticino da frontaliere',
     'blog.article.vivere-borgomezzavalle-lavorare-ticino.excerpt': 'Informazioni pratiche e fatti chiave sulla vita dei frontalieri a Borgomezzavalle',
     'blog.article.vivere-borgomezzavalle-lavorare-ticino.imageAlt': 'Un frontaliere in bicicletta che attraversa il confine tra l\'Italia e il Ticino',
+    'blog.article.vivere-prato-allo-lavorare-grigioni.title': 'Vivere a Prato Allo Stelvio e lavorare in Grigioni',
+    'blog.article.vivere-prato-allo-lavorare-grigioni.excerpt': 'Guida pratica per frontalieri tra Italia e Svizzera: permessi, tassazione, AVS e LAMal, costi della vita e cosa considerare prima di trasferirsi',
+    'blog.article.vivere-prato-allo-lavorare-grigioni.imageAlt': 'Strada alpina al confine tra Svizzera e Italia con panorama montano dei Grigioni, area frontaliera tipica',
 };
 
 export default blogMetaIt;

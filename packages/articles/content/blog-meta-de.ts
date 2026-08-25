@@ -10736,6 +10736,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-borgomezzavalle-lavorare-ticino.title': 'Wohnen in Borgomezzavalle und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-borgomezzavalle-lavorare-ticino.excerpt': 'Praktische Informationen und wichtige Fakten über das Leben der Grenzgänger in Borgomezzavalle',
     'blog.article.vivere-borgomezzavalle-lavorare-ticino.imageAlt': 'Ein Radfahrer, der die Grenze zwischen Italien und dem Tessin überschreitet',
+    'blog.article.vivere-prato-allo-lavorare-grigioni.title': 'Wohnen in Prad am Stilfserjoch und Arbeiten in Graubünden',
+    'blog.article.vivere-prato-allo-lavorare-grigioni.excerpt': 'Praktischer Leitfaden für Grenzgänger zwischen Italien und der Schweiz: Bewilligungen, Besteuerung, AHV und KVG, Lebenshaltungskosten und was vor dem Umzug zu beachten ist',
+    'blog.article.vivere-prato-allo-lavorare-grigioni.imageAlt': 'Alpine Straße an der Grenze zwischen der Schweiz und Italien mit Bergblick der Bündnerland-Region',
 };
 
 export default blogMetaDe;
