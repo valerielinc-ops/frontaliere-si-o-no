@@ -39,7 +39,7 @@
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
-const SLICE_DIR = 'data/jobs/by-crawler';
+const JOB_SLICE_DIR = 'data/jobs/by-crawler';
 const QUOTE_RX = /["'‘’“”]/;
 
 /**
@@ -66,17 +66,17 @@ function main() {
   const apply = process.argv.includes('--apply');
   const check = process.argv.includes('--check');
 
-  if (!existsSync(SLICE_DIR)) {
-    console.error(`⚠️  ${SLICE_DIR} assente — worktree sparse? Niente da fare.`);
+  if (!existsSync(JOB_SLICE_DIR)) {
+    console.error(`⚠️  ${JOB_SLICE_DIR} assente — worktree sparse? Niente da fare.`);
     return 0;
   }
 
-  const files = readdirSync(SLICE_DIR).filter((f) => f.endsWith('.json'));
+  const files = readdirSync(JOB_SLICE_DIR).filter((f) => f.endsWith('.json'));
   let scanned = 0;
   const hits = [];
 
   for (const file of files) {
-    const path = join(SLICE_DIR, file);
+    const path = join(JOB_SLICE_DIR, file);
     let parsed;
     try {
       parsed = JSON.parse(readFileSync(path, 'utf8'));
