@@ -10424,8 +10424,15 @@ ${staticAnalyticsHtml}
              locale: entry.locale as JobCardLocale,
            });
            // In-feed ad after every Nth card (never after the last one).
+           // `entry.key` is this page's canton (e.g. 'LU' for
+           // /cerca-lavoro-lucerna/, 'BASILEA' for the merged BS+BL
+           // /cerca-lavoro-basilea/) — passed through so the Lucerna in-feed
+           // A/B test (services/adsenseSlots.ts
+           // INFEED_AD_AB_TEST_SUPPRESSED_CANTONS) can suppress the manual
+           // slot on this specific canton's static index page without
+           // touching any other canton or any other listing surface.
            const ad =
-             jIdx + 1 < cantonJobs.length && shouldPlaceInfeedAd(jIdx + 1)
+             jIdx + 1 < cantonJobs.length && shouldPlaceInfeedAd(jIdx + 1, { canton: entry.key })
                ? infeedAdGridBlockHtml()
                : '';
            return card + ad;

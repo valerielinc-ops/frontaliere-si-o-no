@@ -1,0 +1,147 @@
+name: AdSense format A/B report (weekly)
+
+# Weekly companion to the canton in-feed-ad A/B test (services/adsenseSlots.ts
+# INFEED_AD_AB_TEST_SUPPRESSED_CANTONS): Basilea (controllo, unchanged) vs
+# Lucerna (trattamento, in-feed manual slot removed on the canton job-search
+# listing page) — plus GA4 engagement and Core Web Vitals guardrails, so a
+# revenue win never ships unnoticed alongside a UX regression. See
+# scripts/adsense-format-ab-report.mjs module docblock for the full design
+# (three CWV sources tried in order, sample-size disclaimers, etc).
+#
+# Same structure as revenue-monitor.yml (secrets loading, history commit,
+# failure reporting) — see that workflow for the exact reference pattern.
+
+on:
+  schedule:
+    # Mondays 06:45 UTC — after revenue-monitor.yml (06:15), same digest window.
+    - cron: '45 6 * * 1'
+  workflow_dispatch: {}
+
+concurrency:
+  group: adsense-format-ab-report
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Write Service Account credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load secrets from Remote Config
+        continue-on-error: true
+        run: node scripts/load-rc-env.mjs
+
+      - name: Run AdSense format A/B report (save)
+        run: node scripts/adsense-format-ab-report.mjs --save --markdown > /tmp/adsense-format-ab-report.md
+
+      - name: Print summary to job log
+        run: |
+          echo "## AdSense format A/B report" >> "$GITHUB_STEP_SUMMARY"
+          cat /tmp/adsense-format-ab-report.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload report artifact
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: adsense-format-ab-report
+          path: |
+            reports/adsense-format-ab-*.json
+            reports/adsense-format-ab-*.md
+          retention-days: 90
+          if-no-files-found: warn
+
+      - name: Commit AdSense format A/B history
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Full reports live under reports/ which is gitignored (preserved as
+          # build artifacts only, see "Upload report artifact" above). Only the
+          # compact append-only history file is committed so the next weekly
+          # run can compute the cumulative-sample trend (same pattern as
+          # data/revenue-monitor-history.jsonl, see revenue-monitor.yml).
+          git add data/adsense-format-ab-history.jsonl
+          if git diff --cached --quiet; then
+            echo "No history changes to commit."
+            exit 0
+          fi
+          DATE=$(date -u +%Y-%m-%d)
+          git commit -m "📊 Weekly AdSense format A/B report — ${DATE}"
+          # Centralized rebase-retry helper survives concurrent pushes from
+          # other workflows. The history file is append-only, so on a rebase
+          # conflict keep the local commit and union both sides instead of
+          # regenerating.
+          bash scripts/lib/git-push-with-retry.sh \
+            --branch "$GITHUB_REF_NAME" \
+            --in-place-resolver-cmd "source scripts/lib/resolve-append-conflicts.sh && resolve_append_conflicts && git add -A"
+
+      - name: Open/update the weekly tracking issue
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          # Stable title → github-issue-creator.mjs dedups on it: week 1 opens
+          # the issue, every following week posts a 🔁 comment with the fresh
+          # report on the SAME issue instead of minting a new one — this is
+          # the "one place to see week-over-week" the owner asked for.
+          #
+          # Priority 4 (`priority:low`) + a custom, non-matching label
+          # deliberately: this is a scheduled DATA report, not an incident.
+          # `classify-issue.mjs` still auto-routes it (every issue gets
+          # `agent:fix-queued` — AGENTS.md "Issue automation", no category is
+          # exempt) but with the `revenue` label the category resolver would
+          # force `fu-prio:high` unconditionally, jumping this ahead of
+          # actually urgent revenue issues in the anti-starvation queue every
+          # single week. Omitting it lets this land as the gentler
+          # `category: other` / `fu-prio: low`.
+          node scripts/lib/github-issue-creator.mjs \
+            --title "AdSense format A/B: Basilea (controllo) vs Lucerna (trattamento)" \
+            --description "$(cat /tmp/adsense-format-ab-report.md)" \
+            --priority 4 \
+            --label adsense-ab-test \
+            --workflow "${{ github.workflow }}"
+
+      - name: Cleanup credentials
+        if: always()
+        run: rm -f /tmp/firebase-sa.json
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
