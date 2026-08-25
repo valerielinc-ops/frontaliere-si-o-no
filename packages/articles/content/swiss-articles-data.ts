@@ -12880,6 +12880,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'mps-sisa-tasse-usi-supsi',
+    category: 'novita',
+    date: '2026-08-25T17:35:54.022Z',
+    image: '/images/blog/mps-sisa-tasse-usi-supsi.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

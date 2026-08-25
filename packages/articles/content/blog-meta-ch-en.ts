@@ -4294,6 +4294,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.verdi-segretaria-stato-clima.title': 'Secretary of State for Climate: the Greens\' request',
     'blog.article.verdi-segretaria-stato-clima.excerpt': 'The Greens call for a Secretary of State for Climate and Exit from Fossil Energies. Lisa Mazzone attacks Federal Councillor Rösti head-on.',
     'blog.article.verdi-segretaria-stato-clima.imageAlt': 'Green Party press conference on Swiss federal climate state secretariat request',
+    'blog.article.mps-sisa-tasse-usi-supsi.title': 'MPs and SISA against the increase in university fees',
+    'blog.article.mps-sisa-tasse-usi-supsi.excerpt': 'On August 25th, MPs and SISA protest against tax increases at USI and SUPSI. Ticino fees were already above the Swiss average; concern for Bilaterals III.',
+    'blog.article.mps-sisa-tasse-usi-supsi.imageAlt': 'Ticino students at USI campus in Lugano express concern over rising university tuition fees.',
 };
 
 export default blogMetaChEn;
