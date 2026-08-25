@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "sicpa-49eb9303d2df",
-      "slug": "field-service-technician-sicpa-huechuraba",
+      "slug": "servizio-di-campo-tecnico-sicpa-sa-huechuraba",
       "slugByLocale": {
         "en": "field-service-technician-sicpa-huechuraba",
-        "it": "field-service-technician-sicpa-huechuraba",
+        "it": "servizio-di-campo-tecnico-sicpa-sa-huechuraba",
         "de": "field-service-technician-sicpa-huechuraba",
         "fr": "field-service-technician-sicpa-huechuraba"
       },
@@ -64,7 +64,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-24T21:51:32.281Z"
+      "firstSeenAt": "2026-08-24T21:51:32.281Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "field-service-technician-sicpa-huechuraba"
+        ]
+      },
+      "previousSlugs": [
+        "field-service-technician-sicpa-huechuraba"
+      ]
     },
     {
       "id": "sicpa-ee4544be3e45",
@@ -116,13 +124,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "principal-software-engineer-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa",
-        "principal-software-ingegnere-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa-sa-prilly"
+        "principal-software-engineer-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "principal-software-engineer-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa",
-          "principal-software-ingegnere-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa-sa-prilly"
+          "principal-software-engineer-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa"
         ],
         "de": [
           "principal-software-engineer-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa"
@@ -195,13 +201,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technical-advisor-sicpa-prilly",
-        "technical-consulente-sicpa-sa-prilly"
+        "technical-advisor-sicpa-prilly"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-advisor-sicpa-prilly",
-          "technical-consulente-sicpa-sa-prilly"
+          "technical-advisor-sicpa-prilly"
         ],
         "de": [
           "technical-advisor-sicpa-prilly"
@@ -399,13 +403,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "automaticien-sicpa-chavornay",
-        "automatico-sicpa-sa-chavornay"
+        "automaticien-sicpa-chavornay"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automaticien-sicpa-chavornay",
-          "automatico-sicpa-sa-chavornay"
+          "automaticien-sicpa-chavornay"
         ],
         "en": [
           "automaticien-sicpa-chavornay"
@@ -477,13 +479,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technical-coordinator-sicpa-prilly",
-        "technical-coordinatore-sicpa-sa-prilly"
+        "technical-coordinator-sicpa-prilly"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-coordinator-sicpa-prilly",
-          "technical-coordinatore-sicpa-sa-prilly"
+          "technical-coordinator-sicpa-prilly"
         ],
         "de": [
           "technical-coordinator-sicpa-prilly"
@@ -555,13 +555,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "operateur-de-logistique-confirme-sicpa-chavornay",
-        "operatore-logistico-confermato-sicpa-sa-chavornay"
+        "operateur-de-logistique-confirme-sicpa-chavornay"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operateur-de-logistique-confirme-sicpa-chavornay",
-          "operatore-logistico-confermato-sicpa-sa-chavornay"
+          "operateur-de-logistique-confirme-sicpa-chavornay"
         ],
         "en": [
           "operateur-de-logistique-confirme-sicpa-chavornay"

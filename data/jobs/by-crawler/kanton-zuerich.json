@@ -7197,8 +7197,7 @@
       "pensum": "80%",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-empfang-sicherheitsdienst-kanton-zuerich-zurich",
-          "collaboratore-trice-empfang-sicherheitsdienst-kantonale-verwaltung-zurich"
+          "mitarbeiter-in-empfang-sicherheitsdienst-kanton-zuerich-zurich"
         ],
         "en": [
           "mitarbeiter-in-empfang-sicherheitsdienst-kantonale-verwaltung-zurich-zurich"
@@ -7209,7 +7208,6 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-empfang-sicherheitsdienst-kanton-zuerich-zurich",
-        "collaboratore-trice-empfang-sicherheitsdienst-kantonale-verwaltung-zurich",
         "mitarbeiter-in-empfang-sicherheitsdienst-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 73500,
@@ -8684,12 +8682,12 @@
     },
     {
       "id": "kanton-zuerich-d03f71429b10",
-      "slug": "assistenz-staatsanwaltin-assistenz-staatsanwalt-befristet-bis-30-09-2029-kantonale-verwaltung-zurich",
+      "slug": "assistente-procuratore-temporaneo-fino-al-30-09-2029-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "assistenz-staatsanwaltin-assistenz-staatsanwalt-befristet-bis-30-09-2029-kanton-zuerich",
-        "it": "assistenz-staatsanwaltin-assistenz-staatsanwalt-befristet-bis-30-09-2029-kantonale-verwaltung-zurich",
-        "en": "assistenz-staatsanwaltin-assistenz-staatsanwalt-befristet-bis-30-09-2029-kanton-zuerich",
-        "fr": "assistenz-staatsanwaltin-assistenz-staatsanwalt-befristet-bis-30-09-2029-kanton-zuerich"
+        "it": "assistente-procuratore-temporaneo-fino-al-30-09-2029-kantonale-verwaltung-zurich-zurich",
+        "en": "assistant-prosecutor-temporary-until-30-09-2029-kantonale-verwaltung-zurich-zurich",
+        "fr": "procureur-adjoint-temporaire-jusqu-au-30-09-2029-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -8738,11 +8736,19 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
+          "assistenz-staatsanwaltin-assistenz-staatsanwalt-befristet-bis-30-09-2029-kanton-zuerich",
+          "assistenz-staatsanwaltin-assistenz-staatsanwalt-befristet-bis-30-09-2029-kantonale-verwaltung-zurich"
+        ],
+        "en": [
+          "assistenz-staatsanwaltin-assistenz-staatsanwalt-befristet-bis-30-09-2029-kanton-zuerich"
+        ],
+        "fr": [
           "assistenz-staatsanwaltin-assistenz-staatsanwalt-befristet-bis-30-09-2029-kanton-zuerich"
         ]
       },
       "previousSlugs": [
-        "assistenz-staatsanwaltin-assistenz-staatsanwalt-befristet-bis-30-09-2029-kanton-zuerich"
+        "assistenz-staatsanwaltin-assistenz-staatsanwalt-befristet-bis-30-09-2029-kanton-zuerich",
+        "assistenz-staatsanwaltin-assistenz-staatsanwalt-befristet-bis-30-09-2029-kantonale-verwaltung-zurich"
       ],
       "salaryMin": 85000,
       "salaryMax": 145000,
@@ -9927,12 +9933,12 @@
     },
     {
       "id": "kanton-zuerich-0d95a1602413",
-      "slug": "recruitment-coordinator-kanton-zuerich-zurich-altstetten",
+      "slug": "recruitment-coordinatore-kantonale-verwaltung-zurich-zurich-altstetten",
       "slugByLocale": {
         "de": "recruitment-coordinator-kanton-zuerich-zurich-altstetten",
-        "it": "recruitment-coordinator-kanton-zuerich-zurich-altstetten",
+        "it": "recruitment-coordinatore-kantonale-verwaltung-zurich-zurich-altstetten",
         "en": "recruitment-coordinator-kantonale-verwaltung-zurich-zurich-altstetten",
-        "fr": "recruitment-coordinator-kanton-zuerich-zurich-altstetten"
+        "fr": "recruitment-coordinateur-kantonale-verwaltung-zurich-zurich-altstetten"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -9991,7 +9997,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-24T21:51:25.710Z"
+      "firstSeenAt": "2026-08-24T21:51:25.710Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "recruitment-coordinator-kanton-zuerich-zurich-altstetten"
+        ],
+        "fr": [
+          "recruitment-coordinator-kanton-zuerich-zurich-altstetten"
+        ]
+      },
+      "previousSlugs": [
+        "recruitment-coordinator-kanton-zuerich-zurich-altstetten"
+      ]
     },
     {
       "id": "kanton-zuerich-d257ffdf95a2",

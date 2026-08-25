@@ -131,7 +131,7 @@
         "it": "senior-anaplan-model-builder-fp-a-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-stf1cl",
         "en": "senior-anaplan-model-builder-fp-a-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-stf1cl",
         "de": "senior-anaplan-model-builder-fp-a-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-stf1cl",
-        "fr": "senior-anaplan-model-builder-fp-a-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-stf1cl"
+        "fr": "conception-principale-de-modeles-anaplan-fp-a-h-f-d-80-100-zurich-insurance-sede-ticino-lugano"
       },
       "sourceLang": "de",
       "needsRetranslation": true,
@@ -196,19 +196,26 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "schadeninspektor-sach-e-haftpflichtversicherung-region-innerschweiz-e-aargau-m-w-d-80-100-zurich-insurance-sede-ticino-zurich-ssx7xw",
-        "en": "schadeninspektor-sach-und-haftpflichtversicherung-region-innerschweiz-und-aargau-m-w-d-80-100-zurich-insurance-sede-ticino-zurich-ssx7xw",
+        "en": "property-and-liability-insurance-region-switzerland-and-aargau-m-f-d-80-100-zurich-insurance-sede-ticino-zurich",
         "de": "schadeninspektor-sach-und-haftpflichtversicherung-region-innerschweiz-und-aargau-m-w-d-80-100-zurich-insurance-sede-ticino-zurich-ssx7xw",
-        "fr": "schadeninspektor-sach-und-haftpflichtversicherung-region-innerschweiz-und-aargau-m-w-d-80-100-zurich-insurance-sede-ticino-zurich-ssx7xw"
+        "fr": "region-d-assurance-des-biens-et-responsabilite-civile-suisse-et-aargau-h-f-d-80-100-zurich-insurance-sede-ticino-zurich"
       },
       "needsRetranslation": true,
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "schadeninspektor-sach-und-haftpflichtversicherung-region-innerschweiz-und-aargau-m-w-d-80-100-zurich-insurance-sede-ticino-zurich"
+        ],
+        "en": [
+          "schadeninspektor-sach-und-haftpflichtversicherung-region-innerschweiz-und-aargau-m-w-d-80-100-zurich-insurance-sede-ticino-zurich-ssx7xw"
+        ],
+        "fr": [
+          "schadeninspektor-sach-und-haftpflichtversicherung-region-innerschweiz-und-aargau-m-w-d-80-100-zurich-insurance-sede-ticino-zurich-ssx7xw"
         ]
       },
       "previousSlugs": [
-        "schadeninspektor-sach-und-haftpflichtversicherung-region-innerschweiz-und-aargau-m-w-d-80-100-zurich-insurance-sede-ticino-zurich"
+        "schadeninspektor-sach-und-haftpflichtversicherung-region-innerschweiz-und-aargau-m-w-d-80-100-zurich-insurance-sede-ticino-zurich",
+        "schadeninspektor-sach-und-haftpflichtversicherung-region-innerschweiz-und-aargau-m-w-d-80-100-zurich-insurance-sede-ticino-zurich-ssx7xw"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -228,7 +235,7 @@
     },
     {
       "id": "company-su04np",
-      "slug": "gi-distribution-performance-manager-zurich-insurance-sede-ticino-lugano-su04np",
+      "slug": "gestione-delle-prestazioni-di-distribuzione-zurich-insurance-sede-ticino-lugano",
       "company": "Zurich Insurance (sede Ticino)",
       "title": "GI Distribution Performance Manager",
       "location": "Lugano",
@@ -275,19 +282,27 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "gi-distribution-performance-manager-zurich-insurance-sede-ticino-lugano-su04np",
+        "it": "gestione-delle-prestazioni-di-distribuzione-zurich-insurance-sede-ticino-lugano",
         "en": "gi-distribution-performance-manager-zurich-insurance-sede-ticino-lugano-su04np",
-        "de": "gi-distribution-performance-manager-zurich-insurance-sede-ticino-lugano-su04np",
-        "fr": "gi-distribution-performance-manager-zurich-insurance-sede-ticino-lugano-su04np"
+        "de": "gi-verteilungsleistungsmanager-zurich-insurance-sede-ticino-lugano",
+        "fr": "gestionnaire-du-rendement-de-la-distribution-gi-zurich-insurance-sede-ticino-lugano"
       },
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "gi-distribution-performance-manager-zurich-insurance-sede-ticino-lugano"
+          "gi-distribution-performance-manager-zurich-insurance-sede-ticino-lugano",
+          "gi-distribution-performance-manager-zurich-insurance-sede-ticino-lugano-su04np"
+        ],
+        "de": [
+          "gi-distribution-performance-manager-zurich-insurance-sede-ticino-lugano-su04np"
+        ],
+        "fr": [
+          "gi-distribution-performance-manager-zurich-insurance-sede-ticino-lugano-su04np"
         ]
       },
       "previousSlugs": [
-        "gi-distribution-performance-manager-zurich-insurance-sede-ticino-lugano"
+        "gi-distribution-performance-manager-zurich-insurance-sede-ticino-lugano",
+        "gi-distribution-performance-manager-zurich-insurance-sede-ticino-lugano-su04np"
       ],
       "salaryMin": 142000,
       "salaryMax": 249500,
@@ -20879,8 +20894,7 @@
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "system-administrator-zurich-insurance-sede-ticino-lugano-1691zy",
-          "system-administrator-zurich-insurance-sede-ticino-lugano"
+          "system-administrator-zurich-insurance-sede-ticino-lugano-1691zy"
         ],
         "de": [
           "system-administrator-zurich-insurance-sede-ticino-lugano-1691zy"
@@ -20890,8 +20904,7 @@
         ]
       },
       "previousSlugs": [
-        "system-administrator-zurich-insurance-sede-ticino-lugano-1691zy",
-        "system-administrator-zurich-insurance-sede-ticino-lugano"
+        "system-administrator-zurich-insurance-sede-ticino-lugano-1691zy"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -23060,8 +23073,7 @@
           "unternehmensanwalt-12-monate-vertrag-zurich-insurance-sede-ticino-lugano",
           "avocat-contrat-de-12-mois-zurich-insurance-sede-ticino-lugano",
           "avvocato-aziendale-contratto-di-12-mesi-zurich-insurance-sede-ticino-lugano",
-          "corporate-lawyer-ii-zurich-insurance-sede-ticino-lugano-vgmfkv",
-          "corporate-lawyer-ii-zurich-insurance-sede-ticino-lugano"
+          "corporate-lawyer-ii-zurich-insurance-sede-ticino-lugano-vgmfkv"
         ],
         "en": [
           "corporate-lawyer-12-month-contract-zurich-insurance-sede-ticino-lugano-c3dt32"
@@ -23081,8 +23093,7 @@
         "unternehmensanwalt-12-monate-vertrag-zurich-insurance-sede-ticino-lugano",
         "avocat-contrat-de-12-mois-zurich-insurance-sede-ticino-lugano",
         "avvocato-aziendale-contratto-di-12-mesi-zurich-insurance-sede-ticino-lugano",
-        "corporate-lawyer-ii-zurich-insurance-sede-ticino-lugano-vgmfkv",
-        "corporate-lawyer-ii-zurich-insurance-sede-ticino-lugano"
+        "corporate-lawyer-ii-zurich-insurance-sede-ticino-lugano-vgmfkv"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -34050,8 +34061,7 @@
           "sr-prozessanwalt-zurich-insurance-sede-ticino-lugano",
           "conseiller-juridique-zurich-insurance-sede-ticino-lugano",
           "sr-trial-attorney-zurich-insurance-sede-ticino-lugano",
-          "procuratore-capo-zurich-insurance-sede-ticino-lugano",
-          "trial-attorney-zurich-insurance-sede-ticino-lugano"
+          "procuratore-capo-zurich-insurance-sede-ticino-lugano"
         ],
         "de": [
           "trial-attorney-zurich-insurance-sede-ticino-lugano-j2r5u7",
@@ -34072,8 +34082,7 @@
         "sr-prozessanwalt-zurich-insurance-sede-ticino-lugano",
         "conseiller-juridique-zurich-insurance-sede-ticino-lugano",
         "sr-trial-attorney-zurich-insurance-sede-ticino-lugano",
-        "procuratore-capo-zurich-insurance-sede-ticino-lugano",
-        "trial-attorney-zurich-insurance-sede-ticino-lugano"
+        "procuratore-capo-zurich-insurance-sede-ticino-lugano"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -40001,8 +40010,7 @@
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "agency-development-executive-zurich-insurance-sede-ticino-lugano-82qmmk",
-          "agency-development-executive-zurich-insurance-sede-ticino-lugano"
+          "agency-development-executive-zurich-insurance-sede-ticino-lugano-82qmmk"
         ],
         "de": [
           "agency-development-executive-zurich-insurance-sede-ticino-lugano-82qmmk"
@@ -40012,8 +40020,7 @@
         ]
       },
       "previousSlugs": [
-        "agency-development-executive-zurich-insurance-sede-ticino-lugano-82qmmk",
-        "agency-development-executive-zurich-insurance-sede-ticino-lugano"
+        "agency-development-executive-zurich-insurance-sede-ticino-lugano-82qmmk"
       ],
       "salaryMin": 113000,
       "salaryMax": 198500,
@@ -48173,8 +48180,7 @@
           "chief-trial-attorney-generalhaftung-zurich-insurance-sede-ticino-lugano",
           "procureur-en-chef-responsabilite-generale-zurich-insurance-sede-ticino-lugano",
           "procuratore-capo-processo-responsabilita-generale-zurich-insurance-sede-ticino-lugano",
-          "chief-trial-attorney-zurich-insurance-sede-ticino-lugano-n3rigg",
-          "chief-trial-attorney-zurich-insurance-sede-ticino-lugano"
+          "chief-trial-attorney-zurich-insurance-sede-ticino-lugano-n3rigg"
         ],
         "en": [
           "chief-trial-attorney-general-liability-zurich-insurance-sede-ticino-lugano-j48iup"
@@ -48194,8 +48200,7 @@
         "chief-trial-attorney-generalhaftung-zurich-insurance-sede-ticino-lugano",
         "procureur-en-chef-responsabilite-generale-zurich-insurance-sede-ticino-lugano",
         "procuratore-capo-processo-responsabilita-generale-zurich-insurance-sede-ticino-lugano",
-        "chief-trial-attorney-zurich-insurance-sede-ticino-lugano-n3rigg",
-        "chief-trial-attorney-zurich-insurance-sede-ticino-lugano"
+        "chief-trial-attorney-zurich-insurance-sede-ticino-lugano-n3rigg"
       ],
       "salaryMin": 95000,
       "salaryMax": 132500,
@@ -48346,16 +48351,14 @@
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "sr-staff-legal-trial-attorney-zurich-insurance-sede-ticino-lugano-n49xda",
-          "sr-staff-legal-trial-attorney-zurich-insurance-sede-ticino-lugano"
+          "sr-staff-legal-trial-attorney-zurich-insurance-sede-ticino-lugano-n49xda"
         ],
         "fr": [
           "sr-staff-legal-trial-attorney-zurich-insurance-sede-ticino-lugano-n49xda"
         ]
       },
       "previousSlugs": [
-        "sr-staff-legal-trial-attorney-zurich-insurance-sede-ticino-lugano-n49xda",
-        "sr-staff-legal-trial-attorney-zurich-insurance-sede-ticino-lugano"
+        "sr-staff-legal-trial-attorney-zurich-insurance-sede-ticino-lugano-n49xda"
       ],
       "salaryMin": 95000,
       "salaryMax": 132500,
@@ -50397,8 +50400,7 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "analista-de-negocios-especiales-zurich-insurance-sede-ticino-lugano-3zkabx",
-          "analista-de-negocios-especiales-zurich-insurance-sede-ticino-lugano"
+          "analista-de-negocios-especiales-zurich-insurance-sede-ticino-lugano-3zkabx"
         ],
         "en": [
           "analista-de-negocios-especiales-zurich-insurance-sede-ticino-lugano-3zkabx"
@@ -50408,8 +50410,7 @@
         ]
       },
       "previousSlugs": [
-        "analista-de-negocios-especiales-zurich-insurance-sede-ticino-lugano-3zkabx",
-        "analista-de-negocios-especiales-zurich-insurance-sede-ticino-lugano"
+        "analista-de-negocios-especiales-zurich-insurance-sede-ticino-lugano-3zkabx"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -54179,8 +54180,7 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "analista-de-uw-services-zurich-insurance-sede-ticino-lugano-xdduj7",
-          "analista-de-uw-services-zurich-insurance-sede-ticino-lugano"
+          "analista-de-uw-services-zurich-insurance-sede-ticino-lugano-xdduj7"
         ],
         "en": [
           "analista-de-uw-services-zurich-insurance-sede-ticino-lugano-xdduj7"
@@ -54190,8 +54190,7 @@
         ]
       },
       "previousSlugs": [
-        "analista-de-uw-services-zurich-insurance-sede-ticino-lugano-xdduj7",
-        "analista-de-uw-services-zurich-insurance-sede-ticino-lugano"
+        "analista-de-uw-services-zurich-insurance-sede-ticino-lugano-xdduj7"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -56809,13 +56808,11 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "especialista-de-bi-zurich-insurance-sede-ticino-lugano-gc108i",
-          "especialista-de-bi-zurich-insurance-sede-ticino-lugano"
+          "especialista-de-bi-zurich-insurance-sede-ticino-lugano-gc108i"
         ]
       },
       "previousSlugs": [
-        "especialista-de-bi-zurich-insurance-sede-ticino-lugano-gc108i",
-        "especialista-de-bi-zurich-insurance-sede-ticino-lugano"
+        "especialista-de-bi-zurich-insurance-sede-ticino-lugano-gc108i"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,

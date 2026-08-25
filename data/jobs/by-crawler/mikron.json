@@ -26,7 +26,8 @@
       "slug": "warehouse-logistic-operator-m-f-d-mikron",
       "slugByLocale": {
         "en": "warehouse-logistic-operator-m-f-d-mikron",
-        "it": "warehouse-logistic-operator-m-f-d-mikron"
+        "it": "warehouse-logistic-operator-m-f-d-mikron",
+        "de": "lager-logistiker-m-w-d-mikron-group-boudry"
       },
       "sourceLang": "fr",
       "category": "production",
@@ -78,10 +79,11 @@
         "it": "Specialista di conformità del prodotto (m/f/d)",
         "de": "Produktkonformitätsspezialist (m/w/d)"
       },
-      "slug": "product-conformity-specialist-m-f-d-mikron",
+      "slug": "specialista-di-conformita-del-prodotto-m-f-d-mikron-group-boudry",
       "slugByLocale": {
         "en": "product-conformity-specialist-m-f-d-mikron",
-        "it": "product-conformity-specialist-m-f-d-mikron"
+        "it": "specialista-di-conformita-del-prodotto-m-f-d-mikron-group-boudry",
+        "de": "produktkonformitatsspezialist-m-w-d-mikron-group-boudry"
       },
       "sourceLang": "fr",
       "category": "production",
@@ -109,7 +111,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-24T22:00:19.187Z"
+      "firstSeenAt": "2026-08-24T22:00:19.187Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-conformity-specialist-m-f-d-mikron"
+        ]
+      },
+      "previousSlugs": [
+        "product-conformity-specialist-m-f-d-mikron"
+      ]
     },
     {
       "url": "https://www.mikron.com/en/product-care-leader-mfd",
@@ -133,10 +143,11 @@
         "it": "Leader della cura del prodotto (m/f/d)",
         "de": "Product Care Leader (m/w/d)"
       },
-      "slug": "product-care-leader-m-f-d-mikron",
+      "slug": "leader-della-cura-del-prodotto-m-f-d-mikron-group-boudry",
       "slugByLocale": {
         "en": "product-care-leader-m-f-d-mikron",
-        "it": "product-care-leader-m-f-d-mikron"
+        "it": "leader-della-cura-del-prodotto-m-f-d-mikron-group-boudry",
+        "de": "product-care-leader-m-w-d-mikron-group-boudry"
       },
       "sourceLang": "fr",
       "category": "production",
@@ -164,7 +175,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-24T22:00:19.187Z"
+      "firstSeenAt": "2026-08-24T22:00:19.187Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-care-leader-m-f-d-mikron"
+        ]
+      },
+      "previousSlugs": [
+        "product-care-leader-m-f-d-mikron"
+      ]
     },
     {
       "url": "https://www.mikron.com/en/hardware-engineer-specialist-mfd-0",
@@ -190,7 +209,8 @@
       "slug": "hardware-engineer-specialist-m-f-d-mikron",
       "slugByLocale": {
         "en": "hardware-engineer-specialist-m-f-d-mikron",
-        "it": "hardware-engineer-specialist-m-f-d-mikron"
+        "it": "hardware-engineer-specialist-m-f-d-mikron",
+        "de": "hardware-engineer-spezialist-m-w-d-mikron-group-boudry"
       },
       "sourceLang": "fr",
       "category": "technology",
@@ -242,10 +262,11 @@
         "it": "Marketing Generalist (m/f/d) con la lingua tedesca madre",
         "fr": "Marketing Généraliste (h/f/d) avec langue allemande native"
       },
-      "slug": "marketing-generalist-m-w-d-mit-deutscher-muttersprache-mikron",
+      "slug": "marketing-generalist-m-f-d-con-la-lingua-tedesca-madre-mikron-group-agno",
       "slugByLocale": {
-        "en": "marketing-generalist-m-w-d-mit-deutscher-muttersprache-mikron",
-        "it": "marketing-generalist-m-w-d-mit-deutscher-muttersprache-mikron"
+        "en": "marketing-generalist-m-f-d-with-native-german-language-mikron-group-agno",
+        "it": "marketing-generalist-m-f-d-con-la-lingua-tedesca-madre-mikron-group-agno",
+        "fr": "marketing-generaliste-h-f-d-avec-langue-allemande-native-mikron-group-agno"
       },
       "sourceLang": "de",
       "category": "technology",
@@ -273,7 +294,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-24T22:00:19.187Z"
+      "firstSeenAt": "2026-08-24T22:00:19.187Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "marketing-generalist-m-w-d-mit-deutscher-muttersprache-mikron"
+        ],
+        "en": [
+          "marketing-generalist-m-w-d-mit-deutscher-muttersprache-mikron"
+        ]
+      },
+      "previousSlugs": [
+        "marketing-generalist-m-w-d-mit-deutscher-muttersprache-mikron"
+      ]
     },
     {
       "url": "https://www.mikron.com/en/vision-engineer-customer-service-mfd",

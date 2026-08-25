@@ -9226,14 +9226,12 @@
         ],
         "it": [
           "junior-supply-chain-manager-distribution-interdiscount-jegenstorf",
-          "gestione-della-catena-di-fornitura-junior-interdiscount-jegenstorf",
-          "distribuzione-della-catena-di-fornitura-junior-interdiscount-jegenstorf"
+          "gestione-della-catena-di-fornitura-junior-interdiscount-jegenstorf"
         ]
       },
       "previousSlugs": [
         "junior-supply-chain-manager-distribution-interdiscount-jegenstorf",
-        "gestione-della-catena-di-fornitura-junior-interdiscount-jegenstorf",
-        "distribuzione-della-catena-di-fornitura-junior-interdiscount-jegenstorf"
+        "gestione-della-catena-di-fornitura-junior-interdiscount-jegenstorf"
       ],
       "firstSeenAt": "2026-08-11T22:16:05.052Z",
       "salaryMin": 57500,
@@ -25778,10 +25776,10 @@
       "id": "interdiscount-9696701c-a98",
       "slug": "consulente-commerciale-in-interdiscount-mels",
       "slugByLocale": {
-        "it": "consulente-commerciale-in-interdiscount-mels",
-        "en": "sales-consultant-in-interdiscount-mels",
+        "it": "consulente-commerciale-in-interdiscount-jegenstorf",
+        "en": "sales-consultant-in-interdiscount-jegenstorf",
         "de": "verkaufsberater-in-interdiscount-mels",
-        "fr": "consultant-en-ventes-interdiscount-mels"
+        "fr": "consultant-en-ventes-interdiscount-jegenstorf"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
@@ -25855,14 +25853,18 @@
           "verkaufsberater-in-interdiscount-mels"
         ],
         "en": [
-          "verkaufsberater-in-interdiscount-mels"
+          "verkaufsberater-in-interdiscount-mels",
+          "sales-consultant-in-interdiscount-mels"
         ],
         "fr": [
-          "verkaufsberater-in-interdiscount-mels"
+          "verkaufsberater-in-interdiscount-mels",
+          "consultant-en-ventes-interdiscount-mels"
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-interdiscount-mels"
+        "verkaufsberater-in-interdiscount-mels",
+        "sales-consultant-in-interdiscount-mels",
+        "consultant-en-ventes-interdiscount-mels"
       ]
     }
   ]

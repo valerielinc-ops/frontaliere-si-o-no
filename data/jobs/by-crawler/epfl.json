@@ -775,18 +775,15 @@
         "recherche-post-doctorale-epfl-lausanne",
         "chercheur-post-doctoral-epfl-lausanne",
         "postdoctoral-researcher-in-photoelectrochemistry-epfl-lausanne",
-        "postdoktorandischer-forscher-epfl-lausanne",
-        "postdoctoral-researcher-epfl-lausanne"
+        "postdoktorandischer-forscher-epfl-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ricercatore-post-doc-epfl-lausanne",
-          "postdoctoral-researcher-epfl-lausanne"
+          "ricercatore-post-doc-epfl-lausanne"
         ],
         "de": [
           "post-doktorand-epfl-lausanne",
-          "postdoktorandischer-forscher-epfl-lausanne",
-          "postdoctoral-researcher-epfl-lausanne"
+          "postdoktorandischer-forscher-epfl-lausanne"
         ],
         "fr": [
           "recherche-post-doctorale-epfl-lausanne",
@@ -2517,21 +2514,16 @@
         "officier-de-liaison-industrielle-epfl-lausanne",
         "agent-de-liaison-avec-l-industrie-epfl-lausanne",
         "responsable-des-relations-avec-l-industrie-epfl-lausanne",
-        "industrieverbindungsbeauftragter-epfl-lausanne",
-        "industry-liaison-officer-epfl-lausanne"
+        "industrieverbindungsbeauftragter-epfl-lausanne"
       ],
       "previousSlugsByLocale": {
-        "it": [
-          "industry-liaison-officer-epfl-lausanne"
-        ],
         "en": [
           "industrial-liaison-officer-epfl-lausanne"
         ],
         "de": [
           "industrieverbindungsofficer-epfl-lausanne",
           "industriebeauftragter-epfl-lausanne",
-          "industrieverbindungsbeauftragter-epfl-lausanne",
-          "industry-liaison-officer-epfl-lausanne"
+          "industrieverbindungsbeauftragter-epfl-lausanne"
         ],
         "fr": [
           "officier-de-liaison-industrielle-epfl-lausanne",
@@ -3796,23 +3788,20 @@
         "postdoktorand-in-bauwissenschaften-epfl-fribourg",
         "postdoktorand-im-bereich-bautechnik-epfl-fribourg",
         "postdoktorand-in-gebaudetechnik-epfl-fribourg",
-        "rechercheur-post-doctoral-en-technologie-de-construction-epfl-fribourg",
-        "postdoctoral-researcher-in-building-technology-epfl-fribourg"
+        "rechercheur-post-doctoral-en-technologie-de-construction-epfl-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ricercatore-post-dottorato-in-building-technology-epfl-fribourg",
           "ricercatore-post-dottorato-in-tecnologia-edile-epfl-fribourg",
           "ricercatore-post-dottorato-in-tecnologia-dell-edilizia-epfl-fribourg",
-          "ricercatore-post-dottorato-in-tecnologia-edilizia-epfl-fribourg",
-          "postdoctoral-researcher-in-building-technology-epfl-fribourg"
+          "ricercatore-post-dottorato-in-tecnologia-edilizia-epfl-fribourg"
         ],
         "de": [
           "postdoktorandin-fur-bautechnik-epfl-fribourg",
           "postdoktorand-in-bauwissenschaften-epfl-fribourg",
           "postdoktorand-im-bereich-bautechnik-epfl-fribourg",
-          "postdoktorand-in-gebaudetechnik-epfl-fribourg",
-          "postdoctoral-researcher-in-building-technology-epfl-fribourg"
+          "postdoktorand-in-gebaudetechnik-epfl-fribourg"
         ],
         "fr": [
           "rechercheur-post-doctoral-en-technologie-de-construction-epfl-fribourg"
@@ -3958,20 +3947,12 @@
       "externalId": "1164982155",
       "previousSlugs": [
         "postdoc-positionen-in-computational-neuroscience-ai-epfl-geneve",
-        "postdoktorandenstellen-in-rechnergestutzten-neurowissenschaften-ki-epfl-geneve",
-        "postdoktorandenpositionen-in-der-computerischen-neurowissenschaft-ki-epfl-geneve",
-        "postdoctoral-positions-in-computational-neuroscience-ai-epfl-geneve"
+        "postdoktorandenstellen-in-rechnergestutzten-neurowissenschaften-ki-epfl-geneve"
       ],
       "previousSlugsByLocale": {
-        "it": [
-          "postdoctoral-positions-in-computational-neuroscience-ai-epfl-geneve"
-        ],
         "de": [
           "postdoc-positionen-in-computational-neuroscience-ai-epfl-geneve",
           "postdoktorandenstellen-in-rechnergestutzten-neurowissenschaften-ki-epfl-geneve"
-        ],
-        "fr": [
-          "postdoctoral-positions-in-computational-neuroscience-ai-epfl-geneve"
         ]
       },
       "firstSeenAt": "2026-06-25T11:04:10.966Z",
@@ -4663,10 +4644,10 @@
     },
     {
       "id": "epfl-39a84526073d",
-      "slug": "technicien-ne-epfl-lausanne",
+      "slug": "tecnologia-epfl-lausanne",
       "slugByLocale": {
-        "fr": "technicien-ne-epfl-lausanne",
-        "it": "technicien-ne-epfl-lausanne",
+        "fr": "technique-epfl-lausanne",
+        "it": "tecnologia-epfl-lausanne",
         "en": "technicien-ne-epfl-lausanne",
         "de": "technicien-ne-epfl-lausanne"
       },
@@ -4725,7 +4706,18 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-08-24T21:40:54.464Z"
+      "firstSeenAt": "2026-08-24T21:40:54.464Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ne-epfl-lausanne"
+        ],
+        "fr": [
+          "technicien-ne-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ne-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-07d69ace397a",

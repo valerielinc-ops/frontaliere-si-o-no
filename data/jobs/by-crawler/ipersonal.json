@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "ipersonal-7b5494167f6c",
-      "slug": "dipl-pflegefachfrau-mann-fh-80-100-sta-maria-val-mustair-gesucht-jetzt-karriere-machen-ipersonal-ag-lugano",
+      "slug": "dipl-specialista-fh-80-100-sta-maria-val-mustair-ricercato-fai-una-carriera-ora-ipersonal-ag-lugano",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-fh-80-100-sta-maria-val-mustair-gesucht-jetzt-karriere-machen",
-        "it": "dipl-pflegefachfrau-mann-fh-80-100-sta-maria-val-mustair-gesucht-jetzt-karriere-machen-ipersonal-ag-lugano",
-        "en": "dipl-pflegefachfrau-mann-fh-80-100-sta-maria-val-mustair-gesucht-jetzt-karriere-machen",
-        "fr": "dipl-pflegefachfrau-mann-fh-80-100-sta-maria-val-mustair-gesucht-jetzt-karriere-machen"
+        "it": "dipl-specialista-fh-80-100-sta-maria-val-mustair-ricercato-fai-una-carriera-ora-ipersonal-ag-lugano",
+        "en": "dipl-care-specialist-fh-80-100-sta-maria-val-mustair-wanted-make-a-career-now-ipersonal-ag-lugano",
+        "fr": "dipl-specialiste-des-soins-fh-80-100-sta-maria-val-mustair-veut-faites-une-carriere-maintenant-ipersonal-ag-lugano"
       },
       "company": "iPersonal AG",
       "companyKey": "ipersonal",
@@ -50,11 +50,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-fh-80-100-sta-maria-val-mustair-gesucht-jetzt-karriere-machen",
+          "dipl-pflegefachfrau-mann-fh-80-100-sta-maria-val-mustair-gesucht-jetzt-karriere-machen-ipersonal-ag-lugano"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-fh-80-100-sta-maria-val-mustair-gesucht-jetzt-karriere-machen"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-fh-80-100-sta-maria-val-mustair-gesucht-jetzt-karriere-machen"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-fh-80-100-sta-maria-val-mustair-gesucht-jetzt-karriere-machen"
+        "dipl-pflegefachfrau-mann-fh-80-100-sta-maria-val-mustair-gesucht-jetzt-karriere-machen",
+        "dipl-pflegefachfrau-mann-fh-80-100-sta-maria-val-mustair-gesucht-jetzt-karriere-machen-ipersonal-ag-lugano"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -73,12 +81,12 @@
     },
     {
       "id": "ipersonal-db98a2d5a73d",
-      "slug": "advance-practice-nurse-80-100-in-andermatt-gesucht-pflege-aktiv-mitgestalten-ipersonal-ch",
+      "slug": "anticipo-pratica-infermiera-80-100-cercato-in-andermatt-cura-attivamente-coinvolto-ipersonal-ag-lugano",
       "slugByLocale": {
         "de": "advance-practice-nurse-80-100-in-andermatt-gesucht-pflege-aktiv-mitgestalten-ipersonal-ch",
-        "it": "advance-practice-nurse-80-100-in-andermatt-gesucht-pflege-aktiv-mitgestalten-ipersonal-ch",
-        "en": "advance-practice-nurse-80-100-in-andermatt-gesucht-pflege-aktiv-mitgestalten-ipersonal-ch",
-        "fr": "advance-practice-nurse-80-100-in-andermatt-gesucht-pflege-aktiv-mitgestalten-ipersonal-ch"
+        "it": "anticipo-pratica-infermiera-80-100-cercato-in-andermatt-cura-attivamente-coinvolto-ipersonal-ag-lugano",
+        "en": "advance-practice-nurse-80-100-sought-in-andermatt-caring-actively-involved-ipersonal-ag-lugano",
+        "fr": "infirmiere-de-pratique-avancee-80-100-recherche-a-andermatt-caring-activement-implique-ipersonal-ag-lugano"
       },
       "company": "iPersonal AG",
       "companyKey": "ipersonal",
@@ -130,7 +138,21 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T21:37:08.021Z"
+      "firstSeenAt": "2026-08-24T21:37:08.021Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "advance-practice-nurse-80-100-in-andermatt-gesucht-pflege-aktiv-mitgestalten-ipersonal-ch"
+        ],
+        "en": [
+          "advance-practice-nurse-80-100-in-andermatt-gesucht-pflege-aktiv-mitgestalten-ipersonal-ch"
+        ],
+        "fr": [
+          "advance-practice-nurse-80-100-in-andermatt-gesucht-pflege-aktiv-mitgestalten-ipersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "advance-practice-nurse-80-100-in-andermatt-gesucht-pflege-aktiv-mitgestalten-ipersonal-ch"
+      ]
     },
     {
       "id": "ipersonal-51b7049c86c1",
@@ -138,8 +160,8 @@
       "slugByLocale": {
         "de": "fachfrau-fachmann-langzeitpflege-betreuung-efz-80-100-in-gunten-gesucht-deine-erfahrung",
         "it": "fachfrau-fachmann-langzeitpflege-betreuung-efz-80-100-in-gunten-gesucht-deine-erfahrung",
-        "en": "fachfrau-fachmann-langzeitpflege-betreuung-efz-80-100-in-gunten-gesucht-deine-erfahrung",
-        "fr": "fachfrau-fachmann-langzeitpflege-betreuung-efz-80-100-in-gunten-gesucht-deine-erfahrung"
+        "en": "professional-professional-long-term-care-care-efz-80-100-sought-in-gunten-your-experience-your-empathy-your-new-job",
+        "fr": "soins-et-soins-de-longue-duree-professionnels-efz-80-100-recherche-a-gunten-votre-experience-votre-empathie-votre"
       },
       "company": "iPersonal AG",
       "companyKey": "ipersonal",
@@ -270,12 +292,12 @@
     },
     {
       "id": "ipersonal-f8c9b0fcfd6d",
-      "slug": "advance-practice-nurse-80-100-in-meggen-gesucht-pflege-aktiv-mitgestalten-ipersonal-ch",
+      "slug": "anticipo-pratica-infermiera-80-100-cercato-in-meggen-cura-attivamente-coinvolto-ipersonal-ag-lugano",
       "slugByLocale": {
         "de": "advance-practice-nurse-80-100-in-meggen-gesucht-pflege-aktiv-mitgestalten-ipersonal-ch",
-        "it": "advance-practice-nurse-80-100-in-meggen-gesucht-pflege-aktiv-mitgestalten-ipersonal-ch",
-        "en": "advance-practice-nurse-80-100-in-meggen-gesucht-pflege-aktiv-mitgestalten-ipersonal-ch",
-        "fr": "advance-practice-nurse-80-100-in-meggen-gesucht-pflege-aktiv-mitgestalten-ipersonal-ch"
+        "it": "anticipo-pratica-infermiera-80-100-cercato-in-meggen-cura-attivamente-coinvolto-ipersonal-ag-lugano",
+        "en": "advance-practice-nurse-80-100-sought-in-meggen-caring-actively-involved-ipersonal-ag-lugano",
+        "fr": "infirmiere-de-pratique-avancee-80-100-recherchee-a-meggen-caring-activement-implique-ipersonal-ag-lugano"
       },
       "company": "iPersonal AG",
       "companyKey": "ipersonal",
@@ -327,16 +349,30 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T21:37:07.115Z"
+      "firstSeenAt": "2026-08-24T21:37:07.115Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "advance-practice-nurse-80-100-in-meggen-gesucht-pflege-aktiv-mitgestalten-ipersonal-ch"
+        ],
+        "en": [
+          "advance-practice-nurse-80-100-in-meggen-gesucht-pflege-aktiv-mitgestalten-ipersonal-ch"
+        ],
+        "fr": [
+          "advance-practice-nurse-80-100-in-meggen-gesucht-pflege-aktiv-mitgestalten-ipersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "advance-practice-nurse-80-100-in-meggen-gesucht-pflege-aktiv-mitgestalten-ipersonal-ch"
+      ]
     },
     {
       "id": "ipersonal-89e5e79242ae",
-      "slug": "allgemeinarzt-allgemeinarztin-80-100-innere-medizin-hausarztmedizin-in-steinen-ipersonal",
+      "slug": "professionista-generale-80-100-medicina-interna-medicina-familiare-in-pietre-ipersonal-ag-lugano",
       "slugByLocale": {
         "de": "allgemeinarzt-allgemeinarztin-80-100-innere-medizin-hausarztmedizin-in-steinen-ipersonal",
-        "it": "allgemeinarzt-allgemeinarztin-80-100-innere-medizin-hausarztmedizin-in-steinen-ipersonal",
-        "en": "allgemeinarzt-allgemeinarztin-80-100-innere-medizin-hausarztmedizin-in-steinen-ipersonal",
-        "fr": "allgemeinarzt-allgemeinarztin-80-100-innere-medizin-hausarztmedizin-in-steinen-ipersonal"
+        "it": "professionista-generale-80-100-medicina-interna-medicina-familiare-in-pietre-ipersonal-ag-lugano",
+        "en": "general-practitioner-80-100-internal-medicine-family-medicine-in-stones-ipersonal-ag-lugano",
+        "fr": "medecin-generaliste-80-100-medecine-interne-medecine-familiale-en-pierres-ipersonal-ag-lugano"
       },
       "company": "iPersonal AG",
       "companyKey": "ipersonal",
@@ -388,7 +424,21 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T21:37:06.813Z"
+      "firstSeenAt": "2026-08-24T21:37:06.813Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "allgemeinarzt-allgemeinarztin-80-100-innere-medizin-hausarztmedizin-in-steinen-ipersonal"
+        ],
+        "en": [
+          "allgemeinarzt-allgemeinarztin-80-100-innere-medizin-hausarztmedizin-in-steinen-ipersonal"
+        ],
+        "fr": [
+          "allgemeinarzt-allgemeinarztin-80-100-innere-medizin-hausarztmedizin-in-steinen-ipersonal"
+        ]
+      },
+      "previousSlugs": [
+        "allgemeinarzt-allgemeinarztin-80-100-innere-medizin-hausarztmedizin-in-steinen-ipersonal"
+      ]
     },
     {
       "id": "ipersonal-7c20582fda29",
@@ -460,8 +510,8 @@
       "slugByLocale": {
         "de": "dipl-fachfrau-mann-operationstechnik-hf-80-100-fur-gipf-oberfrick-gesucht-spezialisiere",
         "it": "dipl-fachfrau-mann-operationstechnik-hf-80-100-per-gipf-oberfrick-gesucht-spezialisiere-dich-auf-prazision-e-sicherheit-im-op-ipersonal-ag-lugano",
-        "en": "dipl-fachfrau-mann-operationstechnik-hf-80-100-fur-gipf-oberfrick-gesucht-spezialisiere",
-        "fr": "dipl-fachfrau-mann-operationstechnik-hf-80-100-fur-gipf-oberfrick-gesucht-spezialisiere"
+        "en": "dipl-professional-man-operation-technology-hf-80-100-sought-for-gipf-oberfrick-specialize-in-precision-and-safety-in-the",
+        "fr": "dipl-technologie-de-fonctionnement-professionnel-homme-hf-80-100-recherche-pour-gipf-oberfrick-specialise-dans-la"
       },
       "company": "iPersonal AG",
       "companyKey": "ipersonal",
@@ -506,6 +556,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-fachfrau-mann-operationstechnik-hf-80-100-fur-gipf-oberfrick-gesucht-spezialisiere"
+        ],
+        "en": [
+          "dipl-fachfrau-mann-operationstechnik-hf-80-100-fur-gipf-oberfrick-gesucht-spezialisiere"
+        ],
+        "fr": [
+          "dipl-fachfrau-mann-operationstechnik-hf-80-100-fur-gipf-oberfrick-gesucht-spezialisiere"
         ]
       },
       "previousSlugs": [
@@ -532,8 +588,8 @@
       "slugByLocale": {
         "de": "fachmann-fachfrau-gesundheit-efz-m-w-d-pflege-mit-herz-in-davos-ipersonal-ch",
         "it": "fachmann-fachfrau-gesundheit-efz-m-w-d-pflege-mit-herz-in-davos-ipersonal-ch",
-        "en": "fachmann-fachfrau-gesundheit-efz-m-w-d-pflege-mit-herz-in-davos-ipersonal-ch",
-        "fr": "fachmann-fachfrau-gesundheit-efz-m-w-d-pflege-mit-herz-in-davos-ipersonal-ch"
+        "en": "health-specialist-efz-m-f-d-care-with-heart-in-davos-ipersonal-ag-lugano",
+        "fr": "specialiste-de-la-sante-efz-h-f-d-soins-avec-c-ur-a-davos-ipersonal-ag-lugano"
       },
       "company": "iPersonal AG",
       "companyKey": "ipersonal",
@@ -593,8 +649,8 @@
       "slugByLocale": {
         "de": "assistent-in-gesundheit-und-soziales-eba-80-100-in-reigoldswil-gesucht-unterstutzung-mit",
         "it": "assistent-in-gesundheit-e-soziales-afp-80-100-in-reigoldswil-gesucht-unterstutzung-con-herz-e-engagement-ipersonal-ag-lugano",
-        "en": "assistent-in-gesundheit-und-soziales-eba-80-100-in-reigoldswil-gesucht-unterstutzung-mit",
-        "fr": "assistent-in-gesundheit-und-soziales-eba-80-100-in-reigoldswil-gesucht-unterstutzung-mit"
+        "en": "assistant-in-health-and-social-eba-80-100-sought-in-reigoldswil-support-with-heart-and-commitment-ipersonal-ag-lugano",
+        "fr": "assistant-en-sante-et-social-eba-80-100-recherche-a-reigoldswil-soutien-avec-c-ur-et-engagement-ipersonal-ag-lugano"
       },
       "company": "iPersonal AG",
       "companyKey": "ipersonal",
@@ -639,6 +695,12 @@
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-gesundheit-und-soziales-eba-80-100-in-reigoldswil-gesucht-unterstutzung-mit"
+        ],
+        "en": [
+          "assistent-in-gesundheit-und-soziales-eba-80-100-in-reigoldswil-gesucht-unterstutzung-mit"
+        ],
+        "fr": [
+          "assistent-in-gesundheit-und-soziales-eba-80-100-in-reigoldswil-gesucht-unterstutzung-mit"
         ]
       },
       "previousSlugs": [
@@ -665,8 +727,8 @@
       "slugByLocale": {
         "de": "facharztin-facharzt-allgemeinmedizin-80-100-in-bassersdorf-fur-engagierte-hausarzt-innen",
         "it": "facharztin-facharzt-allgemeinmedizin-80-100-in-bassersdorf-per-engagierte-hausarzt-innen-con-fokus-auf-pravention-e-kontinuitat-ipersonal-ag-lugano",
-        "en": "facharztin-facharzt-allgemeinmedizin-80-100-in-bassersdorf-fur-engagierte-hausarzt-innen",
-        "fr": "facharztin-facharzt-allgemeinmedizin-80-100-in-bassersdorf-fur-engagierte-hausarzt-innen"
+        "en": "specialist-general-medicine-80-100-in-bassersdorf-for-committed-family-doctors-women-with-a-focus-on-prevention-and",
+        "fr": "specialiste-en-medecine-generale-80-100-a-bassersdorf-pour-les-medecins-de-famille-engages-les-femmes-qui-mettent-l"
       },
       "company": "iPersonal AG",
       "companyKey": "ipersonal",
@@ -710,6 +772,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "facharztin-facharzt-allgemeinmedizin-80-100-in-bassersdorf-fur-engagierte-hausarzt-innen"
+        ],
+        "en": [
+          "facharztin-facharzt-allgemeinmedizin-80-100-in-bassersdorf-fur-engagierte-hausarzt-innen"
+        ],
+        "fr": [
           "facharztin-facharzt-allgemeinmedizin-80-100-in-bassersdorf-fur-engagierte-hausarzt-innen"
         ]
       },
@@ -870,8 +938,8 @@
       "slugByLocale": {
         "de": "ags-assistent-in-gesundheit-und-soziales-eba-langzeitpflege-60-80-fur-die-region-wohlen",
         "it": "ags-assistent-in-gesundheit-e-soziales-afp-langzeitpflege-60-80-per-la-region-wohlen-gesucht-ipersonal-ag-lugano",
-        "en": "ags-assistent-in-gesundheit-und-soziales-eba-langzeitpflege-60-80-fur-die-region-wohlen",
-        "fr": "ags-assistent-in-gesundheit-und-soziales-eba-langzeitpflege-60-80-fur-die-region-wohlen"
+        "en": "ags-assistant-in-health-and-social-eba-long-term-care-60-80-wanted-for-the-region-ipersonal-ag-lugano",
+        "fr": "assistant-a-la-sante-et-aux-services-sociaux-eba-soins-de-longue-duree-60-80-recherches-pour-la-region-ipersonal-ag"
       },
       "company": "iPersonal AG",
       "companyKey": "ipersonal",
@@ -913,6 +981,12 @@
       "previousSlugsByLocale": {
         "it": [
           "ags-assistent-in-gesundheit-und-soziales-eba-langzeitpflege-60-80-fur-die-region-wohlen"
+        ],
+        "en": [
+          "ags-assistent-in-gesundheit-und-soziales-eba-langzeitpflege-60-80-fur-die-region-wohlen"
+        ],
+        "fr": [
+          "ags-assistent-in-gesundheit-und-soziales-eba-langzeitpflege-60-80-fur-die-region-wohlen"
         ]
       },
       "previousSlugs": [
@@ -937,7 +1011,7 @@
       "id": "ipersonal-d75ecabdd9a2",
       "slug": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-80-100-in-tafers",
       "slugByLocale": {
-        "de": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-80-100-in-tafers",
+        "de": "dipl-pflegefachfrau-pflegefachmann-fh-80-100-in-tafers-gesucht-setze-deine-expertise-gezielt-ein-ipersonal-ag-lugano",
         "it": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-80-100-in-tafers",
         "en": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-80-100-in-tafers",
         "fr": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-80-100-in-tafers"

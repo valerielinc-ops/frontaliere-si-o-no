@@ -395,8 +395,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-umschlag-m-w-d-planzer-dintikon",
         "it": "collaboratore-trice-umschlag-m-w-d-planzer-dintikon",
-        "en": "mitarbeiter-umschlag-m-w-d-planzer-dintikon",
-        "fr": "mitarbeiter-umschlag-m-w-d-planzer-dintikon"
+        "en": "employee-envelope-m-f-d-planzer-dintikon",
+        "fr": "l-enveloppe-des-employes-h-f-d-planzer-dintikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -445,6 +445,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-umschlag-m-w-d-planzer-dintikon"
+        ],
+        "en": [
+          "mitarbeiter-umschlag-m-w-d-planzer-dintikon"
+        ],
+        "fr": [
+          "mitarbeiter-umschlag-m-w-d-planzer-dintikon"
         ]
       },
       "previousSlugs": [
@@ -470,8 +476,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-sortierung-m-w-d-planzer-villmergen",
         "it": "collaboratore-trice-sortierung-m-w-d-planzer-villmergen",
-        "en": "mitarbeiter-sortierung-m-w-d-planzer-villmergen",
-        "fr": "mitarbeiter-sortierung-m-w-d-planzer-villmergen"
+        "en": "employee-sorting-m-f-d-planzer-villmergen",
+        "fr": "tri-de-l-employe-h-f-d-planzer-villmergen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -526,13 +532,15 @@
           "selection-des-employes-h-f-d-planzer-villmergen"
         ],
         "en": [
-          "employee-picking-m-f-d-planzer-villmergen"
+          "employee-picking-m-f-d-planzer-villmergen",
+          "mitarbeiter-sortierung-m-w-d-planzer-villmergen"
         ],
         "de": [
           "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen"
         ],
         "fr": [
-          "selection-des-employes-h-f-d-planzer-villmergen"
+          "selection-des-employes-h-f-d-planzer-villmergen",
+          "mitarbeiter-sortierung-m-w-d-planzer-villmergen"
         ]
       },
       "previousSlugs": [
@@ -558,12 +566,12 @@
     },
     {
       "id": "planzer-4e363abaf6e2",
-      "slug": "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon",
+      "slug": "it-division-manager-edi-data-integration-m-f-d-planzer-dietikon",
       "slugByLocale": {
         "de": "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon",
-        "it": "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon",
+        "it": "it-division-manager-edi-data-integration-m-f-d-planzer-dietikon",
         "en": "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon",
-        "fr": "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon"
+        "fr": "gestionnaire-de-division-informatique-edi-integration-des-donnees-h-f-d-planzer-dietikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -620,7 +628,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-24T21:34:22.733Z"
+      "firstSeenAt": "2026-08-24T21:34:22.733Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon"
+        ],
+        "fr": [
+          "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon"
+        ]
+      },
+      "previousSlugs": [
+        "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon"
+      ]
     },
     {
       "id": "planzer-23feb633c943",

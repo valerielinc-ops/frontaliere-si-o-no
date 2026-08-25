@@ -1040,18 +1040,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "stagiaire-excellence-operationnelle-h-f-x-richemont-le-locle",
-          "stagiaire-excellence-operationnelle-h-f-x-cartier-manufacture-le-locle"
+          "stagiaire-excellence-operationnelle-h-f-x-richemont-le-locle"
         ],
         "it": [
-          "stagiaire-excellence-operationnelle-h-f-x-richemont-le-locle",
-          "stage-excellence-operativa-h-f-x-cartier-manufacture-le-locle"
+          "stagiaire-excellence-operationnelle-h-f-x-richemont-le-locle"
         ]
       },
       "previousSlugs": [
-        "stagiaire-excellence-operationnelle-h-f-x-richemont-le-locle",
-        "stagiaire-excellence-operationnelle-h-f-x-cartier-manufacture-le-locle",
-        "stage-excellence-operativa-h-f-x-cartier-manufacture-le-locle"
+        "stagiaire-excellence-operationnelle-h-f-x-richemont-le-locle"
       ],
       "salaryMin": 50500,
       "salaryMax": 77000,
@@ -5072,14 +5068,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "procurement-category-manager-richemont-plan-les-ouates-2",
-        "procurement-category-manager-richemont-plan-les-ouates",
-        "procurement-category-manager-piaget-plan-les-ouates"
+        "procurement-category-manager-richemont-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
           "procurement-category-manager-richemont-plan-les-ouates-2",
-          "procurement-category-manager-richemont-plan-les-ouates",
-          "procurement-category-manager-piaget-plan-les-ouates"
+          "procurement-category-manager-richemont-plan-les-ouates"
         ],
         "de": [
           "procurement-category-manager-richemont-plan-les-ouates-2"
@@ -8543,13 +8537,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "general-accountant-internal-control-12-months-richemont-meyrin",
-          "general-accountant-internal-control-12-months-cartier-meyrin"
+          "general-accountant-internal-control-12-months-richemont-meyrin"
         ]
       },
       "previousSlugs": [
-        "general-accountant-internal-control-12-months-richemont-meyrin",
-        "general-accountant-internal-control-12-months-cartier-meyrin"
+        "general-accountant-internal-control-12-months-richemont-meyrin"
       ],
       "firstSeenAt": "2026-08-14T21:41:21.616Z",
       "salaryMin": 104500,
@@ -11283,7 +11275,7 @@
         "it": "master-data-administrator-finance-richemont-bellevue",
         "en": "master-data-administrator-finance-richemont-bellevue",
         "de": "master-data-administrator-finance-richemont-bellevue",
-        "fr": "master-data-administrator-finance-richemont-bellevue"
+        "fr": "administrateur-principal-des-donnees-finances-richemont-bellevue"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -11499,12 +11491,12 @@
     },
     {
       "id": "richemont-74346d749745",
-      "slug": "watches-jewelry-manufacturing-project-controller-short-term-assignment-6-months-richemont",
+      "slug": "orologi-jewelry-manufacturing-project-controller-a-breve-termine-assegna-6-mesi-richemont-bellevue",
       "slugByLocale": {
-        "fr": "watches-jewelry-manufacturing-project-controller-short-term-assignment-6-months-richemont",
-        "it": "watches-jewelry-manufacturing-project-controller-short-term-assignment-6-months-richemont",
+        "fr": "controleur-de-projet-de-fabrication-de-montres-et-de-bijoux-attribution-de-courte-duree-6-mois-richemont-bellevue",
+        "it": "orologi-jewelry-manufacturing-project-controller-a-breve-termine-assegna-6-mesi-richemont-bellevue",
         "en": "watches-jewelry-manufacturing-project-controller-short-term-assignment-6-months-richemont",
-        "de": "watches-jewelry-manufacturing-project-controller-short-term-assignment-6-months-richemont"
+        "de": "watches-jewelry-manufacturing-project-controller-kurzfristige-zuweisung-6-monate-richemont-bellevue"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -11559,7 +11551,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-24T21:48:58.906Z"
+      "firstSeenAt": "2026-08-24T21:48:58.906Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "watches-jewelry-manufacturing-project-controller-short-term-assignment-6-months-richemont"
+        ],
+        "de": [
+          "watches-jewelry-manufacturing-project-controller-short-term-assignment-6-months-richemont"
+        ],
+        "fr": [
+          "watches-jewelry-manufacturing-project-controller-short-term-assignment-6-months-richemont"
+        ]
+      },
+      "previousSlugs": [
+        "watches-jewelry-manufacturing-project-controller-short-term-assignment-6-months-richemont"
+      ]
     },
     {
       "id": "richemont-1c7b4e72df63",
@@ -13732,20 +13738,6 @@
       "jobReqId": "jr132699",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "it": [
-          "specialiste-analyses-materiaux-richemont-glovelier"
-        ],
-        "en": [
-          "specialiste-analyses-materiaux-richemont-glovelier"
-        ],
-        "de": [
-          "specialiste-analyses-materiaux-richemont-glovelier"
-        ]
-      },
-      "previousSlugs": [
-        "specialiste-analyses-materiaux-richemont-glovelier"
-      ],
       "firstSeenAt": "2026-08-18T09:59:08.377Z",
       "salaryMin": 60500,
       "salaryMax": 91500,

@@ -6637,15 +6637,13 @@
       "previousSlugs": [
         "eidg-anerk-psychotherapeutin-psychotherapeuten-oder-fachpsychologin-fachpsychologen-40-80",
         "psychologische-psychotherapeutin-psychologischer-psychotherapeuten-40-80-clienia-ag-zurich",
-        "psychologische-psychotherapeutin-psychologischer-psychotherapeuten-40-50-clienia-ag-zurich",
-        "eidg-anerk-psychotherapeutin-psychotherapeuten-o-fachpsychologin-fachpsychologen-40-80-clienia-ag-pfaffikon"
+        "psychologische-psychotherapeutin-psychologischer-psychotherapeuten-40-50-clienia-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "eidg-anerk-psychotherapeutin-psychotherapeuten-oder-fachpsychologin-fachpsychologen-40-80",
           "psychologische-psychotherapeutin-psychologischer-psychotherapeuten-40-80-clienia-ag-zurich",
-          "psychologische-psychotherapeutin-psychologischer-psychotherapeuten-40-50-clienia-ag-zurich",
-          "eidg-anerk-psychotherapeutin-psychotherapeuten-o-fachpsychologin-fachpsychologen-40-80-clienia-ag-pfaffikon"
+          "psychologische-psychotherapeutin-psychologischer-psychotherapeuten-40-50-clienia-ag-zurich"
         ],
         "en": [
           "eidg-anerk-psychotherapeutin-psychotherapeuten-oder-fachpsychologin-fachpsychologen-40-80"
@@ -7696,12 +7694,12 @@
     },
     {
       "id": "clienia-ag-5b3eb1523845",
-      "slug": "dipl-pflegefachperson-hf-fh-m-w-d-45-65-clienia-ag-pfaffikon",
+      "slug": "infermiera-hf-fh-m-f-d-45-65-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-m-w-d-45-65-clienia-ag-zurich",
-        "it": "dipl-pflegefachperson-hf-fh-m-w-d-45-65-clienia-ag-pfaffikon",
-        "en": "dipl-pflegefachperson-hf-fh-m-w-d-45-65-clienia-ag-pfaffikon",
-        "fr": "dipl-pflegefachperson-hf-fh-m-w-d-45-65-clienia-ag-pfaffikon"
+        "it": "infermiera-hf-fh-m-f-d-45-65-clienia-ag-pfaffikon-zh",
+        "en": "dipl-nurse-hf-fh-m-f-d-45-65-clienia-ag-pfaffikon-zh",
+        "fr": "infirmiere-diplomee-hf-fh-h-f-d-45-65-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -7746,11 +7744,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-m-w-d-45-65-clienia-ag-zurich"
+          "dipl-pflegefachperson-hf-fh-m-w-d-45-65-clienia-ag-zurich",
+          "dipl-pflegefachperson-hf-fh-m-w-d-45-65-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-m-w-d-45-65-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-m-w-d-45-65-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-m-w-d-45-65-clienia-ag-zurich"
+        "dipl-pflegefachperson-hf-fh-m-w-d-45-65-clienia-ag-zurich",
+        "dipl-pflegefachperson-hf-fh-m-w-d-45-65-clienia-ag-pfaffikon"
       ],
       "salaryMin": 59500,
       "salaryMax": 83200,
@@ -7768,12 +7774,12 @@
     },
     {
       "id": "clienia-ag-42d21b03db59",
-      "slug": "nachtarztin-nachtarzt-50-100-clienia-ag-zurich",
+      "slug": "medico-notturno-50-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
         "de": "nachtarztin-nachtarzt-50-100-clienia-ag-zurich",
-        "it": "nachtarztin-nachtarzt-50-100-clienia-ag-zurich",
-        "en": "nachtarztin-nachtarzt-50-100-clienia-ag-zurich",
-        "fr": "nachtarztin-nachtarzt-50-100-clienia-ag-zurich"
+        "it": "medico-notturno-50-100-clienia-ag-pfaffikon-zh",
+        "en": "night-doctor-50-100-clienia-ag-pfaffikon-zh",
+        "fr": "medecin-de-nuit-50-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -7828,7 +7834,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-24T21:50:06.444Z"
+      "firstSeenAt": "2026-08-24T21:50:06.444Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "nachtarztin-nachtarzt-50-100-clienia-ag-zurich"
+        ],
+        "en": [
+          "nachtarztin-nachtarzt-50-100-clienia-ag-zurich"
+        ],
+        "fr": [
+          "nachtarztin-nachtarzt-50-100-clienia-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "nachtarztin-nachtarzt-50-100-clienia-ag-zurich"
+      ]
     }
   ]
 }

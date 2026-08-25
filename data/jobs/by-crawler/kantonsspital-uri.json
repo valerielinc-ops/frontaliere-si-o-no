@@ -1356,12 +1356,12 @@
     },
     {
       "id": "kantonsspital-uri-c0ef5073683a",
-      "slug": "dipl-pflegefachperson-hf-fh-schwerpunkt-wochenbett-20-80-w-m-d-kantonsspital-uri-altdorf",
+      "slug": "dipl-specialista-hf-fh-focus-sul-letto-post-partum-20-80-m-f-d-kantonsspital-uri-altdorf",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-schwerpunkt-wochenbett-20-80-w-m-d-kantonsspital-uri-altdorf",
-        "it": "dipl-pflegefachperson-hf-fh-schwerpunkt-wochenbett-20-80-w-m-d-kantonsspital-uri-altdorf",
-        "en": "dipl-pflegefachperson-hf-fh-schwerpunkt-wochenbett-20-80-w-m-d-kantonsspital-uri-altdorf",
-        "fr": "dipl-pflegefachperson-hf-fh-schwerpunkt-wochenbett-20-80-w-m-d-kantonsspital-uri-altdorf"
+        "it": "dipl-specialista-hf-fh-focus-sul-letto-post-partum-20-80-m-f-d-kantonsspital-uri-altdorf",
+        "en": "dipl-care-specialist-hf-fh-focus-on-postpartum-bed-20-80-m-f-d-kantonsspital-uri-altdorf",
+        "fr": "dipl-specialiste-des-soins-hf-fh-se-concentrer-sur-le-lit-post-partum-20-80-h-f-d-kantonsspital-uri-altdorf"
       },
       "company": "Kantonsspital Uri",
       "companyKey": "kantonsspital-uri",
@@ -1416,7 +1416,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-24T21:59:32.657Z"
+      "firstSeenAt": "2026-08-24T21:59:32.657Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-schwerpunkt-wochenbett-20-80-w-m-d-kantonsspital-uri-altdorf"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-schwerpunkt-wochenbett-20-80-w-m-d-kantonsspital-uri-altdorf"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-schwerpunkt-wochenbett-20-80-w-m-d-kantonsspital-uri-altdorf"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-schwerpunkt-wochenbett-20-80-w-m-d-kantonsspital-uri-altdorf"
+      ]
     },
     {
       "id": "kantonsspital-uri-6c7924dd5dd2",

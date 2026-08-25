@@ -10738,8 +10738,8 @@
       "slugByLocale": {
         "de": "fachspezialist-in-studienadministration-und-beratung-universitat-zurich-zurich",
         "it": "fachspezialist-in-studienadministration-e-beratung-universitat-zurich",
-        "en": "fachspezialist-in-studienadministration-und-beratung-universitat-zurich-zurich",
-        "fr": "fachspezialist-in-studienadministration-und-beratung-universitat-zurich-zurich"
+        "en": "specialist-in-study-administration-and-consulting-universitat-zurich-zurich",
+        "fr": "specialiste-en-administration-et-conseil-d-etude-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -10790,10 +10790,17 @@
         ],
         "de": [
           "fachspezialist-in-studienadministration-und-beratung-uzh-zurich"
+        ],
+        "en": [
+          "fachspezialist-in-studienadministration-und-beratung-universitat-zurich-zurich"
+        ],
+        "fr": [
+          "fachspezialist-in-studienadministration-und-beratung-universitat-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "fachspezialist-in-studienadministration-und-beratung-uzh-zurich"
+        "fachspezialist-in-studienadministration-und-beratung-uzh-zurich",
+        "fachspezialist-in-studienadministration-und-beratung-universitat-zurich-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

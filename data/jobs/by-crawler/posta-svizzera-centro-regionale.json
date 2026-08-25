@@ -86,12 +86,12 @@
         "en": "Delivery: in letters and packages Fiesch",
         "fr": "Livraison: en lettres et en colis Fiesch"
       },
-      "slug": "zusteller-in-briefe-und-pakete-fiesch-post",
+      "slug": "zusteller-in-lettere-e-pacchi-fiesch-die-schweizerische-post-fiesch",
       "slugByLocale": {
-        "it": "zusteller-in-briefe-und-pakete-fiesch-post",
-        "en": "zusteller-in-briefe-und-pakete-fiesch-post",
+        "it": "zusteller-in-lettere-e-pacchi-fiesch-die-schweizerische-post-fiesch",
+        "en": "delivery-in-letters-and-packages-fiesch-die-schweizerische-post-fiesch",
         "de": "zusteller-in-briefe-und-pakete-fiesch-post",
-        "fr": "zusteller-in-briefe-und-pakete-fiesch-post"
+        "fr": "livraison-en-lettres-et-en-colis-fiesch-die-schweizerische-post-fiesch"
       },
       "sourceLang": "de",
       "department": "",
@@ -125,7 +125,21 @@
       },
       "addressLocality": "Fiesch",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-08-24T21:46:31.180Z"
+      "firstSeenAt": "2026-08-24T21:46:31.180Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-briefe-und-pakete-fiesch-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-fiesch-post"
+        ],
+        "fr": [
+          "zusteller-in-briefe-und-pakete-fiesch-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-briefe-und-pakete-fiesch-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Senior-IAM-Spezialistin/74484-de_DE",
@@ -7984,12 +7998,12 @@
         "en": "Teaching as a logistician: mixed delivery (letters and packages) in EFZ Distribution",
         "fr": "Enseignement en tant que logisticien: livraison mixte (lettres et paquets) dans EFZ Distribution"
       },
-      "slug": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-e02c20",
       "slugByLocale": {
-        "it": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "en": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+        "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-e02c20",
+        "en": "teaching-as-a-logistician-mixed-delivery-letters-and-packages-in-efz-distribution-die-schweizerische-post-nanikon",
         "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "fr": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        "fr": "enseignement-en-tant-que-logisticien-livraison-mixte-lettres-et-paquets-dans-efz-distribution-die-schweizerische-e02c20"
       },
       "sourceLang": "de",
       "department": "",
@@ -8022,7 +8036,21 @@
       },
       "addressLocality": "Nänikon",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-24T21:46:31.180Z"
+      "firstSeenAt": "2026-08-24T21:46:31.180Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ],
+        "en": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ],
+        "fr": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73911-de_DE",
@@ -11821,16 +11849,14 @@
       "firstSeenAt": "2026-08-20T21:39:58.447Z",
       "previousSlugsByLocale": {
         "it": [
-          "conductrice-conducteur-carpostal-sion-post",
-          "conductrice-conducteur-carpostal-sion"
+          "conductrice-conducteur-carpostal-sion-post"
         ],
         "en": [
           "conductrice-conducteur-carpostal-sion-post"
         ]
       },
       "previousSlugs": [
-        "conductrice-conducteur-carpostal-sion-post",
-        "conductrice-conducteur-carpostal-sion"
+        "conductrice-conducteur-carpostal-sion-post"
       ]
     },
     {

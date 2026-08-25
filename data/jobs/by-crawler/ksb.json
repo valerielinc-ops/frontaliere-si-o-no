@@ -7578,12 +7578,12 @@
     },
     {
       "id": "ksb-129397fc6309",
-      "slug": "mpa-onkologie-hamatologie-80-ksb-ch",
+      "slug": "mpa-oncologia-ematologia-80-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
         "de": "mpa-onkologie-hamatologie-80-ksb-ch",
-        "it": "mpa-onkologie-hamatologie-80-ksb-ch",
-        "en": "mpa-onkologie-hamatologie-80-ksb-ch",
-        "fr": "mpa-onkologie-hamatologie-80-ksb-ch"
+        "it": "mpa-oncologia-ematologia-80-kantonsspital-baden-ksb-baden",
+        "en": "mpa-oncology-hematology-80-kantonsspital-baden-ksb-baden",
+        "fr": "mpa-oncologie-hematologie-80-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -7638,16 +7638,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-24T21:54:00.765Z"
+      "firstSeenAt": "2026-08-24T21:54:00.765Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mpa-onkologie-hamatologie-80-ksb-ch"
+        ],
+        "en": [
+          "mpa-onkologie-hamatologie-80-ksb-ch"
+        ],
+        "fr": [
+          "mpa-onkologie-hamatologie-80-ksb-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mpa-onkologie-hamatologie-80-ksb-ch"
+      ]
     },
     {
       "id": "ksb-a5283de2b76d",
-      "slug": "ernahrungsberater-in-40-100-kantonsspital-baden-ksb-baden",
+      "slug": "nutrizionista-in-40-100-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
         "de": "ernahrungsberater-in-40-100-ksb-ch",
-        "it": "ernahrungsberater-in-40-100-kantonsspital-baden-ksb-baden",
-        "en": "ernahrungsberater-in-40-100-kantonsspital-baden-ksb-baden",
-        "fr": "ernahrungsberater-in-40-100-kantonsspital-baden-ksb-baden"
+        "it": "nutrizionista-in-40-100-kantonsspital-baden-ksb-baden",
+        "en": "nutritionist-in-40-100-kantonsspital-baden-ksb-baden",
+        "fr": "nutritionniste-en-40-100-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -7692,11 +7706,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "ernahrungsberater-in-40-100-ksb-ch"
+          "ernahrungsberater-in-40-100-ksb-ch",
+          "ernahrungsberater-in-40-100-kantonsspital-baden-ksb-baden"
+        ],
+        "en": [
+          "ernahrungsberater-in-40-100-kantonsspital-baden-ksb-baden"
+        ],
+        "fr": [
+          "ernahrungsberater-in-40-100-kantonsspital-baden-ksb-baden"
         ]
       },
       "previousSlugs": [
-        "ernahrungsberater-in-40-100-ksb-ch"
+        "ernahrungsberater-in-40-100-ksb-ch",
+        "ernahrungsberater-in-40-100-kantonsspital-baden-ksb-baden"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -7714,12 +7736,12 @@
     },
     {
       "id": "ksb-4086fae654fc",
-      "slug": "ernahrungsberater-in-40-80-kantonsspital-baden-ksb-baden",
+      "slug": "nutrizionista-in-40-80-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
         "de": "ernahrungsberater-in-40-80-ksb-ch",
-        "it": "ernahrungsberater-in-40-80-kantonsspital-baden-ksb-baden",
-        "en": "ernahrungsberater-in-40-80-kantonsspital-baden-ksb-baden",
-        "fr": "ernahrungsberater-in-40-80-kantonsspital-baden-ksb-baden"
+        "it": "nutrizionista-in-40-80-kantonsspital-baden-ksb-baden",
+        "en": "nutritionist-in-40-80-kantonsspital-baden-ksb-baden",
+        "fr": "nutritionniste-en-40-80-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -7764,11 +7786,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "ernahrungsberater-in-40-80-ksb-ch"
+          "ernahrungsberater-in-40-80-ksb-ch",
+          "ernahrungsberater-in-40-80-kantonsspital-baden-ksb-baden"
+        ],
+        "en": [
+          "ernahrungsberater-in-40-80-kantonsspital-baden-ksb-baden"
+        ],
+        "fr": [
+          "ernahrungsberater-in-40-80-kantonsspital-baden-ksb-baden"
         ]
       },
       "previousSlugs": [
-        "ernahrungsberater-in-40-80-ksb-ch"
+        "ernahrungsberater-in-40-80-ksb-ch",
+        "ernahrungsberater-in-40-80-kantonsspital-baden-ksb-baden"
       ],
       "salaryMin": 49600,
       "salaryMax": 75200,

@@ -773,7 +773,6 @@
           "sales-consultant-do-it-jumbo-division-der-coop-genossenschaft-heimberg-jq7tap",
           "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-heimberg-kqxa72",
           "verkaufsberater-en-do-it-jumbo-division-der-coop-genossenschaft-heimberg",
-          "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-heimberg",
           "consulente-di-vendita-deco-jumbo-division-der-coop-genossenschaft-heimberg",
           "consulente-di-vendita-in-falegnameria-jumbo-division-der-coop-genossenschaft-heimberg"
         ],
@@ -799,8 +798,6 @@
         "sales-consultant-do-it-jumbo-division-der-coop-genossenschaft-heimberg-jq7tap",
         "sales-consultant-in-do-it-jumbo-division-der-coop-genossenschaft-heimberg-kqxa72",
         "verkaufsberater-en-do-it-jumbo-division-der-coop-genossenschaft-heimberg",
-        "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-heimberg-bern-l8wp8o",
-        "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-heimberg",
         "consulente-di-vendita-deco-jumbo-division-der-coop-genossenschaft-heimberg",
         "consulente-di-vendita-in-falegnameria-jumbo-division-der-coop-genossenschaft-heimberg"
       ],
@@ -18730,13 +18727,11 @@
       },
       "previousSlugs": [
         "marketing-assistant-controlling-planung-jumbo-dietlikon",
-        "assistant-marketing-controle-planification-jumbo-dietlikon",
-        "marketing-assistant-controllo-pianificazione-jumbo-dietlikon"
+        "assistant-marketing-controle-planification-jumbo-dietlikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "marketing-assistant-controlling-planung-jumbo-dietlikon",
-          "marketing-assistant-controllo-pianificazione-jumbo-dietlikon"
+          "marketing-assistant-controlling-planung-jumbo-dietlikon"
         ],
         "en": [
           "marketing-assistant-controlling-planung-jumbo-dietlikon"
@@ -19314,10 +19309,10 @@
       "id": "jumbo-b2dbaaaa-3d3",
       "slug": "consulente-vendite-in-garden-jumbo-schanis",
       "slugByLocale": {
-        "it": "consulente-vendite-in-garden-jumbo-schanis",
-        "en": "sales-advisor-in-garden-jumbo-schanis",
+        "it": "consulente-vendite-in-garden-jumbo-division-der-coop-genossenschaft-schanis",
+        "en": "sales-advisor-in-garden-jumbo-division-der-coop-genossenschaft-schanis",
         "de": "verkaufsberater-in-garden-jumbo-schanis",
-        "fr": "conseiller-commercial-a-garden-jumbo-schanis"
+        "fr": "conseiller-commercial-a-garden-jumbo-division-der-coop-genossenschaft-schanis"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -19392,24 +19387,28 @@
           "verkaufsberater-in-garden-jumbo-schanis"
         ],
         "en": [
-          "verkaufsberater-in-garden-jumbo-schanis"
+          "verkaufsberater-in-garden-jumbo-schanis",
+          "sales-advisor-in-garden-jumbo-schanis"
         ],
         "fr": [
-          "verkaufsberater-in-garden-jumbo-schanis"
+          "verkaufsberater-in-garden-jumbo-schanis",
+          "conseiller-commercial-a-garden-jumbo-schanis"
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-garden-jumbo-schanis"
+        "verkaufsberater-in-garden-jumbo-schanis",
+        "sales-advisor-in-garden-jumbo-schanis",
+        "conseiller-commercial-a-garden-jumbo-schanis"
       ]
     },
     {
       "id": "jumbo-3a9ed630-2a8",
       "slug": "consulente-commerciale-a-deco-jumbo-heimberg",
       "slugByLocale": {
-        "it": "consulente-commerciale-a-deco-jumbo-heimberg",
-        "en": "sales-consultant-in-deco-jumbo-heimberg",
+        "it": "consulente-commerciale-a-deco-jumbo-division-der-coop-genossenschaft-heimberg",
+        "en": "sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-heimberg",
         "de": "verkaufsberater-in-deco-jumbo-heimberg",
-        "fr": "consultant-en-ventes-en-deco-jumbo-heimberg"
+        "fr": "consultant-en-ventes-en-deco-jumbo-division-der-coop-genossenschaft-heimberg"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -19484,14 +19483,18 @@
           "verkaufsberater-in-deco-jumbo-heimberg"
         ],
         "en": [
-          "verkaufsberater-in-deco-jumbo-heimberg"
+          "verkaufsberater-in-deco-jumbo-heimberg",
+          "sales-consultant-in-deco-jumbo-heimberg"
         ],
         "fr": [
-          "verkaufsberater-in-deco-jumbo-heimberg"
+          "verkaufsberater-in-deco-jumbo-heimberg",
+          "consultant-en-ventes-en-deco-jumbo-heimberg"
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-deco-jumbo-heimberg"
+        "verkaufsberater-in-deco-jumbo-heimberg",
+        "sales-consultant-in-deco-jumbo-heimberg",
+        "consultant-en-ventes-en-deco-jumbo-heimberg"
       ]
     }
   ]

@@ -9340,12 +9340,12 @@
     },
     {
       "id": "eth-zurich-1ac77025ea35",
-      "slug": "phd-position-movement-biomarkers-in-stroke-recovery-eth-zurich-ch",
+      "slug": "phd-posizione-movimento-biomarkers-in-stroke-recupero-eth-zurich-zurich",
       "slugByLocale": {
         "en": "phd-position-movement-biomarkers-in-stroke-recovery-eth-zurich-ch",
-        "it": "phd-position-movement-biomarkers-in-stroke-recovery-eth-zurich-ch",
-        "de": "phd-position-movement-biomarkers-in-stroke-recovery-eth-zurich-ch",
-        "fr": "phd-position-movement-biomarkers-in-stroke-recovery-eth-zurich-ch"
+        "it": "phd-posizione-movimento-biomarkers-in-stroke-recupero-eth-zurich-zurich",
+        "de": "phd-position-bewegung-biomarker-in-schlaganfall-erholung-eth-zurich-zurich",
+        "fr": "phd-position-mouvement-biomarqueurs-dans-la-recuperation-des-accidents-vasculaires-cerebraux-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9399,7 +9399,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-24T21:30:35.000Z"
+      "firstSeenAt": "2026-08-24T21:30:35.000Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-movement-biomarkers-in-stroke-recovery-eth-zurich-ch"
+        ],
+        "de": [
+          "phd-position-movement-biomarkers-in-stroke-recovery-eth-zurich-ch"
+        ],
+        "fr": [
+          "phd-position-movement-biomarkers-in-stroke-recovery-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-movement-biomarkers-in-stroke-recovery-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-0de554a74e2f",

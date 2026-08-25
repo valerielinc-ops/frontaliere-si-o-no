@@ -4242,12 +4242,12 @@
     },
     {
       "id": "hug-375f0ec61419",
-      "slug": "gestionnaire-rh-80-hug-geneve",
+      "slug": "hr-manager-80-hug-geneve-43463b",
       "slugByLocale": {
         "fr": "gestionnaire-rh-80-hug-geneve",
-        "it": "gestionnaire-rh-80-hug-geneve",
-        "en": "gestionnaire-rh-80-hug-geneve",
-        "de": "gestionnaire-rh-80-hug-geneve"
+        "it": "hr-manager-80-hug-geneve-43463b",
+        "en": "hr-manager-80-hug-geneve-43463b",
+        "de": "hr-manager-80-hug-geneve-43463b"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4302,7 +4302,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-24T21:39:50.138Z"
+      "firstSeenAt": "2026-08-24T21:39:50.138Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-rh-80-hug-geneve"
+        ],
+        "en": [
+          "gestionnaire-rh-80-hug-geneve"
+        ],
+        "de": [
+          "gestionnaire-rh-80-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "gestionnaire-rh-80-hug-geneve"
+      ]
     },
     {
       "id": "hug-0c1067c3a2ca",

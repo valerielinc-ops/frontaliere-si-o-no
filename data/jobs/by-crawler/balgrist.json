@@ -4105,8 +4105,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-empfang-telefonzentrale-60-m-w-d-balgrist-zurich",
         "it": "mitarbeiterin-collaboratore-trice-empfang-telefonzentrale-60-m-w-d-universitatsklinik-balgrist-zurich",
-        "en": "mitarbeiterin-mitarbeiter-empfang-telefonzentrale-60-m-w-d-balgrist-zurich",
-        "fr": "mitarbeiterin-mitarbeiter-empfang-telefonzentrale-60-m-w-d-balgrist-zurich"
+        "en": "employee-reception-phone-center-60-m-f-d-universitatsklinik-balgrist-zurich",
+        "fr": "centre-de-reception-telephone-des-employes-60-h-f-d-universitatsklinik-balgrist-zurich"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
@@ -4153,6 +4153,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-empfang-telefonzentrale-60-m-w-d-balgrist-zurich"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-empfang-telefonzentrale-60-m-w-d-balgrist-zurich"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-empfang-telefonzentrale-60-m-w-d-balgrist-zurich"
         ]
       },

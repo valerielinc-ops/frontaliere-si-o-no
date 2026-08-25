@@ -2369,12 +2369,12 @@
     },
     {
       "id": "selecta-4c3d1a616231",
-      "slug": "sales-support-associate-m-w-d-selecta-kirchberg-be",
+      "slug": "supporto-vendite-associate-m-f-d-selecta-kirchberg-be",
       "slugByLocale": {
         "de": "sales-support-associate-m-w-d-selecta-kirchberg-be",
-        "it": "sales-support-associate-m-w-d-selecta-kirchberg-be",
+        "it": "supporto-vendite-associate-m-f-d-selecta-kirchberg-be",
         "en": "sales-support-associate-m-w-d-selecta-kirchberg-be",
-        "fr": "sales-support-associate-m-w-d-selecta-kirchberg-be"
+        "fr": "soutien-aux-ventes-associe-h-f-d-selecta-kirchberg-be"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -2436,7 +2436,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-24T21:43:13.112Z"
+      "firstSeenAt": "2026-08-24T21:43:13.112Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-support-associate-m-w-d-selecta-kirchberg-be"
+        ],
+        "fr": [
+          "sales-support-associate-m-w-d-selecta-kirchberg-be"
+        ]
+      },
+      "previousSlugs": [
+        "sales-support-associate-m-w-d-selecta-kirchberg-be"
+      ]
     }
   ]
 }
