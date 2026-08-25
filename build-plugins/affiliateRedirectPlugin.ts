@@ -11,8 +11,20 @@
 import path from 'node:path';
 import type { Plugin } from 'vite';
 import { PARTNERS, buildAffiliateUrl, partnerRelAttr } from '../services/affiliateService';
-import { ANALYTICS_SNIPPET, BASE_URL, SEO_STATIC_CSS_LINK } from './constants';
+import { ANALYTICS_SNIPPET, BASE_URL, GA4_MEASUREMENT_ID, SEO_STATIC_CSS_LINK } from './constants';
 import { WriteCollector } from './batchWrite';
+
+/**
+ * How long the redirect waits for the GA4 pageview beacon before firing
+ * anyway. GTAG_SNIPPET loads gtag.js `async` and its config bootstrap
+ * `defer` (build-plugins/constants.ts), so a plain `location.replace()`
+ * right after used to navigate away before either script got a chance to
+ * run — the pageview never queued, let alone sent. This bootstraps gtag
+ * inline and synchronously (queueing works regardless of load order) and
+ * gates the redirect on the pageview's `event_callback`, with this timeout
+ * as the ceiling so a blocked/slow/absent gtag.js never delays a real user.
+ */
+const REDIRECT_TRACKING_TIMEOUT_MS = 400;
 
 function buildRedirectPage(partner: typeof PARTNERS[number]): string {
  const targetUrl = buildAffiliateUrl(partner, 'go-redirect');
@@ -29,7 +41,17 @@ function buildRedirectPage(partner: typeof PARTNERS[number]): string {
  <link rel="canonical" href="${BASE_URL}/go/${partner.id}/">
  ${SEO_STATIC_CSS_LINK}
  ${ANALYTICS_SNIPPET}
- <script>window.location.replace(${JSON.stringify(targetUrl)})</script>
+ <script>(function(){
+var u=${JSON.stringify(targetUrl)};
+var redirected=false;
+function go(){if(redirected)return;redirected=true;window.location.replace(u);}
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)}
+gtag('js',new Date());
+gtag('config',${JSON.stringify(GA4_MEASUREMENT_ID)},{transport_type:'beacon',send_page_view:false});
+gtag('event','page_view',{event_callback:go,event_timeout:${REDIRECT_TRACKING_TIMEOUT_MS}});
+setTimeout(go,${REDIRECT_TRACKING_TIMEOUT_MS});
+})();</script>
  </head>
  <body>
  <main class="s-9MsAg7">
