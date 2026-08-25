@@ -55,8 +55,12 @@ import { relative } from 'node:path';
 import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 import { writeAuditReport } from './lib/auditReport.mjs';
 import { extractMetaDescriptionRaw } from './lib/meta-description-extract.mjs';
+import { evaluateCeiling, familyEntry, readLedgerOrNull } from './lib/seoDefectRatchet.mjs';
 
 export const MAX_DUPLICATE_PAGES_PER_DESCRIPTION = 2;
+
+/** Ledger family name (#6222 item 1). See scripts/lib/seoDefectRatchet.mjs. */
+export const DUPLICATE_META_FAMILY = 'duplicate-meta-description';
 
 /**
  * Description prefixes duplicated BY DESIGN (404 / soft-404 stubs share one
@@ -99,6 +103,15 @@ export function createAuditor(opts = {}) {
    * avoid that. `PATHS_PER_DESCRIPTION_CAP` bounds only the path list, which
    * was never the dominant term.
    */
+  // Descending ceiling (#6222 item 1). Read once, synchronously — `report()`
+  // below is sync. FAIL-CLOSED in the same direction as
+  // scripts/audit-link-anchor-text.mjs: a missing or malformed ledger yields a
+  // null entry, `evaluateCeiling` reports `ratcheted: false`, and the verdict
+  // falls back to the original `offenders.length === 0`. Losing the ledger
+  // tightens this gate; it can never loosen it.
+  const ledger = opts.ledger !== undefined ? opts.ledger : readLedgerOrNull(opts.ledgerPath);
+  const ceilingEntry = familyEntry(ledger, DUPLICATE_META_FAMILY);
+
   const byDescription = new Map();
   const PATHS_PER_DESCRIPTION_CAP = 5;
   const DESCRIPTION_SAMPLE_CHARS = 100;
@@ -194,7 +207,22 @@ export function createAuditor(opts = {}) {
         }
       }
       offenders.sort((a, b) => b.metric - a.metric);
-      const passed = offenders.length === 0;
+
+      // CEILING, not zero. `MAX_DUPLICATE_PAGES_PER_DESCRIPTION = 2` is the
+      // per-GROUP quality threshold and is untouched — a description on three
+      // pages is still an offender. What changes is the corpus-level verdict:
+      // the rehydrated dist/ carries ~197'000 offender pages emitted over
+      // months, so `offenders.length === 0` made this auditor report an
+      // unchanging red regardless of whether anyone was fixing it. See
+      // scripts/lib/seoDefectRatchet.mjs for the reassembled-corpus exception
+      // this sits inside.
+      const ratchet = evaluateCeiling({
+        family: DUPLICATE_META_FAMILY,
+        offenders: offenders.length,
+        filesScanned,
+        entry: ceilingEntry,
+      });
+      const passed = ratchet.ratcheted ? ratchet.passed : offenders.length === 0;
       return {
         passed,
         offendersTotal: offenders.length,
@@ -215,10 +243,21 @@ export function createAuditor(opts = {}) {
             sampleRate < 1
               ? `group sizes are counted WITHIN the ${(sampleRate * 100).toFixed(0)}% sampled slice: no false positives (a sampled group is a real group), reduced recall (a real group may be split across buckets and never seen whole). A green run is not proof the corpus is clean.`
               : 'full walk: group sizes are corpus-exact.',
+          // Full ledger verdict into the artifact — see the identical field in
+          // scripts/audit-link-anchor-text.mjs and the reason there.
+          ratchet,
         },
+        // The measured rate is printed on EVERY run, pass or fail. That is not
+        // decoration: it is the condition the reassembled-corpus exception
+        // attaches to using a rate at all (AGENTS.md #1, owner 2026-08-20) —
+        // the next ceiling has to tighten on a datum, and a datum nobody prints
+        // is not one.
         humanSummary: passed
-          ? `duplicate meta-description gate: 0 description(s) on more than ${maxPages} of ${filesScanned} scanned page(s)`
-          : `${offenders.length} description(s) shared by more than ${maxPages} pages (worst: ${offenders[0].metric} pages)`,
+          ? `duplicate meta-description gate: ${offenders.length} description(s) on more than ${maxPages} of ` +
+            `${filesScanned} scanned page(s)${offenders.length > 0 ? ` (worst group: ${offenders[0].metric} pages)` : ''} — ${ratchet.humanSummary}`
+          : ratchet.ratcheted
+            ? `${ratchet.humanSummary} — worst group: ${offenders[0].metric} pages sharing "${offenders[0].description}"`
+            : `${offenders.length} description(s) shared by more than ${maxPages} pages (worst: ${offenders[0].metric} pages)`,
       };
     },
   };

@@ -103,7 +103,16 @@ describe('duplicate-meta-description — the sample must not retain its page', (
 
   it('still detects duplicates, and reports the sample text intact', async () => {
     const { createAuditor } = await import('../../scripts/audit-duplicate-meta-description.mjs');
-    const auditor = createAuditor();
+    // `ledger: null` — this is a DETECTION assertion on a 6-page fixture, and
+    // the corpus ceiling this auditor now reads (family
+    // `duplicate-meta-description` in data/seo-defect-families.json) is a rate
+    // over a ~1'000'000-file draw whose absolute noise floor holds any count
+    // this small. Passing null takes the documented fail-closed path — no
+    // ledger, pre-ratchet zero tolerance — so the assertion keeps measuring the
+    // detector rather than the ceiling, and pins the fail-safe direction while
+    // it is at it. Same reasoning, same wording, as
+    // tests/audit-dist-quality-folded.test.ts.
+    const auditor = createAuditor({ ledger: null });
     const shared =
       'Una descrizione condivisa da troppe pagine, lunga a sufficienza da non finire nella allowlist e da essere troncata nel campione.';
     for (let i = 0; i < 6; i++) {

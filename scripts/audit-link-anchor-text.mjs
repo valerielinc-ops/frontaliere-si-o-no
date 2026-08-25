@@ -64,6 +64,14 @@ import { relative } from 'node:path';
 import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 import { writeAuditReport } from './lib/auditReport.mjs';
 import { extrapolateSampledCount, formatRegressedFeature } from './lib/mixAdjustedRateGate.mjs';
+import { evaluateCeiling, familyEntry, readLedgerOrNull } from './lib/seoDefectRatchet.mjs';
+
+/**
+ * Ledger family name for the NON-DESCRIPTIVE half of this gate (#5845 item 2 /
+ * #6222 item 1). The unnamed-anchor half above already has a rate gate of its
+ * own and is not on the ledger.
+ */
+export const NON_DESCRIPTIVE_FAMILY = 'link-anchor-text-non-descriptive';
 
 /**
  * The pre-migration absolute cap, kept verbatim so the conversion below is
@@ -188,6 +196,20 @@ export function createAuditor(opts = {}) {
   const nonDescriptiveSample = [];
   const OFFENDER_SAMPLE_CAP = 100;
 
+  // Descending ceiling for the non-descriptive half (#5845 item 2). Read ONCE
+  // per auditor instance, synchronously, because `report()` below is sync and
+  // its standalone CLI calls it without awaiting.
+  //
+  // FAIL-CLOSED: `readLedgerOrNull` returns null when the ledger is missing or
+  // malformed, `familyEntry` returns null when the family is absent or is not
+  // `enforcement: "ratchet"`, and `evaluateCeiling` with a null entry reports
+  // `ratcheted: false` — which routes back to the ORIGINAL zero-tolerance
+  // verdict below. A ledger that disappears therefore makes this gate stricter,
+  // never greener; that direction is the reason two readers exist in
+  // scripts/lib/seoDefectRatchet.mjs.
+  const ledger = opts.ledger !== undefined ? opts.ledger : readLedgerOrNull(opts.ledgerPath);
+  const nonDescriptiveCeiling = familyEntry(ledger, NON_DESCRIPTIVE_FAMILY);
+
   return {
     name: 'link-anchor-text',
     collect(file, html) {
@@ -233,7 +255,30 @@ export function createAuditor(opts = {}) {
       // real regression (a doubling is 100% over, not 20%); what it stops
       // doing is reporting sampling noise as a defect.
       const ratePassed = rate <= maxRate * (1 + RATE_TOLERANCE_REL);
-      const passed = ratePassed && nonDescriptiveTotal === 0;
+
+      // NON-DESCRIPTIVE HALF: ceiling, not zero.
+      //
+      // The clause here used to be `nonDescriptiveTotal === 0`, sitting beside
+      // the rate gate above that this same file spends forty lines justifying.
+      // The asymmetry was not a decision, it was the half nobody converted: the
+      // corpus carries ~48 of these anchors in two templates, so the clause made
+      // the whole auditor permanently red and said the same thing whether the
+      // count was 9 or 900. See scripts/lib/seoDefectRatchet.mjs for why a
+      // ceiling is in-contract for a gate that judges the REASSEMBLED corpus.
+      //
+      // `ratcheted: false` (no ledger, or the family removed from it) restores
+      // the original `=== 0`.
+      const nonDescriptiveVerdict = evaluateCeiling({
+        family: NON_DESCRIPTIVE_FAMILY,
+        offenders: nonDescriptiveTotal,
+        filesScanned,
+        entry: nonDescriptiveCeiling,
+      });
+      const nonDescriptivePassed = nonDescriptiveVerdict.ratcheted
+        ? nonDescriptiveVerdict.passed
+        : nonDescriptiveTotal === 0;
+
+      const passed = ratePassed && nonDescriptivePassed;
 
       // Reported for readability only — never for the verdict. Under
       // AUDIT_SAMPLE_RATE=0.25 `unnamedAnchors` is a quarter-corpus count and
@@ -279,9 +324,16 @@ export function createAuditor(opts = {}) {
           absoluteCapBeforeConversion: MAX_LINKS_WITHOUT_ANCHOR_TEXT_ABS,
           referenceCorpusFiles: REFERENCE_CORPUS_FILES,
           nonDescriptiveTotal,
+          // The ledger verdict is carried in full into the artifact, not just
+          // into the console line: dist/audit-reports/link-anchor-text.json is
+          // the surface people debug from, and the reassembled-corpus exception
+          // (AGENTS.md #1, owner 2026-08-20) requires the measured rate to be
+          // recorded on EVERY run so the next ceiling tightens on a datum.
+          nonDescriptiveRatchet: nonDescriptiveVerdict,
         },
         humanSummary: passed
-          ? `anchor-text gate: ${unnamedAnchors} unnamed anchor(s) over ${filesScanned} page(s) = ${summaryRate} (cap ${(maxRate * 1000).toFixed(4)}‰), 0 non-descriptive`
+          ? `anchor-text gate: ${unnamedAnchors} unnamed anchor(s) over ${filesScanned} page(s) = ${summaryRate} ` +
+            `(cap ${(maxRate * 1000).toFixed(4)}‰); ${nonDescriptiveVerdict.humanSummary}`
           : [
               // The failure line goes through the SHARED formatter, not a
               // local template. This gate reports two numbers on two different
@@ -306,7 +358,17 @@ export function createAuditor(opts = {}) {
                     sampleRate,
                   )
                 : null,
-              nonDescriptiveTotal > 0 ? `${nonDescriptiveTotal} non-descriptive anchor(s)` : null,
+              // Never a bare count any more. A bare count cannot be acted on:
+              // it does not say what the ceiling was, nor which pages to open.
+              // Both are here, and the sampled paths are the whole offender
+              // population at this size.
+              !nonDescriptivePassed
+                ? `${nonDescriptiveVerdict.ratcheted ? nonDescriptiveVerdict.humanSummary : `${nonDescriptiveTotal} non-descriptive anchor(s)`}` +
+                  (nonDescriptiveSample.length > 0
+                    ? ` — offenders: ${nonDescriptiveSample.slice(0, limit).map((o) => `${o.path} ("${o.text}")`).join(', ')}` +
+                      (nonDescriptiveTotal > nonDescriptiveSample.length ? ` … +${nonDescriptiveTotal - nonDescriptiveSample.length} more` : '')
+                    : '')
+                : null,
             ].filter(Boolean).join('; '),
       };
     },

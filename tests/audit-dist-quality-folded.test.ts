@@ -64,20 +64,45 @@ import {
   factory as duplicateSdFactory,
 } from '../scripts/audit-duplicate-structured-data.mjs';
 import {
-  createAuditor as createAnchorAuditor,
-  factory as anchorFactory,
+  createAuditor as createAnchorAuditorRaw,
+  factory as anchorFactoryRaw,
   MAX_ANCHORS_WITHOUT_NAME_RATE,
   RATE_TOLERANCE_REL,
   MAX_LINKS_WITHOUT_ANCHOR_TEXT_ABS,
   REFERENCE_CORPUS_FILES,
 } from '../scripts/audit-link-anchor-text.mjs';
 import {
-  createAuditor as createMetaDescAuditor,
-  factory as metaDescFactory,
+  createAuditor as createMetaDescAuditorRaw,
+  factory as metaDescFactoryRaw,
   MAX_DUPLICATE_PAGES_PER_DESCRIPTION,
 } from '../scripts/audit-duplicate-meta-description.mjs';
 
 const ROOT = resolve(__dirname, '..');
+
+/**
+ * `ledger: null` — DETECTION TESTS RUN WITHOUT THE RATCHET, ON PURPOSE.
+ *
+ * Two of these four auditors gained a descending corpus ceiling from
+ * `data/seo-defect-families.json` (families `link-anchor-text-non-descriptive`
+ * and `duplicate-meta-description`; see scripts/lib/seoDefectRatchet.mjs).
+ * Every assertion in this file is about DETECTION — does the auditor see the
+ * defect it exists to see — measured on fixtures of three to two hundred
+ * pages. A ceiling expressed as a rate over a ~1'000'000-file draw cannot be
+ * exercised at that size: the ratchet's absolute noise floor holds any small
+ * count, so a three-page fixture would come back green no matter what the
+ * detector did, and these tests would silently stop testing anything.
+ *
+ * `ledger: null` is the auditors' documented fail-closed path — no ledger means
+ * the pre-ratchet zero-tolerance verdict — so passing it here keeps every
+ * assertion below meaning exactly what it meant before, AND pins that fail-safe
+ * in place: if someone ever makes a missing ledger imply "pass", this file goes
+ * red. The ceiling's own behaviour is covered where it can be measured, over
+ * corpus-scale denominators, in tests/seo/seo-defect-ratchet.test.ts.
+ */
+const createAnchorAuditor = (opts: Record<string, unknown> = {}) => createAnchorAuditorRaw({ ledger: null, ...opts });
+const anchorFactory = (opts: Record<string, unknown> = {}) => anchorFactoryRaw({ ledger: null, ...opts });
+const createMetaDescAuditor = (opts: Record<string, unknown> = {}) => createMetaDescAuditorRaw({ ledger: null, ...opts });
+const metaDescFactory = (opts: Record<string, unknown> = {}) => metaDescFactoryRaw({ ledger: null, ...opts });
 
 /** The four invariants folded out of `gate:dist-quality`. */
 const FOLDED = [
