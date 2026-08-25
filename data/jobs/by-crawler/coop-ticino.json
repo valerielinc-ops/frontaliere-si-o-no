@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-lfu6tq",
-      "slug": "crewmember-burger-king-auf-abruf-m-w-d-marche-dietlikon",
+      "slug": "crewmember-burger-king-su-richiesta-m-f-d-marche-restaurants-schweiz-ag-dietlikon",
       "company": "Marché Restaurants Schweiz AG",
       "title": "Crewmember Burger King Auf Abruf (w/m/d)",
       "location": "Dietlikon",
@@ -36,10 +36,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "crewmember-burger-king-auf-abruf-m-w-d-marche-restaurants-schweiz-ag-dietlikon-lfu6tq",
-        "en": "crewmember-burger-king-auf-abruf-m-w-d-marche-restaurants-schweiz-ag-dietlikon-lfu6tq",
+        "it": "crewmember-burger-king-su-richiesta-m-f-d-marche-restaurants-schweiz-ag-dietlikon",
+        "en": "crewmember-burger-king-on-demand-m-f-d-marche-restaurants-schweiz-ag-dietlikon",
         "de": "crewmember-burger-king-auf-abruf-m-w-d-marche-restaurants-schweiz-ag-dietlikon-lfu6tq",
-        "fr": "crewmember-burger-king-auf-abruf-m-w-d-marche-restaurants-schweiz-ag-dietlikon-lfu6tq"
+        "fr": "membre-d-equipage-burger-king-sur-demande-h-f-d-marche-restaurants-schweiz-ag-dietlikon"
       },
       "addressLocality": "Dietlikon",
       "sourceLang": "de",
@@ -63,11 +63,20 @@
         "canton": "SO"
       },
       "previousSlugs": [
-        "crewmember-burger-king-auf-abruf-m-w-d-marche-restaurants-schweiz-ag-dietlikon"
+        "crewmember-burger-king-auf-abruf-m-w-d-marche-restaurants-schweiz-ag-dietlikon",
+        "crewmember-burger-king-auf-abruf-m-w-d-marche-restaurants-schweiz-ag-dietlikon-lfu6tq",
+        "crewmember-burger-king-auf-abruf-m-w-d-marche-dietlikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "crewmember-burger-king-auf-abruf-m-w-d-marche-restaurants-schweiz-ag-dietlikon"
+          "crewmember-burger-king-auf-abruf-m-w-d-marche-restaurants-schweiz-ag-dietlikon",
+          "crewmember-burger-king-auf-abruf-m-w-d-marche-restaurants-schweiz-ag-dietlikon-lfu6tq"
+        ],
+        "en": [
+          "crewmember-burger-king-auf-abruf-m-w-d-marche-restaurants-schweiz-ag-dietlikon-lfu6tq"
+        ],
+        "fr": [
+          "crewmember-burger-king-auf-abruf-m-w-d-marche-restaurants-schweiz-ag-dietlikon-lfu6tq"
         ]
       }
     },
@@ -170,7 +179,7 @@
     },
     {
       "id": "company-cn01fy",
-      "slug": "geschaftsfuhrer-in-two-spice-dietlikon",
+      "slug": "amministratore-delegato-two-spice-ag-dietlikon",
       "company": "Two Spice AG",
       "title": "Geschäftsführer:in",
       "location": "Dietlikon",
@@ -202,10 +211,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "geschaftsfuhrer-in-two-spice-ag-dietlikon-cn01fy",
-        "en": "geschaftsfuhrer-in-two-spice-ag-dietlikon-cn01fy",
+        "it": "amministratore-delegato-two-spice-ag-dietlikon",
+        "en": "managing-director-two-spice-ag-dietlikon",
         "de": "geschaftsfuhrer-in-two-spice-ag-dietlikon-cn01fy",
-        "fr": "geschaftsfuhrer-in-two-spice-ag-dietlikon-cn01fy"
+        "fr": "directeur-general-two-spice-ag-dietlikon"
       },
       "addressLocality": "Dietlikon",
       "sourceLang": "de",
@@ -229,17 +238,26 @@
         "canton": "ZH"
       },
       "previousSlugs": [
-        "geschaftsfuhrer-in-two-spice-ag-dietlikon"
+        "geschaftsfuhrer-in-two-spice-ag-dietlikon",
+        "geschaftsfuhrer-in-two-spice-ag-dietlikon-cn01fy",
+        "geschaftsfuhrer-in-two-spice-dietlikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "geschaftsfuhrer-in-two-spice-ag-dietlikon"
+          "geschaftsfuhrer-in-two-spice-ag-dietlikon",
+          "geschaftsfuhrer-in-two-spice-ag-dietlikon-cn01fy"
+        ],
+        "en": [
+          "geschaftsfuhrer-in-two-spice-ag-dietlikon-cn01fy"
+        ],
+        "fr": [
+          "geschaftsfuhrer-in-two-spice-ag-dietlikon-cn01fy"
         ]
       }
     },
     {
       "id": "company-rir5o9",
-      "slug": "teamleiter-in-abteilung-ultrafrische-coop-gossau-sankt-gallen",
+      "slug": "team-leader-nel-reparto-ultrafreshness-coop-genossenschaft-gossau",
       "company": "Coop Genossenschaft",
       "title": "Teamleiter:in Abteilung Ultrafrische",
       "location": "Gossau, Sankt Gallen",
@@ -268,10 +286,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "teamleiter-in-abteilung-ultrafrische-coop-genossenschaft-gossau-sankt-gallen-rir5o9",
-        "en": "teamleiter-in-abteilung-ultrafrische-coop-genossenschaft-gossau-sankt-gallen-rir5o9",
+        "it": "team-leader-nel-reparto-ultrafreshness-coop-genossenschaft-gossau",
+        "en": "team-leader-in-ultrafreshness-department-coop-genossenschaft-gossau",
         "de": "teamleiter-in-abteilung-ultrafrische-coop-genossenschaft-gossau-sankt-gallen-rir5o9",
-        "fr": "teamleiter-in-abteilung-ultrafrische-coop-genossenschaft-gossau-sankt-gallen-rir5o9"
+        "fr": "chef-d-equipe-service-ultrafreshness-coop-genossenschaft-gossau"
       },
       "addressLocality": "Gossau",
       "sourceLang": "de",
@@ -295,11 +313,20 @@
         "canton": "SG"
       },
       "previousSlugs": [
-        "teamleiter-in-abteilung-ultrafrische-coop-genossenschaft-gossau-sankt-gallen"
+        "teamleiter-in-abteilung-ultrafrische-coop-genossenschaft-gossau-sankt-gallen",
+        "teamleiter-in-abteilung-ultrafrische-coop-genossenschaft-gossau-sankt-gallen-rir5o9",
+        "teamleiter-in-abteilung-ultrafrische-coop-gossau-sankt-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-abteilung-ultrafrische-coop-genossenschaft-gossau-sankt-gallen"
+          "teamleiter-in-abteilung-ultrafrische-coop-genossenschaft-gossau-sankt-gallen",
+          "teamleiter-in-abteilung-ultrafrische-coop-genossenschaft-gossau-sankt-gallen-rir5o9"
+        ],
+        "en": [
+          "teamleiter-in-abteilung-ultrafrische-coop-genossenschaft-gossau-sankt-gallen-rir5o9"
+        ],
+        "fr": [
+          "teamleiter-in-abteilung-ultrafrische-coop-genossenschaft-gossau-sankt-gallen-rir5o9"
         ]
       }
     },
@@ -525,7 +552,7 @@
     },
     {
       "id": "company-hxij50",
-      "slug": "verkaufsberater-in-textil-young-fashion-coop-city-bern",
+      "slug": "consulente-di-vendita-in-tessile-young-fashion-coop-genossenschaft-bern",
       "company": "Coop Genossenschaft",
       "title": "Verkaufsberater:in Textil \"Young Fashion\"",
       "location": "Bern",
@@ -557,10 +584,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "verkaufsberater-in-textil-young-fashion-coop-genossenschaft-bern-hxij50",
-        "en": "verkaufsberater-in-textil-young-fashion-coop-city-bern-hxij50",
+        "it": "consulente-di-vendita-in-tessile-young-fashion-coop-genossenschaft-bern",
+        "en": "sales-consultant-in-textile-young-fashion-coop-genossenschaft-bern",
         "de": "verkaufsberater-in-textil-young-fashion-coop-city-bern-hxij50",
-        "fr": "verkaufsberater-in-textil-young-fashion-coop-city-bern-hxij50"
+        "fr": "consultant-en-ventes-en-textile-jeune-mode-coop-genossenschaft-bern"
       },
       "addressLocality": "Bern",
       "sourceLang": "de",
@@ -589,7 +616,8 @@
         "consulente-commerciale-in-tessile-young-fashion-coop-genossenschaft-bern",
         "verkaufsberater-in-textil-young-fashion-coop-genossenschaft-bern-69bv8f",
         "sales-consultant-in-textile-young-fashion-coop-genossenschaft-bern-69bv8f",
-        "consultant-en-ventes-en-textile-jeune-mode-coop-genossenschaft-bern-69bv8f"
+        "consultant-en-ventes-en-textile-jeune-mode-coop-genossenschaft-bern-69bv8f",
+        "verkaufsberater-in-textil-young-fashion-coop-city-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -597,7 +625,8 @@
           "consulente-commerciale-in-tessile-young-fashion-coop-genossenschaft-bern",
           "verkaufsberater-in-textil-young-fashion-coop-genossenschaft-bern-69bv8f",
           "sales-consultant-in-textile-young-fashion-coop-genossenschaft-bern-69bv8f",
-          "consultant-en-ventes-en-textile-jeune-mode-coop-genossenschaft-bern-69bv8f"
+          "consultant-en-ventes-en-textile-jeune-mode-coop-genossenschaft-bern-69bv8f",
+          "verkaufsberater-in-textil-young-fashion-coop-genossenschaft-bern-hxij50"
         ],
         "en": [
           "verkaufsberater-in-textil-young-fashion-coop-genossenschaft-bern-hxij50",
@@ -615,7 +644,7 @@
     },
     {
       "id": "company-opvqbe",
-      "slug": "verkaufsberater-in-interdiscount-jegenstorf",
+      "slug": "consulente-commerciale-in-interdiscount-jegenstorf",
       "company": "Interdiscount",
       "title": "Verkaufsberater:in",
       "location": "Jegenstorf",
@@ -647,10 +676,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "verkaufsberater-in-interdiscount-jegenstorf",
-        "en": "verkaufsberater-in-interdiscount-jegenstorf",
+        "it": "consulente-commerciale-in-interdiscount-jegenstorf",
+        "en": "sales-consultant-in-interdiscount-jegenstorf",
         "de": "verkaufsberater-in-interdiscount-jegenstorf",
-        "fr": "verkaufsberater-in-interdiscount-jegenstorf"
+        "fr": "consultant-en-ventes-interdiscount-jegenstorf"
       },
       "addressLocality": "Jegenstorf",
       "sourceLang": "de",
@@ -675,25 +704,29 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-interdiscount-jegenstorf-opvqbe"
+          "verkaufsberater-in-interdiscount-jegenstorf-opvqbe",
+          "verkaufsberater-in-interdiscount-jegenstorf"
         ],
         "en": [
-          "verkaufsberater-in-interdiscount-jegenstorf-opvqbe"
+          "verkaufsberater-in-interdiscount-jegenstorf-opvqbe",
+          "verkaufsberater-in-interdiscount-jegenstorf"
         ],
         "de": [
           "verkaufsberater-in-interdiscount-jegenstorf-opvqbe"
         ],
         "fr": [
-          "verkaufsberater-in-interdiscount-jegenstorf-opvqbe"
+          "verkaufsberater-in-interdiscount-jegenstorf-opvqbe",
+          "verkaufsberater-in-interdiscount-jegenstorf"
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-interdiscount-jegenstorf-opvqbe"
+        "verkaufsberater-in-interdiscount-jegenstorf-opvqbe",
+        "verkaufsberater-in-interdiscount-jegenstorf"
       ]
     },
     {
       "id": "company-ru076r",
-      "slug": "kochin-koch-m-w-d-coop-koniz-bern",
+      "slug": "chef-chef-m-f-d-coop-genossenschaft-koniz",
       "company": "Coop Genossenschaft",
       "title": "Köchin / Koch (w/m/d)",
       "location": "Köniz, Bern",
@@ -730,10 +763,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "kochin-koch-m-w-d-coop-genossenschaft-koniz-bern-ru076r",
+        "it": "chef-chef-m-f-d-coop-genossenschaft-koniz",
         "en": "kochin-koch-m-w-d-coop-genossenschaft-koniz-bern-ru076r",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-koniz-bern-ru076r",
-        "fr": "kochin-koch-m-w-d-coop-genossenschaft-koniz-bern-ru076r"
+        "fr": "chef-chef-h-f-d-coop-genossenschaft-koniz"
       },
       "needsRetranslation": true,
       "addressLocality": "Köniz",
@@ -757,17 +790,23 @@
         "canton": "BE"
       },
       "previousSlugs": [
-        "kochin-koch-m-w-d-coop-genossenschaft-koniz-bern"
+        "kochin-koch-m-w-d-coop-genossenschaft-koniz-bern",
+        "kochin-koch-m-w-d-coop-genossenschaft-koniz-bern-ru076r",
+        "kochin-koch-m-w-d-coop-koniz-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-m-w-d-coop-genossenschaft-koniz-bern"
+          "kochin-koch-m-w-d-coop-genossenschaft-koniz-bern",
+          "kochin-koch-m-w-d-coop-genossenschaft-koniz-bern-ru076r"
+        ],
+        "fr": [
+          "kochin-koch-m-w-d-coop-genossenschaft-koniz-bern-ru076r"
         ]
       }
     },
     {
       "id": "company-no0m50",
-      "slug": "anlagefuhrer-in-produktion-pearlwater-bitsch-wallis",
+      "slug": "operatore-di-sistema-in-produzione-coop-genossenschaft-bitsch",
       "company": "Coop Genossenschaft",
       "title": "Anlageführer:in Produktion",
       "location": "Bitsch, Wallis",
@@ -805,10 +844,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "anlagefuhrer-in-produktion-coop-genossenschaft-bitsch-wallis-no0m50",
-        "en": "anlagefuhrer-in-produktion-pearlwater-bitsch-wallis-no0m50",
+        "it": "operatore-di-sistema-in-produzione-coop-genossenschaft-bitsch",
+        "en": "system-operator-in-production-coop-genossenschaft-bitsch",
         "de": "anlagefuhrer-in-produktion-pearlwater-bitsch-wallis-no0m50",
-        "fr": "anlagefuhrer-in-produktion-pearlwater-bitsch-wallis-no0m50"
+        "fr": "operateur-de-reseau-en-production-coop-genossenschaft-bitsch"
       },
       "addressLocality": "Bitsch",
       "sourceLang": "de",
@@ -833,11 +872,13 @@
       },
       "previousSlugs": [
         "anlagefuhrer-in-produktion-coop-genossenschaft-bitsch-wallis",
-        "anlagefuhrer-in-produktion-coop-genossenschaft-bitsch-wallis-no0m50"
+        "anlagefuhrer-in-produktion-coop-genossenschaft-bitsch-wallis-no0m50",
+        "anlagefuhrer-in-produktion-pearlwater-bitsch-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagefuhrer-in-produktion-coop-genossenschaft-bitsch-wallis"
+          "anlagefuhrer-in-produktion-coop-genossenschaft-bitsch-wallis",
+          "anlagefuhrer-in-produktion-coop-genossenschaft-bitsch-wallis-no0m50"
         ],
         "en": [
           "anlagefuhrer-in-produktion-coop-genossenschaft-bitsch-wallis-no0m50"
@@ -852,7 +893,7 @@
     },
     {
       "id": "company-rcup55",
-      "slug": "lokfuhrer-in-regional-railcare-hunzenschwil-aargau",
+      "slug": "train-driver-in-regional-railcare-hunzenschwil",
       "company": "railCare",
       "title": "Lokführer:in Regional",
       "location": "Hunzenschwil, Aargau",
@@ -889,10 +930,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "lokfuhrer-in-regional-railcare-hunzenschwil-aargau-rcup55",
+        "it": "train-driver-in-regional-railcare-hunzenschwil",
         "en": "lokfuhrer-in-regional-railcare-hunzenschwil-aargau-rcup55",
         "de": "lokfuhrer-in-regional-railcare-hunzenschwil-aargau-rcup55",
-        "fr": "lokfuhrer-in-regional-railcare-hunzenschwil-aargau-rcup55"
+        "fr": "conducteur-de-train-en-regional-railcare-hunzenschwil"
       },
       "addressLocality": "Hunzenschwil",
       "sourceLang": "de",
@@ -912,11 +953,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "lokfuhrer-in-regional-railcare-hunzenschwil-aargau"
+          "lokfuhrer-in-regional-railcare-hunzenschwil-aargau",
+          "lokfuhrer-in-regional-railcare-hunzenschwil-aargau-rcup55"
+        ],
+        "fr": [
+          "lokfuhrer-in-regional-railcare-hunzenschwil-aargau-rcup55"
         ]
       },
       "previousSlugs": [
-        "lokfuhrer-in-regional-railcare-hunzenschwil-aargau"
+        "lokfuhrer-in-regional-railcare-hunzenschwil-aargau",
+        "lokfuhrer-in-regional-railcare-hunzenschwil-aargau-rcup55"
       ]
     },
     {
@@ -1371,7 +1417,7 @@
     },
     {
       "id": "company-8chkr0",
-      "slug": "kochin-koch-m-w-d-coop-ristorante-romanshorn-thurgau",
+      "slug": "chef-chef-m-f-d-coop-genossenschaft-romanshorn",
       "company": "Coop Genossenschaft",
       "title": "Köchin / Koch (w/m/d)",
       "location": "Romanshorn, Thurgau",
@@ -1413,10 +1459,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "kochin-koch-m-w-d-coop-ristorante-romanshorn-thurgau-8chkr0",
+        "it": "chef-chef-m-f-d-coop-genossenschaft-romanshorn",
         "en": "kochin-koch-m-w-d-coop-ristorante-romanshorn-thurgau-8chkr0",
         "de": "kochin-koch-m-w-d-coop-ristorante-romanshorn-thurgau-8chkr0",
-        "fr": "kochin-koch-m-w-d-coop-ristorante-romanshorn-thurgau-8chkr0"
+        "fr": "chef-chef-h-f-d-coop-genossenschaft-romanshorn"
       },
       "needsRetranslation": true,
       "addressLocality": "Romanshorn",
@@ -1433,7 +1479,20 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kochin-koch-m-w-d-coop-ristorante-romanshorn-thurgau-8chkr0",
+          "kochin-koch-m-w-d-coop-ristorante-romanshorn-thurgau"
+        ],
+        "fr": [
+          "kochin-koch-m-w-d-coop-ristorante-romanshorn-thurgau-8chkr0"
+        ]
+      },
+      "previousSlugs": [
+        "kochin-koch-m-w-d-coop-ristorante-romanshorn-thurgau-8chkr0",
+        "kochin-koch-m-w-d-coop-ristorante-romanshorn-thurgau"
+      ]
     },
     {
       "id": "company-rgyakq",
@@ -1512,7 +1571,7 @@
     },
     {
       "id": "company-6z9ze6",
-      "slug": "verkaufsberater-in-deco-jumbo-heimberg-bern",
+      "slug": "consulente-commerciale-a-deco-jumbo-division-der-coop-genossenschaft-heimberg",
       "company": "Jumbo, Division der Coop Genossenschaft",
       "title": "Verkaufsberater:in Deco",
       "location": "Heimberg, Bern",
@@ -1555,10 +1614,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufsberater-in-deco-jumbo-heimberg-bern-6z9ze6",
-        "en": "verkaufsberater-in-deco-jumbo-heimberg-bern-6z9ze6",
+        "it": "consulente-commerciale-a-deco-jumbo-division-der-coop-genossenschaft-heimberg",
+        "en": "sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-heimberg",
         "de": "verkaufsberater-in-deco-jumbo-heimberg-bern-6z9ze6",
-        "fr": "verkaufsberater-in-deco-jumbo-heimberg-bern-6z9ze6"
+        "fr": "consultant-en-ventes-en-deco-jumbo-division-der-coop-genossenschaft-heimberg"
       },
       "addressLocality": "Heimberg",
       "sourceLang": "de",
@@ -1575,11 +1634,27 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-deco-jumbo-heimberg-bern-6z9ze6",
+          "verkaufsberater-in-deco-jumbo-heimberg-bern"
+        ],
+        "en": [
+          "verkaufsberater-in-deco-jumbo-heimberg-bern-6z9ze6"
+        ],
+        "fr": [
+          "verkaufsberater-in-deco-jumbo-heimberg-bern-6z9ze6"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-deco-jumbo-heimberg-bern-6z9ze6",
+        "verkaufsberater-in-deco-jumbo-heimberg-bern"
+      ]
     },
     {
       "id": "company-s2g05o",
-      "slug": "geschaftsfuhrer-in-import-parfumerie-visp-wallis",
+      "slug": "amministratore-delegato-coop-genossenschaft-visp",
       "company": "Coop Genossenschaft",
       "title": "Geschäftsführer:in",
       "location": "Visp, Wallis",
@@ -1622,10 +1697,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "geschaftsfuhrer-in-import-parfumerie-visp-wallis-s2g05o",
-        "en": "geschaftsfuhrer-in-import-parfumerie-visp-wallis-s2g05o",
+        "it": "amministratore-delegato-coop-genossenschaft-visp",
+        "en": "managing-director-coop-genossenschaft-visp",
         "de": "geschaftsfuhrer-in-import-parfumerie-visp-wallis-s2g05o",
-        "fr": "geschaftsfuhrer-in-import-parfumerie-visp-wallis-s2g05o"
+        "fr": "directeur-general-coop-genossenschaft-visp"
       },
       "addressLocality": "Visp",
       "sourceLang": "de",
@@ -1642,7 +1717,23 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "geschaftsfuhrer-in-import-parfumerie-visp-wallis-s2g05o",
+          "geschaftsfuhrer-in-import-parfumerie-visp-wallis"
+        ],
+        "en": [
+          "geschaftsfuhrer-in-import-parfumerie-visp-wallis-s2g05o"
+        ],
+        "fr": [
+          "geschaftsfuhrer-in-import-parfumerie-visp-wallis-s2g05o"
+        ]
+      },
+      "previousSlugs": [
+        "geschaftsfuhrer-in-import-parfumerie-visp-wallis-s2g05o",
+        "geschaftsfuhrer-in-import-parfumerie-visp-wallis"
+      ]
     },
     {
       "id": "company-azh6fy",
@@ -1829,7 +1920,7 @@
     },
     {
       "id": "company-7qt479",
-      "slug": "verkaufsberater-in-import-parfumerie-chur-graubunden",
+      "slug": "consulente-commerciale-in-coop-genossenschaft-chur",
       "company": "Coop Genossenschaft",
       "title": "Verkaufsberater:in",
       "location": "Chur, Graubünden",
@@ -1872,10 +1963,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufsberater-in-import-parfumerie-chur-graubunden-7qt479",
-        "en": "verkaufsberater-in-import-parfumerie-chur-graubunden-7qt479",
+        "it": "consulente-commerciale-in-coop-genossenschaft-chur",
+        "en": "sales-consultant-in-coop-genossenschaft-chur",
         "de": "verkaufsberater-in-import-parfumerie-chur-graubunden-7qt479",
-        "fr": "verkaufsberater-in-import-parfumerie-chur-graubunden-7qt479"
+        "fr": "consultant-en-ventes-coop-genossenschaft-chur"
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
@@ -1904,11 +1995,14 @@
           "sales-consultant-import-parfumerie-chur-graubunden",
           "conseiller-en-vente-import-parfumerie-chur-graubunden",
           "consulente-del-venditore-import-parfumerie-chur-graubunden",
-          "verkaufsberater-in-import-parfumerie-chur-graubunden-xzo8qe"
+          "verkaufsberater-in-import-parfumerie-chur-graubunden-xzo8qe",
+          "verkaufsberater-in-import-parfumerie-chur-graubunden-7qt479",
+          "verkaufsberater-in-import-parfumerie-chur-graubunden"
         ],
         "en": [
           "sales-consultant-in-coop-genossenschaft-chur",
-          "sales-consultant-import-parfumerie-chur-graubunden"
+          "sales-consultant-import-parfumerie-chur-graubunden",
+          "verkaufsberater-in-import-parfumerie-chur-graubunden-7qt479"
         ],
         "de": [
           "verkaufsberater-in-import-parfumerie-chur-graubunden-9gew6s",
@@ -1918,7 +2012,8 @@
         ],
         "fr": [
           "consultant-en-ventes-coop-genossenschaft-chur",
-          "conseiller-en-vente-import-parfumerie-chur-graubunden"
+          "conseiller-en-vente-import-parfumerie-chur-graubunden",
+          "verkaufsberater-in-import-parfumerie-chur-graubunden-7qt479"
         ]
       },
       "previousSlugs": [
@@ -1931,7 +2026,9 @@
         "sales-consultant-import-parfumerie-chur-graubunden",
         "conseiller-en-vente-import-parfumerie-chur-graubunden",
         "consulente-del-venditore-import-parfumerie-chur-graubunden",
-        "verkaufsberater-in-import-parfumerie-chur-graubunden-xzo8qe"
+        "verkaufsberater-in-import-parfumerie-chur-graubunden-xzo8qe",
+        "verkaufsberater-in-import-parfumerie-chur-graubunden-7qt479",
+        "verkaufsberater-in-import-parfumerie-chur-graubunden"
       ]
     },
     {
@@ -2011,7 +2108,7 @@
     },
     {
       "id": "company-3acyko",
-      "slug": "verkaufsberater-in-garden-jumbo-schanis-sankt-gallen",
+      "slug": "consulente-vendite-in-garden-jumbo-division-der-coop-genossenschaft-schanis",
       "company": "Jumbo, Division der Coop Genossenschaft",
       "title": "Verkaufsberater:in Garden",
       "location": "Schänis, Sankt Gallen",
@@ -2054,10 +2151,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufsberater-in-garden-jumbo-schanis-sankt-gallen-3acyko",
-        "en": "verkaufsberater-in-garden-jumbo-schanis-sankt-gallen-3acyko",
+        "it": "consulente-vendite-in-garden-jumbo-division-der-coop-genossenschaft-schanis",
+        "en": "sales-advisor-in-garden-jumbo-division-der-coop-genossenschaft-schanis",
         "de": "verkaufsberater-in-garden-jumbo-schanis-sankt-gallen-3acyko",
-        "fr": "verkaufsberater-in-garden-jumbo-schanis-sankt-gallen-3acyko"
+        "fr": "conseiller-commercial-a-garden-jumbo-division-der-coop-genossenschaft-schanis"
       },
       "addressLocality": "Schänis",
       "sourceLang": "de",
@@ -2074,7 +2171,23 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-garden-jumbo-schanis-sankt-gallen-3acyko",
+          "verkaufsberater-in-garden-jumbo-schanis-sankt-gallen"
+        ],
+        "en": [
+          "verkaufsberater-in-garden-jumbo-schanis-sankt-gallen-3acyko"
+        ],
+        "fr": [
+          "verkaufsberater-in-garden-jumbo-schanis-sankt-gallen-3acyko"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-garden-jumbo-schanis-sankt-gallen-3acyko",
+        "verkaufsberater-in-garden-jumbo-schanis-sankt-gallen"
+      ]
     },
     {
       "id": "company-hz03qw",
@@ -2332,7 +2445,7 @@
     },
     {
       "id": "company-ng6cea",
-      "slug": "verkaufsberater-in-import-parfumerie-dielsdorf-zurich",
+      "slug": "consulente-commerciale-in-coop-genossenschaft-dielsdorf",
       "company": "Coop Genossenschaft",
       "title": "Verkaufsberater:in",
       "location": "Dielsdorf, Zürich",
@@ -2375,10 +2488,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufsberater-in-import-parfumerie-dielsdorf-zurich-ng6cea",
-        "en": "verkaufsberater-in-import-parfumerie-dielsdorf-zurich-ng6cea",
+        "it": "consulente-commerciale-in-coop-genossenschaft-dielsdorf",
+        "en": "sales-consultant-in-coop-genossenschaft-dielsdorf",
         "de": "verkaufsberater-in-import-parfumerie-dielsdorf-zurich-ng6cea",
-        "fr": "verkaufsberater-in-import-parfumerie-dielsdorf-zurich-ng6cea"
+        "fr": "consultant-en-ventes-coop-genossenschaft-dielsdorf"
       },
       "addressLocality": "Dielsdorf",
       "sourceLang": "de",
@@ -2395,7 +2508,23 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-import-parfumerie-dielsdorf-zurich-ng6cea",
+          "verkaufsberater-in-import-parfumerie-dielsdorf-zurich"
+        ],
+        "en": [
+          "verkaufsberater-in-import-parfumerie-dielsdorf-zurich-ng6cea"
+        ],
+        "fr": [
+          "verkaufsberater-in-import-parfumerie-dielsdorf-zurich-ng6cea"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-import-parfumerie-dielsdorf-zurich-ng6cea",
+        "verkaufsberater-in-import-parfumerie-dielsdorf-zurich"
+      ]
     },
     {
       "id": "company-5yzymd",
@@ -3454,19 +3583,17 @@
           "kochin-koch-m-w-d-coop-genossenschaft-kriens-luzern",
           "cuoca-cuoco-f-m-d-coop-genossenschaft-kriens",
           "chef-chef-m-f-d-coop-genossenschaft-kriens-luzern",
-          "cuoca-cuoco-m-w-d-coop-genossenschaft-kriens-luzern",
-          "chef-chef-m-f-d-coop-genossenschaft-kriens"
-        ],
-        "en": [
-          "kochin-koch-m-w-d-coop-genossenschaft-kriens-luzern-172wz6",
-          "chef-chef-m-f-d-coop-genossenschaft-kriens-luzern"
+          "cuoca-cuoco-m-w-d-coop-genossenschaft-kriens-luzern"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-genossenschaft-kriens-luzern-172wz6",
           "cuisiniere-cuisinier-f-m-d-coop-genossenschaft-kriens",
           "chef-chef-h-f-d-coop-genossenschaft-kriens-luzern",
-          "cuisinier-cuisiniere-m-w-d-coop-genossenschaft-kriens-luzern",
-          "chef-chef-h-f-d-coop-genossenschaft-kriens"
+          "cuisinier-cuisiniere-m-w-d-coop-genossenschaft-kriens-luzern"
+        ],
+        "en": [
+          "kochin-koch-m-w-d-coop-genossenschaft-kriens-luzern-172wz6",
+          "chef-chef-m-f-d-coop-genossenschaft-kriens-luzern"
         ]
       },
       "previousSlugs": [
@@ -3477,9 +3604,7 @@
         "chef-chef-m-f-d-coop-genossenschaft-kriens-luzern",
         "chef-chef-h-f-d-coop-genossenschaft-kriens-luzern",
         "cuoca-cuoco-m-w-d-coop-genossenschaft-kriens-luzern",
-        "cuisinier-cuisiniere-m-w-d-coop-genossenschaft-kriens-luzern",
-        "chef-chef-m-f-d-coop-genossenschaft-kriens",
-        "chef-chef-h-f-d-coop-genossenschaft-kriens"
+        "cuisinier-cuisiniere-m-w-d-coop-genossenschaft-kriens-luzern"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -3538,6 +3663,8 @@
       "addressLocality": "Schafisheim",
       "sourceLang": "de",
       "addressRegion": "AG",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3554,8 +3681,7 @@
           "kommissionierer-in-coop-genossenschaft-schafisheim-aargau",
           "commissionista-coop-genossenschaft-schafisheim",
           "picker-d-ordine-in-coop-genossenschaft-schafisheim-aargau",
-          "addetto-al-picking-coop-genossenschaft-schafisheim-aargau",
-          "picker-d-ordine-in-coop-genossenschaft-schafisheim"
+          "addetto-al-picking-coop-genossenschaft-schafisheim-aargau"
         ],
         "en": [
           "kommissionierer-in-coop-genossenschaft-schafisheim-aargau-92z0a4",
@@ -3566,8 +3692,7 @@
           "kommissionierer-in-coop-genossenschaft-schafisheim-aargau-92z0a4",
           "preparateur-de-commandes-coop-genossenschaft-schafisheim",
           "recuperateur-de-commande-in-coop-genossenschaft-schafisheim-aargau",
-          "preparateur-de-commandes-coop-genossenschaft-schafisheim-aargau",
-          "commandeur-in-coop-genossenschaft-schafisheim"
+          "preparateur-de-commandes-coop-genossenschaft-schafisheim-aargau"
         ]
       },
       "previousSlugs": [
@@ -3580,17 +3705,13 @@
         "order-picker-in-coop-genossenschaft-schafisheim-aargau",
         "recuperateur-de-commande-in-coop-genossenschaft-schafisheim-aargau",
         "addetto-al-picking-coop-genossenschaft-schafisheim-aargau",
-        "preparateur-de-commandes-coop-genossenschaft-schafisheim-aargau",
-        "picker-d-ordine-in-coop-genossenschaft-schafisheim",
-        "commandeur-in-coop-genossenschaft-schafisheim"
+        "preparateur-de-commandes-coop-genossenschaft-schafisheim-aargau"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
         "location": "Argovia",
         "canton": "AG"
-      },
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      }
     },
     {
       "id": "company-gvrbqk",
@@ -3922,8 +4043,7 @@
           "kommissionierer-innen-60-coop-langenthal-bern-d8t409",
           "kommissionierer-innen-60-coop-genossenschaft-langenthal-bern-d8t409",
           "cueilleurs-de-commandes-a-l-interieur-60-coop-genossenschaft-langenthal",
-          "kommissionierer-innen-60-coop-genossenschaft-langenthal-bern",
-          "cueilleurs-de-commandes-a-l-interieur-60-coop-genossenschaft-langenthal-bern"
+          "kommissionierer-innen-60-coop-genossenschaft-langenthal-bern"
         ]
       },
       "previousSlugs": [
@@ -3933,8 +4053,7 @@
         "kommissionierer-innen-60-coop-langenthal-bern",
         "order-pickers-inside-60-coop-genossenschaft-langenthal",
         "cueilleurs-de-commandes-a-l-interieur-60-coop-genossenschaft-langenthal",
-        "selettori-d-ordine-dentro-60-coop-genossenschaft-langenthal",
-        "cueilleurs-de-commandes-a-l-interieur-60-coop-genossenschaft-langenthal-bern"
+        "selettori-d-ordine-dentro-60-coop-genossenschaft-langenthal"
       ]
     },
     {
@@ -8006,6 +8125,8 @@
       "sourceLang": "de",
       "needsRetranslation": true,
       "addressRegion": "ZH",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -8036,26 +8157,23 @@
           "verkaufer-in-frischprodukte-coop-pfaffikon-zurich",
           "vendeur-de-produits-frais-coop-genossenschaft-pfaffikon-5rc9u7",
           "venditore-di-prodotti-freschi-coop-genossenschaft-pfaffikon",
-          "venditore-in-prodotti-freschi-coop-genossenschaft-pfaffikon",
-          "vendita-prodotti-freschi-coop-genossenschaft-meilen"
+          "venditore-in-prodotti-freschi-coop-genossenschaft-pfaffikon"
         ],
         "en": [
           "verkaufer-in-frischprodukte-coop-genossenschaft-meilen-zurich-yoe9vn",
           "seller-fresh-products-coop-genossenschaft-biel",
           "seller-fresh-products-coop-genossenschaft-pfaffikon",
-          "verkaufer-in-frischprodukte-coop-genossenschaft-meilen-zurich",
-          "seller-fresh-products-coop-genossenschaft-meilen"
-        ],
-        "de": [
-          "verkaufer-in-frischprodukte-coop-biel-bern-e30x8o",
-          "verkaufer-in-frischprodukte-coop-pfaffikon-zurich-pka1t3"
+          "verkaufer-in-frischprodukte-coop-genossenschaft-meilen-zurich"
         ],
         "fr": [
           "verkaufer-in-frischprodukte-coop-genossenschaft-meilen-zurich-yoe9vn",
           "vendeur-produits-frais-coop-genossenschaft-biel",
           "vendeur-produits-frais-coop-genossenschaft-pfaffikon",
-          "verkaufer-in-frischprodukte-coop-genossenschaft-meilen-zurich",
-          "vendeur-produits-frais-coop-genossenschaft-meilen"
+          "verkaufer-in-frischprodukte-coop-genossenschaft-meilen-zurich"
+        ],
+        "de": [
+          "verkaufer-in-frischprodukte-coop-biel-bern-e30x8o",
+          "verkaufer-in-frischprodukte-coop-pfaffikon-zurich-pka1t3"
         ]
       },
       "previousSlugs": [
@@ -8077,18 +8195,13 @@
         "verkaufer-in-frischprodukte-coop-pfaffikon-zurich",
         "vendeur-de-produits-frais-coop-genossenschaft-pfaffikon-5rc9u7",
         "venditore-di-prodotti-freschi-coop-genossenschaft-pfaffikon",
-        "venditore-in-prodotti-freschi-coop-genossenschaft-pfaffikon",
-        "vendita-prodotti-freschi-coop-genossenschaft-meilen",
-        "seller-fresh-products-coop-genossenschaft-meilen",
-        "vendeur-produits-frais-coop-genossenschaft-meilen"
+        "venditore-in-prodotti-freschi-coop-genossenschaft-pfaffikon"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
         "location": "Zurigo",
         "canton": "ZH"
-      },
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      }
     },
     {
       "id": "company-m0bmje",
@@ -8589,19 +8702,17 @@
           "kochin-koch-m-w-d-coop-genossenschaft-seewen-schwyz",
           "cuoca-cuoco-coop-genossenschaft-seewen",
           "chef-chef-m-f-d-coop-genossenschaft-seewen-schwyz",
-          "cuoca-cuoco-donna-uomo-altro-coop-genossenschaft-seewen-schwyz",
-          "chef-chef-m-f-d-coop-genossenschaft-seewen"
-        ],
-        "en": [
-          "kochin-koch-m-w-d-coop-genossenschaft-seewen-schwyz-yjd50j",
-          "chef-chef-m-f-d-coop-genossenschaft-seewen-schwyz"
+          "cuoca-cuoco-donna-uomo-altro-coop-genossenschaft-seewen-schwyz"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-genossenschaft-seewen-schwyz-yjd50j",
           "cuisinier-cuisiniere-coop-genossenschaft-seewen",
           "chef-chef-h-f-d-coop-genossenschaft-seewen-schwyz",
-          "cuisinier-cuisiniere-h-f-autre-coop-genossenschaft-seewen-schwyz",
-          "chef-chef-h-f-d-coop-genossenschaft-seewen"
+          "cuisinier-cuisiniere-h-f-autre-coop-genossenschaft-seewen-schwyz"
+        ],
+        "en": [
+          "kochin-koch-m-w-d-coop-genossenschaft-seewen-schwyz-yjd50j",
+          "chef-chef-m-f-d-coop-genossenschaft-seewen-schwyz"
         ]
       },
       "previousSlugs": [
@@ -8612,9 +8723,7 @@
         "chef-chef-m-f-d-coop-genossenschaft-seewen-schwyz",
         "chef-chef-h-f-d-coop-genossenschaft-seewen-schwyz",
         "cuoca-cuoco-donna-uomo-altro-coop-genossenschaft-seewen-schwyz",
-        "cuisinier-cuisiniere-h-f-autre-coop-genossenschaft-seewen-schwyz",
-        "chef-chef-m-f-d-coop-genossenschaft-seewen",
-        "chef-chef-h-f-d-coop-genossenschaft-seewen"
+        "cuisinier-cuisiniere-h-f-autre-coop-genossenschaft-seewen-schwyz"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -13927,7 +14036,7 @@
         "it": "marketing-assistant-controlling-planung-jumbo-division-der-coop-genossenschaft-dietlikon-zurich-ncw67g",
         "en": "marketing-assistant-controlling-planung-jumbo-division-der-coop-genossenschaft-dietlikon-zurich-ncw67g",
         "de": "marketing-assistant-controlling-planung-jumbo-dietlikon",
-        "fr": "assistant-marketing-controle-planification-jumbo-dietlikon-zurich-ncw67g"
+        "fr": "marketing-assistant-controlling-planung-jumbo-division-der-coop-genossenschaft-dietlikon-zurich-ncw67g"
       },
       "addressLocality": "Dietlikon",
       "sourceLang": "de",
@@ -19142,8 +19251,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-gastronomie-office-coop-genossenschaft-rickenbach-thurgau",
-          "mitarbeiter-in-gastronomie-office-coop-ristorante-rickenbach-thurgau"
+          "mitarbeiter-in-gastronomie-office-coop-genossenschaft-rickenbach-thurgau"
         ]
       },
       "salaryMin": 57500,
@@ -19221,8 +19329,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-gastronomie-coop-genossenschaft-rickenbach-thurgau",
-          "mitarbeiter-in-gastronomie-coop-ristorante-rickenbach-thurgau"
+          "mitarbeiter-in-gastronomie-coop-genossenschaft-rickenbach-thurgau"
         ]
       },
       "salaryMin": 57500,
@@ -21613,8 +21720,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-gastronomie-coop-genossenschaft-gossau-sankt-gallen",
-          "mitarbeiter-in-gastronomie-coop-gossau-sankt-gallen"
+          "mitarbeiter-in-gastronomie-coop-genossenschaft-gossau-sankt-gallen"
         ]
       },
       "salaryMin": 57500,
@@ -23620,7 +23726,7 @@
         "it": "lead-frontend-entwickler-in-80-100-interdiscount-jegenstorf",
         "en": "lead-frontend-entwickler-in-80-100-interdiscount-jegenstorf",
         "de": "lead-frontend-entwickler-in-80-100-interdiscount-jegenstorf-bern-r7vuw4",
-        "fr": "developpeur-frontend-lead-dans-80-100-interdiscount-jegenstorf-bern-r7vuw4"
+        "fr": "lead-frontend-entwickler-in-80-100-interdiscount-jegenstorf"
       },
       "needsRetranslation": true,
       "addressLocality": "Jegenstorf",
@@ -45236,8 +45342,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-gastronomie-coop-genossenschaft-muri-aargau",
-          "mitarbeiter-in-gastronomie-coop-ristorante-muri-aargau"
+          "mitarbeiter-in-gastronomie-coop-genossenschaft-muri-aargau"
         ]
       },
       "salaryMin": 62000,
@@ -45309,8 +45414,7 @@
           "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau-0pl416",
           "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau",
           "cuoca-cuoco-m-w-d-coop-genossenschaft-oftringen",
-          "cuoca-cuoco-m-w-d-coop-genossenschaft-oftringen-aargau",
-          "chef-chef-m-f-d-coop-genossenschaft-oftringen"
+          "cuoca-cuoco-m-w-d-coop-genossenschaft-oftringen-aargau"
         ],
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau-0pl416",
@@ -45319,8 +45423,7 @@
         "fr": [
           "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau-0pl416",
           "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau",
-          "cuisiniere-cuisinier-m-w-d-coop-genossenschaft-oftringen-aargau",
-          "chef-chef-h-f-d-coop-genossenschaft-oftringen"
+          "cuisiniere-cuisinier-m-w-d-coop-genossenschaft-oftringen-aargau"
         ]
       },
       "previousSlugs": [
@@ -46288,8 +46391,7 @@
           "kommissionierer-in-coop-genossenschaft-bern-xs2tsd",
           "kommissionierer-in-coop-genossenschaft-bern",
           "kommissionierer-in-coop-bern",
-          "addetto-a-al-picking-coop-genossenschaft-bern",
-          "picker-d-ordine-in-coop-genossenschaft-bern-65fc45"
+          "addetto-a-al-picking-coop-genossenschaft-bern"
         ],
         "en": [
           "kommissionierer-in-coop-genossenschaft-bern-xs2tsd",
@@ -46310,8 +46412,7 @@
         "commandeur-in-coop-genossenschaft-bern-65fc45",
         "kommissionierer-in-coop-bern-xs2tsd",
         "kommissionierer-in-coop-bern",
-        "addetto-a-al-picking-coop-genossenschaft-bern",
-        "picker-d-ordine-in-coop-genossenschaft-bern-65fc45"
+        "addetto-a-al-picking-coop-genossenschaft-bern"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -47563,10 +47664,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "addetto-a-alla-sorveglianza-negozi-coop-genossenschaft-schafisheim-aargau",
+        "it": "negozio-detective-in-coop-genossenschaft-schafisheim",
         "en": "shop-detective-in-coop-genossenschaft-schafisheim",
         "de": "ladendetektiv-in-coop-schafisheim-aargau-6xv2hw",
-        "fr": "detective-magasin-coop-genossenschaft-schafisheim-aargau"
+        "fr": "inspecteur-coop-genossenschaft-schafisheim"
       },
       "addressLocality": "Schafisheim",
       "sourceLang": "de",
@@ -52273,9 +52374,9 @@
       },
       "slugByLocale": {
         "it": "verkaufsberater-in-garten-jumbo-laupen-2",
-        "en": "sales-advisor-garden-jumbo-laupen-bern-g8kpm9",
+        "en": "verkaufsberater-in-garten-jumbo-laupen-2",
         "de": "verkaufsberater-in-garten-jumbo-laupen-g8kpm9",
-        "fr": "conseiller-de-vente-jardin-jumbo-laupen-bern-g8kpm9"
+        "fr": "verkaufsberater-in-garten-jumbo-laupen-2"
       },
       "addressLocality": "Laupen",
       "sourceLang": "de",
@@ -52373,9 +52474,9 @@
       },
       "slugByLocale": {
         "it": "verkaufsberater-in-garten-jumbo-division-der-coop-genossenschaft-laupen-bern-kfkc2t",
-        "en": "sales-advisor-garden-jumbo-laupen-bern-kfkc2t",
+        "en": "verkaufsberater-in-garten-jumbo-division-der-coop-genossenschaft-laupen-bern-kfkc2t",
         "de": "verkaufsberater-in-garten-jumbo-laupen",
-        "fr": "conseiller-de-vente-jardin-jumbo-laupen-bern-kfkc2t"
+        "fr": "verkaufsberater-in-garten-jumbo-division-der-coop-genossenschaft-laupen-bern-kfkc2t"
       },
       "addressLocality": "Laupen",
       "sourceLang": "de",
@@ -53114,9 +53215,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "filialleiter-in-interdiscount-chur-graubunden-kd65dp",
-        "en": "store-manager-interdiscount-chur-graubunden-kd65dp",
+        "en": "filialleiter-in-interdiscount-chur-graubunden-kd65dp",
         "de": "filialleiter-in-interdiscount-chur",
-        "fr": "responsable-de-magasin-interdiscount-chur-graubunden-kd65dp"
+        "fr": "filialleiter-in-interdiscount-chur-graubunden-kd65dp"
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
@@ -53783,9 +53884,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-kassen-services-jumbo-widnau-sankt-gallen-eqj6je",
-        "en": "salesperson-cash-office-services-jumbo-widnau-sankt-gallen-eqj6je",
+        "en": "verkaufer-in-kassen-services-jumbo-widnau-sankt-gallen-eqj6je",
         "de": "verkaufer-in-kassen-services-jumbo-widnau",
-        "fr": "vente-caisse-services-jumbo-widnau-sankt-gallen-eqj6je"
+        "fr": "verkaufer-in-kassen-services-jumbo-widnau-sankt-gallen-eqj6je"
       },
       "addressLocality": "Widnau",
       "sourceLang": "de",
@@ -54141,9 +54242,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "sachbearbeiter-in-hauptbuch-80-100-interdiscount-jegenstorf-bern-dwrpfw",
-        "en": "general-ledger-accountant-80-100-interdiscount-jegenstorf-bern-dwrpfw",
+        "en": "sachbearbeiter-in-hauptbuch-80-100-interdiscount-jegenstorf-bern-dwrpfw",
         "de": "sachbearbeiter-in-hauptbuch-80-100-interdiscount-jegenstorf",
-        "fr": "comptable-general-80-100-interdiscount-jegenstorf-bern-dwrpfw"
+        "fr": "sachbearbeiter-in-hauptbuch-80-100-interdiscount-jegenstorf-bern-dwrpfw"
       },
       "addressLocality": "Jegenstorf",
       "sourceLang": "de",
@@ -54217,9 +54318,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "verkaufsberater-in-interdiscount-wadenswil-zurich-wzaex6",
-        "en": "sales-advisor-interdiscount-wadenswil-zurich-wzaex6",
+        "en": "verkaufsberater-in-interdiscount-wadenswil-zurich-wzaex6",
         "de": "verkaufsberater-in-interdiscount-wadenswil",
-        "fr": "conseiller-de-vente-interdiscount-wadenswil-zurich-wzaex6"
+        "fr": "verkaufsberater-in-interdiscount-wadenswil-zurich-wzaex6"
       },
       "addressLocality": "Wädenswil",
       "sourceLang": "de",
@@ -54297,9 +54398,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "verkaufsberater-in-interdiscount-davos-graubunden-adwz51",
-        "en": "sales-advisor-interdiscount-davos-graubunden-adwz51",
+        "en": "verkaufsberater-in-interdiscount-davos-graubunden-adwz51",
         "de": "verkaufsberater-in-interdiscount-davos",
-        "fr": "conseiller-de-vente-interdiscount-davos-graubunden-adwz51"
+        "fr": "verkaufsberater-in-interdiscount-davos-graubunden-adwz51"
       },
       "addressLocality": "Davos",
       "sourceLang": "de",
@@ -54373,9 +54474,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "verkaufsberater-in-interdiscount-thalwil-zurich-77tn3a",
-        "en": "sales-advisor-interdiscount-thalwil-zurich-77tn3a",
+        "en": "verkaufsberater-in-interdiscount-thalwil-zurich-77tn3a",
         "de": "verkaufsberater-in-interdiscount-thalwil",
-        "fr": "conseiller-de-vente-interdiscount-thalwil-zurich-77tn3a"
+        "fr": "verkaufsberater-in-interdiscount-thalwil-zurich-77tn3a"
       },
       "addressLocality": "Thalwil",
       "sourceLang": "de",
@@ -78579,21 +78680,18 @@
           "kochin-koch-m-w-d-coop-genossenschaft-chur-b9c935",
           "kochin-koch-w-m-d-coop-genossenschaft-chur-46pqaj",
           "cuisiniere-en-poids-m-j-coop-genossenschaft-chur",
-          "chef-m-w-d-coop-genossenschaft-chur-graubunden",
-          "cucinare-cucinare-f-m-d-coop-genossenschaft-chur"
+          "chef-m-w-d-coop-genossenschaft-chur-graubunden"
         ],
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-chur-graubunden-8lg5yl",
-          "kochin-koch-m-w-d-coop-genossenschaft-chur-graubunden",
-          "cook-cook-f-m-d-coop-genossenschaft-chur"
+          "kochin-koch-m-w-d-coop-genossenschaft-chur-graubunden"
         ],
         "de": [
           "kochin-koch-m-w-d-coop-chur-graubunden-g9vlif"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-genossenschaft-chur-graubunden-8lg5yl",
-          "cuisiniere-en-poids-m-j-coop-genossenschaft-chur-graubunden",
-          "cuire-cuire-f-m-d-coop-genossenschaft-chur"
+          "cuisiniere-en-poids-m-j-coop-genossenschaft-chur-graubunden"
         ]
       },
       "previousSlugs": [
@@ -78614,8 +78712,7 @@
         "kochin-koch-w-m-d-coop-genossenschaft-chur-46pqaj",
         "cuisiniere-en-poids-m-j-coop-genossenschaft-chur",
         "chef-m-w-d-coop-genossenschaft-chur-graubunden",
-        "cuisiniere-en-poids-m-j-coop-genossenschaft-chur-graubunden",
-        "cucinare-cucinare-f-m-d-coop-genossenschaft-chur"
+        "cuisiniere-en-poids-m-j-coop-genossenschaft-chur-graubunden"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -122118,9 +122215,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-assistentin-jumbo-basel-s6a28u",
-        "en": "retail-trade-expert-mann-assistant-jumbo-basel-s6a28u",
+        "en": "detailhandelsfachfrau-mann-assistentin-jumbo-basel-s6a28u",
         "de": "detailhandelsfachfrau-mann-assistentin-jumbo-grosshochstetten",
-        "fr": "expert-en-commerce-de-detail-mann-assistant-jumbo-basel-s6a28u"
+        "fr": "detailhandelsfachfrau-mann-assistentin-jumbo-basel-s6a28u"
       },
       "addressLocality": "Basel",
       "sourceLang": "de",
@@ -196476,7 +196573,7 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-genossenschaft-adelboden-bern-p8kwz2",
-        "en": "salesman-in-food-coop-genossenschaft-adelboden-bern-p8kwz2",
+        "en": "verkaufer-in-food-coop-genossenschaft-adelboden-bern-p8kwz2",
         "de": "verkaufer-in-lebensmittel-coop-genossenschaft-adelboden-bern",
         "fr": "verkaufer-dans-les-aliments-coop-genossenschaft-adelboden-bern"
       },
@@ -212958,7 +213055,7 @@
         "it": "venditore-in-food-coop-genossenschaft-leuk",
         "en": "seller-in-food-coop-genossenschaft-leuk",
         "de": "verkaufer-in-food-coop-genossenschaft-leuk-wallis-vhzi54",
-        "fr": "employe-e-de-commerce-de-detail-food-coop-genossenschaft-leuk-wallis"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-leuk"
       },
       "addressLocality": "Leuk",
       "sourceLang": "de",

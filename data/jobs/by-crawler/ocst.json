@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "ocst-67c3bd8ad1d0",
-      "slug": "ladi-un-fondo-ricco-e-troppi-bisogni-ignorati-ocst-ch",
+      "slug": "ladi-un-fondo-ricco-e-sviluppi-ignorantti-ocst-lugano",
       "slugByLocale": {
-        "it": "ladi-un-fondo-ricco-e-troppi-bisogni-ignorati-ocst-ch",
+        "it": "ladi-un-fondo-ricco-e-sviluppi-ignorantti-ocst-lugano",
         "en": "ladi-un-fondo-ricco-e-troppi-bisogni-ignorati-ocst-ch",
         "de": "ladi-un-fondo-ricco-e-troppi-bisogni-ignorati-ocst-ch",
         "fr": "ladi-un-fondo-ricco-e-troppi-bisogni-ignorati-ocst-ch"
@@ -59,16 +59,24 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T10:18:07.162Z"
+      "firstSeenAt": "2026-08-24T10:18:07.162Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ladi-un-fondo-ricco-e-troppi-bisogni-ignorati-ocst-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ladi-un-fondo-ricco-e-troppi-bisogni-ignorati-ocst-ch"
+      ]
     },
     {
       "id": "ocst-c1281694f537",
       "slug": "salute-in-azienda-il-benessere-organizzativo-e-possibile-ocst-ch",
       "slugByLocale": {
         "it": "salute-in-azienda-il-benessere-organizzativo-e-possibile-ocst-ch",
-        "en": "salute-in-azienda-il-benessere-organizzativo-e-possibile-ocst-ch",
-        "de": "salute-in-azienda-il-benessere-organizzativo-e-possibile-ocst-ch",
-        "fr": "salute-in-azienda-il-benessere-organizzativo-e-possibile-ocst-ch"
+        "en": "health-in-the-company-is-organizational-well-being-possible-ocst-lugano",
+        "de": "gesundheit-im-unternehmen-ist-organisatorisches-wohlbefinden-moglich-ocst-lugano",
+        "fr": "la-sante-dans-l-entreprise-le-bien-etre-organisationnel-est-il-possible-ocst-lugano"
       },
       "company": "OCST",
       "companyKey": "ocst",

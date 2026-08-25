@@ -584,7 +584,7 @@
     },
     {
       "title": "Innere Medizin, 50-60%",
-      "slug": "innere-medizin-50-60-berit-klinik",
+      "slug": "medicina-interna-50-60-berit-klinik-speicher",
       "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_oberarzt___rztin_allg._innere_medizin__50_60__de7265de53.pdf",
       "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
       "company": "Berit Klinik",
@@ -620,9 +620,9 @@
       },
       "slugByLocale": {
         "de": "innere-medizin-50-60-berit-klinik",
-        "it": "innere-medizin-50-60-berit-klinik",
-        "en": "innere-medizin-50-60-berit-klinik",
-        "fr": "innere-medizin-50-60-berit-klinik"
+        "it": "medicina-interna-50-60-berit-klinik-speicher",
+        "en": "internal-medicine-50-60-berit-klinik-speicher",
+        "fr": "medecine-interne-50-60-berit-klinik-speicher"
       },
       "_meta": {
         "sourceFilename": "stelleninserat_oberarzt___rztin_allg._innere_medizin__50_60__de7265de53.pdf"
@@ -641,7 +641,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-24T10:11:12.712Z"
+      "firstSeenAt": "2026-08-24T10:11:12.712Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "innere-medizin-50-60-berit-klinik"
+        ],
+        "en": [
+          "innere-medizin-50-60-berit-klinik"
+        ],
+        "fr": [
+          "innere-medizin-50-60-berit-klinik"
+        ]
+      },
+      "previousSlugs": [
+        "innere-medizin-50-60-berit-klinik"
+      ]
     },
     {
       "title": "Pflegefachperson HF/FH, Notfallbettenstation 100%",

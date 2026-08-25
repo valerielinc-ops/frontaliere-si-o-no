@@ -74,11 +74,11 @@
     },
     {
       "id": "cippatrasporti-c38396f76831",
-      "slug": "customer-service-transport-specialist-cippatrasporti-ch",
+      "slug": "servizio-clienti-transport-specialista-cippa-trasporti-sa-lugano",
       "slugByLocale": {
-        "it": "customer-service-transport-specialist-cippatrasporti-ch",
+        "it": "servizio-clienti-transport-specialista-cippa-trasporti-sa-lugano",
         "en": "customer-service-transport-specialist-cippa-trasporti-sa-lugano",
-        "de": "customer-service-transport-specialist-cippatrasporti-ch",
+        "de": "kundendienst-transport-spezialist-cippa-trasporti-sa-lugano",
         "fr": "customer-service-transport-specialist-cippatrasporti-ch"
       },
       "company": "Cippà Trasporti SA",
@@ -116,7 +116,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-24T10:37:33.453Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -129,7 +128,19 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-24T10:37:33.453Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-service-transport-specialist-cippatrasporti-ch"
+        ],
+        "de": [
+          "customer-service-transport-specialist-cippatrasporti-ch"
+        ]
+      },
+      "previousSlugs": [
+        "customer-service-transport-specialist-cippatrasporti-ch"
+      ]
     }
   ]
 }
