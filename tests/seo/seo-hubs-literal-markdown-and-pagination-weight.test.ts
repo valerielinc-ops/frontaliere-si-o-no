@@ -81,6 +81,33 @@ describe('seoHubs — pagination ladder page-weight byte-shave', () => {
     expect(html).toMatch(/class="hp">2500<\/a>/);
   });
 
+  it('visible breadcrumb links the hub (not a dead span) so page-N can pass equity to the root', () => {
+    const html = buildThinCantonHubHtml({
+      locale: 'it',
+      hub: 'tutti',
+      canton: 'ticino',
+      cantonLabel: 'Ticino',
+      basePath: '/cerca-lavoro-ticino/tutti/',
+      totalItems: 40000,
+      items: [{ href: '/cerca-lavoro-ticino/x/', label: 'Ruolo', sub: 'Lugano' }],
+      hasSpaBundle: false,
+      entryJs: '',
+      entryCss: '',
+      dateStamp: '2026-08-25',
+      page: 2,
+      totalPages: 400,
+    });
+    expect(html).toMatch(
+      /<nav class="s-AxRVCF" aria-label="Breadcrumb">[\s\S]*<a class="s-wfUMYx" href="\/cerca-lavoro-ticino\/tutti\/">/,
+    );
+    expect(html).not.toMatch(
+      /<nav class="s-AxRVCF" aria-label="Breadcrumb">[\s\S]*<span>Ticino · /,
+    );
+    expect(html).toContain('"position":2');
+    expect(html).toContain('/cerca-lavoro-ticino/tutti/');
+    expect(html).toContain('"position":3');
+  });
+
   it('buildThinCantonHubHtml ladder is shaved in lockstep (CLAUDE.md #6)', () => {
     const totalPages = 400;
     const html = buildThinCantonHubHtml({
