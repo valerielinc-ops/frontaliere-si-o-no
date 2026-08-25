@@ -6,6 +6,18 @@
  * (public company profile page; the jobs.ch API discovery below is what
  * actually feeds this parser — see ./jobs-ch-search-common.mjs)
  *
+ * @outsourced-ats-needs-migration: champroperties.ch's own careers page
+ * (https://champroperties.ch/en/company/karriere, re-checked live
+ * 2026-08-25) links its "Jetzt bewerben" CTA to jobs.dualoo.com — its actual
+ * chosen outsourced ATS is Dualoo, not jobs.ch/jobup.ch. This parser sources
+ * from the wrong third party entirely (an aggregator this employer does not
+ * even use for applications), not merely a suboptimal-but-genuine one.
+ * Dualoo is already a known shared-host platform elsewhere in this repo's
+ * crawler fleet (see the `own` prospector discovery source in
+ * `scripts/lib/prospector/sources/known-crawlers.mjs`) — migrate this
+ * parser to source from the employer's Dualoo tenant directly instead of
+ * jobs.ch.
+ *
  * Cham Swiss Properties AG (SIX: CHAM) is a listed Swiss real-estate
  * development / project-management company headquartered in Cham (ZG),
  * formed in 2025 through the merger of Ina Invest AG and Cham Group AG

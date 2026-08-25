@@ -6,6 +6,12 @@
  * (public company profile page; the jobs.ch API discovery below is what
  * actually feeds this parser — see ./jobs-ch-search-common.mjs)
  *
+ * @outsourced-ats-needs-verification: citypop.com returns HTTP 403 to
+ * automated fetches (bot protection), so whether City Pop publishes its own
+ * direct listing page could not be checked live on 2026-08-25. Needs a real
+ * browser (or an agent with one) to confirm before this can be marked
+ * confirmed or needs-migration.
+ *
  * City Pop is a Swiss "micro-living" / serviced-apartment scale-up (fully
  * furnished flexible-stay apartments) founded in Ticino, now operating in
  * Zürich, Lugano, Lausanne, Bern, Geneva, Baden and expanding into Germany,

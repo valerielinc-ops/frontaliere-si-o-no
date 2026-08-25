@@ -6,6 +6,13 @@
  * (public company profile; jobs.ch/jobup.ch are both operated by JobCloud AG
  * and share the same public search API — see ./jobs-ch-search-common.mjs)
  *
+ * @outsourced-ats-needs-verification: dic-ing.ch's own "Rejoignez-nous" CTA
+ * (re-checked live 2026-08-25) links to https://www.dic-ing.ch/team/, a team
+ * page rather than a clear job listing or an explicit hand-off to
+ * jobup.ch — inconclusive either way from a static fetch. Needs a real
+ * browser (or an agent with one) to check whether /team/ actually lists
+ * openings before this can be marked confirmed or needs-migration.
+ *
  * DIC SA ingénieurs is a small civil-engineering consultancy ("bureau
  * d'ingénieur-conseil") headquartered in Aigle (VD), with branch offices in
  * Sion and Martigny (VS). Founded 1982, incorporated as SA in 1991
