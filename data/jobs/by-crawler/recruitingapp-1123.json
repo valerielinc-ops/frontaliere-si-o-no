@@ -1,220 +1,7 @@
 {
   "crawlerKey": "recruitingapp-1123",
-  "assembledAt": "2026-08-25T10:10:19.228Z",
+  "assembledAt": "2026-08-25T21:46:50.754Z",
   "jobs": [
-    {
-      "id": "recruitingapp-1123-43a687d85135",
-      "slug": "servicetechniker-in-brandschutz-m-w-d-big-are-stellen-lugano",
-      "slugByLocale": {
-        "it": "servicetechniker-in-brandschutz-m-w-d-big-are-stellen-lugano",
-        "en": "servicetechniker-in-brandschutz-m-w-d-recruitingapp-1123-ch",
-        "de": "servicetechniker-in-brandschutz-m-w-d-big-are-stellen-lugano",
-        "fr": "servicetechniker-in-brandschutz-m-w-d-big-are-stellen-lugano"
-      },
-      "company": "BIG & ARE Stellen",
-      "companyKey": "recruitingapp-1123",
-      "companyDomain": "recruitingapp-1123.umantis.com",
-      "title": "Servicetechniker:in Brandschutz (m/w/d)",
-      "titleByLocale": {
-        "it": "Servicetechniker:in Brandschutz (m/w/d)",
-        "en": "Servicetechniker:in Brandschutz (m/w/d)",
-        "de": "Servicetechniker:in Brandschutz (m/w/d)",
-        "fr": "Servicetechniker:in Brandschutz (h/f/d)"
-      },
-      "description": "Servicetechniker:in Brandschutz (m/w/d) — BIG & ARE Stellen",
-      "descriptionByLocale": {
-        "en": "Servicetechniker:in Brandschutz (m/w/d) — BIG & ARE Stellen"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://recruitingapp-1123.umantis.com/Vacancies/2506/Description/1",
-      "source": "BIG & ARE Stellen Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-25T10:10:16.230Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-23",
-      "applyUrl": "https://recruitingapp-1123.umantis.com/Vacancies/2506/Description/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "servicetechniker-in-brandschutz-m-w-d-recruitingapp-1123-ch",
-        "servicetechniker-in-brandschutz-m-w-d-big-are-stellen-lugano"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "servicetechniker-in-brandschutz-m-w-d-recruitingapp-1123-ch",
-          "servicetechniker-in-brandschutz-m-w-d-big-are-stellen-lugano"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T09:37:55.952Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI"
-    },
-    {
-      "id": "recruitingapp-1123-1bfebed44d5c",
-      "slug": "servicetechniker-in-msr-campus-wu-m-w-d-big-are-stellen-lugano",
-      "slugByLocale": {
-        "it": "servicetechniker-in-msr-campus-wu-m-w-d-big-are-stellen-lugano",
-        "en": "servicetechniker-in-msr-campus-wu-m-w-d-big-are-stellen-lugano",
-        "de": "servicetechniker-in-msr-campus-wu-m-w-d-big-are-stellen-lugano",
-        "fr": "servicetechniker-in-msr-campus-wu-m-w-d-recruitingapp-1123-ch"
-      },
-      "company": "BIG & ARE Stellen",
-      "companyKey": "recruitingapp-1123",
-      "companyDomain": "recruitingapp-1123.umantis.com",
-      "title": "Servicetechniker:in MSR Campus WU (m/w/d)",
-      "titleByLocale": {
-        "it": "Servicetechniker:in MSR Campus WU (m/w/d)",
-        "en": "Servicetechniker:in MSR Campus WU (m/f/d)",
-        "de": "Servicetechniker:in MSR Campus WU (m/w/d)",
-        "fr": "Servicetechniker:in MSR Campus WU (m/w/d)"
-      },
-      "description": "Servicetechniker:in MSR Campus WU (m/w/d) — BIG & ARE Stellen",
-      "descriptionByLocale": {
-        "fr": "Servicetechniker:in MSR Campus WU (m/w/d) — BIG & ARE Stellen"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://recruitingapp-1123.umantis.com/Vacancies/2505/Description/1",
-      "source": "BIG & ARE Stellen Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-25T10:10:15.928Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-23",
-      "applyUrl": "https://recruitingapp-1123.umantis.com/Vacancies/2505/Description/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "servicetechniker-in-msr-campus-wu-m-w-d-recruitingapp-1123-ch",
-        "servicetechniker-in-msr-campus-wu-m-w-d-big-are-stellen-lugano"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "servicetechniker-in-msr-campus-wu-m-w-d-recruitingapp-1123-ch",
-          "servicetechniker-in-msr-campus-wu-m-w-d-big-are-stellen-lugano"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T09:37:55.648Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI"
-    },
-    {
-      "id": "recruitingapp-1123-f0b35ace98cf",
-      "slug": "assistenza-team-management-m-f-d-da-30h-settimana-big-are-stellen-lugano",
-      "slugByLocale": {
-        "it": "assistenza-team-management-m-f-d-da-30h-settimana-big-are-stellen-lugano",
-        "en": "team-management-assistance-m-f-d-from-30h-week-big-are-stellen-lugano",
-        "de": "assistenz-der-teamleitung-m-w-d-ab-30h-woche-recruitingapp-1123-ch",
-        "fr": "assistance-a-la-gestion-de-l-equipe-h-f-d-a-partir-de-30h-semaine-big-are-stellen-lugano"
-      },
-      "company": "BIG & ARE Stellen",
-      "companyKey": "recruitingapp-1123",
-      "companyDomain": "recruitingapp-1123.umantis.com",
-      "title": "Assistenz der Teamleitung (m/w/d) ab 30h/Woche",
-      "titleByLocale": {
-        "it": "Assistenza Team Management (m/f/d) da 30h/settimana",
-        "en": "Team management assistance (m/f/d) from 30h/week",
-        "de": "Assistenz der Teamleitung (m/w/d) ab 30h/Woche",
-        "fr": "Assistance à la gestion de l'équipe (h/f/d) à partir de 30h/semaine"
-      },
-      "description": "Assistenz der Teamleitung (m/w/d) ab 30h/Woche — BIG & ARE Stellen",
-      "descriptionByLocale": {
-        "de": "Assistenz der Teamleitung (m/w/d) ab 30h/Woche — BIG & ARE Stellen"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://recruitingapp-1123.umantis.com/Vacancies/2507/Description/1",
-      "source": "BIG & ARE Stellen Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-25T10:10:15.624Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-23",
-      "applyUrl": "https://recruitingapp-1123.umantis.com/Vacancies/2507/Description/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "assistenz-der-teamleitung-m-w-d-ab-30h-woche-recruitingapp-1123-ch",
-        "assistenza-team-management-m-f-d-da-30h-settimana-big-are-stellen-lugano"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistenz-der-teamleitung-m-w-d-ab-30h-woche-recruitingapp-1123-ch",
-          "assistenza-team-management-m-f-d-da-30h-settimana-big-are-stellen-lugano"
-        ],
-        "en": [
-          "assistenz-der-teamleitung-m-w-d-ab-30h-woche-recruitingapp-1123-ch"
-        ],
-        "fr": [
-          "assistenz-der-teamleitung-m-w-d-ab-30h-woche-recruitingapp-1123-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T09:37:55.341Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI"
-    },
     {
       "id": "recruitingapp-1123-ee08b7105086",
       "slug": "technical-r-object-manager-in-building-construction-m-f-d-da-30-ore-a-settimana-big-are-stellen-lugano",
@@ -243,7 +30,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2482/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T10:10:15.321Z",
+      "crawledAt": "2026-08-25T21:46:44.573Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -305,8 +92,8 @@
       "title": "Senior IT-Systemadministrator:in (m/w/d)",
       "titleByLocale": {
         "it": "Senior IT-Systemadministrator:in (m/w/d)",
-        "de": "Senior IT-Systemadministrator:in (m/w/d)",
         "en": "Senior IT-Systemadministrator:in (m/w/d)",
+        "de": "Senior IT-Systemadministrator:in (m/w/d)",
         "fr": "Senior IT-Systemadministrator:in (m/w/d)"
       },
       "description": "Senior IT-Systemadministrator:in (m/w/d) — BIG & ARE Stellen",
@@ -318,7 +105,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2481/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-25T10:10:15.018Z",
+      "crawledAt": "2026-08-25T21:46:44.271Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -332,10 +119,9 @@
       "postedDate": "2026-08-25",
       "applyUrl": "https://recruitingapp-1123.umantis.com/Vacancies/2481/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-25T10:10:15.018Z",
       "salaryMin": 79500,
       "salaryMax": 135000,
       "baseSalary": {
@@ -348,8 +134,145 @@
           "unitText": "YEAR"
         }
       },
+      "addressRegion": "TI"
+    },
+    {
+      "id": "recruitingapp-1123-37e0cbdd9ce0",
+      "slug": "projekttechniker-in-hkls-m-w-d-big-are-stellen-lugano",
+      "slugByLocale": {
+        "fr": "projekttechniker-in-hkls-m-w-d-recruitingapp-1123-ch",
+        "it": "projekttechniker-in-hkls-m-w-d-big-are-stellen-lugano",
+        "en": "projekttechniker-in-hkls-m-w-d-big-are-stellen-lugano",
+        "de": "projekttechniker-in-hkls-m-w-d-big-are-stellen-lugano"
+      },
+      "company": "BIG & ARE Stellen",
+      "companyKey": "recruitingapp-1123",
+      "companyDomain": "recruitingapp-1123.umantis.com",
+      "title": "Projekttechniker:in HKLS (m/w/d)",
+      "titleByLocale": {
+        "fr": "Projekttechniker:in HKLS (m/w/d)",
+        "de": "Projekttechniker:in HKLS (m/w/d)",
+        "it": "Projekttechniker:in HKLS (m/w/d)",
+        "en": "Projekttechniker:in HKLS (m/w/d)"
+      },
+      "description": "Projekttechniker:in HKLS (m/w/d) — BIG & ARE Stellen",
+      "descriptionByLocale": {
+        "fr": "Projekttechniker:in HKLS (m/w/d) — BIG & ARE Stellen"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://recruitingapp-1123.umantis.com/Vacancies/2493/Description/1",
+      "source": "BIG & ARE Stellen Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-25T21:46:43.968Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-25",
+      "applyUrl": "https://recruitingapp-1123.umantis.com/Vacancies/2493/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "projekttechniker-in-hkls-m-w-d-recruitingapp-1123-ch"
+        ]
+      },
+      "previousSlugs": [
+        "projekttechniker-in-hkls-m-w-d-recruitingapp-1123-ch"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T10:10:15.018Z"
+      "firstSeenAt": "2026-08-25T21:46:43.968Z"
+    },
+    {
+      "id": "recruitingapp-1123-39d504df3287",
+      "slug": "applikationsbetreuer-in-in-der-immobilienverwaltung-m-w-d-big-are-stellen-lugano",
+      "slugByLocale": {
+        "fr": "applikationsbetreuer-in-in-der-immobilienverwaltung-m-w-d-recruitingapp-1123-ch",
+        "it": "applikationsbetreuer-in-in-der-immobilienverwaltung-m-w-d-big-are-stellen-lugano",
+        "en": "applikationsbetreuer-in-in-der-immobilienverwaltung-m-w-d-big-are-stellen-lugano",
+        "de": "applikationsbetreuer-in-in-der-immobilienverwaltung-m-w-d-big-are-stellen-lugano"
+      },
+      "company": "BIG & ARE Stellen",
+      "companyKey": "recruitingapp-1123",
+      "companyDomain": "recruitingapp-1123.umantis.com",
+      "title": "Applikationsbetreuer:in in der Immobilienverwaltung (m/w/d)",
+      "titleByLocale": {
+        "fr": "Applikationsbetreuer:in in der Immobilienverwaltung (m/w/d)",
+        "de": "Applikationsbetreuer:in in der Immobilienverwaltung (m/w/d)",
+        "it": "Applikationsbetreuer:in in der Immobilienverwaltung (m/w/d)",
+        "en": "Applikationsbetreuer:in in der Immobilienverwaltung (m/w/d)"
+      },
+      "description": "Applikationsbetreuer:in in der Immobilienverwaltung (m/w/d) — BIG & ARE Stellen",
+      "descriptionByLocale": {
+        "fr": "Applikationsbetreuer:in in der Immobilienverwaltung (m/w/d) — BIG & ARE Stellen"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://recruitingapp-1123.umantis.com/Vacancies/2440/Description/1",
+      "source": "BIG & ARE Stellen Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-25T21:46:43.363Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-25",
+      "applyUrl": "https://recruitingapp-1123.umantis.com/Vacancies/2440/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "applikationsbetreuer-in-in-der-immobilienverwaltung-m-w-d-recruitingapp-1123-ch"
+        ]
+      },
+      "previousSlugs": [
+        "applikationsbetreuer-in-in-der-immobilienverwaltung-m-w-d-recruitingapp-1123-ch"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-25T21:46:43.363Z"
     },
     {
       "id": "recruitingapp-1123-fd9661f7604f",
@@ -379,7 +302,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2426/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T10:10:14.716Z",
+      "crawledAt": "2026-08-25T21:46:43.060Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -456,7 +379,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2465/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-25T10:10:14.414Z",
+      "crawledAt": "2026-08-25T21:46:42.758Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -525,7 +448,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2473/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T10:10:14.110Z",
+      "crawledAt": "2026-08-25T21:46:42.455Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -600,7 +523,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2479/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T10:10:13.807Z",
+      "crawledAt": "2026-08-25T21:46:42.153Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -677,7 +600,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2497/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T10:10:13.484Z",
+      "crawledAt": "2026-08-25T21:46:41.835Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -725,6 +648,222 @@
         }
       },
       "addressRegion": "TI"
+    },
+    {
+      "id": "recruitingapp-1123-43a687d85135",
+      "slug": "servicetechniker-in-brandschutz-m-w-d-big-are-stellen-lugano",
+      "slugByLocale": {
+        "it": "servicetechniker-in-brandschutz-m-w-d-big-are-stellen-lugano",
+        "en": "servicetechniker-in-brandschutz-m-w-d-recruitingapp-1123-ch",
+        "de": "servicetechniker-in-brandschutz-m-w-d-big-are-stellen-lugano",
+        "fr": "servicetechniker-in-brandschutz-m-w-d-big-are-stellen-lugano"
+      },
+      "company": "BIG & ARE Stellen",
+      "companyKey": "recruitingapp-1123",
+      "companyDomain": "recruitingapp-1123.umantis.com",
+      "title": "Servicetechniker:in Brandschutz (m/w/d)",
+      "titleByLocale": {
+        "it": "Servicetechniker:in Brandschutz (m/w/d)",
+        "en": "Servicetechniker:in Brandschutz (m/w/d)",
+        "de": "Servicetechniker:in Brandschutz (m/w/d)",
+        "fr": "Servicetechniker:in Brandschutz (h/f/d)"
+      },
+      "description": "Servicetechniker:in Brandschutz (m/w/d) — BIG & ARE Stellen",
+      "descriptionByLocale": {
+        "en": "Servicetechniker:in Brandschutz (m/w/d) — BIG & ARE Stellen"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://recruitingapp-1123.umantis.com/Vacancies/2506/Description/1",
+      "source": "BIG & ARE Stellen Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-25T10:10:16.230Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-23",
+      "applyUrl": "https://recruitingapp-1123.umantis.com/Vacancies/2506/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "servicetechniker-in-brandschutz-m-w-d-recruitingapp-1123-ch",
+        "servicetechniker-in-brandschutz-m-w-d-big-are-stellen-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "servicetechniker-in-brandschutz-m-w-d-recruitingapp-1123-ch",
+          "servicetechniker-in-brandschutz-m-w-d-big-are-stellen-lugano"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:37:55.952Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "crawlerMissStreak": 1
+    },
+    {
+      "id": "recruitingapp-1123-1bfebed44d5c",
+      "slug": "servicetechniker-in-msr-campus-wu-m-w-d-big-are-stellen-lugano",
+      "slugByLocale": {
+        "it": "servicetechniker-in-msr-campus-wu-m-w-d-big-are-stellen-lugano",
+        "en": "servicetechniker-in-msr-campus-wu-m-w-d-big-are-stellen-lugano",
+        "de": "servicetechniker-in-msr-campus-wu-m-w-d-big-are-stellen-lugano",
+        "fr": "servicetechniker-in-msr-campus-wu-m-w-d-recruitingapp-1123-ch"
+      },
+      "company": "BIG & ARE Stellen",
+      "companyKey": "recruitingapp-1123",
+      "companyDomain": "recruitingapp-1123.umantis.com",
+      "title": "Servicetechniker:in MSR Campus WU (m/w/d)",
+      "titleByLocale": {
+        "it": "Servicetechniker:in MSR Campus WU (m/w/d)",
+        "en": "Servicetechniker:in MSR Campus WU (m/f/d)",
+        "de": "Servicetechniker:in MSR Campus WU (m/w/d)",
+        "fr": "Servicetechniker:in MSR Campus WU (m/w/d)"
+      },
+      "description": "Servicetechniker:in MSR Campus WU (m/w/d) — BIG & ARE Stellen",
+      "descriptionByLocale": {
+        "fr": "Servicetechniker:in MSR Campus WU (m/w/d) — BIG & ARE Stellen"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://recruitingapp-1123.umantis.com/Vacancies/2505/Description/1",
+      "source": "BIG & ARE Stellen Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-25T10:10:15.928Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-23",
+      "applyUrl": "https://recruitingapp-1123.umantis.com/Vacancies/2505/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "servicetechniker-in-msr-campus-wu-m-w-d-recruitingapp-1123-ch",
+        "servicetechniker-in-msr-campus-wu-m-w-d-big-are-stellen-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "servicetechniker-in-msr-campus-wu-m-w-d-recruitingapp-1123-ch",
+          "servicetechniker-in-msr-campus-wu-m-w-d-big-are-stellen-lugano"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:37:55.648Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "crawlerMissStreak": 1
+    },
+    {
+      "id": "recruitingapp-1123-f0b35ace98cf",
+      "slug": "assistenza-team-management-m-f-d-da-30h-settimana-big-are-stellen-lugano",
+      "slugByLocale": {
+        "it": "assistenza-team-management-m-f-d-da-30h-settimana-big-are-stellen-lugano",
+        "en": "team-management-assistance-m-f-d-from-30h-week-big-are-stellen-lugano",
+        "de": "assistenz-der-teamleitung-m-w-d-ab-30h-woche-recruitingapp-1123-ch",
+        "fr": "assistance-a-la-gestion-de-l-equipe-h-f-d-a-partir-de-30h-semaine-big-are-stellen-lugano"
+      },
+      "company": "BIG & ARE Stellen",
+      "companyKey": "recruitingapp-1123",
+      "companyDomain": "recruitingapp-1123.umantis.com",
+      "title": "Assistenz der Teamleitung (m/w/d) ab 30h/Woche",
+      "titleByLocale": {
+        "it": "Assistenza Team Management (m/f/d) da 30h/settimana",
+        "en": "Team management assistance (m/f/d) from 30h/week",
+        "de": "Assistenz der Teamleitung (m/w/d) ab 30h/Woche",
+        "fr": "Assistance à la gestion de l'équipe (h/f/d) à partir de 30h/semaine"
+      },
+      "description": "Assistenz der Teamleitung (m/w/d) ab 30h/Woche — BIG & ARE Stellen",
+      "descriptionByLocale": {
+        "de": "Assistenz der Teamleitung (m/w/d) ab 30h/Woche — BIG & ARE Stellen"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://recruitingapp-1123.umantis.com/Vacancies/2507/Description/1",
+      "source": "BIG & ARE Stellen Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T10:10:15.624Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-23",
+      "applyUrl": "https://recruitingapp-1123.umantis.com/Vacancies/2507/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistenz-der-teamleitung-m-w-d-ab-30h-woche-recruitingapp-1123-ch",
+        "assistenza-team-management-m-f-d-da-30h-settimana-big-are-stellen-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenz-der-teamleitung-m-w-d-ab-30h-woche-recruitingapp-1123-ch",
+          "assistenza-team-management-m-f-d-da-30h-settimana-big-are-stellen-lugano"
+        ],
+        "en": [
+          "assistenz-der-teamleitung-m-w-d-ab-30h-woche-recruitingapp-1123-ch"
+        ],
+        "fr": [
+          "assistenz-der-teamleitung-m-w-d-ab-30h-woche-recruitingapp-1123-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:37:55.341Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "crawlerMissStreak": 1
     },
     {
       "id": "recruitingapp-1123-25184cd67246",
@@ -792,7 +931,7 @@
         }
       },
       "addressRegion": "TI",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
