@@ -1441,10 +1441,10 @@
       "companyDomain": "recruitingapp-2677.umantis.com",
       "title": "Junior Kundenberater:in Private Banking",
       "titleByLocale": {
+        "de": "Junior Kundenberater:in Private Banking",
         "it": "Junior Client Advisor: in Private Banking",
         "en": "Junior Client Advisor: in Private Banking",
-        "de": "Junior Kundenberater:in Private Banking",
-        "fr": "Conseiller client junior : en banque privée"
+        "fr": "Conseiller client junior: en banque privée"
       },
       "description": "Junior Kundenberater:in Private Banking — E-Recruiting LLB-Gruppe Stellen",
       "descriptionByLocale": {
@@ -1470,18 +1470,17 @@
       "applyUrl": "https://recruitingapp-2677.umantis.com/Vacancies/1987/Description/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "junior-kundenberater-in-private-banking-recruitingapp-2677-ch",
-        "junior-kundenberater-in-private-banking-e-recruiting-llb-gruppe-stellen-lugano"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "junior-kundenberater-in-private-banking-recruitingapp-2677-ch",
           "junior-kundenberater-in-private-banking-e-recruiting-llb-gruppe-stellen-lugano"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-24T21:44:36.481Z",
+      "previousSlugs": [
+        "junior-kundenberater-in-private-banking-recruitingapp-2677-ch",
+        "junior-kundenberater-in-private-banking-e-recruiting-llb-gruppe-stellen-lugano"
+      ],
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1494,7 +1493,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-24T21:44:36.481Z"
     }
   ]
 }
