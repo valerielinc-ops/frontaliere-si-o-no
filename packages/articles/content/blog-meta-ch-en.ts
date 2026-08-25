@@ -4318,6 +4318,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.utilizzo-ia-svizzera-2026.title': 'Artificial intelligence: 80% of Swiss use it',
     'blog.article.utilizzo-ia-svizzera-2026.excerpt': '80% of the Swiss use AI. Doubled in two years according to IGEM-Digimonitor. YouTube 80%, Instagram 45%, X drops to 10%.',
     'blog.article.utilizzo-ia-svizzera-2026.imageAlt': 'Hands interacting with digital devices in modern Swiss workplace with lake view in background',
+    'blog.article.investimento-immobiliare-berna-svizzera.title': 'Buying a house Bern: prices, mortgage and documents',
+    'blog.article.investimento-immobiliare-berna-svizzera.excerpt': 'Buying a house in Bern: the Swiss legal framework, mortgage loans, transfer taxes and notary fees illustrated in a practical guide for buyers.',
+    'blog.article.investimento-immobiliare-berna-svizzera.imageAlt': 'Modern Swiss home in Alpine landscape. Editorial photography for real estate investment and mortgage financing guide.',
 };
 
 export default blogMetaChEn;

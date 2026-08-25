@@ -4318,6 +4318,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.utilizzo-ia-svizzera-2026.title': 'Künstliche Intelligenz: 80% Schweizer nutzen sie',
     'blog.article.utilizzo-ia-svizzera-2026.excerpt': '80% der Schweizer nutzen KI. In zwei Jahren verdoppelt nach IGEM-Digimonitor. YouTube 80%, Instagram 45%, X fällt auf 10%.',
     'blog.article.utilizzo-ia-svizzera-2026.imageAlt': 'Hände interagieren mit digitalen Geräten am Arbeitsplatz in der Schweiz mit Seeblick',
+    'blog.article.investimento-immobiliare-berna-svizzera.title': 'Haus Bern kaufen: Preise, Hypothek und Unterlagen',
+    'blog.article.investimento-immobiliare-berna-svizzera.excerpt': 'Haus kaufen in Bern: Der Schweizer Rechtsrahmen, Hypothekendarlehen, Durchbruchssteuern und Notarkosten in einem praktischen Leitfaden für Käufer.',
+    'blog.article.investimento-immobiliare-berna-svizzera.imageAlt': 'Modernes Schweizer Wohnhaus in Alpenlandschaft zum Thema Hypotheken und Immobilienkauf.',
 };
 
 export default blogMetaChDe;
