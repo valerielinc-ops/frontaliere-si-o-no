@@ -25,8 +25,8 @@
       },
       "slug": "warehouse-logistic-operator-m-f-d-mikron",
       "slugByLocale": {
-        "it": "warehouse-logistic-operator-m-f-d-mikron",
         "en": "warehouse-logistic-operator-m-f-d-mikron",
+        "it": "warehouse-logistic-operator-m-f-d-mikron",
         "de": "lager-logistiker-m-w-d-mikron-group-boudry"
       },
       "sourceLang": "fr",
@@ -79,10 +79,10 @@
         "it": "Specialista di conformità del prodotto (m/f/d)",
         "de": "Produktkonformitätsspezialist (m/w/d)"
       },
-      "slug": "product-conformity-specialist-m-f-d-mikron",
+      "slug": "specialista-di-conformita-del-prodotto-m-f-d-mikron-group-boudry",
       "slugByLocale": {
-        "it": "specialista-di-conformita-del-prodotto-m-f-d-mikron-group-boudry",
         "en": "product-conformity-specialist-m-f-d-mikron",
+        "it": "specialista-di-conformita-del-prodotto-m-f-d-mikron-group-boudry",
         "de": "produktkonformitatsspezialist-m-w-d-mikron-group-boudry"
       },
       "sourceLang": "fr",
@@ -145,10 +145,10 @@
         "it": "Leader della cura del prodotto (m/f/d)",
         "de": "Product Care Leader (m/w/d)"
       },
-      "slug": "product-care-leader-m-f-d-mikron",
+      "slug": "leader-della-cura-del-prodotto-m-f-d-mikron-group-boudry",
       "slugByLocale": {
-        "it": "leader-della-cura-del-prodotto-m-f-d-mikron-group-boudry",
         "en": "product-care-leader-m-f-d-mikron",
+        "it": "leader-della-cura-del-prodotto-m-f-d-mikron-group-boudry",
         "de": "product-care-leader-m-w-d-mikron-group-boudry"
       },
       "sourceLang": "fr",
@@ -212,8 +212,8 @@
       },
       "slug": "hardware-engineer-specialist-m-f-d-mikron",
       "slugByLocale": {
-        "it": "hardware-engineer-specialist-m-f-d-mikron",
         "en": "hardware-engineer-specialist-m-f-d-mikron",
+        "it": "hardware-engineer-specialist-m-f-d-mikron",
         "de": "hardware-engineer-spezialist-m-w-d-mikron-group-boudry"
       },
       "sourceLang": "fr",
@@ -266,11 +266,11 @@
         "it": "Marketing Generalista (m/f/d) con lingua madre tedesca",
         "fr": "Marketing Généraliste (h/f/d) avec langue maternelle allemande"
       },
-      "slug": "marketing-generalist-m-w-d-mit-deutscher-muttersprache-mikron",
+      "slug": "marketing-generalista-m-f-d-con-lingua-madre-tedesca-mikron-group-agno",
       "slugByLocale": {
-        "it": "marketing-generalist-m-f-d-con-la-lingua-tedesca-madre-mikron-group-agno",
-        "en": "marketing-generalist-m-f-d-with-native-german-language-mikron-group-agno",
-        "fr": "marketing-generaliste-h-f-d-avec-langue-allemande-native-mikron-group-agno"
+        "en": "marketing-generalist-m-f-d-with-german-mother-tongue-mikron-group-agno",
+        "it": "marketing-generalista-m-f-d-con-lingua-madre-tedesca-mikron-group-agno",
+        "fr": "marketing-generaliste-h-f-d-avec-langue-maternelle-allemande-mikron-group-agno"
       },
       "sourceLang": "de",
       "category": "technology",
@@ -305,12 +305,18 @@
           "marketing-generalist-m-f-d-con-la-lingua-tedesca-madre-mikron-group-agno"
         ],
         "en": [
-          "marketing-generalist-m-w-d-mit-deutscher-muttersprache-mikron"
+          "marketing-generalist-m-w-d-mit-deutscher-muttersprache-mikron",
+          "marketing-generalist-m-f-d-with-native-german-language-mikron-group-agno"
+        ],
+        "fr": [
+          "marketing-generaliste-h-f-d-avec-langue-allemande-native-mikron-group-agno"
         ]
       },
       "previousSlugs": [
         "marketing-generalist-m-w-d-mit-deutscher-muttersprache-mikron",
-        "marketing-generalist-m-f-d-con-la-lingua-tedesca-madre-mikron-group-agno"
+        "marketing-generalist-m-f-d-con-la-lingua-tedesca-madre-mikron-group-agno",
+        "marketing-generalist-m-f-d-with-native-german-language-mikron-group-agno",
+        "marketing-generaliste-h-f-d-avec-langue-allemande-native-mikron-group-agno"
       ]
     },
     {

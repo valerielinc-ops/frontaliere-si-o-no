@@ -13475,20 +13475,17 @@
       "requirementsByLocale": {},
       "department": "Hotellerie",
       "contractDuration": "permanent",
-      "previousSlugs": [
-        "mitarbeiter-in-patientenservice-stgag-ch",
-        "mitarbeiter-in-patientenservice-stgag-ch-2",
-        "collaboratore-trice-in-patientenservice-spital-thurgau-stgag-kantonsspital-frauenfeld"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-patientenservice-stgag-ch",
-          "mitarbeiter-in-patientenservice-stgag-ch-2",
-          "collaboratore-trice-in-patientenservice-spital-thurgau-stgag-kantonsspital-frauenfeld"
+          "mitarbeiter-in-patientenservice-stgag-ch-2"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-24T10:07:48.194Z",
+      "previousSlugs": [
+        "mitarbeiter-in-patientenservice-stgag-ch",
+        "mitarbeiter-in-patientenservice-stgag-ch-2"
+      ],
       "salaryMin": 62000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -13500,7 +13497,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-24T10:07:48.194Z"
     },
     {
       "id": "spital-thurgau-283bc8c1d47a",
@@ -13552,22 +13550,19 @@
       "requirementsByLocale": {},
       "department": "Hotellerie",
       "contractDuration": "permanent",
-      "previousSlugs": [
-        "mitarbeiter-in-patientenservice-stgag-ch-2",
-        "mitarbeiter-in-patientenservice-stgag-ch",
-        "mitarbeiter-in-patientenservice-stgag-ch-3",
-        "collaboratore-trice-in-patientenservice-spital-thurgau-stgag-kantonsspital-munsterlingen"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-patientenservice-stgag-ch-2",
           "mitarbeiter-in-patientenservice-stgag-ch",
-          "mitarbeiter-in-patientenservice-stgag-ch-3",
-          "collaboratore-trice-in-patientenservice-spital-thurgau-stgag-kantonsspital-munsterlingen"
+          "mitarbeiter-in-patientenservice-stgag-ch-3"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-24T10:07:48.194Z",
+      "previousSlugs": [
+        "mitarbeiter-in-patientenservice-stgag-ch-2",
+        "mitarbeiter-in-patientenservice-stgag-ch",
+        "mitarbeiter-in-patientenservice-stgag-ch-3"
+      ],
       "salaryMin": 62000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -13579,7 +13574,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-24T10:07:48.194Z"
     },
     {
       "id": "spital-thurgau-8eb65bcfa7cb",
@@ -14098,9 +14094,9 @@
       "id": "spital-thurgau-f4324ab7229e",
       "slug": "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-munsterlingen",
       "slugByLocale": {
+        "de": "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-ch",
         "it": "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-munsterlingen",
         "en": "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-munsterlingen",
-        "de": "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-ch",
         "fr": "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
@@ -14216,17 +14212,11 @@
       "requirementsByLocale": {},
       "department": "Hotellerie",
       "contractDuration": "permanent",
-      "previousSlugs": [
-        "mitarbeiter-in-patientenservice-stgag-ch-3",
-        "mitarbeiter-in-patientenservice-stgag-ch",
-        "mitarbeiter-in-patientenservice-spital-thurgau-stgag-diessenhofen",
-        "collaboratore-trice-in-patientenservice-spital-thurgau-stgag-diessenhofen"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-patientenservice-stgag-ch-3",
-          "mitarbeiter-in-patientenservice-stgag-ch",
-          "collaboratore-trice-in-patientenservice-spital-thurgau-stgag-diessenhofen"
+          "mitarbeiter-in-patientenservice-stgag-ch"
         ],
         "en": [
           "mitarbeiter-in-patientenservice-spital-thurgau-stgag-diessenhofen"
@@ -14235,8 +14225,12 @@
           "mitarbeiter-in-patientenservice-spital-thurgau-stgag-diessenhofen"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-24T10:07:48.192Z",
+      "previousSlugs": [
+        "mitarbeiter-in-patientenservice-stgag-ch-3",
+        "mitarbeiter-in-patientenservice-stgag-ch",
+        "mitarbeiter-in-patientenservice-spital-thurgau-stgag-diessenhofen",
+        "collaboratore-trice-in-patientenservice-spital-thurgau-stgag-diessenhofen"
+      ],
       "salaryMin": 62000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -14248,7 +14242,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-24T10:07:48.192Z"
     },
     {
       "id": "spital-thurgau-5a3f60b8efbd",

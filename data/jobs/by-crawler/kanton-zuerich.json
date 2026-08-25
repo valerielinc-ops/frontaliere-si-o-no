@@ -7197,15 +7197,9 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "previousSlugs": [
-        "mitarbeiter-in-empfang-sicherheitsdienst-kanton-zuerich-zurich",
-        "mitarbeiter-in-empfang-sicherheitsdienst-kantonale-verwaltung-zurich-zurich",
-        "collaboratore-trice-empfang-sicherheitsdienst-kantonale-verwaltung-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-empfang-sicherheitsdienst-kanton-zuerich-zurich",
-          "collaboratore-trice-empfang-sicherheitsdienst-kantonale-verwaltung-zurich"
+          "mitarbeiter-in-empfang-sicherheitsdienst-kanton-zuerich-zurich"
         ],
         "en": [
           "mitarbeiter-in-empfang-sicherheitsdienst-kantonale-verwaltung-zurich-zurich"
@@ -7214,7 +7208,11 @@
           "mitarbeiter-in-empfang-sicherheitsdienst-kantonale-verwaltung-zurich-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-24T10:22:34.784Z",
+      "previousSlugs": [
+        "mitarbeiter-in-empfang-sicherheitsdienst-kanton-zuerich-zurich",
+        "mitarbeiter-in-empfang-sicherheitsdienst-kantonale-verwaltung-zurich-zurich",
+        "collaboratore-trice-empfang-sicherheitsdienst-kantonale-verwaltung-zurich"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -7226,7 +7224,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-24T10:22:34.784Z"
     },
     {
       "id": "kanton-zuerich-4927f7aefc4f",
@@ -8644,9 +8643,9 @@
       "id": "kanton-zuerich-d03f71429b10",
       "slug": "assistente-procuratore-temporaneo-fino-al-30-09-2029-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
+        "de": "assistenz-staatsanwaltin-assistenz-staatsanwalt-befristet-bis-30-09-2029-kanton-zuerich",
         "it": "assistente-procuratore-temporaneo-fino-al-30-09-2029-kantonale-verwaltung-zurich-zurich",
         "en": "assistant-prosecutor-temporary-until-30-09-2029-kantonale-verwaltung-zurich-zurich",
-        "de": "assistenz-staatsanwaltin-assistenz-staatsanwalt-befristet-bis-30-09-2029-kanton-zuerich",
         "fr": "procureur-adjoint-temporaire-jusqu-au-30-09-2029-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
@@ -9925,9 +9924,9 @@
       "id": "kanton-zuerich-0d95a1602413",
       "slug": "recruitment-coordinatore-kantonale-verwaltung-zurich-zurich-altstetten",
       "slugByLocale": {
+        "de": "recruitment-coordinator-kanton-zuerich-zurich-altstetten",
         "it": "recruitment-coordinatore-kantonale-verwaltung-zurich-zurich-altstetten",
         "en": "recruitment-coordinator-kantonale-verwaltung-zurich-zurich-altstetten",
-        "de": "recruitment-coordinator-kanton-zuerich-zurich-altstetten",
         "fr": "recruitment-coordinateur-kantonale-verwaltung-zurich-zurich-altstetten"
       },
       "company": "Kantonale Verwaltung Zürich",

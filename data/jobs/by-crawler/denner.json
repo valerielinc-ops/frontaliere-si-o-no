@@ -90,7 +90,6 @@
         ]
       },
       "firstSeenAt": "2026-08-24T10:03:51.589Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "baseSalary": {
@@ -102,7 +101,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-22b98e65e7f0",
@@ -187,7 +187,6 @@
         ]
       },
       "firstSeenAt": "2026-08-24T10:03:50.930Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "baseSalary": {
@@ -199,7 +198,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-703a96ea2ae6",
@@ -467,7 +467,6 @@
         ]
       },
       "firstSeenAt": "2026-08-24T10:03:50.130Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "baseSalary": {
@@ -479,7 +478,8 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-a4e1b7f9a4a7",
@@ -545,8 +545,7 @@
       "sourceLang": "de",
       "crawledAt": "2026-08-25T09:48:48.849Z",
       "previousSlugs": [
-        "verkaufer-in-im-stundenlohn-denner",
-        "verkaufer-in-im-stundenlohn-denner-riehen"
+        "verkaufer-in-im-stundenlohn-denner"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -752,7 +751,6 @@
         ]
       },
       "firstSeenAt": "2026-08-24T10:03:50.124Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "baseSalary": {
@@ -764,7 +762,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-9496728d83cb",
@@ -851,7 +850,6 @@
         ]
       },
       "firstSeenAt": "2026-08-24T10:03:49.373Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "baseSalary": {
@@ -863,7 +861,8 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-10baf8530d41",
@@ -1027,26 +1026,26 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-08-25T09:48:48.394Z",
-      "previousSlugs": [
-        "junior-planogramm-analyst-einkauf-denner",
-        "junior-planogram-analyst-purchasing-denner-zurich",
-        "junior-planogramm-analista-einkauf-denner-zurich"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T10:03:49.363Z",
       "previousSlugsByLocale": {
         "it": [
           "junior-planogramm-analyst-einkauf-denner",
           "junior-planogramm-analista-einkauf-denner-zurich"
         ],
+        "fr": [
+          "junior-planogramm-analyst-einkauf-denner"
+        ],
         "en": [
           "junior-planogramm-analyst-einkauf-denner",
           "junior-planogram-analyst-purchasing-denner-zurich"
-        ],
-        "fr": [
-          "junior-planogramm-analyst-einkauf-denner"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-24T10:03:49.363Z",
+      "previousSlugs": [
+        "junior-planogramm-analyst-einkauf-denner",
+        "junior-planogram-analyst-purchasing-denner-zurich",
+        "junior-planogramm-analista-einkauf-denner-zurich"
+      ],
       "salaryMin": 65500,
       "salaryMax": 100500,
       "baseSalary": {
@@ -1837,21 +1836,7 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-08-25T09:48:46.572Z",
-      "previousSlugs": [
-        "verkaufer-in-im-stundenlohn-denner-2",
-        "verkaufer-in-im-stundenlohn-denner-se0fxo",
-        "verkaufer-in-im-stundenlohn-denner-3",
-        "verkaufer-in-im-stundenlohn-denner-4",
-        "verkaufer-in-im-stundenlohn-denner-8",
-        "verkaufer-in-im-stundenlohn-denner-9",
-        "verkaufer-in-im-stundenlohn-denner-ag-frutigen",
-        "verkaufer-in-im-stundenlohn-denner-hunzenschwil",
-        "verkaufer-in-im-stundenlohn-denner-schaffhausen",
-        "verkaufer-in-im-stundenlohn-denner-therwil",
-        "verkaufer-in-im-stundenlohn-denner-zurich",
-        "seller-in-the-hourly-wage-denner-zurich",
-        "vendeur-dans-le-salaire-horaire-denner-zurich"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner-2",
@@ -1874,8 +1859,21 @@
           "vendeur-dans-le-salaire-horaire-denner-zurich"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-24T21:38:34.488Z",
+      "previousSlugs": [
+        "verkaufer-in-im-stundenlohn-denner-2",
+        "verkaufer-in-im-stundenlohn-denner-se0fxo",
+        "verkaufer-in-im-stundenlohn-denner-3",
+        "verkaufer-in-im-stundenlohn-denner-4",
+        "verkaufer-in-im-stundenlohn-denner-8",
+        "verkaufer-in-im-stundenlohn-denner-9",
+        "verkaufer-in-im-stundenlohn-denner-ag-frutigen",
+        "verkaufer-in-im-stundenlohn-denner-hunzenschwil",
+        "verkaufer-in-im-stundenlohn-denner-schaffhausen",
+        "verkaufer-in-im-stundenlohn-denner-therwil",
+        "verkaufer-in-im-stundenlohn-denner-zurich",
+        "seller-in-the-hourly-wage-denner-zurich",
+        "vendeur-dans-le-salaire-horaire-denner-zurich"
+      ],
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -1887,7 +1885,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-24T21:38:34.488Z"
     },
     {
       "id": "denner-e0539eccc45a",

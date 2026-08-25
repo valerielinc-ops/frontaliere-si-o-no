@@ -23991,12 +23991,6 @@
       "department": "Schul- und Sportdepartement",
       "unit": "Kreisschulbehörde Waidberg",
       "referenceNumber": "51011",
-      "previousSlugs": [
-        "fachperson-betreuung-oder-sozialpadagog-in-fur-die-sekundar-tagesschule-stadt-zuerich",
-        "fachperson-betreuung-oder-sozialpadagog-in-fur-die-sekundar-tagesschule-stadt-zurich",
-        "sozialpadagog-in-o-fachperson-betreuung-tagesschule-wolfsblick-abteilung-sekundar-stadt-zurich",
-        "fachperson-betreuung-o-sozialpadagog-in-per-la-sekundar-tagesschule-stadt-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-betreuung-oder-sozialpadagog-in-fur-die-sekundar-tagesschule-stadt-zuerich",
@@ -24010,8 +24004,13 @@
           "fachperson-betreuung-oder-sozialpadagog-in-fur-die-sekundar-tagesschule-stadt-zurich"
         ]
       },
+      "previousSlugs": [
+        "fachperson-betreuung-oder-sozialpadagog-in-fur-die-sekundar-tagesschule-stadt-zuerich",
+        "fachperson-betreuung-oder-sozialpadagog-in-fur-die-sekundar-tagesschule-stadt-zurich",
+        "sozialpadagog-in-o-fachperson-betreuung-tagesschule-wolfsblick-abteilung-sekundar-stadt-zurich",
+        "fachperson-betreuung-o-sozialpadagog-in-per-la-sekundar-tagesschule-stadt-zurich"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-24T10:20:10.580Z",
       "salaryMin": 63000,
       "salaryMax": 116500,
       "baseSalary": {
@@ -24023,7 +24022,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-24T10:20:10.580Z"
     },
     {
       "id": "stadt-zuerich-9fc3bf22fad0",
@@ -26902,18 +26902,14 @@
       "department": "Stiftungen und Anstalten",
       "unit": "Kindes- und Erwachsenenschutzbehörde",
       "referenceNumber": "51389",
-      "previousSlugs": [
-        "behordenmitglied-kesb-stadt-zuerich-zurigo-51389",
-        "behordenmitglied-kesb-stadt-zurich-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "behordenmitglied-kesb-stadt-zuerich-zurigo-51389",
-          "behordenmitglied-kesb-stadt-zurich-zurich"
+          "behordenmitglied-kesb-stadt-zuerich-zurigo-51389"
         ]
       },
-      "firstSeenAt": "2026-08-24T10:20:10.577Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "behordenmitglied-kesb-stadt-zuerich-zurigo-51389"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -26925,7 +26921,9 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-24T10:20:10.577Z",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-421a38897716",
@@ -32928,9 +32926,9 @@
       "id": "stadt-zuerich-77c3411d803d",
       "slug": "sozialpadagog-in-o-fachperson-betreuung-schule-doltschi-stadt-zurich",
       "slugByLocale": {
+        "de": "sozialpadagog-in-oder-fachperson-betreuung-schule-doltschi-stadt-zuerich-zurigo-51323",
         "it": "sozialpadagog-in-o-fachperson-betreuung-schule-doltschi-stadt-zurich",
         "en": "social-pedagogist-or-specialist-care-school-doltschi-stadt-zurich-zurich",
-        "de": "sozialpadagog-in-oder-fachperson-betreuung-schule-doltschi-stadt-zuerich-zurigo-51323",
         "fr": "ecole-de-pedagogie-sociale-ou-de-soins-specialises-doltschi-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -33173,9 +33171,9 @@
       "id": "stadt-zuerich-f055eff02855",
       "slug": "assistenza-scolastica-stadt-zurich-zurich",
       "slugByLocale": {
+        "de": "schulassistenz-stadt-zuerich-zurigo-51405",
         "it": "assistenza-scolastica-stadt-zurich-zurich",
         "en": "school-assistance-stadt-zurich-zurich",
-        "de": "schulassistenz-stadt-zuerich-zurigo-51405",
         "fr": "aide-scolaire-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -33305,17 +33303,14 @@
       "department": "Gesundheits- und Umweltdepartement",
       "unit": "Gesundheitszentren für das Alter",
       "referenceNumber": "51397",
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-mehrheitlich-spatdienst-standort-dorflinde-stadt-zuerich-zurigo",
-        "dipl-pflegefachperson-hf-mehrheitlich-spatdienst-standort-dorflinde-stadt-zurich-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-mehrheitlich-spatdienst-standort-dorflinde-stadt-zuerich-zurigo",
-          "dipl-pflegefachperson-hf-mehrheitlich-spatdienst-standort-dorflinde-stadt-zurich-zurich"
+          "dipl-pflegefachperson-hf-mehrheitlich-spatdienst-standort-dorflinde-stadt-zuerich-zurigo"
         ]
       },
-      "firstSeenAt": "2026-08-24T10:20:10.572Z",
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-mehrheitlich-spatdienst-standort-dorflinde-stadt-zuerich-zurigo"
+      ],
       "salaryMin": 91500,
       "salaryMax": 128000,
       "baseSalary": {
@@ -33327,7 +33322,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-24T10:20:10.572Z"
     },
     {
       "id": "stadt-zuerich-ed15875881b8",
@@ -34076,9 +34072,9 @@
       "id": "stadt-zuerich-12bbc3ef2239",
       "slug": "autista-in-skb-stadt-zurich-zurich",
       "slugByLocale": {
+        "de": "schulbusfahrer-in-skb-stadt-zuerich-zurigo-50005",
         "it": "autista-in-skb-stadt-zurich-zurich",
         "en": "school-bus-driver-in-skb-stadt-zurich-zurich",
-        "de": "schulbusfahrer-in-skb-stadt-zuerich-zurigo-50005",
         "fr": "conducteur-d-autobus-scolaire-en-skb-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -35949,7 +35945,6 @@
           "fachstelle-administration-disposition-betrieb-ausbildung-stadt-zurich-zurich"
         ],
         "en": [
-          "fachstelle-administration-disposition-betrieb-ausbildung-stadt-zurich-zurich",
           "specialist-office-administration-disposition-operation-training-stadt-zurich-zurich"
         ]
       },
