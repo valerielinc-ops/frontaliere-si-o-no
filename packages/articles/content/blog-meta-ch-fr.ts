@@ -4234,6 +4234,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.salari-appenzello-esterno-settori-livelli.title': 'Salaires et travail à Appenzell Extérieur : secteurs et niveaux',
     'blog.article.salari-appenzello-esterno-settori-livelli.excerpt': 'Marché du travail à Appenzell Extérieur : comment fonctionnent les salaires, les conventions collectives et les niveaux de rémunération par niveau de formation.',
     'blog.article.salari-appenzello-esterno-settori-livelli.imageAlt': 'Bureau suisse moderne avec des professionnels au travail, représentant le marché du travail contemporain suisse.',
+    'blog.article.pil-svizzera-2025-crescita.title': 'PIB Suisse 2025 : +1,6% de croissance économique',
+    'blog.article.pil-svizzera-2025-crescita.excerpt': 'L\'économie suisse croît de 1,6% en 2025 soutenue par la demande intérieure (+2,5%) et les investissements (+3,5%). Données OFS officielles avec des implications pour le travail et les salaires.',
+    'blog.article.pil-svizzera-2025-crescita.imageAlt': 'Skyline de Lugano avec indicateurs de croissance économique et données du PIB suisse 2025',
 };
 
 export default blogMetaChFr;
