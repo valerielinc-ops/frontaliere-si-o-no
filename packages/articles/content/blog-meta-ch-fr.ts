@@ -4240,6 +4240,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.20-minuten-utile-pubblicita-digitale.title': '20 Minuten, c\'est le boom avec le bénéfice et la publicité numérique',
     'blog.article.20-minuten-utile-pubblicita-digitale.excerpt': 'Le quotidien en ligne 20 Minuten enregistre une augmentation des utilisateurs et des revenus publicitaires numériques, avec un bénéfice de 11,7 millions de francs au premier semestre 2026',
     'blog.article.20-minuten-utile-pubblicita-digitale.imageAlt': 'Le journal en ligne 20 Minuten enregistre une augmentation des utilisateurs et des revenus publicitaires numériques',
+    'blog.article.apprendistato-formazione-appenzello-interno.title': 'Apprentissage dans le canton d\'Appenzell',
+    'blog.article.apprendistato-formazione-appenzello-interno.excerpt': 'Guide pratique : comment trouver un stage, conclure le contrat, comprendre la rémunération et la maturité professionnelle dans le canton d\'Appenzell Interne.',
+    'blog.article.apprendistato-formazione-appenzello-interno.imageAlt': 'Jeune apprenti travaillant sur une tâche technique dans un atelier suisse',
 };
 
 export default blogMetaChFr;

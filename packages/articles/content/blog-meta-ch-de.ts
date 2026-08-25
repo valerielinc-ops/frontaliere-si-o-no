@@ -4240,6 +4240,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.20-minuten-utile-pubblicita-digitale.title': '20 Minuten, es boomt mit Gewinn und digitaler Werbung',
     'blog.article.20-minuten-utile-pubblicita-digitale.excerpt': 'Die Online-Zeitung 20 Minuten verzeichnet einen Anstieg der Nutzerzahlen und der digitalen Werbeeinnahmen mit einem Gewinn von 11,7 Millionen Franken im ersten Halbjahr 2026',
     'blog.article.20-minuten-utile-pubblicita-digitale.imageAlt': 'Die Online-Zeitung 20 Minuten registriert ein Wachstum der Nutzer und der digitalen Werbeeinnahmen',
+    'blog.article.apprendistato-formazione-appenzello-interno.title': 'Lehre im Kanton Appenzell Innerrhoden',
+    'blog.article.apprendistato-formazione-appenzello-interno.excerpt': 'Praktischer Leitfaden: Wie finde ich ein Praktikum, schließe den Vertrag ab, verstehe Gehalt und Berufsmaturität im Kanton Appenzell Innerrhoden.',
+    'blog.article.apprendistato-formazione-appenzello-interno.imageAlt': 'Junger Lehrling bei der Arbeit in einer Schweizer Werkstatt an einer technischen Aufgabe',
 };
 
 export default blogMetaChDe;

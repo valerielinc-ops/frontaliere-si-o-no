@@ -4240,6 +4240,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.20-minuten-utile-pubblicita-digitale.title': '20 Minuten, è boom con utile e pubblicità digitale',
     'blog.article.20-minuten-utile-pubblicita-digitale.excerpt': 'Il quotidiano online 20 Minuten registra un aumento degli utenti e dei ricavi pubblicitari digitali, con un utile di 11,7 milioni di franchi nel primo semestre 2026',
     'blog.article.20-minuten-utile-pubblicita-digitale.imageAlt': 'Il quotidiano online 20 Minuten registra un aumento degli utenti e dei ricavi pubblicitari digitali',
+    'blog.article.apprendistato-formazione-appenzello-interno.title': 'Apprendistato nel canton Appenzello interno',
+    'blog.article.apprendistato-formazione-appenzello-interno.excerpt': 'Guida pratica: come trovare un tirocinio, stipulare il contratto, comprendere retribuzione e maturità professionale nel Canton Appenzello Interno.',
+    'blog.article.apprendistato-formazione-appenzello-interno.imageAlt': 'Giovane apprendista al lavoro in un laboratorio svizzero concentrato su un compito tecnico',
 };
 
 export default blogMetaChIt;
