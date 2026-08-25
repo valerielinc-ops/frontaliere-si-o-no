@@ -376,6 +376,7 @@ export function scoreCohorts(fingerprints, opts = {}) {
     cohorts.push({
       key,
       label: `${pages[0].locale}:${commonPathPrefix(pages.map((p) => p.urlPath))}`,
+      skeletonHash: pages[0].skeletonHash,
       locale: pages[0].locale,
       pages: scored.length,
       gated: scored.length >= minCohortPages,
@@ -384,6 +385,23 @@ export function scoreCohorts(fingerprints, opts = {}) {
       zeroGainPages: scored.filter((p) => p.pageSpecific === 0).length,
       worst: scored.slice(0, 5),
     });
+  }
+
+  // `commonPathPrefix` computes each cohort's label in isolation, with no
+  // visibility into sibling cohorts. For flat-slug families it falls back to
+  // a raw character prefix (`/lavoro-ticino-`), and two structurally distinct
+  // families (different `skeletonHash`, i.e. different templates) can reduce
+  // to that SAME string if their slugs happen to share a long enough prefix.
+  // That collision is not cosmetic: `audit-information-gain.mjs` keys the
+  // regression inventory (`KNOWN_LOW_GAIN_COHORTS`) BY label, so two
+  // colliding cohorts would silently share one recorded baseline. Disambiguate
+  // deterministically with the family's own skeleton fingerprint — stable
+  // across sampling and independent of iteration order — leaving every
+  // non-colliding label (the overwhelming majority) untouched.
+  const labelCounts = new Map();
+  for (const cohort of cohorts) labelCounts.set(cohort.label, (labelCounts.get(cohort.label) ?? 0) + 1);
+  for (const cohort of cohorts) {
+    if (labelCounts.get(cohort.label) > 1) cohort.label = `${cohort.label}~${cohort.skeletonHash.slice(0, 6)}`;
   }
 
   cohorts.sort((a, b) => a.medianIgs - b.medianIgs || b.pages - a.pages);
