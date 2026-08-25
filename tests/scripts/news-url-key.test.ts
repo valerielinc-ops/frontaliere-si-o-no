@@ -1,9 +1,17 @@
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 
+import { findCrossSectionSourceDuplicate } from '../../scripts/lib/cross-section-dedup.mjs';
 import {
   isTrackingParam,
   legacyNewsUrlKey,
   newsUrlKey,
+  makeLedgerEntry,
+  readLedgerEntry,
+  SOURCE_URL_KEY_FORM,
+  ledgerViewsForLookup,
 } from '../../scripts/lib/news-url-key.mjs';
 
 /**
@@ -127,5 +135,86 @@ describe('newsUrlKey — la query che identifica il documento non si butta', () 
     const rotto = 'non-un-url?a=1&amp;b=2';
     expect(newsUrlKey(rotto)).toBe(legacyNewsUrlKey(rotto));
     expect(newsUrlKey(rotto)).not.toContain('&amp;');
+  });
+});
+
+describe('ponte keyForm verso le voci storiche (forma 1)', () => {
+  const LEDGERS = (voci: Record<string, unknown>) => ({ frontaliere: voci, svizzera: {} });
+
+  it('readLedgerEntry tratta la stringa nuda come keyForm 1', () => {
+    expect(readLedgerEntry('comunicato-vecchio')).toEqual({
+      articleId: 'comunicato-vecchio',
+      ts: null,
+      keyForm: 1,
+    });
+    expect(readLedgerEntry({ articleId: 'nuovo', ts: '2026-08-19T00:00:00.000Z', keyForm: 2 })?.keyForm).toBe(2);
+  });
+
+  it('makeLedgerEntry scrive SEMPRE keyForm 2', () => {
+    expect(makeLedgerEntry('x').keyForm).toBe(SOURCE_URL_KEY_FORM);
+    expect(SOURCE_URL_KEY_FORM).toBe(2);
+  });
+
+  it('una voce STORICA sul path nudo blocca ancora un URL con query', () => {
+    const u = 'https://www4.ti.ch/tich/area-media/comunicati/dettaglio-comunicato/?NEWS_ID=260792';
+    const storico = LEDGERS({ [legacyNewsUrlKey(u)]: 'comunicato-vecchio' });
+    expect(
+      findCrossSectionSourceDuplicate(
+        newsUrlKey(u),
+        ledgerViewsForLookup(storico, 'frontaliere', { maxAgeDays: null }),
+        'frontaliere',
+      ).used,
+    ).toBe(false);
+    const ponte = findCrossSectionSourceDuplicate(
+      legacyNewsUrlKey(u),
+      ledgerViewsForLookup(storico, 'frontaliere', { keyForm: 1, maxAgeDays: null }),
+      'frontaliere',
+    );
+    expect(ponte.used).toBe(true);
+    expect(ponte.articleId).toBe('comunicato-vecchio');
+  });
+
+  it('il ponte NON vede le voci nuove: e cio che impedisce al collasso di tornare', () => {
+    const pubblicato = 'https://www4.ti.ch/tich/area-media/comunicati/dettaglio-comunicato/?NEWS_ID=260792';
+    const nuovo = 'https://www4.ti.ch/tich/area-media/comunicati/dettaglio-comunicato/?NEWS_ID=260773';
+    const ledgers = LEDGERS({ [newsUrlKey(pubblicato)]: makeLedgerEntry('comunicato-260792') });
+    expect(
+      findCrossSectionSourceDuplicate(
+        newsUrlKey(nuovo),
+        ledgerViewsForLookup(ledgers, 'frontaliere', { maxAgeDays: null }),
+        'frontaliere',
+      ).used,
+    ).toBe(false);
+    expect(
+      findCrossSectionSourceDuplicate(
+        legacyNewsUrlKey(nuovo),
+        ledgerViewsForLookup(ledgers, 'frontaliere', { keyForm: 1, maxAgeDays: null }),
+        'frontaliere',
+      ).used,
+    ).toBe(false);
+  });
+
+  it('isSourceUrlAlreadyUsed in create-article.mjs cablato il ponte keyForm 1', () => {
+    const src = readFileSync(
+      path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../scripts/create-article.mjs'),
+      'utf-8',
+    );
+    const i = src.indexOf('function isSourceUrlAlreadyUsed(');
+    expect(i).toBeGreaterThan(0);
+    const fn = src.slice(i, src.indexOf('\nfunction ', i + 1));
+    expect(fn).toMatch(/legacyNewsUrlKey\(headlineUrl\)/);
+    expect(fn).toMatch(/\{\s*keyForm:\s*1/);
+  });
+
+  it('recordSourceUrl scrive makeLedgerEntry, non una stringa nuda', () => {
+    const src = readFileSync(
+      path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../scripts/create-article.mjs'),
+      'utf-8',
+    );
+    const i = src.indexOf('function recordSourceUrl(');
+    expect(i).toBeGreaterThan(0);
+    const fn = src.slice(i, src.indexOf('\nfunction ', i + 1));
+    expect(fn).toMatch(/makeLedgerEntry\(articleId\)/);
+    expect(fn).not.toMatch(/map\[normalized\] = articleId/);
   });
 });

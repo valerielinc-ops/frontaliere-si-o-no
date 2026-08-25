@@ -76,6 +76,10 @@ import {
   inputCapVetoSummary,
   isLegitimateQuotaDeferral,
   quotaDeferralShare,
+  PROMPT_SCAFFOLD_FLOOR_TOKENS,
+  isBudgetBelowScaffoldFloor,
+  isPromptFloorIrreducible,
+  promptFloorSummary,
 } from './lib/exhaustion-disposition.mjs';
 // Quota-free MT cascade (DeepL-free / Google / MyMemory / LibreTranslate /
 // local Opus-MT) — the SAME translator the job crawlers + FAQ batch use
@@ -187,7 +191,7 @@ import { findCrossSectionSourceDuplicate } from './lib/cross-section-dedup.mjs';
 // va testata senza importare questo file. Vedi la sua intestazione per il
 // difetto che toglie (la query identificante buttata via) e per il ponte con
 // le voci gia' scritte.
-import { newsUrlKey } from './lib/news-url-key.mjs';
+import { newsUrlKey, legacyNewsUrlKey, makeLedgerEntry, ledgerViewsForLookup } from './lib/news-url-key.mjs';
 
 // ── Smarter generator inputs (Phase 3 — spec 2026-05-06) ───────
 // data/article-performance.json is produced weekly by Phase 1A.
@@ -2271,30 +2275,29 @@ function extractUrlSlugWords(rawUrl) {
 function isSourceUrlAlreadyUsed(headlineUrl) {
   const normalized = normalizeNewsUrl(headlineUrl);
   // Exact match — sezione attiva per prima, poi le sorelle.
-  const exact = findCrossSectionSourceDuplicate(normalized, loadAllSectionSourceUrls(), SECTION_NAME);
+  // `ledgerViewsForLookup` appiattisce `{articleId, ts, keyForm}` a stringhe,
+  // che e' cio' che `findCrossSectionSourceDuplicate` (identical) sa leggere.
+  const exact = findCrossSectionSourceDuplicate(
+    normalized,
+    ledgerViewsForLookup(loadAllSectionSourceUrls(), SECTION_NAME, { maxAgeDays: null }),
+    SECTION_NAME,
+  );
   if (exact.used) return exact;
 
-  // ── NESSUN PONTE VERSO LE VOCI DI FORMA 1 — e' deliberato ──
-  //
-  // La tentazione e' cercare anche sotto la chiave vecchia (path nudo), per non
-  // «liberare» per un giro le fonti gia' consumate. Misurato: sarebbe una
-  // ricerca che si accende SOLO quando `legacyKey !== normalized`, cioe' solo
-  // sugli URL con parametri identificanti — esattamente i casi che questa fix
-  // esiste per sbloccare. Quando le due chiavi coincidono la ricerca sopra ha
-  // gia' risposto, quindi il ponte non ha un solo ramo utile.
-  //
-  // E su quei casi la voce vecchia e' una chiave COLLASSATA: per
-  // `www3.ti.ch/dfe/dr/ustat/index.php` (presente nel ledger reale) un
-  // documento nuovo `...index.php?idNews=999` la colpirebbe comunque, e ogni
-  // altro documento di quella fonte con lui. Il blocco si auto-alimenta: nessuna
-  // chiave di forma 2 verrebbe mai scritta per quel path, e la voce che avvelena
-  // esce solo col trim FIFO a 500 voci di saveSourceUrls().
-  //
-  // Il prezzo di non avere il ponte e' l'opposto e finisce: il singolo documento
-  // gia' consumato sotto la chiave vecchia puo' essere ripreso UNA volta, dopo di
-  // che viene registrato in forma 2 e il dedup riprende a funzionare. Un
-  // duplicato possibile una volta per fonte, invece di ogni documento nuovo di
-  // quella fonte bloccato per ~500 articoli.
+  // Ponte verso le voci scritte quando la chiave era il path nudo (forma 1).
+  // Scatta SOLO quando le due forme differiscono, ed e' interrogato SOLO
+  // contro le voci senza `keyForm` (o `keyForm: 1`). Senza il filtro, la prima
+  // registrazione di forma 2 su `…?news_id=X` verrebbe ritrovata dal path nudo
+  // di `…?news_id=Y` e il collasso tornerebbe.
+  const legacyKey = legacyNewsUrlKey(headlineUrl);
+  if (legacyKey !== normalized) {
+    const legacy = findCrossSectionSourceDuplicate(
+      legacyKey,
+      ledgerViewsForLookup(loadAllSectionSourceUrls(), SECTION_NAME, { keyForm: 1, maxAgeDays: null }),
+      SECTION_NAME,
+    );
+    if (legacy.used) return legacy;
+  }
 
   // Fuzzy URL slug vs existing article ID match
   const urlWords = extractUrlSlugWords(headlineUrl);
@@ -2326,7 +2329,7 @@ function recordSourceUrl(sourceUrl, articleId) {
   if (!sourceUrl || sourceUrl.startsWith('evergreen://')) return;
   const map = loadSourceUrls();
   const normalized = normalizeNewsUrl(sourceUrl);
-  map[normalized] = articleId;
+  map[normalized] = makeLedgerEntry(articleId);
   saveSourceUrls(map);
   console.error(`  📎 Source URL registrata: ${normalized} → ${articleId}`);
 }
@@ -10927,6 +10930,32 @@ async function generateAndValidateArticle(url, sourceContext = null) {
           + ' — il prossimo tentativo lascia fuori i fatti di dominio invece di rispedirlo uguale.',
         );
       }
+      if (isBudgetBelowScaffoldFloor(lastPromptTokenBudget)) {
+        e.promptFloorReport = {
+          budget: lastPromptTokenBudget,
+          floor: PROMPT_SCAFFOLD_FLOOR_TOKENS,
+          attempt,
+          maxAttempts,
+          section: SECTION_NAME,
+        };
+        const { short, attemptsSkipped } = promptFloorSummary(e);
+        console.error(
+          `  ⛔ [prompt-floor] section=${SECTION_NAME} attempt=${attempt}/${maxAttempts} `
+          + `budget=${lastPromptTokenBudget} floor=${PROMPT_SCAFFOLD_FLOOR_TOKENS} short=${short} `
+          + `skipped=${attemptsSkipped}`,
+        );
+        console.error(
+          `  ⛔ Esco adesso: il bersaglio dettato dalla flotta (${lastPromptTokenBudget} token) sta ${short} token`
+          + ` SOTTO il pavimento dell'impalcatura del prompt (${PROMPT_SCAFFOLD_FLOOR_TOKENS}), e il budget non si`
+          + ` riallarga mai (Math.min monotono). I ${attemptsSkipped} tentativi restanti di questa sezione non`
+          + ' possono che ripetere questo esito.',
+        );
+        RUN_REPORT.notes.push(
+          `Early exit: prompt budget ${lastPromptTokenBudget} below scaffold floor ${PROMPT_SCAFFOLD_FLOOR_TOKENS} `
+          + `(section=${SECTION_NAME}, attempt=${attempt}/${maxAttempts}, skipped=${attemptsSkipped})`,
+        );
+        throw e;
+      }
       if (attempt < maxAttempts) continue;
       throw e;
     }
@@ -11867,6 +11896,29 @@ if (invokedDirectly) {
   // nessuna finestra di quota rimpicciolisce un prompt, quindi differire qui e'
   // un ciclo infinito che maschera un bug di prompt da esaurimento di quota.
   // Vedi isInputCapDeferralVeto() per la misura (53/53 sulla run 31817957722).
+  if (isPromptFloorIrreducible(e)) {
+    const f = promptFloorSummary(e);
+    finalizeRunReport('error', {
+      notes: [
+        ...RUN_REPORT.notes,
+        `Prompt target below scaffold floor (irreducible): budget=${f.budget} floor=${f.floor}`,
+      ],
+    });
+    console.error(
+      `\n❌ Bersaglio del prompt IRRIDUCIBILE: la flotta chiede ${f.budget} token, ${f.short} sotto il pavimento`
+      + ` dell'impalcatura (${f.floor}) — cioe' sotto il peso del prompt a fonte E fatti azzerati.`
+      + ` Nessuna riduzione ci rientra, e il budget non si riallarga (Math.min monotono), quindi i`
+      + ` ${f.attemptsSkipped} tentativi restanti della sezione ${f.section || '(ignota)'} erano insoddisfacibili per`
+      + ` costruzione: usciti al tentativo ${f.attempt}/${f.maxAttempts} invece di macinarli fino al kill di durata.`
+      + ` NON e' un differimento: nessuna finestra di quota alza il cap di un modello. Alzare il cap piu' permissivo del`
+      + ` roster sopra ${f.floor}, oppure alleggerire l'impalcatura del prompt. ${e.message}`,
+    );
+    console.error(
+      `::error::prompt-floor-irreducible: budget=${f.budget} floor=${f.floor} short=${f.short}`
+      + ` attempt=${f.attempt}/${f.maxAttempts} skipped=${f.attemptsSkipped} section=${f.section}`,
+    );
+    process.exit(EXIT_ROSTER_CANNOT_SERVE_PROMPT);
+  }
   if (isInputCapDeferralVeto(e)) {
     const { estimatedRequestTokens, maxSkippedReqLimit, over, refusals } = inputCapVetoSummary(e);
     finalizeRunReport('error', {
