@@ -4264,6 +4264,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.amrize-cfo-lascia-sorpresa-borsa.title': 'Amrize: CFO verlässt überraschend die Börse',
     'blog.article.amrize-cfo-lascia-sorpresa-borsa.excerpt': 'Baris Oran verlässt nach 5 Monaten den Finanzvorstand. Samuel Poletti neuer CFO. Titel Amrize sinkt an der Zürcher Börse um 2%, -20% seit Januar.',
     'blog.article.amrize-cfo-lascia-sorpresa-borsa.imageAlt': 'Gebäude der Züricher Börse mit Amrize-Aktienchart als Reaktion auf den CFO-Wechsel.',
+    'blog.article.pagamenti-offline-carte-2026.title': 'Offline-Zahlungen mit Karten: Start August 2026',
+    'blog.article.pagamenti-offline-carte-2026.excerpt': 'Offline-Zahlungen mit Karten ab 24. August 2026: Terminal erfasst auch netzunabhängig. Gewährleistet Kontinuität bei wesentlichen Einkäufen während Unterbrechungen.',
+    'blog.article.pagamenti-offline-carte-2026.imageAlt': 'Offline-Kartenzahlung an einem Terminal in einem Schweizer Geschäft bei Netzunterbrechung',
 };
 
 export default blogMetaChDe;

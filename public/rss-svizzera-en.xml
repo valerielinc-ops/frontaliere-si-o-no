@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Tue, 25 Aug 2026 10:57:25 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 11:17:06 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -16,6 +16,77 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Offline card payments: launch August 2026</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/offline-card-payments-2026/</link>
+      <description><![CDATA[Offline payments with cards from 24 August 2026: terminal also registers without a network. Ensures continuity in essential purchases during outages.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- Offline card payments introduced in Switzerland: launch 24 August 2026 in Bern
+- They also work without a network; terminal records, transmits to recovery
+- Banks, shops and suppliers undertake by joint declaration
+- Applicable to essential goods: food, medicines, fuels
+
+## Key facts
+- **What**: Offline payments with physical debit/credit cards and PINs
+- When: Launch 24 August 2026; dissemination by the end of 2027
+- Where: Bern (event); spread throughout the country
+- Who: SNB, Country economic supply, banks, suppliers, shops
+- Representatives: President Parmelin, President BNS Schlegel, delegate Pfister
+- Technology: Terminal records offline transaction, transmits to the network recovery
+- Requirements: Physical card + PIN + power supply (current or battery)
+
+The Swiss National Bank (SNB) and the country's Economic Supply (AEP), together with banks, payment service providers and shops, announced on 24 August 2026 in Bern an innovative solution to ensure the continuity of payments in the event of technical problems: the introduction of offline payments with debit and credit cards. This is an initiative aimed at strengthening the resilience of national supply, responding to a reality that is now recognized: an interruption of the payment network quickly creates a supply problem for the entire population.
+
+The operation is simple. The terminal of
+## What concretely changes for those living in Switzerland
+
+The solution of offline payments substantially changes the scenario of continuity of supply. So far, a disruption to the payment network — caused by technical malfunctions, cyberattacks or infrastructure problems — would have completely blocked the ability to pay by card, forcing customers to resort only to cash. With offline payments, the supply chain maintains a second digital payment option even in critical situations, ensuring that the system does not collapse for purely technical reasons.
+
+This change directly affects those who buy in grocery stores, pharmacies and fuel distributors throughout the Swiss national territory. It is not a global novelty: Sweden has already adopted this solution, and other Northern European countries — Finland, Norway, Estonia — are introducing similar measures. Switzerland is positioned as the first Central European country to implement a solution widely shared among market players, demonstrating a rare capacity for public-private coordination in this context.
+
+### The role of the mission statement
+
+The joint declaration of intent (joint commitment) is the central instrument of this transition. This is not a legislative provision but a voluntary commitment signed by banks, payment service providers and shops.
+
+## Useful tools to protect your net income
+To reduce FX leakage, compare [CHF-EUR exchange options](nav:exchange) and [banks for cross-border workers](nav:banks).
+## How to prepare as a customer and merchant
+
+For customers, the transition is almost invisible. No immediate action is required: current debit and credit cards remain fully valid. The only new element will be the availability of offline payment mode in stores that have implemented it, available as an automatic option when the terminal has no connection. No app to download, no new authentication procedures, no change in habits. The customer continues to use their physical card as always, and the system works even when the network is absent.
+
+For merchants, the preparation phase is more intense. Card reading devices will need to be reconfigured to support offline mode. This does not require the purchase of new hardware — current devices can be updated — but rather a software update and a technical procedure coordinated with the payment service provider. The reconfiguration timing will be managed by the actors who signed the letter of intent, with the objective of completing the large-scale implementation by the end of 2027.
+
+### Infrastructure and operational continuity
+
+A crucial element of the solution concerns the power supply to terminals. Even during an offline payment, the device must remain powered. Stores will need to evaluate:
+
+1. **Power continuity**: Verify that electrical lines are stable and that there are no frequent interruptions that would compromise operation.
+2. Energy backup: Prepare external batteries or portable generators as contingency in case of blackouts, ensuring that payments can continue even with loss of main power.
+3. Coordination with provider: Agree on the timing and methods of terminal reconfiguration with your payment service provider.
+
+Grocery stores, pharmacies and fuel distributors have already begun to sign the commitment of the letter of intent. As implementation proceeds, the procedure will become more standardized and lessons learned from early adopters will facilitate the transition for others.
+
+### Step-by-step for the customer: what to expect
+
+1. Recognition: In the course of 2027, during a payment, the terminal could indicate that it is operating in offline mode or simply record the transaction without visible feedback.
+2. Use: Present the physical debit or credit card, enter the PIN as usual — nothing new.
+3. Confirmation: The transaction is recorded locally. The customer receives payment confirmation, identical to that of an online payment.
+4. Synchronization: Upon network restoration, the store transmits the data for final processing. The customer does not see this phase.
+
+There will be no need to resort to cash, virtual card or alternative methods during the interruption, since the digital system remains fully operational. The transition takes place behind the scenes.
+
+### National supply implications
+
+Switzerland, as an industrialized economy with a densely urban population and dependent on digital services, benefits from a solution that combines resilience and practicality. The joint letter of intent represents a model of collaboration between the public sector (SNB, AEP, Federal Council) and the private sector (banks, providers, stores), avoiding the need for new legislation while ensuring national coordination.
+
+To learn more about how payment infrastructures influence access to essential goods and the cost of living in different Swiss regions, [consult our cost of living tool](nav:cost-of-living). A resilient national supply strategy also depends on transparency about where and how to buy, and how much essential goods cost.
+
+*Source: [admin.ch](https://www.admin.ch/it/newnsb/z-jLXIXpvKZJ6aL0R7rKJ)*]]></content:encoded>
+      <pubDate>Tue, 25 Aug 2026 11:17:06 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/pagamenti-offline-carte-2026</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/pagamenti-offline-carte-2026.webp" medium="image"/>
+    </item>
     <item>
       <title>Amrize: the CFO leaves a surprise, down in the bag</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/amrize-cfo-leaves-surprise-zurich/</link>
@@ -3130,61 +3201,6 @@ The [mortgage calculator](nav:calculator) available on this website helps you es
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/comprare-casa-basilea-prezzi-mutuo</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/comprare-casa-basilea-prezzi-mutuo.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Nursery and childcare: costs and subsidies in Switzerland</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/childcare-nursery-costs-switzerland/</link>
-      <description><![CDATA[Find out how childcare works in Switzerland: kindergartens, fees, cantonal subsidies and tax deductions. Practical guide for families.]]></description>
-      <content:encoded><![CDATA[## In a nutshell
-- Custody services (kindergartens, day families, after-school) are financed by cantons, municipalities and families
-- Fees are calculated on household income in many cantons
-- Cantonal subsidies and tax deductions reduce the cost for families
-
-## Key facts
-- **What**: Childcare services in Switzerland
-- Types: Kindergartens, day families, after-school
-- Who finances: Cantons, municipalities, families
-- How they are calculated: On an income basis in the main cantons
-- Benefits: Cantonal subsidies and tax deductions
-
-Child custody in Switzerland is a central issue for families where both parents work. The system is divided into three levels: nurseries, day families (tagesmütter) and after-school facilities, each with its own characteristics of cost and availability.
-
-The responsibility for financing is shared between public bodies and families. The cantons and municipalities, through public budgets, cover a portion of the management costs of the facilities. Households pay fees proportional to income in many cantons, while others apply fixed rates. The cantons also provide direct subsidies to households that meet certain income thresholds.
-
-### The structure of the case in Switzerland
-
-Nurseries are public or private facilities authorised by the cantonal authorities. Day families offer custody in domestic settings, often with greater hourly flexibility. The after-school, active after
-The choice of childcare services has significant implications for the family budget and the ability to participate in the labour market. For a family where both parents are employed, the cost of custody directly affects disposable income and, consequently, effective taxation at the federal, cantonal, and municipal levels.
-
-### How costs affect disposable income
-
-Suppose a household with a gross monthly income of CHF 10,000. If the custodial fee absorbs CHF 2,000 per month, the disposable income is reduced to CHF 8,000 before taxation. After the application of direct federal tax, cantonal and municipal taxes, net income is further reduced. Cantonal subsidies and tax deductions operate as compensation mechanisms, reducing the cost received by the family.
-
-The calculation of the fee on the basis of income allows the contribution to be calibrated according to economic capacity. A household with gross income of CHF 5,000 per month will pay a lower tuition than one with CHF 15,000, consistent with the principle of progressivity. It is crucial to understand that the fee is not a federal, cantonal or municipal tax, but a payment to the property manager.
-
-### Impact on social security
-
-An often overlooked aspect is the effect on social security contributions. When a parent is absent from work for parental leave, the AVS contribution period
-
-## Useful planning tools
-To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
-To access custodial services in your canton, you must follow a standard procedure that varies slightly from territory to territory, but follows common principles at the national level.
-
-### Step-by-step to find and request custody
-
-Step 1: Identify available facilities. Each canton maintains a public register of licensed nurseries and day families. The website of the cantonal administration (usually the Social Division or the Family Office) provides a list with contacts, opening hours, seat availability and indicative rates. It is advisable to contact multiple facilities at the same time, as waiting lists are often long.
-
-Step 2: Check the admission requirements. Many cantons require residency in the territory and an employment contract in force. Some assign seats by order of registration, others by priority (single-parent families, income, situations of fragility).
-
-**Step 3: Prepare documentation.** The cantonal authorities will require the tax return (form 1 of the Confederation, cantonal return) of the previous two years, sometimes also bank details to verify the ability to pay. The policyholder number (AVS number) of all family members is also needed to correctly identify the nucleus and calculate the benefits.
-
-Step 4: Fill out the grant application. If the income is below the cantonal thresholds, you can apply at the same time
-
-First day as a cross-border worker? Our [practical guide](nav:first-day) walks you from cantonal registration to your first paycheck.]]></content:encoded>
-      <pubDate>Mon, 24 Aug 2026 13:10:34 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/asilo-nido-custodia-bambini-svizzera</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/asilo-nido-custodia-bambini-svizzera.webp" medium="image"/>
     </item>
   </channel>
 </rss>

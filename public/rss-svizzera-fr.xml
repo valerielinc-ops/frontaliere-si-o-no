@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides sur la Suisse : économie, travail, fiscalité et vie quotidienne</description>
     <language>fr</language>
-    <lastBuildDate>Tue, 25 Aug 2026 10:57:25 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 11:17:06 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Suisse</title>
@@ -16,6 +16,77 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Paiements hors ligne par cartes : lancement août 2026</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/paiements-sans-connexion-cartes-2026/</link>
+      <description><![CDATA[Paiements hors ligne par cartes à partir du 24 août 2026 : terminal enregistre également sans réseau. Assure la continuité des achats essentiels pendant les interruptions.]]></description>
+      <content:encoded><![CDATA[## En bref
+- Paiements hors ligne par carte introduits en Suisse : lancement le 24 août 2026 à Berne
+- Fonctionnent également sans réseau ; terminal enregistre, transmet à la réinitialisation
+- Banques, magasins et fournisseurs s'engagent par déclaration conjointe
+- Applicables aux biens essentiels : aliments, médicaments, carburants
+
+## Faits clés
+- **Quoi** : Paiements hors ligne par cartes de débit/crédit physiques et pin
+- Quand : Lancement 24 août 2026 ; diffusion avant fin 2027
+- Où : Berne (événement) ; diffusion sur le territoire national
+- Qui : BNS, Approvisionnement économique du pays, banques, fournisseurs, magasins
+- Représentants : Président Parmelin, Président BNS Schlegel, Délégué Pfister
+- Technologie : Terminal enregistre la transaction hors ligne, transmet à la réinitialisation du réseau
+- Exigences : Carte physique + BROCHE + alimentation (courant ou batterie)
+
+La Banque nationale suisse (BNS) et l'Approvisionnement économique du pays (AEP), ainsi que des banques, des prestataires de services de paiement et des magasins, ont annoncé le 24 août 2026 à Berne une solution innovante pour assurer la continuité des paiements en cas de problèmes techniques : l'introduction des paiements hors ligne par cartes de débit et de crédit. Il s'agit d'une initiative destinée à renforcer la résilience de l'approvisionnement national, répondant à une réalité désormais reconnue : une rupture du réseau de paiement crée rapidement un problème d'approvisionnement pour l'ensemble de la population.
+
+Le fonctionnement est simple. Le terminal de
+## Ce qui change concrètement pour ceux qui vivent en Suisse
+
+La solution des paiements hors ligne modifie de manière substantielle le scénario de continuité de l'approvisionnement. Jusqu'à présent, une interruption du réseau de paiement — causée par des dysfonctionnements techniques, des cyberattaques ou des problèmes d'infrastructure — aurait complètement bloqué la possibilité de payer par carte, obligeant les clients à recourir uniquement à l'argent liquide. Avec les paiements hors ligne, la chaîne d'approvisionnement maintient une deuxième option de paiement numérique même dans des situations critiques, en veillant à ce que le système ne s'effondre pas pour des raisons purement techniques.
+
+Ce changement concerne directement ceux qui achètent dans les épiceries, les pharmacies et les stations-service sur tout le territoire national suisse. Ce n'est pas une nouveauté mondiale : la Suède a déjà adopté cette solution, et d'autres pays d'Europe du Nord — Finlande, Norvège, Estonie — introduisent des mesures similaires. La Suisse se positionne comme le premier pays d'Europe centrale à mettre en œuvre une solution largement partagée entre les acteurs du marché, démontrant une capacité de coordination public-privé rare dans ce contexte.
+
+### Le rôle de la déclaration d'intention
+
+La déclaration d'intention conjointe (joint commitment) est l'instrument central de cette transition. Il ne s'agit pas d'une norme législative mais d'un engagement volontaire souscrit par les banques, les prestataires de services de paiement et les magasins.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
+## Comment se préparer en tant que client et commerçant
+
+Pour les clients, la transition est presque invisible. Aucune action immédiate n'est requise : les cartes de débit et de crédit actuelles restent complètement valides. L'unique nouvel élément sera la disponibilité du mode de paiement hors ligne dans les magasins qui l'auront mis en œuvre, disponible comme option automatique lorsque le terminal n'a pas de connexion. Pas d'app à télécharger, pas de nouvelles procédures d'authentification, pas de changement d'habitudes. Le client continue d'utiliser sa carte physique comme toujours, et le système fonctionne même quand le réseau est absent.
+
+Pour les commerçants, la phase de préparation est plus intense. Les appareils de lecture de cartes devront être reconfigurés pour prendre en charge le mode hors ligne. Cela ne nécessite pas l'achat de nouveau matériel — les appareils actuels pourront être mis à jour — mais plutôt une mise à jour logicielle et une procédure technique coordonnée avec le fournisseur de services de paiement. Le calendrier de la reconfiguration sera géré par les acteurs signataires de la déclaration d'intention, dans l'objectif de compléter la mise en œuvre à grande échelle avant la fin 2027.
+
+### Infrastructure et continuité opérationnelle
+
+Un élément crucial de la solution concerne l'alimentation des terminaux. Même lors d'un paiement hors ligne, l'appareil doit rester alimenté. Les magasins devront évaluer :
+
+1. **Continuité du courant** : Vérifier que les lignes électriques sont stables et qu'il n'y a pas d'interruptions fréquentes qui compromettraient le fonctionnement.
+2. Secours énergétique : Prévoir des batteries externes ou des générateurs portables en contingence en cas de panne de courant, en veillant à ce que les paiements puissent continuer même en cas de perte du courant principal.
+3. Coordination avec le fournisseur : Convenir des délais et des modalités de reconfiguration du terminal avec son fournisseur de services de paiement.
+
+Les magasins d'alimentation, pharmacies et distributeurs de carburant ont déjà commencé à s'engager dans la déclaration d'intention. À mesure que la mise en œuvre progresse, la procédure deviendra plus standardisée et les leçons apprises des premiers adoptants faciliteront la transition pour les autres.
+
+### Étape par étape pour le client : à quoi s'attendre
+
+1. Reconnaissance : Au cours de 2027, lors d'un paiement, le terminal pourrait indiquer qu'il fonctionne en mode hors ligne ou simplement enregistrer la transaction sans retour visuel.
+2. Utilisation : Présenter la carte de débit ou de crédit physique, entrer le PIN comme d'habitude — rien de nouveau.
+3. Confirmation : La transaction est enregistrée localement. Le client reçoit une confirmation de paiement, identique à celle d'un paiement en ligne.
+4. Synchronisation : Lors du rétablissement du réseau, le magasin transmet les données pour le traitement définitif. Le client ne voit pas cette phase.
+
+Il ne sera pas nécessaire de recourir à l'argent comptant, une carte virtuelle ou d'autres méthodes alternatives pendant l'interruption, car le système numérique reste complètement opérationnel. La transition se fait en arrière-plan.
+
+### Implications au niveau national de l'approvisionnement
+
+La Suisse, en tant qu'économie industrialisée avec une population densément urbaine et dépendante des services numériques, bénéficie d'une solution qui allie résilience et praticité. La déclaration d'intention conjointe représente un modèle de collaboration entre le secteur public (BNS, AEP, Conseil fédéral) et le secteur privé (banques, fournisseurs, magasins), évitant le besoin d'une nouvelle législation tout en garantissant une coordination nationale.
+
+Pour explorer comment les infrastructures de paiement influencent l'accès aux biens essentiels et le coût de la vie dans les différentes régions suisses, [consultez notre outil sur le coût de la vie](nav:cost-of-living). Une stratégie nationale d'approvisionnement résiliente dépend également de la transparence sur où et comment acheter, et combien coûtent les biens de première nécessité.
+
+*Source: [admin.ch](https://www.admin.ch/it/newnsb/z-jLXIXpvKZJ6aL0R7rKJ)*]]></content:encoded>
+      <pubDate>Tue, 25 Aug 2026 11:17:06 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/pagamenti-offline-carte-2026</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/pagamenti-offline-carte-2026.webp" medium="image"/>
+    </item>
     <item>
       <title>Amrize : le directeur financier laisse la surprise, en baisse en bourse</title>
       <link>https://frontaliereticino.ch/fr/articles-suisse/amrize-cfo-quitte-surprise-bourse/</link>
@@ -3200,61 +3271,6 @@ Le [calculateur de prêt hypothécaire](nav:calculator) disponible sur ce site v
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/comprare-casa-basilea-prezzi-mutuo</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/comprare-casa-basilea-prezzi-mutuo.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Garderie et garde d&apos;enfants : coûts et subventions en Suisse</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/garde-enfants-couts-suisse/</link>
-      <description><![CDATA[Découvrez comment fonctionne la garde d'enfants en Suisse : crèches, tarifs, allocations cantonales et déductions fiscales. Guide pratique pour les familles.]]></description>
-      <content:encoded><![CDATA[## En bref
-- Les services de garde (crèches, familles de jour, après l'école) sont financés par les cantons, les communes et les familles
-- Les tarifs sont calculés sur le revenu familial dans de nombreux cantons
-- Les allocations cantonales et les déductions fiscales réduisent le coût pour les familles
-
-## Faits clés
-- **Chose** : Services de garde d'enfants en Suisse
-- Types : crèches, familles de jour, après l'école
-- Qui finance : cantons, communes, familles
-- Comment sont calculés : Sur la base des revenus dans les principaux cantons
-- Avantages : Subventions cantonales et déductions fiscales
-
-La garde des enfants en Suisse est une question centrale pour les familles où les deux parents travaillent. Le système est divisé en trois niveaux : crèches, familles de jour (tagesmütter) et structures d'après-scolarité, chacune avec ses propres caractéristiques de coût et de disponibilité.
-
-La responsabilité du financement est partagée entre les organismes publics et les ménages. Les cantons et les communes, à travers les budgets publics, couvrent une partie des coûts de gestion des structures. Les ménages versent des droits proportionnels au revenu dans de nombreux cantons, tandis que d'autres appliquent des tarifs fixes. Les cantons versent également des subventions directes aux familles qui respectent certains seuils de revenu.
-
-### La structure de l'étui en Suisse
-
-Les crèches sont des structures publiques ou privées agréées par les autorités cantonales. Les familles de jour offrent une garde à domicile, souvent avec une plus grande flexibilité horaire. L'après-scolaire, actif après
-Le choix des services de garde a des implications significatives sur le budget familial et sur la capacité de participation au marché du travail. Pour une famille où les deux parents sont occupés, le coût de la garde affecte directement le revenu disponible et, par conséquent, la fiscalité effective au niveau fédéral, cantonal et communal.
-
-### Comment les coûts affectent le revenu disponible
-
-Supposons un ménage avec un revenu mensuel brut de CHF 10 000. Si le droit de garde absorbe 2 000 CHF par mois, le revenu disponible est réduit à 8 000 CHF avant même l'imposition. Après application de l'impôt fédéral direct, des impôts cantonaux et communaux, le revenu net diminue encore. Les subventions cantonales et les déductions fiscales fonctionnent comme des mécanismes de compensation, réduisant le coût perçu par la famille.
-
-Le calcul de la droite sur la base du revenu permet de calibrer la contribution en fonction de la capacité économique. Une famille avec un revenu brut de 5 000 CHF par mois paiera un tarif inférieur à celui d'une famille avec 15 000 CHF, conformément au principe de progressivité. Il est crucial de comprendre que la redevance n'est pas une taxe fédérale, cantonale ou communale, mais un paiement au gestionnaire de l'établissement.
-
-### Impact sur la sécurité sociale
-
-Un aspect souvent négligé est l'effet sur les cotisations de sécurité sociale. Lorsqu'un parent s'absente du travail pour congé parental, la période de cotisation à l'AVS
-
-## Outils utiles pour la planification
-Pour estimer votre stratégie retraite, utilisez le [planificateur retraite](nav:pension) et le [simulateur 3e pilier](nav:pillar3).
-Pour accéder aux services de garde dans votre canton, vous devez suivre une procédure standard qui varie légèrement d'un territoire à l'autre, mais qui suit des principes communs au niveau national.
-
-# ## Étape par étape pour trouver et demander la garde
-
-Étape 1 : Identifier les installations disponibles. Chaque canton tient un registre public des crèches et crèches agréées. Le site internet de l'administration cantonale (généralement la Division Sociale ou le Bureau Famille) fournit une liste avec les contacts, les horaires, la disponibilité des places et les tarifs indicatifs. Il est conseillé de contacter plusieurs structures en même temps, car les listes d'attente sont souvent longues.
-
-Étape 2 : Vérifier les conditions d'admission. De nombreux cantons exigent la résidence sur le territoire et un contrat de travail en vigueur. Certains attribuent les places par ordre d'inscription, d'autres par priorité (familles monoparentales, revenus, situations de fragilité).
-
-Étape 3 : Préparer la documentation. Les autorités cantonales demanderont la déclaration de revenus (formulaire 1 de la Confédération, déclaration cantonale) des deux années précédentes, parfois aussi des coordonnées bancaires pour vérifier la capacité de paiement. Il faut également le numéro d'assuré (numéro AVS) de tous les membres de la famille pour identifier correctement le noyau et calculer les allocations.
-
-Étape 4 : Remplissez la demande de subvention. Si le revenu est inférieur aux seuils cantonaux, une demande peut être introduite en même temps
-
-Premier jour en tant que frontalier? Notre [guide pratique](nav:first-day) vous accompagne de l'inscription au premier salaire.]]></content:encoded>
-      <pubDate>Mon, 24 Aug 2026 13:10:34 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/asilo-nido-custodia-bambini-svizzera</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/asilo-nido-custodia-bambini-svizzera.webp" medium="image"/>
     </item>
   </channel>
 </rss>
