@@ -401,7 +401,7 @@ export function scoreCohorts(fingerprints, opts = {}) {
   const labelCounts = new Map();
   for (const cohort of cohorts) labelCounts.set(cohort.label, (labelCounts.get(cohort.label) ?? 0) + 1);
   for (const cohort of cohorts) {
-    if (labelCounts.get(cohort.label) > 1) cohort.label = `${cohort.label}~${cohort.skeletonHash.slice(0, 6)}`;
+    if (labelCounts.get(cohort.label) > 1) cohort.label = `${cohort.label}~${cohort.skeletonHash.toString(16).slice(0, 6)}`;
   }
 
   cohorts.sort((a, b) => a.medianIgs - b.medianIgs || b.pages - a.pages);
