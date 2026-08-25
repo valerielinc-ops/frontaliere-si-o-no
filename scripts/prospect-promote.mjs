@@ -425,7 +425,12 @@ try {
   // gia' su main (le committa lo stadio precedente), e includerle qui aggiunge
   // solo righe che main muove sotto i piedi della PR.
   const paths = ['scripts', 'tests', 'data/crawler-manifest.json'];
-  if (groupsRegenerated) paths.push('.github/workflows');
+  // `data/crawler-group-assignments.json` va nello STESSO commit dei .yml, non
+  // e' opzionale: dal #6482 e' li' che vive l'assegnazione crawler->gruppo, e i
+  // .yml ne sono la resa. Committare i .yml senza i pin lascia il nuovo crawler
+  // "mai visto" al giro dopo, che lo riassegna a un gruppo qualunque — cioe'
+  // esattamente il rimescolamento che i pin esistono per impedire.
+  if (groupsRegenerated) paths.push('.github/workflows', 'data/crawler-group-assignments.json');
   git('add', ...paths);
   git('commit', '-m', `prospector: promuove ${shipped.length} crawler validati (${totalVacancies} annunci)`);
   git('push', '-u', 'origin', branch);
