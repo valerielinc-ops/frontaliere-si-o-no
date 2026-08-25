@@ -10722,6 +10722,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.solbiate-olona-vivere-lavorare.title': 'Solbiate Olona-Ticino: living as a frontier worker in 2024',
     'blog.article.solbiate-olona-vivere-lavorare.excerpt': 'From 1 January 2024, the tax at source is withheld only in Switzerland. Frontier category G pay AVS 5.3%, LPP 7–18%, LAMal from CHF 300–2500 per annum. Complete guide.',
     'blog.article.solbiate-olona-vivere-lavorare.imageAlt': 'Lugano lakefront view with modern office buildings: typical Ticino landscape where cross-border workers commute daily',
+    'blog.article.cassano-magnago-frontaliere-ticino.title': 'Living in Cassano Magnago, working in Ticino',
+    'blog.article.cassano-magnago-frontaliere-ticino.excerpt': 'Cassano Magnago cross-border commuter Ticino: withholding tax, AHV, KVG, rebates. Guide to the 2020 Agreement and procedures for cross-border commuters G.',
+    'blog.article.cassano-magnago-frontaliere-ticino.imageAlt': 'Swiss-Italian border landscape between Varese and Ticino with highway signs and morning commuter traffic',
 };
 
 export default blogMetaEn;

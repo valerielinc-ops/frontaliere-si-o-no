@@ -10721,6 +10721,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.solbiate-olona-vivere-lavorare.title': 'Solbiate Olona-Ticino: Leben als Grenzgänger im Jahr 2024',
     'blog.article.solbiate-olona-vivere-lavorare.excerpt': 'Ab dem 1. Januar 2024 wird die Quellensteuer nur noch in der Schweiz einbehalten. Grenzgänger Kategorie G zahlen AHV 5.3%, BVG 7–18%, KVG ab CHF 300–2500 jährlich. Komplette Anleitung.',
     'blog.article.solbiate-olona-vivere-lavorare.imageAlt': 'Lugano Seeufer mit modernen Bürogebäuden: typische Tessiner Landschaft für Grenzgänger',
+    'blog.article.cassano-magnago-frontaliere-ticino.title': 'Leben in Cassano Magnago, Arbeit im Tessin',
+    'blog.article.cassano-magnago-frontaliere-ticino.excerpt': 'Cassano Magnago grenzüberschreitender Pendler Tessin: Quellensteuer, AHV, KVG, Rabatte. Leitfaden zum Abkommen 2020 und Verfahren für Grenzpendler G.',
+    'blog.article.cassano-magnago-frontaliere-ticino.imageAlt': 'Grenzlandschaft zwischen Varese und Tessin mit Straßenverkehrszeichen und Pendlerverkehr',
 };
 
 export default blogMetaDe;
