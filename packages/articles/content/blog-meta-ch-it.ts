@@ -4297,6 +4297,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.mps-sisa-tasse-usi-supsi.title': 'MPS e SISA contro l\'aumento tasse universitarie',
     'blog.article.mps-sisa-tasse-usi-supsi.excerpt': 'Il 25 agosto MPS e SISA protestano contro gli aumenti di tasse presso USI e SUPSI. Le rette ticinesi erano già sopra media svizzera; preoccupazione per i Bilaterali III.',
     'blog.article.mps-sisa-tasse-usi-supsi.imageAlt': 'Studenti ticinesi davanti al campus dell\'USI a Lugano manifestano preoccupazione per l\'aumento delle tasse universitarie.',
+    'blog.article.orologi-export-fh-prudenza.title': 'Export orologi svizzeri: FH invita alla prudenza',
+    'blog.article.orologi-export-fh-prudenza.excerpt': 'Giugno e luglio in aumento, ma incertezza globale frenate ottimismo. USA stabile (+14,9%), Cina crisi (-7,1%), Francia boom anomalo (+70%). Accordo Cina ridurrà dazi doganali.',
+    'blog.article.orologi-export-fh-prudenza.imageAlt': 'Laboratorio di orologeria svizzera con componenti di precisione e orologio di lusso, tavolo da lavoro tradizionale.',
 };
 
 export default blogMetaChIt;

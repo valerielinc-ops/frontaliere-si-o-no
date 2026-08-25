@@ -4297,6 +4297,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mps-sisa-tasse-usi-supsi.title': 'MPS und SISA gegen die Erhöhung der Studiengebühren',
     'blog.article.mps-sisa-tasse-usi-supsi.excerpt': 'Am 25. August protestieren MPS und SISA gegen Steuererhöhungen bei USI und SUPSI. Die Tessiner Strafen lagen bereits über dem Schweizer Durchschnitt; Sorge um die Bilateralen III.',
     'blog.article.mps-sisa-tasse-usi-supsi.imageAlt': 'Tessiner Studierende am USI-Campus in Lugano äußern Bedenken zu den erhöhten Studiengebühren.',
+    'blog.article.orologi-export-fh-prudenza.title': 'Schweizer Uhrenexport: FH mahnt zur Vorsicht',
+    'blog.article.orologi-export-fh-prudenza.excerpt': 'Juni und Juli auf dem Vormarsch, aber globale Unsicherheit bremst Optimismus. USA stabil (+14,9%), China Krise (-7,1%), Frankreich abnormaler Boom (+70%). Chinas Abkommen wird die Zölle senken.',
+    'blog.article.orologi-export-fh-prudenza.imageAlt': 'Schweizer Uhrmacherwerkstatt mit Präzisionsteilen und Luxusuhr auf traditionellem Arbeitstisch.',
 };
 
 export default blogMetaChDe;

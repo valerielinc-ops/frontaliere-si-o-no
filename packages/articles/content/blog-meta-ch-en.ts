@@ -4297,6 +4297,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mps-sisa-tasse-usi-supsi.title': 'MPs and SISA against the increase in university fees',
     'blog.article.mps-sisa-tasse-usi-supsi.excerpt': 'On August 25th, MPs and SISA protest against tax increases at USI and SUPSI. Ticino fees were already above the Swiss average; concern for Bilaterals III.',
     'blog.article.mps-sisa-tasse-usi-supsi.imageAlt': 'Ticino students at USI campus in Lugano express concern over rising university tuition fees.',
+    'blog.article.orologi-export-fh-prudenza.title': 'Swiss watch exports: FH urges caution',
+    'blog.article.orologi-export-fh-prudenza.excerpt': 'June and July on the rise, but global uncertainty curbs optimism. US stable (+14.9%), China crisis (-7.1%), France anomalous boom (+70%). China Agreement will reduce customs duties.',
+    'blog.article.orologi-export-fh-prudenza.imageAlt': 'Swiss watchmaker workshop with precision components and luxury watch, traditional work bench with detailed movements.',
 };
 
 export default blogMetaChEn;
