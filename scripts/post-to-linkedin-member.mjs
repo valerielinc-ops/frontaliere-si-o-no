@@ -48,15 +48,14 @@ import {
   SITE_URL,
   loadLedger,
   appendLedger,
-  truncateBody,
   loadJobSections,
   loadJobIndex,
-  formatDayIt,
 } from './lib/social-post-utils.mjs';
 import {
   linkedinUrl,
   LINKEDIN_MEMBER_CAMPAIGN_ARTICLE,
   LINKEDIN_MEMBER_CAMPAIGN_JOB,
+  LINKEDIN_REST_VERSION,
 } from './lib/linkedin-links.mjs';
 import {
   previousReportDay,
@@ -64,6 +63,17 @@ import {
   pickFirstUnposted,
 } from './lib/daily-top-content.mjs';
 import { fetchGa4PageReport } from './lib/ga4-service-account.mjs';
+import {
+  buildArticleContent,
+  buildMemberCommentary,
+  buildMemberPostPayload,
+  inferArticleLocation,
+  resolveJobCompany,
+  resolveJobDescription,
+  resolveJobLocation,
+  resolveOrganizationUrn,
+} from './lib/linkedin-member-copy.mjs';
+import { fetchPageOg, uploadLinkedInImage } from './lib/linkedin-member-media.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -81,17 +91,7 @@ const POSTED_TRIM_LIMIT = 1000;
 const DEDUP_WINDOW_DAYS = 30;
 
 const LINKEDIN_API = 'https://api.linkedin.com/rest/posts';
-// LinkedIn sunsets each YYYYMM version ~1 year after release and 426s a
-// deprecated one outright (measured 2026-08-24: 202401 → "NONEXISTENT_VERSION
-// Requested version 20240101 is not active" on every post). Bump this by
-// hand periodically — check developers.linkedin.com/docs/marketing-api/versioning
-// for the current latest before it goes stale again.
-const LINKEDIN_VERSION = '202608';
-/** LinkedIn hard-rejects commentary over 3000 chars; stay under it. */
-const COMMENTARY_MAX = 2900;
-
-const HASHTAGS_ARTICLE = '#frontalieri #ticino #svizzera #italia #lavoro';
-const HASHTAGS_JOB = '#frontalieri #ticino #lavoro #svizzera #offertedilavoro';
+const LINKEDIN_VERSION = LINKEDIN_REST_VERSION;
 
 // ─────────────────────────── credentials ───────────────────────────
 
@@ -156,57 +156,13 @@ function getAuthorUrn() {
 // — Instagram/TikTok posters need the identical report (project rule: a
 // helper duplicated literally in ≥2 files MUST live in ONE shared module).
 
-// ─────────────────────────── copy ───────────────────────────
-
-function buildCommentary({ kind, title, url, views, day, location }) {
-  const isJob = kind === 'job';
-  const emoji = isJob ? '💼' : '📰';
-  const lead = isJob
-    ? "L'offerta di lavoro più cliccata di ieri su frontaliereticino.ch:"
-    : "L'articolo più letto di ieri su frontaliereticino.ch:";
-  const hashtags = isJob ? HASHTAGS_JOB : HASHTAGS_ARTICLE;
-  const counter =
-    Number(views) > 0
-      ? `📊 ${views} visualizzazioni il ${formatDayIt(day)}.`
-      : '';
-  const place = isJob && location ? `📍 ${location}` : '';
-
-  const body = [
-    `${emoji} ${lead}`,
-    '',
-    truncateBody(title, 200),
-    place,
-    counter,
-    '',
-    `👉 ${url}`,
-    '',
-    hashtags,
-  ]
-    .filter((line) => line !== null && line !== undefined)
-    .join('\n')
-    .replace(/\n{3,}/g, '\n\n')
-    .trim();
-
-  return truncateBody(body, COMMENTARY_MAX);
-}
-// formatDayIt moved to scripts/lib/social-post-utils.mjs (same rule as above).
+// Commentary, mentions and article-card payload live in
+// scripts/lib/linkedin-member-copy.mjs so vitest can drive them with fixtures.
 
 // ─────────────────────────── posting ───────────────────────────
 
-async function publish({ accessToken, authorUrn, commentary, url, title }) {
-  const payload = {
-    author: authorUrn,
-    commentary,
-    visibility: 'PUBLIC',
-    distribution: {
-      feedDistribution: 'MAIN_FEED',
-      targetEntities: [],
-      thirdPartyDistributionChannels: [],
-    },
-    content: { article: { source: url, title: truncateBody(title, 180) } },
-    lifecycleState: 'PUBLISHED',
-    isReshareDisabledByAuthor: false,
-  };
+async function publish({ accessToken, authorUrn, commentary, article }) {
+  const payload = buildMemberPostPayload({ author: authorUrn, commentary, article });
 
   const res = await fetch(LINKEDIN_API, {
     method: 'POST',
@@ -318,25 +274,62 @@ async function main() {
     // For a job the dataset is a better title source than GA4's pageTitle: it
     // carries the employer, which the page title often drops.
     const job = slot.kind === 'job' ? jobIndex.get(pick.slug) : null;
+    const company = resolveJobCompany(job);
+    const jobTitle = job
+      ? String(job.titleByLocale?.it || job.title || '').trim()
+      : '';
     const title = job
-      ? [job.title, job.company].filter(Boolean).join(' — ')
+      ? [jobTitle, company].filter(Boolean).join(' — ')
       : pick.title || pick.slug.replace(/-/g, ' ');
-    const commentary = buildCommentary({
+    const location = job
+      ? resolveJobLocation(job)
+      : inferArticleLocation({ title, path: pick.path });
+
+    // Live page OG: excerpt for the body + og:image for the card thumbnail.
+    // Posts API does not scrape OG; without a thumbnail URN the card is text-only.
+    const pageMeta = await fetchPageOg(canonical);
+    const excerpt =
+      slot.kind === 'job' ? resolveJobDescription(job) : pageMeta.ogDescription;
+
+    const commentary = buildMemberCommentary({
       kind: slot.kind,
-      title,
+      title: job ? jobTitle || title : title,
       url,
-      views: pick.views,
       day,
-      location: job?.location || '',
+      excerpt,
+      company,
+      organizationUrn: resolveOrganizationUrn(job),
+      location,
+      canton: job?.canton || '',
+    });
+
+    let thumbnail = null;
+    if (!dryRun && accessToken && authorUrn && pageMeta.ogImage) {
+      thumbnail = await uploadLinkedInImage({
+        accessToken,
+        ownerUrn: authorUrn,
+        imageUrl: pageMeta.ogImage,
+      });
+      if (thumbnail) console.log(`🖼  thumbnail ${thumbnail}`);
+      else console.log('⚠️  posting article card without thumbnail (upload fail-soft)');
+    }
+
+    const article = buildArticleContent({
+      source: url,
+      title,
+      description: excerpt || pageMeta.ogDescription,
+      thumbnail,
     });
 
     console.log(`\n─── ${slot.kind} pick: ${pick.slug} (${pick.views} views) ───`);
     console.log(commentary);
+    console.log('─── article card ───');
+    console.log(JSON.stringify(article, null, 2));
     console.log('───');
 
     if (dryRun) continue;
 
-    const res = await publish({ accessToken, authorUrn, commentary, url, title });
+    const res = await publish({ accessToken, authorUrn, commentary, article });
     if (res.ok) {
       console.log(`✅ posted — ${res.postId}`);
       // Append per successful post, never batched: a throw on the next slot
