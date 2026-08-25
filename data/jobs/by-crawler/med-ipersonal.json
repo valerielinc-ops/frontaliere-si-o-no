@@ -1,12 +1,1085 @@
 {
   "crawlerKey": "med-ipersonal",
-  "assembledAt": "2026-08-25T21:51:30.272Z",
+  "assembledAt": "2026-08-25T22:43:40.053Z",
   "jobs": [
     {
-      "id": "med-ipersonal-f770f09c9b3d",
-      "slug": "gebaudetechnikplaner-sanitar-100-fur-die-region-bischofszell-stellenangebot-med-ipersonal",
+      "id": "med-ipersonal-5fdf8086ec4c",
+      "slug": "progettista-elettrico-a-100-per-la-region-wittenbach-gesucht-jetzt-bewerben-medipersonal-lugano",
       "slugByLocale": {
-        "it": "gebaudetechnikplaner-sanitar-100-fur-die-region-bischofszell-stellenangebot-med-ipersonal",
+        "de": "elektroplaner-100-fur-die-region-wittenbach-gesucht-jetzt-bewerben-medipersonal-lugano",
+        "it": "progettista-elettrico-a-100-per-la-region-wittenbach-gesucht-jetzt-bewerben-medipersonal-lugano",
+        "en": "elektroplaner-100-fur-die-region-wittenbach-gesucht-jetzt-bewerben-med-ipersonal-ch",
+        "fr": "elektroplaner-100-fur-die-region-wittenbach-gesucht-jetzt-bewerben-med-ipersonal-ch"
+      },
+      "company": "MediPersonal",
+      "companyKey": "med-ipersonal",
+      "companyDomain": "ipersonal.ch",
+      "title": "Elektroplaner 100% für die Region Wittenbach gesucht – jetzt bewerben",
+      "titleByLocale": {
+        "de": "Elektroplaner 100% für die Region Wittenbach gesucht – jetzt bewerben",
+        "en": "Electrical Planner 100% für die Region Wittenbach gesucht – jetzt bewerben",
+        "it": "Progettista elettrico/a 100% per la Region Wittenbach gesucht – jetzt bewerben",
+        "fr": "Planificateur/trice électrique 100% für die Region Wittenbach gesucht – jetzt bewerben"
+      },
+      "description": "Elektroplaner 100% für die Region Wittenbach gesucht – jetzt bewerben — MediPersonal",
+      "descriptionByLocale": {
+        "de": "Elektroplaner 100% für die Region Wittenbach gesucht – jetzt bewerben — MediPersonal",
+        "en": "Elektroplaner 100% für die Region Wittenbach gesucht – jetzt bewerben — MediPersonal"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.ipersonal.ch/jobs/elektroplaner-100-fuer-die-region-wittenbach-gesucht-jetzt-bewerben/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-25T22:43:35.922Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-25",
+      "applyUrl": "https://www.ipersonal.ch/jobs/elektroplaner-100-fuer-die-region-wittenbach-gesucht-jetzt-bewerben/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "elektroplaner-100-fur-die-region-wittenbach-gesucht-jetzt-bewerben-med-ipersonal-ch"
+        ],
+        "de": [
+          "elektroplaner-100-fur-die-region-wittenbach-gesucht-jetzt-bewerben-med-ipersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "elektroplaner-100-fur-die-region-wittenbach-gesucht-jetzt-bewerben-med-ipersonal-ch"
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-25T22:43:35.922Z"
+    },
+    {
+      "id": "med-ipersonal-1e2ce7264374",
+      "slug": "progettista-elettrico-a-100-in-der-region-jonschwil-stellenangebot-medipersonal-lugano",
+      "slugByLocale": {
+        "fr": "elektroplaner-100-in-der-region-jonschwil-stellenangebot-medipersonal-lugano",
+        "it": "progettista-elettrico-a-100-in-der-region-jonschwil-stellenangebot-medipersonal-lugano",
+        "en": "elektroplaner-100-in-der-region-jonschwil-stellenangebot-med-ipersonal-ch",
+        "de": "elektroplaner-100-in-der-region-jonschwil-stellenangebot-med-ipersonal-ch"
+      },
+      "company": "MediPersonal",
+      "companyKey": "med-ipersonal",
+      "companyDomain": "ipersonal.ch",
+      "title": "Elektroplaner 100% in der Region Jonschwil – Stellenangebot",
+      "titleByLocale": {
+        "fr": "Elektroplaner 100% in der Region Jonschwil – Stellenangebot",
+        "it": "Progettista elettrico/a 100% in der Region Jonschwil – Stellenangebot",
+        "en": "Electrical Planner 100% in der Region Jonschwil – Stellenangebot",
+        "de": "Elektroplaner 100% in der Region Jonschwil – Stellenangebot"
+      },
+      "description": "Elektroplaner 100% in der Region Jonschwil – Stellenangebot — MediPersonal",
+      "descriptionByLocale": {
+        "fr": "Elektroplaner 100% in der Region Jonschwil – Stellenangebot — MediPersonal"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.ipersonal.ch/jobs/elektroplaner-100-in-der-region-jonschwil-stellenangebot/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-25T22:43:35.619Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-25",
+      "applyUrl": "https://www.ipersonal.ch/jobs/elektroplaner-100-in-der-region-jonschwil-stellenangebot/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "elektroplaner-100-in-der-region-jonschwil-stellenangebot-med-ipersonal-ch"
+        ],
+        "fr": [
+          "elektroplaner-100-in-der-region-jonschwil-stellenangebot-med-ipersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "elektroplaner-100-in-der-region-jonschwil-stellenangebot-med-ipersonal-ch"
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-25T22:43:35.619Z"
+    },
+    {
+      "id": "med-ipersonal-6d9ae587a380",
+      "slug": "progettista-elettrico-a-100-in-der-region-oberriet-sg-offene-stelle-medipersonal-lugano",
+      "slugByLocale": {
+        "de": "elektroplaner-100-in-der-region-oberriet-sg-offene-stelle-medipersonal-lugano",
+        "it": "progettista-elettrico-a-100-in-der-region-oberriet-sg-offene-stelle-medipersonal-lugano",
+        "en": "elektroplaner-100-in-der-region-oberriet-sg-offene-stelle-med-ipersonal-ch",
+        "fr": "elektroplaner-100-in-der-region-oberriet-sg-offene-stelle-med-ipersonal-ch"
+      },
+      "company": "MediPersonal",
+      "companyKey": "med-ipersonal",
+      "companyDomain": "ipersonal.ch",
+      "title": "Elektroplaner 100% in der Region Oberriet SG – offene Stelle",
+      "titleByLocale": {
+        "de": "Elektroplaner 100% in der Region Oberriet SG – offene Stelle",
+        "it": "Progettista elettrico/a 100% in der Region Oberriet SG – offene Stelle",
+        "en": "Electrical Planner 100% in der Region Oberriet SG – offene Stelle",
+        "fr": "Planificateur/trice électrique 100% in der Region Oberriet SG – offene Stelle"
+      },
+      "description": "Elektroplaner 100% in der Region Oberriet SG – offene Stelle — MediPersonal",
+      "descriptionByLocale": {
+        "de": "Elektroplaner 100% in der Region Oberriet SG – offene Stelle — MediPersonal"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.ipersonal.ch/jobs/elektroplaner-100-in-der-region-oberriet-sg-offene-stelle/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T22:43:35.314Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-25",
+      "applyUrl": "https://www.ipersonal.ch/jobs/elektroplaner-100-in-der-region-oberriet-sg-offene-stelle/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "elektroplaner-100-in-der-region-oberriet-sg-offene-stelle-med-ipersonal-ch"
+        ],
+        "de": [
+          "elektroplaner-100-in-der-region-oberriet-sg-offene-stelle-med-ipersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "elektroplaner-100-in-der-region-oberriet-sg-offene-stelle-med-ipersonal-ch"
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-25T22:43:35.314Z"
+    },
+    {
+      "id": "med-ipersonal-39bcc69b6f74",
+      "slug": "progettista-elettrico-a-100-per-la-region-st-margrethen-sg-stellenangebot-medipersonal-lugano",
+      "slugByLocale": {
+        "de": "elektroplaner-100-fur-die-region-st-margrethen-sg-stellenangebot-medipersonal-lugano",
+        "it": "progettista-elettrico-a-100-per-la-region-st-margrethen-sg-stellenangebot-medipersonal-lugano",
+        "en": "elektroplaner-100-fur-die-region-st-margrethen-sg-stellenangebot-med-ipersonal-ch",
+        "fr": "elektroplaner-100-fur-die-region-st-margrethen-sg-stellenangebot-med-ipersonal-ch"
+      },
+      "company": "MediPersonal",
+      "companyKey": "med-ipersonal",
+      "companyDomain": "ipersonal.ch",
+      "title": "Elektroplaner 100% für die Region St. Margrethen SG – Stellenangebot",
+      "titleByLocale": {
+        "de": "Elektroplaner 100% für die Region St. Margrethen SG – Stellenangebot",
+        "en": "Electrical Planner 100% für die Region St. Margrethen SG – Stellenangebot",
+        "it": "Progettista elettrico/a 100% per la Region St. Margrethen SG – Stellenangebot",
+        "fr": "Planificateur/trice électrique 100% für die Region St. Margrethen SG – Stellenangebot"
+      },
+      "description": "Elektroplaner 100% für die Region St. Margrethen SG – Stellenangebot — MediPersonal",
+      "descriptionByLocale": {
+        "de": "Elektroplaner 100% für die Region St. Margrethen SG – Stellenangebot — MediPersonal",
+        "en": "Elektroplaner 100% für die Region St. Margrethen SG – Stellenangebot — MediPersonal"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.ipersonal.ch/jobs/elektroplaner-100-fuer-die-region-st-margrethen-sg-stellenangebot/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-25T22:43:35.012Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-25",
+      "applyUrl": "https://www.ipersonal.ch/jobs/elektroplaner-100-fuer-die-region-st-margrethen-sg-stellenangebot/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "elektroplaner-100-fur-die-region-st-margrethen-sg-stellenangebot-med-ipersonal-ch"
+        ],
+        "de": [
+          "elektroplaner-100-fur-die-region-st-margrethen-sg-stellenangebot-med-ipersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "elektroplaner-100-fur-die-region-st-margrethen-sg-stellenangebot-med-ipersonal-ch"
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-25T22:43:35.012Z"
+    },
+    {
+      "id": "med-ipersonal-898d93056a4a",
+      "slug": "progettista-elettrico-a-100-per-la-region-frauenfeld-direkte-festanstellung-medipersonal-lugano",
+      "slugByLocale": {
+        "de": "elektroplaner-100-fur-die-region-frauenfeld-direkte-festanstellung-medipersonal-lugano",
+        "it": "progettista-elettrico-a-100-per-la-region-frauenfeld-direkte-festanstellung-medipersonal-lugano",
+        "en": "elektroplaner-100-fur-die-region-frauenfeld-direkte-festanstellung-med-ipersonal-ch",
+        "fr": "elektroplaner-100-fur-die-region-frauenfeld-direkte-festanstellung-med-ipersonal-ch"
+      },
+      "company": "MediPersonal",
+      "companyKey": "med-ipersonal",
+      "companyDomain": "ipersonal.ch",
+      "title": "Elektroplaner 100% für die Region Frauenfeld – Direkte Festanstellung",
+      "titleByLocale": {
+        "de": "Elektroplaner 100% für die Region Frauenfeld – Direkte Festanstellung",
+        "it": "Progettista elettrico/a 100% per la Region Frauenfeld – Direkte Festanstellung",
+        "en": "Electrical Planner 100% für die Region Frauenfeld – Direkte Festanstellung",
+        "fr": "Planificateur/trice électrique 100% für die Region Frauenfeld – Direkte Festanstellung"
+      },
+      "description": "Elektroplaner 100% für die Region Frauenfeld – Direkte Festanstellung — MediPersonal",
+      "descriptionByLocale": {
+        "de": "Elektroplaner 100% für die Region Frauenfeld – Direkte Festanstellung — MediPersonal"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.ipersonal.ch/jobs/elektroplaner-100-fuer-die-region-frauenfeld-direkte-festanstellung/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T22:43:34.709Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-25",
+      "applyUrl": "https://www.ipersonal.ch/jobs/elektroplaner-100-fuer-die-region-frauenfeld-direkte-festanstellung/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "elektroplaner-100-fur-die-region-frauenfeld-direkte-festanstellung-med-ipersonal-ch"
+        ],
+        "de": [
+          "elektroplaner-100-fur-die-region-frauenfeld-direkte-festanstellung-med-ipersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "elektroplaner-100-fur-die-region-frauenfeld-direkte-festanstellung-med-ipersonal-ch"
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-25T22:43:34.709Z"
+    },
+    {
+      "id": "med-ipersonal-c9d487ccc281",
+      "slug": "progettista-elettrico-a-100-in-der-region-kreuzlingen-direkte-festanstellung-medipersonal-lugano",
+      "slugByLocale": {
+        "de": "elektroplaner-100-in-der-region-kreuzlingen-direkte-festanstellung-medipersonal-lugano",
+        "it": "progettista-elettrico-a-100-in-der-region-kreuzlingen-direkte-festanstellung-medipersonal-lugano",
+        "en": "elektroplaner-100-in-der-region-kreuzlingen-direkte-festanstellung-med-ipersonal-ch",
+        "fr": "elektroplaner-100-in-der-region-kreuzlingen-direkte-festanstellung-med-ipersonal-ch"
+      },
+      "company": "MediPersonal",
+      "companyKey": "med-ipersonal",
+      "companyDomain": "ipersonal.ch",
+      "title": "Elektroplaner 100% in der Region Kreuzlingen – Direkte Festanstellung",
+      "titleByLocale": {
+        "de": "Elektroplaner 100% in der Region Kreuzlingen – Direkte Festanstellung",
+        "it": "Progettista elettrico/a 100% in der Region Kreuzlingen – Direkte Festanstellung",
+        "en": "Electrical Planner 100% in der Region Kreuzlingen – Direkte Festanstellung",
+        "fr": "Planificateur/trice électrique 100% in der Region Kreuzlingen – Direkte Festanstellung"
+      },
+      "description": "Elektroplaner 100% in der Region Kreuzlingen – Direkte Festanstellung — MediPersonal",
+      "descriptionByLocale": {
+        "de": "Elektroplaner 100% in der Region Kreuzlingen – Direkte Festanstellung — MediPersonal"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.ipersonal.ch/jobs/elektroplaner-100-in-der-region-kreuzlingen-direkte-festanstellung/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T22:43:34.407Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-25",
+      "applyUrl": "https://www.ipersonal.ch/jobs/elektroplaner-100-in-der-region-kreuzlingen-direkte-festanstellung/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "elektroplaner-100-in-der-region-kreuzlingen-direkte-festanstellung-med-ipersonal-ch"
+        ],
+        "de": [
+          "elektroplaner-100-in-der-region-kreuzlingen-direkte-festanstellung-med-ipersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "elektroplaner-100-in-der-region-kreuzlingen-direkte-festanstellung-med-ipersonal-ch"
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-25T22:43:34.407Z"
+    },
+    {
+      "id": "med-ipersonal-5ad693eb627f",
+      "slug": "progettista-elettrico-a-100-per-la-region-weinfelden-gesucht-jetzt-bewerben-medipersonal-lugano",
+      "slugByLocale": {
+        "de": "elektroplaner-100-fur-die-region-weinfelden-gesucht-jetzt-bewerben-medipersonal-lugano",
+        "it": "progettista-elettrico-a-100-per-la-region-weinfelden-gesucht-jetzt-bewerben-medipersonal-lugano",
+        "en": "elektroplaner-100-fur-die-region-weinfelden-gesucht-jetzt-bewerben-med-ipersonal-ch",
+        "fr": "elektroplaner-100-fur-die-region-weinfelden-gesucht-jetzt-bewerben-med-ipersonal-ch"
+      },
+      "company": "MediPersonal",
+      "companyKey": "med-ipersonal",
+      "companyDomain": "ipersonal.ch",
+      "title": "Elektroplaner 100% für die Region Weinfelden gesucht – jetzt bewerben",
+      "titleByLocale": {
+        "de": "Elektroplaner 100% für die Region Weinfelden gesucht – jetzt bewerben",
+        "it": "Progettista elettrico/a 100% per la Region Weinfelden gesucht – jetzt bewerben",
+        "en": "Electrical Planner 100% für die Region Weinfelden gesucht – jetzt bewerben",
+        "fr": "Planificateur/trice électrique 100% für die Region Weinfelden gesucht – jetzt bewerben"
+      },
+      "description": "Elektroplaner 100% für die Region Weinfelden gesucht – jetzt bewerben — MediPersonal",
+      "descriptionByLocale": {
+        "de": "Elektroplaner 100% für die Region Weinfelden gesucht – jetzt bewerben — MediPersonal"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.ipersonal.ch/jobs/elektroplaner-100-fuer-die-region-weinfelden-gesucht-jetzt-bewerben/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T22:43:34.104Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-25",
+      "applyUrl": "https://www.ipersonal.ch/jobs/elektroplaner-100-fuer-die-region-weinfelden-gesucht-jetzt-bewerben/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "elektroplaner-100-fur-die-region-weinfelden-gesucht-jetzt-bewerben-med-ipersonal-ch"
+        ],
+        "de": [
+          "elektroplaner-100-fur-die-region-weinfelden-gesucht-jetzt-bewerben-med-ipersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "elektroplaner-100-fur-die-region-weinfelden-gesucht-jetzt-bewerben-med-ipersonal-ch"
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-25T22:43:34.104Z"
+    },
+    {
+      "id": "med-ipersonal-75308b748f4d",
+      "slug": "progettista-elettrico-a-100-in-der-region-romanshorn-direkte-festanstellung-medipersonal-lugano",
+      "slugByLocale": {
+        "fr": "elektroplaner-100-in-der-region-romanshorn-direkte-festanstellung-medipersonal-lugano",
+        "it": "progettista-elettrico-a-100-in-der-region-romanshorn-direkte-festanstellung-medipersonal-lugano",
+        "en": "elektroplaner-100-in-der-region-romanshorn-direkte-festanstellung-med-ipersonal-ch",
+        "de": "elektroplaner-100-in-der-region-romanshorn-direkte-festanstellung-med-ipersonal-ch"
+      },
+      "company": "MediPersonal",
+      "companyKey": "med-ipersonal",
+      "companyDomain": "ipersonal.ch",
+      "title": "Elektroplaner 100% in der Region Romanshorn – Direkte Festanstellung",
+      "titleByLocale": {
+        "fr": "Elektroplaner 100% in der Region Romanshorn – Direkte Festanstellung",
+        "it": "Progettista elettrico/a 100% in der Region Romanshorn – Direkte Festanstellung",
+        "en": "Electrical Planner 100% in der Region Romanshorn – Direkte Festanstellung",
+        "de": "Elektroplaner 100% in der Region Romanshorn – Direkte Festanstellung"
+      },
+      "description": "Elektroplaner 100% in der Region Romanshorn – Direkte Festanstellung — MediPersonal",
+      "descriptionByLocale": {
+        "fr": "Elektroplaner 100% in der Region Romanshorn – Direkte Festanstellung — MediPersonal"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.ipersonal.ch/jobs/elektroplaner-100-in-der-region-romanshorn-direkte-festanstellung/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-25T22:43:33.802Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-25",
+      "applyUrl": "https://www.ipersonal.ch/jobs/elektroplaner-100-in-der-region-romanshorn-direkte-festanstellung/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "elektroplaner-100-in-der-region-romanshorn-direkte-festanstellung-med-ipersonal-ch"
+        ],
+        "fr": [
+          "elektroplaner-100-in-der-region-romanshorn-direkte-festanstellung-med-ipersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "elektroplaner-100-in-der-region-romanshorn-direkte-festanstellung-med-ipersonal-ch"
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-25T22:43:33.802Z"
+    },
+    {
+      "id": "med-ipersonal-8c64919e07b3",
+      "slug": "progettista-elettrico-a-100-per-la-region-bischofszell-offene-stelle-medipersonal-lugano",
+      "slugByLocale": {
+        "de": "elektroplaner-100-fur-die-region-bischofszell-offene-stelle-medipersonal-lugano",
+        "it": "progettista-elettrico-a-100-per-la-region-bischofszell-offene-stelle-medipersonal-lugano",
+        "en": "elektroplaner-100-fur-die-region-bischofszell-offene-stelle-med-ipersonal-ch",
+        "fr": "elektroplaner-100-fur-die-region-bischofszell-offene-stelle-med-ipersonal-ch"
+      },
+      "company": "MediPersonal",
+      "companyKey": "med-ipersonal",
+      "companyDomain": "ipersonal.ch",
+      "title": "Elektroplaner 100% für die Region Bischofszell – offene Stelle",
+      "titleByLocale": {
+        "de": "Elektroplaner 100% für die Region Bischofszell – offene Stelle",
+        "it": "Progettista elettrico/a 100% per la Region Bischofszell – offene Stelle",
+        "en": "Electrical Planner 100% für die Region Bischofszell – offene Stelle",
+        "fr": "Planificateur/trice électrique 100% für die Region Bischofszell – offene Stelle"
+      },
+      "description": "Elektroplaner 100% für die Region Bischofszell – offene Stelle — MediPersonal",
+      "descriptionByLocale": {
+        "de": "Elektroplaner 100% für die Region Bischofszell – offene Stelle — MediPersonal"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.ipersonal.ch/jobs/elektroplaner-100-fuer-die-region-bischofszell-offene-stelle/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-25T22:43:33.498Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-25",
+      "applyUrl": "https://www.ipersonal.ch/jobs/elektroplaner-100-fuer-die-region-bischofszell-offene-stelle/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "elektroplaner-100-fur-die-region-bischofszell-offene-stelle-med-ipersonal-ch"
+        ],
+        "de": [
+          "elektroplaner-100-fur-die-region-bischofszell-offene-stelle-med-ipersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "elektroplaner-100-fur-die-region-bischofszell-offene-stelle-med-ipersonal-ch"
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-25T22:43:33.498Z"
+    },
+    {
+      "id": "med-ipersonal-2659aa70dc15",
+      "slug": "progettista-elettrico-a-100-in-der-region-erlen-gesucht-medipersonal-lugano",
+      "slugByLocale": {
+        "de": "elektroplaner-100-in-der-region-erlen-gesucht-medipersonal-lugano",
+        "it": "progettista-elettrico-a-100-in-der-region-erlen-gesucht-medipersonal-lugano",
+        "en": "elektroplaner-100-in-der-region-erlen-gesucht-med-ipersonal-ch",
+        "fr": "elektroplaner-100-in-der-region-erlen-gesucht-med-ipersonal-ch"
+      },
+      "company": "MediPersonal",
+      "companyKey": "med-ipersonal",
+      "companyDomain": "ipersonal.ch",
+      "title": "Elektroplaner 100% in der Region Erlen gesucht",
+      "titleByLocale": {
+        "de": "Elektroplaner 100% in der Region Erlen gesucht",
+        "en": "Electrical Planner 100% in der Region Erlen gesucht",
+        "it": "Progettista elettrico/a 100% in der Region Erlen gesucht",
+        "fr": "Planificateur/trice électrique 100% in der Region Erlen gesucht"
+      },
+      "description": "Elektroplaner 100% in der Region Erlen gesucht — MediPersonal",
+      "descriptionByLocale": {
+        "de": "Elektroplaner 100% in der Region Erlen gesucht — MediPersonal"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.ipersonal.ch/jobs/elektroplaner-100-in-der-region-erlen-gesucht/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-25T22:43:33.195Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-25",
+      "applyUrl": "https://www.ipersonal.ch/jobs/elektroplaner-100-in-der-region-erlen-gesucht/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "elektroplaner-100-in-der-region-erlen-gesucht-med-ipersonal-ch"
+        ],
+        "de": [
+          "elektroplaner-100-in-der-region-erlen-gesucht-med-ipersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "elektroplaner-100-in-der-region-erlen-gesucht-med-ipersonal-ch"
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-25T22:43:33.195Z"
+    },
+    {
+      "id": "med-ipersonal-e38c4464b280",
+      "slug": "progettista-elettrico-a-100-in-der-region-aadorf-gesucht-medipersonal-lugano",
+      "slugByLocale": {
+        "de": "elektroplaner-100-in-der-region-aadorf-gesucht-medipersonal-lugano",
+        "it": "progettista-elettrico-a-100-in-der-region-aadorf-gesucht-medipersonal-lugano",
+        "en": "elektroplaner-100-in-der-region-aadorf-gesucht-med-ipersonal-ch",
+        "fr": "elektroplaner-100-in-der-region-aadorf-gesucht-med-ipersonal-ch"
+      },
+      "company": "MediPersonal",
+      "companyKey": "med-ipersonal",
+      "companyDomain": "ipersonal.ch",
+      "title": "Elektroplaner 100% in der Region Aadorf gesucht",
+      "titleByLocale": {
+        "de": "Elektroplaner 100% in der Region Aadorf gesucht",
+        "en": "Electrical Planner 100% in der Region Aadorf gesucht",
+        "it": "Progettista elettrico/a 100% in der Region Aadorf gesucht",
+        "fr": "Planificateur/trice électrique 100% in der Region Aadorf gesucht"
+      },
+      "description": "Elektroplaner 100% in der Region Aadorf gesucht — MediPersonal",
+      "descriptionByLocale": {
+        "de": "Elektroplaner 100% in der Region Aadorf gesucht — MediPersonal"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.ipersonal.ch/jobs/elektroplaner-100-in-der-region-aadorf-gesucht/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-25T22:43:32.892Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-25",
+      "applyUrl": "https://www.ipersonal.ch/jobs/elektroplaner-100-in-der-region-aadorf-gesucht/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "elektroplaner-100-in-der-region-aadorf-gesucht-med-ipersonal-ch"
+        ],
+        "de": [
+          "elektroplaner-100-in-der-region-aadorf-gesucht-med-ipersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "elektroplaner-100-in-der-region-aadorf-gesucht-med-ipersonal-ch"
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-25T22:43:32.892Z"
+    },
+    {
+      "id": "med-ipersonal-203b3878da5b",
+      "slug": "progettista-elettrico-a-100-per-la-region-munchwilen-tg-jobangebot-medipersonal-lugano",
+      "slugByLocale": {
+        "de": "elektroplaner-100-fur-die-region-munchwilen-tg-jobangebot-medipersonal-lugano",
+        "it": "progettista-elettrico-a-100-per-la-region-munchwilen-tg-jobangebot-medipersonal-lugano",
+        "en": "elektroplaner-100-fur-die-region-munchwilen-tg-jobangebot-med-ipersonal-ch",
+        "fr": "elektroplaner-100-fur-die-region-munchwilen-tg-jobangebot-med-ipersonal-ch"
+      },
+      "company": "MediPersonal",
+      "companyKey": "med-ipersonal",
+      "companyDomain": "ipersonal.ch",
+      "title": "Elektroplaner 100% für die Region Münchwilen TG – Jobangebot",
+      "titleByLocale": {
+        "de": "Elektroplaner 100% für die Region Münchwilen TG – Jobangebot",
+        "en": "Electrical Planner 100% für die Region Münchwilen TG – Jobangebot",
+        "it": "Progettista elettrico/a 100% per la Region Münchwilen TG – Jobangebot",
+        "fr": "Planificateur/trice électrique 100% für die Region Münchwilen TG – Jobangebot"
+      },
+      "description": "Elektroplaner 100% für die Region Münchwilen TG – Jobangebot — MediPersonal",
+      "descriptionByLocale": {
+        "de": "Elektroplaner 100% für die Region Münchwilen TG – Jobangebot — MediPersonal"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.ipersonal.ch/jobs/elektroplaner-100-fuer-die-region-muenchwilen-tg-jobangebot/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-25T22:43:32.588Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-25",
+      "applyUrl": "https://www.ipersonal.ch/jobs/elektroplaner-100-fuer-die-region-muenchwilen-tg-jobangebot/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "elektroplaner-100-fur-die-region-munchwilen-tg-jobangebot-med-ipersonal-ch"
+        ],
+        "de": [
+          "elektroplaner-100-fur-die-region-munchwilen-tg-jobangebot-med-ipersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "elektroplaner-100-fur-die-region-munchwilen-tg-jobangebot-med-ipersonal-ch"
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-25T22:43:32.588Z"
+    },
+    {
+      "id": "med-ipersonal-e68a33df8cca",
+      "slug": "progettista-elettrico-a-100-per-la-region-sirnach-temporarburo-ipersonal-medipersonal-lugano",
+      "slugByLocale": {
+        "en": "elektroplaner-100-fur-die-region-sirnach-temporarburo-ipersonal-med-ipersonal-ch",
+        "it": "progettista-elettrico-a-100-per-la-region-sirnach-temporarburo-ipersonal-medipersonal-lugano",
+        "de": "elektroplaner-100-fur-die-region-sirnach-temporarburo-ipersonal-medipersonal-lugano",
+        "fr": "elektroplaner-100-fur-die-region-sirnach-temporarburo-ipersonal-med-ipersonal-ch"
+      },
+      "company": "MediPersonal",
+      "companyKey": "med-ipersonal",
+      "companyDomain": "ipersonal.ch",
+      "title": "Elektroplaner 100% für die Region Sirnach – Temporärbüro iPersonal",
+      "titleByLocale": {
+        "en": "Electrical Planner 100% für die Region Sirnach – Temporärbüro iPersonal",
+        "de": "Elektroplaner 100% für die Region Sirnach – Temporärbüro iPersonal",
+        "it": "Progettista elettrico/a 100% per la Region Sirnach – Temporärbüro iPersonal",
+        "fr": "Planificateur/trice électrique 100% für die Region Sirnach – Temporärbüro iPersonal"
+      },
+      "description": "Elektroplaner 100% für die Region Sirnach – Temporärbüro iPersonal — MediPersonal",
+      "descriptionByLocale": {
+        "en": "Elektroplaner 100% für die Region Sirnach – Temporärbüro iPersonal — MediPersonal"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.ipersonal.ch/jobs/elektroplaner-100-fuer-die-region-sirnach-temporaerbuero-ipersonal/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-25T22:43:32.285Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-25",
+      "applyUrl": "https://www.ipersonal.ch/jobs/elektroplaner-100-fuer-die-region-sirnach-temporaerbuero-ipersonal/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "elektroplaner-100-fur-die-region-sirnach-temporarburo-ipersonal-med-ipersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "elektroplaner-100-fur-die-region-sirnach-temporarburo-ipersonal-med-ipersonal-ch"
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-25T22:43:32.285Z"
+    },
+    {
+      "id": "med-ipersonal-ee3fe3c9e97d",
+      "slug": "progettista-elettrico-a-100-per-la-region-diessenhofen-temporarburo-ipersonal-medipersonal-lugano",
+      "slugByLocale": {
+        "en": "elektroplaner-100-fur-die-region-diessenhofen-temporarburo-ipersonal-med-ipersonal-ch",
+        "it": "progettista-elettrico-a-100-per-la-region-diessenhofen-temporarburo-ipersonal-medipersonal-lugano",
+        "de": "elektroplaner-100-fur-die-region-diessenhofen-temporarburo-ipersonal-medipersonal-lugano",
+        "fr": "elektroplaner-100-fur-die-region-diessenhofen-temporarburo-ipersonal-med-ipersonal-ch"
+      },
+      "company": "MediPersonal",
+      "companyKey": "med-ipersonal",
+      "companyDomain": "ipersonal.ch",
+      "title": "Elektroplaner 100% für die Region Diessenhofen – Temporärbüro iPersonal",
+      "titleByLocale": {
+        "en": "Electrical Planner 100% für die Region Diessenhofen – Temporärbüro iPersonal",
+        "de": "Elektroplaner 100% für die Region Diessenhofen – Temporärbüro iPersonal",
+        "it": "Progettista elettrico/a 100% per la Region Diessenhofen – Temporärbüro iPersonal",
+        "fr": "Planificateur/trice électrique 100% für die Region Diessenhofen – Temporärbüro iPersonal"
+      },
+      "description": "Elektroplaner 100% für die Region Diessenhofen – Temporärbüro iPersonal — MediPersonal",
+      "descriptionByLocale": {
+        "en": "Elektroplaner 100% für die Region Diessenhofen – Temporärbüro iPersonal — MediPersonal"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.ipersonal.ch/jobs/elektroplaner-100-fuer-die-region-diessenhofen-temporaerbuero-ipersonal/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-25T22:43:31.982Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-25",
+      "applyUrl": "https://www.ipersonal.ch/jobs/elektroplaner-100-fuer-die-region-diessenhofen-temporaerbuero-ipersonal/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "elektroplaner-100-fur-die-region-diessenhofen-temporarburo-ipersonal-med-ipersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "elektroplaner-100-fur-die-region-diessenhofen-temporarburo-ipersonal-med-ipersonal-ch"
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-25T22:43:31.982Z"
+    },
+    {
+      "id": "med-ipersonal-51733c752cd2",
+      "slug": "elektroplaner-100-in-der-region-bottighofen-freie-stelle-medipersonal-lugano",
+      "slugByLocale": {
+        "it": "elektroplaner-100-in-der-region-bottighofen-freie-stelle-medipersonal-lugano",
+        "en": "elektroplaner-100-in-der-region-bottighofen-freie-stelle-med-ipersonal-ch",
+        "de": "elektroplaner-100-in-der-region-bottighofen-freie-stelle-med-ipersonal-ch",
+        "fr": "elektroplaner-100-in-der-region-bottighofen-freie-stelle-med-ipersonal-ch"
+      },
+      "company": "MediPersonal",
+      "companyKey": "med-ipersonal",
+      "companyDomain": "ipersonal.ch",
+      "title": "Elektroplaner 100% in der Region Bottighofen – freie Stelle",
+      "titleByLocale": {
+        "it": "Elektroplaner 100% in der Region Bottighofen – freie Stelle",
+        "en": "Electrical Planner 100% in der Region Bottighofen – freie Stelle",
+        "de": "Elektroplaner 100% in der Region Bottighofen – freie Stelle",
+        "fr": "Planificateur/trice électrique 100% in der Region Bottighofen – freie Stelle"
+      },
+      "description": "Elektroplaner 100% in der Region Bottighofen – freie Stelle — MediPersonal",
+      "descriptionByLocale": {
+        "it": "Elektroplaner 100% in der Region Bottighofen – freie Stelle — MediPersonal"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.ipersonal.ch/jobs/elektroplaner-100-in-der-region-bottighofen-freie-stelle/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-25T22:43:31.653Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-25",
+      "applyUrl": "https://www.ipersonal.ch/jobs/elektroplaner-100-in-der-region-bottighofen-freie-stelle/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "elektroplaner-100-in-der-region-bottighofen-freie-stelle-med-ipersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "elektroplaner-100-in-der-region-bottighofen-freie-stelle-med-ipersonal-ch"
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-25T22:43:31.653Z"
+    },
+    {
+      "id": "med-ipersonal-f770f09c9b3d",
+      "slug": "gebaudetechnikplaner-sanitar-100-per-la-region-bischofszell-stellenangebot-medipersonal-lugano",
+      "slugByLocale": {
+        "it": "gebaudetechnikplaner-sanitar-100-per-la-region-bischofszell-stellenangebot-medipersonal-lugano",
         "en": "gebaudetechnikplaner-sanitar-100-fur-die-region-bischofszell-stellenangebot-medipersonal-lugano",
         "de": "gebaudetechnikplaner-sanitar-100-fur-die-region-bischofszell-stellenangebot-medipersonal-lugano",
         "fr": "gebaudetechnikplaner-sanitar-100-fur-die-region-bischofszell-stellenangebot-medipersonal-lugano"
@@ -61,13 +1134,22 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:51:24.454Z"
+      "firstSeenAt": "2026-08-25T21:51:24.454Z",
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "gebaudetechnikplaner-sanitar-100-fur-die-region-bischofszell-stellenangebot-med-ipersonal"
+        ]
+      },
+      "previousSlugs": [
+        "gebaudetechnikplaner-sanitar-100-fur-die-region-bischofszell-stellenangebot-med-ipersonal"
+      ]
     },
     {
       "id": "med-ipersonal-3baeb198e4d1",
       "slug": "akquisiteur-in-per-grundstucke-m-w-d-80-100-per-la-region-freienbach-jobangebot-medipersonal-lugano",
       "slugByLocale": {
-        "de": "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-freienbach-jobangebot-med",
+        "de": "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-freienbach-jobangebot-medipersonal-lugano",
         "it": "akquisiteur-in-per-grundstucke-m-w-d-80-100-per-la-region-freienbach-jobangebot-medipersonal-lugano",
         "en": "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-freienbach-jobangebot-med",
         "fr": "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-freienbach-jobangebot-med"
@@ -113,6 +1195,9 @@
       "previousSlugsByLocale": {
         "it": [
           "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-freienbach-jobangebot-med"
+        ],
+        "de": [
+          "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-freienbach-jobangebot-med"
         ]
       },
       "previousSlugs": [
@@ -131,13 +1216,14 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:51:24.151Z"
+      "firstSeenAt": "2026-08-25T21:51:24.151Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "med-ipersonal-b8e09c8d4d7f",
       "slug": "akquisiteur-in-per-grundstucke-m-w-d-80-100-per-la-region-wettswil-freie-stelle-medipersonal-lugano",
       "slugByLocale": {
-        "de": "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-wettswil-freie-stelle-med",
+        "de": "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-wettswil-freie-stelle-medipersonal-lugano",
         "it": "akquisiteur-in-per-grundstucke-m-w-d-80-100-per-la-region-wettswil-freie-stelle-medipersonal-lugano",
         "en": "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-wettswil-freie-stelle-med",
         "fr": "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-wettswil-freie-stelle-med"
@@ -182,6 +1268,9 @@
       "previousSlugsByLocale": {
         "it": [
           "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-wettswil-freie-stelle-med"
+        ],
+        "de": [
+          "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-wettswil-freie-stelle-med"
         ]
       },
       "previousSlugs": [
@@ -200,13 +1289,14 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:51:23.847Z"
+      "firstSeenAt": "2026-08-25T21:51:23.847Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "med-ipersonal-d26e75204cfc",
       "slug": "immobilienvermarkter-100-per-la-region-illnau-effretikon-gesucht-jetzt-bewerben-medipersonal-lugano",
       "slugByLocale": {
-        "de": "immobilienvermarkter-100-fur-die-region-illnau-effretikon-gesucht-jetzt-bewerben-med",
+        "de": "immobilienvermarkter-100-fur-die-region-illnau-effretikon-gesucht-jetzt-bewerben-medipersonal-lugano",
         "it": "immobilienvermarkter-100-per-la-region-illnau-effretikon-gesucht-jetzt-bewerben-medipersonal-lugano",
         "en": "immobilienvermarkter-100-fur-die-region-illnau-effretikon-gesucht-jetzt-bewerben-medipersonal-lugano",
         "fr": "immobilienvermarkter-100-fur-die-region-illnau-effretikon-gesucht-jetzt-bewerben-medipersonal-lugano"
@@ -251,6 +1341,9 @@
       "previousSlugsByLocale": {
         "it": [
           "immobilienvermarkter-100-fur-die-region-illnau-effretikon-gesucht-jetzt-bewerben-med"
+        ],
+        "de": [
+          "immobilienvermarkter-100-fur-die-region-illnau-effretikon-gesucht-jetzt-bewerben-med"
         ]
       },
       "previousSlugs": [
@@ -269,13 +1362,14 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:51:23.545Z"
+      "firstSeenAt": "2026-08-25T21:51:23.545Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "med-ipersonal-abc4c5ea2c3f",
       "slug": "akquisiteur-in-per-grundstucke-m-w-d-80-100-in-der-region-bonstetten-jobangebot-medipersonal-lugano",
       "slugByLocale": {
-        "de": "akquisiteur-in-fur-grundstucke-w-m-d-80-100-in-der-region-bonstetten-jobangebot-med",
+        "de": "akquisiteur-in-fur-grundstucke-w-m-d-80-100-in-der-region-bonstetten-jobangebot-medipersonal-lugano",
         "it": "akquisiteur-in-per-grundstucke-m-w-d-80-100-in-der-region-bonstetten-jobangebot-medipersonal-lugano",
         "en": "akquisiteur-in-fur-grundstucke-w-m-d-80-100-in-der-region-bonstetten-jobangebot-med",
         "fr": "akquisiteur-in-fur-grundstucke-w-m-d-80-100-in-der-region-bonstetten-jobangebot-med"
@@ -320,6 +1414,9 @@
       "previousSlugsByLocale": {
         "it": [
           "akquisiteur-in-fur-grundstucke-w-m-d-80-100-in-der-region-bonstetten-jobangebot-med"
+        ],
+        "de": [
+          "akquisiteur-in-fur-grundstucke-w-m-d-80-100-in-der-region-bonstetten-jobangebot-med"
         ]
       },
       "previousSlugs": [
@@ -338,13 +1435,14 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:51:23.241Z"
+      "firstSeenAt": "2026-08-25T21:51:23.241Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "med-ipersonal-2c22fb6f1341",
       "slug": "immobilienvermarkter-100-per-la-region-adliswil-temporarburo-ipersonal-medipersonal-lugano",
       "slugByLocale": {
-        "en": "immobilienvermarkter-100-fur-die-region-adliswil-temporarburo-ipersonal-med-ipersonal-ch",
+        "en": "immobilienvermarkter-100-fur-die-region-adliswil-temporarburo-ipersonal-medipersonal-lugano",
         "it": "immobilienvermarkter-100-per-la-region-adliswil-temporarburo-ipersonal-medipersonal-lugano",
         "de": "immobilienvermarkter-100-fur-die-region-adliswil-temporarburo-ipersonal-medipersonal-lugano",
         "fr": "immobilienvermarkter-100-fur-die-region-adliswil-temporarburo-ipersonal-medipersonal-lugano"
@@ -389,6 +1487,9 @@
       "previousSlugsByLocale": {
         "it": [
           "immobilienvermarkter-100-fur-die-region-adliswil-temporarburo-ipersonal-med-ipersonal-ch"
+        ],
+        "en": [
+          "immobilienvermarkter-100-fur-die-region-adliswil-temporarburo-ipersonal-med-ipersonal-ch"
         ]
       },
       "previousSlugs": [
@@ -407,13 +1508,14 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:51:22.932Z"
+      "firstSeenAt": "2026-08-25T21:51:22.932Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "med-ipersonal-bb1db65510a6",
       "slug": "akquisiteur-in-per-grundstucke-m-w-d-80-100-in-der-region-oberrieden-stellenangebot-medipersonal-lugano",
       "slugByLocale": {
-        "de": "akquisiteur-in-fur-grundstucke-w-m-d-80-100-in-der-region-oberrieden-stellenangebot-med",
+        "de": "akquisiteur-in-fur-grundstucke-w-m-d-80-100-in-der-region-oberrieden-stellenangebot-medipersonal-lugano",
         "it": "akquisiteur-in-per-grundstucke-m-w-d-80-100-in-der-region-oberrieden-stellenangebot-medipersonal-lugano",
         "en": "akquisiteur-in-fur-grundstucke-w-m-d-80-100-in-der-region-oberrieden-stellenangebot-med",
         "fr": "akquisiteur-in-fur-grundstucke-w-m-d-80-100-in-der-region-oberrieden-stellenangebot-med"
@@ -458,6 +1560,9 @@
       "previousSlugsByLocale": {
         "it": [
           "akquisiteur-in-fur-grundstucke-w-m-d-80-100-in-der-region-oberrieden-stellenangebot-med"
+        ],
+        "de": [
+          "akquisiteur-in-fur-grundstucke-w-m-d-80-100-in-der-region-oberrieden-stellenangebot-med"
         ]
       },
       "previousSlugs": [
@@ -476,13 +1581,14 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:51:22.629Z"
+      "firstSeenAt": "2026-08-25T21:51:22.629Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "med-ipersonal-6ae9cdb273b7",
       "slug": "immobilienvermarkter-100-per-la-region-rumlang-direkte-festanstellung-medipersonal-lugano",
       "slugByLocale": {
-        "de": "immobilienvermarkter-100-fur-die-region-rumlang-direkte-festanstellung-med-ipersonal-ch",
+        "de": "immobilienvermarkter-100-fur-die-region-rumlang-direkte-festanstellung-medipersonal-lugano",
         "it": "immobilienvermarkter-100-per-la-region-rumlang-direkte-festanstellung-medipersonal-lugano",
         "en": "immobilienvermarkter-100-fur-die-region-rumlang-direkte-festanstellung-medipersonal-lugano",
         "fr": "immobilienvermarkter-100-fur-die-region-rumlang-direkte-festanstellung-medipersonal-lugano"
@@ -527,6 +1633,9 @@
       "previousSlugsByLocale": {
         "it": [
           "immobilienvermarkter-100-fur-die-region-rumlang-direkte-festanstellung-med-ipersonal-ch"
+        ],
+        "de": [
+          "immobilienvermarkter-100-fur-die-region-rumlang-direkte-festanstellung-med-ipersonal-ch"
         ]
       },
       "previousSlugs": [
@@ -545,13 +1654,14 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:51:22.326Z"
+      "firstSeenAt": "2026-08-25T21:51:22.326Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "med-ipersonal-a15389635585",
       "slug": "akquisiteur-in-per-grundstucke-m-w-d-80-100-per-la-region-zumikon-offene-stelle-medipersonal-lugano",
       "slugByLocale": {
-        "de": "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-zumikon-offene-stelle-med",
+        "de": "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-zumikon-offene-stelle-medipersonal-lugano",
         "it": "akquisiteur-in-per-grundstucke-m-w-d-80-100-per-la-region-zumikon-offene-stelle-medipersonal-lugano",
         "en": "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-zumikon-offene-stelle-med",
         "fr": "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-zumikon-offene-stelle-med"
@@ -596,6 +1706,9 @@
       "previousSlugsByLocale": {
         "it": [
           "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-zumikon-offene-stelle-med"
+        ],
+        "de": [
+          "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-zumikon-offene-stelle-med"
         ]
       },
       "previousSlugs": [
@@ -614,13 +1727,14 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:51:22.023Z"
+      "firstSeenAt": "2026-08-25T21:51:22.023Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "med-ipersonal-e0f7fb3a2578",
       "slug": "immobilienvermarkter-100-in-der-region-regensdorf-temporarburo-ipersonal-medipersonal-lugano",
       "slugByLocale": {
-        "en": "immobilienvermarkter-100-in-der-region-regensdorf-temporarburo-ipersonal-med-ipersonal-ch",
+        "en": "immobilienvermarkter-100-in-der-region-regensdorf-temporarburo-ipersonal-medipersonal-lugano",
         "it": "immobilienvermarkter-100-in-der-region-regensdorf-temporarburo-ipersonal-medipersonal-lugano",
         "de": "immobilienvermarkter-100-in-der-region-regensdorf-temporarburo-ipersonal-medipersonal-lugano",
         "fr": "immobilienvermarkter-100-in-der-region-regensdorf-temporarburo-ipersonal-medipersonal-lugano"
@@ -665,6 +1779,9 @@
       "previousSlugsByLocale": {
         "it": [
           "immobilienvermarkter-100-in-der-region-regensdorf-temporarburo-ipersonal-med-ipersonal-ch"
+        ],
+        "en": [
+          "immobilienvermarkter-100-in-der-region-regensdorf-temporarburo-ipersonal-med-ipersonal-ch"
         ]
       },
       "previousSlugs": [
@@ -683,13 +1800,14 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:51:21.719Z"
+      "firstSeenAt": "2026-08-25T21:51:21.719Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "med-ipersonal-c25c3c86fa7b",
       "slug": "akquisiteur-in-per-grundstucke-m-w-d-80-100-per-la-region-hombrechtikon-freie-stelle-medipersonal-lugano",
       "slugByLocale": {
-        "de": "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-hombrechtikon-freie-stelle-med",
+        "de": "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-hombrechtikon-freie-stelle-medipersonal-lugano",
         "it": "akquisiteur-in-per-grundstucke-m-w-d-80-100-per-la-region-hombrechtikon-freie-stelle-medipersonal-lugano",
         "en": "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-hombrechtikon-freie-stelle-med",
         "fr": "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-hombrechtikon-freie-stelle-med"
@@ -734,6 +1852,9 @@
       "previousSlugsByLocale": {
         "it": [
           "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-hombrechtikon-freie-stelle-med"
+        ],
+        "de": [
+          "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-hombrechtikon-freie-stelle-med"
         ]
       },
       "previousSlugs": [
@@ -752,7 +1873,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:51:21.417Z"
+      "firstSeenAt": "2026-08-25T21:51:21.417Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "med-ipersonal-d1af08bc5fa5",
@@ -821,13 +1943,14 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:51:21.113Z"
+      "firstSeenAt": "2026-08-25T21:51:21.113Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "med-ipersonal-5550ff794966",
       "slug": "immobilienvermarkter-100-in-der-region-volketswil-gesucht-jetzt-bewerben-medipersonal-lugano",
       "slugByLocale": {
-        "de": "immobilienvermarkter-100-in-der-region-volketswil-gesucht-jetzt-bewerben-med-ipersonal-ch",
+        "de": "immobilienvermarkter-100-in-der-region-volketswil-gesucht-jetzt-bewerben-medipersonal-lugano",
         "it": "immobilienvermarkter-100-in-der-region-volketswil-gesucht-jetzt-bewerben-medipersonal-lugano",
         "en": "immobilienvermarkter-100-in-der-region-volketswil-gesucht-jetzt-bewerben-medipersonal-lugano",
         "fr": "immobilienvermarkter-100-in-der-region-volketswil-gesucht-jetzt-bewerben-medipersonal-lugano"
@@ -873,6 +1996,9 @@
       "previousSlugsByLocale": {
         "it": [
           "immobilienvermarkter-100-in-der-region-volketswil-gesucht-jetzt-bewerben-med-ipersonal-ch"
+        ],
+        "de": [
+          "immobilienvermarkter-100-in-der-region-volketswil-gesucht-jetzt-bewerben-med-ipersonal-ch"
         ]
       },
       "previousSlugs": [
@@ -891,13 +2017,14 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:51:20.810Z"
+      "firstSeenAt": "2026-08-25T21:51:20.810Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "med-ipersonal-35ce892016a4",
       "slug": "kaltesystem-techniker-100-in-der-region-buchs-ag-stellenangebot-med-ipersonal-ch",
       "slugByLocale": {
-        "de": "kaltesystem-techniker-100-in-der-region-buchs-ag-stellenangebot-med-ipersonal-ch",
+        "de": "kaltesystem-techniker-100-in-der-region-buchs-ag-stellenangebot-medipersonal-lugano",
         "it": "kaltesystem-techniker-100-in-der-region-buchs-ag-stellenangebot-med-ipersonal-ch",
         "en": "kaltesystem-techniker-100-in-der-region-buchs-ag-stellenangebot-med-ipersonal-ch",
         "fr": "kaltesystem-techniker-100-in-der-region-buchs-ag-stellenangebot-med-ipersonal-ch"
@@ -953,13 +2080,14 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:51:20.506Z"
+      "firstSeenAt": "2026-08-25T21:51:20.506Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "med-ipersonal-d3ab13ddf4a8",
       "slug": "luftungsanlagenbauer-100-per-la-region-rheinfelden-freie-stelle-medipersonal-lugano",
       "slugByLocale": {
-        "de": "luftungsanlagenbauer-100-fur-die-region-rheinfelden-freie-stelle-med-ipersonal-ch",
+        "de": "luftungsanlagenbauer-100-fur-die-region-rheinfelden-freie-stelle-medipersonal-lugano",
         "it": "luftungsanlagenbauer-100-per-la-region-rheinfelden-freie-stelle-medipersonal-lugano",
         "en": "luftungsanlagenbauer-100-fur-die-region-rheinfelden-freie-stelle-medipersonal-lugano",
         "fr": "luftungsanlagenbauer-100-fur-die-region-rheinfelden-freie-stelle-medipersonal-lugano"
@@ -1004,6 +2132,9 @@
       "previousSlugsByLocale": {
         "it": [
           "luftungsanlagenbauer-100-fur-die-region-rheinfelden-freie-stelle-med-ipersonal-ch"
+        ],
+        "de": [
+          "luftungsanlagenbauer-100-fur-die-region-rheinfelden-freie-stelle-med-ipersonal-ch"
         ]
       },
       "previousSlugs": [
@@ -1022,7 +2153,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:51:20.141Z"
+      "firstSeenAt": "2026-08-25T21:51:20.141Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "med-ipersonal-6c3a07d31750",
@@ -1030,7 +2162,7 @@
       "slugByLocale": {
         "it": "sachbearbeiter-vendita-100-in-der-region-zollikon-gesucht-jetzt-bewerben-medipersonal-lugano",
         "en": "sachbearbeiter-verkauf-100-in-der-region-zollikon-gesucht-jetzt-bewerben-medipersonal-lugano",
-        "de": "sachbearbeiter-verkauf-100-in-der-region-zollikon-gesucht-jetzt-bewerben-med-ipersonal-ch",
+        "de": "sachbearbeiter-verkauf-100-in-der-region-zollikon-gesucht-jetzt-bewerben-medipersonal-lugano",
         "fr": "sachbearbeiter-verkauf-100-in-der-region-zollikon-gesucht-jetzt-bewerben-medipersonal-lugano"
       },
       "company": "MediPersonal",
@@ -1075,6 +2207,9 @@
         "it": [
           "sachbearbeiter-verkauf-100-in-der-region-zollikon-gesucht-jetzt-bewerben-med-ipersonal-ch",
           "sachbearbeiter-vendita-100-in-der-region-zollikon-gesucht-jetzt-bewerben-medipersonal-lugano"
+        ],
+        "de": [
+          "sachbearbeiter-verkauf-100-in-der-region-zollikon-gesucht-jetzt-bewerben-med-ipersonal-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1092,7 +2227,7 @@
         }
       },
       "addressRegion": "TI",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "med-ipersonal-589684de93d2",
@@ -1100,7 +2235,7 @@
       "slugByLocale": {
         "it": "sachbearbeiter-vendita-100-per-la-region-schlieren-stellenangebot-medipersonal-lugano",
         "en": "sachbearbeiter-verkauf-100-fur-die-region-schlieren-stellenangebot-medipersonal-lugano",
-        "de": "sachbearbeiter-verkauf-100-fur-die-region-schlieren-stellenangebot-med-ipersonal-ch",
+        "de": "sachbearbeiter-verkauf-100-fur-die-region-schlieren-stellenangebot-medipersonal-lugano",
         "fr": "sachbearbeiter-verkauf-100-fur-die-region-schlieren-stellenangebot-medipersonal-lugano"
       },
       "company": "MediPersonal",
@@ -1145,6 +2280,9 @@
         "it": [
           "sachbearbeiter-verkauf-100-fur-die-region-schlieren-stellenangebot-med-ipersonal-ch",
           "sachbearbeiter-vendita-100-per-la-region-schlieren-stellenangebot-medipersonal-lugano"
+        ],
+        "de": [
+          "sachbearbeiter-verkauf-100-fur-die-region-schlieren-stellenangebot-med-ipersonal-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1162,7 +2300,7 @@
         }
       },
       "addressRegion": "TI",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "med-ipersonal-c200735f4c33",
@@ -1170,7 +2308,7 @@
       "slugByLocale": {
         "it": "sachbearbeiter-vendita-100-per-la-region-regensdorf-jobangebot-medipersonal-lugano",
         "en": "sachbearbeiter-verkauf-100-fur-die-region-regensdorf-jobangebot-medipersonal-lugano",
-        "de": "sachbearbeiter-verkauf-100-fur-die-region-regensdorf-jobangebot-med-ipersonal-ch",
+        "de": "sachbearbeiter-verkauf-100-fur-die-region-regensdorf-jobangebot-medipersonal-lugano",
         "fr": "sachbearbeiter-verkauf-100-fur-die-region-regensdorf-jobangebot-medipersonal-lugano"
       },
       "company": "MediPersonal",
@@ -1215,6 +2353,9 @@
         "it": [
           "sachbearbeiter-verkauf-100-fur-die-region-regensdorf-jobangebot-med-ipersonal-ch",
           "sachbearbeiter-vendita-100-per-la-region-regensdorf-jobangebot-medipersonal-lugano"
+        ],
+        "de": [
+          "sachbearbeiter-verkauf-100-fur-die-region-regensdorf-jobangebot-med-ipersonal-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1232,7 +2373,7 @@
         }
       },
       "addressRegion": "TI",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "med-ipersonal-4611af69061a",
@@ -1240,7 +2381,7 @@
       "slugByLocale": {
         "it": "sachbearbeiter-vendita-100-per-la-region-volketswil-gesucht-jetzt-bewerben-medipersonal-lugano",
         "en": "sachbearbeiter-verkauf-100-fur-die-region-volketswil-gesucht-jetzt-bewerben-medipersonal-lugano",
-        "de": "sachbearbeiter-verkauf-100-fur-die-region-volketswil-gesucht-jetzt-bewerben-med-ipersonal",
+        "de": "sachbearbeiter-verkauf-100-fur-die-region-volketswil-gesucht-jetzt-bewerben-medipersonal-lugano",
         "fr": "sachbearbeiter-verkauf-100-fur-die-region-volketswil-gesucht-jetzt-bewerben-medipersonal-lugano"
       },
       "company": "MediPersonal",
@@ -1285,6 +2426,9 @@
         "it": [
           "sachbearbeiter-verkauf-100-fur-die-region-volketswil-gesucht-jetzt-bewerben-med-ipersonal",
           "sachbearbeiter-vendita-100-per-la-region-volketswil-gesucht-jetzt-bewerben-medipersonal-lugano"
+        ],
+        "de": [
+          "sachbearbeiter-verkauf-100-fur-die-region-volketswil-gesucht-jetzt-bewerben-med-ipersonal"
         ]
       },
       "needsRetranslation": true,
@@ -1302,7 +2446,7 @@
         }
       },
       "addressRegion": "TI",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "med-ipersonal-be808275f7fa",
@@ -1310,7 +2454,7 @@
       "slugByLocale": {
         "it": "sachbearbeiter-vendita-100-per-la-region-bulach-gesucht-medipersonal-lugano",
         "en": "sachbearbeiter-verkauf-100-fur-die-region-bulach-gesucht-medipersonal-lugano",
-        "de": "sachbearbeiter-verkauf-100-fur-die-region-bulach-gesucht-med-ipersonal-ch",
+        "de": "sachbearbeiter-verkauf-100-fur-die-region-bulach-gesucht-medipersonal-lugano",
         "fr": "sachbearbeiter-verkauf-100-fur-die-region-bulach-gesucht-medipersonal-lugano"
       },
       "company": "MediPersonal",
@@ -1355,6 +2499,9 @@
         "it": [
           "sachbearbeiter-verkauf-100-fur-die-region-bulach-gesucht-med-ipersonal-ch",
           "sachbearbeiter-vendita-100-per-la-region-bulach-gesucht-medipersonal-lugano"
+        ],
+        "de": [
+          "sachbearbeiter-verkauf-100-fur-die-region-bulach-gesucht-med-ipersonal-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1372,7 +2519,7 @@
         }
       },
       "addressRegion": "TI",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "med-ipersonal-8b7c582cf117",
@@ -1380,7 +2527,7 @@
       "slugByLocale": {
         "it": "sachbearbeiter-vendita-100-per-la-region-opfikon-stellenangebot-medipersonal-lugano",
         "en": "sachbearbeiter-verkauf-100-fur-die-region-opfikon-stellenangebot-medipersonal-lugano",
-        "de": "sachbearbeiter-verkauf-100-fur-die-region-opfikon-stellenangebot-med-ipersonal-ch",
+        "de": "sachbearbeiter-verkauf-100-fur-die-region-opfikon-stellenangebot-medipersonal-lugano",
         "fr": "sachbearbeiter-verkauf-100-fur-die-region-opfikon-stellenangebot-medipersonal-lugano"
       },
       "company": "MediPersonal",
@@ -1425,6 +2572,9 @@
         "it": [
           "sachbearbeiter-verkauf-100-fur-die-region-opfikon-stellenangebot-med-ipersonal-ch",
           "sachbearbeiter-vendita-100-per-la-region-opfikon-stellenangebot-medipersonal-lugano"
+        ],
+        "de": [
+          "sachbearbeiter-verkauf-100-fur-die-region-opfikon-stellenangebot-med-ipersonal-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1442,7 +2592,7 @@
         }
       },
       "addressRegion": "TI",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "med-ipersonal-da404ada4b19",
@@ -1450,7 +2600,7 @@
       "slugByLocale": {
         "it": "sachbearbeiter-vendita-100-in-der-region-kloten-temporar-dauerstelle-medipersonal-lugano",
         "en": "sachbearbeiter-verkauf-100-in-der-region-kloten-temporar-dauerstelle-medipersonal-lugano",
-        "de": "sachbearbeiter-verkauf-100-in-der-region-kloten-temporar-dauerstelle-med-ipersonal-ch",
+        "de": "sachbearbeiter-verkauf-100-in-der-region-kloten-temporar-dauerstelle-medipersonal-lugano",
         "fr": "sachbearbeiter-verkauf-100-in-der-region-kloten-temporar-dauerstelle-medipersonal-lugano"
       },
       "company": "MediPersonal",
@@ -1495,6 +2645,9 @@
         "it": [
           "sachbearbeiter-verkauf-100-in-der-region-kloten-temporar-dauerstelle-med-ipersonal-ch",
           "sachbearbeiter-vendita-100-in-der-region-kloten-temporar-dauerstelle-medipersonal-lugano"
+        ],
+        "de": [
+          "sachbearbeiter-verkauf-100-in-der-region-kloten-temporar-dauerstelle-med-ipersonal-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1512,7 +2665,7 @@
         }
       },
       "addressRegion": "TI",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "med-ipersonal-1f99b5f19adb",
@@ -1520,7 +2673,7 @@
       "slugByLocale": {
         "it": "sachbearbeiter-vendita-100-in-der-region-wallisellen-freie-stelle-medipersonal-lugano",
         "en": "sachbearbeiter-verkauf-100-in-der-region-wallisellen-freie-stelle-medipersonal-lugano",
-        "de": "sachbearbeiter-verkauf-100-in-der-region-wallisellen-freie-stelle-med-ipersonal-ch",
+        "de": "sachbearbeiter-verkauf-100-in-der-region-wallisellen-freie-stelle-medipersonal-lugano",
         "fr": "sachbearbeiter-verkauf-100-in-der-region-wallisellen-freie-stelle-medipersonal-lugano"
       },
       "company": "MediPersonal",
@@ -1565,6 +2718,9 @@
         "it": [
           "sachbearbeiter-verkauf-100-in-der-region-wallisellen-freie-stelle-med-ipersonal-ch",
           "sachbearbeiter-vendita-100-in-der-region-wallisellen-freie-stelle-medipersonal-lugano"
+        ],
+        "de": [
+          "sachbearbeiter-verkauf-100-in-der-region-wallisellen-freie-stelle-med-ipersonal-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1582,7 +2738,7 @@
         }
       },
       "addressRegion": "TI",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "med-ipersonal-9a26d59964c7",
@@ -1590,7 +2746,7 @@
       "slugByLocale": {
         "it": "sachbearbeiter-vendita-100-in-der-region-dietikon-freie-stelle-medipersonal-lugano",
         "en": "sachbearbeiter-verkauf-100-in-der-region-dietikon-freie-stelle-medipersonal-lugano",
-        "de": "sachbearbeiter-verkauf-100-in-der-region-dietikon-freie-stelle-med-ipersonal-ch",
+        "de": "sachbearbeiter-verkauf-100-in-der-region-dietikon-freie-stelle-medipersonal-lugano",
         "fr": "sachbearbeiter-verkauf-100-in-der-region-dietikon-freie-stelle-medipersonal-lugano"
       },
       "company": "MediPersonal",
@@ -1635,6 +2791,9 @@
         "it": [
           "sachbearbeiter-verkauf-100-in-der-region-dietikon-freie-stelle-med-ipersonal-ch",
           "sachbearbeiter-vendita-100-in-der-region-dietikon-freie-stelle-medipersonal-lugano"
+        ],
+        "de": [
+          "sachbearbeiter-verkauf-100-in-der-region-dietikon-freie-stelle-med-ipersonal-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1652,7 +2811,7 @@
         }
       },
       "addressRegion": "TI",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "med-ipersonal-48c9ce932051",
@@ -1660,7 +2819,7 @@
       "slugByLocale": {
         "it": "sachbearbeiter-vendita-100-in-der-region-wetzikon-zh-temporar-dauerstelle-medipersonal-lugano",
         "en": "sachbearbeiter-verkauf-100-in-der-region-wetzikon-zh-temporar-dauerstelle-medipersonal-lugano",
-        "de": "sachbearbeiter-verkauf-100-in-der-region-wetzikon-zh-temporar-dauerstelle-med-ipersonal-ch",
+        "de": "sachbearbeiter-verkauf-100-in-der-region-wetzikon-zh-temporar-dauerstelle-medipersonal-lugano",
         "fr": "sachbearbeiter-verkauf-100-in-der-region-wetzikon-zh-temporar-dauerstelle-medipersonal-lugano"
       },
       "company": "MediPersonal",
@@ -1705,6 +2864,9 @@
         "it": [
           "sachbearbeiter-verkauf-100-in-der-region-wetzikon-zh-temporar-dauerstelle-med-ipersonal-ch",
           "sachbearbeiter-vendita-100-in-der-region-wetzikon-zh-temporar-dauerstelle-medipersonal-lugano"
+        ],
+        "de": [
+          "sachbearbeiter-verkauf-100-in-der-region-wetzikon-zh-temporar-dauerstelle-med-ipersonal-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1722,7 +2884,7 @@
         }
       },
       "addressRegion": "TI",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "med-ipersonal-f9708700b701",
@@ -1730,7 +2892,7 @@
       "slugByLocale": {
         "it": "sachbearbeiter-vendita-100-in-der-region-horgen-temporarburo-ipersonal-medipersonal-lugano",
         "en": "sachbearbeiter-verkauf-100-in-der-region-horgen-temporarburo-ipersonal-medipersonal-lugano",
-        "de": "sachbearbeiter-verkauf-100-in-der-region-horgen-temporarburo-ipersonal-med-ipersonal-ch",
+        "de": "sachbearbeiter-verkauf-100-in-der-region-horgen-temporarburo-ipersonal-medipersonal-lugano",
         "fr": "sachbearbeiter-verkauf-100-in-der-region-horgen-temporarburo-ipersonal-medipersonal-lugano"
       },
       "company": "MediPersonal",
@@ -1775,6 +2937,9 @@
         "it": [
           "sachbearbeiter-verkauf-100-in-der-region-horgen-temporarburo-ipersonal-med-ipersonal-ch",
           "sachbearbeiter-vendita-100-in-der-region-horgen-temporarburo-ipersonal-medipersonal-lugano"
+        ],
+        "de": [
+          "sachbearbeiter-verkauf-100-in-der-region-horgen-temporarburo-ipersonal-med-ipersonal-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1792,7 +2957,7 @@
         }
       },
       "addressRegion": "TI",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "med-ipersonal-25a5ff5d5427",
@@ -1800,7 +2965,7 @@
       "slugByLocale": {
         "it": "sachbearbeiter-vendita-100-per-la-region-thalwil-offene-stelle-medipersonal-lugano",
         "en": "sachbearbeiter-verkauf-100-fur-die-region-thalwil-offene-stelle-medipersonal-lugano",
-        "de": "sachbearbeiter-verkauf-100-fur-die-region-thalwil-offene-stelle-med-ipersonal-ch",
+        "de": "sachbearbeiter-verkauf-100-fur-die-region-thalwil-offene-stelle-medipersonal-lugano",
         "fr": "sachbearbeiter-verkauf-100-fur-die-region-thalwil-offene-stelle-medipersonal-lugano"
       },
       "company": "MediPersonal",
@@ -1845,6 +3010,9 @@
         "it": [
           "sachbearbeiter-verkauf-100-fur-die-region-thalwil-offene-stelle-med-ipersonal-ch",
           "sachbearbeiter-vendita-100-per-la-region-thalwil-offene-stelle-medipersonal-lugano"
+        ],
+        "de": [
+          "sachbearbeiter-verkauf-100-fur-die-region-thalwil-offene-stelle-med-ipersonal-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1862,7 +3030,7 @@
         }
       },
       "addressRegion": "TI",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "med-ipersonal-ddd615022327",
@@ -1870,7 +3038,7 @@
       "slugByLocale": {
         "it": "sachbearbeiter-vendita-100-in-der-region-zurich-stellenangebot-medipersonal-lugano",
         "en": "sachbearbeiter-verkauf-100-in-der-region-zurich-stellenangebot-medipersonal-lugano",
-        "de": "sachbearbeiter-verkauf-100-in-der-region-zurich-stellenangebot-med-ipersonal-ch",
+        "de": "sachbearbeiter-verkauf-100-in-der-region-zurich-stellenangebot-medipersonal-lugano",
         "fr": "sachbearbeiter-verkauf-100-in-der-region-zurich-stellenangebot-medipersonal-lugano"
       },
       "company": "MediPersonal",
@@ -1915,6 +3083,9 @@
         "it": [
           "sachbearbeiter-verkauf-100-in-der-region-zurich-stellenangebot-med-ipersonal-ch",
           "sachbearbeiter-vendita-100-in-der-region-zurich-stellenangebot-medipersonal-lugano"
+        ],
+        "de": [
+          "sachbearbeiter-verkauf-100-in-der-region-zurich-stellenangebot-med-ipersonal-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1932,7 +3103,7 @@
         }
       },
       "addressRegion": "TI",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "med-ipersonal-280116cd1b3d",
@@ -1940,7 +3111,7 @@
       "slugByLocale": {
         "it": "sachbearbeiter-vendita-100-per-la-region-winterthur-temporarburo-ipersonal-medipersonal-lugano",
         "en": "sachbearbeiter-verkauf-100-fur-die-region-winterthur-temporarburo-ipersonal-medipersonal-lugano",
-        "de": "sachbearbeiter-verkauf-100-fur-die-region-winterthur-temporarburo-ipersonal-med-ipersonal",
+        "de": "sachbearbeiter-verkauf-100-fur-die-region-winterthur-temporarburo-ipersonal-medipersonal-lugano",
         "fr": "sachbearbeiter-verkauf-100-fur-die-region-winterthur-temporarburo-ipersonal-medipersonal-lugano"
       },
       "company": "MediPersonal",
@@ -1985,6 +3156,9 @@
         "it": [
           "sachbearbeiter-verkauf-100-fur-die-region-winterthur-temporarburo-ipersonal-med-ipersonal",
           "sachbearbeiter-vendita-100-per-la-region-winterthur-temporarburo-ipersonal-medipersonal-lugano"
+        ],
+        "de": [
+          "sachbearbeiter-verkauf-100-fur-die-region-winterthur-temporarburo-ipersonal-med-ipersonal"
         ]
       },
       "needsRetranslation": true,
@@ -2002,7 +3176,7 @@
         }
       },
       "addressRegion": "TI",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "med-ipersonal-17c97b3ece10",
@@ -2010,7 +3184,7 @@
       "slugByLocale": {
         "it": "sachbearbeiter-vendita-100-in-der-region-uster-stellenangebot-medipersonal-lugano",
         "en": "sachbearbeiter-verkauf-100-in-der-region-uster-stellenangebot-medipersonal-lugano",
-        "de": "sachbearbeiter-verkauf-100-in-der-region-uster-stellenangebot-med-ipersonal-ch",
+        "de": "sachbearbeiter-verkauf-100-in-der-region-uster-stellenangebot-medipersonal-lugano",
         "fr": "sachbearbeiter-verkauf-100-in-der-region-uster-stellenangebot-medipersonal-lugano"
       },
       "company": "MediPersonal",
@@ -2055,6 +3229,9 @@
         "it": [
           "sachbearbeiter-verkauf-100-in-der-region-uster-stellenangebot-med-ipersonal-ch",
           "sachbearbeiter-vendita-100-in-der-region-uster-stellenangebot-medipersonal-lugano"
+        ],
+        "de": [
+          "sachbearbeiter-verkauf-100-in-der-region-uster-stellenangebot-med-ipersonal-ch"
         ]
       },
       "needsRetranslation": true,
@@ -2072,7 +3249,7 @@
         }
       },
       "addressRegion": "TI",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
