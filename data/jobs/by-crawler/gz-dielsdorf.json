@@ -1,89 +1,7 @@
 {
   "crawlerKey": "gz-dielsdorf",
-  "assembledAt": "2026-08-25T10:27:48.116Z",
+  "assembledAt": "2026-08-25T22:00:48.502Z",
   "jobs": [
-    {
-      "id": "gz-dielsdorf-41e36283123f",
-      "slug": "applicazione-spontanea-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf",
-      "slugByLocale": {
-        "it": "applicazione-spontanea-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf",
-        "en": "spontaneous-application-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf",
-        "de": "spontanbewerbung-gz-dielsdorf-dielsdorf-regensdorf",
-        "fr": "demande-spontanee-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf"
-      },
-      "company": "Gesundheitszentrum Dielsdorf",
-      "companyKey": "gz-dielsdorf",
-      "companyDomain": "gz-dielsdorf.ch",
-      "title": "Spontanbewerbung",
-      "titleByLocale": {
-        "it": "Applicazione spontanea",
-        "en": "Spontaneous application",
-        "de": "Spontanbewerbung",
-        "fr": "Demande spontanée"
-      },
-      "description": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause.</p>\n\nAufgaben:\nKeine passende Stelle auf unserer Homepage gefunden?\n\nAnforderungen:\nWir suchen permanent ausgebildete Fachkräfte.\n\nWir bieten:\nBewerben Sie sich jetzt spontan.",
-      "descriptionByLocale": {
-        "it": "<p>Dielsdorf Health Center è un moderno centro di competenza geriatrica con circa 500 dipendenti da 35 nazioni. La nostra offerta va dalla consulenza per gli anziani e i loro parenti alla cura e alla cura a lungo termine generale e specializzata a casa. </p> Compiti: Non trovato un posto adatto sulla nostra homepage?\n• Requisiti Siamo alla ricerca di professionisti permanentemente formati.\n• Offriamo: Applicare spontaneamente ora.",
-        "en": "<p>Dielsdorf Health Center is a modern geriatric competence center with around 500 employees from 35 nations. Our offer ranges from counselling for older people and their relatives to general and specialized long-term care and care at home. </p> Tasks: Not found a suitable place on our homepage?\n• Requirements We are looking for permanently trained professionals.\n• We offer: Apply spontaneously now.",
-        "de": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause.</p>\n\nAufgaben:\nKeine passende Stelle auf unserer Homepage gefunden?\n\nAnforderungen:\nWir suchen permanent ausgebildete Fachkräfte.\n\nWir bieten:\nBewerben Sie sich jetzt spontan.",
-        "fr": "<p>Dielsdorf Health Center est un centre de compétences gériatriques moderne avec environ 500 employés de 35 pays. Notre offre va du counseling pour les personnes âgées et leurs proches aux soins de longue durée généraux et spécialisés à domicile. </p> Tâches : Pas trouvé un endroit approprié sur notre page d'accueil?\n• Exigences Nous cherchons des professionnels formés en permanence.\n• Nous offrons: Appliquer spontanément maintenant."
-      },
-      "needsRetranslation": true,
-      "location": "Dielsdorf/Regensdorf",
-      "canton": "ZH",
-      "url": "https://ohws.prospective.ch/public/v1/jobs/960efa69-9cbe-4619-a901-a2acb9cc4345",
-      "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-25T10:27:45.181Z",
-      "addressLocality": "Dielsdorf/Regensdorf",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8157",
-      "streetAddress": "",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-26",
-      "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/633/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "spontanbewerbung-gz-dielsdorf-dielsdorf-regensdorf",
-        "spontanbewerbung-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf",
-        "applicazione-spontanea-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "spontanbewerbung-gz-dielsdorf-dielsdorf-regensdorf",
-          "spontanbewerbung-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf",
-          "applicazione-spontanea-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf"
-        ],
-        "en": [
-          "spontanbewerbung-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf"
-        ],
-        "fr": [
-          "spontanbewerbung-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf"
-        ]
-      },
-      "firstSeenAt": "2026-06-27T10:45:35.838Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "gz-dielsdorf-93816c4a3f8c",
       "slug": "fachperson-gesundheit-cfc-schwerpunkt-langzeitpflege-gesundheitszentrum-dielsdorf-dielsdorf",
@@ -116,7 +34,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/b573d3df-f5f8-4adc-810d-e0c6b79bba7c",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T10:27:45.177Z",
+      "crawledAt": "2026-08-25T22:00:45.696Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -190,7 +108,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/4735e216-71a3-4e3b-bc8d-4135b794af23",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T10:27:45.174Z",
+      "crawledAt": "2026-08-25T22:00:45.693Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -268,7 +186,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/01d03449-2806-4111-b561-6d037f4990a3",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T10:27:45.170Z",
+      "crawledAt": "2026-08-25T22:00:45.689Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -356,7 +274,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/a2d419de-4c3c-47a4-9a41-7229e6a79906",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T10:27:45.164Z",
+      "crawledAt": "2026-08-25T22:00:45.687Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -436,7 +354,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/e34f9cb4-6010-4d8a-9380-443befd3f6b4",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T10:27:45.160Z",
+      "crawledAt": "2026-08-25T22:00:45.685Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -516,7 +434,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/55b861eb-bc65-4532-9e55-5f30a5f33885",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T10:27:45.157Z",
+      "crawledAt": "2026-08-25T22:00:45.683Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -596,7 +514,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/e5c95f59-a715-4eec-a78d-1a6385964be0",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T10:27:45.154Z",
+      "crawledAt": "2026-08-25T22:00:45.681Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -676,7 +594,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/b4a3f004-191e-4d7f-a0ec-0a3ceb9440ac",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T10:27:45.150Z",
+      "crawledAt": "2026-08-25T22:00:45.679Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -756,7 +674,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/897f6366-3a66-447a-b85e-f6e296652bd4",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T10:27:45.149Z",
+      "crawledAt": "2026-08-25T22:00:45.677Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -848,7 +766,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/d79d5f19-5e5a-4c9b-a63c-00dcef3c73da",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T10:27:45.145Z",
+      "crawledAt": "2026-08-25T22:00:45.674Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -928,7 +846,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/d915e5b4-cb5d-4b6a-88dc-805e7d649a78",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T10:27:45.141Z",
+      "crawledAt": "2026-08-25T22:00:45.672Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1002,7 +920,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/04fbcd79-75ef-4d5c-bb25-efc2d7a8a3d6",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T10:27:45.134Z",
+      "crawledAt": "2026-08-25T22:00:45.668Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1082,7 +1000,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/a2dc93a9-8497-4645-a300-27e6daa437dd",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T10:27:45.129Z",
+      "crawledAt": "2026-08-25T22:00:45.665Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1162,7 +1080,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/235e85e5-32cf-40da-ad55-3b389ad19a73",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T10:27:45.105Z",
+      "crawledAt": "2026-08-25T22:00:45.645Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1209,6 +1127,89 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "gz-dielsdorf-41e36283123f",
+      "slug": "applicazione-spontanea-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf",
+      "slugByLocale": {
+        "it": "applicazione-spontanea-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf",
+        "en": "spontaneous-application-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf",
+        "de": "spontanbewerbung-gz-dielsdorf-dielsdorf-regensdorf",
+        "fr": "demande-spontanee-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf"
+      },
+      "company": "Gesundheitszentrum Dielsdorf",
+      "companyKey": "gz-dielsdorf",
+      "companyDomain": "gz-dielsdorf.ch",
+      "title": "Spontanbewerbung",
+      "titleByLocale": {
+        "it": "Applicazione spontanea",
+        "en": "Spontaneous application",
+        "de": "Spontanbewerbung",
+        "fr": "Demande spontanée"
+      },
+      "description": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause.</p>\n\nAufgaben:\nKeine passende Stelle auf unserer Homepage gefunden?\n\nAnforderungen:\nWir suchen permanent ausgebildete Fachkräfte.\n\nWir bieten:\nBewerben Sie sich jetzt spontan.",
+      "descriptionByLocale": {
+        "it": "<p>Dielsdorf Health Center è un moderno centro di competenza geriatrica con circa 500 dipendenti da 35 nazioni. La nostra offerta va dalla consulenza per gli anziani e i loro parenti alla cura e alla cura a lungo termine generale e specializzata a casa. </p> Compiti: Non trovato un posto adatto sulla nostra homepage?\n• Requisiti Siamo alla ricerca di professionisti permanentemente formati.\n• Offriamo: Applicare spontaneamente ora.",
+        "en": "<p>Dielsdorf Health Center is a modern geriatric competence center with around 500 employees from 35 nations. Our offer ranges from counselling for older people and their relatives to general and specialized long-term care and care at home. </p> Tasks: Not found a suitable place on our homepage?\n• Requirements We are looking for permanently trained professionals.\n• We offer: Apply spontaneously now.",
+        "de": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause.</p>\n\nAufgaben:\nKeine passende Stelle auf unserer Homepage gefunden?\n\nAnforderungen:\nWir suchen permanent ausgebildete Fachkräfte.\n\nWir bieten:\nBewerben Sie sich jetzt spontan.",
+        "fr": "<p>Dielsdorf Health Center est un centre de compétences gériatriques moderne avec environ 500 employés de 35 pays. Notre offre va du counseling pour les personnes âgées et leurs proches aux soins de longue durée généraux et spécialisés à domicile. </p> Tâches : Pas trouvé un endroit approprié sur notre page d'accueil?\n• Exigences Nous cherchons des professionnels formés en permanence.\n• Nous offrons: Appliquer spontanément maintenant."
+      },
+      "needsRetranslation": true,
+      "location": "Dielsdorf/Regensdorf",
+      "canton": "ZH",
+      "url": "https://ohws.prospective.ch/public/v1/jobs/960efa69-9cbe-4619-a901-a2acb9cc4345",
+      "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T10:27:45.181Z",
+      "addressLocality": "Dielsdorf/Regensdorf",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8157",
+      "streetAddress": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-26",
+      "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/633/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "spontanbewerbung-gz-dielsdorf-dielsdorf-regensdorf",
+        "spontanbewerbung-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf",
+        "applicazione-spontanea-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "spontanbewerbung-gz-dielsdorf-dielsdorf-regensdorf",
+          "spontanbewerbung-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf",
+          "applicazione-spontanea-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf"
+        ],
+        "en": [
+          "spontanbewerbung-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf"
+        ],
+        "fr": [
+          "spontanbewerbung-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf"
+        ]
+      },
+      "firstSeenAt": "2026-06-27T10:45:35.838Z",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }
