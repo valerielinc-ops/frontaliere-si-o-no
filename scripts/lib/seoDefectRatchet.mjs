@@ -41,18 +41,25 @@
  * reasoning `scripts/lib/mixAdjustedRateGate.mjs` documents at length, and the
  * same shape `data/title-length-baseline.json` already uses.
  *
- * Tolerance defaults deliberately match `DEFAULT_TOL` in
- * `scripts/audit-title-length.mjs` / `scripts/audit-h1-title-duplicates.mjs`
- * (`relPct: 20`). They are NOT imported from there and the four existing
- * rate-ratchet auditors are NOT refactored onto this module: that would be the
- * drive-by refactor AGENTS.md #6 forbids, on four funnel-critical gates, inside
- * a PR about something else. The duplication is one constant, it is named here,
- * and folding those four in is tracked as a chained PR instead.
+ * WHAT THIS MODULE DOES NOT DO. It does not compute a cap, and it does not
+ * implement the AND-condition. Both belong to
+ * `scripts/lib/mixAdjustedRateGate.mjs`, which every other rate-ratchet gate in
+ * the repo already calls, and which carries sampling corrections that took
+ * three rounds of review to get right. This module is the LEDGER layer: it says
+ * which families exist, what their ceilings are, where each ceiling was
+ * measured, and that a ceiling may only descend. The judging is delegated.
+ *
+ * `DEFAULT_TOLERANCE.relPct = 20` matches `DEFAULT_TOL` in
+ * `scripts/audit-title-length.mjs` / `scripts/audit-h1-title-duplicates.mjs`.
+ * It is restated rather than imported because those are per-auditor knobs a
+ * gate owner may tune for their own population; the value is the repo default
+ * and the sibling is named so the two are not silently different numbers.
  */
 
 import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, isAbsolute, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { evaluateMixAdjustedTotalRegression } from './mixAdjustedRateGate.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 
@@ -178,15 +185,39 @@ export function evaluateCeiling({ family, offenders, filesScanned, entry }) {
 
   const tol = { ...DEFAULT_TOLERANCE, ...(entry.tolerance ?? {}) };
   const ceilingRatePct = entry.ceilingRatePct;
-  const ratePct = (offenders / filesScanned) * 100;
-  const capRatePct =
-    ceilingRatePct + Math.min((ceilingRatePct * tol.relPct) / 100, tol.maxDeltaPp) + tol.absPp;
-  const expectedOffenders = (ceilingRatePct / 100) * filesScanned;
 
-  // AND-condition, same shape as every other rate ratchet in the repo: a rate
-  // that drifts over the cap without a matching absolute rise is a denominator
-  // artifact, not a defect.
-  const exceeded = ratePct > capRatePct && offenders > expectedOffenders + tol.minAbsDelta;
+  // THE CAP AND THE AND-CONDITION ARE NOT COMPUTED HERE.
+  //
+  // `evaluateMixAdjustedTotalRegression` already owns that arithmetic for every
+  // rate-ratchet gate in the repo, together with the sampling corrections it
+  // took three PR reviews to get right (#4695 round 1 and 2, #4717) — which
+  // side of the comparison may be extrapolated, why the total-level check must
+  // NOT be, and the bounded all-zero draw that must not read as a broken walk.
+  // Writing the same formula again here would have been a fifth copy of exactly
+  // what AGENTS.md #6 says to centralise, and the first place it drifted would
+  // be a sampling correction landing in one copy and not the other.
+  //
+  // A family is expressed as a one-feature mix: this family's own denominator
+  // against this family's own sealed rate. That is degenerate for the
+  // mix-adjustment (one feature cannot shift its share against itself) and
+  // deliberately so — the composition-shift problem that function solves is not
+  // this family's problem, but the cap and the AND-condition below it are
+  // exactly this family's problem.
+  const scannedByFeature = { [family]: filesScanned };
+  const baseByFeature = { [family]: { ratePct: ceilingRatePct, scanned: entry.measurement?.worstBucket?.filesScanned ?? filesScanned } };
+  const { expectedOffenders, totalCap: capRatePct, actualTotalRate: ratePct, regression: exceeded } =
+    evaluateMixAdjustedTotalRegression({
+      scannedByFeature,
+      baseByFeature,
+      tol,
+      actualOffenders: offenders,
+      actualScanned: filesScanned,
+      // sampleRate is deliberately left at its default of 1: both sides of this
+      // comparison are already on THIS run's scale (`expectedOffenders` is
+      // `filesScanned * ceilingRate`, `offenders` is what this run counted), and
+      // extrapolating one of two matched-scale numbers is the precise bug
+      // PR #4717's review caught — see that function's own inline note.
+    });
 
   const tightenToRatePct = ratePct < ceilingRatePct ? Number(ratePct.toFixed(7)) : null;
 
