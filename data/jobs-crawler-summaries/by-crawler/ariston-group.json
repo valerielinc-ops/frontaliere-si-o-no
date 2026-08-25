@@ -1,18 +1,49 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-08-25T21:51:58.325Z",
-  "total": 15,
-  "newCount": 0,
+  "generatedAt": "2026-08-25T22:44:04.543Z",
+  "total": 16,
+  "newCount": 1,
   "updatedCount": 13,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 9152,
-  "avgDurationMs": 9152,
+  "durationMs": 8746,
+  "avgDurationMs": 8746,
   "durationHistory": [
-    9152
+    8746
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "SERVICETECHNIKER (M/W/D) GEBIET SCHLESWIG-HOLSTEIN UND UMGEBUNG",
+      "slug": "servicetechniker-m-w-d-gebiet-schleswig-holstein-und-umgebung-ariston-group-norderstedt-de-22844",
+      "url": "https://careers.aristongroup.com/job/Norderstedt-SERVICETECHNIKER-%28MWD%29-GEBIET-SCHLESWIG-HOLSTEIN-UND-UMGEBUNG-Nord-22844/1425648733/",
+      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1425648733/?locale=en_US",
+      "company": "Ariston Group",
+      "companyKey": "ariston-group",
+      "companyDomain": "aristongroup.com",
+      "location": "Norderstedt, DE, 22844",
+      "addressLocality": "Norderstedt, DE, 22844",
+      "addressRegion": "",
+      "addressCountry": "CH",
+      "canton": "",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Energia & Riscaldamento",
+      "source": "ariston-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-12",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-09-24",
+      "_qualityScore": 71,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 10,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "SERVICETECHNIKER (M/W/D) FREIBURG UND UMGEBUNG",
