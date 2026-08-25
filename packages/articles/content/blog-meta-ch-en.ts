@@ -4315,6 +4315,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.iniziativa-neutralita-svizzera-pace.title': 'Neutrality initiative weakens Switzerland\'s role',
     'blog.article.iniziativa-neutralita-svizzera-pace.excerpt': 'An alliance of 22 organisations warns that approval of the neutrality initiative would result in disengagement from international law and weaken Switzerland\'s position in promoting peace.',
     'blog.article.iniziativa-neutralita-svizzera-pace.imageAlt': 'Swiss Federal Parliament in Bern, where the neutrality initiative is being debated',
+    'blog.article.utilizzo-ia-svizzera-2026.title': 'Artificial intelligence: 80% of Swiss use it',
+    'blog.article.utilizzo-ia-svizzera-2026.excerpt': '80% of the Swiss use AI. Doubled in two years according to IGEM-Digimonitor. YouTube 80%, Instagram 45%, X drops to 10%.',
+    'blog.article.utilizzo-ia-svizzera-2026.imageAlt': 'Hands interacting with digital devices in modern Swiss workplace with lake view in background',
 };
 
 export default blogMetaChEn;

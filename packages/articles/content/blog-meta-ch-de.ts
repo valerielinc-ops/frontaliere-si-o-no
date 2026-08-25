@@ -4315,6 +4315,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.iniziativa-neutralita-svizzera-pace.title': 'Neutralitätsinitiative schwächt die Rolle der Schweiz',
     'blog.article.iniziativa-neutralita-svizzera-pace.excerpt': 'Ein Bündnis von 22 Organisationen warnt davor, dass die Verabschiedung der Neutralitätsinitiative eine Abkehr vom Völkerrecht und eine Schwächung der Position der Schweiz bei der Friedensförderung bedeuten würde.',
     'blog.article.iniziativa-neutralita-svizzera-pace.imageAlt': 'Das Bundeshaus in Bern, wo die Debatte über die Neutralitätsinitiative stattfindet',
+    'blog.article.utilizzo-ia-svizzera-2026.title': 'Künstliche Intelligenz: 80% Schweizer nutzen sie',
+    'blog.article.utilizzo-ia-svizzera-2026.excerpt': '80% der Schweizer nutzen KI. In zwei Jahren verdoppelt nach IGEM-Digimonitor. YouTube 80%, Instagram 45%, X fällt auf 10%.',
+    'blog.article.utilizzo-ia-svizzera-2026.imageAlt': 'Hände interagieren mit digitalen Geräten am Arbeitsplatz in der Schweiz mit Seeblick',
 };
 
 export default blogMetaChDe;
