@@ -53,14 +53,13 @@ on:
         required: false
       CLAUDE_CODE_OAUTH_TOKEN:
         required: false
-# Same lock as the disabled original (crawler-group-23.yml) — prevents a
-# double dispatch (manual retry overlapping the cron, or a future bug) from
-# running two parallel instances of this group that write concurrently to
-# data/jobs-crawler-adapters/. A reusable workflow's top-level concurrency:
-# is honored for the workflow_call job, same as an ordinary job.
-concurrency:
-  group: jobs-crawler-group-23
-  cancel-in-progress: false
+# No concurrency: block here — the caller (crawler-group-23.yml in
+# frontaliere-articles) already declares the same lock at its own workflow
+# level, which governs the actual job run. A duplicate top-level
+# concurrency: here (same group name) is suspected to break workflow
+# resolution for a cross-repo workflow_call — under experimental removal to
+# isolate the cause of a "likely failed because of a workflow file issue"
+# dispatch failure with zero jobs created.
 permissions:
   contents: read
 env:
