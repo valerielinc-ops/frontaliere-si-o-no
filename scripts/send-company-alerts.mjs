@@ -400,6 +400,20 @@ async function sendBatch(emails) {
       html: e.html,
       text: e.text,
       tags: [
+        // NAMED campaign_id (not just `type`): the Resend webhook
+        // (functions/src/newsletterResendWebhookCore.js) reads `tags.campaign_id`
+        // by name and has no positional fallback the way emailCascade.js's
+        // campaignIdTag() does for Mailgun/Mailjet/Mailtrap (it defaults to
+        // tags[0], which happened to be `type` here — that's the only reason
+        // those providers were ever attributed correctly). Without this tag,
+        // every company-alert event routed through Resend fell back to an
+        // `unknown:<messageId>` campaign_id, unrecoverable by
+        // report-email-engagement.mjs's classifyEmailType and permanently
+        // counted as `unattributed` (2026-08-25 investigation). Same value as
+        // COMPANY_ALERT_TEMPLATE_ID that campaignIdTag()'s fallback already
+        // produced on the other providers, so this doesn't split the type into
+        // two buckets — it makes Resend consistent with the rest.
+        { name: 'campaign_id', value: COMPANY_ALERT_TEMPLATE_ID },
         // The template's identity in the only registry this repo has for one.
         { name: 'type', value: COMPANY_ALERT_TEMPLATE_ID },
         // The HEADLINE alert — the employer the subject names. A grouped send
