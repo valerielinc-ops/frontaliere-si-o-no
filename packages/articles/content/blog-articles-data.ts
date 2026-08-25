@@ -32088,6 +32088,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'cassano-magnago-frontaliere-ticino',
+ category: 'pratico',
+ date: '2026-08-24T23:57:19.497Z',
+ image: '/images/blog/cassano-magnago-frontaliere-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

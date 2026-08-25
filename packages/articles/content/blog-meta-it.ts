@@ -10723,6 +10723,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.solbiate-olona-vivere-lavorare.title': 'Solbiate Olona-Ticino: vivere da frontaliere nel 2024',
     'blog.article.solbiate-olona-vivere-lavorare.excerpt': 'Dal 1° gennaio 2024 l\'imposta alla fonte è trattenuta solo in Svizzera. Frontalieri categoria G pagano AVS 5.3%, LPP 7–18%, LAMal da CHF 300–2500 annuali. Guida completa.',
     'blog.article.solbiate-olona-vivere-lavorare.imageAlt': 'Vista del lungolago di Lugano al tramonto con uffici moderni: paesaggio tipico del Ticino dove lavorano i frontalieri',
+    'blog.article.cassano-magnago-frontaliere-ticino.title': 'Vivere a Cassano Magnago, lavorare in Ticino',
+    'blog.article.cassano-magnago-frontaliere-ticino.excerpt': 'Cassano Magnago frontaliere Ticino: imposta alla fonte, AVS, LAMal, ristorni. Guida all\'Accordo 2020 e procedure per frontalieri G.',
+    'blog.article.cassano-magnago-frontaliere-ticino.imageAlt': 'Paesaggio di confine tra Varese e Ticino con segnaletica stradale e traffico pendolare verso Mendrisio',
 };
 
 export default blogMetaIt;

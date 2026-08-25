@@ -10724,6 +10724,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.solbiate-olona-vivere-lavorare.title': 'Solbiate Olona-Tessin : vivre en frontalier en 2024',
     'blog.article.solbiate-olona-vivere-lavorare.excerpt': 'Depuis le 1er janvier 2024, l\'impôt à la source n\'est retenu qu\'en Suisse. Les frontaliers de la catégorie G paient AVS 5.3%, LPP 7–18%, LAMal de CHF 300–2500 par an. Guide complet.',
     'blog.article.solbiate-olona-vivere-lavorare.imageAlt': 'Vue du lac de Lugano avec immeubles modernes: paysage typique du Tessin où travaillent les frontaliers',
+    'blog.article.cassano-magnago-frontaliere-ticino.title': 'Vivre à Cassano Magnago, travailler au Tessin',
+    'blog.article.cassano-magnago-frontaliere-ticino.excerpt': 'Cassano Magnago pour les navetteurs transfrontaliers du Tessin : retenue à la source, AHV, KVG, remises à la source. Guide de l\'Accord de 2020 et des procédures pour les navetteurs transfrontaliers G.',
+    'blog.article.cassano-magnago-frontaliere-ticino.imageAlt': 'Paysage frontalier entre Varèse et le Tessin avec signalisation routière et trafic pendulaire',
 };
 
 export default blogMetaFr;
