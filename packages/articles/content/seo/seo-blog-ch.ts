@@ -55672,6 +55672,46 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
+
+  'blog-verdi-segretaria-stato-clima': {
+    title: 'Segretaria di Stato per il clima: la richiesta dei Verdi',
+    description: 'I Verdi chiedono una nuova Segretaria di Stato per il clima e l\'uscita programmata dalle energie fossili. Attacco diretto al consigliere federale Rösti',
+    keywords: 'frontalieri, ticino, svizzera, italia, segretaria, stato, clima, richiesta',
+    ogTitle: 'Verdi: nuova Segretaria di Stato per il clima',
+    ogDescription: 'I Verdi alzano la pressione sulla politica climatica federale: chiedono una Segretaria di Stato dedicata al clima e un\'uscita programmata dalle energie fossili. Nel mirino il consigliere federale Rösti, accusato di inazione. Leggi cosa cambia per gli',
+    canonicalPath: '/articoli-svizzera/verdi-segretaria-stato-clima/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Segretaria di Stato per il clima: la richiesta dei Verdi",
+      "description": "I Verdi chiedono una nuova Segretaria di Stato per il clima e l'uscita programmata dalle energie fossili. Attacco diretto al consigliere federale Rösti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/verdi-segretaria-stato-clima.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Conferenza stampa dei Verdi sulla richiesta di una Segretaria di Stato per il clima federale"
+      },
+      "datePublished": "2026-08-25T17:21:00+00:00",
+      "dateModified": "2026-08-25T17:21:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/verdi-segretaria-stato-clima/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

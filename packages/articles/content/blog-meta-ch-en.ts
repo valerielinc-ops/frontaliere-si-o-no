@@ -4291,6 +4291,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.argovia-divieto-velo-scuole.title': 'Aargau towards a ban on headscarves in schools',
     'blog.article.argovia-divieto-velo-scuole.excerpt': 'The Argovian Grand Council approved the motion with 78 votes. Cantonal government objects due to constitutional doubts on the basis of the 2015 Federal Court ruling.',
     'blog.article.argovia-divieto-velo-scuole.imageAlt': 'Swiss school building with diverse students in courtyard, authentic educational setting.',
+    'blog.article.verdi-segretaria-stato-clima.title': 'Secretary of State for Climate: the Greens\' request',
+    'blog.article.verdi-segretaria-stato-clima.excerpt': 'The Greens call for a Secretary of State for Climate and Exit from Fossil Energies. Lisa Mazzone attacks Federal Councillor Rösti head-on.',
+    'blog.article.verdi-segretaria-stato-clima.imageAlt': 'Green Party press conference on Swiss federal climate state secretariat request',
 };
 
 export default blogMetaChEn;

@@ -12871,6 +12871,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'verdi-segretaria-stato-clima',
+    category: 'novita',
+    date: '2026-08-25T17:21:00.749Z',
+    image: '/images/blog/verdi-segretaria-stato-clima.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

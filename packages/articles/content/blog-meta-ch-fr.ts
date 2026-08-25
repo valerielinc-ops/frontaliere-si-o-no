@@ -4291,6 +4291,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.argovia-divieto-velo-scuole.title': 'Argovie vers l\'interdiction du voile dans les écoles',
     'blog.article.argovia-divieto-velo-scuole.excerpt': 'Le Grand Conseil argovien approuve la motion par 78 voix. Le gouvernement cantonal s\'y oppose pour des doutes constitutionnels sur la base de l\'arrêt du Tribunal fédéral de 2015.',
     'blog.article.argovia-divieto-velo-scuole.imageAlt': 'Bâtiment scolaire suisse avec des étudiants diversifiés dans la cour, architecture authentique.',
+    'blog.article.verdi-segretaria-stato-clima.title': 'Secrétaire d\'État au climat : la demande des Verts',
+    'blog.article.verdi-segretaria-stato-clima.excerpt': 'Les Verts demandent une secrétaire d\'État pour le climat et la sortie des énergies fossiles. Lisa Mazzone attaque frontalement le conseiller fédéral Rösti.',
+    'blog.article.verdi-segretaria-stato-clima.imageAlt': 'Conférence de presse des Verts demandant un Secrétariat d\'État fédéral pour le climat',
 };
 
 export default blogMetaChFr;
