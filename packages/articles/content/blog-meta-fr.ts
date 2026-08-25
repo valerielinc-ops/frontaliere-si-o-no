@@ -10742,6 +10742,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-prato-allo-lavorare-grigioni.title': 'Vivre à Prato all\' Stelvio et travailler dans les Grisons',
     'blog.article.vivere-prato-allo-lavorare-grigioni.excerpt': 'Guide pratique pour les frontaliers entre l\'Italie et la Suisse : permis, fiscalité, AVS et LAMal, coût de la vie et ce qu\'il faut prendre en compte avant de déménager',
     'blog.article.vivere-prato-allo-lavorare-grigioni.imageAlt': 'Route alpine à la frontière entre la Suisse et l\'Italie avec vue montagne de la région des Grisons',
+    'blog.article.vivere-tubre-lavorare-grigioni-frontaliere.title': 'Vivre à Tubre et travailler dans les Grisons en tant que frontalier',
+    'blog.article.vivere-tubre-lavorare-grigioni-frontaliere.excerpt': 'Permis G, fiscalité, AVS, LAMal : guide pratique pour les frontaliers Italie-Suisse. Coûts, fiscalité, procédure pour vivre à Tubre et travailler dans les Grisons.',
+    'blog.article.vivere-tubre-lavorare-grigioni-frontaliere.imageAlt': 'Vallée alpine vue d\'altitude avec village italien au fond de vallée, forêts d\'automne et lumière dorée. Représente le paysage de travailleur frontalier entre l\'Italie et la Suisse.',
 };
 
 export default blogMetaFr;

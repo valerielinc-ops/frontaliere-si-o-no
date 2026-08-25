@@ -10741,6 +10741,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-prato-allo-lavorare-grigioni.title': 'Vivere a Prato Allo Stelvio e lavorare in Grigioni',
     'blog.article.vivere-prato-allo-lavorare-grigioni.excerpt': 'Guida pratica per frontalieri tra Italia e Svizzera: permessi, tassazione, AVS e LAMal, costi della vita e cosa considerare prima di trasferirsi',
     'blog.article.vivere-prato-allo-lavorare-grigioni.imageAlt': 'Strada alpina al confine tra Svizzera e Italia con panorama montano dei Grigioni, area frontaliera tipica',
+    'blog.article.vivere-tubre-lavorare-grigioni-frontaliere.title': 'Vivere a Tubre e lavorare in Grigioni da frontaliere',
+    'blog.article.vivere-tubre-lavorare-grigioni-frontaliere.excerpt': 'Permesso G, fiscalità, AVS, LAMal: guida pratica per frontalieri Italia-Svizzera. Costi, tassazione, procedura per vivere a Tubre e lavorare in Grigioni.',
+    'blog.article.vivere-tubre-lavorare-grigioni-frontaliere.imageAlt': 'Valle alpina vista dall\'alto con villaggio italiano nel fondovalle, boschi autunnali e luce dorata. Simbolo del paesaggio di lavoro frontaliere tra Italia e Svizzera.',
 };
 
 export default blogMetaIt;
