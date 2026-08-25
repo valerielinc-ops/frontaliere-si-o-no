@@ -5210,6 +5210,38 @@ export function parseArticleIdentityField(raw, opts = {}) {
  */
 const PROMPT_TOKEN_BUDGET = 8000;
 
+// ── Item 1 di #6020: scansione meccanica, non ripetibile a mano una quarta volta ──
+//
+// Tre round di analisi manuale (2026-08-18, 2026-08-19, 2026-08-24, tutti in
+// #6020) hanno letto a occhio due soli punti — il dedup ternario
+// `IS_FRONTALIERE ? A : B` (nessun effetto a runtime: un solo ramo eseguito
+// per chiamata) e il glossario `LINK INTERNI` (gia' terso, ~15-20 token di
+// margine) — confermandoli entrambi inefficaci/irrilevanti, senza mai
+// scansionare sistematicamente le ripetizioni letterali DENTRO un singolo
+// ramo eseguito.
+//
+// Il 2026-08-25 quella scansione e' stata fatta: uno script one-off ha
+// interpolato il blocco di assemblaggio per il ramo peggiore misurato (news
+// frontaliere al retry, IS_FRONTALIERE=true — lo stesso fixture di
+// `tests/news-prompt-token-budget.test.ts`) e cercato n-gram di 5-15 parole
+// ripetuti >=2 volte nel prompt STATICO risultante (esclusa `SOURCE CONTENT:`,
+// che nel fixture e' un paragrafo ripetuto ad arte solo per saturare
+// `MAX_SOURCE_CHARS` — la sua ripetizione e' un artefatto del fixture, non
+// dell'impalcatura statica che il budget qui sopra governa). Risultato: ~35
+// token totali recuperabili, sotto la soglia di rilevanza (50) dichiarata
+// dalla scheda di decomposizione dell'issue. Non c'e' ripetizione meccanica
+// genuina da consolidare.
+//
+// Conclusione: la riduzione residua per rientrare sotto questo budget nei
+// casi peggiori resta lavoro di prompt engineering iterativo validato in
+// produzione — lo stesso percorso del gemello sul corpus
+// (`nanakokyobashi-rgb/frontaliere-articles#186`: tre PR con un giro di
+// produzione in mezzo, 10100→9500→8500 — non un pattern meccanico
+// riproducibile a colpo singolo). Item 1 resta `blocked` per questa ragione,
+// non da ridiagnosticare con la stessa tecnica (o con lo stesso risultato di
+// una tecnica diversa) finche' qualcuno non porta un taglio editoriale
+// specifico da validare in produzione.
+
 /**
  * Il tetto che `tests/news-prompt-token-budget.test.ts` fa rispettare OGGI.
  * E' un RATCHET, non il traguardo: puo' solo SCENDERE, e scende fino a
