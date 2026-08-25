@@ -12727,6 +12727,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'single-paga-di-piu-svizzera',
+    category: 'fiscale',
+    date: '2026-08-25T08:47:56.154Z',
+    image: '/images/blog/single-paga-di-piu-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

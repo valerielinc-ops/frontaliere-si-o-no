@@ -1440,6 +1440,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'pil-svizzera-2025-crescita': { it: 'pil-svizzera-2025-crescita', en: 'swiss-gdp-2025-growth', de: 'bip-schweiz-2025-wachstum', fr: 'pib-suisse-2025-croissance' },
  '20-minuten-utile-pubblicita-digitale': { it: '20-minuten-utile-pubblicita-digitale', en: '20-minuten-ebit-increase', de: '20-minuten-ebit-zu-wachsen', fr: '20-minuten-resultat-operationnel-mieux' },
  'apprendistato-formazione-appenzello-interno': { it: 'apprendistato-formazione-appenzello-interno', en: 'apprenticeship-vocational-training-appenzell-innerrhoden', de: 'lehre-berufsbildung-appenzell-innerrhoden', fr: 'apprentissage-formation-professionnelle-appenzell-rhodes-interieures' },
+ 'single-paga-di-piu-svizzera': { it: 'single-paga-di-piu-svizzera', en: 'single-pays-more-switzerland', de: 'single-zahlt-mehr-schweiz', fr: 'single-paye-plus-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

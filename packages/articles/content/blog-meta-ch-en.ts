@@ -4243,6 +4243,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-formazione-appenzello-interno.title': 'Apprenticeship in the canton of Inner Appenzell',
     'blog.article.apprendistato-formazione-appenzello-interno.excerpt': 'Practical guide: how to find an internship, enter into the contract, understand salary and professional maturity in the Inner Appenzell Canton.',
     'blog.article.apprendistato-formazione-appenzello-interno.imageAlt': 'Young apprentice working on a technical task in a Swiss workshop environment',
+    'blog.article.single-paga-di-piu-svizzera.title': 'You pay more on your own: empty pockets for singles in Switzerland',
+    'blog.article.single-paga-di-piu-svizzera.excerpt': 'Rents are heavier for singles, who raise about 20% of their budget for housing and energy.',
+    'blog.article.single-paga-di-piu-svizzera.imageAlt': 'A single person looking out of a hotel room window',
 };
 
 export default blogMetaChEn;

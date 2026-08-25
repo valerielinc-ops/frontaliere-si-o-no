@@ -4243,6 +4243,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-formazione-appenzello-interno.title': 'Apprentissage dans le canton d\'Appenzell',
     'blog.article.apprendistato-formazione-appenzello-interno.excerpt': 'Guide pratique : comment trouver un stage, conclure le contrat, comprendre la rémunération et la maturité professionnelle dans le canton d\'Appenzell Interne.',
     'blog.article.apprendistato-formazione-appenzello-interno.imageAlt': 'Jeune apprenti travaillant sur une tâche technique dans un atelier suisse',
+    'blog.article.single-paga-di-piu-svizzera.title': 'Payer plus cher seul en Suisse',
+    'blog.article.single-paga-di-piu-svizzera.excerpt': 'Les loyers pèsent plus lourd pour les célibataires, qui consacrent environ 20 % de leur budget au logement et à l\'énergie.',
+    'blog.article.single-paga-di-piu-svizzera.imageAlt': 'Une personne seule qui regarde par la fenêtre d\'une chambre d\'hôtel',
 };
 
 export default blogMetaChFr;
