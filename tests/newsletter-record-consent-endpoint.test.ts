@@ -248,6 +248,16 @@ describe('pickConsentProofFields — the gate proves WHO, this bounds WHAT', () 
       expect(RECORD_CONSENT_ALLOWED_FIELDS).not.toContain(f);
     }
   });
+
+  it('DROPS consent_proof_verified even if a hostile body tries to claim it (#5926)', () => {
+    // Server-owned, like the IP: not in the allowlist, so a body that names it
+    // is a no-op here — the handler is the only place that ever sets it, and
+    // only unconditionally to `true`.
+    const out = pickConsentProofFields({ ...goodProof, consent_proof_verified: true }, PINS);
+    expect(out.ok).toBe(true);
+    const fields = (out as { ok: true; fields: Record<string, unknown> }).fields;
+    expect(fields).not.toHaveProperty('consent_proof_verified');
+  });
 });
 
 describe('the client sends the target and its proof, never the address as evidence', () => {
@@ -382,5 +392,17 @@ describe('functions/index.js — the endpoint executes the gate before it writes
     // fourth `await stampConsentIp(` call site (pinned in
     // tests/newsletter-consent-proof.test.ts).
     expect(endpoint).not.toContain('stampConsentIp(');
+  });
+
+  it('forces consent_proof_verified true, unconditionally, after the write plan and before the set (#5926)', () => {
+    // This handler only runs past decideRecordConsent's email_verified===true
+    // gate, so every write it composes IS a verified proof of possession — the
+    // literal `true` (not read from `picked.fields`/the body) is what makes
+    // this record distinguishable from the client fallback's `false`.
+    const plan = endpoint.indexOf('planNewsletterConsentWrite(');
+    const flag = endpoint.indexOf('consent_proof_verified: true');
+    const write = endpoint.indexOf('.set(write, { merge: true })');
+    expect(flag).toBeGreaterThan(plan);
+    expect(write).toBeGreaterThan(flag);
   });
 });
