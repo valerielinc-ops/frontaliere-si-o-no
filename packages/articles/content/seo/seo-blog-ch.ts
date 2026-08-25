@@ -55868,6 +55868,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fondo-esercito-iva-compromesso': {
+    title: 'Un compromesso per finanziare l\'esercito | Frontaliere Ticino',
+    description: 'La Commissione finanze del Consiglio degli Stati approva il fondo esercito con aumento IVA 0,2 punti. Votazione a settembre e dicembre 2026. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, compromesso, finanziare, esercito, commissione',
+    ogTitle: 'Compromesso per finanziare l\'esercito svizzero',
+    ogDescription: 'La Commissione finanze approva il fondo esercito con aumento IVA 0,2 punti. Votazione al Parlamento: Stati settembre, Nazionale dicembre 2026. Scopri l\'impatto su consumi e bilancio federale.',
+    canonicalPath: '/articoli-svizzera/fondo-esercito-iva-compromesso/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Un compromesso per finanziare l'esercito",
+      "description": "La Commissione finanze del Consiglio degli Stati approva il fondo esercito con aumento IVA 0,2 punti. Votazione a settembre e dicembre 2026. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/fondo-esercito-iva-compromesso.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Lugano con architetture urbane svizzere sullo sfondo del lago."
+      },
+      "datePublished": "2026-08-25T21:11:37+00:00",
+      "dateModified": "2026-08-25T21:11:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/fondo-esercito-iva-compromesso/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

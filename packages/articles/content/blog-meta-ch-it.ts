@@ -4306,6 +4306,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.immobiliare-berna-mutuo-costi.title': 'Comprare casa in Berna: prezzi, mutuo e imposte',
     'blog.article.immobiliare-berna-mutuo-costi.excerpt': 'Guida ai costi di acquisto immobiliare nel Canton Berna: mutuo ipotecario, fondi propri, imposte sui trapassi e spese notarili per chi compra casa in Svizzera.',
     'blog.article.immobiliare-berna-mutuo-costi.imageAlt': 'Casa moderna nel Canton Berna con montagne sullo sfondo, simbolo del mercato immobiliare svizzero',
+    'blog.article.fondo-esercito-iva-compromesso.title': 'Un compromesso per finanziare l\'esercito',
+    'blog.article.fondo-esercito-iva-compromesso.excerpt': 'La Commissione finanze del Consiglio degli Stati approva il piano. Fondo con indebitamento fino a 6 miliardi annui dal 2027, finanziato da aumento IVA e residui di credito.',
+    'blog.article.fondo-esercito-iva-compromesso.imageAlt': 'Veduta di Lugano con architetture urbane svizzere sullo sfondo del lago.',
 };
 
 export default blogMetaChIt;

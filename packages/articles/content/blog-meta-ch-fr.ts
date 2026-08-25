@@ -4306,6 +4306,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.immobiliare-berna-mutuo-costi.title': 'Acheter une maison à Berne : prix, hypothèque et taxes',
     'blog.article.immobiliare-berna-mutuo-costi.excerpt': 'Guide des coûts d\'achat immobilier dans le canton de Berne : hypothèque, fonds propres, taxes de passage et frais de notaire pour ceux qui achètent une maison en Suisse.',
     'blog.article.immobiliare-berna-mutuo-costi.imageAlt': 'Maison moderne dans le canton de Berne avec les Alpes en arrière-plan, symbole du marché immobilier suisse',
+    'blog.article.fondo-esercito-iva-compromesso.title': 'Un compromis pour financer l\'armée',
+    'blog.article.fondo-esercito-iva-compromesso.excerpt': 'La Commission des finances du Conseil des Etats approuve le plan. Fonds avec un endettement jusqu\'à 6 milliards par an à partir de 2027, financé par une augmentation de la TVA et des reliquats de crédit.',
+    'blog.article.fondo-esercito-iva-compromesso.imageAlt': 'Vue de Lugano avec architecture urbaine suisse au bord du lac.',
 };
 
 export default blogMetaChFr;

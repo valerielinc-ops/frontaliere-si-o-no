@@ -4306,6 +4306,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.immobiliare-berna-mutuo-costi.title': 'Buying a house in Bern: prices, mortgage and taxes',
     'blog.article.immobiliare-berna-mutuo-costi.excerpt': 'Guide to real estate purchase costs in the Canton of Bern: mortgage loan, own funds, transfer taxes and notary fees for those who buy a house in Switzerland.',
     'blog.article.immobiliare-berna-mutuo-costi.imageAlt': 'Modern Swiss home in Canton Berna with alpine mountains backdrop, representing Swiss real estate market',
+    'blog.article.fondo-esercito-iva-compromesso.title': 'A compromise to fund the army',
+    'blog.article.fondo-esercito-iva-compromesso.excerpt': 'The Finance Commission of the Council of States approves the plan. Fund with debt of up to 6 billion per year from 2027, financed by an increase in VAT and residual credit.',
+    'blog.article.fondo-esercito-iva-compromesso.imageAlt': 'Lugano cityscape with Swiss urban architecture and lake backdrop.',
 };
 
 export default blogMetaChEn;
