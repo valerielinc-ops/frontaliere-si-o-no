@@ -10754,6 +10754,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mazzo-valtellina-frontaliere-pratica.title': 'Living in Mazzo di Valtellina and working in Grisons: border guide',
     'blog.article.mazzo-valtellina-frontaliere-pratica.excerpt': 'Permit G, double taxation, AVS, LPP, LAMal: the practical guide for cross-border commuting between Valtellina and Graubünden since 2024.',
     'blog.article.mazzo-valtellina-frontaliere-pratica.imageAlt': 'Alpine landscape at the Ticino-Grisons border with mountain meadows and distant valleys.',
+    'blog.article.vivere-grosio-lavorare-grigioni-frontaliere.title': 'Living in Grosio and working in Graubünden as a border worker',
+    'blog.article.vivere-grosio-lavorare-grigioni-frontaliere.excerpt': 'Facts and figures on taxation, permits and daily life of Ticino border workers',
+    'blog.article.vivere-grosio-lavorare-grigioni-frontaliere.imageAlt': 'Lake Lugano',
 };
 
 export default blogMetaEn;
