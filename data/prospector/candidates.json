@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-25T04:42:03.400Z",
+  "updatedAt": "2026-08-25T04:42:45.099Z",
   "candidates": {
     "bofrost@mezzovico": {
       "key": "bofrost@mezzovico",
@@ -9147,12 +9147,12 @@
     },
     "ocst.ch": {
       "key": "ocst.ch",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T07:53:20.308Z",
-      "updatedAt": "2026-08-24T04:52:56.199Z",
+      "updatedAt": "2026-08-25T04:42:37.278Z",
       "name": "OCST",
       "domain": "ocst.ch",
       "city": "Locarno",
@@ -9247,7 +9247,8 @@
         }
       ],
       "promotionPr": "6320",
-      "promotionBranch": "prospector/promote-2026-08-24"
+      "promotionBranch": "prospector/promote-2026-08-24",
+      "promotedAt": "2026-08-25T04:42:37.277Z"
     },
     "tingenia.ch": {
       "key": "tingenia.ch",
@@ -136679,12 +136680,12 @@
     },
     "de@umantis.com": {
       "key": "de@umantis.com",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.403Z",
-      "updatedAt": "2026-08-24T04:52:56.199Z",
+      "updatedAt": "2026-08-25T04:42:37.515Z",
       "name": "MPI AGE",
       "tenantHost": "mpi-age.de.umantis.com",
       "platform": "umantis.com",
@@ -136771,7 +136772,8 @@
         }
       ],
       "promotionPr": "6320",
-      "promotionBranch": "prospector/promote-2026-08-24"
+      "promotionBranch": "prospector/promote-2026-08-24",
+      "promotedAt": "2026-08-25T04:42:37.515Z"
     },
     "recruitingapp-2696@umantis.com": {
       "key": "recruitingapp-2696@umantis.com",
@@ -139952,12 +139954,12 @@
     },
     "albergo-gardenia.ch": {
       "key": "albergo-gardenia.ch",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.591Z",
-      "updatedAt": "2026-08-24T04:52:56.199Z",
+      "updatedAt": "2026-08-25T04:42:37.743Z",
       "name": "Albergo Gardenia",
       "domain": "albergo-gardenia.ch",
       "city": "",
@@ -140076,7 +140078,8 @@
         }
       ],
       "promotionPr": "6320",
-      "promotionBranch": "prospector/promote-2026-08-24"
+      "promotionBranch": "prospector/promote-2026-08-24",
+      "promotedAt": "2026-08-25T04:42:37.743Z"
     },
     "ascona-locarno.com": {
       "key": "ascona-locarno.com",
@@ -152928,12 +152931,12 @@
     },
     "accor.com": {
       "key": "accor.com",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-21T09:16:16.793Z",
-      "updatedAt": "2026-08-25T04:37:48.539Z",
+      "updatedAt": "2026-08-25T04:42:45.099Z",
       "name": "Ibis Budget",
       "domain": "accor.com",
       "city": "",
@@ -152981,7 +152984,9 @@
           "distinctRate": 1,
           "jobLikeRate": 1
         }
-      ]
+      ],
+      "promotionPr": "6439",
+      "promotionBranch": "prospector/promote-2026-08-25"
     },
     "malcanton.ch": {
       "key": "malcanton.ch",
@@ -162308,12 +162313,12 @@
     },
     "lepatron.ch": {
       "key": "lepatron.ch",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "web"
       ],
       "firstSeenAt": "2026-08-21T09:48:05.292Z",
-      "updatedAt": "2026-08-24T04:52:56.199Z",
+      "updatedAt": "2026-08-25T04:42:37.946Z",
       "name": "lepatron",
       "domain": "lepatron.ch",
       "careersUrl": "https://careers.orior.ch/go/Le-Patron/4574301/",
@@ -162429,7 +162434,8 @@
         }
       ],
       "promotionPr": "6320",
-      "promotionBranch": "prospector/promote-2026-08-24"
+      "promotionBranch": "prospector/promote-2026-08-24",
+      "promotedAt": "2026-08-25T04:42:37.946Z"
     },
     "leperolles.ch": {
       "key": "leperolles.ch",
@@ -164288,12 +164294,12 @@
     },
     "cippatrasporti@altamiraweb.com": {
       "key": "cippatrasporti@altamiraweb.com",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "tenant:altamiraweb.com"
       ],
       "firstSeenAt": "2026-08-21T11:13:18.075Z",
-      "updatedAt": "2026-08-24T04:52:56.199Z",
+      "updatedAt": "2026-08-25T04:42:38.148Z",
       "name": "Cippà Trasporti S.A.",
       "tenantHost": "cippatrasporti.altamiraweb.com",
       "platform": "altamiraweb.com",
@@ -164402,7 +164408,8 @@
         }
       ],
       "promotionPr": "6320",
-      "promotionBranch": "prospector/promote-2026-08-24"
+      "promotionBranch": "prospector/promote-2026-08-24",
+      "promotedAt": "2026-08-25T04:42:38.148Z"
     },
     "workmanagement@magenwil": {
       "key": "workmanagement@magenwil",
@@ -211176,12 +211183,12 @@
     },
     "recruitingapp-2765@umantis.com": {
       "key": "recruitingapp-2765@umantis.com",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-22T04:28:47.146Z",
-      "updatedAt": "2026-08-25T04:38:11.670Z",
+      "updatedAt": "2026-08-25T04:42:45.099Z",
       "name": "Apleona Schweiz AG",
       "tenantHost": "recruitingapp-2765.umantis.com",
       "platform": "umantis.com",
@@ -211278,7 +211285,9 @@
           "distinctRate": 0.8,
           "jobLikeRate": 1
         }
-      ]
+      ],
+      "promotionPr": "6439",
+      "promotionBranch": "prospector/promote-2026-08-25"
     },
     "recruitingapp-2690@umantis.com": {
       "key": "recruitingapp-2690@umantis.com",
