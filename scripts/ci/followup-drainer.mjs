@@ -445,6 +445,17 @@ export function latestFixOutcomeFromComments(comments) {
 // loop) su issue strutturalmente non-fixabili dall'automazione CI.
 
 /**
+ * Conteggio di item dichiarato nel TITOLO di una follow-up aggregata
+ * («N items deferred», template FOLLOWUP.md). È la stessa forma che
+ * `issue-fix.yml` legge per accendere il circuit-breaker one-item
+ * (`N=$(... grep -oiE '[0-9]+ items? deferred' ...)`, soglia N>=2): una sola
+ * definizione qui, usata da `detectMalformedBody` e da
+ * `detectWideScopeAggregate`, così le due letture non possono divergere.
+ * `items?` opzionale: il titolo è LLM-generated e per N=1 dice «1 item».
+ */
+export const AGGREGATE_ITEMS_RE = /\b(\d+)\s+items?\s+deferred\b/i;
+
+/**
  * Vero se il body dell'issue è troppo corto/malformato per consentire al fixer
  * di operare senza bruciare turni in cerca di contesto inesistente. Pura → testabile.
  * @param {string} title
@@ -455,7 +466,7 @@ export function detectMalformedBody(title, body) {
   if (b.length < 50) return true; // empty or stub (e.g. "test")
   // Issue aggregata (N items deferred) senza struttura FOLLOWUP.md:
   // ## Origine / ## Item / ### N. assenti → post-merge-followup malformato.
-  if (/\b\d+\s+items?\s+deferred\b/i.test(String(title || ''))) {
+  if (AGGREGATE_ITEMS_RE.test(String(title || ''))) {
     const hasStructure = /^##\s+(Origine|Item)\b/mi.test(b) || /^###\s+\d+\.\s/m.test(b);
     if (!hasStructure) return true;
   }
@@ -615,6 +626,262 @@ const COMPRESS_CONTRACT_DOCS_TITLE = '📏 Contract docs over compress ceiling �
  */
 export function detectCompressContractDocsRatchet(title) {
   return String(title || '').trim() === COMPRESS_CONTRACT_DOCS_TITLE;
+}
+
+// --- SIBLING-DEBT: il gemello dichiarato in PROSA (2026-08-25) ---------------
+// Una follow-up aggregata dice spesso, a parole, che un file `mode: identical`/
+// `adapted` ha un gemello sull'altro repo del workspace non ancora allineato —
+// forme reali, misurate sulle 47 follow-up aperte oggi sui due repo:
+//   «gemello sito exhaustion-disposition.mjs non portato» (corpus #511)
+//   «gemello sito ai-models.mjs non riceve la correzione (blocked su
+//    valerielinc-ops#6045)» (corpus #513)
+//   «blocked: serve una passata di riconciliazione sul gemello del sito» (#403)
+// Sono 8 issue su 47 (tutte sul corpus, che è il lato a valle del mirror).
+//
+// Il problema NON è che manchi un fix: è che quella frase resta PROSA dentro una
+// issue che l'altro repo non vede mai. `loop-drift-check` confronta i file del
+// manifest uno per uno e non legge le issue; il drainer legge le issue e non
+// sapeva riconoscere la forma. Risultato: il debito verso il gemello non ha
+// nessun portatore — né una label, né una issue di là, né un log.
+//
+// PERCHÉ UNA LABEL LOCALE E NON UNA ISSUE SULL'ALTRO REPO. La via cross-repo
+// esiste ed è quella di `mirror-articles-engine.yml`: `GH_TOKEN:
+// ${{ secrets.ARTICLES_REPO_PAT }}`. Ma quel secret (a) sta SOLO sul sito e va
+// in una direzione sola (sito→corpus), (b) non è cablato in
+// `followup-drainer.yml`, che gira con `GH_TOKEN: ${{ env.APP_TOKEN ||
+// env.GITHUB_PAT }}` — un token dell'installazione del repo CORRENTE. E questo
+// file è `mode: identical` nel manifest del ciclo: dev'essere byte-identico sui
+// due lati. Un apri-issue cross-repo sarebbe quindi codice che funziona su un
+// lato e fallisce 403 sull'altro, cioè un ramo che il repo dove il segnale
+// nasce davvero (il corpus, 8 casi su 8) non può eseguire. La label locale +
+// commento che NOMINA repo e file gemello è tracciabile da entrambi i lati con
+// il token che ciascuno ha già, ed è enumerabile da fuori con una sola query
+// (`gh issue list --label sibling-debt --repo <l'altro>`).
+//
+// NON parcheggia e non instrada: è puramente ADDITIVA. La issue prosegue nel
+// flusso normale — spesso l'item gemello è uno di N, e gli altri sono
+// lavorabili qui. L'idempotenza è la label stessa: chi ce l'ha già non riceve
+// un secondo commento.
+export const SIBLING_SIDES = {
+  site: { owner: 'valerielinc-ops', name: 'frontaliere-si-o-no', it: 'sito' },
+  corpus: { owner: 'nanakokyobashi-rgb', name: 'frontaliere-articles', it: 'corpus' },
+};
+const LBL_SIBLING_DEBT = 'sibling-debt';
+// Cap per tick: ogni etichettatura costa un commento + un edit. 0 = kill-switch.
+const SIBLING_DEBT_MAX_PER_RUN = Number(process.env.FOLLOWUP_SIBLING_DEBT_MAX_PER_RUN || 3);
+
+// Prossimità, non «stessa riga»: un body di follow-up ha righe da 400+ caratteri
+// in cui «blocked: serve la misura di due run» e «gemello» stanno in due
+// proposizioni scorrelate (misurato: sito #6222 diventava un falso positivo con
+// il match a riga intera). 100 caratteri tengono tutte e 8 le forme reali e
+// tolgono quel caso.
+const SIBLING_NEAR = 100;
+const SIBLING_MARK = String.raw`(?:non\s+(?:\S+\s+){0,3}?(?:portat|allineat|sces|mirrorat|aggiornat|ricevut|riceve)\w*|blocked|bloccat\w*|resta\s+ferm\w*|da\s+portare|va\s+portat\w*)`;
+const SIBLING_WORD = String.raw`gemell\w*`;
+/** «gemello … non portato» oppure «blocked … sul gemello», entro SIBLING_NEAR. */
+const SIBLING_PROSE_RE = new RegExp(
+  String.raw`(?:${SIBLING_WORD}[^\n]{0,${SIBLING_NEAR}}?${SIBLING_MARK})`
+  + String.raw`|(?:${SIBLING_MARK}[^\n]{0,${SIBLING_NEAR}}?${SIBLING_WORD})`,
+  'i',
+);
+const BLOCKED_TAIL_RE = new RegExp(String.raw`(?:blocked|bloccat\w*)[^\n]{0,${SIBLING_NEAR}}$`, 'i');
+
+/**
+ * Quale dei due lati del workspace è questo repo. Il discriminante è il NOME del
+ * repo, non l'owner: `gh` è autenticato come `valerielinc-ops` su entrambi.
+ * @param {string} repo `owner/name`
+ * @returns {'site'|'corpus'}
+ */
+export function siblingSideOf(repo) {
+  return /frontaliere-articles/i.test(String(repo || '')) ? 'corpus' : 'site';
+}
+
+/**
+ * Riferimenti a issue/PR dell'ALTRO repo del workspace citati in una riga.
+ * Allowlist stretta sui due nomi noti: un `#1234` nudo è un riferimento LOCALE
+ * e non prova niente sul gemello.
+ * @param {string} line @param {'site'|'corpus'} other
+ * @returns {string[]} `owner/name#N`
+ */
+function siblingCrossRefs(line, other) {
+  const o = SIBLING_SIDES[other];
+  const re = new RegExp(String.raw`(?:${o.owner}(?:\/${o.name})?|${o.name})#(\d+)`, 'gi');
+  return [...String(line).matchAll(re)].map((m) => `${o.owner}/${o.name}#${m[1]}`);
+}
+
+/**
+ * L'issue dichiara in prosa un debito verso il gemello sull'ALTRO repo?
+ * Pura (niente gh) → testabile. Due segnali indipendenti, basta uno:
+ *  1. prosa «gemello … non portato/allineato/blocked» (entro SIBLING_NEAR);
+ *  2. un riferimento `<owner|repo>#N` all'ALTRO repo preceduto da `blocked`
+ *     («blocked su valerielinc-ops#6045»).
+ * CONSERVATIVO: la sola parola «gemello», o il solo `#N` nudo, non bastano.
+ * @param {string} text  titolo + body
+ * @param {string} selfRepo  `owner/name` del repo in cui gira il drainer
+ * @returns {{side:'site'|'corpus', repo:string, refs:string[], files:string[], evidence:string}|null}
+ */
+export function detectSiblingDebt(text, selfRepo) {
+  const other = siblingSideOf(selfRepo) === 'site' ? 'corpus' : 'site';
+  const matched = [];
+  const refs = new Set();
+  for (const raw of String(text || '').split('\n')) {
+    const line = raw.trim();
+    if (!line) continue;
+    const lineRefs = siblingCrossRefs(line, other);
+    const blockedRef = lineRefs.some((r) => {
+      const owner = r.split('/')[0];
+      const at = line.toLowerCase().indexOf(owner.toLowerCase());
+      return BLOCKED_TAIL_RE.test(line.slice(0, at < 0 ? line.length : at));
+    });
+    if (!SIBLING_PROSE_RE.test(line) && !blockedRef) continue;
+    matched.push(line);
+    for (const r of lineRefs) refs.add(r);
+  }
+  if (!matched.length) return null;
+  const o = SIBLING_SIDES[other];
+  return {
+    side: other,
+    repo: `${o.owner}/${o.name}`,
+    refs: [...refs],
+    files: siblingFileHints(matched.join('\n')),
+    evidence: matched[0].slice(0, 300),
+  };
+}
+
+// Il nome del gemello è quasi sempre scritto NUDO: «gemello sito
+// exhaustion-disposition.mjs non portato» (corpus #511), senza la directory.
+// `extractCodePaths` da solo non lo vede — richiede un path con una directory di
+// codice riconosciuta — e il commento uscirebbe senza nominare il file, cioè
+// senza la sola informazione che serve a chi legge dall'altro lato. Misurato
+// sulle 8 issue reali: 2 su 8 portano un path completo, 6 solo il basename.
+const BARE_FILENAME_RE = /(?<![\w./-])[A-Za-z0-9][A-Za-z0-9._-]*\.(?:mjs|cjs|js|ts|tsx|json|yml|yaml)\b/g;
+
+/** Path completi + basename nudi citati nelle righe che hanno fatto match.
+ * Solo per il commento (informativo): nessuna decisione dipende da questa lista. */
+function siblingFileHints(text) {
+  const full = extractCodePaths(text);
+  const bare = [...new Set(String(text).match(BARE_FILENAME_RE) || [])]
+    .filter((n) => !full.some((p) => p.endsWith(`/${n}`) || p === n));
+  return [...full, ...bare];
+}
+
+// --- DATA-PENDING: «non è ancora valutabile», non «non si sa come farlo» -----
+// Un bullet che dice esplicitamente di aspettare dati o run future prima che
+// l'item sia giudicabile («serve osservare due o tre run consecutivi»,
+// «richiede una baseline post-merge», «in attesa di dati») non è un fix che il
+// fixer possa produrre oggi: promuoverlo brucia un run che riscopre ogni volta
+// la stessa cosa. Ma NON è nemmeno terminale — fra una settimana il dato c'è.
+//
+// Oggi il drainer non ha questa categoria: l'issue resta in coda e o viene
+// promossa (run a vuoto) o resta ferma senza che nessuno dichiari il perché.
+// `fu-parked` + `fu-data-pending` la mette nella pipeline che esiste già —
+// PARKED-RETRY la ri-accoda da sola a cooldown scaduto — con un cooldown suo:
+// `RETRY_COOLDOWN_DAYS` (5) è tarato su «quanto aspettare prima di RI-TENTARE
+// un fix fallito», mentre qui il fix non è fallito, non è ancora nato, e la
+// finestra citata dai bullet reali è dell'ordine della settimana. Default =
+// 2× il cooldown normale, con env dedicata.
+//
+// Niente `needs-human`: `isReparkableCandidate` lo tratta come stato assorbente
+// e la issue non tornerebbe mai in coda — cioè esattamente il «ferma per
+// sempre» che questo ramo esiste per togliere.
+const LBL_DATA_PENDING = 'fu-data-pending';
+
+const DATA_PENDING_RE = new RegExp([
+  String.raw`blocked:\s*data[-\s]pending`,
+  String.raw`\bserv(?:e|ono)\s+(?:\S+\s+){0,3}?(?:osservare|misurare|aspettare|attendere)\b`,
+  String.raw`\bserv(?:e|ono)\s+(?:la\s+)?misura\s+di\s+(?:due|tre|quattro|\d+)`,
+  String.raw`\b(?:richiede|serve|serve una|manca|mancano)\s+(?:una\s+|la\s+)?baseline\b`,
+  String.raw`\bin\s+attesa\s+(?:di|del|della|delle)\s+(?:dati|dato|misur|osservazion|run\b)`,
+  String.raw`\b(?:due|tre|quattro|\d+)\s+run\s+consecutiv`,
+  String.raw`\bosservare\s+(?:almeno\s+)?(?:due|tre|quattro|\d+)\s+(?:run|giorni|settimane|cicli)`,
+  String.raw`\bnon\s+(?:e|è|e')\s+(?:ancora\s+)?valutabile\b`,
+  String.raw`\bpost[-\s]merge\b[^.\n]{0,40}\bbaseline\b`,
+].join('|'), 'i');
+
+/**
+ * L'issue è ferma su un dato che non esiste ancora? Pura → testabile.
+ *
+ * CONSERVATIVO in un modo che conta: su un'aggregata di N item, UN bullet
+ * data-pending non giustifica il park di tutti gli altri. Quindi il marker vale
+ * solo se copre l'issue INTERA — cioè se sta nel TITOLO (che descrive lo scope
+ * complessivo: «(blocked, in attesa di dati…)»), oppure se l'issue non è
+ * aggregata (`N items deferred` assente o N<=1).
+ * @param {string} title @param {string} body
+ * @returns {string|null} la frase che ha fatto scattare il rilevamento
+ */
+export function detectDataPending(title, body) {
+  const t = String(title || '');
+  const titleHit = DATA_PENDING_RE.exec(t);
+  if (titleHit) return t.trim().slice(0, 200);
+  const m = AGGREGATE_ITEMS_RE.exec(t);
+  if (m && Number(m[1]) > 1) return null; // aggregata: un bullet non parla per gli altri
+  for (const raw of String(body || '').split('\n')) {
+    if (DATA_PENDING_RE.test(raw)) return raw.trim().slice(0, 200);
+  }
+  return null;
+}
+
+// --- WIDE-SCOPE: l'aggregata nasce già troppo larga (2026-08-25) -------------
+// Lo scorporo esiste (`agent:decompose-queued`), ma oggi ci si arriva solo
+// REATTIVAMENTE: dopo che il fixer ha bruciato il turn-budget senza produrre una
+// PR (`error_max_turns` al 1° attempt, o N generazioni di retry a zero PR). Il
+// TOO-LARGE è quindi una diagnosi post-mortem pagata a run pieni.
+//
+// Su una follow-up aggregata la larghezza è però DICHIARATA all'apertura: il
+// titolo porta «N items deferred» e il body enumera N sezioni. Non serve
+// scoprirla, basta leggerla.
+//
+// SOGLIA = 4, e non è arbitraria. Misurato sulle 481 follow-up del sito che
+// portano il conteggio nel titolo (`gh issue list --label follow-up --state all
+// --limit 600`), tasso di `fu-parked` per N:
+//     N=1 79/223 35% · N=2 51/135 38% · N=3 42/89 47% · N=4 8/18 44% ·
+//     N=5 6/12 50% · N=6 1/4 25%
+// Il salto è fra N<=2 (36%) e N>=3 (46%); da 3 in su i tassi sono
+// indistinguibili sui campioni disponibili. A decidere fra 3 e 4 non è quindi il
+// tasso ma il VOLUME che lo stadio di decomposizione può assorbire: promuove UNA
+// issue per tick. N>=4 sono 34/481 = 7% della popolazione; N>=3 sarebbero
+// 123/481 = 26%, che saturerebbe lo stadio e affamerebbe i too-large veri.
+// 4 è anche il primo valore strettamente sopra le due soglie già in uso per la
+// stessa famiglia: N>=2 accende il circuit-breaker one-item di `issue-fix.yml`
+// (che le aggregate da 2-3 item le lavora, una alla volta) e
+// `BACKLOG_MIN_ITEMS`=3 copre gli handoff di sessione con marker nel titolo.
+export const WIDE_SCOPE_MIN_ITEMS = Number(process.env.FOLLOWUP_WIDE_SCOPE_MIN_ITEMS || 4);
+
+/**
+ * Voci enumerate nel body di una follow-up AGGREGATA. Forme del template
+ * FOLLOWUP.md (`### N.` / `### Item N —`) più le due già contate da
+ * `countBacklogItems` (`## N.`, task-list) perché il filer non è del tutto
+ * stabile fra le due. Pura → testabile.
+ * @param {string} body @returns {number}
+ */
+export function countAggregateItems(body) {
+  const b = String(body || '');
+  // Delimitatore: `.`, `)`, em/en dash — NON il trattino nudo, che
+  // trasformerebbe un heading-data (`### 2026-08-25 …`) in una voce di lavoro.
+  const h3 = (b.match(/^###[ \t]*(?:Item[ \t]*)?\d+[ \t]*[.)—–]/gim) || []).length;
+  const h2 = (b.match(/^##[ \t]*(?:Item[ \t]*)?\d+[ \t]*[.)—–]/gim) || []).length;
+  const cb = (b.match(/^[ \t]*[-*][ \t]+\[[ xX]\]/gm) || []).length;
+  return h3 + h2 + cb;
+}
+
+/**
+ * L'aggregata nasce con scope troppo largo per un run solo? Pura → testabile.
+ *
+ * Congiunzione titolo ∧ body, e il conteggio che vale è il MINIMO dei due. È la
+ * forma conservativa in entrambi i versi: un titolo LLM-generated che dice «6»
+ * su un body con 2 sezioni non instrada, e una checklist di test-plan che gonfia
+ * il body non instrada un titolo da «1 item deferred».
+ * @param {string} title @param {string} body
+ * @param {{min?: number}} [opts]
+ * @returns {{items:number, titleItems:number, bodyItems:number}|null}
+ */
+export function detectWideScopeAggregate(title, body, { min = WIDE_SCOPE_MIN_ITEMS } = {}) {
+  const m = AGGREGATE_ITEMS_RE.exec(String(title || ''));
+  if (!m) return null;
+  const titleItems = Number(m[1]);
+  const bodyItems = countAggregateItems(body);
+  const items = Math.min(titleItems, bodyItems);
+  return items >= min ? { items, titleItems, bodyItems } : null;
 }
 
 // --- OVERLAP-FILE PRE-FLIGHT (escalation #3810) ----------------------------------
@@ -1073,6 +1340,21 @@ const prioRank = (iss) => (has(iss, 'fu-prio:high') ? 0 : 1); // high prima
 // all'age-out), cap/run 5→1 (no burst di run Claude su pool a basso rendimento).
 // Override via env se serve più aggressività di convergenza.
 const RETRY_COOLDOWN_DAYS = Number(process.env.FOLLOWUP_RETRY_COOLDOWN_DAYS || 5);
+// Variante per le parcheggiate `fu-data-pending` (vedi il detector omonimo):
+// `RETRY_COOLDOWN_DAYS` risponde a «quanto aspettare prima di RI-TENTARE un fix
+// fallito»; una data-pending non ha fallito niente — dichiara che la finestra di
+// osservazione non è ancora trascorsa, e le finestre citate dai bullet reali
+// («due o tre run consecutivi», «baseline post-merge») sono dell'ordine della
+// settimana. Ri-accodarla a 5 giorni rifà lo stesso run contro lo stesso dato
+// mancante. Default = 2× il cooldown normale; env dedicata per tararlo senza
+// toccare l'altro.
+const DATA_PENDING_COOLDOWN_DAYS = Number(
+  process.env.FOLLOWUP_DATA_PENDING_COOLDOWN_DAYS || RETRY_COOLDOWN_DAYS * 2,
+);
+/** Cooldown in giorni applicabile a QUESTA parcheggiata. Pura → testabile. */
+export function cooldownDaysFor(iss, { base = RETRY_COOLDOWN_DAYS, dataPending = DATA_PENDING_COOLDOWN_DAYS } = {}) {
+  return (iss?.labels || []).some((l) => l?.name === LBL_DATA_PENDING) ? dataPending : base;
+}
 const MAX_REPARK_GEN = Number(process.env.FOLLOWUP_MAX_REPARK_GEN || 1);
 const RETRY_MAX_PER_RUN = Number(process.env.FOLLOWUP_RETRY_MAX_PER_RUN || 1);
 // Il cooldown si misura sull'ultimo evento SIGNIFICATIVO, non su `updatedAt`
@@ -1250,6 +1532,21 @@ export function isCapabilityScoped(iss, {
     // WF-scope esclude SOLO se il push di quei file è davvero impossibile (#5544).
     return Boolean(!canPushWorkflowsOpt && isWorkflowScoped(iss.number, d));
   } catch { return true; }
+}
+
+/** `gh issue edit --add-label` FALLISCE se la label non esiste nel repo, e
+ * `edit()` inghiotte l'errore in un `::warning::` — cioè una label nuova non
+ * verrebbe mai applicata e nessuno se ne accorgerebbe. Le label introdotte da
+ * questo file (`sibling-debt`, `fu-data-pending`) non sono create da nessun
+ * altro workflow e vivono su DUE repo (`mode: identical`), quindi crearle a
+ * mano da un lato solo sarebbe drift garantito. Best-effort, stesso pattern di
+ * `loop-health-report.mjs`: se esiste già, `gh` esce non-zero e va bene così. */
+function ensureLabel(name, color, description) {
+  if (DRY) return;
+  try {
+    gh(['label', 'create', name, '--repo', REPO, '--color', color, '--description', description],
+      { json: false });
+  } catch { /* già esistente (o repo senza permessi label): l'edit sotto dirà la verità */ }
 }
 
 function edit(num, { add = [], remove = [] }) {
@@ -1778,11 +2075,54 @@ export function runDrain() {
     if (tooLarge.length) console.log(`too-large escalation: ${tooLarge.length} processate (decompose se eleggibili, altrimenti needs-human).`);
   }
 
+  // --- SIBLING-DEBT: etichetta il gemello dichiarato in prosa ----------------
+  // Ortogonale a tutto il resto: non parca, non instrada, non tocca lo slot. La
+  // issue prosegue esattamente come prima — l'unico effetto è che il debito
+  // verso l'altro repo smette di essere prosa e diventa enumerabile di là
+  // (`gh issue list --label sibling-debt --repo <l'altro>`).
+  //
+  // Perché un pass proprio e non un check dentro il drain: il drain guarda SOLO
+  // la coda `agent:fix-queued`. Misurato il 2026-08-25 sulle 47 follow-up aperte
+  // dei due repo, le 8 che dichiarano un debito verso il gemello sono TUTTE già
+  // `fu-parked` — un check dentro il drain le avrebbe mancate tutte e 8,
+  // coprendo solo le future. Il costo qui è UNA `gh issue list` (i body arrivano
+  // nella stessa risposta, non una `issue view` per candidata).
+  if (SIBLING_DEBT_MAX_PER_RUN > 0) {
+    const withBodies = listIssuesBounded([
+      'issue', 'list', '--repo', REPO, '--state', 'open',
+      '--json', 'number,title,labels,body',
+    ], 'issue aperte (sibling-debt scan)');
+    let labelled = 0;
+    let ensured = false;
+    for (const iss of withBodies) {
+      if (labelled >= SIBLING_DEBT_MAX_PER_RUN) {
+        console.log(`sibling-debt: cap ${SIBLING_DEBT_MAX_PER_RUN}/run raggiunto, le restanti al prossimo tick (no silent cap).`);
+        break;
+      }
+      if (has(iss, LBL_SIBLING_DEBT)) continue; // idempotenza: la label È il marker
+      const debt = detectSiblingDebt(`${iss.title}\n${iss.body || ''}`, REPO);
+      if (!debt) continue;
+      if (!budget.take(`#${iss.number} (sibling-debt)`, ITEM_COST_MS)) break;
+      const fileList = debt.files.length
+        ? debt.files.slice(0, 5).map((f) => `\`${f}\``).join(', ')
+        : 'nessun path estratto dalla prosa';
+      const refList = debt.refs.length ? debt.refs.map((r) => `\`${r}\``).join(', ') : 'nessuno';
+      console.log(`SIBLING-DEBT #${iss.number} → \`${LBL_SIBLING_DEBT}\` (gemello su ${debt.repo}, file: ${fileList})`);
+      labelled++;
+      if (DRY) { console.log(`[dry] sibling-debt #${iss.number} (${debt.repo})`); continue; }
+      const note = `🔗 **Debito verso il gemello (drainer, zero-Claude)**: un item di questa follow-up dichiara che il file gemello su **\`${debt.repo}\`** non è ancora allineato.\n\n- **Repo gemello**: \`${debt.repo}\`\n- **File nominati**: ${fileList}\n- **Riferimenti cross-repo citati**: ${refList}\n- **Evidenza (verbatim dal body)**: «${debt.evidence}»\n\n**Perché una label locale e non una issue aperta di là**: \`followup-drainer.yml\` gira con un token dell'installazione del repo CORRENTE (\`APP_TOKEN || GITHUB_PAT\`). L'unica credenziale cross-repo del workspace è \`ARTICLES_REPO_PAT\` (usata da \`mirror-articles-engine.yml\`): esiste solo sul sito, va in una direzione sola (sito→corpus) e non è cablata in questo workflow. Questo script è \`mode: identical\` sui due repo — dev'essere byte-identico — quindi un apri-issue cross-repo funzionerebbe da un lato e tornerebbe 403 dall'altro, proprio il lato dove il segnale nasce (8 casi su 8 misurati sono sul corpus). La label \`${LBL_SIBLING_DEBT}\` è invece leggibile e scrivibile da entrambi con il token che ciascuno ha già.\n\n**Non parcheggio e non instrado**: la issue prosegue nel flusso normale — gli altri item restano lavorabili qui.`;
+      if (!ensured) { ensureLabel(LBL_SIBLING_DEBT, '1d76db', 'Un item dichiara un file gemello non allineato sull\'altro repo del workspace'); ensured = true; }
+      try { gh(['issue', 'comment', String(iss.number), '--repo', REPO, '--body', note], { json: false }); }
+      catch (e) { console.log(`::warning::comment #${iss.number} fallito: ${String(e).slice(0, 120)}`); }
+      edit(iss.number, { add: [LBL_SIBLING_DEBT] });
+    }
+    if (labelled) console.log(`sibling-debt: ${labelled} issue etichettate in questo tick (debito verso l'altro repo del workspace).`);
+  }
+
   // --- PARKED-RETRY: ri-accoda i parked ritentabili --------------------------
   // Ortogonale allo slot (sposta solo fu-parked→queued; il drain promuove dopo).
   if (RETRY_COOLDOWN_DAYS > 0) {
     const now = Date.now();
-    const cooldownMin = RETRY_COOLDOWN_DAYS * 1440;
     // Ammissione al pool: tutta in `isReparkableCandidate` (pura, testabile).
     // Include l'esclusione dei tracker permanenti, che fino a #5544 non esisteva
     // qui: `agent:no-age-out` era letto solo da `isAgeOutEligible`, cioè salvava i
@@ -1821,7 +2161,14 @@ export function runDrain() {
       scanMax: RETRY_COMMENT_SCAN_MAX, now, periodMs: SCAN_ROTATION_PERIOD_MS,
     });
     for (const iss of rotatedPool) {
-      if (minutesSince(iss.updatedAt) >= cooldownMin) {
+      // Cooldown PER CANDIDATA: le `fu-data-pending` ne hanno uno più lungo
+      // (vedi `cooldownDaysFor`). Va applicato anche a questo ramo veloce, non
+      // solo a `isRetryCooldownElapsed` più sotto: `updatedAt` è la scorciatoia
+      // che salta la lettura dei commenti, e con la soglia corta avrebbe
+      // ri-accodato la data-pending prima che la finestra di osservazione
+      // fosse trascorsa, cioè scavalcando la variante appena introdotta.
+      const cdDays = cooldownDaysFor(iss);
+      if (minutesSince(iss.updatedAt) >= cdDays * 1440) {
         // Quieto anche sul campo grezzo → eleggibile senza chiamate extra. La
         // chiave d'ordine è `updatedAt`, che sovrastima la staleness reale: chi
         // passa da questo ramo non può quindi scavalcare in coda chi è entrato
@@ -1844,7 +2191,7 @@ export function runDrain() {
       // davvero — prima, su una lista REST, restituiva `null` sempre.
       const parkedVerdict = latestFixOutcomeFromComments(comments);
       if (parkedVerdict && NON_RETRYABLE.has(parkedVerdict)) { verdictSkipped++; continue; }
-      if (!isRetryCooldownElapsed(iss, comments, { now, cooldownDays: RETRY_COOLDOWN_DAYS })) continue;
+      if (!isRetryCooldownElapsed(iss, comments, { now, cooldownDays: cdDays })) continue;
       eligible.push({ iss, at: lastSignificantActivityAt(iss, comments) });
     }
     if (commentScans) {
@@ -2378,6 +2725,22 @@ export function runDrain() {
       continue; // prova il prossimo in coda
     }
 
+    // Check: data-pending (2026-08-25) — l'issue dichiara di aspettare un dato
+    // o delle run future. Park RITENTABILE (`fu-parked` + `fu-data-pending`,
+    // mai `needs-human`): il PARKED-RETRY la ri-accoda da solo quando il
+    // cooldown lungo è scaduto.
+    const dataPending = detectDataPending(cand.title, body);
+    if (dataPending) {
+      console.log(`PARK #${cand.number} (data-pending, cooldown ${DATA_PENDING_COOLDOWN_DAYS}g) → «${dataPending.slice(0, 80)}»`);
+      if (DRY) { console.log(`[dry] park #${cand.number} (data-pending)`); continue; }
+      const note = `⏳ **Pre-flight drainer (zero-Claude, data-pending)**: questa follow-up dichiara di essere in attesa di un dato che non esiste ancora — «${dataPending}». Non è un fix che il fixer possa produrre oggi: promuoverla brucia un run che riscopre ogni volta lo stesso vincolo.\n\n**Non è terminale.** Parcheggio con \`${LBL_DATA_PENDING}\` e cooldown **${DATA_PENDING_COOLDOWN_DAYS} giorni** (il doppio di \`FOLLOWUP_RETRY_COOLDOWN_DAYS\`=${RETRY_COOLDOWN_DAYS}, che è tarato su «ri-tentare un fix fallito» — qui il fix non è fallito, non è ancora valutabile). Allo scadere il pass PARKED-RETRY la ri-accoda da solo in \`agent:fix-queued\`, senza intervento umano. Nessun \`needs-human\`: sarebbe uno stato assorbente e la issue non tornerebbe mai in coda.\n\nSe il dato arriva prima, togli \`${LBL_PARKED}\` per rimetterla in coda subito.`;
+      ensureLabel(LBL_DATA_PENDING, 'fbca04', 'Follow-up parcheggiata in attesa di dati/run future (cooldown lungo, ri-accodata da sola)');
+      try { gh(['issue', 'comment', String(cand.number), '--repo', REPO, '--body', note], { json: false }); }
+      catch (e) { console.log(`::warning::comment #${cand.number} fallito: ${String(e).slice(0, 120)}`); }
+      edit(cand.number, { add: [LBL_PARKED, LBL_DATA_PENDING], remove: [LBL_QUEUED, LBL_FIX] });
+      continue; // prova il prossimo in coda
+    }
+
     // Check: secrets-scoped category (escalation #5057) — `cloudflare-5xx` /
     // `campaign-goal` / `evergreen-refresh` labels mark issues whose root fix
     // structurally requires a Firebase-RC-loaded credential (CF_API_TOKEN /
@@ -2448,6 +2811,25 @@ export function runDrain() {
       try { gh(['issue', 'comment', String(cand.number), '--repo', REPO, '--body', note], { json: false }); }
       catch (e) { console.log(`::warning::comment #${cand.number} fallito: ${String(e).slice(0, 120)}`); }
       edit(cand.number, { add: [LBL_PARKED], remove: [LBL_QUEUED, LBL_FIX] });
+      continue; // prova il prossimo in coda
+    }
+
+    // Check: wide-scope aggregate (2026-08-25) — l'aggregata DICHIARA all'apertura
+    // uno scope che non sta in un run (titolo «N items deferred» ∧ body con N
+    // sezioni, N>=WIDE_SCOPE_MIN_ITEMS). Fino a qui lo scorporo si raggiungeva
+    // solo dopo un `error_max_turns`: stessa destinazione, pagata a run pieni.
+    // Gira DOPO i park di capability (workflow-scope): se il fix è impossibile
+    // per il token, scorporarlo produrrebbe sub-issue tutte ugualmente bloccate.
+    // Nessun park di fallback: chi non è eleggibile allo scorporo (già decomposta,
+    // figlia) resta promuovibile come oggi — il circuit-breaker one-item di
+    // `issue-fix.yml` è la rete che c'era già.
+    const wide = DECOMPOSE_ENABLED ? detectWideScopeAggregate(cand.title, body) : null;
+    if (wide && isDecomposeEligible(cand)) {
+      console.log(`DECOMPOSE-ROUTE #${cand.number} (wide-scope: ${wide.items} item dichiarati all'apertura, titolo ${wide.titleItems} ∧ body ${wide.bodyItems}) → ${LBL_DECOMP_QUEUED}`);
+      routeToDecompose(cand.number, {
+        remove: [LBL_QUEUED, LBL_FIX],
+        note: `🧩 **Pre-flight drainer → decomposizione (wide-scope)**: questa follow-up aggregata nasce con **${wide.items} item indipendenti** (il titolo ne dichiara ${wide.titleItems}, il body ne enumera ${wide.bodyItems} — vale il minimo dei due), sopra la soglia \`WIDE_SCOPE_MIN_ITEMS\`=${WIDE_SCOPE_MIN_ITEMS}.\n\nFino ad oggi allo scorporo ci si arrivava solo **dopo** un \`error_max_turns\`: la larghezza veniva diagnosticata post-mortem, a run pieni, quando era già dichiarata nel titolo dall'apertura. Instradata subito allo stadio di decomposizione (\`${LBL_DECOMP_QUEUED}\`): un run planner la scorpora in sub-issue atomiche con scheda verificabile, che il fixer chiude una a una. Il ciclo chiuderà questa issue quando tutte le sub-issue saranno chiuse.\n\n**Soglia misurata, non scelta**: sul tasso di \`fu-parked\` per numero di item (481 follow-up del sito) il salto è fra N≤2 (36%) e N≥3 (46%); fra 3 e 4 i tassi sono indistinguibili, e a decidere è il volume che questo stadio assorbe (una promozione per tick): N≥4 = 7% della popolazione, N≥3 = 26%.`,
+      });
       continue; // prova il prossimo in coda
     }
 

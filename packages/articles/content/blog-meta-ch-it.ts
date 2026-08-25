@@ -4270,6 +4270,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.amnesty-neutralita-crimini-guerra.title': 'Amnesty contro iniziativa neutralità svizzera',
     'blog.article.amnesty-neutralita-crimini-guerra.excerpt': 'Amnesty International Svizzera si oppone all\'iniziativa sulla neutralità: limiterebbe sanzioni economiche e diplomatiche. Votazione il 27 settembre 2026.',
     'blog.article.amnesty-neutralita-crimini-guerra.imageAlt': 'Il Palazzo federale Bundeshaus di Berna con bandiera svizzera, sede del Consiglio nazionale e Ständerat',
+    'blog.article.premi-lamal-berna-sussidio.title': 'Premi LAMal Canton Berna: fasce e riduzioni',
+    'blog.article.premi-lamal-berna-sussidio.excerpt': 'Nel Canton Berna i premi LAMal variano secondo la franchigia scelta. Ecco come funziona il sistema e come accedere ai sussidi per la riduzione.',
+    'blog.article.premi-lamal-berna-sussidio.imageAlt': 'Uno sportello amministrativo con documenti di assicurazione malattia su una scrivania.',
 };
 
 export default blogMetaChIt;
