@@ -247,7 +247,7 @@ export function evaluateCeiling({ family, offenders, filesScanned, entry }) {
         'distinguish a regression from sampling noise.'
       : tightenToRatePct !== null
         ? `${family}: ${scale}, under the ceiling ${ceilingRatePct.toFixed(6)} % — TIGHTEN IT: ` +
-          `npm run audit:seo-families:tighten -- --family=${family} --rate=${tightenToRatePct} --run=<run-id>`
+          `npm run seo:families:tighten -- --family=${family} --rate=${tightenToRatePct} --run=<run-id>`
         : `${family}: ${scale}, at/within the ceiling ${ceilingRatePct.toFixed(6)} % (cap ${capRatePct.toFixed(6)} %)`;
 
   return {

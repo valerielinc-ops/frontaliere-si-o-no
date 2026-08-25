@@ -10,8 +10,8 @@
  * measured rate and the run it came from are already in that line, so
  * tightening is a copy-paste and never a guess:
  *
- *   npm run audit:seo-families -- --list
- *   npm run audit:seo-families:tighten -- --family=<name> --rate=<pct> --run=<run-id>
+ *   npm run seo:families -- --list
+ *   npm run seo:families:tighten -- --family=<name> --rate=<pct> --run=<run-id>
  *
  * Raising is refused by `tightenLedger()` unless `--allow-raise` is passed, and
  * a raise leaves `raised: true` plus `previousCeilingRatePct` in the entry, so

@@ -24,7 +24,7 @@
  *     rather than being a round number somebody liked.
  *
  * Do NOT relax a ceiling to make a build pass (AGENTS.md non-negotiable #1).
- * The ceiling descends via `npm run audit:seo-families:tighten` after a
+ * The ceiling descends via `npm run seo:families:tighten` after a
  * measured improvement, and `tightenLedger()` refuses to move it the other way.
  *
  * Runs in the ordinary vitest suite (tests.yml): it reads a committed JSON file
@@ -218,7 +218,7 @@ describe('evaluateCeiling — verdict', () => {
     const v = evaluateCeiling({ family: 'f', offenders: 300, filesScanned: 10_000, entry });
     expect(v.passed).toBe(true);
     expect(v.tightenToRatePct).toBe(3);
-    expect(v.humanSummary).toContain('audit:seo-families:tighten');
+    expect(v.humanSummary).toContain('seo:families:tighten');
     expect(v.humanSummary).toContain('--rate=3');
   });
 
