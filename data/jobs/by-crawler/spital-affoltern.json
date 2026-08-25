@@ -629,11 +629,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "arztsektretarin-arztsekretar-interdisziplinares-sekretariat-spital-affoltern-affoltern-am"
+        "arztsektretarin-arztsekretar-interdisziplinares-sekretariat-spital-affoltern-affoltern-am",
+        "arztsektretarin-arztsekretar-interdisziplinares-sekretariat-spital-affoltern-ag-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsektretarin-arztsekretar-interdisziplinares-sekretariat-spital-affoltern-affoltern-am"
+          "arztsektretarin-arztsekretar-interdisziplinares-sekretariat-spital-affoltern-affoltern-am",
+          "arztsektretarin-arztsekretar-interdisziplinares-sekretariat-spital-affoltern-ag-affoltern-am-albis"
         ],
         "en": [
           "arztsektretarin-arztsekretar-interdisziplinares-sekretariat-spital-affoltern-affoltern-am"
@@ -654,7 +656,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-affoltern-d8b97b16424c",
