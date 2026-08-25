@@ -12970,6 +12970,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'parlamento-svizzero-velo-divieto-diritti',
+    category: 'novita',
+    date: '2026-08-25T23:47:24.519Z',
+    image: '/images/blog/parlamento-svizzero-velo-divieto-diritti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

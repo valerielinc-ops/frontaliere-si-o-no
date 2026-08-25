@@ -4324,6 +4324,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.calo-domande-asilo-2026.title': 'Asylum: applications drop in Switzerland in 2026',
     'blog.article.calo-domande-asilo-2026.excerpt': 'In the first half of 2026, for the first time since 2022, fewer than 10,000 requests were received. The SEM revises downwards: from 26,000 to 22,000 annual applications.',
     'blog.article.calo-domande-asilo-2026.imageAlt': 'Swiss State Secretariat for Migration official documentation reviewing asylum application records',
+    'blog.article.parlamento-svizzero-velo-divieto-diritti.title': 'Veil in Argovian schools: rights and constitution',
+    'blog.article.parlamento-svizzero-velo-divieto-diritti.excerpt': 'The Parliament of Aargau voted to ban the veil in public schools until the age of 16 with 78 yes and 54 no, but the Federal Court questions the legality of the measure.',
+    'blog.article.parlamento-svizzero-velo-divieto-diritti.imageAlt': 'Swiss public school classroom with diverse students, natural light, representing education rights and constitutional issues',
 };
 
 export default blogMetaChEn;

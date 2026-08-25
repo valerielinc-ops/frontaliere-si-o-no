@@ -4324,6 +4324,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.calo-domande-asilo-2026.title': 'Asyl: Asylanträge sinken in der Schweiz im Jahr 2026',
     'blog.article.calo-domande-asilo-2026.excerpt': 'Im ersten Halbjahr 2026, zum ersten Mal seit 2022, weniger als 10.000 Anträge. Das sem revidiert nach unten: von 26.000 auf 22.000 Anträge pro Jahr.',
     'blog.article.calo-domande-asilo-2026.imageAlt': 'Amtliche Dokumentation des Schweizer Staatssekretariats für Migration zu Asylgesuchen',
+    'blog.article.parlamento-svizzero-velo-divieto-diritti.title': 'Velo in den Aargauer Schulen: Rechte und Verfassung',
+    'blog.article.parlamento-svizzero-velo-divieto-diritti.excerpt': 'Das Aargauer Parlament hat mit 78 Ja und 54 Nein für ein Kopftuchverbot in öffentlichen Schulen bis 16 Jahre gestimmt, doch das Bundesgericht stellt die Rechtmässigkeit der Massnahme in Frage.',
+    'blog.article.parlamento-svizzero-velo-divieto-diritti.imageAlt': 'Schweizer Klassenzimmer mit Schülern, Tageslicht, Symbol für Unterrichts- und Verfassungsfragen',
 };
 
 export default blogMetaChDe;
