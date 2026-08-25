@@ -49,6 +49,25 @@ import {
   LINKEDIN_COMPANY_CAMPAIGN_ARTICLE,
 } from '../scripts/lib/linkedin-links.mjs';
 import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/cantonResolvers.mjs';
+import {
+  buildArticleContent,
+  buildMemberCommentary,
+  buildMemberPostPayload,
+  extractOgFromHtml,
+  formatCompanyMention,
+  inferArticleLocation,
+  resolveJobCompany,
+  resolveJobDescription,
+  resolveJobLocation,
+  resolveOrganizationUrn,
+  stripViewCounts,
+} from '../scripts/lib/linkedin-member-copy.mjs';
+import {
+  convertImageForLinkedIn,
+  fetchPageOg,
+  uploadLinkedInImage,
+} from '../scripts/lib/linkedin-member-media.mjs';
+import sharp from 'sharp';
 
 const JOB_SECTIONS = new Set(['cerca-lavoro-ticino', 'cerca-lavoro-argovia', 'cerca-lavoro-svizzera']);
 
@@ -398,5 +417,296 @@ describe('the two LinkedIn surfaces stay separate', () => {
   it('the member script is fail-soft: it never exits non-zero', () => {
     expect(memberCode).toContain('process.exit(0)');
     expect(memberCode).not.toMatch(/process\.exit\([1-9]/);
+  });
+
+  it('the member poster delegates copy and the article card to the shared builders', () => {
+    expect(memberCode).toContain('buildMemberCommentary');
+    expect(memberCode).toContain('buildArticleContent');
+    expect(memberCode).toContain('uploadLinkedInImage');
+    expect(memberCode).not.toMatch(/visualizzazion/i);
+    expect(org).toContain('buildArticleContent');
+  });
+});
+
+/**
+ * Shape of the last live member post (imposta-alla-fonte article) plus a
+ * job with company+city. views is the GA4 number that used to be printed as
+ * social proof — the builders must ignore it.
+ */
+const ARTICLE_FIXTURE = {
+  kind: 'article' as const,
+  title:
+    "Frontalieri: quando l'imposta alla fonte copre tutta l'IRPEF 2026: cosa cambia",
+  excerpt:
+    "Per i frontalieri l'imposta alla fonte svizzera può coprire l'IRPEF italiana: ecco cosa cambia nel 2026 per chi lavora in Svizzera.",
+  url: 'https://frontaliereticino.ch/articoli-frontaliere/imposta-alla-fonte-irpef-2026/?utm_source=linkedin',
+  location: 'Ticino',
+  views: 888777,
+  dayA: '2026-08-23',
+  dayB: '2026-08-24',
+};
+
+const JOB_FIXTURE = {
+  kind: 'job' as const,
+  title: 'Infermiere/a in cure generali',
+  company: 'EOC',
+  location: 'Novaggio, Canton Ticino',
+  canton: 'TI',
+  excerpt:
+    'Cerchiamo un infermiere/a per il servizio di cure generali a Novaggio, con turno diurno. Posizione aperta anche ai frontalieri.',
+  url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/infermiere-eoc-novaggio/?utm_source=linkedin',
+  organizationUrn: 'urn:li:organization:5515715',
+  views: 888777,
+  dayA: '2026-08-23',
+  dayB: '2026-08-24',
+};
+
+function commentaryOf(
+  fixture: typeof ARTICLE_FIXTURE | typeof JOB_FIXTURE,
+  day: string,
+  extra: Record<string, unknown> = {},
+) {
+  return buildMemberCommentary({ ...fixture, day, ...extra });
+}
+
+describe('member commentary — daily rotation, no views, search keywords', () => {
+  it('the same article on two calendar days yields different Italian copy', () => {
+    const a = commentaryOf(ARTICLE_FIXTURE, ARTICLE_FIXTURE.dayA);
+    const b = commentaryOf(ARTICLE_FIXTURE, ARTICLE_FIXTURE.dayB);
+    expect(a).not.toBe(b);
+    expect(a.split('\n')[0]).not.toBe(b.split('\n')[0]);
+  });
+
+  it('the same job on two calendar days yields different Italian copy', () => {
+    const a = commentaryOf(JOB_FIXTURE, JOB_FIXTURE.dayA);
+    const b = commentaryOf(JOB_FIXTURE, JOB_FIXTURE.dayB);
+    expect(a).not.toBe(b);
+  });
+
+  it('never puts site view counts in commentary even when views is passed', () => {
+    for (const day of [ARTICLE_FIXTURE.dayA, ARTICLE_FIXTURE.dayB]) {
+      const text = commentaryOf(ARTICLE_FIXTURE, day, { views: ARTICLE_FIXTURE.views });
+      expect(text).not.toMatch(/visualizzazion/i);
+      expect(text).not.toContain(String(ARTICLE_FIXTURE.views));
+    }
+    for (const day of [JOB_FIXTURE.dayA, JOB_FIXTURE.dayB]) {
+      const text = commentaryOf(JOB_FIXTURE, day, { views: JOB_FIXTURE.views });
+      expect(text).not.toMatch(/visualizzazion/i);
+      expect(text).not.toContain(String(JOB_FIXTURE.views));
+    }
+  });
+
+  it('article body reuses the excerpt and the search terms, not a 3-line caption', () => {
+    const text = commentaryOf(ARTICLE_FIXTURE, ARTICLE_FIXTURE.dayA);
+    expect(text).toContain(ARTICLE_FIXTURE.excerpt);
+    expect(text.toLowerCase()).toContain('frontalieri');
+    expect(text.toLowerCase()).toContain('lavoro in svizzera');
+    expect(text).toContain('Ticino');
+    expect(text).toMatch(/imposta alla fonte/i);
+    expect(text).toMatch(/IRPEF/i);
+    expect(text).toContain('#frontalieri');
+    expect(text).toContain('#lavoroinSvizzera');
+    const nonempty = text.split('\n').map((l) => l.trim()).filter(Boolean);
+    expect(nonempty.length).toBeGreaterThanOrEqual(5);
+    expect(text.length).toBeGreaterThan(280);
+    expect(text.length).toBeLessThanOrEqual(2900);
+  });
+
+  it('job body reuses the description snippet plus company and location', () => {
+    const withUrn = commentaryOf(JOB_FIXTURE, JOB_FIXTURE.dayA);
+    expect(withUrn).toContain(JOB_FIXTURE.excerpt);
+    expect(withUrn).toContain(`@[${JOB_FIXTURE.company}](${JOB_FIXTURE.organizationUrn})`);
+    expect(withUrn).toContain('Novaggio');
+    expect(withUrn.toLowerCase()).toContain('frontalieri');
+    expect(withUrn.toLowerCase()).toContain('lavoro in svizzera');
+    expect(withUrn).toContain('#offertedilavoro');
+
+    const withoutUrn = commentaryOf(JOB_FIXTURE, JOB_FIXTURE.dayA, { organizationUrn: '' });
+    expect(withoutUrn).toContain(JOB_FIXTURE.company);
+    expect(withoutUrn).not.toMatch(/@\[EOC\]\(urn:li:organization:/);
+  });
+
+  it('missing company or location never blocks the post', () => {
+    const text = buildMemberCommentary({
+      kind: 'job',
+      title: 'Magazziniere',
+      url: JOB_FIXTURE.url,
+      day: JOB_FIXTURE.dayA,
+      excerpt: JOB_FIXTURE.excerpt,
+    });
+    expect(text.length).toBeGreaterThan(80);
+    expect(text).toContain('Magazziniere');
+  });
+});
+
+describe('article-card payload — thumbnail URN, no views in description', () => {
+  const source = ARTICLE_FIXTURE.url;
+  const title = ARTICLE_FIXTURE.title;
+  const polluted = `${ARTICLE_FIXTURE.excerpt} 888777 visualizzazioni il 23/08/2026.`;
+
+  it('strips view-count social proof from the card description', () => {
+    const article = buildArticleContent({ source, title, description: polluted });
+    expect(article.description).not.toMatch(/visualizzazion/i);
+    expect(article.description).not.toContain('888777');
+    expect(article.description).toContain('imposta alla fonte');
+    expect(article.source).toBe(source);
+    expect(article.title).toContain('IRPEF');
+  });
+
+  it('sets content.article.thumbnail when an image URN is supplied', () => {
+    const thumb = 'urn:li:image:C4E10AQFoyyAjHPMQuQ';
+    const article = buildArticleContent({
+      source,
+      title,
+      description: ARTICLE_FIXTURE.excerpt,
+      thumbnail: thumb,
+    });
+    expect(article.thumbnail).toBe(thumb);
+    const payload = buildMemberPostPayload({
+      author: 'urn:li:person:abc',
+      commentary: 'x',
+      article,
+    });
+    expect(payload.content.article.thumbnail).toBe(thumb);
+    expect(payload.author).toBe('urn:li:person:abc');
+  });
+
+  it('omits thumbnail when upload failed (no URN) so the post still goes out', () => {
+    const article = buildArticleContent({
+      source,
+      title,
+      description: ARTICLE_FIXTURE.excerpt,
+      thumbnail: null,
+    });
+    expect(article).not.toHaveProperty('thumbnail');
+  });
+});
+
+describe('company mention + job field resolvers', () => {
+  it('emits LinkedIn mention syntax only when a URN is known', () => {
+    expect(formatCompanyMention('EOC', 'urn:li:organization:5515715')).toBe(
+      '@[EOC](urn:li:organization:5515715)',
+    );
+    expect(formatCompanyMention('EOC', '5515715')).toBe(
+      '@[EOC](urn:li:organization:5515715)',
+    );
+    expect(formatCompanyMention('EOC', '')).toBe('EOC');
+    expect(formatCompanyMention('', 'urn:li:organization:1')).toBe('');
+  });
+
+  it('reads company, location and description off a real job-shaped record', () => {
+    const job = {
+      title: 'Infermiere/a in cure generali',
+      hiringOrganization: { name: 'EOC', linkedinUrn: 'urn:li:organization:9' },
+      jobLocation: { address: { addressLocality: 'Novaggio' } },
+      canton: 'TI',
+      description: '<p>Cerchiamo un infermiere/a per il servizio di cure generali a Novaggio.</p>',
+    };
+    expect(resolveJobCompany(job)).toBe('EOC');
+    expect(resolveOrganizationUrn(job)).toBe('urn:li:organization:9');
+    expect(resolveJobLocation(job)).toContain('Novaggio');
+    expect(resolveJobLocation(job)).toContain('Ticino');
+    expect(resolveJobDescription(job)).toContain('infermiere');
+    expect(inferArticleLocation({ title: 'Tasse in Ticino', path: '/articoli-frontaliere/x' })).toBe(
+      'Ticino',
+    );
+  });
+});
+
+describe('og:image extract + WebP conversion + Images upload', () => {
+  it('reads og:image and og:description regardless of attribute order', () => {
+    const html = [
+      '<meta content="https://cdn.example/hero.webp" property="og:image">',
+      '<meta name="description" content="fallback">',
+      '<meta property="og:description" content="Per i frontalieri l\'imposta alla fonte.">',
+    ].join('\n');
+    const meta = extractOgFromHtml(html);
+    expect(meta.ogImage).toBe('https://cdn.example/hero.webp');
+    expect(meta.ogDescription).toContain('imposta alla fonte');
+  });
+
+  it('fetchPageOg resolves a relative og:image against the page URL', async () => {
+    const html = '<meta property="og:image" content="/images/blog/x.webp">';
+    const meta = await fetchPageOg('https://frontaliereticino.ch/articoli-frontaliere/x/', async () =>
+      new Response(html, { status: 200, headers: { 'content-type': 'text/html' } }),
+    );
+    expect(meta.ogImage).toBe('https://frontaliereticino.ch/images/blog/x.webp');
+  });
+
+  it('converts a WebP buffer to JPEG so Images API will accept it', async () => {
+    const webp = await sharp({
+      create: { width: 8, height: 8, channels: 3, background: '#cc0000' },
+    })
+      .webp()
+      .toBuffer();
+    const out = await convertImageForLinkedIn(webp, {
+      contentType: 'image/webp',
+      url: 'https://cdn.example/hero.webp',
+    });
+    expect(out.contentType).toBe('image/jpeg');
+    expect(out.buffer[0]).toBe(0xff);
+    expect(out.buffer[1]).toBe(0xd8);
+  });
+
+  it('uploadLinkedInImage returns the image URN after initializeUpload + PUT', async () => {
+    const webp = await sharp({
+      create: { width: 8, height: 8, channels: 3, background: '#003399' },
+    })
+      .webp()
+      .toBuffer();
+    const imageUrn = 'urn:li:image:C4E10AQFtestThumb';
+    const uploadUrl = 'https://www.linkedin.com/dms-uploads/test';
+    const fetchImpl = async (url: string, init?: { method?: string }) => {
+      const u = String(url);
+      if (u.endsWith('.webp') || u.includes('hero.webp')) {
+        return new Response(webp, { status: 200, headers: { 'content-type': 'image/webp' } });
+      }
+      if (u.includes('initializeUpload')) {
+        return new Response(
+          JSON.stringify({ value: { uploadUrl, image: imageUrn } }),
+          { status: 200, headers: { 'content-type': 'application/json' } },
+        );
+      }
+      if (u === uploadUrl) {
+        expect(init?.method).toBe('PUT');
+        return new Response(null, { status: 201 });
+      }
+      throw new Error(`unexpected fetch ${u}`);
+    };
+    const urn = await uploadLinkedInImage({
+      accessToken: 'tok',
+      ownerUrn: 'urn:li:person:abc',
+      imageUrl: 'https://cdn.example/hero.webp',
+      fetchImpl: fetchImpl as unknown as typeof fetch,
+    });
+    expect(urn).toBe(imageUrn);
+  });
+
+  it('uploadLinkedInImage is fail-soft on a 403 initializeUpload', async () => {
+    const jpeg = await sharp({
+      create: { width: 4, height: 4, channels: 3, background: '#ffffff' },
+    })
+      .jpeg()
+      .toBuffer();
+    const fetchImpl = async (url: string) => {
+      if (String(url).includes('hero.jpg')) {
+        return new Response(jpeg, { status: 200, headers: { 'content-type': 'image/jpeg' } });
+      }
+      return new Response('forbidden', { status: 403 });
+    };
+    const urn = await uploadLinkedInImage({
+      accessToken: 'tok',
+      ownerUrn: 'urn:li:person:abc',
+      imageUrl: 'https://cdn.example/hero.jpg',
+      fetchImpl: fetchImpl as unknown as typeof fetch,
+    });
+    expect(urn).toBeNull();
+  });
+});
+
+describe('stripViewCounts', () => {
+  it('drops the exact social-proof line the last live post used', () => {
+    expect(stripViewCounts('📊 30 visualizzazioni il 23/08/2026.')).toBe('');
+    expect(stripViewCounts('Guida. 30 visualizzazioni.')).toBe('Guida.');
   });
 });
