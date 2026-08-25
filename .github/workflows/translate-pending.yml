@@ -264,13 +264,17 @@ jobs:
       # visible to those steps, not only to the next run's commit.
       #
       # SIZED TO THE DRAIN, not to the backlog. Two steps consume
-      # needsRetranslation and only one of them repairs the dominant defect:
-      # the free unlimited Argos mop-up (Phase 2a/2c) rebuilds a title slot only
-      # when it is missing/too short/an exact copy of the source, so it covers
-      # the `source-copy` family (~14% of flags) and nothing else; a partially
-      # translated title can only be rewritten by the QUOTA-BOUND cascade in
-      # Phase 2b below, whose `max_jobs` default is 900/run since #5650. So the
-      # marking cap WAS 100/run to match that step's old 100.
+      # needsRetranslation: the free unlimited Argos mop-up (Phase 2a/2c) and
+      # the QUOTA-BOUND cascade (Phase 2b below, `max_jobs` default 900/run
+      # since #5650). Until 2026-08-24 (issue #6354) the mop-up's
+      # `missingSlots()` rebuilt a title slot only when it was missing/too
+      # short/an exact copy of the source, so it covered the `source-copy`
+      # family (~14% of flags) and nothing else — every other family
+      # (binnen-i, compound-residue, source-function-word, source-orthography,
+      # source-overlap: 81.5% of flags) sat exclusively on the cascade. The
+      # mop-up now also calls `titleLooksUntranslated()`, the same detector
+      # this step uses, so it drains those families too. The marking cap WAS
+      # 100/run to match the cascade's old 100.
       #
       # It is deliberately NOT raised to 900 alongside it. This cap governs
       # INGRESS to the retranslation queue, and the queue is the problem being

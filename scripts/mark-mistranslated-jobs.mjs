@@ -49,22 +49,29 @@
  *
  * THROUGHPUT — the cap is sized to the drain, not to the backlog.
  * `needsRetranslation` is drained by two different steps of
- * translate-pending.yml, and only ONE of them can repair the dominant defect:
- *   - Phase 2a/2c, `local-mt-mopup.mjs` — free, unlimited, 6000 jobs/run. But
- *     its `missingSlots()` only rebuilds a title slot that is MISSING, under 3
- *     characters, or an exact lowercase copy of the source title. A partially
- *     translated title ("Apprendistato 2027 come Fachfrau / Fachmann Gesundheit
- *     CFC") is none of those, so the free path CANNOT fix it. It covers the
- *     `source-copy` family only — 3,337 of 24,054 flagged slots (13.9%).
- *   - Phase 2b, `relocalize-pending-jobs.mjs` — the AI cascade. It is the only
- *     step that rewrites an existing-but-wrong title, and it is quota-bound:
+ * translate-pending.yml:
+ *   - Phase 2a/2c, `local-mt-mopup.mjs` — free, unlimited, 6000 jobs/run. Its
+ *     `missingSlots()` rebuilds a title slot that is MISSING, under 3
+ *     characters, an exact lowercase copy of the source title, OR flagged by
+ *     `titleLooksUntranslated()` with the SAME arguments `titleOffence()`
+ *     below passes it (2026-08-24, issue #6354) — so a partially translated
+ *     title ("Apprendistato 2027 come Fachfrau / Fachmann Gesundheit CFC") now
+ *     reaches the free path too, across every family this file's title
+ *     detector can mark (binnen-i, compound-residue, source-function-word,
+ *     source-orthography, source-overlap, source-copy).
+ *   - Phase 2b, `relocalize-pending-jobs.mjs` — the AI cascade. It remains the
+ *     only step that repairs mistranslated DESCRIPTIONS, and it is
+ *     quota-bound:
  *     `--max-jobs` defaults to 100/run in translate-pending.yml, and the
  *     workflow's own notes record the premium tiers as chronically exhausted.
- * So the ceiling on real repair is ~100 jobs/run. `DEFAULT_MARK_CAP` therefore
- * matches that number rather than the backlog: marking faster than the cascade
- * drains would build a queue that only ever grows, which is worse than no queue
- * (it also starves the genuinely-incomplete jobs competing for the same 100
- * slots — flagged jobs sort FIRST in that queue).
+ * So the ceiling on real DESCRIPTION repair is ~100 jobs/run (titles now drain
+ * through the free, unlimited tier instead — see above). `DEFAULT_MARK_CAP`
+ * still matches the cascade number rather than the backlog: marking
+ * descriptions faster than the cascade drains would build a queue that only
+ * ever grows, which is worse than no queue (it also starves the
+ * genuinely-incomplete jobs competing for the same 100 slots — flagged jobs
+ * sort FIRST in that queue). Raising the shared cap specifically for titles is
+ * a separate throughput change, not made here.
  * `DEFAULT_QUEUE_CEILING` is the backpressure: when the existing
  * `needsRetranslation` backlog is already at the ceiling, this script marks
  * NOTHING and says so, so a stalled cascade (quota exhausted for days) cannot
