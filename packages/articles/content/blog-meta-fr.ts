@@ -10745,6 +10745,11 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-tubre-lavorare-grigioni-frontaliere.title': 'Vivre à Tubre et travailler dans les Grisons en tant que frontalier',
     'blog.article.vivere-tubre-lavorare-grigioni-frontaliere.excerpt': 'Permis G, fiscalité, AVS, LAMal : guide pratique pour les frontaliers Italie-Suisse. Coûts, fiscalité, procédure pour vivre à Tubre et travailler dans les Grisons.',
     'blog.article.vivere-tubre-lavorare-grigioni-frontaliere.imageAlt': 'Vallée alpine vue d\'altitude avec village italien au fond de vallée, forêts d\'automne et lumière dorée. Représente le paysage de travailleur frontalier entre l\'Italie et la Suisse.',
+    'blog.article.bollettino-frontaliere-2026-08-25.title': 'Bulletin du frontalier – 25 août 2026 : 3 779 nouvelles offres d\'emploi hier',
+    'blog.article.bollettino-frontaliere-2026-08-25.excerpt': 'Les chiffres du jour, 25 août 2026, pour les frontaliers : les attentes relevées ce matin à chaque douane, les communes où l\'essence coûte le moins cher, le taux franc-euro à la clôture et les offres d\'emploi parues en Suisse. Des données de notre suivi, relevées chaque jour.',
+    'blog.article.bollettino-frontaliere-2026-08-25.imageAlt': 'Les chiffres du jour pour les frontaliers – 25 août 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
+    'blog.article.bollettino-frontaliere-2026-08-25.seoDescription': 'Bulletin du frontalier du 25 août 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
+    'blog.article.bollettino-frontaliere-2026-08-25.ogDescription': 'Les chiffres du 25 août 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
 };
 
 export default blogMetaFr;
