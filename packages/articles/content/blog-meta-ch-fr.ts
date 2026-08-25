@@ -4249,6 +4249,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lacune-contributive-avs-zurigo.title': 'AVS et prestations complémentaires : caisse de compensation',
     'blog.article.lacune-contributive-avs-zurigo.excerpt': 'Premier pilier dans le canton de Zurich : caisse de compensation, calcul rente AVS, lacunes contributives et prestations complémentaires pour le minimum vital.',
     'blog.article.lacune-contributive-avs-zurigo.imageAlt': 'Bureau administratif avec documents de retraite, calculatrice et tableau de planification de la retraite. Les Alpes suisses visibles par la fenêtre.',
+    'blog.article.successione-donazione-zurigo-guida.title': 'Impôt succession Zurich : taux et exonérations 2026',
+    'blog.article.successione-donazione-zurigo-guida.excerpt': 'Droits de succession et de donation dans le canton de Zurich : taux par degré de parenté, exonérations totales pour conjoint et enfants, déclaration obligatoire et délais à respecter.',
+    'blog.article.successione-donazione-zurigo-guida.imageAlt': 'Bureau administratif du canton de Zurich avec formulaires d\'impôt sur les successions.',
 };
 
 export default blogMetaChFr;

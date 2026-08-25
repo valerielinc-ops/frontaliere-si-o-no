@@ -4249,6 +4249,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lacune-contributive-avs-zurigo.title': 'AHV und Ergänzungsleistungen: Ausgleichskasse',
     'blog.article.lacune-contributive-avs-zurigo.excerpt': 'Erste Säule im Kanton Zürich: Ausgleichskasse, AHV-Rentenberechnung, Beitragslücken und Ergänzungsleistungen für das Lebensminimum.',
     'blog.article.lacune-contributive-avs-zurigo.imageAlt': 'Verwaltungsbüro mit Rentendokumenten, Taschenrechner und Pensionierungsplanungsgrafik auf dem Schreibtisch. Schweizer Alpen sichtbar.',
+    'blog.article.successione-donazione-zurigo-guida.title': 'Erbschaftssteuer Zürich: Steuersätze und Befreiungen 2026',
+    'blog.article.successione-donazione-zurigo-guida.excerpt': 'Erbschafts- und Schenkungssteuern im Kanton Zürich: Sätze pro Verwandtschaftsgrad, Totalbefreiungen für Ehepartner und Kinder, Meldepflicht und einzuhaltende Fristen.',
+    'blog.article.successione-donazione-zurigo-guida.imageAlt': 'Verwaltungsbüro Kanton Zürich mit Erbschaftssteuererklärungsformularen und Rechtsdokumenten.',
 };
 
 export default blogMetaChDe;
