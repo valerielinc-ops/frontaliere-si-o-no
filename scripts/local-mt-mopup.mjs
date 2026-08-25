@@ -49,6 +49,7 @@
  */
 
 import fs from 'node:fs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -255,9 +256,7 @@ async function main() {
     return;
   }
 
-  const sliceFiles = fs.readdirSync(BY_CRAWLER_DIR)
-    .filter((f) => f.endsWith('.json') && !f.includes('-locale-cache'))
-    .sort();
+  const sliceFiles = listSliceFileNames(BY_CRAWLER_DIR);
 
   // Build the FULL candidate list first — no early exit on MAX_JOBS here. The
   // old code capped mid-scan while walking sliceFiles alphabetically, so any

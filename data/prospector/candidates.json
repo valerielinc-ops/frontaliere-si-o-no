@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-25T04:42:45.099Z",
+  "updatedAt": "2026-08-25T10:18:57.577Z",
   "candidates": {
     "bofrost@mezzovico": {
       "key": "bofrost@mezzovico",
@@ -210320,12 +210320,12 @@
     },
     "recruitingapp-2761@umantis.com": {
       "key": "recruitingapp-2761@umantis.com",
-      "status": "production",
+      "status": "rejected",
       "sources": [
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-22T04:28:47.142Z",
-      "updatedAt": "2026-08-25T04:39:04.660Z",
+      "updatedAt": "2026-08-25T10:18:57.576Z",
       "name": "EOC candiDati Posizioni",
       "tenantHost": "recruitingapp-2761.umantis.com",
       "platform": "umantis.com",
@@ -210336,7 +210336,7 @@
         "vacancy-path"
       ],
       "country": "CH",
-      "crawlerKey": "eoc-candidati-posizioni",
+      "crawlerKey": null,
       "mode": "template",
       "sourceLang": "it",
       "qualityScore": 1,
@@ -210413,7 +210413,10 @@
       ],
       "promotionPr": "6297",
       "promotionBranch": "prospector/promote-2026-08-23",
-      "promotedAt": "2026-08-24T04:52:45.219Z"
+      "promotedAt": "2026-08-24T04:52:45.219Z",
+      "reason": "duplicato: stesso tenant Umantis (recruitingapp-2761.umantis.com) gia' coperto dal crawler eoc / companyKey eoc-ente-ospedaliero-cantonale; il nome \"EOC candiDati Posizioni\" e' il titolo di pagina del tenant, non un datore di lavoro. Crawler ritirato, 10 annunci ripiegati nello slice EOC.",
+      "retiredAt": "2026-08-25T10:18:57.576Z",
+      "retiredBy": "duplicate-crawler-cleanup"
     },
     "recruitingapp-2904@umantis.com": {
       "key": "recruitingapp-2904@umantis.com",

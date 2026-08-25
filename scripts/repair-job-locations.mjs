@@ -15,6 +15,7 @@
  */
 
 import { readFileSync, writeFileSync, readdirSync } from 'fs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import {
@@ -70,7 +71,7 @@ const fixes = []; // detailed log
 
 /* ── Process slices ───────────────────────────────────────── */
 
-const sliceFiles = readdirSync(SLICES_DIR).filter((f) => f.endsWith('.json'));
+const sliceFiles = listSliceFileNames(SLICES_DIR);
 console.log(`   Found ${sliceFiles.length} crawler slices\n`);
 
 for (const file of sliceFiles) {

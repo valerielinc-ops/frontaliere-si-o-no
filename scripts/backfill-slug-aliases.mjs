@@ -13,6 +13,7 @@
  * Run: node scripts/backfill-slug-aliases.mjs
  */
 import fs from 'node:fs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { fingerprintJob, loadSlugRegistry } from './lib/dedicated-crawler-common.mjs';
@@ -78,7 +79,7 @@ function loadJobs() {
   const sources = new Map(); // job → { file, crawlerData }
 
   if (fs.existsSync(BY_CRAWLER_DIR)) {
-    for (const file of fs.readdirSync(BY_CRAWLER_DIR).filter(f => f.endsWith('.json'))) {
+    for (const file of listSliceFileNames(BY_CRAWLER_DIR)) {
       const filePath = path.join(BY_CRAWLER_DIR, file);
       const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
       const crawlerJobs = data.jobs || [];
@@ -88,7 +89,7 @@ function loadJobs() {
       }
     }
     if (jobs.length > 0) {
-      console.log(`Loaded ${jobs.length} jobs from ${fs.readdirSync(BY_CRAWLER_DIR).filter(f => f.endsWith('.json')).length} crawler files.`);
+      console.log(`Loaded ${jobs.length} jobs from ${listSliceFileNames(BY_CRAWLER_DIR).length} crawler files.`);
       return { jobs, sources };
     }
   }

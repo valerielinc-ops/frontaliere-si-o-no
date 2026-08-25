@@ -93,7 +93,14 @@ for (const platform of targets) {
       vacancySignals: t.signals,
       country: 'CH',
     };
-    if (isCovered(coverage, { name: cand.name, key: label }).covered) { covered++; continue; }
+    // `sourceHost` and not `domain`: the tenant host is where we READ the
+    // vacancies, not the employer's own domain. Handing it to `domain` would put
+    // it through the registrable-domain fold and let one Umantis tenant stand in
+    // for every other. Omitting it entirely — which is what this call did until
+    // 2026-08-25 — is how `recruitingapp-2761.umantis.com` got promoted a second
+    // time as "EOC candiDati Posizioni", the tenant's own page title, alongside
+    // the EOC crawler that had been reading that exact host for months.
+    if (isCovered(coverage, { name: cand.name, key: label, sourceHost: cand.tenantHost }).covered) { covered++; continue; }
     const { key, created } = upsertCandidate(store, { ...cand, key: `${label}@${platform.domain}` }, `tenant:${platform.domain}`);
     // Tenants arrive already traced — the platform handed us the careers URL.
     setStatus(store, key, 'traced', cand);

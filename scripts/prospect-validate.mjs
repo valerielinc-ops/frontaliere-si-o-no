@@ -23,7 +23,8 @@ import { loadCandidates, saveCandidates, setStatus, byStatus, statusCounts } fro
 import { runSpec } from './lib/prospector/synthesize.mjs';
 import { gradeExtraction } from './lib/prospector/validate.mjs';
 import { probeCompanyLogo } from './lib/prospector/logo-probe.mjs';
-import { PROSPECTOR_DIR, VALIDATION_PATH } from './lib/prospector/config.mjs';
+import { PROSPECTOR_DIR, VALIDATION_PATH, ROOT } from './lib/prospector/config.mjs';
+import { loadSourceHostOwnership, matchExistingCrawler } from './lib/crawler-source-hosts.mjs';
 
 const argv = process.argv.slice(2);
 const arg = (n, d) => { const h = argv.find((a) => a.startsWith(`--${n}=`)); return h ? h.slice(n.length + 3) : d; };
@@ -64,6 +65,11 @@ console.log(`spec da validare: ${specs.length}   campione per spec: ${sampleSize
 
 const reports = [];
 const tally = { good: 0, weak: 0, bad: 0, insufficient: 0 };
+let duplicates = 0;
+
+// What we already crawl, keyed by the individual vacancy URL. Read once: the
+// slices are large and the answer cannot change during a run.
+const ownership = loadSourceHostOwnership(ROOT, { urls: true });
 
 for (const spec of specs) {
   // Stessa ragione dello stadio di sintesi: qui si rende di nuovo il DOM di
@@ -78,6 +84,34 @@ for (const spec of specs) {
     console.log(`  ! ${String(spec.companyName).slice(0, 30).padEnd(32)} errore in esecuzione: ${(err instanceof Error ? err.message : String(err)).slice(0, 60)}`);
     continue;
   }
+  // Does this "new employer" simply re-publish vacancies we already carry?
+  // Grading cannot tell: a duplicate tenant parses beautifully and scores
+  // `good`, which is precisely how `eoc-candidati-posizioni` was promoted
+  // alongside the EOC crawler that had been reading the same Umantis tenant for
+  // months. The question is not "does it parse" but "is it someone new", and
+  // only the vacancies themselves answer it.
+  // `exclude` is not optional here: this stage re-grades candidates that are
+  // already `promoted`/`production`, and a live crawler matches its OWN slice at
+  // 100% — without it, every established crawler would reject itself.
+  const twin = matchExistingCrawler(
+    (vacancies || []).map((v) => v?.url || ''),
+    ownership,
+    { exclude: spec.companyKey },
+  );
+  if (twin) {
+    duplicates++;
+    console.log(`  ⊘ ${String(spec.companyName).slice(0, 30).padEnd(32)} duplicato di ${twin.key} — ${twin.shared}/${twin.total} annunci gia' coperti`);
+    const candidate = byCrawlerKey.get(spec.companyKey);
+    if (candidate) {
+      setStatus(store, candidate.key, 'rejected', {
+        qualityVerdict: 'duplicate',
+        qualityProblems: [`duplica ${twin.key}: ${twin.shared}/${twin.total} annunci gia' presenti in data/jobs/by-crawler/${twin.key}.json`],
+        duplicateOf: twin.key,
+      });
+    }
+    continue;
+  }
+
   let report;
   try {
     report = await gradeExtraction(spec, vacancies, { sampleSize });
@@ -142,7 +176,7 @@ for (const spec of specs) {
 }
 
 const promotedVacancies = reports.filter((r) => r.verdict === 'good').reduce((a, r) => a + r.vacancyCount, 0);
-console.log(`\nesito: ${tally.good} promossi · ${tally.weak} deboli · ${tally.bad} respinti · ${tally.insufficient} campione insufficiente`);
+console.log(`\nesito: ${tally.good} promossi · ${tally.weak} deboli · ${tally.bad} respinti · ${tally.insufficient} campione insufficiente · ${duplicates} duplicati di crawler esistenti`);
 console.log(`annunci coperti dai crawler promossi: ${promotedVacancies}`);
 console.log(`coda: ${JSON.stringify(statusCounts(store))}`);
 

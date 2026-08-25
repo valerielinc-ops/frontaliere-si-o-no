@@ -19,6 +19,7 @@
  */
 
 import fs from 'node:fs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -47,7 +48,7 @@ function readJson(filePath) {
 }
 
 async function main() {
-  const files = fs.readdirSync(BY_CRAWLER_DIR).filter(f => f.endsWith('.json')).sort();
+  const files = listSliceFileNames(BY_CRAWLER_DIR).sort();
   console.log(`🔗 Regenerating slugByLocale across ${files.length} per-crawler slices...\n`);
 
   // ── Pre-pass: cross-job slug uniqueness map ────────────────────────────

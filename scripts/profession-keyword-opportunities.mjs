@@ -34,6 +34,7 @@
  */
 
 import fs from 'node:fs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import {
   PROFESSION_TAXONOMY,
@@ -125,8 +126,7 @@ function loadJobs() {
   const seen = new Set();
   const jobs = [];
   let shards = 0;
-  for (const file of fs.readdirSync(BY_CRAWLER_DIR).sort()) {
-    if (!file.endsWith('.json')) continue;
+  for (const file of listSliceFileNames(BY_CRAWLER_DIR)) {
     let parsed;
     try {
       const raw = fs.readFileSync(path.join(BY_CRAWLER_DIR, file), 'utf-8');

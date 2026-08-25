@@ -13,6 +13,7 @@
  */
 
 import fs from 'node:fs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { freeTranslateWithRetry, logCascadeSummary } from './lib/free-translate.mjs';
@@ -27,7 +28,7 @@ const DRY_RUN = process.argv.includes('--dry-run');
 function readJson(p) { return JSON.parse(fs.readFileSync(p, 'utf-8')); }
 
 async function main() {
-  const files = fs.readdirSync(BY_CRAWLER_DIR).filter(f => f.endsWith('.json')).sort();
+  const files = listSliceFileNames(BY_CRAWLER_DIR).sort();
   let totalFixed = 0;
   let totalSkipped = 0;
   let totalFailed = 0;

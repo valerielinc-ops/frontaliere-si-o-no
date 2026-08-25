@@ -13,6 +13,7 @@
  */
 
 import fs from 'node:fs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -265,7 +266,7 @@ function main() {
 
   // Read each slice, update jobs with matching slugs, write back if changed
   const sliceFiles = fs.existsSync(SLICES_DIR)
-    ? fs.readdirSync(SLICES_DIR).filter((f) => f.endsWith('.json') && f !== '.gitkeep')
+    ? listSliceFileNames(SLICES_DIR)
     : [];
 
   let updatedSlices = 0;
