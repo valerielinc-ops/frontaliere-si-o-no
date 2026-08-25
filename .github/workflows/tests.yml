@@ -29,8 +29,8 @@ name: tests
 # Tests that read data/jobs.json (gitignored): the assemble step regenerates
 # it from the per-slice files committed under data/jobs-by-slice/.
 #
-# ── Four jobs, in parallel, sharing checkout+npm-ci code (was briefly a
-#    needs: chain — see below) ───────────────────────────────────────────────
+# ── Four jobs, in parallel, sharing the post-checkout npm-ci step (was
+#    briefly a needs: chain — see below) ────────────────────────────────────
 # `collision` (ex `pr-collision-detector.yml` job `detect`) and `contract` (ex
 # `pr-body-contract.yml` job `contract`) live HERE, alongside `typecheck` and
 # `vitest`, as four independent jobs with no `needs:` between them — same
@@ -44,15 +44,26 @@ name: tests
 # MAX — a PR-turnaround regression with no reduction in redundant work (still
 # 4 checkouts, 3 `npm ci`, just one after another instead of at once).
 #
-# The fix that keeps BOTH properties: `.github/actions/ci-checkout-npm`
-# factors the checkout+setup-node+npm-ci steps into one shared composite
-# action (four jobs invoking the same code, not four hand-maintained copies
-# that can drift), while each job keeps running independently in parallel —
-# same peak concurrency (4) as before #6475, same wall-clock as before #6475,
-# zero duplication of the checkout/npm-ci LOGIC. This is a deliberate,
-# explicit reopening of the job-pool-footprint tradeoff #6475 made: measure
-# again if the shared pool becomes the bottleneck (queued crawler runs behind
-# PR jobs) rather than re-deriving the call from first principles.
+# The fix that keeps BOTH properties: `.github/actions/ci-npm-setup` factors
+# the setup-node+npm-ci steps into one shared composite action (three jobs
+# invoking the same code instead of three hand-maintained copies that can
+# drift), while each job keeps running independently in parallel — same peak
+# concurrency (4) as before #6475, same wall-clock as before #6475. The
+# CHECKOUT step itself stays inline per job, NOT shared: a local composite
+# action can't perform the first checkout of the repo that hosts it (GitHub
+# Actions resolves `uses: ./path` from the already-checked-out workspace, so
+# using it AS the checkout step fails with "Can't find 'action.yml' ...  Did
+# you forget to run actions/checkout before running this local action?" — hit
+# exactly this in the first version of this change). The four sparse-checkout
+# profiles differ on purpose anyway (vitest's working tree sits above the
+# measured ~1.5GB sparse/full crossover, docs/REPO-WEIGHT-STRATEGY.md, so
+# sparse costs it +125%; the other three sit below it and sparse is the win),
+# so forcing one shared checkout invocation would have meant picking one
+# profile for all four — this only shares the part that really is identical.
+# This is a deliberate, explicit reopening of the job-pool-footprint tradeoff
+# #6475 made: measure again if the shared pool becomes the bottleneck (queued
+# crawler runs behind PR jobs) rather than re-deriving the call from first
+# principles.
 #
 # check-run identity is untouched: each job is still its own check (`collision`
 # label-only gate, `contract` non-blocking body/source-guard gate, `typecheck
@@ -190,10 +201,10 @@ jobs:
     # repo traccia, questo tetto e' il cerotto dichiarato nel frattempo.
     timeout-minutes: 15
     steps:
-      - name: Checkout + npm ci
-        uses: ./.github/actions/ci-checkout-npm
+      - name: Checkout
+        uses: actions/checkout@v5
         with:
-          fetch-depth: "1"
+          fetch-depth: 1
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
             /*
@@ -217,7 +228,13 @@ jobs:
             !/data/evidence-index.json
             !/data/health-premiums/
             !/data/jobs-crawler-summaries/
-          sparse-checkout-cone-mode: "false"
+          sparse-checkout-cone-mode: false
+
+      # `ci-npm-setup` covers ONLY setup-node+npm-ci — a local composite action
+      # cannot perform the checkout itself (see its own header comment for why).
+      - name: npm ci
+        uses: ./.github/actions/ci-npm-setup
+        with:
           npm-ci-args: "--ignore-scripts"
 
       - name: Prepare Firebase credentials
@@ -643,12 +660,12 @@ jobs:
       # they still run after the body-contract step setFailed (independent gates).
       - name: Checkout (for source guards)
         if: ${{ !cancelled() && github.event.action != 'edited' }}
-        uses: ./.github/actions/ci-checkout-npm
+        uses: actions/checkout@v5
         with:
           ref: ${{ github.event.pull_request.head.sha }}
           # `fetch-depth: 0` resta: check-sibling-patterns.mjs diffa contro
           # BASE_REF e senza storia non ha nulla da confrontare.
-          fetch-depth: "0"
+          fetch-depth: 0
           filter: blob:none
           # `filter: blob:none` evita di scaricare i blob nel fetch, ma il
           # checkout dell'albero li materializza comunque uno per uno: su
@@ -666,9 +683,7 @@ jobs:
             /*
             !/public/images/events
             !/public/images/blog
-          sparse-checkout-cone-mode: "false"
-          # I source-guard leggono solo il working tree: niente node_modules.
-          run-npm-ci: "false"
+          sparse-checkout-cone-mode: false
         # RIMISURATO il 2026-08-18 (era 8min): su 153 Checkout `success` delle
         # ultime 300 run — min 69s, p50 158s, p95 358s, p99 393s, **max 420s** — il
         # tetto di 480s stava 60 secondi sopra il massimo sano, cioe' tagliava la
@@ -1024,8 +1039,8 @@ jobs:
       # import TS risolti verso quelle cartelle sopravvivono tutti al profilo —
       # sono file piccoli, e il profilo esclude solo foglie sopra 15 MB.
       # Il guard non lo copre ancora per costruzione: vedi la issue di follow-up.
-      - name: Checkout + npm ci
-        uses: ./.github/actions/ci-checkout-npm
+      - name: Checkout
+        uses: actions/checkout@v5
         with:
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
@@ -1048,7 +1063,12 @@ jobs:
             !/data/evidence-index.json
             !/data/health-premiums/
             !/data/jobs-crawler-summaries/
-          sparse-checkout-cone-mode: "false"
+          sparse-checkout-cone-mode: false
+
+      # `ci-npm-setup` covers ONLY setup-node+npm-ci — see its header comment
+      # for why the checkout itself can't be part of that shared action.
+      - name: npm ci
+        uses: ./.github/actions/ci-npm-setup
 
       - name: tsc --noEmit (baseline + ratchet)
         run: npm run typecheck:gate
@@ -1119,12 +1139,19 @@ jobs:
       # #6152). Misurato in locale sull'albero pieno di questo repo: 51,0s ->
       # 37,4s (-27%) impostando `checkout.workers 0` (= usa tutti i core
       # disponibili). `actions/checkout` esegue un `git checkout` normale e
-      # rispetta la config globale, quindi basta impostarla PRIMA del passo —
-      # `ci-checkout-npm` lo fa incondizionatamente come primo step. Rischio
-      # zero: non cambia cosa viene scaricato o scritto, solo quanti thread lo
+      # rispetta la config globale, quindi basta impostarla PRIMA del passo. Un
+      # local composite action non può fare QUESTO checkout (vedi il commento
+      # in testa a `ci-npm-setup`: risolverebbe l'action file in un workspace
+      # non ancora scaricato), quindi resta uno step inline qui. Rischio zero:
+      # non cambia cosa viene scaricato o scritto, solo quanti thread lo
       # scrivono.
-      - name: Checkout + npm ci
-        uses: ./.github/actions/ci-checkout-npm
+      - run: git config --global checkout.workers 0
+      - uses: actions/checkout@v5
+
+      # `ci-npm-setup` copre SOLO setup-node+npm-ci — vedi il suo commento di
+      # testata per il perché il checkout non può farne parte.
+      - name: npm ci
+        uses: ./.github/actions/ci-npm-setup
 
       - name: Audit no merge conflict markers
         # 0-tolerance gate: blocks any commit that contains unresolved

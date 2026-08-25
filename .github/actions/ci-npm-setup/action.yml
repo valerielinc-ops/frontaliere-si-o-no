@@ -1,0 +1,36 @@
+name: "npm ci (shared PR-gate setup)"
+description: >-
+  Shared Node setup + npm ci for the PR-gate jobs in tests.yml (collision,
+  typecheck, vitest — contract's source-guard checkout skips this entirely,
+  it needs no node_modules).
+
+  Deliberately does NOT include the checkout step, even though checkout is
+  also common to all four jobs: a local composite action (`uses: ./path`) is
+  resolved by looking up the action file in the ALREADY CHECKED OUT
+  workspace, so it cannot perform the FIRST checkout of the repo that hosts
+  it — GitHub Actions errors "Can't find 'action.yml' ... Did you forget to
+  run actions/checkout before running this local action?" (hit exactly this
+  running the first version of this action as the checkout step itself).
+  Each job therefore keeps its own inline `actions/checkout@v5` (with its own
+  measured sparse-checkout/fetch-depth/filter/ref — the four profiles are NOT
+  the same and must not be forced identical: vitest's working tree sits above
+  the measured ~1.5GB sparse/full crossover, docs/REPO-WEIGHT-STRATEGY.md, so
+  a sparse checkout there costs +125%, while typecheck/collision sit below it
+  and a sparse profile is the win), and calls this action only for the part
+  that genuinely is identical code across jobs and runs AFTER checkout.
+inputs:
+  npm-ci-args:
+    description: 'Extra args for npm ci, e.g. "--ignore-scripts" (collision job).'
+    default: ""
+runs:
+  using: "composite"
+  steps:
+    - name: Setup Node.js
+      uses: actions/setup-node@v5
+      with:
+        node-version: "22"
+        cache: "npm"
+
+    - name: npm ci
+      shell: bash
+      run: npm ci ${{ inputs.npm-ci-args }}
