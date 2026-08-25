@@ -10760,6 +10760,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lanzada-grigioni-frontaliere-guida.title': 'Living in Lanzada, working in Graubünden: cross-border',
     'blog.article.lanzada-grigioni-frontaliere-guida.excerpt': 'Complete guide for Italy-Switzerland border workers: G Permit, taxation, AVS/LPP/LAMal, transfer procedures and tax returns in Lanzada.',
     'blog.article.lanzada-grigioni-frontaliere-guida.imageAlt': 'Alpine mountain landscape with winding road connecting Italy and Switzerland, rocky peaks and green meadows',
+    'blog.article.como-frontaliere-grigioni.title': 'Torre di Santa Maria: working in Graubünden as a border worker',
+    'blog.article.como-frontaliere-grigioni.excerpt': 'From 1 January 2024, the new border agreement transforms taxation. Permit G, deductible €10,000, tax in Switzerland, AVS/LPP, refreshments: here\'s how to live and work as a border worker.',
+    'blog.article.como-frontaliere-grigioni.imageAlt': 'Lake Lugano view with Grisons mountains in the background at the Ticino-Lombardy border',
 };
 
 export default blogMetaEn;

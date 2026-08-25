@@ -10759,6 +10759,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lanzada-grigioni-frontaliere-guida.title': 'Leben in Lanzada, Arbeiten in Graubünden: Grenzgänger',
     'blog.article.lanzada-grigioni-frontaliere-guida.excerpt': 'Vollständiger Leitfaden für Grenzgänger Italien-Schweiz: Bewilligung G, Steuern, AHV/BVG/KVG, Verlegungsverfahren und Steuererklärungen in Lanzada.',
     'blog.article.lanzada-grigioni-frontaliere-guida.imageAlt': 'Alpines Berglandschaftspanorama mit kurviger Straße zwischen Italien und der Schweiz, Felsengipfel und grüne Wiesen',
+    'blog.article.como-frontaliere-grigioni.title': 'Torre di Santa Maria: Arbeiten in Graubünden als Grenzgänger',
+    'blog.article.como-frontaliere-grigioni.excerpt': 'Ab dem 1. Januar 2024 wandelt das neue Grenzgängerabkommen die Besteuerung um. Bewilligung G, Franchise € 10 \'000, Steuer in der Schweiz, AHV/BVG, Rückvergütungen: So leben und arbeiten Sie als Grenzgänger.',
+    'blog.article.como-frontaliere-grigioni.imageAlt': 'Blick auf den Luganersee mit Graubündner Bergen im Hintergrund an der Grenze Tessin-Lombardei',
 };
 
 export default blogMetaDe;

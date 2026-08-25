@@ -78188,6 +78188,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-como-frontaliere-grigioni': {
+    title: 'Torre di Santa Maria: lavorare in Grigioni da frontaliere',
+    description: 'Nuovo accordo frontalieri 2024: tassazione, Permesso G, franchigia €10.000, AVS/LPP, LAMal. Guida pratica per vivere in Italia e lavorare in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, torre, santa, maria, lavorare',
+    ogTitle: 'Lavorare in Svizzera da Torre di Santa Maria',
+    ogDescription: 'Frontaliere Italia→Svizzera? Dal 2024, il nuovo accordo semplifica tasse e previdenza. Scopri Permesso G, franchigia €10.000, AVS/LPP, come dichiarare le imposte e quanto conviene.',
+    canonicalPath: '/articoli-frontaliere/como-frontaliere-grigioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Torre di Santa Maria: lavorare in Grigioni da frontaliere",
+      "description": "Nuovo accordo frontalieri 2024: tassazione, Permesso G, franchigia €10.000, AVS/LPP, LAMal. Guida pratica per vivere in Italia e lavorare in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/como-frontaliere-grigioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta del Lago di Lugano con le montagne dei Grigioni sullo sfondo al confine Ticino-Lombardia"
+      },
+      "datePublished": "2026-08-25T07:59:22+00:00",
+      "dateModified": "2026-08-25T07:59:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/como-frontaliere-grigioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

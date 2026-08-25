@@ -10762,6 +10762,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lanzada-grigioni-frontaliere-guida.title': 'Vivre à Lanzada, travailler dans les Grisons : frontalier',
     'blog.article.lanzada-grigioni-frontaliere-guida.excerpt': 'Guide complet pour les frontaliers Italie-Suisse : Permis G, fiscalité, AVS/LPP/LAMal, procédures de transfert et déclarations de revenus à Lanzada.',
     'blog.article.lanzada-grigioni-frontaliere-guida.imageAlt': 'Paysage montagneux alpin avec route sinueuse reliant l\'Italie et la Suisse, pics rocheux et prairies vertes',
+    'blog.article.como-frontaliere-grigioni.title': 'Tour de Santa Maria : travailler dans les Grisons en tant que frontalier',
+    'blog.article.como-frontaliere-grigioni.excerpt': 'Depuis le 1er janvier 2024, le nouvel accord frontalier transforme la fiscalité. Permis G, franchise 10 000 € , impôt en Suisse, AVS/LPP, restaurations : voici comment vivre et travailler en tant que frontalier.',
+    'blog.article.como-frontaliere-grigioni.imageAlt': 'Vue du lac de Lugano avec les montagnes des Grisons en arrière-plan à la frontière Tessin-Lombardie',
 };
 
 export default blogMetaFr;

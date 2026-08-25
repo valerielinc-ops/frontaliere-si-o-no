@@ -10761,6 +10761,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lanzada-grigioni-frontaliere-guida.title': 'Vivere a Lanzada, lavorare nei Grigioni: frontaliere',
     'blog.article.lanzada-grigioni-frontaliere-guida.excerpt': 'Guida completa per frontalieri Italia-Svizzera: Permesso G, fiscalità, AVS/LPP/LAMal, procedure di trasferimento e dichiarazioni redditi a Lanzada.',
     'blog.article.lanzada-grigioni-frontaliere-guida.imageAlt': 'Paesaggio alpino con strada sinuosa che collega Italia e Svizzera, picchi rocciosi e prati verdi',
+    'blog.article.como-frontaliere-grigioni.title': 'Torre di Santa Maria: lavorare in Grigioni da frontaliere',
+    'blog.article.como-frontaliere-grigioni.excerpt': 'Dal 1° gennaio 2024, il nuovo accordo frontalieri trasforma la tassazione. Permesso G, franchigia €10.000, imposta in Svizzera, AVS/LPP, ristorni: ecco come vivere e lavorare da frontaliere.',
+    'blog.article.como-frontaliere-grigioni.imageAlt': 'Veduta del Lago di Lugano con le montagne dei Grigioni sullo sfondo al confine Ticino-Lombardia',
 };
 
 export default blogMetaIt;
