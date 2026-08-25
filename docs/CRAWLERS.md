@@ -369,16 +369,31 @@ employer's own site:
 
 All three satisfy the gate — disclosure is the requirement, not instant
 perfection — but only `confirmed` closes the question, and it does not mean
-"stuck on jobs.ch forever": of the four crawlers this surfaced, two were
-migrated off jobs.ch/jobup.ch entirely once a real browser check found a
-better source. `equans` is `confirmed` (its own careers page explicitly hands
-off to jobs.ch/jobup.ch tabs, no listing of its own exists — jobs.ch genuinely
-is the employer's chosen channel). `city-pop` is `confirmed` too, but for the
-opposite reason: a real-browser check found no careers/jobs section anywhere
-on its own site (both `/careers` and `/jobs` 404) — jobs.ch is its only
-discoverable channel, not a bypassed alternative. `cham-swiss-properties` and
-`dic-sa` were `needs-migration` — a real browser found each one's own site
-embedding/linking a genuine direct source (a Dualoo portal at
+"stuck on jobs.ch forever": of the four crawlers this surfaced, three ended up
+migrated off jobs.ch/jobup.ch once a REAL BROWSER check found a better source.
+
+**`equans` was `confirmed` and that was wrong** — the mistake is worth stating
+plainly rather than quietly overwriting. The first pass read the career
+page's "zwei Jobportalen" text with a static fetch and assumed it meant
+jobs.ch/jobup.ch (matching the parser's pre-existing docblock claim) without
+checking what the two portals actually were. A real browser found the page
+instead embeds `https://ohws.prospective.ch/public/v1/careercenter/1004089/`
+directly — Equans's own Prospective.ch tenant (122 live listings, apply links
+routing to Equans's own SuccessFactors instance), not jobs.ch at all. Equans
+is now migrated the same as the two below, via the shared
+`prospective-ch-job-parser-common.mjs` factory already used by dozens of
+other direct-employer crawlers in this fleet. **Lesson**: a static fetch
+cannot see what a JS-rendered embed actually loads — it can misreport
+`confirmed` just as easily as it misses a real source entirely (the
+`needs-verification` case below). Treat a `confirmed` reached without a real
+browser as unverified until one checks it, not as settled.
+
+`city-pop` is `confirmed` for the opposite reason, and this one IS
+solid — a real-browser check found no careers/jobs section anywhere on its
+own site (both `/careers` and `/jobs` 404) — jobs.ch is its only discoverable
+channel, not a bypassed alternative. `cham-swiss-properties` and `dic-sa` were
+`needs-migration` — a real browser found each one's own site embedding/
+linking a genuine direct source (a Dualoo portal at
 `jobs.dualoo.com/portal/6j9quii0`, and a WordPress `job-offers` REST API at
 `dic-ing.ch/wp-json/wp/v2/job-offers`, respectively) — and are now `confirmed`
 under the migrated source: their `url`/`applyUrl` point at the employer's own
