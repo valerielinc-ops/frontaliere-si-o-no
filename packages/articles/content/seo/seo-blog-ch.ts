@@ -55790,6 +55790,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-asilo-reati-prigioni-maghreb': {
+    title: 'Asilo e reati, l\'esperto: prigioni non fanno paura',
+    description: 'Tasso criminalità 80% richiedenti asilo Maghreb. Analisi SEM 2024: cause socio-economiche, prigioni svizzere deterrente nullo, rimpatri ostacoli burocratici.',
+    keywords: 'frontalieri, ticino, svizzera, italia, asilo, reati, esperto, prigioni',
+    ogTitle: 'Asilo e reati: prigioni svizzere non fanno paura',
+    ogDescription: 'Secondo Beat Stauffer, esperto di Maghreb, il tasso di criminalità tra richiedenti asilo dal Maghreb supera l\'80% per ragioni socio-economiche, non culturali. Le prigioni svizzere hanno effetto deterrente quasi nullo. Proposte di cooperazione',
+    canonicalPath: '/articoli-svizzera/asilo-reati-prigioni-maghreb/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Asilo e reati, l'esperto: prigioni non fanno paura",
+      "description": "Tasso criminalità 80% richiedenti asilo Maghreb. Analisi SEM 2024: cause socio-economiche, prigioni svizzere deterrente nullo, rimpatri ostacoli burocratici.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/asilo-reati-prigioni-maghreb.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio dell'amministrazione federale svizzera a Berna che ospita la Segreteria di Stato della migrazione"
+      },
+      "datePublished": "2026-08-25T18:58:14+00:00",
+      "dateModified": "2026-08-25T18:58:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/asilo-reati-prigioni-maghreb/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

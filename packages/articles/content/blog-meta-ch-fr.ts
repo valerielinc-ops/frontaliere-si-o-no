@@ -4300,6 +4300,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.orologi-export-fh-prudenza.title': 'Exportation montres suisses : FH appelle à la prudence',
     'blog.article.orologi-export-fh-prudenza.excerpt': 'Juin et juillet augmentent, mais l\'incertitude mondiale freine l\'optimisme. USA stable (+14,9%), Chine crise (-7,1%), France boom anormal (+70%). Accord La Chine réduira les droits de douane.',
     'blog.article.orologi-export-fh-prudenza.imageAlt': 'Atelier d\'horlogerie suisse avec pièces de précision et montre de luxe, établi de travail traditionnel.',
+    'blog.article.asilo-reati-prigioni-maghreb.title': 'Asile et délits, l\'expert : les prisons ne font pas peur',
+    'blog.article.asilo-reati-prigioni-maghreb.excerpt': 'Taux de criminalité de plus de 80% parmi les demandeurs d\'asile du Maghreb. Selon l\'expert Beat Stauffer, les causes sont socio-économiques et les prisons suisses ont un effet dissuasif quasi nul.',
+    'blog.article.asilo-reati-prigioni-maghreb.imageAlt': 'Bâtiment de l\'administration fédérale suisse à Berne abritant le Secrétariat d\'État aux migrations',
 };
 
 export default blogMetaChFr;

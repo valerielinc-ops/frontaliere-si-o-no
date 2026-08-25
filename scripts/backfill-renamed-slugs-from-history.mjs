@@ -26,6 +26,7 @@
  */
 
 import fs from 'node:fs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -117,8 +118,7 @@ function main() {
   }
   console.log(`📌 Scanning commits ${sinceRef.slice(0, 10)}..HEAD`);
 
-  const files = fs.readdirSync(BY_CRAWLER_DIR)
-    .filter((f) => f.endsWith('.json'))
+  const files = listSliceFileNames(BY_CRAWLER_DIR)
     .map((f) => path.join(BY_CRAWLER_DIR, f))
     .sort();
 
