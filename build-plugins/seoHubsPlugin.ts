@@ -1777,12 +1777,21 @@ export function buildThinCantonHubHtml(args: {
 
   const homeLabel = { it: 'Home', en: 'Home', de: 'Start', fr: 'Accueil' }[locale];
 
+  const hubCrumbName = `${cantonLabel} · ${CANTON_HUB_LABELS[locale][hub]}`;
   const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: homeLabel, item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: cantonLabel, item: canonicalUrl },
+      { '@type': 'ListItem', position: 2, name: hubCrumbName, item: `${BASE_URL}${basePath}` },
+      ...(page > 1
+        ? [{
+            '@type': 'ListItem',
+            position: 3,
+            name: locale === 'de' ? `Seite ${page}` : locale === 'fr' ? `Page ${page}` : `Pagina ${page}`,
+            item: canonicalUrl,
+          }]
+        : []),
     ],
   });
 
@@ -1852,7 +1861,7 @@ export function buildThinCantonHubHtml(args: {
       <nav class="s-AxRVCF" aria-label="Breadcrumb">
         <a class="s-wfUMYx" href="/">${esc(homeLabel)}</a>
         <span> / </span>
-        <span>${esc(cantonLabel)} · ${esc(CANTON_HUB_LABELS[locale][hub])}</span>
+        <a class="s-wfUMYx" href="${esc(basePath)}">${esc(hubCrumbName)}</a>
       </nav>
       <header class="s-S1RSUf">
         <h1 class="s-e3gkVi">${esc(h1)}</h1>

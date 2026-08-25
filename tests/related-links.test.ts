@@ -24,6 +24,8 @@ import {
   generateRelatedLinks,
   generateRelatedLinksBlock,
   generateRelatedLinksStructured,
+  JOB_LISTING_ROOT,
+  SWITZERLAND_JOB_ROOT,
   type LinkLocale,
   type SeoPageType,
 } from '@/build-plugins/shared/relatedLinks';
@@ -384,6 +386,19 @@ describe('generateRelatedLinksStructured (3-cluster)', () => {
     const hubs = sections.find((s) => s.kind === 'hubs')!;
     const hrefs = hubs.links.map((l) => l.href);
     expect(hrefs).toContain('/cerca-lavoro-ticino/');
+  });
+
+  it('every page type emits a job-board hub (Ticino listing or Switzerland aggregate)', () => {
+    for (const locale of LOCALES) {
+      for (const pageType of PAGE_TYPES) {
+        const hrefs = generateRelatedLinks(locale, pageType, sampleContextFor(pageType)).map((l) => l.href);
+        if (pageType === 'health_premiums') {
+          expect(hrefs).toContain(SWITZERLAND_JOB_ROOT[locale]);
+        } else {
+          expect(hrefs).toContain(JOB_LISTING_ROOT[locale]);
+        }
+      }
+    }
   });
 
   it('job_market_snapshot sibling section is 4 city F5 hubs', () => {
