@@ -7,7 +7,7 @@ import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vite
 const spawnMock = vi.fn();
 vi.mock('node:child_process', () => ({ spawn: (...args: unknown[]) => spawnMock(...args) }));
 
-import { AI_MODELS, callLLM, getPreferredModel, initScoreStore, resetState } from '../../scripts/lib/ai-models.mjs';
+import { AI_MODELS, __installScoreStoreForTests, callLLM, getPreferredModel, resetState } from '../../scripts/lib/ai-models.mjs';
 
 /**
  * Il minimo del timeout CLI e' una TARATURA (120s → 180s il 2026-08-18, quando
@@ -38,14 +38,16 @@ describe('ai-models Claude CLI Haiku fallback', () => {
   const saved: Record<string, string | undefined> = {};
 
   // callLLM lazily initialises the Firestore-backed score store on its first
-  // invocation. Under the fake timers this file installs for the timeout
-  // tests below, that lazy init's own network/backoff timers don't advance
-  // with vi.advanceTimersByTimeAsync — the awaited callLLM() promise never
-  // settles and the test dies on Vitest's real testTimeout instead of the
-  // assertion ever running (same class as ai-models-hard-call-cap.test.ts).
-  // Pay the init cost once, up front, on real timers.
-  beforeAll(async () => {
-    await initScoreStore();
+  // invocation, and every exhausted-chain exit flushes dirty scores back to
+  // it. Neither the read nor the write's own network timers advance with the
+  // fake timers the tests below install — when GOOGLE_APPLICATION_CREDENTIALS
+  // is actually present (unlike a bare-metal CI runner, this happens here),
+  // that stalls the awaited callLLM() promise on real network I/O and the
+  // test dies on Vitest's real testTimeout instead of the assertion ever
+  // running. This file doesn't exercise persistence, so take the store off
+  // the network entirely rather than paying its cost on real time.
+  beforeAll(() => {
+    __installScoreStoreForTests(null);
   });
 
   beforeEach(() => {
