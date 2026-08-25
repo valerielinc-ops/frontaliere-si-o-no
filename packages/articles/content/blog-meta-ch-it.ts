@@ -4300,6 +4300,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.orologi-export-fh-prudenza.title': 'Export orologi svizzeri: FH invita alla prudenza',
     'blog.article.orologi-export-fh-prudenza.excerpt': 'Giugno e luglio in aumento, ma incertezza globale frenate ottimismo. USA stabile (+14,9%), Cina crisi (-7,1%), Francia boom anomalo (+70%). Accordo Cina ridurrà dazi doganali.',
     'blog.article.orologi-export-fh-prudenza.imageAlt': 'Laboratorio di orologeria svizzera con componenti di precisione e orologio di lusso, tavolo da lavoro tradizionale.',
+    'blog.article.asilo-reati-prigioni-maghreb.title': 'Asilo e reati, l\'esperto: prigioni non fanno paura',
+    'blog.article.asilo-reati-prigioni-maghreb.excerpt': 'Tasso di criminalità oltre l\'80% tra richiedenti asilo dal Maghreb. Secondo l\'esperto Beat Stauffer, le cause sono socio-economiche e le prigioni svizzere hanno effetto deterrente quasi nullo.',
+    'blog.article.asilo-reati-prigioni-maghreb.imageAlt': 'Edificio dell\'amministrazione federale svizzera a Berna che ospita la Segreteria di Stato della migrazione',
 };
 
 export default blogMetaChIt;
