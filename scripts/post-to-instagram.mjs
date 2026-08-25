@@ -68,9 +68,10 @@ import {
   rankCandidates,
   pickTopNUnposted,
 } from './lib/daily-top-content.mjs';
-import { fetchGa4PageReport, fetchRetry, sleep } from './lib/ga4-service-account.mjs';
+import { fetchGa4PageReport } from './lib/ga4-service-account.mjs';
 import { renderCarouselSlides } from './lib/social-carousel-image.mjs';
 import { uploadCarouselSlides } from './lib/social-carousel-upload.mjs';
+import { publishCarousel } from './lib/instagram-publish.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -81,13 +82,6 @@ const POSTED_TRIM_LIMIT = 1000;
  *  starve the picker as a legitimately-recurring winner gets excluded for good. */
 const DEDUP_WINDOW_DAYS = 30;
 const CAROUSEL_SIZE = 5;
-
-// Graph API version — check developers.facebook.com/docs/graph-api/changelog
-// before the first real run; bump here if it has since been deprecated.
-const GRAPH_API_VERSION = 'v21.0';
-const GRAPH_API = `https://graph.facebook.com/${GRAPH_API_VERSION}`;
-const CONTAINER_STATUS_MAX_ATTEMPTS = 5;
-const CONTAINER_STATUS_DELAY_MS = 2000;
 
 // ─────────────────────────── credentials ───────────────────────────
 
@@ -108,69 +102,11 @@ function getBusinessAccountId() {
 // ≥2 files MUST live in ONE shared module).
 
 // ─────────────────────────── Graph API ───────────────────────────
-
-async function graphPost(pathSuffix, params, accessToken) {
-  const body = new URLSearchParams({ ...params, access_token: accessToken });
-  const res = await fetchRetry(`${GRAPH_API}/${pathSuffix}`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body,
-  });
-  const data = await res.json().catch(() => ({}));
-  if (!res?.ok || data.error) {
-    return { ok: false, status: res?.status, error: data.error || { message: 'no response body' } };
-  }
-  return { ok: true, data };
-}
-
-async function waitForContainerReady(containerId, accessToken) {
-  for (let attempt = 1; attempt <= CONTAINER_STATUS_MAX_ATTEMPTS; attempt++) {
-    const res = await fetchRetry(
-      `${GRAPH_API}/${containerId}?fields=status_code&access_token=${encodeURIComponent(accessToken)}`,
-    );
-    const data = await res?.json().catch(() => ({}));
-    const status = data?.status_code;
-    if (status === 'FINISHED') return true;
-    if (status === 'ERROR' || status === 'EXPIRED') return false;
-    await sleep(CONTAINER_STATUS_DELAY_MS);
-  }
-  return false;
-}
-
-/**
- * Full carousel publish: child containers → carousel container → publish.
- * Returns `{ok:true, mediaId}` or `{ok:false, reason}`. Never throws — every
- * Graph API error is caught and reported as a soft failure, same posture as
- * scripts/post-to-linkedin-member.mjs#publish.
- */
-async function publishCarousel({ igUserId, accessToken, imageUrls, caption }) {
-  const childIds = [];
-  for (const imageUrl of imageUrls) {
-    const res = await graphPost(`${igUserId}/media`, { image_url: imageUrl, is_carousel_item: 'true' }, accessToken);
-    if (!res.ok) return { ok: false, reason: `child container failed: ${res.error?.message || res.status}` };
-    childIds.push(res.data.id);
-  }
-
-  for (const id of childIds) {
-    const ready = await waitForContainerReady(id, accessToken);
-    if (!ready) return { ok: false, reason: `child container ${id} never reached FINISHED` };
-  }
-
-  const containerRes = await graphPost(
-    `${igUserId}/media`,
-    { media_type: 'CAROUSEL', children: childIds.join(','), caption },
-    accessToken,
-  );
-  if (!containerRes.ok) {
-    return { ok: false, reason: `carousel container failed: ${containerRes.error?.message || containerRes.status}` };
-  }
-
-  const publishRes = await graphPost(`${igUserId}/media_publish`, { creation_id: containerRes.data.id }, accessToken);
-  if (!publishRes.ok) {
-    return { ok: false, reason: `publish failed: ${publishRes.error?.message || publishRes.status}` };
-  }
-  return { ok: true, mediaId: publishRes.data.id };
-}
+//
+// The request/response layer lives in scripts/lib/instagram-publish.mjs so
+// that tests/instagram-graph-publish-contract.test.ts can drive the whole
+// three-step carousel flow against mocked payloads — this file calls main() at
+// module scope and cannot be imported from a test. See that lib's header.
 
 // ─────────────────────────── job/article (daily) ───────────────────────────
 

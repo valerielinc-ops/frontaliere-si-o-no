@@ -66,6 +66,8 @@ import http from 'node:http';
 import { URL } from 'node:url';
 import crypto from 'node:crypto';
 
+import { TIKTOK_API } from './lib/tiktok-publish.mjs';
+
 const isProd = process.argv.includes('--prod');
 const urlOnly = process.argv.includes('--url-only');
 const scopeArg = process.argv.find((a) => a.startsWith('--scope='));
@@ -96,7 +98,11 @@ const REDIRECT_URI = process.env.TIKTOK_AUTH_REDIRECT_URI || 'http://localhost:8
 const PORT = Number(new URL(REDIRECT_URI).port || 8083);
 
 const AUTH_ENDPOINT = 'https://www.tiktok.com/v2/auth/authorize/';
-const TOKEN_ENDPOINT = 'https://open.tiktokapis.com/v2/oauth/token/';
+// The API host comes from the shared publish layer rather than a third literal
+// copy: post-to-tiktok.mjs, this helper and check-social-publish-readiness.mjs
+// all talk to the same base, and a version bump that misses one of them is
+// exactly the drift AGENTS.md #6 asks to make impossible by construction.
+const TOKEN_ENDPOINT = `${TIKTOK_API}/oauth/token/`;
 
 /** code_verifier: 43-128 char unreserved-charset random string (RFC 7636). */
 function buildCodeVerifier() {

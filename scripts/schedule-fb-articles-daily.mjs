@@ -50,6 +50,7 @@ import {
   appendLedger,
   ARTICLE_PLACE_ID,
   isLandingPageLive,
+  GRAPH_API,
 } from './lib/social-post-utils.mjs';
 import { ARTICLE_SECTION_CORE } from '../build-plugins/shared/articleSectionCore.mjs';
 import { facebookUrl, FACEBOOK_CAMPAIGN_ARTICLE } from './lib/facebook-links.mjs';
@@ -58,8 +59,8 @@ export { buildArticleUrl, buildArticleCaption } from './lib/social-post-utils.mj
 
 // ── Constants ───────────────────────────────────────────────
 
-const GRAPH_API_VERSION = 'v21.0';
-const GRAPH_BASE = `https://graph.facebook.com/${GRAPH_API_VERSION}`;
+// Graph API base: one shared literal in social-post-utils.mjs (see its note).
+const GRAPH_BASE = GRAPH_API;
 
 const POSTED_TRIM_LIMIT = 1000;
 const DEFAULT_VOLUME = 4;
