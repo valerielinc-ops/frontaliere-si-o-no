@@ -10739,6 +10739,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-borgomezzavalle-lavorare-ticino.title': 'Vivre à Borgomezavalle et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-borgomezzavalle-lavorare-ticino.excerpt': 'Informations pratiques et faits clés sur la vie des frontaliers à Borgomezzavalle',
     'blog.article.vivere-borgomezzavalle-lavorare-ticino.imageAlt': 'Un cycliste franchissant la frontière entre l\'Italie et le Tessin',
+    'blog.article.vivere-prato-allo-lavorare-grigioni.title': 'Vivre à Prato all\' Stelvio et travailler dans les Grisons',
+    'blog.article.vivere-prato-allo-lavorare-grigioni.excerpt': 'Guide pratique pour les frontaliers entre l\'Italie et la Suisse : permis, fiscalité, AVS et LAMal, coût de la vie et ce qu\'il faut prendre en compte avant de déménager',
+    'blog.article.vivere-prato-allo-lavorare-grigioni.imageAlt': 'Route alpine à la frontière entre la Suisse et l\'Italie avec vue montagne de la région des Grisons',
 };
 
 export default blogMetaFr;

@@ -10737,6 +10737,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-borgomezzavalle-lavorare-ticino.title': 'Living in Borgomezzavalle and working in Ticino as a border worker',
     'blog.article.vivere-borgomezzavalle-lavorare-ticino.excerpt': 'Practical information and key facts about the life of border workers in Borgomezzavalle',
     'blog.article.vivere-borgomezzavalle-lavorare-ticino.imageAlt': 'A cyclist crossing the border between Italy and Ticino',
+    'blog.article.vivere-prato-allo-lavorare-grigioni.title': 'Living in Prato Allo Stelvio and working in Grisons',
+    'blog.article.vivere-prato-allo-lavorare-grigioni.excerpt': 'Practical guide for border workers between Italy and Switzerland: permits, taxation, AVS and LAMal, costs of living and what to consider before moving',
+    'blog.article.vivere-prato-allo-lavorare-grigioni.imageAlt': 'Alpine road at the Switzerland-Italy border with mountain views of the Graubünden region',
 };
 
 export default blogMetaEn;

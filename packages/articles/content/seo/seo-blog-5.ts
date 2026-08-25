@@ -77915,6 +77915,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-prato-allo-lavorare-grigioni': {
+    title: 'Vivere a Prato Allo Stelvio e lavorare in Grigioni',
+    description: 'Guida completa per frontalieri tra Italia e Svizzera: regimi fiscali, permessi, tassazione, AVS, LAMal, costi della vita e procedure prima di trasferirsi',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, prato, allo, stelvio',
+    ogTitle: 'Vivere a Prato Allo Stelvio e lavorare in Grigioni',
+    ogDescription: 'Scopri come funziona il regime frontaliere per chi vive a Prato Allo Stelvio e lavora nei Grigioni svizzeri. Tassazione, permessi, AVS, LAMal, costi della vita e tutto ciò che serve sapere prima di trasferirsi',
+    canonicalPath: '/articoli-frontaliere/vivere-prato-allo-lavorare-grigioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Prato Allo Stelvio e lavorare in Grigioni",
+      "description": "Guida completa per frontalieri tra Italia e Svizzera: regimi fiscali, permessi, tassazione, AVS, LAMal, costi della vita e procedure prima di trasferirsi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-prato-allo-lavorare-grigioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada alpina al confine tra Svizzera e Italia con panorama montano dei Grigioni, area frontaliera tipica"
+      },
+      "datePublished": "2026-08-25T05:08:40+00:00",
+      "dateModified": "2026-08-25T05:08:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-prato-allo-lavorare-grigioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
