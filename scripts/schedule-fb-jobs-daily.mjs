@@ -53,12 +53,13 @@ import {
 export {
   selectUnpostedJobs,
   buildJobUrl,
+  GRAPH_API,
 } from './lib/social-post-utils.mjs';
 
 // ── Constants ───────────────────────────────────────────────
 
-const GRAPH_API_VERSION = 'v21.0';
-const GRAPH_BASE = `https://graph.facebook.com/${GRAPH_API_VERSION}`;
+// Graph API base: one shared literal in social-post-utils.mjs (see its note).
+const GRAPH_BASE = GRAPH_API;
 
 // FB requires scheduled_publish_time ≥ 10 minutes in the future.
 const MIN_LEAD_SECONDS = 600;

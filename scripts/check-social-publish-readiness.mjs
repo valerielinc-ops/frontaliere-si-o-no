@@ -44,9 +44,11 @@
  *                                              a channel that is already ready
  */
 import { classifyAll, actionableChannels, formatVerdictTable, READY } from './lib/social-readiness.mjs';
+import { TIKTOK_API } from './lib/tiktok-publish.mjs';
+import { GRAPH_API } from './lib/social-post-utils.mjs';
 
-const GRAPH_API = 'https://graph.facebook.com/v21.0';
-const TIKTOK_TOKEN_URL = 'https://open.tiktokapis.com/v2/oauth/token/';
+// Shared with the poster and scripts/tiktok-auth.mjs — see that file's note.
+const TIKTOK_TOKEN_URL = `${TIKTOK_API}/oauth/token/`;
 const PROBE_TIMEOUT_MS = 15000;
 
 async function probeInstagram(env) {
