@@ -108,8 +108,15 @@ export function latestVerdict(comments) {
 export function prepassDecision({ title = '', labels = [], verdict = null } = {}) {
   // Un tracker permanente è aperto per scelta: non si accoda e non si scorpora.
   if (labels.includes('agent:no-age-out')) return { action: 'keep', reason: 'tracker permanente' };
-  // Già in volo da qualche parte: non si tocca.
-  for (const l of ['agent:fix', 'agent:fix-queued', 'agent:decompose', 'agent:decompose-queued', 'agent:in-progress']) {
+  // Sotto lavorazione attiva di una sessione locale (claim mutex, #6427): l'unico
+  // caso dove `needs-human` + un'altra label può davvero significare «in volo».
+  // `agent:fix`/`agent:fix-queued`/`agent:decompose`/`agent:decompose-queued`
+  // NON qualificano: la query a monte (`main()`) filtra già su `needs-human`,
+  // quindi ogni issue che arriva qui ce l'ha SEMPRE — e nessuno di quei 4 stadi
+  // aggiunge `needs-human` restando `agent:fix*`/`agent:decompose*` mentre è
+  // davvero in coda: è lo stato morto lasciato dall'escalation VERDICT-EXIT
+  // (prima di questa fix non rimuoveva quelle label), mai un'issue in lavoro.
+  for (const l of ['agent:in-progress']) {
     if (labels.includes(l)) return { action: 'keep', reason: `già in lavorazione (${l})` };
   }
 

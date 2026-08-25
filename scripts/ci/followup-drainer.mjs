@@ -1732,7 +1732,7 @@ export function runDrain() {
         gh(['issue', 'comment', String(iss.number), '--repo', REPO, '--body',
           `🙋 **Escalata dal followup-drainer (zero-Claude)**: verdetto \`FIX_OUTCOME: ${outcome}\`. È una capacità che la CI non ha (secret, admin, scope \`workflows\`), un lavoro manuale/editoriale, o una causa che il fixer non ha trovato: ri-provare riproduce lo stesso verdetto allo stesso prezzo.\n\nPrima di questa escalation la issue restava \`fu-parked\` e nessuno stadio la guardava. Ora entra nello sweep \`needs-human\` (VISION.md), che è la porta di rientro.`], { json: false });
       } catch { /* il commento è la spiegazione, non il meccanismo */ }
-      edit(iss.number, { add: ['needs-human'], remove: [] });
+      edit(iss.number, { add: ['needs-human'], remove: [LBL_FIX, LBL_QUEUED] });
       console.log(`VERDICT-EXIT escalate #${iss.number} → needs-human (${outcome}) — "${iss.title?.slice(0, 50)}"`);
     }
     if (acted) console.log(`verdict-exit: ${acted} uscite terminali su ${scanned} candidate lette (pool parked ${parked.length}).`);
