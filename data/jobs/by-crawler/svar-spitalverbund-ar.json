@@ -293,8 +293,6 @@
         "dipl-ergotherapeut-in-m-w-d-svar-spitalverbund-ar-herisau",
         "dipl-ergotherapeut-in-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "dipl-occupational-therapist-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "dipl-occupational-therapist-in-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "dipl-terapista-in-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "dipl-ergotherapeut-in-fh-bsc-per-akutgeriatrie-e-gerontotraumatologie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "dipl-occupational-therapist-in-fh-bsc-for-acute-geriatrics-and-gerontotraumatology-m-f-d-spitalverbund-appenzell",
         "dipl-ergotherapeut-in-fh-bsc-fur-akutgeriatrie-und-gerontotraumatologie-m-w-d-svar",
@@ -304,7 +302,6 @@
         "it": [
           "dipl-ergotherapeut-in-m-w-d-svar-spitalverbund-ar-herisau",
           "dipl-ergotherapeut-in-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-          "dipl-terapista-in-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
           "dipl-ergotherapeut-in-fh-bsc-per-akutgeriatrie-e-gerontotraumatologie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
           "dipl-occupational-therapist-in-fh-bsc-for-acute-geriatrics-and-gerontotraumatology-m-f-d-spitalverbund-appenzell",
           "dipl-ergotherapeut-in-fh-bsc-fur-akutgeriatrie-und-gerontotraumatologie-m-w-d-svar",
@@ -313,7 +310,6 @@
         "en": [
           "dipl-ergotherapeut-in-m-w-d-svar-spitalverbund-ar-herisau",
           "dipl-occupational-therapist-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-          "dipl-occupational-therapist-in-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
           "dipl-ergotherapeut-in-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
           "dipl-occupational-therapist-in-fh-bsc-for-acute-geriatrics-and-gerontotraumatology-m-f-d-spitalverbund-appenzell"
         ],
@@ -736,12 +732,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-d07ac8f1a78d",
-      "slug": "oberarzt-oberarztin-chirugie-svar-spitalverbund-ar-herisau",
+      "slug": "medico-senior-medico-senior-chirugie-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "de": "oberarzt-oberarztin-chirugie-svar-spitalverbund-ar-herisau",
-        "it": "oberarzt-oberarztin-chirugie-svar-spitalverbund-ar-herisau",
-        "en": "oberarzt-oberarztin-chirugie-svar-spitalverbund-ar-herisau",
-        "fr": "oberarzt-oberarztin-chirugie-svar-spitalverbund-ar-herisau"
+        "it": "medico-senior-medico-senior-chirugie-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "senior-physician-senior-physician-chirugie-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "medecin-senior-medecin-senior-chirugie-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -803,23 +799,27 @@
           "oberarztin-oberarzt-per-unsere-anasthesiologie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
           "senior-physician-for-our-anesthesiology-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
           "oberarztin-oberarzt-fur-unsere-anasthesiologie-m-w-d-svar-spitalverbund-ar-herisau",
-          "medecin-principal-pour-notre-anesthesiologie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+          "medecin-principal-pour-notre-anesthesiologie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+          "oberarzt-oberarztin-chirugie-svar-spitalverbund-ar-herisau"
         ],
         "en": [
-          "senior-physician-for-our-anesthesiology-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+          "senior-physician-for-our-anesthesiology-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+          "oberarzt-oberarztin-chirugie-svar-spitalverbund-ar-herisau"
         ],
         "de": [
           "oberarztin-oberarzt-fur-unsere-anasthesiologie-m-w-d-svar-spitalverbund-ar-herisau"
         ],
         "fr": [
-          "medecin-principal-pour-notre-anesthesiologie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+          "medecin-principal-pour-notre-anesthesiologie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+          "oberarzt-oberarztin-chirugie-svar-spitalverbund-ar-herisau"
         ]
       },
       "previousSlugs": [
         "oberarztin-oberarzt-per-unsere-anasthesiologie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "senior-physician-for-our-anesthesiology-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "oberarztin-oberarzt-fur-unsere-anasthesiologie-m-w-d-svar-spitalverbund-ar-herisau",
-        "medecin-principal-pour-notre-anesthesiologie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        "medecin-principal-pour-notre-anesthesiologie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "oberarzt-oberarztin-chirugie-svar-spitalverbund-ar-herisau"
       ]
     },
     {

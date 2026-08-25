@@ -4792,12 +4792,12 @@
     },
     {
       "id": "vz-vermoegenszentrum-a093249390ea",
-      "slug": "temporarer-einsatz-stiftungsverwaltung-1-nov-1-dez-2026-bis-31-marz-2027-vz",
+      "slug": "distribuzione-temporanea-dell-amministrazione-di-fondazione-1-nov-1-dic-2026-31-marzo-2027-vz-vermogenszentrum-zurich",
       "slugByLocale": {
         "de": "temporarer-einsatz-stiftungsverwaltung-1-nov-1-dez-2026-bis-31-marz-2027-vz",
-        "it": "temporarer-einsatz-stiftungsverwaltung-1-nov-1-dez-2026-bis-31-marz-2027-vz",
-        "en": "temporarer-einsatz-stiftungsverwaltung-1-nov-1-dez-2026-bis-31-marz-2027-vz",
-        "fr": "temporarer-einsatz-stiftungsverwaltung-1-nov-1-dez-2026-bis-31-marz-2027-vz"
+        "it": "distribuzione-temporanea-dell-amministrazione-di-fondazione-1-nov-1-dic-2026-31-marzo-2027-vz-vermogenszentrum-zurich",
+        "en": "temporary-deployment-of-foundation-administration-1-nov-1-dec-2026-to-31-march-2027-vz-vermogenszentrum-zurich-zurich",
+        "fr": "deploiement-temporaire-de-l-administration-des-fondations-1er-novembre-1er-decembre-2026-au-31-mars-2027-vz"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -4862,16 +4862,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-24T21:43:03.016Z"
+      "firstSeenAt": "2026-08-24T21:43:03.016Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "temporarer-einsatz-stiftungsverwaltung-1-nov-1-dez-2026-bis-31-marz-2027-vz"
+        ],
+        "en": [
+          "temporarer-einsatz-stiftungsverwaltung-1-nov-1-dez-2026-bis-31-marz-2027-vz"
+        ],
+        "fr": [
+          "temporarer-einsatz-stiftungsverwaltung-1-nov-1-dez-2026-bis-31-marz-2027-vz"
+        ]
+      },
+      "previousSlugs": [
+        "temporarer-einsatz-stiftungsverwaltung-1-nov-1-dez-2026-bis-31-marz-2027-vz"
+      ]
     },
     {
       "id": "vz-vermoegenszentrum-5d1f1aa71e17",
-      "slug": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-kreuzlingen",
+      "slug": "entrata-in-financial-consulting-servizi-di-gestione-patrimoniale-indipendenti-vz-vermogenszentrum-kreuzlingen-thurgau",
       "slugByLocale": {
         "de": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
-        "it": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-kreuzlingen",
-        "en": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-kreuzlingen",
-        "fr": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-kreuzlingen"
+        "it": "entrata-in-financial-consulting-servizi-di-gestione-patrimoniale-indipendenti-vz-vermogenszentrum-kreuzlingen-thurgau",
+        "en": "entry-into-financial-consulting-independent-asset-management-services-vz-vermogenszentrum-kreuzlingen-thurgau",
+        "fr": "entree-dans-conseils-financiers-services-independants-de-gestion-d-actifs-vz-vermogenszentrum-kreuzlingen-thurgau"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -4925,12 +4939,20 @@
       "previousSlugsByLocale": {
         "it": [
           "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch-2",
-          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-kreuzlingen"
+        ],
+        "en": [
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-kreuzlingen"
+        ],
+        "fr": [
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-kreuzlingen"
         ]
       },
       "previousSlugs": [
         "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch-2",
-        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-kreuzlingen"
       ],
       "salaryMin": 99000,
       "salaryMax": 174000,

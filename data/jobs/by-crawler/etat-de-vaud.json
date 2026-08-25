@@ -3112,7 +3112,7 @@
       "slugByLocale": {
         "fr": "secretaire-d-entite-repondante-rh-finance-etat-de-vaud-chavannes-renens",
         "it": "secretaire-d-entite-repondante-rh-finance-etat-de-vaud-chavannes-renens",
-        "en": "secretaire-d-entite-repondante-rh-finance-etat-de-vaud-chavannes-renens",
+        "en": "reporting-entity-secretary-hr-finance-etat-de-vaud-administration-cantonale-vaudoise-chavannes-renens",
         "de": "secretaire-d-entite-repondante-rh-finance-etat-de-vaud-chavannes-renens"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
@@ -3332,12 +3332,12 @@
     },
     {
       "id": "etat-de-vaud-5762",
-      "slug": "chef-fe-de-projet-plan-climat-etat-de-vaud-lausanne",
+      "slug": "leader-del-progetto-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "chef-fe-de-projet-plan-climat-etat-de-vaud-lausanne",
-        "it": "chef-fe-de-projet-plan-climat-etat-de-vaud-lausanne",
-        "en": "chef-fe-de-projet-plan-climat-etat-de-vaud-lausanne",
-        "de": "chef-fe-de-projet-plan-climat-etat-de-vaud-lausanne"
+        "it": "leader-del-progetto-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "project-leader-climate-plan-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "projektleiter-klimaplan-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3393,7 +3393,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-05T11:43:25.866Z"
+      "firstSeenAt": "2026-07-05T11:43:25.866Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-projet-plan-climat-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "chef-fe-de-projet-plan-climat-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "chef-fe-de-projet-plan-climat-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-projet-plan-climat-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-5761",

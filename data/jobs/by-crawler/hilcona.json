@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-lager-hilcona-ampfing",
         "it": "collaboratore-trice-magazzino-suddeutsche-truthahn-ag-ampfing",
-        "en": "mitarbeiter-lager-suddeutsche-truthahn-ag-ampfing",
-        "fr": "mitarbeiter-lager-suddeutsche-truthahn-ag-ampfing"
+        "en": "employee-camps-suddeutsche-truthahn-ag-ampfing",
+        "fr": "camps-d-employes-suddeutsche-truthahn-ag-ampfing"
       },
       "company": "Süddeutsche Truthahn AG",
       "companyKey": "hilcona",
@@ -49,10 +49,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-lager-hilcona-ampfing"
+        ],
+        "en": [
+          "mitarbeiter-lager-suddeutsche-truthahn-ag-ampfing"
+        ],
+        "fr": [
+          "mitarbeiter-lager-suddeutsche-truthahn-ag-ampfing"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-lager-hilcona-ampfing"
+        "mitarbeiter-lager-hilcona-ampfing",
+        "mitarbeiter-lager-suddeutsche-truthahn-ag-ampfing"
       ],
       "salaryMin": 64500,
       "salaryMax": 87000,
@@ -4253,12 +4260,12 @@
     },
     {
       "id": "hilcona-c306614ff8f1",
-      "slug": "demand-planner-hilcona-schaan",
+      "slug": "pianificatori-di-domanda-hilcona-ag-schaan-d8612b",
       "slugByLocale": {
         "de": "demand-planner-hilcona-schaan",
-        "it": "demand-planner-hilcona-schaan",
-        "en": "demand-planner-hilcona-schaan",
-        "fr": "demand-planner-hilcona-schaan"
+        "it": "pianificatori-di-domanda-hilcona-ag-schaan-d8612b",
+        "en": "demand-planners-hilcona-ag-schaan-d8612b",
+        "fr": "planificateurs-de-demande-hilcona-ag-schaan"
       },
       "company": "Hilcona AG",
       "companyKey": "hilcona",
@@ -4308,7 +4315,21 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-08-24T21:44:49.094Z"
+      "firstSeenAt": "2026-08-24T21:44:49.094Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "demand-planner-hilcona-schaan"
+        ],
+        "en": [
+          "demand-planner-hilcona-schaan"
+        ],
+        "fr": [
+          "demand-planner-hilcona-schaan"
+        ]
+      },
+      "previousSlugs": [
+        "demand-planner-hilcona-schaan"
+      ]
     },
     {
       "id": "hilcona-68bb1a589275",
@@ -10554,10 +10575,7 @@
       "previousSlugs": [
         "betriebselektriker-m-w-d-suddeutsche-truthahn-ag-ampfing",
         "betriebselektriker-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "industrial-electrician-m-w-d-suddeutsche-truthahn-ag-ampfing",
-        "betriebselektriker-m-w-d-hilcona-ampfing",
-        "betriebselektriker-m-w-d-hilcona-undefined",
-        "elettrificante-operativo-m-w-d-suddeutsche-truthahn-ag-ampfing"
+        "betriebselektriker-m-w-d-hilcona-ampfing"
       ],
       "firstSeenAt": "2026-05-21T12:08:34.776Z",
       "salaryMin": 64500,

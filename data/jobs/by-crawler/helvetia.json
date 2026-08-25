@@ -2572,7 +2572,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "conseiller-clients-tous-genres-region-ajoie-temps-plein-ou-partiel-helvetia-porrentruy",
-        "consulente-clienti-tutti-i-tipi-regione-ajoie-tempo-pieno-o-parziale-helvetia-versicherungen-porrentruy",
         "consulente-clienti-tutti-i-generi-regione-bienne-full-time-o-part-time-helvetia-versicherungen-biel",
         "client-advisor-all-kinds-region-bienne-full-or-part-time-helvetia-versicherungen-biel",
         "kundenberater-alle-arten-region-bienne-vollzeit-oder-teilzeit-helvetia-versicherungen-biel",
@@ -2587,7 +2586,6 @@
       "previousSlugsByLocale": {
         "it": [
           "conseiller-clients-tous-genres-region-ajoie-temps-plein-ou-partiel-helvetia-porrentruy",
-          "consulente-clienti-tutti-i-tipi-regione-ajoie-tempo-pieno-o-parziale-helvetia-versicherungen-porrentruy",
           "consulente-clienti-tutti-i-generi-regione-bienne-full-time-o-part-time-helvetia-versicherungen-biel",
           "client-advisor-all-kinds-region-bienne-full-or-part-time-helvetia-versicherungen-biel",
           "kundenberater-alle-arten-region-bienne-vollzeit-oder-teilzeit-helvetia-versicherungen-biel",
@@ -11626,8 +11624,8 @@
       "slugByLocale": {
         "de": "werkstudent-kundenservice-schaden-fur-handykasko-hausratkasko-und-glasschaden-w-m-d",
         "it": "werkstudent-kundenservice-schaden-per-handykasko-hausratkasko-e-glasschaden-m-w-d-teilzeit-helvetia-versicherungen-basel",
-        "en": "werkstudent-kundenservice-schaden-fur-handykasko-hausratkasko-und-glasschaden-w-m-d",
-        "fr": "werkstudent-kundenservice-schaden-fur-handykasko-hausratkasko-und-glasschaden-w-m-d"
+        "en": "working-student-customer-service-damage-for-mobile-phone-household-and-glass-damage-m-f-d-part-time-helvetia",
+        "fr": "travail-etudiant-service-a-la-clientele-dommages-pour-telephone-mobile-maison-et-verre-dommages-h-f-d-a-temps-partiel"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -11674,6 +11672,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "werkstudent-kundenservice-schaden-fur-handykasko-hausratkasko-und-glasschaden-w-m-d"
+        ],
+        "en": [
+          "werkstudent-kundenservice-schaden-fur-handykasko-hausratkasko-und-glasschaden-w-m-d"
+        ],
+        "fr": [
           "werkstudent-kundenservice-schaden-fur-handykasko-hausratkasko-und-glasschaden-w-m-d"
         ]
       },

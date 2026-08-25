@@ -18435,9 +18435,9 @@
     },
     {
       "id": "sulzer-e9661abdcedd",
-      "slug": "montador-ajustador-i-sulzer-jundiai",
+      "slug": "i-miei-amici-sulzer-jundiai",
       "slugByLocale": {
-        "it": "montador-ajustador-i-sulzer-jundiai",
+        "it": "i-miei-amici-sulzer-jundiai",
         "en": "montador-ajustador-i-sulzer-ch",
         "de": "montador-ajustador-i-sulzer-ch",
         "fr": "ajusteur-de-montage-i-sulzer-jundiai"
@@ -18483,15 +18483,13 @@
       "previousSlugs": [
         "montador-ajustador-i-sulzer-ch",
         "la-mia-vita-sulzer-jundiai",
-        "montador-ajustador-i-sulzer-jundiai",
-        "i-miei-amici-sulzer-jundiai"
+        "montador-ajustador-i-sulzer-jundiai"
       ],
       "previousSlugsByLocale": {
         "it": [
           "montador-ajustador-i-sulzer-ch",
           "la-mia-vita-sulzer-jundiai",
-          "montador-ajustador-i-sulzer-jundiai",
-          "i-miei-amici-sulzer-jundiai"
+          "montador-ajustador-i-sulzer-jundiai"
         ],
         "fr": [
           "montador-ajustador-i-sulzer-ch"
@@ -26001,10 +25999,10 @@
     },
     {
       "id": "sulzer-c7d8095510ca",
-      "slug": "lead-field-service-technician-sulzer-ch",
+      "slug": "lead-field-tecnico-di-servizio-sulzer-casalecchio-di-reno",
       "slugByLocale": {
         "en": "lead-field-service-technician-sulzer-ch",
-        "it": "lead-field-service-technician-sulzer-ch",
+        "it": "lead-field-tecnico-di-servizio-sulzer-casalecchio-di-reno",
         "de": "lead-field-service-technician-sulzer-ch",
         "fr": "lead-field-service-technician-sulzer-ch"
       },
@@ -26060,7 +26058,15 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-24T22:00:48.318Z"
+      "firstSeenAt": "2026-08-24T22:00:48.318Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-field-service-technician-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lead-field-service-technician-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-b85d3d16e287",

@@ -1515,8 +1515,7 @@
         "versicherungsmediziner-d-f-a-40-60-helsana-bern-homeoffice",
         "medecin-d-assurance-d-f-a-40-60-helsana-ticino",
         "assicurazione-medico-d-f-a-40-60-helsana-ticino",
-        "assicurazione-medico-d-i-a-40-60-helsana-ticino",
-        "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice"
+        "assicurazione-medico-d-i-a-40-60-helsana-ticino"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1525,8 +1524,7 @@
           "versicherungsmediziner-d-f-a-40-60-helsana-bern-homeoffice",
           "medecin-d-assurance-d-f-a-40-60-helsana-ticino",
           "assicurazione-medico-d-f-a-40-60-helsana-ticino",
-          "assicurazione-medico-d-i-a-40-60-helsana-ticino",
-          "versicherungsmediziner-d-i-a-40-60-helsana-zurich-homeoffice"
+          "assicurazione-medico-d-i-a-40-60-helsana-ticino"
         ],
         "en": [
           "insurance-physician-d-f-a-40-60-helsana-ticino"
@@ -4478,12 +4476,12 @@
     },
     {
       "id": "helsana-4c099a9d0969",
-      "slug": "fachspezialist-komplementarmedizin-a-40-60-helsana-st-gallen-homeoffice",
+      "slug": "medicina-complementare-specializzata-a-40-60-helsana-san-gallo",
       "slugByLocale": {
         "de": "fachspezialist-komplementarmedizin-a-40-60-helsana-st-gallen-homeoffice",
-        "it": "fachspezialist-komplementarmedizin-a-40-60-helsana-st-gallen-homeoffice",
-        "en": "fachspezialist-komplementarmedizin-a-40-60-helsana-st-gallen-homeoffice",
-        "fr": "fachspezialist-komplementarmedizin-a-40-60-helsana-st-gallen-homeoffice"
+        "it": "medicina-complementare-specializzata-a-40-60-helsana-san-gallo",
+        "en": "specialist-complementary-medicine-a-40-60-helsana-san-gallo",
+        "fr": "specialiste-en-medecine-complementaire-a-40-60-helsana-san-gallo"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -4538,16 +4536,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-24T21:44:51.570Z"
+      "firstSeenAt": "2026-08-24T21:44:51.570Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-komplementarmedizin-a-40-60-helsana-st-gallen-homeoffice"
+        ],
+        "en": [
+          "fachspezialist-komplementarmedizin-a-40-60-helsana-st-gallen-homeoffice"
+        ],
+        "fr": [
+          "fachspezialist-komplementarmedizin-a-40-60-helsana-st-gallen-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-komplementarmedizin-a-40-60-helsana-st-gallen-homeoffice"
+      ]
     },
     {
       "id": "helsana-0dd01bce88bb",
-      "slug": "beratende-arztin-krankentaggeld-a-10-20-helsana-worblaufen-homeoffice",
+      "slug": "indennita-giornaliera-di-malattia-a-10-20-helsana-zurigo",
       "slugByLocale": {
         "de": "beratende-arztin-krankentaggeld-a-10-20-helsana-worblaufen-homeoffice",
-        "it": "beratende-arztin-krankentaggeld-a-10-20-helsana-worblaufen-homeoffice",
-        "en": "beratende-arztin-krankentaggeld-a-10-20-helsana-worblaufen-homeoffice",
-        "fr": "beratende-arztin-krankentaggeld-a-10-20-helsana-worblaufen-homeoffice"
+        "it": "indennita-giornaliera-di-malattia-a-10-20-helsana-zurigo",
+        "en": "consultation-doctor-sick-day-allowance-a-10-20-helsana-zurigo",
+        "fr": "indemnite-de-jour-de-maladie-pour-medecin-consultant-a-10-20-helsana-zurigo"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -4602,7 +4614,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-24T21:44:50.963Z"
+      "firstSeenAt": "2026-08-24T21:44:50.963Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "beratende-arztin-krankentaggeld-a-10-20-helsana-worblaufen-homeoffice"
+        ],
+        "en": [
+          "beratende-arztin-krankentaggeld-a-10-20-helsana-worblaufen-homeoffice"
+        ],
+        "fr": [
+          "beratende-arztin-krankentaggeld-a-10-20-helsana-worblaufen-homeoffice"
+        ]
+      },
+      "previousSlugs": [
+        "beratende-arztin-krankentaggeld-a-10-20-helsana-worblaufen-homeoffice"
+      ]
     },
     {
       "id": "helsana-e3b33261c261",

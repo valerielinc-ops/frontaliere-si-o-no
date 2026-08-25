@@ -3301,12 +3301,12 @@
     },
     {
       "id": "see-spital-8cd4b9cadf02",
-      "slug": "hr-assistent-in-see-spital-ch",
+      "slug": "risorse-umane-assistent-in-see-spital-horgen",
       "slugByLocale": {
         "de": "hr-assistent-in-see-spital-ch",
-        "it": "hr-assistent-in-see-spital-ch",
-        "en": "hr-assistent-in-see-spital-ch",
-        "fr": "hr-assistent-in-see-spital-ch"
+        "it": "risorse-umane-assistent-in-see-spital-horgen",
+        "en": "hr-assistant-see-spital-horgen",
+        "fr": "ressources-humaines-assistent-in-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -3364,7 +3364,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-24T22:03:22.733Z"
+      "firstSeenAt": "2026-08-24T22:03:22.733Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-assistent-in-see-spital-ch"
+        ],
+        "en": [
+          "hr-assistent-in-see-spital-ch"
+        ],
+        "fr": [
+          "hr-assistent-in-see-spital-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hr-assistent-in-see-spital-ch"
+      ]
     }
   ]
 }

@@ -10492,8 +10492,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-hypotheken-und-grundbuchwesen-befristet-acht-monate-ubs-zurich",
         "it": "collaboratore-trice-hypotheken-e-grundbuchwesen-befristet-acht-monate-ubs-zurich",
-        "en": "mitarbeiter-in-hypotheken-und-grundbuchwesen-befristet-acht-monate-ubs-zurich",
-        "fr": "mitarbeiter-in-hypotheken-und-grundbuchwesen-befristet-acht-monate-ubs-zurich"
+        "en": "employee-in-mortgages-and-land-registers-limited-to-eight-months-ubs-zurich",
+        "fr": "employes-en-hypotheques-et-registres-fonciers-limite-a-huit-mois-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -10546,6 +10546,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-hypotheken-und-grundbuchwesen-befristet-acht-monate-ubs-zurich"
+        ],
+        "en": [
+          "mitarbeiter-in-hypotheken-und-grundbuchwesen-befristet-acht-monate-ubs-zurich"
+        ],
+        "fr": [
           "mitarbeiter-in-hypotheken-und-grundbuchwesen-befristet-acht-monate-ubs-zurich"
         ]
       },

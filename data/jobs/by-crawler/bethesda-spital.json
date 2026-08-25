@@ -709,12 +709,12 @@
     },
     {
       "id": "bethesda-spital-4b1e20b5de35",
-      "slug": "medizinische-r-praxisassistent-in-mpa-80-anasthesiesprechstunde-bethesda-spital-basel",
+      "slug": "assistente-medico-mpa-80-ora-di-consultazione-anestesia-bethesda-spital-basel",
       "slugByLocale": {
         "de": "medizinische-r-praxisassistent-in-mpa-80-anasthesiesprechstunde-bethesda-spital-basel",
-        "it": "medizinische-r-praxisassistent-in-mpa-80-anasthesiesprechstunde-bethesda-spital-basel",
-        "en": "medizinische-r-praxisassistent-in-mpa-80-anasthesiesprechstunde-bethesda-spital-basel",
-        "fr": "medizinische-r-praxisassistent-in-mpa-80-anasthesiesprechstunde-bethesda-spital-basel"
+        "it": "assistente-medico-mpa-80-ora-di-consultazione-anestesia-bethesda-spital-basel",
+        "en": "medical-assistant-mpa-80-anesthesia-consultation-hour-bethesda-spital-basel",
+        "fr": "assistant-medical-amp-80-heure-de-consultation-anesthesie-bethesda-spital-basel"
       },
       "company": "Bethesda Spital",
       "companyKey": "bethesda-spital",
@@ -769,7 +769,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-24T22:14:43.224Z"
+      "firstSeenAt": "2026-08-24T22:14:43.224Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-mpa-80-anasthesiesprechstunde-bethesda-spital-basel"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-mpa-80-anasthesiesprechstunde-bethesda-spital-basel"
+        ],
+        "fr": [
+          "medizinische-r-praxisassistent-in-mpa-80-anasthesiesprechstunde-bethesda-spital-basel"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-mpa-80-anasthesiesprechstunde-bethesda-spital-basel"
+      ]
     },
     {
       "id": "bethesda-spital-a406627be192",
