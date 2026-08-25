@@ -94,6 +94,22 @@ describe('joinAnchorParts', () => {
     );
   });
 
+  it('prefers the authored casing over an all-caps rendering of the same title', () => {
+    expect(joinAnchorParts('INFERMIERE SSS BELLINZONA', 'Infermiere SSS Bellinzona')).toBe(
+      'Infermiere SSS Bellinzona',
+    );
+    // Symmetric: an all-caps attribute does not win over authored anchor text.
+    expect(joinAnchorParts('Infermiere SSS Bellinzona', 'INFERMIERE SSS BELLINZONA')).toBe(
+      'Infermiere SSS Bellinzona',
+    );
+  });
+
+  it('leaves an acronym inside mixed-case text alone', () => {
+    // `SSS` is uppercase but the string as a whole is not, so nothing is "shouted".
+    expect(joinAnchorParts('Infermiere SSS', 'Infermiere SSS')).toBe('Infermiere SSS');
+    expect(joinAnchorParts('Infermiere SSS', '')).toBe('Infermiere SSS');
+  });
+
   it('keeps genuinely complementary parts', () => {
     expect(joinAnchorParts('Apply', 'Infermiere SSS Bellinzona')).toBe(
       'Apply Infermiere SSS Bellinzona',

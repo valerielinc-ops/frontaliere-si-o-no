@@ -75,6 +75,17 @@ export function joinAnchorParts(text = '', attr = '') {
   if (!b) return a;
   const na = a.toLowerCase();
   const nb = b.toLowerCase();
+  // Same string modulo case: keep the one that is NOT shouted. A job card
+  // often renders its title in an all-caps `<span>` while the `title=`
+  // attribute carries the authored casing, and `INFERMIERE SSS` is a worse
+  // stored title than `Infermiere SSS`. Only all-caps loses — a genuine
+  // acronym like `SSS` inside otherwise mixed-case text is untouched, because
+  // such a string is not all-caps as a whole.
+  if (na === nb) {
+    const shouted = (s) => s === s.toUpperCase() && /[A-ZÀ-Þ]/.test(s);
+    if (shouted(a) && !shouted(b)) return b;
+    return a;
+  }
   if (na.includes(nb)) return a;
   if (nb.includes(na)) return b;
   return `${a} ${b}`;
