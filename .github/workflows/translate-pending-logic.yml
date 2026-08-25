@@ -1,0 +1,350 @@
+# Translate Pending Jobs — logic (reusable workflow, on: workflow_call).
+#
+# Physically hosted here (frontaliere-si-o-no) as the single source of the
+# translation-pipeline logic — but invoked cross-repo from a minimal caller
+# workflow physically hosted in frontaliere-articles (account
+# nanakokyobashi-rgb), so the RUN and its concurrency-pool consumption are
+# billed against nanako's separate, less-saturated pool instead of
+# valerielinc-ops' saturated ~20-concurrent-job Free-plan pool.
+#
+# Same architectural pattern as the crawler-group-NN migration, validated end
+# -to-end by the crawler-group-23 pilot (frontaliere-si-o-no#6485 -> reverted
+# #6517 (composite action rejects background:/wait-all:) -> #6520 (reusable
+# workflow, dispatch-tested for real) / frontaliere-articles#594 -> #600 ->
+# #602): public/anonymous checkout of this repo -> node scripts/load-rc-env.mjs
+# -> `git remote set-url origin` with a GITHUB_PAT read from Remote Config,
+# before any step that pushes or opens issues. No `concurrency:` block here —
+# only the caller declares one (a duplicate same-named group on both sides
+# broke cross-repo workflow_call resolution in the pilot). Composite actions
+# used below are referenced by ABSOLUTE cross-repo path (`owner/repo/...@main`),
+# never `./...` (a relative path resolves in the CALLER's repo, where it
+# doesn't exist).
+#
+# This workflow does NOT use `background:`/`wait-all:` (unlike the
+# crawler-group-NN logic files) — its phases are already sequential in the
+# original, so the composite-action-vs-reusable-workflow distinction that
+# forced the crawler-group pattern doesn't apply here structurally. It is
+# still a reusable workflow (not a composite action) for consistency with the
+# rest of the migration and because composite actions cannot declare a
+# `secrets:` block for `workflow_call` — see the two secrets below.
+#
+# THREE further adaptations beyond the crawler-group pattern, all consequences
+# of the same underlying fact confirmed by the pilot: inside a workflow_call'd
+# job invoked CROSS-repo, the `github` context (github.repository,
+# github.workflow, the ambient GITHUB_TOKEN's scope) reflects the CALLING
+# repo (frontaliere-articles), not this one:
+#
+#  1. `github.event.schedule` / `github.event_name` / `inputs.*` ARE
+#     unaffected — the overall run's ORIGINAL triggering event (schedule,
+#     workflow_dispatch) propagates through workflow_call unchanged, and this
+#     workflow already read every dispatch input via the `inputs.` context
+#     (never `github.event.inputs.`), so the housekeeping-gate step and every
+#     `if: inputs.*` guard need NO change — the caller replicates the same 5
+#     cron strings, so `github.event.schedule` still matches on the daily run.
+#
+#  2. `scripts/lib/trigger-deploy.sh` (-> trigger-workflow.sh) resolves its
+#     target repo from the ambient `GITHUB_REPOSITORY` env var, which is the
+#     env-var mirror of `github.repository` — so it would try to dispatch
+#     deploy.yml against frontaliere-articles (wrong repo; deploy.yml only
+#     exists on frontaliere-si-o-no). Fixed by overriding GITHUB_REPOSITORY
+#     for that one invocation (GITHUB_PAT is unaffected: load-rc-env.mjs
+#     already wrote it to $GITHUB_ENV, so it is a normal env var by then, not
+#     one derived from `github.*`).
+#
+#  3. `.github/actions/report-failure`'s own script hardcoded
+#     `GH_REPO: ${{ github.repository }}` internally (no caller-facing way to
+#     override it) — same wrong-repo failure mode as #2, for the "Report
+#     failure to GitHub Issues" step specifically. Fixed at the root: that
+#     composite action gained an optional `repo:` input (backward compatible,
+#     defaults to `github.repository` — every other adopter is unaffected),
+#     passed explicitly here.
+#
+# The reactive `workflow_run: ["Orchestrate Job Crawlers"]` trigger could NOT
+# be replicated on the caller side: workflow_run only observes workflows in
+# the SAME repo, and orchestrate-crawlers.yml stays on frontaliere-si-o-no
+# (it dispatches the crawler-group callers cross-repo, but is not itself
+# migrated). Replicated instead by orchestrate-crawlers.yml's dispatch job
+# firing the frontaliere-articles caller directly (same GITHUB_PAT_NANAKO
+# cross-repo dispatch already used for every crawler-group target) as its
+# last step, `if: always()` — same timing as the old workflow_run (which
+# fired on `types: [completed]`, i.e. as soon as the orchestrator job itself
+# finished dispatching, not after the crawls complete). See
+# orchestrate-crawlers.yml's own "Dispatch translate-pending" step.
+on:
+  workflow_call:
+    inputs:
+      max_jobs:
+        description: 'Max jobs for the cascade. Wall-clock-bound, not quota-bound — the 90min cascade deadline stops it first.'
+        type: string
+        default: '900'
+      mopup_max_jobs:
+        description: 'Max jobs for the local-MT (Argos) mop-up — free + unlimited, drain the whole backlog'
+        type: string
+        default: '6000'
+      company_key:
+        description: 'Single company key to translate (e.g. a-group). Leave empty for all.'
+        type: string
+        default: ''
+      skip_housekeeping:
+        description: 'Skip housekeeping (URL validation, expired pruning)'
+        type: boolean
+        default: false
+      skip_translate:
+        description: 'Skip translations (only housekeeping + slug hardening)'
+        type: boolean
+        default: false
+      dry_run:
+        description: 'Dry run (no commit)'
+        type: boolean
+        default: false
+    secrets:
+      FIREBASE_SERVICE_ACCOUNT_JSON:
+        required: false
+      CLAUDE_CODE_OAUTH_TOKEN:
+        required: false
+# No concurrency: block here — see the header note (checklist point 3).
+permissions:
+  contents: read
+
+env:
+  NODE_OPTIONS: '--disable-warning=DEP0040 --disable-warning=DEP0169 --max-old-space-size=12288'
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+
+    steps:
+      # Bootstrap checkout #1: anonymous, read-only — see header note.
+      - name: Checkout frontaliere-si-o-no (public, read-only)
+        id: checkout
+        uses: actions/checkout@v5
+        with:
+          repository: valerielinc-ops/frontaliere-si-o-no
+          fetch-depth: 50
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Cache Opus-MT models
+        uses: actions/cache@v5
+        with:
+          path: .cache/transformers
+          key: opus-mt-models-v1
+          restore-keys: opus-mt-models-
+
+      - name: Cache Argos Translate models
+        uses: actions/cache@v5
+        with:
+          path: ~/.local/share/argos-translate/packages
+          key: argos-translate-models-v1
+          restore-keys: argos-translate-models-
+
+      - name: Prepare Firebase credentials (optional)
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          else
+            echo "ℹ️ Firebase secrets not set — will use file config only."
+            exit 0
+          fi
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load RC secrets
+        run: node scripts/load-rc-env.mjs
+
+      # Bootstrap checkout #2: reconfigure auth with GITHUB_PAT — see header
+      # note and crawler-group-NN-logic.yml's identical step for the full
+      # chicken-and-egg rationale.
+      - name: Bootstrap write auth for frontaliere-si-o-no (GITHUB_PAT from Remote Config)
+        run: |-
+          if [ -z "${GITHUB_PAT:-}" ]; then
+            echo "::error::GITHUB_PAT missing from Remote Config (RC_TO_ENV in scripts/load-rc-env.mjs) — cannot push translated job data to valerielinc-ops/frontaliere-si-o-no or file pipeline-failure issues there. Aborting before any phase runs so this fails loud, not as a silent partial-run data loss."
+            exit 1
+          fi
+          git remote set-url origin "https://x-access-token:${GITHUB_PAT}@github.com/valerielinc-ops/frontaliere-si-o-no.git"
+          echo "GH_TOKEN=${GITHUB_PAT}" >> "$GITHUB_ENV"
+          echo "GH_REPO=valerielinc-ops/frontaliere-si-o-no" >> "$GITHUB_ENV"
+
+      # ── Claude CLI Haiku fallback (ON by default, kill-switch '0') ──────
+      - uses: valerielinc-ops/frontaliere-si-o-no/.github/actions/setup-claude-haiku-fallback@main
+
+      # ── Phase 1: Housekeeping (prune expired, validate URLs, dedup) ──────
+      - name: Check if housekeeping should run
+        id: hk
+        run: |
+          if [ "${{ github.event.schedule }}" = "0 7 * * *" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            echo "🧹 Daily 07:00 UTC — housekeeping enabled"
+          elif [ "${{ inputs.skip_housekeeping }}" = "true" ]; then
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "⏭️  Housekeeping skipped (user input)"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "⏭️  Housekeeping skipped (not daily cron)"
+          fi
+
+      - name: "Phase 1: Housekeeping"
+        if: steps.hk.outputs.run == 'true'
+        env:
+          JOBS_SKIP_LOCALE_HARDENING: '1'
+        run: |
+          echo "🧹 Running housekeeping (no slug hardening — deferred to Phase 3)..."
+          for slice in data/jobs/by-crawler/*.json; do
+            [ -f "$slice" ] || continue
+            JOBS_SLICE_FILE="$slice" node scripts/cleanup-jobs.mjs || true
+          done
+          echo "✅ Housekeeping complete"
+
+      - name: Commit housekeeping
+        if: always() && steps.checkout.outcome == 'success' && steps.hk.outputs.run == 'true' && inputs.dry_run != true
+        run: bash scripts/lib/git-commit-data.sh --slice-only "🧹 Housekeeping — prune expired + validate URLs"
+
+      # ── Phase 2: Translate pending jobs (ARGOS-FIRST) ────────────────────
+      - name: Install Argos Translate (local MT engine)
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
+        continue-on-error: true
+        run: |
+          python3 -m pip install --quiet --upgrade pip
+          python3 -m pip install --quiet argostranslate
+          python3 scripts/local-mt-translate.py --install
+
+      - name: Assemble dataset
+        if: inputs.skip_translate != true
+        run: node scripts/assemble-jobs-dataset.mjs
+
+      # ── Phase 2a: Local MT BULK (Argos / CTranslate2) — PRIMARY workhorse ──
+      - name: "Phase 2a: Local MT bulk translate (Argos)"
+        if: inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1'
+        continue-on-error: true
+        env:
+          LOCAL_MT_TIME_BUDGET_MS: '9000000'  # 150 * 60 * 1000
+          INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
+        run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
+
+      - name: Re-assemble dataset after Argos bulk
+        if: inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1'
+        run: node scripts/assemble-jobs-dataset.mjs
+
+      - name: "Phase 2 pre: Flag locale-mismatched job descriptions"
+        if: inputs.skip_translate != true
+        continue-on-error: true
+        run: node scripts/mark-locale-mismatched-jobs.mjs
+
+      - name: "Phase 2 pre: Flag wrong-language job titles"
+        if: inputs.skip_translate != true
+        continue-on-error: true
+        env:
+          TITLE_MISTRANSLATION_MARK_CAP: ${{ vars.TITLE_MISTRANSLATION_MARK_CAP || '100' }}
+          TITLE_MISTRANSLATION_QUEUE_CEILING: ${{ vars.TITLE_MISTRANSLATION_QUEUE_CEILING || '2000' }}
+        run: node scripts/mark-mistranslated-jobs.mjs
+
+      - name: Log translation stats (before)
+        if: inputs.skip_translate != true
+        run: node scripts/log-translation-stats.mjs before
+
+      - name: "Phase 2b: Translate pending jobs (cascade top-up)"
+        if: inputs.skip_translate != true
+        env:
+          JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          AI_MODELS_PREFER: claude-cli/haiku
+          CLAUDE_CLI_MAX_CALLS_PER_RUN: '300'
+          JOBS_CASCADE_DEADLINE_MS: ${{ vars.TRANSLATE_ARGOS_FIRST_DISABLE == '1' && '15000000' || '5400000' }}
+          MT_LOCAL_OPUSMT: '1'
+          TRANSFORMERS_CACHE: .cache/transformers
+          INPUT_MAX_JOBS: ${{ inputs.max_jobs || '900' }}
+          INPUT_COMPANY_KEY: ${{ inputs.company_key }}
+        run: |
+          ARGS=(--max-jobs "$INPUT_MAX_JOBS")
+          if [ -n "$INPUT_COMPANY_KEY" ]; then
+            ARGS+=(--company-key "$INPUT_COMPANY_KEY")
+          fi
+          node scripts/relocalize-pending-jobs.mjs "${ARGS[@]}"
+
+      - name: Log translation stats (after)
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
+        run: node scripts/log-translation-stats.mjs after
+
+      - name: Scatter changes back to per-crawler slices
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
+        run: node scripts/scatter-jobs-to-slices.mjs
+
+      # ── Phase 2c mop-up: catch the cascade's leftovers (in-process, $0) ──
+      - name: "Phase 2c mop-up: local MT (Argos Translate, in-process)"
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
+        continue-on-error: true
+        env:
+          LOCAL_MT_TIME_BUDGET_MS: '9000000'  # 150 * 60 * 1000
+          INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
+        run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
+
+      - name: Commit translations
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && inputs.dry_run != true
+        run: bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs" data/jobs/by-crawler/ data/translation-cache/ data/jobs-crawler-config.json data/slug-registry.json data/translation-stats-history.json
+
+      # ── Phase 2d: Fix source-copy titles (daily 07:00 only) ──────────────
+      - name: "Phase 2d: Fix untranslated titles (free cascade)"
+        if: steps.hk.outputs.run == 'true' && inputs.dry_run != true
+        run: node scripts/fix-untranslated-titles.mjs
+
+      - name: Commit title fixes
+        if: steps.hk.outputs.run == 'true' && inputs.dry_run != true
+        run: bash scripts/lib/git-commit-data.sh --slice-only "🔤 Fix untranslated titles (free cascade)"
+
+      # ── Phase 3: Regenerate slugs from translated titles ──────────────────
+      - name: "Phase 3: Regenerate locale slugs"
+        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        run: node scripts/regenerate-slugs-by-locale.mjs
+
+      - name: Commit slug regeneration
+        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        run: bash scripts/lib/git-commit-data.sh --slice-only "🔗 Regenerate locale slugs (post-translation)"
+
+      # ── Phase 4: Validate + Deploy ──────────────────────────────────────
+      - name: Trigger deploy
+        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        # GITHUB_REPOSITORY overridden inline: trigger-workflow.sh (called by
+        # trigger-deploy.sh) resolves its dispatch target from that env var,
+        # which — like github.repository — reflects the CALLER
+        # (frontaliere-articles) inside a cross-repo workflow_call. deploy.yml
+        # only exists on frontaliere-si-o-no. GITHUB_PAT is unaffected (a
+        # normal env var by this point, not github.*-derived — see header
+        # note #2).
+        run: |
+          if node scripts/validate-translation-completeness.mjs 2>/dev/null; then
+            echo "✅ All translations complete — triggering deploy"
+            GITHUB_REPOSITORY=valerielinc-ops/frontaliere-si-o-no bash scripts/lib/trigger-deploy.sh
+          else
+            echo "⏳ Some translations still incomplete — skipping deploy trigger"
+            echo "   The next cron run will retry and trigger deploy once all jobs are translated."
+          fi
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        uses: valerielinc-ops/frontaliere-si-o-no/.github/actions/report-failure@main
+        with:
+          title: 'Workflow Failure: Translate Pending Jobs'
+          closed-by: close-recovered-failure-issues
+          # Bootstrapped GITHUB_PAT-derived token, not secrets.GITHUB_TOKEN:
+          # the ambient token here is ready-only and scoped to
+          # frontaliere-articles (see header note #3) — env.GH_TOKEN was set
+          # by the "Bootstrap write auth" step above.
+          github-token: ${{ env.GH_TOKEN }}
+          repo: valerielinc-ops/frontaliere-si-o-no
+          workflow-name: 'Translate Pending Jobs'
+          workflow-file: '.github/workflows/translate-pending-logic.yml'
+          priority: '2'
+          labels: Bug
+          context: >-
+            La pipeline di traduzione è a fasi (fetch → translate → verify →
+            commit): lo step fallito qui sopra dice a quale fase si è fermata, e
+            i job non tradotti restano in coda per il prossimo cron.

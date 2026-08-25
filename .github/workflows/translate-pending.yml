@@ -1,15 +1,31 @@
+# DISABLED — migrated to frontaliere-articles as a cross-repo execution
+# reusable-workflow call, same pattern as crawler-group-01..23 (see each
+# one's own DISABLED header + crawler-group-23-logic.yml's header for the
+# full precedent: frontaliere-si-o-no#6485 -> reverted #6517 -> #6520 /
+# frontaliere-articles#594 -> #600 -> #602). The job logic below is
+# unchanged and kept for fast rollback.
+#
+# UNLIKE the crawler-group-NN.yml files (whose only trigger was
+# workflow_dispatch, dispatched by orchestrate-crawlers.yml BY FILENAME —
+# harmless to leave as-is since nothing auto-fires it directly), THIS file's
+# `workflow_run:` and `schedule:` triggers fire natively, with no
+# orchestrator in between. Leaving them in place would run this pipeline
+# TWICE per cycle — once here (against this account's saturated pool, the
+# exact thing this migration removes) and once via the frontaliere-articles
+# caller — with two processes racing to commit the same data/jobs/by-crawler/
+# files. So, unlike the crawler-group precedent, both are REMOVED here (not
+# just left disabled-by-absence-of-dispatch). `workflow_dispatch` is kept,
+# same as the crawler-group precedent, for a harmless manual local re-test —
+# it requires deliberate action, unlike the two removed triggers.
+#
+# Rollback: restore `workflow_run:` + `schedule:` below (see
+# frontaliere-articles's translate-pending.yml or git history of this file
+# for the exact block) and delete this comment; then remove/disable the
+# frontaliere-articles caller and orchestrate-crawlers.yml's "Dispatch
+# translate-pending" step to stop the duplicate cross-repo run.
 name: Translate Pending Jobs
 
 on:
-  workflow_run:
-    workflows: ["Orchestrate Job Crawlers"]
-    types: [completed]
-  schedule:
-    - cron: '0 7 * * *'     # Daily: housekeeping + translate (replaces cleanup-stale-jobs cron)
-    - cron: '0 13 * * *'    # Midday: translate after 08:00 orchestration
-    - cron: '0 1 * * *'     # Midnight: translate after 20:00 orchestration
-    - cron: '20 1 * * *'    # Nightly retry: after quota reset
-    - cron: '20 4 * * *'    # Backup nightly retry
   workflow_dispatch:
     inputs:
       max_jobs:
