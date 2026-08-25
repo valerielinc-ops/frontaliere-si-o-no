@@ -1,18 +1,18 @@
 {
   "key": "therapiezentrum-meggen",
   "label": "Therapiezentrum Meggen",
-  "generatedAt": "2026-08-25T09:52:37.428Z",
-  "total": 2,
+  "generatedAt": "2026-08-25T21:35:29.501Z",
+  "total": 1,
   "discovered": null,
-  "written": 2,
+  "written": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3341,
-  "avgDurationMs": 3341,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4678,
+  "avgDurationMs": 4678,
   "durationHistory": [
-    3341
+    4678
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -30,7 +30,7 @@
       "applyUrl": "https://www.tzm.ch/offene-stellen/",
       "source": "Therapiezentrum Meggen Dedicated Parser (Jimdo HTML + PDF)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:52:35.239Z",
+      "crawledAt": "2026-08-25T21:35:25.990Z",
       "addressLocality": "Meggen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -54,8 +54,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "therapiezentrum-meggen-stellenausschreibung-psychotherapie-ab-oktober2026-58b9f8dc9359",
       "slug": "psicoterapeuta-psicologica-psicoterapeuta-psicologica-60-100-therapiezentrum-meggen-meggen-164c80",
@@ -96,5 +95,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
