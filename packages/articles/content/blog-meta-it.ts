@@ -10767,6 +10767,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.torre-santa-maria-lavoro-grigioni-frontaliere.title': 'Vivere a Torre di Santa Maria e lavorare in Grigioni: guida per frontalieri',
     'blog.article.torre-santa-maria-lavoro-grigioni-frontaliere.excerpt': 'Permesso G, imposta alla fonte, LAMal e AVS/LPP: come funziona il regime fiscale e previdenziale per chi lavora in Svizzera dal confine ticinese.',
     'blog.article.torre-santa-maria-lavoro-grigioni-frontaliere.imageAlt': 'Valle di confine tra Italia e Svizzera con paesaggio montano tipico del Ticino e Grigioni',
+    'blog.article.sluderno-guida-frontaliera.title': 'Vivere a Sluderno, lavorare nei Grigioni: frontaliere',
+    'blog.article.sluderno-guida-frontaliera.excerpt': 'Guida completa: permesso G, fiscalità frontaliera, LAMal e procedure step-by-step per chi vuole trasferirsi a Sluderno e lavorare in Svizzera.',
+    'blog.article.sluderno-guida-frontaliera.imageAlt': 'Veduta di Bellinzona: paesaggio montano ticinese che rappresenta il contesto geografico per chi lavora in Svizzera',
 };
 
 export default blogMetaIt;

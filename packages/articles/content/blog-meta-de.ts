@@ -10765,6 +10765,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.torre-santa-maria-lavoro-grigioni-frontaliere.title': 'Wohnen in Marienturm und Arbeiten in Graubünden: Leitfaden für Grenzgänger',
     'blog.article.torre-santa-maria-lavoro-grigioni-frontaliere.excerpt': 'G-Bewilligung, Quellensteuer, KVG und AHV/BVG: Wie funktioniert das Steuer- und Vorsorgesystem für Personen, die in der Schweiz von der Tessiner Grenze aus arbeiten?',
     'blog.article.torre-santa-maria-lavoro-grigioni-frontaliere.imageAlt': 'Grenztal zwischen Italien und der Schweiz mit typischer Tessiner und Bündner Berglandschaft',
+    'blog.article.sluderno-guida-frontaliera.title': 'Wohnen in Schluderns, Arbeiten in Graubünden: Grenzgänger',
+    'blog.article.sluderno-guida-frontaliera.excerpt': 'Komplette Anleitung: G-Genehmigung, Grenzbesteuerung, KVG und Schritt-für-Schritt-Verfahren für diejenigen, die nach Schluderns ziehen und in der Schweiz arbeiten möchten.',
+    'blog.article.sluderno-guida-frontaliera.imageAlt': 'Blick auf Bellinzona: Alpine Tessiner Landschaft, die den geografischen Kontext für Grenzgänger darstellt',
 };
 
 export default blogMetaDe;
