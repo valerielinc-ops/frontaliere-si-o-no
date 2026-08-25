@@ -4228,6 +4228,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sistema-sanitario-difficolta-cittadini.title': 'Système de santé : difficultés pour de nombreux citoyens suisses',
     'blog.article.sistema-sanitario-difficolta-cittadini.excerpt': 'Une étude Careum révèle que la moitié des Suisses ont peu de compétences en santé. Trois sur quatre peinent à s\'orienter dans le système entre bureaucratie et jargon.',
     'blog.article.sistema-sanitario-difficolta-cittadini.imageAlt': 'Bâtiment moderne à Mendrisio accueillant des réunions sur la santé',
+    'blog.article.tx-group-penalizzato-svalutazioni.title': 'Plus : TX Group pénalisé par des dépréciations au premier semestre',
+    'blog.article.tx-group-penalizzato-svalutazioni.excerpt': 'Le groupe de médias zurichois TX Group enregistre une hausse de ses résultats corrigés au premier semestre, mais est pénalisé par les dévaluations.',
+    'blog.article.tx-group-penalizzato-svalutazioni.imageAlt': 'Bureau de presse suisse',
 };
 
 export default blogMetaChFr;
