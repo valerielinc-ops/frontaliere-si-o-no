@@ -4213,6 +4213,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-svizzera-settori.title': 'Wages and the labour market in Switzerland: training and sectors',
     'blog.article.salari-mercato-lavoro-svizzera-settori.excerpt': 'How salaries vary by degree of training, sector and experience. Guide to collective agreements, legal hours, minimum holidays and salary contributions.',
     'blog.article.salari-mercato-lavoro-svizzera-settori.imageAlt': 'Swiss office professionals reviewing salary documents with urban landscape background',
+    'blog.article.imposte-appenzello-esterno-aliquote.title': 'Cantonal taxes External Appenzell: rates and deductions',
+    'blog.article.imposte-appenzello-esterno-aliquote.excerpt': 'Complete guide to cantonal and municipal taxes in Appenzello Esterno: 3-level structure, rates, allowable deductions, declaratory deadlines and online procedure.',
+    'blog.article.imposte-appenzello-esterno-aliquote.imageAlt': 'Swiss cantonal tax administration building with alpine mountain landscape in background',
 };
 
 export default blogMetaChEn;

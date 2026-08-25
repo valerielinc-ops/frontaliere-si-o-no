@@ -12637,6 +12637,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'imposte-appenzello-esterno-aliquote',
+    category: 'fiscale',
+    date: '2026-08-25T03:40:05.091Z',
+    image: '/images/blog/imposte-appenzello-esterno-aliquote.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
