@@ -29,7 +29,13 @@ describe('articles SiteShellContract — cross-repo fingerprint', () => {
       if (typeof v !== 'function') scalars[k] = v;
     }
     expect(Object.keys(scalars).length).toBe(expected.scalarFields);
-    const sha = createHash('sha256').update(JSON.stringify(scalars, null, 2)).digest('hex');
+    // RegExp has no own enumerable properties, so plain JSON.stringify serializes
+    // every RegExp (e.g. contextualLinkRules[].keywordPattern) to `{}` — a source/flags
+    // edit wouldn't move the digest at all. The replacer forces RegExp through
+    // String(v) so regex-only drift is actually covered (issue #6396).
+    const sha = createHash('sha256')
+      .update(JSON.stringify(scalars, (_key, value) => (value instanceof RegExp ? String(value) : value), 2))
+      .digest('hex');
     expect(sha, 'host chrome drifted — re-record in BOTH repos').toBe(expected.sha256);
   });
 });
