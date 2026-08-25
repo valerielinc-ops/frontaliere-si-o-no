@@ -1447,6 +1447,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'verdi-richiesta-clima-2026': { it: 'verdi-richiesta-clima-2026', en: 'greens-demand-state-secretariat-climate', de: 'gruene-fordern-staatssekretariat-klimaschutz', fr: 'verts-demandent-secretariat-etat-climat' },
  'diesel-rincaro-geopolitica-svizzera': { it: 'diesel-rincaro-geopolitica-svizzera', en: 'diesel-price-increase-geopolitics-switzerland', de: 'diesel-teuerung-geopolitik-schweiz', fr: 'diesel-hausse-geopolitique-suisse' },
  'amrize-cfo-lascia-sorpresa-borsa': { it: 'amrize-cfo-lascia-sorpresa-borsa', en: 'amrize-cfo-leaves-surprise-zurich', de: 'amrize-cfo-verlasst-ueberraschung-zuerich', fr: 'amrize-cfo-quitte-surprise-bourse' },
+ 'pagamenti-offline-carte-2026': { it: 'pagamenti-offline-carte-2026', en: 'offline-card-payments-2026', de: 'offline-kartenzahlungen-2026', fr: 'paiements-sans-connexion-cartes-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

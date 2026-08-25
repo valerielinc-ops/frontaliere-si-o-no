@@ -4264,6 +4264,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.amrize-cfo-lascia-sorpresa-borsa.title': 'Amrize: the CFO leaves a surprise, down in the bag',
     'blog.article.amrize-cfo-lascia-sorpresa-borsa.excerpt': 'Baris Oran leaves after 5 months as finance manager. Samuel Poletti new CFO. Amrize shares fell 2% on the Zurich Stock Exchange, -20% since January.',
     'blog.article.amrize-cfo-lascia-sorpresa-borsa.imageAlt': 'Zurich stock exchange building with Amrize stock market performance chart, representing market reaction to CFO transition.',
+    'blog.article.pagamenti-offline-carte-2026.title': 'Offline card payments: launch August 2026',
+    'blog.article.pagamenti-offline-carte-2026.excerpt': 'Offline payments with cards from 24 August 2026: terminal also registers without a network. Ensures continuity in essential purchases during outages.',
+    'blog.article.pagamenti-offline-carte-2026.imageAlt': 'Offline card payment at a terminal in a Swiss shop during network outage',
 };
 
 export default blogMetaChEn;
