@@ -1,9 +1,9 @@
 # Crawler Group 23 logic — reusable workflow (on: workflow_call).
 #
-# Physically hosted here (frontaliere-si-o-no) so its Actions minutes still
-# come from THIS repo/account, same as every other crawler-group-*.yml — but
-# invoked cross-repo from a minimal caller workflow physically hosted in
-# frontaliere-articles (account nanakokyobashi-rgb), so the RUN and its
+# Physically hosted here (frontaliere-si-o-no) as the single source of the
+# crawling logic — but invoked cross-repo from a minimal caller workflow
+# physically hosted in frontaliere-articles (account nanakokyobashi-rgb),
+# so the RUN and its
 # concurrency-pool consumption are billed against nanako's separate,
 # less-saturated pool instead of valerielinc-ops' saturated ~20-concurrent-
 # job Free-plan pool.
@@ -53,6 +53,14 @@ on:
         required: false
       CLAUDE_CODE_OAUTH_TOKEN:
         required: false
+# Same lock as the disabled original (crawler-group-23.yml) — prevents a
+# double dispatch (manual retry overlapping the cron, or a future bug) from
+# running two parallel instances of this group that write concurrently to
+# data/jobs-crawler-adapters/. A reusable workflow's top-level concurrency:
+# is honored for the workflow_call job, same as an ordinary job.
+concurrency:
+  group: jobs-crawler-group-23
+  cancel-in-progress: false
 permissions:
   contents: read
 env:
