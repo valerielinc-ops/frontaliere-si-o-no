@@ -10727,6 +10727,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cassano-magnago-frontaliere-ticino.title': 'Vivre à Cassano Magnago, travailler au Tessin',
     'blog.article.cassano-magnago-frontaliere-ticino.excerpt': 'Cassano Magnago pour les navetteurs transfrontaliers du Tessin : retenue à la source, AHV, KVG, remises à la source. Guide de l\'Accord de 2020 et des procédures pour les navetteurs transfrontaliers G.',
     'blog.article.cassano-magnago-frontaliere-ticino.imageAlt': 'Paysage frontalier entre Varèse et le Tessin avec signalisation routière et trafic pendulaire',
+    'blog.article.vivere-gallarate-lavorare-ticino-frontaliere.title': 'Vivre à Gallarate et travailler au Tessin : Guide frontalier',
+    'blog.article.vivere-gallarate-lavorare-ticino-frontaliere.excerpt': 'Cols, taux d\'imposition, AVS et coût de la vie : tout ce qu\'il faut pour organiser le transfert de Gallarate au Tessin.',
+    'blog.article.vivere-gallarate-lavorare-ticino-frontaliere.imageAlt': 'Vue panoramique de Lugano et des montagnes tessinoises depuis la frontière italienne',
 };
 
 export default blogMetaFr;

@@ -10725,6 +10725,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cassano-magnago-frontaliere-ticino.title': 'Living in Cassano Magnago, working in Ticino',
     'blog.article.cassano-magnago-frontaliere-ticino.excerpt': 'Cassano Magnago cross-border commuter Ticino: withholding tax, AHV, KVG, rebates. Guide to the 2020 Agreement and procedures for cross-border commuters G.',
     'blog.article.cassano-magnago-frontaliere-ticino.imageAlt': 'Swiss-Italian border landscape between Varese and Ticino with highway signs and morning commuter traffic',
+    'blog.article.vivere-gallarate-lavorare-ticino-frontaliere.title': 'Living in Gallarate and working in Ticino: Border Guide',
+    'blog.article.vivere-gallarate-lavorare-ticino-frontaliere.excerpt': 'Crossings, tax rates, AVS and living costs: everything you need to organise the transfer from Gallarate to Ticino.',
+    'blog.article.vivere-gallarate-lavorare-ticino-frontaliere.imageAlt': 'Panoramic view of Lugano and Ticino mountains from the Italian border',
 };
 
 export default blogMetaEn;
