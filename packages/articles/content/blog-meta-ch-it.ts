@@ -4246,6 +4246,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.single-paga-di-piu-svizzera.title': 'Da soli si paga di più: tasche vuote per i single in Svizzera',
     'blog.article.single-paga-di-piu-svizzera.excerpt': 'Gli affitti pesano di più per i single, che destano circa il 20% del proprio budget ad abitazione ed energia.',
     'blog.article.single-paga-di-piu-svizzera.imageAlt': 'Un uomo solo che guarda fuori dalla finestra di una stanza d\'albergo',
+    'blog.article.lacune-contributive-avs-zurigo.title': 'AVS e prestazioni complementari: cassa di compensazione',
+    'blog.article.lacune-contributive-avs-zurigo.excerpt': 'Primo pilastro nel Canton Zurigo: cassa di compensazione, calcolo rendita AVS, lacune contributive e prestazioni complementari per il minimo vitale.',
+    'blog.article.lacune-contributive-avs-zurigo.imageAlt': 'Ufficio amministrativo con documenti di previdenza, calcolatore e grafico di pianificazione pensionistica. Alpi svizzere visibili dalla finestra.',
 };
 
 export default blogMetaChIt;

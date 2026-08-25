@@ -12736,6 +12736,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'lacune-contributive-avs-zurigo',
+    category: 'pensione',
+    date: '2026-08-25T09:03:08.637Z',
+    image: '/images/blog/lacune-contributive-avs-zurigo.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
