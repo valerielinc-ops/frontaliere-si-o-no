@@ -10782,6 +10782,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fusine-guida-frontaliere.title': 'Vivere a Fusine da frontaliere: la guida completa',
     'blog.article.fusine-guida-frontaliere.excerpt': 'Fusine offre costi abitativi inferiori e prossimità al Ticino per frontalieri che lavorano in Grigioni. Scopri permesso G, tassazione, ristorni, AVS, LAMal.',
     'blog.article.fusine-guida-frontaliere.imageAlt': 'Veduta aerea della valle tra Fusine e il confine ticinese, paesaggio transfrontaliero tra Lombardia e Ticino',
+    'blog.article.vilminore-scalve-grigioni-frontaliere.title': 'Vivere a Vilminore e lavorare in Grigioni: guida frontaliere',
+    'blog.article.vilminore-scalve-grigioni-frontaliere.excerpt': 'Permesso G, tassazione, AVS e LAMal: guida completa per chi si trasferisce da Vilminore di Scalve per lavorare in Grigioni. Documenti, ristorni e procedura.',
+    'blog.article.vilminore-scalve-grigioni-frontaliere.imageAlt': 'Vista del Lago Lugano tra Ticino e Italia, con villaggi alpini sul confine svizzero-italiano',
 };
 
 export default blogMetaIt;
