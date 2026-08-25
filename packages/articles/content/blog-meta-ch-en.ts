@@ -4222,6 +4222,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-appenzello.title': 'AVS and complementary services: the first pillar',
     'blog.article.avs-prestazioni-complementari-appenzello.excerpt': 'How Swiss old-age insurance works: mandatory contributions, contribution gaps, annuities and supplementary benefits to cover the minimum living wage.',
     'blog.article.avs-prestazioni-complementari-appenzello.imageAlt': 'Administrative building in Alpine Swiss canton: AVS compensation fund office',
+    'blog.article.appenzello-esterno-avs-primo-pilastro.title': 'AVS and complementary services: External Appenzello',
+    'blog.article.appenzello-esterno-avs-primo-pilastro.excerpt': 'First pillar in the Canton of Outer Appenzell: how the compensation fund works, calculation of the AVS pension, management of contribution gaps and access to supplementary benefits to cover the minimum living wage.',
+    'blog.article.appenzello-esterno-avs-primo-pilastro.imageAlt': 'Cantonal compensation fund office with seniors consulting pension and benefits documentation',
 };
 
 export default blogMetaChEn;

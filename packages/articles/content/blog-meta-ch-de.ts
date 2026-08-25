@@ -4222,6 +4222,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-appenzello.title': 'AHV und Ergänzungsleistungen: die erste Säule',
     'blog.article.avs-prestazioni-complementari-appenzello.excerpt': 'So funktioniert die Schweizer Altersversicherung: Pflichtbeiträge, Beitragslücken, Renten und Ergänzungsleistungen zur Deckung des Existenzminimums.',
     'blog.article.avs-prestazioni-complementari-appenzello.imageAlt': 'Verwaltungsgebäude in Schweizer Alpenkanton: Sitz der AHV-Ausgleichskasse',
+    'blog.article.appenzello-esterno-avs-primo-pilastro.title': 'AHV und Ergänzungsleistungen: Appenzell Ausserrhoden',
+    'blog.article.appenzello-esterno-avs-primo-pilastro.excerpt': 'Erste Säule im Kanton Appenzell Ausserrhoden: Funktionsweise der Ausgleichskasse, AHV-Rentenberechnung, Umgang mit Beitragslücken und Zugang zu Ergänzungsleistungen zur Deckung des Existenzminimums.',
+    'blog.article.appenzello-esterno-avs-primo-pilastro.imageAlt': 'Kantonales Ausgleichskassenbüro mit Senioren, die Rentendokumente konsultieren',
 };
 
 export default blogMetaChDe;
