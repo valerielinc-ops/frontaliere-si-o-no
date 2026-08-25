@@ -4207,6 +4207,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-attivita-sciaffusa-procedure-fiscali.title': 'Ouvrir une entreprise à Schaffhouse : procédures et coûts',
     'blog.article.aprire-attivita-sciaffusa-procedure-fiscali.excerpt': 'Formes juridiques, inscription au registre du commerce, capital minimum et système fiscal à trois niveaux pour démarrer une entreprise dans le canton de Schaffhouse.',
     'blog.article.aprire-attivita-sciaffusa-procedure-fiscali.imageAlt': 'Bureau professionnel avec documents de création d\'entreprise et calculatrice',
+    'blog.article.aprire-attivita-sciaffusa-registro-commercio.title': 'Ouvrir une entreprise à Schaffhouse : coûts et registre du commerce',
+    'blog.article.aprire-attivita-sciaffusa-registro-commercio.excerpt': 'Le choix de la forme juridique ne détermine pas les impôts et les responsabilités. L\'inscription au registre du commerce est obligatoire pour toutes les entreprises.',
+    'blog.article.aprire-attivita-sciaffusa-registro-commercio.imageAlt': 'Locarno et Registre commercial cantonal de Sciaffusa',
 };
 
 export default blogMetaChFr;
