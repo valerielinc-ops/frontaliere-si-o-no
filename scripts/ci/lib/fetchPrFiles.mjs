@@ -22,6 +22,19 @@
  * l'oracolo (`changedFiles`) è più basso del cap. Misurato il 2026-08-20:
  * #6121 changedFiles=183 → GraphQL 100, REST `--paginate` 183/183; #6175 →
  * GraphQL null, REST 100 (troncata).
+ *
+ * `changedFiles` (l'oracolo) e `files` (la lista GraphQL) vengono fetchati in
+ * UNA SOLA `gh pr view --json changedFiles,files`, non due chiamate separate
+ * (#6206 item 3). Prima, il CLI `fetch-pr-files.mjs` prendeva `expected` da un
+ * `gh pr view --json changedFiles` indipendente e poi chiamava questa funzione
+ * con quel valore; `pr-collision-detector.mjs` lo prendeva da un `gh pr list`
+ * fatto una volta sola PRIMA del loop su tutte le PR aperte, quindi sempre più
+ * stale man mano che il loop avanzava. Un push sulla PR tra le due letture fa
+ * leggere un `expected` vecchio contro un `files` nuovo (o viceversa),
+ * producendo un falso `complete=true` — la stessa classe di race già chiusa in
+ * pr-review-loop.yml/pr-redflag-fixer.yml (che leggono entrambi i campi da
+ * un'unica `gh pr view` inline). Qui i due valori vengono dalla stessa
+ * risposta GraphQL: nessuna finestra di push fra di loro.
  */
 
 export const GRAPHQL_FILES_CAP = 100;
@@ -38,27 +51,27 @@ export const REST_FILES_HARD_CAP = 3000;
 
 /**
  * @param {number} number - numero PR
- * @param {number} expected - `changedFiles` dichiarato da GitHub (0/assente = sconosciuto)
  * @param {(args: string[], opts?: {json?: boolean, allowFail?: boolean}) => any} ghFn
  * @param {string} repo - `owner/repo`
- * @returns {{files: string[], complete: boolean, reason: string}}
+ * @returns {{files: string[], complete: boolean, expected: number|undefined, reason: string}}
  */
-export function fetchPrFiles(number, expected, ghFn, repo) {
+export function fetchPrFiles(number, ghFn, repo) {
   let files = [];
+  let expected;
   // «La chiamata ha risposto» non e' «la risposta e' vuota».
   //
   // `gh(..., {allowFail:true})` rende `null` quando il comando fallisce e un
-  // ARRAY quando riesce — anche vuoto. Collassare i due con `|| []` rendeva
-  // una PR rebase-only indistinguibile da una `gh` muta: con l'oracolo pure
-  // fallito (`expected=0`), `complete` cadeva sul ramo `files.length === 0` e
-  // usciva TRUE. Era il falso «completo» che questo modulo esiste per
-  // impedire — e a valle sceglieva il tier `normal` saltando proprio il guard
-  // sull'incompletezza (follow-up #6206 item 3).
+  // OGGETTO `{changedFiles, files}` quando riesce — anche con `files: []`.
+  // Collassare i due rendeva una PR rebase-only indistinguibile da una `gh`
+  // muta: con l'oracolo pure fallito (`expected` assente), `complete` cadeva
+  // sul ramo `files.length === 0` e usciva TRUE. Era il falso «completo» che
+  // questo modulo esiste per impedire — e a valle sceglieva il tier `normal`
+  // saltando proprio il guard sull'incompletezza (follow-up #6206 item 3).
   let listOk = false;
   try {
-    const raw = ghFn(['pr', 'view', String(number), '--repo', repo, '--json', 'files',
-      '--jq', '[.files // [] | .[].path]'], { allowFail: true });
-    if (Array.isArray(raw)) { files = raw; listOk = true; }
+    const raw = ghFn(['pr', 'view', String(number), '--repo', repo, '--json', 'changedFiles,files',
+      '--jq', '{changedFiles: (.changedFiles // 0), files: [.files // [] | .[].path]}'], { allowFail: true });
+    if (raw && Array.isArray(raw.files)) { files = raw.files; listOk = true; expected = raw.changedFiles; }
   } catch { files = []; }
 
   const known = Number.isFinite(expected) && expected > 0;
@@ -109,7 +122,7 @@ export function fetchPrFiles(number, expected, ghFn, repo) {
   // caso `files.length >= expected` direbbe «completo» su una lista tagliata.
   // Unknown non e' completo: e' il verso che tutto questo modulo difende.
   if (cappedExactly && !restConfirmed) complete = false;
-  return { files, complete, reason: incompletenessReason({ complete, listOk, files, cappedExactly, restConfirmed }) };
+  return { files, complete, expected, reason: incompletenessReason({ complete, listOk, files, cappedExactly, restConfirmed }) };
 }
 
 /**

@@ -14,6 +14,12 @@
  *   - count: files.length
  *   - complete: l'elenco è la lista VERA (non troncata dal cap GraphQL)
  *
+ * `expected` e `files` vengono da UNA SOLA `gh pr view --json
+ * changedFiles,files` dentro `fetchPrFiles` (#6206 item 3) — prima erano due
+ * `gh pr view` separate, non atomiche: un push sulla PR fra le due poteva
+ * lasciare `expected` a leggere lo stato vecchio contro un `files` nuovo (o
+ * viceversa).
+ *
  * Uso:  node scripts/ci/fetch-pr-files.mjs --repo <owner/repo> --pr <N>
  */
 import { execFileSync } from 'node:child_process';
@@ -39,30 +45,14 @@ function gh(args, { json = true, allowFail = false } = {}) {
   }
 }
 
-/** `changedFiles` come oracolo: 0 vale sia per «PR senza modifiche» sia per
- * «gh non ha risposto» — la stessa ambiguità che `fetchPrFiles` risolve per
- * l'elenco file, qui non serve distinguerla perché `expected=0` fa già
- * ricadere `complete` sul ramo "unknown" (vedi fetchPrFiles.mjs). */
-export function fetchExpectedChangedFiles(number, ghFn, repo) {
-  try {
-    const raw = ghFn(['pr', 'view', String(number), '--repo', repo, '--json', 'changedFiles',
-      '--jq', '.changedFiles // 0'], { json: false, allowFail: true }) || '';
-    const n = Number.parseInt(String(raw).trim(), 10);
-    return Number.isFinite(n) && n >= 0 ? n : 0;
-  } catch {
-    return 0;
-  }
-}
-
 function main() {
   const { repo, pr } = parseArgs(process.argv.slice(2));
   if (!repo || !pr) {
     console.error('Uso: fetch-pr-files.mjs --repo <owner/repo> --pr <N>');
     process.exit(1);
   }
-  const expected = fetchExpectedChangedFiles(pr, gh, repo);
-  const { files, complete, reason } = fetchPrFiles(Number(pr), expected, gh, repo);
-  process.stdout.write(JSON.stringify({ expected, count: files.length, complete, reason, files }));
+  const { files, complete, expected, reason } = fetchPrFiles(Number(pr), gh, repo);
+  process.stdout.write(JSON.stringify({ expected: expected ?? 0, count: files.length, complete, reason, files }));
 }
 
 if (process.argv[1]?.endsWith('fetch-pr-files.mjs')) {

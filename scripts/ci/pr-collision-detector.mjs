@@ -159,7 +159,7 @@ function main() {
   let prs;
   try {
     prs = gh(['pr', 'list', '--repo', REPO, '--state', 'open', '--limit', '50',
-      '--json', 'number,labels,isDraft,changedFiles']);
+      '--json', 'number,labels,isDraft']);
   } catch (e) {
     console.error(`gh pr list fallito: ${String(e).slice(0, 160)}`);
     process.exit(0);
@@ -188,7 +188,11 @@ function main() {
       listComplete.set(pr.number, true);
       continue;
     }
-    const { files, complete, reason } = fetchPrFiles(pr.number, pr.changedFiles, gh, REPO);
+    // `changedFiles` e `files` vengono da `fetchPrFiles` in UNA SOLA `gh pr
+    // view`, non piu' da un `pr.changedFiles` letto una volta sola nel `gh pr
+    // list` di sopra e via via piu' stale man mano che questo loop avanza —
+    // era la race di #6206 item 3.
+    const { files, complete, expected, reason } = fetchPrFiles(pr.number, gh, REPO);
     const set = new Set(files.filter(isFunnel));
     funnelFiles.set(pr.number, set);
     listComplete.set(pr.number, complete);
@@ -196,7 +200,7 @@ function main() {
       // La causa cambia cosa farsene: `rest-hard-limit` e' il tetto dell'API e
       // non rientra da solo, gli altri sono transitori (follow-up #6206 item 1).
       const hardLimit = reason === 'rest-hard-limit';
-      console.log(`PR #${pr.number}: elenco file INCOMPLETO (${files.length}/${pr.changedFiles ?? '?'} attesi, causa: ${reason}) → una collisione puo' sfuggire, la label non verra' rimossa.`);
+      console.log(`PR #${pr.number}: elenco file INCOMPLETO (${files.length}/${expected ?? '?'} attesi, causa: ${reason}) → una collisione puo' sfuggire, la label non verra' rimossa.`);
       if (hardLimit) {
         console.log(`PR #${pr.number}: ⚠️  il troncamento e' il tetto rigido di ${REST_FILES_HARD_CAP} file della REST GitHub, non un errore transitorio — nessun retry lo risolve.`);
       }
