@@ -26,6 +26,8 @@ export const REDDIT_UTM_MEDIUM = 'social';
 
 /** New-article link post. */
 export const REDDIT_CAMPAIGN_ARTICLE = 'reddit_article';
+/** Daily job self-post apply link (schedule-reddit-jobs-daily.mjs, via reddit-templates.mjs buildJobBody). */
+export const REDDIT_CAMPAIGN_JOB = 'reddit_job';
 
 /**
  * Tag a site URL with this channel's identity.
