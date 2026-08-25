@@ -29,6 +29,9 @@ export const TELEGRAM_UTM_MEDIUM = 'social';
 /** Campaign per broadcast mode — one per cron in telegram-channel-broadcast.yml. */
 export const TELEGRAM_CAMPAIGN_JOBS = 'jobs_digest';
 export const TELEGRAM_CAMPAIGN_BORDER = 'border_ranking';
+// One-off announcement (not a cron), dispatched manually — see
+// buildPreferredSourceAnnouncement() in telegram-templates.mjs.
+export const TELEGRAM_CAMPAIGN_PREFERRED_SOURCE = 'preferred_source_announcement';
 
 /**
  * Tag an absolute site URL as coming from the Telegram broadcast channel.

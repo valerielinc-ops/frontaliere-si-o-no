@@ -27,7 +27,11 @@ import {
   sendMessage,
   TELEGRAM_MESSAGE_MAX,
 } from '../scripts/lib/telegram-client.mjs';
-import { buildDailyJobsDigest } from '../scripts/lib/telegram-templates.mjs';
+import {
+  buildDailyJobsDigest,
+  buildPreferredSourceAnnouncement,
+  PREFERRED_SOURCE_ANNOUNCEMENT_ID,
+} from '../scripts/lib/telegram-templates.mjs';
 import { buildWeeklyBorderDigest } from '../scripts/lib/telegram-border-digest.mjs';
 import { formatJobSalaryLabel, formatSwissThousands, withUtm } from '../scripts/lib/social-post-utils.mjs';
 import {
@@ -36,6 +40,7 @@ import {
   TELEGRAM_UTM_MEDIUM,
   TELEGRAM_CAMPAIGN_JOBS,
   TELEGRAM_CAMPAIGN_BORDER,
+  TELEGRAM_CAMPAIGN_PREFERRED_SOURCE,
 } from '../scripts/lib/telegram-links.mjs';
 
 // ── telegram-client ──────────────────────────────────────────
@@ -175,6 +180,27 @@ describe('buildDailyJobsDigest', () => {
   it('respects the limit cap', () => {
     const many = Array.from({ length: 8 }, (_, i) => ({ ...JOB_A, id: `j${i}`, slug: `s${i}` }));
     expect(buildDailyJobsDigest(many, { limit: 3 }).count).toBe(3);
+  });
+});
+
+// ── telegram-templates (preferred-source announcement) ───────
+
+describe('buildPreferredSourceAnnouncement', () => {
+  it('links the canonical Google preferred-source deep link, UTM-tagged', () => {
+    const { text } = buildPreferredSourceAnnouncement();
+    expect(text).toContain(
+      'href="https://www.google.com/preferences/source?q=frontaliereticino.ch' +
+        '&amp;utm_source=telegram&amp;utm_medium=social' +
+        '&amp;utm_campaign=preferred_source_announcement&amp;utm_content=announcement"',
+    );
+  });
+
+  it('has a stable, never-repeating ledger id', () => {
+    expect(PREFERRED_SOURCE_ANNOUNCEMENT_ID).toBeTruthy();
+  });
+
+  it('carries the preferred-source UTM campaign identity', () => {
+    expect(TELEGRAM_CAMPAIGN_PREFERRED_SOURCE).toBe('preferred_source_announcement');
   });
 });
 
