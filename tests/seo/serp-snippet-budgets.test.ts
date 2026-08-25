@@ -13,6 +13,12 @@ import { buildProfessionLandingCopy } from '../../build-plugins/professionLandin
 import { PROFESSION_IDS, PROFESSION_LOCALES } from '../../build-plugins/professionLandingsData';
 import { CAREER_LANDING_COPY } from '../../build-plugins/careerLandingsCopy';
 import { CAREER_LANDING_IDS, CAREER_LOCALES } from '../../build-plugins/careerLandingsData';
+import {
+  introProse,
+  LOCALES as EMPLOYER_LOCALES,
+  type EmployerProfile,
+  type CorpusJob,
+} from '../../build-plugins/employerProfilePagesPlugin';
 
 /**
  * SERP snippet budgets for the hand-authored landing families.
@@ -164,6 +170,76 @@ describe('SERP snippet budgets — career landings', () => {
       expect(CAREER_LANDING_COPY.it[id].title).toMatch(/Lugano/i);
     }
   });
+});
+
+describe('SERP snippet budgets — employer profile intro prose (#6417)', () => {
+  // Adversarial follow-up to #6346's pre-cut removal: `introProse()` feeds
+  // `clampMetaDescription` directly (employerProfilePagesPlugin.ts), but no
+  // test ever sampled its ACTUAL output — only the mechanism (word-aware
+  // clamp) was verified, never the content the ~1860 real company profiles
+  // produce. This exercises the sentence assembly across the shapes that
+  // stretch the description longest: max canton/city breakdown (the source
+  // caps both arrays at 6 — see cantonsProse/citiesProse), salary + trend +
+  // contract-mix + salary-range all present, worst case for hitting the
+  // 160-char budget.
+  const CANTONS = ['Ticino', 'Zurigo', 'Berna', 'Vaud', 'Ginevra', 'Basilea']
+    .map((name, i) => ({ name, count: 12 - i }));
+  const CITIES = ['Lugano', 'Bellinzona', 'Chiasso', 'Locarno', 'Mendrisio', 'Massagno']
+    .map((name, i) => ({ name, count: 8 - i }));
+
+  function jobsFixture(): CorpusJob[] {
+    return [
+      { contract: 'full-time', salaryMin: 52000, salaryMax: 68000 },
+      { contract: 'full-time', salaryMin: 55000, salaryMax: 71000 },
+      { contract: 'part-time', salaryMin: 30000, salaryMax: 42000 },
+    ];
+  }
+
+  const PROFILES: Record<string, Omit<EmployerProfile, 'slug'>> = {
+    minimal: {
+      name: 'Piccola SA',
+      activeJobs: 1,
+      cantons: [{ name: 'Ticino', count: 1 }],
+      cities: [{ name: 'Lugano', count: 1 }],
+    },
+    maximal: {
+      // A real, longer legal name — the shape most likely to push the
+      // assembled sentence past the budget once every optional clause fires.
+      name: 'Ente Ospedaliero Cantonale — Amministrazione e Servizi Centrali',
+      activeJobs: 47,
+      cantons: CANTONS,
+      cities: CITIES,
+      salaryMedianChf: 64000,
+      salarySamples: 40,
+      trend: { added: 9, removed: 3, net: 6, windowDays: 30 },
+    },
+  };
+
+  for (const locale of EMPLOYER_LOCALES) {
+    for (const [shape, profile] of Object.entries(PROFILES)) {
+      it(`${locale}/${shape} profile clamps to a natural word boundary`, () => {
+        const jobs = shape === 'maximal' ? jobsFixture() : [];
+        const description = introProse({ slug: 'test', ...profile }, jobs, locale);
+        expect(description.length).toBeGreaterThan(0);
+
+        const clamped = clampMetaDescription(description);
+        expect(clamped.length).toBeLessThanOrEqual(META_DESCRIPTION_MAX_CHARS);
+
+        if (isTruncated(description)) {
+          // Cut for real: must end on the ellipsis, never mid-word — the
+          // exact boundary the reviewer flagged as unverified.
+          expect(clamped.endsWith('…')).toBe(true);
+          expect(clamped).not.toMatch(/\s…$/); // no dangling space before the ellipsis
+        } else {
+          expect(clamped).toBe(description.replace(/\s+/g, ' ').trim());
+        }
+
+        // A clamp that survives should still carry substance, not just the
+        // opening clause + ellipsis — degenerate but budget-legal.
+        expect(clamped.replace(/…$/, '').trim().length).toBeGreaterThan(40);
+      });
+    }
+  }
 });
 
 describe('fuel daily pages — Italian copy regressions', () => {
