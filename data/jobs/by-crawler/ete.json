@@ -243,10 +243,10 @@
       "companyDomain": "ete.ch",
       "title": "Chauffeur C/E – Transports spéciaux (H/F)",
       "titleByLocale": {
-        "it": "Chauffeur C/E – Transports spéciaux (H/F)",
-        "en": "Chauffeur C/E – Transports spéciaux (H/F)",
-        "de": "Chauffeur C/E – Transports spéciaux (H/F)",
-        "fr": "Chauffeur C/E – Transports spéciaux (H/F)"
+        "de": "Fahrer C/E – Sondertransport (M/W)",
+        "fr": "Chauffeur C/E – Transports spéciaux (H/F)",
+        "it": "Driver C/E – Trasporto Speciale (M/F)",
+        "en": "Driver C/E – Special Transport (M/F)"
       },
       "description": "Chauffeur C/E – Transports spéciaux (H/F) — Emil Egger AG",
       "descriptionByLocale": {
@@ -272,13 +272,7 @@
       "applyUrl": "https://www.ete.ch/jobs/chauffeur-c-e-transports-speciaux-h-f-11/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "chauffeur-c-e-transports-speciaux-h-f-ete-ch",
-        "fahrer-c-e-sondertransport-m-w-emil-egger-ag-lugano",
-        "driver-c-e-trasporto-speciale-m-f-emil-egger-ag-lugano",
-        "driver-c-e-special-transport-m-f-emil-egger-ag-lugano",
-        "chauffeur-c-e-transports-speciaux-m-w-d-emil-egger-ag-lugano"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-c-e-transports-speciaux-h-f-ete-ch",
@@ -294,7 +288,13 @@
           "chauffeur-c-e-transports-speciaux-h-f-ete-ch"
         ]
       },
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "chauffeur-c-e-transports-speciaux-h-f-ete-ch",
+        "fahrer-c-e-sondertransport-m-w-emil-egger-ag-lugano",
+        "driver-c-e-trasporto-speciale-m-f-emil-egger-ag-lugano",
+        "driver-c-e-special-transport-m-f-emil-egger-ag-lugano",
+        "chauffeur-c-e-transports-speciaux-m-w-d-emil-egger-ag-lugano"
+      ],
       "firstSeenAt": "2026-08-23T21:34:45.214Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1497,7 +1497,7 @@
       "titleByLocale": {
         "it": "Disponent / in Industrieumzüge 100%",
         "en": "Equipped / in Industrieumzüge 100%",
-        "de": "Disponent / in Industrieumzüge 100%",
+        "de": "Ausgestattet / in Industrieumzüge 100%",
         "fr": "Équipé / en Industrieumzüge 100%"
       },
       "description": "Disponent / in Industrieumzüge 100% — Emil Egger AG",
