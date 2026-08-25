@@ -1,12 +1,12 @@
 {
   "crawlerKey": "albergo-gardenia",
-  "assembledAt": "2026-08-24T21:58:39.380Z",
+  "assembledAt": "2026-08-25T21:59:36.401Z",
   "jobs": [
     {
       "id": "albergo-gardenia-bf0d61d0f1cd",
-      "slug": "previsione-per-la-vecchia-albergo-gardenia-lugano",
+      "slug": "previdenza-per-la-vecchiaia-albergo-gardenia-ch",
       "slugByLocale": {
-        "it": "previsione-per-la-vecchia-albergo-gardenia-lugano",
+        "it": "previdenza-per-la-vecchiaia-albergo-gardenia-ch",
         "en": "previdenza-per-la-vecchiaa-albergo-gardenia-lugano",
         "de": "previdenza-per-la-vecchiaia-albergo-gardenia-ch",
         "fr": "previdenza-par-la-vecchiaa-albergo-gardenia-lugano"
@@ -16,10 +16,10 @@
       "companyDomain": "hotelleriesuisse.ch",
       "title": "Previdenza per la vecchiaia",
       "titleByLocale": {
-        "it": "Previsione per la vecchia",
+        "it": "Previdenza per la vecchiaia",
         "de": "Previdenza per la vecchiaia",
-        "en": "Previdenza per la vecchiaa’",
-        "fr": "Prévidenza par la vecchiaa"
+        "en": "Previdenza per la vecchiaia",
+        "fr": "Previdenza per la vecchiaia"
       },
       "description": "Previdenza per la vecchiaia — Albergo Gardenia",
       "descriptionByLocale": {
@@ -30,7 +30,7 @@
       "url": "https://www.hotelleriesuisse.ch/it/politica/lavoro-e-istruzione/previdenza-per-la-vecchiaia",
       "source": "Albergo Gardenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:58:35.939Z",
+      "crawledAt": "2026-08-25T21:59:33.742Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -46,6 +46,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "previsione-per-la-vecchia-albergo-gardenia-lugano",
+          "previdenza-per-la-vecchiaia-albergo-gardenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "previsione-per-la-vecchia-albergo-gardenia-lugano",
+        "previdenza-per-la-vecchiaia-albergo-gardenia-ch"
+      ],
+      "firstSeenAt": "2026-08-24T10:32:28.546Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -58,16 +69,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T10:32:28.546Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "previdenza-per-la-vecchiaia-albergo-gardenia-ch"
-        ]
-      },
-      "previousSlugs": [
-        "previdenza-per-la-vecchiaia-albergo-gardenia-ch"
-      ]
+      "addressRegion": "TI"
     },
     {
       "id": "albergo-gardenia-a58372a459dc",
@@ -97,7 +99,7 @@
       "url": "https://www.hotelleriesuisse.ch/it/politica/lavoro-e-istruzione/carenza-di-personale-qualificato",
       "source": "Albergo Gardenia Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-24T21:58:35.622Z",
+      "crawledAt": "2026-08-25T21:59:33.425Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -113,6 +115,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T10:32:28.227Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -125,8 +128,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T10:32:28.227Z"
+      "addressRegion": "TI"
     }
   ]
 }
