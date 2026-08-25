@@ -74,9 +74,9 @@
       "id": "hilcona-b125562f2751",
       "slug": "collaboratore-trice-magazzino-suddeutsche-truthahn-ag-ampfing",
       "slugByLocale": {
+        "de": "mitarbeiter-lager-hilcona-ampfing",
         "it": "collaboratore-trice-magazzino-suddeutsche-truthahn-ag-ampfing",
         "en": "employee-camps-suddeutsche-truthahn-ag-ampfing",
-        "de": "mitarbeiter-lager-hilcona-ampfing",
         "fr": "camps-d-employes-suddeutsche-truthahn-ag-ampfing"
       },
       "company": "Süddeutsche Truthahn AG",
@@ -4402,9 +4402,9 @@
       "id": "hilcona-c306614ff8f1",
       "slug": "pianificatori-di-domanda-hilcona-ag-schaan-d8612b",
       "slugByLocale": {
+        "de": "demand-planner-hilcona-schaan",
         "it": "pianificatori-di-domanda-hilcona-ag-schaan-d8612b",
         "en": "demand-planners-hilcona-ag-schaan-d8612b",
-        "de": "demand-planner-hilcona-schaan",
         "fr": "planificateurs-de-demande-hilcona-ag-schaan"
       },
       "company": "Hilcona AG",
@@ -10942,7 +10942,6 @@
         "elettrificante-operativo-m-w-d-suddeutsche-truthahn-ag-ampfing"
       ],
       "firstSeenAt": "2026-05-21T12:08:34.776Z",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -10955,7 +10954,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "hilcona-6875ac2fb9be",

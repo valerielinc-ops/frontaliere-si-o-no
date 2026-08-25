@@ -1278,7 +1278,6 @@
         "de": "Position: Versicherungsmediziner D/I (a) 40-60%\n- Standort: Zürich & Homeoffice, Kanton ZH\n- Pensum: 40-60%\n- Arbeitgeber: Helsana\n\nMachen\n\nSie uns\n\nerfolgreicher!\n\nHelsana ist führend – und macht es ihren Kunden einfach. Übernehmen Sie beim Marktleader Verantwortung und prägen Sie das Gesundheitswesen mit. Ihr Engagement lohnt sich:\n• Wir bieten Ihnen abwechslungsreiche Herausforderungen, viel Eigenverantwortung und die Möglichkeit, sich individuell und flexibel weiterzuentwickeln.\n\n.\nWir freuen uns auf Ihre Online-Bewerbung!\n\nhelsana.ch/karriere\n\nNehmen Sie uns beim Wort. Helsana",
         "fr": "Fonction: médecin d'assurance D/I (a) 40-60 %\n- Lieu: Zurich & Homeoffice, Canton de ZH\n- Pensum: 40-60 %\n- Employeur: Helsana\n\nFabrication\n\nLaissez-nous\n\nPlus de succès !\n\nHelsana est un leader – et le rend facile pour ses clients. Prendre la responsabilité du leader du marché et façonner le secteur de la santé. Votre engagement vaut la peine :\n• Nous vous offrons des défis variés, beaucoup de responsabilité personnelle et la possibilité de se développer individuellement et avec souplesse.\n\n.\nNous nous réjouissons de votre candidature en ligne!\n\nhelsana.ch/karriere\n\nPrends-nous sur parole. Helsana"
       },
-      "needsRetranslation": true,
       "location": "Zurigo",
       "canton": "ZH",
       "url": "https://careers.helsana.ch/job/Z%C3%BCrich-&-Homeoffice-Versicherungsmediziner-DI-%28a%29-40-60/1293851501/",
@@ -1342,7 +1341,8 @@
           "maxValue": 76800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "helsana-72dcec5fdd55",
@@ -4268,9 +4268,9 @@
       "id": "helsana-4c099a9d0969",
       "slug": "medicina-complementare-specializzata-a-40-60-helsana-san-gallo",
       "slugByLocale": {
+        "de": "fachspezialist-komplementarmedizin-a-40-60-helsana-st-gallen-homeoffice",
         "it": "medicina-complementare-specializzata-a-40-60-helsana-san-gallo",
         "en": "specialist-complementary-medicine-a-40-60-helsana-san-gallo",
-        "de": "fachspezialist-komplementarmedizin-a-40-60-helsana-st-gallen-homeoffice",
         "fr": "specialiste-en-medecine-complementaire-a-40-60-helsana-san-gallo"
       },
       "company": "Helsana",
@@ -4346,10 +4346,10 @@
       "id": "helsana-0dd01bce88bb",
       "slug": "indennita-giornaliera-di-malattia-a-10-20-helsana-zurigo",
       "slugByLocale": {
+        "de": "beratende-arztin-krankentaggeld-a-10-20-helsana-worblaufen-homeoffice",
         "it": "indennita-giornaliera-di-malattia-a-10-20-helsana-zurigo",
         "en": "consultation-doctor-sick-day-allowance-a-10-20-helsana-zurigo",
-        "de": "beratende-arztin-krankentaggeld-a-10-20-helsana-worblaufen-homeoffice",
-        "fr": "indemnite-de-jour-de-maladie-pour-medecin-consultant-a-10-20-helsana-zurigo"
+        "fr": "indemnite-de-jour-de-maladie-pour-medecin-conseil-a-10-20-helsana-zurigo"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -4405,7 +4405,8 @@
       "firstSeenAt": "2026-08-24T21:44:50.963Z",
       "previousSlugs": [
         "beratende-arztin-krankentaggeld-a-10-20-helsana-worblaufen-homeoffice",
-        "indennita-giornaliera-di-malattia-a-10-20-helsana-zurigo"
+        "indennita-giornaliera-di-malattia-a-10-20-helsana-zurigo",
+        "indemnite-de-jour-de-maladie-pour-medecin-consultant-a-10-20-helsana-zurigo"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4416,7 +4417,8 @@
           "beratende-arztin-krankentaggeld-a-10-20-helsana-worblaufen-homeoffice"
         ],
         "fr": [
-          "beratende-arztin-krankentaggeld-a-10-20-helsana-worblaufen-homeoffice"
+          "beratende-arztin-krankentaggeld-a-10-20-helsana-worblaufen-homeoffice",
+          "indemnite-de-jour-de-maladie-pour-medecin-consultant-a-10-20-helsana-zurigo"
         ]
       }
     },

@@ -659,10 +659,10 @@
       "id": "pictet-77ed9ea6aa88",
       "slug": "gestione-dei-processi-aziendali-pictet-group-geneva",
       "slugByLocale": {
-        "it": "gestione-dei-processi-aziendali-pictet-group-geneva",
         "en": "business-process-manager-pictet-geneva",
+        "it": "gestione-dei-processi-aziendali-pictet-group-geneva",
         "de": "geschaftsprozessmanager-pictet-group-geneva",
-        "fr": "gestionnaire-des-processus-operationnels-pictet-group-geneva"
+        "fr": "gestionnaire-de-processus-operationnels-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -718,7 +718,8 @@
       "firstSeenAt": "2026-08-24T21:41:08.426Z",
       "previousSlugs": [
         "business-process-manager-pictet-geneva",
-        "gestione-dei-processi-aziendali-pictet-group-geneva"
+        "gestione-dei-processi-aziendali-pictet-group-geneva",
+        "gestionnaire-des-processus-operationnels-pictet-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -729,7 +730,8 @@
           "business-process-manager-pictet-geneva"
         ],
         "fr": [
-          "business-process-manager-pictet-geneva"
+          "business-process-manager-pictet-geneva",
+          "gestionnaire-des-processus-operationnels-pictet-group-geneva"
         ]
       }
     },

@@ -3145,10 +3145,10 @@
       "id": "coopers-ef39f617f424",
       "slug": "test-manager-migrazione-rise-sap-m-f-d-coopers-group-ag-bern",
       "slugByLocale": {
+        "de": "test-manager-sap-rise-migration-m-w-d-coopers-bern",
         "it": "test-manager-migrazione-rise-sap-m-f-d-coopers-group-ag-bern",
         "en": "test-manager-sap-rise-migration-m-w-d-coopers-bern",
-        "de": "test-manager-sap-rise-migration-m-w-d-coopers-bern",
-        "fr": "gestionnaire-de-test-migration-pas-rise-h-f-d-coopers-group-ag-bern"
+        "fr": "gestionnaire-de-tests-migration-pas-rise-h-f-d-coopers-group-ag-bern"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -3220,10 +3220,14 @@
       "previousSlugsByLocale": {
         "it": [
           "test-manager-sap-rise-migration-m-w-d-coopers-bern"
+        ],
+        "fr": [
+          "gestionnaire-de-test-migration-pas-rise-h-f-d-coopers-group-ag-bern"
         ]
       },
       "previousSlugs": [
-        "test-manager-sap-rise-migration-m-w-d-coopers-bern"
+        "test-manager-sap-rise-migration-m-w-d-coopers-bern",
+        "gestionnaire-de-test-migration-pas-rise-h-f-d-coopers-group-ag-bern"
       ]
     },
     {

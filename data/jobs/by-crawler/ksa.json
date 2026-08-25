@@ -1304,14 +1304,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Pilot ohne Motivationsbrief",
-      "previousSlugs": [
-        "fachexpertin-fachexperte-pflege-ksa-ch",
-        "fachexpertin-fachexperte-pflege-ksa-ch-2-9ztjpb",
-        "specialist-care-expert-kantonsspital-aarau-ksa-aarau-bebb8b",
-        "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau-bebb8b",
-        "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau",
-        "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau-59e039"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "fachexpertin-fachexperte-pflege-ksa-ch",
@@ -1327,7 +1319,14 @@
           "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau-59e039"
         ]
       },
-      "firstSeenAt": "2026-08-24T21:34:35.239Z",
+      "previousSlugs": [
+        "fachexpertin-fachexperte-pflege-ksa-ch",
+        "fachexpertin-fachexperte-pflege-ksa-ch-2-9ztjpb",
+        "specialist-care-expert-kantonsspital-aarau-ksa-aarau-bebb8b",
+        "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau-bebb8b",
+        "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau",
+        "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau-59e039"
+      ],
       "salaryMin": 88000,
       "salaryMax": 123000,
       "baseSalary": {
@@ -1339,7 +1338,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-24T21:34:35.239Z"
     },
     {
       "id": "ksa-c1bb3020ef83",
@@ -2197,7 +2197,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.791Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "baseSalary": {
@@ -2209,7 +2208,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-50d01a54c105",

@@ -1219,7 +1219,7 @@
         "it": "conduttore-rayon-in-pane-prodotti-da-forno-coop-genossenschaft-zollikofen",
         "en": "rayon-conductor-in-bread-baked-goods-coop-genossenschaft-zollikofen",
         "de": "rayonleiter-in-brot-backwaren-coop-zollikofen-bern-95hfme",
-        "fr": "conducteur-de-rayonne-en-pain-produits-de-boulangerie-coop-genossenschaft-zollikofen"
+        "fr": "chef-de-rayonne-en-pain-produits-de-boulangerie-coop-genossenschaft-zollikofen"
       },
       "addressLocality": "Zollikofen",
       "addressRegion": "BE",
@@ -1246,12 +1246,14 @@
           "rayonleiter-in-brot-backwaren-coop-zollikofen-bern-95hfme"
         ],
         "fr": [
-          "rayonleiter-in-brot-backwaren-coop-zollikofen-bern-95hfme"
+          "rayonleiter-in-brot-backwaren-coop-zollikofen-bern-95hfme",
+          "conducteur-de-rayonne-en-pain-produits-de-boulangerie-coop-genossenschaft-zollikofen"
         ]
       },
       "previousSlugs": [
         "rayonleiter-in-brot-backwaren-coop-zollikofen-bern-95hfme",
-        "rayonleiter-in-brot-backwaren-coop-zollikofen-bern"
+        "rayonleiter-in-brot-backwaren-coop-zollikofen-bern",
+        "conducteur-de-rayonne-en-pain-produits-de-boulangerie-coop-genossenschaft-zollikofen"
       ]
     },
     {
@@ -1661,7 +1663,7 @@
         "it": "rayon-leader-in-nonfood-coop-genossenschaft-ingenbohl",
         "en": "rayonleiter-in-nonfood-coop-ingenbohl-schwyz-ha6bm3",
         "de": "rayonleiter-in-nonfood-coop-ingenbohl-schwyz-ha6bm3",
-        "fr": "rayon-leader-dans-non-alimentaire-coop-genossenschaft-ingenbohl"
+        "fr": "chef-de-rayon-dans-non-alimentaire-coop-genossenschaft-ingenbohl"
       },
       "addressLocality": "Ingenbohl",
       "addressRegion": "SZ",
@@ -1685,12 +1687,14 @@
           "rayonleiter-in-nonfood-coop-ingenbohl-schwyz"
         ],
         "fr": [
-          "rayonleiter-in-nonfood-coop-ingenbohl-schwyz-ha6bm3"
+          "rayonleiter-in-nonfood-coop-ingenbohl-schwyz-ha6bm3",
+          "rayon-leader-dans-non-alimentaire-coop-genossenschaft-ingenbohl"
         ]
       },
       "previousSlugs": [
         "rayonleiter-in-nonfood-coop-ingenbohl-schwyz-ha6bm3",
-        "rayonleiter-in-nonfood-coop-ingenbohl-schwyz"
+        "rayonleiter-in-nonfood-coop-ingenbohl-schwyz",
+        "rayon-leader-dans-non-alimentaire-coop-genossenschaft-ingenbohl"
       ]
     },
     {
@@ -1906,10 +1910,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "consulente-commerciale-a-deco-jumbo-division-der-coop-genossenschaft-heimberg",
-        "en": "sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-heimberg",
+        "it": "consulente-commerciale-a-deco-jumbo-heimberg",
+        "en": "sales-consultant-in-deco-jumbo-heimberg",
         "de": "verkaufsberater-in-deco-jumbo-heimberg",
-        "fr": "consultant-en-ventes-en-deco-jumbo-division-der-coop-genossenschaft-heimberg"
+        "fr": "consultant-en-ventes-en-deco-jumbo-heimberg"
       },
       "addressLocality": "Heimberg",
       "sourceLang": "de",
@@ -1937,10 +1941,12 @@
           "sales-consultant-deco-jumbo-division-der-coop-genossenschaft-heimberg-m9s6op"
         ],
         "en": [
-          "verkaufsberater-in-deco-jumbo-heimberg-bern-6z9ze6"
+          "verkaufsberater-in-deco-jumbo-heimberg-bern-6z9ze6",
+          "sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-heimberg"
         ],
         "fr": [
-          "verkaufsberater-in-deco-jumbo-heimberg-bern-6z9ze6"
+          "verkaufsberater-in-deco-jumbo-heimberg-bern-6z9ze6",
+          "consultant-en-ventes-en-deco-jumbo-division-der-coop-genossenschaft-heimberg"
         ],
         "de": [
           "verkaufsberater-in-deco-jumbo-heimberg-bern-6z9ze6"
@@ -1952,7 +1958,9 @@
         "consulente-di-vendita-deco-jumbo-division-der-coop-genossenschaft-heimberg",
         "consultant-en-ventes-deco-jumbo-division-der-coop-genossenschaft-heimberg",
         "consultant-en-ventes-deco-jumbo-division-der-coop-genossenschaft-heimberg-m9s6op",
-        "sales-consultant-deco-jumbo-division-der-coop-genossenschaft-heimberg-m9s6op"
+        "sales-consultant-deco-jumbo-division-der-coop-genossenschaft-heimberg-m9s6op",
+        "sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-heimberg",
+        "consultant-en-ventes-en-deco-jumbo-division-der-coop-genossenschaft-heimberg"
       ]
     },
     {
@@ -2123,7 +2131,7 @@
     },
     {
       "id": "company-flpjz5",
-      "slug": "osservatore-in-christ-uhren-schmuck-ag-wallisellen-zurich",
+      "slug": "orologio-in-christ-uhren-schmuck-ag-wallisellen-zurich",
       "company": "CHRIST Uhren & Schmuck AG",
       "title": "Uhrmacher:in",
       "location": "Wallisellen, Zürich",
@@ -2169,10 +2177,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "osservatore-in-christ-uhren-schmuck-ag-wallisellen-zurich",
+        "it": "orologio-in-christ-uhren-schmuck-ag-wallisellen-zurich",
         "en": "watchmaker-in-christ-uhren-schmuck-ag-wallisellen-zurich",
         "de": "uhrmacher-in-christ-orologi-gioielli-wallisellen-zurich-flpjz5",
-        "fr": "horlogerie-en-christ-uhren-schmuck-ag-wallisellen-zurich"
+        "fr": "horlogerie-christ-uhren-schmuck-ag-wallisellen-zurich"
       },
       "addressLocality": "Wallisellen",
       "sourceLang": "de",
@@ -2193,18 +2201,22 @@
       "previousSlugsByLocale": {
         "it": [
           "uhrmacher-in-christ-orologi-gioielli-wallisellen-zurich-flpjz5",
-          "uhrmacher-in-christ-orologi-gioielli-wallisellen-zurich"
+          "uhrmacher-in-christ-orologi-gioielli-wallisellen-zurich",
+          "osservatore-in-christ-uhren-schmuck-ag-wallisellen-zurich"
         ],
         "en": [
           "uhrmacher-in-christ-orologi-gioielli-wallisellen-zurich-flpjz5"
         ],
         "fr": [
-          "uhrmacher-in-christ-orologi-gioielli-wallisellen-zurich-flpjz5"
+          "uhrmacher-in-christ-orologi-gioielli-wallisellen-zurich-flpjz5",
+          "horlogerie-en-christ-uhren-schmuck-ag-wallisellen-zurich"
         ]
       },
       "previousSlugs": [
         "uhrmacher-in-christ-orologi-gioielli-wallisellen-zurich-flpjz5",
-        "uhrmacher-in-christ-orologi-gioielli-wallisellen-zurich"
+        "uhrmacher-in-christ-orologi-gioielli-wallisellen-zurich",
+        "osservatore-in-christ-uhren-schmuck-ag-wallisellen-zurich",
+        "horlogerie-en-christ-uhren-schmuck-ag-wallisellen-zurich"
       ]
     },
     {
@@ -2550,10 +2562,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "consulente-vendite-in-garden-jumbo-division-der-coop-genossenschaft-schanis",
-        "en": "sales-advisor-in-garden-jumbo-division-der-coop-genossenschaft-schanis",
+        "it": "consulente-vendite-in-garden-jumbo-schanis",
+        "en": "sales-advisor-in-garden-jumbo-schanis",
         "de": "verkaufsberater-in-garden-jumbo-schanis",
-        "fr": "conseiller-commercial-a-garden-jumbo-division-der-coop-genossenschaft-schanis"
+        "fr": "conseiller-commercial-a-garden-jumbo-schanis"
       },
       "addressLocality": "Schänis",
       "sourceLang": "de",
@@ -2579,10 +2591,12 @@
           "consulente-vendite-garden-jumbo-division-der-coop-genossenschaft-wurenlingen"
         ],
         "en": [
-          "verkaufsberater-in-garden-jumbo-schanis-sankt-gallen-3acyko"
+          "verkaufsberater-in-garden-jumbo-schanis-sankt-gallen-3acyko",
+          "sales-advisor-in-garden-jumbo-division-der-coop-genossenschaft-schanis"
         ],
         "fr": [
-          "verkaufsberater-in-garden-jumbo-schanis-sankt-gallen-3acyko"
+          "verkaufsberater-in-garden-jumbo-schanis-sankt-gallen-3acyko",
+          "conseiller-commercial-a-garden-jumbo-division-der-coop-genossenschaft-schanis"
         ],
         "de": [
           "verkaufsberater-in-garden-jumbo-schanis-sankt-gallen-3acyko"
@@ -2592,7 +2606,9 @@
         "verkaufsberater-in-garden-jumbo-schanis-sankt-gallen-3acyko",
         "verkaufsberater-in-garden-jumbo-schanis-sankt-gallen",
         "consulente-vendite-do-it-jumbo-division-der-coop-genossenschaft-schanis",
-        "consulente-vendite-garden-jumbo-division-der-coop-genossenschaft-wurenlingen"
+        "consulente-vendite-garden-jumbo-division-der-coop-genossenschaft-wurenlingen",
+        "sales-advisor-in-garden-jumbo-division-der-coop-genossenschaft-schanis",
+        "conseiller-commercial-a-garden-jumbo-division-der-coop-genossenschaft-schanis"
       ]
     },
     {
@@ -3453,7 +3469,7 @@
     },
     {
       "id": "company-lr2o0e",
-      "slug": "outsystems-developer-fust-oberburen-sankt-gallen",
+      "slug": "outsystems-sviluppatore-fust-swiss-household-services-ag-oberburen",
       "company": "Fust | Swiss Household Services AG",
       "title": "Outsystems Developer",
       "location": "Oberbüren",
@@ -3490,10 +3506,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "outsystems-sviluppatore-fust-oberburen-sankt-gallen-lr2o0e",
-        "en": "outsystems-developer-fust-oberburen-sankt-gallen-lr2o0e",
+        "it": "outsystems-sviluppatore-fust-swiss-household-services-ag-oberburen",
+        "en": "outsystems-developer-fust-swiss-household-services-ag-oberburen",
         "de": "outsystems-entwickler-fust-oberburen-sankt-gallen-lr2o0e",
-        "fr": "outsystems-developpeur-fust-oberburen-sankt-gallen-lr2o0e"
+        "fr": "outsystems-developpeur-fust-swiss-household-services-ag-oberburen"
       },
       "addressLocality": "Oberbüren",
       "sourceLang": "de",
@@ -3509,7 +3525,25 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "outsystems-sviluppatore-fust-oberburen-sankt-gallen-lr2o0e",
+          "outsystems-developer-fust-oberburen-sankt-gallen"
+        ],
+        "en": [
+          "outsystems-developer-fust-oberburen-sankt-gallen-lr2o0e"
+        ],
+        "fr": [
+          "outsystems-developpeur-fust-oberburen-sankt-gallen-lr2o0e"
+        ]
+      },
+      "previousSlugs": [
+        "outsystems-sviluppatore-fust-oberburen-sankt-gallen-lr2o0e",
+        "outsystems-developer-fust-oberburen-sankt-gallen",
+        "outsystems-developer-fust-oberburen-sankt-gallen-lr2o0e",
+        "outsystems-developpeur-fust-oberburen-sankt-gallen-lr2o0e"
+      ]
     },
     {
       "id": "company-9b0b72",
@@ -3984,7 +4018,7 @@
         "it": "venditore-in-nonfood-coop-genossenschaft-aarberg",
         "en": "seller-in-nonfood-coop-genossenschaft-aarberg",
         "de": "verkaufer-in-nonfood-coop-aarberg-bern-hcxbsv",
-        "fr": "vendeur-en-non-alimentaire-coop-genossenschaft-aarberg"
+        "fr": "vendeur-dans-non-alimentaire-coop-genossenschaft-aarberg"
       },
       "addressLocality": "Aarberg",
       "sourceLang": "de",
@@ -4011,12 +4045,14 @@
           "verkaufer-in-nonfood-coop-aarberg-bern-hcxbsv"
         ],
         "fr": [
-          "verkaufer-in-nonfood-coop-aarberg-bern-hcxbsv"
+          "verkaufer-in-nonfood-coop-aarberg-bern-hcxbsv",
+          "vendeur-en-non-alimentaire-coop-genossenschaft-aarberg"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-nonfood-coop-aarberg-bern-hcxbsv",
-        "verkaufer-in-nonfood-coop-aarberg-bern"
+        "verkaufer-in-nonfood-coop-aarberg-bern",
+        "vendeur-en-non-alimentaire-coop-genossenschaft-aarberg"
       ]
     },
     {
@@ -4354,7 +4390,7 @@
         "it": "venditore-in-nonfood-coop-genossenschaft-luzern",
         "en": "seller-in-nonfood-coop-genossenschaft-luzern",
         "de": "verkaufer-in-nonfood-coop-luzern-jhxh7v",
-        "fr": "vendeur-en-non-alimentaire-coop-genossenschaft-luzern"
+        "fr": "vendeur-dans-non-alimentaire-coop-genossenschaft-luzern"
       },
       "addressLocality": "Luzern",
       "sourceLang": "de",
@@ -4381,12 +4417,14 @@
           "verkaufer-in-nonfood-coop-luzern-jhxh7v"
         ],
         "fr": [
-          "verkaufer-in-nonfood-coop-luzern-jhxh7v"
+          "verkaufer-in-nonfood-coop-luzern-jhxh7v",
+          "vendeur-en-non-alimentaire-coop-genossenschaft-luzern"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-nonfood-coop-luzern-jhxh7v",
-        "verkaufer-in-nonfood-coop-luzern"
+        "verkaufer-in-nonfood-coop-luzern",
+        "vendeur-en-non-alimentaire-coop-genossenschaft-luzern"
       ]
     },
     {

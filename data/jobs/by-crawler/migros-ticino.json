@@ -5602,7 +5602,7 @@
     },
     {
       "id": "company-7j6db7",
-      "slug": "sonntags-aushilfe-konditorei-fresh-food-beverage-group-gossau",
+      "slug": "pasticceria-domenicale-fresh-food-beverage-group-gossau",
       "company": "Fresh Food & Beverage Group",
       "title": "Sonntags-Aushilfe Konditorei",
       "location": "Gossau",
@@ -5668,10 +5668,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "sonntags-aushilfe-konditorei-fresh-food-beverage-group-gossau",
-        "en": "sunday-help-patisserie-fresh-food-beverage-group-gossau",
+        "it": "pasticceria-domenicale-fresh-food-beverage-group-gossau",
+        "en": "sunday-aid-confectionery-fresh-food-beverage-group-gossau",
         "de": "sonntags-aushilfe-konditorei-fresh-food-beverage-group-gossau-7j6db7",
-        "fr": "patisserie-d-aide-du-dimanche-fresh-food-beverage-group-gossau"
+        "fr": "confiserie-dominicale-fresh-food-beverage-group-gossau"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
@@ -5681,16 +5681,20 @@
           "sonntags-aushilfe-konditorei-fresh-food-beverage-group-gossau"
         ],
         "en": [
-          "sonntags-aushilfe-konditorei-fresh-food-beverage-group-gossau-7j6db7"
+          "sonntags-aushilfe-konditorei-fresh-food-beverage-group-gossau-7j6db7",
+          "sunday-help-patisserie-fresh-food-beverage-group-gossau"
         ],
         "fr": [
-          "sonntags-aushilfe-konditorei-fresh-food-beverage-group-gossau-7j6db7"
+          "sonntags-aushilfe-konditorei-fresh-food-beverage-group-gossau-7j6db7",
+          "patisserie-d-aide-du-dimanche-fresh-food-beverage-group-gossau"
         ]
       },
       "previousSlugs": [
         "sonntags-aushilfe-konditorei-fresh-food-beverage-group-gossau-7j6db7",
         "domenica-aiuto-pasticceria-fresh-food-beverage-group-gossau",
-        "sonntags-aushilfe-konditorei-fresh-food-beverage-group-gossau"
+        "sonntags-aushilfe-konditorei-fresh-food-beverage-group-gossau",
+        "sunday-help-patisserie-fresh-food-beverage-group-gossau",
+        "patisserie-d-aide-du-dimanche-fresh-food-beverage-group-gossau"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -5785,9 +5789,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-fruchte-gemuse-per-abendeinsatze-genossenschaft-migros-zurich-iy7whw",
-        "en": "seller-in-fruits-vegetables-for-evening-assignments-genossenschaft-migros-zurich-zurich",
+        "en": "vendor-fruits-vegetables-for-evening-assignments-genossenschaft-migros-zurich-zurich",
         "de": "verkaufer-in-fruchte-gemuse-fur-abendeinsatze-genossenschaft-migros-zurich-iy7whw",
-        "fr": "vendeur-en-fruits-et-legumes-pour-les-missions-du-soir-genossenschaft-migros-zurich-zurich"
+        "fr": "vendeur-fruits-et-legumes-pour-les-missions-en-soiree-genossenschaft-migros-zurich-zurich"
       },
       "needsRetranslation": true,
       "sourceLang": "de",
@@ -5796,15 +5800,19 @@
           "verkaufer-in-fruchte-gemuse-fur-abendeinsatze-genossenschaft-migros-zurich"
         ],
         "en": [
-          "verkaufer-in-fruchte-gemuse-fur-abendeinsatze-genossenschaft-migros-zurich-iy7whw"
+          "verkaufer-in-fruchte-gemuse-fur-abendeinsatze-genossenschaft-migros-zurich-iy7whw",
+          "seller-in-fruits-vegetables-for-evening-assignments-genossenschaft-migros-zurich-zurich"
         ],
         "fr": [
-          "verkaufer-in-fruchte-gemuse-fur-abendeinsatze-genossenschaft-migros-zurich-iy7whw"
+          "verkaufer-in-fruchte-gemuse-fur-abendeinsatze-genossenschaft-migros-zurich-iy7whw",
+          "vendeur-en-fruits-et-legumes-pour-les-missions-du-soir-genossenschaft-migros-zurich-zurich"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-fruchte-gemuse-fur-abendeinsatze-genossenschaft-migros-zurich",
-        "verkaufer-in-fruchte-gemuse-fur-abendeinsatze-genossenschaft-migros-zurich-iy7whw"
+        "verkaufer-in-fruchte-gemuse-fur-abendeinsatze-genossenschaft-migros-zurich-iy7whw",
+        "seller-in-fruits-vegetables-for-evening-assignments-genossenschaft-migros-zurich-zurich",
+        "vendeur-en-fruits-et-legumes-pour-les-missions-du-soir-genossenschaft-migros-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -15060,9 +15068,9 @@
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-q0tv2",
@@ -18702,9 +18710,9 @@
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-l6qqjc",
@@ -24654,9 +24662,9 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-k9o3l4",
@@ -32991,6 +32999,8 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "previousSlugs": [
         "istruttore-di-fitness-f-m-d-activ-fitness-bern"
       ],
@@ -32999,9 +33009,7 @@
           "istruttore-di-fitness-f-m-d-activ-fitness-bern"
         ]
       },
-      "needsRetranslation": true,
-      "salaryMin": 68500,
-      "salaryMax": 104000
+      "needsRetranslation": true
     },
     {
       "id": "company-k70zqy",
@@ -34699,9 +34707,9 @@
           "directeur-adjoint-de-la-succursale-denner-ag-walenstadt"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-wzncbe",
@@ -35010,7 +35018,7 @@
         "it": "transportdisponent-in-genossenschaft-migros-zurich",
         "en": "transport-dispatcher-in-genossenschaft-migros-zurich-zurich",
         "de": "transportdisponent-in-genossenschaft-migros-zurich-k03j2d",
-        "fr": "responsable-de-la-planification-des-transports-genossenschaft-migros-zurich"
+        "fr": "transporteur-en-genossenschaft-migros-zurich-zurich"
       },
       "requirementsByLocale": {
         "it": [],
@@ -35061,9 +35069,9 @@
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-3k6zx9",
@@ -37117,7 +37125,7 @@
         "it": "spedizioni-di-trasporto-in-magenwil-denner-magenwil",
         "en": "transport-dispatcher-in-magenwil-denner-magenwil",
         "de": "transportdisponent-in-magenwil-denner",
-        "fr": "dispatcher-transport-magenwil-denner-ag-magenwil"
+        "fr": "transporteur-a-magenwil-denner-magenwil"
       },
       "requirementsByLocale": {
         "it": [],
@@ -37180,9 +37188,9 @@
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-w5yycn",
@@ -42839,9 +42847,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-i9mnlu",
@@ -52514,9 +52522,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-7ly9qz",
@@ -61351,9 +61359,9 @@
         "fitnesstrainer-m-w-d-activ-fitness-aarau-6dp8yi",
         "istruttore-di-fitness-f-m-d-activ-fitness-aarau-184abe"
       ],
-      "needsRetranslation": true,
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-rhd880",
@@ -62846,9 +62854,9 @@
       "retranslationAttempts": 17,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2642,
-      "needsRetranslation": true,
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-5nsq3z",
@@ -63197,9 +63205,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-6tgptl",
@@ -64152,9 +64160,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-2ndjc9",
@@ -81386,9 +81394,9 @@
         "fitness-instructor-w-m-d-activ-fitness-kloten",
         "istruttore-di-fitness-f-m-d-activ-fitness-kloten"
       ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "migrolino-31b2fdd0e1d8",
@@ -96660,9 +96668,9 @@
       "employmentType": "FULL_TIME",
       "postalCode": "9000",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-o8pp1i",
@@ -112758,9 +112766,9 @@
       "employmentType": "FULL_TIME",
       "postalCode": "9000",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 49500,
-      "salaryMax": 75000
+      "salaryMax": 75000,
+      "needsRetranslation": true
     },
     {
       "id": "company-z0ao1d",

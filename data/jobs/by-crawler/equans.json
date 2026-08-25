@@ -6225,10 +6225,10 @@
       "id": "equans-66d46dd1b481",
       "slug": "tecnica-r-housekeeper-in-equans-switzerland-zurich",
       "slugByLocale": {
+        "de": "technische-r-hauswart-in-equans-zurich",
         "it": "tecnica-r-housekeeper-in-equans-switzerland-zurich",
         "en": "technical-r-housekeeper-in-equans-switzerland-zurich",
-        "de": "technische-r-hauswart-in-equans-zurich",
-        "fr": "techniciens-equans-switzerland-zurich"
+        "fr": "technique-equans-switzerland-zurich"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -6299,7 +6299,8 @@
         ],
         "fr": [
           "technique-equans-switzerland-zurich-1770de",
-          "technische-r-hauswart-in-equans-zurich"
+          "technische-r-hauswart-in-equans-zurich",
+          "techniciens-equans-switzerland-zurich"
         ]
       },
       "previousSlugs": [
@@ -6307,7 +6308,8 @@
         "technical-r-housekeeper-in-equans-switzerland-zurich-1770de",
         "technique-equans-switzerland-zurich-1770de",
         "technische-r-hauswart-in-equans-zurich",
-        "tecnica-r-housekeeper-in-equans-switzerland-zurich"
+        "tecnica-r-housekeeper-in-equans-switzerland-zurich",
+        "techniciens-equans-switzerland-zurich"
       ]
     },
     {
@@ -6360,13 +6362,7 @@
       "hiringOrganizationName": "Equans Switzerland AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-infopoint-springer-in-equans-ebikon",
-        "associate-infopoint-springer-in-equans-switzerland-ebikon",
-        "collaborateur-trice-infopoint-springer-in-equans-switzerland-ebikon",
-        "collaboratore-trice-infopoint-springer-in-equans-switzerland-ebikon-rax556",
-        "collaboratore-trice-infopoint-springer-in-equans-switzerland-ebikon"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-infopoint-springer-in-equans-ebikon",
@@ -6383,8 +6379,13 @@
           "mitarbeiter-in-infopoint-springer-in-equans-ebikon"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-24T21:35:20.823Z",
+      "previousSlugs": [
+        "mitarbeiter-in-infopoint-springer-in-equans-ebikon",
+        "associate-infopoint-springer-in-equans-switzerland-ebikon",
+        "collaborateur-trice-infopoint-springer-in-equans-switzerland-ebikon",
+        "collaboratore-trice-infopoint-springer-in-equans-switzerland-ebikon-rax556",
+        "collaboratore-trice-infopoint-springer-in-equans-switzerland-ebikon"
+      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -6396,7 +6397,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-24T21:35:20.823Z"
     },
     {
       "id": "equans-36b7798ab4da",
@@ -6448,16 +6450,7 @@
       "hiringOrganizationName": "Equans Switzerland AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "sicherheitsmitarbeiter-in-equans-ebikon",
-        "security-officer-in-equans-switzerland-ebikon-3a0f8e",
-        "agent-de-securite-equans-switzerland-ebikon-3a0f8e",
-        "dipendente-della-sicurezza-equans-switzerland-ebikon",
-        "security-officer-in-equans-switzerland-ebikon",
-        "agent-de-securite-equans-switzerland-ebikon",
-        "sicherheitsmitarbeiter-in-equans-switzerland-ebikon",
-        "agente-di-sicurezza-in-equans-switzerland-ebikon"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "sicherheitsmitarbeiter-in-equans-ebikon",
@@ -6478,8 +6471,16 @@
           "sicherheitsmitarbeiter-in-equans-switzerland-ebikon"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-24T21:35:20.802Z",
+      "previousSlugs": [
+        "sicherheitsmitarbeiter-in-equans-ebikon",
+        "security-officer-in-equans-switzerland-ebikon-3a0f8e",
+        "agent-de-securite-equans-switzerland-ebikon-3a0f8e",
+        "dipendente-della-sicurezza-equans-switzerland-ebikon",
+        "security-officer-in-equans-switzerland-ebikon",
+        "agent-de-securite-equans-switzerland-ebikon",
+        "sicherheitsmitarbeiter-in-equans-switzerland-ebikon",
+        "agente-di-sicurezza-in-equans-switzerland-ebikon"
+      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -6491,7 +6492,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-24T21:35:20.802Z"
     },
     {
       "id": "equans-3471bb193eca",
@@ -6661,10 +6663,10 @@
       "id": "equans-e3dea9435284",
       "slug": "housekeeper-in-equans-switzerland-basel",
       "slugByLocale": {
+        "de": "hauswart-in-equans-basel",
         "it": "housekeeper-in-equans-switzerland-basel",
         "en": "hauswart-in-equans-basel",
-        "de": "hauswart-in-equans-basel",
-        "fr": "menageuse-equans-switzerland-basel"
+        "fr": "femme-de-menage-equans-switzerland-basel"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -6723,7 +6725,8 @@
       "firstSeenAt": "2026-08-24T21:35:20.741Z",
       "previousSlugs": [
         "hauswart-in-equans-basel",
-        "housekeeper-in-equans-switzerland-basel"
+        "housekeeper-in-equans-switzerland-basel",
+        "menageuse-equans-switzerland-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6731,17 +6734,18 @@
           "housekeeper-in-equans-switzerland-basel"
         ],
         "fr": [
-          "hauswart-in-equans-basel"
+          "hauswart-in-equans-basel",
+          "menageuse-equans-switzerland-basel"
         ]
       }
     },
     {
       "id": "equans-223850c55360",
-      "slug": "filettatura-automatica-equans-switzerland-brig",
+      "slug": "fiocco-automatico-equans-switzerland-brig-292438",
       "slugByLocale": {
-        "it": "filettatura-automatica-equans-switzerland-brig",
-        "en": "automatic-fitter-equans-switzerland-brig-292438",
         "de": "automatikmonteur-in-equans-brig",
+        "it": "fiocco-automatico-equans-switzerland-brig-292438",
+        "en": "automatic-fitter-equans-switzerland-brig-292438",
         "fr": "automatikmonteur-in-equans-switzerland-brig"
       },
       "company": "Equans Switzerland",
@@ -6822,9 +6826,9 @@
       "id": "equans-14d78b69fe32",
       "slug": "tecnico-di-servizio-in-riscaldamento-ventilazione-aria-condizionata-equans-switzerland-bern-508743",
       "slugByLocale": {
+        "de": "servicetechniker-in-heizung-luftung-klima-equans-bern",
         "it": "tecnico-di-servizio-in-riscaldamento-ventilazione-aria-condizionata-equans-switzerland-bern-508743",
         "en": "service-technician-in-heating-ventilation-air-conditioning-equans-switzerland-bern-508743",
-        "de": "servicetechniker-in-heizung-luftung-klima-equans-bern",
         "fr": "technicien-de-service-dans-chauffage-ventilation-climatisation-equans-switzerland-bern-508743"
       },
       "company": "Equans Switzerland",
@@ -6951,12 +6955,6 @@
       "hiringOrganizationName": "Equans Switzerland AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "elektroinstallateur-in-equans-brig-glis",
-        "electrical-installer-equans-switzerland-brig-glis",
-        "installateur-trice-electricien-ne-equans-switzerland-brig-glis",
-        "installatore-trice-elettrico-a-in-equans-switzerland-brig-glis"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-in-equans-brig-glis",
@@ -6971,8 +6969,12 @@
           "elektroinstallateur-in-equans-brig-glis"
         ]
       },
-      "firstSeenAt": "2026-08-24T21:35:20.715Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "elektroinstallateur-in-equans-brig-glis",
+        "electrical-installer-equans-switzerland-brig-glis",
+        "installateur-trice-electricien-ne-equans-switzerland-brig-glis",
+        "installatore-trice-elettrico-a-in-equans-switzerland-brig-glis"
+      ],
       "salaryMin": 71000,
       "salaryMax": 107500,
       "baseSalary": {
@@ -6984,7 +6986,9 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-24T21:35:20.715Z",
+      "needsRetranslation": true
     },
     {
       "id": "equans-f87b5906b435",
@@ -7036,12 +7040,20 @@
       "hiringOrganizationName": "Equans Switzerland AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "service-installer-in-ventilation-climate-equans-switzerland-brig-glis",
-        "installateur-in-ventilation-climat-equans-switzerland-brig-glis",
-        "servicemonteur-in-luftung-klima-equans-brig-glis",
-        "installatore-di-servizio-in-ventilazione-clima-equans-switzerland-brig-glis"
-      ],
+      "needsRetranslation": true,
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 71000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-24T21:35:20.645Z",
       "previousSlugsByLocale": {
         "it": [
           "service-installer-in-ventilation-climate-equans-switzerland-brig-glis",
@@ -7056,20 +7068,12 @@
           "servicemonteur-in-luftung-klima-equans-brig-glis"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-24T21:35:20.645Z",
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 71000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "service-installer-in-ventilation-climate-equans-switzerland-brig-glis",
+        "installateur-in-ventilation-climat-equans-switzerland-brig-glis",
+        "servicemonteur-in-luftung-klima-equans-brig-glis",
+        "installatore-di-servizio-in-ventilazione-clima-equans-switzerland-brig-glis"
+      ]
     },
     {
       "id": "equans-6b5e8d5cf88a",
@@ -7316,10 +7320,10 @@
       "id": "equans-6622ae101630",
       "slug": "responsabile-del-progetto-electric-m-f-d-equans-switzerland-biel",
       "slugByLocale": {
+        "de": "projektleiter-elektro-w-m-d-equans-biel",
         "it": "responsabile-del-progetto-electric-m-f-d-equans-switzerland-biel",
         "en": "project-manager-electric-m-f-d-equans-switzerland-biel",
-        "de": "projektleiter-elektro-w-m-d-equans-biel",
-        "fr": "gestionnaire-de-projet-h-f-d-electrique-equans-switzerland-biel"
+        "fr": "gestionnaire-de-projet-electrique-h-f-d-equans-switzerland-biel"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -7372,13 +7376,15 @@
           "projektleiter-elektro-w-m-d-equans-biel"
         ],
         "fr": [
-          "projektleiter-elektro-w-m-d-equans-biel"
+          "projektleiter-elektro-w-m-d-equans-biel",
+          "gestionnaire-de-projet-h-f-d-electrique-equans-switzerland-biel"
         ]
       },
       "previousSlugs": [
         "projektleiter-elektro-w-m-d-equans-biel",
         "projektleiter-elektro-m-w-d-equans-switzerland-biel",
-        "responsabile-del-progetto-electric-m-f-d-equans-switzerland-biel"
+        "responsabile-del-progetto-electric-m-f-d-equans-switzerland-biel",
+        "gestionnaire-de-projet-h-f-d-electrique-equans-switzerland-biel"
       ],
       "salaryMin": 105500,
       "salaryMax": 160000,
@@ -7478,10 +7484,10 @@
       "id": "equans-82d1c9447f73",
       "slug": "tecnico-a-di-servizio-elektro-equans-switzerland-bern",
       "slugByLocale": {
+        "de": "servicetechniker-in-elektro-equans-bern",
         "it": "tecnico-a-di-servizio-elektro-equans-switzerland-bern",
         "en": "service-technician-elektro-equans-switzerland-bern",
-        "de": "servicetechniker-in-elektro-equans-bern",
-        "fr": "servicetechniker-in-elektro-equans-switzerland-bern"
+        "fr": "technicien-de-service-electrique-equans-switzerland-bern"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -7614,13 +7620,6 @@
       "hiringOrganizationName": "Equans Switzerland AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "heizungsmonteur-in-equans-bern",
-        "heating-installer-equans-switzerland-bern",
-        "installation-de-chauffage-equans-switzerland-bern",
-        "heizungsmonteur-in-equans-switzerland-bern",
-        "installatore-di-riscaldamento-equans-switzerland-bern"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "heizungsmonteur-in-equans-bern",
@@ -7636,7 +7635,13 @@
           "heizungsmonteur-in-equans-switzerland-bern"
         ]
       },
-      "firstSeenAt": "2026-08-24T21:35:20.449Z",
+      "previousSlugs": [
+        "heizungsmonteur-in-equans-bern",
+        "heating-installer-equans-switzerland-bern",
+        "installation-de-chauffage-equans-switzerland-bern",
+        "heizungsmonteur-in-equans-switzerland-bern",
+        "installatore-di-riscaldamento-equans-switzerland-bern"
+      ],
       "salaryMin": 77000,
       "salaryMax": 116500,
       "baseSalary": {
@@ -7648,7 +7653,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-24T21:35:20.449Z"
     },
     {
       "id": "equans-3b8bfa2f3c51",
@@ -7742,9 +7748,9 @@
       "id": "equans-67f6dd71a86a",
       "slug": "testa-nella-sezione-elettrica-di-zug-equans-switzerland-zug",
       "slugByLocale": {
+        "de": "leiter-in-teilbereich-elektro-in-zug-equans-zug",
         "it": "testa-nella-sezione-elettrica-di-zug-equans-switzerland-zug",
         "en": "head-in-the-electric-section-in-zug-equans-switzerland-zug",
-        "de": "leiter-in-teilbereich-elektro-in-zug-equans-zug",
         "fr": "tete-dans-la-section-electrique-de-zug-equans-switzerland-zug"
       },
       "company": "Equans Switzerland",
@@ -7871,14 +7877,6 @@
       "hiringOrganizationName": "Equans Switzerland AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "projektleiter-heizung-equans-bern",
-        "project-manager-heating-equans-switzerland-bern",
-        "chef-de-projet-chauffage-equans-switzerland-bern",
-        "riscaldamento-responsabile-di-progetto-equans-switzerland-bern",
-        "projektleiter-heizung-equans-switzerland-bern",
-        "riscaldamento-del-direttore-del-progetto-equans-switzerland-bern"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-heizung-equans-bern",
@@ -7895,7 +7893,14 @@
           "projektleiter-heizung-equans-bern"
         ]
       },
-      "firstSeenAt": "2026-08-24T21:35:20.411Z",
+      "previousSlugs": [
+        "projektleiter-heizung-equans-bern",
+        "project-manager-heating-equans-switzerland-bern",
+        "chef-de-projet-chauffage-equans-switzerland-bern",
+        "riscaldamento-responsabile-di-progetto-equans-switzerland-bern",
+        "projektleiter-heizung-equans-switzerland-bern",
+        "riscaldamento-del-direttore-del-progetto-equans-switzerland-bern"
+      ],
       "salaryMin": 105500,
       "salaryMax": 160000,
       "baseSalary": {
@@ -7907,7 +7912,8 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-24T21:35:20.411Z"
     },
     {
       "id": "equans-71d253bab703",

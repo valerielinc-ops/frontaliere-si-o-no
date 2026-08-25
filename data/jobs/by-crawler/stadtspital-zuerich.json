@@ -5188,14 +5188,11 @@
       "department": "Gesundheits- und Umweltdepartement",
       "unit": "Stadtspital Zürich",
       "referenceNumber": "51306",
-      "previousSlugs": [
-        "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-51306",
-        "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zurich-zurich",
-        "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310",
-        "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-um0f84",
-        "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310",
+          "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zurich-zurich"
+        ],
         "it": [
           "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-51306",
           "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310",
@@ -5205,14 +5202,17 @@
         "en": [
           "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zurich-zurich"
         ],
-        "de": [
-          "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310",
-          "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zurich-zurich"
-        ],
         "fr": [
           "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zurich-zurich"
         ]
       },
+      "previousSlugs": [
+        "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-51306",
+        "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zurich-zurich",
+        "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310",
+        "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-um0f84",
+        "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-16T10:08:41.047Z",
       "salaryMin": 91500,
@@ -7147,12 +7147,10 @@
       "department": "Gesundheits- und Umweltdepartement",
       "unit": "Stadtspital Zürich",
       "referenceNumber": "51349",
-      "previousSlugs": [
-        "praktikant-in-arztsekretariat-stadtspital-zuerich-51349",
-        "praktikant-in-arztsekretariat-stadtspital-zurich-zurich",
-        "segreteria-medica-stadtspital-zurich-zurich-0301a3"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "praktikant-in-arztsekretariat-stadtspital-zurich-zurich"
+        ],
         "it": [
           "praktikant-in-arztsekretariat-stadtspital-zuerich-51349",
           "praktikant-in-arztsekretariat-stadtspital-zurich-zurich",
@@ -7161,13 +7159,15 @@
         "en": [
           "praktikant-in-arztsekretariat-stadtspital-zurich-zurich"
         ],
-        "de": [
-          "praktikant-in-arztsekretariat-stadtspital-zurich-zurich"
-        ],
         "fr": [
           "praktikant-in-arztsekretariat-stadtspital-zurich-zurich"
         ]
       },
+      "previousSlugs": [
+        "praktikant-in-arztsekretariat-stadtspital-zuerich-51349",
+        "praktikant-in-arztsekretariat-stadtspital-zurich-zurich",
+        "segreteria-medica-stadtspital-zurich-zurich-0301a3"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-18T10:08:00.190Z",
       "salaryMin": 82000,
@@ -7235,12 +7235,10 @@
       "department": "Gesundheits- und Umweltdepartement",
       "unit": "Stadtspital Zürich",
       "referenceNumber": "51344",
-      "previousSlugs": [
-        "assistenzpsycholog-in-neuropsychologie-stadtspital-zuerich-51344",
-        "assistenzpsycholog-in-neuropsychologie-stadtspital-zurich-zurich",
-        "assistente-psicologo-in-neuropsicologia-stadtspital-zurich-zurich"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "assistenzpsycholog-in-neuropsychologie-stadtspital-zurich-zurich"
+        ],
         "it": [
           "assistenzpsycholog-in-neuropsychologie-stadtspital-zuerich-51344",
           "assistenzpsycholog-in-neuropsychologie-stadtspital-zurich-zurich",
@@ -7249,15 +7247,16 @@
         "en": [
           "assistenzpsycholog-in-neuropsychologie-stadtspital-zurich-zurich"
         ],
-        "de": [
-          "assistenzpsycholog-in-neuropsychologie-stadtspital-zurich-zurich"
-        ],
         "fr": [
           "assistenzpsycholog-in-neuropsychologie-stadtspital-zurich-zurich"
         ]
       },
+      "previousSlugs": [
+        "assistenzpsycholog-in-neuropsychologie-stadtspital-zuerich-51344",
+        "assistenzpsycholog-in-neuropsychologie-stadtspital-zurich-zurich",
+        "assistente-psicologo-in-neuropsicologia-stadtspital-zurich-zurich"
+      ],
       "firstSeenAt": "2026-08-17T21:51:16.840Z",
-      "needsRetranslation": true,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "baseSalary": {
@@ -7269,7 +7268,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-b5f339037696",
@@ -8853,12 +8853,10 @@
       "department": "Gesundheits- und Umweltdepartement",
       "unit": "Stadtspital Zürich",
       "referenceNumber": "51381",
-      "previousSlugs": [
-        "reinigungsmitarbeiter-in-abendreinigung-stadtspital-zuerich-51381",
-        "reinigungsmitarbeiter-in-abendreinigung-stadtspital-zurich-zurich",
-        "personale-di-pulizia-nella-pulizia-serale-stadtspital-zurich-zurich"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "reinigungsmitarbeiter-in-abendreinigung-stadtspital-zurich-zurich"
+        ],
         "it": [
           "reinigungsmitarbeiter-in-abendreinigung-stadtspital-zuerich-51381",
           "reinigungsmitarbeiter-in-abendreinigung-stadtspital-zurich-zurich",
@@ -8867,13 +8865,15 @@
         "en": [
           "reinigungsmitarbeiter-in-abendreinigung-stadtspital-zurich-zurich"
         ],
-        "de": [
-          "reinigungsmitarbeiter-in-abendreinigung-stadtspital-zurich-zurich"
-        ],
         "fr": [
           "reinigungsmitarbeiter-in-abendreinigung-stadtspital-zurich-zurich"
         ]
       },
+      "previousSlugs": [
+        "reinigungsmitarbeiter-in-abendreinigung-stadtspital-zuerich-51381",
+        "reinigungsmitarbeiter-in-abendreinigung-stadtspital-zurich-zurich",
+        "personale-di-pulizia-nella-pulizia-serale-stadtspital-zurich-zurich"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-20T09:56:58.890Z",
       "salaryMin": 83000,
@@ -8941,12 +8941,10 @@
       "department": "Gesundheits- und Umweltdepartement",
       "unit": "Stadtspital Zürich",
       "referenceNumber": "51362",
-      "previousSlugs": [
-        "fachexpertin-fachexperte-anasthesiepflege-stadtspital-zuerich-51362",
-        "fachexpertin-fachexperte-anasthesiepflege-stadtspital-zurich-zurich",
-        "expert-expert-anesthesia-care-stadtspital-zurich-zurich"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "fachexpertin-fachexperte-anasthesiepflege-stadtspital-zurich-zurich"
+        ],
         "it": [
           "fachexpertin-fachexperte-anasthesiepflege-stadtspital-zuerich-51362",
           "fachexpertin-fachexperte-anasthesiepflege-stadtspital-zurich-zurich",
@@ -8955,13 +8953,15 @@
         "en": [
           "fachexpertin-fachexperte-anasthesiepflege-stadtspital-zurich-zurich"
         ],
-        "de": [
-          "fachexpertin-fachexperte-anasthesiepflege-stadtspital-zurich-zurich"
-        ],
         "fr": [
           "fachexpertin-fachexperte-anasthesiepflege-stadtspital-zurich-zurich"
         ]
       },
+      "previousSlugs": [
+        "fachexpertin-fachexperte-anasthesiepflege-stadtspital-zuerich-51362",
+        "fachexpertin-fachexperte-anasthesiepflege-stadtspital-zurich-zurich",
+        "expert-expert-anesthesia-care-stadtspital-zurich-zurich"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-19T10:17:21.472Z",
       "salaryMin": 91500,
@@ -9029,12 +9029,10 @@
       "department": "Gesundheits- und Umweltdepartement",
       "unit": "Stadtspital Zürich",
       "referenceNumber": "51363",
-      "previousSlugs": [
-        "fachverantwortliche-r-stammdaten-stadtspital-zuerich-51363",
-        "fachverantwortliche-r-stammdaten-stadtspital-zurich-zurich",
-        "dati-master-responsabili-professionali-r-stadtspital-zurich-zurich"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "fachverantwortliche-r-stammdaten-stadtspital-zurich-zurich"
+        ],
         "it": [
           "fachverantwortliche-r-stammdaten-stadtspital-zuerich-51363",
           "fachverantwortliche-r-stammdaten-stadtspital-zurich-zurich",
@@ -9043,13 +9041,15 @@
         "en": [
           "fachverantwortliche-r-stammdaten-stadtspital-zurich-zurich"
         ],
-        "de": [
-          "fachverantwortliche-r-stammdaten-stadtspital-zurich-zurich"
-        ],
         "fr": [
           "fachverantwortliche-r-stammdaten-stadtspital-zurich-zurich"
         ]
       },
+      "previousSlugs": [
+        "fachverantwortliche-r-stammdaten-stadtspital-zuerich-51363",
+        "fachverantwortliche-r-stammdaten-stadtspital-zurich-zurich",
+        "dati-master-responsabili-professionali-r-stadtspital-zurich-zurich"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-19T10:17:21.472Z",
       "salaryMin": 91500,
@@ -9117,12 +9117,10 @@
       "department": "Gesundheits- und Umweltdepartement",
       "unit": "Stadtspital Zürich",
       "referenceNumber": "51347",
-      "previousSlugs": [
-        "praktikant-in-arztsekretariat-institut-fur-notfallmedizin-stadtspital-zuerich-51347",
-        "praktikant-in-arztsekretariat-institut-fur-notfallmedizin-stadtspital-zurich-zurich",
-        "praktikant-in-arztsekretariat-institut-per-notfallmedizin-stadtspital-zurich"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "praktikant-in-arztsekretariat-institut-fur-notfallmedizin-stadtspital-zurich-zurich"
+        ],
         "it": [
           "praktikant-in-arztsekretariat-institut-fur-notfallmedizin-stadtspital-zuerich-51347",
           "praktikant-in-arztsekretariat-institut-per-notfallmedizin-stadtspital-zurich"
@@ -9130,13 +9128,15 @@
         "en": [
           "praktikant-in-arztsekretariat-institut-fur-notfallmedizin-stadtspital-zurich-zurich"
         ],
-        "de": [
-          "praktikant-in-arztsekretariat-institut-fur-notfallmedizin-stadtspital-zurich-zurich"
-        ],
         "fr": [
           "praktikant-in-arztsekretariat-institut-fur-notfallmedizin-stadtspital-zurich-zurich"
         ]
       },
+      "previousSlugs": [
+        "praktikant-in-arztsekretariat-institut-fur-notfallmedizin-stadtspital-zuerich-51347",
+        "praktikant-in-arztsekretariat-institut-fur-notfallmedizin-stadtspital-zurich-zurich",
+        "praktikant-in-arztsekretariat-institut-per-notfallmedizin-stadtspital-zurich"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-18T10:08:00.190Z",
       "salaryMin": 82000,
@@ -10665,9 +10665,9 @@
       "id": "stadtspital-zuerich-904aa7ffd79f",
       "slug": "esperto-in-oncologia-stadtspital-zurich-zurich",
       "slugByLocale": {
+        "de": "fachexpert-in-onkologie-stadtspital-zuerich-51404",
         "it": "esperto-in-oncologia-stadtspital-zurich-zurich",
         "en": "expert-in-oncology-stadtspital-zurich-zurich",
-        "de": "fachexpert-in-onkologie-stadtspital-zuerich-51404",
         "fr": "expert-en-oncologie-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -10747,9 +10747,9 @@
       "id": "stadtspital-zuerich-b68a66147460",
       "slug": "gruppenleiter-in-pflege-universitare-klinik-per-altersmedizin-stadtspital-zurich",
       "slugByLocale": {
+        "de": "gruppenleiter-in-pflege-universitare-klinik-fur-altersmedizin-stadtspital-zuerich-51403",
         "it": "gruppenleiter-in-pflege-universitare-klinik-per-altersmedizin-stadtspital-zurich",
         "en": "group-leader-in-nursing-university-clinic-for-old-age-medicine-stadtspital-zurich-zurich",
-        "de": "gruppenleiter-in-pflege-universitare-klinik-fur-altersmedizin-stadtspital-zuerich-51403",
         "fr": "chef-de-groupe-a-la-clinique-universitaire-de-medecine-de-la-vieillesse-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -11760,9 +11760,9 @@
       "id": "stadtspital-zuerich-371f53fdcb1a",
       "slug": "assistent-in-gesundheit-e-soziales-stadtspital-zurich",
       "slugByLocale": {
+        "de": "assistent-in-gesundheit-und-soziales-stadtspital-zuerich-48179",
         "it": "assistent-in-gesundheit-e-soziales-stadtspital-zurich",
         "en": "assistant-in-health-and-social-affairs-stadtspital-zurich-zurich",
-        "de": "assistent-in-gesundheit-und-soziales-stadtspital-zuerich-48179",
         "fr": "assistant-en-sante-et-affaires-sociales-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",

@@ -162,9 +162,9 @@
       "id": "planzer-acd798cdadf6",
       "slug": "collaboratore-trice-umschlag-m-w-d-planzer-dintikon",
       "slugByLocale": {
+        "de": "mitarbeiter-umschlag-m-w-d-planzer-dintikon",
         "it": "collaboratore-trice-umschlag-m-w-d-planzer-dintikon",
         "en": "employee-envelope-m-f-d-planzer-dintikon",
-        "de": "mitarbeiter-umschlag-m-w-d-planzer-dintikon",
         "fr": "l-enveloppe-des-employes-h-f-d-planzer-dintikon"
       },
       "company": "Planzer",
@@ -243,9 +243,9 @@
       "id": "planzer-ba7fbd49fc8d",
       "slug": "collaboratore-trice-sortierung-m-w-d-planzer-villmergen",
       "slugByLocale": {
+        "de": "mitarbeiter-sortierung-m-w-d-planzer-villmergen",
         "it": "collaboratore-trice-sortierung-m-w-d-planzer-villmergen",
         "en": "employee-sorting-m-f-d-planzer-villmergen",
-        "de": "mitarbeiter-sortierung-m-w-d-planzer-villmergen",
         "fr": "tri-de-l-employe-h-f-d-planzer-villmergen"
       },
       "company": "Planzer",
@@ -337,10 +337,10 @@
       "id": "planzer-4e363abaf6e2",
       "slug": "it-division-manager-edi-data-integration-m-f-d-planzer-dietikon",
       "slugByLocale": {
+        "de": "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon",
         "it": "it-division-manager-edi-data-integration-m-f-d-planzer-dietikon",
         "en": "it-division-manager-edi-data-integration-m-f-d-planzer-dietikon",
-        "de": "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon",
-        "fr": "gestionnaire-de-division-informatique-edi-integration-des-donnees-h-f-d-planzer-dietikon"
+        "fr": "gestionnaire-de-division-informatique-edi-et-integration-des-donnees-h-f-d-planzer-dietikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -398,7 +398,8 @@
       "firstSeenAt": "2026-08-24T21:34:22.733Z",
       "previousSlugs": [
         "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon",
-        "it-division-manager-edi-data-integration-m-f-d-planzer-dietikon"
+        "it-division-manager-edi-data-integration-m-f-d-planzer-dietikon",
+        "gestionnaire-de-division-informatique-edi-integration-des-donnees-h-f-d-planzer-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -406,7 +407,8 @@
           "it-division-manager-edi-data-integration-m-f-d-planzer-dietikon"
         ],
         "fr": [
-          "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon"
+          "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon",
+          "gestionnaire-de-division-informatique-edi-integration-des-donnees-h-f-d-planzer-dietikon"
         ],
         "en": [
           "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon"
