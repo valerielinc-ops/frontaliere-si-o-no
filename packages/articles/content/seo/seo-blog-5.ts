@@ -78070,6 +78070,46 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
+
+  'blog-mazzo-valtellina-frontaliere-pratica': {
+    title: 'Vivere a Mazzo di Valtellina e lavorare in Grigioni: guida frontaliere',
+    description: 'Permesso G, fiscalità doppia, AVS, LPP, LAMal: guida pratica per il pendolarismo transfrontaliero Valtellina-Grigioni dal 2024. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, mazzo, valtellina, lavorare',
+    ogTitle: 'Vivere a Mazzo di Valtellina e lavorare in Grigioni: guida frontaliere',
+    ogDescription: 'Scopri come affrontare il pendolarismo tra Mazzo di Valtellina e i Grigioni: fiscalità, contributi previdenziali, assicurazione malattia, ristorni e checklist pratica per frontalieri 2024.',
+    canonicalPath: '/articoli-frontaliere/mazzo-valtellina-frontaliere-pratica',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Mazzo di Valtellina e lavorare in Grigioni: guida frontaliere",
+      "description": "Permesso G, fiscalità doppia, AVS, LPP, LAMal: guida pratica per il pendolarismo transfrontaliero Valtellina-Grigioni dal 2024. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mazzo-valtellina-frontaliere-pratica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio alpino al confine Ticino-Grigioni con prati di montagna e valli in lontananza."
+      },
+      "datePublished": "2026-08-25T06:23:04+00:00",
+      "dateModified": "2026-08-25T06:23:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mazzo-valtellina-frontaliere-pratica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

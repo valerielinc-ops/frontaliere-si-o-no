@@ -10753,6 +10753,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-sondrio-lavorare-grigioni.title': 'Vivre à Sondrio et travailler dans les Grisons en tant que frontalier',
     'blog.article.vivere-sondrio-lavorare-grigioni.excerpt': 'Guide pratique pour ceux qui vivent à Sondrio et travaillent dans le canton des Grisons : liens, impôt à la source, prévoyance et aspects clés.',
     'blog.article.vivere-sondrio-lavorare-grigioni.imageAlt': 'Paysage alpin entre l\'Italie et la Suisse pour travailleurs frontaliers',
+    'blog.article.mazzo-valtellina-frontaliere-pratica.title': 'Vivre à Mazzo di Valtellina et travailler dans les Grisons : guide frontalier',
+    'blog.article.mazzo-valtellina-frontaliere-pratica.excerpt': 'Permis G, double imposition, AVS, LPP, LAMal : le guide pratique pour les déplacements transfrontaliers entre la Valteline et les Grisons à partir de 2024.',
+    'blog.article.mazzo-valtellina-frontaliere-pratica.imageAlt': 'Paysage alpin à la frontière Tessin-Grisons avec des prairies de montagne et des vallées reculées.',
 };
 
 export default blogMetaFr;

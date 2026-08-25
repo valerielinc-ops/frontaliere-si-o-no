@@ -10751,6 +10751,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-sondrio-lavorare-grigioni.title': 'Living in Sondrio and working in Graubünden as a border worker',
     'blog.article.vivere-sondrio-lavorare-grigioni.excerpt': 'Practical guide for those who live in Sondrio and work in the Canton of Graubünden: connections, tax at source, social security and key aspects.',
     'blog.article.vivere-sondrio-lavorare-grigioni.imageAlt': 'Alpine landscape between Italy and Switzerland for cross-border workers',
+    'blog.article.mazzo-valtellina-frontaliere-pratica.title': 'Living in Mazzo di Valtellina and working in Grisons: border guide',
+    'blog.article.mazzo-valtellina-frontaliere-pratica.excerpt': 'Permit G, double taxation, AVS, LPP, LAMal: the practical guide for cross-border commuting between Valtellina and Graubünden since 2024.',
+    'blog.article.mazzo-valtellina-frontaliere-pratica.imageAlt': 'Alpine landscape at the Ticino-Grisons border with mountain meadows and distant valleys.',
 };
 
 export default blogMetaEn;

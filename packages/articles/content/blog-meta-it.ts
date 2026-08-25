@@ -10752,6 +10752,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-sondrio-lavorare-grigioni.title': 'Vivere a Sondrio e lavorare in Grigioni da frontaliere',
     'blog.article.vivere-sondrio-lavorare-grigioni.excerpt': 'Guida pratica per chi vive a Sondrio e lavora nel Cantone dei Grigioni: collegamenti, imposta alla fonte, previdenza e aspetti chiave.',
     'blog.article.vivere-sondrio-lavorare-grigioni.imageAlt': 'Panorama alpino tra Italia e Svizzera per frontalieri',
+    'blog.article.mazzo-valtellina-frontaliere-pratica.title': 'Vivere a Mazzo di Valtellina e lavorare in Grigioni: guida frontaliere',
+    'blog.article.mazzo-valtellina-frontaliere-pratica.excerpt': 'Permesso G, fiscalità doppia, AVS, LPP, LAMal: la guida pratica per il pendolarismo transfrontaliero tra Valtellina e Grigioni dal 2024.',
+    'blog.article.mazzo-valtellina-frontaliere-pratica.imageAlt': 'Paesaggio alpino al confine Ticino-Grigioni con prati di montagna e valli in lontananza.',
 };
 
 export default blogMetaIt;
