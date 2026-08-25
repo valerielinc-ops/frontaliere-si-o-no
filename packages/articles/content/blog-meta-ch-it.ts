@@ -4237,6 +4237,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.pil-svizzera-2025-crescita.title': 'PIL Svizzera 2025: +1,6% di crescita economica',
     'blog.article.pil-svizzera-2025-crescita.excerpt': 'L\'economia svizzera cresce dell\'1,6% nel 2025 sostenuta da domanda interna (+2,5%) e investimenti (+3,5%). Dati UST ufficiali con implicazioni per lavoro e stipendi.',
     'blog.article.pil-svizzera-2025-crescita.imageAlt': 'Vista di Lugano con simboli di crescita economica e dati sul PIL svizzero 2025',
+    'blog.article.20-minuten-utile-pubblicita-digitale.title': '20 Minuten, è boom con utile e pubblicità digitale',
+    'blog.article.20-minuten-utile-pubblicita-digitale.excerpt': 'Il quotidiano online 20 Minuten registra un aumento degli utenti e dei ricavi pubblicitari digitali, con un utile di 11,7 milioni di franchi nel primo semestre 2026',
+    'blog.article.20-minuten-utile-pubblicita-digitale.imageAlt': 'Il quotidiano online 20 Minuten registra un aumento degli utenti e dei ricavi pubblicitari digitali',
 };
 
 export default blogMetaChIt;
