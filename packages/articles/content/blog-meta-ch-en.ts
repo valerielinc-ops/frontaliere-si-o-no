@@ -4285,6 +4285,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.benzina-diesel-paradosso-petrolio.title': 'Expensive petrol and diesel, but oil goes down',
     'blog.article.benzina-diesel-paradosso-petrolio.excerpt': 'Despite the 28% drop in oil prices, it is increasingly expensive to fill up in Switzerland. Petrol at 2.13 CHF/litre, diesel at 2.27 CHF/litre: the increase has exceeded 40 cents since February.',
     'blog.article.benzina-diesel-paradosso-petrolio.imageAlt': 'Fuel pump at a Swiss service station with Alpine foothills in the background',
+    'blog.article.spionaggio-svizzera-controlli.title': 'Switzerland strengthens controls on espionage',
+    'blog.article.spionaggio-svizzera-controlli.excerpt': 'The Foreign Policy Commission proposes measures against foreign espionage: checks on the legitimacy card and expulsion for foreign agents.',
+    'blog.article.spionaggio-svizzera-controlli.imageAlt': 'Swiss Federal Palace in Bern, symbol of national institutions and security',
 };
 
 export default blogMetaChEn;

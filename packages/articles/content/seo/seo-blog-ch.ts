@@ -55595,6 +55595,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-spionaggio-svizzera-controlli': {
+    title: 'La Svizzera rafforza i controlli sullo spionaggio',
+    description: 'La Commissione della politica estera propone misure contro lo spionaggio straniero con controlli sulla carta di legittimazione e espulsione di agenti esteri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, rafforza, controlli, sullo, spionaggio',
+    ogTitle: 'Svizzera: nuovi controlli contro lo spionaggio straniero',
+    ogDescription: 'La Commissione della politica estera del Consiglio nazionale propone misure per difendersi dallo spionaggio straniero: negare la carta di legittimazione a chi rappresenta un rischio e espellere agenti esteri che operano sotto copertura per Stati',
+    canonicalPath: '/articoli-svizzera/spionaggio-svizzera-controlli/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La Svizzera rafforza i controlli sullo spionaggio",
+      "description": "La Commissione della politica estera propone misure contro lo spionaggio straniero con controlli sulla carta di legittimazione e espulsione di agenti esteri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/spionaggio-svizzera-controlli.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale svizzero a Berna, simbolo delle istituzioni nazionali e della sicurezza nazionale"
+      },
+      "datePublished": "2026-08-25T16:20:54+00:00",
+      "dateModified": "2026-08-25T16:20:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/spionaggio-svizzera-controlli/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

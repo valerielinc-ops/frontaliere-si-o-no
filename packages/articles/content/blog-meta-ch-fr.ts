@@ -4285,6 +4285,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.benzina-diesel-paradosso-petrolio.title': 'Essence et diesel chers, mais le pétrole baisse',
     'blog.article.benzina-diesel-paradosso-petrolio.excerpt': 'Malgré la baisse du pétrole de 28%, faire le plein coûte de plus en plus cher en Suisse. Essence à 2,13 CHF/litre, diesel à 2,27 CHF/litre : l\'augmentation a dépassé les 40 centimes depuis février.',
     'blog.article.benzina-diesel-paradosso-petrolio.imageAlt': 'Pompe à essence à une station-service suisse avec panorama alpin en arrière-plan',
+    'blog.article.spionaggio-svizzera-controlli.title': 'La Suisse renforce les contrôles de l\'espionnage',
+    'blog.article.spionaggio-svizzera-controlli.excerpt': 'La Commission de la politique étrangère propose des mesures contre l\'espionnage étranger : contrôles sur la carte de légitimation et expulsion des agents étrangers.',
+    'blog.article.spionaggio-svizzera-controlli.imageAlt': 'Palais fédéral suisse à Berne, symbole des institutions nationales et de la sécurité',
 };
 
 export default blogMetaChFr;
