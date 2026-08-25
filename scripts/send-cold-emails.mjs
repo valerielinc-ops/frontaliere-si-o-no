@@ -458,7 +458,23 @@ async function run() {
           'List-Unsubscribe': `<${unsubUrl}>, <mailto:${OPTOUT_EMAIL}?subject=unsubscribe%20${unsubKey}>`,
           'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
         },
-        tags: [{ name: 'type', value: 'cold-outreach' }, { name: 'company', value: (m.key || m.company).slice(0, 40) }],
+        // campaign_id NAMED explicitly (not just `type`): the Resend webhook
+        // (functions/src/newsletterResendWebhookCore.js) reads `tags.campaign_id`
+        // by name — it has no positional fallback the way emailCascade.js's
+        // campaignIdTag() does for Mailgun/Mailjet/Mailtrap. Without this, every
+        // cold-outreach event routed through Resend fell back to an
+        // `unknown:<messageId>` campaign_id, unrecoverable by
+        // report-email-engagement.mjs's classifyEmailType and permanently
+        // counted as `unattributed` (2026-08-25 investigation of the weekly
+        // `unattributed` regression). Value matches the pre-existing `type` tag
+        // so this doesn't create a second, differently-spelled bucket next to
+        // history already attributed via the Mailgun/Mailjet/Mailtrap positional
+        // fallback.
+        tags: [
+          { name: 'campaign_id', value: 'cold-outreach' },
+          { name: 'type', value: 'cold-outreach' },
+          { name: 'company', value: (m.key || m.company).slice(0, 40) },
+        ],
       },
       recipient: { email: to },
       // Metadati per il log (non usati dalla cascade, solo dall'onSent callback).
