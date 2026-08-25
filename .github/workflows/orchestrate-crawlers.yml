@@ -151,6 +151,33 @@ jobs:
             done
           fi
 
+      # PILOT (2026-08-25): crawler-group-23 is dispatched cross-repo, to
+      # nanakokyobashi-rgb/frontaliere-articles, instead of locally — see the
+      # special case in "Discover and dispatch" below. That needs
+      # GITHUB_PAT_NANAKO (write/workflow-scoped PAT on nanako's repos),
+      # which — like every other secret this repo uses — only exists in
+      # Firebase Remote Config, not as a GitHub Actions secret. These two
+      # steps are the same "Prepare Firebase credentials" + "Load secrets
+      # from Remote Config" pattern every other workflow that needs an RC
+      # secret uses (see scripts/load-rc-env.mjs). Fail-soft by design if
+      # Firebase creds are unset: GITHUB_PAT_NANAKO simply stays empty, and
+      # the dispatch loop below turns that into one failed target within
+      # DISPATCH_FAIL_TOLERANCE instead of failing this whole job over a
+      # single one of the 23 targets.
+      - name: Prepare Firebase credentials (needed only for the crawler-group-23 pilot's cross-repo dispatch)
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "ℹ️ Firebase secrets not set — GITHUB_PAT_NANAKO won't load; the crawler-group-23 pilot's cross-repo dispatch will fail-soft below."
+          fi
+
+      - name: Load secrets from Remote Config (GITHUB_PAT_NANAKO — needed only for the crawler-group-23 pilot's cross-repo dispatch)
+        run: node scripts/load-rc-env.mjs
+
       - name: Discover and dispatch crawler group workflows
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -223,15 +250,22 @@ jobs:
           # previous attempt produced NO run (verified via the runs API), so a
           # slow-but-successful dispatch is not double-fired.
           DISPATCH_ATTEMPTS=3
+          # target_repo/target_token optional (default: this repo, $GH_TOKEN) —
+          # the crawler-group-23 pilot passes both explicitly to dispatch onto
+          # nanakokyobashi-rgb/frontaliere-articles with GITHUB_PAT_NANAKO
+          # instead of the local repo with the default token. Every other
+          # crawler-group-*.yml calls this with 1 arg, unchanged from before.
           dispatch_and_verify() {
             local filename="$1"
+            local target_repo="${2:-$GITHUB_REPOSITORY}"
+            local target_token="${3:-$GH_TOKEN}"
             local attempt
             for attempt in $(seq 1 "$DISPATCH_ATTEMPTS"); do
               local before_iso
               before_iso=$(date -u -d '-5 seconds' '+%Y-%m-%dT%H:%M:%SZ')
 
               # Fire-and-forget. Stderr is captured for post-mortem; exit code ignored.
-              gh workflow run "$filename" --ref main -f skip_ai_translation=1 \
+              GH_TOKEN="$target_token" gh workflow run "$filename" --repo "$target_repo" --ref main -f skip_ai_translation=1 \
                 >/dev/null 2>>"$STDERR_LOG" || true
 
               # Poll for up to ~15s for a new workflow_dispatch run created after t0.
@@ -240,8 +274,8 @@ jobs:
               while [ "$(date +%s)" -lt "$deadline" ]; do
                 sleep 2
                 local newest
-                newest=$(gh api \
-                  "/repos/${GITHUB_REPOSITORY}/actions/workflows/${filename}/runs?per_page=1&event=workflow_dispatch" \
+                newest=$(GH_TOKEN="$target_token" gh api \
+                  "/repos/${target_repo}/actions/workflows/${filename}/runs?per_page=1&event=workflow_dispatch" \
                   --jq '.workflow_runs[0].created_at // ""' 2>/dev/null || echo "")
                 if [ -n "$newest" ] && [[ "$newest" > "$before_iso" ]]; then
                   return 0
@@ -284,7 +318,27 @@ jobs:
 
             this_delay=$(get_delay "$filename")
 
-            echo -n "  [$counter/$total] $filename (delay: ${this_delay}s)"
+            # PILOT (2026-08-25): crawler-group-23 only — dispatch onto
+            # nanakokyobashi-rgb/frontaliere-articles instead of this repo, so
+            # its Actions minutes land on nanako's separate, less-saturated
+            # pool instead of this account's ~20-concurrent-job Free-plan
+            # pool. Validates the pattern before migrating the other 22
+            # crawler-group-*.yml + translate-pending.yml. The local
+            # crawler-group-23.yml here is disabled (see its own header
+            # comment) — its logic now lives as a composite action consumed
+            # by the frontaliere-articles copy of this filename. Every other
+            # group falls through to the default (this repo, $GH_TOKEN).
+            # Rollback: delete this `if` block (falls through to default) and
+            # re-enable crawler-group-23.yml's local dispatch.
+            target_repo="$GITHUB_REPOSITORY"
+            target_token="$GH_TOKEN"
+            if [ "$filename" = "crawler-group-23.yml" ]; then
+              target_repo="nanakokyobashi-rgb/frontaliere-articles"
+              target_token="${GITHUB_PAT_NANAKO:-}"
+              echo -n "  [$counter/$total] $filename → ${target_repo} (pilot) (delay: ${this_delay}s)"
+            else
+              echo -n "  [$counter/$total] $filename (delay: ${this_delay}s)"
+            fi
 
             if [ "$DRY_RUN" = "true" ]; then
               echo " — 🔵 DRY RUN (would dispatch)"
@@ -292,7 +346,10 @@ jobs:
               continue
             fi
 
-            if dispatch_and_verify "$filename"; then
+            if [ -z "$target_token" ]; then
+              echo " — ❌ FAILED (no token for $target_repo — GITHUB_PAT_NANAKO missing from Remote Config?)"
+              failed=$((failed + 1))
+            elif dispatch_and_verify "$filename" "$target_repo" "$target_token"; then
               echo " — ✅ dispatched"
               dispatched=$((dispatched + 1))
             else
