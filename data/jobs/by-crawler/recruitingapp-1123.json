@@ -1,74 +1,7 @@
 {
   "crawlerKey": "recruitingapp-1123",
-  "assembledAt": "2026-08-24T22:01:22.659Z",
+  "assembledAt": "2026-08-25T10:10:19.228Z",
   "jobs": [
-    {
-      "id": "recruitingapp-1123-25184cd67246",
-      "slug": "servicetechniker-in-hkls-campus-wu-m-w-d-big-are-stellen-lugano",
-      "slugByLocale": {
-        "it": "servicetechniker-in-hkls-campus-wu-m-w-d-big-are-stellen-lugano",
-        "en": "servicetechniker-in-hkls-campus-wu-m-w-d-big-are-stellen-lugano",
-        "de": "servicetechniker-in-hkls-campus-wu-m-w-d-big-are-stellen-lugano",
-        "fr": "servicetechniker-in-hkls-campus-wu-m-w-d-recruitingapp-1123-ch"
-      },
-      "company": "BIG & ARE Stellen",
-      "companyKey": "recruitingapp-1123",
-      "companyDomain": "recruitingapp-1123.umantis.com",
-      "title": "Servicetechniker:in HKLS Campus WU (m/w/d)",
-      "titleByLocale": {
-        "it": "Servicetechniker:in HKLS Campus WU (m/w/d)",
-        "en": "Servicetechniker:in HKLS Campus WU (m/f/d)",
-        "de": "Servicetechniker: in HKLS Campus WU (m/w/d)",
-        "fr": "Servicetechniker:in HKLS Campus WU (h/f/d)"
-      },
-      "description": "Servicetechniker:in HKLS Campus WU (m/w/d) — BIG & ARE Stellen",
-      "descriptionByLocale": {
-        "fr": "Servicetechniker:in HKLS Campus WU (m/w/d) — BIG & ARE Stellen"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://recruitingapp-1123.umantis.com/Vacancies/2504/Description/1",
-      "source": "BIG & ARE Stellen Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-24T22:01:19.021Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-23",
-      "applyUrl": "https://recruitingapp-1123.umantis.com/Vacancies/2504/Description/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "servicetechniker-in-hkls-campus-wu-m-w-d-recruitingapp-1123-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "servicetechniker-in-hkls-campus-wu-m-w-d-recruitingapp-1123-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T09:37:56.254Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI"
-    },
     {
       "id": "recruitingapp-1123-43a687d85135",
       "slug": "servicetechniker-in-brandschutz-m-w-d-big-are-stellen-lugano",
@@ -84,8 +17,8 @@
       "title": "Servicetechniker:in Brandschutz (m/w/d)",
       "titleByLocale": {
         "it": "Servicetechniker:in Brandschutz (m/w/d)",
-        "en": "Servicetechniker:in Brandschutz (m/f/d)",
-        "de": "Servicetechniker: in Brandschutz (m/w/d)",
+        "en": "Servicetechniker:in Brandschutz (m/w/d)",
+        "de": "Servicetechniker:in Brandschutz (m/w/d)",
         "fr": "Servicetechniker:in Brandschutz (h/f/d)"
       },
       "description": "Servicetechniker:in Brandschutz (m/w/d) — BIG & ARE Stellen",
@@ -97,7 +30,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2506/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-24T22:01:18.719Z",
+      "crawledAt": "2026-08-25T10:10:16.230Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -113,11 +46,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "servicetechniker-in-brandschutz-m-w-d-recruitingapp-1123-ch"
+        "servicetechniker-in-brandschutz-m-w-d-recruitingapp-1123-ch",
+        "servicetechniker-in-brandschutz-m-w-d-big-are-stellen-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-in-brandschutz-m-w-d-recruitingapp-1123-ch"
+          "servicetechniker-in-brandschutz-m-w-d-recruitingapp-1123-ch",
+          "servicetechniker-in-brandschutz-m-w-d-big-are-stellen-lugano"
         ]
       },
       "needsRetranslation": true,
@@ -152,8 +87,8 @@
       "titleByLocale": {
         "it": "Servicetechniker:in MSR Campus WU (m/w/d)",
         "en": "Servicetechniker:in MSR Campus WU (m/f/d)",
-        "de": "Servicetechniker: im MSR Campus WU (m/w/d)",
-        "fr": "Servicetechniker:in MSR Campus WU (h/f/d)"
+        "de": "Servicetechniker:in MSR Campus WU (m/w/d)",
+        "fr": "Servicetechniker:in MSR Campus WU (m/w/d)"
       },
       "description": "Servicetechniker:in MSR Campus WU (m/w/d) — BIG & ARE Stellen",
       "descriptionByLocale": {
@@ -164,7 +99,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2505/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-24T22:01:18.417Z",
+      "crawledAt": "2026-08-25T10:10:15.928Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -180,11 +115,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "servicetechniker-in-msr-campus-wu-m-w-d-recruitingapp-1123-ch"
+        "servicetechniker-in-msr-campus-wu-m-w-d-recruitingapp-1123-ch",
+        "servicetechniker-in-msr-campus-wu-m-w-d-big-are-stellen-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-in-msr-campus-wu-m-w-d-recruitingapp-1123-ch"
+          "servicetechniker-in-msr-campus-wu-m-w-d-recruitingapp-1123-ch",
+          "servicetechniker-in-msr-campus-wu-m-w-d-big-are-stellen-lugano"
         ]
       },
       "needsRetranslation": true,
@@ -231,7 +168,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2507/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T22:01:18.114Z",
+      "crawledAt": "2026-08-25T10:10:15.624Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -247,11 +184,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistenz-der-teamleitung-m-w-d-ab-30h-woche-recruitingapp-1123-ch"
+        "assistenz-der-teamleitung-m-w-d-ab-30h-woche-recruitingapp-1123-ch",
+        "assistenza-team-management-m-f-d-da-30h-settimana-big-are-stellen-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenz-der-teamleitung-m-w-d-ab-30h-woche-recruitingapp-1123-ch"
+          "assistenz-der-teamleitung-m-w-d-ab-30h-woche-recruitingapp-1123-ch",
+          "assistenza-team-management-m-f-d-da-30h-settimana-big-are-stellen-lugano"
         ],
         "en": [
           "assistenz-der-teamleitung-m-w-d-ab-30h-woche-recruitingapp-1123-ch"
@@ -280,9 +219,9 @@
       "id": "recruitingapp-1123-ee08b7105086",
       "slug": "technical-r-object-manager-in-building-construction-m-f-d-da-30-ore-a-settimana-big-are-stellen-lugano",
       "slugByLocale": {
-        "de": "technische-r-objektmanager-in-hochbau-m-w-d-ab-30-wochenstunden-recruitingapp-1123-ch",
         "it": "technical-r-object-manager-in-building-construction-m-f-d-da-30-ore-a-settimana-big-are-stellen-lugano",
         "en": "technical-r-object-manager-in-building-construction-m-f-d-from-30-hours-per-week-big-are-stellen-lugano",
+        "de": "technische-r-objektmanager-in-hochbau-m-w-d-ab-30-wochenstunden-recruitingapp-1123-ch",
         "fr": "technical-r-object-manager-in-construction-de-batiments-h-f-d-a-partir-de-30-heures-par-semaine-big-are-stellen-lugano"
       },
       "company": "BIG & ARE Stellen",
@@ -290,9 +229,9 @@
       "companyDomain": "recruitingapp-1123.umantis.com",
       "title": "Technische:r Objektmanager:in Hochbau (m/w/d) - ab 30 Wochenstunden",
       "titleByLocale": {
-        "de": "Technische:r Objektmanager:in Hochbau (m/w/d) - ab 30 Wochenstunden",
         "it": "Technical:r Object Manager: in Building Construction (m/f/d) - da 30 ore a settimana",
         "en": "Technical:r Object Manager: in Building Construction (m/f/d) - from 30 hours per week",
+        "de": "Technische:r Objektmanager:in Hochbau (m/w/d) - ab 30 Wochenstunden",
         "fr": "Technical:r Object Manager: in Construction de bâtiments (h/f/d) - à partir de 30 heures par semaine"
       },
       "description": "Technische:r Objektmanager:in Hochbau (m/w/d) - ab 30 Wochenstunden — BIG & ARE Stellen",
@@ -304,7 +243,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2482/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T22:01:17.808Z",
+      "crawledAt": "2026-08-25T10:10:15.321Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -319,24 +258,14 @@
       "applyUrl": "https://recruitingapp-1123.umantis.com/Vacancies/2482/Description/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 88000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T10:22:21.026Z",
+      "previousSlugs": [
+        "technische-r-objektmanager-in-hochbau-m-w-d-ab-30-wochenstunden-recruitingapp-1123-ch",
+        "technical-r-object-manager-in-building-construction-m-f-d-da-30-ore-a-settimana-big-are-stellen-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "technische-r-objektmanager-in-hochbau-m-w-d-ab-30-wochenstunden-recruitingapp-1123-ch"
+          "technische-r-objektmanager-in-hochbau-m-w-d-ab-30-wochenstunden-recruitingapp-1123-ch",
+          "technical-r-object-manager-in-building-construction-m-f-d-da-30-ore-a-settimana-big-are-stellen-lugano"
         ],
         "en": [
           "technische-r-objektmanager-in-hochbau-m-w-d-ab-30-wochenstunden-recruitingapp-1123-ch"
@@ -345,9 +274,82 @@
           "technische-r-objektmanager-in-hochbau-m-w-d-ab-30-wochenstunden-recruitingapp-1123-ch"
         ]
       },
-      "previousSlugs": [
-        "technische-r-objektmanager-in-hochbau-m-w-d-ab-30-wochenstunden-recruitingapp-1123-ch"
-      ]
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T10:22:21.026Z",
+      "salaryMin": 79500,
+      "salaryMax": 120500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
+    },
+    {
+      "id": "recruitingapp-1123-0421f0f0bbbd",
+      "slug": "senior-it-systemadministrator-in-m-w-d-recruitingapp-1123-ch",
+      "slugByLocale": {
+        "it": "senior-it-systemadministrator-in-m-w-d-recruitingapp-1123-ch",
+        "en": "senior-it-systemadministrator-in-m-w-d-big-are-stellen-lugano",
+        "de": "senior-it-systemadministrator-in-m-w-d-big-are-stellen-lugano",
+        "fr": "senior-it-systemadministrator-in-m-w-d-big-are-stellen-lugano"
+      },
+      "company": "BIG & ARE Stellen",
+      "companyKey": "recruitingapp-1123",
+      "companyDomain": "recruitingapp-1123.umantis.com",
+      "title": "Senior IT-Systemadministrator:in (m/w/d)",
+      "titleByLocale": {
+        "it": "Senior IT-Systemadministrator:in (m/w/d)",
+        "de": "Senior IT-Systemadministrator:in (m/w/d)",
+        "en": "Senior IT-Systemadministrator:in (m/w/d)",
+        "fr": "Senior IT-Systemadministrator:in (m/w/d)"
+      },
+      "description": "Senior IT-Systemadministrator:in (m/w/d) — BIG & ARE Stellen",
+      "descriptionByLocale": {
+        "it": "Senior IT-Systemadministrator:in (m/w/d) — BIG & ARE Stellen"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://recruitingapp-1123.umantis.com/Vacancies/2481/Description/1",
+      "source": "BIG & ARE Stellen Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-25T10:10:15.018Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-25",
+      "applyUrl": "https://recruitingapp-1123.umantis.com/Vacancies/2481/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79500,
+          "maxValue": 135000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-25T10:10:15.018Z"
     },
     {
       "id": "recruitingapp-1123-fd9661f7604f",
@@ -377,7 +379,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2426/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T22:01:17.505Z",
+      "crawledAt": "2026-08-25T10:10:14.716Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -394,12 +396,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "immobilienverwalter-in-schwerpunkt-neubau-wohnungen-m-w-d-recruitingapp-1123-ch",
-        "immobilienverwalter-in-schwerpunkt-neubau-wohnungen-m-w-d-big-are-stellen-lugano"
+        "immobilienverwalter-in-schwerpunkt-neubau-wohnungen-m-w-d-big-are-stellen-lugano",
+        "property-manager-focus-sugli-appartamenti-di-nuova-costruzione-m-f-d-big-are-stellen-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
           "immobilienverwalter-in-schwerpunkt-neubau-wohnungen-m-w-d-recruitingapp-1123-ch",
-          "immobilienverwalter-in-schwerpunkt-neubau-wohnungen-m-w-d-big-are-stellen-lugano"
+          "immobilienverwalter-in-schwerpunkt-neubau-wohnungen-m-w-d-big-are-stellen-lugano",
+          "property-manager-focus-sugli-appartamenti-di-nuova-costruzione-m-f-d-big-are-stellen-lugano"
         ],
         "en": [
           "immobilienverwalter-in-schwerpunkt-neubau-wohnungen-m-w-d-big-are-stellen-lugano"
@@ -440,7 +444,7 @@
       "titleByLocale": {
         "it": "Immobilienverwalter:in (m/w/d) VZ/TZ ab 30h/Woche",
         "en": "Immobilienverwalter: in (m/f/d) VZ/TZ ab 30h/Woche",
-        "de": "Immobilienverwalter: in (m/w/d) VZ/TZ ab 30h/Woche",
+        "de": "Immobilienverwalter:in (m/w/d) VZ/TZ ab 30h/Woche",
         "fr": "Immobilienverwalter: en (h/f/d) VZ/TZ ab 30h/Woche"
       },
       "description": "Immobilienverwalter:in (m/w/d) VZ/TZ ab 30h/Woche — BIG & ARE Stellen",
@@ -452,7 +456,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2465/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-24T22:01:17.201Z",
+      "crawledAt": "2026-08-25T10:10:14.414Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -468,11 +472,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "immobilienverwalter-in-m-w-d-vz-tz-ab-30h-woche-recruitingapp-1123-ch"
+        "immobilienverwalter-in-m-w-d-vz-tz-ab-30h-woche-recruitingapp-1123-ch",
+        "immobilienverwalter-in-m-w-d-vz-tz-ab-30h-woche-big-are-stellen-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "immobilienverwalter-in-m-w-d-vz-tz-ab-30h-woche-recruitingapp-1123-ch"
+          "immobilienverwalter-in-m-w-d-vz-tz-ab-30h-woche-recruitingapp-1123-ch",
+          "immobilienverwalter-in-m-w-d-vz-tz-ab-30h-woche-big-are-stellen-lugano"
         ]
       },
       "needsRetranslation": true,
@@ -519,7 +525,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2473/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T22:01:16.898Z",
+      "crawledAt": "2026-08-25T10:10:14.110Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -535,11 +541,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "partiefuhrer-in-vorarbeiter-in-elektrotechnik-fur-gebaudetechnik-m-w-d-recruitingapp-1123"
+        "partiefuhrer-in-vorarbeiter-in-elektrotechnik-fur-gebaudetechnik-m-w-d-recruitingapp-1123",
+        "partiefuhrer-in-vorarbeiter-in-elektrotechnik-per-gebaudetechnik-m-w-d-big-are-stellen-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "partiefuhrer-in-vorarbeiter-in-elektrotechnik-fur-gebaudetechnik-m-w-d-recruitingapp-1123"
+          "partiefuhrer-in-vorarbeiter-in-elektrotechnik-fur-gebaudetechnik-m-w-d-recruitingapp-1123",
+          "partiefuhrer-in-vorarbeiter-in-elektrotechnik-per-gebaudetechnik-m-w-d-big-are-stellen-lugano"
         ],
         "en": [
           "partiefuhrer-in-vorarbeiter-in-elektrotechnik-fur-gebaudetechnik-m-w-d-recruitingapp-1123"
@@ -592,7 +600,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2479/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T22:01:16.595Z",
+      "crawledAt": "2026-08-25T10:10:13.807Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -609,12 +617,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "hochbautechniker-in-instandhaltung-wohnungen-m-w-d-recruitingapp-1123-ch",
-        "hochbautechniker-in-instandhaltung-wohnungen-m-w-d-big-are-stellen-lugano"
+        "hochbautechniker-in-instandhaltung-wohnungen-m-w-d-big-are-stellen-lugano",
+        "tecnico-edile-negli-appartamenti-di-manutenzione-m-f-d-big-are-stellen-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hochbautechniker-in-instandhaltung-wohnungen-m-w-d-recruitingapp-1123-ch",
-          "hochbautechniker-in-instandhaltung-wohnungen-m-w-d-big-are-stellen-lugano"
+          "hochbautechniker-in-instandhaltung-wohnungen-m-w-d-big-are-stellen-lugano",
+          "tecnico-edile-negli-appartamenti-di-manutenzione-m-f-d-big-are-stellen-lugano"
         ],
         "en": [
           "hochbautechniker-in-instandhaltung-wohnungen-m-w-d-big-are-stellen-lugano"
@@ -667,7 +677,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2497/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T22:01:16.269Z",
+      "crawledAt": "2026-08-25T10:10:13.484Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -684,12 +694,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistenz-immobilienverwaltung-m-w-d-recruitingapp-1123-ch",
-        "assistenz-immobilienverwaltung-m-w-d-big-are-stellen-lugano"
+        "assistenz-immobilienverwaltung-m-w-d-big-are-stellen-lugano",
+        "gestione-aggiuntiva-della-proprieta-m-f-d-big-are-stellen-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenz-immobilienverwaltung-m-w-d-recruitingapp-1123-ch",
-          "assistenz-immobilienverwaltung-m-w-d-big-are-stellen-lugano"
+          "assistenz-immobilienverwaltung-m-w-d-big-are-stellen-lugano",
+          "gestione-aggiuntiva-della-proprieta-m-f-d-big-are-stellen-lugano"
         ],
         "en": [
           "assistenz-immobilienverwaltung-m-w-d-big-are-stellen-lugano"
@@ -715,34 +727,34 @@
       "addressRegion": "TI"
     },
     {
-      "id": "recruitingapp-1123-7addc805f288",
-      "slug": "informationssicherheits-compliance-expert-in-m-w-d-big-are-stellen-lugano",
+      "id": "recruitingapp-1123-25184cd67246",
+      "slug": "servicetechniker-in-hkls-campus-wu-m-w-d-big-are-stellen-lugano",
       "slugByLocale": {
-        "it": "informationssicherheits-compliance-expert-in-m-w-d-big-are-stellen-lugano",
-        "en": "informationssicherheits-compliance-expert-in-m-w-d-recruitingapp-1123-ch",
-        "de": "informationssicherheit-compliance-expertin-in-m-w-d-big-are-stellen-lugano",
-        "fr": "informationssicherheits-compliance-expert-in-m-w-d-big-are-stellen-lugano"
+        "it": "servicetechniker-in-hkls-campus-wu-m-w-d-big-are-stellen-lugano",
+        "en": "servicetechniker-in-hkls-campus-wu-m-w-d-big-are-stellen-lugano",
+        "de": "servicetechniker-in-hkls-campus-wu-m-w-d-big-are-stellen-lugano",
+        "fr": "servicetechniker-in-hkls-campus-wu-m-w-d-recruitingapp-1123-ch"
       },
       "company": "BIG & ARE Stellen",
       "companyKey": "recruitingapp-1123",
       "companyDomain": "recruitingapp-1123.umantis.com",
-      "title": "Informationssicherheits- & Compliance Expert:in (m/w/d)",
+      "title": "Servicetechniker:in HKLS Campus WU (m/w/d)",
       "titleByLocale": {
-        "it": "Informationssicherheits- & Compliance Expert:in (m/f/d)",
-        "en": "Informationssicherheits- & Compliance Expert:in (m/w/d)",
-        "de": "Informationssicherheit- & Compliance-Expertin:in (m/w/d)",
-        "fr": "Informationssicherheits- & Compliance Expert:in (h/f/d)"
+        "it": "Servicetechniker:in HKLS Campus WU (m/w/d)",
+        "en": "Servicetechniker:in HKLS Campus WU (m/f/d)",
+        "de": "Servicetechniker:in HKLS Campus WU (m/w/d)",
+        "fr": "Servicetechniker:in HKLS Campus WU (h/f/d)"
       },
-      "description": "Informationssicherheits- & Compliance Expert:in (m/w/d) — BIG & ARE Stellen",
+      "description": "Servicetechniker:in HKLS Campus WU (m/w/d) — BIG & ARE Stellen",
       "descriptionByLocale": {
-        "en": "Informationssicherheits- & Compliance Expert:in (m/w/d) — BIG & ARE Stellen"
+        "fr": "Servicetechniker:in HKLS Campus WU (m/w/d) — BIG & ARE Stellen"
       },
       "location": "Lugano",
       "canton": "TI",
-      "url": "https://recruitingapp-1123.umantis.com/Vacancies/2480/Description/1",
+      "url": "https://recruitingapp-1123.umantis.com/Vacancies/2504/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-23T21:31:08.628Z",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-24T22:01:19.021Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -754,19 +766,19 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-08-23",
-      "applyUrl": "https://recruitingapp-1123.umantis.com/Vacancies/2480/Description/1",
+      "applyUrl": "https://recruitingapp-1123.umantis.com/Vacancies/2504/Description/1",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "informationssicherheits-compliance-expert-in-m-w-d-recruitingapp-1123-ch"
+        "servicetechniker-in-hkls-campus-wu-m-w-d-recruitingapp-1123-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "informationssicherheits-compliance-expert-in-m-w-d-recruitingapp-1123-ch"
+          "servicetechniker-in-hkls-campus-wu-m-w-d-recruitingapp-1123-ch"
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T09:37:56.558Z",
+      "firstSeenAt": "2026-08-23T09:37:56.254Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -780,7 +792,7 @@
         }
       },
       "addressRegion": "TI",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
     }
   ]
 }
