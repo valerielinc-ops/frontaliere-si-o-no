@@ -32124,6 +32124,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'vivere-borgomezzavalle-lavorare-ticino',
+ category: 'pratico',
+ date: '2026-08-25T04:22:40.207Z',
+ image: '/images/blog/vivere-borgomezzavalle-lavorare-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
