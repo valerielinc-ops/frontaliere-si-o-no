@@ -64,7 +64,7 @@ import { loadEmployerDemandSlugs } from './shared/employerDemandSignal.mjs';
 import { resolveEmployerProfilesFlushed, type EmittedEmployerProfile } from './shared/buildSignals';
 import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
 
-const LOCALES = ['it', 'en', 'de', 'fr'] as const;
+export const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 type Locale = (typeof LOCALES)[number];
 
 const OG_LOCALE: Record<Locale, string> = { it: 'it_CH', en: 'en_US', de: 'de_CH', fr: 'fr_CH' };
@@ -87,7 +87,7 @@ const profilePath = (locale: Locale, slug: string): string => `${localePrefix(lo
  * exploreLinksHtml's canton/weekly links, same UX pattern as those pages. */
 const MAX_JOBS_LISTED = 8;
 
-interface EmployerProfile {
+export interface EmployerProfile {
   slug: string;
   name: string;
   companyKey?: string | null;
@@ -317,7 +317,7 @@ function firstDateMs(...candidates: Array<string | undefined | null>): number {
   return -Infinity;
 }
 
-interface CorpusJob {
+export interface CorpusJob {
   slug?: string;
   slugByLocale?: Partial<Record<string, string>>;
   company?: string;
@@ -508,7 +508,7 @@ function salaryRangeProse(jobs: CorpusJob[], locale: Locale): string {
  * Does not guarantee every one of the ~1860 profiles clears the 10% floor
  * (a handful with no contract/salary data at all get none of the two new
  * sentences); see PR body for the honest remaining gap. */
-function introProse(profile: EmployerProfile, jobs: CorpusJob[], locale: Locale): string {
+export function introProse(profile: EmployerProfile, jobs: CorpusJob[], locale: Locale): string {
   const t = PROSE_TEMPLATES[locale];
   const sal = profile.salaryMedianChf ? fmtChf(profile.salaryMedianChf) : null;
   const added = profile.trend?.added ?? null;
