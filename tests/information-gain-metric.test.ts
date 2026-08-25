@@ -23,6 +23,7 @@ import {
   urlPathOf,
   extractVisibleText,
   segmentsFromText,
+  INFORMATION_GAIN_TUNABLES,
 } from '@/scripts/lib/informationGain.mjs';
 
 /** A mail-merge page: same prose, place name and figure substituted. */
@@ -218,5 +219,24 @@ describe('information-gain: estrazione del testo', () => {
     );
     expect(text).not.toContain('dentro uno script');
     expect(text).toContain('Testo visibile');
+  });
+
+  it('sopra il cap, campiona a passo costante invece di tagliare ai primi N', () => {
+    // Una pagina più lunga del cap con un template boilerplate ripetuto in
+    // testa e un blocco page-specific dopo il cap: il taglio ai primi N
+    // (il comportamento vecchio) lo avrebbe perso sempre, sottostimando
+    // l'IGS proprio sulle pagine più ricche (rif. reviewer #6330).
+    const { MAX_SEGMENTS_PER_PAGE } = INFORMATION_GAIN_TUNABLES;
+    const boilerplateCount = MAX_SEGMENTS_PER_PAGE + 50;
+    const boilerplate = Array.from(
+      { length: boilerplateCount },
+      (_, i) => `<p>Frase generica del template numero ${i} ripetuta su ogni pagina della famiglia.</p>`,
+    ).join('');
+    const html = `<body>${boilerplate}<p>Questo paragrafo finale contiene il MARCATORE unico di questa pagina.</p></body>`;
+
+    const segments = segmentsFromText(extractVisibleText(html));
+
+    expect(segments.length).toBe(MAX_SEGMENTS_PER_PAGE);
+    expect(segments.some((s) => s.includes('MARCATORE'))).toBe(true);
   });
 });
