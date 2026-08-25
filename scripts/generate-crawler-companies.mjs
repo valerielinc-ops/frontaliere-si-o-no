@@ -27,6 +27,7 @@ const OUTPUT = path.resolve(ROOT, 'data', 'crawler-companies-auto.json');
 
 // ─── Import COMPANY_HQ ─────────────────────────────────────────────────────
 const { COMPANY_HQ } = await import('./lib/crawler-location-config.mjs');
+const { registrableDomain } = await import('./lib/prospector/registrable.mjs');
 
 // ─── Discover all crawler slugs from runner files ───────────────────────────
 function discoverCrawlerSlugs() {
@@ -36,11 +37,54 @@ function discoverCrawlerSlugs() {
   return files.map((f) => f.replace(/^update-/, '').replace(/-jobs\.mjs$/, ''));
 }
 
+// ─── Locate the slice a runner actually writes ──────────────────────────────
+/**
+ * The runner FILENAME gives `update-<slug>-jobs.mjs` -> `<slug>`, but the slice
+ * is named after the runner's INTERNAL company key, and the two diverge freely:
+ * `update-eoc-jobs.mjs` declares `EOC_KEY = 'eoc-ente-ospedaliero-cantonale'`
+ * and writes `eoc-ente-ospedaliero-cantonale.json`. Measured on this repo, 87
+ * of the runners have no same-named slice.
+ *
+ * Looking for `<slug>.json` alone therefore misses silently and falls back to
+ * regex-scraping the runner source, which finds a name but rarely a domain —
+ * that is how the `eoc` entry ended up with no `website` at all, and how the
+ * prospector lost its only chance to recognise EOC by domain.
+ *
+ * Resolution order, deterministic and never a guess:
+ *   1. `<slug>.json`
+ *   2. exactly one slice named `<slug>-*.json`
+ *   3. otherwise nothing — ambiguity (`migros` -> `migros-hq`, `migros-ticino`)
+ *      falls back to the source scrape rather than picking a sibling at random.
+ *
+ * @param {string} slug
+ * @returns {string|null} absolute path to the slice, or null
+ */
+function resolveSlicePath(slug) {
+  const exact = path.join(SLICES_DIR, `${slug}.json`);
+  if (fs.existsSync(exact)) return exact;
+
+  let entries;
+  try {
+    entries = fs.readdirSync(SLICES_DIR);
+  } catch {
+    return null; // slices not materialised in a sparse checkout
+  }
+  const matches = entries.filter(
+    (f) =>
+      f.endsWith('.json') &&
+      f.startsWith(`${slug}-`) &&
+      // Scratch/cache companions are the same crawler's working files, not a
+      // second employer — they must not make a lookup look ambiguous.
+      !/-(locale-cache|cache|scratch|raw)\.json$/.test(f),
+  );
+  return matches.length === 1 ? path.join(SLICES_DIR, matches[0]) : null;
+}
+
 // ─── Read company metadata from job slice ───────────────────────────────────
 function readFromSlice(slug) {
-  const slicePath = path.join(SLICES_DIR, `${slug}.json`);
+  const slicePath = resolveSlicePath(slug);
+  if (!slicePath) return null;
   try {
-    if (!fs.existsSync(slicePath)) return null;
     const data = JSON.parse(fs.readFileSync(slicePath, 'utf8'));
     const jobs = Array.isArray(data) ? data : data?.jobs || [];
     if (!jobs.length) return null;
@@ -52,6 +96,48 @@ function readFromSlice(slug) {
   } catch {
     return null;
   }
+}
+
+// ─── Reject a VENDOR domain posing as the employer's own ────────────────────
+/** Registrable domains of every hosted-ATS platform the prospector knows. */
+const VENDOR_DOMAINS = (() => {
+  const out = new Set();
+  let raw;
+  try {
+    raw = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'prospector', 'platforms.json'), 'utf8'));
+  } catch {
+    // Registry absent (sparse checkout): the guard lets everything through
+    // rather than pretending every domain is fine.
+    console.warn('⚠️  platforms.json non leggibile — guardia vendor-domain inattiva.');
+    return out;
+  }
+  // `platforms` is an OBJECT keyed by domain, not an array. Iterating it as an
+  // array throws, and swallowing that in a catch left the guard silently empty
+  // — the failure mode this whole file exists to stop.
+  const platforms = raw?.platforms;
+  const list = Array.isArray(platforms) ? platforms : Object.values(platforms || {});
+  for (const p of list) {
+    const d = registrableDomain(typeof p === 'string' ? p : p?.domain || '');
+    if (d) out.add(d);
+  }
+  if (!out.size) console.warn('⚠️  nessun dominio vendor indicizzato da platforms.json — guardia inattiva.');
+  return out;
+})();
+
+/**
+ * `apply.workable.com` is where GUESS publishes, not who GUESS is. Recording it
+ * as the company domain puts `workable.com` into the prospector's coverage index,
+ * where — folded to the registrable domain — it marks every OTHER Workable
+ * tenant as an employer we already crawl, and discovery dies silently. Three
+ * entries were already in this state (`boggi`, `guess`, `vir-biotechnology`)
+ * before the slice lookup above started finding many more domains.
+ *
+ * @param {string} domain
+ * @returns {boolean}
+ */
+function isVendorDomain(domain) {
+  const d = registrableDomain(domain || '');
+  return Boolean(d) && VENDOR_DOMAINS.has(d);
 }
 
 // ─── Regex-extract company metadata from runner or parser file ──────────────
@@ -131,10 +217,8 @@ for (const slug of slugs) {
     slugToName(slug);
 
   const companyDomain =
-    sliceData?.companyDomain ||
-    runnerData?.companyDomain ||
-    parserData?.companyDomain ||
-    '';
+    [sliceData?.companyDomain, runnerData?.companyDomain, parserData?.companyDomain]
+      .find((d) => d && !isVendorDomain(d)) || '';
 
   const careersUrl = runnerData?.careersUrl || parserData?.careersUrl || '';
   const website = companyDomain

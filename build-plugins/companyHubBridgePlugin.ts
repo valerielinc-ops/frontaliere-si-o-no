@@ -34,6 +34,7 @@ import type { Plugin } from 'vite';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildBridgeBreadcrumbLd, JOBS_SECTION_LABEL } from './shared/bridgeBreadcrumb';
 import { renderCantonSeoProse, buildCantonSeoProseFaqItems, type CantonSeoLocale } from './shared/cantonSeoProse';
+import { isSliceFile } from '../scripts/lib/crawler-slice-files.mjs';
 import type { Locale } from '../services/i18n';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { COMPANY_ROUTE_PREFIX } from './shared/cantonSection';
@@ -319,8 +320,14 @@ export function autoDiscoverCompanyHubs(rootDir: string): HubEntry[] {
   // `data/evidence-index.json` and `data/cf-hot-404s.json`).
   const crawlerDir = path.join(rootDir, 'data', 'jobs', 'by-crawler');
   if (fs.existsSync(crawlerDir)) {
+    // Stesso predicato di scripts/lib/crawler-slice-files.mjs: `.endsWith('.json')`
+    // da solo leggeva come slice anche i companion `-locale-cache.json` e gli
+    // orfani `<key>.json.cleanup-tmp.json` lasciati da un housekeeping ucciso a
+    // meta'. Qui il danno non e' un conteggio sballato ma un NOME AZIENDA
+    // stantio pubblicato sulle pagine company-hub (SEO), perche' questo ciclo
+    // alimenta `displayNameByItSlug` prendendo `jobs.find((j) => j?.company)`.
     for (const file of fs.readdirSync(crawlerDir)) {
-      if (!file.endsWith('.json')) continue;
+      if (!isSliceFile(file)) continue;
       try {
         const raw = JSON.parse(fs.readFileSync(path.join(crawlerDir, file), 'utf-8'));
         const jobs: Array<{ company?: string; companyKey?: string }> = Array.isArray(raw?.jobs)

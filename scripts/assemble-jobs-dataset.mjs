@@ -34,6 +34,7 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { listSliceFilePaths } from './lib/crawler-slice-files.mjs';
 import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -613,12 +614,11 @@ function readJson(filePath, fallback) {
 // lidl-svizzera.json.cleanup-tmp.json, which the next "Assemble dataset"
 // step in the same job picked up as a slice and refused to parse).
 export function listSliceFiles(dir) {
-  if (!fs.existsSync(dir)) return [];
-  return fs
-    .readdirSync(dir)
-    .filter((f) => f.endsWith('.json') && f !== '.gitkeep' && !f.includes('-cache') && !f.includes('.cleanup-tmp'))
-    .map((f) => path.join(dir, f))
-    .sort(); // lexicographic — deterministic order
+  // Predicato in scripts/lib/crawler-slice-files.mjs: era duplicato in tre
+  // copie divergenti, e le due piu' magre non escludevano ne' `-cache` ne'
+  // `.cleanup-tmp` — cioe' proprio il file che ha fatto fallire questa
+  // assembly nella run 28783188549.
+  return listSliceFilePaths(dir);
 }
 
 /* ── Parallel slice parsing (worker pool) ─────────────────────────────────

@@ -13,6 +13,7 @@
 // riprenda. E' gia' costato due bug silenziosi (pdfWhitepapersPlugin,
 // staticPagesPlugin): le hero card venivano drenate prima di essere registrate.
 import fs from 'node:fs';
+import { isSliceFile } from '../scripts/lib/crawler-slice-files.mjs';
 import np from 'node:path';
 import path from 'path';
 import os from 'node:os';
@@ -11560,9 +11561,12 @@ ${staticAnalyticsHtml}
  const emittedSlugs = new Set(Object.keys(tracking));
  let sliceAugmented = 0;
  let sliceAugmentCapped = false;
+ // Predicato condiviso (scripts/lib/crawler-slice-files.mjs): e' lo stesso che
+ // assemble-jobs-dataset.mjs applica gia' a EXPIRED_SLICES_DIR. `.json` da solo
+ // raccoglieva anche i companion `-cache` e gli orfani `.cleanup-tmp`.
  for (const sliceFile of fs.readdirSync(expiredSlicesDir)) {
  if (sliceAugmentCapped) break;
- if (!sliceFile.endsWith('.json')) continue;
+ if (!isSliceFile(sliceFile)) continue;
  let sliceArr: any[];
  try {
  sliceArr = JSON.parse(fs.readFileSync(np.resolve(expiredSlicesDir, sliceFile), 'utf-8'));
