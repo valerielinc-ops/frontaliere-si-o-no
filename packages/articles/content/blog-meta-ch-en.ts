@@ -4219,6 +4219,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-canton-appenzello-esterno.title': 'Apprenticeship and vocational training in the Canton of Appenzello Outer',
     'blog.article.apprendistato-canton-appenzello-esterno.excerpt': 'Find out how to find a traineeship, traineeship contract, apprentice salary and professional maturity in the Outer Appenzell Canton.',
     'blog.article.apprendistato-canton-appenzello-esterno.imageAlt': 'A young apprentice in Appenzell Innerrhoden, in a real work scene.',
+    'blog.article.avs-prestazioni-complementari-appenzello.title': 'AVS and complementary services: the first pillar',
+    'blog.article.avs-prestazioni-complementari-appenzello.excerpt': 'How Swiss old-age insurance works: mandatory contributions, contribution gaps, annuities and supplementary benefits to cover the minimum living wage.',
+    'blog.article.avs-prestazioni-complementari-appenzello.imageAlt': 'Administrative building in Alpine Swiss canton: AVS compensation fund office',
 };
 
 export default blogMetaChEn;

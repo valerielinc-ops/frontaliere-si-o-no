@@ -4219,6 +4219,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-canton-appenzello-esterno.title': 'Apprendistato e formazione professionale nel Canton Appenzello Esterno',
     'blog.article.apprendistato-canton-appenzello-esterno.excerpt': 'Scopri come trovare un posto di tirocinio, contratto di tirocinio, retribuzione dell\'apprendista e maturità professionale nel Canton Appenzello Esterno.',
     'blog.article.apprendistato-canton-appenzello-esterno.imageAlt': 'Una giovane apprendista nel Canton Appenzello Esterno, in una scena di lavoro reale.',
+    'blog.article.avs-prestazioni-complementari-appenzello.title': 'AVS e prestazioni complementari: il primo pilastro',
+    'blog.article.avs-prestazioni-complementari-appenzello.excerpt': 'Come funziona l\'assicurazione vecchiaia svizzera: contributi obbligatori, lacune contributive, rendite e prestazioni complementari per coprire il minimo vitale.',
+    'blog.article.avs-prestazioni-complementari-appenzello.imageAlt': 'Edificio amministrativo in cantone alpino svizzero: sede cassa di compensazione AVS',
 };
 
 export default blogMetaChIt;

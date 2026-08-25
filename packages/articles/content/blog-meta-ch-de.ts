@@ -4219,6 +4219,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-canton-appenzello-esterno.title': 'Lehre und Berufsausbildung im Kanton Appenzell Ausserrhoden',
     'blog.article.apprendistato-canton-appenzello-esterno.excerpt': 'Erfahren Sie, wie Sie eine Lehrstelle, einen Lehrvertrag, eine Lehrlingsvergütung und eine Berufsmaturität im Kanton Appenzell Ausserrhoden finden.',
     'blog.article.apprendistato-canton-appenzello-esterno.imageAlt': 'Ein junger Lehrling im Kanton Appenzell Innerrhoden, in einer realen Arbeits Szene.',
+    'blog.article.avs-prestazioni-complementari-appenzello.title': 'AHV und Ergänzungsleistungen: die erste Säule',
+    'blog.article.avs-prestazioni-complementari-appenzello.excerpt': 'So funktioniert die Schweizer Altersversicherung: Pflichtbeiträge, Beitragslücken, Renten und Ergänzungsleistungen zur Deckung des Existenzminimums.',
+    'blog.article.avs-prestazioni-complementari-appenzello.imageAlt': 'Verwaltungsgebäude in Schweizer Alpenkanton: Sitz der AHV-Ausgleichskasse',
 };
 
 export default blogMetaChDe;
