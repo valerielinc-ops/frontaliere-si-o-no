@@ -16,6 +16,7 @@
  */
 
 import fs from 'node:fs';
+import { listSliceFileNames } from './crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
@@ -578,7 +579,7 @@ function readJson(filePath, fallback = null) {
  */
 function readExistingJobsFromSlices(scopedKeys) {
   if (!fs.existsSync(BY_CRAWLER_DIR)) return [];
-  const files = fs.readdirSync(BY_CRAWLER_DIR).filter(f => f.endsWith('.json'));
+  const files = listSliceFileNames(BY_CRAWLER_DIR);
   const jobs = [];
   for (const file of files) {
     const key = file.replace(/\.json$/, '');

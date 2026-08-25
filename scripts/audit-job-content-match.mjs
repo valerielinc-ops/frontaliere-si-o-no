@@ -12,6 +12,7 @@
  *  - NO_CONTENT: source page had no extractable content
  */
 import fs from 'node:fs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 
 const SLICES_DIR = 'data/jobs/by-crawler';
@@ -118,7 +119,7 @@ async function fetchWithTimeout(url) {
 
 // ── Load samples ─────────────────────────────────────────────────────────────
 
-const files = fs.readdirSync(SLICES_DIR).filter(f => f.endsWith('.json')).sort();
+const files = listSliceFileNames(SLICES_DIR);
 const samples = [];
 
 for (const f of files) {

@@ -1,12 +1,12 @@
 {
   "generatedAt": "2026-08-25T04:42:03.399Z",
   "tally": {
-    "good": 27,
+    "good": 26,
     "weak": 7,
     "bad": 1,
     "insufficient": 5
   },
-  "promotedVacancies": 3518,
+  "promotedVacancies": 3508,
   "reports": [
     {
       "companyKey": "115west",
@@ -923,71 +923,6 @@
       ],
       "companyName": "MPI AGE",
       "companyHost": "mpi-age.de.umantis.com",
-      "platform": "umantis.com",
-      "mode": "template",
-      "runErrors": []
-    },
-    {
-      "companyKey": "eoc-candidati-posizioni",
-      "vacancyCount": 10,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "distinctRate": 1,
-      "jobLikeRate": 1,
-      "score": 1,
-      "verdict": "good",
-      "problems": [],
-      "samples": [
-        {
-          "url": "https://recruitingapp-2761.umantis.com/Vacancies/2773/Description/4",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 522,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "requirements"
-          ],
-          "notJobSignals": []
-        },
-        {
-          "url": "https://recruitingapp-2761.umantis.com/Vacancies/2770/Description/4",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 279,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "requirements"
-          ],
-          "notJobSignals": []
-        },
-        {
-          "url": "https://recruitingapp-2761.umantis.com/Vacancies/2768/Description/4",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 376,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "workload",
-            "requirements"
-          ],
-          "notJobSignals": []
-        }
-      ],
-      "companyName": "EOC candiDati Posizioni",
-      "companyHost": "recruitingapp-2761.umantis.com",
       "platform": "umantis.com",
       "mode": "template",
       "runErrors": []

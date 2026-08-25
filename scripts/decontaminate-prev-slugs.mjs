@@ -28,6 +28,7 @@
  *   node scripts/decontaminate-prev-slugs.mjs --apply    # write changes
  */
 import fs from 'node:fs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { stableSlugHash } from './lib/dedicated-crawler-common.mjs';
@@ -121,7 +122,7 @@ export function processFile(filePath) {
 function main() {
   let totalMoved = 0;
   let filesChanged = 0;
-  for (const name of fs.readdirSync(BY_CRAWLER_DIR).filter((f) => f.endsWith('.json'))) {
+  for (const name of listSliceFileNames(BY_CRAWLER_DIR)) {
     const res = processFile(path.join(BY_CRAWLER_DIR, name));
     if (res) {
       filesChanged++;

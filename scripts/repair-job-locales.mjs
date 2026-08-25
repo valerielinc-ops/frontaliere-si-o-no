@@ -24,6 +24,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { translateMissingJobLocales } from './lib/dedicated-crawler-common.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { listSliceFilePaths } from './lib/crawler-slice-files.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -31,13 +32,11 @@ const SLICES_DIR = path.resolve(ROOT, 'data', 'jobs', 'by-crawler');
 const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
+// Escludeva solo `.gitkeep`: leggeva quindi come slice sia i companion
+// `-locale-cache.json` sia gli orfani `.cleanup-tmp` lasciati da un
+// housekeeping ucciso a meta'. Predicato condiviso, una definizione sola.
 function listSliceFiles() {
-  if (!fs.existsSync(SLICES_DIR)) return [];
-  return fs
-    .readdirSync(SLICES_DIR)
-    .filter((f) => f.endsWith('.json') && f !== '.gitkeep')
-    .map((f) => path.join(SLICES_DIR, f))
-    .sort();
+  return listSliceFilePaths(SLICES_DIR);
 }
 
 function readJson(filePath, fallback) {

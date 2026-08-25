@@ -13,6 +13,7 @@
  */
 
 import fs from 'node:fs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
@@ -480,9 +481,7 @@ async function checkUrlsBatch(urls, concurrency = 3) {
 
 /* ── Load crawler slices ───────────────────────────────────── */
 function loadCrawlerSlices() {
-  const files = fs
-    .readdirSync(SLICES_DIR)
-    .filter((f) => f.endsWith('.json') && !f.includes('.cleanup-tmp'));
+  const files = listSliceFileNames(SLICES_DIR);
   const slices = [];
   for (const file of files) {
     const key = file.replace(/\.json$/, '');

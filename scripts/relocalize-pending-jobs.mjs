@@ -33,6 +33,7 @@
  */
 
 import fs from 'node:fs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 
 import { fileURLToPath } from 'node:url';
@@ -988,7 +989,7 @@ async function main() {
   let directCleared = 0;
   let directReset = 0;
   if (fs.existsSync(BY_CRAWLER_DIR)) {
-    for (const file of fs.readdirSync(BY_CRAWLER_DIR).filter(f => f.endsWith('.json') && !f.includes('-locale-cache'))) {
+    for (const file of listSliceFileNames(BY_CRAWLER_DIR))) {
       const filePath = path.join(BY_CRAWLER_DIR, file);
       const crawlerData = readJson(filePath);
       if (!crawlerData?.jobs || !Array.isArray(crawlerData.jobs)) continue;

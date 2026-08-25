@@ -7,6 +7,7 @@
  * Usage: node scripts/cleanup-redundant-previous-slugs.mjs [--dry-run]
  */
 import fs from 'node:fs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -45,7 +46,7 @@ function main() {
     process.exit(1);
   }
 
-  const files = fs.readdirSync(BY_CRAWLER_DIR).filter(f => f.endsWith('.json'));
+  const files = listSliceFileNames(BY_CRAWLER_DIR);
   let totalRemoved = 0;
   let totalJobs = 0;
   let filesModified = 0;

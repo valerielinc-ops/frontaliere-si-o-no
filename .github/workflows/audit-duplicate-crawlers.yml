@@ -1,0 +1,103 @@
+name: Audit duplicate crawlers (daily, deterministic)
+
+# Catches the class of defect that put "EOC candiDati Posizioni" on the site as a
+# company of its own, next to the EOC crawler that had been reading the very same
+# Umantis tenant for months: two crawler keys publishing the SAME vacancy URLs.
+#
+# It also reports the half of that story worth more than the duplicate itself —
+# vacancies the twin found and the crawler we keep never had. On EOC those were
+# three live postings, one of which a reader had to report by hand.
+#
+# Deliberately NOT a Claude audit, unlike crawler-data-quality-audit.yml. The
+# question here is set arithmetic over `data/jobs/by-crawler/*.json` — which URLs
+# appear under two keys — and it has an exact answer that no amount of reasoning
+# improves. Per `AGENTS.md → Auth automazioni & frugalità quota`, an audit that a
+# script can settle does not spend the shared Max quota. Runtime ~2s.
+#
+# Findings become issues labelled `crawler`, which `scripts/lib/classify-issue.mjs`
+# routes straight to `agent:fix` — this is production data, and the fix (widen a
+# seed, retire a duplicate identity) is the kind the loop already performs.
+# One aggregated issue per finding kind, with a stable title, so a standing
+# problem comments on its own issue instead of minting a new one every morning.
+
+on:
+  schedule:
+    - cron: '53 5 * * *' # daily, off the crowded top-of-hour slots
+  workflow_dispatch:
+    inputs:
+      report_only:
+        description: 'Report findings without opening or updating issues'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: audit-duplicate-crawlers
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          # `data/jobs/by-crawler/` is the input and must be complete — a partial
+          # checkout would silently under-report, which is worse than not running.
+          # Everything else heavy is excluded.
+          sparse-checkout: |
+            /*
+            !/public/
+            !/packages/articles/content/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/data/jobs-snapshots-history/
+            !/docs/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      # `gh issue create --label` fails the whole call on a missing label, so the
+      # label is asserted before anything can depend on it.
+      - name: Ensure label exists
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create "crawler" --color "D93F0B" \
+            --description "Crawler production issue" --force 2>/dev/null || true
+
+      - name: Audit duplicate crawler companies and coverage gaps
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          if [ "${{ inputs.report_only }}" = "true" ]; then
+            node scripts/audit-duplicate-crawler-companies.mjs
+          else
+            node scripts/audit-duplicate-crawler-companies.mjs --issues
+          fi
+
+      # Only an operational failure reaches here — a finding exits 0 by design,
+      # because a finding is a backlog item and not a broken workflow.
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Audit duplicate crawlers: run fallita" \
+            --description "Il workflow audit-duplicate-crawlers è fallito (non un finding: un errore operativo). Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --priority 3 \
+            --label "crawler" \
+            --workflow "audit-duplicate-crawlers"

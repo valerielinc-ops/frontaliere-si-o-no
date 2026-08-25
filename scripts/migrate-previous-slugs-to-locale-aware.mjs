@@ -14,6 +14,7 @@
  */
 
 import fs from 'node:fs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -362,7 +363,7 @@ let totalFiles = 0;
 
 // Active slices
 if (fs.existsSync(SLICES_DIR)) {
-  const sliceFiles = fs.readdirSync(SLICES_DIR).filter(f => f.endsWith('.json')).sort();
+  const sliceFiles = listSliceFileNames(SLICES_DIR).sort();
   for (const file of sliceFiles) {
     const result = processSliceFile(path.join(SLICES_DIR, file));
     if (result.recovered > 0 || result.migrated > 0) {

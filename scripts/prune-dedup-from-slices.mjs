@@ -23,6 +23,7 @@
  */
 
 import fs from 'node:fs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -61,9 +62,7 @@ if (!fs.existsSync(SLICES_DIR)) {
   process.exit(0);
 }
 
-const sliceFiles = fs.readdirSync(SLICES_DIR)
-  .filter((f) => f.endsWith('.json') && f !== '.gitkeep')
-  .sort();
+const sliceFiles = listSliceFileNames(SLICES_DIR);
 
 let totalPruned = 0;
 let modifiedSlices = 0;

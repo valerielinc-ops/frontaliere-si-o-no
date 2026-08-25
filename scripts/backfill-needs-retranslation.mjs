@@ -42,6 +42,7 @@
  */
 
 import fs from 'node:fs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { updateSliceCompareAndSwap } from './lib/job-mark-persistence.mjs';
@@ -133,10 +134,7 @@ function main() {
     process.exit(1);
   }
 
-  const files = fs
-    .readdirSync(SLICES_DIR)
-    .filter((f) => f.endsWith('.json'))
-    .sort();
+  const files = listSliceFileNames(SLICES_DIR);
 
   let totalJobs = 0;
   let totalAlreadyFlagged = 0;
