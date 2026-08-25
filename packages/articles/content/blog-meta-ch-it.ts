@@ -4255,6 +4255,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposta-successione-zurigo-aliquote.title': 'Imposta di successione Zurigo: aliquote e deduzioni',
     'blog.article.imposta-successione-zurigo-aliquote.excerpt': 'Come funziona la tassazione di successione nel Canton Zurigo: sistema progressivo, esenzioni per coniuge e discendenti, dichiarazione e scadenze.',
     'blog.article.imposta-successione-zurigo-aliquote.imageAlt': 'Scrivania di un ufficio fiscale svizzero con documenti di successione, calcolatrice e moduli ufficiali',
+    'blog.article.verdi-richiesta-clima-2026.title': 'Verdi chiedono Segreteria Stato per clima',
+    'blog.article.verdi-richiesta-clima-2026.excerpt': 'I Verdi svizzeri chiedono una Segreteria di Stato per la protezione del clima e l\'uscita dalle energie fossili. Rösti ha ammesso: la Svizzera non raggiungerà gli obiettivi climatici 2030.',
+    'blog.article.verdi-richiesta-clima-2026.imageAlt': 'Lago di Lugano in estate torrida: impatti del cambiamento climatico sulla Svizzera.',
 };
 
 export default blogMetaChIt;

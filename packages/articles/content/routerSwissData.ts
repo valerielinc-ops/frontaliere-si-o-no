@@ -1444,6 +1444,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'lacune-contributive-avs-zurigo': { it: 'lacune-contributive-avs-zurigo', en: 'contribution-gaps-avs-zurich', de: 'beitragslucken-avs-zurich', fr: 'lacunes-cotisations-avs-zurich' },
  'successione-donazione-zurigo-guida': { it: 'successione-donazione-zurigo-guida', en: 'succession-donation-zurich-guide', de: 'erbschaft-schenkung-zuerich-leitfaden', fr: 'succession-donation-zurich-guide' },
  'imposta-successione-zurigo-aliquote': { it: 'imposta-successione-zurigo-aliquote', en: 'inheritance-tax-zurich-rates', de: 'erbschaftssteuer-zuerich-saetze', fr: 'impot-succession-zurich-taux' },
+ 'verdi-richiesta-clima-2026': { it: 'verdi-richiesta-clima-2026', en: 'greens-demand-state-secretariat-climate', de: 'gruene-fordern-staatssekretariat-klimaschutz', fr: 'verts-demandent-secretariat-etat-climat' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
