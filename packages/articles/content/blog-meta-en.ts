@@ -10784,6 +10784,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vilminore-scalve-grigioni-frontaliere.title': 'Living in Vilminore and working in Graubünden: border guide',
     'blog.article.vilminore-scalve-grigioni-frontaliere.excerpt': 'Permit G, taxation, AVS and LAMal: complete guide for those who move from Vilminore di Scalve to work in Graubünden. Documents, refreshments and procedures.',
     'blog.article.vilminore-scalve-grigioni-frontaliere.imageAlt': 'Lake Lugano landscape between Switzerland and Italy, alpine border villages',
+    'blog.article.vivere-pollein-lavorare-vallese-frontaliere.title': 'Living in Pollein and working in Valais as a border worker',
+    'blog.article.vivere-pollein-lavorare-vallese-frontaliere.excerpt': 'Italy-Switzerland border in the Valais: tax rules 2024, G permit, tax at source, AVS, LPP, LAMal, refunds and practical procedures.',
+    'blog.article.vivere-pollein-lavorare-vallese-frontaliere.imageAlt': 'Alpine hiking path overlooking Swiss and Italian peaks at sunset, border region landscape',
 };
 
 export default blogMetaEn;

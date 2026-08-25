@@ -10783,6 +10783,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vilminore-scalve-grigioni-frontaliere.title': 'Leben in Vilminore und Arbeiten in Graubünden: Grenzführer',
     'blog.article.vilminore-scalve-grigioni-frontaliere.excerpt': 'G-Bewilligung, Besteuerung, AHV und KVG: Kompletter Leitfaden für diejenigen, die von Vilminore di Scalve nach Graubünden ziehen, um dort zu arbeiten. Dokumente, Rückerstattungen und Verfahren.',
     'blog.article.vilminore-scalve-grigioni-frontaliere.imageAlt': 'Blick auf den Luganosee zwischen der Schweiz und Italien, alpine Grenzregion',
+    'blog.article.vivere-pollein-lavorare-vallese-frontaliere.title': 'Wohnen in Pollein und Arbeiten im Wallis als Grenzgänger',
+    'blog.article.vivere-pollein-lavorare-vallese-frontaliere.excerpt': 'Grenzgänger Italien-Schweiz im Wallis: Steuervorschriften 2024, Bewilligung G, Quellensteuer, AHV, BVG, KVG, Rückerstattungen und praktische Verfahren.',
+    'blog.article.vivere-pollein-lavorare-vallese-frontaliere.imageAlt': 'Alpenpfad zwischen Italien und der Schweiz mit Blick auf Walliser Alpen bei Sonnenuntergang',
 };
 
 export default blogMetaDe;
