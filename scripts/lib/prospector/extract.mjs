@@ -19,6 +19,7 @@
  */
 import { normalizeHost, safeDecodePath } from './registrable.mjs';
 import { decodeEntities } from './entities.mjs';
+import { readAttr, readTagByAttr } from '../html-attr.mjs';
 
 /**
  * Tokens that mark a URL path or heading as vacancy-related on their own, in
@@ -189,13 +190,19 @@ export function extractMicrodata(html, pageUrl) {
   while ((m = rx.exec(html))) {
     const block = m[2];
     const prop = (name) => {
-      const p = new RegExp(`itemprop\\s*=\\s*["']${name}["'][^>]*>([\\s\\S]{0,2000}?)<`, 'i').exec(block);
-      const content = new RegExp(`itemprop\\s*=\\s*["']${name}["'][^>]*content\\s*=\\s*["']([^"']*)["']`, 'i').exec(block);
-      return (content?.[1] || textOf(p?.[1] || '')).trim();
+      // #6480: reading `itemprop=X ... content=Y` with one glued regex let the
+      // `[^"']` class run through an apostrophe between the two attributes and
+      // truncate the value. Locate the tag, then read its attributes.
+      const tag = readTagByAttr(block, 'itemprop', name);
+      const content = tag ? readAttr(tag, 'content') : '';
+      const esc = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const p = new RegExp(`itemprop\\s*=\\s*(["'])${esc}\\1[^>]*>([\\s\\S]{0,2000}?)<`, 'i').exec(block);
+      return (content || textOf(p?.[2] || '')).trim();
     };
     const title = prop('title') || prop('name');
     if (!title) continue;
-    const href = /<a\b[^>]*href\s*=\s*["']([^"']+)["']/i.exec(block)?.[1];
+    const anchor = /<a\b[^>]*>/i.exec(block)?.[0];
+    const href = anchor ? readAttr(anchor, 'href') : '';
     let url = pageUrl;
     try { if (href) url = new URL(href, pageUrl).toString(); } catch { /* keep page url */ }
     out.push({

@@ -31,6 +31,7 @@ import { scoreVacancyPage } from './extract.mjs';
 import { extractLinks, isCareerLink } from './careers-trail.mjs';
 import { CONCURRENCY } from './config.mjs';
 import { decodeEntities } from './entities.mjs';
+import { readAttr, readMetaContent } from '../html-attr.mjs';
 
 /**
  * Query the Common Crawl URL index for every host under a platform domain.
@@ -281,10 +282,13 @@ export function employerNameFromPage(html = '', host = '', links = []) {
   const candidates = [];
   const title = clean(/<title[^>]*>([\s\S]{0,200}?)<\/title>/i.exec(html)?.[1]);
   if (title) candidates.push(title);
-  const ogSite = clean(/<meta[^>]+property=["']og:site_name["'][^>]+content=["']([^"']+)["']/i.exec(html)?.[1]);
+  const ogSite = clean(readMetaContent(html, 'og:site_name'));
   if (ogSite) candidates.push(ogSite);
-  const logoAlt = clean(/<img[^>]+(?:class|id)=["'][^"']*logo[^"']*["'][^>]*alt=["']([^"']+)["']/i.exec(html)?.[1]
-    || /<img[^>]+alt=["']([^"']+)["'][^>]*(?:class|id)=["'][^"']*logo[^"']*["']/i.exec(html)?.[1]);
+  // Quote-balanced (#6480): a company name with an apostrophe — `Casa d'Anziani`,
+  // `L'Oréal` — was truncated at the apostrophe by the old `[^"']+` class.
+  const logoImg = /<img\b[^>]*(?:class|id)\s*=\s*(["'])[^"']*logo[^"']*\1[^>]*>/i.exec(html)?.[0]
+    || /<img\b[^>]*alt\s*=\s*(["'])[\s\S]*?\1[^>]*(?:class|id)\s*=\s*(["'])[^"']*logo[^"']*\2[^>]*>/i.exec(html)?.[0];
+  const logoAlt = clean(logoImg ? readAttr(logoImg, 'alt') : '');
   if (logoAlt) candidates.push(logoAlt);
 
   for (const raw of candidates) {

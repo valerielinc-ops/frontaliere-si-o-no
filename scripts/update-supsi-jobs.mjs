@@ -17,6 +17,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { readAttr } from './lib/html-attr.mjs';
 import { fileURLToPath } from 'node:url';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
@@ -629,18 +630,19 @@ function extractAlternateLocaleUrls(html = '', currentUrl = '') {
   const out = {};
   // Match <link> tags with rel="alternate" — attributes can appear in any order
   const rx = /<link\b[^>]*\brel=["']alternate["'][^>]*\/?>/gi;
-  const rxAlt = /<link\b[^>]*\bhreflang=["'][^"']+["'][^>]*\brel=["']alternate["'][^>]*\/?>/gi;
+  const rxAlt = /<link\b[^>]*\bhreflang=(["'])[^<]*?\1[^>]*\brel=(["'])alternate\2[^>]*\/?>/gi;
   for (const pattern of [rx, rxAlt]) {
     let match = null;
     while ((match = pattern.exec(String(html || ''))) !== null) {
       const tag = match[0];
-      const hreflangMatch = tag.match(/\bhreflang=["']([^"']+)["']/i);
-      const hrefMatch = tag.match(/\bhref=["']([^"']+)["']/i);
-      if (!hreflangMatch || !hrefMatch) continue;
-      const lang = String(hreflangMatch[1]).trim().toLowerCase().slice(0, 2);
+      // #6480: quote-balanced — `[^"']+` cut an href at the first apostrophe.
+      const hreflang = readAttr(tag, 'hreflang');
+      const href = readAttr(tag, 'href');
+      if (!hreflang || !href) continue;
+      const lang = hreflang.trim().toLowerCase().slice(0, 2);
       if (!SUPSI_LOCALES.includes(lang) || out[lang]) continue;
       try {
-        out[lang] = new URL(hrefMatch[1], currentUrl).href;
+        out[lang] = new URL(href, currentUrl).href;
       } catch {
         // ignore malformed alternate URLs
       }

@@ -23,6 +23,7 @@ import { isPlatformEligible } from './platform-registry.mjs';
 import { decodeEntities } from './entities.mjs';
 import { scoreVacancyPage } from './extract.mjs';
 import { looksLikeAggregator } from './tenant-enum.mjs';
+import { readAttr } from '../html-attr.mjs';
 
 /**
  * Tidy anchor text: decode entities, collapse whitespace, and drop the
@@ -47,6 +48,50 @@ export function cleanAnchorText(raw = '') {
 }
 
 /**
+ * Join anchor inner text with its `aria-label`/`title`, dropping the attribute
+ * when it carries no information the inner text does not already have.
+ *
+ * Second line of defence for issue #6480. The first line is `readAttr()`, which
+ * stops the attribute from being truncated at an apostrophe; this stops the
+ * concatenation itself whenever the two parts say the same thing — the common
+ * `<a title="X"><span>X</span></a>` shape, and every partial variant of it that
+ * `cleanAnchorText()` cannot catch because its collapse needs the two halves to
+ * be EXACTLY equal.
+ *
+ * Deliberately narrow: it only drops a part wholly contained in the other. It
+ * does NOT collapse a repeated prefix in general — that heuristic is what made
+ * the measurement in #6480 unusable, because German double-gender titles
+ * (`Ernährungsberaterin / Ernährungsberater`) are legitimate strings whose tail
+ * IS a prefix of their head.
+ *
+ * @param {string} text  Anchor inner text, tags already stripped.
+ * @param {string} attr  aria-label / title value.
+ * @returns {string}
+ */
+export function joinAnchorParts(text = '', attr = '') {
+  const a = String(text || '').replace(/\s+/g, ' ').trim();
+  const b = String(attr || '').replace(/\s+/g, ' ').trim();
+  if (!a) return b;
+  if (!b) return a;
+  const na = a.toLowerCase();
+  const nb = b.toLowerCase();
+  // Same string modulo case: keep the one that is NOT shouted. A job card
+  // often renders its title in an all-caps `<span>` while the `title=`
+  // attribute carries the authored casing, and `INFERMIERE SSS` is a worse
+  // stored title than `Infermiere SSS`. Only all-caps loses — a genuine
+  // acronym like `SSS` inside otherwise mixed-case text is untouched, because
+  // such a string is not all-caps as a whole.
+  if (na === nb) {
+    const shouted = (s) => s === s.toUpperCase() && /[A-ZÀ-Þ]/.test(s);
+    if (shouted(a) && !shouted(b)) return b;
+    return a;
+  }
+  if (na.includes(nb)) return a;
+  if (nb.includes(na)) return b;
+  return `${a} ${b}`;
+}
+
+/**
  * Absolute links in an HTML document, with their anchor text.
  *
  * Written as a scan for `href=` rather than a full anchor match on purpose:
@@ -66,20 +111,20 @@ export function extractLinks(html = '', baseUrl = '') {
   let m;
   while ((m = rx.exec(html))) {
     const attrs = m[1];
-    const href = /href\s*=\s*["']([^"']+)["']/i.exec(attrs)?.[1];
+    const href = readAttr(attrs, 'href');
     if (!href) continue;
     if (/^(#|mailto:|tel:|javascript:|data:)/i.test(href.trim())) continue;
     // Anchor text = the markup up to the next </a>, tags stripped.
     const rest = html.slice(rx.lastIndex, rx.lastIndex + 400);
     const text = rest.split(/<\/a>/i)[0].replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
-    const aria = /(?:aria-label|title)\s*=\s*["']([^"']+)["']/i.exec(attrs)?.[1] || '';
+    const aria = readAttr(attrs, ['aria-label', 'title']);
     let abs;
     try { abs = new URL(href, baseUrl).toString(); } catch { continue; }
     if (!/^https?:/i.test(abs)) continue;
     const key = abs.split('#')[0];
     if (seen.has(key)) continue;
     seen.add(key);
-    out.push({ url: abs, text: cleanAnchorText(`${text} ${aria}`), host: normalizeHost(new URL(abs).hostname) });
+    out.push({ url: abs, text: cleanAnchorText(joinAnchorParts(text, aria)), host: normalizeHost(new URL(abs).hostname) });
   }
   return out;
 }
