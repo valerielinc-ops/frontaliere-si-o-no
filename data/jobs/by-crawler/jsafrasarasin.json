@@ -1,6 +1,6 @@
 {
   "crawlerKey": "jsafrasarasin",
-  "assembledAt": "2026-08-25T09:46:33.068Z",
+  "assembledAt": "2026-08-25T21:40:54.021Z",
   "jobs": [
     {
       "id": "jsafrasarasin-633fe62884d6",
@@ -30,7 +30,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/459/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-25T09:46:29.122Z",
+      "crawledAt": "2026-08-25T21:40:50.232Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -99,7 +99,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/472/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-25T09:46:28.819Z",
+      "crawledAt": "2026-08-25T21:40:49.929Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -174,7 +174,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/474/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-25T09:46:28.515Z",
+      "crawledAt": "2026-08-25T21:40:49.625Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -249,7 +249,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/482/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:46:28.212Z",
+      "crawledAt": "2026-08-25T21:40:49.322Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -321,7 +321,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/490/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:46:27.909Z",
+      "crawledAt": "2026-08-25T21:40:49.019Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -393,7 +393,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/455/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-25T09:46:27.607Z",
+      "crawledAt": "2026-08-25T21:40:48.717Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -468,7 +468,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/498/Description/1",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:46:27.304Z",
+      "crawledAt": "2026-08-25T21:40:48.414Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -518,65 +518,6 @@
       "addressRegion": "TI"
     },
     {
-      "id": "jsafrasarasin-4f7483040f1b",
-      "slug": "lead-auditor-group-internal-audit-jsafrasarasin-ch",
-      "slugByLocale": {
-        "it": "lead-auditor-group-internal-audit-jsafrasarasin-ch",
-        "en": "lead-auditor-group-internal-audit-j-safra-sarasin-lugano",
-        "de": "lead-auditor-group-internal-audit-jsafrasarasin-ch",
-        "fr": "verificateur-principal-groupe-verification-interne-j-safra-sarasin-lugano"
-      },
-      "company": "J. Safra Sarasin",
-      "companyKey": "jsafrasarasin",
-      "companyDomain": "jsafrasarasin.umantis.com",
-      "title": "Lead Auditor - Group Internal Audit",
-      "titleByLocale": {
-        "it": "Lead Auditor - Group Internal Audit",
-        "en": "Lead Auditor - Group Internal Audit",
-        "de": "Lead Auditor - Group Internal Audit",
-        "fr": "Vérificateur principal - Groupe Vérification interne"
-      },
-      "description": "Lead Auditor - Group Internal Audit — J. Safra Sarasin",
-      "descriptionByLocale": {
-        "it": "Lead Auditor - Group Internal Audit — J. Safra Sarasin"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://jsafrasarasin.umantis.com/Vacancies/477/Description/2",
-      "source": "J. Safra Sarasin Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-25T09:46:26.999Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-23",
-      "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/477/Description/2",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T09:42:50.151Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI"
-    },
-    {
       "id": "jsafrasarasin-ab63e5922660",
       "slug": "client-service-executive-j-safra-sarasin-lugano",
       "slugByLocale": {
@@ -604,7 +545,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/503/Description/1",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-25T09:46:26.696Z",
+      "crawledAt": "2026-08-25T21:40:48.108Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -679,7 +620,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/496/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:46:26.393Z",
+      "crawledAt": "2026-08-25T21:40:47.805Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -751,7 +692,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/506/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-25T09:46:26.062Z",
+      "crawledAt": "2026-08-25T21:40:47.480Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -799,64 +740,64 @@
       "addressRegion": "TI"
     },
     {
-      "id": "jsafrasarasin-36022dbbf26f",
-      "slug": "risk-officer-management-company-jsafrasarasin-ch",
+      "id": "jsafrasarasin-4f7483040f1b",
+      "slug": "lead-auditor-group-internal-audit-jsafrasarasin-ch",
       "slugByLocale": {
-        "it": "risk-officer-management-company-jsafrasarasin-ch",
-        "en": "risk-officer-management-company-jsafrasarasin-ch",
-        "de": "risk-officer-management-company-jsafrasarasin-ch",
-        "fr": "risk-officer-management-company-jsafrasarasin-ch"
+        "it": "lead-auditor-group-internal-audit-jsafrasarasin-ch",
+        "en": "lead-auditor-group-internal-audit-j-safra-sarasin-lugano",
+        "de": "lead-auditor-group-internal-audit-jsafrasarasin-ch",
+        "fr": "verificateur-principal-groupe-verification-interne-j-safra-sarasin-lugano"
       },
       "company": "J. Safra Sarasin",
       "companyKey": "jsafrasarasin",
       "companyDomain": "jsafrasarasin.umantis.com",
-      "title": "Risk Officer Management Company",
+      "title": "Lead Auditor - Group Internal Audit",
       "titleByLocale": {
-        "it": "Risk Officer Management Company",
-        "en": "Risk Officer Management Company",
-        "de": "Risk Officer Management Company",
-        "fr": "Risk Officer Management Company"
+        "it": "Lead Auditor - Group Internal Audit",
+        "en": "Lead Auditor - Group Internal Audit",
+        "de": "Lead Auditor - Group Internal Audit",
+        "fr": "Vérificateur principal - Groupe Vérification interne"
       },
-      "description": "Risk Officer Management Company — J. Safra Sarasin",
+      "description": "Lead Auditor - Group Internal Audit — J. Safra Sarasin",
       "descriptionByLocale": {
-        "fr": "Risk Officer Management Company — J. Safra Sarasin"
+        "it": "Lead Auditor - Group Internal Audit — J. Safra Sarasin"
       },
       "location": "Lugano",
       "canton": "TI",
-      "url": "https://jsafrasarasin.umantis.com/Vacancies/495/Description/2",
+      "url": "https://jsafrasarasin.umantis.com/Vacancies/477/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-24T10:00:02.833Z",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-25T09:46:26.999Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "OTHER",
-      "experienceLevel": "mid",
+      "experienceLevel": "senior",
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-08-23",
-      "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/495/Description/2",
+      "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/477/Description/2",
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T09:42:49.847Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "firstSeenAt": "2026-08-23T09:42:50.151Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68000,
+          "maxValue": 103000,
           "unitText": "YEAR"
         }
       },
       "addressRegion": "TI",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
     }
   ]
 }
