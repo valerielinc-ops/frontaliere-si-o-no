@@ -10755,6 +10755,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mazzo-valtellina-frontaliere-pratica.title': 'Vivere a Mazzo di Valtellina e lavorare in Grigioni: guida frontaliere',
     'blog.article.mazzo-valtellina-frontaliere-pratica.excerpt': 'Permesso G, fiscalità doppia, AVS, LPP, LAMal: la guida pratica per il pendolarismo transfrontaliero tra Valtellina e Grigioni dal 2024.',
     'blog.article.mazzo-valtellina-frontaliere-pratica.imageAlt': 'Paesaggio alpino al confine Ticino-Grigioni con prati di montagna e valli in lontananza.',
+    'blog.article.vivere-grosio-lavorare-grigioni-frontaliere.title': 'Vivere a Grosio e lavorare in Grigioni da frontaliere',
+    'blog.article.vivere-grosio-lavorare-grigioni-frontaliere.excerpt': 'Fatti e cifre sulla fiscalità, permessi e vita quotidiana dei frontalieri ticinesi',
+    'blog.article.vivere-grosio-lavorare-grigioni-frontaliere.imageAlt': 'Lago di Lugano',
 };
 
 export default blogMetaIt;

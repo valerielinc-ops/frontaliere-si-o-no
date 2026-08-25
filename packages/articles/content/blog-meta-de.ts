@@ -10753,6 +10753,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mazzo-valtellina-frontaliere-pratica.title': 'Vivere in Mazzo, lavorare in Grigioni: guida frontaliere',
     'blog.article.mazzo-valtellina-frontaliere-pratica.excerpt': 'Bewilligung G, Doppelbesteuerung, AHV, BVG, KVG: der praktische Leitfaden für das grenzüberschreitende Pendeln zwischen Veltlin und Graubünden ab 2024.',
     'blog.article.mazzo-valtellina-frontaliere-pratica.imageAlt': 'Alpine Berglandschaft an der Grenze zwischen Tessin und Graubünden mit Bergwiesen und entfernten Tälern.',
+    'blog.article.vivere-grosio-lavorare-grigioni-frontaliere.title': 'Wohnen in Grosio und Arbeiten in Graubünden als Grenzgänger',
+    'blog.article.vivere-grosio-lavorare-grigioni-frontaliere.excerpt': 'Zahlen und Fakten zur Besteuerung, Bewilligungen und zum Alltag der Tessiner Grenzgänger',
+    'blog.article.vivere-grosio-lavorare-grigioni-frontaliere.imageAlt': 'Lago di Lugano',
 };
 
 export default blogMetaDe;

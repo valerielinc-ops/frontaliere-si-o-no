@@ -10756,6 +10756,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mazzo-valtellina-frontaliere-pratica.title': 'Vivre à Mazzo di Valtellina et travailler dans les Grisons : guide frontalier',
     'blog.article.mazzo-valtellina-frontaliere-pratica.excerpt': 'Permis G, double imposition, AVS, LPP, LAMal : le guide pratique pour les déplacements transfrontaliers entre la Valteline et les Grisons à partir de 2024.',
     'blog.article.mazzo-valtellina-frontaliere-pratica.imageAlt': 'Paysage alpin à la frontière Tessin-Grisons avec des prairies de montagne et des vallées reculées.',
+    'blog.article.vivere-grosio-lavorare-grigioni-frontaliere.title': 'Vivre à Grosio et travailler dans les Grisons en tant que frontalier',
+    'blog.article.vivere-grosio-lavorare-grigioni-frontaliere.excerpt': 'Faits et chiffres sur la fiscalité, les permis et la vie quotidienne des frontaliers tessinois',
+    'blog.article.vivere-grosio-lavorare-grigioni-frontaliere.imageAlt': 'Lac de Lugano',
 };
 
 export default blogMetaFr;
