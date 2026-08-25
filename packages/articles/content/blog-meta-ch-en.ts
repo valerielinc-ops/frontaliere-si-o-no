@@ -4249,6 +4249,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lacune-contributive-avs-zurigo.title': 'AVS and complementary services: compensation fund',
     'blog.article.lacune-contributive-avs-zurigo.excerpt': 'First pillar in the Canton of Zurich: compensation fund, calculation of AVS annuity, contribution gaps and supplementary benefits for the minimum living wage.',
     'blog.article.lacune-contributive-avs-zurigo.imageAlt': 'Administrative office with pension documents, calculator, and retirement planning chart. Swiss Alps visible through window.',
+    'blog.article.successione-donazione-zurigo-guida.title': 'Zurich inheritance tax: rates and exemptions 2026',
+    'blog.article.successione-donazione-zurigo-guida.excerpt': 'Inheritance and gift taxes in the Canton of Zurich: rates for degree of kinship, total exemptions for spouse and children, mandatory declaration and deadlines to be met.',
+    'blog.article.successione-donazione-zurigo-guida.imageAlt': 'Zurich canton administrative office with inheritance tax forms and legal documentation.',
 };
 
 export default blogMetaChEn;
