@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Tue, 25 Aug 2026 02:30:28 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 03:09:04 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -16,6 +16,74 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Wages and the labour market in Switzerland: training and sectors</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/salaries-labor-market-switzerland-sectors/</link>
+      <description><![CDATA[How salaries vary by degree of training, sector and experience. Guide to collective agreements, legal hours, minimum holidays and salary contributions.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- There is no federal minimum wage in Switzerland; some cantons provide for it
+- The maximum time is 45 hours/week in industry and offices, 50 hours in other sectors
+- Training (apprenticeship vs university) has a significant impact on pay levels
+- Collective agreements set minimums and conditions for entire sectors
+
+## Key facts
+- **What**: Swiss labour market with factors that determine wages
+- When: Regulations in force in 2026
+- Where: All of Switzerland (varies by canton)
+- Who: Employees, employers, trade unions
+- Hours: Max 45 hours (industry/offices) or 50 hours (other sectors)
+- Holidays: Minimum 4 weeks (5 under 20 years)
+- Contributions: AVS/AI 5.3% employee, LPP 7-18% by age group
+
+In Switzerland, the minimum wage is not set at the federal level. This choice reflects the Swiss direct democracy system, where cantons and private sectors independently manage wages. Some cantons — including Geneva, Basel-City, Neuchâtel, Jura and Vaud — have introduced their own minimum wages; others entrust regulation to sectoral collective agreements and the free market. Where there is no legal minimum, the salary is negotiated between employer and employee, often with the support of trade unions or employers' associations that set industry standards.
+
+Salaries in Switzerland vary first and foremost by level of training. Who completes a professional apprenticeship (AFC certificate) at 16-17 years old
+### Training and wage differentials
+
+The choice of training is the main discriminant in Swiss wages. A young person entering the market with a vocational apprenticeship (AFC) at 16-17 years old starts with a gross monthly salary ranging from CHF 3,500 to 4,500, depending on the sector. This level remains the most common in Switzerland: over 70% of the working-age population has completed vocational training, a sign of Switzerland's strong tradition of dual apprenticeship.
+
+Those who continue to a high school (university vocational school, sup, or university) enter the market between the ages of 22 and 26 with average salaries of CHF 8,000-12,000 per month, always gross. The advantage is proportional to the level of specialization: a graduate in medicine or engineering starts from higher positions than those who leave a generic degree program.
+
+The experience accumulated over time still amplifies these gaps. A professional with 10 years of experience in the same sector typically earns 20-35% more than those who reach the first position, regardless of the initial title. This seniority effect is very marked in Switzerland, where corporate loyalty is rewarded both in terms of planning and salaries.
+
+### Sectors and pay structures
+
+In finance and banking, base salaries are higher than average, especially for wealth management, trading, and compliance roles. A
+
+## Useful planning tools
+To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
+### Understanding your payslip and net amounts
+
+A Swiss gross salary includes mandatory contributions that reduce the net amount on your payslip. From a gross monthly salary of CHF 5,000, an employee will see approximately CHF 1,100-1,300 deducted for taxes and social contributions, bringing the net to CHF 3,700-3,900. These amounts vary by canton (cantonal/municipal tax changes from Schaffhausen to Geneva) and family situation (married individuals with children receive reductions).
+
+Mandatory salary contributions include:
+- AVS/AI/IPG: 5.3% ([old-age, disability, and maternity insurance](nav:pension))
+- AD/AC (unemployment): 1.1% up to an annual ceiling set each year
+- LAINF (non-occupational accident insurance): 0.7-1.5% depending on the risk sector
+- LPP ([occupational pension](nav:pension)): between 7% (25-34 age bracket) and 18% (55+ bracket up to the reference age) on the so-called 'coordinated salary'
+
+The employer also contributes an almost identical amount, except for the LPP, where the ratio depends on the company plan. These funds guarantee your pension (AVS at age 65; LPP as an additional annuity), disability protection, and accident coverage.
+
+### Where to check and negotiate
+
+Before accepting a job offer in Switzerland, compare the offer with industry data available on job search platforms and salary calculators. The SECO (State Secretariat for Economic Affairs) and the FSO (Federal Statistical Office) annually publish data on median salaries by sector, canton, and education level — these data are free and highly reliable.
+
+If you are already employed and suspect your pay is below the industry average or below what is stipulated by the applicable CLA (Collective Labour Agreement), you can:
+1. Consult the CLA (if one exists for your sector) and verify the minimum wage for your category
+2. Request a salary review from your employer, supported by market data
+3. Turn to the relevant trade union for your sector (if you wish for assistance) or a labour law specialist
+4. Contact the cantonal labour office if you suspect violations of legal minimums (working hours, holidays, contributions)
+
+Use the [salary calculator](nav:calculator) to simulate the impact of taxes and contributions on your gross earnings, considering your canton of residence, family situation, and sector.
+
+### Next steps
+
+If you are job hunting, consult the main Swiss portals for qualified job postings. If you are already employed, monitor annually whether your salary keeps pace with inflation and industry averages. In Switzerland, automatic salary increases are not guaranteed: they depend on negotiations, individual performance, and company economic conditions. Stay informed about the CLAs in force in your sector and remember that federal labour law establishes a protective floor (working hours, holidays, contributions), but it is collective agreements and individual negotiations that determine your true purchasing power.]]></content:encoded>
+      <pubDate>Tue, 25 Aug 2026 03:09:04 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/salari-mercato-lavoro-svizzera-settori</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/salari-mercato-lavoro-svizzera-settori.webp" medium="image"/>
+    </item>
     <item>
       <title>Opening a business in the Canton of Schaffhausen: Trade Register and costs</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/opening-business-sciaffusa-commercial-register/</link>
@@ -3116,66 +3184,6 @@ With our [tax calculator](nav:calculator), you can quickly estimate your total t
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/tassazione-forfettaria-ticino-incassi</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/tassazione-forfettaria-ticino-incassi.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Sole Salaries: Sectors and Levels of Training</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/salaries-labor-market-soletta-sectors/</link>
-      <description><![CDATA[How wages work in the Canton of Solothurn depending on training. Discover salary levels, collective agreements and taxation in Switzerland.]]></description>
-      <content:encoded><![CDATA[## In a nutshell
-- Salaries in Switzerland vary according to the degree of education, from AFC to university
-- Three levels of taxation (federal, cantonal, municipal) affect net salary
-- Compulsory contributions: AVS/AI 5.3%, LPP from 7% to 18%, private LAMal with deductibles from CHF 300
-
-## Key facts
-- **What**: Swiss salary system articulated by training levels
-- When: Effective 2024-2026, with annual adjustments to LPP thresholds and ceilings
-- Where: Canton Solothurn and all of Switzerland
-- Who: Employers, employees, cantonal administrations, SECO, UST/BFS
-- Employee contributions: AVS/AI 5.3%, AD/AC 1.1% up to annual ceiling, LAINF 0.7–1.5% by sector
-
-The Swiss labour market is structured around degrees of training, from vocational training (AFC) to university studies. Unlike many European systems, there is no federal minimum wage in Switzerland: legislation is left to the cantons, and the canton of Solothurn does not have a specific cantonal minimum wage. Instead, pay is regulated by collective bargaining agreements by sector, which set minimum wages according to experience and qualification.
-
-### How training levels work
-
-Training in Switzerland is divided into three main axes. The AFC (Federal Certificate of Ability), obtained after 3–4 years of apprenticeship, is the basic diploma for most craft and commercial trades. Above the AFC, the university school diploma
-### Wage differentials by educational level
-
-A hypothetical scenario illustrates the impact of training on salaries. An employee with AFC in a manufacturing sector earns a basic gross salary; a colleague with sup in the same sector receives an average surplus; an engineering graduate accesses design roles with even higher salaries. The differential percentages depend on the sector: in the advanced tertiary sector (consulting, finance) the gap between AFC and master is wider; in crafts (construction, mechanics) the differentials are smaller, although still significant.
-
-### Collective Bargaining Agreements and Sectoral Minimum Wages
-
-The Canton of Solothurn, like all Swiss cantons, recognises collective labour agreements (CLAs) by sector. The main sectors in Switzerland (industry, offices, sales, construction, hospitality, healthcare) have CCLs that set minimum wages based on experience and qualification. A collective agreement usually establishes the minimum wage for those who enter the sector, annual increases for seniority, additional costs (13th month, additional sick cash contributions, supplementary pension). The construction and manufacturing sectors have historically been among the most widespread CCLs in Switzerland and the Canton of Solothurn. However, Solothurn does not have a universal cantonal minimum wage: some cantons (Basel-City, Geneva, Neuchâtel, Jura) have introduced it; others, such as
-
-## Useful planning tools
-To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
-### Orientation in the Swiss Labor Market
-
-The first step is to consult official sources of salary data. The Federal Statistical Office (FSO) publishes salary surveys by sector and canton, although the most recent data is delayed by 1–2 years. The State Secretariat for Economic Affairs (SECO) provides bulletins on the labor market and analysis of employment trends. The cantonal administrations, including that of Solothurn, publish reports on the local economic fabric and working conditions.
-
-To know the gross salary that an employer should offer, it is useful to consult the applicable collective labor agreements. If the sector has a CCL, the minimum salary is consultable at the trade unions or at the competent cantonal administration. If there is no collective labor agreement, the salary is subject to direct negotiation between the employer and the employee, with the constraint of the federal labor law: maximum 45 hours/week in industry, offices, and sales (50 hours in other sectors), at least 4 weeks of annual leave, and right to maternity (14 weeks at 80%) and paternity (2 weeks) deductions.
-
-### Practical Tools for Calculating Net Salary
-
-Numerous online calculators allow for a reliable estimate of net income from gross income. A Swiss salary calculator requires the gross monthly or annual salary, the canton and municipality of residence, the number of children, marital status, and age (factors that influence the LPP threshold and social contributions). With this data, the calculation provides federal, cantonal, and municipal deductions, as well as mandatory social contributions (AVS, LPP, LAINF, AD/AC).
-
-It is essential to remember that the LAMal (compulsory health insurance) is concluded within 3 months of arrival, and the premium is private, not a salary deduction. The premiums vary by canton and region. Solothurn has its own premium rates published by the health insurance funds and the cantonal administration.
-
-### Checklist for Job Seekers in the Canton of Solothurn
-
-1. Check the CCL of the sector — if it exists, the employer is bound by the minimum salary set in the collective labor agreement.
-2. Request the offer in gross and net — always compare both amounts, not just the net amount received.
-3. Calculate LPP contributions — occupational pension is mandatory from CHF 22,050 per year (threshold 2024) and increases percentagely by age group.
-4. Evaluate the LAMal premium — the health insurance fund is private; premiums vary by canton/region; check the selected deductible (CHF 300–2,500).
-5. Ensure the LAINF category — the sector determines the rate (0.7–1.5%); verify if the employer contributes or if it is your responsibility.
-6. Plan taxes — use an official cantonal calculator to estimate the final tax burden and the true monthly net amount.
-
-### CTA — Calculate Your Net Salary in Solothurn
-
-For an accurate estimate of your net salary in the Canton of Solothurn, use the [Swiss salary calculator](nav:calculator). Enter your proposed gross salary, the exact municipality of residence (the municipal multiplier influences taxation), the number of children (reduces the IFD rate), and your age (determines the LPP contribution). You will receive a reliable prediction of federal, cantonal, and municipal deductions, as well as mandatory social contributions (AVS, LPP, LAINF, AD/AC). This way, you can compare job offers and plan your monthly budget with certainty before accepting a position.]]></content:encoded>
-      <pubDate>Mon, 24 Aug 2026 09:16:07 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/salari-mercato-lavoro-soletta</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/salari-mercato-lavoro-soletta.webp" medium="image"/>
     </item>
   </channel>
 </rss>

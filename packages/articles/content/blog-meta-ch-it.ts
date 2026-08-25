@@ -4210,6 +4210,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-attivita-sciaffusa-registro-commercio.title': 'Aprire un\'attività nel Canton Sciaffusa: Registro di Commercio e costi',
     'blog.article.aprire-attivita-sciaffusa-registro-commercio.excerpt': 'La scelta della forma giuridica non determina le imposte e le responsabilità. L\'iscrizione al registro di commercio è obbligatoria per tutte le imprese.',
     'blog.article.aprire-attivita-sciaffusa-registro-commercio.imageAlt': 'Locarno e Registro di Commercio Cantonale di Sciaffusa',
+    'blog.article.salari-mercato-lavoro-svizzera-settori.title': 'Salari e mercato del lavoro in Svizzera: formazione e settori',
+    'blog.article.salari-mercato-lavoro-svizzera-settori.excerpt': 'Come variano i salari per grado di formazione, settore e esperienza. Guida ai contratti collettivi, orari legali, vacanze minime e contributi salariali.',
+    'blog.article.salari-mercato-lavoro-svizzera-settori.imageAlt': 'Professionisti svizzeri in ufficio esaminano documenti di stipendio con sfondo di paesaggio urbano',
 };
 
 export default blogMetaChIt;
