@@ -78149,6 +78149,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lanzada-grigioni-frontaliere-guida': {
+    title: 'Vivere a Lanzada, lavorare nei Grigioni: frontaliere',
+    description: 'Guida completa per frontalieri Italia-Svizzera: Permesso G, fiscalità, AVS/LPP/LAMal, procedure di trasferimento e dichiarazioni redditi a Lanzada.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, lanzada, lavorare, grigioni',
+    ogTitle: 'Vivere a Lanzada e lavorare nei Grigioni da frontaliere',
+    ogDescription: 'Scopri come vivere a Lanzada e lavorare nei Grigioni come frontaliere. Guida pratica su permesso G, fiscalità Italia-Svizzera, AVS/LPP/LAMal, vantaggi e costi del trasferimento, procedure step-by-step.',
+    canonicalPath: '/articoli-frontaliere/lanzada-grigioni-frontaliere-guida',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Lanzada, lavorare nei Grigioni: frontaliere",
+      "description": "Guida completa per frontalieri Italia-Svizzera: Permesso G, fiscalità, AVS/LPP/LAMal, procedure di trasferimento e dichiarazioni redditi a Lanzada.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lanzada-grigioni-frontaliere-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio alpino con strada sinuosa che collega Italia e Svizzera, picchi rocciosi e prati verdi"
+      },
+      "datePublished": "2026-08-25T07:15:03+00:00",
+      "dateModified": "2026-08-25T07:15:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lanzada-grigioni-frontaliere-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
