@@ -29,20 +29,37 @@ name: tests
 # Tests that read data/jobs.json (gitignored): the assemble step regenerates
 # it from the per-slice files committed under data/jobs-by-slice/.
 #
-# ── Four jobs, one after another (was: four parallel workflows) ────────────
+# ── Four jobs, all in parallel (was briefly a `needs:` chain, reverted) ─────
 # `collision` (ex `pr-collision-detector.yml` job `detect`) and `contract` (ex
-# `pr-body-contract.yml` job `contract`) now live HERE, as the first two jobs
-# in the `needs:` chain ahead of `typecheck` and `vitest`. Same move as the
-# "Footprint" note above (4-shard matrix → 1 job): every push to a PR used to
-# fire 4 jobs from 3 separate workflow files AT ONCE (`detect` + `contract` +
-# `typecheck` + `vitest`), which is 4 of the account's ~20 shared Actions
-# slots gone per push. Chaining them with `needs:` + `if: always()` drops the
-# per-PR peak from 4 concurrent jobs to 1, with the SAME coverage: no check is
-# skipped, no threshold moved, no name renamed. `if: always()` (not a
-# `.result` check) is deliberate — it makes the chain PROCEED to the next job
-# regardless of whether the one before it passed or failed, preserving the
-# four gates' pre-existing independence (a red `contract` never used to stop
-# `vitest` from running, and still doesn't).
+# `pr-body-contract.yml` job `contract`) live HERE, alongside `typecheck` and
+# `vitest`, with NO `needs:` between them — all four run concurrently, exactly
+# as they did back when they were 4 separate workflow files. A red gate never
+# blocks another: a failing `collision`/`contract`/`typecheck` never used to
+# stop `vitest` from running, and still doesn't (no cross-job dependency to
+# short-circuit).
+#
+# What IS shared, and how: checkout can't be — a local composite action is
+# resolved from the checkout that hosts it, so it can't also perform that
+# checkout (verified in CI: an early attempt that folded checkout into the
+# action broke every caller with "Can't find 'action.yml' ... Did you forget
+# to run actions/checkout before running local action?"). Each job keeps its
+# own checkout profile — they are genuinely different (collision/typecheck
+# stay sparse for cost, vitest is a full checkout above the ~1.5GB blob:none
+# crossover) and forcing one shared profile would regress whichever job has
+# the cheaper one today. `actions/setup-node` + `npm ci` (identical across
+# collision/typecheck/vitest bar one flag) DO move into one place:
+# `.github/actions/ci-npm-setup` — one spot to change node version or cache
+# config instead of three. `contract`'s source-guard scripts have no npm
+# dependency and never called `npm ci`, so it doesn't use the action.
+#
+# Trade-off, stated not hidden: parallel means up to 4 of the account's ~20
+# shared Actions job slots go per PR push again (the same cost the very
+# "Footprint" note above once fixed by collapsing a 4-shard matrix to 1 job).
+# A same-day PR (#6475) had chained these 4 jobs serially with `needs:` +
+# `if: always()` specifically to drop that peak back to 1 concurrent job; this
+# reverts that chain because parallel latency (not slot count) was the
+# explicit requirement here. If job-pool contention resurfaces, re-chaining is
+# a small, contained diff (add back `needs:` + `if: always()`), not a rewrite.
 #
 # `collision` keeps its OWN job-level `concurrency:` (see `jobs.collision`
 # below) sharing the group `pr-collision-detector` with the schedule-only
@@ -190,14 +207,10 @@ jobs:
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v5
+      - name: Setup Node.js + npm ci (shared, see action for why checkout itself isn't)
+        uses: ./.github/actions/ci-npm-setup
         with:
-          node-version: '22'
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci --ignore-scripts
+          npm-ci-args: '--ignore-scripts'
 
       - name: Prepare Firebase credentials
         env:
@@ -262,15 +275,12 @@ jobs:
   # check-run name stays `contract`). That file is deleted: its ONLY trigger
   # was `pull_request`, now fully covered here.
   contract:
-    needs: [collision]
-    # `always()`: proceed to this gate even when `collision` failed, was
-    # cancelled, or was skipped (on `push`/`workflow_dispatch` `collision`
-    # doesn't run at all) — they are INDEPENDENT gates, exactly as before
-    # when they ran as separate parallel workflows: a red `detect` never used
+    # No `needs:` — runs in PARALLEL with collision/typecheck/vitest, same as
+    # before when these were 4 separate workflows: a red `collision` never used
     # to stop `pr-body-contract` from running, and still doesn't. Runs on
     # EVERY pull_request event including `edited` (pr-body-contract.yml's own
     # trigger list, unlike pr-collision-detector.yml's).
-    if: always() && github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - name: PR-body completeness + multi-issue Closes (no checkout, all events)
@@ -935,19 +945,14 @@ jobs:
   #
   # Costo: `tsc --noEmit` misura 33s in locale sull'albero intero; il job è
   # checkout + npm ci + tsc, senza assemble del dataset (nessun sorgente TS
-  # importa data/jobs.json, che è gitignored). Da questa PR (sequenzializzazione
-  # dei 4 job per abbassare il picco di concorrenza per-PR, vedi la nota "Four
-  # jobs, one after another" in testa al file) gira DOPO `contract` invece che
-  # in parallelo a vitest: costo incrementale sul wall della PR resta ≈ 0
-  # (33s), solo lo scheduling è seriale.
+  # importa data/jobs.json, che è gitignored). Gira in PARALLELO a vitest
+  # (vedi la nota "Four jobs, all in parallel" in testa al file): costo
+  # incrementale sul wall della PR ≈ 0, vitest resta la slice lunga.
   typecheck:
     name: typecheck (tsc --noEmit)
-    needs: [contract]
-    # `always()`: gira anche se `contract` è fallito, è stato annullato o è
-    # stato skippato (push a main, dove `collision`/`contract` sono skip per
-    # `github.event_name != 'pull_request'`) — sono gate indipendenti oggi,
-    # deve restare così (vedi la nota in testa al file).
-    if: always()
+    # No `needs:` — runs in PARALLEL with collision/contract/vitest. Unconditional
+    # `if:` (unlike collision/contract, which are pull_request-only): typecheck
+    # runs on every trigger, including push (main) and workflow_dispatch.
     runs-on: ubuntu-latest
     # 15 -> 30 il 2026-08-18, stesso difetto e stessa misura del job `vitest`
     # qui sotto: il tetto stava sotto il caso peggiore reale e uccideva run
@@ -1030,13 +1035,8 @@ jobs:
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
 
-      - uses: actions/setup-node@v5
-        with:
-          node-version: 22
-          cache: 'npm'
-
-      - name: npm ci
-        run: npm ci
+      - name: Setup Node.js + npm ci (shared, see action for why checkout itself isn't)
+        uses: ./.github/actions/ci-npm-setup
 
       - name: tsc --noEmit (baseline + ratchet)
         run: npm run typecheck:gate
@@ -1048,12 +1048,9 @@ jobs:
   # Do NOT rename.
   vitest:
     name: vitest (unit + integration)
-    needs: [typecheck]
-    # `always()`: same reasoning as `typecheck` above — proceed regardless of
-    # `typecheck`'s outcome, so a red/skipped typecheck never suppresses the
-    # one check-run everything else (auto-merge, pr-autorebase,
-    # stale-pr-rescuer) actually gates on.
-    if: always()
+    # No `needs:` — runs in PARALLEL with collision/contract/typecheck, so a
+    # red/skipped one of those never delays or suppresses the one check-run
+    # everything else (auto-merge, pr-autorebase, stale-pr-rescuer) gates on.
     runs-on: ubuntu-latest
     # 30 min (was 20, era 15 a 4 shard). Il 20 NON era piu' un tetto di
     # sicurezza: era il vincolo che troncava la distribuzione. Misurato su 500
@@ -1110,13 +1107,8 @@ jobs:
       - run: git config --global checkout.workers 0
       - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v5
-        with:
-          node-version: 22
-          cache: 'npm'
-
-      - name: npm ci
-        run: npm ci
+      - name: Setup Node.js + npm ci (shared, see action for why checkout itself isn't)
+        uses: ./.github/actions/ci-npm-setup
 
       - name: Audit no merge conflict markers
         # 0-tolerance gate: blocks any commit that contains unresolved
