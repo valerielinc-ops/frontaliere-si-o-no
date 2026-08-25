@@ -7,8 +7,8 @@
  * deferral ("follow-up") does NOT bypass the gate. Mirrors the
  * pr-body-check-gate.test.ts pattern (shipped in #3332).
  */
-import { describe, it, expect, afterAll } from 'vitest';
-import { spawnSync } from 'node:child_process';
+import { describe, it, expect, beforeAll, afterAll } from 'vitest';
+import { spawnSync, execFileSync } from 'node:child_process';
 import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
@@ -126,25 +126,45 @@ describe('isDeclaredFalsePositive — basename disambiguation across directories
 });
 
 describe('sibling-check-gate hook — cwd forwarding (2026-08-25 incident)', () => {
-  // Observed on a real run: `gh pr create` from `.claude/worktrees/missing-
-  // company-logos` got blocked citing `scripts/ci/pr-watch-gate.mjs`, a file
-  // dirty only in the UNRELATED main checkout — proof the hook was analysing
-  // the wrong directory. See lib/hook-target-cwd.mjs for the root cause.
+  // Observed on a real run: a PR opened from a worktree got blocked citing a
+  // file dirty only in the UNRELATED main checkout — proof the hook was
+  // analysing the wrong directory. See lib/hook-target-cwd.mjs for the root
+  // cause.
+  //
+  // These tests spawn the real check-sibling-patterns.mjs, which does a
+  // full-tree `git grep`/pattern-class scan across CODE_DIRS — expensive
+  // against THIS ~15GB monorepo (tests/check-sibling-patterns.test.ts avoids
+  // it entirely, testing only the pure functions). So spawnSync's own
+  // ambient cwd here is a tiny THROWAWAY git repo, not this one — fast, and
+  // it still proves the fix: does the analysis follow payload.cwd, or fall
+  // back to wherever the hook subprocess itself happens to run from?
   const createdDirs: string[] = [];
+  let ambientRepo = '';
+
+  beforeAll(() => {
+    const dir = mkdtempSync(join(tmpdir(), 'sibling-gate-ambient-repo-'));
+    const git = (...args: string[]) => execFileSync('git', args, { cwd: dir, stdio: 'ignore' });
+    git('init', '-q', '-b', 'main');
+    git('config', 'user.email', 'test@example.com');
+    git('config', 'user.name', 'test');
+    git('commit', '-q', '--allow-empty', '-m', 'init');
+    // resolveBase() tries `origin/main` first (see check-sibling-patterns.mjs)
+    // — a bare local repo has no remote, so give it one.
+    git('update-ref', 'refs/remotes/origin/main', 'HEAD');
+    ambientRepo = dir;
+    createdDirs.push(dir);
+  });
   afterAll(() => {
     while (createdDirs.length) rmSync(createdDirs.pop()!, { recursive: true, force: true });
   });
 
   function runGate(command: string, extraPayload: Record<string, unknown> = {}) {
     const payload = JSON.stringify({ tool_input: { command }, ...extraPayload });
-    // spawnSync's own cwd is fixed to this repo (a real git repo with
-    // `origin/main`) so any test that omits `cwd` in the payload exercises
-    // the "no better signal → fall back to the ambient directory" path.
-    return spawnSync('node', [GATE], { input: payload, encoding: 'utf8', cwd: ROOT });
+    return spawnSync('node', [GATE], { input: payload, encoding: 'utf8', cwd: ambientRepo });
   }
 
   it('passes through (exit 0) for non "gh pr create" commands regardless of payload.cwd', () => {
-    const res = runGate('git status', { cwd: ROOT });
+    const res = runGate('git status', { cwd: ambientRepo });
     expect(res.status).toBe(0);
   });
 
@@ -158,9 +178,10 @@ describe('sibling-check-gate hook — cwd forwarding (2026-08-25 incident)', () 
 
   it('falls back to the ambient directory (today\'s pre-fix behaviour) when the payload carries no cwd at all', () => {
     // No `cwd` field in the payload → resolveHookTargetCwd returns undefined
-    // → the check script inherits spawnSync's own cwd (ROOT, a real repo
-    // with `origin/main` resolvable) → must NOT hit the skipped/"NON
-    // ESEGUITO" branch, which only fires when the merge-base can't be found.
+    // → the check script inherits spawnSync's own cwd (ambientRepo, a
+    // trivial but VALID repo with `origin/main` resolvable) → must NOT hit
+    // the skipped/"NON ESEGUITO" branch, which only fires when the
+    // merge-base can't be found.
     const res = runGate('gh pr create --title x --body "y"');
     expect(res.stderr ?? '').not.toMatch(/NON ESEGUITO/);
   });
