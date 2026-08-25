@@ -267,8 +267,16 @@ function bucketAliasPaths() {
   const addAlias = (bucketId, rel) => {
     if (!aliases.has(bucketId)) aliases.set(bucketId, new Set());
     aliases.get(bucketId).add(rel);
+    // La dir padre immediata (es. "services/seo") e' un alias utile — un
+    // consumer spesso enumera la CARTELLA che contiene i symlink, non i
+    // singoli file. Ma solo se e' gia' specifica (>=2 segmenti): un padre a
+    // un segmento solo ("data", "services") e' condiviso da decine di bucket
+    // e workflow scollegati, e trasformerebbe l'alias in un falso positivo
+    // di massa (misurato: senza questo filtro, ~100 workflow risultavano
+    // "referenziano packages/articles/content/" solo perche' nominano
+    // "data/..." per un bucket diverso).
     const par = parentOf(rel);
-    if (par) aliases.get(bucketId).add(par);
+    if (par && par.includes('/')) aliases.get(bucketId).add(par);
   };
   const walk = (dir, depth) => {
     if (depth > 4) return;
