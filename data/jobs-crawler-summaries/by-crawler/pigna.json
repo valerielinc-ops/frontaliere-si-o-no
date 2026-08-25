@@ -1,18 +1,18 @@
 {
   "key": "pigna",
   "label": "Stiftung Pigna",
-  "generatedAt": "2026-08-24T21:48:24.849Z",
-  "total": 6,
+  "generatedAt": "2026-08-25T10:08:54.550Z",
+  "total": 5,
   "discovered": null,
-  "written": 6,
+  "written": 5,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 7876,
-  "avgDurationMs": 7876,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 7362,
+  "avgDurationMs": 7362,
   "durationHistory": [
-    7876
+    7362
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "url": "https://app.reflinejobs.io/1531/0285/pub/480/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:48:21.439Z",
+      "crawledAt": "2026-08-25T10:08:50.726Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -66,7 +66,7 @@
       "url": "https://app.reflinejobs.io/1531/0138/pub/470/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:48:18.932Z",
+      "crawledAt": "2026-08-25T10:08:48.932Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://app.reflinejobs.io/1531/0270/pub/476/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:48:19.957Z",
+      "crawledAt": "2026-08-25T10:08:49.616Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -140,7 +140,7 @@
       "url": "https://app.reflinejobs.io/1531/0132/pub/473/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:48:18.302Z",
+      "crawledAt": "2026-08-25T10:08:48.344Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -177,7 +177,7 @@
       "url": "https://app.reflinejobs.io/1531/0276/pub/466/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:48:20.824Z",
+      "crawledAt": "2026-08-25T10:08:50.158Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -202,8 +202,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "pigna-369e98fa7f53",
       "slug": "betreuungspersonal-per-unsere-wohngruppe-zugang-zum-park-60-90-stiftung-pigna-kloten",
@@ -244,5 +243,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
