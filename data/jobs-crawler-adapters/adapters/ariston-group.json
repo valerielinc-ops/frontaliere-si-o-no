@@ -13,7 +13,7 @@
     "https://careers.aristongroup.com/sitemap_index.xml"
   ],
   "notes": "Dedicated Ariston Group crawler parses the careers RSS feed and SuccessFactors job detail pages, then keeps only Ticino/Grigioni jobs via shared Swiss target-location matching.",
-  "updatedAt": "2026-08-25T21:51:57.876Z",
+  "updatedAt": "2026-08-25T22:44:04.157Z",
   "seedMetaByUrl": {
     "https://careers.aristongroup.com/job/Hechingen-SERVICETECHNIKER-%28MWD%29-FREIBURG-UND-UMGEBUNG-Hech-72379/1281305901/": {
       "location": "Hechingen, DE, 72379",
@@ -104,6 +104,12 @@
       "canton": "BE",
       "company": "Ariston Group",
       "postedDate": "2026-08-19"
+    },
+    "https://careers.aristongroup.com/job/Norderstedt-SERVICETECHNIKER-%28MWD%29-GEBIET-SCHLESWIG-HOLSTEIN-UND-UMGEBUNG-Nord-22844/1425648733/": {
+      "location": "Norderstedt, DE, 22844",
+      "canton": "",
+      "company": "Ariston Group",
+      "postedDate": "2026-08-12"
     }
   }
 }
