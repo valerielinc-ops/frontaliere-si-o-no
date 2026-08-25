@@ -10747,6 +10747,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-25.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 25. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-08-25.seoDescription': 'Grenzgänger-Bulletin vom 25. August 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-08-25.ogDescription': 'Die Zahlen vom 25. August 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.vivere-sondrio-lavorare-grigioni.title': 'Wohnen in Sondrio und Arbeiten in Graubünden als Grenzgänger',
+    'blog.article.vivere-sondrio-lavorare-grigioni.excerpt': 'Praktischer Leitfaden für diejenigen, die in Sondrio leben und im Kanton Graubünden arbeiten: Verbindungen, Quellensteuer, Vorsorge und Schlüsselaspekte.',
+    'blog.article.vivere-sondrio-lavorare-grigioni.imageAlt': 'Alpine Landschaft zwischen Italien und der Schweiz für Grenzgänger',
 };
 
 export default blogMetaDe;

@@ -10750,6 +10750,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-25.imageAlt': 'Les chiffres du jour pour les frontaliers – 25 août 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-08-25.seoDescription': 'Bulletin du frontalier du 25 août 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-08-25.ogDescription': 'Les chiffres du 25 août 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.vivere-sondrio-lavorare-grigioni.title': 'Vivre à Sondrio et travailler dans les Grisons en tant que frontalier',
+    'blog.article.vivere-sondrio-lavorare-grigioni.excerpt': 'Guide pratique pour ceux qui vivent à Sondrio et travaillent dans le canton des Grisons : liens, impôt à la source, prévoyance et aspects clés.',
+    'blog.article.vivere-sondrio-lavorare-grigioni.imageAlt': 'Paysage alpin entre l\'Italie et la Suisse pour travailleurs frontaliers',
 };
 
 export default blogMetaFr;

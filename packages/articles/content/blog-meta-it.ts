@@ -10749,6 +10749,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-25.imageAlt': 'I numeri del giorno per i frontalieri – 25 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-08-25.seoDescription': 'Bollettino frontalieri del 25 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-08-25.ogDescription': 'I numeri del 25 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.vivere-sondrio-lavorare-grigioni.title': 'Vivere a Sondrio e lavorare in Grigioni da frontaliere',
+    'blog.article.vivere-sondrio-lavorare-grigioni.excerpt': 'Guida pratica per chi vive a Sondrio e lavora nel Cantone dei Grigioni: collegamenti, imposta alla fonte, previdenza e aspetti chiave.',
+    'blog.article.vivere-sondrio-lavorare-grigioni.imageAlt': 'Panorama alpino tra Italia e Svizzera per frontalieri',
 };
 
 export default blogMetaIt;
