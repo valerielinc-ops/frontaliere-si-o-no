@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 
 // _callClaudeCli spawns `node:child_process` directly (not fetch, unlike every
 // other provider) — mock it so the "success" test never shells out to a real
@@ -7,7 +7,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 const spawnMock = vi.fn();
 vi.mock('node:child_process', () => ({ spawn: (...args: unknown[]) => spawnMock(...args) }));
 
-import { AI_MODELS, callLLM, getPreferredModel, resetState } from '../../scripts/lib/ai-models.mjs';
+import { AI_MODELS, callLLM, getPreferredModel, initScoreStore, resetState } from '../../scripts/lib/ai-models.mjs';
 
 /**
  * Il minimo del timeout CLI e' una TARATURA (120s → 180s il 2026-08-18, quando
@@ -36,6 +36,17 @@ const FLOOR_MS = Number(
 describe('ai-models Claude CLI Haiku fallback', () => {
   const ENV_KEYS = ['ENABLE_HAIKU_ARTICLE_FALLBACK', 'CLAUDE_CODE_OAUTH_TOKEN', 'LOCAL_LLM_ENABLED', 'AI_COMPETING_TIERS'] as const;
   const saved: Record<string, string | undefined> = {};
+
+  // callLLM lazily initialises the Firestore-backed score store on its first
+  // invocation. Under the fake timers this file installs for the timeout
+  // tests below, that lazy init's own network/backoff timers don't advance
+  // with vi.advanceTimersByTimeAsync — the awaited callLLM() promise never
+  // settles and the test dies on Vitest's real testTimeout instead of the
+  // assertion ever running (same class as ai-models-hard-call-cap.test.ts).
+  // Pay the init cost once, up front, on real timers.
+  beforeAll(async () => {
+    await initScoreStore();
+  });
 
   beforeEach(() => {
     resetState();
