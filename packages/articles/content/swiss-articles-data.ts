@@ -12772,6 +12772,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'diesel-rincaro-geopolitica-svizzera',
+    category: 'novita',
+    date: '2026-08-25T10:48:50.354Z',
+    image: '/images/blog/diesel-rincaro-geopolitica-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

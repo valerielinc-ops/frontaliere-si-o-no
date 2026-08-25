@@ -4258,6 +4258,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.verdi-richiesta-clima-2026.title': 'Les Verts demandent le Secrétariat d\'État pour le climat',
     'blog.article.verdi-richiesta-clima-2026.excerpt': 'Les Verts suisses réclament un Secrétariat d\'Etat à la protection du climat et à la sortie des énergies fossiles. Rösti a admis : la Suisse n\'atteindra pas les objectifs climatiques 2030.',
     'blog.article.verdi-richiesta-clima-2026.imageAlt': 'Lac de Lugano en été brûlant: impacts du changement climatique en Suisse.',
+    'blog.article.diesel-rincaro-geopolitica-svizzera.title': 'Voler le prix du diesel en Suisse',
+    'blog.article.diesel-rincaro-geopolitica-svizzera.excerpt': 'Le diesel coûte plus de CHF 2,20/litre en Suisse, tiré par des raffineries endommagées dans le golfe, le détroit d\'Ormuz fermé et des réductions russes. Effets sur les prix au supermarché et dans l\'agriculture.',
+    'blog.article.diesel-rincaro-geopolitica-svizzera.imageAlt': 'Autoroute suisse avec camion au coucher du soleil, représentant le secteur des transports affecté par la hausse du diesel',
 };
 
 export default blogMetaChFr;

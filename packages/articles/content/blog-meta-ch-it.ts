@@ -4258,6 +4258,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.verdi-richiesta-clima-2026.title': 'Verdi chiedono Segreteria Stato per clima',
     'blog.article.verdi-richiesta-clima-2026.excerpt': 'I Verdi svizzeri chiedono una Segreteria di Stato per la protezione del clima e l\'uscita dalle energie fossili. Rösti ha ammesso: la Svizzera non raggiungerà gli obiettivi climatici 2030.',
     'blog.article.verdi-richiesta-clima-2026.imageAlt': 'Lago di Lugano in estate torrida: impatti del cambiamento climatico sulla Svizzera.',
+    'blog.article.diesel-rincaro-geopolitica-svizzera.title': 'Vola il prezzo del diesel in Svizzera',
+    'blog.article.diesel-rincaro-geopolitica-svizzera.excerpt': 'Il diesel costa oltre CHF 2,20/litro in Svizzera, trainato da raffinerie danneggiate nel Golfo, lo Stretto di Hormuz chiuso e riduzioni russe. Effetti sui prezzi al supermercato e agricoltura.',
+    'blog.article.diesel-rincaro-geopolitica-svizzera.imageAlt': 'Camion su autostrada svizzera al tramonto, simbolo dell\'impatto del rincaro del diesel su trasporti e logistica',
 };
 
 export default blogMetaChIt;

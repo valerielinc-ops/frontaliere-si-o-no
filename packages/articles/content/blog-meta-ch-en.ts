@@ -4258,6 +4258,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.verdi-richiesta-clima-2026.title': 'Greens call for Secretary of State for climate',
     'blog.article.verdi-richiesta-clima-2026.excerpt': 'The Swiss Greens are calling for a Secretariat of State for Climate Protection and Exit from Fossil Energies. Rösti admitted: Switzerland will not meet the 2030 climate goals.',
     'blog.article.verdi-richiesta-clima-2026.imageAlt': 'Lake Lugano in scorching summer: climate change impacts in Switzerland.',
+    'blog.article.diesel-rincaro-geopolitica-svizzera.title': 'Fly the price of diesel in Switzerland',
+    'blog.article.diesel-rincaro-geopolitica-svizzera.excerpt': 'Diesel costs over CHF 2.20/litre in Switzerland, towed by damaged refineries in the Gulf, the closed Strait of Hormuz and Russian reductions. Effects on supermarket and agricultural prices.',
+    'blog.article.diesel-rincaro-geopolitica-svizzera.imageAlt': 'Swiss highway with truck at sunset, representing the logistics sector impacted by diesel price increases',
 };
 
 export default blogMetaChEn;
