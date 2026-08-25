@@ -32,28 +32,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
-          # Stesso profilo di verify-company-logos-weekly.yml: non esclude
-          # data/jobs/by-crawler/ ne' services/jobDataNormalization.ts ne'
-          # data/company-logos-manifest.json, tutti necessari qui.
           filter: blob:none
-          sparse-checkout: |
-            /*
-            !/public/images/
-            !/data/translation-cache/
-            !/packages/articles/content/
-            !/docs/
-            !/public/data/
-            !/data/related-search-candidates.json
-            !/data/cf-hot-404s.json
-            !/data/dist-size-history.jsonl
-            !/data/jobs-stats-history.json
-            !/data/url-first-seen.json
-            !/data/jobs-snapshots-history/
-            !/data/slug-registry.json
-            !/data/evidence-index.json
-            !/data/health-premiums/
-            !/data/jobs-crawler-summaries/
-          sparse-checkout-cone-mode: false
         # Tetto sullo step → `failure` diagnosticabile invece di `cancelled`.
         timeout-minutes: 12
 
