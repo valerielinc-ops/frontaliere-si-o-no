@@ -1,16 +1,16 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-08-25T09:48:53.615Z",
-  "total": 69,
+  "generatedAt": "2026-08-25T21:35:26.804Z",
+  "total": 66,
   "newCount": 2,
-  "updatedCount": 64,
+  "updatedCount": 63,
   "removedCount": 3,
-  "unchangedCount": 3,
-  "durationMs": 40860,
-  "avgDurationMs": 40860,
+  "unchangedCount": 1,
+  "durationMs": 54990,
+  "avgDurationMs": 54990,
   "durationHistory": [
-    40860
+    54990
   ],
   "newJobs": [
     {
@@ -83,6 +83,41 @@
     }
   ],
   "updatedJobs": [
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Geneva/Account-Manager--Intermediaries--Geneva--100---f-m-d-_r-19331-2",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Geneva/Account-Manager--Intermediaries--Geneva--100---f-m-d-_r-19331-2",
+      "title": "Account Manager LATAM, Intermediaries, Geneva, 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Geneva",
+      "canton": "GE",
+      "country": "CH",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "account-manager-intermediaries-geneva-100-f-m-d-julius-baer",
+      "category": "finance",
+      "datePosted": "2026-08-17",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "SENIOR",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "GE",
+        "location": "Geneva"
+      },
+      "firstSeenAt": "2026-08-17T09:53:25.040Z",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 9
+      }
+    },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Junior-Test-Data-Engineer---CLM-100---f-m-d---Contract-through-our-external-payroll-partner-with-immediate-start-until-31032027--possible-extension-_r-19540-1",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Junior-Test-Data-Engineer---CLM-100---f-m-d---Contract-through-our-external-payroll-partner-with-immediate-start-until-31032027--possible-extension-_r-19540-1",
@@ -399,41 +434,6 @@
       }
     },
     {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Geneva/Account-Manager--Intermediaries--Geneva--100---f-m-d-_r-19331-2",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Geneva/Account-Manager--Intermediaries--Geneva--100---f-m-d-_r-19331-2",
-      "title": "Account Manager, Intermediaries, Geneva, 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Geneva",
-      "canton": "GE",
-      "country": "CH",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "account-manager-intermediaries-geneva-100-f-m-d-julius-baer",
-      "category": "finance",
-      "datePosted": "2026-08-17",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "SENIOR",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "GE",
-        "location": "Geneva"
-      },
-      "firstSeenAt": "2026-08-17T09:53:25.040Z",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 9
-      }
-    },
-    {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Credit-Recovery-Manager-100---f-m-d-_r-19224-2",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Credit-Recovery-Manager-100---f-m-d-_r-19224-2",
       "title": "Credit Recovery Manager 100% (f/m/d)",
@@ -565,8 +565,8 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "firstSeenAt": "2026-08-13T10:18:32.503Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-13T10:18:32.503Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -742,8 +742,8 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "firstSeenAt": "2026-08-11T10:10:01.064Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-11T10:10:01.064Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -814,6 +814,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-06-29T22:17:29.935Z",
+      "needsRetranslation": true,
       "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -884,6 +885,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-06-29T22:17:29.935Z",
+      "needsRetranslation": true,
       "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1140,125 +1142,6 @@
   ],
   "removedJobs": [
     {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Team-Business-Manager---Market-Israel--Greece---Cyprus--Turkey---100---f-m-d-_r-19439-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Team-Business-Manager---Market-Israel--Greece---Cyprus--Turkey---100---f-m-d-_r-19439-1",
-      "title": "Team Business Manager - Market Israel, Greece & Cyprus, Turkey - 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "team-business-manager-market-israel-greece-cyprus-turkey-100-f-m-d-julius-baer",
-      "category": "management",
-      "datePosted": "2026-08-18",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "SENIOR",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-08-18T22:12:16.465Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Regional-Business-Manager-Western-Markets---Switzerland-80-100---f-m-d-_r-19204-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Regional-Business-Manager-Western-Markets---Switzerland-80-100---f-m-d-_r-19204-1",
-      "title": "Regional Business Manager Western Markets & Switzerland 80-100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "regional-business-manager-western-markets-switzerland-80-100-f-m-d-julius-baer",
-      "category": "management",
-      "datePosted": "2026-08-04",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "SENIOR",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-08-04T11:35:00.606Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Intern-Regional-CFO-Emerging-Markets-60---100---f-m-d-_r-19001-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Intern-Regional-CFO-Emerging-Markets-60---100---f-m-d-_r-19001-1",
-      "title": "Intern Regional CFO Emerging Markets 100% (f/m/d) - 6-12months",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "intern-regional-cfo-emerging-markets-100-f-m-d-6-12months-julius-baer",
-      "category": "general",
-      "datePosted": "2026-07-24",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "ENTRY",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-07-24T22:07:37.211Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 14
-      }
-    }
-  ],
-  "unchangedJobs": [
-    {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/External-Workforce-Sourcing-Process-Supporter-80----100---f-m-d-----Contract-through-our-external-payroll-partner-with-immediate-start-until-31012027-with-possible-extension-_r-18799",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/External-Workforce-Sourcing-Process-Supporter-80----100---f-m-d-----Contract-through-our-external-payroll-partner-with-immediate-start-until-31012027-with-possible-extension-_r-18799",
       "title": "Recruitment Process & VMS Business Analyst 80% - 100% (f/m/d) - (Contract through our external payroll partner with immediate start until 31.01.2027 with possible extension)",
@@ -1367,6 +1250,47 @@
       "salaryMax": 134500,
       "currency": "CHF",
       "crawlerMissStreak": 2,
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 14
+      }
+    }
+  ],
+  "unchangedJobs": [
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Portfolio-Engineer-and-Financial-Data-Specialist--100---f-m-d-_r-18889-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Portfolio-Engineer-and-Financial-Data-Specialist--100---f-m-d-_r-18889-1",
+      "title": "Senior Portfolio Engineer and Financial Data Specialist, 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "senior-portfolio-engineer-and-financial-data-specialist-100-f-m-d-julius-baer",
+      "category": "technology",
+      "datePosted": "2026-07-13",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "SENIOR",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "firstSeenAt": "2026-07-13T12:14:17.385Z",
+      "salaryMin": 121500,
+      "salaryMax": 206500,
+      "currency": "CHF",
+      "crawlerMissStreak": 1,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
