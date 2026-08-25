@@ -1,20 +1,21 @@
 {
   "key": "med-ipersonal",
   "label": "MediPersonal",
-  "generatedAt": "2026-08-24T21:30:22.670Z",
+  "generatedAt": "2026-08-25T10:10:31.251Z",
   "total": 30,
   "discovered": null,
   "written": 30,
-  "newCount": 15,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 15,
   "removedCount": 0,
   "unchangedCount": 15,
-  "durationMs": 9741,
-  "avgDurationMs": 9741,
+  "durationMs": 8456,
+  "avgDurationMs": 8456,
   "durationHistory": [
-    9741
+    8456
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "med-ipersonal-17c97b3ece10",
       "slug": "sachbearbeiter-verkauf-100-in-der-region-uster-stellenangebot-med-ipersonal-ch",
@@ -27,7 +28,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-uster-stellenangebot/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:30:14.015Z",
+      "crawledAt": "2026-08-25T10:10:23.787Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -40,11 +41,13 @@
       "featured": false,
       "postedDate": "2026-08-24",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-uster-stellenangebot/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:30:14.015Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -60,7 +63,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-fuer-die-region-winterthur-temporaerbuero-ipersonal/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:30:14.352Z",
+      "crawledAt": "2026-08-25T10:10:24.101Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -73,11 +76,13 @@
       "featured": false,
       "postedDate": "2026-08-24",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-fuer-die-region-winterthur-temporaerbuero-ipersonal/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:30:14.352Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -93,7 +98,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-zuerich-stellenangebot/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:30:14.656Z",
+      "crawledAt": "2026-08-25T10:10:24.404Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -106,11 +111,13 @@
       "featured": false,
       "postedDate": "2026-08-24",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-zuerich-stellenangebot/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:30:14.656Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -126,7 +133,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-fuer-die-region-thalwil-offene-stelle/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:30:14.963Z",
+      "crawledAt": "2026-08-25T10:10:24.706Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -139,11 +146,13 @@
       "featured": false,
       "postedDate": "2026-08-24",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-fuer-die-region-thalwil-offene-stelle/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:30:14.963Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -159,7 +168,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-horgen-temporaerbuero-ipersonal/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:30:15.266Z",
+      "crawledAt": "2026-08-25T10:10:25.008Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -172,11 +181,13 @@
       "featured": false,
       "postedDate": "2026-08-24",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-horgen-temporaerbuero-ipersonal/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:30:15.266Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -192,7 +203,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-wetzikon-zh-temporaer-dauerstelle/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:30:15.569Z",
+      "crawledAt": "2026-08-25T10:10:25.311Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -205,11 +216,13 @@
       "featured": false,
       "postedDate": "2026-08-24",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-wetzikon-zh-temporaer-dauerstelle/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:30:15.569Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -225,7 +238,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-dietikon-freie-stelle/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:30:15.872Z",
+      "crawledAt": "2026-08-25T10:10:25.613Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -238,11 +251,13 @@
       "featured": false,
       "postedDate": "2026-08-24",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-dietikon-freie-stelle/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:30:15.872Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -258,7 +273,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-wallisellen-freie-stelle/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:30:16.174Z",
+      "crawledAt": "2026-08-25T10:10:25.915Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -271,11 +286,13 @@
       "featured": false,
       "postedDate": "2026-08-24",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-wallisellen-freie-stelle/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:30:16.174Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -291,7 +308,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-kloten-temporaer-dauerstelle/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:30:16.476Z",
+      "crawledAt": "2026-08-25T10:10:26.218Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -304,11 +321,13 @@
       "featured": false,
       "postedDate": "2026-08-24",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-kloten-temporaer-dauerstelle/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:30:16.476Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -324,7 +343,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-fuer-die-region-opfikon-stellenangebot/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:30:16.778Z",
+      "crawledAt": "2026-08-25T10:10:26.520Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -337,11 +356,13 @@
       "featured": false,
       "postedDate": "2026-08-24",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-fuer-die-region-opfikon-stellenangebot/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:30:16.778Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -357,7 +378,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-fuer-die-region-buelach-gesucht/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:30:17.080Z",
+      "crawledAt": "2026-08-25T10:10:26.822Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -370,11 +391,13 @@
       "featured": false,
       "postedDate": "2026-08-24",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-fuer-die-region-buelach-gesucht/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:30:17.080Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -390,7 +413,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-fuer-die-region-volketswil-gesucht-jetzt-bewerben/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:30:17.382Z",
+      "crawledAt": "2026-08-25T10:10:27.125Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -403,11 +426,13 @@
       "featured": false,
       "postedDate": "2026-08-24",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-fuer-die-region-volketswil-gesucht-jetzt-bewerben/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:30:17.382Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -423,7 +448,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-fuer-die-region-regensdorf-jobangebot/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:30:17.685Z",
+      "crawledAt": "2026-08-25T10:10:27.429Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -436,11 +461,13 @@
       "featured": false,
       "postedDate": "2026-08-24",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-fuer-die-region-regensdorf-jobangebot/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:30:17.685Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -456,7 +483,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-fuer-die-region-schlieren-stellenangebot/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:30:17.988Z",
+      "crawledAt": "2026-08-25T10:10:27.732Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -469,11 +496,13 @@
       "featured": false,
       "postedDate": "2026-08-24",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-fuer-die-region-schlieren-stellenangebot/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:30:17.988Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -489,7 +518,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-zollikon-gesucht-jetzt-bewerben/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:30:18.290Z",
+      "crawledAt": "2026-08-25T10:10:28.033Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -502,16 +531,17 @@
       "featured": false,
       "postedDate": "2026-08-24",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-zollikon-gesucht-jetzt-bewerben/",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:30:18.290Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -544,7 +574,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -583,7 +613,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -622,7 +652,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -661,7 +691,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -700,7 +730,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -739,7 +769,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -778,7 +808,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -817,7 +847,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -856,7 +886,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -895,7 +925,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -934,7 +964,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -973,7 +1003,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1012,7 +1042,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1051,7 +1081,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1090,7 +1120,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
