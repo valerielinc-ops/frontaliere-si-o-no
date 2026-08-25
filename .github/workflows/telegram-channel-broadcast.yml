@@ -3,6 +3,9 @@ name: Telegram Channel Broadcast
 # Free Bot API broadcast to the Telegram channel:
 #   • daily  06:30 UTC (08:30 CEST) → "jobs of the day" digest
 #   • weekly Mon 07:00 UTC (09:00 CEST) → best/worst dogane ranking (week ended)
+#   • manual (workflow_dispatch only) → 'preferred-source': one-off
+#     announcement, deduped by data/telegram-posted-announcements.json so
+#     re-dispatching never double-posts.
 #
 # Fail-soft by design: with no TELEGRAM_BOT_TOKEN / TELEGRAM_CHANNEL_ID in
 # Remote Config the poster logs a clean skip and exits 0 — the whole pipeline
@@ -23,7 +26,7 @@ on:
         required: false
         default: 'jobs'
         type: choice
-        options: ['jobs', 'border']
+        options: ['jobs', 'border', 'preferred-source']
       dry_run:
         description: 'Preview only (no Telegram API call)'
         required: false
@@ -89,17 +92,21 @@ jobs:
         if: env.MODE == 'border'
         run: npx tsx scripts/post-to-telegram.mjs border
 
-      - name: Commit posted-jobs ledger
-        if: success() && env.MODE == 'jobs' && env.DRY_RUN != 'true'
+      - name: Broadcast preferred-source announcement
+        if: env.MODE == 'preferred-source'
+        run: node scripts/post-to-telegram.mjs preferred-source
+
+      - name: Commit posted ledgers
+        if: success() && env.DRY_RUN != 'true' && (env.MODE == 'jobs' || env.MODE == 'preferred-source')
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/telegram-posted-jobs.json 2>/dev/null || true
+          git add data/telegram-posted-jobs.json data/telegram-posted-announcements.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "no ledger changes"; exit 0
           fi
-          git commit -m "chore(telegram): track posted jobs [skip ci]"
+          git commit -m "chore(telegram): track posted jobs/announcements [skip ci]"
           bash scripts/lib/git-push-with-retry.sh || echo "ledger push skipped (non-fatal)"
 
       - name: Report failure to GitHub Issues
