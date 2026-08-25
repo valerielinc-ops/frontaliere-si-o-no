@@ -89,8 +89,17 @@ export const DESCRIPTION_POPULATION = {
  * TITLES population: every non-source `titleByLocale[locale]` slot that is not
  * empty (an empty slot is a completeness defect, gated elsewhere).
  *
- * `expectedSlots` is the mean of four 2026-08-11 measurements on the assembled
- * artefact — 68,587 / 68,306 / 67,987 / 67,844 — a 1.1% spread across the day.
+ * `expectedSlots` was originally the mean of four 2026-08-11 measurements on
+ * the assembled artefact — 68,587 / 68,306 / 67,987 / 67,844 — a 1.1% spread
+ * across the day.
+ *
+ * RE-DERIVED 2026-08-25 (issue #6510): organic corpus growth (more jobs
+ * crawled, not a regression) moved the population past the ±15% band on its
+ * own. Measured on two commits of PR #6484: 78,731 and 78,725 slots — stable
+ * around 78.7k, +15.4% over the 2026-08-11 baseline. `expectedSlots` is
+ * re-pinned to 78,725 (the more recent of the two measurements);
+ * `tolerance` is UNCHANGED at 0.15 — this re-bases a measured denominator,
+ * it does not loosen the gate.
  *
  * TOLERANCE 15%, same construction: the same population read from the SLICES
  * is 80,978 slots (+18.7%), and the docstring's own historical slice figure was
@@ -103,9 +112,9 @@ export const TITLE_POPULATION = {
   id: 'titles-wrong-locale',
   source: POPULATION_SOURCE,
   filter: 'non-empty titleByLocale[locale] for every locale !== sourceLang, for every job, independent of needsRetranslation',
-  expectedSlots: 68200,
+  expectedSlots: 78725,
   tolerance: 0.15,
-  measuredOn: '2026-08-11',
+  measuredOn: '2026-08-25',
 };
 
 /**
