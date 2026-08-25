@@ -989,7 +989,7 @@ async function main() {
   let directCleared = 0;
   let directReset = 0;
   if (fs.existsSync(BY_CRAWLER_DIR)) {
-    for (const file of listSliceFileNames(BY_CRAWLER_DIR))) {
+    for (const file of listSliceFileNames(BY_CRAWLER_DIR)) {
       const filePath = path.join(BY_CRAWLER_DIR, file);
       const crawlerData = readJson(filePath);
       if (!crawlerData?.jobs || !Array.isArray(crawlerData.jobs)) continue;
