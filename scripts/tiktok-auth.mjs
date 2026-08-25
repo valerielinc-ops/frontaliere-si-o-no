@@ -82,13 +82,17 @@ const CLIENT_SECRET = isProd
 // creator_info/query (called before every post) has a scope to run under.
 const SCOPE = scopeArg ? scopeArg.split('=')[1] : 'user.info.basic,video.publish';
 
-// No path: TikTok's own Desktop-flow examples are bare `http://localhost:PORT`
-// ("URIs must be static — no path/params/fragment appended" per its Desktop
-// registration rules) — a `/callback` suffix here previously mismatched what
-// the developer portal expects to have registered, and TikTok's login screen
-// rejects an unregistered redirect_uri with a generic "app settings" error
-// that gives no hint the path itself was the problem.
-const REDIRECT_URI = process.env.TIKTOK_AUTH_REDIRECT_URI || 'http://localhost:8083';
+// Trailing-slash path REQUIRED: TikTok's own Login Kit Desktop doc
+// (developers.tiktok.com/docs/en/login-kit-desktop) lists valid examples as
+// `http://localhost:3455/callback/` / `https://127.0.0.1:3455/callback/` —
+// scheme, port, AND a trailing-slash path, all four required verbatim. A bare
+// `http://localhost:PORT` (no path) was tried first based on a third-party
+// summary and got `error_type=redirect_uri` from the live authorize call even
+// after being registered — TikTok's own doc is the source of truth here, not
+// search-result summaries of it. The registered value in the app's Login Kit
+// config (Manage apps → app → Sandbox → Products → Login Kit → Desktop tab)
+// MUST equal this string byte-for-byte, trailing slash included.
+const REDIRECT_URI = process.env.TIKTOK_AUTH_REDIRECT_URI || 'http://localhost:8083/callback/';
 const PORT = Number(new URL(REDIRECT_URI).port || 8083);
 
 const AUTH_ENDPOINT = 'https://www.tiktok.com/v2/auth/authorize/';
