@@ -4246,6 +4246,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.single-paga-di-piu-svizzera.title': 'You pay more on your own: empty pockets for singles in Switzerland',
     'blog.article.single-paga-di-piu-svizzera.excerpt': 'Rents are heavier for singles, who raise about 20% of their budget for housing and energy.',
     'blog.article.single-paga-di-piu-svizzera.imageAlt': 'A single person looking out of a hotel room window',
+    'blog.article.lacune-contributive-avs-zurigo.title': 'AVS and complementary services: compensation fund',
+    'blog.article.lacune-contributive-avs-zurigo.excerpt': 'First pillar in the Canton of Zurich: compensation fund, calculation of AVS annuity, contribution gaps and supplementary benefits for the minimum living wage.',
+    'blog.article.lacune-contributive-avs-zurigo.imageAlt': 'Administrative office with pension documents, calculator, and retirement planning chart. Swiss Alps visible through window.',
 };
 
 export default blogMetaChEn;

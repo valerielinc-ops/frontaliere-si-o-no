@@ -4246,6 +4246,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.single-paga-di-piu-svizzera.title': 'Allein zahlt man mehr: Leere Taschen für Singles in der Schweiz',
     'blog.article.single-paga-di-piu-svizzera.excerpt': 'Die Mieten sind für Singles höher, die rund 20% ihres Budgets für Wohnen und Energie aufwenden.',
     'blog.article.single-paga-di-piu-svizzera.imageAlt': 'Ein einzelner Mensch, der aus einem Hotelzimmerfenster schaut',
+    'blog.article.lacune-contributive-avs-zurigo.title': 'AHV und Ergänzungsleistungen: Ausgleichskasse',
+    'blog.article.lacune-contributive-avs-zurigo.excerpt': 'Erste Säule im Kanton Zürich: Ausgleichskasse, AHV-Rentenberechnung, Beitragslücken und Ergänzungsleistungen für das Lebensminimum.',
+    'blog.article.lacune-contributive-avs-zurigo.imageAlt': 'Verwaltungsbüro mit Rentendokumenten, Taschenrechner und Pensionierungsplanungsgrafik auf dem Schreibtisch. Schweizer Alpen sichtbar.',
 };
 
 export default blogMetaChDe;

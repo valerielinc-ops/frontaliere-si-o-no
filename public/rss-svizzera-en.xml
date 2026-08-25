@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Tue, 25 Aug 2026 08:47:56 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 09:03:08 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -16,6 +16,85 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>AVS and complementary services: compensation fund</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/contribution-gaps-avs-zurich/</link>
+      <description><![CDATA[First pillar in the Canton of Zurich: compensation fund, calculation of AVS annuity, contribution gaps and supplementary benefits for the minimum living wage.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- The AVS is the first pillar of Swiss social security, fuelled by mandatory contributions of 5.3% for employees
+- The cantonal compensation fund manages contributions and annuities in the territory
+- Contribution gaps directly reduce the final monthly AVS income
+- Supplementary benefits provide a safety net for those with insufficient income
+
+## Key facts
+- **What**: Pillar social security system with AVS as mandatory basis
+- Employee contribution: 5.3% of gross salary (10.6% with employer share)
+- Management: Cantonal compensation fund for collection and disbursement
+- Contribution gaps: Years without payments proportionally reduce the income
+- Complementary benefits: Monthly integration to cover the minimum living
+- Reference age: 64 years old women, 65 years old men
+
+The Swiss social security system is divided into three pillars. The AVS, the first pillar, is the mandatory basis: each employee pays 5.3% of the salary, to which is added an equivalent contribution from the employer (overall 10.6% on the paycheck). Self-employed workers also pay contributions calculated on their professional income.
+
+The canton's compensation fund collects these payments and manages the related benefits. It is not a personal deposit in which money remains frozen: it is an administrative institution that works with solidarity principles, where the contributions of those who work finance the income of
+### How the clearinghouse is structured
+
+The cantonal clearing house (as in every Swiss canton) is the entity that centralizes the management of the AVS at the territorial level. It receives payments from companies and self-employed workers, maintains individual tax registers, calculates pensions upon reaching the reference age (64 for women, 65 for men), and pays monthly payments to pensioners.
+
+The cashier is NOT a bank where your money remains deposited in a personal account — it is a public administration that distributes the collected social security wealth according to federal rules and the principle of solidarity between generations. Each canton has its own compensation fund, often managed by the cantonal department of social insurance or the finance office.
+
+### The calculation of the annuity: components and variability
+
+The AVS annuity is not a simple reimbursement of the deposit. It is calculated on the basis of three main components:
+
+1. **Years of contribution**: the completeness of the working career (ideally 44 years for the maximum income). Those who have gaps receive a proportionately lower income.
+
+2. Average Salary: The average income reported during the career, discounted according to federal indices. Not only the final salary counts, but the entire work history, which makes it important to verify the correctness of the recorded data.
+
+3. Contribution gaps: every year without
+
+## Useful planning tools
+To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
+### Verify your rights: a step-by-step guide
+
+If you are approaching the reference age (64-65 years) or want to check your AVS rights, follow these concrete steps:
+
+1. Request your career extract (Versicherungsverlauf)
+Contact your cantonal compensation fund or visit the Federal Social Insurance Office (UFAS, German UFAS, French OFAS) website. The extract shows all registered payments, gaps, the duration of the accredited career, and personal data as recorded in federal archives. It's free and can be requested online or by mail.
+
+2. Calculate an estimate of your pension
+Many cantons and the UFAS offer online calculators where you insert the extract data and receive a projection of your future AVS pension. This estimate is useful for planning your retirement and understanding if integration with other income sources (LPP, third pillar) will be necessary.
+
+3. Evaluate the appeal for unjustified gaps
+If you discover unjustified gaps (periods where you would have had to pay but it's not recorded), you can appeal within a limited term (usually 1-2 years) to fill or correct them. Some periods of illness, unemployment with benefits, or other events may be covered by equity contributions - check with the fund.
+
+**4. Plan the third pillar
+If the pension estimate seems insufficient, consider contributions to a [third pillar 3a account](nav:pillar3) up to the annual maximum (variable amount, check with your bank each year). This integrates your AVS and reduces federal, cantonal, and municipal taxation.
+
+### How to request complementary benefits
+
+In the 3-6 months before accessing your pension (don't wait for the first day of pension), contact:
+- Cantonal office for complementary benefits: in the Canton of Zurich, consult the official cantonal website and search for "complementary AVS/AI benefits"
+- Your place of residence: many municipalities handle local procedures in coordination with the canton
+
+Required documents (typical list, check with the canton):
+- Official cantonal request form (downloadable from the cantonal website)
+- Last AVS career extract
+- Asset documentation (bank statements, property certificates, life insurance policies with surrender value)
+- Current income documentation (if still working or have other sources)
+- Rental contract or property certificate
+- Residency certificate
+
+The processing time varies (usually 2-3 months), so it's a good idea to start the procedure in advance.
+
+### Use our planning tools
+
+[Consult our salary calculator](nav:calculator) to simulate how AVS contributions (5.3%) affect your annual net income and plan your transition to retirement. It's a useful tool to understand the impact of social security on disposable income and project yourself towards retirement with concrete figures.]]></content:encoded>
+      <pubDate>Tue, 25 Aug 2026 09:03:08 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/lacune-contributive-avs-zurigo</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/lacune-contributive-avs-zurigo.webp" medium="image"/>
+    </item>
     <item>
       <title>You pay more on your own: empty pockets for singles in Switzerland</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/single-pays-more-switzerland/</link>
@@ -3100,77 +3179,6 @@ Evaluating a Ticino job offer? Simulate your [net payslip](nav:payslip): enter g
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/usi-supsi-aumentano-tasse-studenti</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/usi-supsi-aumentano-tasse-studenti.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Permit B Basel: Requirements and Renewal</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/residence-permit-b-basel-renewal/</link>
-      <description><![CDATA[The B permit in Switzerland is renewable. Guide to requirements, documents and renewal procedure in the Canton of Basel-City.]]></description>
-      <content:encoded><![CDATA[## In a nutshell
-- Permit B is a federal renewable home category managed by the SEM
-- Basel-City has a cantonal migration office for local processes
-- Renewal requires verification by SEM and cantonal authorities
-- Crucial distinction between permit L (short), B (medium), C (domicile)
-
-## Key facts
-- **What**: Residence permit B, federal renewable category (SEM)
-- Where: Canton of Basel-City (Basel-Stadt), Switzerland
-- Who: State Secretariat for Migration (SEM) + cantonal authority Basel City
-- When: Renewal to be requested before the expiration of the document
-- Duration: Renewable according to federal criteria; specific duration refers to the SEM
-- Amount: Costs not yet specified in this guide
-
-Permit B represents a federal category of residence in Switzerland, managed by the State Secretariat for Migration (SEM). Unlike the L permit (short duration, up to 1 year) and the C permit (domicile), the B permit offers an intermediate position: it allows you to stay and work in Switzerland with the possibility of renewing your residence permit. In the Canton of Basel-City, as in all Swiss cantons, the B permit renewal procedure follows federal guidelines, but also requires interaction with the local cantonal migration office.
-
-Whoever obtains the B permit, moreover, is subject to Swiss tax obligations — for this reason it is useful to familiarize yourself with the [dichiarazione delle imposte](nav:tax-return) already at the moment
-### Scenario di rinnovo: come funziona
-
-Immaginiamo uno scenario tipico. A non-EU worker has obtained a B permit with an expiration date in autumn 2026. A few weeks before the expiration date, they must contact the cantonal migration office in Basel City to signal their intention to renew. The federal procedure provides that all renewal requests are examined by the SEM in coordination with the cantonal authorities. It is not possible to automatically extend the B permit: each renewal requires a formal request and verification that the requirements are still met.
-
-### Comparison table: L vs B vs C
-
-| Permit | Duration | Renewable | Access to the labor market | Way to home address |
-|----------|--------|-------------|-------------------------------|---------------------|
-| **L** | Up to 1 year | Limited | Yes, with restrictions | No |
-| B | Variable (federal) | Yes | Yes, extensive | Yes, after 10 years of residence |
-| C | 10 years (renewable) | Yes | Yes, complete | Already stable residence |
-
-### Differences between L and B permits in renewal
-
-The L permit, with a maximum duration of 1 year, is not intended for repeated renewals of the same holder in the medium term. It is a solution for episodic stays (seasonal work, short training, temporary project). On the other hand, the B permit is specifically designed for those who intend to settle in Switzerland for one or more years, with the awareness that renewal is a right as long as the federal and cantonal conditions (employment, economic resources, absence of security problems) continue to exist. The C permit, finally, is the culmination of the scale: it requires a 10-year stay (5 for EU/EFTA) and represents a stable residence with almost the same rights as Swiss citizens.
-
-### What remains not yet specified
-
-This guide provides the federal and cantonal framework. However, details such as the exact list of required documents, the costs of renewal, the specific duration of the B permit (which can vary depending on the employment contract and circumstances), and the exact address of the cantonal migration office in Basel City remain to be verified directly with the authorities. It is recommended to contact the SEM and the cantonal office of Basel to obtain personalized information.
-
-Before requesting the B permit, also understand the [cost of living](nav:cost-of-living) in your destination canton: federal and cantonal authorities assess whether you have sufficient economic resources to maintain yourself legally during the stay.
-
-## Recommended tools
-For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).
-### Step-by-step towards renewal
-
-The renewal process of the B permit follows some fundamental steps:
-
-1. Check the expiration date of your B permit (visible on the document itself)
-2. Contact the cantonal migration office of Basel City several months before the expiration date to notify the intention to renew
-3. Prepare the required documentation (valid passport, proof of employment, proof of financial resources, proof of accommodation, certificate of non-existence of penal problems — check the exact list with the office)
-4. Send or submit the renewal application to the cantonal office
-5. Wait for the elaboration by the cantonal office and the SEM
-
-### Contacts and next steps
-
-The SEM is reachable through the official website of the Swiss Confederation for questions on federal procedures. In the Canton of Basel City, the migration office is the local point of contact for specific questions on renewal, required documents, and costs. We recommend contacting them by phone or email to obtain detailed and up-to-date information. Office hours and contact details are available on the official website of the Canton of Basel City.
-
-### Practical implications
-
-The renewal of the B permit is essential to maintain the legality of your residence and employment in Switzerland. A missed renewal application within the terms can lead to administrative complications, loss of the right to work, and obstacles for future permit applications. For those aspiring to the C permit (after 10 years of residence), maintaining compliance with B permit renewals is a crucial step towards stable residence.
-
-### Calculate your numbers
-
-If you are planning a stay in Switzerland, understanding the fiscal and income structure is just as important as the permit itself. Use the [salary calculator](nav:calculator) to estimate the fiscal impact of your income in the Canton of Basel City and plan the necessary budget for long-term residence.]]></content:encoded>
-      <pubDate>Mon, 24 Aug 2026 12:04:14 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/dimora-b-basilea-rinnovo</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/dimora-b-basilea-rinnovo.webp" medium="image"/>
     </item>
   </channel>
 </rss>

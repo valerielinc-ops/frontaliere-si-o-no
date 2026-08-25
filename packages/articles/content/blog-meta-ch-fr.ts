@@ -4246,6 +4246,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.single-paga-di-piu-svizzera.title': 'Payer plus cher seul en Suisse',
     'blog.article.single-paga-di-piu-svizzera.excerpt': 'Les loyers pèsent plus lourd pour les célibataires, qui consacrent environ 20 % de leur budget au logement et à l\'énergie.',
     'blog.article.single-paga-di-piu-svizzera.imageAlt': 'Une personne seule qui regarde par la fenêtre d\'une chambre d\'hôtel',
+    'blog.article.lacune-contributive-avs-zurigo.title': 'AVS et prestations complémentaires : caisse de compensation',
+    'blog.article.lacune-contributive-avs-zurigo.excerpt': 'Premier pilier dans le canton de Zurich : caisse de compensation, calcul rente AVS, lacunes contributives et prestations complémentaires pour le minimum vital.',
+    'blog.article.lacune-contributive-avs-zurigo.imageAlt': 'Bureau administratif avec documents de retraite, calculatrice et tableau de planification de la retraite. Les Alpes suisses visibles par la fenêtre.',
 };
 
 export default blogMetaChFr;
