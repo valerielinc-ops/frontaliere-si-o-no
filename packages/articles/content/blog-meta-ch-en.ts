@@ -4321,6 +4321,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.investimento-immobiliare-berna-svizzera.title': 'Buying a house Bern: prices, mortgage and documents',
     'blog.article.investimento-immobiliare-berna-svizzera.excerpt': 'Buying a house in Bern: the Swiss legal framework, mortgage loans, transfer taxes and notary fees illustrated in a practical guide for buyers.',
     'blog.article.investimento-immobiliare-berna-svizzera.imageAlt': 'Modern Swiss home in Alpine landscape. Editorial photography for real estate investment and mortgage financing guide.',
+    'blog.article.calo-domande-asilo-2026.title': 'Asylum: applications drop in Switzerland in 2026',
+    'blog.article.calo-domande-asilo-2026.excerpt': 'In the first half of 2026, for the first time since 2022, fewer than 10,000 requests were received. The SEM revises downwards: from 26,000 to 22,000 annual applications.',
+    'blog.article.calo-domande-asilo-2026.imageAlt': 'Swiss State Secretariat for Migration official documentation reviewing asylum application records',
 };
 
 export default blogMetaChEn;

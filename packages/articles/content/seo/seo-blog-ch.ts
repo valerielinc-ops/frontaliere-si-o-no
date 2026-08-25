@@ -56063,6 +56063,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-calo-domande-asilo-2026': {
+    title: 'Asilo: domande calano in Svizzera nel 2026 | Frontaliere Ticino',
+    description: 'Nel primo semestre 2026 le domande d\'asilo in Svizzera calano sotto 10mila. La SEM rivede le stime annuali: da 26mila a 22mila. Calo di afghani, turchi',
+    keywords: 'frontalieri, ticino, svizzera, italia, asilo, domande, calano, primo',
+    ogTitle: 'Asilo: domande calano in Svizzera nel 2026',
+    ogDescription: 'Nel primo semestre 2026 le domande d\'asilo scendono sotto 10mila per la prima volta dal 2022. La Confederazione rivede: 22mila richieste nel 2026 anziché 26mila. Calo marcato tra afghani, turchi, eritrei. Statuto S ucraini: 12mila previste.',
+    canonicalPath: '/articoli-svizzera/calo-domande-asilo-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Asilo: domande calano in Svizzera nel 2026",
+      "description": "Nel primo semestre 2026 le domande d'asilo in Svizzera calano sotto 10mila. La SEM rivede le stime annuali: da 26mila a 22mila. Calo di afghani, turchi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/calo-domande-asilo-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documentazione della Segreteria di Stato della migrazione svizzera con referti ufficiali di richieste d'asilo"
+      },
+      "datePublished": "2026-08-25T23:30:57+00:00",
+      "dateModified": "2026-08-25T23:30:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/calo-domande-asilo-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

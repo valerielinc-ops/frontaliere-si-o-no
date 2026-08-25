@@ -4321,6 +4321,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.investimento-immobiliare-berna-svizzera.title': 'Haus Bern kaufen: Preise, Hypothek und Unterlagen',
     'blog.article.investimento-immobiliare-berna-svizzera.excerpt': 'Haus kaufen in Bern: Der Schweizer Rechtsrahmen, Hypothekendarlehen, Durchbruchssteuern und Notarkosten in einem praktischen Leitfaden für Käufer.',
     'blog.article.investimento-immobiliare-berna-svizzera.imageAlt': 'Modernes Schweizer Wohnhaus in Alpenlandschaft zum Thema Hypotheken und Immobilienkauf.',
+    'blog.article.calo-domande-asilo-2026.title': 'Asyl: Asylanträge sinken in der Schweiz im Jahr 2026',
+    'blog.article.calo-domande-asilo-2026.excerpt': 'Im ersten Halbjahr 2026, zum ersten Mal seit 2022, weniger als 10.000 Anträge. Das sem revidiert nach unten: von 26.000 auf 22.000 Anträge pro Jahr.',
+    'blog.article.calo-domande-asilo-2026.imageAlt': 'Amtliche Dokumentation des Schweizer Staatssekretariats für Migration zu Asylgesuchen',
 };
 
 export default blogMetaChDe;

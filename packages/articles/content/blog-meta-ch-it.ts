@@ -4321,6 +4321,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.investimento-immobiliare-berna-svizzera.title': 'Comprare casa Berna: prezzi, mutuo e documenti',
     'blog.article.investimento-immobiliare-berna-svizzera.excerpt': 'Acquistare casa a Berna: il quadro legale svizzero, mutui ipotecari, imposte sui trapassi e spese notarili illustrati in una guida pratica per acquirenti.',
     'blog.article.investimento-immobiliare-berna-svizzera.imageAlt': 'Abitazione svizzera moderna nel paesaggio Alpino, illustrazione editoriale per una guida sull\'acquisto immobiliare e mutui.',
+    'blog.article.calo-domande-asilo-2026.title': 'Asilo: domande calano in Svizzera nel 2026',
+    'blog.article.calo-domande-asilo-2026.excerpt': 'Nel primo semestre 2026, per la prima volta dal 2022, meno di 10mila richieste. La SEM rivede al ribasso: da 26mila a 22mila domande annuali.',
+    'blog.article.calo-domande-asilo-2026.imageAlt': 'Documentazione della Segreteria di Stato della migrazione svizzera con referti ufficiali di richieste d\'asilo',
 };
 
 export default blogMetaChIt;

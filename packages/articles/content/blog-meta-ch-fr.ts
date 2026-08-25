@@ -4321,6 +4321,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.investimento-immobiliare-berna-svizzera.title': 'Acheter maison Berne : prix, hypothèque et documents',
     'blog.article.investimento-immobiliare-berna-svizzera.excerpt': 'Acheter une maison à Berne : le cadre légal suisse, les prêts hypothécaires, les taxes de passage et les frais de notaire illustrés dans un guide pratique pour les acheteurs.',
     'blog.article.investimento-immobiliare-berna-svizzera.imageAlt': 'Propriété résidentielle suisse moderne dans le paysage alpin pour guide d\'achat immobilier et hypothèques.',
+    'blog.article.calo-domande-asilo-2026.title': 'Asile : les demandes chutent en Suisse en 2026',
+    'blog.article.calo-domande-asilo-2026.excerpt': 'Au premier semestre 2026, pour la première fois depuis 2022, moins de 10 000 demandes. Le SEM révise à la baisse : de 26 000 à 22 000 demandes annuelles.',
+    'blog.article.calo-domande-asilo-2026.imageAlt': 'Documentation officielle du Secrétariat d\'État suisse aux migrations sur les demandes d\'asile',
 };
 
 export default blogMetaChFr;
