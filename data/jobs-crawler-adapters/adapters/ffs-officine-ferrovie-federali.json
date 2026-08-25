@@ -10,6 +10,7 @@
     "jsonld"
   ],
   "seedUrls": [
+    "https://jobs.sbb.ch/v2/offene-stellen/projektleiter-in-bauingenieurwesen/e8862e33-3ae1-488d-9b0c-523e40012cb6",
     "https://jobs.sbb.ch/v2/offene-stellen/strategische-r-einkaeufer-in/50ee6764-1c0b-437d-9032-8467d4c34c49",
     "https://jobs.sbb.ch/v2/offene-stellen/assistante-clientele-en-charge-du-releve-des-frequences-en-reconversion-professionnelle/9cffe872-001c-47d6-a862-9bc2c9dce1ab",
     "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-feuerwehrmann-oder-feuerwehrfrau-und-lokfuehrer-in/e67d01c1-18ab-46fd-9816-dbad8ad77bd6",
@@ -57,7 +58,6 @@
     "https://jobs.sbb.ch/v2/offene-stellen/mitarbeiter-in-reinigung-80/109578bd-b9f0-4d65-b3a5-df1df331a1ec",
     "https://jobs.sbb.ch/v2/offene-stellen/projektleiter-in-rayonmanagement-region-mitte/c030ed91-725f-4e10-b14f-4556d201b7ca",
     "https://jobs.sbb.ch/v2/offene-stellen/zugbegleiter-in-quereinstieg/faeaeb76-a230-449b-8d83-ce21ab01675f",
-    "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-kundenbegleiter-in-fuer-frequenzerfassung-03-27/d6a87566-44e9-4a05-a0d7-15cc390fb908",
     "https://jobs.sbb.ch/v2/offene-stellen/spezialist-in-grundstuecksgeschaefte-anlageobjekte/8e460863-7d1b-4159-845a-fc72740c9c1f",
     "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-rangier/4169895d-9700-489f-bbc6-b9f1b779f7c6",
     "https://jobs.sbb.ch/v2/offene-stellen/security-engineer-m-w-d-netzleitsystem-energie/6108af33-2f9c-4b20-b180-f811d5be0c7b",
@@ -80,7 +80,6 @@
     "https://jobs.sbb.ch/v2/offene-stellen/landschaftsgaertner-in-maurer-in-oder-strassenbauer-in-fuer-den-bereich-kabel-tiefbau/10719ad8-25ed-4e94-8b09-39804183f449",
     "https://jobs.sbb.ch/v2/offene-stellen/reiniger-in/892ad083-520a-4392-be6e-8725a5b3a21a",
     "https://jobs.sbb.ch/v2/offene-stellen/transport-logistiker-in/656b54cd-1c60-4b2b-8a94-c5d02980aecf",
-    "https://jobs.sbb.ch/v2/offene-stellen/projekt-und-bewilligungsmanager-in-telecom-frmcs-ran-rollout/0c1eef08-fdfd-4f25-9762-6c4bc66d1840",
     "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-rangiermitarbeiter-in/84e60310-488b-4b90-ac05-c5750f07bcef",
     "https://jobs.sbb.ch/v2/offene-stellen/capo-progetto-junior-m-f-d/42bb31a5-6a7b-4822-8037-23bf98c1415d",
     "https://jobs.sbb.ch/v2/offene-stellen/stellwerkangestellte-r-olten/0d9ff808-b381-4f4e-91d4-7d19415e9d14",
@@ -174,5 +173,5 @@
     "https://jobs.sbb.ch/v2/offene-stellen/responsable-des-cie-pour-les-agentes-de-transport-ferroviaire-cfc/9afa011e-3030-492b-a1d5-6fa693f6d017"
   ],
   "notes": "SBB dedicated seeds from company.sbb.ch AEM JSON API + login.org apprenticeship listing (partner SBB CFF FFS, canton Ticino).",
-  "updatedAt": "2026-08-24T21:44:05.953Z"
+  "updatedAt": "2026-08-25T10:02:23.295Z"
 }
