@@ -1435,6 +1435,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'avs-prestazioni-complementari-appenzello': { it: 'avs-prestazioni-complementari-appenzello', en: 'avs-supplementary-benefits-appenzell', de: 'ahv-ergaenzungsleistungen-appenzell', fr: 'ava-prestations-complementaires-appenzell' },
  'appenzello-esterno-avs-primo-pilastro': { it: 'appenzello-esterno-avs-primo-pilastro', en: 'avs-benefits-appenzell-rhodes-compensation-fund', de: 'avs-leistungen-appenzell-ausserrhoden-kasse', fr: 'avs-prestations-appenzell-rhodes-caisse' },
  'sistema-sanitario-difficolta-cittadini': { it: 'sistema-sanitario-difficolta-cittadini', en: 'healthcare-system-user-difficulties', de: 'gesundheitssystem-nutzer-schwierigkeiten', fr: 'systeme-de-sante-difficultes-usagers' },
+ 'tx-group-penalizzato-svalutazioni': { it: 'tx-group-penalizzato-svalutazioni', en: 'tx-group-penalized-by-devaluations', de: 'tx-gruppe-geschadigt-durch-abwertungen', fr: 'groupe-tx-peniete-par-les-devaluations' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -4228,6 +4228,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sistema-sanitario-difficolta-cittadini.title': 'Sistema sanitario: difficoltà per molti cittadini svizzeri',
     'blog.article.sistema-sanitario-difficolta-cittadini.excerpt': 'Uno studio Careum svela che metà degli svizzeri ha scarse competenze sanitarie. Tre su quattro faticano a orientarsi nel sistema tra burocrazia e gergo.',
     'blog.article.sistema-sanitario-difficolta-cittadini.imageAlt': 'Edificio moderno a Mendrisio sede di incontri istituzionali sulla sanità',
+    'blog.article.tx-group-penalizzato-svalutazioni.title': 'Di più: TX Group penalizzato dalle svalutazioni nel primo semestre',
+    'blog.article.tx-group-penalizzato-svalutazioni.excerpt': 'Il gruppo mediatico zurighese TX Group registra un\'impennata dei propri risultati rettificati nel primo semestre, ma è penalizzato dalle svalutazioni.',
+    'blog.article.tx-group-penalizzato-svalutazioni.imageAlt': 'Redazione giornalistica in Svizzera',
 };
 
 export default blogMetaChIt;

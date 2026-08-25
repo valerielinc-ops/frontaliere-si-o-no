@@ -4228,6 +4228,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sistema-sanitario-difficolta-cittadini.title': 'Health system: difficulties for many Swiss citizens',
     'blog.article.sistema-sanitario-difficolta-cittadini.excerpt': 'A Careum study reveals that half of Swiss people have poor health skills. Three out of four struggle to navigate the system between bureaucracy and jargon.',
     'blog.article.sistema-sanitario-difficolta-cittadini.imageAlt': 'Modern building in Mendrisio hosting institutional health meetings',
+    'blog.article.tx-group-penalizzato-svalutazioni.title': 'More: TX Group penalized by write-downs in the first half',
+    'blog.article.tx-group-penalizzato-svalutazioni.excerpt': 'The Zurich media group TX Group recorded a surge in its adjusted results in the first half, but was penalised by write-downs.',
+    'blog.article.tx-group-penalizzato-svalutazioni.imageAlt': 'Swiss newspaper office',
 };
 
 export default blogMetaChEn;
