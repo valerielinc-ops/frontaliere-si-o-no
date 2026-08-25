@@ -16,12 +16,15 @@
  */
 
 import fs from 'node:fs';
+import { listSliceFileNames } from './crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { readAllAttr, readAttr, readMetaContent } from './html-attr.mjs';
 import { createHash } from 'node:crypto';
 import { callLLM, isAnyModelAvailable, getPreferredModel, getStats as getAiStats, initScoreStore, flushScores, flushScoresBeforeExit, printRunSummary } from './ai-models.mjs';
 import { validateJobUrls } from './validate-job-url.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
+import { hasAnyJobSignal } from './job-like.mjs';
 import { assertJsonListShape, assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
@@ -577,7 +580,7 @@ function readJson(filePath, fallback = null) {
  */
 function readExistingJobsFromSlices(scopedKeys) {
   if (!fs.existsSync(BY_CRAWLER_DIR)) return [];
-  const files = fs.readdirSync(BY_CRAWLER_DIR).filter(f => f.endsWith('.json'));
+  const files = listSliceFileNames(BY_CRAWLER_DIR);
   const jobs = [];
   for (const file of files) {
     const key = file.replace(/\.json$/, '');
@@ -1047,21 +1050,32 @@ function isLikelyCommercialPromoContent({ title = '', description = '', pageUrl 
     'acessórios',
     'denim',
   ];
-  const jobSignals = [
-    'responsibilities',
-    'requirements',
-    'requisiti',
+  // Vocabolario di lavoro condiviso con il gate del prospector
+  // (`scripts/lib/job-like.mjs`), piu' i marcatori d'ATS che restano specifici
+  // di questo strato. Erano due elenchi separati per la stessa domanda «questo
+  // testo e' un annuncio?», destinati a divergere: quello del prospector e'
+  // multilingue e per gruppi, questo undici stringhe nate da un incidente.
+  //
+  // Solo il VETO attinge al modulo condiviso, non la soglia commerciale: un
+  // vocabolario di lavoro piu' ampio puo' soltanto salvare piu' annunci veri
+  // dallo scarto, mai scartarne di piu'. Allargare anche `commerceSignals`
+  // renderebbe il rilevatore piu' aggressivo su 600 crawler di produzione, che
+  // e' l'unica direzione in cui un falso positivo costa un annuncio reale.
+  // Restano qui i token che il modulo condiviso NON copre alla lettera:
+  // `profil` e' una sottostringa nuda (prende anche "profilo"/"profile"), e
+  // toglierla restringerebbe il veto invece di allargarlo. I cinque token che
+  // il modulo copre parola per parola — responsibilities, requirements,
+  // requisiti, employment type, apply now — sono stati tolti da qui.
+  const atsSignals = [
     'stellenbeschreibung',
     'profil',
     'skills for success',
     'hiring organization',
     'job requisition id',
-    'employment type',
-    'apply now',
     'candidate profile',
   ];
   const commerceHits = commerceSignals.reduce((acc, s) => acc + (text.includes(s) ? 1 : 0), 0);
-  const hasJobSignal = jobSignals.some((s) => text.includes(s));
+  const hasJobSignal = atsSignals.some((s) => text.includes(s)) || hasAnyJobSignal(text);
   return commerceHits >= 4 && !hasJobSignal;
 }
 
@@ -1723,9 +1737,11 @@ function extractWorkdayLocation(html) {
 }
 
 function extractWorkdayApplyUrl(html, baseUrl) {
-  const m = String(html).match(/<a[^>]*href=["']([^"']*lumessetalentlink[^"']+)["'][^>]*>/i);
-  if (!m?.[1]) return '';
-  return tryUrl(m[1], baseUrl) || '';
+  // #6480: the substring filter belongs in JS, not inside the attribute regex —
+  // `[^"']*lumessetalentlink[^"']+` cut the URL at any apostrophe in it.
+  const hit = readAllAttr(html, 'href').find((h) => h.includes('lumessetalentlink'));
+  if (!hit) return '';
+  return tryUrl(hit, baseUrl) || '';
 }
 
 // extractMigrosStructuredData, extractMigrosSectionItems, extractMigrosBenefitItems
@@ -1822,11 +1838,16 @@ function extractRichJobDescription(html) {
 
 function extractAlternateLocaleUrls(html, currentUrl) {
   const out = {};
-  const rx = /<link[^>]*rel=["']alternate["'][^>]*hreflang=["']([^"']+)["'][^>]*href=["']([^"']+)["'][^>]*>/gi;
+  // #6480: read the tag, then its attributes — the old single regex glued
+  // `hreflang=` and `href=` together and its `[^"']` classes cut either value
+  // at an apostrophe (hreflang never carries one, an href can).
+  const rx = /<link\b[^>]*>/gi;
   let m;
   while ((m = rx.exec(String(html))) !== null) {
-    const hreflang = normalizeSpace(m[1]).toLowerCase();
-    const href = tryUrl(m[2], currentUrl);
+    const tag = m[0];
+    if (!/(?<![\w-])rel\s*=\s*(["'])alternate\1/i.test(tag)) continue;
+    const hreflang = normalizeSpace(readAttr(tag, 'hreflang')).toLowerCase();
+    const href = tryUrl(readAttr(tag, 'href'), currentUrl);
     if (!href || !hreflang || hreflang === 'x-default') continue;
     const lang = hreflang.slice(0, 2);
     if (!LOCALES.includes(lang)) continue;
@@ -2680,10 +2701,15 @@ function chunkArray(items, size) {
 
 function parseDuckDuckGoHtmlLinks(html) {
   const out = [];
-  const rx = /<a[^>]*class=["'][^"']*result__a[^"']*["'][^>]*href=["']([^"']+)["'][^>]*>/gi;
+  // #6480: same shape — locate the anchor, then read `href` quote-balanced.
+  const rx = /<a\b[^>]*>/gi;
   let m;
   while ((m = rx.exec(String(html))) !== null) {
-    const decoded = decodeSearchRedirectUrl(m[1]);
+    const tag = m[0];
+    if (!/(?<![\w-])class\s*=\s*(["'])[^<]*?result__a[^<]*?\1/i.test(tag)) continue;
+    const href = readAttr(tag, 'href');
+    if (!href) continue;
+    const decoded = decodeSearchRedirectUrl(href);
     const u = tryUrl(decoded);
     if (u) out.push(u);
   }
@@ -4171,9 +4197,18 @@ function extractH1FromHtml(html = '') {
   return normalizeSpace(stripHtml(stripScriptsAndStyles(html).match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)?.[1] || ''));
 }
 
+/**
+ * #6480: this was a second, unbalanced copy of `readMetaContent` — its
+ * `["']([^"']+)["']` stopped at the first quote of either kind, so an
+ * `og:title` carrying an apostrophe (`Operatore dell'infanzia`) was truncated
+ * there. It now delegates to the shared quote-balanced reader instead of
+ * keeping a private regex that has to be fixed twice.
+ *
+ * `attr` is kept in the signature for the call sites, but `readMetaContent`
+ * matches `property=` and `name=` alike, which is what every caller wanted.
+ */
 function extractMetaContent(html, attr, value) {
-  const re = new RegExp(`<meta[^>]*${attr}=["']${value}["'][^>]*content=["']([^"']+)["'][^>]*>`, 'i');
-  return normalizeSpace(html.match(re)?.[1] || '');
+  return normalizeSpace(readMetaContent(html, value));
 }
 
 /**

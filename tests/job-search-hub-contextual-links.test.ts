@@ -157,6 +157,44 @@ describe('hub di ricerca lavoro — routing dei link contestuali del blog', () =
     expect(rule!.targetUrl).toBe(HUB_BY_LOCALE[locale]);
   });
 
+  // ── Falsi positivi: parole che sembrano di lavoro e non lo sono ──────────
+  //
+  // Trovato in review sulla PR gemella del corpus. In tedesco amministrativo
+  // «Stellen» significa anche «enti/uffici»: con un `Stellen?` nudo
+  // nell'alternation, `de.jobs.jobs-im-tessin` agganciava «öffentliche Stellen
+  // im Tessin» in un articolo sulla certificazione EKAS. Verificato con
+  // l'injector vero che quel segmento vinceva la selezione greedy ed era
+  // l'unico link iniettato: un link fuorviante della stessa classe che questa
+  // modifica elimina. Il prefisso «offene/freie» ora e' obbligatorio.
+  const FALSE_FRIENDS: ReadonlyArray<[keyof typeof HUB_BY_LOCALE, string]> = [
+    ['de', 'eine operative Lücke für Unternehmen und öffentliche Stellen im Tessin zu schließen'],
+    ['de', 'die zuständigen Stellen im Tessin prüfen die Zertifizierung'],
+    ['de', 'kantonale Stellen in Bellinzona koordinieren die Kontrollen'],
+  ];
+
+  it.each(FALSE_FRIENDS)('%s: nessun link alla bacheca su un falso amico: %s', (locale, phrase) => {
+    const hit = BLOG_CONTEXTUAL_LINKS[locale]
+      .filter((r) => r.targetUrl === HUB_BY_LOCALE[locale])
+      .find((r) => r.keywordPattern.test(phrase));
+    expect(
+      hit,
+      `${hit?.id} aggancia un falso amico e manda alla bacheca: ${phrase}`,
+    ).toBeUndefined();
+  });
+
+  it('«offene/freie Stellen» restano agganciate: la disambiguazione non svuota la regola', () => {
+    // Il contraltare del test sopra: restringere l'alternation non deve aver
+    // ucciso il caso legittimo, che nel corpus esiste davvero
+    // («offene Stellen im Tessin»).
+    const rule = BLOG_CONTEXTUAL_LINKS.de.find((r) => r.id === 'de.jobs.jobs-im-tessin');
+    expect(rule).toBeDefined();
+    expect(rule!.keywordPattern.test('offene Stellen im Tessin')).toBe(true);
+    expect(rule!.keywordPattern.test('freie Stellen im Tessin')).toBe(true);
+    expect(rule!.keywordPattern.test('Jobs im Tessin')).toBe(true);
+    // ...e che il bare «Stellen» resti fuori.
+    expect(rule!.keywordPattern.test('öffentliche Stellen im Tessin')).toBe(false);
+  });
+
   it('nessun locale manda piu\' l\'intento transazionale al report di mercato', () => {
     // Guardia esplicita contro il ritorno del difetto originale.
     const REPORTS = [

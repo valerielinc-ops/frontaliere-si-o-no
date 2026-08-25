@@ -1,347 +1,5 @@
 [
   {
-    "timestamp": "2026-08-01T22:31:59.168Z",
-    "label": "before",
-    "total": 26256,
-    "needsRetranslation": 1850,
-    "suppressed": 36,
-    "incomplete": 108,
-    "complete": 26148,
-    "missingByLocale": {
-      "it": 59,
-      "en": 33,
-      "de": 50,
-      "fr": 49
-    },
-    "topPending": [
-      {
-        "company": "Swiss Medical Network",
-        "pending": 34
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 23
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "IKEA",
-        "pending": 5
-      },
-      {
-        "company": "Mikron Group",
-        "pending": 4
-      },
-      {
-        "company": "Bürgenstock Hotels AG",
-        "pending": 3
-      },
-      {
-        "company": "Kantonsspital Uri",
-        "pending": 3
-      },
-      {
-        "company": "Kantonsspital Aarau (KSA)",
-        "pending": 3
-      },
-      {
-        "company": "Roche",
-        "pending": 2
-      },
-      {
-        "company": "Sulzer",
-        "pending": 2
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-08-01T23:35:05.433Z",
-    "label": "after",
-    "total": 26256,
-    "needsRetranslation": 565,
-    "suppressed": 37,
-    "incomplete": 103,
-    "complete": 26153,
-    "missingByLocale": {
-      "it": 59,
-      "en": 32,
-      "de": 48,
-      "fr": 49
-    },
-    "topPending": [
-      {
-        "company": "Swiss Medical Network",
-        "pending": 34
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 23
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "IKEA",
-        "pending": 5
-      },
-      {
-        "company": "Mikron Group",
-        "pending": 4
-      },
-      {
-        "company": "Bürgenstock Hotels AG",
-        "pending": 3
-      },
-      {
-        "company": "Kantonsspital Uri",
-        "pending": 3
-      },
-      {
-        "company": "Kantonsspital Aarau (KSA)",
-        "pending": 2
-      },
-      {
-        "company": "Roche",
-        "pending": 2
-      },
-      {
-        "company": "Sulzer",
-        "pending": 2
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-08-02T06:27:58.581Z",
-    "label": "before",
-    "total": 25961,
-    "needsRetranslation": 10921,
-    "suppressed": 36,
-    "incomplete": 114,
-    "complete": 25847,
-    "missingByLocale": {
-      "it": 62,
-      "en": 36,
-      "de": 49,
-      "fr": 52
-    },
-    "topPending": [
-      {
-        "company": "Swiss Medical Network",
-        "pending": 34
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 23
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "IKEA",
-        "pending": 4
-      },
-      {
-        "company": "Manor AG",
-        "pending": 4
-      },
-      {
-        "company": "Mikron Group",
-        "pending": 4
-      },
-      {
-        "company": "Roche",
-        "pending": 4
-      },
-      {
-        "company": "Bürgenstock Hotels AG",
-        "pending": 3
-      },
-      {
-        "company": "Kantonsspital Uri",
-        "pending": 3
-      },
-      {
-        "company": "Kantonsspital Aarau (KSA)",
-        "pending": 3
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-08-02T06:39:15.734Z",
-    "label": "after",
-    "total": 25961,
-    "needsRetranslation": 607,
-    "suppressed": 37,
-    "incomplete": 114,
-    "complete": 25847,
-    "missingByLocale": {
-      "it": 62,
-      "en": 36,
-      "de": 49,
-      "fr": 52
-    },
-    "topPending": [
-      {
-        "company": "Swiss Medical Network",
-        "pending": 34
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 23
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "IKEA",
-        "pending": 4
-      },
-      {
-        "company": "Manor AG",
-        "pending": 4
-      },
-      {
-        "company": "Mikron Group",
-        "pending": 4
-      },
-      {
-        "company": "Roche",
-        "pending": 4
-      },
-      {
-        "company": "Bürgenstock Hotels AG",
-        "pending": 3
-      },
-      {
-        "company": "Kantonsspital Uri",
-        "pending": 3
-      },
-      {
-        "company": "Kantonsspital Aarau (KSA)",
-        "pending": 3
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-08-02T08:52:26.770Z",
-    "label": "before",
-    "total": 25961,
-    "needsRetranslation": 10921,
-    "suppressed": 36,
-    "incomplete": 114,
-    "complete": 25847,
-    "missingByLocale": {
-      "it": 62,
-      "en": 36,
-      "de": 49,
-      "fr": 52
-    },
-    "topPending": [
-      {
-        "company": "Swiss Medical Network",
-        "pending": 34
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 23
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "IKEA",
-        "pending": 4
-      },
-      {
-        "company": "Manor AG",
-        "pending": 4
-      },
-      {
-        "company": "Mikron Group",
-        "pending": 4
-      },
-      {
-        "company": "Roche",
-        "pending": 4
-      },
-      {
-        "company": "Bürgenstock Hotels AG",
-        "pending": 3
-      },
-      {
-        "company": "Kantonsspital Uri",
-        "pending": 3
-      },
-      {
-        "company": "Kantonsspital Aarau (KSA)",
-        "pending": 3
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-08-02T09:03:16.466Z",
-    "label": "after",
-    "total": 25961,
-    "needsRetranslation": 607,
-    "suppressed": 37,
-    "incomplete": 114,
-    "complete": 25847,
-    "missingByLocale": {
-      "it": 62,
-      "en": 36,
-      "de": 49,
-      "fr": 52
-    },
-    "topPending": [
-      {
-        "company": "Swiss Medical Network",
-        "pending": 34
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 23
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "IKEA",
-        "pending": 4
-      },
-      {
-        "company": "Manor AG",
-        "pending": 4
-      },
-      {
-        "company": "Mikron Group",
-        "pending": 4
-      },
-      {
-        "company": "Roche",
-        "pending": 4
-      },
-      {
-        "company": "Bürgenstock Hotels AG",
-        "pending": 3
-      },
-      {
-        "company": "Kantonsspital Uri",
-        "pending": 3
-      },
-      {
-        "company": "Kantonsspital Aarau (KSA)",
-        "pending": 3
-      }
-    ]
-  },
-  {
     "timestamp": "2026-08-02T11:21:54.622Z",
     "label": "before",
     "total": 25918,
@@ -13056,6 +12714,630 @@
       {
         "company": "Coop Genossenschaft",
         "pending": 210
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-24T10:10:14.183Z",
+    "label": "before",
+    "total": 30197,
+    "needsRetranslation": 13430,
+    "suppressed": 53,
+    "incomplete": 14598,
+    "complete": 15599,
+    "slotsPresent": 15599,
+    "flaggedAmongSlotsPresent": 23,
+    "verifiedTranslated": 15576,
+    "sourceCopyExcused": 591,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 3164,
+      "en": 3154,
+      "de": 3170,
+      "fr": 3173
+    },
+    "queueAge": {
+      "count": 13430,
+      "withTimestamp": 13430,
+      "oldestAgeDays": 133,
+      "p50AgeDays": 19.4,
+      "p90AgeDays": 61.9,
+      "buckets": {
+        "0-7d": 4747,
+        "7-30d": 4764,
+        "30-90d": 3405,
+        "90-180d": 514,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 2926
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1923
+      },
+      {
+        "company": "Roche",
+        "pending": 550
+      },
+      {
+        "company": "Genossenschaft Migros Ostschweiz",
+        "pending": 382
+      },
+      {
+        "company": "LANDI Pilatus AG",
+        "pending": 284
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 259
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 253
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 250
+      },
+      {
+        "company": "BKW",
+        "pending": 223
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 201
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-24T12:45:31.522Z",
+    "label": "after",
+    "total": 30197,
+    "needsRetranslation": 13394,
+    "suppressed": 54,
+    "incomplete": 14585,
+    "complete": 15612,
+    "slotsPresent": 15612,
+    "flaggedAmongSlotsPresent": 0,
+    "verifiedTranslated": 15612,
+    "sourceCopyExcused": 591,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 3164,
+      "en": 3154,
+      "de": 3170,
+      "fr": 3172
+    },
+    "queueAge": {
+      "count": 13394,
+      "withTimestamp": 13394,
+      "oldestAgeDays": 133.1,
+      "p50AgeDays": 19.5,
+      "p90AgeDays": 62.1,
+      "buckets": {
+        "0-7d": 4671,
+        "7-30d": 4803,
+        "30-90d": 3406,
+        "90-180d": 514,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 2926
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1923
+      },
+      {
+        "company": "Roche",
+        "pending": 550
+      },
+      {
+        "company": "Genossenschaft Migros Ostschweiz",
+        "pending": 377
+      },
+      {
+        "company": "LANDI Pilatus AG",
+        "pending": 284
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 259
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 253
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 250
+      },
+      {
+        "company": "BKW",
+        "pending": 223
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 201
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-25T00:33:11.678Z",
+    "label": "before",
+    "total": 30697,
+    "needsRetranslation": 18844,
+    "suppressed": 53,
+    "incomplete": 15358,
+    "complete": 15339,
+    "slotsPresent": 15339,
+    "flaggedAmongSlotsPresent": 4799,
+    "verifiedTranslated": 10540,
+    "sourceCopyExcused": 596,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 3808,
+      "en": 3689,
+      "de": 3435,
+      "fr": 3709
+    },
+    "queueAge": {
+      "count": 18844,
+      "withTimestamp": 18844,
+      "oldestAgeDays": 133.6,
+      "p50AgeDays": 22.1,
+      "p90AgeDays": 82,
+      "buckets": {
+        "0-7d": 5555,
+        "7-30d": 6536,
+        "30-90d": 5228,
+        "90-180d": 1525,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 3004
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1934
+      },
+      {
+        "company": "Roche",
+        "pending": 550
+      },
+      {
+        "company": "Denner AG",
+        "pending": 384
+      },
+      {
+        "company": "LANDI Aare Genossenschaft",
+        "pending": 294
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 270
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 267
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 263
+      },
+      {
+        "company": "BKW",
+        "pending": 225
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 223
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-25T01:23:59.918Z",
+    "label": "after",
+    "total": 30697,
+    "needsRetranslation": 14159,
+    "suppressed": 53,
+    "incomplete": 15358,
+    "complete": 15339,
+    "slotsPresent": 15339,
+    "flaggedAmongSlotsPresent": 0,
+    "verifiedTranslated": 15339,
+    "sourceCopyExcused": 596,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 3808,
+      "en": 3689,
+      "de": 3435,
+      "fr": 3709
+    },
+    "queueAge": {
+      "count": 14159,
+      "withTimestamp": 14159,
+      "oldestAgeDays": 133.6,
+      "p50AgeDays": 18,
+      "p90AgeDays": 61.6,
+      "buckets": {
+        "0-7d": 5109,
+        "7-30d": 5134,
+        "30-90d": 3382,
+        "90-180d": 534,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 3004
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1934
+      },
+      {
+        "company": "Roche",
+        "pending": 550
+      },
+      {
+        "company": "Denner AG",
+        "pending": 384
+      },
+      {
+        "company": "LANDI Aare Genossenschaft",
+        "pending": 294
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 270
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 267
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 263
+      },
+      {
+        "company": "BKW",
+        "pending": 225
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 223
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-25T07:02:10.416Z",
+    "label": "before",
+    "total": 30808,
+    "needsRetranslation": 13810,
+    "suppressed": 51,
+    "incomplete": 14974,
+    "complete": 15834,
+    "slotsPresent": 15834,
+    "flaggedAmongSlotsPresent": 27,
+    "verifiedTranslated": 15807,
+    "sourceCopyExcused": 625,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 3332,
+      "en": 3318,
+      "de": 3342,
+      "fr": 3340
+    },
+    "queueAge": {
+      "count": 13810,
+      "withTimestamp": 13810,
+      "oldestAgeDays": 133.9,
+      "p50AgeDays": 18.8,
+      "p90AgeDays": 62.8,
+      "buckets": {
+        "0-7d": 4863,
+        "7-30d": 5027,
+        "30-90d": 3387,
+        "90-180d": 533,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 3045
+      },
+      {
+        "company": "Marché Restaurants Schweiz AG",
+        "pending": 1939
+      },
+      {
+        "company": "Roche",
+        "pending": 550
+      },
+      {
+        "company": "Denner AG",
+        "pending": 374
+      },
+      {
+        "company": "Ramseier Suisse AG",
+        "pending": 289
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 264
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 256
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 254
+      },
+      {
+        "company": "BKW",
+        "pending": 222
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 214
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-25T08:02:28.666Z",
+    "label": "after",
+    "total": 30808,
+    "needsRetranslation": 13785,
+    "suppressed": 51,
+    "incomplete": 14974,
+    "complete": 15834,
+    "slotsPresent": 15834,
+    "flaggedAmongSlotsPresent": 0,
+    "verifiedTranslated": 15834,
+    "sourceCopyExcused": 625,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 3332,
+      "en": 3318,
+      "de": 3342,
+      "fr": 3340
+    },
+    "queueAge": {
+      "count": 13785,
+      "withTimestamp": 13785,
+      "oldestAgeDays": 133.9,
+      "p50AgeDays": 18.9,
+      "p90AgeDays": 62.8,
+      "buckets": {
+        "0-7d": 4856,
+        "7-30d": 5024,
+        "30-90d": 3372,
+        "90-180d": 533,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 3045
+      },
+      {
+        "company": "Marché Restaurants Schweiz AG",
+        "pending": 1939
+      },
+      {
+        "company": "Roche",
+        "pending": 550
+      },
+      {
+        "company": "Denner AG",
+        "pending": 374
+      },
+      {
+        "company": "Ramseier Suisse AG",
+        "pending": 289
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 264
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 256
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 254
+      },
+      {
+        "company": "BKW",
+        "pending": 222
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 214
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-25T12:33:41.552Z",
+    "label": "before",
+    "total": 30668,
+    "needsRetranslation": 13762,
+    "suppressed": 51,
+    "incomplete": 14921,
+    "complete": 15747,
+    "slotsPresent": 15747,
+    "flaggedAmongSlotsPresent": 27,
+    "verifiedTranslated": 15720,
+    "sourceCopyExcused": 619,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 3331,
+      "en": 3317,
+      "de": 3343,
+      "fr": 3340
+    },
+    "queueAge": {
+      "count": 13762,
+      "withTimestamp": 13762,
+      "oldestAgeDays": 134.1,
+      "p50AgeDays": 19,
+      "p90AgeDays": 63,
+      "buckets": {
+        "0-7d": 4685,
+        "7-30d": 5165,
+        "30-90d": 3382,
+        "90-180d": 530,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 3045
+      },
+      {
+        "company": "Marché Restaurants Schweiz AG",
+        "pending": 1926
+      },
+      {
+        "company": "Roche",
+        "pending": 550
+      },
+      {
+        "company": "Denner AG",
+        "pending": 365
+      },
+      {
+        "company": "Ramseier Suisse AG",
+        "pending": 287
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 264
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 256
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 254
+      },
+      {
+        "company": "BKW",
+        "pending": 222
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 212
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-25T13:24:02.356Z",
+    "label": "after",
+    "total": 30668,
+    "needsRetranslation": 13737,
+    "suppressed": 51,
+    "incomplete": 14921,
+    "complete": 15747,
+    "slotsPresent": 15747,
+    "flaggedAmongSlotsPresent": 0,
+    "verifiedTranslated": 15747,
+    "sourceCopyExcused": 619,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 3331,
+      "en": 3317,
+      "de": 3343,
+      "fr": 3340
+    },
+    "queueAge": {
+      "count": 13737,
+      "withTimestamp": 13737,
+      "oldestAgeDays": 134.1,
+      "p50AgeDays": 19.1,
+      "p90AgeDays": 63,
+      "buckets": {
+        "0-7d": 4678,
+        "7-30d": 5162,
+        "30-90d": 3367,
+        "90-180d": 530,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 3045
+      },
+      {
+        "company": "Marché Restaurants Schweiz AG",
+        "pending": 1926
+      },
+      {
+        "company": "Roche",
+        "pending": 550
+      },
+      {
+        "company": "Denner AG",
+        "pending": 365
+      },
+      {
+        "company": "Ramseier Suisse AG",
+        "pending": 287
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 264
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 256
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 254
+      },
+      {
+        "company": "BKW",
+        "pending": 222
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 212
       }
     ]
   }

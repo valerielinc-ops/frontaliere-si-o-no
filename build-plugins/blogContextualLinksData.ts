@@ -385,9 +385,19 @@ const RULES_DE: readonly BlogContextualLinkRule[] = [
   // F3b — Job-search hub. `\bArbeit\s+` non matcha «Arbeitsmarkt» (parola
   // unica, niente spazio dopo «Arbeit»), quindi non ruba il paragrafo a
   // `de.jobs.arbeitsmarkt`.
+  //
+  // «Stellen» NON sta da solo nell'alternation: in tedesco amministrativo
+  // significa anche «enti/uffici», non solo «posti di lavoro». Con un
+  // `Stellen?` nudo questa regola agganciava «öffentliche Stellen im Tessin»
+  // (enti pubblici) in `content/blog-body/de/sicurezza-lavoro-ticino-cfsl.ts`,
+  // un articolo sulla certificazione EKAS: verificato con l'injector vero che
+  // quel segmento vinceva davvero la selezione greedy ed era l'UNICO link
+  // iniettato nell'articolo. Sarebbe stato un link fuorviante esattamente
+  // della classe che questa modifica elimina, reintrodotto ex novo.
+  // Il prefisso «offene/freie» e' obbligatorio proprio per disambiguare.
   {
     id: 'de.jobs.jobs-im-tessin',
-    keywordPattern: /\b(?:Jobs?|Stellen?|Arbeit)\s+(?:im|in)\s+(?:Tessin|Lugano|Mendrisio|Bellinzona|Locarno)\b/i,
+    keywordPattern: /\b(?:Jobs?|Arbeit|(?:offene|freie)\s+Stellen?)\s+(?:im|in)\s+(?:Tessin|Lugano|Mendrisio|Bellinzona|Locarno)\b/i,
     targetUrl: '/de/jobs-im-tessin/',
     priority: 10,
   },

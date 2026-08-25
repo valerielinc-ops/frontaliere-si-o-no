@@ -22,6 +22,7 @@
  */
 
 import { buildArticleCaption, ARTICLE_PLACE_ID } from './lib/social-post-utils.mjs';
+import { facebookUrl, FACEBOOK_CAMPAIGN_ARTICLE } from './lib/facebook-links.mjs';
 
 async function main() {
   const args = process.argv.slice(2);
@@ -46,9 +47,18 @@ async function main() {
   // Build the message (shared caption logic — see social-post-utils.mjs).
   const message = buildArticleCaption({ ogTitle, ogDescription, category });
 
+  // An untagged social link lands in GA4 as Direct, so the channel reads as
+  // ZERO sessions while it is in fact sending clicks — invisible, not absent
+  // (measured 2026-08-24 on the Telegram channel; this script had the same
+  // defect, posting a bare `articleUrl` as the Graph API `link`).
+  // The SCRAPE below must use the same tagged URL: Facebook caches OG metadata
+  // per exact URL string, so warming the bare one leaves the URL actually
+  // posted uncached — the blank-preview failure this scrape exists to prevent.
+  const taggedUrl = facebookUrl(articleUrl, FACEBOOK_CAMPAIGN_ARTICLE, articleId);
+
   console.log('─── Facebook Post ───');
   console.log(`Article: ${articleId}`);
-  console.log(`URL:     ${articleUrl}`);
+  console.log(`URL:     ${taggedUrl}`);
   console.log(`Message:\n${message}`);
   console.log('─────────────────────');
 
@@ -90,7 +100,7 @@ async function main() {
   // Force Facebook to scrape/refresh OG metadata for the article URL
   console.log('🔄 Forcing Facebook OG cache refresh...');
   try {
-    const scrapeRes = await fetch(`https://graph.facebook.com/v21.0/?id=${encodeURIComponent(articleUrl)}&scrape=true&access_token=${FB_PAGE_ACCESS_TOKEN}`, {
+    const scrapeRes = await fetch(`https://graph.facebook.com/v21.0/?id=${encodeURIComponent(taggedUrl)}&scrape=true&access_token=${FB_PAGE_ACCESS_TOKEN}`, {
       method: 'POST',
     });
     const scrapeData = await scrapeRes.json();
@@ -111,7 +121,7 @@ async function main() {
     const url = `https://graph.facebook.com/v21.0/${FB_PAGE_ID}/feed`;
     const body = new URLSearchParams({
       message,
-      link: articleUrl,
+      link: taggedUrl,
       access_token: FB_PAGE_ACCESS_TOKEN,
     });
     // Geo anchor for FB Search discovery. Articles cover cross-border

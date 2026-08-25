@@ -56,6 +56,7 @@
  */
 import { createHash } from 'node:crypto';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
+import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -252,6 +253,9 @@ export function parseListingTiles(html = '') {
 
     const title = titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : '';
     if (!title || title.length < 3 || !urlMatch) continue;
+    // The jobTitle-link anchor is sometimes the SF j2w cookie-consent or
+    // search widget rather than an actual posting — not a job, discard.
+    if (isSuccessFactorsWidgetText(title)) continue;
 
     seen.add(jobId);
     rows.push({
@@ -353,7 +357,11 @@ export async function fetchAllStadtZuerichJobs() {
     // without a disambiguator the assemble step's slug-collision guard would
     // silently drop all but one of them.
     const jobSlug = slugify(`${title} stadt-zuerich zurigo ${row.ref || row.jobId}`);
-    const descriptionText = buildDescription(row);
+    // buildDescription() is synthesized (not scraped body text), but it
+    // splices in row.title/department/unit verbatim — sanitize the finished
+    // string as a defense-in-depth backstop against SF widget chrome leaking
+    // through those fields.
+    const descriptionText = sanitizeSuccessFactorsField(buildDescription(row));
     const employmentType = detectEmploymentType(title);
     const expLevel = detectExperienceLevel(title);
 

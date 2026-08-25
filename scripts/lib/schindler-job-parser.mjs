@@ -34,6 +34,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, normalizeDescriptionBullets, stripScriptsAndStyles } from './crawler-template.mjs';
 import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
+import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -225,6 +226,11 @@ export function parseSearchResults(html) {
     const jobId = m[3];
     const rawTitle = normalizeSpace(stripHtml(m[4]));
     if (!rawTitle || rawTitle.length < 3) continue;
+    // An SF skin can render page-chrome widgets (cookie consent, job alert,
+    // keyword search) inside a `jobTitle-link` anchor. Such a row is not a
+    // posting, so drop it entirely — sanitising the title would leave a job
+    // with no name rather than no job.
+    if (isSuccessFactorsWidgetText(rawTitle)) continue;
     if (seen.has(jobId)) continue;
     seen.add(jobId);
 
@@ -281,7 +287,14 @@ export function parseDetailPage(html) {
   const titleMatch = titleSource.match(/<h1[^>]*class="[^"]*job-title[^"]*"[^>]*>([\s\S]*?)<\/h1>/i)
     || titleSource.match(/<h2[^>]*>([\s\S]*?)<\/h2>/i)
     || titleSource.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
-  const title = titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : '';
+  // The `<h2>` fallback above is what broke: on the SBB / SBB_AS tenants the
+  // detail page carries no `<h1 class="job-title">`, and the ONLY `<h2>` on the
+  // page is the cookie-consent widget heading. Sanitising to '' lets fetchAll's
+  // `detail?.title || listing.title` fall back to the listing-row title, which
+  // is the authoritative one — so the posting survives with its real name.
+  const title = sanitizeSuccessFactorsField(
+    titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : '',
+  );
 
   // Description: Schindler SF j2w puts the actual job body inside
   //   <span class="jobdescription">...</span>
@@ -318,18 +331,8 @@ export function parseDetailPage(html) {
 
   let description = normalizeDescriptionBullets(normalizeDescriptionSpace(stripHtml(descriptionHtml)));
 
-  // Reject SF widget garbage that occasionally bleeds into the description
-  const GARBAGE = [
-    /Suche nach Stichwort/i,
-    /Benachrichtigung erstellen/i,
-    /Search by keyword/i,
-    /Create Alert/i,
-    /Select how often/i,
-    /Wählen Sie.*wie oft/i,
-    /Manager für Cookie/i,
-    /Cookie Consent/i,
-  ];
-  if (GARBAGE.some((re) => re.test(description))) description = '';
+  // Reject SF widget garbage that occasionally bleeds into the description.
+  description = sanitizeSuccessFactorsField(description);
 
   // Apply URL: SF talent-community / apply link
   const applyMatch = html.match(/href="([^"]*(?:talentcommunity\/apply|\/apply\/)\d+[^"]*)"/i);

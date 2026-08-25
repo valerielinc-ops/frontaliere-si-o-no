@@ -284,10 +284,52 @@ export const JOBLIST_AD_EVERY_N = 3;
  *  owner later prefers a different value or no cap. */
 export const JOBLIST_AD_MAX_PER_LIST = 12;
 
+/** Canton keys (the `entry.key` / `initialFilterCanton` value — 2-letter code,
+ *  or a URL-group key like `BASILEA` for merged half-cantons, see
+ *  `data/canton-url-slugs.json`) where the in-feed manual slot is suppressed
+ *  entirely on the canton job-search listing page, letting Auto Ads
+ *  (Anchor/Vignette/in-page automatic — never gated, AGENTS.md Non-Negotiable
+ *  #7) fill that placement instead.
+ *
+ *  A/B test opened 2026-08-25 (owner request), scoped ONLY to the canton
+ *  job-search listing (`/cerca-lavoro-{canton}/`, both the SPA `JobBoard`
+ *  main list and the static build-time canton index — see the two
+ *  `shouldPlaceInfeedAd(pos, { canton })` call sites). AdSense Reporting
+ *  API v2 (queried 2026-08-25) showed In-page format RPM stuck at
+ *  €0.21-0.29/1k impressions on these pages (88% of the site's impression
+ *  volume) versus €2.74-8/1k for Auto Ads on the same clean traffic —
+ *  echoing the 2026-04-20 prune above (14 low-earner slots removed,
+ *  Auto Ads covered the placement better). `LU` (Lucerna) is the
+ *  TREATMENT canton; `BASILEA` (Basilea, the merged BS+BL group key) is
+ *  the CONTROL, deliberately left OUT of this set — chosen as the
+ *  closest-matched AdSense URL-channel pair found across the whole IT
+ *  canton set (July: Basilea €0.44 earnings / 1498 impr / 15% coverage vs
+ *  Lucerna €0.43 / 1536 impr / 18% coverage). Weekly control-vs-treatment
+ *  comparison: `scripts/adsense-format-ab-report.mjs` (history in
+ *  `data/adsense-format-ab-history.jsonl`).
+ *
+ *  Only `shouldPlaceInfeedAd` reads this set — extend it here (never branch
+ *  ad hoc in a caller) if the test result motivates expanding treatment to
+ *  more cantons. */
+export const INFEED_AD_AB_TEST_SUPPRESSED_CANTONS: ReadonlySet<string> = new Set(['LU']);
+
 /** True when an in-feed ad should be placed immediately after the card at this
  *  1-based position. Ad after card 3, 6, 9, … (every `JOBLIST_AD_EVERY_N`), up
- *  to `JOBLIST_AD_MAX_PER_LIST` ads per list (see cap rationale above). */
-export function shouldPlaceInfeedAd(position1Based: number): boolean {
+ *  to `JOBLIST_AD_MAX_PER_LIST` ads per list (see cap rationale above).
+ *
+ *  `opts.canton`, when passed, opt this call site into the canton A/B test
+ *  above: a canton in `INFEED_AD_AB_TEST_SUPPRESSED_CANTONS` always returns
+ *  `false`, regardless of position/cadence. Omitting `canton` (every existing
+ *  caller that isn't the canton job-search listing) preserves the original
+ *  cadence-only behaviour unchanged — this is an opt-in branch, not a
+ *  behavioural change for callers that don't pass it. */
+export function shouldPlaceInfeedAd(
+ position1Based: number,
+ opts?: { canton?: string | null },
+): boolean {
+ if (opts?.canton && INFEED_AD_AB_TEST_SUPPRESSED_CANTONS.has(opts.canton.toUpperCase())) {
+ return false;
+ }
  return (
  position1Based > 0 &&
  position1Based % JOBLIST_AD_EVERY_N === 0 &&

@@ -1,7 +1,1042 @@
 {
   "crawlerKey": "med-ipersonal",
-  "assembledAt": "2026-08-23T21:23:10.309Z",
+  "assembledAt": "2026-08-25T10:10:31.243Z",
   "jobs": [
+    {
+      "id": "med-ipersonal-6c3a07d31750",
+      "slug": "sachbearbeiter-vendita-100-in-der-region-zollikon-gesucht-jetzt-bewerben-medipersonal-lugano",
+      "slugByLocale": {
+        "it": "sachbearbeiter-vendita-100-in-der-region-zollikon-gesucht-jetzt-bewerben-medipersonal-lugano",
+        "en": "sachbearbeiter-verkauf-100-in-der-region-zollikon-gesucht-jetzt-bewerben-medipersonal-lugano",
+        "de": "sachbearbeiter-verkauf-100-in-der-region-zollikon-gesucht-jetzt-bewerben-med-ipersonal-ch",
+        "fr": "sachbearbeiter-verkauf-100-in-der-region-zollikon-gesucht-jetzt-bewerben-medipersonal-lugano"
+      },
+      "company": "MediPersonal",
+      "companyKey": "med-ipersonal",
+      "companyDomain": "ipersonal.ch",
+      "title": "Sachbearbeiter Verkauf 100% in der Region Zollikon gesucht – jetzt bewerben",
+      "titleByLocale": {
+        "it": "Sachbearbeiter vendita 100% in der Region Zollikon gesucht – jetzt bewerben",
+        "en": "Sachbearbeiter Sales 100% in der Region Zollikon gesucht – jetzt bewerben",
+        "de": "Sachbearbeiter Verkauf 100% in der Region Zollikon gesucht – jetzt bewerben",
+        "fr": "Sachbearbeiter Vente 100% in der Region Zollikon gesucht – jetzt bewerben"
+      },
+      "description": "Sachbearbeiter Verkauf 100% in der Region Zollikon gesucht – jetzt bewerben — MediPersonal",
+      "descriptionByLocale": {
+        "de": "Sachbearbeiter Verkauf 100% in der Region Zollikon gesucht – jetzt bewerben — MediPersonal"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-zollikon-gesucht-jetzt-bewerben/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T10:10:28.033Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-zollikon-gesucht-jetzt-bewerben/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-verkauf-100-in-der-region-zollikon-gesucht-jetzt-bewerben-med-ipersonal-ch",
+        "sachbearbeiter-vendita-100-in-der-region-zollikon-gesucht-jetzt-bewerben-medipersonal-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-verkauf-100-in-der-region-zollikon-gesucht-jetzt-bewerben-med-ipersonal-ch",
+          "sachbearbeiter-vendita-100-in-der-region-zollikon-gesucht-jetzt-bewerben-medipersonal-lugano"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:30:18.290Z",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
+    },
+    {
+      "id": "med-ipersonal-589684de93d2",
+      "slug": "sachbearbeiter-vendita-100-per-la-region-schlieren-stellenangebot-medipersonal-lugano",
+      "slugByLocale": {
+        "it": "sachbearbeiter-vendita-100-per-la-region-schlieren-stellenangebot-medipersonal-lugano",
+        "en": "sachbearbeiter-verkauf-100-fur-die-region-schlieren-stellenangebot-medipersonal-lugano",
+        "de": "sachbearbeiter-verkauf-100-fur-die-region-schlieren-stellenangebot-med-ipersonal-ch",
+        "fr": "sachbearbeiter-verkauf-100-fur-die-region-schlieren-stellenangebot-medipersonal-lugano"
+      },
+      "company": "MediPersonal",
+      "companyKey": "med-ipersonal",
+      "companyDomain": "ipersonal.ch",
+      "title": "Sachbearbeiter Verkauf 100% für die Region Schlieren – Stellenangebot",
+      "titleByLocale": {
+        "it": "Sachbearbeiter vendita 100% per la Region Schlieren – Stellenangebot",
+        "en": "Sachbearbeiter Sales 100% für die Region Schlieren – Stellenangebot",
+        "de": "Sachbearbeiter Verkauf 100% für die Region Schlieren – Stellenangebot",
+        "fr": "Sachbearbeiter Vente 100% für die Region Schlieren – Stellenangebot"
+      },
+      "description": "Sachbearbeiter Verkauf 100% für die Region Schlieren – Stellenangebot — MediPersonal",
+      "descriptionByLocale": {
+        "de": "Sachbearbeiter Verkauf 100% für die Region Schlieren – Stellenangebot — MediPersonal"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-fuer-die-region-schlieren-stellenangebot/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T10:10:27.732Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-fuer-die-region-schlieren-stellenangebot/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-verkauf-100-fur-die-region-schlieren-stellenangebot-med-ipersonal-ch",
+        "sachbearbeiter-vendita-100-per-la-region-schlieren-stellenangebot-medipersonal-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-verkauf-100-fur-die-region-schlieren-stellenangebot-med-ipersonal-ch",
+          "sachbearbeiter-vendita-100-per-la-region-schlieren-stellenangebot-medipersonal-lugano"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:30:17.988Z",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
+    },
+    {
+      "id": "med-ipersonal-c200735f4c33",
+      "slug": "sachbearbeiter-vendita-100-per-la-region-regensdorf-jobangebot-medipersonal-lugano",
+      "slugByLocale": {
+        "it": "sachbearbeiter-vendita-100-per-la-region-regensdorf-jobangebot-medipersonal-lugano",
+        "en": "sachbearbeiter-verkauf-100-fur-die-region-regensdorf-jobangebot-medipersonal-lugano",
+        "de": "sachbearbeiter-verkauf-100-fur-die-region-regensdorf-jobangebot-med-ipersonal-ch",
+        "fr": "sachbearbeiter-verkauf-100-fur-die-region-regensdorf-jobangebot-medipersonal-lugano"
+      },
+      "company": "MediPersonal",
+      "companyKey": "med-ipersonal",
+      "companyDomain": "ipersonal.ch",
+      "title": "Sachbearbeiter Verkauf 100% für die Region Regensdorf – Jobangebot",
+      "titleByLocale": {
+        "it": "Sachbearbeiter vendita 100% per la Region Regensdorf – Jobangebot",
+        "en": "Sachbearbeiter Sales 100% für die Region Regensdorf – Jobangebot",
+        "de": "Sachbearbeiter Verkauf 100% für die Region Regensdorf – Jobangebot",
+        "fr": "Sachbearbeiter Vente 100% für die Region Regensdorf – Jobangebot"
+      },
+      "description": "Sachbearbeiter Verkauf 100% für die Region Regensdorf – Jobangebot — MediPersonal",
+      "descriptionByLocale": {
+        "de": "Sachbearbeiter Verkauf 100% für die Region Regensdorf – Jobangebot — MediPersonal"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-fuer-die-region-regensdorf-jobangebot/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T10:10:27.429Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-fuer-die-region-regensdorf-jobangebot/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-verkauf-100-fur-die-region-regensdorf-jobangebot-med-ipersonal-ch",
+        "sachbearbeiter-vendita-100-per-la-region-regensdorf-jobangebot-medipersonal-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-verkauf-100-fur-die-region-regensdorf-jobangebot-med-ipersonal-ch",
+          "sachbearbeiter-vendita-100-per-la-region-regensdorf-jobangebot-medipersonal-lugano"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:30:17.685Z",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
+    },
+    {
+      "id": "med-ipersonal-4611af69061a",
+      "slug": "sachbearbeiter-vendita-100-per-la-region-volketswil-gesucht-jetzt-bewerben-medipersonal-lugano",
+      "slugByLocale": {
+        "it": "sachbearbeiter-vendita-100-per-la-region-volketswil-gesucht-jetzt-bewerben-medipersonal-lugano",
+        "en": "sachbearbeiter-verkauf-100-fur-die-region-volketswil-gesucht-jetzt-bewerben-medipersonal-lugano",
+        "de": "sachbearbeiter-verkauf-100-fur-die-region-volketswil-gesucht-jetzt-bewerben-med-ipersonal",
+        "fr": "sachbearbeiter-verkauf-100-fur-die-region-volketswil-gesucht-jetzt-bewerben-medipersonal-lugano"
+      },
+      "company": "MediPersonal",
+      "companyKey": "med-ipersonal",
+      "companyDomain": "ipersonal.ch",
+      "title": "Sachbearbeiter Verkauf 100% für die Region Volketswil gesucht – jetzt bewerben",
+      "titleByLocale": {
+        "it": "Sachbearbeiter vendita 100% per la Region Volketswil gesucht – jetzt bewerben",
+        "en": "Sachbearbeiter Sales 100% für die Region Volketswil gesucht – jetzt bewerben",
+        "de": "Sachbearbeiter Verkauf 100% für die Region Volketswil gesucht – jetzt bewerben",
+        "fr": "Sachbearbeiter Vente 100% für die Region Volketswil gesucht – jetzt bewerben"
+      },
+      "description": "Sachbearbeiter Verkauf 100% für die Region Volketswil gesucht – jetzt bewerben — MediPersonal",
+      "descriptionByLocale": {
+        "de": "Sachbearbeiter Verkauf 100% für die Region Volketswil gesucht – jetzt bewerben — MediPersonal"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-fuer-die-region-volketswil-gesucht-jetzt-bewerben/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T10:10:27.125Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-fuer-die-region-volketswil-gesucht-jetzt-bewerben/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-verkauf-100-fur-die-region-volketswil-gesucht-jetzt-bewerben-med-ipersonal",
+        "sachbearbeiter-vendita-100-per-la-region-volketswil-gesucht-jetzt-bewerben-medipersonal-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-verkauf-100-fur-die-region-volketswil-gesucht-jetzt-bewerben-med-ipersonal",
+          "sachbearbeiter-vendita-100-per-la-region-volketswil-gesucht-jetzt-bewerben-medipersonal-lugano"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:30:17.382Z",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
+    },
+    {
+      "id": "med-ipersonal-be808275f7fa",
+      "slug": "sachbearbeiter-vendita-100-per-la-region-bulach-gesucht-medipersonal-lugano",
+      "slugByLocale": {
+        "it": "sachbearbeiter-vendita-100-per-la-region-bulach-gesucht-medipersonal-lugano",
+        "en": "sachbearbeiter-verkauf-100-fur-die-region-bulach-gesucht-medipersonal-lugano",
+        "de": "sachbearbeiter-verkauf-100-fur-die-region-bulach-gesucht-med-ipersonal-ch",
+        "fr": "sachbearbeiter-verkauf-100-fur-die-region-bulach-gesucht-medipersonal-lugano"
+      },
+      "company": "MediPersonal",
+      "companyKey": "med-ipersonal",
+      "companyDomain": "ipersonal.ch",
+      "title": "Sachbearbeiter Verkauf 100% für die Region Bülach gesucht",
+      "titleByLocale": {
+        "it": "Sachbearbeiter vendita 100% per la Region Bülach gesucht",
+        "en": "Sachbearbeiter Sales 100% für die Region Bülach gesucht",
+        "de": "Sachbearbeiter Verkauf 100% für die Region Bülach gesucht",
+        "fr": "Sachbearbeiter Vente 100% für die Region Bülach gesucht"
+      },
+      "description": "Sachbearbeiter Verkauf 100% für die Region Bülach gesucht — MediPersonal",
+      "descriptionByLocale": {
+        "de": "Sachbearbeiter Verkauf 100% für die Region Bülach gesucht — MediPersonal"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-fuer-die-region-buelach-gesucht/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T10:10:26.822Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-fuer-die-region-buelach-gesucht/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-verkauf-100-fur-die-region-bulach-gesucht-med-ipersonal-ch",
+        "sachbearbeiter-vendita-100-per-la-region-bulach-gesucht-medipersonal-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-verkauf-100-fur-die-region-bulach-gesucht-med-ipersonal-ch",
+          "sachbearbeiter-vendita-100-per-la-region-bulach-gesucht-medipersonal-lugano"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:30:17.080Z",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
+    },
+    {
+      "id": "med-ipersonal-8b7c582cf117",
+      "slug": "sachbearbeiter-vendita-100-per-la-region-opfikon-stellenangebot-medipersonal-lugano",
+      "slugByLocale": {
+        "it": "sachbearbeiter-vendita-100-per-la-region-opfikon-stellenangebot-medipersonal-lugano",
+        "en": "sachbearbeiter-verkauf-100-fur-die-region-opfikon-stellenangebot-medipersonal-lugano",
+        "de": "sachbearbeiter-verkauf-100-fur-die-region-opfikon-stellenangebot-med-ipersonal-ch",
+        "fr": "sachbearbeiter-verkauf-100-fur-die-region-opfikon-stellenangebot-medipersonal-lugano"
+      },
+      "company": "MediPersonal",
+      "companyKey": "med-ipersonal",
+      "companyDomain": "ipersonal.ch",
+      "title": "Sachbearbeiter Verkauf 100% für die Region Opfikon – Stellenangebot",
+      "titleByLocale": {
+        "it": "Sachbearbeiter vendita 100% per la Region Opfikon – Stellenangebot",
+        "en": "Sachbearbeiter Sales 100% für die Region Opfikon – Stellenangebot",
+        "de": "Sachbearbeiter Verkauf 100% für die Region Opfikon – Stellenangebot",
+        "fr": "Sachbearbeiter Vente 100% für die Region Opfikon – Stellenangebot"
+      },
+      "description": "Sachbearbeiter Verkauf 100% für die Region Opfikon – Stellenangebot — MediPersonal",
+      "descriptionByLocale": {
+        "de": "Sachbearbeiter Verkauf 100% für die Region Opfikon – Stellenangebot — MediPersonal"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-fuer-die-region-opfikon-stellenangebot/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T10:10:26.520Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-fuer-die-region-opfikon-stellenangebot/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-verkauf-100-fur-die-region-opfikon-stellenangebot-med-ipersonal-ch",
+        "sachbearbeiter-vendita-100-per-la-region-opfikon-stellenangebot-medipersonal-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-verkauf-100-fur-die-region-opfikon-stellenangebot-med-ipersonal-ch",
+          "sachbearbeiter-vendita-100-per-la-region-opfikon-stellenangebot-medipersonal-lugano"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:30:16.778Z",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
+    },
+    {
+      "id": "med-ipersonal-da404ada4b19",
+      "slug": "sachbearbeiter-vendita-100-in-der-region-kloten-temporar-dauerstelle-medipersonal-lugano",
+      "slugByLocale": {
+        "it": "sachbearbeiter-vendita-100-in-der-region-kloten-temporar-dauerstelle-medipersonal-lugano",
+        "en": "sachbearbeiter-verkauf-100-in-der-region-kloten-temporar-dauerstelle-medipersonal-lugano",
+        "de": "sachbearbeiter-verkauf-100-in-der-region-kloten-temporar-dauerstelle-med-ipersonal-ch",
+        "fr": "sachbearbeiter-verkauf-100-in-der-region-kloten-temporar-dauerstelle-medipersonal-lugano"
+      },
+      "company": "MediPersonal",
+      "companyKey": "med-ipersonal",
+      "companyDomain": "ipersonal.ch",
+      "title": "Sachbearbeiter Verkauf 100% in der Region Kloten – Temporär & Dauerstelle",
+      "titleByLocale": {
+        "it": "Sachbearbeiter vendita 100% in der Region Kloten – Temporär & Dauerstelle",
+        "en": "Sachbearbeiter Sales 100% in der Region Kloten – Temporär & Dauerstelle",
+        "de": "Sachbearbeiter Verkauf 100% in der Region Kloten – Temporär & Dauerstelle",
+        "fr": "Sachbearbeiter Vente 100% in der Region Kloten – Temporär & Dauerstelle"
+      },
+      "description": "Sachbearbeiter Verkauf 100% in der Region Kloten – Temporär & Dauerstelle — MediPersonal",
+      "descriptionByLocale": {
+        "de": "Sachbearbeiter Verkauf 100% in der Region Kloten – Temporär & Dauerstelle — MediPersonal"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-kloten-temporaer-dauerstelle/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T10:10:26.218Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-kloten-temporaer-dauerstelle/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-verkauf-100-in-der-region-kloten-temporar-dauerstelle-med-ipersonal-ch",
+        "sachbearbeiter-vendita-100-in-der-region-kloten-temporar-dauerstelle-medipersonal-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-verkauf-100-in-der-region-kloten-temporar-dauerstelle-med-ipersonal-ch",
+          "sachbearbeiter-vendita-100-in-der-region-kloten-temporar-dauerstelle-medipersonal-lugano"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:30:16.476Z",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
+    },
+    {
+      "id": "med-ipersonal-1f99b5f19adb",
+      "slug": "sachbearbeiter-vendita-100-in-der-region-wallisellen-freie-stelle-medipersonal-lugano",
+      "slugByLocale": {
+        "it": "sachbearbeiter-vendita-100-in-der-region-wallisellen-freie-stelle-medipersonal-lugano",
+        "en": "sachbearbeiter-verkauf-100-in-der-region-wallisellen-freie-stelle-medipersonal-lugano",
+        "de": "sachbearbeiter-verkauf-100-in-der-region-wallisellen-freie-stelle-med-ipersonal-ch",
+        "fr": "sachbearbeiter-verkauf-100-in-der-region-wallisellen-freie-stelle-medipersonal-lugano"
+      },
+      "company": "MediPersonal",
+      "companyKey": "med-ipersonal",
+      "companyDomain": "ipersonal.ch",
+      "title": "Sachbearbeiter Verkauf 100% in der Region Wallisellen – freie Stelle",
+      "titleByLocale": {
+        "it": "Sachbearbeiter vendita 100% in der Region Wallisellen – freie Stelle",
+        "en": "Sachbearbeiter Sales 100% in der Region Wallisellen – freie Stelle",
+        "de": "Sachbearbeiter Verkauf 100% in der Region Wallisellen – freie Stelle",
+        "fr": "Sachbearbeiter Vente 100% in der Region Wallisellen – freie Stelle"
+      },
+      "description": "Sachbearbeiter Verkauf 100% in der Region Wallisellen – freie Stelle — MediPersonal",
+      "descriptionByLocale": {
+        "de": "Sachbearbeiter Verkauf 100% in der Region Wallisellen – freie Stelle — MediPersonal"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-wallisellen-freie-stelle/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T10:10:25.915Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-wallisellen-freie-stelle/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-verkauf-100-in-der-region-wallisellen-freie-stelle-med-ipersonal-ch",
+        "sachbearbeiter-vendita-100-in-der-region-wallisellen-freie-stelle-medipersonal-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-verkauf-100-in-der-region-wallisellen-freie-stelle-med-ipersonal-ch",
+          "sachbearbeiter-vendita-100-in-der-region-wallisellen-freie-stelle-medipersonal-lugano"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:30:16.174Z",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
+    },
+    {
+      "id": "med-ipersonal-9a26d59964c7",
+      "slug": "sachbearbeiter-vendita-100-in-der-region-dietikon-freie-stelle-medipersonal-lugano",
+      "slugByLocale": {
+        "it": "sachbearbeiter-vendita-100-in-der-region-dietikon-freie-stelle-medipersonal-lugano",
+        "en": "sachbearbeiter-verkauf-100-in-der-region-dietikon-freie-stelle-medipersonal-lugano",
+        "de": "sachbearbeiter-verkauf-100-in-der-region-dietikon-freie-stelle-med-ipersonal-ch",
+        "fr": "sachbearbeiter-verkauf-100-in-der-region-dietikon-freie-stelle-medipersonal-lugano"
+      },
+      "company": "MediPersonal",
+      "companyKey": "med-ipersonal",
+      "companyDomain": "ipersonal.ch",
+      "title": "Sachbearbeiter Verkauf 100% in der Region Dietikon – freie Stelle",
+      "titleByLocale": {
+        "it": "Sachbearbeiter vendita 100% in der Region Dietikon – freie Stelle",
+        "en": "Sachbearbeiter Sales 100% in der Region Dietikon – freie Stelle",
+        "de": "Sachbearbeiter Verkauf 100% in der Region Dietikon – freie Stelle",
+        "fr": "Sachbearbeiter Vente 100% in der Region Dietikon – freie Stelle"
+      },
+      "description": "Sachbearbeiter Verkauf 100% in der Region Dietikon – freie Stelle — MediPersonal",
+      "descriptionByLocale": {
+        "de": "Sachbearbeiter Verkauf 100% in der Region Dietikon – freie Stelle — MediPersonal"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-dietikon-freie-stelle/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T10:10:25.613Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-dietikon-freie-stelle/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-verkauf-100-in-der-region-dietikon-freie-stelle-med-ipersonal-ch",
+        "sachbearbeiter-vendita-100-in-der-region-dietikon-freie-stelle-medipersonal-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-verkauf-100-in-der-region-dietikon-freie-stelle-med-ipersonal-ch",
+          "sachbearbeiter-vendita-100-in-der-region-dietikon-freie-stelle-medipersonal-lugano"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:30:15.872Z",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
+    },
+    {
+      "id": "med-ipersonal-48c9ce932051",
+      "slug": "sachbearbeiter-vendita-100-in-der-region-wetzikon-zh-temporar-dauerstelle-medipersonal-lugano",
+      "slugByLocale": {
+        "it": "sachbearbeiter-vendita-100-in-der-region-wetzikon-zh-temporar-dauerstelle-medipersonal-lugano",
+        "en": "sachbearbeiter-verkauf-100-in-der-region-wetzikon-zh-temporar-dauerstelle-medipersonal-lugano",
+        "de": "sachbearbeiter-verkauf-100-in-der-region-wetzikon-zh-temporar-dauerstelle-med-ipersonal-ch",
+        "fr": "sachbearbeiter-verkauf-100-in-der-region-wetzikon-zh-temporar-dauerstelle-medipersonal-lugano"
+      },
+      "company": "MediPersonal",
+      "companyKey": "med-ipersonal",
+      "companyDomain": "ipersonal.ch",
+      "title": "Sachbearbeiter Verkauf 100% in der Region Wetzikon ZH – Temporär & Dauerstelle",
+      "titleByLocale": {
+        "it": "Sachbearbeiter vendita 100% in der Region Wetzikon ZH – Temporär & Dauerstelle",
+        "en": "Sachbearbeiter Sales 100% in der Region Wetzikon ZH – Temporär & Dauerstelle",
+        "de": "Sachbearbeiter Verkauf 100% in der Region Wetzikon ZH – Temporär & Dauerstelle",
+        "fr": "Sachbearbeiter Vente 100% in der Region Wetzikon ZH – Temporär & Dauerstelle"
+      },
+      "description": "Sachbearbeiter Verkauf 100% in der Region Wetzikon ZH – Temporär & Dauerstelle — MediPersonal",
+      "descriptionByLocale": {
+        "de": "Sachbearbeiter Verkauf 100% in der Region Wetzikon ZH – Temporär & Dauerstelle — MediPersonal"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-wetzikon-zh-temporaer-dauerstelle/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T10:10:25.311Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-wetzikon-zh-temporaer-dauerstelle/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-verkauf-100-in-der-region-wetzikon-zh-temporar-dauerstelle-med-ipersonal-ch",
+        "sachbearbeiter-vendita-100-in-der-region-wetzikon-zh-temporar-dauerstelle-medipersonal-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-verkauf-100-in-der-region-wetzikon-zh-temporar-dauerstelle-med-ipersonal-ch",
+          "sachbearbeiter-vendita-100-in-der-region-wetzikon-zh-temporar-dauerstelle-medipersonal-lugano"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:30:15.569Z",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
+    },
+    {
+      "id": "med-ipersonal-f9708700b701",
+      "slug": "sachbearbeiter-vendita-100-in-der-region-horgen-temporarburo-ipersonal-medipersonal-lugano",
+      "slugByLocale": {
+        "it": "sachbearbeiter-vendita-100-in-der-region-horgen-temporarburo-ipersonal-medipersonal-lugano",
+        "en": "sachbearbeiter-verkauf-100-in-der-region-horgen-temporarburo-ipersonal-medipersonal-lugano",
+        "de": "sachbearbeiter-verkauf-100-in-der-region-horgen-temporarburo-ipersonal-med-ipersonal-ch",
+        "fr": "sachbearbeiter-verkauf-100-in-der-region-horgen-temporarburo-ipersonal-medipersonal-lugano"
+      },
+      "company": "MediPersonal",
+      "companyKey": "med-ipersonal",
+      "companyDomain": "ipersonal.ch",
+      "title": "Sachbearbeiter Verkauf 100% in der Region Horgen – Temporärbüro iPersonal",
+      "titleByLocale": {
+        "it": "Sachbearbeiter vendita 100% in der Region Horgen – Temporärbüro iPersonal",
+        "en": "Sachbearbeiter Sales 100% in der Region Horgen – Temporärbüro iPersonal",
+        "de": "Sachbearbeiter Verkauf 100% in der Region Horgen – Temporärbüro iPersonal",
+        "fr": "Sachbearbeiter Vente 100% in der Region Horgen – Temporärbüro iPersonal"
+      },
+      "description": "Sachbearbeiter Verkauf 100% in der Region Horgen – Temporärbüro iPersonal — MediPersonal",
+      "descriptionByLocale": {
+        "de": "Sachbearbeiter Verkauf 100% in der Region Horgen – Temporärbüro iPersonal — MediPersonal"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-horgen-temporaerbuero-ipersonal/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T10:10:25.008Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-horgen-temporaerbuero-ipersonal/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-verkauf-100-in-der-region-horgen-temporarburo-ipersonal-med-ipersonal-ch",
+        "sachbearbeiter-vendita-100-in-der-region-horgen-temporarburo-ipersonal-medipersonal-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-verkauf-100-in-der-region-horgen-temporarburo-ipersonal-med-ipersonal-ch",
+          "sachbearbeiter-vendita-100-in-der-region-horgen-temporarburo-ipersonal-medipersonal-lugano"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:30:15.266Z",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
+    },
+    {
+      "id": "med-ipersonal-25a5ff5d5427",
+      "slug": "sachbearbeiter-vendita-100-per-la-region-thalwil-offene-stelle-medipersonal-lugano",
+      "slugByLocale": {
+        "it": "sachbearbeiter-vendita-100-per-la-region-thalwil-offene-stelle-medipersonal-lugano",
+        "en": "sachbearbeiter-verkauf-100-fur-die-region-thalwil-offene-stelle-medipersonal-lugano",
+        "de": "sachbearbeiter-verkauf-100-fur-die-region-thalwil-offene-stelle-med-ipersonal-ch",
+        "fr": "sachbearbeiter-verkauf-100-fur-die-region-thalwil-offene-stelle-medipersonal-lugano"
+      },
+      "company": "MediPersonal",
+      "companyKey": "med-ipersonal",
+      "companyDomain": "ipersonal.ch",
+      "title": "Sachbearbeiter Verkauf 100% für die Region Thalwil – offene Stelle",
+      "titleByLocale": {
+        "it": "Sachbearbeiter vendita 100% per la Region Thalwil – offene Stelle",
+        "en": "Sachbearbeiter Sales 100% für die Region Thalwil – offene Stelle",
+        "de": "Sachbearbeiter Verkauf 100% für die Region Thalwil – offene Stelle",
+        "fr": "Sachbearbeiter Vente 100% für die Region Thalwil – offene Stelle"
+      },
+      "description": "Sachbearbeiter Verkauf 100% für die Region Thalwil – offene Stelle — MediPersonal",
+      "descriptionByLocale": {
+        "de": "Sachbearbeiter Verkauf 100% für die Region Thalwil – offene Stelle — MediPersonal"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-fuer-die-region-thalwil-offene-stelle/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T10:10:24.706Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-fuer-die-region-thalwil-offene-stelle/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-verkauf-100-fur-die-region-thalwil-offene-stelle-med-ipersonal-ch",
+        "sachbearbeiter-vendita-100-per-la-region-thalwil-offene-stelle-medipersonal-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-verkauf-100-fur-die-region-thalwil-offene-stelle-med-ipersonal-ch",
+          "sachbearbeiter-vendita-100-per-la-region-thalwil-offene-stelle-medipersonal-lugano"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:30:14.963Z",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
+    },
+    {
+      "id": "med-ipersonal-ddd615022327",
+      "slug": "sachbearbeiter-vendita-100-in-der-region-zurich-stellenangebot-medipersonal-lugano",
+      "slugByLocale": {
+        "it": "sachbearbeiter-vendita-100-in-der-region-zurich-stellenangebot-medipersonal-lugano",
+        "en": "sachbearbeiter-verkauf-100-in-der-region-zurich-stellenangebot-medipersonal-lugano",
+        "de": "sachbearbeiter-verkauf-100-in-der-region-zurich-stellenangebot-med-ipersonal-ch",
+        "fr": "sachbearbeiter-verkauf-100-in-der-region-zurich-stellenangebot-medipersonal-lugano"
+      },
+      "company": "MediPersonal",
+      "companyKey": "med-ipersonal",
+      "companyDomain": "ipersonal.ch",
+      "title": "Sachbearbeiter Verkauf 100% in der Region Zürich – Stellenangebot",
+      "titleByLocale": {
+        "it": "Sachbearbeiter vendita 100% in der Region Zürich – Stellenangebot",
+        "en": "Sachbearbeiter Sales 100% in der Region Zürich – Stellenangebot",
+        "de": "Sachbearbeiter Verkauf 100% in der Region Zürich – Stellenangebot",
+        "fr": "Sachbearbeiter Vente 100% in der Region Zürich – Stellenangebot"
+      },
+      "description": "Sachbearbeiter Verkauf 100% in der Region Zürich – Stellenangebot — MediPersonal",
+      "descriptionByLocale": {
+        "de": "Sachbearbeiter Verkauf 100% in der Region Zürich – Stellenangebot — MediPersonal"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-zuerich-stellenangebot/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T10:10:24.404Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-zuerich-stellenangebot/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-verkauf-100-in-der-region-zurich-stellenangebot-med-ipersonal-ch",
+        "sachbearbeiter-vendita-100-in-der-region-zurich-stellenangebot-medipersonal-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-verkauf-100-in-der-region-zurich-stellenangebot-med-ipersonal-ch",
+          "sachbearbeiter-vendita-100-in-der-region-zurich-stellenangebot-medipersonal-lugano"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:30:14.656Z",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
+    },
+    {
+      "id": "med-ipersonal-280116cd1b3d",
+      "slug": "sachbearbeiter-vendita-100-per-la-region-winterthur-temporarburo-ipersonal-medipersonal-lugano",
+      "slugByLocale": {
+        "it": "sachbearbeiter-vendita-100-per-la-region-winterthur-temporarburo-ipersonal-medipersonal-lugano",
+        "en": "sachbearbeiter-verkauf-100-fur-die-region-winterthur-temporarburo-ipersonal-medipersonal-lugano",
+        "de": "sachbearbeiter-verkauf-100-fur-die-region-winterthur-temporarburo-ipersonal-med-ipersonal",
+        "fr": "sachbearbeiter-verkauf-100-fur-die-region-winterthur-temporarburo-ipersonal-medipersonal-lugano"
+      },
+      "company": "MediPersonal",
+      "companyKey": "med-ipersonal",
+      "companyDomain": "ipersonal.ch",
+      "title": "Sachbearbeiter Verkauf 100% für die Region Winterthur – Temporärbüro iPersonal",
+      "titleByLocale": {
+        "it": "Sachbearbeiter vendita 100% per la Region Winterthur – Temporärbüro iPersonal",
+        "en": "Sachbearbeiter Sales 100% für die Region Winterthur – Temporärbüro iPersonal",
+        "de": "Sachbearbeiter Verkauf 100% für die Region Winterthur – Temporärbüro iPersonal",
+        "fr": "Sachbearbeiter Vente 100% für die Region Winterthur – Temporärbüro iPersonal"
+      },
+      "description": "Sachbearbeiter Verkauf 100% für die Region Winterthur – Temporärbüro iPersonal — MediPersonal",
+      "descriptionByLocale": {
+        "de": "Sachbearbeiter Verkauf 100% für die Region Winterthur – Temporärbüro iPersonal — MediPersonal"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-fuer-die-region-winterthur-temporaerbuero-ipersonal/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T10:10:24.101Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-fuer-die-region-winterthur-temporaerbuero-ipersonal/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-verkauf-100-fur-die-region-winterthur-temporarburo-ipersonal-med-ipersonal",
+        "sachbearbeiter-vendita-100-per-la-region-winterthur-temporarburo-ipersonal-medipersonal-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-verkauf-100-fur-die-region-winterthur-temporarburo-ipersonal-med-ipersonal",
+          "sachbearbeiter-vendita-100-per-la-region-winterthur-temporarburo-ipersonal-medipersonal-lugano"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:30:14.352Z",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
+    },
+    {
+      "id": "med-ipersonal-17c97b3ece10",
+      "slug": "sachbearbeiter-vendita-100-in-der-region-uster-stellenangebot-medipersonal-lugano",
+      "slugByLocale": {
+        "it": "sachbearbeiter-vendita-100-in-der-region-uster-stellenangebot-medipersonal-lugano",
+        "en": "sachbearbeiter-verkauf-100-in-der-region-uster-stellenangebot-medipersonal-lugano",
+        "de": "sachbearbeiter-verkauf-100-in-der-region-uster-stellenangebot-med-ipersonal-ch",
+        "fr": "sachbearbeiter-verkauf-100-in-der-region-uster-stellenangebot-medipersonal-lugano"
+      },
+      "company": "MediPersonal",
+      "companyKey": "med-ipersonal",
+      "companyDomain": "ipersonal.ch",
+      "title": "Sachbearbeiter Verkauf 100% in der Region Uster – Stellenangebot",
+      "titleByLocale": {
+        "it": "Sachbearbeiter vendita 100% in der Region Uster – Stellenangebot",
+        "en": "Sachbearbeiter Sales 100% in der Region Uster – Stellenangebot",
+        "de": "Sachbearbeiter Verkauf 100% in der Region Uster – Stellenangebot",
+        "fr": "Sachbearbeiter Vente 100% in der Region Uster – Stellenangebot"
+      },
+      "description": "Sachbearbeiter Verkauf 100% in der Region Uster – Stellenangebot — MediPersonal",
+      "descriptionByLocale": {
+        "de": "Sachbearbeiter Verkauf 100% in der Region Uster – Stellenangebot — MediPersonal"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-uster-stellenangebot/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T10:10:23.787Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-verkauf-100-in-der-region-uster-stellenangebot/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-verkauf-100-in-der-region-uster-stellenangebot-med-ipersonal-ch",
+        "sachbearbeiter-vendita-100-in-der-region-uster-stellenangebot-medipersonal-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-verkauf-100-in-der-region-uster-stellenangebot-med-ipersonal-ch",
+          "sachbearbeiter-vendita-100-in-der-region-uster-stellenangebot-medipersonal-lugano"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:30:14.015Z",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
+    },
     {
       "id": "med-ipersonal-a138b6938c4b",
       "slug": "personnel-treuhand-100-ricercato-nella-regione-neuenkirch-applicare-ora-medipersonal-lugano",
@@ -30,7 +1065,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-in-der-region-neuenkirch-gesucht-jetzt-bewerben/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:23:08.027Z",
+      "crawledAt": "2026-08-24T10:43:44.047Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -47,12 +1082,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sachbearbeiter-treuhand-100-in-der-region-neuenkirch-gesucht-jetzt-bewerben-med-ipersonal",
-        "sachbearbeiter-treuhand-100-in-der-region-neuenkirch-gesucht-jetzt-bewerben-medipersonal-lugano"
+        "sachbearbeiter-treuhand-100-in-der-region-neuenkirch-gesucht-jetzt-bewerben-medipersonal-lugano",
+        "personnel-treuhand-100-ricercato-nella-regione-neuenkirch-applicare-ora-medipersonal-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-treuhand-100-in-der-region-neuenkirch-gesucht-jetzt-bewerben-med-ipersonal",
-          "sachbearbeiter-treuhand-100-in-der-region-neuenkirch-gesucht-jetzt-bewerben-medipersonal-lugano"
+          "sachbearbeiter-treuhand-100-in-der-region-neuenkirch-gesucht-jetzt-bewerben-medipersonal-lugano",
+          "personnel-treuhand-100-ricercato-nella-regione-neuenkirch-applicare-ora-medipersonal-lugano"
         ],
         "en": [
           "sachbearbeiter-treuhand-100-in-der-region-neuenkirch-gesucht-jetzt-bewerben-medipersonal-lugano"
@@ -75,7 +1112,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "crawlerMissStreak": 2
     },
     {
       "id": "med-ipersonal-71c93194f04e",
@@ -105,7 +1143,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-in-der-region-malters-gesucht-jetzt-bewerben/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:23:07.725Z",
+      "crawledAt": "2026-08-24T10:43:43.745Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -122,12 +1160,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sachbearbeiter-treuhand-100-in-der-region-malters-gesucht-jetzt-bewerben-med-ipersonal-ch",
-        "sachbearbeiter-treuhand-100-in-der-region-malters-gesucht-jetzt-bewerben-medipersonal-lugano"
+        "sachbearbeiter-treuhand-100-in-der-region-malters-gesucht-jetzt-bewerben-medipersonal-lugano",
+        "personale-treuhand-100-ricercato-nella-regione-di-malters-applicare-ora-medipersonal-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-treuhand-100-in-der-region-malters-gesucht-jetzt-bewerben-med-ipersonal-ch",
-          "sachbearbeiter-treuhand-100-in-der-region-malters-gesucht-jetzt-bewerben-medipersonal-lugano"
+          "sachbearbeiter-treuhand-100-in-der-region-malters-gesucht-jetzt-bewerben-medipersonal-lugano",
+          "personale-treuhand-100-ricercato-nella-regione-di-malters-applicare-ora-medipersonal-lugano"
         ],
         "en": [
           "sachbearbeiter-treuhand-100-in-der-region-malters-gesucht-jetzt-bewerben-medipersonal-lugano"
@@ -150,7 +1190,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "crawlerMissStreak": 2
     },
     {
       "id": "med-ipersonal-29b64786fdc4",
@@ -180,7 +1221,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-in-der-region-reiden-gesucht/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:23:07.423Z",
+      "crawledAt": "2026-08-24T10:43:43.441Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -197,12 +1238,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sachbearbeiter-treuhand-100-in-der-region-reiden-gesucht-med-ipersonal-ch",
-        "sachbearbeiter-treuhand-100-in-der-region-reiden-gesucht-medipersonal-lugano"
+        "sachbearbeiter-treuhand-100-in-der-region-reiden-gesucht-medipersonal-lugano",
+        "personnel-treuhand-100-ricercato-nella-regione-reiden-medipersonal-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-treuhand-100-in-der-region-reiden-gesucht-med-ipersonal-ch",
-          "sachbearbeiter-treuhand-100-in-der-region-reiden-gesucht-medipersonal-lugano"
+          "sachbearbeiter-treuhand-100-in-der-region-reiden-gesucht-medipersonal-lugano",
+          "personnel-treuhand-100-ricercato-nella-regione-reiden-medipersonal-lugano"
         ]
       },
       "needsRetranslation": true,
@@ -219,7 +1262,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "crawlerMissStreak": 2
     },
     {
       "id": "med-ipersonal-b71c766dd3cf",
@@ -249,7 +1293,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-willisau-gesucht-jetzt-bewerben/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:23:07.121Z",
+      "crawledAt": "2026-08-24T10:43:43.139Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -266,11 +1310,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sachbearbeiter-treuhand-100-fur-die-region-willisau-gesucht-jetzt-bewerben-med-ipersonal",
-        "sachbearbeiter-treuhand-100-fur-die-region-willisau-gesucht-jetzt-bewerben-medipersonal-lugano"
+        "sachbearbeiter-treuhand-100-fur-die-region-willisau-gesucht-jetzt-bewerben-medipersonal-lugano",
+        "sachbearbeiter-treuhand-100-per-la-region-willisau-gesucht-jetzt-bewerben-medipersonal-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-treuhand-100-fur-die-region-willisau-gesucht-jetzt-bewerben-med-ipersonal"
+          "sachbearbeiter-treuhand-100-fur-die-region-willisau-gesucht-jetzt-bewerben-med-ipersonal",
+          "sachbearbeiter-treuhand-100-per-la-region-willisau-gesucht-jetzt-bewerben-medipersonal-lugano"
         ],
         "en": [
           "sachbearbeiter-treuhand-100-fur-die-region-willisau-gesucht-jetzt-bewerben-medipersonal-lugano"
@@ -293,7 +1339,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "crawlerMissStreak": 2
     },
     {
       "id": "med-ipersonal-119647a45d3b",
@@ -323,7 +1370,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-schoetz-jobangebot/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:23:06.820Z",
+      "crawledAt": "2026-08-24T10:43:42.837Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -340,11 +1387,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sachbearbeiter-treuhand-100-fur-die-region-schotz-jobangebot-med-ipersonal-ch",
-        "sachbearbeiter-treuhand-100-fur-die-region-schotz-jobangebot-medipersonal-lugano"
+        "sachbearbeiter-treuhand-100-fur-die-region-schotz-jobangebot-medipersonal-lugano",
+        "sachbearbeiter-treuhand-100-per-la-region-schotz-jobangebot-medipersonal-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-treuhand-100-fur-die-region-schotz-jobangebot-med-ipersonal-ch"
+          "sachbearbeiter-treuhand-100-fur-die-region-schotz-jobangebot-med-ipersonal-ch",
+          "sachbearbeiter-treuhand-100-per-la-region-schotz-jobangebot-medipersonal-lugano"
         ],
         "en": [
           "sachbearbeiter-treuhand-100-fur-die-region-schotz-jobangebot-medipersonal-lugano"
@@ -367,7 +1416,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "crawlerMissStreak": 2
     },
     {
       "id": "med-ipersonal-25140c34f477",
@@ -397,7 +1447,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-hochdorf-offene-stelle/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:23:06.518Z",
+      "crawledAt": "2026-08-24T10:43:42.535Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -414,11 +1464,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sachbearbeiter-treuhand-100-fur-die-region-hochdorf-offene-stelle-med-ipersonal-ch",
-        "sachbearbeiter-treuhand-100-fur-die-region-hochdorf-offene-stelle-medipersonal-lugano"
+        "sachbearbeiter-treuhand-100-fur-die-region-hochdorf-offene-stelle-medipersonal-lugano",
+        "sachbearbeiter-treuhand-100-per-la-region-hochdorf-offene-stelle-medipersonal-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-treuhand-100-fur-die-region-hochdorf-offene-stelle-med-ipersonal-ch"
+          "sachbearbeiter-treuhand-100-fur-die-region-hochdorf-offene-stelle-med-ipersonal-ch",
+          "sachbearbeiter-treuhand-100-per-la-region-hochdorf-offene-stelle-medipersonal-lugano"
         ],
         "en": [
           "sachbearbeiter-treuhand-100-fur-die-region-hochdorf-offene-stelle-medipersonal-lugano"
@@ -441,7 +1493,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "crawlerMissStreak": 2
     },
     {
       "id": "med-ipersonal-eeadfb98a6b9",
@@ -471,7 +1524,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-escholzmatt-direkte-festanstellung/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:23:06.216Z",
+      "crawledAt": "2026-08-24T10:43:42.232Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -488,11 +1541,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sachbearbeiter-treuhand-100-fur-die-region-escholzmatt-direkte-festanstellung-med",
-        "sachbearbeiter-treuhand-100-fur-die-region-escholzmatt-direkte-festanstellung-medipersonal-lugano"
+        "sachbearbeiter-treuhand-100-fur-die-region-escholzmatt-direkte-festanstellung-medipersonal-lugano",
+        "sachbearbeiter-treuhand-100-per-la-region-escholzmatt-direkte-festanstellung-medipersonal-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-treuhand-100-fur-die-region-escholzmatt-direkte-festanstellung-med"
+          "sachbearbeiter-treuhand-100-fur-die-region-escholzmatt-direkte-festanstellung-med",
+          "sachbearbeiter-treuhand-100-per-la-region-escholzmatt-direkte-festanstellung-medipersonal-lugano"
         ],
         "en": [
           "sachbearbeiter-treuhand-100-fur-die-region-escholzmatt-direkte-festanstellung-medipersonal-lugano"
@@ -515,7 +1570,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "crawlerMissStreak": 2
     },
     {
       "id": "med-ipersonal-350d764a7e49",
@@ -545,7 +1601,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-wolhusen-gesucht-jetzt-bewerben/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:23:05.914Z",
+      "crawledAt": "2026-08-24T10:43:41.929Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -562,11 +1618,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sachbearbeiter-treuhand-100-fur-die-region-wolhusen-gesucht-jetzt-bewerben-med-ipersonal",
-        "sachbearbeiter-treuhand-100-fur-die-region-wolhusen-gesucht-jetzt-bewerben-medipersonal-lugano"
+        "sachbearbeiter-treuhand-100-fur-die-region-wolhusen-gesucht-jetzt-bewerben-medipersonal-lugano",
+        "sachbearbeiter-treuhand-100-per-la-region-wolhusen-gesucht-jetzt-bewerben-medipersonal-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-treuhand-100-fur-die-region-wolhusen-gesucht-jetzt-bewerben-med-ipersonal"
+          "sachbearbeiter-treuhand-100-fur-die-region-wolhusen-gesucht-jetzt-bewerben-med-ipersonal",
+          "sachbearbeiter-treuhand-100-per-la-region-wolhusen-gesucht-jetzt-bewerben-medipersonal-lugano"
         ],
         "en": [
           "sachbearbeiter-treuhand-100-fur-die-region-wolhusen-gesucht-jetzt-bewerben-medipersonal-lugano"
@@ -589,7 +1647,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "crawlerMissStreak": 2
     },
     {
       "id": "med-ipersonal-fb7d5d2add33",
@@ -619,7 +1678,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-ruswil-jobangebot/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:23:05.612Z",
+      "crawledAt": "2026-08-24T10:43:41.626Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -636,11 +1695,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sachbearbeiter-treuhand-100-fur-die-region-ruswil-jobangebot-med-ipersonal-ch",
-        "sachbearbeiter-treuhand-100-fur-die-region-ruswil-jobangebot-medipersonal-lugano"
+        "sachbearbeiter-treuhand-100-fur-die-region-ruswil-jobangebot-medipersonal-lugano",
+        "sachbearbeiter-treuhand-100-per-la-region-ruswil-jobangebot-medipersonal-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-treuhand-100-fur-die-region-ruswil-jobangebot-med-ipersonal-ch"
+          "sachbearbeiter-treuhand-100-fur-die-region-ruswil-jobangebot-med-ipersonal-ch",
+          "sachbearbeiter-treuhand-100-per-la-region-ruswil-jobangebot-medipersonal-lugano"
         ],
         "en": [
           "sachbearbeiter-treuhand-100-fur-die-region-ruswil-jobangebot-medipersonal-lugano"
@@ -663,7 +1724,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "crawlerMissStreak": 2
     },
     {
       "id": "med-ipersonal-9fd7d51de9a1",
@@ -693,7 +1755,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-luzern-offene-stelle/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:23:05.310Z",
+      "crawledAt": "2026-08-24T10:43:41.324Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -710,11 +1772,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sachbearbeiter-treuhand-100-fur-die-region-luzern-offene-stelle-med-ipersonal-ch",
-        "sachbearbeiter-treuhand-100-fur-die-region-luzern-offene-stelle-medipersonal-lugano"
+        "sachbearbeiter-treuhand-100-fur-die-region-luzern-offene-stelle-medipersonal-lugano",
+        "sachbearbeiter-treuhand-100-per-la-region-luzern-offene-stelle-medipersonal-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-treuhand-100-fur-die-region-luzern-offene-stelle-med-ipersonal-ch"
+          "sachbearbeiter-treuhand-100-fur-die-region-luzern-offene-stelle-med-ipersonal-ch",
+          "sachbearbeiter-treuhand-100-per-la-region-luzern-offene-stelle-medipersonal-lugano"
         ],
         "en": [
           "sachbearbeiter-treuhand-100-fur-die-region-luzern-offene-stelle-medipersonal-lugano"
@@ -737,7 +1801,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "crawlerMissStreak": 2
     },
     {
       "id": "med-ipersonal-a4c3e40a47f8",
@@ -768,7 +1833,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-in-der-region-emmenbruecke-temporaerbuero-ipersonal/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-23T21:23:05.009Z",
+      "crawledAt": "2026-08-24T10:43:41.021Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -784,11 +1849,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-treuhand-100-in-der-region-emmenbrucke-temporarburo-ipersonal-med-ipersonal"
+        "sachbearbeiter-treuhand-100-in-der-region-emmenbrucke-temporarburo-ipersonal-med-ipersonal",
+        "sachbearbeiter-treuhand-100-in-der-region-emmenbrucke-temporarburo-ipersonal-medipersonal-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-treuhand-100-in-der-region-emmenbrucke-temporarburo-ipersonal-med-ipersonal"
+          "sachbearbeiter-treuhand-100-in-der-region-emmenbrucke-temporarburo-ipersonal-med-ipersonal",
+          "sachbearbeiter-treuhand-100-in-der-region-emmenbrucke-temporarburo-ipersonal-medipersonal-lugano"
         ]
       },
       "needsRetranslation": true,
@@ -805,7 +1872,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "crawlerMissStreak": 2
     },
     {
       "id": "med-ipersonal-07b74477d2b5",
@@ -835,7 +1903,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-kriens-direkte-festanstellung/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:23:04.705Z",
+      "crawledAt": "2026-08-24T10:43:40.719Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -852,11 +1920,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sachbearbeiter-treuhand-100-fur-die-region-kriens-direkte-festanstellung-med-ipersonal-ch",
-        "sachbearbeiter-treuhand-100-fur-die-region-kriens-direkte-festanstellung-medipersonal-lugano"
+        "sachbearbeiter-treuhand-100-fur-die-region-kriens-direkte-festanstellung-medipersonal-lugano",
+        "sachbearbeiter-treuhand-100-per-la-region-kriens-direkte-festanstellung-medipersonal-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-treuhand-100-fur-die-region-kriens-direkte-festanstellung-med-ipersonal-ch"
+          "sachbearbeiter-treuhand-100-fur-die-region-kriens-direkte-festanstellung-med-ipersonal-ch",
+          "sachbearbeiter-treuhand-100-per-la-region-kriens-direkte-festanstellung-medipersonal-lugano"
         ],
         "en": [
           "sachbearbeiter-treuhand-100-fur-die-region-kriens-direkte-festanstellung-medipersonal-lugano"
@@ -879,7 +1949,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "crawlerMissStreak": 2
     },
     {
       "id": "med-ipersonal-11aa290afee6",
@@ -909,7 +1980,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-horw-freie-stelle/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:23:04.403Z",
+      "crawledAt": "2026-08-24T10:43:40.416Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -926,11 +1997,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sachbearbeiter-treuhand-100-fur-die-region-horw-freie-stelle-med-ipersonal-ch",
-        "sachbearbeiter-treuhand-100-fur-die-region-horw-freie-stelle-medipersonal-lugano"
+        "sachbearbeiter-treuhand-100-fur-die-region-horw-freie-stelle-medipersonal-lugano",
+        "sachbearbeiter-treuhand-100-per-la-region-horw-freie-stelle-medipersonal-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-treuhand-100-fur-die-region-horw-freie-stelle-med-ipersonal-ch"
+          "sachbearbeiter-treuhand-100-fur-die-region-horw-freie-stelle-med-ipersonal-ch",
+          "sachbearbeiter-treuhand-100-per-la-region-horw-freie-stelle-medipersonal-lugano"
         ],
         "en": [
           "sachbearbeiter-treuhand-100-fur-die-region-horw-freie-stelle-medipersonal-lugano"
@@ -953,7 +2026,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "crawlerMissStreak": 2
     },
     {
       "id": "med-ipersonal-89e8c79a2968",
@@ -983,7 +2057,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-fuer-die-region-sursee-freie-stelle/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:23:04.102Z",
+      "crawledAt": "2026-08-24T10:43:40.114Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1000,11 +2074,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sachbearbeiter-treuhand-100-fur-die-region-sursee-freie-stelle-med-ipersonal-ch",
-        "sachbearbeiter-treuhand-100-fur-die-region-sursee-freie-stelle-medipersonal-lugano"
+        "sachbearbeiter-treuhand-100-fur-die-region-sursee-freie-stelle-medipersonal-lugano",
+        "sachbearbeiter-treuhand-100-per-la-region-sursee-freie-stelle-medipersonal-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-treuhand-100-fur-die-region-sursee-freie-stelle-med-ipersonal-ch"
+          "sachbearbeiter-treuhand-100-fur-die-region-sursee-freie-stelle-med-ipersonal-ch",
+          "sachbearbeiter-treuhand-100-per-la-region-sursee-freie-stelle-medipersonal-lugano"
         ],
         "en": [
           "sachbearbeiter-treuhand-100-fur-die-region-sursee-freie-stelle-medipersonal-lugano"
@@ -1027,7 +2103,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "crawlerMissStreak": 2
     },
     {
       "id": "med-ipersonal-7419a9a85a08",
@@ -1057,7 +2134,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-treuhand-100-in-der-region-ebikon-gesucht-jetzt-bewerben/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:23:03.789Z",
+      "crawledAt": "2026-08-24T10:43:39.794Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1074,12 +2151,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sachbearbeiter-treuhand-100-in-der-region-ebikon-gesucht-jetzt-bewerben-med-ipersonal-ch",
-        "sachbearbeiter-treuhand-100-in-der-region-ebikon-gesucht-jetzt-bewerben-medipersonal-lugano"
+        "sachbearbeiter-treuhand-100-in-der-region-ebikon-gesucht-jetzt-bewerben-medipersonal-lugano",
+        "personnel-treuhand-100-cercato-nella-regione-di-ebikon-applicare-ora-medipersonal-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-treuhand-100-in-der-region-ebikon-gesucht-jetzt-bewerben-med-ipersonal-ch",
-          "sachbearbeiter-treuhand-100-in-der-region-ebikon-gesucht-jetzt-bewerben-medipersonal-lugano"
+          "sachbearbeiter-treuhand-100-in-der-region-ebikon-gesucht-jetzt-bewerben-medipersonal-lugano",
+          "personnel-treuhand-100-cercato-nella-regione-di-ebikon-applicare-ora-medipersonal-lugano"
         ],
         "en": [
           "sachbearbeiter-treuhand-100-in-der-region-ebikon-gesucht-jetzt-bewerben-medipersonal-lugano"
@@ -1102,7 +2181,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "crawlerMissStreak": 2
     }
   ]
 }

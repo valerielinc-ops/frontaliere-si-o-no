@@ -33,6 +33,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { facebookUrl, FACEBOOK_CAMPAIGN_JOB } from './lib/facebook-links.mjs';
 
 import {
   stripHtml,
@@ -641,12 +642,15 @@ export async function run(opts = {}) {
 
   let scheduled = 0;
   for (const p of payloads) {
-    await rescrapeOgAndVerify(fetchImpl, p.url, token, warn);
+    // See the articles scheduler: tag before the rescrape, keep `p.url` bare
+    // because it is the ledger's dedup key.
+    const link = facebookUrl(p.url, FACEBOOK_CAMPAIGN_JOB, p.jobId);
+    await rescrapeOgAndVerify(fetchImpl, link, token, warn);
     const apiUrl = `${GRAPH_BASE}/${pageId}/feed`;
     const buildBody = () => {
       const b = new URLSearchParams({
         message: p.message,
-        link: p.url,
+        link,
         published: 'false',
         scheduled_publish_time: String(p.scheduled_publish_time),
         access_token: token,

@@ -13,6 +13,7 @@
 // riprenda. E' gia' costato due bug silenziosi (pdfWhitepapersPlugin,
 // staticPagesPlugin): le hero card venivano drenate prima di essere registrate.
 import fs from 'node:fs';
+import { isSliceFile } from '../scripts/lib/crawler-slice-files.mjs';
 import np from 'node:path';
 import path from 'path';
 import os from 'node:os';
@@ -2091,7 +2092,16 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // copy of this table drifting out of sync (AGENTS.md anti-duplication
  // rule). `canonicalSchema` below already carries them.
 
- const COMPANY_LOGO_PLACEHOLDER = `${BASE_URL}/og-image.png`;
+ // NOT the canonical `COMPANY_LOGO_PLACEHOLDER` of services/logoService.ts
+ // (`/icons/company-placeholder.svg`). This is a JSON-LD-only filler: the
+ // branded OG image, valid as a `hiringOrganization.logo` value where
+ // Schema.org expects one, but never a real company logo. It must NEVER reach
+ // an `<img src>` — the visible fallback is the deterministic coloured-initials
+ // badge from `resolveJobLogoSrc` (build-plugins/shared/companyLogoResolver.ts).
+ // Named distinctly because the shared name made exactly that confusion happen:
+ // passing it as `logoUrl` to `renderJobCardHtml` put the site's generic OG
+ // image in every job card of every company without a curated logo.
+ const COMPANY_LOGO_JSONLD_FALLBACK = `${BASE_URL}/og-image.png`;
  const companyLogo = (job: any): string => {
  // Publisher-provided logo (projected from the publish form, https-only).
  const ownLogo = String(job?.companyLogo || '').trim();
@@ -2101,7 +2111,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // Branded 1200×630 OG image fallback — kept for JSON-LD `hiringOrganization.logo`
  // where Schema.org expects a value. `renderLogoImg` skips emitting an <img> tag
  // when the resolved URL is this placeholder (saves ~230 B × ~5 occurrences/page).
- return COMPANY_LOGO_PLACEHOLDER;
+ return COMPANY_LOGO_JSONLD_FALLBACK;
  };
  /**
   * Local placeholder served from `public/images/company-logo-fallback.svg`.
@@ -2141,7 +2151,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // Skip emitting <img> when no curated brand logo exists — emitting the
  // generic placeholder added ~230 B × 5 occurrences per job page across
  // 545k pages (~600 MB of artifact). Cards render text-only without it.
- if (!url || url === COMPANY_LOGO_PLACEHOLDER) return '';
+ if (!url || url === COMPANY_LOGO_JSONLD_FALLBACK) return '';
  const safeAlt = esc(alt);
  // Omit the style attribute entirely when no style is requested. Callers
  // that render inside `.rja` / `.cb` cards rely on the scoped CSS rule
@@ -3950,11 +3960,18 @@ ${staticAnalyticsHtml}
  const sectionForJob = jobCanton ? sharedResolveCantonSection(locale, jobCanton) : sectionByLocale[locale];
  const jPath = `${localePrefix[locale]}/${sectionForJob}/${jSlug}`.replace(/\/+/g, '/');
  const jHref = `${BASE_URL}${withSlash(jPath)}`;
+ // NO `logoUrl` override: `renderJobCardHtml` resolves the logo itself via
+ // `resolveJobCardLogo` (the canonical curated-asset → coloured-initials
+ // chain), exactly like the per-canton call site further down. Passing
+ // `companyLogo(job)` here handed it the JSON-LD-only OG-image filler as an
+ // authoritative URL, and `renderLogoSlot` — which knows nothing about that
+ // local constant — emitted it verbatim as `<img src>`: every company without
+ // a curated `CRAWLED_COMPANY_LOGOS` entry showed the site's generic OG image
+ // instead of its initials badge.
  const cardHtml = renderJobCardHtml(job as JobCardJob, {
  href: jHref,
  locale,
  linkifyLocation: linkifyCityInLocation,
- logoUrl: companyLogo(job),
  });
  return `<li class="s-hjzncp">${cardHtml}</li>`;
  };
@@ -8041,8 +8058,8 @@ ${staticAnalyticsHtml}
  const withDomain = jobs.find((j: any) => String(j?.companyDomain || '').trim().length > 0);
  const sameAs = withDomain ? `https://${String((withDomain as any).companyDomain).replace(/^https?:\/\//, '').trim()}` : undefined;
  const sampleJob = jobs[0];
- const rawLogo = sampleJob ? companyLogo(sampleJob) : COMPANY_LOGO_PLACEHOLDER;
- const logo = rawLogo && rawLogo !== COMPANY_LOGO_PLACEHOLDER
+ const rawLogo = sampleJob ? companyLogo(sampleJob) : COMPANY_LOGO_JSONLD_FALLBACK;
+ const logo = rawLogo && rawLogo !== COMPANY_LOGO_JSONLD_FALLBACK
  ? (rawLogo.startsWith('http') ? rawLogo : `${BASE_URL}${rawLogo}`)
  : undefined;
  return { sameAs, logo };
@@ -10408,8 +10425,15 @@ ${staticAnalyticsHtml}
              locale: entry.locale as JobCardLocale,
            });
            // In-feed ad after every Nth card (never after the last one).
+           // `entry.key` is this page's canton (e.g. 'LU' for
+           // /cerca-lavoro-lucerna/, 'BASILEA' for the merged BS+BL
+           // /cerca-lavoro-basilea/) — passed through so the Lucerna in-feed
+           // A/B test (services/adsenseSlots.ts
+           // INFEED_AD_AB_TEST_SUPPRESSED_CANTONS) can suppress the manual
+           // slot on this specific canton's static index page without
+           // touching any other canton or any other listing surface.
            const ad =
-             jIdx + 1 < cantonJobs.length && shouldPlaceInfeedAd(jIdx + 1)
+             jIdx + 1 < cantonJobs.length && shouldPlaceInfeedAd(jIdx + 1, { canton: entry.key })
                ? infeedAdGridBlockHtml()
                : '';
            return card + ad;
@@ -11537,9 +11561,12 @@ ${staticAnalyticsHtml}
  const emittedSlugs = new Set(Object.keys(tracking));
  let sliceAugmented = 0;
  let sliceAugmentCapped = false;
+ // Predicato condiviso (scripts/lib/crawler-slice-files.mjs): e' lo stesso che
+ // assemble-jobs-dataset.mjs applica gia' a EXPIRED_SLICES_DIR. `.json` da solo
+ // raccoglieva anche i companion `-cache` e gli orfani `.cleanup-tmp`.
  for (const sliceFile of fs.readdirSync(expiredSlicesDir)) {
  if (sliceAugmentCapped) break;
- if (!sliceFile.endsWith('.json')) continue;
+ if (!isSliceFile(sliceFile)) continue;
  let sliceArr: any[];
  try {
  sliceArr = JSON.parse(fs.readFileSync(np.resolve(expiredSlicesDir, sliceFile), 'utf-8'));
@@ -12380,7 +12407,10 @@ ${staticAnalyticsHtml}
  const __tExpiredSoftLanding = startTimer();
  const __tEjpTitle = phaseTimer();
  const selfUrl = `${BASE_URL}${withSlash(relPath)}`;
- const listingPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/`.replace(/\/+/g, '/');
+ // Canton-aware: was hardcoded to the TI hub (sectionByLocale[locale]) for
+ // every job, so a non-TI job's "Lavoro in <canton>" links and breadcrumb
+ // targeted the Ticino hub instead of the job's own canton hub (#6418).
+ const listingPath = `${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}/`.replace(/\/+/g, '/');
  const copy = expiredBannerCopy[locale] ?? expiredBannerCopy.it;
  // Canton display name resolved per-locale (see hoisting note above).
  const displayCanton = getCantonDisplayLabel(jobCanton, locale);
@@ -12660,16 +12690,16 @@ ${staticAnalyticsHtml}
  // --- Search suggestions ---
  if (locale === 'it') {
  const searchSugParts: string[] = [];
- if (jobCompany) searchSugParts.push(`<p>Scopri tutte le <a href="/cerca-lavoro-ticino/">posizioni aperte</a> sul nostro job board con oltre 1000 offerte attive in Ticino.</p>`);
- if (jobLocation) searchSugParts.push(`<p>Cerca altre offerte nella zona: <a href="/cerca-lavoro-ticino/">Lavoro in ${esc(displayCanton)}</a></p>`);
- searchSugParts.push(`<p>Torna alla <a href="/cerca-lavoro-ticino/">Job Board completa</a> per trovare la tua prossima opportunit\u00e0 lavorativa come frontaliere in Svizzera.</p>`);
+ if (jobCompany) searchSugParts.push(`<p>Scopri tutte le <a href="${listingPath}">posizioni aperte</a> sul nostro job board con oltre 1000 offerte attive in Ticino.</p>`);
+ if (jobLocation) searchSugParts.push(`<p>Cerca altre offerte nella zona: <a href="${listingPath}">Lavoro in ${esc(displayCanton)}</a></p>`);
+ searchSugParts.push(`<p>Torna alla <a href="${listingPath}">Job Board completa</a> per trovare la tua prossima opportunit\u00e0 lavorativa come frontaliere in Svizzera.</p>`);
  staticBodyParts.push(`<section><h2>Offerte simili in ${esc(displayCanton)}</h2>${searchSugParts.join('\n')}</section>`);
  } else if (locale === 'en') {
- staticBodyParts.push(`<section><h2>Similar jobs in ${esc(displayCanton)}</h2><p>Browse our <a href="/en/find-jobs-ticino/">complete job board</a> with over 1000 active positions in Ticino.</p>${jobLocation ? `<p>Search for more jobs near ${esc(jobLocation)}: <a href="/en/find-jobs-ticino/">Jobs in ${esc(displayCanton)}</a></p>` : ''}<p>Find your next opportunity as a cross-border worker in Switzerland.</p></section>`);
+ staticBodyParts.push(`<section><h2>Similar jobs in ${esc(displayCanton)}</h2><p>Browse our <a href="${listingPath}">complete job board</a> with over 1000 active positions in Ticino.</p>${jobLocation ? `<p>Search for more jobs near ${esc(jobLocation)}: <a href="${listingPath}">Jobs in ${esc(displayCanton)}</a></p>` : ''}<p>Find your next opportunity as a cross-border worker in Switzerland.</p></section>`);
  } else if (locale === 'de') {
- staticBodyParts.push(`<section><h2>\u00c4hnliche Stellen im ${esc(displayCanton)}</h2><p>Durchsuchen Sie unser <a href="/de/job-suche-tessin/">komplettes Job Board</a> mit \u00fcber 1000 aktiven Stellen im Tessin.</p>${jobLocation ? `<p>Weitere Stellen in der N\u00e4he von ${esc(jobLocation)}: <a href="/de/job-suche-tessin/">Jobs im ${esc(displayCanton)}</a></p>` : ''}<p>Finden Sie Ihre n\u00e4chste Stelle als Grenzg\u00e4nger in der Schweiz.</p></section>`);
+ staticBodyParts.push(`<section><h2>\u00c4hnliche Stellen im ${esc(displayCanton)}</h2><p>Durchsuchen Sie unser <a href="${listingPath}">komplettes Job Board</a> mit \u00fcber 1000 aktiven Stellen im Tessin.</p>${jobLocation ? `<p>Weitere Stellen in der N\u00e4he von ${esc(jobLocation)}: <a href="${listingPath}">Jobs im ${esc(displayCanton)}</a></p>` : ''}<p>Finden Sie Ihre n\u00e4chste Stelle als Grenzg\u00e4nger in der Schweiz.</p></section>`);
  } else {
- staticBodyParts.push(`<section><h2>Offres similaires au ${esc(displayCanton)}</h2><p>Parcourez notre <a href="/fr/recherche-emploi-tessin/">job board complet</a> avec plus de 1000 postes actifs au Tessin.</p>${jobLocation ? `<p>Recherchez d'autres offres pr\u00e8s de ${esc(jobLocation)}: <a href="/fr/recherche-emploi-tessin/">Emplois au ${esc(displayCanton)}</a></p>` : ''}<p>Trouvez votre prochaine opportunit\u00e9 en tant que frontalier en Suisse.</p></section>`);
+ staticBodyParts.push(`<section><h2>Offres similaires au ${esc(displayCanton)}</h2><p>Parcourez notre <a href="${listingPath}">job board complet</a> avec plus de 1000 postes actifs au Tessin.</p>${jobLocation ? `<p>Recherchez d'autres offres pr\u00e8s de ${esc(jobLocation)}: <a href="${listingPath}">Emplois au ${esc(displayCanton)}</a></p>` : ''}<p>Trouvez votre prochaine opportunit\u00e9 en tant que frontalier en Suisse.</p></section>`);
  }
 
  // --- Frontalier info section: extended with permit-mechanics, gross-to-net

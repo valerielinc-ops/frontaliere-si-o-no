@@ -1,38 +1,35 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-08-23T21:26:55.326Z",
-  "total": 381,
+  "generatedAt": "2026-08-25T09:45:23.157Z",
+  "total": 377,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 121003,
-  "avgDurationMs": 121003,
+  "unchangedCount": 0,
+  "durationMs": 132397,
+  "avgDurationMs": 132397,
   "durationHistory": [
-    121003
+    132397
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "title": "Sachbearbeiter / Sachbearbeiterin Frontoffice (w/m/d)",
+      "title": "Technical Product Owner Documedis Platform",
       "company": "Galenica (Galenica)",
       "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=3125351.4043894",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=3118749.4031605",
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
       "category": "healthcare",
-      "descriptionIt": "Sachbearbeiter / Sachbearbeiterin Frontoffice (w/m/d) presso Galenica (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+      "descriptionIt": "Technical Product Owner Documedis Platform presso Galenica (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
       "applyUrl": "",
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "sachbearbeiter-sachbearbeiterin-frontoffice-m-w-d-galenica-bern",
-      "id": "galenica-992cee2a6de8",
-      "needsRetranslation": true,
+      "slug": "titolare-del-prodotto-tecnico-documedis-piattaforma-galenica-galenica-bern",
+      "id": "galenica-1bce0c122888",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -51,5 +48,7 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }

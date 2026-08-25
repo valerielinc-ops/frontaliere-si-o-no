@@ -119,3 +119,45 @@ describe('il timeout del CLI claude riporta cosa aveva scritto il processo', () 
     );
   });
 });
+
+describe('feed(): il buffer fra due newline ha un cap (follow-up #6063 item 3)', () => {
+  // La fix e' gia' su main (`CLAUDE_CLI_STREAM_LINE_CAP`), ma era arrivata
+  // SENZA test: il reviewer aveva segnalato l'accumulo illimitato, il commit
+  // l'ha chiuso, e nulla impediva a un refactor di riaprirlo. Qui l'invariante
+  // diventa osservabile.
+  //
+  // Perche' conta: `feed()` riceve chunk di stdout, non righe. Un processo che
+  // scrive megabyte senza mai un `\n` — esattamente il sospetto sul silenzio di
+  // `claude-cli/haiku` — faceva crescere `buffer` fino al timeout, cioe'
+  // aggiungeva un consumo di memoria non limitato al fallimento che si stava
+  // gia' cercando di diagnosticare.
+
+  it('una riga senza terminatore non cresce oltre il cap', async () => {
+    const { createClaudeCliStreamTrace } = await import('../scripts/lib/ai-models.mjs');
+    const trace = createClaudeCliStreamTrace();
+    // Ben oltre il cap, spezzato in chunk come arriva davvero da stdout.
+    for (let i = 0; i < 24; i++) trace.feed('x'.repeat(100_000));
+    expect(trace.pendingBytes).toBeLessThan(2_000_000);
+  });
+
+  it('scartare la riga illeggibile la CONTA come malformata, non la ignora', async () => {
+    // Il cap non deve diventare una perdita silenziosa: cio' che viene buttato
+    // resta visibile nella diagnostica, che e' tutto il punto di questo modulo.
+    const { createClaudeCliStreamTrace } = await import('../scripts/lib/ai-models.mjs');
+    const trace = createClaudeCliStreamTrace();
+    for (let i = 0; i < 24; i++) trace.feed('x'.repeat(100_000));
+    trace.end();
+    expect(trace.state.malformed).toBeGreaterThan(0);
+  });
+
+  it('un evento grande ma TERMINATO passa intero: il cap non tronca il lavoro buono', async () => {
+    // Il verso opposto, che non deve regredire: un `tool_use` con l'articolo
+    // strutturato dentro e' legittimamente grosso, e va assorbito.
+    const { createClaudeCliStreamTrace } = await import('../scripts/lib/ai-models.mjs');
+    const trace = createClaudeCliStreamTrace();
+    const grande = JSON.stringify({ type: 'assistant', message: { content: [{ type: 'text', text: 'a'.repeat(200_000) }] } });
+    trace.feed(`${grande}\n`);
+    expect(trace.state.events).toBe(1);
+    expect(trace.state.malformed).toBe(0);
+  });
+});

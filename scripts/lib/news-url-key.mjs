@@ -140,3 +140,88 @@ export function newsUrlKey(rawUrl) {
     .join('&');
   return `${base}?${query}`;
 }
+
+/** La forma di chiave che questo modulo scrive: path + query identificante. */
+export const SOURCE_URL_KEY_FORM = 2;
+
+/**
+ * Giorni dopo i quali una voce DATATA smette di bloccare la propria sezione.
+ * Il cablaggio di `create-article.mjs` passa `maxAgeDays: null` (permanente)
+ * per non cambiare la politica del sito; il ponte `keyForm: 1` usa lo stesso
+ * default. Esportata perche' i test e un eventuale TTL futuro la condividano.
+ */
+export const SOURCE_URL_TTL_DAYS = 5;
+
+/**
+ * Normalizza il valore di una voce del ledger, in entrambe le forme.
+ *
+ * @param {unknown} value stringa (forma storica) oppure `{articleId, ts, keyForm}`.
+ * @returns {{articleId: string, ts: string|null, keyForm: number}|null}
+ */
+export function readLedgerEntry(value) {
+  if (typeof value === 'string') return value ? { articleId: value, ts: null, keyForm: 1 } : null;
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+  const articleId = typeof value.articleId === 'string' ? value.articleId : '';
+  if (!articleId) return null;
+  const ts = typeof value.ts === 'string' && value.ts ? value.ts : null;
+  const keyForm = Number.isInteger(value.keyForm) && value.keyForm > 0 ? value.keyForm : 1;
+  return { articleId, ts, keyForm };
+}
+
+/** L'id di articolo di una voce, in entrambe le forme; `''` se non ce n'e' uno. */
+export function ledgerArticleId(value) {
+  return readLedgerEntry(value)?.articleId ?? '';
+}
+
+/**
+ * La voce da scrivere per una registrazione nuova: id + istante + forma della
+ * chiave. `keyForm: 2` dice al ponte verso la forma 1 di NON considerare
+ * questa voce — senza il marcatore il path nudo ritroverebbe ogni documento
+ * nuovo della stessa fonte e il collasso tornerebbe.
+ */
+export function makeLedgerEntry(articleId, now = Date.now()) {
+  return { articleId: String(articleId), ts: new Date(now).toISOString(), keyForm: SOURCE_URL_KEY_FORM };
+}
+
+export function isLedgerEntryExpired(value, { maxAgeDays = SOURCE_URL_TTL_DAYS, now = Date.now() } = {}) {
+  const entry = readLedgerEntry(value);
+  if (!entry || !entry.ts) return false;
+  const at = Date.parse(entry.ts);
+  if (!Number.isFinite(at)) return false;
+  return now - at > maxAgeDays * 24 * 60 * 60 * 1000;
+}
+
+/**
+ * Vista URL→id (valori STRINGA) di un ledger di forma mista. E' la forma che
+ * `findCrossSectionSourceDuplicate` sa leggere, quindi `cross-section-dedup.mjs`
+ * (mode: identical) non cambia.
+ *
+ * @param {Record<string, unknown>} map
+ * @param {{maxAgeDays?: number|null, now?: number, keyForm?: number|null}} [opts]
+ */
+export function ledgerArticleIds(map, { maxAgeDays = null, now = Date.now(), keyForm = null } = {}) {
+  const out = {};
+  if (!map || typeof map !== 'object' || Array.isArray(map)) return out;
+  for (const [url, value] of Object.entries(map)) {
+    const entry = readLedgerEntry(value);
+    if (!entry) continue;
+    if (keyForm != null && entry.keyForm !== keyForm) continue;
+    if (maxAgeDays != null && isLedgerEntryExpired(value, { maxAgeDays, now })) continue;
+    Object.defineProperty(out, url, { value: entry.articleId, enumerable: true, writable: true, configurable: true });
+  }
+  return out;
+}
+
+/**
+ * Viste da passare a `findCrossSectionSourceDuplicate`.
+ * `keyForm` restringe alle voci di quella forma — serve al ponte verso la
+ * forma 1, e a nient'altro.
+ */
+export function ledgerViewsForLookup(ledgersBySection, activeSection, { maxAgeDays = null, now = Date.now(), keyForm = null } = {}) {
+  const src = ledgersBySection && typeof ledgersBySection === 'object' ? ledgersBySection : {};
+  const out = {};
+  for (const [section, map] of Object.entries(src)) {
+    out[section] = ledgerArticleIds(map, { maxAgeDays, now, keyForm });
+  }
+  return out;
+}

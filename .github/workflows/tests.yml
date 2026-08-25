@@ -28,9 +28,39 @@ name: tests
 #
 # Tests that read data/jobs.json (gitignored): the assemble step regenerates
 # it from the per-slice files committed under data/jobs-by-slice/.
+#
+# ── Four jobs, one after another (was: four parallel workflows) ────────────
+# `collision` (ex `pr-collision-detector.yml` job `detect`) and `contract` (ex
+# `pr-body-contract.yml` job `contract`) now live HERE, as the first two jobs
+# in the `needs:` chain ahead of `typecheck` and `vitest`. Same move as the
+# "Footprint" note above (4-shard matrix → 1 job): every push to a PR used to
+# fire 4 jobs from 3 separate workflow files AT ONCE (`detect` + `contract` +
+# `typecheck` + `vitest`), which is 4 of the account's ~20 shared Actions
+# slots gone per push. Chaining them with `needs:` + `if: always()` drops the
+# per-PR peak from 4 concurrent jobs to 1, with the SAME coverage: no check is
+# skipped, no threshold moved, no name renamed. `if: always()` (not a
+# `.result` check) is deliberate — it makes the chain PROCEED to the next job
+# regardless of whether the one before it passed or failed, preserving the
+# four gates' pre-existing independence (a red `contract` never used to stop
+# `vitest` from running, and still doesn't).
+#
+# `collision` keeps its OWN job-level `concurrency:` (see `jobs.collision`
+# below) sharing the group `pr-collision-detector` with the schedule-only
+# `pr-collision-detector.yml` — that cross-workflow lock is what prevents the
+# label race that caused the main-red #1454↔#1459. The workflow-level
+# `concurrency:` below (keyed on `github.ref`) is unchanged and still governs
+# the whole run, `contract`/`typecheck`/`vitest` included.
 on:
   pull_request:
     branches: [main]
+    # Union of the three original workflows' pull_request `types` (default
+    # types are [opened, synchronize, reopened] when unset, which is what
+    # this workflow itself relied on before): pr-collision-detector.yml had
+    # [opened, synchronize, reopened, ready_for_review], pr-body-contract.yml
+    # had [opened, edited, synchronize, reopened]. `edited` is required so
+    # `contract` still re-validates a PR body edit; `ready_for_review` is
+    # required so `collision` still re-scans a draft coming out of draft.
+    types: [opened, edited, synchronize, reopened, ready_for_review]
   push:
     branches: [main]
   # Dispatchable so pr-autorebase.yml can re-run vitest on a freshly-rebased PR
@@ -42,6 +72,16 @@ on:
   # re-fires auto-merge-on-lgtm. No Claude review is re-run (auto-merge-eval
   # carries the existing ## LGTM forward across a pure main-merge rebase).
   workflow_dispatch:
+
+# Union of the three original workflows' `permissions:` (tests.yml itself had
+# none — it inherited the repo default — so this is now the explicit floor):
+#   pr-collision-detector.yml: contents:read, pull-requests:write, issues:write
+#   pr-body-contract.yml:      contents:read, pull-requests:write, issues:read
+# `issues: write` (the more permissive of `write`/`read`) covers both.
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
 
 # Two different questions share this workflow, and they do NOT want the same
 # cancellation semantics.
@@ -81,6 +121,799 @@ concurrency:
   cancel-in-progress: ${{ github.event_name != 'push' }}
 
 jobs:
+  # PR-triggered funnel-critical collision scan — steps copied VERBATIM from
+  # `pr-collision-detector.yml` job `detect` (only the job id changed, to
+  # `collision`, since GitHub uses the job id as the check-run name absent an
+  # explicit `name:`). That file's own `schedule`/`workflow_dispatch` periodic
+  # recalc job (same script, same purpose: also removes the `collision-risk`
+  # label when a collision resolves) is UNCHANGED and stays there — this job
+  # only covers the `pull_request` case that file no longer triggers on.
+  collision:
+    # `edited` never carries a new commit for the collision scan to react to
+    # — same reasoning pr-collision-detector.yml's own trigger list already
+    # encoded by never listing `edited` in its `pull_request.types`.
+    if: github.event_name == 'pull_request' && github.event.action != 'edited'
+    runs-on: ubuntu-latest
+    # Own job-level lock, INDEPENDENT of the workflow-level `concurrency:`
+    # above (which is keyed on `github.ref`, i.e. per-PR/per-branch): this
+    # group is GLOBAL and shared with pr-collision-detector.yml's own
+    # `concurrency:` (identical group name), so a scan started here and the
+    # periodic schedule scan over there never run concurrently and step on
+    # each other's labels — the exact race condition that caused the
+    # main-red #1454↔#1459.
+    concurrency:
+      group: pr-collision-detector
+      cancel-in-progress: false
+    # 15 min (era 8). Il tetto stava DENTRO il corpo della distribuzione, non
+    # sopra: misurato il 2026-08-18 sugli ultimi 28 job `detect` conclusi, i 26
+    # sani vanno da 149s a **449s** (p50 265s, p90 416s) contro un tetto di 480s
+    # — 31s di margine sul caso peggiore osservato. Gli altri 2 sono morti al
+    # tetto (503s e 504s: 480s di job piu' setup e post-step) e appaiono come
+    # `cancelled`, con `Checkout -> cancelled` e ogni step successivo `skipped`.
+    # Esempio: run 32177560874 su PR #6048, `detect` a 503s senza aver eseguito
+    # una riga del detector. Un `cancelled` non e' un rosso: nessuno strato di
+    # rimedio lo raccoglie, e sulla PR si legge come "sta ancora girando".
+    #
+    # La causa e' comune a tests.yml e pr-review-loop.yml e non e' questo job:
+    # il Checkout contro cui questi tetti erano stati scelti costava 75s, oggi
+    # ne costa 250-475 (`.git` cresciuto a 15 GB, `public/` 4,4 GB + `data/`
+    # 2,3 GB tracciati). Qui il Checkout e' gia' minimo (`fetch-depth: 1`) e non
+    # c'e' altro da togliere lato workflow: la cura vera e' ridurre cio' che il
+    # repo traccia, questo tetto e' il cerotto dichiarato nel frattempo.
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "ℹ️ Nessuna Firebase SA — GITHUB_PAT non caricato; le label collision-risk verranno applicate via GITHUB_TOKEN (sufficiente per il gating di P1)."
+          fi
+
+      - name: Load secrets from Remote Config (GITHUB_PAT)
+        continue-on-error: true
+        run: node scripts/load-rc-env.mjs
+
+      # Primary identity = GitHub App installation token (`frontaliere-automation[bot]`):
+      # auto-mints, no expiry babysit. Falls back to env.GITHUB_PAT then GITHUB_TOKEN.
+      # A collision-risk label is sufficient with either identity (#2861 item 1).
+      - name: Mint App token (primary identity, PAT fallback)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      # PAT-down = degrado silenzioso a catena del loop autonomo (merge senza
+      # cascade, coda congelata, routing/re-queue inerti). Alert inline
+      # deterministico, dedup sul titolo canonico del monitor daily
+      # (gh-pat-expiry-monitor.yml) che resta l'owner dell'auto-close.
+      # GH_TOKEN = GITHUB_TOKEN, NON il PAT (e' la cosa rotta).
+      - name: Alert token-down (dedup, zero-Claude)
+        if: env.APP_TOKEN == '' && env.GITHUB_PAT == ''
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: node scripts/ci/alert-pat-down.mjs --workflow "${{ github.workflow }}" --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - name: Detect funnel-critical collisions (deterministic, no Claude)
+        env:
+          # App token preferito (identità stabile, coerente con gli altri workflow
+          # migrati); PAT poi GITHUB_TOKEN come fallback — una label via GITHUB_TOKEN
+          # è comunque sufficiente per il gating di P1.
+          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
+        run: |
+          if [ "${DRY_RUN:-false}" = "true" ]; then
+            node scripts/ci/pr-collision-detector.mjs --dry-run
+          else
+            node scripts/ci/pr-collision-detector.mjs
+          fi
+
+      - name: Cleanup Firebase credentials
+        if: always()
+        run: rm -f /tmp/firebase-sa.json
+
+  # PR-body completeness + multi-issue-Closes gate — steps copied VERBATIM
+  # from `pr-body-contract.yml` job `contract` (job id unchanged, so the
+  # check-run name stays `contract`). That file is deleted: its ONLY trigger
+  # was `pull_request`, now fully covered here.
+  contract:
+    needs: [collision]
+    # `always()`: proceed to this gate even when `collision` failed, was
+    # cancelled, or was skipped (on `push`/`workflow_dispatch` `collision`
+    # doesn't run at all) — they are INDEPENDENT gates, exactly as before
+    # when they ran as separate parallel workflows: a red `detect` never used
+    # to stop `pr-body-contract` from running, and still doesn't. Runs on
+    # EVERY pull_request event including `edited` (pr-body-contract.yml's own
+    # trigger list, unlike pr-collision-detector.yml's).
+    if: always() && github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: PR-body completeness + multi-issue Closes (no checkout, all events)
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const STICKY = '<!-- pr-body-contract -->';
+            const body = context.payload.pull_request.body || '';
+
+            // --- 1) Required headers (REVIEW.md completeness contract) ---------------
+            // Literal headers required by REVIEW.md. Tolerate trailing text on the
+            // same line (e.g. "## Non implementato (ancora)"); require start-of-line.
+            const hasImpl = /^\s{0,3}#{2,3}\s+Implementato\b/im.test(body);
+            const hasNon  = /^\s{0,3}#{2,3}\s+Non implementato\b/im.test(body);
+            const missing = [];
+            if (!hasImpl) missing.push('`## Implementato`');
+            if (!hasNon)  missing.push('`## Non implementato (ancora)`');
+
+            // --- 1b) Section CONTENT quality (escalation #3250, bucket
+            // `reviewer-finding/pr-body-contract` 6x/14d) -------------------------
+            // Header PRESENCE alone isn't enough: the PR template leaves bare `- `
+            // placeholder bullets in both sections, and a fixer that submits
+            // without filling them passes this gate but still draws a reviewer
+            // 🔴 finding — wasting a review cycle. Mirrors
+            // scripts/lib/pr-body-sections-check.mjs (own unit tests); keep the
+            // two in sync on rule changes.
+            const extractSection = (text, headerRe) => {
+              const m = headerRe.exec(text);
+              if (!m) return null;
+              const rest = text.slice(m.index + m[0].length);
+              const nextHeading = /\n(?=#{1,6}[ \t])/.exec(rest);
+              return nextHeading ? rest.slice(0, nextHeading.index) : rest;
+            };
+            const stripNonContent = (t) => String(t ?? '')
+              .replace(/```[\s\S]*?```/g, ' ')
+              .replace(/<!--[\s\S]*?-->/g, ' ');
+            const isSubstantiveBullet = (line) => line.replace(/^[ \t]*[-*+][ \t]*/, '').trim().length > 0;
+            const hasMeaningfulContent = (raw) => stripNonContent(raw).split('\n').some((line) => {
+              const t = line.trim();
+              if (!t) return false;
+              if (/^#{1,6}[ \t]/.test(t)) return false;
+              if (/^[-*+](?:[ \t]|$)/.test(t)) return isSubstantiveBullet(t);
+              return true;
+            });
+            const hasOnlyBareBullets = (raw) => {
+              const lines = stripNonContent(raw).split('\n').filter((l) => l.trim().length > 0);
+              if (lines.length === 0) return false;
+              return lines.every((line) => {
+                const t = line.trim();
+                if (/^#{1,6}[ \t]/.test(t)) return true;
+                if (/^[-*+][ \t]?$/.test(t)) return true;
+                if (/^[-*+][ \t]/.test(t)) return false;
+                return true;
+              });
+            };
+            const hasNessuno = (raw) => /\bnessun[oa]?\b/i.test(stripNonContent(raw));
+
+            const sectionViolations = [];
+            if (hasImpl) {
+              const c = extractSection(body, /^\s{0,3}#{2,3}\s+Implementato[^\n]*/im) ?? '';
+              if (!hasMeaningfulContent(c)) {
+                sectionViolations.push(hasOnlyBareBullets(c)
+                  ? '`## Implementato` contiene solo bullet placeholder vuoti (`- `) non compilati.'
+                  : '`## Implementato` è vuota.');
+              }
+            }
+            if (hasNon) {
+              const c = extractSection(body, /^\s{0,3}#{2,3}\s+Non implementato[^\n]*/im) ?? '';
+              if (!hasNessuno(c) && !hasMeaningfulContent(c)) {
+                sectionViolations.push(hasOnlyBareBullets(c)
+                  ? '`## Non implementato (ancora)` contiene solo bullet placeholder vuoti (`- `) non compilati.'
+                  : '`## Non implementato (ancora)` è vuota.');
+              }
+            }
+
+            // --- 2) Multi-issue Closes on one line (GitHub closes only the first) ----
+            // Mirror of scripts/lib/pr-body-closes-check.mjs (see tests). A closing
+            // keyword governing the first ref, then ≥1 MORE refs chained by list
+            // separators only (space/comma/colon/semicolon/&/"and") → the extras are
+            // silently ignored by GitHub. A ref after a sentence boundary or real
+            // words (`Closes #12. See also #99`) is a cross-ref, not flagged.
+            const REF = '(?:[\\w.-]+\\/[\\w.-]+)?#\\d+';
+            const SEP = '(?:\\s*(?:,|:|;|&|\\band\\b)?\\s*)';
+            const CHAIN = new RegExp(
+              `\\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\\b\\s*(${REF})((?:${SEP}${REF})+)`,
+              'gi',
+            );
+            const closesViolations = [];
+            body.split(/\r?\n/).forEach((line, i) => {
+              CHAIN.lastIndex = 0;
+              const m = CHAIN.exec(line);
+              if (!m) return;
+              const nums = (m[0].match(new RegExp(REF, 'g')) || [])
+                .map((r) => r.match(/#(\d+)/)[1]);
+              if (nums.length >= 2) closesViolations.push({ line: i + 1, text: line.trim(), nums });
+            });
+
+            // --- 2b) Closure intent expressed with a keyword GitHub ignores ---------
+            // Mirror of scripts/lib/pr-body-closes-check.mjs `lineIntentRefs` /
+            // `effectiveRefs` (tests/pr-body-closes-check.test.ts is the source of
+            // truth for the rule). GitHub honors ONLY close/closes/closed,
+            // fix/fixes/fixed, resolve/resolves/resolved — an Italian verb ("Chiude
+            // #N", "Chiusa da #N", "Risolve #N") or an English gerund ("Closing #N")
+            // reads as closure to a human and closes NOTHING: the issue stays open
+            // forever with the fix already on `main`. The detection already existed
+            // in the lib (used by auto-merge-eval.mjs's narrow drift-fallback path)
+            // but never reached a PR opened through the normal `## LGTM` review path
+            // — real recurrence (issue #5784): PR #5776 said `Chiude #5725` and #5725
+            // stayed open until closed by hand; same shape on #5724, near-miss on
+            // #5774. This block closes that gap for every PR, not just drift-fallback
+            // ones.
+            // Masks fenced/inline code + HTML comments FIRST, same reason as check 3
+            // below: GitHub does not act on a keyword inside code formatting, and a
+            // body that merely DOCUMENTS the bug (this one, or the PR template) would
+            // otherwise false-positive on itself. Newlines survive the mask (blanks
+            // replace non-newline chars) so line numbers still point at the real line.
+            const maskQuotedKeepLines = (t) => String(t || '').replace(
+              /```[\s\S]*?```|~~~[\s\S]*?~~~|<!--[\s\S]*?-->|`[^`\n]*`/g,
+              (m) => m.replace(/[^\n]/g, ' '),
+            );
+            const EFFECTIVE_RE = new RegExp(`\\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\\b[\\s:]*[*_\`[]*(${REF})`, 'gi');
+            // The Italian verbs (measured recurrence) plus the English near-misses
+            // that share the failure mode. Deliberately NOT here: `addresses`, `see`,
+            // `related to`, `refs`, `part of` — those mean "connected to", and
+            // flagging them would punish a body that legitimately just NAMES an
+            // issue without intending to close it.
+            const INTENT_KW =
+              '(?:chiud(?:e|ono|er[àa]|iamo)|chius[aoie]|risolv(?:e|ono|iamo)|risolt[aoie]|' +
+              'fixa(?:ta|to)?|corregg(?:e|ono)|corrett[aoie]|' +
+              'closing|fixing|resolving|solves|solved|completes|completed)';
+            // A PAST-TENSE report ("già chiusa da #66", "was fixed by #66") states
+            // something ELSE already closed the ref — not this PR's intent.
+            const PAST_REPORT_RE = /\b(?:gi[àa]'?|already|was|were|sono\s+stat[ei]|[èe]'?\s+stat[ao])\s*$/i;
+            const INTENT_FILLER = "(?:\\s+(?:da|by|the|la|il|lo|le|gli|l'|anche|definitivamente|finalmente|completamente|parzialmente))*";
+            const INTENT_RE = new RegExp(`\\b(${INTENT_KW})\\b${INTENT_FILLER}[\\s:]*[*_\`[]*(${REF})`, 'gi');
+
+            const maskedBodyForIntent = maskQuotedKeepLines(body);
+            const willCloseRefs = new Set();
+            for (const m of maskedBodyForIntent.matchAll(new RegExp(EFFECTIVE_RE.source, EFFECTIVE_RE.flags))) {
+              willCloseRefs.add(m[1].toLowerCase());
+            }
+            const rawBodyLinesForIntent = body.split(/\r?\n/);
+            const intentViolations = [];
+            const intentReported = new Set();
+            maskedBodyForIntent.split(/\r?\n/).forEach((mline, i) => {
+              for (const m of mline.matchAll(new RegExp(INTENT_RE.source, INTENT_RE.flags))) {
+                const ref = m[2];
+                const before = mline.slice(Math.max(0, m.index - 24), m.index);
+                if (PAST_REPORT_RE.test(before)) continue; // "già chiusa da #66" ≠ intent
+                if (willCloseRefs.has(ref.toLowerCase())) continue; // a real keyword already reaches it
+                if (intentReported.has(ref.toLowerCase())) continue; // one report per ref
+                intentReported.add(ref.toLowerCase());
+                intentViolations.push({ line: i + 1, text: (rawBodyLinesForIntent[i] ?? mline).trim(), ref, keyword: m[1] });
+              }
+            });
+
+            // --- 3) Closes #N targeting a multi-item follow-up aggregate ------------
+            // `Closes #N` is GitHub-native and fires on MERGE, BYPASSING the
+            // reconcile multi-item-auto-close veto (FOLLOWUP.md — that veto lives in
+            // the daily cron, not in the merge-close path). Closing a 5-item aggregate
+            // because ONE item was fixed (the fixer circuit-breaker does 1 item/run)
+            // marks residual work COMPLETED while items stay due (real recurrence:
+            // #3050 fixed item 5/5 yet `Closes #3036` closed the 5-item aggregate).
+            // FULL mirror of isAggregate() — single source scripts/ci/check-issue-already-resolved.mjs:
+            // an explicit "N item(s) deferred" count is authoritative once present
+            // (a single-item follow-up whose title merely contains the ordinary word
+            // "batch"/"sweep"/"bulk" — e.g. "1 item deferred ... batch backfill..." —
+            // must not be misclassified as an aggregate, #3378); the sweep/batch/bulk
+            // keyword fallback only applies when NO count is stated (aggregates that
+            // enumerate N targets WITHOUT the count, e.g. "Sweep: ~30 crawlers" #1826).
+            const isAggregateTitleBody = (t, b) => {
+              const text = `${t}\n${b}`;
+              const m = text.match(/(\d+)\s+items?\s+deferred/i);
+              if (m) return Number(m[1]) >= 2;
+              return /\b(?:sweep|batch|bulk)\b/i.test(text);
+            };
+            // Strip code-formatted text first: GitHub does NOT honour a closing
+            // keyword inside a fenced block or inline `code` span, so neither should
+            // we — otherwise a body that merely DISCUSSES `Closes #N` (docs, this very
+            // PR, a fix-instruction example) false-positives. Real fixer closes are
+            // plain text on their own line.
+            const bodyNoCode = body
+              .replace(/```[\s\S]*?```/g, ' ')
+              .replace(/`[^`\n]*`/g, ' ');
+            // In-repo closing refs only (bare `#N`; owner/repo#N never auto-closes here).
+            // `:?` tolerates the colon form `Closes: #N`, which GitHub also honours.
+            const CLOSE_SINGLE = /\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\b:?\s+#(\d+)\b/gi;
+            const closingNums = [...new Set([...bodyNoCode.matchAll(CLOSE_SINGLE)].map((m) => m[1]))];
+
+            const { owner, repo } = context.repo;
+            const issue_number = context.payload.pull_request.number;
+
+            // --- 1c) ADVISORY: funnel-critical files changed but never cited in the
+            // body (#6301, reproduced on #6279: the diff touched
+            // `.github/workflows/prospector-loop.yml` and the body never named it in
+            // any section — neither this gate nor scripts/lib/pr-body-sections-check.mjs
+            // compared the diff's file list against the body text, only checked that
+            // `## Implementato` had SOME content. Uses `pulls.listFiles` (no checkout
+            // needed — unlike the sibling-check/below-floor-bridge steps further down,
+            // which DO need the tree). Advisory only, same reasoning as the
+            // bullet-without-state warning in pr-body-sections-check.mjs: promoting
+            // straight to blocking risks repeating the 2026-08-12 13h stall documented
+            // there, before PR bodies reliably cite every touched file.
+            const FUNNEL_CRITICAL_PATH_RE = /^\.github\/workflows\//;
+            let uncitedFiles = [];
+            try {
+              const prFiles = await github.paginate(github.rest.pulls.listFiles, {
+                owner, repo, pull_number: issue_number, per_page: 100,
+              });
+              uncitedFiles = prFiles
+                .map((f) => f.filename)
+                .filter((p) => FUNNEL_CRITICAL_PATH_RE.test(p))
+                .filter((p) => !body.includes(p) && !body.includes(p.split('/').pop()));
+            } catch (e) {
+              core.info(`uncited-files check: skip (${e.status || e.message})`);
+            }
+            const advisoryParts = [];
+            if (uncitedFiles.length) {
+              advisoryParts.push(
+                `⚠️ **File funnel-critical non citati nel body** (issue #6301, advisory — non blocca) — ` +
+                `il diff modifica ${uncitedFiles.length} file sotto \`.github/workflows/**\` che il body non menziona ` +
+                `(né per path né per basename):\n\n` +
+                uncitedFiles.map((p) => `- \`${p}\``).join('\n') + '\n\n' +
+                `Aggiungi un bullet in \`## Implementato\` che li cita (recidiva reale: PR #6279, ` +
+                `\`.github/workflows/prospector-loop.yml\` modificato e mai menzionato, flaggato dal reviewer solo dopo il fatto).`,
+              );
+            }
+
+            // Fetch each closed issue; flag the multi-item follow-up aggregates.
+            // Proceed-safe: any API error → skip that ref (never block on infra).
+            const aggregateCloseViolations = [];
+            for (const num of closingNums) {
+              try {
+                const { data: iss } = await github.rest.issues.get({
+                  owner, repo, issue_number: Number(num),
+                });
+                if (iss.pull_request) continue; // a PR ref, not a tracking issue
+                const labels = (iss.labels || []).map((l) => (typeof l === 'string' ? l : l.name));
+                if (!labels.includes('follow-up')) continue;
+                if (isAggregateTitleBody(iss.title || '', iss.body || '')) {
+                  aggregateCloseViolations.push({ num, title: iss.title || '' });
+                }
+              } catch (e) {
+                core.info(`aggregate-close check: skip #${num} (${e.status || e.message})`);
+              }
+            }
+
+            // Find a prior sticky comment to update (avoid comment spam on edits).
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner, repo, issue_number, per_page: 100,
+            });
+            const prior = comments.find(c => (c.body || '').includes(STICKY));
+
+            const upsert = async (b) => {
+              if (prior) {
+                await github.rest.issues.updateComment({ owner, repo, comment_id: prior.id, body: b });
+              } else {
+                await github.rest.issues.createComment({ owner, repo, issue_number, body: b });
+              }
+            };
+
+            // --- All-clear (violations) — advisories can still be present -----------
+            if (missing.length === 0 && sectionViolations.length === 0 && closesViolations.length === 0 && intentViolations.length === 0 && aggregateCloseViolations.length === 0) {
+              const okBody = `${STICKY}\n✅ **PR-body contract OK** — sezioni obbligatorie presenti e compilate, nessun \`Closes\` multi-issue su una riga, nessuna keyword di chiusura inefficace, nessun \`Closes\` su follow-up aggregata.`
+                + (advisoryParts.length ? `\n\n${advisoryParts.join('\n\n')}` : '');
+              // Solo un prior da aggiornare, oppure un advisory reale da segnalare per
+              // la prima volta: un all-clear puro (nessun prior, nessun advisory) non
+              // vale un commento nuovo.
+              if (prior || advisoryParts.length) {
+                await upsert(okBody);
+              }
+              core.info(`PR body contract satisfied.${advisoryParts.length ? ' (advisory: uncited files)' : ''}`);
+              return;
+            }
+
+            // --- Build the verdict --------------------------------------------------
+            const parts = [STICKY];
+            const fails = [];
+            if (missing.length) {
+              parts.push(
+                `🔴 **PR-body contract** — mancano: ${missing.join(', ')}.\n\n` +
+                `Il completeness contract (REVIEW.md / AGENTS.md § Workflow) richiede i due header letterali ` +
+                `\`## Implementato\` e \`## Non implementato (ancora)\`. ` +
+                `Header alternativi (\`## Fix\`, \`## Verify\`, \`## Effetto\`) non contano.`,
+              );
+              fails.push(`missing section(s): ${missing.join(', ')}`);
+            }
+            if (sectionViolations.length) {
+              parts.push(
+                `🔴 **Sezione presente ma vuota** (escalation #3250, bucket \`reviewer-finding/pr-body-contract\`) — ` +
+                `header letterale trovato ma senza contenuto sostanziale (solo bullet placeholder \`- \` del template):\n\n` +
+                sectionViolations.map((m) => `- ${m}`).join('\n') + '\n\n' +
+                `Scrivi almeno un bullet concreto in \`## Implementato\`; in \`## Non implementato (ancora)\` scrivi ` +
+                `"Nessuno" (task completo, AGENTS.md #8) oppure elenca gli item residui con stato/next-step.`,
+              );
+              fails.push(`empty section(s): ${sectionViolations.length}`);
+            }
+            if (closesViolations.length) {
+              const lines = closesViolations
+                .map((v) => `- L${v.line}: \`${v.text}\` → chiude solo #${v.nums[0]}, ignora #${v.nums.slice(1).join(', #')}`)
+                .join('\n');
+              parts.push(
+                `🔴 **Closes multi-issue su una riga** — GitHub chiude SOLO la prima issue dopo una keyword ` +
+                `(\`Closes\`/\`Fixes\`/\`Resolves\`); le altre restano aperte e vanno chiuse a mano (cfr. PR #1320: 9 issue su una riga → 8 rimaste aperte).\n\n` +
+                `${lines}\n\n` +
+                `Fix: una keyword per issue, una per riga:\n\`\`\`\nCloses #${closesViolations[0].nums[0]}\nCloses #${closesViolations[0].nums[1]}\n\`\`\``,
+              );
+              fails.push(`multi-issue Closes line(s): ${closesViolations.map((v) => `L${v.line}`).join(', ')}`);
+            }
+            if (intentViolations.length) {
+              const lines = intentViolations
+                .map((v) => `- L${v.line}: \`${v.text}\` → \`${v.keyword} ${v.ref}\` non chiude niente`)
+                .join('\n');
+              parts.push(
+                `🔴 **Keyword di chiusura inefficace** (issue #5784) — GitHub riconosce SOLO ` +
+                `\`close/closes/closed\`, \`fix/fixes/fixed\`, \`resolve/resolves/resolved\`; un verbo italiano ` +
+                `(\`chiude\`/\`chiusa\`/\`risolve\`/\`fixa\`...) o l'inglese al gerundio (\`closing\`/\`fixing\`) è prosa ` +
+                `e non chiude nulla — l'issue resta aperta con la fix già su \`main\` (recidiva reale: PR #5776 → ` +
+                `#5725 rimasta aperta finché non è stata chiusa a mano; stesso difetto su #5724, quasi su #5774).\n\n` +
+                `${lines}\n\n` +
+                `Fix: usa la keyword inglese per ognuno, es. \`Closes ${intentViolations[0].ref}\`. Se non intendevi ` +
+                `chiudere quella issue (solo nominarla), usa \`Refs\`/\`Vedi\` invece di un verbo di chiusura.`,
+              );
+              fails.push(`ineffective closing keyword: ${intentViolations.map((v) => `L${v.line}`).join(', ')}`);
+            }
+            if (aggregateCloseViolations.length) {
+              const lines = aggregateCloseViolations
+                .map((v) => `- \`Closes #${v.num}\` → #${v.num} è una follow-up **aggregata multi-item** ("${v.title.slice(0, 80)}")`)
+                .join('\n');
+              parts.push(
+                `🔴 **Closes su follow-up aggregata multi-item** — \`Closes #N\` è GitHub-native e chiude #N al MERGE, ` +
+                `bypassando il veto multi-item-auto-close di \`FOLLOWUP.md\` (che vive nel cron \`reconcile\`, non nel path Closes-on-merge). ` +
+                `Il fixer lavora 1 item/run (circuit-breaker): un fix parziale NON deve chiudere l'aggregata, gli altri item restano dovuti ` +
+                `(recidiva #3050 → #3036: item 5/5 fixato ma l'issue 5-item chiusa COMPLETED).\n\n${lines}\n\n` +
+                `Fix: togli la keyword di chiusura e usa un **progress-ref** senza \`Closes/Fixes/Resolves\` ` +
+                `(es. \`Addresses item N di #${aggregateCloseViolations[0].num}\`). Chiudi l'aggregata SOLO quando TUTTI gli item sono fatti, elencandoli in \`## Implementato\`.`,
+              );
+              fails.push(`Closes on multi-item aggregate: #${aggregateCloseViolations.map((v) => v.num).join(', #')}`);
+            }
+            // Advisory, NON entra in `fails`/`setFailed` — vedi il commento sul blocco
+            // che calcola `advisoryParts` più sopra.
+            if (advisoryParts.length) parts.push(...advisoryParts);
+            parts.push(`Aggiorna la PR description (vedi \`.github/pull_request_template.md\`) — questo check ricalcola a ogni edit.`);
+
+            await upsert(parts.join('\n\n'));
+            core.setFailed(`PR body contract: ${fails.join('; ')}`);
+
+      # --- Source-guard steps: one shared checkout, skip on `edited` ------------
+      # `fetch-depth: 0 filter: blob:none` serves all three guards: the sibling
+      # three-dot diff needs the commit-graph + merge-base (blobs lazy-fetched on
+      # demand, ~100s faster than a full blob clone); the cls/lookbehind scans
+      # read the HEAD working tree (materialised by checkout). `!cancelled()` so
+      # they still run after the body-contract step setFailed (independent gates).
+      - name: Checkout (for source guards)
+        if: ${{ !cancelled() && github.event.action != 'edited' }}
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          # `fetch-depth: 0` resta: check-sibling-patterns.mjs diffa contro
+          # BASE_REF e senza storia non ha nulla da confrontare.
+          fetch-depth: 0
+          filter: blob:none
+          # `filter: blob:none` evita di scaricare i blob nel fetch, ma il
+          # checkout dell'albero li materializza comunque uno per uno: su
+          # ~2.6GB di working tree questo job ha impiegato fino a 296s (run
+          # 30354558798). I guard leggono solo sorgente (scripts/**,
+          # build-plugins/**, components/**), quindi la sottodirectory di
+          # immagini binarie più grossa — blog, 361MB — non serve a nessuno dei
+          # quattro. `public/images/brands` resta.
+          # `!/public/images/events` è rimasta come no-op deliberato dopo #6163:
+          # quei 5'568 file (4'108MB) non sono più tracciati — sono serviti da
+          # cdn.frontaliereticino.ch — quindi la riga oggi non esclude nulla. La
+          # si tiene perché il crawler ricrea la cartella a ogni run e un
+          # checkout futuro non deve tornare a materializzarla per sbaglio.
+          sparse-checkout: |
+            /*
+            !/public/images/events
+            !/public/images/blog
+          sparse-checkout-cone-mode: false
+        # RIMISURATO il 2026-08-18 (era 8min): su 153 Checkout `success` delle
+        # ultime 300 run — min 69s, p50 158s, p95 358s, p99 393s, **max 420s** — il
+        # tetto di 480s stava 60 secondi sopra il massimo sano, cioe' tagliava la
+        # coda della propria distribuzione invece di discriminare un guasto.
+        # Una morte reale oggi alle 18:00:15Z (run 32168588033), durata esatta
+        # 480,000s, annotazione letterale "The action 'Checkout (for source
+        # guards)' has timed out after 8 minutes". La morte ha propagato a cascata
+        # su `Surface sibling candidates`, `Surface below-floor-bridge candidates`,
+        # i due `Forbid ...` e `Wait for background source guards`: il check
+        # `contract` e' andato ROSSO e ha bloccato una PR. Il tetto ha quindi
+        # fabbricato il guasto che dovrebbe rilevare.
+        # Il contesto: i tempi di Checkout sono raddoppiati oggi dalle ~14:00Z
+        # su tutto il repo, e non per la crescita del working tree (piatto a
+        # -0,1% proprio in quella finestra). Su questo step il max pre-14:00Z
+        # era 209s, post-14:00Z 420s (+101%), con il p50 da 160s a 298s. Un tetto tarato sui giorni buoni non sopravvive a
+        # una giornata come questa.
+        # Nuovo tetto = 2,5x il massimo osservato (420s). Il job non dichiara
+        # `timeout-minutes`, quindi eredita il default di 360min: 18 sta comodo.
+        timeout-minutes: 18
+
+      # Sibling-class surfacer (zero-Claude, ADVISORY — never fails). Il finding
+      # reviewer più ricorrente dopo il body-contract è il 🔴 "stesso antipattern
+      # nel file gemello" (sibling-class-fix). check-sibling-patterns.mjs calcola
+      # i candidati in modo deterministico; lo step posta una sticky comment così
+      # (a) l'autore la vede PRIMA della review, (b) il reviewer non rifà la grep.
+      - name: Surface sibling candidates
+        id: sib
+        if: ${{ !cancelled() && github.event.action != 'edited' }}
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          set -euo pipefail
+          # Explicit destination refspec (sibling of issue #6058, tests.yml): a
+          # bare `git fetch origin "$BASE_REF"` only updates FETCH_HEAD, never
+          # `refs/remotes/origin/$BASE_REF` — this checkout is of the PR head
+          # SHA (`ref: ${{ github.event.pull_request.head.sha }}` above), so
+          # that ref was never created either. `--base "origin/$BASE_REF"`
+          # below therefore never resolved, and resolve-merge-base.mjs's
+          # blocking-skip (issue #5195) fired on every run instead of the
+          # sibling analysis actually running.
+          git fetch origin "+refs/heads/$BASE_REF:refs/remotes/origin/$BASE_REF" --quiet || true
+          node scripts/ci/check-sibling-patterns.mjs --base "origin/$BASE_REF" --json > sibling-report.json
+          node -e "
+            const r = JSON.parse(require('fs').readFileSync('sibling-report.json','utf8'));
+            console.log('candidates=' + r.candidates.length);
+          " >> "$GITHUB_OUTPUT"
+      - name: Post sibling-check comment (advisory)
+        if: ${{ !cancelled() && github.event.action != 'edited' }}
+        # ADVISORY: posta un commento sticky, non decide nulla. Senza le due
+        # righe qui sotto una 500 TRANSITORIA dell'API GitHub sulla
+        # `listComments` faceva fallire lo step e con lui l'INTERO job
+        # `contract` — cioe' il gate di merge — su una PR il cui body era
+        # gia' conforme. Misurato il 2026-08-12: #5663 e #5667 rosse nello
+        # stesso minuto con `HttpError: fetch failed / status: 500` su
+        # GET /issues/<n>/comments. Costo reale: un giro di review in piu',
+        # che qui vuole una vitest da ~18 minuti, ed e' una delle vie per cui
+        # una PR sana finisce etichettata `stale-review`.
+        #
+        # `retries` copre il caso transitorio: github-script NON esenta i 5xx
+        # (retry-exempt-status-codes = 400/401/403/404/422), quindi una 500
+        # viene ritentata. `continue-on-error` e' la rete sotto: nemmeno un
+        # guasto persistente dell'API deve poter arrossare un gate di merge
+        # per un commento consultivo.
+        continue-on-error: true
+        uses: actions/github-script@v8
+        with:
+          retries: 3
+          script: |
+            const STICKY = '<!-- sibling-check -->';
+            const fs = require('fs');
+            const report = JSON.parse(fs.readFileSync('sibling-report.json', 'utf8'));
+            const { owner, repo } = context.repo;
+            const issue_number = context.payload.pull_request.number;
+
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner, repo, issue_number, per_page: 100,
+            });
+            const prior = comments.find(c => (c.body || '').includes(STICKY));
+
+            // Issue #5195: `skipped` = l'analisi NON è girata (merge-base non
+            // calcolabile). Cadeva nel ramo `!candidates.length` e postava
+            // «✅ Sibling-check OK», cioè un all-clear affermativo per uno sweep
+            // mai eseguito — il reviewer smetteva di cercare proprio quando
+            // nessuno aveva guardato. Ramo esplicito e sticky sempre creato.
+            if (report.skipped) {
+              const body = `${STICKY}\n🚫 **Sibling-check NON ESEGUITO** — \`${report.reason || 'merge-base non calcolabile'}\` ` +
+                `(base \`${report.base}\`). Nessun file gemello è stato verificato: **non è un via libera**. ` +
+                `Il sweep AGENTS.md #6 va fatto a mano su questa PR, oppure rilancia il job con una base risolvibile.`;
+              if (prior) {
+                await github.rest.issues.updateComment({ owner, repo, comment_id: prior.id, body });
+              } else {
+                await github.rest.issues.createComment({ owner, repo, issue_number, body });
+              }
+              core.warning(`sibling-check skipped: ${report.reason || 'unresolvable-merge-base'} — nessun sibling verificato.`);
+              return;
+            }
+
+            if (!report.candidates.length) {
+              // All-clear: aggiorna lo sticky se esisteva (diff cambiato), mai crearne uno nuovo.
+              if (prior) {
+                await github.rest.issues.updateComment({
+                  owner, repo, comment_id: prior.id,
+                  body: `${STICKY}\n✅ **Sibling-check OK** — nessun file gemello non toccato condivide i costrutti modificati da questo diff.`,
+                });
+              }
+              core.info('No sibling candidates.');
+              return;
+            }
+
+            const TOP = 10;
+            const rows = report.candidates.slice(0, TOP).map(c =>
+              `- \`${c.file}\` — costrutti condivisi: ${c.tokens.slice(0, 5).map(t => '\`' + t + '\`').join(', ')}`
+            ).join('\n');
+            const more = report.candidates.length > TOP
+              ? `\n…e altri ${report.candidates.length - TOP} candidati (run locale: \`node scripts/ci/check-sibling-patterns.mjs\`).`
+              : '';
+            const body = [
+              STICKY,
+              `⚠️ **Sibling-check** (advisory, euristico — AGENTS.md #6 / bucket \`sibling-class-fix\`): ` +
+              `${report.candidates.length} file NON toccati da questa PR condividono costrutti che il diff modifica. ` +
+              `Per ciascuno: stesso antipattern? → fix nella STESSA PR, oppure giustifica in \`## Non implementato\`.`,
+              rows + more,
+              `_Candidati ≠ verdetto: il token-match surfaca, non conferma. Ricalcolato a ogni push._`,
+            ].join('\n\n');
+
+            if (prior) {
+              await github.rest.issues.updateComment({ owner, repo, comment_id: prior.id, body });
+            } else {
+              await github.rest.issues.createComment({ owner, repo, issue_number, body });
+            }
+
+      # Below-floor-bridge surfacer (zero-Claude, ADVISORY — never fails; issue
+      # #3659, escalated bucket reviewer-finding/canonical-sitemap). The ONE
+      # sub-pattern of that bucket with a proven, prose-didn't-prevent-it
+      # recurrence (#3594's own reviewer found 5 more untouched sibling loops
+      # in the same file after the fix pattern was introduced): a canton-scoped
+      # SSG generation loop that `continue`s past a job-count floor/threshold
+      # without emitting the documented noindex bridge (AGENTS.md § Static SEO
+      # Pages). check-below-floor-bridge.mjs surfaces candidates deterministically
+      # (scans the FULL current content of touched build-plugins/*.ts files, not
+      # just the diff hunk — the recurrence was caught in untouched siblings of a
+      # touched file) plus a self-map drift check (new bridge call added without
+      # touching searchConsoleCompat.ts).
+      - name: Surface below-floor-bridge candidates
+        id: bfb
+        if: ${{ !cancelled() && github.event.action != 'edited' }}
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          set -euo pipefail
+          # Explicit destination refspec (sibling of issue #6058, tests.yml): a
+          # bare `git fetch origin "$BASE_REF"` only updates FETCH_HEAD, never
+          # `refs/remotes/origin/$BASE_REF` — this checkout is of the PR head
+          # SHA (`ref: ${{ github.event.pull_request.head.sha }}` above), so
+          # that ref was never created either. `--base "origin/$BASE_REF"`
+          # below therefore never resolved, and resolve-merge-base.mjs's
+          # blocking-skip (issue #5195) fired on every run instead of the
+          # sibling analysis actually running.
+          git fetch origin "+refs/heads/$BASE_REF:refs/remotes/origin/$BASE_REF" --quiet || true
+          node scripts/ci/check-below-floor-bridge.mjs --base "origin/$BASE_REF" --json > below-floor-bridge-report.json
+          node -e "
+            const r = JSON.parse(require('fs').readFileSync('below-floor-bridge-report.json','utf8'));
+            console.log('gapFiles=' + r.gapsByFile.length);
+          " >> "$GITHUB_OUTPUT"
+      - name: Post below-floor-bridge comment (advisory)
+        if: ${{ !cancelled() && github.event.action != 'edited' }}
+        # Stessa classe dello step sibling-check qui sopra, stessa fix: e'
+        # advisory, quindi non deve poter far cadere il gate `contract`.
+        # Tenerne uno solo protetto lascerebbe la meta' del difetto in piedi.
+        continue-on-error: true
+        uses: actions/github-script@v8
+        with:
+          retries: 3
+          script: |
+            const STICKY = '<!-- below-floor-bridge-check -->';
+            const fs = require('fs');
+            const report = JSON.parse(fs.readFileSync('below-floor-bridge-report.json', 'utf8'));
+            const { owner, repo } = context.repo;
+            const issue_number = context.payload.pull_request.number;
+
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner, repo, issue_number, per_page: 100,
+            });
+            const prior = comments.find(c => (c.body || '').includes(STICKY));
+
+            const hasGaps = report.gapsByFile && report.gapsByFile.length > 0;
+            const selfMap = report.selfMap;
+
+            // Issue #5195, stesso difetto del sibling-check qui sopra.
+            if (report.skipped) {
+              const body = `${STICKY}\n🚫 **Below-floor-bridge check NON ESEGUITO** — \`${report.reason || 'merge-base non calcolabile'}\` ` +
+                `(base \`${report.base}\`). Nessun loop è stato analizzato: **non è un via libera**.`;
+              if (prior) {
+                await github.rest.issues.updateComment({ owner, repo, comment_id: prior.id, body });
+              } else {
+                await github.rest.issues.createComment({ owner, repo, issue_number, body });
+              }
+              core.warning(`below-floor-bridge skipped: ${report.reason || 'unresolvable-merge-base'}.`);
+              return;
+            }
+
+            if (!hasGaps && !selfMap) {
+              if (prior) {
+                await github.rest.issues.updateComment({
+                  owner, repo, comment_id: prior.id,
+                  body: `${STICKY}\n✅ **Below-floor-bridge check OK** — nessun loop canton-scoped con floor/soglia + \`continue\` senza bridge, nessun nuovo bridge senza tocco a \`searchConsoleCompat.ts\`.`,
+                });
+              }
+              core.info('No below-floor-bridge candidates.');
+              return;
+            }
+
+            const gapRows = (report.gapsByFile || []).map(f =>
+              `- \`${f.file}\`\n${f.gaps.map(g => `  - L${g.line}: \`${g.guard}\``).join('\n')}`
+            ).join('\n');
+            const selfMapRow = selfMap ? `\n\n⚠️ ${selfMap.message}` : '';
+            const body = [
+              STICKY,
+              `⚠️ **Below-floor-bridge check** (advisory, euristico — AGENTS.md § Static SEO Pages / issue #3659): ` +
+              (hasGaps ? `${report.gapsByFile.length} file con possibile below-floor-bridge omission.` : ''),
+              gapRows + selfMapRow,
+              `Il guard salta la pagina senza emettere un bridge noindex? → estendi renderBelowFloorBridge/emit*BelowFloorBridge ` +
+              `+ il self-map in \`searchConsoleCompat.ts\` nella STESSA PR, oppure giustifica in \`## Non implementato\`.`,
+              `_Candidato ≠ verdetto: regex-match, non AST. Ricalcolato a ogni push._`,
+            ].join('\n\n');
+
+            if (prior) {
+              await github.rest.issues.updateComment({ owner, repo, comment_id: prior.id, body });
+            } else {
+              await github.rest.issues.createComment({ owner, repo, issue_number, body });
+            }
+
+      # Blocking gate (escalation #1954, bucket reviewer-finding/cls-layout 6×/14d):
+      # forbid hard-coded AdSense <ins> in build-plugins. Only adSlotHtml() may emit
+      # the raw ad markup; its min-height/format come from the registry
+      # services/adsenseSlots.ts so the reserved space matches the real ad unit →
+      # zero CLS (the #1910 280-vs-400px regression). Zero-Claude, exits 1 on
+      # violation. Also covered by tests/check-cls-ad-slots.test.ts in the vitest gate.
+      # Gli ultimi due gate sono script node indipendenti fra loro e da tutto il
+      # resto: non producono output consumati da altri step, leggono solo il
+      # working tree e il loro unico effetto è far fallire il job. Girano quindi
+      # in `background:` sovrapposti ai due "Post ... comment" sopra, che sono
+      # I/O verso l'API GitHub. Un gate rosso fa comunque fallire il job (stesso
+      # comportamento verificato live su post-deploy-validate-live, probe run
+      # 28352247167); il `wait-all` sotto li rijoina prima della fine del job.
+      - name: Forbid hard-coded AdSense <ins> in build-plugins
+        if: ${{ !cancelled() && github.event.action != 'edited' }}
+        background: true
+        run: node scripts/ci/check-cls-ad-slots.mjs
+
+      # Blocking gate (#1996 → #1999): forbid regex lookbehind ((?<=/(?<!) in
+      # client-bundled source. Older Safari/WebKit throws "invalid group specifier
+      # name" at parse time → crashed job-detail render for Google Jobs traffic (lost
+      # ad impressions). build-plugins/ + scripts/ are build-time (Node) → exempt.
+      # Comment-aware; zero-Claude. Also covered by tests/check-client-lookbehind.test.ts.
+      - name: Forbid regex lookbehind in client-bundled source
+        if: ${{ !cancelled() && github.event.action != 'edited' }}
+        background: true
+        run: node scripts/ci/check-client-lookbehind.mjs
+
+      - name: Wait for background source guards
+        wait-all: true
+
   # Typecheck — job SEPARATO da vitest, e la separazione è deliberata (#5540).
   #
   # Il nome `vitest (unit + integration)` è load-bearing: auto-merge-on-lgtm,
@@ -103,10 +936,19 @@ jobs:
   #
   # Costo: `tsc --noEmit` misura 33s in locale sull'albero intero; il job è
   # checkout + npm ci + tsc, senza assemble del dataset (nessun sorgente TS
-  # importa data/jobs.json, che è gitignored). Gira in parallelo a vitest, che
-  # resta la slice lunga: costo incrementale sul wall della PR ≈ 0.
+  # importa data/jobs.json, che è gitignored). Da questa PR (sequenzializzazione
+  # dei 4 job per abbassare il picco di concorrenza per-PR, vedi la nota "Four
+  # jobs, one after another" in testa al file) gira DOPO `contract` invece che
+  # in parallelo a vitest: costo incrementale sul wall della PR resta ≈ 0
+  # (33s), solo lo scheduling è seriale.
   typecheck:
     name: typecheck (tsc --noEmit)
+    needs: [contract]
+    # `always()`: gira anche se `contract` è fallito, è stato annullato o è
+    # stato skippato (push a main, dove `collision`/`contract` sono skip per
+    # `github.event_name != 'pull_request'`) — sono gate indipendenti oggi,
+    # deve restare così (vedi la nota in testa al file).
+    if: always()
     runs-on: ubuntu-latest
     # 15 -> 30 il 2026-08-18, stesso difetto e stessa misura del job `vitest`
     # qui sotto: il tetto stava sotto il caso peggiore reale e uccideva run
@@ -207,6 +1049,12 @@ jobs:
   # Do NOT rename.
   vitest:
     name: vitest (unit + integration)
+    needs: [typecheck]
+    # `always()`: same reasoning as `typecheck` above — proceed regardless of
+    # `typecheck`'s outcome, so a red/skipped typecheck never suppresses the
+    # one check-run everything else (auto-merge, pr-autorebase,
+    # stale-pr-rescuer) actually gates on.
+    if: always()
     runs-on: ubuntu-latest
     # 30 min (was 20, era 15 a 4 shard). Il 20 NON era piu' un tetto di
     # sicurezza: era il vincolo che troncava la distribuzione. Misurato su 500

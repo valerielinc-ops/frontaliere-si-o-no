@@ -39,6 +39,7 @@ import path from 'node:path';
 import type { Plugin } from 'vite';
 import { WriteCollector } from './batchWrite';
 import { CALC_HREF } from './shared/calcHref';
+import { renderNearestComparison } from './shared/nearestMunicipalityComparison';
 import { formatSourceAttribution } from './shared/authoritativeSources';
 import { CALCULATOR_REGIME_SCOPE_NOTICE, CALCULATOR_REGIME_SCOPE_TAG } from './shared/calculatorRegimeScope';
 import { BASE_URL, countHtmlBodyWords, MIN_INDEXABLE_WORDS } from './constants';
@@ -126,7 +127,12 @@ interface Copy {
   explainFlow: string;
   crossTitle: string;
   calcLink: string;
-  relatedTitle: string;
+  /** Column headers and prose labels of the nearest-comune comparison block. */
+  colBorderDistance: string;
+  colPopulation: string;
+  colCrossing: string;
+  spreadComparison: string;
+  comparisonSource: string;
   faqTitle: string;
   faqQ1: (n: string) => string;
   faqA1: (n: string) => string;
@@ -180,7 +186,11 @@ const COPY: Record<AustrianLocale, Copy> = {
       'Diversamente dal corridoio con il Liechtenstein — oggi a maggioranza Svizzera → Liechtenstein — qui il flusso segue la direzione abituale: dall\'Austria verso i cantoni svizzeri di lavoro (San Gallo e Grigioni).',
     crossTitle: 'Approfondimenti utili',
     calcLink: 'Calcola il tuo stipendio netto',
-    relatedTitle: 'Altri comuni del corridoio',
+    colBorderDistance: 'Distanza dal confine',
+    colPopulation: 'Abitanti',
+    colCrossing: 'Valico più vicino',
+    spreadComparison: 'la distanza dal confine',
+    comparisonSource: 'Distanza su strada dal valico più vicino e popolazione dal dataset comunale austriaco (Statistik Austria).',
     faqTitle: 'Domande frequenti',
     faqQ1: (n) => `Che regime fiscale si applica a ${n}?`,
     faqA1: (n) => `${n} segue la regola ordinaria dell'art. 15 §1 DBA-A: tariffa cantonale Quellensteuer piena nello Stato di lavoro, senza riduzioni. Il vecchio regime frontalieri (art. 15 §4) è abrogato dal ${ABROGATED_YEAR}.`,
@@ -237,7 +247,11 @@ const COPY: Record<AustrianLocale, Copy> = {
       'Unlike the corridor with Liechtenstein — today mostly Switzerland → Liechtenstein — here the flow runs the usual way: from Austria towards the Swiss cantons of employment (St. Gallen and Graubünden).',
     crossTitle: 'Useful reading',
     calcLink: 'Calculate your net salary',
-    relatedTitle: 'Other towns in the corridor',
+    colBorderDistance: 'Distance to border',
+    colPopulation: 'Population',
+    colCrossing: 'Nearest crossing',
+    spreadComparison: 'the distance to the border',
+    comparisonSource: 'Road distance to the nearest crossing and population from the Austrian municipal dataset (Statistik Austria).',
     faqTitle: 'FAQ',
     faqQ1: (n) => `Which tax regime applies in ${n}?`,
     faqA1: (n) => `${n} follows the ordinary §15(1) DBA-A rule: full cantonal withholding tax in the state of work, with no reduction. The former cross-border regime (§15(4)) has been abolished since ${ABROGATED_YEAR}.`,
@@ -293,7 +307,11 @@ const COPY: Record<AustrianLocale, Copy> = {
       'Anders als im Korridor mit Liechtenstein — heute überwiegend Schweiz → Liechtenstein — verläuft der Pendlerstrom hier in die übliche Richtung: von Österreich zu den Schweizer Beschäftigungskantonen (St. Gallen und Graubünden).',
     crossTitle: 'Nützliche Lektüre',
     calcLink: 'Nettolohn berechnen',
-    relatedTitle: 'Weitere Orte im Korridor',
+    colBorderDistance: 'Entfernung zur Grenze',
+    colPopulation: 'Einwohner',
+    colCrossing: 'Nächster Übergang',
+    spreadComparison: 'die Entfernung zur Grenze',
+    comparisonSource: 'Straßenentfernung zum nächsten Übergang und Einwohnerzahl aus dem österreichischen Gemeindedatensatz (Statistik Austria).',
     faqTitle: 'Häufige Fragen',
     faqQ1: (n) => `Welches Steuerregime gilt in ${n}?`,
     faqA1: (n) => `${n} folgt der ordentlichen Regel nach Art. 15 Abs. 1 DBA-A: voller kantonaler Quellensteuersatz im Tätigkeitsstaat, ohne Ermässigung. Das frühere Grenzgänger-Regime (Art. 15 Abs. 4) ist seit ${ABROGATED_YEAR} aufgehoben.`,
@@ -349,7 +367,11 @@ const COPY: Record<AustrianLocale, Copy> = {
       "Contrairement au corridor avec le Liechtenstein — aujourd'hui majoritairement Suisse → Liechtenstein — le flux suit ici le sens habituel : de l'Autriche vers les cantons suisses d'emploi (Saint-Gall et les Grisons).",
     crossTitle: 'À lire aussi',
     calcLink: 'Calculez votre salaire net',
-    relatedTitle: 'Autres communes du corridor',
+    colBorderDistance: 'Distance de la frontière',
+    colPopulation: 'Habitants',
+    colCrossing: 'Passage le plus proche',
+    spreadComparison: 'la distance de la frontière',
+    comparisonSource: 'Distance routière du passage le plus proche et population issues du jeu de données communal autrichien (Statistik Austria).',
     faqTitle: 'Questions fréquentes',
     faqQ1: (n) => `Quel régime fiscal s'applique à ${n} ?`,
     faqA1: (n) => `${n} suit la règle ordinaire de l'art. 15 § 1 CDI-A : impôt à la source cantonal plein dans l'État d'activité, sans réduction. L'ancien régime frontalier (art. 15 § 4) est abrogé depuis ${ABROGATED_YEAR}.`,
@@ -400,19 +422,48 @@ function breadcrumbLd(locale: AustrianLocale, name: string, canonicalUrl: string
 
 // ── Page renderers ──────────────────────────────────────────────
 
+/**
+ * The comparison block that used to be a fixed link grid.
+ *
+ * Before (issue #5002): `AUSTRIAN_ABOVE_FLOOR.filter(self).slice(0, 6)` — the SAME
+ * six comuni on every page of the family, so the block carried no per-page
+ * information and every inbound link inside the family pointed at those six
+ * pages (the concentration PR #5107 fixed for articles). Measured 2026-08-24,
+ * the municipality families scored a median Information Gain of 0-15 percent.
+ *
+ * After: the six geographically nearest comuni with the figures that differ
+ * between them, plus prose stating where THIS comune sits in the group.
+ * Page-specific by construction — a comune's neighbour set is unique to it.
+ *
+ * Renderer, determinism argument and shared copy: `nearestMunicipalityComparison`.
+ */
 function renderRelated(locale: AustrianLocale, current: AustrianBorderMunicipality): string {
-  const others = AUSTRIAN_ABOVE_FLOOR.filter((m) => m.slug !== current.slug).slice(0, 6);
-  if (others.length === 0) return '';
-  const links = others
-    .map(
-      (m) =>
-        `<a class="rounded-md border border-edge bg-surface-raised p-3 text-sm font-semibold text-heading hover:border-accent-border" href="${austrianMunicipalityPathFor(locale, m.slug)}">${esc(m.name)} <span class="font-normal text-muted">· ${esc(getCantonDisplayName(m.canton, locale))}</span></a>`,
-    )
-    .join('');
-  return `<section class="mt-6 rounded-md border border-edge bg-surface p-5">
-      <h2 class="text-xl font-bold text-heading">${esc(COPY[locale].relatedTitle)}</h2>
-      <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">${links}</div>
-    </section>`;
+  const c = COPY[locale];
+  return renderNearestComparison<AustrianBorderMunicipality>({
+    locale,
+    current,
+    pool: AUSTRIAN_ABOVE_FLOOR,
+    hrefFor: (m) => austrianMunicipalityPathFor(locale, m.slug),
+    keyOf: (m) => m.slug,
+    columns: [
+      {
+        header: c.colBorderDistance,
+        value: (m) => `${intFmt(m.distanceKm, locale)} km`,
+        numeric: (m) => m.distanceKm,
+        formatNumeric: (value) => `${intFmt(value, locale)} km`,
+        spreadLabel: c.spreadComparison,
+      },
+      {
+        header: c.colPopulation,
+        value: (m) => intFmt(m.population, locale),
+      },
+      {
+        header: c.colCrossing,
+        value: (m) => m.nearestCrossing,
+      },
+    ],
+    sourceNote: c.comparisonSource,
+  });
 }
 
 export function renderAboveFloorPage(params: {

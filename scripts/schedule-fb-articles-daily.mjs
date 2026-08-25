@@ -52,6 +52,7 @@ import {
   isLandingPageLive,
 } from './lib/social-post-utils.mjs';
 import { ARTICLE_SECTION_CORE } from '../build-plugins/shared/articleSectionCore.mjs';
+import { facebookUrl, FACEBOOK_CAMPAIGN_ARTICLE } from './lib/facebook-links.mjs';
 
 export { buildArticleUrl, buildArticleCaption } from './lib/social-post-utils.mjs';
 
@@ -345,11 +346,15 @@ export async function run(opts = {}) {
       skipped += 1;
       continue;
     }
-    await rescrapeOg(p.url);
+    // Tag before the rescrape: FB caches OG metadata per exact URL string, so
+    // warming the bare URL leaves the one actually posted uncached. `p.url`
+    // stays untagged — it is the ledger's dedup key.
+    const link = facebookUrl(p.url, FACEBOOK_CAMPAIGN_ARTICLE, p.articleId);
+    await rescrapeOg(link);
     const apiUrl = `${GRAPH_BASE}/${pageId}/feed`;
     const buildBody = () => new URLSearchParams({
       message: p.message,
-      link: p.url,
+      link,
       place: ARTICLE_PLACE_ID,
       access_token: token,
     });

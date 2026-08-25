@@ -25,6 +25,7 @@ import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { EXIT_BLOCK } from './lib/hook-exit-codes.mjs';
+import { resolveHookTargetCwd } from './lib/hook-target-cwd.mjs';
 // La tassonomia degli stati vive in UN posto solo: riscriverla qui produrrebbe
 // due copie che divergono al primo stato nuovo, in silenzio.
 import { bulletsWithoutState, checkPrBodySections, extractSection, filesUncitedInBody } from '../lib/pr-body-sections-check.mjs';
@@ -37,8 +38,13 @@ const NON_IMPL_ANCORA_RE = /^[ \t]{0,3}#{2,3}[ \t]+Non[ \t]+implementato[^\n]*/i
  * Best-effort extraction of the PR body text from a `gh pr create` shell
  * command string. Returns `undefined` when no recognizable `--body` /
  * `--body-file` argument is found (caller should fail-safe / allow).
+ *
+ * `cwd` resolves a RELATIVE `--body-file` path against the directory the
+ * gated `gh pr create` is actually running in (see lib/hook-target-cwd.mjs);
+ * defaults to `process.cwd()` — this hook subprocess's own ambient
+ * directory — matching the previous behaviour when no better signal exists.
  */
-export function extractPrBody(command) {
+export function extractPrBody(command, cwd = process.cwd()) {
   // --body-file <path> | --body-file=<path> (quoted or bare)
   const fileMatch = command.match(
     /--body-file[= ]+(?:"([^"]+)"|'([^']+)'|(\S+))/,
@@ -46,7 +52,7 @@ export function extractPrBody(command) {
   if (fileMatch) {
     const path = fileMatch[1] ?? fileMatch[2] ?? fileMatch[3];
     try {
-      return readFileSync(resolve(path), 'utf8');
+      return readFileSync(resolve(cwd, path), 'utf8');
     } catch {
       return undefined; // unreadable path → can't verify, fail-safe
     }
@@ -106,14 +112,19 @@ export function warnAboutStatelessBullets(body) {
  * `[]` on any git failure (no `origin/main` locally, detached checkout, etc.) — this
  * feeds an advisory-only check, never worth blocking `gh pr create` over.
  *
+ * `cwd` (see lib/hook-target-cwd.mjs) makes `git diff` run against the
+ * worktree the gated command is actually in, not this hook's own ambient
+ * directory — defaults to `process.cwd()` when no better signal exists.
+ *
+ * @param {string} [cwd]
  * @returns {string[]}
  */
-export function localDiffPaths() {
+export function localDiffPaths(cwd = process.cwd()) {
   try {
     const out = execFileSync(
       'git',
       ['diff', '--name-only', 'origin/main...HEAD'],
-      { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] },
+      { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], cwd },
     );
     return out.split('\n').map((l) => l.trim()).filter(Boolean);
   } catch {
@@ -127,10 +138,11 @@ export function localDiffPaths() {
  * modificato e mai citato). Esportata per il test.
  *
  * @param {string} body corpo della PR
+ * @param {string} [cwd] vedi localDiffPaths
  * @returns {string[]} i path segnalati
  */
-export function warnAboutUncitedFiles(body) {
-  const diffPaths = localDiffPaths();
+export function warnAboutUncitedFiles(body, cwd) {
+  const diffPaths = localDiffPaths(cwd);
   if (diffPaths.length === 0) return [];
   const uncited = filesUncitedInBody(diffPaths, body);
   if (uncited.length === 0) return [];
@@ -146,6 +158,7 @@ export function warnAboutUncitedFiles(body) {
 
 async function main() {
   let command = '';
+  let targetCwd;
   try {
     const chunks = [];
     for await (const chunk of process.stdin) {
@@ -156,6 +169,7 @@ async function main() {
       try {
         const payload = JSON.parse(raw);
         command = payload?.tool_input?.command ?? payload?.command ?? '';
+        targetCwd = resolveHookTargetCwd(payload);
       } catch {
         command = raw; // raw text fallback — grep for gh pr create
       }
@@ -170,7 +184,7 @@ async function main() {
 
   let body;
   try {
-    body = extractPrBody(command);
+    body = extractPrBody(command, targetCwd);
   } catch {
     process.exit(0); // extraction error → fail-safe
   }
@@ -196,7 +210,7 @@ async function main() {
     warnAboutStatelessBullets(body);
   } catch { /* advisory: non blocca mai */ }
   try {
-    warnAboutUncitedFiles(body);
+    warnAboutUncitedFiles(body, targetCwd);
   } catch { /* advisory: non blocca mai */ }
 
   // BLOCKING (issue #6300 / recidiva #6289): un bullet «PR concatenata»

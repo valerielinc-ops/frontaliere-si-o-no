@@ -37,6 +37,7 @@
  */
 import { locateTagByAttribute, extractBalancedTagBlock } from './hospital-custom-html-helpers.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
+import { readMetaContent } from './html-attr.mjs';
 
 export const PKB_KEY = 'pkb-private-bank';
 export const COMPANY_NAME = 'PKB Private Bank SA';
@@ -202,9 +203,9 @@ export function parsePkbDetailPage(html, pageUrl = '') {
       .trim();
   }
   if (!title || title.length < 3) {
-    const ogMatch = html.match(/<meta[^>]*property=["']og:title["'][^>]*content=["']([^"']+)["']/i);
+    const ogMatch = readMetaContent(html, 'og:title');
     if (ogMatch) {
-      title = normalizeSpace(ogMatch[1])
+      title = normalizeSpace(ogMatch)
         .replace(/\s*-\s*(Svizzera|Switzerland|Suisse|Schweiz)\b.*$/i, '')
         .replace(/\s*-\s*PKB\b.*$/i, '')
         .trim();
@@ -224,7 +225,7 @@ export function parsePkbDetailPage(html, pageUrl = '') {
   const validThrough = parseArca24Date(extractItemprop(html, 'validThrough'));
 
   let description = '';
-  const located = locateTagByAttribute(html, 'itemprop=["\']description["\']');
+  const located = locateTagByAttribute(html, 'itemprop=["\']description["\']', { skipVoidTags: true });
   if (located) {
     const candidate = stripHtml(extractBalancedTagBlock(located.rest, located.tagName));
     if (candidate.length > 50) description = candidate;

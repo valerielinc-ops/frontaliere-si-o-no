@@ -26,6 +26,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, fetchHtml } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton, rescueSwissCityFromText  } from './target-swiss-locations.mjs';
+import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -160,8 +161,13 @@ function parseSearchPage(html = '') {
     const locM = block.match(/<span class="jobLocation">\s*([^<]*?)\s*</);
     const facM = block.match(/class="jobFacility">([^<]*)</);
     if (!titleM || !hrefM) continue;
+    const rowTitle = normalizeSpace(titleM[1]);
+    // A row whose anchor text is j2w page chrome (cookie-consent widget,
+    // search/alert box) isn't a job at all — discard the row, don't clean it,
+    // or it becomes a posting with no title.
+    if (isSuccessFactorsWidgetText(rowTitle)) continue;
     rows.push({
-      title: normalizeSpace(titleM[1]),
+      title: rowTitle,
       href: hrefM[1],
       locationText: locM ? normalizeSpace(locM[1]) : '',
       facility: facM ? normalizeSpace(facM[1]) : '',
@@ -321,7 +327,9 @@ export async function fetchAllConstelliumJobs() {
       || 'Sierre';
 
     const canton = inferCanton(`${city} ${detail.addressRegion || ''}`);
-    const descriptionText = stripHtml(detail.descriptionHtml || '');
+    // Detail-page description can also be j2w page chrome (same widget bleed
+    // as the title); sanitize before it can fall through to the fallback text.
+    const descriptionText = sanitizeSuccessFactorsField(stripHtml(detail.descriptionHtml || ''));
     const publicUrl = detail.url;
 
     const descText = descriptionText

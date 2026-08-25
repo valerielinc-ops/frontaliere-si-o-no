@@ -15,6 +15,11 @@ data/thin-page-promotions.jsonl    merge=union
 # commit di stato). Senza `merge=union` le due code collidono e wedgiano
 # esattamente il merge che deve avvenire da solo.
 data/prospector/ledger.jsonl       merge=union
+# data/build-history/memory-peaks.jsonl: one row per build-locale matrix leg
+# (it/en/de/fr, deploy.yml "Append build memory history row"), so up to 4
+# concurrent producers on the SAME run alone — same wedge risk as
+# dist-size-history.jsonl above, union keeps every leg's row.
+data/build-history/memory-peaks.jsonl merge=union
 
 # data/article-defect-history.jsonl is the article pipeline's rejection ledger
 # (docs/ARTICLE-LEARNING-LOOP.md §4.2): one row per generate-article run, saying

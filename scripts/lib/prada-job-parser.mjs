@@ -23,6 +23,7 @@
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
 import { extractMetaDescriptionRaw } from './meta-description-extract.mjs';
+import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
 
 const HQ = getCompanyDefaults('prada');
 
@@ -101,6 +102,10 @@ export function parsePradaListingHtml(html) {
     const jobId = match[3];
     const rawTitle = normalizeSpace(stripHtml(match[4]));
     if (!rawTitle || rawTitle.length < 3 || seen.has(jobId)) continue;
+    // Anchor text that IS the j2w page chrome (cookie-consent widget,
+    // keyword-search box, job-alert box) is not a posting — discard the row
+    // rather than clean it, which would leave an annuncio without a name.
+    if (isSuccessFactorsWidgetText(rawTitle)) continue;
     seen.add(jobId);
 
     const fullUrl = relUrl.startsWith('http') ? relUrl : `${CAREERS_BASE}${relUrl}`;
@@ -158,6 +163,10 @@ export function parsePradaListingHtml(html) {
       const jobId = fMatch[2];
       const rawTitle = normalizeSpace(stripHtml(fMatch[3]));
       if (!rawTitle || rawTitle.length < 3 || seen.has(jobId)) continue;
+      // Same guard as pattern 1 above — this fallback anchor is even more
+      // generic (any /job/.../{id}/ link), so it's just as exposed to
+      // picking up widget chrome instead of a job tile.
+      if (isSuccessFactorsWidgetText(rawTitle)) continue;
       seen.add(jobId);
 
       jobs.push({
@@ -262,11 +271,14 @@ export function parsePradaDetailHtml(html) {
     if (metaRaw !== null) description = normalizeSpace(metaRaw);
   }
 
-  // Extract title from the detail page
+  // Extract title from the detail page. Sanitized against j2w widget chrome
+  // (cookie-consent/keyword-search/job-alert headings): safe to blank out
+  // here because the only consumer (scripts/update-prada-jobs.mjs) builds the
+  // job title from the LISTING row's title, not from this detail title.
   const titleSource = stripScriptsAndStyles(html);
   const titleMatch = titleSource.match(/<h1[^>]*class="[^"]*jobTitle[^"]*"[^>]*>([\s\S]*?)<\/h1>/i)
     || titleSource.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
-  const title = titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : '';
+  const title = titleMatch ? sanitizeSuccessFactorsField(normalizeSpace(stripHtml(titleMatch[1]))) : '';
 
   // Extract location from the detail page
   const locMatch = html.match(/class="[^"]*jobdetail-location[^"]*"[^>]*>([\s\S]*?)<\/(?:span|div|td|p)>/i)
@@ -279,7 +291,9 @@ export function parsePradaDetailHtml(html) {
   const department = deptMatch ? normalizeSpace(stripHtml(deptMatch[1])) : '';
 
   return {
-    description: description || '',
+    // Sanitized last, after the og:description/meta fallbacks above, so a
+    // widget-chrome match on any of those sources is caught too.
+    description: sanitizeSuccessFactorsField(description || ''),
     rawHtml,
     title,
     location,

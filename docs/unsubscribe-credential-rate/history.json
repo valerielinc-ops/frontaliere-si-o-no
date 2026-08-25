@@ -112,6 +112,36 @@
         "uncredentialed_share",
         "fallback_rate_warn"
       ]
+    },
+    {
+      "date": "2026-08-24",
+      "windowHours": 168,
+      "counts": {
+        "autologin_code": 29,
+        "email_token": 124,
+        "legacy_auth_token": 0,
+        "missing": 34
+      },
+      "graded": 153,
+      "fallbackRate": 0.1895424836601307,
+      "findings": [
+        "fallback_rate_warn"
+      ]
+    },
+    {
+      "date": "2026-08-25",
+      "windowHours": 168,
+      "counts": {
+        "autologin_code": 31,
+        "email_token": 117,
+        "legacy_auth_token": 0,
+        "missing": 7
+      },
+      "graded": 148,
+      "fallbackRate": 0.20945945945945946,
+      "findings": [
+        "fallback_rate_warn"
+      ]
     }
   ]
 }

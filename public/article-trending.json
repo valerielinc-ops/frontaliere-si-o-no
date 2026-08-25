@@ -1,17 +1,18 @@
 {
-  "generatedAt": "2026-08-24T05:55:37.361Z",
-  "totalScanned": 4235,
-  "eligible": 2372,
+  "generatedAt": "2026-08-25T05:50:18.466Z",
+  "totalScanned": 3823,
+  "scanWindowDays": 30,
+  "eligible": 2563,
   "entries": [
     {
       "id": "funivia-monteviasco-orari-corsi",
-      "views": 549,
-      "lastViewed": 1787510173968
+      "views": 556,
+      "lastViewed": 1787636988604
     },
     {
       "id": "a9-chiasso-como-chiusure-frontalieri",
-      "views": 524,
-      "lastViewed": 1787470246477
+      "views": 526,
+      "lastViewed": 1787612190027
     },
     {
       "id": "g7-evian-frontiere-chiuse-2026",
@@ -20,18 +21,18 @@
     },
     {
       "id": "confine-italia-svizzera-6-regole-doganali",
-      "views": 342,
-      "lastViewed": 1787514120369
+      "views": 345,
+      "lastViewed": 1787606407120
     },
     {
       "id": "guida-dichiarazione-redditi-frontalieri",
-      "views": 323,
-      "lastViewed": 1787517565407
+      "views": 324,
+      "lastViewed": 1787601286979
     },
     {
       "id": "vivere-svizzera-vs-italia-frontaliere",
-      "views": 296,
-      "lastViewed": 1787492072495
+      "views": 299,
+      "lastViewed": 1787579126045
     },
     {
       "id": "allentamenti-affitti-brevi-ticino-2025",
@@ -39,34 +40,34 @@
       "lastViewed": 1787234164108
     },
     {
-      "id": "comuni-migliori-frontalieri",
-      "views": 220,
-      "lastViewed": 1787492509818
+      "id": "costo-vivere-lugano-trasferirsi",
+      "views": 223,
+      "lastViewed": 1787590421762
     },
     {
-      "id": "costo-vivere-lugano-trasferirsi",
-      "views": 220,
-      "lastViewed": 1787509054277
+      "id": "comuni-migliori-frontalieri",
+      "views": 222,
+      "lastViewed": 1787587294204
     },
     {
       "id": "mutuo-casa-frontalieri-italia",
-      "views": 207,
-      "lastViewed": 1787507284692
+      "views": 208,
+      "lastViewed": 1787566540996
     },
     {
       "id": "g-bewilligung-leitfaden-grenzgaenger-2026",
-      "views": 199,
-      "lastViewed": 1787392122547
+      "views": 202,
+      "lastViewed": 1787586934702
     },
     {
       "id": "chiasso-como-cantieri-a9-disagi",
-      "views": 198,
-      "lastViewed": 1787505511344
+      "views": 200,
+      "lastViewed": 1787600815925
     },
     {
       "id": "apertura-pesca-ticino",
-      "views": 188,
-      "lastViewed": 1787493411449
+      "views": 190,
+      "lastViewed": 1787618786278
     },
     {
       "id": "stipendio-netto-2026",
@@ -90,8 +91,8 @@
     },
     {
       "id": "costo-vita-svizzera-mappa",
-      "views": 140,
-      "lastViewed": 1787545983808
+      "views": 143,
+      "lastViewed": 1787611043514
     },
     {
       "id": "smart-working-frontalieri-2026",
@@ -99,29 +100,29 @@
       "lastViewed": 1787401190969
     },
     {
+      "id": "scuola-como-chiusura-socco",
+      "views": 136,
+      "lastViewed": 1787603779608
+    },
+    {
       "id": "calcolo-pensione-avs-inps",
-      "views": 133,
-      "lastViewed": 1787499476898
+      "views": 135,
+      "lastViewed": 1787572991616
     },
     {
       "id": "guida-pensione-frontaliere-avs-lpp",
-      "views": 130,
-      "lastViewed": 1787326089679
+      "views": 133,
+      "lastViewed": 1787636261680
     },
     {
       "id": "chiasso-grenzubergang",
-      "views": 129,
-      "lastViewed": 1787350432557
-    },
-    {
-      "id": "venditti-estival-lugano-2026",
-      "views": 120,
-      "lastViewed": 1786968203622
+      "views": 130,
+      "lastViewed": 1787577481777
     },
     {
       "id": "chiusure-autostrada-a9-lombardia-2026",
-      "views": 114,
-      "lastViewed": 1787376792615
+      "views": 118,
+      "lastViewed": 1787592758992
     },
     {
       "id": "guida-contributi-sociali-svizzera",
@@ -129,14 +130,14 @@
       "lastViewed": 1787403935195
     },
     {
+      "id": "aprire-conto-bancario-frontaliere",
+      "views": 112,
+      "lastViewed": 1787574518478
+    },
+    {
       "id": "calcolo-tasse-entro-confine",
       "views": 111,
       "lastViewed": 1787135584589
-    },
-    {
-      "id": "aprire-conto-bancario-frontaliere",
-      "views": 110,
-      "lastViewed": 1787435790848
     },
     {
       "id": "autostrada-a9-disagi-frontalieri",
@@ -159,9 +160,14 @@
       "lastViewed": 1787517388487
     },
     {
+      "id": "frontalieri-ticino-dati-q4-2025",
+      "views": 97,
+      "lastViewed": 1787556714989
+    },
+    {
       "id": "chiasso-dogana-tempi-attesa",
-      "views": 96,
-      "lastViewed": 1787518414123
+      "views": 97,
+      "lastViewed": 1787604805097
     },
     {
       "id": "incendi-boschivi-ticino-2026",
@@ -175,18 +181,23 @@
     },
     {
       "id": "pilastro-3a-frontaliere",
-      "views": 88,
-      "lastViewed": 1787489958345
+      "views": 89,
+      "lastViewed": 1787594561030
     },
     {
       "id": "educatore-infanzia-ticino-stipendio",
-      "views": 84,
-      "lastViewed": 1787522325111
+      "views": 85,
+      "lastViewed": 1787568511956
     },
     {
       "id": "tilo-stabio-malpensa-sospensione-2026",
       "views": 83,
       "lastViewed": 1787067430715
+    },
+    {
+      "id": "permesso-g-vantaggi-svantaggi",
+      "views": 81,
+      "lastViewed": 1787579375865
     },
     {
       "id": "grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026",
@@ -195,13 +206,13 @@
     },
     {
       "id": "credito-imposta-doppia-tassazione",
-      "views": 79,
-      "lastViewed": 1787166518281
+      "views": 80,
+      "lastViewed": 1787575496868
     },
     {
-      "id": "permesso-g-vantaggi-svantaggi",
-      "views": 79,
-      "lastViewed": 1787037823196
+      "id": "bollini-rossi-traffico-san-gottardo-2026",
+      "views": 80,
+      "lastViewed": 1787584995553
     },
     {
       "id": "permesso-b-vs-g-differenze",
@@ -210,13 +221,8 @@
     },
     {
       "id": "asilo-nido-frontaliere-ticino",
-      "views": 76,
-      "lastViewed": 1787504828841
-    },
-    {
-      "id": "fuochi-allaperto-ticino-grazie-normativa-2024",
-      "views": 76,
-      "lastViewed": 1787485656652
+      "views": 77,
+      "lastViewed": 1787610339001
     },
     {
       "id": "nuovo-contratto-edilizia-ticino-2026-2031",
@@ -224,9 +230,9 @@
       "lastViewed": 1787278283334
     },
     {
-      "id": "confine-a9-disagi-marzo",
-      "views": 75,
-      "lastViewed": 1786978966057
+      "id": "fuochi-allaperto-ticino-grazie-normativa-2024",
+      "views": 76,
+      "lastViewed": 1787485656652
     },
     {
       "id": "tassa-transito-svizzera-2023",
@@ -239,19 +245,14 @@
       "lastViewed": 1787529202153
     },
     {
+      "id": "sostituzione-caldaia-ticino-2026",
+      "views": 72,
+      "lastViewed": 1787603810312
+    },
+    {
       "id": "licenziamento-postino-ticino",
       "views": 71,
       "lastViewed": 1785367762026
-    },
-    {
-      "id": "incendio-monte-gambarogno",
-      "views": 69,
-      "lastViewed": 1787429321524
-    },
-    {
-      "id": "lavoretti-estivi-2026-regole-frontaliere",
-      "views": 69,
-      "lastViewed": 1787440451384
     }
   ]
 }

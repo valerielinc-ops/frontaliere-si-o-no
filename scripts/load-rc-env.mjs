@@ -161,6 +161,24 @@ export const RC_TO_ENV = {
   LINKEDIN_POST_ACCESS_TOKEN:     ['LINKEDIN_POST_ACCESS_TOKEN'],
   LINKEDIN_ORGANIZATION_ID:       ['LINKEDIN_ORGANIZATION_ID'],
 
+  // LinkedIn auto-posting (PERSONAL profile — scripts/post-to-linkedin-member.mjs).
+  // Distinct from LINKEDIN_POST_* above: that set authors as
+  // `urn:li:organization:<id>` with w_organization_social (Community Management
+  // API, access denied — appeal CAS-11756532-G7J8T5), this one authors as
+  // `urn:li:person:<id>` with w_member_social ("Share on LinkedIn", already
+  // provisioned). Sharing one credential set between the two would make the
+  // author identity a runtime branch on a token.
+  // ALL FOUR are ABSENT in RC until the owner completes the one-time OAuth
+  // consent (scripts/linkedin-member-auth.mjs) — the poster fail-soft-skips
+  // until then, so the workflow is green with none of them set.
+  // _URN is not discoverable at runtime: /v2/userinfo needs a scope this app
+  // does not have, so it is configuration. See the auth helper's header.
+  LINKEDIN_MEMBER_CLIENT_ID:      ['LINKEDIN_MEMBER_CLIENT_ID'],
+  LINKEDIN_MEMBER_CLIENT_SECRET:  ['LINKEDIN_MEMBER_CLIENT_SECRET'],
+  LINKEDIN_MEMBER_ACCESS_TOKEN:   ['LINKEDIN_MEMBER_ACCESS_TOKEN'],
+  LINKEDIN_MEMBER_REFRESH_TOKEN:  ['LINKEDIN_MEMBER_REFRESH_TOKEN'],
+  LINKEDIN_MEMBER_URN:            ['LINKEDIN_MEMBER_URN'],
+
   // LinkedIn Sign-In (OAuth2 for user authentication)
   LINKEDIN_SIGNIN_CLIENT_ID:      ['LINKEDIN_SIGNIN_CLIENT_ID'],
   LINKEDIN_SIGNIN_CLIENT_SECRET:  ['LINKEDIN_SIGNIN_CLIENT_SECRET'],
@@ -184,6 +202,36 @@ export const RC_TO_ENV = {
   SERVER_REDDIT_CLIENT_SECRET:    ['REDDIT_CLIENT_SECRET'],
   SERVER_REDDIT_PASSWORD:         ['REDDIT_PASSWORD'],
   SERVER_REDDIT_REFRESH_TOKEN:    ['REDDIT_REFRESH_TOKEN'],
+
+  // Instagram auto-posting (carousel — scripts/post-to-instagram.mjs). Business
+  // account created 2026-08-24, linked to the existing FB_PAGE_ID Page. Public
+  // identifiers only until the owner clears Meta App Review for
+  // instagram_content_publish — until then the poster fail-soft-skips.
+  // NOTE: these RC params already existed (scripts/set-instagram-tiktok-rc.mjs)
+  // but were never mapped here — this file is the ONLY Remote Config → env
+  // bridge, so TIKTOK_ACCESS_TOKEN/INSTAGRAM_ACCESS_TOKEN stayed `undefined`
+  // for the poster scripts no matter what Remote Config held.
+  INSTAGRAM_USERNAME:                  ['INSTAGRAM_USERNAME'],
+  INSTAGRAM_BUSINESS_ACCOUNT_ID:       ['INSTAGRAM_BUSINESS_ACCOUNT_ID'],
+  SERVER_INSTAGRAM_ACCESS_TOKEN:       ['INSTAGRAM_ACCESS_TOKEN'],
+
+  // TikTok auto-posting (carousel — scripts/post-to-tiktok.mjs). Account
+  // created 2026-08-24. _CLIENT_KEY/_CLIENT_SECRET are the PRODUCTION app;
+  // the _SANDBOX_ pair is for scripts/tiktok-auth.mjs and pre-audit testing
+  // (sandbox posts are always SELF_ONLY, capped to ten linked test accounts —
+  // see the auth helper's header). _ACCESS_TOKEN/_REFRESH_TOKEN are ABSENT
+  // until the owner runs scripts/tiktok-auth.mjs; the poster fail-soft-skips
+  // until then. Access tokens are short-lived (24h) — unlike every other
+  // channel here, post-to-tiktok.mjs's getAccessToken() MUST refresh, so
+  // _REFRESH_TOKEN + the client pair are mapped even though nothing else in
+  // this file needs a client id/secret pair just to make one API call.
+  TIKTOK_USERNAME:                     ['TIKTOK_USERNAME'],
+  SERVER_TIKTOK_CLIENT_KEY:            ['TIKTOK_CLIENT_KEY'],
+  SERVER_TIKTOK_CLIENT_SECRET:         ['TIKTOK_CLIENT_SECRET'],
+  SERVER_TIKTOK_ACCESS_TOKEN:          ['TIKTOK_ACCESS_TOKEN'],
+  SERVER_TIKTOK_REFRESH_TOKEN:         ['TIKTOK_REFRESH_TOKEN'],
+  SERVER_TIKTOK_SANDBOX_CLIENT_KEY:    ['TIKTOK_SANDBOX_CLIENT_KEY'],
+  SERVER_TIKTOK_SANDBOX_CLIENT_SECRET: ['TIKTOK_SANDBOX_CLIENT_SECRET'],
 
   // LLM providers (AI model chain for articles + crawlers)
   GROQ_API_KEY:                   ['GROQ_API_KEY'],

@@ -22,8 +22,8 @@ const MISSING_NON = '## Implementato\n\nfoo bar baz';
 const MISSING_IMPL = '## Non implementato (ancora)\n\nNessuno';
 const MISSING_BOTH = '## Summary\n\nfoo\n\n## Test plan\n\nbar';
 
-function runGate(command: string) {
-  const payload = JSON.stringify({ tool_input: { command } });
+function runGate(command: string, extraPayload: Record<string, unknown> = {}) {
+  const payload = JSON.stringify({ tool_input: { command }, ...extraPayload });
   return spawnSync('node', [GATE], { input: payload, encoding: 'utf8' });
 }
 
@@ -68,6 +68,26 @@ describe('extractPrBody', () => {
     expect(
       extractPrBody('gh pr create --title "x" --body-file /nope/does-not-exist.md'),
     ).toBeUndefined();
+  });
+
+  // 2026-08-25: neither this function nor localDiffPaths() resolved a RELATIVE
+  // --body-file against the directory the gated `gh pr create` was actually
+  // running in — both defaulted to `process.cwd()`, this hook subprocess's
+  // own ambient directory, which is NOT the worktree Claude Code's tracked
+  // `cwd` (payload.cwd) points at. See scripts/ci/lib/hook-target-cwd.mjs.
+  it('resolves a RELATIVE --body-file against the given cwd, not process.cwd()', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-gate-'));
+    try {
+      writeFileSync(join(dir, 'body.md'), BOTH_HEADERS, 'utf8');
+      const cmd = `gh pr create --title "x" --body-file body.md`;
+      // No cwd → resolves against process.cwd() (this test file's cwd), where
+      // body.md does not exist.
+      expect(extractPrBody(cmd)).toBeUndefined();
+      // Given the worktree's cwd explicitly → finds it.
+      expect(extractPrBody(cmd, dir)).toBe(BOTH_HEADERS);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
   });
 });
 
@@ -165,6 +185,30 @@ describe('pr-body-check-gate hook (process behavior)', () => {
       '## Implementato\n\n- fatto in questa PR\n\n## Non implementato (ancora)\n\n- foo resta da fare più tardi\n';
     const cmd = `gh pr create --title "x" --body '${body}'`;
     const res = runGate(cmd);
+    expect(res.status).toBe(0);
+  });
+
+  // 2026-08-25: end-to-end proof that payload.cwd reaches extractPrBody, not
+  // just the unit-level default-parameter test above. Without the fix this
+  // command would exit 0 fail-safe (relative body-file unreadable from this
+  // hook subprocess's own ambient cwd → extractPrBody returns undefined →
+  // "can't verify, don't block") EVEN THOUGH the body is missing a header.
+  it('blocks (EXIT_BLOCK=2) via a RELATIVE --body-file resolved against payload.cwd', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-gate-'));
+    createdDirs.push(dir);
+    writeFileSync(join(dir, 'body.md'), MISSING_NON, 'utf8');
+    const cmd = 'gh pr create --title "x" --body-file body.md';
+    const res = runGate(cmd, { cwd: dir });
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/Non implementato/);
+  });
+
+  it('without payload.cwd, the same relative --body-file fails safe (exit 0) — the pre-fix behaviour', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-gate-'));
+    createdDirs.push(dir);
+    writeFileSync(join(dir, 'body.md'), MISSING_NON, 'utf8');
+    const cmd = 'gh pr create --title "x" --body-file body.md';
+    const res = runGate(cmd); // no cwd in payload
     expect(res.status).toBe(0);
   });
 });

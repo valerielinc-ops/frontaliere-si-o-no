@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from '@/services/i18n';
-import { Car, FileText, CreditCard, Shield, Clock, CheckCircle2, AlertCircle, Info, ChevronDown, ChevronUp, ArrowRight, Landmark, ExternalLink, MapPin } from 'lucide-react';
+import { Car, FileText, CreditCard, Shield, Clock, CheckCircle2, AlertCircle, Info, ArrowRight, Landmark, ExternalLink, MapPin } from 'lucide-react';
+import AiExtractableTable from '@/components/shared/AiExtractableTable';
+import FaqAccordion from '@/components/shared/FaqAccordion';
 import { getHashSection } from '@/services/router';
 
 type CarSection = 'overview' | 'customs' | 'registration' | 'plates' | 'license' | 'insurance' | 'costs' | 'checklist';
@@ -10,7 +12,6 @@ const CAR_SECTIONS = ['overview', 'customs', 'registration', 'plates', 'license'
 const CarTransferGuide: React.FC = () => {
  const { t } = useTranslation();
  const [activeSection, setActiveSection] = useState<CarSection>(() => getHashSection(CAR_SECTIONS, 'overview'));
- const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
 
  const sections: { key: CarSection; icon: React.ElementType; label: string }[] = [
  { key: 'overview', icon: Car, label: t('carTransfer.sections.overview') },
@@ -24,13 +25,67 @@ const CarTransferGuide: React.FC = () => {
  ];
 
  const faqItems = [
- { q: t('carTransfer.faq.q1'), a: t('carTransfer.faq.a1') },
- { q: t('carTransfer.faq.q2'), a: t('carTransfer.faq.a2') },
- { q: t('carTransfer.faq.q3'), a: t('carTransfer.faq.a3') },
- { q: t('carTransfer.faq.q4'), a: t('carTransfer.faq.a4') },
- { q: t('carTransfer.faq.q5'), a: t('carTransfer.faq.a5') },
- { q: t('carTransfer.faq.q6'), a: t('carTransfer.faq.a6') },
+ { question: t('carTransfer.faq.q1'), answer: t('carTransfer.faq.a1') },
+ { question: t('carTransfer.faq.q2'), answer: t('carTransfer.faq.a2') },
+ { question: t('carTransfer.faq.q3'), answer: t('carTransfer.faq.a3') },
+ { question: t('carTransfer.faq.q4'), answer: t('carTransfer.faq.a4') },
+ { question: t('carTransfer.faq.q5'), answer: t('carTransfer.faq.a5') },
+ { question: t('carTransfer.faq.q6'), answer: t('carTransfer.faq.a6') },
  ];
+
+ // HowTo JSON-LD sui 5 passi della timeline, FAQPage sulle 6 Q&A gia' tradotte.
+ // Stesso guard e stesse ragioni di WorkPermitsGuide: si interrogano solo i
+ // JSON-LD STATICI (`:not([data-dynamic-ld])`) perche' quelli dinamici sono di
+ // seoService e in navigazione SPA sarebbero ancora quelli della pagina
+ // precedente; e lo script iniettato qui non porta quell'attributo, o
+ // seoService lo cancellerebbe col componente ancora montato.
+ const howToLdJson = JSON.stringify({
+ '@context': 'https://schema.org',
+ '@type': 'HowTo',
+ name: t('carTransfer.title'),
+ description: t('carTransfer.subtitle'),
+ step: [1, 2, 3, 4, 5].map(n => ({
+ '@type': 'HowToStep',
+ position: n,
+ name: t(`carTransfer.overview.step${n}Title`),
+ text: t(`carTransfer.overview.step${n}Desc`),
+ })),
+ });
+
+ const faqLdJson = JSON.stringify({
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: faqItems.map(item => ({
+ '@type': 'Question',
+ name: item.question,
+ acceptedAnswer: { '@type': 'Answer', text: item.answer },
+ })),
+ });
+
+ useEffect(() => {
+ const blocks: { id: string; type: string; json: string }[] = [
+ { id: 'car-transfer-howto-jsonld', type: 'HowTo', json: howToLdJson },
+ { id: 'car-transfer-faq-jsonld', type: 'FAQPage', json: faqLdJson },
+ ];
+ const injected: string[] = [];
+ for (const block of blocks) {
+ const alreadyOnPage = Array.from(
+ document.querySelectorAll('script[type="application/ld+json"]:not([data-dynamic-ld])')
+ ).some(el => {
+ if (el.id === block.id) return false;
+ try { return JSON.parse(el.textContent || '')?.['@type'] === block.type; } catch { return false; }
+ });
+ if (alreadyOnPage) continue;
+ document.getElementById(block.id)?.remove();
+ const script = document.createElement('script');
+ script.type = 'application/ld+json';
+ script.id = block.id;
+ script.textContent = block.json;
+ document.head.appendChild(script);
+ injected.push(block.id);
+ }
+ return () => { injected.forEach(id => document.getElementById(id)?.remove()); };
+ }, [howToLdJson, faqLdJson]);
 
  return (
  <div className="space-y-6">
@@ -418,40 +473,25 @@ const CarTransferGuide: React.FC = () => {
  {activeSection === 'costs' && (
  <div className="space-y-4 animate-fade-in">
  <div className="bg-surface rounded-2xl border border-edge p-6">
- <h3 className="text-lg font-bold font-display text-strong mb-4 flex items-center gap-2">
- <CreditCard size={20} className="text-accent" />
- {t('carTransfer.costs.title')}
- </h3>
  <p className="text-subtle mb-6">{t('carTransfer.costs.intro')}</p>
 
- <div className="overflow-x-auto">
- <table className="w-full text-sm">
- <thead>
- <tr className="border-b border-edge">
- <th className="text-left py-3 px-4 font-bold text-body">{t('carTransfer.costs.item')}</th>
- <th className="text-right py-3 px-4 font-bold text-body">{t('carTransfer.costs.amount')}</th>
- <th className="text-left py-3 px-4 font-bold text-body">{t('carTransfer.costs.notes')}</th>
- </tr>
- </thead>
- <tbody>
- {[
+ <AiExtractableTable
+ caption={t('carTransfer.costs.title')}
+ columns={[
+ { header: t('carTransfer.costs.item'), accessor: 'item' },
+ { header: t('carTransfer.costs.amount'), accessor: 'amount' },
+ { header: t('carTransfer.costs.notes'), accessor: 'note' },
+ ]}
+ rows={[
  { item: t('carTransfer.costs.row1Item'), amount: t('carTransfer.costs.row1Amount'), note: t('carTransfer.costs.row1Note') },
- { item: t('carTransfer.costs.row2Item'), amount: 'CHF 60–100', note: t('carTransfer.costs.row2Note') },
- { item: t('carTransfer.costs.row3Item'), amount: 'CHF 30–50', note: t('carTransfer.costs.row3Note') },
- { item: t('carTransfer.costs.row4Item'), amount: 'CHF 50–80', note: t('carTransfer.costs.row4Note') },
+ { item: t('carTransfer.costs.row2Item'), amount: 'CHF 60\u2013100', note: t('carTransfer.costs.row2Note') },
+ { item: t('carTransfer.costs.row3Item'), amount: 'CHF 30\u201350', note: t('carTransfer.costs.row3Note') },
+ { item: t('carTransfer.costs.row4Item'), amount: 'CHF 50\u201380', note: t('carTransfer.costs.row4Note') },
  { item: t('carTransfer.costs.row5Item'), amount: 'CHF 40', note: t('carTransfer.costs.row5Note') },
  { item: t('carTransfer.costs.row6Item'), amount: t('carTransfer.costs.row6Amount'), note: t('carTransfer.costs.row6Note') },
  { item: t('carTransfer.costs.row7Item'), amount: 'CHF 35', note: t('carTransfer.costs.row7Note') },
- ].map((row, i) => (
- <tr key={i} className="border-b border-edge">
- <td className="py-3 px-4 text-body">{row.item}</td>
- <td className="py-3 px-4 text-right font-bold text-strong">{row.amount}</td>
- <td className="py-3 px-4 text-muted">{row.note}</td>
- </tr>
- ))}
- </tbody>
- </table>
- </div>
+ ]}
+ />
 
  <div className="mt-4 bg-accent-subtle rounded-xl p-4">
  <div className="flex justify-between items-center">
@@ -525,28 +565,12 @@ const CarTransferGuide: React.FC = () => {
  </div>
  )}
 
- {/* FAQ */}
- <div className="bg-surface rounded-2xl border border-edge p-6">
- <h3 className="text-lg font-bold font-display text-strong mb-4">{t('carTransfer.faq.title')}</h3>
- <div className="space-y-2">
- {faqItems.map((item, i) => (
- <div key={i} className="border border-edge rounded-xl overflow-hidden">
- <button
- onClick={() => setExpandedFaq(expandedFaq === i ? null : i)}
- className="w-full flex items-center justify-between p-4 text-left hover:bg-surface-raised/50 transition-colors" aria-expanded={expandedFaq === i}
- >
- <span className="text-sm font-semibold text-body pr-4">{item.q}</span>
- {expandedFaq === i ? <ChevronUp size={16} className="shrink-0 text-muted" /> : <ChevronDown size={16} className="shrink-0 text-muted" />}
- </button>
- {expandedFaq === i && (
- <div className="px-4 pb-4 text-sm text-subtle border-t border-edge pt-3">
- {item.a}
- </div>
- )}
- </div>
- ))}
- </div>
- </div>
+ {/* FAQ — stesse Q&A del FAQPage JSON-LD, rese da FaqAccordion */}
+ <FaqAccordion
+ title={t('carTransfer.faq.title')}
+ items={faqItems}
+ className="bg-surface rounded-2xl border border-edge p-6"
+ />
 
  {/* Useful Links */}
  <div className="bg-surface-alt rounded-2xl border border-edge p-6">

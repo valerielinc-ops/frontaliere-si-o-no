@@ -34,6 +34,26 @@
  *      regression when the RPM signal fires AND current-day earnings are
  *      also materially below the baseline earnings. This preserves the
  *      2026-05-28 catch (earnings cratered) while silencing PV-spike dips.
+ *
+ * A third property, added after issue #4610 (2026-07-20..25): the two rules
+ * above only catch an ACUTE regression — one that stands out against a
+ * trailing 7-day baseline (T-9..T-3). #4610 fired once (2026-07-20, RPM
+ * 3.15→0.24) and self-closed the next day because that single day "rolled
+ * back into" the comparison window. From then on every run stayed green
+ * even though the underlying problem (bot/scraper traffic diluting ad
+ * requests) kept getting worse for weeks — AdSense account-level
+ * AD_REQUESTS_COVERAGE fell 58%→41%→21% June→August 2026. A MOVING
+ * baseline that is itself built from the last 7-9 degraded days adapts to
+ * the new (bad) level, so the day-over-day ratio stops showing any
+ * contrast: a classic "baseline chasing the regression" blind spot that no
+ * short moving window can see by construction.
+ *
+ * `classifyCoverage` closes that gap with a check that is deliberately NOT
+ * baseline-relative: AD_REQUESTS_COVERAGE (the fraction of ad requests that
+ * were actually filled) compared against a fixed absolute floor, averaged
+ * over a short trailing window of fully-closed days so one noisy day can't
+ * trip it. Because the floor never moves, it cannot be "adapted to" by a
+ * sustained drift the way the RPM/earnings baseline can.
  */
 
 import {
@@ -48,10 +68,25 @@ export const BASELINE_DAYS = 7;
 export const BASELINE_LAG_DAYS = 3; // baseline ends at T-3 (skips noisy last days)
 export const REQUIRED_BASELINE_SAMPLES = 5; // need at least 5 days of baseline data
 
+// Coverage floor (issue #4610 fix): AD_REQUESTS_COVERAGE is a fraction
+// (0..1) of ad requests AdSense actually filled. Historical (Jan-Jun 2026)
+// daily coverage sat at 56-67%; by August 2026 monthly account coverage had
+// fallen to 21%. 0.45 sits comfortably below the healthy range so it does
+// not fire on normal noise, but above the 41% already seen in July —
+// catching the drift roughly a month earlier than waiting for it to reach
+// the ~21% territory the ratio/earnings gate above still wouldn't flag
+// (because by then the 7-day RPM baseline has adapted to the bad level too).
+export const DEFAULT_COVERAGE_FLOOR = 0.45;
+// Require the floor breach to hold over several consecutive closed days —
+// "sustained", not a single bad day (that acute case is already covered by
+// the RPM+earnings gate above). 3 days keeps detection latency low while
+// filtering one-off noise.
+export const COVERAGE_SUSTAIN_DAYS = 3;
+
 const RPM_LABELS = { metric: 'RPM', confirm: 'Earnings', volumeNoun: 'page-view', volumeAbbrev: 'pv', decimals: 2 };
 
 /**
- * @typedef {{ date: string, rpm: number, earnings: number, pageViews: number }} DailyRow
+ * @typedef {{ date: string, rpm: number, earnings: number, pageViews: number, coverage?: number }} DailyRow
  */
 
 /**
@@ -112,4 +147,64 @@ export function classifyRpm(rows, opts = {}) {
     reasons: generic.reasons,
     ...(generic.note ? { note: generic.note } : {}),
   };
+}
+
+/**
+ * Classify sustained AD_REQUESTS_COVERAGE degradation — the complementary,
+ * NON-baseline-relative check described in the module docstring (issue
+ * #4610). Averages `coverage` (fraction 0..1) over the last `sustainDays`
+ * fully-closed days and compares it against a fixed floor. Unlike
+ * `classifyRpm`, this has nothing to "adapt to": the floor never moves, so
+ * a degradation that has already dragged the RPM/earnings moving baseline
+ * down with it still shows up here.
+ *
+ * Intentionally uses the SAME `latestClosedIndex` (pageViews-based
+ * still-open/truncated-day guard) as `classifyRpm` so both checks agree on
+ * which days are "closed" — a row missing `coverage` (undefined/NaN) inside
+ * the window is treated as missing data, not as 0% coverage.
+ *
+ * @param {DailyRow[]} rows ascending by date (needs `date`, `pageViews`,
+ *   `coverage`)
+ * @param {{ coverageFloor?: number, sustainDays?: number, todayUtc?: string }} [opts]
+ */
+export function classifyCoverage(rows, opts = {}) {
+  const coverageFloor = opts.coverageFloor ?? DEFAULT_COVERAGE_FLOOR;
+  const sustainDays = opts.sustainDays ?? COVERAGE_SUSTAIN_DAYS;
+  const todayUtc = opts.todayUtc;
+
+  const closedIdx = latestClosedIndex(rows, todayUtc);
+  if (closedIdx < 0 || closedIdx + 1 < sustainDays) {
+    return {
+      verdict: 'insufficient-data',
+      reason: `need ${sustainDays} fully-closed day(s) of coverage data, got ${Math.max(closedIdx + 1, 0)}`,
+    };
+  }
+
+  const window = rows.slice(closedIdx - sustainDays + 1, closedIdx + 1);
+  const values = window.map((r) => (typeof r.coverage === 'number' ? r.coverage : NaN));
+  if (values.some((v) => !Number.isFinite(v))) {
+    return { verdict: 'insufficient-data', reason: 'coverage data missing for one or more days in the window' };
+  }
+
+  const avgCoverage = values.reduce((s, v) => s + v, 0) / values.length;
+  const isRegression = avgCoverage < coverageFloor;
+  const pct = (n) => (n * 100).toFixed(0);
+
+  const result = {
+    verdict: isRegression ? 'coverage-regression' : 'healthy',
+    window: { from: window[0].date, to: window[window.length - 1].date, days: window.length },
+    coverage: window.map((r, i) => ({ date: r.date, coverage: values[i] })),
+    avgCoverage: Number(avgCoverage.toFixed(4)),
+    floor: coverageFloor,
+    reasons: [],
+  };
+  if (isRegression) {
+    result.reasons.push(
+      `AD_REQUESTS_COVERAGE averaged ${pct(avgCoverage)}% over the last ${sustainDays} closed days ` +
+        `(${window.map((r, i) => `${r.date}=${pct(values[i])}%`).join(', ')}) — below the ${pct(coverageFloor)}% ` +
+        `absolute floor. Sustained low coverage; not caught by the RPM/earnings gate because a degradation this ` +
+        `long has already been absorbed into its own 7-day baseline (see issue #4610).`,
+    );
+  }
+  return result;
 }

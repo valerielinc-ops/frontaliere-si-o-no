@@ -375,7 +375,7 @@ const relaxedNote = relaxed
 
 const body = `## Implementato
 
-- **in questa PR** — ${shipped.length} crawler promossi dal prospector, per **${totalVacancies} annunci** di datori che non coprivamo. Ognuno ha superato il gate di \`scripts/lib/prospector/promotion-gate.mjs\`: qualita' >= ${GATE_DEFAULTS.minScore} contro la pagina ufficiale del datore, su almeno ${GATE_DEFAULTS.minSampled} pagine di dettaglio, con **${GATE_DEFAULTS.minRuns} validazioni buone su ${GATE_DEFAULTS.minDistinctDays} giorni distinti** — la condizione che una singola run, per quanto buona, non puo' soddisfare.
+- **in questa PR** — ${shipped.length} crawler promossi dal prospector, per **${totalVacancies} annunci** di datori che non coprivamo. Ognuno ha superato il gate di \`scripts/lib/prospector/promotion-gate.mjs\`: qualita' >= ${GATE_DEFAULTS.minScore} contro la pagina ufficiale del datore, su almeno ${GATE_DEFAULTS.minSampled} pagine di dettaglio, con **${GATE_DEFAULTS.minRuns} validazioni buone su ${GATE_DEFAULTS.minDistinctDays} giorni distinti** — la condizione che una singola run, per quanto buona, non puo' soddisfare — e con almeno il ${Math.round(GATE_DEFAULTS.minJobLike * 100)}% delle pagine di dettaglio che **legge come un annuncio di lavoro** e non come contenuto promozionale o editoriale.
 ${bullets}${relaxedNote}
 - **in questa PR** — voci nel manifest${groupsRegenerated ? ' e gruppi di workflow rigenerati, quindi i crawler entrano nella schedulazione esistente' : ''}.${groupsRegenerated ? '' : `
 - **blocked: manca il permesso \`workflows\` sul token** — i gruppi non sono stati rigenerati, quindi questi crawler esistono ma non sono ancora schedulati. Basta un \`node scripts/generate-crawler-group-workflows.mjs\` da un'identita' che possa scrivere in \`.github/workflows/\`.`}
@@ -425,7 +425,12 @@ try {
   // gia' su main (le committa lo stadio precedente), e includerle qui aggiunge
   // solo righe che main muove sotto i piedi della PR.
   const paths = ['scripts', 'tests', 'data/crawler-manifest.json'];
-  if (groupsRegenerated) paths.push('.github/workflows');
+  // `data/crawler-group-assignments.json` va nello STESSO commit dei .yml, non
+  // e' opzionale: dal #6482 e' li' che vive l'assegnazione crawler->gruppo, e i
+  // .yml ne sono la resa. Committare i .yml senza i pin lascia il nuovo crawler
+  // "mai visto" al giro dopo, che lo riassegna a un gruppo qualunque — cioe'
+  // esattamente il rimescolamento che i pin esistono per impedire.
+  if (groupsRegenerated) paths.push('.github/workflows', 'data/crawler-group-assignments.json');
   git('add', ...paths);
   git('commit', '-m', `prospector: promuove ${shipped.length} crawler validati (${totalVacancies} annunci)`);
   git('push', '-u', 'origin', branch);

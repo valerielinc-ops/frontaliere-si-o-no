@@ -44,6 +44,24 @@ describe('classifyIssue', () => {
     { title: 'follow-up(#900): tune AdSense vignette threshold', labels: ['follow-up', 'funnel-monetization'], category: 'follow-up', autofix: true, route: 'queue', fuPrio: 'high' },
     // follow-up senza funnel/priority → coda priorità bassa
     { title: 'follow-up(#910): de-rot comment anchor', labels: ['follow-up', 'funnel-ux'], category: 'follow-up', autofix: true, route: 'queue', fuPrio: 'low' },
+    // [job-content] — audit di plausibilità + segnalazione manuale
+    // (scripts/audit-job-content-plausibility.mjs,
+    // scripts/report-crawler-content-error.mjs). Il DEFAULT deve restare la
+    // coda: il prefisso non contiene nessuno dei token che aprono la route
+    // immediata, e la label `job-content-quality` non è di routing. Se un
+    // domani il prefisso cambiasse in qualcosa che matcha /crawler|parser/i,
+    // una label `priority:high` lo promuoverebbe a `crawler` senza che nessuno
+    // l'abbia deciso — questi tre casi fissano la scelta.
+    { title: '[job-content] hotel-international: booking-offer (5/5 record)', labels: ['job-content-quality'], category: 'other', autofix: true, route: 'queue', fuPrio: 'low' },
+    // --urgent: `parser-broken` da SOLA basta a dare categoria `crawler`.
+    // È l'unica leva che questo meccanismo usa per il fix immediato, ed è
+    // deliberatamente opt-in (vedi il blocco ROUTING in
+    // report-crawler-content-error.mjs).
+    { title: '[job-content] schindler: titolo = widget consenso cookie', labels: ['job-content-quality', 'parser-broken'], category: 'crawler', autofix: true, route: 'fix', fuPrio: null },
+    // priority:high SENZA parser-broken resta in coda: il prefisso [job-content]
+    // non matcha /crawler|parser/i, quindi il ramo `priority:high`+crawler/parser
+    // non scatta. Alzare la priorità NON deve cambiare la route di nascosto.
+    { title: '[job-content] gemeinde-st-moritz: no-job-signal (5 record)', labels: ['job-content-quality', 'priority:high'], category: 'other', autofix: true, route: 'queue', fuPrio: 'high' },
   ];
 
   for (const c of cases) {
