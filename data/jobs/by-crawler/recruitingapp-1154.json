@@ -1,6 +1,6 @@
 {
   "crawlerKey": "recruitingapp-1154",
-  "assembledAt": "2026-08-25T10:01:28.326Z",
+  "assembledAt": "2026-08-25T21:49:13.617Z",
   "jobs": [
     {
       "id": "recruitingapp-1154-f98d1ef85a40",
@@ -30,7 +30,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3780/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T10:01:25.154Z",
+      "crawledAt": "2026-08-25T21:49:10.781Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -107,7 +107,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3787/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-25T10:01:24.852Z",
+      "crawledAt": "2026-08-25T21:49:10.478Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -180,7 +180,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3791/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T10:01:24.547Z",
+      "crawledAt": "2026-08-25T21:49:10.171Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -249,7 +249,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3792/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T10:01:24.244Z",
+      "crawledAt": "2026-08-25T21:49:09.869Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -284,10 +284,10 @@
       "id": "recruitingapp-1154-5a29f64d799b",
       "slug": "chief-investment-officer-cio-responsabile-centro-investimenti-80-100-sgkb-bewerbermanagement-stellen-lugano",
       "slugByLocale": {
-        "fr": "chief-investment-officer-cio-leiter-in-investment-center-80-100-recruitingapp-1154-ch",
         "it": "chief-investment-officer-cio-responsabile-centro-investimenti-80-100-sgkb-bewerbermanagement-stellen-lugano",
         "en": "chief-investment-officer-cio-leiter-in-investment-center-80-100-recruitingapp-1154-ch",
-        "de": "chief-investment-officer-cio-leiter-in-investment-center-80-100-sgkb-bewerbermanagement-stellen-lugano"
+        "de": "chief-investment-officer-cio-leiter-in-investment-center-80-100-sgkb-bewerbermanagement-stellen-lugano",
+        "fr": "chief-investment-officer-cio-leiter-in-investment-center-80-100-recruitingapp-1154-ch"
       },
       "company": "SGKB Bewerbermanagement Stellen",
       "companyKey": "recruitingapp-1154",
@@ -309,7 +309,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3790/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T10:01:23.941Z",
+      "crawledAt": "2026-08-25T21:49:09.567Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -324,23 +324,23 @@
       "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3790/Description/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "fr": [
-          "directeur-de-l-investissement-cio-chef-du-centre-d-investissement-80-100-sgkb-bewerbermanagement-stellen-lugano",
-          "chief-investment-officer-cio-leiter-in-investment-center-80-100-recruitingapp-1154-ch"
-        ],
-        "it": [
-          "chief-investment-officer-cio-leiter-in-investment-center-80-100-recruitingapp-1154-ch",
-          "chief-investment-officer-cio-leiter-in-investment-center-80-100-sgkb-bewerbermanagement-stellen-lugano",
-          "chief-investment-officer-cio-responsabile-centro-investimenti-80-100-sgkb-bewerbermanagement-stellen-lugano"
-        ]
-      },
       "previousSlugs": [
         "chief-investment-officer-cio-leiter-in-investment-center-80-100-recruitingapp-1154-ch",
         "directeur-de-l-investissement-cio-chef-du-centre-d-investissement-80-100-sgkb-bewerbermanagement-stellen-lugano",
         "chief-investment-officer-cio-leiter-in-investment-center-80-100-sgkb-bewerbermanagement-stellen-lugano",
         "chief-investment-officer-cio-responsabile-centro-investimenti-80-100-sgkb-bewerbermanagement-stellen-lugano"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chief-investment-officer-cio-leiter-in-investment-center-80-100-recruitingapp-1154-ch",
+          "chief-investment-officer-cio-leiter-in-investment-center-80-100-sgkb-bewerbermanagement-stellen-lugano",
+          "chief-investment-officer-cio-responsabile-centro-investimenti-80-100-sgkb-bewerbermanagement-stellen-lugano"
+        ],
+        "fr": [
+          "directeur-de-l-investissement-cio-chef-du-centre-d-investissement-80-100-sgkb-bewerbermanagement-stellen-lugano",
+          "chief-investment-officer-cio-leiter-in-investment-center-80-100-recruitingapp-1154-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T09:39:20.454Z",
       "salaryMin": 68000,
@@ -385,7 +385,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3793/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T10:01:23.638Z",
+      "crawledAt": "2026-08-25T21:49:09.264Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -460,7 +460,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3794/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-25T10:01:23.335Z",
+      "crawledAt": "2026-08-25T21:49:08.961Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -519,7 +519,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3795/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T10:01:23.007Z",
+      "crawledAt": "2026-08-25T21:49:08.638Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
