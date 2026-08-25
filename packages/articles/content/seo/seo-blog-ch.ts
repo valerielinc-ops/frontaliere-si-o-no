@@ -55127,6 +55127,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-successione-donazione-zurigo-guida': {
+    title: 'Imposta successione Zurigo: aliquote e esenzioni 2026',
+    description: 'Guida alle imposte di successione e donazione nel Canton Zurigo: aliquote per gradi di parentela, esenzioni per familiari diretti, dichiarazione e scadenze.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, successione, zurigo, aliquote',
+    ogTitle: 'Imposta successione Zurigo: aliquote e esenzioni 2026',
+    ogDescription: 'Successione e donazione nel Canton Zurigo: aliquote progressive per grado di parentela, esenzione totale per coniuge e figli, procedura di dichiarazione e termini. Guida pratica 2026.',
+    canonicalPath: '/articoli-svizzera/successione-donazione-zurigo-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta successione Zurigo: aliquote e esenzioni 2026",
+      "description": "Guida alle imposte di successione e donazione nel Canton Zurigo: aliquote per gradi di parentela, esenzioni per familiari diretti, dichiarazione e scadenze.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/successione-donazione-zurigo-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrativo del Canton Zurigo con moduli fiscali di successione e documenti normativi."
+      },
+      "datePublished": "2026-08-25T09:33:40+00:00",
+      "dateModified": "2026-08-25T09:33:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/successione-donazione-zurigo-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-imposta-successione-zurigo-aliquote': {
+    title: 'Imposta di successione Zurigo: aliquote e deduzioni',
+    description: 'Come funziona la tassazione di successione nel Canton Zurigo: sistema progressivo, esenzioni per coniuge e discendenti, dichiarazione e scadenze.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, successione, zurigo, aliquote',
+    ogTitle: 'Imposta di successione Zurigo: aliquote e deduzioni',
+    ogDescription: 'Come funziona la tassazione di successione nel Canton Zurigo: sistema progressivo, esenzioni per coniuge e discendenti, dichiarazione e scadenze.',
+    canonicalPath: '/articoli-svizzera/imposta-successione-zurigo-aliquote/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta di successione Zurigo: aliquote e deduzioni",
+      "description": "Come funziona la tassazione di successione nel Canton Zurigo: sistema progressivo, esenzioni per coniuge e discendenti, dichiarazione e scadenze.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-successione-zurigo-aliquote.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scrivania di un ufficio fiscale svizzero con documenti di successione, calcolatrice e moduli ufficiali"
+      },
+      "datePublished": "2026-08-25T10:18:42+00:00",
+      "dateModified": "2026-08-25T10:18:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-successione-zurigo-aliquote/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

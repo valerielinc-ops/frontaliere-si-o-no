@@ -1,6 +1,6 @@
 {
   "crawlerKey": "srg-ssr",
-  "assembledAt": "2026-08-24T21:34:53.619Z",
+  "assembledAt": "2026-08-25T09:48:57.391Z",
   "jobs": [
     {
       "id": "srg-ssr-25dd75af254b",
@@ -33,7 +33,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/fufragnadi-emprendissadi-da-prova/b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T21:34:50.267Z",
+      "crawledAt": "2026-08-25T09:48:41.639Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -76,7 +76,7 @@
         "it": "praticanta-praticant-srg-ssr-cuira",
         "en": "intern-srg-ssr-cuira",
         "de": "praktikant-srg-ssr-cuira",
-        "fr": "pratique-pratique-srg-ssr-cuira"
+        "fr": "praticanta-praticant-srg-ssr-cuira"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -86,7 +86,7 @@
         "it": "Praticanta / praticant",
         "en": "Intern",
         "de": "Praktikant",
-        "fr": "Pratique / Pratique"
+        "fr": "Praticanta / praticant"
       },
       "description": "Vulessas ti daventar schurnalista u schurnalist? Ubain far ina lavur da tecnicist u tecnicista? Has ti mirveglias ed es ti gugent là nua che las chaussas capitan - t'interessas per la Rumantschia, il Grischun, il mund - lavuras ti gugent cun la lingua, purtrets e tun ubain la tecnica? Nus sustegnain e scolain tai! Ti pos frequentar tar nus in praticum da 3 fin 6 mais. En quest temp emprendas ti d'enconuscher la branscha da medias e nossa chasa cun sias vastas purschidas. Gia davent da l'entschatta fas ti part dal team e pos ta sviluppar en la pratica cun sustegn e scolaziuns internas. Tge spetgain nus? Vegliadetgna: da circa 18 onns fin 30 onns Scolaziun: emprendissadi, matura gimnasiala u professiunala, studi u scolaziun equivalenta Durada: ideal 6 mais; las plazzas èn limitadas, per regla 1 practicantA per mez onn. E suenter il praticum? davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
       "descriptionByLocale": {
@@ -100,7 +100,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/praticanta-praticant/4a660497-3bdc-452a-ab3f-d9b8493cc46f",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-24T21:34:49.503Z",
+      "crawledAt": "2026-08-25T09:48:40.890Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -141,6 +141,15 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-29T11:35:50.122Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "fr": [
+          "pratique-pratique-srg-ssr-cuira"
+        ]
+      },
+      "previousSlugs": [
+        "pratique-pratique-srg-ssr-cuira"
+      ],
       "salaryMin": 42640,
       "salaryMax": 61000,
       "baseSalary": {
@@ -158,7 +167,7 @@
       "id": "srg-ssr-d9ec5b9a657a",
       "slug": "service-operator-srg-ssr-bern",
       "slugByLocale": {
-        "it": "operatore-di-servizio-srg-ssr-bern",
+        "it": "service-operator-srg-ssr-bern",
         "en": "service-operator-srg-ssr-bern",
         "de": "service-operator-srg-ssr-bern",
         "fr": "operateur-de-service-srg-ssr-bern"
@@ -168,7 +177,7 @@
       "companyDomain": "srgssr.ch",
       "title": "Service Operator",
       "titleByLocale": {
-        "it": "Operatore di servizio",
+        "it": "Service Operator",
         "en": "Service",
         "de": "Service Operator",
         "fr": "Opérateur de Service"
@@ -185,7 +194,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/service-operator/b7aea4ab-5915-4645-a639-79a98c2543ff",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:34:48.712Z",
+      "crawledAt": "2026-08-25T09:48:40.087Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -249,6 +258,15 @@
         "pensumMax": 80
       },
       "firstSeenAt": "2026-06-29T11:35:27.904Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operatore-di-servizio-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "operatore-di-servizio-srg-ssr-bern"
+      ],
+      "needsRetranslation": true,
       "salaryMin": 71500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -294,7 +312,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/emprendista-commerziala-emprendist-commerzial/c7a3bf5e-4660-4325-baee-e0cc14f79df0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-24T21:34:47.911Z",
+      "crawledAt": "2026-08-25T09:48:39.193Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -393,7 +411,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistente-finanze/7d7fc044-dae7-4d32-a1b3-da4e2848ad33",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-24T21:34:46.780Z",
+      "crawledAt": "2026-08-25T09:48:38.247Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -433,6 +451,7 @@
         "pensumMax": 80
       },
       "firstSeenAt": "2026-06-30T23:26:53.483Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -478,7 +497,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistent-in-finanzen/c68706e7-6382-4b0a-8976-cc7fa737e98e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:34:45.626Z",
+      "crawledAt": "2026-08-25T09:48:37.463Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -519,11 +538,13 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "assistent-in-finanzen-srg-ssr-bern"
+        "assistent-in-finanzen-srg-ssr-bern",
+        "assistente-in-finanza-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-finanzen-srg-ssr-bern"
+          "assistent-in-finanzen-srg-ssr-bern",
+          "assistente-in-finanza-srg-ssr-bern"
         ],
         "en": [
           "assistent-in-finanzen-srg-ssr-bern"
@@ -579,7 +600,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/geschaeftsfuehrer-in-srg-bern-freiburg-wallis/ae1a3c73-c6e0-46fe-b28d-c26344b65afe",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:34:44.719Z",
+      "crawledAt": "2026-08-25T09:48:36.361Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -613,11 +634,13 @@
         "pensumMax": 70
       },
       "previousSlugs": [
-        "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
+        "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich",
+        "amministratore-delegato-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
+          "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich",
+          "amministratore-delegato-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
         ],
         "en": [
           "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
@@ -673,7 +696,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nel-settore-musicale-rsi/cc678ff7-4831-4a38-833a-f8b0f2fe249a",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-24T21:34:43.866Z",
+      "crawledAt": "2026-08-25T09:48:35.521Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -739,6 +762,7 @@
         ]
       },
       "firstSeenAt": "2026-08-05T22:40:13.924Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 74000,
       "baseSalary": {
@@ -752,97 +776,6 @@
         }
       },
       "addressRegion": "TI"
-    },
-    {
-      "id": "srg-ssr-8b5a5bf67219",
-      "slug": "grundausbildung-come-informatiker-in-cfc-applikationsentwicklung-srg-ssr-zurich",
-      "slugByLocale": {
-        "it": "grundausbildung-come-informatiker-in-cfc-applikationsentwicklung-srg-ssr-zurich",
-        "en": "basic-training-as-a-computer-scientist-in-efz-application-development-srg-ssr-zurich",
-        "de": "grundausbildung-als-informatiker-in-efz-applikationsentwicklung-srg-ssr-zurich",
-        "fr": "formation-de-base-en-informatique-dans-efz-application-development-srg-ssr-zurich"
-      },
-      "company": "SRG SSR",
-      "companyKey": "srg-ssr",
-      "companyDomain": "srgssr.ch",
-      "title": "Grundausbildung als Informatiker:in EFZ Applikationsentwicklung",
-      "titleByLocale": {
-        "it": "Grundausbildung come Informatiker:in CFC Applikationsentwicklung",
-        "en": "Basic training as a computer scientist: in EFZ Application Development",
-        "de": "Grundausbildung als Informatiker:in EFZ Applikationsentwicklung",
-        "fr": "Formation de base en informatique: dans EFZ Application Development"
-      },
-      "description": "Was sind deine Aufgaben? Mit dem Lehrstart per August 2027 engagierst du dich für folgende Themen:\n• Abwechslungsreiche Arbeit in spannenden Projekten im Medien-Umfeld für TV, Radio und Online\n• Mitarbeit in einem kreativen und motivierten Team\n• Analyse, Konzeption, Realisierung und Betrieb von Software-Lösungen\n• Dokumentationen, Betriebshandbücher, Abschluss- und Testberichte erstellen und nachführen Wie kannst du dich bewerben?\n• Bewerbung inklusive Motivationsschreiben und Lebenslauf mit Foto\n• Zeugniskopien aller Oberstufenzeugnisse und/oder des 10. Schuljahres\n• Multicheck ICT\n• Schnupperlehrfeedbacks und Diplome oder andere Auszeichnungen (falls vorhanden) Was bringst du mit?\n• Gute schulische Leistungen (im höchsten Niveau) in Mathematik, Geometrie und Englisch\n• Abstraktes und logisches Denkvermögen\n• Strukturiertes Vorgehen und leistungsorientiertes Arbeiten\n• Zuverlässigkeit, Selbstständigkeit und Freude an Teamarbeit Worauf kannst du dich freuen?\n• Einblicke und Mitarbeit in verschiedenen Arbeitsbereichen und Abteilungen der SRG\n• Aufgestellte Lernende, regelmässige Teamevents, engagierte Berufsbildner:innen, die dich bei allen Anliegen unterstützen\n• 6 Wochen Ferien\n• Eine abwechslungsreiche und solide Grundausbildung im Basislehrjahr beim ZLI (Züricher Lehrbetriebsverband ICT) Noch Fragen? zum Bewerbungsprozess Claudia Hirt Fachspezialistin Berufsbildung +41 58 135 15 07 Die Ausbildung erfolgt innerhalb der SRG SSR und findet in der Regionaleinheit SRF in Zürich statt. Die SRG SSR ist das grösste Medienunternehmen der Schweiz. Mit ihren Unternehmenseinheiten SRF, RTS, RSI und RTR produziert und verbreitet sie Inhalte in den Bereichen Information, Bildung, Kultur, Unterhaltung und Sport. Als Lernende:r wirst du Teil eines vielfältigen und zukunftsorientierten Unternehmens, das Menschen in der ganzen Schweiz verbindet und täglich Millionen von Nutzer:innen auf unterschiedlichen Plattformen erreicht.",
-      "descriptionByLocale": {
-        "it": "Quali sono i tuoi compiti? Con l'inizio dell'insegnamento nell'agosto 2027, vi impegnate nei seguenti argomenti:\n• Variato lavoro in progetti emozionanti nell'ambiente dei media per la TV, la radio e online\n• Lavorare in un team creativo e motivato\n• Analisi, concezione, realizzazione e funzionamento di soluzioni software\n• Creare e seguire documentazione, manuali operativi, report finali e test Come si può applicare?\n• Applicazione con lettera di motivazione e CV con foto\n• copie di tutti i certificati di livello superiore e/o 10. Anno scolastico\n• Multicheck ICT\n• Esperienza di feedback e diplomi o altri premi (se presenti) Cosa porti?\n• Buoni risultati accademici (al più alto livello) in matematica, geometria e inglese\n• Il pensiero astratto e logico\n• Approccio strutturato e lavoro orientato alle prestazioni\n• Affidabilità, indipendenza e gioia nel lavoro di squadra Cosa puoi aspettare?\n• Indagini e cooperazione in vari settori di lavoro e dipartimenti di SRG\n• Studenti fondati, eventi di squadra regolari, formatori impegnati: donne che ti sostengono in tutte le questioni\n• 6 settimane di vacanza\n• Una formazione di base variegata e solida nell'anno di base presso la ZLI (Zuricher Lehrbetriebsverband ICT) Ancora domande? sul processo di applicazione Claudia Hirt Specialist Formazione Professionale +41 58 135 15 07 La formazione avviene all'interno della SSR e si svolge nell'unità regionale SRF di Zurigo. SRG SSR è la più grande società di media in Svizzera. Con le sue business unit SRF, RTS, RSI e RTR, produce e distribuisce contenuti nei settori dell'informazione, dell'istruzione, della cultura, dell'intrattenimento e dello sport. Come apprendista, diventerai parte di una società diversificata e orientata al futuro che collega le persone in tutta la Svizzera e raggiunge ogni giorno milioni di utenti su diverse piattaforme.",
-        "en": "What are your tasks? With the start of teaching in August 2027, you are committed to the following topics:\n• Varied work in exciting projects in the media environment for TV, radio and online\n• Working in a creative and motivated team\n• Analysis, conception, realization and operation of software solutions\n• Create and follow up documentation, operating manuals, final and test reports How can you apply?\n• Application including letter of motivation and CV with photo\n• copies of all upper-level certificates and/or 10. School year\n• Multicheck ICT\n• Experience feedback and diplomas or other awards (if any) What do you bring?\n• Good academic achievements (at the highest level) in mathematics, geometry and English\n• Abstract and logical thinking\n• Structured approach and performance-oriented work\n• Reliability, independence and joy in teamwork What can you look forward to?\n• Insights and cooperation in various work areas and departments of SRG\n• Established learners, regular team events, committed trainers: women who support you in all matters\n• 6 weeks holiday\n• A varied and solid basic training in the basic training year at the ZLI (Zuricher Lehrbetriebsverband ICT) Still questions? about the application process Claudia Hirt Specialist Vocational Training +41 58 135 15 07 Training takes place within the SRG SSR and takes place in the regional unit SRF in Zurich. SRG SSR is the largest media company in Switzerland. With its business units SRF, RTS, RSI and RTR, it produces and distributes content in the fields of information, education, culture, entertainment and sports. As a learner, you will become part of a diverse and future-oriented company that connects people across Switzerland and reaches millions of users on different platforms every day.",
-        "de": "Was sind deine Aufgaben? Mit dem Lehrstart per August 2027 engagierst du dich für folgende Themen:\n• Abwechslungsreiche Arbeit in spannenden Projekten im Medien-Umfeld für TV, Radio und Online\n• Mitarbeit in einem kreativen und motivierten Team\n• Analyse, Konzeption, Realisierung und Betrieb von Software-Lösungen\n• Dokumentationen, Betriebshandbücher, Abschluss- und Testberichte erstellen und nachführen Wie kannst du dich bewerben?\n• Bewerbung inklusive Motivationsschreiben und Lebenslauf mit Foto\n• Zeugniskopien aller Oberstufenzeugnisse und/oder des 10. Schuljahres\n• Multicheck ICT\n• Schnupperlehrfeedbacks und Diplome oder andere Auszeichnungen (falls vorhanden) Was bringst du mit?\n• Gute schulische Leistungen (im höchsten Niveau) in Mathematik, Geometrie und Englisch\n• Abstraktes und logisches Denkvermögen\n• Strukturiertes Vorgehen und leistungsorientiertes Arbeiten\n• Zuverlässigkeit, Selbstständigkeit und Freude an Teamarbeit Worauf kannst du dich freuen?\n• Einblicke und Mitarbeit in verschiedenen Arbeitsbereichen und Abteilungen der SRG\n• Aufgestellte Lernende, regelmässige Teamevents, engagierte Berufsbildner:innen, die dich bei allen Anliegen unterstützen\n• 6 Wochen Ferien\n• Eine abwechslungsreiche und solide Grundausbildung im Basislehrjahr beim ZLI (Züricher Lehrbetriebsverband ICT) Noch Fragen? zum Bewerbungsprozess Claudia Hirt Fachspezialistin Berufsbildung +41 58 135 15 07 Die Ausbildung erfolgt innerhalb der SRG SSR und findet in der Regionaleinheit SRF in Zürich statt. Die SRG SSR ist das grösste Medienunternehmen der Schweiz. Mit ihren Unternehmenseinheiten SRF, RTS, RSI und RTR produziert und verbreitet sie Inhalte in den Bereichen Information, Bildung, Kultur, Unterhaltung und Sport. Als Lernende:r wirst du Teil eines vielfältigen und zukunftsorientierten Unternehmens, das Menschen in der ganzen Schweiz verbindet und täglich Millionen von Nutzer:innen auf unterschiedlichen Plattformen erreicht.",
-        "fr": "Quelles sont vos tâches ? Avec le début de l'enseignement en août 2027, vous êtes engagés dans les sujets suivants:\n• Travail varié dans des projets passionnants dans l'environnement médiatique pour la télévision, la radio et en ligne\n• Travailler dans une équipe créative et motivée\n• Analyse, conception, réalisation et fonctionnement de solutions logicielles\n• Créer et suivre la documentation, les manuels d'exploitation, les rapports finaux et les rapports d'essai Comment pouvez-vous postuler?\n• Demande incluant lettre de motivation et CV avec photo\n• des copies de tous les certificats de niveau supérieur et/ou 10. Année scolaire\n• Contrôle multiple des TIC\n• Rétroaction d'expérience et diplômes ou autres récompenses (le cas échéant) Qu'est-ce que tu apportes ?\n• Bonnes réalisations académiques (au plus haut niveau) en mathématiques, géométrie et anglais\n• Résumé et logique\n• Approche structurée et travail axé sur les résultats\n• Fiabilité, indépendance et joie du travail d'équipe Que pouvez-vous attendre avec impatience?\n• Perspectives et coopération dans divers domaines d'activité et départements du GRS\n• Apprentis établis, événements d'équipe réguliers, formateurs engagés: femmes qui vous soutiennent dans tous les domaines\n• 6 semaines de vacances\n• Une formation de base variée et solide au cours de l'année de formation de base au ZLI (Zuricher Lehrbetriebsverband ICT) Toujours des questions ? sur le processus de candidature Claudia Hirt Spécialiste Formation professionnelle +41 58 135 15 07 La formation se déroule au sein du SSR du SRG et dans l'unité régionale SRF de Zurich. SRG SSR est la plus grande entreprise de médias en Suisse. Avec ses unités d'affaires SRF, RTS, RSI et RTR, il produit et distribue des contenus dans les domaines de l'information, de l'éducation, de la culture, du divertissement et du sport. En tant qu'apprenant, vous deviendrez membre d'une entreprise diversifiée et tournée vers l'avenir qui relie les gens à travers la Suisse et atteint des millions d'utilisateurs sur différentes plateformes chaque jour."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-informatiker-in-efz-applikationsentwicklung/a5855233-f2ce-492c-8d91-f8ba68bf1913",
-      "source": "SRG SSR Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:34:43.031Z",
-      "addressLocality": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8052",
-      "streetAddress": "Fernsehstrasse 1-4",
-      "category": "Produzione Media",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Media / Broadcasting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-03",
-      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-informatiker-in-efz-applikationsentwicklung/a5855233-f2ce-492c-8d91-f8ba68bf1913",
-      "requirements": [
-        "Gute schulische Leistungen (im höchsten Niveau) in Mathematik, Geometrie und Englisch",
-        "Abstraktes und logisches Denkvermögen",
-        "Strukturiertes Vorgehen und leistungsorientiertes Arbeiten",
-        "Zuverlässigkeit, Selbstständigkeit und Freude an Teamarbeit"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Gute schulische Leistungen (im höchsten Niveau) in Mathematik, Geometrie und Englisch",
-          "Abstraktes und logisches Denkvermögen",
-          "Strukturiertes Vorgehen und leistungsorientiertes Arbeiten",
-          "Zuverlässigkeit, Selbstständigkeit und Freude an Teamarbeit"
-        ]
-      },
-      "_srgMeta": {
-        "uuid": "a5855233-f2ce-492c-8d91-f8ba68bf1913",
-        "org": "srg",
-        "orgLabel": "SRG SSR",
-        "pensumMin": 100,
-        "pensumMax": 100
-      },
-      "previousSlugs": [
-        "grundausbildung-als-informatiker-in-efz-applikationsentwicklung-srg-ssr-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "grundausbildung-als-informatiker-in-efz-applikationsentwicklung-srg-ssr-zurich"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-17T09:52:53.248Z",
-      "salaryMin": 77000,
-      "salaryMax": 136000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77000,
-          "maxValue": 136000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH"
     },
     {
       "id": "srg-ssr-a8ae3325568d",
@@ -875,7 +808,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-veranstaltungsfachmann-fachfrau-efz/6ceb5b23-a763-4947-88be-2df9ce20cca3",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:34:41.759Z",
+      "crawledAt": "2026-08-25T09:48:34.744Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -911,14 +844,18 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
+          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+          "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich"
         ],
         "it": [
-          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
+          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+          "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich"
         ]
       },
       "previousSlugs": [
-        "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
+        "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+        "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich",
+        "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T21:37:04.179Z",
@@ -967,7 +904,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz/91370784-d240-4500-8efe-5f54893b9dfa",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:34:41.032Z",
+      "crawledAt": "2026-08-25T09:48:33.994Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1002,11 +939,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
+        "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
+        "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
+          "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
+          "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich"
         ],
         "de": [
           "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
@@ -1043,7 +982,7 @@
       "title": "Stage Digital Marketing Specialist",
       "titleByLocale": {
         "it": "Stage Digital Marketing Specialista",
-        "en": "Digital Marketing Specialist",
+        "en": "Stage Digital Marketing Specialist",
         "de": "Stage Digital Marketing Spezialist",
         "fr": "Stage Digital Marketing Spécialiste"
       },
@@ -1059,7 +998,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-digital-marketing-specialist/1e879fb8-8d71-4bac-a620-735a66901ba8",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-24T21:34:39.952Z",
+      "crawledAt": "2026-08-25T09:48:33.223Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1101,6 +1040,8 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
+      "firstSeenAt": "2026-08-24T21:34:39.952Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -1113,8 +1054,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T21:34:39.952Z"
+      "addressRegion": "TI"
     },
     {
       "id": "srg-ssr-a79840441cc4",
@@ -1147,7 +1087,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/praktikant-in-digitale-kanaele-unterhaltung-gesellschaft/33a25346-6b53-400e-87f8-97e7f8bb01a3",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:34:39.159Z",
+      "crawledAt": "2026-08-25T09:48:32.387Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1182,11 +1122,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "praktikant-in-digitale-kanale-unterhaltung-amp-gesellschaft-srg-ssr-zurich"
+        "praktikant-in-digitale-kanale-unterhaltung-amp-gesellschaft-srg-ssr-zurich",
+        "interno-in-canali-digitali-intrattenimento-e-societa-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-digitale-kanale-unterhaltung-amp-gesellschaft-srg-ssr-zurich"
+          "praktikant-in-digitale-kanale-unterhaltung-amp-gesellschaft-srg-ssr-zurich",
+          "interno-in-canali-digitali-intrattenimento-e-societa-srg-ssr-zurich"
         ],
         "en": [
           "praktikant-in-digitale-kanale-unterhaltung-amp-gesellschaft-srg-ssr-zurich"
@@ -1242,7 +1184,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/projekt-und-investitionscontroller-in-mit-fokus-strategische-projekte/c19f548f-3961-4b5a-9ad8-a4d3d9ad42a4",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:34:35.713Z",
+      "crawledAt": "2026-08-25T09:48:31.538Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1340,7 +1282,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/controleur-se-strategique-de-projets-et-d-investissements/e949b34a-1f5a-49f0-8b9a-3bee723d0545",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T21:34:27.169Z",
+      "crawledAt": "2026-08-25T09:48:29.116Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1377,11 +1319,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
+        "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern",
+        "controllore-strategico-del-progetto-e-degli-investimenti-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
+          "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern",
+          "controllore-strategico-del-progetto-e-degli-investimenti-srg-ssr-bern"
         ],
         "en": [
           "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
@@ -1391,6 +1335,7 @@
         ]
       },
       "firstSeenAt": "2026-08-13T21:48:14.284Z",
+      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "baseSalary": {
@@ -1420,7 +1365,7 @@
       "title": "Responsable Marketing RTS",
       "titleByLocale": {
         "it": "Marketing Manager RTS",
-        "en": "Marketing Manager RTS",
+        "en": "Responsable Marketing RTS",
         "de": "Marketing Manager RTS",
         "fr": "Responsable Marketing RTS"
       },
@@ -1436,7 +1381,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/responsable-marketing-rts/1450473c-6543-418d-82f5-a4ef2dcfc0b9",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T21:34:26.090Z",
+      "crawledAt": "2026-08-25T09:48:19.437Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1477,6 +1422,7 @@
         "pensumMax": 80
       },
       "firstSeenAt": "2026-08-14T10:12:26.743Z",
+      "needsRetranslation": true,
       "salaryMin": 106500,
       "salaryMax": 188500,
       "baseSalary": {
@@ -1522,7 +1468,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel/3e3fcff3-e194-4a1b-831f-f105b491094e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:34:25.118Z",
+      "crawledAt": "2026-08-25T09:48:18.679Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -1561,11 +1507,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
+        "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16",
+        "apprendistato-come-informatiker-in-cfc-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
+          "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16",
+          "apprendistato-come-informatiker-in-cfc-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
         ],
         "en": [
           "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
@@ -1621,7 +1569,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern/0d740af4-8667-4a66-a530-ccc338291c67",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:34:24.247Z",
+      "crawledAt": "2026-08-25T09:48:17.886Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -1660,11 +1608,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
+        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16",
+        "apprendistato-come-informatiker-in-cfc-plattformentwicklung-2027-bern-srg-ssr-bern-16"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
+          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16",
+          "apprendistato-come-informatiker-in-cfc-plattformentwicklung-2027-bern-srg-ssr-bern-16"
         ],
         "en": [
           "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
@@ -1720,7 +1670,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/praktikant-in-news-inland/1e86685a-44f9-4f3b-8a07-c7e65b35428d",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:34:23.420Z",
+      "crawledAt": "2026-08-25T09:48:17.050Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1802,7 +1752,7 @@
       "url": "https://jobs.srgssr.ch/swi/offene-stellen/fachverantwortliche-r-produktentwicklung-swissinfo/62bdb575-3d14-49e3-a8ab-e8c69e6e5425",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:34:22.596Z",
+      "crawledAt": "2026-08-25T09:48:16.169Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1839,11 +1789,13 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
+        "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern",
+        "responsabile-per-lo-sviluppo-del-prodotto-swissinfo-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
+          "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern",
+          "responsabile-per-lo-sviluppo-del-prodotto-swissinfo-srg-ssr-bern"
         ],
         "en": [
           "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
@@ -1853,6 +1805,7 @@
         ]
       },
       "firstSeenAt": "2026-08-21T09:46:05.638Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1873,7 +1826,7 @@
       "slugByLocale": {
         "it": "hostess-steward-servizio-eventi-srg-ssr-lugano",
         "en": "hostess-steward-events-service-srg-ssr-lugano",
-        "de": "hostess-steward-servizio-eventi-srg-ssr-lugano",
+        "de": "hostess-steward-events-service-srg-ssr-lugano",
         "fr": "service-d-accueil-et-d-accueil-srg-ssr-lugano"
       },
       "company": "SRG SSR",
@@ -1898,7 +1851,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/hostess-steward-servizio-eventi/3e7ba70d-5105-4c69-a753-d1a91815a68b",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-24T21:34:21.754Z",
+      "crawledAt": "2026-08-25T09:48:15.133Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1947,6 +1900,7 @@
         "orgLabel": "RSI"
       },
       "firstSeenAt": "2026-08-24T10:00:42.039Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -1960,6 +1914,93 @@
         }
       },
       "addressRegion": "TI"
+    },
+    {
+      "id": "srg-ssr-f6cddd196e33",
+      "slug": "hr-partner-in-srg-ssr-zurich",
+      "slugByLocale": {
+        "de": "hr-partner-in-srg-ssr-zurich",
+        "it": "hr-partner-in-srg-ssr-zurich",
+        "en": "hr-partner-in-srg-ssr-zurich",
+        "fr": "hr-partner-in-srg-ssr-zurich"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "HR Partner:in",
+      "titleByLocale": {
+        "de": "HR Partner:in",
+        "it": "Risorse Umane Partner:in",
+        "en": "HR Partner:in",
+        "fr": "Ressources Humaines Partner:in"
+      },
+      "description": "Was sind Ihre Aufgaben? Wir suchen per sofort oder nach Vereinbarung eine:n HR Partner:in befristet bis 31. Dezember 2027. Innerhalb des HR Beratungs- Teams engagieren Sie sich in dem Bereich Angebot für folgende Themen:\n• Sie agieren als strategische Schnittstelle zwischen Management und Mitarbeitenden, tragen die Gesamtverantwortung für sämtliche HR-Prozesse in Ihrem Betreuungsbereich und begleiten den nationalen Bereich Angebot während der aktuellen Transformationsphase\n• Sie unterstützen und beraten die Vorgesetzten in sämtlichen personellen Fragestellungen, insbesondere bei der Rekrutierung, der Lohnfindung, der Durchführung von Mitarbeitendengesprächen sowie bei Entwicklungs- und Laufbahnfragen und stellen die Einhaltung interner Richtlinien, gesetzlicher Vorgaben und unternehmensweiter Standards sicher\n• Sie beraten kompetent in arbeitsrechtlichen, organisatorischen und betrieblichen Themen und übernehmen als erste Anlaufstelle die Verantwortung für alle arbeitsvertraglich relevanten Fragestellungen\n• Sie begleiten sensible Fälle (z. B. Konflikte, Absenzen oder disziplinarische Themen) mit grossem Fingerspitzengefühl und hoher Professionalität\n• Sie tragen in enger Zusammenarbeit mit den Vorgesetzten die Verantwortung für die Umsetzung der Personalpolitik und die Sicherstellung der HR-Standards Was bringen Sie mit?\n• Lösungsorientierte und empathische Persönlichkeit, mit der Fähigkeit Mitarbeitende und Führungskräfte aktiv durch Transformationsprozesse zu begleiten\n• Fundierte, mehrjährige HR-Beratungserfahrung in einem komplexen und dynamischen Unternehmensumfeld vergleichbarer Grösse\n• Breites und umfassendes HR-Fachwissen, inklusive zukunftsgerichteter Methoden und Entwicklungen\n• Kommunikationsstarke Persönlichkeit mit der Fähigkeit, auf allen Ebenen klar, adressatengerecht und souverän zu agieren\n• Bereitschaft zur regelmässigen Arbeit an den Standorten Bern und Zürich\n• Sehr gute Französischkenntnisse (mindestens auf Niveau B2) Worauf können Sie sich freuen?\n• Ein spannendes, lebendiges und dynamisches Umfeld mit viel Gestaltungsmöglichkeiten\n• Ein interessantes, vielseitiges und herausforderndes Aufgabengebiet\n• Sympathische Teamkolleg:innen, die Ihre professionelle Erfahrung gerne mit Ihnen teilen\n• Modernes Arbeitsumfeld mit flexiblen Arbeitszeiten sowie der Option, teilweise im Home-Office zu arbeiten zum Bewerbungsprozess Patrik Porchet HR Business Partner SRF +41 58 135 02 65 Der national geführte Bereich Human Resources verantwortet und steuert die Personalgeschäfte der gesamten SRG. Human Resources begleitet die Mitarbeiter:innen der SRG in allen personellen Themenstellungen, bietet ein zeitgemässes Aus- sowie Weiterbildungsangebot an und verantwortet die ganzheitliche Umsetzung modernster HR-Kernprozesse.",
+      "descriptionByLocale": {
+        "de": "Was sind Ihre Aufgaben? Wir suchen per sofort oder nach Vereinbarung eine:n HR Partner:in befristet bis 31. Dezember 2027. Innerhalb des HR Beratungs- Teams engagieren Sie sich in dem Bereich Angebot für folgende Themen:\n• Sie agieren als strategische Schnittstelle zwischen Management und Mitarbeitenden, tragen die Gesamtverantwortung für sämtliche HR-Prozesse in Ihrem Betreuungsbereich und begleiten den nationalen Bereich Angebot während der aktuellen Transformationsphase\n• Sie unterstützen und beraten die Vorgesetzten in sämtlichen personellen Fragestellungen, insbesondere bei der Rekrutierung, der Lohnfindung, der Durchführung von Mitarbeitendengesprächen sowie bei Entwicklungs- und Laufbahnfragen und stellen die Einhaltung interner Richtlinien, gesetzlicher Vorgaben und unternehmensweiter Standards sicher\n• Sie beraten kompetent in arbeitsrechtlichen, organisatorischen und betrieblichen Themen und übernehmen als erste Anlaufstelle die Verantwortung für alle arbeitsvertraglich relevanten Fragestellungen\n• Sie begleiten sensible Fälle (z. B. Konflikte, Absenzen oder disziplinarische Themen) mit grossem Fingerspitzengefühl und hoher Professionalität\n• Sie tragen in enger Zusammenarbeit mit den Vorgesetzten die Verantwortung für die Umsetzung der Personalpolitik und die Sicherstellung der HR-Standards Was bringen Sie mit?\n• Lösungsorientierte und empathische Persönlichkeit, mit der Fähigkeit Mitarbeitende und Führungskräfte aktiv durch Transformationsprozesse zu begleiten\n• Fundierte, mehrjährige HR-Beratungserfahrung in einem komplexen und dynamischen Unternehmensumfeld vergleichbarer Grösse\n• Breites und umfassendes HR-Fachwissen, inklusive zukunftsgerichteter Methoden und Entwicklungen\n• Kommunikationsstarke Persönlichkeit mit der Fähigkeit, auf allen Ebenen klar, adressatengerecht und souverän zu agieren\n• Bereitschaft zur regelmässigen Arbeit an den Standorten Bern und Zürich\n• Sehr gute Französischkenntnisse (mindestens auf Niveau B2) Worauf können Sie sich freuen?\n• Ein spannendes, lebendiges und dynamisches Umfeld mit viel Gestaltungsmöglichkeiten\n• Ein interessantes, vielseitiges und herausforderndes Aufgabengebiet\n• Sympathische Teamkolleg:innen, die Ihre professionelle Erfahrung gerne mit Ihnen teilen\n• Modernes Arbeitsumfeld mit flexiblen Arbeitszeiten sowie der Option, teilweise im Home-Office zu arbeiten zum Bewerbungsprozess Patrik Porchet HR Business Partner SRF +41 58 135 02 65 Der national geführte Bereich Human Resources verantwortet und steuert die Personalgeschäfte der gesamten SRG. Human Resources begleitet die Mitarbeiter:innen der SRG in allen personellen Themenstellungen, bietet ein zeitgemässes Aus- sowie Weiterbildungsangebot an und verantwortet die ganzheitliche Umsetzung modernster HR-Kernprozesse.",
+        "it": "Was sind Ihre Aufgaben? Wir suchen per sofort oder nach Vereinbarung eine:n HR Partner:in befristet bis 31. Dezember 2027. Innerhalb des HR Beratungs- Teams engagieren Sie sich in dem Bereich Angebot für folgende Themen:\n• Sie agieren als strategische Schnittstelle zwischen Management und Mitarbeitenden, tragen die Gesamtverantwortung für sämtliche HR-Prozesse in Ihrem Betreuungsbereich und begleiten den nationalen Bereich Angebot während der aktuellen Transformationsphase\n• Sie unterstützen und beraten die Vorgesetzten in sämtlichen personellen Fragestellungen, insbesondere bei der Rekrutierung, der Lohnfindung, der Durchführung von Mitarbeitendengesprächen sowie bei Entwicklungs- und Laufbahnfragen und stellen die Einhaltung interner Richtlinien, gesetzlicher Vorgaben und unternehmensweiter Standards sicher\n• Sie beraten kompetent in arbeitsrechtlichen, organisatorischen und betrieblichen Themen und übernehmen als erste Anlaufstelle die Verantwortung für alle arbeitsvertraglich relevanten Fragestellungen\n• Sie begleiten sensible Fälle (z. B. Konflikte, Absenzen oder disziplinarische Themen) mit grossem Fingerspitzengefühl und hoher Professionalität\n• Sie tragen in enger Zusammenarbeit mit den Vorgesetzten die Verantwortung für die Umsetzung der Personalpolitik und die Sicherstellung der HR-Standards Was bringen Sie mit?\n• Lösungsorientierte und empathische Persönlichkeit, mit der Fähigkeit Mitarbeitende und Führungskräfte aktiv durch Transformationsprozesse zu begleiten\n• Fundierte, mehrjährige HR-Beratungserfahrung in einem komplexen und dynamischen Unternehmensumfeld vergleichbarer Grösse\n• Breites und umfassendes HR-Fachwissen, inklusive zukunftsgerichteter Methoden und Entwicklungen\n• Kommunikationsstarke Persönlichkeit mit der Fähigkeit, auf allen Ebenen klar, adressatengerecht und souverän zu agieren\n• Bereitschaft zur regelmässigen Arbeit an den Standorten Bern und Zürich\n• Sehr gute Französischkenntnisse (mindestens auf Niveau B2) Worauf können Sie sich freuen?\n• Ein spannendes, lebendiges und dynamisches Umfeld mit viel Gestaltungsmöglichkeiten\n• Ein interessantes, vielseitiges und herausforderndes Aufgabengebiet\n• Sympathische Teamkolleg:innen, die Ihre professionelle Erfahrung gerne mit Ihnen teilen\n• Modernes Arbeitsumfeld mit flexiblen Arbeitszeiten sowie der Option, teilweise im Home-Office zu arbeiten zum Bewerbungsprozess Patrik Porchet HR Business Partner SRF +41 58 135 02 65 Der national geführte Bereich Human Resources verantwortet und steuert die Personalgeschäfte der gesamten SRG. Human Resources begleitet die Mitarbeiter:innen der SRG in allen personellen Themenstellungen, bietet ein zeitgemässes Aus- sowie Weiterbildungsangebot an und verantwortet die ganzheitliche Umsetzung modernster HR-Kernprozesse.",
+        "en": "Was sind Ihre Aufgaben? Wir suchen per sofort oder nach Vereinbarung eine:n HR Partner:in befristet bis 31. Dezember 2027. Innerhalb des HR Beratungs- Teams engagieren Sie sich in dem Bereich Angebot für folgende Themen:\n• Sie agieren als strategische Schnittstelle zwischen Management und Mitarbeitenden, tragen die Gesamtverantwortung für sämtliche HR-Prozesse in Ihrem Betreuungsbereich und begleiten den nationalen Bereich Angebot während der aktuellen Transformationsphase\n• Sie unterstützen und beraten die Vorgesetzten in sämtlichen personellen Fragestellungen, insbesondere bei der Rekrutierung, der Lohnfindung, der Durchführung von Mitarbeitendengesprächen sowie bei Entwicklungs- und Laufbahnfragen und stellen die Einhaltung interner Richtlinien, gesetzlicher Vorgaben und unternehmensweiter Standards sicher\n• Sie beraten kompetent in arbeitsrechtlichen, organisatorischen und betrieblichen Themen und übernehmen als erste Anlaufstelle die Verantwortung für alle arbeitsvertraglich relevanten Fragestellungen\n• Sie begleiten sensible Fälle (z. B. Konflikte, Absenzen oder disziplinarische Themen) mit grossem Fingerspitzengefühl und hoher Professionalität\n• Sie tragen in enger Zusammenarbeit mit den Vorgesetzten die Verantwortung für die Umsetzung der Personalpolitik und die Sicherstellung der HR-Standards Was bringen Sie mit?\n• Lösungsorientierte und empathische Persönlichkeit, mit der Fähigkeit Mitarbeitende und Führungskräfte aktiv durch Transformationsprozesse zu begleiten\n• Fundierte, mehrjährige HR-Beratungserfahrung in einem komplexen und dynamischen Unternehmensumfeld vergleichbarer Grösse\n• Breites und umfassendes HR-Fachwissen, inklusive zukunftsgerichteter Methoden und Entwicklungen\n• Kommunikationsstarke Persönlichkeit mit der Fähigkeit, auf allen Ebenen klar, adressatengerecht und souverän zu agieren\n• Bereitschaft zur regelmässigen Arbeit an den Standorten Bern und Zürich\n• Sehr gute Französischkenntnisse (mindestens auf Niveau B2) Worauf können Sie sich freuen?\n• Ein spannendes, lebendiges und dynamisches Umfeld mit viel Gestaltungsmöglichkeiten\n• Ein interessantes, vielseitiges und herausforderndes Aufgabengebiet\n• Sympathische Teamkolleg:innen, die Ihre professionelle Erfahrung gerne mit Ihnen teilen\n• Modernes Arbeitsumfeld mit flexiblen Arbeitszeiten sowie der Option, teilweise im Home-Office zu arbeiten zum Bewerbungsprozess Patrik Porchet HR Business Partner SRF +41 58 135 02 65 Der national geführte Bereich Human Resources verantwortet und steuert die Personalgeschäfte der gesamten SRG. Human Resources begleitet die Mitarbeiter:innen der SRG in allen personellen Themenstellungen, bietet ein zeitgemässes Aus- sowie Weiterbildungsangebot an und verantwortet die ganzheitliche Umsetzung modernster HR-Kernprozesse.",
+        "fr": "Was sind Ihre Aufgaben? Wir suchen per sofort oder nach Vereinbarung eine:n HR Partner:in befristet bis 31. Dezember 2027. Innerhalb des HR Beratungs- Teams engagieren Sie sich in dem Bereich Angebot für folgende Themen:\n• Sie agieren als strategische Schnittstelle zwischen Management und Mitarbeitenden, tragen die Gesamtverantwortung für sämtliche HR-Prozesse in Ihrem Betreuungsbereich und begleiten den nationalen Bereich Angebot während der aktuellen Transformationsphase\n• Sie unterstützen und beraten die Vorgesetzten in sämtlichen personellen Fragestellungen, insbesondere bei der Rekrutierung, der Lohnfindung, der Durchführung von Mitarbeitendengesprächen sowie bei Entwicklungs- und Laufbahnfragen und stellen die Einhaltung interner Richtlinien, gesetzlicher Vorgaben und unternehmensweiter Standards sicher\n• Sie beraten kompetent in arbeitsrechtlichen, organisatorischen und betrieblichen Themen und übernehmen als erste Anlaufstelle die Verantwortung für alle arbeitsvertraglich relevanten Fragestellungen\n• Sie begleiten sensible Fälle (z. B. Konflikte, Absenzen oder disziplinarische Themen) mit grossem Fingerspitzengefühl und hoher Professionalität\n• Sie tragen in enger Zusammenarbeit mit den Vorgesetzten die Verantwortung für die Umsetzung der Personalpolitik und die Sicherstellung der HR-Standards Was bringen Sie mit?\n• Lösungsorientierte und empathische Persönlichkeit, mit der Fähigkeit Mitarbeitende und Führungskräfte aktiv durch Transformationsprozesse zu begleiten\n• Fundierte, mehrjährige HR-Beratungserfahrung in einem komplexen und dynamischen Unternehmensumfeld vergleichbarer Grösse\n• Breites und umfassendes HR-Fachwissen, inklusive zukunftsgerichteter Methoden und Entwicklungen\n• Kommunikationsstarke Persönlichkeit mit der Fähigkeit, auf allen Ebenen klar, adressatengerecht und souverän zu agieren\n• Bereitschaft zur regelmässigen Arbeit an den Standorten Bern und Zürich\n• Sehr gute Französischkenntnisse (mindestens auf Niveau B2) Worauf können Sie sich freuen?\n• Ein spannendes, lebendiges und dynamisches Umfeld mit viel Gestaltungsmöglichkeiten\n• Ein interessantes, vielseitiges und herausforderndes Aufgabengebiet\n• Sympathische Teamkolleg:innen, die Ihre professionelle Erfahrung gerne mit Ihnen teilen\n• Modernes Arbeitsumfeld mit flexiblen Arbeitszeiten sowie der Option, teilweise im Home-Office zu arbeiten zum Bewerbungsprozess Patrik Porchet HR Business Partner SRF +41 58 135 02 65 Der national geführte Bereich Human Resources verantwortet und steuert die Personalgeschäfte der gesamten SRG. Human Resources begleitet die Mitarbeiter:innen der SRG in allen personellen Themenstellungen, bietet ein zeitgemässes Aus- sowie Weiterbildungsangebot an und verantwortet die ganzheitliche Umsetzung modernster HR-Kernprozesse."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.srgssr.ch/srf/offene-stellen/hr-partner-in/1432cf4e-143c-4306-901f-03755cdb69ad",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T09:48:14.107Z",
+      "addressLocality": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8052",
+      "streetAddress": "Fernsehstrasse 1-4",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-25",
+      "applyUrl": "https://jobs.srgssr.ch/srf/offene-stellen/hr-partner-in/1432cf4e-143c-4306-901f-03755cdb69ad",
+      "requirements": [
+        "Lösungsorientierte und empathische Persönlichkeit, mit der Fähigkeit Mitarbeitende und Führungskräfte aktiv durch Transformationsprozesse zu begleiten",
+        "Fundierte, mehrjährige HR-Beratungserfahrung in einem komplexen und dynamischen Unternehmensumfeld vergleichbarer Grösse",
+        "Breites und umfassendes HR-Fachwissen, inklusive zukunftsgerichteter Methoden und Entwicklungen",
+        "Kommunikationsstarke Persönlichkeit mit der Fähigkeit, auf allen Ebenen klar, adressatengerecht und souverän zu agieren",
+        "Bereitschaft zur regelmässigen Arbeit an den Standorten Bern und Zürich",
+        "Sehr gute Französischkenntnisse (mindestens auf Niveau B2)"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Lösungsorientierte und empathische Persönlichkeit, mit der Fähigkeit Mitarbeitende und Führungskräfte aktiv durch Transformationsprozesse zu begleiten",
+          "Fundierte, mehrjährige HR-Beratungserfahrung in einem komplexen und dynamischen Unternehmensumfeld vergleichbarer Grösse",
+          "Breites und umfassendes HR-Fachwissen, inklusive zukunftsgerichteter Methoden und Entwicklungen",
+          "Kommunikationsstarke Persönlichkeit mit der Fähigkeit, auf allen Ebenen klar, adressatengerecht und souverän zu agieren",
+          "Bereitschaft zur regelmässigen Arbeit an den Standorten Bern und Zürich",
+          "Sehr gute Französischkenntnisse (mindestens auf Niveau B2)"
+        ]
+      },
+      "_srgMeta": {
+        "uuid": "1432cf4e-143c-4306-901f-03755cdb69ad",
+        "org": "srf",
+        "orgLabel": "SRF",
+        "pensumMin": 80,
+        "pensumMax": 100
+      },
+      "needsRetranslation": true,
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-08-25T09:48:14.107Z"
     }
   ]
 }

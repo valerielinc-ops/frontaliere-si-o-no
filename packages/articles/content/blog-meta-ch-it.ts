@@ -4249,6 +4249,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lacune-contributive-avs-zurigo.title': 'AVS e prestazioni complementari: cassa di compensazione',
     'blog.article.lacune-contributive-avs-zurigo.excerpt': 'Primo pilastro nel Canton Zurigo: cassa di compensazione, calcolo rendita AVS, lacune contributive e prestazioni complementari per il minimo vitale.',
     'blog.article.lacune-contributive-avs-zurigo.imageAlt': 'Ufficio amministrativo con documenti di previdenza, calcolatore e grafico di pianificazione pensionistica. Alpi svizzere visibili dalla finestra.',
+    'blog.article.successione-donazione-zurigo-guida.title': 'Imposta successione Zurigo: aliquote e esenzioni 2026',
+    'blog.article.successione-donazione-zurigo-guida.excerpt': 'Imposte di successione e donazione nel Canton Zurigo: aliquote per grado di parentela, esenzioni totali per coniuge e figli, dichiarazione obbligatoria e scadenze da rispettare.',
+    'blog.article.successione-donazione-zurigo-guida.imageAlt': 'Ufficio amministrativo del Canton Zurigo con moduli fiscali di successione e documenti normativi.',
+    'blog.article.imposta-successione-zurigo-aliquote.title': 'Imposta di successione Zurigo: aliquote e deduzioni',
+    'blog.article.imposta-successione-zurigo-aliquote.excerpt': 'Come funziona la tassazione di successione nel Canton Zurigo: sistema progressivo, esenzioni per coniuge e discendenti, dichiarazione e scadenze.',
+    'blog.article.imposta-successione-zurigo-aliquote.imageAlt': 'Scrivania di un ufficio fiscale svizzero con documenti di successione, calcolatrice e moduli ufficiali',
 };
 
 export default blogMetaChIt;

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "logitech",
-  "assembledAt": "2026-08-24T21:59:41.681Z",
+  "assembledAt": "2026-08-25T10:23:10.801Z",
   "jobs": [
     {
       "id": "logitech-318c1af909a7",
@@ -33,7 +33,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Head-of-Product-Security_146199",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-24T21:59:39.415Z",
+      "crawledAt": "2026-08-25T10:23:08.450Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -110,7 +110,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-Hardware-Product-User-Experience-Designer_146581",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-24T21:59:38.280Z",
+      "crawledAt": "2026-08-25T10:23:07.559Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -144,6 +144,7 @@
         ]
       },
       "firstSeenAt": "2026-05-28T13:21:21.034Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -189,7 +190,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-AI-ML-Engineer_146488",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-24T21:59:37.326Z",
+      "crawledAt": "2026-08-25T10:23:06.644Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -226,6 +227,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:52:52.987Z",
+      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 148000,
       "baseSalary": {
@@ -315,7 +317,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     }
   ]
 }

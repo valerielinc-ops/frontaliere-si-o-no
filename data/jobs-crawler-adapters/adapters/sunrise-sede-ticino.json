@@ -12,7 +12,7 @@
     "https://careers.sunrise.ch/it/it/search-results"
   ],
   "notes": "Dedicated Sunrise crawler parses the Phenom search pages and keeps CH-wide jobs (all 26 cantons) from the Sunrise careers portal; per-job canton inferred from the clean city signal, foreign/unresolved postings dropped.",
-  "updatedAt": "2026-08-24T21:42:28.407Z",
+  "updatedAt": "2026-08-25T09:51:26.427Z",
   "seedMetaByUrl": {
     "https://careers.sunrise.ch/it/it/job/REQ_30036338/ott-platforms-specialist-full-stack-engineer-80-100": {
       "location": "Zurich",
@@ -44,27 +44,15 @@
       "company": "Sunrise Communications AG",
       "postedDate": "2026-08-14"
     },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036410/sales-agent-zurich-shopville-60-100": {
+      "location": "Zurich",
+      "canton": "ZH",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-08-24"
+    },
     "https://careers.sunrise.ch/it/it/job/REQ_30036830/sales-agent-st-gallen-shopping-arena-60-100": {
       "location": "St. Gallen",
       "canton": "SG",
-      "company": "Sunrise Communications AG",
-      "postedDate": "2026-08-24"
-    },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036826/sales-agent-adliswil-60-100": {
-      "location": "Adliswil",
-      "canton": "ZH",
-      "company": "Sunrise Communications AG",
-      "postedDate": "2026-08-24"
-    },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036821/sales-agent-bachenbulach-60-100": {
-      "location": "Bachenbülach",
-      "canton": "ZH",
-      "company": "Sunrise Communications AG",
-      "postedDate": "2026-08-24"
-    },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036610/sales-agent-pfaffikon-sz-seedamm-center-60-100": {
-      "location": "Pfäffikon SZ",
-      "canton": "SZ",
       "company": "Sunrise Communications AG",
       "postedDate": "2026-08-24"
     },
@@ -80,6 +68,18 @@
       "company": "Sunrise Communications AG",
       "postedDate": "2026-08-24"
     },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036669/sales-agent-luzern-weinmarkt-80": {
+      "location": "Luzern",
+      "canton": "LU",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-08-24"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036847/sales-agent-schaffhausen-60-100": {
+      "location": "Schaffhausen",
+      "canton": "SH",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-08-24"
+    },
     "https://careers.sunrise.ch/it/it/job/REQ_30036788/store-manager-zurich-altstetten-80-100": {
       "location": "Zürich",
       "canton": "ZH",
@@ -89,12 +89,6 @@
     "https://careers.sunrise.ch/it/it/job/REQ_30036738/sales-agent-rapperswil-60-100": {
       "location": "Rapperswil",
       "canton": "SG",
-      "company": "Sunrise Communications AG",
-      "postedDate": "2026-08-24"
-    },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036847/sales-agent-schaffhausen-60-100": {
-      "location": "Schaffhausen",
-      "canton": "SH",
       "company": "Sunrise Communications AG",
       "postedDate": "2026-08-24"
     },

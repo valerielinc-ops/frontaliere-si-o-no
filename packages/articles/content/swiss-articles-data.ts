@@ -12745,6 +12745,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'successione-donazione-zurigo-guida',
+    category: 'fiscale',
+    date: '2026-08-25T09:33:40.022Z',
+    image: '/images/blog/successione-donazione-zurigo-guida.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'imposta-successione-zurigo-aliquote',
+    category: 'fiscale',
+    date: '2026-08-25T10:18:42.683Z',
+    image: '/images/blog/imposta-successione-zurigo-aliquote.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

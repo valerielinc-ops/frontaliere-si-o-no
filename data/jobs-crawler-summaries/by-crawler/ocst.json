@@ -1,7 +1,7 @@
 {
   "key": "ocst",
   "label": "OCST",
-  "generatedAt": "2026-08-24T21:53:46.373Z",
+  "generatedAt": "2026-08-25T10:02:46.008Z",
   "total": 2,
   "discovered": null,
   "written": 2,
@@ -9,10 +9,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4618,
-  "avgDurationMs": 4618,
+  "durationMs": 5654,
+  "avgDurationMs": 5654,
   "durationHistory": [
-    4618
+    5654
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://www.ocst.ch/il-lavoro/548-approfondimenti/2608-salute-in-azienda-il-benessere-organizzativo-e-possibile",
       "source": "OCST Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-24T21:53:42.624Z",
+      "crawledAt": "2026-08-25T10:02:41.224Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -43,11 +43,11 @@
       "applyUrl": "https://www.ocst.ch/il-lavoro/548-approfondimenti/2608-salute-in-azienda-il-benessere-organizzativo-e-possibile",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T10:18:06.839Z",
-      "_qualityScore": 49,
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 10,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -63,7 +63,7 @@
       "url": "https://www.ocst.ch/il-lavoro/548-approfondimenti/2607-ladi-un-fondo-ricco-e-troppi-bisogni-ignorati",
       "source": "OCST Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-24T21:53:42.943Z",
+      "crawledAt": "2026-08-25T10:02:41.542Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -78,11 +78,11 @@
       "applyUrl": "https://www.ocst.ch/il-lavoro/548-approfondimenti/2607-ladi-un-fondo-ricco-e-troppi-bisogni-ignorati",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T10:18:07.162Z",
-      "_qualityScore": 49,
+      "_qualityScore": 52,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 10,
+        "translation": 13,
         "completeness": 14
       }
     }

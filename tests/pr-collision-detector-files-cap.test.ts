@@ -18,7 +18,7 @@
  * senza copertura: qui e' una funzione pura con `gh` iniettato.
  */
 import { describe, it, expect } from 'vitest';
-import { fetchPrFiles, GRAPHQL_FILES_CAP, decideCollisionLabel } from '../scripts/ci/pr-collision-detector.mjs';
+import { fetchPrFiles, GRAPHQL_FILES_CAP, REST_FILES_HARD_CAP, decideCollisionLabel } from '../scripts/ci/pr-collision-detector.mjs';
 
 const REST_PAGE = 30; // quanti file rende l'endpoint REST senza `--paginate`
 
@@ -47,7 +47,15 @@ function fakeGh({ graphql, rest }: { graphql?: unknown; rest?: string | Error })
   const fn = (args: string[], opts: { json?: boolean; allowFail?: boolean } = {}) => {
     calls.push(args);
     if (args[0] === 'pr') {
-      if (graphql instanceof Error) throw graphql;
+      if (graphql instanceof Error) {
+        // Simmetrico al ramo REST sotto, e per lo stesso motivo: `fetchPrFiles`
+        // chiama QUESTA `gh` con `allowFail: true`, quindi il fallimento vero
+        // non lancia — rende `null`. Un finto che lancia soltanto non puo'
+        // riprodurre il modo in cui la chiamata fallisce davvero, ed era
+        // esattamente il caso in cui `complete` usciva TRUE (#6206).
+        if (opts.allowFail) return opts.json === false ? '' : null;
+        throw graphql;
+      }
       return graphql ?? [];
     }
     if (!/^repos\/[^/]+\/[^/]+\/pulls\/\d+\/files$/.test(args[1] ?? '')) {
@@ -281,5 +289,70 @@ describe('decideCollisionLabel — unknown non e «non collide»', () => {
     // L'incompletezza rende inaffidabile un «non collide», non un «collide»:
     // le collisioni viste sono viste davvero.
     expect(d(true, false, false)).toBe('add');
+  });
+});
+
+describe('fetchPrFiles — «non ha risposto» non e «e vuoto» (follow-up #6206)', () => {
+  // Il buco che chiude: entrambe le `gh` mute davano `expected=0` e `files=[]`,
+  // quindi `complete` cadeva sul ramo `files.length === 0` e usciva TRUE. A
+  // valle, `pr-review-loop` legge esattamente quella coppia («elenco vuoto E
+  // completo») come «PR rebase-only», sceglie il tier `normal` e SALTA il
+  // guard sull'incompletezza — cioe' il falso negativo che questo modulo
+  // esiste per impedire, prodotto dal modulo stesso.
+  it('gh muta con oracolo sconosciuto: NON e completa', () => {
+    const { fn } = fakeGh({ graphql: new Error('gh: network unreachable'), rest: new Error('idem') });
+    const { files, complete, reason } = fetchPrFiles(1, 0, fn as never, 'o/r');
+    expect(files).toEqual([]);
+    expect(complete).toBe(false);
+    expect(reason).toBe('list-fetch-failed');
+  });
+
+  it('la COPPIA che pr-review-loop legge non e mai «vuoto E completo» per errore', () => {
+    // Il consumatore a valle non guarda `complete` da solo: fa
+    // `if [ -z "$files" ] && [ "$files_complete" = "1" ]` e da li' conclude
+    // «PR rebase-only», sceglie il tier `normal` ed esce PRIMA del guard
+    // sull'incompletezza. E' la congiunzione a dover essere impossibile
+    // quando l'elenco non e' mai arrivato, non uno dei due campi.
+    const { fn } = fakeGh({ graphql: new Error('gh: 502'), rest: new Error('gh: 502') });
+    const { files, complete } = fetchPrFiles(1, 0, fn as never, 'o/r');
+    expect(files.length === 0 && complete).toBe(false);
+  });
+
+  it('PR rebase-only VERA resta completa: [] consegnato non e [] mancante', () => {
+    // Il verso opposto, che non deve regredire: qui la GraphQL ha risposto, e
+    // ha risposto «nessun file». Distinguere le due e' tutto il punto.
+    // `rest: ''` perche' con lista vuota il fallback REST parte comunque, e
+    // una PR rebase-only non ha file da nessuna delle due parti.
+    const { fn } = fakeGh({ graphql: [], rest: '' });
+    const { files, complete, reason } = fetchPrFiles(1, 0, fn as never, 'o/r');
+    expect(files).toEqual([]);
+    expect(complete).toBe(true);
+    expect(reason).toBe('complete');
+  });
+});
+
+describe('fetchPrFiles — la CAUSA dell incompletezza, non solo il fatto (follow-up #6206)', () => {
+  it('etichetta il tetto rigido della REST come tale, non come un errore ordinario', () => {
+    // Sopra i 3000 file `--paginate` non ha una pagina successiva: nessun
+    // retry lo risolve, e a valle va detto — prima ogni `complete:false`
+    // stampava la stessa riga.
+    const huge = listOf(REST_FILES_HARD_CAP);
+    const { fn } = fakeGh({ graphql: listOf(100), rest: `${huge.join('\n')}\n` });
+    const { complete, reason } = fetchPrFiles(1, 4200, fn as never, 'o/r');
+    expect(complete).toBe(false);
+    expect(reason).toBe('rest-hard-limit');
+  });
+
+  it('distingue il cap GraphQL non confermato da una lista corta', () => {
+    const { fn } = fakeGh({ graphql: listOf(100), rest: new Error('REST giu') });
+    expect(fetchPrFiles(1, 0, fn as never, 'o/r').reason).toBe('graphql-cap');
+
+    const { fn: fn2 } = fakeGh({ graphql: listOf(12), rest: `${listOf(12).join('\n')}\n` });
+    expect(fetchPrFiles(1, 40, fn2 as never, 'o/r').reason).toBe('short-of-oracle');
+  });
+
+  it('una lista completa porta reason "complete"', () => {
+    const { fn } = fakeGh({ graphql: listOf(12), rest: 'non-deve-servire\n' });
+    expect(fetchPrFiles(1, 12, fn as never, 'o/r').reason).toBe('complete');
   });
 });
