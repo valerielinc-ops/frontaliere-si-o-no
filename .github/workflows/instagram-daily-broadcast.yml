@@ -100,12 +100,19 @@ jobs:
         if: success() && env.DRY_RUN != 'true'
         run: |
           set -euo pipefail
-          if git diff --quiet data/instagram-posted.json 2>/dev/null; then
+          # Same fix as linkedin-member-daily.yml (#6424): `git diff --quiet
+          # <path>` on a path that has never existed exits 128, not 0/1, so a
+          # failed/skipped post (no ledger write yet) fell through into
+          # `git add` on a missing pathspec and hard-failed the step.
+          if [ ! -f data/instagram-posted.json ]; then
+            echo "no ledger file written — nothing to commit"; exit 0
+          fi
+          git add data/instagram-posted.json
+          if git diff --cached --quiet; then
             echo "no ledger changes"; exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/instagram-posted.json
           git commit -m "chore(instagram): track posted carousel content [skip ci]"
           bash scripts/lib/git-push-with-retry.sh || echo "ledger push skipped (non-fatal)"
 
