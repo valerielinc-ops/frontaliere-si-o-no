@@ -37,6 +37,7 @@
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { locateTagByAttribute, extractBalancedTagBlock, stripInlineJsCode } from './hospital-custom-html-helpers.mjs';
 import { normalizeDescriptionBullets, stripScriptsAndStyles } from './crawler-template.mjs';
+import { readMetaContent } from './html-attr.mjs';
 
 const HQ = getCompanyDefaults('lis');
 
@@ -233,9 +234,9 @@ export function parseArca24DetailPage(html, pageUrl = '') {
   }
   // Fallback to og:title
   if (!title || title.length < 3) {
-    const ogMatch = html.match(/<meta[^>]*property=["']og:title["'][^>]*content=["']([^"']+)["']/i);
+    const ogMatch = readMetaContent(html, 'og:title');
     if (ogMatch) {
-      title = normalizeSpace(ogMatch[1])
+      title = normalizeSpace(ogMatch)
         .replace(/\s*-\s*(Svizzera|Switzerland|Suisse|Schweiz)\b.*$/i, '')
         .replace(/\s*-\s*LIS\b.*$/i, '')
         .trim();

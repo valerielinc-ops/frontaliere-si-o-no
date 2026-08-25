@@ -38,6 +38,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, stripScriptsAndStyles } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { readMetaContent } from './html-attr.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -119,8 +120,8 @@ export function parseTertianumDetailPage(html = '') {
   if (!html) return null;
   // Title: prefer og:title
   let title = '';
-  const ogt = html.match(/<meta[^>]+property=["']og:title["'][^>]+content=["']([^"']+)["']/i);
-  if (ogt) title = decodeEntities(ogt[1]).trim();
+  const ogt = readMetaContent(html, 'og:title');
+  if (ogt) title = decodeEntities(ogt).trim();
   if (!title) {
     const t = stripScriptsAndStyles(html).match(/<title>([^<]+)<\/title>/i);
     if (t) title = decodeEntities(t[1]).split(/[|–-]/)[0].trim();
