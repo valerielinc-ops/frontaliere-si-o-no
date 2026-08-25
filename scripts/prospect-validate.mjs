@@ -22,6 +22,7 @@ import path from 'node:path';
 import { loadCandidates, saveCandidates, setStatus, byStatus, statusCounts } from './lib/prospector/candidate-store.mjs';
 import { runSpec } from './lib/prospector/synthesize.mjs';
 import { gradeExtraction } from './lib/prospector/validate.mjs';
+import { probeCompanyLogo } from './lib/prospector/logo-probe.mjs';
 import { PROSPECTOR_DIR, VALIDATION_PATH } from './lib/prospector/config.mjs';
 
 const argv = process.argv.slice(2);
@@ -89,11 +90,21 @@ for (const spec of specs) {
   report.platform = spec.platform || null;
   report.mode = spec.mode;
   report.runErrors = errors;
+
+  // Logo obbligatorio quanto jobLike: un candidato la cui azienda non ha un
+  // logo verificabile non entra in produzione (vedi promotion-gate.mjs). La
+  // probe non fa fallire la spec — un errore di rete qui si traduce solo in
+  // `logoFound: false`, che il gate tratta come "non ancora dimostrato" e che
+  // si autoripara alla prossima validazione (stessa filosofia del resto del
+  // gate: nessuna misura non fatta vale come "passata").
+  const logo = await probeCompanyLogo(spec.companyHost).catch(() => ({ found: false, reason: 'errore probe' }));
+  report.logoFound = logo.found;
+
   reports.push(report);
   tally[report.verdict]++;
 
   const mark = { good: '✓', weak: '~', bad: '✗', insufficient: '?' }[report.verdict];
-  console.log(`  ${mark} ${String(spec.companyName).slice(0, 30).padEnd(32)} score ${report.score.toFixed(2)}  ${String(report.vacancyCount).padStart(3)} ann  url ${(report.reachableRate * 100).toFixed(0)}%  titoli ${(report.titleMatchRate * 100).toFixed(0)}%  ${report.problems[0] || ''}`);
+  console.log(`  ${mark} ${String(spec.companyName).slice(0, 30).padEnd(32)} score ${report.score.toFixed(2)}  ${String(report.vacancyCount).padStart(3)} ann  url ${(report.reachableRate * 100).toFixed(0)}%  titoli ${(report.titleMatchRate * 100).toFixed(0)}%  logo ${logo.found ? '✓' : '✗'}  ${report.problems[0] || ''}`);
 
   const candidate = byCrawlerKey.get(spec.companyKey);
   if (candidate) {
@@ -118,6 +129,7 @@ for (const spec of specs) {
       // measured" (blocking) while `null` means "measured, unreadable bytes"
       // (not blocking) — so it must be written on every entry, including null.
       jobLikeRate: report.jobLikeRate ?? null,
+      logoFound: report.logoFound,
     });
     setStatus(store, candidate.key, next, {
       qualityScore: report.score,

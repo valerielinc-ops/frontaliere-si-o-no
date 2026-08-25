@@ -472,6 +472,7 @@ describe('promotion gate', () => {
       contentfulRate: 1,
       distinctRate: 1,
       jobLikeRate: 1,
+      logoFound: true,
       vacancyCount: 6,
     })),
     ...over,
@@ -509,6 +510,30 @@ describe('promotion gate', () => {
     const res = evaluatePromotion(legacy);
     expect(res.passed).toBe(false);
     expect(res.checks.jobLike).toBe(false);
+    expect(res.reasons.join(' ')).toMatch(/nuova validazione/);
+  });
+
+  // Logo aziendale obbligatorio, stessa disciplina di jobLike: senza logo
+  // verificabile il candidato pubblicherebbe pagine annuncio col badge generico
+  // a iniziali colorate invece del brand del datore.
+  it('rifiuta un candidato senza logo aziendale verificabile', () => {
+    const noLogo = graded(2);
+    noLogo.validationHistory.forEach((h) => { h.logoFound = false; });
+    const res = evaluatePromotion(noLogo);
+    expect(res.passed).toBe(false);
+    expect(res.checks.logo).toBe(false);
+    expect(res.reasons.join(' ')).toMatch(/logo/);
+  });
+
+  it('rifiuta un candidato la cui ultima validazione e\' anteriore al controllo del logo', () => {
+    // Campo ASSENTE = mai misurato, stesso trattamento di jobLikeRate assente:
+    // i candidati gia' in coda dal gate cieco restano bloccati finche' non
+    // vengono ri-validati, la prossima validazione fornisce il dato.
+    const legacy = graded(2);
+    legacy.validationHistory.forEach((h) => { delete h.logoFound; });
+    const res = evaluatePromotion(legacy);
+    expect(res.passed).toBe(false);
+    expect(res.checks.logo).toBe(false);
     expect(res.reasons.join(' ')).toMatch(/nuova validazione/);
   });
 
