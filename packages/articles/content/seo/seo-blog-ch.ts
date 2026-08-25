@@ -55556,6 +55556,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-benzina-diesel-paradosso-petrolio': {
+    title: 'Benzina e diesel cari, ma il petrolio scende | Frontaliere Ticino',
+    description: 'Nonostante il calo del petrolio del 28%, in Svizzera fare il pieno costa sempre di più. Benzina a 2,13 CHF/litro, diesel a 2,27 CHF/litro: l\'aumento ha superato',
+    keywords: 'frontalieri, ticino, svizzera, italia, benzina, diesel, cari, petrolio',
+    ogTitle: 'Benzina e diesel cari, ma il petrolio scende',
+    ogDescription: 'Nonostante il calo del petrolio del 28%, in Svizzera fare il pieno costa sempre di più. Benzina a 2,13 CHF/litro, diesel a 2,27 CHF/litro: l\'aumento ha superato i 40 centesimi dal febbraio.',
+    canonicalPath: '/articoli-svizzera/benzina-diesel-paradosso-petrolio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Benzina e diesel cari, ma il petrolio scende",
+      "description": "Nonostante il calo del petrolio del 28%, in Svizzera fare il pieno costa sempre di più. Benzina a 2,13 CHF/litro, diesel a 2,27 CHF/litro: l'aumento ha superato",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/benzina-diesel-paradosso-petrolio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pompa di benzina presso una stazione di servizio svizzera con sfondo colline alpine"
+      },
+      "datePublished": "2026-08-25T15:29:11+00:00",
+      "dateModified": "2026-08-25T15:29:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/benzina-diesel-paradosso-petrolio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

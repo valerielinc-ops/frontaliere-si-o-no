@@ -4282,6 +4282,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.richieste-asilo-sotto-10-mila-primo-semestre.title': 'Demandes d\'asile : le SEM abaisse ses estimations pour 2026',
     'blog.article.richieste-asilo-sotto-10-mila-primo-semestre.excerpt': 'Au premier semestre 2026, moins de 10 000 demandes d\'asile (première baisse depuis 2022). SEM prévoit 22 000 pour toute l\'année, contre 26 000 initialement estimées.',
     'blog.article.richieste-asilo-sotto-10-mila-primo-semestre.imageAlt': 'Vue panoramique de Lugano sur le lac Ceresio avec les montagnes suisses en arrière-plan',
+    'blog.article.benzina-diesel-paradosso-petrolio.title': 'Essence et diesel chers, mais le pétrole baisse',
+    'blog.article.benzina-diesel-paradosso-petrolio.excerpt': 'Malgré la baisse du pétrole de 28%, faire le plein coûte de plus en plus cher en Suisse. Essence à 2,13 CHF/litre, diesel à 2,27 CHF/litre : l\'augmentation a dépassé les 40 centimes depuis février.',
+    'blog.article.benzina-diesel-paradosso-petrolio.imageAlt': 'Pompe à essence à une station-service suisse avec panorama alpin en arrière-plan',
 };
 
 export default blogMetaChFr;
