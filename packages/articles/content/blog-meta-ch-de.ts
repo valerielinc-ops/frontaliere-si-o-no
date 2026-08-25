@@ -4288,6 +4288,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.spionaggio-svizzera-controlli.title': 'Schweiz verstärkt Spionagekontrollen',
     'blog.article.spionaggio-svizzera-controlli.excerpt': 'Die Aussenpolitische Kommission schlägt Massnahmen gegen ausländische Spionage vor: Legitimationskartenkontrollen und Ausweisung ausländischer Agenten.',
     'blog.article.spionaggio-svizzera-controlli.imageAlt': 'Schweizer Bundeshaus in Bern, Symbol nationaler Institutionen und Sicherheit',
+    'blog.article.argovia-divieto-velo-scuole.title': 'Aargau auf dem Weg zum Kopftuchverbot in Schulen',
+    'blog.article.argovia-divieto-velo-scuole.excerpt': 'Der Grosse Aargauer Rat nimmt die Motion mit 78 Stimmen an. Die Kantonsregierung wendet sich aus verfassungsrechtlichen Gründen gegen das Bundesgerichtsurteil von 2015.',
+    'blog.article.argovia-divieto-velo-scuole.imageAlt': 'Schweizer Schulgebäude mit Schülern verschiedener Herkunft im Schulhof, authentische Architektur.',
 };
 
 export default blogMetaChDe;
