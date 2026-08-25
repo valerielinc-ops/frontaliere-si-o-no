@@ -1457,6 +1457,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'spionaggio-svizzera-controlli': { it: 'spionaggio-svizzera-controlli', en: 'espionage-switzerland-controls', de: 'spionage-schweiz-kontrollen', fr: 'espionnage-suisse-controles' },
  'argovia-divieto-velo-scuole': { it: 'argovia-divieto-velo-scuole', en: 'aargau-veil-ban-schools', de: 'aargau-kopftuch-verbot-schulen', fr: 'argovie-interdiction-voile-ecoles' },
  'verdi-segretaria-stato-clima': { it: 'verdi-segretaria-stato-clima', en: 'greens-state-secretariat-climate', de: 'gruene-staatssekretariate-klima', fr: 'verts-secretariat-etat-climat' },
+ 'mps-sisa-tasse-usi-supsi': { it: 'mps-sisa-tasse-usi-supsi', en: 'mps-sisa-university-fees-ticino', de: 'mps-sisa-unigeb-usi-supsi', fr: 'mps-sisa-frais-universite' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

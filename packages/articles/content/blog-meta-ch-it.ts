@@ -4294,6 +4294,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.verdi-segretaria-stato-clima.title': 'Segretaria di Stato per il clima: la richiesta dei Verdi',
     'blog.article.verdi-segretaria-stato-clima.excerpt': 'I Verdi chiedono una Segretaria di Stato per il clima e l\'uscita dalle energie fossili. Lisa Mazzone attacca frontalmente il consigliere federale Rösti.',
     'blog.article.verdi-segretaria-stato-clima.imageAlt': 'Conferenza stampa dei Verdi sulla richiesta di una Segretaria di Stato per il clima federale',
+    'blog.article.mps-sisa-tasse-usi-supsi.title': 'MPS e SISA contro l\'aumento tasse universitarie',
+    'blog.article.mps-sisa-tasse-usi-supsi.excerpt': 'Il 25 agosto MPS e SISA protestano contro gli aumenti di tasse presso USI e SUPSI. Le rette ticinesi erano già sopra media svizzera; preoccupazione per i Bilaterali III.',
+    'blog.article.mps-sisa-tasse-usi-supsi.imageAlt': 'Studenti ticinesi davanti al campus dell\'USI a Lugano manifestano preoccupazione per l\'aumento delle tasse universitarie.',
 };
 
 export default blogMetaChIt;

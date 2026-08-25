@@ -4294,6 +4294,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.verdi-segretaria-stato-clima.title': 'Staatssekretärin für Klima: Die Forderung der Grünen',
     'blog.article.verdi-segretaria-stato-clima.excerpt': 'Die Grünen fordern eine Staatssekretärin für Klima und den Ausstieg aus fossilen Energien. Lisa Mazzone greift Bundesrat Rösti frontal an.',
     'blog.article.verdi-segretaria-stato-clima.imageAlt': 'Pressekonferenz der Grünen zur Forderung eines Klimastaatssekretariats auf Bundesebene',
+    'blog.article.mps-sisa-tasse-usi-supsi.title': 'MPS und SISA gegen die Erhöhung der Studiengebühren',
+    'blog.article.mps-sisa-tasse-usi-supsi.excerpt': 'Am 25. August protestieren MPS und SISA gegen Steuererhöhungen bei USI und SUPSI. Die Tessiner Strafen lagen bereits über dem Schweizer Durchschnitt; Sorge um die Bilateralen III.',
+    'blog.article.mps-sisa-tasse-usi-supsi.imageAlt': 'Tessiner Studierende am USI-Campus in Lugano äußern Bedenken zu den erhöhten Studiengebühren.',
 };
 
 export default blogMetaChDe;
