@@ -29,20 +29,38 @@ name: tests
 # Tests that read data/jobs.json (gitignored): the assemble step regenerates
 # it from the per-slice files committed under data/jobs-by-slice/.
 #
-# ── Four jobs, one after another (was: four parallel workflows) ────────────
+# ── Four jobs, in parallel, sharing checkout+npm-ci code (was briefly a
+#    needs: chain — see below) ───────────────────────────────────────────────
 # `collision` (ex `pr-collision-detector.yml` job `detect`) and `contract` (ex
-# `pr-body-contract.yml` job `contract`) now live HERE, as the first two jobs
-# in the `needs:` chain ahead of `typecheck` and `vitest`. Same move as the
-# "Footprint" note above (4-shard matrix → 1 job): every push to a PR used to
-# fire 4 jobs from 3 separate workflow files AT ONCE (`detect` + `contract` +
-# `typecheck` + `vitest`), which is 4 of the account's ~20 shared Actions
-# slots gone per push. Chaining them with `needs:` + `if: always()` drops the
-# per-PR peak from 4 concurrent jobs to 1, with the SAME coverage: no check is
-# skipped, no threshold moved, no name renamed. `if: always()` (not a
-# `.result` check) is deliberate — it makes the chain PROCEED to the next job
-# regardless of whether the one before it passed or failed, preserving the
-# four gates' pre-existing independence (a red `contract` never used to stop
-# `vitest` from running, and still doesn't).
+# `pr-body-contract.yml` job `contract`) live HERE, alongside `typecheck` and
+# `vitest`, as four independent jobs with no `needs:` between them — same
+# concurrency shape as when they were 4 separate workflows, restored
+# 2026-08-25 (#6475 had briefly chained them `collision -> contract ->
+# typecheck -> vitest` via `needs:` + `if: always()` specifically to drop the
+# per-PR peak from 4 concurrent jobs to 1 on the account's shared ~20-slot
+# Actions pool). That measurement was real, but so is the cost it traded away:
+# fully sequential jobs each pay their OWN checkout+npm-ci from scratch, so
+# total wall-time became the SUM of four jobs' setup+run time instead of the
+# MAX — a PR-turnaround regression with no reduction in redundant work (still
+# 4 checkouts, 3 `npm ci`, just one after another instead of at once).
+#
+# The fix that keeps BOTH properties: `.github/actions/ci-checkout-npm`
+# factors the checkout+setup-node+npm-ci steps into one shared composite
+# action (four jobs invoking the same code, not four hand-maintained copies
+# that can drift), while each job keeps running independently in parallel —
+# same peak concurrency (4) as before #6475, same wall-clock as before #6475,
+# zero duplication of the checkout/npm-ci LOGIC. This is a deliberate,
+# explicit reopening of the job-pool-footprint tradeoff #6475 made: measure
+# again if the shared pool becomes the bottleneck (queued crawler runs behind
+# PR jobs) rather than re-deriving the call from first principles.
+#
+# check-run identity is untouched: each job is still its own check (`collision`
+# label-only gate, `contract` non-blocking body/source-guard gate, `typecheck
+# (tsc --noEmit)`, `vitest (unit + integration)` — the load-bearing one). A red
+# `contract` still never stops `vitest` from running — that was true when
+# these were 4 separate workflows, stayed true across the needs: chain (via
+# `if: always()`), and is true again now simply because there is no
+# dependency between the jobs at all.
 #
 # `collision` keeps its OWN job-level `concurrency:` (see `jobs.collision`
 # below) sharing the group `pr-collision-detector` with the schedule-only
@@ -72,6 +90,16 @@ on:
   # re-fires auto-merge-on-lgtm. No Claude review is re-run (auto-merge-eval
   # carries the existing ## LGTM forward across a pure main-merge rebase).
   workflow_dispatch:
+    inputs:
+      # From pr-collision-detector.yml's own `workflow_dispatch` — the
+      # `collision` job's `DRY_RUN: ${{ github.event.inputs.dry_run }}` step
+      # below reads this. Missing until now (actionlint: "property dry_run is
+      # not defined"): a manual dispatch with dry_run=true silently resolved
+      # to an empty string, so it was never actually honoured.
+      dry_run:
+        description: 'Solo log, niente label/commenti (job collision)'
+        type: boolean
+        default: false
 
 # Union of the three original workflows' `permissions:` (tests.yml itself had
 # none — it inherited the repo default — so this is now the explicit floor):
@@ -162,10 +190,10 @@ jobs:
     # repo traccia, questo tetto e' il cerotto dichiarato nel frattempo.
     timeout-minutes: 15
     steps:
-      - name: Checkout
-        uses: actions/checkout@v5
+      - name: Checkout + npm ci
+        uses: ./.github/actions/ci-checkout-npm
         with:
-          fetch-depth: 1
+          fetch-depth: "1"
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
             /*
@@ -189,16 +217,8 @@ jobs:
             !/data/evidence-index.json
             !/data/health-premiums/
             !/data/jobs-crawler-summaries/
-          sparse-checkout-cone-mode: false
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v5
-        with:
-          node-version: '22'
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci --ignore-scripts
+          sparse-checkout-cone-mode: "false"
+          npm-ci-args: "--ignore-scripts"
 
       - name: Prepare Firebase credentials
         env:
@@ -263,15 +283,11 @@ jobs:
   # check-run name stays `contract`). That file is deleted: its ONLY trigger
   # was `pull_request`, now fully covered here.
   contract:
-    needs: [collision]
-    # `always()`: proceed to this gate even when `collision` failed, was
-    # cancelled, or was skipped (on `push`/`workflow_dispatch` `collision`
-    # doesn't run at all) — they are INDEPENDENT gates, exactly as before
-    # when they ran as separate parallel workflows: a red `detect` never used
-    # to stop `pr-body-contract` from running, and still doesn't. Runs on
-    # EVERY pull_request event including `edited` (pr-body-contract.yml's own
+    # Independent of `collision`/`typecheck`/`vitest` — no `needs:` between
+    # any of the four jobs (see the note in testa al file). Runs on EVERY
+    # pull_request event including `edited` (pr-body-contract.yml's own
     # trigger list, unlike pr-collision-detector.yml's).
-    if: always() && github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - name: PR-body completeness + multi-issue Closes (no checkout, all events)
@@ -627,12 +643,12 @@ jobs:
       # they still run after the body-contract step setFailed (independent gates).
       - name: Checkout (for source guards)
         if: ${{ !cancelled() && github.event.action != 'edited' }}
-        uses: actions/checkout@v5
+        uses: ./.github/actions/ci-checkout-npm
         with:
           ref: ${{ github.event.pull_request.head.sha }}
           # `fetch-depth: 0` resta: check-sibling-patterns.mjs diffa contro
           # BASE_REF e senza storia non ha nulla da confrontare.
-          fetch-depth: 0
+          fetch-depth: "0"
           filter: blob:none
           # `filter: blob:none` evita di scaricare i blob nel fetch, ma il
           # checkout dell'albero li materializza comunque uno per uno: su
@@ -650,7 +666,9 @@ jobs:
             /*
             !/public/images/events
             !/public/images/blog
-          sparse-checkout-cone-mode: false
+          sparse-checkout-cone-mode: "false"
+          # I source-guard leggono solo il working tree: niente node_modules.
+          run-npm-ci: "false"
         # RIMISURATO il 2026-08-18 (era 8min): su 153 Checkout `success` delle
         # ultime 300 run — min 69s, p50 158s, p95 358s, p99 393s, **max 420s** — il
         # tetto di 480s stava 60 secondi sopra il massimo sano, cioe' tagliava la
@@ -936,19 +954,19 @@ jobs:
   #
   # Costo: `tsc --noEmit` misura 33s in locale sull'albero intero; il job è
   # checkout + npm ci + tsc, senza assemble del dataset (nessun sorgente TS
-  # importa data/jobs.json, che è gitignored). Da questa PR (sequenzializzazione
-  # dei 4 job per abbassare il picco di concorrenza per-PR, vedi la nota "Four
-  # jobs, one after another" in testa al file) gira DOPO `contract` invece che
-  # in parallelo a vitest: costo incrementale sul wall della PR resta ≈ 0
-  # (33s), solo lo scheduling è seriale.
+  # importa data/jobs.json, che è gitignored). Gira in parallelo a `collision`,
+  # `contract` e `vitest` (nessun `needs:` fra i quattro, vedi la nota "Four
+  # jobs, in parallel" in testa al file): costo incrementale sul wall della PR
+  # resta ≈ 0 (33s), e in più non aspetta gli altri tre.
   typecheck:
     name: typecheck (tsc --noEmit)
-    needs: [contract]
-    # `always()`: gira anche se `contract` è fallito, è stato annullato o è
-    # stato skippato (push a main, dove `collision`/`contract` sono skip per
-    # `github.event_name != 'pull_request'`) — sono gate indipendenti oggi,
-    # deve restare così (vedi la nota in testa al file).
-    if: always()
+    # Skip on a pure body edit: `edited` non porta un commit nuovo da
+    # ricontrollare (stessa ragione per cui `collision` salta `edited`, e per
+    # cui prima dell'unificazione questo job non era nemmeno raggiungibile su
+    # un evento che il vecchio `tests.yml` non elencava fra i suoi `types:`).
+    # `github.event_name != 'pull_request'` copre push/workflow_dispatch, dove
+    # `github.event.action` non esiste.
+    if: github.event_name != 'pull_request' || github.event.action != 'edited'
     runs-on: ubuntu-latest
     # 15 -> 30 il 2026-08-18, stesso difetto e stessa misura del job `vitest`
     # qui sotto: il tetto stava sotto il caso peggiore reale e uccideva run
@@ -1006,7 +1024,8 @@ jobs:
       # import TS risolti verso quelle cartelle sopravvivono tutti al profilo —
       # sono file piccoli, e il profilo esclude solo foglie sopra 15 MB.
       # Il guard non lo copre ancora per costruzione: vedi la issue di follow-up.
-      - uses: actions/checkout@v5
+      - name: Checkout + npm ci
+        uses: ./.github/actions/ci-checkout-npm
         with:
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
@@ -1029,15 +1048,7 @@ jobs:
             !/data/evidence-index.json
             !/data/health-premiums/
             !/data/jobs-crawler-summaries/
-          sparse-checkout-cone-mode: false
-
-      - uses: actions/setup-node@v5
-        with:
-          node-version: 22
-          cache: 'npm'
-
-      - name: npm ci
-        run: npm ci
+          sparse-checkout-cone-mode: "false"
 
       - name: tsc --noEmit (baseline + ratchet)
         run: npm run typecheck:gate
@@ -1049,12 +1060,15 @@ jobs:
   # Do NOT rename.
   vitest:
     name: vitest (unit + integration)
-    needs: [typecheck]
-    # `always()`: same reasoning as `typecheck` above — proceed regardless of
-    # `typecheck`'s outcome, so a red/skipped typecheck never suppresses the
-    # one check-run everything else (auto-merge, pr-autorebase,
-    # stale-pr-rescuer) actually gates on.
-    if: always()
+    # In parallel with `collision`/`contract`/`typecheck` (no `needs:` — see
+    # the note in testa al file): none of the three can suppress the one
+    # check-run everything else (auto-merge, pr-autorebase, stale-pr-rescuer)
+    # actually gates on, because there is no dependency to propagate a
+    # red/skipped result through in the first place.
+    #
+    # Skip on a pure body edit, same reasoning as `typecheck` above: `edited`
+    # carries no new commit for the suite to re-verify.
+    if: github.event_name != 'pull_request' || github.event.action != 'edited'
     runs-on: ubuntu-latest
     # 30 min (was 20, era 15 a 4 shard). Il 20 NON era piu' un tetto di
     # sicurezza: era il vincolo che troncava la distribuzione. Misurato su 500
@@ -1105,19 +1119,12 @@ jobs:
       # #6152). Misurato in locale sull'albero pieno di questo repo: 51,0s ->
       # 37,4s (-27%) impostando `checkout.workers 0` (= usa tutti i core
       # disponibili). `actions/checkout` esegue un `git checkout` normale e
-      # rispetta la config globale, quindi basta impostarla PRIMA del passo.
-      # Rischio zero: non cambia cosa viene scaricato o scritto, solo quanti
-      # thread lo scrivono.
-      - run: git config --global checkout.workers 0
-      - uses: actions/checkout@v5
-
-      - uses: actions/setup-node@v5
-        with:
-          node-version: 22
-          cache: 'npm'
-
-      - name: npm ci
-        run: npm ci
+      # rispetta la config globale, quindi basta impostarla PRIMA del passo —
+      # `ci-checkout-npm` lo fa incondizionatamente come primo step. Rischio
+      # zero: non cambia cosa viene scaricato o scritto, solo quanti thread lo
+      # scrivono.
+      - name: Checkout + npm ci
+        uses: ./.github/actions/ci-checkout-npm
 
       - name: Audit no merge conflict markers
         # 0-tolerance gate: blocks any commit that contains unresolved

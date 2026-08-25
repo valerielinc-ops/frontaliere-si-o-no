@@ -1,0 +1,69 @@
+name: "Checkout + npm ci (shared PR-gate setup)"
+description: >-
+  Shared checkout + Node setup + npm ci for the four PR-gate jobs in
+  tests.yml (collision, contract, typecheck, vitest). Each job still passes
+  ITS OWN sparse-checkout/fetch-depth/filter — the four profiles are NOT the
+  same and must not be forced identical: vitest's working tree sits above the
+  measured ~1.5GB sparse/full crossover (docs/REPO-WEIGHT-STRATEGY.md), so a
+  sparse checkout there costs +125% (lazy blob fetches replace one bulk
+  transfer), while typecheck/collision/contract sit below it and a sparse
+  profile is the win. What this action shares is the CODE (one definition
+  instead of four hand-maintained copies that can drift), not the parameters.
+  `checkout.workers 0` is applied unconditionally before the checkout: it
+  changes only how many threads write the tree, never what gets downloaded or
+  written, so it is a strict win for every caller (measured -27% wall on a
+  full checkout, docs/LOCAL-DEV.md).
+inputs:
+  sparse-checkout:
+    description: >-
+      Multiline sparse-checkout pattern list, passed through verbatim to
+      actions/checkout. Empty (default) = full checkout, matching what the
+      `vitest` job needs.
+    default: ""
+  sparse-checkout-cone-mode:
+    description: "Passed through to actions/checkout. Irrelevant when sparse-checkout is empty."
+    default: "false"
+  fetch-depth:
+    default: "1"
+  filter:
+    description: "Passed through to actions/checkout (e.g. blob:none for the contract source-guard checkout)."
+    default: ""
+  ref:
+    description: "Passed through to actions/checkout. Empty (default) = the event's default ref."
+    default: ""
+  run-npm-ci:
+    description: >-
+      Set to "false" to skip Node setup + npm ci entirely (the contract job's
+      body-contract check needs no checkout at all, and its source-guard
+      scripts need the working tree but not node_modules).
+    default: "true"
+  npm-ci-args:
+    description: 'Extra args for npm ci, e.g. "--ignore-scripts" (collision job).'
+    default: ""
+runs:
+  using: "composite"
+  steps:
+    - name: git config checkout.workers 0 (write the tree with all cores)
+      shell: bash
+      run: git config --global checkout.workers 0
+
+    - name: Checkout
+      uses: actions/checkout@v5
+      with:
+        ref: ${{ inputs.ref }}
+        fetch-depth: ${{ inputs.fetch-depth }}
+        filter: ${{ inputs.filter }}
+        sparse-checkout: ${{ inputs.sparse-checkout }}
+        sparse-checkout-cone-mode: ${{ inputs.sparse-checkout-cone-mode }}
+
+    - name: Setup Node.js
+      if: ${{ inputs.run-npm-ci == 'true' }}
+      uses: actions/setup-node@v5
+      with:
+        node-version: "22"
+        cache: "npm"
+
+    - name: npm ci
+      if: ${{ inputs.run-npm-ci == 'true' }}
+      shell: bash
+      run: npm ci ${{ inputs.npm-ci-args }}

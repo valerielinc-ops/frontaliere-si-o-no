@@ -7,14 +7,15 @@ name: PR collision detector (funnel-critical, no-Claude)
 # oltre la prima. Tutto deterministico (scripts/ci/pr-collision-detector.mjs).
 # ZERO Claude.
 #
-# Da qui NON parte più il trigger diretto `pull_request` (rimosso per abbassare
-# il picco di job concorrenti per-PR da 4 a 1): quel caso è coperto dal job
-# `collision` dentro `tests.yml`, che condivide lo STESSO `concurrency.group`
-# job-level `pr-collision-detector` per restare serializzato con questo file —
-# la race condition sulle label che ha causato #1454↔#1459 dipende da quello.
-# Questo file oggi fa SOLO il ricalcolo periodico (`schedule`, anche per
-# togliere la label `collision-risk` quando una collisione si risolve) più il
-# `workflow_dispatch` manuale.
+# Da qui NON parte più il trigger diretto `pull_request`: quel caso è coperto
+# dal job `collision` dentro `tests.yml` (dove gira in parallelo a
+# `contract`/`typecheck`/`vitest`, non più serializzato dopo di loro — vedi la
+# nota "Four jobs, in parallel" in testa a tests.yml), che condivide lo STESSO
+# `concurrency.group` job-level `pr-collision-detector` per restare
+# serializzato con QUESTO file — la race condition sulle label che ha causato
+# #1454↔#1459 dipende da quello. Questo file oggi fa SOLO il ricalcolo
+# periodico (`schedule`, anche per togliere la label `collision-risk` quando
+# una collisione si risolve) più il `workflow_dispatch` manuale.
 
 on:
   schedule:
