@@ -10786,6 +10786,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vilminore-scalve-grigioni-frontaliere.title': 'Vivre à Vilminore et travailler dans les Grisons : guide frontalier',
     'blog.article.vilminore-scalve-grigioni-frontaliere.excerpt': 'Permis G, fiscalité, AVS et LAMal : guide complet pour ceux qui déménagent de Vilminore di Scalve pour travailler dans les Grisons. Documents, restaurations et procédure.',
     'blog.article.vilminore-scalve-grigioni-frontaliere.imageAlt': 'Vue du Lac Lugano entre la Suisse et l\'Italie, villages alpins à la frontière',
+    'blog.article.vivere-pollein-lavorare-vallese-frontaliere.title': 'Vivre à Pollein et travailler en Valais comme frontalier',
+    'blog.article.vivere-pollein-lavorare-vallese-frontaliere.excerpt': 'Frontalier Italie-Suisse en Valais : règles fiscales 2024, permis G, impôt à la source, AVS, LPP, LAMal, restaurations et procédures pratiques.',
+    'blog.article.vivere-pollein-lavorare-vallese-frontaliere.imageAlt': 'Sentier alpin entre l\'Italie et la Suisse avec vue sur les Alpes valaisannes au coucher du soleil',
 };
 
 export default blogMetaFr;

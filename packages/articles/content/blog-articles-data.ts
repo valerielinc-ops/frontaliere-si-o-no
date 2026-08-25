@@ -32268,6 +32268,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-pollein-lavorare-vallese-frontaliere',
+ category: 'fiscale',
+ date: '2026-08-25T21:40:14.216Z',
+ image: '/images/blog/vivere-pollein-lavorare-vallese-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
