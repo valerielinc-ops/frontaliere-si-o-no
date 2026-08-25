@@ -14,6 +14,7 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00004790EXTERNALENGLOBAL/Sales-Specialist-Panel-Builder--80---100--_JR00004790-1",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00015262EXTERNALENGLOBAL/XMLNAME--Senior--Research-Scientist-in-Software-Systems-Engineering--80-100--_JR00015262-1",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00018236EXTERNALENGLOBAL/Head-of-Trade---Structured-Finance",
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00019944EXTERNALENGLOBAL/Translatable-Text-Senior-Accounting---Reporting-Analyst-General-Accounting--f-m-d--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00023648EXTERNALENGLOBAL/XMLNAME--Senior--Scientist-in-Converter-Based-Distribution-Systems--80---100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00025145EXTERNALENGLOBAL/SAP-Autorization---User-Access-Manager-f-m-d--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00033622EXTERNALENGLOBAL/XMLNAME--Senior--Scientist-for-EMC-in-Power-Electronics",
@@ -51,7 +52,7 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00044644EXTERNALENGLOBAL/XMLNAME--Senior--Scientist--80---100----f-m-d"
   ],
   "notes": "Dedicated ABB crawler seeds from the careers.abb Phenom refineSearch API (country=Switzerland, CH-wide / all cantons), then resolves canonical careers.abb job detail URLs.",
-  "updatedAt": "2026-08-25T09:49:01.661Z",
+  "updatedAt": "2026-08-25T21:37:30.672Z",
   "seedMetaByUrl": {
     "https://careers.abb/global/en/job/ABB1GLOBALJR00043670EXTERNALENGLOBAL/Direct-Current-Datacenter-System-Architect": {
       "location": "Baden-Daettwil, Aargau, Switzerland",
@@ -141,14 +142,6 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00043462EXTERNALENGLOBAL/Production-Engineering-Specialist--m-f-d---80-100": {
-      "location": "Baden, Aargau, Switzerland",
-      "canton": "AG",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00038318EXTERNALENGLOBAL/Service-Sales-Specialist--80-100": {
       "location": "Baden, Aargau, Switzerland",
       "canton": "AG",
@@ -158,6 +151,14 @@
       "contract": "Full-time"
     },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00043264EXTERNALENGLOBAL/Trade-Compliance-Manager-Process-Industries-Switzerland--80-100": {
+      "location": "Baden, Aargau, Switzerland",
+      "canton": "AG",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00043462EXTERNALENGLOBAL/Production-Engineering-Specialist--m-f-d---80-100": {
       "location": "Baden, Aargau, Switzerland",
       "canton": "AG",
       "country": "CH",
@@ -358,6 +359,14 @@
       "contract": "Full-time"
     },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00004790EXTERNALENGLOBAL/Sales-Specialist-Panel-Builder--80---100--_JR00004790-1": {
+      "location": "Baden, Aargau, Switzerland",
+      "canton": "AG",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00019944EXTERNALENGLOBAL/Translatable-Text-Senior-Accounting---Reporting-Analyst-General-Accounting--f-m-d--80-100": {
       "location": "Baden, Aargau, Switzerland",
       "canton": "AG",
       "country": "CH",
