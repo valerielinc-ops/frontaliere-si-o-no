@@ -78,6 +78,12 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
 import { applyProfilesToFile } from './ci/apply-checkout-profiles.mjs';
+// Stessa ragione di `generate-crawler-companies.mjs`, e stesso chiamante:
+// `prospect-promote.mjs` invoca entrambi in una run non presidiata e committa
+// cio' che trovano sul disco. `data/crawler-group-assignments.json` e' la
+// sorgente di verita' di QUALE crawler gira in QUALE finestra: troncato a meta'
+// non e' un dato brutto, e' il pin dell'intera schedulazione perso, committato.
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -154,8 +160,16 @@ function loadAssignments(assignmentsPath, groupCount) {
   );
 }
 
-function serializeAssignments(memberSlugsByGroup) {
-  const doc = {
+/**
+ * Il documento, separato dalla sua serializzazione.
+ *
+ * Serve perche' la scrittura passa da `writeJsonAtomic`, che vuole il valore e
+ * non la stringa. La forma emessa e' identica a prima —
+ * `JSON.stringify(doc, null, 2)` + newline — quindi il passaggio non produce
+ * nessun diff su `data/crawler-group-assignments.json`.
+ */
+function assignmentsDoc(memberSlugsByGroup) {
+  return {
     _comment: [
       'PINNED crawler -> group assignment. Source of truth for which crawler runs in which',
       'crawler-group-NN.yml, and in which position (position = order of the generated',
@@ -166,7 +180,6 @@ function serializeAssignments(memberSlugsByGroup) {
     groupCount: memberSlugsByGroup.length,
     groups: memberSlugsByGroup,
   };
-  return `${JSON.stringify(doc, null, 2)}\n`;
 }
 
 /**
@@ -822,7 +835,7 @@ export function generate({
   // two can never be committed out of sync (tests/generate-crawler-group-workflows.ts
   // asserts exactly that on the committed tree).
   if (write) {
-    fs.writeFileSync(assignmentsPath, serializeAssignments(assignments), 'utf8');
+    writeJsonAtomic(assignmentsPath, assignmentsDoc(assignments));
   }
 
   const results = [];
@@ -907,7 +920,7 @@ export function bootstrapAssignmentsFromWorkflows({
   assignmentsPath = ASSIGNMENTS_PATH,
 } = {}) {
   const groups = extractAssignmentsFromWorkflows(outDir);
-  fs.writeFileSync(assignmentsPath, serializeAssignments(groups), 'utf8');
+  writeJsonAtomic(assignmentsPath, assignmentsDoc(groups));
   return { assignmentsPath, groups };
 }
 
