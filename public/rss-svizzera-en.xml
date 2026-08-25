@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Tue, 25 Aug 2026 06:15:04 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 06:45:23 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -16,6 +16,60 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Wages and work in Appenzello Esterno: sectors and levels</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/salaries-appenzello-esterno-sectors-levels/</link>
+      <description><![CDATA[Labour market in the Outer Appenzell: how wages, collective agreements and pay levels work by degree of training.]]></description>
+      <content:encoded><![CDATA[## In brief
+- No national minimum wage; federal rules on maximum hours and holidays
+- Collective agreements regulate salaries in many sectors
+- AVS/AI contributions 5.3% at employee's expense; LPP and LAMal mandatory
+
+## Key facts
+- **What**: Wage structure according to Swiss federal rules
+- Where: Appenzello Esterno Canton
+- Maximum hours: 45 hours/week (industry, offices, sales) / 50 hours other sectors
+- Minimum holidays: 4 weeks (5 years under 20)
+- Contributions AVS/AI/IPG: 5.3% employee; 10.6% total with employer
+
+In Appenzello Esterno, the labor market respects the criteria set by Swiss federal laws. There is no national minimum wage: remuneration depends on the sector, level of education, and applicable collective labor agreements (CLA). Switzerland does not set a federal minimum amount guaranteed, leaving cantons and sectors the freedom to define their own standards.
+
+The maximum working hours are regulated by federal law: 45 hours per week for industry, offices, and sales; 50 hours for other sectors. Minimum holidays are four weeks per year, or five for those under 20. During the first year of employment, contract termination has a minimum duration of one month; between the second and ninth year, two months; from the tenth year onwards, three months.
+
+### The wage hierarchy
+The wage hierarchy in Switzerland primarily reflects the level of education. A holder of a Federal Certificate of Capability (FCC) receives an average income lower than a graduate of a higher professional school or university, even in the same sector. These differentials vary significantly depending on whether the contract is covered by a CLA or not.
+
+Social contributions are mandatory: AVS (Old-age and Survivors Insurance), AI (Disability Insurance), and IPG (Loss of Earnings Indemnity) require a 5.3% payment at the employee's expense (10.6% total with the employer). In addition, unemployment insurance (UI) and health insurance (LAMal) are mandatory for residents. The LPP (Professional Pension Fund, Pillar 2) is mandatory for those earning above a certain threshold; the payment varies with age: 7% between 25-34 years, 10% between 35-44, 15% between 45-54, 18% from 55 years until the reference age. Learn more about Swiss professional pension [here](nav:pension) to understand how Pillar 2 protects your pension.
+In the canton, as in almost all of Switzerland, collective labour agreements (CLAs) are the main instrument for regulating wages. Each economic and professional sector has its own CCL, negotiated between trade unions and employers' associations. A binding CCL protects both employers and workers, defining the sector's minimum wage, hours, contributions, holidays and dismissal conditions. To understand how these items appear on your paycheck, see the [guida alla busta paga svizzera](nav:payslip).
+
+### The Role of the Minimum Wage
+
+Some Swiss cantons have introduced a cantonal minimum wage by law; others, including Outer Appenzell, have not yet established it, deferring sectoral negotiation and CCLs. Where there is no CCL, the salary is a matter of free bargaining between the employer and the employee, as established by the individual contract. In this situation, the principle of fairness and non-discrimination remains binding by law.
+
+### Salary Scenario by Degree of Training
+
+A third-year apprentice (completing AFC training) receives on average lower salaries than an AFC holder, who in turn earns less than a graduate of a higher vocational school (SPS). A university graduate (including a master's degree) is in an even higher salary bracket, especially in qualified sectors such as engineering, computer science or medicine. These differences are further accentuated if the
+
+## Useful planning tools
+To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
+### How to navigate the job market
+
+Those looking for work in the canton of Appenzell Innerrhoden have access to free public tools. The national job.ch website, agrometeo.ch, and other portals collect job offers from local and regional employers. The Regional Unemployment Office (competent cantonal office) provides free consultation, CV indexing, and priority notification of vacant positions. Registration as unemployed is mandatory to access unemployment benefits (UB), paid for a maximum of 200 working days, if the job is lost involuntarily.
+
+### Negotiating salary
+
+Before signing an individual contract, it's advisable to check if the sector applies a CCL. If so, the minimum salary is predetermined; you can negotiate extra margins (supplements, bonuses, flexible hours). If not, the salary is a matter of negotiation. Remember that the payment of AVS/AI/IPG contributions (5.3%) is mandatory and already deducted from the gross salary. LAMal (sickness insurance) is a mandatory private insurance to be subscribed within three months of arrival in Switzerland.
+
+### Official resources and next steps
+
+The List of Collective Contracts is available on the SECO (State Secretariat for Economic Affairs) website. Search for your canton and profession. If your employer applies a CCL, the minimum salary is binding and predetermined; otherwise, it's negotiated individually. The updated salary statistics for canton and profession are available in the WAGIS database of the Federal Statistical Office (FSO). If you suspect violations of salary or working time regulations, contact the cantonal labor inspectorate or a trade union.
+
+Calculate your net salary with precision after contributions and cantonal taxes using our [salary calculator](nav:calculator).]]></content:encoded>
+      <pubDate>Tue, 25 Aug 2026 06:45:23 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/salari-appenzello-esterno-settori-livelli</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/salari-appenzello-esterno-settori-livelli.webp" medium="image"/>
+    </item>
     <item>
       <title>More: TX Group penalized by write-downs in the first half</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/tx-group-penalized-by-devaluations/</link>
@@ -3110,41 +3164,6 @@ Discover [Ticino job offers](nav:jobs) updated daily: 4,000+ positions from Swis
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/premi-lamal-basilea-franchigie-sussidi</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/premi-lamal-basilea-franchigie-sussidi.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Declining scams thanks to anti-spoofing measures</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/spoofing-calls-in-decline/</link>
-      <description><![CDATA[The number of fraudulent calls on behalf of the authorities has clearly decreased thanks to the obligation to mark calls from abroad with spoofed Swiss numbers.]]></description>
-      <content:encoded><![CDATA[## In short - The number of fraudulent calls on behalf of the authorities has sharply decreased. - The reason is the extended obligation to mark calls from abroad with spoofed Swiss numbers. ## Key facts - * * What * *: Declining scams thanks to anti-spoofing measures. - When: From 1 July 2026. - Where: Switzerland. - Who: Federal Office of Cybersecurity. - Amount: Not yet specified. The number of fraudulent calls on behalf of the authorities has significantly decreased. The reason is the extended obligation to mark calls from abroad with spoofed Swiss numbers. From January to June 2026, more than 400 reports per month of attempted phone scams on behalf of the authorities were regularly recorded, as reported by the Federal Office of Cybersecurity. In July there were less than one hundred. On 1 July, the obligation to also mark calls on mobile numbers from abroad with a spoofed Swiss number came into force. This obligation has been extended to all calls from abroad, including mobile numbers. In particular, calls from cities such as Zurich and Bern have been the subject of particular attention. According to experts, phone scams were often carried out by individuals posing as representatives of banks or financial institutions, asking the call recipients for money. However, thanks to the obligation to mark In the first scenario, the person does not provide any personal information and reports the scam to 117. In the second scenario, the person provides some personal and financial information and the scam is not reported to 117. This is an example of how the obligation to dial calls from abroad can help prevent phone scams.
-Fraudulent calls on behalf of authorities have been a problem for a long time in Switzerland. The Federal Office of Cybersecurity has worked to reduce the number of these calls. The requirement to mark calls from abroad with spoofed Swiss numbers was an important step in achieving this goal. From January to June 2026, over 400 reports per month of attempted phone scams on behalf of the authorities were regularly recorded. In July there were less than one hundred. This means that the obligation to dial calls has had a positive effect.
-
-In the Canton of Ticino, for example, over 150 telephone scams were reported on behalf of the authorities in January 2026. While only 20 phone scams were reported in July. This represents a reduction of 87% compared to the same period last year.
-
-According to experts, the requirement to mark calls has been a key step in reducing the number of phone scams. “Calls coming from spoofed numbers are much easier to recognize as scams,” explains a representative of the Federal Office of Cybersecurity. “Swiss citizens are more aware of not answering these calls and not providing personal information.”
-
-In addition, the requirement to dial calls has also helped reduce the number of online scams. According to data from the Federal Office of
-
-## Recommended tools
-For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).
-If you are a border worker, it is important to be aware of the security measures that have been implemented to reduce the number of fraudulent calls on behalf of the authorities. The requirement to mark calls from abroad with spoofed Swiss numbers is an important step towards achieving this goal. If you have problems with fraudulent calls, you can contact the Federal Office of Cybersecurity for more information.
-
-According to data from the Federal Office of Cybersecurity, the number of fraudulent calls decreased by 30% in 2022 compared to 2021. This is an important achievement, especially considering that Switzerland is one of the most vulnerable countries to phone scams. 📊
-
-However, it is important to continue to be cautious and follow safety measures to protect yourself and your family. Some of the safety measures you can take include:
-
-- Do not answer unknown calls or calls from unrecognized numbers.
-- Verify the identity of the calling operator before answering.
-- Do not provide personal or financial information to anyone.
-
-You can also use our calculator to calculate your taxes and find useful tax information in Switzerland. 📊
-
-For example, if you are a resident of the canton of Geneva, you can use the calculator to calculate your income taxes and property taxes. According to 2022 data, taxes
-
-*Source: [tio.ch](https://www.tio.ch/svizzera/attualita/1945642/chiamate-spoofing-luglio-contrassegnare-telecomunicazioni)*]]></content:encoded>
-      <pubDate>Mon, 24 Aug 2026 10:27:17 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/truffe-spoofing-in-calo</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/truffe-spoofing-in-calo.webp" medium="image"/>
     </item>
   </channel>
 </rss>

@@ -4231,6 +4231,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tx-group-penalizzato-svalutazioni.title': 'Di più: TX Group penalizzato dalle svalutazioni nel primo semestre',
     'blog.article.tx-group-penalizzato-svalutazioni.excerpt': 'Il gruppo mediatico zurighese TX Group registra un\'impennata dei propri risultati rettificati nel primo semestre, ma è penalizzato dalle svalutazioni.',
     'blog.article.tx-group-penalizzato-svalutazioni.imageAlt': 'Redazione giornalistica in Svizzera',
+    'blog.article.salari-appenzello-esterno-settori-livelli.title': 'Salari e lavoro in Appenzello Esterno: settori e livelli',
+    'blog.article.salari-appenzello-esterno-settori-livelli.excerpt': 'Mercato del lavoro in Appenzello Esterno: come funzionano i salari, i contratti collettivi e i livelli retributivi per gradi di formazione.',
+    'blog.article.salari-appenzello-esterno-settori-livelli.imageAlt': 'Ufficio moderno in Svizzera con professionisti al lavoro, che rappresenta il mercato del lavoro contemporaneo svizzero.',
 };
 
 export default blogMetaChIt;

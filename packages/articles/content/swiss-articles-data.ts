@@ -12691,6 +12691,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'salari-appenzello-esterno-settori-livelli',
+    category: 'pratico',
+    date: '2026-08-25T06:45:23.855Z',
+    image: '/images/blog/salari-appenzello-esterno-settori-livelli.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
