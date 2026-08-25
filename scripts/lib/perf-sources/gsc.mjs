@@ -70,11 +70,16 @@ async function gscQuery(token, body, fetchImpl = fetch) {
  * scripts/lib/seo-ctr-curve.mjs for the family registry that drives this.
  *
  * `pathContains` also accepts an ARRAY of substrings — one `contains` filter
- * per entry, each in its own `dimensionFilterGroups` group so the API ORs
- * them (groups are OR'd, filters within a group are AND'd). Used for
- * families whose template is reachable under multiple locale-specific URL
- * slugs, not just one path (see `familyPathPrefixes()` in
- * scripts/lib/seo-ctr-curve.mjs, issue #5961).
+ * per entry, all inside a SINGLE `dimensionFilterGroups` group so the API ORs
+ * them (per the Search Console API: groups are AND'd together, filters
+ * WITHIN a group are OR'd — the inverse of what an earlier version of this
+ * comment claimed, which had the code put each expression in its OWN group,
+ * i.e. AND across locale aliases: a page whose path contains "/foo/" can
+ * never also contain "/bar/", so that shape silently returned zero rows for
+ * every family with 2+ pathAliases, issue #5964). Used for families whose
+ * template is reachable under multiple locale-specific URL slugs, not just
+ * one path (see `familyPathPrefixes()` in scripts/lib/seo-ctr-curve.mjs,
+ * issue #5961).
  *
  * `pathContains = null` fetches ALL indexed pages site-wide (no filter) —
  * used by the family-discovery pass in scripts/monitor-seo-ctr-by-template.mjs
@@ -112,11 +117,15 @@ export async function fetchGscByPage({
         dimensions: ['page'],
         ...(pathContains
           ? {
-              dimensionFilterGroups: (Array.isArray(pathContains) ? pathContains : [pathContains]).map(
-                (expression) => ({
-                  filters: [{ dimension: 'page', operator: 'contains', expression }],
-                }),
-              ),
+              dimensionFilterGroups: [
+                {
+                  filters: (Array.isArray(pathContains) ? pathContains : [pathContains]).map((expression) => ({
+                    dimension: 'page',
+                    operator: 'contains',
+                    expression,
+                  })),
+                },
+              ],
             }
           : {}),
         rowLimit: ROW_LIMIT,
