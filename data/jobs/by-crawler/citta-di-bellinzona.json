@@ -1,6 +1,6 @@
 {
   "crawlerKey": "citta-di-bellinzona",
-  "assembledAt": "2026-08-24T21:37:33.113Z",
+  "assembledAt": "2026-08-25T09:46:06.533Z",
   "jobs": [
     {
       "id": "citta-di-bellinzona-responsabile-del-servizio-risorse-umane-presso-l-azienda-multiservizi-bellinzon-bellinzona",
@@ -48,7 +48,7 @@
       "applyUrl": null,
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-24T21:37:31.231Z",
+      "crawledAt": "2026-08-25T09:46:04.671Z",
       "firstSeenAt": "2026-08-21T09:48:20.071Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -62,6 +62,84 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "citta-di-bellinzona-operaio-a-giardiniere-a-afc-presso-il-settore-opere-pubbliche-bellinzona",
+      "slug": "operaio-a-giardiniere-a-afc-presso-il-settore-opere-pubbliche-bellinzona",
+      "slugByLocale": {
+        "it": "operaio-a-giardiniere-a-afc-presso-il-settore-opere-pubbliche-bellinzona",
+        "en": "operaio-a-giardiniere-a-afc-at-the-public-works-sector-citta-di-bellinzona-bellinzona",
+        "de": "operaio-a-giardiniere-a-afc-im-offentlichen-bausektor-citta-di-bellinzona-bellinzona",
+        "fr": "operaio-a-giardiniere-a-afc-au-secteur-des-travaux-publics-citta-di-bellinzona-bellinzona"
+      },
+      "company": "Città di Bellinzona",
+      "companyKey": "citta-di-bellinzona",
+      "companyDomain": "bellinzona.ch",
+      "title": "Operaio/a (Giardiniere/a AFC) presso il Settore Opere pubbliche",
+      "titleByLocale": {
+        "it": "Operaio/a (Giardiniere/a AFC) presso il Settore Opere pubbliche",
+        "en": "Operaio/a (Giardiniere/a AFC) at the Public Works Sector",
+        "de": "Operaio/a (Giardiniere/a AFC) im öffentlichen Bausektor",
+        "fr": "Operaio/a (Giardiniere/a AFC) au Secteur des Travaux Publics"
+      },
+      "description": "## Operaio/a (Giardiniere/a AFC) presso il Settore Opere pubbliche\n\nCittà di Bellinzona — concorso pubblico a Bellinzona (TI), Svizzera.\n\nConcorso pubblico presso la Città di Bellinzona per la posizione di Operaio/a (Giardiniere/a AFC) presso il Settore Opere pubbliche. Consultare il bando di concorso per i requisiti completi.\n\n**Settore:** Pubblica Amministrazione\n\n**Sede:** Piazza Nosetto, 6500 Bellinzona, TI, Svizzera",
+      "descriptionByLocale": {
+        "it": "## Operaio/a (Giardiniere/a AFC) presso il Settore Opere pubbliche\n\nCittà di Bellinzona — concorso pubblico a Bellinzona (TI), Svizzera.\n\nConcorso pubblico presso la Città di Bellinzona per la posizione di Operaio/a (Giardiniere/a AFC) presso il Settore Opere pubbliche. Consultare il bando di concorso per i requisiti completi.\n\n**Settore:** Pubblica Amministrazione\n\n**Sede:** Piazza Nosetto, 6500 Bellinzona, TI, Svizzera",
+        "en": "## Operaio/a (Giardiniere/a AFC) at the Public Works Sector\n\nCity of Bellinzona — public competition in Bellinzona (TI), Switzerland.\n\nPublic competition at the City of Bellinzona for the position of Operaio/a (Giardiniere/a AFC) at the Public Works Sector. Consult the competition notice for full requirements.\n\nSector:* Public Administration\n\nSede: Piazza Nosetto, 6500 Bellinzona, TI, Switzerland",
+        "de": "## Operaio/a (Giardiniere/a AFC) im öffentlichen Bausektor\n\nStadt Bellinzona — öffentlicher Wettbewerb in Bellinzona (TI), Schweiz.\n\nÖffentlicher Wettbewerb bei der Stadt Bellinzona für die Position von Operaio/a (Giardiniere/a AFC) im Sektor Öffentliche Arbeiten. Konsultieren Sie die Wettbewerbsbekanntmachung für vollständige\n• Anforderungen.\n\nSektor:* Öffentliche Verwaltung\n\nSede: Piazza Nosetto, 6500 Bellinzona, TI, Schweiz",
+        "fr": "## Operaio/a (Giardiniere/a AFC) au Secteur des Travaux Publics\n\nVille de Bellinzona — concours public à Bellinzona (TI), Suisse.\n\nConcours public à la Ville de Bellinzona pour le poste de Operaio/a (Giardiniere/a AFC) au Secteur des travaux publics. Consultez l'avis de concours pour connaître toutes les exigences.\n\nSecteur:* Administration publique\n\nSede: Piazza Nosetto, 6500 Bellinzona, TI, Suisse"
+      },
+      "requirements": [],
+      "requirementsByLocale": {},
+      "location": "Bellinzona",
+      "canton": "TI",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6500",
+      "streetAddress": "Piazza Nosetto",
+      "category": "public-admin",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-29",
+      "url": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=29956b6b-1104-445c-adc5-5f35b4fb4e4a,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "pdfUrl": null,
+      "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=29956b6b-1104-445c-adc5-5f35b4fb4e4a,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "source": "Bellinzona Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-25T09:46:04.670Z",
+      "firstSeenAt": "2026-06-29T21:52:24.302Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "operaio-a-giardiniere-a-afc-at-the-public-works-sector-citta-di-bellinzona-bellinzona"
+        ],
+        "de": [
+          "operaio-a-giardiniere-a-afc-im-offentlichen-bausektor-citta-di-bellinzona-bellinzona"
+        ],
+        "fr": [
+          "operaio-a-giardiniere-a-afc-au-secteur-des-travaux-publics-citta-di-bellinzona-bellinzona"
+        ]
+      },
+      "previousSlugs": [
+        "operaio-a-giardiniere-a-afc-at-the-public-works-sector-citta-di-bellinzona-bellinzona",
+        "operaio-a-giardiniere-a-afc-im-offentlichen-bausektor-citta-di-bellinzona-bellinzona",
+        "operaio-a-giardiniere-a-afc-au-secteur-des-travaux-publics-citta-di-bellinzona-bellinzona"
+      ]
     },
     {
       "id": "citta-di-bellinzona-apprendista-operatore-trice-di-edifici-e-infrastrutture-afc-bellinzona",
@@ -122,84 +200,8 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "citta-di-bellinzona-operaio-a-giardiniere-a-afc-presso-il-settore-opere-pubbliche-bellinzona",
-      "slug": "operaio-a-giardiniere-a-afc-presso-il-settore-opere-pubbliche-bellinzona",
-      "slugByLocale": {
-        "it": "operaio-a-giardiniere-a-afc-presso-il-settore-opere-pubbliche-bellinzona",
-        "en": "operaio-a-giardiniere-a-afc-at-the-public-works-sector-citta-di-bellinzona-bellinzona",
-        "de": "operaio-a-giardiniere-a-afc-im-offentlichen-bausektor-citta-di-bellinzona-bellinzona",
-        "fr": "operaio-a-giardiniere-a-afc-au-secteur-des-travaux-publics-citta-di-bellinzona-bellinzona"
       },
-      "company": "Città di Bellinzona",
-      "companyKey": "citta-di-bellinzona",
-      "companyDomain": "bellinzona.ch",
-      "title": "Operaio/a (Giardiniere/a AFC) presso il Settore Opere pubbliche",
-      "titleByLocale": {
-        "it": "Operaio/a (Giardiniere/a AFC) presso il Settore Opere pubbliche",
-        "en": "Operaio/a (Giardiniere/a AFC) at the Public Works Sector",
-        "de": "Operaio/a (Giardiniere/a AFC) im öffentlichen Bausektor",
-        "fr": "Operaio/a (Giardiniere/a AFC) au Secteur des Travaux Publics"
-      },
-      "description": "## Operaio/a (Giardiniere/a AFC) presso il Settore Opere pubbliche\n\nCittà di Bellinzona — concorso pubblico a Bellinzona (TI), Svizzera.\n\nConcorso pubblico presso la Città di Bellinzona per la posizione di Operaio/a (Giardiniere/a AFC) presso il Settore Opere pubbliche. Consultare il bando di concorso per i requisiti completi.\n\n**Settore:** Pubblica Amministrazione\n\n**Sede:** Piazza Nosetto, 6500 Bellinzona, TI, Svizzera",
-      "descriptionByLocale": {
-        "it": "## Operaio/a (Giardiniere/a AFC) presso il Settore Opere pubbliche\n\nCittà di Bellinzona — concorso pubblico a Bellinzona (TI), Svizzera.\n\nConcorso pubblico presso la Città di Bellinzona per la posizione di Operaio/a (Giardiniere/a AFC) presso il Settore Opere pubbliche. Consultare il bando di concorso per i requisiti completi.\n\n**Settore:** Pubblica Amministrazione\n\n**Sede:** Piazza Nosetto, 6500 Bellinzona, TI, Svizzera",
-        "en": "## Operaio/a (Giardiniere/a AFC) at the Public Works Sector\n\nCity of Bellinzona — public competition in Bellinzona (TI), Switzerland.\n\nPublic competition at the City of Bellinzona for the position of Operaio/a (Giardiniere/a AFC) at the Public Works Sector. Consult the competition notice for full requirements.\n\nSector:* Public Administration\n\nSede: Piazza Nosetto, 6500 Bellinzona, TI, Switzerland",
-        "de": "## Operaio/a (Giardiniere/a AFC) im öffentlichen Bausektor\n\nStadt Bellinzona — öffentlicher Wettbewerb in Bellinzona (TI), Schweiz.\n\nÖffentlicher Wettbewerb bei der Stadt Bellinzona für die Position von Operaio/a (Giardiniere/a AFC) im Sektor Öffentliche Arbeiten. Konsultieren Sie die Wettbewerbsbekanntmachung für vollständige\n• Anforderungen.\n\nSektor:* Öffentliche Verwaltung\n\nSede: Piazza Nosetto, 6500 Bellinzona, TI, Schweiz",
-        "fr": "## Operaio/a (Giardiniere/a AFC) au Secteur des Travaux Publics\n\nVille de Bellinzona — concours public à Bellinzona (TI), Suisse.\n\nConcours public à la Ville de Bellinzona pour le poste de Operaio/a (Giardiniere/a AFC) au Secteur des travaux publics. Consultez l'avis de concours pour connaître toutes les exigences.\n\nSecteur:* Administration publique\n\nSede: Piazza Nosetto, 6500 Bellinzona, TI, Suisse"
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Bellinzona",
-      "canton": "TI",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6500",
-      "streetAddress": "Piazza Nosetto",
-      "category": "public-admin",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "url": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=29956b6b-1104-445c-adc5-5f35b4fb4e4a,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "pdfUrl": null,
-      "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=29956b6b-1104-445c-adc5-5f35b4fb4e4a,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "source": "Bellinzona Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-24T21:37:31.230Z",
-      "firstSeenAt": "2026-06-29T21:52:24.302Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "previousSlugsByLocale": {
-        "en": [
-          "operaio-a-giardiniere-a-afc-at-the-public-works-sector-citta-di-bellinzona-bellinzona"
-        ],
-        "de": [
-          "operaio-a-giardiniere-a-afc-im-offentlichen-bausektor-citta-di-bellinzona-bellinzona"
-        ],
-        "fr": [
-          "operaio-a-giardiniere-a-afc-au-secteur-des-travaux-publics-citta-di-bellinzona-bellinzona"
-        ]
-      },
-      "previousSlugs": [
-        "operaio-a-giardiniere-a-afc-at-the-public-works-sector-citta-di-bellinzona-bellinzona",
-        "operaio-a-giardiniere-a-afc-im-offentlichen-bausektor-citta-di-bellinzona-bellinzona",
-        "operaio-a-giardiniere-a-afc-au-secteur-des-travaux-publics-citta-di-bellinzona-bellinzona"
-      ]
+      "crawlerMissStreak": 1
     }
   ]
 }
