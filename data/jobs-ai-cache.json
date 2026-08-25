@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "savedAt": "2026-08-25T21:51:15.210Z",
+  "savedAt": "2026-08-25T22:48:48.325Z",
   "entries": [
     {
       "key": "4d181669bd96e760b80bf41b0663154ae9024869b2756f658ebfeb01434c9337",
@@ -232026,15 +232026,6 @@
       }
     },
     {
-      "key": "8bfe89095c446577f001e822de93f4e4c1c5be7503214904c9d33127d4a64a48",
-      "touchedAt": 1787694608072,
-      "value": {
-        "isJob": true,
-        "confidence": 0.97,
-        "reason": "Concrete single job posting with specific role title (Responsable d'équipe sinistres complexes 80-100%), detailed responsibilities section (Ce que tu fais), explicit qualifications (Ce que tu apportes), specific location (Crissier/Lausanne), employment terms (80-100% hybrid), job ID (135946), and direct application contact (Manuela Trezzini). All markers of an authentic single job detail page."
-      }
-    },
-    {
       "key": "a9edcb24d46b20e6b4f0f018c5f5a9d521a75067f1dffcb1d5832d0f7e7b3b00",
       "touchedAt": 1787434528935,
       "value": {
@@ -249715,6 +249706,15 @@
       }
     },
     {
+      "key": "8bfe89095c446577f001e822de93f4e4c1c5be7503214904c9d33127d4a64a48",
+      "touchedAt": 1787694608072,
+      "value": {
+        "isJob": true,
+        "confidence": 0.97,
+        "reason": "Concrete single job posting with specific role title (Responsable d'équipe sinistres complexes 80-100%), detailed responsibilities section (Ce que tu fais), explicit qualifications (Ce que tu apportes), specific location (Crissier/Lausanne), employment terms (80-100% hybrid), job ID (135946), and direct application contact (Manuela Trezzini). All markers of an authentic single job detail page."
+      }
+    },
+    {
       "key": "4aaa7cddcbfbee082828839ff95707d3b619115e14445260808e606b4b4ff0dd",
       "touchedAt": 1787694649832,
       "value": {
@@ -249784,6 +249784,15 @@
         "isJob": true,
         "confidence": 0.98,
         "reason": "Concrete single job posting with specific role title (Strategic Relationship Leader, Commercial Insurance), detailed key responsibilities, comprehensive basic and preferred qualifications, job ID (136225), specific location (Southeast Region), reporting line, and active application workflow. All hallmarks of a genuine job detail page."
+      }
+    },
+    {
+      "key": "f481fac4a8b5bed1f025216cea767862cfdc9770c097ad550225a24e2fe2cb76",
+      "touchedAt": 1787698001867,
+      "value": {
+        "isJob": false,
+        "confidence": 0.95,
+        "reason": "This is a generic career program/category page describing Coop's 'Quereinstieg' (career change) initiative with multiple job tracks (Bäcker:in, Chauffeur:in, Fleisch/Fisch, Koch/Köchin), program overview, general benefits, and a contact form. Not a single, concrete job posting with a specific role and application link."
       }
     }
   ]
