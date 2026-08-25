@@ -12835,6 +12835,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'richieste-asilo-sotto-10-mila-primo-semestre',
+    category: 'novita',
+    date: '2026-08-25T14:27:13.195Z',
+    image: '/images/blog/richieste-asilo-sotto-10-mila-primo-semestre.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

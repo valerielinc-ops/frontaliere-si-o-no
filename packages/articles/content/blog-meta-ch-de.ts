@@ -4279,6 +4279,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.export-orologi-2026-prudenza-mercati.title': 'Beobachten Sie steigende Exporte: vorsichtiges Wachstum, schwieriges China',
     'blog.article.export-orologi-2026-prudenza-mercati.excerpt': 'Nach zwei Monaten Gehaltserhöhung mahnt der FH-Präsident zur Vorsicht. USA +14,9% vs. Juli 2024; China -16,5% Juni, -18,5% Juli. Das neue Abkommen zwischen Bern und Peking wird die Zölle schrittweise senken.',
     'blog.article.export-orologi-2026-prudenza-mercati.imageAlt': 'Schweizer Uhrmacher montiert eine Luxusuhr an der Werkbank mit Präzisionswerkzeugen',
+    'blog.article.richieste-asilo-sotto-10-mila-primo-semestre.title': 'Asylanträge: sem senkt Schätzungen für 2026',
+    'blog.article.richieste-asilo-sotto-10-mila-primo-semestre.excerpt': 'Im ersten Halbjahr 2026 weniger als 10.000 Asylanträge (erster Rückgang seit 2022). Sem prognostiziert 22.000 für das ganze Jahr, gegenüber 26.000 ursprünglich geschätzt.',
+    'blog.article.richieste-asilo-sotto-10-mila-primo-semestre.imageAlt': 'Panoramablick auf Lugano am Comer See mit Schweizer Bergen im Hintergrund',
 };
 
 export default blogMetaChDe;
