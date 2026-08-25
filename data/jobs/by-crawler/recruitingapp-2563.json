@@ -1,6 +1,6 @@
 {
   "crawlerKey": "recruitingapp-2563",
-  "assembledAt": "2026-08-24T21:48:49.066Z",
+  "assembledAt": "2026-08-25T10:11:50.877Z",
   "jobs": [
     {
       "id": "recruitingapp-2563-97a2b838b3bd",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2563.umantis.com/Vacancies/557/Description/1",
       "source": "Switch Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-24T21:48:45.630Z",
+      "crawledAt": "2026-08-25T10:11:47.912Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -77,7 +77,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "needsRetranslation": true
     },
     {
       "id": "recruitingapp-2563-052f9f19df69",
@@ -108,7 +109,7 @@
       "url": "https://recruitingapp-2563.umantis.com/Vacancies/547/Description/1",
       "source": "Switch Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:48:45.310Z",
+      "crawledAt": "2026-08-25T10:11:47.594Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
