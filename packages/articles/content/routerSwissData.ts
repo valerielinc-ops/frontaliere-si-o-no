@@ -1454,6 +1454,8 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'export-orologi-2026-prudenza-mercati': { it: 'export-orologi-2026-prudenza-mercati', en: 'watch-export-2026-caution-markets', de: 'uhr-export-2026-vorsicht-maerkte', fr: 'export-montres-2026-prudence-marches' },
  'richieste-asilo-sotto-10-mila-primo-semestre': { it: 'richieste-asilo-sotto-10-mila-primo-semestre', en: 'asylum-requests-under-10-thousand-first-half', de: 'asylgesuche-unter-10000-erste-halfte', fr: 'demandes-asile-moins-10000-premier-semestre' },
  'benzina-diesel-paradosso-petrolio': { it: 'benzina-diesel-paradosso-petrolio', en: 'petrol-diesel-prices-paradox', de: 'benzin-diesel-preisparadoxon', fr: 'essence-diesel-paradoxe-prix' },
+ 'spionaggio-svizzera-controlli': { it: 'spionaggio-svizzera-controlli', en: 'espionage-switzerland-controls', de: 'spionage-schweiz-kontrollen', fr: 'espionnage-suisse-controles' },
+ 'argovia-divieto-velo-scuole': { it: 'argovia-divieto-velo-scuole', en: 'aargau-veil-ban-schools', de: 'aargau-kopftuch-verbot-schulen', fr: 'argovie-interdiction-voile-ecoles' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

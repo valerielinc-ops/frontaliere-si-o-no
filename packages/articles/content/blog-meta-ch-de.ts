@@ -4285,6 +4285,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.benzina-diesel-paradosso-petrolio.title': 'Benzin und Diesel teuer, aber das Öl sinkt',
     'blog.article.benzina-diesel-paradosso-petrolio.excerpt': 'Trotz des Ölrückgangs von 28% wird es in der Schweiz immer teurer, zu tanken. Benzin bei 2,13 CHF/Liter, Diesel bei 2,27 CHF/Liter: Der Anstieg hat seit Februar 40 Rappen überschritten.',
     'blog.article.benzina-diesel-paradosso-petrolio.imageAlt': 'Zapfsäule an einer Schweizer Tankstelle mit Alpenpanorama im Hintergrund',
+    'blog.article.spionaggio-svizzera-controlli.title': 'Schweiz verstärkt Spionagekontrollen',
+    'blog.article.spionaggio-svizzera-controlli.excerpt': 'Die Aussenpolitische Kommission schlägt Massnahmen gegen ausländische Spionage vor: Legitimationskartenkontrollen und Ausweisung ausländischer Agenten.',
+    'blog.article.spionaggio-svizzera-controlli.imageAlt': 'Schweizer Bundeshaus in Bern, Symbol nationaler Institutionen und Sicherheit',
+    'blog.article.argovia-divieto-velo-scuole.title': 'Aargau auf dem Weg zum Kopftuchverbot in Schulen',
+    'blog.article.argovia-divieto-velo-scuole.excerpt': 'Der Grosse Aargauer Rat nimmt die Motion mit 78 Stimmen an. Die Kantonsregierung wendet sich aus verfassungsrechtlichen Gründen gegen das Bundesgerichtsurteil von 2015.',
+    'blog.article.argovia-divieto-velo-scuole.imageAlt': 'Schweizer Schulgebäude mit Schülern verschiedener Herkunft im Schulhof, authentische Architektur.',
 };
 
 export default blogMetaChDe;

@@ -12853,6 +12853,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'spionaggio-svizzera-controlli',
+    category: 'novita',
+    date: '2026-08-25T16:20:54.764Z',
+    image: '/images/blog/spionaggio-svizzera-controlli.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'argovia-divieto-velo-scuole',
+    category: 'novita',
+    date: '2026-08-25T16:30:23.961Z',
+    image: '/images/blog/argovia-divieto-velo-scuole.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
