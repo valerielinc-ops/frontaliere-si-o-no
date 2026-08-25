@@ -46,6 +46,7 @@ import {
   appendLedger,
   CANTON_NAME_BY_CODE,
   EMPLOYMENT_TYPE_LABEL,
+  GRAPH_API,
 } from './lib/social-post-utils.mjs';
 
 // Re-export the channel-agnostic helpers so existing importers (e.g. the FB
@@ -53,7 +54,6 @@ import {
 export {
   selectUnpostedJobs,
   buildJobUrl,
-  GRAPH_API,
 } from './lib/social-post-utils.mjs';
 
 // ── Constants ───────────────────────────────────────────────
