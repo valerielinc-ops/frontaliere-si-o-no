@@ -55361,6 +55361,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-amnesty-neutralita-crimini-guerra': {
+    title: 'Amnesty contro iniziativa neutralità svizzera | Frontaliere Ticino',
+    description: 'Amnesty International Svizzera si oppone all\'iniziativa sulla neutralità, che limiterebbe sanzioni economiche e diplomatiche. Votazione il 27 settembre 2026.',
+    keywords: 'frontalieri, ticino, svizzera, italia, amnesty, contro, iniziativa, neutralità',
+    ogTitle: 'Amnesty contro iniziativa neutralità svizzera',
+    ogDescription: 'Amnesty International Svizzera e altre organizzazioni chiedono il no all\'iniziativa sulla neutralità che limiterebbe la capacità della Confederazione di reagire ai crimini di guerra con sanzioni economiche e diplomatiche. La votazione è il 27',
+    canonicalPath: '/articoli-svizzera/amnesty-neutralita-crimini-guerra/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Amnesty contro iniziativa neutralità svizzera",
+      "description": "Amnesty International Svizzera si oppone all'iniziativa sulla neutralità, che limiterebbe sanzioni economiche e diplomatiche. Votazione il 27 settembre 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/amnesty-neutralita-crimini-guerra.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Palazzo federale Bundeshaus di Berna con bandiera svizzera, sede del Consiglio nazionale e Ständerat"
+      },
+      "datePublished": "2026-08-25T11:22:28+00:00",
+      "dateModified": "2026-08-25T11:22:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/amnesty-neutralita-crimini-guerra/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-premi-lamal-berna-sussidio': {
+    title: 'Premi LAMal Canton Berna: fasce e riduzioni | Frontaliere Ticino',
+    description: 'Premi LAMal a Berna: guida completa alle fasce di franchigia, modelli assicurativi e procedura per ottenere la riduzione attraverso i sussidi cantonali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, lamal, canton, berna',
+    ogTitle: 'Premi LAMal Canton Berna: fasce e riduzioni',
+    ogDescription: 'Guida ai premi dell\'assicurazione malattia nel Canton Berna: scopri le fasce di franchigia disponibili, come scegliere il modello assicurativo più conveniente e i criteri per ottenere la riduzione dei premi con i sussidi cantonali.',
+    canonicalPath: '/articoli-svizzera/premi-lamal-berna-sussidio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi LAMal Canton Berna: fasce e riduzioni",
+      "description": "Premi LAMal a Berna: guida completa alle fasce di franchigia, modelli assicurativi e procedura per ottenere la riduzione attraverso i sussidi cantonali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-lamal-berna-sussidio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Uno sportello amministrativo con documenti di assicurazione malattia su una scrivania."
+      },
+      "datePublished": "2026-08-25T11:39:39+00:00",
+      "dateModified": "2026-08-25T11:39:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-lamal-berna-sussidio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-berna-custodia-bambini-tariffe-costi': {
+    title: 'Custodia bambini nel Canton Berna: costi e sussidi',
+    description: 'Guida ai servizi di custodia bambini (asilo nido, famiglia diurna, doposcuola) nel Canton Berna con tariffe su reddito e sussidi cantonali disponibili.',
+    keywords: 'frontalieri, ticino, svizzera, italia, custodia, bambini, canton, berna',
+    ogTitle: 'Custodia bambini Canton Berna: costi e sussidi',
+    ogDescription: 'Scopri come funzionano i servizi di custodia bambini nel Canton Berna: tariffe calcolate su reddito, sussidi disponibili e procedure di accesso per famiglie.',
+    canonicalPath: '/articoli-svizzera/berna-custodia-bambini-tariffe-costi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Custodia bambini nel Canton Berna: costi e sussidi",
+      "description": "Guida ai servizi di custodia bambini (asilo nido, famiglia diurna, doposcuola) nel Canton Berna con tariffe su reddito e sussidi cantonali disponibili.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/berna-custodia-bambini-tariffe-costi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Asilo nido svizzero con bambini che giocano in un ambiente sicuro, moderno e accogliente con attività educative."
+      },
+      "datePublished": "2026-08-25T12:30:01+00:00",
+      "dateModified": "2026-08-25T12:30:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/berna-custodia-bambini-tariffe-costi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-export-orologi-2026-prudenza-mercati': {
+    title: 'Export orologi aumenta: crescita cauta, Cina difficile',
+    description: 'Export orologi svizzeri cresce giugno-luglio 2026 ma con cautela. USA +14,9%, Cina -16,5% e -18,5%. Accordo Berna-Pechino riduce dazi, Francia diventa hub',
+    keywords: 'frontalieri, ticino, svizzera, italia, export, orologi, aumenta, crescita',
+    ogTitle: 'Export orologi svizzeri: crescita ma con cautela',
+    ogDescription: 'Dopo due mesi di aumento, il presidente della FH invita alla prudenza. USA forte con +14,9% vs luglio 2024, Cina debole: -16,5% giugno, -18,5% luglio. Nuovo accordo Berna-Pechino ridurrà dazi doganali gradualmente.',
+    canonicalPath: '/articoli-svizzera/export-orologi-2026-prudenza-mercati/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Export orologi aumenta: crescita cauta, Cina difficile",
+      "description": "Export orologi svizzeri cresce giugno-luglio 2026 ma con cautela. USA +14,9%, Cina -16,5% e -18,5%. Accordo Berna-Pechino riduce dazi, Francia diventa hub",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/export-orologi-2026-prudenza-mercati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Orologiaio svizzero al banco di lavoro assembla un orologio di lusso con strumenti di precisione"
+      },
+      "datePublished": "2026-08-25T13:53:51+00:00",
+      "dateModified": "2026-08-25T13:53:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/export-orologi-2026-prudenza-mercati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

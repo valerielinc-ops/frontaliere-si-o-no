@@ -1448,6 +1448,10 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'diesel-rincaro-geopolitica-svizzera': { it: 'diesel-rincaro-geopolitica-svizzera', en: 'diesel-price-increase-geopolitics-switzerland', de: 'diesel-teuerung-geopolitik-schweiz', fr: 'diesel-hausse-geopolitique-suisse' },
  'amrize-cfo-lascia-sorpresa-borsa': { it: 'amrize-cfo-lascia-sorpresa-borsa', en: 'amrize-cfo-leaves-surprise-zurich', de: 'amrize-cfo-verlasst-ueberraschung-zuerich', fr: 'amrize-cfo-quitte-surprise-bourse' },
  'pagamenti-offline-carte-2026': { it: 'pagamenti-offline-carte-2026', en: 'offline-card-payments-2026', de: 'offline-kartenzahlungen-2026', fr: 'paiements-sans-connexion-cartes-2026' },
+ 'amnesty-neutralita-crimini-guerra': { it: 'amnesty-neutralita-crimini-guerra', en: 'amnesty-neutrality-war-crimes', de: 'amnesty-neutralitaet-kriegsverbrechen', fr: 'amnesty-neutralite-crimes-guerre' },
+ 'premi-lamal-berna-sussidio': { it: 'premi-lamal-berna-sussidio', en: 'health-insurance-premiums-canton-berne-subsidies', de: 'versicherungspraemien-kanton-bern-subventionen', fr: 'primes-assurance-maladie-canton-berne-subventions' },
+ 'berna-custodia-bambini-tariffe-costi': { it: 'berna-custodia-bambini-tariffe-costi', en: 'bern-childcare-costs-tariffs', de: 'bern-kinderbetreuung-kosten-tarife', fr: 'berne-garde-enfants-tarifs-couts' },
+ 'export-orologi-2026-prudenza-mercati': { it: 'export-orologi-2026-prudenza-mercati', en: 'watch-export-2026-caution-markets', de: 'uhr-export-2026-vorsicht-maerkte', fr: 'export-montres-2026-prudence-marches' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

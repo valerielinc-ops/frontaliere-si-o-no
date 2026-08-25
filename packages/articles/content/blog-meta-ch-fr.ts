@@ -4267,6 +4267,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.pagamenti-offline-carte-2026.title': 'Paiements hors ligne par cartes : lancement août 2026',
     'blog.article.pagamenti-offline-carte-2026.excerpt': 'Paiements hors ligne par cartes à partir du 24 août 2026 : terminal enregistre également sans réseau. Assure la continuité des achats essentiels pendant les interruptions.',
     'blog.article.pagamenti-offline-carte-2026.imageAlt': 'Paiement par carte sans connexion à un terminal dans un magasin suisse lors d\'une panne réseau',
+    'blog.article.amnesty-neutralita-crimini-guerra.title': 'Amnesty contre l\'initiative neutralité suisse',
+    'blog.article.amnesty-neutralita-crimini-guerra.excerpt': 'Amnesty International Suisse s\'oppose à l\'initiative sur la neutralité : elle limiterait les sanctions économiques et diplomatiques. Vote le 27 septembre 2026.',
+    'blog.article.amnesty-neutralita-crimini-guerra.imageAlt': 'Palais fédéral Bundeshaus à Berne avec drapeau suisse',
+    'blog.article.premi-lamal-berna-sussidio.title': 'Prix LAMal canton Berne : fourchettes et réductions',
+    'blog.article.premi-lamal-berna-sussidio.excerpt': 'Dans le canton de Berne, les primes LAMal varient selon la franchise choisie. Voici comment fonctionne le système et comment accéder aux subventions pour la réduction.',
+    'blog.article.premi-lamal-berna-sussidio.imageAlt': 'Bureau administratif avec des documents d\'assurance maladie sur le bureau.',
+    'blog.article.berna-custodia-bambini-tariffe-costi.title': 'Garde d\'enfants dans le canton de Berne : coûts et subventions',
+    'blog.article.berna-custodia-bambini-tariffe-costi.excerpt': 'Crèches, familles de jour, après l\'école : comment fonctionnent les tarifs calculés sur le revenu et quelles allocations cantonales disponibles réduisent la charge économique pour les familles.',
+    'blog.article.berna-custodia-bambini-tariffe-costi.imageAlt': 'Crèche suisse avec des enfants jouant dans un environnement sûr, moderne et accueillant avec des activités éducatives.',
+    'blog.article.export-orologi-2026-prudenza-mercati.title': 'Exportation montres augmente : croissance prudente, Chine difficile',
+    'blog.article.export-orologi-2026-prudenza-mercati.excerpt': 'Après deux mois d\'augmentation, le président de la FH appelle à la prudence. USA +14,9 % vs juillet 2024 ; Chine -16,5 % en juin, -18,5 % en juillet. Le nouvel accord Berne-Pékin réduira progressivement les droits de douane.',
+    'blog.article.export-orologi-2026-prudenza-mercati.imageAlt': 'Horloger suisse assemblant une montre de luxe à l\'établi avec outils et pièces de précision',
 };
 
 export default blogMetaChFr;

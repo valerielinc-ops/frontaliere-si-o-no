@@ -636,7 +636,16 @@
       "department": "Post-doc / Collab. scientifique",
       "contractType": "Post-doc / Collab. scientifique",
       "externalId": "1163582855",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "ricercatore-post-doc-epfl-lausanne",
+        "post-doktorand-epfl-lausanne",
+        "recherche-post-doctorale-epfl-lausanne",
+        "chercheur-post-doctoral-epfl-lausanne",
+        "postdoctoral-researcher-in-photoelectrochemistry-epfl-lausanne",
+        "postdoktorandischer-forscher-epfl-lausanne",
+        "ricercatore-post-dottorato-epfl-lausanne",
+        "postdoktorand-epfl-lausanne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ricercatore-post-doc-epfl-lausanne",
@@ -652,16 +661,6 @@
           "chercheur-post-doctoral-epfl-lausanne"
         ]
       },
-      "previousSlugs": [
-        "ricercatore-post-doc-epfl-lausanne",
-        "post-doktorand-epfl-lausanne",
-        "recherche-post-doctorale-epfl-lausanne",
-        "chercheur-post-doctoral-epfl-lausanne",
-        "postdoctoral-researcher-in-photoelectrochemistry-epfl-lausanne",
-        "postdoktorandischer-forscher-epfl-lausanne",
-        "ricercatore-post-dottorato-epfl-lausanne",
-        "postdoktorand-epfl-lausanne"
-      ],
       "firstSeenAt": "2026-05-10T21:32:10.723Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -675,7 +674,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "epfl-bee036be0c9b",
@@ -2427,7 +2427,17 @@
       "department": "Administratif",
       "contractType": "Administratif",
       "externalId": "1164920855",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "industrial-liaison-officer-epfl-lausanne",
+        "industrieverbindungsofficer-epfl-lausanne",
+        "industriebeauftragter-epfl-lausanne",
+        "officier-de-liaison-industrielle-epfl-lausanne",
+        "agent-de-liaison-avec-l-industrie-epfl-lausanne",
+        "responsable-des-relations-avec-l-industrie-epfl-lausanne",
+        "industrieverbindungsbeauftragter-epfl-lausanne",
+        "agente-di-collegamento-dell-industria-epfl-lausanne",
+        "verbindungsbeamter-fur-die-industrie-epfl-lausanne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "agente-di-collegamento-dell-industria-epfl-lausanne"
@@ -2447,17 +2457,6 @@
           "responsable-des-relations-avec-l-industrie-epfl-lausanne"
         ]
       },
-      "previousSlugs": [
-        "industrial-liaison-officer-epfl-lausanne",
-        "industrieverbindungsofficer-epfl-lausanne",
-        "industriebeauftragter-epfl-lausanne",
-        "officier-de-liaison-industrielle-epfl-lausanne",
-        "agent-de-liaison-avec-l-industrie-epfl-lausanne",
-        "responsable-des-relations-avec-l-industrie-epfl-lausanne",
-        "industrieverbindungsbeauftragter-epfl-lausanne",
-        "agente-di-collegamento-dell-industria-epfl-lausanne",
-        "verbindungsbeamter-fur-die-industrie-epfl-lausanne"
-      ],
       "firstSeenAt": "2026-06-16T13:23:19.745Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -2471,7 +2470,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "epfl-9d5a85ba18cf",
@@ -3662,7 +3662,19 @@
       "department": "Post-doc / Collab. scientifique",
       "contractType": "Post-doc / Collab. scientifique",
       "externalId": "1164294755",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "ricercatore-post-dottorato-in-building-technology-epfl-fribourg",
+        "ricercatore-post-dottorato-in-tecnologia-edile-epfl-fribourg",
+        "ricercatore-post-dottorato-in-tecnologia-dell-edilizia-epfl-fribourg",
+        "ricercatore-post-dottorato-in-tecnologia-edilizia-epfl-fribourg",
+        "postdoktorandin-fur-bautechnik-epfl-fribourg",
+        "postdoktorand-in-bauwissenschaften-epfl-fribourg",
+        "postdoktorand-im-bereich-bautechnik-epfl-fribourg",
+        "postdoktorand-in-gebaudetechnik-epfl-fribourg",
+        "rechercheur-post-doctoral-en-technologie-de-construction-epfl-fribourg",
+        "ricercatore-post-dottorato-nella-tecnologia-dell-edilizia-epfl-fribourg",
+        "postdoktorand-in-bautechnologie-epfl-fribourg"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ricercatore-post-dottorato-in-building-technology-epfl-fribourg",
@@ -3682,19 +3694,6 @@
           "rechercheur-post-doctoral-en-technologie-de-construction-epfl-fribourg"
         ]
       },
-      "previousSlugs": [
-        "ricercatore-post-dottorato-in-building-technology-epfl-fribourg",
-        "ricercatore-post-dottorato-in-tecnologia-edile-epfl-fribourg",
-        "ricercatore-post-dottorato-in-tecnologia-dell-edilizia-epfl-fribourg",
-        "ricercatore-post-dottorato-in-tecnologia-edilizia-epfl-fribourg",
-        "postdoktorandin-fur-bautechnik-epfl-fribourg",
-        "postdoktorand-in-bauwissenschaften-epfl-fribourg",
-        "postdoktorand-im-bereich-bautechnik-epfl-fribourg",
-        "postdoktorand-in-gebaudetechnik-epfl-fribourg",
-        "rechercheur-post-doctoral-en-technologie-de-construction-epfl-fribourg",
-        "ricercatore-post-dottorato-nella-tecnologia-dell-edilizia-epfl-fribourg",
-        "postdoktorand-in-bautechnologie-epfl-fribourg"
-      ],
       "firstSeenAt": "2026-05-10T21:32:10.744Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -3708,7 +3707,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "needsRetranslation": true
     },
     {
       "id": "epfl-158ea9e2ab6d",
@@ -4176,20 +4176,6 @@
       "department": "Post-doc / Collab. scientifique",
       "contractType": "Post-doc / Collab. scientifique",
       "externalId": "1164982155",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "fr": [
-          "postes-postdoctoraux-dans-les-neurosciences-computationnelles-et-l-ia-epfl-geneve"
-        ],
-        "de": [
-          "postdoc-positionen-in-computational-neuroscience-ai-epfl-geneve",
-          "postdoktorandenstellen-in-rechnergestutzten-neurowissenschaften-ki-epfl-geneve",
-          "postdoktorandenpositionen-in-der-computerischen-neurowissenschaft-ki-epfl-geneve"
-        ],
-        "it": [
-          "posizioni-post-dottorali-in-neuroscienze-computazionali-ai-epfl-geneve"
-        ]
-      },
       "previousSlugs": [
         "postdoc-positionen-in-computational-neuroscience-ai-epfl-geneve",
         "postdoktorandenstellen-in-rechnergestutzten-neurowissenschaften-ki-epfl-geneve",
@@ -4197,6 +4183,19 @@
         "posizioni-post-dottorali-in-neuroscienze-computazionali-ai-epfl-geneve",
         "postdoktorandenpositionen-in-der-computerischen-neurowissenschaft-ki-epfl-geneve"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "posizioni-post-dottorali-in-neuroscienze-computazionali-ai-epfl-geneve"
+        ],
+        "de": [
+          "postdoc-positionen-in-computational-neuroscience-ai-epfl-geneve",
+          "postdoktorandenstellen-in-rechnergestutzten-neurowissenschaften-ki-epfl-geneve",
+          "postdoktorandenpositionen-in-der-computerischen-neurowissenschaft-ki-epfl-geneve"
+        ],
+        "fr": [
+          "postes-postdoctoraux-dans-les-neurosciences-computationnelles-et-l-ia-epfl-geneve"
+        ]
+      },
       "firstSeenAt": "2026-06-25T11:04:10.966Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -4210,7 +4209,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "needsRetranslation": true
     },
     {
       "id": "epfl-9044b7f240f4",
@@ -4417,29 +4417,29 @@
     },
     {
       "id": "epfl-39a84526073d",
-      "slug": "technicien-ne-epfl-lausanne",
+      "slug": "tecnologia-epfl-lausanne",
       "slugByLocale": {
-        "it": "technicien-ne-epfl-lausanne",
+        "fr": "technique-epfl-lausanne",
+        "it": "tecnologia-epfl-lausanne",
         "en": "technicien-ne-epfl-lausanne",
-        "de": "technicien-ne-epfl-lausanne",
-        "fr": "technicien-ne-epfl-lausanne"
+        "de": "technik-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
       "companyDomain": "epfl.ch",
       "title": "Technicien·ne",
       "titleByLocale": {
-        "fr": "Technicien·ne",
+        "fr": "Technique",
         "en": "Technicien·ne",
-        "it": "Technicien·ne",
-        "de": "Technicien·ne"
+        "it": "Tecnologia",
+        "de": "Technik"
       },
       "description": "Mission\n\nThe Laboratory of Dr. Douglas Hanahan, at the Swiss Institute for Experimental Cancer Research (Swiss Federal Institute of Technology), is seeking a highly motivated laboratory technician with a strong background in molecular and cell biology and experience working with genetically modified mouse models. The laboratory, and therefore the position, is based at the AGORA Cancer Research Center in Lausanne, a multidisciplinary research environment dedicated to advancing cancer research. The successful candidate will work closely with a postdoctoral fellow on projects in tumor immunology spanning cancer vaccines and the fundamental biology of glioblastoma.\n\nWe are looking for a proactive, organized, and motivated individual who enjoys working independently while collaborating closely with others. The ideal candidate is comfortable organizing daily experimental work from agreed project priorities, takes initiative in troubleshooting technical challenges, asks questions when needed, communicates openly, and maintains thorough experimental records. This position is well suited to someone who enjoys taking ownership of their work and contributing actively to the progress of a research project.\n\nMain duties and responsibilities\n\n• Plan and execute daily experimental work in coordination with the postdoctoral fellow\n\n• Mouse models: health monitoring, injections, in vivo imaging, assistance with surgeries and tissue collection\n\n• Molecular biology: DNA/RNA isolation, cloning, qPCR, protein isolation, and western blotting\n\n• Cell biology: mammalian cell culture, transfection, proliferation, migration/invasion assays, and flow cytometry\n\n• Histology: cryosectioning, FFPE processing, immunohistochemistry, and fluorescence microscopy\n\n• Contribute to the day-to-day operation of the laboratory as needed\n\nProfile\n\n• Diploma from a laboratory technician program or equivalent qualification\n\n• Accreditation to work with laboratory animals (Module 1)\n\n• Excellent organization and time management skills\n\n• Demonstrated ability to work independently, prioritize tasks, and take initiative\n\n• Curious, persistent, and motivated to learn new methods and troubleshoot technical challenges\n\n• Excellent written and spoken English communication skills\n\nWe offer\n\n• A dynamic and multicultural working environment within an internationally renowned multidisciplinary institution\n\n• The opportunity to contribute to exciting, varied, and high-impact projects\n\n• Attractive working conditions\n\n• Opportunities for continuing professional development\n\nInformations\n\nContract Start Date : October 1, 2026\n\nActivity Rate Min : 80.00\n\nActivity Rate Max : 100.00\n\nContract Type: CDD\n\nDuration: 12\n\nReference: 2408",
       "descriptionByLocale": {
-        "it": "Missione\n\nIl Laboratorio del Dr. Douglas Hanahan, presso l'Istituto svizzero per la ricerca sperimentale del cancro (Istituto federale della tecnologia svizzera), sta cercando un tecnico di laboratorio altamente motivato con un forte background in biologia molecolare e cellulare e l'esperienza di lavoro con modelli di topo geneticamente modificati. Il laboratorio, e quindi la posizione, ha sede presso l'AGORA Cancer Research Center di Losanna, un ambiente di ricerca multidisciplinare dedicato al progresso della ricerca sul cancro. Il candidato di successo lavorerà a stretto contatto con un compagno post-dottorato su progetti in immunologia tumorale che coprono i vaccini del cancro e la biologia fondamentale del glioblastoma.\n\nSiamo alla ricerca di un individuo proattivo, organizzato e motivato che gode di lavorare in modo indipendente mentre collabora con gli altri. Il candidato ideale è confortevole l'organizzazione di lavori sperimentali giornalieri da priorità di progetto concordate, prende l'iniziativa nella risoluzione dei problemi delle sfide tecniche, pone domande quando necessario, comunica apertamente e mantiene scrupolosi record sperimentali. Questa posizione è adatta a qualcuno che si diverte a prendere possesso del loro lavoro e contribuire attivamente al progresso di un progetto di ricerca.\n\nPrincipali doveri e responsabilità\n\n• Pianificare ed eseguire lavori sperimentali giornalieri in coordinamento con il compagno post-dottorato\n\n• Modelli di mouse: monitoraggio della salute, iniezioni, imaging in vivo, assistenza con interventi chirurgici e raccolta di tessuti\n\n• Biologia molecolare: isolamento del DNA/RNA, clonazione, qPCR, isolamento delle proteine e blotting occidentale\n\n• Biologia cellulare: cultura cellulare mammifero, trasfezione, proliferazione, analisi di migrazione/invasione e citometria di flusso\n\n• Istologia: criosezione, elaborazione FFPE, immunoistochimica e microscopia di fluorescenza\n\n• Contribuire al funzionamento quotidiano del laboratorio secondo le necessità\n\nProfilo\n\n• Diploma da un programma tecnico di laboratorio o qualifica equivalente\n\n• Accreditamento al lavoro con animali da laboratorio (Modulo 1)\n\n• Eccellente capacità di organizzazione e gestione del tempo\n\n• Capacità dimostrata di lavorare in modo indipendente, priorità compiti, e prendere iniziativa\n\n• Curioso, persistente e motivato per imparare nuovi metodi e risolvere le sfide tecniche\n\n• Eccellente capacità di comunicazione scritta e parlata inglese\n\nOffriamo\n\n• Un ambiente di lavoro dinamico e multiculturale all'interno di un'istituzione multidisciplinare di fama internazionale\n\n• L'opportunità di contribuire a progetti entusiasmanti, diversificati e ad alto impatto\n\n• Condizioni di lavoro interessanti\n\n• Opportunità di sviluppo professionale permanente\n\nInformazioni\n\nData di inizio del contratto: 1 ottobre 2026\n\nTasso di attività Min: 80.00\n\nTasso di attività Max: 100.00\n\nTipo di contratto: CDD\n\nDurata: 12\n\nRiferimento: 2408",
+        "fr": "Mission\n\nLe Laboratoire du Dr Douglas Hanahan, de l'Institut suisse de recherche expérimentale sur le cancer (Institut fédéral suisse de technologie), est à la recherche d'un technicien de laboratoire très motivé ayant une solide expérience en biologie moléculaire et cellulaire et une expérience de travail avec des modèles de souris génétiquement modifiés. Le laboratoire, et donc le poste, est basé au Centre de recherche sur le cancer AGORA à Lausanne, un environnement de recherche multidisciplinaire dédié à faire progresser la recherche sur le cancer. Le candidat retenu travaillera en étroite collaboration avec un boursier postdoctoral sur des projets en immunologie tumorale couvrant les vaccins contre le cancer et la biologie fondamentale du glioblastome.\n\nNous cherchons une personne proactive, organisée et motivée qui aime travailler de façon indépendante tout en collaborant étroitement avec les autres. Le candidat idéal est à l'aise d'organiser le travail expérimental quotidien à partir des priorités de projet convenues, prend l'initiative de résoudre les problèmes techniques, pose des questions au besoin, communique ouvertement et tient des dossiers expérimentaux approfondis. Ce poste est bien adapté à quelqu'un qui aime s'approprier son travail et contribuer activement au progrès d'un projet de recherche.\n\nPrincipales fonctions et responsabilités\n\n• Planifier et exécuter des travaux expérimentaux quotidiens en coordination avec le boursier postdoctoral\n\n• Modèles de souris : surveillance de la santé, injections, imagerie in vivo, aide aux chirurgies et collecte de tissus\n\n• Biologie moléculaire : isolement de l'ADN/ARN, clonage, qPCR, isolement des protéines et transfert de l'ouest\n\n• Biologie cellulaire : culture cellulaire de mammifères, transfection, prolifération, essais de migration/invasion et cytométrie en flux\n\n• Histologie : cryosection, traitement des FFPE, immunohistochimie et microscopie à fluorescence\n\n• Contribuer au fonctionnement quotidien du laboratoire au besoin\n\nProfil\n\n• Diplôme d'un programme de technicien de laboratoire ou d'une qualification équivalente\n\n• Accréditation pour travailler avec des animaux de laboratoire (Module 1)\n\n• Excellente organisation et gestion du temps\n\n• Capacité démontrée de travailler de façon indépendante, de prioriser les tâches et de prendre des initiatives\n\n• Curieux, persistant et motivé pour apprendre de nouvelles méthodes et résoudre des problèmes techniques\n\n• Excellentes compétences en communication écrite et parlée en anglais\n\nNous offrons\n\n• Un environnement de travail dynamique et multiculturel au sein d'une institution multidisciplinaire de renommée internationale\n\n• L'occasion de contribuer à des projets passionnants, variés et à fort impact\n\n• Conditions de travail attrayantes\n\n• Possibilités de formation professionnelle continue\n\nInformations\n\nDate de début du contrat : 1 octobre 2026\n\nTaux d'activité Min : 80.00\n\nTaux d'activité Max : 100.00\n\nType de contrat: CDD\n\nDurée: 12 ans\n\nRéférence: 2408",
         "en": "Mission\n\nThe Laboratory of Dr. Douglas Hanahan, at the Swiss Institute for Experimental Cancer Research (Swiss Federal Institute of Technology), is seeking a highly motivated laboratory technician with a strong background in molecular and cell biology and experience working with genetically modified mouse models. The laboratory, and therefore the position, is based at the AGORA Cancer Research Center in Lausanne, a multidisciplinary research environment dedicated to advancing cancer research. The successful candidate will work closely with a postdoctoral fellow on projects in tumor immunology spanning cancer vaccines and the fundamental biology of glioblastoma.\n\nWe are looking for a proactive, organized, and motivated individual who enjoys working independently while collaborating closely with others. The ideal candidate is comfortable organizing daily experimental work from agreed project priorities, takes initiative in troubleshooting technical challenges, asks questions when needed, communicates openly, and maintains thorough experimental records. This position is well suited to someone who enjoys taking ownership of their work and contributing actively to the progress of a research project.\n\nMain duties and responsibilities\n\n• Plan and execute daily experimental work in coordination with the postdoctoral fellow\n\n• Mouse models: health monitoring, injections, in vivo imaging, assistance with surgeries and tissue collection\n\n• Molecular biology: DNA/RNA isolation, cloning, qPCR, protein isolation, and western blotting\n\n• Cell biology: mammalian cell culture, transfection, proliferation, migration/invasion assays, and flow cytometry\n\n• Histology: cryosectioning, FFPE processing, immunohistochemistry, and fluorescence microscopy\n\n• Contribute to the day-to-day operation of the laboratory as needed\n\nProfile\n\n• Diploma from a laboratory technician program or equivalent qualification\n\n• Accreditation to work with laboratory animals (Module 1)\n\n• Excellent organization and time management skills\n\n• Demonstrated ability to work independently, prioritize tasks, and take initiative\n\n• Curious, persistent, and motivated to learn new methods and troubleshoot technical challenges\n\n• Excellent written and spoken English communication skills\n\nWe offer\n\n• A dynamic and multicultural working environment within an internationally renowned multidisciplinary institution\n\n• The opportunity to contribute to exciting, varied, and high-impact projects\n\n• Attractive working conditions\n\n• Opportunities for continuing professional development\n\nInformations\n\nContract Start Date : October 1, 2026\n\nActivity Rate Min : 80.00\n\nActivity Rate Max : 100.00\n\nContract Type: CDD\n\nDuration: 12\n\nReference: 2408",
-        "de": "Mission\n\nDas Labor von Dr. Douglas Hanahan am Schweizerischen Institut für experimentelle Krebsforschung (Schweizerische Eidgenössische Technische Hochschule) sucht einen hochmotivierten Labortechniker mit einem starken Hintergrund in Molekular- und Zellbiologie und Erfahrung in der Arbeit mit genetisch veränderten Mausmodellen. Das Labor und damit die Position ist am AGORA Cancer Research Center in Lausanne angesiedelt, einer multidisziplinären Forschungsumgebung, die sich der Förderung der Krebsforschung widmet. Der erfolgreiche Kandidat wird eng mit einem Postdoktoranden an Projekten in der Tumorimmunologie zusammenarbeiten, die Krebsimpfstoffe und die grundlegende Biologie des Glioblastoms umfassen.\n\nWir suchen eine proaktive, organisierte und motivierte Person, die gerne unabhängig arbeitet und gleichzeitig eng mit anderen zusammenarbeitet. Der ideale Kandidat ist es, die tägliche experimentelle Arbeit aus vereinbarten Projektprioritäten zu organisieren, die Initiative zur Fehlersuche bei technischen Herausforderungen zu ergreifen, bei Bedarf Fragen zu stellen, offen zu kommunizieren und gründliche experimentelle Aufzeichnungen zu führen. Diese Position eignet sich gut für jemanden, der gerne Verantwortung für seine Arbeit übernimmt und aktiv zum Fortschritt eines Forschungsprojekts beiträgt.\n\nHauptaufgaben und Zuständigkeiten\n\n• Planen und Durchführen der täglichen experimentellen Arbeit in Abstimmung mit dem Postdoc\n\n• Mausmodelle: Gesundheitsüberwachung, Injektionen, In-vivo-Bildgebung, Unterstützung bei Operationen und Gewebesammlung\n\n• Molekularbiologie: DNA/RNA-Isolation, Klonen, qPCR, Proteinisolation und Westernblotting\n\n• Zellbiologie: Zellkultur von Säugetieren, Transfektion, Proliferation, Migrations-/Invasionstests und Durchflusszytometrie\n\n• Histologie: Kryosektion, FFPE-Verarbeitung, Immunhistochemie und Fluoreszenzmikroskopie\n\n• Beitrag zum täglichen Betrieb des Labors nach Bedarf\n\nProfil\n\n• Diplom aus einem Labortechnikerprogramm oder gleichwertige Qualifikation\n\n• Akkreditierung für die Arbeit mit Labortieren (Modul 1)\n\n• Ausgezeichnete Organisation und Zeitmanagement Fähigkeiten\n\n• Demonstrierte Fähigkeit, unabhängig zu arbeiten, Aufgaben zu priorisieren und Initiative zu ergreifen\n\n• Neugierig, hartnäckig und motiviert, neue Methoden zu erlernen und technische Herausforderungen zu beheben\n\n• Hervorragende schriftliche und gesprochene englische Kommunikationsfähigkeiten\n\nWir bieten\n\n• Ein dynamisches und multikulturelles Arbeitsumfeld innerhalb einer international renommierten multidisziplinären Institution\n\n• Die Möglichkeit, zu spannenden, abwechslungsreichen und einflussreichen Projekten beizutragen\n\n• Attraktive Arbeitsbedingungen\n\n• Möglichkeiten zur beruflichen Weiterentwicklung\n\nInformationen\n\nVertragsbeginn: 1. Oktober 2026\n\nAktivitätsrate Min: 80,00\n\nAktivitätsrate Max: 100,00\n\nVertragsart: CDD\n\nDauer: 12\n\nBezug: 2408",
-        "fr": "Mission\n\nThe Laboratory of Dr. Douglas Hanahan, at the Swiss Institute for Experimental Cancer Research (Swiss Federal Institute of Technology), is seeking a highly motivated laboratory technician with a strong background in molecular and cell biology and experience working with genetically modified mouse models. The laboratory, and therefore the position, is based at the AGORA Cancer Research Center in Lausanne, a multidisciplinary research environment dedicated to advancing cancer research. The successful candidate will work closely with a postdoctoral fellow on projects in tumor immunology spanning cancer vaccines and the fundamental biology of glioblastoma.\n\nWe are looking for a proactive, organized, and motivated individual who enjoys working independently while collaborating closely with others. The ideal candidate is comfortable organizing daily experimental work from agreed project priorities, takes initiative in troubleshooting technical challenges, asks questions when needed, communicates openly, and maintains thorough experimental records. This position is well suited to someone who enjoys taking ownership of their work and contributing actively to the progress of a research project.\n\nMain duties and responsibilities\n\n• Plan and execute daily experimental work in coordination with the postdoctoral fellow\n\n• Mouse models: health monitoring, injections, in vivo imaging, assistance with surgeries and tissue collection\n\n• Molecular biology: DNA/RNA isolation, cloning, qPCR, protein isolation, and western blotting\n\n• Cell biology: mammalian cell culture, transfection, proliferation, migration/invasion assays, and flow cytometry\n\n• Histology: cryosectioning, FFPE processing, immunohistochemistry, and fluorescence microscopy\n\n• Contribute to the day-to-day operation of the laboratory as needed\n\nProfile\n\n• Diploma from a laboratory technician program or equivalent qualification\n\n• Accreditation to work with laboratory animals (Module 1)\n\n• Excellent organization and time management skills\n\n• Demonstrated ability to work independently, prioritize tasks, and take initiative\n\n• Curious, persistent, and motivated to learn new methods and troubleshoot technical challenges\n\n• Excellent written and spoken English communication skills\n\nWe offer\n\n• A dynamic and multicultural working environment within an internationally renowned multidisciplinary institution\n\n• The opportunity to contribute to exciting, varied, and high-impact projects\n\n• Attractive working conditions\n\n• Opportunities for continuing professional development\n\nInformations\n\nContract Start Date : October 1, 2026\n\nActivity Rate Min : 80.00\n\nActivity Rate Max : 100.00\n\nContract Type: CDD\n\nDuration: 12\n\nReference: 2408"
+        "it": "Missione\n\nIl Laboratorio del Dr. Douglas Hanahan, presso l'Istituto svizzero per la ricerca sperimentale del cancro (Istituto federale della tecnologia), sta cercando un tecnico di laboratorio altamente motivato con un forte background in biologia molecolare e cellulare e l'esperienza di lavoro con modelli di topo geneticamente modificati. Il laboratorio, e quindi la posizione, ha sede presso l'AGORA Cancer Research Center di Losanna, un ambiente di ricerca multidisciplinare dedicato al progresso della ricerca sul cancro. Il candidato di successo lavorerà a stretto contatto con un compagno post-dottorato sui progetti in immunologia tumorale che coprono i vaccini del cancro e la biologia fondamentale del glioblastoma.\n\nSiamo alla ricerca di un individuo proattivo, organizzato e motivato che gode di lavorare in modo indipendente mentre collabora con gli altri. Il candidato ideale è confortevole l'organizzazione di lavori sperimentali giornalieri da priorità di progetto concordate, prende l'iniziativa nella risoluzione dei problemi delle sfide tecniche, pone domande quando necessario, comunica apertamente e mantiene scrupolosi record sperimentali. Questa posizione è ben adatta a qualcuno che ama prendere la proprietà del loro lavoro e contribuire attivamente al progresso di un progetto di ricerca.\n\nPrincipali doveri e responsabilità\n\n• Pianificare ed eseguire lavori sperimentali giornalieri in coordinamento con il compagno post-dottorato\n\n• Modelli del mouse: monitoraggio della salute, iniezioni, imaging in vivo, assistenza con interventi chirurgici e raccolta dei tessuti\n\n• Biologia molecolare: isolamento del DNA/RNA, clonazione, qPCR, isolamento delle proteine e blotting occidentale\n\n• Biologia cellulare: cultura cellulare mammifero, trasfezione, proliferazione, analisi di migrazione/invasione e citometria di flusso\n\n• Istologia: criosezione, elaborazione FFPE, immunoistochimica e microscopia di fluorescenza\n\n• Contribuire al funzionamento quotidiano del laboratorio secondo le necessità\n\nProfilo\n\n• Diploma da un programma tecnico di laboratorio o qualifica equivalente\n\n• Accreditamento al lavoro con animali da laboratorio (Modulo 1)\n\n• Eccellente capacità di organizzazione e gestione del tempo\n\n• Capacità dimostrata di lavorare in modo indipendente, priorità compiti, e prendere iniziativa\n\n• Curioso, persistente e motivato per imparare nuovi metodi e risolvere le sfide tecniche\n\n• Eccellente capacità di comunicazione scritta e parlata inglese\n\nOffriamo\n\n• Un ambiente di lavoro dinamico e multiculturale all'interno di un'istituzione multidisciplinare di fama internazionale\n\n• L'opportunità di contribuire a progetti entusiasmanti, diversificati e ad alto impatto\n\n• Condizioni di lavoro interessanti\n\n• Opportunità di sviluppo professionale permanente\n\nInformazioni\n\nData di inizio del contratto: 1 ottobre 2026\n\nTasso di attività Min: 80.00\n\nTasso di attività Max: 100.00\n\nTipo di contratto: CDD\n\nDurata: 12\n\nRiferimento: 2408",
+        "de": "Mission\n\nDas Labor von Dr. Douglas Hanahan am Schweizerischen Institut für Experimentelle Krebsforschung (Schweizerische Eidgenössische Technische Hochschule) sucht einen hochmotivierten Labortechniker mit einem starken Hintergrund in Molekular- und Zellbiologie und Erfahrung in der Arbeit mit genetisch veränderten Mausmodellen. Das Labor und damit die Position ist am AGORA Cancer Research Center in Lausanne angesiedelt, einer multidisziplinären Forschungsumgebung, die sich der Förderung der Krebsforschung widmet. Der erfolgreiche Kandidat wird eng mit einem Postdoktoranden an Projekten in der Tumorimmunologie zusammenarbeiten, die Krebsimpfstoffe und die grundlegende Biologie des Glioblastoms umfassen.\n\nWir suchen eine proaktive, organisierte und motivierte Person, die gerne unabhängig arbeitet und gleichzeitig eng mit anderen zusammenarbeitet. Der ideale Kandidat ist es, die tägliche experimentelle Arbeit aus vereinbarten Projektprioritäten zu organisieren, die Initiative zur Fehlersuche bei technischen Herausforderungen zu ergreifen, bei Bedarf Fragen zu stellen, offen zu kommunizieren und gründliche experimentelle Aufzeichnungen zu führen. Diese Position eignet sich gut für jemanden, der gerne Verantwortung für seine Arbeit übernimmt und aktiv zum Fortschritt eines Forschungsprojekts beiträgt.\n\nHauptaufgaben und Zuständigkeiten\n\n• Planung und Durchführung der täglichen experimentellen Arbeit in Abstimmung mit dem Postdoktoranden\n\n• Mausmodelle: Gesundheitsüberwachung, Injektionen, In-vivo-Bildgebung, Unterstützung bei Operationen und Gewebesammlung\n\n• Molekularbiologie: DNA/RNA-Isolation, Klonen, qPCR, Proteinisolation und Westernblotting\n\n• Zellbiologie: Zellkultur von Säugetieren, Transfektion, Proliferation, Migrations-/Invasionstests und Durchflusszytometrie\n\n• Histologie: Kryosektion, FFPE-Verarbeitung, Immunhistochemie und Fluoreszenzmikroskopie\n\n• Beitrag zum täglichen Betrieb des Labors nach Bedarf\n\nProfil\n\n• Diplom aus einem Labortechnikerprogramm oder gleichwertige Qualifikation\n\n• Akkreditierung für die Arbeit mit Labortieren (Modul 1)\n\n• Hervorragende Organisations- und Zeitmanagementfähigkeiten\n\n• Demonstrierte Fähigkeit, unabhängig zu arbeiten, Aufgaben zu priorisieren und Initiative zu ergreifen\n\n• Neugierig, hartnäckig und motiviert, neue Methoden zu erlernen und technische Herausforderungen zu beheben\n\n• Hervorragende schriftliche und gesprochene englische Kommunikationsfähigkeiten\n\nWir bieten\n\n• Ein dynamisches und multikulturelles Arbeitsumfeld in einer international renommierten multidisziplinären Institution\n\n• Die Möglichkeit, zu spannenden, abwechslungsreichen und einflussreichen Projekten beizutragen\n\n• Attraktive Arbeitsbedingungen\n\n• Möglichkeiten zur beruflichen Weiterentwicklung\n\nInformationen\n\nVertragsbeginn: 1. Oktober 2026\n\nAktivitätsrate Min: 80,00\n\nAktivitätsrate Max: 100,00\n\nVertragsart: CDD\n\nDauer: 12\n\nBezug: 2408"
       },
       "location": "Lausanne",
       "canton": "VD",
@@ -4464,23 +4464,6 @@
       "department": "Technique",
       "contractType": "Technique",
       "externalId": "1165326555",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "fr": [
-          "technique-epfl-lausanne",
-          "technicien-ne-epfl-lausanne"
-        ],
-        "it": [
-          "tecnologia-epfl-lausanne",
-          "technicien-ne-epfl-lausanne"
-        ]
-      },
-      "previousSlugs": [
-        "technique-epfl-lausanne",
-        "tecnologia-epfl-lausanne",
-        "technicien-ne-epfl-lausanne"
-      ],
-      "firstSeenAt": "2026-08-24T21:40:54.464Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
       "baseSalary": {
@@ -4493,7 +4476,26 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-08-24T21:40:54.464Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "technique-epfl-lausanne",
+          "technicien-ne-epfl-lausanne"
+        ],
+        "it": [
+          "tecnologia-epfl-lausanne",
+          "technicien-ne-epfl-lausanne"
+        ],
+        "de": [
+          "technicien-ne-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "technique-epfl-lausanne",
+        "tecnologia-epfl-lausanne",
+        "technicien-ne-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-783c6c49e8d9",

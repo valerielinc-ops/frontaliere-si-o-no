@@ -4267,6 +4267,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.pagamenti-offline-carte-2026.title': 'Pagamenti offline con carte: lancio agosto 2026',
     'blog.article.pagamenti-offline-carte-2026.excerpt': 'Pagamenti offline con carte dal 24 agosto 2026: terminale registra anche senza rete. Garantisce continuità negli acquisti essenziali durante interruzioni.',
     'blog.article.pagamenti-offline-carte-2026.imageAlt': 'Pagamenti con carta offline presso un terminale nel negozio durante interruzione della rete in Svizzera',
+    'blog.article.amnesty-neutralita-crimini-guerra.title': 'Amnesty contro iniziativa neutralità svizzera',
+    'blog.article.amnesty-neutralita-crimini-guerra.excerpt': 'Amnesty International Svizzera si oppone all\'iniziativa sulla neutralità: limiterebbe sanzioni economiche e diplomatiche. Votazione il 27 settembre 2026.',
+    'blog.article.amnesty-neutralita-crimini-guerra.imageAlt': 'Il Palazzo federale Bundeshaus di Berna con bandiera svizzera, sede del Consiglio nazionale e Ständerat',
+    'blog.article.premi-lamal-berna-sussidio.title': 'Premi LAMal Canton Berna: fasce e riduzioni',
+    'blog.article.premi-lamal-berna-sussidio.excerpt': 'Nel Canton Berna i premi LAMal variano secondo la franchigia scelta. Ecco come funziona il sistema e come accedere ai sussidi per la riduzione.',
+    'blog.article.premi-lamal-berna-sussidio.imageAlt': 'Uno sportello amministrativo con documenti di assicurazione malattia su una scrivania.',
+    'blog.article.berna-custodia-bambini-tariffe-costi.title': 'Custodia bambini nel Canton Berna: costi e sussidi',
+    'blog.article.berna-custodia-bambini-tariffe-costi.excerpt': 'Asili nido, famiglie diurne, doposcuola: come funzionano le tariffe calcolate su reddito e quali sussidi cantonali disponibili riducono l\'onere economico per le famiglie.',
+    'blog.article.berna-custodia-bambini-tariffe-costi.imageAlt': 'Asilo nido svizzero con bambini che giocano in un ambiente sicuro, moderno e accogliente con attività educative.',
+    'blog.article.export-orologi-2026-prudenza-mercati.title': 'Export orologi aumenta: crescita cauta, Cina difficile',
+    'blog.article.export-orologi-2026-prudenza-mercati.excerpt': 'Dopo due mesi di aumento, il presidente della FH invita alla prudenza. USA +14,9% vs luglio 2024; Cina -16,5% giugno, -18,5% luglio. Nuovo accordo Berna-Pechino ridurrà dazi gradualmente.',
+    'blog.article.export-orologi-2026-prudenza-mercati.imageAlt': 'Orologiaio svizzero al banco di lavoro assembla un orologio di lusso con strumenti di precisione',
 };
 
 export default blogMetaChIt;

@@ -4267,6 +4267,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.pagamenti-offline-carte-2026.title': 'Offline card payments: launch August 2026',
     'blog.article.pagamenti-offline-carte-2026.excerpt': 'Offline payments with cards from 24 August 2026: terminal also registers without a network. Ensures continuity in essential purchases during outages.',
     'blog.article.pagamenti-offline-carte-2026.imageAlt': 'Offline card payment at a terminal in a Swiss shop during network outage',
+    'blog.article.amnesty-neutralita-crimini-guerra.title': 'Amnesty vs Swiss neutrality initiative',
+    'blog.article.amnesty-neutralita-crimini-guerra.excerpt': 'Amnesty International Switzerland opposes the neutrality initiative: it would limit economic and diplomatic sanctions. Vote on 27 September 2026.',
+    'blog.article.amnesty-neutralita-crimini-guerra.imageAlt': 'Swiss Federal Parliament building Bundeshaus in Bern with Swiss flag',
+    'blog.article.premi-lamal-berna-sussidio.title': 'LAMal Canton Bern Awards: bands and reductions',
+    'blog.article.premi-lamal-berna-sussidio.excerpt': 'In the Canton of Bern, LAMal premiums vary according to the deductible chosen. Here\'s how the system works and how to access reduction subsidies.',
+    'blog.article.premi-lamal-berna-sussidio.imageAlt': 'Administrative office with health insurance documents displayed on desk.',
+    'blog.article.berna-custodia-bambini-tariffe-costi.title': 'Child care in the Canton of Bern: costs and subsidies',
+    'blog.article.berna-custodia-bambini-tariffe-costi.excerpt': 'Nurseries, day families, after-school: how income-based rates work and what cantonal subsidies are available that reduce the economic burden on families.',
+    'blog.article.berna-custodia-bambini-tariffe-costi.imageAlt': 'Swiss daycare center with children playing in a safe, modern and welcoming environment with educational activities.',
+    'blog.article.export-orologi-2026-prudenza-mercati.title': 'Export Watches Rises: Cautious Growth, China Difficult',
+    'blog.article.export-orologi-2026-prudenza-mercati.excerpt': 'After two months of increase, the president of the FH calls for caution. USA +14.9% vs July 2024; China -16.5% June, -18.5% July. New Bern-Beijing agreement will reduce tariffs gradually.',
+    'blog.article.export-orologi-2026-prudenza-mercati.imageAlt': 'Swiss watchmaker at workbench assembling luxury watch with precision tools and components',
 };
 
 export default blogMetaChEn;
