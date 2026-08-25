@@ -4267,6 +4267,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.pagamenti-offline-carte-2026.title': 'Offline card payments: launch August 2026',
     'blog.article.pagamenti-offline-carte-2026.excerpt': 'Offline payments with cards from 24 August 2026: terminal also registers without a network. Ensures continuity in essential purchases during outages.',
     'blog.article.pagamenti-offline-carte-2026.imageAlt': 'Offline card payment at a terminal in a Swiss shop during network outage',
+    'blog.article.amnesty-neutralita-crimini-guerra.title': 'Amnesty vs Swiss neutrality initiative',
+    'blog.article.amnesty-neutralita-crimini-guerra.excerpt': 'Amnesty International Switzerland opposes the neutrality initiative: it would limit economic and diplomatic sanctions. Vote on 27 September 2026.',
+    'blog.article.amnesty-neutralita-crimini-guerra.imageAlt': 'Swiss Federal Parliament building Bundeshaus in Bern with Swiss flag',
 };
 
 export default blogMetaChEn;
