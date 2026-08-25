@@ -23,6 +23,7 @@
 import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
+import { GREY_GLOBE_SIZE, LOGO_BOT_USER_AGENT } from './lib/google-favicon.mjs';
 
 const ROOT = path.resolve(process.cwd());
 const MANIFEST_PATH = path.join(ROOT, 'data', 'company-logos-manifest.json');
@@ -32,7 +33,6 @@ const OUT_DIR = path.join(ROOT, 'public', 'images', 'brands');
 
 const FETCH_TIMEOUT_MS = 10_000;
 const CONCURRENCY = 6;
-const GREY_GLOBE_SIZE = 726; // bytes — Google's generic globe at sz=128
 
 const MIME_EXT = {
   'image/png': 'png',
@@ -129,7 +129,7 @@ async function fetchTimeout(url) {
   try {
     return await fetch(url, {
       headers: {
-        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoLogoBot/1.0)',
+        'User-Agent': LOGO_BOT_USER_AGENT,
         Accept: 'image/*,*/*;q=0.8',
       },
       redirect: 'follow',

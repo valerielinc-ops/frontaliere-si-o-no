@@ -20,6 +20,7 @@
  */
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
+import { GREY_GLOBE_SIZE } from './lib/google-favicon.mjs';
 
 const ROOT = path.resolve(process.cwd());
 const SOURCE_TS = path.join(ROOT, 'services', 'jobDataNormalization.ts');
@@ -134,7 +135,7 @@ async function tryFetchAndSave(entry, url, sourceLabel) {
   const ct = (res.headers.get('content-type') || '').split(';')[0].trim().toLowerCase();
   const ext = MIME_EXT[ct] || detectExtFromBytes(buf) || 'png';
   // Google's generic "grey globe" favicon is exactly 726B at sz=128.
-  const greyGlobe = sourceLabel === 'google-favicon' && buf.length === 726;
+  const greyGlobe = sourceLabel === 'google-favicon' && buf.length === GREY_GLOBE_SIZE;
   const dest = path.join(OUT_DIR, `${entry.slug}.${ext}`);
   await writeFile(dest, buf);
   return {

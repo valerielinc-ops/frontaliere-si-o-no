@@ -162,6 +162,24 @@ export function evaluatePromotion(candidate, ctx = {}, opts = {}) {
       ? 'nessuna misura semantica nell\'ultima validazione: e\' anteriore al controllo jobLike, serve una nuova validazione'
       : `solo il ${Math.round(Number(jobLikeRate) * 100)}% delle pagine di dettaglio legge come annuncio di lavoro, serve ${Math.round(g.minJobLike * 100)}%`);
 
+  // Logo aziendale obbligatorio, stessa disciplina di jobLike qui sopra: senza
+  // nessuno che guarda, un crawler che entra in produzione senza un logo
+  // verificabile pubblica pagine annuncio col badge generico a iniziali colorate
+  // al posto del brand del datore — l'esatto difetto che l'audit
+  // `scripts/audit-missing-company-logos.mjs` misura sul corpus gia' in
+  // produzione. Qui si chiude la falla a monte: un candidato non ci arriva mai.
+  // `logoFound` e' scritto da `prospect-validate.mjs` via
+  // `scripts/lib/prospector/logo-probe.mjs`, che verifica DIRETTAMENTE il
+  // dominio della spec (niente da indovinare, a differenza delle aziende
+  // arbitrarie che l'audit deve riconciliare a posteriori).
+  //   assente -> validazione anteriore al controllo, MAI misurata: blocca.
+  //   false   -> probato, nessun logo trovato sul dominio: blocca.
+  //   true    -> passa.
+  mark('logo', latest.logoFound === true,
+    latest.logoFound === undefined
+      ? 'nessuna misura del logo nell\'ultima validazione: e\' anteriore al controllo, serve una nuova validazione'
+      : 'nessun logo aziendale verificabile trovato per il dominio del candidato');
+
   mark('vacancies', Number(latest.vacancyCount || 0) >= g.minVacancies,
     'nessun annuncio nell\'ultima validazione');
 
