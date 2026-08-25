@@ -57,6 +57,17 @@
  * della sessione, che ririsveglia il turno fuori da questo gate — il
  * cooldown si applica solo quando il gate STA PER bloccare di nuovo con lo
  * stesso verdetto "non ancora risolto".
+ *
+ * COOLDOWN, terza misura (2026-08-25, richiesta esplicita utente): con un
+ * Monitor di sessione ORA la norma (non l'eccezione) — ogni sessione che
+ * apre una PR ne avvia uno che fa lo stesso `gh pr view` ogni 30s e sveglia
+ * il turno sull'evento reale — questo gate è tornato a essere solo il
+ * paracadute per il caso in cui quel Monitor non sia stato armato. A 300s
+ * produceva comunque ~4-5 round-trip identici per ciclo mentre il Monitor
+ * stava già facendo il lavoro vero: rumore puro. Alzato a 900s (15min),
+ * ancora sotto la durata minima osservata di `tests` (~13min) quindi non
+ * salta mai la transizione tests→review, e porta un ciclo tipico
+ * (~22min push→LGTM) a 1-2 round-trip invece di 4-5.
  */
 import { execFileSync } from 'node:child_process';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
@@ -69,13 +80,14 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = join(__dirname, '..', '..');
 const GH_TIMEOUT_MS = 12_000;
 
-// Deve stare sotto il timeout dell'hook Stop in settings.json (330s) con
+// Deve stare sotto il timeout dell'hook Stop in settings.json (930s) con
 // margine per i controlli `gh` che seguono (auth-status + checkOne per
-// entry). 300s scelto sui tempi reali misurati (vedi commento sopra): sotto
+// entry). 900s scelto sui tempi reali misurati (vedi commento sopra): sotto
 // la durata minima osservata di `tests` (~13min), quindi non salta mai la
-// transizione tests→review; abbastanza lungo da portare un'attesa tipica
-// (~22min push→LGTM) da 20+ round-trip a 4-5.
-const COOLDOWN_MS = 300_000;
+// transizione tests→review; con un Monitor di sessione a coprire l'evento
+// reale in tempo reale, questo gate serve solo da paracadute — non deve
+// più essere il canale primario di scoperta.
+const COOLDOWN_MS = 900_000;
 const LAST_BLOCK_PATH = join(REPO_ROOT, '.claude', 'pr-watch-last-block.json');
 
 /** Dorme in modo sincrono, bloccando il processo dell'hook — non il modello:
