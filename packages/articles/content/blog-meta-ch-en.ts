@@ -4276,6 +4276,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.berna-custodia-bambini-tariffe-costi.title': 'Child care in the Canton of Bern: costs and subsidies',
     'blog.article.berna-custodia-bambini-tariffe-costi.excerpt': 'Nurseries, day families, after-school: how income-based rates work and what cantonal subsidies are available that reduce the economic burden on families.',
     'blog.article.berna-custodia-bambini-tariffe-costi.imageAlt': 'Swiss daycare center with children playing in a safe, modern and welcoming environment with educational activities.',
+    'blog.article.export-orologi-2026-prudenza-mercati.title': 'Export Watches Rises: Cautious Growth, China Difficult',
+    'blog.article.export-orologi-2026-prudenza-mercati.excerpt': 'After two months of increase, the president of the FH calls for caution. USA +14.9% vs July 2024; China -16.5% June, -18.5% July. New Bern-Beijing agreement will reduce tariffs gradually.',
+    'blog.article.export-orologi-2026-prudenza-mercati.imageAlt': 'Swiss watchmaker at workbench assembling luxury watch with precision tools and components',
 };
 
 export default blogMetaChEn;

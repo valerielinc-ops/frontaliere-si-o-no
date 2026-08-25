@@ -1451,6 +1451,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'amnesty-neutralita-crimini-guerra': { it: 'amnesty-neutralita-crimini-guerra', en: 'amnesty-neutrality-war-crimes', de: 'amnesty-neutralitaet-kriegsverbrechen', fr: 'amnesty-neutralite-crimes-guerre' },
  'premi-lamal-berna-sussidio': { it: 'premi-lamal-berna-sussidio', en: 'health-insurance-premiums-canton-berne-subsidies', de: 'versicherungspraemien-kanton-bern-subventionen', fr: 'primes-assurance-maladie-canton-berne-subventions' },
  'berna-custodia-bambini-tariffe-costi': { it: 'berna-custodia-bambini-tariffe-costi', en: 'bern-childcare-costs-tariffs', de: 'bern-kinderbetreuung-kosten-tarife', fr: 'berne-garde-enfants-tarifs-couts' },
+ 'export-orologi-2026-prudenza-mercati': { it: 'export-orologi-2026-prudenza-mercati', en: 'watch-export-2026-caution-markets', de: 'uhr-export-2026-vorsicht-maerkte', fr: 'export-montres-2026-prudence-marches' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

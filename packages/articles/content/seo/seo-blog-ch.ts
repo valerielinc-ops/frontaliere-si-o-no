@@ -55478,6 +55478,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-export-orologi-2026-prudenza-mercati': {
+    title: 'Export orologi aumenta: crescita cauta, Cina difficile',
+    description: 'Export orologi svizzeri cresce giugno-luglio 2026 ma con cautela. USA +14,9%, Cina -16,5% e -18,5%. Accordo Berna-Pechino riduce dazi, Francia diventa hub',
+    keywords: 'frontalieri, ticino, svizzera, italia, export, orologi, aumenta, crescita',
+    ogTitle: 'Export orologi svizzeri: crescita ma con cautela',
+    ogDescription: 'Dopo due mesi di aumento, il presidente della FH invita alla prudenza. USA forte con +14,9% vs luglio 2024, Cina debole: -16,5% giugno, -18,5% luglio. Nuovo accordo Berna-Pechino ridurrà dazi doganali gradualmente.',
+    canonicalPath: '/articoli-svizzera/export-orologi-2026-prudenza-mercati/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Export orologi aumenta: crescita cauta, Cina difficile",
+      "description": "Export orologi svizzeri cresce giugno-luglio 2026 ma con cautela. USA +14,9%, Cina -16,5% e -18,5%. Accordo Berna-Pechino riduce dazi, Francia diventa hub",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/export-orologi-2026-prudenza-mercati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Orologiaio svizzero al banco di lavoro assembla un orologio di lusso con strumenti di precisione"
+      },
+      "datePublished": "2026-08-25T13:53:51+00:00",
+      "dateModified": "2026-08-25T13:53:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/export-orologi-2026-prudenza-mercati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
