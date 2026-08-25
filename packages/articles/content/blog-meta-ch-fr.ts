@@ -4312,6 +4312,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.compromesso-fondo-difesa.title': 'Armée, le compromis sur le financement',
     'blog.article.compromesso-fondo-difesa.excerpt': 'La Commission des finances propose un fonds avec un endettement allant jusqu\'à 6 milliards par an à partir de 2027. Financement : TVA +0,2%, soldes de crédit et excédents 2026. Vote en septembre et décembre 2026.',
     'blog.article.compromesso-fondo-difesa.imageAlt': 'Palais fédéral suisse à Berne, lieu du vote sur le fonds de défense',
+    'blog.article.iniziativa-neutralita-svizzera-pace.title': 'L\'initiative neutralité affaiblit le rôle de la Suisse',
+    'blog.article.iniziativa-neutralita-svizzera-pace.excerpt': 'Une alliance de 22 organisations avertit que l\'approbation de l\'initiative sur la neutralité entraînerait un désengagement du droit international et un affaiblissement de la position suisse dans la promotion de la paix.',
+    'blog.article.iniziativa-neutralita-svizzera-pace.imageAlt': 'Le Palais fédéral à Berne, où se déroule le débat sur l\'initiative de neutralité',
 };
 
 export default blogMetaChFr;

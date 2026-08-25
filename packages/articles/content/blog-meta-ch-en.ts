@@ -4312,6 +4312,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.compromesso-fondo-difesa.title': 'Army, the compromise on financing',
     'blog.article.compromesso-fondo-difesa.excerpt': 'The Finance Commission proposes a fund with debt of up to 6 billion per year from 2027. Financing: VAT +0.2%, credit residuals and surpluses 2026. Voting in September and December 2026.',
     'blog.article.compromesso-fondo-difesa.imageAlt': 'Swiss Federal Parliament building in Bern, venue for defense fund vote',
+    'blog.article.iniziativa-neutralita-svizzera-pace.title': 'Neutrality initiative weakens Switzerland\'s role',
+    'blog.article.iniziativa-neutralita-svizzera-pace.excerpt': 'An alliance of 22 organisations warns that approval of the neutrality initiative would result in disengagement from international law and weaken Switzerland\'s position in promoting peace.',
+    'blog.article.iniziativa-neutralita-svizzera-pace.imageAlt': 'Swiss Federal Parliament in Bern, where the neutrality initiative is being debated',
 };
 
 export default blogMetaChEn;

@@ -4312,6 +4312,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.compromesso-fondo-difesa.title': 'Armee, der Finanzierungskompromiss',
     'blog.article.compromesso-fondo-difesa.excerpt': 'Die Finanzkommission schlägt einen Fonds mit einer jährlichen Verschuldung von bis zu 6 Milliarden ab 2027 vor. Finanzierung: MwSt. +0,2%, Kreditrückstände und Überschüsse 2026. Abstimmung im September und Dezember 2026.',
     'blog.article.compromesso-fondo-difesa.imageAlt': 'Schweizer Bundesparlament in Bern, Abstimmungsort zum Rüstungsfonds',
+    'blog.article.iniziativa-neutralita-svizzera-pace.title': 'Neutralitätsinitiative schwächt die Rolle der Schweiz',
+    'blog.article.iniziativa-neutralita-svizzera-pace.excerpt': 'Ein Bündnis von 22 Organisationen warnt davor, dass die Verabschiedung der Neutralitätsinitiative eine Abkehr vom Völkerrecht und eine Schwächung der Position der Schweiz bei der Friedensförderung bedeuten würde.',
+    'blog.article.iniziativa-neutralita-svizzera-pace.imageAlt': 'Das Bundeshaus in Bern, wo die Debatte über die Neutralitätsinitiative stattfindet',
 };
 
 export default blogMetaChDe;

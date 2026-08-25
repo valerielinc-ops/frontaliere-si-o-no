@@ -10787,6 +10787,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-pollein-lavorare-vallese-frontaliere.title': 'Living in Pollein and working in Valais as a border worker',
     'blog.article.vivere-pollein-lavorare-vallese-frontaliere.excerpt': 'Italy-Switzerland border in the Valais: tax rules 2024, G permit, tax at source, AVS, LPP, LAMal, refunds and practical procedures.',
     'blog.article.vivere-pollein-lavorare-vallese-frontaliere.imageAlt': 'Alpine hiking path overlooking Swiss and Italian peaks at sunset, border region landscape',
+    'blog.article.vivere-quart-lavorare-vallese-frontaliere.title': 'Living in Quart and working in Valais as a border worker',
+    'blog.article.vivere-quart-lavorare-vallese-frontaliere.excerpt': 'Practical guide for Italy-Switzerland border workers: G permit, taxation, AVS, LAMal, administrative procedures and costs to be considered before the transfer.',
+    'blog.article.vivere-quart-lavorare-vallese-frontaliere.imageAlt': 'Alpine mountain valley landscape on the Switzerland-Italy border with winding mountain road',
 };
 
 export default blogMetaEn;

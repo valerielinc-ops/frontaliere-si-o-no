@@ -4312,6 +4312,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.compromesso-fondo-difesa.title': 'Esercito, il compromesso sul finanziamento',
     'blog.article.compromesso-fondo-difesa.excerpt': 'La Commissione finanze propone un fondo con indebitamento fino a 6 miliardi annui dal 2027. Finanziamento: IVA +0,2%, residui di credito e eccedenze 2026. Votazione a settembre e dicembre 2026.',
     'blog.article.compromesso-fondo-difesa.imageAlt': 'Palazzo del Parlamento federale svizzero a Berna, sede della votazione sul fondo esercito',
+    'blog.article.iniziativa-neutralita-svizzera-pace.title': 'Iniziativa neutralità indebolisce ruolo Svizzera',
+    'blog.article.iniziativa-neutralita-svizzera-pace.excerpt': 'Un\'alleanza di 22 organizzazioni avverte che l\'approvazione dell\'iniziativa sulla neutralità comporterebbe disimpegno dal diritto internazionale e indebolimento della posizione svizzera nel promuovere la pace.',
+    'blog.article.iniziativa-neutralita-svizzera-pace.imageAlt': 'L\'edificio del Parlamento federale svizzero a Berna, dove si dibatte l\'iniziativa sulla neutralità',
 };
 
 export default blogMetaChIt;
