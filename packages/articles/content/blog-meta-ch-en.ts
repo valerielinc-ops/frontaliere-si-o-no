@@ -4204,6 +4204,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avviare-impresa-svizzera-passaggi-costi.title': 'Starting a business in Switzerland: forms and registration fees',
     'blog.article.avviare-impresa-svizzera-passaggi-costi.excerpt': 'Sole proprietorship, Srl, SA: which form to choose? Discover the steps for registration in the trade register, the minimum capital required and the obligations towards AVS and LAMal.',
     'blog.article.avviare-impresa-svizzera-passaggi-costi.imageAlt': 'Office desk with business registration documents and forms for starting an enterprise in Switzerland.',
+    'blog.article.aprire-attivita-sciaffusa-procedure-fiscali.title': 'Opening a business in Schaffhausen: procedures and costs',
+    'blog.article.aprire-attivita-sciaffusa-procedure-fiscali.excerpt': 'Legal forms, registration in the Trade Register, minimum capital and three-level tax system to start a business in the canton of Schaffhausen.',
+    'blog.article.aprire-attivita-sciaffusa-procedure-fiscali.imageAlt': 'Professional desk with business startup documents and calculator',
 };
 
 export default blogMetaChEn;

@@ -54542,6 +54542,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aprire-attivita-sciaffusa-procedure-fiscali': {
+    title: 'Aprire un\'attività a Sciaffusa: procedure e costi',
+    description: 'Guida pratica su forme giuridiche, registrazione al Registro di commercio, capitale minimo, sistema fiscale a tre livelli e obblighi assicurativi per avviare',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, sciaffusa, procedure',
+    ogTitle: 'Aprire un\'attività a Sciaffusa: procedure e costi',
+    ogDescription: 'Come aprire un\'attività nel cantone Sciaffusa: scelta della forma giuridica, registrazione federale, sistema fiscale a tre livelli (federale, cantonale, comunale), obblighi LAMal, SUVA e LPP per i dipendenti. Guida pratica completa.',
+    canonicalPath: '/articoli-svizzera/aprire-attivita-sciaffusa-procedure-fiscali/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire un'attività a Sciaffusa: procedure e costi",
+      "description": "Guida pratica su forme giuridiche, registrazione al Registro di commercio, capitale minimo, sistema fiscale a tre livelli e obblighi assicurativi per avviare",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aprire-attivita-sciaffusa-procedure-fiscali.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scrivania professionale con documenti di avvio aziendale e calcolatrice"
+      },
+      "datePublished": "2026-08-25T00:05:41+00:00",
+      "dateModified": "2026-08-25T00:05:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aprire-attivita-sciaffusa-procedure-fiscali/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

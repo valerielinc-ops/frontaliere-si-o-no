@@ -1427,6 +1427,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'formazione-professionale-zurigo': { it: 'formazione-professionale-zurigo', en: 'vocational-training-zurich', de: 'berufslehre-zurich', fr: 'apprentissage-zurich' },
  'apprendistato-zurigo-ricerca-contratto': { it: 'apprendistato-zurigo-ricerca-contratto', en: 'apprenticeship-zurich-find-position', de: 'lehre-zuerich-stelle-suchen', fr: 'apprentissage-zurich-trouver-poste' },
  'avviare-impresa-svizzera-passaggi-costi': { it: 'avviare-impresa-svizzera-passaggi-costi', en: 'start-business-switzerland-steps-costs', de: 'unternehmen-gruenden-schweiz-schritte-kosten', fr: 'creer-entreprise-suisse-etapes-couts' },
+ 'aprire-attivita-sciaffusa-procedure-fiscali': { it: 'aprire-attivita-sciaffusa-procedure-fiscali', en: 'start-business-schaffhausen-procedures', de: 'betrieb-eroffnen-schaffhausen-verfahren', fr: 'demarrer-entreprise-schaffhouse-procedures' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
