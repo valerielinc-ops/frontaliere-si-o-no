@@ -104,10 +104,15 @@ describe('job-locale population identity', () => {
     it('rejects an inflated population too — the slice/assembled swap', () => {
       // Descriptions: 90,528 assembled vs 107,808 read from the slices (+19%).
       expect(() => assertPopulationUnchanged(DESCRIPTION_POPULATION, 107808)).toThrow(/\[population-changed\]/);
-      // Titles: 67,987 assembled vs 80,978 from the slices (+19%), and the
-      // historical figure that mis-calibrated this gate the first time.
-      expect(() => assertPopulationUnchanged(TITLE_POPULATION, 80978)).toThrow(/\[population-changed\]/);
-      expect(() => assertPopulationUnchanged(TITLE_POPULATION, 79796)).toThrow(/\[population-changed\]/);
+      // Titles: 78,725 assembled (re-baselined 2026-08-25, issue 6510) vs
+      // 92,231 read from the slices, re-measured the same day directly off
+      // data/jobs/by-crawler/*.json (+17.2%). The two historical figures this
+      // assertion used before the re-baseline (80,978 / 79,796 — the exact
+      // number that mis-calibrated this gate the first time, back when
+      // expectedSlots was 68,200) now fall INSIDE the new ±15% band by
+      // construction of the re-baseline itself, so they stopped proving
+      // anything about this failure mode; replaced with a fresh measurement.
+      expect(() => assertPopulationUnchanged(TITLE_POPULATION, 92231)).toThrow(/\[population-changed\]/);
     });
 
     it('holds both shipped populations at their real measured sizes', () => {
