@@ -55244,6 +55244,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-diesel-rincaro-geopolitica-svizzera': {
+    title: 'Vola il prezzo del diesel in Svizzera | Frontaliere Ticino',
+    description: 'Il diesel in Svizzera supera CHF 2,20/litro. Cause: raffinerie danneggiate nel Golfo, Stretto di Hormuz chiuso, Russia riduce esportazioni. Impatto sui prezzi',
+    keywords: 'frontalieri, ticino, svizzera, italia, vola, prezzo, diesel, costa',
+    ogTitle: 'Vola il prezzo del diesel in Svizzera',
+    ogDescription: 'Il diesel in Svizzera raggiunge CHF 2,20/litro: la colpa è della geopolitica. Raffinerie danneggiate nel Golfo, Stretto di Hormuz chiuso, Russia riduce esportazioni. Come impatta questo sulla tua spesa e sui prezzi dei beni?',
+    canonicalPath: '/articoli-svizzera/diesel-rincaro-geopolitica-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vola il prezzo del diesel in Svizzera",
+      "description": "Il diesel in Svizzera supera CHF 2,20/litro. Cause: raffinerie danneggiate nel Golfo, Stretto di Hormuz chiuso, Russia riduce esportazioni. Impatto sui prezzi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/diesel-rincaro-geopolitica-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Camion su autostrada svizzera al tramonto, simbolo dell'impatto del rincaro del diesel su trasporti e logistica"
+      },
+      "datePublished": "2026-08-25T10:48:50+00:00",
+      "dateModified": "2026-08-25T10:48:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/diesel-rincaro-geopolitica-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

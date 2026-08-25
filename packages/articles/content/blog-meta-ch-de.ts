@@ -4258,6 +4258,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.verdi-richiesta-clima-2026.title': 'Grüne fordern Staatssekretariat für Klima',
     'blog.article.verdi-richiesta-clima-2026.excerpt': 'Die Schweizer Grünen fordern ein Staatssekretariat für Klimaschutz und den Ausstieg aus fossilen Energien. Rösti räumte ein: Die Schweiz werde die Klimaziele 2030 nicht erreichen.',
     'blog.article.verdi-richiesta-clima-2026.imageAlt': 'Luganersee im Hochsommer: Auswirkungen des Klimawandels in der Schweiz.',
+    'blog.article.diesel-rincaro-geopolitica-svizzera.title': 'Dieselpreis in der Schweiz in die Höhe geschossen',
+    'blog.article.diesel-rincaro-geopolitica-svizzera.excerpt': 'Diesel kostet in der Schweiz über CHF 2,20/Liter, geschleppt aus beschädigten Raffinerien im Golf, der geschlossenen Straße von Hormus und russischen Reduktionen. Auswirkungen auf die Preise im Supermarkt und in der Landwirtschaft.',
+    'blog.article.diesel-rincaro-geopolitica-svizzera.imageAlt': 'Schweizer Autobahn mit Lastwagen, Symbol für den Transportsektor und die Auswirkungen der Dieselverteuerung',
 };
 
 export default blogMetaChDe;
