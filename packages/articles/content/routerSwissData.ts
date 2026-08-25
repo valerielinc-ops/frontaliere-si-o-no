@@ -1452,6 +1452,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'premi-lamal-berna-sussidio': { it: 'premi-lamal-berna-sussidio', en: 'health-insurance-premiums-canton-berne-subsidies', de: 'versicherungspraemien-kanton-bern-subventionen', fr: 'primes-assurance-maladie-canton-berne-subventions' },
  'berna-custodia-bambini-tariffe-costi': { it: 'berna-custodia-bambini-tariffe-costi', en: 'bern-childcare-costs-tariffs', de: 'bern-kinderbetreuung-kosten-tarife', fr: 'berne-garde-enfants-tarifs-couts' },
  'export-orologi-2026-prudenza-mercati': { it: 'export-orologi-2026-prudenza-mercati', en: 'watch-export-2026-caution-markets', de: 'uhr-export-2026-vorsicht-maerkte', fr: 'export-montres-2026-prudence-marches' },
+ 'richieste-asilo-sotto-10-mila-primo-semestre': { it: 'richieste-asilo-sotto-10-mila-primo-semestre', en: 'asylum-requests-under-10-thousand-first-half', de: 'asylgesuche-unter-10000-erste-halfte', fr: 'demandes-asile-moins-10000-premier-semestre' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -55517,6 +55517,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-richieste-asilo-sotto-10-mila-primo-semestre': {
+    title: 'Richieste d\'asilo: la SEM abbassa le stime per il 2026',
+    description: 'Nel primo semestre 2026, meno di 10.000 richieste d\'asilo in Svizzera. SEM prevede 22.000 per l\'intero anno, non 26.000 come stimato inizialmente.',
+    keywords: 'frontalieri, ticino, svizzera, italia, richieste, asilo, abbassa, stime',
+    ogTitle: 'Asilo in Svizzera: calano le richieste nel 2026',
+    ogDescription: 'Nel primo semestre 2026, meno di 10.000 richieste d\'asilo (primo calo dal 2022). SEM rivede al ribasso: 22.000 domande attese a fine anno, non 26.000. Calo afghani, turchi, eritrei. Statuto S: 12.000 ucraini.',
+    canonicalPath: '/articoli-svizzera/richieste-asilo-sotto-10-mila-primo-semestre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Richieste d'asilo: la SEM abbassa le stime per il 2026",
+      "description": "Nel primo semestre 2026, meno di 10.000 richieste d'asilo in Svizzera. SEM prevede 22.000 per l'intero anno, non 26.000 come stimato inizialmente.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/richieste-asilo-sotto-10-mila-primo-semestre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta panoramica di Lugano sulle sponde del Lago Ceresio con le montagne svizzere sullo sfondo"
+      },
+      "datePublished": "2026-08-25T14:27:13+00:00",
+      "dateModified": "2026-08-25T14:27:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/richieste-asilo-sotto-10-mila-primo-semestre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
