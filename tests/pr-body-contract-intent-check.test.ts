@@ -14,8 +14,10 @@ import YAML from 'yaml';
  * scripts/lib/pr-body-closes-check.mjs (see tests/pr-body-closes-check.test.ts)
  * — but that helper only reached PRs through auto-merge-eval.mjs's narrow
  * drift-fallback path (PRs that touch pr-review-loop.yml with no Claude
- * review). The actual gate every PR goes through, `pr-body-contract.yml`,
- * mirrors OTHER parts of the same helper (the multi-issue-Closes chain, the
+ * review). The actual gate every PR goes through, the `contract` job in `tests.yml`
+ * (moved there from the now-deleted `pr-body-contract.yml` to sequentialise
+ * the 4 per-PR gate jobs — see the "Four jobs, one after another" note atop
+ * that file), mirrors OTHER parts of the same helper (the multi-issue-Closes chain, the
  * aggregate-close veto) inline in its `script:` step — deliberately inline,
  * because that step runs `actions/github-script` WITHOUT a checkout, so it
  * cannot `require()` a repo module (see the step's own comment). It did NOT
@@ -24,7 +26,7 @@ import YAML from 'yaml';
  *
  * This test does not re-test the shared regex (tests/pr-body-closes-check.test.ts
  * already does that exhaustively). It proves the GATE itself — by extracting
- * the REAL inline script from pr-body-contract.yml and running it, with
+ * the REAL inline script from the `contract` job and running it, with
  * `github`/`context`/`core` mocked, exactly the way `actions/github-script`
  * would invoke it. Not a reimplementation: if the mirror in the YAML regresses
  * (or is reverted), THIS test goes red, because it executes that exact text.
@@ -34,7 +36,7 @@ import YAML from 'yaml';
  */
 
 const ROOT = resolve(import.meta.dirname, '..');
-const WORKFLOW_PATH = resolve(ROOT, '.github/workflows/pr-body-contract.yml');
+const WORKFLOW_PATH = resolve(ROOT, '.github/workflows/tests.yml');
 const WORKFLOW_YML = readFileSync(WORKFLOW_PATH, 'utf-8');
 
 function extractContractScript(): string {
@@ -43,7 +45,7 @@ function extractContractScript(): string {
   const script = step?.with?.script;
   if (typeof script !== 'string' || script.length === 0) {
     throw new Error(
-      'pr-body-contract.yml: contract job step[0].with.script not found — has the step shape changed? Update this extractor.',
+      'tests.yml: contract job step[0].with.script not found — has the step shape changed? Update this extractor.',
     );
   }
   return script;
@@ -94,7 +96,7 @@ async function runContractCheck(body: string): Promise<ContractResult> {
 const wrap = (line: string) =>
   `## Implementato\n- roba fatta\n\n${line}\n\n## Non implementato (ancora)\nNessuno\n`;
 
-describe('pr-body-contract.yml — ineffective closing keyword (issue #5784)', () => {
+describe('tests.yml contract job — ineffective closing keyword (issue #5784)', () => {
   it('flags «Chiude #123» — GitHub does not honor it, the issue would stay open', async () => {
     const { setFailed, comments } = await runContractCheck(wrap('Chiude #123'));
     expect(setFailed.length).toBeGreaterThan(0);

@@ -6,15 +6,17 @@ name: PR collision detector (funnel-critical, no-Claude)
 # auto-merge-on-lgtm (P1) blocca il merge della seconda finché non è rebasata
 # oltre la prima. Tutto deterministico (scripts/ci/pr-collision-detector.mjs).
 # ZERO Claude.
+#
+# Da qui NON parte più il trigger diretto `pull_request` (rimosso per abbassare
+# il picco di job concorrenti per-PR da 4 a 1): quel caso è coperto dal job
+# `collision` dentro `tests.yml`, che condivide lo STESSO `concurrency.group`
+# job-level `pr-collision-detector` per restare serializzato con questo file —
+# la race condition sulle label che ha causato #1454↔#1459 dipende da quello.
+# Questo file oggi fa SOLO il ricalcolo periodico (`schedule`, anche per
+# togliere la label `collision-risk` quando una collisione si risolve) più il
+# `workflow_dispatch` manuale.
 
 on:
-  pull_request:
-    # `ready_for_review`: lo scan salta le draft, quindi il momento in cui una
-    # draft torna in gioco è un evento a sé — senza questo tipo la sua prima
-    # rivalutazione arriverebbe solo al tick `*/30`, e GitHub deprioritizza i
-    # cron sotto carico. `converted_to_draft` non serve: la label appesa la
-    # toglie il ricalcolo periodico, che è già il canale della rimozione.
-    types: [opened, synchronize, reopened, ready_for_review]
   schedule:
     - cron: '*/30 * * * *' # ricalcolo periodico (anche per togliere la label)
   workflow_dispatch:
