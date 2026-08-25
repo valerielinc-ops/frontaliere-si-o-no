@@ -1356,7 +1356,7 @@ export function buildCompanyCityLinks(
 
 // ── Localised copy ──────────────────────────────────────────────
 
-interface WeeklyCopy {
+export interface WeeklyCopy {
   sectionLabel: string;
   breadcrumbHome: string;
   h1Current: (cityDisplay: string, isRegional: boolean) => string;
@@ -1477,7 +1477,7 @@ interface WeeklyCopy {
   companyCityFrontalier: (args: { employer: string; city: string; jobsCount: number }) => string[];
 }
 
-const COPY: Record<WeeklyEmployersLocale, WeeklyCopy> = {
+export const COPY: Record<WeeklyEmployersLocale, WeeklyCopy> = {
   it: {
     sectionLabel: 'Aziende che assumono',
     breadcrumbHome: 'Home',
@@ -2403,6 +2403,22 @@ export interface TopHubPageInputs {
   distDir?: string;
 }
 
+/**
+ * Pure per-locale lede paragraph for the top hub — extracted so the
+ * assembled sentence (interpolated jobsCount/companiesCount) can be
+ * sampled directly in tests instead of only through the clamp mechanism
+ * (#6417 follow-up to #6346's pre-cut removal).
+ */
+export function buildTopHubLede(locale: WeeklyEmployersLocale, jobsCount: number, companiesCount: number): string {
+    const lede: Record<WeeklyEmployersLocale, string> = {
+      it: `Indice settimanale delle aziende che assumono in Ticino, organizzato per città. Ogni scheda città elenca i datori di lavoro con il maggior numero di nuove offerte negli ultimi 7 giorni e il delta rispetto alla settimana precedente — utile per chi cerca lavoro come frontaliere e vuole concentrare la candidatura sulle aziende effettivamente in fase di assunzione. Aggiornato ogni lunedì mattina con i dati aggregati dai job-board monitorati: oggi ${jobsCount} offerte attive distribuite su ${companiesCount} aziende.`,
+      en: `Weekly index of companies hiring in Ticino, organised by city. Each city page lists the employers with the most new openings over the last 7 days and the delta vs the previous week — useful for cross-border job seekers who want to focus their applications on companies actively in hiring mode. Updated every Monday morning from the aggregated job-board feeds: today ${jobsCount} active openings across ${companiesCount} companies.`,
+      de: `Wöchentlicher Index der Unternehmen, die im Tessin einstellen, nach Stadt gegliedert. Jede Stadt-Seite listet die Arbeitgeber mit den meisten neuen Stellen der letzten 7 Tage und das Delta zur Vorwoche — nützlich für stellensuchende Grenzgänger, die ihre Bewerbung auf aktiv einstellende Unternehmen fokussieren wollen. Jeden Montagmorgen aktualisiert aus den aggregierten Job-Board-Feeds: heute ${jobsCount} offene Stellen verteilt auf ${companiesCount} Unternehmen.`,
+      fr: `Index hebdomadaire des entreprises qui recrutent au Tessin, organisé par ville. Chaque page ville liste les employeurs avec le plus de nouvelles offres sur les 7 derniers jours et le delta par rapport à la semaine précédente — utile pour les frontaliers qui veulent concentrer leur candidature sur les entreprises en phase active de recrutement. Mis à jour chaque lundi matin à partir des flux job-board agrégés : aujourd'hui ${jobsCount} postes ouverts répartis sur ${companiesCount} entreprises.`,
+    };
+  return lede[locale];
+}
+
 export function renderTopHubPage(inp: TopHubPageInputs): string {
   const { locale, today, jobsCount, companiesCount, distDir } = inp;
   const t = LINKING_COPY[locale];
@@ -2423,13 +2439,7 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
   );
   const hreflangHtml = renderHreflangTags(hreflangPaths as HreflangPaths);
 
-  // Per-locale lede paragraph. Frontaliere-relevant, no filler.
-  const lede: Record<WeeklyEmployersLocale, string> = {
-    it: `Indice settimanale delle aziende che assumono in Ticino, organizzato per città. Ogni scheda città elenca i datori di lavoro con il maggior numero di nuove offerte negli ultimi 7 giorni e il delta rispetto alla settimana precedente — utile per chi cerca lavoro come frontaliere e vuole concentrare la candidatura sulle aziende effettivamente in fase di assunzione. Aggiornato ogni lunedì mattina con i dati aggregati dai job-board monitorati: oggi ${jobsCount} offerte attive distribuite su ${companiesCount} aziende.`,
-    en: `Weekly index of companies hiring in Ticino, organised by city. Each city page lists the employers with the most new openings over the last 7 days and the delta vs the previous week — useful for cross-border job seekers who want to focus their applications on companies actively in hiring mode. Updated every Monday morning from the aggregated job-board feeds: today ${jobsCount} active openings across ${companiesCount} companies.`,
-    de: `Wöchentlicher Index der Unternehmen, die im Tessin einstellen, nach Stadt gegliedert. Jede Stadt-Seite listet die Arbeitgeber mit den meisten neuen Stellen der letzten 7 Tage und das Delta zur Vorwoche — nützlich für stellensuchende Grenzgänger, die ihre Bewerbung auf aktiv einstellende Unternehmen fokussieren wollen. Jeden Montagmorgen aktualisiert aus den aggregierten Job-Board-Feeds: heute ${jobsCount} offene Stellen verteilt auf ${companiesCount} Unternehmen.`,
-    fr: `Index hebdomadaire des entreprises qui recrutent au Tessin, organisé par ville. Chaque page ville liste les employeurs avec le plus de nouvelles offres sur les 7 derniers jours et le delta par rapport à la semaine précédente — utile pour les frontaliers qui veulent concentrer leur candidature sur les entreprises en phase active de recrutement. Mis à jour chaque lundi matin à partir des flux job-board agrégés : aujourd'hui ${jobsCount} postes ouverts répartis sur ${companiesCount} entreprises.`,
-  };
+  const ledeText = buildTopHubLede(locale, jobsCount, companiesCount);
 
   // Per-locale methodology paragraph — explains how the city pages are
   // computed and how to read them as a frontaliere. Real page-relevant text,
@@ -2637,7 +2647,7 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
   ${renderCityHubsListBlock(locale)}
   <section class="s-KZc0LQ" aria-labelledby="weTopMethodology">
     <h2 id="weTopMethodology" style="${H2_STYLE}">${esc(LINKING_COPY[locale].cityHubsTitle)} — ${esc(copy.kickerCurrent)}</h2>
-    <p class="s-KwuhOL">${esc(lede[locale])}</p>
+    <p class="s-KwuhOL">${esc(ledeText)}</p>
     <p class="s-E7ZJqo">${esc(methodology[locale])}</p>
   </section>
   <section class="s-KZc0LQ" aria-labelledby="weTopCommute">
@@ -2660,7 +2670,7 @@ ${faqHtml}
   // Pre-cut removed: clampMetaDescription (160) runs downstream and is
   // word-aware. Slicing first only handed it a string already broken
   // mid-word, which is what reached the SERP snippet.
-  const description = lede[locale];
+  const description = ledeText;
 
   return buildSeoPageHtml({
     locale,

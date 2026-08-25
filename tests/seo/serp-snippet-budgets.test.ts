@@ -19,6 +19,12 @@ import {
   type EmployerProfile,
   type CorpusJob,
 } from '../../build-plugins/employerProfilePagesPlugin';
+import { COPY as WEEKLY_EMPLOYERS_COPY, buildTopHubLede } from '../../build-plugins/weeklyEmployersPlugin';
+import {
+  WEEKLY_EMPLOYERS_LOCALES,
+  WEEKLY_EMPLOYERS_CITIES,
+  WEEKLY_EMPLOYERS_CITY_DISPLAY,
+} from '../../build-plugins/weeklyEmployersData';
 
 /**
  * SERP snippet budgets for the hand-authored landing families.
@@ -239,6 +245,67 @@ describe('SERP snippet budgets — employer profile intro prose (#6417)', () => 
         expect(clamped.replace(/…$/, '').trim().length).toBeGreaterThan(40);
       });
     }
+  }
+});
+
+describe('SERP snippet budgets — weekly-employers hero copy (#6417)', () => {
+  // Adversarial follow-up to #6346's pre-cut removal, items 2 (city hub /
+  // company×city hub) — `heroSummary`/`companyCityHeroWithDelta` feed
+  // `clampMetaDescription` directly (weeklyEmployersPlugin.ts), but no test
+  // ever sampled the ACTUAL sentence across locale × city / locale ×
+  // company×city. Worst case for pushing past the 160-char budget: the
+  // longest city display name, a long real employer legal name, and a
+  // 3-digit jobs/companies count.
+  const LONGEST_CITY = [...WEEKLY_EMPLOYERS_CITIES].sort(
+    (a, b) => WEEKLY_EMPLOYERS_CITY_DISPLAY[b].length - WEEKLY_EMPLOYERS_CITY_DISPLAY[a].length,
+  )[0];
+  const CITY_DISPLAY = WEEKLY_EMPLOYERS_CITY_DISPLAY[LONGEST_CITY];
+  // Same worst-case legal name used by the employer-profile suite above —
+  // the shape most likely to push an assembled sentence past budget.
+  const LONG_EMPLOYER = 'Ente Ospedaliero Cantonale — Amministrazione e Servizi Centrali';
+
+  function assertClampsToWordBoundary(description: string) {
+    expect(description.length).toBeGreaterThan(0);
+    const clamped = clampMetaDescription(description);
+    expect(clamped.length).toBeLessThanOrEqual(META_DESCRIPTION_MAX_CHARS);
+
+    if (isTruncated(description)) {
+      expect(clamped.endsWith('…')).toBe(true);
+      expect(clamped).not.toMatch(/\s…$/);
+    } else {
+      expect(clamped).toBe(description.replace(/\s+/g, ' ').trim());
+    }
+    expect(clamped.replace(/…$/, '').trim().length).toBeGreaterThan(40);
+  }
+
+  for (const locale of WEEKLY_EMPLOYERS_LOCALES) {
+    const copy = WEEKLY_EMPLOYERS_COPY[locale];
+
+    it(`${locale}/top-hub lede clamps to a natural word boundary`, () => {
+      assertClampsToWordBoundary(buildTopHubLede(locale, 999, 999));
+    });
+
+    it(`${locale}/${LONGEST_CITY} city-hub hero (with delta) clamps to a natural word boundary`, () => {
+      assertClampsToWordBoundary(copy.heroSummary(CITY_DISPLAY, 999, 999));
+    });
+
+    it(`${locale}/${LONGEST_CITY} city-hub hero (no delta / cold start) clamps to a natural word boundary`, () => {
+      assertClampsToWordBoundary(copy.heroSummaryNoDelta(CITY_DISPLAY, 999, 999));
+    });
+
+    it(`${locale}/${LONGEST_CITY}×employer company-city hero (with delta) clamps to a natural word boundary`, () => {
+      for (const delta of [42, -7, 0]) {
+        assertClampsToWordBoundary(
+          copy.companyCityHeroWithDelta({ employer: LONG_EMPLOYER, city: CITY_DISPLAY, jobsCount: 999, delta }),
+        );
+      }
+    });
+
+    it(`${locale}/${LONGEST_CITY}×employer company-city hero (no delta / cold start) clamps to a natural word boundary`, () => {
+      assertClampsToWordBoundary(
+        copy.companyCityHeroNoDelta({ employer: LONG_EMPLOYER, city: CITY_DISPLAY, jobsCount: 999 }),
+      );
+    });
   }
 });
 
