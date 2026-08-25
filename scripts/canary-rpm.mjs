@@ -19,6 +19,18 @@
  * "never measure the still-open current UTC day" rule) lives in the
  * unit-tested lib scripts/lib/canaryRpmClassify.mjs.
  *
+ * SECOND, COMPLEMENTARY check (issue #4610, added 2026-08-25): the ratio
+ * gate above compares against a 7-day MOVING baseline, which adapts to a
+ * degradation once it has lasted longer than that window — #4610 fired once
+ * (2026-07-20) and self-closed the next day, then stayed silent for weeks
+ * while AdSense account coverage kept falling (58%→41%→21%, June→August)
+ * because the baseline had drifted down alongside it. `classifyCoverage`
+ * catches that: it averages AD_REQUESTS_COVERAGE over the last
+ * `--coverage-sustain-days` fully-closed days and compares against a FIXED
+ * absolute floor (`--coverage-floor`, default 0.45) that never adapts. This
+ * is additive — it can fail the canary even when the RPM/earnings gate is
+ * green, and vice versa.
+ *
  * Why exists: incident 2026-05-28 — AdSense RPM crashed 3.04 → 1.74
  * CHF/day in 48h because ~2,540 of ~2,607 articles started serving a
  * 1.7 KB infinite-redirect stub (no SPA bundle, no ad slots) — earnings
@@ -46,7 +58,12 @@
  */
 
 import process from "node:process";
-import { classifyRpm } from "./lib/canaryRpmClassify.mjs";
+import {
+  classifyRpm,
+  classifyCoverage,
+  DEFAULT_COVERAGE_FLOOR,
+  COVERAGE_SUSTAIN_DAYS,
+} from "./lib/canaryRpmClassify.mjs";
 
 const args = process.argv.slice(2);
 const wantsJson = args.includes("--json");
@@ -60,6 +77,8 @@ const parseFlag = (name, fallback) => {
 const RATIO_FLOOR = parseFlag("ratio-floor", 0.65);
 const ABSOLUTE_FLOOR = parseFlag("absolute-floor", 1.0);
 const EARNINGS_FLOOR = parseFlag("earnings-floor", 0.65);
+const COVERAGE_FLOOR = parseFlag("coverage-floor", DEFAULT_COVERAGE_FLOOR);
+const COVERAGE_SUSTAIN = parseFlag("coverage-sustain-days", COVERAGE_SUSTAIN_DAYS);
 
 const log = (line) => {
   if (wantsJson) console.error(line);
@@ -118,6 +137,10 @@ async function fetchDailyRpm() {
   params.append("metrics", "PAGE_VIEWS_RPM");
   params.append("metrics", "ESTIMATED_EARNINGS");
   params.append("metrics", "PAGE_VIEWS");
+  // AD_REQUESTS_COVERAGE — fraction (0..1) of ad requests AdSense actually
+  // filled. Feeds classifyCoverage(), the sustained-degradation check
+  // (issue #4610) that is independent of the RPM/earnings moving baseline.
+  params.append("metrics", "AD_REQUESTS_COVERAGE");
   params.append("dimensions", "DATE");
 
   const url = `https://adsense.googleapis.com/v2/${account}/reports:generate?${params}`;
@@ -129,6 +152,7 @@ async function fetchDailyRpm() {
     rpm: Number(r.cells[1]?.value ?? 0),
     earnings: Number(r.cells[2]?.value ?? 0),
     pageViews: Number(r.cells[3]?.value ?? 0),
+    coverage: Number(r.cells[4]?.value ?? NaN),
   }));
   // Defensive sort by date ascending (the API does this but don't assume).
   rows.sort((a, b) => a.date.localeCompare(b.date));
@@ -148,6 +172,23 @@ async function main() {
     });
     result.account = account;
     result.rows = rows;
+
+    // Second, complementary check (issue #4610) — sustained coverage
+    // degradation the moving RPM/earnings baseline can no longer see once
+    // it has adapted to it. Additive: can flip a "healthy" RPM verdict to
+    // failing, never silences a real RPM+earnings regression.
+    const coverageResult = classifyCoverage(rows, {
+      coverageFloor: COVERAGE_FLOOR,
+      sustainDays: COVERAGE_SUSTAIN,
+      todayUtc: fmtDate(new Date()),
+    });
+    result.coverage = coverageResult;
+    if (coverageResult.verdict === "coverage-regression") {
+      result.reasons = [...(result.reasons || []), ...coverageResult.reasons];
+      if (result.verdict !== "regression") {
+        result.verdict = "coverage-regression";
+      }
+    }
   } catch (err) {
     console.error(`[canary-rpm] auth/API failure: ${err.message || err}`);
     process.exit(2);
@@ -165,11 +206,20 @@ async function main() {
       log(`baseline ${result.baseline.from}..${result.baseline.to}: RPM=${result.baseline.rpm.toFixed(2)} earnings=${result.baseline.earnings.toFixed(2)} (${result.baseline.samples} samples)`);
       log(`RPM ratio=${(result.ratio * 100).toFixed(0)}%   earnings ratio=${((result.earningsRatio || 0) * 100).toFixed(0)}%   floors: rpm=${(RATIO_FLOOR * 100).toFixed(0)}%, absolute=${ABSOLUTE_FLOOR.toFixed(2)} CHF, earnings=${(EARNINGS_FLOOR * 100).toFixed(0)}%`);
     }
+    if (result.coverage?.window) {
+      log(`coverage ${result.coverage.window.from}..${result.coverage.window.to} (${result.coverage.window.days}d avg)=${(result.coverage.avgCoverage * 100).toFixed(0)}%   floor=${(COVERAGE_FLOOR * 100).toFixed(0)}%   verdict=${result.coverage.verdict}`);
+    } else if (result.coverage?.verdict === "insufficient-data") {
+      log(`  NOTE: coverage check skipped — ${result.coverage.reason}`);
+    }
     for (const r of result.reasons || []) log(`  ALERT: ${r}`);
     if (result.note) log(`  NOTE: ${result.note}`);
   }
-  if (result.verdict === "regression") {
-    console.error(`\x1b[31m[canary-rpm]\x1b[0m FAIL — RPM regression (RPM + earnings both below floor)`);
+  if (result.verdict === "regression" || result.verdict === "coverage-regression") {
+    const label =
+      result.verdict === "regression"
+        ? "RPM regression (RPM + earnings both below floor)"
+        : `sustained low ad-request coverage (AD_REQUESTS_COVERAGE averaged below ${(COVERAGE_FLOOR * 100).toFixed(0)}% floor over the last ${COVERAGE_SUSTAIN} closed days)`;
+    console.error(`\x1b[31m[canary-rpm]\x1b[0m FAIL — ${label}`);
     process.exit(1);
   }
   if (result.verdict === "insufficient-data") {
