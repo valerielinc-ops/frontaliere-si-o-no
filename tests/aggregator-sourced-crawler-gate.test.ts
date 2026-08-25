@@ -18,7 +18,10 @@ describe('dedicated crawlers sourced from a known job-board aggregator', () => {
   const findings = scanJobParsers(LIB_DIR);
 
   it('the scanner itself finds the known aggregator-backed parsers (sanity check)', () => {
-    expect(findings.map((f) => f.file)).toContain('equans-job-parser.mjs');
+    // Not equans-job-parser.mjs: migrated off jobs.ch to Equans's own
+    // Prospective.ch tenant (2026-08-25) — it no longer imports any
+    // aggregator-backed client, so the scanner correctly stops flagging it.
+    expect(findings.map((f) => f.file)).toContain('city-pop-job-parser.mjs');
   });
 
   it.each(findings.map((f) => [f.file, f]))(
