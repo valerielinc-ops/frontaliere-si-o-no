@@ -10770,6 +10770,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sluderno-guida-frontaliera.title': 'Vivere a Sluderno, lavorare nei Grigioni: frontaliere',
     'blog.article.sluderno-guida-frontaliera.excerpt': 'Guida completa: permesso G, fiscalità frontaliera, LAMal e procedure step-by-step per chi vuole trasferirsi a Sluderno e lavorare in Svizzera.',
     'blog.article.sluderno-guida-frontaliera.imageAlt': 'Veduta di Bellinzona: paesaggio montano ticinese che rappresenta il contesto geografico per chi lavora in Svizzera',
+    'blog.article.vivere-prata-camportaccio-lavorare-grigioni.title': 'Prata Camportaccio frontaliere: vivere e lavorare',
+    'blog.article.vivere-prata-camportaccio-lavorare-grigioni.excerpt': 'Trasferirsi a Prata Camportaccio per lavorare nei Grigioni: Permesso G, Nuovo Accordo Frontalieri, fiscalità, AVS/LPP e convenienza abitativa',
+    'blog.article.vivere-prata-camportaccio-lavorare-grigioni.imageAlt': 'Paesaggio alpino al confine Ticino-Italia con vallata e chalets tradizionali',
 };
 
 export default blogMetaIt;

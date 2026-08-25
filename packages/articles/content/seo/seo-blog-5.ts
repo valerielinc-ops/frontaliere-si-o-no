@@ -78305,6 +78305,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-prata-camportaccio-lavorare-grigioni': {
+    title: 'Prata Camportaccio frontaliere: vivere e lavorare',
+    description: 'Trasferirsi a Prata Camportaccio per lavorare nei Grigioni: Permesso G, Nuovo Accordo Frontalieri, fiscalità, AVS/LPP e convenienza abitativa. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, prata, camportaccio, vivere, lavorare',
+    ogTitle: 'Prata Camportaccio frontaliere: vivere e lavorare',
+    ogDescription: 'Guida completa per trasferirsi a Prata Camportaccio da frontaliere nei Grigioni: fiscalità, Permesso G, contributi sociali, tempi di pendolarismo, costo della vita e ristorni fiscali',
+    canonicalPath: '/articoli-frontaliere/vivere-prata-camportaccio-lavorare-grigioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Prata Camportaccio frontaliere: vivere e lavorare",
+      "description": "Trasferirsi a Prata Camportaccio per lavorare nei Grigioni: Permesso G, Nuovo Accordo Frontalieri, fiscalità, AVS/LPP e convenienza abitativa. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-prata-camportaccio-lavorare-grigioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio alpino al confine Ticino-Italia con vallata e chalets tradizionali"
+      },
+      "datePublished": "2026-08-25T09:15:51+00:00",
+      "dateModified": "2026-08-25T09:15:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-prata-camportaccio-lavorare-grigioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
