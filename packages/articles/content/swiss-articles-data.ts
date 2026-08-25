@@ -12889,6 +12889,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'orologi-export-fh-prudenza',
+    category: 'novita',
+    date: '2026-08-25T18:00:13.525Z',
+    image: '/images/blog/orologi-export-fh-prudenza.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
