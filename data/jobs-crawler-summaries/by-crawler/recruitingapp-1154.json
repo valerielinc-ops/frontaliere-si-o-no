@@ -1,18 +1,18 @@
 {
   "key": "recruitingapp-1154",
   "label": "SGKB Bewerbermanagement Stellen",
-  "generatedAt": "2026-08-24T21:51:45.571Z",
-  "total": 9,
+  "generatedAt": "2026-08-25T10:01:28.328Z",
+  "total": 8,
   "discovered": null,
-  "written": 9,
+  "written": 8,
   "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6417,
-  "avgDurationMs": 6417,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 6579,
+  "avgDurationMs": 6579,
   "durationHistory": [
-    6417
+    6579
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3795/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:51:40.354Z",
+      "crawledAt": "2026-08-25T10:01:23.007Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -43,11 +43,11 @@
       "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3795/Description/1",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T10:32:04.542Z",
-      "_qualityScore": 52,
+      "_qualityScore": 57,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 3,
-        "translation": 10,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -63,7 +63,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3794/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T21:51:40.673Z",
+      "crawledAt": "2026-08-25T10:01:23.335Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -98,7 +98,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3793/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:51:40.976Z",
+      "crawledAt": "2026-08-25T10:01:23.638Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -133,7 +133,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3790/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T21:51:41.278Z",
+      "crawledAt": "2026-08-25T10:01:23.941Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -168,7 +168,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3792/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:51:41.580Z",
+      "crawledAt": "2026-08-25T10:01:24.244Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -203,7 +203,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3791/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:51:41.882Z",
+      "crawledAt": "2026-08-25T10:01:24.547Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -238,7 +238,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3787/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T21:51:42.185Z",
+      "crawledAt": "2026-08-25T10:01:24.852Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -253,11 +253,11 @@
       "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3787/Description/1",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T09:39:21.364Z",
-      "_qualityScore": 52,
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 13,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -273,7 +273,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3780/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:51:42.487Z",
+      "crawledAt": "2026-08-25T10:01:25.154Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -297,8 +297,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "recruitingapp-1154-853b0bc5a292",
       "slug": "fachspezialist-in-servizi-operativi-70-80-sgkb-bewerbermanagement-stellen-lugano",
@@ -338,5 +337,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
