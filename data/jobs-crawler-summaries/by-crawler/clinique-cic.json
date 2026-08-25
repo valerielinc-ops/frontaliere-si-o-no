@@ -1,7 +1,7 @@
 {
   "key": "clinique-cic",
   "label": "Clinique CIC (Saxon & Clarens)",
-  "generatedAt": "2026-08-24T21:34:43.641Z",
+  "generatedAt": "2026-08-25T09:44:33.634Z",
   "total": 2,
   "discovered": null,
   "written": 2,
@@ -9,10 +9,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4581,
-  "avgDurationMs": 4581,
+  "durationMs": 3228,
+  "avgDurationMs": 3228,
   "durationHistory": [
-    4581
+    3228
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -23,13 +23,13 @@
       "companyKey": "clinique-cic",
       "companyDomain": "cliniquecic-saxon.ch",
       "title": "Infirmier·ère",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Clarens",
       "canton": "VD",
       "url": "https://www.jobup.ch/fr/emplois/detail/edd1a294-691b-4581-97e5-75c2519cab4e/",
       "source": "Clinique CIC (Saxon & Clarens) Dedicated Parser (jobup.ch mask)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T21:34:39.904Z",
+      "crawledAt": "2026-08-25T09:44:31.045Z",
       "addressLocality": "Clarens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -66,7 +66,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/3f59d17e-ea2c-4bd5-b104-d535d593bd57/",
       "source": "Clinique CIC (Saxon & Clarens) Dedicated Parser (jobup.ch mask)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T21:34:40.279Z",
+      "crawledAt": "2026-08-25T09:44:31.316Z",
       "addressLocality": "Saxon",
       "addressRegion": "VS",
       "addressCountry": "CH",
