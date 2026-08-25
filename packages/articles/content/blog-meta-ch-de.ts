@@ -4282,6 +4282,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.richieste-asilo-sotto-10-mila-primo-semestre.title': 'Asylanträge: sem senkt Schätzungen für 2026',
     'blog.article.richieste-asilo-sotto-10-mila-primo-semestre.excerpt': 'Im ersten Halbjahr 2026 weniger als 10.000 Asylanträge (erster Rückgang seit 2022). Sem prognostiziert 22.000 für das ganze Jahr, gegenüber 26.000 ursprünglich geschätzt.',
     'blog.article.richieste-asilo-sotto-10-mila-primo-semestre.imageAlt': 'Panoramablick auf Lugano am Comer See mit Schweizer Bergen im Hintergrund',
+    'blog.article.benzina-diesel-paradosso-petrolio.title': 'Benzin und Diesel teuer, aber das Öl sinkt',
+    'blog.article.benzina-diesel-paradosso-petrolio.excerpt': 'Trotz des Ölrückgangs von 28% wird es in der Schweiz immer teurer, zu tanken. Benzin bei 2,13 CHF/Liter, Diesel bei 2,27 CHF/Liter: Der Anstieg hat seit Februar 40 Rappen überschritten.',
+    'blog.article.benzina-diesel-paradosso-petrolio.imageAlt': 'Zapfsäule an einer Schweizer Tankstelle mit Alpenpanorama im Hintergrund',
 };
 
 export default blogMetaChDe;

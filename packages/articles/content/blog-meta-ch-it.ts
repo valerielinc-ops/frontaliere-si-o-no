@@ -4282,6 +4282,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.richieste-asilo-sotto-10-mila-primo-semestre.title': 'Richieste d\'asilo: la SEM abbassa le stime per il 2026',
     'blog.article.richieste-asilo-sotto-10-mila-primo-semestre.excerpt': 'Nel primo semestre 2026, meno di 10.000 richieste d\'asilo (primo calo dal 2022). SEM prevede 22.000 per l\'intero anno, vs. 26.000 inizialmente stimate.',
     'blog.article.richieste-asilo-sotto-10-mila-primo-semestre.imageAlt': 'Veduta panoramica di Lugano sulle sponde del Lago Ceresio con le montagne svizzere sullo sfondo',
+    'blog.article.benzina-diesel-paradosso-petrolio.title': 'Benzina e diesel cari, ma il petrolio scende',
+    'blog.article.benzina-diesel-paradosso-petrolio.excerpt': 'Nonostante il calo del petrolio del 28%, in Svizzera fare il pieno costa sempre di più. Benzina a 2,13 CHF/litro, diesel a 2,27 CHF/litro: l\'aumento ha superato i 40 centesimi dal febbraio.',
+    'blog.article.benzina-diesel-paradosso-petrolio.imageAlt': 'Pompa di benzina presso una stazione di servizio svizzera con sfondo colline alpine',
 };
 
 export default blogMetaChIt;
