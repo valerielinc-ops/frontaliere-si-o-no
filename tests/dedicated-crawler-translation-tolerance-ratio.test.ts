@@ -196,6 +196,68 @@ describe('validateDedicatedLocaleCoverage — translation tolerance ratio floor'
     expect(() => runGuard(jobsPath)).not.toThrow();
   });
 
+  it('(#6270 repro) 1 untranslated job across 3 non-source locales counts as 1 job, not 3 issues', () => {
+    // grace-la-margna's exact shape: 4 locales (it/en/de/fr), source=en, 6
+    // jobs, 1 job whose description never translated into it/de/fr — 3
+    // TRANSLATION_ISSUES entries for a single job. Before the fix this was
+    // compared as translationIssues.length (3) against the per-job ratio
+    // floor (max(1, ceil(6*0.2))=2) and hard-failed the whole batch daily.
+    const richEn =
+      'We are looking for a motivated person to join our team in Ticino. ' +
+      'The role involves daily operational responsibilities, collaboration ' +
+      'with colleagues and direct contact with guests. We offer a dynamic ' +
+      'work environment, continuous training, competitive employment ' +
+      'conditions and genuine opportunities for professional growth.';
+
+    function makeFullyTranslatedJob(slug: string, n: number) {
+      const title = `Collaboratore Operativo ${n}`;
+      const descFor = (localeTag: string) => `[${localeTag}] ${richEn} (variant ${n})`;
+      return {
+        slug,
+        url: `https://example-source.test/jobs/${slug}/`,
+        title,
+        company: NO_BOILERPLATE_COMPANY,
+        description: descFor('en'),
+        titleByLocale: {
+          it: `${title} IT`, en: title, de: `${title} DE`, fr: `${title} FR`,
+        },
+        descriptionByLocale: {
+          it: descFor('it'), en: descFor('en'), de: descFor('de'), fr: descFor('fr'),
+        },
+        slugByLocale: {
+          it: `${slug}-it`, en: slug, de: `${slug}-de`, fr: `${slug}-fr`,
+        },
+      };
+    }
+
+    const untranslatedJob = {
+      slug: 'bad-multilocale-0',
+      url: 'https://example-source.test/jobs/bad-multilocale-0/',
+      title: 'Collaboratore Operativo X',
+      company: NO_BOILERPLATE_COMPANY,
+      description: richEn,
+      titleByLocale: { en: 'Collaboratore Operativo X' },
+      descriptionByLocale: { en: richEn, it: '', de: '', fr: '' },
+      slugByLocale: { en: 'bad-multilocale-0' },
+    };
+    const jobs = [
+      makeFullyTranslatedJob('good-0', 0),
+      makeFullyTranslatedJob('good-1', 1),
+      makeFullyTranslatedJob('good-2', 2),
+      makeFullyTranslatedJob('good-3', 3),
+      makeFullyTranslatedJob('good-4', 4),
+      untranslatedJob,
+    ];
+    const { jobsPath } = writeJobs(jobs);
+
+    expect(() =>
+      runGuard(jobsPath, { locales: ['it', 'en', 'de', 'fr'] })
+    ).not.toThrow();
+
+    const after = JSON.parse(fs.readFileSync(jobsPath, 'utf-8')) as unknown[];
+    expect(after).toHaveLength(6);
+  });
+
   it('$GITHUB_STEP_SUMMARY gets a breadcrumb only for the NEW ratio-floor path, not for explicit tolerances', () => {
     const summaryDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ft-step-summary-'));
 
