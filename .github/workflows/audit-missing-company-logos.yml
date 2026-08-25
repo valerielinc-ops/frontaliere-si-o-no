@@ -28,6 +28,14 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
+      # Nessun blocco sparse-checkout: NON e' un'omissione. scripts/audit-missing-company-logos.mjs
+      # importa scripts/lib/github-issue-creator.mjs (per --report-issue), la cui
+      # closure statica tocca 7 bucket (data/all-known-job-slugs/, data/jobs-ai-cache.json,
+      # data/jobs/, data/orphan-enriched-data/, data/seo-404-compat/, public/data/,
+      # public/images/) — e' quell'import a rendere il job pieno per costruzione, non
+      # verify-company-logos.mjs (che non importa quell'utility come modulo). Verificato con
+      # `node scripts/ci/apply-checkout-profiles.mjs --dry-run --only audit-missing-company-logos.yml`
+      # → "workflow modificati: 0, peso escluso in media per job: 0 MB su 6829 MB".
       - uses: actions/checkout@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
