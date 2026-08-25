@@ -10763,6 +10763,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.como-frontaliere-grigioni.title': 'Torre di Santa Maria: working in Graubünden as a border worker',
     'blog.article.como-frontaliere-grigioni.excerpt': 'From 1 January 2024, the new border agreement transforms taxation. Permit G, deductible €10,000, tax in Switzerland, AVS/LPP, refreshments: here\'s how to live and work as a border worker.',
     'blog.article.como-frontaliere-grigioni.imageAlt': 'Lake Lugano view with Grisons mountains in the background at the Ticino-Lombardy border',
+    'blog.article.torre-santa-maria-lavoro-grigioni-frontaliere.title': 'Torre di Santa Maria: Guide for Border Workers',
+    'blog.article.torre-santa-maria-lavoro-grigioni-frontaliere.excerpt': 'Permit G, tax at source, LAMal and AVS/LPP: how the tax and social security regime works for those who work in Switzerland from the Ticino border.',
+    'blog.article.torre-santa-maria-lavoro-grigioni-frontaliere.imageAlt': 'Border valley between Italy and Switzerland showing typical Ticino and Grisons mountain landscape',
 };
 
 export default blogMetaEn;

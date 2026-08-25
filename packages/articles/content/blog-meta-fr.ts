@@ -10765,6 +10765,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.como-frontaliere-grigioni.title': 'Tour de Santa Maria : travailler dans les Grisons en tant que frontalier',
     'blog.article.como-frontaliere-grigioni.excerpt': 'Depuis le 1er janvier 2024, le nouvel accord frontalier transforme la fiscalité. Permis G, franchise 10 000 € , impôt en Suisse, AVS/LPP, restaurations : voici comment vivre et travailler en tant que frontalier.',
     'blog.article.como-frontaliere-grigioni.imageAlt': 'Vue du lac de Lugano avec les montagnes des Grisons en arrière-plan à la frontière Tessin-Lombardie',
+    'blog.article.torre-santa-maria-lavoro-grigioni-frontaliere.title': 'Travailler en Grisons, vivre à Torre di Santa Maria',
+    'blog.article.torre-santa-maria-lavoro-grigioni-frontaliere.excerpt': 'Permis G, impôt à la source, LAMal et AVS/LPP : comment fonctionne le régime fiscal et de sécurité sociale pour ceux qui travaillent en Suisse depuis la frontière tessinoise.',
+    'blog.article.torre-santa-maria-lavoro-grigioni-frontaliere.imageAlt': 'Vallée frontalière entre l\'Italie et la Suisse avec paysage montagneux typique du Tessin et des Grisons',
 };
 
 export default blogMetaFr;

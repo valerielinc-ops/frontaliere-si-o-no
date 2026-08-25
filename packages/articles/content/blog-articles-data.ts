@@ -32205,6 +32205,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'torre-santa-maria-lavoro-grigioni-frontaliere',
+ category: 'pratico',
+ date: '2026-08-25T08:40:42.584Z',
+ image: '/images/blog/torre-santa-maria-lavoro-grigioni-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
