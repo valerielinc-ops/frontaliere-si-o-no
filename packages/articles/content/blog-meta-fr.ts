@@ -10783,6 +10783,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.fusine-guida-frontaliere.title': 'Vivre à Fusine en tant que frontalier : le guide complet',
     'blog.article.fusine-guida-frontaliere.excerpt': 'Fusine offre des coûts de logement inférieurs et la proximité du Tessin pour les frontaliers travaillant dans les Grisons. Découvrez le permis G, la fiscalité, la restauration, l\'AVS, la LAMal.',
     'blog.article.fusine-guida-frontaliere.imageAlt': 'Vue aérienne de la vallée entre Fusine et la frontière tessinoise, paysage transfrontalier entre la Lombardie et la Suisse',
+    'blog.article.vilminore-scalve-grigioni-frontaliere.title': 'Vivre à Vilminore et travailler dans les Grisons : guide frontalier',
+    'blog.article.vilminore-scalve-grigioni-frontaliere.excerpt': 'Permis G, fiscalité, AVS et LAMal : guide complet pour ceux qui déménagent de Vilminore di Scalve pour travailler dans les Grisons. Documents, restaurations et procédure.',
+    'blog.article.vilminore-scalve-grigioni-frontaliere.imageAlt': 'Vue du Lac Lugano entre la Suisse et l\'Italie, villages alpins à la frontière',
 };
 
 export default blogMetaFr;

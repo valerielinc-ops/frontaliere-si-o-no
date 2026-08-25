@@ -78461,6 +78461,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vilminore-scalve-grigioni-frontaliere': {
+    title: 'Vivere a Vilminore e lavorare in Grigioni: guida frontaliere',
+    description: 'Permesso G, tassazione, AVS e LAMal: guida completa per il frontaliere tra Vilminore di Scalve e Grigioni. Documenti, ristorni e procedura di avvio.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, vilminore, lavorare, grigioni',
+    ogTitle: 'Vivere a Vilminore e lavorare in Grigioni: guida frontaliere',
+    ogDescription: 'Scopri come funziona il trasferimento da Vilminore di Scalve per lavorare in Grigioni: permesso G, tassazione CH-IT, AVS/LPP, LAMal, ristorni fiscali e procedura di avvio. Tutti i dettagli per il frontaliere.',
+    canonicalPath: '/articoli-frontaliere/vilminore-scalve-grigioni-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Vilminore e lavorare in Grigioni: guida frontaliere",
+      "description": "Permesso G, tassazione, AVS e LAMal: guida completa per il frontaliere tra Vilminore di Scalve e Grigioni. Documenti, ristorni e procedura di avvio.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vilminore-scalve-grigioni-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago Lugano tra Ticino e Italia, con villaggi alpini sul confine svizzero-italiano"
+      },
+      "datePublished": "2026-08-25T17:47:28+00:00",
+      "dateModified": "2026-08-25T17:47:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vilminore-scalve-grigioni-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
