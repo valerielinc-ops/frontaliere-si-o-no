@@ -4303,6 +4303,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.asilo-reati-prigioni-maghreb.title': 'Asile et délits, l\'expert : les prisons ne font pas peur',
     'blog.article.asilo-reati-prigioni-maghreb.excerpt': 'Taux de criminalité de plus de 80% parmi les demandeurs d\'asile du Maghreb. Selon l\'expert Beat Stauffer, les causes sont socio-économiques et les prisons suisses ont un effet dissuasif quasi nul.',
     'blog.article.asilo-reati-prigioni-maghreb.imageAlt': 'Bâtiment de l\'administration fédérale suisse à Berne abritant le Secrétariat d\'État aux migrations',
+    'blog.article.immobiliare-berna-mutuo-costi.title': 'Acheter une maison à Berne : prix, hypothèque et taxes',
+    'blog.article.immobiliare-berna-mutuo-costi.excerpt': 'Guide des coûts d\'achat immobilier dans le canton de Berne : hypothèque, fonds propres, taxes de passage et frais de notaire pour ceux qui achètent une maison en Suisse.',
+    'blog.article.immobiliare-berna-mutuo-costi.imageAlt': 'Maison moderne dans le canton de Berne avec les Alpes en arrière-plan, symbole du marché immobilier suisse',
 };
 
 export default blogMetaChFr;

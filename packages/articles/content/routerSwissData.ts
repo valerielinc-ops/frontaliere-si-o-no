@@ -1460,6 +1460,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'mps-sisa-tasse-usi-supsi': { it: 'mps-sisa-tasse-usi-supsi', en: 'mps-sisa-university-fees-ticino', de: 'mps-sisa-unigeb-usi-supsi', fr: 'mps-sisa-frais-universite' },
  'orologi-export-fh-prudenza': { it: 'orologi-export-fh-prudenza', en: 'watch-exports-fh-caution-2026', de: 'uhrenexporte-fh-vorsicht-2026', fr: 'export-montres-fh-prudence-2026' },
  'asilo-reati-prigioni-maghreb': { it: 'asilo-reati-prigioni-maghreb', en: 'asylum-crime-prisons-maghreb', de: 'asyl-straftaten-gefaengnisse-maghreb', fr: 'asile-crimes-prisons-maghreb' },
+ 'immobiliare-berna-mutuo-costi': { it: 'immobiliare-berna-mutuo-costi', en: 'real-estate-berna-mortgage-costs', de: 'immobilien-bern-hypothek-kosten', fr: 'immobilier-berne-hypotheque-couts' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
