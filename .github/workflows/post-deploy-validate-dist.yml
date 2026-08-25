@@ -1623,7 +1623,10 @@ jobs:
           # construction, and its JSON goes to /tmp (not to dist/audit-reports,
           # whose `gate-offenders` jq line below expects a gate-shaped record).
           # The job log is where this number survives — it outlives the 7-day
-          # artifact retention the weekly workflow's report depends on.
+          # artifact retention of the uploaded reports. (It used to say "the
+          # weekly workflow's report depends on": no weekly workflow reads these
+          # reports — `cathedral-seo-gates-check.yml` runs its own gates and
+          # only uploads. Corrected in follow-up #6208.)
           echo ""
           echo "══════════════════════════════════════════════════════════════════════"
           echo "Job title locale — REPORT ONLY, not a gate (100 % of data/jobs.json)"
@@ -1774,9 +1777,15 @@ jobs:
       # validations + SEO audits" step above (search
       # `DISCOVER ELIGIBILITY — REPORT, NOT A GATE`), where it overlaps the
       # pool's tail instead of running serially after it. It is still
-      # report-only, still 25 %-sampled, and still runs on every deploy — the
-      # rationale, the non-gating mechanics and the memory argument all live at
-      # that call site. Do not re-add it as a step: as a step it also defaulted
+      # report-only and still 25 %-sampled, but since #6202 it runs on 1 deploy
+      # in `REPORT_ONLY_EVERY` (7), NOT on every deploy — so
+      # `dist/audit-reports/discover-eligibility.json` is ABSENT on 6 runs out
+      # of 7. Audited for follow-up #6208: every consumer of that path tolerates
+      # the absence (`if-no-files-found: ignore|warn` on all six upload steps,
+      # `2>/dev/null || true` on the two `cat`/`jq` readers), and
+      # `tests/deploy-workflow.test.ts` pins that they never regress to `error`.
+      # The rationale, the non-gating mechanics and the memory argument all live
+      # at that call site. Do not re-add it as a step: as a step it also defaulted
       # to `if: success()` and was skipped on exactly the red runs where the
       # per-family table is most useful.
 

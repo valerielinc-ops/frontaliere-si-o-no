@@ -114,6 +114,7 @@ import { isNewsletterExcluded } from './lib/emailSuppression.js';
 import { isNewsletterOptOutBinding } from './lib/newsletterOptOut.js';
 import { derivePersonalizationPatch } from './lib/subscriberPersonalization.js';
 import { deriveCantonFromJobBoardUrl } from './lib/jobBoardUrlCanton.js';
+import { resolveSubscriberLocale } from './lib/subscriberLocale.js';
 
 export const MAX_ALERTS_PER_USER = 10; // mirrors services/jobAlertService.ts (#5012)
 export const ALERT_ID = 'backfill-newsletter';
@@ -374,7 +375,7 @@ export function buildAlertPayload(email, data, existingBackfill, personalization
     frequency: typeof existingBackfill?.frequency === 'string' && existingBackfill.frequency
       ? existingBackfill.frequency
       : 'daily',
-    locale: data?.preferred_locale || data?.locale || 'it',
+    locale: resolveSubscriberLocale(data),
     sourceJobSlug: data?.job_slug || null,
     sourceJobUrl: null,
     sourceJobTitle: null,

@@ -95,6 +95,7 @@ import {
   TOKEN_SCOPES,
 } from '../functions/src/lib/newsletterActionToken.js';
 import { normalizeLocale } from '../functions/src/emailI18n.js';
+import { resolveSubscriberLocale } from '../functions/src/lib/subscriberLocale.js';
 import { hasConfirmationProof } from '../services/subscriberConsent.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
 
@@ -217,7 +218,9 @@ export function confirmationReturnPath(data) {
  */
 export function buildFollowupRequest(item, { secret, tokenPolicy } = {}) {
   const email = item.id;
-  const locale = normalizeLocale(item.data?.preferred_locale || item.data?.signup_locale || 'it');
+  // Catena condivisa: qui saltava `locale`, quindi un iscritto che ha solo
+  // quello riceveva il follow-up in italiano (follow-up #6273, classe gemella).
+  const locale = resolveSubscriberLocale(item.data);
   const token = mintNewsletterActionToken(email, TOKEN_SCOPES.CONFIRM, {
     secret,
     policy: tokenPolicy,
