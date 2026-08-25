@@ -70,7 +70,7 @@ function firestoreEventAt(daysAgo: number, hourUtc: number) {
 describe('preferredSendHour (functions/src/lib)', () => {
   it('exposes the cold-start threshold and window constants', () => {
     expect(PREFERRED_SEND_MIN_EVENTS).toBe(3);
-    expect(PREFERRED_SEND_WINDOW_DAYS).toBe(90);
+    expect(PREFERRED_SEND_WINDOW_DAYS).toBe(180);
   });
 
   it('wraps around midnight using a circular mean, not an arithmetic one', () => {
@@ -108,15 +108,30 @@ describe('preferredSendHour (functions/src/lib)', () => {
     expect(result.strength).toBeNull();
   });
 
-  it('excludes events older than the 90-day window', () => {
+  it('includes 90-180 day-old events at low tail weight, excludes anything past 180 days', () => {
     const events = [
       eventAt(1, 10, 0),
       eventAt(2, 10, 0),
       eventAt(3, 10, 0),
-      // 5 stale events well outside the 90-day lookback — must not count.
+      // Inside the 90-180 day tail bucket (added 2026-08-25, weight 2) — must count.
       eventAt(100, 10, 0),
       eventAt(120, 10, 0),
       eventAt(150, 10, 0),
+      // Past the 180-day window — must not count.
+      eventAt(200, 10, 0),
+      eventAt(365, 10, 0),
+    ];
+    const result = computePreferredSendHour(events, NOW);
+    expect(result.sampleCount).toBe(6);
+    expect(result.hourUtc).toBe(10);
+  });
+
+  it('excludes events older than the 180-day window', () => {
+    const events = [
+      eventAt(1, 10, 0),
+      eventAt(2, 10, 0),
+      eventAt(3, 10, 0),
+      // 2 stale events past the window — must not count.
       eventAt(200, 10, 0),
       eventAt(365, 10, 0),
     ];

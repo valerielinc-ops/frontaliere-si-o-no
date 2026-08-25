@@ -26,10 +26,19 @@ const RECENCY_WINDOWS = [
  { maxDays: 30, weight: 18 },
  { maxDays: 60, weight: 10 },
  { maxDays: 90, weight: 5 },
+ // Tail bucket added 2026-08-25: measured on report-send-hour-impact.mjs
+ // (issue #3798) that only ~23% of post-launch deliveries reach the
+ // `personal` tier — the rest fall back to the weaker site-wide `global`
+ // hour (open rate 23.0% vs personal's 37.5%, +14.6pp). A subscriber who
+ // opens roughly once a month can land just short of PREFERRED_SEND_MIN_EVENTS
+ // within the old 90-day window; this gives them 90 more days to qualify,
+ // at a low weight so a stale, sparse signal never outweighs a real recent
+ // pattern.
+ { maxDays: 180, weight: 2 },
 ];
 
 export const PREFERRED_SEND_MIN_EVENTS = 3;
-export const PREFERRED_SEND_WINDOW_DAYS = 90;
+export const PREFERRED_SEND_WINDOW_DAYS = 180;
 // Staleness-gate window for refreshPreferredSendHour (see below): once a
 // subscriber has enough samples to trust the circular mean, re-derive it at
 // most this often instead of on every single open/click.
@@ -92,7 +101,8 @@ export function computePreferredSendHour(events, now = new Date()) {
   if (!occurredAt) continue;
 
   const daysSince = (now.getTime() - occurredAt.getTime()) / (1000 * 60 * 60 * 24);
-  // Outside the 90-day lookback window (or a bogus future timestamp) — skip.
+  // Outside the lookback window (PREFERRED_SEND_WINDOW_DAYS, 180 days — see
+  // RECENCY_WINDOWS above) or a bogus future timestamp — skip.
   if (daysSince < 0 || daysSince >= PREFERRED_SEND_WINDOW_DAYS) continue;
 
   const weight = recencyWeight(daysSince);
