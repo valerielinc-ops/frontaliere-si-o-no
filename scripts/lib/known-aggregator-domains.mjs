@@ -33,36 +33,44 @@ export const KNOWN_AGGREGATOR_DOMAINS = new Set([
 /**
  * Shared client modules (basenames under `scripts/lib/`) that fetch job data
  * FROM one of `KNOWN_AGGREGATOR_DOMAINS` and hand back a detail URL on that
- * same domain — i.e. any `*-job-parser.mjs` importing one of these is, by
- * construction, sourcing and linking through an aggregator. Register a new
- * entry here the day a second such client is built (e.g. a jobup.ch- or
- * indeed-specific one); the gate test discovers consumers automatically once
- * the client is listed.
- */
-export const AGGREGATOR_BACKED_SHARED_CLIENTS = new Set([
-  'jobs-ch-search-common.mjs',
-]);
-
-/**
- * Registrable domain of a URL or bare host, without pulling in the
- * prospector's full `registrable.mjs` (public-suffix aware) for what only
- * needs to compare against a short, known, two-label-suffix-free list.
+ * same domain — i.e. importing one of these named exports from a
+ * `*-job-parser.mjs` is, by construction, sourcing and linking through an
+ * aggregator.
  *
- * @param {string} urlOrHost
- * @returns {string}
+ * Value shape, keyed by file basename:
+ *   - `true`      — every export is aggregator-specific; any import from the
+ *                    file counts (e.g. `jobs-ch-search-common.mjs`, which
+ *                    exists ONLY to talk to jobs.ch).
+ *   - `Set<name>` — only these specific exports indicate aggregator sourcing.
+ *                    `jobup-ch-feed-common.mjs` needs this: it mixes real
+ *                    jobup.ch-fetching functions (`createJobupChFeedParser`,
+ *                    `fetchJobupDetailDescription`) with generic, reusable
+ *                    parsing helpers that have nothing to do with jobup.ch
+ *                    (`detectEmploymentTypeFromOccupation`, a plain
+ *                    percentage-range classifier already reused by
+ *                    `cham-swiss-properties-job-parser.mjs` and
+ *                    `dic-sa-job-parser.mjs` for a source that is NOT
+ *                    jobup.ch) — flagging the whole file would false-positive
+ *                    on every consumer of the generic helper.
+ *
+ * Register a new entry here the day a second aggregator-fetching client is
+ * built; the gate test discovers consumers automatically once it is listed.
  */
-export function registrableDomainSimple(urlOrHost = '') {
-  let host = String(urlOrHost || '');
-  try { host = new URL(host).hostname; } catch { /* already a bare host */ }
-  host = host.toLowerCase().replace(/^www\./, '');
-  const labels = host.split('.').filter(Boolean);
-  return labels.length <= 2 ? host : labels.slice(-2).join('.');
-}
+export const AGGREGATOR_BACKED_SHARED_CLIENTS = new Map([
+  ['jobs-ch-search-common.mjs', true],
+  ['jobup-ch-feed-common.mjs', new Set(['createJobupChFeedParser', 'fetchJobupDetailDescription'])],
+]);
 
 /**
  * @param {string} urlOrHost
  * @returns {boolean}
  */
 export function isKnownAggregatorDomain(urlOrHost = '') {
-  return KNOWN_AGGREGATOR_DOMAINS.has(registrableDomainSimple(urlOrHost));
+  let host = String(urlOrHost || '');
+  try { host = new URL(host).hostname; } catch { /* already a bare host */ }
+  host = host.toLowerCase().replace(/^www\./, '');
+  for (const domain of KNOWN_AGGREGATOR_DOMAINS) {
+    if (host === domain || host.endsWith(`.${domain}`)) return true;
+  }
+  return false;
 }

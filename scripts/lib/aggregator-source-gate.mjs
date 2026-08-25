@@ -31,17 +31,33 @@
  * perfection — but the latter two are open debt, meant to be grepped by a
  * follow-up audit/issue rather than left to rot as an undocumented
  * shortcut. An unmarked import is the one state the gate refuses.
+ *
+ * Known limitation, same shape as other import-following guards elsewhere in
+ * this repo (a contract with no import form isn't caught by a guard that
+ * only follows imports): this scanner recognises the two import
+ * shapes every current `*-job-parser.mjs` actually uses — a bare
+ * `from './file.mjs'` (whole-file registration) and a named
+ * `import { a, b } from './file.mjs'`, single- or multi-line (per-export
+ * registration). A default import, a namespace `import * as ns`, or a
+ * dynamic `import()` of a registered client would not be recognised. None
+ * of the 574 existing parsers use those forms for these clients today;
+ * broadening the scanner if one ever does is a small, contained change here.
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { AGGREGATOR_BACKED_SHARED_CLIENTS } from './known-aggregator-domains.mjs';
 
-const IMPORT_RX = /from\s+['"]\.\/([^'"]+\.mjs)['"]/g;
+const FROM_FILE_RX = /from\s+['"]\.\/([^'"]+\.mjs)['"]/g;
+const NAMED_IMPORT_RX = /import\s*\{([\s\S]*?)\}\s*from\s+['"]\.\/([^'"]+\.mjs)['"]/g;
 const TAG_RX = /@outsourced-ats-(confirmed|needs-migration|needs-verification)\s*:\s*(\S.*)$/m;
 
 /**
  * Aggregator-backed shared clients this source file imports (relative
  * imports only — these are same-directory sibling modules, never a package).
+ * A whole-file registration (`true`) triggers on any import from the file; a
+ * per-export registration (`Set<name>`) triggers only when one of the named
+ * imports intersects the registered set — see `known-aggregator-domains.mjs`
+ * for why `jobup-ch-feed-common.mjs` needs the finer-grained form.
  *
  * @param {string} source
  * @returns {string[]} basenames, e.g. ['jobs-ch-search-common.mjs']
@@ -49,10 +65,24 @@ const TAG_RX = /@outsourced-ats-(confirmed|needs-migration|needs-verification)\s
 export function aggregatorClientsImportedBy(source = '') {
   const hits = new Set();
   let m;
-  IMPORT_RX.lastIndex = 0;
-  while ((m = IMPORT_RX.exec(source))) {
-    if (AGGREGATOR_BACKED_SHARED_CLIENTS.has(m[1])) hits.add(m[1]);
+
+  FROM_FILE_RX.lastIndex = 0;
+  while ((m = FROM_FILE_RX.exec(source))) {
+    if (AGGREGATOR_BACKED_SHARED_CLIENTS.get(m[1]) === true) hits.add(m[1]);
   }
+
+  NAMED_IMPORT_RX.lastIndex = 0;
+  while ((m = NAMED_IMPORT_RX.exec(source))) {
+    const [, namesRaw, file] = m;
+    const spec = AGGREGATOR_BACKED_SHARED_CLIENTS.get(file);
+    if (!(spec instanceof Set)) continue;
+    const names = namesRaw
+      .split(',')
+      .map((s) => s.trim().split(/\s+as\s+/)[0].trim())
+      .filter(Boolean);
+    if (names.some((n) => spec.has(n))) hits.add(file);
+  }
+
   return [...hits];
 }
 

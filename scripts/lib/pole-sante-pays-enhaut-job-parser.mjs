@@ -8,6 +8,10 @@
  * Regional hospital / EMS in Château-d'Oex (VD), serving the upper Sarine
  * valley. Embeds the Jalios JCMS PluginJobUp which queries the jobup.ch
  * masks endpoint for live vacancies.
+ *
+ * @outsourced-ats-confirmed: PSPE's own career page embeds the jobup.ch
+ * masks widget directly (see above) — jobup.ch is the employer's own chosen
+ * application channel, not a bypassed alternative.
  */
 import { createJobupChFeedParser } from './jobup-ch-feed-common.mjs';
 

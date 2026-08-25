@@ -352,10 +352,14 @@ adding it in only one place would leave the other creation path unguarded.
 
 **The gate**: `tests/aggregator-sourced-crawler-gate.test.ts`
 (`scripts/lib/aggregator-source-gate.mjs`) scans every `*-job-parser.mjs` for
-an import of a registered aggregator-backed shared client (currently only
-`jobs-ch-search-common.mjs` — register a new client there the day a
-jobup.ch- or indeed-specific one is built) and fails unless the file
-declares one of three tags, checked against the employer's own site:
+an import of a registered aggregator-backed shared client — today
+`jobs-ch-search-common.mjs` (jobs.ch/jobup.ch, whole file) and
+`jobup-ch-feed-common.mjs` (jobup.ch "mask" feed — only its
+`createJobupChFeedParser`/`fetchJobupDetailDescription` exports count; the
+same file's `detectEmploymentTypeFromOccupation` is a generic percentage
+classifier reused by non-jobup.ch parsers and must NOT trigger the gate) —
+and fails unless the file declares one of three tags, checked against the
+employer's own site:
 
 | tag | means |
 |---|---|
@@ -388,6 +392,16 @@ cannot always answer the tag's question (bot protection, JS-only rendering) —
 that failure mode is exactly what escalates a crawler from
 `needs-verification` to a real-browser check, not a reason to leave it
 unverified indefinitely.
+
+The same gate covers `jobup-ch-feed-common.mjs`'s "mask" feed
+(`jobup.ch/masks/{key}/list_{key}.asp?cmd=json`), a second, independently
+built jobup.ch integration. `cnp`, `pole-sante-pays-enhaut` and
+`fondation-soins-lausanne` all import it and are all `confirmed`: the first
+two employers' own career pages embed the jobup.ch mask widget directly (same
+shape as `equans`); the third's real direct source (a shared AVASAD portal)
+is confirmed dead for automated fetches (403, including through a clean-IP
+proxy — issue #4168), making jobup.ch its genuine current channel, not a
+bypassed one.
 
 An unmarked import is the one state the gate refuses. A tagged one is not
 blocked, because the loop this repo runs cannot review every PR by hand —
