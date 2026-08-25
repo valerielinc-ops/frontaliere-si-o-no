@@ -12961,6 +12961,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'calo-domande-asilo-2026',
+    category: 'novita',
+    date: '2026-08-25T23:30:57.619Z',
+    image: '/images/blog/calo-domande-asilo-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
