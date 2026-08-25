@@ -10774,6 +10774,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-incudine-lavorare-grigioni-frontaliere.title': 'Wohnen in Amboss und Arbeiten in Graubünden als Grenzgänger',
     'blog.article.vivere-incudine-lavorare-grigioni-frontaliere.excerpt': 'Verbindungen, Reisezeiten, Lebenshaltungskosten, empfohlene Zonen, Vor- und Nachteile des Transfers.',
     'blog.article.vivere-incudine-lavorare-grigioni-frontaliere.imageAlt': 'Ein Frontalier, der in Incudine lebt und in Grigioni, Schweiz, arbeitet.',
+    'blog.article.vivere-paisco-loveno-lavorare-grigioni-frontaliere.title': 'Paisco Loveno-Graubünden: Grenzführer, Steuern, Genehmigungen',
+    'blog.article.vivere-paisco-loveno-lavorare-grigioni-frontaliere.excerpt': 'Arbeiten in Graubünden ab Paisco Loveno: Bewilligung G, Quellensteuer, Befreiung € 10\'000, KVG, Steuergutschrift und Verfahren ab 2024.',
+    'blog.article.vivere-paisco-loveno-lavorare-grigioni-frontaliere.imageAlt': 'Bergstraße zu den Bündner Alpen an der Schweizer-Italiener Grenze mit Alpendörfern',
 };
 
 export default blogMetaDe;

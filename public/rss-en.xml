@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides for cross-border workers in Ticino</description>
     <language>en</language>
-    <lastBuildDate>Tue, 25 Aug 2026 10:07:17 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 10:25:07 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — English</title>
@@ -16,6 +16,63 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Paisco Loveno-Grisioni: border guide, taxes, permits</title>
+      <link>https://frontaliereticino.ch/en/cross-border-articles/living-paisco-loveno-working-grisons-cross-border/</link>
+      <description><![CDATA[Working in Grisons from Paisco Loveno: G Permit, withholding tax, €10,000 exemption, LAMal, tax credit and procedure from 2024.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- G Permit for border workers from Italy to Switzerland (Graubünden)
+- Tax at source withheld ONLY in Switzerland from 1 January 2024
+- Exemption €7,500 (previous frontier workers) or €10,000 (new frontier workers)
+- Mandatory LAMal; option right to stay in INPS
+
+## Key facts
+- **What**: Work from Paisco Loveno (Lombardy, Italy) to Grisons (Switzerland)
+- When: New Frontier Agreement in force from 1 January 2024
+- Where: Paisco Loveno Southern ↔ Graubünden
+- Tax: Swiss withholding tax; Italian tax credit (EC framework, 730)
+- Exemption: €7,500 (pre-July 2023) or €10,000 (new) per year
+- Permit: Group G; LAMal option right towards INPS
+- Convention: Double taxation agreement of 9 December 1976
+
+A border worker who resides in Paisco Loveno in Lombardy and works in Graubünden follows the same tax and insurance rules as Italy-Switzerland border workers. On 1 January 2024, the New Frontier Agreement entered into force, signed on 23 December 2020 and ratified by Italy with Law 83 of 13 June 2023. This legislation redefines the tax rates at source for employees who reside in Italy and work in Switzerland, including Graubünden.
+
+The withholding tax takes place EXCLUSIVELY in Switzerland, while Italy recognises the tax credit through the EC framework of the tax return (form 730). This mechanism avoids double taxation, in line with the Convention
+### Taxation of the Paisco Loveno-Grisons border crossing
+
+The tax structure for those who live in Paisco Loveno and work in Graubünden is divided into two systems: the Swiss withholding tax and the Italian tax credit. Since Paisco Loveno is in Lombardy, the obligations are managed by the Italian Revenue Agency and by the Grison/Swiss Federal Tax Authorities (AFC/ESTV).
+
+In Switzerland, the employer withholds the tax at source from the gross salary. Federal and cantonal (Graubünden) rates are set by federal law and administered by the AFC (Federal Tax Administration) and the Graubünden cantonal administration. To these are added the mandatory social contributions: AVS/AI/IPG at 5.3% borne by the employee, unemployment insurance (AD) and accident insurance (AC) about 1.1% with a ceiling of CHF 148'200, LAINF 0.7-1.5%, and LPP (pension fund) 7–18% according to age group (from 25 years).
+
+In Italy, the tax return (form 730) includes the CE framework, where you enter the source tax paid in Switzerland as a credit. The Revenue Agency calculates the Italian personal income tax (23% up to €28'000; 35% €28' 001-50 '000; 43% over €50'000) and, if the Swiss tax is higher, the credit covers the difference.
+
+### Comparison: Old vs New Agreement
+
+| Appearance | Previous Regime | New 2024+ Agreement |
+|---------|-------------------|-----------|
+| Income exemption (border crossers pre-17/7/2023) |
+### Practical Guide: What to Do Before Moving to Paisco Loveno
+
+If you decide to live in Paisco Loveno and work in the Grisons, follow these concrete steps.
+
+**1. Registration and Permit G**: Register your residence with the Municipality of Paisco Loveno. Request the Permit G from the Grisons cantonal or Swiss Federal Migration Authority (SEM) through your Grisons employer. The Permit G allows daily commuting between Italy and Switzerland for work purposes without the obligation of Swiss residence.
+
+2. INPS Registration and Contribution Payments: Inform your Grisons employer of your INPS registration number. Your employer will pay AVS/AI/IPG/AD/AC/LAINF contributions to the Swiss authorities. You will receive a certificate of withholding at source for the Italian 730 declaration.
+
+3. Health Insurance (LAMal): Choose a Swiss health insurance company accredited in the Grisons and sign a LAMal policy. Adult deductibles range from CHF 300 to CHF 2,500 per year depending on coverage. Evaluate your option to switch to the Italian SSN (INPS) by checking with the local INPS.
+
+4. Italian Tax Declaration (Model 730): Complete the 730 with the Italian Revenue Agency. Declare your Swiss dependent work income in the D section and the Swiss withholding tax in the CE section. The tax credit automatically compensates the difference between Swiss tax and IRPEF Italian tax.
+
+5. Transitional Regime Monitoring (2024–2033): If you were a frontier worker before July 17, 2023, you are entitled to an exemption of €7,500 per year until the end of 2033. Document your historical condition with the Italian Revenue Agency. Renew your Permit G according to the deadlines communicated by the Swiss authorities.
+
+### Available Tools
+
+Use the [frontier worker salary calculator](nav:calculator) to simulate your monthly net income based on Swiss withholding tax and Italian tax credit. Access the [complete guide to tax declarations](nav:tax-return) to understand the CE section in detail. Consult the [work permits page](nav:permits) to check the Permit G release times from the Swiss authorities.]]></content:encoded>
+      <pubDate>Tue, 25 Aug 2026 10:25:07 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/vivere-paisco-loveno-lavorare-grigioni-frontaliere</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/vivere-paisco-loveno-lavorare-grigioni-frontaliere.webp" medium="image"/>
+    </item>
     <item>
       <title>Living in Anvil and working in Graubünden as a border worker</title>
       <link>https://frontaliereticino.ch/en/cross-border-articles/incudine-grigioni-frontaliere/</link>
@@ -3103,53 +3160,6 @@ Each change of employer has a unique tax situation: it depends on the month of t
       <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/nuovo-datore-frontaliere-permesso-continuita</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/nuovo-datore-frontaliere-permesso-continuita.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Change of employer guide for frontier workers: notice and permission G</title>
-      <link>https://frontaliereticino.ch/en/cross-border-articles/change-of-employer-guide-for-frontier-workers-notice-and-permission-g/</link>
-      <description><![CDATA[Know the steps for the change of employer for border workers: notice, renewal of permit G, continuity of contributions and documents to be updated.]]></description>
-      <content:encoded><![CDATA[## In short - Changing employers for border workers requires 30 days' notice. - The renewal of the G permit must be carried out within 30 days from the first day of work at the new employer. - Continuity of contributions must be maintained. ## Key facts - What: change of employer for frontier workers - When: request for 30 days' notice - Where: at the new employer - Who: frontier workers - Amount: not specified The change of employer for frontier workers requires 30 days' notice. This means that the frontier worker must give 30 days' notice to his current employer before changing employers. During this period, the border worker must maintain continuity of contributions. For example, if a frontier worker works at employer A in Lugano and decides to change employer to work at employer B in Bellinzona, he must give 30 days' notice to employer A. The notice can be 30 days from the date of August 15, so the border agent must give notice by July 15. The renewal of the G permit must be carried out within 30 days from the first day of work at the new employer. This means that the border worker must request the renewal of the G permit within 30 days of the first day of work at the new employer. For example, if a frontier worker starts working at employer B in Bellinzona on 1 September, he/she must request the renewal of the The law also establishes that the renewal of the G permit must be carried out within 30 days from the first day of work at the new employer. The annual fee for frontier workers is CHF 250.00. ## Conclusions The change of employer for border workers requires 30 days' notice and the renewal of the G permit within 30 days of the first day of work at the new employer. You must maintain contributory continuity and pay taxes and contributions in Switzerland for the period you worked in the country.
-## Guide to changing employers for border workers: advance notice and permission G
-
-### Implications for frontier workers
-
-- The change of employer for border workers requires 30 days' notice.
-- The renewal of the G permit must be carried out within 30 days from the first day of work at the new employer.
-- Continuity of contributions must be maintained.
-
-#### 30 days' notice
-
-The change of employer for border workers requires 30 days' notice. This means that the frontier worker must give 30 days' notice to his current employer before changing employers. During this period, the border worker must maintain continuity of contributions.
-
-For example, if a frontier worker works at the company "Swissfood" in Lugano and decides to change employer, he must give 30 days' notice to his current employer. In this case, the border agent must give 30 days' notice, i.e. until 15 August if the change of employer date is 15 September.
-
-#### Renewal of permit G
-
-The renewal of the G permit must be carried out within 30 days from the first day of work at the new employer. This means that the border worker must request the renewal of the G permit within 30 days of the first day of work at the new employer.
-
-For example, if a frontier worker starts working at the company "Swissbank" in Bellinzona on September 1 and decides to change employer, he must request the renewal of the G permit within 30 days, that is, within
-
-## Useful tools to protect your net income
-To reduce FX leakage, compare [CHF-EUR exchange options](nav:exchange) and [banks for cross-border workers](nav:banks).
-## Guide to changing employers for border workers: advance notice and permission G
-
-Changing employers for border workers is a complex process that requires attention and planning. Here's a step-by-step guide to help you navigate this process.
-
-### Advance Notice
-
-The change of employer for border workers requires 30 days' notice. This means that the border worker must give 30 days' notice to his current employer before changing employers. For example, if a border worker works at a company in Lugano and wants to change employer, he must give 30 days' notice, i.e. until 31 August, if the change takes place on 1 September.
-
-During this period, the border worker must maintain continuity of contributions. This means that the frontier worker must continue to pay taxes and contributions in Switzerland. According to the regulations in force since 1 January 2022, the frontier worker must pay a contribution of 2.2% of his taxable income.
-
-### Renewal of permit G
-
-The renewal of the G permit must be carried out within 30 days from the first day of work at the new employer. This means that the border worker must request the renewal of the G permit within 30 days of the first day of work at the new employer. For example, if a border worker works at a company in Bellinzona and wants to change employer, he must request the renewal of the G permit within 30 days of the first day of work at the new employer, that is, by October 1, if the change
-
-Evaluating a Ticino job offer? Simulate your [net payslip](nav:payslip): enter gross salary, marital status and municipality for a detailed breakdown.]]></content:encoded>
-      <pubDate>Sun, 23 Aug 2026 20:48:38 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single.webp" medium="image"/>
     </item>
   </channel>
 </rss>
