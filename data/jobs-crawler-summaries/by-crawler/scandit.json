@@ -1,7 +1,7 @@
 {
   "key": "scandit",
   "label": "Scandit AG",
-  "generatedAt": "2026-08-25T21:51:00.325Z",
+  "generatedAt": "2026-08-25T22:42:38.768Z",
   "total": 4,
   "discovered": null,
   "written": 4,
@@ -9,10 +9,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 6032,
-  "avgDurationMs": 6032,
+  "durationMs": 6003,
+  "avgDurationMs": 6003,
   "durationHistory": [
-    6032
+    6003
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=8093936",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-25T21:50:55.050Z",
+      "crawledAt": "2026-08-25T22:42:33.458Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -63,7 +63,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=7588975",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-25T21:50:54.715Z",
+      "crawledAt": "2026-08-25T22:42:33.149Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -118,7 +118,7 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "addressRegion": "ZH",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 17,
@@ -157,7 +157,7 @@
       "salaryMin": 101500,
       "salaryMax": 154000,
       "addressRegion": "ZH",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 17,
