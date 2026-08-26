@@ -10820,6 +10820,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.benzina-confine-svizzera-agosto-2026.title': 'Benzina oltre 2€, il pieno svizzero non conviene più',
     'blog.article.benzina-confine-svizzera-agosto-2026.excerpt': 'Prezzi allineati tra Lombardia e Ticino: benzina a 2,01€ e gasolio a 2,14€. Sconto accise scaduto il 26 agosto.',
     'blog.article.benzina-confine-svizzera-agosto-2026.imageAlt': 'Paesaggio ticinese con distributore di benzina al mattino, Lago Lugano sullo sfondo',
+    'blog.article.frontaliere-esenzione-franchigia-2026.title': 'Frontalieri 2026: esenzione vs franchigia dopo accordo',
+    'blog.article.frontaliere-esenzione-franchigia-2026.excerpt': 'Regole operative 2026 per frontalieri: differenze tra vecchio regime (esenzione €7.500) e nuovo (franchigia €10.000). Credito d\'imposta e procedura dichiarativa.',
+    'blog.article.frontaliere-esenzione-franchigia-2026.imageAlt': 'Strada principale di Mendrisio con segnaletica e punto di confine svizzero-italiano sullo sfondo',
 };
 
 export default blogMetaIt;
