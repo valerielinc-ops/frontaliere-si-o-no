@@ -126,7 +126,8 @@
         }
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-25T21:56:29.853Z"
+      "firstSeenAt": "2026-08-25T21:56:29.853Z",
+      "retranslationAttempts": 1
     },
     {
       "title": "Sachbearbeiter/-in im Dienstleistungszentrum Personal",
@@ -16042,7 +16043,7 @@
       "description": "• Schriftliche und mündliche Auskünfte auf Deutsch in einer leicht verständlichen Weise erteilen\n\n• Komplexe Rechtsfragen und Rulings in Deutsch sowie gelegentlich in Englisch beurteilen\n\n• Bei internen Arbeits- und Projektgruppen mitwirken\n\n• Gelegentlich Verfügungen, mit welchen das Steuerjustizverfahren eröffnet wird, verfassen\n\n• An Besprechungen mit steuerpflichtigen Personen und deren Vertreter/-innen teilnehmen\n\n• Höhere Fach- oder universitäre Ausbildung wie Fachhochschulabschluss oder gleichwertige Ausbildung mit entsprechender mehrjähriger Berufserfahrung\n\n• Gutes Grundverständnis des schweizerischen Steuersystems; vertiefte Mehrwertsteuerkenntnisse werden nicht vorausgesetzt\n\n• Flair für wirtschaftliche Zusammenhänge; analytisches Denken\n\n• Sehr gute Redaktions- und Kommunikationsfähigkeiten\n\n• Gute Kenntnisse einer zweiten Amtssprache sowie des Englischen",
       "titleByLocale": {
         "it": "Specialista fiscale / diritto IVA",
-        "en": "Steuerspezialist/-in Recht MWST",
+        "en": "Tax specialist/in law VAT",
         "de": "Steuerspezialist/-in Recht MWST",
         "fr": "Spécialiste de la fiscalité/droit TVA"
       },
@@ -25260,7 +25261,7 @@
         "it": "Investitore federale / coordinamento",
         "en": "Federal investigator/in coordination",
         "de": "Bundesermittler/-in Koordination",
-        "fr": "Bundesermittler/-in Koordination"
+        "fr": "Enquêteur/coordonnateur fédéral"
       },
       "descriptionByLocale": {
         "it": "• Assicurare coordinamento dei casi di polizia penale nazionali e internazionali\n\n• Coordinamento e organizzazione dei gruppi di indagine tra i partner cantonali e le nostre autorità partner estere\n\n• Coordinare e sostenere indagini complesse e ricerche a livello nazionale e internazionale che portano a risultati concreti\n\n• Coordinare e garantire lo scambio di informazioni della polizia penale operativa\n\n• stretta cooperazione e sostegno dei nostri partner nazionali e internazionali nelle indagini congiunte\n\n• I colleghi di supporto all'interno del team, nonché altri dipartimenti e aree di indagine nelle misure operative\n\n• Fare piquetting e ore di lavoro irregolari\n\n• \"Policeman\" o formazione equivalente, categoria B patente di guida\n\n• Diversi anni di esperienza professionale nel lavoro di indagine penale, così come la conoscenza molto buona delle tattiche della polizia e della tecnologia e della procedura penale e penale\n\n• pensiero analitico e in rete, elevata resilienza e flessibilità nonché buone competenze editoriali\n\n• Molto buona conoscenza attiva in due lingue ufficiali e in inglese",
@@ -25402,7 +25403,7 @@
       "contractType": "full-time",
       "description": "• Prüfung von Investitionen ausländischer Investoren in der Schweiz anhand rechtlicher, ökonomischer und sicherheitspolitischer Fragestellungen\n\n• Erstellung von Entscheidgrundlagen zuhanden der Hierarchie inkl. Erstellen von Anträgen an den Bundesrat\n\n• Erteilen rechtlicher Auskunft zum Geltungsbereich des IPG\n\n• Vertretung der Schweiz in bilateralen oder multilateralen Verhandlungen zu Investitionsprüfungen\n\n• Weiterentwicklung des IPG, bspw. im Rahmen parlamentarischer Gesetzgebungsprozesse\n\n• Bis zum Inkrafttreten des Gesetzes sind die Prozesse für die Zusammenarbeit mit anderen Bundesämtern und den Auslandvertretungen der Schweiz zu überprüfen, Outreach zu Wirtschaftsverbänden und Guidelines für die Stakeholder vorzubereiten\n\n• Universitätsabschluss in Rechtswissenschaften\n\n• Vorzugsweise mit schweizerischem Anwaltspatent oder Erfahrung mit Verwaltungsverfahren\n\n• Vorzugsweise Spezialisierung im Handels- und Wirtschaftsrecht, insbesondere M&A und Wettbewerbsrecht oder anderweitige Erfahrung mit transnationalen Investitionen\n\n• Engagierte, verantwortungsbewusste und belastbare Persönlichkeit mit starken analytischen Fähigkeiten sowie hoher Leistungsbereitschaft und ausgeprägter Teamfähigkeit\n\n• Hohe Sozialkompetenz und Dienstleistungsorientierung gegenüber den Anspruchsgruppen\n\n• Sehr gute aktive Kenntnisse von zwei Amtssprachen sowie Englisch in Wort und Schrift und passive Kenntnisse der dritten Amtssprache",
       "titleByLocale": {
-        "it": "Jurist/in ESRG",
+        "it": "Avvocato ESRG",
         "en": "ESRG lawyer",
         "de": "Jurist/in ESRG",
         "fr": "Avocat ESRG"
@@ -25449,8 +25450,7 @@
       "previousSlugs": [
         "avvocato-esrg-confederazione-svizzera-bern",
         "jurist-in-esrg-confederazione-bern"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Lernende/-r Logistiker/-in EFZ, Fachrichtung Lager",
@@ -26177,7 +26177,7 @@
       "description": "• Bei der Entwicklung, Implementierung und dem Betrieb der IT-Plattformen für die Informationsbeschaffung und -auswertung mitarbeiten, unter Einsatz moderner Methoden wie Infrastructure as Code (IaC) und CI/CD\n\n• Hochsichere IT-Netzwerke für anspruchsvolle Anwendungen planen, aufbauen und betreiben\n\n• Die IT- und Service-Architektur gemeinsam im Team weiterentwickeln und mitgestalten\n\n• Fachanwendungen und Systeme für die Nachrichtenbeschaffung und -analyse integrieren und deren Zusammenspiel sicherstellen\n\n• Informatik-Ausbildung (EFZ) mit entsprechenden Weiterbildungen oder laufendes Studium\n\n• Interesse an der Automatisierung von IT-Infrastrukturen und Motivation, mit modernen Technologien wie Ansible, Kubernetes oder KVM-basierter Virtualisierung zu arbeiten\n\n• Begeisterung für Linux, Open-Source-Software und Entwicklungswerkzeuge im Bereich Softwareentwicklung sowie Datenverarbeitung und -aufbereitung, kombiniert mit einer dienstleistungs- und kundenorientierten Arbeitsweise sowie hoher Lernbereitschaft\n\n• Gute aktive Kenntnisse einer Amtssprache sowie gute Englischkenntnisse",
       "titleByLocale": {
         "it": "ICT-Systemspezialist/-in Junior (DevOps Ingegnere)",
-        "en": "ICT-Systemspezialist/-in Junior (DevOps Engineer)",
+        "en": "ICT systems specialist Junior (DevOps Engineer)",
         "de": "ICT-Systemspezialist/-in Junior (DevOps Ingenieur)",
         "fr": "ICT-Systemspezialist/-in Junior (DevOps Ingénieur)"
       },
