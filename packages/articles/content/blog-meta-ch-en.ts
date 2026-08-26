@@ -4417,6 +4417,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ffs-rincari-tariffe-wyss.title': 'SBB fare increases: Wyss declarations',
     'blog.article.ffs-rincari-tariffe-wyss.excerpt': '1.45 million passengers a day, crowded trains. SBB announces price increases for general subscriptions and half price. The president speaks.',
     'blog.article.ffs-rincari-tariffe-wyss.imageAlt': 'Commuters board trains on a crowded railway platform during morning rush hour, Alpine landscape visible in the distance',
+    'blog.article.seco-fmi-partenariato-economia.title': 'Federal Council approves SECO-IMF partnership for economy',
+    'blog.article.seco-fmi-partenariato-economia.excerpt': 'On 26 August, the Swiss Government allocated CHF 40 million for the SECO-FMI 2026-2030 programme, strengthening global economic institutions for the benefit of Swiss businesses.',
+    'blog.article.seco-fmi-partenariato-economia.imageAlt': 'Panoramic view of Lugano, economic center of Ticino, symbolizing international economic cooperation.',
 };
 
 export default blogMetaChEn;
