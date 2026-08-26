@@ -56999,6 +56999,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fondi-siccita-foreste-agricoltura': {
+    title: 'Siccità 2026: 70 milioni per boschi e agricoltura',
+    description: 'Consiglio federale richiede al Parlamento 70+ milioni per affrontare la siccità 2026. 17,5 milioni annuali dal 2028 per le foreste, 54 milioni una tantum',
+    keywords: 'frontalieri, ticino, svizzera, italia, siccità, milioni, boschi, agricoltura',
+    ogTitle: 'Siccità 2026: stanziati 70 milioni federali',
+    ogDescription: 'Il Consiglio federale richiede 70+ milioni: 17,5 milioni annuali dal 2028 per boschi, 54 milioni una tantum nel 2026 per agricoltori. Crediti senza interessi per aziende in crisi di liquidità. Monitoraggio entro 31 ottobre 2026.',
+    canonicalPath: '/articoli-svizzera/fondi-siccita-foreste-agricoltura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Siccità 2026: 70 milioni per boschi e agricoltura",
+      "description": "Consiglio federale richiede al Parlamento 70+ milioni per affrontare la siccità 2026. 17,5 milioni annuali dal 2028 per le foreste, 54 milioni una tantum",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/fondi-siccita-foreste-agricoltura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Boschi alpini colpiti dalla siccità e paesaggio montano svizzero della Confederazione"
+      },
+      "datePublished": "2026-08-26T13:12:39+00:00",
+      "dateModified": "2026-08-26T13:12:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/fondi-siccita-foreste-agricoltura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

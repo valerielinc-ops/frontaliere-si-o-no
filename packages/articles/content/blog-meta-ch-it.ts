@@ -4393,6 +4393,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.benzina-diesel-prezzi-calano.title': 'Benzina e diesel: prezzi in calo',
     'blog.article.benzina-diesel-prezzi-calano.excerpt': 'Il TCS rileva un ribasso: benzina 95 a 1,98 CHF/litro, diesel a 2,23 CHF. Ma rimane +14-18% più caro rispetto a febbraio.',
     'blog.article.benzina-diesel-prezzi-calano.imageAlt': 'Pompa di benzina svizzera che mostra i prezzi in franchi svizzeri',
+    'blog.article.fondi-siccita-foreste-agricoltura.title': 'Siccità 2026: 70 milioni per boschi e agricoltura',
+    'blog.article.fondi-siccita-foreste-agricoltura.excerpt': 'Il Consiglio federale richiede al Parlamento oltre 70 milioni di franchi: 17,5 milioni annuali dal 2028 per le foreste, 54 milioni una tantum nel 2026 per gli agricoltori.',
+    'blog.article.fondi-siccita-foreste-agricoltura.imageAlt': 'Boschi alpini colpiti dalla siccità e paesaggio montano svizzero della Confederazione',
 };
 
 export default blogMetaChIt;
