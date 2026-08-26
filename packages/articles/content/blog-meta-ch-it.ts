@@ -4438,6 +4438,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.pulizie-lavoro-nero-2026.title': 'Lavoro nero nelle pulizie: il crollo dei dichiarati',
     'blog.article.pulizie-lavoro-nero-2026.excerpt': 'Nel 2025 i dichiaranti sono crollati a 65\'669. Solo 239 controlli nelle case. Il Consiglio federale propone una revisione della legge sul lavoro nero.',
     'blog.article.pulizie-lavoro-nero-2026.imageAlt': 'Operaia domestica durante il lavoro di pulizia in un appartamento svizzero moderno',
+    'blog.article.credito-federale-ambiente-2027-2030.title': 'Svizzera investe 176 milioni nel fondo globale per l\'ambiente',
+    'blog.article.credito-federale-ambiente-2027-2030.excerpt': 'Il Consiglio federale ha approvato il 26 agosto 2026 un credito d\'impegno di 176,23 milioni di franchi per l\'ambiente globale nel periodo 2027–2030.',
+    'blog.article.credito-federale-ambiente-2027-2030.imageAlt': 'Paesaggio alpino con foreste e acque incontaminate, simbolo della protezione ambientale svizzera',
 };
 
 export default blogMetaChIt;
