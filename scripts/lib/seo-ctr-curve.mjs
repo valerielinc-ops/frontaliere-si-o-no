@@ -236,6 +236,50 @@ export const SEO_CTR_FAMILIES = [
     measuredOn: '2026-08-23',
   },
   {
+    // Item 1 of follow-up #5964 (originally deferred from #5962): flagged by
+    // discoverUnregisteredFamilies as an unregistered family above
+    // MIN_IMPRESSIONS_TO_MONITOR. Confirmed to be the SAME shared
+    // canton/aggregator job-board template as `cerca-lavoro-ticino` above
+    // (jobsSeoPagesPlugin.ts / jobBoardSeo.ts) — a repeatable generator, not
+    // a hand-authored listing like `vita-in-ticino`. Measured live via GSC
+    // 2026-05-27 → 2026-08-23 (90d): 101.716 imp, 2.811 click, CTR 2,76%,
+    // pos media ponderata 18,27.
+    id: 'cerca-lavoro-svizzera',
+    label: 'Cerca lavoro Svizzera',
+    pathContains: '/cerca-lavoro-svizzera/',
+    // EN / DE / FR aggregator slugs (services/router.ts's
+    // getAggregatorJobBoardSlug, scripts/lib/section-shard-slugs.json).
+    pathAliases: ['/find-jobs-switzerland/', '/jobs-in-schweiz/', '/trouver-emploi-suisse/'],
+    kind: 'template',
+    monitored: true,
+    // Same "own position↔CTR curve" methodology as `cerca-lavoro-ticino`
+    // above: at position 18,27 the generic benchmark expects ~1,0%, so this
+    // family already beats its position by 2,76×; target = 80% of that ratio.
+    targetCtrCurveMultiple: 2.2,
+    // Fallback floor when GSC gives no usable position: 80% of the measured 2,76%.
+    targetCtr: 0.022,
+    impressions90d: 101716,
+    measuredOn: '2026-08-25',
+  },
+  {
+    // Item 1 of follow-up #5964: same discovery/verification path as
+    // `cerca-lavoro-svizzera` above. Measured live via GSC 2026-05-27 →
+    // 2026-08-23 (90d): 104.070 imp, 5.497 click, CTR 5,28%, pos media
+    // ponderata 8,22.
+    id: 'cerca-lavoro-grigioni',
+    label: 'Cerca lavoro Grigioni',
+    pathContains: '/cerca-lavoro-grigioni/',
+    pathAliases: ['/find-jobs-graubunden/', '/jobs-in-graubunden/', '/trouver-emploi-grisons/'],
+    kind: 'template',
+    monitored: true,
+    // At position 8,22 the benchmark expects ~3,2%, so this family beats its
+    // position by 1,65×; target = 80% of that ratio, same methodology as above.
+    targetCtrCurveMultiple: 1.3,
+    targetCtr: 0.042,
+    impressions90d: 104070,
+    measuredOn: '2026-08-25',
+  },
+  {
     id: 'de',
     label: 'DE locale (riferimento)',
     pathContains: '/de/',

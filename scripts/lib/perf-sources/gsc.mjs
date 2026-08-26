@@ -69,12 +69,20 @@ async function gscQuery(token, body, fetchImpl = fetch) {
  * duplicating the OAuth2 + searchAnalytics/query plumbing — see
  * scripts/lib/seo-ctr-curve.mjs for the family registry that drives this.
  *
- * `pathContains` also accepts an ARRAY of substrings — one `contains` filter
- * per entry, each in its own `dimensionFilterGroups` group so the API ORs
- * them (groups are OR'd, filters within a group are AND'd). Used for
- * families whose template is reachable under multiple locale-specific URL
- * slugs, not just one path (see `familyPathPrefixes()` in
- * scripts/lib/seo-ctr-curve.mjs, issue #5961).
+ * `pathContains` also accepts an ARRAY of substrings — one query PER entry,
+ * results merged into a single `perPath` map. Verified empirically against
+ * the live API (issue #5964): the Search Console API ANDs multiple `contains`
+ * filters on the same dimension regardless of whether they sit in separate
+ * `dimensionFilterGroups` groups or together in one group's `filters` array —
+ * there is no request shape that ORs them. A page whose path contains
+ * "/foo/" can never also contain "/bar/", so any single-request shape
+ * silently returned zero rows for every family with 2+ `pathAliases` (the
+ * original code put each expression in its own group). Separate requests
+ * merged client-side is the only way to get the union; safe here because
+ * each locale alias is a disjoint path prefix, so no page can be double
+ * counted across requests. Used for families whose template is reachable
+ * under multiple locale-specific URL slugs, not just one path (see
+ * `familyPathPrefixes()` in scripts/lib/seo-ctr-curve.mjs, issue #5961).
  *
  * `pathContains = null` fetches ALL indexed pages site-wide (no filter) —
  * used by the family-discovery pass in scripts/monitor-seo-ctr-by-template.mjs
@@ -92,58 +100,61 @@ export async function fetchGscByPage({
   const token = await getTokenImpl({ fetchImpl });
   if (!token) throw new Error('no service-account token (set FIREBASE_SERVICE_ACCOUNT_JSON or GOOGLE_APPLICATION_CREDENTIALS)');
   const { start, end } = windowDates(windowDays);
-  // `rowLimit` alone caps a Search Analytics response at 25 000 rows with no
-  // "there is more" signal — a single request looks complete regardless of
-  // real row count. Safe when `pathContains` scopes to one family (well
-  // under 25k), but the `pathContains = null` site-wide discovery query has
-  // no such bound and GSC's default ordering is clicks-descending, which
-  // would silently truncate exactly the high-impression/low-CTR tail this
-  // discovery pass exists to surface. Paginate via `startRow` for both
-  // cases; a short page (< ROW_LIMIT rows) is the reliable end-of-data
-  // signal, mirroring scripts/refresh-indexed-cluster-urls.mjs:fetchGsc.
-  const rows = [];
-  let startRow = 0;
-  for (let page = 0; page < MAX_PAGES; page++) {
-    const data = await gscQuery(
-      token,
-      {
-        startDate: start,
-        endDate: end,
-        dimensions: ['page'],
-        ...(pathContains
-          ? {
-              dimensionFilterGroups: (Array.isArray(pathContains) ? pathContains : [pathContains]).map(
-                (expression) => ({
-                  filters: [{ dimension: 'page', operator: 'contains', expression }],
-                }),
-              ),
-            }
-          : {}),
-        rowLimit: ROW_LIMIT,
-        startRow,
-      },
-      fetchImpl,
-    );
-    const pageRows = data.rows || [];
-    rows.push(...pageRows);
-    if (pageRows.length < ROW_LIMIT) break;
-    startRow += pageRows.length;
-  }
+  // One query per alias (see the OR-across-aliases note above) — `null`
+  // means the unfiltered site-wide discovery query, a single "expression".
+  const expressions = pathContains === null ? [null] : Array.isArray(pathContains) ? pathContains : [pathContains];
   const perPath = new Map();
-  for (const r of rows) {
-    const page = r.keys?.[0] || '';
-    let pathname;
-    try {
-      pathname = new URL(page).pathname;
-    } catch {
-      continue;
+  let totalRows = 0;
+  for (const expression of expressions) {
+    // `rowLimit` alone caps a Search Analytics response at 25 000 rows with no
+    // "there is more" signal — a single request looks complete regardless of
+    // real row count. Safe when `expression` scopes to one family/alias (well
+    // under 25k), but the `expression = null` site-wide discovery query has
+    // no such bound and GSC's default ordering is clicks-descending, which
+    // would silently truncate exactly the high-impression/low-CTR tail this
+    // discovery pass exists to surface. Paginate via `startRow` for both
+    // cases; a short page (< ROW_LIMIT rows) is the reliable end-of-data
+    // signal, mirroring scripts/refresh-indexed-cluster-urls.mjs:fetchGsc.
+    let startRow = 0;
+    for (let page = 0; page < MAX_PAGES; page++) {
+      const data = await gscQuery(
+        token,
+        {
+          startDate: start,
+          endDate: end,
+          dimensions: ['page'],
+          ...(expression
+            ? { dimensionFilterGroups: [{ filters: [{ dimension: 'page', operator: 'contains', expression }] }] }
+            : {}),
+          rowLimit: ROW_LIMIT,
+          startRow,
+        },
+        fetchImpl,
+      );
+      const pageRows = data.rows || [];
+      totalRows += pageRows.length;
+      for (const r of pageRows) {
+        const page = r.keys?.[0] || '';
+        let pathname;
+        try {
+          pathname = new URL(page).pathname;
+        } catch {
+          continue;
+        }
+        // `set()` (not skip-if-present): if the same page ever matches two
+        // aliases it's the same page/date-range row either way, last write
+        // is a no-op in practice, never a double count in `totalRows`'s
+        // caller-facing `perPath.size`.
+        perPath.set(pathname, {
+          clicks: r.clicks || 0,
+          impressions: r.impressions || 0,
+          ctr: r.ctr ?? null,
+          position: r.position ?? null,
+        });
+      }
+      if (pageRows.length < ROW_LIMIT) break;
+      startRow += pageRows.length;
     }
-    perPath.set(pathname, {
-      clicks: r.clicks || 0,
-      impressions: r.impressions || 0,
-      ctr: r.ctr ?? null,
-      position: r.position ?? null,
-    });
   }
-  return { rows: rows.length, perPath };
+  return { rows: totalRows, perPath };
 }
