@@ -32322,6 +32322,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'imposte-frontalieri-20km-distanza',
+ category: 'fiscale',
+ date: '2026-08-26T02:27:19.654Z',
+ image: '/images/blog/imposte-frontalieri-20km-distanza.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

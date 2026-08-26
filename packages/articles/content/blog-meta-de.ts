@@ -10801,6 +10801,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-verrayes-lavorare-vallese-frontaliere.title': 'Wohnen in Verrayes und Arbeiten im Wallis als Grenzgänger',
     'blog.article.vivere-verrayes-lavorare-vallese-frontaliere.excerpt': 'Vollständiger Leitfaden für Grenzgänger: Verbindungen, Leben in Verrayes, Steuern im Wallis und Transfervorteile.',
     'blog.article.vivere-verrayes-lavorare-vallese-frontaliere.imageAlt': 'Dorf Verrayes im Wallis, Schweiz, mit Bergen im Hintergrund.',
+    'blog.article.imposte-frontalieri-20km-distanza.title': 'Grenzüberschreitende Pendler über 20 km: Wie sich die Besteuerung ändert',
+    'blog.article.imposte-frontalieri-20km-distanza.excerpt': 'Das neue grenzüberschreitende Pendlerabkommen vom Dezember 2020, das ab dem 1. Januar 2024 in Kraft ist, ändert die Vorteile für diejenigen, die mehr als 20 km von der Grenze entfernt wohnen. Erfahren Sie mehr über IRPEF-Berechnungen, Quellensteuer und Rabatte.',
+    'blog.article.imposte-frontalieri-20km-distanza.imageAlt': 'Schreibtisch eines Grenzgängers mit Steuerdokumenten und Taschenrechner an der Grenze Tessin-Italien',
 };
 
 export default blogMetaDe;
