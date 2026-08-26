@@ -4333,6 +4333,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avviare-ditta-berna-registrazione.title': 'Ouvrir une entreprise à Berne : procédures et coûts',
     'blog.article.avviare-ditta-berna-registrazione.excerpt': 'Guide complet d\'ouverture dans le canton de Berne : formes juridiques, inscription au registre du commerce, impôts à trois niveaux et obligations d\'assurance pour les salariés.',
     'blog.article.avviare-ditta-berna-registrazione.imageAlt': 'Guichet administratif suisse avec formulaires d\'enregistrement d\'entreprise',
+    'blog.article.diritto-locazione-appenzello-interno-canoni-conciliazione.title': 'Droit locatif Appenzell Interne : redevances et conciliation',
+    'blog.article.diritto-locazione-appenzello-interno-canoni-conciliazione.excerpt': 'Guide complet du droit fédéral suisse de la location : dépôt de garantie maximum 3 mois, résiliation et procédure de conciliation à Appenzell Interne.',
+    'blog.article.diritto-locazione-appenzello-interno-canoni-conciliazione.imageAlt': 'Rue urbaine suisse avec immeubles résidentiels et annonces de locations; représente le contexte du droit fédéral du logement',
 };
 
 export default blogMetaChFr;

@@ -1470,6 +1470,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'parlamento-svizzero-velo-divieto-diritti': { it: 'parlamento-svizzero-velo-divieto-diritti', en: 'swiss-parliament-veil-ban-rights', de: 'schweizer-parlament-kopftuch-verbot', fr: 'parlement-suisse-voile-interdiction' },
  'acquisire-immobile-berna-procedura': { it: 'acquisire-immobile-berna-procedura', en: 'purchase-property-bern-canton-guide', de: 'immobilie-kaufen-kanton-bern-leitfaden', fr: 'acheter-propriete-canton-berne-guide' },
  'avviare-ditta-berna-registrazione': { it: 'avviare-ditta-berna-registrazione', en: 'starting-business-bern-registration', de: 'geschaeft-eroeffnung-bern-registrierung', fr: 'demarrer-entreprise-berne-enregistrement' },
+ 'diritto-locazione-appenzello-interno-canoni-conciliazione': { it: 'diritto-locazione-appenzello-interno-canoni-conciliazione', en: 'rental-law-appenzell-innerrhoden-rents-conciliation', de: 'mietrecht-appenzell-innerrhoden-mieten-einigung', fr: 'droit-location-appenzell-rhodes-interieures-loyers' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
