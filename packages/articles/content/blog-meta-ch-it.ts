@@ -4390,6 +4390,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imprese-mem-segnali-ripresa.title': 'Imprese MEM, segnali di ripresa nel settore',
     'blog.article.imprese-mem-segnali-ripresa.excerpt': 'Indice economico MEM a -20 punti a luglio. Miglior risultato da primavera 2024. Esportazioni in crescita, ma 66% PMI vede condizioni sfavorevoli.',
     'blog.article.imprese-mem-segnali-ripresa.imageAlt': 'Vista panoramica di Lugano con le montagne sullo sfondo, rappresentando l\'economia e l\'industria svizzera.',
+    'blog.article.benzina-diesel-prezzi-calano.title': 'Benzina e diesel: prezzi in calo',
+    'blog.article.benzina-diesel-prezzi-calano.excerpt': 'Il TCS rileva un ribasso: benzina 95 a 1,98 CHF/litro, diesel a 2,23 CHF. Ma rimane +14-18% più caro rispetto a febbraio.',
+    'blog.article.benzina-diesel-prezzi-calano.imageAlt': 'Pompa di benzina svizzera che mostra i prezzi in franchi svizzeri',
 };
 
 export default blogMetaChIt;
