@@ -4360,6 +4360,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.brienz-ricollocazione-sicurezza.title': 'Brienz: Tiefencastel und Alvaneu werden Umsiedlungsstandorte',
     'blog.article.brienz-ricollocazione-sicurezza.excerpt': 'Tiefencastel und Alvaneu wurden als Aufnahmeorte für die 42 Einwohner von Brienz bestimmt, die von der historischen Erdrutschgefahr betroffen sind. CHF 82,5 Mio. genehmigt.',
     'blog.article.brienz-ricollocazione-sicurezza.imageAlt': 'Alpendorf mit traditionellen Steinhäusern im Bergtal, Symbol für gefährdete alpine Gemeinschaften',
+    'blog.article.aprire-attivita-appenzello-interno-registro.title': 'Geschäft in Appenzell Innerrhoden eröffnen: Kosten und Register',
+    'blog.article.aprire-attivita-appenzello-interno-registro.excerpt': 'Rechtsform, Handelsregistereintrag, dreistufige Besteuerung und Versicherungen - das braucht man, um ein Unternehmen im Kanton zu gründen.',
+    'blog.article.aprire-attivita-appenzello-interno-registro.imageAlt': 'Schweizer Kantonsamt mit Registrierungsformularen und Berglandschaftsblick',
+    'blog.article.ffs-crescita-primo-semestre-2026.title': 'SBB im Zeichen des Wachstums im ersten Halbjahr',
+    'blog.article.ffs-crescita-primo-semestre-2026.excerpt': 'Die Schweizerischen Bundesbahnen schliessen das erste Halbjahr 2026 mit nahezu verdoppelten Gewinnen und über 1,45 Millionen Fahrgästen pro Tag ab, ein Plus von 4,0% gegenüber 2025.',
+    'blog.article.ffs-crescita-primo-semestre-2026.imageAlt': 'Moderner Zug an einem Schweizer Bahnhof tagsüber, zeitgenössische Eisenbahninfrastruktur.',
+    'blog.article.grigioni-perequazione-2027.title': 'Graubünden 2027: +1,5 Mio. per Ausgleich',
+    'blog.article.grigioni-perequazione-2027.excerpt': 'Im Jahr 2027 erhöht der Kanton Graubünden die Finanzausgleichsbeiträge an die Gemeinden auf 73,2 Millionen. Der Kanton zahlt 41,7 Millionen, die starken Gemeinden 31,5 Millionen.',
+    'blog.article.grigioni-perequazione-2027.imageAlt': 'Luftaufnahme einer Alpengemeinde im Kanton Graubünden mit Berglandschaft',
+    'blog.article.reri-moneypark-calo-3-anni.title': 'Immobilienblasenrisiko rückläufig, erstmals seit drei Jahren',
+    'blog.article.reri-moneypark-calo-3-anni.excerpt': 'Der RERI-Index von MoneyPark sinkt im 2. Quartal 2026 auf 3,5 Punkte - das erste Mal seit drei Jahren. Der Markt wird selektiver, die Preise steigen weniger, die Zinsen bleiben niedrig.',
+    'blog.article.reri-moneypark-calo-3-anni.imageAlt': 'Schweizer Baustelle mit modernen Wohngebäuden vor Alpenhintergrund bei Sonnenuntergang',
 };
 
 export default blogMetaChDe;

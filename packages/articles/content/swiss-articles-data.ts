@@ -13078,6 +13078,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'aprire-attivita-appenzello-interno-registro',
+    category: 'pratico',
+    date: '2026-08-26T07:22:03.335Z',
+    image: '/images/blog/aprire-attivita-appenzello-interno-registro.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'ffs-crescita-primo-semestre-2026',
+    category: 'novita',
+    date: '2026-08-26T07:42:40.980Z',
+    image: '/images/blog/ffs-crescita-primo-semestre-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'grigioni-perequazione-2027',
+    category: 'fiscale',
+    date: '2026-08-26T08:32:18.299Z',
+    image: '/images/blog/grigioni-perequazione-2027.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'reri-moneypark-calo-3-anni',
+    category: 'novita',
+    date: '2026-08-26T08:46:52.692Z',
+    image: '/images/blog/reri-moneypark-calo-3-anni.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

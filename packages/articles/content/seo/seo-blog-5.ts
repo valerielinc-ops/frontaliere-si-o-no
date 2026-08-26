@@ -78929,6 +78929,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-esenzione-franchigia-2026': {
+    title: 'Frontalieri 2026: esenzione vs franchigia dopo accordo',
+    description: 'Accordo Frontalieri 2024: regole tassazione 2026. Esenzione €7.500 (vecchi) vs franchigia €10.000 (nuovi). Credito d\'imposta e dichiarazione Agenzia Entrate.',
+    keywords: 'frontalieri, ticino, svizzera, italia, esenzione, franchigia, dopo, accordo',
+    ogTitle: 'Frontalieri 2026: esenzione vs franchigia dopo accordo',
+    ogDescription: 'Dal 1° gennaio 2024 nuovo regime fiscale: vecchi frontalieri ricevono esenzione €7.500 annui, nuovi hanno franchigia €10.000. Scopri credito d\'imposta e dichiarazione dei redditi in Italia.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-esenzione-franchigia-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri 2026: esenzione vs franchigia dopo accordo",
+      "description": "Accordo Frontalieri 2024: regole tassazione 2026. Esenzione €7.500 (vecchi) vs franchigia €10.000 (nuovi). Credito d'imposta e dichiarazione Agenzia Entrate.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-esenzione-franchigia-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada principale di Mendrisio con segnaletica e punto di confine svizzero-italiano sullo sfondo"
+      },
+      "datePublished": "2026-08-26T07:34:09+00:00",
+      "dateModified": "2026-08-26T07:34:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-esenzione-franchigia-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

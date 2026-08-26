@@ -56570,6 +56570,161 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aprire-attivita-appenzello-interno-registro': {
+    title: 'Aprire attività in Appenzello Interno: costi e registro',
+    description: 'Guida completa: forma giuridica, iscrizione al registro di commercio, fiscalità a tre livelli, previdenza e tasse. Procedure step-by-step per avviare',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, appenzello, interno',
+    ogTitle: 'Aprire attività in Appenzello Interno: guida ai costi',
+    ogDescription: 'Come aprire un\'attività in Appenzello Interno: i requisiti legali, le forme giuridiche, le tasse federali-cantonali-comunali, i contributi previdenziali e la procedura di registrazione al registro di commercio.',
+    canonicalPath: '/articoli-svizzera/aprire-attivita-appenzello-interno-registro/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire attività in Appenzello Interno: costi e registro",
+      "description": "Guida completa: forma giuridica, iscrizione al registro di commercio, fiscalità a tre livelli, previdenza e tasse. Procedure step-by-step per avviare",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aprire-attivita-appenzello-interno-registro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrativo cantonale svizzero con moduli di registrazione e vista su paesaggio alpino"
+      },
+      "datePublished": "2026-08-26T07:22:03+00:00",
+      "dateModified": "2026-08-26T07:22:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aprire-attivita-appenzello-interno-registro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ffs-crescita-primo-semestre-2026': {
+    title: 'FFS nel segno della crescita nel primo semestre',
+    description: 'FFS chiude il primo semestre 2026 con 1,45 milioni di passeggeri giornalieri (+4%) e utile raddoppiato a 126 milioni CHF. Puntualità 94,1%, priorità',
+    keywords: 'frontalieri, ticino, svizzera, italia, segno, crescita, primo, semestre',
+    ogTitle: 'FFS nel segno della crescita nel primo semestre',
+    ogDescription: 'Le Ferrovie federali svizzere registrano 1,45 milioni di passeggeri giornalieri nel primo semestre 2026, con crescita del 4% e utile raddoppiato a 126 milioni CHF. Affidabilità e innovazione al centro della strategia.',
+    canonicalPath: '/articoli-svizzera/ffs-crescita-primo-semestre-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "FFS nel segno della crescita nel primo semestre",
+      "description": "FFS chiude il primo semestre 2026 con 1,45 milioni di passeggeri giornalieri (+4%) e utile raddoppiato a 126 milioni CHF. Puntualità 94,1%, priorità",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ffs-crescita-primo-semestre-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno moderno in stazione ferroviaria svizzera durante il giorno, infrastruttura ferroviaria contemporanea."
+      },
+      "datePublished": "2026-08-26T07:42:41+00:00",
+      "dateModified": "2026-08-26T07:42:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ffs-crescita-primo-semestre-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-grigioni-perequazione-2027': {
+    title: 'Grigioni 2027: +1,5 milioni per perequazione | Frontaliere Ticino',
+    description: 'Nel 2027 il Canton Grigioni aumenta i contributi di perequazione finanziaria ai comuni a 73,2 milioni. Il cantone versa 41,7 milioni, i comuni forti 31,5.',
+    keywords: 'frontalieri, ticino, svizzera, italia, grigioni, milioni, perequazione, canton',
+    ogTitle: 'Grigioni 2027: più fondi per i comuni',
+    ogDescription: 'Il Canton Grigioni rafforza la perequazione finanza nel 2027 con 73,2 milioni totali, di cui 41,7 dal cantone e 31,5 dai comuni forti. Scopri cosa cambia per St. Moritz, Landquart, Poschiavo e Roveredo, e come la perequazione influisce',
+    canonicalPath: '/articoli-svizzera/grigioni-perequazione-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grigioni 2027: +1,5 milioni per perequazione",
+      "description": "Nel 2027 il Canton Grigioni aumenta i contributi di perequazione finanziaria ai comuni a 73,2 milioni. Il cantone versa 41,7 milioni, i comuni forti 31,5.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/grigioni-perequazione-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea di un comune alpino nel Canton Grigioni con paesaggio montano"
+      },
+      "datePublished": "2026-08-26T08:32:18+00:00",
+      "dateModified": "2026-08-26T08:32:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/grigioni-perequazione-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-reri-moneypark-calo-3-anni': {
+    title: 'Rischio bolla immobiliare in calo, prima volta da tre anni',
+    description: 'L\'indice RERI di MoneyPark scende a 3,5 punti nel Q2 2026, prima volta in tre anni. Mercato immobiliare svizzero più selettivo, prezzi crescono meno.',
+    keywords: 'frontalieri, ticino, svizzera, italia, rischio, bolla, immobiliare, calo',
+    ogTitle: 'Rischio bolla immobiliare in calo, prima volta da tre anni',
+    ogDescription: 'Il mercato immobiliare svizzero si stabilizza. L\'indice RERI scende a 3,5 punti nel Q2 2026, primo calo in tre anni. Prezzi crescono meno, tassi rimangono bassi, mercato più selettivo verso proprietà di qualità.',
+    canonicalPath: '/articoli-svizzera/reri-moneypark-calo-3-anni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rischio bolla immobiliare in calo, prima volta da tre anni",
+      "description": "L'indice RERI di MoneyPark scende a 3,5 punti nel Q2 2026, prima volta in tre anni. Mercato immobiliare svizzero più selettivo, prezzi crescono meno.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/reri-moneypark-calo-3-anni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di un cantiere edile svizzero con palazzi residenziali moderni e montagne sullo sfondo al tramonto"
+      },
+      "datePublished": "2026-08-26T08:46:52+00:00",
+      "dateModified": "2026-08-26T08:46:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/reri-moneypark-calo-3-anni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
 };
 
 export default BLOG_CH_SEO_METADATA;

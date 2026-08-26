@@ -10819,6 +10819,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.benzina-confine-svizzera-agosto-2026.title': 'Petrol over €2, the Swiss full is no longer convenient',
     'blog.article.benzina-confine-svizzera-agosto-2026.excerpt': 'Prices aligned between Lombardy and Ticino: petrol at €2.01 and diesel at €2.14. Excise discount expired on 26 August.',
     'blog.article.benzina-confine-svizzera-agosto-2026.imageAlt': 'Ticino landscape with petrol station, Lake Lugano in the background',
+    'blog.article.frontaliere-esenzione-franchigia-2026.title': 'Frontier workers 2026: exemption vs deductible after agreement',
+    'blog.article.frontaliere-esenzione-franchigia-2026.excerpt': 'Operating rules 2026 for border workers: differences between the old regime (exemption €7,500) and the new one (excess €10,000). Tax credit and declaratory procedure.',
+    'blog.article.frontaliere-esenzione-franchigia-2026.imageAlt': 'Main street of Mendrisio with signage and Swiss-Italian border checkpoint visible in the background',
 };
 
 export default blogMetaEn;

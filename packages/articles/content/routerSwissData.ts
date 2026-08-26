@@ -1479,6 +1479,10 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'raiffeisen-160-milioni-risparmio-2027': { it: 'raiffeisen-160-milioni-risparmio-2027', en: 'raiffeisen-180-job-cuts-2027', de: 'raiffeisen-180-stellenabbau-2027', fr: 'raiffeisen-180-suppressions-emplois-2027' },
  'raiffeisen-taglio-posti-lavoro': { it: 'raiffeisen-taglio-posti-lavoro', en: 'raiffeisen-180-job-cuts-switzerland', de: 'raiffeisen-stellenabbau-schweiz', fr: 'raiffeisen-suppressions-postes' },
  'brienz-ricollocazione-sicurezza': { it: 'brienz-ricollocazione-sicurezza', en: 'brienz-relocation-safety', de: 'brienz-umsiedlung-sicherheit', fr: 'brienz-relocalisation-securite' },
+ 'aprire-attivita-appenzello-interno-registro': { it: 'aprire-attivita-appenzello-interno-registro', en: 'start-business-appenzell-innerrhoden-register', de: 'geschaeft-eroeffnen-appenzell-handelsregister', fr: 'ouvrir-activite-appenzell-registre-commerce' },
+ 'ffs-crescita-primo-semestre-2026': { it: 'ffs-crescita-primo-semestre-2026', en: 'sbb-growth-first-half-2026', de: 'sbb-wachstum-erstes-halbjahr-2026', fr: 'cff-croissance-premier-semestre-2026' },
+ 'grigioni-perequazione-2027': { it: 'grigioni-perequazione-2027', en: 'graubunden-financial-equalization-2027', de: 'graubuenden-ressourcenausgleich-2027', fr: 'grisons-perequation-2027' },
+ 'reri-moneypark-calo-3-anni': { it: 'reri-moneypark-calo-3-anni', en: 'reri-moneypark-decline-three-years', de: 'reri-moneypark-ruckgang-drei-jahre', fr: 'reri-moneypark-baisse-trois-ans' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

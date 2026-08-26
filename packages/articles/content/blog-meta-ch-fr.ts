@@ -4360,6 +4360,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.brienz-ricollocazione-sicurezza.title': 'Brienz : Tiefencastel et Alvaneu seront des sites de relocalisation',
     'blog.article.brienz-ricollocazione-sicurezza.excerpt': 'Tiefencastel et Alvaneu désignés comme sites d\'accueil pour les 42 habitants de Brienz touchés par le risque de glissement de terrain historique. 82,5 millions de CHF approuvés.',
     'blog.article.brienz-ricollocazione-sicurezza.imageAlt': 'Village alpin avec maisons traditionnelles en pierre dans la vallée de montagne, communauté rurale soumise aux risques géologiques',
+    'blog.article.aprire-attivita-appenzello-interno-registro.title': 'Ouvrir des activités à Appenzell Interne : coûts et registre',
+    'blog.article.aprire-attivita-appenzello-interno-registro.excerpt': 'Forme juridique, inscription au registre du commerce, fiscalité à trois niveaux et assurances : voilà ce qu\'il faut pour démarrer une entreprise dans le canton.',
+    'blog.article.aprire-attivita-appenzello-interno-registro.imageAlt': 'Bureau administratif cantonal suisse avec formulaires d\'enregistrement et vue alpine',
+    'blog.article.ffs-crescita-primo-semestre-2026.title': 'CFF en signe de croissance au premier semestre',
+    'blog.article.ffs-crescita-primo-semestre-2026.excerpt': 'Les Chemins de fer fédéraux suisses clôturent le premier semestre 2026 avec des bénéfices presque doublés et plus de 1,45 million de passagers quotidiens, en hausse de 4,0% par rapport à 2025.',
+    'blog.article.ffs-crescita-primo-semestre-2026.imageAlt': 'Train moderne à la gare ferroviaire suisse pendant la journée, infrastructure ferroviaire contemporaine.',
+    'blog.article.grigioni-perequazione-2027.title': 'Grisons 2027 : +1,5 millions par péréquation',
+    'blog.article.grigioni-perequazione-2027.excerpt': 'En 2027, le canton des Grisons augmente les contributions de péréquation financière aux communes à 73,2 millions. Le canton verse 41,7 millions, les communes fortes 31,5.',
+    'blog.article.grigioni-perequazione-2027.imageAlt': 'Vue aérienne d\'une commune alpine du Canton des Grisons avec paysage montagneux',
+    'blog.article.reri-moneypark-calo-3-anni.title': 'Risque de bulle immobilière en baisse, pour la première fois depuis trois ans',
+    'blog.article.reri-moneypark-calo-3-anni.excerpt': 'L\'indice RERI de MoneyPark chute à 3,5 points au Q2 2026 : pour la première fois en trois ans. Le marché devient plus sélectif, les prix augmentent moins, les taux restent bas.',
+    'blog.article.reri-moneypark-calo-3-anni.imageAlt': 'Chantier de construction en Suisse avec bâtiments résidentiels modernes et montagnes alpines au coucher du soleil',
 };
 
 export default blogMetaChFr;

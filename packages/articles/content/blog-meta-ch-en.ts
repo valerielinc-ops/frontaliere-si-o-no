@@ -4360,6 +4360,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.brienz-ricollocazione-sicurezza.title': 'Brienz: Tiefencastel and Alvaneu will be relocation sites',
     'blog.article.brienz-ricollocazione-sicurezza.excerpt': 'Tiefencastel and Alvaneu designated as reception sites for the 42 residents of Brienz affected by the risk of historic landslide. CHF 82.5 million approved.',
     'blog.article.brienz-ricollocazione-sicurezza.imageAlt': 'Swiss alpine village with traditional stone houses in mountain valley, representing rural communities at geological risk',
+    'blog.article.aprire-attivita-appenzello-interno-registro.title': 'Open activities in Appenzello Interno: costs and register',
+    'blog.article.aprire-attivita-appenzello-interno-registro.excerpt': 'Legal form, registration in the commercial register, three-tier taxation and insurance: this is what you need to start a business in the canton.',
+    'blog.article.aprire-attivita-appenzello-interno-registro.imageAlt': 'Swiss cantonal administration office with registration forms and alpine landscape view',
+    'blog.article.ffs-crescita-primo-semestre-2026.title': 'SBB in the sign of growth in the first half of the year',
+    'blog.article.ffs-crescita-primo-semestre-2026.excerpt': 'Swiss Federal Railways closes the first half of 2026 with profits almost doubling and over 1.45 million daily passengers, up 4.0% compared to 2025.',
+    'blog.article.ffs-crescita-primo-semestre-2026.imageAlt': 'Modern train at a Swiss railway station during daytime, contemporary railway infrastructure.',
+    'blog.article.grigioni-perequazione-2027.title': 'Grisons 2027: +1.5 million for equalisation',
+    'blog.article.grigioni-perequazione-2027.excerpt': 'In 2027, the Canton of Graubünden increases financial equalisation contributions to municipalities to 73.2 million. The canton pays 41.7 million, the municipalities 31.5.',
+    'blog.article.grigioni-perequazione-2027.imageAlt': 'Aerial view of an Alpine municipality in Canton Graubünden with mountain landscape',
+    'blog.article.reri-moneypark-calo-3-anni.title': 'Property bubble risk declining, first time in three years',
+    'blog.article.reri-moneypark-calo-3-anni.excerpt': 'MoneyPark\'s RERI index drops to 3.5 points in Q2 2026 - the first time in three years. Market becomes more selective, prices grow less, rates remain low.',
+    'blog.article.reri-moneypark-calo-3-anni.imageAlt': 'Swiss construction site with modern residential buildings against Alpine mountain backdrop at golden hour',
 };
 
 export default blogMetaChEn;
