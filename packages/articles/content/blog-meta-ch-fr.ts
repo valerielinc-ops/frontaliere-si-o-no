@@ -4417,6 +4417,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ffs-rincari-tariffe-wyss.title': 'CFF hausses tarifaires : les déclarations de Wyss',
     'blog.article.ffs-rincari-tariffe-wyss.excerpt': '1,45 million de voyageurs par jour, trains bondés. Les CFF annoncent des hausses pour les abonnements généraux et la moitié du prix. C\'est le président qui parle.',
     'blog.article.ffs-rincari-tariffe-wyss.imageAlt': 'Les navetteurs montent dans les trains sur un quai bondé pendant les heures de pointe du matin, paysage alpin en arrière-plan',
+    'blog.article.seco-fmi-partenariato-economia.title': 'Conseil fédéral approuve le partenariat SECO-FMI pour l\'économie',
+    'blog.article.seco-fmi-partenariato-economia.excerpt': 'Le 26 août, le gouvernement suisse a alloué 40 millions de CHF au programme SECO-FMI 2026-2030, renforçant ainsi les institutions économiques mondiales au profit des entreprises suisses.',
+    'blog.article.seco-fmi-partenariato-economia.imageAlt': 'Vue panoramique de Lugano, centre économique du Tessin, illustrant la coopération économique internationale.',
 };
 
 export default blogMetaChFr;
