@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "savedAt": "2026-08-26T10:22:50.053Z",
+  "savedAt": "2026-08-26T10:15:05.444Z",
   "entries": [
     {
       "key": "fe2aacc5a67d151452bbcb24f15a356851443ecec9fe5fdaf5f968230431202b",
@@ -246377,7 +246377,7 @@
     },
     {
       "key": "8bfe89095c446577f001e822de93f4e4c1c5be7503214904c9d33127d4a64a48",
-      "touchedAt": 1787694608072,
+      "touchedAt": 1787739245602,
       "value": {
         "isJob": true,
         "confidence": 0.97,
@@ -246404,7 +246404,7 @@
     },
     {
       "key": "4fc00f420d2bac9b723ee6f0289d439f75ff9ab7d90b3314ebec14129de3a998",
-      "touchedAt": 1787694650601,
+      "touchedAt": 1787739245322,
       "value": {
         "isJob": true,
         "confidence": 0.95,
@@ -250381,6 +250381,204 @@
         "isJob": false,
         "confidence": 0.96,
         "reason": "This is a career program landing page describing Coop's 'Quereinstieg' (career change) initiatives with multiple role categories (Baker, Driver, Butcher, Chef), not a single concrete job posting. It provides program information, benefits, and process overview with links to actual job listings elsewhere."
+      }
+    },
+    {
+      "key": "5704408d507a6a38e47dc9cb2766afca6a2cafd6144c9847eef638b0f6d19bdb",
+      "touchedAt": 1787738992562,
+      "value": {
+        "isJob": true,
+        "confidence": 0.97,
+        "reason": "Concrete role title (Responsable d'équipe sinistres complexes) with specific responsibilities (team leadership of up to 9 people, claims management), clear requirements (insurance certifications, 1-3 years management experience, technical claims knowledge), application context (contact person Manuela Trezzini, online application), and specific details (location Crissier/Lausanne, 80-100% employment, job ID 135946, hybrid work up to 40%). This is a dedicated single job posting, not a generic careers listing."
+      }
+    },
+    {
+      "key": "4d3c9d86b2bcb1a364a74437c21c688a1e6ea9d1254dce31f88411be39f0517a",
+      "touchedAt": 1787739101349,
+      "value": {
+        "isJob": true,
+        "confidence": 0.95,
+        "reason": "Concrete internship role with specific title 'Beca Corporate Insurance Multinational', detailed daily responsibilities (international policy tracking, data reconciliation, reporting), clear requirements (field of study, English level, analytical skills), and application context (university collaboration agreement required). Personal recruiter narrative and company culture context are additional signals of a genuine job posting, not a generic careers listing."
+      }
+    },
+    {
+      "key": "058684718f7958e036774abb3a938de01db43826d07fe2d7b8374498e4c1827c",
+      "touchedAt": 1787739117758,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "Contains concrete role title (Staff Legal Secretary), detailed responsibilities (legal document preparation, attorney support, case management), specific qualifications (3+ years legal secretary experience in insurance), location (Maitland, FL), compensation ($24.66-$33.89/hr with 5% bonus), job ID (135729), and clear 'Apply now' call-to-action. This is a specific job detail page, not a generic careers listing."
+      }
+    },
+    {
+      "key": "faeab756ea1c9b8952419228199eed3b6971706db8aa56c41e0eb4a000587220",
+      "touchedAt": 1787739244991,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "Concrete single job posting with specific role title ('Gestionnaire en prévoyance professionnelle (LPP)' at 80-100%), job ID (136367), detailed responsibilities section ('Ce que tu fais': portfolio management, client coordination, contract processing), explicit requirements section ('Ce que tu apportes': insurance education, 2+ years experience, French fluency), employment type/location (Lausanne/Crissier, hybrid), and application call-to-action with named recruiter contact (Manuela Trezzini). Clear job detail structure, not a generic careers listing."
+      }
+    },
+    {
+      "key": "48987f1c5cf7e71d989c496e6cbecc167c547464f668c289546fbb8c1147862d",
+      "touchedAt": 1787739261392,
+      "value": {
+        "isJob": true,
+        "confidence": 0.95,
+        "reason": "Contains concrete role title (Senior Insight Manager - Brand & Experience Tracking, 80-100%), detailed 'What you will do' section with 9 specific responsibilities, 'What you bring' section for requirements, employment location (Zurich), percentage (80-100%), reporting structure (Head of Global Brand Tracking & NPS), job ID (136333), and clear application context with 'Apply now' buttons. This is a single job posting, not a generic careers listing or category page."
+      }
+    },
+    {
+      "key": "39e118944182282084c7e7220051a72085635be94884aaab6995718a5a50b443",
+      "touchedAt": 1787739277695,
+      "value": {
+        "isJob": true,
+        "confidence": 98,
+        "reason": "This is a concrete single job posting with: specific role title (Engineer Surveyor, Lift & Crane), job ID (135746), location (Sutton Coldfield), salary (£65k+ package), detailed responsibilities section, specific qualification requirements (Level 4 engineering qualification, SAFed compliance, driving licence), benefits, and application interface. Not a generic careers listing or category page."
+      }
+    },
+    {
+      "key": "d39f1921d3e0c3310a2e090478066acf3ff6c8d97093a6a6ffd212ea363bc0f1",
+      "touchedAt": 1787739278061,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "Contains all defining elements of a single job detail page: concrete role title ('Planning & Performance Management (PPM) Executive'), job ID (135832), specific location (Singapore), detailed job summary with multiple responsibility sections (Financial Planning, Business Performance, Process Optimization, Reporting, Communication), specific qualifications (2-4 years experience, degree requirements, technical skills), and application mechanism ('Apply now'). Not a generic careers listing, category page, or company information page."
+      }
+    },
+    {
+      "key": "3b31118365d2f6204b1263e1d71fc82278b3956e6b9ca9ec6557496267b3d015",
+      "touchedAt": 1787739278361,
+      "value": {
+        "isJob": true,
+        "confidence": 0.95,
+        "reason": "Concrete internship role (Beca Suscripción Riesgos Pymes) with specific location (Barcelona), clear responsibilities (risk analysis, pricing, underwriting support), detailed requirements (insurance knowledge, teamwork, communication), and application terms (6-month paid internship at €800/month, 5h/day, 80% telework). Personal recruiter introduction and comprehensive job details confirm this is a real single job posting, not a generic careers page."
+      }
+    },
+    {
+      "key": "f311626c5abe912b645de89d30d60308632bcfc55b97b2f2f695c8e887ea534b",
+      "touchedAt": 1787739278665,
+      "value": {
+        "isJob": true,
+        "confidence": 0.99,
+        "reason": "Concrete job posting with specific role title (Engineer Surveyor, Lift & Crane), location (NE London), job ID (135725), detailed responsibilities (statutory inspections, equipment assessment, client communication), explicit qualifications (Level 3/4 engineering, driving licence, crane/lift experience), salary (£65k+ total package), benefits, and application mechanism. Contains all required elements of a single job detail page."
+      }
+    },
+    {
+      "key": "af4438c1ce2f91a6783aa1e230c7c3929f91776810e63f1c16d77272bed9df9d",
+      "touchedAt": 1787739278996,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "Contains concrete role title (Gestor/a Cartera y Retención - temporary), detailed job responsibilities (policy emission, portfolio management, client advisory, claims assessment), specific requirements (degree in relevant field, Office 365 skills), location (Sabadell, Barcelona), job ID (135516), application buttons, and benefits information. All clear indicators of a single job detail page, not a generic listing or informational page."
+      }
+    },
+    {
+      "key": "f33babef85b5997942a0dcb9fda66ec62ea8088fa58da032cfcef344828efe5a",
+      "touchedAt": 1787739279252,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "Contains concrete job title (DATA SCIENTIST), specific location (São Paulo), unique job ID (1367952557, 135698), detailed responsibilities (ML model development, data analysis, stakeholder collaboration), comprehensive requirements (degree, Python proficiency, LLM experience, language skills), and explicit application mechanism ('Candidatar-se agora'). This is a single-position detail page, not a generic careers listing."
+      }
+    },
+    {
+      "key": "614874895078ad4448fa43f9055ea17154c5fae3bf7a21fcd3c7054800a63c52",
+      "touchedAt": 1787739279502,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "Clear single job posting with specific role title ('Actuarial Internship - Summer 2027'), detailed responsibilities ('pricing, reserving, capital management, predictive modeling...'), explicit qualifications (basic and preferred), concrete location (Schaumburg), schedule (9:00-5:00 PM CST), pay range ($23.00-27.50/hour), and application context. Not a generic listing, category page, or informational content."
+      }
+    },
+    {
+      "key": "5f4128f167d569ad9d452a3e353b1eb3d92ff72057ec77b5d1be8220463dabf1",
+      "touchedAt": 1787739279812,
+      "value": {
+        "isJob": true,
+        "confidence": 0.95,
+        "reason": "This is a concrete single job posting with specific role title (Senior Lead, Partnership Development - Life & Employee Benefits Asia), detailed job accountabilities across 9 categories, specific qualifications (15+ years experience, language requirements, certifications), location (Hong Kong), and active application functionality. The URL structure includes a unique job ID (1367881957) typical of job detail pages, not generic career listings."
+      }
+    },
+    {
+      "key": "f55068880541d87e540ef6cd3b0d9bcefb404320a6c0eeb622bb132abb92a14e",
+      "touchedAt": 1787739279982,
+      "value": {
+        "isJob": true,
+        "confidence": 0.95,
+        "reason": "Page contains concrete role title (Beca Corporate Insurance Multinational/Corporate Insurance Internship), detailed daily responsibilities (multinational program support, policy monitoring, documentation management, data analysis, premium reconciliation, reporting), specific requirements (field of study: ADE/Economics/Finance, analytical skills, English B2+, international work aptitude), recruiter introduction, and clear application CTA. This is a specific job posting, not a generic careers listing."
+      }
+    },
+    {
+      "key": "d171d25053a99ff32c4d556be71c230fb6cacdbb98843601184b5cdc81ee39ea",
+      "touchedAt": 1787739280290,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "Page contains concrete role title (Web Senior Developer, APAC), unique job ID (135755), detailed key responsibilities (HTML5/CSS3/Next.js/React requirements, testing, AWS CI/CD), specific required skills and experience, distinct location (Kuala Lumpur), employment type (Full Time), recruiter name (Caroline Louis), and application mechanism. All characteristics of a genuine single job posting."
+      }
+    },
+    {
+      "key": "e9549c26084c86d24185b49d6e3c8ad05f86fe4d7337194e247f009e2a29f866",
+      "touchedAt": 1787739280514,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "Contains concrete role title (Staff Legal Secretary), specific location (Maitland, FL), detailed responsibilities (legal document preparation, attorney support, litigation management), clear basic and preferred qualifications, pay range ($24.66-$33.89), benefits information, and direct application mechanism. URL structure with specific job ID confirms single job detail page."
+      }
+    },
+    {
+      "key": "ba88d017287be76765d76f0fdb170447064f218199e5d429f3b68be7c3940446",
+      "touchedAt": 1787739280835,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "Concrete single job posting with specific title (API & Integration Senior Developer), job ID (135753), detailed key responsibilities (API design, microservices development, testing, CI/CD), comprehensive requirements (5+ years programming, Java, Springboot, AWS, PostgreSQL, REST/JSON/Swagger), clear location (Kuala Lumpur, Full Time), recruiter name (Caroline Louis), and explicit application call-to-action."
+      }
+    },
+    {
+      "key": "d64e251bf1859df870cf924d383975a145cd0af1aaf3818773b440e088af6cbb",
+      "touchedAt": 1787739281064,
+      "value": {
+        "isJob": true,
+        "confidence": 0.95,
+        "reason": "Page contains concrete role title (Beca Suscripción USP Pymes), specific job ID (135681), detailed responsibilities (documentation management, data entry, internal queries, team collaboration), specific requirements (Excel proficiency, attention to detail, teamwork), and clear application context with defined terms (part-time 5h/day Monday-Friday, Madrid location, €800 stipend, 6-month minimum university collaboration agreement with extension possibility). URL structure (careers.zurich.com/job/[title]/[id]) and detailed content format confirm this is a single job posting, not a generic careers listing or informational page."
+      }
+    },
+    {
+      "key": "5aaa685c813fd4aed6d45f4552cd92a7e8c03c4dfccdb320bf3825acfd4755c1",
+      "touchedAt": 1787739281352,
+      "value": {
+        "isJob": true,
+        "confidence": 98,
+        "reason": "Concrete role title (Sachbearbeiter Leistungsprüfung Leben), detailed responsibilities (customer service, claims processing, documentation), specific requirements (commercial training, customer service experience, IT/MS Office skills), clear application instructions with named contact (Marisa Schell), specific location (Frankfurt), employment type (Vollzeit/Teilzeit), and comprehensive benefits. Classic single job detail page structure, not a generic listing or informational page."
+      }
+    },
+    {
+      "key": "f559bfc8544aa928347cb4a078fc2ce0efdb072a99259f8798e90298ab272791",
+      "touchedAt": 1787739281638,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "Concrete single role with specific title (Senior Exposure Management Analyst), reference ID (132131), detailed responsibilities (exposure management, RDS development, portfolio analysis, etc.), specific requirements (catastrophe modelling experience, SQL/Python skills, etc.), application mechanism (Apply Now with LinkedIn), and specific context (UK location, closing date 8th September 2026, part-time/full-time options). All hallmarks of a real job detail page, not a generic listing or informational page."
+      }
+    },
+    {
+      "key": "2dd07065ca31e6036ade319af6112f3480f18c5c8bfcf3a4a566894a970a1cf5",
+      "touchedAt": 1787739281966,
+      "value": {
+        "isJob": true,
+        "confidence": 0.96,
+        "reason": "Page contains concrete job title (Contract Senior Compliance Officer), detailed responsibilities/accountabilities (compliance reporting, framework validation, regulatory monitoring), specific qualifications (Bachelor's degree, 2+ years compliance experience, language requirements), application call-to-action, unique job ID (131222), specific location (Hong Kong), and employment terms (12-month contract). All hallmarks of a dedicated job posting, not a generic careers listing or informational page."
+      }
+    },
+    {
+      "key": "fb28fc0be0665e88b5ce13d2bf395464e7f4ec762de4d3575b7d246dd2861ced",
+      "touchedAt": 1787739282238,
+      "value": {
+        "isJob": true,
+        "confidence": 0.95,
+        "reason": "Concrete role title (Bank Reconciliation Specialist, 1-Year Contract), detailed job purpose, 9 specific key responsibilities, clear qualifications (Bachelor's in Accounting/Finance), 2+ years experience requirement, listed skills/competencies, working conditions, location (Kuala Lumpur), and application mechanism. All hallmarks of a genuine job detail page, not a generic listing or company information page."
       }
     }
   ]
