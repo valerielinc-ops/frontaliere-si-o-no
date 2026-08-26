@@ -57,16 +57,56 @@ describe('typecheck gate wiring (#5540)', () => {
     expect(fs.existsSync(path.join(ROOT, GATE_SCRIPT))).toBe(true);
   });
 
-  it('tests.yml ha un job typecheck che lancia il gate', () => {
-    expect(workflow).toContain(`name: ${TYPECHECK_JOB_NAME}`);
+  it('tests.yml lancia davvero il gate', () => {
+    // Il check-run `typecheck (tsc --noEmit)` NON esiste più: con la fusione il
+    // typecheck è uno step del job `vitest (unit + integration)`. Ciò che va
+    // guardato è che il gate sia INVOCATO — che è anche l'unica cosa che il
+    // vecchio `toContain(name:)` provava davvero.
+    expect(workflow).not.toContain(`name: ${TYPECHECK_JOB_NAME}`);
     expect(workflow).toMatch(/run:\s+npm run typecheck:gate/);
   });
 
-  it('il job typecheck è un job a sé, non uno step dentro vitest', () => {
+  // Contratto ROVESCIATO con la fusione dei quattro job di tests.yml.
+  //
+  // Prima: «il typecheck deve stare in un job a sé, non dentro vitest» —
+  // perché infilarlo nel job che produce il check-run load-bearing avrebbe
+  // fatto dipendere l'auto-merge da un secondo attrezzo (#5540).
+  //
+  // Ora quella dipendenza è VOLUTA, su decisione esplicita del proprietario: è
+  // esattamente ciò che rende il typecheck BLOCCANTE. Prima della fusione
+  // `typecheck (tsc --noEmit)` era un check-run distinto che nessuno gattava —
+  // misura in scripts/ci/lib/checkRunObservation.mjs (issue #5552), con PR
+  // #5590 mergiata con `contract` = failure. Il guard resta, ma fissa
+  // l'invariante nuova, che è più forte: il gate deve stare DENTRO l'unico
+  // check-run che governa il merge.
+  it('tests.yml ha UN SOLO job, ed è quello del check-run gating', () => {
     const jobs = topLevelJobKeys(workflow);
-    expect(jobs).toContain('typecheck');
-    expect(jobs).toContain('vitest');
-    expect(jobs.length).toBeGreaterThanOrEqual(2);
+    expect(
+      jobs,
+      'tests.yml deve avere un job solo: è la fusione che rende bloccanti ' +
+        'collision/contract/typecheck. Ri-splittare li rende di nuovo advisory ' +
+        'in silenzio (issue #5552) — se è voluto, aggiorna questo contratto.',
+    ).toEqual(['vitest']);
+    expect(workflow).toContain(`name: ${VITEST_JOB_NAME}`);
+  });
+
+  it('il gate typecheck gira DENTRO il job del check-run gating', () => {
+    const jobsBody = workflow.slice(workflow.indexOf('\njobs:'));
+    const vitestBody = jobsBody.slice(jobsBody.indexOf('  vitest:'));
+    expect(
+      /run:\s+npm run typecheck:gate/.test(vitestBody),
+      'il gate `npm run typecheck:gate` non è più dentro il job `vitest` → un ' +
+        'errore di tipo non fa più rosso il check che governa l’auto-merge.',
+    ).toBe(true);
+  });
+
+  it('anche collision e contract girano dentro lo stesso job gating', () => {
+    const jobsBody = workflow.slice(workflow.indexOf('\njobs:'));
+    const vitestBody = jobsBody.slice(jobsBody.indexOf('  vitest:'));
+    // I due cancelli deterministici ex-job: se uno uscisse dal job fuso
+    // tornerebbe advisory senza che nessun altro segnale lo dica.
+    expect(vitestBody).toMatch(/scripts\/ci\/pr-collision-detector\.mjs/);
+    expect(vitestBody).toMatch(/PR-body completeness \+ multi-issue Closes/);
   });
 
   it('il nome load-bearing del check vitest è intatto', () => {
@@ -78,10 +118,20 @@ describe('typecheck gate wiring (#5540)', () => {
     expect(constants).toContain(VITEST_JOB_NAME);
   });
 
-  it('il typecheck non è stato infilato dentro il job vitest', () => {
+  it('il gate typecheck non gira senza checkout condiviso a monte', () => {
+    // Con un job solo, `npm run typecheck:gate` non ha più un checkout+npm ci
+    // propri: dipende da quelli condivisi in testa al job. Se qualcuno togliesse
+    // la fase comune il gate morirebbe con un errore d'ambiente (nessun
+    // node_modules), che è un rosso ma non quello che il gate deve dire.
     const jobsBody = workflow.slice(workflow.indexOf('\njobs:'));
     const vitestBody = jobsBody.slice(jobsBody.indexOf('  vitest:'));
-    expect(vitestBody).not.toMatch(/npm run typecheck/);
+    const checkoutAt = vitestBody.indexOf('uses: actions/checkout@v5');
+    const setupAt = vitestBody.indexOf('uses: ./.github/actions/ci-npm-setup');
+    const gateAt = vitestBody.search(/run:\s+npm run typecheck:gate/);
+    expect(checkoutAt, 'nessun checkout nel job fuso').toBeGreaterThan(-1);
+    expect(setupAt, 'nessun ci-npm-setup nel job fuso').toBeGreaterThan(-1);
+    expect(checkoutAt).toBeLessThan(setupAt);
+    expect(setupAt).toBeLessThan(gateAt);
   });
 
   // La baseline vive sotto `data/`, che in un worktree sparse non è

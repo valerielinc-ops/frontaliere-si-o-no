@@ -105,6 +105,123 @@ describe('vitest single-job contract (#2882 de-sharding)', () => {
 });
 
 /**
+ * Contratto del JOB FUSO: quattro cancelli, un check-run, un lock.
+ *
+ * `collision`, `contract`, `typecheck` e `vitest` erano quattro job. Ora sono
+ * quattro famiglie di step in un job solo, e due invarianti nate da incidenti
+ * reali sopravvivono solo se restano scritte qui.
+ *
+ * 1. IL LOCK DELLE LABEL. Il job `collision` portava un `concurrency:` proprio,
+ *    gruppo `pr-collision-detector`, condiviso con lo scan periodico di
+ *    `pr-collision-detector.yml`: senza, due scan concorrenti si pestano sulla
+ *    label `collision-risk` — la race che ha prodotto il main-red #1454↔#1459.
+ *    Le concurrency di GitHub Actions esistono solo a livello job/workflow, mai
+ *    a livello step, quindi l'unico posto dove quel lock può vivere adesso è
+ *    l'intero job fuso. Toglierlo «per throughput» riapre la race su dato di
+ *    produzione, e non lo direbbe nessun altro segnale.
+ *
+ * 2. IL LOCK NON DEVE MORDERE SU MAIN. Su `push` non c'è nessuna label da
+ *    contendere (gli step di collision sono `pull_request`-only) e accodare i
+ *    run di main in un gruppo globale con `cancel-in-progress: false` li farebbe
+ *    sfrattare da run più recenti — cioè distruggerebbe il verdetto di salute di
+ *    main che il `concurrency:` top-level protegge (vedi il describe sotto).
+ */
+describe('job fuso: un check-run, quattro cancelli, un lock', () => {
+  const jobsBody = TESTS_YML.slice(TESTS_YML.indexOf('\njobs:'));
+  const jobKeys = [...jobsBody.matchAll(/^ {2}([A-Za-z0-9_-]+):$/gm)].map((m) => m[1]);
+
+  it('tests.yml ha un job solo', () => {
+    expect(jobKeys).toEqual(['vitest']);
+  });
+
+  it('le quattro famiglie di cancelli girano tutte in quel job', () => {
+    for (const [what, re] of [
+      ['collision', /scripts\/ci\/pr-collision-detector\.mjs/],
+      ['contract', /PR-body completeness \+ multi-issue Closes/],
+      ['source guards', /check-sibling-patterns\.mjs/],
+      ['typecheck', /npm run typecheck:gate/],
+      ['vitest', /npm test --/],
+    ] as const) {
+      expect(re.test(jobsBody), `famiglia \`${what}\` non trovata nel job fuso`).toBe(true);
+    }
+  });
+
+  it('il job porta il lock `pr-collision-detector` (race #1454↔#1459)', () => {
+    const m = jobsBody.match(/^ {4}concurrency:\s*\n((?:[ \t]+.*\n?)*?)^ {4}(?=[a-z])/m);
+    expect(m, 'blocco `concurrency:` del job non trovato').toBeTruthy();
+    const block = m![1];
+    expect(
+      block.includes('pr-collision-detector'),
+      'il gruppo `pr-collision-detector` è sparito dal job fuso: gli step di ' +
+        'collision scrivono la label `collision-risk` in concorrenza con lo scan ' +
+        'periodico di pr-collision-detector.yml, e senza quel gruppo la race del ' +
+        'main-red #1454↔#1459 è di nuovo aperta. Una concurrency di step NON esiste.',
+    ).toBe(true);
+    expect(block).toMatch(/cancel-in-progress:\s*false/);
+  });
+
+  it('il lock è condizionato all’evento, così i run di main non si accodano', () => {
+    const m = jobsBody.match(/^ {4}concurrency:\s*\n\s*group:\s*(.+?)\s*$/m);
+    expect(m, '`group:` del job non trovato').toBeTruthy();
+    const group = m![1];
+    expect(
+      /\$\{\{.*github\.event_name.*\}\}/.test(group),
+      `il gruppo deve dipendere da github.event_name, trovato: ${group}`,
+    ).toBe(true);
+    expect(group).toMatch(/github\.event_name\s*==\s*'pull_request'/);
+  });
+
+  it('gli step di collision restano pull_request-only (nessuna label su main)', () => {
+    // Il lock condizionale sopra è corretto SOLO se su push non si scrive
+    // nessuna label. Se il detector perdesse il guard sull'evento, girerebbe su
+    // main fuori dal lock — cioè la race, ma senza nemmeno il serializzatore.
+    const m = /- name: Detect funnel-critical collisions[^\n]*\n\s*if:\s*(.+?)\s*$/m.exec(jobsBody);
+    expect(m, 'step `Detect funnel-critical collisions` senza `if:`').toBeTruthy();
+    expect(m![1]).toMatch(/github\.event_name\s*==\s*'pull_request'/);
+  });
+
+  // Fondere i job fonde anche gli AMBIENTI, e questo è costato un giro di CI.
+  // `scripts/load-rc-env.mjs` scrive ~92 variabili di Remote Config su
+  // `$GITHUB_ENV`, che vale per TUTTI gli step successivi dello stesso job —
+  // non solo per quello che l'ha eseguito. Finché `collision` era un job a sé
+  // vitest non vedeva mai quell'ambiente; nel job fuso lo vedeva, e 14 test su
+  // 11 file sono andati rossi (run 32937626053): tutti quelli che asseriscono
+  // un comportamento a ambiente pulito — «rejects when no email provider
+  // configured», «is a no-op when POSTHOG_EMAIL_EXPERIMENT is unset» (nel log
+  // la RC caricava `POSTHOG_EMAIL_EXPERIMENT: 1`), «an empty environment mints
+  // the pre-#5685 code». Il rimedio è l'ORDINE, quindi va difeso l'ordine.
+  it('i segreti di Remote Config si caricano DOPO vitest, mai prima', () => {
+    const rcAt = jobsBody.indexOf('node scripts/load-rc-env.mjs');
+    const vitestAt = jobsBody.search(/run:\s+npm test --/);
+    expect(rcAt, 'step `load-rc-env.mjs` non trovato nel job').toBeGreaterThan(-1);
+    expect(vitestAt, 'step vitest non trovato nel job').toBeGreaterThan(-1);
+    expect(
+      rcAt,
+      '`load-rc-env.mjs` è risalito SOPRA vitest: scrive ~92 variabili su ' +
+        '$GITHUB_ENV, che valgono per ogni step successivo, e la suite ha test ' +
+        'che asseriscono un ambiente pulito (email provider assente, ' +
+        'POSTHOG_EMAIL_EXPERIMENT unset, chiavi mancanti). Rimettilo dopo vitest.',
+    ).toBeGreaterThan(vitestAt);
+  });
+
+  it('ogni famiglia sopravvive al rosso di un’altra (`!cancelled()`)', () => {
+    // Con quattro job paralleli un `contract` rosso non impediva a `vitest` di
+    // girare. Con gli step la proprietà si perde a meno di dirla esplicitamente.
+    for (const first of [
+      'PR-body completeness + multi-issue Closes',
+      'tsc --noEmit (baseline + ratchet)',
+      'Audit no merge conflict markers',
+    ]) {
+      const re = new RegExp(`- name: ${first.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}[^\\n]*\\n(?:\\s*#[^\\n]*\\n)*\\s*if:\\s*(.+?)\\s*$`, 'm');
+      const m = re.exec(jobsBody);
+      expect(m, `step \`${first}\` senza \`if:\``).toBeTruthy();
+      expect(m![1], `\`${first}\` non ha \`!cancelled()\`: un cancello rosso a monte lo spegne`)
+        .toContain('!cancelled()');
+    }
+  });
+});
+
+/**
  * Il verdetto su main deve poter ARRIVARE IN FONDO.
  *
  * `github.ref` di un push su main è sempre `refs/heads/main`, quindi TUTTI i

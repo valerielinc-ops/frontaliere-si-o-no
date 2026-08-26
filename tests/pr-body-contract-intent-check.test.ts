@@ -39,13 +39,28 @@ const ROOT = resolve(import.meta.dirname, '..');
 const WORKFLOW_PATH = resolve(ROOT, '.github/workflows/tests.yml');
 const WORKFLOW_YML = readFileSync(WORKFLOW_PATH, 'utf-8');
 
+/**
+ * Locates the gate by STEP NAME, across every job.
+ *
+ * Was `doc.jobs.contract.steps[0]`: a job id plus a positional index, i.e. two
+ * assumptions that had nothing to do with what this test is about. Both broke
+ * when tests.yml collapsed its four jobs into one — the `contract` job no
+ * longer exists and the body-contract step is no longer first. Neither is a
+ * regression of the GATE, which is the only thing this file guards, so the
+ * extractor now keys on the one thing that identifies it: its name.
+ */
 function extractContractScript(): string {
-  const doc = YAML.parse(WORKFLOW_YML);
-  const step = doc?.jobs?.contract?.steps?.[0];
+  const doc = YAML.parse(WORKFLOW_YML) as {
+    jobs?: Record<string, { steps?: Array<{ name?: string; with?: { script?: string } }> }>;
+  };
+  const steps = Object.values(doc?.jobs ?? {}).flatMap((j) => j?.steps ?? []);
+  const step = steps.find((s) => typeof s?.name === 'string' && s.name.includes('PR-body completeness'));
   const script = step?.with?.script;
   if (typeof script !== 'string' || script.length === 0) {
     throw new Error(
-      'tests.yml: contract job step[0].with.script not found — has the step shape changed? Update this extractor.',
+      'tests.yml: no step named "PR-body completeness…" with a `with.script` — the gate was ' +
+        'renamed, moved out of tests.yml, or deleted. If it moved, point this extractor at it; ' +
+        'if it was deleted, issue #5784 is unguarded again.',
     );
   }
   return script;
