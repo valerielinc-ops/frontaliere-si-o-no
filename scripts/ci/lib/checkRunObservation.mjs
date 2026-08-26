@@ -17,12 +17,19 @@
  * stata mergiata il 2026-08-11T03:04Z con `contract` = `failure`.
  *
  * ── AGGIORNAMENTO: il difetto è stato CHIUSO alla radice ──────────────────
- * `tests.yml` non produce più quattro check-run: `collision`, `contract` e
+ * `tests.yml` non produce più quattro check-run: `contract` e
  * `typecheck (tsc --noEmit)` sono diventati step del job che produce
- * `VITEST_CHECK_NAME`, quindi un loro rosso fa rosso il check gating. Tre dei
- * quattro «sostanziali» che questo modulo esisteva per SORVEGLIARE non
- * esistono più come check-run separati, e il quarto è quello su cui la
- * decisione si prendeva già.
+ * `VITEST_CHECK_NAME`, quindi un loro rosso fa rosso il check gating.
+ *
+ * `collision` invece è tornato un check-run a sé il 2026-08-26, e non è un
+ * ripensamento: portava un lock `concurrency` GLOBALE (il detector scrive la
+ * label su tutte le PR aperte) e, non esistendo le concurrency di step, sul
+ * job fuso serializzava una suite da ~18 minuti contro quella di ogni altra PR
+ * aperta — terza PR sfrattata a `cancelled`, auto-merge fermo. Resta quindi
+ * NON bloccante, ed è corretto: il cancello di merge è la LABEL che applica,
+ * non il suo exit code. Due dei quattro «sostanziali» che questo modulo
+ * esisteva per SORVEGLIARE non esistono più come check-run separati; degli
+ * altri due, uno è quello su cui la decisione si prendeva già.
  *
  * Conseguenza pratica: su una PR normale `wouldBlock` è ora quasi sempre vuoto
  * — non perché l'osservazione sia rotta, ma perché non c'è più niente da

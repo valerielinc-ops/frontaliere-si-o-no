@@ -264,6 +264,21 @@ const sharedTest = {
 };
 
 export default defineConfig({
+  // Cache dir isolabile per PROCESSO, e serve a una cosa sola: in `tests.yml`
+  // i due gruppi di test (dataset-dipendenti e non) girano SOVRAPPOSTI, cioe'
+  // due processi `vitest run` insieme sullo stesso checkout. Vite scrive la
+  // sua cache con la sequenza «scrivi in `node_modules/.vite-temp`, poi
+  // rinomina su `node_modules/.vite`»: due processi che la eseguono insieme si
+  // trovano la temp dell'altro sotto i piedi e falliscono con
+  // EEXIST/ENOTEMPTY, in modo intermittente e proprio sul check-run che
+  // governa l'auto-merge. Non e' teorico: `.vite-temp` e `.vite/vitest/`
+  // esistono entrambi in questo repo, quindi la cache e' davvero scritta a
+  // ogni run.
+  //
+  // Default INVARIATO quando la variabile non c'e': in locale, e per ogni
+  // altro consumatore di questo config, il comportamento e' identico a prima.
+  // Solo il workflow, che sa di lanciarne due insieme, da' a ciascuno la sua.
+  cacheDir: process.env.VITEST_CACHE_DIR || 'node_modules/.vite',
  plugins: [react()],
  resolve: {
  alias: {

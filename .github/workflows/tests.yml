@@ -60,31 +60,46 @@ name: tests
 # una qualunque è fallita. Dentro una famiglia la catena resta fail-fast, come
 # era dentro il job che la ospitava.
 #
-# ── Conseguenza #3: il lock delle label si estende a tutto il job ─────────
-# Il job `collision` aveva un `concurrency:` proprio, gruppo
-# `pr-collision-detector`, CONDIVISO con lo scan periodico di
-# `pr-collision-detector.yml` (cron ogni 30 min). Serve a impedire due scritture
-# concorrenti sulla label `collision-risk` — la race che ha prodotto il main-red
-# #1454↔#1459. Le concurrency di GitHub Actions esistono solo a livello
-# job/workflow, MAI a livello step: l'unico modo di conservare quella mutua
-# esclusione è mettere lo stesso gruppo sull'INTERO job fuso (vedi
-# `jobs.vitest.concurrency`). Costo reale, accettato: il job fuso di una PR si
-# serializza contro lo scan periodico E contro il job fuso delle ALTRE PR
-# aperte. Con la flotta di agenti che apre più PR insieme, un run in coda viene
-# sfrattato da uno più recente dello stesso gruppo (GitHub tiene 1 running + 1
-# pending) e conclude `cancelled` → nessun `success` spurio, auto-merge
-# fail-closed, ma servono più rerun/heal-dispatch nelle ore di traffico alto.
+# ── Conseguenza #3: il lock delle label — SCIOLTA il 2026-08-26 ──────────
+# STORIA, perché la lezione vale più della conclusione. Il job `collision`
+# aveva un `concurrency:` proprio, gruppo `pr-collision-detector`, CONDIVISO
+# con lo scan periodico di `pr-collision-detector.yml` (cron ogni 30 min), per
+# impedire due scritture concorrenti sulla label `collision-risk`. Le
+# concurrency di GitHub esistono solo a livello job/workflow, MAI di step,
+# quindi la fusione dovette issare quel gruppo sull'INTERO job. Costo
+# dichiarato accettabile: «più rerun nelle ore di traffico alto».
 #
-# ── Conseguenza #4: la #6526 perde margine sul caso `collision` ───────────
+# Misurato sul campo non lo era. Con `cancel-in-progress: false` GitHub tiene
+# 1 running + 1 pending: ogni PR aperta si accodava dietro ogni altra PR E
+# dietro lo scan cron, portandosi dietro una suite da ~18 minuti, e la terza
+# veniva SFRATTATA a `cancelled` — nessun `success`, auto-merge fermo, rerun a
+# catena. Era il collo di bottiglia del throughput dell'intera flotta.
+#
+# Un tentativo intermedio scorporò il detector in un job proprio col lock.
+# Toglieva la serializzazione dalla suite (verificato: run 32946427177,
+# `collision` cancelled alle 08:10:47 e `vitest` in_progress alle 08:10:49),
+# ma lasciava sulla PR una ✗ da run sfrattato — un SEGNALE FALSO, e
+# `gh pr checks` legge `cancelled` come fail. Con un mutex globale su un
+# workflow PR-triggered quella ✗ è inevitabile: se i contendenti superano gli
+# slot, qualcuno DEVE essere cancellato.
+#
+# Decisione finale: il detector esce del tutto da `tests.yml`. È un SWEEPER
+# repo-wide — ricalcola le label di tutte le PR aperte da dati vivi — e uno
+# sweeper va su `schedule`, non su `pull_request`. Vive quindi solo in
+# `pr-collision-detector.yml` (cron ogni 30 min + dispatch), dove il suo lock
+# non tocca nessuna PR e nessuna ✗ compare. Le PR restano INDIPENDENTI: niente
+# mutua esclusione, solo informazione — label + commento che nomina le PR
+# coinvolte, così chi ci lavora sa cosa succede se una mergia prima dell'altra.
+# La regola generale: un lock va sull'unità di lavoro che compie la scrittura,
+# e uno sweeper repo-wide non va su un evento per-PR.
+#
+# ── Conseguenza #4: la #6526 torna ad avere il suo margine ────────────────
 # La PR #6526 (commit 1052ee9) aveva fatto leggere ad `auto-merge-on-lgtm.yml` /
 # `pr-review-loop.yml` il check-run `vitest (unit + integration)` ISOLATO invece
-# del rollup della run, perché un `collision` cancellato per contesa trascinava
-# il rollup a `cancelled` su ~1/3 delle PR anche con vitest già `success`. Ora
-# collision e vitest sono lo STESSO check-run: se il job non parte per contesa
-# sul lock, non esiste più un check-run isolato da leggere e quella fix non ha
-# più margine di manovra su questo caso specifico. Resta fail-closed — un job
-# conteso produce `cancelled`/`failure`, mai `success` — quindi non è un buco di
-# merge-safety: è latenza (più rerun), non permissività.
+# del rollup, perché un `collision` cancellato per contesa trascinava il rollup
+# a `cancelled` su ~1/3 delle PR anche con vitest già `success`. Ora su una PR
+# non esiste più alcun check-run `collision` da contendere: la causa di quel
+# difetto è rimossa alla radice, e la lettura isolata di #6526 resta come rete.
 #
 # ── Il checkout: uno solo, e perché QUESTO profilo ────────────────────────
 # I quattro job avevano tre profili diversi e INCOMPATIBILI fra loro:
@@ -199,24 +214,6 @@ jobs:
   vitest:
     name: vitest (unit + integration)
     runs-on: ubuntu-latest
-    # Lock GLOBALE delle label `collision-risk`, ereditato dal job `collision`
-    # e ora esteso a tutto il job fuso — vedi «Conseguenza #3» in testata.
-    # Stesso gruppo di `pr-collision-detector.yml`, quindi lo scan periodico e
-    # questo job non si pestano mai sulle label (race del main-red #1454↔#1459).
-    #
-    # Il gruppo è CONDIZIONALE sull'evento, e la ragione è misurata in questo
-    # stesso file: gli step di collision girano solo su `pull_request` (sono gli
-    # unici che SCRIVONO label), mentre su `push` a main non c'è nessuna label
-    # da contendere. Mettere anche i run di main in quel gruppo globale con
-    # `cancel-in-progress: false` li farebbe accodare dietro le PR e sfrattare
-    # da un run più recente — cioè distruggerebbe di nuovo il verdetto di salute
-    # di main che il `concurrency:` top-level qui sopra esiste per proteggere
-    # (14 run su 30 cancellati, 47%). Su push/dispatch il gruppo è quindi
-    # per-run, cioè nessun lock, che è la semantica corretta: niente scritture
-    # concorrenti da serializzare. Guard: `tests/ci-vitest-check-name.test.ts`.
-    concurrency:
-      group: ${{ github.event_name == 'pull_request' && 'pr-collision-detector' || format('tests-nolock-{0}', github.run_id) }}
-      cancel-in-progress: false
     # 60 min. NON è il vecchio 30 lasciato lì: il job fuso paga in SERIE ciò che
     # quattro job pagavano in parallelo. Somma dei massimi osservati citati in
     # questo file: checkout profilo `contract` 420s + `npm ci` ~60s + detector
@@ -879,6 +876,17 @@ jobs:
       # invalido. Uno step `wait-all` accetta `name` e `wait-all`, non `if`.
       # Il join a vuoto su push è comunque innocuo: senza step in background da
       # attendere non c'è niente da aspettare.
+      #
+      # Quella lezione ora ha un guard, invece di vivere solo in questo
+      # commento: `tests/workflow-background-wait-schema.test.ts` rifiuta
+      # qualunque chiave diversa da `name`/`wait-all` su uno step di join, su
+      # TUTTI i workflow (51 join e 1.223 `background:` su 245 file, misurato
+      # 2026-08-26). Serviva un guard proprio perché nessuno degli attrezzi che
+      # si usano per validare un workflow in locale conosce queste due chiavi:
+      # actionlint, un `YAML.parse` e lo schema JSON di Actions tacciono tutti
+      # su un file che GitHub rifiuterà, e il rifiuto non arriva come errore di
+      # sintassi ma come una run `failure` con ZERO job — cioè, su questo file,
+      # il gate di merge che semplicemente non esiste per quel commit.
       - name: Wait for background source guards
         wait-all: true
 
@@ -900,9 +908,35 @@ jobs:
       # in memoria (4,4 GB di RSS misurati sull'albero completo) e su un job a sé
       # la variabile stava sul job. Metterla sul job fuso la imporrebbe anche a
       # vitest, che oggi gira senza — un cambio di comportamento non richiesto.
+      #
+      # È IN `background:`, ed è il primo di un gruppo di sei cancelli
+      # deterministici che girano tutti insieme invece che in fila. 67s
+      # misurati su run 32939112340, cioè il 6,3% del job e il terzo costo dopo
+      # il checkout (254s) e i due gruppi vitest (678s). Niente lo trattiene in
+      # un ordine: legge solo i sorgenti, non scrive niente che un altro step
+      # consumi, e il suo unico effetto è far fallire il job.
+      #
+      # NON C'È UN JOIN INTERMEDIO A CHIUDERLO PRIMA DELLA SUITE, ed è una
+      # scelta di principio: un `wait-all` esprime una DIPENDENZA fra task, non
+      # una precauzione. Fra questi sei cancelli e l'assemble non c'è nessuna
+      # dipendenza — l'assemble non legge niente che loro producano — quindi un
+      # join lì in mezzo direbbe il falso sul grafo e ritarderebbe la suite per
+      # una ragione che non è sua. Vengono rijoinati in fondo, insieme agli
+      # altri background, dal «Wait for background vitest + memory sampler».
+      #
+      # La conseguenza va detta, perché è reale e accettata: `tsc` tiene 4,4 GB
+      # di RSS, il runner ne ha 16, e ora quei 4,4 GB stanno accanto ai DUE
+      # pool di vitest invece che da soli. Se il margine non basta si vedrà
+      # come OOM, subito e in chiaro — non come una supposizione scritta in un
+      # commento che costa 67s di wall a ogni run per sempre. Un campionatore di
+      # `MemAvailable` era stato aggiunto per rendere quel margine un numero, ed
+      # è stato tolto: era uno step in background con un timer proprio, quindi a
+      # suite rossa teneva il job appeso al join per la durata del suo `sleep`.
+      # Se il numero servirà, va preso in un modo che muoia con la suite.
       # ══════════════════════════════════════════════════════════════════════
       - name: tsc --noEmit (baseline + ratchet)
         if: ${{ !cancelled() }}
+        background: true
         env:
           NODE_OPTIONS: --max-old-space-size=8192
         run: npm run typecheck:gate
@@ -918,6 +952,36 @@ jobs:
       # SUCCESSIVO del job, e questa suite ha test che asseriscono il
       # comportamento a ambiente PULITO. Il perché per esteso, con la misura,
       # sta sulla testata della famiglia 4/4.
+      #
+      # I CINQUE LINT QUI SOTTO SONO IN `background:`, insieme al `tsc` della
+      # famiglia 2/4: sei cancelli deterministici che girano tutti in parallelo
+      # invece che in fila. Nessuno dei sei consuma l'output di un altro — sono
+      # script node che leggono il working tree e il cui unico effetto è far
+      # fallire il job — quindi l'ordine fra loro non porta informazione.
+      #
+      # In fila costavano 78s (67 di `tsc` + 8+0+1+0+1 di lint, run
+      # 32939112340). Ora non costano NIENTE di wall proprio: non c'è un join
+      # che li chiuda prima della suite, quindi si sovrappongono all'assemble e
+      # a entrambi i gruppi vitest, e vengono rijoinati in fondo al job
+      # insieme agli altri background. La regola applicata qui, e che vale per
+      # ogni `wait-all` di questo file: si aspetta un task solo quando se ne
+      # consuma il RISULTATO. Fra questi sei e la suite non c'è consumo, solo
+      # coesistenza.
+      #
+      # Il costo accettato è diagnostico, non di correttezza: un lint rosso non
+      # ferma più il job sulla riga che lo ha causato, emerge al join finale.
+      # In cambio un solo giro mostra TUTTI i cancelli rossi invece del primo
+      # soltanto — su una catena che prima falliva a cascata, sono rerun in
+      # meno. Un cancello rosso resta bloccante: il job fallisce comunque.
+      #
+      # I due step successivi ai lint hanno invece una dipendenza VERA, ed è la
+      # ragione per cui l'ordine qui non è libero: "Fetch base ref" crea
+      # `refs/remotes/origin/<base>` per NOME, e sia il gate factuality sia il
+      # fallback `git merge-base` dello step corpus-wide lo risolvono per nome.
+      # "Decide i gate corpus-wide" scrive poi `skip` su `$GITHUB_OUTPUT`, letto
+      # da ENTRAMBI i vitest: un `$GITHUB_OUTPUT` scritto da uno step in
+      # background non ha una semantica di raccolta documentata, quindi quello
+      # step resta in primo piano per costruzione, non per prudenza.
       # ══════════════════════════════════════════════════════════════════════
       - name: Audit no merge conflict markers
         # `!cancelled()` SOLO qui, sul primo step della famiglia: da qui in giù
@@ -930,6 +994,7 @@ jobs:
         # incident where 92 job slice files were committed with raw
         # `git stash pop` conflicts and silently dropped ~3.5k jobs from
         # production via assemble-jobs-dataset.mjs.
+        background: true
         run: npm run audit:no-merge-markers
 
       - name: Lint GHA action Node runtimes
@@ -939,6 +1004,7 @@ jobs:
         # 2026-06-02 and removes node20 on 2026-09-16 — deprecated actions
         # accumulate as annotations then hard-fail, which on this repo blocks
         # the deploy. Catch the regression here instead of reactively (#779).
+        background: true
         run: npm run lint:gha-node-runtime
 
       - name: Lint workflow input shell-injection
@@ -951,6 +1017,7 @@ jobs:
         # and reference the QUOTED shell variable. Also enforced by
         # tests/workflow-input-injection.test.ts; this step surfaces it without
         # waiting for the vitest job.
+        background: true
         run: npm run lint:workflow-input-injection
 
       - name: Lint hardcoded locale segments
@@ -962,6 +1029,7 @@ jobs:
         # 11×/14d because the path breaks on every locale != the hardcoded one.
         # Catch it BEFORE the PR reaches review (zero-Claude). New legit cases:
         # annotate with `// locale-segment-ok: <reason>` or rebaseline post-review.
+        background: true
         run: npm run lint:hardcoded-locale-segments
 
       - name: Verify evergreen comune topics pool is current
@@ -975,6 +1043,7 @@ jobs:
         # incidental one via the vitest suite. On drift: run
         # `node scripts/build-evergreen-comune-topics.mjs` and commit the
         # result.
+        background: true
         run: npm run check:evergreen-comune-topics
 
       - name: Fetch base ref for the factuality diff
@@ -1153,6 +1222,66 @@ jobs:
           printf '%s\n' "$decision"
           printf '%s\n' "$decision" >> "$GITHUB_OUTPUT"
 
+      - name: vitest run (test che non leggono il dataset)
+        # VITEST_DATASET_GROUP=independent → vitest.config.ts esclude i file
+        # classificati da scripts/ci/dataset-dependent-tests.mjs. La partizione
+        # è calcolata dal sorgente a ogni run (mai una lista committata da
+        # tenere in sync) ed è verificata disgiunta e completa: 772 + 586 =
+        # 1358 = suite intera. La classificazione è volutamente conservativa,
+        # quindi un test nuovo che legge il dataset finisce in questo gruppo
+        # solo se NON tocca il filesystem — al più perde parallelismo.
+        #
+        # ─── IN BACKGROUND, E QUESTA POSIZIONE È IL MECCANISMO
+        #
+        # Questo è il task più LUNGO del job, e parte il PRIMA POSSIBILE: è la
+        # finestra dentro cui tutto il resto della seconda metà si nasconde
+        # gratis. «Il prima possibile» ha un limite duro e uno solo — legge
+        # `steps.corpus.outputs.skip`, quindi non può stare sopra lo step che
+        # quell'output lo produce ("Decide i gate corpus-wide", subito sopra).
+        # Più su, l'espressione risolverebbe vuoto: nessuna esclusione, i sette
+        # gate corpus-wide (201,4s misurati) rientrerebbero in un gruppo che
+        # non ne ha bisogno. Sotto questo punto, invece, ogni riga guadagnata
+        # è costo esposto.
+        #
+        # Da qui alla fine del job NON deve esistere nessun `wait-all` tranne
+        # quello finale, e non è una preferenza di stile: `wait-all` NON ha una
+        # forma selettiva — unisce TUTTO ciò che a quel punto è ancora in
+        # background, questo step compreso. Un join intermedio lo assorbirebbe
+        # e rimetterebbe in fila tutto ciò che segue, riportando la wall a
+        # quella sequenziale senza che nulla lo segnali (il `background: true`
+        # qui sotto diventerebbe una decorazione inerte). È esattamente
+        # l'errore che questa PR ha commesso e misurato: vedi la STORIA sullo
+        # step "Assemble + migrate" qui sotto.
+        #
+        # Il corollario è che assemble+migrate e "vitest run (test che leggono
+        # il dataset)" restano step FOREGROUND, in fila fra loro, e girano
+        # dentro questa finestra. Non serve nessun join per ordinarli: la fine
+        # di uno step foreground è già la sincronizzazione del successivo, ed è
+        # l'unica forma di join SELETTIVA che il runner offra — per costruzione
+        # non può catturare questo background.
+        #
+        # Che i due gruppi vitest CPU-bound si contendano le 4 vCPU è il punto,
+        # non un effetto collaterale: `pool: 'threads'` non satura mai
+        # perfettamente (import, I/O, code di file lunghi in coda), e i buchi di
+        # uno sono riempiti dall'altro. Il prezzo è che ogni test diventa più
+        # lento in wall-clock — vedi la STORIA sull'assemble per cosa questo ha
+        # già fatto scadere una volta, e le due mitigazioni con cui rientra.
+        #
+        # Il json reporter alimenta scripts/ci/generate-shard-weights.mjs via
+        # refresh-shard-weights.yml, che scarica `shard-timing-*` con una glob
+        # (progettata per i 4 shard di un tempo) → due file sono già supportati.
+        background: true
+        env:
+          VITEST_DATASET_GROUP: independent
+          VITEST_CACHE_DIR: node_modules/.vite-independent
+          # Calcolato per diff anche su push a main (non solo su pull_request,
+          # vedi lo step "Decide i gate corpus-wide"); vuoto su qualunque suo
+          # esito anomalo → nessuna esclusione, suite intera. `parseCorpusSkipList`
+          # filtra comunque il valore contro il registro: questa env non puo'
+          # spegnere un test che non sia uno dei sette.
+          VITEST_CORPUS_SKIP: ${{ steps.corpus.outputs.skip }}
+        run: npm test -- --reporter=default --reporter=json --outputFile=shard-timing-1.json
+
       - name: Cache assemble-jobs output
         # Mirrors deploy.yml's identical step. assemble-jobs-dataset.mjs has a
         # content-addressable cache under .cache/assemble-jobs (keyed on a
@@ -1169,72 +1298,113 @@ jobs:
           restore-keys: |
             assemble-jobs-${{ runner.os }}-
 
-      - name: Assemble data/jobs.json (background)
-        # BACKGROUND: l'assemble è costato 133s e 155s nelle ultime due run
-        # verdi (30355205859 / 30357073975) e la sua cache sopra è di fatto
-        # sempre un miss — la key include hashFiles('data/jobs/by-crawler/**')
-        # e i crawler riscrivono le slice decine di volte al giorno, per cui la
-        # key non ricentra mai; la cascata restore-keys recupera un archivio con
-        # fingerprint diverso e lo script riassembla comunque. Ci si mette pure
-        # la quota cache del repo satura (9.54GB/10GB, 12 cache attive): la LRU
-        # evicta prima che una key si ripresenti. Erano ~140s in coda a vitest.
+      - name: Assemble + migrate
+        # FOREGROUND, e ci è tornato dopo una misura — non è la forma «ovvia»
+        # non ancora ottimizzata. Gira DENTRO la finestra di "vitest run (test
+        # che non leggono il dataset)", che è partito molto più sopra ed è
+        # ancora in volo: il suo costo (~326s misurati, run 32959864544) resta
+        # quindi nascosto a ~0 wall, esattamente come lo sarebbe in background,
+        # ma senza aver bisogno di un join per essere raccolto.
         #
-        # Solo 586 dei 1358 file di test leggono i suoi output: gli altri 772
-        # girano nello step sotto MENTRE questo lavora, e il `wait-all` li
-        # rijoina prima degli step che il dataset lo richiedono davvero. Il
-        # gruppo indipendente dura molto più dei ~140s dell'assemble, quindi
-        # l'assemble sparisce interamente dal wall del job.
+        # Ed è la differenza che conta: uno step foreground è l'UNICA forma di
+        # sincronizzazione SELETTIVA di questo runner. La sua fine gate lo step
+        # successivo — "vitest run (test che leggono il dataset)", che dipende
+        # davvero da data/jobs.json + slug registry — e per costruzione non può
+        # catturare nient'altro. Un `wait-all` messo qui, invece, avrebbe
+        # raccolto anche il gruppo indipendente ancora in volo (non ha un join
+        # selettivo, verificato: 51 join in 245 workflow, nessuna forma
+        # «aspetta solo l'assemble»), rimettendo i due gruppi vitest in fila.
         #
-        # DEVE restare uno step `run:` — `background:` su uno step `uses:` non
-        # è supportato e rompe l'intero file workflow (incidente PR #4777).
+        # Il migrate è concatenato nello stesso `run:`: dipende SOLO da
+        # data/jobs.json, mai dai test. bash -eo pipefail (default degli step)
+        # aborta prima del migrate se l'assemble è rosso, e uno step foreground
+        # rosso ferma il job qui — fail-fast, prima del gruppo dipendente.
         #
-        # Nota: esercita solo assembleJobsDataset() (legge+aggrega le slice
-        # committate), mai writeJobsCrawlerSlice() o le guard shrink/boilerplate
-        # (quelle girano solo dentro update-<company>-jobs.mjs), quindi non
-        # serve GH_TOKEN / issues:write.
-        id: assemble
-        background: true
-        run: node scripts/assemble-jobs-dataset.mjs --stats
-
-      - name: vitest run (test che non leggono il dataset)
-        # VITEST_DATASET_GROUP=independent → vitest.config.ts esclude i file
-        # classificati da scripts/ci/dataset-dependent-tests.mjs. La partizione
-        # è calcolata dal sorgente a ogni run (mai una lista committata da
-        # tenere in sync) ed è verificata disgiunta e completa: 772 + 586 =
-        # 1358 = suite intera. La classificazione è volutamente conservativa,
-        # quindi un test nuovo che legge il dataset finisce in questo gruppo
-        # solo se NON tocca il filesystem — al più perde parallelismo.
+        # STORIA DELLA SECONDA METÀ DEL JOB (2026-08-26), perché è cambiata
+        # quattro volte in un giorno e senza questo paragrafo sembra indecisione:
         #
-        # Il json reporter alimenta scripts/ci/generate-shard-weights.mjs via
-        # refresh-shard-weights.yml, che scarica `shard-timing-*` con una glob
-        # (progettata per i 4 shard di un tempo) → due file sono già supportati.
-        env:
-          VITEST_DATASET_GROUP: independent
-          # Calcolato per diff anche su push a main (non solo su pull_request,
-          # vedi lo step "Decide i gate corpus-wide"); vuoto su qualunque suo
-          # esito anomalo → nessuna esclusione, suite intera. `parseCorpusSkipList`
-          # filtra comunque il valore contro il registro: questa env non puo'
-          # spegnere un test che non sia uno dei sette.
-          VITEST_CORPUS_SKIP: ${{ steps.corpus.outputs.skip }}
-        run: npm test -- --reporter=default --reporter=json --outputFile=shard-timing-1.json
-
-      - name: Wait for background assemble
-        wait-all: true
-
-      - name: Migrate canton-aware tracking
-        # cathedral-expired-tracking-canton asserts non-TI tracking entries use
-        # canton-aware section paths. The migration is idempotent. Legge
-        # data/jobs.json (quindi sta dietro il wait-all) e RISCRIVE
-        # data/all-known-job-slugs.json — per questo quel file è fra gli output
-        # tracciati dal classificatore: chi lo legge deve girare qui sotto, non
-        # nel gruppo indipendente dove sarebbe ancora la versione committata.
-        run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
+        #   1. Sovrapposizione vitest↔vitest introdotta: anche il gruppo
+        #      indipendente in background, per farlo correre insieme al
+        #      dipendente (entrambi CPU-bound).
+        #   2. Revertita: sul run 32948270917 ha fatto scadere
+        #      `tests/orphan-enriched-store.test.ts` — timeout a 15s DENTRO una
+        #      scansione filesystem, mai arrivato all'assert. La contesa sulle
+        #      4 vCPU, prevista come rischio nel PR body, si era materializzata.
+        #   3. Reintrodotta con DUE mitigazioni esplicite invece di evitare la
+        #      coppia rischiosa — e restano entrambe attive oggi:
+        #      (a) quel test ha ora un `timeout` PER-TEST a 180s (il default
+        #          globale di 15s resta invariato per gli altri 1.357);
+        #      (b) quel test è stato reso ~18x più economico con un pre-filtro
+        #          `includes()` prima del parse AST: 7 file parsati invece di
+        #          4.918, scan da 3.802ms a 208ms, test da 7.363ms a ~300-980ms
+        #          in isolamento locale.
+        #      Le due si compensano: il test è molto più veloce E la soglia che
+        #      lo giudica è molto più larga.
+        #      MA quella forma metteva l'assemble in `background:` seguito da un
+        #      `wait-all` DEDICATO piazzato PRIMA del gruppo indipendente, per
+        #      impedire al join di catturarlo. Il join quindi attendeva
+        #      l'assemble per intero, in una finestra dove NIENTE gli girava
+        #      accanto: i ~326s dell'assemble (run 32959864544) da nascosti
+        #      erano diventati esposti, sommati davanti a tutto il resto, e il
+        #      totale rischiava di essere PEGGIORE del baseline sequenziale.
+        #   4. Forma attuale: il gruppo indipendente parte per PRIMO e in
+        #      background, l'assemble torna foreground senza join, e il
+        #      dipendente lo segue in fila. Un solo `wait-all`, in fondo.
+        #      Così l'assemble torna nascosto gratis (come al punto 1) E i due
+        #      gruppi vitest si sovrappongono lo stesso (come al punto 3).
+        #
+        # Il baseline sequenziale contro cui si misura l'overlap è 678s (run
+        # 32939112340, verde) per lo span «indipendenti start → dataset end».
+        run: |
+          node scripts/assemble-jobs-dataset.mjs --stats
+          node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
       - name: vitest run (test che leggono il dataset)
+        # FOREGROUND, e subito dopo "Assemble + migrate" senza niente in mezzo:
+        # la sequenza naturale degli step foreground è già tutta la dipendenza
+        # che ha (data/jobs.json + lo slug registry, scritti dall'assemble —
+        # mai da tsc, mai dai lint, mai dall'altro gruppo vitest). Nessun join
+        # qui sopra, quindi il gruppo indipendente resta in volo e questi due
+        # gruppi CPU-bound si sovrappongono per davvero.
         env:
           VITEST_DATASET_GROUP: dependent
           VITEST_CORPUS_SKIP: ${{ steps.corpus.outputs.skip }}
+          VITEST_CACHE_DIR: node_modules/.vite-dependent
         run: npm test -- --reporter=default --reporter=json --outputFile=shard-timing-2.json
+
+      # ══════════════════════════════════════════════════════════════════════
+      # L'UNICO join della seconda metà del job, e chiude due cose insieme:
+      #   1. i sei cancelli deterministici (`tsc` + i cinque lint, avviati
+      #      molto più sopra);
+      #   2. `vitest run (test che non leggono il dataset)`, lanciato in
+      #      background prima ancora dell'assemble.
+      # Entrambi devono essere rijoinati PRIMA che il job finisca, altrimenti
+      # il loro esito non entra nel verdetto — un gruppo vitest non rijoinato
+      # sarebbe un intero mezzo-suite il cui rosso non arrossa niente. Il test
+      # `tests/workflow-background-wait-schema.test.ts` lo verifica in modo
+      # strutturale, su tutti i workflow: ogni `background:` vuole un
+      # `wait-all` DOPO di sé nello stesso job. Questo join è anche l'unico
+      # modo di SAPERE come sono andati: fino a qui il loro esito non esiste.
+      #
+      # Perché UNO SOLO, e perché in fondo. `wait-all` non ha una forma
+      # selettiva: unisce TUTTO ciò che è ancora in background, non un
+      # sottoinsieme nominato. Ogni join intermedio è quindi un punto in cui la
+      # finestra di sovrapposizione più lunga del job — il gruppo indipendente —
+      # verrebbe chiusa per sbaglio, e tutto ciò che segue tornerebbe in fila
+      # senza che nulla lo segnali. Messo qui, invece, dentro quella finestra ci
+      # stanno gratis sia i sei cancelli (~78s misurati) sia assemble+migrate
+      # (~326s, run 32959864544) sia il gruppo dipendente. Dove serviva un
+      # ordine — assemble prima del gruppo dipendente — lo dà la sequenza
+      # foreground, che è selettiva per costruzione. Non aggiungere join qui
+      # sopra: è la regressione già misurata (vedi la STORIA sull'assemble).
+      #
+      # NB: la durata di uno step in background dev'essere legata al LAVORO
+      # che accompagna, mai a un timer proprio — vedi la nota sul
+      # campionatore di memoria rimosso (era appeso a un `sleep` indipendente
+      # dalla suite, e a suite rossa teneva il job in ostaggio mezz'ora).
+      # ══════════════════════════════════════════════════════════════════════
+      - name: Wait for background gates and independent vitest
+        wait-all: true
 
       - name: Upload test timing
         # always() so we still collect timings when the run is red (a slow test
@@ -1255,98 +1425,3 @@ jobs:
           path: shard-timing-2.json
           retention-days: 7
           if-no-files-found: ignore
-
-      # ══════════════════════════════════════════════════════════════════════
-      # FAMIGLIA 4/4 — collision (ex job `collision`, ex pr-collision-detector.yml)
-      #
-      # ULTIMA DI PROPOSITO, e non per gusto dell'ordine: e' la sola famiglia
-      # che INIETTA SEGRETI NELL'AMBIENTE DEL JOB. `scripts/load-rc-env.mjs`
-      # scrive ~92 variabili di Remote Config su `$GITHUB_ENV`, e `$GITHUB_ENV`
-      # vale per TUTTI GLI STEP SUCCESSIVI dello stesso job — non solo per lo
-      # step che lo ha eseguito. Finche' `collision` era un job a se' la cosa
-      # era invisibile: vitest girava in un altro job e quell'ambiente non lo
-      # vedeva mai.
-      #
-      # Fondendo i job si fondono anche gli AMBIENTI, ed e' costato un giro di
-      # CI scoprirlo: run 32937626053, 14 test rossi su 11 file, tutti quelli
-      # che asseriscono un comportamento a ambiente PULITO — «rejects when no
-      # email provider configured», «is a no-op when POSTHOG_EMAIL_EXPERIMENT
-      # is unset» (nel log: `POSTHOG_EMAIL_EXPERIMENT: 1` caricato da RC),
-      # «no-ops when the key is missing», «returns ok:false when token
-      # missing», «an empty environment mints the pre-#5685 code». Non erano
-      # rossi ereditati da main: main era verde, li' vitest non vedeva la RC.
-      #
-      # Mettere questa famiglia DOPO vitest e' il rimedio piu' piccolo che
-      # esista: nessun tocco a `load-rc-env.mjs` (condiviso da molti workflow)
-      # e nessun tentativo di "azzerare" a mano 92 variabili, che con
-      # `$GITHUB_ENV` si possono al massimo svuotare, non togliere — e diversi
-      # di quei test distinguono `''` da `undefined`.
-      #
-      # Costo dichiarato: la label `collision-risk` atterra ~15 min piu' tardi
-      # e, se il job muore per `timeout-minutes`, non atterra affatto (prima
-      # `collision` era un job separato che vitest non poteva affamare). Un
-      # vitest ROSSO non la perde comunque: `!cancelled()` la fa girare lo
-      # stesso. Guard: `tests/ci-vitest-check-name.test.ts` verifica che il
-      # caricamento dei segreti resti a valle di vitest.
-      # ══════════════════════════════════════════════════════════════════════
-      - name: Prepare Firebase credentials
-        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
-        env:
-          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
-        run: |
-          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
-            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
-            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
-          else
-            echo "ℹ️ Nessuna Firebase SA — GITHUB_PAT non caricato; le label collision-risk verranno applicate via GITHUB_TOKEN (sufficiente per il gating di P1)."
-          fi
-
-      - name: Load secrets from Remote Config (GITHUB_PAT)
-        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
-        continue-on-error: true
-        run: node scripts/load-rc-env.mjs
-
-      # Primary identity = GitHub App installation token (`frontaliere-automation[bot]`):
-      # auto-mints, no expiry babysit. Falls back to env.GITHUB_PAT then GITHUB_TOKEN.
-      # A collision-risk label is sufficient with either identity (#2861 item 1).
-      - name: Mint App token (primary identity, PAT fallback)
-        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
-        continue-on-error: true
-        env:
-          APP_ID: ${{ secrets.APP_ID }}
-          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-        run: node scripts/ci/mint-app-token.mjs
-
-      # PAT-down = degrado silenzioso a catena del loop autonomo (merge senza
-      # cascade, coda congelata, routing/re-queue inerti). Alert inline
-      # deterministico, dedup sul titolo canonico del monitor daily
-      # (gh-pat-expiry-monitor.yml) che resta l'owner dell'auto-close.
-      # GH_TOKEN = GITHUB_TOKEN, NON il PAT (e' la cosa rotta).
-      - name: Alert token-down (dedup, zero-Claude)
-        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' && env.APP_TOKEN == '' && env.GITHUB_PAT == '' }}
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_REPO: ${{ github.repository }}
-        run: node scripts/ci/alert-pat-down.mjs --workflow "${{ github.workflow }}" --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-
-      - name: Detect funnel-critical collisions (deterministic, no Claude)
-        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
-        env:
-          # App token preferito (identità stabile, coerente con gli altri workflow
-          # migrati); PAT poi GITHUB_TOKEN come fallback — una label via GITHUB_TOKEN
-          # è comunque sufficiente per il gating di P1.
-          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          DRY_RUN: ${{ github.event.inputs.dry_run }}
-        run: |
-          if [ "${DRY_RUN:-false}" = "true" ]; then
-            node scripts/ci/pr-collision-detector.mjs --dry-run
-          else
-            node scripts/ci/pr-collision-detector.mjs
-          fi
-
-      - name: Cleanup Firebase credentials
-        if: always()
-        run: rm -f /tmp/firebase-sa.json
