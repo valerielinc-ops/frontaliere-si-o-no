@@ -56648,6 +56648,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-grigioni-perequazione-2027': {
+    title: 'Grigioni 2027: +1,5 milioni per perequazione | Frontaliere Ticino',
+    description: 'Nel 2027 il Canton Grigioni aumenta i contributi di perequazione finanziaria ai comuni a 73,2 milioni. Il cantone versa 41,7 milioni, i comuni forti 31,5.',
+    keywords: 'frontalieri, ticino, svizzera, italia, grigioni, milioni, perequazione, canton',
+    ogTitle: 'Grigioni 2027: più fondi per i comuni',
+    ogDescription: 'Il Canton Grigioni rafforza la perequazione finanza nel 2027 con 73,2 milioni totali, di cui 41,7 dal cantone e 31,5 dai comuni forti. Scopri cosa cambia per St. Moritz, Landquart, Poschiavo e Roveredo, e come la perequazione influisce',
+    canonicalPath: '/articoli-svizzera/grigioni-perequazione-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grigioni 2027: +1,5 milioni per perequazione",
+      "description": "Nel 2027 il Canton Grigioni aumenta i contributi di perequazione finanziaria ai comuni a 73,2 milioni. Il cantone versa 41,7 milioni, i comuni forti 31,5.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/grigioni-perequazione-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea di un comune alpino nel Canton Grigioni con paesaggio montano"
+      },
+      "datePublished": "2026-08-26T08:32:18+00:00",
+      "dateModified": "2026-08-26T08:32:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/grigioni-perequazione-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

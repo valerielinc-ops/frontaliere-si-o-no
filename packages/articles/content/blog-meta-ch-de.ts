@@ -4366,6 +4366,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ffs-crescita-primo-semestre-2026.title': 'SBB im Zeichen des Wachstums im ersten Halbjahr',
     'blog.article.ffs-crescita-primo-semestre-2026.excerpt': 'Die Schweizerischen Bundesbahnen schliessen das erste Halbjahr 2026 mit nahezu verdoppelten Gewinnen und über 1,45 Millionen Fahrgästen pro Tag ab, ein Plus von 4,0% gegenüber 2025.',
     'blog.article.ffs-crescita-primo-semestre-2026.imageAlt': 'Moderner Zug an einem Schweizer Bahnhof tagsüber, zeitgenössische Eisenbahninfrastruktur.',
+    'blog.article.grigioni-perequazione-2027.title': 'Graubünden 2027: +1,5 Mio. per Ausgleich',
+    'blog.article.grigioni-perequazione-2027.excerpt': 'Im Jahr 2027 erhöht der Kanton Graubünden die Finanzausgleichsbeiträge an die Gemeinden auf 73,2 Millionen. Der Kanton zahlt 41,7 Millionen, die starken Gemeinden 31,5 Millionen.',
+    'blog.article.grigioni-perequazione-2027.imageAlt': 'Luftaufnahme einer Alpengemeinde im Kanton Graubünden mit Berglandschaft',
 };
 
 export default blogMetaChDe;

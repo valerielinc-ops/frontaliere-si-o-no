@@ -13096,6 +13096,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'grigioni-perequazione-2027',
+    category: 'fiscale',
+    date: '2026-08-26T08:32:18.299Z',
+    image: '/images/blog/grigioni-perequazione-2027.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

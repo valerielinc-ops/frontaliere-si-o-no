@@ -4366,6 +4366,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ffs-crescita-primo-semestre-2026.title': 'FFS nel segno della crescita nel primo semestre',
     'blog.article.ffs-crescita-primo-semestre-2026.excerpt': 'Le Ferrovie federali svizzere chiudono il primo semestre 2026 con utili quasi raddoppiati e oltre 1,45 milioni di passeggeri giornalieri, in crescita del 4,0% rispetto al 2025.',
     'blog.article.ffs-crescita-primo-semestre-2026.imageAlt': 'Treno moderno in stazione ferroviaria svizzera durante il giorno, infrastruttura ferroviaria contemporanea.',
+    'blog.article.grigioni-perequazione-2027.title': 'Grigioni 2027: +1,5 milioni per perequazione',
+    'blog.article.grigioni-perequazione-2027.excerpt': 'Nel 2027 il Canton Grigioni aumenta i contributi di perequazione finanziaria ai comuni a 73,2 milioni. Il cantone versa 41,7 milioni, i comuni forti 31,5.',
+    'blog.article.grigioni-perequazione-2027.imageAlt': 'Veduta aerea di un comune alpino nel Canton Grigioni con paesaggio montano',
 };
 
 export default blogMetaChIt;
