@@ -4357,6 +4357,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.raiffeisen-taglio-posti-lavoro.title': 'Raiffeisen cuts 180 jobs by 2027',
     'blog.article.raiffeisen-taglio-posti-lavoro.excerpt': 'Raiffeisen announces the reduction of up to 180 seats to reduce costs by CHF 60 million. Structural reorganization in six departments since October.',
     'blog.article.raiffeisen-taglio-posti-lavoro.imageAlt': 'Swiss financial office with professionals at work desks, realistic DSLR photography style.',
+    'blog.article.brienz-ricollocazione-sicurezza.title': 'Brienz: Tiefencastel and Alvaneu will be relocation sites',
+    'blog.article.brienz-ricollocazione-sicurezza.excerpt': 'Tiefencastel and Alvaneu designated as reception sites for the 42 residents of Brienz affected by the risk of historic landslide. CHF 82.5 million approved.',
+    'blog.article.brienz-ricollocazione-sicurezza.imageAlt': 'Swiss alpine village with traditional stone houses in mountain valley, representing rural communities at geological risk',
 };
 
 export default blogMetaChEn;
