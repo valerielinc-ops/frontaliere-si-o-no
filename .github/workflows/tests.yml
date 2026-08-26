@@ -1274,12 +1274,11 @@ jobs:
         background: true
         env:
           VITEST_DATASET_GROUP: independent
-          # I due gruppi Vitest girano contemporaneamente sullo stesso runner.
-          # Senza questo limite ogni processo usa tutti i core disponibili e i
-          # due pool si sovraccaricano a vicenda, facendo scadere test di
-          # scansione/importazione nel timeout. Il 50% mantiene la
-          # parallelizzazione e si adatta al runner (2 worker ciascuno su
-          # ubuntu-latest, che ha 4 vCPU).
+          # I due gruppi Vitest possono girare contemporaneamente sullo stesso
+          # runner. Il primo parte con metà budget: il gruppo successivo
+          # sceglie poi il 50% o il 100% in base al fatto che questo sia ancora
+          # attivo. Così non c'è oversubscription durante l'overlap e non si
+          # lascia metà runner inutilizzata dopo il primo completamento.
           VITEST_MAX_WORKERS: 50%
           VITEST_CACHE_DIR: node_modules/.vite-independent
           # Calcolato per diff anche su push a main (non solo su pull_request,
@@ -1367,19 +1366,33 @@ jobs:
           node scripts/assemble-jobs-dataset.mjs --stats
           node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
+      - name: Select adaptive Vitest worker budget
+        id: vitest_budget
+        # Vitest fissa il pool all'avvio e non lo ridimensiona a metà run.
+        # Adattiamo quindi il budget al punto di handoff: con independent in
+        # volo il dependent prende metà CPU; se independent è già terminato,
+        # il dependent può usare tutti i worker disponibili.
+        run: |
+          if ps -eo args= | grep -E '[v]itest run .*shard-timing-1\.json' >/dev/null; then
+            echo "max_workers=50%" >> "$GITHUB_OUTPUT"
+            echo "independent ancora attivo: dependent userà il 50% dei worker"
+          else
+            echo "max_workers=100%" >> "$GITHUB_OUTPUT"
+            echo "independent terminato: dependent userà il 100% dei worker"
+          fi
+
       - name: vitest run (test che leggono il dataset)
         # FOREGROUND, e subito dopo "Assemble + migrate" senza niente in mezzo:
         # la sequenza naturale degli step foreground è già tutta la dipendenza
         # che ha (data/jobs.json + lo slug registry, scritti dall'assemble —
         # mai da tsc, mai dai lint, mai dall'altro gruppo vitest). Nessun join
         # qui sopra, quindi il gruppo indipendente resta in volo e questi due
-        # gruppi CPU-bound si sovrappongono per davvero.
+        # gruppi CPU-bound si sovrappongono per davvero. Il budget viene
+        # scelto dinamicamente dallo step precedente, in base alla contesa
+        # reale e non a una percentuale fissa valida per tutta la run.
         env:
           VITEST_DATASET_GROUP: dependent
-          # Bilancia il budget CPU con il gruppo independent ancora attivo:
-          # entrambi mantengono il file-level parallelism, ma senza
-          # oversubscription del runner condiviso.
-          VITEST_MAX_WORKERS: 50%
+          VITEST_MAX_WORKERS: ${{ steps.vitest_budget.outputs.max_workers }}
           VITEST_CORPUS_SKIP: ${{ steps.corpus.outputs.skip }}
           VITEST_CACHE_DIR: node_modules/.vite-dependent
         run: npm test -- --reporter=default --reporter=json --outputFile=shard-timing-2.json

@@ -194,14 +194,11 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
     expect(TESTS_CODE).not.toContain('pr-collision-detector');
   });
 
-  it('i due gruppi paralleli condividono il budget CPU del runner', () => {
-    const vitestRuns = [...TESTS_YML.matchAll(/- name: vitest run \([^\n]+\)[\s\S]*?(?=\n      - name:|\n      #|$)/g)].map(
-      (match) => match[0],
-    );
-    expect(vitestRuns).toHaveLength(2);
-    for (const run of vitestRuns) {
-      expect(run).toContain('VITEST_MAX_WORKERS: 50%');
-    }
+  it('adatta il budget CPU al completamento del gruppo independent', () => {
+    expect(TESTS_YML).toContain('id: vitest_budget');
+    expect(TESTS_YML).toContain("echo \"max_workers=50%\" >> \"$GITHUB_OUTPUT\"");
+    expect(TESTS_YML).toContain("echo \"max_workers=100%\" >> \"$GITHUB_OUTPUT\"");
+    expect(TESTS_YML).toContain('VITEST_MAX_WORKERS: ${{ steps.vitest_budget.outputs.max_workers }}');
   });
 
   // Il lock non e' piu' CONDIZIONALE, e' CIRCOSCRITTO: sta su un job che
