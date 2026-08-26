@@ -1,18 +1,18 @@
 {
   "key": "scandit",
   "label": "Scandit AG",
-  "generatedAt": "2026-08-25T22:42:38.768Z",
-  "total": 4,
+  "generatedAt": "2026-08-26T10:17:42.173Z",
+  "total": 2,
   "discovered": null,
-  "written": 4,
+  "written": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 6003,
-  "avgDurationMs": 6003,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 5844,
+  "avgDurationMs": 5844,
   "durationHistory": [
-    6003
+    5844
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=8093936",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-25T22:42:33.458Z",
+      "crawledAt": "2026-08-26T10:17:37.024Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -63,7 +63,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=7588975",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-25T22:42:33.149Z",
+      "crawledAt": "2026-08-26T10:17:36.705Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -86,8 +86,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "scandit-067a4be54142",
       "slug": "studente-di-lavoro-assistente-di-convalida-del-caso-di-utilizzo-scandit-ag-zurich",
@@ -114,7 +113,6 @@
       "postedDate": "2026-08-20",
       "applyUrl": "https://www.scandit.com/careers/job-description/?gh_jid=8143595",
       "firstSeenAt": "2026-08-20T10:01:51.446Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "addressRegion": "ZH",
@@ -166,5 +164,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
