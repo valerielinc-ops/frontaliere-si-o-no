@@ -4384,6 +4384,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.allerte-popolazione-cell-broadcast.title': 'Alertes population : Berne accélère la diffusion de cellules',
     'blog.article.allerte-popolazione-cell-broadcast.excerpt': 'Le Conseil fédéral demande 15,8 millions de CHF pour le cell broadcast, système d\'alerte qui atteindra les citoyens directement sur leurs téléphones portables.',
     'blog.article.allerte-popolazione-cell-broadcast.imageAlt': 'Système d\'alerte d\'urgence avec notifications sur téléphones mobiles dans une place suisse',
+    'blog.article.edilizia-crescita-primo-semestre.title': 'Construction : croissance de +3,1 % au cours des six premiers mois de 2026',
+    'blog.article.edilizia-crescita-primo-semestre.excerpt': 'Au premier semestre 2026, le chiffre d\'affaires de la construction suisse a atteint 11,2 milliards de francs, soit une croissance de 3,1%. Mais les permis et les recours freinent les chantiers.',
+    'blog.article.edilizia-crescita-primo-semestre.imageAlt': 'Chantier de construction moderne en Suisse avec grues et nouveaux immeubles résidentiels, symbole de la croissance du secteur du bâtiment.',
 };
 
 export default blogMetaChFr;

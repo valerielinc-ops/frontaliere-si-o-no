@@ -4384,6 +4384,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.allerte-popolazione-cell-broadcast.title': 'Allerte popolazione: Berna accelera cell broadcast',
     'blog.article.allerte-popolazione-cell-broadcast.excerpt': 'Consiglio federale chiede 15,8 milioni CHF per il cell broadcast, sistema di allerta che raggiungerà i cittadini direttamente sui loro cellulari.',
     'blog.article.allerte-popolazione-cell-broadcast.imageAlt': 'Dimostrazione di sistema di allerta d\'emergenza con messaggi su telefoni mobili in una piazza svizzera',
+    'blog.article.edilizia-crescita-primo-semestre.title': 'Edilizia: crescita del +3,1% nei primi sei mesi 2026',
+    'blog.article.edilizia-crescita-primo-semestre.excerpt': 'Nel primo semestre 2026 il fatturato della costruzione svizzera ha raggiunto 11,2 miliardi di franchi, con una crescita del 3,1%. Ma permessi e ricorsi frenano i cantieri.',
+    'blog.article.edilizia-crescita-primo-semestre.imageAlt': 'Cantiere edile moderno in Svizzera con gru e nuovi edifici residenziali, simbolo della crescita del settore costruzioni e del mercato abitativo nel 2026.',
 };
 
 export default blogMetaChIt;

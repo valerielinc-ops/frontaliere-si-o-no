@@ -4384,6 +4384,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.allerte-popolazione-cell-broadcast.title': 'Population alerts: Bern accelerates cell broadcast',
     'blog.article.allerte-popolazione-cell-broadcast.excerpt': 'The Federal Council is asking for CHF 15.8 million for cell broadcast, an alert system that will reach citizens directly on their mobile phones.',
     'blog.article.allerte-popolazione-cell-broadcast.imageAlt': 'Emergency alert system demonstration with mobile phone notifications in a Swiss town square',
+    'blog.article.edilizia-crescita-primo-semestre.title': 'Construction: +3.1% growth in the first six months of 2026',
+    'blog.article.edilizia-crescita-primo-semestre.excerpt': 'In the first half of 2026, Swiss construction turnover reached CHF 11.2 billion, with a growth of 3.1%. But permits and appeals slow down construction sites.',
+    'blog.article.edilizia-crescita-primo-semestre.imageAlt': 'Modern construction site in Switzerland with cranes and new residential buildings, symbolizing the boom in the construction sector and housing market.',
 };
 
 export default blogMetaChEn;
