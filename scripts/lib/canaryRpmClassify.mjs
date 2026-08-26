@@ -161,7 +161,9 @@ export function classifyRpm(rows, opts = {}) {
  * Intentionally uses the SAME `latestClosedIndex` (pageViews-based
  * still-open/truncated-day guard) as `classifyRpm` so both checks agree on
  * which days are "closed" — a row missing `coverage` (undefined/NaN) inside
- * the window is treated as missing data, not as 0% coverage.
+ * the window is treated as missing data, not as 0% coverage, and is excluded
+ * from the average rather than zeroing out the whole window (tolerates one
+ * missing day; two or more falls back to `insufficient-data`).
  *
  * @param {DailyRow[]} rows ascending by date (needs `date`, `pageViews`,
  *   `coverage`)
@@ -182,11 +184,24 @@ export function classifyCoverage(rows, opts = {}) {
 
   const window = rows.slice(closedIdx - sustainDays + 1, closedIdx + 1);
   const values = window.map((r) => (typeof r.coverage === 'number' ? r.coverage : NaN));
-  if (values.some((v) => !Number.isFinite(v))) {
-    return { verdict: 'insufficient-data', reason: 'coverage data missing for one or more days in the window' };
+  const validValues = values.filter((v) => Number.isFinite(v));
+  // Tolerate at most one missing/NaN day (an isolated AdSense API hiccup) —
+  // average over the remaining valid days instead of zeroing out the whole
+  // check. Requiring ALL days to be valid let a single missing day mask a
+  // real sustained regression (issue #6499, a variant of the #4610 blind
+  // spot this check exists to close). Two or more missing days means the
+  // window itself is unreliable, not just noisy.
+  const minValidDays = Math.max(1, sustainDays - 1);
+  if (validValues.length < minValidDays) {
+    return {
+      verdict: 'insufficient-data',
+      reason:
+        `coverage data missing for ${values.length - validValues.length} of ${values.length} day(s) ` +
+        `in the window (need at least ${minValidDays} valid)`,
+    };
   }
 
-  const avgCoverage = values.reduce((s, v) => s + v, 0) / values.length;
+  const avgCoverage = validValues.reduce((s, v) => s + v, 0) / validValues.length;
   const isRegression = avgCoverage < coverageFloor;
   const pct = (n) => (n * 100).toFixed(0);
 

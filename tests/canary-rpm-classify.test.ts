@@ -218,8 +218,19 @@ describe('classifyCoverage', () => {
     expect(res.verdict).toBe('insufficient-data');
   });
 
-  it('returns insufficient-data when coverage is missing for a day inside the window', () => {
+  it('averages over the valid days instead of going insufficient-data when ONE day in the window is missing coverage (issue #6499)', () => {
     const rows = healthyRows();
+    rows[8] = mk('2026-08-09', 3.5, 10, 3000); // no coverage field → NaN, isolated API hiccup
+    const res = classifyCoverage(rows, { todayUtc: '2026-08-11' });
+    // Window is 08-08, 08-09 (missing), 08-10 — the other two are healthy
+    // (0.6), so the check must NOT zero out on the single missing day.
+    expect(res.verdict).toBe('healthy');
+    expect(res.avgCoverage).toBeCloseTo(0.6, 3);
+  });
+
+  it('still returns insufficient-data when TWO OR MORE days in the window are missing coverage', () => {
+    const rows = healthyRows();
+    rows[7] = mk('2026-08-08', 3.5, 10, 3000); // no coverage field → NaN
     rows[8] = mk('2026-08-09', 3.5, 10, 3000); // no coverage field → NaN
     const res = classifyCoverage(rows, { todayUtc: '2026-08-11' });
     expect(res.verdict).toBe('insufficient-data');
