@@ -4402,6 +4402,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mobiliare-edilizia-popolare-200m.title': 'Mobiliar investiert 200 Millionen in den sozialen Wohnungsbau',
     'blog.article.mobiliare-edilizia-popolare-200m.excerpt': 'Die Versicherungsgesellschaft wird 200 Millionen investieren, um 1000 Mietwohnungen zu Mieten zu bauen, die den tatsächlichen Kosten entsprechen.',
     'blog.article.mobiliare-edilizia-popolare-200m.imageAlt': 'Baustelle eines modernen Wohnkomplexes in der Schweiz mit Kränen und Gerüsten während der Bauphase',
+    'blog.article.elettricita-gas-meno-cari-2027.title': 'Leichtere Stromrechnungen: sinkende Energiekosten im Jahr 2027',
+    'blog.article.elettricita-gas-meno-cari-2027.excerpt': 'AIM senkt die Tarife im Mendrisiotto ab 2027: -6,5%-7,4% für Strom, -9,43% für Gas. Entdecken Sie die jährlichen Einsparungen auf Ihrer Energierechnung.',
+    'blog.article.elettricita-gas-meno-cari-2027.imageAlt': 'Energiemessgerät mit Wohnhäusern in der Region Mendrisiotto und sinkenden Tarifen 2027',
+    'blog.article.iniziativa-alimentazione-no.title': 'Ernährungsinitiative: Das Nein des Tessins',
+    'blog.article.iniziativa-alimentazione-no.excerpt': 'Der Tessiner Vorstand warnt vor Kosten und Konsequenzen: Die Abstimmung am 27. September entscheidet über den Antrag auf 70% Selbstversorgung.',
+    'blog.article.iniziativa-alimentazione-no.imageAlt': 'Tessiner Bauernmarkt mit lokalen Produkten, Obst, Gemüse und Milcherzeugnissen unter klarem Himmel.',
+    'blog.article.reddito-record-risparmio-svizzeri.title': 'Rekordergebnis und Ersparnis: Die Schweizer im Jahr 2025',
+    'blog.article.reddito-record-risparmio-svizzeri.excerpt': 'Verfügbares Einkommen von 65.124 Franken pro Einwohner im Jahr 2025. BfS: Freiwillige Sparquote steigt auf 19,3%, das Allzeithoch der Schweizer Statistikreihe.',
+    'blog.article.reddito-record-risparmio-svizzeri.imageAlt': 'Schweizer Familie überprüft ihre Ersparnisse und Finanzplanung in modernem Heimatbüro',
+    'blog.article.stadler-rail-risultati-primo-semestre.title': 'Stadler Rail beschleunigt im ersten Halbjahr und fliegt an die Börse',
+    'blog.article.stadler-rail-risultati-primo-semestre.excerpt': 'Umsatz +40% auf CHF 2 Mrd., EBIT verdoppelt. Aktie gewinnt 19% an der Börse. Auftragsbestand erreicht Rekordhöhe von CHF 33 Milliarden.',
+    'blog.article.stadler-rail-risultati-primo-semestre.imageAlt': 'Blick auf eine moderne Schweizer Eisenbahnstation mit zeitgenössischen Zügen',
 };
 
 export default blogMetaChDe;

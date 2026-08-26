@@ -79046,6 +79046,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-carenze-dogane-sicurezza-ticino': {
+    title: 'Carenze dogane: sindacato chiede mezzi e sicurezza',
+    description: 'Il sindacato Garanto denuncia carenze di personale e attrezzature nella dogana svizzera. Cosa comporta per i frontalieri ai valichi del Ticino. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, carenze, dogane, sindacato, chiede',
+    ogTitle: 'Dogane: carenze di personale e attrezzature',
+    ogDescription: 'Il sindacato della dogana svizzera lancia allarme su carenze critiche di personale, formazione e attrezzature obsolete. Un problema che impatta direttamente i frontalieri ai valichi Ticino-Italia, con rischi di attese più lunghe e minore sicurezza',
+    canonicalPath: '/articoli-frontaliere/carenze-dogane-sicurezza-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Carenze dogane: sindacato chiede mezzi e sicurezza",
+      "description": "Il sindacato Garanto denuncia carenze di personale e attrezzature nella dogana svizzera. Cosa comporta per i frontalieri ai valichi del Ticino. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/carenze-dogane-sicurezza-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione doganale al confine Ticino-Italia con personale in uniforme che effettua controlli documenti"
+      },
+      "datePublished": "2026-08-26T18:08:22+00:00",
+      "dateModified": "2026-08-26T18:08:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carenze-dogane-sicurezza-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
