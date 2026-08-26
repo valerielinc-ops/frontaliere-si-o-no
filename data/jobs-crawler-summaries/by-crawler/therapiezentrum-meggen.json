@@ -1,18 +1,18 @@
 {
   "key": "therapiezentrum-meggen",
   "label": "Therapiezentrum Meggen",
-  "generatedAt": "2026-08-25T21:35:29.501Z",
+  "generatedAt": "2026-08-26T09:56:55.721Z",
   "total": 1,
   "discovered": null,
   "written": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4678,
-  "avgDurationMs": 4678,
+  "durationMs": 3378,
+  "avgDurationMs": 3378,
   "durationHistory": [
-    4678
+    3378
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -30,7 +30,7 @@
       "applyUrl": "https://www.tzm.ch/offene-stellen/",
       "source": "Therapiezentrum Meggen Dedicated Parser (Jimdo HTML + PDF)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:35:25.990Z",
+      "crawledAt": "2026-08-26T09:56:53.337Z",
       "addressLocality": "Meggen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -54,47 +54,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "therapiezentrum-meggen-stellenausschreibung-psychotherapie-ab-oktober2026-58b9f8dc9359",
-      "slug": "psicoterapeuta-psicologica-psicoterapeuta-psicologica-60-100-therapiezentrum-meggen-meggen-164c80",
-      "company": "Therapiezentrum Meggen",
-      "companyKey": "therapiezentrum-meggen",
-      "companyDomain": "tzm.ch",
-      "title": "Psychologische Psychotherapeutin, Psychologischer Psychotherapeut (60-100%)",
-      "needsRetranslation": false,
-      "location": "Meggen",
-      "canton": "LU",
-      "url": "https://www.tzm.ch/app/download/14803683833/Stellenausschreibung%20Psychotherapie%20ab%20Oktober2026.pdf?t=1784708142",
-      "applyUrl": "https://www.tzm.ch/offene-stellen/",
-      "source": "Therapiezentrum Meggen Dedicated Parser (Jimdo HTML + PDF)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:03:29.892Z",
-      "addressLocality": "Meggen",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6045",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Gesundheitswesen / Psychotherapie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-22",
-      "firstSeenAt": "2026-07-22T12:42:48.156Z",
-      "salaryMin": 74500,
-      "salaryMax": 127000,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
