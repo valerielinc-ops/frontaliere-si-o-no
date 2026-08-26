@@ -1496,6 +1496,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'elettricita-gas-meno-cari-2027': { it: 'elettricita-gas-meno-cari-2027', en: 'electricity-gas-lower-costs-2027', de: 'strom-gas-kostenguenstiger-2027', fr: 'electricite-gaz-moins-cher-2027' },
  'iniziativa-alimentazione-no': { it: 'iniziativa-alimentazione-no', en: 'food-initiative-no-ticino', de: 'ernaehrungsinitiative-nein-tessin', fr: 'initiative-alimentation-non-tessin' },
  'reddito-record-risparmio-svizzeri': { it: 'reddito-record-risparmio-svizzeri', en: 'swiss-income-savings-record-2025', de: 'schweiz-einkommen-sparrekord-2025', fr: 'suisse-revenu-epargne-record-2025' },
+ 'stadler-rail-risultati-primo-semestre': { it: 'stadler-rail-risultati-primo-semestre', en: 'stadler-rail-first-half-results', de: 'stadler-rail-halbjahresergebnisse', fr: 'stadler-rail-resultats-premier-semestre' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -4411,6 +4411,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.reddito-record-risparmio-svizzeri.title': 'Rekordergebnis und Ersparnis: Die Schweizer im Jahr 2025',
     'blog.article.reddito-record-risparmio-svizzeri.excerpt': 'Verfügbares Einkommen von 65.124 Franken pro Einwohner im Jahr 2025. BfS: Freiwillige Sparquote steigt auf 19,3%, das Allzeithoch der Schweizer Statistikreihe.',
     'blog.article.reddito-record-risparmio-svizzeri.imageAlt': 'Schweizer Familie überprüft ihre Ersparnisse und Finanzplanung in modernem Heimatbüro',
+    'blog.article.stadler-rail-risultati-primo-semestre.title': 'Stadler Rail beschleunigt im ersten Halbjahr und fliegt an die Börse',
+    'blog.article.stadler-rail-risultati-primo-semestre.excerpt': 'Umsatz +40% auf CHF 2 Mrd., EBIT verdoppelt. Aktie gewinnt 19% an der Börse. Auftragsbestand erreicht Rekordhöhe von CHF 33 Milliarden.',
+    'blog.article.stadler-rail-risultati-primo-semestre.imageAlt': 'Blick auf eine moderne Schweizer Eisenbahnstation mit zeitgenössischen Zügen',
 };
 
 export default blogMetaChDe;

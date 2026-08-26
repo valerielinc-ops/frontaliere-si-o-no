@@ -4411,6 +4411,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.reddito-record-risparmio-svizzeri.title': 'Record income and savings: the Swiss in 2025',
     'blog.article.reddito-record-risparmio-svizzeri.excerpt': 'Disposable income of CHF 65,124 per inhabitant in 2025. UST: voluntary savings rate rises to 19.3%, the highest in the Swiss statistical series.',
     'blog.article.reddito-record-risparmio-svizzeri.imageAlt': 'Swiss family reviewing savings and financial plan at modern home office with Alpine view',
+    'blog.article.stadler-rail-risultati-primo-semestre.title': 'Stadler Rail accelerates in the first semester and flies on the stock exchange',
+    'blog.article.stadler-rail-risultati-primo-semestre.excerpt': 'Revenues +40% to CHF 2 billion, EBIT doubled. Stock gains 19% on the stock market. Order backlog reaches record CHF 33 billion.',
+    'blog.article.stadler-rail-risultati-primo-semestre.imageAlt': 'View of a modern Swiss railway station with contemporary trains',
 };
 
 export default blogMetaChEn;

@@ -4411,6 +4411,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.reddito-record-risparmio-svizzeri.title': 'Reddito e risparmio record: gli svizzeri nel 2025',
     'blog.article.reddito-record-risparmio-svizzeri.excerpt': 'Reddito disponibile di 65.124 franchi per abitante nel 2025. UST: tasso di risparmio volontario sale al 19,3%, il massimo storico della serie statistica svizzera.',
     'blog.article.reddito-record-risparmio-svizzeri.imageAlt': 'Famiglia svizzera che esamina i propri risparmi e pianificazione finanziaria presso un ufficio domestico moderno',
+    'blog.article.stadler-rail-risultati-primo-semestre.title': 'Stadler Rail accelera nel primo semestre e vola in borsa',
+    'blog.article.stadler-rail-risultati-primo-semestre.excerpt': 'Ricavi +40% a CHF 2 miliardi, Ebit raddoppiato. Azione guadagna il 19% in borsa. Portafoglio ordini raggiunge record di CHF 33 miliardi.',
+    'blog.article.stadler-rail-risultati-primo-semestre.imageAlt': 'Vista di una stazione ferroviaria svizzera moderna con treni contemporanei',
 };
 
 export default blogMetaChIt;
