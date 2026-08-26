@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "sbb-39b1a11e9670",
-      "slug": "ingresso-trasversale-macchinista-in-manovra-ffs-officine-ferrovie-federali-rapperswil-sg",
+      "slug": "cambio-carriera-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-rapperswil-sg",
       "slugByLocale": {
-        "it": "ingresso-trasversale-macchinista-in-manovra-ffs-officine-ferrovie-federali-rapperswil-sg",
+        "it": "cambio-carriera-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-rapperswil-sg",
         "en": "cross-entry-locomotive-engineer-ffs-officine-ferrovie-federali-rapperswil-sg",
         "de": "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-rapperswil-sg",
         "fr": "acces-transversal-conducteur-de-locomotive-a-man-uvre-ffs-officine-ferrovie-federali-rapperswil-sg"
@@ -80,11 +80,13 @@
       "crawledAt": "2026-08-26T10:07:03.590Z",
       "previousSlugsByLocale": {
         "it": [
-          "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-rapperswil-sg"
+          "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-rapperswil-sg",
+          "ingresso-trasversale-macchinista-in-manovra-ffs-officine-ferrovie-federali-rapperswil-sg"
         ]
       },
       "previousSlugs": [
-        "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-rapperswil-sg"
+        "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-rapperswil-sg",
+        "ingresso-trasversale-macchinista-in-manovra-ffs-officine-ferrovie-federali-rapperswil-sg"
       ],
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -9757,8 +9759,7 @@
         "produktionsleiter-werk-olten-ffs-officine-ferrovie-federali-olten",
         "assistente-al-cliente-ffs-officine-ferrovie-federali-olten",
         "customer-assistant-in-ffs-officine-ferrovie-federali-olten",
-        "kundenassistent-in-ffs-officine-ferrovie-federali-40-70-olten",
-        "fachverantwortliche-r-im-klimakompetenzzentrum-ffs-officine-ferrovie-federali-olten"
+        "kundenassistent-in-ffs-officine-ferrovie-federali-40-70-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11930,9 +11931,9 @@
       "slug": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
       "slugByLocale": {
         "it": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "en": "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
+        "en": "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
         "de": "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "fr": "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
+        "fr": "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -11993,8 +11994,6 @@
         "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
         "dipendente-in-assemblaggio-deviatoi-ffs-officine-ferrovie-federali-hagendorf",
         "employes-dans-pointsmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
-        "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf",
         "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
         "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
       ],
@@ -12004,12 +12003,10 @@
           "dipendente-in-assemblaggio-deviatoi-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "en": [
-          "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
           "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "fr": [
           "employes-dans-pointsmontage-ffs-officine-ferrovie-federali-hagendorf",
-          "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf",
           "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ]
       },

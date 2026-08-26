@@ -131,27 +131,23 @@
         "diplomierte-pflegfachperson-hf-60-100-entero-egliswil",
         "graduated-nurse-hf-60-100-entero-egliswil",
         "infirmiere-diplomee-hf-60-100-entero-egliswil",
-        "diplomierte-pflegefachperson-hf-60-100-entero-egliswil",
-        "infermiera-laureata-hf-60-100-entero-egliswil"
+        "diplomierte-pflegefachperson-hf-60-100-entero-egliswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "diplomierte-pflegfachperson-hf-60-100-entero-egliswil",
           "graduated-nurse-hf-60-100-entero-egliswil",
           "infirmiere-diplomee-hf-60-100-entero-egliswil",
-          "diplomierte-pflegefachperson-hf-60-100-entero-egliswil",
-          "infermiera-laureata-hf-60-100-entero-egliswil"
+          "diplomierte-pflegefachperson-hf-60-100-entero-egliswil"
         ],
         "en": [
-          "diplomierte-pflegefachperson-hf-60-100-entero-egliswil",
-          "graduated-nurse-hf-60-100-entero-egliswil"
+          "diplomierte-pflegefachperson-hf-60-100-entero-egliswil"
         ],
         "de": [
           "diplomierte-pflegfachperson-hf-60-100-entero-egliswil"
         ],
         "fr": [
-          "diplomierte-pflegefachperson-hf-60-100-entero-egliswil",
-          "infirmiere-diplomee-hf-60-100-entero-egliswil"
+          "diplomierte-pflegefachperson-hf-60-100-entero-egliswil"
         ]
       },
       "firstSeenAt": "2026-08-13T10:39:45.203Z",
@@ -170,12 +166,12 @@
     },
     {
       "id": "entero-66e54723ae3c",
-      "slug": "dauernachtwache-dipl-pflegefachperson-hf-fh-60-100-entero-egliswil",
+      "slug": "perpetual-night-watch-dipl-infermiera-hf-fh-60-100-entero-egliswil",
       "slugByLocale": {
-        "it": "dauernachtwache-dipl-pflegefachperson-hf-fh-60-100-entero-egliswil",
-        "en": "dauernachtwache-dipl-pflegefachperson-hf-fh-60-100-entero-egliswil",
+        "it": "perpetual-night-watch-dipl-infermiera-hf-fh-60-100-entero-egliswil",
+        "en": "perpetual-night-watch-dipl-nurse-hf-fh-60-100-entero-egliswil",
         "de": "dauernachtwache-dipl-pflegefachperson-hf-fh-60-100-entero-egliswil",
-        "fr": "dauernachtwache-dipl-pflegefachperson-hf-fh-60-100-entero-egliswil"
+        "fr": "veille-de-nuit-permanente-infirmiere-diplomee-hf-fh-60-100-entero-egliswil"
       },
       "company": "entero",
       "companyKey": "entero",
@@ -229,7 +225,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dauernachtwache-dipl-pflegefachperson-hf-fh-60-100-entero-egliswil"
+        ],
+        "en": [
+          "dauernachtwache-dipl-pflegefachperson-hf-fh-60-100-entero-egliswil"
+        ],
+        "fr": [
+          "dauernachtwache-dipl-pflegefachperson-hf-fh-60-100-entero-egliswil"
+        ]
+      },
+      "previousSlugs": [
+        "dauernachtwache-dipl-pflegefachperson-hf-fh-60-100-entero-egliswil"
+      ]
     }
   ]
 }

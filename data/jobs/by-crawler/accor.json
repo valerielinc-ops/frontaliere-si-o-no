@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "accor-8e1b061e7f6d",
-      "slug": "front-office-team-leader-accor-ch",
+      "slug": "front-office-capo-squadra-ibis-budget-lugano",
       "slugByLocale": {
         "de": "front-office-team-leader-accor-ch",
-        "it": "front-office-team-leader-accor-ch",
+        "it": "front-office-capo-squadra-ibis-budget-lugano",
         "en": "front-office-team-leader-accor-ch",
         "fr": "front-office-team-leader-accor-ch"
       },
@@ -61,7 +61,15 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-26T10:11:31.947Z"
+      "firstSeenAt": "2026-08-26T10:11:31.947Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "front-office-team-leader-accor-ch"
+        ]
+      },
+      "previousSlugs": [
+        "front-office-team-leader-accor-ch"
+      ]
     },
     {
       "id": "accor-d2b922c2d026",
@@ -374,8 +382,8 @@
       "slugByLocale": {
         "en": "facility-quality-manager-accor-ch",
         "it": "facility-quality-manager-accor-ch",
-        "de": "facility-quality-manager-accor-ch",
-        "fr": "facility-quality-manager-accor-ch"
+        "de": "facility-qualitat-manager-ibis-budget-lugano",
+        "fr": "facility-qualite-manager-ibis-budget-lugano"
       },
       "company": "Ibis Budget",
       "companyKey": "accor",
