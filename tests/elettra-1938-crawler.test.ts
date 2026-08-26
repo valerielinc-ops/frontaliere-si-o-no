@@ -186,5 +186,15 @@ describe('Elettra 1938 crawler parser', () => {
       const jobs = await fetchAllElettra1938Jobs();
       expect(jobs).toEqual([]);
     });
+
+    it('throws when the vacancyListCareer action name is present but the #vacancyList mount container is gone (a partial template rewrite leaving a stray reference, #6496)', async () => {
+      fetchHtml.mockResolvedValueOnce('<html><body><script>/* legacy: act1 was "vacancyListCareer" */</script></body></html>');
+      await expect(fetchAllElettra1938Jobs()).rejects.toThrow(/selector\/template drift/i);
+    });
+
+    it('throws when the #vacancyList mount container is present but the vacancyListCareer action name is gone (the AJAX action was renamed, #6496)', async () => {
+      fetchHtml.mockResolvedValueOnce('<html><body><div id="vacancyList"></div></body></html>');
+      await expect(fetchAllElettra1938Jobs()).rejects.toThrow(/selector\/template drift/i);
+    });
   });
 });

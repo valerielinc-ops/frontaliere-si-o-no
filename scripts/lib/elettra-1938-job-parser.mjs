@@ -217,13 +217,27 @@ export async function fetchAllElettra1938Jobs() {
   // lull self-heals instead of freezing crawler-health freshness on every
   // run until a human re-verifies live (#5970: 8 days stale after #5980's
   // manual verification never made it back into the parser).
+  //
+  // Require BOTH the AJAX action name AND its `#vacancyList` mount container
+  // (#6496: a single-string check is exactly the shape of heuristic a partial
+  // template rewrite can defeat — renaming/removing the real render target
+  // while a stray reference to the old string survives elsewhere, e.g. a
+  // leftover comment or unrelated script). The two markers live in unrelated
+  // parts of the page (a JS action-name literal vs. a DOM mount-point id) and
+  // were observed live together on every confirmed-intact fetch
+  // (#5970/#5980/#6066, see also the `EMPTY_OK_CRAWLERS` note in
+  // check-crawler-health.mjs) — a rewrite has to coincidentally leave BOTH
+  // stray references intact to still fool this check, which is a materially
+  // smaller risk than fooling one.
   if (totalCards === 0) {
-    if (!html.includes('vacancyListCareer')) {
+    const hasAjaxAction = html.includes('vacancyListCareer');
+    const hasMountContainer = /id=["']vacancyList["']/.test(html);
+    if (!hasAjaxAction || !hasMountContainer) {
       throw new Error(
-        `Elettra 1938: found 0 ".vacancy__render" cards on the FIAMM Components portal (${CAREER_URL}), and its "vacancyListCareer" AJAX loader isn't referenced anywhere in the page markup either — likely selector/template drift. Investigate the parser's selectors before treating this as empty-ok.`,
+        `Elettra 1938: found 0 ".vacancy__render" cards on the FIAMM Components portal (${CAREER_URL}), and its AJAX scaffold isn't fully intact in the page markup ("vacancyListCareer" action name ${hasAjaxAction ? 'present' : 'MISSING'}, "#vacancyList" container ${hasMountContainer ? 'present' : 'MISSING'}) — likely selector/template drift. Investigate the parser's selectors before treating this as empty-ok.`,
       );
     }
-    console.warn('⚠️ Elettra 1938: 0 cards on the shared FIAMM Components portal, but its "vacancyListCareer" AJAX loader is still referenced in the page markup — genuine portal-wide lull (confirmed pattern, #5970/#5980/#6066), not selector drift.');
+    console.warn('⚠️ Elettra 1938: 0 cards on the shared FIAMM Components portal, but its AJAX scaffold ("vacancyListCareer" action name + "#vacancyList" container) is still fully intact in the page markup — genuine portal-wide lull (confirmed pattern, #5970/#5980/#6066), not selector drift.');
     return [];
   }
 
