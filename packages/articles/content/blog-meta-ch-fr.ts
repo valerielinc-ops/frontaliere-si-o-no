@@ -4339,6 +4339,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.deposito-disdetta-affitti-appenzello.title': 'Location Appenzell intérieur : guide pratique',
     'blog.article.deposito-disdetta-affitti-appenzello.excerpt': 'Location Appenzell : dépôt 3 mois, droit de recours 30 jours, résiliation 1-3 mois préavis. Règles fédérales pour les locataires et conciliation cantonale.',
     'blog.article.deposito-disdetta-affitti-appenzello.imageAlt': 'Marché locatif Appenzell Rhodes-Intérieures: remise de clés et contrat de location',
+    'blog.article.processo-bondo-critica-procura.title': 'Procès Bondo, la défense critique le parquet',
+    'blog.article.processo-bondo-critica-procura.excerpt': 'Deuxième jour du procès sur le glissement de terrain de 2017. La défense critique les lacunes dans les preuves du parquet et attribue à la municipalité la responsabilité de la sécurité des sentiers.',
+    'blog.article.processo-bondo-critica-procura.imageAlt': 'Sentier di randonnée en montagne dans le canton des Grisons',
 };
 
 export default blogMetaChFr;

@@ -4339,6 +4339,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.deposito-disdetta-affitti-appenzello.title': 'Rentals internal Appenzello: practical guide',
     'blog.article.deposito-disdetta-affitti-appenzello.excerpt': 'Appenzello lease: deposit 3 months, recourse fee 30 days, cancellation 1-3 months notice. Federal rules for tenants and cantonal conciliation.',
     'blog.article.deposito-disdetta-affitti-appenzello.imageAlt': 'Residential rental scene in Appenzell Innerrhoden with key exchange and rental agreement',
+    'blog.article.processo-bondo-critica-procura.title': 'Bondo process, the defense criticizes the Prosecutor',
+    'blog.article.processo-bondo-critica-procura.excerpt': 'Second day of the 2017 landslide trial. The defense criticizes the gaps in the evidence of the Public Prosecutor\'s Office and attributes to the Municipality the responsibility for the safety of the trails.',
+    'blog.article.processo-bondo-critica-procura.imageAlt': 'Alpine hiking trail in Grisons canton with forested mountain landscape',
 };
 
 export default blogMetaChEn;
