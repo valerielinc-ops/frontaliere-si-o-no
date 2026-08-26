@@ -5528,7 +5528,7 @@ You write for "Frontaliere Ticino" (frontaliereticino.ch), national Switzerland 
 
   const reachMinimumImplicationsLine = IS_FRONTALIERE
     ? `- Analizza le IMPLICAZIONI PRATICHE per i frontalieri (cosa cambia nella vita quotidiana)`
-    : `- Analizza le IMPLICAZIONI PRATICHE a livello nazionale/cantonale (cosa cambia nella vita di chi vive o lavora in Svizzera)`;
+    : `- Analizza le IMPLICAZIONI PRATICHE a livello nazionale/cantonale (cosa cambia nella vita quotidiana)`;
 
   const topicalRelevanceGate = IS_FRONTALIERE
     ? `═══ REGOLA #0 — GATE DI RILEVANZA TOPICA (BLOCCANTE — PRIMA DI TUTTO) ═══
@@ -5571,7 +5571,7 @@ NON inventare un angolo "implicazioni pratiche" su un evento irrilevante per rie
 
   const styleColorLine = IS_FRONTALIERE
     ? `Colore locale: valichi (Brogeda, Gaggiolo), comuni (Chiasso, Mendrisio), uffici cantonali.`
-    : `Colore locale/nazionale: città e cantoni (Zurigo, Ginevra, Berna, Basilea, Losanna, Lugano…), istituzioni federali (Consiglio federale, Parlamento, BNS), uffici cantonali.`;
+    : `Colore locale/nazionale: città e cantoni (Zurigo, Ginevra, Berna, Basilea, Losanna, Lugano…), uffici cantonali.`;
 
   const ticinoScopeBlock = IS_FRONTALIERE
     ? `TICINO: L'articolo DEVE riguardare Canton Ticino, confine italo-svizzero, o frontalieri. Riferimenti locali: Canton Ticino, SUPSI, USI, EOC, Lugano, Bellinzona, Locarno, Mendrisio, DFE, SECO.`
