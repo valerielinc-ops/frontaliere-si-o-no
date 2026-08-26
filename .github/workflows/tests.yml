@@ -225,6 +225,12 @@ jobs:
     # un `cancelled`, che nessun `if: failure()` vede e che `gh pr checks` legge
     # come fail bloccando l'auto-merge di PR sane.
     timeout-minutes: 360
+    # Node 22 compila il bytecode dei moduli esternalizzati una sola volta e
+    # lo riusa nei worker Vitest e nei run successivi. La directory viene
+    # salvata nella cache sotto; senza questa env il compile cache resta
+    # disabilitato anche se il runner conserva la directory.
+    env:
+      NODE_COMPILE_CACHE: node_modules/.cache/node-compile
     steps:
       # `git checkout` scrive l'albero con un thread solo per default (issue
       # #6152). Misurato in locale sull'albero pieno di questo repo: 51,0s ->
@@ -264,6 +270,7 @@ jobs:
           path: |
             node_modules/.vite-independent
             node_modules/.vite-dependent
+            node_modules/.cache/node-compile
           key: vitest-transform-${{ runner.os }}-${{ hashFiles('package-lock.json', 'vitest.config.ts', '.github/workflows/tests.yml') }}
           restore-keys: |
             vitest-transform-${{ runner.os }}-

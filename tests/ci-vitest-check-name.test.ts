@@ -206,6 +206,11 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
     expect(TESTS_YML).toContain('node_modules/.vite-dependent');
   });
 
+  it('abilita e persiste la Node compile cache del job comune', () => {
+    expect(TESTS_YML).toContain('NODE_COMPILE_CACHE: node_modules/.cache/node-compile');
+    expect(TESTS_YML).toContain('node_modules/.cache/node-compile');
+  });
+
   // Il lock non e' piu' CONDIZIONALE, e' CIRCOSCRITTO: sta su un job che
   // esiste solo su `pull_request`. La proprieta' da difendere e' sempre la
   // stessa — i run di `push` su main non devono accodarsi in un gruppo globale
