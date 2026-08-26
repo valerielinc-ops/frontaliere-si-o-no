@@ -4360,6 +4360,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.brienz-ricollocazione-sicurezza.title': 'Brienz: Tiefencastel und Alvaneu werden Umsiedlungsstandorte',
     'blog.article.brienz-ricollocazione-sicurezza.excerpt': 'Tiefencastel und Alvaneu wurden als Aufnahmeorte für die 42 Einwohner von Brienz bestimmt, die von der historischen Erdrutschgefahr betroffen sind. CHF 82,5 Mio. genehmigt.',
     'blog.article.brienz-ricollocazione-sicurezza.imageAlt': 'Alpendorf mit traditionellen Steinhäusern im Bergtal, Symbol für gefährdete alpine Gemeinschaften',
+    'blog.article.aprire-attivita-appenzello-interno-registro.title': 'Geschäft in Appenzell Innerrhoden eröffnen: Kosten und Register',
+    'blog.article.aprire-attivita-appenzello-interno-registro.excerpt': 'Rechtsform, Handelsregistereintrag, dreistufige Besteuerung und Versicherungen - das braucht man, um ein Unternehmen im Kanton zu gründen.',
+    'blog.article.aprire-attivita-appenzello-interno-registro.imageAlt': 'Schweizer Kantonsamt mit Registrierungsformularen und Berglandschaftsblick',
 };
 
 export default blogMetaChDe;
