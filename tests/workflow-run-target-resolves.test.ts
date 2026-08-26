@@ -25,8 +25,8 @@ import { VITEST_CHECK_NAME, VITEST_SHARD_NAME_RE } from '../scripts/ci/lib/const
  *   - `auto-merge-on-lgtm.yml` perde il trigger `workflow_run`, cioè METÀ dei
  *     due ordini di arrivo previsti dal suo header: il caso "LGTM arriva prima
  *     che vitest sia verde" non viene più ri-valutato → la PR resta ferma;
- *   - `pr-review-loop.yml` perde il proprio trigger → il reviewer non parte →
- *     nessun `## LGTM` → l'auto-merge non ha nemmeno l'ALTRO trigger.
+ *   - il reviewer è nello stesso workflow `tests`, quindi non esiste un
+ *     secondo `workflow_run` target da mantenere sincronizzato.
  *
  * Non c'è nessuno strato sotto a cui appoggiarsi: su `main` non esiste branch
  * protection (l'API `branches/main/protection` torna 404 su entrambi i repo),
@@ -212,12 +212,6 @@ describe('la catena auto-merge → tests → check vitest è intatta (S#5552)', 
         'senza il verdetto di vitest questo workflow perde il trigger che copre l\'ordine ' +
         '"LGTM arriva prima che vitest sia verde": la PR non viene mai ri-valutata e resta ' +
         'ferma con la review positiva già postata',
-    },
-    {
-      file: 'pr-review-loop.yml',
-      why:
-        'senza questo trigger il reviewer non parte, quindi non viene mai postato nessun ' +
-        '`## LGTM` — e l\'auto-merge perde anche il suo secondo trigger',
     },
   ];
 
