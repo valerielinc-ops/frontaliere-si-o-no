@@ -1222,107 +1222,6 @@ jobs:
           printf '%s\n' "$decision"
           printf '%s\n' "$decision" >> "$GITHUB_OUTPUT"
 
-      - name: Cache assemble-jobs output
-        # Mirrors deploy.yml's identical step. assemble-jobs-dataset.mjs has a
-        # content-addressable cache under .cache/assemble-jobs (keyed on a
-        # sha256 of every slice file + an internal output-version) that restores
-        # the assembled outputs in ~0.3s instead of re-running the ~52s
-        # assembly. The script's internal version+fingerprint guarantees
-        # correctness, so the restore-keys cascade cannot replay a stale
-        # jobs.json across slice or assembler changes (cache-miss → full
-        # assembly → fresh snapshot).
-        uses: actions/cache@v5
-        with:
-          path: .cache/assemble-jobs
-          key: assemble-jobs-${{ runner.os }}-${{ hashFiles('scripts/assemble-jobs-dataset.mjs', 'scripts/lib/parse-job-slices-worker.mjs', 'data/jobs/by-crawler/**/*.json', 'data/jobs/expired/by-crawler/**/*.json', 'data/jobs-crawler-summaries/by-crawler/**/*.json') }}
-          restore-keys: |
-            assemble-jobs-${{ runner.os }}-
-
-      - name: Assemble + migrate (background)
-        # BACKGROUND: l'assemble non ha bisogno del gruppo indipendente per
-        # partire (nessuna dipendenza sul dato), e i due profili di lavoro sono
-        # complementari — I/O-bound (aggrega slice JSON) contro CPU-bound
-        # (`pool: 'threads'` satura le 4 vCPU del runner) — quindi la
-        # sovrapposizione qui è a costo ~zero.
-        #
-        # Il migrate è concatenato qui, non lasciato come step a sé dopo il
-        # `wait-all`: dipende SOLO da data/jobs.json (l'output dell'assemble),
-        # mai dai test, e `wait-all` non ha un join selettivo (verificato
-        # sull'intero repo: 51 join in 245 workflow, nessuna forma «aspetta
-        # solo l'assemble») — due comandi nello stesso `run:` sono l'unica
-        # forma che esprime «questi due in fila, in parallelo a tutto il
-        # resto». bash -eo pipefail (default degli step) aborta prima del
-        # migrate se l'assemble è rosso, e un migrate rosso emerge comunque al
-        # join, prima del gruppo dipendente — stesso fail-fast di prima.
-        #
-        # STORIA DELLA SOVRAPPOSIZIONE VITEST↔VITEST (2026-08-26), perché il
-        # file l'ha avuta, tolta e rimessa nello stesso giorno e senza questo
-        # paragrafo sembra indecisione:
-        #
-        #   1. Introdotta: anche il gruppo indipendente in background, per
-        #      farlo correre insieme al dipendente (entrambi CPU-bound).
-        #   2. Revertita: sul run 32948270917 ha fatto scadere
-        #      `tests/orphan-enriched-store.test.ts` — timeout a 15s DENTRO una
-        #      scansione filesystem, mai arrivato all'assert. La contesa sulle
-        #      4 vCPU, prevista come rischio nel PR body, si era materializzata.
-        #   3. Reintrodotta (forma attuale), su decisione del proprietario, con
-        #      DUE mitigazioni esplicite invece di evitare la coppia rischiosa:
-        #      (a) quel test ha ora un `timeout` PER-TEST a 180s (il default
-        #          globale di 15s resta invariato per gli altri 1.357);
-        #      (b) quel test è stato reso ~18x più economico con un pre-filtro
-        #          `includes()` prima del parse AST: 7 file parsati invece di
-        #          4.918, scan da 3.802ms a 208ms, test da 7.363ms a ~300-980ms
-        #          in isolamento locale.
-        #      Le due si compensano: il test è molto più veloce E la soglia che
-        #      lo giudica è molto più larga, quindi la contesa deve essere
-        #      ordini di grandezza peggiore di quella osservata per farlo
-        #      scadere di nuovo.
-        #
-        # Il baseline sequenziale contro cui si misura l'overlap è 678s (run
-        # 32939112340, verde) per lo span «indipendenti start → dataset end».
-        id: assemble
-        background: true
-        run: |
-          node scripts/assemble-jobs-dataset.mjs --stats
-          node scripts/migrate-all-known-job-slugs-canton-aware.mjs
-
-      # ══════════════════════════════════════════════════════════════════════
-      # Primo dei due join della seconda metà del job. Rijoina SOLO
-      # l'assemble+migrate qui sopra — i sei cancelli deterministici (`tsc` +
-      # cinque lint, avviati molto più sopra) hanno il proprio join dedicato
-      # più in fondo, DOPO entrambi i gruppi vitest (vedi quel commento per
-      # il perché della posizione). Apposta perché `vitest run (test che
-      # leggono il dataset)` dipenda SOLO da questo join, non da loro: la sua
-      # unica vera dipendenza è `data/jobs.json` + lo slug registry, entrambi
-      # scritti dall'assemble+migrate, mai da tsc o dai lint. In pratica i sei
-      # cancelli sono comunque già finiti quando SI ARRIVA QUI (partiti molto
-      # prima, costano insieme ~78s contro minuti di checkout+vitest), quindi
-      # questo join non li aspetta mai — ma non è per costruzione: è perché
-      # il loro join vero sta altrove, non qui.
-      #
-      # E il gruppo vitest INDIPENDENTE? Non è ancora partito: sta SOTTO questo
-      # join, non sopra, e non è un dettaglio di stile. `wait-all` unisce tutto
-      # ciò che è in background quando ci si passa, quindi averlo sopra
-      # significherebbe raccoglierlo qui e rimettere i due gruppi vitest in
-      # fila — il `background: true` diventerebbe una decorazione senza
-      # effetto, e la wall tornerebbe quella sequenziale senza che nulla lo
-      # segnali. Non riordinare i tre step qui sotto: l'overlap È quell'ordine.
-      #
-      # NB per chi aggiungerà un background qui: la sua durata deve essere
-      # legata al LAVORO che accompagna, mai a un timer proprio. Un campionatore
-      # di memoria bounded a ~29 min di `sleep` e' stato tolto proprio per
-      # questo: a suite ROSSA il job restava appeso a questo join ad aspettare
-      # che finisse di dormire, trasformando un fallimento rapido in mezz'ora di
-      # runner. Un background che non muore con cio' che osserva tiene in ostaggio
-      # il verdetto.
-      # ══════════════════════════════════════════════════════════════════════
-      - name: Wait for background assemble
-        # Il migrate è già finito quando questo join ritorna: gira DENTRO lo
-        # step "Assemble + migrate (background)" sopra, subito dopo l'assemble
-        # e prima che il background finisca. Non è più uno step a sé — vedi il
-        # commento su quello step per il perché.
-        wait-all: true
-
       - name: vitest run (test che non leggono il dataset)
         # VITEST_DATASET_GROUP=independent → vitest.config.ts esclude i file
         # classificati da scripts/ci/dataset-dependent-tests.mjs. La partizione
@@ -1332,24 +1231,40 @@ jobs:
         # quindi un test nuovo che legge il dataset finisce in questo gruppo
         # solo se NON tocca il filesystem — al più perde parallelismo.
         #
-        # IN BACKGROUND, e la POSIZIONE è parte del meccanismo — non è
-        # spostabile senza spegnere ciò che fa. Questo step sta DOPO "Wait for
-        # background assemble" apposta: `wait-all` non ha un join selettivo,
-        # unisce tutto ciò che a quel punto è ancora in background. Messo prima
-        # di quel join, il `background: true` qui sotto sarebbe DECORATIVO —
-        # il join lo assorbirebbe subito e i due gruppi vitest tornerebbero in
-        # fila, con la stessa wall di prima e nessun segnale che l'overlap non
-        # sta avvenendo. Partendo dopo, il join sopra cattura solo
-        # assemble+migrate (questo step non esiste ancora quando ci passa) e
-        # "vitest run (test che leggono il dataset)" qui sotto parte SUBITO,
-        # sovrapponendosi davvero a questo. Il rijoin è in fondo, su "Wait for
-        # background gates and independent".
+        # ─── IN BACKGROUND, E QUESTA POSIZIONE È IL MECCANISMO
         #
-        # Che i due gruppi CPU-bound si contendano le 4 vCPU è il punto, non un
-        # effetto collaterale: `pool: 'threads'` non satura mai perfettamente
-        # (import, I/O, code di file lunghi in coda), e i buchi di uno sono
-        # riempiti dall'altro. Il prezzo è che ogni test diventa più lento in
-        # wall-clock — vedi il REVERT MISURATO sull'assemble per cosa questo ha
+        # Questo è il task più LUNGO del job, e parte il PRIMA POSSIBILE: è la
+        # finestra dentro cui tutto il resto della seconda metà si nasconde
+        # gratis. «Il prima possibile» ha un limite duro e uno solo — legge
+        # `steps.corpus.outputs.skip`, quindi non può stare sopra lo step che
+        # quell'output lo produce ("Decide i gate corpus-wide", subito sopra).
+        # Più su, l'espressione risolverebbe vuoto: nessuna esclusione, i sette
+        # gate corpus-wide (201,4s misurati) rientrerebbero in un gruppo che
+        # non ne ha bisogno. Sotto questo punto, invece, ogni riga guadagnata
+        # è costo esposto.
+        #
+        # Da qui alla fine del job NON deve esistere nessun `wait-all` tranne
+        # quello finale, e non è una preferenza di stile: `wait-all` NON ha una
+        # forma selettiva — unisce TUTTO ciò che a quel punto è ancora in
+        # background, questo step compreso. Un join intermedio lo assorbirebbe
+        # e rimetterebbe in fila tutto ciò che segue, riportando la wall a
+        # quella sequenziale senza che nulla lo segnali (il `background: true`
+        # qui sotto diventerebbe una decorazione inerte). È esattamente
+        # l'errore che questa PR ha commesso e misurato: vedi la STORIA sullo
+        # step "Assemble + migrate" qui sotto.
+        #
+        # Il corollario è che assemble+migrate e "vitest run (test che leggono
+        # il dataset)" restano step FOREGROUND, in fila fra loro, e girano
+        # dentro questa finestra. Non serve nessun join per ordinarli: la fine
+        # di uno step foreground è già la sincronizzazione del successivo, ed è
+        # l'unica forma di join SELETTIVA che il runner offra — per costruzione
+        # non può catturare questo background.
+        #
+        # Che i due gruppi vitest CPU-bound si contendano le 4 vCPU è il punto,
+        # non un effetto collaterale: `pool: 'threads'` non satura mai
+        # perfettamente (import, I/O, code di file lunghi in coda), e i buchi di
+        # uno sono riempiti dall'altro. Il prezzo è che ogni test diventa più
+        # lento in wall-clock — vedi la STORIA sull'assemble per cosa questo ha
         # già fatto scadere una volta, e le due mitigazioni con cui rientra.
         #
         # Il json reporter alimenta scripts/ci/generate-shard-weights.mjs via
@@ -1367,7 +1282,90 @@ jobs:
           VITEST_CORPUS_SKIP: ${{ steps.corpus.outputs.skip }}
         run: npm test -- --reporter=default --reporter=json --outputFile=shard-timing-1.json
 
+      - name: Cache assemble-jobs output
+        # Mirrors deploy.yml's identical step. assemble-jobs-dataset.mjs has a
+        # content-addressable cache under .cache/assemble-jobs (keyed on a
+        # sha256 of every slice file + an internal output-version) that restores
+        # the assembled outputs in ~0.3s instead of re-running the ~52s
+        # assembly. The script's internal version+fingerprint guarantees
+        # correctness, so the restore-keys cascade cannot replay a stale
+        # jobs.json across slice or assembler changes (cache-miss → full
+        # assembly → fresh snapshot).
+        uses: actions/cache@v5
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-${{ runner.os }}-${{ hashFiles('scripts/assemble-jobs-dataset.mjs', 'scripts/lib/parse-job-slices-worker.mjs', 'data/jobs/by-crawler/**/*.json', 'data/jobs/expired/by-crawler/**/*.json', 'data/jobs-crawler-summaries/by-crawler/**/*.json') }}
+          restore-keys: |
+            assemble-jobs-${{ runner.os }}-
+
+      - name: Assemble + migrate
+        # FOREGROUND, e ci è tornato dopo una misura — non è la forma «ovvia»
+        # non ancora ottimizzata. Gira DENTRO la finestra di "vitest run (test
+        # che non leggono il dataset)", che è partito molto più sopra ed è
+        # ancora in volo: il suo costo (~326s misurati, run 32959864544) resta
+        # quindi nascosto a ~0 wall, esattamente come lo sarebbe in background,
+        # ma senza aver bisogno di un join per essere raccolto.
+        #
+        # Ed è la differenza che conta: uno step foreground è l'UNICA forma di
+        # sincronizzazione SELETTIVA di questo runner. La sua fine gate lo step
+        # successivo — "vitest run (test che leggono il dataset)", che dipende
+        # davvero da data/jobs.json + slug registry — e per costruzione non può
+        # catturare nient'altro. Un `wait-all` messo qui, invece, avrebbe
+        # raccolto anche il gruppo indipendente ancora in volo (non ha un join
+        # selettivo, verificato: 51 join in 245 workflow, nessuna forma
+        # «aspetta solo l'assemble»), rimettendo i due gruppi vitest in fila.
+        #
+        # Il migrate è concatenato nello stesso `run:`: dipende SOLO da
+        # data/jobs.json, mai dai test. bash -eo pipefail (default degli step)
+        # aborta prima del migrate se l'assemble è rosso, e uno step foreground
+        # rosso ferma il job qui — fail-fast, prima del gruppo dipendente.
+        #
+        # STORIA DELLA SECONDA METÀ DEL JOB (2026-08-26), perché è cambiata
+        # quattro volte in un giorno e senza questo paragrafo sembra indecisione:
+        #
+        #   1. Sovrapposizione vitest↔vitest introdotta: anche il gruppo
+        #      indipendente in background, per farlo correre insieme al
+        #      dipendente (entrambi CPU-bound).
+        #   2. Revertita: sul run 32948270917 ha fatto scadere
+        #      `tests/orphan-enriched-store.test.ts` — timeout a 15s DENTRO una
+        #      scansione filesystem, mai arrivato all'assert. La contesa sulle
+        #      4 vCPU, prevista come rischio nel PR body, si era materializzata.
+        #   3. Reintrodotta con DUE mitigazioni esplicite invece di evitare la
+        #      coppia rischiosa — e restano entrambe attive oggi:
+        #      (a) quel test ha ora un `timeout` PER-TEST a 180s (il default
+        #          globale di 15s resta invariato per gli altri 1.357);
+        #      (b) quel test è stato reso ~18x più economico con un pre-filtro
+        #          `includes()` prima del parse AST: 7 file parsati invece di
+        #          4.918, scan da 3.802ms a 208ms, test da 7.363ms a ~300-980ms
+        #          in isolamento locale.
+        #      Le due si compensano: il test è molto più veloce E la soglia che
+        #      lo giudica è molto più larga.
+        #      MA quella forma metteva l'assemble in `background:` seguito da un
+        #      `wait-all` DEDICATO piazzato PRIMA del gruppo indipendente, per
+        #      impedire al join di catturarlo. Il join quindi attendeva
+        #      l'assemble per intero, in una finestra dove NIENTE gli girava
+        #      accanto: i ~326s dell'assemble (run 32959864544) da nascosti
+        #      erano diventati esposti, sommati davanti a tutto il resto, e il
+        #      totale rischiava di essere PEGGIORE del baseline sequenziale.
+        #   4. Forma attuale: il gruppo indipendente parte per PRIMO e in
+        #      background, l'assemble torna foreground senza join, e il
+        #      dipendente lo segue in fila. Un solo `wait-all`, in fondo.
+        #      Così l'assemble torna nascosto gratis (come al punto 1) E i due
+        #      gruppi vitest si sovrappongono lo stesso (come al punto 3).
+        #
+        # Il baseline sequenziale contro cui si misura l'overlap è 678s (run
+        # 32939112340, verde) per lo span «indipendenti start → dataset end».
+        run: |
+          node scripts/assemble-jobs-dataset.mjs --stats
+          node scripts/migrate-all-known-job-slugs-canton-aware.mjs
+
       - name: vitest run (test che leggono il dataset)
+        # FOREGROUND, e subito dopo "Assemble + migrate" senza niente in mezzo:
+        # la sequenza naturale degli step foreground è già tutta la dipendenza
+        # che ha (data/jobs.json + lo slug registry, scritti dall'assemble —
+        # mai da tsc, mai dai lint, mai dall'altro gruppo vitest). Nessun join
+        # qui sopra, quindi il gruppo indipendente resta in volo e questi due
+        # gruppi CPU-bound si sovrappongono per davvero.
         env:
           VITEST_DATASET_GROUP: dependent
           VITEST_CORPUS_SKIP: ${{ steps.corpus.outputs.skip }}
@@ -1375,31 +1373,30 @@ jobs:
         run: npm test -- --reporter=default --reporter=json --outputFile=shard-timing-2.json
 
       # ══════════════════════════════════════════════════════════════════════
-      # Secondo e ULTIMO join del job, e l'unico che chiude due cose insieme:
+      # L'UNICO join della seconda metà del job, e chiude due cose insieme:
       #   1. i sei cancelli deterministici (`tsc` + i cinque lint, avviati
       #      molto più sopra);
       #   2. `vitest run (test che non leggono il dataset)`, lanciato in
-      #      background appena sotto il join dell'assemble.
+      #      background prima ancora dell'assemble.
       # Entrambi devono essere rijoinati PRIMA che il job finisca, altrimenti
       # il loro esito non entra nel verdetto — un gruppo vitest non rijoinato
       # sarebbe un intero mezzo-suite il cui rosso non arrossa niente. Il test
       # `tests/workflow-background-wait-schema.test.ts` lo verifica in modo
       # strutturale, su tutti i workflow: ogni `background:` vuole un
-      # `wait-all` DOPO di sé nello stesso job.
+      # `wait-all` DOPO di sé nello stesso job. Questo join è anche l'unico
+      # modo di SAPERE come sono andati: fino a qui il loro esito non esiste.
       #
-      # Perché qui e non subito dopo i sei step: `wait-all` non ha una forma
-      # selettiva (unisce TUTTO ciò che è ancora in background, non un
-      # sottoinsieme nominato) — un join messo prima dell'assemble avrebbe
-      # comunque potuto raccogliere anche loro se non fossero già finiti,
-      # ma soprattutto li avrebbe tolti dalla finestra di sovrapposizione più
-      # lunga del job (i due gruppi vitest), esponendo il loro costo (misurato
-      # ~78s) invece di nasconderlo gratis. Qui si sovrappongono alla finestra
-      # più lunga che il job abbia — i due gruppi vitest che ora girano
-      # INSIEME — quindi il costo resta a ~0 wall. E "Wait for background
-      # assemble" sopra, che gate `vitest run (test che leggono il dataset)`,
-      # dipende comunque SOLO dall'assemble+migrate: i sei cancelli sono già
-      # finiti da un pezzo quando questo join li raccoglie, per timing, non
-      # perché qualcosa li aspetti esplicitamente prima.
+      # Perché UNO SOLO, e perché in fondo. `wait-all` non ha una forma
+      # selettiva: unisce TUTTO ciò che è ancora in background, non un
+      # sottoinsieme nominato. Ogni join intermedio è quindi un punto in cui la
+      # finestra di sovrapposizione più lunga del job — il gruppo indipendente —
+      # verrebbe chiusa per sbaglio, e tutto ciò che segue tornerebbe in fila
+      # senza che nulla lo segnali. Messo qui, invece, dentro quella finestra ci
+      # stanno gratis sia i sei cancelli (~78s misurati) sia assemble+migrate
+      # (~326s, run 32959864544) sia il gruppo dipendente. Dove serviva un
+      # ordine — assemble prima del gruppo dipendente — lo dà la sequenza
+      # foreground, che è selettiva per costruzione. Non aggiungere join qui
+      # sopra: è la regressione già misurata (vedi la STORIA sull'assemble).
       #
       # NB: la durata di uno step in background dev'essere legata al LAVORO
       # che accompagna, mai a un timer proprio — vedi la nota sul
