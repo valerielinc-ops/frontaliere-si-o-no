@@ -3162,13 +3162,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "secretaire-d-entite-repondante-rh-finance-etat-de-vaud-chavannes-renens",
-        "secretaire-d-entite-repondante-rh-finanza-etat-de-vaud-administration-cantonale-vaudoise-chavannes-renens"
+        "secretaire-d-entite-repondante-rh-finance-etat-de-vaud-chavannes-renens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "secretaire-d-entite-repondante-rh-finance-etat-de-vaud-chavannes-renens",
-          "secretaire-d-entite-repondante-rh-finanza-etat-de-vaud-administration-cantonale-vaudoise-chavannes-renens"
+          "secretaire-d-entite-repondante-rh-finance-etat-de-vaud-chavannes-renens"
         ],
         "de": [
           "secretaire-d-entite-repondante-rh-finance-etat-de-vaud-chavannes-renens"
@@ -3349,9 +3347,9 @@
     },
     {
       "id": "etat-de-vaud-5762",
-      "slug": "chef-fe-de-projet-plan-climat-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "slug": "leader-del-progetto-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
-        "it": "chef-fe-de-projet-plan-climat-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "it": "leader-del-progetto-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "en": "project-leader-climate-plan-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "de": "projektleiter-klimaplan-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "fr": "chef-fe-de-projet-plan-climat-etat-de-vaud-lausanne"
@@ -3398,14 +3396,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "chef-fe-de-projet-plan-climat-etat-de-vaud-lausanne",
-        "leader-del-progetto-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "progetto-leader-piano-climatico-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "chef-fe-de-projet-plan-climat-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-fe-de-projet-plan-climat-etat-de-vaud-lausanne",
-          "leader-del-progetto-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
           "progetto-leader-piano-climatico-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
           "chef-fe-de-projet-plan-climat-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
@@ -3563,10 +3559,10 @@
         "it": [
           "repondant-e-applications-si-du-spop-etat-de-vaud-lausanne"
         ],
-        "de": [
+        "en": [
           "repondant-e-applications-si-du-spop-etat-de-vaud-lausanne"
         ],
-        "en": [
+        "de": [
           "repondant-e-applications-si-du-spop-etat-de-vaud-lausanne"
         ]
       },
@@ -3588,10 +3584,10 @@
       "id": "etat-de-vaud-5785",
       "slug": "project-manager-miglioramenti-strutturali-etat-de-vaud-administration-cantonale-vaudoise-morges",
       "slugByLocale": {
-        "fr": "charge-e-de-projets-ameliorations-structurelles-etat-de-vaud-morges",
         "it": "project-manager-miglioramenti-strutturali-etat-de-vaud-administration-cantonale-vaudoise-morges",
         "en": "project-manager-structural-improvements-etat-de-vaud-administration-cantonale-vaudoise-morges",
-        "de": "projektmanager-strukturelle-verbesserungen-etat-de-vaud-administration-cantonale-vaudoise-morges"
+        "de": "projektmanager-strukturverbesserungen-etat-de-vaud-administration-cantonale-vaudoise-morges",
+        "fr": "charge-e-de-projets-ameliorations-structurelles-etat-de-vaud-morges"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3654,21 +3650,23 @@
           "charge-e-de-projets-ameliorations-structurelles-etat-de-vaud-morges"
         ],
         "de": [
-          "charge-e-de-projets-ameliorations-structurelles-etat-de-vaud-morges"
+          "charge-e-de-projets-ameliorations-structurelles-etat-de-vaud-morges",
+          "projektmanager-strukturelle-verbesserungen-etat-de-vaud-administration-cantonale-vaudoise-morges"
         ]
       },
       "previousSlugs": [
-        "charge-e-de-projets-ameliorations-structurelles-etat-de-vaud-morges"
+        "charge-e-de-projets-ameliorations-structurelles-etat-de-vaud-morges",
+        "projektmanager-strukturelle-verbesserungen-etat-de-vaud-administration-cantonale-vaudoise-morges"
       ]
     },
     {
       "id": "etat-de-vaud-5759",
       "slug": "librario-documentario-specializzato-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
-        "fr": "bibliothecaire-documentaliste-specialise-e-etat-de-vaud-lausanne",
         "it": "librario-documentario-specializzato-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "en": "librarian-documentalist-specialized-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "de": "bibliothekarisch-dokumentarist-spezialisiert-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "de": "bibliothekarisch-dokumentarist-spezialisiert-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "fr": "bibliothecaire-documentaliste-specialise-e-etat-de-vaud-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",

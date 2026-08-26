@@ -96,7 +96,7 @@
         "it": "store-leader-incubation-m-w-d-ost-e-zentralschweiz-decathlon-zurich",
         "en": "store-leader-incubation-m-f-d-eastern-and-central-switzerland-decathlon-zurich",
         "de": "store-leader-incubation-m-w-d-ost-und-zentralschweiz-decathlon-ch",
-        "fr": "store-leader-incubation-h-f-d-suisse-orientale-et-centrale-decathlon-zurich"
+        "fr": "succursale-leader-incubation-h-f-d-suisse-orientale-et-centrale-decathlon-zurich"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -146,19 +146,21 @@
       "previousSlugs": [
         "store-leader-incubation-m-w-d-ost-und-zentralschweiz-decathlon-ch",
         "incubation-du-chef-de-magasin-m-f-d-suisse-orientale-et-centrale-decathlon-zurich",
-        "succursale-leader-incubation-h-f-d-suisse-orientale-et-centrale-decathlon-zurich"
+        "succursale-leader-incubation-h-f-d-suisse-orientale-et-centrale-decathlon-zurich",
+        "store-leader-incubation-h-f-d-suisse-orientale-et-centrale-decathlon-zurich"
       ],
       "previousSlugsByLocale": {
-        "fr": [
-          "incubation-du-chef-de-magasin-m-f-d-suisse-orientale-et-centrale-decathlon-zurich",
-          "succursale-leader-incubation-h-f-d-suisse-orientale-et-centrale-decathlon-zurich",
-          "store-leader-incubation-m-w-d-ost-und-zentralschweiz-decathlon-ch"
-        ],
         "it": [
           "store-leader-incubation-m-w-d-ost-und-zentralschweiz-decathlon-ch"
         ],
         "en": [
           "store-leader-incubation-m-w-d-ost-und-zentralschweiz-decathlon-ch"
+        ],
+        "fr": [
+          "incubation-du-chef-de-magasin-m-f-d-suisse-orientale-et-centrale-decathlon-zurich",
+          "succursale-leader-incubation-h-f-d-suisse-orientale-et-centrale-decathlon-zurich",
+          "store-leader-incubation-m-w-d-ost-und-zentralschweiz-decathlon-ch",
+          "store-leader-incubation-h-f-d-suisse-orientale-et-centrale-decathlon-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -407,14 +409,14 @@
         "incubation-du-chef-de-magasin-m-f-d-suisse-du-nord-et-de-l-ouest-decathlon-bern"
       ],
       "previousSlugsByLocale": {
-        "fr": [
-          "incubation-du-chef-de-magasin-m-f-d-suisse-du-nord-et-de-l-ouest-decathlon-bern",
-          "store-leader-incubation-m-w-d-nord-und-westschweiz-decathlon-ch"
-        ],
         "it": [
           "store-leader-incubation-m-w-d-nord-und-westschweiz-decathlon-ch"
         ],
         "en": [
+          "store-leader-incubation-m-w-d-nord-und-westschweiz-decathlon-ch"
+        ],
+        "fr": [
+          "incubation-du-chef-de-magasin-m-f-d-suisse-du-nord-et-de-l-ouest-decathlon-bern",
           "store-leader-incubation-m-w-d-nord-und-westschweiz-decathlon-ch"
         ]
       },
@@ -2639,17 +2641,17 @@
       "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/4527657-mecanicien-ne-technicien-ne-cycle-et-sports-hf-cdi-20-40-1763-granges-paccot",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "ciclo-e-sport-meccanici-tecnici-h-f-cdi-20-40-decathlon-granges-paccot",
+        "ciclo-meccanico-tecnico-e-sportivo-m-f-cdi-20-40-decathlon-granges-paccot"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ciclo-e-sport-meccanici-tecnici-h-f-cdi-20-40-decathlon-granges-paccot",
           "ciclo-meccanico-tecnico-e-sportivo-m-f-cdi-20-40-decathlon-granges-paccot"
         ]
       },
-      "previousSlugs": [
-        "ciclo-e-sport-meccanici-tecnici-h-f-cdi-20-40-decathlon-granges-paccot",
-        "ciclo-meccanico-tecnico-e-sportivo-m-f-cdi-20-40-decathlon-granges-paccot"
-      ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-31T12:03:34.382Z",
       "salaryMin": 30800,
       "salaryMax": 46600,
@@ -3818,16 +3820,16 @@
       "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/4548179-mecanicien-ne-technicien-ne-cycle-hf-80100-cdi-conthey-1964-conthey",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "ciclo-meccanico-tecnico-m-f-80-100-cdi-contesto-decathlon-conthey"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ciclo-meccanico-tecnico-m-f-80-100-cdi-contesto-decathlon-conthey"
         ]
       },
-      "previousSlugs": [
-        "ciclo-meccanico-tecnico-m-f-80-100-cdi-contesto-decathlon-conthey"
-      ],
-      "firstSeenAt": "2026-08-14T21:46:22.128Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T21:46:22.128Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
       "baseSalary": {
@@ -4746,13 +4748,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-ere-location-hiver-cdd-40-bussigny-decathlon-ch",
-        "adviser-ere-location-hiver-cdd-40-bussigny-decathlon-bussigny"
+        "conseiller-ere-location-hiver-cdd-40-bussigny-decathlon-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-location-hiver-cdd-40-bussigny-decathlon-ch",
-          "adviser-ere-location-hiver-cdd-40-bussigny-decathlon-bussigny"
+          "conseiller-ere-location-hiver-cdd-40-bussigny-decathlon-ch"
         ],
         "en": [
           "conseiller-ere-location-hiver-cdd-40-bussigny-decathlon-ch"

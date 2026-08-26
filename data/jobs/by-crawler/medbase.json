@@ -13487,12 +13487,12 @@
     },
     {
       "id": "medbase-01ceaea3fb81",
-      "slug": "assistenza-medica-pratica-a-80-100-medbase-eglisau",
+      "slug": "assistente-medico-a-80-100-medbase-eglisau",
       "slugByLocale": {
         "de": "medizinische-praxisassistenz-a-80-100-medbase-ch",
-        "it": "assistenza-medica-pratica-a-80-100-medbase-eglisau",
-        "en": "medical-practice-assistance-a-80-100-medbase-eglisau",
-        "fr": "assistance-medicale-a-80-100-medbase-eglisau"
+        "it": "assistente-medico-a-80-100-medbase-eglisau",
+        "en": "medical-practice-assistant-a-80-100-medbase-eglisau",
+        "fr": "assistant-medical-a-80-100-medbase-eglisau"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -13548,17 +13548,23 @@
       "firstSeenAt": "2026-08-25T21:40:17.045Z",
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-praxisassistenz-a-80-100-medbase-ch"
+          "medizinische-praxisassistenz-a-80-100-medbase-ch",
+          "assistenza-medica-pratica-a-80-100-medbase-eglisau"
         ],
         "en": [
-          "medizinische-praxisassistenz-a-80-100-medbase-ch"
+          "medizinische-praxisassistenz-a-80-100-medbase-ch",
+          "medical-practice-assistance-a-80-100-medbase-eglisau"
         ],
         "fr": [
-          "medizinische-praxisassistenz-a-80-100-medbase-ch"
+          "medizinische-praxisassistenz-a-80-100-medbase-ch",
+          "assistance-medicale-a-80-100-medbase-eglisau"
         ]
       },
       "previousSlugs": [
-        "medizinische-praxisassistenz-a-80-100-medbase-ch"
+        "medizinische-praxisassistenz-a-80-100-medbase-ch",
+        "assistenza-medica-pratica-a-80-100-medbase-eglisau",
+        "medical-practice-assistance-a-80-100-medbase-eglisau",
+        "assistance-medicale-a-80-100-medbase-eglisau"
       ]
     },
     {

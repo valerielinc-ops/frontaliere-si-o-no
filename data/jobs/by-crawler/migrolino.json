@@ -2334,10 +2334,10 @@
       "id": "migrolino-ec2cb3715367",
       "slug": "capo-turno-in-migrolino-sursee",
       "slugByLocale": {
-        "it": "capo-turno-in-migrolino-sursee",
-        "en": "shift-leader-in-migrolino-sursee",
+        "it": "capo-turno-in-migrolino-sursee-g61qht",
+        "en": "shift-leader-in-migrolino-sursee-g61qht",
         "de": "schichtleiter-in-migrolino-sursee",
-        "fr": "chef-d-equipe-in-migrolino-sursee"
+        "fr": "chef-d-equipe-in-migrolino-sursee-g61qht"
       },
       "company": "migrolino",
       "companyKey": "migrolino",
@@ -2385,14 +2385,18 @@
           "schichtleiter-in-migrolino-sursee"
         ],
         "en": [
-          "schichtleiter-in-migrolino-sursee"
+          "schichtleiter-in-migrolino-sursee",
+          "shift-leader-in-migrolino-sursee"
         ],
         "fr": [
-          "schichtleiter-in-migrolino-sursee"
+          "schichtleiter-in-migrolino-sursee",
+          "chef-d-equipe-in-migrolino-sursee"
         ]
       },
       "previousSlugs": [
-        "schichtleiter-in-migrolino-sursee"
+        "schichtleiter-in-migrolino-sursee",
+        "shift-leader-in-migrolino-sursee",
+        "chef-d-equipe-in-migrolino-sursee"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
