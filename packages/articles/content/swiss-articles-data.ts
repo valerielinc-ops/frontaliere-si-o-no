@@ -13240,6 +13240,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ffs-rincari-tariffe-wyss',
+    category: 'novita',
+    date: '2026-08-26T18:18:48.696Z',
+    image: '/images/blog/ffs-rincari-tariffe-wyss.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'seco-fmi-partenariato-economia',
+    category: 'novita',
+    date: '2026-08-26T18:49:50.462Z',
+    image: '/images/blog/seco-fmi-partenariato-economia.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

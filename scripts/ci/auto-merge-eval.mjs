@@ -13,7 +13,8 @@
  *
  * Dato un PR number, valuta (e logga ogni gate):
  *   1. PR aperta e NON draft.
- *   2. Ultima review del bot reviewer (login startsWith `claude`, type Bot) sulla
+ *   2. Ultima review del bot reviewer (`claude[bot]` o
+ *      `frontaliere-automation[bot]`) sulla
  *      HEAD corrente contiene `## LGTM` e NON `🔴 Important`.
  *      DRIFT-FALLBACK (zero-Claude): se manca `## LGTM` E manca un `🔴`, ma la PR
  *      modifica `pr-review-loop.yml` (→ il reviewer Claude non può girare per
@@ -61,7 +62,12 @@
  */
 import { execFileSync } from 'node:child_process';
 import { appendFileSync } from 'node:fs';
-import { VITEST_CHECK_NAME, REDFLAG_IMPORTANT_RE, REVIEW_WORKFLOW_DRIFT_FILES } from './lib/constants.mjs';
+import {
+  VITEST_CHECK_NAME,
+  REDFLAG_IMPORTANT_RE,
+  REVIEW_WORKFLOW_DRIFT_FILES,
+  isReviewerBot,
+} from './lib/constants.mjs';
 import { latestCompletedVitestConclusion } from './lib/vitestCheck.mjs';
 import { checkClosesLines } from '../lib/pr-body-closes-check.mjs';
 import { checkMergePreviewDuplicates } from './lib/mergePreviewCheck.mjs';
@@ -443,7 +449,7 @@ function main() {
     return fail(`Impossibile leggere reviews PR #${PR}: ${String(e).slice(0, 160)} — skip.`);
   }
   const botReviews = (reviews || []).filter(
-    (r) => r.user && r.user.type === 'Bot' && /^claude/i.test(r.user.login || '')
+    (r) => isReviewerBot(r.user)
   );
   const lastBot = botReviews.length ? botReviews[botReviews.length - 1] : null;
   const body = lastBot ? (lastBot.body || '') : '';
@@ -487,13 +493,10 @@ function main() {
     if (lastBot) {
       return fail(`Esiste una review claude-bot non-approvante (no '## LGTM', no 🔴 — es. ❓/🟡 aperto) — skip; il drift-fallback non scavalca una review esistente, serve un push fresco o risoluzione manuale.`);
     }
-    // Nessuna review affatto → tipicamente il reviewer non ha potuto girare perché
-    // la PR modifica `pr-review-loop.yml` (401). Prova il drift-fallback
-    // deterministico (autore fidato + body-contract). false → skip (ri-valuta al
-    // prossimo `tests`/push).
-    if (!evaluateDriftFallback()) {
-      return fail(`Nessuna review claude-bot e drift-fallback non applicabile — skip.`);
-    }
+    // Nessuna review affatto, incluso il caso in cui claude-code-action venga
+    // saltata per workflow validation: i gate deterministici non sostituiscono
+    // mai il verdetto del reviewer. Senza `## LGTM` la PR non può auto-mergiare.
+    return fail(`Nessuna review claude-bot approvante — manca '## LGTM'; skip.`);
   }
 
   // 3. vitest check-run == success (NON solo != failure). Prende l'ultimo
@@ -634,7 +637,10 @@ function main() {
     }
   }
 
-  // Tutti i gate passano → squash-merge.
+  // Tutti i gate passano → abilita il merge automatico nativo di GitHub. Il
+  // Ruleset/branch protection decide quando il merge può realmente avvenire;
+  // questo evaluator verifica ancora i gate custom per compatibilità durante
+  // la migrazione e per evitare di abilitare l'auto-merge su una PR non-LGTM.
   const hasPat = process.env.HAS_PAT === 'true';
   const primary = process.env.MERGE_PRIMARY_TOKEN || '';
   const fallback = process.env.MERGE_FALLBACK_TOKEN || '';
@@ -698,7 +704,7 @@ function main() {
     }
   };
 
-  const mergeArgs = ['pr', 'merge', PR, '--squash', '--delete-branch', '--repo', REPO];
+  const mergeArgs = ['pr', 'merge', PR, '--auto', '--squash', '--delete-branch', '--repo', REPO];
   try {
     gh(mergeArgs, { json: false, token: primary });
     console.log(`PR #${PR} mergiata.`);

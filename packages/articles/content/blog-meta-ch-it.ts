@@ -4414,6 +4414,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.stadler-rail-risultati-primo-semestre.title': 'Stadler Rail accelera nel primo semestre e vola in borsa',
     'blog.article.stadler-rail-risultati-primo-semestre.excerpt': 'Ricavi +40% a CHF 2 miliardi, Ebit raddoppiato. Azione guadagna il 19% in borsa. Portafoglio ordini raggiunge record di CHF 33 miliardi.',
     'blog.article.stadler-rail-risultati-primo-semestre.imageAlt': 'Vista di una stazione ferroviaria svizzera moderna con treni contemporanei',
+    'blog.article.ffs-rincari-tariffe-wyss.title': 'FFS rincari tariffe: le dichiarazioni di Wyss',
+    'blog.article.ffs-rincari-tariffe-wyss.excerpt': '1,45 milioni di viaggiatori al giorno, treni affollati. Le FFS annunciano rincari per abbonamenti generali e metà prezzo. Parla il presidente.',
+    'blog.article.ffs-rincari-tariffe-wyss.imageAlt': 'Pendolari salgono sui treni in una banchina affollata durante l\'ora di punta, paesaggio alpino sullo sfondo',
+    'blog.article.seco-fmi-partenariato-economia.title': 'Consiglio federale approva partenariato SECO-FMI per economia',
+    'blog.article.seco-fmi-partenariato-economia.excerpt': 'Il 26 agosto il Governo svizzero ha stanziato CHF 40 milioni per il programma SECO-FMI 2026-2030, rafforzando le istituzioni economiche globali a beneficio delle imprese svizzere.',
+    'blog.article.seco-fmi-partenariato-economia.imageAlt': 'Veduta di Lugano, centro economico del Ticino, simbolo di cooperazione economica internazionale.',
 };
 
 export default blogMetaChIt;

@@ -4414,6 +4414,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.stadler-rail-risultati-primo-semestre.title': 'Stadler Rail beschleunigt im ersten Halbjahr und fliegt an die Börse',
     'blog.article.stadler-rail-risultati-primo-semestre.excerpt': 'Umsatz +40% auf CHF 2 Mrd., EBIT verdoppelt. Aktie gewinnt 19% an der Börse. Auftragsbestand erreicht Rekordhöhe von CHF 33 Milliarden.',
     'blog.article.stadler-rail-risultati-primo-semestre.imageAlt': 'Blick auf eine moderne Schweizer Eisenbahnstation mit zeitgenössischen Zügen',
+    'blog.article.ffs-rincari-tariffe-wyss.title': 'SBB Tariferhöhungen: die Aussagen von Wyss',
+    'blog.article.ffs-rincari-tariffe-wyss.excerpt': '1,45 Millionen Fahrgäste pro Tag, überfüllte Züge. Die SBB kündigt Preiserhöhungen für Generalabos und den halben Preis an. Hier spricht der Vorsitzende.',
+    'blog.article.ffs-rincari-tariffe-wyss.imageAlt': 'Pendler steigen während der Morgenspitze in Züge ein, Alpenpanorama im Hintergrund',
+    'blog.article.seco-fmi-partenariato-economia.title': 'Bundesrat genehmigt Partnerschaft zwischen SECO und IWF für Wirtschaft',
+    'blog.article.seco-fmi-partenariato-economia.excerpt': 'Am 26. August stellte die Schweizer Regierung CHF 40 Mio. für das Programm SECO-FMI 2026-2030 bereit und stärkte damit die globalen Wirtschaftsinstitutionen zugunsten der Schweizer Unternehmen.',
+    'blog.article.seco-fmi-partenariato-economia.imageAlt': 'Panoramablick auf Lugano, Wirtschaftszentrum des Tessins, Symbol für internationale Wirtschaftskooperation.',
 };
 
 export default blogMetaChDe;

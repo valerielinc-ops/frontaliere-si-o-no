@@ -57272,6 +57272,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ffs-rincari-tariffe-wyss': {
+    title: 'FFS rincari tariffe: le dichiarazioni di Wyss | Frontaliere Ticino',
+    description: '1,45 milioni di viaggiatori al giorno. FFS annuncia rincari per abbonamenti generali e metà prezzo. Scopri le dichiarazioni del presidente Wyss. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, rincari, tariffe, dichiarazioni, wyss',
+    ogTitle: 'FFS rincari tariffe: Wyss spiega gli aumenti',
+    ogDescription: 'Record di 1,45 milioni di viaggiatori al giorno. Le Ferrovie Svizzere alzano i prezzi per abbonamenti generali e metà prezzo. Leggi cosa cambia e come questa decisione riflette il sistema di finanziamento dei trasporti pubblici nazionali.',
+    canonicalPath: '/articoli-svizzera/ffs-rincari-tariffe-wyss/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "FFS rincari tariffe: le dichiarazioni di Wyss",
+      "description": "1,45 milioni di viaggiatori al giorno. FFS annuncia rincari per abbonamenti generali e metà prezzo. Scopri le dichiarazioni del presidente Wyss. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ffs-rincari-tariffe-wyss.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pendolari salgono sui treni in una banchina affollata durante l'ora di punta, paesaggio alpino sullo sfondo"
+      },
+      "datePublished": "2026-08-26T18:18:48+00:00",
+      "dateModified": "2026-08-26T18:18:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ffs-rincari-tariffe-wyss/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-seco-fmi-partenariato-economia': {
+    title: 'Consiglio federale approva partenariato SECO-FMI per economia',
+    description: 'Il 26 agosto 2026 il Consiglio federale ha stanziato CHF 40 milioni per un nuovo partenariato SECO-FMI 2026-2030, rafforzando le istituzioni economiche globali',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, approva, partenariato',
+    ogTitle: 'Consiglio federale approva partenariato SECO-FMI per economia',
+    ogDescription: 'Il Governo svizzero approva CHF 40 milioni per il nuovo programma SECO-FMI 2026-2030. L\'investimento rafforza istituzioni economiche nei paesi partner del FMI e beneficia imprese svizzere tramite mercati stabili, accesso commerciale facilitato',
+    canonicalPath: '/articoli-svizzera/seco-fmi-partenariato-economia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio federale approva partenariato SECO-FMI per economia",
+      "description": "Il 26 agosto 2026 il Consiglio federale ha stanziato CHF 40 milioni per un nuovo partenariato SECO-FMI 2026-2030, rafforzando le istituzioni economiche globali",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/seco-fmi-partenariato-economia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Lugano, centro economico del Ticino, simbolo di cooperazione economica internazionale."
+      },
+      "datePublished": "2026-08-26T18:49:50+00:00",
+      "dateModified": "2026-08-26T18:49:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/seco-fmi-partenariato-economia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

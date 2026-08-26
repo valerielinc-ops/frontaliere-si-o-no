@@ -65,6 +65,18 @@ export const VITEST_SHARD_NAME_RE = /^vitest shard \d+\/\d+$/;
 export const REDFLAG_IMPORTANT_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]/;
 
 /**
+ * Identità che possono pubblicare la review Claude. Con il token GitHub App
+ * la review non arriva come `claude[bot]`, ma come
+ * `frontaliere-automation[bot]`; i gate devono riconoscere entrambe senza
+ * accettare qualunque bot.
+ */
+export const REVIEWER_BOT_LOGIN_RE = /^(?:claude(?:\[bot\])?|frontaliere-automation\[bot\])$/i;
+
+export function isReviewerBot(user) {
+  return user?.type === 'Bot' && REVIEWER_BOT_LOGIN_RE.test(user.login || '');
+}
+
+/**
  * File la cui modifica impedisce STRUTTURALMENTE al reviewer Claude di girare
  * sulla PR → niente `## LGTM` → l'auto-merge normale non scatta → senza fallback
  * la PR resta ferma in attesa di un merge manuale.
