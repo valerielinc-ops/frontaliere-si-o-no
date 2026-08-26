@@ -57077,6 +57077,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mobiliare-edilizia-popolare-200m': {
+    title: 'Mobiliare investe 200 milioni nell\'edilizia popolare',
+    description: 'La Mobiliare investe 200 milioni di franchi per costruire 1000 appartamenti affittati a pigione di costo reale, rispondendo alla scarsità di alloggi a prezzi',
+    keywords: 'frontalieri, ticino, svizzera, italia, mobiliare, investe, milioni, nell',
+    ogTitle: 'Mobiliare investe 200 milioni nell\'edilizia popolare',
+    ogDescription: 'La compagnia assicurativa Mobiliare entra nel settore dell\'edilizia popolare con un investimento di 200 milioni di franchi per costruire 1000 appartamenti affittati secondo il modello della pigione commisurata ai costi. Un\'iniziativa contro',
+    canonicalPath: '/articoli-svizzera/mobiliare-edilizia-popolare-200m/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mobiliare investe 200 milioni nell'edilizia popolare",
+      "description": "La Mobiliare investe 200 milioni di franchi per costruire 1000 appartamenti affittati a pigione di costo reale, rispondendo alla scarsità di alloggi a prezzi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mobiliare-edilizia-popolare-200m.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cantiere di un complesso residenziale moderno in Svizzera con gru e scaffali durante la fase di costruzione"
+      },
+      "datePublished": "2026-08-26T14:14:59+00:00",
+      "dateModified": "2026-08-26T14:14:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mobiliare-edilizia-popolare-200m/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

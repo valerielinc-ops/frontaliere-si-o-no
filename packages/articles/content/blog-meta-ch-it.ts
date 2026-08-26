@@ -4399,6 +4399,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.stipendi-aumenti-differenziati-2026.title': 'Stipendi 2026: aumenti doppi per i migliori',
     'blog.article.stipendi-aumenti-differenziati-2026.excerpt': 'Secondo WTW, i top performer ricevono il 3,9% mentre la media ferma a 2%. Differenze drastiche anche nel settore IT.',
     'blog.article.stipendi-aumenti-differenziati-2026.imageAlt': 'Ufficio svizzero con dipendenti che esaminano documenti di stipendio e buste paga.',
+    'blog.article.mobiliare-edilizia-popolare-200m.title': 'Mobiliare investe 200 milioni nell\'edilizia popolare',
+    'blog.article.mobiliare-edilizia-popolare-200m.excerpt': 'La compagnia assicurativa investirà 200 milioni per costruire 1000 appartamenti affittati a pigione commisurata ai costi reali.',
+    'blog.article.mobiliare-edilizia-popolare-200m.imageAlt': 'Cantiere di un complesso residenziale moderno in Svizzera con gru e scaffali durante la fase di costruzione',
 };
 
 export default blogMetaChIt;

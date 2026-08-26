@@ -4399,6 +4399,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.stipendi-aumenti-differenziati-2026.title': 'Salaries 2026: Double raises for the best',
     'blog.article.stipendi-aumenti-differenziati-2026.excerpt': 'According to WTW, top performers receive 3.9% while the average stands at 2%. Drastic differences also in the IT sector.',
     'blog.article.stipendi-aumenti-differenziati-2026.imageAlt': 'Swiss office environment with employees reviewing salary documents and pay slips.',
+    'blog.article.mobiliare-edilizia-popolare-200m.title': 'Mobiliare invests 200 million in public housing.',
+    'blog.article.mobiliare-edilizia-popolare-200m.excerpt': 'The insurance company will invest 200 million to build 1000 rented apartments commensurate with real costs.',
+    'blog.article.mobiliare-edilizia-popolare-200m.imageAlt': 'Construction site of a modern residential complex in Switzerland with cranes and scaffolding during the building phase',
 };
 
 export default blogMetaChEn;

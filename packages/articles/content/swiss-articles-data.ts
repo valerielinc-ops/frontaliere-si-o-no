@@ -13195,6 +13195,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'mobiliare-edilizia-popolare-200m',
+    category: 'novita',
+    date: '2026-08-26T14:14:59.269Z',
+    image: '/images/blog/mobiliare-edilizia-popolare-200m.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
