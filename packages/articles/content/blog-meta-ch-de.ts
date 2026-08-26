@@ -4339,6 +4339,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.deposito-disdetta-affitti-appenzello.title': 'Mieten Appenzell Innerrhoden: Praxisleitfaden',
     'blog.article.deposito-disdetta-affitti-appenzello.excerpt': 'Miete Appenzell: Kaution 3 Monate, Einspruch gegen Miete 30 Tage, Kündigung 1-3 Monate Kündigungsfrist. Bundesregeln für Mieter und kantonale Schlichtung.',
     'blog.article.deposito-disdetta-affitti-appenzello.imageAlt': 'Wohnungsmarkt Appenzell Innerrhoden: Schlüsselübergabe und Mietvertrag',
+    'blog.article.processo-bondo-critica-procura.title': 'Bondo-Prozess, die Verteidigung kritisiert die Staatsanwaltschaft',
+    'blog.article.processo-bondo-critica-procura.excerpt': 'Zweiter Tag des Erdrutschprozesses 2017. Die Verteidigung kritisiert die Lücken in den Beweismitteln der Staatsanwaltschaft und überträgt der Gemeinde die Verantwortung für die Sicherheit der Wege.',
+    'blog.article.processo-bondo-critica-procura.imageAlt': 'Bergwanderweg in der Schweizer Alpenregion von Graubünden',
 };
 
 export default blogMetaChDe;

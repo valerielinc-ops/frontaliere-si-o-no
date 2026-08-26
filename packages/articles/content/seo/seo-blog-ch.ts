@@ -56297,6 +56297,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-processo-bondo-critica-procura': {
+    title: 'Processo Bondo, la difesa critica la Procura | Frontaliere Ticino',
+    description: 'Nel secondo giorno del processo sulla frana del Pizzo Cengalo del 2017, la difesa contesta le lacune procedurali e attribuisce al Comune la responsabilità',
+    keywords: 'frontalieri, ticino, svizzera, italia, processo, bondo, difesa, critica',
+    ogTitle: 'Processo Bondo, la difesa critica la Procura',
+    ogDescription: 'L\'avvocato di un funzionario cantonale contesta le prove incomplete della Procura grigionese e sottolinea che il Comune dovrebbe garantire la sicurezza dei sentieri in Val Bregaglia. Seguito del processo sulla frana del 23 agosto 2017.',
+    canonicalPath: '/articoli-svizzera/processo-bondo-critica-procura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Processo Bondo, la difesa critica la Procura",
+      "description": "Nel secondo giorno del processo sulla frana del Pizzo Cengalo del 2017, la difesa contesta le lacune procedurali e attribuisce al Comune la responsabilità",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/processo-bondo-critica-procura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio di montagna nel Canton Grigioni con sentiero escursionistico tra boschi alpini"
+      },
+      "datePublished": "2026-08-26T02:15:54+00:00",
+      "dateModified": "2026-08-26T02:15:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/processo-bondo-critica-procura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

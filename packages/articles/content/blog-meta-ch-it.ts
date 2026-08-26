@@ -4339,6 +4339,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.deposito-disdetta-affitti-appenzello.title': 'Affitti Appenzello interno: guida pratica',
     'blog.article.deposito-disdetta-affitti-appenzello.excerpt': 'Locazione Appenzello: deposito 3 mesi, ricorso canone 30 giorni, disdetta 1-3 mesi preavviso. Regole federali per inquilini e conciliazione cantonale.',
     'blog.article.deposito-disdetta-affitti-appenzello.imageAlt': 'Scena di locazione residenziale ad Appenzello Interno con consegna chiavi e documento di contratto',
+    'blog.article.processo-bondo-critica-procura.title': 'Processo Bondo, la difesa critica la Procura',
+    'blog.article.processo-bondo-critica-procura.excerpt': 'Secondo giorno del processo sulla frana del 2017. La difesa critica le lacune nelle prove della Procura e attribuisce al Comune la responsabilità della sicurezza dei sentieri.',
+    'blog.article.processo-bondo-critica-procura.imageAlt': 'Paesaggio di montagna nel Canton Grigioni con sentiero escursionistico tra boschi alpini',
 };
 
 export default blogMetaChIt;
