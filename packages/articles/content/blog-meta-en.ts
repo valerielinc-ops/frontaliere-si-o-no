@@ -10831,6 +10831,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.carenze-dogane-sicurezza-ticino.title': 'Customs shortages: union asks for means and security',
     'blog.article.carenze-dogane-sicurezza-ticino.excerpt': 'The Garanto union denounces shortages of personnel and equipment in Swiss customs. What it entails for border workers at Ticino crossings.',
     'blog.article.carenze-dogane-sicurezza-ticino.imageAlt': 'Swiss customs station at Ticino-Italy border with uniformed personnel conducting document checks',
+    'blog.article.prelievo-lpp-frontalieri-tassazione-strategia.title': 'Withdrawal according to the LPP border pillar: rules, taxes and strategy',
+    'blog.article.prelievo-lpp-frontalieri-tassazione-strategia.excerpt': 'When the LPP can be withdrawn, how taxation works in Switzerland and Italy, and what exit strategy suits the Ticino border crossing.',
+    'blog.article.prelievo-lpp-frontalieri-tassazione-strategia.imageAlt': 'Lugano lake view for LPP withdrawal cross-border article',
 };
 
 export default blogMetaEn;

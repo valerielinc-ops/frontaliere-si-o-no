@@ -10833,6 +10833,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.carenze-dogane-sicurezza-ticino.title': 'Défaillances douanières : le syndicat demande des moyens et de la sécurité',
     'blog.article.carenze-dogane-sicurezza-ticino.excerpt': 'Le syndicat Garanto dénonce des pénuries de personnel et d\'équipements dans les douanes suisses. Ce que cela implique pour les frontaliers aux points de passage du Tessin.',
     'blog.article.carenze-dogane-sicurezza-ticino.imageAlt': 'Poste douanier suisse à la frontière Tessin-Italie avec personnel en uniforme effectuant des contrôles',
+    'blog.article.prelievo-lpp-frontalieri-tassazione-strategia.title': 'Prélèvement deuxième pilier LPP frontalier : règles, taxes et stratégie',
+    'blog.article.prelievo-lpp-frontalieri-tassazione-strategia.excerpt': 'Lorsque le LPP peut être prélevé, comment fonctionne la fiscalité en Suisse et en Italie, et quelle stratégie de sortie convient au frontalier tessinois.',
+    'blog.article.prelievo-lpp-frontalieri-tassazione-strategia.imageAlt': 'Vue sur Lugano et lac pour article retrait LPP frontaliers',
 };
 
 export default blogMetaFr;

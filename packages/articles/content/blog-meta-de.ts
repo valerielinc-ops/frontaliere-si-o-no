@@ -10830,6 +10830,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.carenze-dogane-sicurezza-ticino.title': 'Zollmängel: Gewerkschaft fordert Mittel und Sicherheit',
     'blog.article.carenze-dogane-sicurezza-ticino.excerpt': 'Die Gewerkschaft Garanto klagt über Personal- und Ausrüstungsmangel im Schweizer Zoll. Was das für Grenzgänger an den Tessiner Grenzübergängen bedeutet.',
     'blog.article.carenze-dogane-sicurezza-ticino.imageAlt': 'Schweizer Zollstation an der Grenze Tessin-Italien mit uniformiertem Personal bei Dokumentenprüfungen',
+    'blog.article.prelievo-lpp-frontalieri-tassazione-strategia.title': 'BVG-Grenzsäulenbezug: Regeln, Steuern und Strategie',
+    'blog.article.prelievo-lpp-frontalieri-tassazione-strategia.excerpt': 'Wann BVG bezogen werden kann, wie die Besteuerung in der Schweiz und in Italien funktioniert und welche Ausstiegsstrategie für den Tessiner Grenzgänger geeignet ist.',
+    'blog.article.prelievo-lpp-frontalieri-tassazione-strategia.imageAlt': 'Lugano Seeblick für LPP-Bezug Grenzgänger Artikel',
 };
 
 export default blogMetaDe;

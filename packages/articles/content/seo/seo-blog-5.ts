@@ -79085,6 +79085,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-prelievo-lpp-frontalieri-tassazione-strategia': {
+    title: 'Prelievo secondo pilastro LPP frontalieri: regole, tasse e strategia',
+    description: 'Guida pratica al prelievo LPP per frontalieri Ticino-Italia: casi ammessi, tassazione CH/IT, credito d\'imposta, differenze vecchi/nuovi frontalieri e strategia',
+    keywords: 'frontalieri, ticino, svizzera, italia, prelievo, secondo, pilastro, regole',
+    ogTitle: 'Prelievo LPP frontalieri: quando si può, tasse Svizzera-Italia, strategia uscita',
+    ogDescription: 'Tutto sul prelievo del secondo pilastro per chi lavora in Ticino e vive in Italia: casi consentiti (casa, indipendenza, uscita definitiva, pensione), imposta alla fonte svizzera, IRPEF italiana con credito d\'imposta, differenze tra vecchi e nuovi',
+    canonicalPath: '/articoli-frontaliere/prelievo-lpp-frontalieri-tassazione-strategia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Prelievo secondo pilastro LPP frontalieri: regole, tasse e strategia",
+      "description": "Guida pratica al prelievo LPP per frontalieri Ticino-Italia: casi ammessi, tassazione CH/IT, credito d'imposta, differenze vecchi/nuovi frontalieri e strategia",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/prelievo-lpp-frontalieri-tassazione-strategia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista su Lugano e lago per articolo prelievo LPP frontalieri"
+      },
+      "datePublished": "2026-08-26T21:36:15+00:00",
+      "dateModified": "2026-08-26T21:36:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/prelievo-lpp-frontalieri-tassazione-strategia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
