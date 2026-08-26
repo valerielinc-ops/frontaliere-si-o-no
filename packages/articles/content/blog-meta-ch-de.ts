@@ -4387,6 +4387,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.edilizia-crescita-primo-semestre.title': 'Baugewerbe: +3,1% Wachstum in den ersten sechs Monaten 2026',
     'blog.article.edilizia-crescita-primo-semestre.excerpt': 'Im ersten Halbjahr 2026 erreichte der Umsatz des Schweizer Baugewerbes 11,2 Milliarden Franken, was einem Wachstum von 3,1% entspricht. Aber Genehmigungen und Einsprüche bremsen die Baustellen.',
     'blog.article.edilizia-crescita-primo-semestre.imageAlt': 'Moderner Bauplatz in der Schweiz mit Kränen und neuen Wohngebäuden, Symbol für den Boom im Bausektor und auf dem Wohnungsmarkt.',
+    'blog.article.imprese-mem-segnali-ripresa.title': 'MEM-Unternehmen, Erholungssignale in der Branche',
+    'blog.article.imprese-mem-segnali-ripresa.excerpt': 'MEM-Wirtschaftsindex bei -20 Punkten im Juli. Bestes Ergebnis seit Frühjahr 2024. Exporte steigen, aber 66% KMU sehen ungünstige Bedingungen.',
+    'blog.article.imprese-mem-segnali-ripresa.imageAlt': 'Panoramablick auf Lugano mit Bergen im Hintergrund, der Schweizer Industrie und Wirtschaft repräsentierend.',
 };
 
 export default blogMetaChDe;

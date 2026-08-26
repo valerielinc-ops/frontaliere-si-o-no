@@ -4387,6 +4387,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.edilizia-crescita-primo-semestre.title': 'Construction : croissance de +3,1 % au cours des six premiers mois de 2026',
     'blog.article.edilizia-crescita-primo-semestre.excerpt': 'Au premier semestre 2026, le chiffre d\'affaires de la construction suisse a atteint 11,2 milliards de francs, soit une croissance de 3,1%. Mais les permis et les recours freinent les chantiers.',
     'blog.article.edilizia-crescita-primo-semestre.imageAlt': 'Chantier de construction moderne en Suisse avec grues et nouveaux immeubles résidentiels, symbole de la croissance du secteur du bâtiment.',
+    'blog.article.imprese-mem-segnali-ripresa.title': 'Entreprises MEM, signes de reprise dans le secteur',
+    'blog.article.imprese-mem-segnali-ripresa.excerpt': 'Indice économique MEM à -20 points en juillet. Meilleur résultat du printemps 2024. Les exportations augmentent, mais 66% des PME voient des conditions défavorables.',
+    'blog.article.imprese-mem-segnali-ripresa.imageAlt': 'Vue panoramique de Lugano avec les montagnes en arrière-plan, représentant l\'industrie suisse.',
 };
 
 export default blogMetaChFr;
