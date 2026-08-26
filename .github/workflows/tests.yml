@@ -1799,6 +1799,15 @@ jobs:
           echo "Prefetched review context in $CTX_DIR:"
           ls -la "$CTX_DIR"
 
+      - name: Mint GitHub App token for Claude review
+        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.debounce.outputs.superseded != 'true'
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
       - name: Run Claude review
         id: claude_review
         if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.debounce.outputs.superseded != 'true'
@@ -1814,6 +1823,11 @@ jobs:
           REVIEW_TIER: ${{ steps.tier.outputs.tier }}
           INCREMENTAL_BASE: ${{ steps.tier.outputs.incremental_base }}
         with:
+          # A custom App token bypasses Claude's OIDC workflow-identity check.
+          # That check rejects this PR because tests.yml itself is being changed
+          # and therefore is not byte-identical to the version on main.
+          # `mint-app-token.mjs` fails soft, so retain GITHUB_TOKEN as fallback.
+          github_token: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # Le PR fix-issue sono aperte da `claude[bot]`: senza whitelist
           # claude-code-action aborta ("non-human actor"). Whitelist esplicita
