@@ -2325,23 +2325,56 @@
       "department": "Tiefbau- und Entsorgungsdepartement",
       "unit": "Tiefbauamt",
       "referenceNumber": "51098",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
-        "de": [
-          "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zurich-zurich",
-          "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-51098"
-        ],
         "it": [
           "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-51098",
-          "apprendistato-2027-kauffrau-kaufmann-cfc-stadt-zurich"
+          "apprendistato-2027-kauffrau-kaufmann-cfc-stadt-zurich",
+          "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-50583",
+          "apprendistato-2027-kauffrau-kaufmann-cfc-stadt-zurich-tgfb8z",
+          "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-49608",
+          "apprendistato-2027-kauffrau-kaufmann-cfc-stadt-zurich-trn9in",
+          "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-51287",
+          "apprendistato-2027-kauffrau-kaufmann-cfc-stadt-zurich-dsiopk",
+          "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-50940",
+          "apprendistato-2027-kauffrau-kaufmann-cfc-stadt-zurich-sbxstm",
+          "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-51029",
+          "apprendistato-2027-kauffrau-kaufmann-cfc-stadt-zurich-f0jxae",
+          "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-51053",
+          "apprendistato-2027-kauffrau-kaufmann-cfc-stadt-zurich-cofd0r",
+          "apprendistato-2027-kauffrau-kaufmann-cfc-stadt-zurich-194kpq",
+          "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-50658"
+        ],
+        "de": [
+          "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zurich-zurich",
+          "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-51098",
+          "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-50583",
+          "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-49608",
+          "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-51287",
+          "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-50940",
+          "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-51029",
+          "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-51053"
         ]
       },
       "previousSlugs": [
         "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-51098",
         "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zurich-zurich",
-        "apprendistato-2027-kauffrau-kaufmann-cfc-stadt-zurich"
+        "apprendistato-2027-kauffrau-kaufmann-cfc-stadt-zurich",
+        "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-50583",
+        "apprendistato-2027-kauffrau-kaufmann-cfc-stadt-zurich-tgfb8z",
+        "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-49608",
+        "apprendistato-2027-kauffrau-kaufmann-cfc-stadt-zurich-trn9in",
+        "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-51287",
+        "apprendistato-2027-kauffrau-kaufmann-cfc-stadt-zurich-dsiopk",
+        "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-50940",
+        "apprendistato-2027-kauffrau-kaufmann-cfc-stadt-zurich-sbxstm",
+        "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-51029",
+        "apprendistato-2027-kauffrau-kaufmann-cfc-stadt-zurich-f0jxae",
+        "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-51053",
+        "apprendistato-2027-kauffrau-kaufmann-cfc-stadt-zurich-cofd0r",
+        "apprendistato-2027-kauffrau-kaufmann-cfc-stadt-zurich-194kpq",
+        "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-50658"
       ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-25T21:51:24.407Z",
       "salaryMin": 53500,
       "salaryMax": 98500,
       "baseSalary": {
@@ -2353,7 +2386,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-25T21:51:24.407Z"
     },
     {
       "id": "stadt-zuerich-142139484b82",
@@ -3580,7 +3614,7 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Pool Stelle Personenmeldeamt",
       "titleByLocale": {
-        "it": "Ufficio di registrazione dell'ufficio piscina",
+        "it": "Ufficio di registrazione dell'ufficio del pool",
         "en": "Pool Office Person Registration Office",
         "de": "Pool Stelle Personenmeldeamt",
         "fr": "Bureau d'enregistrement des personnes de bureau commun"
@@ -13599,7 +13633,7 @@
       "title": "Ergotherapeut*in, Standort Witikon",
       "titleByLocale": {
         "it": "Terapista occupazionale, Vitikon posizione",
-        "en": "Occupational therapist, Vitikon location",
+        "en": "Occupational therapist*in, Witikon location",
         "de": "Ergotherapeut*in, Standort Witikon",
         "fr": "ergothérapeute, emplacement Vitikon"
       },
@@ -16027,6 +16061,12 @@
       "department": "Schul- und Sportdepartement",
       "unit": "Kreisschulbehörde Limmattal",
       "referenceNumber": "50738",
+      "previousSlugs": [
+        "schulassistent-in-stadt-zuerich-zurigo-50738",
+        "schulassistent-in-stadt-zurich",
+        "assistente-scolastico-stadt-zurich-zurich",
+        "school-assistant-school-lavater-stadt-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "schulassistent-in-stadt-zuerich-zurigo-50738",
@@ -16041,12 +16081,7 @@
           "schulassistent-in-stadt-zurich"
         ]
       },
-      "previousSlugs": [
-        "schulassistent-in-stadt-zuerich-zurigo-50738",
-        "schulassistent-in-stadt-zurich",
-        "assistente-scolastico-stadt-zurich-zurich",
-        "school-assistant-school-lavater-stadt-zurich-zurich"
-      ],
+      "firstSeenAt": "2026-08-24T21:53:49.915Z",
       "salaryMin": 63000,
       "salaryMax": 116500,
       "baseSalary": {
@@ -16058,9 +16093,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-24T21:53:49.915Z",
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadt-zuerich-1994bd6bc479",
@@ -22251,16 +22284,17 @@
       "department": "Schul- und Sportdepartement",
       "unit": "Kreisschulbehörde Zürichberg",
       "referenceNumber": "51341",
-      "previousSlugs": [
-        "fachperson-betreuung-als-springer-in-in-der-betreuung-der-tagesschule-fluntern-stadt"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-betreuung-als-springer-in-in-der-betreuung-der-tagesschule-fluntern-stadt"
+          "fachperson-betreuung-als-springer-in-in-der-betreuung-der-tagesschule-fluntern-stadt",
+          "fachperson-betreuung-come-springer-in-der-betreuung-der-tagesschule-fluntern-stadt-g67ftn"
         ]
       },
+      "previousSlugs": [
+        "fachperson-betreuung-als-springer-in-in-der-betreuung-der-tagesschule-fluntern-stadt",
+        "fachperson-betreuung-come-springer-in-der-betreuung-der-tagesschule-fluntern-stadt-g67ftn"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-25T21:51:24.387Z",
       "salaryMin": 63000,
       "salaryMax": 116500,
       "baseSalary": {
@@ -22272,7 +22306,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-25T21:51:24.387Z"
     },
     {
       "id": "stadt-zuerich-0cf267d639ea",
@@ -23773,22 +23808,36 @@
       "unit": "Friedensrichterinnen- und Friedensrichterämter",
       "referenceNumber": "51285",
       "previousSlugsByLocale": {
-        "de": [
-          "kanzleisekretar-in-stadt-zuerich-zurigo-51285",
-          "kanzleisekretarin-in-stadt-zuerich-zurigo-51285"
-        ],
         "it": [
           "kanzleisekretar-in-stadt-zuerich-zurigo-51285",
-          "kanzleisekretarin-in-stadt-zurich-zurich"
+          "kanzleisekretarin-in-stadt-zurich-zurich",
+          "portavoce-dei-media-stadt-zurich-zurich",
+          "media-spokesperson-stadt-zurich-zurich",
+          "mediensprecher-in-stadt-zuerich-zurigo-50975",
+          "porte-parole-des-medias-stadt-zurich-zurich"
+        ],
+        "de": [
+          "kanzleisekretar-in-stadt-zuerich-zurigo-51285",
+          "kanzleisekretarin-in-stadt-zuerich-zurigo-51285",
+          "mediensprecher-in-stadt-zuerich-zurigo-50975"
+        ],
+        "en": [
+          "media-spokesperson-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "porte-parole-des-medias-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
         "kanzleisekretar-in-stadt-zuerich-zurigo-51285",
         "kanzleisekretarin-in-stadt-zuerich-zurigo-51285",
-        "kanzleisekretarin-in-stadt-zurich-zurich"
+        "kanzleisekretarin-in-stadt-zurich-zurich",
+        "portavoce-dei-media-stadt-zurich-zurich",
+        "media-spokesperson-stadt-zurich-zurich",
+        "mediensprecher-in-stadt-zuerich-zurigo-50975",
+        "porte-parole-des-medias-stadt-zurich-zurich"
       ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-25T21:51:24.386Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -23800,7 +23849,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-25T21:51:24.386Z"
     },
     {
       "id": "stadt-zuerich-19e331323086",
@@ -24500,17 +24550,34 @@
       "unit": "Kreisschulbehörde Letzi",
       "referenceNumber": "50210",
       "previousSlugs": [
-        "sozialpadagog-in-im-schulhaus-dachslern-feldblumen-stadt-zuerich-zurigo-50210"
+        "sozialpadagog-in-im-schulhaus-dachslern-feldblumen-stadt-zuerich-zurigo-50210",
+        "pedagoga-sociale-nel-dachslern-feldblumen-scuola-stadt-zurich-zurich",
+        "dipendente-di-pulizia-presso-la-scuola-dachslern-feldblumen-stadt-zurich-zurich",
+        "cleaning-employee-at-the-dachslern-feldblumen-schoolhouse-stadt-zurich-zurich",
+        "reinigungsmitarbeiter-in-im-schulhaus-dachslern-feldblumen-stadt-zuerich-zurigo-50130",
+        "employe-de-nettoyage-a-l-ecole-dachslern-feldblumen-stadt-zurich-zurich",
+        "reinigungsmitarbeiter-in-im-schulhaus-dachslern-feldblumen-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialpadagog-in-im-schulhaus-dachslern-feldblumen-stadt-zuerich-zurigo-50210"
+          "sozialpadagog-in-im-schulhaus-dachslern-feldblumen-stadt-zuerich-zurigo-50210",
+          "pedagoga-sociale-nel-dachslern-feldblumen-scuola-stadt-zurich-zurich",
+          "dipendente-di-pulizia-presso-la-scuola-dachslern-feldblumen-stadt-zurich-zurich",
+          "cleaning-employee-at-the-dachslern-feldblumen-schoolhouse-stadt-zurich-zurich",
+          "reinigungsmitarbeiter-in-im-schulhaus-dachslern-feldblumen-stadt-zuerich-zurigo-50130",
+          "employe-de-nettoyage-a-l-ecole-dachslern-feldblumen-stadt-zurich-zurich",
+          "reinigungsmitarbeiter-in-im-schulhaus-dachslern-feldblumen-stadt-zurich-zurich"
         ],
         "en": [
-          "sozialpadagog-in-im-schulhaus-dachslern-feldblumen-stadt-zuerich-zurigo-50210"
+          "sozialpadagog-in-im-schulhaus-dachslern-feldblumen-stadt-zuerich-zurigo-50210",
+          "cleaning-employee-at-the-dachslern-feldblumen-schoolhouse-stadt-zurich-zurich"
         ],
         "fr": [
-          "sozialpadagog-in-im-schulhaus-dachslern-feldblumen-stadt-zuerich-zurigo-50210"
+          "sozialpadagog-in-im-schulhaus-dachslern-feldblumen-stadt-zuerich-zurigo-50210",
+          "employe-de-nettoyage-a-l-ecole-dachslern-feldblumen-stadt-zurich-zurich"
+        ],
+        "de": [
+          "reinigungsmitarbeiter-in-im-schulhaus-dachslern-feldblumen-stadt-zuerich-zurigo-50130"
         ]
       },
       "needsRetranslation": true,
@@ -25068,12 +25135,19 @@
       "referenceNumber": "51030",
       "previousSlugs": [
         "lehrstelle-2027-fachfrau-fachmann-betriebsunterhalt-efz-hausdienst-stadt-zuerich-zurigo",
-        "apprendistato-2027-fachfrau-fachmann-betriebsunterhalt-cfc-hausdienst-stadt-zurich"
+        "apprendistato-2027-fachfrau-fachmann-betriebsunterhalt-cfc-hausdienst-stadt-zurich",
+        "apprendistato-2027-fachfrau-fachmann-betriebsunterhalt-cfc-hausdienst-stadt-zurich-coukzy",
+        "lehrstelle-2027-fachfrau-fachmann-betriebsunterhalt-efz-hausdienst-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-2027-fachfrau-fachmann-betriebsunterhalt-efz-hausdienst-stadt-zuerich-zurigo",
-          "apprendistato-2027-fachfrau-fachmann-betriebsunterhalt-cfc-hausdienst-stadt-zurich"
+          "apprendistato-2027-fachfrau-fachmann-betriebsunterhalt-cfc-hausdienst-stadt-zurich",
+          "apprendistato-2027-fachfrau-fachmann-betriebsunterhalt-cfc-hausdienst-stadt-zurich-coukzy",
+          "lehrstelle-2027-fachfrau-fachmann-betriebsunterhalt-efz-hausdienst-stadt-zurich-zurich"
+        ],
+        "en": [
+          "lehrstelle-2027-fachfrau-fachmann-betriebsunterhalt-efz-hausdienst-stadt-zurich-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -25210,16 +25284,17 @@
       "department": "Stiftungen und Anstalten",
       "unit": "Kindes- und Erwachsenenschutzbehörde",
       "referenceNumber": "51389",
+      "previousSlugs": [
+        "behordenmitglied-kesb-stadt-zuerich-zurigo-51389",
+        "behordenmitglied-kesb-stadt-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "behordenmitglied-kesb-stadt-zuerich-zurigo-51389",
           "behordenmitglied-kesb-stadt-zurich-zurich"
         ]
       },
-      "previousSlugs": [
-        "behordenmitglied-kesb-stadt-zuerich-zurigo-51389",
-        "behordenmitglied-kesb-stadt-zurich-zurich"
-      ],
+      "firstSeenAt": "2026-08-24T10:20:10.577Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -25231,8 +25306,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-24T10:20:10.577Z"
+      }
     },
     {
       "id": "stadt-zuerich-149f97863675",
@@ -32100,14 +32174,26 @@
       "unit": "Entsorgung + Recycling Zürich",
       "referenceNumber": "51402",
       "previousSlugs": [
-        "business-engineer-in-80-100-stadt-zuerich-zurigo-51402"
+        "business-engineer-in-80-100-stadt-zuerich-zurigo-51402",
+        "business-ingegnere-in-80-100-stadt-zurich-zurich",
+        "data-ingegnere-in-stadt-zurich-zurich",
+        "data-engineer-in-stadt-zurich-zurich",
+        "data-engineer-in-stadt-zuerich-zurigo-50771"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-engineer-in-80-100-stadt-zuerich-zurigo-51402"
+          "business-engineer-in-80-100-stadt-zuerich-zurigo-51402",
+          "business-ingegnere-in-80-100-stadt-zurich-zurich",
+          "data-ingegnere-in-stadt-zurich-zurich",
+          "data-engineer-in-stadt-zurich-zurich",
+          "data-engineer-in-stadt-zuerich-zurigo-50771"
         ],
         "fr": [
-          "business-engineer-in-80-100-stadt-zuerich-zurigo-51402"
+          "business-engineer-in-80-100-stadt-zuerich-zurigo-51402",
+          "data-engineer-in-stadt-zuerich-zurigo-50771"
+        ],
+        "en": [
+          "data-engineer-in-stadt-zurich-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -32258,19 +32344,6 @@
       "department": "Schul- und Sportdepartement",
       "unit": "Kreisschulbehörde Limmattal",
       "referenceNumber": "51405",
-      "salaryMin": 63000,
-      "salaryMax": 116500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 116500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-08-24T21:53:49.902Z",
       "previousSlugs": [
         "schulassistenz-stadt-zuerich-zurigo-50783",
         "schulassistenz-stadt-zuerich-zurigo-51405",
@@ -32294,6 +32367,19 @@
         "fr": [
           "schulassistenz-stadt-zuerich-zurigo-51405"
         ]
+      },
+      "firstSeenAt": "2026-08-24T21:53:49.902Z",
+      "salaryMin": 63000,
+      "salaryMax": 116500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 116500,
+          "unitText": "YEAR"
+        }
       }
     },
     {
@@ -33006,16 +33092,7 @@
       "department": "Schul- und Sportdepartement",
       "unit": "Kreisschulbehörde Glattal",
       "referenceNumber": "51431",
-      "previousSlugsByLocale": {
-        "de": [
-          "fachperson-betreuung-schule-hurstholz-stadt-zurich-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "fachperson-betreuung-schule-hurstholz-stadt-zurich-zurich"
-      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-25T21:51:24.376Z",
       "salaryMin": 63000,
       "salaryMax": 116500,
       "baseSalary": {
@@ -33027,7 +33104,68 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-25T21:51:24.376Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "fachperson-betreuung-schule-hurstholz-stadt-zurich-zurich",
+          "fachperson-betreuung-schule-allenmoos-stadt-zuerich-zurigo-50895",
+          "fachperson-betreuung-schule-allmend-stadt-zuerich-zurigo-50466"
+        ],
+        "it": [
+          "assistenza-specialistica-scuola-allenmoos-stadt-zurich-zurich",
+          "specialist-care-school-allenmoos-stadt-zurich-zurich",
+          "fachperson-betreuung-schule-allenmoos-stadt-zuerich-zurigo-50895",
+          "soins-specialises-ecole-allenmoos-stadt-zurich-zurich",
+          "special-care-school-allmend-stadt-zurich-zurich",
+          "specialist-care-school-allmend-stadt-zurich-zurich",
+          "fachperson-betreuung-schule-allmend-stadt-zuerich-zurigo-50466",
+          "ecole-de-soins-specialises-allmend-stadt-zurich-zurich",
+          "assistenza-specialistica-presso-la-heubeeribuel-day-school-stadt-zurich-zurich",
+          "specialist-care-at-the-heubeeribuel-day-school-stadt-zurich-zurich",
+          "fachperson-betreuung-an-der-tagesschule-heubeeribuel-stadt-zuerich-zurigo-50851",
+          "soins-specialises-a-l-ecole-de-jour-heubeeribuel-stadt-zurich-zurich",
+          "detachment-in-scuola-di-allmend-stadt-zurich-zurich",
+          "detachment-in-school-of-allmend-stadt-zurich-zurich",
+          "abloser-in-schule-allmend-stadt-zuerich-zurigo-50763",
+          "detachement-a-l-ecole-d-allmend-stadt-zurich-zurich",
+          "sozialpadagog-in-o-fachperson-betreuung-schule-allmend-stadt-zurich",
+          "social-pedagogist-or-specialist-care-school-allmend-stadt-zurich-zurich",
+          "sozialpadagog-in-oder-fachperson-betreuung-schule-allmend-stadt-zuerich-zurigo-50799",
+          "pedagogie-sociale-ou-ecole-de-soins-specialises-stadt-zurich-zurich"
+        ],
+        "en": [
+          "specialist-care-school-allenmoos-stadt-zurich-zurich",
+          "specialist-care-school-allmend-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "soins-specialises-ecole-allenmoos-stadt-zurich-zurich",
+          "ecole-de-soins-specialises-allmend-stadt-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-betreuung-schule-hurstholz-stadt-zurich-zurich",
+        "assistenza-specialistica-scuola-allenmoos-stadt-zurich-zurich",
+        "specialist-care-school-allenmoos-stadt-zurich-zurich",
+        "fachperson-betreuung-schule-allenmoos-stadt-zuerich-zurigo-50895",
+        "soins-specialises-ecole-allenmoos-stadt-zurich-zurich",
+        "special-care-school-allmend-stadt-zurich-zurich",
+        "specialist-care-school-allmend-stadt-zurich-zurich",
+        "fachperson-betreuung-schule-allmend-stadt-zuerich-zurigo-50466",
+        "ecole-de-soins-specialises-allmend-stadt-zurich-zurich",
+        "assistenza-specialistica-presso-la-heubeeribuel-day-school-stadt-zurich-zurich",
+        "specialist-care-at-the-heubeeribuel-day-school-stadt-zurich-zurich",
+        "fachperson-betreuung-an-der-tagesschule-heubeeribuel-stadt-zuerich-zurigo-50851",
+        "soins-specialises-a-l-ecole-de-jour-heubeeribuel-stadt-zurich-zurich",
+        "detachment-in-scuola-di-allmend-stadt-zurich-zurich",
+        "detachment-in-school-of-allmend-stadt-zurich-zurich",
+        "abloser-in-schule-allmend-stadt-zuerich-zurigo-50763",
+        "detachement-a-l-ecole-d-allmend-stadt-zurich-zurich",
+        "sozialpadagog-in-o-fachperson-betreuung-schule-allmend-stadt-zurich",
+        "social-pedagogist-or-specialist-care-school-allmend-stadt-zurich-zurich",
+        "sozialpadagog-in-oder-fachperson-betreuung-schule-allmend-stadt-zuerich-zurigo-50799",
+        "pedagogie-sociale-ou-ecole-de-soins-specialises-stadt-zurich-zurich"
+      ]
     },
     {
       "id": "stadt-zuerich-7ab944894d2d",
@@ -33480,16 +33618,7 @@
       "department": "Schul- und Sportdepartement",
       "unit": "Kreisschulbehörde Letzi",
       "referenceNumber": "51434",
-      "previousSlugsByLocale": {
-        "de": [
-          "schulassistenz-betreuung-loogarten-stadt-zurich-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "schulassistenz-betreuung-loogarten-stadt-zurich-zurich"
-      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-25T21:51:24.377Z",
       "salaryMin": 63000,
       "salaryMax": 116500,
       "baseSalary": {
@@ -33501,7 +33630,44 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-25T21:51:24.377Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "schulassistenz-betreuung-loogarten-stadt-zurich-zurich",
+          "schulassistenz-in-der-betreuung-der-tagesschule-hirslanden-stadt-zuerich-zurigo-51309",
+          "schulassistenz-in-der-betreuung-der-tagesschule-riesbach-stadt-zuerich-zurigo-50994"
+        ],
+        "it": [
+          "assistenza-scolastica-nella-cura-della-scuola-hirslanden-day-stadt-zurich-zurich-347642",
+          "school-assistance-in-the-care-of-the-hirslanden-day-school-stadt-zurich-zurich-347642",
+          "schulassistenz-in-der-betreuung-der-tagesschule-hirslanden-stadt-zuerich-zurigo-51309",
+          "assistance-scolaire-dans-les-soins-de-l-ecole-de-jour-hirslanden-stadt-zurich-zurich-347642",
+          "assistente-scolastico-nella-supervisione-della-riesbach-day-school-stadt-zurich-zurich-d12d6c",
+          "school-assistant-in-the-supervision-of-the-riesbach-day-school-stadt-zurich-zurich-d12d6c",
+          "schulassistenz-in-der-betreuung-der-tagesschule-riesbach-stadt-zuerich-zurigo-50994",
+          "assistant-a-la-supervision-de-l-ecole-de-jour-de-riesbach-stadt-zurich-zurich-d12d6c"
+        ],
+        "en": [
+          "school-assistance-in-the-care-of-the-hirslanden-day-school-stadt-zurich-zurich-347642",
+          "school-assistant-in-the-supervision-of-the-riesbach-day-school-stadt-zurich-zurich-d12d6c"
+        ],
+        "fr": [
+          "assistance-scolaire-dans-les-soins-de-l-ecole-de-jour-hirslanden-stadt-zurich-zurich-347642",
+          "assistant-a-la-supervision-de-l-ecole-de-jour-de-riesbach-stadt-zurich-zurich-d12d6c"
+        ]
+      },
+      "previousSlugs": [
+        "schulassistenz-betreuung-loogarten-stadt-zurich-zurich",
+        "assistenza-scolastica-nella-cura-della-scuola-hirslanden-day-stadt-zurich-zurich-347642",
+        "school-assistance-in-the-care-of-the-hirslanden-day-school-stadt-zurich-zurich-347642",
+        "schulassistenz-in-der-betreuung-der-tagesschule-hirslanden-stadt-zuerich-zurigo-51309",
+        "assistance-scolaire-dans-les-soins-de-l-ecole-de-jour-hirslanden-stadt-zurich-zurich-347642",
+        "assistente-scolastico-nella-supervisione-della-riesbach-day-school-stadt-zurich-zurich-d12d6c",
+        "school-assistant-in-the-supervision-of-the-riesbach-day-school-stadt-zurich-zurich-d12d6c",
+        "schulassistenz-in-der-betreuung-der-tagesschule-riesbach-stadt-zuerich-zurigo-50994",
+        "assistant-a-la-supervision-de-l-ecole-de-jour-de-riesbach-stadt-zurich-zurich-d12d6c"
+      ]
     },
     {
       "id": "stadt-zuerich-7c08a14ab70f",
@@ -33568,7 +33734,42 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipendente-della-societa-in-koch-koch-temporaneo-stadt-zurich-zurich",
+          "company-employee-in-koch-koch-temporary-stadt-zurich-zurich",
+          "betriebsmitarbeiter-in-kochin-koch-befristet-stadt-zuerich-zurigo-50899",
+          "employe-de-l-entreprise-in-koch-koch-temporaire-stadt-zurich-zurich",
+          "betriebsmitarbeiter-in-kochin-koch-befristet-stadt-zurich",
+          "betriebsmitarbeiter-in-kochin-koch-befristet-stadt-zurich-zurich",
+          "cuocere-allrounder-in-stadt-zurich-zurich",
+          "cook-allrounder-in-stadt-zurich-zurich",
+          "koch-kochin-allrounder-in-stadt-zuerich-zurigo-50974",
+          "cuire-en-tout-stadt-zurich-zurich"
+        ],
+        "en": [
+          "company-employee-in-koch-koch-temporary-stadt-zurich-zurich"
+        ],
+        "de": [
+          "betriebsmitarbeiter-in-kochin-koch-befristet-stadt-zuerich-zurigo-50899"
+        ],
+        "fr": [
+          "employe-de-l-entreprise-in-koch-koch-temporaire-stadt-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "dipendente-della-societa-in-koch-koch-temporaneo-stadt-zurich-zurich",
+        "company-employee-in-koch-koch-temporary-stadt-zurich-zurich",
+        "betriebsmitarbeiter-in-kochin-koch-befristet-stadt-zuerich-zurigo-50899",
+        "employe-de-l-entreprise-in-koch-koch-temporaire-stadt-zurich-zurich",
+        "betriebsmitarbeiter-in-kochin-koch-befristet-stadt-zurich",
+        "betriebsmitarbeiter-in-kochin-koch-befristet-stadt-zurich-zurich",
+        "cuocere-allrounder-in-stadt-zurich-zurich",
+        "cook-allrounder-in-stadt-zurich-zurich",
+        "koch-kochin-allrounder-in-stadt-zuerich-zurigo-50974",
+        "cuire-en-tout-stadt-zurich-zurich"
+      ]
     },
     {
       "id": "stadt-zuerich-8ac5b1af87d3",
@@ -33868,16 +34069,7 @@
       "department": "Schul- und Sportdepartement",
       "unit": "Kreisschulbehörde Uto",
       "referenceNumber": "51393",
-      "previousSlugsByLocale": {
-        "de": [
-          "sozialpadagog-in-schule-wollishofen-im-lee-stadt-zurich-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "sozialpadagog-in-schule-wollishofen-im-lee-stadt-zurich-zurich"
-      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-25T21:51:24.376Z",
       "salaryMin": 63000,
       "salaryMax": 116500,
       "baseSalary": {
@@ -33889,7 +34081,33 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-25T21:51:24.376Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "sozialpadagog-in-schule-wollishofen-im-lee-stadt-zurich-zurich",
+          "praktikant-in-schule-wollishofen-im-lee-stadt-zuerich-zurigo-50541"
+        ],
+        "it": [
+          "stage-a-scuola-wollishofen-im-lee-stadt-zurich-zurich",
+          "internship-in-school-wollishofen-im-lee-stadt-zurich-zurich",
+          "praktikant-in-schule-wollishofen-im-lee-stadt-zuerich-zurigo-50541",
+          "stage-a-l-ecole-wollichofen-im-lee-stadt-zurich-zurich"
+        ],
+        "en": [
+          "internship-in-school-wollishofen-im-lee-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "stage-a-l-ecole-wollichofen-im-lee-stadt-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "sozialpadagog-in-schule-wollishofen-im-lee-stadt-zurich-zurich",
+        "stage-a-scuola-wollishofen-im-lee-stadt-zurich-zurich",
+        "internship-in-school-wollishofen-im-lee-stadt-zurich-zurich",
+        "praktikant-in-schule-wollishofen-im-lee-stadt-zuerich-zurigo-50541",
+        "stage-a-l-ecole-wollichofen-im-lee-stadt-zurich-zurich"
+      ]
     },
     {
       "id": "stadt-zuerich-6bac81bb634a",

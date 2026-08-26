@@ -108,7 +108,18 @@
       "addressLocality": "Genève 1 Collaborateurtrice logistique",
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-08-25T22:08:10.423Z"
+      "firstSeenAt": "2026-08-25T22:08:10.423Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-collaborateur-trice-logistique-60-fribourg-collaborateurtrice-logistique-60"
+        ],
+        "fr": [
+          "manor-collaborateur-trice-logistique-60-fribourg-collaborateurtrice-logistique-60"
+        ]
+      },
+      "previousSlugs": [
+        "manor-collaborateur-trice-logistique-60-fribourg-collaborateurtrice-logistique-60"
+      ]
     },
     {
       "title": "Collaborateur/trice service (Manora) 50%",
@@ -143,8 +154,31 @@
         "fr": "Collaborateur/trice service (Manora) 50%"
       },
       "sourceLang": "fr",
-      "crawledAt": "",
       "id": "manor-4d36d4031e13",
+      "previousSlugs": [
+        "manor-collaborateur-trice-service-manora-50-chavannes-de-bogis-collaborateurtrice",
+        "collaboratore-di-servizio-manora-50-manor-ag-chavannes-de-bogis-collaborateurtrice",
+        "servizio-collaboratore-manora-50-manor-ag-chavannes-de-bogis-collaborateurtrice",
+        "manor-collaborateur-trice-service-manora-50-chavannes-de-bogis-collaborateurtrice-t0vx9b"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-collaborateur-trice-service-manora-50-chavannes-de-bogis-collaborateurtrice",
+          "collaboratore-di-servizio-manora-50-manor-ag-chavannes-de-bogis-collaborateurtrice"
+        ],
+        "en": [
+          "manor-collaborateur-trice-service-manora-50-chavannes-de-bogis-collaborateurtrice"
+        ],
+        "fr": [
+          "manor-collaborateur-trice-service-manora-50-chavannes-de-bogis-collaborateurtrice-t0vx9b"
+        ],
+        "de": [
+          "manor-collaborateur-trice-service-manora-50-chavannes-de-bogis-collaborateurtrice"
+        ]
+      },
+      "firstSeenAt": "2026-08-24T22:01:54.783Z",
+      "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 32800,
       "salaryMax": 41300,
       "currency": "CHF",
@@ -160,31 +194,7 @@
       },
       "addressLocality": "Chavannes de Bogis Collaborateurtrice",
       "addressRegion": "VD",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-08-24T22:01:54.783Z",
-      "previousSlugs": [
-        "manor-collaborateur-trice-service-manora-50-chavannes-de-bogis-collaborateurtrice",
-        "collaboratore-di-servizio-manora-50-manor-ag-chavannes-de-bogis-collaborateurtrice",
-        "servizio-collaboratore-manora-50-manor-ag-chavannes-de-bogis-collaborateurtrice",
-        "manor-collaborateur-trice-service-manora-50-chavannes-de-bogis-collaborateurtrice-t0vx9b"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-collaborateur-trice-service-manora-50-chavannes-de-bogis-collaborateurtrice",
-          "collaboratore-di-servizio-manora-50-manor-ag-chavannes-de-bogis-collaborateurtrice",
-          "servizio-collaboratore-manora-50-manor-ag-chavannes-de-bogis-collaborateurtrice"
-        ],
-        "en": [
-          "manor-collaborateur-trice-service-manora-50-chavannes-de-bogis-collaborateurtrice"
-        ],
-        "fr": [
-          "manor-collaborateur-trice-service-manora-50-chavannes-de-bogis-collaborateurtrice-t0vx9b"
-        ],
-        "de": [
-          "manor-collaborateur-trice-service-manora-50-chavannes-de-bogis-collaborateurtrice"
-        ]
-      },
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Logistiker*in EFZ/EBA 100%",
@@ -460,31 +470,12 @@
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Logistik 100%",
-        "de": "Mitarbeiter*in Logistik 100%",
         "en": "Employee* in logistics 100%",
+        "de": "Mitarbeiter*in Logistik 100%",
         "fr": "Employé* en logistique 100%"
       },
       "sourceLang": "de",
-      "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-63c87f2dd108",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Möhlin Mitarbeiterin Logistik 100",
-      "addressRegion": "AG",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-08-24T22:01:54.783Z",
       "previousSlugs": [
         "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100",
         "collaboratore-trice-in-logistik-100-manor-ag-mohlin-mitarbeiterin-logistik-100",
@@ -504,7 +495,26 @@
         "de": [
           "manor-mitarbeiter-in-logistik-100-mohlin-mitarbeiterin-logistik-100-t1xnpj"
         ]
-      }
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T22:01:54.783Z",
+      "crawledAt": "",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Möhlin Mitarbeiterin Logistik 100",
+      "addressRegion": "AG",
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Mitarbeiter*in Logistik 100%",
@@ -1084,7 +1094,7 @@
       "description": "KOMMERZIELLE Kernaufgaben :\n- Professionelle, umfassende und kompetente\nKundenberatung (Zusatzverkäufe, Instore Ordering,\nVerkaufsabschluss)\n- Anwendung des OMNICHANNEL-Konzepts\n- Die Manor Mastercard anbieten und Informationen\nüber das Treueprogramm geben\n- Bearbeitung von Retouren und Garantiefällen\n- Sicherstellung einer qualitativ hochwertigen\nVerpackung und Behandlung der Produkte\n- Hilfe beim Verkauf und Service in den benachbarten\nAbteilungen\n- Tägliche Pflege der Kassen (Ordnung, Sauberkeit)\nADMINISTRATIVE Kernaufgaben :\n- sich selbstständig über Statistiken informieren:\nUmsatz, Reassort von Waren, Omnichannel-\nStatistiken (Instore Ordering /Click & Collect (Express)",
       "descriptionIt": "KOMMERZIELLE Kernaufgaben :\n- Professionelle, umfassende und kompetente\nKundenberatung (Zusatzverkäufe, Instore Ordering,\nVerkaufsabschluss)\n- Anwendung des OMNICHANNEL-Konzepts\n- Die Manor Mastercard anbieten und Informationen\nüber das Treueprogramm geben\n- Bearbeitung von Retouren und Garantiefällen\n- Sicherstellung einer qualitativ hochwertigen\nVerpackung und Behandlung der Produkte\n- Hilfe beim Verkauf und Service in den benachbarten\nAbteilungen\n- Tägliche Pflege der Kassen (Ordnung, Sauberkeit)\nADMINISTRATIVE Kernaufgaben :\n- sich selbstständig über Statistiken informieren:\nUmsatz, Reassort von Waren, Omnichannel-\nStatistiken (Instore Ordering /Click & Collect (Express)",
       "descriptionByLocale": {
-        "it": "Compiti fondamentali COMMERCIAL:\n- Professionale, completo e competente\nConsulenza clienti (vendita aggiuntiva, ordinazione in negozio),\nChiusura delle vendite\n- Applicazione del concetto OMNICHANNEL\n- L'offerta e le informazioni di Manor Mastercard\nDare sul programma fedeltà\n- Trattamento dei rendimenti e dei casi di garanzia\n- Garantire alta qualità\nImballaggio e trattamento dei prodotti\n- Aiuto con le vendite e il servizio nei paesi vicini\nDivisioni\n- Cura quotidiana dei fondi (ordine, pulizia)\nFunzioni fondamentali AMMINISTRATIVE:\n- informarsi autonomamente sulle statistiche:\nVendite, portafoglio merci, omnicanale\nStatistiche (Instore Order /Click & Collect (Express))",
+        "it": "Principali compiti COMMERCIAL:\n- Professionale, completo e competente\nConsulenza clienti (vendita aggiuntiva, ordini in negozio),\nChiusura delle vendite\n- Applicazione del concetto OMNICHANNEL\n- L'offerta e le informazioni di Manor Mastercard\nDare sul programma fedeltà\n- Trattamento dei rendimenti e dei casi di garanzia\n- Garantire alta qualità\nImballaggio e trattamento dei prodotti\n- Aiuto con le vendite e il servizio nei paesi vicini\nDivisioni\n- Cura quotidiana dei fondi (ordine, pulizia)\nFunzioni fondamentali AMMINISTRATIVE:\n- informarsi autonomamente sulle statistiche:\nVendite, portafoglio merci, omnicanale\nStatistiche (Instore Order /Click & Collect (Express))",
         "en": "Mitarbeiter*in Kasse 60% at Manor, located in Basel Mitarbeiterin Kasse 60, Canton of Basel-Stadt, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "KOMMERZIELLE Kernaufgaben :\n- Professionelle, umfassende und kompetente\nKundenberatung (Zusatzverkäufe, Instore Ordering,\nVerkaufsabschluss)\n- Anwendung des OMNICHANNEL-Konzepts\n- Die Manor Mastercard anbieten und Informationen\nüber das Treueprogramm geben\n- Bearbeitung von Retouren und Garantiefällen\n- Sicherstellung einer qualitativ hochwertigen\nVerpackung und Behandlung der Produkte\n- Hilfe beim Verkauf und Service in den benachbarten\nAbteilungen\n- Tägliche Pflege der Kassen (Ordnung, Sauberkeit)\nADMINISTRATIVE Kernaufgaben :\n- sich selbstständig über Statistiken informieren:\nUmsatz, Reassort von Waren, Omnichannel-\nStatistiken (Instore Ordering /Click & Collect (Express)",
         "fr": "Mitarbeiter*in Kasse 60% chez Manor, situé à Basel Mitarbeiterin Kasse 60, Canton de Bâle-Ville, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -1799,6 +1809,7 @@
           "manor-collaborateur-trice-vente-confection-enfants-80-delemont-collaborateurtrice-vente-confection"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-19T10:25:28.531Z",
       "crawledAt": "",
       "salaryMin": 57600,
@@ -1817,7 +1828,6 @@
       "addressLocality": "Delémont Collaborateurtrice vente (Confection",
       "addressRegion": "JU",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "retranslationAttempts": 1
     },
     {
@@ -2682,6 +2692,7 @@
           "manor-collaborateur-trice-caisse-food-60-nyon-collaborateurtrice-caisse-food"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-18T10:15:44.805Z",
       "crawledAt": "",
       "salaryMin": 43200,
@@ -2700,7 +2711,6 @@
       "addressLocality": "Nyon Collaborateurtrice caisse (Food)",
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "retranslationAttempts": 1
     },
     {
@@ -3095,7 +3105,18 @@
       },
       "addressLocality": "Aarau Mitarbeiterin Visual Merchandising",
       "addressRegion": "AG",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-mitarbeiter-in-merchandising-fashion-50-aarau-mitarbeiterin-merchandising-fashion"
+        ],
+        "de": [
+          "manor-mitarbeiter-in-merchandising-fashion-50-aarau-mitarbeiterin-merchandising-fashion"
+        ]
+      },
+      "previousSlugs": [
+        "manor-mitarbeiter-in-merchandising-fashion-50-aarau-mitarbeiterin-merchandising-fashion"
+      ]
     },
     {
       "title": "Mitarbeiter*in Kundendienst 30%",
@@ -3705,7 +3726,7 @@
       "description": "Kernaufgaben:\n70% MANAGEMENT-Kernaufgaben:\n• Ganzheitliche Betreuung betrieblicher Projekte FM Hauptsitz, Warenhäuser und Verteilzentralen\n• Betreuung und laufende Optimierung betrieblicher Prozesse FM\n\n20% STRATEGISCHE-Kernaufgaben:\n• Einleiten von betriebsoptimierenden Änderungen. (Innovation)\n\n10% ADMINISTRATIVE-Kernaufgaben:\n•Terminkoordination und Sitzungskoordination mit Vertragsfirmen, Protokollführung, Mithilfe bei Planung von internen Anlässen, Erstellung Organigramm, Administrative Unterstützung im Team FM BAZ. Zentralisierung und Vereinheitlichung der administrativen Tätigkeiten.\nIT Affinität wird vorausgesetzt.",
       "descriptionIt": "Kernaufgaben:\n70% MANAGEMENT-Kernaufgaben:\n• Ganzheitliche Betreuung betrieblicher Projekte FM Hauptsitz, Warenhäuser und Verteilzentralen\n• Betreuung und laufende Optimierung betrieblicher Prozesse FM \n\n20% STRATEGISCHE-Kernaufgaben:\n• Einleiten von betriebsoptimierenden Änderungen. (Innovation)\n\n10% ADMINISTRATIVE-Kernaufgaben:\n•Terminkoordination und Sitzungskoordination mit Vertragsfirmen, Protokollführung, Mithilfe bei Planung von internen Anlässen, Erstellung Organigramm, Administrative Unterstützung im Team FM BAZ. Zentralisierung und Vereinheitlichung der administrativen Tätigkeiten. \nIT Affinität wird vorausgesetzt.",
       "descriptionByLocale": {
-        "it": "Compiti fondamentali:\ncompiti di gestione del core 70%:\n• Supporto olistico dei progetti operativi centrale FM, grandi magazzini e centri di distribuzione\n• Supporto e ottimizzazione continua dei processi operativi FM\n\n20% compiti fondamentali STRATEGIC:\n• Iniziazione di modifiche ottimizzate operativamente. (Innovazione)\n\n10% compiti fondamentali ADMINISTRATIVE:\n•Coordinamento Termink e coordinamento delle riunioni con le società contraenti, la gestione dei protocolli, l'assistenza nella pianificazione degli eventi interni, la creazione di un grafico di organizzazione, il supporto amministrativo nel team FM BAZ. Centralizzazione e standardizzazione delle attività amministrative.\nL'affinità è necessaria.",
+        "it": "Compiti fondamentali:\ncompiti di gestione del core 70%:\n• Supporto olistico dei progetti operativi centrale FM, grandi magazzini e centri di distribuzione\n• Supporto e ottimizzazione continua dei processi operativi FM\n\n20% compiti fondamentali STRATEGIC:\n• Iniziazione di modifiche ottimizzate operativamente. (Innovazione)\n\n10% compiti fondamentali ADMINISTRATIVE:\n•Coordinamento Termink e coordinamento delle riunioni con le società contraenti, la gestione dei protocolli, l'assistenza nella pianificazione degli eventi interni, la creazione di un grafico di organizzazione, il supporto amministrativo nel team FM BAZ. Centralizzazione e standardizzazione delle attività amministrative.\nL'affinità IT è necessaria.",
         "en": "Projektleiter Facility Management 100% at Manor, located in Basel Projektleiter Facility Management, Canton of Basel-Stadt, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "Kernaufgaben:\n70% MANAGEMENT-Kernaufgaben:\n• Ganzheitliche Betreuung betrieblicher Projekte FM Hauptsitz, Warenhäuser und Verteilzentralen\n• Betreuung und laufende Optimierung betrieblicher Prozesse FM\n\n20% STRATEGISCHE-Kernaufgaben:\n• Einleiten von betriebsoptimierenden Änderungen. (Innovation)\n\n10% ADMINISTRATIVE-Kernaufgaben:\n•Terminkoordination und Sitzungskoordination mit Vertragsfirmen, Protokollführung, Mithilfe bei Planung von internen Anlässen, Erstellung Organigramm, Administrative Unterstützung im Team FM BAZ. Zentralisierung und Vereinheitlichung der administrativen Tätigkeiten.\nIT Affinität wird vorausgesetzt.",
         "fr": "Projektleiter Facility Management 100% chez Manor, situé à Basel Projektleiter Facility Management, Canton de Bâle-Ville, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -5384,7 +5405,7 @@
       "description": "• Ausgeprägte Verkaufs- und Beratungskompetenz.\n• Hohe Kunden- und Serviceorientierung.\n• Begeisterung für Beauty, Parfümerie sowie Hautpflege und Make-up.\n• Kommunikationsstarkes und überzeugendes Auftreten.\n• Freude am aktiven Verkauf und an der Erreichung von Verkaufszielen.\n• Gepflegtes, professionelles und markengerechtes Erscheinungsbild.\n• Selbstständige, zuverlässige und strukturierte Arbeitsweise.\n• Teamfähigkeit sowie hohe Sozialkompetenz.",
       "descriptionIt": "• Ausgeprägte Verkaufs- und Beratungskompetenz.\n• Hohe Kunden- und Serviceorientierung.\n• Begeisterung für Beauty, Parfümerie sowie Hautpflege und Make-up.\n• Kommunikationsstarkes und überzeugendes Auftreten.\n• Freude am aktiven Verkauf und an der Erreichung von Verkaufszielen.\n• Gepflegtes, professionelles und markengerechtes Erscheinungsbild.\n• Selbstständige, zuverlässige und strukturierte Arbeitsweise.\n• Teamfähigkeit sowie hohe Sozialkompetenz.",
       "descriptionByLocale": {
-        "it": "• Forte capacità di vendita e consulenza.\n• Alto orientamento al cliente e al servizio.\n• Entusiasmo per bellezza, profumeria e cura della pelle e trucco.\n• Comunicazione forte e aspetto convincente.\n• Gioia delle vendite attive e raggiungimento degli obiettivi di vendita.\n• Aspetto attento, professionale e di marca.\n• Metodo di lavoro indipendente, affidabile e strutturato.\n• Lavoro di squadra e competenze sociali elevate.",
+        "it": "• Forte esperienza di vendita e consulenza.\n• Alto orientamento al cliente e al servizio.\n• Entusiasmo per bellezza, profumeria e cura della pelle e trucco.\n• Comunicazione forte e aspetto convincente.\n• Gioia delle vendite attive e raggiungimento degli obiettivi di vendita.\n• Aspetto attento, professionale e di marca.\n• Metodo di lavoro indipendente, affidabile e strutturato.\n• Lavoro di squadra e competenze sociali elevate.",
         "en": "Mitarbeiter*in Verkauf Parfümerie 80% at Manor, located in Emmen Mitarbeiterin Verkauf Parfümerie, Canton of Lucerne, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "• Ausgeprägte Verkaufs- und Beratungskompetenz.\n• Hohe Kunden- und Serviceorientierung.\n• Begeisterung für Beauty, Parfümerie sowie Hautpflege und Make-up.\n• Kommunikationsstarkes und überzeugendes Auftreten.\n• Freude am aktiven Verkauf und an der Erreichung von Verkaufszielen.\n• Gepflegtes, professionelles und markengerechtes Erscheinungsbild.\n• Selbstständige, zuverlässige und strukturierte Arbeitsweise.\n• Teamfähigkeit sowie hohe Sozialkompetenz.",
         "fr": "Mitarbeiter*in Verkauf Parfümerie 80% chez Manor, situé à Emmen Mitarbeiterin Verkauf Parfümerie, Canton de Lucerne, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -6841,24 +6862,21 @@
       "id": "manor-db2c3bdf35e4",
       "previousSlugs": [
         "manor-assistent-in-restaurant-100-baden-assistentin-restaurant-100",
-        "restaurant-adjoint-100-manor-ag-baden-assistentin-restaurant-100",
-        "ristorante-aggiunto-100-manor-ag-baden-assistentin-restaurant-100",
         "assistent-in-restaurant-100-manor-ag-baden-assistentin-restaurant-100"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-assistent-in-restaurant-100-baden-assistentin-restaurant-100",
-          "ristorante-aggiunto-100-manor-ag-baden-assistentin-restaurant-100"
+          "manor-assistent-in-restaurant-100-baden-assistentin-restaurant-100"
         ],
         "en": [
           "manor-assistent-in-restaurant-100-baden-assistentin-restaurant-100"
         ],
         "fr": [
           "manor-assistent-in-restaurant-100-baden-assistentin-restaurant-100",
-          "restaurant-adjoint-100-manor-ag-baden-assistentin-restaurant-100",
           "assistent-in-restaurant-100-manor-ag-baden-assistentin-restaurant-100"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-21T12:42:21.972Z",
       "crawledAt": "",
       "salaryMin": 74000,
@@ -6876,8 +6894,7 @@
       },
       "addressLocality": "Baden Assistentin Restaurant 100",
       "addressRegion": "AG",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Polydesigner*in 3D 80%",
@@ -6955,7 +6972,7 @@
       "description": "KOMMERZIELLE Kernaufgaben:\n- Professionelle, umfassende und kompetente Beratung\nvon Kundinnen und Kunden (Bedarfsermittlung,\nArgumentation, Alternativen, Zusatzverkäufe, Instore\nOrdering, Verkaufsabschluss)\n- Anwendung des OMNICHANNEL-Konzepts\n- Aktives Anbieten der Manor Mastercard und Erteilen\nvon Informationen über das Treueprogramm\n- Sorgt für Ordnung auf der Verkaufsfläche\n- Zusammenarbeit mit dem Merchandising/Visual-Team\nbezüglich der Warenpräsentation und\nWarenbewirtschaftung\n- Unterstützung bei der Bearbeitung von Retouren und\nGarantiefällen\n- Einkassieren gemäss Vorgaben\nADMINISTRATIVE Kernaufgaben:\n- sich selbstständig anhand von Statistiken informieren:\nUmsatz, Warenreassort, Omnichannel-Statistiken\n(Instore Ordering / Click&Collect (Express) usw.).",
       "descriptionIt": "KOMMERZIELLE Kernaufgaben:\n- Professionelle, umfassende und kompetente Beratung\nvon Kundinnen und Kunden (Bedarfsermittlung,\nArgumentation, Alternativen, Zusatzverkäufe, Instore\nOrdering, Verkaufsabschluss)\n- Anwendung des OMNICHANNEL-Konzepts\n- Aktives Anbieten der Manor Mastercard und Erteilen\nvon Informationen über das Treueprogramm\n- Sorgt für Ordnung auf der Verkaufsfläche\n- Zusammenarbeit mit dem Merchandising/Visual-Team\nbezüglich der Warenpräsentation und\nWarenbewirtschaftung\n- Unterstützung bei der Bearbeitung von Retouren und\nGarantiefällen\n- Einkassieren gemäss Vorgaben\nADMINISTRATIVE Kernaufgaben:\n- sich selbstständig anhand von Statistiken informieren:\nUmsatz, Warenreassort, Omnichannel-Statistiken\n(Instore Ordering / Click&Collect (Express) usw.).",
       "descriptionByLocale": {
-        "it": "Compiti fondamentali COMMERCIAL:\n- Consulenza professionale, completa e competente\ndi clienti (necessari valutazione),\nArgomento, alternative, vendite aggiuntive, in-store\nOrdinazione, chiusura delle vendite\n- Applicazione del concetto OMNICHANNEL\n- Offerta attiva della Manor Mastercard ed emissione\nInformazioni sul programma fedeltà\n- Assicurare ordine sul piano di vendita\n- Cooperazione con il team merchandising/visual\nla presentazione delle merci; e\nGestione dei beni\n- Assistenza nel trattamento dei resi e\nCasi di garanzia\n- Contanti secondo le specifiche\nFunzioni fondamentali AMMINISTRATIVE:\n- ottenere informazioni indipendentemente sulla base delle statistiche:\nVendite, portafoglio prodotti, statistiche omnicanale\n(Instore Order / Click&Collect (Express) ecc.).",
+        "it": "Principali compiti COMMERCIAL:\n- Consulenza professionale, completa e competente\ndi clienti (necessità di valutazione),\nArgomento, alternative, vendite aggiuntive, in-store\nOrdinazione, chiusura delle vendite\n- Applicazione del concetto OMNICHANNEL\n- Offerta attiva della Manor Mastercard ed emissione\nInformazioni sul programma di fidelizzazione\n- Prendere cura di ordine sul piano di vendita\n- Cooperazione con il team merchandising/visual\nla presentazione delle merci; e\nGestione dei beni\n- Assistenza nel trattamento dei resi e\nCasi di garanzia\n- Contanti secondo le specifiche\nFunzioni fondamentali AMMINISTRATIVE:\n- ottenere informazioni indipendentemente sulla base delle statistiche:\nVendite, portafoglio prodotti, statistiche omnicanale\n(Instore Ordering / Click&Collect (Express) ecc.).",
         "en": "Mitarbeiter/in Verkauf Damenmode/Lingerie 50% at Manor, located in Luzern Mitarbeiterin Verkauf DamenmodeLingerie, Canton of Lucerne, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "KOMMERZIELLE Kernaufgaben:\n- Professionelle, umfassende und kompetente Beratung\nvon Kundinnen und Kunden (Bedarfsermittlung,\nArgumentation, Alternativen, Zusatzverkäufe, Instore\nOrdering, Verkaufsabschluss)\n- Anwendung des OMNICHANNEL-Konzepts\n- Aktives Anbieten der Manor Mastercard und Erteilen\nvon Informationen über das Treueprogramm\n- Sorgt für Ordnung auf der Verkaufsfläche\n- Zusammenarbeit mit dem Merchandising/Visual-Team\nbezüglich der Warenpräsentation und\nWarenbewirtschaftung\n- Unterstützung bei der Bearbeitung von Retouren und\nGarantiefällen\n- Einkassieren gemäss Vorgaben\nADMINISTRATIVE Kernaufgaben:\n- sich selbstständig anhand von Statistiken informieren:\nUmsatz, Warenreassort, Omnichannel-Statistiken\n(Instore Ordering / Click&Collect (Express) usw.).",
         "fr": "Mitarbeiter/in Verkauf Damenmode/Lingerie 50% chez Manor, situé à Luzern Mitarbeiterin Verkauf DamenmodeLingerie, Canton de Lucerne, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -7582,7 +7599,7 @@
         "fr": "manor-collaborateur-trice-service-manora-50-geneve-1-collaborateurtrice-service"
       },
       "titleByLocale": {
-        "it": "Servizio Collaboratore (Manora) 50%",
+        "it": "Collaboratore di servizio (Manora) 50%",
         "en": "Service Collaborator (Manora) 50%",
         "de": "Service Collaborator (Manora) 50%",
         "fr": "Collaborateur/trice service (Manora) 50%"
@@ -8357,7 +8374,7 @@
       "description": "KOMMERZIELLE Kernaufgaben :\n- Professionelle, umfassende und kompetente\nKundenberatung (Zusatzverkäufe, Instore Ordering,\nVerkaufsabschluss)\n- Anwendung des OMNICHANNEL-Konzepts\n- Die Manor Mastercard anbieten und Informationen\nüber das Treueprogramm geben\n- Bearbeitung von Retouren und Garantiefällen\n- Sicherstellung einer qualitativ hochwertigen\nVerpackung und Behandlung der Produkte\n- Hilfe beim Verkauf und Service in den benachbarten\nAbteilungen\n- Tägliche Pflege der Kassen (Ordnung, Sauberkeit)\nADMINISTRATIVE Kernaufgaben :\n- sich selbstständig über Statistiken informieren:\nUmsatz, Reassort von Waren, Omnichannel-\nStatistiken (Instore Ordering /Click & Collect (Express)",
       "descriptionIt": "KOMMERZIELLE Kernaufgaben :\n- Professionelle, umfassende und kompetente\nKundenberatung (Zusatzverkäufe, Instore Ordering,\nVerkaufsabschluss)\n- Anwendung des OMNICHANNEL-Konzepts\n- Die Manor Mastercard anbieten und Informationen\nüber das Treueprogramm geben\n- Bearbeitung von Retouren und Garantiefällen\n- Sicherstellung einer qualitativ hochwertigen\nVerpackung und Behandlung der Produkte\n- Hilfe beim Verkauf und Service in den benachbarten\nAbteilungen\n- Tägliche Pflege der Kassen (Ordnung, Sauberkeit)\nADMINISTRATIVE Kernaufgaben :\n- sich selbstständig über Statistiken informieren:\nUmsatz, Reassort von Waren, Omnichannel-\nStatistiken (Instore Ordering /Click & Collect (Express)",
       "descriptionByLocale": {
-        "it": "Compiti fondamentali COMMERCIAL:\n- Professionale, completo e competente\nConsulenza clienti (vendita aggiuntiva, ordinazione in negozio),\nChiusura delle vendite\n- Applicazione del concetto OMNICHANNEL\n- L'offerta e le informazioni di Manor Mastercard\nDare sul programma fedeltà\n- Trattamento dei rendimenti e dei casi di garanzia\n- Garantire alta qualità\nImballaggio e trattamento dei prodotti\n- Aiuto con le vendite e il servizio nei paesi vicini\nDivisioni\n- Cura quotidiana dei fondi (ordine, pulizia)\nFunzioni fondamentali AMMINISTRATIVE:\n- informarsi autonomamente sulle statistiche:\nVendite, portafoglio merci, omnicanale\nStatistiche (Instore Order /Click & Collect (Express))",
+        "it": "Principali compiti COMMERCIAL:\n- Professionale, completo e competente\nConsulenza clienti (vendita aggiuntiva, ordini in negozio),\nChiusura delle vendite\n- Applicazione del concetto OMNICHANNEL\n- L'offerta e le informazioni di Manor Mastercard\nDare sul programma fedeltà\n- Trattamento dei rendimenti e dei casi di garanzia\n- Garantire alta qualità\nImballaggio e trattamento dei prodotti\n- Aiuto con le vendite e il servizio nei paesi vicini\nDivisioni\n- Cura quotidiana dei fondi (ordine, pulizia)\nFunzioni fondamentali AMMINISTRATIVE:\n- informarsi autonomamente sulle statistiche:\nVendite, portafoglio merci, omnicanale\nStatistiche (Instore Order /Click & Collect (Express))",
         "en": "Kassierer*in Fashion 50% at Manor, located in Basel Kassiererin Fashion 50, Canton of Basel-Stadt, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "KOMMERZIELLE Kernaufgaben :\n- Professionelle, umfassende und kompetente\nKundenberatung (Zusatzverkäufe, Instore Ordering,\nVerkaufsabschluss)\n- Anwendung des OMNICHANNEL-Konzepts\n- Die Manor Mastercard anbieten und Informationen\nüber das Treueprogramm geben\n- Bearbeitung von Retouren und Garantiefällen\n- Sicherstellung einer qualitativ hochwertigen\nVerpackung und Behandlung der Produkte\n- Hilfe beim Verkauf und Service in den benachbarten\nAbteilungen\n- Tägliche Pflege der Kassen (Ordnung, Sauberkeit)\nADMINISTRATIVE Kernaufgaben :\n- sich selbstständig über Statistiken informieren:\nUmsatz, Reassort von Waren, Omnichannel-\nStatistiken (Instore Ordering /Click & Collect (Express)",
         "fr": "Kassierer*in Fashion 50% chez Manor, situé à Basel Kassiererin Fashion 50, Canton de Bâle-Ville, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -9338,7 +9355,7 @@
       "description": "• Expérience confirmée dans le commerce de détail\n• Forte orientation client et sens du serviceExcellentes compétences relationnelles et communicationnelles\n• Première expérience en management ou en animation d'équipe\n• Capacité à organiser et prioriser les activités opérationnelles\n• Sens des responsabilités et autonomie\n• Orientation résultats et atteinte des objectifs commerciaux\n• Bonne maîtrise des indicateurs de performance (KPI)\n• Flexibilité et capacité d'adaptation dans un environnement dynamique\n• Maîtrise des outils informatiques courants (MS Office)",
       "descriptionIt": "• Expérience confirmée dans le commerce de détail\n• Forte orientation client et sens du serviceExcellentes compétences relationnelles et communicationnelles\n• Première expérience en management ou en animation d'équipe\n• Capacité à organiser et prioriser les activités opérationnelles\n• Sens des responsabilités et autonomie\n• Orientation résultats et atteinte des objectifs commerciaux\n• Bonne maîtrise des indicateurs de performance (KPI)\n• Flexibilité et capacité d'adaptation dans un environnement dynamique\n• Maîtrise des outils informatiques courants (MS Office)",
       "descriptionByLocale": {
-        "it": "• Esperienza confermata nel commercio al dettaglio\n• Forte orientamento del cliente e senso del servizioOttima capacità relazionali e di comunicazione\n• Prima esperienza nella gestione o nell'animazione del team\n• Capacità di organizzazione e priorità delle attività operative\n• Responsabilità e autonomia\n• Orientamento dei risultati e raggiungimento degli obiettivi commerciali\n• Buon controllo degli indicatori di performance (KPI)\n• Flessibilità e adattabilità in un ambiente dinamico\n• Masterizzazione di strumenti informatici comuni (MS Office)",
+        "it": "• Esperienza confermata nel retail\n• Forte orientamento del cliente e senso del servizioOttima capacità relazionali e di comunicazione\n• Prima esperienza nella gestione o nell'animazione del team\n• Capacità di organizzare e priorità attività operative\n• Responsabilità e autonomia\n• Orientamento dei risultati e raggiungimento degli obiettivi commerciali\n• Buon controllo degli indicatori di performance (KPI)\n• Flessibilità e adattabilità in un ambiente dinamico\n• Masterizzazione di strumenti informatici comuni (MS Office)",
         "en": "Assistant/e Floor Manager (Beauty) 100% at Manor, located in Genève 1 Assistante Floor, Canton of Geneva, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "Assistant/e Floor Manager (Beauty) 100% bei Manor, gelegen in Genève 1 Assistante Floor, Kanton Genf, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
         "fr": "• Expérience confirmée dans le commerce de détail\n• Forte orientation client et sens du serviceExcellentes compétences relationnelles et communicationnelles\n• Première expérience en management ou en animation d'équipe\n• Capacité à organiser et prioriser les activités opérationnelles\n• Sens des responsabilités et autonomie\n• Orientation résultats et atteinte des objectifs commerciaux\n• Bonne maîtrise des indicateurs de performance (KPI)\n• Flexibilité et capacité d'adaptation dans un environnement dynamique\n• Maîtrise des outils informatiques courants (MS Office)"
@@ -9445,7 +9462,7 @@
       "description": "Professionelle, umfassende und kompetente Beratung\nvon Kundinnen und Kunden (Bedarfsermittlung,\nArgumentation, Alternativen, Zusatzverkäufe, Instore\nOrdering, Verkaufsabschluss)\n- Anwendung des OMNICHANNEL-Konzepts\n- Aktives Anbieten der Manor Mastercard und Erteilen\nvon Informationen über das Treueprogramm\n- Sorgt für Ordnung auf der Verkaufsfläche\n- Zusammenarbeit mit dem Merchandising/Visual-Team\nbezüglich der Warenpräsentation und\nWarenbewirtschaftung\n- Unterstützung bei der Bearbeitung von Retouren und\nGarantiefällen\n- Einkassieren gemäss Vorgaben\nADMINISTRATIVE Kernaufgaben:\n- sich selbstständig anhand von Statistiken informieren:\nUmsatz, Warenreassort, Omnichannel-Statistiken\n(Instore Ordering / Click&Collect (Express) usw.).",
       "descriptionIt": "Professionelle, umfassende und kompetente Beratung\nvon Kundinnen und Kunden (Bedarfsermittlung,\nArgumentation, Alternativen, Zusatzverkäufe, Instore\nOrdering, Verkaufsabschluss)\n- Anwendung des OMNICHANNEL-Konzepts\n- Aktives Anbieten der Manor Mastercard und Erteilen\nvon Informationen über das Treueprogramm\n- Sorgt für Ordnung auf der Verkaufsfläche\n- Zusammenarbeit mit dem Merchandising/Visual-Team\nbezüglich der Warenpräsentation und\nWarenbewirtschaftung\n- Unterstützung bei der Bearbeitung von Retouren und\nGarantiefällen\n- Einkassieren gemäss Vorgaben\nADMINISTRATIVE Kernaufgaben:\n- sich selbstständig anhand von Statistiken informieren:\nUmsatz, Warenreassort, Omnichannel-Statistiken\n(Instore Ordering / Click&Collect (Express) usw.).",
       "descriptionByLocale": {
-        "it": "Consulenza professionale, completa e competente\ndi clienti (necessari valutazione),\nArgomento, alternative, vendite aggiuntive, in-store\nOrdinazione, chiusura delle vendite\n- Applicazione del concetto OMNICHANNEL\n- Offerta attiva della Manor Mastercard ed emissione\nInformazioni sul programma fedeltà\n- Assicurare ordine sul piano di vendita\n- Cooperazione con il team merchandising/visual\nla presentazione delle merci; e\nGestione dei beni\n- Assistenza nel trattamento dei resi e\nCasi di garanzia\n- Contanti secondo le specifiche\nFunzioni fondamentali AMMINISTRATIVE:\n- ottenere informazioni indipendentemente sulla base delle statistiche:\nVendite, portafoglio prodotti, statistiche omnicanale\n(Instore Order / Click&Collect (Express) ecc.).",
+        "it": "Consulenza professionale, completa e competente\ndi clienti (necessità di valutazione),\nArgomento, alternative, vendite aggiuntive, in-store\nOrdinazione, chiusura delle vendite\n- Applicazione del concetto OMNICHANNEL\n- Offerta attiva della Manor Mastercard ed emissione\nInformazioni sul programma di fidelizzazione\n- Prendere cura di ordine sul piano di vendita\n- Cooperazione con il team merchandising/visual\nla presentazione delle merci; e\nGestione dei beni\n- Assistenza nel trattamento dei resi e\nCasi di garanzia\n- Contanti secondo le specifiche\nFunzioni fondamentali AMMINISTRATIVE:\n- ottenere informazioni indipendentemente sulla base delle statistiche:\nVendite, portafoglio prodotti, statistiche omnicanale\n(Instore Ordering / Click&Collect (Express) ecc.).",
         "en": "Mitarbeiter*in Verkauf Herrenkonfektion / Sport 40% at Manor, located in Luzern Mitarbeiterin Verkauf Herrenkonfektion, Canton of Lucerne, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "Professionelle, umfassende und kompetente Beratung\nvon Kundinnen und Kunden (Bedarfsermittlung,\nArgumentation, Alternativen, Zusatzverkäufe, Instore\nOrdering, Verkaufsabschluss)\n- Anwendung des OMNICHANNEL-Konzepts\n- Aktives Anbieten der Manor Mastercard und Erteilen\nvon Informationen über das Treueprogramm\n- Sorgt für Ordnung auf der Verkaufsfläche\n- Zusammenarbeit mit dem Merchandising/Visual-Team\nbezüglich der Warenpräsentation und\nWarenbewirtschaftung\n- Unterstützung bei der Bearbeitung von Retouren und\nGarantiefällen\n- Einkassieren gemäss Vorgaben\nADMINISTRATIVE Kernaufgaben:\n- sich selbstständig anhand von Statistiken informieren:\nUmsatz, Warenreassort, Omnichannel-Statistiken\n(Instore Ordering / Click&Collect (Express) usw.).",
         "fr": "Mitarbeiter*in Verkauf Herrenkonfektion / Sport 40% chez Manor, situé à Luzern Mitarbeiterin Verkauf Herrenkonfektion, Canton de Lucerne, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -9508,7 +9525,7 @@
       "description": "• Expérience confirmée dans le commerce de détail\n• Forte orientation client et sens du serviceExcellentes compétences relationnelles et communicationnelles\n• Première expérience en management ou en animation d'équipe\n• Capacité à organiser et prioriser les activités opérationnelles\n• Sens des responsabilités et autonomie\n• Orientation résultats et atteinte des objectifs commerciaux\n• Bonne maîtrise des indicateurs de performance (KPI)\n• Flexibilité et capacité d'adaptation dans un environnement dynamique\n• Maîtrise des outils informatiques courants (MS Office)",
       "descriptionIt": "• Expérience confirmée dans le commerce de détail\n• Forte orientation client et sens du serviceExcellentes compétences relationnelles et communicationnelles\n• Première expérience en management ou en animation d'équipe\n• Capacité à organiser et prioriser les activités opérationnelles\n• Sens des responsabilités et autonomie\n• Orientation résultats et atteinte des objectifs commerciaux\n• Bonne maîtrise des indicateurs de performance (KPI)\n• Flexibilité et capacité d'adaptation dans un environnement dynamique\n• Maîtrise des outils informatiques courants (MS Office)",
       "descriptionByLocale": {
-        "it": "• Esperienza confermata nel commercio al dettaglio\n• Forte orientamento del cliente e senso del servizioOttima capacità relazionali e di comunicazione\n• Prima esperienza nella gestione o nell'animazione del team\n• Capacità di organizzazione e priorità delle attività operative\n• Responsabilità e autonomia\n• Orientamento dei risultati e raggiungimento degli obiettivi commerciali\n• Buon controllo degli indicatori di performance (KPI)\n• Flessibilità e adattabilità in un ambiente dinamico\n• Masterizzazione di strumenti informatici comuni (MS Office)",
+        "it": "• Esperienza confermata nel retail\n• Forte orientamento del cliente e senso del servizioOttima capacità relazionali e di comunicazione\n• Prima esperienza nella gestione o nell'animazione del team\n• Capacità di organizzare e priorità attività operative\n• Responsabilità e autonomia\n• Orientamento dei risultati e raggiungimento degli obiettivi commerciali\n• Buon controllo degli indicatori di performance (KPI)\n• Flessibilità e adattabilità in un ambiente dinamico\n• Masterizzazione di strumenti informatici comuni (MS Office)",
         "en": "Assistant/e Floor Manager (Confection dames) 100% at Manor, located in Genève 1 Assistante Floor, Canton of Geneva, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "Assistant/e Floor Manager (Confection dames) 100% bei Manor, gelegen in Genève 1 Assistante Floor, Kanton Genf, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
         "fr": "• Expérience confirmée dans le commerce de détail\n• Forte orientation client et sens du serviceExcellentes compétences relationnelles et communicationnelles\n• Première expérience en management ou en animation d'équipe\n• Capacité à organiser et prioriser les activités opérationnelles\n• Sens des responsabilités et autonomie\n• Orientation résultats et atteinte des objectifs commerciaux\n• Bonne maîtrise des indicateurs de performance (KPI)\n• Flexibilité et capacité d'adaptation dans un environnement dynamique\n• Maîtrise des outils informatiques courants (MS Office)"
@@ -10065,7 +10082,7 @@
       "description": "-Fashion Spezialist\n- Ausgezeichnetes räumliches Vorstellungsvermögen\n- Handwerkliche Fähigkeiten\n- Sinn für Farbe und Formen\nIT-Kenntnisse / digitale Fähigkeiten:\n- Microsoft Office Kenntnisse\n- Fundierte Kenntnisse Adobe InDesign, Photoshop,\nIllustrator\n- Interessiert an neuen Technologien /\nSoftwarelösungen\n- Rasche Auffassung der digitalen Umwelt",
       "descriptionIt": "-Fashion Spezialist\n- Ausgezeichnetes räumliches Vorstellungsvermögen\n- Handwerkliche Fähigkeiten\n- Sinn für Farbe und Formen\nIT-Kenntnisse / digitale Fähigkeiten:\n- Microsoft Office Kenntnisse\n- Fundierte Kenntnisse Adobe InDesign, Photoshop, \nIllustrator\n- Interessiert an neuen Technologien / \nSoftwarelösungen\n- Rasche Auffassung der digitalen Umwelt",
       "descriptionByLocale": {
-        "it": "Specialista della moda\n- Eccellente immaginazione spaziale\n- Capacità di artigianato\n- Senso di colore e forme\nConoscenze IT / competenze digitali:\n- Conoscenze di Microsoft Office\n- Conoscenza approfondita di Adobe InDesign, Photoshop,\nIllustrazione\n- Interessato a nuove tecnologie /\nSoluzioni software\n- Rapida percezione dell'ambiente digitale",
+        "it": "Specialista della moda\n- Eccellente immaginazione spaziale\n- Capacità di artigianato\n- Senso di colore e forme\nConoscenza IT / competenze digitali:\n- Conoscenze di Microsoft Office\n- Conoscenza approfondita di Adobe InDesign, Photoshop,\nIllustrazione\n- Interessato a nuove tecnologie /\nSoluzioni software\n- Rapida percezione dell'ambiente digitale",
         "en": "Visual Merchandising Manager 100% at Manor, located in Chur Visual Merchandising Manager, Canton of Graubünden, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "-Fashion Spezialist\n- Ausgezeichnetes räumliches Vorstellungsvermögen\n- Handwerkliche Fähigkeiten\n- Sinn für Farbe und Formen\nIT-Kenntnisse / digitale Fähigkeiten:\n- Microsoft Office Kenntnisse\n- Fundierte Kenntnisse Adobe InDesign, Photoshop,\nIllustrator\n- Interessiert an neuen Technologien /\nSoftwarelösungen\n- Rasche Auffassung der digitalen Umwelt",
         "fr": "Visual Merchandising Manager 100% chez Manor, situé à Chur Visual Merchandising Manager, Canton de Grisons, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -10437,7 +10454,7 @@
       "description": "• Strong negotiation and deal-structuring skills\n• Media planning and performance fluency: CPC, CPM, CTR, ROAS, share of shelf, reach/frequency, retail media KPIs\n• Advanced PowerPoint and Excel (pricing models, forecasting, scenario planning, pivot tables)\n• Pricing and revenue optimization mindset\n• Confident presenter to senior stakeholders (CMO/Head of Media/Procurement)\n• Good PowerPoint storyteller and deck builder; able to translate data and propositions into clear, visually compelling narratives\n• Language: fluency in English and at least one Swiss national language (German, French, or Italian)\n• Results-oriented, self-starter with high ownership and resilience\n• Client-centric approach\n• Strong commercial acumen and analytical mindset; comfortable with numbers and evidence-based decisions\n• Structured, organized, and able to prioritize across a large book of business\n• Test and learn mindset with a balanced hunter drive and farmer-style relationship ability\n• High integrity, trust builder, and effective communicator (written and verbal)\n• Legal/compliance awareness in advertising and data privacy (GDPR/DSG), brand safety standards",
       "descriptionIt": "• Strong negotiation and deal-structuring skills \n• Media planning and performance fluency: CPC, CPM, CTR, ROAS, share of shelf, reach/frequency, retail media KPIs\n• Advanced PowerPoint and Excel (pricing models, forecasting, scenario planning, pivot tables)\n• Pricing and revenue optimization mindset\n• Confident presenter to senior stakeholders (CMO/Head of Media/Procurement)\n• Good PowerPoint storyteller and deck builder; able to translate data and propositions into clear, visually compelling narratives\n• Language: fluency in English and at least one Swiss national language (German, French, or Italian)\n• Results-oriented, self-starter with high ownership and resilience\n• Client-centric approach\n• Strong commercial acumen and analytical mindset; comfortable with numbers and evidence-based decisions\n• Structured, organized, and able to prioritize across a large book of business\n• Test and learn mindset with a balanced hunter drive and farmer-style relationship ability\n• High integrity, trust builder, and effective communicator (written and verbal)\n• Legal/compliance awareness in advertising and data privacy (GDPR/DSG), brand safety standards",
       "descriptionByLocale": {
-        "it": "• Forte negoziazione e capacità di strutturazione degli accordi\n• Media pianificazione e fluidità delle prestazioni: CPC, CPM, CTR, ROAS, quota di scaffale, portata/frequenza, media di vendita al dettaglio KPI\n• PowerPoint avanzato ed Excel (modelli di partenza, previsioni, pianificazione dello scenario, tabelle pivot)\n• Frequenza e ottimizzazione dei ricavi\n• Confidente presentatore agli stakeholder senior (CMO/Head of Media/Procurement)\n• Buono storyteller di PowerPoint e costruttore di mazzi; in grado di tradurre i dati e le proposizioni in narrazioni chiare e visivamente convincenti\n• Lingua: fluenza in inglese e almeno una lingua nazionale svizzera (tedesco, francese o italiano)\n• Risultati orientati, auto-starter con elevata proprietà e resilienza\n• L'approccio orientato al cliente\n• Forte acume commerciale e mentalità analitica; confortevole con numeri e decisioni basate su prove\n• Strutturato, organizzato e in grado di dare priorità a un grande libro di business\n• Prova e impara la mentalità con un'unità cacciatrice equilibrata e capacità di relazione di stile contadino\n• Alta integrità, costruttore di fiducia e comunicatore efficace (scritto e verbale)\n• Sensibilizzazione legale/conformità nella pubblicità e nella privacy dei dati (GDPR/DSG), standard di sicurezza del marchio",
+        "it": "• Forte negoziazione e capacità di strutturazione degli accordi\n• Media pianificazione e fluidità delle prestazioni: CPC, CPM, CTR, ROAS, quota di scaffale, portata/frequenza, media di vendita al dettaglio KPI\n• PowerPoint avanzato ed Excel (modelli di partenza, previsioni, pianificazione dello scenario, tabelle pivot)\n• Frequenza e ottimizzazione dei ricavi\n• Confidente presentatore agli stakeholder senior (CMO/Head of Media/Procurement)\n• Buono storyteller PowerPoint e mazzo costruttore; in grado di tradurre i dati e le proposizioni in narrazioni chiare e visivamente convincenti\n• Lingua: fluenza in inglese e almeno una lingua nazionale svizzera (tedesco, francese o italiano)\n• Risultati orientati, auto-avviamento con elevata proprietà e resilienza\n• L'approccio orientato al cliente\n• Forte acume commerciale e mentalità analitica; confortevole con numeri e decisioni basate su prove\n• Strutturato, organizzato e in grado di dare priorità a un grande libro di business\n• Testare e imparare la mentalità con un'unità cacciatrice equilibrata e capacità di relazione di stile contadino\n• Alta integrità, costruttore di fiducia e comunicatore efficace (scritto e verbale)\n• Sensibilizzazione legale/conformità nella pubblicità e nella privacy dei dati (GDPR/DSG), standard di sicurezza del marchio",
         "en": "• Strong negotiation and deal-structuring skills\n• Media planning and performance fluency: CPC, CPM, CTR, ROAS, share of shelf, reach/frequency, retail media KPIs\n• Advanced PowerPoint and Excel (pricing models, forecasting, scenario planning, pivot tables)\n• Pricing and revenue optimization mindset\n• Confident presenter to senior stakeholders (CMO/Head of Media/Procurement)\n• Good PowerPoint storyteller and deck builder; able to translate data and propositions into clear, visually compelling narratives\n• Language: fluency in English and at least one Swiss national language (German, French, or Italian)\n• Results-oriented, self-starter with high ownership and resilience\n• Client-centric approach\n• Strong commercial acumen and analytical mindset; comfortable with numbers and evidence-based decisions\n• Structured, organized, and able to prioritize across a large book of business\n• Test and learn mindset with a balanced hunter drive and farmer-style relationship ability\n• High integrity, trust builder, and effective communicator (written and verbal)\n• Legal/compliance awareness in advertising and data privacy (GDPR/DSG), brand safety standards",
         "de": "Retail Media Sales Manager 100% bei Manor, gelegen in Basel Retail Media Sales, Kanton Basel-Stadt, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
         "fr": "Retail Media Sales Manager 100% chez Manor, situé à Basel Retail Media Sales, Canton de Bâle-Ville, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -10510,7 +10527,7 @@
       "description": "• Strong negotiation and deal-structuring skills\n• Media planning and performance fluency: CPC, CPM, CTR, ROAS, share of shelf, reach/frequency, retail media KPIs\n• Advanced PowerPoint and Excel (pricing models, forecasting, scenario planning, pivot tables)\n• Pricing and revenue optimization mindset\n• Confident presenter to senior stakeholders (CMO/Head of Media/Procurement)\n• Good PowerPoint storyteller and deck builder; able to translate data and propositions into clear, visually compelling narratives\n• Language: fluency in English and at least one Swiss national language (German, French, or Italian)\n• Results-oriented, self-starter with high ownership and resilience\n• Client-centric approach\n• Strong commercial acumen and analytical mindset; comfortable with numbers and evidence-based decisions\n• Structured, organized, and able to prioritize across a large book of business\n• Test and learn mindset with a balanced hunter drive and farmer-style relationship ability\n• High integrity, trust builder, and effective communicator (written and verbal)\n• Legal/compliance awareness in advertising and data privacy (GDPR/DSG), brand safety standards",
       "descriptionIt": "• Strong negotiation and deal-structuring skills \n• Media planning and performance fluency: CPC, CPM, CTR, ROAS, share of shelf, reach/frequency, retail media KPIs\n• Advanced PowerPoint and Excel (pricing models, forecasting, scenario planning, pivot tables)\n• Pricing and revenue optimization mindset\n• Confident presenter to senior stakeholders (CMO/Head of Media/Procurement)\n• Good PowerPoint storyteller and deck builder; able to translate data and propositions into clear, visually compelling narratives\n• Language: fluency in English and at least one Swiss national language (German, French, or Italian)\n• Results-oriented, self-starter with high ownership and resilience\n• Client-centric approach\n• Strong commercial acumen and analytical mindset; comfortable with numbers and evidence-based decisions\n• Structured, organized, and able to prioritize across a large book of business\n• Test and learn mindset with a balanced hunter drive and farmer-style relationship ability\n• High integrity, trust builder, and effective communicator (written and verbal)\n• Legal/compliance awareness in advertising and data privacy (GDPR/DSG), brand safety standards",
       "descriptionByLocale": {
-        "it": "• Forte negoziazione e capacità di strutturazione degli accordi\n• Media pianificazione e fluidità delle prestazioni: CPC, CPM, CTR, ROAS, quota di scaffale, portata/frequenza, media di vendita al dettaglio KPI\n• PowerPoint avanzato ed Excel (modelli di partenza, previsioni, pianificazione dello scenario, tabelle pivot)\n• Frequenza e ottimizzazione dei ricavi\n• Confidente presentatore agli stakeholder senior (CMO/Head of Media/Procurement)\n• Buono storyteller di PowerPoint e costruttore di mazzi; in grado di tradurre i dati e le proposizioni in narrazioni chiare e visivamente convincenti\n• Lingua: fluenza in inglese e almeno una lingua nazionale svizzera (tedesco, francese o italiano)\n• Risultati orientati, auto-starter con elevata proprietà e resilienza\n• L'approccio orientato al cliente\n• Forte acume commerciale e mentalità analitica; confortevole con numeri e decisioni basate su prove\n• Strutturato, organizzato e in grado di dare priorità a un grande libro di business\n• Prova e impara la mentalità con un'unità cacciatrice equilibrata e capacità di relazione di stile contadino\n• Alta integrità, costruttore di fiducia e comunicatore efficace (scritto e verbale)\n• Sensibilizzazione legale/conformità nella pubblicità e nella privacy dei dati (GDPR/DSG), standard di sicurezza del marchio",
+        "it": "• Forte negoziazione e capacità di strutturazione degli accordi\n• Media pianificazione e fluidità delle prestazioni: CPC, CPM, CTR, ROAS, quota di scaffale, portata/frequenza, media di vendita al dettaglio KPI\n• PowerPoint avanzato ed Excel (modelli di partenza, previsioni, pianificazione dello scenario, tabelle pivot)\n• Frequenza e ottimizzazione dei ricavi\n• Confidente presentatore agli stakeholder senior (CMO/Head of Media/Procurement)\n• Buono storyteller PowerPoint e mazzo costruttore; in grado di tradurre i dati e le proposizioni in narrazioni chiare e visivamente convincenti\n• Lingua: fluenza in inglese e almeno una lingua nazionale svizzera (tedesco, francese o italiano)\n• Risultati orientati, auto-avviamento con elevata proprietà e resilienza\n• L'approccio orientato al cliente\n• Forte acume commerciale e mentalità analitica; confortevole con numeri e decisioni basate su prove\n• Strutturato, organizzato e in grado di dare priorità a un grande libro di business\n• Testare e imparare la mentalità con un'unità cacciatrice equilibrata e capacità di relazione di stile contadino\n• Alta integrità, costruttore di fiducia e comunicatore efficace (scritto e verbale)\n• Sensibilizzazione legale/conformità nella pubblicità e nella privacy dei dati (GDPR/DSG), standard di sicurezza del marchio",
         "en": "• Strong negotiation and deal-structuring skills\n• Media planning and performance fluency: CPC, CPM, CTR, ROAS, share of shelf, reach/frequency, retail media KPIs\n• Advanced PowerPoint and Excel (pricing models, forecasting, scenario planning, pivot tables)\n• Pricing and revenue optimization mindset\n• Confident presenter to senior stakeholders (CMO/Head of Media/Procurement)\n• Good PowerPoint storyteller and deck builder; able to translate data and propositions into clear, visually compelling narratives\n• Language: fluency in English and at least one Swiss national language (German, French, or Italian)\n• Results-oriented, self-starter with high ownership and resilience\n• Client-centric approach\n• Strong commercial acumen and analytical mindset; comfortable with numbers and evidence-based decisions\n• Structured, organized, and able to prioritize across a large book of business\n• Test and learn mindset with a balanced hunter drive and farmer-style relationship ability\n• High integrity, trust builder, and effective communicator (written and verbal)\n• Legal/compliance awareness in advertising and data privacy (GDPR/DSG), brand safety standards",
         "de": "Retail Media Sales Manager 100% bei Manor, gelegen in Basel Retail Media Sales, Kanton Basel-Stadt, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
         "fr": "Retail Media Sales Manager 100% chez Manor, situé à Basel Retail Media Sales, Canton de Bâle-Ville, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -11537,7 +11554,7 @@
       "description": "- Schaffung einer gastfreundlichen Atmosphäre mit Hilfe von gastorientiertem Service\n- Umsetzung der Manora-Konzepte mit den definierten Arbeitsmethoden\n- Einhaltung der Hygienevorschriften\n- Sauberhalten und Reinigung des gesamten Restaurants (Buffet, Saal, Küche inkl. Abwasch Geschirr)\n- Einkassieren\n- Bedienung und Zubereitung von Getränken an der Kaffeebar\n- Flexibel",
       "descriptionIt": "- Schaffung einer gastfreundlichen Atmosphäre mit Hilfe von gastorientiertem Service\n- Umsetzung der Manora-Konzepte mit den definierten Arbeitsmethoden\n- Einhaltung der Hygienevorschriften\n- Sauberhalten und Reinigung des gesamten Restaurants (Buffet, Saal, Küche inkl. Abwasch Geschirr)\n- Einkassieren\n- Bedienung und Zubereitung von Getränken an der Kaffeebar\n- Flexibel",
       "descriptionByLocale": {
-        "it": "- Creare un'atmosfera ospitale con l'aiuto di un servizio ospitale\n- Attuazione dei concetti di Manora con i metodi di lavoro definiti\n- Rispetto delle regole igieniche\n- Pulire e pulire l'intero ristorante (a buffet, sala, cucina incl.) Lavatrice piatti\n- Contanti in\n- Operazione e preparazione di bevande al bar del caffè\n- Flessibile",
+        "it": "- Creare un'atmosfera ospitale con l'aiuto di un servizio ospitale\n- Attuazione dei concetti di Manora con i metodi di lavoro definiti\n- Rispetto dei requisiti di igiene\n- Pulire e pulire l'intero ristorante (a buffet, sala, cucina incl.) Lavatrice stoviglie\n- Contanti in\n- Operazione e preparazione di bevande al bar del caffè\n- Flessibile",
         "en": "Mitarbeiter*in Service 50% at Manor, located in Thun Mitarbeiterin Service 50, Canton of Bern, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "- Schaffung einer gastfreundlichen Atmosphäre mit Hilfe von gastorientiertem Service\n- Umsetzung der Manora-Konzepte mit den definierten Arbeitsmethoden\n- Einhaltung der Hygienevorschriften\n- Sauberhalten und Reinigung des gesamten Restaurants (Buffet, Saal, Küche inkl. Abwasch Geschirr)\n- Einkassieren\n- Bedienung und Zubereitung von Getränken an der Kaffeebar\n- Flexibel",
         "fr": "Mitarbeiter*in Service 50% chez Manor, situé à Thun Mitarbeiterin Service 50, Canton de Berne, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -11608,7 +11625,7 @@
       "description": "• -Professionelle Kundenberatung und Verkaufsgespräche\n• -Bedürfnisorientierte Empfehlung von Duft-, Pflege- und Kosmetikprodukten\n• -Aktiver Zusatz- und Mehrverkauf (Cross- und Up-Selling)\n• -Warenbewirtschaftung und Lagerorganisation\n• -Unterstützung und Motivation von Mitarbeitenden im Tagesgeschäft\n• -Einarbeitung und Begleitung neuer Teammitglieder\n• -Klare und wertschätzende Kommunikation",
       "descriptionIt": "• -Professionelle Kundenberatung und Verkaufsgespräche\n• -Bedürfnisorientierte Empfehlung von Duft-, Pflege- und Kosmetikprodukten\n• -Aktiver Zusatz- und Mehrverkauf (Cross- und Up-Selling)\n• -Warenbewirtschaftung und Lagerorganisation\n• -Unterstützung und Motivation von Mitarbeitenden im Tagesgeschäft\n• -Einarbeitung und Begleitung neuer Teammitglieder\n• -Klare und wertschätzende Kommunikation",
       "descriptionByLocale": {
-        "it": "• -Consulenza professionale dei clienti e colloqui di vendita\n• - Raccomandazione orientata al bisogno di fragranza, cura e prodotti cosmetici\n• Vendite aggiuntive e aggiuntive attive (cross- e up-selling)\n• Gestione delle merci e organizzazione di stoccaggio\n• Sostegno e motivazione dei dipendenti nelle attività quotidiane\n• -Introduzione e accompagnamento di nuovi membri del team\n• Comunicazione chiara e apprezzata",
+        "it": "• -Consulenza professionale dei clienti e colloqui di vendita\n• - Raccomandazioni orientate al bisogno di fragranza, cura e prodotti cosmetici\n• Vendite aggiuntive e aggiuntive attive (cross- e up-selling)\n• Gestione delle merci e organizzazione di stoccaggio\n• Supporto e motivazione dei dipendenti nel business quotidiano\n• -Induzione e accompagnamento dei nuovi membri del team\n• Comunicazione chiara e apprezzata",
         "en": "Mitarbeiter*in Verkauf Parfümerie 60% at Manor, located in Emmen Mitarbeiterin Verkauf Parfümerie, Canton of Lucerne, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "• -Professionelle Kundenberatung und Verkaufsgespräche\n• -Bedürfnisorientierte Empfehlung von Duft-, Pflege- und Kosmetikprodukten\n• -Aktiver Zusatz- und Mehrverkauf (Cross- und Up-Selling)\n• -Warenbewirtschaftung und Lagerorganisation\n• -Unterstützung und Motivation von Mitarbeitenden im Tagesgeschäft\n• -Einarbeitung und Begleitung neuer Teammitglieder\n• -Klare und wertschätzende Kommunikation",
         "fr": "Mitarbeiter*in Verkauf Parfümerie 60% chez Manor, situé à Emmen Mitarbeiterin Verkauf Parfümerie, Canton de Lucerne, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
@@ -11672,7 +11689,7 @@
       "description": "Für Inserat Cayn Huggler kontaktieren damit Inserat-Vorstellung angegeben werden kann\n\nErste Führungserfahrungen\n• Organisations- Projekt und Planungserfahrung\n• Kostenbewusstsein\n• Ausgeprägtes Verständnis in Arbeitssicherheitsthemen / Bereitschaft KOBAS Ausbildungen zu besuchen\n• Sehr gute mündliche und schriftliche Sprachkenntnisse in Deutsch",
       "descriptionIt": "Für Inserat Cayn Huggler kontaktieren damit Inserat-Vorstellung angegeben werden kann\n\nErste Führungserfahrungen\n• Organisations- Projekt und Planungserfahrung\n• Kostenbewusstsein\n• Ausgeprägtes Verständnis in Arbeitssicherheitsthemen / Bereitschaft KOBAS Ausbildungen zu besuchen \n• Sehr gute mündliche und schriftliche Sprachkenntnisse in Deutsch",
       "descriptionByLocale": {
-        "it": "Contattare Cayn Huggler per la lista in modo che l'elenco possa essere specificato\n\nEsperienza di leadership iniziale\n• Progetto organizzativo e esperienza progettuale\n• Sensibilizzazione dei costi\n• Forte comprensione delle questioni di sicurezza sul lavoro / disponibilità a frequentare corsi di formazione KOBAS\n• Molto buone capacità di lingua orale e scritta in tedesco",
+        "it": "Contattare Cayn Huggler per l'elenco in modo che l'elenco possa essere specificato\n\nEsperienza di leadership iniziale\n• Progetto organizzativo e esperienza progettuale\n• Sensibilizzazione dei costi\n• Forte comprensione delle questioni di sicurezza sul lavoro / disponibilità a frequentare corsi di formazione KOBAS\n• Molto buone capacità di lingua orale e scritta in tedesco",
         "en": "Teamleiter*in Facility & Security Non Food 100% at Manor, located in Hochdorf Teamleiterin Facility &, Canton of Lucerne, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
         "de": "Für Inserat Cayn Huggler kontaktieren damit Inserat-Vorstellung angegeben werden kann\n\nErste Führungserfahrungen\n• Organisations- Projekt und Planungserfahrung\n• Kostenbewusstsein\n• Ausgeprägtes Verständnis in Arbeitssicherheitsthemen / Bereitschaft KOBAS Ausbildungen zu besuchen\n• Sehr gute mündliche und schriftliche Sprachkenntnisse in Deutsch",
         "fr": "Teamleiter*in Facility & Security Non Food 100% chez Manor, situé à Hochdorf Teamleiterin Facility &, Canton de Lucerne, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."

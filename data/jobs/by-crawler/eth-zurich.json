@@ -455,7 +455,7 @@
       "companyDomain": "ethz.ch",
       "title": "Postdoctoral Researcher in Light-Driven CO2 Capture",
       "titleByLocale": {
-        "it": "Ricercatore post-dottorato in Cattura CO2 Light-Driven",
+        "it": "Ricercatore post-dottorato in Cattura CO2 leggera",
         "en": "Postdoctoral Researcher in Light-Driven CO2 Capture",
         "de": "Postdoktorand im Bereich lichtgetriebener CO2-Einscheidung",
         "fr": "Chercheur postdoctoral en capture du CO2 à la lumière"
@@ -9317,20 +9317,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/12048",
       "requirements": [],
       "requirementsByLocale": {},
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-24T21:30:35.000Z",
       "previousSlugs": [
         "phd-position-movement-biomarkers-in-stroke-recovery-eth-zurich-ch"
       ],
@@ -9345,7 +9331,20 @@
           "phd-position-movement-biomarkers-in-stroke-recovery-eth-zurich-ch"
         ]
       },
-      "needsRetranslation": true
+      "firstSeenAt": "2026-08-24T21:30:35.000Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "eth-zurich-0de554a74e2f",
@@ -9409,7 +9408,6 @@
           "scientific-assistant-biomedical-data-science-spinal-cord-injury-research-eth-zurich-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T21:30:34.535Z",
       "salaryMin": 73500,
       "salaryMax": 111500,

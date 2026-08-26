@@ -107,7 +107,6 @@
       "source": "dedicated-crawler",
       "crawledAt": "2026-08-25T22:00:32.048Z",
       "id": "grace-la-margna-dbf5312cec63",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "currency": "CHF",
@@ -308,7 +307,34 @@
       "streetAddress": "Via Serlas 5",
       "postalCode": "7500",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-25T22:00:59.563Z"
+      "firstSeenAt": "2026-08-25T22:00:59.563Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "agente-di-prenotazione-m-w-essere-il-maestro-nel-riempire-la-casa-al-miglior-prezzo-grace-la-margna-st-moritz-st-moritz",
+          "reservation-agent-m-w-be-the-master-in-filling-the-house-at-the-best-price",
+          "reservierungsagent-m-w-sei-der-meister-darin-das-haus-zum-besten-preis-zu-fullen-grace-la-margna-st-moritz-st-moritz",
+          "agent-de-reservation-h-w-etre-le-maitre-dans-le-remplissage-de-la-maison-au-meilleur-prix-grace-la-margna-st-moritz-st-m",
+          "agent-de-reservation-h-w-etre-le-maitre-dans-le-remplissage-de-la-maison-au-meilleur-prix-grace-la-margna-st-moritz-st",
+          "reservierungsagent-m-w-sei-der-meister-darin-das-haus-zum-besten-preis-zu-fullen-grace-la-"
+        ],
+        "en": [
+          "reservation-agent-m-w-be-the-master-in-filling-the-house-at-the-best-price"
+        ],
+        "de": [
+          "reservierungsagent-m-w-sei-der-meister-darin-das-haus-zum-besten-preis-zu-fullen-grace-la-margna-st-moritz-st-moritz"
+        ],
+        "fr": [
+          "agent-de-reservation-h-w-etre-le-maitre-dans-le-remplissage-de-la-maison-au-meilleur-prix-grace-la-margna-st-moritz-st-m"
+        ]
+      },
+      "previousSlugs": [
+        "agente-di-prenotazione-m-w-essere-il-maestro-nel-riempire-la-casa-al-miglior-prezzo-grace-la-margna-st-moritz-st-moritz",
+        "reservation-agent-m-w-be-the-master-in-filling-the-house-at-the-best-price",
+        "reservierungsagent-m-w-sei-der-meister-darin-das-haus-zum-besten-preis-zu-fullen-grace-la-margna-st-moritz-st-moritz",
+        "agent-de-reservation-h-w-etre-le-maitre-dans-le-remplissage-de-la-maison-au-meilleur-prix-grace-la-margna-st-moritz-st-m",
+        "agent-de-reservation-h-w-etre-le-maitre-dans-le-remplissage-de-la-maison-au-meilleur-prix-grace-la-margna-st-moritz-st",
+        "reservierungsagent-m-w-sei-der-meister-darin-das-haus-zum-besten-preis-zu-fullen-grace-la-"
+      ]
     },
     {
       "title": "Room Attendant (m/w) - be the cleaning fairy of the house",
@@ -369,7 +395,30 @@
       },
       "streetAddress": "Via Serlas 5",
       "postalCode": "7500",
-      "firstSeenAt": "2026-08-25T22:01:04.046Z"
+      "firstSeenAt": "2026-08-25T22:01:04.046Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistente-di-servizio-sii-la-fata-delle-pulizie-della-casa-grace-la-margna-st-moritz-st-moritz",
+          "housekeeping-back-of-house-attendant-be-the-cleaning-fairy-of-the-house",
+          "hausmeister-und-hausangestellter-die-reinigungsfee-des-hauses-sein-grace-la-margna-st-moritz-st-moritz",
+          "assistant-de-l-entretien-soyez-la-fee-du-menage-de-la-maison-grace-la-margna-st-moritz-st-moritz"
+        ],
+        "en": [
+          "housekeeping-back-of-house-attendant-be-the-cleaning-fairy-of-the-house"
+        ],
+        "de": [
+          "hausmeister-und-hausangestellter-die-reinigungsfee-des-hauses-sein-grace-la-margna-st-moritz-st-moritz"
+        ],
+        "fr": [
+          "assistant-de-l-entretien-soyez-la-fee-du-menage-de-la-maison-grace-la-margna-st-moritz-st-moritz"
+        ]
+      },
+      "previousSlugs": [
+        "assistente-di-servizio-sii-la-fata-delle-pulizie-della-casa-grace-la-margna-st-moritz-st-moritz",
+        "housekeeping-back-of-house-attendant-be-the-cleaning-fairy-of-the-house",
+        "hausmeister-und-hausangestellter-die-reinigungsfee-des-hauses-sein-grace-la-margna-st-moritz-st-moritz",
+        "assistant-de-l-entretien-soyez-la-fee-du-menage-de-la-maison-grace-la-margna-st-moritz-st-moritz"
+      ]
     }
   ]
 }

@@ -3934,9 +3934,9 @@
       "companyDomain": "coopers.ch",
       "title": "Head Projektsteuerung & Baumanagement (m/w/d)",
       "titleByLocale": {
-        "de": "Head Projektsteuerung & Baumanagement (m/w/d)",
-        "en": "Head of Project Management & Construction Management (m/f/d)",
         "it": "Responsabile della gestione dei progetti e della gestione delle costruzioni (m/f/d)",
+        "en": "Head of Project Management & Construction Management (m/f/d)",
+        "de": "Head Projektsteuerung & Baumanagement (m/w/d)",
         "fr": "Chef de la gestion de projet et de la construction (h/f/d)"
       },
       "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (W6TR28)\n\n•\n\t\t\t\t\t\t\tEngineering - Construction & Property\n\n•\n\nBasel-Stadt\n\nFestanstellung\n\nFull Time\n\nLeadership, Unternehmer:in\n\nSounds interesting?\n\nSimply click \"",
@@ -4018,9 +4018,9 @@
       "id": "coopers-d792cdb1c519",
       "slug": "devops-ingegnere-m-w-d-coopers-group-ag-bern",
       "slugByLocale": {
-        "de": "devops-engineer-m-w-d-coopers-bern",
         "it": "devops-ingegnere-m-w-d-coopers-group-ag-bern",
         "en": "devops-engineer-m-w-d-coopers-bern",
+        "de": "devops-engineer-m-w-d-coopers-bern",
         "fr": "devops-ingenieur-m-w-d-coopers-group-ag-bern"
       },
       "company": "Coopers Group AG",
@@ -4081,6 +4081,26 @@
         ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-25T10:14:50.033Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "devops-engineer-m-w-d-coopers-bern",
+          "devops-ingegnere-nextcloud-m-w-d-coopers-group-ag-bern",
+          "ingegnere-devops-backend-cloud-coopers-group-ag-bern",
+          "ingenieur-devops-backend-cloud-coopers-group-ag-bern",
+          "ingenieur-devops-nextcloud-coopers-group-ag-bern"
+        ],
+        "fr": [
+          "devops-engineer-m-w-d-coopers-bern"
+        ]
+      },
+      "previousSlugs": [
+        "devops-engineer-m-w-d-coopers-bern",
+        "devops-ingegnere-nextcloud-m-w-d-coopers-group-ag-bern",
+        "ingegnere-devops-backend-cloud-coopers-group-ag-bern",
+        "ingenieur-devops-backend-cloud-coopers-group-ag-bern",
+        "ingenieur-devops-nextcloud-coopers-group-ag-bern"
+      ],
       "salaryMin": 77000,
       "salaryMax": 116500,
       "baseSalary": {
@@ -4092,19 +4112,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-25T10:14:50.033Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "devops-engineer-m-w-d-coopers-bern"
-        ],
-        "fr": [
-          "devops-engineer-m-w-d-coopers-bern"
-        ]
-      },
-      "previousSlugs": [
-        "devops-engineer-m-w-d-coopers-bern"
-      ]
+      }
     },
     {
       "id": "coopers-f2405ea7786f",

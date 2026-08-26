@@ -63,14 +63,15 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/projektleiter-in-bauingenieurwesen/e8862e33-3ae1-488d-9b0c-523e40012cb6",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-08-25T22:01:04.675Z",
+      "previousSlugs": [
+        "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-olten"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-olten"
         ]
       },
-      "previousSlugs": [
-        "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-olten"
-      ],
+      "firstSeenAt": "2026-08-25T10:03:12.911Z",
       "salaryMin": 113000,
       "salaryMax": 192000,
       "baseSalary": {
@@ -85,7 +86,6 @@
       },
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-08-25T10:03:12.911Z",
       "needsRetranslation": true
     },
     {
@@ -1461,16 +1461,17 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/sap-consultant-invoice-to-pay-m-w-d/69e449e1-ea2b-417e-9441-8ac173d517bf",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-08-25T22:01:41.324Z",
+      "previousSlugs": [
+        "sap-consultant-invoice-to-pay-m-w-d-ffs-officine-ferrovie-federali-bern",
+        "consulente-di-controllo-l-f-d-ffs-officine-ferrovie-federali-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sap-consultant-invoice-to-pay-m-w-d-ffs-officine-ferrovie-federali-bern",
           "consulente-di-controllo-l-f-d-ffs-officine-ferrovie-federali-bern"
         ]
       },
-      "previousSlugs": [
-        "sap-consultant-invoice-to-pay-m-w-d-ffs-officine-ferrovie-federali-bern",
-        "consulente-di-controllo-l-f-d-ffs-officine-ferrovie-federali-bern"
-      ],
+      "firstSeenAt": "2026-08-25T10:04:22.905Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
       "baseSalary": {
@@ -1484,8 +1485,7 @@
         }
       },
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-08-25T10:04:22.905Z"
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "sbb-8b358e6f810f",

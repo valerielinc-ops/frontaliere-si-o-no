@@ -462,7 +462,13 @@
         "dipl-care-specialist-mann-hf-excellence-mainly-in-night-service-see-spital-horgen",
         "dipl-pflegefachfrau-mann-hf-excellence-uberwiegend-im-nachtdienst-see-spital-ch",
         "dipl-specialiste-des-soins-mann-hf-excellence-principalement-en-service-de-nuit-see-spital-horgen",
-        "dipl-specialista-di-cura-mann-hf-excellence-principalmente-in-servizio-notturno-see-spital-horgen"
+        "dipl-specialista-di-cura-mann-hf-excellence-principalmente-in-servizio-notturno-see-spital-horgen",
+        "dipl-infermiere-re-notturno-see-spital-horgen",
+        "dipl-pflegefachfrau-mann-hf-gynakologie-e-wochenbett-see-spital-horgen",
+        "dipl-career-mann-hf-gynecology-and-weekbed-see-spital-horgen",
+        "dipl-pflegefachfrau-mann-hf-gynakologie-und-wochenbett-see-spital-ch",
+        "dipl-carriere-mann-hf-gynecologie-see-spital-horgen",
+        "dipl-carriera-mann-hf-ginecologia-e-letto-settimanale-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -472,16 +478,25 @@
           "dipl-care-specialist-mann-hf-excellence-mainly-in-night-service-see-spital-horgen",
           "dipl-pflegefachfrau-mann-hf-excellence-uberwiegend-im-nachtdienst-see-spital-ch",
           "dipl-specialiste-des-soins-mann-hf-excellence-principalement-en-service-de-nuit-see-spital-horgen",
-          "dipl-specialista-di-cura-mann-hf-excellence-principalmente-in-servizio-notturno-see-spital-horgen"
+          "dipl-specialista-di-cura-mann-hf-excellence-principalmente-in-servizio-notturno-see-spital-horgen",
+          "dipl-infermiere-re-notturno-see-spital-horgen",
+          "dipl-pflegefachfrau-mann-hf-gynakologie-e-wochenbett-see-spital-horgen",
+          "dipl-career-mann-hf-gynecology-and-weekbed-see-spital-horgen",
+          "dipl-pflegefachfrau-mann-hf-gynakologie-und-wochenbett-see-spital-ch",
+          "dipl-carriere-mann-hf-gynecologie-see-spital-horgen",
+          "dipl-carriera-mann-hf-ginecologia-e-letto-settimanale-see-spital-horgen"
         ],
         "en": [
-          "dipl-care-specialist-mann-hf-excellence-mainly-in-night-service-see-spital-horgen"
+          "dipl-care-specialist-mann-hf-excellence-mainly-in-night-service-see-spital-horgen",
+          "dipl-career-mann-hf-gynecology-and-weekbed-see-spital-horgen"
         ],
         "de": [
-          "dipl-pflegefachfrau-mann-hf-excellence-uberwiegend-im-nachtdienst-see-spital-ch"
+          "dipl-pflegefachfrau-mann-hf-excellence-uberwiegend-im-nachtdienst-see-spital-ch",
+          "dipl-pflegefachfrau-mann-hf-gynakologie-und-wochenbett-see-spital-ch"
         ],
         "fr": [
-          "dipl-specialiste-des-soins-mann-hf-excellence-principalement-en-service-de-nuit-see-spital-horgen"
+          "dipl-specialiste-des-soins-mann-hf-excellence-principalement-en-service-de-nuit-see-spital-horgen",
+          "dipl-carriere-mann-hf-gynecologie-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:05.177Z",
@@ -2255,7 +2270,7 @@
       "companyDomain": "see-spital.ch",
       "title": "Radiologiefachfrau*mann HF",
       "titleByLocale": {
-        "it": "Specialista in radiologia* HF",
+        "it": "Specialista di radiologia* HF",
         "en": "Radiologist HF",
         "de": "Radiologiefachfrau*mann HF",
         "fr": "Radiologue HF"
