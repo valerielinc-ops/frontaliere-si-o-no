@@ -56960,6 +56960,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-benzina-diesel-prezzi-calano': {
+    title: 'Benzina e diesel: prezzi in calo | Frontaliere Ticino',
+    description: 'Il TCS rileva un ribasso settimanale: benzina 95 a 1,98 CHF/l, diesel a 2,23 CHF/l. Comunque +14-18% rispetto a febbraio. Scopri i fattori che influenzano',
+    keywords: 'frontalieri, ticino, svizzera, italia, benzina, diesel, prezzi, calo',
+    ogTitle: 'Benzina e diesel: prezzi in calo',
+    ogDescription: 'Buone notizie per gli automobilisti svizzeri: i prezzi del carburante scendono questa settimana. Benzina 95 a 1,98 CHF/l, diesel a 2,23 CHF/l. Leggi come i fattori geopolitici e ambientali influenzano il tuo portafoglio.',
+    canonicalPath: '/articoli-svizzera/benzina-diesel-prezzi-calano/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Benzina e diesel: prezzi in calo",
+      "description": "Il TCS rileva un ribasso settimanale: benzina 95 a 1,98 CHF/l, diesel a 2,23 CHF/l. Comunque +14-18% rispetto a febbraio. Scopri i fattori che influenzano",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/benzina-diesel-prezzi-calano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pompa di benzina svizzera che mostra i prezzi in franchi svizzeri"
+      },
+      "datePublished": "2026-08-26T12:39:09+00:00",
+      "dateModified": "2026-08-26T12:39:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/benzina-diesel-prezzi-calano/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-fondi-siccita-foreste-agricoltura': {
+    title: 'Siccità 2026: 70 milioni per boschi e agricoltura',
+    description: 'Consiglio federale richiede al Parlamento 70+ milioni per affrontare la siccità 2026. 17,5 milioni annuali dal 2028 per le foreste, 54 milioni una tantum',
+    keywords: 'frontalieri, ticino, svizzera, italia, siccità, milioni, boschi, agricoltura',
+    ogTitle: 'Siccità 2026: stanziati 70 milioni federali',
+    ogDescription: 'Il Consiglio federale richiede 70+ milioni: 17,5 milioni annuali dal 2028 per boschi, 54 milioni una tantum nel 2026 per agricoltori. Crediti senza interessi per aziende in crisi di liquidità. Monitoraggio entro 31 ottobre 2026.',
+    canonicalPath: '/articoli-svizzera/fondi-siccita-foreste-agricoltura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Siccità 2026: 70 milioni per boschi e agricoltura",
+      "description": "Consiglio federale richiede al Parlamento 70+ milioni per affrontare la siccità 2026. 17,5 milioni annuali dal 2028 per le foreste, 54 milioni una tantum",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/fondi-siccita-foreste-agricoltura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Boschi alpini colpiti dalla siccità e paesaggio montano svizzero della Confederazione"
+      },
+      "datePublished": "2026-08-26T13:12:39+00:00",
+      "dateModified": "2026-08-26T13:12:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/fondi-siccita-foreste-agricoltura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-stipendi-aumenti-differenziati-2026': {
+    title: 'Stipendi 2026: aumenti doppi per i migliori | Frontaliere Ticino',
+    description: 'Sondaggio WTW 2026: i lavoratori con prestazioni migliori ricevono aumenti del 3,9% contro il 2% della media. Nel settore IT appena lo 0,2%. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, stipendi, aumenti, doppi, migliori',
+    ogTitle: 'Stipendi 2026: aumenti doppi per i migliori',
+    ogDescription: 'Il sondaggio WTW 2026 rivela come gli stipendi in Svizzera sono sempre più legati alle prestazioni. I top performer ricevono aumenti del 3,9%, mentre la media si ferma al 2%. Nel settore IT appena lo 0,2% di crescita.',
+    canonicalPath: '/articoli-svizzera/stipendi-aumenti-differenziati-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stipendi 2026: aumenti doppi per i migliori",
+      "description": "Sondaggio WTW 2026: i lavoratori con prestazioni migliori ricevono aumenti del 3,9% contro il 2% della media. Nel settore IT appena lo 0,2%. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/stipendi-aumenti-differenziati-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio svizzero con dipendenti che esaminano documenti di stipendio e buste paga."
+      },
+      "datePublished": "2026-08-26T13:44:49+00:00",
+      "dateModified": "2026-08-26T13:44:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/stipendi-aumenti-differenziati-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-mobiliare-edilizia-popolare-200m': {
+    title: 'Mobiliare investe 200 milioni nell\'edilizia popolare',
+    description: 'La Mobiliare investe 200 milioni di franchi per costruire 1000 appartamenti affittati a pigione di costo reale, rispondendo alla scarsità di alloggi a prezzi',
+    keywords: 'frontalieri, ticino, svizzera, italia, mobiliare, investe, milioni, nell',
+    ogTitle: 'Mobiliare investe 200 milioni nell\'edilizia popolare',
+    ogDescription: 'La compagnia assicurativa Mobiliare entra nel settore dell\'edilizia popolare con un investimento di 200 milioni di franchi per costruire 1000 appartamenti affittati secondo il modello della pigione commisurata ai costi. Un\'iniziativa contro',
+    canonicalPath: '/articoli-svizzera/mobiliare-edilizia-popolare-200m/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mobiliare investe 200 milioni nell'edilizia popolare",
+      "description": "La Mobiliare investe 200 milioni di franchi per costruire 1000 appartamenti affittati a pigione di costo reale, rispondendo alla scarsità di alloggi a prezzi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mobiliare-edilizia-popolare-200m.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cantiere di un complesso residenziale moderno in Svizzera con gru e scaffali durante la fase di costruzione"
+      },
+      "datePublished": "2026-08-26T14:14:59+00:00",
+      "dateModified": "2026-08-26T14:14:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mobiliare-edilizia-popolare-200m/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

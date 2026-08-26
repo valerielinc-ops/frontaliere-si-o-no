@@ -4390,6 +4390,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imprese-mem-segnali-ripresa.title': 'MEM-Unternehmen, Erholungssignale in der Branche',
     'blog.article.imprese-mem-segnali-ripresa.excerpt': 'MEM-Wirtschaftsindex bei -20 Punkten im Juli. Bestes Ergebnis seit Frühjahr 2024. Exporte steigen, aber 66% KMU sehen ungünstige Bedingungen.',
     'blog.article.imprese-mem-segnali-ripresa.imageAlt': 'Panoramablick auf Lugano mit Bergen im Hintergrund, der Schweizer Industrie und Wirtschaft repräsentierend.',
+    'blog.article.benzina-diesel-prezzi-calano.title': 'Benzin und Diesel: Preise fallen',
+    'blog.article.benzina-diesel-prezzi-calano.excerpt': 'Der TCS stellt einen Rückgang fest: Benzin 95 bei 1,98 CHF/Liter, Diesel bei 2,23 CHF. Aber es bleibt +14-18% teurer als im Februar.',
+    'blog.article.benzina-diesel-prezzi-calano.imageAlt': 'Schweizer Tankstelle mit Preisanzeige in Schweizer Franken',
+    'blog.article.fondi-siccita-foreste-agricoltura.title': 'Dürre 2026: 70 Millionen für Wald und Landwirtschaft',
+    'blog.article.fondi-siccita-foreste-agricoltura.excerpt': 'Der Bundesrat fordert vom Parlament über 70 Millionen Franken: 17,5 Millionen jährlich ab 2028 für die Wälder, 54 Millionen einmalig bis 2026 für die Landwirte.',
+    'blog.article.fondi-siccita-foreste-agricoltura.imageAlt': 'Von Dürre betroffene Alpenwälder und Schweizer Berglandschaft mit Klimaschäden',
+    'blog.article.stipendi-aumenti-differenziati-2026.title': 'Gehälter 2026: Doppelte Gehaltserhöhungen für die Besten',
+    'blog.article.stipendi-aumenti-differenziati-2026.excerpt': 'Laut WTW erhalten Top-Performer 3,9%, während der Durchschnitt bei 2% bleibt. Drastische Unterschiede auch in der IT-Branche.',
+    'blog.article.stipendi-aumenti-differenziati-2026.imageAlt': 'Schweizer Büroumgebung mit Mitarbeitern, die Gehaltsunterlagen überprüfen.',
+    'blog.article.mobiliare-edilizia-popolare-200m.title': 'Mobiliar investiert 200 Millionen in den sozialen Wohnungsbau',
+    'blog.article.mobiliare-edilizia-popolare-200m.excerpt': 'Die Versicherungsgesellschaft wird 200 Millionen investieren, um 1000 Mietwohnungen zu Mieten zu bauen, die den tatsächlichen Kosten entsprechen.',
+    'blog.article.mobiliare-edilizia-popolare-200m.imageAlt': 'Baustelle eines modernen Wohnkomplexes in der Schweiz mit Kränen und Gerüsten während der Bauphase',
 };
 
 export default blogMetaChDe;

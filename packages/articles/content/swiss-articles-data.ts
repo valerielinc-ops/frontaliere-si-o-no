@@ -13168,6 +13168,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'benzina-diesel-prezzi-calano',
+    category: 'novita',
+    date: '2026-08-26T12:39:08.972Z',
+    image: '/images/blog/benzina-diesel-prezzi-calano.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'fondi-siccita-foreste-agricoltura',
+    category: 'novita',
+    date: '2026-08-26T13:12:39.387Z',
+    image: '/images/blog/fondi-siccita-foreste-agricoltura.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'stipendi-aumenti-differenziati-2026',
+    category: 'novita',
+    date: '2026-08-26T13:44:49.869Z',
+    image: '/images/blog/stipendi-aumenti-differenziati-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'mobiliare-edilizia-popolare-200m',
+    category: 'novita',
+    date: '2026-08-26T14:14:59.269Z',
+    image: '/images/blog/mobiliare-edilizia-popolare-200m.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

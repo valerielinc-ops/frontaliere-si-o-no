@@ -4390,6 +4390,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imprese-mem-segnali-ripresa.title': 'MEM companies, signs of recovery in the sector',
     'blog.article.imprese-mem-segnali-ripresa.excerpt': 'MEM economic index at -20 points in July. Best result since spring 2024. Exports are growing, but 66% of SMEs see unfavourable conditions.',
     'blog.article.imprese-mem-segnali-ripresa.imageAlt': 'Panoramic view of Lugano with mountains in the background, representing Swiss industry and economy.',
+    'blog.article.benzina-diesel-prezzi-calano.title': 'Petrol and diesel: falling prices',
+    'blog.article.benzina-diesel-prezzi-calano.excerpt': 'The TCS shows a decrease: petrol 95 at 1.98 CHF/litre, diesel at 2.23 CHF. But it remains +14-18% more expensive than in February.',
+    'blog.article.benzina-diesel-prezzi-calano.imageAlt': 'Swiss petrol pump displaying fuel prices in Swiss francs',
+    'blog.article.fondi-siccita-foreste-agricoltura.title': 'Drought 2026: 70 million for forests and agriculture',
+    'blog.article.fondi-siccita-foreste-agricoltura.excerpt': 'The Federal Council is asking Parliament for over 70 million francs: 17.5 million annually from 2028 for forests, 54 million once for farmers in 2026.',
+    'blog.article.fondi-siccita-foreste-agricoltura.imageAlt': 'Drought-stricken Alpine forests and Swiss mountain landscape affected by climate change',
+    'blog.article.stipendi-aumenti-differenziati-2026.title': 'Salaries 2026: Double raises for the best',
+    'blog.article.stipendi-aumenti-differenziati-2026.excerpt': 'According to WTW, top performers receive 3.9% while the average stands at 2%. Drastic differences also in the IT sector.',
+    'blog.article.stipendi-aumenti-differenziati-2026.imageAlt': 'Swiss office environment with employees reviewing salary documents and pay slips.',
+    'blog.article.mobiliare-edilizia-popolare-200m.title': 'Mobiliare invests 200 million in public housing.',
+    'blog.article.mobiliare-edilizia-popolare-200m.excerpt': 'The insurance company will invest 200 million to build 1000 rented apartments commensurate with real costs.',
+    'blog.article.mobiliare-edilizia-popolare-200m.imageAlt': 'Construction site of a modern residential complex in Switzerland with cranes and scaffolding during the building phase',
 };
 
 export default blogMetaChEn;

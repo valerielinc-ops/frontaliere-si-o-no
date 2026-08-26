@@ -4390,6 +4390,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imprese-mem-segnali-ripresa.title': 'Imprese MEM, segnali di ripresa nel settore',
     'blog.article.imprese-mem-segnali-ripresa.excerpt': 'Indice economico MEM a -20 punti a luglio. Miglior risultato da primavera 2024. Esportazioni in crescita, ma 66% PMI vede condizioni sfavorevoli.',
     'blog.article.imprese-mem-segnali-ripresa.imageAlt': 'Vista panoramica di Lugano con le montagne sullo sfondo, rappresentando l\'economia e l\'industria svizzera.',
+    'blog.article.benzina-diesel-prezzi-calano.title': 'Benzina e diesel: prezzi in calo',
+    'blog.article.benzina-diesel-prezzi-calano.excerpt': 'Il TCS rileva un ribasso: benzina 95 a 1,98 CHF/litro, diesel a 2,23 CHF. Ma rimane +14-18% più caro rispetto a febbraio.',
+    'blog.article.benzina-diesel-prezzi-calano.imageAlt': 'Pompa di benzina svizzera che mostra i prezzi in franchi svizzeri',
+    'blog.article.fondi-siccita-foreste-agricoltura.title': 'Siccità 2026: 70 milioni per boschi e agricoltura',
+    'blog.article.fondi-siccita-foreste-agricoltura.excerpt': 'Il Consiglio federale richiede al Parlamento oltre 70 milioni di franchi: 17,5 milioni annuali dal 2028 per le foreste, 54 milioni una tantum nel 2026 per gli agricoltori.',
+    'blog.article.fondi-siccita-foreste-agricoltura.imageAlt': 'Boschi alpini colpiti dalla siccità e paesaggio montano svizzero della Confederazione',
+    'blog.article.stipendi-aumenti-differenziati-2026.title': 'Stipendi 2026: aumenti doppi per i migliori',
+    'blog.article.stipendi-aumenti-differenziati-2026.excerpt': 'Secondo WTW, i top performer ricevono il 3,9% mentre la media ferma a 2%. Differenze drastiche anche nel settore IT.',
+    'blog.article.stipendi-aumenti-differenziati-2026.imageAlt': 'Ufficio svizzero con dipendenti che esaminano documenti di stipendio e buste paga.',
+    'blog.article.mobiliare-edilizia-popolare-200m.title': 'Mobiliare investe 200 milioni nell\'edilizia popolare',
+    'blog.article.mobiliare-edilizia-popolare-200m.excerpt': 'La compagnia assicurativa investirà 200 milioni per costruire 1000 appartamenti affittati a pigione commisurata ai costi reali.',
+    'blog.article.mobiliare-edilizia-popolare-200m.imageAlt': 'Cantiere di un complesso residenziale moderno in Svizzera con gru e scaffali durante la fase di costruzione',
 };
 
 export default blogMetaChIt;

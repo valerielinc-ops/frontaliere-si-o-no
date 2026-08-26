@@ -1,6 +1,6 @@
 /**
  * auto-merge-eval — drift-fallback: gate puri (senza gh) che decidono se una PR
- * il cui reviewer Claude NON ha potuto girare (modifica `pr-review-loop.yml` →
+ * il cui reviewer Claude NON ha potuto girare (modifica `tests.yml` →
  * workflow-validation 401) può comunque auto-mergiare su gate deterministici.
  * Rimuove l'unico merge MANUALE residuo. Vedi REVIEW_WORKFLOW_DRIFT_FILES.
  */
@@ -9,9 +9,9 @@ import { isReviewWorkflowDriftPR, isTrustedDriftAuthor, prBodyContractOk } from 
 import { REVIEW_WORKFLOW_DRIFT_FILES } from '../scripts/ci/lib/constants.mjs';
 
 describe('isReviewWorkflowDriftPR', () => {
-  it('true quando la PR modifica pr-review-loop.yml', () => {
-    expect(isReviewWorkflowDriftPR(['.github/workflows/pr-review-loop.yml'])).toBe(true);
-    expect(isReviewWorkflowDriftPR(['scripts/foo.mjs', '.github/workflows/pr-review-loop.yml'])).toBe(true);
+  it('true quando la PR modifica tests.yml', () => {
+    expect(isReviewWorkflowDriftPR(['.github/workflows/tests.yml'])).toBe(true);
+    expect(isReviewWorkflowDriftPR(['scripts/foo.mjs', '.github/workflows/tests.yml'])).toBe(true);
   });
 
   it('false per PR che NON toccano un drift-file (anche altri workflow/review files)', () => {
@@ -27,8 +27,8 @@ describe('isReviewWorkflowDriftPR', () => {
     expect(isReviewWorkflowDriftPR(null as unknown as string[])).toBe(false);
   });
 
-  it('la lista drift è MINIMA (solo pr-review-loop.yml) — superficie no-review contenuta', () => {
-    expect(REVIEW_WORKFLOW_DRIFT_FILES).toEqual(['.github/workflows/pr-review-loop.yml']);
+  it('la lista drift è MINIMA (solo tests.yml) — superficie no-review contenuta', () => {
+    expect(REVIEW_WORKFLOW_DRIFT_FILES).toEqual(['.github/workflows/tests.yml']);
   });
 });
 

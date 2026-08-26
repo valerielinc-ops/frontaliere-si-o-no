@@ -10825,6 +10825,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.san-gottardo-code-20-km-luglio.title': 'The longest queue at the Gotthard in the last 4 years',
     'blog.article.san-gottardo-code-20-km-luglio.excerpt': 'On July 18, 2026, the peak of 20 km of tail is reached towards the south. Implications for border workers and full schedule of night closures September-October.',
     'blog.article.san-gottardo-code-20-km-luglio.imageAlt': 'San Gottardo highway tunnel with heavy summer traffic through the Swiss Alps',
+    'blog.article.gasolio-sconto-17-centesimi-agosto.title': 'Diesel: 17 cents off until Wednesday, August 26th',
+    'blog.article.gasolio-sconto-17-centesimi-agosto.excerpt': 'The Italian government extends the 17% discount on diesel excise duties until Wednesday 26 August. Average price: diesel €2.20/litre, petrol €2.08/litre.',
+    'blog.article.gasolio-sconto-17-centesimi-agosto.imageAlt': 'Italian fuel pump displaying diesel price at 2.20 euros per liter',
 };
 
 export default blogMetaEn;

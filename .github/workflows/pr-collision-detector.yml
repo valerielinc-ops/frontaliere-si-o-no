@@ -12,13 +12,10 @@ name: PR collision detector (funnel-critical, no-Claude)
 # `tests.yml`, dove lo scan su PR non è più un job `collision` a sé ma una
 # FAMIGLIA DI STEP dentro il job unico `vitest (unit + integration)`.
 #
-# Il lock è sopravvissuto alla fusione, ed è il punto da non perdere di vista:
-# quel job porta lo STESSO `concurrency.group` job-level `pr-collision-detector`
-# usato qui sotto, perché le concurrency di GitHub Actions esistono solo a
-# livello job/workflow e MAI a livello step — l'unico modo di serializzare lo
-# scan su PR contro il ricalcolo periodico di questo file era metterle sul job
-# intero. La race condition sulle label che ha causato #1454↔#1459 dipende da
-# quello. Costo accettato: là si serializza tutto il job fuso, non il solo scan.
+# Il lock vive SOLO qui: serializza i due scan del detector senza condividere
+# alcun gruppo con `tests.yml`. Questo è intenzionale: le concurrency di GitHub
+# Actions esistono a livello job/workflow, quindi condividere il gruppo con il
+# job dei test permetterebbe a uno scan repo-wide di cancellare un run di test.
 # Guard: `tests/ci-vitest-check-name.test.ts`.
 #
 # Questo file oggi fa SOLO il ricalcolo periodico (`schedule`, anche per

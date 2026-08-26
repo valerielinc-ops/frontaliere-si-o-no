@@ -4390,6 +4390,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imprese-mem-segnali-ripresa.title': 'Entreprises MEM, signes de reprise dans le secteur',
     'blog.article.imprese-mem-segnali-ripresa.excerpt': 'Indice économique MEM à -20 points en juillet. Meilleur résultat du printemps 2024. Les exportations augmentent, mais 66% des PME voient des conditions défavorables.',
     'blog.article.imprese-mem-segnali-ripresa.imageAlt': 'Vue panoramique de Lugano avec les montagnes en arrière-plan, représentant l\'industrie suisse.',
+    'blog.article.benzina-diesel-prezzi-calano.title': 'Essence et diesel : prix en baisse',
+    'blog.article.benzina-diesel-prezzi-calano.excerpt': 'Le TCS relève une baisse : essence 95 à 1,98 CHF/litre, diesel à 2,23 CHF. Mais il reste +14-18% plus cher qu\'en février.',
+    'blog.article.benzina-diesel-prezzi-calano.imageAlt': 'Station-service suisse affichant les prix en francs suisses',
+    'blog.article.fondi-siccita-foreste-agricoltura.title': 'Sécheresse 2026: 70 millions pour les forêts et l\'agriculture',
+    'blog.article.fondi-siccita-foreste-agricoltura.excerpt': 'Le Conseil fédéral demande au Parlement plus de 70 millions de francs : 17,5 millions annuels dès 2028 pour les forêts, 54 millions uniques en 2026 pour les agriculteurs.',
+    'blog.article.fondi-siccita-foreste-agricoltura.imageAlt': 'Forêts alpines touchées par la sécheresse et paysage montagneux suisse',
+    'blog.article.stipendi-aumenti-differenziati-2026.title': 'Salaires 2026 : augmentations doublées pour les meilleurs',
+    'blog.article.stipendi-aumenti-differenziati-2026.excerpt': 'Selon WTW, les top performers reçoivent 3,9 % alors que la moyenne s\'arrête à 2 %. Des différences drastiques également dans le secteur informatique.',
+    'blog.article.stipendi-aumenti-differenziati-2026.imageAlt': 'Environnement de bureau suisse avec des employés examinant des documents de salaire.',
+    'blog.article.mobiliare-edilizia-popolare-200m.title': 'Mobilière investit 200 millions dans le logement social',
+    'blog.article.mobiliare-edilizia-popolare-200m.excerpt': 'La compagnie d\'assurance investira 200 millions pour construire 1 000 appartements loués à loyer proportionnel aux coûts réels.',
+    'blog.article.mobiliare-edilizia-popolare-200m.imageAlt': 'Chantier de construction d\'un complexe résidentiel moderne en Suisse avec grues et échafaudages',
 };
 
 export default blogMetaChFr;

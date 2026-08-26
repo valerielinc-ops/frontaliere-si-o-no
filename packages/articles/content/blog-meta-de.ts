@@ -10824,6 +10824,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.san-gottardo-code-20-km-luglio.title': 'Der längste Gotthard-Schwanz der letzten 4 Jahre',
     'blog.article.san-gottardo-code-20-km-luglio.excerpt': 'Am 18. Juli 2026 wird der Gipfel von 20 km Schwanz nach Süden erreicht. Auswirkungen für Grenzgänger und vollständiger Zeitplan für die nächtlichen Schließungen von September bis Oktober.',
     'blog.article.san-gottardo-code-20-km-luglio.imageAlt': 'San Gotthard Autobahntunnel mit dichtem Sommerverkehr durch die Schweizer Alpen',
+    'blog.article.gasolio-sconto-17-centesimi-agosto.title': 'Dieselkraftstoff: Rabatt von 17 Cent bis Mittwoch, 26. August',
+    'blog.article.gasolio-sconto-17-centesimi-agosto.excerpt': 'Die italienische Regierung verlängert bis Mittwoch, den 26. August, den Rabatt von 17% auf die Verbrauchsteuern auf Dieselkraftstoff. Durchschnittspreis: Diesel € 2,20/Liter, Benzin € 2,08/Liter.',
+    'blog.article.gasolio-sconto-17-centesimi-agosto.imageAlt': 'Italienische Zapfsäule mit Dieselpreis von 2,20 Euro pro Liter',
 };
 
 export default blogMetaDe;
