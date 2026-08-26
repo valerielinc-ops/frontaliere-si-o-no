@@ -42,6 +42,17 @@
  *   - warming_up        → never observed before, freshness OK, and empty
  *                         (do NOT flag — wait until we have history)
  *
+ * Advisory (issue #6496): an `EMPTY_OK_CRAWLERS`/auto-filtered slug's
+ * `consecutiveEmptyRuns` is pinned at 0 every empty-ok run by design, so it
+ * can never trip `broken` no matter how long the source has actually gone
+ * dead. A separate `consecutiveEmptyOkRuns` counter keeps incrementing
+ * regardless of `emptyOk` (reset only when jobs > 0); once it crosses
+ * `EMPTY_OK_ADVISORY_AFTER_RUNS`, `nextCrawlerState` sets `state.advisory`
+ * WITHOUT changing `status` away from 'healthy' — the intentional
+ * allowlist/auto-filter behavior is preserved — and `main()` still opens a
+ * (lower-priority, `advisory` status) `crawler-health` issue for it so a
+ * multi-month zero is no longer silent.
+ *
  * Auto-detected filtered-empty (issue #5945): a summary slice MAY report
  * `discovered` (count found before the crawler's Swiss/location filter) and
  * `written` (count kept after it) for a given run. When `discovered > 0` and
@@ -80,6 +91,14 @@ const HEALTH_ISSUES_PATH = path.join(ROOT, 'data', 'crawler-health-issues.json')
 
 const STALE_AFTER_DAYS = 7;
 const BROKEN_AFTER_EMPTY_RUNS = 3;
+// `EMPTY_OK_CRAWLERS`/auto-filtered entries never accumulate a broken streak
+// (consecutiveEmptyRuns resets to 0 every empty-ok run), which means a
+// genuinely dead source among them would sit "healthy" forever with zero
+// downstream signal (issue #6496). This threshold gates a SEPARATE counter
+// (`consecutiveEmptyOkRuns`) that keeps incrementing regardless of emptyOk —
+// crossing it raises an advisory without flipping `status` away from
+// 'healthy' (the EMPTY_OK_CRAWLERS design stays intentional either way).
+const EMPTY_OK_ADVISORY_AFTER_RUNS = 30;
 const MS_PER_DAY = 24 * 60 * 60 * 1000;
 const EMPTY_OK_CRAWLERS = new Set([
   // Current source page explicitly reports no open offers; a fresh successful
@@ -947,6 +966,20 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
   const consecutiveEmptyRuns =
     lastObservedJobs > 0 || emptyOk ? 0 : (previous.consecutiveEmptyRuns ?? 0) + 1;
 
+  // Unlike `consecutiveEmptyRuns` above, this counts EVERY empty observation
+  // — emptyOk included — resetting only when jobs actually come back. It is
+  // the only thing that keeps growing while emptyOk masks a source that has
+  // gone from "legitimate lull" to "dead" (#6496).
+  const consecutiveEmptyOkRuns =
+    lastObservedJobs > 0 ? 0 : (previous.consecutiveEmptyOkRuns ?? 0) + 1;
+  const advisory =
+    lastObservedJobs === 0 &&
+    emptyOk &&
+    consecutiveEmptyOkRuns >= EMPTY_OK_ADVISORY_AFTER_RUNS;
+  const advisoryReason = advisory
+    ? `${consecutiveEmptyOkRuns} consecutive empty-ok runs (>= ${EMPTY_OK_ADVISORY_AFTER_RUNS}) — verify the source is still alive, not just "legitimately quiet"`
+    : null;
+
   const lastNonZeroJobs =
     lastObservedJobs > 0 ? lastObservedJobs : (previous.lastNonZeroJobs ?? 0);
 
@@ -1002,6 +1035,9 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
       lastSuccessfulRunAt,
       lastNonZeroJobs,
       consecutiveEmptyRuns,
+      consecutiveEmptyOkRuns,
+      advisory,
+      advisoryReason,
       lastFailureReason: reason,
       status,
       _lastObservedAt: nowIso,
@@ -1048,12 +1084,16 @@ async function main() {
     );
     nextCrawlers[slug] = state;
 
-    if (status === 'stale' || status === 'broken') {
+    if (status === 'stale' || status === 'broken' || state.advisory) {
+      // `state.advisory` fires while `status` is still 'healthy' (the
+      // EMPTY_OK_CRAWLERS design is intentionally not overridden) — surface
+      // it as its own issue status so it doesn't read as stale/broken.
+      const issueStatus = state.advisory && status === 'healthy' ? 'advisory' : status;
       issues.push({
         slug,
-        reason: reason ?? `status=${status}`,
+        reason: issueStatus === 'advisory' ? state.advisoryReason : (reason ?? `status=${status}`),
         lastSeenAt: state.lastSuccessfulRunAt,
-        status,
+        status: issueStatus,
         consecutiveEmptyRuns: state.consecutiveEmptyRuns,
       });
     }
