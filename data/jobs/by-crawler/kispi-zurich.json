@@ -1,85 +1,7 @@
 {
   "crawlerKey": "kispi-zurich",
-  "assembledAt": "2026-08-25T21:32:20.501Z",
+  "assembledAt": "2026-08-26T09:53:38.754Z",
   "jobs": [
-    {
-      "id": "kispi-zurich-cdab13f6214f",
-      "slug": "apprendista-apprendista-informatik-cfc-w-m-universitats-kinderspital-zurich-kispi-zurich",
-      "slugByLocale": {
-        "it": "apprendista-apprendista-informatik-cfc-w-m-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "apprentice-apprentice-informatik-efz-w-m-universitats-kinderspital-zurich-kispi-zurich",
-        "de": "lernende-lernender-informatik-efz-w-m-kispi-zurich-zurich",
-        "fr": "apprenti-e-apprenti-e-informatik-efz-w-m-universitats-kinderspital-zurich-kispi-zurich"
-      },
-      "company": "Universitäts-Kinderspital Zürich (Kispi)",
-      "companyKey": "kispi-zurich",
-      "companyDomain": "kispi.uzh.ch",
-      "title": "Lernende / Lernender Informatik EFZ (w/m)",
-      "titleByLocale": {
-        "it": "Apprendista / Apprendista Informatik CFC (w/m)",
-        "en": "Apprentice / Apprentice Informatik EFZ (w/m)",
-        "de": "Lernende / Lernender Informatik EFZ (w/m)",
-        "fr": "Apprenti/e / Apprenti/e Informatik EFZ (w/m)"
-      },
-      "description": "Lernende / Lernender Informatik EFZ (w/m) bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-      "descriptionByLocale": {
-        "it": "Learning / Learning Computer Science EFZ (m/f) presso Kinderspital Zürich Eleonorenstiftung a Zurigo (8032, ZH), Svizzera.\n\n• Tipo: Tempo pieno\n• Termine temporaneo: temporaneo\n• Posizione: Zurigo (ZH)\n• Applicazione tramite il Portale Umantis Career dell'Ospedale pediatrico dell'Università di Zurigo (Kispi)",
-        "en": "Learning / Learning Computer Science EFZ (m/f) at Kinderspital Zürich Eleonorenstiftung in Zurich (8032, ZH), Switzerland.\n\n• Type: Full-time\n• Temporary term: temporary\n• Location: Zurich (ZH)\n• Application via the Umantis Career Portal of the University Children's Hospital Zurich (Kispi)",
-        "de": "Lernende / Lernender Informatik EFZ (w/m) bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-        "fr": "Apprentissage / Apprentissage Informatique EFZ (h/f) à Kinderspital Zürich Eleonorenstiftung à Zurich (8032, ZH), Suisse.\n\n• Type: Temps plein\n• Terme temporaire: temporaire\n• Lieu: Zurich (ZH)\n• Application via le portail de carrière Umantis de l'hôpital universitaire pour enfants Zurich (Kispi)"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3728/Description/1",
-      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:32:17.508Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8032",
-      "category": "IT",
-      "contract": "temporary",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-14",
-      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3728/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lernende-lernender-informatik-efz-w-m-kispi-zurich-zurich",
-        "apprendista-apprendista-informatik-cfc-w-m-universitats-kinderspital-zurich-kispi-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lernende-lernender-informatik-efz-w-m-kispi-zurich-zurich",
-          "apprendista-apprendista-informatik-cfc-w-m-universitats-kinderspital-zurich-kispi-zurich"
-        ],
-        "en": [
-          "lernende-lernender-informatik-efz-w-m-kispi-zurich-zurich"
-        ],
-        "fr": [
-          "lernende-lernender-informatik-efz-w-m-kispi-zurich-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-08-14T21:30:55.267Z",
-      "salaryMin": 71000,
-      "salaryMax": 120500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 71000,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "kispi-zurich-0d890ffd27a3",
       "slug": "dipl-infermieristica-professionale-dipl-care-professional-40-50-children-permanence-circle-universitats-kinderspital",
@@ -112,7 +34,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3437/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:32:03.502Z",
+      "crawledAt": "2026-08-26T09:53:35.526Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -195,7 +117,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3576/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:31:59.517Z",
+      "crawledAt": "2026-08-26T09:53:31.517Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -274,7 +196,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3680/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:31:55.690Z",
+      "crawledAt": "2026-08-26T09:53:27.511Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -359,7 +281,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3730/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:31:54.844Z",
+      "crawledAt": "2026-08-26T09:53:25.385Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -432,12 +354,13 @@
         "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 21.08.2026 Gastroenterologie Deine Aufgaben\n• Du übernimmst die ärztliche und administrative Leitung der Abteilung Gastroenterologie und Ernährung und führst ein Team von Kaderärztinnen und -ärzten, Fellows, Assistenzärztinnen und -ärzten sowie Ernährungsberatenden.\n\n• Art: Teilzeit\n• Befristung: unbefristet",
         "fr": "L'hôpital pour enfants Zurich Eleonorenstiftung en ligne depuis : 21.08.2026 Gastroentérologie Vos tâches\n• Vous prenez en charge la gestion médicale et administrative du département de gastroentérologie et de nutrition et dirigez une équipe de médecins cadres, de boursiers, de médecins adjoints et de conseillers en nutrition.\n\n• Type: temps partiel\n• Délai: perpétuel"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3721/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:31:53.987Z",
+      "crawledAt": "2026-08-26T09:53:24.437Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -543,7 +466,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/1566/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:31:53.145Z",
+      "crawledAt": "2026-08-26T09:53:23.504Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -616,12 +539,13 @@
         "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 24.08.2026 Deine Aufgaben\n• Du gewährleistest eine zeitgemässe und patientengerechte Verpflegung nach dem Cook & Chill Verfahren.\n\n• Art: Vollzeit\n• Befristung: unbefristet",
         "fr": "L'hôpital pour enfants Zurich Eleonorenstiftung en ligne depuis : 14.08.2026 Vos tâches\n• Vous assurez un repas contemporain et convivial selon la procédure Cook & Chill.\n\n• Type: Temps plein\n• Délai: perpétuel"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3628/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:31:52.293Z",
+      "crawledAt": "2026-08-26T09:53:22.563Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -700,7 +624,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/1645/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:31:51.452Z",
+      "crawledAt": "2026-08-26T09:53:21.625Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -779,7 +703,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3731/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:31:50.848Z",
+      "crawledAt": "2026-08-26T09:53:21.024Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -825,6 +749,151 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "kispi-zurich-baed15a04621",
+      "slug": "senior-consultant-head-of-division-100-kispi-zurich-zurich",
+      "slugByLocale": {
+        "de": "senior-consultant-head-of-division-100-kispi-zurich-zurich",
+        "it": "senior-consultant-head-of-division-100-kispi-zurich-zurich",
+        "en": "senior-consultant-head-of-division-100-kispi-zurich-zurich",
+        "fr": "senior-consultant-head-of-division-100-kispi-zurich-zurich"
+      },
+      "company": "Universitäts-Kinderspital Zürich (Kispi)",
+      "companyKey": "kispi-zurich",
+      "companyDomain": "kispi.uzh.ch",
+      "title": "Senior Consultant / Head of Division 100 %",
+      "titleByLocale": {
+        "de": "Senior Berater / Leiter Division 100 %",
+        "en": "Senior Consultant / Head of Division 100 %",
+        "it": "Senior Consulente / Responsabile Division 100 %",
+        "fr": "Senior Consultant / Responsable Division 100 %"
+      },
+      "description": "Senior Consultant / Head of Division 100 % bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+      "descriptionByLocale": {
+        "de": "Senior Consultant / Head of Division 100 % bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+        "it": "Senior Consultant / Head of Division 100 % bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+        "en": "Senior Consultant / Head of Division 100 % bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+        "fr": "Senior Consultant / Head of Division 100 % bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)"
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3714/Description/1",
+      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-26T09:53:20.067Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8032",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-26",
+      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3714/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 124000,
+      "salaryMax": 173000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 124000,
+          "maxValue": 173000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-26T09:53:20.067Z"
+    },
+    {
+      "id": "kispi-zurich-cdab13f6214f",
+      "slug": "apprendista-apprendista-informatik-cfc-w-m-universitats-kinderspital-zurich-kispi-zurich",
+      "slugByLocale": {
+        "it": "apprendista-apprendista-informatik-cfc-w-m-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "apprentice-apprentice-informatik-efz-w-m-universitats-kinderspital-zurich-kispi-zurich",
+        "de": "lernende-lernender-informatik-efz-w-m-kispi-zurich-zurich",
+        "fr": "apprenti-e-apprenti-e-informatik-efz-w-m-universitats-kinderspital-zurich-kispi-zurich"
+      },
+      "company": "Universitäts-Kinderspital Zürich (Kispi)",
+      "companyKey": "kispi-zurich",
+      "companyDomain": "kispi.uzh.ch",
+      "title": "Lernende / Lernender Informatik EFZ (w/m)",
+      "titleByLocale": {
+        "it": "Apprendista / Apprendista Informatik CFC (w/m)",
+        "en": "Apprentice / Apprentice Informatik EFZ (w/m)",
+        "de": "Lernende / Lernender Informatik EFZ (w/m)",
+        "fr": "Apprenti/e / Apprenti/e Informatik EFZ (w/m)"
+      },
+      "description": "Lernende / Lernender Informatik EFZ (w/m) bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+      "descriptionByLocale": {
+        "it": "Learning / Learning Computer Science EFZ (m/f) presso Kinderspital Zürich Eleonorenstiftung a Zurigo (8032, ZH), Svizzera.\n\n• Tipo: Tempo pieno\n• Termine temporaneo: temporaneo\n• Posizione: Zurigo (ZH)\n• Applicazione tramite il Portale Umantis Career dell'Ospedale pediatrico dell'Università di Zurigo (Kispi)",
+        "en": "Learning / Learning Computer Science EFZ (m/f) at Kinderspital Zürich Eleonorenstiftung in Zurich (8032, ZH), Switzerland.\n\n• Type: Full-time\n• Temporary term: temporary\n• Location: Zurich (ZH)\n• Application via the Umantis Career Portal of the University Children's Hospital Zurich (Kispi)",
+        "de": "Lernende / Lernender Informatik EFZ (w/m) bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+        "fr": "Apprentissage / Apprentissage Informatique EFZ (h/f) à Kinderspital Zürich Eleonorenstiftung à Zurich (8032, ZH), Suisse.\n\n• Type: Temps plein\n• Terme temporaire: temporaire\n• Lieu: Zurich (ZH)\n• Application via le portail de carrière Umantis de l'hôpital universitaire pour enfants Zurich (Kispi)"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3728/Description/1",
+      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T21:32:17.508Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8032",
+      "category": "IT",
+      "contract": "temporary",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-14",
+      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3728/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lernende-lernender-informatik-efz-w-m-kispi-zurich-zurich",
+        "apprendista-apprendista-informatik-cfc-w-m-universitats-kinderspital-zurich-kispi-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lernende-lernender-informatik-efz-w-m-kispi-zurich-zurich",
+          "apprendista-apprendista-informatik-cfc-w-m-universitats-kinderspital-zurich-kispi-zurich"
+        ],
+        "en": [
+          "lernende-lernender-informatik-efz-w-m-kispi-zurich-zurich"
+        ],
+        "fr": [
+          "lernende-lernender-informatik-efz-w-m-kispi-zurich-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-08-14T21:30:55.267Z",
+      "salaryMin": 71000,
+      "salaryMax": 120500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 71000,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     }
   ]
 }
