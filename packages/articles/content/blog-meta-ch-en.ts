@@ -4435,6 +4435,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.manor-licenzia-basilea.title': 'Manor dismisses 38 employees at its headquarters in Basel',
     'blog.article.manor-licenzia-basilea.excerpt': 'Manor dismisses 38 office workers in Basel. The company promises a social plan and individual support. What to do if you are among those affected.',
     'blog.article.manor-licenzia-basilea.imageAlt': 'Modern office building in Basel with contemporary architecture',
+    'blog.article.pulizie-lavoro-nero-2026.title': 'Black work in cleaning: the collapse of the declared',
+    'blog.article.pulizie-lavoro-nero-2026.excerpt': 'In 2025, filers plummeted to 65,669. Only 239 checks in homes. The Federal Council proposes a revision of the law on undeclared work.',
+    'blog.article.pulizie-lavoro-nero-2026.imageAlt': 'Domestic worker cleaning in a modern Swiss apartment',
 };
 
 export default blogMetaChEn;

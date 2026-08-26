@@ -4435,6 +4435,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.manor-licenzia-basilea.title': 'Manor entlässt 38 Mitarbeiter am Hauptsitz Basel',
     'blog.article.manor-licenzia-basilea.excerpt': 'Manor entlässt 38 Büroangestellte in Basel. Das Unternehmen verspricht Sozialplan und individuelle Unterstützung. Was tun, wenn Sie unter den Betroffenen sind?',
     'blog.article.manor-licenzia-basilea.imageAlt': 'Modernes Bürogebäude in Basel mit zeitgenössischer Architektur',
+    'blog.article.pulizie-lavoro-nero-2026.title': 'Schwarzarbeit in der Reinigung: der Zusammenbruch der deklarierten',
+    'blog.article.pulizie-lavoro-nero-2026.excerpt': 'Im Jahr 2025 fielen die Registranten auf 65\'669. Nur 239 Kontrollen in den Häusern. Der Bundesrat schlägt eine Revision des Schwarzarbeitsgesetzes vor.',
+    'blog.article.pulizie-lavoro-nero-2026.imageAlt': 'Hausangestellte bei der Reinigungsarbeit in einer modernen Schweizer Wohnung',
 };
 
 export default blogMetaChDe;
