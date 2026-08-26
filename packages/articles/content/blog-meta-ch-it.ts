@@ -4396,6 +4396,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.fondi-siccita-foreste-agricoltura.title': 'Siccità 2026: 70 milioni per boschi e agricoltura',
     'blog.article.fondi-siccita-foreste-agricoltura.excerpt': 'Il Consiglio federale richiede al Parlamento oltre 70 milioni di franchi: 17,5 milioni annuali dal 2028 per le foreste, 54 milioni una tantum nel 2026 per gli agricoltori.',
     'blog.article.fondi-siccita-foreste-agricoltura.imageAlt': 'Boschi alpini colpiti dalla siccità e paesaggio montano svizzero della Confederazione',
+    'blog.article.stipendi-aumenti-differenziati-2026.title': 'Stipendi 2026: aumenti doppi per i migliori',
+    'blog.article.stipendi-aumenti-differenziati-2026.excerpt': 'Secondo WTW, i top performer ricevono il 3,9% mentre la media ferma a 2%. Differenze drastiche anche nel settore IT.',
+    'blog.article.stipendi-aumenti-differenziati-2026.imageAlt': 'Ufficio svizzero con dipendenti che esaminano documenti di stipendio e buste paga.',
 };
 
 export default blogMetaChIt;

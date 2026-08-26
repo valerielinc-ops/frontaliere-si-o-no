@@ -4396,6 +4396,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.fondi-siccita-foreste-agricoltura.title': 'Sécheresse 2026: 70 millions pour les forêts et l\'agriculture',
     'blog.article.fondi-siccita-foreste-agricoltura.excerpt': 'Le Conseil fédéral demande au Parlement plus de 70 millions de francs : 17,5 millions annuels dès 2028 pour les forêts, 54 millions uniques en 2026 pour les agriculteurs.',
     'blog.article.fondi-siccita-foreste-agricoltura.imageAlt': 'Forêts alpines touchées par la sécheresse et paysage montagneux suisse',
+    'blog.article.stipendi-aumenti-differenziati-2026.title': 'Salaires 2026 : augmentations doublées pour les meilleurs',
+    'blog.article.stipendi-aumenti-differenziati-2026.excerpt': 'Selon WTW, les top performers reçoivent 3,9 % alors que la moyenne s\'arrête à 2 %. Des différences drastiques également dans le secteur informatique.',
+    'blog.article.stipendi-aumenti-differenziati-2026.imageAlt': 'Environnement de bureau suisse avec des employés examinant des documents de salaire.',
 };
 
 export default blogMetaChFr;

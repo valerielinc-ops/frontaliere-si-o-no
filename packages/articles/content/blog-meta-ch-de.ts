@@ -4396,6 +4396,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.fondi-siccita-foreste-agricoltura.title': 'Dürre 2026: 70 Millionen für Wald und Landwirtschaft',
     'blog.article.fondi-siccita-foreste-agricoltura.excerpt': 'Der Bundesrat fordert vom Parlament über 70 Millionen Franken: 17,5 Millionen jährlich ab 2028 für die Wälder, 54 Millionen einmalig bis 2026 für die Landwirte.',
     'blog.article.fondi-siccita-foreste-agricoltura.imageAlt': 'Von Dürre betroffene Alpenwälder und Schweizer Berglandschaft mit Klimaschäden',
+    'blog.article.stipendi-aumenti-differenziati-2026.title': 'Gehälter 2026: Doppelte Gehaltserhöhungen für die Besten',
+    'blog.article.stipendi-aumenti-differenziati-2026.excerpt': 'Laut WTW erhalten Top-Performer 3,9%, während der Durchschnitt bei 2% bleibt. Drastische Unterschiede auch in der IT-Branche.',
+    'blog.article.stipendi-aumenti-differenziati-2026.imageAlt': 'Schweizer Büroumgebung mit Mitarbeitern, die Gehaltsunterlagen überprüfen.',
 };
 
 export default blogMetaChDe;
