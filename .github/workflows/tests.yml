@@ -1301,11 +1301,18 @@ jobs:
         run: npm test -- --reporter=default --reporter=json --outputFile=shard-timing-1.json
 
       # ══════════════════════════════════════════════════════════════════════
-      # UNICO join della seconda metà del job, e rijoina TUTTO ciò che è stato
-      # forkato dopo la famiglia contract: i sei cancelli deterministici (`tsc`
-      # più i cinque lint) e l'assemble. È l'unico punto del job in cui si
-      # consuma davvero il risultato di quei task — cioè il loro esito nel
-      # verdetto — e per questo è l'unico punto in cui ha senso attenderli.
+      # Primo dei due join della seconda metà del job. Rijoina SOLO
+      # l'assemble+migrate qui sopra — i sei cancelli deterministici (`tsc` +
+      # cinque lint, avviati molto più sopra) hanno il proprio join dedicato
+      # più in fondo, DOPO entrambi i gruppi vitest (vedi quel commento per
+      # il perché della posizione). Apposta perché `vitest run (test che
+      # leggono il dataset)` dipenda SOLO da questo join, non da loro: la sua
+      # unica vera dipendenza è `data/jobs.json` + lo slug registry, entrambi
+      # scritti dall'assemble+migrate, mai da tsc o dai lint. In pratica i sei
+      # cancelli sono comunque già finiti quando SI ARRIVA QUI (partiti molto
+      # prima, costano insieme ~78s contro minuti di checkout+vitest), quindi
+      # questo join non li aspetta mai — ma non è per costruzione: è perché
+      # il loro join vero sta altrove, non qui.
       #
       # NB per chi aggiungerà un background qui: la sua durata deve essere
       # legata al LAVORO che accompagna, mai a un timer proprio. Un campionatore
@@ -1315,7 +1322,7 @@ jobs:
       # runner. Un background che non muore con cio' che osserva tiene in ostaggio
       # il verdetto.
       # ══════════════════════════════════════════════════════════════════════
-      - name: Wait for background gates and assemble
+      - name: Wait for background assemble
         # Il migrate è già finito quando questo join ritorna: gira DENTRO lo
         # step "Assemble + migrate (background)" sopra, subito dopo l'assemble
         # e prima che il background finisca. Non è più uno step a sé — vedi il
@@ -1328,6 +1335,34 @@ jobs:
           VITEST_CORPUS_SKIP: ${{ steps.corpus.outputs.skip }}
           VITEST_CACHE_DIR: node_modules/.vite-dependent
         run: npm test -- --reporter=default --reporter=json --outputFile=shard-timing-2.json
+
+      # ══════════════════════════════════════════════════════════════════════
+      # Join dei sei cancelli deterministici (`tsc` + i cinque lint, avviati
+      # molto più sopra) — separato apposta dal join dell'assemble prima del
+      # gruppo dipendente, e spostato QUI, dopo entrambi i gruppi vitest, non
+      # prima di loro.
+      #
+      # Perché qui e non subito dopo i sei step: `wait-all` non ha una forma
+      # selettiva (unisce TUTTO ciò che è ancora in background, non un
+      # sottoinsieme nominato) — un join messo prima dell'assemble avrebbe
+      # comunque potuto raccogliere anche loro se non fossero già finiti,
+      # ma soprattutto li avrebbe tolti dalla finestra di sovrapposizione più
+      # lunga del job (i due gruppi vitest, ~678s), esponendo il loro costo
+      # (misurato ~78s) invece di nasconderlo gratis. Qui si sovrappongono a
+      # UNA finestra ancora più lunga di prima (indipendente + dipendente
+      # insieme), quindi il costo resta a ~0 wall — e "Wait for background
+      # assemble" sopra, che gate `vitest run (test che leggono il dataset)`,
+      # dipende comunque SOLO dall'assemble+migrate: i sei cancelli sono già
+      # finiti da un pezzo quando questo join li raccoglie, per timing, non
+      # perché qualcosa li aspetti esplicitamente prima.
+      #
+      # NB: la durata di uno step in background dev'essere legata al LAVORO
+      # che accompagna, mai a un timer proprio — vedi la nota sul
+      # campionatore di memoria rimosso (era appeso a un `sleep` indipendente
+      # dalla suite, e a suite rossa teneva il job in ostaggio mezz'ora).
+      # ══════════════════════════════════════════════════════════════════════
+      - name: Wait for background gates
+        wait-all: true
 
       - name: Upload test timing
         # always() so we still collect timings when the run is red (a slow test
