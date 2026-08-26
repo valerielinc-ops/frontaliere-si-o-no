@@ -33,7 +33,6 @@
     "https://positions.manor.ch/job/Sierre-Pizzaioloa-%28Manora%29-100/1365005255/",
     "https://positions.manor.ch/job/Vevey-Collaborateurtrice-service-%28Manora%29-50/1365007155/",
     "https://positions.manor.ch/job/Del%C3%A9mont-Collaborateurtrice-vente-%28Confection-Enfants%29-80/1365009855/",
-    "https://positions.manor.ch/job/Chur-Mitarbeiterin-Verkauf-80/1365152855/",
     "https://positions.manor.ch/job/Chur-Mitarbeiterin-Verkauf-60/1365153155/",
     "https://positions.manor.ch/job/Basel-Retail-Media-Sales-Manager-100/1350413855/",
     "https://positions.manor.ch/job/Basel-Retail-Media-Sales-Manager-100/1350413655/",
@@ -116,7 +115,6 @@
     "https://positions.manor.ch/job/Z%C3%BCrich-Mitarbeiterin-Merchandising-40/1364764455/",
     "https://positions.manor.ch/job/Z%C3%BCrich-Mitarbeiterin-Kasse-%28X-Mas-Market%29-40/1364864355/",
     "https://positions.manor.ch/job/Z%C3%BCrich-Mitarbeiterin-Kasse-%28X-Mas-Market%29-100/1364864655/",
-    "https://positions.manor.ch/job/Schaffhausen-Mitarbeiterin-Verkauf-Parf%C3%BCmerie-60/1364532555/",
     "https://positions.manor.ch/job/Hinwil-Mitarbeiterin-Verkauf-20/1364891355/",
     "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-caisse-%28Confection-Enfants%29-20/1364973655/",
     "https://positions.manor.ch/job/Affoltern-am-Albis-Assistantin-Floor-Manager-100/1364485755/",
@@ -196,10 +194,12 @@
     "https://positions.manor.ch/job/Thun-Mitarbeiterin-Verkauf-Papeterie-&-Accesoires-60/1361599355/",
     "https://positions.manor.ch/job/Spreitenbach-Mitarbeiterin-Verkauf-Parf%C3%BCmerie-30/1355425855/",
     "https://positions.manor.ch/job/St_-Gallen-Mitarbeiterin-Visual-Merchandising-30/1365236855/",
-    "https://positions.manor.ch/job/Baden-Assistentin-Restaurant-100/1361733555/"
+    "https://positions.manor.ch/job/Chur-Mitarbeiterin-Verkauf-80/1365152855/",
+    "https://positions.manor.ch/job/Baden-Assistentin-Restaurant-100/1361733555/",
+    "https://positions.manor.ch/job/Schaffhausen-Mitarbeiterin-Verkauf-Parf%C3%BCmerie-60/1364532555/"
   ],
   "notes": "Sitemap-based crawler — positions.manor.ch (SAP SuccessFactors / jobs2web). Manor AG national department-store chain (HQ Basel) — collects CH-wide across all target cantons.",
-  "updatedAt": "2026-08-26T10:09:05.858Z",
+  "updatedAt": "2026-08-26T10:43:02.102Z",
   "seedMetaByUrl": {
     "https://positions.manor.ch/job/Zug-Drogistin-EFZ-Derma-Center-80/978481555/": {
       "company": "Manor AG",
@@ -298,10 +298,6 @@
       "companyDomain": "manor.ch"
     },
     "https://positions.manor.ch/job/Del%C3%A9mont-Collaborateurtrice-vente-%28Confection-Enfants%29-80/1365009855/": {
-      "company": "Manor AG",
-      "companyDomain": "manor.ch"
-    },
-    "https://positions.manor.ch/job/Chur-Mitarbeiterin-Verkauf-80/1365152855/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
@@ -633,10 +629,6 @@
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
-    "https://positions.manor.ch/job/Schaffhausen-Mitarbeiterin-Verkauf-Parf%C3%BCmerie-60/1364532555/": {
-      "company": "Manor AG",
-      "companyDomain": "manor.ch"
-    },
     "https://positions.manor.ch/job/Hinwil-Mitarbeiterin-Verkauf-20/1364891355/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
@@ -953,7 +945,15 @@
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
+    "https://positions.manor.ch/job/Chur-Mitarbeiterin-Verkauf-80/1365152855/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
     "https://positions.manor.ch/job/Baden-Assistentin-Restaurant-100/1361733555/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
+    "https://positions.manor.ch/job/Schaffhausen-Mitarbeiterin-Verkauf-Parf%C3%BCmerie-60/1364532555/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     }
