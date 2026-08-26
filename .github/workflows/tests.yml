@@ -1262,72 +1262,6 @@ jobs:
           restore-keys: |
             assemble-jobs-${{ runner.os }}-
 
-      - name: Assemble data/jobs.json + migrate canton-aware (background)
-        # BACKGROUND: l'assemble è costato 133s e 155s nelle ultime due run
-        # verdi (30355205859 / 30357073975) e la sua cache sopra è di fatto
-        # sempre un miss — la key include hashFiles('data/jobs/by-crawler/**')
-        # e i crawler riscrivono le slice decine di volte al giorno, per cui la
-        # key non ricentra mai; la cascata restore-keys recupera un archivio con
-        # fingerprint diverso e lo script riassembla comunque. Ci si mette pure
-        # la quota cache del repo satura (9.54GB/10GB, 12 cache attive): la LRU
-        # evicta prima che una key si ripresenti. Erano ~140s in coda a vitest.
-        #
-        # Solo 586 dei 1358 file di test leggono i suoi output: gli altri 772
-        # girano nello step sotto MENTRE questo lavora, e il `wait-all` li
-        # rijoina prima degli step che il dataset lo richiedono davvero. Il
-        # gruppo indipendente dura molto più dei ~140s dell'assemble, quindi
-        # l'assemble sparisce interamente dal wall del job.
-        #
-        # DEVE restare uno step `run:` — `background:` su uno step `uses:` non
-        # è supportato e rompe l'intero file workflow (incidente PR #4777).
-        #
-        # Nota: esercita solo assembleJobsDataset() (legge+aggrega le slice
-        # committate), mai writeJobsCrawlerSlice() o le guard shrink/boilerplate
-        # (quelle girano solo dentro update-<company>-jobs.mjs), quindi non
-        # serve GH_TOKEN / issues:write.
-        #
-        # ─── PERCHÉ IL MIGRATE STA QUI DENTRO E NON È PIÙ UNO STEP A SÉ ─────
-        # `migrate-all-known-job-slugs-canton-aware.mjs` dipende da UNA cosa
-        # sola: `data/jobs.json`, che è l'output della riga sopra. Non dipende
-        # dai test. Ma finché era uno step separato DOPO "vitest run (test che
-        # non leggono il dataset)", partiva solo alla fine di quel gruppo —
-        # ~400s dopo che il suo input era pronto — perché gli step di un job
-        # sono seriali e la posizione nel file È l'ordine di esecuzione. Il
-        # gruppo dipendente restava così fermo dietro un lavoro già fattibile.
-        #
-        # Concatenarlo qui è l'unico modo di farlo partire appena il suo input
-        # esiste: `wait-all` attende TUTTI i background e non ha un join per
-        # id (verificato: 51 join in 245 workflow, nessuna forma selettiva),
-        # quindi non esiste una variante "aspetta solo l'assemble". Due
-        # comandi in un `run:` sono invece esattamente quella semantica —
-        # sequenziale fra loro, in parallelo a tutto il resto.
-        #
-        # La shell di default è `bash -eo pipefail`, quindi un assemble rosso
-        # aborta prima del migrate: la stessa catena fail-fast che dava
-        # l'ordine degli step, non un allentamento.
-        #
-        # NON allarga la finestra di scrittura concorrente, ed è il punto che
-        # va verificato prima di toccare questa parte: il migrate riscrive
-        # `data/all-known-job-slugs/**`, che è GIÀ in `ASSEMBLE_OUTPUTS` di
-        # `scripts/ci/dataset-dependent-tests.mjs` — la stessa lista di
-        # `data/jobs.json`. Chi lo legge era già classificato dipendente e
-        # girava già dopo il `wait-all`; il gruppo indipendente non lo tocca
-        # per costruzione. Il file entra quindi nella finestra di concorrenza
-        # che l'assemble occupa da sempre, non in una nuova. Anzi: la testata
-        # del classificatore descriveva già i due script come una cosa sola
-        # («Nel job `tests` entrambi stanno dietro lo stesso `wait-all`»), e
-        # ora il workflow dice quello che il classificatore già assumeva.
-        #
-        # Guadagno di wall misurato: 4-5s (sette run consecutive — 5,5,5,4,5,
-        # 5,5s — incluse le due con cache miss dove l'assemble è costato 409s
-        # e 401s pieni). È poco, e il motivo per cui si fa comunque non è il
-        # cronometro: è che lo step non aspettava più niente di suo.
-        id: assemble
-        background: true
-        run: |
-          node scripts/assemble-jobs-dataset.mjs --stats
-          node scripts/migrate-all-known-job-slugs-canton-aware.mjs
-
       # DIAGNOSTICO, non un cancello: campiona `MemAvailable` del runner mentre
       # la suite gira e stampa il minimo. Esiste per rispondere alla sola
       # domanda che oggi tiene il join dei sei cancelli PRIMA dell'assemble
@@ -1364,8 +1298,13 @@ jobs:
         # Il json reporter alimenta scripts/ci/generate-shard-weights.mjs via
         # refresh-shard-weights.yml, che scarica `shard-timing-*` con una glob
         # (progettata per i 4 shard di un tempo) → due file sono già supportati.
+        background: true
         env:
           VITEST_DATASET_GROUP: independent
+          # Cache Vite separata: due `vitest run` insieme sullo stesso checkout
+          # si distruggerebbero a vicenda `node_modules/.vite-temp` durante il
+          # rename atomico (vedi `cacheDir` in vitest.config.ts).
+          VITEST_CACHE_DIR: node_modules/.vite-independent
           # Calcolato per diff anche su push a main (non solo su pull_request,
           # vedi lo step "Decide i gate corpus-wide"); vuoto su qualunque suo
           # esito anomalo → nessuna esclusione, suite intera. `parseCorpusSkipList`
@@ -1374,21 +1313,44 @@ jobs:
           VITEST_CORPUS_SKIP: ${{ steps.corpus.outputs.skip }}
         run: npm test -- --reporter=default --reporter=json --outputFile=shard-timing-1.json
 
-      # Rijoina l'assemble E il migrate canton-aware, che dalla riscrittura di
-      # questa parte sono un unico step in background (il perché sta lassù, sulla
-      # sua testata). `cathedral-expired-tracking-canton` asserisce che le voci
-      # di tracking non-TI usino section path canton-aware, e il registro che
-      # legge — `data/all-known-job-slugs/**` — è riscritto da quel migrate:
-      # tutto ciò che lo legge sta sotto questa riga, mai sopra. La migrazione è
-      # idempotente, quindi un rerun non è mai un problema.
-      - name: Wait for background assemble + migrate
-        wait-all: true
-
-      - name: vitest run (test che leggono il dataset)
+      - name: Assemble + migrate + vitest run (test che leggono il dataset)
         env:
           VITEST_DATASET_GROUP: dependent
           VITEST_CORPUS_SKIP: ${{ steps.corpus.outputs.skip }}
-        run: npm test -- --reporter=default --reporter=json --outputFile=shard-timing-2.json
+          VITEST_CACHE_DIR: node_modules/.vite-dependent
+        run: |
+          node scripts/assemble-jobs-dataset.mjs --stats
+          node scripts/migrate-all-known-job-slugs-canton-aware.mjs
+          npm test -- --reporter=default --reporter=json --outputFile=shard-timing-2.json
+
+      # ══════════════════════════════════════════════════════════════════════
+      # Rijoina i DUE step in background aperti qui sopra: il gruppo vitest
+      # indipendente e il campionatore di memoria. Sta DOPO il gruppo
+      # dipendente, ed e' questa posizione a produrre la sovrapposizione: uno
+      # step in primo piano blocca quello dopo, quindi finche' il gruppo
+      # indipendente era in primo piano il dipendente non poteva partire prima
+      # che finisse — non per una dipendenza sul dato (l'assemble era pronto da
+      # ~400s), ma solo per l'ordine degli step.
+      #
+      # Perche' l'assemble e il migrate sono finiti DENTRO lo step dipendente
+      # invece di restare un background a se': `wait-all` non ha un join
+      # selettivo, quindi non esiste un modo di attendere il solo assemble
+      # lasciando correre il gruppo indipendente. Concatenarli davanti ai test
+      # che li richiedono e' l'unica forma che esprime «questi tre in fila, in
+      # parallelo a tutto il resto» — ed e' anche quella che rende impossibile
+      # far partire i test dipendenti su un dataset non ancora assemblato.
+      #
+      # Cosa NON garantisce: che il wall scenda. I due gruppi sono entrambi
+      # CPU-bound (`pool: 'threads'`, `isolate: true`) su 4 vCPU, quindi il
+      # lavoro totale non cambia e il guadagno esiste solo se la coda di un
+      # gruppo lascia worker fermi mentre l'altro ha ancora file da
+      # distribuire. E' plausibile — i sette test corpus-wide costano 201,4s in
+      # sette file soli, cioe' tail lunghe con worker inattivi — ma va LETTO
+      # dai tempi per-step, non assunto. Se la misura dice wash o peggio, e'
+      # questa porzione a tornare indietro, non il resto della PR.
+      # ══════════════════════════════════════════════════════════════════════
+      - name: Wait for background vitest + memory sampler
+        wait-all: true
 
       - name: Upload test timing
         # always() so we still collect timings when the run is red (a slow test
