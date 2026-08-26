@@ -34,6 +34,21 @@ describe('local-mt-mopup missingSlots()', () => {
     expect(missingSlots(job)).toContainEqual({ locale: 'it', field: 'title' });
   });
 
+  it('flags a lexically-untranslated title even when the SOURCE title is shorter than MIN_TITLE_CHARS — issue #6539', () => {
+    const job = {
+      sourceLang: 'de',
+      titleByLocale: {
+        de: 'KV', // 2 chars, below the MIN_TITLE_CHARS=3 floor
+        it: 'Aiuto Metzger', // still lexically German (compound-residue)
+        en: 'Assistant',
+        fr: 'Aide',
+      },
+      descriptionByLocale: {},
+    };
+
+    expect(missingSlots(job)).toContainEqual({ locale: 'it', field: 'title' });
+  });
+
   it('does not flag a clean, fully-translated title', () => {
     const job = {
       sourceLang: 'de',

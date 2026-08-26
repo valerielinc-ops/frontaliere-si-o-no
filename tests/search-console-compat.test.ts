@@ -267,9 +267,15 @@ describe('Search Console 404 compatibility resolver', () => {
   });
 
   // Full-coverage scan over the committed 404 export. This is an unbounded
-  // GSC-orphan accumulator (~1M paths, ~95MB across shards at time of writing)
-  // so the loop cost scales with data size; the default 15s vitest budget
-  // overflows under CI load (observed ~20s). Explicit generous timeout
+  // GSC-orphan accumulator (~1M paths, ~95MB across shards at time of writing,
+  // now 215MB) so the loop cost scales with data size; the default 15s vitest
+  // budget overflows under CI load (observed ~20s), and the accumulator has
+  // grown enough since the 60s bump (run 32968718774: 84353ms, timed out at
+  // 60000ms) that 60s no longer covers tests.yml's deliberate
+  // independent↔dependent vitest overlap on 4 vCPUs either. Bumped to the
+  // same 180s margin already given to other full-dataset scans under the
+  // identical contention (tests/all-known-job-slugs-store.test.ts,
+  // tests/url-max-length.test.ts, tests/job-locale-consistency.test.ts) —
   // preserves full coverage without sampling/weakening. The accumulator is
   // sharded across data/seo-404-compat/part-*.json (issue #2988) — read the
   // union via the store helper, never a single file.
@@ -297,7 +303,7 @@ describe('Search Console 404 compatibility resolver', () => {
       unresolved.slice(0, 20),
       `${unresolved.length} path del compat store non risolvono (primi 20)`,
     ).toEqual([]);
-  }, 60000);
+  }, 180_000);
 
   it('resolves non-job section 404s to their landing pages', () => {
     expect(resolveSearchConsoleCompatTarget('/vivere-in-ticino/vivere-in-svizzera')).toEqual({

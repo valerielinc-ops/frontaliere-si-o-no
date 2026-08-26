@@ -157,18 +157,25 @@ export function missingSlots(job) {
     const title = (tbl[locale] || '').trim();
     const desc = (dbl[locale] || '').trim();
 
-    // Title missing, too short, an untranslated copy of the source title, or
-    // still lexically source-language per titleLooksUntranslated().
-    if (sourceTitle.length >= MIN_TITLE_CHARS &&
-        (title.length < MIN_TITLE_CHARS || title.toLowerCase() === sourceTitleLc ||
-         titleLooksUntranslated({
-           title,
-           sourceTitle,
-           sourceLang: srcLang,
-           targetLocale: locale,
-           company: job.company || '',
-           location: job.location || '',
-         }).untranslated)) {
+    // Title missing, too short, or an untranslated copy of the source title —
+    // these three need a meaningful sourceTitle to compare against, so they
+    // stay gated on the floor. titleLooksUntranslated() is lexical and does
+    // NOT depend on the source title's length (mirrors the un-gated call in
+    // mark-mistranslated-jobs.mjs's titleOffence(), the sibling that sets the
+    // SAME needsRetranslation flag this loop drains) — gating it on
+    // MIN_TITLE_CHARS would silently exempt any job whose source title is
+    // shorter than the floor from the lexical check too (issue #6539).
+    const tooShortOrCopy = sourceTitle.length >= MIN_TITLE_CHARS &&
+      (title.length < MIN_TITLE_CHARS || title.toLowerCase() === sourceTitleLc);
+    const lexicallyUntranslated = titleLooksUntranslated({
+      title,
+      sourceTitle,
+      sourceLang: srcLang,
+      targetLocale: locale,
+      company: job.company || '',
+      location: job.location || '',
+    }).untranslated;
+    if (tooShortOrCopy || lexicallyUntranslated) {
       slots.push({ locale, field: 'title' });
     }
 
