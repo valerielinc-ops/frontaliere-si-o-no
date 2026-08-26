@@ -573,12 +573,12 @@
     },
     {
       "id": "ipersonal-c1960ba4c141",
-      "slug": "pflegefachfrau-pflegefachmann-hf-dn1-jobs-ormalingen-deine-erfahrung-zahlt-ipersonal-ch",
+      "slug": "specialista-infermieristico-hf-dn1-jobs-ormalingen-la-tua-esperienza-conta-ipersonal-ag-lugano",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-hf-dn1-jobs-ormalingen-deine-erfahrung-zahlt-ipersonal-ch",
-        "it": "pflegefachfrau-pflegefachmann-hf-dn1-jobs-ormalingen-deine-erfahrung-zahlt-ipersonal-ch",
-        "en": "pflegefachfrau-pflegefachmann-hf-dn1-jobs-ormalingen-deine-erfahrung-zahlt-ipersonal-ch",
-        "fr": "pflegefachfrau-pflegefachmann-hf-dn1-jobs-ormalingen-deine-erfahrung-zahlt-ipersonal-ch"
+        "it": "specialista-infermieristico-hf-dn1-jobs-ormalingen-la-tua-esperienza-conta-ipersonal-ag-lugano",
+        "en": "nursing-specialist-hf-dn1-jobs-ormalingen-your-experience-counts-ipersonal-ag-lugano",
+        "fr": "specialiste-des-soins-infirmiers-hf-dn1-emploi-ormalingen-votre-experience-compte-ipersonal-ag-lugano"
       },
       "company": "iPersonal AG",
       "companyKey": "ipersonal",
@@ -630,7 +630,21 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:32:40.140Z"
+      "firstSeenAt": "2026-08-25T21:32:40.140Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-hf-dn1-jobs-ormalingen-deine-erfahrung-zahlt-ipersonal-ch"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-hf-dn1-jobs-ormalingen-deine-erfahrung-zahlt-ipersonal-ch"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-hf-dn1-jobs-ormalingen-deine-erfahrung-zahlt-ipersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-hf-dn1-jobs-ormalingen-deine-erfahrung-zahlt-ipersonal-ch"
+      ]
     },
     {
       "id": "ipersonal-fa4cd6235c26",
@@ -987,8 +1001,8 @@
       "slugByLocale": {
         "de": "dipl-fachfrau-mann-operationstechnik-hf-80-100-fur-arlesheim-gesucht-spezialisiere-dich",
         "it": "dipl-fachfrau-mann-operationstechnik-hf-80-100-per-arlesheim-gesucht-spezialisiere-dich-auf-prazision-e-sicherheit-im-op-ipersonal-ag-lugano",
-        "en": "dipl-fachfrau-mann-operationstechnik-hf-80-100-fur-arlesheim-gesucht-spezialisiere-dich",
-        "fr": "dipl-fachfrau-mann-operationstechnik-hf-80-100-fur-arlesheim-gesucht-spezialisiere-dich"
+        "en": "dipl-specialist-surgical-technology-hf-80-100-sought-for-arlesheim-specialize-in-precision-and-safety-in-the-or",
+        "fr": "dipl-technologie-chirurgicale-specialisee-hf-80-100-recherchee-pour-arlesheim-specialisee-en-precision-et-securite-dans"
       },
       "company": "iPersonal AG",
       "companyKey": "ipersonal",
@@ -1039,13 +1053,15 @@
           "dipl-technique-chirurgicale-specialisee-hf-80-100-recherchee-pour-murten-specialisee-en-precision-et-securite-dans-le-or"
         ],
         "en": [
-          "dipl-specialist-surgical-technique-hf-80-100-sought-for-murten-specialize-in-precision-and-safety-in-the-or-ipersonal-ag"
+          "dipl-specialist-surgical-technique-hf-80-100-sought-for-murten-specialize-in-precision-and-safety-in-the-or-ipersonal-ag",
+          "dipl-fachfrau-mann-operationstechnik-hf-80-100-fur-arlesheim-gesucht-spezialisiere-dich"
         ],
         "de": [
           "dipl-fachfrau-mann-operationstechnik-hf-80-100-fur-murten-gesucht-spezialisiere-dich-auf"
         ],
         "fr": [
-          "dipl-technique-chirurgicale-specialisee-hf-80-100-recherchee-pour-murten-specialisee-en-precision-et-securite-dans-le-or"
+          "dipl-technique-chirurgicale-specialisee-hf-80-100-recherchee-pour-murten-specialisee-en-precision-et-securite-dans-le-or",
+          "dipl-fachfrau-mann-operationstechnik-hf-80-100-fur-arlesheim-gesucht-spezialisiere-dich"
         ]
       },
       "previousSlugs": [
@@ -1360,8 +1376,8 @@
       "slugByLocale": {
         "de": "dipl-expertin-experte-intensivpflege-nds-80-100-fur-ruegsauschachen-gesucht-hochste",
         "it": "dipl-expertin-experte-intensivpflege-nds-80-100-per-ruegsauschachen-gesucht-hochste-qualitat-in-der-intensivpflege-ipersonal-ag-lugano",
-        "en": "dipl-expertin-experte-intensivpflege-nds-80-100-fur-ruegsauschachen-gesucht-hochste",
-        "fr": "dipl-expertin-experte-intensivpflege-nds-80-100-fur-ruegsauschachen-gesucht-hochste"
+        "en": "dipl-expert-expert-intensive-care-nds-80-100-wanted-for-ruegsauschachen-highest-quality-in-intensive-care-ipersonal-ag",
+        "fr": "dipl-expert-expert-soins-intensifs-nds-80-100-recherche-pour-ruegsauschachen-la-plus-haute-qualite-en-soins-intensifs"
       },
       "company": "iPersonal AG",
       "companyKey": "ipersonal",
@@ -1410,7 +1426,11 @@
           "dipl-expertin-experte-intensivpflege-nds-80-100-fur-tschugg-gesucht-hochste-qualitat-in"
         ],
         "fr": [
-          "dipl-expertin-experte-intensivpflege-nds-80-100-fur-tschugg-gesucht-hochste-qualitat-in"
+          "dipl-expertin-experte-intensivpflege-nds-80-100-fur-tschugg-gesucht-hochste-qualitat-in",
+          "dipl-expertin-experte-intensivpflege-nds-80-100-fur-ruegsauschachen-gesucht-hochste"
+        ],
+        "en": [
+          "dipl-expertin-experte-intensivpflege-nds-80-100-fur-ruegsauschachen-gesucht-hochste"
         ]
       },
       "previousSlugs": [
@@ -1527,8 +1547,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-80-100-in-baretswil",
         "it": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-80-100-in-baretswil",
-        "en": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-80-100-in-baretswil",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-80-100-in-baretswil"
+        "en": "dipl-nursing-specialist-fh-bachelor-of-science-in-nursing-80-100-sought-in-barentswil-and-surrounding-area-scientific",
+        "fr": "dipl-specialiste-des-soins-infirmiers-fh-bachelor-of-science-in-nursing-80-100-recherche-a-barentswil-et-dans-les"
       },
       "company": "iPersonal AG",
       "companyKey": "ipersonal",
@@ -1592,8 +1612,8 @@
       "slugByLocale": {
         "de": "facharztin-facharzt-gynakologie-und-geburtshilfe-80-100-in-baretswil-gesucht-ganzheitliche",
         "it": "facharztin-facharzt-gynakologie-e-geburtshilfe-80-100-in-baretswil-gesucht-ganzheitliche-frauenmedizin-con-perspektive-ipersonal-ag-lugano",
-        "en": "facharztin-facharzt-gynakologie-und-geburtshilfe-80-100-in-baretswil-gesucht-ganzheitliche",
-        "fr": "facharztin-facharzt-gynakologie-und-geburtshilfe-80-100-in-baretswil-gesucht-ganzheitliche"
+        "en": "specialist-gynecology-and-obstetrics-80-100-in-barentswil-holistic-women-s-medicine-with-perspective-ipersonal-ag-lugano",
+        "fr": "specialiste-de-la-gynecologie-et-de-l-obstetrique-80-100-en-barentswil-medecine-holistique-des-femmes-avec-perspective"
       },
       "company": "iPersonal AG",
       "companyKey": "ipersonal",
@@ -1638,6 +1658,12 @@
       "previousSlugsByLocale": {
         "it": [
           "facharztin-facharzt-gynakologie-und-geburtshilfe-80-100-in-baretswil-gesucht-ganzheitliche"
+        ],
+        "en": [
+          "facharztin-facharzt-gynakologie-und-geburtshilfe-80-100-in-baretswil-gesucht-ganzheitliche"
+        ],
+        "fr": [
+          "facharztin-facharzt-gynakologie-und-geburtshilfe-80-100-in-baretswil-gesucht-ganzheitliche"
         ]
       },
       "previousSlugs": [
@@ -1661,12 +1687,12 @@
     },
     {
       "id": "ipersonal-92068ef71c71",
-      "slug": "jobs-fachpersonen-langzeitpflege-betreuung-in-neukirch-egnach-jetzt-durchstarten-ipersonal",
+      "slug": "jobs-professionisti-a-lungo-termine-care-care-in-neukirch-egnach-inizia-subito-ipersonal-ag-lugano",
       "slugByLocale": {
         "de": "jobs-fachpersonen-langzeitpflege-betreuung-in-neukirch-egnach-jetzt-durchstarten-ipersonal",
-        "it": "jobs-fachpersonen-langzeitpflege-betreuung-in-neukirch-egnach-jetzt-durchstarten-ipersonal",
-        "en": "jobs-fachpersonen-langzeitpflege-betreuung-in-neukirch-egnach-jetzt-durchstarten-ipersonal",
-        "fr": "jobs-fachpersonen-langzeitpflege-betreuung-in-neukirch-egnach-jetzt-durchstarten-ipersonal"
+        "it": "jobs-professionisti-a-lungo-termine-care-care-in-neukirch-egnach-inizia-subito-ipersonal-ag-lugano",
+        "en": "jobs-professionals-long-term-care-care-in-neukirch-egnach-start-now-ipersonal-ag-lugano",
+        "fr": "emplois-soins-de-longue-duree-et-soins-professionnels-a-neukirch-egnach-commencez-maintenant-ipersonal-ag-lugano"
       },
       "company": "iPersonal AG",
       "companyKey": "ipersonal",
@@ -1719,7 +1745,21 @@
       },
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-25T09:45:50.608Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "jobs-fachpersonen-langzeitpflege-betreuung-in-neukirch-egnach-jetzt-durchstarten-ipersonal"
+        ],
+        "en": [
+          "jobs-fachpersonen-langzeitpflege-betreuung-in-neukirch-egnach-jetzt-durchstarten-ipersonal"
+        ],
+        "fr": [
+          "jobs-fachpersonen-langzeitpflege-betreuung-in-neukirch-egnach-jetzt-durchstarten-ipersonal"
+        ]
+      },
+      "previousSlugs": [
+        "jobs-fachpersonen-langzeitpflege-betreuung-in-neukirch-egnach-jetzt-durchstarten-ipersonal"
+      ]
     },
     {
       "id": "ipersonal-8fe69d82f189",
@@ -1866,12 +1906,12 @@
     },
     {
       "id": "ipersonal-0d2d22a7316f",
-      "slug": "allgemeinarzt-allgemeinarztin-80-100-in-einsiedeln-gesucht-verantwortung-im-alltag",
+      "slug": "praticante-generale-80-100-ricercato-in-einsiedeln-assunzione-della-responsabilita-nella-vita-quotidiana-ipersonal-ag",
       "slugByLocale": {
         "de": "allgemeinarzt-allgemeinarztin-80-100-in-einsiedeln-gesucht-verantwortung-im-alltag",
-        "it": "allgemeinarzt-allgemeinarztin-80-100-in-einsiedeln-gesucht-verantwortung-im-alltag",
-        "en": "allgemeinarzt-allgemeinarztin-80-100-in-einsiedeln-gesucht-verantwortung-im-alltag",
-        "fr": "allgemeinarzt-allgemeinarztin-80-100-in-einsiedeln-gesucht-verantwortung-im-alltag"
+        "it": "praticante-generale-80-100-ricercato-in-einsiedeln-assunzione-della-responsabilita-nella-vita-quotidiana-ipersonal-ag",
+        "en": "general-practitioner-80-100-sought-in-einsiedeln-taking-responsibility-in-everyday-life-ipersonal-ag-lugano",
+        "fr": "generaliste-80-100-recherche-dans-einsiedeln-prise-de-responsabilite-dans-la-vie-quotidienne-ipersonal-ag-lugano"
       },
       "company": "iPersonal AG",
       "companyKey": "ipersonal",
@@ -1924,7 +1964,21 @@
       },
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-25T09:45:49.702Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "allgemeinarzt-allgemeinarztin-80-100-in-einsiedeln-gesucht-verantwortung-im-alltag"
+        ],
+        "en": [
+          "allgemeinarzt-allgemeinarztin-80-100-in-einsiedeln-gesucht-verantwortung-im-alltag"
+        ],
+        "fr": [
+          "allgemeinarzt-allgemeinarztin-80-100-in-einsiedeln-gesucht-verantwortung-im-alltag"
+        ]
+      },
+      "previousSlugs": [
+        "allgemeinarzt-allgemeinarztin-80-100-in-einsiedeln-gesucht-verantwortung-im-alltag"
+      ]
     },
     {
       "id": "ipersonal-c1b3cd905603",

@@ -189813,15 +189813,7 @@
       },
       "needsRetranslation": true,
       "salaryMin": 62000,
-      "salaryMax": 94000,
-      "previousSlugsByLocale": {
-        "it": [
-          "magaziner-in-verkauf-coop-wohlen-aargau"
-        ]
-      },
-      "previousSlugs": [
-        "magaziner-in-verkauf-coop-wohlen-aargau"
-      ]
+      "salaryMax": 94000
     },
     {
       "id": "company-qb6q4p",
@@ -195062,15 +195054,7 @@
       },
       "needsRetranslation": true,
       "salaryMin": 62000,
-      "salaryMax": 94000,
-      "previousSlugsByLocale": {
-        "it": [
-          "magaziner-in-verkauf-coop-nussbaumen-aargau"
-        ]
-      },
-      "previousSlugs": [
-        "magaziner-in-verkauf-coop-nussbaumen-aargau"
-      ]
+      "salaryMax": 94000
     },
     {
       "id": "company-70oapl",
@@ -204250,8 +204234,7 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-wil-sankt-gallen-1915gx",
-          "verkaufer-in-food-coop-wil-sankt-gallen"
+          "verkaufer-in-food-coop-wil-sankt-gallen-1915gx"
         ],
         "en": [
           "verkaufer-in-food-coop-wil-sankt-gallen-1915gx"
@@ -204261,8 +204244,7 @@
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-wil-sankt-gallen-1915gx",
-        "verkaufer-in-food-coop-wil-sankt-gallen"
+        "verkaufer-in-food-coop-wil-sankt-gallen-1915gx"
       ],
       "needsRetranslation": true,
       "salaryMin": 57500,
@@ -206791,7 +206773,7 @@
       },
       "slugByLocale": {
         "it": "rayon-leader-in-nonfood-coop-genossenschaft-zurich",
-        "en": "rayonleiter-in-nonfood-coop-zurich-tazn6o",
+        "en": "rayon-leader-in-nonfood-coop-zurich",
         "de": "rayonleiter-in-nonfood-coop-zurich-tazn6o",
         "fr": "rayon-leader-dans-non-alimentaire-coop-genossenschaft-zurich"
       },
@@ -206816,6 +206798,9 @@
           "rayonleiter-in-nonfood-coop-zurich"
         ],
         "fr": [
+          "rayonleiter-in-nonfood-coop-zurich-tazn6o"
+        ],
+        "en": [
           "rayonleiter-in-nonfood-coop-zurich-tazn6o"
         ]
       },
@@ -213013,9 +212998,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "verkaufsberater-in-kuche-e-elektro-coop-genossenschaft-zurich-cx1qcc",
-        "en": "verkaufsberater-in-kuche-und-elektro-coop-genossenschaft-zurich-cx1qcc",
+        "en": "sales-consultant-in-kitchen-and-electric-coop-genossenschaft-zurich",
         "de": "verkaufsberater-in-kuche-und-elektro-coop-genossenschaft-zurich-cx1qcc",
-        "fr": "verkaufsberater-in-kuche-und-elektro-coop-genossenschaft-zurich-cx1qcc"
+        "fr": "consultant-commercial-en-cuisine-et-electrique-coop-genossenschaft-zurich"
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
@@ -213034,10 +213019,17 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-kuche-und-elektro-coop-genossenschaft-zurich"
+        ],
+        "en": [
+          "verkaufsberater-in-kuche-und-elektro-coop-genossenschaft-zurich-cx1qcc"
+        ],
+        "fr": [
+          "verkaufsberater-in-kuche-und-elektro-coop-genossenschaft-zurich-cx1qcc"
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-kuche-und-elektro-coop-genossenschaft-zurich"
+        "verkaufsberater-in-kuche-und-elektro-coop-genossenschaft-zurich",
+        "verkaufsberater-in-kuche-und-elektro-coop-genossenschaft-zurich-cx1qcc"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -213441,16 +213433,12 @@
         "it": [
           "kochin-koch-m-w-d-coop-genossenschaft-zurich-hgbbbn",
           "kochin-koch-m-w-d-coop-ristorante-zurich"
-        ],
-        "de": [
-          "kochin-koch-m-w-d-coop-ristorante-zurich-hgbbbn"
         ]
       },
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-genossenschaft-zurich-hgbbbn",
         "kochin-koch-m-w-d-coop-genossenschaft-zurich",
-        "kochin-koch-m-w-d-coop-ristorante-zurich",
-        "kochin-koch-m-w-d-coop-ristorante-zurich-hgbbbn"
+        "kochin-koch-m-w-d-coop-ristorante-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500
@@ -217177,15 +217165,11 @@
       },
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-ristorante-zurich",
-        "kochin-koch-m-w-d-coop-ristorante-zurich-2",
-        "kochin-koch-m-w-d-coop-ristorante-zurich-c2mclz"
+        "kochin-koch-m-w-d-coop-ristorante-zurich-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-m-w-d-coop-ristorante-zurich-2"
-        ],
-        "de": [
-          "kochin-koch-m-w-d-coop-ristorante-zurich-c2mclz"
         ]
       },
       "salaryMin": 73500,
@@ -217732,9 +217716,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "servicetechniker-in-professional-solutions-fust-oberburen",
-        "en": "servicetechniker-in-professional-solutions-fust-oberburen-4f8jjo",
+        "en": "service-technician-in-professional-solutions-fust-swiss-household-services-ag-oberburen-0b6602",
         "de": "servicetechniker-in-professional-solutions-fust-oberburen-4f8jjo",
-        "fr": "servicetechniker-in-professional-solutions-fust-oberburen-4f8jjo"
+        "fr": "technicien-de-service-en-solutions-professionnelles-fust-swiss-household-services-ag-oberburen-0b6602"
       },
       "addressLocality": "Oberbüren",
       "sourceLang": "de",
@@ -217774,13 +217758,15 @@
           "servicetechniker-in-professional-solutions-fust-oberburen-4f8jjo"
         ],
         "en": [
-          "service-technician-in-professional-solutions-fust-oberburen"
+          "service-technician-in-professional-solutions-fust-oberburen",
+          "servicetechniker-in-professional-solutions-fust-oberburen-4f8jjo"
         ],
         "de": [
           "servicetechniker-in-professional-solutions-fust-oberburen-0ttisz"
         ],
         "fr": [
-          "technicien-de-service-en-solutions-professionnelles-fust-oberburen"
+          "technicien-de-service-en-solutions-professionnelles-fust-oberburen",
+          "servicetechniker-in-professional-solutions-fust-oberburen-4f8jjo"
         ]
       },
       "previousSlugs": [
@@ -218679,14 +218665,10 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-garden-jumbo-wurenlingen-aargau"
-        ],
-        "de": [
-          "verkaufsberater-in-garden-jumbo-wurenlingen-aargau-6h6hcp"
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-garden-jumbo-wurenlingen-aargau",
-        "verkaufsberater-in-garden-jumbo-wurenlingen-aargau-6h6hcp"
+        "verkaufsberater-in-garden-jumbo-wurenlingen-aargau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000
@@ -218986,14 +218968,10 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-deco-jumbo-chur-graubunden"
-        ],
-        "de": [
-          "verkaufsberater-in-deco-jumbo-chur-graubunden-0nd86w"
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-deco-jumbo-chur-graubunden",
-        "verkaufsberater-in-deco-jumbo-chur-graubunden-0nd86w"
+        "verkaufsberater-in-deco-jumbo-chur-graubunden"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000

@@ -7951,8 +7951,8 @@
       "slugByLocale": {
         "de": "leiter-in-schaltanlagenbau-equans-spreitenbach",
         "it": "responsabile-schaltanlagenbau-equans-switzerland-spreitenbach",
-        "en": "leiter-in-schaltanlagenbau-equans-spreitenbach",
-        "fr": "leiter-in-schaltanlagenbau-equans-spreitenbach"
+        "en": "head-in-switchgear-construction-equans-switzerland-spreitenbach",
+        "fr": "tete-dans-la-construction-de-commutateurs-equans-switzerland-spreitenbach"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -8000,6 +8000,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-schaltanlagenbau-equans-spreitenbach"
+        ],
+        "en": [
+          "leiter-in-schaltanlagenbau-equans-spreitenbach"
+        ],
+        "fr": [
           "leiter-in-schaltanlagenbau-equans-spreitenbach"
         ]
       },
