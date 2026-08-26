@@ -50,6 +50,7 @@ import { fileURLToPath } from 'node:url';
 import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 import { writeAuditReport } from './lib/auditReport.mjs';
 import { fingerprintPage, scoreCohorts } from './lib/informationGain.mjs';
+import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
 
 /**
  * Median share of page-specific prose a gated cohort must clear.
@@ -148,7 +149,19 @@ function createAuditor({ dist = DEFAULT_DIST, sampleRate = 1 } = {}) {
       // what the index contains. Cheap substring test before the regex: the
       // attribute is absent on the large majority of pages.
       if (html.includes('noindex') && /<meta[^>]+name=["']robots["'][^>]*noindex/i.test(html)) return;
-      fingerprints.push(fingerprintPage(relative(dist, file), html));
+      const relPath = relative(dist, file);
+      // Job-board sections (listing hubs + individual job-detail pages, every
+      // canton) are out of scope: they are hydration/JobPosting-JSON-LD driven
+      // pages sourced from third-party postings, not the editorial guide/
+      // comparison prose #5002 targets — see scripts/lib/jobBoardSections.mjs.
+      // Every sibling classifier that separates "editorial" from "job-board"
+      // (audit-title-length, audit-text-html-ratio, audit-page-weight, …) and
+      // this audit's own calibration + companion live-scan MONITORED_SITEMAPS
+      // already treat them as a distinct, unmeasured category; scoring them
+      // here mixes two page kinds with unrelated prose expectations into the
+      // same cohort and floods it with false "below-floor" offenders.
+      if (JOB_BOARD_SECTION_RX.test(relPath)) return;
+      fingerprints.push(fingerprintPage(relPath, html));
     },
     report() {
       const { cohorts, pagesScored, pagesUncohorted } = scoreCohorts(fingerprints, {
