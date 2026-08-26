@@ -1327,8 +1327,8 @@
       "companyDomain": "msc.com",
       "title": "Brand Manager - Brand & Product",
       "titleByLocale": {
-        "en": "Brand Manager - Brand & Product",
         "it": "Brand Manager - Brand &amp; Product",
+        "en": "Brand Manager - Brand & Product",
         "de": "Brand Manager - Brand & Product",
         "fr": "Gestionnaire de marques - Marque & Produit"
       },
@@ -1361,7 +1361,16 @@
       "jobReqId": "16918",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "gestionnaire-de-marques-marque-produit-msc-group-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-de-marques-marque-produit-msc-group-geneva"
+        ]
+      },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-25T10:22:15.947Z",
       "salaryMin": 92000,
       "salaryMax": 163000,
       "baseSalary": {
@@ -1373,16 +1382,7 @@
           "maxValue": 163000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-25T10:22:15.947Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "gestionnaire-de-marques-marque-produit-msc-group-geneva"
-        ]
-      },
-      "previousSlugs": [
-        "gestionnaire-de-marques-marque-produit-msc-group-geneva"
-      ]
+      }
     }
   ]
 }

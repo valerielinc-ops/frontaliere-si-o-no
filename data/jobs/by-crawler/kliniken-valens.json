@@ -969,7 +969,7 @@
       "companyDomain": "kliniken-valens.ch",
       "title": "Pflegefachfrau/-mann in der neurologischen Rehabilitation (m/w/a) 30 – 70 %",
       "titleByLocale": {
-        "it": "Professionista infermieristico nella riabilitazione neurologica (m/f/a) 30 – 70%",
+        "it": "Infermiera in riabilitazione neurologica (m/f/a) 30 – 70%",
         "en": "Neurological Rehabilitation Nurse (m/f/a) 30 - 70%",
         "de": "Pflegefachfrau/-mann in der neurologischen Rehabilitation (m/w/a) 30 – 70 %",
         "fr": "Infirmier/ère en réhabilitation neurologique (m/f/a) 30 - 70%"
@@ -2049,7 +2049,7 @@
       "companyDomain": "kliniken-valens.ch",
       "title": "Diplomierte Pflegefachperson HF/FH (m/w/a) 60 - 100 %",
       "titleByLocale": {
-        "it": "Infermiera laureata HF/FH (m/f/a) 60 - 100 %",
+        "it": "Infermiere qualificato HF/FH (m/f/a) 60 - 100 %",
         "en": "Diploma in Nursing HF/FH (m/f/a) 60 - 100 %",
         "de": "Diplomierte Pflegefachperson HF/FH (m/w/a) 60 - 100 %",
         "fr": "Diplômé(e) en soins infirmiers HF/FH (m/f/a) 60 - 100 %"
@@ -2663,11 +2663,11 @@
         "fachspezialist-in-tarife-m-w-a-40-60-kliniken-valens-sargans"
       ],
       "previousSlugsByLocale": {
-        "it": [
-          "fachspezialist-in-tarife-m-w-a-40-60-kliniken-valens-sargans"
-        ],
         "de": [
           "fachspezialist-in-zollen-m-w-a-40-60-kliniken-valens-sargans"
+        ],
+        "it": [
+          "fachspezialist-in-tarife-m-w-a-40-60-kliniken-valens-sargans"
         ]
       },
       "firstSeenAt": "2026-05-19T18:25:39.781Z",
@@ -6636,7 +6636,7 @@
       "title": "Fachfrau/-mann Apotheke (m/w/a) 30 - 60 %",
       "titleByLocale": {
         "it": "Farmacia specialistica (m/f/a) 30 - 60%",
-        "en": "Specialist Pharmacy (m/f/a) 30 - 60%",
+        "en": "Specialist pharmacy (m/f/a) 30 - 60%",
         "de": "Fachfrau/-mann Apotheke (m/w/a) 30 - 60 %",
         "fr": "Pharmacie spécialisée (m/f/a) 30 - 60%"
       },
@@ -7076,17 +7076,32 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pharma-assistent-in-m-w-a-80-100-kliniken-valens-valens"
+        "pharma-assistent-in-m-w-a-80-100-kliniken-valens-valens",
+        "assistente-farmaceutico-in-m-f-a-80-100-kliniken-valens-valens",
+        "assistente-farmaceutico-in-m-f-a-80-kliniken-valens-wald",
+        "pharmaceutical-assistant-in-m-f-a-80-kliniken-valens-wald",
+        "pharma-assistent-in-m-w-a-80-kliniken-valens-wald",
+        "assistant-pharmaceutique-in-m-f-a-80-kliniken-valens-wald"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pharma-assistent-in-m-w-a-80-100-kliniken-valens-valens"
+          "pharma-assistent-in-m-w-a-80-100-kliniken-valens-valens",
+          "assistente-farmaceutico-in-m-f-a-80-100-kliniken-valens-valens",
+          "assistente-farmaceutico-in-m-f-a-80-kliniken-valens-wald",
+          "pharmaceutical-assistant-in-m-f-a-80-kliniken-valens-wald",
+          "pharma-assistent-in-m-w-a-80-kliniken-valens-wald",
+          "assistant-pharmaceutique-in-m-f-a-80-kliniken-valens-wald"
         ],
         "en": [
-          "pharma-assistent-in-m-w-a-80-100-kliniken-valens-valens"
+          "pharma-assistent-in-m-w-a-80-100-kliniken-valens-valens",
+          "pharmaceutical-assistant-in-m-f-a-80-kliniken-valens-wald"
         ],
         "fr": [
-          "pharma-assistent-in-m-w-a-80-100-kliniken-valens-valens"
+          "pharma-assistent-in-m-w-a-80-100-kliniken-valens-valens",
+          "assistant-pharmaceutique-in-m-f-a-80-kliniken-valens-wald"
+        ],
+        "de": [
+          "pharma-assistent-in-m-w-a-80-kliniken-valens-wald"
         ]
       },
       "firstSeenAt": "2026-07-30T11:21:49.321Z",

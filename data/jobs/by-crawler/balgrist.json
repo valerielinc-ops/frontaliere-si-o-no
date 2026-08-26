@@ -4000,20 +4000,36 @@
       "applyUrl": "https://apply.refline.ch/245893/1153/index.html?cid=101&lang=de",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "mitarbeiterin-mitarbeiter-empfang-telefonzentrale-60-m-w-d-balgrist-zurich",
+        "mitarbeiterin-collaboratore-trice-empfang-telefonzentrale-60-m-w-d-universitatsklinik-balgrist-zurich",
+        "mitarbeiterin-collaboratore-trice-empfang-telefonzentrale-40-m-w-d-universitatsklinik-balgrist-zurich",
+        "employee-reception-telephone-centre-40-m-f-d-universitatsklinik-balgrist-zurich",
+        "mitarbeiterin-mitarbeiter-empfang-telefonzentrale-40-m-w-d-balgrist-zurich",
+        "reception-des-employes-centre-telephonique-40-m-f-d-universitatsklinik-balgrist-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-empfang-telefonzentrale-60-m-w-d-balgrist-zurich"
+          "mitarbeiterin-mitarbeiter-empfang-telefonzentrale-60-m-w-d-balgrist-zurich",
+          "mitarbeiterin-collaboratore-trice-empfang-telefonzentrale-60-m-w-d-universitatsklinik-balgrist-zurich",
+          "mitarbeiterin-collaboratore-trice-empfang-telefonzentrale-40-m-w-d-universitatsklinik-balgrist-zurich",
+          "employee-reception-telephone-centre-40-m-f-d-universitatsklinik-balgrist-zurich",
+          "mitarbeiterin-mitarbeiter-empfang-telefonzentrale-40-m-w-d-balgrist-zurich",
+          "reception-des-employes-centre-telephonique-40-m-f-d-universitatsklinik-balgrist-zurich"
         ],
         "en": [
-          "mitarbeiterin-mitarbeiter-empfang-telefonzentrale-60-m-w-d-balgrist-zurich"
+          "mitarbeiterin-mitarbeiter-empfang-telefonzentrale-60-m-w-d-balgrist-zurich",
+          "employee-reception-telephone-centre-40-m-f-d-universitatsklinik-balgrist-zurich"
         ],
         "fr": [
-          "mitarbeiterin-mitarbeiter-empfang-telefonzentrale-60-m-w-d-balgrist-zurich"
+          "mitarbeiterin-mitarbeiter-empfang-telefonzentrale-60-m-w-d-balgrist-zurich",
+          "reception-des-employes-centre-telephonique-40-m-f-d-universitatsklinik-balgrist-zurich"
+        ],
+        "de": [
+          "mitarbeiterin-mitarbeiter-empfang-telefonzentrale-40-m-w-d-balgrist-zurich"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-empfang-telefonzentrale-60-m-w-d-balgrist-zurich"
-      ],
+      "firstSeenAt": "2026-08-24T21:56:46.229Z",
       "salaryMin": 54900,
       "salaryMax": 76800,
       "baseSalary": {
@@ -4025,8 +4041,7 @@
           "maxValue": 76800,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-24T21:56:46.229Z"
+      }
     },
     {
       "id": "balgrist-a53e2be3c04f",

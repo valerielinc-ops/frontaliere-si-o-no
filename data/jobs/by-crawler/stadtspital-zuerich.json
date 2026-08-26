@@ -7456,6 +7456,10 @@
       "department": "Gesundheits- und Umweltdepartement",
       "unit": "Stadtspital Zürich",
       "referenceNumber": "51344",
+      "previousSlugs": [
+        "assistenzpsycholog-in-neuropsychologie-stadtspital-zuerich-51344",
+        "assistenzpsycholog-in-neuropsychologie-stadtspital-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "assistenzpsycholog-in-neuropsychologie-stadtspital-zurich-zurich"
@@ -7471,10 +7475,6 @@
           "assistenzpsycholog-in-neuropsychologie-stadtspital-zurich-zurich"
         ]
       },
-      "previousSlugs": [
-        "assistenzpsycholog-in-neuropsychologie-stadtspital-zuerich-51344",
-        "assistenzpsycholog-in-neuropsychologie-stadtspital-zurich-zurich"
-      ],
       "firstSeenAt": "2026-08-17T21:51:16.840Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -10008,7 +10008,7 @@
       "companyDomain": "stadtspital.ch",
       "title": "Assistenzärzt*in Interdisziplinäre Notfallmedizin",
       "titleByLocale": {
-        "it": "Assistente medico* in medicina di emergenza interdisciplinare",
+        "it": "Assistente medico* in medicina interdisciplinare di emergenza",
         "en": "Assistant doctor* in interdisciplinary emergency medicine",
         "de": "Assistenzärzt*in Interdisziplinäre Notfallmedizin",
         "fr": "Docteur adjoint* en médecine d'urgence interdisciplinaire"

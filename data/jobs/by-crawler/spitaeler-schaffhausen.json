@@ -4335,6 +4335,7 @@
         "de": "Die Medizintechnik sorgt an all unseren Standorten dafür, dass Anlagen und Systeme zuverlässig instand gehalten werden.\n\nAufgaben:\n• Vor-Ort-Support bei Gerätestörungen inkl. Sofortmassnahmen\n\n• Reparatur und Instandsetzung sowie Koordination der Einsätze externer Dienstleister\n\n• Durchführung von sicherheits- und messtechnischen Kontrollen sowie Wartungen an medizinischen Geräten und Anlagen\n\n• Dokumentation der durchgeführten Arbeiten nach gesetzlichen Vorgaben\n\n• Technische Beratung und Einweisung der Anwenderinnen und Anwender\n\n• Anfallende Aufgaben innerhalb der Medizintechnik\n\nAnforderungen:\n• Abschluss als Medizintechniker/in HF, Elektrotechniker/in oder eine vergleichbare Ausbildung im Bereich Elektronik oder Mechatronik\n\n• Berufserfahrung im Spitalumfeld wünschenswert im Hinblick auf die gesetzlichen Anforderungen an die Instandhaltung von Medizinprodukten\n\n• Verantwortungsbewusstsein, Flexibilität und Belastbarkeit sowie eine offene und respektvolle Kommunikation mit allen Anspruchsgruppen\n\n• Engagement für teamorientierte und interdisziplinäre Zusammenarbeit\n\nWir bieten:\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.",
         "fr": "La technologie médicale garantit que les installations et les systèmes sont entretenus de façon fiable dans tous nos sites.\n\nTâches :\n• Support sur place pour les défauts de fonctionnement du dispositif, y compris: Mesures d'urgence\n\n• Réparation et réparation ainsi que coordination des opérations des prestataires de services externes\n\n• Mise en œuvre des contrôles de sécurité et métrologiques et entretien des dispositifs et équipements médicaux\n\n• Documentation des travaux effectués conformément aux prescriptions légales\n\n• Conseils techniques et formation des utilisateurs\n\n• Tâches résultantes au sein de la technologie médicale\n\nExigences\n• Diplôme de technicien médical HF, technicien électrique ou formation comparable dans le domaine de l'électronique ou de la mécatronique\n\n• Expérience professionnelle dans l'environnement hospitalier souhaitable compte tenu des exigences légales pour l'entretien des dispositifs médicaux\n\n• Responsabilité, flexibilité et résilience ainsi qu'une communication ouverte et respectueuse avec toutes les parties prenantes\n\n• Engagement en faveur de la coopération en équipe et interdisciplinaire\n\nNous offrons:\nVoulez-vous bien concilier la famille et le travail? Avec notre crèche en interne directement sur le site de l'Hôpital Cantonal, nous vous soutenons pour un équilibre sain entre le travail et la vie personnelle qui fonctionne non seulement, mais aussi bien.\n\nLes hôpitaux de Schaffhausen comprennent l'hôpital cantonal, les services psychiatriques, la radiologie et les pratiques de cardiologie Posthof Neuhausen et le centre de neurologie Schaffhausen. Avec plus de 1 700 employés, nous assurons les soins médicaux et infirmiers de base dans la région de Schaffhausen. Chaque année, nous prenons en charge environ 11 000 patients hospitalisés et 90 000 patients externes. Nous sommes également un important centre de formation dans le canton."
       },
+      "needsRetranslation": true,
       "location": "Schaffhausen",
       "canton": "SH",
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/medizintechniker-in/68ccce59-f32a-4ac5-9306-70ebc0208f68",
@@ -4358,10 +4359,15 @@
       "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/medizintechniker-in/68ccce59-f32a-4ac5-9306-70ebc0208f68",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "medizintechniker-in-spitaeler-schaffhausen-schaffhausen",
+        "medizintechniker-in-spitaler-schaffhausen-schaffhausen",
+        "medical-technician-spitaler-schaffhausen-schaffhausen",
+        "technicien-medical-spitaler-schaffhausen-schaffhausen"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "medizintechniker-in-spitaeler-schaffhausen-schaffhausen",
-          "medizintechniker-in-spitaler-schaffhausen-schaffhausen"
+          "medizintechniker-in-spitaeler-schaffhausen-schaffhausen"
         ],
         "en": [
           "medical-technician-spitaler-schaffhausen-schaffhausen"
@@ -4370,12 +4376,7 @@
           "technicien-medical-spitaler-schaffhausen-schaffhausen"
         ]
       },
-      "previousSlugs": [
-        "medizintechniker-in-spitaeler-schaffhausen-schaffhausen",
-        "medizintechniker-in-spitaler-schaffhausen-schaffhausen",
-        "medical-technician-spitaler-schaffhausen-schaffhausen",
-        "technicien-medical-spitaler-schaffhausen-schaffhausen"
-      ],
+      "firstSeenAt": "2026-08-24T22:00:59.024Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "baseSalary": {
@@ -4387,9 +4388,7 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-24T22:00:59.024Z",
-      "needsRetranslation": true
+      }
     },
     {
       "id": "spitaeler-schaffhausen-8b0ab9dc6665",
