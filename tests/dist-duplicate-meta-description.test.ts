@@ -50,6 +50,7 @@ import {
   scanDistHtml,
 } from './helpers/distHtmlScan';
 import { extractMetaDescriptionRaw } from '../scripts/lib/meta-description-extract.mjs';
+import { sharedExtract } from '../scripts/lib/audit-runner.mjs';
 
 const DIST_DIR = resolve(__dirname, '..', 'dist');
 const MAX_DUPLICATE_PAGES_PER_DESCRIPTION = 2;
@@ -97,6 +98,10 @@ describe('dist HTML — duplicate meta description gate (Semrush E6)', () => {
  const desc = extractMetaDescription(html);
  if (!desc) return;
  if (ALLOWLIST_PREFIXES.some((p) => desc.startsWith(p))) return;
+ // `noindex,follow` bridge/tombstone pages share a templated description
+ // by design and never compete for a SERP snippet (#6501) — same skip as
+ // the real gate, `scripts/audit-duplicate-meta-description.mjs`.
+ if (sharedExtract(html).isNoindex) return;
  const existing = byDescription.get(desc) ?? [];
  existing.push(relPath);
  byDescription.set(desc, existing);

@@ -464,6 +464,26 @@ describe('duplicate-meta-description: sampled group sizes, declared', () => {
     expect(r.passed).toBe(true);
   });
 
+  it('noindex bridge/tombstone pages are excluded from the population (#6501)', () => {
+    // Bridge/tombstone pages (self-heal, below-floor, legacy-redirect) are
+    // noindex,follow by design and never compete for a SERP snippet, so a
+    // description they share should not count toward this gate — same
+    // reasoning `audit-cannibalization.mjs` already applies for its own
+    // invariant.
+    const r = runOn(
+      createMetaDescAuditor(),
+      Array.from({ length: 5 }, (_, i) => [
+        `bridge-${i}.html`,
+        page(
+          '<h1>x</h1>',
+          '<meta name="robots" content="noindex,follow"><meta name="description" content="Pagina bridge — annuncio non più disponibile">',
+        ),
+      ]),
+    );
+    expect(r.passed).toBe(true);
+    expect(r.offendersTotal).toBe(0);
+  });
+
   it('reads a quote-stripped description, which is the shape dist/ actually has', () => {
     // dist-shrink.mjs's removeAttributeQuotes is why the pre-fix local reader
     // saw 200/200 job pages as "missing" (PR #478 / issue #5412).
