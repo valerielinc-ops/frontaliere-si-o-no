@@ -4411,6 +4411,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.reddito-record-risparmio-svizzeri.title': 'Revenu et épargne record : les Suisses en 2025',
     'blog.article.reddito-record-risparmio-svizzeri.excerpt': 'Revenu disponible de 65 124 francs par habitant en 2025. OFS : taux d\'épargne volontaire grimpe à 19,3%, le plus haut historique de la série statistique suisse.',
     'blog.article.reddito-record-risparmio-svizzeri.imageAlt': 'Famille suisse examinant ses économies et planification financière au bureau à domicile moderne',
+    'blog.article.stadler-rail-risultati-primo-semestre.title': 'Stadler Rail accélère au premier semestre et vole en bourse',
+    'blog.article.stadler-rail-risultati-primo-semestre.excerpt': 'Chiffre d\'affaires +40 % à 2 milliards de CHF, Ebit doublé. Action gagne 19 % en bourse. Le carnet de commandes atteint un record de 33 milliards de CHF.',
+    'blog.article.stadler-rail-risultati-primo-semestre.imageAlt': 'Vue d\'une gare ferroviaire suisse moderne avec des trains contemporains',
 };
 
 export default blogMetaChFr;
