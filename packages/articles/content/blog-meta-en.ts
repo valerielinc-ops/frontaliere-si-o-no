@@ -10822,6 +10822,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-esenzione-franchigia-2026.title': 'Frontier workers 2026: exemption vs deductible after agreement',
     'blog.article.frontaliere-esenzione-franchigia-2026.excerpt': 'Operating rules 2026 for border workers: differences between the old regime (exemption €7,500) and the new one (excess €10,000). Tax credit and declaratory procedure.',
     'blog.article.frontaliere-esenzione-franchigia-2026.imageAlt': 'Main street of Mendrisio with signage and Swiss-Italian border checkpoint visible in the background',
+    'blog.article.san-gottardo-code-20-km-luglio.title': 'The longest queue at the Gotthard in the last 4 years',
+    'blog.article.san-gottardo-code-20-km-luglio.excerpt': 'On July 18, 2026, the peak of 20 km of tail is reached towards the south. Implications for border workers and full schedule of night closures September-October.',
+    'blog.article.san-gottardo-code-20-km-luglio.imageAlt': 'San Gottardo highway tunnel with heavy summer traffic through the Swiss Alps',
 };
 
 export default blogMetaEn;

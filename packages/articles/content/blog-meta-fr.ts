@@ -10824,6 +10824,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-esenzione-franchigia-2026.title': 'Frontaliers 2026 : exemption vs franchise après accord',
     'blog.article.frontaliere-esenzione-franchigia-2026.excerpt': 'Règles opérationnelles 2026 pour les frontaliers : différences entre l\'ancien régime (exemption de 7 500 € ) et le nouveau (franchise de 10 000 € ). Crédit d\'impôt et procédure déclarative.',
     'blog.article.frontaliere-esenzione-franchigia-2026.imageAlt': 'Rue principale de Mendrisio avec signalisation et poste de douane suisse-italien visible en arrière-plan',
+    'blog.article.san-gottardo-code-20-km-luglio.title': 'La queue du Saint-Gothard la plus longue des 4 dernières années',
+    'blog.article.san-gottardo-code-20-km-luglio.excerpt': 'Le 18 juillet 2026, on atteint le pic de 20 km de queue vers le sud. Implications pour les frontaliers et calendrier complet des fermetures nocturnes septembre-octobre.',
+    'blog.article.san-gottardo-code-20-km-luglio.imageAlt': 'Tunnel d\'autoroute du Saint-Gothard avec circulation intense estivale dans les Alpes suisses',
 };
 
 export default blogMetaFr;

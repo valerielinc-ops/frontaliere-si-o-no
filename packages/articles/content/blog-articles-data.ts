@@ -32376,6 +32376,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'san-gottardo-code-20-km-luglio',
+ category: 'pratico',
+ date: '2026-08-26T09:56:28.041Z',
+ image: '/images/blog/san-gottardo-code-20-km-luglio.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

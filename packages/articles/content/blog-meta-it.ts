@@ -10823,6 +10823,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-esenzione-franchigia-2026.title': 'Frontalieri 2026: esenzione vs franchigia dopo accordo',
     'blog.article.frontaliere-esenzione-franchigia-2026.excerpt': 'Regole operative 2026 per frontalieri: differenze tra vecchio regime (esenzione €7.500) e nuovo (franchigia €10.000). Credito d\'imposta e procedura dichiarativa.',
     'blog.article.frontaliere-esenzione-franchigia-2026.imageAlt': 'Strada principale di Mendrisio con segnaletica e punto di confine svizzero-italiano sullo sfondo',
+    'blog.article.san-gottardo-code-20-km-luglio.title': 'La coda al San Gottardo più lunga degli ultimi 4 anni',
+    'blog.article.san-gottardo-code-20-km-luglio.excerpt': 'Il 18 luglio 2026 si raggiunge il picco di 20 km di coda verso sud. Implicazioni per frontalieri e calendario completo delle chiusure notturne settembre-ottobre.',
+    'blog.article.san-gottardo-code-20-km-luglio.imageAlt': 'Galleria autostradale del San Gottardo con traffico intenso attraverso le Alpi svizzere',
 };
 
 export default blogMetaIt;
