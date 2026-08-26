@@ -64,6 +64,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isIncomplete as isIncompleteCanonical } from './relocalize-pending-jobs.mjs';
 import { summarizeQueueAge } from './lib/job-traffic-priority.mjs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 
 const CRAWLERS_DIR = 'data/jobs/by-crawler';
 const STATS_FILE = 'data/translation-stats-history.json';
@@ -323,13 +324,7 @@ export function formatReport(entry) {
 function main() {
   const label = process.argv[2] || 'translate-pending';
 
-  // Excludes cleanup-jobs.mjs's own scratch file (`<slice>.cleanup-tmp.json`):
-  // a hard-killed cleanup run can leave it orphaned in the same CI job, and its
-  // bare jobs-array shape passes straight through the `Array.isArray` check
-  // below, double-counting every job in it into the committed stats history.
-  const files = fs.existsSync(CRAWLERS_DIR)
-    ? fs.readdirSync(CRAWLERS_DIR).filter(f => f.endsWith('.json') && !f.includes('-locale-cache') && !f.includes('.cleanup-tmp'))
-    : [];
+  const files = listSliceFileNames(CRAWLERS_DIR);
 
   const counters = emptyCounters();
   const topCompanies = [];

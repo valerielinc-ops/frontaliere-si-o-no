@@ -22,6 +22,7 @@
 import { readFile, writeFile, readdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
+import { isSliceFile } from './lib/crawler-slice-files.mjs';
 
 const ROOT = path.resolve(process.cwd());
 const JOBS_JSON = path.join(ROOT, 'data', 'jobs.json');
@@ -61,7 +62,7 @@ async function collectUrls() {
   }
 
   if (existsSync(CRAWLERS_DIR)) {
-    const files = (await readdir(CRAWLERS_DIR)).filter((f) => f.endsWith('.json'));
+    const files = (await readdir(CRAWLERS_DIR)).filter(isSliceFile);
     for (const f of files) {
       const data = await readJsonSafe(path.join(CRAWLERS_DIR, f));
       if (Array.isArray(data)) {
