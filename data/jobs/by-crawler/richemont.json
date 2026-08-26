@@ -1191,9 +1191,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "termineur-en-habillage-horloger-richemont-le-sentier",
-        "watchmaker-clothes-finisher-jaeger-lecoultre-le-sentier",
-        "rivestimenti-orologiai-jaeger-lecoultre-le-sentier",
-        "uhrmacher-kleidung-finisher-jaeger-lecoultre-le-sentier",
         "termineur-en-habillage-horloger-jaeger-lecoultre-le-sentier",
         "finisher-in-watchmaker-dressing-jaeger-lecoultre-le-sentier",
         "finitore-in-abbigliamento-jaeger-lecoultre-le-sentier",
@@ -1202,18 +1199,15 @@
       "previousSlugsByLocale": {
         "it": [
           "termineur-en-habillage-horloger-richemont-le-sentier",
-          "rivestimenti-orologiai-jaeger-lecoultre-le-sentier",
           "termineur-en-habillage-horloger-jaeger-lecoultre-le-sentier",
           "finitore-in-abbigliamento-jaeger-lecoultre-le-sentier"
         ],
         "en": [
-          "watchmaker-clothes-finisher-jaeger-lecoultre-le-sentier",
           "termineur-en-habillage-horloger-richemont-le-sentier",
           "finisher-in-watchmaker-dressing-jaeger-lecoultre-le-sentier"
         ],
         "de": [
           "termineur-en-habillage-horloger-richemont-le-sentier",
-          "uhrmacher-kleidung-finisher-jaeger-lecoultre-le-sentier",
           "termineur-en-habillage-horloger-jaeger-lecoultre-le-sentier",
           "finisher-im-watchmaker-dressing-jaeger-lecoultre-le-sentier"
         ]
@@ -5087,14 +5081,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "procurement-category-manager-richemont-plan-les-ouates-2",
-        "procurement-category-manager-richemont-plan-les-ouates",
-        "procurement-category-manager-piaget-plan-les-ouates"
+        "procurement-category-manager-richemont-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
           "procurement-category-manager-richemont-plan-les-ouates-2",
-          "procurement-category-manager-richemont-plan-les-ouates",
-          "procurement-category-manager-piaget-plan-les-ouates"
+          "procurement-category-manager-richemont-plan-les-ouates"
         ],
         "de": [
           "procurement-category-manager-richemont-plan-les-ouates-2"
@@ -10205,11 +10197,11 @@
     },
     {
       "id": "richemont-88744095bff3",
-      "slug": "charge-de-projets-industrialisation-valfleurier-buttes",
+      "slug": "responsabile-del-progetto-di-industrializzazione-valfleurier-buttes",
       "slugByLocale": {
-        "it": "charge-de-projets-industrialisation-valfleurier-buttes",
-        "en": "charge-de-projets-industrialisation-richemont-buttes",
-        "de": "charge-de-projets-industrialisation-valfleurier-buttes",
+        "it": "responsabile-del-progetto-di-industrializzazione-valfleurier-buttes",
+        "en": "industrialization-project-manager-valfleurier-buttes",
+        "de": "industrialisierung-projektmanager-valfleurier-buttes",
         "fr": "charge-de-projets-industrialisation-valfleurier-buttes"
       },
       "company": "ValFleurier",
@@ -10256,24 +10248,22 @@
         "project-manager-industrialization-valfleurier-buttes",
         "industrializzazione-di-project-manager-valfleurier-buttes",
         "projektmanager-industrialisierung-valfleurier-buttes",
-        "industrialization-project-manager-valfleurier-buttes",
-        "responsabile-del-progetto-di-industrializzazione-valfleurier-buttes",
-        "industrialisierung-projektmanager-valfleurier-buttes"
+        "charge-de-projets-industrialisation-valfleurier-buttes"
       ],
       "previousSlugsByLocale": {
         "it": [
           "charge-de-projets-industrialisation-richemont-buttes",
           "industrializzazione-di-project-manager-valfleurier-buttes",
-          "responsabile-del-progetto-di-industrializzazione-valfleurier-buttes"
+          "charge-de-projets-industrialisation-valfleurier-buttes"
         ],
         "en": [
           "project-manager-industrialization-valfleurier-buttes",
-          "industrialization-project-manager-valfleurier-buttes"
+          "charge-de-projets-industrialisation-richemont-buttes"
         ],
         "de": [
           "charge-de-projets-industrialisation-richemont-buttes",
           "projektmanager-industrialisierung-valfleurier-buttes",
-          "industrialisierung-projektmanager-valfleurier-buttes"
+          "charge-de-projets-industrialisation-valfleurier-buttes"
         ]
       },
       "firstSeenAt": "2026-07-16T22:17:40.509Z",
@@ -13672,20 +13662,6 @@
       "jobReqId": "jr132699",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "specialiste-analyses-materiaux-richemont-glovelier"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "specialiste-analyses-materiaux-richemont-glovelier"
-        ],
-        "en": [
-          "specialiste-analyses-materiaux-richemont-glovelier"
-        ],
-        "de": [
-          "specialiste-analyses-materiaux-richemont-glovelier"
-        ]
-      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-18T09:59:08.377Z",
       "salaryMin": 60500,
