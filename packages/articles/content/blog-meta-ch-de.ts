@@ -4375,6 +4375,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.infortuni-soglia-indipendenti-2027.title': 'UVG: reduzierter Schwellenwert für 40.000 Selbständige',
     'blog.article.infortuni-soglia-indipendenti-2027.excerpt': 'Der Bundesrat senkt den Zugang zur Unfallversicherung per 1. Januar 2027 von CHF 66 \'690 auf CHF 44\' 460 pro Jahr. Sie profitieren von 40.000 zusätzlichen Autonomen.',
     'blog.article.infortuni-soglia-indipendenti-2027.imageAlt': 'Unabhängiger Arbeitnehmer am Schreibtisch mit Schweizer Alpenpanorama',
+    'blog.article.accesso-facilitato-infortuni-2027.title': 'Erleichterter Zugang zur Unfallversicherung ab 2027',
+    'blog.article.accesso-facilitato-infortuni-2027.excerpt': 'Schwellenwert von CHF 66.690 auf CHF 44.460 gesenkt: Ab Januar 2027 können sich rund 40 \'000 Selbstständige mit neuen Chancen gegen Unfälle versichern.',
+    'blog.article.accesso-facilitato-infortuni-2027.imageAlt': 'Schweizer unabhängiger Profi arbeitet in modernem Büro mit Stadtblick',
 };
 
 export default blogMetaChDe;

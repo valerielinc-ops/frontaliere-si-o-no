@@ -56765,6 +56765,44 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-accesso-facilitato-infortuni-2027': {
+    title: 'Accesso facilitato all\'assicurazione infortuni dal 2027',
+    description: 'Il Consiglio federale abbassa la soglia di accesso all\'assicurazione infortuni da CHF 66.690 a CHF 44.460. Vantaggi per circa 40 mila autonomi dal 1° gennaio',
+    keywords: 'frontalieri, ticino, svizzera, italia, accesso, facilitato, assicurazione, infortuni',
+    ogTitle: 'Assicurazione infortuni: abbassata la soglia d\'accesso',
+    ogDescription: 'Dal 26 agosto 2026 il Consiglio federale riduce la soglia di accesso all\'assicurazione facoltativa infortuni da CHF 66.690 a CHF 44.460. Circa 40 mila lavoratori indipendenti potranno assicurarsi dal 1° gennaio 2027, con opportunità per donne',
+    canonicalPath: '/articoli-svizzera/accesso-facilitato-infortuni-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Accesso facilitato all'assicurazione infortuni dal 2027",
+      "description": "Il Consiglio federale abbassa la soglia di accesso all'assicurazione infortuni da CHF 66.690 a CHF 44.460. Vantaggi per circa 40 mila autonomi dal 1° gennaio",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/accesso-facilitato-infortuni-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Professionista indipendente che lavora in un ufficio moderno con vista sulla città svizzera"
+      },
+      "datePublished": "2026-08-26T09:39:24+00:00",
+      "dateModified": "2026-08-26T09:39:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/accesso-facilitato-infortuni-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
 };
 
 export default BLOG_CH_SEO_METADATA;
