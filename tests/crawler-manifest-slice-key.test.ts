@@ -87,7 +87,15 @@ describe('crawler-manifest JOBS_SLICE_FILE ↔ crawler key consistency', () => {
     expect(missing).toEqual([]);
   });
 
-  it("every JOBS_SLICE_FILE basename matches a key its crawler script actually writes", () => {
+  // Reads every crawler script named by the manifest's ~583 entries (plus one
+  // hop of relative imports each). Default 15s vitest budget is fine in
+  // isolation (~5.7s measured) but overflows under tests.yml's deliberate
+  // independent↔dependent vitest overlap on 4 vCPUs (run 32968718774: timed
+  // out at 15000ms, never reached the assert). Same margin already given to
+  // other full-tree scans under the identical contention
+  // (tests/all-known-job-slugs-store.test.ts, tests/orphan-enriched-store.test.ts) —
+  // no assertion changed.
+  it("every JOBS_SLICE_FILE basename matches a key its crawler script actually writes", { timeout: 180_000 }, () => {
     const failures: string[] = [];
     const unresolvable: string[] = [];
 
