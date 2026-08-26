@@ -1,6 +1,6 @@
 {
   "crawlerKey": "dxt-commodities",
-  "assembledAt": "2026-08-25T21:37:26.085Z",
+  "assembledAt": "2026-08-26T10:06:56.244Z",
   "jobs": [
     {
       "url": "https://dxt.com/careers/?panel=20897_1",
@@ -63,6 +63,7 @@
       ],
       "firstSeenAt": "2026-07-10T12:04:35.208Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 59500,
       "salaryMax": 104000,
       "currency": "CHF",
