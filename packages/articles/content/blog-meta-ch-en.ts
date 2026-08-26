@@ -4354,6 +4354,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.raiffeisen-160-milioni-risparmio-2027.title': 'Raiffeisen cuts up to 180 jobs',
     'blog.article.raiffeisen-160-milioni-risparmio-2027.excerpt': 'Raiffeisen Switzerland announces a savings program: up to 180 jobs eliminated by 2027, with a reduction of about CHF 60 million in costs.',
     'blog.article.raiffeisen-160-milioni-risparmio-2027.imageAlt': 'Modern Swiss banking office with employees at professional workstations, natural window lighting.',
+    'blog.article.raiffeisen-taglio-posti-lavoro.title': 'Raiffeisen cuts 180 jobs by 2027',
+    'blog.article.raiffeisen-taglio-posti-lavoro.excerpt': 'Raiffeisen announces the reduction of up to 180 seats to reduce costs by CHF 60 million. Structural reorganization in six departments since October.',
+    'blog.article.raiffeisen-taglio-posti-lavoro.imageAlt': 'Swiss financial office with professionals at work desks, realistic DSLR photography style.',
 };
 
 export default blogMetaChEn;

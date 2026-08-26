@@ -4354,6 +4354,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.raiffeisen-160-milioni-risparmio-2027.title': 'Raiffeisen taglia fino a 180 posti di lavoro',
     'blog.article.raiffeisen-160-milioni-risparmio-2027.excerpt': 'Raiffeisen Svizzera annuncia un programma di risparmio: fino a 180 posti eliminati entro il 2027, con riduzione di circa 60 milioni CHF nei costi.',
     'blog.article.raiffeisen-160-milioni-risparmio-2027.imageAlt': 'Sede di un istituto bancario svizzero con dipendenti in ambiente di lavoro professionale e moderno.',
+    'blog.article.raiffeisen-taglio-posti-lavoro.title': 'Raiffeisen taglia 180 posti di lavoro entro il 2027',
+    'blog.article.raiffeisen-taglio-posti-lavoro.excerpt': 'Raiffeisen annuncia il taglio di fino a 180 posti per ridurre 60 milioni di franchi di costi. Riorganizzazione strutturale in sei dipartimenti da ottobre.',
+    'blog.article.raiffeisen-taglio-posti-lavoro.imageAlt': 'Ufficio finanziario svizzero con collaboratori al lavoro presso le scrivanie, fotografato in stile DSLR realistico.',
 };
 
 export default blogMetaChIt;

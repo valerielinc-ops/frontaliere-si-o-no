@@ -13060,6 +13060,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'raiffeisen-taglio-posti-lavoro',
+    category: 'novita',
+    date: '2026-08-26T05:37:08.456Z',
+    image: '/images/blog/raiffeisen-taglio-posti-lavoro.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

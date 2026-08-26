@@ -4354,6 +4354,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.raiffeisen-160-milioni-risparmio-2027.title': 'Raiffeisen coupe jusqu\'à 180 emplois',
     'blog.article.raiffeisen-160-milioni-risparmio-2027.excerpt': 'Raiffeisen Suisse annonce un programme d\'économies : jusqu\'à 180 postes supprimés d\'ici 2027, avec une réduction des coûts d\'environ 60 millions de CHF.',
     'blog.article.raiffeisen-160-milioni-risparmio-2027.imageAlt': 'Bureau moderne d\'une institution bancaire suisse avec des employés à des postes de travail professionnels.',
+    'blog.article.raiffeisen-taglio-posti-lavoro.title': 'Raiffeisen supprime 180 emplois d\'ici 2027',
+    'blog.article.raiffeisen-taglio-posti-lavoro.excerpt': 'Raiffeisen annonce la suppression de 180 postes afin de réduire les coûts de 60 millions de francs. Réorganisation structurelle en six départements depuis octobre.',
+    'blog.article.raiffeisen-taglio-posti-lavoro.imageAlt': 'Bureau financier suisse avec des professionnels travaillant aux bureaux, photographié en style DSLR réaliste.',
 };
 
 export default blogMetaChFr;

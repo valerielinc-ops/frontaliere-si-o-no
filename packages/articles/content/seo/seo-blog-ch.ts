@@ -56492,6 +56492,44 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-raiffeisen-taglio-posti-lavoro': {
+    title: 'Raiffeisen taglia 180 posti di lavoro entro il 2027',
+    description: 'Raiffeisen annuncia il taglio di fino a 180 posti entro il 2027 per ridurre 60 milioni di costi. Riorganizzazione strutturale in 6 dipartimenti da ottobre 2026.',
+    keywords: 'frontalieri, ticino, svizzera, italia, raiffeisen, taglia, posti, lavoro',
+    ogTitle: 'Raiffeisen taglia 180 posti di lavoro entro il 2027',
+    ogDescription: 'Raiffeisen Svizzera annuncia il taglio di fino a 180 posti per ridurre 60 milioni di costi entro il 2027. Riorganizzazione in 6 dipartimenti da ottobre 2026. Nel contempo utile semestrale record: CHF 659.3 milioni.',
+    canonicalPath: '/articoli-svizzera/raiffeisen-taglio-posti-lavoro/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Raiffeisen taglia 180 posti di lavoro entro il 2027",
+      "description": "Raiffeisen annuncia il taglio di fino a 180 posti entro il 2027 per ridurre 60 milioni di costi. Riorganizzazione strutturale in 6 dipartimenti da ottobre 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/raiffeisen-taglio-posti-lavoro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio finanziario svizzero con collaboratori al lavoro presso le scrivanie, fotografato in stile DSLR realistico."
+      },
+      "datePublished": "2026-08-26T05:37:08+00:00",
+      "dateModified": "2026-08-26T05:37:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/raiffeisen-taglio-posti-lavoro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
 };
 
 export default BLOG_CH_SEO_METADATA;
