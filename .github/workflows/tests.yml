@@ -258,6 +258,16 @@ jobs:
       - name: Setup Node.js + npm ci (una volta per tutte e quattro le famiglie)
         uses: ./.github/actions/ci-npm-setup
 
+      - name: Cache Vitest/Vite transform cache
+        uses: actions/cache@v5
+        with:
+          path: |
+            node_modules/.vite-independent
+            node_modules/.vite-dependent
+          key: vitest-transform-${{ runner.os }}-${{ hashFiles('package-lock.json', 'vitest.config.ts', '.github/workflows/tests.yml') }}
+          restore-keys: |
+            vitest-transform-${{ runner.os }}-
+
       # ══════════════════════════════════════════════════════════════════════
       # FAMIGLIA 1/4 — contract (ex job `contract`, ex pr-body-contract.yml)
       # `!cancelled()` sul primo step: un rosso di un'altra famiglia NON deve
@@ -1274,6 +1284,10 @@ jobs:
         background: true
         env:
           VITEST_DATASET_GROUP: independent
+          # I due gruppi Vitest girano contemporaneamente: su ubuntu-latest
+          # (4 vCPU) due worker ciascuno evita che ogni processo apra un pool
+          # completo e faccia scadere i test sotto contesa CPU.
+          VITEST_MAX_WORKERS: 2
           VITEST_CACHE_DIR: node_modules/.vite-independent
           # Calcolato per diff anche su push a main (non solo su pull_request,
           # vedi lo step "Decide i gate corpus-wide"); vuoto su qualunque suo
@@ -1281,7 +1295,7 @@ jobs:
           # filtra comunque il valore contro il registro: questa env non puo'
           # spegnere un test che non sia uno dei sette.
           VITEST_CORPUS_SKIP: ${{ steps.corpus.outputs.skip }}
-        run: node scripts/ci/run-adaptive-vitest.mjs --group=independent --output=shard-timing-1.json --reporter=default --reporter=json --outputFile=shard-timing-1.json
+        run: npm test -- --reporter=default --reporter=json --outputFile=shard-timing-1.json
 
       - name: Cache assemble-jobs output
         # Mirrors deploy.yml's identical step. assemble-jobs-dataset.mjs has a
@@ -1366,13 +1380,14 @@ jobs:
         # che ha (data/jobs.json + lo slug registry, scritti dall'assemble —
         # mai da tsc, mai dai lint, mai dall'altro gruppo vitest). Nessun join
         # qui sopra, quindi il gruppo indipendente resta in volo e questi due
-        # gruppi CPU-bound si sovrappongono per davvero. Il wrapper mantiene
-        # l'affinità CPU di entrambi dinamica per tutta la loro durata.
+        # gruppi CPU-bound si sovrappongono per davvero. Il pool è limitato a
+        # due worker per processo per evitare oversubscription del runner.
         env:
           VITEST_DATASET_GROUP: dependent
+          VITEST_MAX_WORKERS: 2
           VITEST_CORPUS_SKIP: ${{ steps.corpus.outputs.skip }}
           VITEST_CACHE_DIR: node_modules/.vite-dependent
-        run: node scripts/ci/run-adaptive-vitest.mjs --group=dependent --output=shard-timing-2.json --reporter=default --reporter=json --outputFile=shard-timing-2.json
+        run: npm test -- --reporter=default --reporter=json --outputFile=shard-timing-2.json
 
       # ══════════════════════════════════════════════════════════════════════
       # L'UNICO join della seconda metà del job, e chiude due cose insieme:
