@@ -4342,6 +4342,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.processo-bondo-critica-procura.title': 'Procès Bondo, la défense critique le parquet',
     'blog.article.processo-bondo-critica-procura.excerpt': 'Deuxième jour du procès sur le glissement de terrain de 2017. La défense critique les lacunes dans les preuves du parquet et attribue à la municipalité la responsabilité de la sécurité des sentiers.',
     'blog.article.processo-bondo-critica-procura.imageAlt': 'Sentier di randonnée en montagne dans le canton des Grisons',
+    'blog.article.scuola-futuro-giovani-ticino.title': 'École et avenir : les jeunes tessinois risquent de partir',
+    'blog.article.scuola-futuro-giovani-ticino.excerpt': 'Le 31 août, l\'école recommence au Tessin. Mais quel avenir les jeunes attendent-ils après la formation ? Les salaires, les loyers et les primes de la caisse-maladie mettent en péril l\'indépendance économique.',
+    'blog.article.scuola-futuro-giovani-ticino.imageAlt': 'Salle de classe au lycée à Lugano avec des étudiants travaillant sur ordinateur, lumière naturelle.',
 };
 
 export default blogMetaChFr;
