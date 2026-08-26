@@ -123,7 +123,6 @@
           "supporto-per-il-progetto-associate-distribuzione-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-05T22:29:30.500Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -273,7 +272,6 @@
           "senior-technical-sales-specialista-single-use-technologies-thermo-fisher-scientific-schweiz-ag-reinach"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-18T21:49:13.436Z",
       "salaryMin": 99500,
       "salaryMax": 151000,
@@ -341,7 +339,10 @@
         "operatore-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
         "operator-thermo-fisher-scientific-ch",
         "operateur-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
-        "responsabile-del-progetto-associato-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
+        "responsabile-del-progetto-associato-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
+        "gestione-della-domanda-e-dell-offerta-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
+        "demand-and-supply-manager-thermo-fisher-scientific-ch",
+        "gestionnaire-de-la-demande-et-de-l-offre-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -349,15 +350,20 @@
           "operatore-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
           "operator-thermo-fisher-scientific-ch",
           "operateur-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
-          "responsabile-del-progetto-associato-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
+          "responsabile-del-progetto-associato-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
+          "gestione-della-domanda-e-dell-offerta-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
+          "demand-and-supply-manager-thermo-fisher-scientific-ch",
+          "gestionnaire-de-la-demande-et-de-l-offre-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
         ],
         "de": [
           "associate-project-manager-thermo-fisher-scientific-ch",
-          "operator-thermo-fisher-scientific-ch"
+          "operator-thermo-fisher-scientific-ch",
+          "demand-and-supply-manager-thermo-fisher-scientific-ch"
         ],
         "fr": [
           "associate-project-manager-thermo-fisher-scientific-ch",
-          "operateur-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
+          "operateur-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
+          "gestionnaire-de-la-demande-et-de-l-offre-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
         ]
       },
       "firstSeenAt": "2026-07-08T22:14:49.608Z",
@@ -545,7 +551,7 @@
       "title": "Goods Receipt Specialist",
       "titleByLocale": {
         "it": "Goods Receipt Specialista",
-        "en": "Goods Receipt Specialist",
+        "en": "Good Receipt Specialist",
         "de": "Goods Receipt Spezialist",
         "fr": "Goods Receipt Spécialiste"
       },
@@ -591,7 +597,6 @@
           "goods-receipt-specialist-thermo-fisher-scientific-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T23:19:37.670Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -909,7 +914,6 @@
           "senior-project-manager-client-services-distribution-thermo-fisher-scientific-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T23:19:12.435Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -1290,7 +1294,6 @@
           "project-manager-ingegneria-thermo-fisher-scientific-schweiz-ag-allschwil"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-27T12:38:40.880Z",
       "salaryMin": 99500,
       "salaryMax": 151000,
@@ -1508,7 +1511,6 @@
           "senior-scientist-electronic-laboratory-systems-thermo-fisher-scientific-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T23:19:20.775Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -1628,7 +1630,7 @@
       "companyDomain": "thermofisher.com",
       "title": "Operator Primary",
       "titleByLocale": {
-        "it": "Operator Primary",
+        "it": "Primario dell'operatore",
         "en": "Operator Primary",
         "de": "Operator Primary",
         "fr": "Opérateur Primary"
@@ -1830,7 +1832,6 @@
           "team-leader-ipi-quality-operations-thermo-fisher-scientific-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T23:19:07.457Z",
       "salaryMin": 69500,
       "salaryMax": 93500,
@@ -1909,7 +1910,6 @@
           "capex-project-manager-facility-management-thermo-fisher-scientific-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-17T22:02:06.244Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -1977,7 +1977,20 @@
         "professionale-per-la-produzione-di-usp-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland",
         "usp-manufacturing-professional-thermo-fisher-scientific-ch",
         "specialiste-de-la-fabrication-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland",
-        "usp-manufacturing-specialista-thermo-fisher-scientific-schweiz-ag-lengnau"
+        "usp-manufacturing-specialista-thermo-fisher-scientific-schweiz-ag-lengnau",
+        "supporto-e-planner-di-produzione-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland",
+        "manufacturing-support-and-planner-thermo-fisher-scientific-ch",
+        "manufacturing-support-und-planer-thermo-fisher-scientific-schweiz-ag-lengnau",
+        "soutien-a-la-fabrication-et-planificateur-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland",
+        "sr-manufacturing-ingegnere-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland",
+        "sr-manufacturing-engineer-thermo-fisher-scientific-ch",
+        "sr-manufacturing-ingenieur-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland",
+        "sr-manufacturing-ingenieur-thermo-fisher-scientific-schweiz-ag-lengnau",
+        "r-d-ingegnere-thermo-fisher-scientific-schweiz-ag-cheseaux-sur-lausanne-vaud-switzerland",
+        "r-d-engineer-thermo-fisher-scientific-ch",
+        "r-d-ingenieur-thermo-fisher-scientific-schweiz-ag-cheseaux-sur-lausanne-vaud-switzerland",
+        "r-d-ingenieur-thermo-fisher-scientific-schweiz-ag-cheseaux-sur-lausanne",
+        "r-d-ingegnere-thermo-fisher-scientific-schweiz-ag-cheseaux-sur-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1985,18 +1998,38 @@
           "professionale-per-la-produzione-di-usp-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland",
           "usp-manufacturing-professional-thermo-fisher-scientific-ch",
           "specialiste-de-la-fabrication-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland",
-          "usp-manufacturing-specialista-thermo-fisher-scientific-schweiz-ag-lengnau"
+          "usp-manufacturing-specialista-thermo-fisher-scientific-schweiz-ag-lengnau",
+          "supporto-e-planner-di-produzione-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland",
+          "manufacturing-support-and-planner-thermo-fisher-scientific-ch",
+          "manufacturing-support-und-planer-thermo-fisher-scientific-schweiz-ag-lengnau",
+          "soutien-a-la-fabrication-et-planificateur-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland",
+          "sr-manufacturing-ingegnere-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland",
+          "sr-manufacturing-engineer-thermo-fisher-scientific-ch",
+          "sr-manufacturing-ingenieur-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland",
+          "sr-manufacturing-ingenieur-thermo-fisher-scientific-schweiz-ag-lengnau",
+          "r-d-ingegnere-thermo-fisher-scientific-schweiz-ag-cheseaux-sur-lausanne-vaud-switzerland",
+          "r-d-engineer-thermo-fisher-scientific-ch",
+          "r-d-ingenieur-thermo-fisher-scientific-schweiz-ag-cheseaux-sur-lausanne-vaud-switzerland",
+          "r-d-ingenieur-thermo-fisher-scientific-schweiz-ag-cheseaux-sur-lausanne",
+          "r-d-ingegnere-thermo-fisher-scientific-schweiz-ag-cheseaux-sur-lausanne"
         ],
         "de": [
           "usp-manufacturing-specialist-thermo-fisher-scientific-ch",
-          "usp-manufacturing-professional-thermo-fisher-scientific-ch"
+          "usp-manufacturing-professional-thermo-fisher-scientific-ch",
+          "manufacturing-support-und-planer-thermo-fisher-scientific-schweiz-ag-lengnau",
+          "sr-manufacturing-ingenieur-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland"
         ],
         "fr": [
           "usp-manufacturing-specialist-thermo-fisher-scientific-ch",
-          "specialiste-de-la-fabrication-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland"
+          "specialiste-de-la-fabrication-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland",
+          "soutien-a-la-fabrication-et-planificateur-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland",
+          "sr-manufacturing-ingenieur-thermo-fisher-scientific-schweiz-ag-lengnau"
+        ],
+        "en": [
+          "manufacturing-support-and-planner-thermo-fisher-scientific-ch",
+          "sr-manufacturing-engineer-thermo-fisher-scientific-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T23:19:09.408Z",
       "salaryMin": 71000,
       "salaryMax": 95500,
@@ -2165,8 +2198,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

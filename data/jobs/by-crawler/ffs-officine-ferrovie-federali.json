@@ -63,15 +63,14 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/projektleiter-in-bauingenieurwesen/e8862e33-3ae1-488d-9b0c-523e40012cb6",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-08-25T22:01:04.675Z",
-      "previousSlugs": [
-        "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-olten"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-olten"
         ]
       },
-      "firstSeenAt": "2026-08-25T10:03:12.911Z",
+      "previousSlugs": [
+        "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-olten"
+      ],
       "salaryMin": 113000,
       "salaryMax": 192000,
       "baseSalary": {
@@ -85,7 +84,9 @@
         }
       },
       "addressRegion": "SO",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-25T10:03:12.911Z",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-6f7c2dd8c7d4",
@@ -1460,15 +1461,16 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/sap-consultant-invoice-to-pay-m-w-d/69e449e1-ea2b-417e-9441-8ac173d517bf",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-08-25T22:01:41.324Z",
-      "previousSlugs": [
-        "sap-consultant-invoice-to-pay-m-w-d-ffs-officine-ferrovie-federali-bern"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "sap-consultant-invoice-to-pay-m-w-d-ffs-officine-ferrovie-federali-bern"
+          "sap-consultant-invoice-to-pay-m-w-d-ffs-officine-ferrovie-federali-bern",
+          "consulente-di-controllo-l-f-d-ffs-officine-ferrovie-federali-bern"
         ]
       },
-      "firstSeenAt": "2026-08-25T10:04:22.905Z",
+      "previousSlugs": [
+        "sap-consultant-invoice-to-pay-m-w-d-ffs-officine-ferrovie-federali-bern",
+        "consulente-di-controllo-l-f-d-ffs-officine-ferrovie-federali-bern"
+      ],
       "salaryMin": 73000,
       "salaryMax": 124500,
       "baseSalary": {
@@ -1482,7 +1484,8 @@
         }
       },
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-25T10:04:22.905Z"
     },
     {
       "id": "sbb-8b358e6f810f",
@@ -2818,7 +2821,9 @@
         }
       },
       "addressRegion": "VD",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "sbb-8fce47db82e4",
@@ -3040,7 +3045,6 @@
           "finance-business-partner-programmes-d-extension-h-f-d-ffs-officine-ferrovie-federali-bern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-18T21:53:33.183Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -9815,7 +9819,9 @@
         }
       },
       "addressRegion": "SG",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "sbb-6336efb99beb",
@@ -9987,7 +9993,9 @@
         }
       },
       "addressRegion": "BS",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "sbb-f817db5e03d9",
@@ -10744,7 +10752,9 @@
         }
       },
       "addressRegion": "SO",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "sbb-7ab69bfa9ffb",

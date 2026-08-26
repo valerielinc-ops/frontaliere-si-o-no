@@ -116,7 +116,7 @@
       "title": "Dipl. Pflegefachfrau/-mann Springerpool 50-100%",
       "titleByLocale": {
         "it": "Dipl. Specialista di cura Springerpool 50-100 %",
-        "en": "Dipl. Pflegefachfrau/-mann Springerpool 50-100%",
+        "en": "Dipl. Care specialist Springerpool 50-100 %",
         "de": "Dipl. Pflegefachfrau/-mann Springerpool 50-100%",
         "fr": "Dipl. Spécialiste des soins Springerpool 50-100 %"
       },
@@ -164,7 +164,6 @@
         "dipl-pflegefachfrau-mann-springerpool-50-100-hoch-health-grabs",
         "infermiere-qualificato-springerpool-50-100-hoch-health-ostschweiz-st-gallen"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T10:28:07.180Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -511,7 +510,7 @@
       "companyDomain": "kssg.ch",
       "title": "Lehrorthoptist/in 40-60%",
       "titleByLocale": {
-        "it": "Lehrorthoptist/in 40-60%",
+        "it": "Ortofrutticoli in 40-60 %",
         "en": "Orthoptist/in 40-60 %",
         "de": "Lehrorthoptist/in 40-60%",
         "fr": "Orthoptiste/en 40-60 %"
@@ -627,20 +626,33 @@
         "fachfrau-mann-gesundheit-80-100-kssg-ch",
         "fachfrau-mann-gesundheit-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "fachfrau-mann-gesundheit-40-100-kssg-ch-3",
-        "sante-professionnelle-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-3b86e1"
+        "sante-professionnelle-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-3b86e1",
+        "medicament-assistant-pratique-ou-specialiste-de-la-sante-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "med-praxisassistent-in-oder-fachfrau-mann-gesundheit-50-100-kssg-ch",
+        "med-praxisassistent-in-o-fachfrau-mann-gesundheit-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "med-practical-assistant-or-specialist-health-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-80-100-kssg-ch",
           "fachfrau-mann-gesundheit-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
           "fachfrau-mann-gesundheit-40-100-kssg-ch-3",
-          "sante-professionnelle-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-3b86e1"
+          "sante-professionnelle-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-3b86e1",
+          "medicament-assistant-pratique-ou-specialiste-de-la-sante-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "med-praxisassistent-in-oder-fachfrau-mann-gesundheit-50-100-kssg-ch",
+          "med-praxisassistent-in-o-fachfrau-mann-gesundheit-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "med-practical-assistant-or-specialist-health-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ],
         "en": [
-          "fachfrau-mann-gesundheit-80-100-kssg-ch"
+          "fachfrau-mann-gesundheit-80-100-kssg-ch",
+          "med-practical-assistant-or-specialist-health-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ],
         "fr": [
-          "fachfrau-mann-gesundheit-80-100-kssg-ch"
+          "fachfrau-mann-gesundheit-80-100-kssg-ch",
+          "medicament-assistant-pratique-ou-specialiste-de-la-sante-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        ],
+        "de": [
+          "med-praxisassistent-in-oder-fachfrau-mann-gesundheit-50-100-kssg-ch"
         ]
       },
       "firstSeenAt": "2026-08-14T10:43:58.193Z",
@@ -671,7 +683,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 40-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 40-100%",
+        "it": "Dipl. Infermieristica professionale 40-100 %",
         "en": "Dipl. Nursing professional 40-100 %",
         "de": "Dipl. Pflegefachfrau/-mann 40-100%",
         "fr": "Dipl. Professionnels des soins infirmiers 40-100 %"
@@ -720,7 +732,6 @@
         "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen",
         "infermiere-a-diplomato-a-40-100-hoch-health-ostschweiz-st-gallen-9fa340"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-14T10:43:57.241Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -862,14 +873,16 @@
         "assistent-in-administration-60-kssg-ch",
         "assistant-medical-pratique-en-40-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "assistente-infermieristico-80-90-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "assistente-amministrazione-60-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        "assistente-amministrazione-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "med-practical-assistant-in-50-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-administration-60-kssg-ch",
           "assistant-medical-pratique-en-40-kantonsspital-st-gallen-kssg-hoch-festanstellung",
           "assistente-infermieristico-80-90-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-          "assistente-amministrazione-60-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+          "assistente-amministrazione-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "med-practical-assistant-in-50-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ],
         "en": [
           "assistent-in-administration-60-kssg-ch"
@@ -878,7 +891,6 @@
           "assistent-in-administration-60-kssg-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-14T10:43:54.306Z",
       "salaryMin": 34500,
       "salaryMax": 52200,
@@ -986,7 +998,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Radiologiefachfrau/-mann HF 80-100%",
       "titleByLocale": {
-        "it": "Dipl. Radiologiefachfrau/-mann HF 80-100%",
+        "it": "Dipl. Specialista di radiologia HF 80-100 %",
         "en": "Dipl. Radiology specialist HF 80-100 %",
         "de": "Dipl. Radiologiefachfrau/-mann HF 80-100%",
         "fr": "Dipl. Spécialiste de radiologie HF 80-100 %"
@@ -1035,7 +1047,6 @@
         "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen",
         "specialista-certificato-in-radiologia-hf-80-100-hoch-health-ostschweiz-st-gallen"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-15T09:52:33.796Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1507,7 +1518,6 @@
         "lehrstelle-als-medizinproduktetechnologin-technologe-efz-hoch-health-st-gallen",
         "apprendistato-come-medizinproduktetechnologin-technologe-cfc-hoch-health-ostschweiz-st-gallen"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-16T09:54:36.059Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -3765,7 +3775,7 @@
       "title": "Physiotherapeut/in 50-100%",
       "titleByLocale": {
         "it": "Fisioterapista/in 50-100 %",
-        "en": "Physiotherapeut/in 50-100%",
+        "en": "Physiotherapist/in 50-100 %",
         "de": "Physiotherapeut/in 50-100%",
         "fr": "Physiothérapeute/en 50-100 %"
       },
@@ -3920,7 +3930,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 80-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 80-100%",
+        "it": "Dipl. Infermieristica professionale 80-100 %",
         "en": "Dipl. Nursing professional 80-100 %",
         "de": "Dipl. Pflegefachfrau/-mann 80-100%",
         "fr": "Dipl. Professionnels des soins infirmiers 80-100 %"
@@ -3980,7 +3990,6 @@
           "dipl-pflegefachfrau-mann-80-100-kssg-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-19T10:09:02.608Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -4164,7 +4173,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 70-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 70-100%",
+        "it": "Dipl. Infermieristica professionale 70-100 %",
         "en": "Dipl. Nursing professional 70-100 %",
         "de": "Dipl. Pflegefachfrau/-mann 70-100%",
         "fr": "Dipl. Professionnels des soins infirmiers 70-100 %"
@@ -4215,7 +4224,6 @@
         "dipl-pflegefachfrau-mann-70-100-hoch-health-st-gallen",
         "dipl-infermieristica-professionale-70-100-hoch-health-ostschweiz-st-gallen"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-19T10:09:00.761Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -4323,7 +4331,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 80-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 80-100%",
+        "it": "Dipl. Infermieristica professionale 80-100 %",
         "en": "Dipl. Nursing professional 80-100 %",
         "de": "Dipl. Pflegefachfrau/-mann 80-100%",
         "fr": "Dipl. Professionnels des soins infirmiers 80-100 %"
@@ -4372,7 +4380,6 @@
         "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
         "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-19T10:08:59.842Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -4863,7 +4870,6 @@
           "acheteur-operationnel-en-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-20T22:08:34.507Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -5421,7 +5427,6 @@
         "assistenzarztin-arzt-80-100-hoch-health-st-gallen",
         "medico-assistente-80-100-hoch-health-ostschweiz-st-gallen"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-20T10:17:24.858Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -5577,7 +5582,6 @@
         "oberarztin-arzt-gastroenterologie-hepatologie-100-hoch-health-st-gallen",
         "senior-medico-gastroenterologia-epatologia-100-hoch-health-ostschweiz-st-gallen"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-20T10:17:25.844Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -5733,7 +5737,6 @@
         "unterassistent-in-hoch-health-st-gallen",
         "assistente-secondario-hoch-health-ostschweiz-st-gallen"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-20T10:17:21.785Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -5806,7 +5809,6 @@
           "landmaschinenmechaniker-in-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-21T10:16:44.579Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -6072,7 +6074,7 @@
       "title": "Dipl. Experte/Expertin Notfallpflege 50-100%",
       "titleByLocale": {
         "it": "Dipl. Expert Emergency Care 50-100 %",
-        "en": "Dipl. Experte/Expertin Notfallpflege 50-100%",
+        "en": "Dipl. Expert Emergency Care 50-100 %",
         "de": "Dipl. Experte/Expertin Notfallpflege 50-100%",
         "fr": "Dipl. Expert Soins d'urgence 50-100 %"
       },
@@ -6117,7 +6119,6 @@
           "dipl-expert-emergency-care-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-21T10:16:42.723Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -6573,7 +6574,6 @@
         "unterassistent-in-hoch-health-wil",
         "assistente-secondario-hoch-health-ostschweiz-wil"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-21T10:16:37.104Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -6651,7 +6651,6 @@
         "unterassistent-in-hoch-health-uznach",
         "assistente-secondario-hoch-health-ostschweiz-uznach"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-21T10:16:36.136Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -7145,7 +7144,7 @@
       "companyDomain": "kssg.ch",
       "title": "Dipl. Pflegefachfrau/-mann 60-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann 60-100%",
+        "it": "Dipl. Infermieristica professionale 60-100 %",
         "en": "Dipl. Nursing professional 60-100 %",
         "de": "Dipl. Pflegefachfrau/-mann 60-100%",
         "fr": "Dipl. Professionnels des soins infirmiers 60-100 %"
@@ -7196,7 +7195,6 @@
         "dipl-pflegefachfrau-mann-60-100-hoch-health-st-gallen",
         "dipl-infermieristica-professionale-60-100-hoch-health-ostschweiz-st-gallen"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-22T10:06:55.419Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -7303,7 +7301,7 @@
       "companyDomain": "kssg.ch",
       "title": "Medizintechniker/in 80-100%",
       "titleByLocale": {
-        "it": "Medizintechniker/in 80-100%",
+        "it": "Tecnico medico/in 80-100 %",
         "en": "Medical technician 80-100 %",
         "de": "Medizintechniker/in 80-100%",
         "fr": "Technicien médical 80-100 %"
@@ -7512,7 +7510,6 @@
         "oberarztin-arzt-80-100-hoch-health-st-gallen",
         "medico-senior-80-100-hoch-health-ostschweiz-st-gallen"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-22T10:06:52.570Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -7672,7 +7669,6 @@
         "oberarztin-arzt-100-hoch-health-grabs",
         "primario-a-di-medicina-100-hoch-health-ostschweiz-st-gallen"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-22T10:06:53.518Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -8302,7 +8298,6 @@
         "oberarztin-arzt-infektionspravention-80-100-hoch-health-st-gallen",
         "primario-a-prevenzione-delle-infezioni-80-100-hoch-health-ostschweiz-st-gallen"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T10:33:23.219Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -8624,7 +8619,6 @@
         "kaderarztin-arzt-gefasschirurgie-100-hoch-health-st-gallen",
         "kaderarztin-arzt-gefassschirurgie-100-hoch-health-ostschweiz-st-gallen"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T10:33:19.831Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -8687,16 +8681,19 @@
       "applyUrl": "https://jobs.h-och.ch/job/Uznach-Med_-Praxisassistentin-oder-Arztsekret%C3%A4rin-50-100/1429472033/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "med-praxisassistent-in-oder-arztsekretar-in-50-100-kssg-ch"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistent-in-oder-arztsekretar-in-50-100-kssg-ch"
+          "med-praxisassistent-in-oder-arztsekretar-in-50-100-kssg-ch",
+          "med-praxisassistent-in-50-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+          "medizinische-r-praxisassistent-in-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-25T10:28:08.467Z",
+      "previousSlugs": [
+        "med-praxisassistent-in-oder-arztsekretar-in-50-100-kssg-ch",
+        "med-praxisassistent-in-50-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "medizinische-r-praxisassistent-in-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -8708,7 +8705,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-25T10:28:08.467Z"
     },
     {
       "id": "kssg-23a30618cdcf",
@@ -8938,17 +8936,17 @@
       "companyDomain": "kssg.ch",
       "title": "Ergotherapeut/in 40-100%",
       "titleByLocale": {
-        "it": "Ergotherapeut/in 40-100%",
-        "en": "Ergotherapeut/in 40-100%",
         "de": "Ergotherapeut/in 40-100%",
-        "fr": "Ergotherapeut/in 40-100%"
+        "en": "Occupational therapist/in 40-100 %",
+        "it": "Terapista/in 40-100 %",
+        "fr": "Ergothérapie/en 40-100 %"
       },
       "description": "Ergotherapeut/in 40-100%\n\nTherapeutische Dienste\n\nArbeitsort Uznach\n\nDeine Aufgaben und Perspektiven\n\n• Bedürfnisorientierte, bedarfs- und fachgerechte Behandlung\n\n• Abklären und Behandeln von stationären und ambulanten Patientinnen und Patienten aus den Gebieten Chirurgie, Medizin, Orthopädie, Rheumatologie, Neurologie\n\n• Selbsthilfe- und Haushaltstraining\n\n• Beratung von Patientinnen und Patienten, Angehörigen und Pflegefachpersonen\n\n• Schienenbau und Hilfsmittelversorgung\n\nWas du für diese Stelle mitbringst\n\n• Abschluss als Ergotherapeut/in\n\n• Berufserfahrung im Bereich Geriatrie wünschenswert\n\n• Selbstständigkeit, Verantwortungsbewusstsein und Teamfähigkeit\n\nUnser Angebot an dich\n\n• Geregelte Arbeitszeiten (Montag bis Freitag)\n\n• Zusammenarbeit in einem motivierten und kollegialen Team\n\n• Abwechslungsreiche Herausforderungen in einem dynamischen Arbeitsumfeld\n\n• Verantwortungsvolle Tätigkeit, ein vielseitiges Aufgabengebiet und Gestaltungsmöglichkeiten, um deine Ideen einzubringen\n\n• Breites Spektrum an fachlichen Fort- und Weiterbildungsmöglichkeiten\n\nDeine Bewerbung\n\n• Eintritt nach Vereinbarung\n\n• Mehr zu dieser spannenden Stelle erfährst du von Kathrin Trümpy, Teamleiterin Therapien, Telefon +41 55 285 53 92\n\n• Bei Fragen zum Bewerbungsprozess wendest du dich bitte an Lea Zolg, HR Business Partner, Telefon +41 71 494 38 17\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
       "descriptionByLocale": {
-        "it": "Ergotherapeut/in 40-100%\n\nTherapeutische Dienste\n\nArbeitsort Uznach\n\nDeine Aufgaben und Perspektiven\n\n• Bedürfnisorientierte, bedarfs- und fachgerechte Behandlung\n\n• Abklären und Behandeln von stationären und ambulanten Patientinnen und Patienten aus den Gebieten Chirurgie, Medizin, Orthopädie, Rheumatologie, Neurologie\n\n• Selbsthilfe- und Haushaltstraining\n\n• Beratung von Patientinnen und Patienten, Angehörigen und Pflegefachpersonen\n\n• Schienenbau und Hilfsmittelversorgung\n\nWas du für diese Stelle mitbringst\n\n• Abschluss als Ergotherapeut/in\n\n• Berufserfahrung im Bereich Geriatrie wünschenswert\n\n• Selbstständigkeit, Verantwortungsbewusstsein und Teamfähigkeit\n\nUnser Angebot an dich\n\n• Geregelte Arbeitszeiten (Montag bis Freitag)\n\n• Zusammenarbeit in einem motivierten und kollegialen Team\n\n• Abwechslungsreiche Herausforderungen in einem dynamischen Arbeitsumfeld\n\n• Verantwortungsvolle Tätigkeit, ein vielseitiges Aufgabengebiet und Gestaltungsmöglichkeiten, um deine Ideen einzubringen\n\n• Breites Spektrum an fachlichen Fort- und Weiterbildungsmöglichkeiten\n\nDeine Bewerbung\n\n• Eintritt nach Vereinbarung\n\n• Mehr zu dieser spannenden Stelle erfährst du von Kathrin Trümpy, Teamleiterin Therapien, Telefon +41 55 285 53 92\n\n• Bei Fragen zum Bewerbungsprozess wendest du dich bitte an Lea Zolg, HR Business Partner, Telefon +41 71 494 38 17\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
-        "en": "Ergotherapeut/in 40-100%\n\nTherapeutische Dienste\n\nArbeitsort Uznach\n\nDeine Aufgaben und Perspektiven\n\n• Bedürfnisorientierte, bedarfs- und fachgerechte Behandlung\n\n• Abklären und Behandeln von stationären und ambulanten Patientinnen und Patienten aus den Gebieten Chirurgie, Medizin, Orthopädie, Rheumatologie, Neurologie\n\n• Selbsthilfe- und Haushaltstraining\n\n• Beratung von Patientinnen und Patienten, Angehörigen und Pflegefachpersonen\n\n• Schienenbau und Hilfsmittelversorgung\n\nWas du für diese Stelle mitbringst\n\n• Abschluss als Ergotherapeut/in\n\n• Berufserfahrung im Bereich Geriatrie wünschenswert\n\n• Selbstständigkeit, Verantwortungsbewusstsein und Teamfähigkeit\n\nUnser Angebot an dich\n\n• Geregelte Arbeitszeiten (Montag bis Freitag)\n\n• Zusammenarbeit in einem motivierten und kollegialen Team\n\n• Abwechslungsreiche Herausforderungen in einem dynamischen Arbeitsumfeld\n\n• Verantwortungsvolle Tätigkeit, ein vielseitiges Aufgabengebiet und Gestaltungsmöglichkeiten, um deine Ideen einzubringen\n\n• Breites Spektrum an fachlichen Fort- und Weiterbildungsmöglichkeiten\n\nDeine Bewerbung\n\n• Eintritt nach Vereinbarung\n\n• Mehr zu dieser spannenden Stelle erfährst du von Kathrin Trümpy, Teamleiterin Therapien, Telefon +41 55 285 53 92\n\n• Bei Fragen zum Bewerbungsprozess wendest du dich bitte an Lea Zolg, HR Business Partner, Telefon +41 71 494 38 17\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
         "de": "Ergotherapeut/in 40-100%\n\nTherapeutische Dienste\n\nArbeitsort Uznach\n\nDeine Aufgaben und Perspektiven\n\n• Bedürfnisorientierte, bedarfs- und fachgerechte Behandlung\n\n• Abklären und Behandeln von stationären und ambulanten Patientinnen und Patienten aus den Gebieten Chirurgie, Medizin, Orthopädie, Rheumatologie, Neurologie\n\n• Selbsthilfe- und Haushaltstraining\n\n• Beratung von Patientinnen und Patienten, Angehörigen und Pflegefachpersonen\n\n• Schienenbau und Hilfsmittelversorgung\n\nWas du für diese Stelle mitbringst\n\n• Abschluss als Ergotherapeut/in\n\n• Berufserfahrung im Bereich Geriatrie wünschenswert\n\n• Selbstständigkeit, Verantwortungsbewusstsein und Teamfähigkeit\n\nUnser Angebot an dich\n\n• Geregelte Arbeitszeiten (Montag bis Freitag)\n\n• Zusammenarbeit in einem motivierten und kollegialen Team\n\n• Abwechslungsreiche Herausforderungen in einem dynamischen Arbeitsumfeld\n\n• Verantwortungsvolle Tätigkeit, ein vielseitiges Aufgabengebiet und Gestaltungsmöglichkeiten, um deine Ideen einzubringen\n\n• Breites Spektrum an fachlichen Fort- und Weiterbildungsmöglichkeiten\n\nDeine Bewerbung\n\n• Eintritt nach Vereinbarung\n\n• Mehr zu dieser spannenden Stelle erfährst du von Kathrin Trümpy, Teamleiterin Therapien, Telefon +41 55 285 53 92\n\n• Bei Fragen zum Bewerbungsprozess wendest du dich bitte an Lea Zolg, HR Business Partner, Telefon +41 71 494 38 17\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
-        "fr": "Ergotherapeut/in 40-100%\n\nTherapeutische Dienste\n\nArbeitsort Uznach\n\nDeine Aufgaben und Perspektiven\n\n• Bedürfnisorientierte, bedarfs- und fachgerechte Behandlung\n\n• Abklären und Behandeln von stationären und ambulanten Patientinnen und Patienten aus den Gebieten Chirurgie, Medizin, Orthopädie, Rheumatologie, Neurologie\n\n• Selbsthilfe- und Haushaltstraining\n\n• Beratung von Patientinnen und Patienten, Angehörigen und Pflegefachpersonen\n\n• Schienenbau und Hilfsmittelversorgung\n\nWas du für diese Stelle mitbringst\n\n• Abschluss als Ergotherapeut/in\n\n• Berufserfahrung im Bereich Geriatrie wünschenswert\n\n• Selbstständigkeit, Verantwortungsbewusstsein und Teamfähigkeit\n\nUnser Angebot an dich\n\n• Geregelte Arbeitszeiten (Montag bis Freitag)\n\n• Zusammenarbeit in einem motivierten und kollegialen Team\n\n• Abwechslungsreiche Herausforderungen in einem dynamischen Arbeitsumfeld\n\n• Verantwortungsvolle Tätigkeit, ein vielseitiges Aufgabengebiet und Gestaltungsmöglichkeiten, um deine Ideen einzubringen\n\n• Breites Spektrum an fachlichen Fort- und Weiterbildungsmöglichkeiten\n\nDeine Bewerbung\n\n• Eintritt nach Vereinbarung\n\n• Mehr zu dieser spannenden Stelle erfährst du von Kathrin Trümpy, Teamleiterin Therapien, Telefon +41 55 285 53 92\n\n• Bei Fragen zum Bewerbungsprozess wendest du dich bitte an Lea Zolg, HR Business Partner, Telefon +41 71 494 38 17\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung"
+        "it": "Terapista/in 40-100 %\n\nServizi terapeutici\n\nLuogo di lavoro Uznach\n\nI vostri compiti e prospettive\n\n• Trattamento orientato al bisogno, basato sulle esigenze e professionale\n\n• Chiarificazione e trattamento di pazienti malati e pazienti ambulatoriali dai campi di chirurgia, medicina, ortopedia, reumatologia, neurologia\n\n• Auto-aiuto e formazione delle famiglie\n\n• Consulenza per pazienti, parenti e infermieri\n\n• Costruzione ferroviaria e attrezzature ausiliarie\n\nCosa porti per questo lavoro\n\n• Laurea come terapista professionale\n\n• Esperienza professionale in geriatria desiderabile\n\n• Lavoro autonomo, senso di responsabilità e lavoro di squadra\n\nLa nostra offerta a voi\n\n• Ore lavorative regolamentate (da lunedì a venerdì)\n\n• Collaborazione in un team motivato e collegiale\n\n• Varie sfide in un ambiente di lavoro dinamico\n\n• Attività responsabile, un'area versatile di responsabilità e possibilità di progettazione per contribuire alle vostre idee\n\n• Ampia gamma di opportunità di formazione professionale\n\nLa tua domanda\n\n• Entrata per accordo\n\n• Scopri di più su questa posizione emozionante da Kathrin Trümpy, Team Leader Therapies, telefono +41 55 285 53 92\n\n• Per domande sul processo di applicazione, si prega di contattare Lea Zolg, HR Business Partner, telefono +41 71 494 38 17\n\nInformazioni su di noi\n\nL'assistenza sanitaria è la nostra professione e la nostra vocazione. Come il più grande datore di lavoro della Svizzera orientale, ci impegniamo a offrire ai nostri dipendenti un ambiente di lavoro versatile. Promuoviamo lo sviluppo individuale e quindi contribuiamo attivamente al futuro comune. Ci concentriamo sullo spirito di squadra, sulla cooperazione interdisciplinare e sulle soluzioni innovative.\n\nCompatibilità con la famiglia Vantaggi Alloggio ammobiliato Gestione della salute del lavoro Istruzione e formazione",
+        "en": "Occupational therapist/in 40-100 %\n\nTherapeutic services\n\nPlace of work Uznach\n\nYour tasks and perspectives\n\n• Need-oriented, needs-based and professional treatment\n\n• Clarification and treatment of inpatient and outpatient patients from the fields of surgery, medicine, orthopaedics, rheumatology, neurology\n\n• Self-help and household training\n\n• Advice for patients, relatives and nurses\n\n• Railway construction and auxiliary equipment\n\nWhat you bring for this job\n\n• Degree as an occupational therapist\n\n• Professional experience in geriatrics desirable\n\n• Self-employment, sense of responsibility and teamwork\n\nOur offer to you\n\n• Regulated working hours (Monday to Friday)\n\n• Collaboration in a motivated and collegial team\n\n• Varied challenges in a dynamic working environment\n\n• Responsible activity, a versatile area of responsibility and design possibilities to contribute your ideas\n\n• Broad spectrum of professional training opportunities\n\nYour application\n\n• Entry by arrangement\n\n• Learn more about this exciting position from Kathrin Trümpy, Team Leader Therapies, telephone +41 55 285 53 92\n\n• For questions about the application process, please contact Lea Zolg, HR Business Partner, telephone +41 71 494 38 17\n\nAbout us\n\nHealthcare is our profession and our calling. As the largest employer in Eastern Switzerland, we are committed to offering our employees a versatile working environment. We promote individual development and thus make an active contribution to the common future. We focus on team spirit, interdisciplinary cooperation and innovative solutions.\n\nWork-family compatibility Benefits Furnished accommodation Occupational health management Education and training",
+        "fr": "Ergothérapie/en 40-100 %\n\nServices thérapeutiques\n\nLieu de travail Uznach\n\nVos tâches et perspectives\n\n• Traitement professionnel axé sur les besoins\n\n• Clarification et traitement des patients hospitalisés et externes dans les domaines de la chirurgie, de la médecine, de l'orthopédie, de la rhumatologie, de la neurologie\n\n• Auto-assistance et formation des ménages\n\n• Conseils aux patients, aux proches et aux infirmières\n\n• Construction ferroviaire et équipement auxiliaire\n\nCe que vous apportez pour ce travail\n\n• Diplôme d'ergothérapeute\n\n• Expérience professionnelle en gériatrie souhaitable\n\n• Travail indépendant, sens des responsabilités et travail d'équipe\n\nNotre offre à vous\n\n• Heures de travail réglementées (du lundi au vendredi)\n\n• Collaboration dans une équipe motivée et collégiale\n\n• Divers défis dans un environnement de travail dynamique\n\n• Une activité responsable, un domaine de responsabilité polyvalent et des possibilités de conception pour contribuer à vos idées\n\n• Large éventail de possibilités de formation professionnelle\n\nVotre demande\n\n• Entrée par arrangement\n\n• En savoir plus sur cette position passionnante de Kathrin Trümpy, Team Leader Therapies, téléphone +41 55 285 53 92\n\n• Pour toute question concernant le processus de candidature, veuillez contacter Lea Zolg, HR Business Partner, téléphone +41 71 494 38 17\n\nSur nous\n\nLa santé est notre profession et notre vocation. En tant que plus grand employeur en Suisse orientale, nous nous engageons à offrir à nos employés un environnement de travail polyvalent. Nous favorisons le développement individuel et contribuons ainsi activement à l'avenir commun. Nous nous concentrons sur l'esprit d'équipe, la coopération interdisciplinaire et les solutions innovantes.\n\nCompatibilité travail-famille Prestations Hébergement meublé Gestion de la santé au travail Éducation et formation"
       },
       "location": "Festanstellung",
       "canton": "SG",
@@ -8988,7 +8986,6 @@
         "terapista-della-riabilitazione-40-100-hoch-health-ostschweiz-st-gallen"
       ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-25T10:28:06.537Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -9000,7 +8997,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-25T10:28:06.537Z"
     },
     {
       "id": "kssg-88a79e6f29c2",
@@ -9016,17 +9014,17 @@
       "companyDomain": "kssg.ch",
       "title": "Berufsbildner/in Anästhesiepflege NDS HF 40%",
       "titleByLocale": {
-        "it": "Berufsbildner/in Anästhesiepflege NDS HF 40%",
-        "en": "Berufsbildner/in Anästhesiepflege NDS HF 40%",
         "de": "Berufsbildner/in Anästhesiepflege NDS HF 40%",
-        "fr": "Berufsbildner/in Anästhesiepflege NDS HF 40%"
+        "it": "Infermiere professionale NDS HF 40 %",
+        "en": "Professional trainer/anesthesia nurse NDS HF 40 %",
+        "fr": "Entraîneur professionnel/infirmière en anesthésie NDS HF 40 %"
       },
       "description": "Berufsbildner/in Anästhesiepflege NDS HF 40%\n\nAnästhesiepflege\n\nArbeitsort Uznach\n\nStellenanzeige\n\nDeine Aufgaben und Perspektiven\n\n• Vorbereitung und ganzheitliche Betreuung der Patientinnen und Patienten bei Allgemeinnarkosen sowie Lokal- und Regionalanästhesien\n\n• Anästhesieüberwachung, Anästhesieführung und Überführung der Patientinnen und Patienten auf die Überwachungsstation (unter Aufsicht und Verantwortung eines Facharztes)\n\n• Ausbilden von Studierenden Anästhesiepflege, oder des Interesses sich in diese Funktion weiterzubilden\n\n• Einführung und Begleitung neuer Mitarbeitenden\n\nWas du für diese Stelle mitbringst\n\n• Abgeschlossene Fachweiterbildung (NDS) im Anästhesiebereich sowie einige Jahre Berufserfahrung\n\n• SVEB-Zertifikat von Vorteil oder Bereitschaft, dieses zu absolvieren\n\n• Du zeichnest dich aus durch ein grosses Verantwortungsbewusstsein, eine exakte Arbeitsweise sowie gutes Organisationsflair\n\n• Deine selbstständige, teamorientierte und flexible Persönlichkeit runden dein Profil ab\n\nUnser Angebot an dich\n\n• Moderne und gut ausgebaute Arbeitsplatzinfrastruktur\n\n• Zusammenarbeit in einem motivierten und kollegialen Team\n\n• Abwechslungsreiche Herausforderungen in einem dynamischen Arbeitsumfeld\n\n• Verantwortungsvolle Tätigkeit, ein vielseitiges Aufgabengebiet und Gestaltungsmöglichkeiten, um deine Ideen einzubringen\n\n• Breites Spektrum an fachlichen Fort- und Weiterbildungsmöglichkeiten\n\nDeine Bewerbung\n\n• Eintritt nach Vereinbarung\n\n• Mehr zu dieser spannenden Stelle erfährst du von Sermet Ameti, Teamleiter Anästhesiepflege, Telefon +41 55 285 45 35\n\n• Bei Fragen zum Bewerbungsprozess wendest du dich bitte an Lea Zolg, HR Business Partner, Telefon +41 71 494 38 17\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
       "descriptionByLocale": {
-        "it": "Berufsbildner/in Anästhesiepflege NDS HF 40%\n\nAnästhesiepflege\n\nArbeitsort Uznach\n\nStellenanzeige\n\nDeine Aufgaben und Perspektiven\n\n• Vorbereitung und ganzheitliche Betreuung der Patientinnen und Patienten bei Allgemeinnarkosen sowie Lokal- und Regionalanästhesien\n\n• Anästhesieüberwachung, Anästhesieführung und Überführung der Patientinnen und Patienten auf die Überwachungsstation (unter Aufsicht und Verantwortung eines Facharztes)\n\n• Ausbilden von Studierenden Anästhesiepflege, oder des Interesses sich in diese Funktion weiterzubilden\n\n• Einführung und Begleitung neuer Mitarbeitenden\n\nWas du für diese Stelle mitbringst\n\n• Abgeschlossene Fachweiterbildung (NDS) im Anästhesiebereich sowie einige Jahre Berufserfahrung\n\n• SVEB-Zertifikat von Vorteil oder Bereitschaft, dieses zu absolvieren\n\n• Du zeichnest dich aus durch ein grosses Verantwortungsbewusstsein, eine exakte Arbeitsweise sowie gutes Organisationsflair\n\n• Deine selbstständige, teamorientierte und flexible Persönlichkeit runden dein Profil ab\n\nUnser Angebot an dich\n\n• Moderne und gut ausgebaute Arbeitsplatzinfrastruktur\n\n• Zusammenarbeit in einem motivierten und kollegialen Team\n\n• Abwechslungsreiche Herausforderungen in einem dynamischen Arbeitsumfeld\n\n• Verantwortungsvolle Tätigkeit, ein vielseitiges Aufgabengebiet und Gestaltungsmöglichkeiten, um deine Ideen einzubringen\n\n• Breites Spektrum an fachlichen Fort- und Weiterbildungsmöglichkeiten\n\nDeine Bewerbung\n\n• Eintritt nach Vereinbarung\n\n• Mehr zu dieser spannenden Stelle erfährst du von Sermet Ameti, Teamleiter Anästhesiepflege, Telefon +41 55 285 45 35\n\n• Bei Fragen zum Bewerbungsprozess wendest du dich bitte an Lea Zolg, HR Business Partner, Telefon +41 71 494 38 17\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
-        "en": "Berufsbildner/in Anästhesiepflege NDS HF 40%\n\nAnästhesiepflege\n\nArbeitsort Uznach\n\nStellenanzeige\n\nDeine Aufgaben und Perspektiven\n\n• Vorbereitung und ganzheitliche Betreuung der Patientinnen und Patienten bei Allgemeinnarkosen sowie Lokal- und Regionalanästhesien\n\n• Anästhesieüberwachung, Anästhesieführung und Überführung der Patientinnen und Patienten auf die Überwachungsstation (unter Aufsicht und Verantwortung eines Facharztes)\n\n• Ausbilden von Studierenden Anästhesiepflege, oder des Interesses sich in diese Funktion weiterzubilden\n\n• Einführung und Begleitung neuer Mitarbeitenden\n\nWas du für diese Stelle mitbringst\n\n• Abgeschlossene Fachweiterbildung (NDS) im Anästhesiebereich sowie einige Jahre Berufserfahrung\n\n• SVEB-Zertifikat von Vorteil oder Bereitschaft, dieses zu absolvieren\n\n• Du zeichnest dich aus durch ein grosses Verantwortungsbewusstsein, eine exakte Arbeitsweise sowie gutes Organisationsflair\n\n• Deine selbstständige, teamorientierte und flexible Persönlichkeit runden dein Profil ab\n\nUnser Angebot an dich\n\n• Moderne und gut ausgebaute Arbeitsplatzinfrastruktur\n\n• Zusammenarbeit in einem motivierten und kollegialen Team\n\n• Abwechslungsreiche Herausforderungen in einem dynamischen Arbeitsumfeld\n\n• Verantwortungsvolle Tätigkeit, ein vielseitiges Aufgabengebiet und Gestaltungsmöglichkeiten, um deine Ideen einzubringen\n\n• Breites Spektrum an fachlichen Fort- und Weiterbildungsmöglichkeiten\n\nDeine Bewerbung\n\n• Eintritt nach Vereinbarung\n\n• Mehr zu dieser spannenden Stelle erfährst du von Sermet Ameti, Teamleiter Anästhesiepflege, Telefon +41 55 285 45 35\n\n• Bei Fragen zum Bewerbungsprozess wendest du dich bitte an Lea Zolg, HR Business Partner, Telefon +41 71 494 38 17\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
         "de": "Berufsbildner/in Anästhesiepflege NDS HF 40%\n\nAnästhesiepflege\n\nArbeitsort Uznach\n\nStellenanzeige\n\nDeine Aufgaben und Perspektiven\n\n• Vorbereitung und ganzheitliche Betreuung der Patientinnen und Patienten bei Allgemeinnarkosen sowie Lokal- und Regionalanästhesien\n\n• Anästhesieüberwachung, Anästhesieführung und Überführung der Patientinnen und Patienten auf die Überwachungsstation (unter Aufsicht und Verantwortung eines Facharztes)\n\n• Ausbilden von Studierenden Anästhesiepflege, oder des Interesses sich in diese Funktion weiterzubilden\n\n• Einführung und Begleitung neuer Mitarbeitenden\n\nWas du für diese Stelle mitbringst\n\n• Abgeschlossene Fachweiterbildung (NDS) im Anästhesiebereich sowie einige Jahre Berufserfahrung\n\n• SVEB-Zertifikat von Vorteil oder Bereitschaft, dieses zu absolvieren\n\n• Du zeichnest dich aus durch ein grosses Verantwortungsbewusstsein, eine exakte Arbeitsweise sowie gutes Organisationsflair\n\n• Deine selbstständige, teamorientierte und flexible Persönlichkeit runden dein Profil ab\n\nUnser Angebot an dich\n\n• Moderne und gut ausgebaute Arbeitsplatzinfrastruktur\n\n• Zusammenarbeit in einem motivierten und kollegialen Team\n\n• Abwechslungsreiche Herausforderungen in einem dynamischen Arbeitsumfeld\n\n• Verantwortungsvolle Tätigkeit, ein vielseitiges Aufgabengebiet und Gestaltungsmöglichkeiten, um deine Ideen einzubringen\n\n• Breites Spektrum an fachlichen Fort- und Weiterbildungsmöglichkeiten\n\nDeine Bewerbung\n\n• Eintritt nach Vereinbarung\n\n• Mehr zu dieser spannenden Stelle erfährst du von Sermet Ameti, Teamleiter Anästhesiepflege, Telefon +41 55 285 45 35\n\n• Bei Fragen zum Bewerbungsprozess wendest du dich bitte an Lea Zolg, HR Business Partner, Telefon +41 71 494 38 17\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung",
-        "fr": "Berufsbildner/in Anästhesiepflege NDS HF 40%\n\nAnästhesiepflege\n\nArbeitsort Uznach\n\nStellenanzeige\n\nDeine Aufgaben und Perspektiven\n\n• Vorbereitung und ganzheitliche Betreuung der Patientinnen und Patienten bei Allgemeinnarkosen sowie Lokal- und Regionalanästhesien\n\n• Anästhesieüberwachung, Anästhesieführung und Überführung der Patientinnen und Patienten auf die Überwachungsstation (unter Aufsicht und Verantwortung eines Facharztes)\n\n• Ausbilden von Studierenden Anästhesiepflege, oder des Interesses sich in diese Funktion weiterzubilden\n\n• Einführung und Begleitung neuer Mitarbeitenden\n\nWas du für diese Stelle mitbringst\n\n• Abgeschlossene Fachweiterbildung (NDS) im Anästhesiebereich sowie einige Jahre Berufserfahrung\n\n• SVEB-Zertifikat von Vorteil oder Bereitschaft, dieses zu absolvieren\n\n• Du zeichnest dich aus durch ein grosses Verantwortungsbewusstsein, eine exakte Arbeitsweise sowie gutes Organisationsflair\n\n• Deine selbstständige, teamorientierte und flexible Persönlichkeit runden dein Profil ab\n\nUnser Angebot an dich\n\n• Moderne und gut ausgebaute Arbeitsplatzinfrastruktur\n\n• Zusammenarbeit in einem motivierten und kollegialen Team\n\n• Abwechslungsreiche Herausforderungen in einem dynamischen Arbeitsumfeld\n\n• Verantwortungsvolle Tätigkeit, ein vielseitiges Aufgabengebiet und Gestaltungsmöglichkeiten, um deine Ideen einzubringen\n\n• Breites Spektrum an fachlichen Fort- und Weiterbildungsmöglichkeiten\n\nDeine Bewerbung\n\n• Eintritt nach Vereinbarung\n\n• Mehr zu dieser spannenden Stelle erfährst du von Sermet Ameti, Teamleiter Anästhesiepflege, Telefon +41 55 285 45 35\n\n• Bei Fragen zum Bewerbungsprozess wendest du dich bitte an Lea Zolg, HR Business Partner, Telefon +41 71 494 38 17\n\nÜber uns\n\nGesundheitsversorgung ist unser Beruf und unsere Berufung. Als grösste Arbeitgeberin der Ostschweiz verpflichten wir uns, unseren Mitarbeitenden ein vielseitiges Arbeitsumfeld zu bieten. Wir fördern individuelle Entwicklung und leisten damit einen aktiven Beitrag für die gemeinsame Zukunft. Wir setzen auf Teamgeist, interdisziplinäre Zusammenarbeit und innovative Lösungen.\n\nVereinbarkeit Beruf und Familie Vergünstigungen Möblierte Unterkünfte Betriebliches Gesundheitsmanagement Aus- und Fortbildung"
+        "it": "Infermiere professionale NDS HF 40 %\n\nCura dell'anestesia\n\nLuogo di lavoro Uznach\n\nElenco dei lavori\n\nI vostri compiti e prospettive\n\n• Preparazione e cura olistica dei pazienti per anestesia generale e anestesia locale e regionale\n\n• Monitoraggio dell'anestesia, guida dell'anestesia e trasferimento dei pazienti alla stazione di monitoraggio (sotto la supervisione e la responsabilità di uno specialista)\n\n• Formazione degli studenti cura dell'anestesia, o interesse per ulteriori formazione in questa funzione\n\n• Introduzione e sostegno dei nuovi dipendenti\n\nCosa porti per questo lavoro\n\n• Formazione specialistica completata (NDS) nel campo dell'anestesia e diversi anni di esperienza professionale\n\n• Certificato SVEB di vantaggio o disponibilità a completarlo\n\n• Sei caratterizzato da un grande senso di responsabilità, un metodo di lavoro esatto e un buon tocco organizzativo\n\n• La tua personalità indipendente, orientata al team e flessibile completa il tuo profilo\n\nLa nostra offerta a voi\n\n• Infrastrutture di lavoro moderne e ben sviluppate\n\n• Collaborazione in un team motivato e collegiale\n\n• Varie sfide in un ambiente di lavoro dinamico\n\n• Attività responsabile, un'area versatile di responsabilità e possibilità di progettazione per contribuire alle vostre idee\n\n• Ampia gamma di opportunità di formazione professionale\n\nLa tua domanda\n\n• Entrata per accordo\n\n• Potete scoprire di più su questo emozionante lavoro da Sermet Ameti, team leader per la cura dell'anestesia, telefono +41 55 285 45 35\n\n• Per domande sul processo di applicazione, si prega di contattare Lea Zolg, HR Business Partner, telefono +41 71 494 38 17\n\nInformazioni su di noi\n\nL'assistenza sanitaria è la nostra professione e la nostra vocazione. Come il più grande datore di lavoro della Svizzera orientale, ci impegniamo a offrire ai nostri dipendenti un ambiente di lavoro versatile. Promuoviamo lo sviluppo individuale e quindi contribuiamo attivamente al futuro comune. Ci concentriamo sullo spirito di squadra, sulla cooperazione interdisciplinare e sulle soluzioni innovative.\n\nCompatibilità con la famiglia Vantaggi Alloggio ammobiliato Gestione della salute del lavoro Istruzione e formazione",
+        "en": "Professional trainer/anesthesia nurse NDS HF 40 %\n\nAnesthesia care\n\nPlace of work Uznach\n\nJob listing\n\nYour tasks and perspectives\n\n• Preparation and holistic care of patients for general anesthesia and local and regional anesthesia\n\n• Anesthesia monitoring, anesthesia guidance and transfer of patients to the monitoring station (under the supervision and responsibility of a specialist)\n\n• Training students anesthesia care, or interest in further training in this function\n\n• Introduction and support of new employees\n\nWhat you bring for this job\n\n• Completed specialist training (NDS) in the field of anesthesia and several years of professional experience\n\n• SVEB certificate of advantage or willingness to complete it\n\n• You are characterized by a great sense of responsibility, an exact working method and good organizational flair\n\n• Your independent, team-oriented and flexible personality rounds off your profile\n\nOur offer to you\n\n• Modern and well-developed workplace infrastructure\n\n• Collaboration in a motivated and collegial team\n\n• Varied challenges in a dynamic working environment\n\n• Responsible activity, a versatile area of responsibility and design possibilities to contribute your ideas\n\n• Broad spectrum of professional training opportunities\n\nYour application\n\n• Entry by arrangement\n\n• You can find out more about this exciting job from Sermet Ameti, team leader for anesthesia care, telephone +41 55 285 45 35\n\n• For questions about the application process, please contact Lea Zolg, HR Business Partner, telephone +41 71 494 38 17\n\nAbout us\n\nHealthcare is our profession and our calling. As the largest employer in Eastern Switzerland, we are committed to offering our employees a versatile working environment. We promote individual development and thus make an active contribution to the common future. We focus on team spirit, interdisciplinary cooperation and innovative solutions.\n\nWork-family compatibility Benefits Furnished accommodation Occupational health management Education and training",
+        "fr": "Entraîneur professionnel/infirmière en anesthésie NDS HF 40 %\n\nSoins anesthésiques\n\nLieu de travail Uznach\n\nListe des emplois\n\nVos tâches et perspectives\n\n• Préparation et soins holistiques des patients pour l'anesthésie générale et l'anesthésie locale et régionale\n\n• Surveillance de l'anesthésie, orientation de l'anesthésie et transfert des patients au poste de surveillance (sous la supervision et la responsabilité d'un spécialiste)\n\n• Formation des étudiants soins anesthésiques, ou intérêt pour la formation continue dans cette fonction\n\n• Introduction et soutien des nouveaux employés\n\nCe que vous apportez pour ce travail\n\n• Formation spécialisée dans le domaine de l'anesthésie et plusieurs années d'expérience professionnelle\n\n• Certificat SVEB d'avantage ou de volonté de le compléter\n\n• Vous êtes caractérisé par un grand sens des responsabilités, une méthode de travail exacte et une bonne organisation\n\n• Votre personnalité indépendante, orientée vers l'équipe et flexible complète votre profil\n\nNotre offre à vous\n\n• Une infrastructure de travail moderne et bien développée\n\n• Collaboration dans une équipe motivée et collégiale\n\n• Divers défis dans un environnement de travail dynamique\n\n• Une activité responsable, un domaine de responsabilité polyvalent et des possibilités de conception pour contribuer à vos idées\n\n• Large éventail de possibilités de formation professionnelle\n\nVotre demande\n\n• Entrée par arrangement\n\n• Vous pouvez en savoir plus sur ce travail passionnant de Sermet Ameti, chef d'équipe pour les soins anesthésiques, téléphone +41 55 285 45 35\n\n• Pour toute question concernant le processus de candidature, veuillez contacter Lea Zolg, HR Business Partner, téléphone +41 71 494 38 17\n\nSur nous\n\nLa santé est notre profession et notre vocation. En tant que plus grand employeur en Suisse orientale, nous nous engageons à offrir à nos employés un environnement de travail polyvalent. Nous favorisons le développement individuel et contribuons ainsi activement à l'avenir commun. Nous nous concentrons sur l'esprit d'équipe, la coopération interdisciplinaire et les solutions innovantes.\n\nCompatibilité travail-famille Prestations Hébergement meublé Gestion de la santé au travail Éducation et formation"
       },
       "location": "Festanstellung",
       "canton": "SG",
@@ -9065,8 +9063,6 @@
         "berufsbildner-in-anasthesiepflege-nds-hf-40-hoch-health-uznach",
         "formatore-a-di-anestesia-infermieristica-nds-hf-40-hoch-health-ostschweiz-uznach"
       ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-25T10:28:07.491Z",
       "salaryMin": 23000,
       "salaryMax": 34800,
       "baseSalary": {
@@ -9078,7 +9074,8 @@
           "maxValue": 34800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-25T10:28:07.491Z"
     },
     {
       "id": "kssg-4d1556902ece",
@@ -9149,7 +9146,6 @@
         "medico-senior-dottore-100-hoch-health-ostschweiz-st-gallen"
       ],
       "firstSeenAt": "2026-08-13T10:28:06.267Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -9498,7 +9494,7 @@
       "title": "Dipl. Pflegefachfrau/-mann Springerpool 80-100%",
       "titleByLocale": {
         "it": "Dipl. Specialista di cura Springerpool 80-100 %",
-        "en": "Dipl. Pflegefachfrau/-mann Springerpool 80-100%",
+        "en": "Dipl. Care specialist Springerpool 80-100 %",
         "de": "Dipl. Pflegefachfrau/-mann Springerpool 80-100%",
         "fr": "Dipl. Spécialiste des soins Springerpool 80-100 %"
       },
@@ -9563,8 +9559,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

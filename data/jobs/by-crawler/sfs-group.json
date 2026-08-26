@@ -688,7 +688,6 @@
           "kunststofftechnologe-in-m-w-d-sfs-group-hallau"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-09T21:42:09.947Z",
       "salaryMin": 64500,
       "salaryMax": 87000,
@@ -840,7 +839,6 @@
       "legalEntity": "SFS Group Schweiz AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T10:20:08.898Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -1000,7 +998,6 @@
           "filialleiter-in-handwerkstadt-m-f-d-80-sfs-group-hinwil"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-21T10:08:10.879Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -1276,7 +1273,7 @@
       "title": "Automatiker/in Instandhaltung (m/f/d)",
       "titleByLocale": {
         "it": "Operatore automatico/in manutenzione (m/f/d)",
-        "en": "Automatiker/in Instandhaltung (m/f/d)",
+        "en": "Automatic engineer/maintenance (m/f/d)",
         "de": "Automatiker/in Instandhaltung (m/f/d)",
         "fr": "Opérateur automatique/en maintenance (m/f/d)"
       },
@@ -1561,7 +1558,6 @@
       "legalEntity": "SFS",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T10:21:54.909Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1663,7 +1659,7 @@
       "slugByLocale": {
         "it": "polimeccanica-in-loop-m-f-d-sfs-group-heerbrugg",
         "en": "polymechanics-in-loop-m-f-d-sfs-group-heerbrugg",
-        "de": "polymechaniker-in-schleifen-m-f-d-sfs-group-heerbrugg",
+        "de": "polymechaniker-in-schleifen-m-f-d-sfs-group-heerbrugg-x2sd2i",
         "fr": "polymecanique-en-boucle-m-f-d-sfs-group-heerbrugg"
       },
       "company": "SFS Group",
@@ -1719,6 +1715,9 @@
           "polymechaniker-in-schleifen-m-f-d-sfs-group-heerbrugg"
         ],
         "fr": [
+          "polymechaniker-in-schleifen-m-f-d-sfs-group-heerbrugg"
+        ],
+        "de": [
           "polymechaniker-in-schleifen-m-f-d-sfs-group-heerbrugg"
         ]
       },
