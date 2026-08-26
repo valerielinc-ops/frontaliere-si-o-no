@@ -194,6 +194,16 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
     expect(TESTS_CODE).not.toContain('pr-collision-detector');
   });
 
+  it('i due gruppi paralleli condividono il budget CPU del runner', () => {
+    const vitestRuns = [...TESTS_YML.matchAll(/- name: vitest run \([^\n]+\)[\s\S]*?(?=\n      - name:|\n      #|$)/g)].map(
+      (match) => match[0],
+    );
+    expect(vitestRuns).toHaveLength(2);
+    for (const run of vitestRuns) {
+      expect(run).toContain('VITEST_MAX_WORKERS: 50%');
+    }
+  });
+
   // Il lock non e' piu' CONDIZIONALE, e' CIRCOSCRITTO: sta su un job che
   // esiste solo su `pull_request`. La proprieta' da difendere e' sempre la
   // stessa — i run di `push` su main non devono accodarsi in un gruppo globale

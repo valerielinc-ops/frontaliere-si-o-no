@@ -1274,6 +1274,13 @@ jobs:
         background: true
         env:
           VITEST_DATASET_GROUP: independent
+          # I due gruppi Vitest girano contemporaneamente sullo stesso runner.
+          # Senza questo limite ogni processo usa tutti i core disponibili e i
+          # due pool si sovraccaricano a vicenda, facendo scadere test di
+          # scansione/importazione nel timeout. Il 50% mantiene la
+          # parallelizzazione e si adatta al runner (2 worker ciascuno su
+          # ubuntu-latest, che ha 4 vCPU).
+          VITEST_MAX_WORKERS: 50%
           VITEST_CACHE_DIR: node_modules/.vite-independent
           # Calcolato per diff anche su push a main (non solo su pull_request,
           # vedi lo step "Decide i gate corpus-wide"); vuoto su qualunque suo
@@ -1369,6 +1376,10 @@ jobs:
         # gruppi CPU-bound si sovrappongono per davvero.
         env:
           VITEST_DATASET_GROUP: dependent
+          # Bilancia il budget CPU con il gruppo independent ancora attivo:
+          # entrambi mantengono il file-level parallelism, ma senza
+          # oversubscription del runner condiviso.
+          VITEST_MAX_WORKERS: 50%
           VITEST_CORPUS_SKIP: ${{ steps.corpus.outputs.skip }}
           VITEST_CACHE_DIR: node_modules/.vite-dependent
         run: npm test -- --reporter=default --reporter=json --outputFile=shard-timing-2.json
