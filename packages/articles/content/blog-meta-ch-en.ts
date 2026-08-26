@@ -4426,6 +4426,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cell-broadcast-allerta-svizzera.title': 'Cell Alert in Switzerland: 16 million approved',
     'blog.article.cell-broadcast-allerta-svizzera.excerpt': 'Federal Council requires CHF 15.8 million per cell broadcast. New alarm system that sends SMS directly to phones in the affected area.',
     'blog.article.cell-broadcast-allerta-svizzera.imageAlt': 'Swiss emergency alert center with cell broadcast SMS messages on mobile phone screens',
+    'blog.article.canicola-70-milioni-bosco.title': 'Canicola, 70 million for forest and agriculture',
+    'blog.article.canicola-70-milioni-bosco.excerpt': 'The Federal Council requires 70+ million francs to adapt forests and support farms affected by heatwave and summer drought.',
+    'blog.article.canicola-70-milioni-bosco.imageAlt': 'Alpine Swiss forests in summer, mountain landscape with forested and agricultural zones',
 };
 
 export default blogMetaChEn;

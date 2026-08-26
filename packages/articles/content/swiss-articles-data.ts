@@ -13276,6 +13276,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'canicola-70-milioni-bosco',
+    category: 'novita',
+    date: '2026-08-26T20:29:31.632Z',
+    image: '/images/blog/canicola-70-milioni-bosco.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

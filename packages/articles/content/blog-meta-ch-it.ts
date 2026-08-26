@@ -4426,6 +4426,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cell-broadcast-allerta-svizzera.title': 'Allerta cellulare in Svizzera: 16 milioni approvati',
     'blog.article.cell-broadcast-allerta-svizzera.excerpt': 'Consiglio federale richiede 15,8 milioni CHF per cell broadcast. Nuovo sistema di allarme che invia SMS direttamente ai telefoni nella zona interessata.',
     'blog.article.cell-broadcast-allerta-svizzera.imageAlt': 'Centro di coordinamento nazionale per allarmi di emergenza con display di messaggi SMS sui telefoni cellulari',
+    'blog.article.canicola-70-milioni-bosco.title': 'Canicola, 70 mio per bosco e agricoltura',
+    'blog.article.canicola-70-milioni-bosco.excerpt': 'Il Consiglio federale richiede 70+ milioni di franchi per adattare i boschi e sostenere le aziende agricole colpite da canicola e siccità estiva.',
+    'blog.article.canicola-70-milioni-bosco.imageAlt': 'Boschi alpini svizzeri durante l\'estate, paesaggio montano con zone forestali e aree agricole',
 };
 
 export default blogMetaChIt;

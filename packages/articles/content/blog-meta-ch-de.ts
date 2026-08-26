@@ -4426,6 +4426,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cell-broadcast-allerta-svizzera.title': 'Mobilfunk-Alarm in der Schweiz: 16 Millionen genehmigt',
     'blog.article.cell-broadcast-allerta-svizzera.excerpt': 'Bundesrat verlangt 15,8 Mio. CHF für Cell Broadcast. Neues Alarmsystem, das SMS direkt an Telefone in der betroffenen Region sendet.',
     'blog.article.cell-broadcast-allerta-svizzera.imageAlt': 'Schweizer Notfalleinsatzzentrale mit Mobiltelefonen, die Cell-Broadcast-Alarme anzeigen',
+    'blog.article.canicola-70-milioni-bosco.title': 'Canicola, 70 Mio. für Wald und Landwirtschaft',
+    'blog.article.canicola-70-milioni-bosco.excerpt': 'Der Bundesrat fordert 70+ Millionen Franken, um Wälder anzupassen und Betriebe zu unterstützen, die von Hitze und Sommertrockenheit betroffen sind.',
+    'blog.article.canicola-70-milioni-bosco.imageAlt': 'Schweizer Alpenwälder im Sommer, Berglandschaft mit Wald- und Landwirtschaftszonen',
 };
 
 export default blogMetaChDe;
