@@ -4441,6 +4441,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.credito-federale-ambiente-2027-2030.title': 'Die Schweiz investiert 176 Millionen in den Globalen Umweltfonds',
     'blog.article.credito-federale-ambiente-2027-2030.excerpt': 'Der Bundesrat hat am 26. August 2026 einen Verpflichtungskredit von 176,23 Millionen Franken für die globale Umwelt im Zeitraum 2027-2030 bewilligt.',
     'blog.article.credito-federale-ambiente-2027-2030.imageAlt': 'Alpenlandschaft mit unberührten Wäldern und sauberen Gewässern, Symbol des Schweizer Umweltschutzes',
+    'blog.article.chronext-fallimento-zugo.title': 'Chronext schließt: Konkurs Luxusuhren Zug',
+    'blog.article.chronext-fallimento-zugo.excerpt': 'Konkurs eröffnet am 19. August durch das Kantonsgericht Zug. Chronext, ein E-Commerce-Unternehmen im Luxusbereich, hatte 150 Mitarbeiter und einen Umsatz von Hunderten von Millionen. Im Jahr 2022 hatte er bereits 40 Mitarbeiter entlassen.',
+    'blog.article.chronext-fallimento-zugo.imageAlt': 'Luftaufnahme von Zug, dem Wirtschaftszentrum der Schweiz, mit modernem Geschäftsviertel in der goldenen Stunde',
 };
 
 export default blogMetaChDe;

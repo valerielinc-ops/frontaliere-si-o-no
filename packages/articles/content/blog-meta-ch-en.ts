@@ -4441,6 +4441,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.credito-federale-ambiente-2027-2030.title': 'Switzerland invests €176 million in global environment fund',
     'blog.article.credito-federale-ambiente-2027-2030.excerpt': 'The Federal Council approved on 26 August 2026 a commitment appropriation of CHF 176.23 million for the global environment in the period 2027–2030.',
     'blog.article.credito-federale-ambiente-2027-2030.imageAlt': 'Alpine landscape with pristine forests and clean waters, symbolizing Swiss environmental protection',
+    'blog.article.chronext-fallimento-zugo.title': 'Chronext closes: Zug luxury watches bankruptcy',
+    'blog.article.chronext-fallimento-zugo.excerpt': 'Bankruptcy declared on 19 August by the Cantonal Court of Zug. Luxury e-commerce company Chronext had 150 employees and revenues of hundreds of millions. By 2022, it had already laid off 40 people.',
+    'blog.article.chronext-fallimento-zugo.imageAlt': 'Aerial view of Zug, Switzerland\'s economic center, showing modern business district during golden hour',
 };
 
 export default blogMetaChEn;

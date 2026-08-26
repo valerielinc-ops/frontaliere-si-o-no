@@ -4441,6 +4441,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.credito-federale-ambiente-2027-2030.title': 'La Suisse investit 176 millions pour l\'environnement',
     'blog.article.credito-federale-ambiente-2027-2030.excerpt': 'Le Conseil fédéral a approuvé le 26 août 2026 un crédit d\'engagement de 176,23 millions de francs pour l\'environnement global sur la période 2027–2030.',
     'blog.article.credito-federale-ambiente-2027-2030.imageAlt': 'Paysage alpin avec forêts intactes et eaux pures, symbole de la protection environnementale suisse',
+    'blog.article.chronext-fallimento-zugo.title': 'Chronext ferme : faillite montres luxe Zoug',
+    'blog.article.chronext-fallimento-zugo.excerpt': 'Faillite prononcée le 19 août par le Tribunal cantonal de Zoug. Chronext, société de commerce électronique de luxe, comptait 150 employés et des revenus de centaines de millions. En 2022, il avait déjà licencié 40 personnes.',
+    'blog.article.chronext-fallimento-zugo.imageAlt': 'Vue aérienne de Zoug, centre économique de la Suisse, montrant le quartier des affaires moderne à l\'heure d\'or',
 };
 
 export default blogMetaChFr;
