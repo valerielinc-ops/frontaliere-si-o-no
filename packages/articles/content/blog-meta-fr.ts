@@ -10836,6 +10836,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.prelievo-lpp-frontalieri-tassazione-strategia.title': 'Prélèvement deuxième pilier LPP frontalier : règles, taxes et stratégie',
     'blog.article.prelievo-lpp-frontalieri-tassazione-strategia.excerpt': 'Lorsque le LPP peut être prélevé, comment fonctionne la fiscalité en Suisse et en Italie, et quelle stratégie de sortie convient au frontalier tessinois.',
     'blog.article.prelievo-lpp-frontalieri-tassazione-strategia.imageAlt': 'Vue sur Lugano et lac pour article retrait LPP frontaliers',
+    'blog.article.congedo-maternita-paternita-frontalieri.title': 'Congé maternité et paternité pour frontaliers : règles CH-IT',
+    'blog.article.congedo-maternita-paternita-frontalieri.excerpt': 'Comment fonctionnent le congé parental, les indemnités journalières et les prestations pour les nouveaux parents frontaliers entre la Suisse et l\'Italie : règles, taux IPG et procédures pratiques.',
+    'blog.article.congedo-maternita-paternita-frontalieri.imageAlt': 'Parent avec poussette sur la promenade du lac de Lugano, Monte San Salvatore en arrière-plan',
 };
 
 export default blogMetaFr;

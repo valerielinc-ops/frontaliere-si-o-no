@@ -10834,6 +10834,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.prelievo-lpp-frontalieri-tassazione-strategia.title': 'Withdrawal according to the LPP border pillar: rules, taxes and strategy',
     'blog.article.prelievo-lpp-frontalieri-tassazione-strategia.excerpt': 'When the LPP can be withdrawn, how taxation works in Switzerland and Italy, and what exit strategy suits the Ticino border crossing.',
     'blog.article.prelievo-lpp-frontalieri-tassazione-strategia.imageAlt': 'Lugano lake view for LPP withdrawal cross-border article',
+    'blog.article.congedo-maternita-paternita-frontalieri.title': 'Maternity and paternity leave for border workers: CH-IT rules',
+    'blog.article.congedo-maternita-paternita-frontalieri.excerpt': 'How parental leave, daily allowances and benefits for border new parents between Switzerland and Italy work: rules, IPG rates and practical procedures.',
+    'blog.article.congedo-maternita-paternita-frontalieri.imageAlt': 'Parent with stroller on Lugano lakeside promenade, Monte San Salvatore in background',
 };
 
 export default blogMetaEn;

@@ -10835,6 +10835,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.prelievo-lpp-frontalieri-tassazione-strategia.title': 'Prelievo secondo pilastro LPP frontalieri: regole, tasse e strategia',
     'blog.article.prelievo-lpp-frontalieri-tassazione-strategia.excerpt': 'Quando si può prelevare il LPP, come funziona la tassazione in Svizzera e Italia, e quale strategia di uscita conviene al frontaliere ticinese.',
     'blog.article.prelievo-lpp-frontalieri-tassazione-strategia.imageAlt': 'Vista su Lugano e lago per articolo prelievo LPP frontalieri',
+    'blog.article.congedo-maternita-paternita-frontalieri.title': 'Congedo maternità e paternità per frontalieri: regole CH-IT',
+    'blog.article.congedo-maternita-paternita-frontalieri.excerpt': 'Come funzionano congedo parentale, indennità giornaliere e prestazioni per neo-genitori frontalieri tra Svizzera e Italia: regole, aliquote IPG e procedure pratiche.',
+    'blog.article.congedo-maternita-paternita-frontalieri.imageAlt': 'Genitore con passeggino sul lungolago di Lugano, sullo sfondo il Monte San Salvatore',
 };
 
 export default blogMetaIt;

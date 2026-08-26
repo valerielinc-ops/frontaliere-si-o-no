@@ -10833,6 +10833,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.prelievo-lpp-frontalieri-tassazione-strategia.title': 'BVG-Grenzsäulenbezug: Regeln, Steuern und Strategie',
     'blog.article.prelievo-lpp-frontalieri-tassazione-strategia.excerpt': 'Wann BVG bezogen werden kann, wie die Besteuerung in der Schweiz und in Italien funktioniert und welche Ausstiegsstrategie für den Tessiner Grenzgänger geeignet ist.',
     'blog.article.prelievo-lpp-frontalieri-tassazione-strategia.imageAlt': 'Lugano Seeblick für LPP-Bezug Grenzgänger Artikel',
+    'blog.article.congedo-maternita-paternita-frontalieri.title': 'Mutterschafts- und Vaterschaftsurlaub für Grenzgänger: CH-IT-Regeln',
+    'blog.article.congedo-maternita-paternita-frontalieri.excerpt': 'Wie Elternurlaub, Taggelder und Leistungen für junge Eltern an der Grenze zwischen der Schweiz und Italien funktionieren: Regeln, EO-Sätze und praktische Verfahren.',
+    'blog.article.congedo-maternita-paternita-frontalieri.imageAlt': 'Elternteil mit Kinderwagen an der Seepromenade von Lugano, Monte San Salvatore im Hintergrund',
 };
 
 export default blogMetaDe;

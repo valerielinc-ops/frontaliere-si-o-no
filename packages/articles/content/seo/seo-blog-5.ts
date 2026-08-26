@@ -79124,6 +79124,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-congedo-maternita-paternita-frontalieri': {
+    title: 'Congedo maternità e paternità per frontalieri: regole CH-IT',
+    description: 'Congedo maternità, paternità e parentale per frontalieri tra Svizzera e Italia: indennità IPG, aliquote contributive, permesso G, LAMal e procedure pratiche',
+    keywords: 'frontalieri, ticino, svizzera, italia, congedo, maternità, paternità, regole',
+    ogTitle: 'Congedo maternità e paternità frontalieri CH-IT',
+    ogDescription: 'Come funzionano congedo maternità, paternità e parentale per i frontalieri tra Ticino e Italia: indennità IPG al 5.3%, permesso G, LAMal con diritto d\'opzione, credito d\'imposta nel 730. La guida pratica per neo-genitori frontalieri.',
+    canonicalPath: '/articoli-frontaliere/congedo-maternita-paternita-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Congedo maternità e paternità per frontalieri: regole CH-IT",
+      "description": "Congedo maternità, paternità e parentale per frontalieri tra Svizzera e Italia: indennità IPG, aliquote contributive, permesso G, LAMal e procedure pratiche",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/congedo-maternita-paternita-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Genitore con passeggino sul lungolago di Lugano, sullo sfondo il Monte San Salvatore"
+      },
+      "datePublished": "2026-08-26T23:44:35+00:00",
+      "dateModified": "2026-08-26T23:44:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/congedo-maternita-paternita-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
