@@ -1466,7 +1466,7 @@ jobs:
         run: |
           set -euo pipefail
           last=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate \
-            --jq '[.[] | select(.user.type=="Bot" and (.user.login|test("claude";"i")) and (.body|contains("## LGTM")))] | last | .commit_id // empty' 2>/dev/null || true)
+            --jq '[.[] | select(.user.type=="Bot" and (.user.login|test("^(claude(\\\\[bot\\\\])?|frontaliere-automation\\\\[bot\\\\])$";"i")) and (.body|contains("## LGTM")))] | last | .commit_id // empty' 2>/dev/null || true)
           if [ -z "$last" ]; then
             echo "skip=false" >> "$GITHUB_OUTPUT"; echo "Nessuna review LGTM precedente → review piena."; exit 0
           fi
@@ -1980,14 +1980,14 @@ jobs:
           set -euo pipefail
           reviews=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp)
           # Stessa selezione e stesso REDFLAG_IMPORTANT_RE di
-          # scripts/ci/auto-merge-eval.mjs: ultima review del bot Claude,
+          # scripts/ci/auto-merge-eval.mjs: ultima review del bot reviewer,
           # `## LGTM` presente e nessun finding `🔴 Important` reale.
           review_commit=$(printf '%s' "$reviews" | node --input-type=module -e '
             import { readFileSync } from "node:fs";
             import { REDFLAG_IMPORTANT_RE } from "./scripts/ci/lib/constants.mjs";
             const pages = JSON.parse(readFileSync(0, "utf8"));
             const reviews = pages.flat();
-            const bots = reviews.filter((r) => r.user?.type === "Bot" && /^claude/i.test(r.user?.login || ""));
+            const bots = reviews.filter((r) => r.user?.type === "Bot" && /^(?:claude(?:\[bot\])?|frontaliere-automation\[bot\])$/i.test(r.user?.login || ""));
             const lastBot = bots.length ? bots[bots.length - 1] : null;
             const body = lastBot?.body || "";
             process.stdout.write(lastBot && body.includes("## LGTM") && !REDFLAG_IMPORTANT_RE.test(body)
