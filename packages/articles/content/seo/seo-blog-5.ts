@@ -78656,6 +78656,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-diesel-prezzo-frontalieri-agosto': {
+    title: 'Rincaro diesel in Svizzera: i costi per i pendolari',
+    description: 'Diesel oltre 2.20 CHF/litro per geopolitica e raffinerie danneggiate. Scopri l\'impatto sui costi di pendolarismo e spesa alimentare dei frontalieri ticinesi',
+    keywords: 'frontalieri, ticino, svizzera, italia, rincaro, diesel, costi, pendolari',
+    ogTitle: 'Rincaro diesel in Svizzera: i costi per i pendolari',
+    ogDescription: 'Il diesel svizzero supera i 2.20 CHF al litro. Geopolitica, bombardamenti alle raffinerie mediorientali e attacchi ucraini alla Russia restringono l\'offerta globale. Scopri come il rincaro impatta sui costi di pendolarismo e spesa alimentare',
+    canonicalPath: '/articoli-frontaliere/diesel-prezzo-frontalieri-agosto',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rincaro diesel in Svizzera: i costi per i pendolari",
+      "description": "Diesel oltre 2.20 CHF/litro per geopolitica e raffinerie danneggiate. Scopri l'impatto sui costi di pendolarismo e spesa alimentare dei frontalieri ticinesi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/diesel-prezzo-frontalieri-agosto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione di servizio ticinese con pompe di diesel, sullo sfondo le montagne e il confine italiano."
+      },
+      "datePublished": "2026-08-26T01:23:04+00:00",
+      "dateModified": "2026-08-26T01:23:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/diesel-prezzo-frontalieri-agosto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

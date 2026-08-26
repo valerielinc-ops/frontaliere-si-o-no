@@ -10796,6 +10796,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.a13-chiusure-mappo-minusio-2026.title': 'A13, mappo minusio night closures',
     'blog.article.a13-chiusure-mappo-minusio-2026.excerpt': 'From 26 August, night closures at the semi-junction A13. Hours 21:00–05:00 for flooring. Alternatives via Tenero and Locarno, guaranteed daytime traffic.',
     'blog.article.a13-chiusure-mappo-minusio-2026.imageAlt': 'Nighttime view of A13 motorway with construction signage at Mappo and Minusio semi-junctions',
+    'blog.article.diesel-prezzo-frontalieri-agosto.title': 'Diesel Recharge in Switzerland: Costs for commuters',
+    'blog.article.diesel-prezzo-frontalieri-agosto.excerpt': 'Diesel over CHF 2.20 per litre for geopolitics and damaged refineries. Direct impact on the costs of commuting and food expenditure for Ticino border crossers.',
+    'blog.article.diesel-prezzo-frontalieri-agosto.imageAlt': 'Ticino gas station with diesel pumps at sunset, mountains and Italian border in the background.',
 };
 
 export default blogMetaEn;

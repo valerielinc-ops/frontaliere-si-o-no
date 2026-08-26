@@ -10797,6 +10797,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.a13-chiusure-mappo-minusio-2026.title': 'A13, chiusure notturne mappo minusio',
     'blog.article.a13-chiusure-mappo-minusio-2026.excerpt': 'Dal 26 agosto chiusure notturne ai semi-svincoli A13. Orari 21:00–05:00 per pavimentazione. Alternative via Tenero e Locarno, traffico diurno garantito.',
     'blog.article.a13-chiusure-mappo-minusio-2026.imageAlt': 'Veduta notturna dell\'autostrada A13 con segnaletica di cantiere ai semi-svincoli di Mappo e Minusio',
+    'blog.article.diesel-prezzo-frontalieri-agosto.title': 'Rincaro diesel in Svizzera: i costi per i pendolari',
+    'blog.article.diesel-prezzo-frontalieri-agosto.excerpt': 'Diesel oltre 2.20 CHF al litro per geopolitica e raffinerie danneggiate. Impatto diretto sui costi di pendolarismo e spesa alimentare per i frontalieri ticinesi.',
+    'blog.article.diesel-prezzo-frontalieri-agosto.imageAlt': 'Stazione di servizio ticinese con pompe di diesel, sullo sfondo le montagne e il confine italiano.',
 };
 
 export default blogMetaIt;

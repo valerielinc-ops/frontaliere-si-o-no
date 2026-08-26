@@ -32304,6 +32304,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'diesel-prezzo-frontalieri-agosto',
+ category: 'pratico',
+ date: '2026-08-26T01:23:04.718Z',
+ image: '/images/blog/diesel-prezzo-frontalieri-agosto.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
