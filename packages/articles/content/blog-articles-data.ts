@@ -32313,6 +32313,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-verrayes-lavorare-vallese-frontaliere',
+ category: 'pratico',
+ date: '2026-08-26T02:05:41.760Z',
+ image: '/images/blog/vivere-verrayes-lavorare-vallese-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

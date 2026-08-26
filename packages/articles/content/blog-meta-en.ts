@@ -10799,6 +10799,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.diesel-prezzo-frontalieri-agosto.title': 'Diesel Recharge in Switzerland: Costs for commuters',
     'blog.article.diesel-prezzo-frontalieri-agosto.excerpt': 'Diesel over CHF 2.20 per litre for geopolitics and damaged refineries. Direct impact on the costs of commuting and food expenditure for Ticino border crossers.',
     'blog.article.diesel-prezzo-frontalieri-agosto.imageAlt': 'Ticino gas station with diesel pumps at sunset, mountains and Italian border in the background.',
+    'blog.article.vivere-verrayes-lavorare-vallese-frontaliere.title': 'Living in Verrayes and working in Valais as a border worker',
+    'blog.article.vivere-verrayes-lavorare-vallese-frontaliere.excerpt': 'Complete guide for border workers: connections, life in Verrayes, taxes in Valais and transfer benefits.',
+    'blog.article.vivere-verrayes-lavorare-vallese-frontaliere.imageAlt': 'Village of Verrayes in Valais, Switzerland, with mountains in the background.',
 };
 
 export default blogMetaEn;

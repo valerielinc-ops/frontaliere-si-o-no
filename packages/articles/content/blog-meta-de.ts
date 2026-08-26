@@ -10798,6 +10798,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.diesel-prezzo-frontalieri-agosto.title': 'Dieselpreissteigerung in der Schweiz: Die Kosten für Pendler',
     'blog.article.diesel-prezzo-frontalieri-agosto.excerpt': 'Diesel über 2.20 CHF pro Liter für Geopolitik und beschädigte Raffinerien. Direkte Auswirkungen auf Pendel- und Lebensmittelkosten für Tessiner Grenzgänger.',
     'blog.article.diesel-prezzo-frontalieri-agosto.imageAlt': 'Schweizer Tankstelle im Tessin mit Dieselpumpen, Berg- und Grenzkulisse zu Italien.',
+    'blog.article.vivere-verrayes-lavorare-vallese-frontaliere.title': 'Wohnen in Verrayes und Arbeiten im Wallis als Grenzgänger',
+    'blog.article.vivere-verrayes-lavorare-vallese-frontaliere.excerpt': 'Vollständiger Leitfaden für Grenzgänger: Verbindungen, Leben in Verrayes, Steuern im Wallis und Transfervorteile.',
+    'blog.article.vivere-verrayes-lavorare-vallese-frontaliere.imageAlt': 'Dorf Verrayes im Wallis, Schweiz, mit Bergen im Hintergrund.',
 };
 
 export default blogMetaDe;

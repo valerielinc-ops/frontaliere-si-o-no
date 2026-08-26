@@ -10801,6 +10801,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.diesel-prezzo-frontalieri-agosto.title': 'Renchérissement du diesel en Suisse : les frais pour les navetteurs',
     'blog.article.diesel-prezzo-frontalieri-agosto.excerpt': 'Diesel plus de 2.20 CHF le litre pour la géopolitique et les raffineries endommagées. Impact direct sur les frais de déplacement et les dépenses alimentaires pour les frontaliers tessinois.',
     'blog.article.diesel-prezzo-frontalieri-agosto.imageAlt': 'Station-service tessinoise avec pompes à diesel, montagnes et frontière italienne en arrière-plan.',
+    'blog.article.vivere-verrayes-lavorare-vallese-frontaliere.title': 'Vivre à Verrayes et travailler dans le Valais comme navetteur transfrontalier',
+    'blog.article.vivere-verrayes-lavorare-vallese-frontaliere.excerpt': 'Guide complet pour les frontaliers : liaisons, vie à Verrayes, taxes en Valais et avantages du transfert.',
+    'blog.article.vivere-verrayes-lavorare-vallese-frontaliere.imageAlt': 'Village de Verrayes en Valais, Suisse, avec des montagnes à l\'arrière-plan.',
 };
 
 export default blogMetaFr;
