@@ -10206,6 +10206,64 @@
       ]
     },
     {
+      "slug": "ballwil",
+      "locale": "de",
+      "path": "/de/jobs-in-luzern/ballwil/",
+      "observedPaths": {
+        "de": "/de/jobs-in-luzern/ballwil/"
+      },
+      "queries": [
+        {
+          "query": "volg ballwil",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "volg ballwil",
+      "title": "Ball",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Wil",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "ballwil",
+        "en": "ballwil",
+        "de": "ballwil",
+        "fr": "ballwil"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-lucerna/ballwil",
+        "en": "/en/find-jobs-lucerne/ballwil",
+        "de": "/de/jobs-im-luzern/ballwil",
+        "fr": "/fr/trouver-emploi-lucerne/ballwil"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "bande-de-concurso-pour-une-formation-de-contrat-en-diritto-tributario-usi-universita-della",
       "locale": "de",
       "path": "/de/jobs-im-tessin/bande-de-concurso-pour-une-formation-de-contrat-en-diritto-tributario-usi-universita-della/",
@@ -18103,6 +18161,63 @@
       ]
     },
     {
+      "slug": "cooker-m-w-d-coop-genossenschaft-kreuzlingen",
+      "locale": "it",
+      "path": "/cerca-lavoro-turgovia/cooker-m-w-d-coop-genossenschaft-kreuzlingen/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-turgovia/cooker-m-w-d-coop-genossenschaft-kreuzlingen/"
+      },
+      "queries": [
+        {
+          "query": "coop jobs thurgau",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "coop jobs thurgau",
+      "title": "Cooker coop genossenschaft kreuzlingen",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "cooker-m-w-d-coop-genossenschaft-kreuzlingen",
+        "en": "cooker-m-w-d-coop-genossenschaft-kreuzlingen",
+        "de": "cooker-m-w-d-coop-genossenschaft-kreuzlingen",
+        "fr": "cooker-m-w-d-coop-genossenschaft-kreuzlingen"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-turgovia/cooker-m-w-d-coop-genossenschaft-kreuzlingen",
+        "en": "/en/find-jobs-thurgau/cooker-m-w-d-coop-genossenschaft-kreuzlingen",
+        "de": "/de/jobs-im-thurgau/cooker-m-w-d-coop-genossenschaft-kreuzlingen",
+        "fr": "/fr/trouver-emploi-thurgovie/cooker-m-w-d-coop-genossenschaft-kreuzlingen"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "coordinator-for-bachelor-s-degree-in-interior-architecture-supsi-dti-mendrisio",
       "locale": "en",
       "path": "/en/find-jobs-ticino/coordinator-for-bachelor-s-degree-in-interior-architecture-supsi-dti-mendrisio",
@@ -23120,6 +23235,11 @@
           "impressions": 1
         },
         {
+          "query": "en lugano",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "i am looking for full time truck driver jobs in switzerland with ce license and day shifts.",
           "clicks": 0,
           "impressions": 1
@@ -23153,14 +23273,9 @@
           "query": "ofertas activas",
           "clicks": 0,
           "impressions": 1
-        },
-        {
-          "query": "si.",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 56,
+      "totalImpressions": 57,
       "totalClicks": 2,
       "topQuery": "corporate driver in zurich",
       "title": "Drivers",
