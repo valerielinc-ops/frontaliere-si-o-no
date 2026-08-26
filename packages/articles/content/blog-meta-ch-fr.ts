@@ -4414,6 +4414,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.stadler-rail-risultati-primo-semestre.title': 'Stadler Rail accélère au premier semestre et vole en bourse',
     'blog.article.stadler-rail-risultati-primo-semestre.excerpt': 'Chiffre d\'affaires +40 % à 2 milliards de CHF, Ebit doublé. Action gagne 19 % en bourse. Le carnet de commandes atteint un record de 33 milliards de CHF.',
     'blog.article.stadler-rail-risultati-primo-semestre.imageAlt': 'Vue d\'une gare ferroviaire suisse moderne avec des trains contemporains',
+    'blog.article.ffs-rincari-tariffe-wyss.title': 'CFF hausses tarifaires : les déclarations de Wyss',
+    'blog.article.ffs-rincari-tariffe-wyss.excerpt': '1,45 million de voyageurs par jour, trains bondés. Les CFF annoncent des hausses pour les abonnements généraux et la moitié du prix. C\'est le président qui parle.',
+    'blog.article.ffs-rincari-tariffe-wyss.imageAlt': 'Les navetteurs montent dans les trains sur un quai bondé pendant les heures de pointe du matin, paysage alpin en arrière-plan',
 };
 
 export default blogMetaChFr;

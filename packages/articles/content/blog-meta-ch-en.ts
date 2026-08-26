@@ -4414,6 +4414,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.stadler-rail-risultati-primo-semestre.title': 'Stadler Rail accelerates in the first semester and flies on the stock exchange',
     'blog.article.stadler-rail-risultati-primo-semestre.excerpt': 'Revenues +40% to CHF 2 billion, EBIT doubled. Stock gains 19% on the stock market. Order backlog reaches record CHF 33 billion.',
     'blog.article.stadler-rail-risultati-primo-semestre.imageAlt': 'View of a modern Swiss railway station with contemporary trains',
+    'blog.article.ffs-rincari-tariffe-wyss.title': 'SBB fare increases: Wyss declarations',
+    'blog.article.ffs-rincari-tariffe-wyss.excerpt': '1.45 million passengers a day, crowded trains. SBB announces price increases for general subscriptions and half price. The president speaks.',
+    'blog.article.ffs-rincari-tariffe-wyss.imageAlt': 'Commuters board trains on a crowded railway platform during morning rush hour, Alpine landscape visible in the distance',
 };
 
 export default blogMetaChEn;
