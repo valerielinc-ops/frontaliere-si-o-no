@@ -37,7 +37,6 @@ const LBL_NO_AGE_OUT = 'agent:no-age-out';
 // Va censito QUI o la sua quota diventa invisibile al loop-health — ed è
 // esattamente il tipo di consumo che si vuole vedere, non scoprire a posteriori.
 const CLAUDE_WORKFLOWS = [
-  'pr-review-loop.yml',
   'issue-fix.yml',
   'pr-redflag-fixer.yml',
   'pr-redcheck-fixer.yml',

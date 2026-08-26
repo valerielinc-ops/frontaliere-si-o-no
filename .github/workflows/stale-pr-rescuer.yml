@@ -28,7 +28,7 @@ on:
   # crons fired). The in-script 2h age-gate still prevents poking fresh PRs;
   # given the review volume, a stalled PR gets flagged within ~1 review cycle.
   workflow_run:
-    workflows: ["PR Review (Claude single-pass)"]
+    workflows: ["tests"]
     types: [completed]
   schedule:
     - cron: '20 * * * *'  # slow fallback @ :20 (best-effort on this account)
@@ -95,8 +95,8 @@ jobs:
             UPD_S=$(date -u -d "$UPD" +%s 2>/dev/null || echo "$NOW")
             if [ $((NOW - UPD_S)) -lt $AGE_MIN_S ]; then echo "PR #$N fresca (<2h) — skip"; continue; fi
 
-            # NB: NON si può risalire al run pr-review-loop di QUESTA PR via
-            # `gh run list --workflow=pr-review-loop.yml --branch/--json headSha`.
+            # NB: il run di `tests` ora contiene anche la review Claude; il
+            # check-run è quindi il segnale condiviso da usare sulla head.
             # Verificato via API diretta: per run workflow_run-triggered, sia
             # `head_branch` SIA il `head_sha` di TOP-LIVELLO che GitHub espone in
             # lista riportano il branch/commit di `main` al momento del trigger

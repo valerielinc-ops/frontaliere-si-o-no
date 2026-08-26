@@ -17,6 +17,8 @@ import { VITEST_CHECK_NAME, VITEST_SHARD_NAME_RE } from '../scripts/ci/lib/const
 
 const ROOT = resolve(import.meta.dirname, '..');
 const TESTS_YML = readFileSync(resolve(ROOT, '.github/workflows/tests.yml'), 'utf-8');
+const COLLISION_YML = readFileSync(resolve(ROOT, '.github/workflows/pr-collision-detector.yml'), 'utf-8');
+const TESTS_CODE = TESTS_YML.split('\n').filter((line) => !line.trimStart().startsWith('#')).join('\n');
 const AUTOREBASE = readFileSync(resolve(ROOT, 'scripts/ci/pr-autorebase.mjs'), 'utf-8');
 const AUTO_MERGE_EVAL = readFileSync(resolve(ROOT, 'scripts/ci/auto-merge-eval.mjs'), 'utf-8');
 
@@ -180,6 +182,33 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
       'il detector e\' tornato in tests.yml: e\' uno sweeper repo-wide e va su ' +
         'cron in pr-collision-detector.yml, non su un evento per-PR.',
     ).toBe(false);
+  });
+
+  it('il detector non può cancellare run tests tramite concurrency condivisa', () => {
+    // Il detector è uno sweeper repo-wide: deve partire solo da schedule/dispatch.
+    // Se torna su pull_request e condivide il lock `pr-collision-detector`, una
+    // run del detector può sfrattare il test della PR (incidente run 32965583372).
+    expect(COLLISION_YML).not.toMatch(/^\s+pull_request:/m);
+    expect(COLLISION_YML).toMatch(/concurrency:\s*\n\s+group:\s*pr-collision-detector/);
+    expect(COLLISION_YML).toMatch(/cancel-in-progress:\s*false/);
+    expect(TESTS_CODE).not.toContain('pr-collision-detector');
+  });
+
+  it('limita i worker per evitare oversubscription tra i due Vitest', () => {
+    const vitestRuns = [...TESTS_YML.matchAll(/- name: vitest run \([^\n]+\)[\s\S]*?(?=\n      - name:|\n      #|$)/g)].map(
+      (match) => match[0],
+    );
+    expect(vitestRuns).toHaveLength(2);
+    for (const run of vitestRuns) {
+      expect(run).toContain('VITEST_MAX_WORKERS: 2');
+    }
+    expect(TESTS_YML).toContain('node_modules/.vite-independent');
+    expect(TESTS_YML).toContain('node_modules/.vite-dependent');
+  });
+
+  it('abilita e persiste la Node compile cache del job comune', () => {
+    expect(TESTS_YML).toContain('NODE_COMPILE_CACHE: node_modules/.cache/node-compile');
+    expect(TESTS_YML).toContain('node_modules/.cache/node-compile');
   });
 
   // Il lock non e' piu' CONDIZIONALE, e' CIRCOSCRITTO: sta su un job che
