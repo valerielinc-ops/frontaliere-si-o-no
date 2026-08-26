@@ -34,7 +34,6 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00042999EXTERNALENGLOBAL/XMLNAME--80---100---R-D-Engineer",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00043018EXTERNALENGLOBAL/XMLNAME--80---100---Software-Developer--NET-Desktop-Applications",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00043136EXTERNALENGLOBAL/R-D-Engineer-Firmware--80--100",
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00043264EXTERNALENGLOBAL/Trade-Compliance-Manager-Process-Industries-Switzerland--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00043281EXTERNALENGLOBAL/Procurement-Specialist-Electronics--80-100----f-m-d",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00043393EXTERNALENGLOBAL/XMLNAME--80---100---Technical-Trainer---Power-Electronics",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00043394EXTERNALENGLOBAL/Procurement-Specialist-Electro-mechanical-components---Electronics--80-100",
@@ -52,7 +51,7 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00044644EXTERNALENGLOBAL/XMLNAME--Senior--Scientist--80---100----f-m-d"
   ],
   "notes": "Dedicated ABB crawler seeds from the careers.abb Phenom refineSearch API (country=Switzerland, CH-wide / all cantons), then resolves canonical careers.abb job detail URLs.",
-  "updatedAt": "2026-08-25T21:37:30.672Z",
+  "updatedAt": "2026-08-26T09:55:28.563Z",
   "seedMetaByUrl": {
     "https://careers.abb/global/en/job/ABB1GLOBALJR00043670EXTERNALENGLOBAL/Direct-Current-Datacenter-System-Architect": {
       "location": "Baden-Daettwil, Aargau, Switzerland",
@@ -150,14 +149,6 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00043264EXTERNALENGLOBAL/Trade-Compliance-Manager-Process-Industries-Switzerland--80-100": {
-      "location": "Baden, Aargau, Switzerland",
-      "canton": "AG",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00043462EXTERNALENGLOBAL/Production-Engineering-Specialist--m-f-d---80-100": {
       "location": "Baden, Aargau, Switzerland",
       "canton": "AG",
@@ -198,14 +189,6 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00043417EXTERNALENGLOBAL/Research-Department-Manager---Industrial-Solutions--80---100----f-m-d": {
-      "location": "Baden-Daettwil, Aargau, Switzerland",
-      "canton": "AG",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00015262EXTERNALENGLOBAL/XMLNAME--Senior--Research-Scientist-in-Software-Systems-Engineering--80-100--_JR00015262-1": {
       "location": "Baden-Daettwil, Aargau, Switzerland",
       "canton": "AG",
@@ -231,6 +214,14 @@
       "contract": "Full-time"
     },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00044644EXTERNALENGLOBAL/XMLNAME--Senior--Scientist--80---100----f-m-d": {
+      "location": "Baden-Daettwil, Aargau, Switzerland",
+      "canton": "AG",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00043417EXTERNALENGLOBAL/Research-Department-Manager---Industrial-Solutions--80---100----f-m-d": {
       "location": "Baden-Daettwil, Aargau, Switzerland",
       "canton": "AG",
       "country": "CH",
