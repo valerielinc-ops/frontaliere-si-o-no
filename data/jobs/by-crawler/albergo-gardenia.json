@@ -1,6 +1,6 @@
 {
   "crawlerKey": "albergo-gardenia",
-  "assembledAt": "2026-08-25T21:59:36.401Z",
+  "assembledAt": "2026-08-26T10:12:55.655Z",
   "jobs": [
     {
       "id": "albergo-gardenia-bf0d61d0f1cd",
@@ -17,8 +17,8 @@
       "title": "Previdenza per la vecchiaia",
       "titleByLocale": {
         "it": "Previdenza per la vecchiaia",
-        "de": "Previdenza per la vecchiaia",
         "en": "Previdenza per la vecchiaia",
+        "de": "Previdenza per la vecchiaia",
         "fr": "Previdenza per la vecchiaia"
       },
       "description": "Previdenza per la vecchiaia — Albergo Gardenia",
@@ -30,7 +30,7 @@
       "url": "https://www.hotelleriesuisse.ch/it/politica/lavoro-e-istruzione/previdenza-per-la-vecchiaia",
       "source": "Albergo Gardenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:59:33.742Z",
+      "crawledAt": "2026-08-26T10:12:53.040Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -45,17 +45,17 @@
       "applyUrl": "https://www.hotelleriesuisse.ch/it/politica/lavoro-e-istruzione/previdenza-per-la-vecchiaia",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "previsione-per-la-vecchia-albergo-gardenia-lugano",
+        "previdenza-per-la-vecchiaia-albergo-gardenia-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "previsione-per-la-vecchia-albergo-gardenia-lugano",
           "previdenza-per-la-vecchiaia-albergo-gardenia-ch"
         ]
       },
-      "previousSlugs": [
-        "previsione-per-la-vecchia-albergo-gardenia-lugano",
-        "previdenza-per-la-vecchiaia-albergo-gardenia-ch"
-      ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T10:32:28.546Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -99,7 +99,7 @@
       "url": "https://www.hotelleriesuisse.ch/it/politica/lavoro-e-istruzione/carenza-di-personale-qualificato",
       "source": "Albergo Gardenia Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-25T21:59:33.425Z",
+      "crawledAt": "2026-08-26T10:12:52.722Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
