@@ -4426,6 +4426,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.cell-broadcast-allerta-svizzera.title': 'Alerte mobile en Suisse : 16 millions approuvés',
     'blog.article.cell-broadcast-allerta-svizzera.excerpt': 'Le Conseil fédéral réclame 15,8 millions de CHF pour la diffusion de cellules. Nouveau système d\'alarme qui envoie des SMS directement aux téléphones dans la zone concernée.',
     'blog.article.cell-broadcast-allerta-svizzera.imageAlt': 'Centre d\'alerte d\'urgence suisse avec messages d\'alerte cellulaire sur les écrans mobiles',
+    'blog.article.canicola-70-milioni-bosco.title': 'Canicule, 70 Mio pour la forêt et l\'agriculture',
+    'blog.article.canicola-70-milioni-bosco.excerpt': 'Le Conseil fédéral demande 70+ millions de francs pour adapter les forêts et soutenir les exploitations agricoles touchées par la canicule et la sécheresse estivale.',
+    'blog.article.canicola-70-milioni-bosco.imageAlt': 'Forêts alpines suisses en été, paysage montagnard avec zones forestières et agricoles',
 };
 
 export default blogMetaChFr;

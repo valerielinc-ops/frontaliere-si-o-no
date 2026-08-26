@@ -57428,6 +57428,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-canicola-70-milioni-bosco': {
+    title: 'Canicola, 70 mio per bosco e agricoltura | Frontaliere Ticino',
+    description: 'Il Consiglio federale richiede 70 milioni di franchi per adattare i boschi e sostenere le aziende agricole colpite da canicola e siccità. Dettagli e procedura.',
+    keywords: 'frontalieri, ticino, svizzera, italia, canicola, bosco, agricoltura, consiglio',
+    ogTitle: 'Canicola, 70 mio per bosco e agricoltura',
+    ogDescription: 'Il Consiglio federale ha richiesto 70 milioni di franchi supplementari per affrontare le conseguenze della canicola estiva. 17,5 mio annui per adattare i boschi (dal 2027), 54 mio nel 2026 per crediti agricoli senza interessi. Leggi i dettagli',
+    canonicalPath: '/articoli-svizzera/canicola-70-milioni-bosco/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Canicola, 70 mio per bosco e agricoltura",
+      "description": "Il Consiglio federale richiede 70 milioni di franchi per adattare i boschi e sostenere le aziende agricole colpite da canicola e siccità. Dettagli e procedura.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/canicola-70-milioni-bosco.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Boschi alpini svizzeri durante l'estate, paesaggio montano con zone forestali e aree agricole"
+      },
+      "datePublished": "2026-08-26T20:29:31+00:00",
+      "dateModified": "2026-08-26T20:29:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/canicola-70-milioni-bosco/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
