@@ -57272,6 +57272,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ffs-rincari-tariffe-wyss': {
+    title: 'FFS rincari tariffe: le dichiarazioni di Wyss | Frontaliere Ticino',
+    description: '1,45 milioni di viaggiatori al giorno. FFS annuncia rincari per abbonamenti generali e metà prezzo. Scopri le dichiarazioni del presidente Wyss. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, rincari, tariffe, dichiarazioni, wyss',
+    ogTitle: 'FFS rincari tariffe: Wyss spiega gli aumenti',
+    ogDescription: 'Record di 1,45 milioni di viaggiatori al giorno. Le Ferrovie Svizzere alzano i prezzi per abbonamenti generali e metà prezzo. Leggi cosa cambia e come questa decisione riflette il sistema di finanziamento dei trasporti pubblici nazionali.',
+    canonicalPath: '/articoli-svizzera/ffs-rincari-tariffe-wyss/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "FFS rincari tariffe: le dichiarazioni di Wyss",
+      "description": "1,45 milioni di viaggiatori al giorno. FFS annuncia rincari per abbonamenti generali e metà prezzo. Scopri le dichiarazioni del presidente Wyss. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ffs-rincari-tariffe-wyss.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pendolari salgono sui treni in una banchina affollata durante l'ora di punta, paesaggio alpino sullo sfondo"
+      },
+      "datePublished": "2026-08-26T18:18:48+00:00",
+      "dateModified": "2026-08-26T18:18:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ffs-rincari-tariffe-wyss/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
