@@ -585,6 +585,83 @@ describe('nextCrawlerState', () => {
     expect(reason).toMatch(/source=summary/);
   });
 
+  it('raises an advisory after 30+ consecutive empty-ok runs without flipping status away from healthy (#6496)', () => {
+    // elettra-1938 pattern: EMPTY_OK_CRAWLERS pins consecutiveEmptyRuns at 0
+    // forever, so `broken` never trips no matter how long the source has
+    // been dead. The separate consecutiveEmptyOkRuns counter must still grow
+    // and cross EMPTY_OK_ADVISORY_AFTER_RUNS (30) to surface a signal.
+    let state = null;
+    for (let i = 0; i < 30; i++) {
+      const at = new Date(NOW_MS - (30 - i) * DAY_MS).toISOString();
+      ({ state } = nextCrawlerState(
+        state,
+        {
+          slug: 'csvp-poschiavo',
+          jobCount: 0,
+          freshnessAt: at,
+          freshnessSource: 'summary',
+          generatedAt: at,
+          assembledAt: at,
+        },
+        at,
+        Date.parse(at),
+      ));
+    }
+    expect(state.status).toBe('healthy');
+    expect(state.consecutiveEmptyRuns).toBe(0);
+    expect(state.consecutiveEmptyOkRuns).toBe(30);
+    expect(state.advisory).toBe(true);
+    expect(state.advisoryReason).toMatch(/30 consecutive empty-ok runs/);
+  });
+
+  it('does not raise an advisory before crossing the threshold', () => {
+    let state = null;
+    for (let i = 0; i < 29; i++) {
+      const at = new Date(NOW_MS - (29 - i) * DAY_MS).toISOString();
+      ({ state } = nextCrawlerState(
+        state,
+        {
+          slug: 'csvp-poschiavo',
+          jobCount: 0,
+          freshnessAt: at,
+          freshnessSource: 'summary',
+          generatedAt: at,
+          assembledAt: at,
+        },
+        at,
+        Date.parse(at),
+      ));
+    }
+    expect(state.status).toBe('healthy');
+    expect(state.consecutiveEmptyOkRuns).toBe(29);
+    expect(state.advisory).toBe(false);
+    expect(state.advisoryReason).toBeNull();
+  });
+
+  it('resets consecutiveEmptyOkRuns and clears the advisory once jobs return', () => {
+    const prev = {
+      lastSuccessfulRunAt: null,
+      lastNonZeroJobs: 0,
+      consecutiveEmptyRuns: 0,
+      consecutiveEmptyOkRuns: 40,
+      advisory: true,
+      advisoryReason: '40 consecutive empty-ok runs (>= 30) — verify the source is still alive, not just "legitimately quiet"',
+      lastFailureReason: null,
+      status: 'healthy',
+      _lastObservedAt: new Date(NOW_MS - DAY_MS).toISOString(),
+      _lastObservedJobs: 0,
+    };
+    const { state } = nextCrawlerState(
+      prev,
+      obs(new Date(NOW_MS - 30 * 60 * 1000).toISOString(), 3, { assembledAt: new Date(NOW_MS - 30 * 60 * 1000).toISOString() }),
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(state.consecutiveEmptyOkRuns).toBe(0);
+    expect(state.advisory).toBe(false);
+    expect(state.advisoryReason).toBeNull();
+  });
+
   it('falls back to by-crawler assembledAt when no summary exists yet', () => {
     // Brand-new crawler: summary slice not yet written, by-crawler slice
     // is fresh. Should be treated as a normal observation.

@@ -191,8 +191,9 @@ jobs:
             # crawler-health issues" step parses the slug back out of it.
             title="[crawler-health] ${slug}: crawler unhealthy"
             case "$status" in
-              broken) priority=2 ;;
-              *)      priority=3 ;;
+              broken)   priority=2 ;;
+              advisory) priority=4 ;;
+              *)        priority=3 ;;
             esac
 
             body=$(cat <<EOF
@@ -269,7 +270,13 @@ jobs:
           while IFS=$'\t' read -r num open_title; do
             slug=$(printf '%s' "$open_title" | sed -E 's/^\[crawler-health\] ([^:]+):.*/\1/')
             status=$(jq -r --arg s "$slug" '.crawlers[$s].status // "unknown"' data/crawler-health.json)
-            if [ "$status" = "healthy" ]; then
+            # `advisory` (#6496) rides on `status: "healthy"` by design (the
+            # EMPTY_OK_CRAWLERS allowlist is never overridden) — without this
+            # check the closer would auto-resolve the advisory issue the same
+            # run it opened it. Only clears when consecutiveEmptyOkRuns resets
+            # (jobs > 0 again), same as `advisory` clearing in nextCrawlerState.
+            advisory=$(jq -r --arg s "$slug" '.crawlers[$s].advisory // false' data/crawler-health.json)
+            if [ "$status" = "healthy" ] && [ "$advisory" != "true" ]; then
               title="[crawler-health] ${slug}: crawler unhealthy"
               echo "Resolving #$num (\"${title}\") — ${slug} is healthy again."
               node scripts/lib/github-issue-creator.mjs --resolve \
@@ -277,7 +284,7 @@ jobs:
                 --workflow "${{ github.workflow }}" \
                 --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
             else
-              echo "Keeping #$num — ${slug} status=${status}."
+              echo "Keeping #$num — ${slug} status=${status} advisory=${advisory}."
             fi
           done < /tmp/health-issues.tsv
 
