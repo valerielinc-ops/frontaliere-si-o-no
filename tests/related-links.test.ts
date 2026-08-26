@@ -401,6 +401,20 @@ describe('generateRelatedLinksStructured (3-cluster)', () => {
     }
   });
 
+  it('legacyFlatLinks fallback emits JOB_LISTING_ROOT when structured output is too thin (#6500)', () => {
+    // weekly_employer_company_city with no companySlug/companySiblingCities
+    // can't build sibling/hub sections, so the 3-cluster raw total drops
+    // below MIN_LINKS_PER_PAGE and generateRelatedLinksStructured falls
+    // back to legacyFlatLinks() (single flat section). Exercise that branch
+    // directly to confirm JOB_LISTING_ROOT is still emitted on it.
+    for (const locale of LOCALES) {
+      const out = generateRelatedLinksStructured(locale, 'weekly_employer_company_city', {});
+      expect(out.sections.length).toBe(1);
+      expect(out.sections[0]!.links).toBe(out.flat);
+      expect(out.flat.some((l) => l.href === JOB_LISTING_ROOT[locale])).toBe(true);
+    }
+  });
+
   it('job_market_snapshot sibling section is 4 city F5 hubs', () => {
     const { sections } = generateRelatedLinksStructured('it', 'job_market_snapshot');
     const sibling = sections.find((s) => s.kind === 'sibling')!;
