@@ -222,6 +222,23 @@ describe('detectQuoteTruncatedTitle — the discriminant #6480 was missing', () 
     ).toBe('Jack&rsquo;s Brasserie');
   });
 
+  it('flags a cut point that is a curly-quote as a numeric entity (#6575)', () => {
+    expect(
+      detectQuoteTruncatedTitle(
+        'Collaboratrice-ore dell&#8217;economia Collaboratrice-ore dell',
+      )?.clean,
+    ).toBe('Collaboratrice-ore dell&#8217;economia');
+    expect(
+      detectQuoteTruncatedTitle('Jack&#x2019;s Brasserie Jack')?.clean,
+    ).toBe('Jack&#x2019;s Brasserie');
+    expect(
+      detectQuoteTruncatedTitle('Foo &#8220;Bar&#8221; Foo &#8220;')?.clean,
+    ).toBe('Foo &#8220;Bar&#8221;');
+    expect(
+      detectQuoteTruncatedTitle('Foo &#x201C;Bar&#x201D; Foo &#x201C;')?.clean,
+    ).toBe('Foo &#x201C;Bar&#x201D;');
+  });
+
   it('leaves the one real entity-bearing title alone (it is not truncated)', () => {
     expect(
       detectQuoteTruncatedTitle(
