@@ -58,7 +58,11 @@ try {
   process.exit(2);
 }
 
-const rows = Array.isArray(payload) ? payload : [];
+if (!Array.isArray(payload)) {
+  console.error(`evergreen-pool-history-snapshot: ${IN} is not a JSON array (got ${typeof payload}) — refusing to write an empty snapshot to history`);
+  process.exit(2);
+}
+const rows = payload;
 const snapshot = {
   date: new Date().toISOString().slice(0, 10),
   sections: rows.map((r) => ({

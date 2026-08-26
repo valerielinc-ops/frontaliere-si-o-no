@@ -5,7 +5,7 @@
  * #6019 item 2b).
  */
 import { execFileSync } from 'node:child_process';
-import { mkdtempSync, rmSync, mkdirSync, writeFileSync, readFileSync } from 'node:fs';
+import { mkdtempSync, rmSync, mkdirSync, writeFileSync, readFileSync, existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -134,5 +134,18 @@ describe('scripts/evergreen-pool-history-snapshot.mjs', () => {
     expect(() =>
       execFileSync('node', [SCRIPT, `--in=${join(dir, 'missing.json')}`, `--history=${historyFile}`]),
     ).toThrow();
+  });
+
+  it('exits with an error and writes no history entry when --in is a non-array JSON payload (#6498)', () => {
+    const dir = makeDir();
+    const inFile = join(dir, 'pool.json');
+    const historyFile = join(dir, 'evergreen-pool-history.json');
+    writeJson(inFile, { section: 'frontaliere', poolTotal: 734 });
+
+    expect(() =>
+      execFileSync('node', [SCRIPT, `--in=${inFile}`, `--history=${historyFile}`], { stdio: 'pipe' }),
+    ).toThrow();
+
+    expect(existsSync(historyFile)).toBe(false);
   });
 });
