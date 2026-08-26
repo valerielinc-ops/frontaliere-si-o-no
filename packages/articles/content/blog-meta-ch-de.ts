@@ -4336,6 +4336,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.diritto-locazione-appenzello-interno-canoni-conciliazione.title': 'Mietrecht Appenzell Innerrhoden: Gebühren und Schlichtung',
     'blog.article.diritto-locazione-appenzello-interno-canoni-conciliazione.excerpt': 'Vollständiger Leitfaden zum schweizerischen Bundesmietrecht: maximal 3 Monate Kaution, Kündigung und Schlichtungsverfahren in Appenzell Innerrhoden.',
     'blog.article.diritto-locazione-appenzello-interno-canoni-conciliazione.imageAlt': 'Schweizer Stadtstraße mit Wohngebäuden und Mietanzeigen; stellt den Kontext des Bundeswohnungsrechts dar',
+    'blog.article.deposito-disdetta-affitti-appenzello.title': 'Mieten Appenzell Innerrhoden: Praxisleitfaden',
+    'blog.article.deposito-disdetta-affitti-appenzello.excerpt': 'Miete Appenzell: Kaution 3 Monate, Einspruch gegen Miete 30 Tage, Kündigung 1-3 Monate Kündigungsfrist. Bundesregeln für Mieter und kantonale Schlichtung.',
+    'blog.article.deposito-disdetta-affitti-appenzello.imageAlt': 'Wohnungsmarkt Appenzell Innerrhoden: Schlüsselübergabe und Mietvertrag',
 };
 
 export default blogMetaChDe;

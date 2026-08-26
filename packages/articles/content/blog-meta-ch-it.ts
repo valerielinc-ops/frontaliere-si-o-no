@@ -4336,6 +4336,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.diritto-locazione-appenzello-interno-canoni-conciliazione.title': 'Diritto locazione Appenzello Interno: canoni e conciliazione',
     'blog.article.diritto-locazione-appenzello-interno-canoni-conciliazione.excerpt': 'Guida completa al diritto di locazione federale svizzero: deposito cauzionale massimo 3 mesi, disdetta e procedura di conciliazione ad Appenzello Interno.',
     'blog.article.diritto-locazione-appenzello-interno-canoni-conciliazione.imageAlt': 'Via di una città svizzera con edifici residenziali e annunci di affitti; rappresenta il contesto del diritto di locazione federale',
+    'blog.article.deposito-disdetta-affitti-appenzello.title': 'Affitti Appenzello interno: guida pratica',
+    'blog.article.deposito-disdetta-affitti-appenzello.excerpt': 'Locazione Appenzello: deposito 3 mesi, ricorso canone 30 giorni, disdetta 1-3 mesi preavviso. Regole federali per inquilini e conciliazione cantonale.',
+    'blog.article.deposito-disdetta-affitti-appenzello.imageAlt': 'Scena di locazione residenziale ad Appenzello Interno con consegna chiavi e documento di contratto',
 };
 
 export default blogMetaChIt;
