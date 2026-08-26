@@ -1,0 +1,98 @@
+name: Telegram Member Count Monitor
+
+# Daily check that the Telegram channel's member count is still moving.
+# getChatMemberCount() had no scheduled caller anywhere in the repo before
+# this workflow (issue #6507) — a channel that goes silently stale (bot
+# removed as admin, channel abandoned, broken join link) went completely
+# unobserved. Persists one {date, count} entry/day to the committed
+# data/telegram-member-count-history.jsonl and opens a stable-title issue via
+# scripts/lib/github-issue-creator.mjs when the count has been unchanged for
+# >= 30 days.
+#
+# Fail-soft by design: with no TELEGRAM_BOT_TOKEN / TELEGRAM_CHANNEL_ID in
+# Remote Config the monitor logs a clean skip and exits 0 — same contract as
+# telegram-channel-broadcast.yml.
+
+on:
+  schedule:
+    - cron: '45 6 * * *'  # daily, shortly after telegram-channel-broadcast.yml's 06:30 digest
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Preview only (no history write, no issue)'
+        required: false
+        default: 'false'
+        type: choice
+        options: ['true', 'false']
+
+concurrency:
+  group: monitor-telegram-member-count
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Load secrets from Remote Config
+        continue-on-error: true
+        run: node scripts/load-rc-env.mjs
+
+      - name: Run member count monitor
+        env:
+          GH_REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            node scripts/monitor-telegram-member-count.mjs --dry-run
+          else
+            node scripts/monitor-telegram-member-count.mjs
+          fi
+
+      - name: Commit member count history
+        if: github.event.inputs.dry_run != 'true'
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/telegram-member-count-history.jsonl 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "no history changes"; exit 0
+          fi
+          DATE=$(date -u +%Y-%m-%d)
+          git commit -m "chore(telegram): member count history — ${DATE} [skip ci]"
+          bash scripts/lib/git-push-with-retry.sh \
+            --branch "$GITHUB_REF_NAME" \
+            --in-place-resolver-cmd "source scripts/lib/resolve-append-conflicts.sh && resolve_append_conflicts && git add -A"
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
