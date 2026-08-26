@@ -10803,6 +10803,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-verrayes-lavorare-vallese-frontaliere.title': 'Vivere a Verrayes e lavorare in Vallese da frontaliere',
     'blog.article.vivere-verrayes-lavorare-vallese-frontaliere.excerpt': 'Guida completa per frontalieri: collegamenti, vita a Verrayes, tasse in Vallese e vantaggi del trasferimento.',
     'blog.article.vivere-verrayes-lavorare-vallese-frontaliere.imageAlt': 'Villaggio di Verrayes in Vallese, Svizzera, con montagne sullo sfondo.',
+    'blog.article.imposte-frontalieri-20km-distanza.title': 'Frontalieri oltre 20 km: come cambia la tassazione',
+    'blog.article.imposte-frontalieri-20km-distanza.excerpt': 'Il Nuovo Accordo Frontalieri di dicembre 2020, vigente dal 1° gennaio 2024, modifica le agevolazioni per chi resiede oltre 20 km dal confine. Scopri calcolo IRPEF, imposta alla fonte e ristorni.',
+    'blog.article.imposte-frontalieri-20km-distanza.imageAlt': 'Scrivania di lavoro frontaliera con documentazione fiscale e calcolatore presso il confine Ticino-Italia',
 };
 
 export default blogMetaIt;

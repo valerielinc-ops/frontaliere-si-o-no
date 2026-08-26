@@ -78734,6 +78734,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposte-frontalieri-20km-distanza': {
+    title: 'Frontalieri oltre 20 km: come cambia la tassazione',
+    description: 'Nuovo Accordo Frontalieri 2024: calcolo IRPEF, imposta alla fonte, esenzione €7.500 vecchi/€10.000 nuovi. Ristorni, credito d\'imposta, procedura 730. Guida',
+    keywords: 'frontalieri, ticino, svizzera, italia, oltre, cambia, tassazione, nuovo',
+    ogTitle: 'Frontalieri oltre 20 km: come cambia la tassazione',
+    ogDescription: 'Il Nuovo Accordo Frontalieri (1° gennaio 2024) modifica agevolazioni e calcolo imposte. Scopri esenzione €7.500/€10.000, IRPEF 23-43%, credito d\'imposta, ristorni 730 e procedure step-by-step per frontalieri Ticino-Italia.',
+    canonicalPath: '/articoli-frontaliere/imposte-frontalieri-20km-distanza',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri oltre 20 km: come cambia la tassazione",
+      "description": "Nuovo Accordo Frontalieri 2024: calcolo IRPEF, imposta alla fonte, esenzione €7.500 vecchi/€10.000 nuovi. Ristorni, credito d'imposta, procedura 730. Guida",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposte-frontalieri-20km-distanza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scrivania di lavoro frontaliera con documentazione fiscale e calcolatore presso il confine Ticino-Italia"
+      },
+      "datePublished": "2026-08-26T02:27:19+00:00",
+      "dateModified": "2026-08-26T02:27:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/imposte-frontalieri-20km-distanza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

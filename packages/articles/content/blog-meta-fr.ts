@@ -10804,6 +10804,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-verrayes-lavorare-vallese-frontaliere.title': 'Vivre à Verrayes et travailler dans le Valais comme navetteur transfrontalier',
     'blog.article.vivere-verrayes-lavorare-vallese-frontaliere.excerpt': 'Guide complet pour les frontaliers : liaisons, vie à Verrayes, taxes en Valais et avantages du transfert.',
     'blog.article.vivere-verrayes-lavorare-vallese-frontaliere.imageAlt': 'Village de Verrayes en Valais, Suisse, avec des montagnes à l\'arrière-plan.',
+    'blog.article.imposte-frontalieri-20km-distanza.title': 'Navetteurs transfrontaliers sur 20 km : comment la fiscalité évolue',
+    'blog.article.imposte-frontalieri-20km-distanza.excerpt': 'Le nouvel Accord transfrontalier des navetteurs de décembre 2020, en vigueur à partir du 1er janvier 2024, modifie les avantages pour ceux qui résident à plus de 20 km de la frontière. Renseignez-vous sur le calcul IRPEF, les retenues à la source et les remboursements.',
+    'blog.article.imposte-frontalieri-20km-distanza.imageAlt': 'Bureau de travailleur frontalier avec documents fiscaux et calculatrice à la frontière Tessin-Italie',
 };
 
 export default blogMetaFr;

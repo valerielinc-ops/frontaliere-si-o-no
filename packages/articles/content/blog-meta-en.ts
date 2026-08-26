@@ -10802,6 +10802,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-verrayes-lavorare-vallese-frontaliere.title': 'Living in Verrayes and working in Valais as a border worker',
     'blog.article.vivere-verrayes-lavorare-vallese-frontaliere.excerpt': 'Complete guide for border workers: connections, life in Verrayes, taxes in Valais and transfer benefits.',
     'blog.article.vivere-verrayes-lavorare-vallese-frontaliere.imageAlt': 'Village of Verrayes in Valais, Switzerland, with mountains in the background.',
+    'blog.article.imposte-frontalieri-20km-distanza.title': 'Cross-border commuters over 20 km: how taxation changes',
+    'blog.article.imposte-frontalieri-20km-distanza.excerpt': 'The New Cross-Border Commuter Agreement of December 2020, in force from 1 January 2024, modifies the benefits for those who reside more than 20 km from the border. Find out about IRPEF calculation, withholding tax and rebates.',
+    'blog.article.imposte-frontalieri-20km-distanza.imageAlt': 'Frontier worker desk with tax documents and calculator at Ticino-Italy border',
 };
 
 export default blogMetaEn;
