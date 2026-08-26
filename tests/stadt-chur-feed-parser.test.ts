@@ -6,6 +6,7 @@ import {
   parseAtomEntries,
   parseRssItems,
   parseFeed,
+  parseRss2JsonItems,
   decodeHtmlEntities,
 } from '@/scripts/lib/stadt-chur-feed-parser.mjs';
 
@@ -110,6 +111,61 @@ describe('stadt-chur feed parser', () => {
     it('parses RSS 2.0 when there are no <entry> elements', () => {
       const out = parseFeed(MORSS_RSS);
       expect(out.length).toBe(7);
+    });
+  });
+
+  describe('parseRss2JsonItems (rss2json.com tertiary fallback, #6560)', () => {
+    const RSS2JSON_ITEMS = [
+      {
+        title: 'Leitende/r Mechaniker/in',
+        link: 'https://jobs.chur.ch/Leitender-Mechanikerin-de-j1704.html',
+        guid: 'https://jobs.chur.ch/Leitender-Mechanikerin-de-j1704.html',
+        pubDate: '2026-08-20 22:00:00',
+        description: 'Kurzbeschreibung der Stelle.',
+        content: 'Kurzbeschreibung der Stelle.',
+        categories: ['Handwerk / Bau / Mechanik / Elektro / HLK'],
+      },
+      {
+        title: 'Not a job',
+        link: 'https://jobs.chur.ch/about.html',
+        guid: 'https://jobs.chur.ch/about.html',
+        pubDate: '2026-08-19 22:00:00',
+        description: 'x',
+        categories: [],
+      },
+      {
+        title: 'Spoofed',
+        link: 'https://evil.example.com/Spoofed-de-j123.html',
+        guid: 'https://evil.example.com/Spoofed-de-j123.html',
+        pubDate: '2026-08-19 22:00:00',
+        description: 'a real description here',
+        categories: [],
+      },
+    ];
+
+    it('extracts real job items and reads title/link/summary/category', () => {
+      const entries = parseRss2JsonItems(RSS2JSON_ITEMS);
+      expect(entries.length).toBe(1);
+      expect(entries[0].title).toBe('Leitende/r Mechaniker/in');
+      expect(entries[0].link).toBe('https://jobs.chur.ch/Leitender-Mechanikerin-de-j1704.html');
+      expect(entries[0].summary).toBe('Kurzbeschreibung der Stelle.');
+      expect(entries[0].updated).toBe('2026-08-20 22:00:00');
+      expect(entries[0].category).toBe('Handwerk / Bau / Mechanik / Elektro / HLK');
+    });
+
+    it('skips channel/self rows without a job-detail link', () => {
+      const entries = parseRss2JsonItems(RSS2JSON_ITEMS);
+      expect(entries.some((e) => e.title === 'Not a job')).toBe(false);
+    });
+
+    it('rejects an off-domain link even if it matches the job-detail pattern (untrusted proxy safety)', () => {
+      const entries = parseRss2JsonItems(RSS2JSON_ITEMS);
+      expect(entries.some((e) => e.title === 'Spoofed')).toBe(false);
+    });
+
+    it('handles a non-array/missing items list gracefully', () => {
+      expect(parseRss2JsonItems(undefined)).toEqual([]);
+      expect(parseRss2JsonItems(null)).toEqual([]);
     });
   });
 
