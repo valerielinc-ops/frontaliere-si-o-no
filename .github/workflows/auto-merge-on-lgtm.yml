@@ -38,7 +38,7 @@ on:
     # slot condivisi dell'account con le PR vere. `branches-ignore` filtra
     # sul branch della run che ha GENERATO l'evento: `main` per un push
     # diretto, il branch della PR per `pull_request` E per il
-    # `workflow_dispatch` di `pr-autorebase.yml` (che dispatcha esplicitamente
+    # `workflow_dispatch` dell'autorebase integrato in `tests.yml` (che dispatcha esplicitamente
     # sul ref della PR, mai su `main`) — quindi questo esclude solo i push
     # diretti, non tocca nessun percorso che porta a un merge vero.
     branches-ignore: [main]
