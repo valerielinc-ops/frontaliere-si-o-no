@@ -1,20 +1,58 @@
 {
   "key": "nant",
   "label": "Fondation de Nant",
-  "generatedAt": "2026-08-25T21:31:49.502Z",
-  "total": 5,
+  "generatedAt": "2026-08-26T09:53:18.460Z",
+  "total": 6,
   "discovered": null,
-  "written": 5,
-  "newCount": 0,
-  "updatedCount": 5,
+  "written": 6,
+  "newCount": 1,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 5024,
-  "avgDurationMs": 5024,
+  "unchangedCount": 1,
+  "durationMs": 5308,
+  "avgDurationMs": 5308,
   "durationHistory": [
-    5024
+    5308
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "nant-fecd12c97f57",
+      "slug": "infirmier-ere-cdm-90-morabia-nant-corsier-sur-vevey",
+      "company": "Fondation de Nant",
+      "companyKey": "nant",
+      "companyDomain": "nant.ch",
+      "title": "Infirmier·ère CDM 90% Morabia",
+      "needsRetranslation": true,
+      "location": "Corsier-sur-Vevey",
+      "canton": "VD",
+      "url": "https://app.beehire.com/invite/fOJGPwwF3",
+      "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-26T09:53:13.761Z",
+      "addressLocality": "Corsier-sur-Vevey",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1804",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Santé mentale / Psychiatrie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-26",
+      "applyUrl": "https://app.beehire.com/invite/fOJGPwwF3",
+      "careerSiteUrl": "https://nant.ch/carrieres/",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "nant-572396317fb8",
@@ -29,7 +67,7 @@
       "url": "https://app.beehire.com/invite/0IEYXiSqR",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-25T21:31:45.217Z",
+      "crawledAt": "2026-08-26T09:53:13.765Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -67,7 +105,7 @@
       "url": "https://app.beehire.com/invite/62T5zjL5K",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-25T21:31:45.219Z",
+      "crawledAt": "2026-08-26T09:53:13.766Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -105,7 +143,7 @@
       "url": "https://app.beehire.com/invite/R8D2jUAXI",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-25T21:31:45.225Z",
+      "crawledAt": "2026-08-26T09:53:13.769Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -137,13 +175,13 @@
       "companyKey": "nant",
       "companyDomain": "nant.ch",
       "title": "Infirmier·ère en CDI à 100% DMPC",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Corsier-sur-Vevey",
       "canton": "VD",
       "url": "https://app.beehire.com/invite/Uhll2GDVq",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-25T21:31:45.222Z",
+      "crawledAt": "2026-08-26T09:53:13.768Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -167,7 +205,10 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "nant-443ebdb017d3",
       "slug": "apprentissage-de-cuisinier-ere-fondation-de-nant-corsier-sur-vevey",
@@ -175,7 +216,6 @@
       "companyKey": "nant",
       "companyDomain": "nant.ch",
       "title": "Apprentissage de Cuisinier·ère",
-      "needsRetranslation": false,
       "location": "Corsier-sur-Vevey",
       "canton": "VD",
       "url": "https://app.beehire.com/invite/uZyK5KPP4",
@@ -198,15 +238,16 @@
       "applyUrl": "https://app.beehire.com/invite/uZyK5KPP4",
       "careerSiteUrl": "https://nant.ch/carrieres/",
       "firstSeenAt": "2026-05-21T12:49:36.395Z",
-      "_qualityScore": 85,
+      "salaryMin": 77500,
+      "salaryMax": 108000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
