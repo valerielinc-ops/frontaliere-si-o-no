@@ -10830,6 +10830,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.gasolio-sconto-17-centesimi-agosto.title': 'Diesel : 17 cents de réduction jusqu\'au mercredi 26 août',
     'blog.article.gasolio-sconto-17-centesimi-agosto.excerpt': 'Le gouvernement italien prolonge jusqu\'au mercredi 26 août la réduction de 17 % sur les accises sur le gazole. Prix moyen : diesel 2,20 € / litre, essence 2,08 € / litre.',
     'blog.article.gasolio-sconto-17-centesimi-agosto.imageAlt': 'Pompe à essence italienne affichant le prix du gazole à 2,20 euros par litre',
+    'blog.article.carenze-dogane-sicurezza-ticino.title': 'Défaillances douanières : le syndicat demande des moyens et de la sécurité',
+    'blog.article.carenze-dogane-sicurezza-ticino.excerpt': 'Le syndicat Garanto dénonce des pénuries de personnel et d\'équipements dans les douanes suisses. Ce que cela implique pour les frontaliers aux points de passage du Tessin.',
+    'blog.article.carenze-dogane-sicurezza-ticino.imageAlt': 'Poste douanier suisse à la frontière Tessin-Italie avec personnel en uniforme effectuant des contrôles',
 };
 
 export default blogMetaFr;
