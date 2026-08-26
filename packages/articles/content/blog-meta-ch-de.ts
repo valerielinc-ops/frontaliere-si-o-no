@@ -4438,6 +4438,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.pulizie-lavoro-nero-2026.title': 'Schwarzarbeit in der Reinigung: der Zusammenbruch der deklarierten',
     'blog.article.pulizie-lavoro-nero-2026.excerpt': 'Im Jahr 2025 fielen die Registranten auf 65\'669. Nur 239 Kontrollen in den Häusern. Der Bundesrat schlägt eine Revision des Schwarzarbeitsgesetzes vor.',
     'blog.article.pulizie-lavoro-nero-2026.imageAlt': 'Hausangestellte bei der Reinigungsarbeit in einer modernen Schweizer Wohnung',
+    'blog.article.credito-federale-ambiente-2027-2030.title': 'Die Schweiz investiert 176 Millionen in den Globalen Umweltfonds',
+    'blog.article.credito-federale-ambiente-2027-2030.excerpt': 'Der Bundesrat hat am 26. August 2026 einen Verpflichtungskredit von 176,23 Millionen Franken für die globale Umwelt im Zeitraum 2027-2030 bewilligt.',
+    'blog.article.credito-federale-ambiente-2027-2030.imageAlt': 'Alpenlandschaft mit unberührten Wäldern und sauberen Gewässern, Symbol des Schweizer Umweltschutzes',
 };
 
 export default blogMetaChDe;

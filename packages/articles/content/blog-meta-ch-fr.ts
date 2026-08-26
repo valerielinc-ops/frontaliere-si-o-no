@@ -4438,6 +4438,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.pulizie-lavoro-nero-2026.title': 'Travail au noir dans le nettoyage : l\'effondrement des déclarés',
     'blog.article.pulizie-lavoro-nero-2026.excerpt': 'En 2025, les déclarants sont tombés à 65\'669. Seulement 239 contrôles dans les maisons. Le Conseil fédéral propose une révision de la loi sur le travail au noir.',
     'blog.article.pulizie-lavoro-nero-2026.imageAlt': 'Femme de ménage travaillant dans un appartement suisse moderne',
+    'blog.article.credito-federale-ambiente-2027-2030.title': 'La Suisse investit 176 millions pour l\'environnement',
+    'blog.article.credito-federale-ambiente-2027-2030.excerpt': 'Le Conseil fédéral a approuvé le 26 août 2026 un crédit d\'engagement de 176,23 millions de francs pour l\'environnement global sur la période 2027–2030.',
+    'blog.article.credito-federale-ambiente-2027-2030.imageAlt': 'Paysage alpin avec forêts intactes et eaux pures, symbole de la protection environnementale suisse',
 };
 
 export default blogMetaChFr;

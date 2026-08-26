@@ -4438,6 +4438,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.pulizie-lavoro-nero-2026.title': 'Black work in cleaning: the collapse of the declared',
     'blog.article.pulizie-lavoro-nero-2026.excerpt': 'In 2025, filers plummeted to 65,669. Only 239 checks in homes. The Federal Council proposes a revision of the law on undeclared work.',
     'blog.article.pulizie-lavoro-nero-2026.imageAlt': 'Domestic worker cleaning in a modern Swiss apartment',
+    'blog.article.credito-federale-ambiente-2027-2030.title': 'Switzerland invests €176 million in global environment fund',
+    'blog.article.credito-federale-ambiente-2027-2030.excerpt': 'The Federal Council approved on 26 August 2026 a commitment appropriation of CHF 176.23 million for the global environment in the period 2027–2030.',
+    'blog.article.credito-federale-ambiente-2027-2030.imageAlt': 'Alpine landscape with pristine forests and clean waters, symbolizing Swiss environmental protection',
 };
 
 export default blogMetaChEn;

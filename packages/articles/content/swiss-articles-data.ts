@@ -13312,6 +13312,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'credito-federale-ambiente-2027-2030',
+    category: 'novita',
+    date: '2026-08-26T23:15:30.949Z',
+    image: '/images/blog/credito-federale-ambiente-2027-2030.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
