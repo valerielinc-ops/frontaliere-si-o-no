@@ -203,14 +203,32 @@ export function summariseSliceCompanies(jobs) {
   };
 }
 
+/** Case/whitespace-insensitive: solo per confrontare, mai per pubblicare. */
+function normalizeForSliceMatch(name) {
+  return String(name || '')
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, ' ');
+}
+
 /**
  * Dominio che lo slice associa a un nome gia' scelto.
  *
- * Se il nome non compare nello slice — succede quando il runner dichiara un
- * marchio che nei job appare sotto un'altra ragione sociale — si ricade sul
- * dominio dominante dello slice **solo a maggioranza assoluta**, con la stessa
- * soglia del nome: sotto quella soglia lo slice non ha un dominio suo da
- * offrire, e il generatore passa a quello dichiarato dal runner.
+ * Il lookup diretto puo' mancare per pura formattazione — costante del runner
+ * vs stringa crawlata (spazi, maiuscole) — e in quel caso un confronto
+ * case/whitespace-insensitive sulle chiavi di `domains` lo recupera comunque:
+ * e' lo STESSO brand, solo scritto diverso.
+ *
+ * Se invece il nome scelto non compare in `domains` con NESSUNA normalizzazione,
+ * non e' un problema di formattazione: e' un brand diverso da quello che lo
+ * slice conosce (es. runner dichiara «Fust», slice e' a maggioranza «Coop
+ * Genossenschaft» — la forma vera di questo crawler). Ricadere qui su
+ * `summary.domain` accoppierebbe il nome scelto al dominio del vincitore di
+ * maggioranza, cioe' esattamente l'attribuzione sbagliata che questo modulo
+ * esiste per evitare (vedi il docblock in testa al file). Si ritorna quindi
+ * stringa vuota: il chiamante ha gia' un fallback successivo al dominio
+ * DICHIARATO dal runner/parser (vedi `generate-crawler-companies.mjs`), che e'
+ * la fonte giusta quando lo slice non sa nulla del nome scelto.
  *
  * @param {ReturnType<typeof summariseSliceCompanies>|null|undefined} summary
  * @param {string} chosenName
@@ -218,7 +236,14 @@ export function summariseSliceCompanies(jobs) {
  */
 export function sliceDomainForName(summary, chosenName) {
   if (!summary) return '';
-  const direct = summary.domains?.[String(chosenName || '').trim()];
+  const trimmed = String(chosenName || '').trim();
+  const direct = summary.domains?.[trimmed];
   if (direct) return direct;
-  return summary.domain || '';
+
+  const normalizedChosen = normalizeForSliceMatch(trimmed);
+  if (!normalizedChosen) return '';
+  for (const [candidate, domain] of Object.entries(summary.domains || {})) {
+    if (normalizeForSliceMatch(candidate) === normalizedChosen) return domain;
+  }
+  return '';
 }
