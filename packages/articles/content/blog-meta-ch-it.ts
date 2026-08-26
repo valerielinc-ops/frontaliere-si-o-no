@@ -4432,6 +4432,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.fondi-federali-bosco-agricoltura.title': 'Consiglio federale: CHF 71,5M per bosco e agricoltura',
     'blog.article.fondi-federali-bosco-agricoltura.excerpt': 'Il Consiglio federale approva CHF 17,5M per le foreste e CHF 54M per le aziende agricole colpite dalla siccità record dell\'estate 2026.',
     'blog.article.fondi-federali-bosco-agricoltura.imageAlt': 'Paesaggio forestale alpino durante la siccità estiva: vegetazione disseccata vista sui boschi svizzeri',
+    'blog.article.manor-licenzia-basilea.title': 'Manor licenzia 38 collaboratori presso sede centrale Basilea',
+    'blog.article.manor-licenzia-basilea.excerpt': 'Manor licenzia 38 impiegati d\'ufficio a Basilea. L\'azienda promette piano sociale e supporto individuale. Cosa fare se sei tra i colpiti.',
+    'blog.article.manor-licenzia-basilea.imageAlt': 'Edificio di uffici moderni a Basilea con architettura contemporanea',
 };
 
 export default blogMetaChIt;

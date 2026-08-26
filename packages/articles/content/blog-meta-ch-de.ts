@@ -4432,6 +4432,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.fondi-federali-bosco-agricoltura.title': 'Bundesrat: CHF 71.5M für Wald und Landwirtschaft',
     'blog.article.fondi-federali-bosco-agricoltura.excerpt': 'Der Bundesrat genehmigt CHF 17,5 Mio. für die Wälder und CHF 54 Mio. für die von der Rekordtrockenheit des Sommers 2026 betroffenen Betriebe.',
     'blog.article.fondi-federali-bosco-agricoltura.imageAlt': 'Alpines Waldlandschaft während der Sommertrockenheit: verwelkte Vegetation und Schweizer Waldansicht',
+    'blog.article.manor-licenzia-basilea.title': 'Manor entlässt 38 Mitarbeiter am Hauptsitz Basel',
+    'blog.article.manor-licenzia-basilea.excerpt': 'Manor entlässt 38 Büroangestellte in Basel. Das Unternehmen verspricht Sozialplan und individuelle Unterstützung. Was tun, wenn Sie unter den Betroffenen sind?',
+    'blog.article.manor-licenzia-basilea.imageAlt': 'Modernes Bürogebäude in Basel mit zeitgenössischer Architektur',
 };
 
 export default blogMetaChDe;
