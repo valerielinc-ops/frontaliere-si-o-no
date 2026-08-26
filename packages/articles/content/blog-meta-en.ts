@@ -10828,6 +10828,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gasolio-sconto-17-centesimi-agosto.title': 'Diesel: 17 cents off until Wednesday, August 26th',
     'blog.article.gasolio-sconto-17-centesimi-agosto.excerpt': 'The Italian government extends the 17% discount on diesel excise duties until Wednesday 26 August. Average price: diesel €2.20/litre, petrol €2.08/litre.',
     'blog.article.gasolio-sconto-17-centesimi-agosto.imageAlt': 'Italian fuel pump displaying diesel price at 2.20 euros per liter',
+    'blog.article.carenze-dogane-sicurezza-ticino.title': 'Customs shortages: union asks for means and security',
+    'blog.article.carenze-dogane-sicurezza-ticino.excerpt': 'The Garanto union denounces shortages of personnel and equipment in Swiss customs. What it entails for border workers at Ticino crossings.',
+    'blog.article.carenze-dogane-sicurezza-ticino.imageAlt': 'Swiss customs station at Ticino-Italy border with uniformed personnel conducting document checks',
 };
 
 export default blogMetaEn;

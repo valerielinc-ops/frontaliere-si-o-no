@@ -10829,6 +10829,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gasolio-sconto-17-centesimi-agosto.title': 'Gasolio: sconto 17 centesimi fino a mercoledì 26 agosto',
     'blog.article.gasolio-sconto-17-centesimi-agosto.excerpt': 'Il governo italiano prolunga fino a mercoledì 26 agosto lo sconto del 17% sulle accises di gasolio. Prezzo medio: diesel €2,20/litro, benzina €2,08/litro.',
     'blog.article.gasolio-sconto-17-centesimi-agosto.imageAlt': 'Pompa di benzina italiana che mostra il prezzo del gasolio a 2,20 euro al litro',
+    'blog.article.carenze-dogane-sicurezza-ticino.title': 'Carenze dogane: sindacato chiede mezzi e sicurezza',
+    'blog.article.carenze-dogane-sicurezza-ticino.excerpt': 'Il sindacato Garanto denuncia carenze di personale e attrezzature nella dogana svizzera. Cosa comporta per i frontalieri ai valichi del Ticino.',
+    'blog.article.carenze-dogane-sicurezza-ticino.imageAlt': 'Stazione doganale al confine Ticino-Italia con personale in uniforme che effettua controlli documenti',
 };
 
 export default blogMetaIt;

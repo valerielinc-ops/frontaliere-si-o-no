@@ -10827,6 +10827,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.gasolio-sconto-17-centesimi-agosto.title': 'Dieselkraftstoff: Rabatt von 17 Cent bis Mittwoch, 26. August',
     'blog.article.gasolio-sconto-17-centesimi-agosto.excerpt': 'Die italienische Regierung verlängert bis Mittwoch, den 26. August, den Rabatt von 17% auf die Verbrauchsteuern auf Dieselkraftstoff. Durchschnittspreis: Diesel € 2,20/Liter, Benzin € 2,08/Liter.',
     'blog.article.gasolio-sconto-17-centesimi-agosto.imageAlt': 'Italienische Zapfsäule mit Dieselpreis von 2,20 Euro pro Liter',
+    'blog.article.carenze-dogane-sicurezza-ticino.title': 'Zollmängel: Gewerkschaft fordert Mittel und Sicherheit',
+    'blog.article.carenze-dogane-sicurezza-ticino.excerpt': 'Die Gewerkschaft Garanto klagt über Personal- und Ausrüstungsmangel im Schweizer Zoll. Was das für Grenzgänger an den Tessiner Grenzübergängen bedeutet.',
+    'blog.article.carenze-dogane-sicurezza-ticino.imageAlt': 'Schweizer Zollstation an der Grenze Tessin-Italien mit uniformiertem Personal bei Dokumentenprüfungen',
 };
 
 export default blogMetaDe;
