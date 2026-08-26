@@ -13267,6 +13267,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'cell-broadcast-allerta-svizzera',
+    category: 'novita',
+    date: '2026-08-26T19:58:15.809Z',
+    image: '/images/blog/cell-broadcast-allerta-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -4423,6 +4423,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ambiente-globale-176-milioni-2030.title': 'Global environment: 176 million from Switzerland until 2030',
     'blog.article.ambiente-globale-176-milioni-2030.excerpt': 'The Federal Council approves a commitment appropriation of CHF 176.23 million to finance international environmental projects from 2027 to 2030, but Parliament will have to approve it.',
     'blog.article.ambiente-globale-176-milioni-2030.imageAlt': 'Swiss Alpine landscape with pristine mountain lake surrounded by coniferous forest, symbolizing environmental protection.',
+    'blog.article.cell-broadcast-allerta-svizzera.title': 'Cell Alert in Switzerland: 16 million approved',
+    'blog.article.cell-broadcast-allerta-svizzera.excerpt': 'Federal Council requires CHF 15.8 million per cell broadcast. New alarm system that sends SMS directly to phones in the affected area.',
+    'blog.article.cell-broadcast-allerta-svizzera.imageAlt': 'Swiss emergency alert center with cell broadcast SMS messages on mobile phone screens',
 };
 
 export default blogMetaChEn;

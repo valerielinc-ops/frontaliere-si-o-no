@@ -4423,6 +4423,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ambiente-globale-176-milioni-2030.title': 'Globale Umwelt: 176 Millionen aus der Schweiz bis 2030',
     'blog.article.ambiente-globale-176-milioni-2030.excerpt': 'Der Bundesrat genehmigt einen Verpflichtungskredit von 176,23 Millionen Franken zur Finanzierung internationaler Umweltprojekte von 2027 bis 2030, aber das Parlament muss zustimmen.',
     'blog.article.ambiente-globale-176-milioni-2030.imageAlt': 'Schweizer Alpenlandschaft mit klarem Bergsee umgeben von Nadelwald, Symbol für Umweltschutz.',
+    'blog.article.cell-broadcast-allerta-svizzera.title': 'Mobilfunk-Alarm in der Schweiz: 16 Millionen genehmigt',
+    'blog.article.cell-broadcast-allerta-svizzera.excerpt': 'Bundesrat verlangt 15,8 Mio. CHF für Cell Broadcast. Neues Alarmsystem, das SMS direkt an Telefone in der betroffenen Region sendet.',
+    'blog.article.cell-broadcast-allerta-svizzera.imageAlt': 'Schweizer Notfalleinsatzzentrale mit Mobiltelefonen, die Cell-Broadcast-Alarme anzeigen',
 };
 
 export default blogMetaChDe;
