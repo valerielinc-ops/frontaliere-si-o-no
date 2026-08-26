@@ -912,25 +912,31 @@ jobs:
       # la variabile stava sul job. Metterla sul job fuso la imporrebbe anche a
       # vitest, che oggi gira senza — un cambio di comportamento non richiesto.
       #
-      # NON è `background:`, ed è la sola candidatura seria che l'audit degli
-      # step (2026-08-26) ha lasciato aperta invece di scartare. I numeri: 67s
+      # È IN `background:`, ed è il primo di un gruppo di sei cancelli
+      # deterministici che ora girano tutti insieme invece che in fila (vedi la
+      # testata della famiglia 3/4 e il join «Wait for background gates»). 67s
       # misurati su run 32939112340, cioè il 6,3% del job e il terzo costo dopo
-      # il checkout (254s) e i due gruppi vitest (678s sommati). Le dipendenze
-      # non lo trattengono — legge solo i sorgenti, non scrive niente che un
-      # altro step consumi, e il suo unico effetto è far fallire il job — per
-      # cui in background sotto vitest quei 67s sparirebbero dal wall.
+      # il checkout (254s) e i due gruppi vitest (678s). Niente lo trattiene in
+      # un ordine: legge solo i sorgenti, non scrive niente che un altro step
+      # consumi, e il suo unico effetto è far fallire il job.
       #
-      # A trattenerlo è la MEMORIA, non l'ordine. Sovrapporlo a vitest vuol dire
-      # 4,4 GB di `tsc` sommati al pool `threads` di vitest sui 16 GB del
-      # runner, e il modo in cui si scopre di aver sbagliato è un OOM
-      # intermittente proprio sul check-run che governa l'auto-merge — cioè un
-      # rosso che somiglia a un flake e che nessuna rerun distingue da uno vero.
-      # Il picco di RSS di vitest su questo repo non è mai stato misurato:
-      # finché non lo è, la sovrapposizione è una scommessa sul margine, non una
-      # misura. Il resto dell'audit sta nel corpo della PR #6555.
+      # DOVE SI FERMA LA SOVRAPPOSIZIONE, e perché il join sta PRIMA
+      # dell'assemble invece che alla fine del job: `tsc` tiene 4,4 GB di RSS e
+      # il runner ne ha 16. Sovrapporlo agli altri cinque cancelli — script node
+      # brevi, poche centinaia di MB — sta largamente dentro quel budget.
+      # Sovrapporlo a VITEST no: il picco del pool `threads` su questo repo non
+      # è mai stato misurato, e il modo in cui si scopre di aver sbagliato è un
+      # OOM intermittente proprio sul check-run che governa l'auto-merge, cioè
+      # un rosso che somiglia a un flake e che nessuna rerun distingue da uno
+      # vero. Siccome `wait-all` non ha un join selettivo, l'unico modo di NON
+      # sovrapporlo a vitest è rijoinare prima che l'assemble parta — che è
+      # esattamente dove il join è messo. Il costo di quella scelta è noto e
+      # accettato: restano fuori dal wall solo gli ~11s dei cinque lint, non i
+      # 67s di `tsc`.
       # ══════════════════════════════════════════════════════════════════════
       - name: tsc --noEmit (baseline + ratchet)
         if: ${{ !cancelled() }}
+        background: true
         env:
           NODE_OPTIONS: --max-old-space-size=8192
         run: npm run typecheck:gate
@@ -947,15 +953,27 @@ jobs:
       # comportamento a ambiente PULITO. Il perché per esteso, con la misura,
       # sta sulla testata della famiglia 4/4.
       #
-      # I CINQUE LINT QUI SOTTO RESTANO IN PRIMO PIANO, e anche questo è un
-      # esito d'audit, non un'omissione. Sono i candidati più ovvi a un gruppo
-      # `background:` allargato — script node indipendenti, nessuno consuma
-      # l'output di un altro — ma costano 11s in tutto (8+0+1+0+1 su run
-      # 32939112340), cioè l'1% del job e un terzo del rumore. Metterli in
-      # background sposterebbe il loro esito al join: un `npm run
-      # lint:hardcoded-locale-segments` rosso, che oggi ferma il job sulla
-      # riga che lo ha causato, arriverebbe mescolato agli altri dopo 400s di
-      # vitest. Si paga leggibilità di un rosso per un decimo di rumore.
+      # I CINQUE LINT QUI SOTTO SONO IN `background:`, insieme al `tsc` della
+      # famiglia 2/4: sei cancelli deterministici che girano tutti in parallelo
+      # invece che in fila, rijoinati dal «Wait for background gates» che sta
+      # subito prima della cache dell'assemble. Nessuno dei sei consuma
+      # l'output di un altro — sono script node che leggono il working tree e
+      # il cui unico effetto è far fallire il job — quindi l'ordine fra loro
+      # non porta informazione, la porta solo il fatto che finiscano tutti
+      # prima che la suite parta.
+      #
+      # In fila costavano 78s (67 di `tsc` + 8+0+1+0+1 di lint, run
+      # 32939112340); in parallelo costano quanto il più lungo, cioè i 67s di
+      # `tsc`. Il ricavo è modesto e va detto: ~11s. La ragione per cui non è
+      # di più sta sulla testata del `tsc` — il join deve stare PRIMA
+      # dell'assemble per non sovrapporre 4,4 GB di `tsc` a vitest, e
+      # `wait-all` non sa rijoinare un sottoinsieme.
+      #
+      # Il costo accettato è diagnostico, non di correttezza: un lint rosso
+      # non ferma più il job sulla riga che lo ha causato, emerge al join
+      # insieme agli altri. In cambio un solo giro mostra TUTTI i cancelli
+      # rossi invece del primo soltanto — su un gate che prima falliva a
+      # cascata, un rerun in meno.
       #
       # I due step successivi ai lint hanno invece una dipendenza VERA, ed è la
       # ragione per cui l'ordine qui non è libero: "Fetch base ref" crea
@@ -977,6 +995,7 @@ jobs:
         # incident where 92 job slice files were committed with raw
         # `git stash pop` conflicts and silently dropped ~3.5k jobs from
         # production via assemble-jobs-dataset.mjs.
+        background: true
         run: npm run audit:no-merge-markers
 
       - name: Lint GHA action Node runtimes
@@ -986,6 +1005,7 @@ jobs:
         # 2026-06-02 and removes node20 on 2026-09-16 — deprecated actions
         # accumulate as annotations then hard-fail, which on this repo blocks
         # the deploy. Catch the regression here instead of reactively (#779).
+        background: true
         run: npm run lint:gha-node-runtime
 
       - name: Lint workflow input shell-injection
@@ -998,6 +1018,7 @@ jobs:
         # and reference the QUOTED shell variable. Also enforced by
         # tests/workflow-input-injection.test.ts; this step surfaces it without
         # waiting for the vitest job.
+        background: true
         run: npm run lint:workflow-input-injection
 
       - name: Lint hardcoded locale segments
@@ -1009,6 +1030,7 @@ jobs:
         # 11×/14d because the path breaks on every locale != the hardcoded one.
         # Catch it BEFORE the PR reaches review (zero-Claude). New legit cases:
         # annotate with `// locale-segment-ok: <reason>` or rebaseline post-review.
+        background: true
         run: npm run lint:hardcoded-locale-segments
 
       - name: Verify evergreen comune topics pool is current
@@ -1022,6 +1044,7 @@ jobs:
         # incidental one via the vitest suite. On drift: run
         # `node scripts/build-evergreen-comune-topics.mjs` and commit the
         # result.
+        background: true
         run: npm run check:evergreen-comune-topics
 
       - name: Fetch base ref for the factuality diff
@@ -1200,6 +1223,29 @@ jobs:
           printf '%s\n' "$decision"
           printf '%s\n' "$decision" >> "$GITHUB_OUTPUT"
 
+      # Rijoina i SEI cancelli deterministici lanciati in background — `tsc` più
+      # i cinque lint — e li rijoina QUI, cioè prima che l'assemble parta, non
+      # alla fine del job. La posizione è la sostanza della modifica, non un
+      # dettaglio: `wait-all` attende TUTTI i background e non sa rijoinare un
+      # sottoinsieme, quindi un join più in basso significherebbe `tsc` (4,4 GB
+      # di RSS) sovrapposto ai worker di vitest sui 16 GB del runner, con il
+      # rischio di un OOM intermittente sul check-run che governa l'auto-merge.
+      # Qui invece il gruppo si chiude mentre non gira nient'altro di pesante.
+      #
+      # I tre step sopra (fetch del base ref, factuality, decide corpus-wide)
+      # restano in primo piano e girano MENTRE i sei lavorano: sono una catena
+      # seriale vera — il fetch crea `refs/remotes/origin/<base>` per NOME, la
+      # factuality lo risolve per nome, e `decide` scrive su `$GITHUB_OUTPUT`,
+      # canale che da uno step in background non ha semantica documentata.
+      #
+      # NIENTE `if:` qui, come sull'altro join di questo file: uno step
+      # `wait-all` accetta solo `name` e `wait-all`, e una chiave in più fa
+      # rifiutare l'INTERO workflow da GitHub (run 32936857718, `failure` con
+      # zero job). Ora è anche verificato staticamente su tutti i workflow da
+      # `tests/workflow-background-wait-schema.test.ts`.
+      - name: Wait for background gates
+        wait-all: true
+
       - name: Cache assemble-jobs output
         # Mirrors deploy.yml's identical step. assemble-jobs-dataset.mjs has a
         # content-addressable cache under .cache/assemble-jobs (keyed on a
@@ -1281,6 +1327,30 @@ jobs:
         run: |
           node scripts/assemble-jobs-dataset.mjs --stats
           node scripts/migrate-all-known-job-slugs-canton-aware.mjs
+
+      # DIAGNOSTICO, non un cancello: campiona `MemAvailable` del runner mentre
+      # la suite gira e stampa il minimo. Esiste per rispondere alla sola
+      # domanda che oggi tiene il join dei sei cancelli PRIMA dell'assemble
+      # invece che alla fine del job — «quanta memoria libera resta mentre
+      # vitest lavora?» — cioè se i 4,4 GB di `tsc` ci starebbero accanto sui
+      # 16 GB del runner. Finché quel numero non esiste, spostare il join è una
+      # scommessa; quando esiste, è una riga di diff.
+      #
+      # In questa posizione misura vitest DA SOLO, che è esattamente la
+      # baseline giusta: con il join dove sta ora, `tsc` ha già finito.
+      #
+      # Costo ~0 (una lettura di /proc ogni 5s) e non può arrossare niente: non
+      # ha asserzioni, e il `|| true` copre anche il caso in cui /proc/meminfo
+      # non sia leggibile. Bounded a 350 campioni (~29 min) perché uno step in
+      # background che non termina terrebbe fermo il `wait-all` che lo rijoina.
+      - name: Sample runner memory during the suite (diagnostic, never fails)
+        background: true
+        run: |
+          for _ in $(seq 1 350); do
+            awk '/MemAvailable/{print $2}' /proc/meminfo 2>/dev/null || true
+            sleep 5
+          done | sort -n | head -1 | awk '{printf "MemAvailable minimo durante vitest: %.2f GB\n", $1/1048576}'
+          true
 
       - name: vitest run (test che non leggono il dataset)
         # VITEST_DATASET_GROUP=independent → vitest.config.ts esclude i file
