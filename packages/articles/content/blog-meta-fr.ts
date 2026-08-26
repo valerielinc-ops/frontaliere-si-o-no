@@ -10810,6 +10810,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tasse-frontalieri-distanza-confine.title': 'Calcul des taxes frontalières à plus de 20 km de la frontière',
     'blog.article.tasse-frontalieri-distanza-confine.excerpt': 'Nouvel accord 2024 : franchise de 10 000 € pour les nouveaux frontaliers, impôt à la source suisse et crédit d\'impôt italien. Guide de calcul avec des exemples.',
     'blog.article.tasse-frontalieri-distanza-confine.imageAlt': 'Vue de Lugano au coucher de soleil avec promenade du lac et Alpes',
+    'blog.article.permesso-g-pro-contro-2024.title': 'Permis G frontalier : avantages et inconvénients',
+    'blog.article.permesso-g-pro-contro-2024.excerpt': 'Avantages et inconvénients du permis G à partir de 2024 : fiscalité, prévoyance, santé, mobilité. Quand cela convient aux frontaliers Tessin-Italie et comment procéder.',
+    'blog.article.permesso-g-pro-contro-2024.imageAlt': 'Vue aérienne de Lugano au coucher du soleil, montrant le contexte urbain des frontaliers',
 };
 
 export default blogMetaFr;

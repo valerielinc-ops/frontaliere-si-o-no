@@ -10807,6 +10807,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tasse-frontalieri-distanza-confine.title': 'Berechnung Grenzsteuern über 20 km von der Grenze entfernt',
     'blog.article.tasse-frontalieri-distanza-confine.excerpt': 'Neues Abkommen 2024: 10.000 € Franchise für neue Grenzgänger, Schweizer Quellensteuer und italienische Steuergutschrift. Berechnungsleitfaden mit Beispielen.',
     'blog.article.tasse-frontalieri-distanza-confine.imageAlt': 'Blick auf Lugano bei Sonnenuntergang mit Seepromenade und Berglandschaft',
+    'blog.article.permesso-g-pro-contro-2024.title': 'Grenzüberschreitende Genehmigung G: Vor- und Nachteile',
+    'blog.article.permesso-g-pro-contro-2024.excerpt': 'Vor- und Nachteile der Genehmigung G ab 2024: Steuern, Vorsorge, Gesundheit, Mobilität. Wann es sich für Grenzgänger Tessin-Italien lohnt und wie vorzugehen ist.',
+    'blog.article.permesso-g-pro-contro-2024.imageAlt': 'Luftaufnahme von Lugano bei Sonnenuntergang, zeigt die urbane Umgebung von Grenzgängern',
 };
 
 export default blogMetaDe;

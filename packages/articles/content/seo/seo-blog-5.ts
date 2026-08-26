@@ -78812,6 +78812,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-g-pro-contro-2024': {
+    title: 'Permesso G frontaliere: vantaggi e svantaggi | Frontaliere Ticino',
+    description: 'Pro e contro del Permesso G dal 2024: fisco, previdenza, sanità, mobilità. Quando conviene per frontalieri Ticino-Italia. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, vantaggi, svantaggi, contro',
+    ogTitle: 'Permesso G: pro e contro per frontalieri Ticino-Italia',
+    ogDescription: 'Dal 2024, il Permesso G cambia: nuove franchigie, tassazione solo in Svizzera, credito d\'imposta in Italia. Scopri se conviene per la tua situazione: fisco, previdenza, sanità e costi di mobilità a confronto.',
+    canonicalPath: '/articoli-frontaliere/permesso-g-pro-contro-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso G frontaliere: vantaggi e svantaggi",
+      "description": "Pro e contro del Permesso G dal 2024: fisco, previdenza, sanità, mobilità. Quando conviene per frontalieri Ticino-Italia. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-g-pro-contro-2024.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Lugano al tramonto mostra il contesto urbano dove lavorano i frontalieri Ticino-Italia"
+      },
+      "datePublished": "2026-08-26T04:18:38+00:00",
+      "dateModified": "2026-08-26T04:18:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/permesso-g-pro-contro-2024/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
