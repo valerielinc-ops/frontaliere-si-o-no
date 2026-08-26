@@ -1493,6 +1493,8 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'fondi-siccita-foreste-agricoltura': { it: 'fondi-siccita-foreste-agricoltura', en: 'funds-drought-forests-agriculture', de: 'gelder-duerren-waeldern-landwirtschaft', fr: 'fonds-secheresse-forets-agriculture' },
  'stipendi-aumenti-differenziati-2026': { it: 'stipendi-aumenti-differenziati-2026', en: 'salary-increases-performance-2026', de: 'gehaltserhohungen-leistung-2026', fr: 'augmentations-salaires-performance-2026' },
  'mobiliare-edilizia-popolare-200m': { it: 'mobiliare-edilizia-popolare-200m', en: 'mobiliare-affordable-housing-200m', de: 'mobiliare-sozialer-wohnungsbau-200m', fr: 'mobiliare-logement-social-200m' },
+ 'elettricita-gas-meno-cari-2027': { it: 'elettricita-gas-meno-cari-2027', en: 'electricity-gas-lower-costs-2027', de: 'strom-gas-kostenguenstiger-2027', fr: 'electricite-gaz-moins-cher-2027' },
+ 'iniziativa-alimentazione-no': { it: 'iniziativa-alimentazione-no', en: 'food-initiative-no-ticino', de: 'ernaehrungsinitiative-nein-tessin', fr: 'initiative-alimentation-non-tessin' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -4402,6 +4402,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.mobiliare-edilizia-popolare-200m.title': 'Mobilière investit 200 millions dans le logement social',
     'blog.article.mobiliare-edilizia-popolare-200m.excerpt': 'La compagnie d\'assurance investira 200 millions pour construire 1 000 appartements loués à loyer proportionnel aux coûts réels.',
     'blog.article.mobiliare-edilizia-popolare-200m.imageAlt': 'Chantier de construction d\'un complexe résidentiel moderne en Suisse avec grues et échafaudages',
+    'blog.article.elettricita-gas-meno-cari-2027.title': 'Factures plus légères : les coûts énergétiques en baisse en 2027',
+    'blog.article.elettricita-gas-meno-cari-2027.excerpt': 'AIM réduit les tarifs dans le Mendrisiotto à partir de 2027 : -6,5 % -7,4 % pour l\'électricité, -9,43 % pour le gaz. Découvrez les économies annuelles sur votre facture d\'énergie.',
+    'blog.article.elettricita-gas-meno-cari-2027.imageAlt': 'Compteur d\'électricité et habitations résidentielles avec réduction tarifaire dans la région de Mendrisio 2027',
+    'blog.article.iniziativa-alimentazione-no.title': 'Initiative alimentaire : le non du Tessin',
+    'blog.article.iniziativa-alimentazione-no.excerpt': 'Le Comité tessinois met en garde contre les coûts et les conséquences : un vote le 27 septembre décidera de la demande de 70 % d\'auto-approvisionnement.',
+    'blog.article.iniziativa-alimentazione-no.imageAlt': 'Marché agricole tessinois avec produits locaux, fruits, légumes et produits laitiers sous ciel dégagé.',
 };
 
 export default blogMetaChFr;

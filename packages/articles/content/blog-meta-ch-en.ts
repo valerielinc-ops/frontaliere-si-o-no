@@ -4402,6 +4402,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mobiliare-edilizia-popolare-200m.title': 'Mobiliare invests 200 million in public housing.',
     'blog.article.mobiliare-edilizia-popolare-200m.excerpt': 'The insurance company will invest 200 million to build 1000 rented apartments commensurate with real costs.',
     'blog.article.mobiliare-edilizia-popolare-200m.imageAlt': 'Construction site of a modern residential complex in Switzerland with cranes and scaffolding during the building phase',
+    'blog.article.elettricita-gas-meno-cari-2027.title': 'Lighter bills: falling energy costs in 2027',
+    'blog.article.elettricita-gas-meno-cari-2027.excerpt': 'Aim reduces tariffs in Mendrisiotto from 2027: -6.5%-7.4% for electricity, -9.43% for gas. Discover the annual savings on your energy bill.',
+    'blog.article.elettricita-gas-meno-cari-2027.imageAlt': 'Energy meter and Swiss residential homes showing tariff reduction for 2027',
+    'blog.article.iniziativa-alimentazione-no.title': 'Food initiative: Ticino NO',
+    'blog.article.iniziativa-alimentazione-no.excerpt': 'The Ticino Committee warns of costs and consequences: a vote on 27 September will decide on the request for 70% self-supply.',
+    'blog.article.iniziativa-alimentazione-no.imageAlt': 'Ticino farmers market displaying local produce, vegetables, and dairy products under blue sky.',
 };
 
 export default blogMetaChEn;
