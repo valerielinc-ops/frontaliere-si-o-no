@@ -32412,6 +32412,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'congedo-maternita-paternita-frontalieri',
+ category: 'pratico',
+ date: '2026-08-26T23:44:35.603Z',
+ image: '/images/blog/congedo-maternita-paternita-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
