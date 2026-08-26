@@ -1,16 +1,16 @@
 {
   "key": "agie-charmilles",
   "label": "AGIE Charmilles",
-  "generatedAt": "2026-08-26T10:04:44.306Z",
+  "generatedAt": "2026-08-26T10:39:03.991Z",
   "total": 28,
   "newCount": 0,
   "updatedCount": 25,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 44757,
-  "avgDurationMs": 44757,
+  "durationMs": 46380,
+  "avgDurationMs": 46380,
   "durationHistory": [
-    44757
+    46380
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -624,6 +624,7 @@
       "salaryMax": 116500,
       "currency": "CHF",
       "firstSeenAt": "2026-08-14T10:42:35.531Z",
+      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -929,44 +930,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Spindle Repair Advisor / Service Techniker 2nd Level Spindles",
-      "slug": "spindle-repair-advisor-service-techniker-2nd-level-spindles-agie-charmilles-biel-bienne",
-      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-spindle-repair-advisor-service-techniker-2nd-level-spindles/",
-      "applyUrl": "https://tracking.jobchannel.ch/redirect/d2c03a0b1818f48f47d72133b0e94cea0ca9f9809e5bc57e4b6497457d7d82e22200449f03583912092988ca30d5a5cef4d8cbd55956235ab5b021d508a38e",
-      "company": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "companyDomain": "gfms.com",
-      "location": "Biel/Bienne",
-      "addressLocality": "Biel/Bienne",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Macchine utensili",
-      "source": "agie-charmilles-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-08-19",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "workload": "100%",
-      "id": "agie-charmilles-c4613e489507",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-08-19T10:23:15.672Z",
-      "needsRetranslation": true,
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
