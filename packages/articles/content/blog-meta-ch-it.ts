@@ -4363,6 +4363,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-attivita-appenzello-interno-registro.title': 'Aprire attività in Appenzello Interno: costi e registro',
     'blog.article.aprire-attivita-appenzello-interno-registro.excerpt': 'Forma giuridica, iscrizione al registro di commercio, fiscalità a tre livelli e assicurazioni: ecco cosa serve per avviare un\'impresa nel cantone.',
     'blog.article.aprire-attivita-appenzello-interno-registro.imageAlt': 'Ufficio amministrativo cantonale svizzero con moduli di registrazione e vista su paesaggio alpino',
+    'blog.article.ffs-crescita-primo-semestre-2026.title': 'FFS nel segno della crescita nel primo semestre',
+    'blog.article.ffs-crescita-primo-semestre-2026.excerpt': 'Le Ferrovie federali svizzere chiudono il primo semestre 2026 con utili quasi raddoppiati e oltre 1,45 milioni di passeggeri giornalieri, in crescita del 4,0% rispetto al 2025.',
+    'blog.article.ffs-crescita-primo-semestre-2026.imageAlt': 'Treno moderno in stazione ferroviaria svizzera durante il giorno, infrastruttura ferroviaria contemporanea.',
 };
 
 export default blogMetaChIt;

@@ -4363,6 +4363,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-attivita-appenzello-interno-registro.title': 'Ouvrir des activités à Appenzell Interne : coûts et registre',
     'blog.article.aprire-attivita-appenzello-interno-registro.excerpt': 'Forme juridique, inscription au registre du commerce, fiscalité à trois niveaux et assurances : voilà ce qu\'il faut pour démarrer une entreprise dans le canton.',
     'blog.article.aprire-attivita-appenzello-interno-registro.imageAlt': 'Bureau administratif cantonal suisse avec formulaires d\'enregistrement et vue alpine',
+    'blog.article.ffs-crescita-primo-semestre-2026.title': 'CFF en signe de croissance au premier semestre',
+    'blog.article.ffs-crescita-primo-semestre-2026.excerpt': 'Les Chemins de fer fédéraux suisses clôturent le premier semestre 2026 avec des bénéfices presque doublés et plus de 1,45 million de passagers quotidiens, en hausse de 4,0% par rapport à 2025.',
+    'blog.article.ffs-crescita-primo-semestre-2026.imageAlt': 'Train moderne à la gare ferroviaire suisse pendant la journée, infrastructure ferroviaire contemporaine.',
 };
 
 export default blogMetaChFr;

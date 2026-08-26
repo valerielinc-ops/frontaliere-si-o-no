@@ -56609,6 +56609,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ffs-crescita-primo-semestre-2026': {
+    title: 'FFS nel segno della crescita nel primo semestre',
+    description: 'FFS chiude il primo semestre 2026 con 1,45 milioni di passeggeri giornalieri (+4%) e utile raddoppiato a 126 milioni CHF. Puntualità 94,1%, priorità',
+    keywords: 'frontalieri, ticino, svizzera, italia, segno, crescita, primo, semestre',
+    ogTitle: 'FFS nel segno della crescita nel primo semestre',
+    ogDescription: 'Le Ferrovie federali svizzere registrano 1,45 milioni di passeggeri giornalieri nel primo semestre 2026, con crescita del 4% e utile raddoppiato a 126 milioni CHF. Affidabilità e innovazione al centro della strategia.',
+    canonicalPath: '/articoli-svizzera/ffs-crescita-primo-semestre-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "FFS nel segno della crescita nel primo semestre",
+      "description": "FFS chiude il primo semestre 2026 con 1,45 milioni di passeggeri giornalieri (+4%) e utile raddoppiato a 126 milioni CHF. Puntualità 94,1%, priorità",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ffs-crescita-primo-semestre-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno moderno in stazione ferroviaria svizzera durante il giorno, infrastruttura ferroviaria contemporanea."
+      },
+      "datePublished": "2026-08-26T07:42:41+00:00",
+      "dateModified": "2026-08-26T07:42:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ffs-crescita-primo-semestre-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
