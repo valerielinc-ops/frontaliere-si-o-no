@@ -4396,6 +4396,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.fondi-siccita-foreste-agricoltura.title': 'Drought 2026: 70 million for forests and agriculture',
     'blog.article.fondi-siccita-foreste-agricoltura.excerpt': 'The Federal Council is asking Parliament for over 70 million francs: 17.5 million annually from 2028 for forests, 54 million once for farmers in 2026.',
     'blog.article.fondi-siccita-foreste-agricoltura.imageAlt': 'Drought-stricken Alpine forests and Swiss mountain landscape affected by climate change',
+    'blog.article.stipendi-aumenti-differenziati-2026.title': 'Salaries 2026: Double raises for the best',
+    'blog.article.stipendi-aumenti-differenziati-2026.excerpt': 'According to WTW, top performers receive 3.9% while the average stands at 2%. Drastic differences also in the IT sector.',
+    'blog.article.stipendi-aumenti-differenziati-2026.imageAlt': 'Swiss office environment with employees reviewing salary documents and pay slips.',
 };
 
 export default blogMetaChEn;
