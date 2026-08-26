@@ -10792,6 +10792,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bionaz-lavorare-vallese-frontaliere.title': 'Leben in Bionaz und Arbeiten im Wallis: Leitfaden',
     'blog.article.bionaz-lavorare-vallese-frontaliere.excerpt': 'G-Bewilligung, Quellensteuer in der Schweiz, KVG und Doppelbesteuerungsabkommen: Alles, was Sie wissen müssen, um ins Aostatal zu ziehen und im Wallis zu arbeiten.',
     'blog.article.bionaz-lavorare-vallese-frontaliere.imageAlt': 'Aussicht auf das Wallis und das Aostatal vom Simplonpass mit alpiner Berglandschaft.',
+    'blog.article.a13-chiusure-mappo-minusio-2026.title': 'A13, Nachtsperrungen MAPPO Minusio',
+    'blog.article.a13-chiusure-mappo-minusio-2026.excerpt': 'Ab dem 26. August Nachtsperrungen an den Halbstellen A13. Öffnungszeiten 21:00–05:00 Uhr für Bodenbeläge. Alternativen via Tenero und Locarno, garantierter Tagesverkehr.',
+    'blog.article.a13-chiusure-mappo-minusio-2026.imageAlt': 'Nachtaufnahme der Autobahn A13 mit Baustellen-Beschilderung an den Halbausfahrten Mappo und Minusio',
 };
 
 export default blogMetaDe;

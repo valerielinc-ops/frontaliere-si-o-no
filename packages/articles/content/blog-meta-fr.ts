@@ -10795,6 +10795,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bionaz-lavorare-vallese-frontaliere.title': 'Vivre à Bionaz et travailler en Valais : guide',
     'blog.article.bionaz-lavorare-vallese-frontaliere.excerpt': 'Permis G, impôt à la source en Suisse, LAMal et Convention double imposition : tout ce qu\'il faut savoir pour déménager en Vallée d\'Aoste et travailler en Valais.',
     'blog.article.bionaz-lavorare-vallese-frontaliere.imageAlt': 'Vue panoramique du Valais et de la Vallée d\'Aoste depuis le col du Simplon avec paysage alpin.',
+    'blog.article.a13-chiusure-mappo-minusio-2026.title': 'A13, fermetures nocturnes mappo minusio',
+    'blog.article.a13-chiusure-mappo-minusio-2026.excerpt': 'À partir du 26 août, fermetures nocturnes aux demi-jonctions A13. Horaires 21:00–05:00 pour le revêtement de sol. Alternatives via Tenero et Locarno, trafic de jour garanti.',
+    'blog.article.a13-chiusure-mappo-minusio-2026.imageAlt': 'Vue nocturne de l\'autoroute A13 avec signalisation de chantier aux semi-échangeurs Mappo et Minusio',
 };
 
 export default blogMetaFr;

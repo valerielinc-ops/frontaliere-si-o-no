@@ -10793,6 +10793,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bionaz-lavorare-vallese-frontaliere.title': 'Living in Bionaz and working in Valais: a guide',
     'blog.article.bionaz-lavorare-vallese-frontaliere.excerpt': 'Permit G, tax at source in Switzerland, LAMal and Double Tax Convention: everything you need to know to move to Valle d \'Aosta and work in the Valais.',
     'blog.article.bionaz-lavorare-vallese-frontaliere.imageAlt': 'Panoramic view of the Valais and Aosta Valley from Simplon Pass, showing Alpine mountain landscape.',
+    'blog.article.a13-chiusure-mappo-minusio-2026.title': 'A13, mappo minusio night closures',
+    'blog.article.a13-chiusure-mappo-minusio-2026.excerpt': 'From 26 August, night closures at the semi-junction A13. Hours 21:00–05:00 for flooring. Alternatives via Tenero and Locarno, guaranteed daytime traffic.',
+    'blog.article.a13-chiusure-mappo-minusio-2026.imageAlt': 'Nighttime view of A13 motorway with construction signage at Mappo and Minusio semi-junctions',
 };
 
 export default blogMetaEn;
