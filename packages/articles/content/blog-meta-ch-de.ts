@@ -4363,6 +4363,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-attivita-appenzello-interno-registro.title': 'Geschäft in Appenzell Innerrhoden eröffnen: Kosten und Register',
     'blog.article.aprire-attivita-appenzello-interno-registro.excerpt': 'Rechtsform, Handelsregistereintrag, dreistufige Besteuerung und Versicherungen - das braucht man, um ein Unternehmen im Kanton zu gründen.',
     'blog.article.aprire-attivita-appenzello-interno-registro.imageAlt': 'Schweizer Kantonsamt mit Registrierungsformularen und Berglandschaftsblick',
+    'blog.article.ffs-crescita-primo-semestre-2026.title': 'SBB im Zeichen des Wachstums im ersten Halbjahr',
+    'blog.article.ffs-crescita-primo-semestre-2026.excerpt': 'Die Schweizerischen Bundesbahnen schliessen das erste Halbjahr 2026 mit nahezu verdoppelten Gewinnen und über 1,45 Millionen Fahrgästen pro Tag ab, ein Plus von 4,0% gegenüber 2025.',
+    'blog.article.ffs-crescita-primo-semestre-2026.imageAlt': 'Moderner Zug an einem Schweizer Bahnhof tagsüber, zeitgenössische Eisenbahninfrastruktur.',
 };
 
 export default blogMetaChDe;

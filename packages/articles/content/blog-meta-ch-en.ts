@@ -4363,6 +4363,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-attivita-appenzello-interno-registro.title': 'Open activities in Appenzello Interno: costs and register',
     'blog.article.aprire-attivita-appenzello-interno-registro.excerpt': 'Legal form, registration in the commercial register, three-tier taxation and insurance: this is what you need to start a business in the canton.',
     'blog.article.aprire-attivita-appenzello-interno-registro.imageAlt': 'Swiss cantonal administration office with registration forms and alpine landscape view',
+    'blog.article.ffs-crescita-primo-semestre-2026.title': 'SBB in the sign of growth in the first half of the year',
+    'blog.article.ffs-crescita-primo-semestre-2026.excerpt': 'Swiss Federal Railways closes the first half of 2026 with profits almost doubling and over 1.45 million daily passengers, up 4.0% compared to 2025.',
+    'blog.article.ffs-crescita-primo-semestre-2026.imageAlt': 'Modern train at a Swiss railway station during daytime, contemporary railway infrastructure.',
 };
 
 export default blogMetaChEn;

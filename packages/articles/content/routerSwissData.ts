@@ -1480,6 +1480,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'raiffeisen-taglio-posti-lavoro': { it: 'raiffeisen-taglio-posti-lavoro', en: 'raiffeisen-180-job-cuts-switzerland', de: 'raiffeisen-stellenabbau-schweiz', fr: 'raiffeisen-suppressions-postes' },
  'brienz-ricollocazione-sicurezza': { it: 'brienz-ricollocazione-sicurezza', en: 'brienz-relocation-safety', de: 'brienz-umsiedlung-sicherheit', fr: 'brienz-relocalisation-securite' },
  'aprire-attivita-appenzello-interno-registro': { it: 'aprire-attivita-appenzello-interno-registro', en: 'start-business-appenzell-innerrhoden-register', de: 'geschaeft-eroeffnen-appenzell-handelsregister', fr: 'ouvrir-activite-appenzell-registre-commerce' },
+ 'ffs-crescita-primo-semestre-2026': { it: 'ffs-crescita-primo-semestre-2026', en: 'sbb-growth-first-half-2026', de: 'sbb-wachstum-erstes-halbjahr-2026', fr: 'cff-croissance-premier-semestre-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
