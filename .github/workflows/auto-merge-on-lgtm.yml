@@ -28,6 +28,20 @@ on:
   workflow_run:
     workflows: ['tests'] # name: del workflow tests.yml (check-run vitest)
     types: [completed]
+    # `tests.yml` gira anche su `push: main` (i crawler committano diretto,
+    # senza PR) — quelle run non hanno mai una PR da mergiare, ma senza
+    # questo filtro ogni loro completamento (compresi i CANCELLED, la
+    # maggioranza durante un burst di crawler: `tests.yml` capa l'esecuzione
+    # reale a 1 running + 1 pending, il resto lo cancella subito) genera
+    # comunque un run indipendente di QUESTO job — 131 push in 30 minuti
+    # osservati il 2026-08-26 hanno accodato 94+ run qui, competendo per gli
+    # slot condivisi dell'account con le PR vere. `branches-ignore` filtra
+    # sul branch della run che ha GENERATO l'evento: `main` per un push
+    # diretto, il branch della PR per `pull_request` E per il
+    # `workflow_dispatch` di `pr-autorebase.yml` (che dispatcha esplicitamente
+    # sul ref della PR, mai su `main`) — quindi questo esclude solo i push
+    # diretti, non tocca nessun percorso che porta a un merge vero.
+    branches-ignore: [main]
 
 permissions:
   contents: write
