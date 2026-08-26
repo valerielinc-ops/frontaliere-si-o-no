@@ -4420,6 +4420,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.seco-fmi-partenariato-economia.title': 'Federal Council approves SECO-IMF partnership for economy',
     'blog.article.seco-fmi-partenariato-economia.excerpt': 'On 26 August, the Swiss Government allocated CHF 40 million for the SECO-FMI 2026-2030 programme, strengthening global economic institutions for the benefit of Swiss businesses.',
     'blog.article.seco-fmi-partenariato-economia.imageAlt': 'Panoramic view of Lugano, economic center of Ticino, symbolizing international economic cooperation.',
+    'blog.article.ambiente-globale-176-milioni-2030.title': 'Global environment: 176 million from Switzerland until 2030',
+    'blog.article.ambiente-globale-176-milioni-2030.excerpt': 'The Federal Council approves a commitment appropriation of CHF 176.23 million to finance international environmental projects from 2027 to 2030, but Parliament will have to approve it.',
+    'blog.article.ambiente-globale-176-milioni-2030.imageAlt': 'Swiss Alpine landscape with pristine mountain lake surrounded by coniferous forest, symbolizing environmental protection.',
 };
 
 export default blogMetaChEn;

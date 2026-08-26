@@ -1499,6 +1499,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'stadler-rail-risultati-primo-semestre': { it: 'stadler-rail-risultati-primo-semestre', en: 'stadler-rail-first-half-results', de: 'stadler-rail-halbjahresergebnisse', fr: 'stadler-rail-resultats-premier-semestre' },
  'ffs-rincari-tariffe-wyss': { it: 'ffs-rincari-tariffe-wyss', en: 'sbb-fare-increases-wyss', de: 'sbb-fahrpreiserhoehung-wyss', fr: 'cff-augmentation-tarifs-wyss' },
  'seco-fmi-partenariato-economia': { it: 'seco-fmi-partenariato-economia', en: 'seco-fmi-partnership-economy', de: 'seco-fmi-partnerschaft-wirtschaft', fr: 'seco-fmi-partenariat-economie' },
+ 'ambiente-globale-176-milioni-2030': { it: 'ambiente-globale-176-milioni-2030', en: 'global-environment-176-million-swiss-2030', de: 'globale-umwelt-176-millionen-schweiz-2030', fr: 'environnement-mondial-176-millions-suisse-2030' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

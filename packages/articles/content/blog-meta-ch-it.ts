@@ -4420,6 +4420,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.seco-fmi-partenariato-economia.title': 'Consiglio federale approva partenariato SECO-FMI per economia',
     'blog.article.seco-fmi-partenariato-economia.excerpt': 'Il 26 agosto il Governo svizzero ha stanziato CHF 40 milioni per il programma SECO-FMI 2026-2030, rafforzando le istituzioni economiche globali a beneficio delle imprese svizzere.',
     'blog.article.seco-fmi-partenariato-economia.imageAlt': 'Veduta di Lugano, centro economico del Ticino, simbolo di cooperazione economica internazionale.',
+    'blog.article.ambiente-globale-176-milioni-2030.title': 'Ambiente globale: 176 milioni dalla Svizzera fino al 2030',
+    'blog.article.ambiente-globale-176-milioni-2030.excerpt': 'Il Consiglio federale approva un credito d\'impegno di 176,23 milioni di franchi per finanziare progetti ambientali internazionali dal 2027 al 2030, ma il Parlamento dovrà approvare.',
+    'blog.article.ambiente-globale-176-milioni-2030.imageAlt': 'Paesaggio alpino svizzero con lago cristallino circondato da foresta, simbolo di protezione ambientale.',
 };
 
 export default blogMetaChIt;

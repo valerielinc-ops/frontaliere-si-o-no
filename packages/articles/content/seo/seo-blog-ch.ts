@@ -57350,6 +57350,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ambiente-globale-176-milioni-2030': {
+    title: 'Ambiente globale: 176 milioni dalla Svizzera fino al 2030',
+    description: 'Il Consiglio federale approva un credito d\'impegno di 176,23 milioni di franchi per finanziare progetti ambientali internazionali dal 2027 al 2030, ma',
+    keywords: 'frontalieri, ticino, svizzera, italia, ambiente, globale, milioni, dalla',
+    ogTitle: 'Ambiente globale: 176 milioni dalla Svizzera fino al 2030',
+    ogDescription: 'Il Consiglio federale approva un credito d\'impegno di 176,23 milioni di franchi per finanziare progetti ambientali internazionali dal 2027 al 2030, ma il Parlamento dovrà approvare.',
+    canonicalPath: '/articoli-svizzera/ambiente-globale-176-milioni-2030/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ambiente globale: 176 milioni dalla Svizzera fino al 2030",
+      "description": "Il Consiglio federale approva un credito d'impegno di 176,23 milioni di franchi per finanziare progetti ambientali internazionali dal 2027 al 2030, ma",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ambiente-globale-176-milioni-2030.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio alpino svizzero con lago cristallino circondato da foresta, simbolo di protezione ambientale."
+      },
+      "datePublished": "2026-08-26T19:24:39+00:00",
+      "dateModified": "2026-08-26T19:24:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ambiente-globale-176-milioni-2030/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
