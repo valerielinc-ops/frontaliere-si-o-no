@@ -4393,6 +4393,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.benzina-diesel-prezzi-calano.title': 'Essence et diesel : prix en baisse',
     'blog.article.benzina-diesel-prezzi-calano.excerpt': 'Le TCS relève une baisse : essence 95 à 1,98 CHF/litre, diesel à 2,23 CHF. Mais il reste +14-18% plus cher qu\'en février.',
     'blog.article.benzina-diesel-prezzi-calano.imageAlt': 'Station-service suisse affichant les prix en francs suisses',
+    'blog.article.fondi-siccita-foreste-agricoltura.title': 'Sécheresse 2026: 70 millions pour les forêts et l\'agriculture',
+    'blog.article.fondi-siccita-foreste-agricoltura.excerpt': 'Le Conseil fédéral demande au Parlement plus de 70 millions de francs : 17,5 millions annuels dès 2028 pour les forêts, 54 millions uniques en 2026 pour les agriculteurs.',
+    'blog.article.fondi-siccita-foreste-agricoltura.imageAlt': 'Forêts alpines touchées par la sécheresse et paysage montagneux suisse',
 };
 
 export default blogMetaChFr;

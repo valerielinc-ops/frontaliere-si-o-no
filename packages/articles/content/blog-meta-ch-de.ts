@@ -4393,6 +4393,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.benzina-diesel-prezzi-calano.title': 'Benzin und Diesel: Preise fallen',
     'blog.article.benzina-diesel-prezzi-calano.excerpt': 'Der TCS stellt einen Rückgang fest: Benzin 95 bei 1,98 CHF/Liter, Diesel bei 2,23 CHF. Aber es bleibt +14-18% teurer als im Februar.',
     'blog.article.benzina-diesel-prezzi-calano.imageAlt': 'Schweizer Tankstelle mit Preisanzeige in Schweizer Franken',
+    'blog.article.fondi-siccita-foreste-agricoltura.title': 'Dürre 2026: 70 Millionen für Wald und Landwirtschaft',
+    'blog.article.fondi-siccita-foreste-agricoltura.excerpt': 'Der Bundesrat fordert vom Parlament über 70 Millionen Franken: 17,5 Millionen jährlich ab 2028 für die Wälder, 54 Millionen einmalig bis 2026 für die Landwirte.',
+    'blog.article.fondi-siccita-foreste-agricoltura.imageAlt': 'Von Dürre betroffene Alpenwälder und Schweizer Berglandschaft mit Klimaschäden',
 };
 
 export default blogMetaChDe;

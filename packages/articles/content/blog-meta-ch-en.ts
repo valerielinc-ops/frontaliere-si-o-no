@@ -4393,6 +4393,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.benzina-diesel-prezzi-calano.title': 'Petrol and diesel: falling prices',
     'blog.article.benzina-diesel-prezzi-calano.excerpt': 'The TCS shows a decrease: petrol 95 at 1.98 CHF/litre, diesel at 2.23 CHF. But it remains +14-18% more expensive than in February.',
     'blog.article.benzina-diesel-prezzi-calano.imageAlt': 'Swiss petrol pump displaying fuel prices in Swiss francs',
+    'blog.article.fondi-siccita-foreste-agricoltura.title': 'Drought 2026: 70 million for forests and agriculture',
+    'blog.article.fondi-siccita-foreste-agricoltura.excerpt': 'The Federal Council is asking Parliament for over 70 million francs: 17.5 million annually from 2028 for forests, 54 million once for farmers in 2026.',
+    'blog.article.fondi-siccita-foreste-agricoltura.imageAlt': 'Drought-stricken Alpine forests and Swiss mountain landscape affected by climate change',
 };
 
 export default blogMetaChEn;
