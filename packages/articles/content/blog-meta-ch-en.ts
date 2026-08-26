@@ -4366,6 +4366,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ffs-crescita-primo-semestre-2026.title': 'SBB in the sign of growth in the first half of the year',
     'blog.article.ffs-crescita-primo-semestre-2026.excerpt': 'Swiss Federal Railways closes the first half of 2026 with profits almost doubling and over 1.45 million daily passengers, up 4.0% compared to 2025.',
     'blog.article.ffs-crescita-primo-semestre-2026.imageAlt': 'Modern train at a Swiss railway station during daytime, contemporary railway infrastructure.',
+    'blog.article.grigioni-perequazione-2027.title': 'Grisons 2027: +1.5 million for equalisation',
+    'blog.article.grigioni-perequazione-2027.excerpt': 'In 2027, the Canton of Graubünden increases financial equalisation contributions to municipalities to 73.2 million. The canton pays 41.7 million, the municipalities 31.5.',
+    'blog.article.grigioni-perequazione-2027.imageAlt': 'Aerial view of an Alpine municipality in Canton Graubünden with mountain landscape',
 };
 
 export default blogMetaChEn;

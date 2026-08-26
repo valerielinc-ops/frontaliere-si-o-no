@@ -4366,6 +4366,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ffs-crescita-primo-semestre-2026.title': 'CFF en signe de croissance au premier semestre',
     'blog.article.ffs-crescita-primo-semestre-2026.excerpt': 'Les Chemins de fer fédéraux suisses clôturent le premier semestre 2026 avec des bénéfices presque doublés et plus de 1,45 million de passagers quotidiens, en hausse de 4,0% par rapport à 2025.',
     'blog.article.ffs-crescita-primo-semestre-2026.imageAlt': 'Train moderne à la gare ferroviaire suisse pendant la journée, infrastructure ferroviaire contemporaine.',
+    'blog.article.grigioni-perequazione-2027.title': 'Grisons 2027 : +1,5 millions par péréquation',
+    'blog.article.grigioni-perequazione-2027.excerpt': 'En 2027, le canton des Grisons augmente les contributions de péréquation financière aux communes à 73,2 millions. Le canton verse 41,7 millions, les communes fortes 31,5.',
+    'blog.article.grigioni-perequazione-2027.imageAlt': 'Vue aérienne d\'une commune alpine du Canton des Grisons avec paysage montagneux',
 };
 
 export default blogMetaChFr;
