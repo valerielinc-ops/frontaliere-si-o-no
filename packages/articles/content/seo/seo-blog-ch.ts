@@ -56725,6 +56725,201 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
+
+  'blog-infortuni-soglia-indipendenti-2027': {
+    title: 'LAINF: soglia ridotta per 40.000 lavoratori indipendenti',
+    description: 'Consiglio federale abbassa accesso LAINF da CHF 66.690 a CHF 44.460. Dal 1° gennaio 2027, 40.000 indipendenti potranno assicurarsi contro gli infortuni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lainf, soglia, ridotta, lavoratori',
+    ogTitle: 'LAINF: soglia ridotta per 40.000 lavoratori indipendenti',
+    ogDescription: 'Il Consiglio federale abbassa la soglia LAINF per indipendenti da CHF 66.690 a CHF 44.460 annui. Dal 1° gennaio 2027, 40.000 autonomi potranno assicurarsi contro gli infortuni. Accesso facilitato per settori a basso reddito e donne part-time.',
+    canonicalPath: '/articoli-svizzera/infortuni-soglia-indipendenti-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "LAINF: soglia ridotta per 40.000 lavoratori indipendenti",
+      "description": "Consiglio federale abbassa accesso LAINF da CHF 66.690 a CHF 44.460. Dal 1° gennaio 2027, 40.000 indipendenti potranno assicurarsi contro gli infortuni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/infortuni-soglia-indipendenti-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratore indipendente al computer con vista su paesaggio svizzero alpino"
+      },
+      "datePublished": "2026-08-26T09:28:35+00:00",
+      "dateModified": "2026-08-26T09:28:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/infortuni-soglia-indipendenti-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-accesso-facilitato-infortuni-2027': {
+    title: 'Accesso facilitato all\'assicurazione infortuni dal 2027',
+    description: 'Il Consiglio federale abbassa la soglia di accesso all\'assicurazione infortuni da CHF 66.690 a CHF 44.460. Vantaggi per circa 40 mila autonomi dal 1° gennaio',
+    keywords: 'frontalieri, ticino, svizzera, italia, accesso, facilitato, assicurazione, infortuni',
+    ogTitle: 'Assicurazione infortuni: abbassata la soglia d\'accesso',
+    ogDescription: 'Dal 26 agosto 2026 il Consiglio federale riduce la soglia di accesso all\'assicurazione facoltativa infortuni da CHF 66.690 a CHF 44.460. Circa 40 mila lavoratori indipendenti potranno assicurarsi dal 1° gennaio 2027, con opportunità per donne',
+    canonicalPath: '/articoli-svizzera/accesso-facilitato-infortuni-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Accesso facilitato all'assicurazione infortuni dal 2027",
+      "description": "Il Consiglio federale abbassa la soglia di accesso all'assicurazione infortuni da CHF 66.690 a CHF 44.460. Vantaggi per circa 40 mila autonomi dal 1° gennaio",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/accesso-facilitato-infortuni-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Professionista indipendente che lavora in un ufficio moderno con vista sulla città svizzera"
+      },
+      "datePublished": "2026-08-26T09:39:24+00:00",
+      "dateModified": "2026-08-26T09:39:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/accesso-facilitato-infortuni-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-indennita-parentali-2027': {
+    title: 'Indennità parentali: nuovi diritti dal 1° luglio 2027',
+    description: 'Il Consiglio federale approva la riforma IPG: dal 2027 genitori avranno accesso a prestazioni finora riservate ai militari. Armonizzazione legge indemnità.',
+    keywords: 'frontalieri, ticino, svizzera, italia, indennità, parentali, nuovi, diritti',
+    ogTitle: 'Indennità parentali: nuovi diritti dal 1° luglio 2027',
+    ogDescription: 'Il Consiglio federale pone in vigore le modifiche alla legge sulle indemnità di perdita di guadagno (IPG) dal 1° luglio 2027. Genitori, lavoratori indipendenti e famiglie accederanno a prestazioni finora riservate a militari e civili. Ecco le quattro',
+    canonicalPath: '/articoli-svizzera/indennita-parentali-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Indennità parentali: nuovi diritti dal 1° luglio 2027",
+      "description": "Il Consiglio federale approva la riforma IPG: dal 2027 genitori avranno accesso a prestazioni finora riservate ai militari. Armonizzazione legge indemnità.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/indennita-parentali-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale di Berna, sede del Consiglio federale e del Parlamento svizzero"
+      },
+      "datePublished": "2026-08-26T10:06:28+00:00",
+      "dateModified": "2026-08-26T10:06:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/indennita-parentali-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-allerte-popolazione-cell-broadcast': {
+    title: 'Allerte popolazione: Berna accelera cell broadcast',
+    description: 'Consiglio federale chiede 15,8 milioni CHF per il cell broadcast, sistema di allerta che raggiungerà i cittadini direttamente sui loro cellulari.',
+    keywords: 'frontalieri, ticino, svizzera, italia, allerte, popolazione, berna, accelera',
+    ogTitle: 'Allerte popolazione: Berna accelera cell broadcast',
+    ogDescription: 'Il Consiglio federale accelera il cell broadcast con un investimento di 15,8 milioni CHF. Nuovo sistema di allerta manderà messaggi direttamente sui cellulari. Integra sirene, radio, web e app Alertswiss per protezione civile più efficace.',
+    canonicalPath: '/articoli-svizzera/allerte-popolazione-cell-broadcast/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Allerte popolazione: Berna accelera cell broadcast",
+      "description": "Consiglio federale chiede 15,8 milioni CHF per il cell broadcast, sistema di allerta che raggiungerà i cittadini direttamente sui loro cellulari.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/allerte-popolazione-cell-broadcast.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Dimostrazione di sistema di allerta d'emergenza con messaggi su telefoni mobili in una piazza svizzera"
+      },
+      "datePublished": "2026-08-26T10:54:48+00:00",
+      "dateModified": "2026-08-26T10:54:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/allerte-popolazione-cell-broadcast/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-edilizia-crescita-primo-semestre': {
+    title: 'Edilizia: crescita del +3,1% nei primi sei mesi 2026',
+    description: 'Nel primo semestre 2026 il settore della costruzione svizzera registra un fatturato di 11,2 miliardi di franchi in crescita del 3,1%. Boom dell\'edilizia',
+    keywords: 'frontalieri, ticino, svizzera, italia, edilizia, crescita, primi, mesi',
+    ogTitle: 'Edilizia svizzera in crescita: +3,1% nel primo semestre',
+    ogDescription: 'Il settore delle costruzioni svizzere cresce: fatturato 11,2 miliardi CHF (+3,1%). L\'edilizia abitativa boom a +8,1%, ma infrastrutture e ferrovie restano in difficoltà. Cosa sapere su alloggi, permessi edili, ricorsi e il progetto «Trasporti \'45».',
+    canonicalPath: '/articoli-svizzera/edilizia-crescita-primo-semestre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Edilizia: crescita del +3,1% nei primi sei mesi 2026",
+      "description": "Nel primo semestre 2026 il settore della costruzione svizzera registra un fatturato di 11,2 miliardi di franchi in crescita del 3,1%. Boom dell'edilizia",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/edilizia-crescita-primo-semestre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cantiere edile moderno in Svizzera con gru e nuovi edifici residenziali, simbolo della crescita del settore costruzioni e del mercato abitativo nel 2026."
+      },
+      "datePublished": "2026-08-26T11:30:35+00:00",
+      "dateModified": "2026-08-26T11:30:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/edilizia-crescita-primo-semestre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
 };
 
 export default BLOG_CH_SEO_METADATA;

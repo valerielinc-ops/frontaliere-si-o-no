@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spruengli",
-  "assembledAt": "2026-08-25T21:46:08.957Z",
+  "assembledAt": "2026-08-26T10:07:18.335Z",
   "jobs": [
     {
       "id": "spruengli-765874e25e44",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/116352/1255/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:46:05.632Z",
+      "crawledAt": "2026-08-26T10:07:14.460Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -128,7 +128,7 @@
       "url": "https://apply.refline.ch/116352/1234/pub/9/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:46:05.632Z",
+      "crawledAt": "2026-08-26T10:07:14.460Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -215,7 +215,7 @@
       "url": "https://apply.refline.ch/116352/1253/pub/2/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:46:05.631Z",
+      "crawledAt": "2026-08-26T10:07:14.459Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -249,6 +249,7 @@
         ]
       },
       "firstSeenAt": "2026-08-13T10:21:56.386Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -293,7 +294,7 @@
       "url": "https://apply.refline.ch/116352/1246/pub/5/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:46:05.629Z",
+      "crawledAt": "2026-08-26T10:07:14.458Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -374,7 +375,7 @@
       "url": "https://apply.refline.ch/116352/1223/pub/17/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:46:05.627Z",
+      "crawledAt": "2026-08-26T10:07:14.457Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -440,7 +441,7 @@
       "url": "https://apply.refline.ch/116352/1039/pub/68/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:46:05.626Z",
+      "crawledAt": "2026-08-26T10:07:14.456Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Bahnhofstrasse 21",
@@ -526,7 +527,7 @@
       "url": "https://apply.refline.ch/116352/1252/pub/2/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:46:05.624Z",
+      "crawledAt": "2026-08-26T10:07:14.454Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "streetAddress": "Postfach 1462",
@@ -607,7 +608,7 @@
       "url": "https://apply.refline.ch/116352/1207/pub/34/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:46:05.622Z",
+      "crawledAt": "2026-08-26T10:07:14.453Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -696,7 +697,7 @@
       "url": "https://apply.refline.ch/116352/1064/pub/76/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:46:05.622Z",
+      "crawledAt": "2026-08-26T10:07:14.453Z",
       "addressLocality": "Zermatt",
       "addressRegion": "VS",
       "streetAddress": "Bahnhofstrasse 9",
@@ -735,6 +736,7 @@
         ]
       },
       "firstSeenAt": "2026-08-05T22:28:54.320Z",
+      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "baseSalary": {
@@ -744,97 +746,6 @@
           "@type": "QuantitativeValue",
           "minValue": 72000,
           "maxValue": 111000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spruengli-f6bdb802675d",
-      "slug": "consulente-commerciale-80-bahnhof-baden-confiserie-sprungli-ag-aargau-81814a",
-      "slugByLocale": {
-        "it": "consulente-commerciale-80-bahnhof-baden-confiserie-sprungli-ag-aargau-81814a",
-        "en": "sales-consultant-80-bahnhof-baden-confiserie-sprungli-ag-aargau-81814a",
-        "de": "verkaufsberater-in-80-bahnhof-baden-spruengli-aargau",
-        "fr": "consultant-en-ventes-80-bahnhof-baden-confiserie-sprungli-ag-aargau-81814a"
-      },
-      "company": "Confiserie Sprüngli AG",
-      "companyKey": "spruengli",
-      "companyDomain": "spruengli.ch",
-      "title": "Verkaufsberater*in (80%) Bahnhof Baden",
-      "titleByLocale": {
-        "it": "Consulente commerciale (80%) Bahnhof Baden",
-        "en": "Sales consultant (80%) Bahnhof Baden",
-        "de": "Verkaufsberater*in (80%) Bahnhof Baden",
-        "fr": "Consultant en ventes (80 %) Bahnhof Baden"
-      },
-      "description": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nVerkaufsberater*in (80%) Bahnhof Baden\n\n80%, Aargau\n\nArbeiten bei Sprüngli\n\nFür unsere Filiale im Bahnhof Baden suchen wir nach Vereinbarung eine engagierte und verkaufsorientierte Persönlichkeit als\n\nWas du bei uns bewegst\n\n• Beratung unserer nationalen und internationalen Kundschaft mit einer exzellenten Service-Qualität\n\n• Bewirtschaftung und Präsentation unserer erlesenen Sprüngli-Produkte mit dekorativem Flair\n\n• Entgegennahme von Kundenbestellungen und Vorbereitung für die Abholung\n\nWas wir uns wünschen\n\n• Abgeschlossene Ausbildung im Detailhandel und/oder Verkaufserfahrung im Detailhandel (vorzugsweise Confiserie- oder Lebensmittelbranche) oder als Servicefachfrau\n\n• Fliessende Deutsch- und gute Englischkenntnisse\n\n• Flexibilität bezüglich Arbeitszeiten (Schichteinsätze zwischen 6.00 und 21.30 Uhr sowie 2 bis 3 Wochenend-Einsätze pro Monat)\n\nDarauf kannst du dich freuen\n\n• Individuelle Verantwortungsbereiche sowie Entwicklungs- und Weiterbildungsmöglichkeiten\n\n• Grosszügige Zulagen und Einkaufsvergünstigung\n\n• Zusätzlicher freier Tag als Geburtstagswertschätzung\n\n• Ein lebhaftes und modernes Umfeld mit einer kollegialen Du-Kultur\n\n• Ein motiviertes und engagiertes Team, welches sich jetzt schon auf dich freut\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
-      "descriptionByLocale": {
-        "it": "Fondata nel 1836, l'azienda familiare svizzera è oggi una delle più rinomate confiserie d'Europa con la sua squisita gamma. I prodotti di Sprüngli si distinguono per la migliore qualità, unicità e naturalezza. Le creazioni completate portano clienti da tutto il mondo a sciamare ogni giorno.\n\nConsulente commerciale (80%) Bahnhof Baden\n\n80%, Aargau\n\nLavorare a Sprüngli\n\nPer la nostra filiale nella stazione ferroviaria di Baden stiamo cercando una personalità impegnata e orientata alle vendite come\n\nCosa fai con noi\n\n• Consultare i nostri clienti nazionali e internazionali con una qualità di servizio eccellente\n\n• Gestione e presentazione dei nostri squisiti prodotti Sprüngli con tocco decorativo\n\n• Ricezione degli ordini dei clienti e preparazione alla raccolta\n\nCosa vogliamo\n\n• Formazione completa nel commercio al dettaglio e/o nell'esperienza di vendita al dettaglio (preferibilmente confiserie o industria alimentare) o come specialista di servizi\n\n• Flusso tedesco e buone competenze in inglese\n\n• Flessibilità in termini di orario di lavoro (cambiamenti tra le 6.00 e le 21.30 e le 2 a 3 weekend al mese)\n\nNon vedo l'ora.\n\n• Aree individuali di responsabilità e opportunità di sviluppo e formazione\n\n• Indennità e incentivi all'acquisto\n\n• Ulteriore giorno libero come apprezzamento di compleanno\n\n• Un ambiente vivace e moderno con una cultura collegiale\n\n• Un team motivato e impegnato che già vi aspetta\n\nSei interessato?\nAllora non vediamo l'ora della vostra applicazione elettronica. *\nAttualmente non accettiamo le domande da agenzie di reclutamento per questa posizione.",
-        "en": "Founded in 1836, the Swiss family business is today one of the most renowned confiseries in Europe with its exquisite range. The products from Sprüngli stand for the best quality, unique freshness and naturalness. The completed creations bring customers from all over the world to swarm daily.\n\nSales consultant (80%) Bahnhof Baden\n\n80%, Aargau\n\nWorking at Sprüngli\n\nFor our branch in the train station Baden we are looking for an engaged and sales-oriented personality as\n\nWhat you do with us\n\n• Advising our national and international customers with excellent service quality\n\n• Management and presentation of our exquisite Sprüngli products with decorative flair\n\n• Receiving customer orders and preparing for collection\n\nWhat we want\n\n• Completed training in the retail trade and/or sales experience in the retail trade (preferably confiserie or food industry) or as a service specialist\n\n• Flowing German and good English skills\n\n• Flexibility in terms of working hours (shifts between 6.00 and 21.30 and 2 to 3 weekend assignments per month)\n\nYou can look forward to it.\n\n• Individual areas of responsibility as well as development and training opportunities\n\n• Generous allowances and purchase incentives\n\n• Additional free day as a birthday appreciation\n\n• A lively and modern environment with a collegial du culture\n\n• A motivated and committed team that is already looking forward to you\n\nAre you interested?\nThen we look forward to your electronic application. *\nWe are not currently accepting applications from recruitment agencies for this position.",
-        "de": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nVerkaufsberater*in (80%) Bahnhof Baden\n\n80%, Aargau\n\nArbeiten bei Sprüngli\n\nFür unsere Filiale im Bahnhof Baden suchen wir nach Vereinbarung eine engagierte und verkaufsorientierte Persönlichkeit als\n\nWas du bei uns bewegst\n\n• Beratung unserer nationalen und internationalen Kundschaft mit einer exzellenten Service-Qualität\n\n• Bewirtschaftung und Präsentation unserer erlesenen Sprüngli-Produkte mit dekorativem Flair\n\n• Entgegennahme von Kundenbestellungen und Vorbereitung für die Abholung\n\nWas wir uns wünschen\n\n• Abgeschlossene Ausbildung im Detailhandel und/oder Verkaufserfahrung im Detailhandel (vorzugsweise Confiserie- oder Lebensmittelbranche) oder als Servicefachfrau\n\n• Fliessende Deutsch- und gute Englischkenntnisse\n\n• Flexibilität bezüglich Arbeitszeiten (Schichteinsätze zwischen 6.00 und 21.30 Uhr sowie 2 bis 3 Wochenend-Einsätze pro Monat)\n\nDarauf kannst du dich freuen\n\n• Individuelle Verantwortungsbereiche sowie Entwicklungs- und Weiterbildungsmöglichkeiten\n\n• Grosszügige Zulagen und Einkaufsvergünstigung\n\n• Zusätzlicher freier Tag als Geburtstagswertschätzung\n\n• Ein lebhaftes und modernes Umfeld mit einer kollegialen Du-Kultur\n\n• Ein motiviertes und engagiertes Team, welches sich jetzt schon auf dich freut\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
-        "fr": "Fondée en 1836, l'entreprise familiale suisse est aujourd'hui l'une des confiseries les plus renommées d'Europe avec sa gamme exquise. Les produits Sprüngli sont synonymes de la meilleure qualité, de fraîcheur unique et de naturel. Les créations achevées amènent des clients du monde entier à sillonner quotidiennement.\n\nConsultant en ventes (80 %) Bahnhof Baden\n\n80%, Argovie\n\nTravailler chez Sprüngli\n\nPour notre succursale dans la gare de Baden, nous recherchons une personnalité engagée et orientée\n\nCe que tu fais avec nous\n\n• Conseiller nos clients nationaux et internationaux avec une excellente qualité de service\n\n• Gestion et présentation de nos produits Sprüngli exquis avec un style décoratif\n\n• Réception des commandes des clients et préparation à la collecte\n\nCe que nous voulons\n\n• Formation complète dans le commerce de détail et/ou l'expérience de vente dans le commerce de détail (de préférence confiscation ou industrie alimentaire) ou comme spécialiste des services\n\n• L'allemand et les bonnes compétences en anglais\n\n• Flexibilité en termes d'heures de travail (postes entre 6 heures et 21 h 30 et 2 à 3 affectations de fin de semaine par mois)\n\nVous pouvez attendre avec impatience.\n\n• Domaines de responsabilité individuels ainsi que possibilités de développement et de formation\n\n• Indemnités généreuses et incitations à l'achat\n\n• Journée gratuite supplémentaire comme une appréciation anniversaire\n\n• Un environnement vivant et moderne avec une collégiale du culture\n\n• Une équipe motivée et engagée qui vous attend déjà\n\nÇa t'intéresse ?\nEnsuite, nous attendons avec impatience votre application électronique. *\nNous n'acceptons pas actuellement les candidatures des agences de recrutement pour ce poste."
-      },
-      "location": "Aargau",
-      "canton": "AG",
-      "url": "https://apply.refline.ch/116352/1206/pub/26/index.html",
-      "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:46:05.621Z",
-      "addressLocality": "Baden",
-      "addressRegion": "AG",
-      "streetAddress": "Bahnhofstrasse 25",
-      "postalCode": "5400",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Vendita",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Alimentare / Confetteria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-01-12",
-      "applyUrl": "https://apply.refline.ch/116352/1206/pub/26/index.html",
-      "hiringOrganizationName": "Confiserie Sprüngli AG",
-      "jobReqId": "1206",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "verkaufsberater-in-80-bahnhof-baden-spruengli-aargau",
-        "verkaufsberater-in-80-bahnhof-baden-confiserie-sprungli-ag-baden",
-        "consulente-commerciale-80-bahnhof-baden-confiserie-sprungli-ag-aargau",
-        "sales-consultant-80-bahnhof-baden-confiserie-sprungli-ag-aargau",
-        "consultant-en-ventes-80-bahnhof-baden-confiserie-sprungli-ag-aargau",
-        "consulente-commerciale-80-bahnhof-baden-confiserie-sprungli-ag-aargau-81814a"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-80-bahnhof-baden-spruengli-aargau",
-          "verkaufsberater-in-80-bahnhof-baden-confiserie-sprungli-ag-baden",
-          "consulente-commerciale-80-bahnhof-baden-confiserie-sprungli-ag-aargau",
-          "sales-consultant-80-bahnhof-baden-confiserie-sprungli-ag-aargau",
-          "consultant-en-ventes-80-bahnhof-baden-confiserie-sprungli-ag-aargau",
-          "consulente-commerciale-80-bahnhof-baden-confiserie-sprungli-ag-aargau-81814a"
-        ],
-        "en": [
-          "verkaufsberater-in-80-bahnhof-baden-confiserie-sprungli-ag-baden",
-          "sales-consultant-80-bahnhof-baden-confiserie-sprungli-ag-aargau"
-        ],
-        "fr": [
-          "verkaufsberater-in-80-bahnhof-baden-confiserie-sprungli-ag-baden",
-          "consultant-en-ventes-80-bahnhof-baden-confiserie-sprungli-ag-aargau"
-        ]
-      },
-      "firstSeenAt": "2026-07-31T22:18:24.558Z",
-      "salaryMin": 59200,
-      "salaryMax": 90800,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 59200,
-          "maxValue": 90800,
           "unitText": "YEAR"
         }
       }
@@ -870,7 +781,7 @@
       "url": "https://apply.refline.ch/116352/1232/pub/5/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:46:05.620Z",
+      "crawledAt": "2026-08-26T10:07:14.452Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -928,6 +839,98 @@
       }
     },
     {
+      "id": "spruengli-f6bdb802675d",
+      "slug": "consulente-commerciale-80-bahnhof-baden-confiserie-sprungli-ag-aargau-81814a",
+      "slugByLocale": {
+        "it": "consulente-commerciale-80-bahnhof-baden-confiserie-sprungli-ag-aargau-81814a",
+        "en": "sales-consultant-80-bahnhof-baden-confiserie-sprungli-ag-aargau-81814a",
+        "de": "verkaufsberater-in-80-bahnhof-baden-spruengli-aargau",
+        "fr": "consultant-en-ventes-80-bahnhof-baden-confiserie-sprungli-ag-aargau-81814a"
+      },
+      "company": "Confiserie Sprüngli AG",
+      "companyKey": "spruengli",
+      "companyDomain": "spruengli.ch",
+      "title": "Verkaufsberater*in (80%) Bahnhof Baden",
+      "titleByLocale": {
+        "it": "Consulente commerciale (80%) Bahnhof Baden",
+        "en": "Sales consultant (80%) Bahnhof Baden",
+        "de": "Verkaufsberater*in (80%) Bahnhof Baden",
+        "fr": "Consultant en ventes (80 %) Bahnhof Baden"
+      },
+      "description": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nVerkaufsberater*in (80%) Bahnhof Baden\n\n80%, Aargau\n\nArbeiten bei Sprüngli\n\nFür unsere Filiale im Bahnhof Baden suchen wir nach Vereinbarung eine engagierte und verkaufsorientierte Persönlichkeit als\n\nWas du bei uns bewegst\n\n• Beratung unserer nationalen und internationalen Kundschaft mit einer exzellenten Service-Qualität\n\n• Bewirtschaftung und Präsentation unserer erlesenen Sprüngli-Produkte mit dekorativem Flair\n\n• Entgegennahme von Kundenbestellungen und Vorbereitung für die Abholung\n\nWas wir uns wünschen\n\n• Abgeschlossene Ausbildung im Detailhandel und/oder Verkaufserfahrung im Detailhandel (vorzugsweise Confiserie- oder Lebensmittelbranche) oder als Servicefachfrau\n\n• Fliessende Deutsch- und gute Englischkenntnisse\n\n• Flexibilität bezüglich Arbeitszeiten (Schichteinsätze zwischen 6.00 und 21.30 Uhr sowie 2 bis 3 Wochenend-Einsätze pro Monat)\n\nDarauf kannst du dich freuen\n\n• Individuelle Verantwortungsbereiche sowie Entwicklungs- und Weiterbildungsmöglichkeiten\n\n• Grosszügige Zulagen und Einkaufsvergünstigung\n\n• Zusätzlicher freier Tag als Geburtstagswertschätzung\n\n• Ein lebhaftes und modernes Umfeld mit einer kollegialen Du-Kultur\n\n• Ein motiviertes und engagiertes Team, welches sich jetzt schon auf dich freut\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
+      "descriptionByLocale": {
+        "it": "Fondata nel 1836, l'azienda familiare svizzera è oggi una delle più rinomate confiserie d'Europa con la sua squisita gamma. I prodotti di Sprüngli si distinguono per la migliore qualità, unicità e naturalezza. Le creazioni completate portano clienti da tutto il mondo a sciamare ogni giorno.\n\nConsulente commerciale (80%) Bahnhof Baden\n\n80%, Aargau\n\nLavorare a Sprüngli\n\nPer la nostra filiale nella stazione ferroviaria di Baden stiamo cercando una personalità impegnata e orientata alle vendite come\n\nCosa fai con noi\n\n• Consultare i nostri clienti nazionali e internazionali con una qualità di servizio eccellente\n\n• Gestione e presentazione dei nostri squisiti prodotti Sprüngli con tocco decorativo\n\n• Ricezione degli ordini dei clienti e preparazione alla raccolta\n\nCosa vogliamo\n\n• Formazione completa nel commercio al dettaglio e/o nell'esperienza di vendita al dettaglio (preferibilmente confiserie o industria alimentare) o come specialista di servizi\n\n• Flusso tedesco e buone competenze in inglese\n\n• Flessibilità in termini di orario di lavoro (cambiamenti tra le 6.00 e le 21.30 e le 2 a 3 weekend al mese)\n\nNon vedo l'ora.\n\n• Aree individuali di responsabilità e opportunità di sviluppo e formazione\n\n• Indennità e incentivi all'acquisto\n\n• Ulteriore giorno libero come apprezzamento di compleanno\n\n• Un ambiente vivace e moderno con una cultura collegiale\n\n• Un team motivato e impegnato che già vi aspetta\n\nSei interessato?\nAllora non vediamo l'ora della vostra applicazione elettronica. *\nAttualmente non accettiamo le domande da agenzie di reclutamento per questa posizione.",
+        "en": "Founded in 1836, the Swiss family business is today one of the most renowned confiseries in Europe with its exquisite range. The products from Sprüngli stand for the best quality, unique freshness and naturalness. The completed creations bring customers from all over the world to swarm daily.\n\nSales consultant (80%) Bahnhof Baden\n\n80%, Aargau\n\nWorking at Sprüngli\n\nFor our branch in the train station Baden we are looking for an engaged and sales-oriented personality as\n\nWhat you do with us\n\n• Advising our national and international customers with excellent service quality\n\n• Management and presentation of our exquisite Sprüngli products with decorative flair\n\n• Receiving customer orders and preparing for collection\n\nWhat we want\n\n• Completed training in the retail trade and/or sales experience in the retail trade (preferably confiserie or food industry) or as a service specialist\n\n• Flowing German and good English skills\n\n• Flexibility in terms of working hours (shifts between 6.00 and 21.30 and 2 to 3 weekend assignments per month)\n\nYou can look forward to it.\n\n• Individual areas of responsibility as well as development and training opportunities\n\n• Generous allowances and purchase incentives\n\n• Additional free day as a birthday appreciation\n\n• A lively and modern environment with a collegial du culture\n\n• A motivated and committed team that is already looking forward to you\n\nAre you interested?\nThen we look forward to your electronic application. *\nWe are not currently accepting applications from recruitment agencies for this position.",
+        "de": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nVerkaufsberater*in (80%) Bahnhof Baden\n\n80%, Aargau\n\nArbeiten bei Sprüngli\n\nFür unsere Filiale im Bahnhof Baden suchen wir nach Vereinbarung eine engagierte und verkaufsorientierte Persönlichkeit als\n\nWas du bei uns bewegst\n\n• Beratung unserer nationalen und internationalen Kundschaft mit einer exzellenten Service-Qualität\n\n• Bewirtschaftung und Präsentation unserer erlesenen Sprüngli-Produkte mit dekorativem Flair\n\n• Entgegennahme von Kundenbestellungen und Vorbereitung für die Abholung\n\nWas wir uns wünschen\n\n• Abgeschlossene Ausbildung im Detailhandel und/oder Verkaufserfahrung im Detailhandel (vorzugsweise Confiserie- oder Lebensmittelbranche) oder als Servicefachfrau\n\n• Fliessende Deutsch- und gute Englischkenntnisse\n\n• Flexibilität bezüglich Arbeitszeiten (Schichteinsätze zwischen 6.00 und 21.30 Uhr sowie 2 bis 3 Wochenend-Einsätze pro Monat)\n\nDarauf kannst du dich freuen\n\n• Individuelle Verantwortungsbereiche sowie Entwicklungs- und Weiterbildungsmöglichkeiten\n\n• Grosszügige Zulagen und Einkaufsvergünstigung\n\n• Zusätzlicher freier Tag als Geburtstagswertschätzung\n\n• Ein lebhaftes und modernes Umfeld mit einer kollegialen Du-Kultur\n\n• Ein motiviertes und engagiertes Team, welches sich jetzt schon auf dich freut\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
+        "fr": "Fondée en 1836, l'entreprise familiale suisse est aujourd'hui l'une des confiseries les plus renommées d'Europe avec sa gamme exquise. Les produits Sprüngli sont synonymes de la meilleure qualité, de fraîcheur unique et de naturel. Les créations achevées amènent des clients du monde entier à sillonner quotidiennement.\n\nConsultant en ventes (80 %) Bahnhof Baden\n\n80%, Argovie\n\nTravailler chez Sprüngli\n\nPour notre succursale dans la gare de Baden, nous recherchons une personnalité engagée et orientée\n\nCe que tu fais avec nous\n\n• Conseiller nos clients nationaux et internationaux avec une excellente qualité de service\n\n• Gestion et présentation de nos produits Sprüngli exquis avec un style décoratif\n\n• Réception des commandes des clients et préparation à la collecte\n\nCe que nous voulons\n\n• Formation complète dans le commerce de détail et/ou l'expérience de vente dans le commerce de détail (de préférence confiscation ou industrie alimentaire) ou comme spécialiste des services\n\n• L'allemand et les bonnes compétences en anglais\n\n• Flexibilité en termes d'heures de travail (postes entre 6 heures et 21 h 30 et 2 à 3 affectations de fin de semaine par mois)\n\nVous pouvez attendre avec impatience.\n\n• Domaines de responsabilité individuels ainsi que possibilités de développement et de formation\n\n• Indemnités généreuses et incitations à l'achat\n\n• Journée gratuite supplémentaire comme une appréciation anniversaire\n\n• Un environnement vivant et moderne avec une collégiale du culture\n\n• Une équipe motivée et engagée qui vous attend déjà\n\nÇa t'intéresse ?\nEnsuite, nous attendons avec impatience votre application électronique. *\nNous n'acceptons pas actuellement les candidatures des agences de recrutement pour ce poste."
+      },
+      "location": "Aargau",
+      "canton": "AG",
+      "url": "https://apply.refline.ch/116352/1206/pub/26/index.html",
+      "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-26T10:07:14.452Z",
+      "addressLocality": "Baden",
+      "addressRegion": "AG",
+      "streetAddress": "Bahnhofstrasse 25",
+      "postalCode": "5400",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Vendita",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Alimentare / Confetteria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-01-12",
+      "applyUrl": "https://apply.refline.ch/116352/1206/pub/26/index.html",
+      "hiringOrganizationName": "Confiserie Sprüngli AG",
+      "jobReqId": "1206",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "verkaufsberater-in-80-bahnhof-baden-spruengli-aargau",
+        "verkaufsberater-in-80-bahnhof-baden-confiserie-sprungli-ag-baden",
+        "consulente-commerciale-80-bahnhof-baden-confiserie-sprungli-ag-aargau",
+        "sales-consultant-80-bahnhof-baden-confiserie-sprungli-ag-aargau",
+        "consultant-en-ventes-80-bahnhof-baden-confiserie-sprungli-ag-aargau",
+        "consulente-commerciale-80-bahnhof-baden-confiserie-sprungli-ag-aargau-81814a"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-80-bahnhof-baden-spruengli-aargau",
+          "verkaufsberater-in-80-bahnhof-baden-confiserie-sprungli-ag-baden",
+          "consulente-commerciale-80-bahnhof-baden-confiserie-sprungli-ag-aargau",
+          "sales-consultant-80-bahnhof-baden-confiserie-sprungli-ag-aargau",
+          "consultant-en-ventes-80-bahnhof-baden-confiserie-sprungli-ag-aargau",
+          "consulente-commerciale-80-bahnhof-baden-confiserie-sprungli-ag-aargau-81814a"
+        ],
+        "en": [
+          "verkaufsberater-in-80-bahnhof-baden-confiserie-sprungli-ag-baden",
+          "sales-consultant-80-bahnhof-baden-confiserie-sprungli-ag-aargau"
+        ],
+        "fr": [
+          "verkaufsberater-in-80-bahnhof-baden-confiserie-sprungli-ag-baden",
+          "consultant-en-ventes-80-bahnhof-baden-confiserie-sprungli-ag-aargau"
+        ]
+      },
+      "firstSeenAt": "2026-07-31T22:18:24.558Z",
+      "needsRetranslation": true,
+      "salaryMin": 59200,
+      "salaryMax": 90800,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59200,
+          "maxValue": 90800,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "spruengli-3a39ba0200e3",
       "slug": "temporare-collaboratore-trice-innen-produktion-bis-ende-dezember-100-confiserie-sprungli-ag-dietikon",
       "slugByLocale": {
@@ -958,7 +961,7 @@
       "url": "https://apply.refline.ch/116352/1233/pub/16/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:46:05.619Z",
+      "crawledAt": "2026-08-26T10:07:14.451Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1093,7 +1096,7 @@
       "url": "https://apply.refline.ch/116352/1125/pub/52/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:46:05.619Z",
+      "crawledAt": "2026-08-26T10:07:14.450Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -1161,94 +1164,6 @@
       }
     },
     {
-      "id": "spruengli-7297f741d4ed",
-      "slug": "schnupperlehre-backer-konditor-confiseur-con-specializzazione-confiserie-cfc-o-afp-confiserie-sprungli-ag-dietikon",
-      "slugByLocale": {
-        "it": "schnupperlehre-backer-konditor-confiseur-con-specializzazione-confiserie-cfc-o-afp-confiserie-sprungli-ag-dietikon",
-        "en": "backer-konditor-confiseur-specialising-in-confiserie-efz-or-eba-confiserie-sprungli-ag-dietikon",
-        "de": "schnupperlehre-backer-konditor-confiseur-mit-fachrichtung-confiserie-efz-oder-eba",
-        "fr": "backer-konditor-confiseur-specialise-en-confiserie-efz-ou-eba-confiserie-sprungli-ag-dietikon"
-      },
-      "company": "Confiserie Sprüngli AG",
-      "companyKey": "spruengli",
-      "companyDomain": "spruengli.ch",
-      "title": "Schnupperlehre Bäcker-Konditor-Confiseur mit Fachrichtung Confiserie EFZ oder EBA",
-      "titleByLocale": {
-        "it": "Schnupperlehre Bäcker-Konditor-Confiseur con specializzazione Confiserie CFC o AFP",
-        "en": "Bäcker-Konditor-Confiseur specialising in Confiserie EFZ or EBA",
-        "de": "Schnupperlehre Bäcker-Konditor-Confiseur mit Fachrichtung Confiserie EFZ oder EBA",
-        "fr": "Bäcker-Konditor-Confiseur spécialisé en Confiserie EFZ ou EBA"
-      },
-      "description": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nSchnupperlehre Bäcker-Konditor-Confiseur mit Fachrichtung Confiserie EFZ oder EBA\n\n100%, Dietikon\n\nArbeiten bei Sprüngli\n\nDu interessierst dich für eine Ausbildung als Bäcker-Konditor-Confiseur mit Fachrichtung Confiserie EFZ oder EBA und möchtest erste Einblicke in diesen kreativen Beruf gewinnen? Dann ist unsere 4-tägige Schnupperlehre genau das Richtige für dich! Hier kannst du aktiv mitarbeiten, verschiedene Abteilungen und Produkte unserer Produktion kennenlernen sowie deine eignenden Kreationen herstellen.\n\nDauer und Ablauf: Unsere Schnupperlehre dauert 4 Tage und kann nicht verkürzt werden. In dieser Zeit bekommst du einen umfassenden Einblick in die handwerkliche Kunst eines Bäcker-Konditors/Confiseurs und kannst deine Leidenschaft für diesen Beruf entdecken.\n\nWichtig: Für die Schnupperlehre musst du um 07.00 Uhr bei uns in Dietikon sein können.\n\nWas du bei uns bewegst\n\n• Einblick in die vielseitige Welt der Bäckerei, Konditorei und Confiserie\n\n• Kennenlernen unserer Produktionsbereiche und deren Abläufe\n\n• Mitarbeit in verschiedenen Abteilungen\n\n• Erstellung eines eigenen Schnupperberichts\n\n• Dekorieren deiner eigenen Torte mit professioneller Anleitung\n\n• Begleitung durch erfahrene und langjährige Mitarbeitende\n\nWas wir uns wünschen\n\n• Interesse an handwerklicher Arbeit und Lebensmitteln\n\n• Freude am kreativen Gestalten\n\n• Sorgfalt und eine genaue Arbeitsweise\n\n• Teamfähigkeit und Einsatzbereitschaft\n\nDarauf kannst du dich freuen\n\nNutze diese Gelegenheit, um deine ersten Erfahrungen in einem faszinierenden Berufsfeld zu sammeln. Wir freuen uns darauf, dich in unserer Produktion willkommen zu heissen!\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
-      "descriptionByLocale": {
-        "it": "Fondata nel 1836, l'azienda familiare svizzera è oggi una delle più rinomate confiserie d'Europa con la sua squisita gamma. I prodotti di Sprüngli si distinguono per la migliore qualità, unicità e naturalezza. Le creazioni completate portano clienti da tutto il mondo a sciamare ogni giorno.\n\nBäcker-Konditor-Confiseur specializzato in Confiserie EFZ o EBA\n\n100%, Dietikon\n\nLavorare a Sprüngli\n\nSei interessato ad un apprendistato come pasticciere-confectioner-confectioner con una specializzazione in Confiserie EFZ o EBA e vorresti ottenere informazioni iniziali in questa professione creativa? Allora il nostro tirocinio di prova di 4 giorni è giusto per voi! Qui puoi partecipare attivamente, conoscere diversi reparti e prodotti della nostra produzione e creare le tue creazioni.\n\nDurata e scadenza: il nostro apprendistato di prova dura 4 giorni e non può essere accorciato. Durante questo periodo si otterrà una panoramica completa dell'artigianato di un panettiere/confectioner e scoprire la vostra passione per questa professione.\n\nImportante: Per l'apprendistato di prova è necessario essere con noi a Dietikon alle 07.00.\n\nCosa fai con noi\n\n• Insight nel mondo versatile di panetteria, pasticceria e confiserie\n\n• Scopri le nostre aree di produzione e i loro processi\n\n• Cooperazione in vari dipartimenti\n\n• Preparazione del tuo rapporto di prova\n\n• Decorare la propria torta con guida professionale\n\n• Assistenza da parte di dipendenti esperti e a lungo termine\n\nCosa vogliamo\n\n• Interessi nel lavoro artigianale e nel cibo\n\n• La gioia del design creativo\n\n• Cura e metodi di lavoro precisi\n\n• Lavoro di squadra e disponibilità\n\nNon vedo l'ora.\n\nCogliete questa opportunità per ottenere la vostra prima esperienza in un campo professionale affascinante. Non vediamo l'ora di darvi il benvenuto alla nostra produzione!\n\nSei interessato?\nAllora non vediamo l'ora della vostra applicazione elettronica. *\nAttualmente non accettiamo le domande da agenzie di reclutamento per questa posizione.",
-        "en": "Founded in 1836, the Swiss family business is today one of the most renowned confiseries in Europe with its exquisite range. The products from Sprüngli stand for the best quality, unique freshness and naturalness. The completed creations bring customers from all over the world to swarm daily.\n\nBäcker-Konditor-Confiseur specialising in Confiserie EFZ or EBA\n\n100%, Dietikon\n\nWorking at Sprüngli\n\nAre you interested in an apprenticeship as a baker-confectioner-confectioner with a specialisation in Confiserie EFZ or EBA and would like to gain initial insights into this creative profession? Then our 4-day trial apprenticeship is just right for you! Here you can actively participate, get to know different departments and products of our production and create your own creations.\n\nDuration and expiration: Our trial apprenticeship lasts 4 days and cannot be shortened. During this time you will get a comprehensive insight into the craftsmanship of a baker/confectioner and discover your passion for this profession.\n\nImportant: For the trial apprenticeship you must be able to be with us in Dietikon at 07.00 am.\n\nWhat you do with us\n\n• Insight into the versatile world of bakery, pastry and confiserie\n\n• Get to know our production areas and their processes\n\n• Cooperation in various departments\n\n• Preparation of your own trial report\n\n• Decorating your own cake with professional guidance\n\n• Assistance by experienced and long-term employees\n\nWhat we want\n\n• Interest in artisanal work and food\n\n• The joy of creative design\n\n• Care and precise working methods\n\n• Teamwork and readiness\n\nYou can look forward to it.\n\nTake this opportunity to gain your first experience in a fascinating professional field. We look forward to welcoming you to our production!\n\nAre you interested?\nThen we look forward to your electronic application. *\nWe are not currently accepting applications from recruitment agencies for this position.",
-        "de": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nSchnupperlehre Bäcker-Konditor-Confiseur mit Fachrichtung Confiserie EFZ oder EBA\n\n100%, Dietikon\n\nArbeiten bei Sprüngli\n\nDu interessierst dich für eine Ausbildung als Bäcker-Konditor-Confiseur mit Fachrichtung Confiserie EFZ oder EBA und möchtest erste Einblicke in diesen kreativen Beruf gewinnen? Dann ist unsere 4-tägige Schnupperlehre genau das Richtige für dich! Hier kannst du aktiv mitarbeiten, verschiedene Abteilungen und Produkte unserer Produktion kennenlernen sowie deine eignenden Kreationen herstellen.\n\nDauer und Ablauf: Unsere Schnupperlehre dauert 4 Tage und kann nicht verkürzt werden. In dieser Zeit bekommst du einen umfassenden Einblick in die handwerkliche Kunst eines Bäcker-Konditors/Confiseurs und kannst deine Leidenschaft für diesen Beruf entdecken.\n\nWichtig: Für die Schnupperlehre musst du um 07.00 Uhr bei uns in Dietikon sein können.\n\nWas du bei uns bewegst\n\n• Einblick in die vielseitige Welt der Bäckerei, Konditorei und Confiserie\n\n• Kennenlernen unserer Produktionsbereiche und deren Abläufe\n\n• Mitarbeit in verschiedenen Abteilungen\n\n• Erstellung eines eigenen Schnupperberichts\n\n• Dekorieren deiner eigenen Torte mit professioneller Anleitung\n\n• Begleitung durch erfahrene und langjährige Mitarbeitende\n\nWas wir uns wünschen\n\n• Interesse an handwerklicher Arbeit und Lebensmitteln\n\n• Freude am kreativen Gestalten\n\n• Sorgfalt und eine genaue Arbeitsweise\n\n• Teamfähigkeit und Einsatzbereitschaft\n\nDarauf kannst du dich freuen\n\nNutze diese Gelegenheit, um deine ersten Erfahrungen in einem faszinierenden Berufsfeld zu sammeln. Wir freuen uns darauf, dich in unserer Produktion willkommen zu heissen!\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
-        "fr": "Fondée en 1836, l'entreprise familiale suisse est aujourd'hui l'une des confiseries les plus renommées d'Europe avec sa gamme exquise. Les produits Sprüngli sont synonymes de la meilleure qualité, de fraîcheur unique et de naturel. Les créations achevées amènent des clients du monde entier à sillonner quotidiennement.\n\nBäcker-Konditor-Confiseur spécialisé en Confiserie EFZ ou EBA\n\n100%, Dietikon\n\nTravailler chez Sprüngli\n\nÊtes-vous intéressé par un apprentissage en tant que boulanger-confector-confector avec une spécialisation en Confiserie EFZ ou EBA et souhaitez-vous obtenir un premier aperçu de cette profession créative? Alors notre apprentissage d'essai de 4 jours est juste pour vous! Ici vous pouvez participer activement, apprendre à connaître différents départements et produits de notre production et créer vos propres créations.\n\nDurée et expiration: Notre apprentissage d'essai dure 4 jours et ne peut être raccourci. Pendant ce temps, vous aurez un aperçu complet de l'artisanat d'un boulanger/confiseur et découvrirez votre passion pour cette profession.\n\nImportant: Pour l'apprentissage d'essai, vous devez être avec nous à Dietikon à 07h00.\n\nCe que tu fais avec nous\n\n• Regard sur le monde polyvalent de la boulangerie, de la pâtisserie et de la confiserie\n\n• Apprenez à connaître nos zones de production et leurs processus\n\n• Coopération dans divers départements\n\n• Préparation de votre propre rapport d'essai\n\n• Décorer votre propre gâteau avec des conseils professionnels\n\n• Aide des employés expérimentés et à long terme\n\nCe que nous voulons\n\n• Intérêt pour le travail artisanal et l'alimentation\n\n• La joie du design créatif\n\n• Soins et méthodes de travail précises\n\n• Travail d'équipe et préparation\n\nVous pouvez attendre avec impatience.\n\nProfitez de cette occasion pour acquérir votre première expérience dans un domaine professionnel fascinant. Nous sommes impatients de vous accueillir à notre production!\n\nÇa t'intéresse ?\nEnsuite, nous attendons avec impatience votre application électronique. *\nNous n'acceptons pas actuellement les candidatures des agences de recrutement pour ce poste."
-      },
-      "location": "Dietikon",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/116352/1112/pub/14/index.html",
-      "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:46:05.618Z",
-      "addressLocality": "Dietikon",
-      "addressRegion": "ZH",
-      "streetAddress": "Bernstrasse 89",
-      "postalCode": "8953",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Produzione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Alimentare / Confetteria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-03-05",
-      "applyUrl": "https://apply.refline.ch/116352/1112/pub/14/index.html",
-      "hiringOrganizationName": "Confiserie Sprüngli AG",
-      "jobReqId": "1112",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "schnupperlehre-backer-konditor-confiseur-mit-fachrichtung-confiserie-efz-oder-eba",
-        "schnupperlehre-backer-konditor-confiseur-con-specializzazione-confiserie-cfc-o-afp-mpcd8i",
-        "backer-konditor-confiseur-specialising-in-confiserie-efz-or-eba-confiserie-sprungli-ag-dietikon",
-        "backer-konditor-confiseur-specialise-en-confiserie-efz-ou-eba-confiserie-sprungli-ag-dietikon",
-        "schnupperlehre-backer-konditor-confiseur-con-specializzazione-confiserie-cfc-o-afp-confiserie-sprungli-ag-dietikon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "schnupperlehre-backer-konditor-confiseur-mit-fachrichtung-confiserie-efz-oder-eba",
-          "schnupperlehre-backer-konditor-confiseur-con-specializzazione-confiserie-cfc-o-afp-mpcd8i",
-          "backer-konditor-confiseur-specialising-in-confiserie-efz-or-eba-confiserie-sprungli-ag-dietikon",
-          "backer-konditor-confiseur-specialise-en-confiserie-efz-ou-eba-confiserie-sprungli-ag-dietikon",
-          "schnupperlehre-backer-konditor-confiseur-con-specializzazione-confiserie-cfc-o-afp-confiserie-sprungli-ag-dietikon"
-        ],
-        "en": [
-          "schnupperlehre-backer-konditor-confiseur-mit-fachrichtung-confiserie-efz-oder-eba"
-        ],
-        "fr": [
-          "schnupperlehre-backer-konditor-confiseur-mit-fachrichtung-confiserie-efz-oder-eba"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-31T22:18:24.555Z",
-      "salaryMin": 76000,
-      "salaryMax": 102500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 76000,
-          "maxValue": 102500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "spruengli-eb281b92f8d5",
       "slug": "dipendente-di-produzione-nel-funzionamento-della-macchina-100-dipartimento-luxembourgerli-confiserie-sprungli-ag-8a0cf3",
       "slugByLocale": {
@@ -1279,7 +1194,7 @@
       "url": "https://apply.refline.ch/116352/1237/pub/9/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:46:05.616Z",
+      "crawledAt": "2026-08-26T10:07:14.449Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1341,6 +1256,94 @@
       }
     },
     {
+      "id": "spruengli-7297f741d4ed",
+      "slug": "schnupperlehre-backer-konditor-confiseur-con-specializzazione-confiserie-cfc-o-afp-confiserie-sprungli-ag-dietikon",
+      "slugByLocale": {
+        "it": "schnupperlehre-backer-konditor-confiseur-con-specializzazione-confiserie-cfc-o-afp-confiserie-sprungli-ag-dietikon",
+        "en": "backer-konditor-confiseur-specialising-in-confiserie-efz-or-eba-confiserie-sprungli-ag-dietikon",
+        "de": "schnupperlehre-backer-konditor-confiseur-mit-fachrichtung-confiserie-efz-oder-eba",
+        "fr": "backer-konditor-confiseur-specialise-en-confiserie-efz-ou-eba-confiserie-sprungli-ag-dietikon"
+      },
+      "company": "Confiserie Sprüngli AG",
+      "companyKey": "spruengli",
+      "companyDomain": "spruengli.ch",
+      "title": "Schnupperlehre Bäcker-Konditor-Confiseur mit Fachrichtung Confiserie EFZ oder EBA",
+      "titleByLocale": {
+        "it": "Schnupperlehre Bäcker-Konditor-Confiseur con specializzazione Confiserie CFC o AFP",
+        "en": "Bäcker-Konditor-Confiseur specialising in Confiserie EFZ or EBA",
+        "de": "Schnupperlehre Bäcker-Konditor-Confiseur mit Fachrichtung Confiserie EFZ oder EBA",
+        "fr": "Bäcker-Konditor-Confiseur spécialisé en Confiserie EFZ ou EBA"
+      },
+      "description": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nSchnupperlehre Bäcker-Konditor-Confiseur mit Fachrichtung Confiserie EFZ oder EBA\n\n100%, Dietikon\n\nArbeiten bei Sprüngli\n\nDu interessierst dich für eine Ausbildung als Bäcker-Konditor-Confiseur mit Fachrichtung Confiserie EFZ oder EBA und möchtest erste Einblicke in diesen kreativen Beruf gewinnen? Dann ist unsere 4-tägige Schnupperlehre genau das Richtige für dich! Hier kannst du aktiv mitarbeiten, verschiedene Abteilungen und Produkte unserer Produktion kennenlernen sowie deine eignenden Kreationen herstellen.\n\nDauer und Ablauf: Unsere Schnupperlehre dauert 4 Tage und kann nicht verkürzt werden. In dieser Zeit bekommst du einen umfassenden Einblick in die handwerkliche Kunst eines Bäcker-Konditors/Confiseurs und kannst deine Leidenschaft für diesen Beruf entdecken.\n\nWichtig: Für die Schnupperlehre musst du um 07.00 Uhr bei uns in Dietikon sein können.\n\nWas du bei uns bewegst\n\n• Einblick in die vielseitige Welt der Bäckerei, Konditorei und Confiserie\n\n• Kennenlernen unserer Produktionsbereiche und deren Abläufe\n\n• Mitarbeit in verschiedenen Abteilungen\n\n• Erstellung eines eigenen Schnupperberichts\n\n• Dekorieren deiner eigenen Torte mit professioneller Anleitung\n\n• Begleitung durch erfahrene und langjährige Mitarbeitende\n\nWas wir uns wünschen\n\n• Interesse an handwerklicher Arbeit und Lebensmitteln\n\n• Freude am kreativen Gestalten\n\n• Sorgfalt und eine genaue Arbeitsweise\n\n• Teamfähigkeit und Einsatzbereitschaft\n\nDarauf kannst du dich freuen\n\nNutze diese Gelegenheit, um deine ersten Erfahrungen in einem faszinierenden Berufsfeld zu sammeln. Wir freuen uns darauf, dich in unserer Produktion willkommen zu heissen!\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
+      "descriptionByLocale": {
+        "it": "Fondata nel 1836, l'azienda familiare svizzera è oggi una delle più rinomate confiserie d'Europa con la sua squisita gamma. I prodotti di Sprüngli si distinguono per la migliore qualità, unicità e naturalezza. Le creazioni completate portano clienti da tutto il mondo a sciamare ogni giorno.\n\nBäcker-Konditor-Confiseur specializzato in Confiserie EFZ o EBA\n\n100%, Dietikon\n\nLavorare a Sprüngli\n\nSei interessato ad un apprendistato come pasticciere-confectioner-confectioner con una specializzazione in Confiserie EFZ o EBA e vorresti ottenere informazioni iniziali in questa professione creativa? Allora il nostro tirocinio di prova di 4 giorni è giusto per voi! Qui puoi partecipare attivamente, conoscere diversi reparti e prodotti della nostra produzione e creare le tue creazioni.\n\nDurata e scadenza: il nostro apprendistato di prova dura 4 giorni e non può essere accorciato. Durante questo periodo si otterrà una panoramica completa dell'artigianato di un panettiere/confectioner e scoprire la vostra passione per questa professione.\n\nImportante: Per l'apprendistato di prova è necessario essere con noi a Dietikon alle 07.00.\n\nCosa fai con noi\n\n• Insight nel mondo versatile di panetteria, pasticceria e confiserie\n\n• Scopri le nostre aree di produzione e i loro processi\n\n• Cooperazione in vari dipartimenti\n\n• Preparazione del tuo rapporto di prova\n\n• Decorare la propria torta con guida professionale\n\n• Assistenza da parte di dipendenti esperti e a lungo termine\n\nCosa vogliamo\n\n• Interessi nel lavoro artigianale e nel cibo\n\n• La gioia del design creativo\n\n• Cura e metodi di lavoro precisi\n\n• Lavoro di squadra e disponibilità\n\nNon vedo l'ora.\n\nCogliete questa opportunità per ottenere la vostra prima esperienza in un campo professionale affascinante. Non vediamo l'ora di darvi il benvenuto alla nostra produzione!\n\nSei interessato?\nAllora non vediamo l'ora della vostra applicazione elettronica. *\nAttualmente non accettiamo le domande da agenzie di reclutamento per questa posizione.",
+        "en": "Founded in 1836, the Swiss family business is today one of the most renowned confiseries in Europe with its exquisite range. The products from Sprüngli stand for the best quality, unique freshness and naturalness. The completed creations bring customers from all over the world to swarm daily.\n\nBäcker-Konditor-Confiseur specialising in Confiserie EFZ or EBA\n\n100%, Dietikon\n\nWorking at Sprüngli\n\nAre you interested in an apprenticeship as a baker-confectioner-confectioner with a specialisation in Confiserie EFZ or EBA and would like to gain initial insights into this creative profession? Then our 4-day trial apprenticeship is just right for you! Here you can actively participate, get to know different departments and products of our production and create your own creations.\n\nDuration and expiration: Our trial apprenticeship lasts 4 days and cannot be shortened. During this time you will get a comprehensive insight into the craftsmanship of a baker/confectioner and discover your passion for this profession.\n\nImportant: For the trial apprenticeship you must be able to be with us in Dietikon at 07.00 am.\n\nWhat you do with us\n\n• Insight into the versatile world of bakery, pastry and confiserie\n\n• Get to know our production areas and their processes\n\n• Cooperation in various departments\n\n• Preparation of your own trial report\n\n• Decorating your own cake with professional guidance\n\n• Assistance by experienced and long-term employees\n\nWhat we want\n\n• Interest in artisanal work and food\n\n• The joy of creative design\n\n• Care and precise working methods\n\n• Teamwork and readiness\n\nYou can look forward to it.\n\nTake this opportunity to gain your first experience in a fascinating professional field. We look forward to welcoming you to our production!\n\nAre you interested?\nThen we look forward to your electronic application. *\nWe are not currently accepting applications from recruitment agencies for this position.",
+        "de": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nSchnupperlehre Bäcker-Konditor-Confiseur mit Fachrichtung Confiserie EFZ oder EBA\n\n100%, Dietikon\n\nArbeiten bei Sprüngli\n\nDu interessierst dich für eine Ausbildung als Bäcker-Konditor-Confiseur mit Fachrichtung Confiserie EFZ oder EBA und möchtest erste Einblicke in diesen kreativen Beruf gewinnen? Dann ist unsere 4-tägige Schnupperlehre genau das Richtige für dich! Hier kannst du aktiv mitarbeiten, verschiedene Abteilungen und Produkte unserer Produktion kennenlernen sowie deine eignenden Kreationen herstellen.\n\nDauer und Ablauf: Unsere Schnupperlehre dauert 4 Tage und kann nicht verkürzt werden. In dieser Zeit bekommst du einen umfassenden Einblick in die handwerkliche Kunst eines Bäcker-Konditors/Confiseurs und kannst deine Leidenschaft für diesen Beruf entdecken.\n\nWichtig: Für die Schnupperlehre musst du um 07.00 Uhr bei uns in Dietikon sein können.\n\nWas du bei uns bewegst\n\n• Einblick in die vielseitige Welt der Bäckerei, Konditorei und Confiserie\n\n• Kennenlernen unserer Produktionsbereiche und deren Abläufe\n\n• Mitarbeit in verschiedenen Abteilungen\n\n• Erstellung eines eigenen Schnupperberichts\n\n• Dekorieren deiner eigenen Torte mit professioneller Anleitung\n\n• Begleitung durch erfahrene und langjährige Mitarbeitende\n\nWas wir uns wünschen\n\n• Interesse an handwerklicher Arbeit und Lebensmitteln\n\n• Freude am kreativen Gestalten\n\n• Sorgfalt und eine genaue Arbeitsweise\n\n• Teamfähigkeit und Einsatzbereitschaft\n\nDarauf kannst du dich freuen\n\nNutze diese Gelegenheit, um deine ersten Erfahrungen in einem faszinierenden Berufsfeld zu sammeln. Wir freuen uns darauf, dich in unserer Produktion willkommen zu heissen!\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
+        "fr": "Fondée en 1836, l'entreprise familiale suisse est aujourd'hui l'une des confiseries les plus renommées d'Europe avec sa gamme exquise. Les produits Sprüngli sont synonymes de la meilleure qualité, de fraîcheur unique et de naturel. Les créations achevées amènent des clients du monde entier à sillonner quotidiennement.\n\nBäcker-Konditor-Confiseur spécialisé en Confiserie EFZ ou EBA\n\n100%, Dietikon\n\nTravailler chez Sprüngli\n\nÊtes-vous intéressé par un apprentissage en tant que boulanger-confector-confector avec une spécialisation en Confiserie EFZ ou EBA et souhaitez-vous obtenir un premier aperçu de cette profession créative? Alors notre apprentissage d'essai de 4 jours est juste pour vous! Ici vous pouvez participer activement, apprendre à connaître différents départements et produits de notre production et créer vos propres créations.\n\nDurée et expiration: Notre apprentissage d'essai dure 4 jours et ne peut être raccourci. Pendant ce temps, vous aurez un aperçu complet de l'artisanat d'un boulanger/confiseur et découvrirez votre passion pour cette profession.\n\nImportant: Pour l'apprentissage d'essai, vous devez être avec nous à Dietikon à 07h00.\n\nCe que tu fais avec nous\n\n• Regard sur le monde polyvalent de la boulangerie, de la pâtisserie et de la confiserie\n\n• Apprenez à connaître nos zones de production et leurs processus\n\n• Coopération dans divers départements\n\n• Préparation de votre propre rapport d'essai\n\n• Décorer votre propre gâteau avec des conseils professionnels\n\n• Aide des employés expérimentés et à long terme\n\nCe que nous voulons\n\n• Intérêt pour le travail artisanal et l'alimentation\n\n• La joie du design créatif\n\n• Soins et méthodes de travail précises\n\n• Travail d'équipe et préparation\n\nVous pouvez attendre avec impatience.\n\nProfitez de cette occasion pour acquérir votre première expérience dans un domaine professionnel fascinant. Nous sommes impatients de vous accueillir à notre production!\n\nÇa t'intéresse ?\nEnsuite, nous attendons avec impatience votre application électronique. *\nNous n'acceptons pas actuellement les candidatures des agences de recrutement pour ce poste."
+      },
+      "location": "Dietikon",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/116352/1112/pub/14/index.html",
+      "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-26T10:07:14.449Z",
+      "addressLocality": "Dietikon",
+      "addressRegion": "ZH",
+      "streetAddress": "Bernstrasse 89",
+      "postalCode": "8953",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Produzione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Alimentare / Confetteria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-03-05",
+      "applyUrl": "https://apply.refline.ch/116352/1112/pub/14/index.html",
+      "hiringOrganizationName": "Confiserie Sprüngli AG",
+      "jobReqId": "1112",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "schnupperlehre-backer-konditor-confiseur-mit-fachrichtung-confiserie-efz-oder-eba",
+        "schnupperlehre-backer-konditor-confiseur-con-specializzazione-confiserie-cfc-o-afp-mpcd8i",
+        "backer-konditor-confiseur-specialising-in-confiserie-efz-or-eba-confiserie-sprungli-ag-dietikon",
+        "backer-konditor-confiseur-specialise-en-confiserie-efz-ou-eba-confiserie-sprungli-ag-dietikon",
+        "schnupperlehre-backer-konditor-confiseur-con-specializzazione-confiserie-cfc-o-afp-confiserie-sprungli-ag-dietikon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "schnupperlehre-backer-konditor-confiseur-mit-fachrichtung-confiserie-efz-oder-eba",
+          "schnupperlehre-backer-konditor-confiseur-con-specializzazione-confiserie-cfc-o-afp-mpcd8i",
+          "backer-konditor-confiseur-specialising-in-confiserie-efz-or-eba-confiserie-sprungli-ag-dietikon",
+          "backer-konditor-confiseur-specialise-en-confiserie-efz-ou-eba-confiserie-sprungli-ag-dietikon",
+          "schnupperlehre-backer-konditor-confiseur-con-specializzazione-confiserie-cfc-o-afp-confiserie-sprungli-ag-dietikon"
+        ],
+        "en": [
+          "schnupperlehre-backer-konditor-confiseur-mit-fachrichtung-confiserie-efz-oder-eba"
+        ],
+        "fr": [
+          "schnupperlehre-backer-konditor-confiseur-mit-fachrichtung-confiserie-efz-oder-eba"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-31T22:18:24.555Z",
+      "salaryMin": 76000,
+      "salaryMax": 102500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 76000,
+          "maxValue": 102500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "spruengli-bda14e1a7f3c",
       "slug": "torte-di-reparto-di-confectioner-paziesserie-100-confiserie-sprungli-ag-dietikon",
       "slugByLocale": {
@@ -1371,7 +1374,7 @@
       "url": "https://apply.refline.ch/116352/1190/pub/36/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:46:05.615Z",
+      "crawledAt": "2026-08-26T10:07:14.448Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1486,7 +1489,7 @@
       "url": "https://apply.refline.ch/116352/1251/pub/5/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:46:05.614Z",
+      "crawledAt": "2026-08-26T10:07:14.447Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1566,7 +1569,7 @@
       "url": "https://apply.refline.ch/116352/1250/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:46:05.613Z",
+      "crawledAt": "2026-08-26T10:07:14.446Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1642,7 +1645,7 @@
       "url": "https://apply.refline.ch/116352/1247/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:46:05.611Z",
+      "crawledAt": "2026-08-26T10:07:14.444Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -1713,92 +1716,6 @@
       }
     },
     {
-      "id": "spruengli-3f5fa773af64",
-      "slug": "stv-branch-manager-80-100-stazione-di-berna-confiserie-sprungli-ag-bern",
-      "slugByLocale": {
-        "it": "stv-branch-manager-80-100-stazione-di-berna-confiserie-sprungli-ag-bern",
-        "en": "stv-branch-manager-80-100-bern-station-confiserie-sprungli-ag-bern",
-        "de": "stv-filialleiter-in-80-100-bahnhof-bern-spruengli-bern",
-        "fr": "stv-gestionnaire-de-succursale-80-100-bern-station-confiserie-sprungli-ag-bern"
-      },
-      "company": "Confiserie Sprüngli AG",
-      "companyKey": "spruengli",
-      "companyDomain": "spruengli.ch",
-      "title": "Stv. Filialleiter*in (80-100%) Bahnhof Bern",
-      "titleByLocale": {
-        "it": "Vice Responsabile di Filiale (80-100%) Stazione di Berna",
-        "en": "Deputy Branch Manager (80-100%) Bern Train Station",
-        "de": "Stv. Filialleiter*in (80-100%) Bahnhof Bern",
-        "fr": "Adjoint(e) au responsable de filiale (80-100%) Gare de Berne"
-      },
-      "description": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nStv. Filialleiter*in (80-100%) Bahnhof Bern\n\n80% - 100%, Bern\n\nArbeiten bei Sprüngli\n\nFür unsere Filiale im Bahnhof Bern suchen wir eine dienstleistungsorientierte\n\nWas du bei uns bewegst\n\n• Beratung unserer nationalen und internationalen Kundschaft mit einer exzellenten Service-Qualität\n\n• Bewirtschaftung und Präsentation unserer erlesenen Sprüngli-Produkte mit dekorativem Flair\n\n• Entgegennahme von Kundenbestellungen und Vorbereitung für die Abholung\n\n• Diverse Führungsaufgaben (Organisation des Tagesablaufs, Ansprechperson für Kunden und Mitarbeitende, etc.)\n\n• Bestellwesen mittels MSB5\n\n• Personalplanung in Absprache mit der Filialleiterin\n\n• Erstellen von Tages- und Monatsabschlüssen mittels TAVS\n\nWas wir uns wünschen\n\n• Abgeschlossene Ausbildung im Detailhandel (vorzugsweise Confiserie- oder Lebensmittelbranche)\n\n• Mehrjährige Verkaufserfahrung\n\n• Erste Führungserfahrung\n\n• Fliessende Deutsch- und Englischkenntnisse\n\n• Eigeninitiative und Teamfähigkeit\n\n• Professionelles Auftreten und gute Umgangsformen\n\n• Engagierte Persönlichkeit mit Stil, Leidenschaft und hohem Qualitätsbewusstsein\n\n• Flexibilität bezüglich Arbeitszeiten (Schichtarbeit zwischen 6.00 und 21.30 Uhr sowie 2 bis 3 Wochenend-Einsätze pro Monat)\n\nDarauf kannst du dich freuen\n\n• Individuelle Verantwortungsbereiche sowie Entwicklungs- und Weiterbildungsmöglichkeiten\n\n• Grosszügige Zulagen und Einkaufsvergünstigung\n\n• Zusätzlicher freier Tag als Geburtstagswertschätzung\n\n• Ein lebhaftes und modernes Umfeld mit einer kollegialen Du-Kultur\n\n• Ein motiviertes und engagiertes Team, welches sich jetzt schon auf dich freut\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
-      "descriptionByLocale": {
-        "it": "Fondata nel 1836, l'azienda di famiglia svizzera è oggi una delle più rinomate confiserie d'Europa con la sua squisita gamma. I prodotti Sprüngli sono sinonimo di qualità, freschezza e naturalezza uniche. Le creazioni completate portano clienti da tutto il mondo a sciamare ogni giorno.\n\nStv. Branch Manager (80-100%) Stazione di Berna\n\n80% - 100%, Berna\n\nLavorare a Sprüngli\n\nPer la nostra filiale nella stazione di Berna stiamo cercando un servizio orientato\n\nCosa fai con noi\n\n• Consultare i nostri clienti nazionali e internazionali con una qualità di servizio eccellente\n\n• Gestione e presentazione dei nostri squisiti prodotti Sprüngli con tocco decorativo\n\n• Ricezione degli ordini del cliente e preparazione alla raccolta\n\n• Vari compiti di gestione (organizzazione della routine quotidiana, persona di contatto per clienti e dipendenti, ecc.)\n\n• Ordinazione tramite MSB5\n\n• Pianificazione del personale in consultazione con il responsabile del ramo\n\n• Preparazione dei conti giornalieri e mensili mediante TAVS\n\nCosa vogliamo\n\n• Formazione completa nel commercio al dettaglio (preferibilmente confiserie o industria alimentare)\n\n• Diversi anni di esperienza di vendita\n\n• Prima esperienza di gestione\n\n• Conoscenze di flusso di tedesco e inglese\n\n• Iniziativa e lavoro di squadra\n\n• Aspetto professionale e buone maniere\n\n• Personalità impegnata con stile, passione e consapevolezza di alta qualità\n\n• Flessibilità dell'orario di lavoro (lavoro di turni tra le 6.00 e le 9,30 e gli incarichi di fine settimana da 2 a 3 al mese)\n\nNon vedo l'ora.\n\n• Aree individuali di responsabilità e opportunità di sviluppo e formazione\n\n• Assegni generosi e spese di acquisto\n\n• Ulteriore giorno libero come apprezzamento di compleanno\n\n• Un ambiente vivace e moderno con una cultura collegiale\n\n• Un team motivato e impegnato che già vi aspetta\n\nSei interessato?\nAllora non vediamo l'ora della vostra applicazione elettronica. *\nAttualmente non accettiamo richieste di reclutamento per questa posizione.",
-        "en": "Founded in 1836, the Swiss family business is today one of the most renowned confiseries in Europe with its exquisite range. Sprüngli products stand for the best quality, unique freshness and naturalness. The completed creations bring customers from all over the world to swarm daily.\n\nStv. Branch Manager (80-100%) Bern Station\n\n80% - 100%, Bern\n\nWorking at Sprüngli\n\nFor our branch in the station Bern we are looking for a service-oriented\n\nWhat you do with us\n\n• Advising our national and international customers with excellent service quality\n\n• Management and presentation of our exquisite Sprüngli products with decorative flair\n\n• Receiving customer orders and preparing for collection\n\n• Various management tasks (organization of the daily routine, contact person for customers and employees, etc.)\n\n• Ordering through MSB5\n\n• Personnel planning in consultation with the branch manager\n\n• Preparation of daily and monthly accounts by means of TAVS\n\nWhat we want\n\n• Completed training in the retail trade (preferably confiserie or food industry)\n\n• Several years of sales experience\n\n• First management experience\n\n• Flowing knowledge of German and English\n\n• Own initiative and teamwork\n\n• Professional appearance and good manners\n\n• Engaged personality with style, passion and high quality awareness\n\n• Flexibility regarding working hours (shift work between 6.00 and 9.30 pm and 2 to 3 weekend assignments per month)\n\nYou can look forward to that.\n\n• Individual areas of responsibility as well as development and training opportunities\n\n• Generous allowances and shopping allowances\n\n• Additional free day as a birthday appreciation\n\n• A lively and modern environment with a collegial du culture\n\n• A motivated and committed team that is already looking forward to you\n\nAre you interested?\nThen we look forward to your electronic application. *\nWe are not currently accepting recruitment applications for this position.",
-        "de": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nStv. Filialleiter*in (80-100%) Bahnhof Bern\n\n80% - 100%, Bern\n\nArbeiten bei Sprüngli\n\nFür unsere Filiale im Bahnhof Bern suchen wir eine dienstleistungsorientierte\n\nWas du bei uns bewegst\n\n• Beratung unserer nationalen und internationalen Kundschaft mit einer exzellenten Service-Qualität\n\n• Bewirtschaftung und Präsentation unserer erlesenen Sprüngli-Produkte mit dekorativem Flair\n\n• Entgegennahme von Kundenbestellungen und Vorbereitung für die Abholung\n\n• Diverse Führungsaufgaben (Organisation des Tagesablaufs, Ansprechperson für Kunden und Mitarbeitende, etc.)\n\n• Bestellwesen mittels MSB5\n\n• Personalplanung in Absprache mit der Filialleiterin\n\n• Erstellen von Tages- und Monatsabschlüssen mittels TAVS\n\nWas wir uns wünschen\n\n• Abgeschlossene Ausbildung im Detailhandel (vorzugsweise Confiserie- oder Lebensmittelbranche)\n\n• Mehrjährige Verkaufserfahrung\n\n• Erste Führungserfahrung\n\n• Fliessende Deutsch- und Englischkenntnisse\n\n• Eigeninitiative und Teamfähigkeit\n\n• Professionelles Auftreten und gute Umgangsformen\n\n• Engagierte Persönlichkeit mit Stil, Leidenschaft und hohem Qualitätsbewusstsein\n\n• Flexibilität bezüglich Arbeitszeiten (Schichtarbeit zwischen 6.00 und 21.30 Uhr sowie 2 bis 3 Wochenend-Einsätze pro Monat)\n\nDarauf kannst du dich freuen\n\n• Individuelle Verantwortungsbereiche sowie Entwicklungs- und Weiterbildungsmöglichkeiten\n\n• Grosszügige Zulagen und Einkaufsvergünstigung\n\n• Zusätzlicher freier Tag als Geburtstagswertschätzung\n\n• Ein lebhaftes und modernes Umfeld mit einer kollegialen Du-Kultur\n\n• Ein motiviertes und engagiertes Team, welches sich jetzt schon auf dich freut\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
-        "fr": "Fondée en 1836, l'entreprise familiale suisse est aujourd'hui l'une des confiseries les plus renommées d'Europe avec sa gamme exquise. Les produits Sprüngli sont synonymes de la meilleure qualité, de fraîcheur unique et de naturel. Les créations achevées amènent des clients du monde entier à sillonner quotidiennement.\n\nStv. Gestionnaire de succursale (80-100%) Bern Station\n\n80% - 100%, Berne\n\nTravailler chez Sprüngli\n\nPour notre succursale de la gare de Berne, nous recherchons un service\n\nCe que tu fais de nous\n\n• Conseiller nos clients nationaux et internationaux avec une excellente qualité de service\n\n• Gestion et présentation de nos produits Sprüngli exquis avec un style décoratif\n\n• Réception des commandes des clients et préparation à la collecte\n\n• Diverses tâches de gestion (organisation de la routine quotidienne, personne de contact pour les clients et les employés, etc.)\n\n• Commande par l'intermédiaire de MSB5\n\n• Planification du personnel en consultation avec le gestionnaire de la direction générale\n\n• Préparation des comptes quotidiens et mensuels au moyen de TAVS\n\nCe que nous voulons\n\n• Formation complète dans le commerce de détail (de préférence confiserie ou industrie alimentaire)\n\n• Plusieurs années d'expérience commerciale\n\n• Première expérience de gestion\n\n• Connaissance de l'allemand et de l'anglais\n\n• Initiative personnelle et travail d'équipe\n\n• Aspect professionnel et bonnes manières\n\n• Personnalité engagée avec style, passion et sensibilisation de haute qualité\n\n• Flexibilité en matière d'horaires de travail (travail posté entre 18h00 et 21h30 et affectations de 2 à 3 week-end par mois)\n\nVous pouvez attendre avec impatience.\n\n• Domaines de responsabilité individuels ainsi que possibilités de développement et de formation\n\n• Indemnités généreuses et indemnités pour achats\n\n• Journée gratuite supplémentaire comme une appréciation d'anniversaire\n\n• Un environnement animé et moderne avec une collégiale du culture\n\n• Une équipe motivée et engagée qui vous attend déjà avec impatience\n\nÇa t'intéresse ?\nEnsuite, nous attendons avec impatience votre application électronique. *\nNous n'acceptons pas actuellement les candidatures de recrutement pour ce poste."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://apply.refline.ch/116352/1240/pub/6/index.html",
-      "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:46:05.609Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "streetAddress": "Bahnhofplatz 10A",
-      "postalCode": "3011",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Vendita",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Alimentare / Confetteria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://apply.refline.ch/116352/1240/pub/6/index.html",
-      "hiringOrganizationName": "Confiserie Sprüngli AG",
-      "jobReqId": "1240",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "stv-filialleiter-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern",
-        "stv-filialleiter-in-80-100-bahnhof-bern-spruengli-bern",
-        "stv-branch-manager-80-100-stazione-di-berna-confiserie-sprungli-ag-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stv-filialleiter-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern",
-          "stv-filialleiter-in-80-100-bahnhof-bern-spruengli-bern",
-          "stv-branch-manager-80-100-stazione-di-berna-confiserie-sprungli-ag-bern"
-        ],
-        "en": [
-          "stv-filialleiter-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern"
-        ],
-        "de": [
-          "stv-filialleiter-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern"
-        ],
-        "fr": [
-          "stv-filialleiter-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T12:00:50.640Z",
-      "salaryMin": 109000,
-      "salaryMax": 167000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 109000,
-          "maxValue": 167000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "spruengli-870a7c2086cf",
       "slug": "consulente-commerciale-80-100-stazione-di-berna-confiserie-sprungli-ag-bern",
       "slugByLocale": {
@@ -1829,7 +1746,7 @@
       "url": "https://apply.refline.ch/116352/1172/pub/37/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:46:05.609Z",
+      "crawledAt": "2026-08-26T10:07:14.443Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofplatz 10A",
@@ -1885,6 +1802,92 @@
       }
     },
     {
+      "id": "spruengli-3f5fa773af64",
+      "slug": "stv-branch-manager-80-100-stazione-di-berna-confiserie-sprungli-ag-bern",
+      "slugByLocale": {
+        "it": "stv-branch-manager-80-100-stazione-di-berna-confiserie-sprungli-ag-bern",
+        "en": "stv-branch-manager-80-100-bern-station-confiserie-sprungli-ag-bern",
+        "de": "stv-filialleiter-in-80-100-bahnhof-bern-spruengli-bern",
+        "fr": "stv-gestionnaire-de-succursale-80-100-bern-station-confiserie-sprungli-ag-bern"
+      },
+      "company": "Confiserie Sprüngli AG",
+      "companyKey": "spruengli",
+      "companyDomain": "spruengli.ch",
+      "title": "Stv. Filialleiter*in (80-100%) Bahnhof Bern",
+      "titleByLocale": {
+        "it": "Vice Responsabile di Filiale (80-100%) Stazione di Berna",
+        "en": "Deputy Branch Manager (80-100%) Bern Train Station",
+        "de": "Stv. Filialleiter*in (80-100%) Bahnhof Bern",
+        "fr": "Adjoint(e) au responsable de filiale (80-100%) Gare de Berne"
+      },
+      "description": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nStv. Filialleiter*in (80-100%) Bahnhof Bern\n\n80% - 100%, Bern\n\nArbeiten bei Sprüngli\n\nFür unsere Filiale im Bahnhof Bern suchen wir eine dienstleistungsorientierte\n\nWas du bei uns bewegst\n\n• Beratung unserer nationalen und internationalen Kundschaft mit einer exzellenten Service-Qualität\n\n• Bewirtschaftung und Präsentation unserer erlesenen Sprüngli-Produkte mit dekorativem Flair\n\n• Entgegennahme von Kundenbestellungen und Vorbereitung für die Abholung\n\n• Diverse Führungsaufgaben (Organisation des Tagesablaufs, Ansprechperson für Kunden und Mitarbeitende, etc.)\n\n• Bestellwesen mittels MSB5\n\n• Personalplanung in Absprache mit der Filialleiterin\n\n• Erstellen von Tages- und Monatsabschlüssen mittels TAVS\n\nWas wir uns wünschen\n\n• Abgeschlossene Ausbildung im Detailhandel (vorzugsweise Confiserie- oder Lebensmittelbranche)\n\n• Mehrjährige Verkaufserfahrung\n\n• Erste Führungserfahrung\n\n• Fliessende Deutsch- und Englischkenntnisse\n\n• Eigeninitiative und Teamfähigkeit\n\n• Professionelles Auftreten und gute Umgangsformen\n\n• Engagierte Persönlichkeit mit Stil, Leidenschaft und hohem Qualitätsbewusstsein\n\n• Flexibilität bezüglich Arbeitszeiten (Schichtarbeit zwischen 6.00 und 21.30 Uhr sowie 2 bis 3 Wochenend-Einsätze pro Monat)\n\nDarauf kannst du dich freuen\n\n• Individuelle Verantwortungsbereiche sowie Entwicklungs- und Weiterbildungsmöglichkeiten\n\n• Grosszügige Zulagen und Einkaufsvergünstigung\n\n• Zusätzlicher freier Tag als Geburtstagswertschätzung\n\n• Ein lebhaftes und modernes Umfeld mit einer kollegialen Du-Kultur\n\n• Ein motiviertes und engagiertes Team, welches sich jetzt schon auf dich freut\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
+      "descriptionByLocale": {
+        "it": "Fondata nel 1836, l'azienda di famiglia svizzera è oggi una delle più rinomate confiserie d'Europa con la sua squisita gamma. I prodotti Sprüngli sono sinonimo di qualità, freschezza e naturalezza uniche. Le creazioni completate portano clienti da tutto il mondo a sciamare ogni giorno.\n\nStv. Branch Manager (80-100%) Stazione di Berna\n\n80% - 100%, Berna\n\nLavorare a Sprüngli\n\nPer la nostra filiale nella stazione di Berna stiamo cercando un servizio orientato\n\nCosa fai con noi\n\n• Consultare i nostri clienti nazionali e internazionali con una qualità di servizio eccellente\n\n• Gestione e presentazione dei nostri squisiti prodotti Sprüngli con tocco decorativo\n\n• Ricezione degli ordini del cliente e preparazione alla raccolta\n\n• Vari compiti di gestione (organizzazione della routine quotidiana, persona di contatto per clienti e dipendenti, ecc.)\n\n• Ordinazione tramite MSB5\n\n• Pianificazione del personale in consultazione con il responsabile del ramo\n\n• Preparazione dei conti giornalieri e mensili mediante TAVS\n\nCosa vogliamo\n\n• Formazione completa nel commercio al dettaglio (preferibilmente confiserie o industria alimentare)\n\n• Diversi anni di esperienza di vendita\n\n• Prima esperienza di gestione\n\n• Conoscenze di flusso di tedesco e inglese\n\n• Iniziativa e lavoro di squadra\n\n• Aspetto professionale e buone maniere\n\n• Personalità impegnata con stile, passione e consapevolezza di alta qualità\n\n• Flessibilità dell'orario di lavoro (lavoro di turni tra le 6.00 e le 9,30 e gli incarichi di fine settimana da 2 a 3 al mese)\n\nNon vedo l'ora.\n\n• Aree individuali di responsabilità e opportunità di sviluppo e formazione\n\n• Assegni generosi e spese di acquisto\n\n• Ulteriore giorno libero come apprezzamento di compleanno\n\n• Un ambiente vivace e moderno con una cultura collegiale\n\n• Un team motivato e impegnato che già vi aspetta\n\nSei interessato?\nAllora non vediamo l'ora della vostra applicazione elettronica. *\nAttualmente non accettiamo richieste di reclutamento per questa posizione.",
+        "en": "Founded in 1836, the Swiss family business is today one of the most renowned confiseries in Europe with its exquisite range. Sprüngli products stand for the best quality, unique freshness and naturalness. The completed creations bring customers from all over the world to swarm daily.\n\nStv. Branch Manager (80-100%) Bern Station\n\n80% - 100%, Bern\n\nWorking at Sprüngli\n\nFor our branch in the station Bern we are looking for a service-oriented\n\nWhat you do with us\n\n• Advising our national and international customers with excellent service quality\n\n• Management and presentation of our exquisite Sprüngli products with decorative flair\n\n• Receiving customer orders and preparing for collection\n\n• Various management tasks (organization of the daily routine, contact person for customers and employees, etc.)\n\n• Ordering through MSB5\n\n• Personnel planning in consultation with the branch manager\n\n• Preparation of daily and monthly accounts by means of TAVS\n\nWhat we want\n\n• Completed training in the retail trade (preferably confiserie or food industry)\n\n• Several years of sales experience\n\n• First management experience\n\n• Flowing knowledge of German and English\n\n• Own initiative and teamwork\n\n• Professional appearance and good manners\n\n• Engaged personality with style, passion and high quality awareness\n\n• Flexibility regarding working hours (shift work between 6.00 and 9.30 pm and 2 to 3 weekend assignments per month)\n\nYou can look forward to that.\n\n• Individual areas of responsibility as well as development and training opportunities\n\n• Generous allowances and shopping allowances\n\n• Additional free day as a birthday appreciation\n\n• A lively and modern environment with a collegial du culture\n\n• A motivated and committed team that is already looking forward to you\n\nAre you interested?\nThen we look forward to your electronic application. *\nWe are not currently accepting recruitment applications for this position.",
+        "de": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nStv. Filialleiter*in (80-100%) Bahnhof Bern\n\n80% - 100%, Bern\n\nArbeiten bei Sprüngli\n\nFür unsere Filiale im Bahnhof Bern suchen wir eine dienstleistungsorientierte\n\nWas du bei uns bewegst\n\n• Beratung unserer nationalen und internationalen Kundschaft mit einer exzellenten Service-Qualität\n\n• Bewirtschaftung und Präsentation unserer erlesenen Sprüngli-Produkte mit dekorativem Flair\n\n• Entgegennahme von Kundenbestellungen und Vorbereitung für die Abholung\n\n• Diverse Führungsaufgaben (Organisation des Tagesablaufs, Ansprechperson für Kunden und Mitarbeitende, etc.)\n\n• Bestellwesen mittels MSB5\n\n• Personalplanung in Absprache mit der Filialleiterin\n\n• Erstellen von Tages- und Monatsabschlüssen mittels TAVS\n\nWas wir uns wünschen\n\n• Abgeschlossene Ausbildung im Detailhandel (vorzugsweise Confiserie- oder Lebensmittelbranche)\n\n• Mehrjährige Verkaufserfahrung\n\n• Erste Führungserfahrung\n\n• Fliessende Deutsch- und Englischkenntnisse\n\n• Eigeninitiative und Teamfähigkeit\n\n• Professionelles Auftreten und gute Umgangsformen\n\n• Engagierte Persönlichkeit mit Stil, Leidenschaft und hohem Qualitätsbewusstsein\n\n• Flexibilität bezüglich Arbeitszeiten (Schichtarbeit zwischen 6.00 und 21.30 Uhr sowie 2 bis 3 Wochenend-Einsätze pro Monat)\n\nDarauf kannst du dich freuen\n\n• Individuelle Verantwortungsbereiche sowie Entwicklungs- und Weiterbildungsmöglichkeiten\n\n• Grosszügige Zulagen und Einkaufsvergünstigung\n\n• Zusätzlicher freier Tag als Geburtstagswertschätzung\n\n• Ein lebhaftes und modernes Umfeld mit einer kollegialen Du-Kultur\n\n• Ein motiviertes und engagiertes Team, welches sich jetzt schon auf dich freut\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
+        "fr": "Fondée en 1836, l'entreprise familiale suisse est aujourd'hui l'une des confiseries les plus renommées d'Europe avec sa gamme exquise. Les produits Sprüngli sont synonymes de la meilleure qualité, de fraîcheur unique et de naturel. Les créations achevées amènent des clients du monde entier à sillonner quotidiennement.\n\nStv. Gestionnaire de succursale (80-100%) Bern Station\n\n80% - 100%, Berne\n\nTravailler chez Sprüngli\n\nPour notre succursale de la gare de Berne, nous recherchons un service\n\nCe que tu fais de nous\n\n• Conseiller nos clients nationaux et internationaux avec une excellente qualité de service\n\n• Gestion et présentation de nos produits Sprüngli exquis avec un style décoratif\n\n• Réception des commandes des clients et préparation à la collecte\n\n• Diverses tâches de gestion (organisation de la routine quotidienne, personne de contact pour les clients et les employés, etc.)\n\n• Commande par l'intermédiaire de MSB5\n\n• Planification du personnel en consultation avec le gestionnaire de la direction générale\n\n• Préparation des comptes quotidiens et mensuels au moyen de TAVS\n\nCe que nous voulons\n\n• Formation complète dans le commerce de détail (de préférence confiserie ou industrie alimentaire)\n\n• Plusieurs années d'expérience commerciale\n\n• Première expérience de gestion\n\n• Connaissance de l'allemand et de l'anglais\n\n• Initiative personnelle et travail d'équipe\n\n• Aspect professionnel et bonnes manières\n\n• Personnalité engagée avec style, passion et sensibilisation de haute qualité\n\n• Flexibilité en matière d'horaires de travail (travail posté entre 18h00 et 21h30 et affectations de 2 à 3 week-end par mois)\n\nVous pouvez attendre avec impatience.\n\n• Domaines de responsabilité individuels ainsi que possibilités de développement et de formation\n\n• Indemnités généreuses et indemnités pour achats\n\n• Journée gratuite supplémentaire comme une appréciation d'anniversaire\n\n• Un environnement animé et moderne avec une collégiale du culture\n\n• Une équipe motivée et engagée qui vous attend déjà avec impatience\n\nÇa t'intéresse ?\nEnsuite, nous attendons avec impatience votre application électronique. *\nNous n'acceptons pas actuellement les candidatures de recrutement pour ce poste."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://apply.refline.ch/116352/1240/pub/6/index.html",
+      "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-26T10:07:14.441Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "streetAddress": "Bahnhofplatz 10A",
+      "postalCode": "3011",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Vendita",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Alimentare / Confetteria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://apply.refline.ch/116352/1240/pub/6/index.html",
+      "hiringOrganizationName": "Confiserie Sprüngli AG",
+      "jobReqId": "1240",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "stv-filialleiter-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern",
+        "stv-filialleiter-in-80-100-bahnhof-bern-spruengli-bern",
+        "stv-branch-manager-80-100-stazione-di-berna-confiserie-sprungli-ag-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-filialleiter-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern",
+          "stv-filialleiter-in-80-100-bahnhof-bern-spruengli-bern",
+          "stv-branch-manager-80-100-stazione-di-berna-confiserie-sprungli-ag-bern"
+        ],
+        "en": [
+          "stv-filialleiter-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern"
+        ],
+        "de": [
+          "stv-filialleiter-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern"
+        ],
+        "fr": [
+          "stv-filialleiter-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T12:00:50.640Z",
+      "salaryMin": 109000,
+      "salaryMax": 167000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 109000,
+          "maxValue": 167000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "spruengli-8a0af15100f8",
       "slug": "servicemitarbeiter-in-80-100-cafe-lounge-e-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen",
       "slugByLocale": {
@@ -1915,7 +1918,7 @@
       "url": "https://apply.refline.ch/116352/1203/pub/17/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:46:05.606Z",
+      "crawledAt": "2026-08-26T10:07:14.440Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "streetAddress": "Postfach 1462",
@@ -1956,6 +1959,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:00:50.638Z",
+      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2000,7 +2004,7 @@
       "url": "https://apply.refline.ch/116352/1201/pub/25/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:46:05.601Z",
+      "crawledAt": "2026-08-26T10:07:14.439Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -2142,7 +2146,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }

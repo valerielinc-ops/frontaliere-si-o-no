@@ -4372,6 +4372,21 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.reri-moneypark-calo-3-anni.title': 'Property bubble risk declining, first time in three years',
     'blog.article.reri-moneypark-calo-3-anni.excerpt': 'MoneyPark\'s RERI index drops to 3.5 points in Q2 2026 - the first time in three years. Market becomes more selective, prices grow less, rates remain low.',
     'blog.article.reri-moneypark-calo-3-anni.imageAlt': 'Swiss construction site with modern residential buildings against Alpine mountain backdrop at golden hour',
+    'blog.article.infortuni-soglia-indipendenti-2027.title': 'LAINF: reduced threshold for 40,000 self-employed workers',
+    'blog.article.infortuni-soglia-indipendenti-2027.excerpt': 'The Federal Council lowers access to accident insurance from 1 January 2027: from CHF 66,690 to CHF 44,460 per year. They benefit from 40,000 more freelancers.',
+    'blog.article.infortuni-soglia-indipendenti-2027.imageAlt': 'Freelance professional working at desk with Swiss mountain vista behind',
+    'blog.article.accesso-facilitato-infortuni-2027.title': 'Easy access to accident insurance from 2027',
+    'blog.article.accesso-facilitato-infortuni-2027.excerpt': 'Reduced threshold from CHF 66,690 to CHF 44,460: from January 2027, around 40,000 self-employed workers will be able to insure against accidents with new opportunities.',
+    'blog.article.accesso-facilitato-infortuni-2027.imageAlt': 'Swiss independent professional working in a modern office with city view',
+    'blog.article.indennita-parentali-2027.title': 'Parental allowances: new entitlements from 1 July 2027',
+    'blog.article.indennita-parentali-2027.excerpt': 'The Federal Council approves the amendments to the IPG law: from 1 July 2027 parents and families will have access to benefits hitherto reserved for the military.',
+    'blog.article.indennita-parentali-2027.imageAlt': 'Federal Palace of Bern, seat of Swiss Federal Council and Parliament',
+    'blog.article.allerte-popolazione-cell-broadcast.title': 'Population alerts: Bern accelerates cell broadcast',
+    'blog.article.allerte-popolazione-cell-broadcast.excerpt': 'The Federal Council is asking for CHF 15.8 million for cell broadcast, an alert system that will reach citizens directly on their mobile phones.',
+    'blog.article.allerte-popolazione-cell-broadcast.imageAlt': 'Emergency alert system demonstration with mobile phone notifications in a Swiss town square',
+    'blog.article.edilizia-crescita-primo-semestre.title': 'Construction: +3.1% growth in the first six months of 2026',
+    'blog.article.edilizia-crescita-primo-semestre.excerpt': 'In the first half of 2026, Swiss construction turnover reached CHF 11.2 billion, with a growth of 3.1%. But permits and appeals slow down construction sites.',
+    'blog.article.edilizia-crescita-primo-semestre.imageAlt': 'Modern construction site in Switzerland with cranes and new residential buildings, symbolizing the boom in the construction sector and housing market.',
 };
 
 export default blogMetaChEn;

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "srg-ssr",
-  "assembledAt": "2026-08-25T21:35:03.884Z",
+  "assembledAt": "2026-08-26T10:13:38.436Z",
   "jobs": [
     {
       "id": "srg-ssr-25dd75af254b",
@@ -33,7 +33,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/fufragnadi-emprendissadi-da-prova/b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-25T21:35:00.878Z",
+      "crawledAt": "2026-08-26T10:13:24.619Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -76,7 +76,7 @@
         "it": "praticanta-praticant-srg-ssr-cuira",
         "en": "intern-srg-ssr-cuira",
         "de": "praktikant-srg-ssr-cuira",
-        "fr": "pratique-pratique-srg-ssr-cuira"
+        "fr": "praticanta-praticant-srg-ssr-cuira"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -86,7 +86,7 @@
         "it": "Praticanta / praticant",
         "en": "Intern",
         "de": "Praktikant",
-        "fr": "Pratique / Pratique"
+        "fr": "Praticanta / praticant"
       },
       "description": "Vulessas ti daventar schurnalista u schurnalist? Ubain far ina lavur da tecnicist u tecnicista? Has ti mirveglias ed es ti gugent là nua che las chaussas capitan - t'interessas per la Rumantschia, il Grischun, il mund - lavuras ti gugent cun la lingua, purtrets e tun ubain la tecnica? Nus sustegnain e scolain tai! Ti pos frequentar tar nus in praticum da 3 fin 6 mais. En quest temp emprendas ti d'enconuscher la branscha da medias e nossa chasa cun sias vastas purschidas. Gia davent da l'entschatta fas ti part dal team e pos ta sviluppar en la pratica cun sustegn e scolaziuns internas. Tge spetgain nus? Vegliadetgna: da circa 18 onns fin 30 onns Scolaziun: emprendissadi, matura gimnasiala u professiunala, studi u scolaziun equivalenta Durada: ideal 6 mais; las plazzas èn limitadas, per regla 1 practicantA per mez onn. E suenter il praticum? davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
       "descriptionByLocale": {
@@ -100,7 +100,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/praticanta-praticant/4a660497-3bdc-452a-ab3f-d9b8493cc46f",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-25T21:34:59.788Z",
+      "crawledAt": "2026-08-26T10:13:23.774Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -140,6 +140,15 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
+      "previousSlugs": [
+        "pratique-pratique-srg-ssr-cuira"
+      ],
+      "previousSlugsByLocale": {
+        "fr": [
+          "pratique-pratique-srg-ssr-cuira"
+        ]
+      },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-29T11:35:50.122Z",
       "salaryMin": 42640,
       "salaryMax": 61000,
@@ -158,7 +167,7 @@
       "id": "srg-ssr-d9ec5b9a657a",
       "slug": "service-operator-srg-ssr-bern",
       "slugByLocale": {
-        "it": "operatore-di-servizio-srg-ssr-bern",
+        "it": "service-operator-srg-ssr-bern",
         "en": "service-operator-srg-ssr-bern",
         "de": "service-operator-srg-ssr-bern",
         "fr": "operateur-de-service-srg-ssr-bern"
@@ -168,7 +177,7 @@
       "companyDomain": "srgssr.ch",
       "title": "Service Operator",
       "titleByLocale": {
-        "it": "Operatore di servizio",
+        "it": "Service Operator",
         "en": "Service",
         "de": "Service Operator",
         "fr": "Opérateur de Service"
@@ -185,7 +194,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/service-operator/b7aea4ab-5915-4645-a639-79a98c2543ff",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:34:59.031Z",
+      "crawledAt": "2026-08-26T10:13:22.950Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -248,6 +257,15 @@
         "pensumMin": 80,
         "pensumMax": 80
       },
+      "previousSlugs": [
+        "operatore-di-servizio-srg-ssr-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "operatore-di-servizio-srg-ssr-bern"
+        ]
+      },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-29T11:35:27.904Z",
       "salaryMin": 71500,
       "salaryMax": 126500,
@@ -294,7 +312,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/emprendista-commerziala-emprendist-commerzial/c7a3bf5e-4660-4325-baee-e0cc14f79df0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-25T21:34:58.269Z",
+      "crawledAt": "2026-08-26T10:13:22.092Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -393,7 +411,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistente-finanze/7d7fc044-dae7-4d32-a1b3-da4e2848ad33",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-25T21:34:57.527Z",
+      "crawledAt": "2026-08-26T10:13:21.220Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -432,6 +450,7 @@
         "pensumMin": 60,
         "pensumMax": 80
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-30T23:26:53.483Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -478,7 +497,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistent-in-finanzen/c68706e7-6382-4b0a-8976-cc7fa737e98e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:34:56.774Z",
+      "crawledAt": "2026-08-26T10:13:20.378Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -519,11 +538,13 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "assistent-in-finanzen-srg-ssr-bern"
+        "assistent-in-finanzen-srg-ssr-bern",
+        "assistente-in-finanza-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-finanzen-srg-ssr-bern"
+          "assistent-in-finanzen-srg-ssr-bern",
+          "assistente-in-finanza-srg-ssr-bern"
         ],
         "en": [
           "assistent-in-finanzen-srg-ssr-bern"
@@ -579,7 +600,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/geschaeftsfuehrer-in-srg-bern-freiburg-wallis/ae1a3c73-c6e0-46fe-b28d-c26344b65afe",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:34:55.863Z",
+      "crawledAt": "2026-08-26T10:13:19.491Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -613,11 +634,13 @@
         "pensumMax": 70
       },
       "previousSlugs": [
-        "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
+        "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich",
+        "amministratore-delegato-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
+          "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich",
+          "amministratore-delegato-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
         ],
         "en": [
           "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
@@ -641,117 +664,6 @@
         }
       },
       "addressRegion": "ZH"
-    },
-    {
-      "id": "srg-ssr-1347cb8243aa",
-      "slug": "stage-nel-settore-musicale-rsi-srg-ssr-comano",
-      "slugByLocale": {
-        "it": "stage-nel-settore-musicale-rsi-srg-ssr-comano",
-        "en": "stage-in-the-music-industry-rsi-srg-ssr-comano",
-        "de": "buhne-in-der-musikindustrie-rsi-srg-ssr-comano",
-        "fr": "scene-dans-l-industrie-musicale-rsi-srg-ssr-comano"
-      },
-      "company": "SRG SSR",
-      "companyKey": "srg-ssr",
-      "companyDomain": "srgssr.ch",
-      "title": "Stage nel settore musicale RSI",
-      "titleByLocale": {
-        "it": "Stage nel settore musicale RSI",
-        "en": "Stage in the music industry RSI",
-        "de": "Bühne in der Musikindustrie RSI",
-        "fr": "Scène dans l'industrie musicale RSI"
-      },
-      "description": "COSTRUISCI LA TUA CARRIERA CON\n• Collaborazione alla gestione e valorizzazione dell'Archivio Musicale RSI.\n• Riordino, inventariazione e digitalizzazione di documenti e partiture.\n• Supporto alla catalogazione e alla preparazione dei materiali per il trasferimento dell'archivio.\n• Ricerca documentale e supporto alle redazioni nelle richieste di materiale musicale.\n• Partecipazione alla produzione di una nuova trasmissione televisiva, dalla registrazione alla messa in onda. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Hai una buona conoscenza della musica e del repertorio classico?\n• Ti interessa la gestione e la valorizzazione del patrimonio musicale e culturale?\n• Sei una persona precisa, organizzata e attenta ai dettagli?\n• Ti trovi a tuo agio sia nel lavoro autonomo sia nella collaborazione con un team?\n• Hai delle buone conoscenze del territorio svizzero e della cultura generale?\n• La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale! Cosa offriamo Altre domande? Info sul processo di candidatura Stage di 6 mesi, tra settembre e inizio marzo 2026, la sede di lavoro è a Comano. Candidarsi è facile! Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e accompagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura martedì 25 agosto 2026 . LA RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui mandato è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Concessione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fondamentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'intrattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguistiche della Svizzera.",
-      "descriptionByLocale": {
-        "it": "COSTRUISCI LA TUA CARRIERA CON\n• Collaborazione alla gestione e valorizzazione dell'Archivio Musicale RSI.\n• Riordino, inventariazione e digitalizzazione di documenti e partiture.\n• Supporto alla catalogazione e alla preparazione dei materiali per il trasferimento dell'archivio.\n• Ricerca documentale e supporto alle redazioni nelle richieste di materiale musicale.\n• Partecipazione alla produzione di una nuova trasmissione televisiva, dalla registrazione alla messa in onda. SEI TU?\n• Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?\n• Hai una buona conoscenza della musica e del repertorio classico?\n• Ti interessa la gestione e la valorizzazione del patrimonio musicale e culturale?\n• Sei una persona precisa, organizzata e attenta ai dettagli?\n• Ti trovi a tuo agio sia nel lavoro autonomo sia nella collaborazione con un team?\n• Hai delle buone conoscenze del territorio svizzero e della cultura generale?\n• La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale! Cosa offriamo Altre domande? Info sul processo di candidatura Stage di 6 mesi, tra settembre e inizio marzo 2026, la sede di lavoro è a Comano. Candidarsi è facile! Verranno prese in considerazione esclusivamente le candidature inoltrate tramite jobs.rsi.ch e accompagnate da una lettera di motivazione, CV e attestato di frequenza dell'università o la Laurea. Termine ultimo per l'inoltro della candidatura martedì 25 agosto 2026 . LA RSI La RSI, Radiotelevisione svizzera di lingua italiana, è un'emittente di servizio pubblico il cui mandato è sancito dalla Costituzione federale, dalla Legge sulla radiotelevisione (LRTV) e dalla Concessione. Indipendente, è un pilastro del panorama mediatico svizzero, in quanto svolge un ruolo fondamentale nella promozione del dialogo aperto e nella diffusione di informazioni accurate. Grazie a una vasta gamma di programmi radiofonici, televisivi e digitali, la RSI offre un servizio universale nel campo mediatico, raggiungendo e informando la popolazione in modo capillare. Questa funzione è essenziale sia per la democrazia, sia per garantire che il pubblico svizzero sia costantemente aggiornato e informato, con una copertura che spazia dalla politica alla cultura, dall'economia all'intrattenimento, dallo sport all'educazione. La RSI fornisce un quadro accurato della realtà svizzera su scala nazionale, linguistica e regionale, facilitando il dialogo e lo scambio tra le regioni linguistiche della Svizzera.",
-        "en": "COSTRUISCI LA TUA CARRIERA CON\n• Collaboration with the management and enhancement of the RSI Music Archive.\n• Riordino, invention and digitization of documents and scores.\n• Support for cataloguing and preparing materials for archive transfer.\n• Documental research and support for editing in musical material requests.\n• Participation in the production of a new television broadcast, from recording to broadcasting. You?\n• Are you attending university (or equivalent school) or have you finished it for a maximum of one year?\n• Do you have a good knowledge of classical music and repertoire?\n• Interested in the management and enhancement of musical and cultural heritage?\n• Are you a precise person, organized and attentive to details?\n• Are you comfortable with both self-employment and teamwork?\n• Do you have any good knowledge of Swiss territory and general culture?\n• Knowledge of national languages and English is a preferential title! What do we offer more questions? About the 6-month internship application process, between September and early March 2026, the workplace is in Comano. Applying is easy! Only applications submitted through jobs.rsi.ch will be considered and accompanied by a letter of motivation, CV and university attendance certificate or degree. The deadline for submission of the application on Tuesday 25 August 2026. LA RSI La RSI, Swiss Radiotelevisione di lingua italiana, is a public service broadcaster whose mandate is enshrined in the Federal Constitution, the Broadcasting Law (LRTV) and the Concession. Independent, it is a pillar of the Swiss media landscape, as it plays a key role in promoting open dialogue and disseminating accurate information. Thanks to a wide range of radio, television and digital programs, the CSR offers a universal service in the media field, reaching and informing the population in a capillary way. This function is essential both for democracy, and to ensure that the Swiss public is constantly updated and informed, with coverage ranging from politics to culture, from economy to entertainment, from sport to education. The ISR provides an accurate picture of Swiss reality on a national, linguistic and regional scale, facilitating dialogue and exchange between the language regions of Switzerland.",
-        "de": "COSTRUISCI LA TUA CARRIERA CON\n• Zusammenarbeit mit der Verwaltung und Erweiterung des RSI Music Archive.\n• Riordino, Erfindung und Digitalisierung von Dokumenten und Partituren.\n• Unterstützung beim Katalogisieren und Vorbereiten von Materialien für den Archivtransfer.\n• Dokumentarische Recherche und Unterstützung bei der Bearbeitung von Musikmaterialanfragen.\n• Beteiligung an der Produktion einer neuen Fernsehsendung, von der Aufzeichnung bis zur Übertragung. Sie?\n• Besuchen Sie die Universität (oder eine gleichwertige Schule) oder haben Sie sie für maximal ein Jahr abgeschlossen?\n• Haben Sie gute Kenntnisse in klassischer Musik und Repertoire?\n• Interesse an der Verwaltung und Verbesserung des musikalischen und kulturellen Erbes?\n• Sind Sie eine präzise Person, organisiert und aufmerksam auf Details?\n• Sind Sie sowohl mit Selbstständigkeit als auch mit Teamwork zufrieden?\n• Haben Sie gute Kenntnisse des Schweizer Territoriums und der allgemeinen Kultur?\n• Kenntnisse der Landessprachen und Englisch ist ein bevorzugter Titel! Was bieten wir mehr Fragen an? Über den 6-monatigen Bewerbungsprozess für Praktika zwischen September und Anfang März 2026 befindet sich der Arbeitsplatz in Comano. Die Bewerbung ist einfach! Nur Bewerbungen, die über jobs.rsi.ch eingereicht werden, werden von einem Motivationsschreiben, Lebenslauf und Universitätsurkunde oder Abschluss begleitet. Die Frist für die Einreichung des Antrags am Dienstag, 25. August 2026. LA RSI La RSI, Swiss Radiotelevisione di lingua italiana, ist eine öffentlich-rechtliche Rundfunkanstalt, deren Auftrag in der Bundesverfassung, dem Rundfunkgesetz (LRTV) und der Konzession verankert ist. Unabhängig ist es eine Säule der Schweizer Medienlandschaft, da es eine Schlüsselrolle bei der Förderung eines offenen Dialogs und der Verbreitung korrekter Informationen spielt. Dank einer breiten Palette von Radio-, Fernseh- und digitalen Programmen bietet die CSR einen universellen Service im Medienbereich, der die Bevölkerung kapillar erreicht und informiert. Diese Funktion ist sowohl für die Demokratie als auch für die ständige Aktualisierung und Information der Schweizer Öffentlichkeit von Politik bis Kultur, von Wirtschaft bis Unterhaltung, von Sport bis Bildung unerlässlich. Die ISR bietet ein genaues Bild der Schweizer Realität auf nationaler, sprachlicher und regionaler Ebene und erleichtert den Dialog und Austausch zwischen den Sprachregionen der Schweiz.",
-        "fr": "COSTRUISCI LA TUA CARRIERA CON\n• Collaboration avec la gestion et l'amélioration de la RSI Music Archive.\n• Riordino, invention et numérisation de documents et de partitions.\n• Support pour le catalogage et la préparation des documents pour le transfert d'archives.\n• Recherche documentaire et soutien pour l'édition dans les demandes de matériel musical.\n• Participation à la production d'une nouvelle émission de télévision, de l'enregistrement à la radiodiffusion. Toi ?\n• Vous allez à l'université (ou à une école équivalente) ou l'avez-vous terminée pendant un an maximum?\n• Avez-vous une bonne connaissance de la musique classique et du répertoire?\n• Intéressé par la gestion et la valorisation du patrimoine musical et culturel?\n• Êtes-vous une personne précise, organisée et attentive aux détails?\n• Êtes-vous à l'aise avec le travail indépendant et le travail d'équipe?\n• Avez-vous une bonne connaissance du territoire suisse et de la culture générale?\n• La connaissance des langues nationales et de l'anglais est un titre préférentiel! Que proposons-nous d'autres questions? Au sujet du processus de candidature de 6 mois, entre septembre et début mars 2026, le lieu de travail est à Comano. Appliquer est facile! Seules les demandes soumises par jobs.rsi.ch seront examinées et accompagnées d'une lettre de motivation, d'un CV et d'un certificat de participation ou d'un diplôme universitaire. La date limite pour le dépôt de la demande est le mardi 25 août 2026. LA RSI La RSI, Radiotélévision suisse di lingua italiana, est un radiodiffuseur de service public dont le mandat est consacré par la Constitution fédérale, la loi sur la radiodiffusion (LRTV) et la concession. Indépendant, il est un pilier du paysage médiatique suisse, car il joue un rôle clé dans la promotion d'un dialogue ouvert et la diffusion d'informations exactes. Grâce à un large éventail d'émissions radiophoniques, télévisées et numériques, la RSE offre un service universel dans le domaine des médias, touchant et informant la population d'une manière capillaire. Cette fonction est essentielle à la fois pour la démocratie et pour que le public suisse soit constamment informé, avec une couverture allant de la politique à la culture, de l'économie au divertissement, du sport à l'éducation. L'ISR fournit une image précise de la réalité suisse à l'échelle nationale, linguistique et régionale, facilitant le dialogue et les échanges entre les régions linguistiques de la Suisse."
-      },
-      "location": "Comano",
-      "canton": "TI",
-      "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nel-settore-musicale-rsi/cc678ff7-4831-4a38-833a-f8b0f2fe249a",
-      "source": "SRG SSR Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-25T21:34:55.052Z",
-      "addressLocality": "Comano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6949",
-      "streetAddress": "via Cureglia 38",
-      "category": "Produzione Media",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Media / Broadcasting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-30",
-      "applyUrl": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nel-settore-musicale-rsi/cc678ff7-4831-4a38-833a-f8b0f2fe249a",
-      "requirements": [
-        "Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?",
-        "Hai una buona conoscenza della musica e del repertorio classico?",
-        "Ti interessa la gestione e la valorizzazione del patrimonio musicale e culturale?",
-        "Sei una persona precisa, organizzata e attenta ai dettagli?",
-        "Ti trovi a tuo agio sia nel lavoro autonomo sia nella collaborazione con un team?",
-        "Hai delle buone conoscenze del territorio svizzero e della cultura generale?",
-        "La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale!"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Stai frequentando l'università (o una scuola equivalente) o l'hai terminata da massimo un anno?",
-          "Hai una buona conoscenza della musica e del repertorio classico?",
-          "Ti interessa la gestione e la valorizzazione del patrimonio musicale e culturale?",
-          "Sei una persona precisa, organizzata e attenta ai dettagli?",
-          "Ti trovi a tuo agio sia nel lavoro autonomo sia nella collaborazione con un team?",
-          "Hai delle buone conoscenze del territorio svizzero e della cultura generale?",
-          "La conoscenza delle lingue nazionali e dell'inglese costituisce un titolo preferenziale!"
-        ]
-      },
-      "_srgMeta": {
-        "uuid": "cc678ff7-4831-4a38-833a-f8b0f2fe249a",
-        "org": "rsi",
-        "orgLabel": "RSI",
-        "pensumMin": 80,
-        "pensumMax": 100
-      },
-      "previousSlugs": [
-        "stage-comunicazione-rsi-srg-ssr-comano",
-        "csr-communication-internship-srg-ssr-comano",
-        "rsi-kommunikationsstufe-srg-ssr-comano",
-        "phase-de-communication-rsi-srg-ssr-comano"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stage-comunicazione-rsi-srg-ssr-comano",
-          "csr-communication-internship-srg-ssr-comano",
-          "rsi-kommunikationsstufe-srg-ssr-comano",
-          "phase-de-communication-rsi-srg-ssr-comano"
-        ],
-        "en": [
-          "csr-communication-internship-srg-ssr-comano"
-        ],
-        "de": [
-          "rsi-kommunikationsstufe-srg-ssr-comano"
-        ],
-        "fr": [
-          "phase-de-communication-rsi-srg-ssr-comano"
-        ]
-      },
-      "firstSeenAt": "2026-08-05T22:40:13.924Z",
-      "salaryMin": 41600,
-      "salaryMax": 74000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 74000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI"
     },
     {
       "id": "srg-ssr-a8ae3325568d",
@@ -784,7 +696,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-veranstaltungsfachmann-fachfrau-efz/6ceb5b23-a763-4947-88be-2df9ce20cca3",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:34:54.253Z",
+      "crawledAt": "2026-08-26T10:13:18.588Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -820,14 +732,18 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
+          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+          "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich"
         ],
         "it": [
-          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
+          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+          "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich"
         ]
       },
       "previousSlugs": [
-        "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
+        "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+        "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich",
+        "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T21:37:04.179Z",
@@ -876,7 +792,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz/91370784-d240-4500-8efe-5f54893b9dfa",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:34:53.537Z",
+      "crawledAt": "2026-08-26T10:13:17.767Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -911,11 +827,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
+        "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
+        "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
+          "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
+          "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich"
         ],
         "de": [
           "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
@@ -952,7 +870,7 @@
       "title": "Stage Digital Marketing Specialist",
       "titleByLocale": {
         "it": "Stage Digital Marketing Specialista",
-        "en": "Digital Marketing Specialist",
+        "en": "Stage Digital Marketing Specialist",
         "de": "Stage Digital Marketing Spezialist",
         "fr": "Stage Digital Marketing Spécialiste"
       },
@@ -968,7 +886,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-digital-marketing-specialist/1e879fb8-8d71-4bac-a620-735a66901ba8",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-25T21:34:52.806Z",
+      "crawledAt": "2026-08-26T10:13:16.911Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1010,6 +928,7 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T21:34:39.952Z",
       "salaryMin": 46000,
       "salaryMax": 78500,
@@ -1056,7 +975,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/praktikant-in-digitale-kanaele-unterhaltung-gesellschaft/33a25346-6b53-400e-87f8-97e7f8bb01a3",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:34:51.956Z",
+      "crawledAt": "2026-08-26T10:13:16.013Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1091,11 +1010,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "praktikant-in-digitale-kanale-unterhaltung-amp-gesellschaft-srg-ssr-zurich"
+        "praktikant-in-digitale-kanale-unterhaltung-amp-gesellschaft-srg-ssr-zurich",
+        "interno-in-canali-digitali-intrattenimento-e-societa-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-digitale-kanale-unterhaltung-amp-gesellschaft-srg-ssr-zurich"
+          "praktikant-in-digitale-kanale-unterhaltung-amp-gesellschaft-srg-ssr-zurich",
+          "interno-in-canali-digitali-intrattenimento-e-societa-srg-ssr-zurich"
         ],
         "en": [
           "praktikant-in-digitale-kanale-unterhaltung-amp-gesellschaft-srg-ssr-zurich"
@@ -1151,7 +1072,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/projekt-und-investitionscontroller-in-mit-fokus-strategische-projekte/c19f548f-3961-4b5a-9ad8-a4d3d9ad42a4",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:34:45.450Z",
+      "crawledAt": "2026-08-26T10:13:15.113Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1249,7 +1170,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/controleur-se-strategique-de-projets-et-d-investissements/e949b34a-1f5a-49f0-8b9a-3bee723d0545",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-25T21:34:38.871Z",
+      "crawledAt": "2026-08-26T10:13:12.579Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1286,11 +1207,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
+        "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern",
+        "controllore-strategico-del-progetto-e-degli-investimenti-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
+          "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern",
+          "controllore-strategico-del-progetto-e-degli-investimenti-srg-ssr-bern"
         ],
         "en": [
           "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
@@ -1299,6 +1222,7 @@
           "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T21:48:14.284Z",
       "salaryMin": 105500,
       "salaryMax": 185000,
@@ -1345,7 +1269,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/responsable-marketing-rts/1450473c-6543-418d-82f5-a4ef2dcfc0b9",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-25T21:34:38.089Z",
+      "crawledAt": "2026-08-26T10:13:03.035Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1432,7 +1356,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel/3e3fcff3-e194-4a1b-831f-f105b491094e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:34:37.318Z",
+      "crawledAt": "2026-08-26T10:13:02.128Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -1471,11 +1395,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
+        "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16",
+        "apprendistato-come-informatiker-in-cfc-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
+          "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16",
+          "apprendistato-come-informatiker-in-cfc-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
         ],
         "en": [
           "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
@@ -1531,7 +1457,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern/0d740af4-8667-4a66-a530-ccc338291c67",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:34:36.494Z",
+      "crawledAt": "2026-08-26T10:13:01.193Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -1570,11 +1496,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
+        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16",
+        "apprendistato-come-informatiker-in-cfc-plattformentwicklung-2027-bern-srg-ssr-bern-16"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
+          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16",
+          "apprendistato-come-informatiker-in-cfc-plattformentwicklung-2027-bern-srg-ssr-bern-16"
         ],
         "en": [
           "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
@@ -1630,7 +1558,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/praktikant-in-news-inland/1e86685a-44f9-4f3b-8a07-c7e65b35428d",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:34:35.699Z",
+      "crawledAt": "2026-08-26T10:13:00.110Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1712,7 +1640,7 @@
       "url": "https://jobs.srgssr.ch/swi/offene-stellen/fachverantwortliche-r-produktentwicklung-swissinfo/62bdb575-3d14-49e3-a8ab-e8c69e6e5425",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:34:34.863Z",
+      "crawledAt": "2026-08-26T10:12:59.042Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1749,11 +1677,13 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
+        "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern",
+        "responsabile-per-lo-sviluppo-del-prodotto-swissinfo-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
+          "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern",
+          "responsabile-per-lo-sviluppo-del-prodotto-swissinfo-srg-ssr-bern"
         ],
         "en": [
           "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
@@ -1762,6 +1692,7 @@
           "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-21T09:46:05.638Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -1808,7 +1739,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/hostess-steward-servizio-eventi/3e7ba70d-5105-4c69-a753-d1a91815a68b",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-25T21:34:34.023Z",
+      "crawledAt": "2026-08-26T10:12:57.809Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1856,6 +1787,7 @@
         "org": "rsi",
         "orgLabel": "RSI"
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T10:00:42.039Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -1902,7 +1834,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/hr-partner-in/1432cf4e-143c-4306-901f-03755cdb69ad",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:34:33.149Z",
+      "crawledAt": "2026-08-26T10:12:56.692Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1941,6 +1873,19 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
+      "previousSlugs": [
+        "hr-partner-in-srg-ssr-zurich",
+        "risorse-umane-berater-in-srg-ssr-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-partner-in-srg-ssr-zurich",
+          "risorse-umane-berater-in-srg-ssr-zurich"
+        ],
+        "fr": [
+          "hr-partner-in-srg-ssr-zurich"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-25T09:48:14.107Z",
       "salaryMin": 83000,
@@ -1955,20 +1900,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "previousSlugsByLocale": {
-        "it": [
-          "hr-partner-in-srg-ssr-zurich",
-          "risorse-umane-berater-in-srg-ssr-zurich"
-        ],
-        "fr": [
-          "hr-partner-in-srg-ssr-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "hr-partner-in-srg-ssr-zurich",
-        "risorse-umane-berater-in-srg-ssr-zurich"
-      ]
+      "addressRegion": "ZH"
     }
   ]
 }

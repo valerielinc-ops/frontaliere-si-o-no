@@ -4372,6 +4372,21 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.reri-moneypark-calo-3-anni.title': 'Risque de bulle immobilière en baisse, pour la première fois depuis trois ans',
     'blog.article.reri-moneypark-calo-3-anni.excerpt': 'L\'indice RERI de MoneyPark chute à 3,5 points au Q2 2026 : pour la première fois en trois ans. Le marché devient plus sélectif, les prix augmentent moins, les taux restent bas.',
     'blog.article.reri-moneypark-calo-3-anni.imageAlt': 'Chantier de construction en Suisse avec bâtiments résidentiels modernes et montagnes alpines au coucher du soleil',
+    'blog.article.infortuni-soglia-indipendenti-2027.title': 'LAA : seuil réduit pour 40 000 travailleurs indépendants',
+    'blog.article.infortuni-soglia-indipendenti-2027.excerpt': 'Le Conseil fédéral réduit l\'accès à l\'assurance-accidents à partir du 1er janvier 2027 : de 66 690 CHF à 44 460 CHF par an. Ils bénéficient de 40 000 indépendants en plus.',
+    'blog.article.infortuni-soglia-indipendenti-2027.imageAlt': 'Travailleur autonome à son bureau face au paysage alpin suisse',
+    'blog.article.accesso-facilitato-infortuni-2027.title': 'Accès facilité à l\'assurance-accidents depuis 2027',
+    'blog.article.accesso-facilitato-infortuni-2027.excerpt': 'Seuil réduit de 66 690 CHF à 44 460 CHF : à partir de janvier 2027, environ 40 000 travailleurs indépendants pourront s\'assurer contre les accidents avec de nouvelles opportunités.',
+    'blog.article.accesso-facilitato-infortuni-2027.imageAlt': 'Professionnel indépendant suisse travaillant dans un bureau moderne avec vue sur la ville',
+    'blog.article.indennita-parentali-2027.title': 'Indemnité parentale : nouveaux droits à compter du 1er juillet 2027',
+    'blog.article.indennita-parentali-2027.excerpt': 'Le Conseil fédéral approuve les modifications apportées à la loi APG : à partir du 1er juillet 2027, les parents et les familles auront accès à des prestations jusqu\'ici réservées aux militaires.',
+    'blog.article.indennita-parentali-2027.imageAlt': 'Palais fédéral de Berne, siège du Conseil fédéral et du Parlement suisse',
+    'blog.article.allerte-popolazione-cell-broadcast.title': 'Alertes population : Berne accélère la diffusion de cellules',
+    'blog.article.allerte-popolazione-cell-broadcast.excerpt': 'Le Conseil fédéral demande 15,8 millions de CHF pour le cell broadcast, système d\'alerte qui atteindra les citoyens directement sur leurs téléphones portables.',
+    'blog.article.allerte-popolazione-cell-broadcast.imageAlt': 'Système d\'alerte d\'urgence avec notifications sur téléphones mobiles dans une place suisse',
+    'blog.article.edilizia-crescita-primo-semestre.title': 'Construction : croissance de +3,1 % au cours des six premiers mois de 2026',
+    'blog.article.edilizia-crescita-primo-semestre.excerpt': 'Au premier semestre 2026, le chiffre d\'affaires de la construction suisse a atteint 11,2 milliards de francs, soit une croissance de 3,1%. Mais les permis et les recours freinent les chantiers.',
+    'blog.article.edilizia-crescita-primo-semestre.imageAlt': 'Chantier de construction moderne en Suisse avec grues et nouveaux immeubles résidentiels, symbole de la croissance du secteur du bâtiment.',
 };
 
 export default blogMetaChFr;

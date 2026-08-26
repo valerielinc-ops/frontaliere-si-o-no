@@ -78968,6 +78968,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-san-gottardo-code-20-km-luglio': {
+    title: 'La coda al San Gottardo più lunga degli ultimi 4 anni',
+    description: 'Il 18 luglio 20 km di coda al San Gottardo. Chiusure notturne settembre-ottobre. Guida pratica per frontalieri e pendolari. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, coda, gottardo, lunga, ultimi',
+    ogTitle: 'Coda al San Gottardo: 20 km il 18 luglio 2026',
+    ogDescription: 'Il 18 luglio 2026 si raggiunge il picco estivo di 20 km di coda al San Gottardo. Chiusure notturne in autunno: date e orari. Informazioni per frontalieri e pendolari Ticino-Italia.',
+    canonicalPath: '/articoli-frontaliere/san-gottardo-code-20-km-luglio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La coda al San Gottardo più lunga degli ultimi 4 anni",
+      "description": "Il 18 luglio 20 km di coda al San Gottardo. Chiusure notturne settembre-ottobre. Guida pratica per frontalieri e pendolari. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/san-gottardo-code-20-km-luglio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Galleria autostradale del San Gottardo con traffico intenso attraverso le Alpi svizzere"
+      },
+      "datePublished": "2026-08-26T09:56:28+00:00",
+      "dateModified": "2026-08-26T09:56:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/san-gottardo-code-20-km-luglio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

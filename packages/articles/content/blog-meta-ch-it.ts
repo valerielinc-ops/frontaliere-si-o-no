@@ -4372,6 +4372,21 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.reri-moneypark-calo-3-anni.title': 'Rischio bolla immobiliare in calo, prima volta da tre anni',
     'blog.article.reri-moneypark-calo-3-anni.excerpt': 'L\'indice RERI di MoneyPark scende a 3,5 punti nel Q2 2026: prima volta in tre anni. Mercato diventa più selettivo, prezzi crescono meno, tassi rimangono bassi.',
     'blog.article.reri-moneypark-calo-3-anni.imageAlt': 'Veduta di un cantiere edile svizzero con palazzi residenziali moderni e montagne sullo sfondo al tramonto',
+    'blog.article.infortuni-soglia-indipendenti-2027.title': 'LAINF: soglia ridotta per 40.000 lavoratori indipendenti',
+    'blog.article.infortuni-soglia-indipendenti-2027.excerpt': 'Il Consiglio federale abbassa l\'accesso all\'assicurazione infortuni dal 1° gennaio 2027: da CHF 66.690 a CHF 44.460 annui. Beneficiano 40.000 autonomi in più.',
+    'blog.article.infortuni-soglia-indipendenti-2027.imageAlt': 'Lavoratore indipendente al computer con vista su paesaggio svizzero alpino',
+    'blog.article.accesso-facilitato-infortuni-2027.title': 'Accesso facilitato all\'assicurazione infortuni dal 2027',
+    'blog.article.accesso-facilitato-infortuni-2027.excerpt': 'Soglia ridotta da CHF 66.690 a CHF 44.460: dal gennaio 2027, circa 40 mila lavoratori indipendenti potranno assicurarsi contro gli infortuni con nuove opportunità.',
+    'blog.article.accesso-facilitato-infortuni-2027.imageAlt': 'Professionista indipendente che lavora in un ufficio moderno con vista sulla città svizzera',
+    'blog.article.indennita-parentali-2027.title': 'Indennità parentali: nuovi diritti dal 1° luglio 2027',
+    'blog.article.indennita-parentali-2027.excerpt': 'Il Consiglio federale approva le modifiche alla legge IPG: dal 1° luglio 2027 genitori e famiglie avranno accesso a prestazioni finora riservate ai militari.',
+    'blog.article.indennita-parentali-2027.imageAlt': 'Palazzo federale di Berna, sede del Consiglio federale e del Parlamento svizzero',
+    'blog.article.allerte-popolazione-cell-broadcast.title': 'Allerte popolazione: Berna accelera cell broadcast',
+    'blog.article.allerte-popolazione-cell-broadcast.excerpt': 'Consiglio federale chiede 15,8 milioni CHF per il cell broadcast, sistema di allerta che raggiungerà i cittadini direttamente sui loro cellulari.',
+    'blog.article.allerte-popolazione-cell-broadcast.imageAlt': 'Dimostrazione di sistema di allerta d\'emergenza con messaggi su telefoni mobili in una piazza svizzera',
+    'blog.article.edilizia-crescita-primo-semestre.title': 'Edilizia: crescita del +3,1% nei primi sei mesi 2026',
+    'blog.article.edilizia-crescita-primo-semestre.excerpt': 'Nel primo semestre 2026 il fatturato della costruzione svizzera ha raggiunto 11,2 miliardi di franchi, con una crescita del 3,1%. Ma permessi e ricorsi frenano i cantieri.',
+    'blog.article.edilizia-crescita-primo-semestre.imageAlt': 'Cantiere edile moderno in Svizzera con gru e nuovi edifici residenziali, simbolo della crescita del settore costruzioni e del mercato abitativo nel 2026.',
 };
 
 export default blogMetaChIt;

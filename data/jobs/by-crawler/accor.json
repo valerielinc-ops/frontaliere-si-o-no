@@ -1,13 +1,440 @@
 {
   "crawlerKey": "accor",
-  "assembledAt": "2026-08-25T22:13:32.831Z",
+  "assembledAt": "2026-08-26T10:11:36.714Z",
   "jobs": [
     {
+      "id": "accor-8e1b061e7f6d",
+      "slug": "front-office-team-leader-accor-ch",
+      "slugByLocale": {
+        "de": "front-office-team-leader-accor-ch",
+        "it": "front-office-team-leader-accor-ch",
+        "en": "front-office-team-leader-accor-ch",
+        "fr": "front-office-team-leader-accor-ch"
+      },
+      "company": "Ibis Budget",
+      "companyKey": "accor",
+      "companyDomain": "careers.accor.com",
+      "title": "Front Office - Team Leader",
+      "titleByLocale": {
+        "de": "Front Office - Team Leader",
+        "it": "Front Office - Capo squadra",
+        "en": "Front Office - Team Leader",
+        "fr": "Front Office - Team Leader"
+      },
+      "description": "Front Office - Team Leader — Ibis Budget",
+      "descriptionByLocale": {
+        "de": "Front Office - Team Leader — Ibis Budget"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://careers.accor.com/fr/fr/job/front-office-team-leader-in-sofitel-al-khobar-the-corniche-al-khobar-saudi-ara-jid-107713",
+      "source": "Ibis Budget Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-26T10:11:31.947Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-26",
+      "applyUrl": "https://careers.accor.com/fr/fr/job/front-office-team-leader-in-sofitel-al-khobar-the-corniche-al-khobar-saudi-ara-jid-107713",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-26T10:11:31.947Z"
+    },
+    {
+      "id": "accor-d2b922c2d026",
+      "slug": "serveur-petit-dejeuner-h-f-x-accor-ch",
+      "slugByLocale": {
+        "fr": "serveur-petit-dejeuner-h-f-x-accor-ch",
+        "it": "serveur-petit-dejeuner-h-f-x-accor-ch",
+        "en": "serveur-petit-dejeuner-h-f-x-accor-ch",
+        "de": "serveur-petit-dejeuner-h-f-x-accor-ch"
+      },
+      "company": "Ibis Budget",
+      "companyKey": "accor",
+      "companyDomain": "careers.accor.com",
+      "title": "Serveur petit déjeuner (H/F/X)",
+      "titleByLocale": {
+        "fr": "Serveur petit déjeuner (H/F/X)",
+        "it": "Serveur petit déjeuner (H/F/X)",
+        "en": "Serveur petit déjeuner (H/F/X)",
+        "de": "Serveur petit déjeuner (H/F/X)"
+      },
+      "description": "Serveur petit déjeuner (H/F/X) — Ibis Budget",
+      "descriptionByLocale": {
+        "fr": "Serveur petit déjeuner (H/F/X) — Ibis Budget"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://careers.accor.com/fr/fr/job/serveur-petit-dejeuner-h-f-x-in-ibis-dijon-gare-dijon-france-jid-107714",
+      "source": "Ibis Budget Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-26T10:11:31.644Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-26",
+      "applyUrl": "https://careers.accor.com/fr/fr/job/serveur-petit-dejeuner-h-f-x-in-ibis-dijon-gare-dijon-france-jid-107714",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-26T10:11:31.644Z"
+    },
+    {
+      "id": "accor-50a3b8758458",
+      "slug": "receptionniste-tournant-h-f-accor-ch",
+      "slugByLocale": {
+        "fr": "receptionniste-tournant-h-f-accor-ch",
+        "it": "receptionniste-tournant-h-f-accor-ch",
+        "en": "receptionniste-tournant-h-f-accor-ch",
+        "de": "receptionniste-tournant-h-f-accor-ch"
+      },
+      "company": "Ibis Budget",
+      "companyKey": "accor",
+      "companyDomain": "careers.accor.com",
+      "title": "RECEPTIONNISTE TOURNANT (H/F)",
+      "titleByLocale": {
+        "fr": "RECEPTIONNISTE TOURNANT (H/F)",
+        "it": "RECEPTIONNISTE TOURNANT (H/F)",
+        "en": "RECEPTIONNISTE TOURNANT (H/F)",
+        "de": "RECEPTIONNISTE TOURNANT (H/F)"
+      },
+      "description": "RECEPTIONNISTE TOURNANT (H/F) — Ibis Budget",
+      "descriptionByLocale": {
+        "fr": "RECEPTIONNISTE TOURNANT (H/F) — Ibis Budget"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://careers.accor.com/fr/fr/job/receptionniste-tournant-h-f-in-ibis-styles-paris-gare-de-l-est-chateau-landon-par-jid-92889",
+      "source": "Ibis Budget Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-26T10:11:31.342Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-26",
+      "applyUrl": "https://careers.accor.com/fr/fr/job/receptionniste-tournant-h-f-in-ibis-styles-paris-gare-de-l-est-chateau-landon-par-jid-92889",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-26T10:11:31.342Z"
+    },
+    {
+      "id": "accor-1fcb71295339",
+      "slug": "assistant-manager-social-media-accor-ch",
+      "slugByLocale": {
+        "fr": "assistant-manager-social-media-accor-ch",
+        "it": "assistant-manager-social-media-accor-ch",
+        "en": "assistant-manager-social-media-ibis-budget-lugano",
+        "de": "assistant-manager-social-media-accor-ch"
+      },
+      "company": "Ibis Budget",
+      "companyKey": "accor",
+      "companyDomain": "careers.accor.com",
+      "title": "Assistant Manager Social Media",
+      "titleByLocale": {
+        "fr": "Assistant Manager Social Media",
+        "en": "Assistant Manager Social Media",
+        "it": "Assistant Manager Social Media",
+        "de": "Assistent Manager Social Media"
+      },
+      "description": "Assistant Manager Social Media — Ibis Budget",
+      "descriptionByLocale": {
+        "fr": "Assistant Manager Social Media — Ibis Budget"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://careers.accor.com/fr/fr/job/assistant-manager-social-media-in-morgans-originals-ras-el-hekma-egypt-ras-el-hekma--jid-107719",
+      "source": "Ibis Budget Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-26T10:11:30.735Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-26",
+      "applyUrl": "https://careers.accor.com/fr/fr/job/assistant-manager-social-media-in-morgans-originals-ras-el-hekma-egypt-ras-el-hekma--jid-107719",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-26T10:11:30.735Z"
+    },
+    {
+      "id": "accor-a05485afb5cb",
+      "slug": "hostess-lagun-beach-restaurant-bar-accor-ch",
+      "slugByLocale": {
+        "fr": "hostess-lagun-beach-restaurant-bar-accor-ch",
+        "it": "hostess-lagun-beach-restaurant-bar-accor-ch",
+        "en": "hostess-lagun-beach-restaurant-bar-accor-ch",
+        "de": "hostess-lagun-beach-restaurant-bar-accor-ch"
+      },
+      "company": "Ibis Budget",
+      "companyKey": "accor",
+      "companyDomain": "careers.accor.com",
+      "title": "Hostess - Lagun Beach Restaurant & Bar",
+      "titleByLocale": {
+        "fr": "Hostess - Lagun Beach Restaurant & Bar",
+        "it": "Hostess - Lagun Beach Restaurant & Bar",
+        "en": "Hostess - Lagun Beach Restaurant & Bar",
+        "de": "Hostess - Lagun Beach Restaurant & Bar"
+      },
+      "description": "Hostess - Lagun Beach Restaurant & Bar — Ibis Budget",
+      "descriptionByLocale": {
+        "fr": "Hostess - Lagun Beach Restaurant & Bar — Ibis Budget"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://careers.accor.com/fr/fr/job/hostess-lagun-beach-restaurant-and-bar-in-sofitel-dubai-the-palm-dubai-united-arab-emirates-jid-107721",
+      "source": "Ibis Budget Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-26T10:11:29.827Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-26",
+      "applyUrl": "https://careers.accor.com/fr/fr/job/hostess-lagun-beach-restaurant-and-bar-in-sofitel-dubai-the-palm-dubai-united-arab-emirates-jid-107721",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-26T10:11:29.827Z"
+    },
+    {
+      "id": "accor-94e397ecab53",
+      "slug": "receptionniste-de-nuit-h-f-cdi-temps-partiel-accor-ch",
+      "slugByLocale": {
+        "fr": "receptionniste-de-nuit-h-f-cdi-temps-partiel-accor-ch",
+        "it": "receptionniste-de-nuit-h-f-cdi-temps-partiel-accor-ch",
+        "en": "receptionniste-de-nuit-h-f-cdi-temps-partiel-accor-ch",
+        "de": "receptionniste-de-nuit-h-f-cdi-temps-partiel-accor-ch"
+      },
+      "company": "Ibis Budget",
+      "companyKey": "accor",
+      "companyDomain": "careers.accor.com",
+      "title": "Réceptionniste de nuit H/F CDI Temps Partiel",
+      "titleByLocale": {
+        "fr": "Réceptionniste de nuit H/F CDI Temps Partiel",
+        "it": "Réceptionniste de nuit H/F CDI Temps Partiel",
+        "en": "Réceptionniste de nuit H/F CDI Temps Partiel",
+        "de": "Réceptionniste de nuit H/F CDI Temps Partiel"
+      },
+      "description": "Réceptionniste de nuit H/F CDI Temps Partiel — Ibis Budget",
+      "descriptionByLocale": {
+        "fr": "Réceptionniste de nuit H/F CDI Temps Partiel — Ibis Budget"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://careers.accor.com/fr/fr/job/receptionniste-de-nuit-h-f-cdi-temps-partiel-in-ibis-styles-paris-orly-airport-paray-vieille-poste-jid-98390",
+      "source": "Ibis Budget Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-26T10:11:29.523Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-26",
+      "applyUrl": "https://careers.accor.com/fr/fr/job/receptionniste-de-nuit-h-f-cdi-temps-partiel-in-ibis-styles-paris-orly-airport-paray-vieille-poste-jid-98390",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-26T10:11:29.523Z"
+    },
+    {
+      "id": "accor-fce7690b5e39",
+      "slug": "facility-quality-manager-accor-ch",
+      "slugByLocale": {
+        "en": "facility-quality-manager-accor-ch",
+        "it": "facility-quality-manager-accor-ch",
+        "de": "facility-quality-manager-accor-ch",
+        "fr": "facility-quality-manager-accor-ch"
+      },
+      "company": "Ibis Budget",
+      "companyKey": "accor",
+      "companyDomain": "careers.accor.com",
+      "title": "Facility & Quality Manager",
+      "titleByLocale": {
+        "en": "Facility & Quality Manager",
+        "it": "Facility & Quality Manager",
+        "de": "Facility & Qualität Manager",
+        "fr": "Facility & Qualité Manager"
+      },
+      "description": "Facility & Quality Manager — Ibis Budget",
+      "descriptionByLocale": {
+        "en": "Facility & Quality Manager — Ibis Budget"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://careers.accor.com/fr/fr/job/facility-and-quality-manager-in-ibis-schiphol-amsterdam-airport-badhoevedorp-nethe-jid-107722",
+      "source": "Ibis Budget Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-26T10:11:29.205Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Qualità",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-26",
+      "applyUrl": "https://careers.accor.com/fr/fr/job/facility-and-quality-manager-in-ibis-schiphol-amsterdam-airport-badhoevedorp-nethe-jid-107722",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-26T10:11:29.205Z"
+    },
+    {
       "id": "accor-b8208ecc8378",
-      "slug": "assistant-director-of-event-sales-accor-ch",
+      "slug": "assistant-direttore-of-event-sales-ibis-budget-lugano",
       "slugByLocale": {
         "fr": "assistant-director-of-event-sales-accor-ch",
-        "it": "assistant-director-of-event-sales-accor-ch",
+        "it": "assistant-direttore-of-event-sales-ibis-budget-lugano",
         "en": "assistant-director-of-event-sales-ibis-budget-lugano",
         "de": "assistent-direktor-of-event-sales-ibis-budget-lugano"
       },
@@ -61,7 +488,16 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T22:13:28.226Z"
+      "firstSeenAt": "2026-08-25T22:13:28.226Z",
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-director-of-event-sales-accor-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-director-of-event-sales-accor-ch"
+      ]
     },
     {
       "id": "accor-4e35790cba75",
@@ -70,7 +506,7 @@
         "fr": "breakfast-banqueting-team-member-part-time-5x6-accor-ch",
         "it": "breakfast-banqueting-team-member-part-time-5x6-accor-ch",
         "en": "breakfast-banqueting-team-member-part-time-5x6-accor-ch",
-        "de": "breakfast-banqueting-team-member-part-time-5x6-accor-ch"
+        "de": "breakfast-banqueting-team-member-teilzeit-5x6-ibis-budget-lugano"
       },
       "company": "Ibis Budget",
       "companyKey": "accor",
@@ -122,7 +558,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T22:13:27.017Z"
+      "firstSeenAt": "2026-08-25T22:13:27.017Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "accor-0a8a74961c69",
@@ -130,8 +567,8 @@
       "slugByLocale": {
         "it": "ski-valet-supervisor-winter-only-ft-accor-ch",
         "en": "ski-valet-supervisor-winter-only-ft-accor-ch",
-        "de": "ski-valet-supervisor-winter-only-ft-accor-ch",
-        "fr": "ski-valet-supervisor-winter-only-ft-accor-ch"
+        "de": "ski-valet-vorgesetzter-winter-only-ft-ibis-budget-lugano",
+        "fr": "ski-valet-superviseur-winter-only-ft-ibis-budget-lugano"
       },
       "company": "Ibis Budget",
       "companyKey": "accor",
@@ -183,7 +620,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T22:13:26.107Z"
+      "firstSeenAt": "2026-08-25T22:13:26.107Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "accor-bdeb59690655",
@@ -244,7 +682,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T22:13:25.804Z"
+      "firstSeenAt": "2026-08-25T22:13:25.804Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "accor-647f7d1a6841",
@@ -305,7 +744,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T22:13:25.480Z"
+      "firstSeenAt": "2026-08-25T22:13:25.480Z",
+      "crawlerMissStreak": 1
     }
   ]
 }

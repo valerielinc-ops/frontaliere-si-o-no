@@ -4372,6 +4372,21 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.reri-moneypark-calo-3-anni.title': 'Immobilienblasenrisiko rückläufig, erstmals seit drei Jahren',
     'blog.article.reri-moneypark-calo-3-anni.excerpt': 'Der RERI-Index von MoneyPark sinkt im 2. Quartal 2026 auf 3,5 Punkte - das erste Mal seit drei Jahren. Der Markt wird selektiver, die Preise steigen weniger, die Zinsen bleiben niedrig.',
     'blog.article.reri-moneypark-calo-3-anni.imageAlt': 'Schweizer Baustelle mit modernen Wohngebäuden vor Alpenhintergrund bei Sonnenuntergang',
+    'blog.article.infortuni-soglia-indipendenti-2027.title': 'UVG: reduzierter Schwellenwert für 40.000 Selbständige',
+    'blog.article.infortuni-soglia-indipendenti-2027.excerpt': 'Der Bundesrat senkt den Zugang zur Unfallversicherung per 1. Januar 2027 von CHF 66 \'690 auf CHF 44\' 460 pro Jahr. Sie profitieren von 40.000 zusätzlichen Autonomen.',
+    'blog.article.infortuni-soglia-indipendenti-2027.imageAlt': 'Unabhängiger Arbeitnehmer am Schreibtisch mit Schweizer Alpenpanorama',
+    'blog.article.accesso-facilitato-infortuni-2027.title': 'Erleichterter Zugang zur Unfallversicherung ab 2027',
+    'blog.article.accesso-facilitato-infortuni-2027.excerpt': 'Schwellenwert von CHF 66.690 auf CHF 44.460 gesenkt: Ab Januar 2027 können sich rund 40 \'000 Selbstständige mit neuen Chancen gegen Unfälle versichern.',
+    'blog.article.accesso-facilitato-infortuni-2027.imageAlt': 'Schweizer unabhängiger Profi arbeitet in modernem Büro mit Stadtblick',
+    'blog.article.indennita-parentali-2027.title': 'Elterngeld: Neue Ansprüche ab 1. Juli 2027',
+    'blog.article.indennita-parentali-2027.excerpt': 'Der Bundesrat genehmigt die Änderungen des EO-Gesetzes: Ab dem 1. Juli 2027 haben Eltern und Familien Zugang zu Leistungen, die bisher Angehörigen der Armee vorbehalten waren.',
+    'blog.article.indennita-parentali-2027.imageAlt': 'Bundesrat-Gebäude in Bern, Sitz des Schweizer Bundesrates und Parlaments',
+    'blog.article.allerte-popolazione-cell-broadcast.title': 'Bevölkerungsalarm: Bern beschleunigt Cell Broadcast',
+    'blog.article.allerte-popolazione-cell-broadcast.excerpt': 'Der Bundesrat fordert 15,8 Mio. CHF für den Mobilfunk-Broadcast, ein Warnsystem, das die Bürgerinnen und Bürger direkt auf ihren Handys erreichen wird.',
+    'blog.article.allerte-popolazione-cell-broadcast.imageAlt': 'Notfallwarnsystem mit Benachrichtigungen auf Schweizer Mobiltelefonen auf einem Stadtplatz',
+    'blog.article.edilizia-crescita-primo-semestre.title': 'Baugewerbe: +3,1% Wachstum in den ersten sechs Monaten 2026',
+    'blog.article.edilizia-crescita-primo-semestre.excerpt': 'Im ersten Halbjahr 2026 erreichte der Umsatz des Schweizer Baugewerbes 11,2 Milliarden Franken, was einem Wachstum von 3,1% entspricht. Aber Genehmigungen und Einsprüche bremsen die Baustellen.',
+    'blog.article.edilizia-crescita-primo-semestre.imageAlt': 'Moderner Bauplatz in der Schweiz mit Kränen und neuen Wohngebäuden, Symbol für den Boom im Bausektor und auf dem Wohnungsmarkt.',
 };
 
 export default blogMetaChDe;
