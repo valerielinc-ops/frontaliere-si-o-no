@@ -4372,6 +4372,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.reri-moneypark-calo-3-anni.title': 'Rischio bolla immobiliare in calo, prima volta da tre anni',
     'blog.article.reri-moneypark-calo-3-anni.excerpt': 'L\'indice RERI di MoneyPark scende a 3,5 punti nel Q2 2026: prima volta in tre anni. Mercato diventa più selettivo, prezzi crescono meno, tassi rimangono bassi.',
     'blog.article.reri-moneypark-calo-3-anni.imageAlt': 'Veduta di un cantiere edile svizzero con palazzi residenziali moderni e montagne sullo sfondo al tramonto',
+    'blog.article.infortuni-soglia-indipendenti-2027.title': 'LAINF: soglia ridotta per 40.000 lavoratori indipendenti',
+    'blog.article.infortuni-soglia-indipendenti-2027.excerpt': 'Il Consiglio federale abbassa l\'accesso all\'assicurazione infortuni dal 1° gennaio 2027: da CHF 66.690 a CHF 44.460 annui. Beneficiano 40.000 autonomi in più.',
+    'blog.article.infortuni-soglia-indipendenti-2027.imageAlt': 'Lavoratore indipendente al computer con vista su paesaggio svizzero alpino',
 };
 
 export default blogMetaChIt;

@@ -4372,6 +4372,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.reri-moneypark-calo-3-anni.title': 'Risque de bulle immobilière en baisse, pour la première fois depuis trois ans',
     'blog.article.reri-moneypark-calo-3-anni.excerpt': 'L\'indice RERI de MoneyPark chute à 3,5 points au Q2 2026 : pour la première fois en trois ans. Le marché devient plus sélectif, les prix augmentent moins, les taux restent bas.',
     'blog.article.reri-moneypark-calo-3-anni.imageAlt': 'Chantier de construction en Suisse avec bâtiments résidentiels modernes et montagnes alpines au coucher du soleil',
+    'blog.article.infortuni-soglia-indipendenti-2027.title': 'LAA : seuil réduit pour 40 000 travailleurs indépendants',
+    'blog.article.infortuni-soglia-indipendenti-2027.excerpt': 'Le Conseil fédéral réduit l\'accès à l\'assurance-accidents à partir du 1er janvier 2027 : de 66 690 CHF à 44 460 CHF par an. Ils bénéficient de 40 000 indépendants en plus.',
+    'blog.article.infortuni-soglia-indipendenti-2027.imageAlt': 'Travailleur autonome à son bureau face au paysage alpin suisse',
 };
 
 export default blogMetaChFr;
