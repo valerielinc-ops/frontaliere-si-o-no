@@ -4375,6 +4375,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.infortuni-soglia-indipendenti-2027.title': 'LAINF: reduced threshold for 40,000 self-employed workers',
     'blog.article.infortuni-soglia-indipendenti-2027.excerpt': 'The Federal Council lowers access to accident insurance from 1 January 2027: from CHF 66,690 to CHF 44,460 per year. They benefit from 40,000 more freelancers.',
     'blog.article.infortuni-soglia-indipendenti-2027.imageAlt': 'Freelance professional working at desk with Swiss mountain vista behind',
+    'blog.article.accesso-facilitato-infortuni-2027.title': 'Easy access to accident insurance from 2027',
+    'blog.article.accesso-facilitato-infortuni-2027.excerpt': 'Reduced threshold from CHF 66,690 to CHF 44,460: from January 2027, around 40,000 self-employed workers will be able to insure against accidents with new opportunities.',
+    'blog.article.accesso-facilitato-infortuni-2027.imageAlt': 'Swiss independent professional working in a modern office with city view',
 };
 
 export default blogMetaChEn;

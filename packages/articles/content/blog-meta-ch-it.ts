@@ -4375,6 +4375,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.infortuni-soglia-indipendenti-2027.title': 'LAINF: soglia ridotta per 40.000 lavoratori indipendenti',
     'blog.article.infortuni-soglia-indipendenti-2027.excerpt': 'Il Consiglio federale abbassa l\'accesso all\'assicurazione infortuni dal 1° gennaio 2027: da CHF 66.690 a CHF 44.460 annui. Beneficiano 40.000 autonomi in più.',
     'blog.article.infortuni-soglia-indipendenti-2027.imageAlt': 'Lavoratore indipendente al computer con vista su paesaggio svizzero alpino',
+    'blog.article.accesso-facilitato-infortuni-2027.title': 'Accesso facilitato all\'assicurazione infortuni dal 2027',
+    'blog.article.accesso-facilitato-infortuni-2027.excerpt': 'Soglia ridotta da CHF 66.690 a CHF 44.460: dal gennaio 2027, circa 40 mila lavoratori indipendenti potranno assicurarsi contro gli infortuni con nuove opportunità.',
+    'blog.article.accesso-facilitato-infortuni-2027.imageAlt': 'Professionista indipendente che lavora in un ufficio moderno con vista sulla città svizzera',
 };
 
 export default blogMetaChIt;

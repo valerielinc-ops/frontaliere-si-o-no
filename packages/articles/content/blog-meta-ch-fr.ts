@@ -4375,6 +4375,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.infortuni-soglia-indipendenti-2027.title': 'LAA : seuil réduit pour 40 000 travailleurs indépendants',
     'blog.article.infortuni-soglia-indipendenti-2027.excerpt': 'Le Conseil fédéral réduit l\'accès à l\'assurance-accidents à partir du 1er janvier 2027 : de 66 690 CHF à 44 460 CHF par an. Ils bénéficient de 40 000 indépendants en plus.',
     'blog.article.infortuni-soglia-indipendenti-2027.imageAlt': 'Travailleur autonome à son bureau face au paysage alpin suisse',
+    'blog.article.accesso-facilitato-infortuni-2027.title': 'Accès facilité à l\'assurance-accidents depuis 2027',
+    'blog.article.accesso-facilitato-infortuni-2027.excerpt': 'Seuil réduit de 66 690 CHF à 44 460 CHF : à partir de janvier 2027, environ 40 000 travailleurs indépendants pourront s\'assurer contre les accidents avec de nouvelles opportunités.',
+    'blog.article.accesso-facilitato-infortuni-2027.imageAlt': 'Professionnel indépendant suisse travaillant dans un bureau moderne avec vue sur la ville',
 };
 
 export default blogMetaChFr;
