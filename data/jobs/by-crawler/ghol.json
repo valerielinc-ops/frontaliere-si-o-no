@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ghol",
-  "assembledAt": "2026-08-25T21:49:30.317Z",
+  "assembledAt": "2026-08-26T10:20:58.272Z",
   "jobs": [
     {
       "id": "ghol-0fd5acb09556",
@@ -47,7 +47,8 @@
       "applyUrl": "https://app.beehire.com/invite/R0-rziyv4",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-25T21:49:26.114Z",
+      "crawledAt": "2026-08-26T10:20:55.775Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Esperienza significativa in sala operatoria",
@@ -76,11 +77,13 @@
       },
       "previousSlugs": [
         "assistant-e-technique-specialise-e-en-salle-d-operation-groupement-hospitalier-de-l-ouest",
-        "spezialisierter-technischer-assistent-im-operationssaal-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "spezialisierter-technischer-assistent-im-operationssaal-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "assistente-tecnico-specializzato-in-sala-operatoria-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-technique-specialise-e-en-salle-d-operation-groupement-hospitalier-de-l-ouest"
+          "assistant-e-technique-specialise-e-en-salle-d-operation-groupement-hospitalier-de-l-ouest",
+          "assistente-tecnico-specializzato-in-sala-operatoria-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
           "spezialisierter-technischer-assistent-im-operationssaal-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -105,8 +108,8 @@
       "slug": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "it": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "fr": "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
@@ -145,7 +148,8 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-25T21:49:26.113Z",
+      "crawledAt": "2026-08-26T10:20:55.774Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Almeno 3 anni di esperienza in cucina ospedaliera o in EMS (ambiente medico-sociale)",
@@ -173,18 +177,24 @@
       "previousSlugs": [
         "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
+          "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
+          "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },
@@ -247,17 +257,19 @@
       "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-25T21:49:26.112Z",
+      "crawledAt": "2026-08-26T10:20:55.773Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
         "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+        "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-          "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+          "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+          "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle"
         ],
         "de": [
           "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle"
@@ -322,13 +334,16 @@
       "applyUrl": "https://app.beehire.com/invite/AWZGWt1g8",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-25T21:49:26.111Z",
+      "crawledAt": "2026-08-26T10:20:55.772Z",
+      "needsRetranslation": true,
       "previousSlugs": [
-        "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "assistente-tecnico-in-sterilizzazione-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "assistente-tecnico-in-sterilizzazione-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
           "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -396,7 +411,7 @@
       "applyUrl": "https://app.beehire.com/invite/iMHZFWFWX",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-25T21:49:26.110Z",
+      "crawledAt": "2026-08-26T10:20:55.771Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -404,7 +419,8 @@
         "analisi-biomedica-tecnica-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "biomedical-analysis-technician-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "biomedizinische-analysetechnik-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "ostetrica-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -413,7 +429,8 @@
           "analisi-biomedica-tecnica-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "biomedical-analysis-technician-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "biomedizinische-analysetechnik-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "ostetrica-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
           "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -428,95 +445,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T11:45:55.990Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ghol-4c3b3426b239",
-      "slug": "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-      "slugByLocale": {
-        "it": "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "emergency-nurse-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "notfallkrankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "Infirmier·ère urgentiste",
-      "titleByLocale": {
-        "it": "Infermiera di emergenza",
-        "en": "Emergency Nurse",
-        "de": "Notfallkrankenschwester",
-        "fr": "Infirmier·ère urgentiste"
-      },
-      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures à Nyon, Rolle et Saint-Cergue.\n Descriptif du service :\n Votre nouveau défi se dessine au service des urgences du GHOL, offrant 19 box et répondant à plus de 37'000 consultations par an, animé par une équipe médico-soignante solidaire (binôme infirmier·ière/médecin) et convergeant vers des prises en charges optimales.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact direct sur la qualité de prise en charge des patient·es. Votre rôle consistera notamment à,\n\n• Accueillir, trier et orienter tous les patient·es se présentant au service des urgences\n\n• Prendre en charge 24/24 tout patient·e adulte (y inclus prise en charge neuro-vasculaire dans le cadre de notre STROKE UNIT) pouvant présenter des problèmes de santé à des degrés de gravité très variables dans les domaines physique, psychique et social.\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience impérative dans une unité de soins aigus de 2 ans minimum\n\n• Expérience souhaitée dans une fonction similaire ou dans une unité de soins intensifs\n\n• Conscience professionnelle et empathie\n\n• Sens aigu des responsabilités\n\n• Grande capacité d’adaptation et de réactivité\n\n• Autonomie\n Reconnu·e pour votre esprit d’initiative et vos qualités relationnelles vous êtes apprécié·e pour votre aptitude à travailler en équipe.\n Garant·e d’une organisation optimale des soins, votre résistance physique et votre capacité à gérer votre stress sont de véritables atouts.\n Niveau de formation :\n\n• Bachelor en soins infirmiers HES ou diplôme équivalent reconnu par la Croix rouge suisse exigé\n\n• Une formation post-diplôme d’expert·e en soins d’urgences (EPD ES ou DAS) serait un atout\n Avantages :\n Vous bénéficierez d’une formation continue, stimulante et adaptée aux besoins du service des urgences : cours blocs Urgences tous les semestres, exercice de simulation hebdomadaire, quick teach hebdomadaire\n Vous aurez accès à une offre de formation continue interne variée et attractive.\n Au quotidien, vous travaillerez dans des locaux adaptés aux missions d’un service d’urgences moderne et à taille humaine",
-      "descriptionByLocale": {
-        "it": "GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture a Nyon, Rolle e Saint-Cergue. Descrizione del servizio: La vostra nuova sfida sta emergendo nel reparto di emergenza del GHOL, offrendo 19 scatole e rispondendo a più di 37.000 consultazioni all'anno, guidate da un team di solidarietà di assistenza medica (infermiere binomo/fisico) e convergendo verso una cura ottimale. Descrizione del post: Nelle vostre nuove mansioni, le vostre missioni hanno un impatto diretto sulla qualità della cura del paziente. Il tuo ruolo includerà:\n• Ricevimento, smistamento e rinvio di tutti i pazienti nel reparto emergenza\n• Cura 24/24 per qualsiasi paziente adulto (compresa la cura neurovascolare come parte della nostra STROKE UNIT) che può avere problemi di salute con gradi molto diversi di gravità nei campi fisici, psicologici e sociali. Profilo richiesto: Siamo convinti del vostro rapido successo nelle vostre funzioni future attraverso il vostro:\n• Esperienza imperativa in un'unità di cura acuta minima di 2 anni\n• Esperienza desiderata in una funzione simile o in un'unità di cura intensiva\n• Sensibilizzazione professionale ed empatia\n• Forte senso di responsabilità\n• Alta adattabilità e reattività\n• Autonomia Riconosciuto per le vostre qualità di iniziativa e di relazione, siete apprezzati per la vostra capacità di lavorare come squadra. Garantire un'organizzazione di cura ottimale, la vostra resistenza fisica e la vostra capacità di gestire lo stress sono beni reali. Livello di formazione:\n• Corso di laurea in allattamento HES o equivalente riconosciuto dalla Croce Rossa svizzera richiesto\n• Formazione post-laurea in pronto soccorso (EPD ES o DAS) sarebbe un bene Vantaggi: Potrai beneficiare di formazione continua, stimolante e adattato alle esigenze del reparto di emergenza: blocchi di emergenza corsi ogni semestre, esercizio di simulazione settimanale, insegna veloce settimanale Avrete accesso ad un'offerta di formazione continua interna varia e attraente. Ogni giorno, lavorerai in locali adattati alle missioni di un servizio di emergenza moderno e di dimensioni umane",
-        "en": "GHOL is the reference hospital for the German West with its structures in Nyon, Rolle and Saint-Cergue. Description of the service: Your new challenge is emerging in the emergency department of the GHOL, offering 19 boxes and responding to more than 37,000 consultations a year, led by a team of medical-care solidarity (binome nurse/physician) and converging towards optimal care. Description of the post: In your new duties, your missions have a direct impact on the quality of patient care. Your role will include:\n• Reception, sorting and referral of all patients in the emergency department\n• Care 24/24 for any adult patient (including neurovascular care as part of our STROKE UNIT) who may have health problems with very varying degrees of severity in the physical, psychological and social fields. Profile required: We are convinced of your rapid success in your future functions through your:\n• Imperative experience in a minimum 2 year acute care unit\n• Desired experience in a similar function or in an intensive care unit\n• Professional awareness and empathy\n• Strong sense of responsibility\n• High adaptability and responsiveness\n• Autonomy Recognized for your initiative and relationship qualities, you are appreciated for your ability to work as a team. Guaranteeing optimal care organization, your physical resistance and your ability to manage your stress are real assets. Level of training:\n• Bachelor of nursing HES or equivalent degree recognized by the Swiss Red Cross required\n• Post-graduate training in emergency care (EPD ES or DAS) would be an asset Benefits: You will benefit from continuous training, stimulating and adapted to the needs of the emergency department: emergency blocks courses every semester, weekly simulation exercise, weekly quick teach You will have access to an offer of varied and attractive internal continuing education. Every day, you will work in premises adapted to the missions of a modern and human-sized emergency service",
-        "de": "GHOL ist das Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen in Nyon, Rolle und Saint-Cergue. Beschreibung des Dienstes: Ihre neue Herausforderung entsteht in der Notaufnahme der GHOL, die 19 Boxen anbietet und auf mehr als 37.000 Konsultationen pro Jahr reagiert, die von einem Team von medizinischer Solidarität (Binom-Krankenschwester / Arzt) geleitet werden und sich auf eine optimale Versorgung konzentrieren. Beschreibung der Post: In Ihren neuen Aufgaben haben Ihre Missionen einen direkten Einfluss auf die Qualität der Patientenversorgung. Ihre Rolle umfasst:\n• Empfang, Sortierung und Überweisung aller Patienten in der Notaufnahme\n• Pflege 24/24 für alle erwachsenen Patienten (einschließlich neurovaskuläre Versorgung als Teil unserer STROKE UNIT), die gesundheitliche Probleme mit sehr unterschiedlichem Schweregrad in den physischen, psychischen und sozialen Bereichen haben können. Profil erforderlich: Wir sind von Ihrem schnellen Erfolg in Ihren zukünftigen Funktionen überzeugt durch Ihre:\n• Imperative Erfahrung in mindestens 2 Jahren Akutstation\n• Gewünschte Erfahrung in einer ähnlichen Funktion oder in einer Intensivstation\n• Professionelles Bewusstsein und Empathie\n• Starkes Verantwortungsbewusstsein\n• Hohe Anpassungsfähigkeit und Reaktionsfähigkeit\n• Autonomie Anerkannt für Ihre Initiative und Beziehungsqualitäten, werden Sie für Ihre Fähigkeit geschätzt, als Team zu arbeiten. Die Gewährleistung einer optimalen Pflegeorganisation, Ihres körperlichen Widerstands und Ihrer Fähigkeit, Ihren Stress zu bewältigen, sind echte Vermögenswerte. Ausbildungsniveau:\n• Bachelor of Nursing HES oder gleichwertiger Abschluss vom Schweizerischen Roten Kreuz anerkannt erforderlich\n• Post-Graduate-Ausbildung in der Notfallversorgung (EPD ES oder DAS) wäre ein Vorteil Leistungen: Sie profitieren von kontinuierlicher Schulung, Stimulierung und Anpassung an die Bedürfnisse der Notfallabteilung: Notfallblockkurse jedes Semester, wöchentliche Simulationsübung, wöchentlicher Schnellunterricht Sie haben Zugang zu einem Angebot an abwechslungsreicher und attraktiver interner Weiterbildung. Jeden Tag arbeiten Sie in Räumlichkeiten, die an die Missionen eines modernen und menschlichen Rettungsdienstes angepasst sind",
-        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures à Nyon, Rolle et Saint-Cergue.\nDescriptif du service :\nVotre nouveau défi se dessine au service des urgences du GHOL, offrant 19 box et répondant à plus de 37'000 consultations par an, animé par une équipe médico-soignante solidaire (binôme infirmier·ière/médecin) et convergeant vers des prises en charges optimales.\nDescriptif du poste :\nDans vos nouvelles fonctions, vos missions ont un impact direct sur la qualité de prise en charge des patient·es. Votre rôle consistera notamment à,\n\n• Accueillir, trier et orienter tous les patient·es se présentant au service des urgences\n\n• Prendre en charge 24/24 tout patient·e adulte (y inclus prise en charge neuro-vasculaire dans le cadre de notre STROKE UNIT) pouvant présenter des problèmes de santé à des degrés de gravité très variables dans les domaines physique, psychique et social.\nProfil requis :\nNous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience impérative dans une unité de soins aigus de 2 ans minimum\n\n• Expérience souhaitée dans une fonction similaire ou dans une unité de soins intensifs\n\n• Conscience professionnelle et empathie\n\n• Sens aigu des responsabilités\n\n• Grande capacité d’adaptation et de réactivité\n\n• Autonomie\nReconnu·e pour votre esprit d’initiative et vos qualités relationnelles vous êtes apprécié·e pour votre aptitude à travailler en équipe.\nGarant·e d’une organisation optimale des soins, votre résistance physique et votre capacité à gérer votre stress sont de véritables atouts.\nNiveau de formation :\n\n• Bachelor en soins infirmiers HES ou diplôme équivalent reconnu par la Croix rouge suisse exigé\n\n• Une formation post-diplôme d’expert·e en soins d’urgences (EPD ES ou DAS) serait un atout\nAvantages :\nVous bénéficierez d’une formation continue, stimulante et adaptée aux besoins du service des urgences : cours blocs Urgences tous les semestres, exercice de simulation hebdomadaire, quick teach hebdomadaire\nVous aurez accès à une offre de formation continue interne variée et attractive.\nAu quotidien, vous travaillerez dans des locaux adaptés aux missions d’un service d’urgences moderne et à taille humaine"
-      },
-      "location": "Nyon",
-      "canton": "VD",
-      "addressLocality": "Nyon",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1260",
-      "category": "healthcare-nursing",
-      "sector": "Salute / Ospedale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-02",
-      "url": "https://app.beehire.com/invite/iNewpVG3m",
-      "applyUrl": "https://app.beehire.com/invite/iNewpVG3m",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-25T21:49:26.108Z",
-      "previousSlugs": [
-        "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "infermiera-in-privato-servizio-privato-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "nurse-in-the-private-private-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "krankenschwester-im-privaten-privaten-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "infirmier-ere-au-service-prive-mi-prive-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "apothekenassistent-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "infermiera-in-privato-servizio-privato-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "nurse-in-the-private-private-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "krankenschwester-im-privaten-privaten-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "infirmier-ere-au-service-prive-mi-prive-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "apothekenassistent-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "en": [
-          "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "nurse-in-the-private-private-service-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "de": [
-          "krankenschwester-im-privaten-privaten-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "fr": [
-          "infirmier-ere-au-service-prive-mi-prive-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ]
-      },
-      "firstSeenAt": "2026-07-02T21:47:49.679Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "baseSalary": {
@@ -575,14 +503,16 @@
       "applyUrl": "https://app.beehire.com/invite/v6aaZampn",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-25T21:49:26.107Z",
+      "crawledAt": "2026-08-26T10:20:55.769Z",
       "needsRetranslation": false,
       "previousSlugs": [
-        "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "infermiere-anestetico-certificato-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "infermiere-anestetico-certificato-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
           "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -592,6 +522,100 @@
         ]
       },
       "firstSeenAt": "2026-07-31T12:04:04.810Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ghol-4c3b3426b239",
+      "slug": "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slugByLocale": {
+        "it": "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "emergency-nurse-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Infirmier·ère urgentiste",
+      "titleByLocale": {
+        "it": "Infermiera di emergenza",
+        "en": "Emergency Nurse",
+        "de": "Infirmier·ère urgentiste",
+        "fr": "Infirmier·ère urgentiste"
+      },
+      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures à Nyon, Rolle et Saint-Cergue.\n Descriptif du service :\n Votre nouveau défi se dessine au service des urgences du GHOL, offrant 19 box et répondant à plus de 37'000 consultations par an, animé par une équipe médico-soignante solidaire (binôme infirmier·ière/médecin) et convergeant vers des prises en charges optimales.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact direct sur la qualité de prise en charge des patient·es. Votre rôle consistera notamment à,\n\n• Accueillir, trier et orienter tous les patient·es se présentant au service des urgences\n\n• Prendre en charge 24/24 tout patient·e adulte (y inclus prise en charge neuro-vasculaire dans le cadre de notre STROKE UNIT) pouvant présenter des problèmes de santé à des degrés de gravité très variables dans les domaines physique, psychique et social.\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience impérative dans une unité de soins aigus de 2 ans minimum\n\n• Expérience souhaitée dans une fonction similaire ou dans une unité de soins intensifs\n\n• Conscience professionnelle et empathie\n\n• Sens aigu des responsabilités\n\n• Grande capacité d’adaptation et de réactivité\n\n• Autonomie\n Reconnu·e pour votre esprit d’initiative et vos qualités relationnelles vous êtes apprécié·e pour votre aptitude à travailler en équipe.\n Garant·e d’une organisation optimale des soins, votre résistance physique et votre capacité à gérer votre stress sont de véritables atouts.\n Niveau de formation :\n\n• Bachelor en soins infirmiers HES ou diplôme équivalent reconnu par la Croix rouge suisse exigé\n\n• Une formation post-diplôme d’expert·e en soins d’urgences (EPD ES ou DAS) serait un atout\n Avantages :\n Vous bénéficierez d’une formation continue, stimulante et adaptée aux besoins du service des urgences : cours blocs Urgences tous les semestres, exercice de simulation hebdomadaire, quick teach hebdomadaire\n Vous aurez accès à une offre de formation continue interne variée et attractive.\n Au quotidien, vous travaillerez dans des locaux adaptés aux missions d’un service d’urgences moderne et à taille humaine",
+      "descriptionByLocale": {
+        "it": "GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture a Nyon, Rolle e Saint-Cergue. Descrizione del servizio: La vostra nuova sfida sta emergendo nel reparto di emergenza del GHOL, offrendo 19 scatole e rispondendo a più di 37.000 consultazioni all'anno, guidate da un team di solidarietà di assistenza medica (infermiere binomo/fisico) e convergendo verso una cura ottimale. Descrizione del post: Nelle vostre nuove mansioni, le vostre missioni hanno un impatto diretto sulla qualità della cura del paziente. Il tuo ruolo includerà:\n• Ricevimento, smistamento e rinvio di tutti i pazienti nel reparto emergenza\n• Cura 24/24 per qualsiasi paziente adulto (compresa la cura neurovascolare come parte della nostra STROKE UNIT) che può avere problemi di salute con gradi molto diversi di gravità nei campi fisici, psicologici e sociali. Profilo richiesto: Siamo convinti del vostro rapido successo nelle vostre funzioni future attraverso il vostro:\n• Esperienza imperativa in un'unità di cura acuta minima di 2 anni\n• Esperienza desiderata in una funzione simile o in un'unità di cura intensiva\n• Sensibilizzazione professionale ed empatia\n• Forte senso di responsabilità\n• Alta adattabilità e reattività\n• Autonomia Riconosciuto per le vostre qualità di iniziativa e di relazione, siete apprezzati per la vostra capacità di lavorare come squadra. Garantire un'organizzazione di cura ottimale, la vostra resistenza fisica e la vostra capacità di gestire lo stress sono beni reali. Livello di formazione:\n• Corso di laurea in allattamento HES o equivalente riconosciuto dalla Croce Rossa svizzera richiesto\n• Formazione post-laurea in pronto soccorso (EPD ES o DAS) sarebbe un bene Vantaggi: Potrai beneficiare di formazione continua, stimolante e adattato alle esigenze del reparto di emergenza: blocchi di emergenza corsi ogni semestre, esercizio di simulazione settimanale, insegna veloce settimanale Avrete accesso ad un'offerta di formazione continua interna varia e attraente. Ogni giorno, lavorerai in locali adattati alle missioni di un servizio di emergenza moderno e di dimensioni umane",
+        "en": "GHOL is the reference hospital for the German West with its structures in Nyon, Rolle and Saint-Cergue. Description of the service: Your new challenge is emerging in the emergency department of the GHOL, offering 19 boxes and responding to more than 37,000 consultations a year, led by a team of medical-care solidarity (binome nurse/physician) and converging towards optimal care. Description of the post: In your new duties, your missions have a direct impact on the quality of patient care. Your role will include:\n• Reception, sorting and referral of all patients in the emergency department\n• Care 24/24 for any adult patient (including neurovascular care as part of our STROKE UNIT) who may have health problems with very varying degrees of severity in the physical, psychological and social fields. Profile required: We are convinced of your rapid success in your future functions through your:\n• Imperative experience in a minimum 2 year acute care unit\n• Desired experience in a similar function or in an intensive care unit\n• Professional awareness and empathy\n• Strong sense of responsibility\n• High adaptability and responsiveness\n• Autonomy Recognized for your initiative and relationship qualities, you are appreciated for your ability to work as a team. Guaranteeing optimal care organization, your physical resistance and your ability to manage your stress are real assets. Level of training:\n• Bachelor of nursing HES or equivalent degree recognized by the Swiss Red Cross required\n• Post-graduate training in emergency care (EPD ES or DAS) would be an asset Benefits: You will benefit from continuous training, stimulating and adapted to the needs of the emergency department: emergency blocks courses every semester, weekly simulation exercise, weekly quick teach You will have access to an offer of varied and attractive internal continuing education. Every day, you will work in premises adapted to the missions of a modern and human-sized emergency service",
+        "de": "GHOL ist das Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen in Nyon, Rolle und Saint-Cergue. Beschreibung des Dienstes: Ihre neue Herausforderung entsteht in der Notaufnahme der GHOL, die 19 Boxen anbietet und auf mehr als 37.000 Konsultationen pro Jahr reagiert, die von einem Team von medizinischer Solidarität (Binom-Krankenschwester / Arzt) geleitet werden und sich auf eine optimale Versorgung konzentrieren. Beschreibung der Post: In Ihren neuen Aufgaben haben Ihre Missionen einen direkten Einfluss auf die Qualität der Patientenversorgung. Ihre Rolle umfasst:\n• Empfang, Sortierung und Überweisung aller Patienten in der Notaufnahme\n• Pflege 24/24 für alle erwachsenen Patienten (einschließlich neurovaskuläre Versorgung als Teil unserer STROKE UNIT), die gesundheitliche Probleme mit sehr unterschiedlichem Schweregrad in den physischen, psychischen und sozialen Bereichen haben können. Profil erforderlich: Wir sind von Ihrem schnellen Erfolg in Ihren zukünftigen Funktionen überzeugt durch Ihre:\n• Imperative Erfahrung in mindestens 2 Jahren Akutstation\n• Gewünschte Erfahrung in einer ähnlichen Funktion oder in einer Intensivstation\n• Professionelles Bewusstsein und Empathie\n• Starkes Verantwortungsbewusstsein\n• Hohe Anpassungsfähigkeit und Reaktionsfähigkeit\n• Autonomie Anerkannt für Ihre Initiative und Beziehungsqualitäten, werden Sie für Ihre Fähigkeit geschätzt, als Team zu arbeiten. Die Gewährleistung einer optimalen Pflegeorganisation, Ihres körperlichen Widerstands und Ihrer Fähigkeit, Ihren Stress zu bewältigen, sind echte Vermögenswerte. Ausbildungsniveau:\n• Bachelor of Nursing HES oder gleichwertiger Abschluss vom Schweizerischen Roten Kreuz anerkannt erforderlich\n• Post-Graduate-Ausbildung in der Notfallversorgung (EPD ES oder DAS) wäre ein Vorteil Leistungen: Sie profitieren von kontinuierlicher Schulung, Stimulierung und Anpassung an die Bedürfnisse der Notfallabteilung: Notfallblockkurse jedes Semester, wöchentliche Simulationsübung, wöchentlicher Schnellunterricht Sie haben Zugang zu einem Angebot an abwechslungsreicher und attraktiver interner Weiterbildung. Jeden Tag arbeiten Sie in Räumlichkeiten, die an die Missionen eines modernen und menschlichen Rettungsdienstes angepasst sind",
+        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures à Nyon, Rolle et Saint-Cergue.\nDescriptif du service :\nVotre nouveau défi se dessine au service des urgences du GHOL, offrant 19 box et répondant à plus de 37'000 consultations par an, animé par une équipe médico-soignante solidaire (binôme infirmier·ière/médecin) et convergeant vers des prises en charges optimales.\nDescriptif du poste :\nDans vos nouvelles fonctions, vos missions ont un impact direct sur la qualité de prise en charge des patient·es. Votre rôle consistera notamment à,\n\n• Accueillir, trier et orienter tous les patient·es se présentant au service des urgences\n\n• Prendre en charge 24/24 tout patient·e adulte (y inclus prise en charge neuro-vasculaire dans le cadre de notre STROKE UNIT) pouvant présenter des problèmes de santé à des degrés de gravité très variables dans les domaines physique, psychique et social.\nProfil requis :\nNous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience impérative dans une unité de soins aigus de 2 ans minimum\n\n• Expérience souhaitée dans une fonction similaire ou dans une unité de soins intensifs\n\n• Conscience professionnelle et empathie\n\n• Sens aigu des responsabilités\n\n• Grande capacité d’adaptation et de réactivité\n\n• Autonomie\nReconnu·e pour votre esprit d’initiative et vos qualités relationnelles vous êtes apprécié·e pour votre aptitude à travailler en équipe.\nGarant·e d’une organisation optimale des soins, votre résistance physique et votre capacité à gérer votre stress sont de véritables atouts.\nNiveau de formation :\n\n• Bachelor en soins infirmiers HES ou diplôme équivalent reconnu par la Croix rouge suisse exigé\n\n• Une formation post-diplôme d’expert·e en soins d’urgences (EPD ES ou DAS) serait un atout\nAvantages :\nVous bénéficierez d’une formation continue, stimulante et adaptée aux besoins du service des urgences : cours blocs Urgences tous les semestres, exercice de simulation hebdomadaire, quick teach hebdomadaire\nVous aurez accès à une offre de formation continue interne variée et attractive.\nAu quotidien, vous travaillerez dans des locaux adaptés aux missions d’un service d’urgences moderne et à taille humaine"
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "healthcare-nursing",
+      "sector": "Salute / Ospedale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-02",
+      "url": "https://app.beehire.com/invite/iNewpVG3m",
+      "applyUrl": "https://app.beehire.com/invite/iNewpVG3m",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-26T10:20:55.769Z",
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "infermiera-in-privato-servizio-privato-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "nurse-in-the-private-private-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "krankenschwester-im-privaten-privaten-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "infirmier-ere-au-service-prive-mi-prive-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "apothekenassistent-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "notfallkrankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "infermiera-in-privato-servizio-privato-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "nurse-in-the-private-private-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "krankenschwester-im-privaten-privaten-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "infirmier-ere-au-service-prive-mi-prive-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "apothekenassistent-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "en": [
+          "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "nurse-in-the-private-private-service-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "de": [
+          "krankenschwester-im-privaten-privaten-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "notfallkrankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "fr": [
+          "infirmier-ere-au-service-prive-mi-prive-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ]
+      },
+      "firstSeenAt": "2026-07-02T21:47:49.679Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "baseSalary": {
@@ -650,15 +674,17 @@
       "applyUrl": "https://app.beehire.com/invite/CsBCCNTDM",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-25T21:49:26.106Z",
+      "crawledAt": "2026-08-26T10:20:55.768Z",
       "needsRetranslation": true,
       "previousSlugs": [
         "infirmier-ere-en-pneumologie-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "lungenentzundung-krankenschwester-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+        "lungenentzundung-krankenschwester-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "infermiere-di-polmonite-groupement-hospitalier-de-l-ouest-lemanique-rolle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-en-pneumologie-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+          "infirmier-ere-en-pneumologie-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+          "infermiere-di-polmonite-groupement-hospitalier-de-l-ouest-lemanique-rolle"
         ],
         "en": [
           "infirmier-ere-en-pneumologie-groupement-hospitalier-de-l-ouest-lemanique-rolle"
@@ -685,27 +711,27 @@
       "id": "ghol-50ce5acf9bd5",
       "slug": "infirmier-ere-eleve-pour-la-formation-post-diplome-d-expert-e-infirmier-ere-en-soins",
       "slugByLocale": {
-        "fr": "infirmier-ere-eleve-pour-la-formation-post-diplome-d-expert-e-infirmier-ere-en-soins",
         "it": "infirmier-ere-eleve-pour-la-formation-post-diplome-d-expert-e-infirmier-ere-en-soins",
         "en": "infirmier-ere-eleve-pour-la-formation-post-diplome-d-expert-e-infirmier-ere-en-soins",
-        "de": "infirmier-ere-eleve-pour-la-formation-post-diplome-d-expert-e-infirmier-ere-en-soins"
+        "de": "infirmier-ere-eleve-pour-la-formation-post-diplome-d-expert-e-infirmier-ere-en-soins",
+        "fr": "infirmier-ere-eleve-pour-la-formation-post-diplome-d-expert-e-infirmier-ere-en-soins"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
       "companyKey": "ghol",
       "companyDomain": "ghol.ch",
       "title": "INFIRMIER·ÈRE ÉLÈVE POUR LA FORMATION POST-DIPLÔME D’EXPERT·E INFIRMIER·ÈRE EN SOINS INTENSIFS EPD SI",
       "titleByLocale": {
-        "fr": "INFIRMIER·ÈRE ÉLÈVE POUR LA FORMATION POST-DIPLÔME D’EXPERT·E INFIRMIER·ÈRE EN SOINS INTENSIFS EPD SI",
         "it": "INFIRMIER·ÈRE ÉLÈVE POUR LA FORMATION POST-DIPLÔME D’EXPERT·E INFIRMIER·ÈRE EN SOINS INTENSIFS EPD SI",
         "en": "INFIRMIER·ÈRE ÉLÈVE POUR LA FORMATION POST-DIPLÔME D’EXPERT·E INFIRMIER·ÈRE EN SOINS INTENSIFS EPD SI",
-        "de": "INFIRMIER·ÈRE ÉLÈVE POUR LA FORMATION POST-DIPLÔME D’EXPERT·E INFIRMIER·ÈRE EN SOINS INTENSIFS EPD SI"
+        "de": "INFIRMIER·ÈRE ÉLÈVE POUR LA FORMATION POST-DIPLÔME D’EXPERT·E INFIRMIER·ÈRE EN SOINS INTENSIFS EPD SI",
+        "fr": "INFIRMIER·ÈRE ÉLÈVE POUR LA FORMATION POST-DIPLÔME D’EXPERT·E INFIRMIER·ÈRE EN SOINS INTENSIFS EPD SI"
       },
       "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique, avec ses structures sur Nyon et Rolle, pour lequel vous collaborez déjà aujourd’hui. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous investissant dans cette nouvelle formation, tremplin vers de nouveaux challenges !\n Activité en emploi – 80% à 100% – 1er janvier 2027 au HUG/ 1er juin au CHUV\n Candidatures et sélection :\n Un comité de sélection étudiera votre candidature composée d’une lettre de motivation et curriculum vitae actualisé.\n Le comité de sélection pour un entretien sera le suivant :\n\n• Madame Catherine SERMET : ICUS du service de médecine intensive\n\n• Madame Sylvie OGAARD-BRESSON, formatrice et référente clinique\n\n• Dresse Malory MORET BOCHATAY et/ou Dr Marco BETELLO, Médecins chefs co-responsables du service des SI\n\n• Monsieur Sébastien Kuntz : responsable d’unité de formation\n Date limite de postulation : 10 septembre 2026\n Description du poste :\n La formation post-diplôme d’infirmier·ère expert·e en soins intensifs vise l’acquisition de compétences en soins infirmiers dans le domaine des soins intensifs pour :\n\n• Appréhender toutes les situations complexes de soins engageant ou non le pronostic vital du patient\n\n• Répondre à ces situations par des prestations adaptées\n L’acquisition de ces compétences nécessite une formation spécialisée d’une durée de 2 ans en cours d’emploi, basée sur le concept de l’alternance entre la théorie et la pratique. Ces acquisitions se développent au CHUV ou aux HUG pour les cours théoriques. Les stages pratiques sont répartis entre le GHOL, les HUG ou le CHUV.\n L’infirmier·ère en formation post grade travaille dans l’unité de soins intensifs en étroite collaboration avec les équipes infirmière et médicale des soins intensifs du GHOL, des HUG ou celles du CHUV.\n Profil requis :\n Ce nouveau chapitre de votre vie professionnelle au GHOL sera couronné de succès grâce à votre :\n\n• Conscience professionnelle et sens aigu des responsabilités\n\n• Sens de l’observation et votre jugement clinique\n Reconnue pour votre discipline, votre sens de l’organisation, vos qualités relationnelles, votre capacité de réaction rapide et adaptée aux circonstances, votre équilibre psychique associé à votre résistance physique, vous aurez tous les atouts pour initier cette formation exigeante.\n Niveau de formation :\n\n• Bachelor HES-SO en soins infirmiers exigé, ou diplôme équivalent reconnu par la Croix rouge suisse.\n\n• BLS-AES en cours de validité (<2ans)\n\n• Expérience de 1 an minimum dans le service des soins intensifs\n Avantages :\n Vous rejoignez une unité polyvalente, vous collaborez avec une équipe pluridisciplinaire, dynamique et animée par la volonté de garantir la qualité de soins. Votre barème de rémunération évoluera vers la classe 20-22 dès l’obtention du diplôme et l’affectation à l’unité de soins intensifs.",
       "descriptionByLocale": {
-        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique, avec ses structures sur Nyon et Rolle, pour lequel vous collaborez déjà aujourd’hui. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous investissant dans cette nouvelle formation, tremplin vers de nouveaux challenges !\n Activité en emploi – 80% à 100% – 1er janvier 2027 au HUG/ 1er juin au CHUV\n Candidatures et sélection :\n Un comité de sélection étudiera votre candidature composée d’une lettre de motivation et curriculum vitae actualisé.\n Le comité de sélection pour un entretien sera le suivant :\n\n• Madame Catherine SERMET : ICUS du service de médecine intensive\n\n• Madame Sylvie OGAARD-BRESSON, formatrice et référente clinique\n\n• Dresse Malory MORET BOCHATAY et/ou Dr Marco BETELLO, Médecins chefs co-responsables du service des SI\n\n• Monsieur Sébastien Kuntz : responsable d’unité de formation\n Date limite de postulation : 10 septembre 2026\n Description du poste :\n La formation post-diplôme d’infirmier·ère expert·e en soins intensifs vise l’acquisition de compétences en soins infirmiers dans le domaine des soins intensifs pour :\n\n• Appréhender toutes les situations complexes de soins engageant ou non le pronostic vital du patient\n\n• Répondre à ces situations par des prestations adaptées\n L’acquisition de ces compétences nécessite une formation spécialisée d’une durée de 2 ans en cours d’emploi, basée sur le concept de l’alternance entre la théorie et la pratique. Ces acquisitions se développent au CHUV ou aux HUG pour les cours théoriques. Les stages pratiques sont répartis entre le GHOL, les HUG ou le CHUV.\n L’infirmier·ère en formation post grade travaille dans l’unité de soins intensifs en étroite collaboration avec les équipes infirmière et médicale des soins intensifs du GHOL, des HUG ou celles du CHUV.\n Profil requis :\n Ce nouveau chapitre de votre vie professionnelle au GHOL sera couronné de succès grâce à votre :\n\n• Conscience professionnelle et sens aigu des responsabilités\n\n• Sens de l’observation et votre jugement clinique\n Reconnue pour votre discipline, votre sens de l’organisation, vos qualités relationnelles, votre capacité de réaction rapide et adaptée aux circonstances, votre équilibre psychique associé à votre résistance physique, vous aurez tous les atouts pour initier cette formation exigeante.\n Niveau de formation :\n\n• Bachelor HES-SO en soins infirmiers exigé, ou diplôme équivalent reconnu par la Croix rouge suisse.\n\n• BLS-AES en cours de validité (<2ans)\n\n• Expérience de 1 an minimum dans le service des soins intensifs\n Avantages :\n Vous rejoignez une unité polyvalente, vous collaborez avec une équipe pluridisciplinaire, dynamique et animée par la volonté de garantir la qualité de soins. Votre barème de rémunération évoluera vers la classe 20-22 dès l’obtention du diplôme et l’affectation à l’unité de soins intensifs.",
-        "it": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique, avec ses structures sur Nyon et Rolle, pour lequel vous collaborez déjà aujourd’hui. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous investissant dans cette nouvelle formation, tremplin vers de nouveaux challenges !\n Activité en emploi – 80% à 100% – 1er janvier 2027 au HUG/ 1er juin au CHUV\n Candidatures et sélection :\n Un comité de sélection étudiera votre candidature composée d’une lettre de motivation et curriculum vitae actualisé.\n Le comité de sélection pour un entretien sera le suivant :\n\n• Madame Catherine SERMET : ICUS du service de médecine intensive\n\n• Madame Sylvie OGAARD-BRESSON, formatrice et référente clinique\n\n• Dresse Malory MORET BOCHATAY et/ou Dr Marco BETELLO, Médecins chefs co-responsables du service des SI\n\n• Monsieur Sébastien Kuntz : responsable d’unité de formation\n Date limite de postulation : 10 septembre 2026\n Description du poste :\n La formation post-diplôme d’infirmier·ère expert·e en soins intensifs vise l’acquisition de compétences en soins infirmiers dans le domaine des soins intensifs pour :\n\n• Appréhender toutes les situations complexes de soins engageant ou non le pronostic vital du patient\n\n• Répondre à ces situations par des prestations adaptées\n L’acquisition de ces compétences nécessite une formation spécialisée d’une durée de 2 ans en cours d’emploi, basée sur le concept de l’alternance entre la théorie et la pratique. Ces acquisitions se développent au CHUV ou aux HUG pour les cours théoriques. Les stages pratiques sont répartis entre le GHOL, les HUG ou le CHUV.\n L’infirmier·ère en formation post grade travaille dans l’unité de soins intensifs en étroite collaboration avec les équipes infirmière et médicale des soins intensifs du GHOL, des HUG ou celles du CHUV.\n Profil requis :\n Ce nouveau chapitre de votre vie professionnelle au GHOL sera couronné de succès grâce à votre :\n\n• Conscience professionnelle et sens aigu des responsabilités\n\n• Sens de l’observation et votre jugement clinique\n Reconnue pour votre discipline, votre sens de l’organisation, vos qualités relationnelles, votre capacité de réaction rapide et adaptée aux circonstances, votre équilibre psychique associé à votre résistance physique, vous aurez tous les atouts pour initier cette formation exigeante.\n Niveau de formation :\n\n• Bachelor HES-SO en soins infirmiers exigé, ou diplôme équivalent reconnu par la Croix rouge suisse.\n\n• BLS-AES en cours de validité (<2ans)\n\n• Expérience de 1 an minimum dans le service des soins intensifs\n Avantages :\n Vous rejoignez une unité polyvalente, vous collaborez avec une équipe pluridisciplinaire, dynamique et animée par la volonté de garantir la qualité de soins. Votre barème de rémunération évoluera vers la classe 20-22 dès l’obtention du diplôme et l’affectation à l’unité de soins intensifs.",
-        "en": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique, avec ses structures sur Nyon et Rolle, pour lequel vous collaborez déjà aujourd’hui. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous investissant dans cette nouvelle formation, tremplin vers de nouveaux challenges !\n Activité en emploi – 80% à 100% – 1er janvier 2027 au HUG/ 1er juin au CHUV\n Candidatures et sélection :\n Un comité de sélection étudiera votre candidature composée d’une lettre de motivation et curriculum vitae actualisé.\n Le comité de sélection pour un entretien sera le suivant :\n\n• Madame Catherine SERMET : ICUS du service de médecine intensive\n\n• Madame Sylvie OGAARD-BRESSON, formatrice et référente clinique\n\n• Dresse Malory MORET BOCHATAY et/ou Dr Marco BETELLO, Médecins chefs co-responsables du service des SI\n\n• Monsieur Sébastien Kuntz : responsable d’unité de formation\n Date limite de postulation : 10 septembre 2026\n Description du poste :\n La formation post-diplôme d’infirmier·ère expert·e en soins intensifs vise l’acquisition de compétences en soins infirmiers dans le domaine des soins intensifs pour :\n\n• Appréhender toutes les situations complexes de soins engageant ou non le pronostic vital du patient\n\n• Répondre à ces situations par des prestations adaptées\n L’acquisition de ces compétences nécessite une formation spécialisée d’une durée de 2 ans en cours d’emploi, basée sur le concept de l’alternance entre la théorie et la pratique. Ces acquisitions se développent au CHUV ou aux HUG pour les cours théoriques. Les stages pratiques sont répartis entre le GHOL, les HUG ou le CHUV.\n L’infirmier·ère en formation post grade travaille dans l’unité de soins intensifs en étroite collaboration avec les équipes infirmière et médicale des soins intensifs du GHOL, des HUG ou celles du CHUV.\n Profil requis :\n Ce nouveau chapitre de votre vie professionnelle au GHOL sera couronné de succès grâce à votre :\n\n• Conscience professionnelle et sens aigu des responsabilités\n\n• Sens de l’observation et votre jugement clinique\n Reconnue pour votre discipline, votre sens de l’organisation, vos qualités relationnelles, votre capacité de réaction rapide et adaptée aux circonstances, votre équilibre psychique associé à votre résistance physique, vous aurez tous les atouts pour initier cette formation exigeante.\n Niveau de formation :\n\n• Bachelor HES-SO en soins infirmiers exigé, ou diplôme équivalent reconnu par la Croix rouge suisse.\n\n• BLS-AES en cours de validité (<2ans)\n\n• Expérience de 1 an minimum dans le service des soins intensifs\n Avantages :\n Vous rejoignez une unité polyvalente, vous collaborez avec une équipe pluridisciplinaire, dynamique et animée par la volonté de garantir la qualité de soins. Votre barème de rémunération évoluera vers la classe 20-22 dès l’obtention du diplôme et l’affectation à l’unité de soins intensifs.",
-        "de": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique, avec ses structures sur Nyon et Rolle, pour lequel vous collaborez déjà aujourd’hui. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous investissant dans cette nouvelle formation, tremplin vers de nouveaux challenges !\n Activité en emploi – 80% à 100% – 1er janvier 2027 au HUG/ 1er juin au CHUV\n Candidatures et sélection :\n Un comité de sélection étudiera votre candidature composée d’une lettre de motivation et curriculum vitae actualisé.\n Le comité de sélection pour un entretien sera le suivant :\n\n• Madame Catherine SERMET : ICUS du service de médecine intensive\n\n• Madame Sylvie OGAARD-BRESSON, formatrice et référente clinique\n\n• Dresse Malory MORET BOCHATAY et/ou Dr Marco BETELLO, Médecins chefs co-responsables du service des SI\n\n• Monsieur Sébastien Kuntz : responsable d’unité de formation\n Date limite de postulation : 10 septembre 2026\n Description du poste :\n La formation post-diplôme d’infirmier·ère expert·e en soins intensifs vise l’acquisition de compétences en soins infirmiers dans le domaine des soins intensifs pour :\n\n• Appréhender toutes les situations complexes de soins engageant ou non le pronostic vital du patient\n\n• Répondre à ces situations par des prestations adaptées\n L’acquisition de ces compétences nécessite une formation spécialisée d’une durée de 2 ans en cours d’emploi, basée sur le concept de l’alternance entre la théorie et la pratique. Ces acquisitions se développent au CHUV ou aux HUG pour les cours théoriques. Les stages pratiques sont répartis entre le GHOL, les HUG ou le CHUV.\n L’infirmier·ère en formation post grade travaille dans l’unité de soins intensifs en étroite collaboration avec les équipes infirmière et médicale des soins intensifs du GHOL, des HUG ou celles du CHUV.\n Profil requis :\n Ce nouveau chapitre de votre vie professionnelle au GHOL sera couronné de succès grâce à votre :\n\n• Conscience professionnelle et sens aigu des responsabilités\n\n• Sens de l’observation et votre jugement clinique\n Reconnue pour votre discipline, votre sens de l’organisation, vos qualités relationnelles, votre capacité de réaction rapide et adaptée aux circonstances, votre équilibre psychique associé à votre résistance physique, vous aurez tous les atouts pour initier cette formation exigeante.\n Niveau de formation :\n\n• Bachelor HES-SO en soins infirmiers exigé, ou diplôme équivalent reconnu par la Croix rouge suisse.\n\n• BLS-AES en cours de validité (<2ans)\n\n• Expérience de 1 an minimum dans le service des soins intensifs\n Avantages :\n Vous rejoignez une unité polyvalente, vous collaborez avec une équipe pluridisciplinaire, dynamique et animée par la volonté de garantir la qualité de soins. Votre barème de rémunération évoluera vers la classe 20-22 dès l’obtention du diplôme et l’affectation à l’unité de soins intensifs."
+        "it": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique, avec ses structures sur Nyon et Rolle, pour lequel vous collaborez déjà aujourd’hui. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous investissant dans cette nouvelle formation, tremplin vers de nouveaux challenges !\nActivité en emploi – 80% à 100% – 1er janvier 2027 au HUG/ 1er juin au CHUV\nCandidatures et sélection :\nUn comité de sélection étudiera votre candidature composée d’une lettre de motivation et curriculum vitae actualisé.\nLe comité de sélection pour un entretien sera le suivant :\n\n• Madame Catherine SERMET : ICUS du service de médecine intensive\n\n• Madame Sylvie OGAARD-BRESSON, formatrice et référente clinique\n\n• Dresse Malory MORET BOCHATAY et/ou Dr Marco BETELLO, Médecins chefs co-responsables du service des SI\n\n• Monsieur Sébastien Kuntz : responsable d’unité de formation\nDate limite de postulation : 10 septembre 2026\nDescription du poste :\nLa formation post-diplôme d’infirmier·ère expert·e en soins intensifs vise l’acquisition de compétences en soins infirmiers dans le domaine des soins intensifs pour :\n\n• Appréhender toutes les situations complexes de soins engageant ou non le pronostic vital du patient\n\n• Répondre à ces situations par des prestations adaptées\nL’acquisition de ces compétences nécessite une formation spécialisée d’une durée de 2 ans en cours d’emploi, basée sur le concept de l’alternance entre la théorie et la pratique. Ces acquisitions se développent au CHUV ou aux HUG pour les cours théoriques. Les stages pratiques sont répartis entre le GHOL, les HUG ou le CHUV.\nL’infirmier·ère en formation post grade travaille dans l’unité de soins intensifs en étroite collaboration avec les équipes infirmière et médicale des soins intensifs du GHOL, des HUG ou celles du CHUV.\nProfil requis :\nCe nouveau chapitre de votre vie professionnelle au GHOL sera couronné de succès grâce à votre :\n\n• Conscience professionnelle et sens aigu des responsabilités\n\n• Sens de l’observation et votre jugement clinique\nReconnue pour votre discipline, votre sens de l’organisation, vos qualités relationnelles, votre capacité de réaction rapide et adaptée aux circonstances, votre équilibre psychique associé à votre résistance physique, vous aurez tous les atouts pour initier cette formation exigeante.\nNiveau de formation :\n\n• Bachelor HES-SO en soins infirmiers exigé, ou diplôme équivalent reconnu par la Croix rouge suisse.\n\n• BLS-AES en cours de validité (<2ans)\n\n• Expérience de 1 an minimum dans le service des soins intensifs\nAvantages :\nVous rejoignez une unité polyvalente, vous collaborez avec une équipe pluridisciplinaire, dynamique et animée par la volonté de garantir la qualité de soins. Votre barème de rémunération évoluera vers la classe 20-22 dès l’obtention du diplôme et l’affectation à l’unité de soins intensifs.",
+        "en": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique, avec ses structures sur Nyon et Rolle, pour lequel vous collaborez déjà aujourd’hui. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous investissant dans cette nouvelle formation, tremplin vers de nouveaux challenges !\nActivité en emploi – 80% à 100% – 1er janvier 2027 au HUG/ 1er juin au CHUV\nCandidatures et sélection :\nUn comité de sélection étudiera votre candidature composée d’une lettre de motivation et curriculum vitae actualisé.\nLe comité de sélection pour un entretien sera le suivant :\n\n• Madame Catherine SERMET : ICUS du service de médecine intensive\n\n• Madame Sylvie OGAARD-BRESSON, formatrice et référente clinique\n\n• Dresse Malory MORET BOCHATAY et/ou Dr Marco BETELLO, Médecins chefs co-responsables du service des SI\n\n• Monsieur Sébastien Kuntz : responsable d’unité de formation\nDate limite de postulation : 10 septembre 2026\nDescription du poste :\nLa formation post-diplôme d’infirmier·ère expert·e en soins intensifs vise l’acquisition de compétences en soins infirmiers dans le domaine des soins intensifs pour :\n\n• Appréhender toutes les situations complexes de soins engageant ou non le pronostic vital du patient\n\n• Répondre à ces situations par des prestations adaptées\nL’acquisition de ces compétences nécessite une formation spécialisée d’une durée de 2 ans en cours d’emploi, basée sur le concept de l’alternance entre la théorie et la pratique. Ces acquisitions se développent au CHUV ou aux HUG pour les cours théoriques. Les stages pratiques sont répartis entre le GHOL, les HUG ou le CHUV.\nL’infirmier·ère en formation post grade travaille dans l’unité de soins intensifs en étroite collaboration avec les équipes infirmière et médicale des soins intensifs du GHOL, des HUG ou celles du CHUV.\nProfil requis :\nCe nouveau chapitre de votre vie professionnelle au GHOL sera couronné de succès grâce à votre :\n\n• Conscience professionnelle et sens aigu des responsabilités\n\n• Sens de l’observation et votre jugement clinique\nReconnue pour votre discipline, votre sens de l’organisation, vos qualités relationnelles, votre capacité de réaction rapide et adaptée aux circonstances, votre équilibre psychique associé à votre résistance physique, vous aurez tous les atouts pour initier cette formation exigeante.\nNiveau de formation :\n\n• Bachelor HES-SO en soins infirmiers exigé, ou diplôme équivalent reconnu par la Croix rouge suisse.\n\n• BLS-AES en cours de validité (<2ans)\n\n• Expérience de 1 an minimum dans le service des soins intensifs\nAvantages :\nVous rejoignez une unité polyvalente, vous collaborez avec une équipe pluridisciplinaire, dynamique et animée par la volonté de garantir la qualité de soins. Votre barème de rémunération évoluera vers la classe 20-22 dès l’obtention du diplôme et l’affectation à l’unité de soins intensifs.",
+        "de": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique, avec ses structures sur Nyon et Rolle, pour lequel vous collaborez déjà aujourd’hui. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous investissant dans cette nouvelle formation, tremplin vers de nouveaux challenges !\nActivité en emploi – 80% à 100% – 1er janvier 2027 au HUG/ 1er juin au CHUV\nCandidatures et sélection :\nUn comité de sélection étudiera votre candidature composée d’une lettre de motivation et curriculum vitae actualisé.\nLe comité de sélection pour un entretien sera le suivant :\n\n• Madame Catherine SERMET : ICUS du service de médecine intensive\n\n• Madame Sylvie OGAARD-BRESSON, formatrice et référente clinique\n\n• Dresse Malory MORET BOCHATAY et/ou Dr Marco BETELLO, Médecins chefs co-responsables du service des SI\n\n• Monsieur Sébastien Kuntz : responsable d’unité de formation\nDate limite de postulation : 10 septembre 2026\nDescription du poste :\nLa formation post-diplôme d’infirmier·ère expert·e en soins intensifs vise l’acquisition de compétences en soins infirmiers dans le domaine des soins intensifs pour :\n\n• Appréhender toutes les situations complexes de soins engageant ou non le pronostic vital du patient\n\n• Répondre à ces situations par des prestations adaptées\nL’acquisition de ces compétences nécessite une formation spécialisée d’une durée de 2 ans en cours d’emploi, basée sur le concept de l’alternance entre la théorie et la pratique. Ces acquisitions se développent au CHUV ou aux HUG pour les cours théoriques. Les stages pratiques sont répartis entre le GHOL, les HUG ou le CHUV.\nL’infirmier·ère en formation post grade travaille dans l’unité de soins intensifs en étroite collaboration avec les équipes infirmière et médicale des soins intensifs du GHOL, des HUG ou celles du CHUV.\nProfil requis :\nCe nouveau chapitre de votre vie professionnelle au GHOL sera couronné de succès grâce à votre :\n\n• Conscience professionnelle et sens aigu des responsabilités\n\n• Sens de l’observation et votre jugement clinique\nReconnue pour votre discipline, votre sens de l’organisation, vos qualités relationnelles, votre capacité de réaction rapide et adaptée aux circonstances, votre équilibre psychique associé à votre résistance physique, vous aurez tous les atouts pour initier cette formation exigeante.\nNiveau de formation :\n\n• Bachelor HES-SO en soins infirmiers exigé, ou diplôme équivalent reconnu par la Croix rouge suisse.\n\n• BLS-AES en cours de validité (<2ans)\n\n• Expérience de 1 an minimum dans le service des soins intensifs\nAvantages :\nVous rejoignez une unité polyvalente, vous collaborez avec une équipe pluridisciplinaire, dynamique et animée par la volonté de garantir la qualité de soins. Votre barème de rémunération évoluera vers la classe 20-22 dès l’obtention du diplôme et l’affectation à l’unité de soins intensifs.",
+        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique, avec ses structures sur Nyon et Rolle, pour lequel vous collaborez déjà aujourd’hui. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous investissant dans cette nouvelle formation, tremplin vers de nouveaux challenges !\nActivité en emploi – 80% à 100% – 1er janvier 2027 au HUG/ 1er juin au CHUV\nCandidatures et sélection :\nUn comité de sélection étudiera votre candidature composée d’une lettre de motivation et curriculum vitae actualisé.\nLe comité de sélection pour un entretien sera le suivant :\n\n• Madame Catherine SERMET : ICUS du service de médecine intensive\n\n• Madame Sylvie OGAARD-BRESSON, formatrice et référente clinique\n\n• Dresse Malory MORET BOCHATAY et/ou Dr Marco BETELLO, Médecins chefs co-responsables du service des SI\n\n• Monsieur Sébastien Kuntz : responsable d’unité de formation\nDate limite de postulation : 10 septembre 2026\nDescription du poste :\nLa formation post-diplôme d’infirmier·ère expert·e en soins intensifs vise l’acquisition de compétences en soins infirmiers dans le domaine des soins intensifs pour :\n\n• Appréhender toutes les situations complexes de soins engageant ou non le pronostic vital du patient\n\n• Répondre à ces situations par des prestations adaptées\nL’acquisition de ces compétences nécessite une formation spécialisée d’une durée de 2 ans en cours d’emploi, basée sur le concept de l’alternance entre la théorie et la pratique. Ces acquisitions se développent au CHUV ou aux HUG pour les cours théoriques. Les stages pratiques sont répartis entre le GHOL, les HUG ou le CHUV.\nL’infirmier·ère en formation post grade travaille dans l’unité de soins intensifs en étroite collaboration avec les équipes infirmière et médicale des soins intensifs du GHOL, des HUG ou celles du CHUV.\nProfil requis :\nCe nouveau chapitre de votre vie professionnelle au GHOL sera couronné de succès grâce à votre :\n\n• Conscience professionnelle et sens aigu des responsabilités\n\n• Sens de l’observation et votre jugement clinique\nReconnue pour votre discipline, votre sens de l’organisation, vos qualités relationnelles, votre capacité de réaction rapide et adaptée aux circonstances, votre équilibre psychique associé à votre résistance physique, vous aurez tous les atouts pour initier cette formation exigeante.\nNiveau de formation :\n\n• Bachelor HES-SO en soins infirmiers exigé, ou diplôme équivalent reconnu par la Croix rouge suisse.\n\n• BLS-AES en cours de validité (<2ans)\n\n• Expérience de 1 an minimum dans le service des soins intensifs\nAvantages :\nVous rejoignez une unité polyvalente, vous collaborez avec une équipe pluridisciplinaire, dynamique et animée par la volonté de garantir la qualité de soins. Votre barème de rémunération évoluera vers la classe 20-22 dès l’obtention du diplôme et l’affectation à l’unité de soins intensifs."
       },
       "location": "Nyon",
       "canton": "VD",
@@ -726,8 +752,9 @@
       "applyUrl": "https://app.beehire.com/invite/VYgEFhbEI",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-25T21:49:26.105Z",
+      "crawledAt": "2026-08-26T10:20:55.766Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-25T21:49:26.105Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "baseSalary": {
@@ -739,34 +766,33 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-25T21:49:26.105Z"
+      }
     },
     {
       "id": "ghol-bb90df116e65",
       "slug": "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l",
       "slugByLocale": {
-        "fr": "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l",
         "it": "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l",
         "en": "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l",
-        "de": "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
+        "de": "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l",
+        "fr": "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
       "companyKey": "ghol",
       "companyDomain": "ghol.ch",
       "title": "ASSC pour le service de Médecine et Unité neurovasculaire",
       "titleByLocale": {
-        "fr": "ASSC pour le service de Médecine et Unité neurovasculaire",
         "it": "ASSC pour le service de Médecine et Unité neurovasculaire",
         "en": "ASSC pour le service de Médecine et Unité neurovasculaire",
-        "de": "ASSC pour le service de Médecine et Unité neurovasculaire"
+        "de": "ASSC pour le service de Médecine et Unité neurovasculaire",
+        "fr": "ASSC pour le service de Médecine et Unité neurovasculaire"
       },
       "description": "Le GHOL est l’hôpital de référence de l’Ouest lémanique, avec ses structures à Nyon et à Rolle. Rejoindre le GHOL, c’est intégrer une institution dynamique et engagée, où chaque professionnel·le peut mettre ses compétences au service des patients tout en développant son parcours professionnel.\n Avec une capacité de 50 lits, le service de Médecine prend en charge des patients présentant des situations médicales diversifiées, nécessitant une approche globale, personnalisée et coordonnée. Il comprend également une unité neurovasculaire, dédiée à la prise en charge spécialisée des patients présentant un accident vasculaire cérébral (AVC) ou une autre pathologie neurovasculaire aiguë.\n Au quotidien, nos équipes s’engagent à offrir des soins de qualité, dans un environnement bienveillant, respectueux et centré sur la personne.\n Le travail au sein du service repose sur une collaboration étroite entre les différents professionnels de santé, les patients et leurs proches. L’écoute, la confiance, le respect et la prise en compte des besoins de chaque patient sont au cœur de notre pratique.\n Nous vous proposons un environnement professionnel stimulant, dans lequel votre engagement et vos compétences participent directement à la qualité de la prise en charge de nos patients.\n Mission :\n\n• Vous collaborez étroitement à la prise en charge des patients au sein d’une équipe pluridisciplinaire et avec l'équipe infirmière\n\n• Vous prodiguez des soins variés, globaux et individualisés sous la délégation d’un-e infirmier-ère et vous accompagnez de manière responsable et autonome les patients pour les aspects de prise en charge touchant aux activités de la vie quotidienne\n\n• Vous dispensez des soins médico-techniques sous délégation de l'infirmier-ère\n\n• Vous transmettez les informations de manière ciblée et pertinente dans le dossier informatisé\n\n• Vous supervisez et accompagnez les apprentis ASSC et les stagiaires\n\n• Vous supervisez et accompagnez les nouveaux collaborateurs et nouvelles collaboratrices\n\n• Vous êtes garant·e des bonnes pratiques de soins et accompagnement auprès des aides-infirmier·es et auxiliaires de santé\n Profil requis :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Capacité à travailler en interdisciplinarité\n\n• Vous êtes une personne dynamique, impliqué-e, motivé-e et avez le sens des responsabilités\n\n• Vous faites preuve d'une excellente maîtrise de la langue française, autant dans l'expression orale que rédactionnelle.\n Niveau de formation :\n\n• Vous êtes titulaire d'un CFC d'assistant-e en soins et santé communautaire\n Avantages :\n\n• Vous évoluez au sein d’un environnement de travail agréable, dans une construction récente\n\n• Vous intégrez une équipe pluridisciplinaire dynamique et motivée",
       "descriptionByLocale": {
-        "fr": "Le GHOL est l’hôpital de référence de l’Ouest lémanique, avec ses structures à Nyon et à Rolle. Rejoindre le GHOL, c’est intégrer une institution dynamique et engagée, où chaque professionnel·le peut mettre ses compétences au service des patients tout en développant son parcours professionnel.\n Avec une capacité de 50 lits, le service de Médecine prend en charge des patients présentant des situations médicales diversifiées, nécessitant une approche globale, personnalisée et coordonnée. Il comprend également une unité neurovasculaire, dédiée à la prise en charge spécialisée des patients présentant un accident vasculaire cérébral (AVC) ou une autre pathologie neurovasculaire aiguë.\n Au quotidien, nos équipes s’engagent à offrir des soins de qualité, dans un environnement bienveillant, respectueux et centré sur la personne.\n Le travail au sein du service repose sur une collaboration étroite entre les différents professionnels de santé, les patients et leurs proches. L’écoute, la confiance, le respect et la prise en compte des besoins de chaque patient sont au cœur de notre pratique.\n Nous vous proposons un environnement professionnel stimulant, dans lequel votre engagement et vos compétences participent directement à la qualité de la prise en charge de nos patients.\n Mission :\n\n• Vous collaborez étroitement à la prise en charge des patients au sein d’une équipe pluridisciplinaire et avec l'équipe infirmière\n\n• Vous prodiguez des soins variés, globaux et individualisés sous la délégation d’un-e infirmier-ère et vous accompagnez de manière responsable et autonome les patients pour les aspects de prise en charge touchant aux activités de la vie quotidienne\n\n• Vous dispensez des soins médico-techniques sous délégation de l'infirmier-ère\n\n• Vous transmettez les informations de manière ciblée et pertinente dans le dossier informatisé\n\n• Vous supervisez et accompagnez les apprentis ASSC et les stagiaires\n\n• Vous supervisez et accompagnez les nouveaux collaborateurs et nouvelles collaboratrices\n\n• Vous êtes garant·e des bonnes pratiques de soins et accompagnement auprès des aides-infirmier·es et auxiliaires de santé\n Profil requis :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Capacité à travailler en interdisciplinarité\n\n• Vous êtes une personne dynamique, impliqué-e, motivé-e et avez le sens des responsabilités\n\n• Vous faites preuve d'une excellente maîtrise de la langue française, autant dans l'expression orale que rédactionnelle.\n Niveau de formation :\n\n• Vous êtes titulaire d'un CFC d'assistant-e en soins et santé communautaire\n Avantages :\n\n• Vous évoluez au sein d’un environnement de travail agréable, dans une construction récente\n\n• Vous intégrez une équipe pluridisciplinaire dynamique et motivée",
-        "it": "Le GHOL est l’hôpital de référence de l’Ouest lémanique, avec ses structures à Nyon et à Rolle. Rejoindre le GHOL, c’est intégrer une institution dynamique et engagée, où chaque professionnel·le peut mettre ses compétences au service des patients tout en développant son parcours professionnel.\n Avec une capacité de 50 lits, le service de Médecine prend en charge des patients présentant des situations médicales diversifiées, nécessitant une approche globale, personnalisée et coordonnée. Il comprend également une unité neurovasculaire, dédiée à la prise en charge spécialisée des patients présentant un accident vasculaire cérébral (AVC) ou une autre pathologie neurovasculaire aiguë.\n Au quotidien, nos équipes s’engagent à offrir des soins de qualité, dans un environnement bienveillant, respectueux et centré sur la personne.\n Le travail au sein du service repose sur une collaboration étroite entre les différents professionnels de santé, les patients et leurs proches. L’écoute, la confiance, le respect et la prise en compte des besoins de chaque patient sont au cœur de notre pratique.\n Nous vous proposons un environnement professionnel stimulant, dans lequel votre engagement et vos compétences participent directement à la qualité de la prise en charge de nos patients.\n Mission :\n\n• Vous collaborez étroitement à la prise en charge des patients au sein d’une équipe pluridisciplinaire et avec l'équipe infirmière\n\n• Vous prodiguez des soins variés, globaux et individualisés sous la délégation d’un-e infirmier-ère et vous accompagnez de manière responsable et autonome les patients pour les aspects de prise en charge touchant aux activités de la vie quotidienne\n\n• Vous dispensez des soins médico-techniques sous délégation de l'infirmier-ère\n\n• Vous transmettez les informations de manière ciblée et pertinente dans le dossier informatisé\n\n• Vous supervisez et accompagnez les apprentis ASSC et les stagiaires\n\n• Vous supervisez et accompagnez les nouveaux collaborateurs et nouvelles collaboratrices\n\n• Vous êtes garant·e des bonnes pratiques de soins et accompagnement auprès des aides-infirmier·es et auxiliaires de santé\n Profil requis :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Capacité à travailler en interdisciplinarité\n\n• Vous êtes une personne dynamique, impliqué-e, motivé-e et avez le sens des responsabilités\n\n• Vous faites preuve d'une excellente maîtrise de la langue française, autant dans l'expression orale que rédactionnelle.\n Niveau de formation :\n\n• Vous êtes titulaire d'un CFC d'assistant-e en soins et santé communautaire\n Avantages :\n\n• Vous évoluez au sein d’un environnement de travail agréable, dans une construction récente\n\n• Vous intégrez une équipe pluridisciplinaire dynamique et motivée",
-        "en": "Le GHOL est l’hôpital de référence de l’Ouest lémanique, avec ses structures à Nyon et à Rolle. Rejoindre le GHOL, c’est intégrer une institution dynamique et engagée, où chaque professionnel·le peut mettre ses compétences au service des patients tout en développant son parcours professionnel.\n Avec une capacité de 50 lits, le service de Médecine prend en charge des patients présentant des situations médicales diversifiées, nécessitant une approche globale, personnalisée et coordonnée. Il comprend également une unité neurovasculaire, dédiée à la prise en charge spécialisée des patients présentant un accident vasculaire cérébral (AVC) ou une autre pathologie neurovasculaire aiguë.\n Au quotidien, nos équipes s’engagent à offrir des soins de qualité, dans un environnement bienveillant, respectueux et centré sur la personne.\n Le travail au sein du service repose sur une collaboration étroite entre les différents professionnels de santé, les patients et leurs proches. L’écoute, la confiance, le respect et la prise en compte des besoins de chaque patient sont au cœur de notre pratique.\n Nous vous proposons un environnement professionnel stimulant, dans lequel votre engagement et vos compétences participent directement à la qualité de la prise en charge de nos patients.\n Mission :\n\n• Vous collaborez étroitement à la prise en charge des patients au sein d’une équipe pluridisciplinaire et avec l'équipe infirmière\n\n• Vous prodiguez des soins variés, globaux et individualisés sous la délégation d’un-e infirmier-ère et vous accompagnez de manière responsable et autonome les patients pour les aspects de prise en charge touchant aux activités de la vie quotidienne\n\n• Vous dispensez des soins médico-techniques sous délégation de l'infirmier-ère\n\n• Vous transmettez les informations de manière ciblée et pertinente dans le dossier informatisé\n\n• Vous supervisez et accompagnez les apprentis ASSC et les stagiaires\n\n• Vous supervisez et accompagnez les nouveaux collaborateurs et nouvelles collaboratrices\n\n• Vous êtes garant·e des bonnes pratiques de soins et accompagnement auprès des aides-infirmier·es et auxiliaires de santé\n Profil requis :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Capacité à travailler en interdisciplinarité\n\n• Vous êtes une personne dynamique, impliqué-e, motivé-e et avez le sens des responsabilités\n\n• Vous faites preuve d'une excellente maîtrise de la langue française, autant dans l'expression orale que rédactionnelle.\n Niveau de formation :\n\n• Vous êtes titulaire d'un CFC d'assistant-e en soins et santé communautaire\n Avantages :\n\n• Vous évoluez au sein d’un environnement de travail agréable, dans une construction récente\n\n• Vous intégrez une équipe pluridisciplinaire dynamique et motivée",
-        "de": "Le GHOL est l’hôpital de référence de l’Ouest lémanique, avec ses structures à Nyon et à Rolle. Rejoindre le GHOL, c’est intégrer une institution dynamique et engagée, où chaque professionnel·le peut mettre ses compétences au service des patients tout en développant son parcours professionnel.\n Avec une capacité de 50 lits, le service de Médecine prend en charge des patients présentant des situations médicales diversifiées, nécessitant une approche globale, personnalisée et coordonnée. Il comprend également une unité neurovasculaire, dédiée à la prise en charge spécialisée des patients présentant un accident vasculaire cérébral (AVC) ou une autre pathologie neurovasculaire aiguë.\n Au quotidien, nos équipes s’engagent à offrir des soins de qualité, dans un environnement bienveillant, respectueux et centré sur la personne.\n Le travail au sein du service repose sur une collaboration étroite entre les différents professionnels de santé, les patients et leurs proches. L’écoute, la confiance, le respect et la prise en compte des besoins de chaque patient sont au cœur de notre pratique.\n Nous vous proposons un environnement professionnel stimulant, dans lequel votre engagement et vos compétences participent directement à la qualité de la prise en charge de nos patients.\n Mission :\n\n• Vous collaborez étroitement à la prise en charge des patients au sein d’une équipe pluridisciplinaire et avec l'équipe infirmière\n\n• Vous prodiguez des soins variés, globaux et individualisés sous la délégation d’un-e infirmier-ère et vous accompagnez de manière responsable et autonome les patients pour les aspects de prise en charge touchant aux activités de la vie quotidienne\n\n• Vous dispensez des soins médico-techniques sous délégation de l'infirmier-ère\n\n• Vous transmettez les informations de manière ciblée et pertinente dans le dossier informatisé\n\n• Vous supervisez et accompagnez les apprentis ASSC et les stagiaires\n\n• Vous supervisez et accompagnez les nouveaux collaborateurs et nouvelles collaboratrices\n\n• Vous êtes garant·e des bonnes pratiques de soins et accompagnement auprès des aides-infirmier·es et auxiliaires de santé\n Profil requis :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Capacité à travailler en interdisciplinarité\n\n• Vous êtes une personne dynamique, impliqué-e, motivé-e et avez le sens des responsabilités\n\n• Vous faites preuve d'une excellente maîtrise de la langue française, autant dans l'expression orale que rédactionnelle.\n Niveau de formation :\n\n• Vous êtes titulaire d'un CFC d'assistant-e en soins et santé communautaire\n Avantages :\n\n• Vous évoluez au sein d’un environnement de travail agréable, dans une construction récente\n\n• Vous intégrez une équipe pluridisciplinaire dynamique et motivée"
+        "it": "Le GHOL est l’hôpital de référence de l’Ouest lémanique, avec ses structures à Nyon et à Rolle. Rejoindre le GHOL, c’est intégrer une institution dynamique et engagée, où chaque professionnel·le peut mettre ses compétences au service des patients tout en développant son parcours professionnel.\nAvec une capacité de 50 lits, le service de Médecine prend en charge des patients présentant des situations médicales diversifiées, nécessitant une approche globale, personnalisée et coordonnée. Il comprend également une unité neurovasculaire, dédiée à la prise en charge spécialisée des patients présentant un accident vasculaire cérébral (AVC) ou une autre pathologie neurovasculaire aiguë.\nAu quotidien, nos équipes s’engagent à offrir des soins de qualité, dans un environnement bienveillant, respectueux et centré sur la personne.\nLe travail au sein du service repose sur une collaboration étroite entre les différents professionnels de santé, les patients et leurs proches. L’écoute, la confiance, le respect et la prise en compte des besoins de chaque patient sont au cœur de notre pratique.\nNous vous proposons un environnement professionnel stimulant, dans lequel votre engagement et vos compétences participent directement à la qualité de la prise en charge de nos patients.\nMission :\n\n• Vous collaborez étroitement à la prise en charge des patients au sein d’une équipe pluridisciplinaire et avec l'équipe infirmière\n\n• Vous prodiguez des soins variés, globaux et individualisés sous la délégation d’un-e infirmier-ère et vous accompagnez de manière responsable et autonome les patients pour les aspects de prise en charge touchant aux activités de la vie quotidienne\n\n• Vous dispensez des soins médico-techniques sous délégation de l'infirmier-ère\n\n• Vous transmettez les informations de manière ciblée et pertinente dans le dossier informatisé\n\n• Vous supervisez et accompagnez les apprentis ASSC et les stagiaires\n\n• Vous supervisez et accompagnez les nouveaux collaborateurs et nouvelles collaboratrices\n\n• Vous êtes garant·e des bonnes pratiques de soins et accompagnement auprès des aides-infirmier·es et auxiliaires de santé\nProfil requis :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Capacité à travailler en interdisciplinarité\n\n• Vous êtes une personne dynamique, impliqué-e, motivé-e et avez le sens des responsabilités\n\n• Vous faites preuve d'une excellente maîtrise de la langue française, autant dans l'expression orale que rédactionnelle.\nNiveau de formation :\n\n• Vous êtes titulaire d'un CFC d'assistant-e en soins et santé communautaire\nAvantages :\n\n• Vous évoluez au sein d’un environnement de travail agréable, dans une construction récente\n\n• Vous intégrez une équipe pluridisciplinaire dynamique et motivée",
+        "en": "Le GHOL est l’hôpital de référence de l’Ouest lémanique, avec ses structures à Nyon et à Rolle. Rejoindre le GHOL, c’est intégrer une institution dynamique et engagée, où chaque professionnel·le peut mettre ses compétences au service des patients tout en développant son parcours professionnel.\nAvec une capacité de 50 lits, le service de Médecine prend en charge des patients présentant des situations médicales diversifiées, nécessitant une approche globale, personnalisée et coordonnée. Il comprend également une unité neurovasculaire, dédiée à la prise en charge spécialisée des patients présentant un accident vasculaire cérébral (AVC) ou une autre pathologie neurovasculaire aiguë.\nAu quotidien, nos équipes s’engagent à offrir des soins de qualité, dans un environnement bienveillant, respectueux et centré sur la personne.\nLe travail au sein du service repose sur une collaboration étroite entre les différents professionnels de santé, les patients et leurs proches. L’écoute, la confiance, le respect et la prise en compte des besoins de chaque patient sont au cœur de notre pratique.\nNous vous proposons un environnement professionnel stimulant, dans lequel votre engagement et vos compétences participent directement à la qualité de la prise en charge de nos patients.\nMission :\n\n• Vous collaborez étroitement à la prise en charge des patients au sein d’une équipe pluridisciplinaire et avec l'équipe infirmière\n\n• Vous prodiguez des soins variés, globaux et individualisés sous la délégation d’un-e infirmier-ère et vous accompagnez de manière responsable et autonome les patients pour les aspects de prise en charge touchant aux activités de la vie quotidienne\n\n• Vous dispensez des soins médico-techniques sous délégation de l'infirmier-ère\n\n• Vous transmettez les informations de manière ciblée et pertinente dans le dossier informatisé\n\n• Vous supervisez et accompagnez les apprentis ASSC et les stagiaires\n\n• Vous supervisez et accompagnez les nouveaux collaborateurs et nouvelles collaboratrices\n\n• Vous êtes garant·e des bonnes pratiques de soins et accompagnement auprès des aides-infirmier·es et auxiliaires de santé\nProfil requis :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Capacité à travailler en interdisciplinarité\n\n• Vous êtes une personne dynamique, impliqué-e, motivé-e et avez le sens des responsabilités\n\n• Vous faites preuve d'une excellente maîtrise de la langue française, autant dans l'expression orale que rédactionnelle.\nNiveau de formation :\n\n• Vous êtes titulaire d'un CFC d'assistant-e en soins et santé communautaire\nAvantages :\n\n• Vous évoluez au sein d’un environnement de travail agréable, dans une construction récente\n\n• Vous intégrez une équipe pluridisciplinaire dynamique et motivée",
+        "de": "Le GHOL est l’hôpital de référence de l’Ouest lémanique, avec ses structures à Nyon et à Rolle. Rejoindre le GHOL, c’est intégrer une institution dynamique et engagée, où chaque professionnel·le peut mettre ses compétences au service des patients tout en développant son parcours professionnel.\nAvec une capacité de 50 lits, le service de Médecine prend en charge des patients présentant des situations médicales diversifiées, nécessitant une approche globale, personnalisée et coordonnée. Il comprend également une unité neurovasculaire, dédiée à la prise en charge spécialisée des patients présentant un accident vasculaire cérébral (AVC) ou une autre pathologie neurovasculaire aiguë.\nAu quotidien, nos équipes s’engagent à offrir des soins de qualité, dans un environnement bienveillant, respectueux et centré sur la personne.\nLe travail au sein du service repose sur une collaboration étroite entre les différents professionnels de santé, les patients et leurs proches. L’écoute, la confiance, le respect et la prise en compte des besoins de chaque patient sont au cœur de notre pratique.\nNous vous proposons un environnement professionnel stimulant, dans lequel votre engagement et vos compétences participent directement à la qualité de la prise en charge de nos patients.\nMission :\n\n• Vous collaborez étroitement à la prise en charge des patients au sein d’une équipe pluridisciplinaire et avec l'équipe infirmière\n\n• Vous prodiguez des soins variés, globaux et individualisés sous la délégation d’un-e infirmier-ère et vous accompagnez de manière responsable et autonome les patients pour les aspects de prise en charge touchant aux activités de la vie quotidienne\n\n• Vous dispensez des soins médico-techniques sous délégation de l'infirmier-ère\n\n• Vous transmettez les informations de manière ciblée et pertinente dans le dossier informatisé\n\n• Vous supervisez et accompagnez les apprentis ASSC et les stagiaires\n\n• Vous supervisez et accompagnez les nouveaux collaborateurs et nouvelles collaboratrices\n\n• Vous êtes garant·e des bonnes pratiques de soins et accompagnement auprès des aides-infirmier·es et auxiliaires de santé\nProfil requis :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Capacité à travailler en interdisciplinarité\n\n• Vous êtes une personne dynamique, impliqué-e, motivé-e et avez le sens des responsabilités\n\n• Vous faites preuve d'une excellente maîtrise de la langue française, autant dans l'expression orale que rédactionnelle.\nNiveau de formation :\n\n• Vous êtes titulaire d'un CFC d'assistant-e en soins et santé communautaire\nAvantages :\n\n• Vous évoluez au sein d’un environnement de travail agréable, dans une construction récente\n\n• Vous intégrez une équipe pluridisciplinaire dynamique et motivée",
+        "fr": "Le GHOL est l’hôpital de référence de l’Ouest lémanique, avec ses structures à Nyon et à Rolle. Rejoindre le GHOL, c’est intégrer une institution dynamique et engagée, où chaque professionnel·le peut mettre ses compétences au service des patients tout en développant son parcours professionnel.\nAvec une capacité de 50 lits, le service de Médecine prend en charge des patients présentant des situations médicales diversifiées, nécessitant une approche globale, personnalisée et coordonnée. Il comprend également une unité neurovasculaire, dédiée à la prise en charge spécialisée des patients présentant un accident vasculaire cérébral (AVC) ou une autre pathologie neurovasculaire aiguë.\nAu quotidien, nos équipes s’engagent à offrir des soins de qualité, dans un environnement bienveillant, respectueux et centré sur la personne.\nLe travail au sein du service repose sur une collaboration étroite entre les différents professionnels de santé, les patients et leurs proches. L’écoute, la confiance, le respect et la prise en compte des besoins de chaque patient sont au cœur de notre pratique.\nNous vous proposons un environnement professionnel stimulant, dans lequel votre engagement et vos compétences participent directement à la qualité de la prise en charge de nos patients.\nMission :\n\n• Vous collaborez étroitement à la prise en charge des patients au sein d’une équipe pluridisciplinaire et avec l'équipe infirmière\n\n• Vous prodiguez des soins variés, globaux et individualisés sous la délégation d’un-e infirmier-ère et vous accompagnez de manière responsable et autonome les patients pour les aspects de prise en charge touchant aux activités de la vie quotidienne\n\n• Vous dispensez des soins médico-techniques sous délégation de l'infirmier-ère\n\n• Vous transmettez les informations de manière ciblée et pertinente dans le dossier informatisé\n\n• Vous supervisez et accompagnez les apprentis ASSC et les stagiaires\n\n• Vous supervisez et accompagnez les nouveaux collaborateurs et nouvelles collaboratrices\n\n• Vous êtes garant·e des bonnes pratiques de soins et accompagnement auprès des aides-infirmier·es et auxiliaires de santé\nProfil requis :\n\n• Intérêt marqué pour la prise en charge de la personne âgée et/ou dépendante et/ou présentant des troubles cognitifs\n\n• Patience, empathie, écoute active, compétences élevées en communication verbale et non verbale\n\n• Capacité à travailler en interdisciplinarité\n\n• Vous êtes une personne dynamique, impliqué-e, motivé-e et avez le sens des responsabilités\n\n• Vous faites preuve d'une excellente maîtrise de la langue française, autant dans l'expression orale que rédactionnelle.\nNiveau de formation :\n\n• Vous êtes titulaire d'un CFC d'assistant-e en soins et santé communautaire\nAvantages :\n\n• Vous évoluez au sein d’un environnement de travail agréable, dans une construction récente\n\n• Vous intégrez une équipe pluridisciplinaire dynamique et motivée"
       },
       "location": "Nyon",
       "canton": "VD",
@@ -787,8 +813,9 @@
       "applyUrl": "https://app.beehire.com/invite/FbUuocJWF",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-25T21:49:26.103Z",
+      "crawledAt": "2026-08-26T10:20:55.765Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-25T21:49:26.103Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "baseSalary": {
@@ -800,8 +827,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-25T21:49:26.103Z"
+      }
     },
     {
       "id": "ghol-c0180cff0ed5",
@@ -888,7 +914,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
