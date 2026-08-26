@@ -1469,6 +1469,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'calo-domande-asilo-2026': { it: 'calo-domande-asilo-2026', en: 'decline-asylum-requests-2026', de: 'rueckgang-asylgesuche-2026', fr: 'baisse-demandes-asile-2026' },
  'parlamento-svizzero-velo-divieto-diritti': { it: 'parlamento-svizzero-velo-divieto-diritti', en: 'swiss-parliament-veil-ban-rights', de: 'schweizer-parlament-kopftuch-verbot', fr: 'parlement-suisse-voile-interdiction' },
  'acquisire-immobile-berna-procedura': { it: 'acquisire-immobile-berna-procedura', en: 'purchase-property-bern-canton-guide', de: 'immobilie-kaufen-kanton-bern-leitfaden', fr: 'acheter-propriete-canton-berne-guide' },
+ 'avviare-ditta-berna-registrazione': { it: 'avviare-ditta-berna-registrazione', en: 'starting-business-bern-registration', de: 'geschaeft-eroeffnung-bern-registrierung', fr: 'demarrer-entreprise-berne-enregistrement' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -4330,6 +4330,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.acquisire-immobile-berna-procedura.title': 'Buying a house in the Canton of Bern: costs and procedure',
     'blog.article.acquisire-immobile-berna-procedura.excerpt': 'Guide to real estate acquisition in the Canton of Bern: federal, cantonal, municipal taxation, bank assessment and step-by-step procedural procedure.',
     'blog.article.acquisire-immobile-berna-procedura.imageAlt': 'Modern residential property in Bern canton with typical Swiss architectural features',
+    'blog.article.avviare-ditta-berna-registrazione.title': 'Opening a business in Bern: procedures and costs',
+    'blog.article.avviare-ditta-berna-registrazione.excerpt': 'Complete guide to opening in the Canton of Bern: legal forms, trade register registration, three-tier taxes and insurance obligations for employees.',
+    'blog.article.avviare-ditta-berna-registrazione.imageAlt': 'Swiss administrative office counter with business registration forms and documents',
 };
 
 export default blogMetaChEn;

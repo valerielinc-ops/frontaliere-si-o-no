@@ -12988,6 +12988,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'avviare-ditta-berna-registrazione',
+    category: 'pratico',
+    date: '2026-08-26T00:30:42.460Z',
+    image: '/images/blog/avviare-ditta-berna-registrazione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

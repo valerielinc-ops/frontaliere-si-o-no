@@ -4330,6 +4330,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.acquisire-immobile-berna-procedura.title': 'Acheter une maison dans le canton de Berne : coûts et procédure',
     'blog.article.acquisire-immobile-berna-procedura.excerpt': 'Guide de l\'acquisition immobilière dans le canton de Berne : fiscalité fédérale, cantonale, communale, évaluation bancaire et procédures étape par étape.',
     'blog.article.acquisire-immobile-berna-procedura.imageAlt': 'Propriété résidentielle moderne dans le canton de Berne avec architecture suisse typique',
+    'blog.article.avviare-ditta-berna-registrazione.title': 'Ouvrir une entreprise à Berne : procédures et coûts',
+    'blog.article.avviare-ditta-berna-registrazione.excerpt': 'Guide complet d\'ouverture dans le canton de Berne : formes juridiques, inscription au registre du commerce, impôts à trois niveaux et obligations d\'assurance pour les salariés.',
+    'blog.article.avviare-ditta-berna-registrazione.imageAlt': 'Guichet administratif suisse avec formulaires d\'enregistrement d\'entreprise',
 };
 
 export default blogMetaChFr;
