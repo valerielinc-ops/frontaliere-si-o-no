@@ -4327,6 +4327,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.parlamento-svizzero-velo-divieto-diritti.title': 'Veil in Argovian schools: rights and constitution',
     'blog.article.parlamento-svizzero-velo-divieto-diritti.excerpt': 'The Parliament of Aargau voted to ban the veil in public schools until the age of 16 with 78 yes and 54 no, but the Federal Court questions the legality of the measure.',
     'blog.article.parlamento-svizzero-velo-divieto-diritti.imageAlt': 'Swiss public school classroom with diverse students, natural light, representing education rights and constitutional issues',
+    'blog.article.acquisire-immobile-berna-procedura.title': 'Buying a house in the Canton of Bern: costs and procedure',
+    'blog.article.acquisire-immobile-berna-procedura.excerpt': 'Guide to real estate acquisition in the Canton of Bern: federal, cantonal, municipal taxation, bank assessment and step-by-step procedural procedure.',
+    'blog.article.acquisire-immobile-berna-procedura.imageAlt': 'Modern residential property in Bern canton with typical Swiss architectural features',
 };
 
 export default blogMetaChEn;

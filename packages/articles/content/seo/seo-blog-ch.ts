@@ -56141,6 +56141,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-acquisire-immobile-berna-procedura': {
+    title: 'Comprare casa nel Cantone di Berna: costi e procedura',
+    description: 'Acquistare casa nel Cantone di Berna: tassazione federale, cantonale, comunale, valutazione bancaria, documenti e procedura notarile completa. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, cantone, berna',
+    ogTitle: 'Comprare casa nel Cantone di Berna: mutuo e tasse',
+    ogDescription: 'Acquisire immobile a Berna: guida ai tre livelli fiscali, criteri bancari (reddito lordo, patrimonio), documenti richiesti e procedura dal rogito notarile alla registrazione catastale con tassazione e versamenti finali.',
+    canonicalPath: '/articoli-svizzera/acquisire-immobile-berna-procedura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa nel Cantone di Berna: costi e procedura",
+      "description": "Acquistare casa nel Cantone di Berna: tassazione federale, cantonale, comunale, valutazione bancaria, documenti e procedura notarile completa. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/acquisire-immobile-berna-procedura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una moderna casa residenziale nel Cantone di Berna con architettura svizzera caratteristica"
+      },
+      "datePublished": "2026-08-26T00:11:17+00:00",
+      "dateModified": "2026-08-26T00:11:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/acquisire-immobile-berna-procedura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

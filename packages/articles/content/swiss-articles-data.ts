@@ -12979,6 +12979,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'acquisire-immobile-berna-procedura',
+    category: 'pratico',
+    date: '2026-08-26T00:11:17.580Z',
+    image: '/images/blog/acquisire-immobile-berna-procedura.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
