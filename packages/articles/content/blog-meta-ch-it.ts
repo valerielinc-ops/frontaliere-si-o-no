@@ -4378,6 +4378,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.accesso-facilitato-infortuni-2027.title': 'Accesso facilitato all\'assicurazione infortuni dal 2027',
     'blog.article.accesso-facilitato-infortuni-2027.excerpt': 'Soglia ridotta da CHF 66.690 a CHF 44.460: dal gennaio 2027, circa 40 mila lavoratori indipendenti potranno assicurarsi contro gli infortuni con nuove opportunità.',
     'blog.article.accesso-facilitato-infortuni-2027.imageAlt': 'Professionista indipendente che lavora in un ufficio moderno con vista sulla città svizzera',
+    'blog.article.indennita-parentali-2027.title': 'Indennità parentali: nuovi diritti dal 1° luglio 2027',
+    'blog.article.indennita-parentali-2027.excerpt': 'Il Consiglio federale approva le modifiche alla legge IPG: dal 1° luglio 2027 genitori e famiglie avranno accesso a prestazioni finora riservate ai militari.',
+    'blog.article.indennita-parentali-2027.imageAlt': 'Palazzo federale di Berna, sede del Consiglio federale e del Parlamento svizzero',
+    'blog.article.allerte-popolazione-cell-broadcast.title': 'Allerte popolazione: Berna accelera cell broadcast',
+    'blog.article.allerte-popolazione-cell-broadcast.excerpt': 'Consiglio federale chiede 15,8 milioni CHF per il cell broadcast, sistema di allerta che raggiungerà i cittadini direttamente sui loro cellulari.',
+    'blog.article.allerte-popolazione-cell-broadcast.imageAlt': 'Dimostrazione di sistema di allerta d\'emergenza con messaggi su telefoni mobili in una piazza svizzera',
 };
 
 export default blogMetaChIt;

@@ -13132,6 +13132,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'indennita-parentali-2027',
+    category: 'novita',
+    date: '2026-08-26T10:06:28.800Z',
+    image: '/images/blog/indennita-parentali-2027.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'allerte-popolazione-cell-broadcast',
+    category: 'novita',
+    date: '2026-08-26T10:54:48.216Z',
+    image: '/images/blog/allerte-popolazione-cell-broadcast.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

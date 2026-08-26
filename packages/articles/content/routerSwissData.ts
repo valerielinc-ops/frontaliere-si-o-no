@@ -1485,6 +1485,8 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'reri-moneypark-calo-3-anni': { it: 'reri-moneypark-calo-3-anni', en: 'reri-moneypark-decline-three-years', de: 'reri-moneypark-ruckgang-drei-jahre', fr: 'reri-moneypark-baisse-trois-ans' },
  'infortuni-soglia-indipendenti-2027': { it: 'infortuni-soglia-indipendenti-2027', en: 'accident-insurance-threshold-independents-2027', de: 'unfallversicherung-schwelle-selbststaendige-2027', fr: 'assurance-accidents-seuil-independants-2027' },
  'accesso-facilitato-infortuni-2027': { it: 'accesso-facilitato-infortuni-2027', en: 'easier-access-accident-insurance-2027', de: 'erleichterte-zugang-unfallversicherung-2027', fr: 'acces-facilite-assurance-accident-2027' },
+ 'indennita-parentali-2027': { it: 'indennita-parentali-2027', en: 'parental-benefits-2027', de: 'elternleistungen-2027', fr: 'allocations-parentales-2027' },
+ 'allerte-popolazione-cell-broadcast': { it: 'allerte-popolazione-cell-broadcast', en: 'alerts-population-cell-broadcast', de: 'bevoelkerungswarnungen-cell-broadcast', fr: 'alertes-population-cell-broadcast' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

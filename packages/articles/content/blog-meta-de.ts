@@ -10821,6 +10821,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-esenzione-franchigia-2026.title': 'Grenzgänger 2026: Befreiung vs. Selbstbehalt nach Vereinbarung',
     'blog.article.frontaliere-esenzione-franchigia-2026.excerpt': 'Betriebsregeln 2026 für Grenzgänger: Unterschiede zwischen dem alten System (Befreiung von 7.500 €) und dem neuen (Selbstbehalt von 10.000 €). Steuergutschrift und Erklärungsverfahren.',
     'blog.article.frontaliere-esenzione-franchigia-2026.imageAlt': 'Hauptstraße von Mendrisio mit Beschilderung und Schweizer-italienischer Grenzübergang im Hintergrund',
+    'blog.article.san-gottardo-code-20-km-luglio.title': 'Der längste Gotthard-Schwanz der letzten 4 Jahre',
+    'blog.article.san-gottardo-code-20-km-luglio.excerpt': 'Am 18. Juli 2026 wird der Gipfel von 20 km Schwanz nach Süden erreicht. Auswirkungen für Grenzgänger und vollständiger Zeitplan für die nächtlichen Schließungen von September bis Oktober.',
+    'blog.article.san-gottardo-code-20-km-luglio.imageAlt': 'San Gotthard Autobahntunnel mit dichtem Sommerverkehr durch die Schweizer Alpen',
 };
 
 export default blogMetaDe;
