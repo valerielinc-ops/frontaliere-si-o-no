@@ -1248,11 +1248,27 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "studium-pflegefachfrau-mann-hf-spitex-gz-dielsdorf-regensdorf"
+          "studium-pflegefachfrau-mann-hf-spitex-gz-dielsdorf-regensdorf",
+          "degree-in-nursing-at-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf",
+          "diplome-en-soins-infirmiers-chez-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf",
+          "degree-in-nursing-at-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf-54ea44",
+          "diplome-e-en-soins-infirmiers-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf",
+          "diplome-en-soins-infirmiers-chez-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf-54ea44"
+        ],
+        "en": [
+          "degree-in-nursing-at-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf"
+        ],
+        "fr": [
+          "diplome-en-soins-infirmiers-chez-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf"
         ]
       },
       "previousSlugs": [
-        "studium-pflegefachfrau-mann-hf-spitex-gz-dielsdorf-regensdorf"
+        "studium-pflegefachfrau-mann-hf-spitex-gz-dielsdorf-regensdorf",
+        "degree-in-nursing-at-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf",
+        "diplome-en-soins-infirmiers-chez-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf",
+        "degree-in-nursing-at-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf-54ea44",
+        "diplome-e-en-soins-infirmiers-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf",
+        "diplome-en-soins-infirmiers-chez-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf-54ea44"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -1348,8 +1364,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

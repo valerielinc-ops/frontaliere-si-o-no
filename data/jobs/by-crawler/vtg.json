@@ -991,7 +991,8 @@
       "country": "CH",
       "retranslationAttempts": 0,
       "salaryMin": 49500,
-      "salaryMax": 75000
+      "salaryMax": 75000,
+      "needsRetranslation": true
     },
     {
       "id": "company-f018y2",
@@ -1551,7 +1552,7 @@
       "crawledAt": "2026-08-26T10:13:55.322Z",
       "firstSeenAt": "2026-08-02T11:06:10.414Z",
       "slugByLocale": {
-        "it": "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-swiss-armed-forces-vtg-bern",
+        "it": "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-confederazione-svizzera-frauenfeld",
         "en": "apprentice-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst-swiss-armed-forces-vtg-bern-063pew",
         "de": "lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst-confederazione-frauenfeld",
         "fr": "apprenti-e-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst-swiss-armed-forces-vtg-bern-063pew"
@@ -1820,7 +1821,8 @@
       },
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-o362zt",
@@ -2105,7 +2107,7 @@
       "crawledAt": "2026-08-26T10:13:55.322Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
-        "it": "esci-dalla-routine-diventa-un-ufficiale-professionista-swiss-armed-forces-vtg-bern",
+        "it": "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
         "en": "get-out-of-the-routine-become-a-professional-officer-swiss-armed-forces-vtg-bern",
         "de": "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
         "fr": "sortir-de-la-routine-devenir-administrateur-swiss-armed-forces-vtg-bern"
@@ -2187,7 +2189,7 @@
       "crawledAt": "2026-08-26T10:13:55.322Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
-        "it": "la-tua-professione-dovrebbe-offrire-di-piu-diventa-un-sergente-professionista-swiss-armed-forces-vtg-bern",
+        "it": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
         "en": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funk",
         "de": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
         "fr": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funk"
@@ -2381,13 +2383,13 @@
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "driver-assistente-di-trasporto-swiss-armed-forces-vtg-bern",
-        "en": "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bern",
+        "en": "driver-transport-assistant-swiss-armed-forces-vtg-bern",
         "de": "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bern-4hynmv",
         "fr": "conducteur-assistant-de-transport-swiss-armed-forces-vtg-bern"
       },
       "titleByLocale": {
         "it": "Driver / assistente di trasporto /",
-        "en": "Fahrer/in / Transporthelfer/in",
+        "en": "Driver / transport assistant /",
         "de": "Fahrer/in / Transporthelfer/in",
         "fr": "Conducteur / assistant de transport /"
       },
@@ -2449,8 +2451,7 @@
         "driver-transport-assistant-swiss-armed-forces-vtg-bern"
       ],
       "salaryMin": 85000,
-      "salaryMax": 119000,
-      "needsRetranslation": true
+      "salaryMax": 119000
     },
     {
       "id": "company-6okqpl",
@@ -2802,7 +2803,7 @@
         "fr": "pionier-maurer-m-w-d-swiss-armed-forces-vtg-bern-szsnuw"
       },
       "titleByLocale": {
-        "it": "Pionier Maurer (m/w)",
+        "it": "Mason pionieristico (m/f)",
         "en": "Pioneer Maurer (m/f)",
         "de": "Pionier Maurer (m/w)",
         "fr": "Pioneer Maurer (m/f)"
@@ -2839,8 +2840,7 @@
         "pionier-maurer-m-w-d-swiss-armed-forces-vtg-bern-szsnuw"
       ],
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-6iaf9o",
@@ -2954,13 +2954,13 @@
       "crawledAt": "2026-08-26T10:13:55.322Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
-        "it": "infrastruktur-spezialist-in-sanitar-swiss-armed-forces-vtg-bern",
+        "it": "specialista-delle-infrastrutture-sanitaria-swiss-armed-forces-vtg-bern",
         "en": "infrastructure-specialist-sanitary-swiss-armed-forces-vtg-bern",
         "de": "infrastruktur-spezialist-in-sanitar-swiss-armed-forces-vtg-bern-4u21rw",
         "fr": "specialiste-des-infrastructures-sanitaires-swiss-armed-forces-vtg-bern"
       },
       "titleByLocale": {
-        "it": "Infrastruktur Spezialist/in Sanitär",
+        "it": "Specialista delle infrastrutture/sanitaria",
         "en": "Infrastructure specialist/sanitary",
         "de": "Infrastruktur Spezialist/in Sanitär",
         "fr": "Spécialiste des infrastructures/sanitaires"
@@ -3004,7 +3004,6 @@
           "tecnologia-del-trasportatore-specializzato-in-confederazione-svizzera-andermatt",
           "specialist-in-conveyor-technology-confederazione-svizzera-andermatt",
           "specialiste-technologie-des-convoyeurs-confederazione-svizzera-andermatt",
-          "specialista-delle-infrastrutture-sanitaria-swiss-armed-forces-vtg-bern",
           "infrastruktur-spezialist-in-sanitar-swiss-armed-forces-vtg-bern"
         ],
         "en": [
@@ -3040,12 +3039,10 @@
         "tecnologia-del-trasportatore-specializzato-in-confederazione-svizzera-andermatt",
         "specialist-in-conveyor-technology-confederazione-svizzera-andermatt",
         "specialiste-technologie-des-convoyeurs-confederazione-svizzera-andermatt",
-        "specialista-delle-infrastrutture-sanitaria-swiss-armed-forces-vtg-bern",
         "infrastruktur-spezialist-in-sanitar-swiss-armed-forces-vtg-bern"
       ],
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-r2rk7v",
@@ -3073,13 +3070,13 @@
       "crawledAt": "2026-08-26T10:13:55.322Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
-        "it": "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern",
+        "it": "specialista-delle-infrastrutture-in-elettrici-potenza-swiss-armed-forces-vtg-bern",
         "en": "infrastructure-specialist-in-electrics-power-swiss-armed-forces-vtg-bern",
         "de": "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
         "fr": "specialiste-de-l-infrastructure-en-electricite-energie-swiss-armed-forces-vtg-bern"
       },
       "titleByLocale": {
-        "it": "Infrastruktur Spezialist/in Elektrik / Starkstrom",
+        "it": "Specialista delle infrastrutture / in Elettrici / Potenza",
         "en": "Infrastructure specialist / in Electrics / Power",
         "de": "Infrastruktur Spezialist/in Elektrik / Starkstrom",
         "fr": "Spécialiste de l'infrastructure / en électricité / énergie"
@@ -3115,7 +3112,6 @@
           "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
           "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-svizzera-stans-oberdorf-ausland",
           "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-stans-oberdorf-ausland",
-          "specialista-delle-infrastrutture-in-elettrici-potenza-swiss-armed-forces-vtg-bern",
           "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern"
         ],
         "en": [
@@ -3147,12 +3143,10 @@
         "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-stans-oberdorf-ausland",
         "infrastructure-specialist-in-electrical-power-confederazione-svizzera-stans-oberdorf-ausland",
         "specialiste-des-infrastructures-electriques-electriques-confederazione-svizzera-stans-oberdorf-ausland",
-        "specialista-delle-infrastrutture-in-elettrici-potenza-swiss-armed-forces-vtg-bern",
         "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern"
       ],
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-ta786n",

@@ -92,9 +92,9 @@
       "title": "Senior IT-Systemadministrator:in (m/w/d)",
       "titleByLocale": {
         "it": "Senior IT-Systemadministrator:in (m/w/d)",
-        "en": "Senior IT-Systemadministrator:in (m/w/d)",
+        "en": "Senior IT-Systemadministrator:in (m/f/d)",
         "de": "Senior IT-Systemadministrator:in (m/w/d)",
-        "fr": "Senior IT-Systemadministrator:in (m/w/d)"
+        "fr": "Administrateur informatique principal:en (h/f/d)"
       },
       "description": "Senior IT-Systemadministrator:in (m/w/d) — BIG & ARE Stellen",
       "descriptionByLocale": {
@@ -739,8 +739,8 @@
       "titleByLocale": {
         "it": "Servicetechniker:in MSR Campus WU (m/w/d)",
         "en": "Servicetechniker:in MSR Campus WU (m/f/d)",
-        "de": "Servicetechniker:in MSR Campus WU (m/w/d)",
-        "fr": "Servicetechniker:in MSR Campus WU (m/w/d)"
+        "de": "Servicetechniker: im MSR Campus WU (m/w/d)",
+        "fr": "Servicetechniker:in MSR Campus WU (h/f/d)"
       },
       "description": "Servicetechniker:in MSR Campus WU (m/w/d) — BIG & ARE Stellen",
       "descriptionByLocale": {
@@ -768,12 +768,22 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "servicetechniker-in-msr-campus-wu-m-w-d-recruitingapp-1123-ch",
-        "servicetechniker-in-msr-campus-wu-m-w-d-big-are-stellen-lugano"
+        "servicetechniker-in-msr-campus-wu-m-w-d-big-are-stellen-lugano",
+        "servicetechniker-in-hkls-campus-wu-m-w-d-big-are-stellen-lugano",
+        "servicetechniker-in-hkls-campus-wu-m-w-d-recruitingapp-1123-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-in-msr-campus-wu-m-w-d-recruitingapp-1123-ch",
-          "servicetechniker-in-msr-campus-wu-m-w-d-big-are-stellen-lugano"
+          "servicetechniker-in-msr-campus-wu-m-w-d-big-are-stellen-lugano",
+          "servicetechniker-in-hkls-campus-wu-m-w-d-big-are-stellen-lugano",
+          "servicetechniker-in-hkls-campus-wu-m-w-d-recruitingapp-1123-ch"
+        ],
+        "de": [
+          "servicetechniker-in-hkls-campus-wu-m-w-d-big-are-stellen-lugano"
+        ],
+        "fr": [
+          "servicetechniker-in-hkls-campus-wu-m-w-d-recruitingapp-1123-ch"
         ]
       },
       "needsRetranslation": true,

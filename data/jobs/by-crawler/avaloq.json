@@ -126,8 +126,7 @@
         }
       },
       "streetAddress": "Via Industria 1",
-      "firstSeenAt": "2026-08-21T21:55:30.086Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-08-21T21:55:30.086Z"
     },
     {
       "title": "Technical Business Analyst - Mobile Platform",
@@ -186,8 +185,7 @@
         }
       },
       "streetAddress": "Via Industria 1",
-      "firstSeenAt": "2026-08-20T10:27:38.455Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-08-20T10:27:38.455Z"
     },
     {
       "title": "AI Software Engineer",
@@ -322,8 +320,7 @@
         }
       },
       "streetAddress": "Via Industria 1",
-      "firstSeenAt": "2026-08-20T10:27:38.455Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-08-20T10:27:38.455Z"
     },
     {
       "title": "Offering Manager & Client Administrator",
@@ -594,7 +591,8 @@
       },
       "streetAddress": "Via Industria 1",
       "firstSeenAt": "2026-08-07T10:30:12.762Z",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "title": "Project Manager – PMO & Governance (12-month fixed term contract)",
@@ -828,7 +826,7 @@
       "titleByLocale": {
         "it": "Leader Tecnico IT – Infrastrutture e Platform Delivery",
         "en": "Technical Leader IT – Infrastructure & Platform Delivery",
-        "de": "Technical Leader IT – Infrastructure & Platform Delivery",
+        "de": "Technischer Leiter IT – Infrastruktur & Plattformbereitstellung",
         "fr": "Leader technique IT – Infrastructure et livraison des plateformes"
       },
       "descriptionByLocale": {
@@ -876,8 +874,7 @@
         "technical-leader-it-infrastruktur-plattformbereitstellung-avaloq-bioggio",
         "technical-leader-it-infrastructure-platform-delivery-avaloq-bioggio",
         "technischer-leiter-it-infrastruktur-plattformbereitstellung-avaloq-bioggio"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Software Developer – Output Management specialist for Archive and Infrastructure",

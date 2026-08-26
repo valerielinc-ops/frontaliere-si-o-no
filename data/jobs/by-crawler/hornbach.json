@@ -974,7 +974,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:58:56.885Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1067,7 +1066,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T11:20:39.857Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -2192,7 +2190,25 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-26T10:02:23.729Z"
+      "firstSeenAt": "2026-08-26T10:02:23.729Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistente-alle-vendite-elettriche-hornbach-galgenen",
+          "seller-in-electric-hornbach-galgenen",
+          "vendeur-en-electrique-hornbach-galgenen"
+        ],
+        "en": [
+          "seller-in-electric-hornbach-galgenen"
+        ],
+        "fr": [
+          "vendeur-en-electrique-hornbach-galgenen"
+        ]
+      },
+      "previousSlugs": [
+        "assistente-alle-vendite-elettriche-hornbach-galgenen",
+        "seller-in-electric-hornbach-galgenen",
+        "vendeur-en-electrique-hornbach-galgenen"
+      ]
     },
     {
       "id": "hornbach-154933",
@@ -3090,7 +3106,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:38:45.435Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
