@@ -51,7 +51,7 @@ const JOB_SLICE_DIR = 'data/jobs/by-crawler';
  * be invisible to this detector.
  */
 const QUOTE_AT_CUT_RX =
-  /^(?:["'‘’“”]|&(?:quot|apos|[lr]squo|[lr]dquo|#0*3[49]|#x0*2[27]);)/i;
+  /^(?:["'‘’“”]|&(?:quot|apos|[lr]squo|[lr]dquo|#0*3[49]|#x0*2[27]|#0*(?:8216|8217|8220|8221)|#x0*201[89cCdD]);)/i;
 
 /**
  * The corrupted-title detector.
