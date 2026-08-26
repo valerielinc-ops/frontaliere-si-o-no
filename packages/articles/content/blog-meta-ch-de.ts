@@ -4348,6 +4348,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-appenzello-interno-compensazione.title': 'AHV und Ergänzungsleistungen in Appenzell Innerrhoden',
     'blog.article.avs-appenzello-interno-compensazione.excerpt': 'Erste Säule Appenzell Innerrhoden: Leitfaden zur Ausgleichskasse, AHV-Rentenberechnung und Ergänzungsleistungen für das Lebensminimum.',
     'blog.article.avs-appenzello-interno-compensazione.imageAlt': 'Schweizer Verwaltungsbüro mit Rentenberater, der einem Rentner die AHV-Berechnung erklärt',
+    'blog.article.aprire-attivita-appenzello-interno.title': 'Ein Geschäft in Appenzell Innerrhoden eröffnen: Praktischer Leitfaden',
+    'blog.article.aprire-attivita-appenzello-interno.excerpt': 'Rechtsformen, Mindestkapital, Handelsregistereintragung sowie Steuer-, Beitrags- und Versicherungspflichten zur Aufnahme einer Tätigkeit in der Schweiz.',
+    'blog.article.aprire-attivita-appenzello-interno.imageAlt': 'Moderner Startup-Schreibtisch mit Schweizer Minimaldesign, Geschäftsdokumente, Laptop und Willkommensschild, natürliche Beleuchtung',
 };
 
 export default blogMetaChDe;

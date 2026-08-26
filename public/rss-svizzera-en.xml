@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Wed, 26 Aug 2026 04:04:05 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 26 Aug 2026 04:36:27 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -16,6 +16,102 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Opening a business in Appenzello Interno: a practical guide</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/open-business-appenzell-inner-rhodes-guide/</link>
+      <description><![CDATA[Legal forms, minimum capital, trade register registration and tax, contribution and insurance obligations to start a business in Switzerland.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- Switzerland requires precise legal forms: SA (CHF 100,000 capital), Sarl (CHF20,000), sole proprietorship without minimum
+- Each canton manages the trade register; tax competences divided between AFC/ESTV (federal/VAT) and cantonal administrations
+- Employees mean obligations: AVS/AI (5.3% employer + 5.3% employee), AD/AC (1.1%), SUVA work accidents, LAMal
+
+## Key facts
+- **What**: Start a business in Switzerland with a choice of legal form and official registration with the cantonal administration
+- Legal forms: Company (no minimum capital), SA (CHF 100,000), Sarl (CHF20,000), Cooperative (variable)
+- Competences: AFC/ESTV for IFD and VAT; cantonal administrations for trade register and local taxes
+- Compulsory insurance: SUVA for accidents at work (employees), LAMal for health (per capita)
+- Social contributions: AVS/AI 5.3% + 5.3% employer, AD/AC 1.1% up to annual ceiling, LAINF/LAA 0.7–1.5% by sector, LPP 7–18% by age group
+
+In Switzerland, starting a business is governed by coexisting federal and cantonal procedures. The Inner Appenzell Canton, like all other cantons, entrusts the local trade register with the task of formally registering the new company and coordinating tax obligations with the Federal Administration of Customs (AFC) and the Federal VAT Office (ESTV). The choice of legal form — sole proprietorship, public limited company (SA), company to
+The Swiss tax system operates on three overlapping levels: federal (FTA — Federal Direct Tax), cantonal, and municipal. It is not simple decentralization, but rather parallel and coordinated jurisdiction. The FTA/ESTV manages exclusively VAT and federal direct taxes; cantonal administrations manage cantonal and municipal taxes. The municipal multiplier varies from municipality to municipality: there is no single value for the entire Appenzell Innerrhoden, but each municipality sets it in accordance with cantonal law.
+
+### Federal and Cantonal Tax Obligations
+
+**VAT registration** becomes mandatory when annual turnover exceeds CHF 100,000. The FTA/ESTV requires online registration on the official federal administration portal. If turnover remains below this threshold, registration remains optional, but allows you to recover VAT on purchases; it is advisable to evaluate case by case.
+
+The Federal Direct Tax (FDT) applies to the net income of the individual enterprise or corporation. For sole proprietorships and partnerships, profit is taxed to the owner at the federal, cantonal, and municipal level. For corporations (AG, GmbH), business profit is taxed to the company; any dividend to shareholders is subject to additional taxation (Swiss classical system, with exceptions for qualified shareholdings).
+
+The Appenzell Innerrhoden cantonal administration sets its own cantonal and municipal tax rates. Since these values vary and are updated annually, it is essential to contact the cantonal tax office or the specific municipality to find out the current multipliers.
+
+### Mandatory Insurance and Social Contributions
+
+When you hire your first employee, mandatory contribution obligations are automatically triggered:
+
+AHV/AI (Old-age, survivors' and disability insurance): the employer pays 5.3% on the employee's salary; the employee contributes a further 5.3%. This is a joint payment to the cantonal contribution office. It is mandatory for every employee, regardless of sector.
+
+UI (Unemployment insurance): 1.1% of gross salary up to an established annual ceiling. Employer and employee contribute in equal measure.
+
+WICA (Workplace accident insurance): mandatory for employees. The premium ranges from 0.7% to 1.5% depending on the sector of activity. Higher-risk sectors (construction, mining, work at height) have higher rates. It is the employer's responsibility to register workers with a SUVA-approved insurer within the established deadlines.
+
+LAMal/KVG (Mandatory health insurance): every resident in Switzerland must take out health insurance within 3 months of arrival. Premiums are per capita — they vary by canton and region — and are not deducted from the payslip but paid by the employee directly to the insurer. Deductibles for adults range from CHF 300 to CHF 2,500 annually. Many cantons provide [premium subsidies](nav:health) for incomes below a certain threshold.
+
+LPP/BVG (Occupational pension fund): if the company employs employees with coordinated salary above a minimum threshold, registration with a pension fund is mandatory. Contributions vary by age group: 7% (25–34 years), 10% (35–44), 15% (45–54), 18% (55+ until retirement age).
+
+## Useful planning tools
+To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
+Opening a business in Switzerland follows a precise sequence. Here are the main steps to complete before operationally launching your company.
+
+### Step 1: Choose legal form and verify name availability
+
+Decide between sole proprietorship, SA, Sarl or cooperative based on size, desired liability and available capital. If you choose a business name, verify its availability at the cantonal commercial register: many cantons offer free online search. Make sure the name is not already registered and that it complies with any cantonal regulations on business names.
+
+### Step 2: Prepare constitutional documentation
+
+For SA and Sarl, draw up the bylaws (or articles of association) according to cantonal models or with the help of a notary. For sole proprietorship, the registration form is sufficient. If the business has multiple partners, it is advisable to draw up a partnership agreement that regulates rights, duties, exit criteria, and profit distribution.
+
+### Step 3: Registration at the cantonal commercial register
+
+Contact the commercial register office of your cantonal jurisdiction. Present:
+- Registration form (available at the office or online on the canton's website)
+- Bylaws or articles of association (for SA/Sarl)
+- Authenticated copy of the owner/partners' identity card
+- Financial documentation: bank statement or bank letter certifying the payment of minimum capital (for SA/Sarl)
+- Any commercial authorization if required by the sector (catering, pharmacy, hairdresser, etc.)
+
+Registration generates a CHE number (company identification number). The commercial register automatically notifies the FTA/ESTV.
+
+### Step 4: VAT registration (if applicable)
+
+If your expected or actual turnover exceeds CHF 100,000 annually, register for VAT with the FTA/ESTV within 30 days of reaching the threshold. Registration is mandatory; delays result in penalties. Use the [tax calculator](nav:calculator) to estimate your federal tax burden and assess whether voluntary registration is worthwhile.
+
+### Step 5: Declaration of activity with the tax authority
+
+Contact the cantonal tax office to report the start of your business. You will receive guidance on declaration deadlines (usually annual) and payment methods. You will need an account number for periodic payments.
+
+### Step 6: Registration for social insurance and contributions
+
+Register with the cantonal contribution office (AVS/AI/AD/AC) and with a SUVA insurer for LAINF. Provide CHE number, list of employees with personal data and salaries, and business sector.
+
+### Step 7: Conclusion of mandatory insurance
+
+Ensure that each employee has LAMal (health insurance). If not yet taken out, the employee must do so within 3 months of their first day of work. Also consider obtaining **professional liability insurance** (not mandatory in all sectors, but strongly recommended to protect the company from compensation claims).
+
+### Overall timeline
+
+The process from documentation preparation to official registration generally takes 2–4 weeks. The registration fees for the commercial register vary from canton to canton and are not specified here; contact the cantonal administration directly for details.
+
+### Daily management and recurring deadlines
+
+Once operational, the company will have recurring deadlines: VAT declarations (quarterly or annual), federal and cantonal tax declaration (annual), social insurance data communication (annual), and financial statements (for SA/Sarl with possible audit). You must also comply with labor regulations: maximum 45–50 hours/week depending on the sector, minimum 4 weeks annual vacation (5 for employees under 20 years old), regular social contributions, and notice periods (1, 2 or 3 months depending on years of service).
+
+If you hire foreign employees, verify residence permits with the State Secretariat for Migration (SEM): short-term permits (L), residence (B), domicile (C) or cross-border (G) have different regimes.
+
+Use our [tax calculator](nav:calculator) to estimate the tax burden of your newly opened business. To search for and contact employees in Switzerland, consult our [database of hiring companies](nav:companies).]]></content:encoded>
+      <pubDate>Wed, 26 Aug 2026 04:36:27 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/aprire-attivita-appenzello-interno</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/aprire-attivita-appenzello-interno.webp" medium="image"/>
+    </item>
     <item>
       <title>AVS and complementary services in Appenzello Interno</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/avs-appenzell-internal-compensation/</link>
@@ -3041,59 +3137,6 @@ To simulate the costs and social contributions of a future employee, use the [sa
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/avviare-impresa-svizzera-passaggi-costi</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/avviare-impresa-svizzera-passaggi-costi.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Apprenticeship Zurich: how to find and negotiate</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/apprenticeship-zurich-find-position/</link>
-      <description><![CDATA[Practical guide to apprenticeship in the canton of Zurich: job search, internship contract, apprentice's salary and professional maturity.]]></description>
-      <content:encoded><![CDATA[## In a nutshell
-- The canton of Zurich follows the Swiss national vocational training system.
-- Guaranteed rights: minimum 4 weeks holiday, maximum time 45 hours per week.
-- Training course that combines practical teaching in the company and theory at school.
-
-## Key facts
-- **What**: Apprenticeship training course with practical phase in the company and theoretical education
-- Where: Canton of Zurich, according to Swiss federal regulations
-- Who: Young people of post-compulsory school age and local employers
-- When: Entry typically after compulsory school
-- Duration: Three-year and four-year courses according to the sector and profile
-- Rights: Minimum 4 weeks of annual leave, maximum 45 hours per week
-- Certification: Federal Certificate of Capacity (AFC) at the end
-
-### Choosing the route and looking for a place
-
-Apprenticeship in the canton of Zurich represents the pillar of Swiss vocational training, offering young people a unique combination of practical and theoretical teaching. The Zurich system follows federal guidelines, ensuring that training courses are nationally recognised and comply with workers' rights established by Swiss federal law.
-
-When looking for an internship in Zurich, the first step is to identify the industry and profile that interests you most. The canton is home to a wide range of sectors, from manufacturing to services, from technology
-### Remuneration and social contributions
-
-The remuneration of the apprentice is regulated at the federal level and adapted by the individual professional associations and cantons. In the canton of Zurich, the system of collective bargaining and cantonal provisions ensure fair and progressive wages.
-
-A crucial aspect of apprentice pay concerns ** social security contributions**. The apprentice is subject to the payment of AVS/AI/IPG contributions (the so-called “first pillar”), with a rate of 5.3% to be borne by the employee and 10.6% total (including the employer's contribution). These payments are essential to accumulate pension credits from the beginning of your career.
-
-In addition to pension contributions, the apprentice in Zurich is enrolled in occupational accident insurance (LAINF/LAA), with variable rates depending on the sector (0.7-1.5%). Unemployment insurance (AD/AC) also covers the apprentice at a rate of 1.1% until the annual ceiling is reached.
-
-From a tax point of view, the apprentice's salary is subject to direct federal tax, in addition to the cantonal and municipal taxes in force in the canton of Zurich. Each level of government applies its own rates, so it is important to check the specific Zurich provisions with the competent cantonal administration.
-
-Apprentices under the age of 25 can benefit from exemptions or reductions compared to workers
-
-## Useful planning tools
-To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
-### Procedure for finding and signing the internship contract
-
-Finding an internship in Zurich follows a structured process. The first step involves consulting national and regional platforms dedicated to offering internship positions. At the federal level, SECO (Federal Department of Economy) provides information on the Swiss labor market and vocational training, while the Zurich cantonal platforms offer specific databases of available positions.
-
-Once the interesting positions have been identified, the candidate must apply directly to the chosen company or through the cantonal intermediation offices. The application includes typically the school curriculum, a motivational letter, and references from former teachers or supervisors.
-
-After the candidate's acceptance by the company, the internship contract is drawn up. The contract is a standardized federal document that must contain: duration of the training period, sector and profile of the internship, monthly remuneration and payment methods, working days and hours, vacation periods, rights and duties of the intern and the company, and the probation period (usually 1-3 months).
-
-The contract is signed by both parties (intern/parents if minor, employer) and deposited with the competent cantonal authority in the Zurich canton within the prescribed terms.
-
-During the internship, it is essential to register with the [AVS/LPP pension system](nav:pension), verify the mandatory insurance coverage (sickness and accidents), and consult the cantonal fiscal parameters to understand the applicable deductions on the remuneration. Use the [wage calculator](nav:calculator) to simulate the impact of taxation on your intern's remuneration and the [job search tool](nav:jobs) to quickly identify available positions in your sector.]]></content:encoded>
-      <pubDate>Mon, 24 Aug 2026 23:19:34 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/apprendistato-zurigo-ricerca-contratto</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/apprendistato-zurigo-ricerca-contratto.webp" medium="image"/>
     </item>
   </channel>
 </rss>

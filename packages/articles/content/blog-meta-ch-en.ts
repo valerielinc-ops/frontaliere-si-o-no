@@ -4348,6 +4348,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-appenzello-interno-compensazione.title': 'AVS and complementary services in Appenzello Interno',
     'blog.article.avs-appenzello-interno-compensazione.excerpt': 'First pillar in Inner Appenzell: guide to the compensation fund, calculation of the AVS annuity and complementary benefits for the minimum living.',
     'blog.article.avs-appenzello-interno-compensazione.imageAlt': 'Swiss administrative office with pension advisor explaining AVS retirement calculation to senior citizen',
+    'blog.article.aprire-attivita-appenzello-interno.title': 'Opening a business in Appenzello Interno: a practical guide',
+    'blog.article.aprire-attivita-appenzello-interno.excerpt': 'Legal forms, minimum capital, trade register registration and tax, contribution and insurance obligations to start a business in Switzerland.',
+    'blog.article.aprire-attivita-appenzello-interno.imageAlt': 'Modern startup office desk with Swiss minimalist design, business documents and laptop, welcome nameplate, natural daylight, sharp focus',
 };
 
 export default blogMetaChEn;

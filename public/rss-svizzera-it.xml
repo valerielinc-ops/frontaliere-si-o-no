@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Notizie e guide sulla Svizzera: economia, lavoro, fisco e vita quotidiana</description>
     <language>it</language>
-    <lastBuildDate>Wed, 26 Aug 2026 04:04:05 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 26 Aug 2026 04:36:27 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Svizzera</title>
@@ -16,6 +16,114 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Aprire un&apos;attività in Appenzello Interno: guida pratica</title>
+      <link>https://frontaliereticino.ch/articoli-svizzera/aprire-attivita-appenzello-interno/</link>
+      <description><![CDATA[Forme giuridiche, capitale minimo, iscrizione registro commercio e obblighi fiscali, contributivi e assicurativi per avviare un'attività in Svizzera.]]></description>
+      <content:encoded><![CDATA[## In breve
+- La Svizzera richiede forme giuridiche precise: SA (CHF 100'000 capitale), Sarl (CHF 20'000), ditta individuale senza minimo
+- Ogni cantone gestisce il registro di commercio; competenze fiscali divise tra AFC/ESTV (federale/IVA) e amministrazioni cantonali
+- Dipendenti significano obblighi: AVS/AI (5.3% datore + 5.3% dipendente), AD/AC (1.1%), SUVA infortuni lavoro, LAMal
+
+## Fatti chiave
+- **Cosa**: Avviare un'attività commerciale in Svizzera con scelta di forma giuridica e registrazione ufficiale presso amministrazione cantonale
+- Forme giuridiche: Ditta (nessun capitale minimo), SA (CHF 100'000), Sarl (CHF 20'000), Cooperativa (variabile)
+- Competenze: AFC/ESTV per IFD e IVA; amministrazioni cantonali per registro commercio e tasse locali
+- Assicurazioni obbligatorie: SUVA per infortuni lavoro (dipendenti), LAMal per salute (pro capite)
+- Contributi sociali: AVS/AI 5.3% + 5.3% datore, AD/AC 1.1% fino a massimale annuale, LAINF/LAA 0.7–1.5% per settore, LPP 7–18% per fascia di età
+
+In Svizzera, l'avvio di un'attività commerciale è disciplinato da procedure federali e cantonali coesistenti. Il Canton Appenzello Interno, come tutti gli altri cantoni, affida al registro di commercio locale il compito di iscrivere formalmente la nuova azienda e di coordinare gli obblighi tributari con l'Amministrazione federale delle dogane (AFC) e l'Ufficio federale dell'IVA (ESTV). La scelta della forma giuridica — ditta individuale, società anonima (SA), società a responsabilità limitata (Sarl), cooperativa — determina il capitale minimo richiesto, la struttura di governo e il regime fiscale applicabile. Nel momento in cui si assumono i primi dipendenti, entrano in gioco automaticamente obblighi assicurativi e contributivi che variano in base al settore e al numero di lavoratori.
+
+### Le forme giuridiche e il capitale minimo
+
+La forma più semplice è la ditta individuale: nessun capitale minimo, responsabilità illimitata del titolare, amministrazione diretta. È adatta a professionisti autonomi (consulenti, artigiani, commercianti) con volume d'affari limitato. La titolarità e la gestione coincidono nella stessa persona.
+
+La società anonima (SA) richiede un capitale minimo di CHF 100'000 versato al momento della fondazione, secondo il Codice delle obbligazioni (CO). Permette di delimitare la responsabilità personale dei soci al loro apporto e offre trasparenza verso i creditori. È la forma preferita per aziende di media e grande dimensione, soprattutto se hanno più proprietari.
+
+La società a responsabilità limitata (Sarl) necessita di un capitale minimo di CHF 20'000. Combina flessibilità amministrativa con responsabilità limitata. È molto diffusa tra le PMI svizzere perché richiede meno capitale della SA e offre comunque protezione patrimoniale ai soci.
+
+Le cooperative sono appropriate per strutture associative; il capitale è determinato dai soci in base agli statuti. Sono meno comuni nelle attività commerciali ordinarie, più frequenti in settori mutualistici.
+
+Ogni forma ha implicazioni diverse per contabilità, revisione e obblighi di comunicazione verso il registro di commercio cantonale.
+Il sistema fiscale svizzero funziona su tre livelli sovrapposti: federale (IFD — Imposta federale diretta), cantonale e comunale. Non è semplice decentralizzazione, bensì competenza parallela e coordinata. L'AFC/ESTV gestisce esclusivamente l'IVA e le imposte federali dirette; le amministrazioni cantonali gestiscono le imposte cantonali e comunali. Il moltiplicatore comunale varia da comune a comune: non esiste un valore unico per l'intero Appenzello Interno, ma ogni municipio lo fissa nel rispetto della legge cantonale.
+
+### Obblighi fiscali federali e cantonali
+
+L'**iscrizione all'IVA** diventa obbligatoria quando il fatturato annuo supera CHF 100'000. L'AFC/ESTV richiede registrazione online presso il portale ufficiale dell'amministrazione federale. Se il fatturato rimane sotto tale soglia, l'iscrizione rimane facoltativa, ma consente di recuperare l'IVA sugli acquisti, conviene valutare caso per caso.
+
+L'imposta federale diretta (IFD) colpisce il reddito netto della ditta o della società. Per ditte individuali e società di persone, l'utile è tassato al titolare a livello federale, cantonale e comunale. Per società di capitali (SA, Sarl), l'utile aziendale è tassato alla società; l'eventuale dividendo ai soci subisce ulteriore tassazione (sistema classico svizzero, con eccezioni per partecipazioni qualificate).
+
+L'amministrazione cantonale di Appenzello Interno fissa le aliquote cantonali e comunali proprie. Poiché questi valori variano e si aggiornano annualmente, è essenziale contattare l'ufficio tributario cantonale o il comune specifico per conoscere i moltiplicatori attuali.
+
+### Assicurazioni e contributi sociali obbligatori
+
+Quando assumi il primo dipendente, scattano automaticamente obblighi contributivi:
+
+AVS/AI e IPG (Assicurazione vecchiaia invalidità e prestazioni d'integrazione): il datore versa il 5.3% sul salario del lavoratore; il lavoratore contribuisce con un altro 5.3%. Si tratta di un versamento congiunto presso l'ufficio contributivo cantonale. È obbligatorio per ogni dipendente, indipendentemente dal settore.
+
+AD/AC (Assicurazione disoccupazione): 1.1% del salario lordo fino a un massimale annuale stabilito. Datore e lavoratore contribuiscono in misura uguale.
+
+LAINF/LAA (Assicurazione infortuni sul lavoro): obbligatoria per dipendenti. Il premio varia tra 0.7% e 1.5% a seconda del settore di attività. Settori a rischio superiore (costruzioni, miniere, lavori in altura) hanno aliquote più alte. È responsabilità del datore iscrivere i lavoratori presso un assicuratore SUVA-convenzionato entro i termini stabiliti.
+
+LAMal/KVG (Assicurazione malattia obbligatoria): ogni residente in Svizzera deve stipulare un'assicurazione malattia entro 3 mesi dall'arrivo. I premi sono pro capite — variano per cantone e regione — e non sono trattenuti dalla busta paga ma pagati dal dipendente direttamente all'assicuratore. Le franchigie per adulti spaziano da CHF 300 a CHF 2'500 annuali. Molti cantoni erogano [sussidi ai premi](nav:health) per redditi inferiori a una certa soglia.
+
+LPP/BVG (Previdenza professionale per la vecchiaia): se l'azienda impiega dipendenti con salario coordinato superiore a una soglia minima, l'iscrizione a un ente di previdenza è obbligatoria. I contributi variano per fascia di età: 7% (25–34 anni), 10% (35–44), 15% (45–54), 18% (55+ fino all'età di riferimento).
+
+## Tool utili per il tuo caso
+Per verificare in modo pratico il tuo scenario entro/oltre 20 km, usa il [calcolatore stipendio netto](nav:calculator) e la [guida dichiarazione redditi](nav:tax-return).
+Aprire un'attività in Svizzera segue una sequenza precisa. Ecco i principali step da completare prima di avviare operativamente l'azienda.
+
+### Passo 1: scegliere forma giuridica e verificare disponibilità del nome
+
+Decidi tra ditta individuale, SA, Sarl o cooperativa in base a dimensione, responsabilità desiderata e capitale disponibile. Se scegli un nome commerciale, verificane la disponibilità presso il registro di commercio cantonale: molti cantoni offrono una ricerca online gratuita. Assicurati che il nome non sia già registrato e che rispetti eventuali normative cantonali su denominazioni.
+
+### Passo 2: predisporre documentazione costitutiva
+
+Per SA e Sarl, redigi gli statuti (o atto costitutivo) secondo i modelli cantonali o con l'aiuto di un notaio. Per ditta individuale, è sufficiente il modulo di iscrizione. Se l'attività ha più soci, converrà redigere un contratto di partnership che disciplini diritti, doveri, criteri di uscita, distribuzione degli utili.
+
+### Passo 3: registrazione al registro di commercio cantonale
+
+Rivolgiti all'ufficio del registro di commercio della tua giurisdizione cantonale. Presenta:
+- Modulo di iscrizione (disponibile presso l'ufficio o online nel sito del cantone)
+- Statuti o atto costitutivo (per SA/Sarl)
+- Copia autenticata della carta d'identità del titolare/soci
+- Documentazione finanziaria: estratto conto o lettera bancaria che attesti il versamento del capitale minimo (per SA/Sarl)
+- Eventuale autorizzazione commerciale se il settore lo richiede (ristorazione, farmacia, parrucchieria, ecc.)
+
+La registrazione produce un numero CHE (numero di identificazione dell'azienda). Il registro di commercio notifica automaticamente l'AFC/ESTV.
+
+### Passo 4: iscrizione all'IVA (se applicabile)
+
+Se il fatturato previsto o reale supera CHF 100'000 annui, iscriviti all'IVA presso l'AFC/ESTV entro 30 giorni dal raggiungimento della soglia. L'iscrizione è obbligatoria; ritardi comportano sanzioni. Usa il [calcolatore imposte](nav:calculator) per stimare il tuo carico tributario federale e valutare se l'iscrizione volontaria conviene.
+
+### Passo 5: dichiarazione di attività presso l'amministrazione tributaria
+
+Contatta l'ufficio tributario cantonale per comunicare l'inizio dell'attività. Riceverai indicazioni su scadenze dichiarative (di solito annuali) e modalità di versamento. Sarà necessario un numero di conto per i versamenti periodici.
+
+### Passo 6: registrazione per assicurazioni sociali e contributi
+
+Iscriviti presso l'ufficio contributivo cantonale (AVS/AI/AD/AC) e presso un assicuratore SUVA per la LAINF. Fornisci numero CHE, elenco dipendenti con dati anagrafici e salari, settore di attività.
+
+### Passo 7: stipulazione di assicurazioni obbligatorie
+
+Assicurati che ogni dipendente disponga di LAMal (assicurazione malattia). Se non ancora stipulato, lo deve fare il dipendente stesso entro 3 mesi dal suo primo giorno di lavoro. Valuta inoltre se acquisire **responsabilità civile professionale** (non obbligatoria in tutti i settori, ma fortemente consigliata per proteggere l'azienda da risarcimenti).
+
+### Timeline complessiva
+
+Il processo dalla preparazione della documentazione alla registrazione ufficiale richiede generalmente 2–4 settimane. Le tasse di iscrizione al registro di commercio variano da cantone a cantone e non sono specificate qui; contatta direttamente l'amministrazione cantonale per i dettagli.
+
+### Gestione quotidiana e scadenze ricorrenti
+
+Una volta operativa, l'azienda avrà scadenze ricorrenti: dichiarazioni IVA (trimestrale o annuale), dichiarazione imposte federali e cantonali (annuale), comunicazione dati assicurativi sociali (annuale), rendiconto (per SA/Sarl con eventuale revisione). Dovrai inoltre rispettare le norme di lavoro: orario massimo 45–50 ore/settimana a seconda del settore, vacanze minime di 4 settimane annue (5 per dipendenti sotto i 20 anni), contributi sociali regolari, termini di disdetta (1, 2 o 3 mesi a seconda dell'anno di servizio).
+
+Se assumi dipendenti stranieri, verifica i permessi di soggiorno presso lo Sportello degli Stranieri (SEM): permessi di breve durata (L), dimora (B), domicilio (C) o frontaliere (G) hanno regimi diversi.
+
+Usa il nostro [calcolatore imposte](nav:calculator) per stimare il carico tributario della tua attività appena aperta. Per cercare e contattare dipendenti in Svizzera, consulta il nostro [database di aziende che assumono](nav:companies).]]></content:encoded>
+      <pubDate>Wed, 26 Aug 2026 04:36:27 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/aprire-attivita-appenzello-interno</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/aprire-attivita-appenzello-interno.webp" medium="image"/>
+    </item>
     <item>
       <title>AVS e prestazioni complementari in Appenzello Interno</title>
       <link>https://frontaliereticino.ch/articoli-svizzera/avs-appenzello-interno-compensazione/</link>
@@ -4036,67 +4144,6 @@ Per simulare i costi e i contributi sociali di un dipendente futuro, usa il [cal
       <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/avviare-impresa-svizzera-passaggi-costi</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/avviare-impresa-svizzera-passaggi-costi.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Apprendistato Zurigo: come trovare e contrattare</title>
-      <link>https://frontaliereticino.ch/articoli-svizzera/apprendistato-zurigo-ricerca-contratto/</link>
-      <description><![CDATA[Guida pratica all'apprendistato nel cantone di Zurigo: ricerca del posto, contratto di tirocinio, retribuzione dell'apprendista e maturità professionale.]]></description>
-      <content:encoded><![CDATA[## In breve
-- Il cantone di Zurigo segue il sistema nazionale di formazione professionale svizzera.
-- Diritti garantiti: minimo 4 settimane di vacanze, orario massimo 45 ore settimanali.
-- Percorso formativo che combina insegnamento pratico in azienda e teoria a scuola.
-
-## Fatti chiave
-- **Cosa**: Percorso formativo di apprendistato con fase pratica in azienda e istruzione teorica
-- Dove: Cantone di Zurigo, secondo le normative federali svizzere
-- Chi: Giovani in età post-obbligo scolastico e datori di lavoro del territorio
-- Quando: Ingresso tipicamente dopo scuola dell'obbligo
-- Durata: Percorsi triennali e quadriennali secondo il settore e il profilo
-- Diritti: Minimo 4 settimane di vacanze annuali, orario massimo 45 ore settimanali
-- Certificazione: Attestato federale di capacità (AFC) al termine
-
-### Scegliere il percorso e cercare un posto
-
-L'apprendistato nel cantone di Zurigo rappresenta il pilastro della formazione professionale svizzera, offrendo ai giovani una combinazione unica di insegnamento pratico e teorico. Il sistema zurighese segue le linee guida federali, garantendo che i percorsi formativi siano riconosciuti a livello nazionale e conformi ai diritti dei lavoratori stabiliti dal diritto federale svizzero.
-
-Quando cerchi un posto di tirocinio a Zurigo, il primo passo consiste nell'identificare il settore e il profilo che più ti interessano. Il cantone ospita una vasta gamma di settori, dall'industria manifatturiera ai servizi, dalle tecnologie all'artigianato. Ogni settore applica le proprie regole di durata e progettazione del percorso, anche se tutti rimangono entro le cornici federali.
-
-Per accedere a queste posizioni, è essenziale comprendere i diritti e le responsabilità stipulati dal contratto di tirocinio. La legge federale stabilisce che gli apprendisti hanno diritto a un minimo di quattro settimane di vacanze annuali (cinque se hanno meno di venti anni), elemento cruciale per garantire il benessere durante il percorso formativo.
-
-Inoltre, l'orario massimo di lavoro non può superare le 45 ore settimanali nel settore industriale e negli uffici, un principio che protegge gli apprendisti dal sovraccarico di lavoro. La retribuzione dell'apprendista è progressiva e aumenta con i diversi anni di tirocinio, riflettendo sia le competenze acquisite che il contributo crescente all'azienda.
-
-Al termine del percorso, gli apprendisti hanno la possibilità di ottenere l'Attestato federale di capacità (AFC) o il Certificato di formazione pratica (CFP), documenti fondamentali per inserirsi nel mercato del lavoro svizzero.
-### Retribuzione e contributi sociali
-
-La retribuzione dell'apprendista è regolata a livello federale e adattata dalle singole associazioni professionali e cantoni. Nel cantone di Zurigo, il sistema di contrattazione collettiva e le disposizioni cantonali assicurano retribuzioni eque e progressive.
-
-Un aspetto cruciale della retribuzione dell'apprendista riguarda i **contributi previdenziali**. L'apprendista è soggetto al versamento dei contributi AVS/AI/IPG (il cosiddetto "primo pilastro"), con un'aliquota del 5,3% a carico del dipendente e del 10,6% totale (includendo il contributo del datore di lavoro). Questi versamenti sono fondamentali per accumulare crediti pensionistici sin dall'inizio della carriera.
-
-Oltre ai contributi pensionistici, l'apprendista in Zurigo è iscritto all'assicurazione contro gli infortuni sul lavoro (LAINF/LAA), con aliquote variabili a seconda del settore (0,7-1,5%). L'assicurazione disoccupazione (AD/AC) copre anch'essa l'apprendista con un'aliquota dell'1,1% fino al raggiungimento del massimale annuo.
-
-Dal punto di vista fiscale, la retribuzione dell'apprendista è soggetta a imposta federale diretta, oltre alle imposte cantonali e comunali vigenti nel cantone di Zurigo. Ogni livello di governo applica le proprie aliquote, per cui è importante verificare le specifiche disposizioni zurighesi presso l'amministrazione cantonale competente.
-
-Gli apprendisti sotto i 25 anni possono beneficiare di esenzioni o riduzioni rispetto ai lavoratori adulti, a titolo di politica sociale. Nel cantone di Zurigo, tali benefici variano e devono essere verificati direttamente con l'ufficio cantonale delle imposte.
-
-Per quanto riguarda l'assicurazione malattia (LAMal/KVG), l'apprendista, come ogni residente in Svizzera, è tenuto a stipulare un'assicurazione obbligatoria entro tre mesi dall'inizio dell'impiego. Si tratta di un'assicurazione privata a premi pro capite, non di un contributo salariale, e il premio varia in base al cantone e alla franchigia scelta (da CHF 300 a CHF 2500 annui).
-
-## Tool utili per il tuo caso
-Per verificare in modo pratico il tuo scenario entro/oltre 20 km, usa il [calcolatore stipendio netto](nav:calculator) e la [guida dichiarazione redditi](nav:tax-return).
-### Procedura pratica per trovare e firmare il contratto
-
-La ricerca di un posto di tirocinio a Zurigo segue un percorso strutturato. Il primo step consiste nel consultare le piattaforme nazionali e regionali dedicate all'offerta di posti di apprendistato. A livello federale, SECO (Segreteria di Stato dell'economia) fornisce informazioni sul mercato del lavoro svizzero e sulla formazione professionale, mentre le piattaforme cantonali zurighesi offrono database specifici di posti disponibili.
-
-Una volta identificate le posizioni interessanti, il candidato deve candidarsi direttamente all'azienda prescelta oppure tramite gli uffici di intermediazione cantonali. La domanda di candidatura include tipicamente il curriculum scolastico, una lettera motivazionale e riferimenti di ex insegnanti o supervisori.
-
-Dopo l'accettazione del candidato da parte dell'azienda, viene redatto il contratto di tirocinio. Il contratto è un documento federale standardizzato che deve contenere: durata del percorso formativo, settore e profilo di apprendistato, retribuzione mensile e modalità di pagamento, giorni e orari di lavoro, periodi di vacanza, diritti e doveri del tirocinante e dell'azienda, e il periodo di prova (solitamente 1-3 mesi).
-
-Il contratto è sottoscritto da entrambe le parti (apprendista/genitori se minorenne, datore di lavoro) e depositato presso l'autorità cantonale competente nel cantone di Zurigo entro i termini previsti.
-
-Durante il tirocinio, è essenziale registrarsi presso il sistema [previdenziale AVS/LPP](nav:pension), verificare la copertura assicurativa obbligatoria (malattia e infortuni), e consultare i parametri fiscali cantonali per comprendere le detrazioni applicabili alla retribuzione. Utilizzare il [calcolatore di stipendio](nav:calculator) per simulare l'impatto della tassazione sulla tua retribuzione da apprendista e il [tool di ricerca offerte di lavoro](nav:jobs) per identificare rapidamente i posti disponibili nel tuo settore.]]></content:encoded>
-      <pubDate>Mon, 24 Aug 2026 23:19:34 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/apprendistato-zurigo-ricerca-contratto</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/apprendistato-zurigo-ricerca-contratto.webp" medium="image"/>
     </item>
   </channel>
 </rss>

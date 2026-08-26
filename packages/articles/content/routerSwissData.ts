@@ -1475,6 +1475,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'processo-bondo-critica-procura': { it: 'processo-bondo-critica-procura', en: 'bondo-process-defense-critique-prosecution', de: 'bondo-prozess-verteidigung-kritisiert-anklage', fr: 'proces-bondo-la-defense-critique-le-ministere' },
  'scuola-futuro-giovani-ticino': { it: 'scuola-futuro-giovani-ticino', en: 'school-future-young-ticino', de: 'schule-zukunft-jugend-tessin', fr: 'ecole-avenir-jeunes-tessin' },
  'avs-appenzello-interno-compensazione': { it: 'avs-appenzello-interno-compensazione', en: 'avs-appenzell-internal-compensation', de: 'ahv-appenzell-innerrhoden-ausgleich', fr: 'avs-appenzell-rhodes-prestations' },
+ 'aprire-attivita-appenzello-interno': { it: 'aprire-attivita-appenzello-interno', en: 'open-business-appenzell-inner-rhodes-guide', de: 'unternehmen-appenzell-innerrhoden-grunden', fr: 'ouvrir-activite-appenzell-rhodes-interieures' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
