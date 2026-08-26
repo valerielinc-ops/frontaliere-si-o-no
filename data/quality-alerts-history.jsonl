@@ -116,3 +116,4 @@
 {"timestamp":"2026-08-22T05:21:35.061Z","id":"heartbeat","severity":"P3","message":"no alerts"}
 {"timestamp":"2026-08-23T05:23:15.168Z","id":"heartbeat","severity":"P3","message":"no alerts"}
 {"timestamp":"2026-08-25T05:26:28.504Z","id":"heartbeat","severity":"P3","message":"no alerts"}
+{"timestamp":"2026-08-26T05:28:30.563Z","id":"B.6.embedding-store-outdated","severity":"P1","message":"Embedding store covers 3348 articles but blog-meta-it has 3590 (gap 242 > 50)","evidence":{"liveCount":3590,"storedCount":3348,"gap":242}}
