@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides for cross-border workers in Ticino</description>
     <language>en</language>
-    <lastBuildDate>Wed, 26 Aug 2026 18:08:22 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 26 Aug 2026 21:36:15 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — English</title>
@@ -16,6 +16,54 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Withdrawal according to the LPP border pillar: rules, taxes and strategy</title>
+      <link>https://frontaliereticino.ch/en/cross-border-articles/lpp-withdrawal-cross-border-taxation-strategy/</link>
+      <description><![CDATA[When the LPP can be withdrawn, how taxation works in Switzerland and Italy, and what exit strategy suits the Ticino border crossing.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- The LPP withdrawal is only possible in strict cases: first home purchase, independent activity, final exit Switzerland
+- Taxation at source in Switzerland varies by canton; in Italy IRPEF applies with tax credit
+- The new border agreement 2024 changes the deductible: €10,000 for new border crossers, €7,500 for old border crossers
+- Double taxation is avoided through the 1976 convention and the EC framework of 730
+
+## Key facts
+- **What**: Early or final withdrawal of the second LPP pillar for Italy-Switzerland border workers
+- When: On the occurrence of qualifying events (home, independence, expatriation, retirement)
+- Where: Canton of Ticino (Chiasso, Brogeda, Gaggiolo passes) and all of Switzerland
+- Who: Frontier workers with G permit, LPP pension fund, Revenue Agency, AFC/ESTV
+- Amount: LPP rates 7–18% by age group from the 25th year; tax at source CH + IT income tax
+- Regulations: Convention 9/12/1976, New Agreement 23/12/2020 (effective 1/1/2024), Law 83/2023
+
+The withdrawal of the second LPP pillar represents one of the most important financial decisions for the border worker working in Canton Ticino. The Swiss law on occupational pensions (LPP) provides that the capital accumulated in the pension fund can only be withdrawn in strictly defined circumstances: purchase of the first home of residence, start of an independent gainful activity, permanent exit from Switzerland or reaching the age of
+### Taxation in Switzerland: tax at source on capital
+When the frontier worker requests the withdrawal of the LPP capital, the pension fund applies the tax at source on the capital (Kapitalauszugssteuer). This is a separate tax from the income tax at source and follows its own rates, generally progressive by tiers of capital withdrawn. In the Canton of Ticino, as in the other cantons, the rate depends on the gross amount of the levy and the civil situation (single, married, with children). The tax is withheld at source from the pension fund and paid to the cantonal administration of contributions. There is no withholding "in both countries" on capital: Switzerland taxes at source, Italy taxes on declaration with the tax credit mechanism to avoid double taxation.
+
+### Taxation in Italy: personal income tax and tax credit
+In Italy, the LPP capital withdrawn contributes to forming the total income of the border worker and is subject to personal income tax according to the ordinary steps: 23% up to €28,000, 35% from €28,001 to €50,000, 43% over €50,000. However, the Double Taxation Convention of 9 December 1976 (art. 18) confers on Switzerland the right to tax pension capital disbursed from Swiss coffers. Italy avoids double taxation by granting a tax credit equal to the Swiss tax paid, to be calculated in the EC framework of the 730 or PF Income form. The credit cannot exceed personal income tax (IRPEF)
+
+## Useful tools for your case
+To verify your within/over 20 km tax scenario, use the [net salary calculator](nav:calculator) and the [tax return guide](nav:tax-return).
+### Step-by-step procedure for withdrawal
+1. Check with your LPP pension fund which withdrawal case applies (home purchase, independence, permanent departure, retirement).
+2. Request the official withdrawal form and a simulation of the Swiss withholding tax (gross amount, estimated tax, net payout).
+3. For home purchase: prepare the preliminary notarial deed or final deed, cost estimates, and any mortgage commitment.
+4. For permanent departure: obtain confirmation of the cancellation of the G permit from the Cantonal Migration Office (SEM/cantonal authority) and proof of new Italian residence (civil status certificate).
+5. Submit the complete application to the pension fund with the required attachments.
+6. Receive the net bank transfer to your bank account (preferably a cross-border CH or IT account with a SEPA IBAN).
+7. In the Italian income tax return (730 or Redditi PF): fill in box RM for the capital received and box CE for the tax credit on the Swiss tax paid.
+
+### Deadlines and key documents
+The withdrawal application must be submitted before the qualifying event (e.g., before the final deed for a home purchase, before the cancellation of the G permit for permanent departure). The pension fund's processing times vary (usually 4–8 weeks). For the Italian tax return, the capital must be declared in the year of receipt (cash basis principle). Keep: signed withdrawal form, receipt for Swiss withholding tax (pension fund certificate), received bank transfer, and the Italian tax return with box CE completed.
+
+### Tools for decision-making
+Before proceeding, it is advisable to simulate the combined CH+IT tax impact. The site's tax calculator allows you to enter your employment income, estimated LPP capital, and cross-border status (old/new) to see the net IRPEF after the tax credit. For the CHF/EUR exchange rate at the time of the bank transfer, the currency exchange comparator helps choose the best time. If the withdrawal is used to buy a home in Italy, the guide on the cost of life in Ticino vs. Italy offers a comparison of real estate prices on the border.
+
+[Calculate your net tax on LPP withdrawal](nav:calculator)]]></content:encoded>
+      <pubDate>Wed, 26 Aug 2026 21:36:15 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/prelievo-lpp-frontalieri-tassazione-strategia</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/prelievo-lpp-frontalieri-tassazione-strategia.webp" medium="image"/>
+    </item>
     <item>
       <title>Customs shortages: union asks for means and security</title>
       <link>https://frontaliereticino.ch/en/cross-border-articles/customs-security-shortages-ticino/</link>
@@ -3198,62 +3246,6 @@ Moving to Leggiuno to embark on a career as a cross-border worker in Ticino requ
       <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/vivere-leggiuno-lavorare-ticino-frontaliere</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/vivere-leggiuno-lavorare-ticino-frontaliere.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Living in Locate Varesino and working in Ticino: advantages and disadvantages</title>
-      <link>https://frontaliereticino.ch/en/cross-border-articles/living-locate-varesino-working-ticino-from-frontalier/</link>
-      <description><![CDATA[Border workers working in Ticino from Locate Varesino can benefit from efficient connections and reasonable journey times. The cost of living is generally higher than in border Italy, but the recommended areas offer a balance between urban life and nature.]]></description>
-      <content:encoded><![CDATA[## In a nutshell
-- Border workers working in Ticino from Locate Varesino can benefit from efficient connections and reasonable journey times.
-- The cost of living is generally higher than in border Italy.
-- Recommended areas offer a balance between urban life and nature.
-
-## Benefits of living in Locate Varesino and working in Ticino
-- **Convenient connections**: border workers working in Ticino from Locate Varesino can benefit from efficient connections and reasonable journey times. For example, Locate Varesino train station is connected to Como San Giovanni station with frequent trains and journey times of about 30 minutes. In addition, the A9 motorway is just a few kilometres from the city and connects Como with Bellinzona in about 30 minutes.
-- Balance between urban life and nature: the areas recommended for living in Locate Varesino and working in Ticino offer a balance between urban life and nature. For example, the city of Como is just a few kilometres from Locate Varesino and offers a rich cultural and commercial offer, while the Lakes region offers a unique natural beauty.
-- Job opportunities: The Ticino region offers many job opportunities, especially in the industrial and commercial sector. According to data from the Canton of Ticino, in 2022 the industrial sector accounted for 23.6% of the Canton's GDP, while the commercial sector accounted for 21.1%.
-
-## Disadvantages of
-## Key facts
-- Connections: efficient and frequent, with direct trains from Milan to Lugano every 15-30 minutes.
-- Travel time: reasonable, about 1 hour and 15 minutes from Milan to Lugano.
-- Cost of living: higher than in border Italy, with average prices 20-30% higher.
-- Recommended areas: they offer a balance between urban life and nature, such as Lugano, Bellinzona and Locarno.
-
-## Benefits
-- ** Work flexibility **: the possibility of working in Ticino can offer greater work flexibility, thanks to the presence of many companies and businesses active in sectors such as finance, technology and tourism.
-- Quality of life: the region offers a high quality of life, with a mild climate, spectacular nature and a rich cultural and gastronomic offer.
-- Career opportunities: the presence of many companies and firms in Ticino offers numerous opportunities for career and professional growth.
-
-## Disadvantages
-- Cost of Living: As mentioned above, the cost of living in Ticino is higher than in border Italy, which can be a factor to consider for those wishing to settle in the region.
-- Taxes and contributions: Foreigners working in Ticino are subject to taxes and contributions different from those of Swiss citizens, which may affect their gross salary.
-- Regulations: foreigners working in Ticino must comply with Swiss regulations
-
-## Recommended tools
-For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).
-## Action
-- Border workers working in Ticino from Locate Varesino can benefit from efficient connections and reasonable journey times.
-- The cost of living is generally higher than in border Italy, but the recommended areas offer a balance between urban life and nature.
-- To move to Locate Varesino and work in Ticino, it is important to consider the advantages and disadvantages of the transfer and the recommended areas.
-
-## Advantages of moving to Locate Varesino
-- ** Efficient connections **: Locate Varesino station is served by regional and interregional trains that connect the area with Lugano and other centres in Italian Switzerland.
-- Reasonable travel time: The journey from Locate Varesino to Lugano city centre takes about 30-40 minutes by train.
-- Cost of living: The cost of living in Ticino is generally higher than in border Italy, but the recommended areas offer a balance between urban life and nature.
-
-## Disadvantages of transferring to Locate Varesino
-- Cost of buying or renting a property: the cost of buying or renting a property in Locate Varesino may be higher than in other areas of Italian Switzerland.
-- Taxes and duties: Border workers working in Ticino are subject to Swiss taxes and duties, which may be higher than Italian taxes and duties.
-
-## Recommended areas
-- Locate Varesino: a residential area with access
-
-For a precise net salary calculation, use our [tax comparator](nav:calculator): compare take-home pay between G and B permits with all 2026 deductions.]]></content:encoded>
-      <pubDate>Mon, 24 Aug 2026 07:15:14 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/vivere-locate-varesino-lavorare-ticino-da-frontaliere</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/vivere-locate-varesino-lavorare-ticino-da-frontaliere.webp" medium="image"/>
     </item>
   </channel>
 </rss>

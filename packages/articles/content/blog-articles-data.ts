@@ -32403,6 +32403,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'prelievo-lpp-frontalieri-tassazione-strategia',
+ category: 'pensione',
+ date: '2026-08-26T21:36:15.642Z',
+ image: '/images/blog/prelievo-lpp-frontalieri-tassazione-strategia.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

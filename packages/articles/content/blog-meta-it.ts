@@ -10832,6 +10832,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.carenze-dogane-sicurezza-ticino.title': 'Carenze dogane: sindacato chiede mezzi e sicurezza',
     'blog.article.carenze-dogane-sicurezza-ticino.excerpt': 'Il sindacato Garanto denuncia carenze di personale e attrezzature nella dogana svizzera. Cosa comporta per i frontalieri ai valichi del Ticino.',
     'blog.article.carenze-dogane-sicurezza-ticino.imageAlt': 'Stazione doganale al confine Ticino-Italia con personale in uniforme che effettua controlli documenti',
+    'blog.article.prelievo-lpp-frontalieri-tassazione-strategia.title': 'Prelievo secondo pilastro LPP frontalieri: regole, tasse e strategia',
+    'blog.article.prelievo-lpp-frontalieri-tassazione-strategia.excerpt': 'Quando si può prelevare il LPP, come funziona la tassazione in Svizzera e Italia, e quale strategia di uscita conviene al frontaliere ticinese.',
+    'blog.article.prelievo-lpp-frontalieri-tassazione-strategia.imageAlt': 'Vista su Lugano e lago per articolo prelievo LPP frontalieri',
 };
 
 export default blogMetaIt;
