@@ -63,6 +63,32 @@ export const MAX_DUPLICATE_PAGES_PER_DESCRIPTION = 2;
 export const DUPLICATE_META_FAMILY = 'duplicate-meta-description';
 
 /**
+ * RECALIBRATION NOTE (issue #5943, follow-up to #5939 which introduced the
+ * sampling semantics documented in the header above): the per-run recall
+ * loss described there ("a group of 3-8 pages split across buckets may go
+ * unseen in a given run") understates the effect for the NARROW end of that
+ * range, because bucket membership is DETERMINISTIC on file path
+ * (`scripts/lib/audit-runner.mjs::sampleFiles` hashes the path), not
+ * re-rolled per run — a given page falls in the same bucket on every run,
+ * forever, until the salt (`AUDIT_SAMPLE_SALT`) itself changes. Flagging a
+ * group requires `count > maxPages` WITHIN one active bucket, i.e. for a
+ * 3-page group, all 3 pages must share a bucket. Whether they do is decided
+ * ONCE per salt, by where their paths hash to — not re-drawn per run. So a
+ * 3-page group is either detectable under the CURRENT salt (all 3 share a
+ * bucket) or blind under it (split across ≥2 buckets) — never a fresh
+ * per-run coin flip. At `AUDIT_SAMPLE_RATE=0.25` (4 buckets) the fraction of
+ * 3-page groups that land in the detectable case is `rate^(n-1) = 0.25² ≈
+ * 6%`; the other ~94% stay invisible to this gate for as long as the salt
+ * does not rotate them into the same bucket. This is the accepted design
+ * trade-off restated, not a bug: the gate exists to catch WIDE fallback
+ * families (a 14-page group only needs 3 of its pages to share a bucket,
+ * which is far likelier), and narrow near-threshold groups were already the
+ * stated cost. Recorded here, next to the threshold, so the next reader does
+ * not have to re-derive why a green run on a narrow duplicate can stay green
+ * for many runs in a row.
+ */
+
+/**
  * Description prefixes duplicated BY DESIGN (404 / soft-404 stubs share one
  * noindex description). Kept byte-identical to the vitest mirror's
  * `ALLOWLIST_PREFIXES`.
@@ -102,6 +128,16 @@ export function createAuditor(opts = {}) {
    * distinct-description count, and no single-pass duplicate detector can
    * avoid that. `PATHS_PER_DESCRIPTION_CAP` bounds only the path list, which
    * was never the dominant term.
+   *
+   * The `sample` string is deferred to the SECOND occurrence (issue #5943): a
+   * description seen once can never become an offender (`count > maxPages`,
+   * and `maxPages` starts at 2), yet it was the majority shape of this Map —
+   * near-unique descriptions on job/article pages mean most entries never see
+   * a second occurrence. Not allocating the 100-char sample for those removes
+   * the new dominant term the fold's own review measured at ~950k entries ×
+   * ~400-600 B ≈ 0.4-0.6 GB on a 25% sample — inside the 4096 MB budget, but
+   * the largest single accumulator left once the OOM-causing ones (see the
+   * sibling fold auditors) were capped.
    */
   // Descending ceiling (#6222 item 1). Read once, synchronously — `report()`
   // below is sync. FAIL-CLOSED in the same direction as
@@ -192,12 +228,13 @@ export function createAuditor(opts = {}) {
       if (entry) {
         entry.count += 1;
         if (entry.paths.length < PATHS_PER_DESCRIPTION_CAP) entry.paths.push(path);
+        // Deferred to the second occurrence — see the class header comment
+        // above `byDescription`. `maxPages` starts at 2, so `sample` is
+        // always populated well before an entry can become a real offender
+        // (`count > maxPages`).
+        if (entry.sample === undefined) entry.sample = flatten(desc.slice(0, DESCRIPTION_SAMPLE_CHARS));
       } else {
-        byDescription.set(key, {
-          count: 1,
-          paths: [path],
-          sample: flatten(desc.slice(0, DESCRIPTION_SAMPLE_CHARS)),
-        });
+        byDescription.set(key, { count: 1, paths: [path], sample: undefined });
       }
     },
     report() {
