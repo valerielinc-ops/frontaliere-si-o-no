@@ -4390,6 +4390,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imprese-mem-segnali-ripresa.title': 'MEM-Unternehmen, Erholungssignale in der Branche',
     'blog.article.imprese-mem-segnali-ripresa.excerpt': 'MEM-Wirtschaftsindex bei -20 Punkten im Juli. Bestes Ergebnis seit Frühjahr 2024. Exporte steigen, aber 66% KMU sehen ungünstige Bedingungen.',
     'blog.article.imprese-mem-segnali-ripresa.imageAlt': 'Panoramablick auf Lugano mit Bergen im Hintergrund, der Schweizer Industrie und Wirtschaft repräsentierend.',
+    'blog.article.benzina-diesel-prezzi-calano.title': 'Benzin und Diesel: Preise fallen',
+    'blog.article.benzina-diesel-prezzi-calano.excerpt': 'Der TCS stellt einen Rückgang fest: Benzin 95 bei 1,98 CHF/Liter, Diesel bei 2,23 CHF. Aber es bleibt +14-18% teurer als im Februar.',
+    'blog.article.benzina-diesel-prezzi-calano.imageAlt': 'Schweizer Tankstelle mit Preisanzeige in Schweizer Franken',
 };
 
 export default blogMetaChDe;
