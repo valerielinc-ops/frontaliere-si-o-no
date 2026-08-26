@@ -4360,6 +4360,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.brienz-ricollocazione-sicurezza.title': 'Brienz: Tiefencastel e Alvaneu saranno siti di ricollocazione',
     'blog.article.brienz-ricollocazione-sicurezza.excerpt': 'Tiefencastel e Alvaneu designati come siti di accoglienza per i 42 residenti di Brienz colpiti dal rischio di frana storico. CHF 82,5 mln approvati.',
     'blog.article.brienz-ricollocazione-sicurezza.imageAlt': 'Villaggio alpino svizzero con case tradizionali nella valle, simbolo di comunità montane soggette a rischi territoriali',
+    'blog.article.aprire-attivita-appenzello-interno-registro.title': 'Aprire attività in Appenzello Interno: costi e registro',
+    'blog.article.aprire-attivita-appenzello-interno-registro.excerpt': 'Forma giuridica, iscrizione al registro di commercio, fiscalità a tre livelli e assicurazioni: ecco cosa serve per avviare un\'impresa nel cantone.',
+    'blog.article.aprire-attivita-appenzello-interno-registro.imageAlt': 'Ufficio amministrativo cantonale svizzero con moduli di registrazione e vista su paesaggio alpino',
 };
 
 export default blogMetaChIt;

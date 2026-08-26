@@ -4360,6 +4360,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.brienz-ricollocazione-sicurezza.title': 'Brienz: Tiefencastel and Alvaneu will be relocation sites',
     'blog.article.brienz-ricollocazione-sicurezza.excerpt': 'Tiefencastel and Alvaneu designated as reception sites for the 42 residents of Brienz affected by the risk of historic landslide. CHF 82.5 million approved.',
     'blog.article.brienz-ricollocazione-sicurezza.imageAlt': 'Swiss alpine village with traditional stone houses in mountain valley, representing rural communities at geological risk',
+    'blog.article.aprire-attivita-appenzello-interno-registro.title': 'Open activities in Appenzello Interno: costs and register',
+    'blog.article.aprire-attivita-appenzello-interno-registro.excerpt': 'Legal form, registration in the commercial register, three-tier taxation and insurance: this is what you need to start a business in the canton.',
+    'blog.article.aprire-attivita-appenzello-interno-registro.imageAlt': 'Swiss cantonal administration office with registration forms and alpine landscape view',
 };
 
 export default blogMetaChEn;
