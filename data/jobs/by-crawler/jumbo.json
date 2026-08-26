@@ -19220,7 +19220,30 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "venditore-in-cassa-servizi-jumbo-dietlikon",
+          "verkaufer-in-kassen-services-jumbo-dietlikon",
+          "seller-in-cash-registers-services-jumbo-dietlikon",
+          "vendeur-dans-les-caisses-enregistreuses-services-jumbo-dietlikon"
+        ],
+        "en": [
+          "seller-in-cash-registers-services-jumbo-dietlikon"
+        ],
+        "de": [
+          "verkaufer-in-kassen-services-jumbo-dietlikon"
+        ],
+        "fr": [
+          "vendeur-dans-les-caisses-enregistreuses-services-jumbo-dietlikon"
+        ]
+      },
+      "previousSlugs": [
+        "venditore-in-cassa-servizi-jumbo-dietlikon",
+        "verkaufer-in-kassen-services-jumbo-dietlikon",
+        "seller-in-cash-registers-services-jumbo-dietlikon",
+        "vendeur-dans-les-caisses-enregistreuses-services-jumbo-dietlikon"
+      ]
     },
     {
       "id": "jumbo-3909bd54-ab1",
