@@ -10816,6 +10816,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-26.imageAlt': 'The day\'s numbers for cross-border commuters – August 26, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-08-26.seoDescription': 'Cross-border brief, August 26, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-08-26.ogDescription': 'The numbers for August 26, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.benzina-confine-svizzera-agosto-2026.title': 'Petrol over €2, the Swiss full is no longer convenient',
+    'blog.article.benzina-confine-svizzera-agosto-2026.excerpt': 'Prices aligned between Lombardy and Ticino: petrol at €2.01 and diesel at €2.14. Excise discount expired on 26 August.',
+    'blog.article.benzina-confine-svizzera-agosto-2026.imageAlt': 'Ticino landscape with petrol station, Lake Lugano in the background',
 };
 
 export default blogMetaEn;
