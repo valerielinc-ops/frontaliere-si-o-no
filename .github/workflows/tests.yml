@@ -879,6 +879,17 @@ jobs:
       # invalido. Uno step `wait-all` accetta `name` e `wait-all`, non `if`.
       # Il join a vuoto su push è comunque innocuo: senza step in background da
       # attendere non c'è niente da aspettare.
+      #
+      # Quella lezione ora ha un guard, invece di vivere solo in questo
+      # commento: `tests/workflow-background-wait-schema.test.ts` rifiuta
+      # qualunque chiave diversa da `name`/`wait-all` su uno step di join, su
+      # TUTTI i workflow (51 join e 1.223 `background:` su 245 file, misurato
+      # 2026-08-26). Serviva un guard proprio perché nessuno degli attrezzi che
+      # si usano per validare un workflow in locale conosce queste due chiavi:
+      # actionlint, un `YAML.parse` e lo schema JSON di Actions tacciono tutti
+      # su un file che GitHub rifiuterà, e il rifiuto non arriva come errore di
+      # sintassi ma come una run `failure` con ZERO job — cioè, su questo file,
+      # il gate di merge che semplicemente non esiste per quel commit.
       - name: Wait for background source guards
         wait-all: true
 
@@ -900,6 +911,23 @@ jobs:
       # in memoria (4,4 GB di RSS misurati sull'albero completo) e su un job a sé
       # la variabile stava sul job. Metterla sul job fuso la imporrebbe anche a
       # vitest, che oggi gira senza — un cambio di comportamento non richiesto.
+      #
+      # NON è `background:`, ed è la sola candidatura seria che l'audit degli
+      # step (2026-08-26) ha lasciato aperta invece di scartare. I numeri: 67s
+      # misurati su run 32939112340, cioè il 6,3% del job e il terzo costo dopo
+      # il checkout (254s) e i due gruppi vitest (678s sommati). Le dipendenze
+      # non lo trattengono — legge solo i sorgenti, non scrive niente che un
+      # altro step consumi, e il suo unico effetto è far fallire il job — per
+      # cui in background sotto vitest quei 67s sparirebbero dal wall.
+      #
+      # A trattenerlo è la MEMORIA, non l'ordine. Sovrapporlo a vitest vuol dire
+      # 4,4 GB di `tsc` sommati al pool `threads` di vitest sui 16 GB del
+      # runner, e il modo in cui si scopre di aver sbagliato è un OOM
+      # intermittente proprio sul check-run che governa l'auto-merge — cioè un
+      # rosso che somiglia a un flake e che nessuna rerun distingue da uno vero.
+      # Il picco di RSS di vitest su questo repo non è mai stato misurato:
+      # finché non lo è, la sovrapposizione è una scommessa sul margine, non una
+      # misura. Il resto dell'audit sta nel corpo della PR #6555.
       # ══════════════════════════════════════════════════════════════════════
       - name: tsc --noEmit (baseline + ratchet)
         if: ${{ !cancelled() }}
@@ -918,6 +946,25 @@ jobs:
       # SUCCESSIVO del job, e questa suite ha test che asseriscono il
       # comportamento a ambiente PULITO. Il perché per esteso, con la misura,
       # sta sulla testata della famiglia 4/4.
+      #
+      # I CINQUE LINT QUI SOTTO RESTANO IN PRIMO PIANO, e anche questo è un
+      # esito d'audit, non un'omissione. Sono i candidati più ovvi a un gruppo
+      # `background:` allargato — script node indipendenti, nessuno consuma
+      # l'output di un altro — ma costano 11s in tutto (8+0+1+0+1 su run
+      # 32939112340), cioè l'1% del job e un terzo del rumore. Metterli in
+      # background sposterebbe il loro esito al join: un `npm run
+      # lint:hardcoded-locale-segments` rosso, che oggi ferma il job sulla
+      # riga che lo ha causato, arriverebbe mescolato agli altri dopo 400s di
+      # vitest. Si paga leggibilità di un rosso per un decimo di rumore.
+      #
+      # I due step successivi ai lint hanno invece una dipendenza VERA, ed è la
+      # ragione per cui l'ordine qui non è libero: "Fetch base ref" crea
+      # `refs/remotes/origin/<base>` per NOME, e sia il gate factuality sia il
+      # fallback `git merge-base` dello step corpus-wide lo risolvono per nome.
+      # "Decide i gate corpus-wide" scrive poi `skip` su `$GITHUB_OUTPUT`, letto
+      # da ENTRAMBI i vitest: un `$GITHUB_OUTPUT` scritto da uno step in
+      # background non ha una semantica di raccolta documentata, quindi quello
+      # step resta in primo piano per costruzione, non per prudenza.
       # ══════════════════════════════════════════════════════════════════════
       - name: Audit no merge conflict markers
         # `!cancelled()` SOLO qui, sul primo step della famiglia: da qui in giù
@@ -1228,6 +1275,42 @@ jobs:
         # data/all-known-job-slugs.json — per questo quel file è fra gli output
         # tracciati dal classificatore: chi lo legge deve girare qui sotto, non
         # nel gruppo indipendente dove sarebbe ancora la versione committata.
+        #
+        # ─── PERCHÉ NON PARTE APPENA L'ASSEMBLE È PRONTO ────────────────────
+        # La miglioria ovvia c'è, si vede a occhio nel file, ed è stata scartata
+        # su MISURA — quindi la misura sta qui, non nella testa di chi l'ha
+        # fatta. La sua vera dipendenza è `data/jobs.json`, pronto ~400s prima
+        # della fine del gruppo indipendente: leggendo il file sembra che questo
+        # step aspetti vitest per niente. Sembra.
+        #
+        # Quanto vale davvero: 4-5s. Misurato su SETTE run consecutive
+        # (32939112340, 32937566538, 32935811950, 32933606266, 32931857295,
+        # 32931250827, 32929665209 → 5,5,5,4,5,5,5s), incluse le due in cui la
+        # cache dell'assemble ha fatto miss e l'assemble è costato 409s e 401s
+        # pieni: il registro degli slug si migra in 4-5s comunque. Su un job da
+        # 1.062s è lo 0,47%, contro una deviazione standard di ~34s sul solo
+        # gruppo indipendente (417-490s sulle stesse run). Il guadagno è 0,15σ:
+        # per distinguerlo dal rumore servirebbero ~180 run appaiate.
+        #
+        # E non sarebbe gratis. Il primitivo disponibile non ha un join
+        # selettivo — `wait-all` attende TUTTI i background, non un id — quindi
+        # l'unico modo di anticipare questo step è concatenarlo dentro lo step
+        # dell'assemble e mandare in background anche il vitest indipendente.
+        # Il che sposta la riscrittura di `data/all-known-job-slugs/**` DENTRO
+        # la finestra in cui girano 772 file di test: oggi quegli shard si
+        # riscrivono mentre non gira nient'altro, e un test classificato male da
+        # `dataset-dependent-tests.mjs` legge al più la versione committata,
+        # deterministicamente. Concatenando, lo stesso test leggerebbe uno shard
+        # a metà scrittura — cioè un rosso INTERMITTENTE sul check-run che
+        # governa l'auto-merge, pagato per 5s. Si perderebbe per giunta il
+        # timing per-step di questo script, che è esattamente il dato con cui
+        # l'audit qui sopra è stato fatto.
+        #
+        # Il conto vero del job fuso è altrove, ed è la ragione per cui non
+        # resta molto da raggruppare: checkout 254s + npm ci 27s + tsc 67s +
+        # vitest 678s = il 96% dei 1.062s. Tutto il serial hiding ancora
+        # disponibile — questi 5s più gli 11s dei lint deterministici — vale
+        # l'1,6%.
         run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
       - name: vitest run (test che leggono il dataset)
