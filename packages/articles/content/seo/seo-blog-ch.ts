@@ -56530,6 +56530,46 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
+
+  'blog-brienz-ricollocazione-sicurezza': {
+    title: 'Brienz: Tiefencastel e Alvaneu saranno siti di ricollocazione',
+    description: 'L\'assemblea di Albula/Alvra approva unanimemente il trasferimento di 42 proprietari da Brienz a Tiefencastel e Alvaneu. Credito CHF 82,5 mln per sicurezza.',
+    keywords: 'frontalieri, ticino, svizzera, italia, brienz, tiefencastel, alvaneu, saranno',
+    ogTitle: 'Brienz: CHF 82,5 mln per ricollocazione approvata',
+    ogDescription: 'L\'assemblea di Albula/Alvra (GR) designa Tiefencastel e Alvaneu come siti di ricollocazione per i 42 residenti di Brienz/Brinzauls, colpiti dal rischio storico di frana. Approvato un credito di CHF 82,5 milioni. La decisione unanime segue',
+    canonicalPath: '/articoli-svizzera/brienz-ricollocazione-sicurezza/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Brienz: Tiefencastel e Alvaneu saranno siti di ricollocazione",
+      "description": "L'assemblea di Albula/Alvra approva unanimemente il trasferimento di 42 proprietari da Brienz a Tiefencastel e Alvaneu. Credito CHF 82,5 mln per sicurezza.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/brienz-ricollocazione-sicurezza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Villaggio alpino svizzero con case tradizionali nella valle, simbolo di comunità montane soggette a rischi territoriali"
+      },
+      "datePublished": "2026-08-26T06:38:12+00:00",
+      "dateModified": "2026-08-26T06:38:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/brienz-ricollocazione-sicurezza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

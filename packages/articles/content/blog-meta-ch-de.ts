@@ -4357,6 +4357,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.raiffeisen-taglio-posti-lavoro.title': 'Raiffeisen streicht bis 2027 180 Stellen',
     'blog.article.raiffeisen-taglio-posti-lavoro.excerpt': 'Raiffeisen kündigt den Abbau von bis zu 180 Stellen an, um die Kosten um 60 Millionen Franken zu senken. Strukturelle Reorganisation in sechs Abteilungen ab Oktober.',
     'blog.article.raiffeisen-taglio-posti-lavoro.imageAlt': 'Schweizer Finanzamt mit Mitarbeitern bei der Arbeit an Schreibtischen, fotografiert im realistischen DSLR-Stil.',
+    'blog.article.brienz-ricollocazione-sicurezza.title': 'Brienz: Tiefencastel und Alvaneu werden Umsiedlungsstandorte',
+    'blog.article.brienz-ricollocazione-sicurezza.excerpt': 'Tiefencastel und Alvaneu wurden als Aufnahmeorte für die 42 Einwohner von Brienz bestimmt, die von der historischen Erdrutschgefahr betroffen sind. CHF 82,5 Mio. genehmigt.',
+    'blog.article.brienz-ricollocazione-sicurezza.imageAlt': 'Alpendorf mit traditionellen Steinhäusern im Bergtal, Symbol für gefährdete alpine Gemeinschaften',
 };
 
 export default blogMetaChDe;

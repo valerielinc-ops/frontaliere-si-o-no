@@ -4357,6 +4357,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.raiffeisen-taglio-posti-lavoro.title': 'Raiffeisen supprime 180 emplois d\'ici 2027',
     'blog.article.raiffeisen-taglio-posti-lavoro.excerpt': 'Raiffeisen annonce la suppression de 180 postes afin de réduire les coûts de 60 millions de francs. Réorganisation structurelle en six départements depuis octobre.',
     'blog.article.raiffeisen-taglio-posti-lavoro.imageAlt': 'Bureau financier suisse avec des professionnels travaillant aux bureaux, photographié en style DSLR réaliste.',
+    'blog.article.brienz-ricollocazione-sicurezza.title': 'Brienz : Tiefencastel et Alvaneu seront des sites de relocalisation',
+    'blog.article.brienz-ricollocazione-sicurezza.excerpt': 'Tiefencastel et Alvaneu désignés comme sites d\'accueil pour les 42 habitants de Brienz touchés par le risque de glissement de terrain historique. 82,5 millions de CHF approuvés.',
+    'blog.article.brienz-ricollocazione-sicurezza.imageAlt': 'Village alpin avec maisons traditionnelles en pierre dans la vallée de montagne, communauté rurale soumise aux risques géologiques',
 };
 
 export default blogMetaChFr;
