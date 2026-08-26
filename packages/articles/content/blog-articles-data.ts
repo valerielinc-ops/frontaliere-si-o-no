@@ -32367,6 +32367,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-esenzione-franchigia-2026',
+ category: 'fiscale',
+ date: '2026-08-26T07:34:09.876Z',
+ image: '/images/blog/frontaliere-esenzione-franchigia-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

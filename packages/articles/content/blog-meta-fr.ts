@@ -10821,6 +10821,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.benzina-confine-svizzera-agosto-2026.title': 'Essence plus de 2 € , le plein suisse ne convient plus',
     'blog.article.benzina-confine-svizzera-agosto-2026.excerpt': 'Prix alignés entre la Lombardie et le Tessin : essence à 2,01 € et gasoil à 2,14 € . Remise accises expirée le 26 août.',
     'blog.article.benzina-confine-svizzera-agosto-2026.imageAlt': 'Paysage tessinois avec station-essence, lac de Lugano en arrière-plan',
+    'blog.article.frontaliere-esenzione-franchigia-2026.title': 'Frontaliers 2026 : exemption vs franchise après accord',
+    'blog.article.frontaliere-esenzione-franchigia-2026.excerpt': 'Règles opérationnelles 2026 pour les frontaliers : différences entre l\'ancien régime (exemption de 7 500 € ) et le nouveau (franchise de 10 000 € ). Crédit d\'impôt et procédure déclarative.',
+    'blog.article.frontaliere-esenzione-franchigia-2026.imageAlt': 'Rue principale de Mendrisio avec signalisation et poste de douane suisse-italien visible en arrière-plan',
 };
 
 export default blogMetaFr;

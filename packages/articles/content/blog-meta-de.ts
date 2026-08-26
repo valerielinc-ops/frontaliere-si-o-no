@@ -10818,6 +10818,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.benzina-confine-svizzera-agosto-2026.title': 'Benzin über 2 €, die Schweizer Tankfüllung lohnt sich nicht mehr',
     'blog.article.benzina-confine-svizzera-agosto-2026.excerpt': 'Angepasste Preise zwischen der Lombardei und dem Tessin: Benzin für 2,01 € und Diesel für 2,14 €. Verbrauchsteuerrabatt ist am 26. August abgelaufen.',
     'blog.article.benzina-confine-svizzera-agosto-2026.imageAlt': 'Tessiner Landschaft mit Tankstelle, Lugano-See im Hintergrund',
+    'blog.article.frontaliere-esenzione-franchigia-2026.title': 'Grenzgänger 2026: Befreiung vs. Selbstbehalt nach Vereinbarung',
+    'blog.article.frontaliere-esenzione-franchigia-2026.excerpt': 'Betriebsregeln 2026 für Grenzgänger: Unterschiede zwischen dem alten System (Befreiung von 7.500 €) und dem neuen (Selbstbehalt von 10.000 €). Steuergutschrift und Erklärungsverfahren.',
+    'blog.article.frontaliere-esenzione-franchigia-2026.imageAlt': 'Hauptstraße von Mendrisio mit Beschilderung und Schweizer-italienischer Grenzübergang im Hintergrund',
 };
 
 export default blogMetaDe;
