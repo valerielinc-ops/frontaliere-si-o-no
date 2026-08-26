@@ -684,14 +684,17 @@ export async function fetchAll${pascalKey}Jobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const location = listing.location || 'Lugano'; // TODO: extract actual location
-    const canton = inferSwissTargetCanton(location) || 'TI';
+    const location = normalizeSpace(listing.location || '');
+    // Never fabricate Lugano/TI when the source did not provide a location.
+    // Prospector-generated crawlers must publish only source-backed geography.
+    if (!location) continue;
+    const canton = inferSwissTargetCanton(location) || '';
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = listing.url || CAREER_URL;
 
     const sourceLang = detectLang(descriptionText || title, '${sourceLang}');
-    const jobSlug = slugify(\`\${title} ${companyKey} ch\`);
+    const jobSlug = slugify(\`\${title} \${location} ${companyKey} ch\`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
     const job = {
@@ -704,8 +707,8 @@ export async function fetchAll${pascalKey}Jobs() {
       companyDomain: ${CONST_PREFIX}_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || \`\${title} — ${companyName}\`,
-      descriptionByLocale: { [sourceLang]: descriptionText || \`\${title} — ${companyName}\` },
+      description: descriptionText,
+      descriptionByLocale: { [sourceLang]: descriptionText },
       location,
       canton,
       url: publicUrl,

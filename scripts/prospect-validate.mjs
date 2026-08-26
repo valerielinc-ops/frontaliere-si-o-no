@@ -120,6 +120,7 @@ for (const spec of specs) {
       jobLikeRate: report.jobLikeRate ?? null,
     });
     setStatus(store, candidate.key, next, {
+      detailEnrichment: spec.detailEnrichment === true,
       qualityScore: report.score,
       qualityVerdict: report.verdict,
       qualityProblems: report.problems,
