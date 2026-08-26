@@ -79,14 +79,19 @@ describe('typecheck gate wiring (#5540)', () => {
   // #5590 mergiata con `contract` = failure. Il guard resta, ma fissa
   // l'invariante nuova, che è più forte: il gate deve stare DENTRO l'unico
   // check-run che governa il merge.
-  it('tests.yml ha UN SOLO job, ed è quello del check-run gating', () => {
+  it('tests.yml ha il job gating piu\' il solo detector scorporato', () => {
     const jobs = topLevelJobKeys(workflow);
     expect(
       jobs,
-      'tests.yml deve avere un job solo: è la fusione che rende bloccanti ' +
-        'collision/contract/typecheck. Ri-splittare li rende di nuovo advisory ' +
-        'in silenzio (issue #5552) — se è voluto, aggiorna questo contratto.',
-    ).toEqual(['vitest']);
+      'contratto aggiornato il 2026-08-26: `contract` e `typecheck` DEVONO ' +
+        "restare nel job che produce il check-run gating (e' la fusione a " +
+        'renderli bloccanti, issue #5552). `collision` invece e\' fuori di ' +
+        'proposito: porta un lock concurrency globale e, non esistendo le ' +
+        'concurrency di step, sul job fuso serializzava la suite di ogni PR ' +
+        'contro quella di tutte le altre. Il suo exit code non e\' un cancello ' +
+        'di merge — lo e\' la LABEL che applica. Non aggiungere altri job qui ' +
+        'senza la stessa analisi.',
+    ).toEqual(['vitest', 'collision']);
     expect(workflow).toContain(`name: ${VITEST_JOB_NAME}`);
   });
 
@@ -100,13 +105,20 @@ describe('typecheck gate wiring (#5540)', () => {
     ).toBe(true);
   });
 
-  it('anche collision e contract girano dentro lo stesso job gating', () => {
+  it('contract gira nel job gating, collision nel proprio', () => {
     const jobsBody = workflow.slice(workflow.indexOf('\njobs:'));
-    const vitestBody = jobsBody.slice(jobsBody.indexOf('  vitest:'));
-    // I due cancelli deterministici ex-job: se uno uscisse dal job fuso
-    // tornerebbe advisory senza che nessun altro segnale lo dica.
-    expect(vitestBody).toMatch(/scripts\/ci\/pr-collision-detector\.mjs/);
+    const splitAt = jobsBody.indexOf('\n  collision:');
+    expect(splitAt, 'job `collision:` non trovato').toBeGreaterThan(-1);
+    // `vitestBody` va TAGLIATO al job successivo: senza il taglio arriverebbe a
+    // fine file e il match su collision passerebbe anche a split avvenuto,
+    // cioe' il test direbbe verde su un contratto che non vale piu'.
+    const vitestBody = jobsBody.slice(jobsBody.indexOf('  vitest:'), splitAt);
+    const collisionBody = jobsBody.slice(splitAt);
+    // `contract` resta bloccante: se uscisse dal job fuso tornerebbe advisory
+    // senza che nessun altro segnale lo dica (issue #5552).
     expect(vitestBody).toMatch(/PR-body completeness \+ multi-issue Closes/);
+    expect(vitestBody).not.toMatch(/scripts\/ci\/pr-collision-detector\.mjs/);
+    expect(collisionBody).toMatch(/scripts\/ci\/pr-collision-detector\.mjs/);
   });
 
   it('il nome load-bearing del check vitest è intatto', () => {

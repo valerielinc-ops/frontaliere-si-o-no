@@ -130,8 +130,18 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
   const jobsBody = TESTS_YML.slice(TESTS_YML.indexOf('\njobs:'));
   const jobKeys = [...jobsBody.matchAll(/^ {2}([A-Za-z0-9_-]+):$/gm)].map((m) => m[1]);
 
-  it('tests.yml ha un job solo', () => {
-    expect(jobKeys).toEqual(['vitest']);
+  // DUE job, e la seconda meta' e' tornata fuori DELIBERATAMENTE il 2026-08-26.
+  // `collision` porta un lock `concurrency` GLOBALE — il detector scrive la
+  // label `collision-risk` su TUTTE le PR aperte, non solo sulla propria — e le
+  // concurrency di GitHub esistono solo a livello job/workflow, mai di step.
+  // Tenerlo sul job fuso metteva quindi in fila la suite da ~18 minuti di OGNI
+  // PR dietro ogni altra PR aperta e dietro lo scan cron, con
+  // `cancel-in-progress: false`: GitHub tiene 1 running + 1 pending, la terza
+  // veniva sfrattata a `cancelled`, nessun `success`, auto-merge fermo. Ora il
+  // lock copre solo i sei step di chiamate API che lo richiedono davvero.
+  // `contract` e `typecheck` restano nel job che produce il check-run gating.
+  it('tests.yml ha i due job attesi: il gating fuso e il detector isolato', () => {
+    expect(jobKeys).toEqual(['vitest', 'collision']);
   });
 
   it('le quattro famiglie di cancelli girano tutte in quel job', () => {
@@ -146,29 +156,42 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
     }
   });
 
-  it('il job porta il lock `pr-collision-detector` (race #1454↔#1459)', () => {
+  it('il lock `pr-collision-detector` esiste ancora (race #1454↔#1459)', () => {
+    // Lo split del 2026-08-26 ha SPOSTATO questo lock, non l'ha tolto: il
+    // detector scrive `collision-risk` su tutte le PR aperte in concorrenza con
+    // lo scan periodico di `pr-collision-detector.yml`, e senza il gruppo la
+    // race del main-red #1454↔#1459 e' di nuovo aperta. Una concurrency di step
+    // NON esiste, quindi l'unico modo di circoscriverla e' un job dedicato.
     const m = jobsBody.match(/^ {4}concurrency:\s*\n((?:[ \t]+.*\n?)*?)^ {4}(?=[a-z])/m);
-    expect(m, 'blocco `concurrency:` del job non trovato').toBeTruthy();
+    expect(m, 'nessun blocco `concurrency:` di job in tests.yml').toBeTruthy();
     const block = m![1];
-    expect(
-      block.includes('pr-collision-detector'),
-      'il gruppo `pr-collision-detector` è sparito dal job fuso: gli step di ' +
-        'collision scrivono la label `collision-risk` in concorrenza con lo scan ' +
-        'periodico di pr-collision-detector.yml, e senza quel gruppo la race del ' +
-        'main-red #1454↔#1459 è di nuovo aperta. Una concurrency di step NON esiste.',
-    ).toBe(true);
+    expect(block.includes('pr-collision-detector')).toBe(true);
     expect(block).toMatch(/cancel-in-progress:\s*false/);
   });
 
-  it('il lock è condizionato all’evento, così i run di main non si accodano', () => {
-    const m = jobsBody.match(/^ {4}concurrency:\s*\n\s*group:\s*(.+?)\s*$/m);
-    expect(m, '`group:` del job non trovato').toBeTruthy();
-    const group = m![1];
+  // Il lock non e' piu' CONDIZIONALE, e' CIRCOSCRITTO: sta su un job che
+  // esiste solo su `pull_request`. La proprieta' da difendere e' sempre la
+  // stessa — i run di `push` su main non devono accodarsi in un gruppo globale
+  // con `cancel-in-progress: false`, o si distrugge il verdetto di salute di
+  // main (14 run su 30 cancellati, 47%) — ma ora la ottiene il `if:` del job
+  // invece di un'espressione dentro `group:`. Piu' semplice e piu' difficile da
+  // rompere: se il job non parte, non c'e' nessun gruppo da contendere.
+  it('il lock vive sul job collision, che gira solo su pull_request', () => {
+    const collisionBody = jobsBody.slice(jobsBody.indexOf('\n  collision:'));
+    expect(collisionBody, 'job `collision:` non trovato').toBeTruthy();
+    const group = collisionBody.match(/^ {4}concurrency:\s*\n\s*group:\s*(.+?)\s*$/m);
+    expect(group, '`concurrency.group` del job collision non trovato').toBeTruthy();
+    expect(group![1]).toContain('pr-collision-detector');
+    const jobIf = collisionBody.match(/^ {4}if:\s*(.+?)\s*$/m);
+    expect(jobIf, 'job `collision` senza `if:` sull\'evento').toBeTruthy();
+    expect(jobIf![1]).toMatch(/github\.event_name\s*==\s*'pull_request'/);
+    // E il job GATING non deve piu' portarlo: e' tutto il punto dello split.
+    const vitestBody = jobsBody.slice(0, jobsBody.indexOf('\n  collision:'));
     expect(
-      /\$\{\{.*github\.event_name.*\}\}/.test(group),
-      `il gruppo deve dipendere da github.event_name, trovato: ${group}`,
-    ).toBe(true);
-    expect(group).toMatch(/github\.event_name\s*==\s*'pull_request'/);
+      /^ {4}concurrency:/m.test(vitestBody),
+      'il job fuso ha di nuovo un `concurrency:` di job: serializzerebbe la ' +
+        'suite di ogni PR contro quella di tutte le altre',
+    ).toBe(false);
   });
 
   it('gli step di collision restano pull_request-only (nessuna label su main)', () => {
