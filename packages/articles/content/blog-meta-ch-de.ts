@@ -4351,6 +4351,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-attivita-appenzello-interno.title': 'Ein Geschäft in Appenzell Innerrhoden eröffnen: Praktischer Leitfaden',
     'blog.article.aprire-attivita-appenzello-interno.excerpt': 'Rechtsformen, Mindestkapital, Handelsregistereintragung sowie Steuer-, Beitrags- und Versicherungspflichten zur Aufnahme einer Tätigkeit in der Schweiz.',
     'blog.article.aprire-attivita-appenzello-interno.imageAlt': 'Moderner Startup-Schreibtisch mit Schweizer Minimaldesign, Geschäftsdokumente, Laptop und Willkommensschild, natürliche Beleuchtung',
+    'blog.article.raiffeisen-160-milioni-risparmio-2027.title': 'Raiffeisen streicht bis zu 180 Stellen',
+    'blog.article.raiffeisen-160-milioni-risparmio-2027.excerpt': 'Raiffeisen Schweiz kündigt ein Sparprogramm an: Bis zu 180 Stellen sollen bis 2027 gestrichen werden, was Kosteneinsparungen von rund CHF 60 Mio. bedeutet.',
+    'blog.article.raiffeisen-160-milioni-risparmio-2027.imageAlt': 'Modernes Bürogebäude einer Schweizer Bank mit Mitarbeitern an professionellen Arbeitsplätzen.',
 };
 
 export default blogMetaChDe;

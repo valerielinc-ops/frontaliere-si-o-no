@@ -4351,6 +4351,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-attivita-appenzello-interno.title': 'Opening a business in Appenzello Interno: a practical guide',
     'blog.article.aprire-attivita-appenzello-interno.excerpt': 'Legal forms, minimum capital, trade register registration and tax, contribution and insurance obligations to start a business in Switzerland.',
     'blog.article.aprire-attivita-appenzello-interno.imageAlt': 'Modern startup office desk with Swiss minimalist design, business documents and laptop, welcome nameplate, natural daylight, sharp focus',
+    'blog.article.raiffeisen-160-milioni-risparmio-2027.title': 'Raiffeisen cuts up to 180 jobs',
+    'blog.article.raiffeisen-160-milioni-risparmio-2027.excerpt': 'Raiffeisen Switzerland announces a savings program: up to 180 jobs eliminated by 2027, with a reduction of about CHF 60 million in costs.',
+    'blog.article.raiffeisen-160-milioni-risparmio-2027.imageAlt': 'Modern Swiss banking office with employees at professional workstations, natural window lighting.',
 };
 
 export default blogMetaChEn;
