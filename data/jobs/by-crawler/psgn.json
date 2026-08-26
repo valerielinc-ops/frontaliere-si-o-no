@@ -52,13 +52,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "oberarztin-oberarzt-psgn-wil-sg",
-        "oberarztin-oberarzt-psychiatrie-st-gallen-wil-sg",
-        "medico-senior-psychiatrie-st-gallen-wil-sg"
+        "oberarztin-oberarzt-psychiatrie-st-gallen-wil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-psgn-wil-sg",
-          "medico-senior-psychiatrie-st-gallen-wil-sg"
+          "oberarztin-oberarzt-psgn-wil-sg"
         ],
         "en": [
           "oberarztin-oberarzt-psgn-wil-sg"
@@ -225,14 +223,12 @@
       "previousSlugs": [
         "oberarztin-oberarzt-mbf-psgn-wil-sg",
         "medecin-principal-m-b-f-psychiatrie-st-gallen-wil-sg",
-        "oberarztin-oberarzt-mbf-psychiatrie-st-gallen-wil-sg",
-        "medico-senior-mbf-psychiatrie-st-gallen-wil-sg"
+        "oberarztin-oberarzt-mbf-psychiatrie-st-gallen-wil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-mbf-psgn-wil-sg",
-          "medecin-principal-m-b-f-psychiatrie-st-gallen-wil-sg",
-          "medico-senior-mbf-psychiatrie-st-gallen-wil-sg"
+          "medecin-principal-m-b-f-psychiatrie-st-gallen-wil-sg"
         ],
         "en": [
           "oberarztin-oberarzt-mbf-psgn-wil-sg"
@@ -310,16 +306,14 @@
         "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg-2",
         "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg",
         "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg",
-        "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg-ocnp1r",
-        "assistente-psicologo-psicologo-assistito-psychiatrie-st-gallen-wil-sg-cc2d31"
+        "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg-ocnp1r"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg-2",
           "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg",
           "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg",
-          "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg-ocnp1r",
-          "assistente-psicologo-psicologo-assistito-psychiatrie-st-gallen-wil-sg-cc2d31"
+          "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg-ocnp1r"
         ],
         "en": [
           "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg"
@@ -397,18 +391,15 @@
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-psgn-wil-sg",
         "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-wil-sg",
-        "occupational-therapist-psychiatrie-st-gallen-wil-sg",
-        "terapeuta-del-lavoro-psychiatrie-st-gallen-wil-sg"
+        "occupational-therapist-psychiatrie-st-gallen-wil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ergotherapeutin-ergotherapeut-psgn-wil-sg",
-          "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-wil-sg",
-          "terapeuta-del-lavoro-psychiatrie-st-gallen-wil-sg"
+          "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-wil-sg"
         ],
         "en": [
-          "occupational-therapist-psychiatrie-st-gallen-wil-sg",
-          "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-wil-sg"
+          "occupational-therapist-psychiatrie-st-gallen-wil-sg"
         ],
         "fr": [
           "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-wil-sg"
@@ -524,12 +515,12 @@
     },
     {
       "id": "psgn-491136b6faf5",
-      "slug": "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg",
+      "slug": "assistente-medico-assistente-medico-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
-        "it": "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg",
-        "en": "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg",
+        "it": "assistente-medico-assistente-medico-psychiatrie-st-gallen-wil-sg",
+        "en": "assistant-doctor-assistant-doctor-psychiatrie-st-gallen-wil-sg",
         "de": "assistenzarztin-assistenzarzt-psgn-wil-sg",
-        "fr": "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg"
+        "fr": "assistant-medecin-assistant-medecin-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -590,6 +581,12 @@
           "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg-d5dpll",
           "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg-jrctte",
           "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg-mwu8pb"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg"
         ]
       },
       "firstSeenAt": "2026-08-25T09:50:15.511Z",
@@ -658,15 +655,13 @@
       "previousSlugs": [
         "oberarztin-oberarzt-psgn-wil-sg",
         "oberarztin-oberarzt-psgn-wil-sg-2",
-        "physician-specialist-psychiatrie-st-gallen-wil-sg",
-        "medico-senior-medico-senior-psychiatrie-st-gallen-wil-sg"
+        "physician-specialist-psychiatrie-st-gallen-wil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-psgn-wil-sg",
           "oberarztin-oberarzt-psgn-wil-sg-2",
-          "physician-specialist-psychiatrie-st-gallen-wil-sg",
-          "medico-senior-medico-senior-psychiatrie-st-gallen-wil-sg"
+          "physician-specialist-psychiatrie-st-gallen-wil-sg"
         ],
         "en": [
           "oberarztin-oberarzt-psgn-wil-sg-2"
@@ -740,15 +735,13 @@
       "previousSlugs": [
         "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg-2",
         "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg",
-        "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg",
-        "assistente-psicologo-assistente-psicologo-psychiatrie-st-gallen-wil-sg"
+        "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg-2",
           "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg",
-          "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg",
-          "assistente-psicologo-assistente-psicologo-psychiatrie-st-gallen-wil-sg"
+          "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg"
         ],
         "en": [
           "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg"
