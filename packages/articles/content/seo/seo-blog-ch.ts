@@ -57389,6 +57389,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cell-broadcast-allerta-svizzera': {
+    title: 'Allerta cellulare in Svizzera: 16 milioni approvati',
+    description: 'Consiglio federale richiede 15,8 milioni CHF per cell broadcast. Nuovo sistema di allarme che invia SMS direttamente ai telefoni nella zona interessata.',
+    keywords: 'frontalieri, ticino, svizzera, italia, allerta, cellulare, milioni, approvati',
+    ogTitle: 'Allerta cellulare: nuovo sistema di allarme svizzero',
+    ogDescription: 'Il Consiglio federale chiede 15,8 milioni CHF per implementare il cell broadcast. Nuovo canale di allarme urgente che invia SMS ai cellulari nella zona interessata. Integra sirene, radio e app Alertswiss dal 2018.',
+    canonicalPath: '/articoli-svizzera/cell-broadcast-allerta-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Allerta cellulare in Svizzera: 16 milioni approvati",
+      "description": "Consiglio federale richiede 15,8 milioni CHF per cell broadcast. Nuovo sistema di allarme che invia SMS direttamente ai telefoni nella zona interessata.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cell-broadcast-allerta-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro di coordinamento nazionale per allarmi di emergenza con display di messaggi SMS sui telefoni cellulari"
+      },
+      "datePublished": "2026-08-26T19:58:15+00:00",
+      "dateModified": "2026-08-26T19:58:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cell-broadcast-allerta-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

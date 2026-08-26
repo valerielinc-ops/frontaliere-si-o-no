@@ -4423,6 +4423,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ambiente-globale-176-milioni-2030.title': 'Ambiente globale: 176 milioni dalla Svizzera fino al 2030',
     'blog.article.ambiente-globale-176-milioni-2030.excerpt': 'Il Consiglio federale approva un credito d\'impegno di 176,23 milioni di franchi per finanziare progetti ambientali internazionali dal 2027 al 2030, ma il Parlamento dovrà approvare.',
     'blog.article.ambiente-globale-176-milioni-2030.imageAlt': 'Paesaggio alpino svizzero con lago cristallino circondato da foresta, simbolo di protezione ambientale.',
+    'blog.article.cell-broadcast-allerta-svizzera.title': 'Allerta cellulare in Svizzera: 16 milioni approvati',
+    'blog.article.cell-broadcast-allerta-svizzera.excerpt': 'Consiglio federale richiede 15,8 milioni CHF per cell broadcast. Nuovo sistema di allarme che invia SMS direttamente ai telefoni nella zona interessata.',
+    'blog.article.cell-broadcast-allerta-svizzera.imageAlt': 'Centro di coordinamento nazionale per allarmi di emergenza con display di messaggi SMS sui telefoni cellulari',
 };
 
 export default blogMetaChIt;

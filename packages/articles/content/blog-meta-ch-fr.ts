@@ -4423,6 +4423,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ambiente-globale-176-milioni-2030.title': 'Environnement mondial : 176 millions de Suisse jusqu\'en 2030',
     'blog.article.ambiente-globale-176-milioni-2030.excerpt': 'Le Conseil fédéral approuve un crédit d\'engagement de 176,23 millions de francs pour financer des projets environnementaux internationaux de 2027 à 2030, mais le Parlement devra approuver.',
     'blog.article.ambiente-globale-176-milioni-2030.imageAlt': 'Paysage alpin suisse avec lac de montagne cristallin entouré de forêt de conifères, symbole de protection environnementale.',
+    'blog.article.cell-broadcast-allerta-svizzera.title': 'Alerte mobile en Suisse : 16 millions approuvés',
+    'blog.article.cell-broadcast-allerta-svizzera.excerpt': 'Le Conseil fédéral réclame 15,8 millions de CHF pour la diffusion de cellules. Nouveau système d\'alarme qui envoie des SMS directement aux téléphones dans la zone concernée.',
+    'blog.article.cell-broadcast-allerta-svizzera.imageAlt': 'Centre d\'alerte d\'urgence suisse avec messages d\'alerte cellulaire sur les écrans mobiles',
 };
 
 export default blogMetaChFr;
