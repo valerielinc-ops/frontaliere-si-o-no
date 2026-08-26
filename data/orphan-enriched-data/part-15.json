@@ -14752,7 +14752,7 @@
         {
           "query": "lavoro a chiasso",
           "clicks": 0,
-          "impressions": 368
+          "impressions": 373
         },
         {
           "query": "lavoro chiasso",
@@ -14770,14 +14770,14 @@
           "impressions": 19
         },
         {
-          "query": "offerte di lavoro chiasso",
-          "clicks": 0,
-          "impressions": 18
-        },
-        {
           "query": "lavoro svizzera chiasso",
           "clicks": 0,
-          "impressions": 17
+          "impressions": 19
+        },
+        {
+          "query": "offerte di lavoro chiasso",
+          "clicks": 0,
+          "impressions": 19
         },
         {
           "query": "lavorare a chiasso",
@@ -14790,24 +14790,24 @@
           "impressions": 16
         },
         {
+          "query": "lavora con noi chiasso",
+          "clicks": 1,
+          "impressions": 14
+        },
+        {
           "query": "cerco lavoro a chiasso",
           "clicks": 0,
           "impressions": 14
         },
         {
-          "query": "lavora con noi chiasso",
-          "clicks": 1,
-          "impressions": 13
+          "query": "annunci chiasso",
+          "clicks": 0,
+          "impressions": 11
         },
         {
           "query": "job chiasso",
           "clicks": 0,
           "impressions": 11
-        },
-        {
-          "query": "annunci chiasso",
-          "clicks": 0,
-          "impressions": 10
         },
         {
           "query": "offerte lavoro chiasso per italiani",
@@ -14850,7 +14850,7 @@
           "impressions": 6
         }
       ],
-      "totalImpressions": 697,
+      "totalImpressions": 707,
       "totalClicks": 3,
       "topQuery": "lavoro a chiasso",
       "title": "chiasso",
@@ -22109,10 +22109,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-augenklinik-ambulatorium-universitatsspital-basel-basel",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-augenklinik-ambulatorium-universitatsspital-basel-basel",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-augenklinik-ambulatorium-universitatsspital-basel-basel",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-augenklinik-ambulatorium-universitatsspital-basel-basel"
+        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-augenklinik-ambulatorium-unispital-basel-ch",
+        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-augenklinik-ambulatorium-unispital-basel-ch",
+        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-augenklinik-ambulatorium-unispital-basel-ch"
       },
       "localePaths": {
         "it": "/cerca-lavoro-basilea/dipl-pflegefachfrau-pflegefachmann-hf-fh-augenklinik-ambulatorium-universitatsspital-basel-basel",
@@ -22126,6 +22126,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -23873,7 +23874,7 @@
         {
           "query": "educatore sociale offerte lavoro ticino",
           "clicks": 13,
-          "impressions": 79
+          "impressions": 80
         },
         {
           "query": "offerte di lavoro educatrice svizzera italiana",
@@ -23911,14 +23912,14 @@
           "impressions": 23
         },
         {
-          "query": "educatore canton ticino",
-          "clicks": 4,
+          "query": "lavoro educatrice ticino",
+          "clicks": 5,
           "impressions": 22
         },
         {
-          "query": "lavoro educatrice ticino",
-          "clicks": 5,
-          "impressions": 21
+          "query": "educatore canton ticino",
+          "clicks": 4,
+          "impressions": 22
         },
         {
           "query": "offerte lavoro educatore svizzera",
@@ -23941,14 +23942,14 @@
           "impressions": 20
         },
         {
-          "query": "offerte di lavoro educatrice ticino",
-          "clicks": 0,
+          "query": "educatore svizzera canton ticino",
+          "clicks": 2,
           "impressions": 19
         },
         {
-          "query": "educatore svizzera canton ticino",
-          "clicks": 2,
-          "impressions": 18
+          "query": "offerte di lavoro educatrice ticino",
+          "clicks": 0,
+          "impressions": 19
         },
         {
           "query": "educatore ticino",
@@ -23971,8 +23972,8 @@
           "impressions": 14
         }
       ],
-      "totalImpressions": 917,
-      "totalClicks": 88,
+      "totalImpressions": 922,
+      "totalClicks": 89,
       "topQuery": "educatore sociale offerte lavoro ticino",
       "title": "Educatori",
       "titleByLocale": {

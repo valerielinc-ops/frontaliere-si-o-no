@@ -25738,12 +25738,12 @@
         {
           "query": "i am searching for caregiver jobs in ticino for elderly support.",
           "clicks": 0,
-          "impressions": 183
+          "impressions": 185
         },
         {
           "query": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
           "clicks": 0,
-          "impressions": 125
+          "impressions": 126
         },
         {
           "query": "politica sanitaria canton ticino anziani",
@@ -25774,6 +25774,11 @@
           "query": "si",
           "clicks": 0,
           "impressions": 2
+        },
+        {
+          "query": "canton ticino",
+          "clicks": 1,
+          "impressions": 1
         },
         {
           "query": "lugano locarno",
@@ -25829,15 +25834,10 @@
           "query": "firme ingrijire batrani elvetia",
           "clicks": 0,
           "impressions": 1
-        },
-        {
-          "query": "geriatria",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 357,
-      "totalClicks": 4,
+      "totalImpressions": 362,
+      "totalClicks": 5,
       "topQuery": "i am searching for caregiver jobs in ticino for elderly support.",
       "title": "Elderly care",
       "titleByLocale": {
@@ -38014,6 +38014,68 @@
       ]
     },
     {
+      "slug": "le-landeron",
+      "locale": "it",
+      "path": "/cerca-lavoro-neuchatel/le-landeron/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-neuchatel/le-landeron/"
+      },
+      "queries": [
+        {
+          "query": "offerte di lavoro da ieri",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offerte di lavoro negli ultimi 3 giorni",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "offerte di lavoro da ieri",
+      "title": "Le landeron",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "le-landeron",
+        "en": "le-landeron",
+        "de": "le-landeron",
+        "fr": "le-landeron"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-neuchatel/le-landeron",
+        "en": "/en/find-jobs-neuchatel/le-landeron",
+        "de": "/de/jobs-im-neuenburg/le-landeron",
+        "fr": "/fr/trouver-emploi-neuchatel/le-landeron"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "lead-consolidation-ifrs-analista-sulzer-winterthur",
       "locale": "it",
       "path": "/cerca-lavoro-ticino/lead-consolidation-ifrs-analista-sulzer-winterthur/",
@@ -39520,14 +39582,14 @@
           "impressions": 12
         },
         {
-          "query": "lavoro frontaliere svizzera",
-          "clicks": 0,
+          "query": "offerte lavoro logistica ticino",
+          "clicks": 3,
           "impressions": 11
         },
         {
-          "query": "offerte lavoro logistica ticino",
-          "clicks": 2,
-          "impressions": 10
+          "query": "lavoro frontaliere svizzera",
+          "clicks": 0,
+          "impressions": 11
         },
         {
           "query": "offerte di lavoro impiegato in logistica ticino",
@@ -39537,7 +39599,7 @@
         {
           "query": "impiegato in logistica offerte di lavoro ticino",
           "clicks": 0,
-          "impressions": 7
+          "impressions": 9
         },
         {
           "query": "posti vacanti ticino",
@@ -39600,8 +39662,8 @@
           "impressions": 2
         }
       ],
-      "totalImpressions": 176,
-      "totalClicks": 6,
+      "totalImpressions": 179,
+      "totalClicks": 7,
       "topQuery": "offerte lavoro frontaliere svizzera",
       "title": "Logistica",
       "titleByLocale": {
@@ -43263,10 +43325,10 @@
         "fr": "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-beromunster"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-beromunster",
-        "en": "/en/find-jobs-lucerne/medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-beromunster",
+        "it": "/cerca-lavoro-sciaffusa/medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-beromunster",
+        "en": "/en/find-jobs-schaffhausen/medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-beromunster",
         "de": "/de/jobs-im-basel/medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-beromunster",
-        "fr": "/fr/trouver-emploi-lucerne/medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-beromunster"
+        "fr": "/fr/trouver-emploi-schaffhouse/medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-beromunster"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -55961,6 +56023,69 @@
         "en": "/en/find-jobs-ticino/ricercatrice-ricercatore-in-metodi-di-valutazione-prospettica-della-sostenibilita-e-innovazione-responsable-supsi-dti-ma",
         "de": "/de/jobs-im-tessin/ricercatrice-ricercatore-in-metodi-di-valutazione-prospettica-della-sostenibilita-e-innovazione-responsable-supsi-dti-ma",
         "fr": "/fr/trouver-emploi-tessin/ricercatrice-ricercatore-in-metodi-di-valutazione-prospettica-della-sostenibilita-e-innovazione-responsable-supsi-dti-ma"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "risk-surveyor-assicurazione-zurich-insurance-sede-ticino-lugano",
+      "locale": "it",
+      "path": "/cerca-lavoro-ticino/risk-surveyor-assicurazione-zurich-insurance-sede-ticino-lugano/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-ticino/risk-surveyor-assicurazione-zurich-insurance-sede-ticino-lugano/"
+      },
+      "queries": [
+        {
+          "query": "assicurazione lavoro",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "lavoro ticino",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "assicurazione lavoro",
+      "title": "Risk surveyor assicurazione",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Zurich Insurance (sede Ticino)",
+      "companyKey": "zurich-insurance-sede-ticino",
+      "location": "Lugano",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "risk-surveyor-assicurazione-zurich-insurance-sede-ticino-lugano",
+        "en": "risk-surveyor-assicurazione-zurich-insurance-sede-ticino-lugano",
+        "de": "risk-surveyor-assicurazione-zurich-insurance-sede-ticino-lugano",
+        "fr": "risk-surveyor-assicurazione-zurich-insurance-sede-ticino-lugano"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/risk-surveyor-assicurazione-zurich-insurance-sede-ticino-lugano",
+        "en": "/en/find-jobs-ticino/risk-surveyor-assicurazione-zurich-insurance-sede-ticino-lugano",
+        "de": "/de/jobs-im-tessin/risk-surveyor-assicurazione-zurich-insurance-sede-ticino-lugano",
+        "fr": "/fr/trouver-emploi-tessin/risk-surveyor-assicurazione-zurich-insurance-sede-ticino-lugano"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
