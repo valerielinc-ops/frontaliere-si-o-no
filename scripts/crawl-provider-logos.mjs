@@ -28,7 +28,7 @@
 
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
-import { GREY_GLOBE_SIZE } from './lib/google-favicon.mjs';
+import { isGreyGlobe } from './lib/google-favicon.mjs';
 
 // ── Config ────────────────────────────────────────────────────────────────────
 
@@ -174,7 +174,7 @@ async function downloadOne({ slug, domain }) {
     try {
       const r = await tryFetch(faviconUrl);
       // Reject grey-globe (Google's generic "no favicon found" response)
-      if (r.buf.length === GREY_GLOBE_SIZE) {
+      if (isGreyGlobe(r.buf)) {
         return {
           slug,
           status: 'failed',

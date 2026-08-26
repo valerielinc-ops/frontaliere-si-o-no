@@ -23,7 +23,7 @@
 import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
-import { GREY_GLOBE_SIZE, LOGO_BOT_USER_AGENT } from './lib/google-favicon.mjs';
+import { isGreyGlobe, LOGO_BOT_USER_AGENT } from './lib/google-favicon.mjs';
 
 const ROOT = path.resolve(process.cwd());
 const MANIFEST_PATH = path.join(ROOT, 'data', 'company-logos-manifest.json');
@@ -146,7 +146,7 @@ async function tryGFavicon(domain) {
     const res = await fetchTimeout(url);
     if (!res.ok) return null;
     const buf = Buffer.from(await res.arrayBuffer());
-    if (buf.length === 0 || buf.length === GREY_GLOBE_SIZE) return null;
+    if (buf.length === 0 || isGreyGlobe(buf)) return null;
     const ct = (res.headers.get('content-type') || '').split(';')[0].trim().toLowerCase();
     const ext = MIME_EXT[ct] || detectExtFromBytes(buf) || 'png';
     return { buf, ext, domain, size: buf.length };
