@@ -25,6 +25,7 @@ import {
   resolveTelegramCredentials,
   hasTelegramCredentials,
   sendMessage,
+  getChatMemberCount,
   TELEGRAM_MESSAGE_MAX,
 } from '../scripts/lib/telegram-client.mjs';
 import {
@@ -115,6 +116,45 @@ describe('sendMessage', () => {
     }) as unknown as typeof fetch;
     await sendMessage({ token: 'T', chatId: '@c', text: 'a'.repeat(TELEGRAM_MESSAGE_MAX + 500), fetchImpl });
     expect(sentLen).toBe(TELEGRAM_MESSAGE_MAX);
+  });
+});
+
+describe('getChatMemberCount', () => {
+  it('GETs the endpoint and maps a successful envelope', async () => {
+    let capturedUrl = '';
+    const fetchImpl = (async (url: string) => {
+      capturedUrl = url;
+      return { ok: true, status: 200, json: async () => ({ ok: true, result: 42 }) };
+    }) as unknown as typeof fetch;
+
+    const res = await getChatMemberCount({ token: 'TKN', chatId: '@c', fetchImpl });
+    expect(res).toEqual({ ok: true, count: 42, error: null });
+    expect(capturedUrl).toBe('https://api.telegram.org/botTKN/getChatMemberCount?chat_id=%40c');
+  });
+
+  it('maps an API error envelope to a soft failure', async () => {
+    const fetchImpl = (async () => ({
+      ok: false,
+      status: 400,
+      json: async () => ({ ok: false, description: 'chat not found' }),
+    })) as unknown as typeof fetch;
+    const res = await getChatMemberCount({ token: 'T', chatId: '@c', fetchImpl });
+    expect(res.ok).toBe(false);
+    expect(res.error).toContain('chat not found');
+  });
+
+  it('never throws on a network error', async () => {
+    const fetchImpl = (async () => {
+      throw new Error('boom');
+    }) as unknown as typeof fetch;
+    const res = await getChatMemberCount({ token: 'T', chatId: '@c', fetchImpl });
+    expect(res.ok).toBe(false);
+    expect(res.error).toContain('boom');
+  });
+
+  it('fails soft when credentials are missing', async () => {
+    const res = await getChatMemberCount({ token: '', chatId: '@c' });
+    expect(res.ok).toBe(false);
   });
 });
 
