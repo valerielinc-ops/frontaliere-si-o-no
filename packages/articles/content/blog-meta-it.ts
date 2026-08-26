@@ -10800,6 +10800,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.diesel-prezzo-frontalieri-agosto.title': 'Rincaro diesel in Svizzera: i costi per i pendolari',
     'blog.article.diesel-prezzo-frontalieri-agosto.excerpt': 'Diesel oltre 2.20 CHF al litro per geopolitica e raffinerie danneggiate. Impatto diretto sui costi di pendolarismo e spesa alimentare per i frontalieri ticinesi.',
     'blog.article.diesel-prezzo-frontalieri-agosto.imageAlt': 'Stazione di servizio ticinese con pompe di diesel, sullo sfondo le montagne e il confine italiano.',
+    'blog.article.vivere-verrayes-lavorare-vallese-frontaliere.title': 'Vivere a Verrayes e lavorare in Vallese da frontaliere',
+    'blog.article.vivere-verrayes-lavorare-vallese-frontaliere.excerpt': 'Guida completa per frontalieri: collegamenti, vita a Verrayes, tasse in Vallese e vantaggi del trasferimento.',
+    'blog.article.vivere-verrayes-lavorare-vallese-frontaliere.imageAlt': 'Villaggio di Verrayes in Vallese, Svizzera, con montagne sullo sfondo.',
 };
 
 export default blogMetaIt;
