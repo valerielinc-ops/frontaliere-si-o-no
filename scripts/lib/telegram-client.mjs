@@ -104,3 +104,33 @@ export async function sendMessage({
     return fail(err?.message || String(err));
   }
 }
+
+/**
+ * Read the member count of a Telegram chat/channel via the Bot API. Same
+ * defensive contract as sendMessage(): never throws, `{ok:false, error}` on
+ * any failure (missing credentials, HTTP error, malformed envelope).
+ *
+ * @param {{ token: string, chatId: string|number, fetchImpl?: typeof fetch }} [opts]
+ * @returns {Promise<{ok:boolean, count:number|null, error:string|null}>}
+ */
+export async function getChatMemberCount({ token, chatId, fetchImpl = globalThis.fetch } = {}) {
+  const fail = (error) => ({ ok: false, count: null, error });
+
+  if (typeof fetchImpl !== 'function') return fail('no fetch impl available');
+  if (!token) return fail('missing bot token');
+  if (!chatId) return fail('missing chat id');
+
+  const endpoint = `${TELEGRAM_API_BASE}/bot${token}/getChatMemberCount?chat_id=${encodeURIComponent(chatId)}`;
+
+  try {
+    const res = await fetchImpl(endpoint);
+    const data = await res.json().catch(() => null);
+    if (data?.ok && typeof data.result === 'number') {
+      return { ok: true, count: data.result, error: null };
+    }
+    const desc = data?.description || `HTTP ${res?.status ?? '?'}`;
+    return fail(`telegram error: ${desc}`);
+  } catch (err) {
+    return fail(err?.message || String(err));
+  }
+}
