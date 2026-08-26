@@ -4342,6 +4342,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.processo-bondo-critica-procura.title': 'Bondo-Prozess, die Verteidigung kritisiert die Staatsanwaltschaft',
     'blog.article.processo-bondo-critica-procura.excerpt': 'Zweiter Tag des Erdrutschprozesses 2017. Die Verteidigung kritisiert die Lücken in den Beweismitteln der Staatsanwaltschaft und überträgt der Gemeinde die Verantwortung für die Sicherheit der Wege.',
     'blog.article.processo-bondo-critica-procura.imageAlt': 'Bergwanderweg in der Schweizer Alpenregion von Graubünden',
+    'blog.article.scuola-futuro-giovani-ticino.title': 'Schule und Zukunft: Junge Tessiner riskieren den Weggang',
+    'blog.article.scuola-futuro-giovani-ticino.excerpt': 'Am 31. August beginnt die Schule im Tessin wieder. Aber welche Zukunft erwartet junge Menschen nach der Ausbildung? Gehälter, Mieten und Krankenkassenprämien gefährden die wirtschaftliche Unabhängigkeit.',
+    'blog.article.scuola-futuro-giovani-ticino.imageAlt': 'Klassenzimmer in Lugano mit Schülern, die an Laptops arbeiten, und natürlicher Beleuchtung.',
 };
 
 export default blogMetaChDe;

@@ -56336,6 +56336,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-scuola-futuro-giovani-ticino': {
+    title: 'Scuola e futuro: i giovani ticinesi rischiano di partire',
+    description: 'Il 31 agosto ricomincia la scuola in Ticino. Ma quale futuro aspetta i giovani dopo la formazione? Stipendi, affitti e premi cassa malati mettono a rischio',
+    keywords: 'frontalieri, ticino, svizzera, italia, scuola, futuro, giovani, ticinesi',
+    ogTitle: 'Scuola e futuro: i giovani ticinesi rischiano di partire',
+    ogDescription: 'Il ritorno a scuola del 31 agosto pone una domanda cruciale: come preparare i giovani a un futuro economico solido? Scopri il dibattito su formazione, stipendi, costo della vita e fuga di talenti dal Ticino.',
+    canonicalPath: '/articoli-svizzera/scuola-futuro-giovani-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scuola e futuro: i giovani ticinesi rischiano di partire",
+      "description": "Il 31 agosto ricomincia la scuola in Ticino. Ma quale futuro aspetta i giovani dopo la formazione? Stipendi, affitti e premi cassa malati mettono a rischio",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/scuola-futuro-giovani-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una classe scolastica a Lugano durante una lezione, con studenti al lavoro su laptop e insegnante in sottofondo."
+      },
+      "datePublished": "2026-08-26T02:36:55+00:00",
+      "dateModified": "2026-08-26T02:36:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/scuola-futuro-giovani-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

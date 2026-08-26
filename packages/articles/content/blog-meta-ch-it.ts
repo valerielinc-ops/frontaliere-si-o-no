@@ -4342,6 +4342,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.processo-bondo-critica-procura.title': 'Processo Bondo, la difesa critica la Procura',
     'blog.article.processo-bondo-critica-procura.excerpt': 'Secondo giorno del processo sulla frana del 2017. La difesa critica le lacune nelle prove della Procura e attribuisce al Comune la responsabilità della sicurezza dei sentieri.',
     'blog.article.processo-bondo-critica-procura.imageAlt': 'Paesaggio di montagna nel Canton Grigioni con sentiero escursionistico tra boschi alpini',
+    'blog.article.scuola-futuro-giovani-ticino.title': 'Scuola e futuro: i giovani ticinesi rischiano di partire',
+    'blog.article.scuola-futuro-giovani-ticino.excerpt': 'Il 31 agosto ricomincia la scuola in Ticino. Ma quale futuro aspetta i giovani dopo la formazione? Stipendi, affitti e premi cassa malati mettono a rischio l\'indipendenza economica.',
+    'blog.article.scuola-futuro-giovani-ticino.imageAlt': 'Una classe scolastica a Lugano durante una lezione, con studenti al lavoro su laptop e insegnante in sottofondo.',
 };
 
 export default blogMetaChIt;

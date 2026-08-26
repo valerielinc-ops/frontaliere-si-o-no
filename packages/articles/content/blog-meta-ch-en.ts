@@ -4342,6 +4342,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.processo-bondo-critica-procura.title': 'Bondo process, the defense criticizes the Prosecutor',
     'blog.article.processo-bondo-critica-procura.excerpt': 'Second day of the 2017 landslide trial. The defense criticizes the gaps in the evidence of the Public Prosecutor\'s Office and attributes to the Municipality the responsibility for the safety of the trails.',
     'blog.article.processo-bondo-critica-procura.imageAlt': 'Alpine hiking trail in Grisons canton with forested mountain landscape',
+    'blog.article.scuola-futuro-giovani-ticino.title': 'School and future: young people from Ticino are at risk of leaving',
+    'blog.article.scuola-futuro-giovani-ticino.excerpt': 'On August 31, school begins again in Ticino. But what future awaits young people after training? Salaries, rents and sick pay premiums put economic independence at risk.',
+    'blog.article.scuola-futuro-giovani-ticino.imageAlt': 'High school classroom in Lugano with students working on laptops, natural lighting, modern teaching environment.',
 };
 
 export default blogMetaChEn;
