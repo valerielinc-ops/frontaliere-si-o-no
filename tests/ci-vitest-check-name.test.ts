@@ -140,13 +140,27 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
   // veniva sfrattata a `cancelled`, nessun `success`, auto-merge fermo. Ora il
   // lock copre solo i sei step di chiamate API che lo richiedono davvero.
   // `contract` e `typecheck` restano nel job che produce il check-run gating.
-  it('tests.yml ha i due job attesi: il gating fuso e il detector isolato', () => {
-    expect(jobKeys).toEqual(['vitest', 'collision']);
+  // UN job solo, di nuovo, ma per una ragione DIVERSA da quella di #6555.
+  // Il detector di collisioni e' uscito del tutto da questo workflow il
+  // 2026-08-26: e' uno SWEEPER repo-wide (ricalcola le label di tutte le PR
+  // aperte da dati vivi) e uno sweeper va su `schedule`, non su
+  // `pull_request`. Vive solo in `pr-collision-detector.yml`, cron ogni 30
+  // min. Cosi' le PR restano INDIPENDENTI: nessun mutex globale che accodi la
+  // suite di una PR dietro quella di tutte le altre, e nessuna ✗ da run
+  // sfrattato. `contract` e `typecheck` restano qui e restano bloccanti.
+  it('tests.yml ha un job solo, e nessun lock di job', () => {
+    expect(jobKeys).toEqual(['vitest']);
+    expect(
+      /^ {4}concurrency:/m.test(jobsBody),
+      'un `concurrency:` di JOB e\' tornato in tests.yml: un gruppo globale ' +
+        'qui accoda la suite da ~18 min di ogni PR dietro quella di tutte le ' +
+        'altre (1 running + 1 pending, la terza sfrattata a `cancelled`), ed e\' ' +
+        'la causa meccanica del «sopra ~5 PR aperte i merge rallentano».',
+    ).toBe(false);
   });
 
-  it('le quattro famiglie di cancelli girano tutte in quel job', () => {
+  it('i cancelli che DEVONO essere bloccanti girano in quel job', () => {
     for (const [what, re] of [
-      ['collision', /scripts\/ci\/pr-collision-detector\.mjs/],
       ['contract', /PR-body completeness \+ multi-issue Closes/],
       ['source guards', /check-sibling-patterns\.mjs/],
       ['typecheck', /npm run typecheck:gate/],
@@ -156,17 +170,16 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
     }
   });
 
-  it('il lock `pr-collision-detector` esiste ancora (race #1454↔#1459)', () => {
-    // Lo split del 2026-08-26 ha SPOSTATO questo lock, non l'ha tolto: il
-    // detector scrive `collision-risk` su tutte le PR aperte in concorrenza con
-    // lo scan periodico di `pr-collision-detector.yml`, e senza il gruppo la
-    // race del main-red #1454↔#1459 e' di nuovo aperta. Una concurrency di step
-    // NON esiste, quindi l'unico modo di circoscriverla e' un job dedicato.
-    const m = jobsBody.match(/^ {4}concurrency:\s*\n((?:[ \t]+.*\n?)*?)^ {4}(?=[a-z])/m);
-    expect(m, 'nessun blocco `concurrency:` di job in tests.yml').toBeTruthy();
-    const block = m![1];
-    expect(block.includes('pr-collision-detector')).toBe(true);
-    expect(block).toMatch(/cancel-in-progress:\s*false/);
+  // Il detector NON deve rientrare qui. Se qualcuno lo rimette, si riporta
+  // dietro il suo `concurrency` globale — e con esso la serializzazione della
+  // suite fra PR — oppure lo lascia senza lock, riaprendo la race sulle label
+  // (main-red #1454↔#1459). Il posto giusto e' `pr-collision-detector.yml`.
+  it('il detector di collisioni NON vive in tests.yml', () => {
+    expect(
+      /pr-collision-detector\.mjs/.test(jobsBody),
+      'il detector e\' tornato in tests.yml: e\' uno sweeper repo-wide e va su ' +
+        'cron in pr-collision-detector.yml, non su un evento per-PR.',
+    ).toBe(false);
   });
 
   // Il lock non e' piu' CONDIZIONALE, e' CIRCOSCRITTO: sta su un job che
@@ -176,32 +189,7 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
   // main (14 run su 30 cancellati, 47%) — ma ora la ottiene il `if:` del job
   // invece di un'espressione dentro `group:`. Piu' semplice e piu' difficile da
   // rompere: se il job non parte, non c'e' nessun gruppo da contendere.
-  it('il lock vive sul job collision, che gira solo su pull_request', () => {
-    const collisionBody = jobsBody.slice(jobsBody.indexOf('\n  collision:'));
-    expect(collisionBody, 'job `collision:` non trovato').toBeTruthy();
-    const group = collisionBody.match(/^ {4}concurrency:\s*\n\s*group:\s*(.+?)\s*$/m);
-    expect(group, '`concurrency.group` del job collision non trovato').toBeTruthy();
-    expect(group![1]).toContain('pr-collision-detector');
-    const jobIf = collisionBody.match(/^ {4}if:\s*(.+?)\s*$/m);
-    expect(jobIf, 'job `collision` senza `if:` sull\'evento').toBeTruthy();
-    expect(jobIf![1]).toMatch(/github\.event_name\s*==\s*'pull_request'/);
-    // E il job GATING non deve piu' portarlo: e' tutto il punto dello split.
-    const vitestBody = jobsBody.slice(0, jobsBody.indexOf('\n  collision:'));
-    expect(
-      /^ {4}concurrency:/m.test(vitestBody),
-      'il job fuso ha di nuovo un `concurrency:` di job: serializzerebbe la ' +
-        'suite di ogni PR contro quella di tutte le altre',
-    ).toBe(false);
-  });
 
-  it('gli step di collision restano pull_request-only (nessuna label su main)', () => {
-    // Il lock condizionale sopra è corretto SOLO se su push non si scrive
-    // nessuna label. Se il detector perdesse il guard sull'evento, girerebbe su
-    // main fuori dal lock — cioè la race, ma senza nemmeno il serializzatore.
-    const m = /- name: Detect funnel-critical collisions[^\n]*\n\s*if:\s*(.+?)\s*$/m.exec(jobsBody);
-    expect(m, 'step `Detect funnel-critical collisions` senza `if:`').toBeTruthy();
-    expect(m![1]).toMatch(/github\.event_name\s*==\s*'pull_request'/);
-  });
 
   // Fondere i job fonde anche gli AMBIENTI, e questo è costato un giro di CI.
   // `scripts/load-rc-env.mjs` scrive ~92 variabili di Remote Config su
@@ -213,18 +201,21 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
   // configured», «is a no-op when POSTHOG_EMAIL_EXPERIMENT is unset» (nel log
   // la RC caricava `POSTHOG_EMAIL_EXPERIMENT: 1`), «an empty environment mints
   // the pre-#5685 code». Il rimedio è l'ORDINE, quindi va difeso l'ordine.
-  it('i segreti di Remote Config si caricano DOPO vitest, mai prima', () => {
-    const rcAt = jobsBody.indexOf('node scripts/load-rc-env.mjs');
-    const vitestAt = jobsBody.search(/run:\s+npm test --/);
-    expect(rcAt, 'step `load-rc-env.mjs` non trovato nel job').toBeGreaterThan(-1);
-    expect(vitestAt, 'step vitest non trovato nel job').toBeGreaterThan(-1);
+  // Invariante RAFFORZATA il 2026-08-26. Prima si difendeva un ORDINE («la
+  // famiglia collision per ultima»), cioe' una convenzione che il prossimo
+  // edit poteva rompere in silenzio. Ora `load-rc-env.mjs` non sta piu' in
+  // questo workflow affatto: l'inquinamento di `$GITHUB_ENV` — ~92 variabili
+  // di Remote Config visibili a OGNI step successivo dello stesso job, che
+  // avevano reso rossi 14 test su 11 file (run 32937626053, tutti quelli che
+  // asseriscono un comportamento a ambiente PULITO) — e' impossibile per
+  // costruzione, non per ordinamento.
+  it('nessun segreto di Remote Config viene caricato in questo workflow', () => {
     expect(
-      rcAt,
-      '`load-rc-env.mjs` è risalito SOPRA vitest: scrive ~92 variabili su ' +
-        '$GITHUB_ENV, che valgono per ogni step successivo, e la suite ha test ' +
-        'che asseriscono un ambiente pulito (email provider assente, ' +
-        'POSTHOG_EMAIL_EXPERIMENT unset, chiavi mancanti). Rimettilo dopo vitest.',
-    ).toBeGreaterThan(vitestAt);
+      /load-rc-env\.mjs/.test(TESTS_YML),
+      'load-rc-env.mjs e\' tornato in tests.yml: scrive ~92 variabili su ' +
+        '$GITHUB_ENV, visibili a ogni step successivo dello stesso job, e ' +
+        'vitest ha test che asseriscono un ambiente PULITO.',
+    ).toBe(false);
   });
 
   it('ogni famiglia sopravvive al rosso di un’altra (`!cancelled()`)', () => {

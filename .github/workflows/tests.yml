@@ -60,46 +60,46 @@ name: tests
 # una qualunque è fallita. Dentro una famiglia la catena resta fail-fast, come
 # era dentro il job che la ospitava.
 #
-# ── Conseguenza #3: il lock delle label — RIENTRATA il 2026-08-26 ─────────
+# ── Conseguenza #3: il lock delle label — SCIOLTA il 2026-08-26 ──────────
 # STORIA, perché la lezione vale più della conclusione. Il job `collision`
 # aveva un `concurrency:` proprio, gruppo `pr-collision-detector`, CONDIVISO
-# con lo scan periodico di `pr-collision-detector.yml` (cron ogni 30 min):
-# impedisce due scritture concorrenti sulla label `collision-risk`, la race che
-# ha prodotto il main-red #1454↔#1459. Le concurrency di GitHub esistono solo a
-# livello job/workflow, MAI di step, quindi la fusione dovette issare quel
-# gruppo sull'INTERO job. Il costo fu dichiarato accettabile: «più rerun nelle
-# ore di traffico alto».
+# con lo scan periodico di `pr-collision-detector.yml` (cron ogni 30 min), per
+# impedire due scritture concorrenti sulla label `collision-risk`. Le
+# concurrency di GitHub esistono solo a livello job/workflow, MAI di step,
+# quindi la fusione dovette issare quel gruppo sull'INTERO job. Costo
+# dichiarato accettabile: «più rerun nelle ore di traffico alto».
 #
-# Misurato sul campo, non lo era. Con `cancel-in-progress: false` ogni PR
-# aperta si metteva in fila dietro OGNI altra PR aperta e dietro lo scan cron,
-# portandosi dietro una suite da ~18 minuti. GitHub tiene 1 running + 1
-# pending: con la flotta che apre più PR insieme la terza veniva SFRATTATA e
-# concludeva `cancelled` — nessun `success`, auto-merge fermo, rerun a catena.
-# Era il collo di bottiglia del throughput dell'intera flotta.
+# Misurato sul campo non lo era. Con `cancel-in-progress: false` GitHub tiene
+# 1 running + 1 pending: ogni PR aperta si accodava dietro ogni altra PR E
+# dietro lo scan cron, portandosi dietro una suite da ~18 minuti, e la terza
+# veniva SFRATTATA a `cancelled` — nessun `success`, auto-merge fermo, rerun a
+# catena. Era il collo di bottiglia del throughput dell'intera flotta.
 #
-# Rimedio: il detector è tornato in un job PROPRIO (`jobs.collision`, in fondo
-# a questo file) che porta il lock, gira su un runner suo e IN PARALLELO al job
-# fuso — quindi non aggiunge wall alla PR e serializza solo se stesso. Il job
-# fuso non ha più alcun `concurrency:` di job. La regola che ne esce, e che
-# vale oltre questo file: un lock va messo sull'unità di lavoro che compie la
-# scrittura da serializzare, non sulla più grande che la contiene.
-# `contract` e `typecheck` restano dentro il job fuso e restano bloccanti.
+# Un tentativo intermedio scorporò il detector in un job proprio col lock.
+# Toglieva la serializzazione dalla suite (verificato: run 32946427177,
+# `collision` cancelled alle 08:10:47 e `vitest` in_progress alle 08:10:49),
+# ma lasciava sulla PR una ✗ da run sfrattato — un SEGNALE FALSO, e
+# `gh pr checks` legge `cancelled` come fail. Con un mutex globale su un
+# workflow PR-triggered quella ✗ è inevitabile: se i contendenti superano gli
+# slot, qualcuno DEVE essere cancellato.
+#
+# Decisione finale: il detector esce del tutto da `tests.yml`. È un SWEEPER
+# repo-wide — ricalcola le label di tutte le PR aperte da dati vivi — e uno
+# sweeper va su `schedule`, non su `pull_request`. Vive quindi solo in
+# `pr-collision-detector.yml` (cron ogni 30 min + dispatch), dove il suo lock
+# non tocca nessuna PR e nessuna ✗ compare. Le PR restano INDIPENDENTI: niente
+# mutua esclusione, solo informazione — label + commento che nomina le PR
+# coinvolte, così chi ci lavora sa cosa succede se una mergia prima dell'altra.
+# La regola generale: un lock va sull'unità di lavoro che compie la scrittura,
+# e uno sweeper repo-wide non va su un evento per-PR.
 #
 # ── Conseguenza #4: la #6526 torna ad avere il suo margine ────────────────
 # La PR #6526 (commit 1052ee9) aveva fatto leggere ad `auto-merge-on-lgtm.yml` /
 # `pr-review-loop.yml` il check-run `vitest (unit + integration)` ISOLATO invece
-# del rollup della run, perché un `collision` cancellato per contesa trascinava
-# il rollup a `cancelled` su ~1/3 delle PR anche con vitest già `success`. Con
-# la fusione i due erano diventati lo STESSO check-run e quella fix aveva perso
-# margine; con lo split del 2026-08-26 tornano due check-run distinti e la
-# lettura isolata di #6526 torna a fare esattamente il lavoro per cui è nata —
-# un `collision` conteso non tocca più il verdetto di vitest.
-#
-# Corollario da sapere: `collision` torna NON bloccante per l'auto-merge
-# (`auto-merge-eval.mjs` fa `select` solo sul check-run di vitest). È corretto e
-# voluto: il cancello di merge è la LABEL che il detector applica, non il suo
-# exit code — un crash del detector non deve bloccare i merge, una label
-# `collision-risk` sì, e continua a farlo.
+# del rollup, perché un `collision` cancellato per contesa trascinava il rollup
+# a `cancelled` su ~1/3 delle PR anche con vitest già `success`. Ora su una PR
+# non esiste più alcun check-run `collision` da contendere: la causa di quel
+# difetto è rimossa alla radice, e la lettura isolata di #6526 resta come rete.
 #
 # ── Il checkout: uno solo, e perché QUESTO profilo ────────────────────────
 # I quattro job avevano tre profili diversi e INCOMPATIBILI fra loro:
@@ -928,9 +928,11 @@ jobs:
       # di RSS, il runner ne ha 16, e ora quei 4,4 GB stanno accanto ai DUE
       # pool di vitest invece che da soli. Se il margine non basta si vedrà
       # come OOM, subito e in chiaro — non come una supposizione scritta in un
-      # commento. Lo step «Sample runner memory» qui sotto esiste per rendere
-      # quel margine un numero stampato a ogni run invece di un timore: è la
-      # differenza fra sapere e prevenire alla cieca.
+      # commento che costa 67s di wall a ogni run per sempre. Un campionatore di
+      # `MemAvailable` era stato aggiunto per rendere quel margine un numero, ed
+      # è stato tolto: era uno step in background con un timer proprio, quindi a
+      # suite rossa teneva il job appeso al join per la durata del suo `sleep`.
+      # Se il numero servirà, va preso in un modo che muoia con la suite.
       # ══════════════════════════════════════════════════════════════════════
       - name: tsc --noEmit (baseline + ratchet)
         if: ${{ !cancelled() }}
@@ -1236,30 +1238,6 @@ jobs:
           restore-keys: |
             assemble-jobs-${{ runner.os }}-
 
-      # DIAGNOSTICO, non un cancello: campiona `MemAvailable` del runner mentre
-      # la suite gira e stampa il minimo. Esiste per rispondere alla sola
-      # domanda che oggi tiene il join dei sei cancelli PRIMA dell'assemble
-      # invece che alla fine del job — «quanta memoria libera resta mentre
-      # vitest lavora?» — cioè se i 4,4 GB di `tsc` ci starebbero accanto sui
-      # 16 GB del runner. Finché quel numero non esiste, spostare il join è una
-      # scommessa; quando esiste, è una riga di diff.
-      #
-      # In questa posizione misura vitest DA SOLO, che è esattamente la
-      # baseline giusta: con il join dove sta ora, `tsc` ha già finito.
-      #
-      # Costo ~0 (una lettura di /proc ogni 5s) e non può arrossare niente: non
-      # ha asserzioni, e il `|| true` copre anche il caso in cui /proc/meminfo
-      # non sia leggibile. Bounded a 350 campioni (~29 min) perché uno step in
-      # background che non termina terrebbe fermo il `wait-all` che lo rijoina.
-      - name: Sample runner memory during the suite (diagnostic, never fails)
-        background: true
-        run: |
-          for _ in $(seq 1 350); do
-            awk '/MemAvailable/{print $2}' /proc/meminfo 2>/dev/null || true
-            sleep 5
-          done | sort -n | head -1 | awk '{printf "MemAvailable minimo durante vitest: %.2f GB\n", $1/1048576}'
-          true
-
       - name: vitest run (test che non leggono il dataset)
         # VITEST_DATASET_GROUP=independent → vitest.config.ts esclude i file
         # classificati da scripts/ci/dataset-dependent-tests.mjs. La partizione
@@ -1300,10 +1278,20 @@ jobs:
       # ══════════════════════════════════════════════════════════════════════
       # UNICO join della seconda metà del job, e rijoina TUTTO ciò che è stato
       # forkato dopo la famiglia contract: i sei cancelli deterministici (`tsc`
-      # più i cinque lint), il gruppo vitest indipendente e il campionatore di
-      # memoria. È l'unico punto del job in cui si consuma davvero il risultato
-      # di quei task — cioè il loro esito nel verdetto — e per questo è l'unico
-      # punto in cui ha senso attenderli. Sta DOPO il gruppo
+      # più i cinque lint) e il gruppo vitest indipendente. È l'unico punto del
+      # job in cui si consuma davvero il risultato di quei task — cioè il loro
+      # esito nel verdetto — e per questo è l'unico punto in cui ha senso
+      # attenderli.
+      #
+      # NB per chi aggiungerà un background qui: la sua durata deve essere
+      # legata al LAVORO che accompagna, mai a un timer proprio. Un campionatore
+      # di memoria bounded a ~29 min di `sleep` e' stato tolto proprio per
+      # questo: a suite ROSSA il job restava appeso a questo join ad aspettare
+      # che finisse di dormire, trasformando un fallimento rapido in mezz'ora di
+      # runner. Un background che non muore con cio' che osserva tiene in ostaggio
+      # il verdetto.
+      #
+      # Sta DOPO il gruppo
       # dipendente, ed e' questa posizione a produrre la sovrapposizione: uno
       # step in primo piano blocca quello dopo, quindi finche' il gruppo
       # indipendente era in primo piano il dipendente non poteva partire prima
@@ -1327,7 +1315,7 @@ jobs:
       # dai tempi per-step, non assunto. Se la misura dice wash o peggio, e'
       # questa porzione a tornare indietro, non il resto della PR.
       # ══════════════════════════════════════════════════════════════════════
-      - name: Wait for background gates, vitest and memory sampler
+      - name: Wait for background gates and vitest
         wait-all: true
 
       - name: Upload test timing
@@ -1349,142 +1337,3 @@ jobs:
           path: shard-timing-2.json
           retention-days: 7
           if-no-files-found: ignore
-
-  # ══════════════════════════════════════════════════════════════════════════
-  # collision — RI-SCORPORATO dal job fuso il 2026-08-26, e la ragione e' il
-  # LOCK, non un ripensamento sulla fusione.
-  #
-  # Il detector scrive la label `collision-risk` su TUTTE le PR aperte, non
-  # solo sulla propria (`pr-collision-detector.mjs`: `for (const num of nums)`
-  # con `addLabel(num, ...)`/`removeLabel(num, ...)` dentro). Due run
-  # concorrenti scrivono quindi sullo stesso insieme di PR: il lock globale
-  # serve davvero, ed e' la race che ha prodotto il main-red #1454<->#1459.
-  #
-  # Cio' che NON serve e' tenerlo su una suite da ~18 minuti. Le concurrency di
-  # GitHub esistono solo a livello job/workflow, mai di step, quindi la fusione
-  # di #6555 ha dovuto issare quel lock sull'INTERO job — e con
-  # `cancel-in-progress: false` ogni PR aperta si e' messa in fila dietro ogni
-  # altra PR aperta E dietro lo scan cron di `pr-collision-detector.yml`.
-  # GitHub tiene 1 running + 1 pending: con la flotta che apre piu' PR insieme
-  # la terza viene SFRATTATA e conclude `cancelled` — nessun `success`, quindi
-  # auto-merge fermo e rerun a catena. In testata era il costo dichiarato
-  # accettabile; misurato sul campo e' il collo di bottiglia del throughput
-  # dell'intera flotta.
-  #
-  # Qui il lock torna a coprire esattamente cio' che lo richiede: sei step di
-  # sole chiamate API, pochi secondi. Il job gira su un runner PROPRIO e in
-  # PARALLELO al job fuso, quindi non aggiunge wall alla PR: serializza solo se
-  # stesso contro gli altri detector, che e' il comportamento voluto.
-  #
-  # DUE EFFETTI COLLATERALI, entrambi voluti e da conoscere:
-  #
-  # 1. `collision` torna a essere un check-run SEPARATO, quindi torna NON
-  #    bloccante per l'auto-merge (`auto-merge-eval.mjs` fa `select` solo su
-  #    `vitest (unit + integration)`). E' lo stato in cui e' vissuto per mesi ed
-  #    e' quello corretto: il cancello di merge e' la LABEL che il detector
-  #    applica, non il suo exit code. Un crash del detector non deve bloccare i
-  #    merge; una label `collision-risk` si', e continua a farlo. `contract` e
-  #    `typecheck` restano dentro il job fuso e restano bloccanti — cioe' la
-  #    meta' di #6555 che valeva davvero.
-  #
-  # 2. Sparisce alla radice l'inquinamento di `$GITHUB_ENV`. `load-rc-env.mjs`
-  #    scrive ~92 variabili di Remote Config che valgono per ogni step
-  #    SUCCESSIVO dello stesso job: nel job fuso questo aveva reso rossi 14 test
-  #    su 11 file (run 32937626053), tutti quelli che asseriscono un
-  #    comportamento a ambiente PULITO, e la toppa era stata l'ORDINE («la
-  #    famiglia collision per ultima»). Un ordine e' una convenzione che il
-  #    prossimo edit puo' rompere in silenzio; job separati sono ambienti
-  #    separati, e vitest non puo' piu' vedere quei segreti nemmeno per sbaglio.
-  #
-  # Niente `needs:` verso il job fuso: le due meta' sono indipendenti, e
-  # incatenarle rimetterebbe in serie proprio cio' che si sta separando.
-  # ══════════════════════════════════════════════════════════════════════════
-  collision:
-    name: collision (funnel-critical labels)
-    runs-on: ubuntu-latest
-    # Solo su PR reali: sono gli unici eventi in cui esiste una label da
-    # scrivere. La stessa condizione resta anche sui singoli step, ed e' quella
-    # che `tests/ci-vitest-check-name.test.ts` verifica.
-    if: ${{ github.event_name == 'pull_request' && github.event.action != 'edited' }}
-    concurrency:
-      group: pr-collision-detector
-      cancel-in-progress: false
-    # Sei step di chiamate API: 15 min e' gia' larghissimo. Non eredita il 60
-    # del job fuso, che era tarato sulla somma di quattro famiglie.
-    timeout-minutes: 15
-    steps:
-      # `fetch-depth: 1` e nessuno sparse: al detector serve l'albero degli
-      # script, non la storia — i file della PR li chiede all'API
-      # (`fetchPrFiles`), non a `git diff`. E' lo stesso profilo che il job
-      # `collision` girava prima di #6555.
-      - uses: actions/checkout@v5
-        with:
-          fetch-depth: 1
-
-      # Gli script di questo job importano solo builtin Node e moduli del repo,
-      # ma l'install resta per parita' col job pre-#6555 e per non dipendere da
-      # quella proprieta' a ogni edit futuro di `scripts/ci/lib/**`.
-      - name: Setup Node.js + npm ci
-        uses: ./.github/actions/ci-npm-setup
-
-      - name: Prepare Firebase credentials
-        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
-        env:
-          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
-        run: |
-          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
-            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
-            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
-          else
-            echo "ℹ️ Nessuna Firebase SA — GITHUB_PAT non caricato; le label collision-risk verranno applicate via GITHUB_TOKEN (sufficiente per il gating di P1)."
-          fi
-
-      - name: Load secrets from Remote Config (GITHUB_PAT)
-        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
-        continue-on-error: true
-        run: node scripts/load-rc-env.mjs
-
-      # Primary identity = GitHub App installation token (`frontaliere-automation[bot]`):
-      # auto-mints, no expiry babysit. Falls back to env.GITHUB_PAT then GITHUB_TOKEN.
-      # A collision-risk label is sufficient with either identity (#2861 item 1).
-      - name: Mint App token (primary identity, PAT fallback)
-        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
-        continue-on-error: true
-        env:
-          APP_ID: ${{ secrets.APP_ID }}
-          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-        run: node scripts/ci/mint-app-token.mjs
-
-      # PAT-down = degrado silenzioso a catena del loop autonomo (merge senza
-      # cascade, coda congelata, routing/re-queue inerti). Alert inline
-      # deterministico, dedup sul titolo canonico del monitor daily
-      # (gh-pat-expiry-monitor.yml) che resta l'owner dell'auto-close.
-      # GH_TOKEN = GITHUB_TOKEN, NON il PAT (e' la cosa rotta).
-      - name: Alert token-down (dedup, zero-Claude)
-        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' && env.APP_TOKEN == '' && env.GITHUB_PAT == '' }}
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_REPO: ${{ github.repository }}
-        run: node scripts/ci/alert-pat-down.mjs --workflow "${{ github.workflow }}" --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-
-      - name: Detect funnel-critical collisions (deterministic, no Claude)
-        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
-        env:
-          # App token preferito (identità stabile, coerente con gli altri workflow
-          # migrati); PAT poi GITHUB_TOKEN come fallback — una label via GITHUB_TOKEN
-          # è comunque sufficiente per il gating di P1.
-          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          DRY_RUN: ${{ github.event.inputs.dry_run }}
-        run: |
-          if [ "${DRY_RUN:-false}" = "true" ]; then
-            node scripts/ci/pr-collision-detector.mjs --dry-run
-          else
-            node scripts/ci/pr-collision-detector.mjs
-          fi
-
-      - name: Cleanup Firebase credentials
-        if: always()
-        run: rm -f /tmp/firebase-sa.json
