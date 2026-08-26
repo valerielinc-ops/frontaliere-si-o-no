@@ -1,16 +1,16 @@
 {
   "key": "hitachi-energy",
   "label": "Hitachi Energy",
-  "generatedAt": "2026-08-26T09:54:51.395Z",
+  "generatedAt": "2026-08-26T10:12:17.283Z",
   "total": 67,
   "newCount": 0,
   "updatedCount": 67,
-  "removedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 97681,
-  "avgDurationMs": 97681,
+  "durationMs": 130388,
+  "avgDurationMs": 130388,
   "durationHistory": [
-    97681
+    130388
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -218,6 +218,7 @@
       "salaryMax": 120500,
       "currency": "CHF",
       "firstSeenAt": "2026-08-20T21:36:20.596Z",
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1073,77 +1074,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Tender and Quotation Specialist 80 – 100% (f/m/d)",
-      "slug": "tender-and-quotation-specialista-80-100-f-m-d-hitachi-energy-zurich",
-      "url": "https://www.hitachienergy.com/careers/open-jobs/details/JID3-211169",
-      "applyUrl": "https://hitachi.wd1.myworkdayjobs.com/hitachi/job/Zurich-Zurich-Switzerland/Tender-and-Quotation-Specialist---High-Voltage-Industrial-Equipment-80---100---f-m-d-_R0126921/apply",
-      "company": "Hitachi Energy",
-      "companyKey": "hitachi-energy",
-      "companyDomain": "hitachienergy.com",
-      "location": "Zurich, Switzerland",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Ingegneria Energetica",
-      "source": "hitachi-energy-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-08-14",
-      "employmentType": "full-time",
-      "contractType": "regular",
-      "validThrough": "",
-      "id": "hitachi-energy-3983ebae34ca",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-08-15T09:38:32.529Z",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "title": "Field Service Technician (f/m/d)",
-      "slug": "ingegnere-di-servizio-sul-campo-f-m-d-hitachi-energy-zurich-switzerland",
-      "url": "https://www.hitachienergy.com/careers/open-jobs/details/JID3-193556",
-      "applyUrl": "https://hitachi.wd1.myworkdayjobs.com/hitachi/job/Zurich-Zurich-Switzerland/Field-Service-Engineer--f-m-d-_R0123798/apply",
-      "company": "Hitachi Energy",
-      "companyKey": "hitachi-energy",
-      "companyDomain": "hitachienergy.com",
-      "location": "Zurich, Switzerland",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Ingegneria Energetica",
-      "source": "hitachi-energy-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-05-11",
-      "employmentType": "full-time",
-      "contractType": "regular",
-      "validThrough": "",
-      "id": "hitachi-energy-9b4e04682283",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-18T10:30:32.146Z",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
