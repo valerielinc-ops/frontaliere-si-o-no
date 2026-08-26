@@ -4408,6 +4408,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.iniziativa-alimentazione-no.title': 'Food initiative: Ticino NO',
     'blog.article.iniziativa-alimentazione-no.excerpt': 'The Ticino Committee warns of costs and consequences: a vote on 27 September will decide on the request for 70% self-supply.',
     'blog.article.iniziativa-alimentazione-no.imageAlt': 'Ticino farmers market displaying local produce, vegetables, and dairy products under blue sky.',
+    'blog.article.reddito-record-risparmio-svizzeri.title': 'Record income and savings: the Swiss in 2025',
+    'blog.article.reddito-record-risparmio-svizzeri.excerpt': 'Disposable income of CHF 65,124 per inhabitant in 2025. UST: voluntary savings rate rises to 19.3%, the highest in the Swiss statistical series.',
+    'blog.article.reddito-record-risparmio-svizzeri.imageAlt': 'Swiss family reviewing savings and financial plan at modern home office with Alpine view',
 };
 
 export default blogMetaChEn;

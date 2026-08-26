@@ -57194,6 +57194,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-reddito-record-risparmio-svizzeri': {
+    title: 'Reddito e risparmio record: gli svizzeri nel 2025',
+    description: 'Nel 2025 l\'UST pubblica un record storico: reddito disponibile di 65.124 franchi per abitante e tasso di risparmio volontario al 19,3%. Crescita reale del 36%',
+    keywords: 'frontalieri, ticino, svizzera, italia, reddito, risparmio, record, svizzeri',
+    ogTitle: 'Reddito e risparmio record: gli svizzeri nel 2025',
+    ogDescription: 'Nuovo record storico nel 2025: ogni svizzero ha un reddito disponibile di 65.124 franchi e mette da parte quasi 18.000 franchi. Il tasso di risparmio volontario raggiunge il 19,3%. Scopri le implicazioni per il tuo bilancio familiare.',
+    canonicalPath: '/articoli-svizzera/reddito-record-risparmio-svizzeri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Reddito e risparmio record: gli svizzeri nel 2025",
+      "description": "Nel 2025 l'UST pubblica un record storico: reddito disponibile di 65.124 franchi per abitante e tasso di risparmio volontario al 19,3%. Crescita reale del 36%",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/reddito-record-risparmio-svizzeri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Famiglia svizzera che esamina i propri risparmi e pianificazione finanziaria presso un ufficio domestico moderno"
+      },
+      "datePublished": "2026-08-26T16:59:55+00:00",
+      "dateModified": "2026-08-26T16:59:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/reddito-record-risparmio-svizzeri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

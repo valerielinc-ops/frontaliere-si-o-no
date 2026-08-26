@@ -1495,6 +1495,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'mobiliare-edilizia-popolare-200m': { it: 'mobiliare-edilizia-popolare-200m', en: 'mobiliare-affordable-housing-200m', de: 'mobiliare-sozialer-wohnungsbau-200m', fr: 'mobiliare-logement-social-200m' },
  'elettricita-gas-meno-cari-2027': { it: 'elettricita-gas-meno-cari-2027', en: 'electricity-gas-lower-costs-2027', de: 'strom-gas-kostenguenstiger-2027', fr: 'electricite-gaz-moins-cher-2027' },
  'iniziativa-alimentazione-no': { it: 'iniziativa-alimentazione-no', en: 'food-initiative-no-ticino', de: 'ernaehrungsinitiative-nein-tessin', fr: 'initiative-alimentation-non-tessin' },
+ 'reddito-record-risparmio-svizzeri': { it: 'reddito-record-risparmio-svizzeri', en: 'swiss-income-savings-record-2025', de: 'schweiz-einkommen-sparrekord-2025', fr: 'suisse-revenu-epargne-record-2025' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -4408,6 +4408,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.iniziativa-alimentazione-no.title': 'Initiative alimentaire : le non du Tessin',
     'blog.article.iniziativa-alimentazione-no.excerpt': 'Le Comité tessinois met en garde contre les coûts et les conséquences : un vote le 27 septembre décidera de la demande de 70 % d\'auto-approvisionnement.',
     'blog.article.iniziativa-alimentazione-no.imageAlt': 'Marché agricole tessinois avec produits locaux, fruits, légumes et produits laitiers sous ciel dégagé.',
+    'blog.article.reddito-record-risparmio-svizzeri.title': 'Revenu et épargne record : les Suisses en 2025',
+    'blog.article.reddito-record-risparmio-svizzeri.excerpt': 'Revenu disponible de 65 124 francs par habitant en 2025. OFS : taux d\'épargne volontaire grimpe à 19,3%, le plus haut historique de la série statistique suisse.',
+    'blog.article.reddito-record-risparmio-svizzeri.imageAlt': 'Famille suisse examinant ses économies et planification financière au bureau à domicile moderne',
 };
 
 export default blogMetaChFr;
