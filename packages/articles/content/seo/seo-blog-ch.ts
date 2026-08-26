@@ -56258,6 +56258,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-deposito-disdetta-affitti-appenzello': {
+    title: 'Affitti Appenzello interno: guida pratica | Frontaliere Ticino',
+    description: 'Affitti ad Appenzello Interno: deposito cauzionale, contestazione canone, disdetta del contratto. Norme federali CO art. 253 segg. Guida pratica per inquilini.',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, appenzello, interno, pratica',
+    ogTitle: 'Affitti Appenzello Interno: Guida Pratica',
+    ogDescription: 'Affitti Appenzello Interno: deposito max 3 mesi, contestazione canone in 30 giorni, disdetta 1-3 mesi preavviso. Norme federali CO art. 253 per inquilini. Guida pratica con procedure di conciliazione e restituzione deposito.',
+    canonicalPath: '/articoli-svizzera/deposito-disdetta-affitti-appenzello/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti Appenzello interno: guida pratica",
+      "description": "Affitti ad Appenzello Interno: deposito cauzionale, contestazione canone, disdetta del contratto. Norme federali CO art. 253 segg. Guida pratica per inquilini.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/deposito-disdetta-affitti-appenzello.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scena di locazione residenziale ad Appenzello Interno con consegna chiavi e documento di contratto"
+      },
+      "datePublished": "2026-08-26T01:45:49+00:00",
+      "dateModified": "2026-08-26T01:45:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/deposito-disdetta-affitti-appenzello/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

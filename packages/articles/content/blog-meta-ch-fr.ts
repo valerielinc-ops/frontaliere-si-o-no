@@ -4336,6 +4336,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.diritto-locazione-appenzello-interno-canoni-conciliazione.title': 'Droit locatif Appenzell Interne : redevances et conciliation',
     'blog.article.diritto-locazione-appenzello-interno-canoni-conciliazione.excerpt': 'Guide complet du droit fédéral suisse de la location : dépôt de garantie maximum 3 mois, résiliation et procédure de conciliation à Appenzell Interne.',
     'blog.article.diritto-locazione-appenzello-interno-canoni-conciliazione.imageAlt': 'Rue urbaine suisse avec immeubles résidentiels et annonces de locations; représente le contexte du droit fédéral du logement',
+    'blog.article.deposito-disdetta-affitti-appenzello.title': 'Location Appenzell intérieur : guide pratique',
+    'blog.article.deposito-disdetta-affitti-appenzello.excerpt': 'Location Appenzell : dépôt 3 mois, droit de recours 30 jours, résiliation 1-3 mois préavis. Règles fédérales pour les locataires et conciliation cantonale.',
+    'blog.article.deposito-disdetta-affitti-appenzello.imageAlt': 'Marché locatif Appenzell Rhodes-Intérieures: remise de clés et contrat de location',
 };
 
 export default blogMetaChFr;

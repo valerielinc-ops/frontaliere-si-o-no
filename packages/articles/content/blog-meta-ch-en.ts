@@ -4336,6 +4336,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.diritto-locazione-appenzello-interno-canoni-conciliazione.title': 'Internal Appenzello lease law: fees and conciliation',
     'blog.article.diritto-locazione-appenzello-interno-canoni-conciliazione.excerpt': 'Complete guide to Swiss federal lease law: 3 months maximum security deposit, cancellation and conciliation procedure in Appenzello Internno.',
     'blog.article.diritto-locazione-appenzello-interno-canoni-conciliazione.imageAlt': 'Swiss urban street with residential buildings and rental notices; represents the context of federal rental law',
+    'blog.article.deposito-disdetta-affitti-appenzello.title': 'Rentals internal Appenzello: practical guide',
+    'blog.article.deposito-disdetta-affitti-appenzello.excerpt': 'Appenzello lease: deposit 3 months, recourse fee 30 days, cancellation 1-3 months notice. Federal rules for tenants and cantonal conciliation.',
+    'blog.article.deposito-disdetta-affitti-appenzello.imageAlt': 'Residential rental scene in Appenzell Innerrhoden with key exchange and rental agreement',
 };
 
 export default blogMetaChEn;
