@@ -1,6 +1,6 @@
 {
   "crawlerKey": "c-and-a-schweiz",
-  "assembledAt": "2026-08-25T21:57:57.917Z",
+  "assembledAt": "2026-08-26T10:24:08.605Z",
   "jobs": [
     {
       "id": "c-and-a-schweiz-b54051f8450f",
@@ -33,7 +33,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-fmd-60-bis-80-fur-emmen-64085-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:54.698Z",
+      "crawledAt": "2026-08-26T10:24:05.786Z",
       "addressLocality": "Emmenbrücke",
       "postalCode": "6020",
       "addressCountry": "CH",
@@ -105,7 +105,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-verkauf-fmd-50-mit-schwerpunkt-service-in-gaupark-65300-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:54.342Z",
+      "crawledAt": "2026-08-26T10:24:05.457Z",
       "addressLocality": "Egerkingen",
       "postalCode": "4622",
       "addressCountry": "CH",
@@ -122,11 +122,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-verkauf-f-m-d-50-mit-schwerpunkt-service-in-gaupark-c-and-a-schweiz-ch"
+        "mitarbeiter-verkauf-f-m-d-50-mit-schwerpunkt-service-in-gaupark-c-and-a-schweiz-ch",
+        "addetto-a-alle-vendite-m-w-d-50-con-schwerpunkt-service-in-gaupark-c-a-schweiz-egerkingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-verkauf-f-m-d-50-mit-schwerpunkt-service-in-gaupark-c-and-a-schweiz-ch"
+          "mitarbeiter-verkauf-f-m-d-50-mit-schwerpunkt-service-in-gaupark-c-and-a-schweiz-ch",
+          "addetto-a-alle-vendite-m-w-d-50-con-schwerpunkt-service-in-gaupark-c-a-schweiz-egerkingen"
         ],
         "en": [
           "mitarbeiter-verkauf-f-m-d-50-mit-schwerpunkt-service-in-gaupark-c-and-a-schweiz-ch"
@@ -182,7 +184,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-leader-assistant-fmd-100-fur-frauenfeld-65278-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:53.986Z",
+      "crawledAt": "2026-08-26T10:24:05.129Z",
       "addressLocality": "Frauenfeld",
       "postalCode": "8500",
       "addressCountry": "CH",
@@ -210,6 +212,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:31:44.162Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -255,7 +258,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-verkauf-fmd-30-mit-schlusselfunktion-in-bremgarten-65404-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:53.679Z",
+      "crawledAt": "2026-08-26T10:24:04.806Z",
       "addressLocality": "Bremgarten",
       "postalCode": "5620",
       "addressCountry": "CH",
@@ -272,11 +275,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-verkauf-f-m-d-30-mit-schlusselfunktion-in-bremgarten-c-and-a-schweiz-ch"
+        "mitarbeiter-verkauf-f-m-d-30-mit-schlusselfunktion-in-bremgarten-c-and-a-schweiz-ch",
+        "addetto-a-alle-vendite-m-w-d-30-con-schlusselfunktion-in-bremgarten-c-a-schweiz-bremgarten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-verkauf-f-m-d-30-mit-schlusselfunktion-in-bremgarten-c-and-a-schweiz-ch"
+          "mitarbeiter-verkauf-f-m-d-30-mit-schlusselfunktion-in-bremgarten-c-and-a-schweiz-ch",
+          "addetto-a-alle-vendite-m-w-d-30-con-schlusselfunktion-in-bremgarten-c-a-schweiz-bremgarten"
         ],
         "en": [
           "mitarbeiter-verkauf-f-m-d-30-mit-schlusselfunktion-in-bremgarten-c-and-a-schweiz-ch"
@@ -332,7 +337,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/floor-manager-wmd-100-fur-oerlikon-65568-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:53.367Z",
+      "crawledAt": "2026-08-26T10:24:04.479Z",
       "addressLocality": "Zürich",
       "postalCode": "8050",
       "addressCountry": "CH",
@@ -360,6 +365,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:31:43.083Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -405,7 +411,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-fmd-60-in-olten-salipark-65540-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:53.047Z",
+      "crawledAt": "2026-08-26T10:24:04.152Z",
       "addressLocality": "Olten",
       "postalCode": "4600",
       "addressCountry": "CH",
@@ -422,11 +428,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "store-visual-merchandiser-f-m-d-60-in-olten-salipark-c-and-a-schweiz-ch"
+        "store-visual-merchandiser-f-m-d-60-in-olten-salipark-c-and-a-schweiz-ch",
+        "negozio-visual-merchandiser-f-m-d-60-in-olten-salipark-c-a-schweiz-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "store-visual-merchandiser-f-m-d-60-in-olten-salipark-c-and-a-schweiz-ch"
+          "store-visual-merchandiser-f-m-d-60-in-olten-salipark-c-and-a-schweiz-ch",
+          "negozio-visual-merchandiser-f-m-d-60-in-olten-salipark-c-a-schweiz-olten"
         ]
       },
       "needsRetranslation": true,
@@ -460,7 +468,7 @@
       "title": "Store Visual Merchandiser (f/m/d) 60% in Regensdorf",
       "titleByLocale": {
         "it": "Negozio Visual Merchandiser (f/m/d) 60% in Regensdorf",
-        "en": "Store Visual Merchandiser (m/f/d) 60% in Regensdorf",
+        "en": "Store Visual Merchandiser (f/m/d) 60% in Regensdorf",
         "de": "Store Visual Merchandiser (f/m/d) 60% in Regensdorf",
         "fr": "Magasiner le marchandage visuel (f/m/d) 60% à Regensdorf"
       },
@@ -476,7 +484,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-fmd-60-in-regensdorf-65298-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:52.731Z",
+      "crawledAt": "2026-08-26T10:24:03.833Z",
       "addressLocality": "Regensdorf",
       "postalCode": "8105",
       "addressCountry": "CH",
@@ -493,14 +501,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "store-visual-merchandiser-f-m-d-60-in-regensdorf-c-and-a-schweiz-ch"
+        "store-visual-merchandiser-f-m-d-60-in-regensdorf-c-and-a-schweiz-ch",
+        "negozio-visual-merchandiser-f-m-d-60-in-regensdorf-c-a-schweiz-regensdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "store-visual-merchandiser-f-m-d-60-in-regensdorf-c-and-a-schweiz-ch"
+          "store-visual-merchandiser-f-m-d-60-in-regensdorf-c-and-a-schweiz-ch",
+          "negozio-visual-merchandiser-f-m-d-60-in-regensdorf-c-a-schweiz-regensdorf"
         ]
       },
       "firstSeenAt": "2026-07-03T21:31:42.352Z",
+      "needsRetranslation": true,
       "salaryMin": 44100,
       "salaryMax": 66900,
       "baseSalary": {
@@ -546,7 +557,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-30-fur-sihlcity-abend-und-samstags-65702-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:52.391Z",
+      "crawledAt": "2026-08-26T10:24:03.509Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "addressCountry": "CH",
@@ -563,11 +574,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-w-m-d-30-fur-sihlcity-abend-und-samstags-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-w-m-d-30-fur-sihlcity-abend-und-samstags-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-m-w-d-30-per-sihlcity-abend-e-samstags-c-a-schweiz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-w-m-d-30-fur-sihlcity-abend-und-samstags-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-w-m-d-30-fur-sihlcity-abend-und-samstags-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-m-w-d-30-per-sihlcity-abend-e-samstags-c-a-schweiz-zurich"
         ],
         "en": [
           "mitarbeiter-im-verkauf-w-m-d-30-fur-sihlcity-abend-und-samstags-c-and-a-schweiz-ch"
@@ -623,7 +636,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-40-fur-sihlcity-65701-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:52.077Z",
+      "crawledAt": "2026-08-26T10:24:03.171Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "addressCountry": "CH",
@@ -640,11 +653,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-w-m-d-40-fur-sihlcity-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-w-m-d-40-fur-sihlcity-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-m-w-d-40-per-sihlcity-c-a-schweiz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-w-m-d-40-fur-sihlcity-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-w-m-d-40-fur-sihlcity-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-m-w-d-40-per-sihlcity-c-a-schweiz-zurich"
         ],
         "en": [
           "mitarbeiter-im-verkauf-w-m-d-40-fur-sihlcity-c-and-a-schweiz-ch"
@@ -700,7 +715,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-leader-assistant-fmd-100-fur-emmen-65892-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:51.732Z",
+      "crawledAt": "2026-08-26T10:24:02.745Z",
       "addressLocality": "Emmenbrücke",
       "postalCode": "6020",
       "addressCountry": "CH",
@@ -773,7 +788,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-verkauf-mit-schlusselfunktion-mwd-30-fur-emmen-65780-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:51.413Z",
+      "crawledAt": "2026-08-26T10:24:02.420Z",
       "addressLocality": "Emmenbrücke",
       "postalCode": "6020",
       "addressCountry": "CH",
@@ -790,11 +805,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-verkauf-mit-schlusselfunktion-m-w-d-30-fur-emmen-c-and-a-schweiz-ch"
+        "mitarbeiter-verkauf-mit-schlusselfunktion-m-w-d-30-fur-emmen-c-and-a-schweiz-ch",
+        "addetto-a-alle-vendite-con-schlusselfunktion-m-w-d-30-per-emmen-c-a-schweiz-emmenbrucke"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-verkauf-mit-schlusselfunktion-m-w-d-30-fur-emmen-c-and-a-schweiz-ch"
+          "mitarbeiter-verkauf-mit-schlusselfunktion-m-w-d-30-fur-emmen-c-and-a-schweiz-ch",
+          "addetto-a-alle-vendite-con-schlusselfunktion-m-w-d-30-per-emmen-c-a-schweiz-emmenbrucke"
         ],
         "en": [
           "mitarbeiter-verkauf-mit-schlusselfunktion-m-w-d-30-fur-emmen-c-and-a-schweiz-ch"
@@ -849,7 +866,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-verkauf-mwd-60-schwerpunkt-service-in-zurich-city-65987-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:51.095Z",
+      "crawledAt": "2026-08-26T10:24:02.096Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressCountry": "CH",
@@ -870,7 +887,8 @@
         "addetto-a-alle-vendite-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich",
         "sales-associate-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-ch",
         "mitarbeiter-verkauf-m-w-d-70-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch",
-        "vendeur-se-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich"
+        "vendeur-se-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich",
+        "addetto-a-alle-vendite-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -878,7 +896,8 @@
           "addetto-a-alle-vendite-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich",
           "sales-associate-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-ch",
           "mitarbeiter-verkauf-m-w-d-70-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch",
-          "vendeur-se-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich"
+          "vendeur-se-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich",
+          "addetto-a-alle-vendite-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich"
         ],
         "en": [
           "mitarbeiter-verkauf-m-w-d-60-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch",
@@ -939,7 +958,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-30-fur-pilatusmarkt-65931-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:50.781Z",
+      "crawledAt": "2026-08-26T10:24:01.772Z",
       "addressLocality": "Kriens",
       "postalCode": "6010",
       "addressCountry": "CH",
@@ -956,11 +975,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-m-w-d-30-fur-pilatusmarkt-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-m-w-d-30-fur-pilatusmarkt-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-m-w-d-30-per-pilatusmarkt-c-a-schweiz-kriens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-m-w-d-30-fur-pilatusmarkt-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-m-w-d-30-fur-pilatusmarkt-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-m-w-d-30-per-pilatusmarkt-c-a-schweiz-kriens"
         ],
         "en": [
           "mitarbeiter-im-verkauf-m-w-d-30-fur-pilatusmarkt-c-and-a-schweiz-ch"
@@ -1016,7 +1037,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-25-in-tivoli-spreitenbach-65744-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:50.455Z",
+      "crawledAt": "2026-08-26T10:24:01.444Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressCountry": "CH",
@@ -1037,7 +1058,8 @@
         "collaboratore-trice-im-vendita-m-w-d-20-per-tivoli-spreitenbach-c-a-schweiz-spreitenbach",
         "mitarbeiter-im-sales-m-w-d-20-fur-tivoli-spreitenbach-c-a-schweiz-spreitenbach",
         "mitarbeiter-im-verkauf-m-w-d-20-fur-tivoli-spreitenbach-c-and-a-schweiz-ch",
-        "mitarbeiter-im-vente-m-w-d-20-fur-tivoli-spreitenbach-c-a-schweiz-spreitenbach"
+        "mitarbeiter-im-vente-m-w-d-20-fur-tivoli-spreitenbach-c-a-schweiz-spreitenbach",
+        "collaboratore-trice-im-vendita-m-w-d-25-in-tivoli-spreitenbach-c-a-schweiz-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1045,7 +1067,8 @@
           "collaboratore-trice-im-vendita-m-w-d-20-per-tivoli-spreitenbach-c-a-schweiz-spreitenbach",
           "mitarbeiter-im-sales-m-w-d-20-fur-tivoli-spreitenbach-c-a-schweiz-spreitenbach",
           "mitarbeiter-im-verkauf-m-w-d-20-fur-tivoli-spreitenbach-c-and-a-schweiz-ch",
-          "mitarbeiter-im-vente-m-w-d-20-fur-tivoli-spreitenbach-c-a-schweiz-spreitenbach"
+          "mitarbeiter-im-vente-m-w-d-20-fur-tivoli-spreitenbach-c-a-schweiz-spreitenbach",
+          "collaboratore-trice-im-vendita-m-w-d-25-in-tivoli-spreitenbach-c-a-schweiz-spreitenbach"
         ],
         "en": [
           "mitarbeiter-im-verkauf-w-m-d-25-in-tivoli-spreitenbach-c-and-a-schweiz-ch",
@@ -1106,7 +1129,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-50-in-oerlikon-66092-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:50.145Z",
+      "crawledAt": "2026-08-26T10:24:01.095Z",
       "addressLocality": "Zürich",
       "postalCode": "8050",
       "addressCountry": "CH",
@@ -1123,11 +1146,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-w-m-d-50-in-oerlikon-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-w-m-d-50-in-oerlikon-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-m-w-d-50-in-oerlikon-c-a-schweiz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-w-m-d-50-in-oerlikon-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-w-m-d-50-in-oerlikon-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-m-w-d-50-in-oerlikon-c-a-schweiz-zurich"
         ],
         "en": [
           "mitarbeiter-im-verkauf-w-m-d-50-in-oerlikon-c-and-a-schweiz-ch"
@@ -1183,7 +1208,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-wmd-60-80-fur-brugg-66189-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:49.831Z",
+      "crawledAt": "2026-08-26T10:24:00.775Z",
       "addressLocality": "Brugg",
       "postalCode": "5200",
       "addressCountry": "CH",
@@ -1256,7 +1281,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-20-fur-bern-66200-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:49.519Z",
+      "crawledAt": "2026-08-26T10:24:00.451Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -1273,11 +1298,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-w-m-d-20-fur-bern-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-w-m-d-20-fur-bern-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-m-w-d-20-per-bern-c-a-schweiz-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-w-m-d-20-fur-bern-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-w-m-d-20-fur-bern-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-m-w-d-20-per-bern-c-a-schweiz-bern"
         ],
         "en": [
           "mitarbeiter-im-verkauf-w-m-d-20-fur-bern-c-and-a-schweiz-ch"
@@ -1333,7 +1360,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-leader-assistant-fmd-100-fur-thun-66199-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:49.205Z",
+      "crawledAt": "2026-08-26T10:24:00.133Z",
       "addressLocality": "Thun",
       "postalCode": "3601",
       "addressCountry": "CH",
@@ -1361,6 +1388,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:31:35.978Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1406,7 +1434,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-30-fur-bern-66089-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:48.886Z",
+      "crawledAt": "2026-08-26T10:23:59.811Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -1423,11 +1451,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-w-m-d-30-fur-bern-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-w-m-d-30-fur-bern-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-m-w-d-30-per-bern-c-a-schweiz-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-w-m-d-30-fur-bern-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-w-m-d-30-fur-bern-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-m-w-d-30-per-bern-c-a-schweiz-bern"
         ],
         "en": [
           "mitarbeiter-im-verkauf-w-m-d-30-fur-bern-c-and-a-schweiz-ch"
@@ -1483,7 +1513,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-40-fur-bern-66087-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:48.542Z",
+      "crawledAt": "2026-08-26T10:23:59.468Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -1500,11 +1530,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-w-m-d-40-fur-bern-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-w-m-d-40-fur-bern-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-m-w-d-40-per-bern-c-a-schweiz-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-w-m-d-40-fur-bern-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-w-m-d-40-fur-bern-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-m-w-d-40-per-bern-c-a-schweiz-bern"
         ],
         "en": [
           "mitarbeiter-im-verkauf-w-m-d-40-fur-bern-c-and-a-schweiz-ch"
@@ -1560,7 +1592,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-60-fur-thun-befristet-fur-3-monate-66258-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:48.214Z",
+      "crawledAt": "2026-08-26T10:23:59.134Z",
       "addressLocality": "Thun",
       "postalCode": "3601",
       "addressCountry": "CH",
@@ -1577,11 +1609,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-w-m-d-60-fur-thun-befristet-fur-3-monate-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-w-m-d-60-fur-thun-befristet-fur-3-monate-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-m-w-d-60-per-thun-befristet-per-3-monate-c-a-schweiz-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-w-m-d-60-fur-thun-befristet-fur-3-monate-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-w-m-d-60-fur-thun-befristet-fur-3-monate-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-m-w-d-60-per-thun-befristet-per-3-monate-c-a-schweiz-thun"
         ],
         "en": [
           "mitarbeiter-im-verkauf-w-m-d-60-fur-thun-befristet-fur-3-monate-c-and-a-schweiz-ch"
@@ -1637,7 +1671,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-40-im-volkiland-66278-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:47.902Z",
+      "crawledAt": "2026-08-26T10:23:58.810Z",
       "addressLocality": "Volketswil",
       "postalCode": "8604",
       "addressCountry": "CH",
@@ -1654,11 +1688,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-w-m-d-40-im-volkiland-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-w-m-d-40-im-volkiland-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-m-w-d-40-im-volkiland-c-a-schweiz-volketswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-w-m-d-40-im-volkiland-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-w-m-d-40-im-volkiland-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-m-w-d-40-im-volkiland-c-a-schweiz-volketswil"
         ],
         "en": [
           "mitarbeiter-im-verkauf-w-m-d-40-im-volkiland-c-and-a-schweiz-ch"
@@ -1714,7 +1750,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-wmd-100-fur-bern-66275-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:47.582Z",
+      "crawledAt": "2026-08-26T10:23:58.472Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -1787,7 +1823,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-50-fur-bern-66271-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:47.263Z",
+      "crawledAt": "2026-08-26T10:23:58.125Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -1804,11 +1840,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-w-m-d-50-fur-bern-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-w-m-d-50-fur-bern-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-m-w-d-50-per-bern-c-a-schweiz-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-w-m-d-50-fur-bern-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-w-m-d-50-fur-bern-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-m-w-d-50-per-bern-c-a-schweiz-bern"
         ],
         "en": [
           "mitarbeiter-im-verkauf-w-m-d-50-fur-bern-c-and-a-schweiz-ch"
@@ -1864,7 +1902,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-fmd-50-in-egerkingen-66237-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:46.951Z",
+      "crawledAt": "2026-08-26T10:23:57.787Z",
       "addressLocality": "Egerkingen",
       "postalCode": "4622",
       "addressCountry": "CH",
@@ -1881,11 +1919,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-f-m-d-50-in-egerkingen-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-f-m-d-50-in-egerkingen-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-m-w-d-50-in-egerkingen-c-a-schweiz-egerkingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-f-m-d-50-in-egerkingen-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-f-m-d-50-in-egerkingen-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-m-w-d-50-in-egerkingen-c-a-schweiz-egerkingen"
         ],
         "en": [
           "mitarbeiter-im-verkauf-f-m-d-50-in-egerkingen-c-and-a-schweiz-ch"
@@ -1925,7 +1965,7 @@
       "title": "Store Visual Merchandiser (f/m/d) 80-100% Chur",
       "titleByLocale": {
         "it": "Negozio Visual Merchandiser (f/m/d) 80-100% Chur",
-        "en": "Store Visual Merchandiser (m/f/d) 80-100% Chur",
+        "en": "Store Visual Merchandiser (f/m/d) 80-100% Chur",
         "de": "Store Visual Merchandiser (f/m/d) 80-100% Chur",
         "fr": "Magasiner les marchandises visuelles (f/m/j) 80-100% Chur"
       },
@@ -1941,7 +1981,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-fmd-80-100-chur-66218-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:46.641Z",
+      "crawledAt": "2026-08-26T10:23:57.402Z",
       "addressLocality": "Chur",
       "postalCode": "7001",
       "addressCountry": "CH",
@@ -1958,14 +1998,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "store-visual-merchandiser-f-m-d-80-100-chur-c-and-a-schweiz-ch"
+        "store-visual-merchandiser-f-m-d-80-100-chur-c-and-a-schweiz-ch",
+        "negozio-visual-merchandiser-f-m-d-80-100-chur-c-a-schweiz-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "store-visual-merchandiser-f-m-d-80-100-chur-c-and-a-schweiz-ch"
+          "store-visual-merchandiser-f-m-d-80-100-chur-c-and-a-schweiz-ch",
+          "negozio-visual-merchandiser-f-m-d-80-100-chur-c-a-schweiz-chur"
         ]
       },
       "firstSeenAt": "2026-07-03T21:31:32.684Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -2011,7 +2054,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-60-fur-mythencenter-schwyz-65340-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:46.319Z",
+      "crawledAt": "2026-08-26T10:23:57.073Z",
       "addressLocality": "Ibach",
       "postalCode": "6438",
       "addressCountry": "CH",
@@ -2028,11 +2071,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-w-m-d-60-fur-mythencenter-schwyz-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-w-m-d-60-fur-mythencenter-schwyz-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-m-w-d-60-per-mythencenter-schwyz-c-a-schweiz-ibach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-w-m-d-60-fur-mythencenter-schwyz-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-w-m-d-60-fur-mythencenter-schwyz-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-m-w-d-60-per-mythencenter-schwyz-c-a-schweiz-ibach"
         ],
         "en": [
           "mitarbeiter-im-verkauf-w-m-d-60-fur-mythencenter-schwyz-c-and-a-schweiz-ch"
@@ -2087,7 +2132,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-leader-assistant-wmd-100-fur-bern-66309-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:45.961Z",
+      "crawledAt": "2026-08-26T10:23:56.692Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -2123,6 +2168,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:31:31.948Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2168,7 +2214,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-50-fur-aarau-66353-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:45.634Z",
+      "crawledAt": "2026-08-26T10:23:56.363Z",
       "addressLocality": "Aarau",
       "postalCode": "5000",
       "addressCountry": "CH",
@@ -2193,7 +2239,8 @@
         "collaboratore-trice-im-vendita-schwerpunkt-warenbewirtschaftung-m-w-d-80-in-aarau-c-a-schweiz-aarau",
         "mitarbeiter-im-sales-schwerpunkt-warenbewirtschaftung-m-w-d-80-in-aarau-c-a-schweiz-aarau",
         "mitarbeiter-im-verkauf-schwerpunkt-warenbewirtschaftung-m-w-d-80-in-aarau-c-and-a-schweiz",
-        "mitarbeiter-im-vente-schwerpunkt-warenbewirtschaftung-m-w-d-80-in-aarau-c-a-schweiz-aarau"
+        "mitarbeiter-im-vente-schwerpunkt-warenbewirtschaftung-m-w-d-80-in-aarau-c-a-schweiz-aarau",
+        "collaboratore-trice-im-vendita-m-w-d-50-per-aarau-c-a-schweiz-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2205,7 +2252,8 @@
           "collaboratore-trice-im-vendita-schwerpunkt-warenbewirtschaftung-m-w-d-80-in-aarau-c-a-schweiz-aarau",
           "mitarbeiter-im-sales-schwerpunkt-warenbewirtschaftung-m-w-d-80-in-aarau-c-a-schweiz-aarau",
           "mitarbeiter-im-verkauf-schwerpunkt-warenbewirtschaftung-m-w-d-80-in-aarau-c-and-a-schweiz",
-          "mitarbeiter-im-vente-schwerpunkt-warenbewirtschaftung-m-w-d-80-in-aarau-c-a-schweiz-aarau"
+          "mitarbeiter-im-vente-schwerpunkt-warenbewirtschaftung-m-w-d-80-in-aarau-c-a-schweiz-aarau",
+          "collaboratore-trice-im-vendita-m-w-d-50-per-aarau-c-a-schweiz-aarau"
         ],
         "en": [
           "mitarbeiter-im-verkauf-w-m-d-50-fur-aarau-c-and-a-schweiz-ch",
@@ -2253,7 +2301,7 @@
       "title": "Store Visual Merchandiser (m/w/d) 60% in Liestal",
       "titleByLocale": {
         "it": "Negozio Visual Merchandiser (m/f/d) 60% in Liestal",
-        "en": "Store Visual Merchandiser (m/f/d) 60% in Liestal",
+        "en": "Store Visual Merchandiser (m/w/d) 60% in Liestal",
         "de": "Store Visual Merchandiser (m/w/d) 60% in Liestal",
         "fr": "Stocker le marchandiseur visuel (m/f/d) 60 % en liestal"
       },
@@ -2269,7 +2317,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-60-in-liestal-66554-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:45.310Z",
+      "crawledAt": "2026-08-26T10:23:56.038Z",
       "addressLocality": "Liestal",
       "postalCode": "4410",
       "addressCountry": "CH",
@@ -2286,14 +2334,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "store-visual-merchandiser-m-w-d-60-in-liestal-c-and-a-schweiz-ch"
+        "store-visual-merchandiser-m-w-d-60-in-liestal-c-and-a-schweiz-ch",
+        "negozio-visual-merchandiser-m-f-d-60-in-liestal-c-a-schweiz-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "store-visual-merchandiser-m-w-d-60-in-liestal-c-and-a-schweiz-ch"
+          "store-visual-merchandiser-m-w-d-60-in-liestal-c-and-a-schweiz-ch",
+          "negozio-visual-merchandiser-m-f-d-60-in-liestal-c-a-schweiz-liestal"
         ]
       },
       "firstSeenAt": "2026-07-03T21:31:27.487Z",
+      "needsRetranslation": true,
       "salaryMin": 37200,
       "salaryMax": 56400,
       "baseSalary": {
@@ -2339,7 +2390,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-80-fur-st-jakob-park-66586-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:44.984Z",
+      "crawledAt": "2026-08-26T10:23:55.711Z",
       "addressLocality": "Basel",
       "postalCode": "4052",
       "addressCountry": "CH",
@@ -2413,7 +2464,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-40-in-frauenfeld-befristet-bis-februar-2027-66585-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:44.672Z",
+      "crawledAt": "2026-08-26T10:23:55.388Z",
       "addressLocality": "Frauenfeld",
       "postalCode": "8500",
       "addressCountry": "CH",
@@ -2438,7 +2489,8 @@
         "collaboratore-trice-im-vendita-m-w-d-40-per-pilatusmarkt-befristet-bis-februar-2027-c-a-schweiz-kriens",
         "mitarbeiter-im-sales-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-c-a-schweiz-kriens",
         "mitarbeiter-im-verkauf-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-c-and-a",
-        "mitarbeiter-im-vente-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-c-a-schweiz-kriens"
+        "mitarbeiter-im-vente-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-c-a-schweiz-kriens",
+        "collaboratore-trice-im-vendita-m-w-d-40-in-frauenfeld-befristet-bis-februar-2027-c-a-schweiz-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2450,7 +2502,8 @@
           "collaboratore-trice-im-vendita-m-w-d-40-per-pilatusmarkt-befristet-bis-februar-2027-c-a-schweiz-kriens",
           "mitarbeiter-im-sales-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-c-a-schweiz-kriens",
           "mitarbeiter-im-verkauf-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-c-and-a",
-          "mitarbeiter-im-vente-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-c-a-schweiz-kriens"
+          "mitarbeiter-im-vente-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-c-a-schweiz-kriens",
+          "collaboratore-trice-im-vendita-m-w-d-40-in-frauenfeld-befristet-bis-februar-2027-c-a-schweiz-frauenfeld"
         ],
         "en": [
           "mitarbeiter-im-sales-w-m-d-40-mit-schlusselfunktion-in-frauenfeld-befristet-bis-ende-feb-2027-c-a-schweiz-frauenfeld",
@@ -2514,7 +2567,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-100-fur-st-gallen-arena-66648-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:44.340Z",
+      "crawledAt": "2026-08-26T10:23:55.063Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9015",
       "addressCountry": "CH",
@@ -2571,7 +2624,7 @@
       "companyDomain": "c-and-a.com",
       "title": "Collaborateur/trice de vente (m/f/d) - Etudiant 20% - Avry",
       "titleByLocale": {
-        "it": "Collaboratore di vendita (m/f/d) - Student 20% - Avry",
+        "it": "Collaborateur/trice de vente (m/f/d) - Etudiant 20% - Avry",
         "en": "Sales Collaborator (m/f/d) - Student 20% - Avry",
         "de": "Sales Collaborator (m/w/d) - Student 20% - Avry",
         "fr": "Collaborateur/trice de vente (m/f/d) - Etudiant 20% - Avry"
@@ -2588,7 +2641,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaborateurtrice-de-vente-mfd-etudiant-20-avry-66715-fr-fr",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-25T21:57:43.997Z",
+      "crawledAt": "2026-08-26T10:23:54.740Z",
       "addressLocality": "Avry-sur-Matran",
       "postalCode": "1754",
       "addressCountry": "CH",
@@ -2627,6 +2680,7 @@
         ]
       },
       "firstSeenAt": "2026-07-15T22:08:37.058Z",
+      "needsRetranslation": true,
       "salaryMin": 13700,
       "salaryMax": 20800,
       "baseSalary": {
@@ -2672,7 +2726,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-100-fur-bern-66760-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:43.651Z",
+      "crawledAt": "2026-08-26T10:23:54.419Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -2693,7 +2747,8 @@
         "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-20-in-lachen-c-a-schweiz-lachen",
         "mitarbeiter-im-sales-mit-schlusselfunktion-w-m-d-20-in-lachen-c-a-schweiz-lachen",
         "mitarbeiter-im-verkauf-mit-schlusselfunktion-w-m-d-20-in-lachen-c-and-a-schweiz-ch",
-        "mitarbeiter-im-vente-mit-schlusselfunktion-w-m-d-20-in-lachen-c-a-schweiz-lachen"
+        "mitarbeiter-im-vente-mit-schlusselfunktion-w-m-d-20-in-lachen-c-a-schweiz-lachen",
+        "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-100-per-bern-c-a-schweiz-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2701,7 +2756,8 @@
           "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-20-in-lachen-c-a-schweiz-lachen",
           "mitarbeiter-im-sales-mit-schlusselfunktion-w-m-d-20-in-lachen-c-a-schweiz-lachen",
           "mitarbeiter-im-verkauf-mit-schlusselfunktion-w-m-d-20-in-lachen-c-and-a-schweiz-ch",
-          "mitarbeiter-im-vente-mit-schlusselfunktion-w-m-d-20-in-lachen-c-a-schweiz-lachen"
+          "mitarbeiter-im-vente-mit-schlusselfunktion-w-m-d-20-in-lachen-c-a-schweiz-lachen",
+          "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-100-per-bern-c-a-schweiz-bern"
         ],
         "en": [
           "mitarbeiter-im-sales-mit-schlusselfunktion-w-m-d-20-in-lachen-c-a-schweiz-lachen",
@@ -2762,7 +2818,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-40-mit-schlusselfunktion-in-regensdorf-66756-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:43.324Z",
+      "crawledAt": "2026-08-26T10:23:54.098Z",
       "addressLocality": "Regensdorf",
       "postalCode": "8105",
       "addressCountry": "CH",
@@ -2791,7 +2847,8 @@
         "collaboratore-trice-im-vendita-m-w-d-60-con-schlusselfunktion-per-luzern-c-a-schweiz-luzern",
         "mitarbeiter-im-sales-w-m-d-60-mit-schlusselfunktion-fur-luzern-c-a-schweiz-luzern",
         "mitarbeiter-im-verkauf-w-m-d-60-mit-schlusselfunktion-fur-luzern-c-and-a-schweiz-ch",
-        "mitarbeiter-im-vente-w-m-d-60-mit-schlusselfunktion-fur-luzern-c-a-schweiz-luzern"
+        "mitarbeiter-im-vente-w-m-d-60-mit-schlusselfunktion-fur-luzern-c-a-schweiz-luzern",
+        "collaboratore-trice-im-vendita-m-w-d-40-con-schlusselfunktion-in-regensdorf-c-a-schweiz-regensdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2807,7 +2864,8 @@
           "collaboratore-trice-im-vendita-m-w-d-60-con-schlusselfunktion-per-luzern-c-a-schweiz-luzern",
           "mitarbeiter-im-sales-w-m-d-60-mit-schlusselfunktion-fur-luzern-c-a-schweiz-luzern",
           "mitarbeiter-im-verkauf-w-m-d-60-mit-schlusselfunktion-fur-luzern-c-and-a-schweiz-ch",
-          "mitarbeiter-im-vente-w-m-d-60-mit-schlusselfunktion-fur-luzern-c-a-schweiz-luzern"
+          "mitarbeiter-im-vente-w-m-d-60-mit-schlusselfunktion-fur-luzern-c-a-schweiz-luzern",
+          "collaboratore-trice-im-vendita-m-w-d-40-con-schlusselfunktion-in-regensdorf-c-a-schweiz-regensdorf"
         ],
         "en": [
           "mitarbeiter-im-sales-w-m-d-40-mit-schlusselfunktion-in-regensdorf-befristet-bis-ende-feb-2027-c-a-schweiz-regensdorf",
@@ -2874,7 +2932,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-40-in-tivoli-spreitenbach-66734-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:42.992Z",
+      "crawledAt": "2026-08-26T10:23:53.769Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressCountry": "CH",
@@ -2891,11 +2949,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-m-w-d-40-in-tivoli-spreitenbach-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-m-w-d-40-in-tivoli-spreitenbach-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-m-w-d-40-in-tivoli-spreitenbach-c-a-schweiz-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-m-w-d-40-in-tivoli-spreitenbach-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-m-w-d-40-in-tivoli-spreitenbach-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-m-w-d-40-in-tivoli-spreitenbach-c-a-schweiz-spreitenbach"
         ],
         "en": [
           "mitarbeiter-im-verkauf-m-w-d-40-in-tivoli-spreitenbach-c-and-a-schweiz-ch"
@@ -2951,7 +3011,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-40-fur-pilatusmarkt-befristet-bis-februar-2027-66800-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:42.658Z",
+      "crawledAt": "2026-08-26T10:23:53.444Z",
       "addressLocality": "Kriens",
       "postalCode": "6010",
       "addressCountry": "CH",
@@ -2972,7 +3032,8 @@
         "collaboratore-trice-im-vendita-m-w-d-40-per-pilatusmarkt-befristet-bis-februar-2027-ab-september2026-c-a-schweiz-kriens",
         "mitarbeiter-im-sales-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-ab-september2026-c-a-schweiz-kriens",
         "mitarbeiter-im-verkauf-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-ab",
-        "mitarbeiter-im-vente-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-ab-september2026-c-a-schweiz-kriens"
+        "mitarbeiter-im-vente-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-ab-september2026-c-a-schweiz-kriens",
+        "collaboratore-trice-im-vendita-m-w-d-40-per-pilatusmarkt-befristet-bis-februar-2027-c-a-schweiz-kriens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2980,7 +3041,8 @@
           "collaboratore-trice-im-vendita-m-w-d-40-per-pilatusmarkt-befristet-bis-februar-2027-ab-september2026-c-a-schweiz-kriens",
           "mitarbeiter-im-sales-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-ab-september2026-c-a-schweiz-kriens",
           "mitarbeiter-im-verkauf-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-ab",
-          "mitarbeiter-im-vente-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-ab-september2026-c-a-schweiz-kriens"
+          "mitarbeiter-im-vente-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-ab-september2026-c-a-schweiz-kriens",
+          "collaboratore-trice-im-vendita-m-w-d-40-per-pilatusmarkt-befristet-bis-februar-2027-c-a-schweiz-kriens"
         ],
         "en": [
           "mitarbeiter-im-sales-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-ab-september2026-c-a-schweiz-kriens",
@@ -3041,7 +3103,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiterin-verkauf-mwd-50-schwerpunkt-service-in-luzern-befristet-bis-ende-feb-2027-66805-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:42.339Z",
+      "crawledAt": "2026-08-26T10:23:53.121Z",
       "addressLocality": "Luzern",
       "postalCode": "6004",
       "addressCountry": "CH",
@@ -3062,7 +3124,8 @@
         "mitarbeiterin-vendita-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens",
         "mitarbeiterin-sales-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens",
         "mitarbeiterin-verkauf-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb",
-        "mitarbeiterin-vente-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens"
+        "mitarbeiterin-vente-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens",
+        "mitarbeiterin-vendita-m-w-d-50-schwerpunkt-service-in-luzern-befristet-bis-ende-feb-2027-c-a-schweiz-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3070,7 +3133,8 @@
           "mitarbeiterin-vendita-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens",
           "mitarbeiterin-sales-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens",
           "mitarbeiterin-verkauf-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb",
-          "mitarbeiterin-vente-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens"
+          "mitarbeiterin-vente-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens",
+          "mitarbeiterin-vendita-m-w-d-50-schwerpunkt-service-in-luzern-befristet-bis-ende-feb-2027-c-a-schweiz-luzern"
         ],
         "en": [
           "mitarbeiterin-sales-m-w-d-40-schwerpunkt-service-pilatusmarkt-befristet-bis-ende-feb-2027-c-a-schweiz-kriens",
@@ -3131,7 +3195,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-50-in-schonbuhl-befristet-66814-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:42.021Z",
+      "crawledAt": "2026-08-26T10:23:52.799Z",
       "addressLocality": "Schönbühl",
       "postalCode": "3321",
       "addressCountry": "CH",
@@ -3148,11 +3212,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-50-in-schonbuhl-befristet-c-and-a"
+        "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-50-in-schonbuhl-befristet-c-and-a",
+        "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-50-in-schonbuhl-befristet-c-a-schweiz-schonbuhl"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-50-in-schonbuhl-befristet-c-and-a"
+          "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-50-in-schonbuhl-befristet-c-and-a",
+          "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-50-in-schonbuhl-befristet-c-a-schweiz-schonbuhl"
         ],
         "en": [
           "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-50-in-schonbuhl-befristet-c-and-a"
@@ -3207,7 +3273,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-25-im-letzipark-66825-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:41.687Z",
+      "crawledAt": "2026-08-26T10:23:52.444Z",
       "addressLocality": "Zürich",
       "postalCode": "8048",
       "addressCountry": "CH",
@@ -3224,11 +3290,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-25-im-letzipark-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-25-im-letzipark-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-25-im-letzipark-c-a-schweiz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-25-im-letzipark-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-25-im-letzipark-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-25-im-letzipark-c-a-schweiz-zurich"
         ],
         "en": [
           "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-25-im-letzipark-c-and-a-schweiz-ch"
@@ -3284,7 +3352,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-80-fur-sihlcity-66918-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:41.346Z",
+      "crawledAt": "2026-08-26T10:23:52.108Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "addressCountry": "CH",
@@ -3301,11 +3369,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-w-m-d-80-fur-sihlcity-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-w-m-d-80-fur-sihlcity-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-m-w-d-80-per-sihlcity-c-a-schweiz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-w-m-d-80-fur-sihlcity-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-w-m-d-80-fur-sihlcity-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-m-w-d-80-per-sihlcity-c-a-schweiz-zurich"
         ],
         "en": [
           "mitarbeiter-im-verkauf-w-m-d-80-fur-sihlcity-c-and-a-schweiz-ch"
@@ -3361,7 +3431,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/ch-sales-assistant-service-66905-en-gb",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-25T21:57:41.017Z",
+      "crawledAt": "2026-08-26T10:23:51.788Z",
       "addressLocality": "Geneve",
       "postalCode": "1211",
       "addressCountry": "CH",
@@ -3381,13 +3451,15 @@
         "ch-sales-assistant-service-c-and-a-schweiz-ch",
         "ch-sales-assistant-service-c-and-a-schweiz-ch-3bhomm",
         "ch-sales-assistant-service-c-and-a-schweiz-ch-2",
-        "ch-sales-assistant-service-c-a-schweiz-geneve"
+        "ch-sales-assistant-service-c-a-schweiz-geneve",
+        "ch-sales-assistant-servizio-c-a-schweiz-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ch-sales-assistant-service-c-and-a-schweiz-ch",
           "ch-sales-assistant-service-c-and-a-schweiz-ch-3bhomm",
-          "ch-sales-assistant-service-c-and-a-schweiz-ch-2"
+          "ch-sales-assistant-service-c-and-a-schweiz-ch-2",
+          "ch-sales-assistant-servizio-c-a-schweiz-geneve"
         ],
         "en": [
           "ch-sales-assistant-service-c-and-a-schweiz-ch-3bhomm"
@@ -3446,7 +3518,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-50-in-regensdorf-66922-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:40.701Z",
+      "crawledAt": "2026-08-26T10:23:51.459Z",
       "addressLocality": "Regensdorf",
       "postalCode": "8105",
       "addressCountry": "CH",
@@ -3463,11 +3535,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-50-in-regensdorf-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-50-in-regensdorf-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-50-in-regensdorf-c-a-schweiz-regensdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-50-in-regensdorf-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-50-in-regensdorf-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-50-in-regensdorf-c-a-schweiz-regensdorf"
         ],
         "en": [
           "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-50-in-regensdorf-c-and-a-schweiz-ch"
@@ -3523,7 +3597,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-100-im-volkiland-66912-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:40.367Z",
+      "crawledAt": "2026-08-26T10:23:51.108Z",
       "addressLocality": "Volketswil",
       "postalCode": "8604",
       "addressCountry": "CH",
@@ -3540,11 +3614,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "store-visual-merchandiser-m-w-d-100-im-volkiland-c-and-a-schweiz-ch"
+        "store-visual-merchandiser-m-w-d-100-im-volkiland-c-and-a-schweiz-ch",
+        "negozio-visual-merchandiser-m-f-d-100-nel-volkiland-c-a-schweiz-volketswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "store-visual-merchandiser-m-w-d-100-im-volkiland-c-and-a-schweiz-ch"
+          "store-visual-merchandiser-m-w-d-100-im-volkiland-c-and-a-schweiz-ch",
+          "negozio-visual-merchandiser-m-f-d-100-nel-volkiland-c-a-schweiz-volketswil"
         ]
       },
       "needsRetranslation": true,
@@ -3594,7 +3670,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-60-im-volkiland-66910-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:40.037Z",
+      "crawledAt": "2026-08-26T10:23:50.751Z",
       "addressLocality": "Volketswil",
       "postalCode": "8604",
       "addressCountry": "CH",
@@ -3611,11 +3687,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-60-im-volkiland-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-60-im-volkiland-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-60-im-volkiland-c-a-schweiz-volketswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-60-im-volkiland-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-60-im-volkiland-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-60-im-volkiland-c-a-schweiz-volketswil"
         ],
         "en": [
           "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-60-im-volkiland-c-and-a-schweiz-ch"
@@ -3671,7 +3749,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-leader-mwd-100-im-raum-zurich-66904-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:39.708Z",
+      "crawledAt": "2026-08-26T10:23:50.421Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "addressCountry": "CH",
@@ -3688,11 +3766,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "store-leader-m-w-d-100-im-raum-zurich-c-and-a-schweiz-ch"
+        "store-leader-m-w-d-100-im-raum-zurich-c-and-a-schweiz-ch",
+        "store-leader-m-f-d-100-nella-zona-di-zurigo-c-a-schweiz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "store-leader-m-w-d-100-im-raum-zurich-c-and-a-schweiz-ch"
+          "store-leader-m-w-d-100-im-raum-zurich-c-and-a-schweiz-ch",
+          "store-leader-m-f-d-100-nella-zona-di-zurigo-c-a-schweiz-zurich"
         ],
         "en": [
           "store-leader-m-w-d-100-im-raum-zurich-c-and-a-schweiz-ch"
@@ -3747,7 +3827,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-50-fur-emmen-66708-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:39.389Z",
+      "crawledAt": "2026-08-26T10:23:50.099Z",
       "addressLocality": "Emmenbrücke",
       "postalCode": "6020",
       "addressCountry": "CH",
@@ -3764,11 +3844,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-m-w-d-50-fur-emmen-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-m-w-d-50-fur-emmen-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-m-w-d-50-per-emmen-c-a-schweiz-emmenbrucke"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-m-w-d-50-fur-emmen-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-m-w-d-50-fur-emmen-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-m-w-d-50-per-emmen-c-a-schweiz-emmenbrucke"
         ],
         "en": [
           "mitarbeiter-im-verkauf-m-w-d-50-fur-emmen-c-and-a-schweiz-ch"
@@ -3823,7 +3905,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-fmd-a-50-neuchatel-66987-en-gb",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-25T21:57:39.060Z",
+      "crawledAt": "2026-08-26T10:23:49.760Z",
       "addressLocality": "Neuchatel",
       "postalCode": "2000",
       "addressCountry": "CH",
@@ -3886,7 +3968,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-20-fur-schaffhausen-herblingen-67008-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:38.742Z",
+      "crawledAt": "2026-08-26T10:23:49.406Z",
       "addressLocality": "Schaffhausen",
       "postalCode": "8207",
       "addressCountry": "CH",
@@ -3903,11 +3985,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-m-w-d-20-fur-schaffhausen-herblingen-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-m-w-d-20-fur-schaffhausen-herblingen-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-m-w-d-20-per-schaffhausen-herblingen-c-a-schweiz-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-m-w-d-20-fur-schaffhausen-herblingen-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-m-w-d-20-fur-schaffhausen-herblingen-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-m-w-d-20-per-schaffhausen-herblingen-c-a-schweiz-schaffhausen"
         ],
         "en": [
           "mitarbeiter-im-verkauf-m-w-d-20-fur-schaffhausen-herblingen-c-and-a-schweiz-ch"
@@ -3963,7 +4047,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-30-fur-dietlikon-67007-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:38.399Z",
+      "crawledAt": "2026-08-26T10:23:49.084Z",
       "addressLocality": "Dietlikon",
       "postalCode": "8305",
       "addressCountry": "CH",
@@ -3980,11 +4064,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-30-fur-dietlikon-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-30-fur-dietlikon-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-30-per-dietlikon-c-a-schweiz-dietlikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-30-fur-dietlikon-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-30-fur-dietlikon-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-con-schlusselfunktion-m-w-d-30-per-dietlikon-c-a-schweiz-dietlikon"
         ],
         "en": [
           "mitarbeiter-im-verkauf-mit-schlusselfunktion-m-w-d-30-fur-dietlikon-c-and-a-schweiz-ch"
@@ -4040,7 +4126,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaboratrice-de-vente-mfd-focus-service-20-cdd-3-mois-crissier-67027-fr-fr",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-25T21:57:38.073Z",
+      "crawledAt": "2026-08-26T10:23:48.756Z",
       "addressLocality": "Crissier",
       "postalCode": "1023",
       "addressCountry": "CH",
@@ -4066,7 +4152,8 @@
         "sales-collaborator-focus-service-w-m-d-50-csd-3-monate-vevey-c-a-schweiz-vevey-ch",
         "collaboratrice-de-vente-focus-service-f-m-d-50-cdd-3-mois-vevey-c-and-a-schweiz-ch",
         "collaboratrice-de-vente-focus-service-f-m-d-50-cdd-3-mois-vevey-c-a-schweiz-vevey",
-        "collaboratrice-de-vente-m-f-d-focus-service-20-cdd-3-mois-crissier-c-and-a-schweiz-ch"
+        "collaboratrice-de-vente-m-f-d-focus-service-20-cdd-3-mois-crissier-c-and-a-schweiz-ch",
+        "collaboratore-di-vendita-m-f-d-focus-service-20-cdd-3-mesi-crack-c-a-schweiz-crissier-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4079,7 +4166,8 @@
           "sales-collaborator-focus-service-w-m-d-50-csd-3-monate-vevey-c-a-schweiz-vevey-ch",
           "collaboratrice-de-vente-focus-service-f-m-d-50-cdd-3-mois-vevey-c-and-a-schweiz-ch",
           "collaboratrice-de-vente-focus-service-f-m-d-50-cdd-3-mois-vevey-c-a-schweiz-vevey",
-          "collaboratrice-de-vente-m-f-d-focus-service-20-cdd-3-mois-crissier-c-and-a-schweiz-ch"
+          "collaboratrice-de-vente-m-f-d-focus-service-20-cdd-3-mois-crissier-c-and-a-schweiz-ch",
+          "collaboratore-di-vendita-m-f-d-focus-service-20-cdd-3-mesi-crack-c-a-schweiz-crissier-ch"
         ],
         "en": [
           "sales-collaborator-40-focus-service-csd-1-month-sion-c-a-schweiz-sion-ch",
@@ -4125,7 +4213,7 @@
       "companyDomain": "c-and-a.com",
       "title": "Collaboratrice de Vente Focus Service (f/m/d) - CDD 50% - Bienne",
       "titleByLocale": {
-        "it": "Collaboratrice de Vente Focus Service (m/f/d) - CDD 50% - Bienne",
+        "it": "Collaboratrice de Vente Focus Service (f/m/d) - CDD 50% - Bienne",
         "en": "Collaboratrice de Vente Focus Service (f/m/d) - CDD 50% - Bienne",
         "de": "Collaboratrice de Vente Focus Service (m/w/d) - CDD 50% - Bienne",
         "fr": "Collaboratrice de Vente Focus Service (h/f/d) - CDD 50% - Bienne"
@@ -4142,7 +4230,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaboratrice-de-vente-focus-service-fmd-cdd-50-bienne-67043-en-gb",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-25T21:57:37.710Z",
+      "crawledAt": "2026-08-26T10:23:48.371Z",
       "addressLocality": "Biel-Bienne",
       "postalCode": "2502",
       "addressCountry": "CH",
@@ -4178,7 +4266,7 @@
       "id": "c-and-a-schweiz-eacc5bc4a4ad",
       "slug": "collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-c-a-schweiz-crissier",
       "slugByLocale": {
-        "it": "partner-di-vendita-portachiavi-80-csd-3-mesi-c-a-schweiz-crissier-ch",
+        "it": "collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-c-a-schweiz-crissier",
         "en": "key-carrier-sales-partner-80-csd-3-months-c-a-schweiz-crissier-ch",
         "de": "key-carrier-vertriebspartner-80-csd-3-monate-c-a-schweiz-crissier-ch",
         "fr": "collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-c-and-a-schweiz-ch"
@@ -4205,7 +4293,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-67028-fr-fr",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-25T21:57:37.387Z",
+      "crawledAt": "2026-08-26T10:23:48.016Z",
       "addressLocality": "Crissier",
       "postalCode": "1023",
       "addressCountry": "CH",
@@ -4222,11 +4310,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-c-and-a-schweiz-ch"
+        "collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-c-and-a-schweiz-ch",
+        "partner-di-vendita-portachiavi-80-csd-3-mesi-c-a-schweiz-crissier-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-c-and-a-schweiz-ch"
+          "collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-c-and-a-schweiz-ch",
+          "partner-di-vendita-portachiavi-80-csd-3-mesi-c-a-schweiz-crissier-ch"
         ],
         "en": [
           "collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-c-and-a-schweiz-ch"
@@ -4282,7 +4372,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/lehrstelle-ebaefz-detailhandel-tivoli-spreitenbach-start-1-august-2027-67070-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:37.034Z",
+      "crawledAt": "2026-08-26T10:23:47.659Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressCountry": "CH",
@@ -4299,11 +4389,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-eba-efz-detailhandel-tivoli-spreitenbach-start-1-august-2027-c-and-a-schweiz-ch"
+        "lehrstelle-eba-efz-detailhandel-tivoli-spreitenbach-start-1-august-2027-c-and-a-schweiz-ch",
+        "apprendistato-afp-cfc-commercio-al-dettaglio-tivoli-spreitenbach-start-1-august-2027-c-a-schweiz-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-eba-efz-detailhandel-tivoli-spreitenbach-start-1-august-2027-c-and-a-schweiz-ch"
+          "lehrstelle-eba-efz-detailhandel-tivoli-spreitenbach-start-1-august-2027-c-and-a-schweiz-ch",
+          "apprendistato-afp-cfc-commercio-al-dettaglio-tivoli-spreitenbach-start-1-august-2027-c-a-schweiz-spreitenbach"
         ]
       },
       "needsRetranslation": true,
@@ -4353,7 +4445,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-leader-assistant-wmd-80-fur-schaffhausen-herblingen-67045-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:57:36.715Z",
+      "crawledAt": "2026-08-26T10:23:47.250Z",
       "addressLocality": "Schaffhausen",
       "postalCode": "8207",
       "addressCountry": "CH",
@@ -4395,70 +4487,6 @@
         }
       },
       "addressRegion": "SH"
-    },
-    {
-      "id": "c-and-a-schweiz-8ff6c4b9fb03",
-      "slug": "collaborateur-trice-vente-etudiant-e-20-m-f-d-lausanne-c-and-a-schweiz-ch",
-      "slugByLocale": {
-        "it": "collaborateur-trice-vente-etudiant-e-20-m-f-d-lausanne-c-and-a-schweiz-ch",
-        "en": "collaborateur-trice-vente-etudiant-e-20-m-f-d-lausanne-c-and-a-schweiz-ch",
-        "de": "kollaborateur-trice-vente-etudiant-e-20-m-w-d-lausanne-c-a-schweiz-lausanne",
-        "fr": "collaborateur-trice-vente-etudiant-e-20-m-f-d-lausanne-c-and-a-schweiz-ch"
-      },
-      "company": "C&A Schweiz",
-      "companyKey": "c-and-a-schweiz",
-      "companyDomain": "c-and-a.com",
-      "title": "Collaborateur/trice vente - Etudiant/e 20% (m/f/d) - Lausanne",
-      "titleByLocale": {
-        "it": "Collaboratore/trice vente - Etudiant/e 20% (m/f/d) - Losanna",
-        "en": "Collaborateur/trice vente - Etudiant/e 20% (m/f/d) - Lausanne",
-        "de": "Kollaborateur/trice vente - Etudiant/e 20% (m/w/d) - Lausanne",
-        "fr": "Collaborateur/trice vente - Étudiant/e 20% (h/f/d) - Lausanne"
-      },
-      "description": "The future looks like you\n\nYour responsibilities\n\nWhat you bring\n\nWhat we offer\n\nC&A fosters equal opportunity for people of all backgrounds and identities. We are led by a gender-balanced board that is committed to building a diverse and inclusive organization where everyone can become their best self.\nWe do not discriminate based on age, disability, gender identity, sexual orientation, ethnicity, race, religion or belief, parental and family status, or any other protected characteristic. We welcome applications from women, men and non-binary candidates of all ethnicities and socio-economic backgrounds. We encourage people belonging to underrepresented groups to apply.\nEven if you don't check every box, but see yourself contributing, please apply and help us build an inclusive community.",
-      "descriptionByLocale": {
-        "it": "Il futuro ti assomiglia\n\nLe tue responsabilità\n\nCosa porti\n\nCosa offriamo\n\nC&A promuove pari opportunità per persone di tutti gli sfondi e identità. Siamo guidati da una tavola equilibrata di genere che si impegna a costruire un'organizzazione diversificata e inclusiva in cui tutti possono diventare il loro migliore sé.\nNon discriviamo in base all'età, alla disabilità, all'identità di genere, all'orientamento sessuale, all'etnia, alla razza, alla religione o alla fede, allo stato dei genitori e della famiglia, o a qualsiasi altra caratteristica protetta. Accogliamo con favore le domande di donne, uomini e candidati non-binari di tutte le etnie e background socio-economici. Incoraggiamo le persone appartenenti a gruppi sottorappresentati ad applicare.\nAnche se non si controlla ogni casella, ma si veda contribuire, si prega di applicare e aiutarci a costruire una comunità inclusiva.",
-        "en": "The future looks like you\n\nYour responsibilities\n\nWhat you bring\n\nWhat we offer\n\nC&A fosters equal opportunity for people of all backgrounds and identities. We are led by a gender-balanced board that is committed to building a diverse and inclusive organization where everyone can become their best self.\nWe do not discriminate based on age, disability, gender identity, sexual orientation, ethnicity, race, religion or belief, parental and family status, or any other protected characteristic. We welcome applications from women, men and non-binary candidates of all ethnicities and socio-economic backgrounds. We encourage people belonging to underrepresented groups to apply.\nEven if you don't check every box, but see yourself contributing, please apply and help us build an inclusive community.",
-        "de": "Die Zukunft sieht aus wie du\n\nIhre Verantwortung\n\nWas du mitbringst\n\nWas wir anbieten\n\nC&A fördert Chancengleichheit für Menschen aller Hintergründe und Identitäten. Wir werden von einem ausgewogenen Vorstand geleitet, der sich dem Aufbau einer vielfältigen und integrativen Organisation verschrieben hat, in der jeder sein bestes Selbst werden kann.\nWir diskriminieren nicht aufgrund von alter, behinderung, geschlechtsidentität, sexueller orientierung, ethnischer zugehörigkeit, rasse, religion oder weltanschauung, eltern- und familienstatus oder anderen geschützten merkmalen. Wir begrüßen Bewerbungen von Frauen, Männern und nicht-binären Kandidaten aller Ethnien und sozioökonomischen Hintergründe. Wir ermutigen Menschen, die zu unterrepräsentierten Gruppen gehören, sich zu bewerben.\nAuch wenn Sie nicht jedes Kästchen ankreuzen, aber sehen, dass Sie einen Beitrag leisten, bewerben Sie sich bitte und helfen Sie uns, eine integrative Community aufzubauen.",
-        "fr": "Le futur te ressemble\n\nVos responsabilités\n\nCe que vous apportez\n\nCe que nous offrons\n\nC et A favorise l'égalité des chances pour les personnes de tous horizons et identités. Nous sommes dirigés par un conseil équilibré entre les sexes qui s'engage à bâtir une organisation diversifiée et inclusive où chacun peut devenir son meilleur individu.\nNous ne faisons aucune discrimination fondée sur l'âge, le handicap, l'identité de genre, l'orientation sexuelle, l'ethnicité, la race, la religion ou les convictions, le statut parental et familial, ou toute autre caractéristique protégée. Nous accueillons favorablement les candidatures de femmes, d'hommes et de candidats non binaires de toutes origines ethniques et socioéconomiques. Nous encourageons les personnes appartenant à des groupes sous-représentés à présenter leur candidature.\nMême si vous ne cochez pas toutes les cases, mais voyez vous-même contribuer, s'il vous plaît postuler et nous aider à construire une communauté inclusive."
-      },
-      "location": "Lausanne (CH)",
-      "canton": "VD",
-      "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaborateurtrice-vente-etudiante-20-mfd-lausanne-66988-en-gb",
-      "source": "C&A Schweiz Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-25T10:08:52.447Z",
-      "addressLocality": "Lausanne",
-      "postalCode": "1003",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Commercio al dettaglio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-12",
-      "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=66988&career_ns=job_application&lang=en_GB",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-12T10:18:24.390Z",
-      "salaryMin": 12100,
-      "salaryMax": 18300,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 12100,
-          "maxValue": 18300,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VD",
-      "crawlerMissStreak": 2
     }
   ]
 }
