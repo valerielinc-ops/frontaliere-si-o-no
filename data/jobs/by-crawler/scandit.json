@@ -62,7 +62,28 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-shelfview-scandit-ch",
+          "produktmanager-shelfview-scandit-ag-zurich",
+          "gestionnaire-de-produits-shelfview-scandit-ag-zurich"
+        ],
+        "en": [
+          "product-manager-shelfview-scandit-ch"
+        ],
+        "de": [
+          "produktmanager-shelfview-scandit-ag-zurich"
+        ],
+        "fr": [
+          "gestionnaire-de-produits-shelfview-scandit-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "product-manager-shelfview-scandit-ch",
+        "produktmanager-shelfview-scandit-ag-zurich",
+        "gestionnaire-de-produits-shelfview-scandit-ag-zurich"
+      ]
     },
     {
       "id": "scandit-11d5976f7463",

@@ -205,7 +205,8 @@
       },
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-08-26T10:07:04.797Z"
+      "firstSeenAt": "2026-08-26T10:07:04.797Z",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-5c98b2736261",
@@ -290,11 +291,30 @@
       "crawledAt": "2026-08-26T10:07:05.007Z",
       "previousSlugsByLocale": {
         "it": [
-          "responsable-de-la-planification-et-du-pilotage-des-materiaux-h-f-d-ffs-officine-ferrovie-federali-berne"
+          "responsable-de-la-planification-et-du-pilotage-des-materiaux-h-f-d-ffs-officine-ferrovie-federali-berne",
+          "responsabile-jobcenter-m-f-d-ffs-officine-ferrovie-federali-berne",
+          "jobcenter-manager-m-f-d-ffs-officine-ferrovie-federali-berne",
+          "jobcenter-manager-m-w-d-ffs-officine-ferrovie-federali-berne",
+          "responsable-jobcenter-h-f-d-ffs-officine-ferrovie-federali-berne",
+          "responsabile-del-centro-lavoro-l-f-d-ffs-officine-ferrovie-federali-berne"
+        ],
+        "en": [
+          "jobcenter-manager-m-f-d-ffs-officine-ferrovie-federali-berne"
+        ],
+        "de": [
+          "jobcenter-manager-m-w-d-ffs-officine-ferrovie-federali-berne"
+        ],
+        "fr": [
+          "responsable-jobcenter-h-f-d-ffs-officine-ferrovie-federali-berne"
         ]
       },
       "previousSlugs": [
-        "responsable-de-la-planification-et-du-pilotage-des-materiaux-h-f-d-ffs-officine-ferrovie-federali-berne"
+        "responsable-de-la-planification-et-du-pilotage-des-materiaux-h-f-d-ffs-officine-ferrovie-federali-berne",
+        "responsabile-jobcenter-m-f-d-ffs-officine-ferrovie-federali-berne",
+        "jobcenter-manager-m-f-d-ffs-officine-ferrovie-federali-berne",
+        "jobcenter-manager-m-w-d-ffs-officine-ferrovie-federali-berne",
+        "responsable-jobcenter-h-f-d-ffs-officine-ferrovie-federali-berne",
+        "responsabile-del-centro-lavoro-l-f-d-ffs-officine-ferrovie-federali-berne"
       ],
       "salaryMin": 113000,
       "salaryMax": 192000,
@@ -407,7 +427,34 @@
       },
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-08-26T10:07:17.385Z"
+      "firstSeenAt": "2026-08-26T10:07:17.385Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsabile-jobcenter-m-f-d-ffs-officine-ferrovie-federali-berna",
+          "jobcenter-manager-m-f-d-ffs-officine-ferrovie-federali-berna",
+          "jobcenter-manager-m-w-d-ffs-officine-ferrovie-federali-berna",
+          "responsable-du-centre-d-emploi-h-f-d-ffs-officine-ferrovie-federali-berna",
+          "verantwortlicher-jobcenter-m-f-d-ffs-officine-ferrovie-federali-berna",
+          "gestionnaire-de-jobcenter-l-f-d-ffs-officine-ferrovie-federali-berna"
+        ],
+        "en": [
+          "jobcenter-manager-m-f-d-ffs-officine-ferrovie-federali-berna"
+        ],
+        "de": [
+          "jobcenter-manager-m-w-d-ffs-officine-ferrovie-federali-berna"
+        ],
+        "fr": [
+          "responsable-du-centre-d-emploi-h-f-d-ffs-officine-ferrovie-federali-berna"
+        ]
+      },
+      "previousSlugs": [
+        "responsabile-jobcenter-m-f-d-ffs-officine-ferrovie-federali-berna",
+        "jobcenter-manager-m-f-d-ffs-officine-ferrovie-federali-berna",
+        "jobcenter-manager-m-w-d-ffs-officine-ferrovie-federali-berna",
+        "responsable-du-centre-d-emploi-h-f-d-ffs-officine-ferrovie-federali-berna",
+        "verantwortlicher-jobcenter-m-f-d-ffs-officine-ferrovie-federali-berna",
+        "gestionnaire-de-jobcenter-l-f-d-ffs-officine-ferrovie-federali-berna"
+      ]
     },
     {
       "id": "sbb-6693efc31ae1",
@@ -609,7 +656,8 @@
       },
       "addressRegion": "SZ",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-08-26T10:07:03.201Z"
+      "firstSeenAt": "2026-08-26T10:07:03.201Z",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-ac1815aa616d",
@@ -695,7 +743,8 @@
       },
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-f036e5560c89",
@@ -2413,11 +2462,23 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-08-26T10:09:20.790Z",
       "previousSlugs": [
-        "product-manager-application-platform-m-w-d-ffs-officine-ferrovie-federali-bern"
+        "product-manager-application-platform-m-w-d-ffs-officine-ferrovie-federali-bern",
+        "gestione-operativa-delle-applicazioni-m-f-d-ffs-officine-ferrovie-federali-bern",
+        "application-operation-manager-m-w-d-ffs-officine-ferrovie-federali-bern",
+        "gestionnaire-d-operations-d-application-h-f-d-ffs-officine-ferrovie-federali-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-manager-application-platform-m-w-d-ffs-officine-ferrovie-federali-bern"
+          "product-manager-application-platform-m-w-d-ffs-officine-ferrovie-federali-bern",
+          "gestione-operativa-delle-applicazioni-m-f-d-ffs-officine-ferrovie-federali-bern",
+          "application-operation-manager-m-w-d-ffs-officine-ferrovie-federali-bern",
+          "gestionnaire-d-operations-d-application-h-f-d-ffs-officine-ferrovie-federali-bern"
+        ],
+        "de": [
+          "application-operation-manager-m-w-d-ffs-officine-ferrovie-federali-bern"
+        ],
+        "fr": [
+          "gestionnaire-d-operations-d-application-h-f-d-ffs-officine-ferrovie-federali-bern"
         ]
       },
       "firstSeenAt": "2026-08-21T09:54:27.928Z",
@@ -3347,7 +3408,9 @@
         }
       },
       "addressRegion": "VD",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "sbb-a770d6686d52",
@@ -3574,8 +3637,7 @@
         }
       },
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "sbb-61de2e9ae79c",
@@ -10131,7 +10193,9 @@
         }
       },
       "addressRegion": "SG",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "sbb-6336efb99beb",
@@ -11061,7 +11125,9 @@
         }
       },
       "addressRegion": "SO",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "sbb-7ab69bfa9ffb",
