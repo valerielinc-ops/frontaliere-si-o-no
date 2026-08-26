@@ -68,7 +68,8 @@
           "conseiller-general-adjoint-michael-page-lugano"
         ],
         "fr": [
-          "assistant-general-counsel-michael-page-lugano"
+          "assistant-general-counsel-michael-page-lugano",
+          "conseiller-general-adjoint-michael-page-lugano"
         ]
       },
       "previousSlugs": [
@@ -213,12 +214,12 @@
     },
     {
       "id": "michaelpage-ba003a0d255a",
-      "slug": "regional-finance-director-manufacturing-houston-michaelpage-ch",
+      "slug": "regional-finanza-direttore-manufacturing-houston-michael-page-lugano",
       "slugByLocale": {
         "fr": "regional-finance-director-manufacturing-houston-michaelpage-ch",
-        "it": "regional-finance-director-manufacturing-houston-michaelpage-ch",
+        "it": "regional-finanza-direttore-manufacturing-houston-michael-page-lugano",
         "en": "regional-finance-director-manufacturing-houston-michaelpage-ch",
-        "de": "regional-finance-director-manufacturing-houston-michaelpage-ch"
+        "de": "regional-finanzen-direktor-manufacturing-houston-michael-page-lugano"
       },
       "company": "Michael Page",
       "companyKey": "michaelpage",
@@ -274,12 +275,17 @@
       "previousSlugsByLocale": {
         "it": [
           "regional-finanza-direttore-manufacturing-houston-michael-page-lugano",
-          "regional-finanzen-direktor-manufacturing-houston-michael-page-lugano"
+          "regional-finanzen-direktor-manufacturing-houston-michael-page-lugano",
+          "regional-finance-director-manufacturing-houston-michaelpage-ch"
+        ],
+        "de": [
+          "regional-finance-director-manufacturing-houston-michaelpage-ch"
         ]
       },
       "previousSlugs": [
         "regional-finanza-direttore-manufacturing-houston-michael-page-lugano",
-        "regional-finanzen-direktor-manufacturing-houston-michael-page-lugano"
+        "regional-finanzen-direktor-manufacturing-houston-michael-page-lugano",
+        "regional-finance-director-manufacturing-houston-michaelpage-ch"
       ]
     },
     {
@@ -399,13 +405,11 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "director-senior-legal-counsel-asset-backed-securitizations-michaelpage-ch",
-          "director-senior-legal-counsel-asset-backed-securitizations-michael-page-lugano"
+          "director-senior-legal-counsel-asset-backed-securitizations-michaelpage-ch"
         ]
       },
       "previousSlugs": [
-        "director-senior-legal-counsel-asset-backed-securitizations-michaelpage-ch",
-        "director-senior-legal-counsel-asset-backed-securitizations-michael-page-lugano"
+        "director-senior-legal-counsel-asset-backed-securitizations-michaelpage-ch"
       ],
       "salaryMin": 87000,
       "salaryMax": 149500,
@@ -485,10 +489,10 @@
     },
     {
       "id": "michaelpage-ee3e538d3740",
-      "slug": "senior-human-resources-manager-michaelpage-ch",
+      "slug": "senior-risorse-umane-manager-michael-page-lugano",
       "slugByLocale": {
-        "fr": "senior-human-resources-manager-michaelpage-ch",
-        "it": "senior-human-resources-manager-michaelpage-ch",
+        "fr": "senior-ressources-humaines-manager-michael-page-lugano",
+        "it": "senior-risorse-umane-manager-michael-page-lugano",
         "en": "senior-human-resources-manager-michael-page-lugano",
         "de": "senior-human-resources-manager-michaelpage-ch"
       },
@@ -546,16 +550,18 @@
       "previousSlugsByLocale": {
         "it": [
           "senior-risorse-umane-manager-michael-page-lugano",
-          "senior-ressources-humaines-manager-michael-page-lugano"
+          "senior-ressources-humaines-manager-michael-page-lugano",
+          "senior-human-resources-manager-michaelpage-ch"
         ],
-        "en": [
-          "senior-human-resources-manager-michael-page-lugano"
+        "fr": [
+          "senior-human-resources-manager-michaelpage-ch"
         ]
       },
       "previousSlugs": [
         "senior-risorse-umane-manager-michael-page-lugano",
         "senior-ressources-humaines-manager-michael-page-lugano",
-        "senior-human-resources-manager-michael-page-lugano"
+        "senior-human-resources-manager-michael-page-lugano",
+        "senior-human-resources-manager-michaelpage-ch"
       ]
     },
     {
@@ -602,13 +608,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "diretor-geral-unidade-de-negocio-michaelpage-ch",
-        "diretore-geral-unidade-de-negocio-michael-page-lugano"
+        "diretor-geral-unidade-de-negocio-michaelpage-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diretor-geral-unidade-de-negocio-michaelpage-ch",
-          "diretore-geral-unidade-de-negocio-michael-page-lugano"
+          "diretor-geral-unidade-de-negocio-michaelpage-ch"
         ],
         "en": [
           "diretor-geral-unidade-de-negocio-michaelpage-ch"
@@ -1010,15 +1014,7 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:55:46.343Z",
-      "previousSlugsByLocale": {
-        "de": [
-          "vice-president-hr-north-america-michael-page-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "vice-president-hr-north-america-michael-page-lugano"
-      ]
+      "firstSeenAt": "2026-08-25T21:55:46.343Z"
     },
     {
       "id": "michaelpage-152aa4f682be",
@@ -1156,8 +1152,8 @@
       "slugByLocale": {
         "en": "divisional-controller-americas-michaelpage-ch",
         "it": "divisional-controller-americas-michael-page-lugano",
-        "de": "divisional-controller-americas-michaelpage-ch",
-        "fr": "divisional-controller-americas-michaelpage-ch"
+        "de": "divisional-controller-amerika-michael-page-lugano",
+        "fr": "controleur-divisionnaire-ameriques-michael-page-lugano"
       },
       "company": "Michael Page",
       "companyKey": "michaelpage",
@@ -1202,6 +1198,12 @@
           "divisional-controller-amerika-michael-page-lugano",
           "controleur-divisionnaire-ameriques-michael-page-lugano",
           "divisional-controller-americas-michael-page-lugano"
+        ],
+        "de": [
+          "divisional-controller-americas-michaelpage-ch"
+        ],
+        "fr": [
+          "divisional-controller-americas-michaelpage-ch"
         ]
       },
       "previousSlugs": [
