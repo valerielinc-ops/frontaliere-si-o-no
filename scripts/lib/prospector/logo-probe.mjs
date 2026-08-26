@@ -17,7 +17,7 @@
  * `services/jobDataNormalization.ts`), so a probe against it would always
  * read as "no logo" regardless of the real answer.
  */
-import { GREY_GLOBE_SIZE, LOGO_BOT_USER_AGENT } from '../google-favicon.mjs';
+import { isGreyGlobe, LOGO_BOT_USER_AGENT } from '../google-favicon.mjs';
 
 const FETCH_TIMEOUT_MS = 10_000;
 
@@ -41,7 +41,7 @@ export async function probeCompanyLogo(host) {
     if (!res.ok) return { found: false, domain, reason: `http ${res.status}` };
     const buf = Buffer.from(await res.arrayBuffer());
     if (buf.length === 0) return { found: false, domain, reason: 'risposta vuota' };
-    if (buf.length === GREY_GLOBE_SIZE) return { found: false, domain, reason: 'grey-globe (dominio senza favicon)' };
+    if (isGreyGlobe(buf)) return { found: false, domain, reason: 'grey-globe (dominio senza favicon)' };
     return { found: true, domain, size: buf.length };
   } catch (err) {
     return { found: false, domain, reason: err?.name === 'AbortError' ? 'timeout' : String(err?.message || err) };
