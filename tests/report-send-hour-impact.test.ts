@@ -20,9 +20,11 @@ import {
   argValue,
   GROUP_ORDER,
   IMMEDIATE_LABEL,
+  PERSONAL_TAIL_LABEL,
   TRANSACTIONAL_CAMPAIGN_IDS,
   DEFAULT_MATURITY_HOURS,
   MAX_SCHEDULE_LOOKAHEAD_MS,
+  qualifiesOnlyViaTailWindow,
 } from '../scripts/report-send-hour-impact.mjs';
 
 // ── Fixture helpers ──────────────────────────────────────────────────────
@@ -134,6 +136,86 @@ describe('aggregate — normal case with mixed groups', () => {
     const events = [eventDoc({ campaignId: CAMPAIGN, email: 'a@x.com', type: 'open', messageId: 'msg-1' })];
     const { segments } = aggregate(deliveries, events, null);
     expect(segments.combined.global.opens).toBe(1);
+  });
+});
+
+describe('qualifiesOnlyViaTailWindow (#6550)', () => {
+  const sentAt = new Date('2026-07-05T10:00:00Z');
+  const daysBefore = (n: number) => new Date(sentAt.getTime() - n * 24 * 60 * 60 * 1000);
+
+  it('false when the subscriber already has >= PREFERRED_SEND_MIN_EVENTS within 90 days', () => {
+    const eventTimes = [daysBefore(5), daysBefore(20), daysBefore(85)];
+    expect(qualifiesOnlyViaTailWindow(eventTimes, sentAt)).toBe(false);
+  });
+
+  it('true when the subscriber only clears the threshold inside the 90-180 day tail', () => {
+    const eventTimes = [daysBefore(95), daysBefore(120), daysBefore(170)];
+    expect(qualifiesOnlyViaTailWindow(eventTimes, sentAt)).toBe(true);
+  });
+
+  it('false when even the 180-day window has fewer than PREFERRED_SEND_MIN_EVENTS events', () => {
+    const eventTimes = [daysBefore(100), daysBefore(150)];
+    expect(qualifiesOnlyViaTailWindow(eventTimes, sentAt)).toBe(false);
+  });
+
+  it('ignores events at/after sentAt and events past the 180-day window', () => {
+    const eventTimes = [daysBefore(-1), daysBefore(200), daysBefore(100), daysBefore(110), daysBefore(160)];
+    expect(qualifiesOnlyViaTailWindow(eventTimes, sentAt)).toBe(true);
+  });
+
+  it('false for no event history (empty/undefined)', () => {
+    expect(qualifiesOnlyViaTailWindow([], sentAt)).toBe(false);
+    expect(qualifiesOnlyViaTailWindow(undefined as unknown as Date[], sentAt)).toBe(false);
+  });
+});
+
+describe('aggregate — personal_tail_90_180 split (#6550)', () => {
+  it('keeps a personal delivery in `personal` when the subscriber already qualified within 90 days', () => {
+    const sentAt = new Date('2026-07-05T10:00:00Z');
+    const daysBefore = (n: number) => new Date(sentAt.getTime() - n * 24 * 60 * 60 * 1000);
+    const deliveries = [
+      deliveryDoc({ campaignId: CAMPAIGN, email: 'recent@x.com', sentAt, sendTimeSource: 'personal', opened: true }),
+    ];
+    const events = [
+      eventDoc({ campaignId: 'weekly_2026-06-01', email: 'recent@x.com', type: 'open', timestamp: daysBefore(5) }),
+      eventDoc({ campaignId: 'weekly_2026-06-08', email: 'recent@x.com', type: 'open', timestamp: daysBefore(20) }),
+      eventDoc({ campaignId: 'weekly_2026-06-15', email: 'recent@x.com', type: 'click', timestamp: daysBefore(30) }),
+    ];
+    const { segments } = aggregate(deliveries, events, null);
+    expect(segments.combined.personal.deliveries).toBe(1);
+    expect(segments.combined[PERSONAL_TAIL_LABEL].deliveries).toBe(0);
+  });
+
+  it('splits a personal delivery into personal_tail_90_180 when the subscriber only qualified via the 90-180 day tail', () => {
+    const sentAt = new Date('2026-07-05T10:00:00Z');
+    const daysBefore = (n: number) => new Date(sentAt.getTime() - n * 24 * 60 * 60 * 1000);
+    const deliveries = [
+      deliveryDoc({ campaignId: CAMPAIGN, email: 'sparse@x.com', sentAt, sendTimeSource: 'personal', opened: true }),
+    ];
+    const events = [
+      eventDoc({ campaignId: 'weekly_2026-04-01', email: 'sparse@x.com', type: 'open', timestamp: daysBefore(100) }),
+      eventDoc({ campaignId: 'weekly_2026-03-01', email: 'sparse@x.com', type: 'open', timestamp: daysBefore(140) }),
+      eventDoc({ campaignId: 'weekly_2026-02-01', email: 'sparse@x.com', type: 'click', timestamp: daysBefore(170) }),
+    ];
+    const { segments } = aggregate(deliveries, events, null);
+    expect(segments.combined.personal.deliveries).toBe(0);
+    expect(segments.combined[PERSONAL_TAIL_LABEL]).toMatchObject({ deliveries: 1, opens: 1 });
+  });
+
+  it('never reclassifies `global` or immediate deliveries into personal_tail_90_180', () => {
+    const sentAt = new Date('2026-07-05T10:00:00Z');
+    const daysBefore = (n: number) => new Date(sentAt.getTime() - n * 24 * 60 * 60 * 1000);
+    const deliveries = [
+      deliveryDoc({ campaignId: CAMPAIGN, email: 'sparse-global@x.com', sentAt, sendTimeSource: 'global' }),
+    ];
+    const events = [
+      eventDoc({ campaignId: 'weekly_2026-04-01', email: 'sparse-global@x.com', type: 'open', timestamp: daysBefore(100) }),
+      eventDoc({ campaignId: 'weekly_2026-03-01', email: 'sparse-global@x.com', type: 'open', timestamp: daysBefore(140) }),
+      eventDoc({ campaignId: 'weekly_2026-02-01', email: 'sparse-global@x.com', type: 'click', timestamp: daysBefore(170) }),
+    ];
+    const { segments } = aggregate(deliveries, events, null);
+    expect(segments.combined.global.deliveries).toBe(1);
+    expect(segments.combined[PERSONAL_TAIL_LABEL].deliveries).toBe(0);
   });
 });
 
