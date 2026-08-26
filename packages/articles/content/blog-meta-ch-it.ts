@@ -4387,6 +4387,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.edilizia-crescita-primo-semestre.title': 'Edilizia: crescita del +3,1% nei primi sei mesi 2026',
     'blog.article.edilizia-crescita-primo-semestre.excerpt': 'Nel primo semestre 2026 il fatturato della costruzione svizzera ha raggiunto 11,2 miliardi di franchi, con una crescita del 3,1%. Ma permessi e ricorsi frenano i cantieri.',
     'blog.article.edilizia-crescita-primo-semestre.imageAlt': 'Cantiere edile moderno in Svizzera con gru e nuovi edifici residenziali, simbolo della crescita del settore costruzioni e del mercato abitativo nel 2026.',
+    'blog.article.imprese-mem-segnali-ripresa.title': 'Imprese MEM, segnali di ripresa nel settore',
+    'blog.article.imprese-mem-segnali-ripresa.excerpt': 'Indice economico MEM a -20 punti a luglio. Miglior risultato da primavera 2024. Esportazioni in crescita, ma 66% PMI vede condizioni sfavorevoli.',
+    'blog.article.imprese-mem-segnali-ripresa.imageAlt': 'Vista panoramica di Lugano con le montagne sullo sfondo, rappresentando l\'economia e l\'industria svizzera.',
 };
 
 export default blogMetaChIt;

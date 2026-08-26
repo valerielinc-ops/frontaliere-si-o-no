@@ -56920,6 +56920,46 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
+
+  'blog-imprese-mem-segnali-ripresa': {
+    title: 'Imprese MEM, segnali di ripresa nel settore | Frontaliere Ticino',
+    description: 'Indice economico MEM a -20 punti a luglio. Miglior risultato da primavera 2024. Esportazioni in crescita, ma 66% PMI vede condizioni sfavorevoli.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imprese, segnali, ripresa, settore',
+    ogTitle: 'Imprese MEM, segnali di ripresa nel settore',
+    ogDescription: 'Indice economico MEM a -20 punti a luglio. Miglior risultato da primavera 2024. Esportazioni in crescita, ma 66% PMI vede condizioni sfavorevoli.',
+    canonicalPath: '/articoli-svizzera/imprese-mem-segnali-ripresa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imprese MEM, segnali di ripresa nel settore",
+      "description": "Indice economico MEM a -20 punti a luglio. Miglior risultato da primavera 2024. Esportazioni in crescita, ma 66% PMI vede condizioni sfavorevoli.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imprese-mem-segnali-ripresa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con le montagne sullo sfondo, rappresentando l'economia e l'industria svizzera."
+      },
+      "datePublished": "2026-08-26T12:06:23+00:00",
+      "dateModified": "2026-08-26T12:06:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imprese-mem-segnali-ripresa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

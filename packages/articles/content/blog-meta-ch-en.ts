@@ -4387,6 +4387,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.edilizia-crescita-primo-semestre.title': 'Construction: +3.1% growth in the first six months of 2026',
     'blog.article.edilizia-crescita-primo-semestre.excerpt': 'In the first half of 2026, Swiss construction turnover reached CHF 11.2 billion, with a growth of 3.1%. But permits and appeals slow down construction sites.',
     'blog.article.edilizia-crescita-primo-semestre.imageAlt': 'Modern construction site in Switzerland with cranes and new residential buildings, symbolizing the boom in the construction sector and housing market.',
+    'blog.article.imprese-mem-segnali-ripresa.title': 'MEM companies, signs of recovery in the sector',
+    'blog.article.imprese-mem-segnali-ripresa.excerpt': 'MEM economic index at -20 points in July. Best result since spring 2024. Exports are growing, but 66% of SMEs see unfavourable conditions.',
+    'blog.article.imprese-mem-segnali-ripresa.imageAlt': 'Panoramic view of Lugano with mountains in the background, representing Swiss industry and economy.',
 };
 
 export default blogMetaChEn;
