@@ -4408,6 +4408,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.iniziativa-alimentazione-no.title': 'Ernährungsinitiative: Das Nein des Tessins',
     'blog.article.iniziativa-alimentazione-no.excerpt': 'Der Tessiner Vorstand warnt vor Kosten und Konsequenzen: Die Abstimmung am 27. September entscheidet über den Antrag auf 70% Selbstversorgung.',
     'blog.article.iniziativa-alimentazione-no.imageAlt': 'Tessiner Bauernmarkt mit lokalen Produkten, Obst, Gemüse und Milcherzeugnissen unter klarem Himmel.',
+    'blog.article.reddito-record-risparmio-svizzeri.title': 'Rekordergebnis und Ersparnis: Die Schweizer im Jahr 2025',
+    'blog.article.reddito-record-risparmio-svizzeri.excerpt': 'Verfügbares Einkommen von 65.124 Franken pro Einwohner im Jahr 2025. BfS: Freiwillige Sparquote steigt auf 19,3%, das Allzeithoch der Schweizer Statistikreihe.',
+    'blog.article.reddito-record-risparmio-svizzeri.imageAlt': 'Schweizer Familie überprüft ihre Ersparnisse und Finanzplanung in modernem Heimatbüro',
 };
 
 export default blogMetaChDe;

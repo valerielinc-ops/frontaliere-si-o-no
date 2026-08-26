@@ -4408,6 +4408,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.iniziativa-alimentazione-no.title': 'Iniziativa alimentazione: il NO del Ticino',
     'blog.article.iniziativa-alimentazione-no.excerpt': 'Il Comitato ticinese mette in guardia da costi e conseguenze: votazione il 27 settembre deciderà sulla richiesta di 70% autoapprovvigionamento.',
     'blog.article.iniziativa-alimentazione-no.imageAlt': 'Mercato agricolo ticinese con prodotti locali, frutta, verdure e latticini sotto cielo sereno.',
+    'blog.article.reddito-record-risparmio-svizzeri.title': 'Reddito e risparmio record: gli svizzeri nel 2025',
+    'blog.article.reddito-record-risparmio-svizzeri.excerpt': 'Reddito disponibile di 65.124 franchi per abitante nel 2025. UST: tasso di risparmio volontario sale al 19,3%, il massimo storico della serie statistica svizzera.',
+    'blog.article.reddito-record-risparmio-svizzeri.imageAlt': 'Famiglia svizzera che esamina i propri risparmi e pianificazione finanziaria presso un ufficio domestico moderno',
 };
 
 export default blogMetaChIt;
