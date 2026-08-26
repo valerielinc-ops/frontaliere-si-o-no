@@ -56687,6 +56687,44 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-reri-moneypark-calo-3-anni': {
+    title: 'Rischio bolla immobiliare in calo, prima volta da tre anni',
+    description: 'L\'indice RERI di MoneyPark scende a 3,5 punti nel Q2 2026, prima volta in tre anni. Mercato immobiliare svizzero più selettivo, prezzi crescono meno.',
+    keywords: 'frontalieri, ticino, svizzera, italia, rischio, bolla, immobiliare, calo',
+    ogTitle: 'Rischio bolla immobiliare in calo, prima volta da tre anni',
+    ogDescription: 'Il mercato immobiliare svizzero si stabilizza. L\'indice RERI scende a 3,5 punti nel Q2 2026, primo calo in tre anni. Prezzi crescono meno, tassi rimangono bassi, mercato più selettivo verso proprietà di qualità.',
+    canonicalPath: '/articoli-svizzera/reri-moneypark-calo-3-anni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rischio bolla immobiliare in calo, prima volta da tre anni",
+      "description": "L'indice RERI di MoneyPark scende a 3,5 punti nel Q2 2026, prima volta in tre anni. Mercato immobiliare svizzero più selettivo, prezzi crescono meno.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/reri-moneypark-calo-3-anni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di un cantiere edile svizzero con palazzi residenziali moderni e montagne sullo sfondo al tramonto"
+      },
+      "datePublished": "2026-08-26T08:46:52+00:00",
+      "dateModified": "2026-08-26T08:46:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/reri-moneypark-calo-3-anni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
 };
 
 export default BLOG_CH_SEO_METADATA;

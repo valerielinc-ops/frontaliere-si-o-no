@@ -4369,6 +4369,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.grigioni-perequazione-2027.title': 'Grisons 2027: +1.5 million for equalisation',
     'blog.article.grigioni-perequazione-2027.excerpt': 'In 2027, the Canton of Graubünden increases financial equalisation contributions to municipalities to 73.2 million. The canton pays 41.7 million, the municipalities 31.5.',
     'blog.article.grigioni-perequazione-2027.imageAlt': 'Aerial view of an Alpine municipality in Canton Graubünden with mountain landscape',
+    'blog.article.reri-moneypark-calo-3-anni.title': 'Property bubble risk declining, first time in three years',
+    'blog.article.reri-moneypark-calo-3-anni.excerpt': 'MoneyPark\'s RERI index drops to 3.5 points in Q2 2026 - the first time in three years. Market becomes more selective, prices grow less, rates remain low.',
+    'blog.article.reri-moneypark-calo-3-anni.imageAlt': 'Swiss construction site with modern residential buildings against Alpine mountain backdrop at golden hour',
 };
 
 export default blogMetaChEn;

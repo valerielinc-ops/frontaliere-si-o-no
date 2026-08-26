@@ -4369,6 +4369,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.grigioni-perequazione-2027.title': 'Grisons 2027 : +1,5 millions par péréquation',
     'blog.article.grigioni-perequazione-2027.excerpt': 'En 2027, le canton des Grisons augmente les contributions de péréquation financière aux communes à 73,2 millions. Le canton verse 41,7 millions, les communes fortes 31,5.',
     'blog.article.grigioni-perequazione-2027.imageAlt': 'Vue aérienne d\'une commune alpine du Canton des Grisons avec paysage montagneux',
+    'blog.article.reri-moneypark-calo-3-anni.title': 'Risque de bulle immobilière en baisse, pour la première fois depuis trois ans',
+    'blog.article.reri-moneypark-calo-3-anni.excerpt': 'L\'indice RERI de MoneyPark chute à 3,5 points au Q2 2026 : pour la première fois en trois ans. Le marché devient plus sélectif, les prix augmentent moins, les taux restent bas.',
+    'blog.article.reri-moneypark-calo-3-anni.imageAlt': 'Chantier de construction en Suisse avec bâtiments résidentiels modernes et montagnes alpines au coucher du soleil',
 };
 
 export default blogMetaChFr;

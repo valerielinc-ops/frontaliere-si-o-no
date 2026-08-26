@@ -4369,6 +4369,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.grigioni-perequazione-2027.title': 'Graubünden 2027: +1,5 Mio. per Ausgleich',
     'blog.article.grigioni-perequazione-2027.excerpt': 'Im Jahr 2027 erhöht der Kanton Graubünden die Finanzausgleichsbeiträge an die Gemeinden auf 73,2 Millionen. Der Kanton zahlt 41,7 Millionen, die starken Gemeinden 31,5 Millionen.',
     'blog.article.grigioni-perequazione-2027.imageAlt': 'Luftaufnahme einer Alpengemeinde im Kanton Graubünden mit Berglandschaft',
+    'blog.article.reri-moneypark-calo-3-anni.title': 'Immobilienblasenrisiko rückläufig, erstmals seit drei Jahren',
+    'blog.article.reri-moneypark-calo-3-anni.excerpt': 'Der RERI-Index von MoneyPark sinkt im 2. Quartal 2026 auf 3,5 Punkte - das erste Mal seit drei Jahren. Der Markt wird selektiver, die Preise steigen weniger, die Zinsen bleiben niedrig.',
+    'blog.article.reri-moneypark-calo-3-anni.imageAlt': 'Schweizer Baustelle mit modernen Wohngebäuden vor Alpenhintergrund bei Sonnenuntergang',
 };
 
 export default blogMetaChDe;

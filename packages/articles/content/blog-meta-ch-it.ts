@@ -4369,6 +4369,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.grigioni-perequazione-2027.title': 'Grigioni 2027: +1,5 milioni per perequazione',
     'blog.article.grigioni-perequazione-2027.excerpt': 'Nel 2027 il Canton Grigioni aumenta i contributi di perequazione finanziaria ai comuni a 73,2 milioni. Il cantone versa 41,7 milioni, i comuni forti 31,5.',
     'blog.article.grigioni-perequazione-2027.imageAlt': 'Veduta aerea di un comune alpino nel Canton Grigioni con paesaggio montano',
+    'blog.article.reri-moneypark-calo-3-anni.title': 'Rischio bolla immobiliare in calo, prima volta da tre anni',
+    'blog.article.reri-moneypark-calo-3-anni.excerpt': 'L\'indice RERI di MoneyPark scende a 3,5 punti nel Q2 2026: prima volta in tre anni. Mercato diventa più selettivo, prezzi crescono meno, tassi rimangono bassi.',
+    'blog.article.reri-moneypark-calo-3-anni.imageAlt': 'Veduta di un cantiere edile svizzero con palazzi residenziali moderni e montagne sullo sfondo al tramonto',
 };
 
 export default blogMetaChIt;
