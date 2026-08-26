@@ -4399,6 +4399,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.stipendi-aumenti-differenziati-2026.title': 'Gehälter 2026: Doppelte Gehaltserhöhungen für die Besten',
     'blog.article.stipendi-aumenti-differenziati-2026.excerpt': 'Laut WTW erhalten Top-Performer 3,9%, während der Durchschnitt bei 2% bleibt. Drastische Unterschiede auch in der IT-Branche.',
     'blog.article.stipendi-aumenti-differenziati-2026.imageAlt': 'Schweizer Büroumgebung mit Mitarbeitern, die Gehaltsunterlagen überprüfen.',
+    'blog.article.mobiliare-edilizia-popolare-200m.title': 'Mobiliar investiert 200 Millionen in den sozialen Wohnungsbau',
+    'blog.article.mobiliare-edilizia-popolare-200m.excerpt': 'Die Versicherungsgesellschaft wird 200 Millionen investieren, um 1000 Mietwohnungen zu Mieten zu bauen, die den tatsächlichen Kosten entsprechen.',
+    'blog.article.mobiliare-edilizia-popolare-200m.imageAlt': 'Baustelle eines modernen Wohnkomplexes in der Schweiz mit Kränen und Gerüsten während der Bauphase',
 };
 
 export default blogMetaChDe;
