@@ -4345,6 +4345,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.scuola-futuro-giovani-ticino.title': 'Schule und Zukunft: Junge Tessiner riskieren den Weggang',
     'blog.article.scuola-futuro-giovani-ticino.excerpt': 'Am 31. August beginnt die Schule im Tessin wieder. Aber welche Zukunft erwartet junge Menschen nach der Ausbildung? Gehälter, Mieten und Krankenkassenprämien gefährden die wirtschaftliche Unabhängigkeit.',
     'blog.article.scuola-futuro-giovani-ticino.imageAlt': 'Klassenzimmer in Lugano mit Schülern, die an Laptops arbeiten, und natürlicher Beleuchtung.',
+    'blog.article.avs-appenzello-interno-compensazione.title': 'AHV und Ergänzungsleistungen in Appenzell Innerrhoden',
+    'blog.article.avs-appenzello-interno-compensazione.excerpt': 'Erste Säule Appenzell Innerrhoden: Leitfaden zur Ausgleichskasse, AHV-Rentenberechnung und Ergänzungsleistungen für das Lebensminimum.',
+    'blog.article.avs-appenzello-interno-compensazione.imageAlt': 'Schweizer Verwaltungsbüro mit Rentenberater, der einem Rentner die AHV-Berechnung erklärt',
 };
 
 export default blogMetaChDe;

@@ -1474,6 +1474,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'deposito-disdetta-affitti-appenzello': { it: 'deposito-disdetta-affitti-appenzello', en: 'security-deposit-termination-rental-appenzell', de: 'kaution-kuendigung-mietverhaeltnis-appenzell', fr: 'depot-caution-resiliation-location-appenzell' },
  'processo-bondo-critica-procura': { it: 'processo-bondo-critica-procura', en: 'bondo-process-defense-critique-prosecution', de: 'bondo-prozess-verteidigung-kritisiert-anklage', fr: 'proces-bondo-la-defense-critique-le-ministere' },
  'scuola-futuro-giovani-ticino': { it: 'scuola-futuro-giovani-ticino', en: 'school-future-young-ticino', de: 'schule-zukunft-jugend-tessin', fr: 'ecole-avenir-jeunes-tessin' },
+ 'avs-appenzello-interno-compensazione': { it: 'avs-appenzello-interno-compensazione', en: 'avs-appenzell-internal-compensation', de: 'ahv-appenzell-innerrhoden-ausgleich', fr: 'avs-appenzell-rhodes-prestations' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

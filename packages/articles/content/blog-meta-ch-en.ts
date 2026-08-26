@@ -4345,6 +4345,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.scuola-futuro-giovani-ticino.title': 'School and future: young people from Ticino are at risk of leaving',
     'blog.article.scuola-futuro-giovani-ticino.excerpt': 'On August 31, school begins again in Ticino. But what future awaits young people after training? Salaries, rents and sick pay premiums put economic independence at risk.',
     'blog.article.scuola-futuro-giovani-ticino.imageAlt': 'High school classroom in Lugano with students working on laptops, natural lighting, modern teaching environment.',
+    'blog.article.avs-appenzello-interno-compensazione.title': 'AVS and complementary services in Appenzello Interno',
+    'blog.article.avs-appenzello-interno-compensazione.excerpt': 'First pillar in Inner Appenzell: guide to the compensation fund, calculation of the AVS annuity and complementary benefits for the minimum living.',
+    'blog.article.avs-appenzello-interno-compensazione.imageAlt': 'Swiss administrative office with pension advisor explaining AVS retirement calculation to senior citizen',
 };
 
 export default blogMetaChEn;

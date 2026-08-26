@@ -4345,6 +4345,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.scuola-futuro-giovani-ticino.title': 'Scuola e futuro: i giovani ticinesi rischiano di partire',
     'blog.article.scuola-futuro-giovani-ticino.excerpt': 'Il 31 agosto ricomincia la scuola in Ticino. Ma quale futuro aspetta i giovani dopo la formazione? Stipendi, affitti e premi cassa malati mettono a rischio l\'indipendenza economica.',
     'blog.article.scuola-futuro-giovani-ticino.imageAlt': 'Una classe scolastica a Lugano durante una lezione, con studenti al lavoro su laptop e insegnante in sottofondo.',
+    'blog.article.avs-appenzello-interno-compensazione.title': 'AVS e prestazioni complementari in Appenzello Interno',
+    'blog.article.avs-appenzello-interno-compensazione.excerpt': 'Primo pilastro in Appenzello Interno: guida alla cassa di compensazione, calcolo della rendita AVS e prestazioni complementari per il minimo vitale.',
+    'blog.article.avs-appenzello-interno-compensazione.imageAlt': 'Ufficio amministrativo svizzero dove un consulente illustra il calcolo della rendita AVS a un pensionato',
 };
 
 export default blogMetaChIt;
