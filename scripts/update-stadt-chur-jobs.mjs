@@ -48,7 +48,7 @@ import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
-import { parseFeed } from './lib/stadt-chur-feed-parser.mjs';
+import { parseFeed, parseRss2JsonItems } from './lib/stadt-chur-feed-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -77,6 +77,16 @@ const FEED_URL = 'https://jobs.chur.ch/rss_generator-rss0.php?unit=chur&lang=de'
 // Stadt Chur jobs. For hardening, self-host morss on a clean-IP free tier and
 // point STADT_CHUR_FEED_PROXY at it.
 const FEED_PROXY_BASE = process.env.STADT_CHUR_FEED_PROXY || 'https://morss.it/:proxy/';
+// Tertiary fallback (#6560): morss.it itself went unreachable for 7 straight
+// days (2026-08-20 → 2026-08-26, every direct connection AND every
+// `:proxy/` passthrough call timing out — a broad outage of the proxy
+// service, not a chur.ch-side change), which left the feed fetch with no
+// working source at all. rss2json.com fetches+parses the feed server-side
+// from its own independent egress IP and returns it as JSON, so it has no
+// dependency on morss.it staying up. Free tier caps at 10 items (no API
+// key) — acceptable here: this feed has historically carried ~9 open Stadt
+// Chur postings at a time, comfortably under the cap.
+const RSS2JSON_API_BASE = process.env.STADT_CHUR_RSS2JSON_BASE || 'https://api.rss2json.com/v1/api.json?rss_url=';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const TIMEOUT_MS = parseInt(process.env.JOBS_CRAWLER_TIMEOUT_MS || '30000', 10);
@@ -296,10 +306,28 @@ async function fetchFeedXml() {
   return res.text();
 }
 
+async function fetchFeedViaRss2Json() {
+  const apiUrl = `${RSS2JSON_API_BASE}${encodeURIComponent(FEED_URL)}`;
+  const res = await fetchWithRetry(apiUrl, { headers: { 'User-Agent': UA, Accept: 'application/json' } }, 2);
+  if (!res.ok) throw new Error(`rss2json fetch failed: HTTP ${res.status} ${res.statusText}`);
+  const json = await res.json();
+  if (json.status !== 'ok' || !Array.isArray(json.items)) {
+    throw new Error(`rss2json returned an error: ${json.message || 'unexpected response shape'}`);
+  }
+  return parseRss2JsonItems(json.items);
+}
+
 async function fetchFeed() {
   console.log(`🔍 Fetching feed from ${FEED_URL} ...`);
-  const xml = await fetchFeedXml();
-  const entries = parseFeed(xml);
+  let entries;
+  try {
+    const xml = await fetchFeedXml();
+    entries = parseFeed(xml);
+  } catch (err) {
+    console.warn(`  ⚠️ Direct fetch + morss proxy both failed (${err.message}); trying rss2json.com fallback.`);
+    entries = await fetchFeedViaRss2Json();
+    console.log('  ↪ Recovered feed entries via rss2json.com fallback.');
+  }
   console.log(`📋 Total entries in feed: ${entries.length}`);
   return entries;
 }
