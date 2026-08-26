@@ -1489,6 +1489,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'allerte-popolazione-cell-broadcast': { it: 'allerte-popolazione-cell-broadcast', en: 'alerts-population-cell-broadcast', de: 'bevoelkerungswarnungen-cell-broadcast', fr: 'alertes-population-cell-broadcast' },
  'edilizia-crescita-primo-semestre': { it: 'edilizia-crescita-primo-semestre', en: 'construction-growth-first-semester', de: 'bauwesen-wachstum-erstes-semester', fr: 'construction-croissance-premier-semestre' },
  'imprese-mem-segnali-ripresa': { it: 'imprese-mem-segnali-ripresa', en: 'mem-sector-companies-recovery-signals', de: 'mem-branchen-unternehmen-erholungssignale', fr: 'entreprises-secteur-mem-signaux-reprise' },
+ 'benzina-diesel-prezzi-calano': { it: 'benzina-diesel-prezzi-calano', en: 'petrol-diesel-prices-falling', de: 'benzin-diesel-preise-fallen', fr: 'essence-diesel-prix-baissent' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

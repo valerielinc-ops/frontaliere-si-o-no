@@ -4390,6 +4390,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imprese-mem-segnali-ripresa.title': 'MEM companies, signs of recovery in the sector',
     'blog.article.imprese-mem-segnali-ripresa.excerpt': 'MEM economic index at -20 points in July. Best result since spring 2024. Exports are growing, but 66% of SMEs see unfavourable conditions.',
     'blog.article.imprese-mem-segnali-ripresa.imageAlt': 'Panoramic view of Lugano with mountains in the background, representing Swiss industry and economy.',
+    'blog.article.benzina-diesel-prezzi-calano.title': 'Petrol and diesel: falling prices',
+    'blog.article.benzina-diesel-prezzi-calano.excerpt': 'The TCS shows a decrease: petrol 95 at 1.98 CHF/litre, diesel at 2.23 CHF. But it remains +14-18% more expensive than in February.',
+    'blog.article.benzina-diesel-prezzi-calano.imageAlt': 'Swiss petrol pump displaying fuel prices in Swiss francs',
 };
 
 export default blogMetaChEn;

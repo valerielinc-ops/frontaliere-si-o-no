@@ -4390,6 +4390,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imprese-mem-segnali-ripresa.title': 'Entreprises MEM, signes de reprise dans le secteur',
     'blog.article.imprese-mem-segnali-ripresa.excerpt': 'Indice économique MEM à -20 points en juillet. Meilleur résultat du printemps 2024. Les exportations augmentent, mais 66% des PME voient des conditions défavorables.',
     'blog.article.imprese-mem-segnali-ripresa.imageAlt': 'Vue panoramique de Lugano avec les montagnes en arrière-plan, représentant l\'industrie suisse.',
+    'blog.article.benzina-diesel-prezzi-calano.title': 'Essence et diesel : prix en baisse',
+    'blog.article.benzina-diesel-prezzi-calano.excerpt': 'Le TCS relève une baisse : essence 95 à 1,98 CHF/litre, diesel à 2,23 CHF. Mais il reste +14-18% plus cher qu\'en février.',
+    'blog.article.benzina-diesel-prezzi-calano.imageAlt': 'Station-service suisse affichant les prix en francs suisses',
 };
 
 export default blogMetaChFr;
