@@ -166,7 +166,7 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
       ['contract', /PR-body completeness \+ multi-issue Closes/],
       ['source guards', /check-sibling-patterns\.mjs/],
       ['typecheck', /npm run typecheck:gate/],
-      ['vitest', /npm test --/],
+      ['vitest', /run-adaptive-vitest\.mjs/],
     ] as const) {
       expect(re.test(jobsBody), `famiglia \`${what}\` non trovata nel job fuso`).toBe(true);
     }
@@ -194,11 +194,12 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
     expect(TESTS_CODE).not.toContain('pr-collision-detector');
   });
 
-  it('adatta il budget CPU al completamento del gruppo independent', () => {
-    expect(TESTS_YML).toContain('id: vitest_budget');
-    expect(TESTS_YML).toContain("echo \"max_workers=50%\" >> \"$GITHUB_OUTPUT\"");
-    expect(TESTS_YML).toContain("echo \"max_workers=100%\" >> \"$GITHUB_OUTPUT\"");
-    expect(TESTS_YML).toContain('VITEST_MAX_WORKERS: ${{ steps.vitest_budget.outputs.max_workers }}');
+  it('usa un wrapper che riequilibra dinamicamente le CPU tra i due Vitest', () => {
+    for (const group of ['independent', 'dependent']) {
+      expect(TESTS_YML).toContain(
+        `run: node scripts/ci/run-adaptive-vitest.mjs --group=${group}`,
+      );
+    }
   });
 
   // Il lock non e' piu' CONDIZIONALE, e' CIRCOSCRITTO: sta su un job che
