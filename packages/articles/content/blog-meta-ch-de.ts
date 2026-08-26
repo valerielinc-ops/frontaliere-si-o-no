@@ -4327,6 +4327,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.parlamento-svizzero-velo-divieto-diritti.title': 'Velo in den Aargauer Schulen: Rechte und Verfassung',
     'blog.article.parlamento-svizzero-velo-divieto-diritti.excerpt': 'Das Aargauer Parlament hat mit 78 Ja und 54 Nein für ein Kopftuchverbot in öffentlichen Schulen bis 16 Jahre gestimmt, doch das Bundesgericht stellt die Rechtmässigkeit der Massnahme in Frage.',
     'blog.article.parlamento-svizzero-velo-divieto-diritti.imageAlt': 'Schweizer Klassenzimmer mit Schülern, Tageslicht, Symbol für Unterrichts- und Verfassungsfragen',
+    'blog.article.acquisire-immobile-berna-procedura.title': 'Haus kaufen im Kanton Bern: Kosten und Ablauf',
+    'blog.article.acquisire-immobile-berna-procedura.excerpt': 'Leitfaden zum Immobilienerwerb im Kanton Bern: Eidgenössische, kantonale, kommunale Besteuerung, Bankenbewertung und Schritt-für-Schritt-Verfahren.',
+    'blog.article.acquisire-immobile-berna-procedura.imageAlt': 'Modernes Wohnhaus im Kanton Bern mit typischer Schweizer Architektur',
 };
 
 export default blogMetaChDe;

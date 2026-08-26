@@ -4327,6 +4327,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.parlamento-svizzero-velo-divieto-diritti.title': 'Voile dans les écoles argoviennes : droits et constitution',
     'blog.article.parlamento-svizzero-velo-divieto-diritti.excerpt': 'Le Parlement d\'Argovie a voté pour interdire le voile dans les écoles publiques jusqu\'à 16 ans avec 78 oui et 54 non, mais le Tribunal fédéral met en doute la légalité de la mesure.',
     'blog.article.parlamento-svizzero-velo-divieto-diritti.imageAlt': 'Salle de classe suisse avec étudiants, lumière naturelle, symbole des enjeux éducatifs et constitutionnels',
+    'blog.article.acquisire-immobile-berna-procedura.title': 'Acheter une maison dans le canton de Berne : coûts et procédure',
+    'blog.article.acquisire-immobile-berna-procedura.excerpt': 'Guide de l\'acquisition immobilière dans le canton de Berne : fiscalité fédérale, cantonale, communale, évaluation bancaire et procédures étape par étape.',
+    'blog.article.acquisire-immobile-berna-procedura.imageAlt': 'Propriété résidentielle moderne dans le canton de Berne avec architecture suisse typique',
 };
 
 export default blogMetaChFr;

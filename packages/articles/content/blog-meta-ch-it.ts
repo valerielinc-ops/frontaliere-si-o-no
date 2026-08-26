@@ -4327,6 +4327,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.parlamento-svizzero-velo-divieto-diritti.title': 'Velo nelle scuole argoviesi: diritti e costituzione',
     'blog.article.parlamento-svizzero-velo-divieto-diritti.excerpt': 'Il Parlamento di Argovia ha votato per vietare il velo nelle scuole pubbliche fino ai 16 anni con 78 sì e 54 no, ma il Tribunale federale mette in dubbio la legalità della misura.',
     'blog.article.parlamento-svizzero-velo-divieto-diritti.imageAlt': 'Aula scolastica svizzera con studenti e banchi, luce naturale, rappresentazione dei diritti nell\'istruzione',
+    'blog.article.acquisire-immobile-berna-procedura.title': 'Comprare casa nel Cantone di Berna: costi e procedura',
+    'blog.article.acquisire-immobile-berna-procedura.excerpt': 'Guida all\'acquisizione immobiliare nel Cantone di Berna: tassazione federale, cantonale, comunale, valutazione bancaria e iter procedurale step-by-step.',
+    'blog.article.acquisire-immobile-berna-procedura.imageAlt': 'Una moderna casa residenziale nel Cantone di Berna con architettura svizzera caratteristica',
 };
 
 export default blogMetaChIt;
