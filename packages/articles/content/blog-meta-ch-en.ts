@@ -4372,6 +4372,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.reri-moneypark-calo-3-anni.title': 'Property bubble risk declining, first time in three years',
     'blog.article.reri-moneypark-calo-3-anni.excerpt': 'MoneyPark\'s RERI index drops to 3.5 points in Q2 2026 - the first time in three years. Market becomes more selective, prices grow less, rates remain low.',
     'blog.article.reri-moneypark-calo-3-anni.imageAlt': 'Swiss construction site with modern residential buildings against Alpine mountain backdrop at golden hour',
+    'blog.article.infortuni-soglia-indipendenti-2027.title': 'LAINF: reduced threshold for 40,000 self-employed workers',
+    'blog.article.infortuni-soglia-indipendenti-2027.excerpt': 'The Federal Council lowers access to accident insurance from 1 January 2027: from CHF 66,690 to CHF 44,460 per year. They benefit from 40,000 more freelancers.',
+    'blog.article.infortuni-soglia-indipendenti-2027.imageAlt': 'Freelance professional working at desk with Swiss mountain vista behind',
 };
 
 export default blogMetaChEn;

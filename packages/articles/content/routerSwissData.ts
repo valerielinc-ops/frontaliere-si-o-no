@@ -1483,6 +1483,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'ffs-crescita-primo-semestre-2026': { it: 'ffs-crescita-primo-semestre-2026', en: 'sbb-growth-first-half-2026', de: 'sbb-wachstum-erstes-halbjahr-2026', fr: 'cff-croissance-premier-semestre-2026' },
  'grigioni-perequazione-2027': { it: 'grigioni-perequazione-2027', en: 'graubunden-financial-equalization-2027', de: 'graubuenden-ressourcenausgleich-2027', fr: 'grisons-perequation-2027' },
  'reri-moneypark-calo-3-anni': { it: 'reri-moneypark-calo-3-anni', en: 'reri-moneypark-decline-three-years', de: 'reri-moneypark-ruckgang-drei-jahre', fr: 'reri-moneypark-baisse-trois-ans' },
+ 'infortuni-soglia-indipendenti-2027': { it: 'infortuni-soglia-indipendenti-2027', en: 'accident-insurance-threshold-independents-2027', de: 'unfallversicherung-schwelle-selbststaendige-2027', fr: 'assurance-accidents-seuil-independants-2027' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

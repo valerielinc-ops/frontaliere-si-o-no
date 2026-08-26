@@ -4372,6 +4372,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.reri-moneypark-calo-3-anni.title': 'Immobilienblasenrisiko rückläufig, erstmals seit drei Jahren',
     'blog.article.reri-moneypark-calo-3-anni.excerpt': 'Der RERI-Index von MoneyPark sinkt im 2. Quartal 2026 auf 3,5 Punkte - das erste Mal seit drei Jahren. Der Markt wird selektiver, die Preise steigen weniger, die Zinsen bleiben niedrig.',
     'blog.article.reri-moneypark-calo-3-anni.imageAlt': 'Schweizer Baustelle mit modernen Wohngebäuden vor Alpenhintergrund bei Sonnenuntergang',
+    'blog.article.infortuni-soglia-indipendenti-2027.title': 'UVG: reduzierter Schwellenwert für 40.000 Selbständige',
+    'blog.article.infortuni-soglia-indipendenti-2027.excerpt': 'Der Bundesrat senkt den Zugang zur Unfallversicherung per 1. Januar 2027 von CHF 66 \'690 auf CHF 44\' 460 pro Jahr. Sie profitieren von 40.000 zusätzlichen Autonomen.',
+    'blog.article.infortuni-soglia-indipendenti-2027.imageAlt': 'Unabhängiger Arbeitnehmer am Schreibtisch mit Schweizer Alpenpanorama',
 };
 
 export default blogMetaChDe;
