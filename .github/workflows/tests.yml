@@ -29,44 +29,95 @@ name: tests
 # Tests that read data/jobs.json (gitignored): the assemble step regenerates
 # it from the per-slice files committed under data/jobs-by-slice/.
 #
-# ── Four jobs, all in parallel (was briefly a `needs:` chain, reverted) ─────
-# `collision` (ex `pr-collision-detector.yml` job `detect`) and `contract` (ex
-# `pr-body-contract.yml` job `contract`) live HERE, alongside `typecheck` and
-# `vitest`, with NO `needs:` between them — all four run concurrently, exactly
-# as they did back when they were 4 separate workflow files. A red gate never
-# blocks another: a failing `collision`/`contract`/`typecheck` never used to
-# stop `vitest` from running, and still doesn't (no cross-job dependency to
-# short-circuit).
+# ── UN SOLO job, quattro cancelli come step (era 4 job paralleli) ──────────
+# `collision` (ex `pr-collision-detector.yml` job `detect`), `contract` (ex
+# `pr-body-contract.yml`), `typecheck` e `vitest` erano quattro JOB. Ora sono
+# quattro FAMIGLIE DI STEP dentro un job solo, e la fase comune — checkout +
+# `actions/setup-node` + `npm ci` — si paga UNA volta invece di quattro.
 #
-# What IS shared, and how: checkout can't be — a local composite action is
-# resolved from the checkout that hosts it, so it can't also perform that
-# checkout (verified in CI: an early attempt that folded checkout into the
-# action broke every caller with "Can't find 'action.yml' ... Did you forget
-# to run actions/checkout before running local action?"). Each job keeps its
-# own checkout profile — they are genuinely different (collision/typecheck
-# stay sparse for cost, vitest is a full checkout above the ~1.5GB blob:none
-# crossover) and forcing one shared profile would regress whichever job has
-# the cheaper one today. `actions/setup-node` + `npm ci` (identical across
-# collision/typecheck/vitest bar one flag) DO move into one place:
-# `.github/actions/ci-npm-setup` — one spot to change node version or cache
-# config instead of three. `contract`'s source-guard scripts have no npm
-# dependency and never called `npm ci`, so it doesn't use the action.
+# Cosa cambiava prima e cosa cambia adesso: la PR #6534 aveva fattorizzato
+# setup-node+npm-ci in `.github/actions/ci-npm-setup`, ma una composite action
+# condivide la DEFINIZIONE, non l'ESECUZIONE — ogni job la rieseguiva da zero,
+# quindi nella UI Actions restavano quattro job che facevano quattro checkout e
+# quattro `npm ci`. Quello era esattamente ciò che #6534 intendeva consegnare;
+# questo file va oltre, su decisione esplicita del proprietario.
 #
-# Trade-off, stated not hidden: parallel means up to 4 of the account's ~20
-# shared Actions job slots go per PR push again (the same cost the very
-# "Footprint" note above once fixed by collapsing a 4-shard matrix to 1 job).
-# A same-day PR (#6475) had chained these 4 jobs serially with `needs:` +
-# `if: always()` specifically to drop that peak back to 1 concurrent job; this
-# reverts that chain because parallel latency (not slot count) was the
-# explicit requirement here. If job-pool contention resurfaces, re-chaining is
-# a small, contained diff (add back `needs:` + `if: always()`), not a rewrite.
+# ── Conseguenza #1: i quattro cancelli diventano BLOCCANTI ────────────────
+# Fino a oggi UN SOLO check-run governava davvero il merge — `vitest (unit +
+# integration)`, l'unico su cui `auto-merge-eval.mjs` fa `select` (non esiste
+# branch protection su `main`: `branches/main/protection` → 404). `contract`,
+# `typecheck` e `collision` giravano, si vedevano rossi, e non fermavano
+# niente: misura in `scripts/ci/lib/checkRunObservation.mjs` (issue #5552), PR
+# #5590 mergiata il 2026-08-11 con `contract` = `failure`. Fondendoli nel job
+# che PRODUCE quel check-run, un loro rosso fa rosso il check che governa
+# l'auto-merge. È un irrigidimento del cancello (AGENTS.md Non-Negotiable #1
+# ammette solo questa direzione), ed è un cambio di comportamento voluto.
 #
-# `collision` keeps its OWN job-level `concurrency:` (see `jobs.collision`
-# below) sharing the group `pr-collision-detector` with the schedule-only
-# `pr-collision-detector.yml` — that cross-workflow lock is what prevents the
-# label race that caused the main-red #1454↔#1459. The workflow-level
-# `concurrency:` below (keyed on `github.ref`) is unchanged and still governs
-# the whole run, `contract`/`typecheck`/`vitest` included.
+# ── Conseguenza #2: un cancello rosso non ne spegne un altro ──────────────
+# Con quattro job paralleli un `contract` rosso non impediva a `vitest` di
+# girare. La proprietà è PRESERVATA qui da `if: ${{ !cancelled() }}` sul primo
+# step di ogni famiglia: tutte e quattro girano sempre, e il job fallisce se
+# una qualunque è fallita. Dentro una famiglia la catena resta fail-fast, come
+# era dentro il job che la ospitava.
+#
+# ── Conseguenza #3: il lock delle label si estende a tutto il job ─────────
+# Il job `collision` aveva un `concurrency:` proprio, gruppo
+# `pr-collision-detector`, CONDIVISO con lo scan periodico di
+# `pr-collision-detector.yml` (cron ogni 30 min). Serve a impedire due scritture
+# concorrenti sulla label `collision-risk` — la race che ha prodotto il main-red
+# #1454↔#1459. Le concurrency di GitHub Actions esistono solo a livello
+# job/workflow, MAI a livello step: l'unico modo di conservare quella mutua
+# esclusione è mettere lo stesso gruppo sull'INTERO job fuso (vedi
+# `jobs.vitest.concurrency`). Costo reale, accettato: il job fuso di una PR si
+# serializza contro lo scan periodico E contro il job fuso delle ALTRE PR
+# aperte. Con la flotta di agenti che apre più PR insieme, un run in coda viene
+# sfrattato da uno più recente dello stesso gruppo (GitHub tiene 1 running + 1
+# pending) e conclude `cancelled` → nessun `success` spurio, auto-merge
+# fail-closed, ma servono più rerun/heal-dispatch nelle ore di traffico alto.
+#
+# ── Conseguenza #4: la #6526 perde margine sul caso `collision` ───────────
+# La PR #6526 (commit 1052ee9) aveva fatto leggere ad `auto-merge-on-lgtm.yml` /
+# `pr-review-loop.yml` il check-run `vitest (unit + integration)` ISOLATO invece
+# del rollup della run, perché un `collision` cancellato per contesa trascinava
+# il rollup a `cancelled` su ~1/3 delle PR anche con vitest già `success`. Ora
+# collision e vitest sono lo STESSO check-run: se il job non parte per contesa
+# sul lock, non esiste più un check-run isolato da leggere e quella fix non ha
+# più margine di manovra su questo caso specifico. Resta fail-closed — un job
+# conteso produce `cancelled`/`failure`, mai `success` — quindi non è un buco di
+# merge-safety: è latenza (più rerun), non permissività.
+#
+# ── Il checkout: uno solo, e perché QUESTO profilo ────────────────────────
+# I quattro job avevano tre profili diversi e INCOMPATIBILI fra loro:
+#   - `vitest`: albero pieno, fetch bulk shallow (`fetch-depth: 1`), niente
+#     `filter:` — sopra il crossover ~1,5 GB dove lo sparse smette di convenire;
+#   - `contract`: `fetch-depth: 0` + `filter: blob:none` — la storia PROFONDA
+#     serve a `check-sibling-patterns.mjs` / `check-below-floor-bridge.mjs`, che
+#     diffano a tre punti contro il merge-base;
+#   - `collision`/`typecheck`: sparse, `fetch-depth: 1`.
+# Un job solo può avere un profilo solo, e i due requisiti veri (albero PIENO
+# per vitest, storia PROFONDA per i source guard) si sommano invece di
+# escludersi. `fetch-depth: 0` SENZA `filter:` sarebbe il clone integrale
+# (`.git` 15 GB): non è un'opzione. Quindi: albero pieno, `fetch-depth: 0`,
+# `filter: blob:none` — cioè ESATTAMENTE il profilo che il job `contract` gira
+# in produzione da settimane, il solo dei tre già misurato su questa
+# combinazione. Le due distribuzioni sono sovrapponibili (misure già in questo
+# file): `contract` p50 158s / p95 358s / max 420s, `vitest` p50 2m28s / p90
+# 5m12s / max 8m14s. Il commento storico che sconsigliava `blob:none` per
+# vitest misurava +125% su una baseline di 75s che oggi non esiste più.
+# NIENTE `sparse-checkout`: `verify-checkout-profiles.mjs` accetta di escludere
+# MENO del calcolato, mai di più, e vitest oggi non esclude nulla.
+#
+# ── Il nome del check-run NON cambia, ed è deliberato ─────────────────────
+# Il job fa quattro cose e si chiama ancora `vitest (unit + integration)`: è
+# fuorviante, ed è l'opzione meno pericolosa. `auto-merge-on-lgtm.yml` e
+# `pr-review-loop.yml` girano su `workflow_run`, quindi eseguono SEMPRE la
+# versione su `main` di se stessi e di `scripts/ci/lib/constants.mjs`. Una PR
+# che rinomina il check produce un nome che i lettori su `main` non conoscono:
+# `auto-merge-eval` gate 3 legge length 0, `pr-autorebase.headHasVitestCheck`
+# torna false e heal-dispatcha all'infinito — cioè esattamente il deadlock che
+# la testata di `constants.mjs` descrive, e la PR del rename non mergerebbe MAI
+# da sola. Il rename onesto richiede due PR concatenate: prima insegnare ai
+# lettori su `main` ad accettare entrambi i nomi, poi rinominare.
 on:
   pull_request:
     branches: [main]
@@ -138,81 +189,86 @@ concurrency:
   cancel-in-progress: ${{ github.event_name != 'push' }}
 
 jobs:
-  # PR-triggered funnel-critical collision scan — steps copied VERBATIM from
-  # `pr-collision-detector.yml` job `detect` (only the job id changed, to
-  # `collision`, since GitHub uses the job id as the check-run name absent an
-  # explicit `name:`). That file's own `schedule`/`workflow_dispatch` periodic
-  # recalc job (same script, same purpose: also removes the `collision-risk`
-  # label when a collision resolves) is UNCHANGED and stays there — this job
-  # only covers the `pull_request` case that file no longer triggers on.
-  collision:
-    # `edited` never carries a new commit for the collision scan to react to
-    # — same reasoning pr-collision-detector.yml's own trigger list already
-    # encoded by never listing `edited` in its `pull_request.types`.
-    if: github.event_name == 'pull_request' && github.event.action != 'edited'
+  # Job UNICO: checkout + setup-node + npm ci una volta sola, poi le quattro
+  # famiglie di step (collision, contract, typecheck, vitest). Il razionale
+  # completo — e i quattro trade-off accettati — sta nella testata del file.
+  #
+  # L'id `vitest` e il `name:` restano quelli: `tests/ci-vitest-check-name.test.ts`
+  # estrae il `name:` della riga SUBITO dopo `vitest:` e lo confronta con
+  # `VITEST_CHECK_NAME`. Non infilare altre chiavi fra le due righe.
+  vitest:
+    name: vitest (unit + integration)
     runs-on: ubuntu-latest
-    # Own job-level lock, INDEPENDENT of the workflow-level `concurrency:`
-    # above (which is keyed on `github.ref`, i.e. per-PR/per-branch): this
-    # group is GLOBAL and shared with pr-collision-detector.yml's own
-    # `concurrency:` (identical group name), so a scan started here and the
-    # periodic schedule scan over there never run concurrently and step on
-    # each other's labels — the exact race condition that caused the
-    # main-red #1454↔#1459.
-    concurrency:
-      group: pr-collision-detector
-      cancel-in-progress: false
-    # 15 min (era 8). Il tetto stava DENTRO il corpo della distribuzione, non
-    # sopra: misurato il 2026-08-18 sugli ultimi 28 job `detect` conclusi, i 26
-    # sani vanno da 149s a **449s** (p50 265s, p90 416s) contro un tetto di 480s
-    # — 31s di margine sul caso peggiore osservato. Gli altri 2 sono morti al
-    # tetto (503s e 504s: 480s di job piu' setup e post-step) e appaiono come
-    # `cancelled`, con `Checkout -> cancelled` e ogni step successivo `skipped`.
-    # Esempio: run 32177560874 su PR #6048, `detect` a 503s senza aver eseguito
-    # una riga del detector. Un `cancelled` non e' un rosso: nessuno strato di
-    # rimedio lo raccoglie, e sulla PR si legge come "sta ancora girando".
+    # Lock GLOBALE delle label `collision-risk`, ereditato dal job `collision`
+    # e ora esteso a tutto il job fuso — vedi «Conseguenza #3» in testata.
+    # Stesso gruppo di `pr-collision-detector.yml`, quindi lo scan periodico e
+    # questo job non si pestano mai sulle label (race del main-red #1454↔#1459).
     #
-    # La causa e' comune a tests.yml e pr-review-loop.yml e non e' questo job:
-    # il Checkout contro cui questi tetti erano stati scelti costava 75s, oggi
-    # ne costa 250-475 (`.git` cresciuto a 15 GB, `public/` 4,4 GB + `data/`
-    # 2,3 GB tracciati). Qui il Checkout e' gia' minimo (`fetch-depth: 1`) e non
-    # c'e' altro da togliere lato workflow: la cura vera e' ridurre cio' che il
-    # repo traccia, questo tetto e' il cerotto dichiarato nel frattempo.
-    timeout-minutes: 15
+    # Il gruppo è CONDIZIONALE sull'evento, e la ragione è misurata in questo
+    # stesso file: gli step di collision girano solo su `pull_request` (sono gli
+    # unici che SCRIVONO label), mentre su `push` a main non c'è nessuna label
+    # da contendere. Mettere anche i run di main in quel gruppo globale con
+    # `cancel-in-progress: false` li farebbe accodare dietro le PR e sfrattare
+    # da un run più recente — cioè distruggerebbe di nuovo il verdetto di salute
+    # di main che il `concurrency:` top-level qui sopra esiste per proteggere
+    # (14 run su 30 cancellati, 47%). Su push/dispatch il gruppo è quindi
+    # per-run, cioè nessun lock, che è la semantica corretta: niente scritture
+    # concorrenti da serializzare. Guard: `tests/ci-vitest-check-name.test.ts`.
+    concurrency:
+      group: ${{ github.event_name == 'pull_request' && 'pr-collision-detector' || format('tests-nolock-{0}', github.run_id) }}
+      cancel-in-progress: false
+    # 60 min. NON è il vecchio 30 lasciato lì: il job fuso paga in SERIE ciò che
+    # quattro job pagavano in parallelo. Somma dei massimi osservati citati in
+    # questo file: checkout profilo `contract` 420s + `npm ci` ~60s + detector
+    # collision 449s + body-contract/source-guard ~90s + `tsc` 33s + catena
+    # vitest 950s ≈ 2000s ≈ 33 min. 60 = 1,8x quel caso peggiore, con lo stesso
+    # criterio (≈2x il massimo osservato) usato per i tetti che questo file ha
+    # già ritarato. Un tetto sotto la somma non discrimina un guasto: fabbrica
+    # un `cancelled`, che nessun `if: failure()` vede e che `gh pr checks` legge
+    # come fail bloccando l'auto-merge di PR sane.
+    timeout-minutes: 60
     steps:
-      - name: Checkout
-        uses: actions/checkout@v5
-        with:
-          fetch-depth: 1
-          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
-          sparse-checkout: |
-            /*
-            !/public/images/
-            !/data/jobs/
-            !/data/seo-404-compat/
-            !/data/translation-cache/
-            !/data/all-known-job-slugs/
-            !/data/orphan-enriched-data/
-            !/docs/
-            !/public/data/
-            !/data/related-search-candidates.json
-            !/data/cf-hot-404s.json
-            !/data/jobs-ai-cache.json
-            !/data/dist-size-history.jsonl
-            !/data/jobs-stats-history.json
-            !/data/url-first-seen.json
-            !/data/jobs-snapshots-history/
-            !/data/slug-registry.json
-            !/data/evidence-index.json
-            !/data/health-premiums/
-            !/data/jobs-crawler-summaries/
-          sparse-checkout-cone-mode: false
+      # `git checkout` scrive l'albero con un thread solo per default (issue
+      # #6152). Misurato in locale sull'albero pieno di questo repo: 51,0s ->
+      # 37,4s (-27%) impostando `checkout.workers 0` (= usa tutti i core).
+      # `actions/checkout` esegue un `git checkout` normale e rispetta la config
+      # globale, quindi basta impostarla PRIMA del passo. Rischio zero: non
+      # cambia cosa viene scaricato o scritto, solo quanti thread lo scrivono.
+      - run: git config --global checkout.workers 0
 
-      - name: Setup Node.js + npm ci (shared, see action for why checkout itself isn't)
+      # CHECKOUT UNICO per tutte e quattro le famiglie. Il perché di questo
+      # profilo esatto — albero pieno + storia profonda + `blob:none` — sta in
+      # «Il checkout: uno solo» nella testata. In breve: i source guard del
+      # contract diffano a tre punti e senza storia non hanno un merge-base
+      # (`resolve-merge-base.mjs` andrebbe in blocking-skip, issue #5195, cioè
+      # il guard direbbe «NON ESEGUITO» a ogni run); vitest vuole l'albero
+      # intero; `fetch-depth: 0` senza `filter:` sarebbe il clone da 15 GB.
+      #
+      # NB: con `fetch-depth: 0` `actions/checkout` scarica tutta la storia del
+      # ref che gli è stato chiesto, ma NON crea `refs/remotes/origin/<base>` —
+      # per questo gli step che ne hanno bisogno continuano a fare il fetch
+      # esplicito con il refspec di destinazione (issue #6058). Quel fetch ora è
+      # quasi gratis: i commit ci sono già, manca solo il NOME.
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          filter: blob:none
+
+      # UNA sola invocazione (erano tre). Niente `--ignore-scripts`: lo usava il
+      # solo job `collision`, che non eseguiva codice del repo; qui la stessa
+      # install serve a `tsc` e a vitest, che le dipendenze complete le vogliono.
+      - name: Setup Node.js + npm ci (una volta per tutte e quattro le famiglie)
         uses: ./.github/actions/ci-npm-setup
-        with:
-          npm-ci-args: '--ignore-scripts'
 
+      # ══════════════════════════════════════════════════════════════════════
+      # FAMIGLIA 1/4 — collision (ex job `collision`, ex pr-collision-detector.yml)
+      # Step copiati VERBATIM; l'unica differenza è che l'`if:` che stava sul
+      # job è ora ripetuto su ogni step. `edited` non porta un commit nuovo su
+      # cui rifare lo scan — stessa ragione per cui pr-collision-detector.yml
+      # non ha mai elencato `edited` nei suoi `pull_request.types`.
+      # ══════════════════════════════════════════════════════════════════════
       - name: Prepare Firebase credentials
+        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -224,6 +280,7 @@ jobs:
           fi
 
       - name: Load secrets from Remote Config (GITHUB_PAT)
+        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
         continue-on-error: true
         run: node scripts/load-rc-env.mjs
 
@@ -231,6 +288,7 @@ jobs:
       # auto-mints, no expiry babysit. Falls back to env.GITHUB_PAT then GITHUB_TOKEN.
       # A collision-risk label is sufficient with either identity (#2861 item 1).
       - name: Mint App token (primary identity, PAT fallback)
+        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
@@ -244,7 +302,7 @@ jobs:
       # (gh-pat-expiry-monitor.yml) che resta l'owner dell'auto-close.
       # GH_TOKEN = GITHUB_TOKEN, NON il PAT (e' la cosa rotta).
       - name: Alert token-down (dedup, zero-Claude)
-        if: env.APP_TOKEN == '' && env.GITHUB_PAT == ''
+        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' && env.APP_TOKEN == '' && env.GITHUB_PAT == '' }}
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -252,6 +310,7 @@ jobs:
         run: node scripts/ci/alert-pat-down.mjs --workflow "${{ github.workflow }}" --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
       - name: Detect funnel-critical collisions (deterministic, no Claude)
+        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
         env:
           # App token preferito (identità stabile, coerente con gli altri workflow
           # migrati); PAT poi GITHUB_TOKEN come fallback — una label via GITHUB_TOKEN
@@ -270,20 +329,17 @@ jobs:
         if: always()
         run: rm -f /tmp/firebase-sa.json
 
-  # PR-body completeness + multi-issue-Closes gate — steps copied VERBATIM
-  # from `pr-body-contract.yml` job `contract` (job id unchanged, so the
-  # check-run name stays `contract`). That file is deleted: its ONLY trigger
-  # was `pull_request`, now fully covered here.
-  contract:
-    # No `needs:` — runs in PARALLEL with collision/typecheck/vitest, same as
-    # before when these were 4 separate workflows: a red `collision` never used
-    # to stop `pr-body-contract` from running, and still doesn't. Runs on
-    # EVERY pull_request event including `edited` (pr-body-contract.yml's own
-    # trigger list, unlike pr-collision-detector.yml's).
-    if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
-    steps:
+      # ══════════════════════════════════════════════════════════════════════
+      # FAMIGLIA 2/4 — contract (ex job `contract`, ex pr-body-contract.yml)
+      # `!cancelled()` sul primo step: un `collision` rosso qui sopra NON deve
+      # impedire a questa famiglia di girare — era la proprietà dei quattro job
+      # paralleli, e va conservata ora che sono step (vedi «Conseguenza #2»).
+      # Gira su OGNI evento `pull_request`, `edited` compreso: un'edit del body
+      # deve rivalidare il contract, ed è la ragione per cui `edited` sta nei
+      # `pull_request.types` di questo workflow.
+      # ══════════════════════════════════════════════════════════════════════
       - name: PR-body completeness + multi-issue Closes (no checkout, all events)
+        if: ${{ !cancelled() && github.event_name == 'pull_request' }}
         uses: actions/github-script@v8
         with:
           script: |
@@ -628,58 +684,21 @@ jobs:
             await upsert(parts.join('\n\n'));
             core.setFailed(`PR body contract: ${fails.join('; ')}`);
 
-      # --- Source-guard steps: one shared checkout, skip on `edited` ------------
-      # `fetch-depth: 0 filter: blob:none` serves all three guards: the sibling
-      # three-dot diff needs the commit-graph + merge-base (blobs lazy-fetched on
-      # demand, ~100s faster than a full blob clone); the cls/lookbehind scans
-      # read the HEAD working tree (materialised by checkout). `!cancelled()` so
-      # they still run after the body-contract step setFailed (independent gates).
-      - name: Checkout (for source guards)
-        if: ${{ !cancelled() && github.event.action != 'edited' }}
-        uses: actions/checkout@v5
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-          # `fetch-depth: 0` resta: check-sibling-patterns.mjs diffa contro
-          # BASE_REF e senza storia non ha nulla da confrontare.
-          fetch-depth: 0
-          filter: blob:none
-          # `filter: blob:none` evita di scaricare i blob nel fetch, ma il
-          # checkout dell'albero li materializza comunque uno per uno: su
-          # ~2.6GB di working tree questo job ha impiegato fino a 296s (run
-          # 30354558798). I guard leggono solo sorgente (scripts/**,
-          # build-plugins/**, components/**), quindi la sottodirectory di
-          # immagini binarie più grossa — blog, 361MB — non serve a nessuno dei
-          # quattro. `public/images/brands` resta.
-          # `!/public/images/events` è rimasta come no-op deliberato dopo #6163:
-          # quei 5'568 file (4'108MB) non sono più tracciati — sono serviti da
-          # cdn.frontaliereticino.ch — quindi la riga oggi non esclude nulla. La
-          # si tiene perché il crawler ricrea la cartella a ogni run e un
-          # checkout futuro non deve tornare a materializzarla per sbaglio.
-          sparse-checkout: |
-            /*
-            !/public/images/events
-            !/public/images/blog
-          sparse-checkout-cone-mode: false
-        # RIMISURATO il 2026-08-18 (era 8min): su 153 Checkout `success` delle
-        # ultime 300 run — min 69s, p50 158s, p95 358s, p99 393s, **max 420s** — il
-        # tetto di 480s stava 60 secondi sopra il massimo sano, cioe' tagliava la
-        # coda della propria distribuzione invece di discriminare un guasto.
-        # Una morte reale oggi alle 18:00:15Z (run 32168588033), durata esatta
-        # 480,000s, annotazione letterale "The action 'Checkout (for source
-        # guards)' has timed out after 8 minutes". La morte ha propagato a cascata
-        # su `Surface sibling candidates`, `Surface below-floor-bridge candidates`,
-        # i due `Forbid ...` e `Wait for background source guards`: il check
-        # `contract` e' andato ROSSO e ha bloccato una PR. Il tetto ha quindi
-        # fabbricato il guasto che dovrebbe rilevare.
-        # Il contesto: i tempi di Checkout sono raddoppiati oggi dalle ~14:00Z
-        # su tutto il repo, e non per la crescita del working tree (piatto a
-        # -0,1% proprio in quella finestra). Su questo step il max pre-14:00Z
-        # era 209s, post-14:00Z 420s (+101%), con il p50 da 160s a 298s. Un tetto tarato sui giorni buoni non sopravvive a
-        # una giornata come questa.
-        # Nuovo tetto = 2,5x il massimo osservato (420s). Il job non dichiara
-        # `timeout-minutes`, quindi eredita il default di 360min: 18 sta comodo.
-        timeout-minutes: 18
-
+      # --- Source-guard steps: niente checkout dedicato, skip su `edited` -----
+      # Qui stava un secondo `actions/checkout@v5` (`fetch-depth: 0`,
+      # `filter: blob:none`, `ref: head.sha`) tutto per questi guard. È stato
+      # RIMOSSO perché il checkout condiviso in testa al job porta già la storia
+      # profonda che il diff a tre punti richiede — è lo stesso profilo, promosso
+      # da questa famiglia a tutto il job.
+      #
+      # Una differenza reale, e va detta: quel checkout prendeva `ref:
+      # ${{ github.event.pull_request.head.sha }}`, il condiviso prende il ref di
+      # default, cioè il merge ref della PR. Per i guard è equivalente o meglio:
+      # il merge-base fra il commit di merge e `origin/<base>` è la punta di
+      # base, quindi `origin/<base>...HEAD` resta esattamente il diff della PR, e
+      # l'albero scandito è il risultato MERGIATO invece dell'head crudo.
+      # `!cancelled()` così girano anche dopo un `setFailed` del body-contract
+      # (sono cancelli indipendenti).
       # Sibling-class surfacer (zero-Claude, ADVISORY — never fails). Il finding
       # reviewer più ricorrente dopo il body-contract è il 🔴 "stesso antipattern
       # nel file gemello" (sibling-class-fix). check-sibling-patterns.mjs calcola
@@ -687,7 +706,7 @@ jobs:
       # (a) l'autore la vede PRIMA della review, (b) il reviewer non rifà la grep.
       - name: Surface sibling candidates
         id: sib
-        if: ${{ !cancelled() && github.event.action != 'edited' }}
+        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
         env:
           BASE_REF: ${{ github.base_ref }}
         run: |
@@ -707,7 +726,7 @@ jobs:
             console.log('candidates=' + r.candidates.length);
           " >> "$GITHUB_OUTPUT"
       - name: Post sibling-check comment (advisory)
-        if: ${{ !cancelled() && github.event.action != 'edited' }}
+        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
         # ADVISORY: posta un commento sticky, non decide nulla. Senza le due
         # righe qui sotto una 500 TRANSITORIA dell'API GitHub sulla
         # `listComments` faceva fallire lo step e con lui l'INTERO job
@@ -805,7 +824,7 @@ jobs:
       # touching searchConsoleCompat.ts).
       - name: Surface below-floor-bridge candidates
         id: bfb
-        if: ${{ !cancelled() && github.event.action != 'edited' }}
+        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
         env:
           BASE_REF: ${{ github.base_ref }}
         run: |
@@ -825,7 +844,7 @@ jobs:
             console.log('gapFiles=' + r.gapsByFile.length);
           " >> "$GITHUB_OUTPUT"
       - name: Post below-floor-bridge comment (advisory)
-        if: ${{ !cancelled() && github.event.action != 'edited' }}
+        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
         # Stessa classe dello step sibling-check qui sopra, stessa fix: e'
         # advisory, quindi non deve poter far cadere il gate `contract`.
         # Tenerne uno solo protetto lascerebbe la meta' del difetto in piedi.
@@ -906,7 +925,7 @@ jobs:
       # comportamento verificato live su post-deploy-validate-live, probe run
       # 28352247167); il `wait-all` sotto li rijoina prima della fine del job.
       - name: Forbid hard-coded AdSense <ins> in build-plugins
-        if: ${{ !cancelled() && github.event.action != 'edited' }}
+        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
         background: true
         run: node scripts/ci/check-cls-ad-slots.mjs
 
@@ -916,201 +935,58 @@ jobs:
       # ad impressions). build-plugins/ + scripts/ are build-time (Node) → exempt.
       # Comment-aware; zero-Claude. Also covered by tests/check-client-lookbehind.test.ts.
       - name: Forbid regex lookbehind in client-bundled source
-        if: ${{ !cancelled() && github.event.action != 'edited' }}
+        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
         background: true
         run: node scripts/ci/check-client-lookbehind.mjs
 
+      # Stessa condizione ESATTA dei due `background:` qui sopra: si rijoina ciò
+      # che si è forkato. Prima della fusione la condizione era implicita — il
+      # job `contract` era `pull_request`-only, quindi questo `wait-all` non
+      # girava mai su un push a main. Nel job fuso girerebbe, con zero step in
+      # background da attendere, e un join a vuoto sul percorso che produce il
+      # verdetto di salute di main è un rischio che non vale la pena correre
+      # («main rosso blocca a cascata», AGENTS.md) per una riga.
       - name: Wait for background source guards
+        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
         wait-all: true
 
-  # Typecheck — job SEPARATO da vitest, e la separazione è deliberata (#5540).
-  #
-  # Il nome `vitest (unit + integration)` è load-bearing: auto-merge-on-lgtm,
-  # auto-merge-eval gate 3, pr-autorebase e stale-pr-rescuer ci fanno `select`
-  # sopra. Infilare `tsc` dentro quel job significherebbe far dipendere l'unico
-  # segnale che governa l'auto-merge da un secondo attrezzo; qui invece nasce un
-  # check NUOVO, e nessun nome esistente cambia.
-  #
-  # Perché serve: Vite compila con esbuild, che le annotazioni di tipo le
-  # RIMUOVE senza verificarle. Prima di questo job nessuno dei 285 script di
-  # package.json invocava `tsc` e nessun check guardava i tipi, quindi un errore
-  # di tipo attraversava build, deploy e produzione senza un solo segnale — la
-  # classe di #5533 e della storia del registro ES in CLAUDE.md.
-  #
-  # MISURATO su main 3030ae4 (tsc 5.8.3): 331 errori / 116 file, di cui 307
-  # (93%) sotto tests/ e 24 fuori. Il gate NON è a zero: confronta con
-  # data/typecheck-baseline.json e fallisce solo su un errore NUOVO fuori da
-  # tests/. Il razionale completo (perché 20 dei 24 non sono riparabili senza
-  # rompere il mirror verso nanako) sta nella testata dello script.
-  #
-  # Costo: `tsc --noEmit` misura 33s in locale sull'albero intero; il job è
-  # checkout + npm ci + tsc, senza assemble del dataset (nessun sorgente TS
-  # importa data/jobs.json, che è gitignored). Gira in PARALLELO a vitest
-  # (vedi la nota "Four jobs, all in parallel" in testa al file): costo
-  # incrementale sul wall della PR ≈ 0, vitest resta la slice lunga.
-  typecheck:
-    name: typecheck (tsc --noEmit)
-    # No `needs:` — runs in PARALLEL with collision/contract/vitest. Unconditional
-    # `if:` (unlike collision/contract, which are pull_request-only): typecheck
-    # runs on every trigger, including push (main) and workflow_dispatch.
-    runs-on: ubuntu-latest
-    # 15 -> 30 il 2026-08-18, stesso difetto e stessa misura del job `vitest`
-    # qui sotto: il tetto stava sotto il caso peggiore reale e uccideva run
-    # sane invece di rilevare un guasto.
-    #
-    # Misurato sulle ultime 500 run: 248 job `success` arrivano al massimo a
-    # 813s, ma il massimo COMPLESSIVO della finestra e' 914s — cioe' 14s oltre
-    # il tetto di 900s, ed e' l'unica morte da cap (job 95740926372, Checkout
-    # 885s, `tsc` mai partito). Il massimo sta quindi GIA' sopra il tetto: non
-    # e' un margine stretto, e' un tetto sotto la distribuzione che deve
-    # contenere. Rimisurato in indipendente da un secondo agente su una
-    # finestra piu' stretta (85 run, 68 `success` / 17 `cancelled`) e su 131
-    # job isolati per nome (105 `success` / 22 `cancelled`): i due massimi
-    # 813s e 914s tornano identici in tutti e tre i campioni.
-    #
-    # La causa non e' `tsc` (33s in locale, e nei job sani resta la fetta
-    # corta): sta nel Checkout, i cui massimi il 2026-08-18 sono raddoppiati
-    # dalle ~14:00Z su tutti i workflow del repo. NON e' la crescita del repo:
-    # `data/` + `public/` tracciati crescevano del 5,6% e 2,9% nei periodi
-    # SENZA kill (17-08 e mattina del 18-08) e sono piatti a -0,1% fra le
-    # 14:00Z e le 20:00Z, dove i kill si concentrano tutti. Un tetto tarato su un
-    # checkout sano diventa una ghigliottina quando il checkout rallenta, e
-    # converte una lentezza in un fallimento duro che nessun `if: failure()`
-    # vede (un kill da `timeout-minutes` produce `cancelled`, non `failure`).
-    #
-    # 30 min = 2,0x il massimo osservato (914s). Ri-misurare se il p99
-    # si muove, non ri-derivare a occhio.
-    timeout-minutes: 30
-    env:
-      # tsc tiene l'intero program in memoria: 4,4 GB di RSS misurati in locale
-      # sull'albero completo. Il default di Node su un runner a 16 GB è più
-      # basso, e un OOM qui si presenterebbe come un rosso indistinguibile da un
-      # errore di tipo. Lo script tratta comunque un exit anomalo come «misura
-      # non riuscita» (exit 2), mai come pass.
-      NODE_OPTIONS: --max-old-space-size=8192
-    steps:
-      # Checkout sparse, al contrario del job vitest sotto — e il commento che
-      # stava qui diceva l'opposto, quindi vale la pena spiegare perché i due
-      # job divergono.
+      # ══════════════════════════════════════════════════════════════════════
+      # FAMIGLIA 3/4 — typecheck (ex job `typecheck (tsc --noEmit)`, #5540)
+      # Vite compila con esbuild, che le annotazioni di tipo le RIMUOVE senza
+      # verificarle: senza questo gate un errore di tipo attraversa build, deploy
+      # e produzione senza un solo segnale. Il gate NON è a zero — confronta con
+      # `data/typecheck-baseline.json` e fallisce solo su un errore NUOVO fuori
+      # da `tests/` (razionale completo nella testata dello script).
       #
-      # L'osservazione originale era giusta: uno sparse-checkout porta
-      # actions/checkout su `--filter=blob:none`, e su `tests.yml` era stato
-      # misurato +125% (run 30361290650). Ma il segno dipende da QUANTO resta da
-      # scaricare, non dal fatto di usare lo sparse: i blob non esclusi arrivano
-      # con una seconda richiesta pigra, che conviene solo se ne restano pochi.
-      # La soglia misurata è ~1,5 GB (`CROSSOVER_MB`, vedi
-      # docs/REPO-WEIGHT-STRATEGY.md). `vitest` resta a 2'885 MB anche togliendo
-      # tutto il possibile → sopra la soglia → checkout pieno, ed è la stessa
-      # cosa che l'osservazione originale aveva colto. `typecheck` scende a
-      # 475 MB → sotto la soglia → 211s misurati prima, 25-33s adesso.
+      # Era un job a sé «perché infilarlo dentro vitest farebbe dipendere l'unico
+      # segnale che governa l'auto-merge da un secondo attrezzo» (#5540). Quella
+      # dipendenza ora è VOLUTA e su decisione del proprietario: è precisamente
+      # ciò che rende il typecheck bloccante per la prima volta (issue #5552).
+      # `tests/typecheck-gate-wired.test.ts` fissa il nuovo contratto.
       #
-      # Il requisito di correttezza dell'altro commento resta e NON è violato:
-      # servono i ~160 moduli importati da `data/` e `public/`, altrimenti tsc
-      # produce TS2307 d'ambiente, cioè un rosso falso. Verificato che i 152
-      # import TS risolti verso quelle cartelle sopravvivono tutti al profilo —
-      # sono file piccoli, e il profilo esclude solo foglie sopra 15 MB.
-      # Il guard non lo copre ancora per costruzione: vedi la issue di follow-up.
-      - uses: actions/checkout@v5
-        with:
-          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
-          sparse-checkout: |
-            /*
-            !/public/images/
-            !/data/jobs/
-            !/data/seo-404-compat/
-            !/data/translation-cache/
-            !/data/all-known-job-slugs/
-            !/data/orphan-enriched-data/
-            !/docs/
-            !/data/related-search-candidates.json
-            !/data/cf-hot-404s.json
-            !/data/jobs-ai-cache.json
-            !/data/dist-size-history.jsonl
-            !/data/jobs-stats-history.json
-            !/data/url-first-seen.json
-            !/data/jobs-snapshots-history/
-            !/data/slug-registry.json
-            !/data/evidence-index.json
-            !/data/health-premiums/
-            !/data/jobs-crawler-summaries/
-          sparse-checkout-cone-mode: false
-
-      - name: Setup Node.js + npm ci (shared, see action for why checkout itself isn't)
-        uses: ./.github/actions/ci-npm-setup
-
+      # NODE_OPTIONS è a livello STEP, non di job: `tsc` tiene l'intero program
+      # in memoria (4,4 GB di RSS misurati sull'albero completo) e su un job a sé
+      # la variabile stava sul job. Metterla sul job fuso la imporrebbe anche a
+      # vitest, che oggi gira senza — un cambio di comportamento non richiesto.
+      # ══════════════════════════════════════════════════════════════════════
       - name: tsc --noEmit (baseline + ratchet)
+        if: ${{ !cancelled() }}
+        env:
+          NODE_OPTIONS: --max-old-space-size=8192
         run: npm run typecheck:gate
 
-  # Single job, full suite. The job name `vitest (unit + integration)` is
-  # LOAD-BEARING: auto-merge-on-lgtm's "Block merge if vitest gate is RED" step
-  # keys on it (`select(.name == "vitest (unit + integration)")`), as do
-  # auto-merge-eval gate 3 and pr-autorebase's workflow_dispatch expectation.
-  # Do NOT rename.
-  vitest:
-    name: vitest (unit + integration)
-    # No `needs:` — runs in PARALLEL with collision/contract/typecheck, so a
-    # red/skipped one of those never delays or suppresses the one check-run
-    # everything else (auto-merge, pr-autorebase, stale-pr-rescuer) gates on.
-    runs-on: ubuntu-latest
-    # 30 min (was 20, era 15 a 4 shard). Il 20 NON era piu' un tetto di
-    # sicurezza: era il vincolo che troncava la distribuzione. Misurato su 500
-    # run di questo workflow (2026-08-14 -> 18), 285 job vitest `success`:
-    # p50 14m42s, p95 17m23s, p99 19m00s, max 20m00s ESATTI (run 32167869565,
-    # passato a 1200s netti). Un massimo che coincide al secondo col tetto e'
-    # la firma di una distribuzione tagliata, non di un tetto capiente.
-    #
-    # Delle 113 run `cancelled` della finestra, 11 sono uccise dal tetto e 102
-    # sono concurrency: le due popolazioni non si sovrappongono nemmeno
-    # (max concurrency 16m57s, min cap-kill 20m00s, zero casi in mezzo). Le 11
-    # sono TUTTE del 2026-08-18 fra le 14:37Z e le 18:13Z, cioe' l'11,8% dei
-    # job del giorno e il 25,0% nella finestra 14:00-19:00Z.
-    #
-    # La causa non sono i test: i due step vitest sommati non superano mai
-    # 11m35s, e il wall meno il Checkout ha massimo 15m50s. Sta nel Checkout,
-    # i cui tempi sono raddoppiati (p50 2m28s -> 3m06s, p90 3m04s -> 5m12s,
-    # max 8m14s; p99 10m15s su tutti i job misurabili). Non e' il repo che
-    # cresce: i byte tracciati sotto `data/` e `public/` sono piatti (-0,1%)
-    # proprio nella finestra dei kill, e crescevano del 3-6% al giorno nei
-    # giorni che di kill non ne hanno avuto nessuno. Il commento precedente citava 75s di
-    # Checkout e 536s di wall per dichiarare "2,2x di margine": quei numeri sono
-    # scaduti, il margine reale era 1,36x al p50 e 1,00x al massimo.
-    #
-    # 30 min copre il caso peggiore osservato (~26m = 15m50s di test + 10m15s di
-    # checkout al p99) con margine. NON scendere a 25: sarebbe solo il 2% sopra
-    # quel caso peggiore, cioe' di nuovo un tetto che tronca invece di proteggere.
-    # Un job vitest davvero appeso costa 10 minuti di runner in piu'; un tetto
-    # troppo basso costa un `cancelled` che `if: failure()` non vede e che
-    # `gh pr checks` mostra come `fail`, bloccando l'auto-merge di PR sane.
-    # Rimisurare quando il p99 del Checkout si muove.
-    timeout-minutes: 30
-    steps:
-      # NIENTE `sparse-checkout` qui, ed è una scelta MISURATA, non un'omissione.
-      # Questo checkout è un fetch bulk shallow (`fetch-depth: 1` implicito, no
-      # `filter:`) e costa 75s (run 30355205859). Impostare `sparse-checkout`
-      # porterebbe actions/checkout su `--filter=blob:none`, convertendo quel
-      # singolo trasferimento in migliaia di lazy-fetch on-demand: provato su
-      # questa stessa PR (run 30361290650) il Checkout è salito a 169s, +125%,
-      # mangiandosi il guadagno dello split sotto.
-      #
-      # Regola generale ricavata dal confronto: lo sparse-checkout conviene solo
-      # dove il partial clone è GIÀ in uso — in pr-body-contract.yml, che ha
-      # `filter: blob:none`, escludere public/images/{events,blog} ha portato il
-      # Checkout da ~200s (280/141/177s su tre run) a 77s. Qui no.
-      #
-      # `git checkout` scrive l'albero con un thread solo per default (issue
-      # #6152). Misurato in locale sull'albero pieno di questo repo: 51,0s ->
-      # 37,4s (-27%) impostando `checkout.workers 0` (= usa tutti i core
-      # disponibili). `actions/checkout` esegue un `git checkout` normale e
-      # rispetta la config globale, quindi basta impostarla PRIMA del passo.
-      # Rischio zero: non cambia cosa viene scaricato o scritto, solo quanti
-      # thread lo scrivono.
-      - run: git config --global checkout.workers 0
-      - uses: actions/checkout@v5
-
-      - name: Setup Node.js + npm ci (shared, see action for why checkout itself isn't)
-        uses: ./.github/actions/ci-npm-setup
-
+      # ══════════════════════════════════════════════════════════════════════
+      # FAMIGLIA 4/4 — vitest (suite intera) + i lint deterministici che le
+      # stavano davanti. È la fetta lunga del job; `!cancelled()` sul primo step
+      # perché un rosso in una delle tre famiglie precedenti non deve nascondere
+      # il verdetto dei test.
+      # ══════════════════════════════════════════════════════════════════════
       - name: Audit no merge conflict markers
+        # `!cancelled()` SOLO qui, sul primo step della famiglia: da qui in giù
+        # la catena resta fail-fast come quando era un job a sé (gli step si
+        # passano artefatti — assemble → migrate → vitest dependent — e farli
+        # girare su un input mancante produrrebbe un secondo rosso illeggibile).
+        if: ${{ !cancelled() }}
         # 0-tolerance gate: blocks any commit that contains unresolved
         # <<<<<<< / ======= / >>>>>>> markers. Added after the 2026-05-21
         # incident where 92 job slice files were committed with raw
@@ -1164,21 +1040,24 @@ jobs:
         run: npm run check:evergreen-comune-topics
 
       - name: Fetch base ref for the factuality diff
-        # The main checkout is shallow (fetch-depth: 1), so the base commit is
-        # not present and the gate below would silently no-op. A depth-50 fetch
-        # of just the base branch is enough to resolve a merge base for a normal
-        # PR, and costs a couple of seconds. `|| true`: if it fails the gate
-        # degrades to a loud no-op rather than failing the job.
-        #
         # Explicit destination refspec (issue #6058): a bare `git fetch origin
         # <branch>` only updates FETCH_HEAD, it does NOT create the
-        # remote-tracking ref `refs/remotes/origin/<branch>` — this checkout
-        # never ran a plain `git fetch` before, so that ref never existed here.
-        # The gate below reads `origin/${{ github.base_ref || 'main' }}` by
-        # name, which needs that ref to exist. Writing straight to
-        # `refs/remotes/origin/<branch>` (the same fix already validated for
-        # the corpus-wide split step in PR #6054) makes it resolve.
-        run: git fetch --no-tags --depth=50 origin "+refs/heads/${{ github.base_ref || 'main' }}:refs/remotes/origin/${{ github.base_ref || 'main' }}" || true
+        # remote-tracking ref `refs/remotes/origin/<branch>`, and
+        # `actions/checkout` does not create it either (it fetches the PR merge
+        # ref, not `+refs/heads/*`). The gate below reads
+        # `origin/${{ github.base_ref || 'main' }}` BY NAME, so the ref has to
+        # exist. `|| true`: if it fails the gate degrades to a loud no-op rather
+        # than failing the job.
+        #
+        # `--depth=50` RIMOSSO con la fusione dei quattro job, e non è un
+        # ripulisti cosmetico: il checkout condiviso ora è `fetch-depth: 0`,
+        # cioè NON shallow, e `git fetch --depth=<n>` su un repo completo non è
+        # inerte — scrive `.git/shallow` e TRONCA la storia a quella profondità.
+        # Avrebbe re-shallowato il repo a metà job, sotto i piedi del
+        # `git merge-base` che gli step più in basso usano come fallback. Senza
+        # `--depth` il fetch è quasi gratis: i commit ci sono già dal checkout,
+        # qui manca solo il NOME del ref.
+        run: git fetch --no-tags origin "+refs/heads/${{ github.base_ref || 'main' }}:refs/remotes/origin/${{ github.base_ref || 'main' }}" || true
 
       - name: Gate factuality of changed articles
         # Deterministic guard (incident 2026-07-28, article
@@ -1235,10 +1114,11 @@ jobs:
         # FAIL-SAFE, e la direzione conta: qualunque errore di questo step
         # lascia `skip` VUOTO, quindi la suite gira INTERA. Un guasto qui costa
         # tempo, mai copertura. `|| true` sul fetch e `|| echo` sul merge-base
-        # servono a questo. Su `push` non c'è un fallback su `git diff`: il
-        # checkout di questo job è shallow (`fetch-depth: 1`), quindi il
-        # commit `github.event.before` non è quasi mai presente in locale; se
-        # la compare API non risponde, `changed-paths.txt` resta vuoto e la
+        # servono a questo. Su `push` il fallback su `git diff` resta comunque
+        # NON dichiarato: dalla fusione dei job il checkout è `fetch-depth: 0`,
+        # quindi `$BEFORE_SHA` sarebbe risolvibile, ma l'API `compare` è già la
+        # via primaria e aggiungere un secondo ramo qui vorrebbe la sua misura;
+        # se la compare non risponde, `changed-paths.txt` resta vuoto e la
         # suite gira intera — stessa direzione di ogni altro fallimento qui.
         id: corpus
         if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' }}
@@ -1254,19 +1134,18 @@ jobs:
           # stesura usava `git merge-base HEAD origin/$BASE_REF` e stampava
           # «merge-base non risolta», cioè non escludeva niente.
           #
-          # Perché: `actions/checkout@v5` qui fa un fetch shallow (`fetch-depth: 1`)
-          # e NON crea il remote-tracking ref `refs/remotes/origin/main`; il
-          # `git fetch --no-tags --depth=50 origin <base>` dello step della
-          # factuality qui sopra aggiorna FETCH_HEAD, non `origin/<base>`. E
-          # anche avendo il ref, due storie shallow possono non avere una base
-          # comune entro la profondità fetchata. L'API non ha nessuno di questi
-          # problemi: risponde con l'elenco esatto dei file della PR, senza
-          # storia locale.
+          # Perché: allora `actions/checkout@v5` faceva qui un fetch shallow
+          # (`fetch-depth: 1`) e NON creava il remote-tracking ref
+          # `refs/remotes/origin/main`; due storie shallow possono per giunta
+          # non avere una base comune entro la profondità fetchata. L'API non ha
+          # nessuno di questi problemi: risponde con l'elenco esatto dei file
+          # della PR, senza storia locale.
           #
-          # Il fallback su git resta per il caso PR in cui l'API non risponda.
-          # Su push non c'è un fallback equivalente: il checkout di questo job
-          # è shallow, quindi `git diff $BEFORE_SHA $AFTER_SHA` non avrebbe gli
-          # oggetti per risolvere `$BEFORE_SHA`. Ogni ramo è `|| true`/vuoto:
+          # Dalla fusione dei quattro job il checkout è `fetch-depth: 0` e lo
+          # step della factuality qui sopra crea `origin/<base>` per nome, per
+          # cui il fallback `git merge-base` sotto ORA risolve davvero invece di
+          # essere un ramo morto. L'API resta comunque la via primaria: è esatta
+          # e non dipende dalla storia locale. Ogni ramo è `|| true`/vuoto:
           # qualunque guasto lascia changed-paths.txt vuoto → `skip` vuoto →
           # suite INTERA. La direzione del fail-safe è quella giusta: un
           # guasto qui costa tempo, mai copertura.
