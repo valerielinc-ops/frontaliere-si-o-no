@@ -1487,6 +1487,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'accesso-facilitato-infortuni-2027': { it: 'accesso-facilitato-infortuni-2027', en: 'easier-access-accident-insurance-2027', de: 'erleichterte-zugang-unfallversicherung-2027', fr: 'acces-facilite-assurance-accident-2027' },
  'indennita-parentali-2027': { it: 'indennita-parentali-2027', en: 'parental-benefits-2027', de: 'elternleistungen-2027', fr: 'allocations-parentales-2027' },
  'allerte-popolazione-cell-broadcast': { it: 'allerte-popolazione-cell-broadcast', en: 'alerts-population-cell-broadcast', de: 'bevoelkerungswarnungen-cell-broadcast', fr: 'alertes-population-cell-broadcast' },
+ 'edilizia-crescita-primo-semestre': { it: 'edilizia-crescita-primo-semestre', en: 'construction-growth-first-semester', de: 'bauwesen-wachstum-erstes-semester', fr: 'construction-croissance-premier-semestre' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
