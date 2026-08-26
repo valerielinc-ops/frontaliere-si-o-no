@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Nachrichten und Leitfaden für Grenzgänger im Tessin</description>
     <language>de</language>
-    <lastBuildDate>Wed, 26 Aug 2026 02:27:19 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 26 Aug 2026 03:41:49 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Deutsch</title>
@@ -16,6 +16,101 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-de.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Berechnung Grenzsteuern über 20 km von der Grenze entfernt</title>
+      <link>https://frontaliereticino.ch/de/grenzgaenger-artikel/grenzgaenger-steuern-distanz-grenze/</link>
+      <description><![CDATA[Neues Abkommen 2024: 10.000 € Franchise für neue Grenzgänger, Schweizer Quellensteuer und italienische Steuergutschrift. Berechnungsleitfaden mit Beispielen.]]></description>
+      <content:encoded><![CDATA[## In Kürze
+- Neue Frontalieri-Vereinbarung, die am 1. Januar 2024 in Kraft getreten ist: Vereinfachung des Steuersystems
+- Pauschale Selbstbeteiligung: 10.000 € neue Grenzgänger, 7.500 € alte (Übergang 2024–2033)
+- Schweizer Quellensteuer, italienische Steuergutschrift: keine Doppelbesteuerung
+
+## Eckdaten
+- **Was**: Neudefinition des Steuersystems für Grenzgänger mit einmaliger pauschaler Selbstbeteiligung
+- Wann: 1. Januar 2024 (Vereinbarung unterzeichnet am 23. Dezember 2020)
+- Wo: Grenzgänger Italien-Schweiz (Tessin, Wallis, Graubünden)
+- Wer: Inhaber der Genehmigung G
+- Selbstbehalt: € 10.000 (neu), € 7.500 (alt, bis 31. Dezember 2033)
+- Abkommen: Unterzeichnet am 9. Dezember 1976 (gegen Doppelbesteuerung)
+
+Am 1. Januar 2024 ist die Neue Frontalieri-Vereinbarung in Kraft getreten, die am 23. Dezember 2020 unterzeichnet und von Italien mit dem Gesetz 83 vom 13. Juni 2023 ratifiziert wurde. Für diejenigen, die in Italien wohnen und in der Schweiz arbeiten, wurde das Steuersystem radikal umgeschrieben: Die Steuerberechnung hängt nicht mehr von komplexen Einkommensschwellen ab, sondern basiert auf einer einzigen Pauschalfranchise, die die Steuererklärung drastisch vereinfacht.
+
+Für neue Grenzgänger (diejenigen, die nach dem 17. Juli 2023 den Status erworben haben) beträgt die Selbstbeteiligung € 10.000 brutto pro Jahr, befreit von der italienischen Steuer. Für alte Grenzgänger (die bereits vor dem 17. Juli 2023 im Besitz der Erlaubnis G waren) gilt eine Übergangsregelung: eine Selbstbeteiligung von 7.500 € bis zum 31. Dezember 2033, die ab dem 31. Dezember 2033 automatisch auf 10.000 € ansteigt
+### Welche Vergünstigungen bleiben unabhängig vom Wohnort gültig
+
+Viele Grenzgänger fragen sich, ob die Steuererleichterungen je nach Entfernung von der Grenze variieren. Das Neue Abkommen 2024 sieht keine territoriale Differenzierung vor: Bei gleichem Einkommen und Status (alter/neuer Grenzgänger) ist die Pauschalfranchise für Personen mit Wohnsitz im Kanton Tessin in beliebiger Entfernung von der Grenze identisch.
+
+Was sich nicht ändert, sind die Abzüge und Abzüge im Zusammenhang mit der Familienzusammensetzung und den Vermögenswerten in Italien:
+- Abzüge für unterhaltsberechtigte Kinder bleiben voll, wenn die Kinder in Italien wohnen
+- Abzug für Erstwohnungshypothek in Italien bleibt bei 19% gültig
+- Abzüge für in Italien entstandene Krankheitskosten sind zulässig
+- IRPEF auf italienische Grundeinkommen wird zum Erwerbseinkommen hinzugerechnet (keine Fernabsatzbefreiung)
+
+Keine dieser Vergünstigungen variiert je nach km zwischen Wohnung und Grenze.
+
+### Wie die IRPEF über die Selbstbeteiligung hinaus angewendet wird
+
+Konkretes Beispiel: Ein Grenzgänger verdient in der Schweiz CHF 65 '000 brutto (ca. € 59' 600 zum durchschnittlichen Wechselkurs). Er hat eine Selbstbeteiligung von 10.000 € (er ist neuer Grenzgänger).
+
+Italienisches steuerpflichtiges Einkommen = € 59.600 – € 10.000 = € 49.600
+
+Anwendung der IRPEF-Sätze:
+- Betrag bis € 28.000: € 28.000 × 23% = € 6.440
+- Betrag von € 28.001 bis € 49.600: € 21.600 × 35% = € 7.560
+- **Summe geschuldete IRPEF **: € 14.000
+
+Aber der Schweizer Arbeitgeber hat bereits eine Quellensteuer in der Schweiz (typischerweise 3–8% je nach
+
+## Nützliche Tools für Ihren Fall
+Um Ihr Steuer-Szenario innerhalb/außerhalb von 20 km zu prüfen, nutzen Sie den [Nettolohnrechner](nav:calculator) und den [Leitfaden zur Steuererklärung](nav:tax-return).
+### Schritt-für-Schritt-Verfahren zur Berechnung der Steuern
+
+Das Verfahren wurde ab 1. Januar 2024 standardisiert. Hier sind die konkreten Schritte:
+
+Schritt 1: Überprüfe deinen Grenzgänger-Status
+Bist du ein alter Grenzgänger (Inhaber einer Genehmigung G vor 17. Juli 2023)? Wende einen Freibetrag von €7.500 an. Bist du neu? Wende €10.000 an. Das Datum der ersten Erlangung der Genehmigung G ist entscheidend.
+
+Schritt 2: Konvertiere das Schweizer Bruttoeinkommen in Euro
+Der Arbeitgeber wird das jährliche Bruttogehalt in CHF mitteilen. Konvertiere zum durchschnittlichen Monatswechselkurs des Jahres (verfügbar auf der Website der italienischen Finanzbehörde oder der Banca d'Italia). Beispiel: CHF 65.000 ÷ 1,092 (hypothetischer durchschnittlicher Wechselkurs) = €59.524.
+
+Schritt 3: Ziehe den Freibetrag ab
+Zu versteuerndes Einkommen = €59.524 – €10.000 = €49.524.
+
+Schritt 4: Berechne die IRPEF nach den üblichen Steuersätzen
+Wende 23% bis €28.000 und 35% von €28.001 bis €50.000 an:
+- €28.000 × 23% = €6.440
+- €21.524 × 35% = €7.533
+- Gesamt-IRPEF: €13.973
+
+Schritt 5: Fordere die Steuergutschrift in der Steuererklärung an
+Ab dem folgenden Jahr legst du beim Einreichen des Formulars 730 oder Unico die Schweizer Quellensteuer-Bescheinigung bei, die von deinem Arbeitgeber ausgestellt wird. Im Abschnitt CE gibst du den in der Schweiz einbehaltenen Betrag an. Die Finanzbehörde gewährt eine entsprechende Steuergutschrift und reduziert die fällige IRPEF. Falls die Schweizer Quellensteuer die italienische IRPEF übersteigt, hast du Anspruch auf eine Rückerstattung.
+
+### Fristen und wesentliche Dokumentation
+
+Die wichtigsten Fristen für Grenzgänger sind:
+- Mai–Juni: Einreichung der Steuererklärung (Formular 730 für ordentliche abhängige Erwerbseinkommen, Unico wenn es andere Einkommensarten gibt) bei der italienischen Finanzbehörde.
+- Jährlich: Mitteilung aktualisierter Stamm- und Steuerdaten an den Schweizer Arbeitgeber (normalerweise im Dezember für das folgende Jahr).
+- Auf Anfrage: Mögliche Prüfungen durch die Finanzbehörde (durchschnittlich alle 2–3 Jahre) erfordern Anforderungen von Überprüfungsdokumenten.
+
+Dokumente, die mindestens 5 Jahre aufbewahrt werden müssen:
+- Schweizer Quellensteuer-Bescheinigungen für jedes Jahr
+- Schweizer Gehaltsabrechnungen (von mindestens 3 repräsentativen Monaten, um Einkommen und Abzüge nachzuweisen)
+- Kontoauszüge, die Zahlungen in der Schweiz dokumentieren
+- Beglaubigte Kopie der bei der italienischen Behörde eingereichten Steuererklärung
+- Mögliche Mitteilungen von der AFC/ESTV (Schweizer Bundesfinanzverwaltung)
+
+### Werkzeuge und Unterstützung für die Berechnung
+
+[Nutze unseren Steuerrechner](nav:calculator), um in Echtzeit zu simulieren, wie sich dein Nettobrutto bei CHF/EUR-Wechselkurs, anwendbarem Freibetrag und IRPEF-Satz ändert. Das Werkzeug berücksichtigt auch eventuell italienische Immobilieneinkommen, die sich zum abhängigen Arbeitseinkommen addieren, und berechnet automatisch die Steuergutschrift auf Basis der mitgeteilten Schweizer Steuern.
+
+Bei Fragen zur integrierten Altersversorgung zwischen der ersten Säule AVS und der zweiten Säule LPP [konsultiere unseren AVS/LPP-Leitfaden](nav:pension), der erklärt, wie in der Schweiz eingezahlte Beiträge sich in Leistungen beim Eintritt ins Rentenalter umsetzen.
+
+Schließlich: Wenn du spezifische Fragen zur Doppelbesteuerungsabkommen hast oder denkst, dass du eine falsche Rückerstattung erhalten hast, kontaktiere direkt die AFC/ESTV (Schweizer Bundesfinanzverwaltung) in der Schweiz oder die Agenzia delle Entrate in Italien, die spezialisierte Schalter für Grenzgänger haben und Sachbearbeiter zur Vereinbarung 2024 haben.]]></content:encoded>
+      <pubDate>Wed, 26 Aug 2026 03:41:49 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/de/grenzgaenger-artikel/tasse-frontalieri-distanza-confine</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/tasse-frontalieri-distanza-confine.webp" medium="image"/>
+    </item>
     <item>
       <title>Grenzüberschreitende Pendler über 20 km: Wie sich die Besteuerung ändert</title>
       <link>https://frontaliereticino.ch/de/grenzgaenger-artikel/steuern-grenzgaenger-20km-entfernung/</link>
@@ -3131,57 +3226,6 @@ Antrag auf G-Permit: 4 Wochen vor Vertragsabschluss. Registrierung LAMal: innerh
       <guid isPermaLink="false">https://frontaliereticino.ch/de/grenzgaenger-artikel/vivere-longone-segrino-lavorare-ticino-frontaliere</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/vivere-longone-segrino-lavorare-ticino-frontaliere.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Grenzgänger Lezzeno-Ticino: G-Genehmigung, Gebühren und Verfahren</title>
-      <link>https://frontaliereticino.ch/de/grenzgaenger-artikel/in-lezzeno-leben-ticino-arbeiten/</link>
-      <description><![CDATA[Wer in Lezzeno lebt und im Tessin arbeitet, kann mit der Grenzgängerbewilligung G arbeiten. Quellensteuer in der Schweiz, Rückerstattungen, AHV, BVG und KVG: Alles, was Sie wissen müssen.]]></description>
-      <content:encoded><![CDATA[## In Kürze
-- Obligatorische G-Bewilligung, um von der Gemeinde Lezzeno legal im Tessin arbeiten zu können
-- Quellensteuer nur in der Schweiz einbehalten, keine Doppelbesteuerung mit Steuergutschrift Italien
-- Neue Frontalieri-Vereinbarung in Kraft seit dem 1. Januar 2024: Selbstbehalte € 7.500 (alt) und € 10.000 (neu)
-- Schweizer Sozialbeiträge: AHV 5.3%, BVG 7-18%, KVG mit Bezugsrecht
-
-## Eckdaten
-- **Was**: Ausweis G für Grenzgänger Italien-Schweiz
-- Wann: Neue Frontalieri-Vereinbarung in Kraft 1. Januar 2024 (unterzeichnet 23. Dezember 2020, ratifiziert Italien Gesetz 83/2023)
-- Wo: Grenzgänger mit Wohnsitz in Italien (einschließlich Lezzeno) und im Tessin beschäftigt
-- Wer: Angestellte und Selbstständige; Verwaltung durch ESTV Bund und Kanton Tessin
-- Steuersystem: Quellensteuer Schweiz; Vermeidung der Doppelbesteuerung durch Abkommen vom 9. Dezember 1976 + EG-Rahmensteuergutschrift Modell 730 Italien
-- Beiträge: AHV/IV/EO 5.3% abhängig, ALV/KV 1.1% (PLZ CHF 148'200), BVG 7-18% nach Altersgruppe
-
-Wer in Lezzeno lebt und im Tessin arbeitet, fällt unter die Grenzgängerregelung der Neuen Frontalieri-Vereinbarung, die am 1. Januar 2024 in Kraft getreten ist. Die Quelle des Steuerabzugs ist ausschliesslich die Schweiz: Der Tessiner Arbeitgeber erhebt die Quellensteuer direkt aus der Lohnabrechnung gemäss den eidgenössischen und kantonalen Steuersätzen des Tessins. Es handelt sich nicht um eine Doppelbesteuerung: In Italien wird die Doppelbesteuerung durch Steuergutschrift im Vordruck 730 beseitigt
-### Obligatorische Vorsorge und Sozialversicherungen
-
-Wer im Tessin als Grenzgänger arbeitet, ist automatisch im schweizerischen Sozialversicherungssystem eingeschrieben. Die AHV (Alters- und Hinterlassenenversicherung) ist die erste Säule und gilt für alle Arbeitnehmer. Der Einbehalt beträgt 5.3% des monatlichen Bruttogehalts. Die AHV-Beiträge beginnen ab dem ersten Anstellungsmonat und werden bis zum Rentenalter ausbezahlt (65 Jahre für Männer, 64 Jahre für Frauen im Übergang).
-
-Die zweite Säule ist die berufliche Vorsorge (BVG). Diese ist obligatorisch für Löhne oberhalb einer bestimmten Jahresschwelle. Der Beitragssatz variiert je nach Alter des Arbeitnehmers: Jugendliche (25-34 Jahre) zahlen niedrigere Prozentsätze (etwa 7-8%), Arbeitnehmer mittleren Alters (35-44 Jahre) zahlen 10-12%, während ältere Arbeitnehmer (55-65 Jahre) bis zu 18% zahlen. Das BVG garantiert eine Altersrente und Schutz bei Invalidität oder Tod. Die BVG-Beiträge werden automatisch von der Lohnabrechnung über den Arbeitgeber ausbezahlt.
-
-### Krankenversicherung und Steuern
-
-Für die Krankenversicherung (KVG) hat der Grenzgänger ein grundlegendes Optionsrecht: Er kann sich im schweizerischen System anmelden oder im italienischen System versichert bleiben. Wer sich für das Schweizer System entscheidet, zahlt je nach gewählter Deckung eine Erwachsenenfranchise zwischen CHF 300 und CHF 2.500. Erwägen Sie diese Wahl sorgfältig: Das Schweizer System garantiert eine hohe Abdeckung.
-
-## Nützliche Tools für die Planung
-Für Ihre Vorsorgestrategie nutzen Sie den [Rentenplaner](nav:pension) und den [Säule-3-Simulator](nav:pillar3).
-### Verfahren zur Antragstellung der G-Bewilligung
-Um legal in der Schweiz zu arbeiten, muss der erste Schritt darin bestehen, einen Arbeitgeber aus dem Tessin zu finden, der bereit ist, einen Grenzgänger einzustellen. Sobald der Arbeitsvertrag unterzeichnet und datiert ist, beginnt der Arbeitgeber das Verfahren zur Antragstellung der G-Bewilligung bei dem Kanton Tessin (Finanz- und Wirtschaftsdepartement, Migrationsabteilung). Die Verfahren umfassen:
-1. Unterzeichneter und datierter Arbeitsvertrag
-2. Gültiger Ausweis (Pass oder nationales Identitätsdokument)
-3. Ausgefüllte Antragformulare (von dem Arbeitgeber oder dem Kanton bereitgestellt)
-4. Dokumentation des Arbeitgebers (Bestätigung der Einstellung, Beschreibung der Aufgaben)
-5. Ausfüllung des Registrierungsformulars für AVS/LPP
-Die Ausstellung der G-Bewilligung erfordert in der Regel 2-4 Wochen. Während dieser Zeit kann der Grenzgänger NICHT legal in der Schweiz arbeiten. Sobald der Grenzgänger den Besitz der G-Bewilligung hat, kann er mit der Arbeit beginnen und die schweizerischen Behörden beginnen automatisch, die Sozialbeiträge (AVS, LPP) zu überweisen.
-### Steuererklärung in Italien
-Der in Lezzeno oder in anderen italienischen Grenzgebieten ansässige Grenzgänger muss die jährliche Steuererklärung in Italien bis zum 30. September des folgenden Jahres einreichen. Für Arbeitseinkommen ist das Modell 730 (oder Redditi PF für Selbstständige) zu verwenden. Im Modell 730, Abschnitt CE (Auslandsverdienst), ist der brutto Verdienst in der Schweiz anzugeben. Da die Schweiz kein EU-Mitglied ist, gilt die Konvention zwischen Italien und der Schweiz vom 9. Dezember 1976 zur Vermeidung der Doppelbesteuerung, die einen automatischen Steuerkredit vorsieht. Bewahre immer die Auszüge der schweizerischen Lohnabrechnung und die Steuerzahlungsbelege auf: Sie dienen als Nachweis für den Steuerkredit bei der italienischen Steuerbehörde.
-### Fristen, Rinnovierungen und Rückerstattungen
-Die G-Bewilligung wird jährlich automatisch erneuert, wenn der Arbeitsverhältnis regelmäßig fortbesteht. Es ist die Verantwortung des Arbeitgebers, das Rinnovierungsverfahren bei den kantonalen Behörden zu bearbeiten. Die Sozialbeiträge (AVS, LPP) werden monatlich über die Lohnabrechnung überwiesen: es ist nicht erforderlich, sie manuell zu überweisen wie ein abhängig Beschäftigter.
-Die rückzahlbaren Steuern in der Schweiz (wenn die abgeführte Steuer zu hoch war) werden in der Regel zwischen Februar und März des folgenden Jahres von der Steuerbehörde des Sitzes kommuniziert. Der Betrag wird direkt auf das angegebene Konto überwiesen. Ein [Lohnabrechnungskalculator](nav:payslip) kann verwendet werden, um den monatlichen Nettobetrag zu simulieren und die Familienbudgetplanung zu berücksichtigen, indem man Steuern, Beiträge und Wechselkurse CHF-EUR berücksichtigt.
-
-Erster Tag als Grenzgänger? Unser [praktischer Leitfaden](nav:first-day) begleitet Sie von der Anmeldung bis zum ersten Gehalt.]]></content:encoded>
-      <pubDate>Mon, 24 Aug 2026 03:46:57 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/de/grenzgaenger-artikel/vivere-lezzeno-lavorare-ticino-frontaliere</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/vivere-lezzeno-lavorare-ticino-frontaliere.webp" medium="image"/>
     </item>
   </channel>
 </rss>

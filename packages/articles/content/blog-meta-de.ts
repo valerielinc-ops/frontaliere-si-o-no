@@ -10804,6 +10804,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.imposte-frontalieri-20km-distanza.title': 'Grenzüberschreitende Pendler über 20 km: Wie sich die Besteuerung ändert',
     'blog.article.imposte-frontalieri-20km-distanza.excerpt': 'Das neue grenzüberschreitende Pendlerabkommen vom Dezember 2020, das ab dem 1. Januar 2024 in Kraft ist, ändert die Vorteile für diejenigen, die mehr als 20 km von der Grenze entfernt wohnen. Erfahren Sie mehr über IRPEF-Berechnungen, Quellensteuer und Rabatte.',
     'blog.article.imposte-frontalieri-20km-distanza.imageAlt': 'Schreibtisch eines Grenzgängers mit Steuerdokumenten und Taschenrechner an der Grenze Tessin-Italien',
+    'blog.article.tasse-frontalieri-distanza-confine.title': 'Berechnung Grenzsteuern über 20 km von der Grenze entfernt',
+    'blog.article.tasse-frontalieri-distanza-confine.excerpt': 'Neues Abkommen 2024: 10.000 € Franchise für neue Grenzgänger, Schweizer Quellensteuer und italienische Steuergutschrift. Berechnungsleitfaden mit Beispielen.',
+    'blog.article.tasse-frontalieri-distanza-confine.imageAlt': 'Blick auf Lugano bei Sonnenuntergang mit Seepromenade und Berglandschaft',
 };
 
 export default blogMetaDe;

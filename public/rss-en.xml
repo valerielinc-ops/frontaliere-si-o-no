@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides for cross-border workers in Ticino</description>
     <language>en</language>
-    <lastBuildDate>Wed, 26 Aug 2026 02:27:19 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 26 Aug 2026 03:41:49 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — English</title>
@@ -16,6 +16,101 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Calculation of border taxes over 20 km from the border</title>
+      <link>https://frontaliereticino.ch/en/cross-border-articles/frontier-workers-tax-distance-border/</link>
+      <description><![CDATA[New 2024 Agreement: €10,000 deductible for new frontier workers, Swiss source tax and Italian tax credit. Calculation guide with examples.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- New Frontier Agreement in force from 1 January 2024: simplifies the tax regime
+- Flat-rate exemption: €10,000 new frontier workers, €7,500 old (transitional 2024–2033)
+- Swiss source tax, Italian tax credit: no double taxation
+
+## Key facts
+- **What**: Redefinition of the border tax regime with a single flat-rate exemption
+- When: January 1, 2024 (Agreement signed December 23, 2020)
+- Where: Italy-Switzerland Frontier (Ticino, Valais, Graubünden)
+- Who: G Permit Holders
+- Excess amount: €10,000 (new), €7,500 (old, until 31 December 2033)
+- Agreement: Signed on 9 December 1976 (against double taxation)
+
+On 1 January 2024, the New Frontier Agreement entered into force, signed on 23 December 2020 and ratified by Italy with Law 83 of 13 June 2023. For those who reside in Italy and work in Switzerland, the tax regime has been radically rewritten: the calculation of taxes no longer depends on complex income thresholds, but is based on a single flat-rate exemption that drastically simplifies the declaration.
+
+For new frontier workers (those who acquired the status after 17 July 2023), the exemption is €10,000 gross per year exempt from Italian tax. For old border crossers (already holders of G Permit before 17 July 2023), a transitional regime applies: a deductible of €7,500 until 31 December 2033, which will automatically rise to €10,000 from
+### Which benefits remain valid regardless of residence
+
+Many border workers wonder if tax breaks vary according to the distance from the border. The New 2024 Agreement does not provide for territorial differentiations: with equal income and status (old/new border crossing), the flat-rate exemption is identical for those residing in the canton of Ticino at any distance from the border.
+
+What does not change are the deductions and deductions related to the composition of the family unit and assets in Italy:
+- Deductions for dependent children remain full if the children reside in Italy
+- First home mortgage deduction in Italy remains valid at 19%
+- Deductions for medical expenses incurred in Italy are allowed
+- Income tax on Italian real estate income is added to income from work (no exemption for distance)
+
+None of these benefits vary according to the km between home and border.
+
+### How IRPEF applies beyond the deductible
+
+Concrete example: a frontier worker earns CHF 65,000 gross in Switzerland (about €59,600 at the average exchange rate). It has an excess of €10,000 (it is a new border crossing).
+
+Italian taxable income = €59,600 – €10,000 = €49,600
+
+Application of personal income tax rates:
+- Amount up to €28,000: €28,000 × 23% = €6,440
+- Amount from €28,001 to €49,600: €21,600 × 35% = €7,560
+- **Total income tax due**: €14,000
+
+But the Swiss employer has already withheld a source tax in Switzerland (typically 3–8% depending
+
+## Useful tools for your case
+To verify your within/over 20 km tax scenario, use the [net salary calculator](nav:calculator) and the [tax return guide](nav:tax-return).
+### Step-by-step procedure for calculating taxes
+
+The procedure became standardized from January 1, 2024. Here are the concrete steps:
+
+Step 1: Verify your cross-border worker status
+Are you a long-time cross-border worker (holding Permit G before July 17, 2023)? Apply €7,500 exemption. Are you new? Apply €10,000. The date of first acquisition of Permit G is decisive.
+
+Step 2: Convert gross Swiss income to euros
+Your employer will report the annual gross salary in CHF. Convert it at the average monthly exchange rate of the year (available on the Italian Revenue Agency or Bank of Italy website). Example: CHF 65,000 ÷ 1.092 (hypothetical average exchange rate) = €59,524.
+
+**Step 3: Subtract the exemption**
+Taxable income = €59,524 – €10,000 = €49,524.
+
+Step 4: Calculate IRPEF according to standard tax brackets
+Apply 23% up to €28,000, 35% from €28,001 to €50,000:
+- €28,000 × 23% = €6,440
+- €21,524 × 35% = €7,533
+- Total IRPEF: €13,973
+
+Step 5: Claim the tax credit in your tax return
+From the following year, in Form 730 or Unico, attach the Swiss withholding tax certificate (Quellensteuer-Bescheinigung) issued by your employer. In section CE, report the amount withheld in Switzerland. The Agency will recognize a corresponding credit, reducing the IRPEF owed. If the Swiss withholding exceeds the Italian IRPEF, the cross-border worker is entitled to a refund.
+
+### Deadlines and essential documentation
+
+Key deadlines for cross-border workers are:
+- May–June: Filing tax return (Form 730 for ordinary employment income, Unico if you have other income) with the Italian Revenue Agency.
+- Annual: Communicating updated personal and tax data to your Swiss employer (normally in December for the following year).
+- Upon request: Any audits by the Agency (on average every 2–3 years) will require submission of supporting documentation.
+
+Documents to retain for at least 5 years:
+- Swiss withholding tax certificates (Quellensteuer) for each year
+- Swiss pay stubs (from at least 3 representative months to justify income and withholdings)
+- Bank statements documenting transfers to Switzerland
+- Certified copy of the tax return filed with the Italian Agency
+- Any communications from the AFC/ESTV (Swiss Federal Tax Administration)
+
+### Tools and support for calculation
+
+[Use our tax calculator](nav:calculator) to simulate in real time how your gross net varies based on the CHF/EUR exchange rate, the applicable exemption, and the IRPEF rate. The tool also accounts for any Italian real estate income that adds to your employment income, and automatically calculates the tax credit based on the reported Swiss taxes.
+
+For questions regarding integrated retirement between the first pillar AVS and second pillar LPP, [consult our AVS/LPP guide](nav:pension) which explains how contributions paid in Switzerland translate into pension benefits upon reaching retirement age.
+
+Finally, if you have specific questions about the double taxation treaty or believe you have received an incorrect refund, contact directly the AFC/ESTV (Swiss Federal Tax Administration) in Switzerland or the Italian Revenue Agency, which have dedicated counters for cross-border workers and staff experts in the 2024 Agreement.]]></content:encoded>
+      <pubDate>Wed, 26 Aug 2026 03:41:49 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/tasse-frontalieri-distanza-confine</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/tasse-frontalieri-distanza-confine.webp" medium="image"/>
+    </item>
     <item>
       <title>Cross-border commuters over 20 km: how taxation changes</title>
       <link>https://frontaliereticino.ch/en/cross-border-articles/taxes-cross-border-workers-20km-distance/</link>
@@ -3113,63 +3208,6 @@ Request for Permit G: 4 weeks before the contract signing. Registration of LAMal
       <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/vivere-longone-segrino-lavorare-ticino-frontaliere</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/vivere-longone-segrino-lavorare-ticino-frontaliere.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Lezzeno-Ticino border guards: G permit, taxes and procedures</title>
-      <link>https://frontaliereticino.ch/en/cross-border-articles/live-lezzeno-work-ticino-commuter/</link>
-      <description><![CDATA[Those who live in Lezzeno and work in Ticino can work with the G permit as border workers. Tax at source in Switzerland, refreshments, AVS, LPP and LAMal: everything you need to know.]]></description>
-      <content:encoded><![CDATA[## In a nutshell
-- Mandatory G permit to work legally in Ticino from the municipality of Lezzeno
-- Tax at source withheld only in Switzerland, no double tax with Italy tax credit
-- New Frontier Agreement in force from 1 January 2024: deductibles €7,500 (old) and €10,000 (new)
-- Swiss social contributions: AVS 5.3%, LPP 7-18%, LAMal with option right
-
-## Key facts
-- **What**: G leave for cross-border workers Italy-Switzerland
-- When: New Frontier Agreement in force 1 January 2024 (signed 23 December 2020, ratified Italy Law 83/2023)
-- Where: Border workers resident in Italy (including Lezzeno) and employed in Ticino
-- Who: Employees and self-employed; administration through federal AFC/ESTV and canton Ticino
-- Tax regime: Swiss source tax; avoidance of double taxation via Convention 9 December 1976 + EC framework tax credit model 730 Italy
-- Contributions: AVS/AI/IPG 5.3% employee, AD/AC 1.1% (cap CHF 148'200), LPP 7-18% by age group
-
-Those who live in Lezzeno and work in Ticino enter the border regime regulated by the New Frontier Agreement, which entered into force on 1 January 2024. The source of the withholding tax is solely Swiss: the Ticino employer applies the tax at source directly from the paycheck according to the federal and cantonal rates of Ticino. It is not about double taxation: in Italy, double taxation is eliminated by tax credit in the 730 model
-### Compulsory pension and social insurance
-
-Those who work in Ticino as border workers are automatically enrolled in the Swiss social security system. The AVS (Old Age and Survivors Insurance) is the first pillar and applies to all employees. The deduction is equal to 5.3% of the gross monthly salary. AVS contributions start from the first month of employment and are paid until retirement age (65 years for men, 64 for women in transition).
-
-The second pillar is occupational pension (LPP). This is mandatory for salaries above a certain annual threshold. The percentage of contribution varies according to the age of the worker: young people (25-34 years) pay lower percentages (around 7-8%), middle-aged workers (35-44 years) pay 10-12%, while older workers (55-65 years) pay up to 18%. The LPP guarantees an old-age pension and protection in the event of disability or death. LPP contributions are paid automatically from the paycheck via the employer.
-
-### Health insurance and taxes
-
-For health insurance (LAMal), the frontier worker has a fundamental right of option: he can enroll in the Swiss system or remain insured in the Italian system. Those who choose the Swiss system pay an adult deductible between CHF 300 and CHF 2,500 depending on the coverage chosen. Evaluate this choice carefully: the Swiss system guarantees high coverage,
-
-## Useful planning tools
-To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
-### Procedure for requesting a G permit
-
-To work legally in Ticino, the first step is to find a Swiss Ticino employer willing to hire a border worker. Once the employment contract is signed, the employer initiates the procedure for requesting a G permit with the canton of Ticino (Department of Finance and Economy, Migration Section). The procedure includes:
-
-1. Signed and dated employment contract
-2. Valid identity document (passport or national identity card)
-3. Completed application forms (provided by the employer or the canton)
-4. Employer documentation (confirmation of hiring, job description)
-5. Completion of the AVS/LPP registration form
-
-The issuance of the G permit generally takes 2-4 weeks. During this waiting period, the border worker CANNOT work legally in Switzerland. Once in possession of the permit, the border worker can begin working and Swiss authorities will automatically start paying social contributions (AVS, LPP).
-
-### Tax declaration in Italy
-
-The border worker residing in Lezzeno or other Italian border areas must submit the annual tax declaration in Italy by September 30 of the following year. For dependent work income, the relevant model is the 730 (or Redditi PF for self-employed individuals). In the 730 model, section CE (foreign income), the gross income declared in Switzerland must be reported. Since Switzerland is not an EU member, the Italy-Switzerland Convention of December 9, 1976 on the avoidance of double taxation applies, providing for automatic tax credit. Always keep the Swiss pay slip extracts and tax payment documents: they are needed to justify the tax credit to the Italian Revenue Agency.
-
-### Deadlines, renewals, and refunds
-
-The G permit is automatically renewed annually as long as the employment relationship continues regularly. It is the employer's responsibility to manage the renewal with the cantonal authorities. Social contributions (AVS, LPP) are paid monthly through the pay slip: there is no need to pay them manually as a dependent worker.
-
-Swiss tax refunds (if the withheld tax was excessive) are communicated by the taxing canton generally between February and March of the following year. The amount is credited directly to the account indicated in the Swiss declaration. Consult a [pay slip calculator](nav:payslip) to simulate the monthly net income and plan the family budget considering taxes, contributions, and CHF-EUR exchange rate.]]></content:encoded>
-      <pubDate>Mon, 24 Aug 2026 03:46:57 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/vivere-lezzeno-lavorare-ticino-frontaliere</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/vivere-lezzeno-lavorare-ticino-frontaliere.webp" medium="image"/>
     </item>
   </channel>
 </rss>

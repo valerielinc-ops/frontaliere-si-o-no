@@ -10806,6 +10806,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.imposte-frontalieri-20km-distanza.title': 'Frontalieri oltre 20 km: come cambia la tassazione',
     'blog.article.imposte-frontalieri-20km-distanza.excerpt': 'Il Nuovo Accordo Frontalieri di dicembre 2020, vigente dal 1° gennaio 2024, modifica le agevolazioni per chi resiede oltre 20 km dal confine. Scopri calcolo IRPEF, imposta alla fonte e ristorni.',
     'blog.article.imposte-frontalieri-20km-distanza.imageAlt': 'Scrivania di lavoro frontaliera con documentazione fiscale e calcolatore presso il confine Ticino-Italia',
+    'blog.article.tasse-frontalieri-distanza-confine.title': 'Calcolo tasse frontalieri oltre 20 km dal confine',
+    'blog.article.tasse-frontalieri-distanza-confine.excerpt': 'Nuovo Accordo 2024: franchigia €10.000 per nuovi frontalieri, imposta alla fonte svizzera e credito d\'imposta italiano. Guida al calcolo con esempi.',
+    'blog.article.tasse-frontalieri-distanza-confine.imageAlt': 'Veduta di Lugano al tramonto con riva del lago e montagne sullo sfondo',
 };
 
 export default blogMetaIt;
