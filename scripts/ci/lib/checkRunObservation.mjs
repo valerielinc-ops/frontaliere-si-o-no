@@ -85,8 +85,6 @@ import { VITEST_CHECK_NAME } from './constants.mjs';
 export const ADVISORY_CHECK_NAMES = Object.freeze({
   'auto-merge':
     'auto-merge-on-lgtm.yml — è il job che produce questa osservazione: contarlo sarebbe circolare',
-  autorebase:
-    'tests.yml — rebasa la PR dopo una review approvante; un rosso è un rebase non riuscito',
   sweep:
     'auto-merge-sweep.yml / worktree-branch-janitor.yml — spazzino della coda, nessun verdetto sul codice',
   'delete-closed-unmerged':

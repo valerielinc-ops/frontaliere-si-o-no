@@ -128,11 +128,11 @@ name: tests
 # `pr-review-loop.yml` girano su `workflow_run`, quindi eseguono SEMPRE la
 # versione su `main` di se stessi e di `scripts/ci/lib/constants.mjs`. Una PR
 # che rinomina il check produce un nome che i lettori su `main` non conoscono:
-# `auto-merge-eval` gate 3 legge length 0, `pr-autorebase.headHasVitestCheck`
-# torna false e heal-dispatcha all'infinito — cioè esattamente il deadlock che
-# la testata di `constants.mjs` descrive, e la PR del rename non mergerebbe MAI
-# da sola. Il rename onesto richiede due PR concatenate: prima insegnare ai
-# lettori su `main` ad accettare entrambi i nomi, poi rinominare.
+# `auto-merge-eval` gate 3 legge length 0 e il lettore su `main` non riconosce
+# più la PR — cioè esattamente il deadlock che la testata di `constants.mjs`
+# descrive, e la PR del rename non mergerebbe MAI da sola. Il rename onesto
+# richiede due PR concatenate: prima insegnare ai lettori su `main` ad accettare
+# entrambi i nomi, poi rinominare.
 on:
   pull_request:
     branches: [main]
@@ -146,15 +146,10 @@ on:
     types: [opened, edited, synchronize, reopened, ready_for_review]
   push:
     branches: [main]
-  # Dispatchable so the autorebase phase can re-run vitest on a freshly-rebased PR
-  # head: a PAT push to a PR branch does NOT reliably re-trigger `pull_request`
-  # workflows (observed: rebased heads of #1587/#1526 got zero check-runs), so
-  # the autorebase explicitly dispatches this on the branch ref. The run's
-  # `vitest (unit + integration)` check-run lands on the branch head SHA (= PR
-  # head), satisfying auto-merge-eval gate 3, and its `workflow_run: completed`
-  # re-fires auto-merge-on-lgtm. No Claude review is re-run (auto-merge-eval
-  # carries the existing ## LGTM forward across a pure main-merge rebase).
+  # Kept available for manual diagnostics and recovery runs.
   workflow_dispatch:
+  # Required by the native Merge Queue: validate the temporary merge-group ref.
+  merge_group:
 
 # Union of the three original workflows' `permissions:` (tests.yml itself had
 # none — it inherited the repo default — so this is now the explicit floor):
@@ -162,7 +157,7 @@ on:
 #   pr-body-contract.yml:      contents:read, pull-requests:write, issues:read
 # `issues: write` (the more permissive of `write`/`read`) covers both.
 permissions:
-  contents: write
+  contents: read
   pull-requests: write
   issues: write
   id-token: write
@@ -1508,7 +1503,7 @@ jobs:
           # un rebase di solo main-merge — ma quel code NON è il contributo della
           # PR, che resta invariato. Confronta allora il FINGERPRINT del contributo
           # (3-dot vs merge-base con main, code-only) a HEAD vs all'ultima LGTM: se
-          # uguale, la PR non ha cambiato il proprio code (es. autorebase ha solo
+          # uguale, la PR non ha cambiato il proprio code (es. un aggiornamento
           # mergiato main) → skip Claude. Stessa funzione che auto-merge-eval usa
           # per il carry-forward dell'LGTM → niente drift. NULL/incerto → review
           # piena (conservativo). vitest gira comunque sull'head (safety net).
@@ -1849,7 +1844,7 @@ jobs:
           # (run 26621967484 era exit 1 col precedente vincolo non-human-actor).
           # `frontaliere-automation[bot]` (App): sotto pull_request l'actor della
           # review = l'actor del run di `tests` → su una PR la cui ultima push
-          # viene dall'App (autorebase / redflag-fixer / issue-fix) `github.actor`
+          # viene dall'App (redflag-fixer / issue-fix) `github.actor`
           # è l'App-bot; senza whitelist la review abortirebbe "non-human actor".
           allowed_bots: "github-actions[bot], claude[bot], frontaliere-automation[bot]"
           show_full_output: true
@@ -1977,7 +1972,7 @@ jobs:
           fi
           echo "Review step completed without an unrecovered transient API error."
 
-      - name: Require approving Claude review before autorebase
+      - name: Require approving Claude review
         id: review_gate
         if: always() && steps.claude_review.outcome != 'failure' && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.debounce.outputs.superseded != 'true'
         env:
@@ -2025,40 +2020,12 @@ jobs:
           existing=$(gh api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --jq '.[].body' 2>/dev/null || true)
           if ! printf '%s' "$existing" | grep -Fq "$marker"; then
             gh pr comment "$PR_NUMBER" --repo "$REPO" --body "$marker
-          ⚠️ **Review gate bloccato** — la review Claude sulla HEAD $HEAD_SHA non contiene un LGTM valido senza un finding Important. L'autorebase non viene eseguito e il merge resta bloccato.
+          ⚠️ **Review gate bloccato** — la review Claude sulla HEAD $HEAD_SHA non contiene un LGTM valido senza un finding Important. Il merge resta bloccato.
 
           Run: $RUN_URL" || echo "::warning::Impossibile pubblicare il commento del review gate."
           fi
           echo "::error::Nessuna review Claude approvante sulla HEAD: manca LGTM oppure è presente un finding 🔴 Important."
           exit 1
-
-      # L’autorebase usa esattamente il checkout e npm ci già pagati da questo
-      # job. Parte solo dopo il verdetto approvante; un finding, uno skip Claude
-      # o un errore del review gate lo saltano automaticamente.
-      - name: Mint autorebase App token
-        if: steps.review_gate.outputs.approved == 'true'
-        continue-on-error: true
-        env:
-          APP_ID: ${{ secrets.APP_ID }}
-          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-        run: node scripts/ci/mint-app-token.mjs
-
-      - name: Rebase near-merge PRs after approved review
-        if: steps.review_gate.outputs.approved == 'true'
-        env:
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          DRY_RUN: 'false'
-        run: |
-          if [ -z "${APP_TOKEN:-}" ]; then
-            echo "::warning::APP_TOKEN non disponibile: autorebase saltato senza caricare Remote Config o GITHUB_PAT."
-            exit 0
-          fi
-          GH_TOKEN="$APP_TOKEN" node scripts/ci/pr-autorebase.mjs
-
-      - name: Cleanup autorebase credentials
-        if: always()
-        run: true
 
       - name: Claude usage metrics
         # Solo se la review Claude è effettivamente girata (guard non-skip): a
