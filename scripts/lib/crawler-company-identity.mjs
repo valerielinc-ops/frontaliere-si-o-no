@@ -204,7 +204,7 @@ export function summariseSliceCompanies(jobs) {
 }
 
 /** Case/whitespace-insensitive: solo per confrontare, mai per pubblicare. */
-function normalizeCompanyName(name) {
+function normalizeForSliceMatch(name) {
   return String(name || '')
     .trim()
     .toLowerCase()
@@ -240,10 +240,10 @@ export function sliceDomainForName(summary, chosenName) {
   const direct = summary.domains?.[trimmed];
   if (direct) return direct;
 
-  const normalizedChosen = normalizeCompanyName(trimmed);
+  const normalizedChosen = normalizeForSliceMatch(trimmed);
   if (!normalizedChosen) return '';
   for (const [candidate, domain] of Object.entries(summary.domains || {})) {
-    if (normalizeCompanyName(candidate) === normalizedChosen) return domain;
+    if (normalizeForSliceMatch(candidate) === normalizedChosen) return domain;
   }
   return '';
 }
