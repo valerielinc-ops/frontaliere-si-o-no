@@ -982,7 +982,11 @@ async function sendViaMailgun(email, scheduledAt, signal) {
   form.append('o:tracking-clicks', email.tracking !== false ? 'yes' : 'no');
   form.append('o:tracking-opens', 'yes');
   if (email.tags?.length) {
-    for (const tag of email.tags) form.append('o:tag', tag.value);
+    // Mailgun's API caps `o:tag` at 3 per message (docs, not the Help
+    // Center's unrelated 10-tag figure); anything past the 3rd is silently
+    // dropped server-side. `v:campaign_id` below carries campaign attribution
+    // separately, so this cap only affects the filter/analytics tags.
+    for (const tag of email.tags.slice(0, 3)) form.append('o:tag', tag.value);
     // `o:tag` is a flat list of VALUES — the name is lost in transit, so the
     // webhook could only guess which of ["welcome_job","lifecycle","en"] was
     // the campaign. It guessed by looking for a `campaign:` prefix that this

@@ -68,4 +68,17 @@ describe('sendEmailCascade — mailgun campaign custom variable', () => {
     const captured = await sendWithTags(undefined);
     expect(captured.campaignVar).toBeNull();
   });
+
+  it('caps o:tag at 3 even when the payload carries more (Mailgun API limit, issue #6549)', async () => {
+    const captured = await sendWithTags([
+      { name: 'campaign_id', value: 'weekly_2026-08-24' },
+      { name: 'subscriber_locale', value: 'it' },
+      { name: 'source_channel', value: 'newsletter_page' },
+      { name: 'version', value: 'v2-ai-cohort' },
+      { name: 'variant', value: 'subject_b' },
+    ]);
+    expect(captured.tags).toEqual(['weekly_2026-08-24', 'it', 'newsletter_page']);
+    // v:campaign_id is a separate custom variable, unaffected by the o:tag cap.
+    expect(captured.campaignVar).toBe('weekly_2026-08-24');
+  });
 });

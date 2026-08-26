@@ -24,6 +24,7 @@ import {
   segmentSequenceRegex,
   KNOWN_LIVE_DATA_TESTS,
   LIVE_DATA_ROOTS,
+  listLiveDataTestsForCi,
 } from '../scripts/ci/live-data-test-guard.mjs';
 
 describe('nessun test NUOVO puo` leggere dati vivi', () => {
@@ -94,5 +95,10 @@ describe('il rilevatore', () => {
     // Una baseline cambia solo quando qualcuno decide di cambiarla: e' dato
     // pinnato, e vietarlo renderebbe il guard rumoroso e quindi ignorato.
     expect(LIVE_DATA_ROOTS.some((r) => r.includes('baseline'))).toBe(false);
+  });
+
+  it('mantiene il test meta della partizione nel gate', () => {
+    expect(listLiveDataTestsForCi()).not.toContain('tests/corpus-wide-test-partition.test.ts');
+    expect(listLiveDataTestsForCi()).toContain('tests/article-body-wordcount.test.ts');
   });
 });
