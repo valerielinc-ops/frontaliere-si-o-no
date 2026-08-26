@@ -4351,6 +4351,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-attivita-appenzello-interno.title': 'Ouvrir une entreprise à Appenzell Interne : guide pratique',
     'blog.article.aprire-attivita-appenzello-interno.excerpt': 'Formes juridiques, capital minimum, inscription au registre du commerce et obligations fiscales, contributives et d\'assurance pour démarrer une activité en Suisse.',
     'blog.article.aprire-attivita-appenzello-interno.imageAlt': 'Bureau de startup moderne avec design minimaliste suisse, documents professionnels, ordinateur portable et panneau de bienvenue, lumière naturelle',
+    'blog.article.raiffeisen-160-milioni-risparmio-2027.title': 'Raiffeisen coupe jusqu\'à 180 emplois',
+    'blog.article.raiffeisen-160-milioni-risparmio-2027.excerpt': 'Raiffeisen Suisse annonce un programme d\'économies : jusqu\'à 180 postes supprimés d\'ici 2027, avec une réduction des coûts d\'environ 60 millions de CHF.',
+    'blog.article.raiffeisen-160-milioni-risparmio-2027.imageAlt': 'Bureau moderne d\'une institution bancaire suisse avec des employés à des postes de travail professionnels.',
 };
 
 export default blogMetaChFr;

@@ -4351,6 +4351,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-attivita-appenzello-interno.title': 'Aprire un\'attività in Appenzello Interno: guida pratica',
     'blog.article.aprire-attivita-appenzello-interno.excerpt': 'Forme giuridiche, capitale minimo, iscrizione registro commercio e obblighi fiscali, contributivi e assicurativi per avviare un\'attività in Svizzera.',
     'blog.article.aprire-attivita-appenzello-interno.imageAlt': 'Scrivania di startup moderna con design svizzero minimale, documenti aziendali, laptop e targa di benvenuto, illuminazione naturale',
+    'blog.article.raiffeisen-160-milioni-risparmio-2027.title': 'Raiffeisen taglia fino a 180 posti di lavoro',
+    'blog.article.raiffeisen-160-milioni-risparmio-2027.excerpt': 'Raiffeisen Svizzera annuncia un programma di risparmio: fino a 180 posti eliminati entro il 2027, con riduzione di circa 60 milioni CHF nei costi.',
+    'blog.article.raiffeisen-160-milioni-risparmio-2027.imageAlt': 'Sede di un istituto bancario svizzero con dipendenti in ambiente di lavoro professionale e moderno.',
 };
 
 export default blogMetaChIt;
