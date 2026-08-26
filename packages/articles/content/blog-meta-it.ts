@@ -10794,6 +10794,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bionaz-lavorare-vallese-frontaliere.title': 'Vivere a Bionaz e lavorare in Vallese: guida',
     'blog.article.bionaz-lavorare-vallese-frontaliere.excerpt': 'Permesso G, imposta alla fonte in Svizzera, LAMal e Convenzione doppia imposizione: tutto ciò che serve sapere per trasferirsi in Valle d\'Aosta e lavorare nella Vallese.',
     'blog.article.bionaz-lavorare-vallese-frontaliere.imageAlt': 'Panorama della Vallese e della Valle d\'Aosta dal valico del Sempione, con paesaggio montuoso alpino.',
+    'blog.article.a13-chiusure-mappo-minusio-2026.title': 'A13, chiusure notturne mappo minusio',
+    'blog.article.a13-chiusure-mappo-minusio-2026.excerpt': 'Dal 26 agosto chiusure notturne ai semi-svincoli A13. Orari 21:00–05:00 per pavimentazione. Alternative via Tenero e Locarno, traffico diurno garantito.',
+    'blog.article.a13-chiusure-mappo-minusio-2026.imageAlt': 'Veduta notturna dell\'autostrada A13 con segnaletica di cantiere ai semi-svincoli di Mappo e Minusio',
 };
 
 export default blogMetaIt;

@@ -78617,6 +78617,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-a13-chiusure-mappo-minusio-2026': {
+    title: 'A13, chiusure notturne mappo minusio | Frontaliere Ticino',
+    description: 'Dal 26 agosto chiusure notturne A13 ai semi-svincoli di Mappo e Minusio per lavori pavimentazione. Alternative via Tenero e Locarno, traffico diurno garantito.',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiusure, notturne, mappo, minusio',
+    ogTitle: 'A13, chiusure notturne Mappo Minusio',
+    ogDescription: 'Scopri le chiusure notturne A13 a Mappo e Minusio dal 26 agosto al 20 settembre. Orari 21:00–05:00, alternative via Tenero e Locarno. Traffico diurno garantito e variazioni possibili per maltempo.',
+    canonicalPath: '/articoli-frontaliere/a13-chiusure-mappo-minusio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A13, chiusure notturne mappo minusio",
+      "description": "Dal 26 agosto chiusure notturne A13 ai semi-svincoli di Mappo e Minusio per lavori pavimentazione. Alternative via Tenero e Locarno, traffico diurno garantito.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/a13-chiusure-mappo-minusio-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta notturna dell'autostrada A13 con segnaletica di cantiere ai semi-svincoli di Mappo e Minusio"
+      },
+      "datePublished": "2026-08-26T00:40:21+00:00",
+      "dateModified": "2026-08-26T00:40:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/a13-chiusure-mappo-minusio-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
