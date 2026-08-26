@@ -57506,6 +57506,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-manor-licenzia-basilea': {
+    title: 'Manor licenzia 38 collaboratori presso sede centrale Basilea',
+    description: 'Manor licenzia 38 impiegati d\'ufficio a Basilea. L\'azienda promette piano sociale e supporto individuale. Cosa fare se sei tra i colpiti. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, manor, licenzia, collaboratori, presso',
+    ogTitle: 'Manor licenzia 38 collaboratori presso sede centrale Basilea',
+    ogDescription: 'Manor annuncia 38 licenziamenti di impiegati d\'ufficio presso la sede centrale a Basilea. Scopri i diritti, il piano sociale, e come registrarsi per l\'indennità di disoccupazione svizzera. Guida pratica per i dipendenti colpiti.',
+    canonicalPath: '/articoli-svizzera/manor-licenzia-basilea/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Manor licenzia 38 collaboratori presso sede centrale Basilea",
+      "description": "Manor licenzia 38 impiegati d'ufficio a Basilea. L'azienda promette piano sociale e supporto individuale. Cosa fare se sei tra i colpiti. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/manor-licenzia-basilea.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio di uffici moderni a Basilea con architettura contemporanea"
+      },
+      "datePublished": "2026-08-26T21:46:28+00:00",
+      "dateModified": "2026-08-26T21:46:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/manor-licenzia-basilea/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

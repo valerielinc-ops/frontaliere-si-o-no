@@ -4432,6 +4432,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.fondi-federali-bosco-agricoltura.title': 'Federal Council: CHF 71.5M for forest and agriculture',
     'blog.article.fondi-federali-bosco-agricoltura.excerpt': 'The Federal Council approves CHF 17.5M for forests and CHF 54M for farms affected by the record drought of summer 2026.',
     'blog.article.fondi-federali-bosco-agricoltura.imageAlt': 'Alpine forest landscape during summer drought: withered vegetation and Swiss forests view',
+    'blog.article.manor-licenzia-basilea.title': 'Manor dismisses 38 employees at its headquarters in Basel',
+    'blog.article.manor-licenzia-basilea.excerpt': 'Manor dismisses 38 office workers in Basel. The company promises a social plan and individual support. What to do if you are among those affected.',
+    'blog.article.manor-licenzia-basilea.imageAlt': 'Modern office building in Basel with contemporary architecture',
 };
 
 export default blogMetaChEn;

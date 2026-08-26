@@ -4432,6 +4432,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.fondi-federali-bosco-agricoltura.title': 'Conseil fédéral : 71,5 M CHF pour la forêt et l\'agriculture',
     'blog.article.fondi-federali-bosco-agricoltura.excerpt': 'Le Conseil fédéral approuve CHF 17,5M pour les forêts et CHF 54M pour les exploitations agricoles touchées par la sécheresse record de l\'été 2026.',
     'blog.article.fondi-federali-bosco-agricoltura.imageAlt': 'Paysage forestier alpin pendant la sécheresse estive: végétation desséchée et forêts suisses',
+    'blog.article.manor-licenzia-basilea.title': 'Manor licencie 38 collaborateurs au siège de Bâle',
+    'blog.article.manor-licenzia-basilea.excerpt': 'Manor licencie 38 employés de bureau à Bâle. L\'entreprise promet un plan social et un soutien individuel. Que faire si vous êtes parmi les personnes touchées.',
+    'blog.article.manor-licenzia-basilea.imageAlt': 'Immeuble de bureaux modernes à Bâle avec architecture contemporaine',
 };
 
 export default blogMetaChFr;
