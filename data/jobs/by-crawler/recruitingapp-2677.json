@@ -91,7 +91,7 @@
       "titleByLocale": {
         "it": "Private Banker: a Salisburgo",
         "en": "Private Banker:in Salzburg",
-        "de": "Private Banker:in Salzburg",
+        "de": "Privatbanker: in Salzburg",
         "fr": "Banque privée: à Salzbourg"
       },
       "description": "Private Banker:in Salzburg — E-Recruiting LLB-Gruppe Stellen",
@@ -209,7 +209,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "previousSlugsByLocale": {
+        "it": [
+          "tax-reclaim-specialista-e-recruiting-llb-gruppe-stellen-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "tax-reclaim-specialista-e-recruiting-llb-gruppe-stellen-lugano"
+      ]
     },
     {
       "id": "recruitingapp-2677-adf5d6d85512",
@@ -784,8 +792,8 @@
       "titleByLocale": {
         "it": "Private Banker:in",
         "en": "Private Banker:in",
-        "de": "Private Banker:in",
-        "fr": "Private Banker:in"
+        "de": "Privatbanker:in",
+        "fr": "Banquer privé: en"
       },
       "description": "Private Banker:in — E-Recruiting LLB-Gruppe Stellen",
       "descriptionByLocale": {
