@@ -1,23 +1,30 @@
 name: 'CI npm setup'
 description: >-
-  Shared post-checkout setup for tests.yml's parallel jobs (collision,
-  typecheck, vitest): actions/setup-node + npm ci, factored into one place so
-  the three call sites can't drift (node version, cache config) independently.
+  Shared post-checkout setup: actions/setup-node + npm ci.
 
-  Deliberately does NOT include the checkout step itself, even though that
-  would DRY up more duplicated lines: a local composite action is resolved
-  from files already present in the runner's checkout of THIS repo, so it
-  cannot also perform the checkout that fetches it — verified in CI (a first
-  attempt that folded checkout in here failed every caller with "Can't find
-  'action.yml' ... Did you forget to run actions/checkout before running
-  local action?"). The three callers also genuinely need different checkout
-  profiles (collision: sparse, fetch-depth 1; typecheck: sparse, broader;
-  vitest: full checkout, above the ~1.5GB blob:none crossover — see
-  docs/REPO-WEIGHT-STRATEGY.md), so forcing one shared profile on all three
-  would regress whichever job currently has the cheaper one.
+  Storia, perché spiega perché questa action esiste ancora con UN chiamante
+  solo. Nata in #6534 per i quattro job PARALLELI di tests.yml (collision,
+  typecheck, vitest), fattorizzava la DEFINIZIONE di setup-node+npm-ci — non
+  l'esecuzione: ogni job la rieseguiva comunque da zero. Da quando tests.yml è
+  un job solo il chiamante è uno e `npm ci` gira UNA volta, che è il guadagno
+  che #6534 non poteva dare.
+
+  Deliberately does NOT include the checkout step itself: a local composite
+  action is resolved from files already present in the runner's checkout of
+  THIS repo, so it cannot also perform the checkout that fetches it — verified
+  in CI (a first attempt that folded checkout in here failed every caller with
+  "Can't find 'action.yml' ... Did you forget to run actions/checkout before
+  running local action?"). Il vincolo vale ancora: il checkout resta uno step
+  esplicito nel chiamante, prima di questo.
 inputs:
   npm-ci-args:
-    description: 'Extra args appended to `npm ci` (e.g. --ignore-scripts for collision).'
+    description: >-
+      Extra args appended to `npm ci`. Oggi NESSUN chiamante lo passa: lo usava
+      il job `collision` con `--ignore-scripts` perché non eseguiva codice del
+      repo, e quel job non esiste più (i suoi step condividono l'install con
+      tsc e vitest, che le dipendenze complete le vogliono). Tenuto perché è
+      l'unica leva per un futuro chiamante che debba installare in modo più
+      stretto, ed è a costo zero: default vuoto, comportamento invariato.
     required: false
     default: ''
 runs:
