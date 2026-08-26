@@ -4429,6 +4429,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.canicola-70-milioni-bosco.title': 'Canicola, 70 million for forest and agriculture',
     'blog.article.canicola-70-milioni-bosco.excerpt': 'The Federal Council requires 70+ million francs to adapt forests and support farms affected by heatwave and summer drought.',
     'blog.article.canicola-70-milioni-bosco.imageAlt': 'Alpine Swiss forests in summer, mountain landscape with forested and agricultural zones',
+    'blog.article.fondi-federali-bosco-agricoltura.title': 'Federal Council: CHF 71.5M for forest and agriculture',
+    'blog.article.fondi-federali-bosco-agricoltura.excerpt': 'The Federal Council approves CHF 17.5M for forests and CHF 54M for farms affected by the record drought of summer 2026.',
+    'blog.article.fondi-federali-bosco-agricoltura.imageAlt': 'Alpine forest landscape during summer drought: withered vegetation and Swiss forests view',
 };
 
 export default blogMetaChEn;

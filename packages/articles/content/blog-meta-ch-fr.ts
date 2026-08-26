@@ -4429,6 +4429,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.canicola-70-milioni-bosco.title': 'Canicule, 70 Mio pour la forêt et l\'agriculture',
     'blog.article.canicola-70-milioni-bosco.excerpt': 'Le Conseil fédéral demande 70+ millions de francs pour adapter les forêts et soutenir les exploitations agricoles touchées par la canicule et la sécheresse estivale.',
     'blog.article.canicola-70-milioni-bosco.imageAlt': 'Forêts alpines suisses en été, paysage montagnard avec zones forestières et agricoles',
+    'blog.article.fondi-federali-bosco-agricoltura.title': 'Conseil fédéral : 71,5 M CHF pour la forêt et l\'agriculture',
+    'blog.article.fondi-federali-bosco-agricoltura.excerpt': 'Le Conseil fédéral approuve CHF 17,5M pour les forêts et CHF 54M pour les exploitations agricoles touchées par la sécheresse record de l\'été 2026.',
+    'blog.article.fondi-federali-bosco-agricoltura.imageAlt': 'Paysage forestier alpin pendant la sécheresse estive: végétation desséchée et forêts suisses',
 };
 
 export default blogMetaChFr;

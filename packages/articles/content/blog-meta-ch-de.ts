@@ -4429,6 +4429,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.canicola-70-milioni-bosco.title': 'Canicola, 70 Mio. für Wald und Landwirtschaft',
     'blog.article.canicola-70-milioni-bosco.excerpt': 'Der Bundesrat fordert 70+ Millionen Franken, um Wälder anzupassen und Betriebe zu unterstützen, die von Hitze und Sommertrockenheit betroffen sind.',
     'blog.article.canicola-70-milioni-bosco.imageAlt': 'Schweizer Alpenwälder im Sommer, Berglandschaft mit Wald- und Landwirtschaftszonen',
+    'blog.article.fondi-federali-bosco-agricoltura.title': 'Bundesrat: CHF 71.5M für Wald und Landwirtschaft',
+    'blog.article.fondi-federali-bosco-agricoltura.excerpt': 'Der Bundesrat genehmigt CHF 17,5 Mio. für die Wälder und CHF 54 Mio. für die von der Rekordtrockenheit des Sommers 2026 betroffenen Betriebe.',
+    'blog.article.fondi-federali-bosco-agricoltura.imageAlt': 'Alpines Waldlandschaft während der Sommertrockenheit: verwelkte Vegetation und Schweizer Waldansicht',
 };
 
 export default blogMetaChDe;
