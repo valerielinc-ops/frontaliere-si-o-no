@@ -4354,6 +4354,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.raiffeisen-160-milioni-risparmio-2027.title': 'Raiffeisen streicht bis zu 180 Stellen',
     'blog.article.raiffeisen-160-milioni-risparmio-2027.excerpt': 'Raiffeisen Schweiz kündigt ein Sparprogramm an: Bis zu 180 Stellen sollen bis 2027 gestrichen werden, was Kosteneinsparungen von rund CHF 60 Mio. bedeutet.',
     'blog.article.raiffeisen-160-milioni-risparmio-2027.imageAlt': 'Modernes Bürogebäude einer Schweizer Bank mit Mitarbeitern an professionellen Arbeitsplätzen.',
+    'blog.article.raiffeisen-taglio-posti-lavoro.title': 'Raiffeisen streicht bis 2027 180 Stellen',
+    'blog.article.raiffeisen-taglio-posti-lavoro.excerpt': 'Raiffeisen kündigt den Abbau von bis zu 180 Stellen an, um die Kosten um 60 Millionen Franken zu senken. Strukturelle Reorganisation in sechs Abteilungen ab Oktober.',
+    'blog.article.raiffeisen-taglio-posti-lavoro.imageAlt': 'Schweizer Finanzamt mit Mitarbeitern bei der Arbeit an Schreibtischen, fotografiert im realistischen DSLR-Stil.',
 };
 
 export default blogMetaChDe;

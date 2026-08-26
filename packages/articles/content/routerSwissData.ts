@@ -1477,6 +1477,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'avs-appenzello-interno-compensazione': { it: 'avs-appenzello-interno-compensazione', en: 'avs-appenzell-internal-compensation', de: 'ahv-appenzell-innerrhoden-ausgleich', fr: 'avs-appenzell-rhodes-prestations' },
  'aprire-attivita-appenzello-interno': { it: 'aprire-attivita-appenzello-interno', en: 'open-business-appenzell-inner-rhodes-guide', de: 'unternehmen-appenzell-innerrhoden-grunden', fr: 'ouvrir-activite-appenzell-rhodes-interieures' },
  'raiffeisen-160-milioni-risparmio-2027': { it: 'raiffeisen-160-milioni-risparmio-2027', en: 'raiffeisen-180-job-cuts-2027', de: 'raiffeisen-180-stellenabbau-2027', fr: 'raiffeisen-180-suppressions-emplois-2027' },
+ 'raiffeisen-taglio-posti-lavoro': { it: 'raiffeisen-taglio-posti-lavoro', en: 'raiffeisen-180-job-cuts-switzerland', de: 'raiffeisen-stellenabbau-schweiz', fr: 'raiffeisen-suppressions-postes' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

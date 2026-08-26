@@ -10812,6 +10812,11 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.permesso-g-pro-contro-2024.title': 'Permesso G frontaliere: vantaggi e svantaggi',
     'blog.article.permesso-g-pro-contro-2024.excerpt': 'Pro e contro del Permesso G dal 2024: fisco, previdenza, sanità, mobilità. Quando conviene per frontalieri Ticino-Italia e come procedere.',
     'blog.article.permesso-g-pro-contro-2024.imageAlt': 'Vista di Lugano al tramonto mostra il contesto urbano dove lavorano i frontalieri Ticino-Italia',
+    'blog.article.bollettino-frontaliere-2026-08-26.title': 'Bollettino del frontaliere – 26 agosto 2026: 1009 nuovi annunci di lavoro ieri',
+    'blog.article.bollettino-frontaliere-2026-08-26.excerpt': 'I numeri di oggi, 26 agosto 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-08-26.imageAlt': 'I numeri del giorno per i frontalieri – 26 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-08-26.seoDescription': 'Bollettino frontalieri del 26 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-08-26.ogDescription': 'I numeri del 26 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
 };
 
 export default blogMetaIt;

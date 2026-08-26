@@ -10811,6 +10811,11 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.permesso-g-pro-contro-2024.title': 'Border permit G: advantages and disadvantages',
     'blog.article.permesso-g-pro-contro-2024.excerpt': 'Pros and cons of Permit G from 2024: tax, social security, health, mobility. When it is convenient for border crossers Ticino-Italy and how to proceed.',
     'blog.article.permesso-g-pro-contro-2024.imageAlt': 'Aerial view of Lugano at sunset, showing the urban context where Ticino-Italy cross-border workers commute',
+    'blog.article.bollettino-frontaliere-2026-08-26.title': 'Cross-border daily brief – August 26, 2026: 1\'009 new job listings yesterday',
+    'blog.article.bollettino-frontaliere-2026-08-26.excerpt': 'Today\'s numbers, August 26, 2026, for cross-border commuters: the waits measured at every crossing this morning, the municipalities where fuel is cheapest, the franc-euro rate at yesterday\'s close and the jobs newly posted in Switzerland. Measured daily by our own monitoring.',
+    'blog.article.bollettino-frontaliere-2026-08-26.imageAlt': 'The day\'s numbers for cross-border commuters – August 26, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
+    'blog.article.bollettino-frontaliere-2026-08-26.seoDescription': 'Cross-border brief, August 26, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
+    'blog.article.bollettino-frontaliere-2026-08-26.ogDescription': 'The numbers for August 26, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
 };
 
 export default blogMetaEn;

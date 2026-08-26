@@ -10810,6 +10810,11 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.permesso-g-pro-contro-2024.title': 'Grenzüberschreitende Genehmigung G: Vor- und Nachteile',
     'blog.article.permesso-g-pro-contro-2024.excerpt': 'Vor- und Nachteile der Genehmigung G ab 2024: Steuern, Vorsorge, Gesundheit, Mobilität. Wann es sich für Grenzgänger Tessin-Italien lohnt und wie vorzugehen ist.',
     'blog.article.permesso-g-pro-contro-2024.imageAlt': 'Luftaufnahme von Lugano bei Sonnenuntergang, zeigt die urbane Umgebung von Grenzgängern',
+    'blog.article.bollettino-frontaliere-2026-08-26.title': 'Grenzgänger-Tagesbulletin – 26. August 2026: 1\'009 neue Stellenangebote gestern',
+    'blog.article.bollettino-frontaliere-2026-08-26.excerpt': 'Die Zahlen von heute, 26. August 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-08-26.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 26. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-08-26.seoDescription': 'Grenzgänger-Bulletin vom 26. August 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-08-26.ogDescription': 'Die Zahlen vom 26. August 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
 };
 
 export default blogMetaDe;
