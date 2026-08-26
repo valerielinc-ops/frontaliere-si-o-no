@@ -12997,6 +12997,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'diritto-locazione-appenzello-interno-canoni-conciliazione',
+    category: 'pratico',
+    date: '2026-08-26T01:12:40.638Z',
+    image: '/images/blog/diritto-locazione-appenzello-interno-canoni-conciliazione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

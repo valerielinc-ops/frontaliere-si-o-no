@@ -56219,6 +56219,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-diritto-locazione-appenzello-interno-canoni-conciliazione': {
+    title: 'Diritto locazione Appenzello Interno: canoni e conciliazione',
+    description: 'Guida completa al diritto di locazione federale svizzero: deposito cauzionale massimo 3 mesi, disdetta e procedura di conciliazione ad Appenzello Interno.',
+    keywords: 'frontalieri, ticino, svizzera, italia, diritto, locazione, appenzello, interno',
+    ogTitle: 'Diritto locazione Appenzello Interno: canoni e conciliazione',
+    ogDescription: 'In Svizzera il diritto di locazione è federale e identico in ogni cantone. Scopri come contestare un canone, le regole su deposito cauzionale e la procedura di ricorso presso l\'autorità di conciliazione di Appenzello Interno.',
+    canonicalPath: '/articoli-svizzera/diritto-locazione-appenzello-interno-canoni-conciliazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Diritto locazione Appenzello Interno: canoni e conciliazione",
+      "description": "Guida completa al diritto di locazione federale svizzero: deposito cauzionale massimo 3 mesi, disdetta e procedura di conciliazione ad Appenzello Interno.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/diritto-locazione-appenzello-interno-canoni-conciliazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Via di una città svizzera con edifici residenziali e annunci di affitti; rappresenta il contesto del diritto di locazione federale"
+      },
+      "datePublished": "2026-08-26T01:12:40+00:00",
+      "dateModified": "2026-08-26T01:12:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/diritto-locazione-appenzello-interno-canoni-conciliazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -4333,6 +4333,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avviare-ditta-berna-registrazione.title': 'Opening a business in Bern: procedures and costs',
     'blog.article.avviare-ditta-berna-registrazione.excerpt': 'Complete guide to opening in the Canton of Bern: legal forms, trade register registration, three-tier taxes and insurance obligations for employees.',
     'blog.article.avviare-ditta-berna-registrazione.imageAlt': 'Swiss administrative office counter with business registration forms and documents',
+    'blog.article.diritto-locazione-appenzello-interno-canoni-conciliazione.title': 'Internal Appenzello lease law: fees and conciliation',
+    'blog.article.diritto-locazione-appenzello-interno-canoni-conciliazione.excerpt': 'Complete guide to Swiss federal lease law: 3 months maximum security deposit, cancellation and conciliation procedure in Appenzello Internno.',
+    'blog.article.diritto-locazione-appenzello-interno-canoni-conciliazione.imageAlt': 'Swiss urban street with residential buildings and rental notices; represents the context of federal rental law',
 };
 
 export default blogMetaChEn;

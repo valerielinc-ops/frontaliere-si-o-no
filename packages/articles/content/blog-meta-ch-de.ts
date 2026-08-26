@@ -4333,6 +4333,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avviare-ditta-berna-registrazione.title': 'Ein Geschäft in Bern eröffnen: Verfahren und Kosten',
     'blog.article.avviare-ditta-berna-registrazione.excerpt': 'Vollständiger Leitfaden zur Eröffnung im Kanton Bern: Rechtsformen, Handelsregistereintrag, dreistufige Steuern und Versicherungsverpflichtungen für Arbeitnehmer.',
     'blog.article.avviare-ditta-berna-registrazione.imageAlt': 'Schweizer Verwaltungsschalter mit Formularen zur Unternehmensregistrierung',
+    'blog.article.diritto-locazione-appenzello-interno-canoni-conciliazione.title': 'Mietrecht Appenzell Innerrhoden: Gebühren und Schlichtung',
+    'blog.article.diritto-locazione-appenzello-interno-canoni-conciliazione.excerpt': 'Vollständiger Leitfaden zum schweizerischen Bundesmietrecht: maximal 3 Monate Kaution, Kündigung und Schlichtungsverfahren in Appenzell Innerrhoden.',
+    'blog.article.diritto-locazione-appenzello-interno-canoni-conciliazione.imageAlt': 'Schweizer Stadtstraße mit Wohngebäuden und Mietanzeigen; stellt den Kontext des Bundeswohnungsrechts dar',
 };
 
 export default blogMetaChDe;

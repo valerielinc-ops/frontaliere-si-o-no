@@ -4333,6 +4333,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avviare-ditta-berna-registrazione.title': 'Aprire un\'attività a Berna: procedure e costi',
     'blog.article.avviare-ditta-berna-registrazione.excerpt': 'Guida completa all\'apertura nel Cantone di Berna: forme giuridiche, iscrizione registro commercio, imposte a tre livelli e obblighi assicurativi per dipendenti.',
     'blog.article.avviare-ditta-berna-registrazione.imageAlt': 'Interno di uno sportello amministrativo svizzero con moduli per l\'iscrizione di un\'attività al registro di commercio',
+    'blog.article.diritto-locazione-appenzello-interno-canoni-conciliazione.title': 'Diritto locazione Appenzello Interno: canoni e conciliazione',
+    'blog.article.diritto-locazione-appenzello-interno-canoni-conciliazione.excerpt': 'Guida completa al diritto di locazione federale svizzero: deposito cauzionale massimo 3 mesi, disdetta e procedura di conciliazione ad Appenzello Interno.',
+    'blog.article.diritto-locazione-appenzello-interno-canoni-conciliazione.imageAlt': 'Via di una città svizzera con edifici residenziali e annunci di affitti; rappresenta il contesto del diritto di locazione federale',
 };
 
 export default blogMetaChIt;
