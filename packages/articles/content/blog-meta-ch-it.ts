@@ -4348,6 +4348,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-appenzello-interno-compensazione.title': 'AVS e prestazioni complementari in Appenzello Interno',
     'blog.article.avs-appenzello-interno-compensazione.excerpt': 'Primo pilastro in Appenzello Interno: guida alla cassa di compensazione, calcolo della rendita AVS e prestazioni complementari per il minimo vitale.',
     'blog.article.avs-appenzello-interno-compensazione.imageAlt': 'Ufficio amministrativo svizzero dove un consulente illustra il calcolo della rendita AVS a un pensionato',
+    'blog.article.aprire-attivita-appenzello-interno.title': 'Aprire un\'attività in Appenzello Interno: guida pratica',
+    'blog.article.aprire-attivita-appenzello-interno.excerpt': 'Forme giuridiche, capitale minimo, iscrizione registro commercio e obblighi fiscali, contributivi e assicurativi per avviare un\'attività in Svizzera.',
+    'blog.article.aprire-attivita-appenzello-interno.imageAlt': 'Scrivania di startup moderna con design svizzero minimale, documenti aziendali, laptop e targa di benvenuto, illuminazione naturale',
 };
 
 export default blogMetaChIt;
