@@ -4345,6 +4345,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.scuola-futuro-giovani-ticino.title': 'École et avenir : les jeunes tessinois risquent de partir',
     'blog.article.scuola-futuro-giovani-ticino.excerpt': 'Le 31 août, l\'école recommence au Tessin. Mais quel avenir les jeunes attendent-ils après la formation ? Les salaires, les loyers et les primes de la caisse-maladie mettent en péril l\'indépendance économique.',
     'blog.article.scuola-futuro-giovani-ticino.imageAlt': 'Salle de classe au lycée à Lugano avec des étudiants travaillant sur ordinateur, lumière naturelle.',
+    'blog.article.avs-appenzello-interno-compensazione.title': 'AVS et prestations complémentaires à Appenzell Interne',
+    'blog.article.avs-appenzello-interno-compensazione.excerpt': 'Premier pilier à Appenzell Interne : guide à la caisse de compensation, calcul de la rente AVS et prestations complémentaires pour le minimum vital.',
+    'blog.article.avs-appenzello-interno-compensazione.imageAlt': 'Bureau administratif suisse avec conseiller en retraite expliquant le calcul de la rente AVS à un retraité',
 };
 
 export default blogMetaChFr;

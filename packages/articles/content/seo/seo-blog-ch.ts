@@ -56375,6 +56375,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avs-appenzello-interno-compensazione': {
+    title: 'AVS e prestazioni complementari in Appenzello Interno',
+    description: 'Primo pilastro in Appenzello Interno: guida alla cassa di compensazione, calcolo della rendita AVS e prestazioni complementari per il minimo vitale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, appenzello, interno',
+    ogTitle: 'AVS e prestazioni complementari in Appenzello Interno',
+    ogDescription: 'Primo pilastro in Appenzello Interno: guida alla cassa di compensazione, calcolo della rendita AVS e prestazioni complementari per il minimo vitale.',
+    canonicalPath: '/articoli-svizzera/avs-appenzello-interno-compensazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e prestazioni complementari in Appenzello Interno",
+      "description": "Primo pilastro in Appenzello Interno: guida alla cassa di compensazione, calcolo della rendita AVS e prestazioni complementari per il minimo vitale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-appenzello-interno-compensazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrativo svizzero dove un consulente illustra il calcolo della rendita AVS a un pensionato"
+      },
+      "datePublished": "2026-08-26T04:04:05+00:00",
+      "dateModified": "2026-08-26T04:04:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-appenzello-interno-compensazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

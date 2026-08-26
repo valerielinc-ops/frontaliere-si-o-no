@@ -13033,6 +13033,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'avs-appenzello-interno-compensazione',
+    category: 'pensione',
+    date: '2026-08-26T04:04:05.833Z',
+    image: '/images/blog/avs-appenzello-interno-compensazione.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
