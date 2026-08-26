@@ -1,18 +1,18 @@
 {
   "key": "jsafrasarasin",
   "label": "J. Safra Sarasin",
-  "generatedAt": "2026-08-26T09:53:33.006Z",
-  "total": 11,
+  "generatedAt": "2026-08-26T10:10:30.186Z",
+  "total": 10,
   "discovered": null,
-  "written": 11,
+  "written": 10,
   "newCount": 0,
   "updatedCount": 10,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6748,
-  "avgDurationMs": 6748,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 6753,
+  "avgDurationMs": 6753,
   "durationHistory": [
-    6748
+    6753
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/506/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T09:53:27.644Z",
+      "crawledAt": "2026-08-26T10:10:24.962Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -63,7 +63,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/496/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:53:27.966Z",
+      "crawledAt": "2026-08-26T10:10:25.280Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -98,7 +98,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/503/Description/1",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T09:53:28.269Z",
+      "crawledAt": "2026-08-26T10:10:25.583Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -133,7 +133,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/498/Description/1",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:53:28.574Z",
+      "crawledAt": "2026-08-26T10:10:25.887Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -168,7 +168,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/455/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T09:53:28.877Z",
+      "crawledAt": "2026-08-26T10:10:26.190Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -203,7 +203,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/490/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:53:29.180Z",
+      "crawledAt": "2026-08-26T10:10:26.492Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -238,7 +238,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/482/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:53:29.482Z",
+      "crawledAt": "2026-08-26T10:10:26.796Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -273,7 +273,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/474/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T09:53:29.786Z",
+      "crawledAt": "2026-08-26T10:10:27.098Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -308,7 +308,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/472/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T09:53:30.092Z",
+      "crawledAt": "2026-08-26T10:10:27.400Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -343,7 +343,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/459/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-26T09:53:30.395Z",
+      "crawledAt": "2026-08-26T10:10:27.703Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -367,8 +367,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "jsafrasarasin-4f7483040f1b",
       "slug": "lead-auditor-group-internal-audit-jsafrasarasin-ch",
@@ -408,5 +407,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
