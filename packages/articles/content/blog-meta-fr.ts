@@ -10807,6 +10807,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.imposte-frontalieri-20km-distanza.title': 'Navetteurs transfrontaliers sur 20 km : comment la fiscalité évolue',
     'blog.article.imposte-frontalieri-20km-distanza.excerpt': 'Le nouvel Accord transfrontalier des navetteurs de décembre 2020, en vigueur à partir du 1er janvier 2024, modifie les avantages pour ceux qui résident à plus de 20 km de la frontière. Renseignez-vous sur le calcul IRPEF, les retenues à la source et les remboursements.',
     'blog.article.imposte-frontalieri-20km-distanza.imageAlt': 'Bureau de travailleur frontalier avec documents fiscaux et calculatrice à la frontière Tessin-Italie',
+    'blog.article.tasse-frontalieri-distanza-confine.title': 'Calcul des taxes frontalières à plus de 20 km de la frontière',
+    'blog.article.tasse-frontalieri-distanza-confine.excerpt': 'Nouvel accord 2024 : franchise de 10 000 € pour les nouveaux frontaliers, impôt à la source suisse et crédit d\'impôt italien. Guide de calcul avec des exemples.',
+    'blog.article.tasse-frontalieri-distanza-confine.imageAlt': 'Vue de Lugano au coucher de soleil avec promenade du lac et Alpes',
 };
 
 export default blogMetaFr;

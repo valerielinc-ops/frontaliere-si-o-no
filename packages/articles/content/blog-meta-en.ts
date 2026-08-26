@@ -10805,6 +10805,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.imposte-frontalieri-20km-distanza.title': 'Cross-border commuters over 20 km: how taxation changes',
     'blog.article.imposte-frontalieri-20km-distanza.excerpt': 'The New Cross-Border Commuter Agreement of December 2020, in force from 1 January 2024, modifies the benefits for those who reside more than 20 km from the border. Find out about IRPEF calculation, withholding tax and rebates.',
     'blog.article.imposte-frontalieri-20km-distanza.imageAlt': 'Frontier worker desk with tax documents and calculator at Ticino-Italy border',
+    'blog.article.tasse-frontalieri-distanza-confine.title': 'Calculation of border taxes over 20 km from the border',
+    'blog.article.tasse-frontalieri-distanza-confine.excerpt': 'New 2024 Agreement: €10,000 deductible for new frontier workers, Swiss source tax and Italian tax credit. Calculation guide with examples.',
+    'blog.article.tasse-frontalieri-distanza-confine.imageAlt': 'View of Lugano at sunset with lakeside promenade and Alpine mountains in background',
 };
 
 export default blogMetaEn;
