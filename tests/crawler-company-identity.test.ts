@@ -150,6 +150,32 @@ describe('crawler-company-identity — chi e’ l’azienda di uno slice', () =>
     expect(sliceDomainForName(s, 'Fust')).toBe('fust.ch');
   });
 
+  it('recupera il dominio con un confronto tollerante a spazi/maiuscole, stesso brand', () => {
+    // La costante del runner e il dato crawlato divergono solo in formattazione:
+    // il lookup esatto manca ma e' lo stesso marchio, non un brand diverso.
+    const jobs = [
+      ...Array.from({ length: 60 }, () => job('Coop Genossenschaft', 'coop.ch')),
+      ...Array.from({ length: 30 }, () => job('Fust', 'fust.ch')),
+    ];
+    const s = summariseSliceCompanies(jobs);
+    expect(sliceDomainForName(s, '  fust  ')).toBe('fust.ch');
+    expect(sliceDomainForName(s, 'FUST')).toBe('fust.ch');
+  });
+
+  it('NON ricade sul dominio della maggioranza quando il nome scelto e’ un brand diverso', () => {
+    // Bug #6540: il nome DICHIARATO ("Acme AG") non compare affatto nello
+    // slice, che ha una maggioranza assoluta per un ALTRO brand ("Coop
+    // Genossenschaft"). Il vecchio fallback su `summary.domain` avrebbe
+    // accoppiato "Acme AG" al dominio di Coop — attribuzione sbagliata.
+    const jobs = [
+      ...Array.from({ length: 60 }, () => job('Coop Genossenschaft', 'coop.ch')),
+      ...Array.from({ length: 30 }, () => job('Interdiscount', 'interdiscount.ch')),
+    ];
+    const s = summariseSliceCompanies(jobs);
+    expect(s.domain).toBe('coop.ch'); // lo slice avrebbe scelto Coop da solo
+    expect(sliceDomainForName(s, 'Acme AG')).toBe('');
+  });
+
   it('e’ deterministico a parita’ di conteggio', () => {
     const a = summariseSliceCompanies([job('Beta'), job('Alfa'), job('Alfa'), job('Beta'), job('Alfa')]);
     const b = summariseSliceCompanies([job('Alfa'), job('Beta'), job('Alfa'), job('Beta'), job('Alfa')]);
