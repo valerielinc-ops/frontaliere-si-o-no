@@ -1,6 +1,6 @@
 name: corpus-wide gates
 
-# I sette gate che iterano sull'INTERO corpus, tolti dal cammino bloccante
+# Gli otto gate che iterano sull'INTERO corpus, tolti dal cammino bloccante
 # delle PR e messi qui. Non è una rimozione: è un trasloco, e questo file è
 # l'indirizzo nuovo.
 #
@@ -18,6 +18,10 @@ name: corpus-wide gates
 #     15.5s   1 test   tests/blog-body-typescript-syntax.test.ts
 #     ─────
 #     201.4s  21 test — il 20,1% del tempo-file per l'1,2% dei test
+#
+# Il test evergreen-pool-consumption è stato aggiunto al registro perché ha
+# superato il timeout quando eseguito sotto contesa CPU; il suo costo viene
+# tenuto separato dal totale storico finché non viene rimisurato in isolamento.
 #
 # Non sono lenti per test: `tests/seo-completeness.test.ts` fa 65.750 test in
 # 21s. Sono lenti perché ciascuno itera su tutto — ~14.748 file di corpus, o un
@@ -125,8 +129,8 @@ jobs:
   corpus-gates:
     name: corpus-wide gates (post-merge)
     runs-on: ubuntu-latest
-    # I sette gate misurano 201s di tempo-file, ma girano in parallelo sui 4
-    # vCPU del runner; il grosso del wall è checkout + npm ci + l'assemble.
+    # Gli otto gate girano in parallelo sui 4 vCPU del runner; il grosso del
+    # wall è checkout + npm ci + l'assemble.
     # 30 min è largo apposta: qui un timeout non blocca nessuna PR, mentre un
     # rosso da timeout su un corpus cresciuto sarebbe un falso allarme che
     # costa una issue.
@@ -174,7 +178,7 @@ jobs:
         run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
       - name: vitest run (solo i gate corpus-wide)
-        # `only` esclude il complemento del registro: girano esattamente i sette
+        # `only` esclude il complemento del registro: girano esattamente gli otto
         # file, con le stesse soglie e gli stessi assert che avevano dentro
         # tests.yml. Nessuna env di tolleranza, nessuno `--bail`, nessun
         # `continue-on-error`: se questo step è rosso, il job è rosso.
@@ -226,7 +230,7 @@ jobs:
           context: |
             Uno o più gate corpus-wide sono rossi su `main`.
 
-            Questi sette gate NON girano nel job bloccante `vitest (unit + integration)`
+            Questi otto gate NON girano nel job bloccante `vitest (unit + integration)`
             delle PR che non toccano il corpus — girano qui. Un rosso qui è quindi
             un difetto **già su main**, non un difetto di una PR in attesa.
 

@@ -1,7 +1,8 @@
 name: tests
 
-# Runs the full vitest suite on every PR + every push to main as a BLOCKING
-# CI gate. Before this workflow existed, vitest tests were never run in CI —
+# Runs the full vitest suite on every PR as a BLOCKING
+# CI gate. Direct crawler pushes to main intentionally do not run this workflow.
+# Before this workflow existed, vitest tests were never run in CI —
 # regression gates like `tests/build-plugins/criticalCssRootHeight.test.ts`
 # (added in PR #294) landed already-failing without anyone noticing, and the
 # `#root{min-height:100vh}` bug hit production for 24h until manual report.
@@ -128,11 +129,11 @@ name: tests
 # `pr-review-loop.yml` girano su `workflow_run`, quindi eseguono SEMPRE la
 # versione su `main` di se stessi e di `scripts/ci/lib/constants.mjs`. Una PR
 # che rinomina il check produce un nome che i lettori su `main` non conoscono:
-# `auto-merge-eval` gate 3 legge length 0, `pr-autorebase.headHasVitestCheck`
-# torna false e heal-dispatcha all'infinito — cioè esattamente il deadlock che
-# la testata di `constants.mjs` descrive, e la PR del rename non mergerebbe MAI
-# da sola. Il rename onesto richiede due PR concatenate: prima insegnare ai
-# lettori su `main` ad accettare entrambi i nomi, poi rinominare.
+# `auto-merge-eval` gate 3 legge length 0 e il lettore su `main` non riconosce
+# più la PR — cioè esattamente il deadlock che la testata di `constants.mjs`
+# descrive, e la PR del rename non mergerebbe MAI da sola. Il rename onesto
+# richiede due PR concatenate: prima insegnare ai lettori su `main` ad accettare
+# entrambi i nomi, poi rinominare.
 on:
   pull_request:
     branches: [main]
@@ -144,16 +145,7 @@ on:
     # `contract` still re-validates a PR body edit; `ready_for_review` is
     # required so `collision` still re-scans a draft coming out of draft.
     types: [opened, edited, synchronize, reopened, ready_for_review]
-  push:
-    branches: [main]
-  # Dispatchable so pr-autorebase.yml can re-run vitest on a freshly-rebased PR
-  # head: a PAT push to a PR branch does NOT reliably re-trigger `pull_request`
-  # workflows (observed: rebased heads of #1587/#1526 got zero check-runs), so
-  # the autorebase explicitly dispatches this on the branch ref. The run's
-  # `vitest (unit + integration)` check-run lands on the branch head SHA (= PR
-  # head), satisfying auto-merge-eval gate 3, and its `workflow_run: completed`
-  # re-fires auto-merge-on-lgtm. No Claude review is re-run (auto-merge-eval
-  # carries the existing ## LGTM forward across a pure main-merge rebase).
+  # Kept available for manual diagnostics and recovery runs.
   workflow_dispatch:
 
 # Union of the three original workflows' `permissions:` (tests.yml itself had
@@ -174,35 +166,13 @@ permissions:
 #   older head irrelevant, so cancelling it is free — the answer for the head
 #   that matters is still produced. `cancel-in-progress: true` is correct.
 #
-#   Push-to-main runs ask "is main healthy RIGHT NOW?" — the signal AGENTS.md
-#   ("main rosso blocca a cascata: priorità assoluta main verde") depends on.
-#   Every main push shares ONE group (`github.ref` is always `refs/heads/main`),
-#   so with cancel-in-progress: true each merge killed the run started by the
-#   previous merge. The suite needs ~9 min; auto-merge lands PRs every 2-5 min
-#   during a backlog burst, so main runs were killed before reaching a verdict
-#   essentially whenever the repo was busy — MEASURED over the last 30 main-push
-#   runs: 14 cancelled (47%), i.e. main's health was unobservable roughly half
-#   the time, and precisely during the bursts where a regression is most likely.
-#   A cancelled run is not a neutral outcome here: it destroys the only signal
-#   that says whether main is green, so a regression stays invisible until some
-#   unrelated PR happens to inherit it.
-#
-# Fix: keep newest-wins for PRs, let the main verdict RUN TO COMPLETION.
-# `cancel-in-progress: false` does NOT queue main runs without bound — GitHub
-# caps a group at 1 running + 1 pending and drops the superseded middle, so a
-# burst of N merges still costs 2 runs, not N. What changes is that the running
-# one now finishes: main gets a real verdict roughly every suite-length instead
-# of never. The verdict may lag main's tip by a commit or two, which is the
-# intended trade (the coordinator's "va bene che valga solo l'ultimo, purché
-# almeno uno arrivi in fondo") — a slightly stale green/red beats no answer.
-#
-# This is strictly MORE gate, not less: no test is skipped, no threshold moved,
-# no failure downgraded. It only stops throwing away results already paid for.
+#   Direct pushes to main are intentionally outside this workflow: crawler
+#   automation keeps its direct-push path without paying for or depending on
+#   the PR test job.
 concurrency:
   group: tests-${{ github.workflow }}-${{ github.ref }}
-  # PR + workflow_dispatch → newest-wins. push (main only, per `on:` above) →
-  # run to completion so the health signal actually lands.
-  cancel-in-progress: ${{ github.event_name != 'push' }}
+  # PR and workflow_dispatch runs use newest-wins.
+  cancel-in-progress: true
 
 jobs:
   # Job UNICO: checkout + setup-node + npm ci una volta sola, poi le quattro
@@ -1120,11 +1090,14 @@ jobs:
         #     a rosso apre una issue `Workflow Failure: corpus-wide gates`
         #     chiusa dal reconciler orario `close-recovered-failure-issues.yml`.
         #
-        # ORA anche su `push` a main (prima solo su `pull_request`): il commit
-        # appena mergiato riceve la STESSA valutazione per-diff, con l'API
-        # compare al posto di `pulls/<n>/files`. Prima di questa modifica un
-        # push che non toccava affatto il corpus faceva comunque ripartire
-        # tutti e sette i gate O(corpus) dentro `tests.yml`, e una deriva pura
+        # Il ramo `push` resta difensivo per eventuali dispatch/manual run, ma
+        # `tests.yml` non è triggerato dai push diretti a main: i writer dati
+        # mantengono il proprio percorso senza pagare questa suite. Quando il
+        # ramo viene usato, il commit riceve la STESSA valutazione per-diff,
+        # con l'API compare al posto di `pulls/<n>/files`. Prima di questa
+        # configurazione un push che non toccava affatto il corpus faceva
+        # comunque ripartire tutti e sette i gate O(corpus) dentro `tests.yml`,
+        # e una deriva pura
         # del DATO (es. job-locale-consistency, 25744/77967 = 33,02% contro il
         # tetto 33,00%, misurato 2026-08-24) rendeva rosso il check bloccante
         # `vitest (unit + integration)` su main — il segnale che AGENTS.md
@@ -1291,13 +1264,15 @@ jobs:
         background: true
         env:
           VITEST_DATASET_GROUP: independent
+          # Il gate PR non dipende dal corpus riscritto dai crawler.
+          VITEST_SKIP_LIVE_DATA: 'true'
           # I due gruppi Vitest girano contemporaneamente: su ubuntu-latest
           # (4 vCPU) due worker ciascuno evita che ogni processo apra un pool
           # completo e faccia scadere i test sotto contesa CPU.
           VITEST_MAX_WORKERS: 2
           VITEST_CACHE_DIR: node_modules/.vite-independent
-          # Calcolato per diff anche su push a main (non solo su pull_request,
-          # vedi lo step "Decide i gate corpus-wide"); vuoto su qualunque suo
+          # Calcolato per diff anche su eventuali run push/manual (non solo su
+          # pull_request, vedi lo step "Decide i gate corpus-wide"); vuoto su qualunque suo
           # esito anomalo → nessuna esclusione, suite intera. `parseCorpusSkipList`
           # filtra comunque il valore contro il registro: questa env non puo'
           # spegnere un test che non sia uno dei sette.
@@ -1391,6 +1366,7 @@ jobs:
         # due worker per processo per evitare oversubscription del runner.
         env:
           VITEST_DATASET_GROUP: dependent
+          VITEST_SKIP_LIVE_DATA: 'true'
           VITEST_MAX_WORKERS: 2
           VITEST_CORPUS_SKIP: ${{ steps.corpus.outputs.skip }}
           VITEST_CACHE_DIR: node_modules/.vite-dependent
@@ -1490,7 +1466,7 @@ jobs:
         run: |
           set -euo pipefail
           last=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate \
-            --jq '[.[] | select(.user.type=="Bot" and (.user.login|test("claude";"i")) and (.body|contains("## LGTM")))] | last | .commit_id // empty' 2>/dev/null || true)
+            --jq '[.[] | select(.user.type=="Bot" and (.user.login|test("^(claude(\\\\[bot\\\\])?|frontaliere-automation\\\\[bot\\\\])$";"i")) and (.body|contains("## LGTM")))] | last | .commit_id // empty' 2>/dev/null || true)
           if [ -z "$last" ]; then
             echo "skip=false" >> "$GITHUB_OUTPUT"; echo "Nessuna review LGTM precedente → review piena."; exit 0
           fi
@@ -1508,7 +1484,7 @@ jobs:
           # un rebase di solo main-merge — ma quel code NON è il contributo della
           # PR, che resta invariato. Confronta allora il FINGERPRINT del contributo
           # (3-dot vs merge-base con main, code-only) a HEAD vs all'ultima LGTM: se
-          # uguale, la PR non ha cambiato il proprio code (es. autorebase ha solo
+          # uguale, la PR non ha cambiato il proprio code (es. un aggiornamento
           # mergiato main) → skip Claude. Stessa funzione che auto-merge-eval usa
           # per il carry-forward dell'LGTM → niente drift. NULL/incerto → review
           # piena (conservativo). vitest gira comunque sull'head (safety net).
@@ -1826,6 +1802,15 @@ jobs:
           echo "Prefetched review context in $CTX_DIR:"
           ls -la "$CTX_DIR"
 
+      - name: Mint GitHub App token for Claude review
+        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.debounce.outputs.superseded != 'true'
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
       - name: Run Claude review
         id: claude_review
         if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.debounce.outputs.superseded != 'true'
@@ -1841,6 +1826,11 @@ jobs:
           REVIEW_TIER: ${{ steps.tier.outputs.tier }}
           INCREMENTAL_BASE: ${{ steps.tier.outputs.incremental_base }}
         with:
+          # A custom App token bypasses Claude's OIDC workflow-identity check.
+          # That check rejects this PR because tests.yml itself is being changed
+          # and therefore is not byte-identical to the version on main.
+          # `mint-app-token.mjs` fails soft, so retain GITHUB_TOKEN as fallback.
+          github_token: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # Le PR fix-issue sono aperte da `claude[bot]`: senza whitelist
           # claude-code-action aborta ("non-human actor"). Whitelist esplicita
@@ -1849,7 +1839,7 @@ jobs:
           # (run 26621967484 era exit 1 col precedente vincolo non-human-actor).
           # `frontaliere-automation[bot]` (App): sotto pull_request l'actor della
           # review = l'actor del run di `tests` → su una PR la cui ultima push
-          # viene dall'App (autorebase / redflag-fixer / issue-fix) `github.actor`
+          # viene dall'App (redflag-fixer / issue-fix) `github.actor`
           # è l'App-bot; senza whitelist la review abortirebbe "non-human actor".
           allowed_bots: "github-actions[bot], claude[bot], frontaliere-automation[bot]"
           show_full_output: true
@@ -1976,6 +1966,87 @@ jobs:
             fi
           fi
           echo "Review step completed without an unrecovered transient API error."
+
+      - name: Require approving Claude review
+        id: review_gate
+        if: always() && steps.claude_review.outcome != 'failure' && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.debounce.outputs.superseded != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
+          HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
+          REPO: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          reviews=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp)
+          # Stessa selezione e stesso REDFLAG_IMPORTANT_RE di
+          # scripts/ci/auto-merge-eval.mjs: ultima review del bot reviewer,
+          # `## LGTM` presente e nessun finding `🔴 Important` reale.
+          review_commit=$(printf '%s' "$reviews" | node --input-type=module -e '
+            import { readFileSync } from "node:fs";
+            import { REDFLAG_IMPORTANT_RE } from "./scripts/ci/lib/constants.mjs";
+            const pages = JSON.parse(readFileSync(0, "utf8"));
+            const reviews = pages.flat();
+            const bots = reviews.filter((r) => r.user?.type === "Bot" && /^(?:claude(?:\[bot\])?|frontaliere-automation\[bot\])$/i.test(r.user?.login || ""));
+            const lastBot = bots.length ? bots[bots.length - 1] : null;
+            const body = lastBot?.body || "";
+            process.stdout.write(lastBot && body.includes("## LGTM") && !REDFLAG_IMPORTANT_RE.test(body)
+              ? (lastBot.commit_id || "") : "");
+          ')
+          approved=false
+          if [ "$review_commit" = "$HEAD_SHA" ]; then
+            approved=true
+          elif [ -n "$review_commit" ]; then
+            head_fp=$(node scripts/ci/pr-contribution-fingerprint.mjs "$HEAD_SHA" 2>/dev/null || echo NULL)
+            review_fp=$(node scripts/ci/pr-contribution-fingerprint.mjs "$review_commit" 2>/dev/null || echo NULL)
+            if [ "$head_fp" != "NULL" ] && [ "$head_fp" = "$review_fp" ]; then
+              approved=true
+              echo "LGTM carry-forward: il contributo della PR è invariato tra $review_commit e $HEAD_SHA."
+            fi
+          fi
+          if [ "$approved" = "true" ]; then
+            echo "approved=true" >> "$GITHUB_OUTPUT"
+            echo "Review Claude approvante trovata sulla HEAD $HEAD_SHA: LGTM senza 🔴 Important."
+            exit 0
+          fi
+
+          echo "approved=false" >> "$GITHUB_OUTPUT"
+          marker='<!-- REVIEW_GATE_NO_LGTM -->'
+          existing=$(gh api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --jq '.[].body' 2>/dev/null || true)
+          if ! printf '%s' "$existing" | grep -Fq "$marker"; then
+            gh pr comment "$PR_NUMBER" --repo "$REPO" --body "$marker
+          ⚠️ **Review gate bloccato** — la review Claude sulla HEAD $HEAD_SHA non contiene un LGTM valido senza un finding Important. Il merge resta bloccato.
+
+          Run: $RUN_URL" || echo "::warning::Impossibile pubblicare il commento del review gate."
+          fi
+          echo "::error::Nessuna review Claude approvante sulla HEAD: manca LGTM oppure è presente un finding 🔴 Important."
+          exit 1
+
+      # L’autorebase usa esattamente il checkout e npm ci già pagati da questo
+      # job. Parte solo dopo il verdetto approvante; un finding, uno skip Claude
+      # o un errore del review gate lo saltano automaticamente. Il token App è
+      # l’identità primaria; il fallback GITHUB_TOKEN mantiene il job
+      # fail-soft, ma non riattiva i workflow downstream per l’anti-recursion.
+      - name: Mint autorebase App token
+        if: steps.review_gate.outputs.approved == 'true'
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      - name: Rebase near-merge PRs after approved review
+        if: steps.review_gate.outputs.approved == 'true'
+        env:
+          GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          DRY_RUN: 'false'
+        run: node scripts/ci/pr-autorebase.mjs
+
+      - name: Cleanup autorebase credentials
+        if: always()
+        run: rm -f /tmp/firebase-sa.json
 
       - name: Claude usage metrics
         # Solo se la review Claude è effettivamente girata (guard non-skip): a

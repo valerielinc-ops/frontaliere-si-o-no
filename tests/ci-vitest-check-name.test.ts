@@ -267,21 +267,19 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
 /**
  * Il verdetto su main deve poter ARRIVARE IN FONDO.
  *
- * `github.ref` di un push su main è sempre `refs/heads/main`, quindi TUTTI i
- * push su main cadono nello stesso concurrency group. Con
- * `cancel-in-progress: true` ogni merge uccideva il run del merge precedente:
- * la suite dura ~9 min, auto-merge mergia ogni 2-5 min durante uno smaltimento
- * di backlog → 14 run cancellati su 30 (47%) e nessun verdetto proprio nelle
- * finestre in cui una regressione è più probabile.
+ * I push diretti su main sono intenzionalmente esclusi da tests.yml: i writer
+ * automatici mantengono il loro percorso diretto senza lanciare questa suite.
+ * Le PR usano invece newest-wins perché l'head precedente diventa irrilevante
+ * quando arriva un nuovo commit.
  *
  * AGENTS.md fa dipendere una regola operativa esplicita da questo segnale
  * («main rosso blocca a cascata, priorità assoluta main verde»): senza verdetto
  * la regola non è applicabile e una regressione su main resta invisibile finché
  * non la eredita per caso una PR.
  *
- * Il contratto fissato qui: newest-wins SOLO dove cancellare non distrugge
- * informazione (PR: l'head vecchio è irrilevante), mai sul push a main.
- * Questo test fallisce se qualcuno rimette `cancel-in-progress: true` secco.
+ * Il contratto fissato qui: tests.yml valida le PR, non i push diretti su main.
+ * Questo test fallisce se qualcuno reintroduce il trigger push senza aggiornare
+ * esplicitamente il comportamento atteso.
  */
 describe('main health-signal contract (verdetto non cancellabile)', () => {
   const concurrencyBlock = (() => {
@@ -296,37 +294,19 @@ describe('main health-signal contract (verdetto non cancellabile)', () => {
     expect(concurrencyBlock).toMatch(/cancel-in-progress:/);
   });
 
-  it('cancel-in-progress NON è true incondizionato (ucciderebbe il verdetto su main)', () => {
+  it('cancel-in-progress è newest-wins per le esecuzioni PR', () => {
     const m = concurrencyBlock.match(/cancel-in-progress:\s*(.+?)\s*$/m);
     expect(m, '`cancel-in-progress:` non trovato').toBeTruthy();
     const value = (m![1] || '').replace(/^['"]|['"]$/g, '');
-    expect(
-      value === 'true',
-      'cancel-in-progress: true incondizionato → ogni merge su main cancella il run del merge ' +
-        'precedente e main non produce mai un verdetto. Condizionalo sull\'evento ' +
-        '(es. `${{ github.event_name != \'push\' }}`).',
-    ).toBe(false);
+    expect(value).toBe('true');
   });
 
-  it('la condizione esclude il push (main) dalla cancellazione', () => {
-    const m = concurrencyBlock.match(/cancel-in-progress:\s*(.+?)\s*$/m);
-    const value = (m![1] || '').replace(/^['"]|['"]$/g, '');
-    // Deve essere un'espressione che nomina l'evento, non un literal.
-    expect(
-      /\$\{\{.*github\.event_name.*\}\}/.test(value),
-      `cancel-in-progress deve dipendere da github.event_name, trovato: ${value}`,
-    ).toBe(true);
-    // E deve escludere il push: `!= 'push'` (o equivalente esplicito su pull_request).
-    expect(
-      /github\.event_name\s*!=\s*'push'/.test(value) ||
-        /github\.event_name\s*==\s*'pull_request'/.test(value),
-      `la condizione deve escludere il push su main dalla cancellazione, trovato: ${value}`,
-    ).toBe(true);
-  });
-
-  it('tests.yml gira ancora sul push a main (il segnale esiste)', () => {
-    // Se qualcuno togliesse il trigger push il test sopra passerebbe a vuoto.
+  it('non lancia la suite sui push diretti a main', () => {
     const onBlock = TESTS_YML.match(/^on:\s*\n((?:[ \t]+.*\n?|\s*#.*\n)*)/m)?.[1] ?? '';
-    expect(/push:\s*\n\s*branches:\s*\[?\s*main/.test(onBlock), 'trigger `push: branches: [main]` mancante').toBe(true);
+    expect(/push:\s*\n\s*branches:\s*\[?\s*main/.test(onBlock), 'tests.yml non deve avere un trigger push su main').toBe(false);
+  });
+
+  it('mantiene il trigger PR come unico trigger automatico di verifica', () => {
+    expect(TESTS_YML).toMatch(/^\s+pull_request:\s*$/m);
   });
 });
