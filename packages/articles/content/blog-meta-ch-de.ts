@@ -4330,6 +4330,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.acquisire-immobile-berna-procedura.title': 'Haus kaufen im Kanton Bern: Kosten und Ablauf',
     'blog.article.acquisire-immobile-berna-procedura.excerpt': 'Leitfaden zum Immobilienerwerb im Kanton Bern: Eidgenössische, kantonale, kommunale Besteuerung, Bankenbewertung und Schritt-für-Schritt-Verfahren.',
     'blog.article.acquisire-immobile-berna-procedura.imageAlt': 'Modernes Wohnhaus im Kanton Bern mit typischer Schweizer Architektur',
+    'blog.article.avviare-ditta-berna-registrazione.title': 'Ein Geschäft in Bern eröffnen: Verfahren und Kosten',
+    'blog.article.avviare-ditta-berna-registrazione.excerpt': 'Vollständiger Leitfaden zur Eröffnung im Kanton Bern: Rechtsformen, Handelsregistereintrag, dreistufige Steuern und Versicherungsverpflichtungen für Arbeitnehmer.',
+    'blog.article.avviare-ditta-berna-registrazione.imageAlt': 'Schweizer Verwaltungsschalter mit Formularen zur Unternehmensregistrierung',
 };
 
 export default blogMetaChDe;

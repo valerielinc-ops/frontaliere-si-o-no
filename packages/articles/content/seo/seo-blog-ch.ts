@@ -56180,6 +56180,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avviare-ditta-berna-registrazione': {
+    title: 'Aprire un\'attività a Berna: procedure e costi | Frontaliere Ticino',
+    description: 'Aprire un\'attività a Berna: forme giuridiche, registro commercio, imposte a tre livelli e obblighi assicurativi per dipendenti. Guida step-by-step e procedure.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, berna, procedure',
+    ogTitle: 'Aprire un\'attività a Berna: procedure e costi',
+    ogDescription: 'Guida completa all\'apertura di un\'attività nel Cantone di Berna: scelta della forma giuridica (ditta individuale, Sàrl, SA), iscrizione al registro commercio, imposte a tre livelli e obblighi assicurativi per datori (AVS, LPP, LAMal, SUVA). Procedura',
+    canonicalPath: '/articoli-svizzera/avviare-ditta-berna-registrazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire un'attività a Berna: procedure e costi",
+      "description": "Aprire un'attività a Berna: forme giuridiche, registro commercio, imposte a tre livelli e obblighi assicurativi per dipendenti. Guida step-by-step e procedure.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avviare-ditta-berna-registrazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Interno di uno sportello amministrativo svizzero con moduli per l'iscrizione di un'attività al registro di commercio"
+      },
+      "datePublished": "2026-08-26T00:30:42+00:00",
+      "dateModified": "2026-08-26T00:30:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avviare-ditta-berna-registrazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
