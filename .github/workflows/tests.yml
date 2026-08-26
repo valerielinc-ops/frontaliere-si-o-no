@@ -913,26 +913,27 @@ jobs:
       # vitest, che oggi gira senza — un cambio di comportamento non richiesto.
       #
       # È IN `background:`, ed è il primo di un gruppo di sei cancelli
-      # deterministici che ora girano tutti insieme invece che in fila (vedi la
-      # testata della famiglia 3/4 e il join «Wait for background gates»). 67s
+      # deterministici che girano tutti insieme invece che in fila. 67s
       # misurati su run 32939112340, cioè il 6,3% del job e il terzo costo dopo
       # il checkout (254s) e i due gruppi vitest (678s). Niente lo trattiene in
       # un ordine: legge solo i sorgenti, non scrive niente che un altro step
       # consumi, e il suo unico effetto è far fallire il job.
       #
-      # DOVE SI FERMA LA SOVRAPPOSIZIONE, e perché il join sta PRIMA
-      # dell'assemble invece che alla fine del job: `tsc` tiene 4,4 GB di RSS e
-      # il runner ne ha 16. Sovrapporlo agli altri cinque cancelli — script node
-      # brevi, poche centinaia di MB — sta largamente dentro quel budget.
-      # Sovrapporlo a VITEST no: il picco del pool `threads` su questo repo non
-      # è mai stato misurato, e il modo in cui si scopre di aver sbagliato è un
-      # OOM intermittente proprio sul check-run che governa l'auto-merge, cioè
-      # un rosso che somiglia a un flake e che nessuna rerun distingue da uno
-      # vero. Siccome `wait-all` non ha un join selettivo, l'unico modo di NON
-      # sovrapporlo a vitest è rijoinare prima che l'assemble parta — che è
-      # esattamente dove il join è messo. Il costo di quella scelta è noto e
-      # accettato: restano fuori dal wall solo gli ~11s dei cinque lint, non i
-      # 67s di `tsc`.
+      # NON C'È UN JOIN INTERMEDIO A CHIUDERLO PRIMA DELLA SUITE, ed è una
+      # scelta di principio: un `wait-all` esprime una DIPENDENZA fra task, non
+      # una precauzione. Fra questi sei cancelli e l'assemble non c'è nessuna
+      # dipendenza — l'assemble non legge niente che loro producano — quindi un
+      # join lì in mezzo direbbe il falso sul grafo e ritarderebbe la suite per
+      # una ragione che non è sua. Vengono rijoinati in fondo, insieme agli
+      # altri background, dal «Wait for background vitest + memory sampler».
+      #
+      # La conseguenza va detta, perché è reale e accettata: `tsc` tiene 4,4 GB
+      # di RSS, il runner ne ha 16, e ora quei 4,4 GB stanno accanto ai DUE
+      # pool di vitest invece che da soli. Se il margine non basta si vedrà
+      # come OOM, subito e in chiaro — non come una supposizione scritta in un
+      # commento. Lo step «Sample runner memory» qui sotto esiste per rendere
+      # quel margine un numero stampato a ogni run invece di un timore: è la
+      # differenza fra sapere e prevenire alla cieca.
       # ══════════════════════════════════════════════════════════════════════
       - name: tsc --noEmit (baseline + ratchet)
         if: ${{ !cancelled() }}
@@ -955,25 +956,24 @@ jobs:
       #
       # I CINQUE LINT QUI SOTTO SONO IN `background:`, insieme al `tsc` della
       # famiglia 2/4: sei cancelli deterministici che girano tutti in parallelo
-      # invece che in fila, rijoinati dal «Wait for background gates» che sta
-      # subito prima della cache dell'assemble. Nessuno dei sei consuma
-      # l'output di un altro — sono script node che leggono il working tree e
-      # il cui unico effetto è far fallire il job — quindi l'ordine fra loro
-      # non porta informazione, la porta solo il fatto che finiscano tutti
-      # prima che la suite parta.
+      # invece che in fila. Nessuno dei sei consuma l'output di un altro — sono
+      # script node che leggono il working tree e il cui unico effetto è far
+      # fallire il job — quindi l'ordine fra loro non porta informazione.
       #
       # In fila costavano 78s (67 di `tsc` + 8+0+1+0+1 di lint, run
-      # 32939112340); in parallelo costano quanto il più lungo, cioè i 67s di
-      # `tsc`. Il ricavo è modesto e va detto: ~11s. La ragione per cui non è
-      # di più sta sulla testata del `tsc` — il join deve stare PRIMA
-      # dell'assemble per non sovrapporre 4,4 GB di `tsc` a vitest, e
-      # `wait-all` non sa rijoinare un sottoinsieme.
+      # 32939112340). Ora non costano NIENTE di wall proprio: non c'è un join
+      # che li chiuda prima della suite, quindi si sovrappongono all'assemble e
+      # a entrambi i gruppi vitest, e vengono rijoinati in fondo al job
+      # insieme agli altri background. La regola applicata qui, e che vale per
+      # ogni `wait-all` di questo file: si aspetta un task solo quando se ne
+      # consuma il RISULTATO. Fra questi sei e la suite non c'è consumo, solo
+      # coesistenza.
       #
-      # Il costo accettato è diagnostico, non di correttezza: un lint rosso
-      # non ferma più il job sulla riga che lo ha causato, emerge al join
-      # insieme agli altri. In cambio un solo giro mostra TUTTI i cancelli
-      # rossi invece del primo soltanto — su un gate che prima falliva a
-      # cascata, un rerun in meno.
+      # Il costo accettato è diagnostico, non di correttezza: un lint rosso non
+      # ferma più il job sulla riga che lo ha causato, emerge al join finale.
+      # In cambio un solo giro mostra TUTTI i cancelli rossi invece del primo
+      # soltanto — su una catena che prima falliva a cascata, sono rerun in
+      # meno. Un cancello rosso resta bloccante: il job fallisce comunque.
       #
       # I due step successivi ai lint hanno invece una dipendenza VERA, ed è la
       # ragione per cui l'ordine qui non è libero: "Fetch base ref" crea
@@ -1223,29 +1223,6 @@ jobs:
           printf '%s\n' "$decision"
           printf '%s\n' "$decision" >> "$GITHUB_OUTPUT"
 
-      # Rijoina i SEI cancelli deterministici lanciati in background — `tsc` più
-      # i cinque lint — e li rijoina QUI, cioè prima che l'assemble parta, non
-      # alla fine del job. La posizione è la sostanza della modifica, non un
-      # dettaglio: `wait-all` attende TUTTI i background e non sa rijoinare un
-      # sottoinsieme, quindi un join più in basso significherebbe `tsc` (4,4 GB
-      # di RSS) sovrapposto ai worker di vitest sui 16 GB del runner, con il
-      # rischio di un OOM intermittente sul check-run che governa l'auto-merge.
-      # Qui invece il gruppo si chiude mentre non gira nient'altro di pesante.
-      #
-      # I tre step sopra (fetch del base ref, factuality, decide corpus-wide)
-      # restano in primo piano e girano MENTRE i sei lavorano: sono una catena
-      # seriale vera — il fetch crea `refs/remotes/origin/<base>` per NOME, la
-      # factuality lo risolve per nome, e `decide` scrive su `$GITHUB_OUTPUT`,
-      # canale che da uno step in background non ha semantica documentata.
-      #
-      # NIENTE `if:` qui, come sull'altro join di questo file: uno step
-      # `wait-all` accetta solo `name` e `wait-all`, e una chiave in più fa
-      # rifiutare l'INTERO workflow da GitHub (run 32936857718, `failure` con
-      # zero job). Ora è anche verificato staticamente su tutti i workflow da
-      # `tests/workflow-background-wait-schema.test.ts`.
-      - name: Wait for background gates
-        wait-all: true
-
       - name: Cache assemble-jobs output
         # Mirrors deploy.yml's identical step. assemble-jobs-dataset.mjs has a
         # content-addressable cache under .cache/assemble-jobs (keyed on a
@@ -1324,8 +1301,12 @@ jobs:
           npm test -- --reporter=default --reporter=json --outputFile=shard-timing-2.json
 
       # ══════════════════════════════════════════════════════════════════════
-      # Rijoina i DUE step in background aperti qui sopra: il gruppo vitest
-      # indipendente e il campionatore di memoria. Sta DOPO il gruppo
+      # UNICO join della seconda metà del job, e rijoina TUTTO ciò che è stato
+      # forkato dopo la famiglia contract: i sei cancelli deterministici (`tsc`
+      # più i cinque lint), il gruppo vitest indipendente e il campionatore di
+      # memoria. È l'unico punto del job in cui si consuma davvero il risultato
+      # di quei task — cioè il loro esito nel verdetto — e per questo è l'unico
+      # punto in cui ha senso attenderli. Sta DOPO il gruppo
       # dipendente, ed e' questa posizione a produrre la sovrapposizione: uno
       # step in primo piano blocca quello dopo, quindi finche' il gruppo
       # indipendente era in primo piano il dipendente non poteva partire prima
@@ -1349,7 +1330,7 @@ jobs:
       # dai tempi per-step, non assunto. Se la misura dice wash o peggio, e'
       # questa porzione a tornare indietro, non il resto della PR.
       # ══════════════════════════════════════════════════════════════════════
-      - name: Wait for background vitest + memory sampler
+      - name: Wait for background gates, vitest and memory sampler
         wait-all: true
 
       - name: Upload test timing
