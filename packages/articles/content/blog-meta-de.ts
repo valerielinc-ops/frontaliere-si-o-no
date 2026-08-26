@@ -10815,6 +10815,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-26.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 26. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-08-26.seoDescription': 'Grenzgänger-Bulletin vom 26. August 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-08-26.ogDescription': 'Die Zahlen vom 26. August 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.benzina-confine-svizzera-agosto-2026.title': 'Benzin über 2 €, die Schweizer Tankfüllung lohnt sich nicht mehr',
+    'blog.article.benzina-confine-svizzera-agosto-2026.excerpt': 'Angepasste Preise zwischen der Lombardei und dem Tessin: Benzin für 2,01 € und Diesel für 2,14 €. Verbrauchsteuerrabatt ist am 26. August abgelaufen.',
+    'blog.article.benzina-confine-svizzera-agosto-2026.imageAlt': 'Tessiner Landschaft mit Tankstelle, Lugano-See im Hintergrund',
 };
 
 export default blogMetaDe;

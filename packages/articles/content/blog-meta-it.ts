@@ -10817,6 +10817,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-26.imageAlt': 'I numeri del giorno per i frontalieri – 26 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-08-26.seoDescription': 'Bollettino frontalieri del 26 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-08-26.ogDescription': 'I numeri del 26 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.benzina-confine-svizzera-agosto-2026.title': 'Benzina oltre 2€, il pieno svizzero non conviene più',
+    'blog.article.benzina-confine-svizzera-agosto-2026.excerpt': 'Prezzi allineati tra Lombardia e Ticino: benzina a 2,01€ e gasolio a 2,14€. Sconto accise scaduto il 26 agosto.',
+    'blog.article.benzina-confine-svizzera-agosto-2026.imageAlt': 'Paesaggio ticinese con distributore di benzina al mattino, Lago Lugano sullo sfondo',
 };
 
 export default blogMetaIt;
