@@ -11,7 +11,7 @@
     "https://www.hitachienergy.com/careers/open-jobs?filterable587622750-location=Switzerland"
   ],
   "notes": "Dedicated Hitachi Energy crawler uses the AEM JSON listing API filtered to Switzerland, then filters for Ticino/GR locations. Descriptions enriched from detail pages.",
-  "updatedAt": "2026-08-25T21:36:20.098Z",
+  "updatedAt": "2026-08-26T09:54:50.722Z",
   "seedMetaByUrl": {
     "https://www.hitachienergy.com/careers/open-jobs/details/JID3-212640": {
       "location": "Zurich, Switzerland",
@@ -19,15 +19,15 @@
       "company": "Hitachi Energy",
       "postedDate": "2026-08-25"
     },
-    "https://www.hitachienergy.com/careers/open-jobs/details/JID3-212319": {
-      "location": "Lenzburg, Switzerland",
-      "canton": "AG",
-      "company": "Hitachi Energy",
-      "postedDate": "2026-08-24"
-    },
     "https://www.hitachienergy.com/careers/open-jobs/details/JID3-212334": {
       "location": "Turgi, Switzerland",
       "canton": "",
+      "company": "Hitachi Energy",
+      "postedDate": "2026-08-24"
+    },
+    "https://www.hitachienergy.com/careers/open-jobs/details/JID3-212319": {
+      "location": "Lenzburg, Switzerland",
+      "canton": "AG",
       "company": "Hitachi Energy",
       "postedDate": "2026-08-24"
     },
@@ -106,12 +106,6 @@
     "https://www.hitachienergy.com/careers/open-jobs/details/JID3-211227": {
       "location": "Turgi, Switzerland",
       "canton": "",
-      "company": "Hitachi Energy",
-      "postedDate": "2026-08-14"
-    },
-    "https://www.hitachienergy.com/careers/open-jobs/details/JID3-211169": {
-      "location": "Zurich, Switzerland",
-      "canton": "ZH",
       "company": "Hitachi Energy",
       "postedDate": "2026-08-14"
     },
@@ -396,12 +390,6 @@
       "canton": "AG",
       "company": "Hitachi Energy",
       "postedDate": "2026-05-13"
-    },
-    "https://www.hitachienergy.com/careers/open-jobs/details/JID3-193556": {
-      "location": "Zurich, Switzerland",
-      "canton": "ZH",
-      "company": "Hitachi Energy",
-      "postedDate": "2026-05-11"
     },
     "https://www.hitachienergy.com/careers/open-jobs/details/JID3-188400": {
       "location": "Zurich, Switzerland",
