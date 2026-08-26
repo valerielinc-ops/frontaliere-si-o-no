@@ -10827,6 +10827,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.san-gottardo-code-20-km-luglio.title': 'La queue du Saint-Gothard la plus longue des 4 dernières années',
     'blog.article.san-gottardo-code-20-km-luglio.excerpt': 'Le 18 juillet 2026, on atteint le pic de 20 km de queue vers le sud. Implications pour les frontaliers et calendrier complet des fermetures nocturnes septembre-octobre.',
     'blog.article.san-gottardo-code-20-km-luglio.imageAlt': 'Tunnel d\'autoroute du Saint-Gothard avec circulation intense estivale dans les Alpes suisses',
+    'blog.article.gasolio-sconto-17-centesimi-agosto.title': 'Diesel : 17 cents de réduction jusqu\'au mercredi 26 août',
+    'blog.article.gasolio-sconto-17-centesimi-agosto.excerpt': 'Le gouvernement italien prolonge jusqu\'au mercredi 26 août la réduction de 17 % sur les accises sur le gazole. Prix moyen : diesel 2,20 € / litre, essence 2,08 € / litre.',
+    'blog.article.gasolio-sconto-17-centesimi-agosto.imageAlt': 'Pompe à essence italienne affichant le prix du gazole à 2,20 euros par litre',
 };
 
 export default blogMetaFr;

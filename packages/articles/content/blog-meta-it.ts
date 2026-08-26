@@ -10826,6 +10826,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.san-gottardo-code-20-km-luglio.title': 'La coda al San Gottardo più lunga degli ultimi 4 anni',
     'blog.article.san-gottardo-code-20-km-luglio.excerpt': 'Il 18 luglio 2026 si raggiunge il picco di 20 km di coda verso sud. Implicazioni per frontalieri e calendario completo delle chiusure notturne settembre-ottobre.',
     'blog.article.san-gottardo-code-20-km-luglio.imageAlt': 'Galleria autostradale del San Gottardo con traffico intenso attraverso le Alpi svizzere',
+    'blog.article.gasolio-sconto-17-centesimi-agosto.title': 'Gasolio: sconto 17 centesimi fino a mercoledì 26 agosto',
+    'blog.article.gasolio-sconto-17-centesimi-agosto.excerpt': 'Il governo italiano prolunga fino a mercoledì 26 agosto lo sconto del 17% sulle accises di gasolio. Prezzo medio: diesel €2,20/litro, benzina €2,08/litro.',
+    'blog.article.gasolio-sconto-17-centesimi-agosto.imageAlt': 'Pompa di benzina italiana che mostra il prezzo del gasolio a 2,20 euro al litro',
 };
 
 export default blogMetaIt;

@@ -79007,6 +79007,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gasolio-sconto-17-centesimi-agosto': {
+    title: 'Gasolio: sconto 17 centesimi fino a mercoledì 26 agosto',
+    description: 'Il gasolio rimane a 2,20 euro al litro con lo sconto governativo italiano su accises e IVA, prolungato fino a mercoledì 26 agosto 2026. Impatto',
+    keywords: 'frontalieri, ticino, svizzera, italia, gasolio, sconto, centesimi, fino',
+    ogTitle: 'Gasolio: sconto 17 centesimi fino al 26 agosto',
+    ogDescription: 'Sconto di 17 centesimi al litro sul gasolio italiano fino a mercoledì 26 agosto 2026. Il governo ha prolungato la misura per carenze di finanziamento, firmata dai ministri Giorgetti e Pichetto Fratin. Cosa cambia per i frontalieri Ticino-Lombardia.',
+    canonicalPath: '/articoli-frontaliere/gasolio-sconto-17-centesimi-agosto',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gasolio: sconto 17 centesimi fino a mercoledì 26 agosto",
+      "description": "Il gasolio rimane a 2,20 euro al litro con lo sconto governativo italiano su accises e IVA, prolungato fino a mercoledì 26 agosto 2026. Impatto",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/gasolio-sconto-17-centesimi-agosto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pompa di benzina italiana che mostra il prezzo del gasolio a 2,20 euro al litro"
+      },
+      "datePublished": "2026-08-26T12:56:12+00:00",
+      "dateModified": "2026-08-26T12:56:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gasolio-sconto-17-centesimi-agosto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
