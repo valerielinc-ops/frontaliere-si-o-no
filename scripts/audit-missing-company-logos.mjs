@@ -35,6 +35,7 @@ import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { resolveCompanyLogoUrl } from '../services/jobDataNormalization.ts';
+import { isSliceFile } from './lib/crawler-slice-files.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -58,7 +59,7 @@ async function loadCrawlerSliceJobs() {
     console.warn(`[audit-missing-company-logos] ${CRAWLERS_DIR} non trovato — nessun job da controllare.`);
     return [];
   }
-  const files = (await readdir(CRAWLERS_DIR)).filter((f) => f.endsWith('.json'));
+  const files = (await readdir(CRAWLERS_DIR)).filter(isSliceFile);
   const out = [];
   for (const f of files) {
     let data;
