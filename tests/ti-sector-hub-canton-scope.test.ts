@@ -21,7 +21,15 @@ const jobs: Array<{ canton?: string; location?: string }> = JSON.parse(
 );
 
 describe('ti-sector-hub-canton-scope', () => {
-  it('TI sector-hub counts reflect canton=TI jobs only, not all of Switzerland', () => {
+  // Filters + counts every job in data/jobs.json (30k+) twice
+  // (resolveJobCanton + countSectorJobsByLocale, TI-only and all-CH). Default
+  // 15s vitest budget is fine in isolation but overflows under tests.yml's
+  // deliberate independent↔dependent vitest overlap on 4 vCPUs (run
+  // 32968718774: timed out at 15000ms, never reached the assert). Same margin
+  // already given to other full-dataset scans under the identical contention
+  // (tests/all-known-job-slugs-store.test.ts, tests/url-max-length.test.ts,
+  // tests/job-locale-consistency.test.ts) — no assertion changed.
+  it('TI sector-hub counts reflect canton=TI jobs only, not all of Switzerland', { timeout: 180_000 }, () => {
     const tiJobs = jobs.filter((job) => resolveJobCanton(job) === 'TI');
     expect(tiJobs.length).toBeGreaterThan(0);
     expect(tiJobs.length).toBeLessThan(jobs.length);

@@ -1488,6 +1488,10 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'indennita-parentali-2027': { it: 'indennita-parentali-2027', en: 'parental-benefits-2027', de: 'elternleistungen-2027', fr: 'allocations-parentales-2027' },
  'allerte-popolazione-cell-broadcast': { it: 'allerte-popolazione-cell-broadcast', en: 'alerts-population-cell-broadcast', de: 'bevoelkerungswarnungen-cell-broadcast', fr: 'alertes-population-cell-broadcast' },
  'edilizia-crescita-primo-semestre': { it: 'edilizia-crescita-primo-semestre', en: 'construction-growth-first-semester', de: 'bauwesen-wachstum-erstes-semester', fr: 'construction-croissance-premier-semestre' },
+ 'imprese-mem-segnali-ripresa': { it: 'imprese-mem-segnali-ripresa', en: 'mem-sector-companies-recovery-signals', de: 'mem-branchen-unternehmen-erholungssignale', fr: 'entreprises-secteur-mem-signaux-reprise' },
+ 'benzina-diesel-prezzi-calano': { it: 'benzina-diesel-prezzi-calano', en: 'petrol-diesel-prices-falling', de: 'benzin-diesel-preise-fallen', fr: 'essence-diesel-prix-baissent' },
+ 'fondi-siccita-foreste-agricoltura': { it: 'fondi-siccita-foreste-agricoltura', en: 'funds-drought-forests-agriculture', de: 'gelder-duerren-waeldern-landwirtschaft', fr: 'fonds-secheresse-forets-agriculture' },
+ 'stipendi-aumenti-differenziati-2026': { it: 'stipendi-aumenti-differenziati-2026', en: 'salary-increases-performance-2026', de: 'gehaltserhohungen-leistung-2026', fr: 'augmentations-salaires-performance-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

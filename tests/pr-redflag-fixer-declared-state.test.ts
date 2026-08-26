@@ -211,12 +211,12 @@ describe('the autonomous fixers read declared states before contradicting them (
     ).toMatch(/salti TUTTI/i);
   });
 
-  it('the EMITTER of the 🔴 knows the taxonomy too (pr-review-loop + REVIEW.md)', () => {
+  it('the EMITTER of the 🔴 knows the taxonomy too (tests.yml + REVIEW.md)', () => {
     // Teaching only the consumers leaves the loop deadlocked from the other end:
     // the reviewer re-raises the 🔴 on a `per scelta` bullet, the fixer declines
     // with reason, the round cap fires, and `needs-human` lands with the wrong
     // diagnosis ("the fixer cannot do it") on a PR with nothing to fix.
-    const reviewer = prompt('pr-review-loop.yml');
+    const reviewer = prompt('tests.yml');
     for (const state of ['per scelta', 'by construction', 'blocked: decisione del proprietario']) {
       expect(reviewer, `the reviewer prompt does not name the closing state \`${state}\`.`).toContain(
         state,

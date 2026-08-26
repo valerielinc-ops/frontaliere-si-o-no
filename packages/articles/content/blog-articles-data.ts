@@ -32385,6 +32385,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'gasolio-sconto-17-centesimi-agosto',
+ category: 'novita',
+ date: '2026-08-26T12:56:12.035Z',
+ image: '/images/blog/gasolio-sconto-17-centesimi-agosto.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
