@@ -261,78 +261,9 @@ jobs:
         uses: ./.github/actions/ci-npm-setup
 
       # ══════════════════════════════════════════════════════════════════════
-      # FAMIGLIA 1/4 — collision (ex job `collision`, ex pr-collision-detector.yml)
-      # Step copiati VERBATIM; l'unica differenza è che l'`if:` che stava sul
-      # job è ora ripetuto su ogni step. `edited` non porta un commit nuovo su
-      # cui rifare lo scan — stessa ragione per cui pr-collision-detector.yml
-      # non ha mai elencato `edited` nei suoi `pull_request.types`.
-      # ══════════════════════════════════════════════════════════════════════
-      - name: Prepare Firebase credentials
-        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
-        env:
-          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
-        run: |
-          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
-            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
-            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
-          else
-            echo "ℹ️ Nessuna Firebase SA — GITHUB_PAT non caricato; le label collision-risk verranno applicate via GITHUB_TOKEN (sufficiente per il gating di P1)."
-          fi
-
-      - name: Load secrets from Remote Config (GITHUB_PAT)
-        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
-        continue-on-error: true
-        run: node scripts/load-rc-env.mjs
-
-      # Primary identity = GitHub App installation token (`frontaliere-automation[bot]`):
-      # auto-mints, no expiry babysit. Falls back to env.GITHUB_PAT then GITHUB_TOKEN.
-      # A collision-risk label is sufficient with either identity (#2861 item 1).
-      - name: Mint App token (primary identity, PAT fallback)
-        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
-        continue-on-error: true
-        env:
-          APP_ID: ${{ secrets.APP_ID }}
-          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-        run: node scripts/ci/mint-app-token.mjs
-
-      # PAT-down = degrado silenzioso a catena del loop autonomo (merge senza
-      # cascade, coda congelata, routing/re-queue inerti). Alert inline
-      # deterministico, dedup sul titolo canonico del monitor daily
-      # (gh-pat-expiry-monitor.yml) che resta l'owner dell'auto-close.
-      # GH_TOKEN = GITHUB_TOKEN, NON il PAT (e' la cosa rotta).
-      - name: Alert token-down (dedup, zero-Claude)
-        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' && env.APP_TOKEN == '' && env.GITHUB_PAT == '' }}
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_REPO: ${{ github.repository }}
-        run: node scripts/ci/alert-pat-down.mjs --workflow "${{ github.workflow }}" --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-
-      - name: Detect funnel-critical collisions (deterministic, no Claude)
-        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
-        env:
-          # App token preferito (identità stabile, coerente con gli altri workflow
-          # migrati); PAT poi GITHUB_TOKEN come fallback — una label via GITHUB_TOKEN
-          # è comunque sufficiente per il gating di P1.
-          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          DRY_RUN: ${{ github.event.inputs.dry_run }}
-        run: |
-          if [ "${DRY_RUN:-false}" = "true" ]; then
-            node scripts/ci/pr-collision-detector.mjs --dry-run
-          else
-            node scripts/ci/pr-collision-detector.mjs
-          fi
-
-      - name: Cleanup Firebase credentials
-        if: always()
-        run: rm -f /tmp/firebase-sa.json
-
-      # ══════════════════════════════════════════════════════════════════════
-      # FAMIGLIA 2/4 — contract (ex job `contract`, ex pr-body-contract.yml)
-      # `!cancelled()` sul primo step: un `collision` rosso qui sopra NON deve
-      # impedire a questa famiglia di girare — era la proprietà dei quattro job
+      # FAMIGLIA 1/4 — contract (ex job `contract`, ex pr-body-contract.yml)
+      # `!cancelled()` sul primo step: un rosso di un'altra famiglia NON deve
+      # impedire a questa di girare — era la proprietà dei quattro job
       # paralleli, e va conservata ora che sono step (vedi «Conseguenza #2»).
       # Gira su OGNI evento `pull_request`, `edited` compreso: un'edit del body
       # deve rivalidare il contract, ed è la ragione per cui `edited` sta nei
@@ -952,7 +883,7 @@ jobs:
         wait-all: true
 
       # ══════════════════════════════════════════════════════════════════════
-      # FAMIGLIA 3/4 — typecheck (ex job `typecheck (tsc --noEmit)`, #5540)
+      # FAMIGLIA 2/4 — typecheck (ex job `typecheck (tsc --noEmit)`, #5540)
       # Vite compila con esbuild, che le annotazioni di tipo le RIMUOVE senza
       # verificarle: senza questo gate un errore di tipo attraversa build, deploy
       # e produzione senza un solo segnale. Il gate NON è a zero — confronta con
@@ -977,10 +908,16 @@ jobs:
         run: npm run typecheck:gate
 
       # ══════════════════════════════════════════════════════════════════════
-      # FAMIGLIA 4/4 — vitest (suite intera) + i lint deterministici che le
+      # FAMIGLIA 3/4 — vitest (suite intera) + i lint deterministici che le
       # stavano davanti. È la fetta lunga del job; `!cancelled()` sul primo step
-      # perché un rosso in una delle tre famiglie precedenti non deve nascondere
-      # il verdetto dei test.
+      # perché un rosso in un'altra famiglia non deve nascondere il verdetto
+      # dei test.
+      #
+      # STA PRIMA DELLA FAMIGLIA COLLISION DI PROPOSITO: quella carica i
+      # segreti di Remote Config in `$GITHUB_ENV`, che vale per ogni step
+      # SUCCESSIVO del job, e questa suite ha test che asseriscono il
+      # comportamento a ambiente PULITO. Il perché per esteso, con la misura,
+      # sta sulla testata della famiglia 4/4.
       # ══════════════════════════════════════════════════════════════════════
       - name: Audit no merge conflict markers
         # `!cancelled()` SOLO qui, sul primo step della famiglia: da qui in giù
@@ -1318,3 +1255,98 @@ jobs:
           path: shard-timing-2.json
           retention-days: 7
           if-no-files-found: ignore
+
+      # ══════════════════════════════════════════════════════════════════════
+      # FAMIGLIA 4/4 — collision (ex job `collision`, ex pr-collision-detector.yml)
+      #
+      # ULTIMA DI PROPOSITO, e non per gusto dell'ordine: e' la sola famiglia
+      # che INIETTA SEGRETI NELL'AMBIENTE DEL JOB. `scripts/load-rc-env.mjs`
+      # scrive ~92 variabili di Remote Config su `$GITHUB_ENV`, e `$GITHUB_ENV`
+      # vale per TUTTI GLI STEP SUCCESSIVI dello stesso job — non solo per lo
+      # step che lo ha eseguito. Finche' `collision` era un job a se' la cosa
+      # era invisibile: vitest girava in un altro job e quell'ambiente non lo
+      # vedeva mai.
+      #
+      # Fondendo i job si fondono anche gli AMBIENTI, ed e' costato un giro di
+      # CI scoprirlo: run 32937626053, 14 test rossi su 11 file, tutti quelli
+      # che asseriscono un comportamento a ambiente PULITO — «rejects when no
+      # email provider configured», «is a no-op when POSTHOG_EMAIL_EXPERIMENT
+      # is unset» (nel log: `POSTHOG_EMAIL_EXPERIMENT: 1` caricato da RC),
+      # «no-ops when the key is missing», «returns ok:false when token
+      # missing», «an empty environment mints the pre-#5685 code». Non erano
+      # rossi ereditati da main: main era verde, li' vitest non vedeva la RC.
+      #
+      # Mettere questa famiglia DOPO vitest e' il rimedio piu' piccolo che
+      # esista: nessun tocco a `load-rc-env.mjs` (condiviso da molti workflow)
+      # e nessun tentativo di "azzerare" a mano 92 variabili, che con
+      # `$GITHUB_ENV` si possono al massimo svuotare, non togliere — e diversi
+      # di quei test distinguono `''` da `undefined`.
+      #
+      # Costo dichiarato: la label `collision-risk` atterra ~15 min piu' tardi
+      # e, se il job muore per `timeout-minutes`, non atterra affatto (prima
+      # `collision` era un job separato che vitest non poteva affamare). Un
+      # vitest ROSSO non la perde comunque: `!cancelled()` la fa girare lo
+      # stesso. Guard: `tests/ci-vitest-check-name.test.ts` verifica che il
+      # caricamento dei segreti resti a valle di vitest.
+      # ══════════════════════════════════════════════════════════════════════
+      - name: Prepare Firebase credentials
+        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "ℹ️ Nessuna Firebase SA — GITHUB_PAT non caricato; le label collision-risk verranno applicate via GITHUB_TOKEN (sufficiente per il gating di P1)."
+          fi
+
+      - name: Load secrets from Remote Config (GITHUB_PAT)
+        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
+        continue-on-error: true
+        run: node scripts/load-rc-env.mjs
+
+      # Primary identity = GitHub App installation token (`frontaliere-automation[bot]`):
+      # auto-mints, no expiry babysit. Falls back to env.GITHUB_PAT then GITHUB_TOKEN.
+      # A collision-risk label is sufficient with either identity (#2861 item 1).
+      - name: Mint App token (primary identity, PAT fallback)
+        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      # PAT-down = degrado silenzioso a catena del loop autonomo (merge senza
+      # cascade, coda congelata, routing/re-queue inerti). Alert inline
+      # deterministico, dedup sul titolo canonico del monitor daily
+      # (gh-pat-expiry-monitor.yml) che resta l'owner dell'auto-close.
+      # GH_TOKEN = GITHUB_TOKEN, NON il PAT (e' la cosa rotta).
+      - name: Alert token-down (dedup, zero-Claude)
+        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' && env.APP_TOKEN == '' && env.GITHUB_PAT == '' }}
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: node scripts/ci/alert-pat-down.mjs --workflow "${{ github.workflow }}" --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - name: Detect funnel-critical collisions (deterministic, no Claude)
+        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
+        env:
+          # App token preferito (identità stabile, coerente con gli altri workflow
+          # migrati); PAT poi GITHUB_TOKEN come fallback — una label via GITHUB_TOKEN
+          # è comunque sufficiente per il gating di P1.
+          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
+        run: |
+          if [ "${DRY_RUN:-false}" = "true" ]; then
+            node scripts/ci/pr-collision-detector.mjs --dry-run
+          else
+            node scripts/ci/pr-collision-detector.mjs
+          fi
+
+      - name: Cleanup Firebase credentials
+        if: always()
+        run: rm -f /tmp/firebase-sa.json

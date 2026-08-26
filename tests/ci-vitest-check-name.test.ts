@@ -180,6 +180,30 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
     expect(m![1]).toMatch(/github\.event_name\s*==\s*'pull_request'/);
   });
 
+  // Fondere i job fonde anche gli AMBIENTI, e questo è costato un giro di CI.
+  // `scripts/load-rc-env.mjs` scrive ~92 variabili di Remote Config su
+  // `$GITHUB_ENV`, che vale per TUTTI gli step successivi dello stesso job —
+  // non solo per quello che l'ha eseguito. Finché `collision` era un job a sé
+  // vitest non vedeva mai quell'ambiente; nel job fuso lo vedeva, e 14 test su
+  // 11 file sono andati rossi (run 32937626053): tutti quelli che asseriscono
+  // un comportamento a ambiente pulito — «rejects when no email provider
+  // configured», «is a no-op when POSTHOG_EMAIL_EXPERIMENT is unset» (nel log
+  // la RC caricava `POSTHOG_EMAIL_EXPERIMENT: 1`), «an empty environment mints
+  // the pre-#5685 code». Il rimedio è l'ORDINE, quindi va difeso l'ordine.
+  it('i segreti di Remote Config si caricano DOPO vitest, mai prima', () => {
+    const rcAt = jobsBody.indexOf('node scripts/load-rc-env.mjs');
+    const vitestAt = jobsBody.search(/run:\s+npm test --/);
+    expect(rcAt, 'step `load-rc-env.mjs` non trovato nel job').toBeGreaterThan(-1);
+    expect(vitestAt, 'step vitest non trovato nel job').toBeGreaterThan(-1);
+    expect(
+      rcAt,
+      '`load-rc-env.mjs` è risalito SOPRA vitest: scrive ~92 variabili su ' +
+        '$GITHUB_ENV, che valgono per ogni step successivo, e la suite ha test ' +
+        'che asseriscono un ambiente pulito (email provider assente, ' +
+        'POSTHOG_EMAIL_EXPERIMENT unset, chiavi mancanti). Rimettilo dopo vitest.',
+    ).toBeGreaterThan(vitestAt);
+  });
+
   it('ogni famiglia sopravvive al rosso di un’altra (`!cancelled()`)', () => {
     // Con quattro job paralleli un `contract` rosso non impediva a `vitest` di
     // girare. Con gli step la proprietà si perde a meno di dirla esplicitamente.
