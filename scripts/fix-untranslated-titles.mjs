@@ -48,7 +48,12 @@ async function main() {
     for (const job of jobs) {
       const sl = job.sourceLang || 'it';
       const sourceTitle = (job.title || '').trim();
-      if (!sourceTitle || sourceTitle.length < 3) continue;
+      // No floor on sourceTitle length here: titleLooksUntranslated() below is
+      // lexical and handles short/empty sourceTitle safely (returns idle, never
+      // throws) — gating the whole per-job loop on a source-length floor would
+      // silently exempt any job with a very short source title from the
+      // source-copy check too (same class as issue #6539).
+      if (!sourceTitle) continue;
 
       const tbl = job.titleByLocale || {};
 

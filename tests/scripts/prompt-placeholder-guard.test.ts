@@ -576,7 +576,15 @@ describe('GATE — 0 offender sul pubblicato, ratchet contro il buco fra scrittu
     return { totalFields, offenders };
   }
 
-  it('scansiona almeno ~100k campi — la soglia che distingue "zero offender" da "zero file letti"', () => {
+  // scanContent() rilegge e regex-scansiona ogni file blog-meta*.ts del
+  // corpus (~117k campi). Il budget default di 15s vitest basta in
+  // isolamento (~6.3s misurato) ma sfora sotto la sovrapposizione
+  // deliberata independent↔dependent di tests.yml sulle 4 vCPU (run
+  // 32968718774: scaduto a 15000ms, mai arrivato all'assert). Stesso margine
+  // gia' dato ad altre scansioni full-corpus sotto la stessa contesa
+  // (tests/all-known-job-slugs-store.test.ts, tests/orphan-enriched-store.test.ts) —
+  // nessuna soglia toccata.
+  it('scansiona almeno ~100k campi — la soglia che distingue "zero offender" da "zero file letti"', { timeout: 180_000 }, () => {
     // Difende contro un gate che passa a vuoto: un path rinominato, una
     // cartella spostata, un worktree sparse configurato male. La misura reale
     // e' ~117k; 100k lascia margine al normale via-vai editoriale senza
@@ -585,7 +593,7 @@ describe('GATE — 0 offender sul pubblicato, ratchet contro il buco fra scrittu
     expect(totalFields).toBeGreaterThanOrEqual(100_000);
   });
 
-  it('0 offender: nessun campo pubblicato porta un segnaposto del prompt', () => {
+  it('0 offender: nessun campo pubblicato porta un segnaposto del prompt', { timeout: 180_000 }, () => {
     const { offenders } = scanContent();
     if (offenders.length) {
       const sample = offenders
