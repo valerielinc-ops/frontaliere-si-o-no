@@ -137,7 +137,6 @@
       "pensum": "60 - 80%",
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-ipw-winterthur",
-        "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "assistant-doctor-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "assistant-medecin-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "assistente-medico-curante-integrierte-psychiatrie-winterthur-ipw-winterthur",
@@ -147,7 +146,6 @@
       "previousSlugsByLocale": {
         "it": [
           "assistenzarztin-assistenzarzt-ipw-winterthur",
-          "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "assistant-doctor-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "assistant-medecin-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "assistente-medico-curante-integrierte-psychiatrie-winterthur-ipw-winterthur",
@@ -1294,9 +1292,9 @@
     },
     {
       "id": "ipw-5bcd15705af8",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
+      "slug": "dipl-infermiera-infermiera-specialista-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "it": "dipl-infermiera-infermiera-specialista-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "en": "dipl-nurse-nurse-specialist-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur-3cd57f",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-ipw-winterthur",
         "fr": "dipl-infirmiere-infirmiere-specialiste-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur-3cd57f"
@@ -1349,7 +1347,6 @@
         "dipl-care-specialist-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "dipl-care-specialist-hf-fh-60-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "dipl-specialista-in-allattamento-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "dipl-infermiera-infermiera-specialista-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
@@ -1358,7 +1355,6 @@
           "dipl-care-specialist-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "dipl-care-specialist-hf-fh-60-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "dipl-specialista-in-allattamento-fh-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
-          "dipl-infermiera-infermiera-specialista-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ],
         "en": [
@@ -1600,9 +1596,7 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "stv-stationsleiterin-stationsleiter-hometreatment-ipw-winterthur",
-        "stv-gestionnaire-de-station-gestionnaire-de-station-traitement-a-domicile-integrierte-psychiatrie-winterthur-ipw",
-        "stv-station-manager-station-manager-hometreatment-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "stv-stationsleiterin-stationsleiter-hometreatment-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "stv-gestionnaire-de-station-gestionnaire-de-station-traitement-a-domicile-integrierte-psychiatrie-winterthur-ipw"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1613,8 +1607,7 @@
         ],
         "fr": [
           "stv-stationsleiterin-stationsleiter-hometreatment-ipw-winterthur",
-          "stv-gestionnaire-de-station-gestionnaire-de-station-traitement-a-domicile-integrierte-psychiatrie-winterthur-ipw",
-          "stv-stationsleiterin-stationsleiter-hometreatment-integrierte-psychiatrie-winterthur-ipw-winterthur"
+          "stv-gestionnaire-de-station-gestionnaire-de-station-traitement-a-domicile-integrierte-psychiatrie-winterthur-ipw"
         ]
       },
       "firstSeenAt": "2026-08-07T01:17:51.153Z",
@@ -1795,9 +1788,9 @@
     },
     {
       "id": "ipw-2be613a49825",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
+      "slug": "dipl-infermiera-infermiera-specialista-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "it": "dipl-infermiera-infermiera-specialista-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "en": "dipl-nurse-nurse-specialist-hf-integrierte-psychiatrie-winterthur-ipw-winterthur-d45e78",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-ipw-winterthur",
         "fr": "dipl-infirmiere-infirmiere-specialiste-hf-integrierte-psychiatrie-winterthur-ipw-winterthur-d45e78"
@@ -1848,14 +1841,12 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-ipw-winterthur",
         "dipl-infermiera-infermiera-specialista-hf-integrierte-psychiatrie-winterthur-ipw-winterthur-d45e78",
-        "dipl-infermiera-infermiera-specialista-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "dipl-pflegefachfrau-pflegefachmann-hf-integrierte-psychiatrie-winterthur-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-ipw-winterthur",
           "dipl-infermiera-infermiera-specialista-hf-integrierte-psychiatrie-winterthur-ipw-winterthur-d45e78",
-          "dipl-infermiera-infermiera-specialista-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "dipl-pflegefachfrau-pflegefachmann-hf-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ],
         "en": [

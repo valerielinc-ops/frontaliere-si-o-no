@@ -36,19 +36,26 @@
       },
       "slugByLocale": {
         "it": "linienfuhrer-in-produktion-snacks-e-zutaten-coop-genossenschaft-pratteln-basel-landschaft-4bih2t",
-        "en": "linienfuhrer-in-produktion-snacks-und-zutaten-coop-genossenschaft-pratteln-basel-landschaft-4bih2t",
+        "en": "production-line-leader-snacks-and-ingredients-coop-genossenschaft-pratteln-basel-landschaft",
         "de": "linienfuhrer-in-produktion-snacks-und-zutaten-coop-genossenschaft-pratteln-basel-landschaft-4bih2t",
-        "fr": "linienfuhrer-in-produktion-snacks-und-zutaten-coop-genossenschaft-pratteln-basel-landschaft-4bih2t"
+        "fr": "chef-de-ligne-production-snacks-et-ingredients-coop-genossenschaft-pratteln-basel-landschaft"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "linienfuhrer-in-produktion-snacks-und-zutaten-coop-genossenschaft-pratteln-basel-landschaft"
+        ],
+        "en": [
+          "linienfuhrer-in-produktion-snacks-und-zutaten-coop-genossenschaft-pratteln-basel-landschaft-4bih2t"
+        ],
+        "fr": [
+          "linienfuhrer-in-produktion-snacks-und-zutaten-coop-genossenschaft-pratteln-basel-landschaft-4bih2t"
         ]
       },
       "previousSlugs": [
-        "linienfuhrer-in-produktion-snacks-und-zutaten-coop-genossenschaft-pratteln-basel-landschaft"
+        "linienfuhrer-in-produktion-snacks-und-zutaten-coop-genossenschaft-pratteln-basel-landschaft",
+        "linienfuhrer-in-produktion-snacks-und-zutaten-coop-genossenschaft-pratteln-basel-landschaft-4bih2t"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -69,7 +76,7 @@
     },
     {
       "id": "company-cx9a2e",
-      "slug": "anlagefuhrer-in-produktion-coop-genossenschaft-pratteln-basel-landschaft-cx9a2e",
+      "slug": "gestore-trice-dell-impianto-di-produzione-coop-genossenschaft-pratteln-basel-landschaft",
       "company": "Coop Genossenschaft",
       "title": "Anlageführer:in Produktion",
       "location": "Pratteln, Basel-Landschaft",
@@ -101,20 +108,28 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "anlagefuhrer-in-produktion-coop-genossenschaft-pratteln-basel-landschaft-cx9a2e",
-        "en": "anlagefuhrer-in-produktion-coop-genossenschaft-pratteln-basel-landschaft-cx9a2e",
+        "it": "gestore-trice-dell-impianto-di-produzione-coop-genossenschaft-pratteln-basel-landschaft",
+        "en": "production-manager-coop-genossenschaft-pratteln-basel-landschaft",
         "de": "anlagefuhrer-in-produktion-coop-genossenschaft-pratteln-basel-landschaft-cx9a2e",
-        "fr": "anlagefuhrer-in-produktion-coop-genossenschaft-pratteln-basel-landschaft-cx9a2e"
+        "fr": "directeur-de-la-production-coop-genossenschaft-pratteln-basel-landschaft"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "anlagefuhrer-in-produktion-coop-genossenschaft-pratteln-basel-landschaft"
+          "anlagefuhrer-in-produktion-coop-genossenschaft-pratteln-basel-landschaft",
+          "anlagefuhrer-in-produktion-coop-genossenschaft-pratteln-basel-landschaft-cx9a2e"
+        ],
+        "en": [
+          "anlagefuhrer-in-produktion-coop-genossenschaft-pratteln-basel-landschaft-cx9a2e"
+        ],
+        "fr": [
+          "anlagefuhrer-in-produktion-coop-genossenschaft-pratteln-basel-landschaft-cx9a2e"
         ]
       },
       "previousSlugs": [
-        "anlagefuhrer-in-produktion-coop-genossenschaft-pratteln-basel-landschaft"
+        "anlagefuhrer-in-produktion-coop-genossenschaft-pratteln-basel-landschaft",
+        "anlagefuhrer-in-produktion-coop-genossenschaft-pratteln-basel-landschaft-cx9a2e"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -134,7 +149,7 @@
     },
     {
       "id": "company-j9bfhx",
-      "slug": "geschaftsfuhrer-in-christ-uhren-schmuck-ag-regensdorf-zurich-j9bfhx",
+      "slug": "direttore-direttrice-del-negozio-christ-uhren-schmuck-ag-regensdorf-zurich",
       "company": "CHRIST Uhren & Schmuck AG",
       "title": "Geschäftsführer:in",
       "location": "Regensdorf, Zürich",
@@ -168,10 +183,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "geschaftsfuhrer-in-christ-uhren-schmuck-ag-regensdorf-zurich-j9bfhx",
-        "en": "geschaftsfuhrer-in-christ-uhren-schmuck-ag-regensdorf-zurich-j9bfhx",
+        "it": "direttore-direttrice-del-negozio-christ-uhren-schmuck-ag-regensdorf-zurich",
+        "en": "store-manager-branch-manager-christ-uhren-schmuck-ag-regensdorf-zurich",
         "de": "geschaftsfuhrer-in-christ-uhren-schmuck-ag-regensdorf-zurich-j9bfhx",
-        "fr": "geschaftsfuhrer-in-christ-uhren-schmuck-ag-regensdorf-zurich-j9bfhx"
+        "fr": "directeur-directrice-de-magasin-christ-uhren-schmuck-ag-regensdorf-zurich"
       },
       "requirementsByLocale": {
         "it": [],
@@ -192,17 +207,20 @@
           "geschaftsfuhrer-in-christ-orologi-gioielli-regensdorf-zurich",
           "amministratore-delegato-christ-uhren-schmuck-ag-regensdorf",
           "managing-director-christ-uhren-schmuck-ag-regensdorf",
-          "directeur-general-christ-uhren-schmuck-ag-regensdorf"
+          "directeur-general-christ-uhren-schmuck-ag-regensdorf",
+          "geschaftsfuhrer-in-christ-uhren-schmuck-ag-regensdorf-zurich-j9bfhx"
         ],
         "en": [
-          "managing-director-christ-uhren-schmuck-ag-regensdorf-zurich"
+          "managing-director-christ-uhren-schmuck-ag-regensdorf-zurich",
+          "geschaftsfuhrer-in-christ-uhren-schmuck-ag-regensdorf-zurich-j9bfhx"
         ],
         "de": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-regensdorf-zurich-huztzz"
         ],
         "fr": [
           "directeur-general-christ-uhren-schmuck-ag-regensdorf-zurich",
-          "directeur-general-christ-uhren-schmuck-ag-regensdorf"
+          "directeur-general-christ-uhren-schmuck-ag-regensdorf",
+          "geschaftsfuhrer-in-christ-uhren-schmuck-ag-regensdorf-zurich-j9bfhx"
         ]
       },
       "previousSlugs": [
@@ -214,7 +232,8 @@
         "geschaftsfuhrer-in-christ-orologi-gioielli-regensdorf-zurich",
         "amministratore-delegato-christ-uhren-schmuck-ag-regensdorf",
         "managing-director-christ-uhren-schmuck-ag-regensdorf",
-        "directeur-general-christ-uhren-schmuck-ag-regensdorf"
+        "directeur-general-christ-uhren-schmuck-ag-regensdorf",
+        "geschaftsfuhrer-in-christ-uhren-schmuck-ag-regensdorf-zurich-j9bfhx"
       ],
       "salaryMin": 113000,
       "salaryMax": 198500,
@@ -234,7 +253,7 @@
     },
     {
       "id": "company-8ih5z",
-      "slug": "verkaufer-in-kassen-services-coop-genossenschaft-zurich-08ih5z",
+      "slug": "addetto-a-cassa-servizi-coop-genossenschaft-zurich-e0b704",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services",
       "location": "Zürich",
@@ -268,10 +287,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-genossenschaft-zurich-08ih5z",
-        "en": "verkaufer-in-kassen-services-coop-genossenschaft-zurich-08ih5z",
+        "it": "addetto-a-cassa-servizi-coop-genossenschaft-zurich-e0b704",
+        "en": "sales-associate-cashiers-services-coop-genossenschaft-zurich",
         "de": "verkaufer-in-kassen-services-coop-genossenschaft-zurich-08ih5z",
-        "fr": "verkaufer-in-kassen-services-coop-genossenschaft-zurich-08ih5z"
+        "fr": "vendeur-vendeuse-caisses-services-coop-genossenschaft-zurich-e0b704"
       },
       "requirementsByLocale": {
         "it": [],
@@ -303,16 +322,19 @@
           "venditore-trice-cassa-servizi-studente-coop-genossenschaft-zurich",
           "seller-in-cash-registers-services-coop-genossenschaft-zurich-3kcj0z",
           "seller-in-cash-registers-services-coop-genossenschaft-zurich-7a1kyx",
-          "seller-in-cash-registers-services-coop-genossenschaft-zurich-ca4f5c"
+          "seller-in-cash-registers-services-coop-genossenschaft-zurich-ca4f5c",
+          "verkaufer-in-kassen-services-coop-genossenschaft-zurich-08ih5z"
         ],
         "en": [
-          "seller-in-cash-registers-services-coop-genossenschaft-zurich"
+          "seller-in-cash-registers-services-coop-genossenschaft-zurich",
+          "verkaufer-in-kassen-services-coop-genossenschaft-zurich-08ih5z"
         ],
         "de": [
           "verkaufer-in-kassen-services-coop-genossenschaft-zurich-gwby3y"
         ],
         "fr": [
-          "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-zurich"
+          "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-zurich",
+          "verkaufer-in-kassen-services-coop-genossenschaft-zurich-08ih5z"
         ]
       },
       "previousSlugs": [
@@ -346,7 +368,8 @@
         "venditore-trice-cassa-servizi-studente-coop-genossenschaft-zurich",
         "seller-in-cash-registers-services-coop-genossenschaft-zurich-3kcj0z",
         "seller-in-cash-registers-services-coop-genossenschaft-zurich-7a1kyx",
-        "seller-in-cash-registers-services-coop-genossenschaft-zurich-ca4f5c"
+        "seller-in-cash-registers-services-coop-genossenschaft-zurich-ca4f5c",
+        "verkaufer-in-kassen-services-coop-genossenschaft-zurich-08ih5z"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1453,13 +1476,11 @@
         ],
         "en": [
           "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-swiss-household-services-ag-zurich-xgatco",
-          "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-zurich-xgatco",
-          "sales-consultant-in-electrical-household-and-multimedia-fust-zurich"
+          "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-zurich-xgatco"
         ],
         "fr": [
           "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-swiss-household-services-ag-zurich-xgatco",
-          "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-zurich-xgatco",
-          "consultant-en-ventes-en-electromenager-et-multimedia-fust-zurich"
+          "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-zurich-xgatco"
         ],
         "de": [
           "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-zurich-xgatco"
@@ -1490,9 +1511,7 @@
         "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-swiss-household-services-ag-zurich-xgatco",
         "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-zurich-xgatco",
         "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-zurich-xgatco",
-        "sales-consultant-in-for-electrical-household-and-multimedia-fust-wallisellen-zurich",
-        "sales-consultant-in-electrical-household-and-multimedia-fust-zurich",
-        "consultant-en-ventes-en-electromenager-et-multimedia-fust-zurich"
+        "sales-consultant-in-for-electrical-household-and-multimedia-fust-wallisellen-zurich"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -8272,7 +8291,7 @@
     },
     {
       "id": "company-59mnm4",
-      "slug": "geschaftsfuhrer-in-restaurant-coop-genossenschaft-zurich-59mnm4",
+      "slug": "direttore-di-ristorante-coop-genossenschaft-zurich",
       "company": "Coop Genossenschaft",
       "title": "Geschäftsführer:in Restaurant",
       "location": "Zürich",
@@ -8306,10 +8325,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "geschaftsfuhrer-in-restaurant-coop-genossenschaft-zurich-59mnm4",
-        "en": "geschaftsfuhrer-in-restaurant-coop-genossenschaft-zurich-59mnm4",
+        "it": "direttore-di-ristorante-coop-genossenschaft-zurich",
+        "en": "restaurant-manager-coop-genossenschaft-zurich",
         "de": "geschaftsfuhrer-in-restaurant-coop-genossenschaft-zurich-59mnm4",
-        "fr": "geschaftsfuhrer-in-restaurant-coop-genossenschaft-zurich-59mnm4"
+        "fr": "directeur-de-restaurant-coop-genossenschaft-zurich"
       },
       "requirementsByLocale": {
         "it": [],
@@ -8322,11 +8341,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "geschaftsfuhrer-in-restaurant-coop-genossenschaft-zurich"
+          "geschaftsfuhrer-in-restaurant-coop-genossenschaft-zurich",
+          "geschaftsfuhrer-in-restaurant-coop-genossenschaft-zurich-59mnm4"
+        ],
+        "en": [
+          "geschaftsfuhrer-in-restaurant-coop-genossenschaft-zurich-59mnm4"
+        ],
+        "fr": [
+          "geschaftsfuhrer-in-restaurant-coop-genossenschaft-zurich-59mnm4"
         ]
       },
       "previousSlugs": [
-        "geschaftsfuhrer-in-restaurant-coop-genossenschaft-zurich"
+        "geschaftsfuhrer-in-restaurant-coop-genossenschaft-zurich",
+        "geschaftsfuhrer-in-restaurant-coop-genossenschaft-zurich-59mnm4"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -9501,13 +9528,11 @@
           "lokfuhrer-in-regional-railcare-hunzenschwil-aargau-rcup55",
           "conducteur-regional-railcare-hunzenschwil",
           "regional-train-driver-railcare-hunzenschwil",
-          "train-driver-in-regional-railcare-hunzenschwil",
-          "train-driver-in-regional-railcare-hunzenschwil-aargau"
+          "train-driver-in-regional-railcare-hunzenschwil"
         ],
         "fr": [
           "lokfuhrer-in-regional-railcare-hunzenschwil-aargau-rcup55",
-          "conducteur-de-train-en-regional-railcare-hunzenschwil",
-          "conducteur-de-train-en-regional-railcare-hunzenschwil-aargau"
+          "conducteur-de-train-en-regional-railcare-hunzenschwil"
         ],
         "en": [
           "lokfuhrer-in-regional-railcare-hunzenschwil-aargau-rcup55"
@@ -9519,9 +9544,7 @@
         "conducteur-regional-railcare-hunzenschwil",
         "regional-train-driver-railcare-hunzenschwil",
         "train-driver-in-regional-railcare-hunzenschwil",
-        "conducteur-de-train-en-regional-railcare-hunzenschwil",
-        "train-driver-in-regional-railcare-hunzenschwil-aargau",
-        "conducteur-de-train-en-regional-railcare-hunzenschwil-aargau"
+        "conducteur-de-train-en-regional-railcare-hunzenschwil"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -15991,7 +16014,6 @@
         "fr": [
           "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau",
           "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau-0pl416",
-          "chef-chef-h-f-d-coop-genossenschaft-oftringen",
           "cuisiniere-cuisinier-m-w-d-coop-genossenschaft-oftringen-aargau"
         ],
         "en": [
@@ -19414,8 +19436,7 @@
           "sales-consultant-coop-genossenschaft-winterthur-nglq8d",
           "sales-consultant-in-coop-genossenschaft-winterthur",
           "consulente-commerciale-in-coop-genossenschaft-winterthur",
-          "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur",
-          "venditore-a-coop-genossenschaft-winterthur-zurich"
+          "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur"
         ],
         "en": [
           "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-4x3rhq",
@@ -19436,8 +19457,6 @@
         "sales-consultant-in-coop-genossenschaft-winterthur",
         "consulente-commerciale-in-coop-genossenschaft-winterthur",
         "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur",
-        "consultant-en-ventes-coop-genossenschaft-winterthur-zurich",
-        "venditore-a-coop-genossenschaft-winterthur-zurich",
         "vendeur-vendeuse-coop-genossenschaft-winterthur-zurich"
       ],
       "salaryMin": 73500,
@@ -29403,8 +29422,7 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
-          "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
+          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern"
         ],
         "en": [
           "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j"
@@ -29412,8 +29430,7 @@
       },
       "previousSlugs": [
         "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
-        "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j",
-        "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
+        "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
