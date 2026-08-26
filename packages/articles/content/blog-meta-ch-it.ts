@@ -4429,6 +4429,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.canicola-70-milioni-bosco.title': 'Canicola, 70 mio per bosco e agricoltura',
     'blog.article.canicola-70-milioni-bosco.excerpt': 'Il Consiglio federale richiede 70+ milioni di franchi per adattare i boschi e sostenere le aziende agricole colpite da canicola e siccità estiva.',
     'blog.article.canicola-70-milioni-bosco.imageAlt': 'Boschi alpini svizzeri durante l\'estate, paesaggio montano con zone forestali e aree agricole',
+    'blog.article.fondi-federali-bosco-agricoltura.title': 'Consiglio federale: CHF 71,5M per bosco e agricoltura',
+    'blog.article.fondi-federali-bosco-agricoltura.excerpt': 'Il Consiglio federale approva CHF 17,5M per le foreste e CHF 54M per le aziende agricole colpite dalla siccità record dell\'estate 2026.',
+    'blog.article.fondi-federali-bosco-agricoltura.imageAlt': 'Paesaggio forestale alpino durante la siccità estiva: vegetazione disseccata vista sui boschi svizzeri',
 };
 
 export default blogMetaChIt;

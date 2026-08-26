@@ -57467,6 +57467,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fondi-federali-bosco-agricoltura': {
+    title: 'Consiglio federale: CHF 71,5M per bosco e agricoltura',
+    description: 'Il Consiglio federale approva CHF 17,5M per l\'adattamento forestale e CHF 54M in crediti senza interessi per le aziende agricole colpite dalla siccità 2026.',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, bosco, agricoltura',
+    ogTitle: 'Consiglio federale: CHF 71,5M per bosco e agricoltura',
+    ogDescription: '26 agosto 2026: il Consiglio federale stanzia CHF 17,5M per foreste e CHF 54M per aziende agricole colpite dalla siccità record. Crediti senza interessi e adattamento climatico.',
+    canonicalPath: '/articoli-svizzera/fondi-federali-bosco-agricoltura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio federale: CHF 71,5M per bosco e agricoltura",
+      "description": "Il Consiglio federale approva CHF 17,5M per l'adattamento forestale e CHF 54M in crediti senza interessi per le aziende agricole colpite dalla siccità 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/fondi-federali-bosco-agricoltura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio forestale alpino durante la siccità estiva: vegetazione disseccata vista sui boschi svizzeri"
+      },
+      "datePublished": "2026-08-26T21:06:29+00:00",
+      "dateModified": "2026-08-26T21:06:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/fondi-federali-bosco-agricoltura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
