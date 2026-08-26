@@ -989,8 +989,6 @@
         "sachbearbeiter-in-case-management-genossenschaft-migros-aare-urtenen-schonbuhl-wf519q",
         "sachbearbeiter-in-case-management-genossenschaft-migros-aare-urtenen-schonbuhl"
       ],
-      "salaryMin": 68500,
-      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1003,7 +1001,9 @@
       },
       "addressLocality": "Urtenen-Schönbühl",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "salaryMin": 68500,
+      "salaryMax": 104000
     },
     {
       "id": "company-97c43a",
@@ -7759,8 +7759,7 @@
         "it": [
           "sonntags-aushilfe-konditorei-fresh-food-beverage-group-gossau-7j6db7",
           "domenica-aiuto-pasticceria-fresh-food-beverage-group-gossau",
-          "pasticceria-domenicale-fresh-food-beverage-group-gossau",
-          "sonntags-aushilfe-konditorei-fresh-food-beverage-group-gossau"
+          "pasticceria-domenicale-fresh-food-beverage-group-gossau"
         ],
         "en": [
           "sonntags-aushilfe-konditorei-fresh-food-beverage-group-gossau-7j6db7",
@@ -7776,8 +7775,7 @@
         "domenica-aiuto-pasticceria-fresh-food-beverage-group-gossau",
         "sunday-help-patisserie-fresh-food-beverage-group-gossau",
         "patisserie-d-aide-du-dimanche-fresh-food-beverage-group-gossau",
-        "pasticceria-domenicale-fresh-food-beverage-group-gossau",
-        "sonntags-aushilfe-konditorei-fresh-food-beverage-group-gossau"
+        "pasticceria-domenicale-fresh-food-beverage-group-gossau"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -8623,9 +8621,9 @@
       "firstSeenAt": "2026-08-25T22:06:10.337Z",
       "slugByLocale": {
         "de": "stv-filialleiter-in-denner-ag-zurich-geicje",
-        "en": "stv-filialleiter-in-denner-ag-zurich",
-        "fr": "stv-filialleiter-in-denner-ag-zurich",
-        "it": "stv-filialleiter-in-denner-ag-zurich"
+        "en": "deputy-branch-manager-denner-ag-zurich",
+        "fr": "directeur-adjoint-de-la-succursale-denner-ag-zurich",
+        "it": "vice-direttore-di-negozio-denner-ag-zurich"
       },
       "titleByLocale": {
         "de": "Stv. Filialleiter*in",
@@ -8661,9 +8659,6 @@
           "stv-filialleiter-in-denner-ag-zurich-z8lf10",
           "stv-branch-manager-in-denner-ag-zurich-z8lf10",
           "stv-branch-manager-in-denner-ag-zurich"
-        ],
-        "en": [
-          "deputy-branch-manager-denner-ag-zurich"
         ],
         "fr": [
           "directeur-adjoint-de-la-succursale-denner-ag-zurich",
@@ -20712,9 +20707,9 @@
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 57500,
-      "salaryMax": 87000,
-      "needsRetranslation": true
+      "salaryMax": 87000
     },
     {
       "id": "company-l6qqjc",
@@ -26626,9 +26621,9 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-k9o3l4",
@@ -34911,9 +34906,9 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-k70zqy",
@@ -36915,7 +36910,7 @@
         "it": "transportdisponent-in-genossenschaft-migros-zurich",
         "en": "transport-dispatcher-in-genossenschaft-migros-zurich-zurich",
         "de": "transportdisponent-in-genossenschaft-migros-zurich-k03j2d",
-        "fr": "responsable-de-la-planification-des-transports-genossenschaft-migros-zurich"
+        "fr": "transporteur-en-genossenschaft-migros-zurich-zurich"
       },
       "requirementsByLocale": {
         "it": [],
@@ -38918,7 +38913,7 @@
         "it": "spedizioni-di-trasporto-in-magenwil-denner-magenwil",
         "en": "transport-dispatcher-in-magenwil-denner-magenwil",
         "de": "transportdisponent-in-magenwil-denner",
-        "fr": "dispatcher-transport-magenwil-denner-ag-magenwil"
+        "fr": "transporteur-a-magenwil-denner-magenwil"
       },
       "requirementsByLocale": {
         "it": [],
@@ -61961,8 +61956,8 @@
       "crawledAt": "2026-08-25T22:06:10.337Z",
       "firstSeenAt": "2026-08-25T22:06:10.337Z",
       "slugByLocale": {
-        "en": "technicien-itinerant-du-service-technique-et-energies-m-w-d-societe-cooperative-migros-vaud-ecublens",
-        "de": "technicien-itinerant-du-service-technique-et-energies-m-w-d-societe-cooperative-migros-vaud-ecublens",
+        "en": "technical-and-energy-technician-h-f-d-societe-cooperative-migros-vaud-ecublens",
+        "de": "techniker-und-energietechniker-h-f-d-societe-cooperative-migros-vaud-ecublens",
         "fr": "technicien-itinerant-du-service-technique-et-energies-m-w-d-societe-cooperative-migros-vaud-ecublens-75xjtx",
         "it": "technicien-itinerant-du-service-technique-et-energies-m-w-d-societe-cooperative-migros-vaud-ecublens-75xjtx"
       },
@@ -61993,15 +61988,14 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "en": [
-          "technical-and-energy-technician-h-f-d-societe-cooperative-migros-vaud-ecublens"
+          "technicien-itinerant-du-service-technique-et-energies-m-w-d-societe-cooperative-migros-vaud-ecublens"
         ],
         "de": [
-          "techniker-und-energietechniker-h-f-d-societe-cooperative-migros-vaud-ecublens"
+          "technicien-itinerant-du-service-technique-et-energies-m-w-d-societe-cooperative-migros-vaud-ecublens"
         ]
       },
       "previousSlugs": [
-        "technical-and-energy-technician-h-f-d-societe-cooperative-migros-vaud-ecublens",
-        "techniker-und-energietechniker-h-f-d-societe-cooperative-migros-vaud-ecublens"
+        "technicien-itinerant-du-service-technique-et-energies-m-w-d-societe-cooperative-migros-vaud-ecublens"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,

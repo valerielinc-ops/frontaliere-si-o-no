@@ -449,9 +449,9 @@
       "slug": "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
-        "it": "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal",
-        "en": "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal",
-        "fr": "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal"
+        "it": "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal",
+        "fr": "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -497,21 +497,11 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
-          "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal"
-        ],
-        "en": [
-          "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal"
-        ],
-        "fr": [
-          "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal"
+          "unterassistentin-unterassistent-medizin-a-ksbl-liestal"
         ]
       },
       "previousSlugs": [
-        "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
-        "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal",
-        "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal",
-        "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal"
+        "unterassistentin-unterassistent-medizin-a-ksbl-liestal"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -1691,13 +1681,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-verpflegungsservice-bettenstation-a-ksbl-liestal",
-        "mitarbeiterin-collaboratore-trice-verpflegungsservice-bettenstation-a-kantonsspital-baselland-ksbl-liestal"
+        "mitarbeiterin-mitarbeiter-verpflegungsservice-bettenstation-a-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-verpflegungsservice-bettenstation-a-ksbl-liestal",
-          "mitarbeiterin-collaboratore-trice-verpflegungsservice-bettenstation-a-kantonsspital-baselland-ksbl-liestal"
+          "mitarbeiterin-mitarbeiter-verpflegungsservice-bettenstation-a-ksbl-liestal"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-verpflegungsservice-bettenstation-a-ksbl-liestal"
@@ -7176,8 +7164,7 @@
         "employee-room-service-a-kantonsspital-baselland-ksbl-liestal",
         "mitarbeiterin-mitarbeiter-room-service-a-ksbl-liestal",
         "service-en-chambre-des-employes-a-kantonsspital-baselland-ksbl-liestal",
-        "gestion-du-milieu-de-travail-des-employes-a-kantonsspital-baselland-ksbl-liestal",
-        "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-liestal"
+        "gestion-du-milieu-de-travail-des-employes-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7207,16 +7194,16 @@
           "mitarbeiterin-mitarbeiter-hauswirtschaft-a-ksbl-liestal",
           "employee-workplace-management-a-kantonsspital-baselland-ksbl-liestal"
         ],
-        "fr": [
-          "mitarbeiterin-mitarbeiter-hauswirtschaft-a-ksbl-liestal",
-          "gestion-du-lieu-de-travail-des-employes-a-kantonsspital-baselland-ksbl-liestal"
-        ],
         "de": [
           "mitarbeiterin-mitarbeiter-workplace-management-a-ksbl-liestal",
           "mitarbeiterin-collaboratore-trice-restauration-a-kantonsspital-baselland-ksbl-liestal",
           "mitarbeiterin-mitarbeiter-restauration-a-ksbl-liestal",
           "mitarbeiterin-collaboratore-trice-room-service-a-kantonsspital-baselland-ksbl-liestal",
           "mitarbeiterin-mitarbeiter-room-service-a-ksbl-liestal"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-hauswirtschaft-a-ksbl-liestal",
+          "gestion-du-lieu-de-travail-des-employes-a-kantonsspital-baselland-ksbl-liestal"
         ]
       },
       "firstSeenAt": "2026-08-07T01:22:47.731Z",

@@ -2378,13 +2378,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-expertin-experte-anasthesiepflege-nds-50-100-hoch-health-uznach",
-        "esperta-esperto-diploma-di-anestesia-nds-50-100-hoch-health-ostschweiz-st-gallen"
+        "dipl-expertin-experte-anasthesiepflege-nds-50-100-hoch-health-uznach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-experte-anasthesiepflege-nds-50-100-hoch-health-uznach",
-          "esperta-esperto-diploma-di-anestesia-nds-50-100-hoch-health-ostschweiz-st-gallen"
+          "dipl-expertin-experte-anasthesiepflege-nds-50-100-hoch-health-uznach"
         ]
       },
       "firstSeenAt": "2026-08-24T10:21:57.660Z",
@@ -18092,9 +18090,9 @@
       "id": "hoch-health-1ae8333a1ea3",
       "slug": "med-praxisassistent-in-o-arztsekretar-in-50-100-hoch-health-ostschweiz-uznach",
       "slugByLocale": {
-        "de": "med-praxisassistent-in-oder-arztsekretar-in-50-100-hoch-health-uznach",
         "it": "med-praxisassistent-in-o-arztsekretar-in-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "med-praxisassistent-in-oder-arztsekretar-in-50-100-hoch-health-uznach",
+        "de": "med-praxisassistent-in-oder-arztsekretar-in-50-100-hoch-health-uznach",
         "fr": "med-praxisassistent-in-oder-arztsekretar-in-50-100-hoch-health-uznach"
       },
       "company": "HOCH Health Ostschweiz",
@@ -18137,14 +18135,15 @@
       "applyUrl": "https://jobs.h-och.ch/talentcommunity/apply/1429472033/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "med-praxisassistent-in-oder-arztsekretar-in-50-100-hoch-health-uznach"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "med-praxisassistent-in-oder-arztsekretar-in-50-100-hoch-health-uznach"
         ]
       },
-      "previousSlugs": [
-        "med-praxisassistent-in-oder-arztsekretar-in-50-100-hoch-health-uznach"
-      ],
+      "firstSeenAt": "2026-08-25T10:24:11.993Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "baseSalary": {
@@ -18156,17 +18155,16 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-25T10:24:11.993Z"
+      }
     },
     {
       "id": "hoch-health-23a30618cdcf",
-      "slug": "assistenzarztin-arzt-100-hoch-health-st-gallen",
+      "slug": "assistente-medico-medico-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "de": "assistenzarztin-arzt-100-hoch-health-st-gallen",
-        "it": "assistenzarztin-arzt-100-hoch-health-st-gallen",
-        "en": "assistenzarztin-arzt-100-hoch-health-st-gallen",
-        "fr": "assistenzarztin-arzt-100-hoch-health-st-gallen"
+        "it": "assistente-medico-medico-100-hoch-health-ostschweiz-st-gallen",
+        "en": "assistant-doctor-doctor-100-hoch-health-ostschweiz-st-gallen",
+        "fr": "assistant-medecin-medecin-100-hoch-health-ostschweiz-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -18221,7 +18219,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-25T21:56:10.863Z"
+      "firstSeenAt": "2026-08-25T21:56:10.863Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-arzt-100-hoch-health-st-gallen"
+        ],
+        "en": [
+          "assistenzarztin-arzt-100-hoch-health-st-gallen"
+        ],
+        "fr": [
+          "assistenzarztin-arzt-100-hoch-health-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-arzt-100-hoch-health-st-gallen"
+      ]
     },
     {
       "id": "hoch-health-5a654b8289b1",
@@ -18273,13 +18285,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stv-teamleiter-in-80-100-hoch-health-uznach",
-        "vice-team-leader-80-100-hoch-health-ostschweiz-st-gallen"
+        "stv-teamleiter-in-80-100-hoch-health-uznach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-teamleiter-in-80-100-hoch-health-uznach",
-          "vice-team-leader-80-100-hoch-health-ostschweiz-st-gallen"
+          "stv-teamleiter-in-80-100-hoch-health-uznach"
         ]
       },
       "firstSeenAt": "2026-08-24T10:22:12.897Z",
@@ -18300,9 +18310,9 @@
       "id": "hoch-health-db42bf4ee31c",
       "slug": "risultato-controller-in-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
-        "de": "ergebnis-controller-in-100-hoch-health-st-gallen",
         "it": "ergebnis-controller-in-100-kssg-ch",
         "en": "ergebnis-controller-in-100-kssg-ch",
+        "de": "ergebnis-controller-in-100-hoch-health-st-gallen",
         "fr": "ergebnis-controller-in-100-kssg-ch"
       },
       "company": "HOCH Health Ostschweiz",
@@ -18345,6 +18355,25 @@
       "applyUrl": "https://jobs.h-och.ch/talentcommunity/apply/1382998833/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "ergebnis-controller-in-100-hoch-health-st-gallen",
+        "risultato-controller-in-100-hoch-health-ostschweiz-st-gallen",
+        "result-controller-in-100-hoch-health-ostschweiz-st-gallen",
+        "resultat-controleur-en-100-hoch-health-ostschweiz-st-gallen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ergebnis-controller-in-100-hoch-health-st-gallen"
+        ],
+        "en": [
+          "ergebnis-controller-in-100-hoch-health-st-gallen",
+          "result-controller-in-100-hoch-health-ostschweiz-st-gallen"
+        ],
+        "fr": [
+          "resultat-controleur-en-100-hoch-health-ostschweiz-st-gallen"
+        ]
+      },
+      "firstSeenAt": "2026-08-24T22:09:28.890Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -18356,27 +18385,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-24T22:09:28.890Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "ergebnis-controller-in-100-hoch-health-st-gallen",
-          "risultato-controller-in-100-hoch-health-ostschweiz-st-gallen"
-        ],
-        "en": [
-          "ergebnis-controller-in-100-hoch-health-st-gallen",
-          "result-controller-in-100-hoch-health-ostschweiz-st-gallen"
-        ],
-        "fr": [
-          "resultat-controleur-en-100-hoch-health-ostschweiz-st-gallen"
-        ]
-      },
-      "previousSlugs": [
-        "ergebnis-controller-in-100-hoch-health-st-gallen",
-        "risultato-controller-in-100-hoch-health-ostschweiz-st-gallen",
-        "result-controller-in-100-hoch-health-ostschweiz-st-gallen",
-        "resultat-controleur-en-100-hoch-health-ostschweiz-st-gallen"
-      ]
+      }
     },
     {
       "id": "hoch-health-b57f7d9a8f40",
@@ -18525,13 +18534,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "berufsbildner-in-anasthesiepflege-nds-hf-40-hoch-health-uznach",
-        "formatore-a-di-anestesia-infermieristica-nds-hf-40-hoch-health-ostschweiz-uznach"
+        "berufsbildner-in-anasthesiepflege-nds-hf-40-hoch-health-uznach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berufsbildner-in-anasthesiepflege-nds-hf-40-hoch-health-uznach",
-          "formatore-a-di-anestesia-infermieristica-nds-hf-40-hoch-health-ostschweiz-uznach"
+          "berufsbildner-in-anasthesiepflege-nds-hf-40-hoch-health-uznach"
         ]
       },
       "firstSeenAt": "2026-08-24T10:22:13.930Z",

@@ -867,7 +867,7 @@
         "it": "galenica-galenica-ag-assistante-en-pharmacie-assistant-en-pharmacie-f-h-d-50-cv-la-chaux-de-fonds-bern",
         "en": "galenica-galenica-ag-assistante-en-pharmacie-assistant-en-pharmacie-f-h-d-50-cv-la-chaux-de-fonds-bern",
         "de": "galenica-galenica-ag-assistante-en-pharmacie-assistant-en-pharmacie-f-h-d-50-cv-la-chaux-de-fonds-bern",
-        "fr": "assistant-en-pharmacie-assistant-en-pharmacie-h-f-d-galenica-ag-galenica-bern"
+        "fr": "assistante-en-pharmacie-assistante-en-pharmacie-h-f-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
         "it": "Assistante en pharmacie / assistant en pharmacie (f/m/d)",
@@ -894,7 +894,15 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "fr": [
+          "assistant-en-pharmacie-assistant-en-pharmacie-h-f-d-galenica-ag-galenica-bern"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-en-pharmacie-assistant-en-pharmacie-h-f-d-galenica-ag-galenica-bern"
+      ]
     },
     {
       "title": "Apotheker / Apothekerin (w/m/d)",

@@ -868,9 +868,6 @@
       "jobReqId": null,
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "lernende-r-buchhandel-efz-region-winterthur-ostschweiz-orell-fuessli-thalia-winterthur"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-r-buchhandel-efz-region-winterthur-ostschweiz-orell-fuessli-thalia-winterthur"
@@ -882,6 +879,9 @@
           "lernende-r-buchhandel-efz-region-winterthur-ostschweiz-orell-fuessli-thalia-winterthur"
         ]
       },
+      "previousSlugs": [
+        "lernende-r-buchhandel-efz-region-winterthur-ostschweiz-orell-fuessli-thalia-winterthur"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-06T11:59:24.734Z",
       "salaryMin": 62000,
@@ -945,23 +945,20 @@
       "jobReqId": null,
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "lernende-r-buchhandel-efz-region-zurich-nordwestschweiz-orell-fuessli-thalia-zurich",
-        "apprentice-r-buchhandel-efz-region-zurich-nordwestschweiz-orell-fussli-thalia-zurich",
-        "apprendista-r-buchhandel-cfc-region-zurich-nordwestschweiz-orell-fussli-thalia-zurich"
-      ],
       "previousSlugsByLocale": {
-        "it": [
+        "en": [
           "lernende-r-buchhandel-efz-region-zurich-nordwestschweiz-orell-fuessli-thalia-zurich"
         ],
-        "en": [
-          "lernende-r-buchhandel-efz-region-zurich-nordwestschweiz-orell-fuessli-thalia-zurich",
-          "apprentice-r-buchhandel-efz-region-zurich-nordwestschweiz-orell-fussli-thalia-zurich"
+        "it": [
+          "lernende-r-buchhandel-efz-region-zurich-nordwestschweiz-orell-fuessli-thalia-zurich"
         ],
         "fr": [
           "lernende-r-buchhandel-efz-region-zurich-nordwestschweiz-orell-fuessli-thalia-zurich"
         ]
       },
+      "previousSlugs": [
+        "lernende-r-buchhandel-efz-region-zurich-nordwestschweiz-orell-fuessli-thalia-zurich"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T22:03:08.046Z",
       "salaryMin": 62000,
@@ -1173,20 +1170,17 @@
       "jobReqId": null,
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "buchhandler-in-80-100-a-orell-fuessli-thalia-bern",
-        "bookseller-in-80-100-a-orell-fussli-thalia-bern",
-        "libreria-in-80-100-a-orell-fussli-thalia-bern"
-      ],
       "previousSlugsByLocale": {
-        "it": [
+        "en": [
           "buchhandler-in-80-100-a-orell-fuessli-thalia-bern"
         ],
-        "en": [
-          "buchhandler-in-80-100-a-orell-fuessli-thalia-bern",
-          "bookseller-in-80-100-a-orell-fussli-thalia-bern"
+        "it": [
+          "buchhandler-in-80-100-a-orell-fuessli-thalia-bern"
         ]
       },
+      "previousSlugs": [
+        "buchhandler-in-80-100-a-orell-fuessli-thalia-bern"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T10:15:22.486Z",
       "salaryMin": 77500,
@@ -1348,8 +1342,8 @@
           "buchhandler-in-80-a-orell-fuessli-thalia-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-06T11:59:24.730Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-06T11:59:24.730Z",
       "salaryMin": 66400,
       "salaryMax": 102000,
       "baseSalary": {
@@ -1596,8 +1590,8 @@
           "buchhandler-in-100-a-orell-fuessli-thalia-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-13T22:19:24.068Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-13T22:19:24.068Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -1767,8 +1761,8 @@
           "buchhandler-in-80-a-orell-fuessli-thalia-luzern"
         ]
       },
-      "firstSeenAt": "2026-08-24T10:17:59.714Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T10:17:59.714Z",
       "salaryMin": 63200,
       "salaryMax": 97200,
       "baseSalary": {

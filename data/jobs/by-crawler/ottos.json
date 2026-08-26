@@ -2801,19 +2801,6 @@
       "pensumMin": 60,
       "pensumMax": 80,
       "pensum": "60 - 80%",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 127500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-08-24T21:58:33.625Z",
       "previousSlugs": [
         "aushilfe-verkaufer-in-food-non-food-ottos-bachenbulach"
       ],
@@ -2827,6 +2814,19 @@
         "fr": [
           "aushilfe-verkaufer-in-food-non-food-ottos-bachenbulach"
         ]
+      },
+      "firstSeenAt": "2026-08-24T21:58:33.625Z",
+      "salaryMin": 83000,
+      "salaryMax": 127500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 127500,
+          "unitText": "YEAR"
+        }
       }
     },
     {
@@ -3970,19 +3970,6 @@
       "pensumMin": 60,
       "pensumMax": 80,
       "pensum": "60 - 80%",
-      "salaryMin": 74000,
-      "salaryMax": 113500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 74000,
-          "maxValue": 113500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-08-24T21:58:23.615Z",
       "previousSlugs": [
         "aushilfe-verkaufer-in-food-non-food-ottos-spreitenbach"
       ],
@@ -3996,6 +3983,19 @@
         "fr": [
           "aushilfe-verkaufer-in-food-non-food-ottos-spreitenbach"
         ]
+      },
+      "firstSeenAt": "2026-08-24T21:58:23.615Z",
+      "salaryMin": 74000,
+      "salaryMax": 113500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 74000,
+          "maxValue": 113500,
+          "unitText": "YEAR"
+        }
       }
     },
     {
@@ -7366,13 +7366,11 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-grenchen",
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-grenchen"
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-grenchen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-grenchen",
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-grenchen"
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-grenchen"
         ]
       },
       "firstSeenAt": "2026-08-25T10:02:53.869Z",
@@ -8710,14 +8708,15 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
+      "previousSlugs": [
+        "verkaufsmitarbeiter-in-mobel-ottos-niederhasli"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-mobel-ottos-niederhasli"
         ]
       },
-      "previousSlugs": [
-        "verkaufsmitarbeiter-in-mobel-ottos-niederhasli"
-      ],
+      "firstSeenAt": "2026-08-24T21:57:50.217Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -8729,8 +8728,7 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-24T21:57:50.217Z"
+      }
     },
     {
       "id": "ottos-ba1203a771ed",
@@ -9382,6 +9380,7 @@
         "de": "Wirkungsbereich\n\n• Team-Verantwortung übernehmen: Sie führen und motivieren Ihr Team zu nachhaltigen Bestleistungen\n• Abwechslungsreiche Warenpräsentation: Mit kreativen Ideen präsentieren Sie unsere Produkte ansprechend und fördern aktiv den Verkauf\n• Begeisterung für Textil und Sport: Ihr Feuer für die Textilwelt und Ihre Freude am Umgang mit Menschen löst Begeisterung aus\n• Fachgerechte Waren- und Lagerbewirtschaftung: Sie bearbeiten den Wareneingang verantwortungsvoll und stellen einen reibungslosen Warenfluss sicher\n• Scanning-Kassensystem: Sie bedienen sicher und effizient unser modernes Kassensystem und führen gekonnt den Kassenabschluss durch\n\nProfil\n\n• Ausbildung: Abgeschlossene Ausbildung im Detailhandel\n• Berufserfahrung: Erste Berufserfahrung in einer Führungsposition oder deren Stellvertretung im Bereich Textil/Sport\n• Dienstleistungsgedanke: Kundenorientiertes Verhalten und gepflegtes Auftreten\n• Einsatzbereitschaft: Engagiert und flexibel, belastbar, verantwortungsbewusst sowie selbständig\n• Begeisterung: Sie lieben Mode und Sport? Dann machen Sie Ihre Leidenschaft zum Beruf!\n\nBereich: OTTO’S Filialen\n\nPensum: 100%",
         "fr": "Domaine d'activité\n\n• En assumant la responsabilité de l'équipe: Vous dirigez et motivez votre équipe pour obtenir les meilleurs résultats durables\n• Présentation variée des marchandises: Avec des idées créatives vous présentez nos produits de manière attrayante et active promouvoir les ventes\n• L'enthousiasme pour le textile et le sport : votre feu pour le monde du textile et votre joie à traiter avec les gens déclenche l'enthousiasme\n• Gestion professionnelle des marchandises et des entrepôts : Vous traitez la réception des marchandises de manière responsable et vous assurez un flux de marchandises en douceur\n• Scanner le système POS: Vous utilisez notre système POS moderne de manière sûre et efficace et exécutez habilement la fermeture POS\n\nProfil\n\n• Formation: Formation complète dans le commerce de détail\n• Expérience professionnelle: première expérience professionnelle dans un poste de direction ou de député dans le domaine du textile/sport\n• Concept de service : comportement orienté client et apparence bien gardée\n• Dédicace: engagé et flexible, résilient, responsable et indépendant\n• Enthousiasme : Vous aimez la mode et le sport ? Faites de votre passion votre métier!\n\nSecteur: branches OTTO\n\nPensum: 100%"
       },
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://live.solique.ch/ottosag/job/details/4059369",
@@ -9409,14 +9408,15 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
+      "previousSlugs": [
+        "abteilungsleiter-in-textil-sport-ottos-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "abteilungsleiter-in-textil-sport-ottos-zurich"
         ]
       },
-      "previousSlugs": [
-        "abteilungsleiter-in-textil-sport-ottos-zurich"
-      ],
+      "firstSeenAt": "2026-08-24T21:57:44.961Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -9428,9 +9428,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-24T21:57:44.961Z",
-      "needsRetranslation": false
+      }
     },
     {
       "id": "ottos-97596d466308",
@@ -10593,19 +10591,6 @@
       "pensumMin": 60,
       "pensumMax": 80,
       "pensum": "60 - 80%",
-      "salaryMin": 79000,
-      "salaryMax": 121500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 121500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-08-24T21:57:37.199Z",
       "previousSlugs": [
         "aushilfe-verkaufer-in-food-non-food-ottos-wohlen"
       ],
@@ -10619,6 +10604,19 @@
         "fr": [
           "aushilfe-verkaufer-in-food-non-food-ottos-wohlen"
         ]
+      },
+      "firstSeenAt": "2026-08-24T21:57:37.199Z",
+      "salaryMin": 79000,
+      "salaryMax": 121500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 121500,
+          "unitText": "YEAR"
+        }
       }
     },
     {
@@ -11249,19 +11247,6 @@
       "pensumMin": 60,
       "pensumMax": 80,
       "pensum": "60 - 80%",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 127500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-08-24T21:57:32.424Z",
       "previousSlugs": [
         "aushilfe-verkaufer-in-food-non-food-ottos-zurich"
       ],
@@ -11275,6 +11260,19 @@
         "fr": [
           "aushilfe-verkaufer-in-food-non-food-ottos-zurich"
         ]
+      },
+      "firstSeenAt": "2026-08-24T21:57:32.424Z",
+      "salaryMin": 83000,
+      "salaryMax": 127500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 127500,
+          "unitText": "YEAR"
+        }
       }
     },
     {
@@ -13712,13 +13710,11 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-chur",
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-chur"
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-chur",
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-chur"
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-chur"
         ]
       },
       "firstSeenAt": "2026-08-25T10:02:03.337Z",
