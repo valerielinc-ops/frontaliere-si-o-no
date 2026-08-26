@@ -98,6 +98,19 @@ export const MAX_ANCHORS_WITHOUT_NAME_RATE =
  * 20% is `DEFAULT_TOL.relPct` from `scripts/audit-h1-title-duplicates.mjs` —
  * the repo's existing rate-ratchet tolerance, and ~3σ at this draw size. See
  * the noise-floor comment in `report()`.
+ *
+ * RECALIBRATION NOTE (issue #5943, follow-up to #5939): the ~3σ figure above
+ * assumes unnamed-anchor offenders land ~1-per-page, independent draws. If a
+ * shared template instead emits the SAME inaccessible anchor on every page of
+ * a family — offenders CLUSTERED k-per-page rather than spread 1-per-page —
+ * the effective number of independent draws drops by ~k, so the noise floor
+ * this tolerance was sized against shrinks by ~√k: at k=10 the same 20%
+ * tolerance covers only ~1.2σ instead of ~3-3.8σ, i.e. the gate flaps far
+ * more often on which bucket the salt picked. Not yet re-derived because no
+ * offender population has been measured against production dist/ — the
+ * population this gate has run against has always been zero (see
+ * `nonDescriptiveTotal`'s header comment below). Re-check this tolerance once
+ * a real run reports a clustering shape.
  */
 export const RATE_TOLERANCE_REL = 0.20;
 

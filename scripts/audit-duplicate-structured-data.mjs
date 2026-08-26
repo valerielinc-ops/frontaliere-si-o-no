@@ -81,7 +81,15 @@ export function topLevelTypes(jsonBody) {
 
 export function createAuditor(opts = {}) {
   const limit = opts.limit ?? 20;
+  // Counter + bounded sample, same shape and same reason as
+  // `audit-single-h1-per-page.mjs` and `audit-link-anchor-text.mjs`: this is
+  // also a per-page, per-template defect (a shared FAQPage-emitting component
+  // duplicated on one page family), so a wide family can produce O(pages)
+  // offenders — an unbounded `offenders.push()` here is the same accumulator
+  // shape the fold exists to remove elsewhere (issue #5943).
+  let offendersTotal = 0;
   const offenders = [];
+  const OFFENDER_SAMPLE_CAP = 100;
   let filesScanned = 0;
 
   return {
@@ -101,20 +109,35 @@ export function createAuditor(opts = {}) {
       }
       const path = relative(ROOT, file).replace(/^dist\//, '');
       for (const [type, count] of counts) {
-        if (count > 1) offenders.push({ path, type, metric: count });
+        if (count > 1) {
+          offendersTotal += 1;
+          if (offenders.length < OFFENDER_SAMPLE_CAP) {
+            offenders.push({ path, type, metric: count });
+          }
+        }
       }
     },
     report() {
-      const passed = offenders.length === 0;
+      const passed = offendersTotal === 0;
       return {
         passed,
-        offendersTotal: offenders.length,
+        offendersTotal,
         offenders,
         threshold: { metric: 'count', value: 0, comparator: '<=' },
-        extra: { limit, filesScanned, uniqueTypes: [...UNIQUE_TYPES] },
+        extra: {
+          limit,
+          filesScanned,
+          uniqueTypes: [...UNIQUE_TYPES],
+          // Real count, not the sample-capped array length — see the same
+          // field on `audit-single-h1-per-page.mjs` / `audit-link-anchor-
+          // text.mjs` for why the writer's own `offendersTotal` cannot be
+          // trusted once the cap bites.
+          offendersTotalTrue: offendersTotal,
+          offendersListTruncated: offendersTotal > offenders.length,
+        },
         humanSummary: passed
           ? `duplicate structured-data gate: 0 offenders across ${filesScanned} page(s)`
-          : `${offenders.length} duplicate-type violation(s) (GSC rich-results invalid) of ${filesScanned} page(s) scanned`,
+          : `${offendersTotal} duplicate-type violation(s) (GSC rich-results invalid) of ${filesScanned} page(s) scanned`,
       };
     },
   };
