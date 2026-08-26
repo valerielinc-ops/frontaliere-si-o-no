@@ -1264,6 +1264,8 @@ jobs:
         background: true
         env:
           VITEST_DATASET_GROUP: independent
+          # Il gate PR non dipende dal corpus riscritto dai crawler.
+          VITEST_SKIP_LIVE_DATA: 'true'
           # I due gruppi Vitest girano contemporaneamente: su ubuntu-latest
           # (4 vCPU) due worker ciascuno evita che ogni processo apra un pool
           # completo e faccia scadere i test sotto contesa CPU.
@@ -1364,6 +1366,7 @@ jobs:
         # due worker per processo per evitare oversubscription del runner.
         env:
           VITEST_DATASET_GROUP: dependent
+          VITEST_SKIP_LIVE_DATA: 'true'
           VITEST_MAX_WORKERS: 2
           VITEST_CORPUS_SKIP: ${{ steps.corpus.outputs.skip }}
           VITEST_CACHE_DIR: node_modules/.vite-dependent
