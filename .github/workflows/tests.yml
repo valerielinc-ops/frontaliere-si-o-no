@@ -2035,21 +2035,6 @@ jobs:
       # L’autorebase usa esattamente il checkout e npm ci già pagati da questo
       # job. Parte solo dopo il verdetto approvante; un finding, uno skip Claude
       # o un errore del review gate lo saltano automaticamente.
-      - name: Prepare Firebase credentials for autorebase
-        if: steps.review_gate.outputs.approved == 'true'
-        env:
-          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
-        run: |
-          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
-            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
-            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
-          fi
-
-      - name: Load autorebase token
-        if: steps.review_gate.outputs.approved == 'true'
-        continue-on-error: true
-        run: node scripts/load-rc-env.mjs
-
       - name: Mint autorebase App token
         if: steps.review_gate.outputs.approved == 'true'
         continue-on-error: true
@@ -2062,14 +2047,18 @@ jobs:
       - name: Rebase near-merge PRs after approved review
         if: steps.review_gate.outputs.approved == 'true'
         env:
-          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           DRY_RUN: 'false'
-        run: node scripts/ci/pr-autorebase.mjs
+        run: |
+          if [ -z "${APP_TOKEN:-}" ]; then
+            echo "::warning::APP_TOKEN non disponibile: autorebase saltato senza caricare Remote Config o GITHUB_PAT."
+            exit 0
+          fi
+          GH_TOKEN="$APP_TOKEN" node scripts/ci/pr-autorebase.mjs
 
       - name: Cleanup autorebase credentials
         if: always()
-        run: rm -f /tmp/firebase-sa.json
+        run: true
 
       - name: Claude usage metrics
         # Solo se la review Claude è effettivamente girata (guard non-skip): a

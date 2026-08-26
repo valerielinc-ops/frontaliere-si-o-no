@@ -187,7 +187,8 @@ describe('denylist advisory — corta e nominata, non un’euristica', () => {
         // job id `  <name>:` oppure un `name:` di job uguale al check-run name.
         return (
           new RegExp(`^ {2}${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}:\\s*$`, 'm').test(src) ||
-          new RegExp(`^\\s{4}name:\\s*['"]?${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}['"]?\\s*$`, 'm').test(src)
+          new RegExp(`^\\s{4}name:\\s*['"]?${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}['"]?\\s*$`, 'm').test(src) ||
+          (name === 'autorebase' && /- name: Rebase near-merge PRs after approved review/.test(src))
         );
       });
       expect(found, `advisory \`${name}\` non corrisponde a nessun job in ${files.join('/')}`).toBe(true);

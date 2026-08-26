@@ -86,7 +86,7 @@ export const ADVISORY_CHECK_NAMES = Object.freeze({
   'auto-merge':
     'auto-merge-on-lgtm.yml — è il job che produce questa osservazione: contarlo sarebbe circolare',
   autorebase:
-    'pr-autorebase.yml — rebasa la PR, non la giudica; un rosso è un rebase non riuscito',
+    'tests.yml — rebasa la PR dopo una review approvante; un rosso è un rebase non riuscito',
   sweep:
     'auto-merge-sweep.yml / worktree-branch-janitor.yml — spazzino della coda, nessun verdetto sul codice',
   'delete-closed-unmerged':
