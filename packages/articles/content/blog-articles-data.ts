@@ -32340,6 +32340,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'permesso-g-pro-contro-2024',
+ category: 'fiscale',
+ date: '2026-08-26T04:18:38.284Z',
+ image: '/images/blog/permesso-g-pro-contro-2024.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -10808,6 +10808,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tasse-frontalieri-distanza-confine.title': 'Calculation of border taxes over 20 km from the border',
     'blog.article.tasse-frontalieri-distanza-confine.excerpt': 'New 2024 Agreement: €10,000 deductible for new frontier workers, Swiss source tax and Italian tax credit. Calculation guide with examples.',
     'blog.article.tasse-frontalieri-distanza-confine.imageAlt': 'View of Lugano at sunset with lakeside promenade and Alpine mountains in background',
+    'blog.article.permesso-g-pro-contro-2024.title': 'Border permit G: advantages and disadvantages',
+    'blog.article.permesso-g-pro-contro-2024.excerpt': 'Pros and cons of Permit G from 2024: tax, social security, health, mobility. When it is convenient for border crossers Ticino-Italy and how to proceed.',
+    'blog.article.permesso-g-pro-contro-2024.imageAlt': 'Aerial view of Lugano at sunset, showing the urban context where Ticino-Italy cross-border workers commute',
 };
 
 export default blogMetaEn;

@@ -10809,6 +10809,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tasse-frontalieri-distanza-confine.title': 'Calcolo tasse frontalieri oltre 20 km dal confine',
     'blog.article.tasse-frontalieri-distanza-confine.excerpt': 'Nuovo Accordo 2024: franchigia €10.000 per nuovi frontalieri, imposta alla fonte svizzera e credito d\'imposta italiano. Guida al calcolo con esempi.',
     'blog.article.tasse-frontalieri-distanza-confine.imageAlt': 'Veduta di Lugano al tramonto con riva del lago e montagne sullo sfondo',
+    'blog.article.permesso-g-pro-contro-2024.title': 'Permesso G frontaliere: vantaggi e svantaggi',
+    'blog.article.permesso-g-pro-contro-2024.excerpt': 'Pro e contro del Permesso G dal 2024: fisco, previdenza, sanità, mobilità. Quando conviene per frontalieri Ticino-Italia e come procedere.',
+    'blog.article.permesso-g-pro-contro-2024.imageAlt': 'Vista di Lugano al tramonto mostra il contesto urbano dove lavorano i frontalieri Ticino-Italia',
 };
 
 export default blogMetaIt;
