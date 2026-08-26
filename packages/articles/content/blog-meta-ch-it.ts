@@ -4435,6 +4435,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.manor-licenzia-basilea.title': 'Manor licenzia 38 collaboratori presso sede centrale Basilea',
     'blog.article.manor-licenzia-basilea.excerpt': 'Manor licenzia 38 impiegati d\'ufficio a Basilea. L\'azienda promette piano sociale e supporto individuale. Cosa fare se sei tra i colpiti.',
     'blog.article.manor-licenzia-basilea.imageAlt': 'Edificio di uffici moderni a Basilea con architettura contemporanea',
+    'blog.article.pulizie-lavoro-nero-2026.title': 'Lavoro nero nelle pulizie: il crollo dei dichiarati',
+    'blog.article.pulizie-lavoro-nero-2026.excerpt': 'Nel 2025 i dichiaranti sono crollati a 65\'669. Solo 239 controlli nelle case. Il Consiglio federale propone una revisione della legge sul lavoro nero.',
+    'blog.article.pulizie-lavoro-nero-2026.imageAlt': 'Operaia domestica durante il lavoro di pulizia in un appartamento svizzero moderno',
 };
 
 export default blogMetaChIt;

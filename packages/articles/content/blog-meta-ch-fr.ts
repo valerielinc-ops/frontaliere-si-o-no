@@ -4435,6 +4435,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.manor-licenzia-basilea.title': 'Manor licencie 38 collaborateurs au siège de Bâle',
     'blog.article.manor-licenzia-basilea.excerpt': 'Manor licencie 38 employés de bureau à Bâle. L\'entreprise promet un plan social et un soutien individuel. Que faire si vous êtes parmi les personnes touchées.',
     'blog.article.manor-licenzia-basilea.imageAlt': 'Immeuble de bureaux modernes à Bâle avec architecture contemporaine',
+    'blog.article.pulizie-lavoro-nero-2026.title': 'Travail au noir dans le nettoyage : l\'effondrement des déclarés',
+    'blog.article.pulizie-lavoro-nero-2026.excerpt': 'En 2025, les déclarants sont tombés à 65\'669. Seulement 239 contrôles dans les maisons. Le Conseil fédéral propose une révision de la loi sur le travail au noir.',
+    'blog.article.pulizie-lavoro-nero-2026.imageAlt': 'Femme de ménage travaillant dans un appartement suisse moderne',
 };
 
 export default blogMetaChFr;

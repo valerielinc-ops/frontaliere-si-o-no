@@ -1504,6 +1504,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'canicola-70-milioni-bosco': { it: 'canicola-70-milioni-bosco', en: 'heatwave-70-million-forest-agriculture', de: 'hitze-70-millionen-wald-landwirtschaft', fr: 'canicule-70-millions-forets-agriculture' },
  'fondi-federali-bosco-agricoltura': { it: 'fondi-federali-bosco-agricoltura', en: 'federal-funds-forests-agriculture', de: 'bundesrat-gelder-wald-landwirtschaft', fr: 'fonds-federaux-forets-agriculture' },
  'manor-licenzia-basilea': { it: 'manor-licenzia-basilea', en: 'manor-layoffs-basel', de: 'manor-entlassungen-basel', fr: 'manor-licenciements-bale' },
+ 'pulizie-lavoro-nero-2026': { it: 'pulizie-lavoro-nero-2026', en: 'cleaning-work-undeclared-2026', de: 'reinigungsarbeit-schwarzarbeit-2026', fr: 'nettoyage-travail-noir-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

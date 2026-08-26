@@ -57545,6 +57545,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pulizie-lavoro-nero-2026': {
+    title: 'Lavoro nero nelle pulizie: il crollo dei dichiarati',
+    description: 'Nel 2025 i dichiaranti sono crollati a 65\'669. Solo 239 controlli nelle case. Il Consiglio federale propone una revisione della legge sul lavoro nero.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoro, nero, nelle, pulizie',
+    ogTitle: 'Lavoro nero nelle pulizie: il crollo dei dichiarati',
+    ogDescription: 'Lavoro nero nel settore domestico: nel 2025 calo significativo dei dichiarati (65\'669 vs 68\'247 anno precedente). Controlli quasi inesistenti e il Consiglio federale a giugno 2026 propone una revisione della normativa contro il lavoro nero.',
+    canonicalPath: '/articoli-svizzera/pulizie-lavoro-nero-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavoro nero nelle pulizie: il crollo dei dichiarati",
+      "description": "Nel 2025 i dichiaranti sono crollati a 65'669. Solo 239 controlli nelle case. Il Consiglio federale propone una revisione della legge sul lavoro nero.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pulizie-lavoro-nero-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Operaia domestica durante il lavoro di pulizia in un appartamento svizzero moderno"
+      },
+      "datePublished": "2026-08-26T22:28:09+00:00",
+      "dateModified": "2026-08-26T22:28:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pulizie-lavoro-nero-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
