@@ -2,7 +2,6 @@
   "_doc": "BASELINE A SCALARE — vedi tests/gate-wiring.test.ts. Si possono solo TOGLIERE righe.",
   "orphanGates": [
     "scripts/audit-adsense-channels.mjs",
-    "scripts/audit-cannibalization.mjs",
     "scripts/audit-cls-stripping.mjs",
     "scripts/audit-job-content-match.mjs",
     "scripts/audit-umantis-detail-urls.mjs",

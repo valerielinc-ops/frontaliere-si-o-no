@@ -52,7 +52,7 @@
 
 import { readFile, stat } from 'node:fs/promises';
 import { relative } from 'node:path';
-import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
+import { walkHtmlFiles, ROOT, DEFAULT_DIST, sharedExtract } from './lib/audit-runner.mjs';
 import { writeAuditReport } from './lib/auditReport.mjs';
 import { extractMetaDescriptionRaw } from './lib/meta-description-extract.mjs';
 import { evaluateCeiling, familyEntry, readLedgerOrNull } from './lib/seoDefectRatchet.mjs';
@@ -180,6 +180,12 @@ export function createAuditor(opts = {}) {
       const desc = extractMetaDescriptionRaw(html);
       if (!desc) return;
       if (ALLOWLIST_PREFIXES.some((p) => desc.startsWith(p))) return;
+      // `noindex,follow` bridge/tombstone pages (below-floor, legacy-redirect,
+      // self-heal) share a templated description by design and never compete
+      // for a SERP snippet — same reasoning as `isNoindex()` in
+      // audit-cannibalization.mjs, reused here via the shared extractor
+      // instead of a second copy of the regex (#6501).
+      if (sharedExtract(html).isNoindex) return;
       const path = relative(ROOT, file).replace(/^dist\//, '');
       const key = hashKey(desc);
       const entry = byDescription.get(key);
