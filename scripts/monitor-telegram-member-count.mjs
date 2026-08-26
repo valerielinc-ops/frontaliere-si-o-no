@@ -75,24 +75,29 @@ export function evaluateStagnation(history, currentCount, now = new Date()) {
   if (sorted.length === 0) {
     return { stagnant: false, daysUnchanged: 0, reason: 'nessuno storico ancora persistito' };
   }
-  // Most recent recorded day the count DIFFERED from the current value,
-  // scanning from newest to oldest — that day is the start of the current
-  // unchanged streak.
-  let lastChangeDate = null;
+  // Walk backwards from the newest entry while the count keeps matching the
+  // current value: `sinceDate` is the OLDEST entry in that unbroken run —
+  // i.e. the first recorded day the count already held its current value,
+  // not the last day it held the PREVIOUS one (those are different days,
+  // and using the latter overcounts the unchanged streak by the gap between
+  // consecutive runs — see PR discussion on issue #6507).
+  let sinceDate = sorted[sorted.length - 1].date;
+  let changeDate = null;
   for (let i = sorted.length - 1; i >= 0; i--) {
-    if (sorted[i].count !== currentCount) {
-      lastChangeDate = sorted[i].date;
+    if (sorted[i].count === currentCount) {
+      sinceDate = sorted[i].date;
+    } else {
+      changeDate = sorted[i].date;
       break;
     }
   }
-  const sinceDate = lastChangeDate || sorted[0].date;
   const daysUnchanged = daysBetween(sinceDate, nowStr);
   return {
     stagnant: daysUnchanged >= STAGNANT_THRESHOLD_DAYS,
     daysUnchanged,
-    reason: lastChangeDate
-      ? `ultimo cambiamento registrato il ${lastChangeDate}`
-      : `invariato sin dalla prima entry registrata (${sorted[0].date})`,
+    reason: changeDate
+      ? `invariato dal ${sinceDate} (ultimo valore diverso registrato il ${changeDate})`
+      : `invariato sin dalla prima entry registrata (${sinceDate})`,
   };
 }
 
