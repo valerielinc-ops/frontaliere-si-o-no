@@ -57623,6 +57623,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-chronext-fallimento-zugo': {
+    title: 'Chronext chiude: fallimento orologi lusso Zugo',
+    description: 'Fallimento Chronext: società zurighese di orologi di lusso chiude il 19 agosto. Liquidazione dal Tribunale cantonale di Zugo. Aveva 150 dipendenti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, chronext, chiude, fallimento, orologi',
+    ogTitle: 'Chronext chiude: fallimento orologi lusso Zugo',
+    ogDescription: 'Una storia di crescita e fallimento: Chronext, il negozio online di orologi di lusso di Zugo, è andato in bancarotta il 19 agosto. Dalla fondazione nel 2013 ai ricavi di centinaia di milioni, fino ai 150 posti di lavoro a rischio.',
+    canonicalPath: '/articoli-svizzera/chronext-fallimento-zugo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chronext chiude: fallimento orologi lusso Zugo",
+      "description": "Fallimento Chronext: società zurighese di orologi di lusso chiude il 19 agosto. Liquidazione dal Tribunale cantonale di Zugo. Aveva 150 dipendenti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/chronext-fallimento-zugo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Zugo, centro economico della Svizzera, con quartiere degli affari moderno durante l'ora d'oro"
+      },
+      "datePublished": "2026-08-26T23:53:50+00:00",
+      "dateModified": "2026-08-26T23:53:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/chronext-fallimento-zugo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
