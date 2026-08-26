@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "savedAt": "2026-08-26T10:03:46.737Z",
+  "savedAt": "2026-08-26T10:22:50.053Z",
   "entries": [
     {
       "key": "fe2aacc5a67d151452bbcb24f15a356851443ecec9fe5fdaf5f968230431202b",
@@ -246457,15 +246457,6 @@
       }
     },
     {
-      "key": "f481fac4a8b5bed1f025216cea767862cfdc9770c097ad550225a24e2fe2cb76",
-      "touchedAt": 1787698001867,
-      "value": {
-        "isJob": false,
-        "confidence": 0.95,
-        "reason": "This is a generic career program/category page describing Coop's 'Quereinstieg' (career change) initiative with multiple job tracks (Bäcker:in, Chauffeur:in, Fleisch/Fisch, Koch/Köchin), program overview, general benefits, and a contact form. Not a single, concrete job posting with a specific role and application link."
-      }
-    },
-    {
       "key": "00057a9ed3fd44071b725dfce584b4a985c2d9c70fdb5ac32a8eef6c93e1d75a",
       "touchedAt": 1787702807622,
       "value": "## Descrizione\nLa risorsa avrà la responsabilità di definire, monitorare e ottimizzare il programma di produzione di semilavorati e prodotti finiti, garantendo un efficiente equilibrio tra domanda, capacità produttiva e disponibilità dei materiali.\n\n## Responsabilità\n- Definire il programma di produzione per semilavorati e prodotti finiti con l'obiettivo di soddisfare la domanda e ottimizzare costi e livelli di scorte.\n- Verificare con l'ufficio acquisti la disponibilità di materie prime e componenti necessari a garantire la fattibilità del piano.\n- Monitorare il programma di produzione nel breve, medio e lungo periodo, adattandolo alle variazioni della domanda prevista, della capacità produttiva e della strategia produttiva aziendale.\n- Tradurre lericettein distinte produttive, impostare o definire i cicli di produzione e le logiche di gestione e lancio dell'MRP.\n- Monitorare gli ordini di lavoroe analizzare eventuali scostamenti dagli standard previsti, proponendo e implementando azioni di miglioramento.\n- Gestire i livelli distock di sicurezzae monitorare la rotazione dei materiali.\n- Valutare i rischi legati a possibili inefficienze dei flussi produttivi ed elaborare strategie di efficientamento.\n\n## Requisiti\n- Laurea in Ingegneria Gestionale o titolo equivalente.\n- Esperienza pregressa di almeno 3 anni nella pianificazione della produzionee nel demand planning.\n- Ottima conoscenza dei sistemi IT, con particolare riferimento a SAP (moduli di pianificazione e forecasting)\n- Ottima conoscenza della lingua inglese (tedesco nice to have)\n- Capacità analitiche, orientamento alla risoluzione dei problemi e proattività nel proporre soluzioni migliorative.\n- Ottime doti comunicative e attitudine al lavoro in team.\n\n## Soft Skills\n- Comunicazione efficace e attitudine al lavoro in team.\n- Precisione e attenzione ai dettagli.\n- Flessibilità e capacità di lavorare sotto pressione.\n\n## Candidatura\nLe candidature possono essere inviate tramite il link \"Candidati ora\". Sono sufficienti il tuo curriculum vitae, le ultime referenze lavorative e una breve dichiarazione sui motivi per cui desideri iniziare a lavorare con noi.\n\nSaranno prese in considerazione esclusivamente le candidature che soddisfano i criteri richiesti."
@@ -250381,6 +250372,15 @@
         "isJob": true,
         "confidence": 0.98,
         "reason": "This is a specific apprenticeship job listing with concrete details: role title 'Uhrmacher:in Produktion Lehrstelle 2027', exact start date (August 1, 2027), detailed 3-year training structure (base training at ETA workshop, specialization in Production T2 and customer service), specific requirements (math skills, German language, Sek E/Sec education), required qualifications (craftsmanship, attention to detail, reliability, teamwork), work location (Lengnau, Bern), salary/benefits (flexible 40-hour week, health insurance contribution, canteen, training, free parking), and clear application instructions with required documents (motivation letter, CV, certificates)."
+      }
+    },
+    {
+      "key": "f481fac4a8b5bed1f025216cea767862cfdc9770c097ad550225a24e2fe2cb76",
+      "touchedAt": 1787739661435,
+      "value": {
+        "isJob": false,
+        "confidence": 0.96,
+        "reason": "This is a career program landing page describing Coop's 'Quereinstieg' (career change) initiatives with multiple role categories (Baker, Driver, Butcher, Chef), not a single concrete job posting. It provides program information, benefits, and process overview with links to actual job listings elsewhere."
       }
     }
   ]
