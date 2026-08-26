@@ -4420,6 +4420,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.seco-fmi-partenariato-economia.title': 'Bundesrat genehmigt Partnerschaft zwischen SECO und IWF für Wirtschaft',
     'blog.article.seco-fmi-partenariato-economia.excerpt': 'Am 26. August stellte die Schweizer Regierung CHF 40 Mio. für das Programm SECO-FMI 2026-2030 bereit und stärkte damit die globalen Wirtschaftsinstitutionen zugunsten der Schweizer Unternehmen.',
     'blog.article.seco-fmi-partenariato-economia.imageAlt': 'Panoramablick auf Lugano, Wirtschaftszentrum des Tessins, Symbol für internationale Wirtschaftskooperation.',
+    'blog.article.ambiente-globale-176-milioni-2030.title': 'Globale Umwelt: 176 Millionen aus der Schweiz bis 2030',
+    'blog.article.ambiente-globale-176-milioni-2030.excerpt': 'Der Bundesrat genehmigt einen Verpflichtungskredit von 176,23 Millionen Franken zur Finanzierung internationaler Umweltprojekte von 2027 bis 2030, aber das Parlament muss zustimmen.',
+    'blog.article.ambiente-globale-176-milioni-2030.imageAlt': 'Schweizer Alpenlandschaft mit klarem Bergsee umgeben von Nadelwald, Symbol für Umweltschutz.',
 };
 
 export default blogMetaChDe;

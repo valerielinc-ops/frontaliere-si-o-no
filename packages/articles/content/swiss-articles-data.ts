@@ -13258,6 +13258,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ambiente-globale-176-milioni-2030',
+    category: 'novita',
+    date: '2026-08-26T19:24:39.409Z',
+    image: '/images/blog/ambiente-globale-176-milioni-2030.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
