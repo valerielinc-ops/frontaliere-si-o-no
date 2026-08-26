@@ -20,6 +20,13 @@
  *     personal nor a global hour was available (immediate send, no
  *     scheduledAt at all). Reported as "immediate/pre-feature".
  *
+ * `personal` is further split at aggregation time (#6550) into `personal` and
+ * `personal_tail_90_180`: a delivery whose subscriber only cleared
+ * PREFERRED_SEND_MIN_EVENTS thanks to the low-weight 90-180 day tail added to
+ * RECENCY_WINDOWS (functions/src/lib/preferredSendHour.js, PR #6469) is
+ * reported separately instead of folded into `personal` — see
+ * qualifiesOnlyViaTailWindow below.
+ *
  * One-off transactional sends (calculator/LAMal PDF reports, see
  * TRANSACTIONAL_CAMPAIGN_IDS below) are excluded entirely rather than
  * counted as "immediate/pre-feature": they fire instantly on a tool
@@ -87,6 +94,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { twoProportionTest } from '../services/newsletter-ab-stats.mjs';
 import { MissingIndexError } from './lib/missing-index-error.mjs';
+import { PREFERRED_SEND_MIN_EVENTS, PREFERRED_SEND_WINDOW_DAYS } from '../functions/src/lib/preferredSendHour.js';
 
 // #3798 Fix MEDIO #4: a fixed n<100 threshold flags plenty of large-but-close
 // comparisons as "significant" and plenty of small-but-decisive ones as noise.
@@ -393,7 +401,51 @@ async function loadEvents(db, cutoffDate) {
 // ── Aggregation ──────────────────────────────────────────────────────────
 
 export const IMMEDIATE_LABEL = 'immediate/pre-feature';
-export const GROUP_ORDER = ['personal', 'global', IMMEDIATE_LABEL];
+
+/**
+ * Sub-bucket of `personal` (#6550): RECENCY_WINDOWS (functions/src/lib/
+ * preferredSendHour.js, PR #6469) added a low-weight 90-180 day tail so a
+ * sparse subscriber who doesn't clear PREFERRED_SEND_MIN_EVENTS within 90
+ * days gets 90 more days to qualify for a personal preferred_send_hour_utc.
+ * The +14.6pp personal-vs-global open-rate that motivated PR #6469 was
+ * measured before that tail existed, i.e. only on the <90-day cohort — so a
+ * `personal` delivery that only qualifies via the tail is split out into this
+ * bucket instead of being folded into `personal`, letting the report show
+ * whether the signal holds for that weaker sub-cohort too.
+ */
+export const PERSONAL_TAIL_LABEL = 'personal_tail_90_180';
+export const GROUP_ORDER = ['personal', PERSONAL_TAIL_LABEL, 'global', IMMEDIATE_LABEL];
+
+// Boundary of the original (pre-#6469) qualification window — the width of
+// the "recent" side of the split this report draws inside `personal`.
+const PERSONAL_TAIL_WINDOW_DAYS = 90;
+
+/**
+ * Did this subscriber's `personal` hour necessarily come from the low-weight
+ * 90-180 day tail window (RECENCY_WINDOWS) rather than the recent 90 days?
+ * True when they have fewer than PREFERRED_SEND_MIN_EVENTS open/click events
+ * in the 90 days strictly before `sentAt` but reach that count somewhere in
+ * the full PREFERRED_SEND_WINDOW_DAYS (180) lookback — mirrors the cold-start
+ * gate in computePreferredSendHour, using the subscriber's own event history
+ * that this report already loads for the opened/clicked cross-check (see
+ * module docblock) instead of an extra Firestore read.
+ * @param {Date[]} eventTimes - this subscriber's open/click event times (any campaign), unsorted
+ * @param {Date} sentAt
+ * @returns {boolean}
+ */
+export function qualifiesOnlyViaTailWindow(eventTimes, sentAt) {
+  if (!Array.isArray(eventTimes) || eventTimes.length === 0) return false;
+  let within90 = 0;
+  let within180 = 0;
+  for (const t of eventTimes) {
+    if (!(t instanceof Date) || Number.isNaN(t.getTime()) || t >= sentAt) continue;
+    const daysBefore = (sentAt.getTime() - t.getTime()) / DAY_MS;
+    if (daysBefore >= PREFERRED_SEND_WINDOW_DAYS) continue;
+    within180++;
+    if (daysBefore < PERSONAL_TAIL_WINDOW_DAYS) within90++;
+  }
+  return within90 < PREFERRED_SEND_MIN_EVENTS && within180 >= PREFERRED_SEND_MIN_EVENTS;
+}
 
 /**
  * One-off transactional sends (see functions/src/sendCalculatorReport.js
@@ -488,6 +540,11 @@ export function aggregate(deliveryDocs, eventDocs, sinceDate, { maturityCutoff =
   // as the send-side identifier.
   const openedTimes = new Map();
   const clickedTimes = new Map();
+  // Per-subscriber (not per-campaign) open/click history — same event docs,
+  // re-indexed by email alone — used by qualifiesOnlyViaTailWindow (#6550) to
+  // tell whether a `personal` delivery's preferred hour could only have come
+  // from the RECENCY_WINDOWS 90-180 day tail.
+  const eventTimesByEmail = new Map();
   for (const doc of eventDocs) {
     const d = doc.data();
     const groupId = d?.campaign_id || d?.alert_id;
@@ -500,6 +557,10 @@ export function aggregate(deliveryDocs, eventDocs, sinceDate, { maturityCutoff =
     const map = d.event_type === 'open' ? openedTimes : clickedTimes;
     if (email) addEventTime(map, key, time);
     if (msgKey) addEventTime(map, msgKey, time);
+    if (email) {
+      if (!eventTimesByEmail.has(email)) eventTimesByEmail.set(email, []);
+      eventTimesByEmail.get(email).push(time);
+    }
   }
 
   const segments = sinceDate ? { before: newSegment(), after: newSegment() } : { combined: newSegment() };
@@ -528,11 +589,16 @@ export function aggregate(deliveryDocs, eventDocs, sinceDate, { maturityCutoff =
     // both would double-count deliveries.
     if (doc.id !== buildCanonicalDeliveryDocId(campaignId, email)) { droppedNonCanonical++; continue; }
 
-    const groupKey = (d.send_time_source === 'personal' || d.send_time_source === 'global')
+    const sentAt = toDateSafe(d.sent_at);
+    let groupKey = (d.send_time_source === 'personal' || d.send_time_source === 'global')
       ? d.send_time_source
       : IMMEDIATE_LABEL;
+    // #6550: split the tail-qualified sub-cohort out of `personal` (see
+    // PERSONAL_TAIL_LABEL docblock above) instead of folding it in.
+    if (groupKey === 'personal' && qualifiesOnlyViaTailWindow(eventTimesByEmail.get(email), sentAt)) {
+      groupKey = PERSONAL_TAIL_LABEL;
+    }
 
-    const sentAt = toDateSafe(d.sent_at);
     // #3798 Fase 4: window, split and maturity all key off the moment the
     // provider RELEASED the message, not the moment we called its API — see
     // the module docblock. For an unscheduled send the two are the same
@@ -655,6 +721,9 @@ function printSegment(name, cells) {
   console.log(comparisonLine('  → personal vs immediate', cells.personal, cells[IMMEDIATE_LABEL], 'personal', 'immediate'));
   console.log(comparisonLine('  → global vs immediate  ', cells.global, cells[IMMEDIATE_LABEL], 'global', 'immediate'));
   console.log(comparisonLine('  → personal vs global   ', cells.personal, cells.global, 'personal', 'global'));
+  // #6550: does the personal-vs-global signal generalize to the weaker
+  // sub-cohort that only qualifies via the RECENCY_WINDOWS 90-180 day tail?
+  console.log(comparisonLine('  → personal_tail_90_180 vs global', cells[PERSONAL_TAIL_LABEL], cells.global, 'personal_tail_90_180', 'global'));
   console.log('');
   console.log(formatCoverageNote(cells));
   // Treated-only (per-protocol) view: restricted to deliveries that really
