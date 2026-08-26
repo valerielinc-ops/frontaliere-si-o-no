@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swisslog",
-  "assembledAt": "2026-08-25T21:35:01.878Z",
+  "assembledAt": "2026-08-26T09:56:02.365Z",
   "jobs": [
     {
       "id": "swisslog-34572dec2de5",
@@ -33,7 +33,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/automatikerin-efz-4097",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:34:59.290Z",
+      "crawledAt": "2026-08-26T09:55:59.421Z",
       "addressLocality": "Argovia",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -116,7 +116,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/servicetechnikerin-mechanik-mwd-4094",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:34:59.290Z",
+      "crawledAt": "2026-08-26T09:55:59.421Z",
       "addressLocality": "Argovia",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -197,7 +197,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/working-student-quality-60-mwd-4396",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:34:59.289Z",
+      "crawledAt": "2026-08-26T09:55:59.420Z",
       "addressLocality": "Argovia",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -234,6 +234,7 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:16:12.590Z",
+      "needsRetranslation": true,
       "salaryMin": 37200,
       "salaryMax": 56400,
       "baseSalary": {
@@ -262,7 +263,7 @@
       "title": "Controls Software Service Engineer (Siemens) (m/w/d)",
       "titleByLocale": {
         "it": "Controls Software Service Ingegnere (Siemens) (m/w/d)",
-        "en": "Controls Software Service Engineer (Siemens) (m/f/d)",
+        "en": "Controls Software Service Engineer (Siemens) (m/w/d)",
         "de": "Controls Software Service Ingenieur (Siemens) (m/w/d)",
         "fr": "Controls Software Service Ingénieur (Siemens) (m/w/d)"
       },
@@ -278,7 +279,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/controls-software-service-engineer-siemens-mwd-3751",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:34:59.289Z",
+      "crawledAt": "2026-08-26T09:55:59.420Z",
       "addressLocality": "Argovia",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -366,7 +367,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/apprentice-computer-scientist-mwd-4458",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:34:59.288Z",
+      "crawledAt": "2026-08-26T09:55:59.419Z",
       "addressLocality": "Argovia",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -444,7 +445,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/instandhaltungstechniker-mwd-4384",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:34:59.288Z",
+      "crawledAt": "2026-08-26T09:55:59.419Z",
       "addressLocality": "Argovia",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -508,7 +509,7 @@
       "title": "Software Project Manager (m/w/d)",
       "titleByLocale": {
         "it": "Software Project Manager (m/f/d)",
-        "en": "Software Project Manager (m/f/d)",
+        "en": "Software Project Manager (m/w/d)",
         "de": "Software Project Manager (m/w/d)",
         "fr": "Gestionnaire de projet logiciel (m/f/d)"
       },
@@ -524,7 +525,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/software-project-manager-mwd-4385",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:34:59.286Z",
+      "crawledAt": "2026-08-26T09:55:59.417Z",
       "addressLocality": "Argovia",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -562,6 +563,7 @@
         ]
       },
       "firstSeenAt": "2026-08-06T11:32:14.801Z",
+      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500,
       "baseSalary": {
