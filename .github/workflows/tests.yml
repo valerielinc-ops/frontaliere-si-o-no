@@ -939,15 +939,16 @@ jobs:
         background: true
         run: node scripts/ci/check-client-lookbehind.mjs
 
-      # Stessa condizione ESATTA dei due `background:` qui sopra: si rijoina ciò
-      # che si è forkato. Prima della fusione la condizione era implicita — il
-      # job `contract` era `pull_request`-only, quindi questo `wait-all` non
-      # girava mai su un push a main. Nel job fuso girerebbe, con zero step in
-      # background da attendere, e un join a vuoto sul percorso che produce il
-      # verdetto di salute di main è un rischio che non vale la pena correre
-      # («main rosso blocca a cascata», AGENTS.md) per una riga.
+      # NB: niente `if:` qui, ed è una constatazione, non una dimenticanza. Un
+      # primo tentativo gli aveva messo la stessa condizione dei due
+      # `background:` qui sopra (rijoinare solo ciò che si è forkato, dato che
+      # nel job fuso questo step gira anche su push mentre prima il job
+      # `contract` era `pull_request`-only). GitHub ha rifiutato l'intero file:
+      # run 32936857718, `failure` con ZERO job, cioè la firma del workflow
+      # invalido. Uno step `wait-all` accetta `name` e `wait-all`, non `if`.
+      # Il join a vuoto su push è comunque innocuo: senza step in background da
+      # attendere non c'è niente da aspettare.
       - name: Wait for background source guards
-        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
         wait-all: true
 
       # ══════════════════════════════════════════════════════════════════════
