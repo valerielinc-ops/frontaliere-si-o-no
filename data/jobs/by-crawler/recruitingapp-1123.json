@@ -1,6 +1,6 @@
 {
   "crawlerKey": "recruitingapp-1123",
-  "assembledAt": "2026-08-25T21:46:50.754Z",
+  "assembledAt": "2026-08-26T10:27:25.266Z",
   "jobs": [
     {
       "id": "recruitingapp-1123-ee08b7105086",
@@ -30,7 +30,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2482/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:46:44.573Z",
+      "crawledAt": "2026-08-26T10:27:20.696Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -105,7 +105,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2481/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-25T21:46:44.271Z",
+      "crawledAt": "2026-08-26T10:27:20.393Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -140,20 +140,20 @@
       "id": "recruitingapp-1123-37e0cbdd9ce0",
       "slug": "projekttechniker-in-hkls-m-w-d-big-are-stellen-lugano",
       "slugByLocale": {
-        "fr": "projekttechniker-in-hkls-m-w-d-recruitingapp-1123-ch",
         "it": "projekttechniker-in-hkls-m-w-d-big-are-stellen-lugano",
         "en": "projekttechniker-in-hkls-m-w-d-big-are-stellen-lugano",
-        "de": "projekttechniker-in-hkls-m-w-d-big-are-stellen-lugano"
+        "de": "projekttechniker-in-hkls-m-w-d-big-are-stellen-lugano",
+        "fr": "projekttechniker-in-hkls-m-w-d-recruitingapp-1123-ch"
       },
       "company": "BIG & ARE Stellen",
       "companyKey": "recruitingapp-1123",
       "companyDomain": "recruitingapp-1123.umantis.com",
       "title": "Projekttechniker:in HKLS (m/w/d)",
       "titleByLocale": {
-        "fr": "Projekttechniker:in HKLS (m/w/d)",
-        "de": "Projekttechniker:in HKLS (m/w/d)",
         "it": "Projekttechniker:in HKLS (m/w/d)",
-        "en": "Projekttechniker:in HKLS (m/w/d)"
+        "en": "Projekttechniker:in HKLS (m/w/d)",
+        "de": "Projekttechniker:in HKLS (m/w/d)",
+        "fr": "Projekttechniker:in HKLS (m/w/d)"
       },
       "description": "Projekttechniker:in HKLS (m/w/d) — BIG & ARE Stellen",
       "descriptionByLocale": {
@@ -164,7 +164,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2493/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-25T21:46:43.968Z",
+      "crawledAt": "2026-08-26T10:27:20.091Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -178,22 +178,23 @@
       "postedDate": "2026-08-25",
       "applyUrl": "https://recruitingapp-1123.umantis.com/Vacancies/2493/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "projekttechniker-in-hkls-m-w-d-recruitingapp-1123-ch",
+        "projekttechniker-in-hkls-m-w-d-big-are-stellen-lugano-4br67r",
+        "projekttechniker-in-hkls-m-w-d-recruitingapp-1123-ch-2",
+        "projekttechniker-in-hkls-m-w-d-big-are-stellen-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "projekttechniker-in-hkls-m-w-d-recruitingapp-1123-ch",
           "projekttechniker-in-hkls-m-w-d-big-are-stellen-lugano-4br67r",
-          "projekttechniker-in-hkls-m-w-d-recruitingapp-1123-ch-2"
+          "projekttechniker-in-hkls-m-w-d-recruitingapp-1123-ch-2",
+          "projekttechniker-in-hkls-m-w-d-big-are-stellen-lugano"
         ]
       },
-      "previousSlugs": [
-        "projekttechniker-in-hkls-m-w-d-recruitingapp-1123-ch",
-        "projekttechniker-in-hkls-m-w-d-big-are-stellen-lugano-4br67r",
-        "projekttechniker-in-hkls-m-w-d-recruitingapp-1123-ch-2"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-25T21:46:43.968Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -206,27 +207,26 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:46:43.968Z"
+      "addressRegion": "TI"
     },
     {
       "id": "recruitingapp-1123-39d504df3287",
       "slug": "applikationsbetreuer-in-in-der-immobilienverwaltung-m-w-d-big-are-stellen-lugano",
       "slugByLocale": {
-        "fr": "applikationsbetreuer-in-in-der-immobilienverwaltung-m-w-d-recruitingapp-1123-ch",
         "it": "applikationsbetreuer-in-in-der-immobilienverwaltung-m-w-d-big-are-stellen-lugano",
         "en": "applikationsbetreuer-in-in-der-immobilienverwaltung-m-w-d-big-are-stellen-lugano",
-        "de": "applikationsbetreuer-in-in-der-immobilienverwaltung-m-w-d-big-are-stellen-lugano"
+        "de": "applikationsbetreuer-in-in-der-immobilienverwaltung-m-w-d-big-are-stellen-lugano",
+        "fr": "applikationsbetreuer-in-in-der-immobilienverwaltung-m-w-d-recruitingapp-1123-ch"
       },
       "company": "BIG & ARE Stellen",
       "companyKey": "recruitingapp-1123",
       "companyDomain": "recruitingapp-1123.umantis.com",
       "title": "Applikationsbetreuer:in in der Immobilienverwaltung (m/w/d)",
       "titleByLocale": {
-        "fr": "Applikationsbetreuer:in in der Immobilienverwaltung (m/w/d)",
-        "de": "Applikationsbetreuer:in in der Immobilienverwaltung (m/w/d)",
         "it": "Applikationsbetreuer:in in der Immobilienverwaltung (m/w/d)",
-        "en": "Applikationsbetreuer:in in der Immobilienverwaltung (m/w/d)"
+        "en": "Applikationsbetreuer:in in der Immobilienverwaltung (m/w/d)",
+        "de": "Applikationsbetreuer:in in der Immobilienverwaltung (m/w/d)",
+        "fr": "Applikationsbetreuer:in in der Immobilienverwaltung (m/w/d)"
       },
       "description": "Applikationsbetreuer:in in der Immobilienverwaltung (m/w/d) — BIG & ARE Stellen",
       "descriptionByLocale": {
@@ -237,7 +237,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2440/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-25T21:46:43.363Z",
+      "crawledAt": "2026-08-26T10:27:19.484Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -251,18 +251,19 @@
       "postedDate": "2026-08-25",
       "applyUrl": "https://recruitingapp-1123.umantis.com/Vacancies/2440/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "applikationsbetreuer-in-in-der-immobilienverwaltung-m-w-d-recruitingapp-1123-ch",
+        "applikationsbetreuer-in-in-der-immobilienverwaltung-m-w-d-big-are-stellen-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "applikationsbetreuer-in-in-der-immobilienverwaltung-m-w-d-recruitingapp-1123-ch"
+          "applikationsbetreuer-in-in-der-immobilienverwaltung-m-w-d-recruitingapp-1123-ch",
+          "applikationsbetreuer-in-in-der-immobilienverwaltung-m-w-d-big-are-stellen-lugano"
         ]
       },
-      "previousSlugs": [
-        "applikationsbetreuer-in-in-der-immobilienverwaltung-m-w-d-recruitingapp-1123-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-25T21:46:43.363Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -275,8 +276,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:46:43.363Z"
+      "addressRegion": "TI"
     },
     {
       "id": "recruitingapp-1123-fd9661f7604f",
@@ -306,7 +306,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2426/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:46:43.060Z",
+      "crawledAt": "2026-08-26T10:27:19.182Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -383,7 +383,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2465/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-25T21:46:42.758Z",
+      "crawledAt": "2026-08-26T10:27:18.880Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -452,7 +452,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2473/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:46:42.455Z",
+      "crawledAt": "2026-08-26T10:27:18.577Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -527,7 +527,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2479/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:46:42.153Z",
+      "crawledAt": "2026-08-26T10:27:18.275Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -604,7 +604,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2497/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:46:41.835Z",
+      "crawledAt": "2026-08-26T10:27:17.950Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -721,7 +721,7 @@
         }
       },
       "addressRegion": "TI",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "recruitingapp-1123-1bfebed44d5c",
@@ -791,7 +791,7 @@
         }
       },
       "addressRegion": "TI",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "recruitingapp-1123-f0b35ace98cf",
@@ -854,74 +854,6 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T09:37:55.341Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "recruitingapp-1123-25184cd67246",
-      "slug": "servicetechniker-in-hkls-campus-wu-m-w-d-big-are-stellen-lugano",
-      "slugByLocale": {
-        "it": "servicetechniker-in-hkls-campus-wu-m-w-d-big-are-stellen-lugano",
-        "en": "servicetechniker-in-hkls-campus-wu-m-w-d-big-are-stellen-lugano",
-        "de": "servicetechniker-in-hkls-campus-wu-m-w-d-big-are-stellen-lugano",
-        "fr": "servicetechniker-in-hkls-campus-wu-m-w-d-recruitingapp-1123-ch"
-      },
-      "company": "BIG & ARE Stellen",
-      "companyKey": "recruitingapp-1123",
-      "companyDomain": "recruitingapp-1123.umantis.com",
-      "title": "Servicetechniker:in HKLS Campus WU (m/w/d)",
-      "titleByLocale": {
-        "it": "Servicetechniker:in HKLS Campus WU (m/w/d)",
-        "en": "Servicetechniker:in HKLS Campus WU (m/f/d)",
-        "de": "Servicetechniker:in HKLS Campus WU (m/w/d)",
-        "fr": "Servicetechniker:in HKLS Campus WU (h/f/d)"
-      },
-      "description": "Servicetechniker:in HKLS Campus WU (m/w/d) — BIG & ARE Stellen",
-      "descriptionByLocale": {
-        "fr": "Servicetechniker:in HKLS Campus WU (m/w/d) — BIG & ARE Stellen"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://recruitingapp-1123.umantis.com/Vacancies/2504/Description/1",
-      "source": "BIG & ARE Stellen Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-24T22:01:19.021Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-23",
-      "applyUrl": "https://recruitingapp-1123.umantis.com/Vacancies/2504/Description/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "servicetechniker-in-hkls-campus-wu-m-w-d-recruitingapp-1123-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "servicetechniker-in-hkls-campus-wu-m-w-d-recruitingapp-1123-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T09:37:56.254Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
