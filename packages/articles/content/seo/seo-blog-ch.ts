@@ -57779,6 +57779,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-naturalizzazione-ordinaria-lucerna-guida': {
+    title: 'Naturalizzazione Lucerna: 10 anni e doppio conteggio',
+    description: 'Permesso C, 10 anni di residenza, doppio conteggio tra 8-18 anni. Scopri come accedere alla cittadinanza svizzera nel canton Lucerna: requisiti, procedure',
+    keywords: 'frontalieri, ticino, svizzera, italia, naturalizzazione, lucerna, anni, doppio',
+    ogTitle: 'Naturalizzazione Lucerna: 10 anni e doppio conteggio',
+    ogDescription: 'Guida completa alla naturalizzazione nel canton Lucerna. Permesso C, 10 anni di residenza con possibile doppio conteggio tra 8-18 anni, requisiti di lingua e integrazione, procedure comunali e cantonali, tempistiche da 6-12+ mesi. Verifica',
+    canonicalPath: '/articoli-svizzera/naturalizzazione-ordinaria-lucerna-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Naturalizzazione Lucerna: 10 anni e doppio conteggio",
+      "description": "Permesso C, 10 anni di residenza, doppio conteggio tra 8-18 anni. Scopri come accedere alla cittadinanza svizzera nel canton Lucerna: requisiti, procedure",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/naturalizzazione-ordinaria-lucerna-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrativo del canton Lucerna con documenti di naturalizzazione e certificati di residenza"
+      },
+      "datePublished": "2026-08-27T02:16:11+00:00",
+      "dateModified": "2026-08-27T02:16:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/naturalizzazione-ordinaria-lucerna-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -4453,6 +4453,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assegni-familiari-lucerna-come-richiedere.title': 'Allocations familiales Lucerne : montants et procédure',
     'blog.article.assegni-familiari-lucerna-come-richiedere.excerpt': 'Comment demander les allocations familiales à Lucerne : qui y a droit, montants mensuels par enfant, documents nécessaires et procédure de demande auprès de la caisse de compensation.',
     'blog.article.assegni-familiari-lucerna-come-richiedere.imageAlt': 'Intérieur d\'un bureau administratif cantonal suisse où une famille reçoit des informations sur les allocations familiales.',
+    'blog.article.naturalizzazione-ordinaria-lucerna-guida.title': 'Naturalisation Lucerne : 10 ans et double comptage',
+    'blog.article.naturalizzazione-ordinaria-lucerna-guida.excerpt': 'Le permis C et 10 ans de résidence sont l\'exigence fédérale. Les périodes entre 8 et 18 ans comptent double. Découvrez les procédures, les délais et les coûts de la naturalisation à Lucerne.',
+    'blog.article.naturalizzazione-ordinaria-lucerna-guida.imageAlt': 'Bureau administratif du canton de Lucerne avec documents de naturalisation et certificats de résidence',
 };
 
 export default blogMetaChFr;

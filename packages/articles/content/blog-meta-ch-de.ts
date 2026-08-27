@@ -4453,6 +4453,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assegni-familiari-lucerna-come-richiedere.title': 'Familienzulagen Luzern: Beträge und Verfahren',
     'blog.article.assegni-familiari-lucerna-come-richiedere.excerpt': 'So beantragen Sie Familienzulagen in Luzern: wer berechtigt ist, monatliche Beträge pro Kind, notwendige Unterlagen und Antragsverfahren bei der Ausgleichskasse.',
     'blog.article.assegni-familiari-lucerna-come-richiedere.imageAlt': 'Innenraum eines Schweizer Verwaltungsbüros, in dem eine Familie Informationen zu Familienleistungen erhält.',
+    'blog.article.naturalizzazione-ordinaria-lucerna-guida.title': 'Einbürgerung Luzern: 10 Jahre und Doppelzählung',
+    'blog.article.naturalizzazione-ordinaria-lucerna-guida.excerpt': 'C-Bewilligung und 10 Jahre Aufenthalt sind die Bundesvoraussetzung. Perioden zwischen 8 und 18 Jahren zählen doppelt. Entdecken Sie Verfahren, Zeiten und Kosten für die Einbürgerung in Luzern.',
+    'blog.article.naturalizzazione-ordinaria-lucerna-guida.imageAlt': 'Verwaltungsbüro des Kantons Luzern mit Einbürgerungsdokumenten und Wohnbescheinigungen',
 };
 
 export default blogMetaChDe;

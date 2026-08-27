@@ -1510,6 +1510,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'glarner-dimissioni-consiglio-nazionale': { it: 'glarner-dimissioni-consiglio-nazionale', en: 'glarner-resigns-national-council', de: 'glarner-traegt-nationalrat-nieder', fr: 'glarner-demission-conseil-national' },
  'danni-parcheggio-rincari-2025': { it: 'danni-parcheggio-rincari-2025', en: 'parking-damage-costs-2025', de: 'parkplatz-schaden-kosten-2025', fr: 'dommages-parking-augmentation-2025' },
  'assegni-familiari-lucerna-come-richiedere': { it: 'assegni-familiari-lucerna-come-richiedere', en: 'family-allowances-lucerne-how-to-apply', de: 'familienleistungen-luzern-antrag-verfahren', fr: 'allocations-familiales-lucerne-demande-procedure' },
+ 'naturalizzazione-ordinaria-lucerna-guida': { it: 'naturalizzazione-ordinaria-lucerna-guida', en: 'naturalization-ordinary-lucerne-guide', de: 'einbuergerung-ordentlich-luzern-anleitung', fr: 'naturalisation-ordinaire-lucerne-guide' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
