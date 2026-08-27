@@ -548,7 +548,12 @@ describe('no email of any kind to an address with a recorded opt-out (#5734)', (
       // somebody to redo a thing they already did.
       hadConfirmationProof: false,
     });
-    await vi.waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1));
+    // Default vi.waitFor timeout (1000ms) races the fire-and-forget chain's
+    // `await import('@/services/i18n')`, whose resolution latency isn't
+    // bounded — a cold module cache or contended local CPU can push it past
+    // 1000ms well within the suite's own 15000ms testTimeout, causing a
+    // false-negative that isn't a regression in the assert itself.
+    await vi.waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1), { timeout: 10000, interval: 50 });
     const [url] = fetchMock.mock.calls[0] as [string, RequestInit];
     expect(url).toBe(`${FUNCTIONS_BASE}/newsletterSendConfirmation`);
   });
