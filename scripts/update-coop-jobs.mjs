@@ -5,18 +5,24 @@
  * crawler collects Coop jobs CH-wide across all 26 cantons (Cathedral) and
  * enforces full locale coverage for SEO-critical fields.
  *
- * The Coop careers portal uses the Prospective.ch JobBooster platform.
- * The listing page at jobs.coopjobs.ch is a client-side SPA that cannot
- * be crawled directly. Instead, this script:
- *   1. Fetches the Prospective.ch JSON API (UNFILTERED — no canton facet) to
- *      discover every Swiss job detail URL, paginating through the full result
- *      set (API returns up to `limit` jobs per page).
+ * The Coop careers portal uses the Prospective.ch JobBooster platform. That
+ * medium (1000103, "Coop Group career center") is SHARED with acquired Coop
+ * Group subsidiaries — Fust, Jumbo, Interdiscount, Betty Bossi, CHRIST,
+ * railCare, Marché, Two Spice, BâleHotels, Transgourmet/Prodega, etc. — all
+ * served under the same jobs.coopjobs.ch domain, each with its own dedicated
+ * crawler. The listing page is a client-side SPA that cannot be crawled
+ * directly. Instead, this script:
+ *   1. Fetches the Prospective.ch JSON API, scoped server-side to Coop's own
+ *      internal division attribute-70 values (see COOP_DIVISION_FILTER_IDS —
+ *      no canton facet, so all 26 cantons are covered in one pass), to
+ *      discover every Coop (not-subsidiary) job detail URL, paginating
+ *      through the full result set (API returns up to `limit` jobs per page).
  *   2. Sets those SSR detail URLs as adapter seed URLs.
  *   3. Runs the base crawler which fetches each detail page and parses
  *      the JSON-LD JobPosting structured data embedded in it.
  *
  * API endpoints used:
- *   - Jobs:       https://ohws.prospective.ch/public/v1/medium/1000103/jobs?lang=it&offset=0&limit=500
+ *   - Jobs:       https://ohws.prospective.ch/public/v1/medium/1000103/jobs?lang=it&offset=0&limit=500&f=70:<COOP_DIVISION_FILTER_IDS>
  *                 (no `f=30:{cantonId}` filter → all CH cantons)
  *   - Attributes: https://ohws.prospective.ch/public/v1/medium/1000103/attributes?lang=it
  *
@@ -87,21 +93,46 @@ const COOP_TRANSLATIONS_CACHE = path.resolve(ROOT, 'data', 'jobs', 'by-crawler',
 
 /**
  * Prospective.ch Career Center API for Coop.
- * Medium ID 1000103 = Coop's career center.
+ * Medium ID 1000103 = Coop's career center (shared with acquired Coop Group
+ * subsidiaries — see file header).
  *
- * CH-wide fetch: we issue an UNFILTERED query (no `f=30:{cantonId}` canton
- * facet), which the API answers with every Swiss Coop-group job across all 26
- * cantons (the canton facet enumerates all 26 — verified live). The single
- * unfiltered query also implicitly covers all 3 website tabs (Offerte di
- * lavoro / Posti di apprendistato / Tirocini di prova), so no per-position
- * fan-out is needed. We paginate via offset/limit until the full result set is
- * drained.
+ * CH-wide fetch: no `f=30:{cantonId}` canton facet, so the API answers with
+ * every job across all 26 cantons in one pass (the canton facet enumerates
+ * all 26 — verified live), implicitly covering all 3 website tabs (Offerte
+ * di lavoro / Posti di apprendistato / Tirocini di prova) too. We DO scope
+ * the query server-side to attribute 70 ("Azienda"), restricted to Coop's own
+ * internal division values (COOP_DIVISION_FILTER_IDS) — this excludes
+ * subsidiary brands that live on the same medium/domain (#5975: without this
+ * filter, and with the client-side isCoopJob() matcher's permissive
+ * `host.includes('coopjobs.ch')` branch, ~680 Fust/Jumbo/Interdiscount/etc.
+ * jobs were leaking into the Coop slice — the same root cause documented for
+ * fust.json in #5975). We paginate via offset/limit until the full result
+ * set is drained.
  *
  * Per-job canton comes from attribute 30 (a localized canton label such as
  * "Zurigo", "Vallese", "Ticino"), resolved CH-wide by inferAnyCanton. The
  * JSON-LD post-process later refines it with the SSR detail page addressRegion.
  */
 const API_BASE = 'https://ohws.prospective.ch/public/v1/medium/1000103';
+
+// Attribute 70 ("Azienda") value ids for Coop's OWN internal store/division
+// formats on medium 1000103 — confirmed against
+// /public/v1/medium/1000103/attributes. Distinct from acquired subsidiary
+// brands (Fust=1114045, Jumbo=1343965, Interdiscount=1114048, ...), which
+// have their own dedicated crawlers and must stay out of this slice.
+const COOP_DIVISION_FILTER_IDS = [
+  '1114036', // Coop
+  '1114069', // coop.ch
+  '1114039', // Coop City
+  '1114040', // Coop Pronto AG
+  '1114041', // Coop Pronto
+  '1114075', // Coop Ristorante
+  '1114042', // Coop Trading
+  '1400311', // Coop Immobilien
+  '1114038', // Coop Tagungszentrum
+  '1114070', // Coop Cassa Depositi
+  '1236129', // Cassa di compensazione Coop
+].join(',');
 
 const API_LIMIT = 500; // max jobs per request
 const API_MAX_PAGES = 20; // hard ceiling: 20 * 500 = 10000 jobs (safety stop)
@@ -137,30 +168,48 @@ function detectLang(text = '') {
   return detectLanguage(text, 'it');
 }
 
+// Coop's own internal division/store-format names (see
+// COOP_DIVISION_FILTER_IDS above for the matching attribute-70 ids), as they
+// appear in the scraped JSON-LD `company` text. Matched by EXACT set
+// membership rather than a loose substring/word check: subsidiary jobs often
+// describe themselves in prose as "division of Coop" (e.g.
+// company="Jumbo, Division der Coop Genossenschaft"), so a substring test for
+// "coop" would wrongly admit them.
+const COOP_DIVISION_COMPANY_NAMES = new Set([
+  'coop',
+  'coop genossenschaft',
+  'coop.ch',
+  'coop city',
+  'coop pronto',
+  'coop pronto ag',
+  'coop ristorante',
+  'coop trading',
+  'coop immobilien',
+  'coop tagungszentrum',
+  'coop cassa depositi',
+  'cassa di compensazione coop',
+]);
+
 /**
  * Match a job object as belonging to the Coop crawl.
+ *
+ * A present `company` field is authoritative (it comes from the scraped
+ * JSON-LD detail page, i.e. the real employer): a job whose company text
+ * doesn't name one of Coop's own divisions is NOT Coop even if its
+ * companyKey was stamped 'coop-ticino' upstream (#5975 — companyKey alone
+ * used to be sufficient here, and every job seeded from this crawler shares
+ * that companyKey regardless of the real employer; combined with
+ * `host.includes('coopjobs.ch')` matching virtually anything on the shared
+ * Coop Group portal, ~680 Fust/Jumbo/Interdiscount/etc. jobs ended up
+ * counted as Coop — the same contamination mechanism documented for
+ * fust.json in #5975). companyKey is only trusted as a fallback when company
+ * is missing.
  */
-function isCoopJob(job) {
-  const key = normalizeKey(job?.companyKey || job?.company || '');
+export function isCoopJob(job) {
   const company = normalize(job?.company || '');
-  const url = String(job?.url || '').toLowerCase();
-  const host = (() => {
-    try {
-      return new URL(url).hostname.toLowerCase();
-    } catch {
-      return '';
-    }
-  })();
-  // Word-boundary check: 'coop' the brand, not 'cooperativa' (which matches Migros)
-  const hasCoopWord = /\bcoop\b/.test(company);
-  return (
-    key === COOP_KEY ||
-    key.includes('coop-ticino') ||
-    key.includes('coop-gruppo') ||
-    host.includes('coopjobs.ch') ||
-    host.includes('jobs.coop.ch') ||
-    (hasCoopWord && (company.includes('ticino') || company.includes('genossenschaft')))
-  );
+  if (company) return COOP_DIVISION_COMPANY_NAMES.has(company);
+  const key = normalizeKey(job?.companyKey || '');
+  return key === COOP_KEY || key.includes('coop-ticino') || key.includes('coop-gruppo');
 }
 
 /**
@@ -275,6 +324,9 @@ async function fetchCoopJobDetailUrls() {
       offset: String(offset),
       limit: String(API_LIMIT),
     });
+    // Company filter: Coop's own divisions only (server-side — see
+    // COOP_DIVISION_FILTER_IDS above). Comma-joined ids are OR'd by the API.
+    params.append('f', `70:${COOP_DIVISION_FILTER_IDS}`);
     const apiUrl = `${API_BASE}/jobs?${params}`;
     console.log(`🔍 Fetching Coop CH-wide page ${page + 1} (offset ${offset})…`);
 
@@ -906,4 +958,15 @@ async function main() {
   }
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Coop'));
+// Only run main() when invoked as a script, not when imported by tests.
+const isInvokedDirectly = (() => {
+  try {
+    return import.meta.url === `file://${process.argv[1]}`;
+  } catch {
+    return false;
+  }
+})();
+
+if (isInvokedDirectly) {
+  main().catch((err) => exitCrawlerOnError(err, 'Coop'));
+}
