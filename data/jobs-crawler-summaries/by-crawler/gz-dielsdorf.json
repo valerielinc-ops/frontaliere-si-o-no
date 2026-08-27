@@ -1,23 +1,24 @@
 {
   "key": "gz-dielsdorf",
   "label": "Gesundheitszentrum Dielsdorf",
-  "generatedAt": "2026-08-26T10:13:19.897Z",
-  "total": 17,
+  "generatedAt": "2026-08-27T00:53:31.394Z",
+  "total": 16,
   "discovered": null,
-  "written": 17,
-  "newCount": 2,
-  "updatedCount": 14,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4217,
-  "avgDurationMs": 4217,
+  "written": 16,
+  "newCount": 0,
+  "updatedCount": 16,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4009,
+  "avgDurationMs": 4009,
   "durationHistory": [
-    4217
+    4009
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "gz-dielsdorf-506b243e5208",
-      "slug": "studium-pflegefachfrau-mann-hf-spitex-gz-dielsdorf-regensdorf",
+      "slug": "studium-pflegefachfrau-mann-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf",
       "company": "Gesundheitszentrum Dielsdorf",
       "companyKey": "gz-dielsdorf",
       "companyDomain": "gz-dielsdorf.ch",
@@ -28,7 +29,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/ef32664f-32dd-4c02-8404-68bc87bb25d4",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:13:16.543Z",
+      "crawledAt": "2026-08-27T00:53:28.310Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -44,11 +45,12 @@
       "featured": false,
       "postedDate": "2026-08-25",
       "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/646/Application/CheckLogin/1?lang=ger",
-      "_qualityScore": 58,
+      "firstSeenAt": "2026-08-26T10:13:16.543Z",
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
     },
@@ -65,7 +67,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/eabd48e5-84ee-4d19-8697-08af23eb9ff4",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:13:16.563Z",
+      "crawledAt": "2026-08-27T00:53:28.343Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -81,16 +83,15 @@
       "featured": false,
       "postedDate": "2026-08-25",
       "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/680/Application/CheckLogin/1?lang=ger",
-      "_qualityScore": 58,
+      "firstSeenAt": "2026-08-26T10:13:16.563Z",
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "gz-dielsdorf-4abe5f6a8444",
       "slug": "dipl-pflegefachperson-hf-gz-dielsdorf-regensdorf",
@@ -104,7 +105,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/235e85e5-32cf-40da-ad55-3b389ad19a73",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:13:16.565Z",
+      "crawledAt": "2026-08-27T00:53:28.345Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -142,7 +143,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/a2dc93a9-8497-4645-a300-27e6daa437dd",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:13:16.569Z",
+      "crawledAt": "2026-08-27T00:53:28.349Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -180,7 +181,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/04fbcd79-75ef-4d5c-bb25-efc2d7a8a3d6",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:13:16.572Z",
+      "crawledAt": "2026-08-27T00:53:28.352Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -218,7 +219,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/d915e5b4-cb5d-4b6a-88dc-805e7d649a78",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:13:16.574Z",
+      "crawledAt": "2026-08-27T00:53:28.354Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -256,7 +257,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/d79d5f19-5e5a-4c9b-a63c-00dcef3c73da",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:13:16.576Z",
+      "crawledAt": "2026-08-27T00:53:28.356Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -294,7 +295,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/e5c95f59-a715-4eec-a78d-1a6385964be0",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:13:16.578Z",
+      "crawledAt": "2026-08-27T00:53:28.358Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -332,7 +333,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/897f6366-3a66-447a-b85e-f6e296652bd4",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:13:16.580Z",
+      "crawledAt": "2026-08-27T00:53:28.360Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -370,7 +371,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/b4a3f004-191e-4d7f-a0ec-0a3ceb9440ac",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:13:16.582Z",
+      "crawledAt": "2026-08-27T00:53:28.362Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -408,7 +409,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/55b861eb-bc65-4532-9e55-5f30a5f33885",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:13:16.585Z",
+      "crawledAt": "2026-08-27T00:53:28.364Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -446,7 +447,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/e34f9cb4-6010-4d8a-9380-443befd3f6b4",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:13:16.587Z",
+      "crawledAt": "2026-08-27T00:53:28.366Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -484,7 +485,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/a2d419de-4c3c-47a4-9a41-7229e6a79906",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:13:16.590Z",
+      "crawledAt": "2026-08-27T00:53:28.368Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -522,7 +523,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/01d03449-2806-4111-b561-6d037f4990a3",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:13:16.592Z",
+      "crawledAt": "2026-08-27T00:53:28.372Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -560,7 +561,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/4735e216-71a3-4e3b-bc8d-4135b794af23",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:13:16.593Z",
+      "crawledAt": "2026-08-27T00:53:28.375Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -598,7 +599,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/b573d3df-f5f8-4adc-810d-e0c6b79bba7c",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:13:16.596Z",
+      "crawledAt": "2026-08-27T00:53:28.379Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -624,8 +625,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "gz-dielsdorf-41e36283123f",
       "slug": "applicazione-spontanea-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf",
@@ -666,5 +666,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

@@ -10841,6 +10841,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-spese-sanitarie-italia-rimborso.title': 'Spese sanitarie Svizzera rimborsabili in Italia per frontalieri',
     'blog.article.frontaliere-spese-sanitarie-italia-rimborso.excerpt': 'Quali spese sanitarie sostenute in Svizzera sono rimborsabili in Italia per i frontalieri, con procedure, limiti e documenti necessari.',
     'blog.article.frontaliere-spese-sanitarie-italia-rimborso.imageAlt': 'Frontaliere al valico di Chiasso con documenti sanitari e sfondo alpino svizzero',
+    'blog.article.consiglio-stato-deputazione-ticino-agosto.title': 'Ticino e Berna: la questione cruciale dei ristorni',
+    'blog.article.consiglio-stato-deputazione-ticino-agosto.excerpt': 'Il 27 agosto a Bellinzona, discussione sulla sospensione dei ristorni e negoziazione con Confederazione e Regione Lombardia',
+    'blog.article.consiglio-stato-deputazione-ticino-agosto.imageAlt': 'Bellinzona, sede del Consiglio di Stato ticinese, riunione con Deputazione il 27 agosto 2026',
 };
 
 export default blogMetaIt;
