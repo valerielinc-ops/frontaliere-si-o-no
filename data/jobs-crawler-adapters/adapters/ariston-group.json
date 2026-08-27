@@ -13,7 +13,7 @@
     "https://careers.aristongroup.com/sitemap_index.xml"
   ],
   "notes": "Dedicated Ariston Group crawler parses the careers RSS feed and SuccessFactors job detail pages, then keeps only Ticino/Grigioni jobs via shared Swiss target-location matching.",
-  "updatedAt": "2026-08-27T00:57:27.981Z",
+  "updatedAt": "2026-08-27T20:12:40.874Z",
   "seedMetaByUrl": {
     "https://careers.aristongroup.com/job/Hechingen-SERVICETECHNIKER-%28MWD%29-FREIBURG-UND-UMGEBUNG-Hech-72379/1281305901/": {
       "location": "Hechingen, DE, 72379",
@@ -32,12 +32,6 @@
       "canton": "",
       "company": "Ariston Group",
       "postedDate": "2026-08-13"
-    },
-    "https://careers.aristongroup.com/job/Maerstetten-SERVICETECHNIKERIN-%C3%96L-OBERWALLIS-Brig-3902/1185843001/": {
-      "location": "Brig-Glis, CH, 3902",
-      "canton": "VS",
-      "company": "Ariston Group",
-      "postedDate": "2026-07-29"
     },
     "https://careers.aristongroup.com/job/Bern-SERVICETECHNIKER-W%C3%84RMEPUMPEN-%28MW%29-Bern-3004/1402868933/": {
       "location": "Bern, CH, 3004",
@@ -110,6 +104,12 @@
       "canton": "LU",
       "company": "Ariston Group",
       "postedDate": "2026-08-13"
+    },
+    "https://careers.aristongroup.com/job/Maerstetten-SERVICETECHNIKERIN-%C3%96L-OBERWALLIS-Brig-3902/1185843001/": {
+      "location": "Brig-Glis, CH, 3902",
+      "canton": "VS",
+      "company": "Ariston Group",
+      "postedDate": "2026-08-27"
     }
   }
 }
