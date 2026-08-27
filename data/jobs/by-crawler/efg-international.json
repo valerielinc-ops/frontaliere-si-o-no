@@ -1,6 +1,6 @@
 {
   "crawlerKey": "efg-international",
-  "assembledAt": "2026-08-26T09:53:27.707Z",
+  "assembledAt": "2026-08-27T00:37:45.667Z",
   "jobs": [
     {
       "id": "efg-6385",
@@ -123,7 +123,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-26T09:53:24.048Z",
+      "crawledAt": "2026-08-27T00:37:43.492Z",
       "slugByLocale": {
         "it": "responsabile-rischio-aziendale-pb-coo-brm-efg-international-ag-lugano",
         "en": "business-risk-manager-pb-coo-brm-efg-lugano",
@@ -294,7 +294,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-26T09:53:24.045Z",
+      "crawledAt": "2026-08-27T00:37:43.488Z",
       "slugByLocale": {
         "it": "business-risk-manager-pb-coo-brm-temp-efg-zurich",
         "en": "business-risk-manager-pb-coo-brm-temp-efg-zurich",
@@ -319,7 +319,8 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "firstSeenAt": "2026-07-20T22:01:00.554Z"
+      "firstSeenAt": "2026-07-20T22:01:00.554Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6336",
@@ -515,7 +516,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-26T09:53:24.044Z",
+      "crawledAt": "2026-08-27T00:37:43.488Z",
       "slugByLocale": {
         "it": "responsabile-governance-e-supervisione-del-rischio-legale-e-conformita-efg-international-ag-geneve",
         "en": "governance-risk-oversight-manager-legal-compliance-efg-geneve",
@@ -552,7 +553,188 @@
       },
       "previousSlugs": [
         "governance-risk-oversight-manager-legal-compliance-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
+    },
+    {
+      "id": "efg-6317",
+      "slug": "iam-support-specialista-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "IAM Support Specialist",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "description": "## Job Description\n\nAs an IAM (Internal Asset Manager) Support Specialist, you will deliver vital administrative support and assist with day-to-day client relationship activities. You will collaborate closely with key stakeholders to improve IAM desk processes and procedures, serving as the main point of contact for Client Relationship Officers (CROs) and Account Managers across various critical workflows. Your position will be central to upholding strong standards in compliance, quality assurance, and business development within our IAM Switzerland team.\n\n## Main Responsibilities\n\n- Provide administrative support for daily client relationship matters, assisting CROs, and Account Managers in their day-to-day activities.\n\n- Act as the main contact for CROs/Account Managers regarding:\n–    Pre-approval or approval (within delegations) of payments, credits, and client/IAM openings and closings.\n–    Reviewing the quality of client and IAM profiles and documentation during onboarding and regular reviews.\n\n- Perform ex-ante controls on Private Banking activities and support the enhancement of the control framework.\n\n- Oversee and approve KYC lifecycle events, including reviewing and commenting on Client Information Profiles for account openings, periodic reviews, and updates.\n\n- Monitor compliance and follow up on AML (Anti-Money Laundering) matters.\n\n- Serve as a link between the First and Second Line of Defence, facilitating communication and compliance.\n\n- Support the Head of IAM Switzerland in business development, analysis, and improving process efficiency and productivity in collaboration with relevant functional areas.\n\n- Contribute to the continuous improvement of IAM Switzerland's processes and procedures\n\n## Skills and experience\n\n- At least 3 of experience in a regulatory compliance or private banking environment.\n\n- Strong knowledge of AML regulations and sanctions.\n\n- Fluent in English. German is an advantage; French and/or Italian would be an asset.\n\n- Excellent organisational, communication, and interpersonal skills.\n\n- Strong analytical skills and attention to detail.\n\n- Proficient in Microsoft Excel.\n\n- Reliable, solution-oriented, and a strong team player.\n\n- Demonstrates a client and service focus at all times.\n\n## Our Values\n\nAccountability:  Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\nHands-on : Being proactive to rapidly deliver high-quality results\n\nPassionate : Being committed and striving for excellence\n\nSolution-driven:  Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\nPartnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+      "requirements": [
+        "At least 3 of experience in a regulatory compliance or private banking environment.",
+        "Strong knowledge of AML regulations and sanctions.",
+        "Fluent in English. German is an advantage; French and/or Italian would be an asset.",
+        "Excellent organisational, communication, and interpersonal skills.",
+        "Strong analytical skills and attention to detail.",
+        "Proficient in Microsoft Excel.",
+        "Reliable, solution-oriented, and a strong team player.",
+        "Demonstrates a client and service focus at all times."
+      ],
+      "featured": false,
+      "postedDate": "2026-07-23",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6317",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "titleByLocale": {
+        "en": "IAM Support Specialist",
+        "it": "IAM Support Specialista",
+        "de": "IAM Support Spezialist",
+        "fr": "IAM Support Spécialiste"
+      },
+      "descriptionByLocale": {
+        "en": "## Job Description\n\nAs an IAM (Internal Asset Manager) Support Specialist, you will deliver vital administrative support and assist with day-to-day client relationship activities. You will collaborate closely with key stakeholders to improve IAM desk processes and procedures, serving as the main point of contact for Client Relationship Officers (CROs) and Account Managers across various critical workflows. Your position will be central to upholding strong standards in compliance, quality assurance, and business development within our IAM Switzerland team.\n\n## Main Responsibilities\n\n- Provide administrative support for daily client relationship matters, assisting CROs, and Account Managers in their day-to-day activities.\n\n- Act as the main contact for CROs/Account Managers regarding:\n–    Pre-approval or approval (within delegations) of payments, credits, and client/IAM openings and closings.\n–    Reviewing the quality of client and IAM profiles and documentation during onboarding and regular reviews.\n\n- Perform ex-ante controls on Private Banking activities and support the enhancement of the control framework.\n\n- Oversee and approve KYC lifecycle events, including reviewing and commenting on Client Information Profiles for account openings, periodic reviews, and updates.\n\n- Monitor compliance and follow up on AML (Anti-Money Laundering) matters.\n\n- Serve as a link between the First and Second Line of Defence, facilitating communication and compliance.\n\n- Support the Head of IAM Switzerland in business development, analysis, and improving process efficiency and productivity in collaboration with relevant functional areas.\n\n- Contribute to the continuous improvement of IAM Switzerland's processes and procedures\n\n## Skills and experience\n\n- At least 3 of experience in a regulatory compliance or private banking environment.\n\n- Strong knowledge of AML regulations and sanctions.\n\n- Fluent in English. German is an advantage; French and/or Italian would be an asset.\n\n- Excellent organisational, communication, and interpersonal skills.\n\n- Strong analytical skills and attention to detail.\n\n- Proficient in Microsoft Excel.\n\n- Reliable, solution-oriented, and a strong team player.\n\n- Demonstrates a client and service focus at all times.\n\n## Our Values\n\nAccountability:  Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\nHands-on : Being proactive to rapidly deliver high-quality results\n\nPassionate : Being committed and striving for excellence\n\nSolution-driven:  Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\nPartnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+        "it": "## Descrizione del lavoro\n\nIn qualità di IAM (Internal Asset Manager) Support Specialist, fornirete un supporto amministrativo vitale e assistere con attività quotidiane di relazione cliente. Collaborerai a stretto contatto con le principali parti interessate per migliorare i processi e le procedure della scrivania IAM, servendo come punto di contatto principale per i Client Relationship Officers (CROs) e Account Manager in vari flussi di lavoro critici. La vostra posizione sarà centrale per sostenere i forti standard di conformità, garanzia di qualità e sviluppo aziendale all'interno del nostro team IAM Svizzera.\n\n## Principali responsabilità\n\n- Fornire supporto amministrativo per le questioni di relazione cliente quotidiana, assistere CRO e Account Manager nelle loro attività quotidiane.\n\n- Agire come principale contatto per CRO/Account Managers per quanto riguarda:\n– Pre-approvazione o approvazione (entro delegazioni) di pagamenti, crediti e aperture e chiusure client/IAM.\n– Rivedere la qualità dei profili e della documentazione dei clienti e IAM durante le recensioni a bordo e regolari.\n\n- Eseguire controlli ex-ante sulle attività di Private Banking e sostenere la valorizzazione del quadro di controllo.\n\n- Controllare e approvare gli eventi del ciclo di vita di KYC, tra cui la revisione e il commento sui profili delle informazioni dei clienti per le aperture dei conti, le recensioni periodiche e gli aggiornamenti.\n\n- Monitorare la conformità e seguire le questioni AML (Anti-Money Laundering).\n\n- Servire come collegamento tra la prima e la seconda linea di difesa, facilitando la comunicazione e la conformità.\n\n- Sostenere il Capo di IAM Svizzera nello sviluppo, nell'analisi e nel miglioramento dell'efficienza e della produttività del processo in collaborazione con le aree funzionali rilevanti.\n\n- Contribuire al miglioramento continuo dei processi e delle procedure di IAM Svizzera\n\n## Competenze ed esperienza\n\n- Almeno 3 esperienze in un contesto normativo o bancario privato.\n\n- Forte conoscenza delle normative e delle sanzioni AML.\n\n- Fluente in inglese. Il tedesco è un vantaggio; il francese e/o l'italiano sarebbe un bene.\n\n- Eccellente capacità organizzative, comunicative e interpersonali.\n\n- Forte capacità analitiche e attenzione ai dettagli.\n\n- Proficiente in Microsoft Excel.\n\n- Affidabile, orientato alla soluzione, e un forte giocatore di squadra.\n\n- Dimostra in ogni momento un cliente e un servizio.\n\n## I nostri valori\n\nResponsabilità: Prendere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo\n\nHands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n\nPassionato: Impegnarsi e lottare per l'eccellenza\n\nSoluzione-driven: Focusing sui risultati del cliente e il trattamento dei clienti abbastanza con una mentalità di rischio-consapevole\n\nPartenariato: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.",
+        "de": "## Stellenbeschreibung\n\nAls IAM (Internal Asset Manager) Support Specialist liefern Sie wichtige administrative Unterstützung und unterstützen Sie bei den täglichen Kundenbeziehungsaktivitäten. Sie arbeiten eng mit den wichtigsten Stakeholdern zusammen, um die Prozesse und Verfahren des IAM-Desks zu verbessern und dienen als Hauptanlaufstelle für Kundenbetreuer (CROs) und Account Manager in verschiedenen kritischen Workflows. Ihre Position wird von zentraler Bedeutung für die Einhaltung strenger Standards in Bezug auf Compliance, Qualitätssicherung und Geschäftsentwicklung in unserem IAM Switzerland Team sein.\n\n## Hauptzuständigkeiten\n\n- Bereitstellung von administrativer Unterstützung für die täglichen Kundenbeziehungen, Unterstützung von CROs und Account Managern bei ihren täglichen Aktivitäten.\n\n- Handeln Sie als Hauptansprechpartner für CROs / Account Manager in Bezug auf:\n– Vorabgenehmigung oder Genehmigung (innerhalb von Delegationen) von Zahlungen, Krediten und Eröffnungen und Schließungen von Kunden/IAM.\nÜberprüfung der Qualität der Kunden- und IAM-Profile und Dokumentation während des Onboardings und regelmäßiger Überprüfungen.\n\n- Durchführung von Ex-ante-Kontrollen der Private Banking-Aktivitäten und Unterstützung der Verbesserung des Kontrollrahmens.\n\n- Überwachung und Genehmigung von KYC-Lebenszyklusereignissen, einschließlich Überprüfung und Kommentierung von Kundeninformationsprofilen für Kontoeröffnungen, regelmäßige Überprüfungen und Aktualisierungen.\n\n- Überwachung der Einhaltung und Nachverfolgung von AML-Angelegenheiten (Anti-Geldwäsche).\n\n- Dienen Sie als Bindeglied zwischen der ersten und zweiten Verteidigungslinie und erleichtern Sie die Kommunikation und Einhaltung.\n\n- Unterstützen Sie den Leiter der IAM Schweiz bei der Geschäftsentwicklung, Analyse und Verbesserung der Prozesseffizienz und Produktivität in Zusammenarbeit mit relevanten Funktionsbereichen.\n\n- Beitrag zur kontinuierlichen Verbesserung der Prozesse und Abläufe der IAM Schweiz\n\n## Fähigkeiten und Erfahrung\n\n- Mindestens 3 von Erfahrung in einer regulatorischen Compliance oder Private Banking-Umgebung.\n\n- Starkes Wissen über AML-Vorschriften und Sanktionen.\n\n- fließend in Englisch. Deutsch ist ein Vorteil; Französisch und / oder Italienisch wäre ein Gewinn.\n\n- Hervorragende organisatorische, kommunikative und zwischenmenschliche Fähigkeiten.\n\n- Starke analytische Fähigkeiten und Liebe zum Detail.\n\n- Proficient in Microsoft Excel.\n\n- Verlässlich, lösungsorientiert und ein starker Teamplayer.\n\n- Zeigt jederzeit einen Kunden- und Service-Fokus.\n\n## Unsere Werte\n\nVerantwortlichkeit: Übernahme von Verantwortung für Aufgaben und Herausforderungen sowie Suche nach kontinuierlicher Verbesserung\n\nHands-on: Proaktiv sein, um schnell qualitativ hochwertige Ergebnisse zu liefern\n\nLeidenschaftlich: Engagiert sein und nach Exzellenz streben\n\nLösungsorientiert: Fokussierung auf Kundenergebnisse und faire Behandlung von Kunden mit einer risikobewussten Denkweise\n\nPartnerschaftsorientiert: Zusammenarbeit und Teamwork fördern. Zusammenarbeit mit Unternehmergeist.",
+        "fr": "## Description de l'emploi\n\nEn tant que spécialiste du soutien de l'IAM (Gestionnaire des actifs internes), vous fournirez un soutien administratif vital et vous assisterez dans les activités quotidiennes de la relation client. Vous collaborerez étroitement avec les principaux intervenants afin d'améliorer les processus et les procédures des bureaux de l'IAM, en servant de point de contact principal pour les agents de relations avec la clientèle (ORC) et les gestionnaires de comptes pour divers workflows critiques. Votre position sera au cœur du maintien de normes solides en matière de conformité, d'assurance qualité et de développement commercial au sein de notre équipe IAM Suisse.\n\n## Principales responsabilités\n\n- Fournir un soutien administratif pour les questions quotidiennes de relations avec la clientèle, aider les ORC et les gestionnaires de comptes dans leurs activités quotidiennes.\n\n- Agir comme principal contact pour les ORC/gestionnaires de comptes concernant :\n– Préapprobation ou approbation (dans les délégations) des paiements, crédits, ouvertures et clôtures client/IAM.\n– Examen de la qualité des profils et de la documentation du client et de l'IAM lors de l'embarquement et des examens réguliers.\n\n- Effectuer des contrôles ex ante sur les activités de la banque privée et soutenir l'amélioration du cadre de contrôle.\n\n- Surveiller et approuver les événements du cycle de vie de KYC, y compris l'examen et les commentaires sur les profils d'information des clients pour les ouvertures de comptes, les examens périodiques et les mises à jour.\n\n- Surveiller la conformité et le suivi des questions relatives à la lutte contre le blanchiment d'argent.\n\n- Servir de lien entre la première et la deuxième ligne de défense, en facilitant la communication et la conformité.\n\n- Soutenir le responsable de l'IAM Suisse dans le développement, l'analyse et l'amélioration de l'efficacité et de la productivité des processus en collaboration avec les domaines fonctionnels pertinents.\n\n- Contribuer à l'amélioration continue des processus et des procédures de l'IAM Suisse\n\n## Compétences et expérience\n\n- Au moins 3 d'expérience dans un environnement réglementaire ou bancaire privé.\n\n- Connaissance approfondie des règlements et des sanctions en matière de LAM.\n\n- En anglais. L'allemand est un avantage; le français et/ou l'italien seraient un atout.\n\n- Excellentes aptitudes organisationnelles, de communication et interpersonnelles.\n\n- Fortes compétences analytiques et attention aux détails.\n\n- Compétence en Microsoft Excel.\n\n- Fiable, orienté vers la solution, et un solide joueur d'équipe.\n\n- Démonstration d'un client et d'un service en tout temps.\n\n## Nos valeurs\n\nResponsabilité : prise en charge des tâches et des défis, et recherche d'amélioration continue\n\nHands-on : être proactif pour obtenir rapidement des résultats de haute qualité\n\nPassionné : Être engagé et rechercher l'excellence\n\nUne solution axée sur les résultats des clients et le traitement équitable des clients avec un état d'esprit conscient des risques\n\nPartenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise."
+      },
+      "requirementsByLocale": {
+        "en": [
+          "At least 3 of experience in a regulatory compliance or private banking environment.",
+          "Strong knowledge of AML regulations and sanctions.",
+          "Fluent in English. German is an advantage; French and/or Italian would be an asset.",
+          "Excellent organisational, communication, and interpersonal skills.",
+          "Strong analytical skills and attention to detail.",
+          "Proficient in Microsoft Excel.",
+          "Reliable, solution-oriented, and a strong team player.",
+          "Demonstrates a client and service focus at all times."
+        ]
+      },
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "As an IAM (Internal Asset Manager) Support Specialist, you will deliver vital administrative support and assist with day-to-day client relationship activities. You will collaborate closely with key stakeholders to improve IAM desk processes and procedures, serving as the main point of contact for Client Relationship Officers (CROs) and Account Managers across various critical workflows. Your position will be central to upholding strong standards in compliance, quality assurance, and business development within our IAM Switzerland team."
+            ],
+            "responsibilities": [
+              "Provide administrative support for daily client relationship matters, assisting CROs, and Account Managers in their day-to-day activities.",
+              "Act as the main contact for CROs/Account Managers regarding: <br>– Pre-approval or approval (within delegations) of payments, credits, and client/IAM openings and closings.<br>– Reviewing the quality of client and IAM profiles and documentation during onboarding and regular reviews.",
+              "Perform ex-ante controls on Private Banking activities and support the enhancement of the control framework.",
+              "Oversee and approve KYC lifecycle events, including reviewing and commenting on Client Information Profiles for account openings, periodic reviews, and updates.",
+              "Monitor compliance and follow up on AML (Anti-Money Laundering) matters.",
+              "Serve as a link between the First and Second Line of Defence, facilitating communication and compliance.",
+              "Support the Head of IAM Switzerland in business development, analysis, and improving process efficiency and productivity in collaboration with relevant functional areas.",
+              "Contribute to the continuous improvement of IAM Switzerland's processes and procedures"
+            ],
+            "requirements": [
+              "At least 3 of experience in a regulatory compliance or private banking environment.",
+              "Strong knowledge of AML regulations and sanctions.",
+              "Fluent in English. German is an advantage; French and/or Italian would be an asset.",
+              "Excellent organisational, communication, and interpersonal skills.",
+              "Strong analytical skills and attention to detail.",
+              "Proficient in Microsoft Excel.",
+              "Reliable, solution-oriented, and a strong team player.",
+              "Demonstrates a client and service focus at all times."
+            ],
+            "benefits": [],
+            "process": [],
+            "highlights": [
+              "Provide administrative support for daily client relationship matters, assisting CROs, and Account Managers in their day-to-day activities.",
+              "Act as the main contact for CROs/Account Managers regarding: <br>– Pre-approval or approval (within delegations) of payments, credits, and client/IAM openings and closings.<br>– Reviewing the quality of client and IAM profiles and documentation during onboarding and regular reviews.",
+              "Perform ex-ante controls on Private Banking activities and support the enhancement of the control framework.",
+              "At least 3 of experience in a regulatory compliance or private banking environment.",
+              "Strong knowledge of AML regulations and sanctions.",
+              "Fluent in English. German is an advantage; French and/or Italian would be an asset."
+            ],
+            "keywords": [
+              "At least 3 of experience in a regulatory compliance or private banking environment.",
+              "Strong knowledge of AML regulations and sanctions.",
+              "Fluent in English. German is an advantage",
+              "Excellent organisational",
+              "Strong analytical skills and attention to detail.",
+              "Provide administrative support for daily client relationship matters",
+              "Act as the main contact for CROs/Account Managers regarding",
+              "Perform ex-ante controls on Private Banking activities and support the enhancement of the control framework.",
+              "Oversee and approve KYC lifecycle events"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "company",
+                "heading": "Our Purpose and Mission",
+                "paragraphs": [
+                  "Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-08-27T00:37:43.486Z",
+      "slugByLocale": {
+        "it": "iam-support-specialista-efg-international-ag-geneve",
+        "en": "iam-support-specialist-efg-geneve",
+        "de": "iam-support-spezialist-efg-international-ag-geneve",
+        "fr": "iam-support-specialiste-efg-international-ag-geneve"
+      },
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-07-23",
+      "salaryMin": 104500,
+      "salaryMax": 183500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 104500,
+          "maxValue": 183500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "country": "CH",
+      "firstSeenAt": "2026-07-23T11:24:34.310Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "iam-support-specialist-efg-geneve",
+          "pb-support-specialista-americas-geneva-efg-international-ag-geneve",
+          "pb-support-specialist-americas-geneva-efg-geneve",
+          "pb-support-spezialist-americas-geneva-efg-international-ag-geneve",
+          "pb-support-specialiste-americas-geneva-efg-international-ag-geneve",
+          "pb-specialist-americas-ginevra-efg-international-ag-geneve"
+        ],
+        "de": [
+          "iam-support-specialist-efg-geneve",
+          "pb-support-spezialist-americas-geneva-efg-international-ag-geneve"
+        ],
+        "fr": [
+          "iam-support-specialist-efg-geneve",
+          "pb-support-specialiste-americas-geneva-efg-international-ag-geneve"
+        ],
+        "en": [
+          "pb-support-specialist-americas-geneva-efg-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "iam-support-specialist-efg-geneve",
+        "pb-support-specialista-americas-geneva-efg-international-ag-geneve",
+        "pb-support-specialist-americas-geneva-efg-geneve",
+        "pb-support-spezialist-americas-geneva-efg-international-ag-geneve",
+        "pb-support-specialiste-americas-geneva-efg-international-ag-geneve",
+        "pb-specialist-americas-ginevra-efg-international-ag-geneve"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6327",
@@ -697,7 +879,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-26T09:53:24.042Z",
+      "crawledAt": "2026-08-27T00:37:43.486Z",
       "slugByLocale": {
         "it": "ricevitore-efg-international-ag-zurich",
         "en": "receptionist-efg-international-ag-zurich",
@@ -736,186 +918,8 @@
       },
       "previousSlugs": [
         "receptionist-efg-zurich"
-      ]
-    },
-    {
-      "id": "efg-6317",
-      "slug": "iam-support-specialista-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "IAM Support Specialist",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "## Job Description\n\nAs an IAM (Internal Asset Manager) Support Specialist, you will deliver vital administrative support and assist with day-to-day client relationship activities. You will collaborate closely with key stakeholders to improve IAM desk processes and procedures, serving as the main point of contact for Client Relationship Officers (CROs) and Account Managers across various critical workflows. Your position will be central to upholding strong standards in compliance, quality assurance, and business development within our IAM Switzerland team.\n\n## Main Responsibilities\n\n- Provide administrative support for daily client relationship matters, assisting CROs, and Account Managers in their day-to-day activities.\n\n- Act as the main contact for CROs/Account Managers regarding:\n–    Pre-approval or approval (within delegations) of payments, credits, and client/IAM openings and closings.\n–    Reviewing the quality of client and IAM profiles and documentation during onboarding and regular reviews.\n\n- Perform ex-ante controls on Private Banking activities and support the enhancement of the control framework.\n\n- Oversee and approve KYC lifecycle events, including reviewing and commenting on Client Information Profiles for account openings, periodic reviews, and updates.\n\n- Monitor compliance and follow up on AML (Anti-Money Laundering) matters.\n\n- Serve as a link between the First and Second Line of Defence, facilitating communication and compliance.\n\n- Support the Head of IAM Switzerland in business development, analysis, and improving process efficiency and productivity in collaboration with relevant functional areas.\n\n- Contribute to the continuous improvement of IAM Switzerland's processes and procedures\n\n## Skills and experience\n\n- At least 3 of experience in a regulatory compliance or private banking environment.\n\n- Strong knowledge of AML regulations and sanctions.\n\n- Fluent in English. German is an advantage; French and/or Italian would be an asset.\n\n- Excellent organisational, communication, and interpersonal skills.\n\n- Strong analytical skills and attention to detail.\n\n- Proficient in Microsoft Excel.\n\n- Reliable, solution-oriented, and a strong team player.\n\n- Demonstrates a client and service focus at all times.\n\n## Our Values\n\nAccountability:  Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\nHands-on : Being proactive to rapidly deliver high-quality results\n\nPassionate : Being committed and striving for excellence\n\nSolution-driven:  Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\nPartnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-      "requirements": [
-        "At least 3 of experience in a regulatory compliance or private banking environment.",
-        "Strong knowledge of AML regulations and sanctions.",
-        "Fluent in English. German is an advantage; French and/or Italian would be an asset.",
-        "Excellent organisational, communication, and interpersonal skills.",
-        "Strong analytical skills and attention to detail.",
-        "Proficient in Microsoft Excel.",
-        "Reliable, solution-oriented, and a strong team player.",
-        "Demonstrates a client and service focus at all times."
       ],
-      "featured": false,
-      "postedDate": "2026-07-23",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6317",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "IAM Support Specialist",
-        "it": "IAM Support Specialista",
-        "de": "IAM Support Spezialist",
-        "fr": "IAM Support Spécialiste"
-      },
-      "descriptionByLocale": {
-        "en": "## Job Description\n\nAs an IAM (Internal Asset Manager) Support Specialist, you will deliver vital administrative support and assist with day-to-day client relationship activities. You will collaborate closely with key stakeholders to improve IAM desk processes and procedures, serving as the main point of contact for Client Relationship Officers (CROs) and Account Managers across various critical workflows. Your position will be central to upholding strong standards in compliance, quality assurance, and business development within our IAM Switzerland team.\n\n## Main Responsibilities\n\n- Provide administrative support for daily client relationship matters, assisting CROs, and Account Managers in their day-to-day activities.\n\n- Act as the main contact for CROs/Account Managers regarding:\n–    Pre-approval or approval (within delegations) of payments, credits, and client/IAM openings and closings.\n–    Reviewing the quality of client and IAM profiles and documentation during onboarding and regular reviews.\n\n- Perform ex-ante controls on Private Banking activities and support the enhancement of the control framework.\n\n- Oversee and approve KYC lifecycle events, including reviewing and commenting on Client Information Profiles for account openings, periodic reviews, and updates.\n\n- Monitor compliance and follow up on AML (Anti-Money Laundering) matters.\n\n- Serve as a link between the First and Second Line of Defence, facilitating communication and compliance.\n\n- Support the Head of IAM Switzerland in business development, analysis, and improving process efficiency and productivity in collaboration with relevant functional areas.\n\n- Contribute to the continuous improvement of IAM Switzerland's processes and procedures\n\n## Skills and experience\n\n- At least 3 of experience in a regulatory compliance or private banking environment.\n\n- Strong knowledge of AML regulations and sanctions.\n\n- Fluent in English. German is an advantage; French and/or Italian would be an asset.\n\n- Excellent organisational, communication, and interpersonal skills.\n\n- Strong analytical skills and attention to detail.\n\n- Proficient in Microsoft Excel.\n\n- Reliable, solution-oriented, and a strong team player.\n\n- Demonstrates a client and service focus at all times.\n\n## Our Values\n\nAccountability:  Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\nHands-on : Being proactive to rapidly deliver high-quality results\n\nPassionate : Being committed and striving for excellence\n\nSolution-driven:  Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\nPartnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-        "it": "## Descrizione del lavoro\n\nIn qualità di IAM (Internal Asset Manager) Support Specialist, fornirete un supporto amministrativo vitale e assistere con attività quotidiane di relazione cliente. Collaborerai a stretto contatto con le principali parti interessate per migliorare i processi e le procedure della scrivania IAM, servendo come punto di contatto principale per i Client Relationship Officers (CROs) e Account Manager in vari flussi di lavoro critici. La vostra posizione sarà centrale per sostenere i forti standard di conformità, garanzia di qualità e sviluppo aziendale all'interno del nostro team IAM Svizzera.\n\n## Principali responsabilità\n\n- Fornire supporto amministrativo per le questioni di relazione cliente quotidiana, assistere CRO e Account Manager nelle loro attività quotidiane.\n\n- Agire come principale contatto per CRO/Account Managers per quanto riguarda:\n– Pre-approvazione o approvazione (entro delegazioni) di pagamenti, crediti e aperture e chiusure client/IAM.\n– Rivedere la qualità dei profili e della documentazione dei clienti e IAM durante le recensioni a bordo e regolari.\n\n- Eseguire controlli ex-ante sulle attività di Private Banking e sostenere la valorizzazione del quadro di controllo.\n\n- Controllare e approvare gli eventi del ciclo di vita di KYC, tra cui la revisione e il commento sui profili delle informazioni dei clienti per le aperture dei conti, le recensioni periodiche e gli aggiornamenti.\n\n- Monitorare la conformità e seguire le questioni AML (Anti-Money Laundering).\n\n- Servire come collegamento tra la prima e la seconda linea di difesa, facilitando la comunicazione e la conformità.\n\n- Sostenere il Capo di IAM Svizzera nello sviluppo, nell'analisi e nel miglioramento dell'efficienza e della produttività del processo in collaborazione con le aree funzionali rilevanti.\n\n- Contribuire al miglioramento continuo dei processi e delle procedure di IAM Svizzera\n\n## Competenze ed esperienza\n\n- Almeno 3 esperienze in un contesto normativo o bancario privato.\n\n- Forte conoscenza delle normative e delle sanzioni AML.\n\n- Fluente in inglese. Il tedesco è un vantaggio; il francese e/o l'italiano sarebbe un bene.\n\n- Eccellente capacità organizzative, comunicative e interpersonali.\n\n- Forte capacità analitiche e attenzione ai dettagli.\n\n- Proficiente in Microsoft Excel.\n\n- Affidabile, orientato alla soluzione, e un forte giocatore di squadra.\n\n- Dimostra in ogni momento un cliente e un servizio.\n\n## I nostri valori\n\nResponsabilità: Prendere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo\n\nHands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n\nPassionato: Impegnarsi e lottare per l'eccellenza\n\nSoluzione-driven: Focusing sui risultati del cliente e il trattamento dei clienti abbastanza con una mentalità di rischio-consapevole\n\nPartenariato: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.",
-        "de": "## Stellenbeschreibung\n\nAls IAM (Internal Asset Manager) Support Specialist liefern Sie wichtige administrative Unterstützung und unterstützen Sie bei den täglichen Kundenbeziehungsaktivitäten. Sie arbeiten eng mit den wichtigsten Stakeholdern zusammen, um die Prozesse und Verfahren des IAM-Desks zu verbessern und dienen als Hauptanlaufstelle für Kundenbetreuer (CROs) und Account Manager in verschiedenen kritischen Workflows. Ihre Position wird von zentraler Bedeutung für die Einhaltung strenger Standards in Bezug auf Compliance, Qualitätssicherung und Geschäftsentwicklung in unserem IAM Switzerland Team sein.\n\n## Hauptzuständigkeiten\n\n- Bereitstellung von administrativer Unterstützung für die täglichen Kundenbeziehungen, Unterstützung von CROs und Account Managern bei ihren täglichen Aktivitäten.\n\n- Handeln Sie als Hauptansprechpartner für CROs / Account Manager in Bezug auf:\n– Vorabgenehmigung oder Genehmigung (innerhalb von Delegationen) von Zahlungen, Krediten und Eröffnungen und Schließungen von Kunden/IAM.\nÜberprüfung der Qualität der Kunden- und IAM-Profile und Dokumentation während des Onboardings und regelmäßiger Überprüfungen.\n\n- Durchführung von Ex-ante-Kontrollen der Private Banking-Aktivitäten und Unterstützung der Verbesserung des Kontrollrahmens.\n\n- Überwachung und Genehmigung von KYC-Lebenszyklusereignissen, einschließlich Überprüfung und Kommentierung von Kundeninformationsprofilen für Kontoeröffnungen, regelmäßige Überprüfungen und Aktualisierungen.\n\n- Überwachung der Einhaltung und Nachverfolgung von AML-Angelegenheiten (Anti-Geldwäsche).\n\n- Dienen Sie als Bindeglied zwischen der ersten und zweiten Verteidigungslinie und erleichtern Sie die Kommunikation und Einhaltung.\n\n- Unterstützen Sie den Leiter der IAM Schweiz bei der Geschäftsentwicklung, Analyse und Verbesserung der Prozesseffizienz und Produktivität in Zusammenarbeit mit relevanten Funktionsbereichen.\n\n- Beitrag zur kontinuierlichen Verbesserung der Prozesse und Abläufe der IAM Schweiz\n\n## Fähigkeiten und Erfahrung\n\n- Mindestens 3 von Erfahrung in einer regulatorischen Compliance oder Private Banking-Umgebung.\n\n- Starkes Wissen über AML-Vorschriften und Sanktionen.\n\n- fließend in Englisch. Deutsch ist ein Vorteil; Französisch und / oder Italienisch wäre ein Gewinn.\n\n- Hervorragende organisatorische, kommunikative und zwischenmenschliche Fähigkeiten.\n\n- Starke analytische Fähigkeiten und Liebe zum Detail.\n\n- Proficient in Microsoft Excel.\n\n- Verlässlich, lösungsorientiert und ein starker Teamplayer.\n\n- Zeigt jederzeit einen Kunden- und Service-Fokus.\n\n## Unsere Werte\n\nVerantwortlichkeit: Übernahme von Verantwortung für Aufgaben und Herausforderungen sowie Suche nach kontinuierlicher Verbesserung\n\nHands-on: Proaktiv sein, um schnell qualitativ hochwertige Ergebnisse zu liefern\n\nLeidenschaftlich: Engagiert sein und nach Exzellenz streben\n\nLösungsorientiert: Fokussierung auf Kundenergebnisse und faire Behandlung von Kunden mit einer risikobewussten Denkweise\n\nPartnerschaftsorientiert: Zusammenarbeit und Teamwork fördern. Zusammenarbeit mit Unternehmergeist.",
-        "fr": "## Description de l'emploi\n\nEn tant que spécialiste du soutien de l'IAM (Gestionnaire des actifs internes), vous fournirez un soutien administratif vital et vous assisterez dans les activités quotidiennes de la relation client. Vous collaborerez étroitement avec les principaux intervenants afin d'améliorer les processus et les procédures des bureaux de l'IAM, en servant de point de contact principal pour les agents de relations avec la clientèle (ORC) et les gestionnaires de comptes pour divers workflows critiques. Votre position sera au cœur du maintien de normes solides en matière de conformité, d'assurance qualité et de développement commercial au sein de notre équipe IAM Suisse.\n\n## Principales responsabilités\n\n- Fournir un soutien administratif pour les questions quotidiennes de relations avec la clientèle, aider les ORC et les gestionnaires de comptes dans leurs activités quotidiennes.\n\n- Agir comme principal contact pour les ORC/gestionnaires de comptes concernant :\n– Préapprobation ou approbation (dans les délégations) des paiements, crédits, ouvertures et clôtures client/IAM.\n– Examen de la qualité des profils et de la documentation du client et de l'IAM lors de l'embarquement et des examens réguliers.\n\n- Effectuer des contrôles ex ante sur les activités de la banque privée et soutenir l'amélioration du cadre de contrôle.\n\n- Surveiller et approuver les événements du cycle de vie de KYC, y compris l'examen et les commentaires sur les profils d'information des clients pour les ouvertures de comptes, les examens périodiques et les mises à jour.\n\n- Surveiller la conformité et le suivi des questions relatives à la lutte contre le blanchiment d'argent.\n\n- Servir de lien entre la première et la deuxième ligne de défense, en facilitant la communication et la conformité.\n\n- Soutenir le responsable de l'IAM Suisse dans le développement, l'analyse et l'amélioration de l'efficacité et de la productivité des processus en collaboration avec les domaines fonctionnels pertinents.\n\n- Contribuer à l'amélioration continue des processus et des procédures de l'IAM Suisse\n\n## Compétences et expérience\n\n- Au moins 3 d'expérience dans un environnement réglementaire ou bancaire privé.\n\n- Connaissance approfondie des règlements et des sanctions en matière de LAM.\n\n- En anglais. L'allemand est un avantage; le français et/ou l'italien seraient un atout.\n\n- Excellentes aptitudes organisationnelles, de communication et interpersonnelles.\n\n- Fortes compétences analytiques et attention aux détails.\n\n- Compétence en Microsoft Excel.\n\n- Fiable, orienté vers la solution, et un solide joueur d'équipe.\n\n- Démonstration d'un client et d'un service en tout temps.\n\n## Nos valeurs\n\nResponsabilité : prise en charge des tâches et des défis, et recherche d'amélioration continue\n\nHands-on : être proactif pour obtenir rapidement des résultats de haute qualité\n\nPassionné : Être engagé et rechercher l'excellence\n\nUne solution axée sur les résultats des clients et le traitement équitable des clients avec un état d'esprit conscient des risques\n\nPartenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise."
-      },
-      "requirementsByLocale": {
-        "en": [
-          "At least 3 of experience in a regulatory compliance or private banking environment.",
-          "Strong knowledge of AML regulations and sanctions.",
-          "Fluent in English. German is an advantage; French and/or Italian would be an asset.",
-          "Excellent organisational, communication, and interpersonal skills.",
-          "Strong analytical skills and attention to detail.",
-          "Proficient in Microsoft Excel.",
-          "Reliable, solution-oriented, and a strong team player.",
-          "Demonstrates a client and service focus at all times."
-        ]
-      },
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "As an IAM (Internal Asset Manager) Support Specialist, you will deliver vital administrative support and assist with day-to-day client relationship activities. You will collaborate closely with key stakeholders to improve IAM desk processes and procedures, serving as the main point of contact for Client Relationship Officers (CROs) and Account Managers across various critical workflows. Your position will be central to upholding strong standards in compliance, quality assurance, and business development within our IAM Switzerland team."
-            ],
-            "responsibilities": [
-              "Provide administrative support for daily client relationship matters, assisting CROs, and Account Managers in their day-to-day activities.",
-              "Act as the main contact for CROs/Account Managers regarding: <br>– Pre-approval or approval (within delegations) of payments, credits, and client/IAM openings and closings.<br>– Reviewing the quality of client and IAM profiles and documentation during onboarding and regular reviews.",
-              "Perform ex-ante controls on Private Banking activities and support the enhancement of the control framework.",
-              "Oversee and approve KYC lifecycle events, including reviewing and commenting on Client Information Profiles for account openings, periodic reviews, and updates.",
-              "Monitor compliance and follow up on AML (Anti-Money Laundering) matters.",
-              "Serve as a link between the First and Second Line of Defence, facilitating communication and compliance.",
-              "Support the Head of IAM Switzerland in business development, analysis, and improving process efficiency and productivity in collaboration with relevant functional areas.",
-              "Contribute to the continuous improvement of IAM Switzerland's processes and procedures"
-            ],
-            "requirements": [
-              "At least 3 of experience in a regulatory compliance or private banking environment.",
-              "Strong knowledge of AML regulations and sanctions.",
-              "Fluent in English. German is an advantage; French and/or Italian would be an asset.",
-              "Excellent organisational, communication, and interpersonal skills.",
-              "Strong analytical skills and attention to detail.",
-              "Proficient in Microsoft Excel.",
-              "Reliable, solution-oriented, and a strong team player.",
-              "Demonstrates a client and service focus at all times."
-            ],
-            "benefits": [],
-            "process": [],
-            "highlights": [
-              "Provide administrative support for daily client relationship matters, assisting CROs, and Account Managers in their day-to-day activities.",
-              "Act as the main contact for CROs/Account Managers regarding: <br>– Pre-approval or approval (within delegations) of payments, credits, and client/IAM openings and closings.<br>– Reviewing the quality of client and IAM profiles and documentation during onboarding and regular reviews.",
-              "Perform ex-ante controls on Private Banking activities and support the enhancement of the control framework.",
-              "At least 3 of experience in a regulatory compliance or private banking environment.",
-              "Strong knowledge of AML regulations and sanctions.",
-              "Fluent in English. German is an advantage; French and/or Italian would be an asset."
-            ],
-            "keywords": [
-              "At least 3 of experience in a regulatory compliance or private banking environment.",
-              "Strong knowledge of AML regulations and sanctions.",
-              "Fluent in English. German is an advantage",
-              "Excellent organisational",
-              "Strong analytical skills and attention to detail.",
-              "Provide administrative support for daily client relationship matters",
-              "Act as the main contact for CROs/Account Managers regarding",
-              "Perform ex-ante controls on Private Banking activities and support the enhancement of the control framework.",
-              "Oversee and approve KYC lifecycle events"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-08-26T09:53:24.040Z",
-      "slugByLocale": {
-        "it": "iam-support-specialista-efg-international-ag-geneve",
-        "en": "iam-support-specialist-efg-geneve",
-        "de": "iam-support-spezialist-efg-international-ag-geneve",
-        "fr": "iam-support-specialiste-efg-international-ag-geneve"
-      },
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-07-23",
-      "salaryMin": 104500,
-      "salaryMax": 183500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 104500,
-          "maxValue": 183500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "country": "CH",
-      "firstSeenAt": "2026-07-23T11:24:34.310Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "iam-support-specialist-efg-geneve",
-          "pb-support-specialista-americas-geneva-efg-international-ag-geneve",
-          "pb-support-specialist-americas-geneva-efg-geneve",
-          "pb-support-spezialist-americas-geneva-efg-international-ag-geneve",
-          "pb-support-specialiste-americas-geneva-efg-international-ag-geneve",
-          "pb-specialist-americas-ginevra-efg-international-ag-geneve"
-        ],
-        "de": [
-          "iam-support-specialist-efg-geneve",
-          "pb-support-spezialist-americas-geneva-efg-international-ag-geneve"
-        ],
-        "fr": [
-          "iam-support-specialist-efg-geneve",
-          "pb-support-specialiste-americas-geneva-efg-international-ag-geneve"
-        ],
-        "en": [
-          "pb-support-specialist-americas-geneva-efg-geneve"
-        ]
-      },
-      "previousSlugs": [
-        "iam-support-specialist-efg-geneve",
-        "pb-support-specialista-americas-geneva-efg-international-ag-geneve",
-        "pb-support-specialist-americas-geneva-efg-geneve",
-        "pb-support-spezialist-americas-geneva-efg-international-ag-geneve",
-        "pb-support-specialiste-americas-geneva-efg-international-ag-geneve",
-        "pb-specialist-americas-ginevra-efg-international-ag-geneve"
-      ]
+      "needsRetranslation": true
     },
     {
       "id": "efg-6219",
@@ -966,7 +970,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-26T09:53:24.039Z",
+      "crawledAt": "2026-08-27T00:37:43.484Z",
       "slugByLocale": {
         "it": "data-ops-ingegnere-efg-international-ag-geneve",
         "en": "data-ops-engineer-efg-geneve",
@@ -1009,7 +1013,8 @@
         "data-ops-engineer-efg-geneve",
         "ingenieur-des-operations-de-donnees-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6210",
@@ -1032,7 +1037,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "General Services Employee",
-        "de": "Mitarbeiter für allgemeine Dienstleistungen",
+        "de": "General Services Employee",
         "it": "Servizi generali Dipendenti",
         "fr": "Services généraux Employé"
       },
@@ -1060,11 +1065,11 @@
           }
         }
       },
-      "crawledAt": "2026-08-26T09:53:24.037Z",
+      "crawledAt": "2026-08-27T00:37:43.483Z",
       "slugByLocale": {
         "it": "servizi-generali-dipendenti-efg-international-ag-geneve",
         "en": "general-services-employee-efg-geneve",
-        "de": "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
+        "de": "general-services-employee-efg-international-ag-geneve",
         "fr": "services-generaux-employe-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
@@ -1097,14 +1102,17 @@
         ],
         "de": [
           "general-services-employee-efg-geneve",
+          "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
           "general-services-employee-efg-international-ag-geneve"
         ]
       },
       "previousSlugs": [
         "general-services-employee-efg-geneve",
         "g-id-1-impiegata-servizi-generali-g-g-id-2-g-efg-international-ag-geneve",
+        "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
         "general-services-employee-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6175",
@@ -1230,7 +1238,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-26T09:53:24.035Z",
+      "crawledAt": "2026-08-27T00:37:43.482Z",
       "slugByLocale": {
         "it": "specialista-supporto-pb-medio-oriente-ch-efg-international-ag-geneve",
         "en": "pb-support-specialist-middle-east-ch-efg-geneve",
@@ -1275,7 +1283,8 @@
         "pb-support-specialista-middle-east-ch-efg-international-ag-geneve",
         "pb-support-specialist-middle-east-ch-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6163",
@@ -1428,7 +1437,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-26T09:53:24.032Z",
+      "crawledAt": "2026-08-27T00:37:43.480Z",
       "slugByLocale": {
         "it": "learning-development-specialista-efg-international-ag-lugano-n932z9",
         "en": "learning-development-specialist-efg-international-ag-lugano-n932z9",
@@ -1553,7 +1562,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-26T09:53:24.020Z",
+      "crawledAt": "2026-08-27T00:37:43.473Z",
       "slugByLocale": {
         "it": "responsabile-del-servizio-dati-it-efg-international-ag-geneve",
         "en": "it-data-service-manager-efg-geneve",
@@ -1735,7 +1744,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-26T09:53:24.018Z",
+      "crawledAt": "2026-08-27T00:37:43.471Z",
       "slugByLocale": {
         "it": "client-services-officer-geneva-talent-pool-efg-geneve",
         "en": "client-services-officer-geneva-talent-pool-efg-geneve",
@@ -1773,7 +1782,8 @@
         "cybersecurity-internal-penetration-tester-efg-geneve",
         "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6039",
@@ -1824,7 +1834,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-26T09:53:24.015Z",
+      "crawledAt": "2026-08-27T00:37:43.469Z",
       "slugByLocale": {
         "it": "sviluppatore-epm-onestream-analista-dati-business-efg-international-ag-lugano",
         "en": "epm-onestream-developer-business-data-analyst-efg-lugano",
@@ -1862,7 +1872,8 @@
         "epm-onestream-developer-business-data-analyst-efg-lugano"
       ],
       "firstSeenAt": "2026-04-13T10:28:21.934Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5967",
@@ -2009,7 +2020,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-26T09:53:24.007Z",
+      "crawledAt": "2026-08-27T00:37:43.462Z",
       "slugByLocale": {
         "it": "responsabile-della-fondazione-efg-international-ag-zurich",
         "en": "foundation-manager-efg-international-ag-lugano-n93k14",
@@ -2069,7 +2080,8 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5892",
@@ -2120,7 +2132,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-26T09:53:24.006Z",
+      "crawledAt": "2026-08-27T00:37:43.460Z",
       "slugByLocale": {
         "it": "data-ingegnere-efg-international-ag-geneve",
         "en": "data-engineer-efg-geneve",
@@ -2190,7 +2202,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "Group Financial Controller",
-        "fr": "Contrôleur financier du groupe",
+        "fr": "Group Financial Controller",
         "it": "Gruppo Controllore finanziario",
         "de": "Konzern Finanzverantwortlicher"
       },
@@ -2324,7 +2336,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-26T09:53:24.003Z",
+      "crawledAt": "2026-08-27T00:37:43.458Z",
       "slugByLocale": {
         "it": "gruppo-controllore-finanziario-efg-international-ag-geneve",
         "en": "group-financial-controller-efg-geneve",
@@ -2362,7 +2374,8 @@
       "previousSlugs": [
         "group-financial-controller-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6456",
@@ -2480,7 +2493,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-26T09:53:23.998Z",
+      "crawledAt": "2026-08-27T00:37:43.453Z",
       "slugByLocale": {
         "it": "responsabile-del-rischio-efg-international-ag-geneve",
         "en": "risk-manager-efg-geneve",
@@ -2518,7 +2531,8 @@
       },
       "previousSlugs": [
         "risk-manager-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6413",
@@ -2569,7 +2583,7 @@
           }
         }
       },
-      "crawledAt": "2026-08-26T09:53:23.986Z",
+      "crawledAt": "2026-08-27T00:37:43.444Z",
       "slugByLocale": {
         "it": "finanza-internship-efg-international-ag-geneve",
         "en": "finance-internship-efg-geneve",
@@ -2607,7 +2621,8 @@
       },
       "previousSlugs": [
         "finance-internship-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-5984",
@@ -2630,7 +2645,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "Switchboard operator",
-        "it": "Operatore di commutazione",
+        "it": "Switchboard operator",
         "de": "Schaltstelle-Operator",
         "fr": "Opérateur de central"
       },
@@ -2660,9 +2675,9 @@
       },
       "crawledAt": "2026-08-25T09:44:22.596Z",
       "slugByLocale": {
-        "it": "operatore-di-commutazione-efg-international-ag-lugano",
+        "it": "switchboard-operator-efg-international-ag-lugano",
         "en": "switchboard-operator-efg-lugano",
-        "de": "schaltnetzbetreiber-efg-international-ag-lugano",
+        "de": "schaltstelle-operator-efg-international-ag-lugano",
         "fr": "switchboard-operateur-efg-international-ag-lugano"
       },
       "addressLocality": "Lugano",
@@ -2689,6 +2704,7 @@
       "previousSlugsByLocale": {
         "it": [
           "switchboard-operator-efg-lugano",
+          "operatore-di-commutazione-efg-international-ag-lugano",
           "switchboard-operator-efg-international-ag-lugano"
         ],
         "de": [
@@ -2699,10 +2715,12 @@
       },
       "previousSlugs": [
         "switchboard-operator-efg-lugano",
+        "operatore-di-commutazione-efg-international-ag-lugano",
         "schaltnetzbetreiber-efg-international-ag-lugano",
         "switchboard-operator-efg-international-ag-lugano",
         "schaltstelle-operator-efg-international-ag-lugano"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6046",
@@ -2796,7 +2814,8 @@
         "senior-private-markets-product-specialist-efg-zurich",
         "specialiste-principal-des-produits-des-marches-prives-efg-international-ag-zurich"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6326",
@@ -2988,7 +3007,8 @@
         "back-office-cash-reconciliation-specialist-efg-geneve",
         "back-office-cash-reconciliation-spezialist-efg-international-ag-geneve",
         "back-office-cash-reconciliation-specialiste-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6137",
@@ -3492,7 +3512,8 @@
         "client-services-officer-geneva-talent-pool-efg-international-ag-geneve",
         "client-services-officer-geneva-talent-pool-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5969",
@@ -3807,7 +3828,8 @@
         "network-proxy-support-team-lead-efg-geneve",
         "network-proxy-support-capo-team-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6334",
@@ -3975,7 +3997,8 @@
       },
       "previousSlugs": [
         "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6266",
@@ -4227,7 +4250,8 @@
         "cis-specialist-onboarding-periodic-reviews-compliance-officer-efg-geneve",
         "cis-specialist-onboarding-recensioni-periodiche-compliance-officer-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6203",
@@ -4249,7 +4273,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
-        "fr": "EFG Programme d'études supérieures 2026 - Fonctions corporatives - Ressources humaines - Lugano",
+        "fr": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
         "it": "Programma di Laurea EFG 2026 - Funzioni Corporate - Risorse Umane - Lugano",
         "de": "EFG Graduate Programme 2026 - Corporate Functions - Personalwesen - Lugano"
       },
@@ -4334,7 +4358,8 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6177",
