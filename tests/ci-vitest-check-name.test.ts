@@ -214,6 +214,13 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
     expect(RELATED_RUNNER).toContain('file !== \'scripts/ci/run-related-tests.mjs\'');
   });
 
+  it('usa un bundle deterministico e non scarica il diff completo nelle review incrementali', () => {
+    expect(TESTS_YML).toContain('review-bundle.md');
+    expect(TESTS_YML).toContain('elif [ -n "${INCREMENTAL_BASE:-}" ]; then');
+    expect(TESTS_YML).toContain('full PR diff omitted; see delta.patch');
+    expect(TESTS_YML).toContain('Read `REVIEW.md` first');
+  });
+
   it('abilita e persiste la Node compile cache del job comune', () => {
     expect(TESTS_YML).toContain('NODE_COMPILE_CACHE: node_modules/.cache/node-compile');
     expect(TESTS_YML).toContain('node_modules/.cache/node-compile');

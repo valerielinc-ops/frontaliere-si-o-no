@@ -1752,8 +1752,13 @@ jobs:
           # costruzione (gli `--exclude` coprono proprio quei path) e il fetch
           # su una PR da migliaia di file dati non e' gratis. Il file esiste
           # comunque, cosi' un `Read` non fallisce.
+          # Su una review incrementale il diff completo è inutile e può essere
+          # enorme: il bundle contiene solo delta.patch, che è la superficie
+          # realmente da rivalutare rispetto alla precedente review.
           if [ "${TIER:-}" = "minimal" ]; then
             : > "$CTX_DIR/diff.patch"
+          elif [ -n "${INCREMENTAL_BASE:-}" ]; then
+            echo "(incremental review: full PR diff omitted; see delta.patch)" > "$CTX_DIR/diff.patch"
           else
             gh pr diff "$PR_NUMBER" --repo "$REPO" \
               --exclude 'data/**' --exclude 'public/**' --exclude 'reports/**' \
@@ -1770,6 +1775,35 @@ jobs:
           gh api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
             --jq '[.[] | select(.body // "" | contains("<!-- sibling-check -->"))] | last | .body // empty' \
             > "$CTX_DIR/sibling-check.md" 2>/dev/null || true
+          # Unico input Claude: assembla una fotografia deterministica del
+          # contesto già raccolto, così il reviewer fa un solo Read iniziale e
+          # non ricostruisce il contesto con gh/grep in turni successivi.
+          {
+            echo "# PR review bundle"
+            echo
+            echo "## Metadata"
+            echo "- PR: #$PR_NUMBER"
+            echo "- HEAD: $HEAD_SHA"
+            echo "- Tier: ${TIER:-unknown}"
+            echo "- Incremental base: ${INCREMENTAL_BASE:-none}"
+            echo "- Complete file list entries: $(wc -l < "$CTX_DIR/files.txt")"
+            echo "- Code diff lines: $(wc -l < "$CTX_DIR/diff.patch")"
+            echo
+            echo "## PR metadata"
+            cat "$CTX_DIR/pr.json"
+            echo
+            echo "## Complete changed-file list"
+            cat "$CTX_DIR/files.txt"
+            echo
+            echo "## Code-only diff"
+            cat "$CTX_DIR/diff.patch"
+            echo
+            echo "## Incremental delta"
+            if [ -f "$CTX_DIR/delta.patch" ]; then cat "$CTX_DIR/delta.patch"; else echo "No incremental base: this is a full review."; fi
+            echo
+            echo "## Sibling-check signal"
+            if [ -s "$CTX_DIR/sibling-check.md" ]; then cat "$CTX_DIR/sibling-check.md"; else echo "No sibling-check signal available."; fi
+          } > "$CTX_DIR/review-bundle.md"
           echo "Prefetched review context in $CTX_DIR:"
           ls -la "$CTX_DIR"
 
@@ -1826,41 +1860,17 @@ jobs:
           # issues:write, senza restrizione su Bash/Write/Edit.
           claude_args: "--max-turns ${{ steps.tier.outputs.max_turns }} --model ${{ steps.tier.outputs.model }} --dangerously-skip-permissions"
           prompt: |
-            Reviewer automatico PR #${{ steps.resolve.outputs.pr_number }} ("${{ steps.resolve.outputs.title }}"). Tier: ${{ steps.tier.outputs.tier }}.
+            PR review automation for #${{ steps.resolve.outputs.pr_number }} (HEAD ${{ steps.resolve.outputs.head_sha }}), tier ${{ steps.tier.outputs.tier }}.
 
-            **Tier `minimal` (PR data/docs-only, ZERO code) — percorso corto, ≤6 turni:** NON leggere `REVIEW.md` né `AGENTS.md`, NON fare cross-file probing né adversarial check (no-op senza code). Fai SOLO: (1) leggi con `Read` i due file gia' prefetchati in `${{ runner.temp }}/review-ctx/` — `pr.json` (title/body/labels) e `files.txt` (elenco file completo). Il path e' questo, NON dedurlo dal Bootstrap: su questo tier il Bootstrap non lo leggi. NON usare `gh pr view --json files`, tronca a 100 in silenzio; (2) verifica il completeness contract del body — `## Implementato` e `## Non implementato (ancora)` presenti, ogni bullet sensato, nessun placeholder vuoto/`TBD`; un bullet che dichiara `per scelta` / `by construction` / `blocked: decisione del proprietario` **col motivo scritto dopo lo stato** è una voce CHIUSA: non chiederne l'implementazione, non è un finding; (3) se il body è a posto → posta `gh pr review $PR_NUMBER --comment --body` con una review breve che chiude con `## LGTM` (string esatta → auto-merge); se il contract è violato → `🟡` (o `🔴 Important` se grave) e NIENTE `## LGTM`. Non aprire/scorrere i file dati/static. FERMATI dopo aver postato. (Se il Tier NON è `minimal`, ignora questo paragrafo e segui la Disciplina turni + Bootstrap sotto.)
+            Read `REVIEW.md` first; it is the single source of truth for severity, scope, required checks, and output format. Do not read `AGENTS.md` unless REVIEW.md explicitly requires a specific rule.
 
-            **Disciplina turni (budget rigido, tutti i tier eccetto `minimal`):** hai un budget di ${{ steps.tier.outputs.max_turns }} turni. Un messaggio con tool-call = 1 turno **indipendentemente da quanti tool_use contiene** — dati storici (112 morti `error_max_turns` analizzate su questo workflow, 2026-07-17) mostrano p50 ~20 turni contro un lavoro reale che ne richiederebbe ~10-12: la differenza è quasi tutta overhead meccanico, non ragionamento. Quindi: (1) probe indipendenti (grep/Read/gh su file diversi, verifiche non correlate) vanno emesse **in parallelo nello stesso messaggio**, mai una-per-turno; (2) `PR_NUMBER`/`HEAD_SHA`/`INCREMENTAL_BASE` sono già nell'env di questo prompt — mai spendere un turno su `env`/`printenv` per rileggerli; (3) il checkout NON ha `node_modules` installato — mai `npm`/`npx`/build/test runner, il verdetto si basa su lettura statica del diff, non su esecuzione; (4) **entro il turno $((${{ steps.tier.outputs.max_turns }} - 5))** DEVI aver postato la review — se a quel punto hai ancora verifiche aperte, postale come `❓ q:` (con l'escalation funnel-critical già normata sotto) invece di continuare a probeare: una review postata con un `❓` sblocca il loop, una review MAI postata brucia l'intero run senza verdetto (è successo in almeno un caso osservato: verdetto già formato al turno 22 su un cap di 25, morto al 26 senza mai postare).
+            The deterministic review bundle is already prepared in `${{ runner.temp }}/review-ctx/`: `review-bundle.md` is the primary input and includes the PR metadata, complete file list, code-only diff, incremental delta (when present), and sibling signals. Read it before using GitHub or repository tools. Do not repeat `gh pr view`, `gh pr diff`, or `gh api compare` unless the bundle explicitly reports that a section is incomplete.
 
-            **Bootstrap:**
-            1. Leggi `REVIEW.md` — contratto operativo completo (tier, severity, filtro scopo, completeness contract, cross-file pattern repetition, test plan compliance, adversarial check, format).
-            2. `AGENTS.md` è grande: NON leggerlo salvo necessità specifica esplicita (un finding richiede di citare un non-negotiable preciso). REVIEW.md basta da solo per il workflow di review — leggere AGENTS.md a ogni run è token sprecato.
-            3. Il contesto PR è già prefetchato (zero-Claude, prima che tu parta) in `${{ runner.temp }}/review-ctx/`: `pr.json` (`gh pr view --json title,body,labels`), `files.txt` (elenco file COMPLETO dalla REST paginata — `gh pr view --json files` tronca a 100 e non paginare e' il difetto della #6190) e `diff.patch` (diff del SOLO code, stesso `--exclude` di sempre). **Leggili con `Read` — non rieseguire `gh pr view`/`gh pr diff`**, è lo stesso identico output e rifarlo brucia turni di setup. I file dati/static rigenerati (`data/**` job JSON, snapshot, translation-cache, blog-articles; `public/**` immagini/asset) NON sono code: NON revieware il loro contenuto riga-per-riga né contarli come finding — valuta solo se il CODE che li genera è corretto. Se serve un campione di output dati, aprilo mirato con `Read`, non scorrere l'intero blob nel diff.
+            If `INCREMENTAL_BASE` is set, review only the delta and its interactions. Treat the prior Claude review as already approved context; do not re-read unchanged code unless needed to understand a concrete delta. If the bundle says the code contribution is unchanged, post a short review ending exactly with `## LGTM`.
 
-            **Re-review INCREMENTALE (solo se `INCREMENTAL_BASE` è valorizzato, tier `incremental`/`incremental-high`):** i commit fino a `$INCREMENTAL_BASE` sono GIÀ stati reviewati in un pass precedente — NON ri-revieware l'intero contributo. Il delta dei file code dall'ultima review è già prefetchato in `${{ runner.temp }}/review-ctx/delta.patch` — **leggilo con `Read`, non rieseguire la `gh api compare`** (rifarla turno-per-turno era il primo consumatore di setup-turni osservato). Concentra la review su QUESTE modifiche e sulle loro interazioni. Sei comunque autorizzato (e incoraggiato, se il delta tocca o dipende da code non incluso) a `Read`/`grep` i file pieni per il CONTESTO — l'obiettivo è non ri-spendere token rivalutando code già approvato, non chiudere gli occhi sulle interazioni. Severity e formato invariati. Se il delta è vuoto o solo data/docs → chiudi con `## LGTM` senza inventare finding.
+            Review in one pass: validate the body contract, inspect the changed code and relevant interactions, verify declared performance claims against the supplied evidence, and check only concrete behavior/correctness risks. Do not invent missing-test findings. Use the sibling candidates from the bundle as leads, not verdicts. For high tiers, include exactly three concise unresolved items in `## Adversarial check`; they must be real unverified risks, not generic missing coverage.
 
-            **Esegui workflow di review come specificato in REVIEW.md:**
-            - completeness contract → Implementato critical thinking → Non implementato filtro scopo → scope drift → cross-file pattern repetition (step 5) → test plan compliance (step 6) → claim perf non validato (step 7) → output.
-            - **Stati letterali di `## Non implementato (ancora)` — sono SEI, e tre CHIUDONO la voce (REVIEW.md step 2).** Lavoro ancora dovuto: `in questa PR`, `PR concatenata #N`, `blocked: <causa tecnica>`. Voce chiusa con un motivo: `per scelta`, `by construction`, `blocked: decisione del proprietario`. **Su un bullet che dichiara uno dei tre chiudenti e porta il motivo DOPO lo stato non si emette 🔴** («va implementato»): è un no motivato, ed è la stessa tassonomia che `scripts/ci/followup-has-candidates.mjs` (`CLOSING_STATES`) e i due fixer autonomi leggono da `scripts/lib/pr-body-sections-check.mjs`. Ri-emetterlo non lo fa chiudere da nessuno — il 🔴-fixer legge lo stato e declina, il round si consuma, e a round 2 la PR prende `needs-human` con la diagnosi sbagliata «il fixer non ce la fa» su una PR che non aveva niente da fixare. Motivo debole → `❓ q:`. Resta 🔴 il caso opposto: stato chiudente SENZA motivo, o col motivo che nega lo stato («non per scelta ma per un limite dell'API») — quello è un `out of scope` travestito.
-            - Tier `high`, `high-mega` (PR funnel-critical sovradimensionata, stesso rigore di `high` con più turni) O `incremental-high`: aggiungi sezione `## Adversarial check` con 3 cose NON verificate prima del summary finale (per incremental-high: limitate al delta reviewato).
-            - **Sezioni mancanti + tier `high`/`high-mega` (REVIEW.md step 4): posta il 🔴 process MA NON terminare.** Prosegui con review sostanziale + `## Adversarial check` completi nello stesso pass — il 🔴 blocca solo l'auto-merge, non un merge manuale, quindi la sostanza deferita evapora. Solo tier normal può terminare al process gate.
-            - **Claim perf non validato (REVIEW.md step 7):** PR perf/build/CI che dichiara speedup/regressione attesa senza misura baseline pre-merge (solo "atteso X→Y" / "il profiler misura post-deploy") su tier `high`/`high-mega` → 🔴 Important. Chiedi misura pre/post o revert-risk esplicito.
-            - **Escalation ❓ funnel-critical (REVIEW.md Verification):** un ❓ q (incluso quelli nell'adversarial check) il cui soggetto impatta monetizzazione/traffico (writeJson/persistenza dataset indicizzato, canonical/redirect/previousSlugs, structured data, sitemap, AdSense) → promuovi a 🔴 o apri follow-up issue + linkala. Mai ❓ funnel-critical passivo accanto a `## LGTM`.
-            - **No missing-test findings (REVIEW.md → IGNORA → test coverage):** NON sollevare "manca un test" / "aggiungi coverage" / "pinna con un test" come 🟡 nit né come voce `## Adversarial check`, nemmeno su path funnel-critici. Nell'adversarial check elenca rischi di COMPORTAMENTO/correttezza non verificati, mai assenza di test. Eccezione (resta in scope): un BUG in un test ESISTENTE (assertion/regex/guard leaky, fixture date assolute).
-
-            **Cross-file pattern probing (REVIEW.md step 5):** il commento sticky `<!-- sibling-check -->` (postato dal job zero-Claude di pr-body-contract), se presente sulla PR, è già prefetchato in `${{ runner.temp }}/review-ctx/sibling-check.md` — leggilo con `Read` invece di cercarlo via `gh api`/`gh pr view --json comments`: contiene già i file gemelli candidati che condividono i costrutti modificati dal diff — parti da quella lista (verifica i candidati, non fidarti ciecamente: è token-match euristico). Se il file è vuoto o insufficiente, quando il diff fix-a un pattern (regex, parsing idiom, assertion shape), usa `rg` per cercare il pattern equivalente nel resto del repo. **Scopa la ricerca al CODE** — `rg <pattern> scripts build-plugins components services functions server hooks tests` (oppure `rg <pattern> -g '!data/**' -g '!public/**' -g '!reports/**'`): cercare dentro `data/`/`public/` matcha migliaia di blob dati rigenerati = turni e token sprecati senza segnale. Pattern presente non toccato in file funnel-critico → 🔴; altrove → 🟡.
-
-            **Posta UNA review:**
-            `gh pr review $PR_NUMBER --comment --body "<markdown formato REVIEW.md>"`
-
-            **Constraint:**
-            - Single-pass, una sola review per run.
-            - Read-only: no push, no edit file.
-            - Zero finding accettabile → chiudi con `## LGTM` (string esatta triggera auto-merge). Non inventare per riempire.
-            - 🔴 aperto → NON scrivere `## LGTM`.
-            - ❓ funnel-critical non escalato (né 🔴 né follow-up issue) → NON scrivere `## LGTM`.
-            - Incerto → `❓ q:`, no speculazione.
-
+            Post exactly one review with `gh pr review ${PR_NUMBER} --comment --body ...`. End with `## LGTM` only when there is no open `🔴 Important`, no unresolved funnel-critical question, and the bundle/body contract is valid. If uncertain, emit `❓ q:`; never use `## LGTM` beside an unresolved Important finding. Work read-only: do not edit files, commit, push, run npm, or run tests. Batch independent reads/searches in one tool call and stop immediately after posting the review.
       - name: Fail on transient API error (no review posted)
         # claude-code-action can exit 0 even when the model run ABORTED on a
         # transient Anthropic API error WITHOUT posting a review. The job then
