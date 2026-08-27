@@ -8,7 +8,10 @@
  * small static import graph on disk, updates only changed files, walks it in
  * reverse from changed sources, and passes the resulting test files directly
  * to Vitest. It stays related-only for ordinary imports, with a conservative
- * full-test fallback for implicit dependencies the static graph cannot model.
+ * full-test fallback only for repository-level runtime/configuration inputs
+ * that are explicitly listed below. Workflow files are deliberately excluded:
+ * changing CI orchestration must not expand an application test diff into the
+ * complete Vitest suite.
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
@@ -27,7 +30,7 @@ const skipCorpusWide = process.env.VITEST_SKIP_CORPUS_WIDE === 'true';
 const corpusWideTests = skipCorpusWide ? new Set(listCorpusWideTests()) : new Set();
 // These dependencies are wired by Vitest/configuration or executed through a
 // path string, so no static import edge can reliably reach their consumers.
-const implicitTestDependencyRe = /^(?:tests\/setup(?:-node)?\.[cm]?[jt]sx?|scripts\/(?:seo|models|one-off)\/|\.github\/workflows\/|package\.json$|tsconfig[^/]*\.json$)/;
+const implicitTestDependencyRe = /^(?:tests\/setup(?:-node)?\.[cm]?[jt]sx?|scripts\/(?:seo|models|one-off)\/|package\.json$|tsconfig[^/]*\.json$)/;
 const importRe = /(?:import\s+(?:[^'";]*?\s+from\s+)?|export\s+[^'";]*?\s+from\s+|import\s*\(|require\s*\()(['"])([^'"]+)\1/g;
 const extensions = ['', '.ts', '.tsx', '.js', '.jsx', '.mjs', '.cjs', '.vue', '.svelte'];
 
