@@ -250,7 +250,8 @@ jobs:
         # le diagnostiche dei file invariati tra run dello stesso ramo. Il
         # compilatore verifica hash/opzioni prima del riuso; la cache è quindi
         # una misura di performance, non una scorciatoia del gate.
-        uses: actions/cache@v5
+        id: tsc-cache
+        uses: actions/cache/restore@v5
         with:
           path: .cache/tsc
           key: tsc-incremental-${{ runner.os }}-${{ hashFiles('package-lock.json', 'tsconfig.json', 'scripts/ci/check-typecheck-baseline.mjs') }}
@@ -1404,6 +1405,17 @@ jobs:
       # ══════════════════════════════════════════════════════════════════════
       - name: Wait for background gates and independent vitest
         wait-all: true
+
+      # Il salvataggio post-job di `actions/cache` non parte quando uno step
+      # successivo fallisce (per esempio Vitest): TSC può essere verde, ma la
+      # sua cache resterebbe vuota. Salviamo subito dopo il join, anche se il
+      # verdetto complessivo del job è già destinato al rosso.
+      - name: Save TypeScript incremental state
+        if: ${{ always() && steps.tsc-cache.outputs.cache-hit != 'true' }}
+        uses: actions/cache/save@v5
+        with:
+          path: .cache/tsc
+          key: tsc-incremental-${{ runner.os }}-${{ hashFiles('package-lock.json', 'tsconfig.json', 'scripts/ci/check-typecheck-baseline.mjs') }}
 
       - name: Upload related test timing
         # always() so we still collect timings when the run is red (a slow test
