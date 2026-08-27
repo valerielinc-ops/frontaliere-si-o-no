@@ -50,6 +50,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -314,8 +315,7 @@ async function main() {
     keepCount: keepPaths.length,
     keepPaths,
   };
-  fs.mkdirSync(path.dirname(OUT_PATH), { recursive: true });
-  fs.writeFileSync(OUT_PATH, JSON.stringify(output, null, 2) + '\n');
+  writeJsonAtomic(OUT_PATH, output);
   console.error(`[noslash-keep] Wrote ${OUT_PATH} — ${keepPaths.length} keep paths total (union of GSC/GA4/PostHog + previous keep-list)`);
 }
 

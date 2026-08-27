@@ -34,6 +34,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { httpFetchWithRetry } from './lib/transient-fetch.mjs';
 import { FRANKFURTER_ENDPOINTS } from './lib/frankfurter-endpoints.mjs';
 
@@ -257,8 +258,7 @@ async function main() {
     process.exit(1);
   }
 
-  fs.mkdirSync(path.dirname(OUT_PATH), { recursive: true });
-  fs.writeFileSync(OUT_PATH, JSON.stringify(snapshot, null, 2) + '\n', 'utf-8');
+  writeJsonAtomic(OUT_PATH, snapshot);
   console.log(
     `\n✅ Wrote ${path.relative(REPO_ROOT, OUT_PATH)}\n` +
       `   current: 1 CHF = ${snapshot.currentRate} EUR (${snapshot.rateDate}, ${source})\n` +
