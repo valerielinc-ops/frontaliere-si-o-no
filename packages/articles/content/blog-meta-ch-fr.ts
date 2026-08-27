@@ -4444,6 +4444,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.chronext-fallimento-zugo.title': 'Chronext ferme : faillite montres luxe Zoug',
     'blog.article.chronext-fallimento-zugo.excerpt': 'Faillite prononcée le 19 août par le Tribunal cantonal de Zoug. Chronext, société de commerce électronique de luxe, comptait 150 employés et des revenus de centaines de millions. En 2022, il avait déjà licencié 40 personnes.',
     'blog.article.chronext-fallimento-zugo.imageAlt': 'Vue aérienne de Zoug, centre économique de la Suisse, montrant le quartier des affaires moderne à l\'heure d\'or',
+    'blog.article.glarner-dimissioni-consiglio-nazionale.title': 'Glarner quitte le Conseil national à la fin de l\'année',
+    'blog.article.glarner-dimissioni-consiglio-nazionale.excerpt': 'Andreas Glarner (UDC/AG) annonce sa démission du Parlement fédéral le 31 décembre 2026. Il quitte également la présidence du parti argosino.',
+    'blog.article.glarner-dimissioni-consiglio-nazionale.imageAlt': 'Chambre du Conseil national au Palais fédéral de Berne',
 };
 
 export default blogMetaChFr;

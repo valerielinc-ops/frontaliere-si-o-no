@@ -4444,6 +4444,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.chronext-fallimento-zugo.title': 'Chronext chiude: fallimento orologi lusso Zugo',
     'blog.article.chronext-fallimento-zugo.excerpt': 'Fallimento dichiarato il 19 agosto dal Tribunale cantonale di Zugo. Chronext, società di e-commerce nel lusso, aveva 150 dipendenti e ricavi di centinaia di milioni. Nel 2022 aveva già licenziato 40 persone.',
     'blog.article.chronext-fallimento-zugo.imageAlt': 'Vista aerea di Zugo, centro economico della Svizzera, con quartiere degli affari moderno durante l\'ora d\'oro',
+    'blog.article.glarner-dimissioni-consiglio-nazionale.title': 'Glarner lascia il Consiglio nazionale a fine anno',
+    'blog.article.glarner-dimissioni-consiglio-nazionale.excerpt': 'Andreas Glarner (UDC/AG) annuncia dimissioni dal Parlamento federale il 31 dicembre 2026. Lascia anche la presidenza del partito argosino.',
+    'blog.article.glarner-dimissioni-consiglio-nazionale.imageAlt': 'Aula del Consiglio nazionale al Palazzo federale di Berna',
 };
 
 export default blogMetaChIt;

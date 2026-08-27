@@ -13330,6 +13330,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'glarner-dimissioni-consiglio-nazionale',
+    category: 'novita',
+    date: '2026-08-27T00:10:51.108Z',
+    image: '/images/blog/glarner-dimissioni-consiglio-nazionale.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
