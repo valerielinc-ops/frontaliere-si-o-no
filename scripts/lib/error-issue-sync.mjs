@@ -155,9 +155,23 @@ export function isIssueDenied(message) {
  * ISSUE_DENY_PATTERNS above mirrors instead of importing (#5999: a mangled
  * 2-char message like "Ba" can't be pattern-matched safely, so the feeder
  * needs to surface resolved stack origins in the issue body instead).
+ *
+ * HogQL's `any(properties.$exception_list)` (and every other row/aggregate
+ * read of a JSON-typed column) comes back as a JSON-encoded STRING, not a
+ * parsed array — confirmed live against the PostHog API for #5999 itself.
+ * `services/posthog-error-filter.ts`'s copy runs in-browser on the SDK's
+ * already-parsed `event.properties.$exception_list`, so it never needs this;
+ * only this HogQL-facing copy does.
  */
 export function extractStackFrameOrigins(rawList) {
   const origins = [];
+  if (typeof rawList === 'string') {
+    try {
+      rawList = JSON.parse(rawList);
+    } catch {
+      return origins;
+    }
+  }
   if (!Array.isArray(rawList)) return origins;
   for (const exc of rawList) {
     if (!exc || typeof exc !== 'object') continue;
