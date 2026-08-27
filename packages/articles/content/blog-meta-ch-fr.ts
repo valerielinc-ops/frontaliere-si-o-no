@@ -4462,6 +4462,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-successione-appenzello.title': 'Impôts de succession Appenzell : taux et procédures',
     'blog.article.imposta-successione-appenzello.excerpt': 'Droit de succession à Appenzell : compétence cantonale, taux de parenté, exonérations pour conjoint. Déclaration dans les 30-90 jours. Procédure en 6 étapes.',
     'blog.article.imposta-successione-appenzello.imageAlt': 'Bâtiment administratif suisse représentant l\'administration fiscale pour successions et donations',
+    'blog.article.imposte-cantonali-san-gallo-aliquote-deduzioni.title': 'Impôts Saint-Gall : taux, échelonnements et déductions',
+    'blog.article.imposte-cantonali-san-gallo-aliquote-deduzioni.excerpt': 'Comment fonctionnent les impôts cantonaux et communaux dans le canton de Saint-Gall : taux, tranches, déductions admises et délais de déclaration.',
+    'blog.article.imposte-cantonali-san-gallo-aliquote-deduzioni.imageAlt': 'Vue aérienne de la vieille ville de Saint-Gall avec maisons de corporations historiques',
 };
 
 export default blogMetaChFr;

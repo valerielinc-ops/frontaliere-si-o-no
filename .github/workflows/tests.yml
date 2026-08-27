@@ -1429,6 +1429,19 @@ jobs:
           retention-days: 7
           if-no-files-found: ignore
 
+      - name: Report Vitest failures on PR
+        # The two Vitest steps can fail independently; this step must still
+        # run after either group fails and must never mask the original gate.
+        if: ${{ always() && github.event_name == 'pull_request' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          RUN_ID: ${{ github.run_id }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: node scripts/ci/report-vitest-failure.mjs
+
       - name: Resolve PR from pull request
         id: resolve
         if: github.event_name == 'pull_request'

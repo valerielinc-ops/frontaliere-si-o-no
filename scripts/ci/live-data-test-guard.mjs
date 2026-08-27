@@ -140,10 +140,9 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   { file: 'tests/article-review-overrides.test.ts', roots: ['packages/articles/'] },
   { file: 'tests/article-slug-prompt-leak-guard.test.ts', roots: ['packages/articles/content/'] },
   { file: 'tests/articles-sync-pin.test.ts', roots: ['packages/articles/content/'] },
-  // The test reaches the live corpus transitively through create-article.mjs;
-  // keep this explicit because the source scanner intentionally does not
-  // keep this bit explicit because the source scanner intentionally does not
-  // execute imported modules while building the inventory.
+  // Reaches the live article corpus transitively through create-article.mjs.
+  // The source scanner intentionally does not execute imported modules while
+  // building the inventory, so this dependency stays explicit.
   { file: 'tests/evergreen-pool-consumption.test.ts', roots: ['packages/articles/content/'], transitive: true },
   { file: 'tests/blog-headline-validation.test.ts', roots: ['services/locales/'] },
   { file: 'tests/bridge-canton-aware.test.ts', roots: ['data/jobs/'] },
@@ -159,6 +158,9 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   { file: 'tests/google-news-compliance.test.ts', roots: ['services/locales/'] },
   { file: 'tests/i18n-completeness.test.ts', roots: ['services/locales/'] },
   { file: 'tests/it-microcopy-guard.test.ts', roots: ['packages/articles/content/'] },
+  // Reads the assembled live jobs corpus; its rate changes with crawler
+  // output, so it is not a deterministic PR gate.
+  { file: 'tests/job-locale-consistency.test.ts', roots: ['data/jobs/'], transitive: true },
   { file: 'tests/job-locale-mark-persistence.test.ts', roots: ['data/jobs/'] },
   { file: 'tests/news-ticker-data.test.ts', roots: ['packages/articles/'] },
   { file: 'tests/packages-articles-confinement.test.ts', roots: ['packages/articles/'] },
@@ -183,11 +185,16 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   { file: 'tests/whats-new-localization-guard.test.ts', roots: ['services/locales/'] },
 ]);
 
-/** Test esclusi dal gate PR perché leggono il corpus riscritto dai crawler. */
+/**
+ * Il test di partizionamento è un controllo meta della configurazione, non un
+ * gate sulla qualità del corpus: resta nel gate PR e viene lanciato anche
+ * esplicitamente nel workflow post-merge.
+ */
 const CI_LIVE_DATA_META_TESTS = new Set([
   'tests/corpus-wide-test-partition.test.ts',
 ]);
 
+/** I test dell'inventario live, esclusi i controlli meta della CI, non sono gate PR. */
 export function listLiveDataTestsForCi() {
   return KNOWN_LIVE_DATA_TESTS
     .map(({ file }) => file)

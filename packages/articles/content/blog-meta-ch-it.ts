@@ -4462,6 +4462,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposta-successione-appenzello.title': 'Imposte di successione Appenzello: aliquote e procedure',
     'blog.article.imposta-successione-appenzello.excerpt': 'Imposta di successione a Appenzello: competenza cantonale, aliquote per parentela, esenzioni per coniuge. Dichiarazione entro 30-90 giorni. Procedura in 6 fasi.',
     'blog.article.imposta-successione-appenzello.imageAlt': 'Palazzo amministrativo svizzero che rappresenta l\'amministrazione tributaria cantonale per successioni e donazioni',
+    'blog.article.imposte-cantonali-san-gallo-aliquote-deduzioni.title': 'Imposte San Gallo: aliquote, scaglioni e deduzioni',
+    'blog.article.imposte-cantonali-san-gallo-aliquote-deduzioni.excerpt': 'Come funzionano le imposte cantonali e comunali nel Cantone di San Gallo: aliquote, scaglioni, deduzioni ammesse e scadenze per la dichiarazione.',
+    'blog.article.imposte-cantonali-san-gallo-aliquote-deduzioni.imageAlt': 'Vista aerea del centro storico di San Gallo con architettura svizzera tradizionale e case d\'arte',
 };
 
 export default blogMetaChIt;
