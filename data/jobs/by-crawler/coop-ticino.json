@@ -693,7 +693,7 @@
     },
     {
       "id": "company-5m2ll9",
-      "slug": "kochin-koch-m-w-d-coop-genossenschaft-muri-bei-bern-5m2ll9",
+      "slug": "cuoca-cuoco-coop-genossenschaft-muri-bei-bern",
       "company": "Coop Genossenschaft",
       "title": "Köchin / Koch (w/m/d)",
       "location": "Muri bei Bern",
@@ -734,10 +734,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "kochin-koch-m-w-d-coop-genossenschaft-muri-bei-bern-5m2ll9",
+        "it": "cuoca-cuoco-coop-genossenschaft-muri-bei-bern",
         "en": "kochin-koch-m-w-d-coop-ristorante-muri-bei-bern-5m2ll9",
         "de": "kochin-koch-m-w-d-coop-ristorante-muri-bei-bern-5m2ll9",
-        "fr": "kochin-koch-m-w-d-coop-ristorante-muri-bei-bern-5m2ll9"
+        "fr": "cuisinier-cuisiniere-coop-genossenschaft-muri-bei-bern"
       },
       "needsRetranslation": true,
       "addressLocality": "Muri bei Bern",
@@ -761,11 +761,16 @@
         "canton": "BE"
       },
       "previousSlugs": [
-        "kochin-koch-m-w-d-coop-genossenschaft-muri-bei-bern"
+        "kochin-koch-m-w-d-coop-genossenschaft-muri-bei-bern",
+        "kochin-koch-m-w-d-coop-genossenschaft-muri-bei-bern-5m2ll9"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-m-w-d-coop-genossenschaft-muri-bei-bern"
+          "kochin-koch-m-w-d-coop-genossenschaft-muri-bei-bern",
+          "kochin-koch-m-w-d-coop-genossenschaft-muri-bei-bern-5m2ll9"
+        ],
+        "fr": [
+          "kochin-koch-m-w-d-coop-genossenschaft-muri-bei-bern-5m2ll9"
         ]
       },
       "retranslationAttempts": 1
@@ -833,19 +838,14 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-gastronomie-coop-genossenschaft-landquart-graubunden"
-        ]
-      },
-      "previousSlugs": [
-        "mitarbeiter-in-gastronomie-coop-genossenschaft-landquart-graubunden"
-      ],
       "_targetScope": {
         "type": "adapter_seed_meta",
         "location": "Grigioni",
         "canton": "GR"
-      }
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-gastronomie-coop-genossenschaft-landquart-graubunden"
+      ]
     },
     {
       "id": "company-p0ylp3",
@@ -1186,7 +1186,7 @@
       },
       "slugByLocale": {
         "it": "praktikant-in-risorse-umane-administration-12-monate-coop-genossenschaft-schafisheim-aargau-f72zal",
-        "en": "praktikant-in-hr-administration-12-monate-coop-genossenschaft-schafisheim-aargau-f72zal",
+        "en": "hr-administration-intern-12-months-coop-genossenschaft-schafisheim",
         "de": "praktikant-in-hr-administration-12-monate-coop-genossenschaft-schafisheim-aargau-f72zal",
         "fr": "praktikant-in-ressources-humaines-administration-12-monate-coop-genossenschaft-schafisheim-aargau-f72zal"
       },
@@ -1206,11 +1206,12 @@
         }
       },
       "previousSlugsByLocale": {
-        "it": [
-          "praktikant-in-hr-administration-12-monate-coop-genossenschaft-schafisheim-aargau"
+        "en": [
+          "praktikant-in-hr-administration-12-monate-coop-genossenschaft-schafisheim-aargau-f72zal"
         ]
       },
       "previousSlugs": [
+        "praktikant-in-hr-administration-12-monate-coop-genossenschaft-schafisheim-aargau-f72zal",
         "praktikant-in-hr-administration-12-monate-coop-genossenschaft-schafisheim-aargau"
       ],
       "_targetScope": {
@@ -1402,7 +1403,7 @@
     },
     {
       "id": "company-gk0f39",
-      "slug": "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-muri-bei-bern-gk0f39",
+      "slug": "responsabile-di-reparto-alimenti-base-coop-genossenschaft-muri-bei-bern",
       "company": "Coop Genossenschaft",
       "title": "Rayonleiter:in Grundnahrungsmittel",
       "location": "Muri bei Bern",
@@ -1443,10 +1444,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-muri-bei-bern-gk0f39",
-        "en": "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-muri-bei-bern-gk0f39",
+        "it": "responsabile-di-reparto-alimenti-base-coop-genossenschaft-muri-bei-bern",
+        "en": "section-manager-staple-foods-coop-genossenschaft-muri-bei-bern",
         "de": "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-muri-bei-bern-gk0f39",
-        "fr": "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-muri-bei-bern-gk0f39"
+        "fr": "chef-de-rayon-produits-alimentaires-de-base-coop-genossenschaft-muri-bei-bern"
       },
       "addressLocality": "Muri bei Bern",
       "sourceLang": "de",
@@ -1469,11 +1470,19 @@
         "canton": "BE"
       },
       "previousSlugs": [
-        "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-muri-bei-bern"
+        "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-muri-bei-bern",
+        "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-muri-bei-bern-gk0f39"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-muri-bei-bern"
+          "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-muri-bei-bern",
+          "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-muri-bei-bern-gk0f39"
+        ],
+        "en": [
+          "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-muri-bei-bern-gk0f39"
+        ],
+        "fr": [
+          "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-muri-bei-bern-gk0f39"
         ]
       }
     },
@@ -1532,15 +1541,10 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "logistiker-in-eba-fust-oberburen"
-        ]
-      },
+      "retranslationAttempts": 1,
       "previousSlugs": [
         "logistiker-in-eba-fust-oberburen"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-dublf5",
@@ -1597,15 +1601,10 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "logistiker-in-efz-fust-oberburen"
-        ]
-      },
+      "retranslationAttempts": 1,
       "previousSlugs": [
         "logistiker-in-efz-fust-oberburen"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-hdt5ri",
@@ -1662,15 +1661,10 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen"
-        ]
-      },
+      "retranslationAttempts": 1,
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-l6iy9h",
@@ -1727,15 +1721,10 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-2"
-        ]
-      },
+      "retranslationAttempts": 1,
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-2"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-pcbr88",
@@ -1878,15 +1867,10 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-3"
-        ]
-      },
+      "retranslationAttempts": 1,
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-3"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-d1rbjm",
@@ -1943,15 +1927,10 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-4"
-        ]
-      },
+      "retranslationAttempts": 1,
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-4"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-ogw8xr",
@@ -2008,15 +1987,10 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "shiftleader-fur-neueroffnung-m-w-d-marche-dietlikon"
-        ]
-      },
+      "retranslationAttempts": 1,
       "previousSlugs": [
         "shiftleader-fur-neueroffnung-m-w-d-marche-dietlikon"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "company-swymx6",
@@ -2164,7 +2138,7 @@
     },
     {
       "id": "company-65sxjg",
-      "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-aarberg-bern-65sxjg",
+      "slug": "macellaio-a-specialista-in-carni-coop-genossenschaft-aarberg",
       "company": "Coop Genossenschaft",
       "title": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
       "location": "Aarberg, Bern",
@@ -2201,10 +2175,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-aarberg-bern-65sxjg",
-        "en": "metzger-in-fleischfachfrau-fleischfachmann-coop-aarberg-bern-65sxjg",
+        "it": "macellaio-a-specialista-in-carni-coop-genossenschaft-aarberg",
+        "en": "butcher-meat-specialist-coop-genossenschaft-aarberg",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-aarberg-bern-65sxjg",
-        "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-aarberg-bern-65sxjg"
+        "fr": "specialiste-de-la-viande-coop-genossenschaft-aarberg"
       },
       "addressLocality": "Aarberg",
       "sourceLang": "de",
@@ -2222,11 +2196,19 @@
         }
       },
       "previousSlugs": [
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-aarberg-bern"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-aarberg-bern",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-aarberg-bern-65sxjg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-aarberg-bern"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-aarberg-bern",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-aarberg-bern-65sxjg"
+        ],
+        "en": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-aarberg-bern-65sxjg"
+        ],
+        "fr": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-aarberg-bern-65sxjg"
         ]
       }
     },
@@ -2287,7 +2269,7 @@
     },
     {
       "id": "company-kropk0",
-      "slug": "aspirant-in-stv-geschaftsfuhrer-in-coop-schwyz-kropk0",
+      "slug": "aspirante-vice-direttore-a-coop-genossenschaft-schwyz",
       "company": "Coop Genossenschaft",
       "title": "Aspirant:in Stv. Geschäftsführer:in",
       "location": "Schwyz",
@@ -2324,10 +2306,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "aspirant-in-stv-geschaftsfuhrer-in-coop-schwyz-kropk0",
-        "en": "aspirant-in-stv-geschaftsfuhrer-in-coop-schwyz-kropk0",
+        "it": "aspirante-vice-direttore-a-coop-genossenschaft-schwyz",
+        "en": "aspiring-deputy-manager-coop-genossenschaft-schwyz",
         "de": "aspirant-in-stv-geschaftsfuhrer-in-coop-schwyz-kropk0",
-        "fr": "aspirant-in-stv-geschaftsfuhrer-in-coop-schwyz-kropk0"
+        "fr": "aspirant-e-vice-directeur-rice-coop-genossenschaft-schwyz"
       },
       "addressLocality": "Schwyz",
       "sourceLang": "de",
@@ -2345,17 +2327,25 @@
         }
       },
       "previousSlugs": [
-        "aspirant-in-stv-geschaftsfuhrer-in-coop-schwyz"
+        "aspirant-in-stv-geschaftsfuhrer-in-coop-schwyz",
+        "aspirant-in-stv-geschaftsfuhrer-in-coop-schwyz-kropk0"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aspirant-in-stv-geschaftsfuhrer-in-coop-schwyz"
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-schwyz",
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-schwyz-kropk0"
+        ],
+        "en": [
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-schwyz-kropk0"
+        ],
+        "fr": [
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-schwyz-kropk0"
         ]
       }
     },
     {
       "id": "company-ctgh3p",
-      "slug": "aspirant-in-stv-geschaftsfuhrer-in-coop-sarnen-obwalden-ctgh3p",
+      "slug": "aspirante-vice-direttore-direttrice-coop-genossenschaft-sarnen",
       "company": "Coop Genossenschaft",
       "title": "Aspirant:in Stv. Geschäftsführer:in",
       "location": "Sarnen, Obwalden",
@@ -2392,10 +2382,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "aspirant-in-stv-geschaftsfuhrer-in-coop-sarnen-obwalden-ctgh3p",
-        "en": "aspirant-in-stv-geschaftsfuhrer-in-coop-sarnen-obwalden-ctgh3p",
+        "it": "aspirante-vice-direttore-direttrice-coop-genossenschaft-sarnen",
+        "en": "aspiring-deputy-manager-coop-genossenschaft-sarnen",
         "de": "aspirant-in-stv-geschaftsfuhrer-in-coop-sarnen-obwalden-ctgh3p",
-        "fr": "aspirant-in-stv-geschaftsfuhrer-in-coop-sarnen-obwalden-ctgh3p"
+        "fr": "candidat-e-vice-directeur-directrice-coop-genossenschaft-sarnen"
       },
       "addressLocality": "Sarnen",
       "sourceLang": "de",
@@ -2413,11 +2403,19 @@
         }
       },
       "previousSlugs": [
-        "aspirant-in-stv-geschaftsfuhrer-in-coop-sarnen-obwalden"
+        "aspirant-in-stv-geschaftsfuhrer-in-coop-sarnen-obwalden",
+        "aspirant-in-stv-geschaftsfuhrer-in-coop-sarnen-obwalden-ctgh3p"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aspirant-in-stv-geschaftsfuhrer-in-coop-sarnen-obwalden"
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-sarnen-obwalden",
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-sarnen-obwalden-ctgh3p"
+        ],
+        "en": [
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-sarnen-obwalden-ctgh3p"
+        ],
+        "fr": [
+          "aspirant-in-stv-geschaftsfuhrer-in-coop-sarnen-obwalden-ctgh3p"
         ]
       }
     },
@@ -2495,7 +2493,7 @@
     },
     {
       "id": "company-vuengl",
-      "slug": "rayonleiter-in-deco-inklusive-stellvertetung-der-geschaftsfuhrung-jumbo-schenkon-luzern-vuengl",
+      "slug": "responsabile-di-reparto-deco-inclusa-la-sostituzione-della-direzione-jumbo-division-der-coop-genossenschaft-schenkon",
       "company": "Jumbo, Division der Coop Genossenschaft",
       "title": "Rayonleiter:in Deco inklusive Stellvertetung der Geschäftsführung",
       "location": "Schenkon, Luzern",
@@ -2541,10 +2539,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "rayonleiter-in-deco-inklusive-stellvertetung-der-geschaftsfuhrung-jumbo-schenkon-luzern-vuengl",
-        "en": "rayonleiter-in-deco-inklusive-stellvertetung-der-geschaftsfuhrung-jumbo-schenkon-luzern-vuengl",
+        "it": "responsabile-di-reparto-deco-inclusa-la-sostituzione-della-direzione-jumbo-division-der-coop-genossenschaft-schenkon",
+        "en": "department-manager-deco-including-deputy-store-manager-jumbo-division-der-coop-genossenschaft-schenkon",
         "de": "rayonleiter-in-deco-inklusive-stellvertetung-der-geschaftsfuhrung-jumbo-schenkon-luzern-vuengl",
-        "fr": "rayonleiter-in-deco-inklusive-stellvertetung-der-geschaftsfuhrung-jumbo-schenkon-luzern-vuengl"
+        "fr": "responsable-de-rayon-deco-incluant-la-suppleance-de-la-direction-jumbo-division-der-coop-genossenschaft-schenkon"
       },
       "addressLocality": "Schenkon",
       "sourceLang": "de",
@@ -2562,11 +2560,19 @@
         }
       },
       "previousSlugs": [
-        "rayonleiter-in-deco-inklusive-stellvertetung-der-geschaftsfuhrung-jumbo-schenkon-luzern"
+        "rayonleiter-in-deco-inklusive-stellvertetung-der-geschaftsfuhrung-jumbo-schenkon-luzern",
+        "rayonleiter-in-deco-inklusive-stellvertetung-der-geschaftsfuhrung-jumbo-schenkon-luzern-vuengl"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rayonleiter-in-deco-inklusive-stellvertetung-der-geschaftsfuhrung-jumbo-schenkon-luzern"
+          "rayonleiter-in-deco-inklusive-stellvertetung-der-geschaftsfuhrung-jumbo-schenkon-luzern",
+          "rayonleiter-in-deco-inklusive-stellvertetung-der-geschaftsfuhrung-jumbo-schenkon-luzern-vuengl"
+        ],
+        "en": [
+          "rayonleiter-in-deco-inklusive-stellvertetung-der-geschaftsfuhrung-jumbo-schenkon-luzern-vuengl"
+        ],
+        "fr": [
+          "rayonleiter-in-deco-inklusive-stellvertetung-der-geschaftsfuhrung-jumbo-schenkon-luzern-vuengl"
         ]
       }
     },
@@ -2644,7 +2650,7 @@
     },
     {
       "id": "company-vzs4pg",
-      "slug": "officemitarbeiter-in-auf-abruf-two-spice-dietlikon-vzs4pg",
+      "slug": "addetto-a-d-ufficio-su-richiesta-two-spice-ag-dietlikon",
       "company": "Two Spice AG",
       "title": "Officemitarbeiter:in auf Abruf",
       "location": "Dietlikon",
@@ -2681,10 +2687,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "officemitarbeiter-in-auf-abruf-two-spice-dietlikon-vzs4pg",
-        "en": "officemitarbeiter-in-auf-abruf-two-spice-dietlikon-vzs4pg",
+        "it": "addetto-a-d-ufficio-su-richiesta-two-spice-ag-dietlikon",
+        "en": "office-staff-member-on-call-two-spice-ag-dietlikon",
         "de": "officemitarbeiter-in-auf-abruf-two-spice-dietlikon-vzs4pg",
-        "fr": "officemitarbeiter-in-auf-abruf-two-spice-dietlikon-vzs4pg"
+        "fr": "aide-de-bureau-sur-demande-two-spice-ag-dietlikon"
       },
       "addressLocality": "Dietlikon",
       "sourceLang": "de",
@@ -2702,11 +2708,19 @@
         }
       },
       "previousSlugs": [
-        "officemitarbeiter-in-auf-abruf-two-spice-dietlikon"
+        "officemitarbeiter-in-auf-abruf-two-spice-dietlikon",
+        "officemitarbeiter-in-auf-abruf-two-spice-dietlikon-vzs4pg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "officemitarbeiter-in-auf-abruf-two-spice-dietlikon"
+          "officemitarbeiter-in-auf-abruf-two-spice-dietlikon",
+          "officemitarbeiter-in-auf-abruf-two-spice-dietlikon-vzs4pg"
+        ],
+        "en": [
+          "officemitarbeiter-in-auf-abruf-two-spice-dietlikon-vzs4pg"
+        ],
+        "fr": [
+          "officemitarbeiter-in-auf-abruf-two-spice-dietlikon-vzs4pg"
         ]
       }
     },
