@@ -283,6 +283,11 @@ jobs:
             /package.json
             /tsconfig*.json
             /vitest.config.ts
+            # The reviewer must be able to read the two repository contracts;
+            # keep them explicit so this job still excludes unrelated docs and
+            # the full article corpus.
+            /REVIEW.md
+            /AGENTS.md
           sparse-checkout-cone-mode: false
 
       # UNA sola invocazione (erano tre). Niente `--ignore-scripts`: lo usava il
@@ -1738,18 +1743,16 @@ jobs:
               echo "incremental_base=$lastRev" >> "$GITHUB_OUTPUT"
               echo "Incremental re-review: solo il delta dei file PR da $lastRev:"; echo "$delta_code"
               if funnel_crit "$delta_code"; then
-                set_tier incremental-high claude-sonnet-5 35
+                # The delta-scoped bundle and strict one-pass prompt remove the
+                # historical setup overhead; retain a 24-turn escape hatch
+                # without allowing incremental review to become full discovery.
+                set_tier incremental-high claude-sonnet-5 24
               else
-                # 25→35 (2026-07-17, analisi Fable-5 su 112 morti error_max_turns
-                # storiche di questo workflow): incremental è il tier con meno
-                # morti in assoluto (1 storica + 1 marginale il 2026-07-17 stesso,
-                # run 29569000630, PR #4343, nt=26 su cap 25 — verdetto già
-                # formato, morto per overhead di setup non per taglia del delta).
-                # Bump di allineamento/assicurazione a parità con incremental-high,
-                # NON perché il pattern sia ricorrente qui: se muore ancora a 35
-                # dopo i fix di prefetch/disciplina-turni sopra, è di nuovo un
-                # problema strutturale, non di budget — non ribumpare al buio.
-                set_tier incremental claude-sonnet-5 35
+                # Il precedente cap di 35 (bump 2026-07-17) proteggeva da morti
+                # dovute al setup esplorativo. Ora il bundle è delta-scoped e il
+                # prompt vieta la discovery ampia: 24 è un margine sufficiente
+                # per il delta senza permettere una nuova review full-repository.
+                set_tier incremental claude-sonnet-5 24
               fi
               exit 0
             fi
@@ -1848,10 +1851,19 @@ jobs:
               || echo "(diff fetch failed — rieseguire gh pr diff manualmente)" > "$CTX_DIR/diff.patch"
           fi
           if [ -n "${INCREMENTAL_BASE:-}" ]; then
-            gh api "repos/$REPO/compare/$INCREMENTAL_BASE...$HEAD_SHA" \
-              --jq '.files[] | select(.filename|test("^(data|public|reports|_newsletter_variants|docs)/")|not) | "\(.filename)\n\(.patch // "(binary/large)")"' \
-              > "$CTX_DIR/delta.patch" \
-              || echo "(delta fetch failed — rieseguire la gh api compare manualmente)" > "$CTX_DIR/delta.patch"
+            # Fetch compare once and derive both outputs locally. The old
+            # implementation made separate compare calls for the tier and the
+            # bundle, while Claude also received the complete PR file list.
+            if gh api "repos/$REPO/compare/$INCREMENTAL_BASE...$HEAD_SHA" \
+              > "$CTX_DIR/compare.json" 2>/dev/null; then
+              jq -r '.files[]? | select(.filename|test("^(data|public|reports|_newsletter_variants|docs)/")|not) | .filename' \
+                "$CTX_DIR/compare.json" > "$CTX_DIR/delta-files.txt"
+              jq -r '.files[]? | select(.filename|test("^(data|public|reports|_newsletter_variants|docs)/")|not) | "\(.filename)\n\(.patch // "(binary/large)")"' \
+                "$CTX_DIR/compare.json" > "$CTX_DIR/delta.patch"
+            else
+              echo "(delta fetch failed — compare unavailable)" > "$CTX_DIR/delta.patch"
+              : > "$CTX_DIR/delta-files.txt"
+            fi
           fi
           gh api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
             --jq '[.[] | select(.body // "" | contains("<!-- sibling-check -->"))] | last | .body // empty' \
@@ -1861,6 +1873,23 @@ jobs:
           # Tenere fuori i path rigenerati riduce il contesto senza alterare la
           # decisione del tier, gia' calcolata sopra sul payload REST completo.
           grep -vE "$NONCODE_RE" "$CTX_DIR/files.txt" > "$CTX_DIR/code-files.txt" || : > "$CTX_DIR/code-files.txt"
+          if [ -n "${INCREMENTAL_BASE:-}" ]; then
+            # Incremental Claude context is strictly delta-scoped. The full PR
+            # list remains available only to the zero-Claude tier calculation.
+            grep -vE "$NONCODE_RE" "$CTX_DIR/delta-files.txt" > "$CTX_DIR/review-code-files.txt" || : > "$CTX_DIR/review-code-files.txt"
+          else
+            cp "$CTX_DIR/code-files.txt" "$CTX_DIR/review-code-files.txt"
+          fi
+          # The sibling check is advisory and is already posted separately.
+          # Repeating its potentially large sticky comment in every
+          # incremental context caused needless reads and token usage.
+          if [ -n "${INCREMENTAL_BASE:-}" ]; then
+            printf '%s\n' 'Advisory sibling-check omitted for incremental review; inspect it only if the supplied delta directly intersects a flagged pattern.' \
+              > "$CTX_DIR/sibling-signal.md"
+          else
+            cp "$CTX_DIR/sibling-check.md" "$CTX_DIR/sibling-signal.md" 2>/dev/null \
+              || echo "No sibling-check signal available." > "$CTX_DIR/sibling-signal.md"
+          fi
           # Unico input Claude: assembla una fotografia deterministica del
           # contesto già raccolto, così il reviewer fa un solo Read iniziale e
           # non ricostruisce il contesto con gh/grep in turni successivi.
@@ -1873,14 +1902,15 @@ jobs:
             echo "- Tier: ${TIER:-unknown}"
             echo "- Incremental base: ${INCREMENTAL_BASE:-none}"
             echo "- Changed file entries: $(wc -l < "$CTX_DIR/files.txt")"
-            echo "- Changed code file entries: $(wc -l < "$CTX_DIR/code-files.txt")"
+            echo "- Changed code file entries (full PR, tier only): $(wc -l < "$CTX_DIR/code-files.txt")"
+            echo "- Review code file entries (delta-scoped when incremental): $(wc -l < "$CTX_DIR/review-code-files.txt")"
             echo "- Code diff lines: $(wc -l < "$CTX_DIR/diff.patch")"
             echo
             echo "## PR metadata"
             cat "$CTX_DIR/pr.json"
             echo
             echo "## Changed code-file list"
-            cat "$CTX_DIR/code-files.txt"
+            cat "$CTX_DIR/review-code-files.txt"
             echo
             echo "## Code-only diff"
             cat "$CTX_DIR/diff.patch"
@@ -1889,7 +1919,7 @@ jobs:
             if [ -f "$CTX_DIR/delta.patch" ]; then cat "$CTX_DIR/delta.patch"; else echo "No incremental base: this is a full review."; fi
             echo
             echo "## Sibling-check signal"
-            if [ -s "$CTX_DIR/sibling-check.md" ]; then cat "$CTX_DIR/sibling-check.md"; else echo "No sibling-check signal available."; fi
+            cat "$CTX_DIR/sibling-signal.md"
           } > "$CTX_DIR/review-bundle.md"
           echo "Prefetched review context in $CTX_DIR:"
           ls -la "$CTX_DIR"
@@ -1951,11 +1981,11 @@ jobs:
 
             Read `REVIEW.md` first; it is the single source of truth for severity, scope, required checks, and output format. Do not read `AGENTS.md` unless REVIEW.md explicitly requires a specific rule.
 
-            The deterministic review bundle is already prepared in `${{ runner.temp }}/review-ctx/`: `review-bundle.md` is the primary input and includes PR metadata, the changed code-file list, code-only diff, incremental delta (when present), and sibling signals. Generated data/static paths are intentionally omitted from the bundle. Read it before using GitHub or repository tools. Do not repeat `gh pr view`, `gh pr diff`, or `gh api compare` unless the bundle explicitly reports that a section is incomplete.
+            The deterministic review bundle is already prepared in `${{ runner.temp }}/review-ctx/`: `review-bundle.md` is the primary input and includes PR metadata, the review-scoped code-file list, code-only diff, incremental delta (when present), and sibling signal. Generated data/static paths are intentionally omitted from the bundle. Read it before using GitHub or repository tools. Do not repeat `gh pr view`, `gh pr diff`, or `gh api compare` unless the bundle explicitly reports that a section is incomplete.
 
-            If `INCREMENTAL_BASE` is set, review only the delta and its interactions. Treat the prior Claude review as already approved context; do not re-read unchanged code unless needed to understand a concrete delta. If the bundle says the code contribution is unchanged, post a short review ending exactly with `## LGTM`.
+            If `INCREMENTAL_BASE` is set, review only the delta and its interactions. Treat the prior Claude review as already approved context; do not re-read unchanged code unless needed to understand a concrete delta. The sibling signal may be intentionally compact or omitted on incremental runs. If the bundle says the code contribution is unchanged, post a short review ending exactly with `## LGTM`.
 
-            Review in one pass with at most two batched read/search rounds: validate the body contract, inspect the changed code and only concrete interactions, verify declared performance claims against supplied evidence, and stop probing once the verdict is determined. Do not invent missing-test findings. Use sibling candidates as leads, not verdicts. For high tiers, include exactly three concise unresolved items in `## Adversarial check`; they must be real unverified risks, not generic missing coverage.
+            Review in one pass with a hard repository-tool budget: read the two contract files and the bundle, then use at most one batched read/search call for direct delta interactions. Never scan the whole repository, enumerate all siblings, or re-fetch the PR through GitHub. Validate the body contract, inspect only concrete interactions, verify declared performance claims against supplied evidence, and stop probing once the verdict is determined. Do not invent missing-test findings. Use sibling candidates as leads, not verdicts. For high tiers, include exactly three concise unresolved items in `## Adversarial check`; they must be real unverified risks, not generic missing coverage.
 
             Post exactly one review with `gh pr review ${PR_NUMBER} --comment --body ...`. End with `## LGTM` only when there is no open `🔴 Important`, no unresolved funnel-critical question, and the bundle/body contract is valid. If uncertain, emit `❓ q:`; never use `## LGTM` beside an unresolved Important finding. Work read-only: do not edit files, commit, push, run npm, or run tests. Batch independent reads/searches in one tool call and stop immediately after posting the review.
       - name: Fail on transient API error (no review posted)

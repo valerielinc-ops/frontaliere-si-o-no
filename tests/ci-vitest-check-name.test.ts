@@ -230,13 +230,17 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
     expect(TESTS_YML).toContain('changed-paths-status.txt');
     expect(TESTS_YML).toContain('partial > changed-paths-status.txt');
     expect(TESTS_YML).toContain('frontaliere-articles');
-    expect(TESTS_YML).toContain('Review in one pass with at most two batched read/search rounds');
+    expect(TESTS_YML).toContain('/REVIEW.md');
+    expect(TESTS_YML).toContain('/AGENTS.md');
+    expect(TESTS_YML).toContain('hard repository-tool budget');
   });
 
   it('usa un bundle deterministico e non scarica il diff completo nelle review incrementali', () => {
     expect(TESTS_YML).toContain('review-bundle.md');
     expect(TESTS_YML).toContain('elif [ -n "${INCREMENTAL_BASE:-}" ]; then');
     expect(TESTS_YML).toContain('full PR diff omitted; see delta.patch');
+    expect(TESTS_YML).toContain('review-code-files.txt');
+    expect(TESTS_YML).toContain('delta-files.txt');
     expect(TESTS_YML).toContain('Read `REVIEW.md` first');
   });
 
