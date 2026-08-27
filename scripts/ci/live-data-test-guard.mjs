@@ -142,6 +142,7 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   { file: 'tests/articles-sync-pin.test.ts', roots: ['packages/articles/content/'] },
   // The test reaches the live corpus transitively through create-article.mjs;
   // keep this explicit because the source scanner intentionally does not
+  // keep this bit explicit because the source scanner intentionally does not
   // execute imported modules while building the inventory.
   { file: 'tests/evergreen-pool-consumption.test.ts', roots: ['packages/articles/content/'], transitive: true },
   { file: 'tests/blog-headline-validation.test.ts', roots: ['services/locales/'] },

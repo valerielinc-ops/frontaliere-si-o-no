@@ -188,7 +188,7 @@
       "title": "Squad Lead Marketing & Product-Communication",
       "titleByLocale": {
         "it": "Squad Lead Marketing & Comunicazione di prodotto",
-        "en": "Squad Lead Marketing & Product-Communication",
+        "en": "Squad Lead Marketing & Product Communication",
         "de": "Squad Lead Marketing & Product-Communication",
         "fr": "Commercialisation du plomb de l'équipe et communication des produits"
       },
@@ -422,7 +422,6 @@
         ]
       },
       "firstSeenAt": "2026-08-22T21:24:29.223Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -905,7 +904,6 @@
         ]
       },
       "firstSeenAt": "2026-08-12T21:53:19.762Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -998,7 +996,6 @@
         "guest-experience-coordinatore-con-schichtverantwortung-weisse-arena-gruppe-laax"
       ],
       "firstSeenAt": "2026-08-17T21:29:12.115Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 105000,
       "baseSalary": {
@@ -1695,7 +1692,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T21:33:53.073Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 105000,
       "baseSalary": {
@@ -2017,7 +2013,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T21:33:53.069Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -2259,16 +2254,31 @@
       "previousSlugsByLocale": {
         "it": [
           "servicemitarbeiter-in-weisse-arena-ch",
-          "servicemitarbeiter-in-weisse-arena-gruppe-laax"
+          "servicemitarbeiter-in-weisse-arena-gruppe-laax",
+          "servicemitarbeiter-in-im-fruhstuckservice-weisse-arena-ch",
+          "breakfast-service-attendant-weisse-arena-gruppe-laax",
+          "employe-de-service-de-petit-dejeuner-weisse-arena-gruppe-laax",
+          "addetto-al-servizio-di-colazione-weisse-arena-gruppe-laax"
         ],
         "de": [
           "servicemitarbeiter-in-weisse-arena-ch",
-          "servicemitarbeiter-in-weisse-arena-gruppe-laax"
+          "servicemitarbeiter-in-weisse-arena-gruppe-laax",
+          "servicemitarbeiter-in-im-fruhstuckservice-weisse-arena-ch"
+        ],
+        "en": [
+          "breakfast-service-attendant-weisse-arena-gruppe-laax"
+        ],
+        "fr": [
+          "employe-de-service-de-petit-dejeuner-weisse-arena-gruppe-laax"
         ]
       },
       "previousSlugs": [
         "servicemitarbeiter-in-weisse-arena-ch",
-        "servicemitarbeiter-in-weisse-arena-gruppe-laax"
+        "servicemitarbeiter-in-weisse-arena-gruppe-laax",
+        "servicemitarbeiter-in-im-fruhstuckservice-weisse-arena-ch",
+        "breakfast-service-attendant-weisse-arena-gruppe-laax",
+        "employe-de-service-de-petit-dejeuner-weisse-arena-gruppe-laax",
+        "addetto-al-servizio-di-colazione-weisse-arena-gruppe-laax"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-25T21:37:18.334Z",
@@ -2354,7 +2364,6 @@
         ]
       },
       "firstSeenAt": "2026-08-24T21:37:06.893Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -2620,7 +2629,7 @@
       "id": "weisse-arena-d45b9b30ed53",
       "slug": "shiftleader-in-weisse-arena-ch-2",
       "slugByLocale": {
-        "de": "shiftleader-in-weisse-arena-ch",
+        "de": "shiftleader-in-weisse-arena-ch-ctf0gg",
         "it": "shiftleader-in-weisse-arena-ch-2",
         "en": "shiftleader-in-weisse-arena-ch-2",
         "fr": "shiftleader-in-weisse-arena-ch-2"
@@ -2686,6 +2695,9 @@
       "firstSeenAt": "2026-08-27T00:40:02.624Z",
       "previousSlugsByLocale": {
         "it": [
+          "shiftleader-in-weisse-arena-ch"
+        ],
+        "de": [
           "shiftleader-in-weisse-arena-ch"
         ]
       },
@@ -3488,7 +3500,7 @@
       "id": "weisse-arena-033df4fa896b",
       "slug": "allrounder-in-restauration-weisse-arena-ch-2",
       "slugByLocale": {
-        "de": "allrounder-in-restauration-weisse-arena-ch",
+        "de": "allrounder-in-restauration-weisse-arena-ch-7gpbvq",
         "it": "allrounder-in-restauration-weisse-arena-ch-2",
         "en": "allrounder-in-restauration-weisse-arena-ch-2",
         "fr": "allrounder-in-restauration-weisse-arena-ch-2"
@@ -3554,6 +3566,9 @@
       "firstSeenAt": "2026-08-27T00:40:02.612Z",
       "previousSlugsByLocale": {
         "it": [
+          "allrounder-in-restauration-weisse-arena-ch"
+        ],
+        "de": [
           "allrounder-in-restauration-weisse-arena-ch"
         ]
       },

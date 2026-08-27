@@ -187,12 +187,12 @@
     },
     {
       "id": "accor-de9c7c69e1f9",
-      "slug": "housekeeping-villa-attendant-full-time-accor-ch",
+      "slug": "housekeeping-villa-attendant-tempo-pieno-ibis-budget-lugano",
       "slugByLocale": {
         "fr": "housekeeping-villa-attendant-full-time-accor-ch",
-        "it": "housekeeping-villa-attendant-full-time-accor-ch",
+        "it": "housekeeping-villa-attendant-tempo-pieno-ibis-budget-lugano",
         "en": "housekeeping-villa-attendant-full-time-accor-ch",
-        "de": "housekeeping-villa-attendant-full-time-accor-ch"
+        "de": "housekeeping-villa-attendant-vollzeit-ibis-budget-lugano"
       },
       "company": "Ibis Budget",
       "companyKey": "accor",
@@ -244,7 +244,18 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-27T00:51:59.990Z"
+      "firstSeenAt": "2026-08-27T00:51:59.990Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "housekeeping-villa-attendant-full-time-accor-ch"
+        ],
+        "de": [
+          "housekeeping-villa-attendant-full-time-accor-ch"
+        ]
+      },
+      "previousSlugs": [
+        "housekeeping-villa-attendant-full-time-accor-ch"
+      ]
     },
     {
       "id": "accor-8e1b061e7f6d",
