@@ -44,9 +44,10 @@ name: tests
 # questo file va oltre, su decisione esplicita del proprietario.
 #
 # ── Conseguenza #1: i quattro cancelli diventano BLOCCANTI ────────────────
-# Fino a oggi UN SOLO check-run governava davvero il merge — `vitest (unit +
-# integration)`, l'unico su cui `auto-merge-eval.mjs` fa `select` (non esiste
-# branch protection su `main`: `branches/main/protection` → 404). `contract`,
+# Il ruleset su `main` richiede il check-run `vitest (unit + integration)`.
+# Poiché questo job comprende anche il controllo finale della Claude review,
+# la sua conclusione resta rossa quando la review contiene un `🔴 Important`;
+# il native auto-merge non può quindi bypassare quel gate. `contract`,
 # `typecheck` e `collision` giravano, si vedevano rossi, e non fermavano
 # niente: misura in `scripts/ci/lib/checkRunObservation.mjs` (issue #5552), PR
 # #5590 mergiata il 2026-08-11 con `contract` = `failure`. Fondendoli nel job
@@ -373,7 +374,7 @@ jobs:
             // #N", "Chiusa da #N", "Risolve #N") or an English gerund ("Closing #N")
             // reads as closure to a human and closes NOTHING: the issue stays open
             // forever with the fix already on `main`. The detection already existed
-            // in the lib (used by auto-merge-eval.mjs's narrow drift-fallback path)
+            // in the lib (reused by the deterministic review/merge gates)
             // but never reached a PR opened through the normal `## LGTM` review path
             // — real recurrence (issue #5784): PR #5776 said `Chiude #5725` and #5725
             // stayed open until closed by hand; same shape on #5724, near-miss on
@@ -1697,55 +1698,11 @@ jobs:
             set_tier normal claude-sonnet-5 35
           fi
 
-      # Rijoina l'install lanciato in background sopra. `wait-all` invece di
-      # `wait: headroom-install` perché quando lo step bg è saltato (PR non
-      # reviewabile) non c'è nessun bg outstanding e `wait-all` è un no-op,
-      # mentre attendere per id uno step mai avviato non ha semantica definita.
-      # Debounce anti-burst (#3153), spostato qui da "Resolve PR from tests run".
-      #
-      # Cosa protegge: un burst di push ravvicinati sullo stesso branch (agent
-      # che itera fix in <1min) può produrre PIÙ eventi `tests`-success in
-      # sequenza. Il `cancel-in-progress` di `tests` (keyed sul ref) ne elimina
-      # gran parte, ma una corsa in cui ogni push arriva DOPO che il precedente
-      # ha già concluso con successo fa comunque partire una review Claude per
-      # uno SHA che sta per essere superato. Si dorme una finestra breve e si
-      # ricontrolla la head LIVE: se è avanzata, il `tests` del push più recente
-      # farà scattare la propria review (gira su OGNI push, niente
-      # paths-ignore), quindi uscire qui non lascia MAI la PR senza review.
-      #
-      # Perché QUI e non più nel resolve: identica semantica, ma questi 25s ora
-      # cadono mentre l'install di Headroom lavora in background, invece che da
-      # soli prima del checkout. Misura che ha motivato lo spostamento (run
-      # 30372284779): "Resolve PR" 26s + "Install Headroom (background)" 32s di
-      # cui 30s riassorbiti dal wait — gli step fra install e wait (Setup Node,
-      # re-review guard, tier) durano <2s in totale, quindi non mascheravano
-      # niente. Con il debounce qui la finestra di copertura passa da ~2s a ~27s
-      # e il ricontrollo della head diventa pure più tardivo, cioè più efficace.
-      - name: Debounce burst pushes (recheck PR head)
-        id: debounce
-        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPO: ${{ github.repository }}
-          PRN: ${{ steps.resolve.outputs.pr_number }}
-          RUN_HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
-        run: |
-          set -uo pipefail
-          echo "Debounce: attesa 25s per assorbire push rapidi in burst prima di invocare Claude..."
-          sleep 25
-          LIVE_SHA=$(gh pr view "$PRN" --repo "$REPO" --json headRefOid --jq '.headRefOid // empty' 2>/dev/null || true)
-          if [ -n "${LIVE_SHA:-}" ] && [ "$LIVE_SHA" != "$RUN_HEAD_SHA" ]; then
-            echo "Debounce: PR #$PRN è avanzata a $LIVE_SHA (questo evento era per $RUN_HEAD_SHA) — un push più recente è già arrivato, la sua run di tests/review se ne occuperà. Skip."
-            echo "superseded=true" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-          echo "superseded=false" >> "$GITHUB_OUTPUT"
-
       - name: Wait for background Headroom install
         wait-all: true
 
       - name: Setup Headroom compression proxy
-        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.debounce.outputs.superseded != 'true'
+        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
         uses: ./.github/actions/setup-headroom
         with:
           # L'install è già girato in background sopra: qui serve solo far
@@ -1763,7 +1720,7 @@ jobs:
         # ripiegare su `gh pr view --json files`. Il risparmio non era nelle tre
         # `gh` call (puro bash, zero Claude) ma nel `gh pr diff`, che su una PR
         # data-only puo' essere enorme: quello resta saltato, sotto.
-        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.debounce.outputs.superseded != 'true'
+        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
         # Fetch una volta sola, PRIMA che Claude parta, ciò che il prompt gli
         # farebbe rifare turno-per-turno (osservato in 3/3 transcript morti
         # error_max_turns analizzati 2026-07-17: `gh pr view`, `gh pr diff`, il
@@ -1818,7 +1775,7 @@ jobs:
           ls -la "$CTX_DIR"
 
       - name: Mint GitHub App token for Claude review
-        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.debounce.outputs.superseded != 'true'
+        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
@@ -1828,7 +1785,7 @@ jobs:
 
       - name: Run Claude review
         id: claude_review
-        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.debounce.outputs.superseded != 'true'
+        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
         # Don't let a hard action failure abort the job before the guard below
         # can classify it — the guard decides whether to fail loudly.
         continue-on-error: true
@@ -1933,7 +1890,7 @@ jobs:
         #    has no `## LGTM` so it won't auto-merge, and it gets re-reviewed on
         #    the next push / by the rescuer once quota recovers. No false-green.
         # `set -uo pipefail` (NOT -e): grep in conditionals must not abort.
-        if: always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.debounce.outputs.superseded != 'true'
+        if: always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
@@ -1984,7 +1941,7 @@ jobs:
 
       - name: Require approving Claude review
         id: review_gate
-        if: always() && steps.claude_review.outcome != 'failure' && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.debounce.outputs.superseded != 'true'
+        if: always() && steps.claude_review.outcome != 'failure' && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
@@ -1994,9 +1951,10 @@ jobs:
         run: |
           set -euo pipefail
           reviews=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp)
-          # Stessa selezione e stesso REDFLAG_IMPORTANT_RE di
-          # scripts/ci/auto-merge-eval.mjs: ultima review del bot reviewer,
-          # `## LGTM` presente e nessun finding `🔴 Important` reale.
+          # Questo è il gate autorevole della Claude review per il job required:
+          # ultima review del bot reviewer, `## LGTM` presente e nessun finding
+          # `🔴 Important` reale. Il native auto-merge può procedere solo dopo
+          # la conclusione successiva di questo job.
           review_commit=$(printf '%s' "$reviews" | node --input-type=module -e '
             import { readFileSync } from "node:fs";
             import { REDFLAG_IMPORTANT_RE } from "./scripts/ci/lib/constants.mjs";
@@ -2066,7 +2024,7 @@ jobs:
       - name: Claude usage metrics
         # Solo se la review Claude è effettivamente girata (guard non-skip): a
         # review skippata non c'è execution_file da riassumere.
-        if: always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.debounce.outputs.superseded != 'true'
+        if: always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
         # Exact token/cost for this run (replaces estimates). Writes a table to
         # the run Step Summary + a grep-able CLAUDE_USAGE line to the log.
         # Best-effort: never fails the job.
