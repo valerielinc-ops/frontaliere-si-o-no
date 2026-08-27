@@ -1,18 +1,18 @@
 {
   "key": "stryker",
   "label": "Stryker",
-  "generatedAt": "2026-08-26T10:11:36.009Z",
-  "total": 9,
+  "generatedAt": "2026-08-27T00:52:06.746Z",
+  "total": 7,
   "discovered": null,
-  "written": 9,
+  "written": 7,
   "newCount": 0,
   "updatedCount": 7,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 9725,
-  "avgDurationMs": 9725,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 9874,
+  "avgDurationMs": 9874,
   "durationHistory": [
-    9725
+    9874
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Instandhaltungsmechaniker--m-w-d--fr-CNC-Anlagen---Medizintechnik_R571498",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:11:27.617Z",
+      "crawledAt": "2026-08-27T00:51:58.272Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -66,7 +66,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Senior-Staff-Regulatory-Affairs--m-f-d-_R570952",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T10:11:28.436Z",
+      "crawledAt": "2026-08-27T00:51:58.915Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Bern-Switzerland/Junior-Sales-Representative--m-w-d--Joint-Replacement---Region-Bern-Mittelland_R568484",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:11:29.788Z",
+      "crawledAt": "2026-08-27T00:52:00.583Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -140,7 +140,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Biberist-Switzerland/Regulatory-Affairs-Specialist_R561546-1",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T10:11:30.467Z",
+      "crawledAt": "2026-08-27T00:52:01.223Z",
       "addressLocality": "Biberist",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -177,7 +177,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Lean-Specialist--m-w-d----Process-Improvement_R566531",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:11:31.137Z",
+      "crawledAt": "2026-08-27T00:52:01.891Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -214,7 +214,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Berufsbildner--m-w-d-_R568814",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:11:31.805Z",
+      "crawledAt": "2026-08-27T00:52:02.579Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -251,7 +251,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Vienna-Austria/Regional-Sales-Manager--Peripheral-Vascular---Switzerland---Austria_R567401",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T10:11:29.120Z",
+      "crawledAt": "2026-08-27T00:51:59.601Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -276,8 +276,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "stryker-a7a5ae25cdec",
       "slug": "regional-sales-manager-m-f-d-endoscopia-svizzera-stryker-selzach",
@@ -357,5 +356,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
