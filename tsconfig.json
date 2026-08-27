@@ -19,6 +19,8 @@
     "isolatedModules": true,
     "moduleDetection": "force",
     "allowJs": true,
+    "incremental": true,
+    "tsBuildInfoFile": ".cache/tsc/tsconfig.tsbuildinfo",
     "jsx": "react-jsx",
     "paths": {
       "@/*": [
