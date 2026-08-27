@@ -10839,6 +10839,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-spese-sanitarie-italia-rimborso.title': 'Erstattungsfähige Gesundheitskosten Schweiz in Italien für Grenzgänger',
     'blog.article.frontaliere-spese-sanitarie-italia-rimborso.excerpt': 'Welche in der Schweiz entstandenen Gesundheitskosten in Italien für Grenzgänger erstattungsfähig sind, mit notwendigen Verfahren, Grenzen und Dokumenten.',
     'blog.article.frontaliere-spese-sanitarie-italia-rimborso.imageAlt': 'Grenzgänger am Grenzübergang Chiasso mit Gesundheitsdokumenten und Schweizer Alpen im Hintergrund',
+    'blog.article.consiglio-stato-deputazione-ticino-agosto.title': 'Tessin und Bern: die zentrale Frage der Gaststätten',
+    'blog.article.consiglio-stato-deputazione-ticino-agosto.excerpt': 'Am 27. August in Bellinzona, Diskussion über die Aussetzung der Rückzahlungen und Verhandlungen mit dem Bund und der Region Lombardei',
+    'blog.article.consiglio-stato-deputazione-ticino-agosto.imageAlt': 'Bellinzona, Sitz des Tessiner Staatsrats, Treffen mit Parlamentsdelegation am 27. August 2026',
 };
 
 export default blogMetaDe;
