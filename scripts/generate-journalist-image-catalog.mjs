@@ -19,6 +19,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const PROJECT_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const BLOG_DIR = path.join(PROJECT_ROOT, 'public', 'images', 'blog');
@@ -52,8 +53,7 @@ function readExistingCatalog() {
 }
 
 function writeCatalog(catalog) {
-  fs.mkdirSync(path.dirname(OUT_PATH), { recursive: true });
-  fs.writeFileSync(OUT_PATH, JSON.stringify(catalog));
+  writeJsonAtomic(OUT_PATH, catalog, { compact: true });
 }
 
 /**
