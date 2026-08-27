@@ -32,6 +32,12 @@ export const GATE_DEFAULTS = {
   minTitleMatch: 0.8,
   minContentful: 0.75,
   minDistinct: 0.8,
+  /**
+   * Quota delle pagine di dettaglio che devono leggere come annuncio di lavoro.
+   * Allineata a `minContentful`: sono la stessa domanda posta sul testo — uno
+   * chiede che ci sia prosa, l'altro che quella prosa sia un annuncio.
+   */
+  minJobLike: 0.75,
   minVacancies: 1,
   /** Two gradings, on two distinct days. */
   minRuns: 2,
@@ -103,6 +109,12 @@ export function evaluatePromotion(candidate, ctx = {}, opts = {}) {
   mark('hasCrawlerKey', Boolean(candidate.crawlerKey),
     'nessuna chiave crawler: la spec non e\' stata sintetizzata');
 
+  // A template spec only knows title/URL from the index. Without the detail
+  // pass it can silently publish an employer default (historically Lugano)
+  // and a teaser as if they were per-job facts.
+  mark('detailEnrichment', candidate.mode !== 'template' || candidate.detailEnrichment === true,
+    'spec template senza arricchimento del dettaglio: localita\' e descrizione non sono verificate');
+
   mark('keyFree', !candidate.crawlerKey || !(ctx.existingKeys || new Set()).has(candidate.crawlerKey),
     `la chiave ${candidate.crawlerKey} esiste gia' in produzione`);
 
@@ -138,6 +150,42 @@ export function evaluatePromotion(candidate, ctx = {}, opts = {}) {
   mark('distinct', Number(latest.distinctRate || 0) >= g.minDistinct,
     'troppi titoli ripetuti nel listing');
 
+  // Semantica, non coerenza interna. Le quattro condizioni qui sopra misurano
+  // se abbiamo copiato fedelmente cio' che il datore serve; nessuna chiede se
+  // cio' che serve sia un annuncio di lavoro. hotel-international le ha passate
+  // tutte a 1.00 pubblicando quattro offerte di camere d'albergo.
+  //
+  // I tre valori sono distinti apposta:
+  //   assente -> validazione anteriore al controllo, MAI misurata: blocca, e la
+  //              prossima validazione fornisce il dato. Trattare "non misurato"
+  //              come "passato" e' esattamente il buco che stiamo chiudendo.
+  //   null    -> misurata ma illeggibile (annunci in PDF): non blocca.
+  //   numero  -> confronto con la soglia.
+  const jobLikeRate = latest.jobLikeRate;
+  mark('jobLike',
+    jobLikeRate === null || Number(jobLikeRate) >= g.minJobLike,
+    jobLikeRate === undefined
+      ? 'nessuna misura semantica nell\'ultima validazione: e\' anteriore al controllo jobLike, serve una nuova validazione'
+      : `solo il ${Math.round(Number(jobLikeRate) * 100)}% delle pagine di dettaglio legge come annuncio di lavoro, serve ${Math.round(g.minJobLike * 100)}%`);
+
+  // Logo aziendale obbligatorio, stessa disciplina di jobLike qui sopra: senza
+  // nessuno che guarda, un crawler che entra in produzione senza un logo
+  // verificabile pubblica pagine annuncio col badge generico a iniziali colorate
+  // al posto del brand del datore — l'esatto difetto che l'audit
+  // `scripts/audit-missing-company-logos.mjs` misura sul corpus gia' in
+  // produzione. Qui si chiude la falla a monte: un candidato non ci arriva mai.
+  // `logoFound` e' scritto da `prospect-validate.mjs` via
+  // `scripts/lib/prospector/logo-probe.mjs`, che verifica DIRETTAMENTE il
+  // dominio della spec (niente da indovinare, a differenza delle aziende
+  // arbitrarie che l'audit deve riconciliare a posteriori).
+  //   assente -> validazione anteriore al controllo, MAI misurata: blocca.
+  //   false   -> probato, nessun logo trovato sul dominio: blocca.
+  //   true    -> passa.
+  mark('logo', latest.logoFound === true,
+    latest.logoFound === undefined
+      ? 'nessuna misura del logo nell\'ultima validazione: e\' anteriore al controllo, serve una nuova validazione'
+      : 'nessun logo aziendale verificabile trovato per il dominio del candidato');
+
   mark('vacancies', Number(latest.vacancyCount || 0) >= g.minVacancies,
     'nessun annuncio nell\'ultima validazione');
 
@@ -150,6 +198,59 @@ export function evaluatePromotion(candidate, ctx = {}, opts = {}) {
     `gli annunci sono scesi al ${Math.round(retention * 100)}% del massimo osservato (${peak})`);
 
   return { passed: reasons.length === 0, reasons, checks };
+}
+
+/**
+ * L'identita' che apre le PR di promozione reali: l'App via token
+ * installato (vedi `prospector-loop.yml`, step "Mint App token").
+ */
+export const PROMOTION_BOT_LOGIN = 'frontaliere-automation';
+
+/**
+ * `gh pr list --json author` normalizza il login di una GitHub App come
+ * `app/<slug>`, la REST API grezza come `<slug>[bot]` — due grafie per la
+ * stessa identita'. Le spoglia entrambe prima del confronto.
+ *
+ * @param {string} [login]
+ * @returns {string}
+ */
+function normalizeAuthorLogin(login) {
+  return String(login || '').replace(/^app\//, '').replace(/\[bot\]$/i, '');
+}
+
+/**
+ * La PR di promozione gia' in volo, se c'e'.
+ *
+ * Estratto qui perche' sia verificabile: la decisione «apro o non apro una
+ * seconda PR» e' quella che, sbagliata, blocca l'intera pipeline — due PR aperte
+ * rigenerano gli stessi 22 `crawler-group-*.yml` dalla stessa base e non mergia
+ * piu' nessuna delle due.
+ *
+ * Il match e' su prefisso del branch E autore: un branch aperto a mano con lo
+ * stesso prefisso (es. un test manuale) non conta come promozione reale.
+ * Contare solo il prefisso bloccherebbe il loop indefinitamente su quel
+ * branch, indistinguibile da una vera promozione in volo, finche' un umano
+ * non lo nota e lo chiude — vanificando l'auto-riparazione descritta sopra
+ * (follow-up #6305 item 3).
+ *
+ * @param {{ number: number|string, createdAt?: string, title?: string, headRefName?: string, author?: { login?: string } }[]} openPrs
+ * @param {string} [prefix]
+ * @param {string} [expectedAuthor]
+ * @returns {{ number: string, createdAt: string, title: string }|null}
+ */
+export function findOpenPromotionPr(openPrs = [], prefix = 'prospector/promote-', expectedAuthor = PROMOTION_BOT_LOGIN) {
+  const candidates = (openPrs || []).filter((r) => String(r?.headRefName || '').startsWith(prefix));
+  const hit = candidates.find((r) => normalizeAuthorLogin(r?.author?.login) === expectedAuthor);
+  if (hit) return { number: String(hit.number), createdAt: hit.createdAt || '', title: hit.title || '' };
+  const impostor = candidates[0];
+  if (impostor) {
+    // Stesso prefisso, autore diverso: segnala esplicitamente invece di
+    // ignorare in silenzio, cosi' un branch di test rimasto aperto si
+    // riconosce nei log invece di sembrare "nessuna promozione in volo".
+    const who = normalizeAuthorLogin(impostor.author?.login) || '(sconosciuto)';
+    console.log(`branch di promozione "${impostor.headRefName}" (#${impostor.number}) ignorato: autore "${who}" diverso da "${expectedAuthor}"`);
+  }
+  return null;
 }
 
 /**

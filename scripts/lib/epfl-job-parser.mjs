@@ -29,6 +29,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -171,6 +172,10 @@ export function parseEpflSearchPage(html = '') {
 
     const title = normalizeSpace(decodeEntities(m[3].replace(/<[^>]+>/g, ' ')));
     if (!title) continue;
+    // A row whose anchor text is j2w page chrome (cookie-consent widget,
+    // search/alert box) isn't a job at all — discard the row, don't clean it,
+    // or it becomes a posting with no title.
+    if (isSuccessFactorsWidgetText(title)) continue;
 
     // After the anchor, the same row holds department/location/facility spans.
     // Window the next ~2500 chars and extract them lazily.
@@ -324,7 +329,10 @@ export async function fetchAllEpflJobs() {
 
     // Always prefer the real description from the EPFL SuccessFactors detail
     // page. Rate-limited so we don't hammer careers.epfl.ch.
-    const detailDescription = await fetchEpflDetailDescription(publicUrl);
+    // Detail-page description can also be j2w page chrome (same widget bleed
+    // as the title); sanitize so a chrome-only body falls through to the
+    // fallbackBits synthesis below instead of being used verbatim.
+    const detailDescription = sanitizeSuccessFactorsField(await fetchEpflDetailDescription(publicUrl));
     if (publicUrl) {
       await new Promise((r) => setTimeout(r, DETAIL_RATE_LIMIT_MS));
     }

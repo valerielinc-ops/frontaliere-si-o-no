@@ -28,6 +28,8 @@ import { normalizeHost, registrableDomain, tenantLabel } from './registrable.mjs
  * @property {'jsonld'|'microdata'|'template'} mode
  * @property {string[]} seedUrls
  * @property {string} [detailTemplate]    URL template shared by the vacancy links
+ * @property {boolean} [detailEnrichment] Fetch detail pages for authoritative fields
+ * @property {number} [detailFetchWorkers] Maximum concurrent detail fetches
  * @property {number} sampleVacancyCount
  * @property {string[]} sampleTitles
  * @property {string} [canton]
@@ -141,6 +143,8 @@ export async function synthesizeSpec(candidate) {
     mode: via,
     seedUrls: [res.url],
     detailTemplate: commonUrlTemplate(vacancies.map((v) => v.url)) || undefined,
+    detailEnrichment: via === 'template',
+    detailFetchWorkers: 4,
     sampleVacancyCount: vacancies.length,
     sampleTitles: vacancies.slice(0, 5).map((v) => v.title),
     canton: candidate.canton || undefined,

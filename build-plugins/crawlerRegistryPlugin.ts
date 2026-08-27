@@ -29,6 +29,7 @@
 import fs from 'fs';
 import path from 'path';
 import type { Plugin } from 'vite';
+import { matchQuotedLiteral } from '../scripts/lib/js-string-literal.mjs';
 
 interface CrawlerWorkflowEntry {
  id: string;
@@ -69,13 +70,20 @@ function extractSummaryKey(root: string, slug: string): string | null {
  if (constMatch) {
  const varName = constMatch[1];
  // Find const declaration: const COMPANY_NAME = 'The Living Circle';
- const declRegex = new RegExp(`(?:const|let|var)\\s+${varName}\\s*=\\s*['"\`]([^'"\`]+)['"\`]`);
- const declMatch = src.match(declRegex);
- if (declMatch) return normalizeSummaryKey(declMatch[1]);
+ // Il literal lo legge lo scanner condiviso, non `[quote]([^quote]+)[quote]`:
+ // quella classe accetta come chiusura una virgoletta DIVERSA da quella di
+ // apertura, quindi `"OTTO'S AG"` si sarebbe troncato a `OTTO`. Un'etichetta
+ // troncata qui diventa una chiave di registro che non combacia con nessun
+ // crawl summary — muta, come tutti i difetti di questa famiglia. Oggi nessun
+ // runner ha un apostrofo nell'etichetta (misurati 134 runner, 0 troncati):
+ // il costrutto viene corretto perche' e' lo stesso di
+ // `scripts/generate-crawler-companies.mjs`, dove invece mordeva.
+ const declared = matchQuotedLiteral(src, new RegExp(`(?:const|let|var)\\s+${varName}\\s*=\\s*`));
+ if (declared) return normalizeSummaryKey(declared);
  }
  // Pattern 2: printCrawlChangeSummary(diff, 'Literal String')
- const literalMatch = src.match(/printCrawlChangeSummary\s*\(\s*\w+\s*,\s*['"`]([^'"`]+)['"`]\s*\)/);
- if (literalMatch) return normalizeSummaryKey(literalMatch[1]);
+ const literal = matchQuotedLiteral(src, /printCrawlChangeSummary\s*\(\s*\w+\s*,\s*/);
+ if (literal) return normalizeSummaryKey(literal);
  } catch {
  // non-blocking
  }
@@ -152,7 +160,7 @@ function scanWorkflows(root: string): CrawlerWorkflowEntry[] {
  details: `Dispatcha i ${groupFiles.length} workflow crawler-group (ognuno esegue in parallelo, come background steps, i crawler del proprio gruppo). Nessun crawler ha più uno schedule individuale. Runs 2×/day (09:00 + 21:00 UTC).`,
  expectedDuration: '60-90 min',
  schedule: '09:00 / 21:00',
- defaultInputs: { group: 'all', delay_seconds: '20', dry_run: 'false' },
+ defaultInputs: { group: 'all', delay_seconds: '60', dry_run: 'false' },
  });
  }
 

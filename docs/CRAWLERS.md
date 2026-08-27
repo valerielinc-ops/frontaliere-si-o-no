@@ -231,3 +231,194 @@ where the mismatch is understood; it never reports the run as verified.
 When a job's slug changes (via relocalize or hardenJobLocaleFields), the old slug is preserved in `previousSlugs[]` on the job object. The build plugin (`jobsSeoPagesPlugin`) uses `previousSlugs` to generate **bridge pages** (canonical redirect pages) so old indexed URLs don't 404.
 
 When a job is **deleted**, the expired entry captures `slugByLocale` + `previousSlugs`. The build plugin indexes both current + previous slugs from expired entries in `expiredBySlug`, ensuring all old URLs get **enriched soft-landing pages** (title, company, salary visible) rather than generic 404 pages.
+
+## Job-Content Plausibility — Is the Record a Job Ad at All?
+
+Every check above asks whether a slice is *fresh*, *complete*, or *internally
+consistent*. None of them asks the prior question: **is this record a job
+advertisement in the first place?** Two defects found by hand on 2026-08-24
+showed that gap is real and that nothing automated was watching it.
+
+- **`hotel-international`** — a crawler promoted by the prospector — published
+  5 of 5 "jobs" that were room promotions: *"Prenota SENZA carta di credito!"*,
+  *"Offerta speciale 3 notti"*, *"Perché prenotare direttamente"*.
+- **`schindler`** carried 11 records titled *"Manager für Cookie-
+  Einwilligungen"* (and its `it`/`fr` translations) — the source site's cookie
+  consent widget — attached to the description of a different, real role.
+
+Both slices were fresh, non-empty, richly described and structurally valid, so
+`crawler-health-monitor.yml`, `audit-parser-quality.mjs` and
+`crawler-data-quality-audit.yml` all passed them.
+
+**`scripts/lib/job-content-plausibility.mjs`** holds the recognizer;
+**`scripts/audit-job-content-plausibility.mjs`** (`npm run
+audit:job-content-plausibility`) runs it over `data/jobs/by-crawler/*.json` and
+emits a shortlist. It reports at two levels: `job` for bad records inside an
+otherwise healthy crawler (schindler, 13/91), and `crawler` when the crawler
+itself appears pointed at a page that is not a job listing
+(hotel-international, 5/5) — one finding instead of N, because the repair is
+one thing, not N things.
+
+Three properties are load-bearing, and each one is a measurement on the real
+corpus rather than an intuition:
+
+- **A positive signal never cancels a decisive rule.** *"Manager für Cookie-
+  Einwilligungen"* contains "Manager", a role noun. If role vocabulary could
+  outvote the consent-widget rule, the defect that motivated this audit would
+  stay invisible.
+- **The vocabulary is bound, never single-token.** `cookie` alone would reject
+  a real "Category Manager Cookies"; `reservation` alone would reject
+  "Reservation Agent"; `newsletter` alone would reject "Newsletter Manager".
+  Every rule needs two co-occurring elements, or an imperative form ("Prenota…",
+  "Buchen Sie…") that a job title never takes. `tests/job-content-plausibility.test.ts`
+  pins these adjacent-but-real titles as explicit negatives.
+- **Title↔description divergence corroborates, it never triggers.** 2,670 jobs
+  (8.8% of the corpus, across 214 crawlers) have zero lexical overlap and are
+  overwhelmingly legitimate. It would also have missed hotel-international
+  entirely, where title and description agree perfectly — both wrong. Repeated
+  titles inside one crawler were rejected as a signal for the same reason: 584
+  cases, nearly all legitimate multi-location retail postings.
+
+Measured on 2026-08-24: **30,320 jobs across 573 crawlers → 19 findings on 3
+crawlers, no false positives.** The third was previously unknown —
+`gemeinde-st-moritz`, whose 5 records all carried the sidebar heading *"Wichtige
+Kontakte"* as title and the site's navigation menu as description, while their
+URLs named real vacancies.
+
+### The loop: weekly audit and one-command human reporting
+
+`.github/workflows/crawler-content-plausibility-audit.yml` runs the
+deterministic filter weekly (Monday 09:10 UTC), and starts the paid Claude job
+**only when the shortlist is non-empty** — a clean corpus costs zero Claude
+invocations. Claude confirms or discards each candidate and opens at most 3
+issues, labelled `job-content-quality`. The `url` field is the strongest
+oracle: an URL slug naming a real vacancy under a title that is something else
+proves the parser is reading the title from the wrong node.
+
+`scripts/report-crawler-content-error.mjs` closes the other half — the case
+that actually happened, a human noticing a bad page while browsing:
+
+```bash
+node scripts/report-crawler-content-error.mjs schindler "titolo = widget cookie"
+node scripts/report-crawler-content-error.mjs https://www.hotel-international.ch/it/offerte/... "sono offerte hotel"
+```
+
+It accepts a crawler key **or any job URL** (resolving the key from the
+dataset), attaches whatever the deterministic detector independently finds on
+that crawler, and files the issue through `scripts/lib/github-issue-creator.mjs`
+so it dedups like every other automated reporter. From there it is the ordinary
+autonomous loop — `issue-triage` → `issue-fix` → PR → `## LGTM` → auto-merge —
+with no further human action.
+
+**Routing is a deliberate choice, and it differs between the two entry points.**
+Audit findings and default manual reports carry no routing label, so
+`scripts/lib/classify-issue.mjs` classifies them `other` → `agent:fix-queued`,
+drained one at a time by `followup-drainer`. `route: 'fix'` is documented there
+as "the ONLY exception, proven safe for months", and an LLM confirmation is not
+that case. A human who has seen the bad page with their own eyes can pass
+`--urgent`, which adds `parser-broken` — enough on its own to classify the issue
+`crawler` and route it to an immediate `agent:fix`.
+
+When a report turns out to describe something the detector did **not** flag, the
+fix is not finished at the parser: add the rule to
+`scripts/lib/job-content-plausibility.mjs` and the case to
+`tests/job-content-plausibility.test.ts`, so the class is covered next time. The
+issue body says so explicitly.
+
+**Repair the parser, never the data.** Deleting bad records from
+`data/jobs/by-crawler/<key>.json` by hand accomplishes nothing — the next crawl
+rewrites them identically.
+
+## Aggregator-Sourced Crawlers — the Data Can Be Genuine and the Destination Still Wrong
+
+Every gate above (structured-data validation, parser health, job-content
+plausibility) asks whether a record is a real vacancy. None of them asks
+*whose* site we send the visitor to. A dedicated crawler can source an
+employer's postings — and its `url`/`applyUrl` — from a third-party job-board
+aggregator (jobs.ch, jobup.ch, indeed, ...) instead of the employer's own
+domain. The vacancy is genuine, every existing gate stays green, and we still
+hand the click to a competing job board instead of the direct employer. Four
+crawlers did this — `equans`, `cham-swiss-properties`, `city-pop`, `dic-sa` —
+all built by hand in PR #3428 (2026-07-04), before the prospector existed —
+see `docs/PROSPECTOR.md` for why the prospector's own crawler-synthesis
+pipeline does not create these by construction.
+
+**The shared domain list**: `scripts/lib/known-aggregator-domains.mjs` is the
+single source of truth for which registrable domains are multi-employer
+marketplaces rather than a rentable single-tenant ATS. The prospector's
+`NON_PLATFORM_HOSTS` (`scripts/lib/prospector/config.mjs`) imports it, so a
+board added here is excluded from the prospector's platform registry too —
+adding it in only one place would leave the other creation path unguarded.
+
+**The gate**: `tests/aggregator-sourced-crawler-gate.test.ts`
+(`scripts/lib/aggregator-source-gate.mjs`) scans every `*-job-parser.mjs` for
+an import of a registered aggregator-backed shared client — today
+`jobs-ch-search-common.mjs` (jobs.ch/jobup.ch, whole file) and
+`jobup-ch-feed-common.mjs` (jobup.ch "mask" feed — only its
+`createJobupChFeedParser`/`fetchJobupDetailDescription` exports count; the
+same file's `detectEmploymentTypeFromOccupation` is a generic percentage
+classifier reused by non-jobup.ch parsers and must NOT trigger the gate) —
+and fails unless the file declares one of three tags, checked against the
+employer's own site:
+
+| tag | means |
+|---|---|
+| `@outsourced-ats-confirmed: <evidence>` | checked — the employer has no independent direct listing, or explicitly delegates to this board |
+| `@outsourced-ats-needs-migration: <evidence>` | checked — a direct or better-outsourced source DOES exist; open debt |
+| `@outsourced-ats-needs-verification: <reason>` | not yet checked (e.g. the employer's site blocks automated fetches) |
+
+All three satisfy the gate — disclosure is the requirement, not instant
+perfection — but only `confirmed` closes the question, and it does not mean
+"stuck on jobs.ch forever": of the four crawlers this surfaced, three ended up
+migrated off jobs.ch/jobup.ch once a REAL BROWSER check found a better source.
+
+**`equans` was `confirmed` and that was wrong** — the mistake is worth stating
+plainly rather than quietly overwriting. The first pass read the career
+page's "zwei Jobportalen" text with a static fetch and assumed it meant
+jobs.ch/jobup.ch (matching the parser's pre-existing docblock claim) without
+checking what the two portals actually were. A real browser found the page
+instead embeds `https://ohws.prospective.ch/public/v1/careercenter/1004089/`
+directly — Equans's own Prospective.ch tenant (122 live listings, apply links
+routing to Equans's own SuccessFactors instance), not jobs.ch at all. Equans
+is now migrated the same as the two below, via the shared
+`prospective-ch-job-parser-common.mjs` factory already used by dozens of
+other direct-employer crawlers in this fleet. **Lesson**: a static fetch
+cannot see what a JS-rendered embed actually loads — it can misreport
+`confirmed` just as easily as it misses a real source entirely (the
+`needs-verification` case below). Treat a `confirmed` reached without a real
+browser as unverified until one checks it, not as settled.
+
+`city-pop` is `confirmed` for the opposite reason, and this one IS
+solid — a real-browser check found no careers/jobs section anywhere on its
+own site (both `/careers` and `/jobs` 404) — jobs.ch is its only discoverable
+channel, not a bypassed alternative. `cham-swiss-properties` and `dic-sa` were
+`needs-migration` — a real browser found each one's own site embedding/
+linking a genuine direct source (a Dualoo portal at
+`jobs.dualoo.com/portal/6j9quii0`, and a WordPress `job-offers` REST API at
+`dic-ing.ch/wp-json/wp/v2/job-offers`, respectively) — and are now `confirmed`
+under the migrated source: their `url`/`applyUrl` point at the employer's own
+domain (or, for Dualoo, the employer's own single-tenant ATS portal — not a
+multi-employer marketplace) instead of jobs.ch/jobup.ch. This is why a *test*
+enforces the tag rather than a one-time review: the day someone repeats the
+2026-07-04 shortcut — a new `*-job-parser.mjs` importing
+`jobs-ch-search-common.mjs` with no tag — `npm test` fails immediately instead
+of shipping another silent redirect to a competitor's board. A static fetch
+cannot always answer the tag's question (bot protection, JS-only rendering) —
+that failure mode is exactly what escalates a crawler from
+`needs-verification` to a real-browser check, not a reason to leave it
+unverified indefinitely.
+
+The same gate covers `jobup-ch-feed-common.mjs`'s "mask" feed
+(`jobup.ch/masks/{key}/list_{key}.asp?cmd=json`), a second, independently
+built jobup.ch integration. `cnp`, `pole-sante-pays-enhaut` and
+`fondation-soins-lausanne` all import it and are all `confirmed`: the first
+two employers' own career pages embed the jobup.ch mask widget directly (same
+shape as `equans`); the third's real direct source (a shared AVASAD portal)
+is confirmed dead for automated fetches (403, including through a clean-IP
+proxy — issue #4168), making jobup.ch its genuine current channel, not a
+bypassed one.
+
+An unmarked import is the one state the gate refuses. A tagged one is not
+blocked, because the loop this repo runs cannot review every PR by hand —
+the tag **is** the review, exactly like the promotion gate's rejection
+reasons in `docs/PROSPECTOR.md`.

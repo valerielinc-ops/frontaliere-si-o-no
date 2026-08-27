@@ -168,6 +168,19 @@ inputs:
       si annota con un workflow che non è quello fallito.
     required: false
     default: ''
+  repo:
+    description: >-
+      `owner/repo` dove aprire/risolvere la issue. Default `github.repository`,
+      che dentro un workflow `workflow_call` invocato CROSS-repo (`uses:
+      owner/altro-repo/.github/workflows/x.yml@ref`) vale il repo del
+      CHIAMANTE, non quello dove vive il workflow chiamato (stessa causa del
+      `workflow-name` sopra — vedi punto 3-bis). Se il job ha già
+      riconfigurato `origin` con un token che scrive altrove (bootstrap
+      GITHUB_PAT cross-repo), passa qui quel repo esplicitamente: senza,
+      `gh` userebbe questo default sbagliato anche quando l'auth locale
+      punterebbe già a quello giusto.
+    required: false
+    default: ''
 
 runs:
   using: composite
@@ -198,7 +211,10 @@ runs:
         RUN_ATTEMPT: ${{ github.run_attempt }}
         EVENT_NAME: ${{ github.event_name }}
         REF_NAME: ${{ github.ref_name }}
-        GH_REPO: ${{ github.repository }}
+        # `||` su stringa vuota: l'input vince quando c'e' (workflow_call
+        # cross-repo), altrimenti resta il comportamento di prima. Vedi
+        # l'input `repo` sopra per il perche'.
+        GH_REPO: ${{ inputs.repo || github.repository }}
         ACTION_PATH: ${{ github.action_path }}
       run: |
         # L'action è locale: la radice del repo è tre livelli sopra

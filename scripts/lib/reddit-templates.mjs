@@ -22,6 +22,7 @@ import {
   EMPLOYMENT_TYPE_LABEL,
 } from './social-post-utils.mjs';
 import { REDDIT_TITLE_MAX } from './reddit-client.mjs';
+import { redditUrl, REDDIT_CAMPAIGN_JOB } from './reddit-links.mjs';
 
 // ── Number / salary formatting (consistent with schedule-fb-jobs-daily) ──
 
@@ -98,7 +99,12 @@ export function buildJobBody(job) {
   if (salary) metaChunks.push(`💰 ${salary}`);
   if (empLabel) metaChunks.push(`📋 ${empLabel}`);
 
-  const url = buildJobUrl(job);
+  // Tagged, not the bare job-board URL: this apply link IS the posting
+  // boundary for job self-posts (Reddit's `url` submit param is ignored for
+  // kind=self — only what's embedded in the markdown body is clickable), so
+  // an untagged link here means the click is invisible in GA4 just like the
+  // Telegram/FB/LinkedIn links fixed in #6342/#6387.
+  const url = redditUrl(buildJobUrl(job), REDDIT_CAMPAIGN_JOB, job?.id);
 
   const parts = [];
   if (excerpt) parts.push(excerpt);

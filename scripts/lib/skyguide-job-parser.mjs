@@ -1,5 +1,6 @@
 import { JSDOM } from 'jsdom';
 import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
+import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
@@ -70,7 +71,10 @@ export function parseSkyguideListings(html = '') {
         department: normalizeSpace(row.querySelector('.colDepartment .jobDepartment, .jobdetail-phone .jobFacility')?.textContent || ''),
       };
     })
-    .filter((row) => row.href && row.title);
+    // A row whose title IS the j2w page chrome (cookie-consent widget,
+    // keyword-search box, job-alert box) is not a posting — discard the row
+    // rather than clean it, which would leave an annuncio without a name.
+    .filter((row) => row.href && row.title && !isSuccessFactorsWidgetText(row.title));
 }
 
 export function isSkyguideTargetLocation(raw = '') {
@@ -93,7 +97,10 @@ export function parseSkyguideJobDetail(html = '') {
   const titleEl =
     document.querySelector('span[itemprop="title"]') ||
     document.querySelector('[itemprop="title"]:not(meta):not(link)');
-  const title = normalizeSpace(titleEl?.textContent || '');
+  // Sanitized against j2w widget chrome: safe to blank out here because the
+  // consumer (scripts/update-skyguide-jobs.mjs buildSkyguideJob) falls back
+  // through `detail.title || listing.title` when this comes back empty.
+  const title = sanitizeSuccessFactorsField(normalizeSpace(titleEl?.textContent || ''));
   // streetAddress/datePosted are read from the `content=` attribute, so scope to
   // `meta[itemprop]` (same idiom as damiani/ariston) — this rejects a non-meta
   // or a void node in <head> winning the unscoped first-match.
@@ -111,6 +118,10 @@ export function parseSkyguideJobDetail(html = '') {
     .replace(/\bInizio della formazione:\s*/i, '\n\n## Inizio della formazione\n\n')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
+  // Widget chrome bleeding into the description block (same class as the
+  // title bleed) — blank it out so a widget-only block doesn't ship as body
+  // text; `intro` alone still survives the join below.
+  description = sanitizeSuccessFactorsField(description);
   const fullDescription = [intro, description].filter(Boolean).join('\n\n');
   return {
     title,

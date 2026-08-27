@@ -25,6 +25,9 @@
  *    from the template placeholder) OR non-empty prose.
  * 4. `## Non implementato (ancora)` section has valid content: either the word
  *    "Nessuno" (task complete, per AGENTS.md #8) OR ≥1 substantive bullet.
+ * 5. A residual bullet that says `PR concatenata`/`PR concatenato` without
+ *    `#N` is a blocking violation (`chained-pr-no-number`, #6300 / #6289).
+ *    Other bullets without a literal state stay advisory (`bullet-without-state`).
  *
  * Usage:
  *   node scripts/lib/pr-body-sections-check.mjs "$BODY"   # exit 1 on violation
@@ -183,6 +186,16 @@ export const STATE_PATTERNS = Object.freeze({
   blockedTechnical: /\bblocked\s*:\s*\S/i,
 });
 
+/**
+ * Menzione dello stato «PR concatenata» SENZA il vincolo `#N`.
+ * Un bullet che matcha questo ma non `STATE_PATTERNS.chainedPr` è sempre
+ * una violazione `chained-pr-no-number` (mai un caso legittimo: senza
+ * numero la voce non è tracciabile). Recidiva: PR #6289 / issue #6300.
+ * Non esportata: i test devono passare da `checkPrBodySections`, non
+ * reimplementare il regex.
+ */
+const CHAINED_PR_MENTION_RE = /\bPR\s+concatenat[ao]\b/i;
+
 // Specificità, usata SOLO per rompere una parità di posizione: `blocked:
 // decisione del proprietario` e il `blocked:` generico iniziano allo stesso
 // indice, e vince il più specifico.
@@ -247,6 +260,38 @@ export function bulletsWithoutState(rawContent) {
 }
 
 // ---------------------------------------------------------------------------
+// Diff-vs-body citation check (#6301)
+// ---------------------------------------------------------------------------
+
+/**
+ * Funnel-critical path prefix: files under here carry outsized blast radius, and
+ * `hasMeaningfulContent` above only checks that `## Implementato` has SOME content —
+ * not that it mentions every file the diff actually touches. Reproduced on #6279
+ * (mergiata): the diff modified `.github/workflows/prospector-loop.yml` and the body
+ * never named it in any section; the gap surfaced only as a reviewer 🟡 Nit after the
+ * fact, wasting a review cycle the same way the bullet-state gap above did.
+ */
+export const FUNNEL_CRITICAL_PATH_RE = /^\.github\/workflows\//;
+
+/**
+ * Funnel-critical paths in `diffPaths` that `body` never mentions — neither by their
+ * full repo-relative path nor by basename. Advisory input only (see the `warnings`
+ * rationale on `checkPrBodySections` below): promoting straight to a blocking
+ * violation risks the same over-blocking stall documented there before authors
+ * reliably cite every touched file.
+ *
+ * @param {string[]} diffPaths repo-relative paths changed by the PR (`git diff --name-only`)
+ * @param {string} body full PR body text
+ * @returns {string[]} the uncited funnel-critical paths, in the order given
+ */
+export function filesUncitedInBody(diffPaths, body) {
+  const text = String(body ?? '');
+  return (diffPaths ?? [])
+    .filter((p) => FUNNEL_CRITICAL_PATH_RE.test(p))
+    .filter((p) => !text.includes(p) && !text.includes(p.split('/').pop()));
+}
+
+// ---------------------------------------------------------------------------
 // Combined validator
 // ---------------------------------------------------------------------------
 
@@ -279,9 +324,12 @@ const NON_IMPL_NO_ANCORA_RE = /^[ \t]{0,3}#{2,3}[ \t]+Non[ \t]+implementato\b/im
  * da fare quando la misura sarà 0/13.
  *
  * @param {string} body full PR body text
+ * @param {{ diffPaths?: string[] }} [opts] `diffPaths` (optional): repo-relative paths
+ *   changed by the PR, to power the diff-vs-body citation check (#6301). Omitted →
+ *   that check simply doesn't run (no diff to compare against).
  * @returns {{ ok: boolean, violations: Array<{type:string,section?:string,message:string}>, warnings: Array<{type:string,section?:string,message:string}> }}
  */
-export function checkPrBodySections(body = '') {
+export function checkPrBodySections(body = '', { diffPaths } = {}) {
   const s = String(body ?? '');
   const violations = [];
   const warnings = [];
@@ -365,18 +413,44 @@ export function checkPrBodySections(body = '') {
       }
     }
 
-    // --- 5. ADVISORY: ogni bullet dichiara uno stato letterale? --------------
-    // Non entra in `ok` — vedi il commento su checkPrBodySections.
-    //
-    // La condizione è «ci sono bullet», NON `!hasNessuno(content)`: quella
-    // regex è `\bnessun[oa]?\b`, che matcha anche dentro un bullet vero — un
-    // «- Nessun retry sul path offline — per scelta» le basta per dichiarare
-    // l'intera sezione «task completo» e zittire il check. Sui bullet non serve
-    // comunque: una sezione che dice davvero solo «Nessuno» non ha bullet, e il
-    // ciclo qui sotto non gira.
+    // --- 5. BLOCKING: «PR concatenata» senza `#N` (#6300 / recidiva #6289) ---
+    // Non è un caso legittimo: lo stato letterale è `PR concatenata #N`, e
+    // senza numero la voce non è tracciabile. Entra in `violations` (ok:false),
+    // mai in `warnings`. I restanti bullet senza stato restano advisory —
+    // non promuoviamo tutta la classe `bullet-without-state` a bloccante.
     {
       const bullets = sectionBullets(content);
-      const stateless = bulletsWithoutState(content);
+      const chainedNoNumber = bullets.filter(
+        (b) => CHAINED_PR_MENTION_RE.test(b) && !STATE_PATTERNS.chainedPr.test(b),
+      );
+      if (chainedNoNumber.length > 0) {
+        violations.push({
+          type: 'chained-pr-no-number',
+          section: 'Non implementato (ancora)',
+          message:
+            `${chainedNoNumber.length} bullet di \`## Non implementato (ancora)\` dichiara`
+            + ' `PR concatenata` senza `#N`. Lo stato letterale è `PR concatenata #N`'
+            + ' (AGENTS.md #8, REVIEW.md): senza numero la voce non è tracciabile'
+            + ' (recidiva: PR #6289).'
+            + ` Primo bullet: "${chainedNoNumber[0].slice(0, 120)}".`,
+        });
+      }
+
+      // --- 5b. ADVISORY: ogni bullet dichiara uno stato letterale? -----------
+      // Non entra in `ok` — vedi il commento su checkPrBodySections.
+      //
+      // La condizione è «ci sono bullet», NON `!hasNessuno(content)`: quella
+      // regex è `\bnessun[oa]?\b`, che matcha anche dentro un bullet vero — un
+      // «- Nessun retry sul path offline — per scelta» le basta per dichiarare
+      // l'intera sezione «task completo» e zittire il check. Sui bullet non serve
+      // comunque: una sezione che dice davvero solo «Nessuno» non ha bullet, e il
+      // ciclo qui sotto non gira.
+      //
+      // I bullet già in `chained-pr-no-number` sono esclusi: quella classe è
+      // violazione, non warning.
+      const stateless = bulletsWithoutState(content).filter(
+        (b) => !chainedNoNumber.includes(b),
+      );
       if (bullets.length > 0 && stateless.length > 0) {
         const total = bullets.length;
         warnings.push({
@@ -391,6 +465,24 @@ export function checkPrBodySections(body = '') {
             + ` Primo bullet interessato: "${stateless[0].slice(0, 120)}".`,
         });
       }
+    }
+  }
+
+  // --- 6. ADVISORY: funnel-critical files touched by the diff but never cited ------
+  // Not entered into `ok` — same reasoning as check 5 above (bullet-without-state):
+  // the generator producing these bodies doesn't yet cite every file reliably, and
+  // promoting this straight to blocking would repeat the 2026-08-12 stall.
+  if (diffPaths && diffPaths.length > 0) {
+    const uncited = filesUncitedInBody(diffPaths, s);
+    if (uncited.length > 0) {
+      warnings.push({
+        type: 'files-uncited-in-body',
+        message:
+          `${uncited.length} file funnel-critical modificati dal diff non sono citati nel ` +
+          `body (né per path né per basename): ${uncited.map((p) => `\`${p}\``).join(', ')}. ` +
+          'Aggiungi un bullet in `## Implementato` che li menziona (recidiva: PR #6279, ' +
+          '`.github/workflows/prospector-loop.yml` modificato e mai citato).',
+      });
     }
   }
 

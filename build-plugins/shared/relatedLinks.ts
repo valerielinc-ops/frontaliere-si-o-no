@@ -781,9 +781,12 @@ function clustersForFuelDaily(
     title: copy.fuelToday(fuelL, zoneLabel(sib)),
   }));
 
-  // Hubs: regional fuel + alternate fuel type.
+  // Hubs: job-board root (authority toward /cerca-lavoro-ticino/) + regional
+  // fuel + alternate fuel type. The listing root used to fire only for
+  // job_market_snapshot / orphan_landing; fuel pages skipped it entirely.
   const altFuel: FuelType = fuel === 'diesel' ? 'benzina' : 'diesel';
   const hubs: RelatedLink[] = [
+    { href: JOB_LISTING_ROOT[locale], title: copy.allJobs },
     {
       href: buildFuelTodayPath(fuelDailyLocale, fuel, undefined),
       title: copy.fuelToday(fuelL),
@@ -845,8 +848,9 @@ function clustersForFuelStation(
           title: copy.fuelStation(humanizeSlug(brand), zoneLabel(zone)),
         })));
 
-  // Hubs: zone hub + regional hub.
+  // Hubs: job-board root + zone hub + regional hub.
   const hubs: RelatedLink[] = [
+    { href: JOB_LISTING_ROOT[locale], title: copy.allJobs },
     {
       href: buildFuelTodayPath(fuelDailyLocale, fuel, zone),
       title: copy.fuelToday(fuelLabel(locale, fuel), zoneLabel(zone)),
@@ -896,9 +900,10 @@ function clustersForFuelItalianCity(
     title: copy.fuelItalianCity(humanizeSlug(c), fuelL),
   }));
 
-  // Hubs: regional fuel (Ticino) + nearest CH zone.
+  // Hubs: job-board root + regional fuel (Ticino) + nearest CH zone.
   const nearestZone: FuelZone = italianCity === 'como' ? 'chiasso' : italianCity === 'varese' ? 'mendrisio' : 'lugano';
   const hubs: RelatedLink[] = [
+    { href: JOB_LISTING_ROOT[locale], title: copy.allJobs },
     {
       href: buildFuelTodayPath(fuelDailyLocale, fuel, undefined),
       title: copy.fuelToday(fuelL),
@@ -937,8 +942,9 @@ function clustersForWeeklyEmployers(
     title: copy.weeklyEmployers(cityDisplay(c, locale)),
   }));
 
-  // Hubs: regional Ticino + editorial city hub if match.
+  // Hubs: job-board root + regional Ticino + editorial city hub if match.
   const hubs: RelatedLink[] = [
+    { href: JOB_LISTING_ROOT[locale], title: copy.allJobs },
     {
       href: buildCurrentWeekPath(weeklyLocale, 'ticino'),
       title: copy.weeklyEmployers(cityDisplay('ticino', locale)),
@@ -1000,8 +1006,9 @@ function clustersForWeeklyEmployerCompanyCity(
     title: copy.weeklyEmployerCompany(companyLabel, cityDisplay(c, locale)),
   }));
 
-  // Hubs: same-city F5 hub + regional Ticino F5 hub.
+  // Hubs: job-board root + same-city F5 hub + regional Ticino F5 hub.
   const hubs: RelatedLink[] = [
+    { href: JOB_LISTING_ROOT[locale], title: copy.allJobs },
     {
       href: buildCurrentWeekPath(weeklyLocale, weeklyCity),
       title: copy.weeklyEmployers(cityDisplay(weeklyCity, locale)),
@@ -1082,8 +1089,12 @@ function clustersForHealthPremiums(
       title: copy.healthPremiumCanton(HEALTH_PREMIUM_CANTON_DISPLAY[hpLocale][c]),
     }));
 
-  // Hubs: canton hub + root hub (or root + alt canton if we're already on canton).
-  const hubs: RelatedLink[] = [];
+  // Hubs: Switzerland-wide job board (this page type spans every canton —
+  // JOB_LISTING_ROOT would send most visitors to a Ticino-only listing) +
+  // canton hub + health-premiums root.
+  const hubs: RelatedLink[] = [
+    { href: SWITZERLAND_JOB_ROOT[locale], title: copy.allJobsSwitzerland },
+  ];
   if (currentAge) {
     hubs.push({
       href: buildHealthPremiumsCantonPath(hpLocale, currentCanton),
@@ -1129,8 +1140,9 @@ function clustersForBorderWait(
     title: copy.borderWaitCrossing(BORDER_CROSSING_DISPLAY[c]),
   }));
 
-  // Hubs: regional + root hub.
+  // Hubs: job-board root + regional + root hub.
   const hubs: RelatedLink[] = [
+    { href: JOB_LISTING_ROOT[locale], title: copy.allJobs },
     {
       href: buildBorderRegionalHubPath(borderLocale, region),
       title: copy.borderWaitRegion(BORDER_REGION_DISPLAY[region]),
@@ -1469,6 +1481,7 @@ function legacyFlatLinks(
     case 'weekly_employers':
     case 'weekly_employer_company_city':
       return [
+        { href: JOB_LISTING_ROOT[locale], title: copy.allJobs },
         { href: buildJobMarketHubPath(jobMarketLocale), title: copy.jobMarketSnapshot },
         { href: cityHubPath(locale, 'lugano'), title: copy.cityJobsLugano },
         { href: LAST_3_DAYS_PATH[locale], title: copy.last3Days },
@@ -1477,6 +1490,7 @@ function legacyFlatLinks(
       ];
     case 'job_market_snapshot':
       return [
+        { href: JOB_LISTING_ROOT[locale], title: copy.allJobs },
         { href: buildCurrentWeekPath(weeklyLocale, 'ticino'), title: copy.weeklyEmployers(cityDisplay('ticino', locale)) },
         { href: cityHubPath(locale, 'lugano'), title: copy.cityJobsLugano },
         { href: cityHubPath(locale, 'mendrisio'), title: copy.cityJobsMendrisio },
@@ -1487,6 +1501,7 @@ function legacyFlatLinks(
       const canton = context.cantonSlug ?? 'ticino';
       const hpLocale = locale as HealthPremiumLocale;
       return [
+        { href: SWITZERLAND_JOB_ROOT[locale], title: copy.allJobsSwitzerland },
         { href: HEALTH_PREMIUM_COMPARATOR_PATH[hpLocale], title: copy.healthComparator },
         { href: buildHealthPremiumsCantonPath(hpLocale, canton === 'ticino' ? 'grigioni' : 'ticino'), title: copy.healthPremiumCanton(HEALTH_PREMIUM_CANTON_DISPLAY[hpLocale][canton === 'ticino' ? 'grigioni' : 'ticino']) },
         { href: buildHealthPremiumsLeafPath(hpLocale, canton, '19-25'), title: copy.healthPremiumAgeBracket(HEALTH_PREMIUM_AGE_LABEL[hpLocale]['19-25']) },
@@ -1512,6 +1527,7 @@ function legacyFlatLinks(
       // a 3rd sibling crossing instead of fabricating a nearest Ticino
       // zone/city for a non-Ticino crossing.
       return [
+        { href: JOB_LISTING_ROOT[locale], title: copy.allJobs },
         ...(fuelZone
           ? [{ href: buildFuelTodayPath(fuelDailyLocale, 'diesel', fuelZone), title: copy.fuelToday(fuelLabel(locale, 'diesel'), zoneLabel(fuelZone)) }]
           : []),

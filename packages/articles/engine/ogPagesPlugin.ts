@@ -13,6 +13,7 @@ import type { Plugin } from 'vite';
 import { getSiteShell } from './siteShell';
 import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySectionLabel, renderArticleDerivedSectionsHtml } from './articleSeoFallback';
 import { loadSwissArticleCanonicalOverrides, resolveSwissArticleCanonicalUrl, resolveShadowedArticleWinnerSlug } from './shared/swissArticleCanonicalOverrides';
+import { loadArticleReviewOverrides, resolveArticleReviewerSlug } from './shared/articleReviewOverrides';
 import { stripMarkdownPlain } from './shared/stripMarkdownPlain';
 import { isFaqQuestionHeading } from './shared/faqQuestionPrefixes';
 import { boostDescriptionForCtr } from './shared/ctrBoostDescription';
@@ -20,6 +21,8 @@ import { ARTICLE_SECTION_DESCRIPTORS, extractBlogEntryPositions, blogKeyToArticl
 import { ARTICLE_ROBOTS_INDEX_ENHANCED } from './shared/robotsDirective';
 import { readImageIntrinsicSize } from './shared/imageIntrinsicSize';
 import { decodeTsStringEscapes, repairLegacyDoubleEscapedBreaks } from './shared/tsStringEscapes';
+import { computeSectionTopicAssignment } from './articleHubPagesPlugin';
+import { TOPIC_CLUSTERS, TOPIC_HUB_SEGMENT, type TopicLocale } from './topicTaxonomy';
 
 /**
  * Empty SPA mount point, mirroring build-plugins/htmlTemplate.ts `rootShell`.
@@ -303,6 +306,17 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  fs,
  SECTION.canonicalOverrides.map((p) => np.resolve(rootDir, p)),
  );
+
+ // Issue #6337: articleId -> reviewerAuthorSlug map for the `reviewedBy`
+ // JSON-LD signal (E-E-A-T on fiscal/legal YMYL content). Section-agnostic,
+ // same map for every section — see shared/articleReviewOverrides.ts header.
+ // Candidate list, not one path: `mirror-articles-engine.yml` copies this
+ // engine subtree to `engine/shared/…` in the corpus repo that actually
+ // renders article pages, so the second candidate is what resolves there.
+ const articleReviewOverrides = loadArticleReviewOverrides(fs, [
+ np.resolve(rootDir, 'packages/articles/engine/shared/article-reviewed-by.json'),
+ np.resolve(rootDir, 'engine/shared/article-reviewed-by.json'),
+ ]);
 
  // Parse article categories from blog-articles-data.ts for FAQ schema filtering
  const EVERGREEN_CATEGORIES = new Set(['fiscale', 'pratico', 'pensione']);
@@ -937,12 +951,42 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  })),
  );
  const entryById = new Map(entries.map(e => [e.articleId, e]));
+
+ // Article → topic-hub link (issue #5003: pillar/spoke internal linking).
+ // #5107 built article → article links; this closes the other half, article
+ // → its own topic hub, which the corpus had zero of (`grep
+ // 'argomenti/' articoli-frontaliere/**/index.html` on a published article
+ // page returned nothing before this). Reuses computeSectionTopicAssignment
+ // (packages/articles/engine/articleHubPagesPlugin.ts) — the exact same
+ // input build topicClusterHubsPlugin.ts's hub emitter and the archive-page
+ // "Argomenti" nav already use — instead of a third near-copy of it, so the
+ // hub this link points to always agrees with which hub actually lists the
+ // article. An article whose wording matches no topic (~20% of the corpus —
+ // see topicClusters.ts's module header) gets no hub link; the
+ // related-articles list still renders on its own for it.
+ const topicAssignment = computeSectionTopicAssignment(fs, np, rootDir, SECTION.name);
+ const topicByKey = new Map(TOPIC_CLUSTERS.map(t => [t.key, t]));
+ const topicHubLinkPrefix: Record<string, string> = {
+ it: 'Tutti gli articoli: ', en: 'All articles: ', de: 'Alle Artikel: ', fr: 'Tous les articles : ',
+ };
+ const buildTopicHubLinkHtml = (currentId: string, locale: string): string => {
+ const topic = topicByKey.get(topicAssignment.topicOf.get(currentId) ?? '');
+ if (!topic) return '';
+ const loc: TopicLocale = (locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
+ const indexSlug = blogIndexSlug[locale] ?? SECTION.indexSlug[loc] ?? SECTION.indexSlug.it;
+ const prefix = locale === 'it' ? '' : `/${locale}`;
+ const href = `${prefix}/${indexSlug}/${TOPIC_HUB_SEGMENT[loc]}/${topic.slug[loc]}/`;
+ const label = `${topicHubLinkPrefix[loc] ?? topicHubLinkPrefix.it}${topic.label[loc]}`;
+ return `<li class="s-65FRzB"><a class="s-ty-PxH" href="${esc(href)}">${esc(label)}</a></li>`;
+ };
+
  const buildRelatedArticlesHtml = (currentId: string, _currentCategory: string, locale: string): string => {
  const picks = (relatedArticlesMap.get(currentId) ?? [])
  .map(id => entryById.get(id))
  .filter((e): e is typeof entries[number] => Boolean(e));
- if (picks.length === 0) return '';
- const items = picks.map(art => {
+ const hubItem = buildTopicHubLinkHtml(currentId, locale);
+ if (picks.length === 0 && !hubItem) return '';
+ const items = hubItem + picks.map(art => {
  const slug = blogSlugs[art.articleId]?.[locale] ?? art.articleId;
  const indexSlug = blogIndexSlug[locale] ?? SECTION.indexSlug[locale as 'it' | 'en' | 'de' | 'fr'] ?? SECTION.indexSlug.it;
  const prefix = locale === 'it' ? '' : `/${locale}`;
@@ -1136,6 +1180,21 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  url: `${BASE_URL}/chi-siamo/`,
  };
 
+ // Issue #6337: `reviewedBy` E-E-A-T signal — only emitted when the
+ // article has an explicit entry in articleReviewOverrides (nothing
+ // reviewed by default, see shared/articleReviewOverrides.ts header).
+ const reviewerSlug = resolveArticleReviewerSlug(en.articleId, articleReviewOverrides);
+ const reviewerAuthor = reviewerSlug ? getAuthorBySlug(reviewerSlug) : undefined;
+ const reviewedByObj: Record<string, unknown> | undefined = reviewerAuthor
+ ? {
+ '@type': 'Person' as const,
+ name: reviewerAuthor.name,
+ jobTitle: reviewerAuthor.role,
+ url: `${BASE_URL}/autori/${reviewerAuthor.slug}/`,
+ ...(reviewerAuthor.social?.linkedin ? { sameAs: [reviewerAuthor.social.linkedin] } : {}),
+ }
+ : undefined;
+
  // Build the JSON-LD object, respecting source @type (Event vs NewsArticle)
  const isEvent = en.sdType === 'Event';
  let ldObj: Record<string, unknown>;
@@ -1258,7 +1317,18 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // the single source of truth (services/seo/organizationLd.ts) — was a
  // hand-rolled duplicate pointing at a 404'd logo (/images/logo-192.png).
  publisher: ORGANIZATION_LD,
- mainEntityOfPage: full,
+ // Issue #6337: expert-review signal, present only when the article has
+ // an entry in articleReviewOverrides — absent (not a fabricated default)
+ // for every article until an editor marks it reviewed. schema.org's
+ // `reviewedBy` has `domainIncludes: WebPage` only (verified against
+ // schema.org; Article/NewsArticle isn't a listed domain and Google's own
+ // Article structured-data guidance doesn't mention the property at all),
+ // so it is nested on the `WebPage` entity via `mainEntityOfPage` instead
+ // of attached directly to this NewsArticle node — the placement schema.org
+ // actually defines, not the type this PR happens to be building.
+ mainEntityOfPage: reviewedByObj
+ ? { '@type': 'WebPage', '@id': full, reviewedBy: reviewedByObj }
+ : full,
  isPartOf: { '@type': 'WebSite', '@id': `${BASE_URL}/#website`, name: 'Frontaliere Ticino' },
  speakable: {
  '@type': 'SpeakableSpecification',

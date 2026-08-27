@@ -11,7 +11,7 @@
  */
 
 import fs from 'node:fs';
-import { irpefDisplayText, irpefDisplayTitle } from '../services/irpefAddizionaleRegime';
+import { irpefDisplayText, irpefDisplayTitle, leviesIrpefAddizionale } from '../services/irpefAddizionaleRegime';
 import { rentCaptionSuffix } from '../services/avgRentEstimate';
 import path from 'node:path';
 import type { Plugin } from 'vite';
@@ -31,6 +31,8 @@ import {
 import { borderCrossings, type BorderCrossing } from '../data/borderCrossings';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { getCantonDisplayName, type CantonDisplayLocale } from './shared/cantonDisplay';
+import { renderNearestComparison } from './shared/nearestMunicipalityComparison';
+import { haversineKm as sharedHaversineKm } from '../scripts/lib/haversine.mjs';
 import { forceGc } from './shared/forceGc';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
@@ -243,6 +245,12 @@ interface Copy {
   hydratedBadge: string;
   simulatorSummary: (crossing: string, destination: string, minutes: string, wait: string) => string;
   compareTitle: string;
+  /** Column headers and prose labels of the nearest-comune comparison block. */
+  colAddizionale: string;
+  colRent: string;
+  colBorderDistance: string;
+  spreadAddizionale: string;
+  comparisonSource: string;
   faqTitle: string;
   faq1: (m: Municipality) => string;
   faq1a: (m: Municipality) => string;
@@ -305,6 +313,11 @@ const COPY = {
     hydratedBadge: 'interattivo',
     simulatorSummary: (crossing: string, destination: string, minutes: string, wait: string) => `Verso ${destination} conviene ${crossing}: circa ${minutes} includendo ${wait} di attesa.`,
     compareTitle: 'Azioni utili da fare ora',
+    colAddizionale: 'Addizionale comunale',
+    colRent: 'Affitto bilocale',
+    colBorderDistance: 'Distanza dal confine',
+    spreadAddizionale: 'l\u2019addizionale comunale',
+    comparisonSource: 'Addizionale IRPEF 2024, affitto indicativo di zona e distanza dal confine dallo stesso dataset comunale delle metriche qui sopra.',
     faqTitle: 'Domande frequenti',
     faq1: (m: Municipality) => `${m.name} è un comune di frontiera per lavorare in Svizzera?`,
     faq1a: (m: Municipality) => `${m.name} risulta nella fascia ${m.fascia} del dataset interno dei comuni di frontiera usato da Frontaliere Ticino. Verifica sempre il tuo caso fiscale con un consulente se stai cambiando residenza o status di frontaliere.`,
@@ -359,6 +372,11 @@ const COPY = {
     hydratedBadge: 'interactive',
     simulatorSummary: (crossing: string, destination: string, minutes: string, wait: string) => `Toward ${destination}, ${crossing} is the better option: about ${minutes} including ${wait} wait.`,
     compareTitle: 'Useful next steps',
+    colAddizionale: 'Municipal surcharge',
+    colRent: 'One-bedroom rent',
+    colBorderDistance: 'Distance to border',
+    spreadAddizionale: 'the municipal surcharge',
+    comparisonSource: '2024 IRPEF surcharge, indicative area rent and distance to the border from the same municipal dataset as the metrics above.',
     faqTitle: 'FAQ',
     faq1: (m: Municipality) => `Is ${m.name} a border municipality for Swiss work?`,
     faq1a: (m: Municipality) => `${m.name} appears in zone ${m.fascia} in the internal border-municipality dataset used by Frontaliere Ticino. Always verify your individual tax status before moving.`,
@@ -413,6 +431,11 @@ const COPY = {
     hydratedBadge: 'interaktiv',
     simulatorSummary: (crossing: string, destination: string, minutes: string, wait: string) => `Richtung ${destination} passt ${crossing}: etwa ${minutes} inklusive ${wait} Wartezeit.`,
     compareTitle: 'Nützliche nächste Schritte',
+    colAddizionale: 'Gemeindezuschlag',
+    colRent: 'Miete 2-Zimmer',
+    colBorderDistance: 'Entfernung zur Grenze',
+    spreadAddizionale: 'der Gemeindezuschlag',
+    comparisonSource: 'IRPEF-Gemeindezuschlag 2024, Richtmiete der Zone und Entfernung zur Grenze aus demselben Gemeindedatensatz wie die Kennzahlen oben.',
     faqTitle: 'FAQ',
     faq1: (m: Municipality) => `Ist ${m.name} eine Grenzgemeinde?`,
     faq1a: (m: Municipality) => `${m.name} erscheint in Zone ${m.fascia} im internen Grenzgemeinden-Datensatz von Frontaliere Ticino. Prüfe deinen Steuerfall vor einem Umzug individuell.`,
@@ -467,6 +490,11 @@ const COPY = {
     hydratedBadge: 'interactif',
     simulatorSummary: (crossing: string, destination: string, minutes: string, wait: string) => `Vers ${destination}, ${crossing} est le meilleur choix: environ ${minutes} avec ${wait} d'attente.`,
     compareTitle: 'Prochaines actions utiles',
+    colAddizionale: 'Surtaxe communale',
+    colRent: 'Loyer deux-pièces',
+    colBorderDistance: 'Distance de la frontière',
+    spreadAddizionale: 'la surtaxe communale',
+    comparisonSource: 'Surtaxe IRPEF 2024, loyer indicatif de la zone et distance de la frontière issus du même jeu de données communal que les indicateurs ci-dessus.',
     faqTitle: 'FAQ',
     faq1: (m: Municipality) => `${m.name} est-elle une commune frontalière?`,
     faq1a: (m: Municipality) => `${m.name} apparaît en zone ${m.fascia} dans le jeu de données interne des communes frontalières utilisé par Frontaliere Ticino. Vérifiez toujours votre cas fiscal avant un déménagement.`,
@@ -496,15 +524,19 @@ function pathFor(locale: Locale, municipality: Municipality): string {
   return borderMunicipalityPathFor(locale, municipality.name);
 }
 
+/**
+ * Point-to-point wrapper over the shared great-circle helper.
+ *
+ * The trigonometry used to be inlined here, a byte-for-byte copy of
+ * `scripts/lib/haversine.mjs`. Since `shared/nearestMunicipalityComparison.ts`
+ * (used by this same page) now measures distances with the leaf module, two
+ * copies in the render path of one page would be exactly the drift AGENTS.md
+ * rule #6 forbids: the same formula in two places, only one of which gets a
+ * future correction. Signature kept object-shaped so the call sites below are
+ * untouched.
+ */
 function haversineKm(a: { lat: number; lng: number }, b: { lat: number; lng: number }): number {
-  const toRad = (deg: number) => (deg * Math.PI) / 180;
-  const earthKm = 6371;
-  const dLat = toRad(b.lat - a.lat);
-  const dLng = toRad(b.lng - a.lng);
-  const lat1 = toRad(a.lat);
-  const lat2 = toRad(b.lat);
-  const h = Math.sin(dLat / 2) ** 2 + Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLng / 2) ** 2;
-  return 2 * earthKm * Math.asin(Math.sqrt(h));
+  return sharedHaversineKm(a.lat, a.lng, b.lat, b.lng);
 }
 
 function crossingSlug(crossing: BorderCrossing): string {
@@ -890,7 +922,17 @@ export function buildBorderMunicipalityTitle(municipality: Municipality, locale:
   );
 }
 
-function renderPage(params: {
+/**
+ * Exported for tests only — the plugin itself calls it from `closeBundle()`.
+ *
+ * Its four sibling families (French, German, Austrian, Liechtenstein) already
+ * export `renderAboveFloorPage`, which is what let their tests assert on real
+ * emitted HTML. This family, the oldest and by far the largest of the five,
+ * had no such entry point, so nothing could test what it actually emits — the
+ * asymmetry `borderMunicipalityData.ts` documents for the compat self-map,
+ * repeated for the renderer.
+ */
+export function renderPage(params: {
   municipality: Municipality;
   locale: Locale;
   dateStamp: string;
@@ -995,6 +1037,37 @@ function renderPage(params: {
         </div>
       </aside>
     </section>
+
+    ${renderNearestComparison<Municipality>({
+      locale,
+      current: municipality,
+      pool: eligibleMunicipalities(),
+      hrefFor: (m) => pathFor(locale, m),
+      keyOf: (m) => slugify(m.name),
+      columns: [
+        {
+          header: copy.colAddizionale,
+          value: (m) => irpefDisplayText(m, locale, `${formatDecimal(m.irpefAddizionale, locale)}%`),
+          // `null` where the comune levies no surcharge at all — see
+          // services/irpefAddizionaleRegime.ts: the zeros in this field are
+          // Valle d'Aosta's special statute, not "the cheapest comune", and
+          // ranking them on the same scale is the documented bug that module
+          // exists to prevent.
+          numeric: (m) => (leviesIrpefAddizionale(m) ? m.irpefAddizionale : null),
+          formatNumeric: (value) => `${formatDecimal(value, locale)}%`,
+          spreadLabel: copy.spreadAddizionale,
+        },
+        {
+          header: copy.colRent,
+          value: (m) => `EUR ${formatInt(m.avgRentMonthly, locale)}`,
+        },
+        {
+          header: copy.colBorderDistance,
+          value: (m) => `${formatInt(m.distanceKm, locale)} km`,
+        },
+      ],
+      sourceNote: copy.comparisonSource,
+    })}
 
     <section class="mt-6 rounded-md border border-edge bg-surface p-5">
       <h2 class="text-xl font-bold text-heading">${esc(copy.compareTitle)}</h2>

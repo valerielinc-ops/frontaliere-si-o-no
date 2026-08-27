@@ -30,12 +30,14 @@
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { loadEventsDataset, upcomingEvents, slugifyComune, isoDay, weekendWindow, weekendEvents, eventsBasePathForCanton, resolveCantonUrlKey, UNRESOLVED_CANTON_KEY, UNRESOLVED_CANTON_LABEL } from './lib/events-utils.mjs';
-import { loadLedger, appendLedger, stripDiacritics, truncateBody, SITE_URL, isLandingPageLive, CANTON_NAME_BY_CODE, MONTHS_IT } from './lib/social-post-utils.mjs';
+import { loadLedger, appendLedger, stripDiacritics, truncateBody, SITE_URL, isLandingPageLive, CANTON_NAME_BY_CODE, MONTHS_IT, GRAPH_API } from './lib/social-post-utils.mjs';
 import { loadPlaceIds, lookupPlaceId, rescrapeOgAndVerify } from './schedule-fb-jobs-daily.mjs';
+import { facebookUrl, FACEBOOK_CAMPAIGN_EVENT } from './lib/facebook-links.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
-const GRAPH_BASE = 'https://graph.facebook.com/v21.0';
+// Graph API base: one shared literal in social-post-utils.mjs (see its note).
+const GRAPH_BASE = GRAPH_API;
 const LEDGER_PATH = path.join(REPO_ROOT, 'data', 'fb-posted-events.json');
 const DEFAULT_VOLUME = 3;
 const MAX_VOLUME = 10;
@@ -383,11 +385,14 @@ export async function run(opts = {}) {
   for (const p of payloads) {
     // OG rescrape + verify og_object.image resolved (issue #3382) — shared
     // with the jobs scheduler so the retry/backoff logic isn't duplicated.
-    await rescrapeOgAndVerify(fetchImpl, p.url, token, warn);
+    // See the articles scheduler: tag before the rescrape, keep `p.url` bare
+    // because it is the ledger's dedup key.
+    const link = facebookUrl(p.url, FACEBOOK_CAMPAIGN_EVENT, p.id);
+    await rescrapeOgAndVerify(fetchImpl, link, token, warn);
 
     const apiUrl = `${GRAPH_BASE}/${pageId}/feed`;
     const body = () => {
-      const b = new URLSearchParams({ message: p.message, link: p.url, access_token: token });
+      const b = new URLSearchParams({ message: p.message, link, access_token: token });
       if (p.placeId) b.append('place', p.placeId);
       return b;
     };

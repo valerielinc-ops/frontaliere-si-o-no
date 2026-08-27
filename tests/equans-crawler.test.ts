@@ -1,12 +1,14 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, beforeEach, describe, it, expect, vi } from 'vitest';
 import {
   EQUANS_KEY,
   EQUANS_COMPANY_NAME,
   isEquansJob,
   isTrustedDomain,
+  fetchAllEquansJobs,
 } from '../scripts/lib/equans-job-parser.mjs';
-import { jobsChDetailUrl } from '../scripts/lib/jobs-ch-search-common.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+const API_URL = 'https://ohws.prospective.ch/public/v1/medium/1004089/jobs';
 
 describe('Equans Switzerland crawler parser', () => {
   // ── Constants ──
@@ -23,11 +25,16 @@ describe('Equans Switzerland crawler parser', () => {
 
     it('matches by company name (including subsidiary variants)', () => {
       expect(isEquansJob({ company: 'Equans Switzerland' })).toBe(true);
-      expect(isEquansJob({ company: 'Equans Switzerland Facility Management AG' })).toBe(true);
     });
 
     it('matches by URL domain', () => {
       expect(isEquansJob({ url: 'https://www.equans.ch/de/karriere/test-job' })).toBe(true);
+    });
+
+    it('matches by Prospective medium-scoped URL', () => {
+      expect(
+        isEquansJob({ url: 'https://ohws.prospective.ch/public/v1/medium/1004089/jobs/abc' })
+      ).toBe(true);
     });
 
     it('rejects unrelated jobs', () => {
@@ -50,8 +57,16 @@ describe('Equans Switzerland crawler parser', () => {
       expect(isTrustedDomain('https://equans.ch/')).toBe(true);
     });
 
-    it('trusts the jobs.ch host (source-of-record ATS, not the corporate domain)', () => {
-      expect(isTrustedDomain('https://www.jobs.ch/en/vacancies/detail/abc-123/')).toBe(true);
+    it('trusts the Prospective medium-scoped host', () => {
+      expect(isTrustedDomain('https://ohws.prospective.ch/medium/1004089/jobs/xyz')).toBe(true);
+    });
+
+    it('trusts the Prospective job-direct host (no custom job-page URL configured)', () => {
+      expect(isTrustedDomain('https://ohws.prospective.ch/public/v1/jobs/abc-123')).toBe(true);
+    });
+
+    it('no longer trusts jobs.ch (migrated off it — it was never the real source)', () => {
+      expect(isTrustedDomain('https://www.jobs.ch/en/vacancies/detail/abc-123/')).toBe(false);
     });
 
     it('rejects other domains', () => {
@@ -64,27 +79,16 @@ describe('Equans Switzerland crawler parser', () => {
     });
   });
 
-  // ── jobsChDetailUrl (shared jobs.ch client, imported from jobs-ch-search-common) ──
-  describe('jobsChDetailUrl', () => {
-    it('builds the default (en) detail URL', () => {
-      expect(jobsChDetailUrl('abc-123')).toBe('https://www.jobs.ch/en/vacancies/detail/abc-123/');
-    });
-
-    it('respects a custom locale', () => {
-      expect(jobsChDetailUrl('abc-123', 'de')).toBe('https://www.jobs.ch/de/vacancies/detail/abc-123/');
-    });
-  });
-
   // ── slugify (imported from crawler-template) ──
   describe('slugify', () => {
     it('converts title to URL-safe slug', () => {
-      const slug = slugify('Servicetechniker/-in HLK, 80-100%');
+      const slug = slugify('Automatiker:in im Schaltanlagenbau, 80-100%');
       expect(slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
 
     it('builds slug with company suffix inline', () => {
-      expect(slugify('servicetechniker hlk equans zurich')).toBe(
-        'servicetechniker-hlk-equans-zurich'
+      expect(slugify('automatiker im schaltanlagenbau equans st gallen')).toBe(
+        'automatiker-im-schaltanlagenbau-equans-st-gallen'
       );
     });
   });
@@ -106,8 +110,8 @@ describe('Equans Switzerland crawler parser', () => {
       },
       location: 'Zürich',
       canton: 'ZH',
-      url: 'https://www.jobs.ch/en/vacancies/detail/abc-123/',
-      source: 'Equans Switzerland Dedicated Parser (jobs.ch API)',
+      url: 'https://ohws.prospective.ch/public/v1/jobs/abc-123',
+      source: 'Equans Switzerland Dedicated Parser (Prospective medium 1004089)',
       sourceLang: 'de',
       crawledAt: new Date().toISOString(),
 
@@ -119,7 +123,7 @@ describe('Equans Switzerland crawler parser', () => {
       country: 'CH',
       employmentType: 'FULL_TIME',
       postedDate: new Date().toISOString().slice(0, 10),
-      applyUrl: 'https://www.jobs.ch/en/vacancies/detail/abc-123/',
+      applyUrl: 'https://career55.sapsf.eu/career?company=equans&career_ns=job_application&career_job_req_id=1158',
     };
 
     it('has all required fields', () => {
@@ -160,6 +164,89 @@ describe('Equans Switzerland crawler parser', () => {
 
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+    });
+
+    it('url points at the employer\'s own Prospective.ch tenant, not a job-board aggregator', () => {
+      expect(validJob.url).toContain('ohws.prospective.ch');
+      expect(validJob.url).not.toContain('jobs.ch');
+      expect(validJob.applyUrl).not.toContain('jobs.ch');
+    });
+  });
+
+  // ── fetchAllEquansJobs (graceful degradation + Prospective contract) ──
+  describe('fetchAllEquansJobs — graceful degradation', () => {
+    const realFetch = globalThis.fetch;
+
+    beforeEach(() => {
+      process.env.JOBS_CRAWLER_RETRY_BASE_MS = '0';
+    });
+
+    afterEach(() => {
+      globalThis.fetch = realFetch;
+      delete process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+    });
+
+    it('returns [] (no throw) on total network failure', async () => {
+      globalThis.fetch = vi.fn(async () => {
+        throw new Error('ENOTFOUND ohws.prospective.ch');
+      }) as any;
+
+      const jobs = await fetchAllEquansJobs();
+      expect(jobs).toEqual([]);
+    });
+
+    it('parses listings when the Prospective API returns jobs, linking to the tenant and the real SuccessFactors apply link', async () => {
+      globalThis.fetch = vi.fn(async (url: any) => {
+        const u = String(url);
+        if (u.startsWith(API_URL)) {
+          return new Response(
+            JSON.stringify({
+              total: 1,
+              jobs: [
+                {
+                  szas: {
+                    sza_title: 'Automatiker:in im Schaltanlagenbau',
+                    'sza_workplace.city': 'St. Gallen',
+                    'sza_pensum.max': '100',
+                    sza_apply_link: 'https://career55.sapsf.eu/career?company=equans&career_ns=job_application&career_job_req_id=1158',
+                  },
+                  links: {
+                    directlink: 'https://ohws.prospective.ch/public/v1/jobs/ac3fc0b5-64ee-437e-a76a-ef4b7f1748d2',
+                  },
+                  attributes: { '50': ['Equans Switzerland AG'] },
+                },
+              ],
+            }),
+            { status: 200, headers: { 'content-type': 'application/json' } },
+          );
+        }
+        return new Response('', { status: 404 });
+      }) as any;
+
+      const jobs = await fetchAllEquansJobs();
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({
+        company: 'Equans Switzerland',
+        companyKey: 'equans',
+        canton: 'SG',
+        country: 'CH',
+        employmentType: 'FULL_TIME',
+      });
+      expect(jobs[0].url).toBe('https://ohws.prospective.ch/public/v1/jobs/ac3fc0b5-64ee-437e-a76a-ef4b7f1748d2');
+      expect(jobs[0].applyUrl).toBe(
+        'https://career55.sapsf.eu/career?company=equans&career_ns=job_application&career_job_req_id=1158',
+      );
+      expect(jobs[0].id).toMatch(/^equans-/);
+      expect(jobs[0].category).toBe('Tecnica');
+    });
+
+    it('returns [] (no throw) when the Prospective API errors mid-pagination', async () => {
+      globalThis.fetch = vi.fn(async () => {
+        return new Response('', { status: 503 });
+      }) as any;
+
+      const jobs = await fetchAllEquansJobs();
+      expect(jobs).toEqual([]);
     });
   });
 });

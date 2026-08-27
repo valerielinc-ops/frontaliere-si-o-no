@@ -1,6 +1,7 @@
 import { JSDOM } from 'jsdom';
 import {  isTargetSwissLocation, inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
 
 const HQ = getCompanyDefaults('damiani');
 
@@ -87,7 +88,11 @@ export function parseDamianiSearchPage(html = '') {
     const location = normalizeSpace(row.querySelector('td.colLocation .jobLocation')?.textContent || '');
     const postedDate = normalizeSpace(row.querySelector('td.colDate .jobDate')?.textContent || '');
     return { title, href, location, postedDate };
-  }).filter((row) => row.title && row.href && row.location);
+  }).filter((row) => row.title && row.href && row.location
+    // A row whose anchor text is j2w page chrome (cookie-consent widget,
+    // search/alert box) isn't a job at all — discard the row, don't clean it,
+    // or it becomes a posting with no title.
+    && !isSuccessFactorsWidgetText(row.title));
 }
 
 function bulletize(section) {
@@ -100,7 +105,12 @@ function bulletize(section) {
 export function parseDamianiJobDetail(html = '') {
   const dom = new JSDOM(html);
   const document = dom.window.document;
-  const title = normalizeSpace(document.querySelector('span[itemprop="title"]')?.textContent || '');
+  // '' when the detail page surfaced SF page chrome instead of the posting.
+  // buildDamianiJob restores the guarded listing-row title before localising,
+  // so the slug and category stay derived from one consistent value.
+  const title = sanitizeSuccessFactorsField(
+    normalizeSpace(document.querySelector('span[itemprop="title"]')?.textContent || ''),
+  );
   const location = normalizeSpace(document.querySelector('#job-location .jobGeoLocation')?.textContent || '');
   const postedDate = String(document.querySelector('meta[itemprop="datePosted"]')?.getAttribute('content') || '').trim();
   const validThrough = String(document.querySelector('meta[itemprop="validThrough"]')?.getAttribute('content') || '').trim();
@@ -142,7 +152,9 @@ export function parseDamianiJobDetail(html = '') {
     flush();
   }
 
-  const description = sections.join('\n\n').trim();
+  // Detail-page description can also be j2w page chrome (same widget bleed
+  // as the title); sanitize before it's used verbatim.
+  const description = sanitizeSuccessFactorsField(sections.join('\n\n').trim());
   return {
     title,
     location,

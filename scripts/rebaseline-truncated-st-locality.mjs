@@ -16,6 +16,7 @@
 //   node scripts/rebaseline-truncated-st-locality.mjs --dry-run # report only
 
 import fs from 'node:fs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import {
   TRUNCATED_ST_LOCALITY_RE,
@@ -34,7 +35,7 @@ let totalDeferred = 0;
 const deferred = [];
 const recoverySummary = {};
 
-const files = fs.readdirSync(BY_CRAWLER_DIR).filter((f) => f.endsWith('.json')).sort();
+const files = listSliceFileNames(BY_CRAWLER_DIR);
 
 for (const file of files) {
   const full = path.join(BY_CRAWLER_DIR, file);

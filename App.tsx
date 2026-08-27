@@ -109,6 +109,7 @@ const ForEmployersPage = lazyRetry(() => import('@/components/pages/ForEmployers
 const EmployerInsightsPage = lazyRetry(() => import('@/components/pages/EmployerInsightsPage'));
 const PartnerServices = lazyRetry(() => import('@/components/pages/PartnerServices'));
 const DonationBanner = lazyRetry(() => import('@/components/shared/DonationBanner'));
+const PreferredSourceCTA = lazyRetry(() => import('@/components/shared/PreferredSourceCTA'));
 const ConsultingPage = lazyRetry(() => import('@/components/pages/ConsultingPage'));
 const PressKit = lazyRetry(() => import('@/components/pages/PressKit'));
 const JobBoard = lazyRetry(() => import('@/components/community/JobBoard'));
@@ -3110,6 +3111,14 @@ const App: React.FC = () => {
  {/* Donation banner */}
  <div className="max-w-xl mx-auto">
  <SafeLazy boundary="footer-donation" fallback={<SkeletonFooterSlot height="min-h-[48px]" />}><DonationBanner variant="inline" /></SafeLazy>
+ </div>
+
+ {/* Google Preferred Sources — fase 4 della issue 5004. L'eleggibilita'
+   * tecnica (schema, robots, sitemap, entita' organization) e' completa, ma
+   * la selezione come fonte preferita la fa l'utente dal proprio account
+   * Google: senza un deep link visibile non la fa nessuno. */}
+ <div className="max-w-xl mx-auto">
+ <SafeLazy boundary="footer-preferred-source" fallback={<SkeletonFooterSlot height="min-h-[48px]" />}><PreferredSourceCTA variant="inline" /></SafeLazy>
  </div>
 
  {/* Employer acquisition CTA — benefit-first copy (issue #4446).

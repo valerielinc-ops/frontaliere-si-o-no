@@ -65,17 +65,29 @@ export const VITEST_SHARD_NAME_RE = /^vitest shard \d+\/\d+$/;
 export const REDFLAG_IMPORTANT_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]/;
 
 /**
+ * Identità che possono pubblicare la review Claude. Con il token GitHub App
+ * la review non arriva come `claude[bot]`, ma come
+ * `frontaliere-automation[bot]`; i gate devono riconoscere entrambe senza
+ * accettare qualunque bot.
+ */
+export const REVIEWER_BOT_LOGIN_RE = /^(?:claude(?:\[bot\])?|frontaliere-automation\[bot\])$/i;
+
+export function isReviewerBot(user) {
+  return user?.type === 'Bot' && REVIEWER_BOT_LOGIN_RE.test(user.login || '');
+}
+
+/**
  * File la cui modifica impedisce STRUTTURALMENTE al reviewer Claude di girare
  * sulla PR → niente `## LGTM` → l'auto-merge normale non scatta → senza fallback
  * la PR resta ferma in attesa di un merge manuale.
  *
- * È SOLO `pr-review-loop.yml`: la GitHub App del reviewer esige che il workflow
+ * È SOLO `tests.yml`: la GitHub App del reviewer esige che il workflow
  * file in esecuzione sia byte-identico alla versione su `main` (`Workflow
  * validation failed. 401`). Una PR che lo MODIFICA ha per definizione un
  * contenuto diverso da main → 401 → review job rosso, nessun `## LGTM` postato.
  * Verificato che gli altri file storicamente citati come "merge manuale"
  * (`auto-merge-on-lgtm.yml`, `post-merge-followup.yml`, `REVIEW.md`,
- * `FOLLOWUP.md`) NON driftano: il reviewer (che esegue `pr-review-loop.yml`,
+ * `FOLLOWUP.md`) NON driftano: il reviewer (che esegue `tests.yml`,
  * invariato) gira e posta `## LGTM` normalmente (`post-merge-followup` per giunta
  * gira su `pull_request: closed`, post-merge → non gatekeepa il merge). Tenere
  * la lista MINIMA limita la superficie "merge senza review Claude" del fallback.
@@ -84,4 +96,4 @@ export const REDFLAG_IMPORTANT_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:�
  * dell'`## LGTM` mancante). Se in futuro un altro workflow su `pull_request`
  * inizia a invocare il claude-code-action, aggiungilo qui.
  */
-export const REVIEW_WORKFLOW_DRIFT_FILES = ['.github/workflows/pr-review-loop.yml'];
+export const REVIEW_WORKFLOW_DRIFT_FILES = ['.github/workflows/tests.yml'];

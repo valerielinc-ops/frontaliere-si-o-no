@@ -14,6 +14,7 @@ import { reportCaughtError } from '@/services/errorReporter';
 import { unlockAchievement } from '@/services/gamificationService';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import ConsentNotice from '@/components/shared/ConsentNotice';
+import TelegramChannelCta from '@/components/shared/TelegramChannelCta';
 import { consentProof } from '@/services/consentTexts';
 import { requestSlot, releaseSlot, isActive, subscribe, POPUP_PRIORITY } from '@/services/popupQueue';
 import { useAuth, promptOneTap, cancelOneTap, getAuthEmail, eagerAuth, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
@@ -515,6 +516,13 @@ const NewsletterPopup: React.FC = () => {
  <p className="text-sm text-subtle">{t('newsletter.subscriptionConfirmedDesc')}</p>
  </>
  )}
+
+ {/* Telegram channel offered ONLY in the post-submit state: the popup form
+   * itself is a single-conversion surface, and a second CTA next to the
+   * email field competes with it. Here the email step is already done, so
+   * this is additive. Self-gating — null when unconfigured. */}
+ <TelegramChannelCta className="mt-4 text-left" />
+
  <button
  onClick={() => {
  setVisible(false);

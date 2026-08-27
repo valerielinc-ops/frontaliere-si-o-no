@@ -5,10 +5,18 @@ name: Refresh Job Popularity
 # (deploy.yml, send-newsletter.yml) read the committed file instead of
 # re-fetching the whole collection on every push.
 #
-# Cost rationale: before this workflow, fetch-job-popularity.mjs ran on
-# every deploy + every newsletter send (~511 executions / 7d), each one
-# scanning ~2.9k docs in `job_views` (~1.48M Firestore reads / 7d).
-# Daily cron drops that to ~7 executions / week, ~20k reads / week (-98.6%).
+# Cost rationale, in two rounds:
+#   1. Before this workflow, fetch-job-popularity.mjs ran on every deploy +
+#      every newsletter send (~511 executions / 7d), each one scanning the
+#      whole `job_views` collection — ~2.9k docs then, ~1.48M reads / 7d.
+#      The daily cron dropped that to 7 executions a week.
+#   2. `job_views` has since grown to 66.107 docs (measured 2026-08-24), so
+#      those 7 full scans were back to ~462k reads / week. The script is now
+#      incremental (`lastViewed >=` the previous scan, projected with
+#      `.select`), with a full scan on the first run, on `--full`, and
+#      whenever data/job-popularity.meta.json is missing or older than 7d.
+# The metadata file is what makes the incremental path possible, so it is
+# committed alongside the snapshot — including on days when only it changes.
 
 on:
   workflow_dispatch:
@@ -37,7 +45,6 @@ jobs:
             !/data/jobs/
             !/data/translation-cache/
             !/packages/articles/content/
-            !/docs/
             !/public/data/
             !/data/related-search-candidates.json
             !/data/cf-hot-404s.json
@@ -78,7 +85,14 @@ jobs:
         run: |
           git config user.email "github-actions@github.com"
           git config user.name "GitHub Actions"
-          git add data/job-popularity.json
+          # `-A`, non un add semplice: scripts/fetch-job-popularity.mjs CANCELLA
+          # il metadato quando cade nel fallback, e un add semplice non stagia
+          # quella rimozione — il commit successivo si ritroverebbe il metadato
+          # vecchio accanto a un job-popularity.json azzerato, che e' esattamente
+          # lo stato che writeFallback() esiste per impedire. Entrambi i pathspec
+          # sono tracciati (il metadato ha un seed committato), quindi `-A` non
+          # puo' fallire con "did not match any files".
+          git add -A data/job-popularity.json data/job-popularity.meta.json
           git diff --cached --quiet && echo "No popularity changes to commit" && exit 0
           git commit -m "chore(data): refresh job popularity snapshot"
           # Concurrent data-refresh workflows can push to main at the same time
@@ -86,7 +100,7 @@ jobs:
           # rebase-retry helper. The fetch is deterministic given the current
           # job_views state, so on conflict we re-run it after rebasing.
           bash scripts/lib/git-push-with-retry.sh \
-            --regenerate-cmd "node scripts/fetch-job-popularity.mjs && git add data/job-popularity.json"
+            --regenerate-cmd "node scripts/fetch-job-popularity.mjs && git add -A data/job-popularity.json data/job-popularity.meta.json"
 
       - name: Report failure to GitHub Issues
         if: failure()

@@ -9,13 +9,17 @@
  *   node scripts/audit-parser-quality.mjs                  # full audit (no URL checks)
  *   node scripts/audit-parser-quality.mjs --skip-urls      # same (explicit)
  *   node scripts/audit-parser-quality.mjs --check-urls     # include URL reachability
+ *   node scripts/audit-parser-quality.mjs --check-source-details # compare sampled detail pages
  *   node scripts/audit-parser-quality.mjs --crawler=lidl-svizzera
  */
 
 import fs from 'node:fs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
+import { extractDetailFields } from './lib/prospector/extract.mjs';
+import { mapPool, politeFetch } from './lib/prospector/polite-fetch.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -201,6 +205,8 @@ export function applyNoStructureRatchet(report, baseline) {
 /* ── Args ──────────────────────────────────────────────────── */
 const args = process.argv.slice(2);
 const skipUrls = !args.includes('--check-urls');
+const checkSourceDetails = args.includes('--check-source-details');
+const SOURCE_DETAIL_SAMPLE_SIZE = 2;
 const crawlerFlag = args.find((a) => a.startsWith('--crawler='));
 const onlyCrawler = crawlerFlag ? crawlerFlag.split('=')[1] : null;
 const rebaseline = args.includes('--rebaseline');
@@ -212,6 +218,60 @@ function stripHtml(html) {
 
 function plainText(html) {
   return stripHtml(html).replace(/\s+/g, ' ').trim();
+}
+
+function normalizePlace(value) {
+  return plainText(value).toLowerCase().normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+}
+
+export function sourceLocationMatches(published, source) {
+  const left = normalizePlace(published);
+  const right = normalizePlace(source);
+  if (!left || !right) return false;
+  return left === right || right.startsWith(`${left} `) || left.startsWith(`${right} `);
+}
+
+function sourceDescription(job) {
+  return job?.descriptionByLocale?.[job?.sourceLang] || job?.description || '';
+}
+
+function wordSet(value) {
+  return new Set(normalizePlace(value).split(' ').filter((word) => word.length >= 4));
+}
+
+export function compareSourceDetail(job, detail) {
+  const publishedLocation = job?.addressLocality || job?.location || '';
+  const sourceLocation = detail?.location || '';
+  const publishedDescription = plainText(sourceDescription(job));
+  const sourceDescriptionText = plainText(detail?.description || '');
+  const publishedWords = wordSet(publishedDescription);
+  const sourceWords = wordSet(sourceDescriptionText);
+  let overlap = 0;
+  for (const word of publishedWords) if (sourceWords.has(word)) overlap++;
+  const overlapRatio = publishedWords.size ? overlap / publishedWords.size : 0;
+  const descriptionMismatch = sourceDescriptionText.length >= 200
+    && (publishedDescription.length < 100
+      || publishedDescription.length < sourceDescriptionText.length * 0.45
+      || overlapRatio < 0.35);
+  return {
+    locationMismatch: Boolean(sourceLocation) && !sourceLocationMatches(publishedLocation, sourceLocation),
+    descriptionMismatch,
+    publishedLocation,
+    sourceLocation,
+    publishedDescriptionLength: publishedDescription.length,
+    sourceDescriptionLength: sourceDescriptionText.length,
+    overlapRatio: Number(overlapRatio.toFixed(2)),
+  };
+}
+
+async function checkSourceDetailsBatch(items, concurrency = 3) {
+  return mapPool(items, concurrency, async (item) => {
+    const fetched = await politeFetch(item.url, { timeoutMs: 10000, retries: 1 });
+    if (!fetched.ok || !fetched.body) return { ...item, fetchFailed: true, status: fetched.status || 0 };
+    const detail = extractDetailFields(fetched.body, fetched.url || item.url);
+    return { ...item, ...compareSourceDetail(item.job, detail) };
+  });
 }
 
 const BOILERPLATE_RE = /^(datore di lavoro|als arbeitgeber|come employer|en tant qu.?employeur|as employer)/i;
@@ -480,9 +540,7 @@ async function checkUrlsBatch(urls, concurrency = 3) {
 
 /* ── Load crawler slices ───────────────────────────────────── */
 function loadCrawlerSlices() {
-  const files = fs
-    .readdirSync(SLICES_DIR)
-    .filter((f) => f.endsWith('.json') && !f.includes('.cleanup-tmp'));
+  const files = listSliceFileNames(SLICES_DIR);
   const slices = [];
   for (const file of files) {
     const key = file.replace(/\.json$/, '');
@@ -511,6 +569,7 @@ async function main() {
 
   const report = {}; // key → { issues[], severity }
   const urlsToCheck = []; // { crawlerKey, url }
+  const sourceDetailsToCheck = []; // { crawlerKey, job, url }
 
   for (const { key, jobs, error } of slices) {
     const issues = [];
@@ -561,6 +620,11 @@ async function main() {
       for (const j of sampled) {
         urlsToCheck.push({ crawlerKey: key, url: j.url });
       }
+    }
+
+    if (checkSourceDetails) {
+      const sampled = jobs.slice(0, SOURCE_DETAIL_SAMPLE_SIZE).filter((j) => j.url);
+      for (const job of sampled) sourceDetailsToCheck.push({ crawlerKey: key, job, url: job.url });
     }
 
     // 4. Missing locale coverage — skip in-flight translations
@@ -636,6 +700,40 @@ async function main() {
     report[key] = { total: jobs.length, issues };
   }
 
+  if (checkSourceDetails && sourceDetailsToCheck.length > 0) {
+    console.log(`Checking ${sourceDetailsToCheck.length} source detail pages (concurrency=3)...\n`);
+    const sourceResults = await checkSourceDetailsBatch(sourceDetailsToCheck, 3);
+    const byKey = {};
+    for (const result of sourceResults) {
+      if (!result) continue;
+      const key = result.crawlerKey;
+      if (!byKey[key]) byKey[key] = { checked: 0, fetchFailed: 0, locationMismatches: 0, descriptionMismatches: 0, details: [] };
+      const info = byKey[key];
+      info.checked++;
+      if (result.fetchFailed) { info.fetchFailed++; continue; }
+      if (result.locationMismatch) {
+        info.locationMismatches++;
+        info.details.push(`${result.url}: published "${result.publishedLocation || 'empty'}", source "${result.sourceLocation}"`);
+      }
+      if (result.descriptionMismatch) {
+        info.descriptionMismatches++;
+        info.details.push(`${result.url}: published description ${result.publishedDescriptionLength} chars, source ${result.sourceDescriptionLength} chars`);
+      }
+    }
+    for (const [key, info] of Object.entries(byKey)) {
+      const findings = info.locationMismatches + info.descriptionMismatches;
+      if (findings > 0) {
+        report[key].issues.push({
+          type: 'source-detail-mismatch', count: findings, total: info.checked,
+          locationMismatches: info.locationMismatches,
+          descriptionMismatches: info.descriptionMismatches,
+          fetchFailed: info.fetchFailed, details: info.details,
+          message: `${info.locationMismatches}/${info.checked} source location mismatches, ${info.descriptionMismatches}/${info.checked} incomplete descriptions`,
+        });
+      }
+    }
+  }
+
   // Run URL checks
   if (!skipUrls && urlsToCheck.length > 0) {
     console.log(`Checking ${urlsToCheck.length} URLs (concurrency=3, 5s timeout)...\n`);
@@ -661,13 +759,16 @@ async function main() {
     const thinRatio = thin ? thin.count / thin.total : 0;
     const formChromeCount = thin?.reasons?.['form-chrome'] || 0;
     const urlFail = types.has('stale-urls');
+    const sourceIssue = entry.issues.find((i) => i.type === 'source-detail-mismatch');
     if (types.has('parse-error')) entry.severity = 'CRITICAL';
+    else if (sourceIssue?.locationMismatches > 0) entry.severity = 'CRITICAL';
     // Form-chrome is a hard signal: even one row means the parser is
     // leaking the surrounding page (form, footer, contact info) into the
     // job description. There is no benign source of these phrases — never
     // a false positive — so skip the ratio gate.
     else if (formChromeCount > 0) entry.severity = 'CRITICAL';
     else if (thinRatio >= 0.5 || (thinRatio > 0 && urlFail)) entry.severity = 'CRITICAL';
+    else if (sourceIssue?.descriptionMismatches > 0) entry.severity = 'WARNING';
     else if (entry.issues.length > 0) entry.severity = 'WARNING';
     else entry.severity = 'OK';
     if (entry.severity === 'CRITICAL') {
@@ -675,6 +776,8 @@ async function main() {
       if (formChromeCount > 0) h.push(`${formChromeCount} description(s) contain form/footer/contact chrome — parser is sweeping page boundaries (most likely an unbounded HTML split). Bound extraction to the per-job DOM subtree`);
       if (thinRatio >= 0.5) h.push('Most descriptions are thin — parser likely scraping nav/boilerplate instead of job content');
       if (urlFail) h.push('Detail URLs returning errors — likely site migration or URL structure change');
+      if (sourceIssue?.locationMismatches > 0) h.push('Published locations disagree with sampled source detail pages — inspect the crawler location selector and remove generic-city fallbacks');
+      if (sourceIssue?.descriptionMismatches > 0) h.push('Published descriptions are materially shorter or unrelated to sampled source detail pages — bound extraction to the job-detail content');
       if (types.has('parse-error')) h.push('Crawler JSON file could not be parsed');
       entry.action = h.join('. ') + '.';
     }
@@ -720,6 +823,7 @@ async function main() {
     datasetProvenance: provenance,
     crawlersChecked: Object.keys(report).length,
     urlChecksEnabled: !skipUrls,
+    sourceDetailChecksEnabled: checkSourceDetails,
     crawlers: report,
     summary: {
       critical: Object.values(report).filter((r) => r.severity === 'CRITICAL').length,

@@ -1,37 +1,37 @@
 {
   "crawlerKey": "recruitingapp-2677",
-  "assembledAt": "2026-08-23T09:36:55.746Z",
+  "assembledAt": "2026-08-25T21:43:45.138Z",
   "jobs": [
     {
       "id": "recruitingapp-2677-890fd0f8436e",
-      "slug": "it-infrastructure-engineer-virtualization-storage-recruitingapp-2677-ch",
+      "slug": "it-infrastructure-ingegnere-virtualization-storage-e-recruiting-llb-gruppe-stellen-lugano",
       "slugByLocale": {
-        "fr": "it-infrastructure-engineer-virtualization-storage-recruitingapp-2677-ch",
-        "it": "it-infrastructure-engineer-virtualization-storage-recruitingapp-2677-ch",
+        "it": "it-infrastructure-ingegnere-virtualization-storage-e-recruiting-llb-gruppe-stellen-lugano",
         "en": "it-infrastructure-engineer-virtualization-storage-e-recruiting-llb-gruppe-stellen-lugano",
-        "de": "it-infrastructure-engineer-virtualization-storage-recruitingapp-2677-ch"
+        "de": "it-infrastructure-ingenieur-virtualization-storage-e-recruiting-llb-gruppe-stellen-lugano",
+        "fr": "it-infrastructure-engineer-virtualization-storage-recruitingapp-2677-ch"
       },
       "company": "E-Recruiting LLB-Gruppe Stellen",
       "companyKey": "recruitingapp-2677",
       "companyDomain": "recruitingapp-2677.umantis.com",
       "title": "IT-Infrastructure Engineer Virtualization & Storage",
       "titleByLocale": {
-        "fr": "IT-Infrastructure Ingénieur Virtualization & Storage",
-        "en": "IT-Infrastructure Engineer Virtualization & Storage",
         "it": "IT-Infrastructure Ingegnere Virtualization & Storage",
-        "de": "IT-Infrastructure Ingenieur Virtualization & Storage"
+        "en": "IT-Infrastructure Engineer Virtualization & Storage",
+        "de": "IT-Infrastructure Ingenieur Virtualization & Storage",
+        "fr": "IT-Infrastructure Ingénieur Virtualization & Storage"
       },
       "description": "IT-Infrastructure Engineer Virtualization & Storage — E-Recruiting LLB-Gruppe Stellen",
       "descriptionByLocale": {
-        "fr": "IT-Infrastructure Engineer Virtualization & Storage — E-Recruiting LLB-Gruppe Stellen",
-        "en": "IT-Infrastructure Engineer Virtualization & Storage — E-Recruiting LLB-Gruppe Stellen"
+        "en": "IT-Infrastructure Engineer Virtualization & Storage — E-Recruiting LLB-Gruppe Stellen",
+        "fr": "IT-Infrastructure Engineer Virtualization & Storage — E-Recruiting LLB-Gruppe Stellen"
       },
       "location": "Lugano",
       "canton": "TI",
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/1936/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-23T09:36:52.922Z",
+      "crawledAt": "2026-08-25T21:43:41.427Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -45,10 +45,20 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2677.umantis.com/Vacancies/1936/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "it-infrastructure-engineer-virtualization-storage-recruitingapp-2677-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "it-infrastructure-engineer-virtualization-storage-recruitingapp-2677-ch"
+        ],
+        "de": [
+          "it-infrastructure-engineer-virtualization-storage-recruitingapp-2677-ch"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:36:52.922Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "baseSalary": {
@@ -61,27 +71,26 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:36:52.922Z"
+      "addressRegion": "TI"
     },
     {
       "id": "recruitingapp-2677-e9fa8bc85a9c",
-      "slug": "private-banker-in-salzburg-recruitingapp-2677-ch",
+      "slug": "private-banker-a-salisburgo-e-recruiting-llb-gruppe-stellen-lugano",
       "slugByLocale": {
-        "de": "private-banker-in-salzburg-recruitingapp-2677-ch",
-        "it": "private-banker-in-salzburg-recruitingapp-2677-ch",
+        "it": "private-banker-a-salisburgo-e-recruiting-llb-gruppe-stellen-lugano",
         "en": "private-banker-in-salzburg-recruitingapp-2677-ch",
-        "fr": "private-banker-in-salzburg-recruitingapp-2677-ch"
+        "de": "privatbanker-in-salzburg-e-recruiting-llb-gruppe-stellen-lugano",
+        "fr": "banque-privee-a-salzbourg-e-recruiting-llb-gruppe-stellen-lugano"
       },
       "company": "E-Recruiting LLB-Gruppe Stellen",
       "companyKey": "recruitingapp-2677",
       "companyDomain": "recruitingapp-2677.umantis.com",
       "title": "Private Banker:in Salzburg",
       "titleByLocale": {
-        "de": "Private Banker:in Salzburg",
+        "it": "Private Banker: a Salisburgo",
         "en": "Private Banker:in Salzburg",
-        "it": "Private Banker:in Salzburg",
-        "fr": "Private Banker:in Salzburg"
+        "de": "Privatbanker: in Salzburg",
+        "fr": "Banque privée: à Salzbourg"
       },
       "description": "Private Banker:in Salzburg — E-Recruiting LLB-Gruppe Stellen",
       "descriptionByLocale": {
@@ -92,7 +101,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/1901/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-23T09:36:52.317Z",
+      "crawledAt": "2026-08-25T21:43:40.821Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -106,10 +115,23 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2677.umantis.com/Vacancies/1901/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "private-banker-in-salzburg-recruitingapp-2677-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "private-banker-in-salzburg-recruitingapp-2677-ch"
+        ],
+        "de": [
+          "private-banker-in-salzburg-recruitingapp-2677-ch"
+        ],
+        "fr": [
+          "private-banker-in-salzburg-recruitingapp-2677-ch"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:36:52.317Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -122,8 +144,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:36:52.317Z"
+      "addressRegion": "TI"
     },
     {
       "id": "recruitingapp-2677-942958e34440",
@@ -131,8 +152,8 @@
       "slugByLocale": {
         "it": "tax-reclaim-specialist-recruitingapp-2677-ch",
         "en": "tax-reclaim-specialist-e-recruiting-llb-gruppe-stellen-lugano",
-        "de": "tax-reclaim-specialist-recruitingapp-2677-ch",
-        "fr": "tax-reclaim-specialist-recruitingapp-2677-ch"
+        "de": "tax-reclaim-spezialist-e-recruiting-llb-gruppe-stellen-lugano",
+        "fr": "tax-reclaim-specialiste-e-recruiting-llb-gruppe-stellen-lugano"
       },
       "company": "E-Recruiting LLB-Gruppe Stellen",
       "companyKey": "recruitingapp-2677",
@@ -153,7 +174,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/1909/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-23T09:36:52.010Z",
+      "crawledAt": "2026-08-25T21:43:40.517Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -167,10 +188,9 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2677.umantis.com/Vacancies/1909/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:36:52.010Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -184,25 +204,32 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:36:52.010Z"
+      "previousSlugsByLocale": {
+        "it": [
+          "tax-reclaim-specialista-e-recruiting-llb-gruppe-stellen-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "tax-reclaim-specialista-e-recruiting-llb-gruppe-stellen-lugano"
+      ]
     },
     {
       "id": "recruitingapp-2677-adf5d6d85512",
-      "slug": "business-analyst-salesforce-crm-recruitingapp-2677-ch",
+      "slug": "business-analista-salesforce-crm-e-recruiting-llb-gruppe-stellen-lugano",
       "slugByLocale": {
-        "de": "business-analyst-salesforce-crm-recruitingapp-2677-ch",
-        "it": "business-analyst-salesforce-crm-recruitingapp-2677-ch",
+        "it": "business-analista-salesforce-crm-e-recruiting-llb-gruppe-stellen-lugano",
         "en": "business-analyst-salesforce-crm-e-recruiting-llb-gruppe-stellen-lugano",
-        "fr": "business-analyst-salesforce-crm-recruitingapp-2677-ch"
+        "de": "business-analyst-salesforce-crm-recruitingapp-2677-ch",
+        "fr": "business-analyste-salesforce-crm-e-recruiting-llb-gruppe-stellen-lugano"
       },
       "company": "E-Recruiting LLB-Gruppe Stellen",
       "companyKey": "recruitingapp-2677",
       "companyDomain": "recruitingapp-2677.umantis.com",
       "title": "Business Analyst Salesforce CRM",
       "titleByLocale": {
-        "de": "Business Analyst Salesforce CRM",
-        "en": "Business Analyst Salesforce CRM",
         "it": "Business Analista Salesforce CRM",
+        "en": "Business Analyst Salesforce CRM",
+        "de": "Business Analyst Salesforce CRM",
         "fr": "Business Analyste Salesforce CRM"
       },
       "description": "Business Analyst Salesforce CRM — E-Recruiting LLB-Gruppe Stellen",
@@ -214,7 +241,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/1950/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-23T09:36:51.707Z",
+      "crawledAt": "2026-08-25T21:43:40.214Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -228,10 +255,20 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2677.umantis.com/Vacancies/1950/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "business-analyst-salesforce-crm-recruitingapp-2677-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyst-salesforce-crm-recruitingapp-2677-ch"
+        ],
+        "fr": [
+          "business-analyst-salesforce-crm-recruitingapp-2677-ch"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:36:51.707Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -244,26 +281,25 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:36:51.707Z"
+      "addressRegion": "TI"
     },
     {
       "id": "recruitingapp-2677-f12150ca7f54",
-      "slug": "pam-system-engineer-recruitingapp-2677-ch",
+      "slug": "pam-system-ingegnere-e-recruiting-llb-gruppe-stellen-lugano",
       "slugByLocale": {
-        "de": "pam-system-engineer-recruitingapp-2677-ch",
-        "it": "pam-system-engineer-recruitingapp-2677-ch",
+        "it": "pam-system-ingegnere-e-recruiting-llb-gruppe-stellen-lugano",
         "en": "pam-system-engineer-e-recruiting-llb-gruppe-stellen-lugano",
-        "fr": "pam-system-engineer-recruitingapp-2677-ch"
+        "de": "pam-system-engineer-recruitingapp-2677-ch",
+        "fr": "pam-system-ingenieur-e-recruiting-llb-gruppe-stellen-lugano"
       },
       "company": "E-Recruiting LLB-Gruppe Stellen",
       "companyKey": "recruitingapp-2677",
       "companyDomain": "recruitingapp-2677.umantis.com",
       "title": "PAM System Engineer",
       "titleByLocale": {
-        "de": "PAM System Ingenieur",
-        "en": "PAM System Engineer",
         "it": "PAM System Ingegnere",
+        "en": "PAM System Engineer",
+        "de": "PAM System Ingenieur",
         "fr": "PAM System Ingénieur"
       },
       "description": "PAM System Engineer — E-Recruiting LLB-Gruppe Stellen",
@@ -275,7 +311,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/1961/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:36:51.402Z",
+      "crawledAt": "2026-08-25T21:43:39.911Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -289,10 +325,20 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2677.umantis.com/Vacancies/1961/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "pam-system-engineer-recruitingapp-2677-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "pam-system-engineer-recruitingapp-2677-ch"
+        ],
+        "fr": [
+          "pam-system-engineer-recruitingapp-2677-ch"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:36:51.402Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "baseSalary": {
@@ -305,26 +351,25 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:36:51.402Z"
+      "addressRegion": "TI"
     },
     {
       "id": "recruitingapp-2677-1e09f84b8df2",
-      "slug": "business-analyst-in-client-lifecycle-recruitingapp-2677-ch",
+      "slug": "business-analista-in-client-lifecycle-e-recruiting-llb-gruppe-stellen-lugano",
       "slugByLocale": {
-        "de": "business-analyst-in-client-lifecycle-recruitingapp-2677-ch",
-        "it": "business-analyst-in-client-lifecycle-recruitingapp-2677-ch",
+        "it": "business-analista-in-client-lifecycle-e-recruiting-llb-gruppe-stellen-lugano",
         "en": "business-analyst-in-client-lifecycle-e-recruiting-llb-gruppe-stellen-lugano",
-        "fr": "business-analyst-in-client-lifecycle-recruitingapp-2677-ch"
+        "de": "business-analyst-in-client-lifecycle-recruitingapp-2677-ch",
+        "fr": "business-analyste-in-client-lifecycle-e-recruiting-llb-gruppe-stellen-lugano"
       },
       "company": "E-Recruiting LLB-Gruppe Stellen",
       "companyKey": "recruitingapp-2677",
       "companyDomain": "recruitingapp-2677.umantis.com",
       "title": "Business Analyst: in Client Lifecycle",
       "titleByLocale": {
-        "de": "Business Analyst: in Client Lifecycle",
-        "en": "Business Analyst: in Client Lifecycle",
         "it": "Business Analista: in Client Lifecycle",
+        "en": "Business Analyst: in Client Lifecycle",
+        "de": "Business Analyst: in Client Lifecycle",
         "fr": "Business Analyste: in Client Lifecycle"
       },
       "description": "Business Analyst: in Client Lifecycle — E-Recruiting LLB-Gruppe Stellen",
@@ -336,7 +381,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/1966/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-23T09:36:51.098Z",
+      "crawledAt": "2026-08-25T21:43:39.608Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -350,10 +395,20 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2677.umantis.com/Vacancies/1966/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "business-analyst-in-client-lifecycle-recruitingapp-2677-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyst-in-client-lifecycle-recruitingapp-2677-ch"
+        ],
+        "fr": [
+          "business-analyst-in-client-lifecycle-recruitingapp-2677-ch"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:36:51.098Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -366,27 +421,26 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:36:51.098Z"
+      "addressRegion": "TI"
     },
     {
       "id": "recruitingapp-2677-5b4e03d37a90",
       "slug": "senior-business-compliance-officer-recruitingapp-2677-ch",
       "slugByLocale": {
-        "fr": "senior-business-compliance-officer-recruitingapp-2677-ch",
         "it": "senior-business-compliance-officer-recruitingapp-2677-ch",
         "en": "senior-business-compliance-officer-recruitingapp-2677-ch",
-        "de": "senior-business-compliance-officer-recruitingapp-2677-ch"
+        "de": "senior-business-compliance-officer-recruitingapp-2677-ch",
+        "fr": "senior-business-compliance-officer-recruitingapp-2677-ch"
       },
       "company": "E-Recruiting LLB-Gruppe Stellen",
       "companyKey": "recruitingapp-2677",
       "companyDomain": "recruitingapp-2677.umantis.com",
       "title": "Senior Business Compliance Officer",
       "titleByLocale": {
-        "fr": "Senior Business Compliance Officer",
         "it": "Senior Business Compliance Officer",
         "en": "Senior Business Compliance Officer",
-        "de": "Senior Business Compliance Officer"
+        "de": "Senior Business Compliance Officer",
+        "fr": "Senior Business Compliance Officer"
       },
       "description": "Senior Business Compliance Officer — E-Recruiting LLB-Gruppe Stellen",
       "descriptionByLocale": {
@@ -397,7 +451,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/1967/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-23T09:36:50.794Z",
+      "crawledAt": "2026-08-25T21:43:39.305Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -411,10 +465,9 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2677.umantis.com/Vacancies/1967/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:36:50.794Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -427,27 +480,26 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:36:50.794Z"
+      "addressRegion": "TI"
     },
     {
       "id": "recruitingapp-2677-acd8d753a1a5",
       "slug": "apprendistato-informatiker-in-plattformentwicklung-con-o-ohne-berufsmatura-e-recruiting-llb-gruppe-stellen-lugano",
       "slugByLocale": {
-        "de": "lehrstelle-informatiker-in-plattformentwicklung-mit-oder-ohne-berufsmatura-recruitingapp",
         "it": "apprendistato-informatiker-in-plattformentwicklung-con-o-ohne-berufsmatura-e-recruiting-llb-gruppe-stellen-lugano",
-        "en": "lehrstelle-informatiker-in-plattformentwicklung-mit-oder-ohne-berufsmatura-e-recruiting-llb-gruppe-stellen-lugano",
-        "fr": "lehrstelle-informatiker-in-plattformentwicklung-mit-oder-ohne-berufsmatura-e-recruiting-llb-gruppe-stellen-lugano"
+        "en": "computer-scientist-apprenticeship-in-platform-development-with-or-without-a-professional-degree-e-recruiting-llb-gruppe",
+        "de": "lehrstelle-informatiker-in-plattformentwicklung-mit-oder-ohne-berufsmatura-recruitingapp",
+        "fr": "apprentissage-informatique-scientifique-en-developpement-de-plateforme-avec-ou-sans-diplome-professionnel-e-recruiting"
       },
       "company": "E-Recruiting LLB-Gruppe Stellen",
       "companyKey": "recruitingapp-2677",
       "companyDomain": "recruitingapp-2677.umantis.com",
       "title": "Lehrstelle Informatiker:in Plattformentwicklung mit oder ohne Berufsmatura",
       "titleByLocale": {
-        "de": "Lehrstelle Informatiker:in Plattformentwicklung mit oder ohne Berufsmatura",
         "it": "Apprendistato Informatiker:in Plattformentwicklung con o ohne Berufsmatura",
-        "en": "Lehrstelle Informatiker:in Plattformentwicklung mit oder ohne Berufsmatura",
-        "fr": "Lehrstelle Informatiker:in Plattformentwicklung mit oder ohne Berufsmatura"
+        "en": "Computer Scientist apprenticeship: in platform development with or without a professional degree",
+        "de": "Lehrstelle Informatiker:in Plattformentwicklung mit oder ohne Berufsmatura",
+        "fr": "Apprentissage informatique scientifique: en développement de plateforme avec ou sans diplôme professionnel"
       },
       "description": "Lehrstelle Informatiker:in Plattformentwicklung mit oder ohne Berufsmatura — E-Recruiting LLB-Gruppe Stellen",
       "descriptionByLocale": {
@@ -458,7 +510,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/1958/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:36:50.492Z",
+      "crawledAt": "2026-08-25T21:43:39.002Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -472,18 +524,24 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2677.umantis.com/Vacancies/1958/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehrstelle-informatiker-in-plattformentwicklung-mit-oder-ohne-berufsmatura-recruitingapp",
+        "lehrstelle-informatiker-in-plattformentwicklung-mit-oder-ohne-berufsmatura-e-recruiting-llb-gruppe-stellen-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-informatiker-in-plattformentwicklung-mit-oder-ohne-berufsmatura-recruitingapp"
+        ],
+        "en": [
+          "lehrstelle-informatiker-in-plattformentwicklung-mit-oder-ohne-berufsmatura-e-recruiting-llb-gruppe-stellen-lugano"
+        ],
+        "fr": [
+          "lehrstelle-informatiker-in-plattformentwicklung-mit-oder-ohne-berufsmatura-e-recruiting-llb-gruppe-stellen-lugano"
         ]
       },
-      "previousSlugs": [
-        "lehrstelle-informatiker-in-plattformentwicklung-mit-oder-ohne-berufsmatura-recruitingapp"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:36:50.492Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -496,27 +554,26 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:36:50.492Z"
+      "addressRegion": "TI"
     },
     {
       "id": "recruitingapp-2677-5e16def81b6a",
       "slug": "apprendistato-bankkauffrau-bankkaufmann-con-o-ohne-berufsmatura-e-recruiting-llb-gruppe-stellen-lugano",
       "slugByLocale": {
-        "de": "lehrstelle-bankkauffrau-bankkaufmann-mit-oder-ohne-berufsmatura-recruitingapp-2677-ch",
         "it": "apprendistato-bankkauffrau-bankkaufmann-con-o-ohne-berufsmatura-e-recruiting-llb-gruppe-stellen-lugano",
-        "en": "lehrstelle-bankkauffrau-bankkaufmann-mit-oder-ohne-berufsmatura-recruitingapp-2677-ch",
-        "fr": "lehrstelle-bankkauffrau-bankkaufmann-mit-oder-ohne-berufsmatura-recruitingapp-2677-ch"
+        "en": "apprenticeship-bank-manager-bank-manager-with-or-without-a-professional-diploma-e-recruiting-llb-gruppe-stellen-lugano",
+        "de": "lehrstelle-bankkauffrau-bankkaufmann-mit-oder-ohne-berufsmatura-recruitingapp-2677-ch",
+        "fr": "apprentissage-gestionnaire-de-banque-gestionnaire-de-banque-avec-ou-sans-diplome-professionnel-e-recruiting-llb-gruppe"
       },
       "company": "E-Recruiting LLB-Gruppe Stellen",
       "companyKey": "recruitingapp-2677",
       "companyDomain": "recruitingapp-2677.umantis.com",
       "title": "Lehrstelle Bankkauffrau / Bankkaufmann mit oder ohne Berufsmatura",
       "titleByLocale": {
-        "de": "Lehrstelle Bankkauffrau / Bankkaufmann mit oder ohne Berufsmatura",
         "it": "Apprendistato Bankkauffrau / Bankkaufmann con o ohne Berufsmatura",
-        "en": "Lehrstelle Bankkauffrau / Bankkaufmann mit oder ohne Berufsmatura",
-        "fr": "Lehrstelle Bankkauffrau / Bankkaufmann mit oder ohne Berufsmatura"
+        "en": "Apprenticeship Bank Manager / Bank Manager with or without a professional diploma",
+        "de": "Lehrstelle Bankkauffrau / Bankkaufmann mit oder ohne Berufsmatura",
+        "fr": "Apprentissage Gestionnaire de banque / Gestionnaire de banque avec ou sans diplôme professionnel"
       },
       "description": "Lehrstelle Bankkauffrau / Bankkaufmann mit oder ohne Berufsmatura — E-Recruiting LLB-Gruppe Stellen",
       "descriptionByLocale": {
@@ -527,7 +584,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/1957/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:36:50.189Z",
+      "crawledAt": "2026-08-25T21:43:38.699Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -541,18 +598,23 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2677.umantis.com/Vacancies/1957/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-bankkauffrau-bankkaufmann-mit-oder-ohne-berufsmatura-recruitingapp-2677-ch"
-        ]
-      },
+      "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-bankkauffrau-bankkaufmann-mit-oder-ohne-berufsmatura-recruitingapp-2677-ch"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-bankkauffrau-bankkaufmann-mit-oder-ohne-berufsmatura-recruitingapp-2677-ch"
+        ],
+        "en": [
+          "lehrstelle-bankkauffrau-bankkaufmann-mit-oder-ohne-berufsmatura-recruitingapp-2677-ch"
+        ],
+        "fr": [
+          "lehrstelle-bankkauffrau-bankkaufmann-mit-oder-ohne-berufsmatura-recruitingapp-2677-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:36:50.189Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -565,15 +627,14 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:36:50.189Z"
+      "addressRegion": "TI"
     },
     {
       "id": "recruitingapp-2677-ffac960e68af",
       "slug": "ui-ux-designer-digital-banking-recruitingapp-2677-ch",
       "slugByLocale": {
-        "en": "ui-ux-designer-digital-banking-recruitingapp-2677-ch",
         "it": "ui-ux-designer-digital-banking-recruitingapp-2677-ch",
+        "en": "ui-ux-designer-digital-banking-recruitingapp-2677-ch",
         "de": "ui-ux-designer-digital-banking-recruitingapp-2677-ch",
         "fr": "ui-ux-designer-digital-banking-recruitingapp-2677-ch"
       },
@@ -582,8 +643,8 @@
       "companyDomain": "recruitingapp-2677.umantis.com",
       "title": "UI / UX Designer – Digital Banking",
       "titleByLocale": {
-        "en": "UI / UX Designer – Digital Banking",
         "it": "UI / UX Designer – Digital Banking",
+        "en": "UI / UX Designer – Digital Banking",
         "de": "UI / UX Designer – Digital Banking",
         "fr": "UI / UX Designer – Digital Banking"
       },
@@ -596,7 +657,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/1973/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-23T09:36:49.886Z",
+      "crawledAt": "2026-08-25T21:43:38.396Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -610,10 +671,9 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2677.umantis.com/Vacancies/1973/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:36:49.886Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -626,26 +686,25 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:36:49.886Z"
+      "addressRegion": "TI"
     },
     {
       "id": "recruitingapp-2677-84e591682cb9",
-      "slug": "it-data-analytics-engineer-esg-recruitingapp-2677-ch",
+      "slug": "it-data-analytics-ingegnere-esg-e-recruiting-llb-gruppe-stellen-lugano",
       "slugByLocale": {
-        "de": "it-data-analytics-engineer-esg-recruitingapp-2677-ch",
-        "it": "it-data-analytics-engineer-esg-recruitingapp-2677-ch",
+        "it": "it-data-analytics-ingegnere-esg-e-recruiting-llb-gruppe-stellen-lugano",
         "en": "it-data-analytics-engineer-esg-e-recruiting-llb-gruppe-stellen-lugano",
-        "fr": "it-data-analytics-engineer-esg-recruitingapp-2677-ch"
+        "de": "it-data-analytics-engineer-esg-recruitingapp-2677-ch",
+        "fr": "it-data-analytics-ingenieur-esg-e-recruiting-llb-gruppe-stellen-lugano"
       },
       "company": "E-Recruiting LLB-Gruppe Stellen",
       "companyKey": "recruitingapp-2677",
       "companyDomain": "recruitingapp-2677.umantis.com",
       "title": "IT Data Analytics Engineer ESG",
       "titleByLocale": {
-        "de": "IT Data Analytics Ingenieur ESG",
-        "en": "IT Data Analytics Engineer ESG",
         "it": "IT Data Analytics Ingegnere ESG",
+        "en": "IT Data Analytics Engineer ESG",
+        "de": "IT Data Analytics Ingenieur ESG",
         "fr": "IT Data Analytics Ingénieur ESG"
       },
       "description": "IT Data Analytics Engineer ESG — E-Recruiting LLB-Gruppe Stellen",
@@ -657,7 +716,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/1977/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:36:49.582Z",
+      "crawledAt": "2026-08-25T21:43:38.090Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -671,10 +730,20 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2677.umantis.com/Vacancies/1977/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "it-data-analytics-engineer-esg-recruitingapp-2677-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "it-data-analytics-engineer-esg-recruitingapp-2677-ch"
+        ],
+        "fr": [
+          "it-data-analytics-engineer-esg-recruitingapp-2677-ch"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:36:49.582Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "baseSalary": {
@@ -687,27 +756,26 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:36:49.582Z"
+      "addressRegion": "TI"
     },
     {
       "id": "recruitingapp-2677-31053c69d35a",
       "slug": "private-banker-in-recruitingapp-2677-ch",
       "slugByLocale": {
-        "de": "private-banker-in-recruitingapp-2677-ch",
         "it": "private-banker-in-recruitingapp-2677-ch",
         "en": "private-banker-in-recruitingapp-2677-ch",
-        "fr": "private-banker-in-recruitingapp-2677-ch"
+        "de": "privatbanker-in-e-recruiting-llb-gruppe-stellen-lugano",
+        "fr": "banquer-prive-in-e-recruiting-llb-gruppe-stellen-lugano"
       },
       "company": "E-Recruiting LLB-Gruppe Stellen",
       "companyKey": "recruitingapp-2677",
       "companyDomain": "recruitingapp-2677.umantis.com",
       "title": "Private Banker:in",
       "titleByLocale": {
-        "de": "Private Banker:in",
-        "en": "Private Banker:in",
         "it": "Private Banker:in",
-        "fr": "Private Banker:in"
+        "en": "Private Banker:in",
+        "de": "Privatbanker:in",
+        "fr": "Banquer privé:in"
       },
       "description": "Private Banker:in — E-Recruiting LLB-Gruppe Stellen",
       "descriptionByLocale": {
@@ -718,7 +786,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/1978/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-23T09:36:49.280Z",
+      "crawledAt": "2026-08-25T21:43:37.785Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -732,10 +800,18 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2677.umantis.com/Vacancies/1978/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "private-banker-in-e-recruiting-llb-gruppe-stellen-lugano",
+        "banquer-prive-en-e-recruiting-llb-gruppe-stellen-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "fr": [
+          "private-banker-in-e-recruiting-llb-gruppe-stellen-lugano"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:36:49.280Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -748,27 +824,26 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:36:49.280Z"
+      "addressRegion": "TI"
     },
     {
       "id": "recruitingapp-2677-e9a4d98bb08e",
-      "slug": "traineeprogramm-institutional-banking-e-recruiting-llb-gruppe-stellen-lugano",
+      "slug": "formazione-professionale-e-recruiting-llb-gruppe-stellen-lugano",
       "slugByLocale": {
+        "it": "formazione-professionale-e-recruiting-llb-gruppe-stellen-lugano",
         "en": "traineeprogramm-institutional-banking-recruitingapp-2677-ch",
-        "it": "traineeprogramm-institutional-banking-e-recruiting-llb-gruppe-stellen-lugano",
-        "de": "traineeprogramm-institutional-banking-recruitingapp-2677-ch",
-        "fr": "traineeprogramm-institutional-banking-e-recruiting-llb-gruppe-stellen-lugano"
+        "de": "traineeprogramm-institutionelles-bankwesen-e-recruiting-llb-gruppe-stellen-lugano",
+        "fr": "programme-de-stagiaires-services-bancaires-institutionnels-e-recruiting-llb-gruppe-stellen-lugano"
       },
       "company": "E-Recruiting LLB-Gruppe Stellen",
       "companyKey": "recruitingapp-2677",
       "companyDomain": "recruitingapp-2677.umantis.com",
       "title": "Traineeprogramm Institutional Banking",
       "titleByLocale": {
+        "it": "Formazione professionale",
         "en": "Traineeprogramm Institutional Banking",
-        "it": "Traineeprogramm Institutional Banking",
-        "de": "Traineeprogramm Institutional Banking",
-        "fr": "Traineeprogramm Institutional Banking"
+        "de": "Traineeprogramm Institutionelles Bankwesen",
+        "fr": "Programme de stagiaires Services bancaires institutionnels"
       },
       "description": "Traineeprogramm Institutional Banking — E-Recruiting LLB-Gruppe Stellen",
       "descriptionByLocale": {
@@ -779,7 +854,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/1980/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-23T09:36:48.978Z",
+      "crawledAt": "2026-08-25T21:43:37.479Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -793,18 +868,25 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2677.umantis.com/Vacancies/1980/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "traineeprogramm-institutional-banking-recruitingapp-2677-ch",
+        "traineeprogramm-institutional-banking-e-recruiting-llb-gruppe-stellen-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
+          "traineeprogramm-institutional-banking-recruitingapp-2677-ch",
+          "traineeprogramm-institutional-banking-e-recruiting-llb-gruppe-stellen-lugano"
+        ],
+        "de": [
           "traineeprogramm-institutional-banking-recruitingapp-2677-ch"
+        ],
+        "fr": [
+          "traineeprogramm-institutional-banking-e-recruiting-llb-gruppe-stellen-lugano"
         ]
       },
-      "previousSlugs": [
-        "traineeprogramm-institutional-banking-recruitingapp-2677-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:36:48.978Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -817,26 +899,25 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:36:48.978Z"
+      "addressRegion": "TI"
     },
     {
       "id": "recruitingapp-2677-40c1dbb58d49",
-      "slug": "microsoft-system-engineer-recruitingapp-2677-ch",
+      "slug": "microsoft-system-ingegnere-e-recruiting-llb-gruppe-stellen-lugano",
       "slugByLocale": {
-        "de": "microsoft-system-engineer-recruitingapp-2677-ch",
-        "it": "microsoft-system-engineer-recruitingapp-2677-ch",
+        "it": "microsoft-system-ingegnere-e-recruiting-llb-gruppe-stellen-lugano",
         "en": "microsoft-system-engineer-e-recruiting-llb-gruppe-stellen-lugano",
-        "fr": "microsoft-system-engineer-recruitingapp-2677-ch"
+        "de": "microsoft-system-engineer-recruitingapp-2677-ch",
+        "fr": "microsoft-system-ingenieur-e-recruiting-llb-gruppe-stellen-lugano"
       },
       "company": "E-Recruiting LLB-Gruppe Stellen",
       "companyKey": "recruitingapp-2677",
       "companyDomain": "recruitingapp-2677.umantis.com",
       "title": "Microsoft System Engineer",
       "titleByLocale": {
-        "de": "Microsoft System Ingenieur",
-        "en": "Microsoft System Engineer",
         "it": "Microsoft System Ingegnere",
+        "en": "Microsoft System Engineer",
+        "de": "Microsoft System Ingenieur",
         "fr": "Microsoft System Ingénieur"
       },
       "description": "Microsoft System Engineer — E-Recruiting LLB-Gruppe Stellen",
@@ -848,7 +929,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/1981/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:36:48.667Z",
+      "crawledAt": "2026-08-25T21:43:37.171Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -862,10 +943,20 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2677.umantis.com/Vacancies/1981/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "microsoft-system-engineer-recruitingapp-2677-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "microsoft-system-engineer-recruitingapp-2677-ch"
+        ],
+        "fr": [
+          "microsoft-system-engineer-recruitingapp-2677-ch"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:36:48.667Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "baseSalary": {
@@ -878,27 +969,26 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:36:48.667Z"
+      "addressRegion": "TI"
     },
     {
       "id": "recruitingapp-2677-efe217f50e91",
       "slug": "kundenberater-in-berufliche-previdenza-e-recruiting-llb-gruppe-stellen-lugano",
       "slugByLocale": {
-        "de": "kundenberater-in-berufliche-vorsorge-recruitingapp-2677-ch",
         "it": "kundenberater-in-berufliche-previdenza-e-recruiting-llb-gruppe-stellen-lugano",
-        "en": "kundenberater-in-berufliche-vorsorge-e-recruiting-llb-gruppe-stellen-lugano",
-        "fr": "kundenberater-in-berufliche-vorsorge-e-recruiting-llb-gruppe-stellen-lugano"
+        "en": "client-advisor-in-professional-provision-e-recruiting-llb-gruppe-stellen-lugano",
+        "de": "kundenberater-in-berufliche-vorsorge-recruitingapp-2677-ch",
+        "fr": "conseiller-client-en-prestation-professionnelle-e-recruiting-llb-gruppe-stellen-lugano"
       },
       "company": "E-Recruiting LLB-Gruppe Stellen",
       "companyKey": "recruitingapp-2677",
       "companyDomain": "recruitingapp-2677.umantis.com",
       "title": "Kundenberater:in Berufliche Vorsorge",
       "titleByLocale": {
-        "de": "Kundenberater:in Berufliche Vorsorge",
         "it": "Kundenberater:in Berufliche previdenza",
-        "en": "Kundenberater:in Berufliche Vorsorge",
-        "fr": "Kundenberater:in Berufliche Vorsorge"
+        "en": "Client advisor:in professional provision",
+        "de": "Kundenberater:in Berufliche Vorsorge",
+        "fr": "Conseiller client : en prestation professionnelle"
       },
       "description": "Kundenberater:in Berufliche Vorsorge — E-Recruiting LLB-Gruppe Stellen",
       "descriptionByLocale": {
@@ -909,7 +999,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/1976/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:36:48.355Z",
+      "crawledAt": "2026-08-25T21:43:36.865Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -923,18 +1013,24 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2677.umantis.com/Vacancies/1976/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "kundenberater-in-berufliche-vorsorge-recruitingapp-2677-ch",
+        "kundenberater-in-berufliche-vorsorge-e-recruiting-llb-gruppe-stellen-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-in-berufliche-vorsorge-recruitingapp-2677-ch"
+        ],
+        "en": [
+          "kundenberater-in-berufliche-vorsorge-e-recruiting-llb-gruppe-stellen-lugano"
+        ],
+        "fr": [
+          "kundenberater-in-berufliche-vorsorge-e-recruiting-llb-gruppe-stellen-lugano"
         ]
       },
-      "previousSlugs": [
-        "kundenberater-in-berufliche-vorsorge-recruitingapp-2677-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:36:48.355Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -947,27 +1043,26 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:36:48.355Z"
+      "addressRegion": "TI"
     },
     {
       "id": "recruitingapp-2677-ee52b72e7ad3",
       "slug": "responsabile-prozessmanagement-e-recruiting-llb-gruppe-stellen-lugano",
       "slugByLocale": {
-        "de": "leiter-in-prozessmanagement-recruitingapp-2677-ch",
         "it": "responsabile-prozessmanagement-e-recruiting-llb-gruppe-stellen-lugano",
-        "en": "leiter-in-prozessmanagement-e-recruiting-llb-gruppe-stellen-lugano",
-        "fr": "leiter-in-prozessmanagement-e-recruiting-llb-gruppe-stellen-lugano"
+        "en": "head-in-process-management-e-recruiting-llb-gruppe-stellen-lugano",
+        "de": "leiter-in-prozessmanagement-recruitingapp-2677-ch",
+        "fr": "chef-gestion-des-processus-e-recruiting-llb-gruppe-stellen-lugano"
       },
       "company": "E-Recruiting LLB-Gruppe Stellen",
       "companyKey": "recruitingapp-2677",
       "companyDomain": "recruitingapp-2677.umantis.com",
       "title": "Leiter:in Prozessmanagement",
       "titleByLocale": {
-        "de": "Leiter:in Prozessmanagement",
         "it": "Responsabile Prozessmanagement",
-        "en": "Leiter:in Prozessmanagement",
-        "fr": "Leiter:in Prozessmanagement"
+        "en": "Head: in Process Management",
+        "de": "Leiter:in Prozessmanagement",
+        "fr": "Chef : Gestion des processus"
       },
       "description": "Leiter:in Prozessmanagement — E-Recruiting LLB-Gruppe Stellen",
       "descriptionByLocale": {
@@ -978,7 +1073,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/1933/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:36:48.048Z",
+      "crawledAt": "2026-08-25T21:43:36.561Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -992,18 +1087,24 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2677.umantis.com/Vacancies/1933/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "leiter-in-prozessmanagement-recruitingapp-2677-ch",
+        "leiter-in-prozessmanagement-e-recruiting-llb-gruppe-stellen-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-prozessmanagement-recruitingapp-2677-ch"
+        ],
+        "en": [
+          "leiter-in-prozessmanagement-e-recruiting-llb-gruppe-stellen-lugano"
+        ],
+        "fr": [
+          "leiter-in-prozessmanagement-e-recruiting-llb-gruppe-stellen-lugano"
         ]
       },
-      "previousSlugs": [
-        "leiter-in-prozessmanagement-recruitingapp-2677-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:36:48.048Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1016,27 +1117,26 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:36:48.048Z"
+      "addressRegion": "TI"
     },
     {
       "id": "recruitingapp-2677-4923473206ff",
-      "slug": "legal-compliance-officer-recruitingapp-2677-ch",
+      "slug": "responsabile-legale-e-compliance-e-recruiting-llb-gruppe-stellen-lugano",
       "slugByLocale": {
-        "fr": "legal-compliance-officer-recruitingapp-2677-ch",
-        "it": "legal-compliance-officer-recruitingapp-2677-ch",
+        "it": "responsabile-legale-e-compliance-e-recruiting-llb-gruppe-stellen-lugano",
         "en": "legal-compliance-officer-recruitingapp-2677-ch",
-        "de": "legal-compliance-officer-recruitingapp-2677-ch"
+        "de": "legal-compliance-officer-recruitingapp-2677-ch",
+        "fr": "legal-compliance-officer-recruitingapp-2677-ch"
       },
       "company": "E-Recruiting LLB-Gruppe Stellen",
       "companyKey": "recruitingapp-2677",
       "companyDomain": "recruitingapp-2677.umantis.com",
       "title": "Legal & Compliance Officer",
       "titleByLocale": {
-        "fr": "Legal & Compliance Officer",
-        "en": "Legal & Compliance Officer",
         "it": "Legal & Compliance Officer",
-        "de": "Legal & Compliance Officer"
+        "en": "Legal & Compliance Officer",
+        "de": "Legal & Compliance Officer",
+        "fr": "Legal & Compliance Officer"
       },
       "description": "Legal & Compliance Officer — E-Recruiting LLB-Gruppe Stellen",
       "descriptionByLocale": {
@@ -1047,7 +1147,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/1908/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-23T09:36:47.734Z",
+      "crawledAt": "2026-08-25T21:43:36.257Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1061,10 +1161,21 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2677.umantis.com/Vacancies/1908/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "legal-compliance-officer-recruitingapp-2677-ch",
+        "agent-juridique-et-de-conformite-e-recruiting-llb-gruppe-stellen-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "legal-compliance-officer-recruitingapp-2677-ch"
+        ],
+        "fr": [
+          "agent-juridique-et-de-conformite-e-recruiting-llb-gruppe-stellen-lugano"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:36:47.734Z",
       "salaryMin": 56000,
       "salaryMax": 96000,
       "baseSalary": {
@@ -1077,27 +1188,26 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:36:47.734Z"
+      "addressRegion": "TI"
     },
     {
       "id": "recruitingapp-2677-86b5efa6551e",
-      "slug": "associate-institutional-banking-recruitingapp-2677-ch",
+      "slug": "bancario-istituzionale-associato-e-recruiting-llb-gruppe-stellen-lugano",
       "slugByLocale": {
+        "it": "bancario-istituzionale-associato-e-recruiting-llb-gruppe-stellen-lugano",
         "en": "associate-institutional-banking-recruitingapp-2677-ch",
-        "it": "associate-institutional-banking-recruitingapp-2677-ch",
-        "de": "associate-institutional-banking-recruitingapp-2677-ch",
-        "fr": "associate-institutional-banking-recruitingapp-2677-ch"
+        "de": "assoziiertes-institutionelles-bankwesen-e-recruiting-llb-gruppe-stellen-lugano",
+        "fr": "banques-institutionnelles-associees-e-recruiting-llb-gruppe-stellen-lugano"
       },
       "company": "E-Recruiting LLB-Gruppe Stellen",
       "companyKey": "recruitingapp-2677",
       "companyDomain": "recruitingapp-2677.umantis.com",
       "title": "Associate Institutional Banking",
       "titleByLocale": {
+        "it": "Bancario istituzionale associato",
         "en": "Associate Institutional Banking",
-        "it": "Associate Institutional Banking",
-        "de": "Associate Institutional Banking",
-        "fr": "Associate Institutional Banking"
+        "de": "Assoziiertes institutionelles Bankwesen",
+        "fr": "Banques institutionnelles associées"
       },
       "description": "Associate Institutional Banking — E-Recruiting LLB-Gruppe Stellen",
       "descriptionByLocale": {
@@ -1108,7 +1218,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/1983/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-23T09:36:47.423Z",
+      "crawledAt": "2026-08-25T21:43:35.952Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1122,10 +1232,23 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2677.umantis.com/Vacancies/1983/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "associate-institutional-banking-recruitingapp-2677-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-institutional-banking-recruitingapp-2677-ch"
+        ],
+        "de": [
+          "associate-institutional-banking-recruitingapp-2677-ch"
+        ],
+        "fr": [
+          "associate-institutional-banking-recruitingapp-2677-ch"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:36:47.423Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1138,8 +1261,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:36:47.423Z"
+      "addressRegion": "TI"
     },
     {
       "id": "recruitingapp-2677-845d0f554af4",
@@ -1148,7 +1270,7 @@
         "it": "oracle-database-administrator-dba-recruitingapp-2677-ch",
         "en": "oracle-database-administrator-dba-recruitingapp-2677-ch",
         "de": "oracle-database-administrator-dba-recruitingapp-2677-ch",
-        "fr": "oracle-database-administrator-dba-recruitingapp-2677-ch"
+        "fr": "administrateur-de-base-de-donnees-oracle-dba-e-recruiting-llb-gruppe-stellen-lugano"
       },
       "company": "E-Recruiting LLB-Gruppe Stellen",
       "companyKey": "recruitingapp-2677",
@@ -1158,7 +1280,7 @@
         "it": "Oracle Database Administrator (DBA)",
         "en": "Oracle Database Administrator (DBA)",
         "de": "Oracle Database Administrator (DBA)",
-        "fr": "Oracle Database Administrator (DBA)"
+        "fr": "Administrateur de base de données Oracle (DBA)"
       },
       "description": "Oracle Database Administrator (DBA) — E-Recruiting LLB-Gruppe Stellen",
       "descriptionByLocale": {
@@ -1169,7 +1291,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/1927/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-23T09:36:47.121Z",
+      "crawledAt": "2026-08-25T21:43:35.649Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1183,10 +1305,9 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2677.umantis.com/Vacancies/1927/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:36:47.121Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1199,27 +1320,26 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:36:47.121Z"
+      "addressRegion": "TI"
     },
     {
       "id": "recruitingapp-2677-f7af3041bd5d",
-      "slug": "kundenberater-in-service-direkt-e-recruiting-llb-gruppe-stellen-lugano",
+      "slug": "consulente-clienti-in-servizio-direttamente-e-recruiting-llb-gruppe-stellen-lugano",
       "slugByLocale": {
+        "it": "consulente-clienti-in-servizio-direttamente-e-recruiting-llb-gruppe-stellen-lugano",
+        "en": "customer-advisor-in-service-directly-e-recruiting-llb-gruppe-stellen-lugano",
         "de": "kundenberater-in-service-direkt-recruitingapp-2677-ch",
-        "it": "kundenberater-in-service-direkt-e-recruiting-llb-gruppe-stellen-lugano",
-        "en": "kundenberater-in-service-direkt-e-recruiting-llb-gruppe-stellen-lugano",
-        "fr": "kundenberater-in-service-direkt-e-recruiting-llb-gruppe-stellen-lugano"
+        "fr": "conseiller-client-en-service-direct-e-recruiting-llb-gruppe-stellen-lugano"
       },
       "company": "E-Recruiting LLB-Gruppe Stellen",
       "companyKey": "recruitingapp-2677",
       "companyDomain": "recruitingapp-2677.umantis.com",
       "title": "Kundenberater:in Service Direkt",
       "titleByLocale": {
+        "it": "Consulente clienti: in Servizio direttamente",
+        "en": "Customer Advisor: in Service Directly",
         "de": "Kundenberater:in Service Direkt",
-        "it": "Kundenberater:in Service Direkt",
-        "en": "Kundenberater:in Service Direkt",
-        "fr": "Kundenberater:in Service Direkt"
+        "fr": "Conseiller client : en service direct"
       },
       "description": "Kundenberater:in Service Direkt — E-Recruiting LLB-Gruppe Stellen",
       "descriptionByLocale": {
@@ -1230,7 +1350,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/1986/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:36:46.796Z",
+      "crawledAt": "2026-08-25T21:43:35.342Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1244,18 +1364,25 @@
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2677.umantis.com/Vacancies/1986/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "kundenberater-in-service-direkt-recruitingapp-2677-ch",
+        "kundenberater-in-service-direkt-e-recruiting-llb-gruppe-stellen-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-service-direkt-recruitingapp-2677-ch"
+          "kundenberater-in-service-direkt-recruitingapp-2677-ch",
+          "kundenberater-in-service-direkt-e-recruiting-llb-gruppe-stellen-lugano"
+        ],
+        "en": [
+          "kundenberater-in-service-direkt-e-recruiting-llb-gruppe-stellen-lugano"
+        ],
+        "fr": [
+          "kundenberater-in-service-direkt-e-recruiting-llb-gruppe-stellen-lugano"
         ]
       },
-      "previousSlugs": [
-        "kundenberater-in-service-direkt-recruitingapp-2677-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:36:46.796Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1268,8 +1395,74 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:36:46.796Z"
+      "addressRegion": "TI"
+    },
+    {
+      "id": "recruitingapp-2677-c0469171f799",
+      "slug": "junior-kundenberater-in-private-banking-e-recruiting-llb-gruppe-stellen-lugano",
+      "slugByLocale": {
+        "it": "junior-kundenberater-in-private-banking-e-recruiting-llb-gruppe-stellen-lugano",
+        "en": "junior-kundenberater-in-private-banking-e-recruiting-llb-gruppe-stellen-lugano",
+        "de": "junior-kundenberater-in-private-banking-recruitingapp-2677-ch",
+        "fr": "conseiller-client-junior-en-banque-privee-e-recruiting-llb-gruppe-stellen-lugano"
+      },
+      "company": "E-Recruiting LLB-Gruppe Stellen",
+      "companyKey": "recruitingapp-2677",
+      "companyDomain": "recruitingapp-2677.umantis.com",
+      "title": "Junior Kundenberater:in Private Banking",
+      "titleByLocale": {
+        "it": "Junior Client Advisor: in Private Banking",
+        "en": "Junior Client Advisor: in Private Banking",
+        "de": "Junior Kundenberater:in Private Banking",
+        "fr": "Conseiller client junior: en banque privée"
+      },
+      "description": "Junior Kundenberater:in Private Banking — E-Recruiting LLB-Gruppe Stellen",
+      "descriptionByLocale": {
+        "de": "Junior Kundenberater:in Private Banking — E-Recruiting LLB-Gruppe Stellen"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://recruitingapp-2677.umantis.com/Vacancies/1987/Description/1",
+      "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-25T21:43:34.984Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "junior",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://recruitingapp-2677.umantis.com/Vacancies/1987/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "junior-kundenberater-in-private-banking-recruitingapp-2677-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-kundenberater-in-private-banking-recruitingapp-2677-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T21:44:36.481Z",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
     }
   ]
 }

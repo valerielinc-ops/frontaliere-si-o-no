@@ -1,6 +1,6 @@
 name: corpus-wide gates
 
-# I sette gate che iterano sull'INTERO corpus, tolti dal cammino bloccante
+# Gli otto gate che iterano sull'INTERO corpus, tolti dal cammino bloccante
 # delle PR e messi qui. Non è una rimozione: è un trasloco, e questo file è
 # l'indirizzo nuovo.
 #
@@ -18,6 +18,10 @@ name: corpus-wide gates
 #     15.5s   1 test   tests/blog-body-typescript-syntax.test.ts
 #     ─────
 #     201.4s  21 test — il 20,1% del tempo-file per l'1,2% dei test
+#
+# Il test evergreen-pool-consumption è stato aggiunto al registro perché ha
+# superato il timeout quando eseguito sotto contesa CPU; il suo costo viene
+# tenuto separato dal totale storico finché non viene rimisurato in isolamento.
 #
 # Non sono lenti per test: `tests/seo-completeness.test.ts` fa 65.750 test in
 # 21s. Sono lenti perché ciascuno itera su tutto — ~14.748 file di corpus, o un
@@ -125,8 +129,8 @@ jobs:
   corpus-gates:
     name: corpus-wide gates (post-merge)
     runs-on: ubuntu-latest
-    # I sette gate misurano 201s di tempo-file, ma girano in parallelo sui 4
-    # vCPU del runner; il grosso del wall è checkout + npm ci + l'assemble.
+    # Gli otto gate girano in parallelo sui 4 vCPU del runner; il grosso del
+    # wall è checkout + npm ci + l'assemble.
     # 30 min è largo apposta: qui un timeout non blocca nessuna PR, mentre un
     # rosso da timeout su un corpus cresciuto sarebbe un falso allarme che
     # costa una issue.
@@ -174,13 +178,30 @@ jobs:
         run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
       - name: vitest run (solo i gate corpus-wide)
-        # `only` esclude il complemento del registro: girano esattamente i sette
+        # `only` esclude il complemento del registro: girano esattamente gli otto
         # file, con le stesse soglie e gli stessi assert che avevano dentro
         # tests.yml. Nessuna env di tolleranza, nessuno `--bail`, nessun
         # `continue-on-error`: se questo step è rosso, il job è rosso.
+        #
+        # `tee` verso un file, non solo verso stdout: lo step "Report failure"
+        # sotto gira `if: failure()` DENTRO questo stesso job, e per la Jobs
+        # API il job è ancora "in corso" finché anche quello step non finisce
+        # — l'API non ha nessun log da offrirgli (limite documentato in
+        # .github/actions/report-failure/action.yml: "il log di un job in
+        # corso non esiste ancora per l'API"). L'UNICO modo di avere un
+        # estratto in questa posizione è un `diag-file` scritto da uno step
+        # precedente. Misurato senza: la issue #6315 ha accumulato tre
+        # commenti 🔁 il 2026-08-23 con "nessun estratto disponibile" in
+        # ognuno — mai il tasso misurato, mai quale dei sette gate era rosso.
+        # `set -o pipefail` esplicito perché l'exit code che deve propagarsi
+        # è quello di `npm test`, non quello di `tee` (di norma è già il
+        # default della shell bash di Actions, ma una `run:` su più righe
+        # come questa merita di non dipendere da un default silenzioso).
         env:
           VITEST_CORPUS_GROUP: only
-        run: npm test -- --reporter=default
+        run: |
+          set -o pipefail
+          npm test -- --reporter=default 2>&1 | tee corpus-wide-vitest.log
 
       # ─── LA METÀ CHE RENDE LO SPOSTAMENTO ONESTO ────────────────────────
       #
@@ -205,10 +226,11 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           priority: '2'
           labels: Bug
+          diag-file: corpus-wide-vitest.log
           context: |
             Uno o più gate corpus-wide sono rossi su `main`.
 
-            Questi sette gate NON girano nel job bloccante `vitest (unit + integration)`
+            Questi otto gate NON girano nel job bloccante `vitest (unit + integration)`
             delle PR che non toccano il corpus — girano qui. Un rosso qui è quindi
             un difetto **già su main**, non un difetto di una PR in attesa.
 

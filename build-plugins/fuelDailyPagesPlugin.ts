@@ -567,10 +567,55 @@ function computePeriodAverage(prices: ReadonlyArray<number | null>): number | nu
 
 // ── Localised copy ─────────────────────────────────────────────
 
+/**
+ * Swiss-convention display date (`24.08.2026`) for user-facing copy.
+ *
+ * Deliberately NOT the same value as `dateStamp`: that one is the ISO
+ * `YYYY-MM-DD` string and must stay ISO because it is also emitted as the
+ * schema.org `dateModified` property. This one only ever reaches prose —
+ * `<title>`, the meta description and the on-page intro — where an ISO date
+ * reads like machine output to an Italian/Swiss reader and wastes the
+ * freshness signal the SERP snippet is supposed to carry.
+ */
+function formatFuelDateDisplay(d: Date): string {
+  const dd = String(d.getUTCDate()).padStart(2, '0');
+  const mm = String(d.getUTCMonth() + 1).padStart(2, '0');
+  return `${dd}.${mm}.${d.getUTCFullYear()}`;
+}
+
+/**
+ * Italian genitive for the fuel noun: "della benzina" vs "del diesel".
+ *
+ * `benzina` is feminine, `diesel` masculine. The previous copy hard-coded
+ * `del ${fuel}` for both, so every Italian benzina page shipped "il prezzo
+ * medio del benzina" — a visible grammar error in the meta description of
+ * the highest-impression fuel page on the site.
+ */
+function itFuelGenitive(fuelLabel: string): string {
+  const lower = fuelLabel.toLowerCase();
+  return lower === 'benzina' ? `della ${lower}` : `del ${lower}`;
+}
+
+/**
+ * Locative phrase used by prose copy ("in Ticino", "a Chiasso").
+ *
+ * The regional page used to interpolate the *UI* label into a sentence that
+ * already supplied the preposition, yielding "a Tutto il Ticino". Prose needs
+ * the whole prepositional phrase, not a bare noun, so it is built here once
+ * per locale instead of being glued together inside each template.
+ */
+function fuelWhere(locale: FuelDailyLocale, zoneLabel: string, isZone: boolean): string {
+  if (!isZone) {
+    return locale === 'de' ? 'im Tessin' : locale === 'fr' ? 'au Tessin' : 'in Ticino';
+  }
+  return locale === 'fr' ? `à ${zoneLabel}` : locale === 'it' ? `a ${zoneLabel}` : `in ${zoneLabel}`;
+}
+
 interface FuelCopy {
   regionalH1: (fuelLabel: string) => string;
   zoneH1: (fuelLabel: string, zone: string) => string;
-  intro: (fuelLabel: string, zone: string, priceFmt: string, date: string) => string;
+  /** `where` is a complete locative phrase from `fuelWhere()`, not a bare zone label. */
+  intro: (fuelLabel: string, where: string, priceFmt: string, date: string) => string;
   paragraph: (fuelLabel: string, zone: string, price: string, dYest: string, d7: string) => string;
   historySection: string;
   updatedLabel: string;
@@ -606,10 +651,10 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
   it: {
     regionalH1: (f) => `Prezzo ${f} Svizzera oggi — Ticino`,
     zoneH1: (f, z) => `Prezzo ${f} oggi a ${z}`,
-    intro: (f, z, priceFmt, date) =>
-      `Aggiornamento del ${date}: il prezzo medio del ${f.toLowerCase()} a ${z} è ${priceFmt} CHF/litro. Dati rilevati dalle stazioni Swiss (TCS Benzinpreis) attive entro 20 km dal confine italiano.`,
+    intro: (f, where, priceFmt, date) =>
+      `Prezzo medio ${itFuelGenitive(f)} ${where} il ${date}: ${priceFmt} CHF/litro. Le 3 stazioni più economiche entro 20 km dal confine, aggiornate ogni mattina da TCS.`,
     paragraph: (f, z, price, dYest, d7) =>
-      `Oggi a ${z} il ${f.toLowerCase()} costa in media ${price} CHF/litro, ${dYest} rispetto a ieri e ${d7} rispetto a 7 giorni fa. La pagina viene rigenerata automaticamente ogni giorno alle prime ore del mattino con i dati più freschi disponibili dalle stazioni di rifornimento della zona. Confronta le tre stazioni più economiche e verifica l'andamento della settimana per pianificare il rifornimento prima del pieno della tua settimana di frontaliere.`,
+      `Oggi ${z} il ${f.toLowerCase()} costa in media ${price} CHF/litro, ${dYest} rispetto a ieri e ${d7} rispetto a 7 giorni fa. La pagina viene rigenerata automaticamente ogni giorno alle prime ore del mattino con i dati più freschi disponibili dalle stazioni di rifornimento della zona. Confronta le tre stazioni più economiche e verifica l'andamento della settimana per pianificare il rifornimento prima del pieno della tua settimana di frontaliere.`,
     historySection:
       "Il grafico qui sotto mostra l'andamento del prezzo nel tempo — utile per capire se conviene rifornirsi oggi o aspettare. Usa i pulsanti per cambiare l'intervallo (1 mese, 3 mesi, 6 mesi, 1 anno, 5 anni). Lo storico si popola giorno per giorno: gli intervalli più lunghi diventano disponibili man mano che raccogliamo nuovi dati.",
     updatedLabel: 'Aggiornamento',
@@ -629,12 +674,12 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     periodAvgUnavailableNote: 'Media dei 7 giorni non ancora disponibile: lo storico si popola giorno per giorno.',
     periodAvgLabel: 'Media 7 giorni',
     chartAriaLabel: (f, z, avgFmt) =>
-      `Andamento storico del prezzo ${f.toLowerCase()} a ${z}: media ${avgFmt} CHF/litro nell'intervallo selezionato.`,
+      `Andamento storico del prezzo ${f.toLowerCase()} ${z}: media ${avgFmt} CHF/litro nell'intervallo selezionato.`,
     faq: [
       {
         q: 'Ogni quanto viene aggiornato il prezzo?',
         a: (f, z) =>
-          `Il prezzo del ${f.toLowerCase()} a ${z} viene aggiornato ogni giorno. I dati provengono da TCS Benzinpreis, che raccoglie in tempo reale i listini delle stazioni in Svizzera.`,
+          `Il prezzo ${itFuelGenitive(f)} ${z} viene aggiornato ogni giorno. I dati provengono da TCS Benzinpreis, che raccoglie in tempo reale i listini delle stazioni in Svizzera.`,
       },
       {
         q: 'Conviene rifornirsi in Italia o in Svizzera?',
@@ -651,10 +696,10 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
   en: {
     regionalH1: (f) => `${f} price Switzerland today — Ticino`,
     zoneH1: (f, z) => `${f} price today in ${z}`,
-    intro: (f, z, priceFmt, date) =>
-      `Updated ${date}: the average ${f.toLowerCase()} price in ${z} is ${priceFmt} CHF per litre. Data from Swiss stations (TCS Benzinpreis) within 20 km of the Italian border.`,
+    intro: (f, where, priceFmt, date) =>
+      `Average ${f.toLowerCase()} price ${where} on ${date}: ${priceFmt} CHF per litre. The 3 cheapest stations near the border, updated every morning from TCS.`,
     paragraph: (f, z, price, dYest, d7) =>
-      `Today in ${z} the ${f.toLowerCase()} costs ${price} CHF per litre on average, ${dYest} compared to yesterday and ${d7} compared to 7 days ago. This page is regenerated automatically every morning with the freshest data from stations in the area. Compare the three cheapest stations and check the weekly trend before you fill up during your cross-border commute.`,
+      `Today ${z} the ${f.toLowerCase()} costs ${price} CHF per litre on average, ${dYest} compared to yesterday and ${d7} compared to 7 days ago. This page is regenerated automatically every morning with the freshest data from stations in the area. Compare the three cheapest stations and check the weekly trend before you fill up during your cross-border commute.`,
     historySection:
       'The chart below shows the price trend over time — handy to decide whether to fill up today or wait. Use the buttons to switch the range (1 month, 3 months, 6 months, 1 year, 5 years). History is built day by day: longer ranges fill in as we collect more snapshots.',
     updatedLabel: 'Updated',
@@ -674,12 +719,12 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     periodAvgUnavailableNote: 'Seven-day average not available yet: the history fills in day by day.',
     periodAvgLabel: '7-day average',
     chartAriaLabel: (f, z, avgFmt) =>
-      `Historical ${f.toLowerCase()} price trend in ${z}: average ${avgFmt} CHF/litre over the selected range.`,
+      `Historical ${f.toLowerCase()} price trend ${z}: average ${avgFmt} CHF/litre over the selected range.`,
     faq: [
       {
         q: 'How often is the price updated?',
         a: (f, z) =>
-          `The ${f.toLowerCase()} price in ${z} is updated daily. Data is sourced from TCS Benzinpreis, which aggregates real-time station listings across Switzerland.`,
+          `The ${f.toLowerCase()} price ${z} is updated daily. Data is sourced from TCS Benzinpreis, which aggregates real-time station listings across Switzerland.`,
       },
       {
         q: 'Is it cheaper to refuel in Italy or in Switzerland?',
@@ -696,10 +741,10 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
   de: {
     regionalH1: (f) => `${f}preis Schweiz heute — Tessin`,
     zoneH1: (f, z) => `${f}preis heute in ${z}`,
-    intro: (f, z, priceFmt, date) =>
-      `Aktualisiert am ${date}: der durchschnittliche ${f}preis in ${z} beträgt ${priceFmt} CHF pro Liter. Daten von Schweizer Tankstellen (TCS Benzinpreis) innerhalb von 20 km Grenzdistanz.`,
+    intro: (f, where, priceFmt, date) =>
+      `Durchschnittlicher ${f}preis ${where} am ${date}: ${priceFmt} CHF pro Liter. Die 3 günstigsten Tankstellen nahe der Grenze, täglich von TCS aktualisiert.`,
     paragraph: (f, z, price, dYest, d7) =>
-      `Heute kostet ${f} in ${z} durchschnittlich ${price} CHF pro Liter, ${dYest} gegenüber gestern und ${d7} gegenüber vor 7 Tagen. Diese Seite wird jeden Morgen automatisch mit den frischesten Preisdaten der Tankstellen in der Region neu erzeugt. Vergleichen Sie die drei günstigsten Tankstellen und prüfen Sie den Wochentrend, bevor Sie im Rahmen Ihres Grenzgänger-Alltags tanken.`,
+      `Heute kostet ${f} ${z} durchschnittlich ${price} CHF pro Liter, ${dYest} gegenüber gestern und ${d7} gegenüber vor 7 Tagen. Diese Seite wird jeden Morgen automatisch mit den frischesten Preisdaten der Tankstellen in der Region neu erzeugt. Vergleichen Sie die drei günstigsten Tankstellen und prüfen Sie den Wochentrend, bevor Sie im Rahmen Ihres Grenzgänger-Alltags tanken.`,
     historySection:
       'Das folgende Diagramm zeigt den Preisverlauf über die Zeit — hilfreich, um zu entscheiden, ob Sie heute tanken oder warten. Mit den Buttons wechseln Sie den Zeitraum (1 Monat, 3 Monate, 6 Monate, 1 Jahr, 5 Jahre). Die Historie baut sich Tag für Tag auf: längere Zeiträume werden verfügbar, sobald wir mehr Daten erfassen.',
     updatedLabel: 'Aktualisiert',
@@ -719,12 +764,12 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     periodAvgUnavailableNote: '7-Tage-Durchschnitt noch nicht verfügbar: die Historie baut sich Tag für Tag auf.',
     periodAvgLabel: '7-Tage-Durchschnitt',
     chartAriaLabel: (f, z, avgFmt) =>
-      `Historischer Preisverlauf für ${f} in ${z}: Durchschnitt ${avgFmt} CHF/Liter im ausgewählten Zeitraum.`,
+      `Historischer Preisverlauf für ${f} ${z}: Durchschnitt ${avgFmt} CHF/Liter im ausgewählten Zeitraum.`,
     faq: [
       {
         q: 'Wie oft wird der Preis aktualisiert?',
         a: (f, z) =>
-          `Der ${f}preis in ${z} wird täglich aktualisiert. Die Daten stammen von TCS Benzinpreis, das die Preise der Schweizer Tankstellen in Echtzeit aggregiert.`,
+          `Der ${f}preis ${z} wird täglich aktualisiert. Die Daten stammen von TCS Benzinpreis, das die Preise der Schweizer Tankstellen in Echtzeit aggregiert.`,
       },
       {
         q: 'Ist Tanken in Italien oder in der Schweiz günstiger?',
@@ -741,10 +786,10 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
   fr: {
     regionalH1: (f) => `Prix ${frFuelOf(f)} en Suisse aujourd'hui — Tessin`,
     zoneH1: (f, z) => `Prix ${frFuelOf(f)} aujourd'hui à ${z}`,
-    intro: (f, z, priceFmt, date) =>
-      `Mis à jour le ${date} : le prix moyen ${frFuelOf(f)} à ${z} est de ${priceFmt} CHF par litre. Données provenant des stations suisses (TCS Benzinpreis) à moins de 20 km de la frontière italienne.`,
+    intro: (f, where, priceFmt, date) =>
+      `Prix moyen ${frFuelOf(f)} ${where} le ${date} : ${priceFmt} CHF par litre. Les 3 stations les moins chères près de la frontière, actualisées chaque matin par TCS.`,
     paragraph: (f, z, price, dYest, d7) =>
-      `Aujourd'hui à ${z} ${frFuelThe(f)} coûte ${price} CHF par litre en moyenne, ${dYest} par rapport à hier et ${d7} par rapport à il y a 7 jours. Cette page est régénérée chaque matin avec les données les plus récentes des stations de la région. Comparez les trois stations les moins chères et consultez la tendance hebdomadaire avant de faire le plein lors de votre trajet frontalier.`,
+      `Aujourd'hui ${z} ${frFuelThe(f)} coûte ${price} CHF par litre en moyenne, ${dYest} par rapport à hier et ${d7} par rapport à il y a 7 jours. Cette page est régénérée chaque matin avec les données les plus récentes des stations de la région. Comparez les trois stations les moins chères et consultez la tendance hebdomadaire avant de faire le plein lors de votre trajet frontalier.`,
     historySection:
       "Le graphique ci-dessous montre l'évolution du prix dans le temps — utile pour décider si faire le plein aujourd'hui ou attendre. Utilisez les boutons pour changer la période (1 mois, 3 mois, 6 mois, 1 an, 5 ans). L'historique se construit jour après jour : les périodes plus longues deviennent disponibles au fil du temps.",
     updatedLabel: 'Mis à jour',
@@ -764,12 +809,12 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     periodAvgUnavailableNote: "Moyenne 7 jours pas encore disponible : l'historique se remplit jour après jour.",
     periodAvgLabel: 'Moyenne 7 jours',
     chartAriaLabel: (f, z, avgFmt) =>
-      `Tendance historique du prix ${frFuelOf(f)} à ${z} : moyenne ${avgFmt} CHF/litre sur la période sélectionnée.`,
+      `Tendance historique du prix ${frFuelOf(f)} ${z} : moyenne ${avgFmt} CHF/litre sur la période sélectionnée.`,
     faq: [
       {
         q: 'À quelle fréquence le prix est-il mis à jour ?',
         a: (f, z) =>
-          `Le prix ${frFuelOf(f)} à ${z} est mis à jour chaque jour. Les données proviennent de TCS Benzinpreis, qui agrège en temps réel les tarifs des stations en Suisse.`,
+          `Le prix ${frFuelOf(f)} ${z} est mis à jour chaque jour. Les données proviennent de TCS Benzinpreis, qui agrège en temps réel les tarifs des stations en Suisse.`,
       },
       {
         q: 'Est-il plus avantageux de faire le plein en Italie ou en Suisse ?',
@@ -1649,6 +1694,9 @@ function renderPage(inp: PageInputs): string {
   const fuelLabel = FUEL_TYPE_LABEL[locale][fuel];
   const zoneLabel = zone ? FUEL_ZONE_DISPLAY[zone] : copy.regionalLabel;
   const dateStamp = today.toISOString().slice(0, 10);
+  // Human-facing twin of `dateStamp`. `dateStamp` itself must stay ISO: it is
+  // also the schema.org `dateModified` value further down.
+  const dateDisplay = formatFuelDateDisplay(today);
 
   // Compute today's price for this zone/region
   const stations = zone ? collectZoneStations(dataset, zone) : collectAllStations(dataset);
@@ -1666,18 +1714,19 @@ function renderPage(inp: PageInputs): string {
   const delta7Fmt = formatDeltaDisplay(delta7, locale);
 
   const h1 = zone ? copy.zoneH1(fuelLabel, zoneLabel) : copy.regionalH1(fuelLabel);
-  const intro = copy.intro(fuelLabel, zoneLabel, priceFmt, dateStamp);
-  const paragraph = copy.paragraph(fuelLabel, zoneLabel, priceFmt, deltaYestFmt, delta7Fmt);
+  const whereLabel = fuelWhere(locale, zoneLabel, Boolean(zone));
+  const intro = copy.intro(fuelLabel, whereLabel, priceFmt, dateDisplay);
+  const paragraph = copy.paragraph(fuelLabel, whereLabel, priceFmt, deltaYestFmt, delta7Fmt);
   // Above-the-fold tagline (≤120 chars) — replaces the long intro in
   // the page header so mobile-first hierarchy stays clean (H1 →
   // tagline → tile → editorial review → top stations). The full intro
   // moves to the paragraph block below the action area, preserving
   // text-to-HTML ratio.
   const fuelTaglineByLocale: Record<FuelDailyLocale, string> = {
-    it: `${fuelLabel} oggi a ${zoneLabel}: ${priceFmt} CHF/litro · ${deltaYestFmt} vs ieri, ${delta7Fmt} vs 7 giorni.`,
-    en: `${fuelLabel} today in ${zoneLabel}: ${priceFmt} CHF/litre · ${deltaYestFmt} vs yesterday, ${delta7Fmt} vs 7 days.`,
-    de: `${fuelLabel} heute in ${zoneLabel}: ${priceFmt} CHF/Liter · ${deltaYestFmt} vs gestern, ${delta7Fmt} vs 7 Tagen.`,
-    fr: `${fuelLabel} aujourd'hui à ${zoneLabel} : ${priceFmt} CHF/litre · ${deltaYestFmt} vs hier, ${delta7Fmt} vs 7 jours.`,
+    it: `${fuelLabel} oggi ${whereLabel}: ${priceFmt} CHF/litro · ${deltaYestFmt} vs ieri, ${delta7Fmt} vs 7 giorni.`,
+    en: `${fuelLabel} today ${whereLabel}: ${priceFmt} CHF/litre · ${deltaYestFmt} vs yesterday, ${delta7Fmt} vs 7 days.`,
+    de: `${fuelLabel} heute ${whereLabel}: ${priceFmt} CHF/Liter · ${deltaYestFmt} vs gestern, ${delta7Fmt} vs 7 Tagen.`,
+    fr: `${fuelLabel} aujourd'hui ${whereLabel} : ${priceFmt} CHF/litre · ${deltaYestFmt} vs hier, ${delta7Fmt} vs 7 jours.`,
   };
   const introTagline = fuelTaglineByLocale[locale];
   const historyCopy = copy.historySection;
@@ -1753,7 +1802,7 @@ function renderPage(inp: PageInputs): string {
   const historyCard = renderFuelHistoryCard({
     locale,
     trendLabel: copy.trendLabel,
-    buildAriaLabel: (avgFmt) => copy.chartAriaLabel(fuelLabel, zoneLabel, avgFmt),
+    buildAriaLabel: (avgFmt) => copy.chartAriaLabel(fuelLabel, whereLabel, avgFmt),
     seriesByRange: swissSeriesByRange,
     currency: 'CHF',
   });
@@ -1804,7 +1853,7 @@ function renderPage(inp: PageInputs): string {
       .map(
         (f) => `<details class="s-card" style="margin-bottom:8px">
         <summary class="s-HBR0NM">${esc(f.q)}</summary>
-        <p class="s-OCic8j">${esc(f.a(fuelLabel, zoneLabel))}</p>
+        <p class="s-OCic8j">${esc(f.a(fuelLabel, whereLabel))}</p>
       </details>`,
       )
       .join('')}
@@ -1831,7 +1880,7 @@ function renderPage(inp: PageInputs): string {
     mainEntity: faqItems.map((f) => ({
       '@type': 'Question',
       name: f.q,
-      acceptedAnswer: { '@type': 'Answer', text: f.a(fuelLabel, zoneLabel) },
+      acceptedAnswer: { '@type': 'Answer', text: f.a(fuelLabel, whereLabel) },
     })),
   });
 
@@ -1857,9 +1906,22 @@ function renderPage(inp: PageInputs): string {
 
   // Phase 3A — date suffix is informative for users; brand suffix only
   // appended when it still fits the 60-char SERP budget (Semrush W2).
-  const titleWithDate = `${h1} (${dateStamp})`;
-  const title = clampSiteSuffix(titleWithDate, 'Frontaliere Ticino');
-  const description = intro.slice(0, 180);
+  // The query behind this page ("prezzo benzina oggi") asks for a number, so
+  // the number goes in the title: it is the one thing that distinguishes this
+  // result from every other fuel-price page at the same position, and it is
+  // re-emitted daily. The date suffix is load-bearing for a second reason —
+  // `renderPage` never calls `differentiateH1FromTitle`, so it is the suffix
+  // that keeps title !== h1 and `audit:h1-title-duplicates` (baseline 0) green.
+  // Falls back to the bare dated title when the price form would overflow the
+  // 66-char budget, so this can never add an `audit:title-length` offender.
+  const titleWithDate = `${h1} (${dateDisplay})`;
+  const titleWithPrice = `${h1} · ${priceFmt} CHF/l (${dateDisplay})`;
+  const titleBase = titleWithPrice.length <= 66 ? titleWithPrice : titleWithDate;
+  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
+  // `clampMetaDescription` (160) in htmlTemplate always won over this 180-char
+  // slice, so the slice only ever cut mid-word before the real clamp ran. The
+  // intro is now authored to land under 160 on its own.
+  const description = intro;
 
   // Main body markup (kept plain + inline-styled so we don't depend on the
   // SPA bundle and the static page ranks on its own).
@@ -1872,7 +1934,7 @@ function renderPage(inp: PageInputs): string {
     <span>${esc(zoneLabel)}</span>
   </nav>
   <header class="s-Nv0GaD">
-    <p class="s-eyb">${esc(copy.updatedLabel)} · ${dateStamp}</p>
+    <p class="s-eyb">${esc(copy.updatedLabel)} · ${esc(dateDisplay)}</p>
     <h1 class="s-h1">${esc(h1)}</h1>
     <p class="s-lede">${esc(introTagline)}</p>
   </header>
@@ -2036,6 +2098,7 @@ function renderArchive(inp: ArchiveInputs): string {
   const copy = COPY[locale];
   const fuelLabel = FUEL_TYPE_LABEL[locale][fuel];
   const zoneLabel = FUEL_ZONE_DISPLAY[zone];
+  const whereLabel = fuelWhere(locale, zoneLabel, true);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
 
   const rows = snapshots
@@ -2089,7 +2152,7 @@ function renderArchive(inp: ArchiveInputs): string {
     .filter((r): r is { date: string; price: number } => typeof r.price === 'number')
     .map((r) => ({ date: r.date, value: Number(r.price.toFixed(3)) }));
   const chartStats = computeFuelStats(chartSeries);
-  const chartAriaLabel = copy.chartAriaLabel(fuelLabel, zoneLabel, formatPrice(chartStats?.avg ?? null, locale));
+  const chartAriaLabel = copy.chartAriaLabel(fuelLabel, whereLabel, formatPrice(chartStats?.avg ?? null, locale));
   const chartSvg = renderFuelAreaChartSvg({
     series: chartSeries,
     rangeKey: '1M',
@@ -2119,7 +2182,10 @@ function renderArchive(inp: ArchiveInputs): string {
   // two strings collide. Differentiate the H1 so audit:h1-title-duplicates
   // accepts the page (baseline 0).
   h1 = differentiateH1FromTitle(h1, title, locale);
-  const description = intro.slice(0, 180);
+  // Pre-cut removed: clampMetaDescription (160) runs downstream and is
+  // word-aware. Slicing first only handed it a string already broken
+  // mid-word, which is what reached the SERP snippet.
+  const description = intro;
 
   const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
@@ -2333,7 +2399,7 @@ const STATION_COPY: Record<FuelDailyLocale, StationCopy> = {
   it: {
     h1: (b, st, c, f) => `Prezzo ${f.toLowerCase()} ${b} ${st} a ${c}`,
     intro: (b, c, p, f) => `La stazione ${b} di ${c} offre oggi ${f.toLowerCase()} a ${p} CHF/litro. I prezzi sono aggiornati ogni giorno dalle rilevazioni TCS Benzinpreis sulle stazioni entro 20 km dal confine italiano — utili per pianificare il rifornimento prima o dopo il passaggio frontaliero.`,
-    paragraph: (b, c, p, zAvg, f) => `Alla stazione ${b} di ${c} il prezzo del ${f.toLowerCase()} è ${p} CHF/litro rispetto alla media di zona di ${zAvg} CHF/litro. Questo dato ti aiuta a capire se conviene fare rifornimento qui oppure in una stazione vicina. Incrocia il valore con lo storico settimanale del prezzo in zona per decidere se aspettare o pieno subito. Usa la mappa dei valichi doganali per verificare la fila prima di spostarti e la guida frontaliere per capire costi e tempi complessivi del tragitto casa-lavoro.`,
+    paragraph: (b, c, p, zAvg, f) => `Alla stazione ${b} di ${c} il prezzo ${itFuelGenitive(f)} è ${p} CHF/litro rispetto alla media di zona di ${zAvg} CHF/litro. Questo dato ti aiuta a capire se conviene fare rifornimento qui oppure in una stazione vicina. Incrocia il valore con lo storico settimanale del prezzo in zona per decidere se aspettare o pieno subito. Usa la mappa dei valichi doganali per verificare la fila prima di spostarti e la guida frontaliere per capire costi e tempi complessivi del tragitto casa-lavoro.`,
     ranking: (r, t, c) => `Posizione nella classifica di ${c}: ${r} (${t} stazioni rilevate).`,
     infoHeading: 'Informazioni stazione',
     infoBrand: 'Brand',
@@ -3159,7 +3225,10 @@ function renderStationPage(opts: {
   // Guarantee H1 ≠ <title> after brand-strip — see Italian-station branch
   // for the full rationale (audit:h1-title-duplicates ratchet baseline 0).
   h1 = differentiateH1FromTitle(h1, title, locale);
-  const description = intro.slice(0, 180);
+  // Pre-cut removed: clampMetaDescription (160) runs downstream and is
+  // word-aware. Slicing first only handed it a string already broken
+  // mid-word, which is what reached the SERP snippet.
+  const description = intro;
 
   const zonePath = `${BASE_URL}${buildFuelTodayPath(locale, fuel, ctx.zone)}`;
   const hasGeo =
@@ -3424,8 +3493,8 @@ interface ItalianCityCopy {
 const IT_CITY_COPY: Record<FuelDailyLocale, ItalianCityCopy> = {
   it: {
     h1: (f, c) => `Prezzo ${f.toLowerCase()} a ${c} — stazioni più economiche`,
-    intro: (f, c, p) => `A ${c} il prezzo più basso del ${f.toLowerCase()} rilevato oggi è ${p} EUR/litro. Dati MIMIT aggiornati dalle stazioni italiane del comune. Utile se sei frontaliere e valuti se fare il pieno in Italia o in Svizzera prima del confine.`,
-    paragraph: (f, c, p, nz) => `Il prezzo minimo del ${f.toLowerCase()} a ${c} è ${p} EUR/litro. La tabella qui sotto elenca le stazioni attive ordinate per prezzo crescente. Confronta con il prezzo medio ${f.toLowerCase()} in zona ${nz}, la Ticino più vicina, per capire da che lato del confine conviene rifornirsi oggi. Ricorda che la differenza di 0,10-0,20 EUR/litro compensa spesso il piccolo disagio di una deviazione al valico. Per stime complessive di costo del tragitto giornaliero consulta la guida frontalieri.`,
+    intro: (f, c, p) => `A ${c} il prezzo più basso ${itFuelGenitive(f)} rilevato oggi è ${p} EUR/litro. Dati MIMIT aggiornati dalle stazioni italiane del comune. Utile se sei frontaliere e valuti se fare il pieno in Italia o in Svizzera prima del confine.`,
+    paragraph: (f, c, p, nz) => `Il prezzo minimo ${itFuelGenitive(f)} a ${c} è ${p} EUR/litro. La tabella qui sotto elenca le stazioni attive ordinate per prezzo crescente. Confronta con il prezzo medio ${f.toLowerCase()} in zona ${nz}, la Ticino più vicina, per capire da che lato del confine conviene rifornirsi oggi. Ricorda che la differenza di 0,10-0,20 EUR/litro compensa spesso il piccolo disagio di una deviazione al valico. Per stime complessive di costo del tragitto giornaliero consulta la guida frontalieri.`,
     tableTitle: (c) => `Stazioni a ${c} — prezzi di oggi`,
     tableStation: 'Stazione',
     tableAddress: 'Indirizzo',
@@ -3436,7 +3505,7 @@ const IT_CITY_COPY: Record<FuelDailyLocale, ItalianCityCopy> = {
     noData: 'Nessuna stazione disponibile per oggi — dati in aggiornamento.',
     contextHeading: 'Come leggere i prezzi carburante per un frontaliere',
     contextParagraphs: (f, c, nz) => [
-      `Il prezzo del ${f.toLowerCase()} in Italia dipende da tre componenti: prezzo industriale (legato al Brent e al cambio EUR/USD), accisa fissa (circa 0,617 EUR/litro dopo l'allineamento 2024) e IVA al 22 %. In Svizzera la tassazione è strutturalmente diversa: accisa più bassa ma tassa CO₂ e sovrattassa sui carburanti importati portano il prezzo finale a oscillare in un intervallo diverso da quello italiano. Per un frontaliere che percorre 80-120 km al giorno, fare il pieno dal lato giusto del confine può valere 15-35 EUR al mese.`,
+      `Il prezzo ${itFuelGenitive(f)} in Italia dipende da tre componenti: prezzo industriale (legato al Brent e al cambio EUR/USD), accisa fissa (circa 0,617 EUR/litro dopo l'allineamento 2024) e IVA al 22 %. In Svizzera la tassazione è strutturalmente diversa: accisa più bassa ma tassa CO₂ e sovrattassa sui carburanti importati portano il prezzo finale a oscillare in un intervallo diverso da quello italiano. Per un frontaliere che percorre 80-120 km al giorno, fare il pieno dal lato giusto del confine può valere 15-35 EUR al mese.`,
       `A ${c} il confronto corretto è con la zona Ticino di ${nz}, il punto di ingresso svizzero più vicino. Se il prezzo italiano qui è inferiore di almeno 0,10-0,15 EUR/litro alla media di zona svizzera, conviene rifornirsi prima del valico; se invece il Ticino è più basso, è più efficiente fare il pieno al ritorno. Considera anche la capacità del serbatoio: con 50 litri un gap di 0,20 EUR/litro vale 10 EUR a pieno, con 70 litri arriva a 14 EUR.`,
       `Il costo reale del pendolarismo non si esaurisce nel carburante. Un frontaliere sostiene anche bollo auto, assicurazione, manutenzione, pneumatici e il costo opportunità del tempo. La guida frontalieri e il <a class="s-IjpSYt" href="/calcola-stipendio/">simulatore busta paga</a> integrano questi costi con lo stipendio netto per calcolare il guadagno reale del lavoro in Svizzera.`,
     ],
@@ -3864,7 +3933,10 @@ function renderItalianCityPage(opts: {
   const title = clampSiteSuffix(titleWithDate60, 'Frontaliere Ticino');
   // Differentiate H1 ↔ <title> after brand drop. See station-detail branch.
   h1 = differentiateH1FromTitle(h1, title, locale);
-  const description = intro.slice(0, 180);
+  // Pre-cut removed: clampMetaDescription (160) runs downstream and is
+  // word-aware. Slicing first only handed it a string already broken
+  // mid-word, which is what reached the SERP snippet.
+  const description = intro;
 
   const bodyHtml = `<article class="s-xzWvwM">
   <nav aria-label="Breadcrumb" class="s-bcr">
@@ -4454,7 +4526,7 @@ const IT_STATION_COPY: Record<FuelDailyLocale, ItalianStationCopy> = {
     intro: (b, c, p, f) =>
       `La stazione ${b} a ${c} oggi vende ${f.toLowerCase()} a ${p} EUR/litro. I prezzi vengono aggiornati ogni mattina dalle rilevazioni MIMIT delle stazioni italiane attive — utili per pianificare il rifornimento prima del valico.`,
     paragraph: (b, c, p, cAvg, f) =>
-      `Alla stazione ${b} di ${c} il prezzo del ${f.toLowerCase()} è ${p} EUR/litro contro una media città di ${cAvg} EUR/litro. Confronta questo dato con la media svizzera della zona Ticino più vicina per decidere da che lato del confine conviene fare il pieno oggi. La differenza tipica fra Italia e Ticino è di 0,10-0,30 EUR/litro a favore dell'Italia, ma controlla sempre la coda al valico: 30 minuti di attesa possono annullare il vantaggio.`,
+      `Alla stazione ${b} di ${c} il prezzo ${itFuelGenitive(f)} è ${p} EUR/litro contro una media città di ${cAvg} EUR/litro. Confronta questo dato con la media svizzera della zona Ticino più vicina per decidere da che lato del confine conviene fare il pieno oggi. La differenza tipica fra Italia e Ticino è di 0,10-0,30 EUR/litro a favore dell'Italia, ma controlla sempre la coda al valico: 30 minuti di attesa possono annullare il vantaggio.`,
     ranking: (r, t, c) => `Posizione nella classifica di ${c}: ${r} (${t} stazioni rilevate).`,
     infoHeading: 'Informazioni stazione',
     infoBrand: 'Marchio',
@@ -4899,7 +4971,10 @@ function renderItalianStationPage(opts: {
   // helper appends a locale-aware narrative tag so the
   // `audit:h1-title-duplicates` ratchet (baseline 0) accepts the page.
   h1 = differentiateH1FromTitle(h1, title, locale);
-  const description = intro.slice(0, 180);
+  // Pre-cut removed: clampMetaDescription (160) runs downstream and is
+  // word-aware. Slicing first only handed it a string already broken
+  // mid-word, which is what reached the SERP snippet.
+  const description = intro;
 
   const nearestZoneLabel = FUEL_ZONE_DISPLAY[ctx.cityEntry.nearestZone];
   const cityHubPath = buildFuelItalianCityPath(locale, fuel, ctx.cityEntry.slug);

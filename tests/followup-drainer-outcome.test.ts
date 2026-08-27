@@ -50,7 +50,7 @@ describe('latestFixOutcomeFromComments', () => {
 
 describe('NON_RETRYABLE (quali esiti → park immediato)', () => {
   it('include gli esiti deterministici-fermi', () => {
-    for (const code of ['no-root-cause', 'blocked-workflows-scope', 'blocked-secrets',
+    for (const code of ['no-root-cause', 'blocked-workflows-scope',
       'blocked-admin-settings', 'revenue-tracker-manual', 'already-fixed']) {
       expect(NON_RETRYABLE.has(code)).toBe(true);
     }

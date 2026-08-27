@@ -212,3 +212,119 @@ export function quotaDeferralShare(err) {
     required: QUOTA_DEFERRAL_MIN_TRANSIENT_SHARE,
   };
 }
+
+/**
+ * ── IL PAVIMENTO DELL'IMPALCATURA, E PERCHE' STA QUI (issue #452) ───────────
+ *
+ * Il peso minimo del prompt di `create-article.mjs` a fonte E fatti AZZERATI:
+ * template, schema JSON, istruzioni di sezione, blocco keyword, FAQ, LSI. E'
+ * impalcatura, non contenuto, e nessun gradino della scala di riduzione la
+ * tocca — il commento che la nomina in `callGemini` lo dice cosi': «il rimedio
+ * onesto per i due gradini bassi non e' uno `shrink` piu' aggressivo — non
+ * esiste».
+ *
+ * Il numero viveva come `const` locale dentro `callGemini`, cioe' dentro un
+ * file che nessun test puo' importare (761 KB, e la prima cosa che fa e' una
+ * chiamata di rete). Ora vive qui per la stessa ragione per cui ci vive il
+ * resto del modulo: `node --test` lo esegue davvero, e le due meta' che lo
+ * leggono — il marker `unsat=` di `callGemini` e l'uscita anticipata del ciclo
+ * di retry — non possono divergere su un letterale riscritto a mano.
+ */
+export const PROMPT_SCAFFOLD_FLOOR_TOKENS = 5850;
+
+/**
+ * Vero quando un budget di prompt DETTATO DALLA FLOTTA e' irraggiungibile.
+ *
+ * `callLLM` allega `retryRequestTokenBudget` all'errore esattamente quando la
+ * cascata si e' svuotata e ≥1 modello ha rifiutato sulla TAGLIA, e il numero e'
+ * il cap PIU' PERMISSIVO fra quelli che hanno detto no. Se anche quel cap sta
+ * sotto il pavimento dell'impalcatura, non esiste una riduzione che ci rientri:
+ * il bersaglio e' sotto il peso del prompt vuoto.
+ *
+ * La forma e' quella dei predicati sopra — un numero, non un'euristica — perche'
+ * il chiamante la usa PRIMA di spendere un tentativo, non dopo.
+ *
+ * @param {unknown} budget il target in token che la flotta ha dettato
+ * @returns {boolean} true → ogni tentativo successivo e' insoddisfacibile
+ */
+export function isBudgetBelowScaffoldFloor(budget) {
+  const n = Number(budget);
+  // `> 0` e non `>= 0`: «nessun budget dettato» (0 / undefined / NaN) non e' un
+  // budget impossibile, e' l'assenza di un vincolo. Confonderli farebbe uscire
+  // presto ogni run che non ha mai sentito parlare di cap.
+  return Number.isFinite(n) && n > 0 && n < PROMPT_SCAFFOLD_FLOOR_TOKENS;
+}
+
+/**
+ * ── L'ASSORBENTE, E PERCHE' NON E' UNA DELLE SEI RAGIONI LEGITTIME ──────────
+ *
+ * MISURATO (issue #452, finestra 2026-08-13 → 18, 926 run di
+ * `generate-article.yml`): una run `failure` dura 2510s mediani contro i 254s
+ * di una `success`. La differenza e' quasi tutta macinamento DOPO che l'esito
+ * era gia' deciso.
+ *
+ * La forma esatta dello stallo, e sono due pezzi giusti che insieme fanno un
+ * assorbente perfetto:
+ *
+ *   1. il ciclo di retry applica il budget dettato con un `Math.min`
+ *      deliberatamente MONOTONO — allentarlo vanificherebbe la riduzione gia'
+ *      decisa — quindi il budget non si riallarga mai;
+ *   2. sotto PROMPT_SCAFFOLD_FLOOR_TOKENS nessuna riduzione rientra.
+ *
+ * Quindi basta UN tentativo che detti un budget sotto il pavimento perche'
+ * TUTTI i tentativi restanti di quella sezione siano insoddisfacibili per
+ * costruzione. La sezione ne macinava fino a sei, ognuno con la cascata
+ * sull'intero roster, fino a `hard-killed after ~1180s` (exit 124). Il marker
+ * `[prompt-budget] … unsat=1` lo dichiarava a ogni giro e nessuno lo leggeva:
+ * l'unica azione era un `console.warn`.
+ *
+ * PERCHE' L'USCITA NON E' `EXIT_NO_ARTICLE_DECLARED` (4). Le sei ragioni
+ * legittime hanno tutte la stessa proprieta': il giro successivo puo' andare
+ * diversamente da solo (un altro headline, un'altra finestra di quota). Questa
+ * no. E' la stessa classe di `isInputCapDeferralVeto`: un roster i cui cap non
+ * arrivano al peso dell'impalcatura non si cura a mezzanotte, e dichiararla
+ * «legittima» rimetterebbe in piedi il verde silenzioso di #313 — con in piu'
+ * il `declared=true` che fa CHAINARE il successore contro lo stesso muro.
+ * Esce quindi `EXIT_ROSTER_CANNOT_SERVE_PROMPT` (3), che e' letteralmente cio'
+ * che e' successo, e che il workflow gia' sa leggere (`roster_blocked=true`).
+ *
+ * PERCHE' UN PREDICATO NUOVO E NON `isInputCapDeferralVeto`. Quello parla di un
+ * ALTRO fatto — la maggioranza fra transitorio e persistente su una cascata con
+ * ≥1 rifiuto su taglia — e su un errore con quota dominante risponde `false`
+ * proprio dove questo deve rispondere `true`. Condividono l'esito, non la
+ * ragione, e sovrapporli renderebbe illeggibile quale dei due ha deciso.
+ *
+ * @param {unknown} err l'errore risalito fino al catch di primo livello
+ * @returns {boolean} true → uscire con EXIT_ROSTER_CANNOT_SERVE_PROMPT
+ */
+export function isPromptFloorIrreducible(err) {
+  if (!err || typeof err !== 'object') return false;
+  if (err.code !== 'ALL_MODELS_EXHAUSTED') return false;
+  const rep = err.promptFloorReport;
+  if (!rep || typeof rep !== 'object') return false;
+  return isBudgetBelowScaffoldFloor(rep.budget);
+}
+
+/**
+ * La riga machine-readable dell'uscita anticipata. Separata dal predicato per la
+ * stessa ragione di `inputCapVetoSummary` e `quotaDeferralShare`: il numero
+ * azionabile — di quanto il bersaglio manca il pavimento, e quanti tentativi
+ * NON sono stati spesi — non deve dipendere da chi legge la prosa.
+ */
+export function promptFloorSummary(err) {
+  const rep = (err && err.promptFloorReport) || {};
+  const budget = Number(rep.budget) || 0;
+  const attempt = Number(rep.attempt) || 0;
+  const maxAttempts = Number(rep.maxAttempts) || 0;
+  return {
+    budget,
+    floor: PROMPT_SCAFFOLD_FLOOR_TOKENS,
+    short: PROMPT_SCAFFOLD_FLOOR_TOKENS - budget,
+    attempt,
+    maxAttempts,
+    // I tentativi che il ciclo avrebbe macinato e che non spende piu'. E' la
+    // metrica dell'issue: non «quante run falliscono», ma «quanto costano».
+    attemptsSkipped: Math.max(0, maxAttempts - attempt),
+    section: typeof rep.section === 'string' ? rep.section : '',
+  };
+}

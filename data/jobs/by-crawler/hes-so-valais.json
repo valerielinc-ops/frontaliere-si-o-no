@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hes-so-valais",
-  "assembledAt": "2026-08-23T09:34:55.813Z",
+  "assembledAt": "2026-08-27T00:41:51.062Z",
   "jobs": [
     {
       "url": "https://www.hevs.ch/fr/recruitee/employe-ou-employee-de-nettoyage-80-215034",
@@ -52,12 +52,14 @@
       "previousSlugs": [
         "employe-ou-employee-de-nettoyage-80-hes-so-valais",
         "pulizia-dei-dipendenti-o-dei-dipendenti-80-hes-so-valais-wallis-sion",
+        "dipendenti-o-dipendenti-pulizia-80-hes-so-valais-wallis-sion",
         "employe-ou-employee-de-nettoyage-80-hes-so-valais-wallis-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
           "employe-ou-employee-de-nettoyage-80-hes-so-valais",
           "pulizia-dei-dipendenti-o-dei-dipendenti-80-hes-so-valais-wallis-sion",
+          "dipendenti-o-dipendenti-pulizia-80-hes-so-valais-wallis-sion",
           "employe-ou-employee-de-nettoyage-80-hes-so-valais-wallis-sion"
         ],
         "en": [
@@ -67,9 +69,9 @@
           "employe-ou-employee-de-nettoyage-80-hes-so-valais"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-22T09:45:37.111Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",

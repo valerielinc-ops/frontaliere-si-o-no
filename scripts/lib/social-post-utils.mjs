@@ -14,10 +14,10 @@
  * place-id lookup, API run loops) stays in the per-channel scripts.
  */
 
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { createCantonResolvers } from '../../build-plugins/shared/cantonResolvers.mjs';
+import { createCantonResolvers, AGGREGATE_KEY } from '../../build-plugins/shared/cantonResolvers.mjs';
 import { peelDanglingClauseTail } from '../../build-plugins/shared/clauseTail.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -29,6 +29,15 @@ const { resolveCantonSection, resolveJobCanton } = createCantonResolvers({ canto
 // ── Constants ───────────────────────────────────────────────
 
 export const SITE_URL = 'https://frontaliereticino.ch';
+
+// Meta Graph API base — ONE literal for the four call sites that talk to it
+// (the two Facebook schedulers, the Instagram publish layer, the readiness
+// prober). It was copy-pasted in each of them, which meant a version bump had
+// to be remembered four times and a missed one would fail only for that single
+// channel, at its own cron hour. Check
+// developers.facebook.com/docs/graph-api/changelog before bumping.
+export const GRAPH_API_VERSION = 'v21.0';
+export const GRAPH_API = `https://graph.facebook.com/${GRAPH_API_VERSION}`;
 
 // ── Canton naming ───────────────────────────────────────────
 // Canton ISO 2-letter code → Italian display name. Used both as prose (FB
@@ -239,6 +248,133 @@ export function selectUnpostedJobs(jobs, postedSet, limit) {
   return list.slice(0, Math.max(0, limit | 0));
 }
 
+// ── GA4-ranked job dataset (LinkedIn member / Instagram / TikTok posters) ──
+// Shared by every "top clicked job of the day" poster — project rule: a
+// helper duplicated literally in ≥2 files MUST live in ONE shared module.
+// Originally lived only in post-to-linkedin-member.mjs; extracted here when
+// the Instagram/TikTok carousel posters needed the identical logic.
+
+/**
+ * Italian job-board section slugs: the 24 canton sections, the legacy Ticino
+ * one, and the AGGREGATE section.
+ *
+ * `_AGGREGATE_` resolves to `cerca-lavoro-svizzera` and is easy to forget
+ * because it is not in the `cantons` table — omitting it silently dropped
+ * every job living under the Swiss-wide board from the ranking.
+ *
+ * @returns {Set<string>}
+ */
+export function loadJobSections() {
+  try {
+    const out = new Set();
+    const codes = [...Object.keys(cantonSlugFile.cantons || {}), 'TI', AGGREGATE_KEY];
+    for (const code of codes) {
+      const section = resolveCantonSection('it', code);
+      if (section) out.add(section);
+    }
+    return out;
+  } catch (err) {
+    console.warn(`⚠️  could not build the job-section set: ${err.message}`);
+    return new Set();
+  }
+}
+
+/**
+ * slug → job record, across every locale slug variant.
+ *
+ * WHY this is mandatory and not a nicety: under a canton section the URL
+ * shape of a job detail page and of a generated SEO landing page are
+ * identical (e.g. `/cerca-lavoro-ticino/infermieri/` is a "37 offerte"
+ * profession page, not an offer). Membership in the real dataset is the only
+ * non-rotting way to tell them apart, so when the dataset is unavailable this
+ * returns an empty Map and the caller must skip the job slot rather than
+ * guessing.
+ *
+ * @returns {Map<string, object>}
+ */
+export function loadJobIndex() {
+  /** @type {Map<string, object>} */
+  const index = new Map();
+  const add = (slug, job) => {
+    const s = String(slug || '').trim();
+    if (s) index.set(s, job);
+  };
+  const ingest = (jobs) => {
+    for (const job of jobs || []) {
+      add(job?.slug, job);
+      for (const v of Object.values(job?.slugByLocale || {})) add(v, job);
+    }
+  };
+  try {
+    const assembled = path.join(ROOT, 'data', 'jobs.json');
+    if (existsSync(assembled)) {
+      const parsed = JSON.parse(readFileSync(assembled, 'utf-8'));
+      ingest(Array.isArray(parsed) ? parsed : parsed.jobs);
+      return index;
+    }
+    const dir = path.join(ROOT, 'data', 'jobs', 'by-crawler');
+    if (existsSync(dir)) {
+      for (const file of readdirSync(dir)) {
+        if (!file.endsWith('.json')) continue;
+        try {
+          ingest(JSON.parse(readFileSync(path.join(dir, file), 'utf-8')).jobs);
+        } catch {
+          /* one unreadable crawler file must not void the whole index */
+        }
+      }
+    }
+  } catch (err) {
+    console.warn(`⚠️  could not build the job index: ${err.message}`);
+  }
+  return index;
+}
+
+/** '2026-08-23' → '23/08/2026' (post copy is Italian). Shared by every
+ * GA4-ranked poster (LinkedIn member, Instagram, TikTok). */
+export function formatDayIt(day) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(day || ''));
+  return m ? `${m[3]}/${m[2]}/${m[1]}` : String(day || '');
+}
+
+// ── Carousel caption (Instagram / TikTok) ───────────────────
+// Both channels share the same constraint neither Facebook/LinkedIn/Telegram
+// have: the caption itself is never a clickable link, so every carousel
+// caption ends with the same "link in bio" note instead of a URL.
+
+const CAROUSEL_HASHTAGS = {
+  job: '#frontalieri #ticino #lavoro #svizzera #offertedilavoro',
+  article: '#frontalieri #ticino #svizzera #italia #lavoro',
+  border: '#frontalieri #ticino #dogane #traffico #confine',
+};
+
+/**
+ * Build the numbered-list caption for a job/article/border carousel post.
+ *
+ * @param {{ kind: 'job'|'article'|'border', dayLabel: string, picks: Array<{title:string, statValue: string|number}> }} params
+ */
+export function buildCarouselCaption({ kind, dayLabel, picks }) {
+  const isJob = kind === 'job';
+  const isBorder = kind === 'border';
+  const emoji = isBorder ? '🛂' : isJob ? '💼' : '📰';
+  const lead = isBorder
+    ? `Le 5 dogane più veloci questa settimana (${dayLabel})`
+    : isJob
+      ? `I 5 lavori più cliccati di ${dayLabel} su frontaliereticino.ch`
+      : `I 5 articoli più letti di ${dayLabel} su frontaliereticino.ch`;
+  const hashtags = CAROUSEL_HASHTAGS[kind] || CAROUSEL_HASHTAGS.article;
+  const lines = picks.map((p, i) => `${i + 1}. ${p.title} — ${p.statValue}`);
+
+  return [
+    `${emoji} ${lead}`,
+    '',
+    ...lines,
+    '',
+    '👉 Il link di ogni voce è nella bio.',
+    '',
+    hashtags,
+  ].join('\n');
+}
+
 // ── URL building ────────────────────────────────────────────
 
 /**
@@ -253,6 +389,50 @@ export function buildJobUrl(job) {
   if (!slug) return null;
   const section = resolveCantonSection('it', resolveJobCanton(job || {}));
   return `${SITE_URL}/${section}/${slug}/`;
+}
+
+/**
+ * Append UTM campaign parameters to an absolute site URL.
+ *
+ * WHY this exists: a link posted to a social channel with no UTM lands in GA4
+ * as Direct or as an untagged Referral, so the channel reads as ZERO sessions
+ * even while it is actually sending clicks. Measured 2026-08-24: the Telegram
+ * channel had posted a jobs digest every day yet GA4 (property 524485296)
+ * reported 0 sessions from `t.me` over 30 days — the links carried no UTM.
+ *
+ * Convention (matches scripts/send-job-alerts.mjs, scripts/newsletter-template.mjs
+ * and build-plugins/jobsSeoPagesPlugin.ts): `utm_medium` is the CHANNEL CLASS
+ * (email / social / referral) and `utm_source` is the specific IDENTIFIER
+ * (job_alert / newsletter / telegram).
+ *
+ * Never throws: a URL the `URL` parser rejects is returned unchanged, so a
+ * malformed input can only cost the attribution, never the link itself.
+ * Existing query params on the input are preserved; only the `utm_*` keys
+ * passed here are set. Empty/absent fields are skipped rather than written as
+ * empty strings (an empty `utm_content=` is noise in GA4 reports).
+ *
+ * @param {string} url — absolute URL.
+ * @param {{ source: string, medium: string, campaign: string, content?: string }} params
+ * @returns {string} the tagged URL, or `url` verbatim when it cannot be parsed.
+ */
+export function withUtm(url, { source, medium, campaign, content } = {}) {
+  if (!url) return url;
+  try {
+    const u = new URL(url);
+    const pairs = [
+      ['utm_source', source],
+      ['utm_medium', medium],
+      ['utm_campaign', campaign],
+      ['utm_content', content],
+    ];
+    for (const [key, value] of pairs) {
+      const v = String(value ?? '').trim();
+      if (v) u.searchParams.set(key, v);
+    }
+    return u.toString();
+  } catch {
+    return url;
+  }
 }
 
 // ── Posted-jobs ledger I/O ──────────────────────────────────

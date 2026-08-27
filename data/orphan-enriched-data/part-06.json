@@ -1624,10 +1624,10 @@
         "fr": "afc-pharmacy-assistant-coop-vitality-galenica-seewen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-soletta/afc-pharmacy-assistant-coop-vitality-galenica-seewen",
-        "en": "/en/find-jobs-solothurn/afc-pharmacy-assistant-coop-vitality-galenica-seewen",
+        "it": "/cerca-lavoro-svitto/afc-pharmacy-assistant-coop-vitality-galenica-seewen",
+        "en": "/en/find-jobs-schwyz/afc-pharmacy-assistant-coop-vitality-galenica-seewen",
         "de": "/de/jobs-im-solothurn/afc-pharmacy-assistant-coop-vitality-galenica-seewen",
-        "fr": "/fr/trouver-emploi-soleure/afc-pharmacy-assistant-coop-vitality-galenica-seewen"
+        "fr": "/fr/trouver-emploi-schwytz/afc-pharmacy-assistant-coop-vitality-galenica-seewen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -4222,10 +4222,10 @@
         "fr": "apprentissage-a-titre-d-adjoint-assistante-en-sante-et-en-affaires-sociales-tertianum-wald"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-san-gallo/apprentissage-a-titre-d-adjoint-assistante-en-sante-et-en-affaires-sociales-tertianum-wald",
-        "en": "/en/find-jobs-st-gallen/apprentissage-a-titre-d-adjoint-assistante-en-sante-et-en-affaires-sociales-tertianum-wald",
+        "it": "/cerca-lavoro-soletta/apprentissage-a-titre-d-adjoint-assistante-en-sante-et-en-affaires-sociales-tertianum-wald",
+        "en": "/en/find-jobs-solothurn/apprentissage-a-titre-d-adjoint-assistante-en-sante-et-en-affaires-sociales-tertianum-wald",
         "de": "/de/jobs-im-st-gallen/apprentissage-a-titre-d-adjoint-assistante-en-sante-et-en-affaires-sociales-tertianum-wald",
-        "fr": "/fr/trouver-emploi-saint-gall/apprentissage-a-titre-d-adjoint-assistante-en-sante-et-en-affaires-sociales-tertianum-wald"
+        "fr": "/fr/trouver-emploi-soleure/apprentissage-a-titre-d-adjoint-assistante-en-sante-et-en-affaires-sociales-tertianum-wald"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -9184,6 +9184,11 @@
           "impressions": 1
         },
         {
+          "query": "ofertas activas",
+          "clicks": 1,
+          "impressions": 1
+        },
+        {
           "query": "stipendiato",
           "clicks": 1,
           "impressions": 1
@@ -9222,15 +9227,10 @@
           "query": "offerte di lavoro autista",
           "clicks": 0,
           "impressions": 1
-        },
-        {
-          "query": "stipendio autista",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 57,
-      "totalClicks": 4,
+      "totalImpressions": 59,
+      "totalClicks": 5,
       "topQuery": "offerte di lavoro ticino",
       "title": "Autisti",
       "titleByLocale": {
@@ -15004,6 +15004,89 @@
         "en": "/en/find-jobs-ticino/collaborateur-de-service-manora-50-manor-ag-locarno-u1kfzs",
         "de": "/de/jobs-im-tessin/collaborateur-de-service-manora-50-manor-ag-locarno-u1kfzs",
         "fr": "/fr/trouver-emploi-tessin/collaborateur-de-service-manora-50-manor-ag-locarno-u1kfzs"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "collaborateur-service-de-compagnie-manora-50-manor-ag-vevey",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-vaud/collaborateur-service-de-compagnie-manora-50-manor-ag-vevey/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-vaud/collaborateur-service-de-compagnie-manora-50-manor-ag-vevey/"
+      },
+      "queries": [
+        {
+          "query": "emploi vevey",
+          "clicks": 1,
+          "impressions": 2
+        },
+        {
+          "query": "manor vevey emploi",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "job manor",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offre emploi manor",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "ville de vevey",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "ville de vevey emploi",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 8,
+      "totalClicks": 1,
+      "topQuery": "emploi vevey",
+      "title": "Collaborateur service de compagnie manora 50",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Manor AG",
+      "companyKey": "manor-ag",
+      "location": "Vevey",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "collaborateur-service-de-compagnie-manora-50-manor-ag-vevey",
+        "en": "collaborateur-service-de-compagnie-manora-50-manor-ag-vevey",
+        "de": "collaborateur-service-de-compagnie-manora-50-manor-ag-vevey",
+        "fr": "collaborateur-service-de-compagnie-manora-50-manor-ag-vevey"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-vaud/collaborateur-service-de-compagnie-manora-50-manor-ag-vevey",
+        "en": "/en/find-jobs-vaud/collaborateur-service-de-compagnie-manora-50-manor-ag-vevey",
+        "de": "/de/jobs-im-waadt/collaborateur-service-de-compagnie-manora-50-manor-ag-vevey",
+        "fr": "/fr/trouver-emploi-vaud/collaborateur-service-de-compagnie-manora-50-manor-ag-vevey"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -25076,10 +25159,10 @@
         "fr": "conductrice-conducteur-carpostal-carpostal-yverdon-les-bains"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-vaud/driver-per-il-dispositivo-carpostal-carpostal-yverdon-les-bains",
-        "en": "/en/find-jobs-vaud/driver-per-il-dispositivo-carpostal-carpostal-yverdon-les-bains",
-        "de": "/de/jobs-in-der-waadt/driver-per-il-dispositivo-carpostal-carpostal-yverdon-les-bains",
-        "fr": "/fr/trouver-emploi-vaud/driver-per-il-dispositivo-carpostal-carpostal-yverdon-les-bains"
+        "it": "/cerca-lavoro-vallese/driver-per-il-dispositivo-carpostal-carpostal-yverdon-les-bains",
+        "en": "/en/find-jobs-valais/driver-per-il-dispositivo-carpostal-carpostal-yverdon-les-bains",
+        "de": "/de/jobs-im-wallis/driver-per-il-dispositivo-carpostal-carpostal-yverdon-les-bains",
+        "fr": "/fr/trouver-emploi-valais/driver-per-il-dispositivo-carpostal-carpostal-yverdon-les-bains"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -25472,6 +25555,68 @@
       ]
     },
     {
+      "slug": "eidgenossisch-anerkannter-psychotherapeut-m-w-d-ameos-schweiz-einsiedeln",
+      "locale": "de",
+      "path": "/de/jobs-in-schwyz/eidgenossisch-anerkannter-psychotherapeut-m-w-d-ameos-schweiz-einsiedeln/",
+      "observedPaths": {
+        "de": "/de/jobs-in-schwyz/eidgenossisch-anerkannter-psychotherapeut-m-w-d-ameos-schweiz-einsiedeln/"
+      },
+      "queries": [
+        {
+          "query": "offene stellen brunnen",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "spital einsiedeln jobs",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "offene stellen brunnen",
+      "title": "Eidgenossisch anerkannter psychotherapeut ameos schweiz einsiedeln",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "eidgenossisch-anerkannter-psychotherapeut-m-w-d-ameos-schweiz-einsiedeln",
+        "en": "eidgenossisch-anerkannter-psychotherapeut-m-w-d-ameos-schweiz-einsiedeln",
+        "de": "eidgenossisch-anerkannter-psychotherapeut-m-w-d-ameos-schweiz-einsiedeln",
+        "fr": "eidgenossisch-anerkannter-psychotherapeut-m-w-d-ameos-schweiz-einsiedeln"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-svitto/eidgenossisch-anerkannter-psychotherapeut-m-w-d-ameos-schweiz-einsiedeln",
+        "en": "/en/find-jobs-schwyz/eidgenossisch-anerkannter-psychotherapeut-m-w-d-ameos-schweiz-einsiedeln",
+        "de": "/de/jobs-im-schwyz/eidgenossisch-anerkannter-psychotherapeut-m-w-d-ameos-schweiz-einsiedeln",
+        "fr": "/fr/trouver-emploi-schwytz/eidgenossisch-anerkannter-psychotherapeut-m-w-d-ameos-schweiz-einsiedeln"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "ein-medizinischer-assistent-60-bis-70-in-cdi-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix",
       "locale": "it",
       "path": "/cerca-lavoro-ticino/ein-medizinischer-assistent-60-bis-70-in-cdi-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix",
@@ -25593,12 +25738,12 @@
         {
           "query": "i am searching for caregiver jobs in ticino for elderly support.",
           "clicks": 0,
-          "impressions": 177
+          "impressions": 185
         },
         {
           "query": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
           "clicks": 0,
-          "impressions": 119
+          "impressions": 126
         },
         {
           "query": "politica sanitaria canton ticino anziani",
@@ -25631,7 +25776,22 @@
           "impressions": 2
         },
         {
+          "query": "canton ticino",
+          "clicks": 1,
+          "impressions": 1
+        },
+        {
+          "query": "lugano locarno",
+          "clicks": 1,
+          "impressions": 1
+        },
+        {
           "query": "old people care job",
+          "clicks": 1,
+          "impressions": 1
+        },
+        {
+          "query": "region ticino",
           "clicks": 1,
           "impressions": 1
         },
@@ -25674,25 +25834,10 @@
           "query": "firme ingrijire batrani elvetia",
           "clicks": 0,
           "impressions": 1
-        },
-        {
-          "query": "geriatria",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "i link?",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "in ticino",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 342,
-      "totalClicks": 2,
+      "totalImpressions": 362,
+      "totalClicks": 5,
       "topQuery": "i am searching for caregiver jobs in ticino for elderly support.",
       "title": "Elderly care",
       "titleByLocale": {
@@ -37869,6 +38014,68 @@
       ]
     },
     {
+      "slug": "le-landeron",
+      "locale": "it",
+      "path": "/cerca-lavoro-neuchatel/le-landeron/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-neuchatel/le-landeron/"
+      },
+      "queries": [
+        {
+          "query": "offerte di lavoro da ieri",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offerte di lavoro negli ultimi 3 giorni",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "offerte di lavoro da ieri",
+      "title": "Le landeron",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "le-landeron",
+        "en": "le-landeron",
+        "de": "le-landeron",
+        "fr": "le-landeron"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-neuchatel/le-landeron",
+        "en": "/en/find-jobs-neuchatel/le-landeron",
+        "de": "/de/jobs-im-neuenburg/le-landeron",
+        "fr": "/fr/trouver-emploi-neuchatel/le-landeron"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "lead-consolidation-ifrs-analista-sulzer-winterthur",
       "locale": "it",
       "path": "/cerca-lavoro-ticino/lead-consolidation-ifrs-analista-sulzer-winterthur/",
@@ -38567,6 +38774,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-ag-spital-region-oberaargau-niederbipp",
+      "locale": "de",
+      "path": "/de/jobs-in-bern/leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-ag-spital-region-oberaargau-niederbipp/",
+      "observedPaths": {
+        "de": "/de/jobs-in-bern/leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-ag-spital-region-oberaargau-niederbipp/"
+      },
+      "queries": [
+        {
+          "query": "sro jobs",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "sro jobs",
+      "title": "Leitende arztin leitenden arzt gynakologie sro ag spital region oberaargau niederbipp",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-ag-spital-region-oberaargau-niederbipp",
+        "en": "leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-ag-spital-region-oberaargau-niederbipp",
+        "de": "leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-ag-spital-region-oberaargau-niederbipp",
+        "fr": "leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-ag-spital-region-oberaargau-niederbipp"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-ag-spital-region-oberaargau-niederbipp",
+        "en": "/en/find-jobs-bern/leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-ag-spital-region-oberaargau-niederbipp",
+        "de": "/de/jobs-im-bern/leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-ag-spital-region-oberaargau-niederbipp",
+        "fr": "/fr/trouver-emploi-berne/leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-ag-spital-region-oberaargau-niederbipp"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -39313,29 +39577,29 @@
           "impressions": 13
         },
         {
+          "query": "logistica ticino lavoro",
+          "clicks": 0,
+          "impressions": 12
+        },
+        {
+          "query": "offerte lavoro logistica ticino",
+          "clicks": 3,
+          "impressions": 11
+        },
+        {
           "query": "lavoro frontaliere svizzera",
           "clicks": 0,
           "impressions": 11
         },
         {
-          "query": "logistica ticino lavoro",
-          "clicks": 0,
-          "impressions": 11
-        },
-        {
-          "query": "offerte lavoro logistica ticino",
+          "query": "offerte di lavoro impiegato in logistica ticino",
           "clicks": 2,
-          "impressions": 10
+          "impressions": 9
         },
         {
           "query": "impiegato in logistica offerte di lavoro ticino",
           "clicks": 0,
-          "impressions": 7
-        },
-        {
-          "query": "offerte di lavoro impiegato in logistica ticino",
-          "clicks": 1,
-          "impressions": 6
+          "impressions": 9
         },
         {
           "query": "posti vacanti ticino",
@@ -39373,6 +39637,11 @@
           "impressions": 3
         },
         {
+          "query": "frontalieri",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
           "query": "site:frontaliereticino.ch",
           "clicks": 0,
           "impressions": 3
@@ -39391,15 +39660,10 @@
           "query": "logistica svizzera",
           "clicks": 0,
           "impressions": 2
-        },
-        {
-          "query": "lavoro da frontaliere in svizzera",
-          "clicks": 0,
-          "impressions": 2
         }
       ],
-      "totalImpressions": 170,
-      "totalClicks": 5,
+      "totalImpressions": 179,
+      "totalClicks": 7,
       "topQuery": "offerte lavoro frontaliere svizzera",
       "title": "Logistica",
       "titleByLocale": {
@@ -39635,6 +39899,69 @@
         "en": "/en/find-jobs-ticino/lohnsachverstandiger-sap-100-agie-charmilles-sa-biel-bienne",
         "de": "/de/jobs-im-tessin/lohnsachverstandiger-sap-100-agie-charmilles-sa-biel-bienne",
         "fr": "/fr/trouver-emploi-tessin/lohnsachverstandiger-sap-100-agie-charmilles-sa-biel-bienne"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "lotzwil",
+      "locale": "it",
+      "path": "/cerca-lavoro-berna/lotzwil/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-berna/lotzwil/"
+      },
+      "queries": [
+        {
+          "query": "lavoro frontaliere svizzera",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "offerte lavoro frontaliere svizzera",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 3,
+      "totalClicks": 0,
+      "topQuery": "lavoro frontaliere svizzera",
+      "title": "Lotz",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Wil",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "lotzwil",
+        "en": "lotzwil",
+        "de": "lotzwil",
+        "fr": "lotzwil"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/lotzwil",
+        "en": "/en/find-jobs-bern/lotzwil",
+        "de": "/de/jobs-im-bern/lotzwil",
+        "fr": "/fr/trouver-emploi-berne/lotzwil"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -43980,10 +44307,10 @@
         "fr": "mitarbeiter-verkauf-m-w-d-aldi-suisse-15"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/mitarbeiter-verkauf-m-w-d-aldi-suisse-15",
-        "en": "/en/find-jobs-zurich/mitarbeiter-verkauf-m-w-d-aldi-suisse-15",
+        "it": "/cerca-lavoro-turgovia/mitarbeiter-verkauf-m-w-d-aldi-suisse-15",
+        "en": "/en/find-jobs-thurgau/mitarbeiter-verkauf-m-w-d-aldi-suisse-15",
         "de": "/de/jobs-im-zurich/mitarbeiter-verkauf-m-w-d-aldi-suisse-15",
-        "fr": "/fr/trouver-emploi-zurich/mitarbeiter-verkauf-m-w-d-aldi-suisse-15"
+        "fr": "/fr/trouver-emploi-thurgovie/mitarbeiter-verkauf-m-w-d-aldi-suisse-15"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -53918,6 +54245,64 @@
       ]
     },
     {
+      "slug": "responsabile-qa-bioatrium-lonza-visp",
+      "locale": "it",
+      "path": "/cerca-lavoro-vallese/responsabile-qa-bioatrium-lonza-visp/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-vallese/responsabile-qa-bioatrium-lonza-visp/"
+      },
+      "queries": [
+        {
+          "query": "lonza",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "lonza",
+      "title": "Responsabile qa bioatrium lonza",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Visp",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "responsabile-qa-bioatrium-lonza-visp",
+        "en": "responsabile-qa-bioatrium-lonza-visp",
+        "de": "responsabile-qa-bioatrium-lonza-visp",
+        "fr": "responsabile-qa-bioatrium-lonza-visp"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-vallese/responsabile-qa-bioatrium-lonza-visp",
+        "en": "/en/find-jobs-valais/responsabile-qa-bioatrium-lonza-visp",
+        "de": "/de/jobs-im-wallis/responsabile-qa-bioatrium-lonza-visp",
+        "fr": "/fr/trouver-emploi-valais/responsabile-qa-bioatrium-lonza-visp"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "responsabile-ready-to-operate-ccus-holcim-group-zug",
       "locale": "it",
       "path": "/cerca-lavoro-argovia/responsabile-ready-to-operate-ccus-holcim-group-zug",
@@ -55638,6 +56023,69 @@
         "en": "/en/find-jobs-ticino/ricercatrice-ricercatore-in-metodi-di-valutazione-prospettica-della-sostenibilita-e-innovazione-responsable-supsi-dti-ma",
         "de": "/de/jobs-im-tessin/ricercatrice-ricercatore-in-metodi-di-valutazione-prospettica-della-sostenibilita-e-innovazione-responsable-supsi-dti-ma",
         "fr": "/fr/trouver-emploi-tessin/ricercatrice-ricercatore-in-metodi-di-valutazione-prospettica-della-sostenibilita-e-innovazione-responsable-supsi-dti-ma"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "risk-surveyor-assicurazione-zurich-insurance-sede-ticino-lugano",
+      "locale": "it",
+      "path": "/cerca-lavoro-ticino/risk-surveyor-assicurazione-zurich-insurance-sede-ticino-lugano/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-ticino/risk-surveyor-assicurazione-zurich-insurance-sede-ticino-lugano/"
+      },
+      "queries": [
+        {
+          "query": "assicurazione lavoro",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "lavoro ticino",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "assicurazione lavoro",
+      "title": "Risk surveyor assicurazione",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Zurich Insurance (sede Ticino)",
+      "companyKey": "zurich-insurance-sede-ticino",
+      "location": "Lugano",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "risk-surveyor-assicurazione-zurich-insurance-sede-ticino-lugano",
+        "en": "risk-surveyor-assicurazione-zurich-insurance-sede-ticino-lugano",
+        "de": "risk-surveyor-assicurazione-zurich-insurance-sede-ticino-lugano",
+        "fr": "risk-surveyor-assicurazione-zurich-insurance-sede-ticino-lugano"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/risk-surveyor-assicurazione-zurich-insurance-sede-ticino-lugano",
+        "en": "/en/find-jobs-ticino/risk-surveyor-assicurazione-zurich-insurance-sede-ticino-lugano",
+        "de": "/de/jobs-im-tessin/risk-surveyor-assicurazione-zurich-insurance-sede-ticino-lugano",
+        "fr": "/fr/trouver-emploi-tessin/risk-surveyor-assicurazione-zurich-insurance-sede-ticino-lugano"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -75472,10 +75920,10 @@
         "fr": "verkaufer-in-denner-6"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/verkaufer-in-denner-6",
-        "en": "/en/find-jobs-basel/verkaufer-in-denner-6",
-        "de": "/de/jobs-in-basel/verkaufer-in-denner-6",
-        "fr": "/fr/trouver-emploi-bale/verkaufer-in-denner-6"
+        "it": "/cerca-lavoro-san-gallo/verkaufer-in-denner-6",
+        "en": "/en/find-jobs-st-gallen/verkaufer-in-denner-6",
+        "de": "/de/jobs-in-st-gallen/verkaufer-in-denner-6",
+        "fr": "/fr/trouver-emploi-saint-gall/verkaufer-in-denner-6"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -76212,10 +76660,10 @@
         "fr": "verkaufer-in-im-stundenlohn-denner-c24dro"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/verkaufer-in-im-stundenlohn-denner-c24dro",
-        "en": "/en/find-jobs-basel/verkaufer-in-im-stundenlohn-denner-c24dro",
-        "de": "/de/jobs-in-basel/verkaufer-in-im-stundenlohn-denner-c24dro",
-        "fr": "/fr/trouver-emploi-bale/verkaufer-in-im-stundenlohn-denner-c24dro"
+        "it": "/cerca-lavoro-zurigo/verkaufer-in-im-stundenlohn-denner-c24dro",
+        "en": "/en/find-jobs-zurich/verkaufer-in-im-stundenlohn-denner-c24dro",
+        "de": "/de/jobs-in-zurich/verkaufer-in-im-stundenlohn-denner-c24dro",
+        "fr": "/fr/trouver-emploi-zurich/verkaufer-in-im-stundenlohn-denner-c24dro"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -77443,10 +77891,10 @@
         "fr": "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-swiss-household-services-ag-oberburen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-san-gallo/verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-swiss-household-services-ag-oberburen",
-        "en": "/en/find-jobs-st-gallen/verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-swiss-household-services-ag-oberburen",
+        "it": "/cerca-lavoro-zurigo/verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-swiss-household-services-ag-oberburen",
+        "en": "/en/find-jobs-zurich/verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-swiss-household-services-ag-oberburen",
         "de": "/de/jobs-im-basel/verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-swiss-household-services-ag-oberburen",
-        "fr": "/fr/trouver-emploi-saint-gall/verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-swiss-household-services-ag-oberburen"
+        "fr": "/fr/trouver-emploi-zurich/verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-swiss-household-services-ag-oberburen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -77708,10 +78156,10 @@
         "fr": "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-swiss-household-services-ag-wallisellen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-swiss-household-services-ag-wallisellen",
-        "en": "/en/find-jobs-lucerne/verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-swiss-household-services-ag-wallisellen",
+        "it": "/cerca-lavoro-zurigo/verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-swiss-household-services-ag-wallisellen",
+        "en": "/en/find-jobs-zurich/verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-swiss-household-services-ag-wallisellen",
         "de": "/de/jobs-im-luzern/verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-swiss-household-services-ag-wallisellen",
-        "fr": "/fr/trouver-emploi-lucerne/verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-swiss-household-services-ag-wallisellen"
+        "fr": "/fr/trouver-emploi-zurich/verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-swiss-household-services-ag-wallisellen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -79516,9 +79964,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "wir-suchen-sie-eine-klassenlehrperson-per-la-schulkinder-der-4-klasse-pensum-bis-zu-28-lektionen-ab-februar-2027-k-39949",
-        "en": "wir-suchen-sie-eine-klassenlehrperson-per-la-schulkinder-der-4-klasse-pensum-bis-zu-28-lektionen-ab-februar-2027-k-39949",
-        "de": "wir-suchen-sie-eine-klassenlehrperson-per-la-schulkinder-der-4-klasse-pensum-bis-zu-28-lektionen-ab-februar-2027-k-39949",
-        "fr": "wir-suchen-sie-eine-klassenlehrperson-per-la-schulkinder-der-4-klasse-pensum-bis-zu-28-lektionen-ab-februar-2027-k-39949"
+        "en": "we-are-looking-for-you-a-class-teacher-for-4th-grade-schoolchildren-pensum-up-to-28-lessons-from-february-2027-39949",
+        "de": "wir-suchen-sie-eine-klassenlehrperson-fur-die-schulkinder-der-4-klasse-pensum-bis-zu-28-39949",
+        "fr": "nous-vous-recherchons-un-professeur-pour-les-eleves-de-4eme-annee-pensum-jusqu-a-28-lecons-a-partir-de-fevrier-39949"
       },
       "localePaths": {
         "it": "/cerca-lavoro-berna/wir-suchen-sie-eine-klassenlehrperson-per-la-schulkinder-der-4-klasse-pensum-bis-zu-28-lektionen-ab-februar-2027-k-39949",
@@ -79526,12 +79974,13 @@
         "de": "/de/jobs-im-bern/wir-suchen-sie-eine-klassenlehrperson-per-la-schulkinder-der-4-klasse-pensum-bis-zu-28-lektionen-ab-februar-2027-k-39949",
         "fr": "/fr/trouver-emploi-berne/wir-suchen-sie-eine-klassenlehrperson-per-la-schulkinder-der-4-klasse-pensum-bis-zu-28-lektionen-ab-februar-2027-k-39949"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://www.ksml.apps.be.ch/ksml?q=stellen%2fad%2f39949",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },

@@ -107,7 +107,13 @@ const log = (emoji, msg) => {
 };
 
 // ── OAuth helpers ───────────────────────────────────────────
-async function refreshAccessToken({ clientId, clientSecret, refreshToken }) {
+// Exported (not just used locally) so other AdSense-reading scripts share
+// the same refresh flow instead of re-implementing it — see
+// scripts/adsense-format-ab-report.mjs, which imports refreshAccessToken,
+// getAdSenseToken and last7Days from here rather than duplicating them
+// (AGENTS.md Non-Negotiable #6: a literal/helper copied into a second file
+// drifts by hand).
+export async function refreshAccessToken({ clientId, clientSecret, refreshToken }) {
   const res = await fetch('https://oauth2.googleapis.com/token', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -132,7 +138,7 @@ async function getGscToken() {
   });
 }
 
-async function getAdSenseToken() {
+export async function getAdSenseToken() {
   const refreshToken = process.env.ADSENSE_REFRESH_TOKEN;
   if (!refreshToken) return null;
   const clientId = process.env.ADSENSE_CLIENT_ID || process.env.GSC_CLIENT_ID;
@@ -143,7 +149,7 @@ async function getAdSenseToken() {
 
 // ── Date helpers ────────────────────────────────────────────
 const fmtDate = (d) => d.toISOString().slice(0, 10);
-function last7Days() {
+export function last7Days() {
   const end = new Date();
   end.setUTCDate(end.getUTCDate() - 2); // leave 2-day lag for late-arriving data
   const start = new Date(end);

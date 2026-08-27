@@ -23,6 +23,7 @@
  */
 
 import { normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
+import { sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
 
 /** SAP SuccessFactors base URL for ALDI Suisse */
 export const ALDI_SUCCESSFACTORS_BASE = 'https://career5.successfactors.eu/career?company=aldisuis';
@@ -242,7 +243,12 @@ export function parseAldiDetailPage(html = '') {
   const titleSource = stripScriptsAndStyles(html);
   const titleMatch = titleSource.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)
     || titleSource.match(/<h2[^>]*>([\s\S]*?)<\/h2>/i);
-  const title = titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : '';
+  // ALDI's ATS is SuccessFactors behind a TYPO3 front end, and the <h2>
+  // fallback can reach page chrome. '' is safe: the caller prefers the JSON
+  // listing title and skips a row whose title ends up empty.
+  const title = sanitizeSuccessFactorsField(
+    titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : '',
+  );
 
   // Location
   let location = '';

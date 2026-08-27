@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-17T07:50:24.088Z",
+  "updatedAt": "2026-08-24T08:01:53.277Z",
   "entries": [
     {
       "date": "2026-06-08",
@@ -377,6 +377,41 @@
         "rpmCHF": 0.42,
         "desktopRpmCHF": 0.11,
         "revenuePerDayCHF": 9.34
+      },
+      "sourcesOk": {
+        "cls": true,
+        "gsc": true,
+        "adsense": true
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "date": "2026-08-24",
+      "generatedAt": "2026-08-24T08:01:53.217Z",
+      "cls": {
+        "p75Mobile": 0.17,
+        "p75Desktop": 0.103,
+        "window": {
+          "start": "2026-08-16",
+          "end": "2026-08-22"
+        }
+      },
+      "gsc": {
+        "avgPosition": 8.79,
+        "clicksPerDay": 2493.4,
+        "ctrByBucket": {
+          "/job-board/": null,
+          "/calcola-stipendio/": 1.8,
+          "/articoli-frontaliere/": 2.88,
+          "/fisco/": null,
+          "/guida-frontaliere/": 2.18
+        }
+      },
+      "adsense": {
+        "rpmCHF": 4.4,
+        "desktopRpmCHF": 2.28,
+        "revenuePerDayCHF": 14.62
       },
       "sourcesOk": {
         "cls": true,

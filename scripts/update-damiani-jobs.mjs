@@ -148,6 +148,11 @@ async function buildDamianiJob(listing) {
   const detailUrl = absoluteUrl(`${listing.href}${listing.href.includes('?') ? '' : '?locale=it_IT'}`);
   const html = await fetchText(detailUrl);
   const detail = parseDamianiJobDetail(html);
+  // parseDamianiJobDetail blanks a title that is SuccessFactors page chrome
+  // rather than the posting. The listing row is guarded upstream and is the
+  // authoritative title anyway, so restore it before localising — title, slug
+  // and category all derive from this one value.
+  if (!detail.title) detail.title = listing.title;
   const localized = buildDamianiLocalizedContent(detail);
   const canton = inferDamianiCanton(detail.location || listing.location);
   return {

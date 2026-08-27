@@ -14695,19 +14695,19 @@
       },
       "queries": [
         {
-          "query": "\"it card\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
+          "query": "job chiasso",
           "clicks": 0,
-          "impressions": 1
+          "impressions": 3
         },
         {
-          "query": "job chiasso",
+          "query": "\"it card\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
           "clicks": 0,
           "impressions": 1
         }
       ],
-      "totalImpressions": 2,
+      "totalImpressions": 4,
       "totalClicks": 0,
-      "topQuery": "\"it card\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
+      "topQuery": "job chiasso",
       "title": "chiasso",
       "titleByLocale": {
         "it": "",
@@ -14752,7 +14752,7 @@
         {
           "query": "lavoro a chiasso",
           "clicks": 0,
-          "impressions": 352
+          "impressions": 373
         },
         {
           "query": "lavoro chiasso",
@@ -14762,17 +14762,22 @@
         {
           "query": "offerte lavoro chiasso",
           "clicks": 0,
-          "impressions": 24
+          "impressions": 25
         },
         {
           "query": "chiasso lavoro",
           "clicks": 0,
-          "impressions": 18
+          "impressions": 19
         },
         {
           "query": "lavoro svizzera chiasso",
           "clicks": 0,
-          "impressions": 17
+          "impressions": 19
+        },
+        {
+          "query": "offerte di lavoro chiasso",
+          "clicks": 0,
+          "impressions": 19
         },
         {
           "query": "lavorare a chiasso",
@@ -14785,9 +14790,9 @@
           "impressions": 16
         },
         {
-          "query": "offerte di lavoro chiasso",
-          "clicks": 0,
-          "impressions": 16
+          "query": "lavora con noi chiasso",
+          "clicks": 1,
+          "impressions": 14
         },
         {
           "query": "cerco lavoro a chiasso",
@@ -14795,19 +14800,14 @@
           "impressions": 14
         },
         {
-          "query": "lavora con noi chiasso",
-          "clicks": 1,
-          "impressions": 13
+          "query": "annunci chiasso",
+          "clicks": 0,
+          "impressions": 11
         },
         {
           "query": "job chiasso",
           "clicks": 0,
           "impressions": 11
-        },
-        {
-          "query": "annunci chiasso",
-          "clicks": 0,
-          "impressions": 10
         },
         {
           "query": "offerte lavoro chiasso per italiani",
@@ -14850,7 +14850,7 @@
           "impressions": 6
         }
       ],
-      "totalImpressions": 674,
+      "totalImpressions": 707,
       "totalClicks": 3,
       "topQuery": "lavoro a chiasso",
       "title": "chiasso",
@@ -22109,10 +22109,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-augenklinik-ambulatorium-universitatsspital-basel-basel",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-augenklinik-ambulatorium-universitatsspital-basel-basel",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-augenklinik-ambulatorium-universitatsspital-basel-basel",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-augenklinik-ambulatorium-universitatsspital-basel-basel"
+        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-augenklinik-ambulatorium-unispital-basel-ch",
+        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-augenklinik-ambulatorium-unispital-basel-ch",
+        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-augenklinik-ambulatorium-unispital-basel-ch"
       },
       "localePaths": {
         "it": "/cerca-lavoro-basilea/dipl-pflegefachfrau-pflegefachmann-hf-fh-augenklinik-ambulatorium-universitatsspital-basel-basel",
@@ -22126,6 +22126,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -23873,12 +23874,12 @@
         {
           "query": "educatore sociale offerte lavoro ticino",
           "clicks": 13,
-          "impressions": 76
+          "impressions": 80
         },
         {
           "query": "offerte di lavoro educatrice svizzera italiana",
           "clicks": 21,
-          "impressions": 57
+          "impressions": 59
         },
         {
           "query": "lavoro insegnante canton ticino",
@@ -23886,14 +23887,14 @@
           "impressions": 36
         },
         {
-          "query": "offerte lavoro educatore ticino",
-          "clicks": 2,
-          "impressions": 31
-        },
-        {
           "query": "offerte di lavoro educatore svizzera italiana",
           "clicks": 5,
-          "impressions": 30
+          "impressions": 33
+        },
+        {
+          "query": "offerte lavoro educatore ticino",
+          "clicks": 2,
+          "impressions": 32
         },
         {
           "query": "psicologo italiano online sciaffusa",
@@ -23911,14 +23912,14 @@
           "impressions": 23
         },
         {
-          "query": "educatore canton ticino",
-          "clicks": 4,
+          "query": "lavoro educatrice ticino",
+          "clicks": 5,
           "impressions": 22
         },
         {
-          "query": "lavoro educatrice ticino",
-          "clicks": 5,
-          "impressions": 21
+          "query": "educatore canton ticino",
+          "clicks": 4,
+          "impressions": 22
         },
         {
           "query": "offerte lavoro educatore svizzera",
@@ -23928,7 +23929,7 @@
         {
           "query": "educatrice ticino lavoro",
           "clicks": 1,
-          "impressions": 20
+          "impressions": 21
         },
         {
           "query": "offerte lavoro educatore canton ticino",
@@ -23941,6 +23942,11 @@
           "impressions": 20
         },
         {
+          "query": "educatore svizzera canton ticino",
+          "clicks": 2,
+          "impressions": 19
+        },
+        {
           "query": "offerte di lavoro educatrice ticino",
           "clicks": 0,
           "impressions": 19
@@ -23951,14 +23957,9 @@
           "impressions": 18
         },
         {
-          "query": "educatore svizzera canton ticino",
-          "clicks": 2,
-          "impressions": 17
-        },
-        {
           "query": "lavoro educatore ticino",
           "clicks": 0,
-          "impressions": 16
+          "impressions": 17
         },
         {
           "query": "offerte lavoro educatore",
@@ -23971,8 +23972,8 @@
           "impressions": 14
         }
       ],
-      "totalImpressions": 898,
-      "totalClicks": 87,
+      "totalImpressions": 922,
+      "totalClicks": 89,
       "topQuery": "educatore sociale offerte lavoro ticino",
       "title": "Educatori",
       "titleByLocale": {
@@ -27527,6 +27528,88 @@
         "en": "/en/find-jobs-graubunden/fachperson-gesundheit-pdgr-ch-3",
         "de": "/de/jobs-im-graubunden/fachperson-gesundheit-pdgr-ch-3",
         "fr": "/fr/trouver-emploi-grisons/fachperson-gesundheit-pdgr-ch-3"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "felsberg",
+      "locale": "it",
+      "path": "/cerca-lavoro-grigioni/felsberg/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-grigioni/felsberg/"
+      },
+      "queries": [
+        {
+          "query": "lavoro grigioni",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offerte di lavoro presso cantone ticino",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offerte di lavoro ticino part time",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offerte lavoro canton ticino",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offerte lavoro canton ticino per italiani",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "posti di lavoro canton ticino",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 6,
+      "totalClicks": 0,
+      "topQuery": "lavoro grigioni",
+      "title": "Felsberg",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "felsberg",
+        "en": "felsberg",
+        "de": "felsberg",
+        "fr": "felsberg"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-grigioni/felsberg",
+        "en": "/en/find-jobs-graubunden/felsberg",
+        "de": "/de/jobs-im-graubunden/felsberg",
+        "fr": "/fr/trouver-emploi-grisons/felsberg"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -37972,6 +38055,64 @@
       ]
     },
     {
+      "slug": "leadership-development-spezialist-emmi-luzern",
+      "locale": "de",
+      "path": "/de/jobs-in-luzern/leadership-development-spezialist-emmi-luzern/",
+      "observedPaths": {
+        "de": "/de/jobs-in-luzern/leadership-development-spezialist-emmi-luzern/"
+      },
+      "queries": [
+        {
+          "query": "führungsteam entwicklung luzern",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "führungsteam entwicklung luzern",
+      "title": "Leadership development spezialist emmi",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Luzern",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "leadership-development-spezialist-emmi-luzern",
+        "en": "leadership-development-spezialist-emmi-luzern",
+        "de": "leadership-development-spezialist-emmi-luzern",
+        "fr": "leadership-development-spezialist-emmi-luzern"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-lucerna/leadership-development-spezialist-emmi-luzern",
+        "en": "/en/find-jobs-lucerne/leadership-development-spezialist-emmi-luzern",
+        "de": "/de/jobs-im-luzern/leadership-development-spezialist-emmi-luzern",
+        "fr": "/fr/trouver-emploi-lucerne/leadership-development-spezialist-emmi-luzern"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "learning-electroplast-cfc-3-years-boncourt-2027-eta-sa-manufacture-horlogere-suisse-ticino",
       "locale": "en",
       "path": "/en/find-jobs-ticino/learning-electroplast-cfc-3-years-boncourt-2027-eta-sa-manufacture-horlogere-suisse-ticino",
@@ -47209,6 +47350,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "pharma-technical-regulatory-submission-tirocinante-roche-la-roche",
+      "locale": "it",
+      "path": "/cerca-lavoro-friburgo/pharma-technical-regulatory-submission-tirocinante-roche-la-roche/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-friburgo/pharma-technical-regulatory-submission-tirocinante-roche-la-roche/"
+      },
+      "queries": [
+        {
+          "query": "la roche svizzera",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "la roche svizzera",
+      "title": "Pharma technical regulatory submission tirocinante roche la roche",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "pharma-technical-regulatory-submission-tirocinante-roche-la-roche",
+        "en": "pharma-technical-regulatory-submission-tirocinante-roche-la-roche",
+        "de": "pharma-technical-regulatory-submission-tirocinante-roche-la-roche",
+        "fr": "pharma-technical-regulatory-submission-tirocinante-roche-la-roche"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-friburgo/pharma-technical-regulatory-submission-tirocinante-roche-la-roche",
+        "en": "/en/find-jobs-fribourg/pharma-technical-regulatory-submission-tirocinante-roche-la-roche",
+        "de": "/de/jobs-im-freiburg/pharma-technical-regulatory-submission-tirocinante-roche-la-roche",
+        "fr": "/fr/trouver-emploi-fribourg/pharma-technical-regulatory-submission-tirocinante-roche-la-roche"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -58289,10 +58487,10 @@
         "fr": "scrum-master-m-w-d-coopers-bern"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-grigioni/scrum-master-m-w-d-coopers-bern",
-        "en": "/en/find-jobs-graubunden/scrum-master-m-w-d-coopers-bern",
+        "it": "/cerca-lavoro-berna/scrum-master-m-w-d-coopers-bern",
+        "en": "/en/find-jobs-bern/scrum-master-m-w-d-coopers-bern",
         "de": "/de/jobs-im-graubunden/scrum-master-m-w-d-coopers-bern",
-        "fr": "/fr/trouver-emploi-grisons/scrum-master-m-w-d-coopers-bern"
+        "fr": "/fr/trouver-emploi-berne/scrum-master-m-w-d-coopers-bern"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

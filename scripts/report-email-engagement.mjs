@@ -77,12 +77,28 @@ const TAG_NOISE = new Set(['lifecycle', 'transactional', 'marketing', 'newslette
 
 /**
  * Only these two Maileroo email types had a lookup record before the
- * 2026-08-20 fix. Kept as an explicit list because it is what `unmeasurable`
- * counts against: once every sender writes the ref, no type belongs here and
- * the counter stays at 0. It is NOT a config knob — do not add types to silence
- * the counter, that is the regression it exists to catch.
+ * 2026-08-20 fix (#6195) wired `makeMailerooRefOnSent` into every sender.
+ * Kept as an explicit list because it is what `unmeasurable` counts against
+ * for messages from BEFORE that fix landed — see `WRITER_FIX_LANDED_AT`
+ * below. It is NOT a config knob — do not add types here to silence the
+ * counter for current traffic, that is the regression it exists to catch.
  */
 const MAILEROO_HISTORICALLY_TRACKED = new Set(['job_alert', 'newsletter_weekly']);
+
+/**
+ * When the shared ref writer went live for every sender (commit ecefb10d9ae,
+ * merged 2026-08-20T21:07:37Z), plus a margin for deploy-cloud-functions.yml
+ * to roll it out. `unmeasurable` is only checked against the type allowlist
+ * for messages seen BEFORE this instant.
+ *
+ * Without this cutoff the counter regressed to a false positive the moment
+ * the fix rolled out: a 7-day window straddling 2026-08-20 keeps counting
+ * every onboarding_drip/welcome/confirmation/etc. Maileroo message as
+ * unmeasurable by type alone, even though its own open/click rate in the
+ * same report proves the ref resolved (a truly unmeasurable message can
+ * never show an open — the webhook has nothing to attribute it to). #6317.
+ */
+export const WRITER_FIX_LANDED_AT = new Date('2026-08-21T06:00:00Z');
 
 /**
  * Recover the campaign from a raw provider event.
@@ -178,10 +194,13 @@ async function collectMessages(db, since) {
         : 'f:' + parent + '::' + email + '::' + (campaign || v.alert_id || '?');
 
       let m = msgs.get(key);
-      if (!m) { m = { provider, emailType, sent: 0, delivered: 0, open: 0, click: 0, bounce: 0 }; msgs.set(key, m); }
+      if (!m) { m = { provider, emailType, sent: 0, delivered: 0, open: 0, click: 0, bounce: 0, firstSeenAt: null }; msgs.set(key, m); }
       if (m.provider === 'unknown' && provider !== 'unknown') m.provider = provider;
       if ((m.emailType === 'unknown' || m.emailType === 'unattributed')
         && emailType !== 'unknown' && emailType !== 'unattributed') m.emailType = emailType;
+
+      const ts = typeof v.timestamp?.toDate === 'function' ? v.timestamp.toDate() : null;
+      if (ts && (!m.firstSeenAt || ts < m.firstSeenAt)) m.firstSeenAt = ts;
 
       if (v.event_type === 'send') m.sent++;
       else if (v.event_type === 'delivered') m.delivered++;
@@ -209,7 +228,8 @@ export function aggregateMessages(messages) {
       continue;
     }
     if (m.emailType === 'unattributed') unattributed += 1;
-    const measurable = !(m.provider === 'maileroo' && !MAILEROO_HISTORICALLY_TRACKED.has(m.emailType));
+    const preWriterFix = !m.firstSeenAt || m.firstSeenAt < WRITER_FIX_LANDED_AT;
+    const measurable = !(m.provider === 'maileroo' && !MAILEROO_HISTORICALLY_TRACKED.has(m.emailType) && preWriterFix);
     if (!measurable) { unmeasurable += 1; }
 
     for (const bucket of [

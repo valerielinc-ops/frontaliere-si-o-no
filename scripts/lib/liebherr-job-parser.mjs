@@ -44,6 +44,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { extractMicrodataDescription } from './jobposting-jsonld.mjs';
+import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -205,6 +206,12 @@ function parseSearchPage(html = '') {
       ? normalizeSpace(decodeEntities(titleMatch[1].replace(/<[^>]+>/g, ' ')))
       : '';
     if (!title || title.length < 3) continue;
+    // The generic-anchor fallback above (no jobTitle-link on this tenant skin)
+    // can pick up the j2w cookie-consent/keyword-search/job-alert widget as if
+    // it were a job tile. A row whose title IS that widget chrome is not a
+    // posting — discard it rather than clean it (a cleaned title would leave
+    // an anonymous job).
+    if (isSuccessFactorsWidgetText(title)) continue;
 
     // The location VALUE node ends `…location-value">{City}, CH<`. A separate
     // label span carries `aria-describedby="…location-value"` followed by
@@ -320,8 +327,11 @@ export async function fetchAllLiebherrJobs() {
     // replaces the previous title-only stub that 100%-failed the boilerplate
     // guard (#1722).
     const detailDescHtml = await fetchLiebherrDetailDescription(publicUrl);
+    // Detail page can itself surface widget chrome as the "description" body
+    // (same class of bleed as the title) — sanitize before falling back to
+    // the brand blurb.
     const detailDescText = detailDescHtml
-      ? normalizeSpace(stripHtml(detailDescHtml))
+      ? sanitizeSuccessFactorsField(normalizeSpace(stripHtml(detailDescHtml)))
       : '';
     const descriptionText = detailDescText || `${title} — Liebherr (${city}, CH)`;
 

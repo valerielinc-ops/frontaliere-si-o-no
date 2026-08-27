@@ -22,22 +22,56 @@
  * l'oracolo (`changedFiles`) è più basso del cap. Misurato il 2026-08-20:
  * #6121 changedFiles=183 → GraphQL 100, REST `--paginate` 183/183; #6175 →
  * GraphQL null, REST 100 (troncata).
+ *
+ * `changedFiles` (l'oracolo) e `files` (la lista GraphQL) vengono fetchati in
+ * UNA SOLA `gh pr view --json changedFiles,files`, non due chiamate separate
+ * (#6206 item 3). Prima, il CLI `fetch-pr-files.mjs` prendeva `expected` da un
+ * `gh pr view --json changedFiles` indipendente e poi chiamava questa funzione
+ * con quel valore; `pr-collision-detector.mjs` lo prendeva da un `gh pr list`
+ * fatto una volta sola PRIMA del loop su tutte le PR aperte, quindi sempre più
+ * stale man mano che il loop avanzava. Un push sulla PR tra le due letture fa
+ * leggere un `expected` vecchio contro un `files` nuovo (o viceversa),
+ * producendo un falso `complete=true` — la stessa classe di race già chiusa in
+ * pr-review-loop.yml/pr-redflag-fixer.yml (che leggono entrambi i campi da
+ * un'unica `gh pr view` inline). Qui i due valori vengono dalla stessa
+ * risposta GraphQL: nessuna finestra di push fra di loro.
  */
 
 export const GRAPHQL_FILES_CAP = 100;
 
 /**
+ * Tetto rigido della REST `pulls/{n}/files`: `--paginate` non va oltre, per
+ * quanto grande sia la PR. Sopra questa soglia nessun secondo livello di
+ * fallback esiste — l'elenco resta troncato per limite dell'API, non per un
+ * difetto nostro (follow-up #6206 item 1). Serve a ETICHETTARE quel caso:
+ * `complete:false` con `reason:'rest-hard-limit'` e' irrisolvibile da qui,
+ * mentre gli altri `complete:false` sono condizioni transitorie.
+ */
+export const REST_FILES_HARD_CAP = 3000;
+
+/**
  * @param {number} number - numero PR
- * @param {number} expected - `changedFiles` dichiarato da GitHub (0/assente = sconosciuto)
  * @param {(args: string[], opts?: {json?: boolean, allowFail?: boolean}) => any} ghFn
  * @param {string} repo - `owner/repo`
- * @returns {{files: string[], complete: boolean}}
+ * @returns {{files: string[], complete: boolean, expected: number|undefined, reason: string}}
  */
-export function fetchPrFiles(number, expected, ghFn, repo) {
+export function fetchPrFiles(number, ghFn, repo) {
   let files = [];
+  let expected;
+  // «La chiamata ha risposto» non e' «la risposta e' vuota».
+  //
+  // `gh(..., {allowFail:true})` rende `null` quando il comando fallisce e un
+  // OGGETTO `{changedFiles, files}` quando riesce — anche con `files: []`.
+  // Collassare i due rendeva una PR rebase-only indistinguibile da una `gh`
+  // muta: con l'oracolo pure fallito (`expected` assente), `complete` cadeva
+  // sul ramo `files.length === 0` e usciva TRUE. Era il falso «completo» che
+  // questo modulo esiste per impedire — e a valle sceglieva il tier `normal`
+  // saltando proprio il guard sull'incompletezza (follow-up #6206 item 3).
+  let listOk = false;
   try {
-    files = ghFn(['pr', 'view', String(number), '--repo', repo, '--json', 'files',
-      '--jq', '[.files // [] | .[].path]'], { allowFail: true }) || [];
+    const raw = ghFn(['pr', 'view', String(number), '--repo', repo, '--json', 'changedFiles,files',
+      '--jq', '{changedFiles: (.changedFiles // 0), files: [.files // [] | .[].path]}'], { allowFail: true });
+    if (raw && Array.isArray(raw.files)) { files = raw.files; listOk = true; expected = raw.changedFiles; }
   } catch { files = []; }
 
   const known = Number.isFinite(expected) && expected > 0;
@@ -78,7 +112,9 @@ export function fetchPrFiles(number, expected, ghFn, repo) {
 
   // `complete` e' una MISURA, non un default ottimista: se l'oracolo non c'e'
   // (campo assente, fetch fallito) e qualche file c'e', resta false.
-  let complete = known ? files.length >= expected : files.length === 0;
+  // `listOk` e' la precondizione: un elenco che nessuno ha mai consegnato non
+  // e' «vuoto», e' sconosciuto — e sconosciuto non e' completo.
+  let complete = listOk && (known ? files.length >= expected : files.length === 0);
   // Esattamente al cap e senza conferma dalla REST, «100» e' ambiguo per
   // costruzione: puo' essere una PR da 100 file o il troncamento di una da
   // 250. `expected` non scioglie il dubbio quando e' piu' basso del cap —
@@ -86,5 +122,24 @@ export function fetchPrFiles(number, expected, ghFn, repo) {
   // caso `files.length >= expected` direbbe «completo» su una lista tagliata.
   // Unknown non e' completo: e' il verso che tutto questo modulo difende.
   if (cappedExactly && !restConfirmed) complete = false;
-  return { files, complete };
+  return { files, complete, expected, reason: incompletenessReason({ complete, listOk, files, cappedExactly, restConfirmed }) };
+}
+
+/**
+ * Perche' l'elenco non e' completo — la distinzione che mancava a valle, dove
+ * ogni `complete:false` stampava la stessa riga e un limite invalicabile
+ * dell'API sembrava un bug ordinario (follow-up #6206 item 1).
+ *
+ * `rest-hard-limit` e' l'unico irrisolvibile da qui: sopra i 3000 file la REST
+ * non ha una pagina successiva da dare. Gli altri due sono transitori — una
+ * `gh` muta o una conferma REST mancata rientrano al giro dopo.
+ *
+ * @returns {'complete'|'list-fetch-failed'|'rest-hard-limit'|'graphql-cap'|'short-of-oracle'}
+ */
+function incompletenessReason({ complete, listOk, files, cappedExactly, restConfirmed }) {
+  if (complete) return 'complete';
+  if (!listOk) return 'list-fetch-failed';
+  if (files.length >= REST_FILES_HARD_CAP) return 'rest-hard-limit';
+  if (cappedExactly && !restConfirmed) return 'graphql-cap';
+  return 'short-of-oracle';
 }

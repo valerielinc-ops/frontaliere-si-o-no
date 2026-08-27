@@ -502,7 +502,19 @@ export const GTAG_INIT_FILENAME = 'gtag-init.js';
  */
 export const CF_BEACON_SNIPPET = `<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "1268b58e83f74d22a2136ff48e0746b7", "version": "2024.6.1"}'></script>`;
 
-export const GTAG_SNIPPET = `<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}"></script>
+/**
+ * The gtag.js library tag alone, without the `gtag-init.js` config bootstrap.
+ * Extracted out of GTAG_SNIPPET (AGENTS.md #6 — single source, no copy-paste)
+ * so a page that must call `gtag('config', ...)` itself (e.g.
+ * affiliateRedirectPlugin.ts, which gates its redirect on the pageview's
+ * `event_callback`) can load the library without ALSO getting the deferred
+ * `gtag-init.js` config call — two `config` calls for the same measurement ID
+ * each fire their own automatic page_view (`send_page_view` isn't sticky
+ * across calls), which would double-count every redirect.
+ */
+export const GTAG_LOADER_SNIPPET = `<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}"></script>`;
+
+export const GTAG_SNIPPET = `${GTAG_LOADER_SNIPPET}
  <script defer src="/assets/${GTAG_INIT_FILENAME}"></script>
  ${CF_BEACON_SNIPPET}`;
 

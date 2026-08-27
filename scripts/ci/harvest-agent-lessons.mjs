@@ -400,6 +400,36 @@ export function isAvoidableAlreadyFixed(title, labels) {
  *   Legacy boolean (`hasDeliveredPr`) or the two delivery evidences together.
  * @returns {boolean} true when the cap-death is preventable burn worth escalating.
  */
+/**
+ * Marker del commento che annota un `max-turns` con lavoro recuperabile.
+ *
+ * Stessa stringa usata da `orphan-max-turns-work.mjs` sul corpus, ed è
+ * deliberato: le due metà rilevano lo stesso fatto con codice diverso — là uno
+ * script dedicato, qui `recoverableWorkOnBranch`, che questo file ha già — e un
+ * marker comune le rende leggibili insieme senza duplicare un rilevatore
+ * (AGENTS.md #6: la logica sta in un posto, e qui c'era già).
+ */
+export const ORPHAN_NOTE_MARKER = '<!-- orphan-max-turns-work -->';
+
+/** Vero se la issue porta già l'annotazione. Pura → il dedup è testabile. */
+export function hasOrphanNote(comments) {
+  return (comments || []).some((c) => String(c?.body || '').includes(ORPHAN_NOTE_MARKER));
+}
+
+/**
+ * Il testo dell'annotazione. Pura, così il contratto (marker incluso) è verificabile
+ * senza rete.
+ * @param {{issue: number, branch: string, aheadBy: number}} r
+ */
+export function orphanNoteBody(r) {
+  return `♻️ **Lavoro orfano rilevato (auto, zero-Claude)**: la run del fixer è morta `
+    + `\`max-turns\` ma aveva già pushato \`${r.branch}\` — **${r.aheadBy}** commit avanti a `
+    + `\`main\`, senza nessuna PR. Nessuno strato del ciclo lo raccoglie: `
+    + `\`stale-pr-rescuer\`, \`recycle-stale-prs\` e \`pr-autorebase\` raccolgono PR, e questo `
+    + `branch non ne ha mai avuta una. Prima di ri-tentare da zero, verifica se il commit è `
+    + `recuperabile — la resume-logic del fixer riparte da qui.\n\n${ORPHAN_NOTE_MARKER}`;
+}
+
 export function isAvoidableMaxTurns(title, labels, delivery = false) {
   const names = Array.isArray(labels) ? labels : [];
   const t = String(title || '');
@@ -939,6 +969,36 @@ async function main() {
     for (const r of recoverableMaxTurns) {
       console.log(`   #${r.issue} → ${r.branch} (+${r.aheadBy} commit) — ${r.title}`);
     }
+    // ANNOTA, non solo stampa. Questo blocco stampava e finiva qui, e
+    // `recoverable_max_turns` in `$GITHUB_OUTPUT` non è letto da nessuno step
+    // (verificato: `lessons-harvester.yml` non lo nomina). Il risultato era una
+    // misura corretta che non raggiungeva nessuno: il 2026-08-24 sul sito
+    // c'erano **5** branch con lavoro reale — `fix/issue-6315`, `#6270`,
+    // `#6206` (3 commit), `#6147`, `#5975` — invisibili a ogni strato, perché
+    // `stale-pr-rescuer`, `recycle-stale-prs` e `pr-autorebase` raccolgono PR e
+    // un branch senza PR non ne ha mai avuta una.
+    //
+    // Il dedup sul marker non è una rifinitura: senza, questo commento
+    // tornerebbe a ogni run dell'harvester (daily), e un commento di bot alza
+    // `updatedAt` — che è esattamente ciò che affama il cooldown del
+    // parked-retry e l'age-out del drainer. Il rilevatore diventerebbe la causa
+    // del blocco che aiuta a diagnosticare.
+    let annotated = 0;
+    let already = 0;
+    for (const r of recoverableMaxTurns) {
+      let comments = [];
+      try {
+        comments = ghJson(['api', `repos/{owner}/{repo}/issues/${r.issue}/comments?per_page=100`, '--paginate']) || [];
+      } catch { continue; } // illeggibile → si rivaluta al run successivo, mai un doppio commento
+      if (hasOrphanNote(Array.isArray(comments) ? comments : [])) { already++; continue; }
+      try {
+        gh(['issue', 'comment', String(r.issue), '--body', orphanNoteBody(r)]);
+        annotated++;
+      } catch (e) {
+        console.log(`::warning::annotazione di #${r.issue} fallita: ${String(e).slice(0, 120)}`);
+      }
+    }
+    console.log(`   annotazioni — nuove=${annotated} già-annotate=${already} su ${recoverableMaxTurns.length}`);
   }
 
   if (process.env.GITHUB_OUTPUT) {

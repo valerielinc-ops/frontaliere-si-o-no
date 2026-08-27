@@ -46,6 +46,13 @@ import { describe, expect, it } from 'vitest';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import {
+  isBudgetBelowScaffoldFloor,
+  PROMPT_SCAFFOLD_FLOOR_TOKENS,
+  promptFloorSummary,
+  isPromptFloorIrreducible,
+} from '../scripts/lib/exhaustion-disposition.mjs';
+
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const SRC = readFileSync(path.resolve(HERE, '../scripts/create-article.mjs'), 'utf-8');
 
@@ -76,14 +83,33 @@ const CATCH_START = '      const budgetDettato = Number(e?.retryRequestTokenBudg
 const CATCH_END = '      if (attempt < maxAttempts) continue;';
 const catchBlock = cut(CATCH_START, CATCH_END);
 
-const applicaCatch = new Function(
+const silenzioso = { error() {}, warn() {}, log() {} };
+
+const DEPS = [
+  'isBudgetBelowScaffoldFloor', 'PROMPT_SCAFFOLD_FLOOR_TOKENS', 'promptFloorSummary',
+  'SECTION_NAME', 'attempt', 'maxAttempts', 'RUN_REPORT',
+];
+
+const applicaCatchGrezzo = new Function(
   'e',
   'lastPromptTokenBudget',
   'console',
-  `${catchBlock}\nreturn lastPromptTokenBudget;`,
+  '__d',
+  `const { ${DEPS.join(', ')} } = __d;\n${catchBlock}\nreturn lastPromptTokenBudget;`,
 );
 
-const silenzioso = { error() {}, warn() {}, log() {} };
+function applicaCatch(e, lastPromptTokenBudget, cons = silenzioso, deps = {}) {
+  return applicaCatchGrezzo(e, lastPromptTokenBudget, cons, {
+    isBudgetBelowScaffoldFloor,
+    PROMPT_SCAFFOLD_FLOOR_TOKENS,
+    promptFloorSummary,
+    SECTION_NAME: 'frontaliere',
+    attempt: 2,
+    maxAttempts: 6,
+    RUN_REPORT: { notes: [] },
+    ...deps,
+  });
+}
 
 /** Un errore della forma che callLLM produce davvero su ALL_MODELS_EXHAUSTED. */
 function erroreFlotta(budget, { count = 41, est = 9740 } = {}) {
@@ -111,10 +137,10 @@ describe('il budget dettato dalla flotta viene consumato, non ignorato', () => {
     // secondo rifiuto dichiara un cap piu' basso, e' quello che vale. Allentare
     // vanificherebbe la riduzione gia' decisa e rimetterebbe il prompt fuori.
     const dopoPrimo = applicaCatch(erroreFlotta(8000), 0, silenzioso);
-    const dopoSecondo = applicaCatch(erroreFlotta(4000), dopoPrimo, silenzioso);
-    assert.equal(dopoSecondo, 4000, 'un cap piu\' stretto deve vincere');
+    const dopoSecondo = applicaCatch(erroreFlotta(6000), dopoPrimo, silenzioso);
+    assert.equal(dopoSecondo, 6000, 'un cap piu\' stretto deve vincere');
     const dopoTerzo = applicaCatch(erroreFlotta(8000), dopoSecondo, silenzioso);
-    assert.equal(dopoTerzo, 4000, 'un cap piu\' largo NON deve allentare quello gia\' stretto');
+    assert.equal(dopoTerzo, 6000, 'un cap piu\' largo NON deve allentare quello gia\' stretto');
   });
 
   it('un errore che non porta il budget lascia le cose come stanno', () => {
@@ -130,7 +156,7 @@ describe('il budget dettato dalla flotta viene consumato, non ignorato', () => {
       const e = new Error('x');
       e.retryRequestTokenBudget = valore;
       assert.equal(
-        applicaCatch(e, 5000, silenzioso), 5000,
+        applicaCatch(e, 8000, silenzioso), 8000,
         `retryRequestTokenBudget=${String(valore)} non deve cambiare il budget`,
       );
     }
@@ -144,6 +170,40 @@ describe('il budget dettato dalla flotta viene consumato, non ignorato', () => {
     const riga = righe.find((r) => r.includes('8000'));
     assert.ok(riga, `nessuna riga nomina il budget: ${JSON.stringify(righe)}`);
     assert.ok(/41 modelli/.test(riga), 'la riga non dice quanti modelli hanno rifiutato');
+  });
+});
+
+describe('sotto il pavimento dell impalcatura il ciclo ESCE, non ritenta', () => {
+  function lancio(e, budgetAccumulato, deps = {}) {
+    try {
+      applicaCatch(e, budgetAccumulato, silenzioso, deps);
+      return null;
+    } catch (uscito) {
+      return uscito;
+    }
+  }
+
+  it('un budget SOPRA il pavimento lascia proseguire', () => {
+    assert.equal(lancio(erroreFlotta(8000), 0), null);
+    assert.equal(
+      lancio(erroreFlotta(PROMPT_SCAFFOLD_FLOOR_TOKENS), 0),
+      null,
+      'il pavimento esatto e un gradino stretto, non impossibile',
+    );
+  });
+
+  it('un budget SOTTO il pavimento rilancia l errore invece di ritentare', () => {
+    const uscito = lancio(erroreFlotta(4000), 0);
+    assert.ok(uscito, 'il ramo deve lanciare');
+    assert.equal(uscito.code, 'ALL_MODELS_EXHAUSTED');
+  });
+
+  it('l errore rilanciato porta la ragione, e isPromptFloorIrreducible la riconosce', () => {
+    const uscito = lancio(erroreFlotta(4000), 0, { attempt: 2, maxAttempts: 6, SECTION_NAME: 'svizzera' });
+    assert.equal(uscito.promptFloorReport.budget, 4000);
+    assert.equal(uscito.promptFloorReport.floor, PROMPT_SCAFFOLD_FLOOR_TOKENS);
+    assert.equal(isPromptFloorIrreducible(uscito), true);
+    assert.equal(promptFloorSummary(uscito).attemptsSkipped, 4);
   });
 });
 

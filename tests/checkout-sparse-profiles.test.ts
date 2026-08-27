@@ -136,6 +136,16 @@ describe('profili di sparse-checkout', () => {
     expect(bad).toEqual([]);
   }, TIMEOUT);
 
+  it('il job snapshot di articles-performance-snapshot.yml include packages/articles/content/ (issue #6319 — symlink invisibile)', () => {
+    // `services/seo/seo-blog-2.ts` (e i suoi fratelli) sono symlink verso
+    // `packages/articles/content/seo/...`: un job che li legge non nomina mai
+    // la stringa del bucket reale, quindi senza risoluzione degli alias
+    // l'analyzer lo escludeva -> ENOENT a runtime sotto sparse-checkout.
+    const wf = analyzeAll().find((w) => w.file === 'articles-performance-snapshot.yml');
+    const job = wf?.jobs.find((j) => j.jobId === 'snapshot');
+    expect(job?.needs).toContain('packages/articles/content/');
+  }, TIMEOUT);
+
   it('nessun workflow e in ritardo su cio che l analizzatore calcolerebbe oggi (issue #6249)', () => {
     // `verifyCheckoutProfiles()` sopra vieta solo di escludere PIU' del calcolato.
     // Non basta: un workflow appena aggiunto (o una libreria che ha smesso di

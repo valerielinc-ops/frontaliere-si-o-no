@@ -16,8 +16,9 @@ name: Growth report (Claude, weekly)
 #  - 1 run/settimana (mercoledì 06:07Z), max-turns 50;
 #  - massimo 2 proposte/run, SOLO se sorrette da una misura citata;
 #  - dedup sul titolo prima di creare; label `growth-proposal`;
-#  - mai proposte che tocchino la lista «Sempre umano» di VISION.md
-#    (espansioni di scope prodotto comprese: quelle vanno nel digest);
+#  - dal 2026-08-24 «Sempre umano» è rimossa: anche le proposte di espansione
+#    di scope prodotto diventano lavoro vero (agent:decompose-queued), non
+#    più domande per il digest;
 #  - kill-switch: disabilitare il workflow da Actions UI.
 
 on:
@@ -100,7 +101,7 @@ jobs:
             Sei il growth report settimanale di frontaliereticino.ch. Il tuo compito: leggere i dati di prodotto DISPONIBILI e proporre al massimo 2 leve di crescita misurate, instradate nel ciclo autonomo. NON implementi nulla.
 
             **Bootstrap:**
-            1. Leggi `VISION.md` PER INTERO: missione, north-star, ordine di valore, driver, «Sempre umano».
+            1. Leggi `VISION.md` PER INTERO: missione, north-star, ordine di valore, driver, registro delle decisioni prese. La lista «Sempre umano» è stata RIMOSSA il 2026-08-24: una proposta di espansione di scope (nuova verticale/dominio) ORA può diventare lavoro vero, non solo una domanda per il digest.
             2. Dati nel repo (leggi ciò che esiste, salta ciò che manca): `data/gsc-position-rolling.json` (posizioni GSC 7gg), `data/jobs-stats-history.json`, i file `data/*campaign*`/`data/*goal*` se presenti.
             3. Segnali dal ciclo: `gh issue list --state open --label seo --limit 20`; `gh issue list --state open --label campaign-goal --limit 10`; l'ultima issue "Loop health report" (`gh issue list --state open --search "Loop health report in:title" --limit 1` + ultimi 3 commenti); le famiglie ricorrenti (issue con titoli simili chiuse di recente: `gh issue list --state closed --limit 60 --json title` e conta i prefissi ripetuti).
 
@@ -121,7 +122,7 @@ jobs:
                - METRICA: prima=<n> atteso=<n> | COMANDO: <come si rimisura>
                - OSSERVATORE: <come si vede se la leva funziona (report/gate)>
                ```
-            Una proposta GRANDE (più cause/più target) riceve anche `agent:decompose-queued` (lo stadio la scorpora); una piccola e atomica riceve `agent:fix-queued` + `from-decompose`. Una proposta che richiede una decisione del proprietario (VISION «Sempre umano», spese incluse) NON diventa una issue di lavoro: aggiungila come domanda decidibile al digest `🧭 Decisioni del proprietario — digest` (commento).
+            Una proposta GRANDE (più cause/più target, incluse le proposte di scope/spesa) riceve `agent:decompose-queued` (lo stadio la scorpora, citando nel body il driver che la copre — D1-D8, nessuna categoria è più riservata dal 2026-08-24); una piccola e atomica riceve `agent:fix-queued` + `from-decompose`. Nessuna proposta finisce più nel digest per sola categoria: il digest resta per i veri vicoli ciechi tecnici (nessun driver risponde), non per il tipo di decisione.
 
             **Se i dati non sorreggono NESSUNA proposta questa settimana, va bene: dillo e basta.** Una proposta debole costa più di nessuna proposta (brucia run del fixer a valle).
 

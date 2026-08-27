@@ -21,7 +21,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import YAML from 'yaml';
-import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, generate, buildCrawlerShellBody } from '../scripts/generate-crawler-group-workflows.mjs';
+import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, generate, buildCrawlerShellBody, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble } from '../scripts/generate-crawler-group-workflows.mjs';
 
 interface Crawler {
   slug: string;
@@ -524,3 +524,298 @@ describe('push-contention class (exit 42) in generated steps', () => {
   });
 });
 
+describe('real-corpus invariant: every manifest crawler in exactly one committed crawler-group-*.yml', () => {
+  // Guards the COMMITTED OUTPUT, not just packGroups() in isolation (which
+  // the tests above already cover with synthetic data). generate() throws if
+  // its own in-memory packGroups() result mismatches its input crawlers, but
+  // that check never runs against what actually landed on disk — a
+  // regeneration that silently skipped a file write, a stale file left over
+  // from a previous manifest, or a manual edit to a crawler-group-*.yml would
+  // all pass that in-memory check while still breaking the real invariant
+  // (follow-up of #6320: a 22-file rebalance was verified only 5/5 on the new
+  // entries, not against the full committed corpus). Extracts each group's
+  // background-step crawler slugs the same way the generator names them
+  // (`id: crawler-<slug>`) and diffs the union against
+  // data/crawler-manifest.json's slugs.
+  it('data/crawler-manifest.json slugs == union of all crawler-group-*.yml background steps, each exactly once', () => {
+    const REPO_ROOT = path.resolve(import.meta.dirname, '..');
+    const WORKFLOWS_DIR = path.join(REPO_ROOT, '.github/workflows');
+    const { manifest } = JSON.parse(fs.readFileSync(path.join(REPO_ROOT, 'data/crawler-manifest.json'), 'utf8'));
+    const manifestSlugs = manifest.map((c) => c.slug);
+
+    const files = fs.readdirSync(WORKFLOWS_DIR).filter((f) => /^crawler-group-\d+\.yml$/.test(f));
+    expect(files.length).toBeGreaterThan(0);
+
+    const occurrences = new Map<string, string[]>(); // slug -> file names it was found in
+    for (const f of files) {
+      const doc = YAML.parse(fs.readFileSync(path.join(WORKFLOWS_DIR, f), 'utf8'));
+      const jobKey = Object.keys(doc.jobs)[0];
+      const steps = doc.jobs[jobKey].steps;
+      for (const step of steps) {
+        if (!step.background) continue;
+        const match = /^crawler-(.+)$/.exec(step.id ?? '');
+        expect(match, `background step in ${f} has no 'crawler-<slug>' id: ${JSON.stringify(step.id)}`).not.toBeNull();
+        const slug = match[1];
+        const list = occurrences.get(slug) ?? [];
+        list.push(f);
+        occurrences.set(slug, list);
+      }
+    }
+
+    const missing = manifestSlugs.filter((slug) => !occurrences.has(slug));
+    expect(missing, `crawlers in manifest but absent from every crawler-group-*.yml: ${missing.join(', ')}`).toEqual([]);
+
+    const duplicated = [...occurrences.entries()].filter(([, files]) => files.length > 1);
+    expect(duplicated, `crawlers present in more than one group: ${duplicated.map(([slug, files]) => `${slug} in [${files.join(', ')}]`).join('; ')}`).toEqual([]);
+
+    const manifestSlugSet = new Set(manifestSlugs);
+    const extraneous = [...occurrences.keys()].filter((slug) => !manifestSlugSet.has(slug));
+    expect(extraneous, `crawlers in group workflows but absent from data/crawler-manifest.json: ${extraneous.join(', ')}`).toEqual([]);
+  });
+});
+
+/**
+ * ---------------------------------------------------------------------------
+ * #6482 — the committed .yml ARE the generator's output, and a one-crawler
+ * change costs one file.
+ * ---------------------------------------------------------------------------
+ *
+ * The describe above proves the MEMBERSHIP SET matches the manifest. That is
+ * strictly weaker than "the committed files are what the generator produces":
+ * every hand-edit that keeps the slug list intact — a tweaked step body, a
+ * stale install flag, a dropped env var, a `name:` that no longer matches the
+ * member count — passes it. Worked example, live:
+ *
+ *   - PR #6484 removed a crawler from the manifest and hand-edited
+ *     crawler-group-10.yml to match, precisely BECAUSE re-running the
+ *     generator rewrote all 23 files.
+ *
+ * That was not detectable by the suite afterwards. These tests close the gap
+ * from both ends: the output must be reproducible byte-for-byte, and
+ * reproducing it after a single manifest edit must stay proportional to the
+ * edit — otherwise the next person hand-edits again and the drift is back.
+ */
+describe('#6482 — committed crawler-group-*.yml are byte-identical to the generator output', () => {
+  const REPO_ROOT = path.resolve(import.meta.dirname, '..');
+  const WORKFLOWS_DIR = path.join(REPO_ROOT, '.github/workflows');
+  const MANIFEST_PATH = path.join(REPO_ROOT, 'data/crawler-manifest.json');
+  const BASELINE_PATH = path.join(REPO_ROOT, 'data/crawler-workflow-duration-baseline.json');
+  const ASSIGNMENTS_PATH = path.join(REPO_ROOT, 'data/crawler-group-assignments.json');
+
+  const groupFiles = () =>
+    fs.readdirSync(WORKFLOWS_DIR).filter((f) => /^crawler-group-\d+\.yml$/.test(f)).sort();
+
+  let tmp: string;
+  beforeEach(() => {
+    tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-groups-sync-'));
+  });
+  afterEach(() => {
+    fs.rmSync(tmp, { recursive: true, force: true });
+  });
+
+  /**
+   * Regenerate into a scratch dir, never touching the repo's own
+   * .github/workflows or pin file.
+   *
+   * The scratch dir is SEEDED with the committed files first, because that is
+   * what a real run overwrites — and the generator carries each file's manual
+   * preamble across the overwrite. Generating into an empty dir would compare
+   * a first-ever generation against an incrementally-maintained tree.
+   *
+   * `write: true` matters too: the checkout-profile pass (applyProfilesToFile)
+   * reads the file back off disk, so a dry run does not produce the bytes that
+   * actually get committed.
+   */
+  function regenerate(manifestOverride?: (doc: any) => void) {
+    const outDir = path.join(tmp, 'workflows');
+    fs.mkdirSync(outDir, { recursive: true });
+    for (const f of groupFiles()) fs.copyFileSync(path.join(WORKFLOWS_DIR, f), path.join(outDir, f));
+
+    const manifestPath = path.join(tmp, 'manifest.json');
+    const assignmentsPath = path.join(tmp, 'assignments.json');
+    const doc = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
+    manifestOverride?.(doc);
+    fs.writeFileSync(manifestPath, JSON.stringify(doc));
+    fs.copyFileSync(ASSIGNMENTS_PATH, assignmentsPath);
+
+    generate({ manifestPath, baselinePath: BASELINE_PATH, assignmentsPath, outDir, write: true });
+    return { outDir, assignmentsPath };
+  }
+
+  function changedFiles(outDir: string): string[] {
+    const committed = groupFiles();
+    const produced = fs.readdirSync(outDir).filter((f) => /^crawler-group-\d+\.yml$/.test(f)).sort();
+    const changed: string[] = [];
+    for (const f of new Set([...committed, ...produced])) {
+      const a = committed.includes(f) ? fs.readFileSync(path.join(WORKFLOWS_DIR, f), 'utf8') : null;
+      const b = produced.includes(f) ? fs.readFileSync(path.join(outDir, f), 'utf8') : null;
+      if (a !== b) changed.push(f);
+    }
+    return changed.sort();
+  }
+
+  it('re-running the generator on the committed manifest+baseline+pins is a no-op', () => {
+    const { outDir } = regenerate();
+
+    const produced = fs.readdirSync(outDir).filter((f) => /^crawler-group-\d+\.yml$/.test(f)).sort();
+    expect(produced, 'the generator no longer emits the same set of group files that is committed').toEqual(groupFiles());
+
+    for (const f of produced) {
+      const committedText = fs.readFileSync(path.join(WORKFLOWS_DIR, f), 'utf8');
+      const producedText = fs.readFileSync(path.join(outDir, f), 'utf8');
+      expect(
+        producedText === committedText,
+        `${f} differs from what scripts/generate-crawler-group-workflows.mjs produces.\n` +
+          `Either it was hand-edited, or the manifest/pins changed and nobody regenerated.\n` +
+          `Fix: node scripts/generate-crawler-group-workflows.mjs (then commit BOTH the .yml and data/crawler-group-assignments.json).\n` +
+          `If the .yml is the correct state and the pins are the stale side: node scripts/generate-crawler-group-workflows.mjs --bootstrap-from-workflows`,
+      ).toBe(true);
+    }
+  });
+
+  it('every manifest crawler is pinned, exactly once', () => {
+    // NOT asserted: "no stale pin". A pin whose crawler left the manifest is
+    // inert — assignGroupsStable drops it, and the next generator run prunes it
+    // from the file. Requiring its absence would make this test red on main
+    // purely as a function of MERGE ORDER: a concurrent PR that removes a
+    // crawler (#6484 is exactly that) does not know this pin file exists.
+    // What must hold is the other direction, which is not self-healing: an
+    // unpinned crawler would get assigned to an arbitrary group on the next
+    // run, and a doubly-pinned one would run twice in one job.
+    const pins = JSON.parse(fs.readFileSync(ASSIGNMENTS_PATH, 'utf8'));
+    const { manifest } = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
+    const pinned = pins.groups.flat();
+
+    expect(pins.groupCount).toBe(pins.groups.length);
+    const dupes = pinned.filter((s: string, i: number) => pinned.indexOf(s) !== i);
+    expect(dupes, `pinned to more than one group: ${dupes.join(', ')}`).toEqual([]);
+
+    const pinnedSet = new Set(pinned);
+    const unpinned = manifest.map((c: any) => c.slug).filter((s: string) => !pinnedSet.has(s));
+    expect(
+      unpinned,
+      `in data/crawler-manifest.json but not pinned in data/crawler-group-assignments.json: ${unpinned.join(', ')}. ` +
+        'Fix: node scripts/generate-crawler-group-workflows.mjs',
+    ).toEqual([]);
+  });
+
+  it('the pins and the committed .yml describe the same assignment, in the same order', () => {
+    // The pins and the .yml are two renderings of one decision; comparing them
+    // directly is what makes a hand-edit to a .yml legible as such. Restricted
+    // to crawlers still in the manifest, for the stale-pin reason above.
+    const pins = JSON.parse(fs.readFileSync(ASSIGNMENTS_PATH, 'utf8'));
+    const { manifest } = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
+    const live = new Set(manifest.map((c: any) => c.slug));
+    const expected = pins.groups.map((g: string[]) => g.filter((s) => live.has(s)));
+    expect(extractAssignmentsFromWorkflows(WORKFLOWS_DIR)).toEqual(expected);
+  });
+
+  it('removing ONE crawler from the manifest rewrites ONE group file, not all 23', () => {
+    // The exact regression: on the global bin-pack, dropping
+    // `eoc-candidati-posizioni` moved 14 crawlers out of crawler-group-02 and
+    // 14 different ones in, and rewrote all 23 files (~5000 lines) — i.e. it
+    // silently changed which crawler runs in which window in production.
+    const { manifest } = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
+    const victim = manifest[Math.floor(manifest.length / 2)].slug;
+
+    const { outDir } = regenerate((doc) => {
+      doc.manifest = doc.manifest.filter((c: any) => c.slug !== victim);
+    });
+
+    const changed = changedFiles(outDir);
+    expect(
+      changed.length,
+      `removing '${victim}' rewrote ${changed.length} files (${changed.join(', ')}); ` +
+        'the assignment is being re-derived globally again instead of read from the pins',
+    ).toBe(1);
+  });
+
+  it('adding ONE crawler to the manifest rewrites ONE group file, not all 23', () => {
+    const { outDir } = regenerate((doc) => {
+      const proto = JSON.parse(JSON.stringify(doc.manifest[0]));
+      doc.manifest.push({ ...proto, slug: 'zz-sync-test-crawler', file: 'update-jobs-zz-sync-test-crawler.yml' });
+      doc.manifest.sort((a: any, b: any) => a.slug.localeCompare(b.slug));
+    });
+
+    const changed = changedFiles(outDir);
+    expect(
+      changed.length,
+      `adding one crawler rewrote ${changed.length} files (${changed.join(', ')})`,
+    ).toBe(1);
+  });
+
+  it('two crawlers added in either order land on the same assignment', () => {
+    // Order-independence is what makes the pin file mergeable: two agents
+    // promoting one crawler each must not produce two different corpora.
+    const add = (doc: any, slugs: string[]) => {
+      const proto = JSON.parse(JSON.stringify(doc.manifest[0]));
+      for (const slug of slugs) doc.manifest.push({ ...proto, slug, file: `update-jobs-${slug}.yml` });
+    };
+    const a = regenerate((doc) => add(doc, ['zz-alpha-crawler', 'zz-beta-crawler']));
+    const b = regenerate((doc) => add(doc, ['zz-beta-crawler', 'zz-alpha-crawler']));
+    expect(JSON.parse(fs.readFileSync(a.assignmentsPath, 'utf8')).groups).toEqual(
+      JSON.parse(fs.readFileSync(b.assignmentsPath, 'utf8')).groups,
+    );
+  });
+
+});
+
+describe('#6482 — extractManualPreamble', () => {
+  const MARKER = '# AUTO-GENERATED by scripts/generate-crawler-group-workflows.mjs — DO NOT EDIT BY HAND.\n';
+
+  it('carries over a leading comment block', () => {
+    expect(extractManualPreamble(`# note\n# more\n#\n${MARKER}name: x\n`)).toBe('# note\n# more\n#\n');
+  });
+
+  it('returns nothing when the file already starts at the marker', () => {
+    expect(extractManualPreamble(`${MARKER}name: x\n`)).toBe('');
+  });
+
+  it('refuses to carry over anything that is not purely comments — a body edit is not a preamble', () => {
+    expect(extractManualPreamble(`name: sneaky\n${MARKER}name: x\n`)).toBe('');
+  });
+
+  it('returns nothing for a file with no marker at all', () => {
+    expect(extractManualPreamble('# just a comment\nname: x\n')).toBe('');
+  });
+});
+
+describe('#6482 — assignGroupsStable', () => {
+  const median = 1_000_000;
+  const crawler = (slug: string, durationMs = median) => ({ slug, durationMs });
+
+  it('keeps a pinned crawler in its group AND at its position', () => {
+    const crawlers = [crawler('a'), crawler('b'), crawler('c')];
+    const { groups } = assignGroupsStable(crawlers, [['c', 'a'], ['b']], median);
+    expect(groups.map((g) => g.members.map((m) => m.slug))).toEqual([['c', 'a'], ['b']]);
+  });
+
+  it('drops a pin whose crawler left the manifest, without touching the other group', () => {
+    const crawlers = [crawler('a'), crawler('b')];
+    const { groups, removed } = assignGroupsStable(crawlers, [['a', 'gone'], ['b']], median);
+    expect(groups.map((g) => g.members.map((m) => m.slug))).toEqual([['a'], ['b']]);
+    expect(removed).toEqual(['gone']);
+  });
+
+  it('appends an unpinned crawler to the group with the fewest members', () => {
+    const crawlers = [crawler('a'), crawler('b'), crawler('c'), crawler('new')];
+    const { groups, added } = assignGroupsStable(crawlers, [['a', 'b'], ['c']], median);
+    expect(added).toEqual(['new']);
+    expect(groups.map((g) => g.members.map((m) => m.slug))).toEqual([['a', 'b'], ['c', 'new']]);
+  });
+
+  it('never grows a group reserved for a single duration outlier', () => {
+    // crawler-group-01 exists to hold Coop alone: everything bundled with it
+    // would pay its ~160min wall-clock for nothing.
+    const crawlers = [crawler('coop', median * 8), crawler('a'), crawler('new')];
+    const { groups } = assignGroupsStable(crawlers, [['coop'], ['a']], median);
+    expect(groups[0].members.map((m) => m.slug)).toEqual(['coop']);
+    expect(groups[1].members.map((m) => m.slug)).toEqual(['a', 'new']);
+  });
+
+  it('keeps a slug pinned twice only once — a duplicate would race two commits on one file', () => {
+    const crawlers = [crawler('a'), crawler('b')];
+    const { groups } = assignGroupsStable(crawlers, [['a', 'b'], ['a']], median);
+    expect(groups.map((g) => g.members.map((m) => m.slug))).toEqual([['a', 'b'], []]);
+  });
+});

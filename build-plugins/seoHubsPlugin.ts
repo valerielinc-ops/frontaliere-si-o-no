@@ -1777,12 +1777,21 @@ export function buildThinCantonHubHtml(args: {
 
   const homeLabel = { it: 'Home', en: 'Home', de: 'Start', fr: 'Accueil' }[locale];
 
+  const hubCrumbName = `${cantonLabel} · ${CANTON_HUB_LABELS[locale][hub]}`;
   const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: homeLabel, item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: cantonLabel, item: canonicalUrl },
+      { '@type': 'ListItem', position: 2, name: hubCrumbName, item: `${BASE_URL}${basePath}` },
+      ...(page > 1
+        ? [{
+            '@type': 'ListItem',
+            position: 3,
+            name: locale === 'de' ? `Seite ${page}` : locale === 'fr' ? `Page ${page}` : `Pagina ${page}`,
+            item: canonicalUrl,
+          }]
+        : []),
     ],
   });
 
@@ -1852,7 +1861,7 @@ export function buildThinCantonHubHtml(args: {
       <nav class="s-AxRVCF" aria-label="Breadcrumb">
         <a class="s-wfUMYx" href="/">${esc(homeLabel)}</a>
         <span> / </span>
-        <span>${esc(cantonLabel)} · ${esc(CANTON_HUB_LABELS[locale][hub])}</span>
+        <a class="s-wfUMYx" href="${esc(basePath)}">${esc(hubCrumbName)}</a>
       </nav>
       <header class="s-S1RSUf">
         <h1 class="s-e3gkVi">${esc(h1)}</h1>
@@ -2609,11 +2618,22 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
     // `xhtml:link` alternates (would 404 otherwise) — page-1 keeps the
     // full 4-locale alternate set.
     const emitNonItPageN = false;
+    // Pagination chrome (compact nav + flat ladder + <link rel="next">) is
+    // built from this value, NOT from `totalPages` above — passing the real
+    // ~400-page count to non-IT locales rendered dead `page-2..page-N`
+    // anchors on their own (never-emitted-beyond-1) page-1, which crawlers
+    // followed straight into the `JOB_BOARD_PAGINATION_PATTERN` catch-all in
+    // searchConsoleCompat.ts (redirects ANY `.../alle/page-N/` to the section
+    // root): every one of those links 301'd by construction, since the target
+    // page never existed. Capped to `1` for non-IT locales (matches what is
+    // actually emitted) removes the pagination chrome entirely there instead
+    // of advertising pages that don't exist (#6394).
+    const renderTotalPages = locale === 'it' || emitNonItPageN ? totalPages : 1;
     for (let page = 1; page <= totalPages; page++) {
       if (page > 1 && locale !== 'it' && !emitNonItPageN) continue;
       const slice = items.slice((page - 1) * pageSize, page * pageSize);
       const html = buildHtml({
-        locale, hubKey, basePath, page, totalPages,
+        locale, hubKey, basePath, page, totalPages: renderTotalPages,
         pageItems: slice, totalItems: total, hasSpaBundle, entryJs, entryCss,
       });
       const canonicalPath = paginatedPath(basePath, page);

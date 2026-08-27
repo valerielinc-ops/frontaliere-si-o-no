@@ -18,6 +18,16 @@
  */
 
 /**
+ * The cadence value that routes an alert to the immediate sender.
+ *
+ * Exported so scripts/send-company-alerts.mjs can put it in the Firestore
+ * query (`where('frequency','==',IMMEDIATE_FREQUENCY)`) without re-deriving
+ * the rule — the partition stays owned by this file, whether it is applied in
+ * memory or by the query planner.
+ */
+export const IMMEDIATE_FREQUENCY = 'immediate';
+
+/**
  * True iff this alert belongs to the IMMEDIATE CompanyAlert sender.
  *
  * Requires BOTH the employer pin and the immediate cadence. The cadence half
@@ -33,5 +43,5 @@ export function isImmediateCompanyAlert(alert) {
   if (alert.active === false) return false;
   if (alert.paused === true) return false;
   if (!alert.specificCompanyKey) return false;
-  return alert.frequency === 'immediate';
+  return alert.frequency === IMMEDIATE_FREQUENCY;
 }

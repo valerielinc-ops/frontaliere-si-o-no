@@ -140,6 +140,25 @@ jobs:
           GH_REPO: ${{ github.repository }}
         run: node scripts/ci/alert-pat-down.mjs --workflow "${{ github.workflow }}" --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
+      # Capacità `workflow` dell'identità con cui il FIXER pusha — non di quella
+      # con cui gira questo drainer, che è un'altra cosa: qui `GH_TOKEN` è
+      # `APP_TOKEN || GITHUB_PAT`, mentre `issue-fix` pusha SOLO con l'App. Per
+      # questo `PUSH_TOKEN` è esplicito: la sonda deve rispondere «il fixer può
+      # pushare quei file?», e sondare il token del chiamante risponderebbe a
+      # una domanda diversa (dettagli in probe-workflow-scope.mjs).
+      #
+      # Su QUESTO repo l'esito atteso è `false`, e non è un guasto: un token di
+      # GitHub App non espone `x-oauth-scopes`, quindi la capacità la dichiara
+      # `APP_TOKEN_WORKFLOWS`, scritto dal conio leggendo `permissions`. La
+      # sonda serve alla seconda identità possibile — il PAT con cui pusha il
+      # fixer del corpus, dove `APP_TOKEN_WORKFLOWS` non esiste e il guard
+      # bloccava fix perfettamente pushabili.
+      - name: Probe capacità workflow del token di push (zero-Claude)
+        continue-on-error: true
+        env:
+          PUSH_TOKEN: ${{ env.APP_TOKEN }}
+        run: node scripts/ci/probe-workflow-scope.mjs
+
       - name: Drain follow-up queue (deterministic, no Claude)
         env:
           # App (o PAT) OBBLIGATORIO: il `labeled` agent:fix deve triggerare

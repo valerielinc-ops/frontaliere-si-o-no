@@ -42,7 +42,15 @@ describe('canton-ti-misclassification-guard', () => {
     expect(jobs.length).toBeGreaterThan(0);
   });
 
-  it('no canton=TI job has a location that confidently resolves to a non-TI canton', () => {
+  // Iterates every job in data/jobs.json (30k+) through inferAnyCanton().
+  // Default 15s vitest budget is fine in isolation but overflows under
+  // tests.yml's deliberate independent↔dependent vitest overlap on 4 vCPUs
+  // (run 32968718774: timed out at 15000ms, never reached the assert). Same
+  // margin already given to other full-dataset scans under the identical
+  // contention (tests/all-known-job-slugs-store.test.ts,
+  // tests/orphan-enriched-store.test.ts, tests/url-max-length.test.ts,
+  // tests/job-locale-consistency.test.ts) — no assertion changed.
+  it('no canton=TI job has a location that confidently resolves to a non-TI canton', { timeout: 180_000 }, () => {
     const offenders: string[] = [];
     for (const job of jobs) {
       if (String(job.canton || '').toUpperCase() !== 'TI') continue;

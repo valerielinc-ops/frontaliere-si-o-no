@@ -24,6 +24,8 @@ import {
   generateRelatedLinks,
   generateRelatedLinksBlock,
   generateRelatedLinksStructured,
+  JOB_LISTING_ROOT,
+  SWITZERLAND_JOB_ROOT,
   type LinkLocale,
   type SeoPageType,
 } from '@/build-plugins/shared/relatedLinks';
@@ -384,6 +386,33 @@ describe('generateRelatedLinksStructured (3-cluster)', () => {
     const hubs = sections.find((s) => s.kind === 'hubs')!;
     const hrefs = hubs.links.map((l) => l.href);
     expect(hrefs).toContain('/cerca-lavoro-ticino/');
+  });
+
+  it('every page type emits a job-board hub (Ticino listing or Switzerland aggregate)', () => {
+    for (const locale of LOCALES) {
+      for (const pageType of PAGE_TYPES) {
+        const hrefs = generateRelatedLinks(locale, pageType, sampleContextFor(pageType)).map((l) => l.href);
+        if (pageType === 'health_premiums') {
+          expect(hrefs).toContain(SWITZERLAND_JOB_ROOT[locale]);
+        } else {
+          expect(hrefs).toContain(JOB_LISTING_ROOT[locale]);
+        }
+      }
+    }
+  });
+
+  it('legacyFlatLinks fallback emits JOB_LISTING_ROOT when structured output is too thin (#6500)', () => {
+    // weekly_employer_company_city with no companySlug/companySiblingCities
+    // can't build sibling/hub sections, so the 3-cluster raw total drops
+    // below MIN_LINKS_PER_PAGE and generateRelatedLinksStructured falls
+    // back to legacyFlatLinks() (single flat section). Exercise that branch
+    // directly to confirm JOB_LISTING_ROOT is still emitted on it.
+    for (const locale of LOCALES) {
+      const out = generateRelatedLinksStructured(locale, 'weekly_employer_company_city', {});
+      expect(out.sections.length).toBe(1);
+      expect(out.sections[0]!.links).toBe(out.flat);
+      expect(out.flat.some((l) => l.href === JOB_LISTING_ROOT[locale])).toBe(true);
+    }
   });
 
   it('job_market_snapshot sibling section is 4 city F5 hubs', () => {

@@ -6,15 +6,23 @@ name: PR collision detector (funnel-critical, no-Claude)
 # auto-merge-on-lgtm (P1) blocca il merge della seconda finché non è rebasata
 # oltre la prima. Tutto deterministico (scripts/ci/pr-collision-detector.mjs).
 # ZERO Claude.
+#
+# Da qui NON parte più il trigger diretto `pull_request` (rimosso per abbassare
+# il picco di job concorrenti per-PR da 4 a 1): quel caso è coperto da
+# `tests.yml`, dove lo scan su PR non è più un job `collision` a sé ma una
+# FAMIGLIA DI STEP dentro il job unico `vitest (unit + integration)`.
+#
+# Il lock vive SOLO qui: serializza i due scan del detector senza condividere
+# alcun gruppo con `tests.yml`. Questo è intenzionale: le concurrency di GitHub
+# Actions esistono a livello job/workflow, quindi condividere il gruppo con il
+# job dei test permetterebbe a uno scan repo-wide di cancellare un run di test.
+# Guard: `tests/ci-vitest-check-name.test.ts`.
+#
+# Questo file oggi fa SOLO il ricalcolo periodico (`schedule`, anche per
+# togliere la label `collision-risk` quando una collisione si risolve) più il
+# `workflow_dispatch` manuale.
 
 on:
-  pull_request:
-    # `ready_for_review`: lo scan salta le draft, quindi il momento in cui una
-    # draft torna in gioco è un evento a sé — senza questo tipo la sua prima
-    # rivalutazione arriverebbe solo al tick `*/30`, e GitHub deprioritizza i
-    # cron sotto carico. `converted_to_draft` non serve: la label appesa la
-    # toglie il ricalcolo periodico, che è già il canale della rimozione.
-    types: [opened, synchronize, reopened, ready_for_review]
   schedule:
     - cron: '*/30 * * * *' # ricalcolo periodico (anche per togliere la label)
   workflow_dispatch:
@@ -66,7 +74,6 @@ jobs:
             !/data/jobs/
             !/data/seo-404-compat/
             !/data/translation-cache/
-            !/packages/articles/content/
             !/data/all-known-job-slugs/
             !/data/orphan-enriched-data/
             !/docs/

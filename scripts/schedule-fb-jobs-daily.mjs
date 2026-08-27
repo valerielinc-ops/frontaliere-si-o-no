@@ -33,6 +33,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { facebookUrl, FACEBOOK_CAMPAIGN_JOB } from './lib/facebook-links.mjs';
 
 import {
   stripHtml,
@@ -45,6 +46,7 @@ import {
   appendLedger,
   CANTON_NAME_BY_CODE,
   EMPLOYMENT_TYPE_LABEL,
+  GRAPH_API,
 } from './lib/social-post-utils.mjs';
 
 // Re-export the channel-agnostic helpers so existing importers (e.g. the FB
@@ -56,8 +58,8 @@ export {
 
 // ── Constants ───────────────────────────────────────────────
 
-const GRAPH_API_VERSION = 'v21.0';
-const GRAPH_BASE = `https://graph.facebook.com/${GRAPH_API_VERSION}`;
+// Graph API base: one shared literal in social-post-utils.mjs (see its note).
+const GRAPH_BASE = GRAPH_API;
 
 // FB requires scheduled_publish_time ≥ 10 minutes in the future.
 const MIN_LEAD_SECONDS = 600;
@@ -641,12 +643,15 @@ export async function run(opts = {}) {
 
   let scheduled = 0;
   for (const p of payloads) {
-    await rescrapeOgAndVerify(fetchImpl, p.url, token, warn);
+    // See the articles scheduler: tag before the rescrape, keep `p.url` bare
+    // because it is the ledger's dedup key.
+    const link = facebookUrl(p.url, FACEBOOK_CAMPAIGN_JOB, p.jobId);
+    await rescrapeOgAndVerify(fetchImpl, link, token, warn);
     const apiUrl = `${GRAPH_BASE}/${pageId}/feed`;
     const buildBody = () => {
       const b = new URLSearchParams({
         message: p.message,
-        link: p.url,
+        link,
         published: 'false',
         scheduled_publish_time: String(p.scheduled_publish_time),
         access_token: token,

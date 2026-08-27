@@ -15,6 +15,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { parseSuccessFactorsPostedDate } from './ats-clients/successfactors-client.mjs';
+import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -195,6 +196,10 @@ function parseTilePage(html = '') {
       ? normalizeSpace(decodeEntities(titleM[1].replace(/<[^>]+>/g, ' ')))
       : '';
     if (!title) continue;
+    // A tile whose jobTitle-link anchor text is SF j2w page chrome (cookie
+    // consent / search widget) is not a job posting — discard it here rather
+    // than let it through with a fabricated title.
+    if (isSuccessFactorsWidgetText(title)) continue;
 
     // RMK markup: <span ...>Location</span> ... <div id="job-{id}-...-location-value">TEXT</div>
     const locM =
@@ -330,7 +335,11 @@ export async function fetchAllSonovaJobs() {
     const canton = inferSwissTargetCanton(location) || inferSwissTargetCanton(city) || HQ_CANTON;
 
     const descriptionHtml = listing.descriptionHtml || '';
-    const descriptionText = stripHtml(descriptionHtml);
+    // The detail page's jobdescription span is well-scoped, but sanitize
+    // anyway in case an SF skin ever renders the consent/search widget text
+    // inside it — this parser has no title guard on the detail page, so the
+    // description is the last line of defense on that leg.
+    const descriptionText = sanitizeSuccessFactorsField(stripHtml(descriptionHtml));
     const publicUrl = listing.url || CAREER_URL;
     // RMK apply endpoint per recon: /talentcommunity/apply/{jobId}/?locale=en_US
     const applyUrl = listing.jobReqId

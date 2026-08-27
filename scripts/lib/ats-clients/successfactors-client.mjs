@@ -80,6 +80,7 @@ import { parseDotNetJsonDate } from '../dotnet-json-date.mjs';
 import { stripScriptsAndStyles } from '../crawler-template.mjs';
 import { rescueHtmlIfChallenged, fetchHtmlViaJinaWithRetry } from '../jina-proxy.mjs';
 import { assertJsonListShapeMultiKey } from '../assert-json-list-shape.mjs';
+import { sanitizeSuccessFactorsField } from '../successfactors-jobs2web-widget-guard.mjs';
 
 /* ── Errors ────────────────────────────────────────────────────────────── */
 
@@ -393,8 +394,11 @@ export function extractSuccessFactorsJobIdentity(rawJob = {}, options = {}) {
       ''
   ).trim();
 
-  const title = normalizeSpace(
-    r.title || r.jobTitle || r.name || r.requisitionTitle || ''
+  // Single choke point for all three raw shapes (OData entity, jobs2web row,
+  // HTML-career parse), so page chrome cannot become a job title through any
+  // of them. Consumers already skip an identity with an empty title.
+  const title = sanitizeSuccessFactorsField(
+    normalizeSpace(r.title || r.jobTitle || r.name || r.requisitionTitle || ''),
   );
 
   const location = normalizeSpace(

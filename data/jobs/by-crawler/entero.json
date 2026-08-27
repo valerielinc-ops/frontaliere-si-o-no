@@ -1,6 +1,6 @@
 {
   "crawlerKey": "entero",
-  "assembledAt": "2026-08-23T09:40:57.810Z",
+  "assembledAt": "2026-08-27T00:48:16.807Z",
   "jobs": [
     {
       "id": "entero-c4ea9c79ee4e",
@@ -34,7 +34,7 @@
       "url": "https://www.entero.ch/de/karriere/psychotherapeutin-oder-psychotherapeut-80-100",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:40:54.696Z",
+      "crawledAt": "2026-08-27T00:48:14.133Z",
       "addressLocality": "Niederlenz",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://www.entero.ch/de/karriere/diplomierte-pflegefachperson-hf-60-100",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-23T09:40:54.120Z",
+      "crawledAt": "2026-08-27T00:48:13.555Z",
       "addressLocality": "Egliswil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -144,18 +144,95 @@
           "infermiera-laureata-hf-60-100-entero-egliswil"
         ],
         "en": [
-          "diplomierte-pflegefachperson-hf-60-100-entero-egliswil",
-          "graduated-nurse-hf-60-100-entero-egliswil"
+          "diplomierte-pflegefachperson-hf-60-100-entero-egliswil"
         ],
         "de": [
           "diplomierte-pflegfachperson-hf-60-100-entero-egliswil"
         ],
         "fr": [
-          "diplomierte-pflegefachperson-hf-60-100-entero-egliswil",
-          "infirmiere-diplomee-hf-60-100-entero-egliswil"
+          "diplomierte-pflegefachperson-hf-60-100-entero-egliswil"
         ]
       },
       "firstSeenAt": "2026-08-13T10:39:45.203Z",
+      "salaryMin": 88000,
+      "salaryMax": 123000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 88000,
+          "maxValue": 123000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "entero-66e54723ae3c",
+      "slug": "perpetual-night-watch-dipl-infermiera-hf-fh-60-100-entero-egliswil",
+      "slugByLocale": {
+        "it": "perpetual-night-watch-dipl-infermiera-hf-fh-60-100-entero-egliswil",
+        "en": "perpetual-night-watch-dipl-nurse-hf-fh-60-100-entero-egliswil",
+        "de": "dauernachtwache-dipl-pflegefachperson-hf-fh-60-100-entero-egliswil",
+        "fr": "veille-de-nuit-permanente-infirmiere-diplomee-hf-fh-60-100-entero-egliswil"
+      },
+      "company": "entero",
+      "companyKey": "entero",
+      "companyDomain": "entero.ch",
+      "title": "Dauernachtwache - Dipl. Pflegefachperson HF / FH (60 – 100%)",
+      "titleByLocale": {
+        "it": "Perpetual Night Watch - Dipl. Infermiera HF / FH (60 – 100%)",
+        "en": "Perpetual Night Watch - Dipl. Nurse HF / FH (60 – 100%)",
+        "de": "Dauernachtwache - Dipl. Pflegefachperson HF / FH (60 – 100%)",
+        "fr": "Veille de nuit permanente - Infirmière diplômée HF / FH (60 – 100%)"
+      },
+      "description": "Stiftung entero — Klinik und Therapiezentrum für Suchtbehandlung im Kanton Aargau. Standorte: Entzug Neuenhof, Entwöhnung Egliswil, Entwöhnung Niederlenz. Stelle: Dauernachtwache - Dipl. Pflegefachperson HF / FH (60 – 100%) (Egliswil, AG).\n\nDauernachtwache - Dipl. Pflegefachperson HF / FH (60 – 100%) Die entero Klinik mit den Standorten Niederlenz, Neuenhof und Egliswil ist eine anerkannte Fachklinik zur Behandlung von Patientinnen und Patienten mit Abhängigkeitserkrankungen. In Niederlenz führen wir unter ärztlicher Leitung qualifizierte Entwöhnungsbehandlungen durch. Mit 15 Betten sind wir eine überschaubare Einrichtung mit familiärem Charakter. Zur Verstärkung unseres Teams suchen wir eine verantwortungsbewusste und belastbare Fachperson für die Dauernachtwache - Dipl. Pflegefachperson HF / FH (60 – 100%) Arbeitsort: Entwöhnung Niederlenz Deine \n• Aufgaben Sicherstellung der nächtlichen Betreuung von Patientinnen und Patienten im psychiatrischen Setting Überwachung des Therapieverlaufs und frühzeitiges Erkennen von Interdisziplinäre Zusammenarbeit Dokumentation von nächtlichen Vorkommnissen und Übergabe an das Frühdienstteam Unterstützung bei administrativen \n• Aufgaben (Nachtprotokoll, Medikamentenausgabe, etc.) Anforderungsprofil Abgeschlossene Ausbildung als diplomierte Pflegefachfrau/diplomierter Pflegefachmann HF/FH Berufserfahrung in der Psychiatrie (Suchtbereich von Vorteil) Belastbarkeit, Zuverlässigkeit und eine wertschätzende Grundhaltung Selbständige Arbeitsweise und Fähigkeit, in ruhigen Phasen Prioritäten zu setzen Bereitschaft zur Nachtarbeit",
+      "descriptionByLocale": {
+        "it": "Stiftung entero — Klinik und Therapiezentrum für Suchtbehandlung im Kanton Aargau. Standorte: Entzug Neuenhof, Entwöhnung Egliswil, Entwöhnung Niederlenz. Stelle: Dauernachtwache - Dipl. Pflegefachperson HF / FH (60 – 100%) (Egliswil, AG).\n\nDauernachtwache - Dipl. Pflegefachperson HF / FH (60 – 100%) Die entero Klinik mit den Standorten Niederlenz, Neuenhof und Egliswil ist eine anerkannte Fachklinik zur Behandlung von Patientinnen und Patienten mit Abhängigkeitserkrankungen. In Niederlenz führen wir unter ärztlicher Leitung qualifizierte Entwöhnungsbehandlungen durch. Mit 15 Betten sind wir eine überschaubare Einrichtung mit familiärem Charakter. Zur Verstärkung unseres Teams suchen wir eine verantwortungsbewusste und belastbare Fachperson für die Dauernachtwache - Dipl. Pflegefachperson HF / FH (60 – 100%) Arbeitsort: Entwöhnung Niederlenz Deine\n• Aufgaben Sicherstellung der nächtlichen Betreuung von Patientinnen und Patienten im psychiatrischen Setting Überwachung des Therapieverlaufs und frühzeitiges Erkennen von Interdisziplinäre Zusammenarbeit Dokumentation von nächtlichen Vorkommnissen und Übergabe an das Frühdienstteam Unterstützung bei administrativen\n• Aufgaben (Nachtprotokoll, Medikamentenausgabe, etc.) Anforderungsprofil Abgeschlossene Ausbildung als diplomierte Pflegefachfrau/diplomierter Pflegefachmann HF/FH Berufserfahrung in der Psychiatrie (Suchtbereich von Vorteil) Belastbarkeit, Zuverlässigkeit und eine wertschätzende Grundhaltung Selbständige Arbeitsweise und Fähigkeit, in ruhigen Phasen Prioritäten zu setzen Bereitschaft zur Nachtarbeit",
+        "en": "Stiftung entero — Klinik und Therapiezentrum für Suchtbehandlung im Kanton Aargau. Standorte: Entzug Neuenhof, Entwöhnung Egliswil, Entwöhnung Niederlenz. Stelle: Dauernachtwache - Dipl. Pflegefachperson HF / FH (60 – 100%) (Egliswil, AG).\n\nDauernachtwache - Dipl. Pflegefachperson HF / FH (60 – 100%) Die entero Klinik mit den Standorten Niederlenz, Neuenhof und Egliswil ist eine anerkannte Fachklinik zur Behandlung von Patientinnen und Patienten mit Abhängigkeitserkrankungen. In Niederlenz führen wir unter ärztlicher Leitung qualifizierte Entwöhnungsbehandlungen durch. Mit 15 Betten sind wir eine überschaubare Einrichtung mit familiärem Charakter. Zur Verstärkung unseres Teams suchen wir eine verantwortungsbewusste und belastbare Fachperson für die Dauernachtwache - Dipl. Pflegefachperson HF / FH (60 – 100%) Arbeitsort: Entwöhnung Niederlenz Deine\n• Aufgaben Sicherstellung der nächtlichen Betreuung von Patientinnen und Patienten im psychiatrischen Setting Überwachung des Therapieverlaufs und frühzeitiges Erkennen von Interdisziplinäre Zusammenarbeit Dokumentation von nächtlichen Vorkommnissen und Übergabe an das Frühdienstteam Unterstützung bei administrativen\n• Aufgaben (Nachtprotokoll, Medikamentenausgabe, etc.) Anforderungsprofil Abgeschlossene Ausbildung als diplomierte Pflegefachfrau/diplomierter Pflegefachmann HF/FH Berufserfahrung in der Psychiatrie (Suchtbereich von Vorteil) Belastbarkeit, Zuverlässigkeit und eine wertschätzende Grundhaltung Selbständige Arbeitsweise und Fähigkeit, in ruhigen Phasen Prioritäten zu setzen Bereitschaft zur Nachtarbeit",
+        "de": "Stiftung entero — Klinik und Therapiezentrum für Suchtbehandlung im Kanton Aargau. Standorte: Entzug Neuenhof, Entwöhnung Egliswil, Entwöhnung Niederlenz. Stelle: Dauernachtwache - Dipl. Pflegefachperson HF / FH (60 – 100%) (Egliswil, AG).\n\nDauernachtwache - Dipl. Pflegefachperson HF / FH (60 – 100%) Die entero Klinik mit den Standorten Niederlenz, Neuenhof und Egliswil ist eine anerkannte Fachklinik zur Behandlung von Patientinnen und Patienten mit Abhängigkeitserkrankungen. In Niederlenz führen wir unter ärztlicher Leitung qualifizierte Entwöhnungsbehandlungen durch. Mit 15 Betten sind wir eine überschaubare Einrichtung mit familiärem Charakter. Zur Verstärkung unseres Teams suchen wir eine verantwortungsbewusste und belastbare Fachperson für die Dauernachtwache - Dipl. Pflegefachperson HF / FH (60 – 100%) Arbeitsort: Entwöhnung Niederlenz Deine \n• Aufgaben Sicherstellung der nächtlichen Betreuung von Patientinnen und Patienten im psychiatrischen Setting Überwachung des Therapieverlaufs und frühzeitiges Erkennen von Interdisziplinäre Zusammenarbeit Dokumentation von nächtlichen Vorkommnissen und Übergabe an das Frühdienstteam Unterstützung bei administrativen \n• Aufgaben (Nachtprotokoll, Medikamentenausgabe, etc.) Anforderungsprofil Abgeschlossene Ausbildung als diplomierte Pflegefachfrau/diplomierter Pflegefachmann HF/FH Berufserfahrung in der Psychiatrie (Suchtbereich von Vorteil) Belastbarkeit, Zuverlässigkeit und eine wertschätzende Grundhaltung Selbständige Arbeitsweise und Fähigkeit, in ruhigen Phasen Prioritäten zu setzen Bereitschaft zur Nachtarbeit",
+        "fr": "Stiftung entero — Klinik und Therapiezentrum für Suchtbehandlung im Kanton Aargau. Standorte: Entzug Neuenhof, Entwöhnung Egliswil, Entwöhnung Niederlenz. Stelle: Dauernachtwache - Dipl. Pflegefachperson HF / FH (60 – 100%) (Egliswil, AG).\n\nDauernachtwache - Dipl. Pflegefachperson HF / FH (60 – 100%) Die entero Klinik mit den Standorten Niederlenz, Neuenhof und Egliswil ist eine anerkannte Fachklinik zur Behandlung von Patientinnen und Patienten mit Abhängigkeitserkrankungen. In Niederlenz führen wir unter ärztlicher Leitung qualifizierte Entwöhnungsbehandlungen durch. Mit 15 Betten sind wir eine überschaubare Einrichtung mit familiärem Charakter. Zur Verstärkung unseres Teams suchen wir eine verantwortungsbewusste und belastbare Fachperson für die Dauernachtwache - Dipl. Pflegefachperson HF / FH (60 – 100%) Arbeitsort: Entwöhnung Niederlenz Deine\n• Aufgaben Sicherstellung der nächtlichen Betreuung von Patientinnen und Patienten im psychiatrischen Setting Überwachung des Therapieverlaufs und frühzeitiges Erkennen von Interdisziplinäre Zusammenarbeit Dokumentation von nächtlichen Vorkommnissen und Übergabe an das Frühdienstteam Unterstützung bei administrativen\n• Aufgaben (Nachtprotokoll, Medikamentenausgabe, etc.) Anforderungsprofil Abgeschlossene Ausbildung als diplomierte Pflegefachfrau/diplomierter Pflegefachmann HF/FH Berufserfahrung in der Psychiatrie (Suchtbereich von Vorteil) Belastbarkeit, Zuverlässigkeit und eine wertschätzende Grundhaltung Selbständige Arbeitsweise und Fähigkeit, in ruhigen Phasen Prioritäten zu setzen Bereitschaft zur Nachtarbeit"
+      },
+      "needsRetranslation": true,
+      "location": "Egliswil",
+      "canton": "AG",
+      "url": "https://www.entero.ch/de/karriere/dauernachtwache-dipl-pflegefachperson-hf-fh-60-100",
+      "source": "entero Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-27T00:48:12.970Z",
+      "addressLocality": "Egliswil",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "5704",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Suchtmedizin / Psychiatrie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-25",
+      "applyUrl": "https://www.entero.ch/de/karriere/dauernachtwache-dipl-pflegefachperson-hf-fh-60-100",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dauernachtwache-dipl-pflegefachperson-hf-fh-60-100-entero-egliswil",
+        "perpetual-night-watch-dipl-infermiera-hf-fh-60-100-entero-egliswil"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dauernachtwache-dipl-pflegefachperson-hf-fh-60-100-entero-egliswil",
+          "perpetual-night-watch-dipl-infermiera-hf-fh-60-100-entero-egliswil"
+        ],
+        "en": [
+          "dauernachtwache-dipl-pflegefachperson-hf-fh-60-100-entero-egliswil"
+        ],
+        "fr": [
+          "dauernachtwache-dipl-pflegefachperson-hf-fh-60-100-entero-egliswil"
+        ]
+      },
+      "firstSeenAt": "2026-08-25T10:02:08.952Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "baseSalary": {

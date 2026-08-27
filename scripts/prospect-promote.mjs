@@ -35,7 +35,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { loadCandidates, saveCandidates, setStatus, byStatus } from './lib/prospector/candidate-store.mjs';
-import { selectForPromotion, clampMinDays, GATE_DEFAULTS } from './lib/prospector/promotion-gate.mjs';
+import { selectForPromotion, clampMinDays, findOpenPromotionPr, GATE_DEFAULTS } from './lib/prospector/promotion-gate.mjs';
 import { loadCoverage } from './lib/prospector/coverage.mjs';
 import { ROOT, PROSPECTOR_DIR } from './lib/prospector/config.mjs';
 import { checkPrBodySections } from './lib/pr-body-sections-check.mjs';
@@ -112,6 +112,57 @@ function reconcileOpenPromotions(store) {
   return { landed, reopened };
 }
 
+/**
+ * C'e' gia' una PR di promozione aperta?
+ *
+ * Ogni promozione rigenera TUTTI i 22 `crawler-group-*.yml`, perche' aggiungere
+ * un crawler ribilancia i gruppi. Due PR aperte insieme toccano quindi le stesse
+ * 22 file dalla stessa base: conflitto garantito, e NESSUNA delle due mergia
+ * piu' — misurato su #6292 e #6297, 25 file in comune, entrambe bloccate.
+ *
+ * Il loop gira ogni notte, quindi senza una serializzazione esplicita il caso e'
+ * la norma e non l'eccezione: basta che una PR non mergi entro 24 ore perche' la
+ * successiva la blocchi, e da li' in poi non mergia piu' niente.
+ *
+ * Non si accoda alla PR esistente: quella e' gia' stata revisionata, e
+ * aggiungerci commit invaliderebbe il `## LGTM` che le serve per mergiare da
+ * sola. Saltare e' anche auto-riparante — i candidati restano `promoted`,
+ * quindi il giro dopo il merge li riprende senza che nessuno faccia niente.
+ *
+ * `--search 'sort:created-desc'` rende esplicito l'ordinamento invece di
+ * assumere il default di `gh pr list` (che coincide, ma non era verificato —
+ * follow-up #6305 item 1). Il limite e' alto apposta: con l'ordinamento reso
+ * esplicito basterebbe l'ultima manciata di PR, ma un limite basso resta un
+ * secondo modo silenzioso di perdere la PR di promozione se il backlog di PR
+ * aperte cresce oltre la finestra.
+ *
+ * `ghUnavailable: true` distingue il ramo catch (gh assente/non autorizzato)
+ * dal caso reale di PR trovata: senza il flag i due esiti stampavano lo stesso
+ * messaggio "PR gia' in volo", e un guasto auth persistente nel runner CI si
+ * mimetizzava da comportamento normale invece di segnalarsi come guasto
+ * separato (follow-up #6305 item 2).
+ *
+ * `author` nel campo `--json` alimenta il controllo owner in
+ * `findOpenPromotionPr`: senza, un branch aperto a mano con lo stesso
+ * prefisso `prospector/promote-` (es. un test manuale) bloccherebbe il loop
+ * indefinitamente, scambiato per una promozione reale (follow-up #6305 item 3).
+ *
+ * @returns {{ number: string, createdAt: string, title: string, ghUnavailable?: boolean }|null}
+ */
+function openPromotionPr() {
+  try {
+    const out = execFileSync('gh', [
+      'pr', 'list', '--state', 'open', '--search', 'sort:created-desc', '--limit', '300',
+      '--json', 'number,createdAt,title,headRefName,author',
+    ], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] }).toString();
+    return findOpenPromotionPr(JSON.parse(out));
+  } catch {
+    // `gh` assente o non autorizzato: non si puo' sapere. Meglio NON promuovere
+    // che aprire una seconda PR alla cieca e bloccarle entrambe.
+    return { number: '?', createdAt: '', title: 'stato non verificabile', ghUnavailable: true };
+  }
+}
+
 const reconciled = reconcileOpenPromotions(store);
 if (reconciled.landed) console.log(`promozioni atterrate in produzione: ${reconciled.landed}`);
 if (reconciled.reopened) console.log(`ricandidati dopo PR chiuse senza merge: ${reconciled.reopened}`);
@@ -122,6 +173,34 @@ const { promotable, blocked, capped } = selectForPromotion(
   { existingKeys: coverage.keys },
   { maxPerRun, minDistinctDays: minDays, minRuns: Math.min(GATE_DEFAULTS.minRuns, Math.max(1, minDays)) },
 );
+
+const inFlight = openPromotionPr();
+if (inFlight) {
+  console.log('═══ Prospector · PROMOTE ═══');
+  if (inFlight.ghUnavailable) {
+    // Guasto separato dal caso "PR trovata": non sappiamo se una promozione e'
+    // gia' in volo, quindi saltiamo per sicurezza — ma un problema di
+    // auth/token persistente nel runner CI deve segnalarsi come tale, non
+    // mimetizzarsi da normale serializzazione.
+    console.log('\n⚠️  gh non risponde (assente o non autorizzato): impossibile verificare');
+    console.log('se una PR di promozione e\' gia\' aperta. Salto la promozione per sicurezza.');
+    console.log('Questo NON e\' il caso normale di "PR gia\' in volo": se persiste su piu\' run,');
+    console.log('e\' un guasto di auth/token del runner CI da investigare separatamente.');
+    process.exit(0);
+  }
+  const ageH = inFlight.createdAt
+    ? Math.round((Date.now() - Date.parse(inFlight.createdAt)) / 3600000)
+    : null;
+  console.log(`\nUna PR di promozione e' gia' aperta: #${inFlight.number}${ageH !== null ? ` (da ${ageH}h)` : ''}`);
+  console.log(`  ${inFlight.title}`);
+  console.log('\nNon ne apro una seconda: ogni promozione rigenera tutti i gruppi di');
+  console.log('workflow, quindi due PR aperte si bloccherebbero a vicenda sugli stessi file.');
+  console.log('I candidati restano in coda e il giro dopo il merge li riprende da solo.');
+  if (ageH !== null && ageH > 48) {
+    console.log(`\n⚠️  Quella PR e' ferma da ${ageH}h: finche' non mergia, il loop non promuove piu' nessuno.`);
+  }
+  process.exit(0);
+}
 
 console.log('═══ Prospector · PROMOTE ═══');
 console.log(`candidati graduati "promoted": ${byStatus(store, 'promoted').length}`);
@@ -218,6 +297,50 @@ if (!shipped.length) {
   process.exit(1);
 }
 
+// ── Il registro pubblico delle aziende, rigenerato QUI e non altrove ──────
+//
+// `data/crawler-companies-auto.json` alimenta la directory aziende del sito, e
+// si costruisce leggendo `scripts/update-*-jobs.mjs`. Cioe': e' una funzione
+// dell'insieme dei crawler in produzione, e cambia esattamente quando cambia
+// quell'insieme — che e' qui, in questo stadio, e in nessun altro punto del
+// repo.
+//
+// Non era agganciato a niente. `npm run companies:generate` esisteva e nessuno
+// lo chiamava: misurato sulla issue #6481, il file era fermo a 213 voci contro
+// 614 runner reali, cioe' 401 datori con un crawler dedicato che non comparivano
+// nella directory pubblica. La PR #6527 ha corretto la QUALITA' di cio' che il
+// generatore produce quando gira; questa riga e' cio' che lo fa girare.
+//
+// Sta DOPO il guard `!shipped.length` apposta: un giro che non promuove nessuno
+// non ha cambiato l'insieme dei crawler, quindi non ha niente da rigenerare — e
+// un file riscritto identico e' comunque un commit vuoto in piu' da spiegare.
+// Sta PRIMA del blocco `git add`/`commit`/`gh pr create` piu' sotto, cosi' il
+// diff rigenerato viaggia nello stesso commit dei runner che l'hanno causato,
+// invece di lasciare `main` incoerente fino al prossimo intervento a mano.
+//
+// Non e' agganciato a `audit-duplicate-crawlers.yml`: quello e' un audit
+// giornaliero in sola lettura, e un dataset che deve stare sincrono con OGNI
+// promozione non puo' dipendere da un ciclo di 24 ore.
+let companiesRegenerated = false;
+try {
+  execFileSync('node', ['scripts/generate-crawler-companies.mjs'], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] });
+  companiesRegenerated = true;
+  console.log('\nregistro aziende rigenerato (data/crawler-companies-auto.json)');
+} catch (err) {
+  // NON si interrompe la promozione: i crawler scaffoldati sono lavoro valido e
+  // gia' sul disco, e buttarli via perche' un file di dati derivato non si e'
+  // rigenerato sarebbe sproporzionato — il registro si riallinea al giro dopo.
+  //
+  // Ma il file NON entra nel commit (vedi `paths`), e questo e' l'unico motivo
+  // per cui il ramo e' sicuro: la scrittura del generatore e' atomica
+  // (tmp + rename, vedi `generate-crawler-companies.mjs`), quindi «fallita» qui
+  // significa davvero «il file precedente e' intatto», non «meta' file sul
+  // disco». Senza quella garanzia questo `catch` committerebbe un JSON troncato
+  // dentro una PR che nessuno legge.
+  console.log(`\n⚠️ rigenerazione del registro aziende fallita: ${String(err.stderr || err.message).slice(0, 200)}`);
+  console.log('   I crawler entrano comunque; la directory aziende resta alla versione precedente.');
+}
+
 // Rigenerare i gruppi tocca `.github/workflows/**`, e GitHub rifiuta per
 // progetto che una App scriva li' senza il permesso `workflows`. Il permesso
 // non si deduce dalla PRESENZA del token: il conio riesce lo stesso quando
@@ -244,7 +367,16 @@ if (canWriteWorkflows) {
   console.log('   I crawler entrano comunque; restano da schedulare.');
 }
 
-saveCandidates(store);
+// NIENTE `saveCandidates` qui.
+//
+// Dal fix #6258 il branch non cambia piu' lo stato dei candidati, quindi questa
+// scrittura produceva un unico diff: il timestamp `updatedAt` di primo livello.
+// Main lo riscrive a OGNI giro del loop, quindi ogni PR di promozione arrivava
+// al merge con un conflitto garantito su quella riga — misurato su #6292 e
+// #6297, unico file in conflitto, una riga, zero informazione.
+//
+// Lo stato lo scrive solo main, dopo l'apertura della PR. E' la stessa
+// disciplina del fix #6258, portata fino in fondo.
 
 /* ── The PR, for the repo's own autonomous cycle to review and merge ──── */
 if (!openPr) {
@@ -285,12 +417,23 @@ const relaxedNote = relaxed
   ? `\n- **in questa PR** — ⚠️ **giro di verifica a gate ridotto**: stabilita' richiesta ${minDays} giorno/i invece di ${GATE_DEFAULTS.minDistinctDays}. Serviva a eseguire il percorso di promozione senza attendere il secondo giorno; tutte le altre condizioni del gate sono quelle normali. Il cron non usa mai questa leva.`
   : '';
 
+// Il registro aziende e' un file di dati PUBBLICO che questo diff modifica: se
+// il body non lo nomina, e' esattamente il gap di #6301/#6279 — un file
+// funnel-critical nel diff e mai citato nel corpo. Il ramo negativo non e'
+// silenzio: dice che il file resta alla versione precedente, cosi' chi legge la
+// PR sa che la directory aziende e' indietro di questi crawler.
+const companiesNote = companiesRegenerated
+  ? `
+- **in questa PR** — \`data/crawler-companies-auto.json\` rigenerato nello stesso commit dei runner: la directory aziende del sito resta allineata all'insieme dei crawler realmente in produzione, invece di dipendere da un \`npm run companies:generate\` lanciato a mano (era fermo a 213 voci su 614 runner, issue #6481).`
+  : `
+- **blocked: la rigenerazione del registro aziende e' fallita in questo giro** — \`data/crawler-companies-auto.json\` resta alla versione precedente e non copre questi crawler; la scrittura del generatore e' atomica, quindi il file NON e' troncato. La causa e' nel log dello stadio PROMOTE e \`npm run companies:generate\` la riproduce.`;
+
 const body = `## Implementato
 
-- **in questa PR** — ${shipped.length} crawler promossi dal prospector, per **${totalVacancies} annunci** di datori che non coprivamo. Ognuno ha superato il gate di \`scripts/lib/prospector/promotion-gate.mjs\`: qualita' >= ${GATE_DEFAULTS.minScore} contro la pagina ufficiale del datore, su almeno ${GATE_DEFAULTS.minSampled} pagine di dettaglio, con **${GATE_DEFAULTS.minRuns} validazioni buone su ${GATE_DEFAULTS.minDistinctDays} giorni distinti** — la condizione che una singola run, per quanto buona, non puo' soddisfare.
+- **in questa PR** — ${shipped.length} crawler promossi dal prospector, per **${totalVacancies} annunci** di datori che non coprivamo. Ognuno ha superato il gate di \`scripts/lib/prospector/promotion-gate.mjs\`: qualita' >= ${GATE_DEFAULTS.minScore} contro la pagina ufficiale del datore, su almeno ${GATE_DEFAULTS.minSampled} pagine di dettaglio, con **${GATE_DEFAULTS.minRuns} validazioni buone su ${GATE_DEFAULTS.minDistinctDays} giorni distinti** — la condizione che una singola run, per quanto buona, non puo' soddisfare — e con almeno il ${Math.round(GATE_DEFAULTS.minJobLike * 100)}% delle pagine di dettaglio che **legge come un annuncio di lavoro** e non come contenuto promozionale o editoriale.
 ${bullets}${relaxedNote}
 - **in questa PR** — voci nel manifest${groupsRegenerated ? ' e gruppi di workflow rigenerati, quindi i crawler entrano nella schedulazione esistente' : ''}.${groupsRegenerated ? '' : `
-- **blocked: manca il permesso \`workflows\` sul token** — i gruppi non sono stati rigenerati, quindi questi crawler esistono ma non sono ancora schedulati. Basta un \`node scripts/generate-crawler-group-workflows.mjs\` da un'identita' che possa scrivere in \`.github/workflows/\`.`}
+- **blocked: manca il permesso \`workflows\` sul token** — i gruppi non sono stati rigenerati, quindi questi crawler esistono ma non sono ancora schedulati. Basta un \`node scripts/generate-crawler-group-workflows.mjs\` da un'identita' che possa scrivere in \`.github/workflows/\`.`}${companiesNote}
 
 ## Non implementato (ancora)
 
@@ -299,10 +442,27 @@ ${bullets}${relaxedNote}
 - **blocked: serve una run successiva** — ${blocked.length} candidati graduati non hanno superato il gate; le cause sono nel log dello stadio PROMOTE e la piu' frequente e' la stabilita' su due giorni, che si risolve da sola al giro dopo.
 `;
 
+// Il body sopra non cita mai i file `.github/workflows/**` che
+// `generate-crawler-group-workflows.mjs` puo' aver toccato quando
+// `groupsRegenerated` (solo la frase generica "gruppi di workflow rigenerati") —
+// stesso gap di #6301/#6279: un file funnel-critical modificato dal diff e mai
+// nominato nel body. `diffPaths` alimenta quel check qui, non solo nel gate CI.
+function changedWorkflowPaths() {
+  try {
+    const modified = execFileSync('git', ['diff', '--name-only', '--', '.github/workflows'], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] }).toString();
+    const untracked = execFileSync('git', ['ls-files', '--others', '--exclude-standard', '--', '.github/workflows'], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] }).toString();
+    return [...modified.split('\n'), ...untracked.split('\n')].map((l) => l.trim()).filter(Boolean);
+  } catch {
+    return [];
+  }
+}
+
 // Autocontrollo del corpo PRIMA di aprire la PR. Senza nessuno che guarda, un
 // body che non soddisfa il contratto del repo non e' un fastidio: la PR resta
 // ferma per sempre, e il loop continua a produrne altre uguali.
-const contract = checkPrBodySections(body);
+const contract = checkPrBodySections(body, {
+  diffPaths: groupsRegenerated ? changedWorkflowPaths() : [],
+});
 if (!contract.ok) {
   console.error('\n❌ il corpo della PR non soddisfa il contratto del repo, non apro nulla:');
   for (const v of contract.violations) console.error(`   - [${v.type}] ${v.message}`);
@@ -316,8 +476,20 @@ fs.writeFileSync(bodyFile, body);
 const git = (...a) => execFileSync('git', a, { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] }).toString();
 try {
   git('checkout', '-b', branch);
-  const paths = ['scripts', 'tests', 'data/crawler-manifest.json', 'data/prospector'];
-  if (groupsRegenerated) paths.push('.github/workflows');
+  // `data/prospector` NON entra nel commit del branch: la coda e le spec sono
+  // gia' su main (le committa lo stadio precedente), e includerle qui aggiunge
+  // solo righe che main muove sotto i piedi della PR.
+  const paths = ['scripts', 'tests', 'data/crawler-manifest.json'];
+  // Il registro aziende entra solo se la rigenerazione e' RIUSCITA. Vedi il
+  // `catch` piu' sopra: un fallimento deve lasciare nel diff il file vecchio
+  // intatto, non trascinarcene dentro uno a meta'.
+  if (companiesRegenerated) paths.push('data/crawler-companies-auto.json');
+  // `data/crawler-group-assignments.json` va nello STESSO commit dei .yml, non
+  // e' opzionale: dal #6482 e' li' che vive l'assegnazione crawler->gruppo, e i
+  // .yml ne sono la resa. Committare i .yml senza i pin lascia il nuovo crawler
+  // "mai visto" al giro dopo, che lo riassegna a un gruppo qualunque — cioe'
+  // esattamente il rimescolamento che i pin esistono per impedire.
+  if (groupsRegenerated) paths.push('.github/workflows', 'data/crawler-group-assignments.json');
   git('add', ...paths);
   git('commit', '-m', `prospector: promuove ${shipped.length} crawler validati (${totalVacancies} annunci)`);
   git('push', '-u', 'origin', branch);

@@ -126,6 +126,18 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   { file: 'tests/article-frontaliere-density.test.ts', roots: ['services/locales/'] },
   { file: 'tests/article-hub-archive-assets.test.ts', roots: ['packages/articles/'] },
   { file: 'tests/article-hub-topics-nav.test.ts', roots: ['services/locales/'] },
+  // Not pipeline-live: `article-reviewed-by.json` is a hand-edited map that
+  // no script/crawler ever writes (verified: `rg -n "article-reviewed-by"`
+  // outside this test hits only the loader's own doc comment and
+  // `ogPagesPlugin.ts`'s `readFileSync` call — no writer anywhere). The
+  // segment heuristic still fires because it generalizes any
+  // `'packages','articles',...` sequence to the `packages/articles/` root
+  // (see LIVE_DATA_SEGMENTS comment), which also covers this unrelated
+  // subtree. The file's first test asserts the REAL checked-in map starts at
+  // `{}` (issue #6337: no article may claim a fabricated review signal) —
+  // that guarantee is about the shipped file itself, so pinning to
+  // `tests/__fixtures__/` would test a copy instead of the guarantee.
+  { file: 'tests/article-review-overrides.test.ts', roots: ['packages/articles/'] },
   { file: 'tests/article-slug-prompt-leak-guard.test.ts', roots: ['packages/articles/content/'] },
   { file: 'tests/articles-sync-pin.test.ts', roots: ['packages/articles/content/'] },
   { file: 'tests/blog-headline-validation.test.ts', roots: ['services/locales/'] },
@@ -150,10 +162,33 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   { file: 'tests/slug-active-loss-regression-5229.test.ts', roots: ['data/jobs/'] },
   { file: 'tests/slug-leak-allowlist-liveness.test.ts', roots: ['packages/articles/content/'] },
   { file: 'tests/static-pages-blog-skip.test.ts', roots: ['packages/articles/'] },
+  // Corpus genuinely the subject, not a lazy read: the 'description-field
+  // corpus sweep (issue #6393)' describe block (read in full — the two `it`s
+  // at the file's tail) iterates `data/jobs/by-crawler/*.json` to assert
+  // `sanitizeSuccessFactorsField` has never wiped a live description to ''
+  // and no live description still contains widget chrome. That's the same
+  // shape as `crawler-regression-quality-guards.test.ts`'s "CORPUS INVARIANT"
+  // test above (also `data/jobs/by-crawler/`, also already in this list): a
+  // regression anchor on the PUBLISHED corpus, where a red from new data is
+  // the intended signal, not noise. Pinning it to a fixture would stop it
+  // from ever catching a real production wipe.
+  { file: 'tests/successfactors-jobs2web-widget-guard.test.ts', roots: ['data/jobs/'] },
   { file: 'tests/topic-cluster-hubs.test.ts', roots: ['services/locales/'] },
   { file: 'tests/weekly-employers.test.ts', roots: ['services/locales/'] },
   { file: 'tests/whats-new-localization-guard.test.ts', roots: ['services/locales/'] },
 ]);
+
+/** Test esclusi dal gate PR perché leggono il corpus riscritto dai crawler. */
+const CI_LIVE_DATA_META_TESTS = new Set([
+  'tests/corpus-wide-test-partition.test.ts',
+]);
+
+export function listLiveDataTestsForCi() {
+  return KNOWN_LIVE_DATA_TESTS
+    .map(({ file }) => file)
+    .filter((file) => !CI_LIVE_DATA_META_TESTS.has(file))
+    .sort();
+}
 
 /**
  * @param {string} [root]

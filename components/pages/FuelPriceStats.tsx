@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { ChevronDown, ChevronRight, ChevronUp, ExternalLink, Fuel, Loader2, MapPin, Route, Search, TrendingDown, TrendingUp } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
+import { haversineKm } from '../../scripts/lib/haversine.mjs';
 import { buildSwissStationSlug, fetchFuelPrices, type FuelPricesDataset, type FuelStationItaly, type FuelStationSwitzerland, type MunicipalityFuelRow, zoneFromAddress } from '@/services/fuelPricesService';
 import { cdnDataUrl } from '@/services/cdnDataBase';
 import { cdnImageUrl } from '@/services/cdnImageBase';
@@ -162,18 +163,8 @@ function municipalityLabel(row: MunicipalityFuelRow) {
  return `${row.municipality} (${row.province})`;
 }
 
-function haversineKm(lat1: number, lng1: number, lat2: number, lng2: number) {
- const toRad = (value: number) => (value * Math.PI) / 180;
- const earthRadiusKm = 6371;
- const dLat = toRad(lat2 - lat1);
- const dLng = toRad(lng2 - lng1);
- const a =
- Math.sin(dLat / 2) * Math.sin(dLat / 2) +
- Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
- Math.sin(dLng / 2) * Math.sin(dLng / 2);
- const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
- return earthRadiusKm * c;
-}
+// haversineKm: ora dal modulo condiviso scripts/lib/haversine.mjs
+// (era una delle sei copie byte-equivalenti della stessa formula, #5002).
 
 function roundTripTravelCost(distanceKm: number, costPerKmEur: number) {
  return distanceKm * 2 * costPerKmEur;

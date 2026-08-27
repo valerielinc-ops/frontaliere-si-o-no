@@ -16,6 +16,7 @@
  */
 
 import fs from 'node:fs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { freeTranslateWithRetry, logCascadeSummary } from './lib/free-translate.mjs';
@@ -47,7 +48,7 @@ const SLICE = (() => {
 function readJson(p) { return JSON.parse(fs.readFileSync(p, 'utf-8')); }
 
 async function main() {
-  let files = fs.readdirSync(BY_CRAWLER_DIR).filter(f => f.endsWith('.json')).sort();
+  let files = listSliceFileNames(BY_CRAWLER_DIR);
   if (SLICE) {
     files = files.filter(f => f.replace(/\.json$/, '') === SLICE);
     if (files.length === 0) {

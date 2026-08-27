@@ -1859,8 +1859,19 @@ function saveTranslationCache(companySlug, cache) {
   fs.writeFileSync(filePath, `${JSON.stringify(cache, null, 2)}\n`, 'utf-8');
 }
 
+/**
+ * Nome del file di cache traduzioni quando il chiamante non passa `companySlug`.
+ *
+ * Si parte da `companyKey`, non da `company`: la chiave e' UNIFORME su tutto lo
+ * slice (misurato: 609/609 slice hanno una sola `companyKey`), mentre il nome
+ * non lo e' — su uno slice di gruppo (`coop-ticino` copre Fust/Jumbo/
+ * Interdiscount) `jobs[0].company` e' il marchio del primo record, e due
+ * crawler diversi finivano a condividere lo stesso file di cache. Non e' un
+ * difetto di correttezza — le entry sono validate per hash — ma e' una
+ * partizione instabile che cambia nome a ogni riordino del crawl.
+ */
 function deriveCompanySlug(jobs) {
-  const company = (jobs[0]?.company || 'unknown').trim();
+  const company = (jobs[0]?.companyKey || jobs[0]?.company || 'unknown').trim();
   return company.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 }
 
@@ -4261,7 +4272,23 @@ export function validateDedicatedLocaleCoverage({
       String(job?.titleByLocale?.[sourceLang] || baseTitle),
       sourceLang,
     );
-    if (typeof isTrustedDomain === 'function' && !isTrustedDomain(String(job?.url || ''))) {
+    // A job carrying an active crawlerMissStreak (mergePreserveLocaleData's
+    // grace-period retention, dedicated-crawler-common.mjs) was NOT matched
+    // by this run's fresh fetch — it's a carry-over already scheduled to be
+    // dropped after GRACE_PERIOD_MAX_MISSES, not new/verified data. Hard-
+    // failing on its (possibly now-untrusted) URL creates a deadlock for any
+    // crawler that migrates its source ATS to a new domain: the commit step
+    // only runs on crawler_exit==0, so a validation failure here means the
+    // miss streak painted onto `job` in-memory this run is never persisted,
+    // the stale record never ages out, and the crawler fails forever on the
+    // exact same retained entry (observed: cham-swiss-properties after its
+    // jobs.ch → Dualoo portal migration, issue #6598).
+    const isGracePeriodRetained = Number(job?.crawlerMissStreak) > 0;
+    if (
+      !isGracePeriodRetained
+      && typeof isTrustedDomain === 'function'
+      && !isTrustedDomain(String(job?.url || ''))
+    ) {
       blockingIssues.push({
         slug: job.slug,
         locale: 'all',
@@ -4522,13 +4549,28 @@ export function validateDedicatedLocaleCoverage({
     // Tolerate translation-related issues up to the base tolerance (FRO-317) —
     // applies even when AI infrastructure looks healthy, e.g. a transient
     // single-model 429 that left a couple of jobs untranslated.
+    //
+    // The tolerance itself (both the ratio floor above and an explicit
+    // maxToleratedMissingDescriptions) is dimensioned per-JOB ("a single
+    // untranslated job", FRO-628 comment above) — but until now it was
+    // compared against the raw per-LOCALE issue count. A crawler with N
+    // non-source locales turns ONE untranslated job into N blocking issues
+    // (title+description across it/de/fr, say), so the same "one bad job"
+    // scenario the floor was built to absorb silently stopped being
+    // absorbed as soon as a crawler had more than 2 locales — hard-failing
+    // (and discarding the whole successfully-crawled batch) on exactly the
+    // single-job gap this tolerance exists for (#6270: grace-la-margna, 4
+    // locales, ratio floor 2, one untranslated job → 3 issues > 2, stale
+    // 11+ days). Count distinct affected jobs instead, matching the
+    // per-job intent of both tolerance sources.
     if (blockingIssues.length > 0 && effectiveTolerance > 0) {
       const translationIssues = blockingIssues.filter((i) => TRANSLATION_ISSUES.has(i.reason));
       const otherIssues = blockingIssues.filter((i) => !TRANSLATION_ISSUES.has(i.reason));
-      if (translationIssues.length <= effectiveTolerance && otherIssues.length === 0) {
+      const affectedJobCount = new Set(translationIssues.map((i) => i.slug)).size;
+      if (affectedJobCount <= effectiveTolerance && otherIssues.length === 0) {
         const sample = translationIssues.slice(0, 10).map((i) => `${i.slug} [${i.locale}] ${i.reason}`).join(', ');
         const suffix = translationIssues.length > 10 ? ` ... and ${translationIssues.length - 10} more` : '';
-        console.warn(`⚠️  Tolerating ${translationIssues.length} translation issue(s) (tolerance ${effectiveTolerance}): ${sample}${suffix}`);
+        console.warn(`⚠️  Tolerating ${translationIssues.length} translation issue(s) across ${affectedJobCount} job(s) (tolerance ${effectiveTolerance} jobs): ${sample}${suffix}`);
         softIssues.push(...translationIssues);
         blockingIssues.length = 0;
         // FRO-628 visibility: this specific commit-would-succeed path only

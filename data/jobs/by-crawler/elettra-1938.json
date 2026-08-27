@@ -1,15 +1,15 @@
 {
   "crawlerKey": "elettra-1938",
-  "assembledAt": "2026-08-12T22:23:34.260Z",
+  "assembledAt": "2026-08-27T00:50:01.604Z",
   "jobs": [
     {
-      "id": "elettra-1938-3997a05e1bc1",
+      "id": "elettra-1938-73b81e3ccbae",
       "slug": "customer-quality-engineer-elettra-1938-ch",
       "slugByLocale": {
         "it": "customer-quality-engineer-elettra-1938-ch",
         "en": "customer-quality-engineer-elettra-1938-ch",
-        "de": "customer-qualitat-ingenieur-elettra-1938-stabio-svizzera",
-        "fr": "customer-qualite-ingenieur-elettra-1938-stabio-svizzera"
+        "de": "customer-quality-engineer-elettra-1938-ch",
+        "fr": "customer-quality-engineer-elettra-1938-ch"
       },
       "company": "Elettra 1938",
       "companyKey": "elettra-1938",
@@ -17,28 +17,28 @@
       "title": "CUSTOMER QUALITY ENGINEER",
       "titleByLocale": {
         "it": "CUSTOMER QUALITY Ingegnere",
-        "en": "CUSTOMER QUALITY ENGINE",
+        "en": "CUSTOMER QUALITY ENGINEER",
         "de": "CUSTOMER Qualität Ingenieur",
         "fr": "CUSTOMER Qualité Ingénieur"
       },
       "description": "Se con il tuo lavoro vuoi contribuire a rendere il mondo più sostenibile grazie ai prodotti che realizziamo, questa è l'azienda che fa per te! Per la nostra sede di Stabio siamo alla ricerca di un CUSTOMER QUALITY ENGINEER che si occuperà delle...",
       "descriptionByLocale": {
         "it": "Se con il tuo lavoro vuoi contribuire a rendere il mondo più sostenibile grazie ai prodotti che realizziamo, questa è l'azienda che fa per te! Per la nostra sede di Stabio siamo alla ricerca di un CUSTOMER QUALITY ENGINEER che si occuperà delle...",
-        "en": "If you want to help make the world more sustainable with the products we make, this is the company for you! For our headquarters in Stabio we are looking for a CUSTOMER QUALITY ENGINEER that will take care of the...",
-        "de": "Wenn Sie mit unseren Produkten dazu beitragen wollen, die Welt nachhaltiger zu gestalten, ist dies das richtige Unternehmen für Sie! Für unseren Hauptsitz in Stabio suchen wir einen KUNDENQUALITÄTSMOTOR, der sich um die...",
-        "fr": "Si vous voulez aider à rendre le monde plus durable avec les produits que nous fabriquons, c'est l'entreprise pour vous! Pour notre siège social à Stabio, nous recherchons un ENGINEER DE QUALITÉ CLIENTE qui s'occupera..."
+        "en": "Se con il tuo lavoro vuoi contribuire a rendere il mondo più sostenibile grazie ai prodotti che realizziamo, questa è l'azienda che fa per te! Per la nostra sede di Stabio siamo alla ricerca di un CUSTOMER QUALITY ENGINEER che si occuperà delle...",
+        "de": "Se con il tuo lavoro vuoi contribuire a rendere il mondo più sostenibile grazie ai prodotti che realizziamo, questa è l'azienda che fa per te! Per la nostra sede di Stabio siamo alla ricerca di un CUSTOMER QUALITY ENGINEER che si occuperà delle...",
+        "fr": "Se con il tuo lavoro vuoi contribuire a rendere il mondo più sostenibile grazie ai prodotti che realizziamo, questa è l'azienda che fa per te! Per la nostra sede di Stabio siamo alla ricerca di un CUSTOMER QUALITY ENGINEER che si occuperà delle..."
       },
       "location": "Sede Stabio Svizzera",
       "canton": "TI",
-      "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/customer-quality-engineer-717575/it/",
+      "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/customer-quality-engineer-724414/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-12T22:23:32.476Z",
+      "crawledAt": "2026-08-27T00:49:57.238Z",
       "addressLocality": "Sede Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "6850",
+      "postalCode": "6855",
       "category": "Ingegneria",
       "contract": "full-time",
       "employmentType": "OTHER",
@@ -46,23 +46,26 @@
       "sector": "Impiantistica elettrica / Automazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-14",
-      "applyUrl": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/customer-quality-engineer-717575/it/",
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/customer-quality-engineer-724414/it/",
       "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-14T11:22:37.214Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "requirementsByLocale": {
+        "it": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 58000,
+      "salaryMax": 88000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 58000,
+          "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-27T00:49:57.238Z"
     }
   ]
 }

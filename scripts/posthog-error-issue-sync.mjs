@@ -15,7 +15,7 @@
  */
 import { pathToFileURL } from 'node:url';
 import { sanitizeTrackedDiagnosticValue } from './lib/sanitizeTrackedDiagnostics.mjs';
-import { isIssueDenied, syncErrorIssues } from './lib/error-issue-sync.mjs';
+import { extractStackFrameOrigins, isIssueDenied, syncErrorIssues } from './lib/error-issue-sync.mjs';
 import { abstainIfSourceDead } from './lib/source-liveness.mjs';
 
 export function truncate(value, n) {
@@ -69,7 +69,8 @@ export async function main() {
       properties.$exception_types.1 AS type,
       count() AS n,
       count(DISTINCT $session_id) AS sessions,
-      any(properties.$current_url) AS sample_url
+      any(properties.$current_url) AS sample_url,
+      any(properties.$exception_list) AS sample_exception_list
     FROM events
     WHERE event = '$exception'
       AND timestamp > now() - INTERVAL ${WINDOW_DAYS} DAY
@@ -88,8 +89,8 @@ export async function main() {
   }
 
   const entries = rows
-    .map(([msg, type, n, sessions, sampleUrl]) => ({
-      message: msg, type: type || 'exception', count: n, sessions, sampleUrl,
+    .map(([msg, type, n, sessions, sampleUrl, sampleExceptionList]) => ({
+      message: msg, type: type || 'exception', count: n, sessions, sampleUrl, sampleExceptionList,
     }))
     .filter((e) => e.count >= MIN_COUNT)
     .filter((e) => !isIssueDenied(e.message));
@@ -106,14 +107,21 @@ export async function main() {
     source: `PostHog Error Monitor — last ${WINDOW_DAYS}d`,
     priorityFor: (e) => (e.count >= MIN_COUNT * 10 ? 2 : 3),
     titleFor: (e) => `PostHog Exception: ${truncate(sanitizeTrackedDiagnosticValue(e.type), 20)} — ${truncate(sanitizeTrackedDiagnosticValue(e.message), 60)}`,
-    bodyFor: (e) => [
-      `**Type:** ${sanitizeTrackedDiagnosticValue(e.type)}`,
-      `**Message:** ${sanitizeTrackedDiagnosticValue(e.message)}`,
-      `**Occurrences (last ${WINDOW_DAYS}d):** ${e.count} | **Distinct sessions:** ${e.sessions}`,
-      `**Sample URL:** ${sanitizeTrackedDiagnosticValue(e.sampleUrl)}`,
-      '',
-      '_Source: PostHog `$exception` autocapture events._',
-    ].join('\n'),
+    bodyFor: (e) => {
+      const origins = extractStackFrameOrigins(e.sampleExceptionList);
+      const originsText = origins.length
+        ? origins.map((o) => sanitizeTrackedDiagnosticValue(o)).join(', ')
+        : 'unresolved (0 frames)';
+      return [
+        `**Type:** ${sanitizeTrackedDiagnosticValue(e.type)}`,
+        `**Message:** ${sanitizeTrackedDiagnosticValue(e.message)}`,
+        `**Occurrences (last ${WINDOW_DAYS}d):** ${e.count} | **Distinct sessions:** ${e.sessions}`,
+        `**Sample URL:** ${sanitizeTrackedDiagnosticValue(e.sampleUrl)}`,
+        `**Resolved stack origins (sample):** ${originsText}`,
+        '',
+        '_Source: PostHog `$exception` autocapture events._',
+      ].join('\n');
+    },
   });
 }
 

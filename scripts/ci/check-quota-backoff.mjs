@@ -124,15 +124,29 @@ export function beaconCandidates(lists, { now, lookbackH, max }) {
   return [...seen.values()].sort((a, b) => b.t - a.t).slice(0, max).map((x) => x.number);
 }
 
+// Stesso tetto dichiarato di `followup-drainer.mjs`, e per lo stesso motivo:
+// `gh issue list` ordina dalle piu' RECENTI, quindi un limite raggiunto non
+// campiona — taglia via le issue piu' VECCHIE, in silenzio. Sul drainer e'
+// successo davvero (107 `fu-parked` contro `--limit 100`: 7 issue invisibili a
+// ogni passo). Qui le label sono stati di routing che il ciclo tiene
+// serializzati, quindi il tetto non morde oggi; ma e' lo stesso costrutto, e
+// una coda che si gonfia mentre il drain e' fermo e' esattamente lo scenario in
+// cui questo file viene consultato.
+const ISSUE_LIST_LIMIT = Number(process.env.FOLLOWUP_ISSUE_LIST_LIMIT || 300);
+
 function listIssues(label) {
   const raw = gh([
     'issue', 'list', ...repoArgs, '--state', 'open', '--label', label,
-    '--json', 'number,updatedAt', '--limit', '100',
+    '--json', 'number,updatedAt', '--limit', String(ISSUE_LIST_LIMIT),
   ]);
   if (!raw) return [];
   try {
     const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) ? parsed : [];
+    const rows = Array.isArray(parsed) ? parsed : [];
+    if (rows.length >= ISSUE_LIST_LIMIT) {
+      console.log(`::warning::listing \`${label}\` al tetto di ${ISSUE_LIST_LIMIT}: vista PARZIALE, taglia le issue piu' vecchie (no silent cap).`);
+    }
+    return rows;
   } catch {
     return [];
   }

@@ -31,6 +31,7 @@ import {
   unresolvedBaseOverrideActive,
 } from './lib/resolve-merge-base.mjs';
 import { EXIT_BLOCK } from './lib/hook-exit-codes.mjs';
+import { resolveHookTargetCwd } from './lib/hook-target-cwd.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const checkScript = join(__dirname, 'check-sibling-patterns.mjs');
@@ -83,6 +84,7 @@ export function isDeclaredFalsePositive(candidatePath, nonImplText) {
 
 async function main() {
   let command = '';
+  let targetCwd;
   try {
     const chunks = [];
     for await (const chunk of process.stdin) {
@@ -96,6 +98,7 @@ async function main() {
           payload?.tool_input?.command ??
           payload?.command ??
           '';
+        targetCwd = resolveHookTargetCwd(payload);
       } catch {
         command = raw; // raw text fallback — grep for gh pr create
       }
@@ -109,6 +112,9 @@ async function main() {
   }
 
   // Run check-sibling-patterns.mjs --json to get the structured candidate list.
+  // `cwd: targetCwd` (see lib/hook-target-cwd.mjs) makes it analyze the
+  // worktree the gated `gh pr create` is actually running in, not whatever
+  // ambient directory this hook subprocess itself was launched from.
   let jsonOutput;
   try {
     jsonOutput = execFileSync('node', [checkScript, '--json'], {
@@ -116,6 +122,7 @@ async function main() {
       maxBuffer: 8 * 1024 * 1024,
       // Capture stdout (parsed as JSON); let stderr propagate for progress messages.
       stdio: ['pipe', 'pipe', 'inherit'],
+      cwd: targetCwd,
     });
   } catch {
     process.exit(0); // check script error → fail-safe
@@ -157,9 +164,11 @@ async function main() {
   // Extract PR body for the false-positive filter. If we can't parse the body
   // (undefined), fall back to treating all candidates as genuine (conservative,
   // same behaviour as the old --strict mode) — never silently drop a real check.
+  // `targetCwd` resolves a relative `--body-file` against the worktree the
+  // gated command is in, same fix as the check-script invocation above.
   let prBody;
   try {
-    prBody = extractPrBody(command);
+    prBody = extractPrBody(command, targetCwd);
   } catch {
     // body extraction error → conservative: treat all candidates as genuine
   }

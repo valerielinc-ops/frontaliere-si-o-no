@@ -2,15 +2,22 @@
 /**
  * Telegram broadcast poster for the free Bot API channel.
  *
- * Two modes:
- *   jobs   — the "jobs of the day" digest: the top-N freshest never-posted
- *            jobs, deduped across runs via data/telegram-posted-jobs.json.
- *            Reuses the same recency selection as the Reddit/FB schedulers.
- *   border — the WEEKLY best/worst dogane wait-time ranking, reusing the same
- *            aggregation lib as the on-site ranking article. This mode imports
- *            `.ts` modules, so it MUST run under `tsx`:
- *              npx tsx scripts/post-to-telegram.mjs border
- *            The jobs mode stays plain `node` (never imports the .ts path).
+ * Three modes:
+ *   jobs             — the "jobs of the day" digest: the top-N freshest
+ *                       never-posted jobs, deduped across runs via
+ *                       data/telegram-posted-jobs.json. Reuses the same
+ *                       recency selection as the Reddit/FB schedulers.
+ *   border           — the WEEKLY best/worst dogane wait-time ranking, reusing
+ *                       the same aggregation lib as the on-site ranking
+ *                       article. This mode imports `.ts` modules, so it MUST
+ *                       run under `tsx`:
+ *                         npx tsx scripts/post-to-telegram.mjs border
+ *                       The jobs mode stays plain `node` (never imports the
+ *                       .ts path).
+ *   preferred-source — ONE-OFF announcement (not a cron) explaining how to
+ *                       add the site as a Google "preferred source". Deduped
+ *                       via data/telegram-posted-announcements.json so a
+ *                       re-dispatch never double-posts the same message.
  *
  * SAFETY / FAIL-SOFT:
  *   • Preview (dry-run) is the DEFAULT. A real post happens only with `--send`
@@ -21,8 +28,9 @@
  *   • Every error path logs and exits 0 — a broadcast hiccup never blocks CI.
  *
  * Usage:
- *   node    scripts/post-to-telegram.mjs jobs   [--send] [--limit N] [--dry-run]
- *   npx tsx scripts/post-to-telegram.mjs border [--send]            [--dry-run]
+ *   node    scripts/post-to-telegram.mjs jobs             [--send] [--limit N] [--dry-run]
+ *   npx tsx scripts/post-to-telegram.mjs border            [--send]            [--dry-run]
+ *   node    scripts/post-to-telegram.mjs preferred-source  [--send]            [--dry-run]
  *
  * Env:
  *   TELEGRAM_BOT_TOKEN, TELEGRAM_CHANNEL_ID — Bot API credentials.
@@ -45,7 +53,12 @@ import {
   resolveTelegramCredentials,
   sendMessage,
 } from './lib/telegram-client.mjs';
-import { buildDailyJobsDigest, DEFAULT_JOBS_LIMIT } from './lib/telegram-templates.mjs';
+import {
+  buildDailyJobsDigest,
+  buildPreferredSourceAnnouncement,
+  DEFAULT_JOBS_LIMIT,
+  PREFERRED_SOURCE_ANNOUNCEMENT_ID,
+} from './lib/telegram-templates.mjs';
 
 // Ledger trim cap (mirrors the Reddit poster).
 const POSTED_TRIM_LIMIT = 1000;
@@ -65,6 +78,10 @@ function jobsPath(repoRoot) {
 
 function postedJobsPath(repoRoot) {
   return resolve(repoRoot, 'data', 'telegram-posted-jobs.json');
+}
+
+function postedAnnouncementsPath(repoRoot) {
+  return resolve(repoRoot, 'data', 'telegram-posted-announcements.json');
 }
 
 function loadJobs(repoRoot, log) {
@@ -101,6 +118,20 @@ async function buildForMode(mode, { env, repoRoot, now, log }) {
     const { text, rankedCount } = buildWeeklyBorderDigest({ historyDir, todayIso });
     log('ℹ️', `border ranking: ${rankedCount} crossings ranked`);
     return { text, onSent: null };
+  }
+
+  if (mode === 'preferred-source') {
+    const ledgerPath = postedAnnouncementsPath(repoRoot);
+    const ledger = loadLedger(ledgerPath);
+    const announcementAlreadyPosted = ledger.posted.some((e) => e?.id === PREFERRED_SOURCE_ANNOUNCEMENT_ID);
+    if (announcementAlreadyPosted) {
+      log('ℹ️', 'preferred-source announcement already posted — skipping (one-off, not a recurring digest)');
+      return { text: '', onSent: null };
+    }
+    const { text } = buildPreferredSourceAnnouncement();
+    const onSent = () =>
+      appendLedger(ledgerPath, [{ id: PREFERRED_SOURCE_ANNOUNCEMENT_ID, ts: new Date().toISOString() }]);
+    return { text, onSent };
   }
 
   // jobs mode (default)
@@ -141,7 +172,7 @@ async function main() {
   const args = process.argv.slice(2);
   const env = process.env;
   const positional = args.filter((a) => !a.startsWith('--'));
-  const mode = positional[0] === 'border' ? 'border' : 'jobs';
+  const mode = ['border', 'preferred-source'].includes(positional[0]) ? positional[0] : 'jobs';
 
   const forceDry = args.includes('--dry-run');
   const wantSend = args.includes('--send') || env.TELEGRAM_SEND === '1' || env.TELEGRAM_SEND === 'true';

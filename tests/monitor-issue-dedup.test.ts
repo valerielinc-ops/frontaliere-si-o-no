@@ -39,6 +39,21 @@ const RAW_CREATE_ALLOWED: Record<string, string> = {
   // promotion the moment the title changes. Different mechanism, same goal.
   'traffic-data-freshness.yml':
     'label-state machine (pending→confirmed) that rewrites the title on promotion; already deduped by label',
+  // Same mechanism as the entry above, and verified against the CODE of the
+  // `Report push-retry exhaustion` step (#6296), not against its intent:
+  //  • it early-returns on BOTH labels before ever reaching `gh issue create`
+  //    (`thin-promotions-push-exhausted` → comment + `exit 0`; `…-pending` →
+  //    promote + `exit 0`), so at most one pending issue can be open and a
+  //    second run cannot mint a duplicate;
+  //  • promotion REWRITES the title in place (`[pending] … — 1st occurrence`
+  //    → `… on consecutive runs`), which is exactly what routing through the
+  //    helper would break: it dedups on the first 60 chars, so the rename
+  //    would orphan the issue and the next run would open a fresh one — the
+  //    very duplicate this guard exists to prevent;
+  //  • the created title carries no date, timestamp or counter, so it stays
+  //    stable across runs inside the dedup window.
+  'refresh-thin-promotions.yml':
+    'label-state machine (pending→confirmed→auto-close) that rewrites the title on promotion; deduped by label, with an early exit before create',
 };
 
 function workflowFiles(): string[] {
@@ -100,6 +115,25 @@ const ENTITY_DISCRIMINANTS: Record<string, string[]> = {
   // `${{ matrix.section }}` would satisfy this list by reopening that finding.
   // The env token is the correct shape; the allowlist is what has to know it.
   'rerender-article-hubs.yml': ['$INPUT_SECTION'], // one issue per section shard
+  // One issue per social channel. `CH` ranges over a CLOSED set of three names
+  // (instagram, tiktok, reddit) produced by
+  // `scripts/check-social-publish-readiness.mjs --ready-channels`, so it says
+  // WHICH channel became publishable — never when, never how many. The same
+  // channel flipping ready again resolves to the same 60-char prefix and lands
+  // on the existing issue as a `🔁 Recurrence` comment, which is what is wanted:
+  // a channel that is unblocked and still not activated is one standing
+  // condition, not a new one per morning.
+  //
+  // The discriminant is deliberately FIRST in the title ("$CH publishing is
+  // unblocked — …"): the dedup window is 60 characters, and a title that opened
+  // with the shared prose would collapse all three channels onto whichever
+  // issue was minted first.
+  //
+  // Spelled `$CH` because the value is a shell loop variable over
+  // `$READY_CHANNELS`, which the workflow hands to the step through `env:`
+  // rather than interpolating `${{ }}` into the script text — the form
+  // scripts/ci/check-workflow-input-injection.mjs requires.
+  'social-publish-readiness-watch.yml': ['$CH'], // one issue per social channel
 };
 
 function stripStableSubstitutions(s: string, file: string): string {

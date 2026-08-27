@@ -4,7 +4,8 @@
 #
 # Usage:
 #   bash scripts/lib/git-push-with-retry.sh [--branch main] [--max-attempts 40] \
-#     [--regenerate-cmd "..."] [--in-place-resolver-cmd "..."] [--stash-dirty]
+#     [--regenerate-cmd "..."] [--in-place-resolver-cmd "..."] [--stash-dirty] \
+#     [--soft-fail-exhausted]
 #
 # Examples:
 #   bash scripts/lib/git-push-with-retry.sh
@@ -14,6 +15,7 @@
 #   bash scripts/lib/git-push-with-retry.sh \
 #     --in-place-resolver-cmd "source scripts/lib/resolve-append-conflicts.sh && resolve_append_conflicts && git add -A"
 #   bash scripts/lib/git-push-with-retry.sh --stash-dirty
+#   bash scripts/lib/git-push-with-retry.sh --soft-fail-exhausted
 #
 # Behaviour:
 #   - Pushes HEAD to origin/<branch>; on rejection, fetches + rebases + retries
@@ -48,6 +50,19 @@
 #     invoking this helper.
 #   - Branch defaults to `main` (the only branch any data-refresh workflow
 #     in this repo pushes to). Override with --branch if needed.
+#   - --soft-fail-exhausted: on exhausting MAX_ATTEMPTS, warn and exit 0
+#     instead of failing the step (default: exit 1, hard failure). Opt-in
+#     only — most callers push content that is genuinely lost if the push
+#     never lands (e.g. a generated article, issue #3809's "Article is
+#     LOST"), so hard failure is the correct default. Use this flag only
+#     for a caller whose data is a rolling-window recomputation that will
+#     naturally recapture this run's delta on its next invocation (e.g.
+#     refresh-thin-promotions.yml, issue #5568: exhausting 40 attempts
+#     during the twice-daily crawler-dispatch convoy was raised 4x already
+#     — 5->10 (#3784), 10->15 (#4026), 15->25 (#4190), 25->40 (#4562) —
+#     without ending the recurrence, because the real defect is treating a
+#     missed hourly commit of self-healing data as job-fatal, not an
+#     insufficient retry budget).
 
 set -euo pipefail
 
@@ -110,6 +125,7 @@ MAX_ATTEMPTS=40
 REGENERATE_CMD=""
 IN_PLACE_RESOLVER_CMD=""
 STASH_DIRTY=""
+SOFT_FAIL_EXHAUSTED=""
 
 while [ $# -gt 0 ]; do
   case "$1" in
@@ -118,6 +134,7 @@ while [ $# -gt 0 ]; do
     --regenerate-cmd) REGENERATE_CMD="$2"; shift 2 ;;
     --in-place-resolver-cmd) IN_PLACE_RESOLVER_CMD="$2"; shift 2 ;;
     --stash-dirty) STASH_DIRTY="1"; shift 1 ;;
+    --soft-fail-exhausted) SOFT_FAIL_EXHAUSTED="1"; shift 1 ;;
     *) echo "::error::Unknown arg: $1"; exit 2 ;;
   esac
 done
@@ -135,6 +152,10 @@ done
 attempt=1
 until git push --no-verify origin "HEAD:${BRANCH}"; do
   if [ "$attempt" -ge "$MAX_ATTEMPTS" ]; then
+    if [ -n "$SOFT_FAIL_EXHAUSTED" ]; then
+      echo "::warning::Failed to push after $MAX_ATTEMPTS attempts (soft-fail: this run's delta will be recaptured by the next invocation)"
+      exit 0
+    fi
     echo "::error::Failed to push after $MAX_ATTEMPTS attempts"
     exit 1
   fi

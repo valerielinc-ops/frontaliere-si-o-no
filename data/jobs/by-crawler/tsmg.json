@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tsmg",
-  "assembledAt": "2026-08-23T09:38:01.116Z",
+  "assembledAt": "2026-08-27T00:42:49.546Z",
   "jobs": [
     {
       "title": "Tester conversazioni vocali AI (French native speaker - Switzerland regional variant)",
@@ -1345,14 +1345,12 @@
       "previousSlugsByLocale": {
         "it": [
           "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern-1af674c1",
-          "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-bern-1af674c1",
-          "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern"
+          "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-bern-1af674c1"
         ]
       },
       "previousSlugs": [
         "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern-1af674c1",
-        "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-bern-1af674c1",
-        "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern"
+        "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-bern-1af674c1"
       ],
       "needsRetranslation": true
     },
@@ -5107,7 +5105,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-10T22:17:34.950Z"
+      "firstSeenAt": "2026-07-10T22:17:34.950Z",
+      "retranslationAttempts": 0
     },
     {
       "title": "Self-Driving Systems Specialist (SDS Specialist) - Autonomous Vehicle Diagnostics & Calibration",

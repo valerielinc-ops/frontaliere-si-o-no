@@ -532,7 +532,7 @@ const COPY: Record<FuelDailyLocale, IndexCopy> = {
 // + frontaliere refuelling habits, and includes the fuel name + index kind
 // to keep titles unique.
 
-interface IndexTitleSet {
+export interface IndexTitleSet {
   readonly title: string;
   readonly description: string;
   readonly h1: string;
@@ -541,7 +541,7 @@ interface IndexTitleSet {
   readonly frontaliereContext: string;
 }
 
-function titleFor(
+export function titleFor(
   kind: FuelIndexKind,
   locale: FuelDailyLocale,
   fuel: FuelType,
@@ -912,7 +912,10 @@ function renderIndexPage(opts: RenderIndexOpts): string {
   });
 
   const title = clampSiteSuffix(titles.title, 'Frontaliere Ticino');
-  const description = titles.description.slice(0, 180);
+  // Pre-cut removed: clampMetaDescription (160) runs downstream and is
+  // word-aware. Slicing first only handed it a string already broken
+  // mid-word, which is what reached the SERP snippet.
+  const description = titles.description;
 
   // Header is intentionally short (eyebrow + H1 + ≤140-char tagline); the
   // long methodology + frontaliere-context prose moves to the BOTTOM of the

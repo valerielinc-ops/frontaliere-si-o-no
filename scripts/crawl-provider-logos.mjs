@@ -28,6 +28,7 @@
 
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
+import { isGreyGlobe } from './lib/google-favicon.mjs';
 
 // ── Config ────────────────────────────────────────────────────────────────────
 
@@ -38,7 +39,6 @@ const PUBLIC_PREFIX = '/images/providers';
 
 const FETCH_TIMEOUT_MS = 12_000;
 const CONCURRENCY = 6;
-const GREY_GLOBE_SIZE = 726; // bytes — Google's generic globe at sz=128
 
 // ── Inline domain map (avoids TS import complexity, stays in sync via comment) ─
 // Mirrored from services/brandLogos.ts PROVIDER_LOGOS.
@@ -174,7 +174,7 @@ async function downloadOne({ slug, domain }) {
     try {
       const r = await tryFetch(faviconUrl);
       // Reject grey-globe (Google's generic "no favicon found" response)
-      if (r.buf.length === GREY_GLOBE_SIZE) {
+      if (isGreyGlobe(r.buf)) {
         return {
           slug,
           status: 'failed',

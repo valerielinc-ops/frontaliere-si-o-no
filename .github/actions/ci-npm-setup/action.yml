@@ -1,0 +1,39 @@
+name: 'CI npm setup'
+description: >-
+  Shared post-checkout setup: actions/setup-node + npm ci.
+
+  Storia, perché spiega perché questa action esiste ancora con UN chiamante
+  solo. Nata in #6534 per i quattro job PARALLELI di tests.yml (collision,
+  typecheck, vitest), fattorizzava la DEFINIZIONE di setup-node+npm-ci — non
+  l'esecuzione: ogni job la rieseguiva comunque da zero. Da quando tests.yml è
+  un job solo il chiamante è uno e `npm ci` gira UNA volta, che è il guadagno
+  che #6534 non poteva dare.
+
+  Deliberately does NOT include the checkout step itself: a local composite
+  action is resolved from files already present in the runner's checkout of
+  THIS repo, so it cannot also perform the checkout that fetches it — verified
+  in CI (a first attempt that folded checkout in here failed every caller with
+  "Can't find 'action.yml' ... Did you forget to run actions/checkout before
+  running local action?"). Il vincolo vale ancora: il checkout resta uno step
+  esplicito nel chiamante, prima di questo.
+inputs:
+  npm-ci-args:
+    description: >-
+      Extra args appended to `npm ci`. Oggi NESSUN chiamante lo passa: lo usava
+      il job `collision` con `--ignore-scripts` perché non eseguiva codice del
+      repo, e quel job non esiste più (i suoi step condividono l'install con
+      tsc e vitest, che le dipendenze complete le vogliono). Tenuto perché è
+      l'unica leva per un futuro chiamante che debba installare in modo più
+      stretto, ed è a costo zero: default vuoto, comportamento invariato.
+    required: false
+    default: ''
+runs:
+  using: 'composite'
+  steps:
+    - uses: actions/setup-node@v5
+      with:
+        node-version: '22'
+        cache: 'npm'
+    - name: npm ci
+      shell: bash
+      run: npm ci ${{ inputs.npm-ci-args }}

@@ -205,6 +205,34 @@ export function decomposedChildNumbers(comments) {
 const AGEOUT_DAYS = Number(process.env.FOLLOWUP_AGEOUT_DAYS || 10);
 const AGEOUT_INACTIVE_DAYS = Number(process.env.FOLLOWUP_AGEOUT_INACTIVE_DAYS || 7);
 const AGEOUT_MAX_PER_RUN = Number(process.env.FOLLOWUP_AGEOUT_MAX_PER_RUN || 20);
+// Cap dello stadio VERDICT-EXIT. Ogni item costa una lettura commenti + una
+// coppia comment/close o una edit: con 87 parked e un budget di run di ~277s
+// leggerli tutti a ogni tick non ci sta. Il cap è alto perché lo stadio è
+// TERMINALE — ciò che tocca esce dal pool e non torna, quindi il backlog si
+// drena e non si ripresenta al tick dopo, a differenza di uno stadio che
+// ri-valuta sempre lo stesso insieme.
+const VERDICT_EXIT_MAX_PER_RUN = Number(process.env.FOLLOWUP_VERDICT_EXIT_MAX_PER_RUN || 12);
+// Interruttore gemello di `NO_AUTOCLOSE` in reconcile-followups.mjs: degrada la
+// chiusura di `already-fixed` a `maybe-resolved` + commento.
+const VERDICT_EXIT_NO_AUTOCLOSE = process.env.FOLLOWUP_NO_AUTOCLOSE === '1' || process.env.NO_AUTOCLOSE === '1';
+const LBL_RESOLVED_AUTO = 'fu-resolved-auto';
+// Quante candidate all'age-out possono essere rivalutate sull'ultimo evento
+// significativo in una run. Stesso modello del cap del PARKED-RETRY, e stesso
+// motivo: la lettura commenti è l'unica parte cara del passo.
+// 25 copre con margine le 19 candidate `età ≥ AGEOUT_DAYS` misurate sul sito il
+// 2026-08-23 (112 aperte: 80 più giovani di 10gg, 6 non queue-managed, 6
+// tracker, 1 in lavorazione). Il tetto vero resta comunque il `budget` di run,
+// che questo passo condivide col PARKED-RETRY più sotto: a 3s per lettura sono
+// ~75s per ciascuno dei due su ~275s utilizzabili, quindi nessuno dei due può
+// affamare l'altro ai default. L'eccedenza è dichiarata nel log e rivalutata al
+// tick successivo (AGENTS.md "no silent cap").
+const AGEOUT_COMMENT_SCAN_MAX = Number(process.env.FOLLOWUP_AGEOUT_COMMENT_SCAN_MAX || 25);
+// Periodo della finestra rotante (vedi `scanWindowOffset`). 20 minuti = la
+// cadenza del cron di `followup-drainer.yml`, così un tick del cron corrisponde
+// a uno spostamento della finestra. Le run extra innescate da `workflow_run`
+// cadono nello stesso bucket e riusano lo stesso offset: è voluto, altrimenti
+// una raffica di fine-fix sfoglierebbe il pool senza che passi tempo vero.
+const SCAN_ROTATION_PERIOD_MS = Number(process.env.FOLLOWUP_SCAN_ROTATION_MS || 20 * 60_000);
 
 // Esiti FIX_OUTCOME (contratto ISSUES.md: il fixer chiude ogni run con
 // `<!-- FIX_OUTCOME: <code> -->`) DETERMINISTICI: rieseguire il fixer sullo
@@ -228,11 +256,101 @@ export const NON_RETRYABLE = new Set([
   'no-root-cause',
   'blocked-workflows-scope',
   'skip-duplicate-diagnosis',
-  'blocked-secrets',
   'blocked-admin-settings',
   'revenue-tracker-manual',
   'already-fixed',
 ]);
+
+// `blocked-secrets` NON e' piu' qui, e la ragione e' una decisione del
+// proprietario del 2026-08-24 (registro in VISION.md): l'uso dei secret dal
+// ciclo autonomo e' autorizzato in modo permanente. `issue-fix.yml` carica
+// Remote Config prima del run, quindi la credenziale che il verdetto dichiarava
+// mancante ORA c'e' — e un verdetto emesso prima di quella data descrive una
+// configurazione che non esiste piu'.
+//
+// Toglierlo da `NON_RETRYABLE` e' cio' che rende quelle issue ri-tentabili
+// invece di terminali: 5 sul sito al momento della decisione (#5999 PostHog,
+// #5964 alias di locale, #5953 campaign goal, #5824 token legacy, #5429
+// copertura professioni), tutte parcheggiate su un blocco che era una scelta di
+// configurazione e non una capacita' mancante.
+//
+// Il verdetto resta nel VOCABOLARIO, e deve: se la mappa `RC_TO_ENV` non porta
+// un parametro, chi lo legge trova `undefined` per quanto sia impostato in
+// Remote Config — e allora `blocked-secrets` e' la diagnosi giusta, con il nome
+// della variabile. Quello e' un difetto della mappa, ri-tentabile appena e'
+// riparata, non uno stato assorbente.
+
+// --- USCITA TERMINALE PER VERDETTO (misurato 2026-08-24) ---------------------
+// `NON_RETRYABLE` dice soltanto «non ri-accodare»: la issue resta `fu-parked` e
+// APERTA, e nessuno stadio la guarda più. È uno stato assorbente, e si misura:
+//
+//   Sul sito, 87 issue `fu-parked`. Verdetto dell'ultimo giro del fixer:
+//   23 `already-fixed`, 15 `no-root-cause`, 11 `revenue-tracker-manual`,
+//   5 `blocked-secrets`, 1 `blocked-workflows-scope` — 55 su 87 con un verdetto
+//   NON_RETRYABLE, cioè con una diagnosi già pagata e nessuna uscita.
+//   Sul corpus, 44 parked: 9 `no-root-cause`, 8 `blocked-workflows-scope`,
+//   7 `already-fixed`, 4 `blocked-admin-settings` → 28 su 44.
+//
+// Peggio: il PARKED-RETRY non legge il verdetto (`isReparkableCandidate` guarda
+// solo le label), quindi spende la sua UNICA generazione proprio su queste. Le 8
+// issue del sito che portano `fu-reparked:1` hanno TUTTE un verdetto
+// NON_RETRYABLE (4 `already-fixed`, 2 `no-root-cause`, 2 `blocked-secrets`):
+// 8 su 8, non una parte. Verificato su #6020 il 2026-08-24: parcheggiata il
+// 08-19 con `no-root-cause`, ri-accodata dal retry alle 01:26, promossa, una run
+// Claude INTERA fino alle 02:35, stesso `no-root-cause`, ri-parcheggiata con la
+// generazione bruciata. Un verdetto deterministico ri-derivato al prezzo pieno.
+//
+// Questo stadio dà a ogni verdetto NON_RETRYABLE l'uscita che gli manca, e lo fa
+// PRIMA del parked-retry così il pool che il retry vede è già ripulito:
+//
+//   `already-fixed`  → CHIUSA. È il verdetto «sono andato a guardare e il
+//                      difetto non c'è più»: più forte del token-match con cui
+//                      `reconcile-followups.mjs` già auto-chiude. Reversibile —
+//                      il monitor che l'ha aperta riapre alla ricorrenza.
+//   gli altri        → `needs-human`. Sono capacità che la CI non ha (secret,
+//                      admin, scope workflows), lavoro editoriale/manuale, o una
+//                      causa che il fixer non ha trovato: nessuno dei tre si
+//                      sblocca ri-provando. `needs-human` li mette nello sweep
+//                      del lunedì (VISION.md), che è la sola porta di rientro.
+//
+// `FOLLOWUP_NO_AUTOCLOSE=1` degrada la chiusura a `maybe-resolved` + commento,
+// stesso interruttore semantico di `NO_AUTOCLOSE` in reconcile-followups.mjs:
+// serve a chi vuole l'osservabilità senza la mutazione.
+export const VERDICT_ESCALATE = new Set([
+  'no-root-cause',
+  'blocked-workflows-scope',
+  'skip-duplicate-diagnosis',
+  'blocked-admin-settings',
+  'revenue-tracker-manual',
+]);
+
+/**
+ * Uscita terminale per una issue parcheggiata, dal solo verdetto. Pura → testabile.
+ *
+ * Fail-safe in DUE direzioni, entrambe volute:
+ * - `hasPR: true` → `none`. Una PR fix aperta significa che il lavoro è in volo:
+ *   il verdetto in coda è vecchio e chiudere o escalare qui ammazzerebbe una PR
+ *   viva. Stessa guardia di `hasFixPR` nell'age-out.
+ * - verdetto assente o non-NON_RETRYABLE → `none`. Un `null` è «non ho potuto
+ *   leggere» oppure «run morta, ri-tentabile»: in entrambi i casi la issue resta
+ *   dov'è e il parked-retry fa il suo lavoro. Non si inventa un'uscita da
+ *   un'assenza di informazione.
+ *
+ * @param {string|null} outcome ultimo FIX_OUTCOME, o null
+ * @param {{hasPR?: boolean, noAutoclose?: boolean}} [opts]
+ * @returns {{action: 'close'|'flag'|'escalate'|'none', reason: string}}
+ */
+export function verdictExitDecision(outcome, { hasPR = false, noAutoclose = false } = {}) {
+  if (hasPR) return { action: 'none', reason: 'PR fix aperta: il lavoro è in volo' };
+  if (!outcome) return { action: 'none', reason: 'nessun verdetto: ri-tentabile' };
+  if (!NON_RETRYABLE.has(outcome)) return { action: 'none', reason: `verdetto ri-tentabile: ${outcome}` };
+  if (outcome === 'already-fixed') {
+    return noAutoclose
+      ? { action: 'flag', reason: 'already-fixed, autoclose disattivato → solo maybe-resolved' }
+      : { action: 'close', reason: 'already-fixed: difetto verificato assente' };
+  }
+  return { action: 'escalate', reason: `capacità/causa fuori dalla portata della CI: ${outcome}` };
+}
 
 // Esiti ZERO-WORK: la run è morta PRIMA che l'agent leggesse la issue, quindi
 // non ha prodotto alcuna informazione — né un fix, né un verdetto, né una
@@ -278,7 +396,15 @@ export function latestFixOutcomeFromComments(comments) {
     if (body.includes(BACKSTOP_MARKER)) continue;
     const m = FIX_OUTCOME_RE.exec(body);
     if (!m) continue;
-    const at = Date.parse(c?.createdAt);
+    // `createdAt ?? created_at`: le due forme in cui GitHub espone lo stesso
+    // campo — GraphQL (`gh issue view --json comments`) e REST
+    // (`gh api .../comments`). Con la sola forma GraphQL questa funzione
+    // restituiva `null` su OGNI lista REST, perché `Date.parse(undefined)` è
+    // NaN e il ramo qui sotto la scartava: un verdetto invisibile, non un
+    // errore. `lastSignificantActivityAt` accetta già entrambe le forme, e
+    // questa funzione va letta sugli stessi commenti (vedi il pool del
+    // parked-retry, che li ha già in mano dalla REST).
+    const at = Date.parse(c?.createdAt ?? c?.created_at);
     // `>=` così, a parità (o data illeggibile → NaN ignorato), vince l'ultimo
     // in ordine di lista (i commenti gh sono cronologici).
     if (!Number.isNaN(at) && at >= latestAt) { latestAt = at; latest = m[1].toLowerCase(); }
@@ -319,6 +445,17 @@ export function latestFixOutcomeFromComments(comments) {
 // loop) su issue strutturalmente non-fixabili dall'automazione CI.
 
 /**
+ * Conteggio di item dichiarato nel TITOLO di una follow-up aggregata
+ * («N items deferred», template FOLLOWUP.md). È la stessa forma che
+ * `issue-fix.yml` legge per accendere il circuit-breaker one-item
+ * (`N=$(... grep -oiE '[0-9]+ items? deferred' ...)`, soglia N>=2): una sola
+ * definizione qui, usata da `detectMalformedBody` e da
+ * `detectWideScopeAggregate`, così le due letture non possono divergere.
+ * `items?` opzionale: il titolo è LLM-generated e per N=1 dice «1 item».
+ */
+export const AGGREGATE_ITEMS_RE = /\b(\d+)\s+items?\s+deferred\b/i;
+
+/**
  * Vero se il body dell'issue è troppo corto/malformato per consentire al fixer
  * di operare senza bruciare turni in cerca di contesto inesistente. Pura → testabile.
  * @param {string} title
@@ -329,7 +466,7 @@ export function detectMalformedBody(title, body) {
   if (b.length < 50) return true; // empty or stub (e.g. "test")
   // Issue aggregata (N items deferred) senza struttura FOLLOWUP.md:
   // ## Origine / ## Item / ### N. assenti → post-merge-followup malformato.
-  if (/\b\d+\s+items?\s+deferred\b/i.test(String(title || ''))) {
+  if (AGGREGATE_ITEMS_RE.test(String(title || ''))) {
     const hasStructure = /^##\s+(Origine|Item)\b/mi.test(b) || /^###\s+\d+\.\s/m.test(b);
     if (!hasStructure) return true;
   }
@@ -491,6 +628,262 @@ export function detectCompressContractDocsRatchet(title) {
   return String(title || '').trim() === COMPRESS_CONTRACT_DOCS_TITLE;
 }
 
+// --- SIBLING-DEBT: il gemello dichiarato in PROSA (2026-08-25) ---------------
+// Una follow-up aggregata dice spesso, a parole, che un file `mode: identical`/
+// `adapted` ha un gemello sull'altro repo del workspace non ancora allineato —
+// forme reali, misurate sulle 47 follow-up aperte oggi sui due repo:
+//   «gemello sito exhaustion-disposition.mjs non portato» (corpus #511)
+//   «gemello sito ai-models.mjs non riceve la correzione (blocked su
+//    valerielinc-ops#6045)» (corpus #513)
+//   «blocked: serve una passata di riconciliazione sul gemello del sito» (#403)
+// Sono 8 issue su 47 (tutte sul corpus, che è il lato a valle del mirror).
+//
+// Il problema NON è che manchi un fix: è che quella frase resta PROSA dentro una
+// issue che l'altro repo non vede mai. `loop-drift-check` confronta i file del
+// manifest uno per uno e non legge le issue; il drainer legge le issue e non
+// sapeva riconoscere la forma. Risultato: il debito verso il gemello non ha
+// nessun portatore — né una label, né una issue di là, né un log.
+//
+// PERCHÉ UNA LABEL LOCALE E NON UNA ISSUE SULL'ALTRO REPO. La via cross-repo
+// esiste ed è quella di `mirror-articles-engine.yml`: `GH_TOKEN:
+// ${{ secrets.ARTICLES_REPO_PAT }}`. Ma quel secret (a) sta SOLO sul sito e va
+// in una direzione sola (sito→corpus), (b) non è cablato in
+// `followup-drainer.yml`, che gira con `GH_TOKEN: ${{ env.APP_TOKEN ||
+// env.GITHUB_PAT }}` — un token dell'installazione del repo CORRENTE. E questo
+// file è `mode: identical` nel manifest del ciclo: dev'essere byte-identico sui
+// due lati. Un apri-issue cross-repo sarebbe quindi codice che funziona su un
+// lato e fallisce 403 sull'altro, cioè un ramo che il repo dove il segnale
+// nasce davvero (il corpus, 8 casi su 8) non può eseguire. La label locale +
+// commento che NOMINA repo e file gemello è tracciabile da entrambi i lati con
+// il token che ciascuno ha già, ed è enumerabile da fuori con una sola query
+// (`gh issue list --label sibling-debt --repo <l'altro>`).
+//
+// NON parcheggia e non instrada: è puramente ADDITIVA. La issue prosegue nel
+// flusso normale — spesso l'item gemello è uno di N, e gli altri sono
+// lavorabili qui. L'idempotenza è la label stessa: chi ce l'ha già non riceve
+// un secondo commento.
+export const SIBLING_SIDES = {
+  site: { owner: 'valerielinc-ops', name: 'frontaliere-si-o-no', it: 'sito' },
+  corpus: { owner: 'nanakokyobashi-rgb', name: 'frontaliere-articles', it: 'corpus' },
+};
+const LBL_SIBLING_DEBT = 'sibling-debt';
+// Cap per tick: ogni etichettatura costa un commento + un edit. 0 = kill-switch.
+const SIBLING_DEBT_MAX_PER_RUN = Number(process.env.FOLLOWUP_SIBLING_DEBT_MAX_PER_RUN || 3);
+
+// Prossimità, non «stessa riga»: un body di follow-up ha righe da 400+ caratteri
+// in cui «blocked: serve la misura di due run» e «gemello» stanno in due
+// proposizioni scorrelate (misurato: sito #6222 diventava un falso positivo con
+// il match a riga intera). 100 caratteri tengono tutte e 8 le forme reali e
+// tolgono quel caso.
+const SIBLING_NEAR = 100;
+const SIBLING_MARK = String.raw`(?:non\s+(?:\S+\s+){0,3}?(?:portat|allineat|sces|mirrorat|aggiornat|ricevut|riceve)\w*|blocked|bloccat\w*|resta\s+ferm\w*|da\s+portare|va\s+portat\w*)`;
+const SIBLING_WORD = String.raw`gemell\w*`;
+/** «gemello … non portato» oppure «blocked … sul gemello», entro SIBLING_NEAR. */
+const SIBLING_PROSE_RE = new RegExp(
+  String.raw`(?:${SIBLING_WORD}[^\n]{0,${SIBLING_NEAR}}?${SIBLING_MARK})`
+  + String.raw`|(?:${SIBLING_MARK}[^\n]{0,${SIBLING_NEAR}}?${SIBLING_WORD})`,
+  'i',
+);
+const BLOCKED_TAIL_RE = new RegExp(String.raw`(?:blocked|bloccat\w*)[^\n]{0,${SIBLING_NEAR}}$`, 'i');
+
+/**
+ * Quale dei due lati del workspace è questo repo. Il discriminante è il NOME del
+ * repo, non l'owner: `gh` è autenticato come `valerielinc-ops` su entrambi.
+ * @param {string} repo `owner/name`
+ * @returns {'site'|'corpus'}
+ */
+export function siblingSideOf(repo) {
+  return /frontaliere-articles/i.test(String(repo || '')) ? 'corpus' : 'site';
+}
+
+/**
+ * Riferimenti a issue/PR dell'ALTRO repo del workspace citati in una riga.
+ * Allowlist stretta sui due nomi noti: un `#1234` nudo è un riferimento LOCALE
+ * e non prova niente sul gemello.
+ * @param {string} line @param {'site'|'corpus'} other
+ * @returns {string[]} `owner/name#N`
+ */
+function siblingCrossRefs(line, other) {
+  const o = SIBLING_SIDES[other];
+  const re = new RegExp(String.raw`(?:${o.owner}(?:\/${o.name})?|${o.name})#(\d+)`, 'gi');
+  return [...String(line).matchAll(re)].map((m) => `${o.owner}/${o.name}#${m[1]}`);
+}
+
+/**
+ * L'issue dichiara in prosa un debito verso il gemello sull'ALTRO repo?
+ * Pura (niente gh) → testabile. Due segnali indipendenti, basta uno:
+ *  1. prosa «gemello … non portato/allineato/blocked» (entro SIBLING_NEAR);
+ *  2. un riferimento `<owner|repo>#N` all'ALTRO repo preceduto da `blocked`
+ *     («blocked su valerielinc-ops#6045»).
+ * CONSERVATIVO: la sola parola «gemello», o il solo `#N` nudo, non bastano.
+ * @param {string} text  titolo + body
+ * @param {string} selfRepo  `owner/name` del repo in cui gira il drainer
+ * @returns {{side:'site'|'corpus', repo:string, refs:string[], files:string[], evidence:string}|null}
+ */
+export function detectSiblingDebt(text, selfRepo) {
+  const other = siblingSideOf(selfRepo) === 'site' ? 'corpus' : 'site';
+  const matched = [];
+  const refs = new Set();
+  for (const raw of String(text || '').split('\n')) {
+    const line = raw.trim();
+    if (!line) continue;
+    const lineRefs = siblingCrossRefs(line, other);
+    const blockedRef = lineRefs.some((r) => {
+      const owner = r.split('/')[0];
+      const at = line.toLowerCase().indexOf(owner.toLowerCase());
+      return BLOCKED_TAIL_RE.test(line.slice(0, at < 0 ? line.length : at));
+    });
+    if (!SIBLING_PROSE_RE.test(line) && !blockedRef) continue;
+    matched.push(line);
+    for (const r of lineRefs) refs.add(r);
+  }
+  if (!matched.length) return null;
+  const o = SIBLING_SIDES[other];
+  return {
+    side: other,
+    repo: `${o.owner}/${o.name}`,
+    refs: [...refs],
+    files: siblingFileHints(matched.join('\n')),
+    evidence: matched[0].slice(0, 300),
+  };
+}
+
+// Il nome del gemello è quasi sempre scritto NUDO: «gemello sito
+// exhaustion-disposition.mjs non portato» (corpus #511), senza la directory.
+// `extractCodePaths` da solo non lo vede — richiede un path con una directory di
+// codice riconosciuta — e il commento uscirebbe senza nominare il file, cioè
+// senza la sola informazione che serve a chi legge dall'altro lato. Misurato
+// sulle 8 issue reali: 2 su 8 portano un path completo, 6 solo il basename.
+const BARE_FILENAME_RE = /(?<![\w./-])[A-Za-z0-9][A-Za-z0-9._-]*\.(?:mjs|cjs|js|ts|tsx|json|yml|yaml)\b/g;
+
+/** Path completi + basename nudi citati nelle righe che hanno fatto match.
+ * Solo per il commento (informativo): nessuna decisione dipende da questa lista. */
+function siblingFileHints(text) {
+  const full = extractCodePaths(text);
+  const bare = [...new Set(String(text).match(BARE_FILENAME_RE) || [])]
+    .filter((n) => !full.some((p) => p.endsWith(`/${n}`) || p === n));
+  return [...full, ...bare];
+}
+
+// --- DATA-PENDING: «non è ancora valutabile», non «non si sa come farlo» -----
+// Un bullet che dice esplicitamente di aspettare dati o run future prima che
+// l'item sia giudicabile («serve osservare due o tre run consecutivi»,
+// «richiede una baseline post-merge», «in attesa di dati») non è un fix che il
+// fixer possa produrre oggi: promuoverlo brucia un run che riscopre ogni volta
+// la stessa cosa. Ma NON è nemmeno terminale — fra una settimana il dato c'è.
+//
+// Oggi il drainer non ha questa categoria: l'issue resta in coda e o viene
+// promossa (run a vuoto) o resta ferma senza che nessuno dichiari il perché.
+// `fu-parked` + `fu-data-pending` la mette nella pipeline che esiste già —
+// PARKED-RETRY la ri-accoda da sola a cooldown scaduto — con un cooldown suo:
+// `RETRY_COOLDOWN_DAYS` (5) è tarato su «quanto aspettare prima di RI-TENTARE
+// un fix fallito», mentre qui il fix non è fallito, non è ancora nato, e la
+// finestra citata dai bullet reali è dell'ordine della settimana. Default =
+// 2× il cooldown normale, con env dedicata.
+//
+// Niente `needs-human`: `isReparkableCandidate` lo tratta come stato assorbente
+// e la issue non tornerebbe mai in coda — cioè esattamente il «ferma per
+// sempre» che questo ramo esiste per togliere.
+const LBL_DATA_PENDING = 'fu-data-pending';
+
+const DATA_PENDING_RE = new RegExp([
+  String.raw`blocked:\s*data[-\s]pending`,
+  String.raw`\bserv(?:e|ono)\s+(?:\S+\s+){0,3}?(?:osservare|misurare|aspettare|attendere)\b`,
+  String.raw`\bserv(?:e|ono)\s+(?:la\s+)?misura\s+di\s+(?:due|tre|quattro|\d+)`,
+  String.raw`\b(?:richiede|serve|serve una|manca|mancano)\s+(?:una\s+|la\s+)?baseline\b`,
+  String.raw`\bin\s+attesa\s+(?:di|del|della|delle)\s+(?:dati|dato|misur|osservazion|run\b)`,
+  String.raw`\b(?:due|tre|quattro|\d+)\s+run\s+consecutiv`,
+  String.raw`\bosservare\s+(?:almeno\s+)?(?:due|tre|quattro|\d+)\s+(?:run|giorni|settimane|cicli)`,
+  String.raw`\bnon\s+(?:e|è|e')\s+(?:ancora\s+)?valutabile\b`,
+  String.raw`\bpost[-\s]merge\b[^.\n]{0,40}\bbaseline\b`,
+].join('|'), 'i');
+
+/**
+ * L'issue è ferma su un dato che non esiste ancora? Pura → testabile.
+ *
+ * CONSERVATIVO in un modo che conta: su un'aggregata di N item, UN bullet
+ * data-pending non giustifica il park di tutti gli altri. Quindi il marker vale
+ * solo se copre l'issue INTERA — cioè se sta nel TITOLO (che descrive lo scope
+ * complessivo: «(blocked, in attesa di dati…)»), oppure se l'issue non è
+ * aggregata (`N items deferred` assente o N<=1).
+ * @param {string} title @param {string} body
+ * @returns {string|null} la frase che ha fatto scattare il rilevamento
+ */
+export function detectDataPending(title, body) {
+  const t = String(title || '');
+  const titleHit = DATA_PENDING_RE.exec(t);
+  if (titleHit) return t.trim().slice(0, 200);
+  const m = AGGREGATE_ITEMS_RE.exec(t);
+  if (m && Number(m[1]) > 1) return null; // aggregata: un bullet non parla per gli altri
+  for (const raw of String(body || '').split('\n')) {
+    if (DATA_PENDING_RE.test(raw)) return raw.trim().slice(0, 200);
+  }
+  return null;
+}
+
+// --- WIDE-SCOPE: l'aggregata nasce già troppo larga (2026-08-25) -------------
+// Lo scorporo esiste (`agent:decompose-queued`), ma oggi ci si arriva solo
+// REATTIVAMENTE: dopo che il fixer ha bruciato il turn-budget senza produrre una
+// PR (`error_max_turns` al 1° attempt, o N generazioni di retry a zero PR). Il
+// TOO-LARGE è quindi una diagnosi post-mortem pagata a run pieni.
+//
+// Su una follow-up aggregata la larghezza è però DICHIARATA all'apertura: il
+// titolo porta «N items deferred» e il body enumera N sezioni. Non serve
+// scoprirla, basta leggerla.
+//
+// SOGLIA = 4, e non è arbitraria. Misurato sulle 481 follow-up del sito che
+// portano il conteggio nel titolo (`gh issue list --label follow-up --state all
+// --limit 600`), tasso di `fu-parked` per N:
+//     N=1 79/223 35% · N=2 51/135 38% · N=3 42/89 47% · N=4 8/18 44% ·
+//     N=5 6/12 50% · N=6 1/4 25%
+// Il salto è fra N<=2 (36%) e N>=3 (46%); da 3 in su i tassi sono
+// indistinguibili sui campioni disponibili. A decidere fra 3 e 4 non è quindi il
+// tasso ma il VOLUME che lo stadio di decomposizione può assorbire: promuove UNA
+// issue per tick. N>=4 sono 34/481 = 7% della popolazione; N>=3 sarebbero
+// 123/481 = 26%, che saturerebbe lo stadio e affamerebbe i too-large veri.
+// 4 è anche il primo valore strettamente sopra le due soglie già in uso per la
+// stessa famiglia: N>=2 accende il circuit-breaker one-item di `issue-fix.yml`
+// (che le aggregate da 2-3 item le lavora, una alla volta) e
+// `BACKLOG_MIN_ITEMS`=3 copre gli handoff di sessione con marker nel titolo.
+export const WIDE_SCOPE_MIN_ITEMS = Number(process.env.FOLLOWUP_WIDE_SCOPE_MIN_ITEMS || 4);
+
+/**
+ * Voci enumerate nel body di una follow-up AGGREGATA. Forme del template
+ * FOLLOWUP.md (`### N.` / `### Item N —`) più le due già contate da
+ * `countBacklogItems` (`## N.`, task-list) perché il filer non è del tutto
+ * stabile fra le due. Pura → testabile.
+ * @param {string} body @returns {number}
+ */
+export function countAggregateItems(body) {
+  const b = String(body || '');
+  // Delimitatore: `.`, `)`, em/en dash — NON il trattino nudo, che
+  // trasformerebbe un heading-data (`### 2026-08-25 …`) in una voce di lavoro.
+  const h3 = (b.match(/^###[ \t]*(?:Item[ \t]*)?\d+[ \t]*[.)—–]/gim) || []).length;
+  const h2 = (b.match(/^##[ \t]*(?:Item[ \t]*)?\d+[ \t]*[.)—–]/gim) || []).length;
+  const cb = (b.match(/^[ \t]*[-*][ \t]+\[[ xX]\]/gm) || []).length;
+  return h3 + h2 + cb;
+}
+
+/**
+ * L'aggregata nasce con scope troppo largo per un run solo? Pura → testabile.
+ *
+ * Congiunzione titolo ∧ body, e il conteggio che vale è il MINIMO dei due. È la
+ * forma conservativa in entrambi i versi: un titolo LLM-generated che dice «6»
+ * su un body con 2 sezioni non instrada, e una checklist di test-plan che gonfia
+ * il body non instrada un titolo da «1 item deferred».
+ * @param {string} title @param {string} body
+ * @param {{min?: number}} [opts]
+ * @returns {{items:number, titleItems:number, bodyItems:number}|null}
+ */
+export function detectWideScopeAggregate(title, body, { min = WIDE_SCOPE_MIN_ITEMS } = {}) {
+  const m = AGGREGATE_ITEMS_RE.exec(String(title || ''));
+  if (!m) return null;
+  const titleItems = Number(m[1]);
+  const bodyItems = countAggregateItems(body);
+  const items = Math.min(titleItems, bodyItems);
+  return items >= min ? { items, titleItems, bodyItems } : null;
+}
+
 // --- OVERLAP-FILE PRE-FLIGHT (escalation #3810) ----------------------------------
 // fix-outcome:overlap-skip ricorre 8×/14gg: il fixer Claude rileva l'overlap solo
 // DOPO aver bruciato ~1M token. Questo check zero-Claude rimuove il burn alla fonte:
@@ -583,17 +976,15 @@ export function isPermanentTracker(iss) {
 }
 
 /**
- * Un'issue è eleggibile all'age-out close? Puro (niente gh) → testabile.
- * Vero se: è queue-managed (qualunque categoria autofix ≠ crawler, non più
- * solo follow-up), NON marcata `agent:no-age-out` (issue-contatore/tracker
- * permanente, #5615), NON in lavorazione (né `agent:fix` né
- * `agent:fix-queued`), creata da ≥ageOutDays E inattiva da ≥inactiveDays. I
- * `fu-parked` ricadono qui (non sono in coda). Il chiamante aggiunge la
- * guardia "nessuna PR aperta" (impura).
- * @param {{title?: string, labels?: Array<{name:string}>, createdAt?: string, updatedAt?: string}} iss
- * @param {{now:number, ageOutDays:number, inactiveDays:number}} opts
+ * Tutto cio' che rende una issue eleggibile all'age-out TRANNE l'inattivita'.
+ * Puro (niente gh) → testabile. Estratto da `isAgeOutEligible` perche' il
+ * chiamante deve poter decidere se vale la pena SPENDERE una lettura commenti
+ * su questa issue: l'inattivita' significativa costa una chiamata, tutto il
+ * resto e' gratis e la esclude prima.
+ * @param {{title?: string, labels?: Array<{name:string}>, createdAt?: string}} iss
+ * @param {{now:number, ageOutDays:number}} opts
  */
-export function isAgeOutEligible(iss, { now, ageOutDays, inactiveDays }) {
+export function isAgeOutCandidate(iss, { now, ageOutDays }) {
   if (!ageOutDays || ageOutDays <= 0) return false;
   if (!isQueueManaged(iss)) return false;
   const ls = (iss?.labels || []).map((l) => l.name);
@@ -605,11 +996,53 @@ export function isAgeOutEligible(iss, { now, ageOutDays, inactiveDays }) {
   // quando le figlie sono chiuse, che è l'esito giusto.
   if (ls.includes(LBL_DECOMP_QUEUED) || ls.includes(LBL_DECOMP) || ls.includes(LBL_DECOMPOSED)) return false;
   const created = Date.parse(iss?.createdAt);
+  if (Number.isNaN(created)) return false; // data illeggibile → non chiudere
+  return (now - created) / 86_400_000 >= ageOutDays;
+}
+
+/**
+ * Un'issue è eleggibile all'age-out close? Puro (niente gh) → testabile.
+ * Vero se: è queue-managed (qualunque categoria autofix ≠ crawler, non più
+ * solo follow-up), NON marcata `agent:no-age-out` (issue-contatore/tracker
+ * permanente, #5615), NON in lavorazione (né `agent:fix` né
+ * `agent:fix-queued`), creata da ≥ageOutDays E inattiva da ≥inactiveDays. I
+ * `fu-parked` ricadono qui (non sono in coda). Il chiamante aggiunge la
+ * guardia "nessuna PR aperta" (impura).
+ *
+ * L'INATTIVITÀ si misura sull'ultimo evento SIGNIFICATIVO quando il chiamante
+ * riesce a leggerlo (`significantAt`), e su `updatedAt` solo come ripiego. È la
+ * metà mai riparata del difetto del 2026-08-11: la starvation del PARKED-RETRY
+ * fu chiusa misurando l'attività significativa nel cooldown, ma QUESTA funzione
+ * continuava a leggere `updatedAt` — lo stesso campo che i monitor rinfrescano
+ * ogni 2-3 ore sulle issue che hanno aperto loro. Con entrambe le uscite chiuse
+ * lo stato non era transitorio ma STABILE: mai ritentate e mai chiuse.
+ *
+ * Misurato il 2026-08-23 sui due repo, con i default (10gg età, 7gg quiete):
+ * sito 26 issue oltre i 10 giorni, 7 quiete su `updatedAt`, **intersezione
+ * vuota** → `0` eleggibili; corpus idem, `0`. Non «poche»: zero, su entrambi,
+ * cioè un'uscita chiusa al 100% mentre la coda saliva di +38 (sito) e +28
+ * (corpus) issue in 7 giorni. Rimisurando sull'evento significativo: 6 sul
+ * sito, con casi come #5657 a `idle(updatedAt)=0,08g` contro
+ * `idle(reale)=10,97g` — due ordini di grandezza di scarto, tutto rumore di bot.
+ *
+ * La direzione è sicura per costruzione: un evento significativo è un
+ * SOTTOINSIEME degli eventi che alzano `updatedAt`, quindi
+ * `significantAt ≤ updatedAt` e l'inattività misurata così è sempre ≥ quella
+ * misurata su `updatedAt`. Passare `significantAt` può solo rendere eleggibili
+ * issue che prima non lo erano, mai il contrario — e chi è già eleggibile su
+ * `updatedAt` lo resta senza spendere la lettura.
+ *
+ * @param {{title?: string, labels?: Array<{name:string}>, createdAt?: string, updatedAt?: string}} iss
+ * @param {{now:number, ageOutDays:number, inactiveDays:number, significantAt?:number|null}} opts
+ */
+export function isAgeOutEligible(iss, { now, ageOutDays, inactiveDays, significantAt = null }) {
+  if (!isAgeOutCandidate(iss, { now, ageOutDays })) return false;
   const updated = Date.parse(iss?.updatedAt);
-  if (Number.isNaN(created) || Number.isNaN(updated)) return false; // date illeggibili → non chiudere
-  const ageDays = (now - created) / 86_400_000;
-  const idleDays = (now - updated) / 86_400_000;
-  return ageDays >= ageOutDays && idleDays >= inactiveDays;
+  // Ripiego su `updatedAt` solo se non c'è una misura significativa: un
+  // `significantAt` illeggibile non deve MAI far chiudere al buio.
+  const idleFrom = Number.isFinite(significantAt) ? significantAt : updated;
+  if (!Number.isFinite(idleFrom)) return false; // date illeggibili → non chiudere
+  return (now - idleFrom) / 86_400_000 >= inactiveDays;
 }
 
 // --- INATTIVITÀ SIGNIFICATIVA vs `updatedAt` (starvation del PARKED-RETRY) ---
@@ -682,6 +1115,51 @@ export function isBotLogin(login) {
 export function isBotComment(comment) {
   if (String(comment?.user?.type || '') === 'Bot') return true;
   return isBotLogin(comment?.user?.login ?? comment?.author?.login);
+}
+
+/**
+ * Offset della finestra di scansione rotante, su un pool più grande del cap.
+ *
+ * La rotazione (2026-08-21) esisteva già ed era la diagnosi giusta: con un cap
+ * fisso e un ordine di `gh` stabile, le eccedenti sarebbero SEMPRE le stesse e
+ * il «rinviate al prossimo tick» del log sarebbe una bugia. Ma il PASSO era di
+ * UNA posizione per tick, mentre il commento accanto dichiarava copertura «in
+ * ⌈pool/cap⌉ tick»: l'invariante documentata non era quella fornita dal codice.
+ *
+ * Con passo 1 la finestra `[offset, offset+cap)` impiega fino a `pool - cap`
+ * tick a raggiungere una data posizione — sui numeri del sito del 2026-08-23
+ * (pool 44, cap 25) sono 19 tick, cioè **~6,5 ore**, non i 2 tick (~40 min)
+ * promessi. Nel frattempo le uniche candidate ri-accodabili restano invisibili:
+ * misurate 4 sopra il cooldown, di cui 2 non capability-scoped (#4854 e #6017,
+ * quest'ultima `fu-prio:high`), e ZERO `PARKED-RETRY` negli ultimi 30 run.
+ *
+ * Avanzare di `cap` posizioni per tick rende vera l'invariante dichiarata: le
+ * finestre di tick consecutivi sono adiacenti e non sovrapposte, quindi il pool
+ * è coperto in ⌈pool/cap⌉ tick esatti. Il costo per run non cambia — sono
+ * sempre e solo `cap` letture.
+ *
+ * Puro (l'orologio è un parametro) → testabile senza rete né `Date.now()`.
+ *
+ * @param {number} poolSize
+ * @param {{scanMax:number, now:number, periodMs:number}} opts
+ * @returns {number} offset in [0, poolSize)
+ */
+export function scanWindowOffset(poolSize, { scanMax, now, periodMs }) {
+  const n = Number(poolSize) || 0;
+  if (n <= 0) return 0;
+  // Pool che ci sta tutto nella finestra → nessuna rotazione da fare: ruotare
+  // cambierebbe solo l'ordine di lettura senza cambiare CHI viene letto.
+  if (!scanMax || scanMax <= 0 || n <= scanMax) return 0;
+  if (!periodMs || periodMs <= 0 || !Number.isFinite(now)) return 0;
+  const tick = Math.floor(now / periodMs);
+  return ((tick * scanMax) % n + n) % n;
+}
+
+/** Il pool, ruotato sulla finestra di scansione di questo tick. */
+export function rotateForScan(pool, opts) {
+  const items = Array.isArray(pool) ? pool : [];
+  const off = scanWindowOffset(items.length, opts);
+  return off ? [...items.slice(off), ...items.slice(0, off)] : items;
 }
 
 /**
@@ -766,15 +1244,40 @@ function inFlightFixCount() {
   return n;
 }
 
-function listIssues(label) {
+// Tetto dei listing di issue. `gh issue list` ordina dalle più RECENTI, quindi
+// un limite raggiunto non taglia via un campione qualunque: taglia via le issue
+// più VECCHIE — cioè, per ogni passo di questo file, esattamente quelle che
+// hanno più diritto di essere lavorate o chiuse.
+//
+// Misurato il 2026-08-23 sul sito: 107 issue `fu-parked` contro un `--limit`
+// di 100, e le 7 fuori (#5321 #5314 #5139 #5041 #4854 #4675 #1951) erano
+// invisibili a OGNI passo che parte da `listIssues` — parked-retry ed
+// escalation too-large compresi. Fra queste #4854, che superava il cooldown di
+// 5 giorni e non è capability-scoped: lavoro ri-accodabile che nessun tick
+// avrebbe mai potuto vedere, e senza una riga di log a dirlo. Un silent cap in
+// senso proprio, contro la regola esplicita di AGENTS.md.
+const ISSUE_LIST_LIMIT = Number(process.env.FOLLOWUP_ISSUE_LIST_LIMIT || 300);
+
+/** Elenco issue con tetto DICHIARATO: se il tetto è stato raggiunto lo dice,
+ * invece di restituire in silenzio una vista parziale che sembra completa. */
+function listIssuesBounded(args, what) {
   try {
-    return gh([
-      'issue', 'list', '--repo', REPO, '--state', 'open', '--label', label,
-      '--json', 'number,title,labels,createdAt,updatedAt', '--limit', '100',
-    ]);
+    const out = gh([...args, '--limit', String(ISSUE_LIST_LIMIT)]);
+    const rows = Array.isArray(out) ? out : [];
+    if (rows.length >= ISSUE_LIST_LIMIT) {
+      console.log(`::warning::listing ${what} al tetto di ${ISSUE_LIST_LIMIT}: la vista è PARZIALE e taglia le issue più vecchie (no silent cap). Alza FOLLOWUP_ISSUE_LIST_LIMIT.`);
+    }
+    return rows;
   } catch {
     return [];
   }
+}
+
+function listIssues(label) {
+  return listIssuesBounded([
+    'issue', 'list', '--repo', REPO, '--state', 'open', '--label', label,
+    '--json', 'number,title,labels,createdAt,updatedAt',
+  ], `issue aperte con label \`${label}\``);
 }
 
 /** Quante run issue-decompose sono in volo (queued|in_progress). Gemello di
@@ -803,14 +1306,10 @@ function inFlightDecomposeCount() {
 // in-process. Limit bound (no scan illimitato); eccesso oltre il cap non è un
 // problema qui perché age-out ha già il suo AGEOUT_MAX_PER_RUN sulle azioni.
 function listAllOpenIssues() {
-  try {
-    return gh([
-      'issue', 'list', '--repo', REPO, '--state', 'open',
-      '--json', 'number,title,labels,createdAt,updatedAt', '--limit', '300',
-    ]);
-  } catch {
-    return [];
-  }
+  return listIssuesBounded([
+    'issue', 'list', '--repo', REPO, '--state', 'open',
+    '--json', 'number,title,labels,createdAt,updatedAt',
+  ], 'issue aperte');
 }
 
 const names = (iss) => (iss.labels || []).map((l) => l.name);
@@ -841,6 +1340,21 @@ const prioRank = (iss) => (has(iss, 'fu-prio:high') ? 0 : 1); // high prima
 // all'age-out), cap/run 5→1 (no burst di run Claude su pool a basso rendimento).
 // Override via env se serve più aggressività di convergenza.
 const RETRY_COOLDOWN_DAYS = Number(process.env.FOLLOWUP_RETRY_COOLDOWN_DAYS || 5);
+// Variante per le parcheggiate `fu-data-pending` (vedi il detector omonimo):
+// `RETRY_COOLDOWN_DAYS` risponde a «quanto aspettare prima di RI-TENTARE un fix
+// fallito»; una data-pending non ha fallito niente — dichiara che la finestra di
+// osservazione non è ancora trascorsa, e le finestre citate dai bullet reali
+// («due o tre run consecutivi», «baseline post-merge») sono dell'ordine della
+// settimana. Ri-accodarla a 5 giorni rifà lo stesso run contro lo stesso dato
+// mancante. Default = 2× il cooldown normale; env dedicata per tararlo senza
+// toccare l'altro.
+const DATA_PENDING_COOLDOWN_DAYS = Number(
+  process.env.FOLLOWUP_DATA_PENDING_COOLDOWN_DAYS || RETRY_COOLDOWN_DAYS * 2,
+);
+/** Cooldown in giorni applicabile a QUESTA parcheggiata. Pura → testabile. */
+export function cooldownDaysFor(iss, { base = RETRY_COOLDOWN_DAYS, dataPending = DATA_PENDING_COOLDOWN_DAYS } = {}) {
+  return (iss?.labels || []).some((l) => l?.name === LBL_DATA_PENDING) ? dataPending : base;
+}
 const MAX_REPARK_GEN = Number(process.env.FOLLOWUP_MAX_REPARK_GEN || 1);
 const RETRY_MAX_PER_RUN = Number(process.env.FOLLOWUP_RETRY_MAX_PER_RUN || 1);
 // Il cooldown si misura sull'ultimo evento SIGNIFICATIVO, non su `updatedAt`
@@ -912,14 +1426,6 @@ function isWorkflowScoped(num, prefetched = null) {
   } catch { return true; }
 }
 
-/** Secrets-scope capability-guard for parked-retry (#5057): a park-preemptive gate
- * driven by `detectSecretsScoped` already ran pre-promotion (see main loop below) —
- * this mirrors `isWorkflowScoped` for the reparkable pass so these known
- * credential-blocked categories never cycle un-park → promote → re-park. Pure on
- * already-fetched labels, no extra `gh` call needed. */
-function isSecretsScoped(iss) {
-  return detectSecretsScoped(names(iss));
-}
 
 /**
  * Il fixer PUÒ pushare `.github/workflows/**` in questo run? (#5544)
@@ -941,6 +1447,34 @@ function isSecretsScoped(iss) {
  */
 export function canPushWorkflowsFromEnv(env = process.env) {
   return env?.APP_TOKEN_WORKFLOWS === 'true';
+}
+
+/**
+ * Capacità EFFETTIVA di pushare `.github/workflows/**` con l'identità di questo
+ * run, da qualunque delle due sorgenti la porti.
+ *
+ * `APP_TOKEN_WORKFLOWS` descrive UNA sola identità — la GitHub App del sito,
+ * scritta da `mint-app-token.mjs`. Il corpus non usa una App: pusha con
+ * `GITHUB_PAT_NANAKO`, e su quel PAT lo scope `workflow` c'è (misurato il
+ * 2026-08-24 su `x-oauth-scopes`: `…, repo, user, workflow, …`). Con il solo
+ * controllo su `APP_TOKEN_WORKFLOWS` la risposta là era `false` per
+ * costruzione, e il pre-flight parcheggiava come `blocked-workflows-scope` fix
+ * che il PAT pushava benissimo: 8 verdetti in 7 giorni sul corpus, TUTTI emessi
+ * dal pre-flight e non da Claude, con un messaggio che parla di «token GitHub
+ * App» su un repo che non ne usa uno. Il guard bloccava una capacità posseduta.
+ *
+ * `PAT_WORKFLOWS_SCOPE` è l'altra metà, e la sua provenienza è la lezione di
+ * #5288: la capacità si LEGGE, non si deduce dalla presenza di un token. La
+ * scrive `scripts/ci/probe-workflow-scope.mjs` leggendo `x-oauth-scopes` dalla
+ * risposta dell'API, esattamente come il conio della App legge `permissions`.
+ * Questa funzione resta pura e legge solo env — deliberatamente: sondare qui
+ * l'identità ambientale di `gh` legherebbe un guard di produzione a qualunque
+ * token si trovi nella shell di chi lo esegue, incluso un laptop.
+ *
+ * FAIL-CLOSED in entrambi i rami: una variabile non scritta è `!== 'true'`.
+ */
+export function canPushWorkflows(env = process.env) {
+  return canPushWorkflowsFromEnv(env) || env?.PAT_WORKFLOWS_SCOPE === 'true';
 }
 
 /**
@@ -977,18 +1511,42 @@ export function isCapabilityScoped(iss, {
   // Seam di test (#5544): entrambe le direzioni del guard vanno provate senza rete.
   // Default = comportamento di produzione, invariato.
   fetchIssue = (num) => gh(['issue', 'view', String(num), '--repo', REPO, '--json', 'title,body,labels']),
-  canPushWorkflows = canPushWorkflowsFromEnv(),
+  canPushWorkflows: canPushWorkflowsOpt = canPushWorkflows(),
 } = {}) {
-  if (isSecretsScoped(iss)) return true; // label nota → gratis, nessuna fetch
+  // Il ramo secrets e' CADUTO INTERO, per label e per forma: decisione del
+  // proprietario del 2026-08-24 (registro in VISION.md). Le credenziali sono
+  // caricate nel run del fixer, quindi una issue secrets-scoped e' lavoro
+  // normale e non una capacita' mancante.
+  //
+  // Toglierne solo meta' — la label si', la forma no — sarebbe stato peggio che
+  // non toccarlo: il guard avrebbe continuato a escludere le stesse issue
+  // passando da `matchSecretsScopedShape`, e il commento qui sopra avrebbe
+  // dichiarato una fix che non c'era. Era la ragione per cui le due sole
+  // candidate che superavano il cooldown venivano scartate entrambe
+  // («secrets-scope sempre escluso» nei log del 2026-08-24).
+  //
+  // Cio' che ora tiene fuori una issue e' SOLO l'impossibilita' vera di pushare
+  // `.github/workflows/**`, letta e non dedotta (vedi `canPushWorkflows`).
   try {
     const d = fetchIssue(iss.number);
     // WF-scope esclude SOLO se il push di quei file è davvero impossibile (#5544).
-    if (!canPushWorkflows && isWorkflowScoped(iss.number, d)) return true;
-    return Boolean(matchSecretsScopedShape({
-      labels: names(d),
-      text: `${d?.title || ''}\n${d?.body || ''}`,
-    }));
+    return Boolean(!canPushWorkflowsOpt && isWorkflowScoped(iss.number, d));
   } catch { return true; }
+}
+
+/** `gh issue edit --add-label` FALLISCE se la label non esiste nel repo, e
+ * `edit()` inghiotte l'errore in un `::warning::` — cioè una label nuova non
+ * verrebbe mai applicata e nessuno se ne accorgerebbe. Le label introdotte da
+ * questo file (`sibling-debt`, `fu-data-pending`) non sono create da nessun
+ * altro workflow e vivono su DUE repo (`mode: identical`), quindi crearle a
+ * mano da un lato solo sarebbe drift garantito. Best-effort, stesso pattern di
+ * `loop-health-report.mjs`: se esiste già, `gh` esce non-zero e va bene così. */
+function ensureLabel(name, color, description) {
+  if (DRY) return;
+  try {
+    gh(['label', 'create', name, '--repo', REPO, '--color', color, '--description', description],
+      { json: false });
+  } catch { /* già esistente (o repo senza permessi label): l'edit sotto dirà la verità */ }
 }
 
 function edit(num, { add = [], remove = [] }) {
@@ -1260,10 +1818,62 @@ export function runDrain() {
   // Ortogonale allo slot issue-fix (chiudere non tocca il fixer) → gira sempre.
   if (AGEOUT_DAYS > 0) {
     const now = Date.now();
-    const candidates = listAllOpenIssues()
-      .filter((iss) => isAgeOutEligible(iss, { now, ageOutDays: AGEOUT_DAYS, inactiveDays: AGEOUT_INACTIVE_DAYS }))
-      .filter((iss) => !hasFixPR(iss.number)) // mai chiudere una issue con PR aperta
-      .sort((a, b) => Date.parse(a.updatedAt) - Date.parse(b.updatedAt)); // più stantii prima
+    // Chi supera TUTTO tranne l'inattività: è su questo insieme, e solo su
+    // questo, che ha senso spendere una lettura commenti.
+    const aged = listAllOpenIssues().filter((iss) => isAgeOutCandidate(iss, { now, ageOutDays: AGEOUT_DAYS }));
+    // Passo 1 — quiete già su `updatedAt`: eleggibili GRATIS. L'invariante
+    // `significativo ≤ updatedAt` rende il salto sicuro (vedi `isAgeOutEligible`).
+    const eligible = [];
+    const toRescan = [];
+    for (const iss of aged) {
+      if (isAgeOutEligible(iss, { now, ageOutDays: AGEOUT_DAYS, inactiveDays: AGEOUT_INACTIVE_DAYS })) {
+        eligible.push({ iss, at: Date.parse(iss.updatedAt) });
+      } else {
+        toRescan.push(iss);
+      }
+    }
+    // Passo 2 — le altre sembrano vive solo perché un bot le ri-commenta:
+    // rivaluta sull'ultimo evento significativo. Bounded come il PARKED-RETRY
+    // (cap/run + budget), e ordinato per età così il cap non esclude sempre le
+    // stesse: le più vecchie sono anche le più probabilmente quiete davvero.
+    toRescan.sort((a, b) => Date.parse(a.createdAt) - Date.parse(b.createdAt));
+    // Stessa finestra rotante del PARKED-RETRY. Oggi le candidate (19 sul sito)
+    // stanno sotto il cap (25) e `rotateForScan` è un no-op, ma è esattamente
+    // così che è nato il difetto di là: un cap tarato su un pool di 19 che nel
+    // frattempo è diventato 44, senza che nessuno cambiasse una riga.
+    const rescanOrder = rotateForScan(toRescan, {
+      scanMax: AGEOUT_COMMENT_SCAN_MAX, now, periodMs: SCAN_ROTATION_PERIOD_MS,
+    });
+    let ageoutScans = 0;
+    let ageoutScanCapped = 0;
+    let ageoutUnreadable = 0;
+    for (const iss of rescanOrder) {
+      if (ageoutScans >= AGEOUT_COMMENT_SCAN_MAX) { ageoutScanCapped++; continue; }
+      if (!budget.take(`#${iss.number} (age-out-scan)`, COMMENT_SCAN_COST_MS)) break;
+      ageoutScans++;
+      const comments = issueCommentsRest(iss.number);
+      if (comments === null) { ageoutUnreadable++; continue; } // glitch gh → si rivaluta al prossimo tick
+      const at = lastSignificantActivityAt(iss, comments);
+      if (at === null) continue;
+      if (isAgeOutEligible(iss, {
+        now, ageOutDays: AGEOUT_DAYS, inactiveDays: AGEOUT_INACTIVE_DAYS, significantAt: at,
+      })) eligible.push({ iss, at });
+    }
+    if (ageoutScans) {
+      // Senza questa riga l'effetto della fix è invisibile nei log, ed è
+      // esattamente com'è restata nascosta per mesi la metà non riparata.
+      console.log(`age-out: ${ageoutScans}/${toRescan.length} candidate non quiete su \`updatedAt\` rivalutate sull'ultimo evento significativo → ${eligible.length} eleggibili in totale.`);
+    }
+    if (ageoutScanCapped) {
+      console.log(`age-out: cap di scansione commenti ${AGEOUT_COMMENT_SCAN_MAX}/run raggiunto, ${ageoutScanCapped} candidate non valutate in questo tick (no silent cap).`);
+    }
+    if (ageoutUnreadable) {
+      console.log(`age-out: ${ageoutUnreadable} candidate con commenti illeggibili (glitch gh) → nessuna decisione presa, rivalutate al prossimo tick.`);
+    }
+    const candidates = eligible
+      .sort((a, b) => a.at - b.at) // più stantii (per evento significativo) prima
+      .map((e) => e.iss)
+      .filter((iss) => !hasFixPR(iss.number)); // mai chiudere una issue con PR aperta
     const toClose = candidates.slice(0, AGEOUT_MAX_PER_RUN);
     if (candidates.length > toClose.length) {
       console.log(`age-out: ${candidates.length} eleggibili, cap ${AGEOUT_MAX_PER_RUN}/run → ${candidates.length - toClose.length} rinviate al prossimo tick (no silent cap).`);
@@ -1273,7 +1883,7 @@ export function runDrain() {
       // le due e lasciare la issue commentata-ma-aperta, che al tick successivo
       // viene ri-commentata. Non si comincia se non c'è il tempo di finire.
       if (!budget.take(`#${iss.number} (age-out)`, ITEM_COST_MS)) break;
-      const note = `🗑️ Auto-chiusa dal followup-drainer: follow-up inattivo da ≥${AGEOUT_INACTIVE_DAYS}gg e vecchio ≥${AGEOUT_DAYS}gg, mai entrato in lavorazione → non funnel-blocking. **Riapri** se il problema ricorre (o riloggalo: il lessons-harvester lo ricatturerà se è un pattern reale).`;
+      const note = `🗑️ Auto-chiusa dal followup-drainer: nessun evento SIGNIFICATIVO da ≥${AGEOUT_INACTIVE_DAYS}gg (commenti di bot e ping dei monitor esclusi: alzano \`updatedAt\` senza dire niente sullo stato) e issue vecchia ≥${AGEOUT_DAYS}gg, mai entrata in lavorazione → non funnel-blocking. **Riapri** se il problema ricorre (o riloggalo: il lessons-harvester lo ricatturerà se è un pattern reale).`;
       if (DRY) { console.log(`[dry] close #${iss.number} (age-out) — "${iss.title}"`); continue; }
       try {
         gh(['issue', 'comment', String(iss.number), '--repo', REPO, '--body', note], { json: false });
@@ -1323,6 +1933,109 @@ export function runDrain() {
     }
   }
 
+  // --- VERDICT-EXIT: uscita terminale per i verdetti NON_RETRYABLE -----------
+  // Gira PRIMA di too-large e del parked-retry, e l'ordine è la metà della fix:
+  // ciò che questo stadio chiude o escala non è più nel pool che il retry legge,
+  // quindi il retry non può più spendere la sua unica generazione su un verdetto
+  // che per definizione non cambierà (misura e prove nel commento di
+  // `verdictExitDecision`). Zero Claude: legge un marker e applica una label.
+  {
+    const parked = listIssues(LBL_PARKED)
+      .filter((iss) => isQueueManaged(iss))
+      // Chi è già in coda, in lavoro, nello stadio decompose o già escalato non
+      // ha bisogno di un'uscita: ce l'ha. `needs-human` incluso, altrimenti
+      // questo stadio ri-commenterebbe a ogni tick ciò che ha già instradato.
+      .filter((iss) => !has(iss, LBL_FIX) && !has(iss, LBL_QUEUED) && !has(iss, 'needs-human'))
+      .filter((iss) => !has(iss, LBL_DECOMP_QUEUED) && !has(iss, LBL_DECOMP) && !has(iss, LBL_DECOMPOSED))
+      // Già flaggata da un giro precedente del ramo `flag`: rientrare non
+      // produce nulla (il ramo fa `continue` sul marker) ma consuma uno slot del
+      // cap, e con `FOLLOWUP_NO_AUTOCLOSE=1` e più di `VERDICT_EXIT_MAX_PER_RUN`
+      // flaggate lo esaurirebbe sui no-op prima di arrivare alle candidate
+      // nuove. Stessa esclusione già presente in `isDecomposeEligible` (#6275).
+      .filter((iss) => !has(iss, LBL_MAYBE_RESOLVED))
+      // Un tracker permanente non si chiude e non si escala: è aperto per scelta.
+      .filter((iss) => !isPermanentTracker(iss));
+
+    // La rotazione serve alla stessa ragione del cooldown-scan: senza, il cap
+    // taglia SEMPRE dalla stessa coda della lista (`gh issue list` ordina dalla
+    // più recente), e le parcheggiate da più tempo — esattamente quelle che
+    // aspettano un'uscita da più giorni — non verrebbero mai lette.
+    const rotated = rotateForScan(parked, {
+      scanMax: VERDICT_EXIT_MAX_PER_RUN,
+      now: Date.now(),
+      periodMs: SCAN_ROTATION_PERIOD_MS,
+    });
+
+    let acted = 0;
+    let scanned = 0;
+    for (const iss of rotated) {
+      if (acted >= VERDICT_EXIT_MAX_PER_RUN) {
+        console.log(`verdict-exit: cap ${VERDICT_EXIT_MAX_PER_RUN}/run raggiunto, ${parked.length - scanned} candidate rinviate al prossimo tick (no silent cap).`);
+        break;
+      }
+      // Coppia non atomica (comment → close/edit): non si comincia se non c'è il
+      // tempo di finire, o si resta con una issue commentata e non instradata
+      // che al tick dopo viene ri-commentata.
+      if (!budget.take(`#${iss.number} (verdict-exit)`, ITEM_COST_MS)) break;
+      scanned++;
+      const outcome = latestFixOutcome(iss.number);
+      const d = verdictExitDecision(outcome, {
+        hasPR: hasFixPR(iss.number),
+        noAutoclose: VERDICT_EXIT_NO_AUTOCLOSE,
+      });
+      if (d.action === 'none') continue;
+      acted++;
+
+      if (d.action === 'close') {
+        const note = `✅ **Auto-chiusa dal followup-drainer (zero-Claude)**: l'ultimo giro del fixer ha emesso \`FIX_OUTCOME: already-fixed\`, cioè è andato a guardare il codice e il difetto non c'era più. Il verdetto è più forte del token-match con cui \`reconcile-followups.mjs\` già auto-chiude, quindi non serve una seconda run per confermarlo.\n\n**Riapri** se il difetto ricorre — il monitor che ha aperto questa issue lo fa da sé. Per disattivare questa chiusura: \`FOLLOWUP_NO_AUTOCLOSE=1\`.`;
+        if (DRY) { console.log(`[dry] close #${iss.number} (verdict-exit: ${d.reason}) — "${iss.title}"`); continue; }
+        // ORDINE: label → close → commento, e NON commento → close come
+        // nell'age-out. Il motivo è la mutazione non atomica: se il commento va
+        // a buon fine e la close lancia (l'errore è catturato e loggato), la
+        // issue resta `fu-parked` col verdetto invariato e al tick successivo
+        // rientra nel pool e ri-commenta — un «Auto-chiusa» duplicato su una
+        // issue ancora aperta. Chiudendo per prima, un fallimento non lascia
+        // traccia da duplicare, e una close riuscita toglie la issue dal pool
+        // (`listIssues` legge solo le aperte) anche se il commento poi salta.
+        // Si può commentare una issue chiusa, quindi non si perde la spiegazione.
+        try {
+          edit(iss.number, { add: [LBL_RESOLVED_AUTO], remove: [LBL_PARKED] });
+          gh(['issue', 'close', String(iss.number), '--repo', REPO, '--reason', 'completed'], { json: false });
+        } catch (e) {
+          console.log(`::warning::verdict-exit close #${iss.number} fallito: ${String(e).slice(0, 120)}`);
+          continue;
+        }
+        try { gh(['issue', 'comment', String(iss.number), '--repo', REPO, '--body', note], { json: false }); }
+        catch { console.log(`::warning::verdict-exit #${iss.number}: chiusa, ma il commento di spiegazione non è stato postato.`); }
+        console.log(`VERDICT-EXIT close #${iss.number} (already-fixed) — "${iss.title?.slice(0, 50)}"`);
+        continue;
+      }
+
+      if (d.action === 'flag') {
+        if (DRY) { console.log(`[dry] flag #${iss.number} (verdict-exit: ${d.reason})`); continue; }
+        if (has(iss, LBL_MAYBE_RESOLVED)) continue; // già flaggata: niente commento duplicato
+        try {
+          gh(['issue', 'comment', String(iss.number), '--repo', REPO, '--body',
+            `🔎 **followup-drainer (zero-Claude)**: verdetto \`already-fixed\` — il fixer ha verificato che il difetto non c'è più. Chiusura automatica disattivata (\`FOLLOWUP_NO_AUTOCLOSE=1\`), quindi resta aperta per conferma umana.`], { json: false });
+        } catch { /* il flag è advisory: un commento perso non è un blocco */ }
+        edit(iss.number, { add: [LBL_MAYBE_RESOLVED], remove: [] });
+        console.log(`VERDICT-EXIT flag #${iss.number} (already-fixed, autoclose off) — "${iss.title?.slice(0, 50)}"`);
+        continue;
+      }
+
+      // escalate
+      if (DRY) { console.log(`[dry] escalate #${iss.number} → needs-human (verdict-exit: ${d.reason})`); continue; }
+      try {
+        gh(['issue', 'comment', String(iss.number), '--repo', REPO, '--body',
+          `🙋 **Escalata dal followup-drainer (zero-Claude)**: verdetto \`FIX_OUTCOME: ${outcome}\`. È una capacità che la CI non ha (secret, admin, scope \`workflows\`), un lavoro manuale/editoriale, o una causa che il fixer non ha trovato: ri-provare riproduce lo stesso verdetto allo stesso prezzo.\n\nPrima di questa escalation la issue restava \`fu-parked\` e nessuno stadio la guardava. Ora entra nello sweep \`needs-human\` (VISION.md), che è la porta di rientro.`], { json: false });
+      } catch { /* il commento è la spiegazione, non il meccanismo */ }
+      edit(iss.number, { add: ['needs-human'], remove: [LBL_FIX, LBL_QUEUED] });
+      console.log(`VERDICT-EXIT escalate #${iss.number} → needs-human (${outcome}) — "${iss.title?.slice(0, 50)}"`);
+    }
+    if (acted) console.log(`verdict-exit: ${acted} uscite terminali su ${scanned} candidate lette (pool parked ${parked.length}).`);
+    else if (scanned) console.log(`verdict-exit: ${scanned} candidate lette, nessun verdetto NON_RETRYABLE da instradare (pool parked ${parked.length}).`);
+  }
+
   // --- TOO-LARGE ESCALATION (no cooldown) ------------------------------------
   // Un follow-up parkato che ha GIÀ avuto un giro di parked-retry (reparkGen≥1)
   // col fixer migliorato e NON ha MAI prodotto una PR = pure-run-death
@@ -1362,11 +2075,54 @@ export function runDrain() {
     if (tooLarge.length) console.log(`too-large escalation: ${tooLarge.length} processate (decompose se eleggibili, altrimenti needs-human).`);
   }
 
+  // --- SIBLING-DEBT: etichetta il gemello dichiarato in prosa ----------------
+  // Ortogonale a tutto il resto: non parca, non instrada, non tocca lo slot. La
+  // issue prosegue esattamente come prima — l'unico effetto è che il debito
+  // verso l'altro repo smette di essere prosa e diventa enumerabile di là
+  // (`gh issue list --label sibling-debt --repo <l'altro>`).
+  //
+  // Perché un pass proprio e non un check dentro il drain: il drain guarda SOLO
+  // la coda `agent:fix-queued`. Misurato il 2026-08-25 sulle 47 follow-up aperte
+  // dei due repo, le 8 che dichiarano un debito verso il gemello sono TUTTE già
+  // `fu-parked` — un check dentro il drain le avrebbe mancate tutte e 8,
+  // coprendo solo le future. Il costo qui è UNA `gh issue list` (i body arrivano
+  // nella stessa risposta, non una `issue view` per candidata).
+  if (SIBLING_DEBT_MAX_PER_RUN > 0) {
+    const withBodies = listIssuesBounded([
+      'issue', 'list', '--repo', REPO, '--state', 'open',
+      '--json', 'number,title,labels,body',
+    ], 'issue aperte (sibling-debt scan)');
+    let labelled = 0;
+    let ensured = false;
+    for (const iss of withBodies) {
+      if (labelled >= SIBLING_DEBT_MAX_PER_RUN) {
+        console.log(`sibling-debt: cap ${SIBLING_DEBT_MAX_PER_RUN}/run raggiunto, le restanti al prossimo tick (no silent cap).`);
+        break;
+      }
+      if (has(iss, LBL_SIBLING_DEBT)) continue; // idempotenza: la label È il marker
+      const debt = detectSiblingDebt(`${iss.title}\n${iss.body || ''}`, REPO);
+      if (!debt) continue;
+      if (!budget.take(`#${iss.number} (sibling-debt)`, ITEM_COST_MS)) break;
+      const fileList = debt.files.length
+        ? debt.files.slice(0, 5).map((f) => `\`${f}\``).join(', ')
+        : 'nessun path estratto dalla prosa';
+      const refList = debt.refs.length ? debt.refs.map((r) => `\`${r}\``).join(', ') : 'nessuno';
+      console.log(`SIBLING-DEBT #${iss.number} → \`${LBL_SIBLING_DEBT}\` (gemello su ${debt.repo}, file: ${fileList})`);
+      labelled++;
+      if (DRY) { console.log(`[dry] sibling-debt #${iss.number} (${debt.repo})`); continue; }
+      const note = `🔗 **Debito verso il gemello (drainer, zero-Claude)**: un item di questa follow-up dichiara che il file gemello su **\`${debt.repo}\`** non è ancora allineato.\n\n- **Repo gemello**: \`${debt.repo}\`\n- **File nominati**: ${fileList}\n- **Riferimenti cross-repo citati**: ${refList}\n- **Evidenza (verbatim dal body)**: «${debt.evidence}»\n\n**Perché una label locale e non una issue aperta di là**: \`followup-drainer.yml\` gira con un token dell'installazione del repo CORRENTE (\`APP_TOKEN || GITHUB_PAT\`). L'unica credenziale cross-repo del workspace è \`ARTICLES_REPO_PAT\` (usata da \`mirror-articles-engine.yml\`): esiste solo sul sito, va in una direzione sola (sito→corpus) e non è cablata in questo workflow. Questo script è \`mode: identical\` sui due repo — dev'essere byte-identico — quindi un apri-issue cross-repo funzionerebbe da un lato e tornerebbe 403 dall'altro, proprio il lato dove il segnale nasce (8 casi su 8 misurati sono sul corpus). La label \`${LBL_SIBLING_DEBT}\` è invece leggibile e scrivibile da entrambi con il token che ciascuno ha già.\n\n**Non parcheggio e non instrado**: la issue prosegue nel flusso normale — gli altri item restano lavorabili qui.`;
+      if (!ensured) { ensureLabel(LBL_SIBLING_DEBT, '1d76db', 'Un item dichiara un file gemello non allineato sull\'altro repo del workspace'); ensured = true; }
+      try { gh(['issue', 'comment', String(iss.number), '--repo', REPO, '--body', note], { json: false }); }
+      catch (e) { console.log(`::warning::comment #${iss.number} fallito: ${String(e).slice(0, 120)}`); }
+      edit(iss.number, { add: [LBL_SIBLING_DEBT] });
+    }
+    if (labelled) console.log(`sibling-debt: ${labelled} issue etichettate in questo tick (debito verso l'altro repo del workspace).`);
+  }
+
   // --- PARKED-RETRY: ri-accoda i parked ritentabili --------------------------
   // Ortogonale allo slot (sposta solo fu-parked→queued; il drain promuove dopo).
   if (RETRY_COOLDOWN_DAYS > 0) {
     const now = Date.now();
-    const cooldownMin = RETRY_COOLDOWN_DAYS * 1440;
     // Ammissione al pool: tutta in `isReparkableCandidate` (pura, testabile).
     // Include l'esclusione dei tracker permanenti, che fino a #5544 non esisteva
     // qui: `agent:no-age-out` era letto solo da `isAgeOutEligible`, cioè salvava i
@@ -1385,6 +2141,7 @@ export function runDrain() {
     // chi lo supera è eleggibile per costruzione e non serve leggerne i commenti.
     let commentScans = 0;
     let scanCapped = 0;
+    let verdictSkipped = 0;
     let unreadable = 0;
     const eligible = [];
     // Rotazione dell'offset di scansione (2026-08-21): col cap fisso a
@@ -1395,10 +2152,23 @@ export function runDrain() {
     // senza stato: in ⌈pool/cap⌉ tick ogni candidata viene valutata almeno una
     // volta. L'ordine di priorità non c'entra: il sort avviene DOPO, su
     // `eligible`.
-    const scanOffset = pool.length ? Math.floor(now / 1_200_000) % pool.length : 0;
-    const rotatedPool = pool.slice(scanOffset).concat(pool.slice(0, scanOffset));
+    //
+    // Il PASSO della rotazione era però di UNA posizione per tick, che quella
+    // copertura non la dà: servivano fino a `pool - cap` tick (19, ~6,5h) invece
+    // di ⌈pool/cap⌉ (2, ~40min). Ora l'avanzamento è di `cap` posizioni — vedi
+    // `scanWindowOffset`, dove sta anche la misura che ha reso visibile lo scarto.
+    const rotatedPool = rotateForScan(pool, {
+      scanMax: RETRY_COMMENT_SCAN_MAX, now, periodMs: SCAN_ROTATION_PERIOD_MS,
+    });
     for (const iss of rotatedPool) {
-      if (minutesSince(iss.updatedAt) >= cooldownMin) {
+      // Cooldown PER CANDIDATA: le `fu-data-pending` ne hanno uno più lungo
+      // (vedi `cooldownDaysFor`). Va applicato anche a questo ramo veloce, non
+      // solo a `isRetryCooldownElapsed` più sotto: `updatedAt` è la scorciatoia
+      // che salta la lettura dei commenti, e con la soglia corta avrebbe
+      // ri-accodato la data-pending prima che la finestra di osservazione
+      // fosse trascorsa, cioè scavalcando la variante appena introdotta.
+      const cdDays = cooldownDaysFor(iss);
+      if (minutesSince(iss.updatedAt) >= cdDays * 1440) {
         // Quieto anche sul campo grezzo → eleggibile senza chiamate extra. La
         // chiave d'ordine è `updatedAt`, che sovrastima la staleness reale: chi
         // passa da questo ramo non può quindi scavalcare in coda chi è entrato
@@ -1411,7 +2181,17 @@ export function runDrain() {
       commentScans++;
       const comments = issueCommentsRest(iss.number);
       if (comments === null) { unreadable++; continue; } // glitch gh → si rivaluta al prossimo tick
-      if (!isRetryCooldownElapsed(iss, comments, { now, cooldownDays: RETRY_COOLDOWN_DAYS })) continue;
+      // Cintura oltre alle bretelle dello stadio VERDICT-EXIT: quello ha un cap
+      // per tick, quindi una parcheggiata con verdetto NON_RETRYABLE può arrivare
+      // qui prima di essere stata instradata. Ri-accodarla è spreco GARANTITO —
+      // il drain la ri-parcheggia sul verdetto e la generazione è bruciata (le 8
+      // `fu-reparked:1` del sito sono 8 su 8 così). Il controllo è GRATIS: i
+      // commenti sono già in mano da `issueCommentsRest`, e da quando
+      // `latestFixOutcomeFromComments` accetta anche la forma REST li legge
+      // davvero — prima, su una lista REST, restituiva `null` sempre.
+      const parkedVerdict = latestFixOutcomeFromComments(comments);
+      if (parkedVerdict && NON_RETRYABLE.has(parkedVerdict)) { verdictSkipped++; continue; }
+      if (!isRetryCooldownElapsed(iss, comments, { now, cooldownDays: cdDays })) continue;
       eligible.push({ iss, at: lastSignificantActivityAt(iss, comments) });
     }
     if (commentScans) {
@@ -1422,6 +2202,9 @@ export function runDrain() {
     }
     if (scanCapped) {
       console.log(`parked-retry: cap di scansione commenti ${RETRY_COMMENT_SCAN_MAX}/run raggiunto, ${scanCapped} candidate non valutate in questo tick (no silent cap).`);
+    }
+    if (verdictSkipped) {
+      console.log(`parked-retry: ${verdictSkipped} candidate con verdetto NON_RETRYABLE non ri-accodate (il drain le ri-parcheggerebbe bruciando la generazione) → le instrada lo stadio verdict-exit.`);
     }
     if (unreadable) {
       console.log(`parked-retry: ${unreadable} candidate con commenti illeggibili (glitch gh) → nessuna decisione presa, rivalutate al prossimo tick.`);
@@ -1460,7 +2243,9 @@ export function runDrain() {
       // WF-scope` è ambiguo — non si distingue «parcheggiata perché manca il
       // permesso» da «parcheggiata per secrets-scope», ed è esattamente
       // l'ambiguità che ha tenuto il difetto invisibile per 13 run.
-      const cap = canPushWorkflowsFromEnv() ? 'concessa' : 'assente';
+      const cap = canPushWorkflows()
+        ? (canPushWorkflowsFromEnv() ? 'concessa (GitHub App)' : 'concessa (PAT con scope workflow)')
+        : 'assente';
       console.log(`parked-retry: ${skippedWf} skip capability-guard (workflows: write ${cap} — APP_TOKEN_WORKFLOWS; secrets-scope sempre escluso) → restano parked/age-out.`);
     }
   }
@@ -1940,6 +2725,22 @@ export function runDrain() {
       continue; // prova il prossimo in coda
     }
 
+    // Check: data-pending (2026-08-25) — l'issue dichiara di aspettare un dato
+    // o delle run future. Park RITENTABILE (`fu-parked` + `fu-data-pending`,
+    // mai `needs-human`): il PARKED-RETRY la ri-accoda da solo quando il
+    // cooldown lungo è scaduto.
+    const dataPending = detectDataPending(cand.title, body);
+    if (dataPending) {
+      console.log(`PARK #${cand.number} (data-pending, cooldown ${DATA_PENDING_COOLDOWN_DAYS}g) → «${dataPending.slice(0, 80)}»`);
+      if (DRY) { console.log(`[dry] park #${cand.number} (data-pending)`); continue; }
+      const note = `⏳ **Pre-flight drainer (zero-Claude, data-pending)**: questa follow-up dichiara di essere in attesa di un dato che non esiste ancora — «${dataPending}». Non è un fix che il fixer possa produrre oggi: promuoverla brucia un run che riscopre ogni volta lo stesso vincolo.\n\n**Non è terminale.** Parcheggio con \`${LBL_DATA_PENDING}\` e cooldown **${DATA_PENDING_COOLDOWN_DAYS} giorni** (il doppio di \`FOLLOWUP_RETRY_COOLDOWN_DAYS\`=${RETRY_COOLDOWN_DAYS}, che è tarato su «ri-tentare un fix fallito» — qui il fix non è fallito, non è ancora valutabile). Allo scadere il pass PARKED-RETRY la ri-accoda da solo in \`agent:fix-queued\`, senza intervento umano. Nessun \`needs-human\`: sarebbe uno stato assorbente e la issue non tornerebbe mai in coda.\n\nSe il dato arriva prima, togli \`${LBL_PARKED}\` per rimetterla in coda subito.`;
+      ensureLabel(LBL_DATA_PENDING, 'fbca04', 'Follow-up parcheggiata in attesa di dati/run future (cooldown lungo, ri-accodata da sola)');
+      try { gh(['issue', 'comment', String(cand.number), '--repo', REPO, '--body', note], { json: false }); }
+      catch (e) { console.log(`::warning::comment #${cand.number} fallito: ${String(e).slice(0, 120)}`); }
+      edit(cand.number, { add: [LBL_PARKED, LBL_DATA_PENDING], remove: [LBL_QUEUED, LBL_FIX] });
+      continue; // prova il prossimo in coda
+    }
+
     // Check: secrets-scoped category (escalation #5057) — `cloudflare-5xx` /
     // `campaign-goal` / `evergreen-refresh` labels mark issues whose root fix
     // structurally requires a Firebase-RC-loaded credential (CF_API_TOKEN /
@@ -1959,20 +2760,22 @@ export function runDrain() {
       text: `${cand.title}\n${body || ''}`,
     });
     if (secretsMatch) {
+      // NON si parca piu', e il commento che stava qui dichiarava il falso: diceva
+      // «credenziale caricata via Firebase Remote Config, non disponibile
+      // nell'ambiente issue-fix». Dal 2026-08-24 `issue-fix.yml` la carica —
+      // decisione del proprietario, registro in VISION.md — quindi quel gate
+      // parcheggiava lavoro che il fixer puo' fare. Misurato: 7 occorrenze in
+      // 14 giorni.
+      //
+      // Il rilevatore resta collegato, come SEGNALE e non come freno: se un
+      // giorno il caricamento dei secret smette di funzionare, e' questa riga
+      // accanto a un `blocked-secrets` reale a rendere immediata la correlazione.
+      // Spegnerlo del tutto lo trasformerebbe in codice morto — che e' l'altra
+      // meta' dello stesso errore.
       const via = secretsMatch.via === 'label'
         ? `label \`${secretsMatch.label}\``
         : `scrittura Remote Config (${(secretsMatch.params || []).join(', ')})`;
-      console.log(`PARK #${cand.number} (secrets-scoped: ${via}) → no promozione, credenziali non disponibili in issue-fix`);
-      const preamble = secretsMatch.via === 'label'
-        ? `questa issue porta la label \`${secretsMatch.label}\`, categoria il cui fix richiede sempre \`${secretsMatch.secret}\` (${secretsMatch.reason})`
-        : `il fix di questa issue e' **esclusivamente** una scrittura su Firebase Remote Config e richiede \`${secretsMatch.secret}\` (${secretsMatch.reason})`;
-      const ref = secretsMatch.via === 'label' ? '#5057' : '#5057/#5838';
-      const note = `⏭️ **Pre-flight drainer (zero-Claude, ${ref})**: ${preamble} — credenziale caricata via Firebase Remote Config, non disponibile nell'ambiente \`issue-fix\` (solo \`GH_TOKEN\` GitHub App). Promuoverla a \`agent:fix\` brucerebbe un run Claude intero per arrivare sempre alla stessa conclusione \`blocked-secrets\`. **Non promuovo**: serve una sessione con Firebase SA/PAT (locale o owner). Rimuovo \`agent:fix-queued\` e parko (riapribile: togli \`fu-parked\` se il contesto cambia).\n\n<!-- FIX_OUTCOME: blocked-secrets -->`;
-      if (DRY) { console.log(`[dry] park #${cand.number} (secrets-scoped)`); continue; }
-      try { gh(['issue', 'comment', String(cand.number), '--repo', REPO, '--body', note], { json: false }); }
-      catch (e) { console.log(`::warning::comment #${cand.number} fallito: ${String(e).slice(0, 120)}`); }
-      edit(cand.number, { add: [LBL_PARKED], remove: [LBL_QUEUED, LBL_FIX] });
-      continue; // prova il prossimo in coda
+      console.log(`secrets-scoped #${cand.number} (${via}) → promuovo comunque: le credenziali sono caricate nel run del fixer (decisione 2026-08-24).`);
     }
 
     // Il parcheggio workflow-scoped ha senso SOLO se issue-fix non può pushare quei file.
@@ -2008,6 +2811,25 @@ export function runDrain() {
       try { gh(['issue', 'comment', String(cand.number), '--repo', REPO, '--body', note], { json: false }); }
       catch (e) { console.log(`::warning::comment #${cand.number} fallito: ${String(e).slice(0, 120)}`); }
       edit(cand.number, { add: [LBL_PARKED], remove: [LBL_QUEUED, LBL_FIX] });
+      continue; // prova il prossimo in coda
+    }
+
+    // Check: wide-scope aggregate (2026-08-25) — l'aggregata DICHIARA all'apertura
+    // uno scope che non sta in un run (titolo «N items deferred» ∧ body con N
+    // sezioni, N>=WIDE_SCOPE_MIN_ITEMS). Fino a qui lo scorporo si raggiungeva
+    // solo dopo un `error_max_turns`: stessa destinazione, pagata a run pieni.
+    // Gira DOPO i park di capability (workflow-scope): se il fix è impossibile
+    // per il token, scorporarlo produrrebbe sub-issue tutte ugualmente bloccate.
+    // Nessun park di fallback: chi non è eleggibile allo scorporo (già decomposta,
+    // figlia) resta promuovibile come oggi — il circuit-breaker one-item di
+    // `issue-fix.yml` è la rete che c'era già.
+    const wide = DECOMPOSE_ENABLED ? detectWideScopeAggregate(cand.title, body) : null;
+    if (wide && isDecomposeEligible(cand)) {
+      console.log(`DECOMPOSE-ROUTE #${cand.number} (wide-scope: ${wide.items} item dichiarati all'apertura, titolo ${wide.titleItems} ∧ body ${wide.bodyItems}) → ${LBL_DECOMP_QUEUED}`);
+      routeToDecompose(cand.number, {
+        remove: [LBL_QUEUED, LBL_FIX],
+        note: `🧩 **Pre-flight drainer → decomposizione (wide-scope)**: questa follow-up aggregata nasce con **${wide.items} item indipendenti** (il titolo ne dichiara ${wide.titleItems}, il body ne enumera ${wide.bodyItems} — vale il minimo dei due), sopra la soglia \`WIDE_SCOPE_MIN_ITEMS\`=${WIDE_SCOPE_MIN_ITEMS}.\n\nFino ad oggi allo scorporo ci si arrivava solo **dopo** un \`error_max_turns\`: la larghezza veniva diagnosticata post-mortem, a run pieni, quando era già dichiarata nel titolo dall'apertura. Instradata subito allo stadio di decomposizione (\`${LBL_DECOMP_QUEUED}\`): un run planner la scorpora in sub-issue atomiche con scheda verificabile, che il fixer chiude una a una. Il ciclo chiuderà questa issue quando tutte le sub-issue saranno chiuse.\n\n**Soglia misurata, non scelta**: sul tasso di \`fu-parked\` per numero di item (481 follow-up del sito) il salto è fra N≤2 (36%) e N≥3 (46%); fra 3 e 4 i tassi sono indistinguibili, e a decidere è il volume che questo stadio assorbe (una promozione per tick): N≥4 = 7% della popolazione, N≥3 = 26%.`,
+      });
       continue; // prova il prossimo in coda
     }
 

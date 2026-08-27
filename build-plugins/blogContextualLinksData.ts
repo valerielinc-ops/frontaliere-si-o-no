@@ -109,11 +109,42 @@ const RULES_IT: readonly BlogContextualLinkRule[] = [
     targetUrl: '/mercato-lavoro-ticino/',
     priority: 11,
   },
+  // F3b — Job-search hub (`/cerca-lavoro-ticino/`).
+  //
+  // Queste tre regole portano l'intento TRANSAZIONALE ("voglio vedere gli
+  // annunci") sulla bacheca, e non sul report statistico `/mercato-lavoro-ticino/`
+  // che resta la destinazione dell'intento INFORMATIVO ("com'e' messo il
+  // mercato"): sono due pagine diverse — «8917 Offerte di Lavoro Ticino» contro
+  // «Mercato del lavoro in Ticino — report settimanale».
+  //
+  // `it.jobs.offerte-ticino` puntava al report: misurato sul corpus IT (3547
+  // articoli) produceva 60 ancore che dicono letteralmente «offerte di lavoro in
+  // Ticino» / «posti di lavoro in Ticino» verso la pagina sbagliata, mentre
+  // l'hub di ricerca non riceveva NESSUN link contestuale.
+  //
+  // Le priorita' stanno sotto l'11 di `it.jobs.mercato-lavoro` di proposito:
+  // «mercato del lavoro in Ticino» contiene «lavoro in Ticino», e l'injector
+  // ammette un solo link per paragrafo (`usedSegments`), quindi nel paragrafo
+  // condiviso vince il report e queste regole restano libere di agganciare un
+  // paragrafo diverso. Il cap di 3 link per articolo e il dedup per targetUrl
+  // impediscono la ripetizione della stessa keyword.
   {
     id: 'it.jobs.offerte-ticino',
     keywordPattern: /\b(?:offerte|posti|annunci|ricerca)\s+(?:di\s+)?lavoro\s+(?:in\s+)?(?:ticino|lugano|mendrisio|bellinzona|locarno)\b/i,
-    targetUrl: '/mercato-lavoro-ticino/',
+    targetUrl: '/cerca-lavoro-ticino/',
     priority: 10,
+  },
+  {
+    id: 'it.jobs.lavoro-in-ticino',
+    keywordPattern: /\blavoro\s+(?:in|a)\s+(?:canton\s+)?(?:ticino|lugano|mendrisio|bellinzona|locarno)\b/i,
+    targetUrl: '/cerca-lavoro-ticino/',
+    priority: 10,
+  },
+  {
+    id: 'it.jobs.cercare-lavoro',
+    keywordPattern: /\b(?:cercare|trovare)\s+(?:un\s+)?(?:nuovo\s+)?lavoro\b/i,
+    targetUrl: '/cerca-lavoro-ticino/',
+    priority: 8,
   },
   {
     id: 'it.jobs.occupazione',
@@ -235,11 +266,25 @@ const RULES_EN: readonly BlogContextualLinkRule[] = [
     targetUrl: '/en/ticino-job-market/',
     priority: 11,
   },
+  // F3b — Job-search hub. Stessa correzione di intento delle regole IT:
+  // il transazionale va alla bacheca, l'informativo resta sul report.
   {
     id: 'en.jobs.openings',
     keywordPattern: /\b(?:job\s+openings|job\s+offers|job\s+postings)\s+(?:in\s+)?(?:ticino|lugano|mendrisio|bellinzona|locarno)\b/i,
-    targetUrl: '/en/ticino-job-market/',
+    targetUrl: '/en/find-jobs-ticino/',
     priority: 10,
+  },
+  {
+    id: 'en.jobs.jobs-in-ticino',
+    keywordPattern: /\bjobs\s+in\s+(?:ticino|lugano|mendrisio|bellinzona|locarno)\b/i,
+    targetUrl: '/en/find-jobs-ticino/',
+    priority: 10,
+  },
+  {
+    id: 'en.jobs.find-a-job',
+    keywordPattern: /\b(?:find|finding|look(?:ing)?\s+for)\s+(?:a\s+)?(?:new\s+)?job\b/i,
+    targetUrl: '/en/find-jobs-ticino/',
+    priority: 8,
   },
 
   // F5 — Employers
@@ -334,8 +379,33 @@ const RULES_DE: readonly BlogContextualLinkRule[] = [
   {
     id: 'de.jobs.stellen',
     keywordPattern: /\bStellenangebote\s+(?:im\s+)?(?:tessin|lugano|mendrisio|bellinzona)\b/i,
-    targetUrl: '/de/tessin-arbeitsmarkt/',
+    targetUrl: '/de/jobs-im-tessin/',
     priority: 10,
+  },
+  // F3b — Job-search hub. `\bArbeit\s+` non matcha «Arbeitsmarkt» (parola
+  // unica, niente spazio dopo «Arbeit»), quindi non ruba il paragrafo a
+  // `de.jobs.arbeitsmarkt`.
+  //
+  // «Stellen» NON sta da solo nell'alternation: in tedesco amministrativo
+  // significa anche «enti/uffici», non solo «posti di lavoro». Con un
+  // `Stellen?` nudo questa regola agganciava «öffentliche Stellen im Tessin»
+  // (enti pubblici) in `content/blog-body/de/sicurezza-lavoro-ticino-cfsl.ts`,
+  // un articolo sulla certificazione EKAS: verificato con l'injector vero che
+  // quel segmento vinceva davvero la selezione greedy ed era l'UNICO link
+  // iniettato nell'articolo. Sarebbe stato un link fuorviante esattamente
+  // della classe che questa modifica elimina, reintrodotto ex novo.
+  // Il prefisso «offene/freie» e' obbligatorio proprio per disambiguare.
+  {
+    id: 'de.jobs.jobs-im-tessin',
+    keywordPattern: /\b(?:Jobs?|Arbeit|(?:offene|freie)\s+Stellen?)\s+(?:im|in)\s+(?:Tessin|Lugano|Mendrisio|Bellinzona|Locarno)\b/i,
+    targetUrl: '/de/jobs-im-tessin/',
+    priority: 10,
+  },
+  {
+    id: 'de.jobs.jobsuche',
+    keywordPattern: /\b(?:Jobsuche|Stellensuche|Arbeitssuche)\b/i,
+    targetUrl: '/de/jobs-im-tessin/',
+    priority: 8,
   },
 
   // F5 — Employers
@@ -430,8 +500,23 @@ const RULES_FR: readonly BlogContextualLinkRule[] = [
   {
     id: 'fr.jobs.offres',
     keywordPattern: /\boffres\s+d['e]?\s*emploi\s+(?:au\s+|en\s+)?(?:tessin|lugano|mendrisio|bellinzona|locarno)\b/i,
-    targetUrl: '/fr/marche-travail-tessin/',
+    targetUrl: '/fr/trouver-emploi-tessin/',
     priority: 10,
+  },
+  // F3b — Job-search hub. «marche du travail au Tessin» contiene
+  // «travail au Tessin»: la priorita' 10 lascia il paragrafo condiviso a
+  // `fr.jobs.marche-travail` (11), come in IT.
+  {
+    id: 'fr.jobs.emploi-tessin',
+    keywordPattern: /\b(?:emplois?|travail)\s+(?:au|en|dans\s+le)\s+(?:tessin|lugano|mendrisio|bellinzona|locarno)\b/i,
+    targetUrl: '/fr/trouver-emploi-tessin/',
+    priority: 10,
+  },
+  {
+    id: 'fr.jobs.trouver-emploi',
+    keywordPattern: /\b(?:trouver|chercher)\s+(?:un\s+)?(?:nouvel\s+)?emploi\b/i,
+    targetUrl: '/fr/trouver-emploi-tessin/',
+    priority: 8,
   },
 
   // F5 — Employers

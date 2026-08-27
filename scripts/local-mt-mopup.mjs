@@ -49,11 +49,13 @@
  */
 
 import fs from 'node:fs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 import { isIncomplete, reconcileRetranslationState } from './relocalize-pending-jobs.mjs';
+import { titleLooksUntranslated } from './lib/job-locale-utils.mjs';
 import { readRunStartMs, markRunStart } from './lib/translate-run-clock.mjs';
 import { balanceMarkdownMarkers } from './lib/free-translate.mjs';
 import { finalizeTranslatedText, maskProtectedTokens } from './lib/translation-glossary.mjs';
@@ -130,8 +132,17 @@ function needsWork(job) {
  * locale. Mirrors the per-locale "missing or too short" / "source copy" checks
  * in isIncomplete() at field granularity — we only fill genuinely-bad slots so
  * we never clobber a good existing translation.
+ *
+ * Title also goes through titleLooksUntranslated() — the same lexicon-based
+ * detector mark-mistranslated-jobs.mjs uses to set needsRetranslation. Without
+ * it, a title that is PRESENT and long enough (so the length/copy checks below
+ * pass) but still partially source-language (binnen-i, compound-residue,
+ * function-word/orthography leftovers, token-overlap) was invisible here: it
+ * never reached this free/unlimited tier and sat exclusively on the
+ * quota-capped AI cascade (issue #6354), which is 81.5% of the flagged
+ * backlog on the 2026-08-18 snapshot.
  */
-function missingSlots(job) {
+export function missingSlots(job) {
   const srcLang = job.sourceLang || 'it';
   const tbl = job.titleByLocale || {};
   const dbl = job.descriptionByLocale || {};
@@ -146,9 +157,25 @@ function missingSlots(job) {
     const title = (tbl[locale] || '').trim();
     const desc = (dbl[locale] || '').trim();
 
-    // Title missing, too short, or an untranslated copy of the source title.
-    if (sourceTitle.length >= MIN_TITLE_CHARS &&
-        (title.length < MIN_TITLE_CHARS || title.toLowerCase() === sourceTitleLc)) {
+    // Title missing, too short, or an untranslated copy of the source title —
+    // these three need a meaningful sourceTitle to compare against, so they
+    // stay gated on the floor. titleLooksUntranslated() is lexical and does
+    // NOT depend on the source title's length (mirrors the un-gated call in
+    // mark-mistranslated-jobs.mjs's titleOffence(), the sibling that sets the
+    // SAME needsRetranslation flag this loop drains) — gating it on
+    // MIN_TITLE_CHARS would silently exempt any job whose source title is
+    // shorter than the floor from the lexical check too (issue #6539).
+    const tooShortOrCopy = sourceTitle.length >= MIN_TITLE_CHARS &&
+      (title.length < MIN_TITLE_CHARS || title.toLowerCase() === sourceTitleLc);
+    const lexicallyUntranslated = titleLooksUntranslated({
+      title,
+      sourceTitle,
+      sourceLang: srcLang,
+      targetLocale: locale,
+      company: job.company || '',
+      location: job.location || '',
+    }).untranslated;
+    if (tooShortOrCopy || lexicallyUntranslated) {
       slots.push({ locale, field: 'title' });
     }
 
@@ -255,9 +282,7 @@ async function main() {
     return;
   }
 
-  const sliceFiles = fs.readdirSync(BY_CRAWLER_DIR)
-    .filter((f) => f.endsWith('.json') && !f.includes('-locale-cache'))
-    .sort();
+  const sliceFiles = listSliceFileNames(BY_CRAWLER_DIR);
 
   // Build the FULL candidate list first — no early exit on MAX_JOBS here. The
   // old code capped mid-scan while walking sliceFiles alphabetically, so any

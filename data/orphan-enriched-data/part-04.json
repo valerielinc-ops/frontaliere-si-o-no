@@ -2318,10 +2318,10 @@
         "fr": "allrounder-in-verkauf-genossenschaft-migros-luzern-ruswil"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/allrounder-in-verkauf-genossenschaft-migros-luzern-ruswil",
-        "en": "/en/find-jobs-ticino/allrounder-in-verkauf-genossenschaft-migros-luzern-ruswil",
-        "de": "/de/jobs-im-tessin/allrounder-in-verkauf-genossenschaft-migros-luzern-ruswil",
-        "fr": "/fr/trouver-emploi-tessin/allrounder-in-verkauf-genossenschaft-migros-luzern-ruswil"
+        "it": "/cerca-lavoro-lucerna/allrounder-in-verkauf-genossenschaft-migros-luzern-ruswil",
+        "en": "/en/find-jobs-lucerne/allrounder-in-verkauf-genossenschaft-migros-luzern-ruswil",
+        "de": "/de/jobs-in-luzern/allrounder-in-verkauf-genossenschaft-migros-luzern-ruswil",
+        "fr": "/fr/trouver-emploi-lucerne/allrounder-in-verkauf-genossenschaft-migros-luzern-ruswil"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -10203,6 +10203,64 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "ballwil",
+      "locale": "de",
+      "path": "/de/jobs-in-luzern/ballwil/",
+      "observedPaths": {
+        "de": "/de/jobs-in-luzern/ballwil/"
+      },
+      "queries": [
+        {
+          "query": "volg ballwil",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "volg ballwil",
+      "title": "Ball",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Wil",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "ballwil",
+        "en": "ballwil",
+        "de": "ballwil",
+        "fr": "ballwil"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-lucerna/ballwil",
+        "en": "/en/find-jobs-lucerne/ballwil",
+        "de": "/de/jobs-im-luzern/ballwil",
+        "fr": "/fr/trouver-emploi-lucerne/ballwil"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
@@ -18103,6 +18161,63 @@
       ]
     },
     {
+      "slug": "cooker-m-w-d-coop-genossenschaft-kreuzlingen",
+      "locale": "it",
+      "path": "/cerca-lavoro-turgovia/cooker-m-w-d-coop-genossenschaft-kreuzlingen/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-turgovia/cooker-m-w-d-coop-genossenschaft-kreuzlingen/"
+      },
+      "queries": [
+        {
+          "query": "coop jobs thurgau",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "coop jobs thurgau",
+      "title": "Cooker coop genossenschaft kreuzlingen",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "cooker-m-w-d-coop-genossenschaft-kreuzlingen",
+        "en": "cooker-m-w-d-coop-genossenschaft-kreuzlingen",
+        "de": "cooker-m-w-d-coop-genossenschaft-kreuzlingen",
+        "fr": "cooker-m-w-d-coop-genossenschaft-kreuzlingen"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-turgovia/cooker-m-w-d-coop-genossenschaft-kreuzlingen",
+        "en": "/en/find-jobs-thurgau/cooker-m-w-d-coop-genossenschaft-kreuzlingen",
+        "de": "/de/jobs-im-thurgau/cooker-m-w-d-coop-genossenschaft-kreuzlingen",
+        "fr": "/fr/trouver-emploi-thurgovie/cooker-m-w-d-coop-genossenschaft-kreuzlingen"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "coordinator-for-bachelor-s-degree-in-interior-architecture-supsi-dti-mendrisio",
       "locale": "en",
       "path": "/en/find-jobs-ticino/coordinator-for-bachelor-s-degree-in-interior-architecture-supsi-dti-mendrisio",
@@ -23072,7 +23187,7 @@
         {
           "query": "je veux au tessin un job de chauffeur poids lourd avec permis valide et tournées régionales du lundi au vendredi",
           "clicks": 0,
-          "impressions": 3
+          "impressions": 6
         },
         {
           "query": "offerte lavoro briga svizzera",
@@ -23120,6 +23235,11 @@
           "impressions": 1
         },
         {
+          "query": "en lugano",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "i am looking for full time truck driver jobs in switzerland with ce license and day shifts.",
           "clicks": 0,
           "impressions": 1
@@ -23140,27 +23260,22 @@
           "impressions": 1
         },
         {
+          "query": "netto sarebbe",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "ofertas",
           "clicks": 0,
           "impressions": 1
         },
         {
-          "query": "si.",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "sto cercando",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "suiza canton italiano",
+          "query": "ofertas activas",
           "clicks": 0,
           "impressions": 1
         }
       ],
-      "totalImpressions": 50,
+      "totalImpressions": 57,
       "totalClicks": 2,
       "topQuery": "corporate driver in zurich",
       "title": "Drivers",
@@ -23190,6 +23305,74 @@
       "lastCrawlTime": "",
       "source": [
         "gsc"
+      ]
+    },
+    {
+      "slug": "drogist-in-80-manor-ag-spreitenbach",
+      "locale": "en",
+      "path": "/en/find-jobs-aargau/drogist-in-80-manor-ag-spreitenbach/",
+      "observedPaths": {
+        "en": "/en/find-jobs-aargau/drogist-in-80-manor-ag-spreitenbach/"
+      },
+      "queries": [
+        {
+          "query": "manor",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "manor of",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "spreitenbach jobs",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 3,
+      "totalClicks": 0,
+      "topQuery": "manor",
+      "title": "Drogist in spreitenbach",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Manor AG",
+      "companyKey": "manor-ag",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "drogist-in-80-manor-ag-spreitenbach",
+        "en": "drogist-in-80-manor-ag-spreitenbach",
+        "de": "drogist-in-80-manor-ag-spreitenbach",
+        "fr": "drogist-in-80-manor-ag-spreitenbach"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-argovia/drogist-in-80-manor-ag-spreitenbach",
+        "en": "/en/find-jobs-aargau/drogist-in-80-manor-ag-spreitenbach",
+        "de": "/de/jobs-im-aargau/drogist-in-80-manor-ag-spreitenbach",
+        "fr": "/fr/trouver-emploi-argovie/drogist-in-80-manor-ag-spreitenbach"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
@@ -24685,6 +24868,68 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "enterprise-operations-tirocinante-roche-la-roche",
+      "locale": "it",
+      "path": "/cerca-lavoro-friburgo/enterprise-operations-tirocinante-roche-la-roche/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-friburgo/enterprise-operations-tirocinante-roche-la-roche/"
+      },
+      "queries": [
+        {
+          "query": "la roche svizzera",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "roche salary switzerland",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "la roche svizzera",
+      "title": "Enterprise operations tirocinante roche la roche",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "enterprise-operations-tirocinante-roche-la-roche",
+        "en": "enterprise-operations-tirocinante-roche-la-roche",
+        "de": "enterprise-operations-tirocinante-roche-la-roche",
+        "fr": "enterprise-operations-tirocinante-roche-la-roche"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-friburgo/enterprise-operations-tirocinante-roche-la-roche",
+        "en": "/en/find-jobs-fribourg/enterprise-operations-tirocinante-roche-la-roche",
+        "de": "/de/jobs-im-freiburg/enterprise-operations-tirocinante-roche-la-roche",
+        "fr": "/fr/trouver-emploi-fribourg/enterprise-operations-tirocinante-roche-la-roche"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -40160,10 +40405,10 @@
         "fr": "manor-responsable-cuisine-manora-100-geneve-1-responsable-cuisine"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/manor-responsable-cuisine-manora-100-geneve-1-responsable-cuisine",
-        "en": "/en/find-jobs-ticino/manor-responsable-cuisine-manora-100-geneve-1-responsable-cuisine",
-        "de": "/de/jobs-im-tessin/manor-responsable-cuisine-manora-100-geneve-1-responsable-cuisine",
-        "fr": "/fr/trouver-emploi-tessin/manor-responsable-cuisine-manora-100-geneve-1-responsable-cuisine"
+        "it": "/cerca-lavoro-ginevra/manor-responsable-cuisine-manora-100-geneve-1-responsable-cuisine",
+        "en": "/en/find-jobs-geneva/manor-responsable-cuisine-manora-100-geneve-1-responsable-cuisine",
+        "de": "/de/jobs-in-genf/manor-responsable-cuisine-manora-100-geneve-1-responsable-cuisine",
+        "fr": "/fr/trouver-emploi-geneve/manor-responsable-cuisine-manora-100-geneve-1-responsable-cuisine"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -46538,6 +46783,68 @@
         "en": "/en/find-jobs-solothurn/pflegefachperson-hf-fh-con-schwerpunkt-demenz-40-80-spitex-gau-oensingen",
         "de": "/de/jobs-im-solothurn/pflegefachperson-hf-fh-con-schwerpunkt-demenz-40-80-spitex-gau-oensingen",
         "fr": "/fr/trouver-emploi-soleure/pflegefachperson-hf-fh-con-schwerpunkt-demenz-40-80-spitex-gau-oensingen"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "pharmaciens",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-uri/pharmaciens/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-uri/pharmaciens/"
+      },
+      "queries": [
+        {
+          "query": "agence de recrutement altdorf ur",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "salaire pharmacien",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "agence de recrutement altdorf ur",
+      "title": "Pharmaciens",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "pharmaciens",
+        "en": "pharmaciens",
+        "de": "pharmaciens",
+        "fr": "pharmaciens"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-uri/pharmaciens",
+        "en": "/en/find-jobs-uri/pharmaciens",
+        "de": "/de/jobs-im-uri/pharmaciens",
+        "fr": "/fr/trouver-emploi-uri/pharmaciens"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -75383,9 +75690,7 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-bern-ssg6pm",
-        "en": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-bern-ssg6pm",
-        "de": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-bern-ssg6pm",
-        "fr": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-bern-ssg6pm"
+        "de": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-bern-ssg6pm"
       },
       "localePaths": {
         "it": "/cerca-lavoro-berna/verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-bern-ssg6pm",
@@ -75393,12 +75698,13 @@
         "de": "/de/jobs-in-bern/verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-bern-ssg6pm",
         "fr": "/fr/trouver-emploi-berne/verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-bern-ssg6pm"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-bern-677603",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]

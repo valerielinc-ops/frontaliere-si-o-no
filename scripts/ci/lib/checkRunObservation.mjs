@@ -16,6 +16,30 @@
  * di prova, e conclude che blocca. Non blocca. Misura di questo: PR #5590 è
  * stata mergiata il 2026-08-11T03:04Z con `contract` = `failure`.
  *
+ * ── AGGIORNAMENTO: il difetto è stato CHIUSO alla radice ──────────────────
+ * `tests.yml` non produce più quattro check-run: `contract` e
+ * `typecheck (tsc --noEmit)` sono diventati step del job che produce
+ * `VITEST_CHECK_NAME`, quindi un loro rosso fa rosso il check gating.
+ *
+ * `collision` invece è tornato un check-run a sé il 2026-08-26, e non è un
+ * ripensamento: portava un lock `concurrency` GLOBALE (il detector scrive la
+ * label su tutte le PR aperte) e, non esistendo le concurrency di step, sul
+ * job fuso serializzava una suite da ~18 minuti contro quella di ogni altra PR
+ * aperta — terza PR sfrattata a `cancelled`, auto-merge fermo. Resta quindi
+ * NON bloccante, ed è corretto: il cancello di merge è la LABEL che applica,
+ * non il suo exit code. Due dei quattro «sostanziali» che questo modulo
+ * esisteva per SORVEGLIARE non esistono più come check-run separati; degli
+ * altri due, uno è quello su cui la decisione si prendeva già.
+ *
+ * Conseguenza pratica: su una PR normale `wouldBlock` è ora quasi sempre vuoto
+ * — non perché l'osservazione sia rotta, ma perché non c'è più niente da
+ * osservare che non gatti già. Il modulo resta in piedi, e non è codice morto:
+ * continua a classificare QUALUNQUE check-run atterri sulla HEAD, compresi
+ * quelli di altri workflow (oggi e in futuro), e la denylist advisory sotto
+ * resta l'unico posto dove è scritto perché i check della macchina del ciclo
+ * non contano. Se un domani `tests.yml` tornasse a più job, torna utile
+ * esattamente com'è. Rimuoverlo sarebbe una decisione a sé, con la sua misura.
+ *
  * Questo modulo NON cambia cosa può mergiare. Produce solo l'elenco di ciò che
  * AVREBBE bloccato se la decisione fosse presa sull'insieme invece che sul
  * singolo check. Il passaggio a bloccante è una decisione del proprietario,
@@ -47,6 +71,11 @@ import { VITEST_CHECK_NAME } from './constants.mjs';
  * In particolare `detect` (pr-collision-detector.yml) NON è qui: sulla stessa
  * finestra di 60 PR ha chiuso 45 volte `success` e 0 volte `failure`, quindi
  * osservarlo non produce rumore, ed è uno dei quattro sostanziali della issue.
+ * NB — dal consolidamento in `tests.yml` quel check-run su PR non atterra più:
+ * `pr-collision-detector.yml` gira solo su `schedule`/`workflow_dispatch` e lo
+ * scan su PR è uno step del job gating. Il nome resta fuori dalla denylist
+ * perché la regola («è un giudizio sul diff, non un'azione sulla PR») non è
+ * cambiata, e reintrodurlo come job lo rimetterebbe sotto osservazione.
  *
  * NB — i nomi dei check-run NON sono unici per repo: il job `detect` esiste
  * anche in `quality-alerts.yml`, che però gira SOLO su `schedule`/
@@ -56,16 +85,16 @@ import { VITEST_CHECK_NAME } from './constants.mjs';
 export const ADVISORY_CHECK_NAMES = Object.freeze({
   'auto-merge':
     'auto-merge-on-lgtm.yml — è il job che produce questa osservazione: contarlo sarebbe circolare',
-  autorebase:
-    'pr-autorebase.yml — rebasa la PR, non la giudica; un rosso è un rebase non riuscito',
   sweep:
     'auto-merge-sweep.yml / worktree-branch-janitor.yml — spazzino della coda, nessun verdetto sul codice',
   'delete-closed-unmerged':
     'worktree-branch-janitor.yml — pota i branch delle PR chiuse, gira dopo la decisione',
   preflight:
-    'pr-redflag-fixer.yml — decide SE far girare il fixer, non giudica il diff',
+    'pr-redflag-fixer.yml / pr-redcheck-fixer.yml — decide SE far girare il fixer, non giudica il diff',
   'redflag-fix':
     'pr-redflag-fixer.yml — applica la fix ai finding del reviewer; un rosso è il fixer inciampato',
+  'redcheck-fix':
+    'pr-redcheck-fixer.yml — ripara il check required rosso; un rosso qui è il fixer inciampato, non un verdetto sul diff',
   followup:
     'post-merge-followup.yml — triage POST-merge (`schedule`/`workflow_dispatch`): per costruzione non può essere un verdetto sulla PR al momento della decisione',
 });

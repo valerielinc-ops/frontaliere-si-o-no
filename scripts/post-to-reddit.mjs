@@ -24,6 +24,7 @@ import { fileURLToPath } from 'node:url';
 import { getAccessToken, submitPost, userAgent } from './lib/reddit-client.mjs';
 import { buildArticlePost } from './lib/reddit-templates.mjs';
 import { automationEligibleSubs } from './lib/redditAutomationPolicy.mjs';
+import { redditUrl, REDDIT_CAMPAIGN_ARTICLE } from './lib/reddit-links.mjs';
 
 // Delay between subreddit submissions (ms). Conservative to respect
 // Reddit anti-spam / rate limits.
@@ -131,12 +132,16 @@ async function main() {
     const name = targets[i];
     const sub = config.subreddits[name] || {};
     try {
+      // Tagged per-subreddit: one article goes to several subreddits in the
+      // same run, so a single utm_content would collapse them into one GA4 row
+      // and hide which community actually sends traffic.
+      const submitUrl = redditUrl(post.url || articleUrl, REDDIT_CAMPAIGN_ARTICLE, name);
       const res = await submitPost({
         token,
         subreddit: name,
         kind: 'link',
         title: post.title,
-        url: post.url || articleUrl,
+        url: submitUrl,
         flairId: sub.flairId,
         flairText: sub.flairText,
         ua,

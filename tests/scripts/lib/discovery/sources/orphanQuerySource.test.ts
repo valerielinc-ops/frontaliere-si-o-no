@@ -105,4 +105,24 @@ describe('fetchOrphanCandidates', () => {
       'offerte lavoro ticino frontalieri permesso g',
     ]);
   });
+
+  it('does not treat "offerte"/"posti" alone as job-search intent (ambiguous outside retail/parking context)', () => {
+    for (const query of [
+      'offerte black friday svizzera',
+      'offerte migros ticino',
+      'posti auto lugano',
+      'posti letto affitto chiasso',
+    ]) {
+      expect(isArticleableOrphanQuery(query)).toBe(true);
+    }
+  });
+
+  it('still treats "offerte"/"posti" as job-search intent when a job word is also present', () => {
+    for (const query of [
+      'offerte lavoro parrucchiere svizzera',
+      'posti di lavoro coiffure',
+    ]) {
+      expect(isArticleableOrphanQuery(query)).toBe(false);
+    }
+  });
 });

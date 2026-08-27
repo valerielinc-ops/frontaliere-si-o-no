@@ -90,8 +90,9 @@ I file rigenerati `data/**` (job JSON, snapshot, translation-cache, blog-article
 ### Abort senza PR (no fix forzato)
 
 - Root cause non determinabile con confidenza → commento "serve indagine umana" + termina.
-- Fix richiede credenziali/segreti non in CI → documenta + termina.
-- **Capability-guard scope `.github/workflows/**` (turno ~1, PRIMA di implementare).** Senza `APP_TOKEN_WORKFLOWS == 'true'` (capacità LETTA dalla risposta API del conio App, #5288) il push di file workflow fallisce **sempre**: posta il diff proposto + "serve scope `workflows` / mano umana" e **TERMINA SUBITO**. Idem per repo-setting/branch-protection/admin-API (403) e segreti non-CI. Razionale: ~1M token/run sprecati (#983/#1009); guard in `issue-fix.yml` (#1033).
+- **I segreti CI SONO** (decisione del proprietario del 2026-08-24, registro in VISION.md): questo run carica Remote Config prima di partire, quindi `CF_API_TOKEN`, `POSTHOG_*`, `GEMINI_API_KEY`, `GITHUB_PAT` e gli altri ~90 parametri sono in `process.env`. Un fix che richiede una credenziale va **IMPLEMENTATO**, non documentato: `blocked-secrets` non è più un verdetto strutturale, e termina con quel codice **solo se** leggi la variabile e la trovi davvero vuota — in quel caso nomina la variabile esatta, perché è un difetto della mappa `RC_TO_ENV`, non un limite di capacità.
+  - **Eccezione — rotazione di credenziali.** L'autorizzazione copre l'USO di un secret esistente, non la sua ROTAZIONE: sono due cose diverse (VISION.md, decisione 2026-08-18: rotazione declinata, PAT e Gemini key restano). Un'issue che chiede di ruotare/rigenerare/revocare una credenziale non è "una variabile vuota" né "usare ciò che c'è": è un'azione fuori-banda che nessuna variabile in `process.env` può risolvere. Non implementarla: commento "rotazione di credenziali — resta una decisione umana (VISION.md)" e termina, PRIMA di tentare qualunque diff.
+- **Capability-guard scope `.github/workflows/**` (turno ~1, PRIMA di implementare).** Senza `APP_TOKEN_WORKFLOWS == 'true'` (capacità LETTA dalla risposta API del conio App, #5288) il push di file workflow fallisce **sempre**: posta il diff proposto + "serve scope `workflows` / mano umana" e **TERMINA SUBITO**. Idem per repo-setting/branch-protection/admin-API (403), che restano bloccanti — il PAT c'è ma il permesso è un'altra cosa (`blocked-admin-settings`). Razionale: ~1M token/run sprecati (#983/#1009); guard in `issue-fix.yml` (#1033).
 - Mai un fix speculativo pur di produrre una PR.
 - **Ogni abort DEVE chiudere con `<!-- FIX_OUTCOME: <code> -->` nel commento** (codici, e conseguenza del marker mancante: step 8).
 
@@ -127,6 +128,33 @@ Per issue HIGH-risk o intervento manuale su una categoria in coda (es. `revenue`
 | `agent:in-progress` | mutex: qualcuno (fixer CI o sessione locale `/fix-issue`) sta lavorando la issue ORA — anti-doppione (#4788/#4793) | claim gate (0.75 sopra) o sessione locale (Appendice A); rilasciata a fine lavoro/abbandono da entrambi |
 | `agent:triaged` | issue già processata da triage | triage (anti-loop) |
 | `duplicate` | storm-duplicate, chiusa | triage |
+| `job-content-quality` | un record crawlato non è un annuncio di lavoro (offerta commerciale, widget di consenso, voce di menu, placeholder di template) | `crawler-content-plausibility-audit.yml` e `scripts/report-crawler-content-error.mjs` |
+
+## Segnalazione umana di un difetto di contenuto crawlato
+
+Non tutte le issue nascono da un monitor. Un difetto **visto a occhio** su una
+pagina live — è così che sono emersi i due casi del 2026-08-24, `hotel-international`
+che pubblicava offerte di camere d'hotel e `schindler` col widget dei cookie come
+titolo — entra nella stessa pipeline con un comando, senza aprire una sessione:
+
+```bash
+node scripts/report-crawler-content-error.mjs <crawler-key|url-del-job> "<cosa c'è che non va>"
+node scripts/report-crawler-content-error.mjs <...> --urgent    # route immediata
+node scripts/report-crawler-content-error.mjs <...> --dry-run   # stampa e basta
+```
+
+Da lì è il ciclo normale: `issue-triage` → `issue-fix` → PR → `## LGTM` → auto-merge.
+
+**Routing, che qui è una scelta e non un caso.** Senza flag l'issue non porta
+label di routing né parole di innesco nel titolo → categoria `other` →
+`agent:fix-queued`, drenata da `followup-drainer` come tutto il resto.
+Con `--urgent` porta `parser-broken`, che da sola basta a `classifyIssue()` per
+dare categoria `crawler` → `agent:fix` immediato: è la deroga giusta quando il
+contenuto sbagliato è live e chi segnala l'ha verificato di persona, e resta
+opt-in perché il bypass della coda è documentato sopra come l'unica eccezione.
+
+Il contesto completo (rilevatore, calibrazione, audit settimanale) sta in
+`docs/CRAWLERS.md` → "Job-Content Plausibility".
 
 ## Kill-switch
 

@@ -22,6 +22,7 @@ import {
 import { fmtMinutes } from '../../services/borderWaitFormat.ts';
 import { SITE_URL, buildArticleUrl, MONTHS_IT } from './social-post-utils.mjs';
 import { escapeHtml } from './telegram-client.mjs';
+import { telegramUrl, TELEGRAM_CAMPAIGN_BORDER } from './telegram-links.mjs';
 import {
   computeRanking,
   computeWeekWindow,
@@ -44,7 +45,9 @@ function humanRangeIt(weekStart, weekEnd) {
 
 function crossingLine(entry, index) {
   const name = escapeHtml(BORDER_CROSSING_DISPLAY[entry.slug] || entry.slug);
-  const href = escapeHtml(`${SITE_URL}${buildOggiPath('it', entry.slug)}`);
+  const href = escapeHtml(
+    telegramUrl(`${SITE_URL}${buildOggiPath('it', entry.slug)}`, TELEGRAM_CAMPAIGN_BORDER, entry.slug),
+  );
   return `${index + 1}. <a href="${href}">${name}</a> — ${escapeHtml(fmtMinutes(entry.avgMinutes))}`;
 }
 
@@ -78,8 +81,15 @@ export function buildWeeklyBorderDigest({ historyDir, todayIso, days = DEFAULT_W
   const slowest = known.slice(-TELEGRAM_BORDER_TOP).reverse();
   const funFacts = computeFunFacts(known);
 
-  const articleUrl = buildArticleUrl('frontaliere', RANKING_ARTICLE_SLUGS.it);
-  const hubUrl = `${SITE_URL}${buildRootHubPath('it')}`;
+  const rawArticleUrl = buildArticleUrl('frontaliere', RANKING_ARTICLE_SLUGS.it);
+  const articleUrl = rawArticleUrl
+    ? telegramUrl(rawArticleUrl, TELEGRAM_CAMPAIGN_BORDER, 'ranking_article')
+    : rawArticleUrl;
+  const hubUrl = telegramUrl(
+    `${SITE_URL}${buildRootHubPath('it')}`,
+    TELEGRAM_CAMPAIGN_BORDER,
+    'live_hub',
+  );
 
   const parts = [
     `🚧 <b>Classifica dogane Ticino</b> — settimana del ${escapeHtml(humanRangeIt(weekStart, weekEnd))}`,

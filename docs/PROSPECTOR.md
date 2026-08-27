@@ -55,10 +55,22 @@ Nessuna richiede chiave o quota.
 
 L'obiettivo sono le aziende che assumono **direttamente**. Un aggregatore
 (bacheca di settore, portale di apprendistato) porta inventario che hanno già
-tutti. La distinzione è **strutturale**, non una denylist di nomi: la pagina di
-un datore diretto nomina **una** hiring organisation, un aggregatore ne nomina
-molte, e i suoi link di dettaglio puntano a host diversi. Vedi
+tutti. La distinzione è **strutturale**, non solo una denylist di nomi: la
+pagina di un datore diretto nomina **una** hiring organisation, un aggregatore
+ne nomina molte, e i suoi link di dettaglio puntano a host diversi. Vedi
 `looksLikeAggregator()` in `scripts/lib/prospector/tenant-enum.mjs`.
+
+La denylist esplicita (`NON_PLATFORM_HOSTS` in `scripts/lib/prospector/config.mjs`)
+resta comunque necessaria accanto al controllo strutturale: una pagina profilo
+di jobs.ch filtrata su UN'azienda supera il test strutturale (nomina una sola
+hiring organisation) pur restando un marketplace multi-datore nel suo insieme.
+La lista dei domini e' condivisa con `scripts/lib/known-aggregator-domains.mjs`
+— **non duplicata** — perche' il prospector non e' l'unico modo in cui nasce un
+crawler dedicato: uno scritto a mano (come i quattro batch pre-prospector del
+2026-07-04, `equans`/`cham-swiss-properties`/`city-pop`/`dic-sa`) puo' sourciare
+da un aggregatore esattamente nel modo in cui il prospector e' costruito per non
+fare mai. Quel percorso e' coperto da un gate distinto, non da questo loop —
+vedi `docs/CRAWLERS.md#aggregator-sourced-crawlers--the-data-can-be-genuine-and-the-destination-still-wrong`.
 
 ## Qualità: contro la pagina ufficiale, non contro il numero di righe
 
