@@ -3085,19 +3085,30 @@ export async function flushScoresBeforeExit(timeoutMs = EXIT_FLUSH_TIMEOUT_MS) {
   if (!_firestoreDb || (_dirtyModels.size === 0 && !_persistTimer)) return true;
   let timer = null;
   const pending = _dirtyModels.size;
+  const startedAt = Date.now();
   try {
     const timeout = new Promise((resolve) => {
       timer = setTimeout(() => resolve('timeout'), timeoutMs);
       // NOT unref'd: this promise races a write we are deliberately waiting for.
     });
     const outcome = await Promise.race([flushScores().then(() => 'flushed'), timeout]);
+    const elapsedMs = Date.now() - startedAt;
     if (outcome === 'timeout') {
-      console.warn(`⚠️  [ScoreStore] Final flush timed out after ${timeoutMs}ms — ${pending} model(s) not persisted`);
+      // `::warning::` (GitHub Actions annotation syntax, already used elsewhere
+      // in this repo e.g. publish-article-chunks.mjs) surfaces this in the run's
+      // Checks/Annotations UI instead of sitting buried in a log a nobody scrolls
+      // to — a plain console.warn is exactly how the loss this function exists to
+      // prevent (see the doc comment above) could silently reopen (issue #6065).
+      console.warn(`::warning::⚠️  [ScoreStore] Final flush timed out after ${timeoutMs}ms (elapsed ${elapsedMs}ms) — ${pending} model(s) not persisted`);
       return false;
     }
+    // Logged unconditionally (not just on timeout) so CI logs accumulate real
+    // ref.set() latency samples — the data needed to tell whether 8s is
+    // systematically too tight, instead of guessing.
+    console.log(`[ScoreStore] Final flush completed in ${elapsedMs}ms (timeout=${timeoutMs}ms, ${pending} model(s))`);
     return true;
   } catch (err) {
-    console.warn(`⚠️  [ScoreStore] Final flush failed: ${err?.message || err}`);
+    console.warn(`::warning::⚠️  [ScoreStore] Final flush failed after ${Date.now() - startedAt}ms: ${err?.message || err}`);
     return false;
   } finally {
     if (timer) clearTimeout(timer);

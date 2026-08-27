@@ -147,19 +147,6 @@ const REGISTRY = [
       "packages/articles/content/blog-body-ch/",
     ],
   },
-  {
-    file: "tests/evergreen-pool-consumption.test.ts",
-    // Reads every Italian article meta file to measure duplicate consumption
-    // of the evergreen topic pools. It is O(corpus), and running it beside
-    // the independent Vitest process caused its 180s per-test budget to be
-    // exhausted under CPU contention (PR #6584 / run 32994695586).
-    seconds: 180,
-    watch: [
-      "services/locales/",
-      "data/municipalities.ts",
-      "data/borderCrossings.ts",
-    ],
-  },
 ];
 
 /** Path POSIX relativi alla root dei test corpus-wide, ordinati. */
