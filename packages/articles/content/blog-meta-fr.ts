@@ -10842,6 +10842,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-spese-sanitarie-italia-rimborso.title': 'Frais de santé suisses remboursables en Italie pour les frontaliers',
     'blog.article.frontaliere-spese-sanitarie-italia-rimborso.excerpt': 'Quelles dépenses de santé encourues en Suisse sont remboursables en Italie pour les frontaliers, avec les procédures, les limites et les documents nécessaires.',
     'blog.article.frontaliere-spese-sanitarie-italia-rimborso.imageAlt': 'Frontalier au poste frontière de Chiasso avec documents de santé et Alpes suisses en arrière-plan',
+    'blog.article.consiglio-stato-deputazione-ticino-agosto.title': 'Tessin et Berne : la question cruciale des restaurants',
+    'blog.article.consiglio-stato-deputazione-ticino-agosto.excerpt': 'Le 27 août à Bellinzone, discussion sur la suspension des restaurations et négociation avec la Confédération et la Région Lombardie',
+    'blog.article.consiglio-stato-deputazione-ticino-agosto.imageAlt': 'Bellinzona, siège du Conseil d\'État du Tessin, réunion avec délégation parlementaire le 27 août 2026',
 };
 
 export default blogMetaFr;

@@ -10840,6 +10840,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-spese-sanitarie-italia-rimborso.title': 'Swiss healthcare expenses reimbursable in Italy for border workers',
     'blog.article.frontaliere-spese-sanitarie-italia-rimborso.excerpt': 'What health expenses incurred in Switzerland are reimbursable in Italy for border workers, with the necessary procedures, limits and documents.',
     'blog.article.frontaliere-spese-sanitarie-italia-rimborso.imageAlt': 'Cross-border commuter at Chiasso border with health documents and Swiss Alps background',
+    'blog.article.consiglio-stato-deputazione-ticino-agosto.title': 'Ticino and Bern: the crucial issue of refreshments',
+    'blog.article.consiglio-stato-deputazione-ticino-agosto.excerpt': 'On 27 August in Bellinzona, discussion on the suspension of refreshments and negotiation with the Confederation and the Lombardy Region',
+    'blog.article.consiglio-stato-deputazione-ticino-agosto.imageAlt': 'Bellinzona, Ticino State Council seat, where the Parliament delegation met on August 27, 2026',
 };
 
 export default blogMetaEn;

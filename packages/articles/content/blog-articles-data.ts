@@ -32430,6 +32430,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'consiglio-stato-deputazione-ticino-agosto',
+ category: 'novita',
+ date: '2026-08-27T00:25:28.327Z',
+ image: '/images/blog/consiglio-stato-deputazione-ticino-agosto.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
