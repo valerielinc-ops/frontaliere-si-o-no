@@ -95,11 +95,40 @@ jobs:
           if git diff --cached --quiet; then
             echo "No publisher-jobs changes detected."
             echo "has_changes=false" >> "$GITHUB_OUTPUT"
+            echo "push_exhausted=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "🧑‍💼 Publisher jobs sync — paid ads → slice"
-            bash scripts/lib/git-push-with-retry.sh \
-              --regenerate-cmd 'node scripts/build-publisher-jobs.mjs && git add -f data/jobs/by-crawler/publisher-submitted.json'
-            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+            # --soft-fail-exhausted (issue #6259, recurring): this workflow runs
+            # every 30min and build-publisher-jobs.mjs always re-derives the FULL
+            # slice from a fresh Firestore query (status in ['paid','published'])
+            # rather than an incremental diff — a rolling-window recompute, same
+            # shape as refresh-thin-promotions.yml's fix for #5568. A push
+            # exhausted by the crawler-dispatch convoy (223 commits to main in
+            # 25min measured on run 33110720097 — one every ~7s, far below what
+            # any attempt budget within this job's timeout can consistently win)
+            # just delays this run's delta by ~30min; the next scheduled run
+            # recomputes the same paid-ads state from Firestore and retries.
+            # Treating exhaustion as job-fatal only reopens this issue on every
+            # convoy overlap — git-push-with-retry.sh's own header notes this
+            # exact retry-budget-bump class was already tried 4x for #5568
+            # without ending the recurrence there either.
+            set +e
+            PUSH_LOG=$(bash scripts/lib/git-push-with-retry.sh --soft-fail-exhausted \
+              --regenerate-cmd 'node scripts/build-publisher-jobs.mjs && git add -f data/jobs/by-crawler/publisher-submitted.json' 2>&1)
+            rc=$?
+            set -e
+            echo "$PUSH_LOG"
+            if echo "$PUSH_LOG" | grep -q '::warning::Failed to push after'; then
+              echo "push_exhausted=true" >> "$GITHUB_OUTPUT"
+              # Nothing landed on main this run — the commit only exists on this
+              # ephemeral runner. Don't trigger a deploy for a change that isn't
+              # actually live on main.
+              echo "has_changes=false" >> "$GITHUB_OUTPUT"
+            else
+              echo "push_exhausted=false" >> "$GITHUB_OUTPUT"
+              echo "has_changes=true" >> "$GITHUB_OUTPUT"
+            fi
+            exit "$rc"
           fi
 
       - name: Load secrets from Remote Config
@@ -109,6 +138,65 @@ jobs:
       - name: Trigger deploy workflow
         if: steps.commit.outputs.has_changes == 'true'
         run: bash scripts/lib/trigger-deploy.sh || true
+
+      # Debounced alert (same pattern as refresh-thin-promotions.yml's
+      # push-retry-exhausted handling, issue #5568): --soft-fail-exhausted makes
+      # a single exhausted push invisible to `if: failure()` by design, but that
+      # would also make a *recurring* exhaustion invisible — and this path
+      # publishes paid ads, so silent staleness has revenue impact. A single
+      # soft-fail is expected self-healing contention noise; 2 CONSECUTIVE
+      # exhaustions (1h) mean the ~30min recapture assumption isn't holding.
+      - name: Debounce push-retry-exhausted alert
+        if: steps.commit.outputs.push_exhausted == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create "publisher-jobs-push-exhausted" --color "D93F0B" \
+            --description "publisher-jobs-sync push retries exhausted on consecutive runs" --force 2>/dev/null || true
+          gh label create "publisher-jobs-push-exhausted-pending" --color "FBCA04" \
+            --description "publisher-jobs-sync push retries exhausted once — debouncing" --force 2>/dev/null || true
+
+          RUN_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+          CONFIRMED=$(gh issue list --label "publisher-jobs-push-exhausted" --state open --json number --jq '.[0].number')
+          if [ -n "$CONFIRMED" ]; then
+            gh issue comment "$CONFIRMED" --body "Still exhausting push retries as of $(date -u +%FT%TZ) — ${RUN_URL}."
+            echo "Updated existing confirmed issue #$CONFIRMED"
+            exit 0
+          fi
+
+          PENDING=$(gh issue list --label "publisher-jobs-push-exhausted-pending" --state open --json number --jq '.[0].number')
+          if [ -n "$PENDING" ]; then
+            gh issue edit "$PENDING" \
+              --add-label "publisher-jobs-push-exhausted" --add-label "bug" \
+              --remove-label "publisher-jobs-push-exhausted-pending" \
+              --title "publisher-jobs-sync: push retries exhausted on consecutive runs"
+            gh issue comment "$PENDING" --body "Confirmed: 2 consecutive runs exhausted push retries (--soft-fail-exhausted). Paid-ads slice may be stale beyond the ~30min recapture window this flag assumes. ${RUN_URL}."
+            echo "Promoted pending issue #$PENDING to confirmed"
+            exit 0
+          fi
+
+          gh issue create \
+            --title "[pending] publisher-jobs-sync: push retries exhausted — 1st occurrence" \
+            --body "Push retries exhausted (--soft-fail-exhausted) at $(date -u +%FT%TZ). ${RUN_URL}. Expected occasional contention noise that self-heals via the next 30min run's fresh Firestore recompute — this issue auto-closes on recovery, or promotes to confirmed if the very next run exhausts retries again." \
+            --label "publisher-jobs-push-exhausted-pending"
+          echo "Opened pending issue"
+
+      # Mirrors the auto-close half of refresh-thin-promotions.yml's debounce:
+      # a run that actually pushed (changed) without exhausting retries means
+      # the contention cleared — retire any open pending/confirmed alert.
+      - name: Auto-close push-retry-exhausted issues on recovery
+        if: steps.commit.outputs.has_changes == 'true' && steps.commit.outputs.push_exhausted == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          for LABEL in "publisher-jobs-push-exhausted" "publisher-jobs-push-exhausted-pending"; do
+            for NUM in $(gh issue list --label "$LABEL" --state open --json number --jq '.[].number'); do
+              gh issue comment "$NUM" --body "Push succeeded on the next run. Auto-closing."
+              gh issue close "$NUM" --reason completed
+              echo "Closed issue #$NUM (label=$LABEL)"
+            done
+          done
 
       - name: Report failure to GitHub Issues
         if: failure()
