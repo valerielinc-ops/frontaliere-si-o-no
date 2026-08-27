@@ -196,7 +196,7 @@ describe('rendering dell’osservazione', () => {
     run(VITEST_CHECK_NAME, 'success'),
     run('contract', 'failure'),
     run('typecheck (tsc --noEmit)', 'cancelled'),
-    run('auto-merge', 'failure'),
+    run('sweep', 'failure'),
   ]);
 
   it('il markdown porta il marker in testa (dedup/upsert e aggregazione)', () => {
