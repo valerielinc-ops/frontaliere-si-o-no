@@ -7240,7 +7240,14 @@ export function getMergeExclusionReasons(job, qualityCfg) {
   // signal is strong enough to exclude regardless of seed trust. Seed scope
   // still rescues the URL-shape check and the ambiguous "no explicit signal
   // either way" cases (non_detail_url, not_target_relevant) below.
-  if (isLocationExplicitlyForeign(job.location)) reasons.push('location_explicitly_foreign');
+  // Some ATS pages expose a useless/blank location field and the crawler then
+  // falls back to the Swiss seed location. Their canonical URL still contains
+  // the actual posting location (e.g. Zurich's `.../job/Birmingham-...`).
+  // Inspect only the pathname: the employer hostname may itself contain a
+  // place name (e.g. careers.zurich.com).
+  if (isLocationExplicitlyForeign(job.location) || isLocationExplicitlyForeign(urlPathForLocationChecks(job.url))) {
+    reasons.push('location_explicitly_foreign');
+  }
   // Structured ATS job-location block names a non-Swiss country: authoritative
   // (overrides Swiss-HQ boilerplate and any seed scope) — see
   // jobLocationBlockCountryIsForeign.
@@ -7259,6 +7266,14 @@ export function getMergeExclusionReasons(job, qualityCfg) {
     reasons.push(...quality.reasons);
   }
   return reasons;
+}
+
+function urlPathForLocationChecks(rawUrl = '') {
+  try {
+    return new URL(String(rawUrl)).pathname;
+  } catch {
+    return String(rawUrl || '');
+  }
 }
 
 // Pick the sourced posting date for a merged duplicate pair (#3843 item 3).
