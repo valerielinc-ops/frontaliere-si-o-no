@@ -1580,6 +1580,10 @@ const PRIORITY_EVERGREEN_TOPICS = [
   { keyword: 'longlake festival lugano eventi gratuiti', angle: 'LongLake Festival a Lugano: calendario eventi gratuiti, location, come organizzare una serata dall\'altra parte del confine' },
   { keyword: 'blues to bop lugano concerti gratuiti', angle: 'Blues to Bop a Lugano: date, concerti gratuiti in piazza, come organizzare la trasferta serale da chi vive vicino al confine' },
   { keyword: 'fiera di lugano manifestazioni annuali', angle: 'Le principali fiere e manifestazioni annuali a Lugano: calendario, ingresso, cosa aspettarsi, utile per chi organizza la trasferta dal confine' },
+  // 2026-08-27 (issue #6350, da decomposizione #6331 sezione "Contenuti
+  // editoriali"): guida evergreen mancante sulle webcam ufficiali di
+  // viabilità ai valichi — verificato zero copertura sul tema.
+  { keyword: 'webcam traffico valichi ticino guida completa', angle: 'Guida pratica alle webcam ufficiali per controllare il traffico ai valichi Ticino-Lombardia prima di partire: dove trovarle (portale del Dipartimento del territorio del Canton Ticino ti.ch/webcam e le webcam locali dei comuni di confine), quali valichi coprono — Chiasso-Brogeda, Chiasso Centro, i valichi dell\'area Stabio (San Pietro, Gaggiolo) — come interpretare le immagini per capire code e rallentamenti, quando controllarle rispetto agli orari di punta. Cita esplicitamente le fonti ufficiali come attribuzione testuale (mai URL diretti nel corpo, solo link nav:).' },
 ];
 
 // ── Long-tail SEO: evergreen keyword topics — sezione `svizzera` (2026-07-21) ──
