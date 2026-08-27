@@ -7,8 +7,8 @@
  * costs minutes while the selected tests take seconds. This runner keeps a
  * small static import graph on disk, updates only changed files, walks it in
  * reverse from changed sources, and passes the resulting test files directly
- * to Vitest. It is deliberately related-only and never falls back to the
- * full suite.
+ * to Vitest. It stays related-only for ordinary imports, with a conservative
+ * full-test fallback for implicit dependencies the static graph cannot model.
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
@@ -21,6 +21,9 @@ const sourceRe = /\.(?:[cm]?[jt]sx?|vue|svelte)$/i;
 const testRe = /^(?:tests|packages\/[^/]+\/tests)\/.*\.(?:test|spec)\.[cm]?[jt]sx?$/i;
 const ignoredRe = /^(?:data|public|reports|docs|_newsletter_variants|node_modules)\//;
 const projectRe = /^(?:tests|scripts\/(?:ci|lib|dev|evals)\/|services|components|hooks|server|infra|build-plugins|functions|packages\/[^/]+\/(?:engine|src|tests)\/)/;
+// These dependencies are wired by Vitest/configuration or executed through a
+// path string, so no static import edge can reliably reach their consumers.
+const implicitTestDependencyRe = /^(?:tests\/setup(?:-node)?\.[cm]?[jt]sx?|scripts\/(?:seo|models|one-off)\/)/;
 const importRe = /(?:import\s+(?:[^'";]*?\s+from\s+)?|export\s+[^'";]*?\s+from\s+|import\s*\(|require\s*\()(['"])([^'"]+)\1/g;
 const extensions = ['', '.ts', '.tsx', '.js', '.jsx', '.mjs', '.cjs', '.vue', '.svelte'];
 
@@ -93,7 +96,9 @@ if (candidates.length === 0) {
   process.exit(0);
 }
 
-const graph = loadGraph(trackedFiles());
+const tracked = trackedFiles();
+const graph = loadGraph(tracked);
+const allTests = tracked.filter((file) => testRe.test(file));
 const reverse = new Map();
 for (const [file, entry] of Object.entries(graph)) {
   for (const dep of entry.deps) {
@@ -102,6 +107,10 @@ for (const [file, entry] of Object.entries(graph)) {
   }
 }
 const related = new Set(candidates.filter((file) => testRe.test(file)));
+if (candidates.some((file) => implicitTestDependencyRe.test(file))) {
+  for (const test of allTests) related.add(test);
+  console.log('Implicit Vitest dependency changed → running all tracked tests conservatively.');
+}
 const queue = [...candidates];
 while (queue.length) {
   const file = queue.shift();
@@ -109,6 +118,12 @@ while (queue.length) {
     if (!related.has(importer) && testRe.test(importer)) related.add(importer);
     if (!queue.includes(importer)) queue.push(importer);
   }
+}
+// Never report success with zero tests for a source change: an unmodelled
+// dependency is safer as a full run than as a silent no-op.
+if (related.size === 0 && candidates.length > 0) {
+  for (const test of allTests) related.add(test);
+  console.log('No static related edge found → running all tracked tests conservatively.');
 }
 const tests = [...related].filter((file) => existsSync(file)).sort();
 console.log(`Running Vitest related to ${candidates.length} changed source/test file(s): ${tests.length} test file(s)`);

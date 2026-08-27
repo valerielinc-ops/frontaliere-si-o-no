@@ -212,6 +212,10 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
     expect(RELATED_RUNNER).toContain("!file.startsWith('.github/')");
     expect(RELATED_RUNNER).toContain("!file.includes('/')");
     expect(RELATED_RUNNER).toContain('file !== \'scripts/ci/run-related-tests.mjs\'');
+    expect(RELATED_RUNNER).toContain('implicitTestDependencyRe');
+    expect(RELATED_RUNNER).toContain('tests\\/setup');
+    expect(RELATED_RUNNER).toContain('scripts\\/(?:seo|models|one-off)');
+    expect(RELATED_RUNNER).toContain('No static related edge found');
   });
 
   it('usa un bundle deterministico e non scarica il diff completo nelle review incrementali', () => {
