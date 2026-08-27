@@ -21,12 +21,14 @@ const changed = readFileSync(changedPathFile, 'utf8')
 const TEST_RE = /^(?:tests|packages\/[^/]+\/tests)\/.*\.(?:test|spec)\.[cm]?[jt]sx?$/i;
 const SOURCE_RE = /\.(?:[cm]?[jt]sx?|vue|svelte)$/i;
 const NON_SOURCE_RE = /^(?:data|public|reports|docs|_newsletter_variants|node_modules)\//;
+const RUNNER_PATH = 'scripts/ci/run-related-tests.mjs';
 
 const candidates = [...new Set(changed.filter((path) => {
-  if (NON_SOURCE_RE.test(path) || !existsSync(path)) return false;
+  if (path === RUNNER_PATH || NON_SOURCE_RE.test(path) || !existsSync(path)) return false;
   return TEST_RE.test(path) || SOURCE_RE.test(path);
 }))];
 const maxWorkers = process.env.VITEST_MAX_WORKERS;
+const pool = process.env.VITEST_POOL;
 
 if (candidates.length === 0) {
   console.log('No existing source/test files in the diff → related-only run has no tests.');
@@ -42,6 +44,7 @@ const result = spawnSync(process.execPath, [
   '--run',
   '--passWithNoTests',
   ...(maxWorkers ? [`--maxWorkers=${maxWorkers}`] : []),
+  ...(pool ? [`--pool=${pool}`] : []),
   ...candidates,
   ...process.argv.slice(2),
 ], { stdio: 'inherit' });

@@ -200,7 +200,8 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
     );
     expect(vitestRuns).toHaveLength(1);
     for (const run of vitestRuns) {
-      expect(run).toContain('VITEST_MAX_WORKERS: 2');
+      expect(run).toContain('VITEST_MAX_WORKERS: 1');
+      expect(run).toContain('VITEST_POOL: forks');
     }
     expect(TESTS_YML).toContain('node_modules/.vite-related');
   });

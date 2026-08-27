@@ -1373,8 +1373,13 @@ jobs:
         # possono leggere i dataset generati. Questo è l'unico invocatore di
         # Vitest del job PR; `run-related-tests.mjs` non ha fallback alla suite.
         env:
+          # Vitest 4's related graph can exceed Node's default 4GB heap in this
+          # repository. Keep the graph bounded to one fork and leave headroom
+          # on the hosted runner; this does not change the related-only scope.
+          NODE_OPTIONS: --max-old-space-size=8192
           VITEST_SKIP_LIVE_DATA: 'true'
-          VITEST_MAX_WORKERS: 2
+          VITEST_MAX_WORKERS: 1
+          VITEST_POOL: forks
           VITEST_CACHE_DIR: node_modules/.vite-related
         run: node scripts/ci/run-related-tests.mjs --reporter=default --reporter=json --outputFile=shard-timing-related.json
 
