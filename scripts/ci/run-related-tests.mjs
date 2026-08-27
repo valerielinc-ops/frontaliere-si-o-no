@@ -24,7 +24,10 @@ const changedStatusFile = process.env.CHANGED_PATHS_STATUS_FILE || 'changed-path
 const graphFile = process.env.VITEST_RELATED_GRAPH || '.cache/vitest-related/graph.json';
 const sourceRe = /\.(?:[cm]?[jt]sx?|vue|svelte)$/i;
 const testRe = /^(?:tests|packages\/[^/]+\/tests)\/.*\.(?:test|spec)\.[cm]?[jt]sx?$/i;
-const alwaysExcludedTests = new Set(['tests/checkout-sparse-profiles.test.ts']);
+// firestore-rules-consent-write needs a running Firestore emulator (Java 21+,
+// wired via `npm run test:firestore-rules`) — plain `vitest run` fails fast
+// with ECONNREFUSED, so it stays out of the blocking related-tests gate (#6377).
+const alwaysExcludedTests = new Set(['tests/checkout-sparse-profiles.test.ts', 'tests/firestore-rules-consent-write.test.ts']);
 const ignoredRe = /^(?:data|public|reports|docs|_newsletter_variants|node_modules)\//;
 const projectRe = /^(?:tests|scripts\/(?:ci|lib|dev|evals)\/|services|components|hooks|server|infra|build-plugins|functions|packages\/[^/]+\/(?:engine|src|tests)\/)/;
 const skipCorpusWide = process.env.VITEST_SKIP_CORPUS_WIDE === 'true';
