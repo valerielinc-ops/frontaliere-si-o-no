@@ -10836,6 +10836,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.congedo-maternita-paternita-frontalieri.title': 'Mutterschafts- und Vaterschaftsurlaub für Grenzgänger: CH-IT-Regeln',
     'blog.article.congedo-maternita-paternita-frontalieri.excerpt': 'Wie Elternurlaub, Taggelder und Leistungen für junge Eltern an der Grenze zwischen der Schweiz und Italien funktionieren: Regeln, EO-Sätze und praktische Verfahren.',
     'blog.article.congedo-maternita-paternita-frontalieri.imageAlt': 'Elternteil mit Kinderwagen an der Seepromenade von Lugano, Monte San Salvatore im Hintergrund',
+    'blog.article.frontaliere-spese-sanitarie-italia-rimborso.title': 'Erstattungsfähige Gesundheitskosten Schweiz in Italien für Grenzgänger',
+    'blog.article.frontaliere-spese-sanitarie-italia-rimborso.excerpt': 'Welche in der Schweiz entstandenen Gesundheitskosten in Italien für Grenzgänger erstattungsfähig sind, mit notwendigen Verfahren, Grenzen und Dokumenten.',
+    'blog.article.frontaliere-spese-sanitarie-italia-rimborso.imageAlt': 'Grenzgänger am Grenzübergang Chiasso mit Gesundheitsdokumenten und Schweizer Alpen im Hintergrund',
 };
 
 export default blogMetaDe;

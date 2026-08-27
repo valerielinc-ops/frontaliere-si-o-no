@@ -10838,6 +10838,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.congedo-maternita-paternita-frontalieri.title': 'Congedo maternità e paternità per frontalieri: regole CH-IT',
     'blog.article.congedo-maternita-paternita-frontalieri.excerpt': 'Come funzionano congedo parentale, indennità giornaliere e prestazioni per neo-genitori frontalieri tra Svizzera e Italia: regole, aliquote IPG e procedure pratiche.',
     'blog.article.congedo-maternita-paternita-frontalieri.imageAlt': 'Genitore con passeggino sul lungolago di Lugano, sullo sfondo il Monte San Salvatore',
+    'blog.article.frontaliere-spese-sanitarie-italia-rimborso.title': 'Spese sanitarie Svizzera rimborsabili in Italia per frontalieri',
+    'blog.article.frontaliere-spese-sanitarie-italia-rimborso.excerpt': 'Quali spese sanitarie sostenute in Svizzera sono rimborsabili in Italia per i frontalieri, con procedure, limiti e documenti necessari.',
+    'blog.article.frontaliere-spese-sanitarie-italia-rimborso.imageAlt': 'Frontaliere al valico di Chiasso con documenti sanitari e sfondo alpino svizzero',
 };
 
 export default blogMetaIt;

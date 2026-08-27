@@ -32421,6 +32421,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-spese-sanitarie-italia-rimborso',
+ category: 'fiscale',
+ date: '2026-08-27T00:03:03.174Z',
+ image: '/images/blog/frontaliere-spese-sanitarie-italia-rimborso.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
