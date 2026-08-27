@@ -10842,6 +10842,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.consiglio-stato-deputazione-ticino-agosto.title': 'Tessin und Bern: die zentrale Frage der Gaststätten',
     'blog.article.consiglio-stato-deputazione-ticino-agosto.excerpt': 'Am 27. August in Bellinzona, Diskussion über die Aussetzung der Rückzahlungen und Verhandlungen mit dem Bund und der Region Lombardei',
     'blog.article.consiglio-stato-deputazione-ticino-agosto.imageAlt': 'Bellinzona, Sitz des Tessiner Staatsrats, Treffen mit Parlamentsdelegation am 27. August 2026',
+    'blog.article.coordinamento-sanitario-frontaliere.title': 'Gesundheitskosten: Rückerstattung CH-IT',
+    'blog.article.coordinamento-sanitario-frontaliere.excerpt': 'Gesundheitsrechte für Grenzgänger Tessin-Italien: KVG und INPS im Vergleich, Erstattungsverfahren und Auswahl der günstigsten Versicherung.',
+    'blog.article.coordinamento-sanitario-frontaliere.imageAlt': 'Ruhiger Blick auf den Monte San Salvatore bei Sonnenuntergang über dem Luganer See, Tessin',
 };
 
 export default blogMetaDe;

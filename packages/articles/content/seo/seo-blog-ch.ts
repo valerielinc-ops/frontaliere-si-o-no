@@ -57701,6 +57701,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-danni-parcheggio-rincari-2025': {
+    title: 'Stangata sui danni da parcheggio: rincari fino al 50%',
+    description: 'Aumenti fino al 50% per i danni da parcheggio in Svizzera tra 2023-2025. Analisi Comparis su 7,3 milioni di casi rivela le cause: tecnologia auto e tariffe',
+    keywords: 'frontalieri, ticino, svizzera, italia, stangata, danni, parcheggio, rincari',
+    ogTitle: 'Stangata sui danni da parcheggio: rincari fino al 50%',
+    ogDescription: 'Scopri perché riparare i danni da parcheggio costa fino al 50% in più. Analisi Comparis di 7,3 milioni di sinistri rivela l\'impatto della tecnologia e delle tariffe delle officine svizzere sui costi di riparazione auto.',
+    canonicalPath: '/articoli-svizzera/danni-parcheggio-rincari-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stangata sui danni da parcheggio: rincari fino al 50%",
+      "description": "Aumenti fino al 50% per i danni da parcheggio in Svizzera tra 2023-2025. Analisi Comparis su 7,3 milioni di casi rivela le cause: tecnologia auto e tariffe",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/danni-parcheggio-rincari-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Auto con danno da parcheggio presso un'officina svizzera"
+      },
+      "datePublished": "2026-08-27T00:33:10+00:00",
+      "dateModified": "2026-08-27T00:33:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/danni-parcheggio-rincari-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

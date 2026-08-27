@@ -4447,6 +4447,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.glarner-dimissioni-consiglio-nazionale.title': 'Glarner quitte le Conseil national à la fin de l\'année',
     'blog.article.glarner-dimissioni-consiglio-nazionale.excerpt': 'Andreas Glarner (UDC/AG) annonce sa démission du Parlement fédéral le 31 décembre 2026. Il quitte également la présidence du parti argosino.',
     'blog.article.glarner-dimissioni-consiglio-nazionale.imageAlt': 'Chambre du Conseil national au Palais fédéral de Berne',
+    'blog.article.danni-parcheggio-rincari-2025.title': 'Étanchéité sur les dommages de parking : hausses jusqu\'à 50%',
+    'blog.article.danni-parcheggio-rincari-2025.excerpt': 'Studio Comparis : réparation portière arrière de 92 à 134 CHF en deux ans. Technologie automobile et tarifs ateliers derrière les hausses.',
+    'blog.article.danni-parcheggio-rincari-2025.imageAlt': 'Voiture endommagée au parking dans un atelier suisse',
 };
 
 export default blogMetaChFr;

@@ -4447,6 +4447,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.glarner-dimissioni-consiglio-nazionale.title': 'Glarner verlässt den Nationalrat zum Jahresende',
     'blog.article.glarner-dimissioni-consiglio-nazionale.excerpt': 'Andreas Glarner (SVP/AG) kündigt am 31. Dezember 2026 seinen Rücktritt aus dem Bundestag an. Er verlässt auch den Vorsitz der Argosino-Partei.',
     'blog.article.glarner-dimissioni-consiglio-nazionale.imageAlt': 'Saal des Nationalrats im Bundespalast Bern',
+    'blog.article.danni-parcheggio-rincari-2025.title': 'Stau auf Parkschäden: Preissteigerungen von bis zu 50%',
+    'blog.article.danni-parcheggio-rincari-2025.excerpt': 'Comparis-Studie: Heckklappenreparatur von 92 bis 134 CHF in zwei Jahren. Autotechnologie und Werkstattpreise hinter den Preissteigerungen.',
+    'blog.article.danni-parcheggio-rincari-2025.imageAlt': 'Auto mit Parkplatzschaden in einer Schweizer Werkstatt',
 };
 
 export default blogMetaChDe;

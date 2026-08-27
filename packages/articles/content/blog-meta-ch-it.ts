@@ -4447,6 +4447,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.glarner-dimissioni-consiglio-nazionale.title': 'Glarner lascia il Consiglio nazionale a fine anno',
     'blog.article.glarner-dimissioni-consiglio-nazionale.excerpt': 'Andreas Glarner (UDC/AG) annuncia dimissioni dal Parlamento federale il 31 dicembre 2026. Lascia anche la presidenza del partito argosino.',
     'blog.article.glarner-dimissioni-consiglio-nazionale.imageAlt': 'Aula del Consiglio nazionale al Palazzo federale di Berna',
+    'blog.article.danni-parcheggio-rincari-2025.title': 'Stangata sui danni da parcheggio: rincari fino al 50%',
+    'blog.article.danni-parcheggio-rincari-2025.excerpt': 'Studio Comparis: riparazione portiera posteriore da 92 a 134 CHF in due anni. Tecnologia auto e tariffe officine dietro i rincari.',
+    'blog.article.danni-parcheggio-rincari-2025.imageAlt': 'Auto con danno da parcheggio presso un\'officina svizzera',
 };
 
 export default blogMetaChIt;

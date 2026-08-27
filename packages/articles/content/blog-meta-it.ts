@@ -10844,6 +10844,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.consiglio-stato-deputazione-ticino-agosto.title': 'Ticino e Berna: la questione cruciale dei ristorni',
     'blog.article.consiglio-stato-deputazione-ticino-agosto.excerpt': 'Il 27 agosto a Bellinzona, discussione sulla sospensione dei ristorni e negoziazione con Confederazione e Regione Lombardia',
     'blog.article.consiglio-stato-deputazione-ticino-agosto.imageAlt': 'Bellinzona, sede del Consiglio di Stato ticinese, riunione con Deputazione il 27 agosto 2026',
+    'blog.article.coordinamento-sanitario-frontaliere.title': 'Spese sanitarie frontaliere: rimborsi tra Svizzera e Italia',
+    'blog.article.coordinamento-sanitario-frontaliere.excerpt': 'Diritti sanitari per frontalieri Ticino-Italia: LAMal e INPS a confronto, procedure di rimborso e come scegliere l\'assicurazione più conveniente.',
+    'blog.article.coordinamento-sanitario-frontaliere.imageAlt': 'Vista serena di Monte San Salvatore al tramonto sul Lago di Lugano, Ticino',
 };
 
 export default blogMetaIt;
