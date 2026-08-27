@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "savedAt": "2026-08-27T00:52:40.512Z",
+  "savedAt": "2026-08-27T01:00:31.766Z",
   "entries": [
     {
       "key": "93a5333459a2b3360144e68db67a07eb4289b2c87dfb195cba24b9199b53db7a",
@@ -250112,11 +250112,11 @@
     },
     {
       "key": "f481fac4a8b5bed1f025216cea767862cfdc9770c097ad550225a24e2fe2cb76",
-      "touchedAt": 1787739661435,
+      "touchedAt": 1787792309523,
       "value": {
         "isJob": false,
-        "confidence": 0.96,
-        "reason": "This is a career program landing page describing Coop's 'Quereinstieg' (career change) initiatives with multiple role categories (Baker, Driver, Butcher, Chef), not a single concrete job posting. It provides program information, benefits, and process overview with links to actual job listings elsewhere."
+        "confidence": 95,
+        "reason": "This is a career program category page describing Coop's 'Quereinstieg' (lateral entry) initiative. It lists multiple role categories (Baker, Truck Driver, Meat/Fish Employee, Cook) with generic descriptions and program benefits, rather than a single concrete job with specific responsibilities and application context. The page links to open positions rather than being a job detail itself."
       }
     },
     {
