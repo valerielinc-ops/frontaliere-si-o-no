@@ -21,6 +21,7 @@ const COLLISION_YML = readFileSync(resolve(ROOT, '.github/workflows/pr-collision
 const TESTS_CODE = TESTS_YML.split('\n').filter((line) => !line.trimStart().startsWith('#')).join('\n');
 const AUTOREBASE = readFileSync(resolve(ROOT, 'scripts/ci/pr-autorebase.mjs'), 'utf-8');
 const AUTO_MERGE_EVAL = readFileSync(resolve(ROOT, 'scripts/ci/auto-merge-eval.mjs'), 'utf-8');
+const RELATED_RUNNER = readFileSync(resolve(ROOT, 'scripts/ci/run-related-tests.mjs'), 'utf-8');
 
 describe('VITEST_CHECK_NAME (#1602 drift guard)', () => {
   it('matcha byte-per-byte il name: del job vitest in tests.yml', () => {
@@ -166,7 +167,7 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
       ['contract', /PR-body completeness \+ multi-issue Closes/],
       ['source guards', /check-sibling-patterns\.mjs/],
       ['typecheck', /npm run typecheck:gate/],
-      ['vitest', /npm test --/],
+      ['vitest related', /run-related-tests\.mjs/],
     ] as const) {
       expect(re.test(jobsBody), `famiglia \`${what}\` non trovata nel job fuso`).toBe(true);
     }
@@ -194,16 +195,55 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
     expect(TESTS_CODE).not.toContain('pr-collision-detector');
   });
 
-  it('limita i worker per evitare oversubscription tra i due Vitest', () => {
-    const vitestRuns = [...TESTS_YML.matchAll(/- name: vitest run \([^\n]+\)[\s\S]*?(?=\n      - name:|\n      #|$)/g)].map(
+  it('limita i worker del related run per evitare oversubscription', () => {
+    const vitestRuns = [...TESTS_YML.matchAll(/- name: vitest related \([^\n]+\)[\s\S]*?(?=\n      - name:|\n      #|$)/g)].map(
       (match) => match[0],
     );
-    expect(vitestRuns).toHaveLength(2);
+    expect(vitestRuns).toHaveLength(1);
     for (const run of vitestRuns) {
-      expect(run).toContain('VITEST_MAX_WORKERS: 2');
+      expect(run).toContain('VITEST_MAX_WORKERS: 1');
+      expect(run).toContain('VITEST_POOL: forks');
     }
-    expect(TESTS_YML).toContain('node_modules/.vite-independent');
-    expect(TESTS_YML).toContain('node_modules/.vite-dependent');
+    expect(TESTS_YML).toContain('node_modules/.vite-related');
+  });
+
+  it('include tutti i root applicativi nel grafo related', () => {
+    expect(RELATED_RUNNER).toContain('const projectRe');
+    expect(RELATED_RUNNER).toContain("!file.startsWith('.github/')");
+    expect(RELATED_RUNNER).toContain("!file.includes('/')");
+    expect(RELATED_RUNNER).toContain('file !== \'scripts/ci/run-related-tests.mjs\'');
+    expect(RELATED_RUNNER).toContain('sourceRe.test(file)))');
+    expect(RELATED_RUNNER).not.toContain('implicitTestDependencyRe');
+    expect(RELATED_RUNNER).toContain('No static related edge found');
+    expect(RELATED_RUNNER).toContain('const visited = new Set()');
+    expect(RELATED_RUNNER).toContain('function stripComments');
+    expect(RELATED_RUNNER).toContain('CHANGED_PATHS_STATUS_FILE');
+    expect(RELATED_RUNNER).toContain("changedStatus !== 'complete'");
+    expect(RELATED_RUNNER).toContain('listCorpusWideTests');
+    expect(RELATED_RUNNER).toContain('VITEST_SKIP_CORPUS_WIDE');
+  });
+
+  it('tests.yml conserva allow-list sparse e fail-safe del corpus', () => {
+    expect(TESTS_YML).toContain('sparse-checkout: |');
+    expect(TESTS_YML).toContain('sparse-checkout-cone-mode: false');
+    expect(TESTS_YML).toContain('!/public/images/');
+    expect(TESTS_YML).toContain('changed-paths-status.txt');
+    expect(TESTS_YML).toContain('partial > changed-paths-status.txt');
+    expect(TESTS_YML).toContain('frontaliere-articles');
+    expect(TESTS_YML).toContain('/REVIEW.md');
+    expect(TESTS_YML).toContain('/AGENTS.md');
+    expect(TESTS_YML).toContain('hard repository-tool budget');
+  });
+
+  it('usa un bundle deterministico e non scarica il diff completo nelle review incrementali', () => {
+    expect(TESTS_YML).toContain('review-bundle.md');
+    expect(TESTS_YML).toContain('elif [ -n "${INCREMENTAL_BASE:-}" ]; then');
+    expect(TESTS_YML).toContain('full PR diff omitted; see delta.patch');
+    expect(TESTS_YML).toContain('review-code-files.txt');
+    expect(TESTS_YML).toContain('delta-files.txt');
+    expect(TESTS_YML).toContain('set_tier incremental-high claude-sonnet-5 35');
+    expect(TESTS_YML).toContain('set_tier incremental claude-sonnet-5 35');
+    expect(TESTS_YML).toContain('Read `REVIEW.md` first');
   });
 
   it('abilita e persiste la Node compile cache del job comune', () => {

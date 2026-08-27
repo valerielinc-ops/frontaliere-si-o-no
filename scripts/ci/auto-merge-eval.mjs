@@ -1,9 +1,14 @@
 /**
- * auto-merge-eval.mjs — decisione di auto-merge (deterministico, zero-Claude).
+ * auto-merge-eval.mjs — helper deterministici per i gate CI (zero-Claude).
  *
- * Centralizza la SINGOLA valutazione di merge usata da entrambi i trigger di
- * auto-merge-on-lgtm.yml:
- *   - `pull_request_review: submitted` (il reviewer ha appena postato `## LGTM`)
+ * Il merge è ora gestito dall'auto-merge nativo di GitHub. Questo modulo resta
+ * intenzionalmente nel repository perché alcuni helper puri sono condivisi da
+ * `pr-autorebase.mjs` e `pr-contribution-fingerprint.mjs`; non è più invocato da
+ * un workflow per autorizzare o eseguire un merge.
+ *
+ * La precedente valutazione centralizzata era usata da entrambi i trigger di
+ * `auto-merge-on-lgtm.yml`:
+ *   - `pull_request_review: submitted` (il reviewer aveva appena postato `## LGTM`)
  *   - `workflow_run` del workflow `tests` completato (vitest appena concluso)
  * In passato la decisione viveva inline nello YAML e bloccava SOLO su vitest
  * conclusion == failure: se vitest era pending/mancante l'auto-merge PROCEDEVA →
@@ -11,7 +16,7 @@
  * main andava rosso (osservato #1454: LGTM mentre vitest girava → vitest failure
  * → main red cascade). Qui il merge scatta SOLO con vitest == success.
  *
- * Dato un PR number, valuta (e logga ogni gate):
+ * La CLI legacy, se invocata manualmente, valuta (e logga ogni gate):
  *   1. PR aperta e NON draft.
  *   2. Ultima review del bot reviewer (`claude[bot]` o
  *      `frontaliere-automation[bot]`) sulla
@@ -38,7 +43,7 @@
  *      ri-passa il detector AST di #5212 sul risultato. Best-effort: qualunque
  *      impossibilità di verificare → skip, non blocca (mergePreviewCheck.mjs).
  *
- * Se tutti i gate passano → squash-merge con PAT (stesso meccanismo di prima:
+ * Se tutti i gate passano nella CLI legacy → squash-merge con PAT (stesso meccanismo di prima:
  * PRIMARY_TOKEN=GITHUB_PAT per il cascade deploy/followup, fallback GITHUB_TOKEN).
  *
  * OSSERVAZIONE, non gate (#5552): subito dopo il gate 3 — cioè quando la PR sta
@@ -52,7 +57,7 @@
  * contiene alcun `return`/`exit`. Il passaggio a bloccante è una decisione del
  * proprietario, dopo una settimana di misura.
  *
- * Uso:  node scripts/ci/auto-merge-eval.mjs <prNumber>
+ * Uso legacy/debug:  node scripts/ci/auto-merge-eval.mjs <prNumber>
  * Env:  GH_TOKEN (read-only, per le query), GITHUB_REPOSITORY,
  *       MERGE_PRIMARY_TOKEN (PAT o GITHUB_TOKEN), MERGE_FALLBACK_TOKEN,
  *       HAS_PAT ('true'|'false'). Richiede `gh` in PATH.

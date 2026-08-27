@@ -1,0 +1,28 @@
+name: Enable native auto-merge
+
+# GitHub's native auto-merge owns the waiting/merge decision. This workflow
+# only opts an eligible PR into that mechanism; required checks and reviews are
+# configured on the main branch ruleset, not reimplemented in Actions.
+# The required `vitest (unit + integration)` context is the complete `tests`
+# job, whose final review-gate step fails on a Claude `🔴 Important`; native
+# auto-merge therefore cannot bypass the Claude decision.
+on:
+  # This workflow only calls the GitHub API and never executes PR code.
+  # pull_request_target keeps the write permission available for fork PRs too.
+  pull_request_target:
+    types: [opened, reopened, synchronize, ready_for_review]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  enable:
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enable GitHub auto-merge
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPOSITORY: ${{ github.repository }}
+        run: gh pr merge "$PR_NUMBER" --repo "$REPOSITORY" --auto --squash --delete-branch

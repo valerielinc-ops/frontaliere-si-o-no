@@ -160,7 +160,15 @@ for (const [trackingSlug, entry] of Object.entries(tracking)) {
   out[trackingSlug] = newEntry;
 }
 
-writeAllKnownJobSlugs(out);
+// Most PR runs have no registry paths to migrate. Avoid reserializing and
+// rewriting every shard in that case: the scan above is still performed, so
+// the correctness decision is unchanged, but the no-op path does not pay the
+// full JSON write cost (or churn mtimes) of the sharded store.
+if (rewritten > 0) {
+  writeAllKnownJobSlugs(out);
+} else {
+  console.log('  ℹ️  No canton-aware path changes — registry write skipped.');
+}
 
 console.log('all-known-job-slugs canton-aware migration:');
 console.log(`  total tracking entries:      ${Object.keys(tracking).length}`);
