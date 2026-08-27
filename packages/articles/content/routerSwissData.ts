@@ -1507,6 +1507,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'pulizie-lavoro-nero-2026': { it: 'pulizie-lavoro-nero-2026', en: 'cleaning-work-undeclared-2026', de: 'reinigungsarbeit-schwarzarbeit-2026', fr: 'nettoyage-travail-noir-2026' },
  'credito-federale-ambiente-2027-2030': { it: 'credito-federale-ambiente-2027-2030', en: 'federal-credit-global-environment-2027-2030', de: 'bundeskredit-umwelt-2027-2030', fr: 'credit-federal-environnement-global-2027-2030' },
  'chronext-fallimento-zugo': { it: 'chronext-fallimento-zugo', en: 'chronext-bankruptcy-zug', de: 'chronext-konkurs-zug', fr: 'chronext-faillite-zoug' },
+ 'glarner-dimissioni-consiglio-nazionale': { it: 'glarner-dimissioni-consiglio-nazionale', en: 'glarner-resigns-national-council', de: 'glarner-traegt-nationalrat-nieder', fr: 'glarner-demission-conseil-national' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

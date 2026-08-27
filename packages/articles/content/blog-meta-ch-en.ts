@@ -4444,6 +4444,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.chronext-fallimento-zugo.title': 'Chronext closes: Zug luxury watches bankruptcy',
     'blog.article.chronext-fallimento-zugo.excerpt': 'Bankruptcy declared on 19 August by the Cantonal Court of Zug. Luxury e-commerce company Chronext had 150 employees and revenues of hundreds of millions. By 2022, it had already laid off 40 people.',
     'blog.article.chronext-fallimento-zugo.imageAlt': 'Aerial view of Zug, Switzerland\'s economic center, showing modern business district during golden hour',
+    'blog.article.glarner-dimissioni-consiglio-nazionale.title': 'Glarner leaves the National Council at the end of the year',
+    'blog.article.glarner-dimissioni-consiglio-nazionale.excerpt': 'Andreas Glarner (UDC/AG) announces his resignation from the Federal Parliament on 31 December 2026. He also leaves the presidency of the Argosino party.',
+    'blog.article.glarner-dimissioni-consiglio-nazionale.imageAlt': 'Swiss National Council chamber at the Federal Palace in Bern',
 };
 
 export default blogMetaChEn;

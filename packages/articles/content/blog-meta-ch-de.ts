@@ -4444,6 +4444,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.chronext-fallimento-zugo.title': 'Chronext schließt: Konkurs Luxusuhren Zug',
     'blog.article.chronext-fallimento-zugo.excerpt': 'Konkurs eröffnet am 19. August durch das Kantonsgericht Zug. Chronext, ein E-Commerce-Unternehmen im Luxusbereich, hatte 150 Mitarbeiter und einen Umsatz von Hunderten von Millionen. Im Jahr 2022 hatte er bereits 40 Mitarbeiter entlassen.',
     'blog.article.chronext-fallimento-zugo.imageAlt': 'Luftaufnahme von Zug, dem Wirtschaftszentrum der Schweiz, mit modernem Geschäftsviertel in der goldenen Stunde',
+    'blog.article.glarner-dimissioni-consiglio-nazionale.title': 'Glarner verlässt den Nationalrat zum Jahresende',
+    'blog.article.glarner-dimissioni-consiglio-nazionale.excerpt': 'Andreas Glarner (SVP/AG) kündigt am 31. Dezember 2026 seinen Rücktritt aus dem Bundestag an. Er verlässt auch den Vorsitz der Argosino-Partei.',
+    'blog.article.glarner-dimissioni-consiglio-nazionale.imageAlt': 'Saal des Nationalrats im Bundespalast Bern',
 };
 
 export default blogMetaChDe;
