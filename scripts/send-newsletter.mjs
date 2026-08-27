@@ -1572,6 +1572,21 @@ async function fetchResumeChunkSizes(campaignId) {
   }
 }
 
+/**
+ * Remove recipients already recorded for this campaign before doing any
+ * per-recipient work (job matching, AI, or HTML assembly).
+ *
+ * The resume filter used to run only after all of that work, which made a
+ * continuation run rebuild thousands of emails just to send the small tail.
+ */
+export function filterUnsentSubscribers(subscribers, alreadySent) {
+  const sent = new Set([...alreadySent].map((email) => normalizeEmail(email)));
+  return subscribers.filter((subscriber) => {
+    const email = normalizeEmail(subscriber?.email);
+    return email && !sent.has(email);
+  });
+}
+
 // ─── Subject A/B auto-promotion ─────────────────────────────
 // On by default (kill switch: NEWSLETTER_AB_AUTOPROMOTE=false). Safe: a no-op
 // until a recent campaign has a statistically significant winner with enough
@@ -2223,6 +2238,20 @@ async function main() {
 
     if (subscribers.length === 0) {
       console.warn('\u26a0\ufe0f No subscribers found. Aborting.');
+      return;
+    }
+
+    // Resume as early as possible. This must happen after the cooldown and
+    // digest filters (which define this run's eligible audience), but before
+    // enrich/matching/cohort/AI work below.
+    if (alreadySentForCampaign.size > 0) {
+      const before = subscribers.length;
+      subscribers = filterUnsentSubscribers(subscribers, alreadySentForCampaign);
+      console.log(`📋 Campaign resume pre-filter: ${before} eligible → ${subscribers.length} unsent (skipped ${before - subscribers.length})`);
+    }
+
+    if (subscribers.length === 0) {
+      console.log('✅ All eligible subscribers already received this campaign. Nothing to prepare or send.');
       return;
     }
   }

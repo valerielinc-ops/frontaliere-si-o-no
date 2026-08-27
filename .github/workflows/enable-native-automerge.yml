@@ -20,9 +20,32 @@ jobs:
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout workflow helpers
+        uses: actions/checkout
+        with:
+          ref: main
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "FIREBASE_SERVICE_ACCOUNT_JSON is not configured" >&2
+            exit 1
+          fi
+          printf %s "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load PAT from Remote Config
+        run: node scripts/load-rc-env.mjs
+
       - name: Enable GitHub auto-merge
         env:
-          GH_TOKEN: ${{ github.token }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
           REPOSITORY: ${{ github.repository }}
-        run: gh pr merge "$PR_NUMBER" --repo "$REPOSITORY" --auto --squash --delete-branch
+        run: |
+          if [ -z "$GITHUB_PAT" ]; then
+            echo "GITHUB_PAT was not loaded from Remote Config" >&2
+            exit 1
+          fi
+          GH_TOKEN="$GITHUB_PAT" gh pr merge "$PR_NUMBER" --repo "$REPOSITORY" --auto --squash --delete-branch
