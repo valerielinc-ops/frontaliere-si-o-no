@@ -177,8 +177,13 @@ jobs:
         # registro degli slug. Idempotente.
         run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
+      - name: Verify corpus-wide registry partition
+        # È un controllo meta della CI: non valuta la qualità dei dati live,
+        # ma impedisce che il registro e il suo complemento perdano coverage.
+        run: npx vitest run tests/corpus-wide-test-partition.test.ts
+
       - name: vitest run (solo i gate corpus-wide)
-        # `only` esclude il complemento del registro: girano esattamente gli otto
+        # `only` esclude il complemento del registro: girano esattamente i sei
         # file, con le stesse soglie e gli stessi assert che avevano dentro
         # tests.yml. Nessuna env di tolleranza, nessuno `--bail`, nessun
         # `continue-on-error`: se questo step è rosso, il job è rosso.
@@ -230,7 +235,7 @@ jobs:
           context: |
             Uno o più gate corpus-wide sono rossi su `main`.
 
-            Questi otto gate NON girano nel job bloccante `vitest (unit + integration)`
+            Questi sei gate NON girano nel job bloccante `vitest (unit + integration)`
             delle PR che non toccano il corpus — girano qui. Un rosso qui è quindi
             un difetto **già su main**, non un difetto di una PR in attesa.
 
