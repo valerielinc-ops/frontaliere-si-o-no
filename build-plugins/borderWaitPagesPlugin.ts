@@ -211,6 +211,20 @@ export interface BorderWaitCurrent {
   >;
 }
 
+/**
+ * Shape of `data/webcam-status.json`, written per-run by
+ * `scripts/check-border-data-health.mjs` (keyed by webcam `imageUrl`, the same
+ * dedup key that script's `collectWebcamUrls` uses). `degraded` means the feed
+ * has not been confirmed reachable for >24h — the leaf page omits that
+ * webcam's `<figure>` block instead of showing a broken feed indefinitely
+ * (#6349). A missing entry (never checked yet) fails OPEN as `active` so a
+ * newly added webcam isn't hidden before its first health-check run.
+ */
+export type WebcamStatusMap = Record<
+  string,
+  { status: 'active' | 'degraded'; lastCheckedAt: string; lastOnlineAt: string | null }
+>;
+
 /** Shape of daily history file: per-crossing hour-bucketed aggregates. */
 export interface BorderWaitHistoryDay {
   date: string; // YYYY-MM-DD
@@ -1327,18 +1341,24 @@ function renderHubPlanningProse(
 
 // ── Section renderers ─────────────────────────────────────────
 
-function renderWebcamSection(
+export function renderWebcamSection(
   crossingLabel: string,
   webcams: readonly WebcamRef[],
   copy: Copy,
+  webcamStatus: WebcamStatusMap = {},
 ): string {
-  if (!webcams || webcams.length === 0) {
+  // Omit a webcam whose persisted status is `degraded` (unconfirmed reachable
+  // for >24h, see WebcamStatusMap doc) — a missing entry fails OPEN as active.
+  const liveWebcams = (webcams ?? []).filter(
+    (w) => (webcamStatus[w.imageUrl]?.status ?? 'active') !== 'degraded',
+  );
+  if (!liveWebcams || liveWebcams.length === 0) {
     return `<section class="s-KZc0LQ" aria-label="${esc(copy.webcamLabel)} ${esc(crossingLabel)}">
     <h2 style="${H2_STYLE}">${esc(copy.webcamLabel)}</h2>
     <p class="s-e9hRDW">${esc(copy.webcamUnavailable)}</p>
   </section>`;
   }
-  const figures = webcams
+  const figures = liveWebcams
     .map((w) => {
       const refreshMs = w.refreshIntervalMs ?? 60000;
       const licenseHtml = w.license
@@ -1567,6 +1587,8 @@ interface LeafInputs {
    * falls back to the site default OG image (`/og-image.png`).
    */
   ogImageUrl?: string;
+  /** Per-webcam persisted health status (data/webcam-status.json). Omit in tests to default to all-active. */
+  webcamStatus?: WebcamStatusMap;
 }
 
 /**
@@ -1619,7 +1641,7 @@ function renderAdviceBanner(
 }
 
 function renderLeafPage(inp: LeafInputs): string {
-  const { locale, crossing, current, history, today, alternates, distDir, ogImageUrl } = inp;
+  const { locale, crossing, current, history, today, alternates, distDir, ogImageUrl, webcamStatus } = inp;
   const copy = COPY[locale];
   const crossingDisplay = BORDER_CROSSING_DISPLAY[crossing];
   const region = CROSSING_TO_REGION[crossing];
@@ -1708,7 +1730,7 @@ function renderLeafPage(inp: LeafInputs): string {
 
   // Webcam: prefer reg.webcams (data/borderCrossings.ts)
   const webcams = reg?.webcams ?? [];
-  const webcamHtml = renderWebcamSection(crossingDisplay, webcams, copy);
+  const webcamHtml = renderWebcamSection(crossingDisplay, webcams, copy, webcamStatus);
 
   // Current-status card
   const sourceText = sourceLabel(liveSource, copy);
@@ -2994,11 +3016,14 @@ export function generateBorderWaitPages(opts: {
    * When omitted, the plugin resolves snapshots from `{distDir}/og/border-wait/`.
    */
   ogImageUrlResolver?: (crossing: BorderCrossingSlug) => string | undefined;
+  /** Per-webcam persisted health status (data/webcam-status.json). Omit in tests to default to all-active. */
+  webcamStatus?: WebcamStatusMap;
 }): Record<string, string> {
   const current = opts.current;
   const history = opts.history ?? [];
   const today = opts.today ?? new Date();
   const distDir = opts.distDir;
+  const webcamStatus = opts.webcamStatus ?? {};
   const resolveOgImage =
     opts.ogImageUrlResolver ?? ((c: BorderCrossingSlug) => getWebcamOgImageUrl(c, distDir));
   const pages: Record<string, string> = {};
@@ -3055,6 +3080,7 @@ export function generateBorderWaitPages(opts: {
         alternates: buildCrossingAlternates(crossing),
         distDir,
         ogImageUrl: resolveOgImage(crossing),
+        webcamStatus,
       });
     }
   }
@@ -3133,6 +3159,10 @@ export function borderWaitPagesPlugin(rootDir: string): Plugin {
       });
       const history = readHistory(rootDir);
       const today = new Date();
+      const webcamStatus = readJsonSafe<WebcamStatusMap>(
+        np.resolve(rootDir, 'data', 'webcam-status.json'),
+        {},
+      );
 
       // ── F8 social-virality: snapshot webcam frames for per-page og:image ──
       // Runs BEFORE page generation so `renderLeafPage` can detect the
@@ -3153,7 +3183,7 @@ export function borderWaitPagesPlugin(rootDir: string): Plugin {
         );
       }
 
-      const pages = generateBorderWaitPages({ current, history, today, distDir });
+      const pages = generateBorderWaitPages({ current, history, today, distDir, webcamStatus });
       const archives = generateBorderWaitArchives({ history, today, distDir });
 
       const collector = new WriteCollector({ distDir, pluginName: 'borderWaitPagesPlugin' });

@@ -236,6 +236,30 @@ export function evaluateWebcamResult(result, minBytes = MIN_WEBCAM_BYTES) {
   return { broken: false, reason: null };
 }
 
+// Per-webcam persisted status (data/webcam-status.json) goes 'degraded' once
+// the feed has not been confirmed online for this many hours — the public
+// build (build-plugins/borderWaitPagesPlugin.ts) then omits its <figure>
+// block instead of leaving a broken webcam visible indefinitely (#6349).
+const WEBCAM_OFFLINE_HOURS = 24;
+
+/**
+ * Decide the persisted status for a single webcam from its last-confirmed-
+ * online timestamp. Pure (same injected-`nowMs` pattern as `evaluateStaleness`
+ * above) so the 24h threshold is unit-testable without touching the clock.
+ * @param {string|null|undefined} lastOnlineAt ISO timestamp of the last check
+ *   that confirmed the feed reachable, or null/undefined if never confirmed.
+ * @param {number} nowMs current time in ms (injected for testability)
+ * @param {number} offlineHours threshold in hours
+ * @returns {'active'|'degraded'}
+ */
+export function computeWebcamStatus(lastOnlineAt, nowMs, offlineHours = WEBCAM_OFFLINE_HOURS) {
+  if (!lastOnlineAt) return 'degraded';
+  const parsed = Date.parse(lastOnlineAt);
+  if (!Number.isFinite(parsed)) return 'degraded';
+  const ageHours = (nowMs - parsed) / (60 * 60 * 1000);
+  return ageHours > offlineHours ? 'degraded' : 'active';
+}
+
 /**
  * Collect the unique webcam image URLs (with the crossings each serves) from the
  * borderCrossings registry. Pure: takes the array, returns a dedup map.
@@ -387,6 +411,22 @@ function loadCurrentSnapshot() {
   return JSON.parse(fs.readFileSync(file, 'utf8'));
 }
 
+const WEBCAM_STATUS_PATH = path.resolve(process.cwd(), 'data', 'webcam-status.json');
+
+/** Keyed by webcam imageUrl (same dedup key as `collectWebcamUrls`). */
+function loadWebcamStatus() {
+  if (!fs.existsSync(WEBCAM_STATUS_PATH)) return {};
+  try {
+    return JSON.parse(fs.readFileSync(WEBCAM_STATUS_PATH, 'utf8'));
+  } catch {
+    return {};
+  }
+}
+
+function saveWebcamStatus(statusMap) {
+  fs.writeFileSync(WEBCAM_STATUS_PATH, `${JSON.stringify(statusMap, null, 2)}\n`);
+}
+
 // ── Orchestration ───────────────────────────────────────────────────
 
 async function main() {
@@ -446,6 +486,9 @@ async function main() {
   // comment. Mutable object (not an absolute deadline) so unrelated loop
   // latency never depletes it.
   const retryBudget = { remainingMs: WEBCAM_TINY_BODY_RETRY_BUDGET_MS };
+  const prevWebcamStatus = loadWebcamStatus();
+  const nextWebcamStatus = {};
+  const checkedAtIso = new Date().toISOString();
   for (const { url, crossings: served, label, minBytes } of webcamUrls.values()) {
     const result = await fetchWebcam(url, minBytes ?? MIN_WEBCAM_BYTES, retryBudget);
     const verdict = evaluateWebcamResult(result, minBytes ?? MIN_WEBCAM_BYTES);
@@ -458,7 +501,22 @@ async function main() {
     } else {
       lines.push(`✅ Webcam OK: ${url} (${(result.bytes / 1024).toFixed(0)}KB) — serves: ${served.join(', ')}`);
     }
+    // A CONFIRMED-broken result (verdict.broken) is the only outcome that does
+    // NOT count as "online": an indeterminate result (blocked from the
+    // monitor's single cloud IP, #3098/#2336) is explicitly not proof the feed
+    // is down for real users, so it must not advance it towards auto-hide any
+    // less than a healthy read would — same reasoning evaluateWebcamResult
+    // already applies to paging.
+    const prevEntry = prevWebcamStatus[url];
+    const lastOnlineAt = verdict.broken ? (prevEntry?.lastOnlineAt ?? null) : checkedAtIso;
+    nextWebcamStatus[url] = {
+      label,
+      status: computeWebcamStatus(lastOnlineAt, Date.now()),
+      lastCheckedAt: checkedAtIso,
+      lastOnlineAt,
+    };
   }
+  if (webcamUrls.size > 0) saveWebcamStatus(nextWebcamStatus);
   if (brokenWebcams.length > 0) {
     problems.push(`${brokenWebcams.length} broken webcam(s): ${brokenWebcams.map((b) => b.url).join(', ')}`);
   }
