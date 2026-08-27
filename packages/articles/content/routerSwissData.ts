@@ -1512,6 +1512,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'assegni-familiari-lucerna-come-richiedere': { it: 'assegni-familiari-lucerna-come-richiedere', en: 'family-allowances-lucerne-how-to-apply', de: 'familienleistungen-luzern-antrag-verfahren', fr: 'allocations-familiales-lucerne-demande-procedure' },
  'naturalizzazione-ordinaria-lucerna-guida': { it: 'naturalizzazione-ordinaria-lucerna-guida', en: 'naturalization-ordinary-lucerne-guide', de: 'einbuergerung-ordentlich-luzern-anleitung', fr: 'naturalisation-ordinaire-lucerne-guide' },
  'salari-appenzello-interno-settori': { it: 'salari-appenzello-interno-settori', en: 'salaries-appenzell-rhodes-sectors', de: 'loehne-appenzell-innerrhoden-bereiche', fr: 'salaires-appenzell-rhodes-secteurs' },
+ 'imposta-successione-appenzello': { it: 'imposta-successione-appenzello', en: 'inheritance-tax-appenzell', de: 'erbschaftsteuer-appenzell', fr: 'impot-succession-appenzelle' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

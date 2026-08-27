@@ -4459,6 +4459,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salari-appenzello-interno-settori.title': 'Salari e mercato del lavoro in Appenzello Interno',
     'blog.article.salari-appenzello-interno-settori.excerpt': 'Guida ai livelli salariali per grado di formazione, settori occupazionali, contributi AVS/LPP/LAMal, orari legali e strumenti per calcolare lo stipendio netto nel canton Appenzello Interno.',
     'blog.article.salari-appenzello-interno-settori.imageAlt': 'Lavoratori in ufficio e in fabbrica in un ambiente lavorativo svizzero moderno rappresentante diversi livelli di qualifica e settori.',
+    'blog.article.imposta-successione-appenzello.title': 'Imposte di successione Appenzello: aliquote e procedure',
+    'blog.article.imposta-successione-appenzello.excerpt': 'Imposta di successione a Appenzello: competenza cantonale, aliquote per parentela, esenzioni per coniuge. Dichiarazione entro 30-90 giorni. Procedura in 6 fasi.',
+    'blog.article.imposta-successione-appenzello.imageAlt': 'Palazzo amministrativo svizzero che rappresenta l\'amministrazione tributaria cantonale per successioni e donazioni',
 };
 
 export default blogMetaChIt;
