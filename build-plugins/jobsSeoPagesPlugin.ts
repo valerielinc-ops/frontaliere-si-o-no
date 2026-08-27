@@ -13801,6 +13801,17 @@ ${staticAnalyticsHtml}
  // o il rilascio e' un no-op silenzioso. Il checkpoint subito sotto dice al
  // prossimo deploy se questo blocco libera davvero (pattern DUAL PURPOSE di
  // buildMemLog.ts).
+ // #6179: the 9 containers below are all DERIVED from `jobs` (the raw
+ // `data/jobs.json` parse, L1430) — `validJobs` is a shallow spread-copy
+ // (`{...j}` per element, L1498-1504), so its wrapper objects are new but
+ // every nested value (description strings, slugByLocale, previousSlugs…)
+ // is the SAME reference held by the original `jobs` array. `jobs`'s last
+ // read is the `.filter().map()` that builds `validJobs` (L1498); nothing
+ // reads it again, but nothing ever cleared it either, so the full ~22k
+ // job graph stayed reachable through `jobs` regardless of how many
+ // *derived* containers this block emptied — exactly why the checkpoint
+ // measured `gcFreed=1MB` instead of the ~1.5-2GB these clears should free.
+ jobs.length = 0;
  validJobs.length = 0;
  sitemapEligibleJobs.length = 0;
  relatedJobsByCategory.clear();
