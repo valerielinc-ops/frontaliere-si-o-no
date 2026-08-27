@@ -10850,6 +10850,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sconti-trasporti-frontalieri-ticino.title': 'Abbonamenti e sconti per frontalieri: come risparmiare sui trasporti',
     'blog.article.sconti-trasporti-frontalieri-ticino.excerpt': 'Guida pratica agli abbonamenti scontati e ai sistemi di trasporto integrati Ticino-Lombardia per chi lavora oltre confine: opzioni, risparmio e detraibilità fiscale.',
     'blog.article.sconti-trasporti-frontalieri-ticino.imageAlt': 'Frontalieri in attesa del treno per la Lombardia su una stazione ticinese durante le ore di punta mattutine',
+    'blog.article.vecchi-nuovi-frontalieri-tassazione.title': 'Frontalieri 2026: tassazione, nuovo accordo e franchigia',
+    'blog.article.vecchi-nuovi-frontalieri-tassazione.excerpt': 'Dal 2024 il nuovo accordo Italia-Svizzera riduce le tasse ai frontalieri: €7.500 di esenzione per i vecchi, €10.000 per i nuovi. Ecco come funziona.',
+    'blog.article.vecchi-nuovi-frontalieri-tassazione.imageAlt': 'Ufficio fiscale con documenti sulla tassazione frontalieri e simboli di valuta CHF/EUR',
 };
 
 export default blogMetaIt;
