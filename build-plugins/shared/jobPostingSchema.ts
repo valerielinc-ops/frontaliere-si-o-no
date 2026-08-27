@@ -498,12 +498,17 @@ function resolveCanton(job: JobInput): string {
  * fails the canton-agreement check. Returns '' when the raw value must NOT
  * be trusted — callers supply their own fallback (company HQ, city lookup,
  * canton-capital).
+ *
+ * `region` doubles as the canton hint for `isKnownSwissCity`: 161 BFS
+ * municipalities exist only in the "<City> (XX)" disambiguated form (e.g.
+ * "Küsnacht (ZH)"), so their bare name fails the unscoped check — but with
+ * `region` already known here, the retry is unambiguous. See #6147.
  */
 export function sanitizeLocalityForRegion(rawLocality: string, region: string): string {
   let cityRaw = String(rawLocality || '').trim();
   const regionCapital = regionLocalityCapital(cityRaw);
   if (regionCapital) cityRaw = regionCapital.addressLocality;
-  if (!cityRaw || !isKnownSwissCity(cityRaw)) return '';
+  if (!cityRaw || !isKnownSwissCity(cityRaw, region)) return '';
   const cityCanton = inferAnyCanton(cityRaw);
   if (cityCanton && cityCanton.toUpperCase() !== String(region || '').toUpperCase()) return '';
   return cityRaw;
