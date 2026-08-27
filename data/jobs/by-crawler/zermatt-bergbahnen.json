@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "zermatt-bergbahnen-450c7c2a86a3",
-      "slug": "lehrstelle-metallbauer-in-efz-zermatt-zermatt-bergbahnen",
+      "slug": "apprendistato-metallbauer-in-cfc-zermatt-bergbahnen-zermatt-bf4c08",
       "slugByLocale": {
-        "it": "lehrstelle-metallbauer-in-efz-zermatt-zermatt-bergbahnen",
+        "it": "apprendistato-metallbauer-in-cfc-zermatt-bergbahnen-zermatt-bf4c08",
         "en": "lehrstelle-metallbauer-in-efz-zermatt-zermatt-bergbahnen",
         "de": "lehrstelle-metallbauer-in-efz-zermatt-zermatt-bergbahnen",
         "fr": "lehrstelle-metallbauer-in-efz-zermatt-zermatt-bergbahnen"
@@ -64,7 +64,8 @@
       "firstSeenAt": "2026-08-27T00:53:05.446Z",
       "previousSlugsByLocale": {
         "it": [
-          "apprendistato-metallbauer-in-cfc-zermatt-bergbahnen-zermatt"
+          "apprendistato-metallbauer-in-cfc-zermatt-bergbahnen-zermatt",
+          "lehrstelle-metallbauer-in-efz-zermatt-zermatt-bergbahnen"
         ],
         "en": [
           "apprenticeship-of-metalworker-efz-zermatt-bergbahnen-zermatt"
@@ -80,7 +81,8 @@
         "apprendistato-metallbauer-in-cfc-zermatt-bergbahnen-zermatt",
         "apprenticeship-of-metalworker-efz-zermatt-bergbahnen-zermatt",
         "lehrstelle-metallbauer-in-efz-zermatt-zermatt-bergbahnen-flbcbd",
-        "apprentissage-de-metallurgique-efz-zermatt-bergbahnen-zermatt"
+        "apprentissage-de-metallurgique-efz-zermatt-bergbahnen-zermatt",
+        "lehrstelle-metallbauer-in-efz-zermatt-zermatt-bergbahnen"
       ]
     },
     {
@@ -171,10 +173,10 @@
       "id": "zermatt-bergbahnen-44fe7c8677eb",
       "slug": "apprendistato-informatiker-in-cfc-zermatt-bergbahnen-zermatt",
       "slugByLocale": {
-        "en": "lehrstelle-informatiker-in-efz-zermatt-zermatt-bergbahnen",
+        "en": "apprenticeship-computer-scientist-efz-zermatt-bergbahnen-zermatt",
         "it": "apprendistato-informatiker-in-cfc-zermatt-bergbahnen-zermatt",
         "de": "lehrstelle-informatiker-in-efz-zermatt-zermatt-bergbahnen",
-        "fr": "lehrstelle-informatiker-in-efz-zermatt-zermatt-bergbahnen"
+        "fr": "apprentissage-informatique-efz-zermatt-bergbahnen-zermatt"
       },
       "company": "Zermatt Bergbahnen",
       "companyKey": "zermatt-bergbahnen",
@@ -229,10 +231,12 @@
           "informatiker-in-zermatt-bergbahnen-zermatt"
         ],
         "en": [
-          "apprenticeship-computer-scientist-efz-zermatt-bergbahnen-zermatt"
+          "apprenticeship-computer-scientist-efz-zermatt-bergbahnen-zermatt",
+          "lehrstelle-informatiker-in-efz-zermatt-zermatt-bergbahnen"
         ],
         "fr": [
-          "apprentissage-informatique-efz-zermatt-bergbahnen-zermatt"
+          "apprentissage-informatique-efz-zermatt-bergbahnen-zermatt",
+          "lehrstelle-informatiker-in-efz-zermatt-zermatt-bergbahnen"
         ]
       },
       "previousSlugs": [
@@ -349,9 +353,9 @@
       "id": "zermatt-bergbahnen-9def23ac7bda",
       "slug": "apprendistato-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt",
       "slugByLocale": {
-        "fr": "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-zermatt-bergbahnen",
+        "fr": "apprentissage-polymecanique-mecanicien-de-production-zermatt-bergbahnen-zermatt",
         "it": "apprendistato-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt",
-        "en": "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-zermatt-bergbahnen",
+        "en": "apprenticeship-polymechanic-production-mechanic-zermatt-bergbahnen-zermatt",
         "de": "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-zermatt-bergbahnen"
       },
       "company": "Zermatt Bergbahnen",
@@ -400,10 +404,12 @@
           "apprentissage-polymecanique-mecanicien-de-production-zermatt-bergbahnen-zermatt"
         ],
         "en": [
-          "apprenticeship-polymechanic-production-mechanic-zermatt-bergbahnen-zermatt"
+          "apprenticeship-polymechanic-production-mechanic-zermatt-bergbahnen-zermatt",
+          "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-zermatt-bergbahnen"
         ],
         "fr": [
-          "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt"
+          "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt",
+          "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-zermatt-bergbahnen"
         ]
       },
       "previousSlugs": [
@@ -556,8 +562,7 @@
       "crawledAt": "2026-08-26T10:17:14.044Z",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-metallbauer-in-efz-zermatt-zermatt-bergbahnen",
-          "apprendistato-metallbauer-in-cfc-zermatt-bergbahnen-zermatt"
+          "lehrstelle-metallbauer-in-efz-zermatt-zermatt-bergbahnen"
         ],
         "en": [
           "lehrstelle-metallbauer-in-efz-zermatt-zermatt-bergbahnen"
@@ -567,8 +572,7 @@
         ]
       },
       "previousSlugs": [
-        "lehrstelle-metallbauer-in-efz-zermatt-zermatt-bergbahnen",
-        "apprendistato-metallbauer-in-cfc-zermatt-bergbahnen-zermatt"
+        "lehrstelle-metallbauer-in-efz-zermatt-zermatt-bergbahnen"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-11T10:52:32.296Z",
@@ -634,13 +638,11 @@
       "crawledAt": "2026-08-26T10:17:13.513Z",
       "previousSlugs": [
         "sachbearbeiter-in-lohnbuchhaltung-zermatt-zermatt-bergbahnen",
-        "sachbearbeiter-in-lohnbuchhaltung-zermatt-bergbahnen-zermatt",
-        "dipendente-regista-zermatt-bergbahnen-zermatt"
+        "sachbearbeiter-in-lohnbuchhaltung-zermatt-bergbahnen-zermatt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-lohnbuchhaltung-zermatt-zermatt-bergbahnen",
-          "dipendente-regista-zermatt-bergbahnen-zermatt"
+          "sachbearbeiter-in-lohnbuchhaltung-zermatt-zermatt-bergbahnen"
         ],
         "en": [
           "sachbearbeiter-in-lohnbuchhaltung-zermatt-bergbahnen-zermatt"
@@ -711,13 +713,11 @@
       "sourceLang": "de",
       "crawledAt": "2026-08-26T10:17:10.920Z",
       "previousSlugs": [
-        "verkaufsberater-in-zermatt-zermatt-bergbahnen",
-        "consulente-commerciale-zermatt-bergbahnen-zermatt"
+        "verkaufsberater-in-zermatt-zermatt-bergbahnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-zermatt-zermatt-bergbahnen",
-          "consulente-commerciale-zermatt-bergbahnen-zermatt"
+          "verkaufsberater-in-zermatt-zermatt-bergbahnen"
         ],
         "en": [
           "verkaufsberater-in-zermatt-zermatt-bergbahnen"
