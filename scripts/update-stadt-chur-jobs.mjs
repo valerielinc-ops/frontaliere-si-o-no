@@ -77,19 +77,20 @@ const FEED_URL = 'https://jobs.chur.ch/rss_generator-rss0.php?unit=chur&lang=de'
 // Stadt Chur jobs.
 //
 // Self-hosting a dedicated morss instance (the original hardening idea here)
-// is NOT a viable path with the hosting we actually hold credentials for:
-// verified live 2026-08-27 by deploying a throwaway Cloudflare Worker (our
-// only hosting-platform credential, `CF_API_TOKEN`/`CF_ACCOUNT_ID`) that
-// simply proxied a fetch to this same FEED_URL — jobs.chur.ch answered with
-// Cloudflare error 522 (origin connection timeout), the same class of
-// failure as the direct CI fetch above and as a live Jina Reader probe (its
-// own headless-browser egress timed out at `page.goto`, 3/3 attempts). The
-// block is on cloud/datacenter ASN reputation broadly, not one specific
-// network, and no other hosting-provider credential exists in this repo's
-// Remote Config (`scripts/load-rc-env.mjs`) to try instead. The three-tier
-// fallback below (direct → morss.it → rss2json.com, #6560) is the resilience
-// ceiling until a hosting provider with different IP reputation is
-// provisioned — that remains a genuine external blocker, not a config gap.
+// is NOT a viable path with the hosting this project actually holds
+// credentials for: verified live 2026-08-27 by deploying a throwaway
+// serverless edge worker on the one edge-compute account this project has
+// access to, doing nothing but proxying a fetch to this same feed URL —
+// jobs.chur.ch answered with an edge-origin connection timeout, the same
+// class of failure as the direct CI fetch above and as a live probe through
+// the Jina Reader proxy this repo already uses elsewhere for IP-blocked
+// sources (its own headless-browser egress timed out on navigation, 3/3
+// attempts). The block is on cloud/datacenter IP reputation broadly, not one
+// specific network, and this project holds no OTHER hosting-provider
+// credential to try instead. The three-tier fallback below (direct →
+// morss.it → rss2json.com, #6560) is the resilience ceiling until a hosting
+// provider with different IP reputation is provisioned — that remains a
+// genuine external blocker, not a config gap.
 const FEED_PROXY_BASE = process.env.STADT_CHUR_FEED_PROXY || 'https://morss.it/:proxy/';
 // Tertiary fallback (#6560): morss.it itself went unreachable for 7 straight
 // days (2026-08-20 → 2026-08-26, every direct connection AND every
