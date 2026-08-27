@@ -238,6 +238,7 @@ jobs:
             /packages/*/src/
             /packages/*/tests/
             /packages/articles/content/
+            /packages/articles/articleSections.ts
             /data/
             !/data/translation-cache/
             !/data/orphan-enriched-data/
