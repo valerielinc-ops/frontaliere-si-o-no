@@ -97,6 +97,19 @@ describe('webcam rendering — attribution + accessibility', () => {
     expect(html).toMatch(/\btarget=["']?_blank["']?/);
   });
 
+  it('webcam figcaption carries a liability disclaimer naming the source in all 4 locales', () => {
+    const localeExpected: Array<[string, string]> = [
+      ['it', 'non è responsabile'],
+      ['en', 'not responsible'],
+      ['de', 'nicht verantwortlich'],
+      ['fr', "n'est pas responsable"],
+    ];
+    for (const [locale, expected] of localeExpected) {
+      const html = pages[buildOggiPath(locale as 'it' | 'en' | 'de' | 'fr', 'chiasso-brogeda')];
+      expect(html, `locale ${locale}`).toContain(expected);
+    }
+  });
+
   it('every webcam <img> has explicit width + height + loading="lazy"', () => {
     const html = pages[buildOggiPath('it', 'chiasso-brogeda')];
     expect(html).toMatch(/<img[^>]+\bloading=["']?lazy["']?/);
