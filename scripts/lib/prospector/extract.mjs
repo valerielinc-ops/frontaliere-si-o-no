@@ -234,6 +234,40 @@ export function extractDetailFields(html = '', pageUrl = '') {
 }
 
 /**
+ * Text of an `itemprop` element that has no `content` attribute — i.e. the
+ * value lives in the element's rendered body, not a meta-style attribute.
+ *
+ * A single-`<`-lookahead regex (the previous approach) reads only up to the
+ * first nested tag, so `<div itemprop="description"> <p>full text</p></div>`
+ * — a `<p>` wrapping the actual copy, the shape arsante.ch (#6372) and any
+ * other CMS that doesn't emit the description as a bare text node — yields
+ * an empty string instead of the paragraph. Matching to the itemprop
+ * element's own balanced closing tag reads the whole subtree regardless of
+ * how deep the real text sits.
+ *
+ * @param {string} block
+ * @param {string} tag   The opening tag returned by `readTagByAttr`.
+ * @returns {string}
+ */
+function readItempropBody(block, tag) {
+  const tagName = /^<([a-z0-9]+)/i.exec(tag)?.[1];
+  const start = block.indexOf(tag);
+  if (!tagName || start === -1) return '';
+  const contentStart = start + tag.length;
+  const tags = new RegExp(`<\\/?${tagName}\\b[^>]*>`, 'gi');
+  tags.lastIndex = contentStart;
+  let depth = 1;
+  let end = -1;
+  let t;
+  while ((t = tags.exec(block))) {
+    if (/^<\//.test(t[0])) depth--;
+    else if (!/\/\s*>$/.test(t[0])) depth++;
+    if (depth === 0) { end = t.index; break; }
+  }
+  return textOf(block.slice(contentStart, end === -1 ? contentStart + 2000 : end));
+}
+
+/**
  * @param {string} html
  * @param {string} pageUrl
  * @returns {Vacancy[]}
@@ -250,9 +284,7 @@ export function extractMicrodata(html, pageUrl) {
       // truncate the value. Locate the tag, then read its attributes.
       const tag = readTagByAttr(block, 'itemprop', name);
       const content = tag ? readAttr(tag, 'content') : '';
-      const esc = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      const p = new RegExp(`itemprop\\s*=\\s*(["'])${esc}\\1[^>]*>([\\s\\S]{0,2000}?)<`, 'i').exec(block);
-      return (content || textOf(p?.[2] || '')).trim();
+      return (content || (tag ? readItempropBody(block, tag) : '')).trim();
     };
     const title = prop('title') || prop('name');
     if (!title) continue;

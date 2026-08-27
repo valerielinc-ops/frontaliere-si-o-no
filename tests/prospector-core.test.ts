@@ -13,7 +13,7 @@ import {
   loadRegistry, observePlatform, isPlatformEligible, enumerablePlatforms,
   sharedHostPlatforms, listingPathHints,
 } from '../scripts/lib/prospector/platform-registry.mjs';
-import { pathTemplate, extractByTemplate, extractJsonLd, extractDetailFields, scoreVacancyPage, textOf, isVacancyPath } from '../scripts/lib/prospector/extract.mjs';
+import { pathTemplate, extractByTemplate, extractJsonLd, extractDetailFields, extractMicrodata, scoreVacancyPage, textOf, isVacancyPath } from '../scripts/lib/prospector/extract.mjs';
 import { cleanAnchorText, extractLinks, isCareerLink, externalAtsLinks } from '../scripts/lib/prospector/careers-trail.mjs';
 import { tenantSlugCandidates, tenantIdsAreNameLike, employerNameFromPage } from '../scripts/lib/prospector/tenant-enum.mjs';
 import { normalizeCompanyName, isCovered } from '../scripts/lib/prospector/coverage.mjs';
@@ -152,6 +152,24 @@ describe('vacancy extraction', () => {
     expect(detail.location).toBe('Winterthur');
     expect(detail.description).toContain('Coordinate inbound logistics');
     expect(detail.description).toContain('Work with the warehouse team');
+  });
+
+  // Regressione arsante.ch/gmo (#6372). Il markup microdata reale mette la
+  // copia dentro un <p> nidificato, non come nodo di testo diretto del div
+  // itemprop: `readItempropBody` deve leggere fino alla chiusura bilanciata
+  // dell'elemento itemprop, non fermarsi al primo `<` incontrato.
+  it('reads a microdata description wrapped in a nested tag', () => {
+    const html = `<div itemscope itemtype="https://schema.org/JobPosting"><h2 itemprop="title">Assistant·e médical·e</h2><div class="pb-2" itemprop="description"> <p>Recherche assistant·e médical·e pour rejoindre notre équipe.</p> <a href="/emploi/assistant-e-medical-e-98" itemprop="url">Plus d'informations</a></div></div>`;
+    const [job] = extractMicrodata(html, 'https://www.arsante.ch/emploi');
+    expect(job.title).toBe('Assistant·e médical·e');
+    expect(job.description).toContain('Recherche assistant·e médical·e pour rejoindre notre équipe.');
+  });
+
+  it('still reads a meta-style itemprop content attribute', () => {
+    const html = `<div itemscope itemtype="https://schema.org/JobPosting"><span itemprop="title">Comptable</span><meta itemprop="datePosted" content="2026-08-01"></div>`;
+    const [job] = extractMicrodata(html, 'https://example.ch/emploi');
+    expect(job.title).toBe('Comptable');
+    expect(job.postedDate).toBe('2026-08-01');
   });
 
   it('collapses a slug+id path into a template', () => {
