@@ -1,0 +1,50 @@
+{
+  "generatedAt": "2026-08-27T00:00:00.000Z",
+  "sources": {
+    "ticino": {
+      "canton": "Ticino",
+      "plateCode": "TI",
+      "officialUrl": "https://www.ti.ch",
+      "accessMethod": "manual",
+      "fetchFrequency": "P1D",
+      "timezone": "Europe/Zurich",
+      "parserVersion": "unreleased",
+      "availableFields": [],
+      "rateLimit": "unknown — da verificare in Fase 0",
+      "termsOfUse": "da verificare in Fase 0 (robots, termini, licenze)",
+      "owner": "platform",
+      "status": "unverified",
+      "notes": "Fonte prevista: asta targhe della Sezione della circolazione (Dipartimento delle istituzioni). URL della pagina d'asta specifica, metodo di accesso e termini d'uso ancora da confermare (#4854 Fase 0)."
+    },
+    "grigioni": {
+      "canton": "Grigioni",
+      "plateCode": "GR",
+      "officialUrl": "https://www.gr.ch",
+      "accessMethod": "manual",
+      "fetchFrequency": "P1D",
+      "timezone": "Europe/Zurich",
+      "parserVersion": "unreleased",
+      "availableFields": [],
+      "rateLimit": "unknown — da verificare in Fase 0",
+      "termsOfUse": "da verificare in Fase 0 (robots, termini, licenze)",
+      "owner": "platform",
+      "status": "unverified",
+      "notes": "Fonte prevista: eAuction targhe dello Strassenverkehrsamt Graubünden. URL della pagina d'asta specifica, metodo di accesso e termini d'uso ancora da confermare (#4854 Fase 0)."
+    },
+    "vallese": {
+      "canton": "Vallese",
+      "plateCode": "VS",
+      "officialUrl": "https://www.vs.ch",
+      "accessMethod": "manual",
+      "fetchFrequency": "P1D",
+      "timezone": "Europe/Zurich",
+      "parserVersion": "unreleased",
+      "availableFields": [],
+      "rateLimit": "unknown — da verificare in Fase 0",
+      "termsOfUse": "da verificare in Fase 0 (robots, termini, licenze)",
+      "owner": "platform",
+      "status": "unverified",
+      "notes": "Fonte prevista: e-auction del Service de la circulation routière et de la navigation. URL della pagina d'asta specifica, metodo di accesso e termini d'uso ancora da confermare (#4854 Fase 0)."
+    }
+  }
+}
