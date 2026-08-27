@@ -110,6 +110,25 @@ describe('prepassDecision — verdetti superati dalla decisione sui secret', () 
     }
   });
 
+  it('regressione #5608: un verdetto NON_RETRYABLE vince sul riconoscimento di famiglia', () => {
+    // Prima della fix, un titolo di famiglia monitor tornava sempre `requeue`
+    // a prescindere dal verdetto — anche quando la issue era arrivata in
+    // `needs-human` già passata per l'uscita TERMINALE di VERDICT-EXIT
+    // (followup-drainer.mjs) proprio per quel verdetto. Il loop misurato:
+    // no-root-cause → escalate → questo pre-pass la re-accoda il giorno dopo,
+    // prima che lo sweep settimanale la giudichi → stesso no-root-cause, da capo.
+    for (const v of ['no-root-cause', 'blocked-workflows-scope', 'blocked-admin-settings', 'revenue-tracker-manual', 'already-fixed']) {
+      const d = prepassDecision({ title: 'PostHog Exception: TypeError', verdict: v });
+      expect(d.action, v).toBe('keep');
+      expect(d.reason, v).toMatch(new RegExp(v));
+    }
+  });
+
+  it('senza verdetto NON_RETRYABLE, il titolo di famiglia decide come prima', () => {
+    expect(prepassDecision({ title: 'PostHog Exception: TypeError' }).action).toBe('requeue');
+    expect(prepassDecision({ title: 'PostHog Exception: TypeError', verdict: 'max-turns' }).action).toBe('requeue');
+  });
+
   it('il verdetto batte il titolo non riconosciuto, e (post-#6427) anche agent:fix', () => {
     // Prima della fix #6427, `agent:fix` intercettava PRIMA del check sul
     // verdetto e tornava `keep`. Ora solo `agent:in-progress` intercetta, quindi
