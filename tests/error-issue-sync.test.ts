@@ -25,7 +25,7 @@ vi.mock('node:fs', async (importOriginal) => {
   return { ...actual, readFileSync: (...args: unknown[]) => readFileSync(...args) };
 });
 
-const { syncErrorIssues, ISSUE_DENY_PATTERNS, isIssueDenied, isSelfHealedPage404, page404Path } = await import('../scripts/lib/error-issue-sync.mjs');
+const { syncErrorIssues, ISSUE_DENY_PATTERNS, isIssueDenied, isSelfHealedPage404, page404Path, extractStackFrameOrigins } = await import('../scripts/lib/error-issue-sync.mjs');
 const { MODULE_LINK_SKEW_PATTERNS } = await import('../services/resilientImport');
 const { UNIVERSAL_BENIGN_PATTERNS } = await import('../services/benignErrorPatterns');
 const appErrorSync = await import('../scripts/app-error-issue-sync.mjs');
@@ -359,14 +359,20 @@ describe('posthog-error-issue-sync.mjs', () => {
     process.env.POSTHOG_PERSONAL_API_KEY = 'k';
     process.env.POSTHOG_PROJECT_ID = 'p';
     issueListEmptyThenCreate(204);
+    // HogQL's `any(properties.$exception_list)` (and every other read of a
+    // JSON-typed column) comes back as a JSON-ENCODED STRING, not a parsed
+    // array/object — confirmed live against the PostHog API while fixing
+    // #5999 itself. Stubbing a plain object here (as this test previously
+    // did) hid the real bug: extractStackFrameOrigins() silently returned
+    // [] for every real row because Array.isArray() on a string is false.
     stubPostHogFetch([
       [
         'Ba', 'Error', 7, 2, 'https://frontaliereticino.ch/en/find-jobs-basel/quality-solution-lead-roche-ch/',
-        [{ stacktrace: { frames: [{ filename: 'https://accounts.google.com/gsi/client' }, { filename: 'https://accounts.google.com/gsi/client' }] } }],
+        JSON.stringify([{ stacktrace: { frames: [{ filename: 'https://accounts.google.com/gsi/client' }, { filename: 'https://accounts.google.com/gsi/client' }] } }]),
       ],
       [
         'no frames resolved', 'Error', 6, 3, 'https://frontaliereticino.ch/it/',
-        [{ stacktrace: { frames: [] } }],
+        JSON.stringify([{ stacktrace: { frames: [] } }]),
       ],
     ]);
 
@@ -404,6 +410,28 @@ describe('posthog-error-issue-sync.mjs', () => {
     expect(title).not.toContain('Importing a module script');
     delete process.env.POSTHOG_PERSONAL_API_KEY;
     delete process.env.POSTHOG_PROJECT_ID;
+  });
+});
+
+describe('extractStackFrameOrigins (#5999: HogQL returns $exception_list as a JSON string)', () => {
+  it('parses a JSON-string $exception_list, the shape any()/every row read of a JSON column actually returns from HogQL', () => {
+    const raw = JSON.stringify([{ stacktrace: { frames: [{ filename: 'https://frontaliereticino.ch/it/' }] } }]);
+    expect(extractStackFrameOrigins(raw)).toEqual(['https://frontaliereticino.ch/it/']);
+  });
+
+  it('returns [] (fail-open) for malformed JSON instead of throwing', () => {
+    expect(extractStackFrameOrigins('not json')).toEqual([]);
+  });
+
+  it('still accepts an already-parsed array (defensive, in case a caller pre-parses)', () => {
+    const parsed = [{ stacktrace: { frames: [{ filename: 'https://example.com/a.js' }] } }];
+    expect(extractStackFrameOrigins(parsed)).toEqual(['https://example.com/a.js']);
+  });
+
+  it('returns [] for null/undefined/number without throwing', () => {
+    expect(extractStackFrameOrigins(null)).toEqual([]);
+    expect(extractStackFrameOrigins(undefined)).toEqual([]);
+    expect(extractStackFrameOrigins(42)).toEqual([]);
   });
 });
 
