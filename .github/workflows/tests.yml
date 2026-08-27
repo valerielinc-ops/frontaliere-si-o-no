@@ -237,6 +237,12 @@ jobs:
             /packages/*/engine/
             /packages/*/src/
             /packages/*/tests/
+            # These are the two symlink targets needed by tsc and the related
+            # import graph. Keep them file-scoped: including the parent
+            # `packages/articles/content/` would materialize the full article
+            # corpus in this CI checkout.
+            /packages/articles/content/blog-articles-data.ts
+            /packages/articles/content/blogArticleIds.ts
             /packages/articles/index.ts
             /packages/articles/articleSections.ts
             /data/
