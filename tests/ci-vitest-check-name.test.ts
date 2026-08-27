@@ -208,9 +208,10 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
   });
 
   it('include tutti i root applicativi nel grafo related', () => {
-    for (const root of ['hooks', 'server', 'infra']) {
-      expect(RELATED_RUNNER).toContain(`${root}|`);
-    }
+    expect(RELATED_RUNNER).toContain('const projectRe');
+    expect(RELATED_RUNNER).toContain("!file.startsWith('.github/')");
+    expect(RELATED_RUNNER).toContain("!file.includes('/')");
+    expect(RELATED_RUNNER).toContain('file !== \'scripts/ci/run-related-tests.mjs\'');
   });
 
   it('abilita e persiste la Node compile cache del job comune', () => {

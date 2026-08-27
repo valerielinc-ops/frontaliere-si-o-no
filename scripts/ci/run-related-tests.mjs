@@ -20,7 +20,7 @@ const graphFile = process.env.VITEST_RELATED_GRAPH || '.cache/vitest-related/gra
 const sourceRe = /\.(?:[cm]?[jt]sx?|vue|svelte)$/i;
 const testRe = /^(?:tests|packages\/[^/]+\/tests)\/.*\.(?:test|spec)\.[cm]?[jt]sx?$/i;
 const ignoredRe = /^(?:data|public|reports|docs|_newsletter_variants|node_modules)\//;
-const projectRe = /^(?:tests|scripts|services|components|hooks|server|infra|build-plugins|functions\/src|packages)\//;
+const projectRe = /^(?:tests|scripts\/(?:ci|lib|dev|evals)\/|services|components|hooks|server|infra|build-plugins|functions|packages\/[^/]+\/(?:engine|src|tests)\/)/;
 const importRe = /(?:import\s+(?:[^'";]*?\s+from\s+)?|export\s+[^'";]*?\s+from\s+|import\s*\(|require\s*\()(['"])([^'"]+)\1/g;
 const extensions = ['', '.ts', '.tsx', '.js', '.jsx', '.mjs', '.cjs', '.vue', '.svelte'];
 
@@ -30,7 +30,9 @@ const changed = readFileSync(changedPathFile, 'utf8').split(/\r?\n/).map((p) => 
 function trackedFiles() {
   return execFileSync('git', ['ls-files', '-z'], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
     .split('\0').filter(Boolean).map(normalize)
-    .filter((file) => projectRe.test(file) && !ignoredRe.test(file) && sourceRe.test(file));
+    .filter((file) => !file.startsWith('.github/') && !ignoredRe.test(file) && sourceRe.test(file)
+      && (!file.includes('/') || projectRe.test(file) || /^scripts\/[^/]+$/.test(file)
+        || /^packages\/[^/]+\/[^/]+$/.test(file)));
 }
 
 function signature(file) {
@@ -60,21 +62,32 @@ function importsOf(file, fileSet) {
 
 function loadGraph(files) {
   let previous = {};
-  try { previous = JSON.parse(readFileSync(graphFile, 'utf8')).files || {}; } catch {}
+  let previousVersion = 0;
+  try {
+    const cached = JSON.parse(readFileSync(graphFile, 'utf8'));
+    previous = cached.files || {};
+    previousVersion = cached.version || 0;
+  } catch {}
   const fileSet = new Set(files);
-  const graph = {};
+  // Keep old entries for deleted files: a deleted module can still be a
+  // changed root, and its cached reverse edges identify the tests that used
+  // to import it. Stale entries are harmless because only existing tests are
+  // passed to Vitest below.
+  const graph = { ...previous };
   for (const file of files) {
     const sig = signature(file);
     const old = previous[file];
-    graph[file] = old?.signature === sig ? old : { signature: sig, deps: importsOf(file, fileSet) };
+    graph[file] = previousVersion === 5 && old?.signature === sig
+      ? old
+      : { signature: sig, deps: importsOf(file, fileSet) };
   }
   mkdirSync(path.dirname(graphFile), { recursive: true });
-  writeFileSync(graphFile, JSON.stringify({ version: 1, files: graph }));
+  writeFileSync(graphFile, JSON.stringify({ version: 5, files: graph }));
   return graph;
 }
 
 const candidates = [...new Set(changed.filter((file) =>
-  file !== 'scripts/ci/run-related-tests.mjs' && !ignoredRe.test(file) && sourceRe.test(file) && existsSync(file)))];
+  file !== 'scripts/ci/run-related-tests.mjs' && !ignoredRe.test(file) && sourceRe.test(file)))];
 if (candidates.length === 0) {
   console.log('No existing source/test files in the diff → related-only run has no tests.');
   process.exit(0);
