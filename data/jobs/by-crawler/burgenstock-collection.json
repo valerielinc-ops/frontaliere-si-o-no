@@ -16,9 +16,9 @@
       "companyDomain": "recruitingapp-2850.umantis.com",
       "title": "Persischer Spezialitäten Koch 100% (m/w/i)",
       "titleByLocale": {
+        "de": "Persische Spezialitäten Koch 100% (m/w/i)",
         "it": "Persischer Spezialitäten Koch 100% (m/w/i)",
         "en": "Persischer Spezialitäten Koch 100% (m/w/i)",
-        "de": "Persischer Spezialitäten Koch 100% (m/w/i)",
         "fr": "Persischer Spezialitäten Koch 100% (m/w/i)"
       },
       "description": "Persischer Spezialitäten Koch 100% (m/w/i) — Bürgenstock Collection",
@@ -61,7 +61,6 @@
         "le-specialita-persiane-cucinano-100-m-f-i-burgenstock-hotels-ag-obburgen"
       ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-27T00:46:01.219Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -74,7 +73,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-27T00:46:01.219Z"
     },
     {
       "id": "burgenstock-collection-cf20ce93b8df",

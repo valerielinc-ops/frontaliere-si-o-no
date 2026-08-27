@@ -544,7 +544,6 @@
       "externalId": "4058655",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-27T00:39:04.438Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -556,7 +555,31 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-27T00:39:04.438Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "liberatori-di-pacchi-nel-salario-orario-m-f-d-planzer-st-gallen",
+          "parcel-deliverers-in-hourly-wage-m-f-d-planzer-st-gallen",
+          "paketzusteller-im-stundenlohn-m-w-d-planzer-st-gallen",
+          "livraisons-par-colis-en-salaire-horaire-m-f-d-planzer-st-gallen"
+        ],
+        "en": [
+          "parcel-deliverers-in-hourly-wage-m-f-d-planzer-st-gallen"
+        ],
+        "de": [
+          "paketzusteller-im-stundenlohn-m-w-d-planzer-st-gallen"
+        ],
+        "fr": [
+          "livraisons-par-colis-en-salaire-horaire-m-f-d-planzer-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "liberatori-di-pacchi-nel-salario-orario-m-f-d-planzer-st-gallen",
+        "parcel-deliverers-in-hourly-wage-m-f-d-planzer-st-gallen",
+        "paketzusteller-im-stundenlohn-m-w-d-planzer-st-gallen",
+        "livraisons-par-colis-en-salaire-horaire-m-f-d-planzer-st-gallen"
+      ]
     },
     {
       "id": "planzer-1fb761b35bfb",
@@ -684,7 +707,6 @@
       "externalId": "4058819",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-27T00:39:02.802Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -696,7 +718,26 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-27T00:39:02.802Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "traduzione-m-f-d-planzer-schmerikon",
+          "disponent-m-w-d-planzer-schmerikon",
+          "detenteur-h-f-d-planzer-schmerikon"
+        ],
+        "de": [
+          "disponent-m-w-d-planzer-schmerikon"
+        ],
+        "fr": [
+          "detenteur-h-f-d-planzer-schmerikon"
+        ]
+      },
+      "previousSlugs": [
+        "traduzione-m-f-d-planzer-schmerikon",
+        "disponent-m-w-d-planzer-schmerikon",
+        "detenteur-h-f-d-planzer-schmerikon"
+      ]
     },
     {
       "id": "planzer-23feb633c943",

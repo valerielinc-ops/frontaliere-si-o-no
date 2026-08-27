@@ -7865,24 +7865,6 @@
       "pensumMin": 90,
       "pensumMax": 100,
       "pensum": "90-100%",
-      "previousSlugs": [
-        "greffier-ere-stagiaire-etat-de-fribourg-ch",
-        "registrazione-etat-de-fribourg-bulle"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "greffier-ere-stagiaire-etat-de-fribourg-ch",
-          "registrazione-etat-de-fribourg-bulle"
-        ],
-        "en": [
-          "greffier-ere-stagiaire-etat-de-fribourg-ch"
-        ],
-        "de": [
-          "greffier-ere-stagiaire-etat-de-fribourg-ch"
-        ]
-      },
-      "firstSeenAt": "2026-08-26T10:17:13.880Z",
-      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 107500,
       "baseSalary": {
@@ -7895,7 +7877,40 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "firstSeenAt": "2026-08-26T10:17:13.880Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "greffier-ere-stagiaire-etat-de-fribourg-ch",
+          "registrazione-etat-de-fribourg-bulle",
+          "registrar-etat-de-fribourg-bulle",
+          "personale-amministrativo-etat-de-fribourg-bulle",
+          "administrative-staff-etat-de-fribourg-bulle",
+          "verwaltungspersonal-etat-de-fribourg-bulle",
+          "employe-e-d-administration-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "greffier-ere-stagiaire-etat-de-fribourg-ch",
+          "administrative-staff-etat-de-fribourg-bulle"
+        ],
+        "de": [
+          "greffier-ere-stagiaire-etat-de-fribourg-ch",
+          "verwaltungspersonal-etat-de-fribourg-bulle"
+        ],
+        "fr": [
+          "employe-e-d-administration-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "greffier-ere-stagiaire-etat-de-fribourg-ch",
+        "registrazione-etat-de-fribourg-bulle",
+        "registrar-etat-de-fribourg-bulle",
+        "personale-amministrativo-etat-de-fribourg-bulle",
+        "administrative-staff-etat-de-fribourg-bulle",
+        "verwaltungspersonal-etat-de-fribourg-bulle",
+        "employe-e-d-administration-etat-de-fribourg-ch"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-fribourg-d0f5e92a2ce0",

@@ -320,8 +320,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "apple-retail-switzerland-ac101ba22f06",
@@ -398,8 +397,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "apple-retail-switzerland-99675b310169",
@@ -464,7 +462,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:19:38.772Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -542,7 +539,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:19:38.767Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -776,7 +772,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T23:03:17.856Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -839,18 +834,28 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "computer-vision-machine-learning-engineer-apple-retail-switzerland-ch",
-        "computer-vision-machine-learning-ingegnere-apple-retail-switzerland-zurich"
+        "computer-vision-machine-learning-ingegnere-apple-retail-switzerland-zurich",
+        "senior-machine-learning-ingegnere-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
+        "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland",
+        "senior-machine-learning-ingenieur-in-human-centric-computer-vision-apple-retail-switzerland-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "computer-vision-machine-learning-engineer-apple-retail-switzerland-ch",
-          "computer-vision-machine-learning-ingegnere-apple-retail-switzerland-zurich"
+          "computer-vision-machine-learning-ingegnere-apple-retail-switzerland-zurich",
+          "senior-machine-learning-ingegnere-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
+          "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland",
+          "senior-machine-learning-ingenieur-in-human-centric-computer-vision-apple-retail-switzerland-zurich"
         ],
         "de": [
           "computer-vision-machine-learning-engineer-apple-retail-switzerland-ch"
         ],
         "fr": [
-          "computer-vision-machine-learning-engineer-apple-retail-switzerland-ch"
+          "computer-vision-machine-learning-engineer-apple-retail-switzerland-ch",
+          "senior-machine-learning-ingenieur-in-human-centric-computer-vision-apple-retail-switzerland-zurich"
+        ],
+        "en": [
+          "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland"
         ]
       },
       "firstSeenAt": "2026-07-10T13:07:35.026Z",
@@ -1228,7 +1233,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:19:38.761Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -1302,7 +1306,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:19:38.757Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
