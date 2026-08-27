@@ -1,6 +1,6 @@
 name: tests
 
-# Runs the full vitest suite on every PR as a BLOCKING
+# Runs the Vitest tests related to the PR diff on every PR as a BLOCKING
 # CI gate. Direct crawler pushes to main intentionally do not run this workflow.
 # Before this workflow existed, vitest tests were never run in CI —
 # regression gates like `tests/build-plugins/criticalCssRootHeight.test.ts`
@@ -14,18 +14,14 @@ name: tests
 # queued crawler runs — PRs sat un-dequeued. Collapsing to one runner frees 4
 # slots per PR.
 #
-# MEASURED, not estimated (CI run 28099661052, full ~847-file suite on one
-# 4-vCPU runner): vitest 366s + setup/assemble/lint overhead → 536s total job
-# wall (~8.9 min). The `pool: 'threads'` worker pool (below) parallelises files
-# across the runner's 4 vCPUs, so wall ≈ work/4 — NOT the 4×164s≈656s an
-# additive per-shard model predicts (536s is ~1.9× a single shard's ~281s, not
-# 4×). 536s lands inside the ~10 min Claude review window (`pr-review-loop`), so
-# the review stays the gating slice and the vitest check costs the PR ~zero
-# extra wall time. The same measured run completed every heavy source-scan guard
-# (no-inlanguage, cathedral-no-ti-hardcodes, …) with no per-test timeout.
+# Historical baseline (CI run 28099661052, full ~847-file suite on one 4-vCPU
+# runner): Vitest took 366s before setup/assemble/lint overhead. The PR path no
+# longer pays that full-suite cost: `run-related-tests.mjs` selects the tests
+# reachable from changed source files and always includes changed test files.
 #
-# Behaviour-preserving: every test still runs, no test is skipped and no
-# threshold is relaxed — only the parallelism (wall-time, not coverage) changed.
+# Deliberate policy: this required PR check is related-only. Full-suite coverage
+# is not part of the PR path; a diff with no existing source/test candidates
+# succeeds with zero Vitest tests instead of falling back to the full suite.
 #
 # Tests that read data/jobs.json (gitignored): the assemble step regenerates
 # it from the per-slice files committed under data/jobs-by-slice/.
@@ -946,7 +942,7 @@ jobs:
         run: npm run typecheck:gate
 
       # ══════════════════════════════════════════════════════════════════════
-      # FAMIGLIA 3/4 — vitest (suite intera) + i lint deterministici che le
+# FAMIGLIA 3/4 — vitest related + i lint deterministici che le
       # stavano davanti. È la fetta lunga del job; `!cancelled()` sul primo step
       # perché un rosso in un'altra famiglia non deve nascondere il verdetto
       # dei test.
@@ -1126,14 +1122,14 @@ jobs:
         # `close-recovered-failure-issues` che lo richiuda da solo al verde.
         #
         # FAIL-SAFE, e la direzione conta: qualunque errore di questo step
-        # lascia `skip` VUOTO, quindi la suite gira INTERA. Un guasto qui costa
-        # tempo, mai copertura. `|| true` sul fetch e `|| echo` sul merge-base
+        # lascia `skip` VUOTO, quindi related riceve solo il diff disponibile.
+        # Un guasto qui non riattiva la suite completa. `|| true` sul fetch e `|| echo` sul merge-base
         # servono a questo. Su `push` il fallback su `git diff` resta comunque
         # NON dichiarato: dalla fusione dei job il checkout è `fetch-depth: 0`,
         # quindi `$BEFORE_SHA` sarebbe risolvibile, ma l'API `compare` è già la
         # via primaria e aggiungere un secondo ramo qui vorrebbe la sua misura;
-        # se la compare non risponde, `changed-paths.txt` resta vuoto e la
-        # suite gira intera — stessa direzione di ogni altro fallimento qui.
+        # se la compare non risponde, `changed-paths.txt` resta vuoto e related
+        # non seleziona test — stessa direzione della policy related-only.
         id: corpus
         if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' }}
         env:
@@ -1161,8 +1157,8 @@ jobs:
           # essere un ramo morto. L'API resta comunque la via primaria: è esatta
           # e non dipende dalla storia locale. Ogni ramo è `|| true`/vuoto:
           # qualunque guasto lascia changed-paths.txt vuoto → `skip` vuoto →
-          # suite INTERA. La direzione del fail-safe è quella giusta: un
-          # guasto qui costa tempo, mai copertura.
+          # related-only senza candidati. Un guasto qui non riattiva la suite
+          # completa.
           : > changed-paths.txt
           cap=3000
           if [ -n "$PR_NUMBER" ]; then
@@ -1202,14 +1198,14 @@ jobs:
           count="$(wc -l < changed-paths.txt | tr -d ' ')"
           echo "path toccati: $count"
           if [ "$count" = "0" ]; then
-            echo "elenco vuoto → nessuna esclusione, gira la suite intera"
+            echo "elenco vuoto → related-only senza candidati Vitest"
             exit 0
           fi
           # Sia `pulls/<n>/files` che `compare` troncano su un diff enorme
           # (rispondono 200 con una lista PARZIALE, non un errore, e senza un
           # campo che dichiari il troncamento) — il fail-safe sul fallimento
-          # non lo copre: un path corpus caduto oltre il taglio farebbe
-          # escludere un gate che invece doveva restare bloccante. La soglia
+          # non lo copre: un path corpus caduto oltre il taglio non entra nella
+          # selezione related. La soglia
           # è quella del ramo che ha prodotto `changed-paths.txt` ($cap,
           # impostato sopra): 3000 per `pulls/<n>/files` (verificato, quella
           # API pagina per davvero), 300 per `compare` (documentato, "Working
@@ -1219,24 +1215,24 @@ jobs:
           # indisturbato un push fra 300 e 2999 file con `changed-paths.txt`
           # già troncato, cioè esattamente il rischio che questo controllo
           # esiste per intercettare. Sopra la soglia si rinuncia a decidere e
-          # gira la suite intera, la stessa direzione di ogni altro
-          # fallimento qui.
+          # mantiene comunque il comportamento related-only sul diff disponibile.
           if [ "$count" -ge "$cap" ]; then
-            echo "elenco al cap dell'API ($count >= $cap): possibile troncamento → suite intera"
+            echo "elenco al cap dell'API ($count >= $cap): related-only sul diff disponibile"
             exit 0
           fi
           decision="$(node scripts/ci/corpus-wide-tests.mjs --gha-output < changed-paths.txt || true)"
           printf '%s\n' "$decision"
           printf '%s\n' "$decision" >> "$GITHUB_OUTPUT"
 
-      - name: vitest run (test che non leggono il dataset)
+      - name: Obsolete pre-assemble test slot
+        # Il related run unico viene eseguito dopo assemble+migrate. Questo
+        # vecchio slot resta disattivato per non costruire due volte il grafo
+        # Vitest; il comando non deve mai tornare a `npm test`/suite completa.
+        if: ${{ false }}
         # VITEST_DATASET_GROUP=independent → vitest.config.ts esclude i file
         # classificati da scripts/ci/dataset-dependent-tests.mjs. La partizione
-        # è calcolata dal sorgente a ogni run (mai una lista committata da
-        # tenere in sync) ed è verificata disgiunta e completa: 772 + 586 =
-        # 1358 = suite intera. La classificazione è volutamente conservativa,
-        # quindi un test nuovo che legge il dataset finisce in questo gruppo
-        # solo se NON tocca il filesystem — al più perde parallelismo.
+        # è calcolata dal sorgente a ogni run. La partizione conserva solo
+        # l'ordine assemble → test dataset: entrambi i comandi sono related-only.
         #
         # ─── IN BACKGROUND, E QUESTA POSIZIONE È IL MECCANISMO
         #
@@ -1293,7 +1289,7 @@ jobs:
           # filtra comunque il valore contro il registro: questa env non puo'
           # spegnere un test che non sia uno dei sette.
           VITEST_CORPUS_SKIP: ${{ steps.corpus.outputs.skip }}
-        run: npm test -- --reporter=default --reporter=json --outputFile=shard-timing-1.json
+        run: echo "pre-assemble related slot disabled; the single related run executes after assemble+migrate"
 
       - name: Cache assemble-jobs output
         # Mirrors deploy.yml's identical step. assemble-jobs-dataset.mjs has a
@@ -1372,47 +1368,29 @@ jobs:
           node scripts/assemble-jobs-dataset.mjs --stats
           node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
-      - name: vitest run (test che leggono il dataset)
-        # FOREGROUND, e subito dopo "Assemble + migrate" senza niente in mezzo:
-        # la sequenza naturale degli step foreground è già tutta la dipendenza
-        # che ha (data/jobs.json + lo slug registry, scritti dall'assemble —
-        # mai da tsc, mai dai lint, mai dall'altro gruppo vitest). Nessun join
-        # qui sopra, quindi il gruppo indipendente resta in volo e questi due
-        # gruppi CPU-bound si sovrappongono per davvero. Il pool è limitato a
-        # due worker per processo per evitare oversubscription del runner.
+      - name: vitest related (PR diff)
+        # FOREGROUND, dopo "Assemble + migrate": i test scelti dal grafo
+        # possono leggere i dataset generati. Questo è l'unico invocatore di
+        # Vitest del job PR; `run-related-tests.mjs` non ha fallback alla suite.
         env:
-          VITEST_DATASET_GROUP: dependent
           VITEST_SKIP_LIVE_DATA: 'true'
           VITEST_MAX_WORKERS: 2
-          VITEST_CORPUS_SKIP: ${{ steps.corpus.outputs.skip }}
-          VITEST_CACHE_DIR: node_modules/.vite-dependent
-        run: npm test -- --reporter=default --reporter=json --outputFile=shard-timing-2.json
+          VITEST_CACHE_DIR: node_modules/.vite-related
+        run: node scripts/ci/run-related-tests.mjs --reporter=default --reporter=json --outputFile=shard-timing-related.json
 
       # ══════════════════════════════════════════════════════════════════════
-      # L'UNICO join della seconda metà del job, e chiude due cose insieme:
-      #   1. i sei cancelli deterministici (`tsc` + i cinque lint, avviati
-      #      molto più sopra);
-      #   2. `vitest run (test che non leggono il dataset)`, lanciato in
-      #      background prima ancora dell'assemble.
-      # Entrambi devono essere rijoinati PRIMA che il job finisca, altrimenti
-      # il loro esito non entra nel verdetto — un gruppo vitest non rijoinato
-      # sarebbe un intero mezzo-suite il cui rosso non arrossa niente. Il test
+      # L'UNICO join della seconda metà del job chiude i sei cancelli
+      # deterministici (`tsc` + i cinque lint, avviati molto più sopra).
+      # Devono essere rijoinati PRIMA che il job finisca, altrimenti il loro
+      # esito non entra nel verdetto. Il test
       # `tests/workflow-background-wait-schema.test.ts` lo verifica in modo
       # strutturale, su tutti i workflow: ogni `background:` vuole un
       # `wait-all` DOPO di sé nello stesso job. Questo join è anche l'unico
       # modo di SAPERE come sono andati: fino a qui il loro esito non esiste.
       #
-      # Perché UNO SOLO, e perché in fondo. `wait-all` non ha una forma
-      # selettiva: unisce TUTTO ciò che è ancora in background, non un
-      # sottoinsieme nominato. Ogni join intermedio è quindi un punto in cui la
-      # finestra di sovrapposizione più lunga del job — il gruppo indipendente —
-      # verrebbe chiusa per sbaglio, e tutto ciò che segue tornerebbe in fila
-      # senza che nulla lo segnali. Messo qui, invece, dentro quella finestra ci
-      # stanno gratis sia i sei cancelli (~78s misurati) sia assemble+migrate
-      # (~326s, run 32959864544) sia il gruppo dipendente. Dove serviva un
-      # ordine — assemble prima del gruppo dipendente — lo dà la sequenza
-      # foreground, che è selettiva per costruzione. Non aggiungere join qui
-      # sopra: è la regressione già misurata (vedi la STORIA sull'assemble).
+      # `wait-all` non ha una forma selettiva: unisce tutto ciò che è ancora in
+      # background. Va quindi lasciato in fondo, dopo il related run, per non
+      # serializzare i cancelli con assemble+migrate.
       #
       # NB: la durata di uno step in background dev'essere legata al LAVORO
       # che accompagna, mai a un timer proprio — vedi la nota sul
@@ -1422,23 +1400,14 @@ jobs:
       - name: Wait for background gates and independent vitest
         wait-all: true
 
-      - name: Upload test timing
+      - name: Upload related test timing
         # always() so we still collect timings when the run is red (a slow test
         # that times out is exactly the data point we want for re-balancing).
         if: ${{ always() }}
         uses: actions/upload-artifact@v7
         with:
-          name: shard-timing-1
-          path: shard-timing-1.json
-          retention-days: 7
-          if-no-files-found: ignore
-
-      - name: Upload test timing (dataset group)
-        if: ${{ always() }}
-        uses: actions/upload-artifact@v7
-        with:
-          name: shard-timing-2
-          path: shard-timing-2.json
+          name: shard-timing-related
+          path: shard-timing-related.json
           retention-days: 7
           if-no-files-found: ignore
 
