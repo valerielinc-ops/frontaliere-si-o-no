@@ -70,6 +70,22 @@ jobs:
       - name: Validate — dataset assembles with the new slice
         run: node scripts/assemble-jobs-dataset.mjs --stats
 
+      # App installation token = push identity honoured by main's
+      # "main required CI checks" ruleset bypass_actors on a direct push
+      # (issue #6259: the ambient GITHUB_TOKEN/github-actions[bot] identity
+      # was rejected with GH013 despite being nominally bypass-listed —
+      # only frontaliere-automation[bot] PR-merges landed after the ruleset
+      # was added). git-push-with-retry.sh picks up APP_TOKEN automatically
+      # when set. Missing App creds → APP_TOKEN unset, push falls back to
+      # the ambient credential exactly as before (no regression either way).
+      - name: Mint App token (push identity for the ruleset bypass)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
       - name: Commit slice (test-gated) + push with rebase-retry
         id: commit
         run: |

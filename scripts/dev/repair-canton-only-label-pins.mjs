@@ -77,7 +77,10 @@ function hasCorroboratingAddress(haystack, targetCanton) {
   while ((match = PLZ_CITY_RE.exec(haystack))) {
     const [, plz, city] = match;
     if (!isSwissPostalCode(plz)) continue;
-    if (!isKnownSwissCity(city)) continue;
+    // #6147: targetCanton is already known here, so pass it as the hint —
+    // a bare "<City> (XX)"-only BFS entry (e.g. Küsnacht) would otherwise
+    // fail isKnownSwissCity and this corroboration was silently skipped.
+    if (!isKnownSwissCity(city, targetCanton)) continue;
     if (inferAnyCanton(city) === targetCanton) return true;
   }
   return false;

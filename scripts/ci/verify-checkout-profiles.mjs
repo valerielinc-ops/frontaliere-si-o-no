@@ -167,6 +167,11 @@ export function verifyCheckoutProfiles() {
       withSparse++;
       const where = `${f}:${job.jobId}`;
 
+      const lines = String(sparse).split('\n').map((l) => l.trim()).filter(Boolean);
+      // Gli sparse scritti a mano possono usare una allow-list (un solo file):
+      // si riconoscono perche' non cominciano con `/*`, e non li si giudica qui.
+      if (lines[0] !== '/*') continue;
+
       // Sopra la soglia di convenienza lo sparse rallenta invece di aiutare:
       // un profilo li' sopra e' un difetto, non un'ottimizzazione.
       if (job.aboveCrossover) {
@@ -175,10 +180,6 @@ export function verifyCheckoutProfiles() {
           `Rigenera con: node scripts/ci/apply-checkout-profiles.mjs`);
       }
 
-      const lines = String(sparse).split('\n').map((l) => l.trim()).filter(Boolean);
-      // Gli sparse scritti a mano possono usare una allow-list (un solo file):
-      // si riconoscono perche' non cominciano con `/*`, e non li si giudica qui.
-      if (lines[0] !== '/*') continue;
       for (const l of lines.slice(1)) {
         if (!/^!\/[\w./-]+$/.test(l)) problems.push(`${where}: pattern malformato «${l}»`);
       }

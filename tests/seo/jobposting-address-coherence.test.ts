@@ -122,6 +122,37 @@ describe('buildJobPostingSchema — address coherence (#3513)', () => {
   });
 });
 
+describe('buildJobPostingSchema — parenthetical-only BFS municipalities (#6147)', () => {
+  it('a bare city name that only exists as "<City> (XX)" in the gazetteer is NOT replaced by the canton capital', () => {
+    const s = buildJobPostingSchema(
+      { ...baseJob, addressLocality: 'Küsnacht', addressRegion: 'ZH' },
+      OPTS,
+    );
+    const addr = s.jobLocation.address;
+    expect(addr.addressLocality).toBe('Küsnacht'); // not the ZH capital "Zürich"
+    expect(addr.addressRegion).toBe('ZH');
+  });
+
+  it('disambiguation is canton-scoped: the same bare name under the WRONG region still falls back, never guesses', () => {
+    const s = buildJobPostingSchema(
+      { ...baseJob, addressLocality: 'Oberwil', addressRegion: 'ZH' }, // Oberwil is BL, not ZH
+      OPTS,
+    );
+    const addr = s.jobLocation.address;
+    expect(addr.addressLocality).not.toBe('Oberwil');
+    expect(addr.addressLocality).toBe('Zürich'); // ZH capital fallback, no invented canton
+    expect(addr.addressRegion).toBe('ZH');
+  });
+
+  it('a homonym across three cantons resolves via the job canton, not the first BFS match', () => {
+    for (const region of ['AR', 'BE', 'ZH']) { // Wald exists in all three, parenthetical-only in the gazetteer
+      const s = buildJobPostingSchema({ ...baseJob, addressLocality: 'Wald', addressRegion: region }, OPTS);
+      expect(s.jobLocation.address.addressLocality).toBe('Wald');
+      expect(s.jobLocation.address.addressRegion).toBe(region);
+    }
+  });
+});
+
 describe('shared locality helpers (#3513)', () => {
   it('localityMatchesHq: empty city matches, different city does not', () => {
     const hq = { addressLocality: 'Bellinzona' };
