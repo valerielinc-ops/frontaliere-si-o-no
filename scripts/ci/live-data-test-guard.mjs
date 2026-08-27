@@ -140,6 +140,10 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   { file: 'tests/article-review-overrides.test.ts', roots: ['packages/articles/'] },
   { file: 'tests/article-slug-prompt-leak-guard.test.ts', roots: ['packages/articles/content/'] },
   { file: 'tests/articles-sync-pin.test.ts', roots: ['packages/articles/content/'] },
+  // The test reaches the live corpus transitively through create-article.mjs;
+  // keep this explicit because the source scanner intentionally does not
+  // execute imported modules while building the inventory.
+  { file: 'tests/evergreen-pool-consumption.test.ts', roots: ['packages/articles/content/'], transitive: true },
   { file: 'tests/blog-headline-validation.test.ts', roots: ['services/locales/'] },
   { file: 'tests/bridge-canton-aware.test.ts', roots: ['data/jobs/'] },
   { file: 'tests/build-emit-skip-gate.test.ts', roots: ['packages/articles/'] },
@@ -239,8 +243,13 @@ export function diffAgainstInventory(root = ROOT) {
   const found = scanLiveDataTests(root);
   const known = new Set(KNOWN_LIVE_DATA_TESTS.map((e) => e.file));
   const foundFiles = new Set(found.map((e) => e.file));
+  const explicitlyTransitive = new Set(
+    KNOWN_LIVE_DATA_TESTS
+      .filter((e) => e.transitive && fs.existsSync(path.join(root, e.file)))
+      .map((e) => e.file),
+  );
   return {
     added: found.filter((e) => !known.has(e.file)),
-    removed: [...known].filter((f) => !foundFiles.has(f)).sort(),
+    removed: [...known].filter((f) => !foundFiles.has(f) && !explicitlyTransitive.has(f)).sort(),
   };
 }
