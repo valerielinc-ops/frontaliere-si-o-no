@@ -220,6 +220,8 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
     expect(RELATED_RUNNER).toContain('function stripComments');
     expect(RELATED_RUNNER).toContain('CHANGED_PATHS_STATUS_FILE');
     expect(RELATED_RUNNER).toContain("changedStatus !== 'complete'");
+    expect(RELATED_RUNNER).toContain('listCorpusWideTests');
+    expect(RELATED_RUNNER).toContain('VITEST_SKIP_CORPUS_WIDE');
   });
 
   it('tests.yml conserva allow-list sparse e fail-safe del corpus', () => {
@@ -228,6 +230,8 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
     expect(TESTS_YML).toContain('!/public/images/');
     expect(TESTS_YML).toContain('changed-paths-status.txt');
     expect(TESTS_YML).toContain('partial > changed-paths-status.txt');
+    expect(TESTS_YML).toContain('frontaliere-articles');
+    expect(TESTS_YML).toContain('Review in one pass with at most two batched read/search rounds');
   });
 
   it('usa un bundle deterministico e non scarica il diff completo nelle review incrementali', () => {

@@ -1127,7 +1127,7 @@ jobs:
         # loosen a threshold or delete the passage to get the gate green.
         run: node scripts/audit-article-factuality.mjs --changed origin/${{ github.base_ref || 'main' }}
 
-      - name: Decide i gate corpus-wide pertinenti a questo diff
+      - name: Corpus-wide gates delegated to frontaliere-articles
         # ─── LO SPLIT CORPUS-WIDE (registro: scripts/ci/corpus-wide-tests.mjs)
         #
         # Sette file di test costano 201,4s misurati (run 32172467043): il 20,1%
@@ -1171,7 +1171,11 @@ jobs:
         # richiesta di suite completa. Solo un elenco vuoto con stato
         # `complete` può legittimamente produrre zero test.
         id: corpus
-        if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' }}
+        # I gate che scansionano l'intero corpus appartengono al repository
+        # `nanakokyobashi-rgb/frontaliere-articles`, che li esegue nel proprio
+        # workflow post-merge. Non devono essere rivalutati nel CI applicativo
+        # di questo repository.
+        if: ${{ false }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
@@ -1442,6 +1446,7 @@ jobs:
           VITEST_POOL: forks
           VITEST_CACHE_DIR: node_modules/.vite-related
           CHANGED_PATHS_STATUS_FILE: changed-paths-status.txt
+          VITEST_SKIP_CORPUS_WIDE: 'true'
         run: node scripts/ci/run-related-tests.mjs --reporter=default --reporter=json --outputFile=shard-timing-related.json
 
       # ══════════════════════════════════════════════════════════════════════
@@ -1707,7 +1712,7 @@ jobs:
           # incrementale. Il prompt resta autorizzato a Read/grep i file pieni per il
           # contesto → le interazioni col code non-toccato restano coglibili.
           lastRev=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate \
-            --jq '[.[] | select(.user.type=="Bot" and (.user.login|test("claude";"i")))] | last | .commit_id // empty' 2>/dev/null || true)
+            --jq '[.[] | select(.user.type=="Bot" and (.user.login|test("^(claude(\\[bot\\])?|frontaliere-automation\\[bot\\])$";"i")))] | last | .commit_id // empty' 2>/dev/null || true)
           if [ -n "$lastRev" ] && [ "$lastRev" != "$HEAD_SHA" ]; then
             delta_code=$(gh api "repos/$REPO/compare/$lastRev...$HEAD_SHA" --jq '.files[].filename' 2>/dev/null \
               | grep -Fxf <(echo "$code_files") || true)
@@ -1833,6 +1838,11 @@ jobs:
           gh api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
             --jq '[.[] | select(.body // "" | contains("<!-- sibling-check -->"))] | last | .body // empty' \
             > "$CTX_DIR/sibling-check.md" 2>/dev/null || true
+          # Claude non ha bisogno dell'elenco completo dei file dati/statici:
+          # per la review servono il body, il diff code e i file code toccati.
+          # Tenere fuori i path rigenerati riduce il contesto senza alterare la
+          # decisione del tier, gia' calcolata sopra sul payload REST completo.
+          grep -vE "$NONCODE_RE" "$CTX_DIR/files.txt" > "$CTX_DIR/code-files.txt" || : > "$CTX_DIR/code-files.txt"
           # Unico input Claude: assembla una fotografia deterministica del
           # contesto già raccolto, così il reviewer fa un solo Read iniziale e
           # non ricostruisce il contesto con gh/grep in turni successivi.
@@ -1844,14 +1854,15 @@ jobs:
             echo "- HEAD: $HEAD_SHA"
             echo "- Tier: ${TIER:-unknown}"
             echo "- Incremental base: ${INCREMENTAL_BASE:-none}"
-            echo "- Complete file list entries: $(wc -l < "$CTX_DIR/files.txt")"
+            echo "- Changed file entries: $(wc -l < "$CTX_DIR/files.txt")"
+            echo "- Changed code file entries: $(wc -l < "$CTX_DIR/code-files.txt")"
             echo "- Code diff lines: $(wc -l < "$CTX_DIR/diff.patch")"
             echo
             echo "## PR metadata"
             cat "$CTX_DIR/pr.json"
             echo
-            echo "## Complete changed-file list"
-            cat "$CTX_DIR/files.txt"
+            echo "## Changed code-file list"
+            cat "$CTX_DIR/code-files.txt"
             echo
             echo "## Code-only diff"
             cat "$CTX_DIR/diff.patch"
@@ -1922,11 +1933,11 @@ jobs:
 
             Read `REVIEW.md` first; it is the single source of truth for severity, scope, required checks, and output format. Do not read `AGENTS.md` unless REVIEW.md explicitly requires a specific rule.
 
-            The deterministic review bundle is already prepared in `${{ runner.temp }}/review-ctx/`: `review-bundle.md` is the primary input and includes the PR metadata, complete file list, code-only diff, incremental delta (when present), and sibling signals. Read it before using GitHub or repository tools. Do not repeat `gh pr view`, `gh pr diff`, or `gh api compare` unless the bundle explicitly reports that a section is incomplete.
+            The deterministic review bundle is already prepared in `${{ runner.temp }}/review-ctx/`: `review-bundle.md` is the primary input and includes PR metadata, the changed code-file list, code-only diff, incremental delta (when present), and sibling signals. Generated data/static paths are intentionally omitted from the bundle. Read it before using GitHub or repository tools. Do not repeat `gh pr view`, `gh pr diff`, or `gh api compare` unless the bundle explicitly reports that a section is incomplete.
 
             If `INCREMENTAL_BASE` is set, review only the delta and its interactions. Treat the prior Claude review as already approved context; do not re-read unchanged code unless needed to understand a concrete delta. If the bundle says the code contribution is unchanged, post a short review ending exactly with `## LGTM`.
 
-            Review in one pass: validate the body contract, inspect the changed code and relevant interactions, verify declared performance claims against the supplied evidence, and check only concrete behavior/correctness risks. Do not invent missing-test findings. Use the sibling candidates from the bundle as leads, not verdicts. For high tiers, include exactly three concise unresolved items in `## Adversarial check`; they must be real unverified risks, not generic missing coverage.
+            Review in one pass with at most two batched read/search rounds: validate the body contract, inspect the changed code and only concrete interactions, verify declared performance claims against supplied evidence, and stop probing once the verdict is determined. Do not invent missing-test findings. Use sibling candidates as leads, not verdicts. For high tiers, include exactly three concise unresolved items in `## Adversarial check`; they must be real unverified risks, not generic missing coverage.
 
             Post exactly one review with `gh pr review ${PR_NUMBER} --comment --body ...`. End with `## LGTM` only when there is no open `🔴 Important`, no unresolved funnel-critical question, and the bundle/body contract is valid. If uncertain, emit `❓ q:`; never use `## LGTM` beside an unresolved Important finding. Work read-only: do not edit files, commit, push, run npm, or run tests. Batch independent reads/searches in one tool call and stop immediately after posting the review.
       - name: Fail on transient API error (no review posted)

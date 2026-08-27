@@ -14,6 +14,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { execFileSync, spawnSync } from 'node:child_process';
 import path from 'node:path';
+import { listCorpusWideTests } from './corpus-wide-tests.mjs';
 
 const changedPathFile = process.env.CHANGED_PATHS_FILE || 'changed-paths.txt';
 const changedStatusFile = process.env.CHANGED_PATHS_STATUS_FILE || 'changed-paths-status.txt';
@@ -22,6 +23,8 @@ const sourceRe = /\.(?:[cm]?[jt]sx?|vue|svelte)$/i;
 const testRe = /^(?:tests|packages\/[^/]+\/tests)\/.*\.(?:test|spec)\.[cm]?[jt]sx?$/i;
 const ignoredRe = /^(?:data|public|reports|docs|_newsletter_variants|node_modules)\//;
 const projectRe = /^(?:tests|scripts\/(?:ci|lib|dev|evals)\/|services|components|hooks|server|infra|build-plugins|functions|packages\/[^/]+\/(?:engine|src|tests)\/)/;
+const skipCorpusWide = process.env.VITEST_SKIP_CORPUS_WIDE === 'true';
+const corpusWideTests = skipCorpusWide ? new Set(listCorpusWideTests()) : new Set();
 // These dependencies are wired by Vitest/configuration or executed through a
 // path string, so no static import edge can reliably reach their consumers.
 const implicitTestDependencyRe = /^(?:tests\/setup(?:-node)?\.[cm]?[jt]sx?|scripts\/(?:seo|models|one-off)\/|\.github\/workflows\/|package\.json$|tsconfig[^/]*\.json$)/;
@@ -137,7 +140,7 @@ if (candidates.length === 0 && !forceFull) {
 
 const tracked = trackedFiles();
 const graph = loadGraph(tracked);
-const allTests = tracked.filter((file) => testRe.test(file));
+const allTests = tracked.filter((file) => testRe.test(file) && !corpusWideTests.has(file));
 const reverse = new Map();
 for (const [file, entry] of Object.entries(graph)) {
   for (const dep of entry.deps) {
@@ -145,7 +148,7 @@ for (const [file, entry] of Object.entries(graph)) {
     reverse.get(dep).push(file);
   }
 }
-const related = new Set(forceFull ? allTests : candidates.filter((file) => testRe.test(file)));
+const related = new Set(forceFull ? allTests : candidates.filter((file) => testRe.test(file) && !corpusWideTests.has(file)));
 if (forceFull) {
   console.log(`Changed-paths status is ${changedStatus} → running all tracked tests conservatively.`);
 }
