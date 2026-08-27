@@ -4462,6 +4462,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-successione-appenzello.title': 'Appenzello inheritance taxes: rates and procedures',
     'blog.article.imposta-successione-appenzello.excerpt': 'Inheritance tax in Appenzell: cantonal jurisdiction, rates for kinship, exemptions for spouse. Declaration within 30-90 days. 6-step procedure.',
     'blog.article.imposta-successione-appenzello.imageAlt': 'Swiss cantonal administrative building representing inheritance and tax administration',
+    'blog.article.imposte-cantonali-san-gallo-aliquote-deduzioni.title': 'St. Gallen taxes: rates, brackets and deductions',
+    'blog.article.imposte-cantonali-san-gallo-aliquote-deduzioni.excerpt': 'How cantonal and municipal taxes work in the Canton of St. Gallen: rates, brackets, allowable deductions and deadlines for filing.',
+    'blog.article.imposte-cantonali-san-gallo-aliquote-deduzioni.imageAlt': 'Aerial view of old town Sankt Gallen with historic guild houses and traditional Swiss architecture',
 };
 
 export default blogMetaChEn;
