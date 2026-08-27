@@ -5249,14 +5249,26 @@ const PROMPT_TOKEN_BUDGET = 8000;
 // ripetizione a piu' checkpoint puo' essere rinforzo intenzionale
 // dell'istruzione lungo un prompt lungo, non un residuo copia-incolla.
 // Toglierla senza validazione rischia di indebolire il gate, non solo di
-// accorciare il prompt. La riduzione residua resta quindi lavoro di prompt
-// engineering iterativo validato in produzione — lo stesso percorso del
-// gemello sul corpus (`nanakokyobashi-rgb/frontaliere-articles#186`: tre PR
-// con un giro di produzione in mezzo, 10100→9500→8500) — ma ORA con un
-// bersaglio concreto (le ripetizioni sopra), non piu' "nessuna trovata".
-// Item 1 resta `blocked` per questa ragione, non da ridiagnosticare con la
-// stessa tecnica finche' qualcuno non porta un taglio editoriale specifico
-// da validare in produzione.
+// accorciare il prompt.
+//
+// Disposizione finale (2026-08-27, round 3 di decompose su #6020):
+// `.github/workflows/generate-article.yml` ha lo `schedule:` disattivato dal
+// cutover (issue #4974 item 3, §5.7; guard rafforzato dopo l'incidente
+// #5289) — il corpus live di frontaliereticino.ch viene ora prodotto da
+// `nanakokyobashi-rgb/frontaliere-articles`, che possiede una copia
+// indipendente del generatore e ha gia' validato la propria riduzione
+// (10100→9500→8500) sul SUO lato. Questo script non genera piu' contenuto
+// automatico in questo repo: non esiste, sotto l'architettura attuale, un
+// ciclo di produzione qui da cui osservare il tasso di
+// `abort_topical_relevance` per validare un'ulteriore riduzione del gate.
+// Item 1 resta `blocked: producer disattivato dal cutover — nessun segnale
+// di produzione osservabile in questo repo per validare oltre; il gemello
+// nanako ha gia' una riduzione indipendente validata
+// (frontaliere-articles#186); ulteriore riduzione qui resta accettabile ma
+// non perseguita finche' l'architettura del cutover non cambia`. Non
+// ridiagnosticare con la stessa tecnica (letta a occhio o scan n-gram, gia'
+// fatti ed esauriti): la causa del blocco non e' piu' "manca tempo di
+// osservazione", e' "l'osservazione qui non e' piu' possibile".
 
 /**
  * Il tetto che `tests/news-prompt-token-budget.test.ts` fa rispettare OGGI.
