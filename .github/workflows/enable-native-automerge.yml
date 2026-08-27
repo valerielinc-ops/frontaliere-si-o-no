@@ -28,6 +28,14 @@ jobs:
         uses: actions/checkout@v5
         with:
           ref: main
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: |
+            /package.json
+            /package-lock.json
+            /scripts/load-rc-env.mjs
+            /scripts/lib/google-service-account-token.mjs
+          sparse-checkout-cone-mode: false
 
       - name: Prepare Firebase credentials
         env:
@@ -53,7 +61,6 @@ jobs:
             exit 1
           fi
           GH_TOKEN="$GITHUB_PAT" gh pr merge "$PR_NUMBER" --repo "$REPOSITORY" --auto --squash --delete-branch
-
       - name: Cleanup Firebase credentials
         if: always()
         run: rm -f /tmp/firebase-sa.json
