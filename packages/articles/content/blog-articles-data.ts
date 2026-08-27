@@ -32457,6 +32457,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vecchi-nuovi-frontalieri-tassazione',
+ category: 'fiscale',
+ date: '2026-08-27T04:56:56.703Z',
+ image: '/images/blog/vecchi-nuovi-frontalieri-tassazione.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -10851,6 +10851,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sconti-trasporti-frontalieri-ticino.title': 'Frontaliers : abos & réductions pour économiser',
     'blog.article.sconti-trasporti-frontalieri-ticino.excerpt': 'Guide pratique des abonnements à prix réduit et des systèmes de transport intégrés Tessin-Lombardie pour ceux qui travaillent au-delà des frontières : options, économies et déductibilité fiscale.',
     'blog.article.sconti-trasporti-frontalieri-ticino.imageAlt': 'Frontaliers attendant le train vers la Lombardie à une gare tessinoise pendant les heures de pointe du matin',
+    'blog.article.vecchi-nuovi-frontalieri-tassazione.title': 'Frontaliers 2026 : fiscalité, nouvel accord et franchise',
+    'blog.article.vecchi-nuovi-frontalieri-tassazione.excerpt': 'Depuis 2024, le nouvel accord Italie-Suisse réduit les taxes pour les frontaliers : 7 500 € d\' exonération pour les anciens, 10 000 € pour les nouveaux. Voici comment cela fonctionne.',
+    'blog.article.vecchi-nuovi-frontalieri-tassazione.imageAlt': 'Bureau fiscal avec documents sur la fiscalité frontalière et symboles de devises CHF/EUR',
 };
 
 export default blogMetaFr;

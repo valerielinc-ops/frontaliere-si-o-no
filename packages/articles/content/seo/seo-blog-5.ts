@@ -79319,6 +79319,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vecchi-nuovi-frontalieri-tassazione': {
+    title: 'Frontalieri 2026: tassazione, nuovo accordo e franchigia',
+    description: 'Scopri come il nuovo accordo Italia-Svizzera cambia la tassazione dei frontalieri nel 2026: franchigia €7.500 o €10.000, credito d\'imposta, scenari pratici',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassazione, nuovo, accordo, franchigia',
+    ogTitle: 'Frontalieri 2026: tassazione e nuovo accordo Italia-Svizzera',
+    ogDescription: 'Dal 1° gennaio 2024 il nuovo accordo Italia-Svizzera riduce le tasse ai frontalieri: scopri la franchigia (€7.500 vecchi, €10.000 nuovi), l\'imposta alla fonte, il credito d\'imposta nel 730 e i scenari pratici per il 2026.',
+    canonicalPath: '/articoli-frontaliere/vecchi-nuovi-frontalieri-tassazione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri 2026: tassazione, nuovo accordo e franchigia",
+      "description": "Scopri come il nuovo accordo Italia-Svizzera cambia la tassazione dei frontalieri nel 2026: franchigia €7.500 o €10.000, credito d'imposta, scenari pratici",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vecchi-nuovi-frontalieri-tassazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio fiscale con documenti sulla tassazione frontalieri e simboli di valuta CHF/EUR"
+      },
+      "datePublished": "2026-08-27T04:56:56+00:00",
+      "dateModified": "2026-08-27T04:56:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vecchi-nuovi-frontalieri-tassazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
