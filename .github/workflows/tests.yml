@@ -1743,16 +1743,14 @@ jobs:
               echo "incremental_base=$lastRev" >> "$GITHUB_OUTPUT"
               echo "Incremental re-review: solo il delta dei file PR da $lastRev:"; echo "$delta_code"
               if funnel_crit "$delta_code"; then
-                # The delta-scoped bundle and strict one-pass prompt remove the
-                # historical setup overhead; retain a 24-turn escape hatch
-                # without allowing incremental review to become full discovery.
-                set_tier incremental-high claude-sonnet-5 24
+                # Keep the historical 35-turn safety margin until a live run
+                # proves that the stricter delta-scoped prompt is safe below it.
+                set_tier incremental-high claude-sonnet-5 35
               else
-                # Il precedente cap di 35 (bump 2026-07-17) proteggeva da morti
-                # dovute al setup esplorativo. Ora il bundle è delta-scoped e il
-                # prompt vieta la discovery ampia: 24 è un margine sufficiente
-                # per il delta senza permettere una nuova review full-repository.
-                set_tier incremental claude-sonnet-5 24
+                # Mantieni il cap storico di 35: il bundle riduce il contesto e
+                # i turni medi, ma non deve trasformare un delta complesso in un
+                # max_turns senza ancora avere una misura live sufficiente.
+                set_tier incremental claude-sonnet-5 35
               fi
               exit 0
             fi
