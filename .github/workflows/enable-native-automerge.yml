@@ -24,18 +24,24 @@ jobs:
     if: github.event_name == 'pull_request_target' && github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout workflow helpers
-        uses: actions/checkout@v5
-        with:
-          ref: main
-          fetch-depth: 1
-          filter: blob:none
-          sparse-checkout: |
-            /package.json
-            /package-lock.json
-            /scripts/load-rc-env.mjs
-            /scripts/lib/google-service-account-token.mjs
-          sparse-checkout-cone-mode: false
+      # This job needs only the Remote Config loader and its dependency-free
+      # JWT helper. A git checkout still has to fetch the repository's large
+      # tree before sparse checkout can select those files, so download the
+      # two raw files directly instead of initializing a repository.
+      - name: Download workflow helpers
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          helper_dir="${RUNNER_TEMP}/native-automerge-helpers"
+          mkdir -p "$helper_dir/lib"
+          gh api "repos/${GITHUB_REPOSITORY}/contents/scripts/load-rc-env.mjs?ref=main" \
+            --header 'Accept: application/vnd.github.raw+json' \
+            > "$helper_dir/load-rc-env.mjs"
+          gh api "repos/${GITHUB_REPOSITORY}/contents/scripts/lib/google-service-account-token.mjs?ref=main" \
+            --header 'Accept: application/vnd.github.raw+json' \
+            > "$helper_dir/lib/google-service-account-token.mjs"
+          echo "NATIVE_AUTOMERGE_HELPER_DIR=$helper_dir" >> "$GITHUB_ENV"
 
       - name: Prepare Firebase credentials
         env:
@@ -49,7 +55,7 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load PAT from Remote Config
-        run: node scripts/load-rc-env.mjs
+        run: node "$NATIVE_AUTOMERGE_HELPER_DIR/load-rc-env.mjs"
 
       - name: Enable GitHub auto-merge
         env:
