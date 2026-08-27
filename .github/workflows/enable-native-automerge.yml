@@ -10,7 +10,9 @@ on:
   # This workflow only calls the GitHub API and never executes PR code.
   # pull_request_target keeps the write permission available for fork PRs too.
   pull_request_target:
-    types: [opened, reopened, synchronize, ready_for_review]
+    # Native auto-merge persists across new commits, so re-running this job on
+    # every synchronize/push only repeats the API call and helper download.
+    types: [opened, reopened, ready_for_review]
 
 permissions:
   contents: read
