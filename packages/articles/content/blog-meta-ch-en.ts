@@ -4456,6 +4456,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.naturalizzazione-ordinaria-lucerna-guida.title': 'Lucerne naturalisation: 10 years and double counting',
     'blog.article.naturalizzazione-ordinaria-lucerna-guida.excerpt': 'Permit C and 10 years of residency are the federal requirement. Periods between 8–18 years count double. Discover procedures, times and costs for naturalisation in Lucerne.',
     'blog.article.naturalizzazione-ordinaria-lucerna-guida.imageAlt': 'Lucerne cantonal administrative office with naturalization documents and residence certificates',
+    'blog.article.salari-appenzello-interno-settori.title': 'Wages and the labour market in Appenzello Interna',
+    'blog.article.salari-appenzello-interno-settori.excerpt': 'Guide to salary levels by level of training, employment sectors, AVS/LPP/LAMal contributions, legal hours and tools to calculate net salary in the Inner Appenzell canton.',
+    'blog.article.salari-appenzello-interno-settori.imageAlt': 'Office and factory workers in a modern Swiss workplace environment representing different skill levels and sectors.',
 };
 
 export default blogMetaChEn;

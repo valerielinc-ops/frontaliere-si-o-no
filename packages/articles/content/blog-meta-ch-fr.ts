@@ -4456,6 +4456,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.naturalizzazione-ordinaria-lucerna-guida.title': 'Naturalisation Lucerne : 10 ans et double comptage',
     'blog.article.naturalizzazione-ordinaria-lucerna-guida.excerpt': 'Le permis C et 10 ans de résidence sont l\'exigence fédérale. Les périodes entre 8 et 18 ans comptent double. Découvrez les procédures, les délais et les coûts de la naturalisation à Lucerne.',
     'blog.article.naturalizzazione-ordinaria-lucerna-guida.imageAlt': 'Bureau administratif du canton de Lucerne avec documents de naturalisation et certificats de résidence',
+    'blog.article.salari-appenzello-interno-settori.title': 'Salaires et marché du travail à Appenzell',
+    'blog.article.salari-appenzello-interno-settori.excerpt': 'Guide des niveaux de salaire par niveau de formation, secteurs d\'emploi, cotisations AVS/LPP/LAMal, horaires légaux et outils de calcul du salaire net dans le canton d\'Appenzell.',
+    'blog.article.salari-appenzello-interno-settori.imageAlt': 'Travailleurs de bureau et d\'usine dans un environnement de travail suisse moderne représentant différents niveaux de qualification et secteurs.',
 };
 
 export default blogMetaChFr;
