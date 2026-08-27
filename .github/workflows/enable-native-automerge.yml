@@ -13,15 +13,19 @@ on:
     types: [opened, reopened, synchronize, ready_for_review]
 
 permissions:
+  contents: read
   pull-requests: write
 
 jobs:
   enable:
-    if: github.event.pull_request.draft == false
+    # Guard explicitly against non-PR dispatches. This keeps a malformed or
+    # manually replayed push event from producing a failed empty run while
+    # dereferencing pull_request fields that do not exist.
+    if: github.event_name == 'pull_request_target' && github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
       - name: Checkout workflow helpers
-        uses: actions/checkout
+        uses: actions/checkout@v5
         with:
           ref: main
 
@@ -49,3 +53,7 @@ jobs:
             exit 1
           fi
           GH_TOKEN="$GITHUB_PAT" gh pr merge "$PR_NUMBER" --repo "$REPOSITORY" --auto --squash --delete-branch
+
+      - name: Cleanup Firebase credentials
+        if: always()
+        run: rm -f /tmp/firebase-sa.json
