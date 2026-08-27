@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bls",
-  "assembledAt": "2026-08-26T09:08:27.810Z",
+  "assembledAt": "2026-08-27T01:00:16.876Z",
   "jobs": [
     {
       "id": "bls-9f36179aeeb3",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automechatroniker-in-lastwagenmechaniker-in-automatiker-in/dd034dae-6852-48aa-9341-ddcb2703eeda",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:18.906Z",
+      "crawledAt": "2026-08-27T01:00:13.675Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -139,7 +139,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhalter-in-schienenfahrzeuge/66a57cf3-3129-460e-9433-b7cc2d9f708d",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:17.287Z",
+      "crawledAt": "2026-08-27T01:00:07.943Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -239,7 +239,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/tecnico-di-preparazione-dei-treni-pdt/ae78f81d-0c6c-446a-877f-5dfbc60c8096",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-26T10:24:15.887Z",
+      "crawledAt": "2026-08-27T01:00:07.207Z",
       "addressLocality": "Beura-cardezza",
       "addressCountry": "CH",
       "country": "CH",
@@ -273,6 +273,7 @@
         ]
       },
       "firstSeenAt": "2026-07-30T22:19:48.942Z",
+      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 88000,
       "baseSalary": {
@@ -317,7 +318,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/elektroinstallateur-in-monteur-in-signaltechnik/f9f80fc2-eb10-485c-99b6-121e4f34f898",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:14.515Z",
+      "crawledAt": "2026-08-27T01:00:06.402Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -415,7 +416,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/operatrice-operatore-di-sala-operativa/b6563f4f-7ab2-4d50-b20b-fa3a8dec7dfe",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-26T10:24:12.867Z",
+      "crawledAt": "2026-08-27T01:00:05.309Z",
       "addressLocality": "Beura-cardezza",
       "addressCountry": "CH",
       "country": "CH",
@@ -447,6 +448,7 @@
         ]
       },
       "firstSeenAt": "2026-07-30T22:19:48.191Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -491,7 +493,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/teamleiter-inwerkstatt/018ea1ac-f126-44b0-ae9f-d19992805f0e",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:11.554Z",
+      "crawledAt": "2026-08-27T01:00:04.468Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -585,7 +587,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fachperson-beschriftung-und-grafik/dba4554d-b4c7-4b34-9dbe-5172c585b85b",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:09.870Z",
+      "crawledAt": "2026-08-27T01:00:03.276Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -684,7 +686,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/metallbauer-in-nautiker-in-thun/e010111f-5205-4020-9688-81bf2100eb0f",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:08.501Z",
+      "crawledAt": "2026-08-27T01:00:02.264Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -781,7 +783,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/metallbauer-in-nautiker-in-interlaken/149bbf4e-e1e4-437b-b72f-fbcc4472d71b",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:07.005Z",
+      "crawledAt": "2026-08-27T01:00:00.321Z",
       "addressLocality": "Interlaken",
       "addressCountry": "CH",
       "country": "CH",
@@ -957,7 +959,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "crawlerMissStreak": 1
     },
     {
       "id": "bls-270396f3fc69",
@@ -1039,7 +1042,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "crawlerMissStreak": 1
     },
     {
       "id": "bls-31cae7554c87",
@@ -1136,7 +1140,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "crawlerMissStreak": 1
     },
     {
       "id": "bls-252e4cc88a53",
@@ -1232,7 +1237,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "crawlerMissStreak": 1
     },
     {
       "id": "bls-a5ea3ca62454",
@@ -1311,7 +1317,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "crawlerMissStreak": 1
     },
     {
       "id": "bls-398ce4135763",
@@ -1389,7 +1396,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "crawlerMissStreak": 1
     },
     {
       "id": "bls-c5b15b9c8f34",
@@ -1485,7 +1493,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "crawlerMissStreak": 1
     },
     {
       "id": "bls-f186869c46de",
@@ -1573,7 +1582,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "crawlerMissStreak": 1
     }
   ]
 }
