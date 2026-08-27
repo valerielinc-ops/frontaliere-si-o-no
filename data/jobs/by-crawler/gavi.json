@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gavi",
-  "assembledAt": "2026-08-27T00:35:22.113Z",
+  "assembledAt": "2026-08-27T19:50:28.061Z",
   "jobs": [
     {
       "id": "gavi-b02c416d7edd",
@@ -33,7 +33,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2524&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T00:35:18.905Z",
+      "crawledAt": "2026-08-27T19:50:25.186Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -98,7 +98,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2523&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T00:35:18.339Z",
+      "crawledAt": "2026-08-27T19:50:24.562Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -119,20 +119,23 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "manager-strategy-design-and-delivery-temp-gavi-le-grand-saconnex",
-        "gestione-progettazione-strategica-e-tempi-di-consegna-gavi-the-vaccine-alliance-le-grand-saconnex",
         "gestione-progettazione-e-consegna-di-strategia-gavi-the-vaccine-alliance-le-grand-saconnex",
         "manager-strategy-design-and-delivery-gavi-le-grand-saconnex",
         "manager-strategiedesign-und-delivery-gavi-the-vaccine-alliance-le-grand-saconnex",
-        "gestionnaire-conception-et-execution-de-la-strategie-gavi-the-vaccine-alliance-le-grand-saconnex"
+        "gestionnaire-conception-et-execution-de-la-strategie-gavi-the-vaccine-alliance-le-grand-saconnex",
+        "gestione-progettazione-strategica-e-tempi-di-consegna-gavi-the-vaccine-alliance-le-grand-saconnex"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manager-strategy-design-and-delivery-temp-gavi-le-grand-saconnex",
-          "gestione-progettazione-strategica-e-tempi-di-consegna-gavi-the-vaccine-alliance-le-grand-saconnex",
           "gestione-progettazione-e-consegna-di-strategia-gavi-the-vaccine-alliance-le-grand-saconnex",
           "manager-strategy-design-and-delivery-gavi-le-grand-saconnex",
           "manager-strategiedesign-und-delivery-gavi-the-vaccine-alliance-le-grand-saconnex",
-          "gestionnaire-conception-et-execution-de-la-strategie-gavi-the-vaccine-alliance-le-grand-saconnex"
+          "gestionnaire-conception-et-execution-de-la-strategie-gavi-the-vaccine-alliance-le-grand-saconnex",
+          "gestione-progettazione-strategica-e-tempi-di-consegna-gavi-the-vaccine-alliance-le-grand-saconnex"
+        ],
+        "en": [
+          "manager-strategy-design-and-delivery-gavi-le-grand-saconnex"
         ],
         "de": [
           "manager-strategy-design-and-delivery-temp-gavi-le-grand-saconnex",
@@ -141,12 +144,10 @@
         "fr": [
           "manager-strategy-design-and-delivery-temp-gavi-le-grand-saconnex",
           "gestionnaire-conception-et-execution-de-la-strategie-gavi-the-vaccine-alliance-le-grand-saconnex"
-        ],
-        "en": [
-          "manager-strategy-design-and-delivery-gavi-le-grand-saconnex"
         ]
       },
       "firstSeenAt": "2026-08-20T21:36:32.939Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
