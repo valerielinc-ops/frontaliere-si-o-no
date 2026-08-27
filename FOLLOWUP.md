@@ -195,8 +195,9 @@ sufficiente: una PR del sito può contenere un residuo relativo al producer degl
 articoli, che dopo il cutover vive nel corpus.
 
 - `nanakokyobashi-rgb/frontaliere-articles`: `generator/**`, `generator/tests/**`,
-  `generator/scripts/**`, `content/**`, `data/**` e i workflow del corpus che
-  generano o pubblicano articoli. Il twin `scripts/create-article.mjs` va trattato
+  `generator/scripts/**`, `content/**`, `data/blog-articles/**`,
+  `data/article-source-urls.json`, `data/batch-faq-progress.json` e i workflow del
+  corpus che generano o pubblicano articoli. Il twin `scripts/create-article.mjs` va trattato
   come Nanako quando l'item riguarda la generazione live: il producer del sito è
   disattivato.
 - `valerielinc-ops/frontaliere-si-o-no`: tutto il resto, compresi deploy, sync,

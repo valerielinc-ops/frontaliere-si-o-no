@@ -161,10 +161,7 @@ jobs:
       # anche quando la PR sorgente e' nel sito. In quel caso l'issue deve nascere
       # su nanako: il GITHUB_TOKEN del sito e' scoped al solo repo corrente.
       # Carichiamo il PAT Valerie cross-repo solo quando esiste davvero un batch, cosi'
-      # una finestra vuota non paga ne' Firebase ne' npm ci.
-      - name: Install dependencies for cross-repo follow-up routing
-        if: steps.quota.outputs.quota_blocked != 'true' && steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
-        run: npm ci --ignore-scripts
+      # una finestra vuota non paga ne' Firebase ne' il caricamento RC.
 
       - name: Prepare Firebase credentials for follow-up routing
         if: steps.quota.outputs.quota_blocked != 'true' && steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
@@ -280,7 +277,8 @@ jobs:
               modificabile indicato dall'item. Usa questa mappa fissa:
               - `nanakokyobashi-rgb/frontaliere-articles`: `generator/**`,
                 `generator/tests/**`, `generator/scripts/**`, `content/**`,
-                `data/**` e i workflow del corpus che generano/pubblicano articoli
+                `data/blog-articles/**`, `data/article-source-urls.json`,
+                `data/batch-faq-progress.json` e i workflow del corpus che generano/pubblicano articoli
                 (`generate-article.yml`, `batch-faq-articles.yml`,
                 `publish-journalist-articles.yml`, `publish-api.yml`). Anche il twin
                 `scripts/create-article.mjs` appartiene qui quando l'item riguarda la
