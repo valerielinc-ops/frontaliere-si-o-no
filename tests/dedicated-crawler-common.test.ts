@@ -911,6 +911,21 @@ describe('Swiss-only location filtering (Swatch Group US-jobs leak, 2026-06-17)'
     }, cfg);
     expect(reasons).not.toContain('location_explicitly_foreign');
   });
+
+  it('does not inspect title slugs from unrelated ATS hosts as locations', async () => {
+    const { getMergeExclusionReasons } = await import('../scripts/lib/dedicated-crawler-common.mjs');
+    const cfg = { minQualityScore: 0, minDescriptionChars: 0 };
+    const reasons = getMergeExclusionReasons({
+      title: 'Senior Sales Manager Austria Market Coverage',
+      company: 'Swiss Employer',
+      location: 'Lugano',
+      canton: 'TI',
+      url: 'https://jobs.example.com/company/senior-sales-manager-austria-market-coverage/12345',
+      description: 'Swiss-based role serving international markets.',
+      _targetScope: { canton: 'TI', location: 'Ticino' },
+    }, cfg);
+    expect(reasons).not.toContain('location_explicitly_foreign');
+  });
 });
 
 // ─── seedCrawlerSlicesFromDataJobs (issue #3089 items 2 + 3) ────────────────

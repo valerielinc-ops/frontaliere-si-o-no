@@ -7269,22 +7269,23 @@ export function getMergeExclusionReasons(job, qualityCfg) {
   return reasons;
 }
 
-function urlPathForLocationChecks(rawUrl = '') {
-  try {
-    return new URL(String(rawUrl)).pathname;
-  } catch {
-    return String(rawUrl || '');
-  }
-}
-
 // Zurich's career URLs put the posting location at the start of the slug,
 // before the job title. Inspect that location prefix only: checking the full
 // slug can mistake title/company words for Swiss municipalities and cancel a
 // genuine foreign-location signal.
 export function isForeignAtsUrlLocation(rawUrl = '') {
-  const pathname = urlPathForLocationChecks(rawUrl);
-  const segments = pathname.split('/').filter(Boolean);
-  const slug = segments.length >= 2 ? segments[segments.length - 2] : '';
+  let parsed;
+  try {
+    parsed = new URL(String(rawUrl));
+  } catch {
+    return false;
+  }
+  // This is the location-prefixed SuccessFactors shape used by Zurich. Do
+  // not apply it to the shared ATS pipeline indiscriminately: other vendors
+  // commonly put only the title in the same path segment.
+  if (!/^(?:www\.)?careers\.zurich\.com$/i.test(parsed.hostname)) return false;
+  const match = parsed.pathname.match(/^\/job\/([^/]+)\/[^/]+\/?$/i);
+  const slug = match?.[1] || '';
   if (!slug) return false;
   const decoded = decodeURIComponent(slug).replace(/[-_]+/g, ' ');
   const locationPrefix = decoded.split(/\s+/).slice(0, 8).join(' ');
