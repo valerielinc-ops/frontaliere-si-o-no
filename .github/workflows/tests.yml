@@ -237,6 +237,7 @@ jobs:
             /packages/*/engine/
             /packages/*/src/
             /packages/*/tests/
+            /packages/articles/
             /packages/articles/content/
             /packages/articles/index.ts
             /packages/articles/articleSections.ts
