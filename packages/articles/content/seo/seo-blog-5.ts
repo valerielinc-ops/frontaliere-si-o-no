@@ -79085,6 +79085,240 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-prelievo-lpp-frontalieri-tassazione-strategia': {
+    title: 'Prelievo secondo pilastro LPP frontalieri: regole, tasse e strategia',
+    description: 'Guida pratica al prelievo LPP per frontalieri Ticino-Italia: casi ammessi, tassazione CH/IT, credito d\'imposta, differenze vecchi/nuovi frontalieri e strategia',
+    keywords: 'frontalieri, ticino, svizzera, italia, prelievo, secondo, pilastro, regole',
+    ogTitle: 'Prelievo LPP frontalieri: quando si può, tasse Svizzera-Italia, strategia uscita',
+    ogDescription: 'Tutto sul prelievo del secondo pilastro per chi lavora in Ticino e vive in Italia: casi consentiti (casa, indipendenza, uscita definitiva, pensione), imposta alla fonte svizzera, IRPEF italiana con credito d\'imposta, differenze tra vecchi e nuovi',
+    canonicalPath: '/articoli-frontaliere/prelievo-lpp-frontalieri-tassazione-strategia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Prelievo secondo pilastro LPP frontalieri: regole, tasse e strategia",
+      "description": "Guida pratica al prelievo LPP per frontalieri Ticino-Italia: casi ammessi, tassazione CH/IT, credito d'imposta, differenze vecchi/nuovi frontalieri e strategia",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/prelievo-lpp-frontalieri-tassazione-strategia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista su Lugano e lago per articolo prelievo LPP frontalieri"
+      },
+      "datePublished": "2026-08-26T21:36:15+00:00",
+      "dateModified": "2026-08-26T21:36:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/prelievo-lpp-frontalieri-tassazione-strategia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-congedo-maternita-paternita-frontalieri': {
+    title: 'Congedo maternità e paternità per frontalieri: regole CH-IT',
+    description: 'Congedo maternità, paternità e parentale per frontalieri tra Svizzera e Italia: indennità IPG, aliquote contributive, permesso G, LAMal e procedure pratiche',
+    keywords: 'frontalieri, ticino, svizzera, italia, congedo, maternità, paternità, regole',
+    ogTitle: 'Congedo maternità e paternità frontalieri CH-IT',
+    ogDescription: 'Come funzionano congedo maternità, paternità e parentale per i frontalieri tra Ticino e Italia: indennità IPG al 5.3%, permesso G, LAMal con diritto d\'opzione, credito d\'imposta nel 730. La guida pratica per neo-genitori frontalieri.',
+    canonicalPath: '/articoli-frontaliere/congedo-maternita-paternita-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Congedo maternità e paternità per frontalieri: regole CH-IT",
+      "description": "Congedo maternità, paternità e parentale per frontalieri tra Svizzera e Italia: indennità IPG, aliquote contributive, permesso G, LAMal e procedure pratiche",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/congedo-maternita-paternita-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Genitore con passeggino sul lungolago di Lugano, sullo sfondo il Monte San Salvatore"
+      },
+      "datePublished": "2026-08-26T23:44:35+00:00",
+      "dateModified": "2026-08-26T23:44:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/congedo-maternita-paternita-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-spese-sanitarie-italia-rimborso': {
+    title: 'Spese sanitarie Svizzera rimborsabili in Italia per frontalieri',
+    description: 'Guida pratica alle spese sanitarie sostenute in Svizzera e rimborsabili in Italia per i frontalieri: procedure, limiti, documenti e credito d\'imposta nel quadro',
+    keywords: 'frontalieri, ticino, svizzera, italia, spese, sanitarie, rimborsabili, quali',
+    ogTitle: 'Spese sanitarie Svizzera rimborsabili in Italia',
+    ogDescription: 'Quali spese sanitarie sostenute in Svizzera sono rimborsabili in Italia per i frontalieri del Canton Ticino. Procedure, limiti, documenti necessari e credito d\'imposta nel quadro CE del 730. Franchigie LAMal da 300 a 2.500 franchi, aliquote IRPEF',
+    canonicalPath: '/articoli-frontaliere/frontaliere-spese-sanitarie-italia-rimborso',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Spese sanitarie Svizzera rimborsabili in Italia per frontalieri",
+      "description": "Guida pratica alle spese sanitarie sostenute in Svizzera e rimborsabili in Italia per i frontalieri: procedure, limiti, documenti e credito d'imposta nel quadro",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-spese-sanitarie-italia-rimborso.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere al valico di Chiasso con documenti sanitari e sfondo alpino svizzero"
+      },
+      "datePublished": "2026-08-27T00:03:03+00:00",
+      "dateModified": "2026-08-27T00:03:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-spese-sanitarie-italia-rimborso/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-consiglio-stato-deputazione-ticino-agosto': {
+    title: 'Ticino e Berna: la questione cruciale dei ristorni',
+    description: 'Il 27 agosto 2026, Consiglio di Stato e Deputazione ticinese hanno discusso la sospensione cautativa dei ristorni. Sessione parlamentare dal 14 settembre.',
+    keywords: 'frontalieri, ticino, svizzera, italia, berna, questione, cruciale, ristorni',
+    ogTitle: 'Ticino e Berna: la questione cruciale dei ristorni',
+    ogDescription: 'Consiglio di Stato e Deputazione ticinese discutono la sospensione dei ristorni il 27 agosto. Negoziazione cruciale con Confederazione e Regione Lombardia. Sessione parlamentare dal 14 settembre. Scopri i dettagli e le scadenze.',
+    canonicalPath: '/articoli-frontaliere/consiglio-stato-deputazione-ticino-agosto',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino e Berna: la questione cruciale dei ristorni",
+      "description": "Il 27 agosto 2026, Consiglio di Stato e Deputazione ticinese hanno discusso la sospensione cautativa dei ristorni. Sessione parlamentare dal 14 settembre.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/consiglio-stato-deputazione-ticino-agosto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bellinzona, sede del Consiglio di Stato ticinese, riunione con Deputazione il 27 agosto 2026"
+      },
+      "datePublished": "2026-08-27T00:25:28+00:00",
+      "dateModified": "2026-08-27T00:25:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/consiglio-stato-deputazione-ticino-agosto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-coordinamento-sanitario-frontaliere': {
+    title: 'Spese sanitarie frontaliere: rimborsi tra Svizzera e Italia',
+    description: 'Scopri come funziona il rimborso delle spese sanitarie per i frontalieri Ticino-Italia con LAMal e INPS: procedure, diritto d\'opzione, franchige',
+    keywords: 'frontalieri, ticino, svizzera, italia, spese, sanitarie, rimborsi, diritti',
+    ogTitle: 'Spese sanitarie frontaliere: rimborsi tra Svizzera e Italia',
+    ogDescription: 'Guida pratica ai rimborsi sanitari per chi lavora in Svizzera e risiede in Italia. Scopri il diritto d\'opzione tra LAMal e INPS, le franchige, le procedure di rimborso e come contattare gli enti competenti.',
+    canonicalPath: '/articoli-frontaliere/coordinamento-sanitario-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Spese sanitarie frontaliere: rimborsi tra Svizzera e Italia",
+      "description": "Scopri come funziona il rimborso delle spese sanitarie per i frontalieri Ticino-Italia con LAMal e INPS: procedure, diritto d'opzione, franchige",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/coordinamento-sanitario-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista serena di Monte San Salvatore al tramonto sul Lago di Lugano, Ticino"
+      },
+      "datePublished": "2026-08-27T00:48:00+00:00",
+      "dateModified": "2026-08-27T00:48:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/coordinamento-sanitario-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sconti-trasporti-frontalieri-ticino': {
+    title: 'Abbonamenti e sconti per frontalieri: come risparmiare sui trasporti',
+    description: 'Guida agli abbonamenti e sconti sui trasporti per frontalieri Ticino-Lombardia. Opzioni treno e autobus, detraibilità fiscale e procedura step-by-step.',
+    keywords: 'frontalieri, ticino, svizzera, italia, abbonamenti, sconti, risparmiare, trasporti',
+    ogTitle: 'Abbonamenti e sconti trasporti per frontalieri Ticino-Lombardia',
+    ogDescription: 'Scopri come risparmiare sui trasporti con abbonamenti scontati per frontalieri Ticino-Lombardia. Opzioni, costi, detraibilità fiscale, procedura di sottoscrizione e calcolatore risparmio.',
+    canonicalPath: '/articoli-frontaliere/sconti-trasporti-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Abbonamenti e sconti per frontalieri: come risparmiare sui trasporti",
+      "description": "Guida agli abbonamenti e sconti sui trasporti per frontalieri Ticino-Lombardia. Opzioni treno e autobus, detraibilità fiscale e procedura step-by-step.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sconti-trasporti-frontalieri-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri in attesa del treno per la Lombardia su una stazione ticinese durante le ore di punta mattutine"
+      },
+      "datePublished": "2026-08-27T01:48:09+00:00",
+      "dateModified": "2026-08-27T01:48:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sconti-trasporti-frontalieri-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

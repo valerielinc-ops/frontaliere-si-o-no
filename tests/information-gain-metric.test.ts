@@ -25,6 +25,7 @@ import {
   segmentsFromText,
   INFORMATION_GAIN_TUNABLES,
 } from '@/scripts/lib/informationGain.mjs';
+import { factory as createInformationGainAuditor } from '@/scripts/audit-information-gain.mjs';
 
 /** A mail-merge page: same prose, place name and figure substituted. */
 const mailMergePage = (name: string, rate: string): string => `<!doctype html>
@@ -238,5 +239,26 @@ describe('information-gain: estrazione del testo', () => {
 
     expect(segments.length).toBe(MAX_SEGMENTS_PER_PAGE);
     expect(segments.some((s) => s.includes('MARCATORE'))).toBe(true);
+  });
+});
+
+describe('information-gain: le pagine noindex sono escluse anche senza apici (issue #6585)', () => {
+  // htmlMinify's unquoteSafeAttributes() strips quotes from HTML5-safe
+  // attribute values on every emitted page, so a served noindex page reads
+  // `<meta name=robots content=noindex,follow>`, not the quoted form. A
+  // quote-mandatory regex in collect() would silently score these bridge
+  // pages as indexable and drag their family's median down.
+  it('non aggiunge una pagina noindex non quotata alle pagine misurate', () => {
+    const auditor = createInformationGainAuditor();
+    const noindexHtml = '<!doctype html><html><head><meta name=robots content=noindex,follow>'
+      + '<title>Bridge</title></head><body><p>Poche parole di raccordo.</p></body></html>';
+    const indexableHtml = '<!doctype html><html><head><title>Pagina</title></head>'
+      + '<body><p>Un paragrafo di contenuto indicizzabile.</p></body></html>';
+
+    auditor.collect('dist/noindex-bridge/index.html', noindexHtml);
+    auditor.collect('dist/pagina-indicizzabile/index.html', indexableHtml);
+
+    const { extra } = auditor.report();
+    expect(extra.pagesScored + extra.pagesUncohorted).toBe(1);
   });
 });

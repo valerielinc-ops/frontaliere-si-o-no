@@ -1,13 +1,257 @@
 {
   "crawlerKey": "accor",
-  "assembledAt": "2026-08-26T10:11:36.714Z",
+  "assembledAt": "2026-08-27T00:52:07.480Z",
   "jobs": [
     {
+      "id": "accor-886ec50568fd",
+      "slug": "sales-manager-conference-groups-events-accor-ch",
+      "slugByLocale": {
+        "fr": "sales-manager-conference-groups-events-accor-ch",
+        "it": "sales-manager-conference-groups-events-accor-ch",
+        "en": "sales-manager-conference-groups-events-ibis-budget-lugano",
+        "de": "sales-manager-conference-groups-events-accor-ch"
+      },
+      "company": "Ibis Budget",
+      "companyKey": "accor",
+      "companyDomain": "careers.accor.com",
+      "title": "Sales Manager – Conference, Groups & Events",
+      "titleByLocale": {
+        "fr": "Sales Manager – Conference, Groups & Events",
+        "en": "Sales Manager – Conference, Groups & Events",
+        "it": "Sales Manager – Conference, Groups & Events",
+        "de": "Sales Manager – Conference, Groups & Events"
+      },
+      "description": "Sales Manager – Conference, Groups & Events — Ibis Budget",
+      "descriptionByLocale": {
+        "fr": "Sales Manager – Conference, Groups & Events — Ibis Budget"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://careers.accor.com/fr/fr/job/sales-manager-conference-groups-and-events-in-novotel-melbourne-airport-melbourne-airport-austra-jid-107811",
+      "source": "Ibis Budget Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-27T00:52:01.827Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://careers.accor.com/fr/fr/job/sales-manager-conference-groups-and-events-in-novotel-melbourne-airport-melbourne-airport-austra-jid-107811",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 82500,
+      "salaryMax": 127000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 82500,
+          "maxValue": 127000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-27T00:52:01.827Z"
+    },
+    {
+      "id": "accor-6dcb7844d19d",
+      "slug": "directeur-trice-des-ventes-et-marketing-accor-ch",
+      "slugByLocale": {
+        "fr": "directeur-trice-des-ventes-et-marketing-accor-ch",
+        "it": "directeur-trice-des-ventes-et-marketing-accor-ch",
+        "en": "directeur-trice-des-ventes-et-marketing-ibis-budget-lugano",
+        "de": "directeur-trice-des-ventes-et-marketing-accor-ch"
+      },
+      "company": "Ibis Budget",
+      "companyKey": "accor",
+      "companyDomain": "careers.accor.com",
+      "title": "Directeur(trice) des ventes et marketing",
+      "titleByLocale": {
+        "fr": "Directeur(trice) des ventes et marketing",
+        "en": "Directeur(trice) des ventes et marketing",
+        "it": "Directeur(trice) des ventes et marketing",
+        "de": "Directeur(trice) des ventes et marketing"
+      },
+      "description": "Directeur(trice) des ventes et marketing — Ibis Budget",
+      "descriptionByLocale": {
+        "fr": "Directeur(trice) des ventes et marketing — Ibis Budget"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://careers.accor.com/fr/fr/job/directeur-trice-des-ventes-et-marketing-in-sofitel-montreal-golden-mile-montreal-canada-jid-96322",
+      "source": "Ibis Budget Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-27T00:52:00.616Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Marketing",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://careers.accor.com/fr/fr/job/directeur-trice-des-ventes-et-marketing-in-sofitel-montreal-golden-mile-montreal-canada-jid-96322",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 50500,
+      "salaryMax": 89000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 50500,
+          "maxValue": 89000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-27T00:52:00.616Z"
+    },
+    {
+      "id": "accor-11033a70de1d",
+      "slug": "assistant-front-office-manager-accor-ch",
+      "slugByLocale": {
+        "fr": "assistant-front-office-manager-accor-ch",
+        "it": "assistant-front-office-manager-accor-ch",
+        "en": "assistant-front-office-manager-ibis-budget-lugano",
+        "de": "assistant-front-office-manager-accor-ch"
+      },
+      "company": "Ibis Budget",
+      "companyKey": "accor",
+      "companyDomain": "careers.accor.com",
+      "title": "Assistant Front Office Manager",
+      "titleByLocale": {
+        "fr": "Assistant Front Office Manager",
+        "en": "Assistant Front Office Manager",
+        "it": "Assistant Front Office Manager",
+        "de": "Assistent Front Office Manager"
+      },
+      "description": "Assistant Front Office Manager — Ibis Budget",
+      "descriptionByLocale": {
+        "fr": "Assistant Front Office Manager — Ibis Budget"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://careers.accor.com/fr/fr/job/assistant-front-office-manager-in-fairmont-chateau-whistler-whistler-canada-jid-107815",
+      "source": "Ibis Budget Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-27T00:52:00.312Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://careers.accor.com/fr/fr/job/assistant-front-office-manager-in-fairmont-chateau-whistler-whistler-canada-jid-107815",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-27T00:52:00.312Z"
+    },
+    {
+      "id": "accor-de9c7c69e1f9",
+      "slug": "housekeeping-villa-attendant-full-time-accor-ch",
+      "slugByLocale": {
+        "fr": "housekeeping-villa-attendant-full-time-accor-ch",
+        "it": "housekeeping-villa-attendant-full-time-accor-ch",
+        "en": "housekeeping-villa-attendant-full-time-accor-ch",
+        "de": "housekeeping-villa-attendant-full-time-accor-ch"
+      },
+      "company": "Ibis Budget",
+      "companyKey": "accor",
+      "companyDomain": "careers.accor.com",
+      "title": "Housekeeping Villa Attendant | Full-Time",
+      "titleByLocale": {
+        "fr": "Housekeeping Villa Attendant | Full-Time",
+        "it": "Housekeeping Villa Attendant | Tempo pieno",
+        "en": "Housekeeping Villa Attendant | Full-Time",
+        "de": "Housekeeping Villa Attendant | Vollzeit"
+      },
+      "description": "Housekeeping Villa Attendant | Full-Time — Ibis Budget",
+      "descriptionByLocale": {
+        "fr": "Housekeeping Villa Attendant | Full-Time — Ibis Budget"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://careers.accor.com/fr/fr/job/housekeeping-villa-attendant-full-time-in-fairmont-kea-lani-maui-wailea-makena-united-states-jid-107817",
+      "source": "Ibis Budget Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-27T00:51:59.990Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://careers.accor.com/fr/fr/job/housekeeping-villa-attendant-full-time-in-fairmont-kea-lani-maui-wailea-makena-united-states-jid-107817",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-27T00:51:59.990Z"
+    },
+    {
       "id": "accor-8e1b061e7f6d",
-      "slug": "front-office-team-leader-accor-ch",
+      "slug": "front-office-capo-squadra-ibis-budget-lugano",
       "slugByLocale": {
         "de": "front-office-team-leader-accor-ch",
-        "it": "front-office-team-leader-accor-ch",
+        "it": "front-office-capo-squadra-ibis-budget-lugano",
         "en": "front-office-team-leader-accor-ch",
         "fr": "front-office-team-leader-accor-ch"
       },
@@ -61,7 +305,16 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-26T10:11:31.947Z"
+      "firstSeenAt": "2026-08-26T10:11:31.947Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "front-office-team-leader-accor-ch"
+        ]
+      },
+      "previousSlugs": [
+        "front-office-team-leader-accor-ch"
+      ],
+      "crawlerMissStreak": 1
     },
     {
       "id": "accor-d2b922c2d026",
@@ -122,7 +375,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-26T10:11:31.644Z"
+      "firstSeenAt": "2026-08-26T10:11:31.644Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "accor-50a3b8758458",
@@ -183,7 +437,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-26T10:11:31.342Z"
+      "firstSeenAt": "2026-08-26T10:11:31.342Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "accor-1fcb71295339",
@@ -244,7 +499,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-26T10:11:30.735Z"
+      "firstSeenAt": "2026-08-26T10:11:30.735Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "accor-a05485afb5cb",
@@ -305,7 +561,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-26T10:11:29.827Z"
+      "firstSeenAt": "2026-08-26T10:11:29.827Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "accor-94e397ecab53",
@@ -366,7 +623,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-26T10:11:29.523Z"
+      "firstSeenAt": "2026-08-26T10:11:29.523Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "accor-fce7690b5e39",
@@ -374,8 +632,8 @@
       "slugByLocale": {
         "en": "facility-quality-manager-accor-ch",
         "it": "facility-quality-manager-accor-ch",
-        "de": "facility-quality-manager-accor-ch",
-        "fr": "facility-quality-manager-accor-ch"
+        "de": "facility-qualitat-manager-ibis-budget-lugano",
+        "fr": "facility-qualite-manager-ibis-budget-lugano"
       },
       "company": "Ibis Budget",
       "companyKey": "accor",
@@ -427,7 +685,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-26T10:11:29.205Z"
+      "firstSeenAt": "2026-08-26T10:11:29.205Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "accor-b8208ecc8378",
@@ -489,7 +748,7 @@
       },
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-25T22:13:28.226Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "previousSlugsByLocale": {
         "it": [
           "assistant-director-of-event-sales-accor-ch"
@@ -559,7 +818,7 @@
       },
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-25T22:13:27.017Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "accor-0a8a74961c69",
@@ -621,7 +880,7 @@
       },
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-25T22:13:26.107Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "accor-bdeb59690655",
@@ -683,7 +942,7 @@
       },
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-25T22:13:25.804Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "accor-647f7d1a6841",
@@ -745,7 +1004,7 @@
       },
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-25T22:13:25.480Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

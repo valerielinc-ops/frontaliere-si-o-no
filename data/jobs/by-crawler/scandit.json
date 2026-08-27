@@ -1,6 +1,6 @@
 {
   "crawlerKey": "scandit",
-  "assembledAt": "2026-08-26T10:17:42.167Z",
+  "assembledAt": "2026-08-27T00:55:59.441Z",
   "jobs": [
     {
       "id": "scandit-fd9be409e48d",
@@ -33,7 +33,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=8093936",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T10:17:37.024Z",
+      "crawledAt": "2026-08-27T00:55:54.481Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -48,6 +48,27 @@
       "applyUrl": "https://www.scandit.com/careers/job-description/?gh_jid=8093936",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "product-manager-shelfview-scandit-ch",
+        "produktmanager-shelfview-scandit-ag-zurich",
+        "gestionnaire-de-produits-shelfview-scandit-ag-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-shelfview-scandit-ch",
+          "produktmanager-shelfview-scandit-ag-zurich",
+          "gestionnaire-de-produits-shelfview-scandit-ag-zurich"
+        ],
+        "en": [
+          "product-manager-shelfview-scandit-ch"
+        ],
+        "de": [
+          "produktmanager-shelfview-scandit-ag-zurich"
+        ],
+        "fr": [
+          "gestionnaire-de-produits-shelfview-scandit-ag-zurich"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-29T11:51:58.923Z",
       "salaryMin": 101500,
@@ -95,7 +116,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=7588975",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T10:17:36.705Z",
+      "crawledAt": "2026-08-27T00:55:54.170Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",

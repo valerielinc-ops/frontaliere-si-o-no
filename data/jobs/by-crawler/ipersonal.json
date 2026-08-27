@@ -1,7 +1,1042 @@
 {
   "crawlerKey": "ipersonal",
-  "assembledAt": "2026-08-25T21:32:46.821Z",
+  "assembledAt": "2026-08-27T00:35:22.866Z",
   "jobs": [
+    {
+      "id": "ipersonal-d36c9d632f2b",
+      "slug": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-st-gallen-e-umgebung-gesucht-ipersonal-ag-lugano",
+      "slugByLocale": {
+        "de": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-st-gallen-und-umgebung",
+        "it": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-st-gallen-e-umgebung-gesucht-ipersonal-ag-lugano",
+        "en": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-st-gallen-und-umgebung",
+        "fr": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-st-gallen-und-umgebung"
+      },
+      "company": "iPersonal AG",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in St. Gallen und Umgebung gesucht",
+      "titleByLocale": {
+        "de": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in St. Gallen und Umgebung gesucht",
+        "it": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in St. Gallen e Umgebung gesucht",
+        "en": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in St. Gallen und Umgebung gesucht",
+        "fr": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in St. Gallen und Umgebung gesucht"
+      },
+      "description": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in St. Gallen und Umgebung gesucht — iPersonal AG",
+      "descriptionByLocale": {
+        "de": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in St. Gallen und Umgebung gesucht — iPersonal AG"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-st-gallen-und-umgebung-gesucht/",
+      "source": "iPersonal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-27T00:35:18.465Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-st-gallen-und-umgebung-gesucht/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-st-gallen-und-umgebung"
+        ]
+      },
+      "previousSlugs": [
+        "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-st-gallen-und-umgebung"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-27T00:35:18.465Z"
+    },
+    {
+      "id": "ipersonal-34db4a37066b",
+      "slug": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-appenzell-e-umgebung-gesucht-ipersonal-ag-lugano",
+      "slugByLocale": {
+        "de": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-appenzell-und-umgebung",
+        "it": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-appenzell-e-umgebung-gesucht-ipersonal-ag-lugano",
+        "en": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-appenzell-und-umgebung",
+        "fr": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-appenzell-und-umgebung"
+      },
+      "company": "iPersonal AG",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Appenzell und Umgebung gesucht",
+      "titleByLocale": {
+        "de": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Appenzell und Umgebung gesucht",
+        "it": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Appenzell e Umgebung gesucht",
+        "en": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Appenzell und Umgebung gesucht",
+        "fr": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Appenzell und Umgebung gesucht"
+      },
+      "description": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Appenzell und Umgebung gesucht — iPersonal AG",
+      "descriptionByLocale": {
+        "de": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Appenzell und Umgebung gesucht — iPersonal AG"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-appenzell-und-umgebung-gesucht/",
+      "source": "iPersonal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-27T00:35:18.163Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-appenzell-und-umgebung-gesucht/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-appenzell-und-umgebung"
+        ]
+      },
+      "previousSlugs": [
+        "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-appenzell-und-umgebung"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-27T00:35:18.163Z"
+    },
+    {
+      "id": "ipersonal-b0c3c4d387c2",
+      "slug": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-gais-e-umgebung-gesucht-ipersonal-ag-lugano",
+      "slugByLocale": {
+        "de": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-gais-und-umgebung",
+        "it": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-gais-e-umgebung-gesucht-ipersonal-ag-lugano",
+        "en": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-gais-und-umgebung",
+        "fr": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-gais-und-umgebung"
+      },
+      "company": "iPersonal AG",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Gais und Umgebung gesucht",
+      "titleByLocale": {
+        "de": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Gais und Umgebung gesucht",
+        "it": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Gais e Umgebung gesucht",
+        "en": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Gais und Umgebung gesucht",
+        "fr": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Gais und Umgebung gesucht"
+      },
+      "description": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Gais und Umgebung gesucht — iPersonal AG",
+      "descriptionByLocale": {
+        "de": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Gais und Umgebung gesucht — iPersonal AG"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-gais-und-umgebung-gesucht/",
+      "source": "iPersonal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-27T00:35:17.860Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-gais-und-umgebung-gesucht/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-gais-und-umgebung"
+        ]
+      },
+      "previousSlugs": [
+        "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-gais-und-umgebung"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-27T00:35:17.860Z"
+    },
+    {
+      "id": "ipersonal-f861d614f2c9",
+      "slug": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-lustmuhle-e-umgebung-gesucht-ipersonal-ag-lugano",
+      "slugByLocale": {
+        "de": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-lustmuhle-und-umgebung",
+        "it": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-lustmuhle-e-umgebung-gesucht-ipersonal-ag-lugano",
+        "en": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-lustmuhle-und-umgebung",
+        "fr": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-lustmuhle-und-umgebung"
+      },
+      "company": "iPersonal AG",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Lustmühle und Umgebung gesucht",
+      "titleByLocale": {
+        "de": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Lustmühle und Umgebung gesucht",
+        "it": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Lustmühle e Umgebung gesucht",
+        "en": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Lustmühle und Umgebung gesucht",
+        "fr": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Lustmühle und Umgebung gesucht"
+      },
+      "description": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Lustmühle und Umgebung gesucht — iPersonal AG",
+      "descriptionByLocale": {
+        "de": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Lustmühle und Umgebung gesucht — iPersonal AG"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-lustmuehle-und-umgebung-gesucht/",
+      "source": "iPersonal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-27T00:35:17.557Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-lustmuehle-und-umgebung-gesucht/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-lustmuhle-und-umgebung"
+        ]
+      },
+      "previousSlugs": [
+        "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-lustmuhle-und-umgebung"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-27T00:35:17.557Z"
+    },
+    {
+      "id": "ipersonal-1182029410e1",
+      "slug": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-herisau-e-umgebung-gesucht-ipersonal-ag-lugano",
+      "slugByLocale": {
+        "de": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-herisau-und-umgebung",
+        "it": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-herisau-e-umgebung-gesucht-ipersonal-ag-lugano",
+        "en": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-herisau-und-umgebung",
+        "fr": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-herisau-und-umgebung"
+      },
+      "company": "iPersonal AG",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Herisau und Umgebung gesucht",
+      "titleByLocale": {
+        "de": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Herisau und Umgebung gesucht",
+        "it": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Herisau e Umgebung gesucht",
+        "en": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Herisau und Umgebung gesucht",
+        "fr": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Herisau und Umgebung gesucht"
+      },
+      "description": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Herisau und Umgebung gesucht — iPersonal AG",
+      "descriptionByLocale": {
+        "de": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Herisau und Umgebung gesucht — iPersonal AG"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-herisau-und-umgebung-gesucht/",
+      "source": "iPersonal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-27T00:35:17.254Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-herisau-und-umgebung-gesucht/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-herisau-und-umgebung"
+        ]
+      },
+      "previousSlugs": [
+        "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-herisau-und-umgebung"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-27T00:35:17.254Z"
+    },
+    {
+      "id": "ipersonal-cf188d74e54d",
+      "slug": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-tubach-e-umgebung-gesucht-ipersonal-ag-lugano",
+      "slugByLocale": {
+        "de": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-tubach-und-umgebung",
+        "it": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-tubach-e-umgebung-gesucht-ipersonal-ag-lugano",
+        "en": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-tubach-und-umgebung",
+        "fr": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-tubach-und-umgebung"
+      },
+      "company": "iPersonal AG",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Tübach und Umgebung gesucht",
+      "titleByLocale": {
+        "de": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Tübach und Umgebung gesucht",
+        "it": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Tübach e Umgebung gesucht",
+        "en": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Tübach und Umgebung gesucht",
+        "fr": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Tübach und Umgebung gesucht"
+      },
+      "description": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Tübach und Umgebung gesucht — iPersonal AG",
+      "descriptionByLocale": {
+        "de": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Tübach und Umgebung gesucht — iPersonal AG"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-tuebach-und-umgebung-gesucht/",
+      "source": "iPersonal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-27T00:35:16.952Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-tuebach-und-umgebung-gesucht/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-tubach-und-umgebung"
+        ]
+      },
+      "previousSlugs": [
+        "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-tubach-und-umgebung"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-27T00:35:16.952Z"
+    },
+    {
+      "id": "ipersonal-6137797f80c5",
+      "slug": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-goldach-e-umgebung-gesucht-ipersonal-ag-lugano",
+      "slugByLocale": {
+        "de": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-goldach-und-umgebung",
+        "it": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-goldach-e-umgebung-gesucht-ipersonal-ag-lugano",
+        "en": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-goldach-und-umgebung",
+        "fr": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-goldach-und-umgebung"
+      },
+      "company": "iPersonal AG",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Goldach und Umgebung gesucht",
+      "titleByLocale": {
+        "de": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Goldach und Umgebung gesucht",
+        "it": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Goldach e Umgebung gesucht",
+        "en": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Goldach und Umgebung gesucht",
+        "fr": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Goldach und Umgebung gesucht"
+      },
+      "description": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Goldach und Umgebung gesucht — iPersonal AG",
+      "descriptionByLocale": {
+        "de": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Goldach und Umgebung gesucht — iPersonal AG"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-goldach-und-umgebung-gesucht/",
+      "source": "iPersonal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-27T00:35:16.647Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-goldach-und-umgebung-gesucht/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-goldach-und-umgebung"
+        ]
+      },
+      "previousSlugs": [
+        "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-goldach-und-umgebung"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-27T00:35:16.647Z"
+    },
+    {
+      "id": "ipersonal-3351658e2221",
+      "slug": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-heiden-e-umgebung-gesucht-ipersonal-ag-lugano",
+      "slugByLocale": {
+        "de": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-heiden-und-umgebung",
+        "it": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-heiden-e-umgebung-gesucht-ipersonal-ag-lugano",
+        "en": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-heiden-und-umgebung",
+        "fr": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-heiden-und-umgebung"
+      },
+      "company": "iPersonal AG",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Heiden und Umgebung gesucht",
+      "titleByLocale": {
+        "de": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Heiden und Umgebung gesucht",
+        "it": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Heiden e Umgebung gesucht",
+        "en": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Heiden und Umgebung gesucht",
+        "fr": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Heiden und Umgebung gesucht"
+      },
+      "description": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Heiden und Umgebung gesucht — iPersonal AG",
+      "descriptionByLocale": {
+        "de": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Heiden und Umgebung gesucht — iPersonal AG"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-heiden-und-umgebung-gesucht/",
+      "source": "iPersonal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-27T00:35:16.343Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-heiden-und-umgebung-gesucht/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-heiden-und-umgebung"
+        ]
+      },
+      "previousSlugs": [
+        "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-heiden-und-umgebung"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-27T00:35:16.343Z"
+    },
+    {
+      "id": "ipersonal-4576e40fe337",
+      "slug": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-lutzenberg-e-umgebung-gesucht-ipersonal-ag-lugano",
+      "slugByLocale": {
+        "de": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-lutzenberg-und-umgebung",
+        "it": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-lutzenberg-e-umgebung-gesucht-ipersonal-ag-lugano",
+        "en": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-lutzenberg-und-umgebung",
+        "fr": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-lutzenberg-und-umgebung"
+      },
+      "company": "iPersonal AG",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Lutzenberg und Umgebung gesucht",
+      "titleByLocale": {
+        "de": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Lutzenberg und Umgebung gesucht",
+        "it": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Lutzenberg e Umgebung gesucht",
+        "en": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Lutzenberg und Umgebung gesucht",
+        "fr": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Lutzenberg und Umgebung gesucht"
+      },
+      "description": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Lutzenberg und Umgebung gesucht — iPersonal AG",
+      "descriptionByLocale": {
+        "de": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Lutzenberg und Umgebung gesucht — iPersonal AG"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-lutzenberg-und-umgebung-gesucht/",
+      "source": "iPersonal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-27T00:35:16.040Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-lutzenberg-und-umgebung-gesucht/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-lutzenberg-und-umgebung"
+        ]
+      },
+      "previousSlugs": [
+        "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-lutzenberg-und-umgebung"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-27T00:35:16.040Z"
+    },
+    {
+      "id": "ipersonal-706579e586e6",
+      "slug": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-walzenhausen-e-umgebung-gesucht-ipersonal-ag-lugano",
+      "slugByLocale": {
+        "de": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-walzenhausen-und",
+        "it": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-walzenhausen-e-umgebung-gesucht-ipersonal-ag-lugano",
+        "en": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-walzenhausen-und",
+        "fr": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-walzenhausen-und"
+      },
+      "company": "iPersonal AG",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Walzenhausen und Umgebung gesucht",
+      "titleByLocale": {
+        "de": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Walzenhausen und Umgebung gesucht",
+        "it": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Walzenhausen e Umgebung gesucht",
+        "en": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Walzenhausen und Umgebung gesucht",
+        "fr": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Walzenhausen und Umgebung gesucht"
+      },
+      "description": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Walzenhausen und Umgebung gesucht — iPersonal AG",
+      "descriptionByLocale": {
+        "de": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Walzenhausen und Umgebung gesucht — iPersonal AG"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-walzenhausen-und-umgebung-gesucht/",
+      "source": "iPersonal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-27T00:35:15.736Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-walzenhausen-und-umgebung-gesucht/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-walzenhausen-und"
+        ]
+      },
+      "previousSlugs": [
+        "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-walzenhausen-und"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-27T00:35:15.736Z"
+    },
+    {
+      "id": "ipersonal-fb4d806189e1",
+      "slug": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-heerbrugg-e-umgebung-gesucht-ipersonal-ag-lugano",
+      "slugByLocale": {
+        "de": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-heerbrugg-und-umgebung",
+        "it": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-heerbrugg-e-umgebung-gesucht-ipersonal-ag-lugano",
+        "en": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-heerbrugg-und-umgebung",
+        "fr": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-heerbrugg-und-umgebung"
+      },
+      "company": "iPersonal AG",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Heerbrugg und Umgebung gesucht",
+      "titleByLocale": {
+        "de": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Heerbrugg und Umgebung gesucht",
+        "it": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Heerbrugg e Umgebung gesucht",
+        "en": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Heerbrugg und Umgebung gesucht",
+        "fr": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Heerbrugg und Umgebung gesucht"
+      },
+      "description": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Heerbrugg und Umgebung gesucht — iPersonal AG",
+      "descriptionByLocale": {
+        "de": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Heerbrugg und Umgebung gesucht — iPersonal AG"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-heerbrugg-und-umgebung-gesucht/",
+      "source": "iPersonal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-27T00:35:15.434Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-heerbrugg-und-umgebung-gesucht/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-heerbrugg-und-umgebung"
+        ]
+      },
+      "previousSlugs": [
+        "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-heerbrugg-und-umgebung"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-27T00:35:15.434Z"
+    },
+    {
+      "id": "ipersonal-3aa4921e1b27",
+      "slug": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-altstatten-e-umgebung-gesucht-ipersonal-ag-lugano",
+      "slugByLocale": {
+        "de": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-altstatten-und-umgebung",
+        "it": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-altstatten-e-umgebung-gesucht-ipersonal-ag-lugano",
+        "en": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-altstatten-und-umgebung",
+        "fr": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-altstatten-und-umgebung"
+      },
+      "company": "iPersonal AG",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Altstätten und Umgebung gesucht",
+      "titleByLocale": {
+        "de": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Altstätten und Umgebung gesucht",
+        "it": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Altstätten e Umgebung gesucht",
+        "en": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Altstätten und Umgebung gesucht",
+        "fr": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Altstätten und Umgebung gesucht"
+      },
+      "description": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Altstätten und Umgebung gesucht — iPersonal AG",
+      "descriptionByLocale": {
+        "de": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Altstätten und Umgebung gesucht — iPersonal AG"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-altstaetten-und-umgebung-gesucht/",
+      "source": "iPersonal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-27T00:35:15.130Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-altstaetten-und-umgebung-gesucht/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-altstatten-und-umgebung"
+        ]
+      },
+      "previousSlugs": [
+        "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-altstatten-und-umgebung"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-27T00:35:15.130Z"
+    },
+    {
+      "id": "ipersonal-b8212b206a83",
+      "slug": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-vaduz-e-umgebung-gesucht-ipersonal-ag-lugano",
+      "slugByLocale": {
+        "de": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-vaduz-und-umgebung",
+        "it": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-vaduz-e-umgebung-gesucht-ipersonal-ag-lugano",
+        "en": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-vaduz-und-umgebung",
+        "fr": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-vaduz-und-umgebung"
+      },
+      "company": "iPersonal AG",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Vaduz und Umgebung gesucht",
+      "titleByLocale": {
+        "de": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Vaduz und Umgebung gesucht",
+        "it": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Vaduz e Umgebung gesucht",
+        "en": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Vaduz und Umgebung gesucht",
+        "fr": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Vaduz und Umgebung gesucht"
+      },
+      "description": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Vaduz und Umgebung gesucht — iPersonal AG",
+      "descriptionByLocale": {
+        "de": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Vaduz und Umgebung gesucht — iPersonal AG"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-vaduz-und-umgebung-gesucht/",
+      "source": "iPersonal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-27T00:35:14.824Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-vaduz-und-umgebung-gesucht/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-vaduz-und-umgebung"
+        ]
+      },
+      "previousSlugs": [
+        "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-vaduz-und-umgebung"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-27T00:35:14.824Z"
+    },
+    {
+      "id": "ipersonal-f7c65989c938",
+      "slug": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-wil-e-umgebung-gesucht-ipersonal-ag-lugano",
+      "slugByLocale": {
+        "de": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-wil-und-umgebung-gesucht",
+        "it": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-wil-e-umgebung-gesucht-ipersonal-ag-lugano",
+        "en": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-wil-und-umgebung-gesucht",
+        "fr": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-wil-und-umgebung-gesucht"
+      },
+      "company": "iPersonal AG",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Wil und Umgebung gesucht",
+      "titleByLocale": {
+        "de": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Wil und Umgebung gesucht",
+        "it": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Wil e Umgebung gesucht",
+        "en": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Wil und Umgebung gesucht",
+        "fr": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Wil und Umgebung gesucht"
+      },
+      "description": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Wil und Umgebung gesucht — iPersonal AG",
+      "descriptionByLocale": {
+        "de": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Wil und Umgebung gesucht — iPersonal AG"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-wil-und-umgebung-gesucht/",
+      "source": "iPersonal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-27T00:35:14.520Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-wil-und-umgebung-gesucht/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-wil-und-umgebung-gesucht"
+        ]
+      },
+      "previousSlugs": [
+        "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-wil-und-umgebung-gesucht"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-27T00:35:14.520Z"
+    },
+    {
+      "id": "ipersonal-f6294af995ce",
+      "slug": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-littenheid-e-umgebung-gesucht-ipersonal-ag-lugano",
+      "slugByLocale": {
+        "de": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-littenheid-und-umgebung",
+        "it": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-littenheid-e-umgebung-gesucht-ipersonal-ag-lugano",
+        "en": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-littenheid-und-umgebung",
+        "fr": "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-littenheid-und-umgebung"
+      },
+      "company": "iPersonal AG",
+      "companyKey": "ipersonal",
+      "companyDomain": "med-ipersonal.ch",
+      "title": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Littenheid und Umgebung gesucht",
+      "titleByLocale": {
+        "de": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Littenheid und Umgebung gesucht",
+        "it": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Littenheid e Umgebung gesucht",
+        "en": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Littenheid und Umgebung gesucht",
+        "fr": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Littenheid und Umgebung gesucht"
+      },
+      "description": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Littenheid und Umgebung gesucht — iPersonal AG",
+      "descriptionByLocale": {
+        "de": "Advanced Practice Nurse (APN) – Master of Science in Pflege 80-100% in Littenheid und Umgebung gesucht — iPersonal AG"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-littenheid-und-umgebung-gesucht/",
+      "source": "iPersonal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-27T00:35:14.202Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-littenheid-und-umgebung-gesucht/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-littenheid-und-umgebung"
+        ]
+      },
+      "previousSlugs": [
+        "advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-littenheid-und-umgebung"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-27T00:35:14.202Z"
+    },
     {
       "id": "ipersonal-b27c795f178e",
       "slug": "fachfrau-fachmann-gesundheit-cfc-fage-spitex-80-100-in-horgen-e-umgebung-gesucht-selbststandige-pflege-e-betreuung-zu-hause-ipersonal-ag-lugano",
@@ -181,14 +1216,15 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:32:42.263Z"
+      "firstSeenAt": "2026-08-25T21:32:42.263Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "ipersonal-a34db686f03e",
-      "slug": "fachmann-fachfrau-gesundheit-efz-m-w-d-80-100-in-tschugg-gesucht-ipersonal-ch",
+      "slug": "fachmann-fachfrau-gesundheit-cfc-m-w-d-80-100-in-tschugg-gesucht-ipersonal-ag-lugano",
       "slugByLocale": {
         "de": "fachmann-fachfrau-gesundheit-efz-m-w-d-80-100-in-tschugg-gesucht-ipersonal-ch",
-        "it": "fachmann-fachfrau-gesundheit-efz-m-w-d-80-100-in-tschugg-gesucht-ipersonal-ch",
+        "it": "fachmann-fachfrau-gesundheit-cfc-m-w-d-80-100-in-tschugg-gesucht-ipersonal-ag-lugano",
         "en": "fachmann-fachfrau-gesundheit-efz-m-w-d-80-100-in-tschugg-gesucht-ipersonal-ch",
         "fr": "fachmann-fachfrau-gesundheit-efz-m-w-d-80-100-in-tschugg-gesucht-ipersonal-ch"
       },
@@ -242,7 +1278,16 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:32:41.960Z"
+      "firstSeenAt": "2026-08-25T21:32:41.960Z",
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "fachmann-fachfrau-gesundheit-efz-m-w-d-80-100-in-tschugg-gesucht-ipersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachmann-fachfrau-gesundheit-efz-m-w-d-80-100-in-tschugg-gesucht-ipersonal-ch"
+      ]
     },
     {
       "id": "ipersonal-ea24144b69aa",
@@ -306,7 +1351,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:32:41.655Z"
+      "firstSeenAt": "2026-08-25T21:32:41.655Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "ipersonal-475837cf0676",
@@ -375,7 +1421,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:32:41.353Z"
+      "firstSeenAt": "2026-08-25T21:32:41.353Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "ipersonal-b2ec84d800cd",
@@ -447,7 +1494,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:32:41.050Z"
+      "firstSeenAt": "2026-08-25T21:32:41.050Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "ipersonal-ddbb3c10e6a9",
@@ -508,7 +1556,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:32:40.748Z"
+      "firstSeenAt": "2026-08-25T21:32:40.748Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "ipersonal-bfba20497dd2",
@@ -569,16 +1618,17 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:32:40.443Z"
+      "firstSeenAt": "2026-08-25T21:32:40.443Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "ipersonal-c1960ba4c141",
-      "slug": "pflegefachfrau-pflegefachmann-hf-dn1-jobs-ormalingen-deine-erfahrung-zahlt-ipersonal-ch",
+      "slug": "specialista-infermieristico-hf-dn1-jobs-ormalingen-la-tua-esperienza-conta-ipersonal-ag-lugano",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-hf-dn1-jobs-ormalingen-deine-erfahrung-zahlt-ipersonal-ch",
-        "it": "pflegefachfrau-pflegefachmann-hf-dn1-jobs-ormalingen-deine-erfahrung-zahlt-ipersonal-ch",
-        "en": "pflegefachfrau-pflegefachmann-hf-dn1-jobs-ormalingen-deine-erfahrung-zahlt-ipersonal-ch",
-        "fr": "pflegefachfrau-pflegefachmann-hf-dn1-jobs-ormalingen-deine-erfahrung-zahlt-ipersonal-ch"
+        "it": "specialista-infermieristico-hf-dn1-jobs-ormalingen-la-tua-esperienza-conta-ipersonal-ag-lugano",
+        "en": "nursing-specialist-hf-dn1-jobs-ormalingen-your-experience-counts-ipersonal-ag-lugano",
+        "fr": "specialiste-des-soins-infirmiers-hf-dn1-emploi-ormalingen-votre-experience-compte-ipersonal-ag-lugano"
       },
       "company": "iPersonal AG",
       "companyKey": "ipersonal",
@@ -586,9 +1636,9 @@
       "title": "Pflegefachfrau Pflegefachmann HF DN1 Jobs Ormalingen – Deine Erfahrung zählt",
       "titleByLocale": {
         "de": "Pflegefachfrau Pflegefachmann HF DN1 Jobs Ormalingen – Deine Erfahrung zählt",
-        "it": "Pflegefachfrau Pflegefachmann HF DN1 Jobs Ormalingen – Deine Erfahrung zählt",
-        "en": "Pflegefachfrau Pflegefachmann HF DN1 Jobs Ormalingen – Deine Erfahrung zählt",
-        "fr": "Pflegefachfrau Pflegefachmann HF DN1 Jobs Ormalingen – Deine Erfahrung zählt"
+        "it": "Specialista infermieristico HF DN1 Jobs Ormalingen – La tua esperienza conta",
+        "en": "Nursing specialist HF DN1 Jobs Ormalingen – Your experience counts",
+        "fr": "Spécialiste des soins infirmiers HF DN1 Emploi Ormalingen – Votre expérience compte"
       },
       "description": "Pflegefachfrau Pflegefachmann HF DN1 Jobs Ormalingen – Deine Erfahrung zählt — iPersonal AG",
       "descriptionByLocale": {
@@ -630,7 +1680,22 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:32:40.140Z"
+      "firstSeenAt": "2026-08-25T21:32:40.140Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-hf-dn1-jobs-ormalingen-deine-erfahrung-zahlt-ipersonal-ch"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-hf-dn1-jobs-ormalingen-deine-erfahrung-zahlt-ipersonal-ch"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-hf-dn1-jobs-ormalingen-deine-erfahrung-zahlt-ipersonal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-hf-dn1-jobs-ormalingen-deine-erfahrung-zahlt-ipersonal-ch"
+      ],
+      "crawlerMissStreak": 1
     },
     {
       "id": "ipersonal-fa4cd6235c26",
@@ -699,7 +1764,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:32:39.838Z"
+      "firstSeenAt": "2026-08-25T21:32:39.838Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "ipersonal-16035904c083",
@@ -768,7 +1834,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:32:39.535Z"
+      "firstSeenAt": "2026-08-25T21:32:39.535Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "ipersonal-232ef5746661",
@@ -840,7 +1907,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:32:39.232Z"
+      "firstSeenAt": "2026-08-25T21:32:39.232Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "ipersonal-205bc23eb0cc",
@@ -910,7 +1978,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:32:38.928Z"
+      "firstSeenAt": "2026-08-25T21:32:38.928Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "ipersonal-701c0831ef2a",
@@ -979,7 +2048,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:32:38.625Z"
+      "firstSeenAt": "2026-08-25T21:32:38.625Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "ipersonal-701b318e1f6c",
@@ -987,8 +2057,8 @@
       "slugByLocale": {
         "de": "dipl-fachfrau-mann-operationstechnik-hf-80-100-fur-arlesheim-gesucht-spezialisiere-dich",
         "it": "dipl-fachfrau-mann-operationstechnik-hf-80-100-per-arlesheim-gesucht-spezialisiere-dich-auf-prazision-e-sicherheit-im-op-ipersonal-ag-lugano",
-        "en": "dipl-fachfrau-mann-operationstechnik-hf-80-100-fur-arlesheim-gesucht-spezialisiere-dich",
-        "fr": "dipl-fachfrau-mann-operationstechnik-hf-80-100-fur-arlesheim-gesucht-spezialisiere-dich"
+        "en": "dipl-specialist-surgical-technology-hf-80-100-sought-for-arlesheim-specialize-in-precision-and-safety-in-the-or",
+        "fr": "dipl-technologie-chirurgicale-specialisee-hf-80-100-recherchee-pour-arlesheim-specialisee-en-precision-et-securite-dans"
       },
       "company": "iPersonal AG",
       "companyKey": "ipersonal",
@@ -997,15 +2067,15 @@
       "titleByLocale": {
         "de": "Dipl. Fachfrau/mann Operationstechnik HF 80-100% für Arlesheim gesucht – Spezialisiere dich auf Präzision und Sicherheit im OP",
         "it": "Dipl. Fachfrau/mann Operationstechnik HF 80-100% per Arlesheim gesucht – Spezialisiere dich auf Präzision e Sicherheit im OP",
-        "en": "Dipl. Fachfrau/mann Operationstechnik HF 80-100% für Arlesheim gesucht – Spezialisiere dich auf Präzision und Sicherheit im OP",
-        "fr": "Dipl. Fachfrau/mann Operationstechnik HF 80-100% für Arlesheim gesucht – Spezialisiere dich auf Präzision und Sicherheit im OP"
+        "en": "Dipl. Specialist surgical technology HF 80-100% sought for Arlesheim – Specialize in precision and safety in the OR",
+        "fr": "Dipl. Technologie chirurgicale spécialisée HF 80-100% recherchée pour Arlesheim – Spécialisée en précision et sécurité dans le OR"
       },
       "description": "Dipl. Fachfrau/mann Operationstechnik HF 80-100% für Arlesheim gesucht – Spezialisiere dich auf Präzision und Sicherheit im OP — iPersonal AG",
       "descriptionByLocale": {
         "de": "Dipl. Fachfrau/mann Operationstechnik HF 80-100% für Arlesheim gesucht – Spezialisiere dich auf Präzision und Sicherheit im OP — iPersonal AG",
-        "it": "Dipl. Fachfrau/mann Operationstechnik HF 80-100% für Arlesheim gesucht – Spezialisiere dich auf Präzision und Sicherheit im OP — iPersonal AG",
-        "en": "Dipl. Fachfrau/mann Operationstechnik HF 80-100% für Arlesheim gesucht – Spezialisiere dich auf Präzision und Sicherheit im OP — iPersonal AG",
-        "fr": "Dipl. Fachfrau/mann Operationstechnik HF 80-100% für Arlesheim gesucht – Spezialisiere dich auf Präzision und Sicherheit im OP — iPersonal AG"
+        "it": "Dipl. Tecnologia chirurgica specialistica HF 80-100% ricercato per Arlesheim – Specializzare in precisione e sicurezza nella sala operatoria — iPersonal AG",
+        "en": "Dipl. Specialist surgical technology HF 80-100% sought for Arlesheim – Specialize in precision and safety in the operating room — iPersonal AG",
+        "fr": "Dipl. Technologie chirurgicale spécialisée HF 80-100% recherchée pour Arlesheim – Spécialisée en précision et sécurité dans la salle d'opération — iPersonal AG"
       },
       "location": "Lugano",
       "canton": "TI",
@@ -1039,13 +2109,15 @@
           "dipl-technique-chirurgicale-specialisee-hf-80-100-recherchee-pour-murten-specialisee-en-precision-et-securite-dans-le-or"
         ],
         "en": [
-          "dipl-specialist-surgical-technique-hf-80-100-sought-for-murten-specialize-in-precision-and-safety-in-the-or-ipersonal-ag"
+          "dipl-specialist-surgical-technique-hf-80-100-sought-for-murten-specialize-in-precision-and-safety-in-the-or-ipersonal-ag",
+          "dipl-fachfrau-mann-operationstechnik-hf-80-100-fur-arlesheim-gesucht-spezialisiere-dich"
         ],
         "de": [
           "dipl-fachfrau-mann-operationstechnik-hf-80-100-fur-murten-gesucht-spezialisiere-dich-auf"
         ],
         "fr": [
-          "dipl-technique-chirurgicale-specialisee-hf-80-100-recherchee-pour-murten-specialisee-en-precision-et-securite-dans-le-or"
+          "dipl-technique-chirurgicale-specialisee-hf-80-100-recherchee-pour-murten-specialisee-en-precision-et-securite-dans-le-or",
+          "dipl-fachfrau-mann-operationstechnik-hf-80-100-fur-arlesheim-gesucht-spezialisiere-dich"
         ]
       },
       "previousSlugs": [
@@ -1068,7 +2140,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:32:38.323Z"
+      "firstSeenAt": "2026-08-25T21:32:38.323Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "ipersonal-9c12c623b1a9",
@@ -1137,7 +2210,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:32:38.000Z"
+      "firstSeenAt": "2026-08-25T21:32:38.000Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "ipersonal-811f0f2f2fe0",
@@ -1156,14 +2230,14 @@
         "en": "Dipl. Fachfrau/Fachmann Operationstechnik HF 80-100% in Gommiswald gesucht – Präzision und Verantwortung im OP",
         "de": "Dipl. Fachfrau/Fachmann Operationstechnik HF 80-100% in Gommiswald gesucht – Präzision und Verantwortung im OP",
         "it": "Dipl. Fachfrau/Fachmann Operationstechnik HF 80-100% in Gommiswald gesucht – Präzision e Verantwortung im OP",
-        "fr": "Dipl. Fachfrau/Fachmann Operationstechnik HF 80-100% in Gommiswald gesucht – Präzision und Verantwortung im OP"
+        "fr": "Dipl. Fachfrau/Fachmann Operationstechnik HF 80-100% dans Gommiswald gesucht – Präzision und Verantwortung im OP"
       },
       "description": "Dipl. Fachfrau/Fachmann Operationstechnik HF 80-100% in Gommiswald gesucht – Präzision und Verantwortung im OP — iPersonal AG",
       "descriptionByLocale": {
         "en": "Dipl. Fachfrau/Fachmann Operationstechnik HF 80-100% in Gommiswald gesucht – Präzision und Verantwortung im OP — iPersonal AG",
         "it": "Dipl. Fachfrau/Fachmann Operationstechnik HF 80-100% in Gommiswald gesucht – Präzision und Verantwortung im OP — iPersonal AG",
         "de": "Dipl. Fachfrau/Fachmann Operationstechnik HF 80-100% in Gommiswald gesucht – Präzision und Verantwortung im OP — iPersonal AG",
-        "fr": "Dipl. Fachfrau/Fachmann Operationstechnik HF 80-100% in Gommiswald gesucht – Präzision und Verantwortung im OP — iPersonal AG"
+        "fr": "Dipl. Fachfrau/Fachmann Operationstechnik HF 80-100% dans Gommiswald gesucht – Präzision und Verantwortung im OP — iPersonal AG"
       },
       "location": "Lugano",
       "canton": "TI",
@@ -1217,7 +2291,7 @@
       },
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-25T09:45:52.723Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "ipersonal-ed0cb036e35c",
@@ -1290,7 +2364,7 @@
       },
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-25T09:45:52.421Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "ipersonal-ceef7daea20b",
@@ -1352,7 +2426,7 @@
       },
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-25T09:45:52.119Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "ipersonal-533b622a4682",
@@ -1360,8 +2434,8 @@
       "slugByLocale": {
         "de": "dipl-expertin-experte-intensivpflege-nds-80-100-fur-ruegsauschachen-gesucht-hochste",
         "it": "dipl-expertin-experte-intensivpflege-nds-80-100-per-ruegsauschachen-gesucht-hochste-qualitat-in-der-intensivpflege-ipersonal-ag-lugano",
-        "en": "dipl-expertin-experte-intensivpflege-nds-80-100-fur-ruegsauschachen-gesucht-hochste",
-        "fr": "dipl-expertin-experte-intensivpflege-nds-80-100-fur-ruegsauschachen-gesucht-hochste"
+        "en": "dipl-expert-expert-intensive-care-nds-80-100-wanted-for-ruegsauschachen-highest-quality-in-intensive-care-ipersonal-ag",
+        "fr": "dipl-expert-expert-soins-intensifs-nds-80-100-recherche-pour-ruegsauschachen-la-plus-haute-qualite-en-soins-intensifs"
       },
       "company": "iPersonal AG",
       "companyKey": "ipersonal",
@@ -1370,15 +2444,15 @@
       "titleByLocale": {
         "de": "Dipl. Expertin / Experte Intensivpflege NDS 80-100% für Rüegsauschachen gesucht – Höchste Qualität in der Intensivpflege",
         "it": "Dipl. Expertin / Experte Intensivpflege NDS 80-100% per Rüegsauschachen gesucht – Höchste Qualität in der Intensivpflege",
-        "en": "Dipl. Expertin / Experte Intensivpflege NDS 80-100% für Rüegsauschachen gesucht – Höchste Qualität in der Intensivpflege",
-        "fr": "Dipl. Expertin / Experte Intensivpflege NDS 80-100% für Rüegsauschachen gesucht – Höchste Qualität in der Intensivpflege"
+        "en": "Dipl. Expert / Expert Intensive Care NDS 80-100% wanted for Rüegsauschachen – Highest quality in intensive care",
+        "fr": "Dipl. Expert / Expert soins intensifs NDS 80-100% recherché pour Rüegsauschachen – La plus haute qualité en soins intensifs"
       },
       "description": "Dipl. Expertin / Experte Intensivpflege NDS 80-100% für Rüegsauschachen gesucht – Höchste Qualität in der Intensivpflege — iPersonal AG",
       "descriptionByLocale": {
         "de": "Dipl. Expertin / Experte Intensivpflege NDS 80-100% für Rüegsauschachen gesucht – Höchste Qualität in der Intensivpflege — iPersonal AG",
-        "it": "Dipl. Expertin / Experte Intensivpflege NDS 80-100% für Rüegsauschachen gesucht – Höchste Qualität in der Intensivpflege — iPersonal AG",
-        "en": "Dipl. Expertin / Experte Intensivpflege NDS 80-100% für Rüegsauschachen gesucht – Höchste Qualität in der Intensivpflege — iPersonal AG",
-        "fr": "Dipl. Expertin / Experte Intensivpflege NDS 80-100% für Rüegsauschachen gesucht – Höchste Qualität in der Intensivpflege — iPersonal AG"
+        "it": "Dipl. Expert / Expert Intensive Care NDS 80-100% voluto per Rüegsauschachen – Alta qualità in terapia intensiva — iPersonal AG",
+        "en": "Dipl. Expert / Expert Intensive Care NDS 80-100% wanted for Rüegsauschachen – Highest quality in intensive care — iPersonal AG",
+        "fr": "Dipl. Expert / Expert Soins intensifs NDS 80-100% recherché pour Rüegsauschachen – La meilleure qualité en soins intensifs — iPersonal AG"
       },
       "location": "Lugano",
       "canton": "TI",
@@ -1410,7 +2484,11 @@
           "dipl-expertin-experte-intensivpflege-nds-80-100-fur-tschugg-gesucht-hochste-qualitat-in"
         ],
         "fr": [
-          "dipl-expertin-experte-intensivpflege-nds-80-100-fur-tschugg-gesucht-hochste-qualitat-in"
+          "dipl-expertin-experte-intensivpflege-nds-80-100-fur-tschugg-gesucht-hochste-qualitat-in",
+          "dipl-expertin-experte-intensivpflege-nds-80-100-fur-ruegsauschachen-gesucht-hochste"
+        ],
+        "en": [
+          "dipl-expertin-experte-intensivpflege-nds-80-100-fur-ruegsauschachen-gesucht-hochste"
         ]
       },
       "previousSlugs": [
@@ -1432,7 +2510,7 @@
       },
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-25T09:45:51.816Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "ipersonal-e8baa4d18964",
@@ -1519,7 +2597,7 @@
       },
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-25T09:45:51.514Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "ipersonal-f32dbca17554",
@@ -1527,8 +2605,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-80-100-in-baretswil",
         "it": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-80-100-in-baretswil",
-        "en": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-80-100-in-baretswil",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-80-100-in-baretswil"
+        "en": "dipl-nursing-specialist-fh-bachelor-of-science-in-nursing-80-100-sought-in-barentswil-and-surrounding-area-scientific",
+        "fr": "dipl-specialiste-des-soins-infirmiers-fh-bachelor-of-science-in-nursing-80-100-recherche-a-barentswil-et-dans-les"
       },
       "company": "iPersonal AG",
       "companyKey": "ipersonal",
@@ -1537,15 +2615,15 @@
       "titleByLocale": {
         "de": "Dipl. Pflegefachfrau/Pflegefachmann FH (Bachelor of Science in Pflege) 80-100% in Bäretswil und Umgebung gesucht – Wissenschaftliche Kompetenz für eine exzellente Pflege",
         "it": "Dipl. Pflegefachfrau/Pflegefachmann FH (Bachelor of Science in Pflege) 80-100% in Bäretswil e Umgebung gesucht – Wissenschaftliche Kompetenz per eine exzellente Pflege",
-        "en": "Dipl. Pflegefachfrau/Pflegefachmann FH (Bachelor of Science in Pflege) 80-100% in Bäretswil und Umgebung gesucht – Wissenschaftliche Kompetenz für eine exzellente Pflege",
-        "fr": "Dipl. Pflegefachfrau/Pflegefachmann FH (Bachelor of Science in Pflege) 80-100% in Bäretswil und Umgebung gesucht – Wissenschaftliche Kompetenz für eine exzellente Pflege"
+        "en": "Dipl. Nursing specialist FH (Bachelor of Science in Nursing) 80-100% sought in Bärentswil and surrounding area – Scientific competence for excellent care",
+        "fr": "Dipl. Spécialiste des soins infirmiers FH (Bachelor of Science in Nursing) 80-100% recherché à Bärentswil et dans les environs – Compétence scientifique pour d'excellents soins"
       },
       "description": "Dipl. Pflegefachfrau/Pflegefachmann FH (Bachelor of Science in Pflege) 80-100% in Bäretswil und Umgebung gesucht – Wissenschaftliche Kompetenz für eine exzellente Pflege — iPersonal AG",
       "descriptionByLocale": {
         "de": "Dipl. Pflegefachfrau/Pflegefachmann FH (Bachelor of Science in Pflege) 80-100% in Bäretswil und Umgebung gesucht – Wissenschaftliche Kompetenz für eine exzellente Pflege — iPersonal AG",
-        "it": "Dipl. Pflegefachfrau/Pflegefachmann FH (Bachelor of Science in Pflege) 80-100% in Bäretswil und Umgebung gesucht – Wissenschaftliche Kompetenz für eine exzellente Pflege — iPersonal AG",
-        "en": "Dipl. Pflegefachfrau/Pflegefachmann FH (Bachelor of Science in Pflege) 80-100% in Bäretswil und Umgebung gesucht – Wissenschaftliche Kompetenz für eine exzellente Pflege — iPersonal AG",
-        "fr": "Dipl. Pflegefachfrau/Pflegefachmann FH (Bachelor of Science in Pflege) 80-100% in Bäretswil und Umgebung gesucht – Wissenschaftliche Kompetenz für eine exzellente Pflege — iPersonal AG"
+        "it": "Dipl. Specialista infermieristica FH (Bachelor of Science in Nursing) 80-100% ricercato in Bärentswil e dintorni – Competenza scientifica per un'eccellente cura — iPersonal AG",
+        "en": "Dipl. Nursing specialist FH (Bachelor of Science in Nursing) 80-100% sought in Bärentswil and surrounding area – Scientific competence for excellent care — iPersonal AG",
+        "fr": "Dipl. Spécialiste des soins infirmiers FH (Bachelor of Science in Nursing) 80-100% recherché à Bärentswil et dans les environs – Compétence scientifique pour d'excellents soins — iPersonal AG"
       },
       "location": "Lugano",
       "canton": "TI",
@@ -1584,7 +2662,7 @@
       },
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-25T09:45:51.212Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "ipersonal-f6f6cdb56581",
@@ -1592,8 +2670,8 @@
       "slugByLocale": {
         "de": "facharztin-facharzt-gynakologie-und-geburtshilfe-80-100-in-baretswil-gesucht-ganzheitliche",
         "it": "facharztin-facharzt-gynakologie-e-geburtshilfe-80-100-in-baretswil-gesucht-ganzheitliche-frauenmedizin-con-perspektive-ipersonal-ag-lugano",
-        "en": "facharztin-facharzt-gynakologie-und-geburtshilfe-80-100-in-baretswil-gesucht-ganzheitliche",
-        "fr": "facharztin-facharzt-gynakologie-und-geburtshilfe-80-100-in-baretswil-gesucht-ganzheitliche"
+        "en": "specialist-gynecology-and-obstetrics-80-100-in-barentswil-holistic-women-s-medicine-with-perspective-ipersonal-ag-lugano",
+        "fr": "specialiste-de-la-gynecologie-et-de-l-obstetrique-80-100-en-barentswil-medecine-holistique-des-femmes-avec-perspective"
       },
       "company": "iPersonal AG",
       "companyKey": "ipersonal",
@@ -1602,15 +2680,15 @@
       "titleByLocale": {
         "de": "Fachärztin / Facharzt Gynäkologie und Geburtshilfe (80–100%) in Bäretswil gesucht – Ganzheitliche Frauenmedizin mit Perspektive!",
         "it": "Fachärztin / Facharzt Gynäkologie e Geburtshilfe (80–100%) in Bäretswil gesucht – Ganzheitliche Frauenmedizin con Perspektive!",
-        "en": "Fachärztin / Facharzt Gynäkologie und Geburtshilfe (80–100%) in Bäretswil gesucht – Ganzheitliche Frauenmedizin mit Perspektive!",
-        "fr": "Fachärztin / Facharzt Gynäkologie und Geburtshilfe (80–100%) in Bäretswil gesucht – Ganzheitliche Frauenmedizin mit Perspektive!"
+        "en": "Specialist Gynecology and Obstetrics (80-100%) in Bärentswil Holistic women's medicine with perspective!",
+        "fr": "Spécialiste de la gynécologie et de l'obstétrique (80-100%) en Bärentswil Médecine holistique des femmes avec perspective!"
       },
       "description": "Fachärztin / Facharzt Gynäkologie und Geburtshilfe (80–100%) in Bäretswil gesucht – Ganzheitliche Frauenmedizin mit Perspektive! — iPersonal AG",
       "descriptionByLocale": {
         "de": "Fachärztin / Facharzt Gynäkologie und Geburtshilfe (80–100%) in Bäretswil gesucht – Ganzheitliche Frauenmedizin mit Perspektive! — iPersonal AG",
-        "it": "Fachärztin / Facharzt Gynäkologie und Geburtshilfe (80–100%) in Bäretswil gesucht – Ganzheitliche Frauenmedizin mit Perspektive! — iPersonal AG",
-        "en": "Fachärztin / Facharzt Gynäkologie und Geburtshilfe (80–100%) in Bäretswil gesucht – Ganzheitliche Frauenmedizin mit Perspektive! — iPersonal AG",
-        "fr": "Fachärztin / Facharzt Gynäkologie und Geburtshilfe (80–100%) in Bäretswil gesucht – Ganzheitliche Frauenmedizin mit Perspektive! — iPersonal AG"
+        "it": "Specialista Ginecologia e Ostetricia (80-100%) nella medicina olistica di Bärentswil con prospettiva! — iPersonal AG",
+        "en": "Specialist Gynecology and Obstetrics (80-100%) in Bärentswil Holistic women’s medicine with perspective! — iPersonal AG",
+        "fr": "Spécialiste Gynécologie et obstétrique (80-100%) dans Bärentswil La médecine holistique des femmes avec perspective! — iPersonal AG"
       },
       "location": "Lugano",
       "canton": "TI",
@@ -1638,6 +2716,12 @@
       "previousSlugsByLocale": {
         "it": [
           "facharztin-facharzt-gynakologie-und-geburtshilfe-80-100-in-baretswil-gesucht-ganzheitliche"
+        ],
+        "en": [
+          "facharztin-facharzt-gynakologie-und-geburtshilfe-80-100-in-baretswil-gesucht-ganzheitliche"
+        ],
+        "fr": [
+          "facharztin-facharzt-gynakologie-und-geburtshilfe-80-100-in-baretswil-gesucht-ganzheitliche"
         ]
       },
       "previousSlugs": [
@@ -1657,16 +2741,16 @@
       },
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-25T09:45:50.910Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "ipersonal-92068ef71c71",
-      "slug": "jobs-fachpersonen-langzeitpflege-betreuung-in-neukirch-egnach-jetzt-durchstarten-ipersonal",
+      "slug": "jobs-professionisti-a-lungo-termine-care-care-in-neukirch-egnach-inizia-subito-ipersonal-ag-lugano",
       "slugByLocale": {
         "de": "jobs-fachpersonen-langzeitpflege-betreuung-in-neukirch-egnach-jetzt-durchstarten-ipersonal",
-        "it": "jobs-fachpersonen-langzeitpflege-betreuung-in-neukirch-egnach-jetzt-durchstarten-ipersonal",
-        "en": "jobs-fachpersonen-langzeitpflege-betreuung-in-neukirch-egnach-jetzt-durchstarten-ipersonal",
-        "fr": "jobs-fachpersonen-langzeitpflege-betreuung-in-neukirch-egnach-jetzt-durchstarten-ipersonal"
+        "it": "jobs-professionisti-a-lungo-termine-care-care-in-neukirch-egnach-inizia-subito-ipersonal-ag-lugano",
+        "en": "jobs-professionals-long-term-care-care-in-neukirch-egnach-start-now-ipersonal-ag-lugano",
+        "fr": "emplois-soins-de-longue-duree-et-soins-professionnels-a-neukirch-egnach-commencez-maintenant-ipersonal-ag-lugano"
       },
       "company": "iPersonal AG",
       "companyKey": "ipersonal",
@@ -1674,9 +2758,9 @@
       "title": "Jobs: Fachpersonen Langzeitpflege & Betreuung in Neukirch (Egnach) – Jetzt durchstarten!",
       "titleByLocale": {
         "de": "Jobs: Fachpersonen Langzeitpflege & Betreuung in Neukirch (Egnach) – Jetzt durchstarten!",
-        "it": "Jobs: Fachpersonen Langzeitpflege & Betreuung in Neukirch (Egnach) – Jetzt durchstarten!",
-        "en": "Jobs: Fachpersonen Langzeitpflege & Betreuung in Neukirch (Egnach) – Jetzt durchstarten!",
-        "fr": "Jobs: Fachpersonen Langzeitpflege & Betreuung in Neukirch (Egnach) – Jetzt durchstarten!"
+        "it": "Jobs: Professionisti a lungo termine Care & Care in Neukirch (Egnach) – Inizia subito!",
+        "en": "Jobs: Professionals Long-term Care & Care in Neukirch (Egnach) – Start now!",
+        "fr": "Emplois : Soins de longue durée et soins professionnels à Neukirch (Egnach) – Commencez maintenant!"
       },
       "description": "Jobs: Fachpersonen Langzeitpflege & Betreuung in Neukirch (Egnach) – Jetzt durchstarten! — iPersonal AG",
       "descriptionByLocale": {
@@ -1719,7 +2803,21 @@
       },
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-25T09:45:50.608Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "jobs-fachpersonen-langzeitpflege-betreuung-in-neukirch-egnach-jetzt-durchstarten-ipersonal"
+        ],
+        "en": [
+          "jobs-fachpersonen-langzeitpflege-betreuung-in-neukirch-egnach-jetzt-durchstarten-ipersonal"
+        ],
+        "fr": [
+          "jobs-fachpersonen-langzeitpflege-betreuung-in-neukirch-egnach-jetzt-durchstarten-ipersonal"
+        ]
+      },
+      "previousSlugs": [
+        "jobs-fachpersonen-langzeitpflege-betreuung-in-neukirch-egnach-jetzt-durchstarten-ipersonal"
+      ]
     },
     {
       "id": "ipersonal-8fe69d82f189",
@@ -1744,7 +2842,7 @@
       "descriptionByLocale": {
         "en": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% für Zürich gesucht – Fachkompetenz für sichere Anästhesie — iPersonal AG",
         "it": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% für Zürich gesucht – Fachkompetenz für sichere Anästhesie — iPersonal AG",
-        "de": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% für Zürich gesucht – Fachkompetenz für sichere Anästhesie — iPersonal AG",
+        "de": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% für Zürich gesucht – Fachkompetenz für sichere Anästhesie",
         "fr": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% für Zürich gesucht – Fachkompetenz für sichere Anästhesie — iPersonal AG"
       },
       "location": "Lugano",
@@ -1797,7 +2895,7 @@
       },
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-25T09:45:50.307Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "ipersonal-fe6f7796b86c",
@@ -1862,16 +2960,16 @@
       },
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-25T09:45:50.004Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "ipersonal-0d2d22a7316f",
-      "slug": "allgemeinarzt-allgemeinarztin-80-100-in-einsiedeln-gesucht-verantwortung-im-alltag",
+      "slug": "praticante-generale-80-100-ricercato-in-einsiedeln-assunzione-della-responsabilita-nella-vita-quotidiana-ipersonal-ag",
       "slugByLocale": {
         "de": "allgemeinarzt-allgemeinarztin-80-100-in-einsiedeln-gesucht-verantwortung-im-alltag",
-        "it": "allgemeinarzt-allgemeinarztin-80-100-in-einsiedeln-gesucht-verantwortung-im-alltag",
-        "en": "allgemeinarzt-allgemeinarztin-80-100-in-einsiedeln-gesucht-verantwortung-im-alltag",
-        "fr": "allgemeinarzt-allgemeinarztin-80-100-in-einsiedeln-gesucht-verantwortung-im-alltag"
+        "it": "praticante-generale-80-100-ricercato-in-einsiedeln-assunzione-della-responsabilita-nella-vita-quotidiana-ipersonal-ag",
+        "en": "general-practitioner-80-100-sought-in-einsiedeln-taking-responsibility-in-everyday-life-ipersonal-ag-lugano",
+        "fr": "generaliste-80-100-recherche-dans-einsiedeln-prise-de-responsabilite-dans-la-vie-quotidienne-ipersonal-ag-lugano"
       },
       "company": "iPersonal AG",
       "companyKey": "ipersonal",
@@ -1879,9 +2977,9 @@
       "title": "Allgemeinarzt / Allgemeinärztin (80-100%) in Einsiedeln gesucht – Verantwortung im Alltag übernehmen",
       "titleByLocale": {
         "de": "Allgemeinarzt / Allgemeinärztin (80-100%) in Einsiedeln gesucht – Verantwortung im Alltag übernehmen",
-        "it": "Allgemeinarzt / Allgemeinärztin (80-100%) in Einsiedeln gesucht – Verantwortung im Alltag übernehmen",
-        "en": "Allgemeinarzt / Allgemeinärztin (80-100%) in Einsiedeln gesucht – Verantwortung im Alltag übernehmen",
-        "fr": "Allgemeinarzt / Allgemeinärztin (80-100%) in Einsiedeln gesucht – Verantwortung im Alltag übernehmen"
+        "it": "Praticante generale (80-100%) ricercato in Einsiedeln – Assunzione della responsabilità nella vita quotidiana",
+        "en": "General practitioner (80-100%) sought in Einsiedeln – Taking responsibility in everyday life",
+        "fr": "Généraliste (80-100%) recherché dans Einsiedeln – Prise de responsabilité dans la vie quotidienne"
       },
       "description": "Allgemeinarzt / Allgemeinärztin (80-100%) in Einsiedeln gesucht – Verantwortung im Alltag übernehmen — iPersonal AG",
       "descriptionByLocale": {
@@ -1924,7 +3022,21 @@
       },
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-25T09:45:49.702Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "allgemeinarzt-allgemeinarztin-80-100-in-einsiedeln-gesucht-verantwortung-im-alltag"
+        ],
+        "en": [
+          "allgemeinarzt-allgemeinarztin-80-100-in-einsiedeln-gesucht-verantwortung-im-alltag"
+        ],
+        "fr": [
+          "allgemeinarzt-allgemeinarztin-80-100-in-einsiedeln-gesucht-verantwortung-im-alltag"
+        ]
+      },
+      "previousSlugs": [
+        "allgemeinarzt-allgemeinarztin-80-100-in-einsiedeln-gesucht-verantwortung-im-alltag"
+      ]
     },
     {
       "id": "ipersonal-c1b3cd905603",
@@ -1986,7 +3098,7 @@
       },
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-25T09:45:49.401Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "ipersonal-2f65b917084c",
@@ -2048,7 +3160,7 @@
       },
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-25T09:45:49.099Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "ipersonal-376cfe02986d",
@@ -2067,13 +3179,13 @@
         "de": "Dipl. Expertin/Experte Intensivpflege NDS 80-100% in Gränichen gesucht – Höchste Kompetenz für kritische Situationen",
         "en": "Dipl. Expertin/Experte Intensivpflege NDS 80-100% in Gränichen gesucht – Höchste Kompetenz für kritische Situationen",
         "it": "Dipl. Expertin/Experte Intensivpflege NDS 80-100% in Gränichen gesucht – Höchste Kompetenz per kritische Situationen",
-        "fr": "Dipl. Expertin/Experte Intensivpflege NDS 80-100% in Gränichen gesucht – Höchste Kompetenz für kritische Situationen"
+        "fr": "Dipl. Expertin/Experte Intensivpflege NDS 80-100% à Gränichen gesucht – Höchste Kompetenz für kritische Situationen"
       },
       "description": "Dipl. Expertin/Experte Intensivpflege NDS 80-100% in Gränichen gesucht – Höchste Kompetenz für kritische Situationen — iPersonal AG",
       "descriptionByLocale": {
-        "de": "Dipl. Expertin/Experte Intensivpflege NDS 80-100% in Gränichen gesucht – Höchste Kompetenz für kritische Situationen — iPersonal AG",
+        "de": "Dipl. Expertin/Experte Intensivpflege NDS 80-100% in Gränichen gesucht – Höchste Kompetenz für kritische Situationen",
         "en": "Dipl. Expertin/Experte Intensivpflege NDS 80-100% in Gränichen gesucht – Höchste Kompetenz für kritische Situationen — iPersonal AG",
-        "it": "Dipl. Expertin/Experte Intensivpflege NDS 80-100% in Gränichen gesucht – Höchste Kompetenz für kritische Situationen — iPersonal AG",
+        "it": "Dipl. Expertin/Experte Intensivpflege NDS 80-100% in Gränichen gesucht – Höchste Kompetenz für kritische Situazioneen — iPersonal AG",
         "fr": "Dipl. Expertin/Experte Intensivpflege NDS 80-100% in Gränichen gesucht – Höchste Kompetenz für kritische Situationen — iPersonal AG"
       },
       "location": "Lugano",
@@ -2121,7 +3233,7 @@
       },
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-25T09:45:48.797Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "ipersonal-9ec2848e2f4b",
@@ -2183,1144 +3295,6 @@
       },
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-25T09:45:48.483Z",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "ipersonal-7b5494167f6c",
-      "slug": "dipl-specialista-di-cura-fh-80-100-sta-maria-val-mustair-ha-voluto-fare-una-carriera-ora-ipersonal-ag-lugano",
-      "slugByLocale": {
-        "de": "dipl-pflegefachfrau-mann-fh-80-100-sta-maria-val-mustair-gesucht-jetzt-karriere-machen",
-        "it": "dipl-specialista-di-cura-fh-80-100-sta-maria-val-mustair-ha-voluto-fare-una-carriera-ora-ipersonal-ag-lugano",
-        "en": "dipl-care-specialist-fh-80-100-sta-maria-val-mustair-wanted-make-a-career-now-ipersonal-ag-lugano",
-        "fr": "dipl-specialiste-des-soins-fh-80-100-sta-maria-val-mustair-souhaite-faites-une-carriere-maintenant-ipersonal-ag-lugano"
-      },
-      "company": "iPersonal AG",
-      "companyKey": "ipersonal",
-      "companyDomain": "med-ipersonal.ch",
-      "title": "Dipl. Pflegefachfrau/mann FH 80-100% Sta. Maria Val Müstair gesucht – Jetzt Karriere machen",
-      "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau/mann FH 80-100% Sta. Maria Val Müstair gesucht – Jetzt Karriere machen",
-        "it": "Dipl. Specialista di cura FH 80-100% Sta Maria Val Müstair ha voluto – Fare una carriera ora",
-        "en": "Dipl. Care specialist FH 80-100% Sta Maria Val Müstair wanted – Make a career now",
-        "fr": "Dipl. Spécialiste des soins FH 80-100% Sta Maria Val Müstair souhaité – Faites une carrière maintenant"
-      },
-      "description": "Dipl. Pflegefachfrau/mann FH 80-100% Sta. Maria Val Müstair gesucht – Jetzt Karriere machen — iPersonal AG",
-      "descriptionByLocale": {
-        "de": "Dipl. Pflegefachfrau/mann FH 80-100% Sta. Maria Val Müstair gesucht – Jetzt Karriere machen — iPersonal AG"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://med-ipersonal.ch/jobs/dipl-pflegefachfrau-mann-fh-80-100-sta-maria-val-muestair-gesucht-jetzt-karriere-machen/",
-      "source": "iPersonal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:37:08.324Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-24",
-      "applyUrl": "https://med-ipersonal.ch/jobs/dipl-pflegefachfrau-mann-fh-80-100-sta-maria-val-muestair-gesucht-jetzt-karriere-machen/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachfrau-mann-fh-80-100-sta-maria-val-mustair-gesucht-jetzt-karriere-machen",
-          "dipl-pflegefachfrau-mann-fh-80-100-sta-maria-val-mustair-gesucht-jetzt-karriere-machen-ipersonal-ag-lugano",
-          "dipl-specialista-fh-80-100-sta-maria-val-mustair-ricercato-fai-una-carriera-ora-ipersonal-ag-lugano"
-        ],
-        "en": [
-          "dipl-pflegefachfrau-mann-fh-80-100-sta-maria-val-mustair-gesucht-jetzt-karriere-machen"
-        ],
-        "fr": [
-          "dipl-pflegefachfrau-mann-fh-80-100-sta-maria-val-mustair-gesucht-jetzt-karriere-machen",
-          "dipl-specialiste-des-soins-fh-80-100-sta-maria-val-mustair-veut-faites-une-carriere-maintenant-ipersonal-ag-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-mann-fh-80-100-sta-maria-val-mustair-gesucht-jetzt-karriere-machen",
-        "dipl-pflegefachfrau-mann-fh-80-100-sta-maria-val-mustair-gesucht-jetzt-karriere-machen-ipersonal-ag-lugano",
-        "dipl-specialista-fh-80-100-sta-maria-val-mustair-ricercato-fai-una-carriera-ora-ipersonal-ag-lugano",
-        "dipl-specialiste-des-soins-fh-80-100-sta-maria-val-mustair-veut-faites-une-carriere-maintenant-ipersonal-ag-lugano"
-      ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T21:37:08.324Z",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "ipersonal-db98a2d5a73d",
-      "slug": "anticipo-pratica-infermiera-80-100-cercato-in-andermatt-cura-attivamente-coinvolto-ipersonal-ag-lugano",
-      "slugByLocale": {
-        "de": "advance-practice-nurse-80-100-in-andermatt-gesucht-pflege-aktiv-mitgestalten-ipersonal-ch",
-        "it": "anticipo-pratica-infermiera-80-100-cercato-in-andermatt-cura-attivamente-coinvolto-ipersonal-ag-lugano",
-        "en": "advance-practice-nurse-80-100-sought-in-andermatt-caring-actively-involved-ipersonal-ag-lugano",
-        "fr": "infirmiere-de-pratique-avancee-80-100-recherchee-a-andermatt-caring-activement-implique-ipersonal-ag-lugano"
-      },
-      "company": "iPersonal AG",
-      "companyKey": "ipersonal",
-      "companyDomain": "med-ipersonal.ch",
-      "title": "Advance Practice Nurse 80-100% in Andermatt gesucht – Pflege aktiv mitgestalten",
-      "titleByLocale": {
-        "de": "Advance Practice Nurse 80-100% in Andermatt gesucht – Pflege aktiv mitgestalten",
-        "it": "Anticipo Pratica Infermiera 80-100% cercato in Andermatt – Cura attivamente coinvolto",
-        "en": "Advance Practice Nurse 80-100% sought in Andermatt – Caring actively involved",
-        "fr": "Infirmière de pratique avancée 80-100% recherchée à Andermatt – Caring activement impliqué"
-      },
-      "description": "Advance Practice Nurse 80-100% in Andermatt gesucht – Pflege aktiv mitgestalten — iPersonal AG",
-      "descriptionByLocale": {
-        "de": "Advance Practice Nurse 80-100% in Andermatt gesucht – Pflege aktiv mitgestalten — iPersonal AG"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://med-ipersonal.ch/jobs/advance-practice-nurse-80-100-in-andermatt-gesucht-pflege-aktiv-mitgestalten/",
-      "source": "iPersonal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:37:08.021Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-24",
-      "applyUrl": "https://med-ipersonal.ch/jobs/advance-practice-nurse-80-100-in-andermatt-gesucht-pflege-aktiv-mitgestalten/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T21:37:08.021Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "advance-practice-nurse-80-100-in-andermatt-gesucht-pflege-aktiv-mitgestalten-ipersonal-ch"
-        ],
-        "en": [
-          "advance-practice-nurse-80-100-in-andermatt-gesucht-pflege-aktiv-mitgestalten-ipersonal-ch"
-        ],
-        "fr": [
-          "advance-practice-nurse-80-100-in-andermatt-gesucht-pflege-aktiv-mitgestalten-ipersonal-ch",
-          "infirmiere-de-pratique-avancee-80-100-recherche-a-andermatt-caring-activement-implique-ipersonal-ag-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "advance-practice-nurse-80-100-in-andermatt-gesucht-pflege-aktiv-mitgestalten-ipersonal-ch",
-        "infirmiere-de-pratique-avancee-80-100-recherche-a-andermatt-caring-activement-implique-ipersonal-ag-lugano"
-      ],
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "ipersonal-51b7049c86c1",
-      "slug": "fachfrau-fachmann-langzeitpflege-betreuung-cfc-80-100-in-gunten-gesucht-deine-erfahrung-deine-empathie-dein-neuer-job",
-      "slugByLocale": {
-        "de": "fachfrau-fachmann-langzeitpflege-betreuung-efz-80-100-in-gunten-gesucht-deine-erfahrung",
-        "it": "fachfrau-fachmann-langzeitpflege-betreuung-cfc-80-100-in-gunten-gesucht-deine-erfahrung-deine-empathie-dein-neuer-job",
-        "en": "professional-professional-long-term-care-care-efz-80-100-sought-in-gunten-your-experience-your-empathy-your-new-job",
-        "fr": "soins-et-soins-de-longue-duree-professionnels-efz-80-100-recherches-chez-gunten-votre-experience-votre-empathie-votre"
-      },
-      "company": "iPersonal AG",
-      "companyKey": "ipersonal",
-      "companyDomain": "med-ipersonal.ch",
-      "title": "Fachfrau / Fachmann Langzeitpflege & Betreuung EFZ 80-100% in Gunten gesucht – Deine Erfahrung. Deine Empathie. Dein neuer Job!",
-      "titleByLocale": {
-        "de": "Fachfrau / Fachmann Langzeitpflege & Betreuung EFZ 80-100% in Gunten gesucht – Deine Erfahrung. Deine Empathie. Dein neuer Job!",
-        "it": "Fachfrau / Fachmann Langzeitpflege & Betreuung CFC 80-100% in Gunten gesucht – Deine Erfahrung. Deine Empathie. Dein neuer Job!",
-        "en": "Professional / Professional Long-term Care & Care EFZ 80-100% sought in Gunten – Your experience. Your empathy. Your new job!",
-        "fr": "Soins et soins de longue durée professionnels EFZ 80-100 % recherchés chez Gunten – Votre expérience. Votre empathie. Votre nouveau boulot !"
-      },
-      "description": "Fachfrau / Fachmann Langzeitpflege & Betreuung EFZ 80-100% in Gunten gesucht – Deine Erfahrung. Deine Empathie. Dein neuer Job! — iPersonal AG",
-      "descriptionByLocale": {
-        "de": "Fachfrau / Fachmann Langzeitpflege & Betreuung EFZ 80-100% in Gunten gesucht – Deine Erfahrung. Deine Empathie. Dein neuer Job! — iPersonal AG",
-        "it": "Professionista / Professionale a lungo termine Cura e cura EFZ 80-100% cercato in Gunten – La vostra esperienza. La tua empatia. Il tuo nuovo lavoro! — iPersonal AG",
-        "en": "Professional / Professional Long-term Care & Care EFZ 80-100% sought in Gunten – Your experience. Your empathy. Your new job! — iPersonal AG",
-        "fr": "Soins et soins de longue durée professionnels EFZ 80-100 % recherchés chez Gunten – Votre expérience. Votre empathie. Votre nouveau boulot ! — iPersonal AG"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://med-ipersonal.ch/jobs/fachfrau-fachmann-langzeitpflege-betreuung-efz-80-100-in-gunten-gesucht-deine-erfahrung-deine-empathie-dein-neuer-job/",
-      "source": "iPersonal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:37:07.719Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-24",
-      "applyUrl": "https://med-ipersonal.ch/jobs/fachfrau-fachmann-langzeitpflege-betreuung-efz-80-100-in-gunten-gesucht-deine-erfahrung-deine-empathie-dein-neuer-job/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T21:37:07.719Z",
-      "crawlerMissStreak": 2,
-      "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-fachmann-langzeitpflege-betreuung-efz-80-100-in-gunten-gesucht-deine-erfahrung"
-        ],
-        "fr": [
-          "soins-et-soins-de-longue-duree-professionnels-efz-80-100-recherche-a-gunten-votre-experience-votre-empathie-votre"
-        ]
-      },
-      "previousSlugs": [
-        "fachfrau-fachmann-langzeitpflege-betreuung-efz-80-100-in-gunten-gesucht-deine-erfahrung",
-        "soins-et-soins-de-longue-duree-professionnels-efz-80-100-recherche-a-gunten-votre-experience-votre-empathie-votre"
-      ]
-    },
-    {
-      "id": "ipersonal-d07ddc276bec",
-      "slug": "dipl-expertin-experte-anasthesiepflege-nds-80-100-per-herrliberg-gesucht-hochste-prazision-in-der-patientenversorgung-ipersonal-ag-lugano",
-      "slugByLocale": {
-        "en": "dipl-expertin-experte-anasthesiepflege-nds-80-100-fur-herrliberg-gesucht-hochste-prazision",
-        "it": "dipl-expertin-experte-anasthesiepflege-nds-80-100-per-herrliberg-gesucht-hochste-prazision-in-der-patientenversorgung-ipersonal-ag-lugano",
-        "de": "dipl-expertin-experte-anasthesiepflege-nds-80-100-fur-herrliberg-gesucht-hochste-prazision",
-        "fr": "dipl-expertin-experte-anasthesiepflege-nds-80-100-fur-herrliberg-gesucht-hochste-prazision"
-      },
-      "company": "iPersonal AG",
-      "companyKey": "ipersonal",
-      "companyDomain": "med-ipersonal.ch",
-      "title": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% für Herrliberg gesucht – Höchste Präzision in der Patientenversorgung",
-      "titleByLocale": {
-        "en": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% für Herrliberg gesucht – Höchste Präzision in der Patientenversorgung",
-        "de": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% für Herrliberg gesucht – Höchste Präzision in der Patientenversorgung",
-        "it": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% per Herrliberg gesucht – Höchste Präzision in der Patientenversorgung",
-        "fr": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% für Herrliberg gesucht – Höchste Präzision in der Patientenversorgung"
-      },
-      "description": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% für Herrliberg gesucht – Höchste Präzision in der Patientenversorgung — iPersonal AG",
-      "descriptionByLocale": {
-        "en": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% für Herrliberg gesucht – Höchste Präzision in der Patientenversorgung — iPersonal AG",
-        "it": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% für Herrliberg gesucht – Höchste Präzision in der pazienteenversorgung — iPersonal AG",
-        "de": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% für Herrliberg gesucht – Höchste Präzision in der Patientenversorgung",
-        "fr": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% für Herrliberg gesucht – Höchste Präzision in der Patientenversorgung — iPersonal AG"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://med-ipersonal.ch/jobs/dipl-expertin-experte-anaesthesiepflege-nds-80-100-fuer-herrliberg-gesucht-hoechste-praezision-in-der-patientenversorgung/",
-      "source": "iPersonal AG Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-24T21:37:07.417Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-24",
-      "applyUrl": "https://med-ipersonal.ch/jobs/dipl-expertin-experte-anaesthesiepflege-nds-80-100-fuer-herrliberg-gesucht-hoechste-praezision-in-der-patientenversorgung/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-expertin-experte-anasthesiepflege-nds-80-100-fur-herrliberg-gesucht-hochste-prazision"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-expertin-experte-anasthesiepflege-nds-80-100-fur-herrliberg-gesucht-hochste-prazision"
-      ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T21:37:07.417Z",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "ipersonal-f8c9b0fcfd6d",
-      "slug": "anticipo-pratica-infermiera-80-100-cercato-in-meggen-cura-attivamente-coinvolto-ipersonal-ag-lugano",
-      "slugByLocale": {
-        "de": "advance-practice-nurse-80-100-in-meggen-gesucht-pflege-aktiv-mitgestalten-ipersonal-ch",
-        "it": "anticipo-pratica-infermiera-80-100-cercato-in-meggen-cura-attivamente-coinvolto-ipersonal-ag-lugano",
-        "en": "advance-practice-nurse-80-100-sought-in-meggen-caring-actively-involved-ipersonal-ag-lugano",
-        "fr": "infirmiere-de-pratique-avancee-80-100-recherche-a-meggen-caring-activement-implique-ipersonal-ag-lugano"
-      },
-      "company": "iPersonal AG",
-      "companyKey": "ipersonal",
-      "companyDomain": "med-ipersonal.ch",
-      "title": "Advance Practice Nurse 80-100% in Meggen gesucht – Pflege aktiv mitgestalten",
-      "titleByLocale": {
-        "de": "Advance Practice Nurse 80-100% in Meggen gesucht – Pflege aktiv mitgestalten",
-        "it": "Anticipo Pratica Infermiera 80-100% cercato in Meggen – Cura attivamente coinvolto",
-        "en": "Advance Practice Nurse 80-100% sought in Meggen – Caring actively involved",
-        "fr": "Infirmière de pratique avancée 80-100% recherché à Meggen – Caring activement impliqué"
-      },
-      "description": "Advance Practice Nurse 80-100% in Meggen gesucht – Pflege aktiv mitgestalten — iPersonal AG",
-      "descriptionByLocale": {
-        "de": "Advance Practice Nurse 80-100% in Meggen gesucht – Pflege aktiv mitgestalten — iPersonal AG"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://med-ipersonal.ch/jobs/advance-practice-nurse-80-100-in-meggen-gesucht-pflege-aktiv-mitgestalten/",
-      "source": "iPersonal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:37:07.115Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-24",
-      "applyUrl": "https://med-ipersonal.ch/jobs/advance-practice-nurse-80-100-in-meggen-gesucht-pflege-aktiv-mitgestalten/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T21:37:07.115Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "advance-practice-nurse-80-100-in-meggen-gesucht-pflege-aktiv-mitgestalten-ipersonal-ch"
-        ],
-        "en": [
-          "advance-practice-nurse-80-100-in-meggen-gesucht-pflege-aktiv-mitgestalten-ipersonal-ch"
-        ],
-        "fr": [
-          "advance-practice-nurse-80-100-in-meggen-gesucht-pflege-aktiv-mitgestalten-ipersonal-ch",
-          "infirmiere-de-pratique-avancee-80-100-recherchee-a-meggen-caring-activement-implique-ipersonal-ag-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "advance-practice-nurse-80-100-in-meggen-gesucht-pflege-aktiv-mitgestalten-ipersonal-ch",
-        "infirmiere-de-pratique-avancee-80-100-recherchee-a-meggen-caring-activement-implique-ipersonal-ag-lugano"
-      ],
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "ipersonal-89e5e79242ae",
-      "slug": "professionista-generale-80-100-medicina-interna-medicina-familiare-in-pietre-ipersonal-ag-lugano",
-      "slugByLocale": {
-        "de": "allgemeinarzt-allgemeinarztin-80-100-innere-medizin-hausarztmedizin-in-steinen-ipersonal",
-        "it": "professionista-generale-80-100-medicina-interna-medicina-familiare-in-pietre-ipersonal-ag-lugano",
-        "en": "general-practitioner-80-100-internal-medicine-family-medicine-in-stones-ipersonal-ag-lugano",
-        "fr": "medecin-generaliste-80-100-medecine-interne-medecine-familiale-en-pierres-ipersonal-ag-lugano"
-      },
-      "company": "iPersonal AG",
-      "companyKey": "ipersonal",
-      "companyDomain": "med-ipersonal.ch",
-      "title": "Allgemeinarzt / Allgemeinärztin 80–100% – Innere Medizin / Hausarztmedizin in Steinen",
-      "titleByLocale": {
-        "de": "Allgemeinarzt / Allgemeinärztin 80–100% – Innere Medizin / Hausarztmedizin in Steinen",
-        "it": "Professionista generale 80–100% – Medicina interna / Medicina familiare in pietre",
-        "en": "General practitioner 80–100% – Internal medicine / Family medicine in stones",
-        "fr": "Médecin généraliste 80–100% – Médecine interne / Médecine familiale en pierres"
-      },
-      "description": "Allgemeinarzt / Allgemeinärztin 80–100% – Innere Medizin / Hausarztmedizin in Steinen — iPersonal AG",
-      "descriptionByLocale": {
-        "de": "Allgemeinarzt / Allgemeinärztin 80–100% – Innere Medizin / Hausarztmedizin in Steinen — iPersonal AG"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://med-ipersonal.ch/jobs/allgemeinarzt-allgemeinaerztin-80-100-innere-medizin-hausarztmedizin-in-steinen/",
-      "source": "iPersonal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:37:06.813Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-24",
-      "applyUrl": "https://med-ipersonal.ch/jobs/allgemeinarzt-allgemeinaerztin-80-100-innere-medizin-hausarztmedizin-in-steinen/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T21:37:06.813Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "allgemeinarzt-allgemeinarztin-80-100-innere-medizin-hausarztmedizin-in-steinen-ipersonal"
-        ],
-        "en": [
-          "allgemeinarzt-allgemeinarztin-80-100-innere-medizin-hausarztmedizin-in-steinen-ipersonal"
-        ],
-        "fr": [
-          "allgemeinarzt-allgemeinarztin-80-100-innere-medizin-hausarztmedizin-in-steinen-ipersonal"
-        ]
-      },
-      "previousSlugs": [
-        "allgemeinarzt-allgemeinarztin-80-100-innere-medizin-hausarztmedizin-in-steinen-ipersonal"
-      ],
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "ipersonal-7c20582fda29",
-      "slug": "dipl-expertin-experte-anasthesiepflege-nds-80-100-in-schaffhausen-gesucht",
-      "slugByLocale": {
-        "de": "dipl-expertin-experte-anasthesiepflege-nds-80-100-in-schaffhausen-gesucht",
-        "it": "dipl-expertin-experte-anasthesiepflege-nds-80-100-in-schaffhausen-gesucht",
-        "en": "dipl-expertin-experte-anasthesiepflege-nds-80-100-in-schaffhausen-gesucht",
-        "fr": "dipl-expertin-experte-anasthesiepflege-nds-80-100-in-schaffhausen-gesucht"
-      },
-      "company": "iPersonal AG",
-      "companyKey": "ipersonal",
-      "companyDomain": "med-ipersonal.ch",
-      "title": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Schaffhausen gesucht – Hochspezialisierte Pflege mit Präzision und Verantwortung!",
-      "titleByLocale": {
-        "de": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Schaffhausen gesucht – Hochspezialisierte Pflege mit Präzision und Verantwortung!",
-        "en": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Schaffhausen gesucht – Hochspezialisierte Pflege mit Präzision und Verantwortung!",
-        "it": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Schaffhausen gesucht – Hochspezialisierte Pflege con Präzision e Verantwortung!",
-        "fr": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Schaffhausen gesucht – Hochspezialisierte Pflege mit Präzision und Verantwortung!"
-      },
-      "description": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Schaffhausen gesucht – Hochspezialisierte Pflege mit Präzision und Verantwortung! — iPersonal AG",
-      "descriptionByLocale": {
-        "de": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Schaffhausen gesucht – Hochspezialisierte Pflege mit Präzision und Verantwortung!",
-        "en": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Schaffhausen gesucht – Hochspezialisierte Pflege mit Präzision und Verantwortung! — iPersonal AG",
-        "it": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Schaffhausen gesucht – Hochspezialisierte Pflege mit Präzision und Verantwortung! — iPersonal AG",
-        "fr": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Schaffhausen gesucht – Hochspezialisierte Pflege mit Präzision und Verantwortung! — iPersonal AG"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://med-ipersonal.ch/jobs/dipl-expertin-experte-anaesthesiepflege-nds-80-100-in-schaffhausen-gesucht-hochspezialisierte-pflege-mit-praezision-und-verantwortung/",
-      "source": "iPersonal AG Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-24T21:37:06.511Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-24",
-      "applyUrl": "https://med-ipersonal.ch/jobs/dipl-expertin-experte-anaesthesiepflege-nds-80-100-in-schaffhausen-gesucht-hochspezialisierte-pflege-mit-praezision-und-verantwortung/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T21:37:06.511Z",
-      "crawlerMissStreak": 2,
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-expertin-experte-anasthesiepflege-nds-80-100-in-turbenthal-gesucht-deine",
-          "dipl-expert-expert-anesthesia-care-nds-80-100-sought-in-turbenthal-your-expertise-for-optimal-patient-care-ipersonal-ag",
-          "dipl-expert-expert-anesthesie-soin-nds-80-100-recherche-a-turbenthal-votre-expertise-pour-des-soins-optimaux-pour-les"
-        ],
-        "en": [
-          "dipl-expert-expert-anesthesia-care-nds-80-100-sought-in-turbenthal-your-expertise-for-optimal-patient-care-ipersonal-ag"
-        ],
-        "fr": [
-          "dipl-expert-expert-anesthesie-soin-nds-80-100-recherche-a-turbenthal-votre-expertise-pour-des-soins-optimaux-pour-les"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-expertin-experte-anasthesiepflege-nds-80-100-in-turbenthal-gesucht-deine",
-        "dipl-expert-expert-anesthesia-care-nds-80-100-sought-in-turbenthal-your-expertise-for-optimal-patient-care-ipersonal-ag",
-        "dipl-expert-expert-anesthesie-soin-nds-80-100-recherche-a-turbenthal-votre-expertise-pour-des-soins-optimaux-pour-les"
-      ]
-    },
-    {
-      "id": "ipersonal-da2e5e616cf2",
-      "slug": "dipl-fachfrau-mann-operationstechnik-hf-80-100-per-gipf-oberfrick-gesucht-spezialisiere-dich-auf-prazision-e-sicherheit-im-op-ipersonal-ag-lugano",
-      "slugByLocale": {
-        "de": "dipl-fachfrau-mann-operationstechnik-hf-80-100-fur-gipf-oberfrick-gesucht-spezialisiere",
-        "it": "dipl-fachfrau-mann-operationstechnik-hf-80-100-per-gipf-oberfrick-gesucht-spezialisiere-dich-auf-prazision-e-sicherheit-im-op-ipersonal-ag-lugano",
-        "en": "dipl-specialist-surgical-technique-hf-80-100-sought-for-gipf-oberfrick-specialize-in-precision-and-safety-in-the-or",
-        "fr": "dipl-technique-chirurgicale-specialisee-hf-80-100-recherche-pour-gipf-oberfrick-specialise-en-precision-et-securite-dans"
-      },
-      "company": "iPersonal AG",
-      "companyKey": "ipersonal",
-      "companyDomain": "med-ipersonal.ch",
-      "title": "Dipl. Fachfrau/mann Operationstechnik HF 80-100% für Gipf-Oberfrick gesucht – Spezialisiere dich auf Präzision und Sicherheit im OP",
-      "titleByLocale": {
-        "de": "Dipl. Fachfrau/mann Operationstechnik HF 80-100% für Gipf-Oberfrick gesucht – Spezialisiere dich auf Präzision und Sicherheit im OP",
-        "it": "Dipl. Fachfrau/mann Operationstechnik HF 80-100% per Gipf-Oberfrick gesucht – Spezialisiere dich auf Präzision e Sicherheit im OP",
-        "en": "Dipl. Specialist surgical technique HF 80-100% sought for Gipf-Oberfrick – Specialize in precision and safety in the OR",
-        "fr": "Dipl. Technique chirurgicale spécialisée HF 80-100% recherché pour Gipf-Oberfrick – Spécialisé en précision et sécurité dans le bloc"
-      },
-      "description": "Dipl. Fachfrau/mann Operationstechnik HF 80-100% für Gipf-Oberfrick gesucht – Spezialisiere dich auf Präzision und Sicherheit im OP — iPersonal AG",
-      "descriptionByLocale": {
-        "de": "Dipl. Fachfrau/mann Operationstechnik HF 80-100% für Gipf-Oberfrick gesucht – Spezialisiere dich auf Präzision und Sicherheit im OP — iPersonal AG",
-        "it": "Dipl. Tecnica chirurgica specialistica HF 80-100% ricercato per Gipf-Oberfrick – Specializzare in precisione e sicurezza nella sala operatoria — iPersonal AG",
-        "en": "Dipl. Specialist surgical technique HF 80-100% sought for Gipf-Oberfrick – Specialize in precision and safety in the operating room — iPersonal AG",
-        "fr": "Dipl. Technique chirurgicale spécialisée HF 80-100% recherchée pour Gipf-Oberfrick – Spécialisée en précision et sécurité dans la salle d'opération — iPersonal AG"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://med-ipersonal.ch/jobs/dipl-fachfrau-mann-operationstechnik-hf-80-100-fuer-gipf-oberfrick-gesucht-spezialisiere-dich-auf-praezision-und-sicherheit-im-op/",
-      "source": "iPersonal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:37:06.209Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Produzione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-24",
-      "applyUrl": "https://med-ipersonal.ch/jobs/dipl-fachfrau-mann-operationstechnik-hf-80-100-fuer-gipf-oberfrick-gesucht-spezialisiere-dich-auf-praezision-und-sicherheit-im-op/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-fachfrau-mann-operationstechnik-hf-80-100-fur-gipf-oberfrick-gesucht-spezialisiere"
-        ],
-        "en": [
-          "dipl-fachfrau-mann-operationstechnik-hf-80-100-fur-gipf-oberfrick-gesucht-spezialisiere",
-          "dipl-professional-man-operation-technology-hf-80-100-sought-for-gipf-oberfrick-specialize-in-precision-and-safety-in-the"
-        ],
-        "fr": [
-          "dipl-fachfrau-mann-operationstechnik-hf-80-100-fur-gipf-oberfrick-gesucht-spezialisiere",
-          "dipl-technologie-de-fonctionnement-professionnel-homme-hf-80-100-recherche-pour-gipf-oberfrick-specialise-dans-la"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-fachfrau-mann-operationstechnik-hf-80-100-fur-gipf-oberfrick-gesucht-spezialisiere",
-        "dipl-professional-man-operation-technology-hf-80-100-sought-for-gipf-oberfrick-specialize-in-precision-and-safety-in-the",
-        "dipl-technologie-de-fonctionnement-professionnel-homme-hf-80-100-recherche-pour-gipf-oberfrick-specialise-dans-la"
-      ],
-      "salaryMin": 55500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 55500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T21:37:06.209Z",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "ipersonal-13f2ea376464",
-      "slug": "fachmann-fachfrau-gesundheit-cfc-m-w-d-pflege-con-herz-in-davos-ipersonal-ag-lugano",
-      "slugByLocale": {
-        "de": "fachmann-fachfrau-gesundheit-efz-m-w-d-pflege-mit-herz-in-davos-ipersonal-ch",
-        "it": "fachmann-fachfrau-gesundheit-cfc-m-w-d-pflege-con-herz-in-davos-ipersonal-ag-lugano",
-        "en": "health-specialist-efz-m-f-d-care-with-heart-in-davos-ipersonal-ag-lugano",
-        "fr": "specialiste-de-la-sante-efz-h-f-d-soins-avec-c-ur-a-davos-ipersonal-ag-lugano"
-      },
-      "company": "iPersonal AG",
-      "companyKey": "ipersonal",
-      "companyDomain": "med-ipersonal.ch",
-      "title": "Fachmann / Fachfrau Gesundheit EFZ (m/w/d) – Pflege mit Herz in Davos!",
-      "titleByLocale": {
-        "de": "Fachmann / Fachfrau Gesundheit EFZ (m/w/d) – Pflege mit Herz in Davos!",
-        "it": "Fachmann / Fachfrau Gesundheit CFC (m/w/d) – Pflege con Herz in Davos!",
-        "en": "Health specialist EFZ (m/f/d) – Care with heart in Davos!",
-        "fr": "Spécialiste de la santé EFZ (h/f/d) – Soins avec cœur à Davos!"
-      },
-      "description": "Fachmann / Fachfrau Gesundheit EFZ (m/w/d) – Pflege mit Herz in Davos! — iPersonal AG",
-      "descriptionByLocale": {
-        "de": "Fachmann / Fachfrau Gesundheit EFZ (m/w/d) – Pflege mit Herz in Davos! — iPersonal AG"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://med-ipersonal.ch/jobs/fachmann-fachfrau-gesundheit-efz-m-w-d-pflege-mit-herz-in-davos/",
-      "source": "iPersonal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:37:05.907Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-24",
-      "applyUrl": "https://med-ipersonal.ch/jobs/fachmann-fachfrau-gesundheit-efz-m-w-d-pflege-mit-herz-in-davos/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T21:37:05.907Z",
-      "crawlerMissStreak": 2,
-      "previousSlugsByLocale": {
-        "it": [
-          "fachmann-fachfrau-gesundheit-efz-m-w-d-pflege-mit-herz-in-davos-ipersonal-ch"
-        ]
-      },
-      "previousSlugs": [
-        "fachmann-fachfrau-gesundheit-efz-m-w-d-pflege-mit-herz-in-davos-ipersonal-ch"
-      ]
-    },
-    {
-      "id": "ipersonal-0827733830ac",
-      "slug": "assistent-in-gesundheit-e-soziales-afp-80-100-in-reigoldswil-gesucht-unterstutzung-con-herz-e-engagement-ipersonal-ag-lugano",
-      "slugByLocale": {
-        "de": "assistent-in-gesundheit-und-soziales-eba-80-100-in-reigoldswil-gesucht-unterstutzung-mit",
-        "it": "assistent-in-gesundheit-e-soziales-afp-80-100-in-reigoldswil-gesucht-unterstutzung-con-herz-e-engagement-ipersonal-ag-lugano",
-        "en": "assistant-in-health-and-social-eba-80-100-sought-in-reigoldswil-support-with-heart-and-commitment-ipersonal-ag-lugano",
-        "fr": "assistant-en-sante-et-social-eba-80-100-recherche-a-reigoldswil-soutien-avec-c-ur-et-engagement-ipersonal-ag-lugano"
-      },
-      "company": "iPersonal AG",
-      "companyKey": "ipersonal",
-      "companyDomain": "med-ipersonal.ch",
-      "title": "Assistent/in Gesundheit und Soziales EBA 80-100% in Reigoldswil gesucht – Unterstützung mit Herz und Engagement",
-      "titleByLocale": {
-        "de": "Assistent/in Gesundheit und Soziales EBA 80-100% in Reigoldswil gesucht – Unterstützung mit Herz und Engagement",
-        "it": "Assistent/in Gesundheit e Soziales AFP 80-100% in Reigoldswil gesucht – Unterstützung con Herz e Engagement",
-        "en": "Assistant in Health and Social EBA 80-100% sought in Reigoldswil – Support with heart and commitment",
-        "fr": "Assistant en santé et social EBA 80-100% recherché à Reigoldswil – Soutien avec cœur et engagement"
-      },
-      "description": "Assistent/in Gesundheit und Soziales EBA 80-100% in Reigoldswil gesucht – Unterstützung mit Herz und Engagement — iPersonal AG",
-      "descriptionByLocale": {
-        "de": "Assistent/in Gesundheit und Soziales EBA 80-100% in Reigoldswil gesucht – Unterstützung mit Herz und Engagement — iPersonal AG",
-        "it": "Assistente in Salute e Sociale EBA 80-100% ricercato in Reigoldswil – Supporto con cuore e impegno – iPersonal AG",
-        "en": "Assistant in Health and Social EBA 80-100% sought in Reigoldswil – Support with heart and commitment – iPersonal AG",
-        "fr": "Assistant en Santé et Social EBA 80-100% recherché à Reigoldswil – Soutien avec cœur et engagement – iPersonal AG"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://med-ipersonal.ch/jobs/assistent-in-gesundheit-und-soziales-eba-80-100-in-reigoldswil-gesucht-unterstuetzung-mit-herz-und-engagement/",
-      "source": "iPersonal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:37:05.604Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-24",
-      "applyUrl": "https://med-ipersonal.ch/jobs/assistent-in-gesundheit-und-soziales-eba-80-100-in-reigoldswil-gesucht-unterstuetzung-mit-herz-und-engagement/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "assistent-in-gesundheit-und-soziales-eba-80-100-in-reigoldswil-gesucht-unterstutzung-mit"
-        ],
-        "en": [
-          "assistent-in-gesundheit-und-soziales-eba-80-100-in-reigoldswil-gesucht-unterstutzung-mit"
-        ],
-        "fr": [
-          "assistent-in-gesundheit-und-soziales-eba-80-100-in-reigoldswil-gesucht-unterstutzung-mit"
-        ]
-      },
-      "previousSlugs": [
-        "assistent-in-gesundheit-und-soziales-eba-80-100-in-reigoldswil-gesucht-unterstutzung-mit"
-      ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T21:37:05.604Z",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "ipersonal-41e303028bfa",
-      "slug": "facharztin-facharzt-allgemeinmedizin-80-100-in-bassersdorf-per-engagierte-hausarzt-innen-con-fokus-auf-pravention-e-kontinuitat-ipersonal-ag-lugano",
-      "slugByLocale": {
-        "de": "facharztin-facharzt-allgemeinmedizin-80-100-in-bassersdorf-fur-engagierte-hausarzt-innen",
-        "it": "facharztin-facharzt-allgemeinmedizin-80-100-in-bassersdorf-per-engagierte-hausarzt-innen-con-fokus-auf-pravention-e-kontinuitat-ipersonal-ag-lugano",
-        "en": "specialist-general-medicine-80-100-in-bassersdorf-for-committed-family-doctors-women-with-a-focus-on-prevention-and",
-        "fr": "specialiste-en-medecine-generale-80-a-100-a-bassersdorf-pour-les-medecins-de-famille-engages-les-femmes-avec-un-accent"
-      },
-      "company": "iPersonal AG",
-      "companyKey": "ipersonal",
-      "companyDomain": "med-ipersonal.ch",
-      "title": "Fachärztin / Facharzt Allgemeinmedizin (80–100%) in Bassersdorf – Für engagierte Hausärzt:innen mit Fokus auf Prävention und Kontinuität",
-      "titleByLocale": {
-        "de": "Fachärztin / Facharzt Allgemeinmedizin (80–100%) in Bassersdorf – Für engagierte Hausärzt:innen mit Fokus auf Prävention und Kontinuität",
-        "it": "Fachärztin / Facharzt Allgemeinmedizin (80–100%) in Bassersdorf – per engagierte Hausärzt:innen con Fokus auf Prävention e Kontinuität",
-        "en": "Specialist General Medicine (80–100%) in Bassersdorf – For committed family doctors: women with a focus on prevention and continuity",
-        "fr": "Spécialiste en médecine générale (80 à 100%) à Bassersdorf – Pour les médecins de famille engagés: les femmes avec un accent sur la prévention et la continuité"
-      },
-      "description": "Fachärztin / Facharzt Allgemeinmedizin (80–100%) in Bassersdorf – Für engagierte Hausärzt:innen mit Fokus auf Prävention und Kontinuität — iPersonal AG",
-      "descriptionByLocale": {
-        "de": "Fachärztin / Facharzt Allgemeinmedizin (80–100%) in Bassersdorf – Für engagierte Hausärzt:innen mit Fokus auf Prävention und Kontinuität — iPersonal AG",
-        "it": "Specialista Medicina Generale (80-100%) a Bassersdorf – Per medici di famiglia impegnati: donne con particolare attenzione alla prevenzione e alla continuità — iPersonal AG",
-        "en": "Specialist General Medicine (80–100%) in Bassersdorf – For committed family doctors: women with a focus on prevention and continuity — iPersonal AG",
-        "fr": "Spécialiste en médecine générale (80–100%) à Bassersdorf – Pour les médecins de famille engagés: les femmes qui mettent l'accent sur la prévention et la continuité — iPersonal AG"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://med-ipersonal.ch/jobs/fachrztin-facharzt-allgemeinmedizin-80100-in-bassersdorf-fr-engagierte-hausrztinnen-mit-fokus-auf-prvention-und-kontinuitt/",
-      "source": "iPersonal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:37:05.302Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-24",
-      "applyUrl": "https://med-ipersonal.ch/jobs/fachrztin-facharzt-allgemeinmedizin-80100-in-bassersdorf-fr-engagierte-hausrztinnen-mit-fokus-auf-prvention-und-kontinuitt/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "facharztin-facharzt-allgemeinmedizin-80-100-in-bassersdorf-fur-engagierte-hausarzt-innen"
-        ],
-        "en": [
-          "facharztin-facharzt-allgemeinmedizin-80-100-in-bassersdorf-fur-engagierte-hausarzt-innen"
-        ],
-        "fr": [
-          "facharztin-facharzt-allgemeinmedizin-80-100-in-bassersdorf-fur-engagierte-hausarzt-innen",
-          "specialiste-en-medecine-generale-80-100-a-bassersdorf-pour-les-medecins-de-famille-engages-les-femmes-qui-mettent-l"
-        ]
-      },
-      "previousSlugs": [
-        "facharztin-facharzt-allgemeinmedizin-80-100-in-bassersdorf-fur-engagierte-hausarzt-innen",
-        "specialiste-en-medecine-generale-80-100-a-bassersdorf-pour-les-medecins-de-famille-engages-les-femmes-qui-mettent-l"
-      ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T21:37:05.302Z",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "ipersonal-5f06fc267bee",
-      "slug": "dipl-expertin-experte-intensivpflege-nds-80-100-fur-wetzikon-gesucht-hochste-qualitat-in",
-      "slugByLocale": {
-        "it": "dipl-expertin-experte-intensivpflege-nds-80-100-fur-wetzikon-gesucht-hochste-qualitat-in",
-        "en": "expertin-experte-intensivpflege-nds-80-100-fur-wetzikon-gesucht-hochste-qualitat-in-der-intensivpflege-ipersonal-ag",
-        "de": "dipl-expertin-experte-intensivpflege-nds-80-100-fur-wetzikon-gesucht-hochste-qualitat-in",
-        "fr": "expertin-experte-intensivpflege-nds-80-100-fur-wetzikon-gesucht-hochste-qualitat-in-der-intensivpflege-ipersonal-ag"
-      },
-      "company": "iPersonal AG",
-      "companyKey": "ipersonal",
-      "companyDomain": "med-ipersonal.ch",
-      "title": "Dipl. Expertin / Experte Intensivpflege NDS 80-100% für Wetzikon gesucht – Höchste Qualität in der Intensivpflege",
-      "titleByLocale": {
-        "it": "Dipl. Expertin / Experte Intensivpflege NDS 80-100% per Wetzikon gesucht – Höchste Qualität in der Intensivpflege",
-        "de": "Dipl. Expertin / Experte Intensivpflege NDS 80-100% für Wetzikon gesucht – Höchste Qualität in der Intensivpflege",
-        "en": "Expertin / Experte Intensivpflege NDS 80-100% für Wetzikon gesucht – Höchste Qualität in der Intensivpflege",
-        "fr": "Expertin / Experte Intensivpflege NDS 80-100% für Wetzikon gesucht – Höchste Qualität in der Intensivpflege"
-      },
-      "description": "Dipl. Expertin / Experte Intensivpflege NDS 80-100% für Wetzikon gesucht – Höchste Qualität in der Intensivpflege — iPersonal AG",
-      "descriptionByLocale": {
-        "it": "Dipl. Expertin / Experte Intensivpflege NDS 80-100% für Wetzikon gesucht – Höchste Qualität in der Intensivpflege — iPersonal AG",
-        "en": "Expertin / Experte Intensivpflege NDS 80-100% für Wetzikon gesucht – Höchste Qualität in der Intensivpflege — iPersonal AG",
-        "de": "Expertin / Experte Intensivpflege NDS 80-100% für Wetzikon gesucht – Höchste Qualität in der Intensivpflege – iPersonal AG",
-        "fr": "Expertin / Experte Intensivpflege NDS 80-100% für Wetzikon gesucht – Höchste Qualität in der Intensivpflege — iPersonal AG"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://med-ipersonal.ch/jobs/dipl-expertin-experte-intensivpflege-nds-80-100-fuer-wetzikon-gesucht-hoechste-qualitaet-in-der-intensivpflege/",
-      "source": "iPersonal AG Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-24T21:37:05.000Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Qualità",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-24",
-      "applyUrl": "https://med-ipersonal.ch/jobs/dipl-expertin-experte-intensivpflege-nds-80-100-fuer-wetzikon-gesucht-hoechste-qualitaet-in-der-intensivpflege/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
-      "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T21:37:05.000Z",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "ipersonal-611f424a068a",
-      "slug": "dipl-expertin-experte-anasthesiepflege-nds-80-100-in-olten-e-umgebung-gesucht-ipersonal-ag-lugano",
-      "slugByLocale": {
-        "en": "dipl-expertin-experte-anasthesiepflege-nds-80-100-in-olten-und-umgebung-gesucht-ipersonal",
-        "it": "dipl-expertin-experte-anasthesiepflege-nds-80-100-in-olten-e-umgebung-gesucht-ipersonal-ag-lugano",
-        "de": "dipl-expertin-experte-anasthesiepflege-nds-80-100-in-olten-und-umgebung-gesucht-ipersonal",
-        "fr": "dipl-expertin-experte-anasthesiepflege-nds-80-100-in-olten-und-umgebung-gesucht-ipersonal"
-      },
-      "company": "iPersonal AG",
-      "companyKey": "ipersonal",
-      "companyDomain": "med-ipersonal.ch",
-      "title": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Olten und Umgebung gesucht.",
-      "titleByLocale": {
-        "en": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Olten und Umgebung gesucht.",
-        "de": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Olten und Umgebung gesucht.",
-        "it": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Olten e Umgebung gesucht.",
-        "fr": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% dans Olten und Umgebung gesucht."
-      },
-      "description": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Olten und Umgebung gesucht. — iPersonal AG",
-      "descriptionByLocale": {
-        "en": "Dipl. Expertin / Experte Anästhesiepflege NDS 80-100% in Olten und Umgebung gesucht. — iPersonal AG"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://med-ipersonal.ch/jobs/dipl-expertin-experte-anaesthesiepflege-nds-80-100-in-olten-und-umgebung-gesucht/",
-      "source": "iPersonal AG Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-24T21:37:04.698Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-24",
-      "applyUrl": "https://med-ipersonal.ch/jobs/dipl-expertin-experte-anaesthesiepflege-nds-80-100-in-olten-und-umgebung-gesucht/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-expertin-experte-anasthesiepflege-nds-80-100-in-olten-und-umgebung-gesucht-ipersonal"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-expertin-experte-anasthesiepflege-nds-80-100-in-olten-und-umgebung-gesucht-ipersonal"
-      ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T21:37:04.698Z",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "ipersonal-fe9304d043b1",
-      "slug": "ags-assistent-in-gesundheit-e-soziales-afp-langzeitpflege-60-80-per-la-region-wohlen-gesucht-ipersonal-ag-lugano",
-      "slugByLocale": {
-        "de": "ags-assistent-in-gesundheit-und-soziales-eba-langzeitpflege-60-80-fur-die-region-wohlen",
-        "it": "ags-assistent-in-gesundheit-e-soziales-afp-langzeitpflege-60-80-per-la-region-wohlen-gesucht-ipersonal-ag-lugano",
-        "en": "ags-assistant-in-health-and-social-eba-long-term-care-60-80-wanted-for-the-region-ipersonal-ag-lugano",
-        "fr": "ags-assistante-en-soins-de-longue-duree-et-en-soins-sociaux-eba-60-80-recherches-pour-la-region-ipersonal-ag-lugano"
-      },
-      "company": "iPersonal AG",
-      "companyKey": "ipersonal",
-      "companyDomain": "med-ipersonal.ch",
-      "title": "AGS Assistent/-in Gesundheit und Soziales EBA Langzeitpflege 60-80% für die Region Wohlen gesucht",
-      "titleByLocale": {
-        "de": "AGS Assistent/-in Gesundheit und Soziales EBA Langzeitpflege 60-80% für die Region Wohlen gesucht",
-        "it": "AGS Assistent/-in Gesundheit e Soziales AFP Langzeitpflege 60-80% per la Region Wohlen gesucht",
-        "en": "AGS Assistant in Health and Social EBA Long-Term Care 60-80% Wanted for the Region",
-        "fr": "AGS Assistante en soins de longue durée et en soins sociaux EBA 60-80% recherchés pour la région"
-      },
-      "description": "AGS Assistent/-in Gesundheit und Soziales EBA Langzeitpflege 60-80% für die Region Wohlen gesucht — iPersonal AG",
-      "descriptionByLocale": {
-        "de": "AGS Assistent/-in Gesundheit und Soziales EBA Langzeitpflege 60-80% für die Region Wohlen gesucht — iPersonal AG"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://med-ipersonal.ch/jobs/ags-assistent-in-gesundheit-und-soziales-eba-langzeitpflege-60-80-fuer-die-region-wohlen-gesucht/",
-      "source": "iPersonal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-24T21:37:04.395Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-24",
-      "applyUrl": "https://med-ipersonal.ch/jobs/ags-assistent-in-gesundheit-und-soziales-eba-langzeitpflege-60-80-fuer-die-region-wohlen-gesucht/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "ags-assistent-in-gesundheit-und-soziales-eba-langzeitpflege-60-80-fur-die-region-wohlen"
-        ],
-        "en": [
-          "ags-assistent-in-gesundheit-und-soziales-eba-langzeitpflege-60-80-fur-die-region-wohlen"
-        ],
-        "fr": [
-          "ags-assistent-in-gesundheit-und-soziales-eba-langzeitpflege-60-80-fur-die-region-wohlen",
-          "assistant-a-la-sante-et-aux-services-sociaux-eba-soins-de-longue-duree-60-80-recherches-pour-la-region-ipersonal-ag"
-        ]
-      },
-      "previousSlugs": [
-        "ags-assistent-in-gesundheit-und-soziales-eba-langzeitpflege-60-80-fur-die-region-wohlen",
-        "assistant-a-la-sante-et-aux-services-sociaux-eba-soins-de-longue-duree-60-80-recherches-pour-la-region-ipersonal-ag"
-      ],
-      "salaryMin": 39600,
-      "salaryMax": 60000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 39600,
-          "maxValue": 60000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T21:37:04.395Z",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "ipersonal-d75ecabdd9a2",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-80-100-in-tafers",
-      "slugByLocale": {
-        "de": "dipl-pflegefachfrau-pflegefachmann-fh-80-100-in-tafers-gesucht-setze-deine-expertise-gezielt-ein-ipersonal-ag-lugano",
-        "it": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-80-100-in-tafers",
-        "en": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-80-100-in-tafers",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-80-100-in-tafers"
-      },
-      "company": "iPersonal AG",
-      "companyKey": "ipersonal",
-      "companyDomain": "med-ipersonal.ch",
-      "title": "Dipl. Pflegefachfrau / Pflegefachmann FH (Bachelor of Science in Pflege) 80-100% in Tafers gesucht – Setze dein Fachwissen gezielt ein!",
-      "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau / Pflegefachmann FH (Bachelor of Science in Pflege) 80-100% in Tafers gesucht – Setze dein Fachwissen gezielt ein!",
-        "en": "Dipl. Pflegefachfrau / Pflegefachmann FH (Bachelor of Science in Pflege) 80-100% in Tafers gesucht – Setze dein Fachwissen gezielt ein!",
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann FH (Bachelor of Science in Pflege) 80-100% in Tafers gesucht – Setze dein Fachwissen gezielt ein!",
-        "fr": "Dipl. Pflegefachfrau / Pflegefachmann FH (Bachelor of Science in Pflege) 80-100% in Tafers gesucht – Setze dein Fachwissen gezilt ein!"
-      },
-      "description": "Dipl. Pflegefachfrau / Pflegefachmann FH (Bachelor of Science in Pflege) 80-100% in Tafers gesucht – Setze dein Fachwissen gezielt ein! — iPersonal AG",
-      "descriptionByLocale": {
-        "de": "Dipl. Pflegefachfrau / Pflegefachmann FH 80-100% in Tafers gesucht – Setze deine Expertise gezielt ein! — iPersonal AG",
-        "en": "Dipl. Pflegefachfrau / Pflegefachmann FH (Bachelor of Science in Pflege) 80-100% in Tafers gesucht – Setze dein Fachwissen gezielt ein! — iPersonal AG",
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann FH (Bachelor of Science in Pflege) 80-100% in Tafers gesucht – Setze dein Fachwissen gezielt ein! — iPersonal AG",
-        "fr": "Dipl. Pflegefachfrau / Pflegefachmann FH (Bachelor of Science in Pflege) 80-100% in Tafers gesucht – Setze dein Fachwissen gezilt ein! — iPersonal AG"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://med-ipersonal.ch/jobs/dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-80-100-in-tafers-gesucht-setze-dein-fachwissen-gezielt-ein/",
-      "source": "iPersonal AG Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-24T21:37:04.082Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-24",
-      "applyUrl": "https://med-ipersonal.ch/jobs/dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-80-100-in-tafers-gesucht-setze-dein-fachwissen-gezielt-ein/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T21:37:04.082Z",
       "crawlerMissStreak": 2
     }
   ]

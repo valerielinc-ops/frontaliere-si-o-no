@@ -57350,6 +57350,513 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ambiente-globale-176-milioni-2030': {
+    title: 'Ambiente globale: 176 milioni dalla Svizzera fino al 2030',
+    description: 'Il Consiglio federale approva un credito d\'impegno di 176,23 milioni di franchi per finanziare progetti ambientali internazionali dal 2027 al 2030, ma',
+    keywords: 'frontalieri, ticino, svizzera, italia, ambiente, globale, milioni, dalla',
+    ogTitle: 'Ambiente globale: 176 milioni dalla Svizzera fino al 2030',
+    ogDescription: 'Il Consiglio federale approva un credito d\'impegno di 176,23 milioni di franchi per finanziare progetti ambientali internazionali dal 2027 al 2030, ma il Parlamento dovrà approvare.',
+    canonicalPath: '/articoli-svizzera/ambiente-globale-176-milioni-2030/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ambiente globale: 176 milioni dalla Svizzera fino al 2030",
+      "description": "Il Consiglio federale approva un credito d'impegno di 176,23 milioni di franchi per finanziare progetti ambientali internazionali dal 2027 al 2030, ma",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ambiente-globale-176-milioni-2030.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio alpino svizzero con lago cristallino circondato da foresta, simbolo di protezione ambientale."
+      },
+      "datePublished": "2026-08-26T19:24:39+00:00",
+      "dateModified": "2026-08-26T19:24:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ambiente-globale-176-milioni-2030/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cell-broadcast-allerta-svizzera': {
+    title: 'Allerta cellulare in Svizzera: 16 milioni approvati',
+    description: 'Consiglio federale richiede 15,8 milioni CHF per cell broadcast. Nuovo sistema di allarme che invia SMS direttamente ai telefoni nella zona interessata.',
+    keywords: 'frontalieri, ticino, svizzera, italia, allerta, cellulare, milioni, approvati',
+    ogTitle: 'Allerta cellulare: nuovo sistema di allarme svizzero',
+    ogDescription: 'Il Consiglio federale chiede 15,8 milioni CHF per implementare il cell broadcast. Nuovo canale di allarme urgente che invia SMS ai cellulari nella zona interessata. Integra sirene, radio e app Alertswiss dal 2018.',
+    canonicalPath: '/articoli-svizzera/cell-broadcast-allerta-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Allerta cellulare in Svizzera: 16 milioni approvati",
+      "description": "Consiglio federale richiede 15,8 milioni CHF per cell broadcast. Nuovo sistema di allarme che invia SMS direttamente ai telefoni nella zona interessata.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cell-broadcast-allerta-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro di coordinamento nazionale per allarmi di emergenza con display di messaggi SMS sui telefoni cellulari"
+      },
+      "datePublished": "2026-08-26T19:58:15+00:00",
+      "dateModified": "2026-08-26T19:58:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cell-broadcast-allerta-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-canicola-70-milioni-bosco': {
+    title: 'Canicola, 70 mio per bosco e agricoltura | Frontaliere Ticino',
+    description: 'Il Consiglio federale richiede 70 milioni di franchi per adattare i boschi e sostenere le aziende agricole colpite da canicola e siccità. Dettagli e procedura.',
+    keywords: 'frontalieri, ticino, svizzera, italia, canicola, bosco, agricoltura, consiglio',
+    ogTitle: 'Canicola, 70 mio per bosco e agricoltura',
+    ogDescription: 'Il Consiglio federale ha richiesto 70 milioni di franchi supplementari per affrontare le conseguenze della canicola estiva. 17,5 mio annui per adattare i boschi (dal 2027), 54 mio nel 2026 per crediti agricoli senza interessi. Leggi i dettagli',
+    canonicalPath: '/articoli-svizzera/canicola-70-milioni-bosco/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Canicola, 70 mio per bosco e agricoltura",
+      "description": "Il Consiglio federale richiede 70 milioni di franchi per adattare i boschi e sostenere le aziende agricole colpite da canicola e siccità. Dettagli e procedura.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/canicola-70-milioni-bosco.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Boschi alpini svizzeri durante l'estate, paesaggio montano con zone forestali e aree agricole"
+      },
+      "datePublished": "2026-08-26T20:29:31+00:00",
+      "dateModified": "2026-08-26T20:29:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/canicola-70-milioni-bosco/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-fondi-federali-bosco-agricoltura': {
+    title: 'Consiglio federale: CHF 71,5M per bosco e agricoltura',
+    description: 'Il Consiglio federale approva CHF 17,5M per l\'adattamento forestale e CHF 54M in crediti senza interessi per le aziende agricole colpite dalla siccità 2026.',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, bosco, agricoltura',
+    ogTitle: 'Consiglio federale: CHF 71,5M per bosco e agricoltura',
+    ogDescription: '26 agosto 2026: il Consiglio federale stanzia CHF 17,5M per foreste e CHF 54M per aziende agricole colpite dalla siccità record. Crediti senza interessi e adattamento climatico.',
+    canonicalPath: '/articoli-svizzera/fondi-federali-bosco-agricoltura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio federale: CHF 71,5M per bosco e agricoltura",
+      "description": "Il Consiglio federale approva CHF 17,5M per l'adattamento forestale e CHF 54M in crediti senza interessi per le aziende agricole colpite dalla siccità 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/fondi-federali-bosco-agricoltura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio forestale alpino durante la siccità estiva: vegetazione disseccata vista sui boschi svizzeri"
+      },
+      "datePublished": "2026-08-26T21:06:29+00:00",
+      "dateModified": "2026-08-26T21:06:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/fondi-federali-bosco-agricoltura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-manor-licenzia-basilea': {
+    title: 'Manor licenzia 38 collaboratori presso sede centrale Basilea',
+    description: 'Manor licenzia 38 impiegati d\'ufficio a Basilea. L\'azienda promette piano sociale e supporto individuale. Cosa fare se sei tra i colpiti. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, manor, licenzia, collaboratori, presso',
+    ogTitle: 'Manor licenzia 38 collaboratori presso sede centrale Basilea',
+    ogDescription: 'Manor annuncia 38 licenziamenti di impiegati d\'ufficio presso la sede centrale a Basilea. Scopri i diritti, il piano sociale, e come registrarsi per l\'indennità di disoccupazione svizzera. Guida pratica per i dipendenti colpiti.',
+    canonicalPath: '/articoli-svizzera/manor-licenzia-basilea/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Manor licenzia 38 collaboratori presso sede centrale Basilea",
+      "description": "Manor licenzia 38 impiegati d'ufficio a Basilea. L'azienda promette piano sociale e supporto individuale. Cosa fare se sei tra i colpiti. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/manor-licenzia-basilea.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio di uffici moderni a Basilea con architettura contemporanea"
+      },
+      "datePublished": "2026-08-26T21:46:28+00:00",
+      "dateModified": "2026-08-26T21:46:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/manor-licenzia-basilea/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-pulizie-lavoro-nero-2026': {
+    title: 'Lavoro nero nelle pulizie: il crollo dei dichiarati',
+    description: 'Nel 2025 i dichiaranti sono crollati a 65\'669. Solo 239 controlli nelle case. Il Consiglio federale propone una revisione della legge sul lavoro nero.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoro, nero, nelle, pulizie',
+    ogTitle: 'Lavoro nero nelle pulizie: il crollo dei dichiarati',
+    ogDescription: 'Lavoro nero nel settore domestico: nel 2025 calo significativo dei dichiarati (65\'669 vs 68\'247 anno precedente). Controlli quasi inesistenti e il Consiglio federale a giugno 2026 propone una revisione della normativa contro il lavoro nero.',
+    canonicalPath: '/articoli-svizzera/pulizie-lavoro-nero-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavoro nero nelle pulizie: il crollo dei dichiarati",
+      "description": "Nel 2025 i dichiaranti sono crollati a 65'669. Solo 239 controlli nelle case. Il Consiglio federale propone una revisione della legge sul lavoro nero.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pulizie-lavoro-nero-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Operaia domestica durante il lavoro di pulizia in un appartamento svizzero moderno"
+      },
+      "datePublished": "2026-08-26T22:28:09+00:00",
+      "dateModified": "2026-08-26T22:28:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pulizie-lavoro-nero-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-credito-federale-ambiente-2027-2030': {
+    title: 'Svizzera investe 176 milioni nel fondo globale per l\'ambiente',
+    description: 'Il Consiglio federale ha approvato il 26 agosto 2026 un credito d\'impegno di 176,23 milioni di franchi per l\'ambiente globale nel periodo 2027–2030.',
+    keywords: 'frontalieri, ticino, svizzera, italia, investe, milioni, fondo, globale',
+    ogTitle: 'Svizzera investe 176 milioni nel fondo globale',
+    ogDescription: 'Il Consiglio federale ha approvato il 26 agosto 2026 un credito d\'impegno di 176,23 milioni di franchi per l\'ambiente globale nel periodo 2027–2030.',
+    canonicalPath: '/articoli-svizzera/credito-federale-ambiente-2027-2030/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera investe 176 milioni nel fondo globale per l'ambiente",
+      "description": "Il Consiglio federale ha approvato il 26 agosto 2026 un credito d'impegno di 176,23 milioni di franchi per l'ambiente globale nel periodo 2027–2030.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/credito-federale-ambiente-2027-2030.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio alpino con foreste e acque incontaminate, simbolo della protezione ambientale svizzera"
+      },
+      "datePublished": "2026-08-26T23:15:30+00:00",
+      "dateModified": "2026-08-26T23:15:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/credito-federale-ambiente-2027-2030/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-chronext-fallimento-zugo': {
+    title: 'Chronext chiude: fallimento orologi lusso Zugo',
+    description: 'Fallimento Chronext: società zurighese di orologi di lusso chiude il 19 agosto. Liquidazione dal Tribunale cantonale di Zugo. Aveva 150 dipendenti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, chronext, chiude, fallimento, orologi',
+    ogTitle: 'Chronext chiude: fallimento orologi lusso Zugo',
+    ogDescription: 'Una storia di crescita e fallimento: Chronext, il negozio online di orologi di lusso di Zugo, è andato in bancarotta il 19 agosto. Dalla fondazione nel 2013 ai ricavi di centinaia di milioni, fino ai 150 posti di lavoro a rischio.',
+    canonicalPath: '/articoli-svizzera/chronext-fallimento-zugo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chronext chiude: fallimento orologi lusso Zugo",
+      "description": "Fallimento Chronext: società zurighese di orologi di lusso chiude il 19 agosto. Liquidazione dal Tribunale cantonale di Zugo. Aveva 150 dipendenti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/chronext-fallimento-zugo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Zugo, centro economico della Svizzera, con quartiere degli affari moderno durante l'ora d'oro"
+      },
+      "datePublished": "2026-08-26T23:53:50+00:00",
+      "dateModified": "2026-08-26T23:53:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/chronext-fallimento-zugo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-glarner-dimissioni-consiglio-nazionale': {
+    title: 'Glarner lascia il Consiglio nazionale a fine anno',
+    description: 'Andreas Glarner (UDC/AG) annuncia dimissioni dal Consiglio nazionale il 31 dicembre 2026 e dalla presidenza del partito cantonale dell\'Argovia. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, glarner, lascia, consiglio, nazionale',
+    ogTitle: 'Glarner lascia il Consiglio nazionale',
+    ogDescription: 'Consigliere nazionale UDC Andreas Glarner annuncia dimissioni dal Parlamento federale il 31 dicembre 2026 e dalla guida del partito argosino. Scelta motivata dal ricambio generazionale.',
+    canonicalPath: '/articoli-svizzera/glarner-dimissioni-consiglio-nazionale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Glarner lascia il Consiglio nazionale a fine anno",
+      "description": "Andreas Glarner (UDC/AG) annuncia dimissioni dal Consiglio nazionale il 31 dicembre 2026 e dalla presidenza del partito cantonale dell'Argovia. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/glarner-dimissioni-consiglio-nazionale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aula del Consiglio nazionale al Palazzo federale di Berna"
+      },
+      "datePublished": "2026-08-27T00:10:51+00:00",
+      "dateModified": "2026-08-27T00:10:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/glarner-dimissioni-consiglio-nazionale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-danni-parcheggio-rincari-2025': {
+    title: 'Stangata sui danni da parcheggio: rincari fino al 50%',
+    description: 'Aumenti fino al 50% per i danni da parcheggio in Svizzera tra 2023-2025. Analisi Comparis su 7,3 milioni di casi rivela le cause: tecnologia auto e tariffe',
+    keywords: 'frontalieri, ticino, svizzera, italia, stangata, danni, parcheggio, rincari',
+    ogTitle: 'Stangata sui danni da parcheggio: rincari fino al 50%',
+    ogDescription: 'Scopri perché riparare i danni da parcheggio costa fino al 50% in più. Analisi Comparis di 7,3 milioni di sinistri rivela l\'impatto della tecnologia e delle tariffe delle officine svizzere sui costi di riparazione auto.',
+    canonicalPath: '/articoli-svizzera/danni-parcheggio-rincari-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stangata sui danni da parcheggio: rincari fino al 50%",
+      "description": "Aumenti fino al 50% per i danni da parcheggio in Svizzera tra 2023-2025. Analisi Comparis su 7,3 milioni di casi rivela le cause: tecnologia auto e tariffe",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/danni-parcheggio-rincari-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Auto con danno da parcheggio presso un'officina svizzera"
+      },
+      "datePublished": "2026-08-27T00:33:10+00:00",
+      "dateModified": "2026-08-27T00:33:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/danni-parcheggio-rincari-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-assegni-familiari-lucerna-come-richiedere': {
+    title: 'Assegni familiari Lucerna: importi e procedura',
+    description: 'Guida pratica agli assegni familiari nel canton Lucerna: chi ha diritto, importi per figlio, documenti necessari e come fare domanda presso la cassa',
+    keywords: 'frontalieri, ticino, svizzera, italia, assegni, familiari, lucerna, importi',
+    ogTitle: 'Assegni familiari Lucerna: guida completa a richiesta e importi',
+    ogDescription: 'Scopri come richiedere gli assegni familiari nel canton Lucerna: diritti, documenti necessari, importi mensili per figlio e procedura di domanda presso la cassa di compensazione cantonale.',
+    canonicalPath: '/articoli-svizzera/assegni-familiari-lucerna-come-richiedere/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assegni familiari Lucerna: importi e procedura",
+      "description": "Guida pratica agli assegni familiari nel canton Lucerna: chi ha diritto, importi per figlio, documenti necessari e come fare domanda presso la cassa",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assegni-familiari-lucerna-come-richiedere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Interno di un ufficio amministrativo cantonale svizzero dove una famiglia riceve informazioni su assegni familiari."
+      },
+      "datePublished": "2026-08-27T01:28:38+00:00",
+      "dateModified": "2026-08-27T01:28:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assegni-familiari-lucerna-come-richiedere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-naturalizzazione-ordinaria-lucerna-guida': {
+    title: 'Naturalizzazione Lucerna: 10 anni e doppio conteggio',
+    description: 'Permesso C, 10 anni di residenza, doppio conteggio tra 8-18 anni. Scopri come accedere alla cittadinanza svizzera nel canton Lucerna: requisiti, procedure',
+    keywords: 'frontalieri, ticino, svizzera, italia, naturalizzazione, lucerna, anni, doppio',
+    ogTitle: 'Naturalizzazione Lucerna: 10 anni e doppio conteggio',
+    ogDescription: 'Guida completa alla naturalizzazione nel canton Lucerna. Permesso C, 10 anni di residenza con possibile doppio conteggio tra 8-18 anni, requisiti di lingua e integrazione, procedure comunali e cantonali, tempistiche da 6-12+ mesi. Verifica',
+    canonicalPath: '/articoli-svizzera/naturalizzazione-ordinaria-lucerna-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Naturalizzazione Lucerna: 10 anni e doppio conteggio",
+      "description": "Permesso C, 10 anni di residenza, doppio conteggio tra 8-18 anni. Scopri come accedere alla cittadinanza svizzera nel canton Lucerna: requisiti, procedure",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/naturalizzazione-ordinaria-lucerna-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrativo del canton Lucerna con documenti di naturalizzazione e certificati di residenza"
+      },
+      "datePublished": "2026-08-27T02:16:11+00:00",
+      "dateModified": "2026-08-27T02:16:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/naturalizzazione-ordinaria-lucerna-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-salari-appenzello-interno-settori': {
+    title: 'Salari e mercato del lavoro in Appenzello Interno',
+    description: 'Guida ai livelli salariali, formazione professionale, settori occupazionali e costi previdenziali nel canton Appenzello Interno: AFC, università, AVS, LPP',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, mercato, lavoro, appenzello',
+    ogTitle: 'Salari e mercato del lavoro in Appenzello Interno',
+    ogDescription: 'Scopri come funzionano i salari, le qualifiche professionali, i costi previdenziali (AVS, LPP, LAMal) e le opportunità di lavoro nel canton Appenzello Interno. Guida pratica con scenari, strumenti e procedura per calcolare lo stipendio netto.',
+    canonicalPath: '/articoli-svizzera/salari-appenzello-interno-settori/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari e mercato del lavoro in Appenzello Interno",
+      "description": "Guida ai livelli salariali, formazione professionale, settori occupazionali e costi previdenziali nel canton Appenzello Interno: AFC, università, AVS, LPP",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salari-appenzello-interno-settori.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratori in ufficio e in fabbrica in un ambiente lavorativo svizzero moderno rappresentante diversi livelli di qualifica e settori."
+      },
+      "datePublished": "2026-08-27T03:26:08+00:00",
+      "dateModified": "2026-08-27T03:26:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salari-appenzello-interno-settori/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

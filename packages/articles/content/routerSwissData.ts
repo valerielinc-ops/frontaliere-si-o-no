@@ -1499,6 +1499,19 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'stadler-rail-risultati-primo-semestre': { it: 'stadler-rail-risultati-primo-semestre', en: 'stadler-rail-first-half-results', de: 'stadler-rail-halbjahresergebnisse', fr: 'stadler-rail-resultats-premier-semestre' },
  'ffs-rincari-tariffe-wyss': { it: 'ffs-rincari-tariffe-wyss', en: 'sbb-fare-increases-wyss', de: 'sbb-fahrpreiserhoehung-wyss', fr: 'cff-augmentation-tarifs-wyss' },
  'seco-fmi-partenariato-economia': { it: 'seco-fmi-partenariato-economia', en: 'seco-fmi-partnership-economy', de: 'seco-fmi-partnerschaft-wirtschaft', fr: 'seco-fmi-partenariat-economie' },
+ 'ambiente-globale-176-milioni-2030': { it: 'ambiente-globale-176-milioni-2030', en: 'global-environment-176-million-swiss-2030', de: 'globale-umwelt-176-millionen-schweiz-2030', fr: 'environnement-mondial-176-millions-suisse-2030' },
+ 'cell-broadcast-allerta-svizzera': { it: 'cell-broadcast-allerta-svizzera', en: 'cell-broadcast-alert-switzerland', de: 'cell-broadcast-warnung-schweiz', fr: 'cell-broadcast-alerte-suisse' },
+ 'canicola-70-milioni-bosco': { it: 'canicola-70-milioni-bosco', en: 'heatwave-70-million-forest-agriculture', de: 'hitze-70-millionen-wald-landwirtschaft', fr: 'canicule-70-millions-forets-agriculture' },
+ 'fondi-federali-bosco-agricoltura': { it: 'fondi-federali-bosco-agricoltura', en: 'federal-funds-forests-agriculture', de: 'bundesrat-gelder-wald-landwirtschaft', fr: 'fonds-federaux-forets-agriculture' },
+ 'manor-licenzia-basilea': { it: 'manor-licenzia-basilea', en: 'manor-layoffs-basel', de: 'manor-entlassungen-basel', fr: 'manor-licenciements-bale' },
+ 'pulizie-lavoro-nero-2026': { it: 'pulizie-lavoro-nero-2026', en: 'cleaning-work-undeclared-2026', de: 'reinigungsarbeit-schwarzarbeit-2026', fr: 'nettoyage-travail-noir-2026' },
+ 'credito-federale-ambiente-2027-2030': { it: 'credito-federale-ambiente-2027-2030', en: 'federal-credit-global-environment-2027-2030', de: 'bundeskredit-umwelt-2027-2030', fr: 'credit-federal-environnement-global-2027-2030' },
+ 'chronext-fallimento-zugo': { it: 'chronext-fallimento-zugo', en: 'chronext-bankruptcy-zug', de: 'chronext-konkurs-zug', fr: 'chronext-faillite-zoug' },
+ 'glarner-dimissioni-consiglio-nazionale': { it: 'glarner-dimissioni-consiglio-nazionale', en: 'glarner-resigns-national-council', de: 'glarner-traegt-nationalrat-nieder', fr: 'glarner-demission-conseil-national' },
+ 'danni-parcheggio-rincari-2025': { it: 'danni-parcheggio-rincari-2025', en: 'parking-damage-costs-2025', de: 'parkplatz-schaden-kosten-2025', fr: 'dommages-parking-augmentation-2025' },
+ 'assegni-familiari-lucerna-come-richiedere': { it: 'assegni-familiari-lucerna-come-richiedere', en: 'family-allowances-lucerne-how-to-apply', de: 'familienleistungen-luzern-antrag-verfahren', fr: 'allocations-familiales-lucerne-demande-procedure' },
+ 'naturalizzazione-ordinaria-lucerna-guida': { it: 'naturalizzazione-ordinaria-lucerna-guida', en: 'naturalization-ordinary-lucerne-guide', de: 'einbuergerung-ordentlich-luzern-anleitung', fr: 'naturalisation-ordinaire-lucerne-guide' },
+ 'salari-appenzello-interno-settori': { it: 'salari-appenzello-interno-settori', en: 'salaries-appenzell-rhodes-sectors', de: 'loehne-appenzell-innerrhoden-bereiche', fr: 'salaires-appenzell-rhodes-secteurs' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

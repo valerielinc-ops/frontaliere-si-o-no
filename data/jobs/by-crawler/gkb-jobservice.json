@@ -1,7 +1,76 @@
 {
   "crawlerKey": "gkb-jobservice",
-  "assembledAt": "2026-08-26T09:57:09.825Z",
+  "assembledAt": "2026-08-27T00:38:54.610Z",
   "jobs": [
+    {
+      "id": "gkb-jobservice-8b9dd4131c30",
+      "slug": "senior-responsabile-di-progetto-80-100-gkb-jobservice-lugano",
+      "slugByLocale": {
+        "de": "senior-projektleiter-in-80-100-gkb-jobservice-ch",
+        "it": "senior-responsabile-di-progetto-80-100-gkb-jobservice-lugano",
+        "en": "senior-projektleiter-in-80-100-gkb-jobservice-ch",
+        "fr": "senior-projektleiter-in-80-100-gkb-jobservice-ch"
+      },
+      "company": "GKB JobService",
+      "companyKey": "gkb-jobservice",
+      "companyDomain": "recruitingapp-2607.umantis.com",
+      "title": "Senior Projektleiter:in (80-100%)",
+      "titleByLocale": {
+        "de": "Senior Projektleiter:in (80-100%)",
+        "it": "Senior Responsabile di progetto (80-100%)",
+        "en": "Senior Project Manager (80-100%)",
+        "fr": "Senior Chef de projet (80-100%)"
+      },
+      "description": "Senior Projektleiter:in (80-100%) — GKB JobService",
+      "descriptionByLocale": {
+        "de": "Senior Projektleiter:in (80-100%) — GKB JobService"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://recruitingapp-2607.umantis.com/Vacancies/1914/Description/1",
+      "source": "GKB JobService Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-27T00:38:50.293Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://recruitingapp-2607.umantis.com/Vacancies/1914/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-projektleiter-in-80-100-gkb-jobservice-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-projektleiter-in-80-100-gkb-jobservice-ch"
+      ],
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-27T00:38:50.293Z"
+    },
     {
       "id": "gkb-jobservice-b4942cd30f0e",
       "slug": "senior-specialista-geschaftsfuhrung-beratung-stiftungen-80-gkb-jobservice-lugano",
@@ -30,7 +99,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1917/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:57:06.037Z",
+      "crawledAt": "2026-08-27T00:38:49.991Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -45,19 +114,21 @@
       "applyUrl": "https://recruitingapp-2607.umantis.com/Vacancies/1917/Description/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-25T21:35:38.760Z",
+      "previousSlugs": [
+        "senior-specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-jobservice-ch",
+        "senior-specialista-geschaftsfuhrung-beratung-stiftungen-80-gkb-jobservice-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-jobservice-ch"
+          "senior-specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-jobservice-ch",
+          "senior-specialista-geschaftsfuhrung-beratung-stiftungen-80-gkb-jobservice-lugano"
         ],
         "fr": [
           "senior-specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-jobservice-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-jobservice-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-25T21:35:38.760Z",
       "salaryMin": 54400,
       "salaryMax": 82400,
       "baseSalary": {
@@ -100,7 +171,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1920/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:57:05.735Z",
+      "crawledAt": "2026-08-27T00:38:49.689Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -159,7 +230,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1919/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:57:05.433Z",
+      "crawledAt": "2026-08-27T00:38:49.388Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -234,7 +305,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1921/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:57:05.131Z",
+      "crawledAt": "2026-08-27T00:38:49.086Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -309,7 +380,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1922/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:57:04.829Z",
+      "crawledAt": "2026-08-27T00:38:48.782Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -384,7 +455,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1929/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T09:57:04.526Z",
+      "crawledAt": "2026-08-27T00:38:48.480Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -432,73 +503,6 @@
       "addressRegion": "TI"
     },
     {
-      "id": "gkb-jobservice-77388dd5c74a",
-      "slug": "it-business-partner-in-80-100-gkb-jobservice-ch",
-      "slugByLocale": {
-        "it": "it-business-partner-in-80-100-gkb-jobservice-ch",
-        "en": "it-business-partner-in-80-100-gkb-jobservice-ch",
-        "de": "it-business-partner-in-80-100-gkb-jobservice-ch",
-        "fr": "it-business-partner-in-80-100-gkb-jobservice-ch"
-      },
-      "company": "GKB JobService",
-      "companyKey": "gkb-jobservice",
-      "companyDomain": "recruitingapp-2607.umantis.com",
-      "title": "IT Business Partner:in (80-100%)",
-      "titleByLocale": {
-        "it": "IT Business Partner:in (80-100%)",
-        "en": "IT Business Partner:in (80-100%)",
-        "de": "IT Business Partner:in (80-100%)",
-        "fr": "IT Business Partner:in (80-100%)"
-      },
-      "description": "IT Business Partner:in (80-100%) — GKB JobService",
-      "descriptionByLocale": {
-        "fr": "IT Business Partner:in (80-100%) — GKB JobService"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://recruitingapp-2607.umantis.com/Vacancies/1935/Description/1",
-      "source": "GKB JobService Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-26T09:57:04.223Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-23",
-      "applyUrl": "https://recruitingapp-2607.umantis.com/Vacancies/1935/Description/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "it-business-partner-in-80-100-gkb-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "it-business-partner-in-80-100-gkb-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T21:29:51.229Z",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51500,
-          "maxValue": 88000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI"
-    },
-    {
       "id": "gkb-jobservice-b0a5f3dfc81d",
       "slug": "praktikant-in-bem-banking-arosa-ab-agosto-2027-gkb-jobservice-lugano",
       "slugByLocale": {
@@ -526,7 +530,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1904/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T09:57:03.921Z",
+      "crawledAt": "2026-08-27T00:38:48.176Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -603,7 +607,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1905/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T09:57:03.618Z",
+      "crawledAt": "2026-08-27T00:38:47.874Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -675,7 +679,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1906/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T09:57:03.314Z",
+      "crawledAt": "2026-08-27T00:38:47.572Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -747,7 +751,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1892/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T09:57:03.012Z",
+      "crawledAt": "2026-08-27T00:38:47.269Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -819,7 +823,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1871/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:57:02.709Z",
+      "crawledAt": "2026-08-27T00:38:46.966Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -894,7 +898,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1925/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-26T09:57:02.407Z",
+      "crawledAt": "2026-08-27T00:38:46.663Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -966,7 +970,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1941/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:57:02.103Z",
+      "crawledAt": "2026-08-27T00:38:46.360Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1038,7 +1042,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1936/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:57:01.799Z",
+      "crawledAt": "2026-08-27T00:38:46.057Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1084,10 +1088,10 @@
     },
     {
       "id": "gkb-jobservice-da10ade3c453",
-      "slug": "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-jobservice-ch",
+      "slug": "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch",
       "slugByLocale": {
-        "it": "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-jobservice-ch",
-        "en": "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-jobservice-ch",
+        "it": "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch",
+        "en": "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch",
         "de": "fachspezialist-in-rechtsdienst-compliance-80-100-graubundner-kantonalbank-chur",
         "fr": "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch"
       },
@@ -1110,7 +1114,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1930/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-26T09:57:01.498Z",
+      "crawledAt": "2026-08-27T00:38:45.753Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1127,6 +1131,17 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T21:29:48.494Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-jobservice-ch"
+        ],
+        "en": [
+          "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-jobservice-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-jobservice-ch"
+      ],
       "salaryMin": 56000,
       "salaryMax": 96000,
       "baseSalary": {
@@ -1169,7 +1184,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1948/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:57:01.196Z",
+      "crawledAt": "2026-08-27T00:38:45.451Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1241,7 +1256,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1945/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:57:00.893Z",
+      "crawledAt": "2026-08-27T00:38:45.149Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1317,7 +1332,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1946/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-26T09:57:00.591Z",
+      "crawledAt": "2026-08-27T00:38:44.847Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1391,7 +1406,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1949/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T09:57:00.288Z",
+      "crawledAt": "2026-08-27T00:38:44.544Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1465,7 +1480,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1950/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:56:59.986Z",
+      "crawledAt": "2026-08-27T00:38:44.241Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1537,7 +1552,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1954/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:56:59.684Z",
+      "crawledAt": "2026-08-27T00:38:43.937Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1611,7 +1626,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1955/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:56:59.380Z",
+      "crawledAt": "2026-08-27T00:38:43.629Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1683,7 +1698,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1937/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:56:59.074Z",
+      "crawledAt": "2026-08-27T00:38:43.307Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1755,7 +1770,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1924/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:56:58.740Z",
+      "crawledAt": "2026-08-27T00:38:42.973Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1800,38 +1815,38 @@
       "addressRegion": "TI"
     },
     {
-      "id": "gkb-jobservice-c44db2684cff",
-      "slug": "direzione-della-sala-operatoria-e-della-disposizione-dei-letti-80-100-m-f-d-spital-mannedorf-mannedorf",
+      "id": "gkb-jobservice-77388dd5c74a",
+      "slug": "it-business-partner-in-80-100-gkb-jobservice-ch",
       "slugByLocale": {
-        "de": "leitung-op-und-bettendisposition-80-100-m-w-d-spital-mannedorf-mannedorf",
-        "it": "direzione-della-sala-operatoria-e-della-disposizione-dei-letti-80-100-m-f-d-spital-mannedorf-mannedorf",
-        "en": "head-of-or-and-bed-disposition-80-100-m-f-d-spital-mannedorf-mannedorf",
-        "fr": "direction-de-la-planification-du-bloc-operatoire-et-des-lits-80-100-m-f-d-spital-mannedorf-mannedorf"
+        "it": "it-business-partner-in-80-100-gkb-jobservice-ch",
+        "en": "it-business-partner-in-80-100-gkb-jobservice-ch",
+        "de": "it-business-partner-in-80-100-gkb-jobservice-ch",
+        "fr": "it-business-partner-in-80-100-gkb-jobservice-ch"
       },
       "company": "GKB JobService",
       "companyKey": "gkb-jobservice",
       "companyDomain": "recruitingapp-2607.umantis.com",
-      "title": "Immobilienbewirtschafter:in (100%)",
+      "title": "IT Business Partner:in (80-100%)",
       "titleByLocale": {
-        "it": "Responsabile della proprietà:in (100%)",
-        "en": "Property manager:in (100%)",
-        "de": "Immobilienbewirtschafter:in (100%)",
-        "fr": "Gestionnaire immobilier: en (100%)"
+        "it": "IT Business Partner:in (80-100%)",
+        "en": "IT Business Partner:in (80-100%)",
+        "de": "IT Business Partner:in (80-100%)",
+        "fr": "IT Business Partner:in (80-100%)"
       },
-      "description": "Immobilienbewirtschafter:in (100%) — GKB JobService",
+      "description": "IT Business Partner:in (80-100%) — GKB JobService",
       "descriptionByLocale": {
-        "de": "Immobilienbewirtschafter:in (100%) — GKB JobService"
+        "fr": "IT Business Partner:in (80-100%) — GKB JobService"
       },
       "location": "Lugano",
       "canton": "TI",
-      "url": "https://recruitingapp-2607.umantis.com/Vacancies/1943/Description/1",
+      "url": "https://recruitingapp-2607.umantis.com/Vacancies/1935/Description/1",
       "source": "GKB JobService Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-25T09:52:40.045Z",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-26T09:57:04.223Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Altro",
+      "category": "IT",
       "contract": "full-time",
       "employmentType": "OTHER",
       "experienceLevel": "mid",
@@ -1839,40 +1854,33 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-08-23",
-      "applyUrl": "https://recruitingapp-2607.umantis.com/Vacancies/1943/Description/1",
+      "applyUrl": "https://recruitingapp-2607.umantis.com/Vacancies/1935/Description/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "it-business-partner-in-80-100-gkb-ch"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "immobilienbewirtschafter-in-100-gkb-jobservice-ch",
-          "leitung-op-und-bettendisposition-80-100-m-w-d-spital-mannedorf-mannedorf"
-        ],
         "it": [
-          "immobilienbewirtschafter-in-100-gkb-jobservice-ch",
-          "direzione-della-sala-operatoria-e-della-disposizione-dei-letti-80-100-m-f-d-spital-mannedorf-mannedorf"
+          "it-business-partner-in-80-100-gkb-ch"
         ]
       },
-      "previousSlugs": [
-        "immobilienbewirtschafter-in-100-gkb-jobservice-ch",
-        "leitung-op-und-bettendisposition-80-100-m-w-d-spital-mannedorf-mannedorf",
-        "direzione-della-sala-operatoria-e-della-disposizione-dei-letti-80-100-m-f-d-spital-mannedorf-mannedorf"
-      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T21:29:45.444Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "firstSeenAt": "2026-08-23T21:29:51.229Z",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 51500,
+          "maxValue": 88000,
           "unitText": "YEAR"
         }
       },
       "addressRegion": "TI",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
     }
   ]
 }

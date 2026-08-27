@@ -96,8 +96,11 @@ describe('welcome-email client-side wiring (services/newsletterSubscribers.ts)',
 
     // requestWelcomeEmail is fired via a non-awaited `.catch()`-wrapped
     // promise, so the fetch call may still be in flight right after
-    // upsertNewsletterSubscriber resolves — poll until it lands.
-    await vi.waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1));
+    // upsertNewsletterSubscriber resolves — poll until it lands. Default
+    // vi.waitFor timeout (1000ms) races the chain's own
+    // `await import('@/services/i18n')`, whose resolution latency isn't
+    // bounded — widen it well within the suite's testTimeout (see #6061).
+    await vi.waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1), { timeout: 10000, interval: 50 });
     const [url] = fetchMock.mock.calls[0] as [string, RequestInit];
     expect(url).toBe(`${FUNCTIONS_BASE}/newsletterSendWelcome`);
   });
@@ -129,7 +132,7 @@ describe('welcome-email client-side wiring (services/newsletterSubscribers.ts)',
 
     expect(result).toEqual({ existed: false, id: 'new-pending@example.com', status: 'pending', optedOut: false, hadConfirmationProof: false });
 
-    await vi.waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1));
+    await vi.waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1), { timeout: 10000, interval: 50 });
     const [url] = fetchMock.mock.calls[0] as [string, RequestInit];
     expect(url).toBe(`${FUNCTIONS_BASE}/newsletterSendConfirmation`);
     expect(url).not.toContain('newsletterSendWelcome');
@@ -150,7 +153,7 @@ describe('welcome-email client-side wiring (services/newsletterSubscribers.ts)',
     // welcome-email request never touches upsertNewsletterSubscriber's
     // return path, whether it happens before or after this await settles.
     expect(result).toEqual({ existed: false, id: 'flaky@example.com', status: 'confirmed', optedOut: false, hadConfirmationProof: false });
-    await vi.waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1));
+    await vi.waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1), { timeout: 10000, interval: 50 });
 
     // requestWelcomeEmail's own try/catch already guarantees it never
     // rejects (mirrors requestConfirmationEmail's non-throwing contract) —

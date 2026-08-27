@@ -1,6 +1,6 @@
 {
   "crawlerKey": "skyguide-sa",
-  "assembledAt": "2026-08-26T10:05:53.272Z",
+  "assembledAt": "2026-08-27T00:41:40.725Z",
   "jobs": [
     {
       "title": "APS & ADC Rated (ATCO) Instructor (100%)",
@@ -66,14 +66,12 @@
         ],
         "it": [
           "istruttore-aps-adc-atco-100-skyguide-wangen-b",
-          "aps-adc-rated-atco-instructor-100-skyguide-wangen-b",
-          "aps-adc-rated-atco-instructor-100-skyguide-wangen-b-dubendorf-ch"
+          "aps-adc-rated-atco-instructor-100-skyguide-wangen-b"
         ]
       },
       "previousSlugs": [
         "aps-adc-rated-atco-instructor-100-skyguide-wangen-b",
-        "istruttore-aps-adc-atco-100-skyguide-wangen-b",
-        "aps-adc-rated-atco-instructor-100-skyguide-wangen-b-dubendorf-ch"
+        "istruttore-aps-adc-atco-100-skyguide-wangen-b"
       ],
       "id": "skyguide-sa-e5d8423d725d"
     },
@@ -122,7 +120,6 @@
         "luftverkehrskontrollerausbildung-lugano-skyguide-lugano-agno-rgrv36",
         "fluglotsenausbildung-lugano-skyguide-lugano-agno",
         "formazione-controllore-a-del-traffico-aereo-lugano-skyguide-lugano-agno-rgrv36",
-        "formazione-controllore-a-del-traffico-aereo-lugano-skyguide-lugano-agno-ch",
         "air-traffic-controller-training-lugano-skyguide-lugano-agno",
         "luftverkehrskontrollerausbildung-lugano-skyguide-lugano-agno",
         "formation-controleur-du-trafic-aerien-lugano-skyguide-lugano-agno"
@@ -145,8 +142,7 @@
       "id": "skyguide-sa-b96de90ca094",
       "previousSlugsByLocale": {
         "it": [
-          "luftverkehrskontrollerausbildung-lugano-skyguide-lugano-agno-rgrv36",
-          "formazione-controllore-a-del-traffico-aereo-lugano-skyguide-lugano-agno-ch"
+          "luftverkehrskontrollerausbildung-lugano-skyguide-lugano-agno-rgrv36"
         ],
         "en": [
           "luftverkehrskontrollerausbildung-lugano-skyguide-lugano-agno-rgrv36",
@@ -212,7 +208,6 @@
         "fluglotsenausbildung-locarno-skyguide-locarno",
         "formation-controleur-du-trafic-aerien-locarno-skyguide-locarno",
         "formazione-controllore-a-del-traffico-aereo-locarno-skyguide-locarno-rgrrdp",
-        "formazione-controllore-a-del-traffico-aereo-locarno-skyguide-locarno-ch",
         "air-traffic-controller-training-locarno-skyguide-locarno",
         "flugverkehrskontrollerausbildung-locarno-skyguide-locarno",
         "formation-aux-controleurs-du-trafic-aerien-locarno-skyguide-locarno"
@@ -235,8 +230,7 @@
       "id": "skyguide-sa-338538f51d4a",
       "previousSlugsByLocale": {
         "it": [
-          "flugverkehrskontrollerausbildung-locarno-skyguide-locarno-rgrrdp",
-          "formazione-controllore-a-del-traffico-aereo-locarno-skyguide-locarno-ch"
+          "flugverkehrskontrollerausbildung-locarno-skyguide-locarno-rgrrdp"
         ],
         "en": [
           "flugverkehrskontrollerausbildung-locarno-skyguide-locarno-rgrrdp",
@@ -316,14 +310,10 @@
       "previousSlugsByLocale": {
         "en": [
           "training-air-traffic-controller-in-air-traffic-controller-in-skyguide-dubendorf"
-        ],
-        "it": [
-          "ausbildung-flugverkehrsleiter-in-fluglots-in-skyguide-dubendorf-ch"
         ]
       },
       "previousSlugs": [
-        "training-air-traffic-controller-in-air-traffic-controller-in-skyguide-dubendorf",
-        "ausbildung-flugverkehrsleiter-in-fluglots-in-skyguide-dubendorf-ch"
+        "training-air-traffic-controller-in-air-traffic-controller-in-skyguide-dubendorf"
       ]
     },
     {
@@ -382,15 +372,7 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-06-29T14:06:51.228Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "formation-controleur-euse-de-la-circulation-aerienne-geneve-skyguide-geneve-ch"
-        ]
-      },
-      "previousSlugs": [
-        "formation-controleur-euse-de-la-circulation-aerienne-geneve-skyguide-geneve-ch"
-      ]
+      "firstSeenAt": "2026-06-29T14:06:51.228Z"
     },
     {
       "title": "Formation contrôleur·euse de la circulation aérienne - Payerne",
@@ -448,15 +430,7 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-06-29T14:06:51.228Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "formation-controleur-euse-de-la-circulation-aerienne-payerne-skyguide-payerne-ch"
-        ]
-      },
-      "previousSlugs": [
-        "formation-controleur-euse-de-la-circulation-aerienne-payerne-skyguide-payerne-ch"
-      ]
+      "firstSeenAt": "2026-06-29T14:06:51.228Z"
     },
     {
       "title": "Formation contrôleur·euse de la circulation aérienne - Sion",
@@ -514,15 +488,7 @@
         }
       },
       "postalCode": "1950",
-      "firstSeenAt": "2026-06-29T14:06:51.228Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "formation-controleur-euse-de-la-circulation-aerienne-sion-skyguide-sion-ch"
-        ]
-      },
-      "previousSlugs": [
-        "formation-controleur-euse-de-la-circulation-aerienne-sion-skyguide-sion-ch"
-      ]
+      "firstSeenAt": "2026-06-29T14:06:51.228Z"
     },
     {
       "title": "Physical Security Officer Intrusion and Surveillance (80-100%)",
@@ -581,13 +547,11 @@
       "firstSeenAt": "2026-08-10T21:47:22.405Z",
       "previousSlugsByLocale": {
         "it": [
-          "physical-security-officer-intrusion-and-surveillance-80-100-skyguide-geneva",
-          "physical-security-officer-intrusion-and-surveillance-80-100-skyguide-geneva-ch"
+          "physical-security-officer-intrusion-and-surveillance-80-100-skyguide-geneva"
         ]
       },
       "previousSlugs": [
-        "physical-security-officer-intrusion-and-surveillance-80-100-skyguide-geneva",
-        "physical-security-officer-intrusion-and-surveillance-80-100-skyguide-geneva-ch"
+        "physical-security-officer-intrusion-and-surveillance-80-100-skyguide-geneva"
       ],
       "id": "skyguide-sa-1299807055d6"
     },
@@ -650,14 +614,12 @@
       "previousSlugsByLocale": {
         "it": [
           "head-of-corporate-audit-100-skyguide-wangen-b",
-          "responsabile-audit-aziendale-100-skyguide-wangen-b",
-          "head-of-corporate-audit-100-skyguide-wangen-b-dub-ou-geneve-ch"
+          "responsabile-audit-aziendale-100-skyguide-wangen-b"
         ]
       },
       "previousSlugs": [
         "head-of-corporate-audit-100-skyguide-wangen-b",
-        "responsabile-audit-aziendale-100-skyguide-wangen-b",
-        "head-of-corporate-audit-100-skyguide-wangen-b-dub-ou-geneve-ch"
+        "responsabile-audit-aziendale-100-skyguide-wangen-b"
       ]
     },
     {
@@ -717,18 +679,15 @@
       "firstSeenAt": "2026-08-10T21:47:22.405Z",
       "previousSlugsByLocale": {
         "it": [
-          "head-of-corporate-audit-100-skyguide-wangen-b",
-          "head-of-corporate-audit-100-skyguide-wangen-b-dub-oder-genf-ch"
+          "head-of-corporate-audit-100-skyguide-wangen-b"
         ],
         "en": [
-          "head-of-corporate-audit-100-skyguide-wangen-b-pi90sx",
-          "head-of-corporate-audit-100-skyguide-wangen-b"
+          "head-of-corporate-audit-100-skyguide-wangen-b-pi90sx"
         ]
       },
       "previousSlugs": [
         "head-of-corporate-audit-100-skyguide-wangen-b",
-        "head-of-corporate-audit-100-skyguide-wangen-b-pi90sx",
-        "head-of-corporate-audit-100-skyguide-wangen-b-dub-oder-genf-ch"
+        "head-of-corporate-audit-100-skyguide-wangen-b-pi90sx"
       ],
       "id": "skyguide-sa-861b639fa529"
     },
@@ -791,15 +750,7 @@
       "firstSeenAt": "2026-06-29T14:06:51.228Z",
       "streetAddress": "",
       "retranslationAttempts": 1,
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "it-application-solutions-lead-80-100-skyguide-wangen-b-dubendorf-ch"
-        ]
-      },
-      "previousSlugs": [
-        "it-application-solutions-lead-80-100-skyguide-wangen-b-dubendorf-ch"
-      ]
+      "needsRetranslation": true
     },
     {
       "title": "Lernende:r Informatik EFZ (Plattformentwicklung)",
@@ -860,8 +811,7 @@
         "it": [
           "lernende-r-informatik-efz-plattformentwicklung-skyguide-dubendorf",
           "informatica-di-apprendimento-efz-sviluppo-della-piattaforma-skyguide-dubendorf",
-          "apprendista-in-informatica-efz-sviluppo-piattaforme-skyguide-dubendorf",
-          "lernende-r-informatik-efz-plattformentwicklung-skyguide-dubendorf-ch"
+          "apprendista-in-informatica-efz-sviluppo-piattaforme-skyguide-dubendorf"
         ],
         "en": [
           "apprentice-computer-science-efz-platform-development-skyguide-dubendorf",
@@ -880,7 +830,6 @@
         "learning-computer-science-efz-platform-development-skyguide-dubendorf",
         "apprentissage-informatique-efz-developpement-d-une-plateforme-skyguide-dubendorf",
         "apprendista-in-informatica-efz-sviluppo-piattaforme-skyguide-dubendorf",
-        "lernende-r-informatik-efz-plattformentwicklung-skyguide-dubendorf-ch",
         "apprentice-r-informatik-efz-plattformentwicklung-skyguide-dubendorf",
         "apprenti-e-r-informatik-efz-plattformentwicklung-skyguide-dubendorf"
       ],

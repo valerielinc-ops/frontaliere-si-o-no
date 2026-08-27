@@ -1,58 +1,7 @@
 {
   "crawlerKey": "alpiq",
-  "assembledAt": "2026-08-26T10:15:02.999Z",
+  "assembledAt": "2026-08-27T00:55:00.214Z",
   "jobs": [
-    {
-      "id": "alpiq-2337a63af6bb",
-      "slug": "gas-operator-alpiq-olten",
-      "slugByLocale": {
-        "it": "gas-operator-alpiq-olten"
-      },
-      "company": "Alpiq",
-      "companyKey": "alpiq",
-      "companyDomain": "alpiq.com",
-      "title": "Gas Operator",
-      "titleByLocale": {
-        "it": "Gas Operator"
-      },
-      "description": "Gas Operator\n\nTo support the expansion of our gas portfolio, we are looking for a dynamic and highly motivated Gas Scheduler to join our team in Olten, Switzerland. In this role, you will contribute to our European gas scheduling activities and work in a diverse, international, and fast-paced environment.You&hellip;\n\nOlten - 100%\nPermanent",
-      "descriptionByLocale": {
-        "it": "Gas Operator\n\nTo support the expansion of our gas portfolio, we are looking for a dynamic and highly motivated Gas Scheduler to join our team in Olten, Switzerland. In this role, you will contribute to our European gas scheduling activities and work in a diverse, international, and fast-paced environment.You…\n\nOlten - 100%\nPermanent"
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Olten",
-      "canton": "",
-      "postalCode": "4600",
-      "streetAddress": "",
-      "addressLocality": "Olten",
-      "addressRegion": "",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "energy",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-25",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/9632",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9632&lang=en_GB",
-      "source": "Alpiq Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-26T10:14:57.161Z",
-      "firstSeenAt": "2026-08-25T22:03:37.699Z",
-      "salaryMin": 68000,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "alpiq-183e0087fef4",
       "slug": "enterprise-architect-etrm-alpiq-olten",
@@ -68,12 +17,10 @@
       },
       "description": "Enterprise Architect - ETRM\n\nD&C Technology is a functional unit that supports Alpiq&rsquo;s Business Area Digital & Commerce with management systems for the trading, origination and energy sales businesses, including the delivery of digital solutions for customers from the industrial, commerce and energy sectors.We are hiring an&hellip;\n\nOlten - 100%\nPermanent",
       "descriptionByLocale": {
-        "it": "Enterprise Architect - ETRM\n\nD&C Technology is a functional unit that supports Alpiq&rsquo;s Business Area Digital & Commerce with management systems for the trading, origination and energy sales businesses, including the delivery of digital solutions for customers from the industrial, commerce and energy sectors.We are hiring an&hellip;\n\nOlten - 100%\nPermanent"
+        "it": "Enterprise Architect - ETRM\n\nD&C Technology is a functional unit that supports Alpiq’s Business Area Digital & Commerce with management systems for the trading, origination and energy sales businesses, including the delivery of digital solutions for customers from the industrial, commerce and energy sectors.We are hiring an…\n\nOlten - 100%\nPermanent"
       },
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "location": "Olten",
       "canton": "",
       "postalCode": "4600",
@@ -91,7 +38,8 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9532&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T10:14:57.161Z",
+      "crawledAt": "2026-08-27T00:54:57.800Z",
+      "firstSeenAt": "2026-08-26T10:14:57.161Z",
       "salaryMin": 68000,
       "salaryMax": 104000,
       "baseSalary": {
@@ -103,8 +51,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-26T10:14:57.161Z"
+      }
     },
     {
       "id": "alpiq-32ea120ec164",
@@ -142,7 +89,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=8855&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T10:14:57.159Z",
+      "crawledAt": "2026-08-27T00:54:57.798Z",
       "firstSeenAt": "2026-08-25T10:28:09.340Z",
       "salaryMin": 96000,
       "salaryMax": 146500,
@@ -156,6 +103,73 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "alpiq-2337a63af6bb",
+      "slug": "gas-operator-alpiq-olten",
+      "slugByLocale": {
+        "it": "operatore-di-gas-alpiq-olten",
+        "de": "gasbetreiber-alpiq-olten",
+        "fr": "operateur-de-gaz-alpiq-olten"
+      },
+      "company": "Alpiq",
+      "companyKey": "alpiq",
+      "companyDomain": "alpiq.com",
+      "title": "Gas Operator",
+      "titleByLocale": {
+        "it": "Operatore di gas",
+        "de": "Gasbetreiber",
+        "fr": "Opérateur de gaz"
+      },
+      "description": "Gas Operator\n\nTo support the expansion of our gas portfolio, we are looking for a dynamic and highly motivated Gas Scheduler to join our team in Olten, Switzerland. In this role, you will contribute to our European gas scheduling activities and work in a diverse, international, and fast-paced environment.You&hellip;\n\nOlten - 100%\nPermanent",
+      "descriptionByLocale": {
+        "it": "Gas Operator\n\nTo support the expansion of our gas portfolio, we are looking for a dynamic and highly motivated Gas Scheduler to join our team in Olten, Switzerland. In this role, you will contribute to our European gas scheduling activities and work in a diverse, international, and fast-paced environment.You…\n\nOlten - 100%\nPermanent",
+        "de": "Gasbetreiber\n\nUm den Ausbau unseres Gasportfolios zu unterstützen, suchen wir einen dynamischen und hochmotivierten Gasplaner, der unser Team in Olten, Schweiz, unterstützt. In dieser Rolle werden Sie zu unseren europäischen Gasplanungsaktivitäten beitragen und in einem vielfältigen, internationalen und schnelllebigen Umfeld arbeiten. Sie & hellip;\n\nOlten - 100%\nDauerhaft",
+        "fr": "Opérateur de gaz\n\nPour soutenir l'expansion de notre portefeuille de gaz, nous recherchons un programmeur de gaz dynamique et très motivé pour rejoindre notre équipe à Olten, en Suisse. Dans ce rôle, vous contribuerez à nos activités européennes de programmation du gaz et travaillerez dans un environnement diversifié, international et accéléré. Vous et Hellip;\n\nOlten - 100%\nPermanent"
+      },
+      "requirements": [],
+      "requirementsByLocale": {},
+      "location": "Olten",
+      "canton": "",
+      "postalCode": "4600",
+      "streetAddress": "",
+      "addressLocality": "Olten",
+      "addressRegion": "",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "energy",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-25",
+      "url": "https://www.alpiq.com/career/open-jobs/your-application/9632",
+      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9632&lang=en_GB",
+      "source": "Alpiq Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-27T00:54:57.800Z",
+      "firstSeenAt": "2026-08-25T22:03:37.699Z",
+      "salaryMin": 68000,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "gas-operator-alpiq-olten",
+          "operatore-di-gas-alpiq-olten"
+        ]
+      },
+      "previousSlugs": [
+        "gas-operator-alpiq-olten",
+        "operatore-di-gas-alpiq-olten"
+      ]
     },
     {
       "id": "alpiq-c0ef4d9c8b9f",
@@ -202,7 +216,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T10:14:57.161Z",
+      "crawledAt": "2026-08-27T00:54:57.799Z",
       "firstSeenAt": "2026-07-17T11:43:13.714Z",
       "salaryMin": 96000,
       "salaryMax": 146500,

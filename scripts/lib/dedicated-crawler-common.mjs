@@ -4272,7 +4272,23 @@ export function validateDedicatedLocaleCoverage({
       String(job?.titleByLocale?.[sourceLang] || baseTitle),
       sourceLang,
     );
-    if (typeof isTrustedDomain === 'function' && !isTrustedDomain(String(job?.url || ''))) {
+    // A job carrying an active crawlerMissStreak (mergePreserveLocaleData's
+    // grace-period retention, dedicated-crawler-common.mjs) was NOT matched
+    // by this run's fresh fetch — it's a carry-over already scheduled to be
+    // dropped after GRACE_PERIOD_MAX_MISSES, not new/verified data. Hard-
+    // failing on its (possibly now-untrusted) URL creates a deadlock for any
+    // crawler that migrates its source ATS to a new domain: the commit step
+    // only runs on crawler_exit==0, so a validation failure here means the
+    // miss streak painted onto `job` in-memory this run is never persisted,
+    // the stale record never ages out, and the crawler fails forever on the
+    // exact same retained entry (observed: cham-swiss-properties after its
+    // jobs.ch → Dualoo portal migration, issue #6598).
+    const isGracePeriodRetained = Number(job?.crawlerMissStreak) > 0;
+    if (
+      !isGracePeriodRetained
+      && typeof isTrustedDomain === 'function'
+      && !isTrustedDomain(String(job?.url || ''))
+    ) {
       blockingIssues.push({
         slug: job.slug,
         locale: 'all',

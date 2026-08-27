@@ -331,7 +331,31 @@ const BRAND_QUERY_TERMS = ['interdiscount', 'fielmann', 'fust', 'jysk', 'coop'];
 const BRAND_QUERY_REGEX = `(?i)${BRAND_QUERY_TERMS.join('|')}`;
 const BRAND_QUERY_REGEX_JS = new RegExp(BRAND_QUERY_TERMS.join('|'), 'i');
 
-// #4306 — aggregate CTR across brand-name queries, 30d (3d lag), target > 2%.
+// Job-intent qualifier: a brand-matching query only measures something this
+// site can act on when the searcher is ALSO job-seeking. Without this filter
+// the aggregate is swamped by retail/consumer queries about the brand itself
+// (store promos, opening hours, plain company name) that a job listing can
+// never win a click on regardless of title/content — confirmed on the
+// 2026-08-19 evidence-index snapshot (data/evidence-index.json `gsc.queries`,
+// 90d): job-intent-qualified brand queries ("coop lavoro ticino", "jysk
+// jobs", "coop emploi valais"...) already averaged 3.26% CTR (197/6048),
+// while the un-qualified remainder ("fielmann promozione", "jysk schlieren",
+// bare "interdiscount"/"coop") sat at 0.14% CTR (50/34858) — two populations
+// with unrelated search intent blended into one number that structurally
+// could never clear 2% (issue #5953; VISION.md driver D2, "la misura si
+// corregge, la soglia no": the goal's OWN target — brand+jobs conversion,
+// #4306 — was never about winning retail-intent brand searches).
+const JOB_INTENT_QUALIFIER_REGEX = /lavoro|impiego|posizion|assunzion|apprendist|jobs?|hiring|career|emploi|recrut|stellen|arbeit|karriere|praktikum|stage/i;
+
+/** True when a query mentions one of the tracked brands AND signals job
+ * intent. Exported for testing — see the comment on evalBrandQueryCtr. */
+export function isJobIntentBrandQuery(query) {
+  const q = query || '';
+  return BRAND_QUERY_REGEX_JS.test(q) && JOB_INTENT_QUALIFIER_REGEX.test(q);
+}
+
+// #4306 — aggregate CTR across job-intent-qualified brand-name queries, 30d
+// (3d lag), target > 2%.
 async function evalBrandQueryCtr() {
   const token = await getGoogleAccessToken();
   const { startDate, endDate } = gscWindow(30);
@@ -353,13 +377,14 @@ async function evalBrandQueryCtr() {
     });
     rows = (data.rows || []).filter((r) => BRAND_QUERY_REGEX_JS.test(r.keys?.[0] || ''));
   }
+  rows = rows.filter((r) => isJobIntentBrandQuery(r.keys?.[0]));
   const totalClicks = rows.reduce((s, r) => s + (r.clicks || 0), 0);
   const totalImpressions = rows.reduce((s, r) => s + (r.impressions || 0), 0);
   const ctr = totalImpressions > 0 ? computeCtr(totalClicks, totalImpressions) : null;
   return {
     passed: ctr !== null && ctr > 0.02,
     value: { ctr, totalClicks, totalImpressions, matchedQueries: rows.length },
-    targetDescription: '> 2% CTR aggregato su query brand interdiscount|fielmann|fust|jysk|coop (30gg, lag 3gg)',
+    targetDescription: '> 2% CTR aggregato su query brand+lavoro (interdiscount|fielmann|fust|jysk|coop, qualificate da intento job) (30gg, lag 3gg)',
     detail: `${totalClicks}/${totalImpressions} = ${fmtPct(ctr)} su ${rows.length} query`,
   };
 }

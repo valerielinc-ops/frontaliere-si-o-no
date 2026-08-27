@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cippatrasporti",
-  "assembledAt": "2026-08-26T10:37:40.193Z",
+  "assembledAt": "2026-08-27T00:43:46.410Z",
   "jobs": [
     {
       "id": "cippatrasporti-5dd16ddc181a",
@@ -30,7 +30,7 @@
       "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Ocean-Freight-Operations-Specialist-FCL-Project-Cargo-Trasporti-Chiasso-662670289.htm",
       "source": "Cippà Trasporti SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-26T10:37:36.725Z",
+      "crawledAt": "2026-08-27T00:43:43.543Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -102,7 +102,7 @@
       "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Customer-Service-Transport-Specialist-Commerciale-Trasporti-Chiasso-672753984.htm",
       "source": "Cippà Trasporti SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-26T10:37:36.395Z",
+      "crawledAt": "2026-08-27T00:43:43.209Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -118,10 +118,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "previousSlugs": [
-        "servizio-clienti-transport-specialista-cippa-trasporti-sa-lugano",
-        "customer-service-transport-specialist-cippatrasporti-ch"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "servizio-clienti-transport-specialista-cippa-trasporti-sa-lugano",
@@ -131,6 +127,10 @@
           "customer-service-transport-specialist-cippatrasporti-ch"
         ]
       },
+      "previousSlugs": [
+        "servizio-clienti-transport-specialista-cippa-trasporti-sa-lugano",
+        "customer-service-transport-specialist-cippatrasporti-ch"
+      ],
       "firstSeenAt": "2026-08-24T10:37:33.453Z",
       "salaryMin": 49500,
       "salaryMax": 75000,

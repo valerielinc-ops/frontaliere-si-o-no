@@ -23,6 +23,8 @@ import {
   countDuplicates,
   largestDuplicateBucket,
   effectiveDescription,
+  sourceLocationMatches,
+  compareSourceDetail,
 } from '../../scripts/audit-parser-quality.mjs';
 
 type Issue = {
@@ -189,6 +191,32 @@ describe('applyNoStructureRatchet', () => {
 
     expect(report['borderline'].severity).toBe('WARNING');
     expect(regressions).toHaveLength(0);
+  });
+});
+
+describe('source-detail fidelity checks', () => {
+  it('accepts a city plus canton from the detail page', () => {
+    expect(sourceLocationMatches('Pfäffikon', 'Pfäffikon, Zürich')).toBe(true);
+    expect(sourceLocationMatches('Lugano', 'Pfäffikon, Zürich')).toBe(false);
+  });
+
+  it('flags a wrong published location and a thin published description', () => {
+    const result = compareSourceDetail(
+      { location: 'Lugano', sourceLang: 'de', description: 'Polymechaniker in Lugano' },
+      { location: 'Pfäffikon, Zürich', description: 'Aufgaben Installation, Inbetriebnahme und Wartung von Maschinen. '.repeat(5) },
+    );
+    expect(result.locationMismatch).toBe(true);
+    expect(result.descriptionMismatch).toBe(true);
+  });
+
+  it('does not flag a sufficiently faithful source description', () => {
+    const description = 'Installation, Inbetriebnahme und Wartung von Maschinen. '.repeat(8);
+    const result = compareSourceDetail(
+      { location: 'Pfäffikon', sourceLang: 'de', description },
+      { location: 'Pfäffikon, Zürich', description },
+    );
+    expect(result.locationMismatch).toBe(false);
+    expect(result.descriptionMismatch).toBe(false);
   });
 });
 

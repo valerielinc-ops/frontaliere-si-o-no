@@ -1,20 +1,21 @@
 {
   "key": "air-zermatt",
   "label": "Air Zermatt AG",
-  "generatedAt": "2026-08-26T10:00:54.554Z",
+  "generatedAt": "2026-08-27T00:41:12.673Z",
   "total": 4,
   "discovered": null,
   "written": 4,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4446,
-  "avgDurationMs": 4446,
+  "durationMs": 4126,
+  "avgDurationMs": 4126,
   "durationHistory": [
-    4446
+    4126
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "air-zermatt-dfbbe85d1afb",
       "slug": "stipendium-atc-swiss-sherpa-foundation-raron-air-zermatt",
@@ -40,17 +41,17 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/stipendium-atc-amp-swiss-sherpa-foundation-442",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:00:52.736Z",
-      "_qualityScore": 64,
+      "crawledAt": "2026-08-27T00:41:10.888Z",
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-08-26T10:00:52.736Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "air-zermatt-ae02cc6aafc5",
       "slug": "transport-o-rettungssanitater-in-con-anteil-flugbetrieb-100-air-zermatt-ag-raron",
@@ -76,7 +77,7 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/transport-oder-rettungssanitaeterin-mit-anteil-flugbetrieb-100--571",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:00:52.424Z",
+      "crawledAt": "2026-08-27T00:41:10.584Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-18T22:00:47.781Z",
       "_qualityScore": 85,
@@ -120,7 +121,7 @@
       "salaryMax": 91500,
       "currency": "CHF",
       "firstSeenAt": "2026-08-25T21:38:40.765Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -159,7 +160,7 @@
       "salaryMax": 91500,
       "currency": "CHF",
       "firstSeenAt": "2026-08-25T21:38:39.951Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
