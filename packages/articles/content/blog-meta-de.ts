@@ -10848,6 +10848,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sconti-trasporti-frontalieri-ticino.title': 'Abonnements und Rabatte für Grenzgänger: So sparen Sie beim Transport',
     'blog.article.sconti-trasporti-frontalieri-ticino.excerpt': 'Praktischer Leitfaden zu ermäßigten Abonnements und integrierten Transportsystemen Tessin-Lombardei für diejenigen, die grenzüberschreitend arbeiten: Optionen, Einsparungen und Steuerabzugsfähigkeit.',
     'blog.article.sconti-trasporti-frontalieri-ticino.imageAlt': 'Grenzgänger warten auf den Zug nach der Lombardei an einem Tessiner Bahnhof während der morgendlichen Stoßzeit',
+    'blog.article.vecchi-nuovi-frontalieri-tassazione.title': 'Grenzgänger 2026: Besteuerung, neues Abkommen und Selbstbehalt',
+    'blog.article.vecchi-nuovi-frontalieri-tassazione.excerpt': 'Ab 2024 reduziert das neue Abkommen Italien-Schweiz die Steuern für Grenzgänger: 7.500 € Befreiung für alte, 10.000 € für neue Grenzgänger. So funktioniert es.',
+    'blog.article.vecchi-nuovi-frontalieri-tassazione.imageAlt': 'Steuerbüro mit Dokumenten zur Besteuerung von Grenzgängern und CHF/EUR-Währungssymbolen',
 };
 
 export default blogMetaDe;

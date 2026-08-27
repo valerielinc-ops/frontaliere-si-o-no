@@ -10849,6 +10849,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sconti-trasporti-frontalieri-ticino.title': 'Subscriptions and discounts for border crossers: how to save on transport',
     'blog.article.sconti-trasporti-frontalieri-ticino.excerpt': 'Practical guide to discounted subscriptions and integrated Ticino-Lombardy transport systems for those working across borders: options, savings and tax deductibility.',
     'blog.article.sconti-trasporti-frontalieri-ticino.imageAlt': 'Cross-border workers waiting for the train to Lombardy at a Ticino railway station during morning rush hours',
+    'blog.article.vecchi-nuovi-frontalieri-tassazione.title': 'Frontier 2026: taxation, new agreement and exemption',
+    'blog.article.vecchi-nuovi-frontalieri-tassazione.excerpt': 'From 2024, the new Italy-Switzerland agreement reduces taxes for border workers: €7,500 exemption for the old, €10,000 for the new. Here\'s how it works.',
+    'blog.article.vecchi-nuovi-frontalieri-tassazione.imageAlt': 'Tax office workspace with cross-border taxation documents and CHF/EUR currency symbols',
 };
 
 export default blogMetaEn;

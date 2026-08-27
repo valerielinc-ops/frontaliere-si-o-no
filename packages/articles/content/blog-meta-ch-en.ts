@@ -4459,6 +4459,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salari-appenzello-interno-settori.title': 'Wages and the labour market in Appenzello Interna',
     'blog.article.salari-appenzello-interno-settori.excerpt': 'Guide to salary levels by level of training, employment sectors, AVS/LPP/LAMal contributions, legal hours and tools to calculate net salary in the Inner Appenzell canton.',
     'blog.article.salari-appenzello-interno-settori.imageAlt': 'Office and factory workers in a modern Swiss workplace environment representing different skill levels and sectors.',
+    'blog.article.imposta-successione-appenzello.title': 'Appenzello inheritance taxes: rates and procedures',
+    'blog.article.imposta-successione-appenzello.excerpt': 'Inheritance tax in Appenzell: cantonal jurisdiction, rates for kinship, exemptions for spouse. Declaration within 30-90 days. 6-step procedure.',
+    'blog.article.imposta-successione-appenzello.imageAlt': 'Swiss cantonal administrative building representing inheritance and tax administration',
 };
 
 export default blogMetaChEn;
