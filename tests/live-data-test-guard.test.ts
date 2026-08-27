@@ -97,8 +97,8 @@ describe('il rilevatore', () => {
     expect(LIVE_DATA_ROOTS.some((r) => r.includes('baseline'))).toBe(false);
   });
 
-  it('esclude dal gate PR anche i test meta che leggono dati live', () => {
-    expect(listLiveDataTestsForCi()).toContain('tests/corpus-wide-test-partition.test.ts');
+  it('mantiene il test meta e rimuove i gate di qualita live dalla PR', () => {
+    expect(listLiveDataTestsForCi()).not.toContain('tests/corpus-wide-test-partition.test.ts');
     expect(listLiveDataTestsForCi()).toContain('tests/evergreen-pool-consumption.test.ts');
     expect(listLiveDataTestsForCi()).toContain('tests/article-body-wordcount.test.ts');
     expect(listLiveDataTestsForCi()).toContain('tests/job-locale-consistency.test.ts');

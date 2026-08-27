@@ -185,9 +185,21 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   { file: 'tests/whats-new-localization-guard.test.ts', roots: ['services/locales/'] },
 ]);
 
-/** Tutti i test dell'inventario live sono esclusi dal gate deterministico PR. */
+/**
+ * Il test di partizionamento è un controllo meta della configurazione, non un
+ * gate sulla qualità del corpus: resta nel gate PR e viene lanciato anche
+ * esplicitamente nel workflow post-merge.
+ */
+const CI_LIVE_DATA_META_TESTS = new Set([
+  'tests/corpus-wide-test-partition.test.ts',
+]);
+
+/** I test dell'inventario live, esclusi i controlli meta della CI, non sono gate PR. */
 export function listLiveDataTestsForCi() {
-  return KNOWN_LIVE_DATA_TESTS.map(({ file }) => file).sort();
+  return KNOWN_LIVE_DATA_TESTS
+    .map(({ file }) => file)
+    .filter((file) => !CI_LIVE_DATA_META_TESTS.has(file))
+    .sort();
 }
 
 /**

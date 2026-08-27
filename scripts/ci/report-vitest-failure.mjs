@@ -115,6 +115,34 @@ function gh(args) {
   }
 }
 
+function ghOutput(args) {
+  try {
+    return execFileSync('gh', args, {
+      encoding: 'utf8',
+      timeout: 120_000,
+      stdio: ['ignore', 'pipe', 'inherit'],
+    });
+  } catch {
+    return '';
+  }
+}
+
+function publishComment(repo, prNumber, body) {
+  const raw = ghOutput(['api', `repos/${repo}/issues/${prNumber}/comments?per_page=100`]);
+  let comments = [];
+  try { comments = JSON.parse(raw); } catch { /* best-effort: fall back to a new comment */ }
+  const previous = comments.find((comment) => String(comment.body || '').includes(MARKER));
+  if (previous?.id) {
+    return gh([
+      'api',
+      '--method', 'PATCH',
+      `repos/${repo}/issues/comments/${previous.id}`,
+      '-f', `body=${body}`,
+    ]);
+  }
+  return gh(['pr', 'comment', prNumber, '--repo', repo, '--body', body]);
+}
+
 function main() {
   const groups = collectFailures();
   if (groups.length === 0) {
@@ -132,8 +160,8 @@ function main() {
     runId: process.env.RUN_ID || '',
     headSha: process.env.HEAD_SHA || '',
   });
-  const posted = gh(['pr', 'comment', prNumber, '--repo', repo, '--body', body]);
-  console.log(posted ? `Commento failure Vitest pubblicato sulla PR #${prNumber}.` : 'Impossibile pubblicare il commento failure Vitest (best-effort).');
+  const posted = publishComment(repo, prNumber, body);
+  console.log(posted ? `Commento failure Vitest pubblicato/aggiornato sulla PR #${prNumber}.` : 'Impossibile pubblicare il commento failure Vitest (best-effort).');
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(new URL(import.meta.url).pathname)) main();
