@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-seeschau",
-  "assembledAt": "2026-08-27T20:11:54.599Z",
+  "assembledAt": "2026-08-27T20:22:56.032Z",
   "jobs": [
     {
       "id": "klinik-seeschau-00cb0e8ba1bb",
@@ -34,7 +34,7 @@
       "url": "https://www.klinik-seeschau.ch/karriere/offene-stellen.html/59#job-00cb0e8ba1bb",
       "source": "Klinik Seeschau Dedicated Parser (Joomla SPB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:11:51.248Z",
+      "crawledAt": "2026-08-27T20:22:53.987Z",
       "addressLocality": "Kreuzlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -136,7 +136,7 @@
       "url": "https://www.klinik-seeschau.ch/karriere/offene-stellen.html/59#job-8c5af93f2c34",
       "source": "Klinik Seeschau Dedicated Parser (Joomla SPB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:11:51.247Z",
+      "crawledAt": "2026-08-27T20:22:53.986Z",
       "addressLocality": "Kreuzlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -240,7 +240,7 @@
       "url": "https://www.klinik-seeschau.ch/karriere/offene-stellen.html/59#job-7d59c50b9ec5",
       "source": "Klinik Seeschau Dedicated Parser (Joomla SPB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:11:51.245Z",
+      "crawledAt": "2026-08-27T20:22:53.985Z",
       "addressLocality": "Kreuzlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -392,7 +392,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
