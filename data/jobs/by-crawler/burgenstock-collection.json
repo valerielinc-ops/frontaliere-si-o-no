@@ -1,14 +1,14 @@
 {
   "crawlerKey": "burgenstock-collection",
-  "assembledAt": "2026-08-27T00:46:04.427Z",
+  "assembledAt": "2026-08-27T01:09:33.547Z",
   "jobs": [
     {
       "id": "burgenstock-collection-1fbeb32f2253",
       "slug": "le-specialita-persiane-cucinano-100-m-f-i-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
-        "de": "persischer-spezialitaten-koch-100-m-w-i-buergenstock-hotels-obburgen",
         "it": "le-specialita-persiane-cucinano-100-m-f-i-burgenstock-hotels-ag-obburgen",
         "en": "persian-specialties-cook-100-m-f-i-burgenstock-hotels-ag-obburgen",
+        "de": "persischer-spezialitaten-koch-100-m-w-i-buergenstock-hotels-obburgen",
         "fr": "specialites-persanes-cuisson-100-m-f-i-burgenstock-hotels-ag-obburgen"
       },
       "company": "Bürgenstock Collection",
@@ -16,9 +16,9 @@
       "companyDomain": "recruitingapp-2850.umantis.com",
       "title": "Persischer Spezialitäten Koch 100% (m/w/i)",
       "titleByLocale": {
-        "de": "Persischer Spezialitäten Koch 100% (m/w/i)",
         "it": "Persischer Spezialitäten Koch 100% (m/w/i)",
         "en": "Persischer Spezialitäten Koch 100% (m/w/i)",
+        "de": "Persischer Spezialitäten Koch 100% (m/w/i)",
         "fr": "Persischer Spezialitäten Koch 100% (m/w/i)"
       },
       "description": "Persischer Spezialitäten Koch 100% (m/w/i) — Bürgenstock Collection",
@@ -30,7 +30,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1563/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-27T00:46:01.219Z",
+      "crawledAt": "2026-08-27T01:09:29.677Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -44,21 +44,24 @@
       "postedDate": "2026-08-27",
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1563/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "it": [
-          "persischer-spezialitaten-koch-100-m-w-i-burgenstock-collection-ch"
-        ],
         "de": [
-          "persischer-spezialitaten-koch-100-m-w-i-burgenstock-collection-ch"
+          "persischer-spezialitaten-koch-100-m-w-i-burgenstock-collection-ch",
+          "persischer-spezialitaten-koch-100-m-w-i-buergenstock-hotels-obburgen"
+        ],
+        "it": [
+          "persischer-spezialitaten-koch-100-m-w-i-burgenstock-collection-ch",
+          "le-specialita-persiane-cucinano-100-m-f-i-burgenstock-hotels-ag-obburgen"
         ]
       },
       "previousSlugs": [
-        "persischer-spezialitaten-koch-100-m-w-i-burgenstock-collection-ch"
+        "persischer-spezialitaten-koch-100-m-w-i-burgenstock-collection-ch",
+        "persischer-spezialitaten-koch-100-m-w-i-buergenstock-hotels-obburgen",
+        "le-specialita-persiane-cucinano-100-m-f-i-burgenstock-hotels-ag-obburgen"
       ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-27T00:46:01.219Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -71,8 +74,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-27T00:46:01.219Z"
+      "addressRegion": "TI"
     },
     {
       "id": "burgenstock-collection-cf20ce93b8df",
@@ -102,7 +104,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1562/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-27T00:46:00.915Z",
+      "crawledAt": "2026-08-27T01:09:29.372Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -161,7 +163,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1566/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:46:00.612Z",
+      "crawledAt": "2026-08-27T01:09:29.061Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -235,7 +237,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1564/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-27T00:46:00.307Z",
+      "crawledAt": "2026-08-27T01:09:28.752Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -317,7 +319,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1482/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-27T00:46:00.004Z",
+      "crawledAt": "2026-08-27T01:09:28.441Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -391,7 +393,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1521/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-27T00:45:59.702Z",
+      "crawledAt": "2026-08-27T01:09:28.129Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -465,7 +467,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1512/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-27T00:45:59.399Z",
+      "crawledAt": "2026-08-27T01:09:27.826Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -532,7 +534,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1492/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-27T00:45:59.097Z",
+      "crawledAt": "2026-08-27T01:09:27.520Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -606,7 +608,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1438/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-27T00:45:58.794Z",
+      "crawledAt": "2026-08-27T01:09:27.214Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -680,7 +682,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1560/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:45:58.465Z",
+      "crawledAt": "2026-08-27T01:09:26.887Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -805,74 +807,6 @@
           "@type": "QuantitativeValue",
           "minValue": 49500,
           "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "burgenstock-collection-27f776f8effe",
-      "slug": "spa-wellness-manager-100-w-m-i-burgenstock-collection-ch",
-      "slugByLocale": {
-        "it": "spa-wellness-manager-100-w-m-i-burgenstock-collection-ch",
-        "en": "spa-wellness-manager-100-w-m-i-burgenstock-collection-ch",
-        "de": "spa-wellness-manager-100-w-m-i-buergenstock-hotels-obburgen",
-        "fr": "spa-wellness-manager-100-w-m-i-burgenstock-collection-ch"
-      },
-      "company": "Bürgenstock Collection",
-      "companyKey": "burgenstock-collection",
-      "companyDomain": "recruitingapp-2850.umantis.com",
-      "title": "Spa & Wellness Manager 100% (w/m/i)",
-      "titleByLocale": {
-        "it": "Spa & Wellness Manager 100% (w/m/i)",
-        "en": "Spa & Wellness Manager 100% (w/m/i)",
-        "de": "Spa & Wellness Manager zu 100 % (w/m/i)",
-        "fr": "Spa & Wellness Manager 100% (w/m/i)"
-      },
-      "description": "Spa & Wellness Manager 100% (w/m/i) — Bürgenstock Collection",
-      "descriptionByLocale": {
-        "it": "Spa & Wellness Manager 100% (w/m/i) — Bürgenstock Collection"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://recruitingapp-2850.umantis.com/Vacancies/1488/Description/1",
-      "source": "Bürgenstock Collection Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-25T21:47:02.200Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-23",
-      "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1488/Description/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "responsabile-spa-benessere-al-100-w-m-i-burgenstock-collection-lugano"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "responsabile-spa-benessere-al-100-w-m-i-burgenstock-collection-lugano"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T21:38:22.992Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
           "unitText": "YEAR"
         }
       },
