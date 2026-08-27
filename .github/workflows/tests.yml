@@ -242,7 +242,13 @@ jobs:
             # `packages/articles/content/` would materialize the full article
             # corpus in this CI checkout.
             /packages/articles/content/blog-articles-data.ts
+            /packages/articles/content/swiss-articles-data.ts
             /packages/articles/content/blogArticleIds.ts
+            /packages/articles/content/routerBlogData.ts
+            /packages/articles/content/routerSwissData.ts
+            /packages/articles/content/blogImageCdnMirror.ts
+            /packages/articles/content/blog-meta-*.ts
+            /packages/articles/content/seo/seo-blog*.ts
             /packages/articles/index.ts
             /packages/articles/articleSections.ts
             /data/
