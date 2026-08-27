@@ -47,11 +47,20 @@ function parsePageVersion(raw) {
  * Did the disclosure THIS person received name third-party advertising?
  *
  * A question about their stored document, and since 2026-08-14 nothing more: it
- * decides no send. Every displayed formula carries the page version inside the
- * sentence (#5765), so the document answers it by itself — `true` means the
- * page they were pointed at already had the advertising section,
- * `false` means an older version, no `consent_text` at all (8.505 of 8.605
- * documents, measured 2026-08-12) or a text with no version in it.
+ * decides no send. `true` means the page they were pointed at already had the
+ * advertising section, `false` means an older version, no proof of a version at
+ * all (8.505 of 8.605 documents, measured 2026-08-12) or a proof this function
+ * cannot parse.
+ *
+ * WHERE THE VERSION LIVES, SINCE #6151. Every displayed formula used to carry
+ * the page version inside the sentence (#5765); it no longer does, because
+ * shortening the notice further meant taking it back out. `consent_page_version`
+ * — set by `consentProof` (services/consentTexts.ts), not by a call site that
+ * has to remember to attach it — is read FIRST. The sentence is still parsed as
+ * a fallback, because it is the only place the 8.605 documents written before
+ * this field existed carry a version at all: dropping the fallback would read
+ * every one of them as `false`, which is not what "the field is missing"
+ * should mean for a proof this old.
  *
  * It is kept, and kept honest, for two reasons. It is the measure of what the
  * owner's retroactive decision actually costs — every recipient answering
@@ -66,7 +75,7 @@ function parsePageVersion(raw) {
  * understate the cohort by exactly the people the disclosure does cover.
  */
 export function advertisingDisclosureWasShown(sub) {
-  const stored = parsePageVersion(sub?.consent_text);
+  const stored = parsePageVersion(sub?.consent_page_version) || parsePageVersion(sub?.consent_text);
   if (!stored) return false;
   const floor = parsePageVersion(ADVERTISING_NAMED_FROM_PAGE_VERSION);
   if (!floor) return false;

@@ -152,6 +152,15 @@ export type NewsletterUpsertInput = {
   */
  consentTextVersion?: string | null;
  /**
+  * The `/comunicazioni/` revision `consentText` pointed at, returned by
+  * `consentProof` (services/consentTexts.ts) rather than embedded in the text
+  * itself (#6151) — read by `advertisingDisclosureWasShown`
+  * (services/publisherBlastMatch.mjs) before it falls back to parsing the
+  * stored sentence, which is all the documents written before this field
+  * existed have.
+  */
+ consentPageVersion?: string | null;
+ /**
   * Was `consentText` actually rendered to the person at this gate? `false`
   * everywhere today — see the header of `services/consentTexts.ts`. Recorded
   * rather than assumed: a stored formula nobody saw must not read like one
@@ -923,6 +932,7 @@ export async function captureNewsletterSubscriber(
  : (existingData?.consent_given_at || null),
  consent_text: resolvedConsentText,
  consent_text_version: sanitizeString(input.consentTextVersion) || sanitizeString(existingData?.consent_text_version),
+ consent_page_version: sanitizeString(input.consentPageVersion) || sanitizeString(existingData?.consent_page_version),
  // Tri-state on purpose: `null` means "never recorded" (every document written
  // before #5678) and must stay distinguishable from an explicit `false`.
  consent_text_displayed: typeof input.consentTextDisplayed === 'boolean'

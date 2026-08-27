@@ -324,17 +324,21 @@ const entry = (e: ConsentProofEntry): ConsentProofEntry =>
  * a frequency inside a consent formula cannot change without collecting
  * consent again.
  *
- * `COMMUNICATIONS_PAGE_VERSION` is inside the sentence, not beside it, so that
- * it survives into `consent_text` without any call site remembering to attach
- * it. A proof that named a page but not its revision would point at content
- * free to change afterwards, which is the specific way this shortening could
- * have made the register weaker instead of clearer.
+ * `COMMUNICATIONS_PAGE_VERSION` USED TO BE INSIDE THIS SENTENCE (#6151). It no
+ * longer is: `consentProof` below returns it as its own `consentPageVersion`
+ * field, which `captureNewsletterSubscriber` persists as `consent_page_version`
+ * — set by the register itself, not by a call site that has to remember to
+ * attach it, so the proof stays self-contained without lengthening what the
+ * visitor reads. `services/publisherBlastMatch.mjs:advertisingDisclosureWasShown`
+ * reads that field first and falls back to parsing this sentence only for the
+ * 8.605 documents written before this change, whose version has nowhere else
+ * to live.
  */
 const POINTER: Readonly<Record<ConsentLocale, string>> = Object.freeze({
-  it: `${CONSENT_PAGE_LABELS.it} (v. ${COMMUNICATIONS_PAGE_VERSION}).`,
-  en: `${CONSENT_PAGE_LABELS.en} (v. ${COMMUNICATIONS_PAGE_VERSION}).`,
-  de: `${CONSENT_PAGE_LABELS.de} (V. ${COMMUNICATIONS_PAGE_VERSION}).`,
-  fr: `${CONSENT_PAGE_LABELS.fr} (v. ${COMMUNICATIONS_PAGE_VERSION}).`,
+  it: `${CONSENT_PAGE_LABELS.it}.`,
+  en: `${CONSENT_PAGE_LABELS.en}.`,
+  de: `${CONSENT_PAGE_LABELS.de}.`,
+  fr: `${CONSENT_PAGE_LABELS.fr}.`,
 });
 
 /**
@@ -400,7 +404,7 @@ export const CONSENT_TEXTS = Object.freeze({
    */
   communicationsOptIn: entry({
     id: 'communications_opt_in',
-    version: '2026-08-20.1',
+    version: '2026-08-27.1',
     text: COMMUNICATIONS_OPT_IN.it,
     texts: COMMUNICATIONS_OPT_IN,
     displayed: true,
@@ -426,7 +430,7 @@ export const CONSENT_TEXTS = Object.freeze({
    */
   communicationsSignIn: entry({
     id: 'communications_sign_in',
-    version: '2026-08-20.1',
+    version: '2026-08-27.1',
     text: COMMUNICATIONS_SIGN_IN.it,
     texts: COMMUNICATIONS_SIGN_IN,
     displayed: true,
@@ -458,7 +462,7 @@ export const CONSENT_TEXTS = Object.freeze({
    */
   communicationsSignInEmail: entry({
     id: 'communications_sign_in_email',
-    version: '2026-08-20.1',
+    version: '2026-08-27.1',
     text: COMMUNICATIONS_SIGN_IN.it,
     texts: COMMUNICATIONS_SIGN_IN,
     displayed: true,
@@ -656,6 +660,12 @@ export type ConsentProofInput = {
   consentText: string;
   consentTextVersion: string;
   consentTextDisplayed: boolean;
+  /**
+   * The `/comunicazioni/` revision the visitor was pointed at, now returned
+   * here instead of being embedded in `consentText` (#6151) — set by the
+   * register, not by whichever call site remembers to attach it.
+   */
+  consentPageVersion: string;
   consentAct: ConsentAct;
   consentMethod: string;
   consentUserAgent: string | null;
@@ -693,6 +703,7 @@ export function consentProof(
     consentText: consentDisplayText(key, locale),
     consentTextVersion: proof.version,
     consentTextDisplayed: proof.displayed,
+    consentPageVersion: COMMUNICATIONS_PAGE_VERSION,
     consentAct: proof.act,
     consentMethod: method,
     consentUserAgent:
