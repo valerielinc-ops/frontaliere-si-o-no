@@ -8,10 +8,10 @@
  * small static import graph on disk, updates only changed files, walks it in
  * reverse from changed sources, and passes the resulting test files directly
  * to Vitest. It stays related-only for ordinary imports, with a conservative
- * full-test fallback only for repository-level runtime/configuration inputs
- * that are explicitly listed below. Workflow files are deliberately excluded:
- * changing CI orchestration must not expand an application test diff into the
- * complete Vitest suite.
+ * full-test fallback only when the changed-path collector cannot prove a
+ * complete diff. Runtime/configuration files are deliberately not treated as
+ * global Vitest dependencies: changing CI or TypeScript configuration must
+ * not expand an application test diff into the complete suite.
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
@@ -30,7 +30,6 @@ const skipCorpusWide = process.env.VITEST_SKIP_CORPUS_WIDE === 'true';
 const corpusWideTests = skipCorpusWide ? new Set(listCorpusWideTests()) : new Set();
 // These dependencies are wired by Vitest/configuration or executed through a
 // path string, so no static import edge can reliably reach their consumers.
-const implicitTestDependencyRe = /^(?:tests\/setup(?:-node)?\.[cm]?[jt]sx?|scripts\/(?:seo|models|one-off)\/|package\.json$|tsconfig[^/]*\.json$)/;
 const importRe = /(?:import\s+(?:[^'";]*?\s+from\s+)?|export\s+[^'";]*?\s+from\s+|import\s*\(|require\s*\()(['"])([^'"]+)\1/g;
 const extensions = ['', '.ts', '.tsx', '.js', '.jsx', '.mjs', '.cjs', '.vue', '.svelte'];
 
@@ -134,7 +133,7 @@ function loadGraph(files) {
 
 const candidates = [...new Set(changed.filter((file) =>
   file !== 'scripts/ci/run-related-tests.mjs' && !ignoredRe.test(file)
-    && (sourceRe.test(file) || implicitTestDependencyRe.test(file))))];
+    && sourceRe.test(file)))];
 const forceFull = changedStatus !== 'complete';
 if (candidates.length === 0 && !forceFull) {
   console.log('No existing source/test files in the diff → related-only run has no tests.');
@@ -154,10 +153,6 @@ for (const [file, entry] of Object.entries(graph)) {
 const related = new Set(forceFull ? allTests : candidates.filter((file) => testRe.test(file) && !corpusWideTests.has(file)));
 if (forceFull) {
   console.log(`Changed-paths status is ${changedStatus} → running all tracked tests conservatively.`);
-}
-if (candidates.some((file) => implicitTestDependencyRe.test(file))) {
-  for (const test of allTests) related.add(test);
-  console.log('Implicit Vitest dependency changed → running all tracked tests conservatively.');
 }
 const queue = [...candidates];
 const visited = new Set();
