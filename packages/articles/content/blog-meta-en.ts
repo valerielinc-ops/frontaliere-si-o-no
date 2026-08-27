@@ -10837,6 +10837,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.congedo-maternita-paternita-frontalieri.title': 'Maternity and paternity leave for border workers: CH-IT rules',
     'blog.article.congedo-maternita-paternita-frontalieri.excerpt': 'How parental leave, daily allowances and benefits for border new parents between Switzerland and Italy work: rules, IPG rates and practical procedures.',
     'blog.article.congedo-maternita-paternita-frontalieri.imageAlt': 'Parent with stroller on Lugano lakeside promenade, Monte San Salvatore in background',
+    'blog.article.frontaliere-spese-sanitarie-italia-rimborso.title': 'Swiss healthcare expenses reimbursable in Italy for border workers',
+    'blog.article.frontaliere-spese-sanitarie-italia-rimborso.excerpt': 'What health expenses incurred in Switzerland are reimbursable in Italy for border workers, with the necessary procedures, limits and documents.',
+    'blog.article.frontaliere-spese-sanitarie-italia-rimborso.imageAlt': 'Cross-border commuter at Chiasso border with health documents and Swiss Alps background',
 };
 
 export default blogMetaEn;

@@ -79163,6 +79163,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-spese-sanitarie-italia-rimborso': {
+    title: 'Spese sanitarie Svizzera rimborsabili in Italia per frontalieri',
+    description: 'Guida pratica alle spese sanitarie sostenute in Svizzera e rimborsabili in Italia per i frontalieri: procedure, limiti, documenti e credito d\'imposta nel quadro',
+    keywords: 'frontalieri, ticino, svizzera, italia, spese, sanitarie, rimborsabili, quali',
+    ogTitle: 'Spese sanitarie Svizzera rimborsabili in Italia',
+    ogDescription: 'Quali spese sanitarie sostenute in Svizzera sono rimborsabili in Italia per i frontalieri del Canton Ticino. Procedure, limiti, documenti necessari e credito d\'imposta nel quadro CE del 730. Franchigie LAMal da 300 a 2.500 franchi, aliquote IRPEF',
+    canonicalPath: '/articoli-frontaliere/frontaliere-spese-sanitarie-italia-rimborso',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Spese sanitarie Svizzera rimborsabili in Italia per frontalieri",
+      "description": "Guida pratica alle spese sanitarie sostenute in Svizzera e rimborsabili in Italia per i frontalieri: procedure, limiti, documenti e credito d'imposta nel quadro",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-spese-sanitarie-italia-rimborso.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere al valico di Chiasso con documenti sanitari e sfondo alpino svizzero"
+      },
+      "datePublished": "2026-08-27T00:03:03+00:00",
+      "dateModified": "2026-08-27T00:03:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-spese-sanitarie-italia-rimborso/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
