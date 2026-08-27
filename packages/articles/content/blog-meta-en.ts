@@ -10846,6 +10846,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.coordinamento-sanitario-frontaliere.title': 'Border health costs: reimbursements between Switzerland and Italy',
     'blog.article.coordinamento-sanitario-frontaliere.excerpt': 'Health rights for border workers Ticino-Italy: LAMal and INPS in comparison, reimbursement procedures and how to choose the most convenient insurance.',
     'blog.article.coordinamento-sanitario-frontaliere.imageAlt': 'Serene view of Monte San Salvatore at sunset overlooking Lake Lugano, Ticino',
+    'blog.article.sconti-trasporti-frontalieri-ticino.title': 'Subscriptions and discounts for border crossers: how to save on transport',
+    'blog.article.sconti-trasporti-frontalieri-ticino.excerpt': 'Practical guide to discounted subscriptions and integrated Ticino-Lombardy transport systems for those working across borders: options, savings and tax deductibility.',
+    'blog.article.sconti-trasporti-frontalieri-ticino.imageAlt': 'Cross-border workers waiting for the train to Lombardy at a Ticino railway station during morning rush hours',
 };
 
 export default blogMetaEn;
