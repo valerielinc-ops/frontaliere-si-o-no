@@ -10845,6 +10845,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.coordinamento-sanitario-frontaliere.title': 'Gesundheitskosten: Rückerstattung CH-IT',
     'blog.article.coordinamento-sanitario-frontaliere.excerpt': 'Gesundheitsrechte für Grenzgänger Tessin-Italien: KVG und INPS im Vergleich, Erstattungsverfahren und Auswahl der günstigsten Versicherung.',
     'blog.article.coordinamento-sanitario-frontaliere.imageAlt': 'Ruhiger Blick auf den Monte San Salvatore bei Sonnenuntergang über dem Luganer See, Tessin',
+    'blog.article.sconti-trasporti-frontalieri-ticino.title': 'Abonnements und Rabatte für Grenzgänger: So sparen Sie beim Transport',
+    'blog.article.sconti-trasporti-frontalieri-ticino.excerpt': 'Praktischer Leitfaden zu ermäßigten Abonnements und integrierten Transportsystemen Tessin-Lombardei für diejenigen, die grenzüberschreitend arbeiten: Optionen, Einsparungen und Steuerabzugsfähigkeit.',
+    'blog.article.sconti-trasporti-frontalieri-ticino.imageAlt': 'Grenzgänger warten auf den Zug nach der Lombardei an einem Tessiner Bahnhof während der morgendlichen Stoßzeit',
 };
 
 export default blogMetaDe;

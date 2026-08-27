@@ -10848,6 +10848,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.coordinamento-sanitario-frontaliere.title': 'Frais de santé frontaliers : remboursements entre la Suisse et l\'Italie',
     'blog.article.coordinamento-sanitario-frontaliere.excerpt': 'Droits sanitaires pour les frontaliers Tessin-Italie : LAMal et INPS en comparaison, procédures de remboursement et comment choisir l\'assurance la moins chère.',
     'blog.article.coordinamento-sanitario-frontaliere.imageAlt': 'Vue sereine du Monte San Salvatore au coucher du soleil surplombant le lac de Lugano, Tessin',
+    'blog.article.sconti-trasporti-frontalieri-ticino.title': 'Frontaliers : abos & réductions pour économiser',
+    'blog.article.sconti-trasporti-frontalieri-ticino.excerpt': 'Guide pratique des abonnements à prix réduit et des systèmes de transport intégrés Tessin-Lombardie pour ceux qui travaillent au-delà des frontières : options, économies et déductibilité fiscale.',
+    'blog.article.sconti-trasporti-frontalieri-ticino.imageAlt': 'Frontaliers attendant le train vers la Lombardie à une gare tessinoise pendant les heures de pointe du matin',
 };
 
 export default blogMetaFr;

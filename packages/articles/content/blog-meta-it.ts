@@ -10847,6 +10847,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.coordinamento-sanitario-frontaliere.title': 'Spese sanitarie frontaliere: rimborsi tra Svizzera e Italia',
     'blog.article.coordinamento-sanitario-frontaliere.excerpt': 'Diritti sanitari per frontalieri Ticino-Italia: LAMal e INPS a confronto, procedure di rimborso e come scegliere l\'assicurazione più conveniente.',
     'blog.article.coordinamento-sanitario-frontaliere.imageAlt': 'Vista serena di Monte San Salvatore al tramonto sul Lago di Lugano, Ticino',
+    'blog.article.sconti-trasporti-frontalieri-ticino.title': 'Abbonamenti e sconti per frontalieri: come risparmiare sui trasporti',
+    'blog.article.sconti-trasporti-frontalieri-ticino.excerpt': 'Guida pratica agli abbonamenti scontati e ai sistemi di trasporto integrati Ticino-Lombardia per chi lavora oltre confine: opzioni, risparmio e detraibilità fiscale.',
+    'blog.article.sconti-trasporti-frontalieri-ticino.imageAlt': 'Frontalieri in attesa del treno per la Lombardia su una stazione ticinese durante le ore di punta mattutine',
 };
 
 export default blogMetaIt;
