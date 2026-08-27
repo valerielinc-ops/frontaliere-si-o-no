@@ -16,6 +16,7 @@ import { execFileSync, spawnSync } from 'node:child_process';
 import path from 'node:path';
 
 const changedPathFile = process.env.CHANGED_PATHS_FILE || 'changed-paths.txt';
+const changedStatusFile = process.env.CHANGED_PATHS_STATUS_FILE || 'changed-paths-status.txt';
 const graphFile = process.env.VITEST_RELATED_GRAPH || '.cache/vitest-related/graph.json';
 const sourceRe = /\.(?:[cm]?[jt]sx?|vue|svelte)$/i;
 const testRe = /^(?:tests|packages\/[^/]+\/tests)\/.*\.(?:test|spec)\.[cm]?[jt]sx?$/i;
@@ -23,12 +24,48 @@ const ignoredRe = /^(?:data|public|reports|docs|_newsletter_variants|node_module
 const projectRe = /^(?:tests|scripts\/(?:ci|lib|dev|evals)\/|services|components|hooks|server|infra|build-plugins|functions|packages\/[^/]+\/(?:engine|src|tests)\/)/;
 // These dependencies are wired by Vitest/configuration or executed through a
 // path string, so no static import edge can reliably reach their consumers.
-const implicitTestDependencyRe = /^(?:tests\/setup(?:-node)?\.[cm]?[jt]sx?|scripts\/(?:seo|models|one-off)\/)/;
+const implicitTestDependencyRe = /^(?:tests\/setup(?:-node)?\.[cm]?[jt]sx?|scripts\/(?:seo|models|one-off)\/|\.github\/workflows\/|package\.json$|tsconfig[^/]*\.json$)/;
 const importRe = /(?:import\s+(?:[^'";]*?\s+from\s+)?|export\s+[^'";]*?\s+from\s+|import\s*\(|require\s*\()(['"])([^'"]+)\1/g;
 const extensions = ['', '.ts', '.tsx', '.js', '.jsx', '.mjs', '.cjs', '.vue', '.svelte'];
 
 const normalize = (file) => file.replaceAll('\\', '/').replace(/^\.\//, '');
 const changed = readFileSync(changedPathFile, 'utf8').split(/\r?\n/).map((p) => normalize(p.trim())).filter(Boolean);
+let changedStatus = 'complete';
+try { changedStatus = readFileSync(changedStatusFile, 'utf8').trim() || 'error'; } catch {}
+
+function stripComments(source) {
+  let out = '';
+  let quote = null;
+  let escaped = false;
+  for (let i = 0; i < source.length; i++) {
+    const char = source[i];
+    const next = source[i + 1];
+    if (quote) {
+      out += char;
+      if (escaped) escaped = false;
+      else if (char === '\\') escaped = true;
+      else if (char === quote) quote = null;
+      continue;
+    }
+    if (char === '\'' || char === '"' || char === '`') {
+      quote = char;
+      out += char;
+    } else if (char === '/' && next === '/') {
+      while (i < source.length && source[i] !== '\n') i++;
+      out += '\n';
+    } else if (char === '/' && next === '*') {
+      i += 2;
+      while (i < source.length && !(source[i] === '*' && source[i + 1] === '/')) {
+        if (source[i] === '\n') out += '\n';
+        i++;
+      }
+      i++;
+    } else {
+      out += char;
+    }
+  }
+  return out;
+}
 
 function trackedFiles() {
   return execFileSync('git', ['ls-files', '-z'], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
@@ -56,7 +93,7 @@ function resolveImport(from, specifier, fileSet) {
 
 function importsOf(file, fileSet) {
   const deps = new Set();
-  for (const match of readFileSync(file, 'utf8').matchAll(importRe)) {
+  for (const match of stripComments(readFileSync(file, 'utf8')).matchAll(importRe)) {
     const dep = resolveImport(file, match[2], fileSet);
     if (dep) deps.add(dep);
   }
@@ -90,8 +127,10 @@ function loadGraph(files) {
 }
 
 const candidates = [...new Set(changed.filter((file) =>
-  file !== 'scripts/ci/run-related-tests.mjs' && !ignoredRe.test(file) && sourceRe.test(file)))];
-if (candidates.length === 0) {
+  file !== 'scripts/ci/run-related-tests.mjs' && !ignoredRe.test(file)
+    && (sourceRe.test(file) || implicitTestDependencyRe.test(file))))];
+const forceFull = changedStatus !== 'complete';
+if (candidates.length === 0 && !forceFull) {
   console.log('No existing source/test files in the diff → related-only run has no tests.');
   process.exit(0);
 }
@@ -106,14 +145,20 @@ for (const [file, entry] of Object.entries(graph)) {
     reverse.get(dep).push(file);
   }
 }
-const related = new Set(candidates.filter((file) => testRe.test(file)));
+const related = new Set(forceFull ? allTests : candidates.filter((file) => testRe.test(file)));
+if (forceFull) {
+  console.log(`Changed-paths status is ${changedStatus} → running all tracked tests conservatively.`);
+}
 if (candidates.some((file) => implicitTestDependencyRe.test(file))) {
   for (const test of allTests) related.add(test);
   console.log('Implicit Vitest dependency changed → running all tracked tests conservatively.');
 }
 const queue = [...candidates];
+const visited = new Set();
 while (queue.length) {
   const file = queue.shift();
+  if (visited.has(file)) continue;
+  visited.add(file);
   for (const importer of reverse.get(file) || []) {
     if (!related.has(importer) && testRe.test(importer)) related.add(importer);
     if (!queue.includes(importer)) queue.push(importer);

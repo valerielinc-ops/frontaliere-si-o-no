@@ -216,6 +216,18 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
     expect(RELATED_RUNNER).toContain('tests\\/setup');
     expect(RELATED_RUNNER).toContain('scripts\\/(?:seo|models|one-off)');
     expect(RELATED_RUNNER).toContain('No static related edge found');
+    expect(RELATED_RUNNER).toContain('const visited = new Set()');
+    expect(RELATED_RUNNER).toContain('function stripComments');
+    expect(RELATED_RUNNER).toContain('CHANGED_PATHS_STATUS_FILE');
+    expect(RELATED_RUNNER).toContain("changedStatus !== 'complete'");
+  });
+
+  it('tests.yml conserva allow-list sparse e fail-safe del corpus', () => {
+    expect(TESTS_YML).toContain('sparse-checkout: |');
+    expect(TESTS_YML).toContain('sparse-checkout-cone-mode: false');
+    expect(TESTS_YML).toContain('!/public/images/');
+    expect(TESTS_YML).toContain('changed-paths-status.txt');
+    expect(TESTS_YML).toContain('partial > changed-paths-status.txt');
   });
 
   it('usa un bundle deterministico e non scarica il diff completo nelle review incrementali', () => {

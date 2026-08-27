@@ -101,24 +101,18 @@ name: tests
 #
 # ── Il checkout: uno solo, e perché QUESTO profilo ────────────────────────
 # I quattro job avevano tre profili diversi e INCOMPATIBILI fra loro:
-#   - `vitest`: albero pieno, fetch bulk shallow (`fetch-depth: 1`), niente
-#     `filter:` — sopra il crossover ~1,5 GB dove lo sparse smette di convenire;
+#   - `vitest`: albero applicativo quasi completo, storia profonda e sparse
+#     mirato — i grandi artefatti statici non servono a questo job;
 #   - `contract`: `fetch-depth: 0` + `filter: blob:none` — la storia PROFONDA
 #     serve a `check-sibling-patterns.mjs` / `check-below-floor-bridge.mjs`, che
 #     diffano a tre punti contro il merge-base;
 #   - `collision`/`typecheck`: sparse, `fetch-depth: 1`.
-# Un job solo può avere un profilo solo, e i due requisiti veri (albero PIENO
-# per vitest, storia PROFONDA per i source guard) si sommano invece di
-# escludersi. `fetch-depth: 0` SENZA `filter:` sarebbe il clone integrale
-# (`.git` 15 GB): non è un'opzione. Quindi: albero pieno, `fetch-depth: 0`,
-# `filter: blob:none` — cioè ESATTAMENTE il profilo che il job `contract` gira
-# in produzione da settimane, il solo dei tre già misurato su questa
-# combinazione. Le due distribuzioni sono sovrapponibili (misure già in questo
-# file): `contract` p50 158s / p95 358s / max 420s, `vitest` p50 2m28s / p90
-# 5m12s / max 8m14s. Il commento storico che sconsigliava `blob:none` per
-# vitest misurava +125% su una baseline di 75s che oggi non esiste più.
-# NIENTE `sparse-checkout`: `verify-checkout-profiles.mjs` accetta di escludere
-# MENO del calcolato, mai di più, e vitest oggi non esclude nulla.
+# Un job solo può avere un profilo solo: manteniamo la storia profonda per i
+# source guard, ma materializziamo solo il codice e i corpus necessari a questo
+# job. I bucket esclusi sono artefatti statici (immagini, docs e snapshot) che
+# non vengono letti da tsc, assemble+migrate, guard o dal related runner. Il
+# profilo è volutamente scritto qui come allow/deny esplicito e va mantenuto
+# insieme al test `checkout-sparse-profiles.test.ts`.
 #
 # ── Il nome del check-run NON cambia, ed è deliberato ─────────────────────
 # Il job fa quattro cose e si chiama ancora `vitest (unit + integration)`: è
@@ -226,7 +220,54 @@ jobs:
       - uses: actions/checkout@v5
         with:
           fetch-depth: 0
-          filter: blob:none
+          # Allowlist non-cone: il job usa tsc e Vitest con riferimenti runtime
+          # che il profilo statico non può chiudere in modo affidabile.
+          sparse-checkout: |
+            /.github/
+            /.githooks/
+            /build-plugins/
+            /components/
+            /functions/
+            /hooks/
+            /infra/
+            /scripts/
+            /server/
+            /services/
+            /tests/
+            /packages/*/engine/
+            /packages/*/src/
+            /packages/*/tests/
+            /packages/articles/content/
+            /data/
+            !/data/translation-cache/
+            !/data/orphan-enriched-data/
+            !/data/jobs-snapshots-history/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            /public/
+            !/public/images/
+            /*.cjs
+            /*.js
+            /*.json
+            /*.mjs
+            /*.ts
+            /*.tsx
+            /*.yaml
+            /*.yml
+            /*.config.*
+            /.gitignore
+            /.npmrc
+            /package-lock.json
+            /package.json
+            /tsconfig*.json
+            /vitest.config.ts
+          sparse-checkout-cone-mode: false
 
       # UNA sola invocazione (erano tre). Niente `--ignore-scripts`: lo usava il
       # solo job `collision`, che non eseguiva codice del repo; qui la stessa
@@ -1124,15 +1165,10 @@ jobs:
         # che — a differenza di corpus-wide-gates.yml — non ha un reconciler
         # `close-recovered-failure-issues` che lo richiuda da solo al verde.
         #
-        # FAIL-SAFE, e la direzione conta: qualunque errore di questo step
-        # lascia `skip` VUOTO, quindi related riceve solo il diff disponibile.
-        # Un guasto qui non riattiva la suite completa. `|| true` sul fetch e `|| echo` sul merge-base
-        # servono a questo. Su `push` il fallback su `git diff` resta comunque
-        # NON dichiarato: dalla fusione dei job il checkout è `fetch-depth: 0`,
-        # quindi `$BEFORE_SHA` sarebbe risolvibile, ma l'API `compare` è già la
-        # via primaria e aggiungere un secondo ramo qui vorrebbe la sua misura;
-        # se la compare non risponde, `changed-paths.txt` resta vuoto e related
-        # non seleziona test — stessa direzione della policy related-only.
+        # FAIL-SAFE: qualunque errore o risposta troncata viene propagato in
+        # `changed-paths-status.txt`; related interpreta `error`/`partial` come
+        # richiesta di suite completa. Solo un elenco vuoto con stato
+        # `complete` può legittimamente produrre zero test.
         id: corpus
         if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' }}
         env:
@@ -1158,15 +1194,19 @@ jobs:
           # step della factuality qui sopra crea `origin/<base>` per nome, per
           # cui il fallback `git merge-base` sotto ORA risolve davvero invece di
           # essere un ramo morto. L'API resta comunque la via primaria: è esatta
-          # e non dipende dalla storia locale. Ogni ramo è `|| true`/vuoto:
-          # qualunque guasto lascia changed-paths.txt vuoto → `skip` vuoto →
-          # related-only senza candidati. Un guasto qui non riattiva la suite
-          # completa.
+          # e non dipende dalla storia locale. Lo stato separato impedisce che
+          # un guasto diventi un falso diff vuoto.
           : > changed-paths.txt
+          printf '%s\n' unknown > changed-paths-status.txt
           cap=3000
           if [ -n "$PR_NUMBER" ]; then
-            gh api "repos/${GITHUB_REPOSITORY}/pulls/${PR_NUMBER}/files" \
-              --paginate -q '.[].filename' > changed-paths.txt 2>/dev/null || : > changed-paths.txt
+            if gh api "repos/${GITHUB_REPOSITORY}/pulls/${PR_NUMBER}/files" \
+              --paginate -q '.[].filename' > changed-paths.txt 2>/dev/null; then
+              printf '%s\n' complete > changed-paths-status.txt
+            else
+              : > changed-paths.txt
+              printf '%s\n' error > changed-paths-status.txt
+            fi
           elif [ "$GITHUB_EVENT_NAME" = "push" ] && [ -n "$BEFORE_SHA" ] \
             && [ "$BEFORE_SHA" != "0000000000000000000000000000000000000000" ]; then
             # `compare` invece di `pulls/<n>/files`: un push a main non ha una
@@ -1188,14 +1228,28 @@ jobs:
             # silenzio, ed è esattamente lo scenario che il controllo sotto
             # dichiara di coprire.
             cap=300
-            gh api "repos/${GITHUB_REPOSITORY}/compare/${BEFORE_SHA}...${AFTER_SHA}" \
-              -q '.files[].filename' > changed-paths.txt 2>/dev/null || : > changed-paths.txt
+            if gh api "repos/${GITHUB_REPOSITORY}/compare/${BEFORE_SHA}...${AFTER_SHA}" \
+              -q '.files[].filename' > changed-paths.txt 2>/dev/null; then
+              printf '%s\n' complete > changed-paths-status.txt
+            else
+              : > changed-paths.txt
+              printf '%s\n' error > changed-paths-status.txt
+            fi
+          else
+            printf '%s\n' complete > changed-paths-status.txt
           fi
           if [ ! -s changed-paths.txt ] && [ -n "$PR_NUMBER" ]; then
             echo "API senza risposta utile → fallback su git"
             base="$(git merge-base HEAD "origin/${BASE_REF}" 2>/dev/null || true)"
             if [ -n "$base" ]; then
-              git diff --name-only "$base" HEAD > changed-paths.txt 2>/dev/null || : > changed-paths.txt
+              if git diff --name-only "$base" HEAD > changed-paths.txt 2>/dev/null; then
+                printf '%s\n' complete > changed-paths-status.txt
+              else
+                : > changed-paths.txt
+                printf '%s\n' error > changed-paths-status.txt
+              fi
+            else
+              printf '%s\n' error > changed-paths-status.txt
             fi
           fi
           count="$(wc -l < changed-paths.txt | tr -d ' ')"
@@ -1220,7 +1274,8 @@ jobs:
           # esiste per intercettare. Sopra la soglia si rinuncia a decidere e
           # mantiene comunque il comportamento related-only sul diff disponibile.
           if [ "$count" -ge "$cap" ]; then
-            echo "elenco al cap dell'API ($count >= $cap): related-only sul diff disponibile"
+            printf '%s\n' partial > changed-paths-status.txt
+            echo "elenco al cap dell'API ($count >= $cap): fallback conservativo alla suite completa"
             exit 0
           fi
           decision="$(node scripts/ci/corpus-wide-tests.mjs --gha-output < changed-paths.txt || true)"
@@ -1374,7 +1429,8 @@ jobs:
       - name: vitest related (PR diff)
         # FOREGROUND, dopo "Assemble + migrate": i test scelti dal grafo
         # possono leggere i dataset generati. Questo è l'unico invocatore di
-        # Vitest del job PR; `run-related-tests.mjs` non ha fallback alla suite.
+        # Vitest del job PR; `run-related-tests.mjs` usa il related graph e un
+        # fallback conservativo quando il percorso non è rappresentabile.
         env:
           # Vitest 4's related graph can exceed Node's default 4GB heap in this
           # repository. Keep the graph bounded to one fork and leave headroom
@@ -1384,6 +1440,7 @@ jobs:
           VITEST_MAX_WORKERS: 1
           VITEST_POOL: forks
           VITEST_CACHE_DIR: node_modules/.vite-related
+          CHANGED_PATHS_STATUS_FILE: changed-paths-status.txt
         run: node scripts/ci/run-related-tests.mjs --reporter=default --reporter=json --outputFile=shard-timing-related.json
 
       # ══════════════════════════════════════════════════════════════════════
