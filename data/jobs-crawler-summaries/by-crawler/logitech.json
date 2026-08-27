@@ -1,18 +1,18 @@
 {
   "key": "logitech",
   "label": "Logitech",
-  "generatedAt": "2026-08-26T10:13:09.736Z",
+  "generatedAt": "2026-08-27T00:53:08.880Z",
   "total": 3,
   "discovered": null,
   "written": 3,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 31422,
-  "avgDurationMs": 31422,
+  "durationMs": 30686,
+  "avgDurationMs": 30686,
   "durationHistory": [
-    31422
+    30686
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-AI-ML-Engineer_146488",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T10:13:04.580Z",
+      "crawledAt": "2026-08-27T00:53:04.485Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -62,7 +62,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-Hardware-Product-User-Experience-Designer_146581",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T10:13:05.616Z",
+      "crawledAt": "2026-08-27T00:53:05.566Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -96,7 +96,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Head-of-Product-Security_146199",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T10:13:06.649Z",
+      "crawledAt": "2026-08-27T00:53:06.639Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -119,45 +119,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "logitech-f170fa8ca538",
-      "slug": "lead-motor-and-drive-ingegnere-logitech-lausanne-switzerland",
-      "company": "Logitech",
-      "companyKey": "logitech",
-      "companyDomain": "logitech.com",
-      "title": "Lead Motor and Drive Engineer",
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Lead-Motor-and-Drive-Engineer_147220",
-      "source": "Logitech Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-24T21:59:36.180Z",
-      "addressLocality": "Lausanne",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Tecnologia / Hardware Consumer",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-02",
-      "applyUrl": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Lead-Motor-and-Drive-Engineer_147220",
-      "firstSeenAt": "2026-07-02T11:37:45.042Z",
-      "salaryMin": 97500,
-      "salaryMax": 148000,
-      "addressRegion": "VD",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
