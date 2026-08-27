@@ -116,6 +116,37 @@ function getCantonCityTokens(cantonCode) {
   return result;
 }
 
+// Bare (parenthesis-stripped) form of every "<City> (XX)" BFS entry that
+// belongs to canton `cantonCode`, keyed by that canton alone — NOT folded
+// into the global token sets above. Registering "küsnacht" globally would
+// reopen the cross-canton collision class DISAMBIGUATED_BARE_CITY_ALIASES
+// exists to avoid (Roche/Berg/Stein/Au/... colliding across cantons or with
+// common words in free text). But once a caller already knows the job's
+// canton (`job.canton`/`region`, e.g. `sanitizeLocalityForRegion`), there is
+// no ambiguity left to resolve: "Küsnacht" inside canton ZH can only mean
+// Küsnacht (ZH). Used by the `cantonHint` param of isKnownSwissCity/
+// isKnownSwissMunicipality below — see #6147.
+const _cantonScopedBareTokensCache = new Map();
+
+function getCantonScopedBareTokens(cantonCode) {
+  if (_cantonScopedBareTokensCache.has(cantonCode)) return _cantonScopedBareTokensCache.get(cantonCode);
+
+  const entry = MUNICIPALITY_DATA.cantons?.[cantonCode];
+  const municipalities = entry?.municipalities || [];
+  const aliases = entry?.aliases || [];
+  const all = [...new Set([...municipalities, ...aliases])];
+  const tokens = new Set();
+  for (const city of all) {
+    const disambiguated = city.match(/^(.+?)\s*\([a-z]{2}\)$/i);
+    if (!disambiguated) continue;
+    const bareToken = normalizeToken(disambiguated[1]);
+    if (bareToken && !AMBIGUOUS_LOCATION_WORD_TOKENS.has(bareToken)) tokens.add(bareToken);
+  }
+
+  _cantonScopedBareTokensCache.set(cantonCode, tokens);
+  return tokens;
+}
+
 // ─── Backward-compatible exports (used by existing tests) ──────────────────
 
 export const TICINO_MUNICIPALITIES = MUNICIPALITY_DATA.cantons?.TI?.municipalities || [];
@@ -427,11 +458,21 @@ const _cantonOnlyTokens = (() => {
  * Check if a city name matches any known Swiss municipality (BFS data)
  * or canton name. Returns true only for exact city-level matches,
  * not substring matching — to avoid false positives.
+ *
+ * `cantonHint` (optional 2-letter code or canton name, e.g. `job.canton`):
+ * 161 BFS municipalities exist ONLY in the disambiguated "<City> (XX)" form
+ * (homonyms across cantons, e.g. "Küsnacht (ZH)"), so their bare name fails
+ * this check by default even though it names a real municipality. When the
+ * caller already knows the canton, retry against that canton's own bare
+ * tokens — no cross-canton ambiguity left to resolve. Without a hint (or
+ * with an unresolvable one), behaviour is unchanged. See #6147.
  */
-export function isKnownSwissMunicipality(cityName = '') {
+export function isKnownSwissMunicipality(cityName = '', cantonHint = '') {
   const token = normalizeToken(cityName);
   if (!token || token.length < 2) return false;
-  return _allSwissCityTokens.has(token);
+  if (_allSwissCityTokens.has(token)) return true;
+  const canton = normalizeCantonCode(cantonHint);
+  return canton ? getCantonScopedBareTokens(canton).has(token) : false;
 }
 
 /**
@@ -441,11 +482,15 @@ export function isKnownSwissMunicipality(cityName = '') {
  * Use this when validating crawler output: a job whose addressLocality
  * is just a canton name has no real city and likely indicates a misclassified
  * record (the actual location is buried in the description body).
+ *
+ * `cantonHint`: see isKnownSwissMunicipality above.
  */
-export function isKnownSwissCity(cityName = '') {
+export function isKnownSwissCity(cityName = '', cantonHint = '') {
   const token = normalizeToken(cityName);
   if (!token || token.length < 2) return false;
-  return _strictSwissCityTokens.has(token);
+  if (_strictSwissCityTokens.has(token)) return true;
+  const canton = normalizeCantonCode(cantonHint);
+  return canton ? getCantonScopedBareTokens(canton).has(token) : false;
 }
 
 /**
