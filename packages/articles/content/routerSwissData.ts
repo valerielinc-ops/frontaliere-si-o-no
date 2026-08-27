@@ -1509,6 +1509,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'chronext-fallimento-zugo': { it: 'chronext-fallimento-zugo', en: 'chronext-bankruptcy-zug', de: 'chronext-konkurs-zug', fr: 'chronext-faillite-zoug' },
  'glarner-dimissioni-consiglio-nazionale': { it: 'glarner-dimissioni-consiglio-nazionale', en: 'glarner-resigns-national-council', de: 'glarner-traegt-nationalrat-nieder', fr: 'glarner-demission-conseil-national' },
  'danni-parcheggio-rincari-2025': { it: 'danni-parcheggio-rincari-2025', en: 'parking-damage-costs-2025', de: 'parkplatz-schaden-kosten-2025', fr: 'dommages-parking-augmentation-2025' },
+ 'assegni-familiari-lucerna-come-richiedere': { it: 'assegni-familiari-lucerna-come-richiedere', en: 'family-allowances-lucerne-how-to-apply', de: 'familienleistungen-luzern-antrag-verfahren', fr: 'allocations-familiales-lucerne-demande-procedure' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

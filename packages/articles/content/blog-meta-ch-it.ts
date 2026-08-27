@@ -4450,6 +4450,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.danni-parcheggio-rincari-2025.title': 'Stangata sui danni da parcheggio: rincari fino al 50%',
     'blog.article.danni-parcheggio-rincari-2025.excerpt': 'Studio Comparis: riparazione portiera posteriore da 92 a 134 CHF in due anni. Tecnologia auto e tariffe officine dietro i rincari.',
     'blog.article.danni-parcheggio-rincari-2025.imageAlt': 'Auto con danno da parcheggio presso un\'officina svizzera',
+    'blog.article.assegni-familiari-lucerna-come-richiedere.title': 'Assegni familiari Lucerna: importi e procedura',
+    'blog.article.assegni-familiari-lucerna-come-richiedere.excerpt': 'Come richiedere gli assegni familiari a Lucerna: chi ha diritto, importi mensili per figlio, documenti necessari e procedura di domanda presso la cassa di compensazione.',
+    'blog.article.assegni-familiari-lucerna-come-richiedere.imageAlt': 'Interno di un ufficio amministrativo cantonale svizzero dove una famiglia riceve informazioni su assegni familiari.',
 };
 
 export default blogMetaChIt;

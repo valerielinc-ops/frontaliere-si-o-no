@@ -4450,6 +4450,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.danni-parcheggio-rincari-2025.title': 'Stagnation on parking damage: price increases of up to 50%',
     'blog.article.danni-parcheggio-rincari-2025.excerpt': 'Comparis study: rear door repair from CHF 92 to 134 in two years. Car technology and workshop rates behind the prices.',
     'blog.article.danni-parcheggio-rincari-2025.imageAlt': 'Car with parking damage at a Swiss repair workshop',
+    'blog.article.assegni-familiari-lucerna-come-richiedere.title': 'Family allowances Lucerne: amounts and procedure',
+    'blog.article.assegni-familiari-lucerna-come-richiedere.excerpt': 'How to apply for family allowances in Lucerne: who is entitled, monthly amounts per child, necessary documents and application procedure at the compensation fund.',
+    'blog.article.assegni-familiari-lucerna-come-richiedere.imageAlt': 'Interior of a Swiss cantonal administrative office where a family receives information about family allowances.',
 };
 
 export default blogMetaChEn;
