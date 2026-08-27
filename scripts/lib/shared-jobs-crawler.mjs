@@ -64,6 +64,7 @@ import {
   isJobPortalRelevant as _isJobPortalRelevant,
   isExplicitlyOutsideTarget as _isExplicitlyOutsideTarget,
   isLocationExplicitlyForeign as _isLocationExplicitlyForeign,
+  isForeignAtsUrlLocation as _isForeignAtsUrlLocation,
   isExplicitlyOutsideTargetCantons as _isExplicitlyOutsideTargetCantons,
   recencyTs as _recencyTs,
   mergeRequirements as _mergeRequirements,
@@ -4120,7 +4121,9 @@ function toJobFromJsonLd(node, fallbackCompany, sourcePageUrl, options = {}) {
   // an EXPLICIT foreign signal is strong enough to reject regardless of
   // seed trust. Keep the seedMetaRelevant rescue only for the ambiguous
   // "no explicit signal either way" case below.
-  if (isLocationExplicitlyForeign(location)) return { job: null, reason: 'jsonld_location_explicitly_foreign' };
+  if (isLocationExplicitlyForeign(location) || _isForeignAtsUrlLocation(url)) {
+    return { job: null, reason: 'jsonld_location_explicitly_foreign' };
+  }
   if (isExplicitlyOutsideTarget(mergedLocText) || isExplicitlyOutsideTargetCantons(mergedLocText)) {
     return { job: null, reason: 'jsonld_explicitly_outside_target' };
   }
@@ -4336,7 +4339,9 @@ function toJobFromHtmlFallback(html, pageUrl, companyName, companyCity, options 
   // mentions Switzerland, so an EXPLICIT foreign signal here is strong
   // enough to reject regardless of seed trust. Keep the seedMetaRelevant
   // rescue only for the ambiguous "no explicit signal either way" case below.
-  if (isLocationExplicitlyForeign(locationMatch)) return { job: null, reason: 'html_location_explicitly_foreign' };
+  if (isLocationExplicitlyForeign(locationMatch) || _isForeignAtsUrlLocation(pageUrl)) {
+    return { job: null, reason: 'html_location_explicitly_foreign' };
+  }
   if (isExplicitlyOutsideTarget(geoSignal) || isExplicitlyOutsideTargetCantons(geoSignal)) {
     return { job: null, reason: 'html_explicitly_outside_target' };
   }

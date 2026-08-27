@@ -881,6 +881,51 @@ describe('Swiss-only location filtering (Swatch Group US-jobs leak, 2026-06-17)'
     };
     expect(getMergeExclusionReasons(genuineSwissJobWithSeedScope, cfg)).not.toContain('location_explicitly_foreign');
   });
+
+  it('rejects a foreign posting when the ATS URL carries the real location but the field was seeded as Lugano', async () => {
+    const { getMergeExclusionReasons } = await import('../scripts/lib/dedicated-crawler-common.mjs');
+    const cfg = { minQualityScore: 0, minDescriptionChars: 0 };
+    const reasons = getMergeExclusionReasons({
+      title: 'Engineer Surveyor, Lift & Crane',
+      company: 'Zurich Insurance (sede Ticino)',
+      location: 'Lugano',
+      canton: 'TI',
+      url: 'https://www.careers.zurich.com/job/Birmingham-Engineer-Surveyor%2C-Lift-&-Crane-Sutton-Coldfield-GB-B/1367923757/',
+      description: 'Engineer Surveyor role for the Sutton Coldfield area in the United Kingdom.',
+      _targetScope: { canton: 'TI', location: 'Ticino' },
+    }, cfg);
+    expect(reasons).toContain('location_explicitly_foreign');
+  });
+
+  it('does not classify the Zurich employer hostname as a foreign location', async () => {
+    const { getMergeExclusionReasons } = await import('../scripts/lib/dedicated-crawler-common.mjs');
+    const cfg = { minQualityScore: 0, minDescriptionChars: 0 };
+    const reasons = getMergeExclusionReasons({
+      title: 'Underwriter Sachversicherung 80-100%',
+      company: 'Zurich Insurance (sede Ticino)',
+      location: 'Lugano',
+      canton: 'TI',
+      url: 'https://www.careers.zurich.com/job/Lugano-Underwriter-Sachversicherung/1363800001/',
+      description: 'Underwriter role for our team in Lugano, Ticino, Switzerland.',
+      _targetScope: { canton: 'TI', location: 'Ticino' },
+    }, cfg);
+    expect(reasons).not.toContain('location_explicitly_foreign');
+  });
+
+  it('does not inspect title slugs from unrelated ATS hosts as locations', async () => {
+    const { getMergeExclusionReasons } = await import('../scripts/lib/dedicated-crawler-common.mjs');
+    const cfg = { minQualityScore: 0, minDescriptionChars: 0 };
+    const reasons = getMergeExclusionReasons({
+      title: 'Senior Sales Manager Austria Market Coverage',
+      company: 'Swiss Employer',
+      location: 'Lugano',
+      canton: 'TI',
+      url: 'https://jobs.example.com/company/senior-sales-manager-austria-market-coverage/12345',
+      description: 'Swiss-based role serving international markets.',
+      _targetScope: { canton: 'TI', location: 'Ticino' },
+    }, cfg);
+    expect(reasons).not.toContain('location_explicitly_foreign');
+  });
 });
 
 // ─── seedCrawlerSlicesFromDataJobs (issue #3089 items 2 + 3) ────────────────
