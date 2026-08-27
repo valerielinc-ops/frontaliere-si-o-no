@@ -4450,6 +4450,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.danni-parcheggio-rincari-2025.title': 'Stau auf Parkschäden: Preissteigerungen von bis zu 50%',
     'blog.article.danni-parcheggio-rincari-2025.excerpt': 'Comparis-Studie: Heckklappenreparatur von 92 bis 134 CHF in zwei Jahren. Autotechnologie und Werkstattpreise hinter den Preissteigerungen.',
     'blog.article.danni-parcheggio-rincari-2025.imageAlt': 'Auto mit Parkplatzschaden in einer Schweizer Werkstatt',
+    'blog.article.assegni-familiari-lucerna-come-richiedere.title': 'Familienzulagen Luzern: Beträge und Verfahren',
+    'blog.article.assegni-familiari-lucerna-come-richiedere.excerpt': 'So beantragen Sie Familienzulagen in Luzern: wer berechtigt ist, monatliche Beträge pro Kind, notwendige Unterlagen und Antragsverfahren bei der Ausgleichskasse.',
+    'blog.article.assegni-familiari-lucerna-come-richiedere.imageAlt': 'Innenraum eines Schweizer Verwaltungsbüros, in dem eine Familie Informationen zu Familienleistungen erhält.',
 };
 
 export default blogMetaChDe;

@@ -57740,6 +57740,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-assegni-familiari-lucerna-come-richiedere': {
+    title: 'Assegni familiari Lucerna: importi e procedura',
+    description: 'Guida pratica agli assegni familiari nel canton Lucerna: chi ha diritto, importi per figlio, documenti necessari e come fare domanda presso la cassa',
+    keywords: 'frontalieri, ticino, svizzera, italia, assegni, familiari, lucerna, importi',
+    ogTitle: 'Assegni familiari Lucerna: guida completa a richiesta e importi',
+    ogDescription: 'Scopri come richiedere gli assegni familiari nel canton Lucerna: diritti, documenti necessari, importi mensili per figlio e procedura di domanda presso la cassa di compensazione cantonale.',
+    canonicalPath: '/articoli-svizzera/assegni-familiari-lucerna-come-richiedere/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assegni familiari Lucerna: importi e procedura",
+      "description": "Guida pratica agli assegni familiari nel canton Lucerna: chi ha diritto, importi per figlio, documenti necessari e come fare domanda presso la cassa",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assegni-familiari-lucerna-come-richiedere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Interno di un ufficio amministrativo cantonale svizzero dove una famiglia riceve informazioni su assegni familiari."
+      },
+      "datePublished": "2026-08-27T01:28:38+00:00",
+      "dateModified": "2026-08-27T01:28:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assegni-familiari-lucerna-come-richiedere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

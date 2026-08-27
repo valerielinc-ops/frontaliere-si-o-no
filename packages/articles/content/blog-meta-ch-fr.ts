@@ -4450,6 +4450,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.danni-parcheggio-rincari-2025.title': 'Étanchéité sur les dommages de parking : hausses jusqu\'à 50%',
     'blog.article.danni-parcheggio-rincari-2025.excerpt': 'Studio Comparis : réparation portière arrière de 92 à 134 CHF en deux ans. Technologie automobile et tarifs ateliers derrière les hausses.',
     'blog.article.danni-parcheggio-rincari-2025.imageAlt': 'Voiture endommagée au parking dans un atelier suisse',
+    'blog.article.assegni-familiari-lucerna-come-richiedere.title': 'Allocations familiales Lucerne : montants et procédure',
+    'blog.article.assegni-familiari-lucerna-come-richiedere.excerpt': 'Comment demander les allocations familiales à Lucerne : qui y a droit, montants mensuels par enfant, documents nécessaires et procédure de demande auprès de la caisse de compensation.',
+    'blog.article.assegni-familiari-lucerna-come-richiedere.imageAlt': 'Intérieur d\'un bureau administratif cantonal suisse où une famille reçoit des informations sur les allocations familiales.',
 };
 
 export default blogMetaChFr;
