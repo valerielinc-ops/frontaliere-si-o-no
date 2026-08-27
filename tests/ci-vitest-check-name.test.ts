@@ -21,6 +21,7 @@ const COLLISION_YML = readFileSync(resolve(ROOT, '.github/workflows/pr-collision
 const TESTS_CODE = TESTS_YML.split('\n').filter((line) => !line.trimStart().startsWith('#')).join('\n');
 const AUTOREBASE = readFileSync(resolve(ROOT, 'scripts/ci/pr-autorebase.mjs'), 'utf-8');
 const AUTO_MERGE_EVAL = readFileSync(resolve(ROOT, 'scripts/ci/auto-merge-eval.mjs'), 'utf-8');
+const RELATED_RUNNER = readFileSync(resolve(ROOT, 'scripts/ci/run-related-tests.mjs'), 'utf-8');
 
 describe('VITEST_CHECK_NAME (#1602 drift guard)', () => {
   it('matcha byte-per-byte il name: del job vitest in tests.yml', () => {
@@ -204,6 +205,12 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
       expect(run).toContain('VITEST_POOL: forks');
     }
     expect(TESTS_YML).toContain('node_modules/.vite-related');
+  });
+
+  it('include tutti i root applicativi nel grafo related', () => {
+    for (const root of ['hooks', 'server', 'infra']) {
+      expect(RELATED_RUNNER).toContain(`${root}|`);
+    }
   });
 
   it('abilita e persiste la Node compile cache del job comune', () => {

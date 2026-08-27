@@ -20,7 +20,7 @@ const graphFile = process.env.VITEST_RELATED_GRAPH || '.cache/vitest-related/gra
 const sourceRe = /\.(?:[cm]?[jt]sx?|vue|svelte)$/i;
 const testRe = /^(?:tests|packages\/[^/]+\/tests)\/.*\.(?:test|spec)\.[cm]?[jt]sx?$/i;
 const ignoredRe = /^(?:data|public|reports|docs|_newsletter_variants|node_modules)\//;
-const projectRe = /^(?:tests|scripts|services|components|build-plugins|functions\/src|packages)\//;
+const projectRe = /^(?:tests|scripts|services|components|hooks|server|infra|build-plugins|functions\/src|packages)\//;
 const importRe = /(?:import\s+(?:[^'";]*?\s+from\s+)?|export\s+[^'";]*?\s+from\s+|import\s*\(|require\s*\()(['"])([^'"]+)\1/g;
 const extensions = ['', '.ts', '.tsx', '.js', '.jsx', '.mjs', '.cjs', '.vue', '.svelte'];
 
