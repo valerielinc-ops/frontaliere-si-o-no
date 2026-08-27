@@ -1,7 +1,442 @@
 {
   "crawlerKey": "accor",
-  "assembledAt": "2026-08-27T00:52:07.480Z",
+  "assembledAt": "2026-08-27T20:08:49.057Z",
   "jobs": [
+    {
+      "id": "accor-862994418aaa",
+      "slug": "assistant-front-office-manager-accor-ch",
+      "slugByLocale": {
+        "fr": "assistant-front-office-manager-accor-ch",
+        "it": "assistant-front-office-manager-accor-ch",
+        "en": "assistant-front-office-manager-ibis-budget-lugano",
+        "de": "assistant-front-office-manager-accor-ch"
+      },
+      "company": "Ibis Budget",
+      "companyKey": "accor",
+      "companyDomain": "careers.accor.com",
+      "title": "Assistant Front Office Manager",
+      "titleByLocale": {
+        "fr": "Assistant Front Office Manager",
+        "en": "Assistant Front Office Manager",
+        "it": "Assistant Front Office Manager",
+        "de": "Assistent Front Office Manager"
+      },
+      "description": "Assistant Front Office Manager — Ibis Budget",
+      "descriptionByLocale": {
+        "fr": "Assistant Front Office Manager — Ibis Budget"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://careers.accor.com/fr/fr/job/assistant-front-office-manager-in-fairmont-dallas-dallas-united-states-jid-107802",
+      "source": "Ibis Budget Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-27T20:08:41.203Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://careers.accor.com/fr/fr/job/assistant-front-office-manager-in-fairmont-dallas-dallas-united-states-jid-107802",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-27T20:08:41.203Z"
+    },
+    {
+      "id": "accor-09ba7a79bd13",
+      "slug": "executive-assistant-manager-food-beverage-accor-ch",
+      "slugByLocale": {
+        "fr": "executive-assistant-manager-food-beverage-accor-ch",
+        "it": "executive-assistant-manager-food-beverage-accor-ch",
+        "en": "executive-assistant-manager-food-beverage-ibis-budget-lugano",
+        "de": "executive-assistant-manager-food-beverage-accor-ch"
+      },
+      "company": "Ibis Budget",
+      "companyKey": "accor",
+      "companyDomain": "careers.accor.com",
+      "title": "Executive Assistant Manager - Food & Beverage",
+      "titleByLocale": {
+        "fr": "Executive Assistant Manager - Food & Beverage",
+        "en": "Executive Assistant Manager - Food & Beverage",
+        "de": "Executive Assistent Manager - Food & Beverage",
+        "it": "Executive Assistant Manager - Food & Beverage"
+      },
+      "description": "Executive Assistant Manager - Food & Beverage — Ibis Budget",
+      "descriptionByLocale": {
+        "fr": "Executive Assistant Manager - Food & Beverage — Ibis Budget"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://careers.accor.com/fr/fr/job/executive-assistant-manager-food-and-beverage-in-raffles-doha-doha-qatar-jid-107786",
+      "source": "Ibis Budget Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-27T20:08:40.595Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://careers.accor.com/fr/fr/job/executive-assistant-manager-food-and-beverage-in-raffles-doha-doha-qatar-jid-107786",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-27T20:08:40.595Z"
+    },
+    {
+      "id": "accor-3723b9873277",
+      "slug": "people-culture-coordinator-12-months-maternity-cover-accor-ch",
+      "slugByLocale": {
+        "de": "people-culture-coordinator-12-months-maternity-cover-accor-ch",
+        "it": "people-culture-coordinator-12-months-maternity-cover-accor-ch",
+        "en": "people-culture-coordinator-12-months-maternity-cover-ibis-budget-lugano",
+        "fr": "people-culture-coordinator-12-months-maternity-cover-accor-ch"
+      },
+      "company": "Ibis Budget",
+      "companyKey": "accor",
+      "companyDomain": "careers.accor.com",
+      "title": "People & Culture Coordinator ( 12 Months Maternity Cover )",
+      "titleByLocale": {
+        "de": "People & Culture Koordinator ( 12 Months Mutterschaftsvertretung )",
+        "en": "People & Culture Coordinator ( 12 Months Maternity Cover )",
+        "it": "People & Culture Coordinatore ( 12 Months Sostituzione maternità )",
+        "fr": "People & Culture Coordinateur ( 12 Months Remplacement maternité )"
+      },
+      "description": "People & Culture Coordinator ( 12 Months Maternity Cover ) — Ibis Budget",
+      "descriptionByLocale": {
+        "de": "People & Culture Coordinator ( 12 Months Maternity Cover ) — Ibis Budget"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://careers.accor.com/fr/fr/job/people-and-culture-coordinator-12-months-maternity-cover-in-ibis-london-heathrow-airport-hayes-united-kingdom-jid-107956",
+      "source": "Ibis Budget Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-27T20:08:40.292Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://careers.accor.com/fr/fr/job/people-and-culture-coordinator-12-months-maternity-cover-in-ibis-london-heathrow-airport-hayes-united-kingdom-jid-107956",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-27T20:08:40.292Z"
+    },
+    {
+      "id": "accor-2ff35e8c21ac",
+      "slug": "assistant-housekeeping-manager-accor-ch",
+      "slugByLocale": {
+        "fr": "assistant-housekeeping-manager-accor-ch",
+        "it": "assistant-housekeeping-manager-accor-ch",
+        "en": "assistant-housekeeping-manager-ibis-budget-lugano",
+        "de": "assistant-housekeeping-manager-accor-ch"
+      },
+      "company": "Ibis Budget",
+      "companyKey": "accor",
+      "companyDomain": "careers.accor.com",
+      "title": "Assistant Housekeeping Manager",
+      "titleByLocale": {
+        "fr": "Assistant Housekeeping Manager",
+        "en": "Assistant Housekeeping Manager",
+        "it": "Assistant Housekeeping Manager",
+        "de": "Assistent Housekeeping Manager"
+      },
+      "description": "Assistant Housekeeping Manager — Ibis Budget",
+      "descriptionByLocale": {
+        "fr": "Assistant Housekeeping Manager — Ibis Budget"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://careers.accor.com/fr/fr/job/assistant-housekeeping-manager-in-sofitel-new-york-new-york-united-states-jid-59921",
+      "source": "Ibis Budget Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-27T20:08:39.385Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://careers.accor.com/fr/fr/job/assistant-housekeeping-manager-in-sofitel-new-york-new-york-united-states-jid-59921",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-27T20:08:39.385Z"
+    },
+    {
+      "id": "accor-1579d221bbfc",
+      "slug": "superviseur-e-de-la-restauration-temporaire-m-w-d-ibis-budget-lugano",
+      "slugByLocale": {
+        "fr": "superviseur-e-de-la-restauration-temporaire-h-f-d-accor-ch",
+        "it": "superviseur-e-de-la-restauration-temporaire-m-w-d-ibis-budget-lugano",
+        "en": "superviseur-e-de-la-restauration-temporaire-h-f-d-accor-ch",
+        "de": "superviseur-e-de-la-restauration-temporaire-h-f-d-accor-ch"
+      },
+      "company": "Ibis Budget",
+      "companyKey": "accor",
+      "companyDomain": "careers.accor.com",
+      "title": "Superviseur.e de la restauration, temporaire (H/F/D)",
+      "titleByLocale": {
+        "fr": "Superviseur.e de la restauration, temporaire (H/F/D)",
+        "it": "Superviseur.e de la restauration, temporaire (f/m/d)",
+        "en": "Superviseur.e de la restauration, temporaire (H/F/D)",
+        "de": "Superviseur.e de la restauration, temporaire (H/F/D)"
+      },
+      "description": "Superviseur.e de la restauration, temporaire (H/F/D) — Ibis Budget",
+      "descriptionByLocale": {
+        "fr": "Superviseur.e de la restauration, temporaire (H/F/D) — Ibis Budget"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://careers.accor.com/fr/fr/job/superviseur-e-de-la-restauration-temporaire-h-f-d-in-fairmont-le-manoir-richelieu-la-malbaie-canada-jid-107967",
+      "source": "Ibis Budget Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-27T20:08:39.082Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://careers.accor.com/fr/fr/job/superviseur-e-de-la-restauration-temporaire-h-f-d-in-fairmont-le-manoir-richelieu-la-malbaie-canada-jid-107967",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "superviseur-e-de-la-restauration-temporaire-h-f-d-accor-ch"
+        ]
+      },
+      "previousSlugs": [
+        "superviseur-e-de-la-restauration-temporaire-h-f-d-accor-ch"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-27T20:08:39.082Z"
+    },
+    {
+      "id": "accor-dc2b80a7a89c",
+      "slug": "assistant-director-of-people-culture-accor-ch",
+      "slugByLocale": {
+        "fr": "assistant-director-of-people-culture-accor-ch",
+        "it": "assistant-director-of-people-culture-accor-ch",
+        "en": "assistant-director-of-people-culture-accor-ch",
+        "de": "assistant-director-of-people-culture-accor-ch"
+      },
+      "company": "Ibis Budget",
+      "companyKey": "accor",
+      "companyDomain": "careers.accor.com",
+      "title": "Assistant Director of People & Culture",
+      "titleByLocale": {
+        "fr": "Assistant Director of People & Culture",
+        "it": "Assistant Direttore of People & Culture",
+        "en": "Assistant Director of People & Culture",
+        "de": "Assistent Direktor of People & Culture"
+      },
+      "description": "Assistant Director of People & Culture — Ibis Budget",
+      "descriptionByLocale": {
+        "fr": "Assistant Director of People & Culture — Ibis Budget"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://careers.accor.com/fr/fr/job/assistant-director-of-people-and-culture-in-fairmont-century-plaza-los-angeles-united-states-jid-107968",
+      "source": "Ibis Budget Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-27T20:08:38.779Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://careers.accor.com/fr/fr/job/assistant-director-of-people-and-culture-in-fairmont-century-plaza-los-angeles-united-states-jid-107968",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-27T20:08:38.779Z"
+    },
+    {
+      "id": "accor-cb7b85b4b284",
+      "slug": "guest-service-associate-f-b-service-accor-ch",
+      "slugByLocale": {
+        "fr": "guest-service-associate-f-b-service-accor-ch",
+        "it": "guest-service-associate-f-b-service-accor-ch",
+        "en": "guest-service-associate-f-b-service-ibis-budget-lugano",
+        "de": "guest-service-associate-f-b-service-accor-ch"
+      },
+      "company": "Ibis Budget",
+      "companyKey": "accor",
+      "companyDomain": "careers.accor.com",
+      "title": "Guest Service Associate-F&B Service",
+      "titleByLocale": {
+        "fr": "Guest Service Associate-F&B Service",
+        "en": "Guest Service Associate-F&B Service",
+        "it": "Guest Service Associate-F&B Service",
+        "de": "Guest Service Associate-F&B Service"
+      },
+      "description": "Guest Service Associate-F&B Service — Ibis Budget",
+      "descriptionByLocale": {
+        "fr": "Guest Service Associate-F&B Service — Ibis Budget"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://careers.accor.com/fr/fr/job/guest-service-associate-f-and-b-service-in-ibis-bengaluru-hebbal-bengaluru-india-jid-107971",
+      "source": "Ibis Budget Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-27T20:08:38.460Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://careers.accor.com/fr/fr/job/guest-service-associate-f-and-b-service-in-ibis-bengaluru-hebbal-bengaluru-india-jid-107971",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-27T20:08:38.460Z"
+    },
     {
       "id": "accor-886ec50568fd",
       "slug": "sales-manager-conference-groups-events-accor-ch",
@@ -61,7 +496,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-27T00:52:01.827Z"
+      "firstSeenAt": "2026-08-27T00:52:01.827Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "accor-6dcb7844d19d",
@@ -122,68 +558,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-27T00:52:00.616Z"
-    },
-    {
-      "id": "accor-11033a70de1d",
-      "slug": "assistant-front-office-manager-accor-ch",
-      "slugByLocale": {
-        "fr": "assistant-front-office-manager-accor-ch",
-        "it": "assistant-front-office-manager-accor-ch",
-        "en": "assistant-front-office-manager-ibis-budget-lugano",
-        "de": "assistant-front-office-manager-accor-ch"
-      },
-      "company": "Ibis Budget",
-      "companyKey": "accor",
-      "companyDomain": "careers.accor.com",
-      "title": "Assistant Front Office Manager",
-      "titleByLocale": {
-        "fr": "Assistant Front Office Manager",
-        "en": "Assistant Front Office Manager",
-        "it": "Assistant Front Office Manager",
-        "de": "Assistent Front Office Manager"
-      },
-      "description": "Assistant Front Office Manager — Ibis Budget",
-      "descriptionByLocale": {
-        "fr": "Assistant Front Office Manager — Ibis Budget"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://careers.accor.com/fr/fr/job/assistant-front-office-manager-in-fairmont-chateau-whistler-whistler-canada-jid-107815",
-      "source": "Ibis Budget Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-27T00:52:00.312Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-27",
-      "applyUrl": "https://careers.accor.com/fr/fr/job/assistant-front-office-manager-in-fairmont-chateau-whistler-whistler-canada-jid-107815",
-      "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
-      "needsRetranslation": true,
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-27T00:52:00.312Z"
+      "firstSeenAt": "2026-08-27T00:52:00.616Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "accor-de9c7c69e1f9",
@@ -255,7 +631,8 @@
       },
       "previousSlugs": [
         "housekeeping-villa-attendant-full-time-accor-ch"
-      ]
+      ],
+      "crawlerMissStreak": 1
     },
     {
       "id": "accor-8e1b061e7f6d",
@@ -325,7 +702,7 @@
       "previousSlugs": [
         "front-office-team-leader-accor-ch"
       ],
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "accor-d2b922c2d026",
@@ -387,7 +764,7 @@
       },
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-26T10:11:31.644Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "accor-50a3b8758458",
@@ -449,7 +826,7 @@
       },
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-26T10:11:31.342Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "accor-1fcb71295339",
@@ -511,7 +888,7 @@
       },
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-26T10:11:30.735Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "accor-a05485afb5cb",
@@ -573,69 +950,7 @@
       },
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-26T10:11:29.827Z",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "accor-94e397ecab53",
-      "slug": "receptionniste-de-nuit-h-f-cdi-temps-partiel-accor-ch",
-      "slugByLocale": {
-        "fr": "receptionniste-de-nuit-h-f-cdi-temps-partiel-accor-ch",
-        "it": "receptionniste-de-nuit-h-f-cdi-temps-partiel-accor-ch",
-        "en": "receptionniste-de-nuit-h-f-cdi-temps-partiel-accor-ch",
-        "de": "receptionniste-de-nuit-h-f-cdi-temps-partiel-accor-ch"
-      },
-      "company": "Ibis Budget",
-      "companyKey": "accor",
-      "companyDomain": "careers.accor.com",
-      "title": "Réceptionniste de nuit H/F CDI Temps Partiel",
-      "titleByLocale": {
-        "fr": "Réceptionniste de nuit H/F CDI Temps Partiel",
-        "it": "Réceptionniste de nuit H/F CDI Temps Partiel",
-        "en": "Réceptionniste de nuit H/F CDI Temps Partiel",
-        "de": "Réceptionniste de nuit H/F CDI Temps Partiel"
-      },
-      "description": "Réceptionniste de nuit H/F CDI Temps Partiel — Ibis Budget",
-      "descriptionByLocale": {
-        "fr": "Réceptionniste de nuit H/F CDI Temps Partiel — Ibis Budget"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://careers.accor.com/fr/fr/job/receptionniste-de-nuit-h-f-cdi-temps-partiel-in-ibis-styles-paris-orly-airport-paray-vieille-poste-jid-98390",
-      "source": "Ibis Budget Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-26T10:11:29.523Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-26",
-      "applyUrl": "https://careers.accor.com/fr/fr/job/receptionniste-de-nuit-h-f-cdi-temps-partiel-in-ibis-styles-paris-orly-airport-paray-vieille-poste-jid-98390",
-      "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
-      "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-26T10:11:29.523Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "accor-fce7690b5e39",
@@ -697,324 +1012,6 @@
       },
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-26T10:11:29.205Z",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "accor-b8208ecc8378",
-      "slug": "assistant-direttore-of-event-sales-ibis-budget-lugano",
-      "slugByLocale": {
-        "fr": "assistant-director-of-event-sales-accor-ch",
-        "it": "assistant-direttore-of-event-sales-ibis-budget-lugano",
-        "en": "assistant-director-of-event-sales-ibis-budget-lugano",
-        "de": "assistent-direktor-of-event-sales-ibis-budget-lugano"
-      },
-      "company": "Ibis Budget",
-      "companyKey": "accor",
-      "companyDomain": "careers.accor.com",
-      "title": "Assistant Director of Event Sales",
-      "titleByLocale": {
-        "fr": "Assistant Directeur of Event Sales",
-        "en": "Assistant Director of Event Sales",
-        "it": "Assistant Direttore of Event Sales",
-        "de": "Assistent Direktor of Event Sales"
-      },
-      "description": "Assistant Director of Event Sales — Ibis Budget",
-      "descriptionByLocale": {
-        "fr": "Assistant Director of Event Sales — Ibis Budget"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://careers.accor.com/fr/fr/job/assistant-director-of-event-sales-in-raffles-london-at-the-owo-london-united-kingdom-jid-104094",
-      "source": "Ibis Budget Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-25T22:13:28.226Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-25",
-      "applyUrl": "https://careers.accor.com/fr/fr/job/assistant-director-of-event-sales-in-raffles-london-at-the-owo-london-united-kingdom-jid-104094",
-      "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
-      "needsRetranslation": true,
-      "salaryMin": 82500,
-      "salaryMax": 127000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 82500,
-          "maxValue": 127000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T22:13:28.226Z",
-      "crawlerMissStreak": 2,
-      "previousSlugsByLocale": {
-        "it": [
-          "assistant-director-of-event-sales-accor-ch"
-        ]
-      },
-      "previousSlugs": [
-        "assistant-director-of-event-sales-accor-ch"
-      ]
-    },
-    {
-      "id": "accor-4e35790cba75",
-      "slug": "breakfast-banqueting-team-member-part-time-5x6-accor-ch",
-      "slugByLocale": {
-        "fr": "breakfast-banqueting-team-member-part-time-5x6-accor-ch",
-        "it": "breakfast-banqueting-team-member-part-time-5x6-accor-ch",
-        "en": "breakfast-banqueting-team-member-part-time-5x6-accor-ch",
-        "de": "breakfast-banqueting-team-member-teilzeit-5x6-ibis-budget-lugano"
-      },
-      "company": "Ibis Budget",
-      "companyKey": "accor",
-      "companyDomain": "careers.accor.com",
-      "title": "Breakfast & Banqueting Team Member – Part-time 5x6",
-      "titleByLocale": {
-        "fr": "Breakfast & Banqueting Team Member – Part-time 5x6",
-        "it": "Breakfast & Banqueting Team Member – Part-time 5x6",
-        "en": "Breakfast & Banqueting Team Member – Part-time 5x6",
-        "de": "Breakfast & Banqueting Team Member – Teilzeit 5x6"
-      },
-      "description": "Breakfast & Banqueting Team Member – Part-time 5x6 — Ibis Budget",
-      "descriptionByLocale": {
-        "fr": "Breakfast & Banqueting Team Member – Part-time 5x6 — Ibis Budget"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://careers.accor.com/fr/fr/job/breakfast-and-banqueting-team-member-part-time-5x6-in-tribe-hotel-den-haag-centraal-the-hague-netherland-jid-66465",
-      "source": "Ibis Budget Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-25T22:13:27.017Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-25",
-      "applyUrl": "https://careers.accor.com/fr/fr/job/breakfast-and-banqueting-team-member-part-time-5x6-in-tribe-hotel-den-haag-centraal-the-hague-netherland-jid-66465",
-      "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
-      "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T22:13:27.017Z",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "accor-0a8a74961c69",
-      "slug": "ski-valet-supervisor-winter-only-ft-accor-ch",
-      "slugByLocale": {
-        "it": "ski-valet-supervisor-winter-only-ft-accor-ch",
-        "en": "ski-valet-supervisor-winter-only-ft-accor-ch",
-        "de": "ski-valet-vorgesetzter-winter-only-ft-ibis-budget-lugano",
-        "fr": "ski-valet-superviseur-winter-only-ft-ibis-budget-lugano"
-      },
-      "company": "Ibis Budget",
-      "companyKey": "accor",
-      "companyDomain": "careers.accor.com",
-      "title": "Ski Valet Supervisor (Winter Only - FT)",
-      "titleByLocale": {
-        "it": "Ski Valet Supervisor (Winter Only - FT)",
-        "en": "Ski Valet Supervisor (Winter Only - FT)",
-        "de": "Ski Valet Vorgesetzter (Winter Only - FT)",
-        "fr": "Ski Valet Superviseur (Winter Only - FT)"
-      },
-      "description": "Ski Valet Supervisor (Winter Only - FT) — Ibis Budget",
-      "descriptionByLocale": {
-        "it": "Ski Valet Supervisor (Winter Only - FT) — Ibis Budget"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://careers.accor.com/fr/fr/job/ski-valet-supervisor-winter-only-ft-in-fairmont-heritage-place-franz-klammer-lodge-tellur-jid-107651",
-      "source": "Ibis Budget Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-25T22:13:26.107Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-25",
-      "applyUrl": "https://careers.accor.com/fr/fr/job/ski-valet-supervisor-winter-only-ft-in-fairmont-heritage-place-franz-klammer-lodge-tellur-jid-107651",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
-      "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T22:13:26.107Z",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "accor-bdeb59690655",
-      "slug": "ski-valet-attendant-nov-april-ft-accor-ch",
-      "slugByLocale": {
-        "fr": "ski-valet-attendant-nov-april-ft-accor-ch",
-        "it": "ski-valet-attendant-nov-april-ft-accor-ch",
-        "en": "ski-valet-attendant-nov-april-ft-accor-ch",
-        "de": "ski-valet-attendant-nov-april-ft-accor-ch"
-      },
-      "company": "Ibis Budget",
-      "companyKey": "accor",
-      "companyDomain": "careers.accor.com",
-      "title": "Ski Valet Attendant (Nov.-April, FT)",
-      "titleByLocale": {
-        "fr": "Ski Valet Attendant (Nov.-April, FT)",
-        "it": "Ski Valet Attendant (Nov.-April, FT)",
-        "en": "Ski Valet Attendant (Nov.-April, FT)",
-        "de": "Ski Valet Attendant (Nov.-April, FT)"
-      },
-      "description": "Ski Valet Attendant (Nov.-April, FT) — Ibis Budget",
-      "descriptionByLocale": {
-        "fr": "Ski Valet Attendant (Nov.-April, FT) — Ibis Budget"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://careers.accor.com/fr/fr/job/ski-valet-attendant-nov-april-ft-in-fairmont-heritage-place-franz-klammer-lodge-tellur-jid-107652",
-      "source": "Ibis Budget Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-25T22:13:25.804Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-25",
-      "applyUrl": "https://careers.accor.com/fr/fr/job/ski-valet-attendant-nov-april-ft-in-fairmont-heritage-place-franz-klammer-lodge-tellur-jid-107652",
-      "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
-      "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T22:13:25.804Z",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "accor-647f7d1a6841",
-      "slug": "relief-driver-laundry-attendant-accor-ch",
-      "slugByLocale": {
-        "de": "relief-driver-laundry-attendant-accor-ch",
-        "it": "relief-driver-laundry-attendant-accor-ch",
-        "en": "relief-driver-laundry-attendant-accor-ch",
-        "fr": "relief-driver-laundry-attendant-accor-ch"
-      },
-      "company": "Ibis Budget",
-      "companyKey": "accor",
-      "companyDomain": "careers.accor.com",
-      "title": "Relief Driver/Laundry Attendant",
-      "titleByLocale": {
-        "de": "Relief Driver/Laundry Attendant",
-        "it": "Relief Driver/Laundry Attendant",
-        "en": "Relief Driver/Laundry Attendant",
-        "fr": "Relief Driver/Laundry Attendant"
-      },
-      "description": "Relief Driver/Laundry Attendant — Ibis Budget",
-      "descriptionByLocale": {
-        "de": "Relief Driver/Laundry Attendant — Ibis Budget"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://careers.accor.com/fr/fr/job/relief-driver-laundry-attendant-in-fairmont-regional-linen-services-canmore-canada-jid-18929",
-      "source": "Ibis Budget Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-25T22:13:25.480Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-25",
-      "applyUrl": "https://careers.accor.com/fr/fr/job/relief-driver-laundry-attendant-in-fairmont-regional-linen-services-canmore-canada-jid-18929",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T22:13:25.480Z",
       "crawlerMissStreak": 2
     }
   ]
