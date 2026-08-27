@@ -187,6 +187,28 @@ Veti all'auto-close (restano flag→umano): **multi-item aggregati** (`N item`, 
 
 Gap residuo accettato: un refactor che rende moot un item SENZA aggiungere i token citati non viene flaggato (reconcile cerca i token verbatim). Trade-off scelto per ridurre la spesa Claude per-merge.
 
+## Routing cross-repository
+
+Prima di creare una issue, il follow-up deve risolvere il repository del file che
+richiede la modifica comportamentale. Il repository della PR sorgente non è
+sufficiente: una PR del sito può contenere un residuo relativo al producer degli
+articoli, che dopo il cutover vive nel corpus.
+
+- `nanakokyobashi-rgb/frontaliere-articles`: `generator/**`, `generator/tests/**`,
+  `generator/scripts/**`, `content/**`, `data/blog-articles/**`,
+  `data/article-source-urls.json`, `data/batch-faq-progress.json` e i workflow del
+  corpus che generano o pubblicano articoli. Il twin `scripts/create-article.mjs` va trattato
+  come Nanako quando l'item riguarda la generazione live: il producer del sito è
+  disattivato.
+- `valerielinc-ops/frontaliere-si-o-no`: tutto il resto, compresi deploy, sync,
+  validation e mirror che consumano il corpus.
+
+L'issue deve contenere sempre `Target repository:` e `Target file:`. Dedup, label
+e commenti devono usare lo stesso repository con `--repo`. Per un target Nanako,
+usare il PAT Valerie `GITHUB_PAT` e `gh issue create --repo
+nanakokyobashi-rgb/frontaliere-articles`; se il PAT manca, non creare una issue
+nel repo Valerie come ripiego: segnalare il blocco sulla PR per il retry successivo.
+
 ## Constraint
 
 - Read-only su tutto eccetto: `gh issue create`, `gh pr comment`.

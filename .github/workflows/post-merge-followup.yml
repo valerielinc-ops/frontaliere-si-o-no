@@ -157,6 +157,29 @@ jobs:
           echo "::error::post-merge-followup: quota Claude esaurita (reset epoch ${{ steps.quota.outputs.resets_at }}) — salto la chiamata Claude, che morirebbe su HTTP 429 a turno 1. Il watermark NON avanza: la prossima run schedulata (≤3h) ri-copre l'intera finestra, nessuna PR persa."
           exit 1
 
+      # Il follow-up puo' trovare un file che appartiene al producer del corpus,
+      # anche quando la PR sorgente e' nel sito. In quel caso l'issue deve nascere
+      # su nanako: il GITHUB_TOKEN del sito e' scoped al solo repo corrente.
+      # Carichiamo il PAT Valerie cross-repo solo quando esiste davvero un batch, cosi'
+      # una finestra vuota non paga ne' Firebase ne' il caricamento RC.
+
+      - name: Prepare Firebase credentials for follow-up routing
+        if: steps.quota.outputs.quota_blocked != 'true' && steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "::warning::FIREBASE_SERVICE_ACCOUNT_JSON assente: routing verso nanako non disponibile"
+          fi
+
+      - name: Load cross-repo follow-up credentials
+        if: steps.quota.outputs.quota_blocked != 'true' && steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
+        continue-on-error: true
+        run: node scripts/load-rc-env.mjs
+
       - name: Run Claude follow-up triage (batch)
         id: followup
         # Gira SOLO se il batch ha almeno una PR. Per le altre run (finestra vuota /
@@ -171,6 +194,7 @@ jobs:
           BATCH_PRS: ${{ steps.collect.outputs.batch_prs }}
           BATCH_COUNT: ${{ steps.collect.outputs.batch_count }}
           REPO: ${{ github.repository }}
+          GITHUB_PAT: ${{ env.GITHUB_PAT }}
           EVENT_NAME: ${{ github.event_name }}
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -248,6 +272,29 @@ jobs:
               - Se uno dei due fallisce → posta su #N `## Post-merge follow-up triage (backfill skipped): PR not eligible (not merged or different author)` e passa alla PR successiva.
               (Sul path `schedule` l'eleggibilità è già garantita da collect-followup-batch.mjs → salta questo check.)
             - Carica: `gh pr view N --json number,title,body,mergedAt,mergeCommit,url` + `gh api repos/$REPO/pulls/N/reviews`.
+            - **Risolvi il repository PRIMA di creare qualunque issue.** Il repo della PR
+              sorgente NON decide il repo dell'issue: lo decide il primo file realmente
+              modificabile indicato dall'item. Usa questa mappa fissa:
+              - `nanakokyobashi-rgb/frontaliere-articles`: `generator/**`,
+                `generator/tests/**`, `generator/scripts/**`, `content/**`,
+                `data/blog-articles/**`, `data/article-source-urls.json`,
+                `data/batch-faq-progress.json` e i workflow del corpus che generano/pubblicano articoli
+                (`generate-article.yml`, `batch-faq-articles.yml`,
+                `publish-journalist-articles.yml`, `publish-api.yml`). Anche il twin
+                `scripts/create-article.mjs` appartiene qui quando l'item riguarda la
+                generazione live: il producer del sito e' disattivato dal cutover.
+              - `valerielinc-ops/frontaliere-si-o-no`: tutto il resto, inclusi i file
+                del sito, i workflow di deploy/sync/validation e i mirror che leggono
+                il corpus senza generarlo.
+              Se un item cita piu' file, scegli il repo del file che richiede la modifica
+              comportamentale; se cita solo un sintomo, individua prima il file sorgente
+              reale. Scrivi sempre nell'issue `Target repository:` e `Target file:`.
+              Per Nanako usa SEMPRE il comando esplicito:
+              `GH_TOKEN="$GITHUB_PAT" gh issue create --repo nanakokyobashi-rgb/frontaliere-articles ...`.
+              Dedup, label e commenti vanno eseguiti sullo stesso `--repo` target.
+              Se `GITHUB_PAT` manca o e' vuoto, NON creare una issue su Valerie
+              come ripiego: posta sulla PR il blocco di routing e lascia l'item da
+              ritentare nella prossima passata.
             - Parse PR body `## Non implementato (ancora)`. **Il routing lo decide lo STATO LETTERALE del bullet, non una parola-scusa** (AGENTS.md #8; `scripts/ci/followup-has-candidates.mjs` applica esattamente questa regola a monte, e sono la stessa tassonomia — non inventarne una terza):
               - `in questa PR` · `PR concatenata #N` · `per scelta` · `by construction` · `blocked: decisione del proprietario` → **NON creare issue**: la voce è già chiusa o già tracciata altrove.
               - `blocked: <causa tecnica>` → **crea issue**, e riporta la causa nel campo `Blocked on:` dell'item.
@@ -282,3 +329,7 @@ jobs:
         # Exact token/cost for this run (replaces estimates). Writes a table to the run
         # Step Summary + a grep-able CLAUDE_USAGE line to the log. Best-effort: never fails.
         run: node scripts/ci/claude-usage-summary.mjs "${{ steps.followup.outputs.execution_file }}" "post-merge-followup"
+
+      - name: Cleanup Firebase credentials
+        if: always()
+        run: rm -f /tmp/firebase-sa.json
