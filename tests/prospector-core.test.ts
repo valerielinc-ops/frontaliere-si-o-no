@@ -13,7 +13,7 @@ import {
   loadRegistry, observePlatform, isPlatformEligible, enumerablePlatforms,
   sharedHostPlatforms, listingPathHints,
 } from '../scripts/lib/prospector/platform-registry.mjs';
-import { pathTemplate, extractByTemplate, extractJsonLd, scoreVacancyPage, textOf, isVacancyPath } from '../scripts/lib/prospector/extract.mjs';
+import { pathTemplate, extractByTemplate, extractJsonLd, extractDetailFields, scoreVacancyPage, textOf, isVacancyPath } from '../scripts/lib/prospector/extract.mjs';
 import { cleanAnchorText, extractLinks, isCareerLink, externalAtsLinks } from '../scripts/lib/prospector/careers-trail.mjs';
 import { tenantSlugCandidates, tenantIdsAreNameLike, employerNameFromPage } from '../scripts/lib/prospector/tenant-enum.mjs';
 import { normalizeCompanyName, isCovered } from '../scripts/lib/prospector/coverage.mjs';
@@ -137,6 +137,23 @@ describe('platform registry', () => {
 });
 
 describe('vacancy extraction', () => {
+  it('keeps the detail location and the full rendered description', () => {
+    const html = `<script type="application/ld+json">{"@type":"JobPosting","title":"Polymechaniker/in","description":"Teaser","jobLocation":{"address":{"addressLocality":"Pfäffikon","addressRegion":"Zürich"}}}</script><div class="ff-detail__intro">Intro</div><h1>Polymechaniker/in</h1><div class="ff-detail__text"><h3>Tätigkeiten</h3><ul><li>Installation und Wartung</li><li>Service beim Kunden</li></ul></div><div class="ff-detail__information-grid"></div>`;
+    const detail = extractDetailFields(html, 'https://fachkraft.ch/stellen/test/');
+    expect(detail.location).toBe('Pfäffikon, Zürich');
+    expect(detail.description).toContain('Installation und Wartung');
+    expect(detail.description).toContain('Service beim Kunden');
+    expect(detail.description.length).toBeGreaterThan('Teaser'.length);
+  });
+
+  it('extracts a full description from vendor-neutral job markup', () => {
+    const html = `<h1>Warehouse Specialist</h1><div class="job-location">Winterthur</div><article class="vacancy-description"><p>We are looking for a reliable specialist.</p><ul><li>Coordinate inbound logistics</li><li>Work with the warehouse team</li></ul></article>`;
+    const detail = extractDetailFields(html, 'https://example.ch/jobs/warehouse/');
+    expect(detail.location).toBe('Winterthur');
+    expect(detail.description).toContain('Coordinate inbound logistics');
+    expect(detail.description).toContain('Work with the warehouse team');
+  });
+
   it('collapses a slug+id path into a template', () => {
     expect(pathTemplate('/annunci-lavoro/Ocean-Freight-Specialist-662670289.htm')).toBe('/annunci-lavoro/*');
     expect(pathTemplate('/chi-siamo')).toBe('/chi-siamo');

@@ -83,8 +83,6 @@ jobs:
             !/packages/articles/content/
             !/data/all-known-job-slugs/
             !/data/orphan-enriched-data/
-            !/docs/
-            !/public/data/
             !/data/related-search-candidates.json
             !/data/cf-hot-404s.json
             !/data/jobs-ai-cache.json
@@ -104,7 +102,7 @@ jobs:
           node-version: 22
 
       - name: Run parser quality audit (strict)
-        run: node scripts/audit-parser-quality.mjs --strict
+        run: node scripts/audit-parser-quality.mjs --strict --check-source-details
 
       # Reporter diagnostico (#5437): il body dice QUALE step è fallito, con
       # quale comando, come si riproduce in locale e quali script guardare

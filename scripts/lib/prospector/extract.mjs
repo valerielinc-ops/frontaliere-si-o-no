@@ -179,6 +179,61 @@ export function extractJsonLd(html, pageUrl) {
 }
 
 /**
+ * Read authoritative fields from a vacancy detail page. JSON-LD often contains
+ * only a teaser; the rendered detail body is therefore preferred when it is
+ * richer than the structured description.
+ *
+ * @param {string} html
+ * @param {string} pageUrl
+ * @returns {{ title: string, location: string, description: string, postedDate: string, employmentType: string }}
+ */
+export function extractDetailFields(html = '', pageUrl = '') {
+  const structured = extractJsonLd(html, pageUrl)[0] || {};
+  const title = structured.title || textOf(/<h1\b[^>]*>([\s\S]{0,1000}?)<\/h1>/i.exec(html)?.[1] || '');
+  const location = structured.location || textOf(
+    /<(?:div|span|p|li)[^>]*(?:class|itemprop)\s*=\s*["'][^"']*(?:job[-_ ]?region|job[-_ ]?location|location|addressLocality)[^"']*["'][^>]*>([\s\S]{0,500}?)<\//i.exec(html)?.[1] || '',
+  );
+  const blocks = [];
+  // Extract balanced containers so nested lists/divs do not truncate the
+  // vacancy at the first inner closing tag. The vocabulary is vendor-neutral;
+  // Fachkraft's ff-detail-* classes are just one supported spelling.
+  const openingRx = /<(div|section|article)\b([^>]*\bclass\s*=\s*["'][^"']*(?:job[-_ ]?(?:description|details?|content)|vacancy[-_ ]?(?:description|details?)|position[-_ ]?description|detail[-_ ]{1,2}text|detail[-_ ]?intro|description)[^"']*["'][^>]*)>/gi;
+  let match;
+  while ((match = openingRx.exec(html))) {
+    const detailClassAttr = match[2];
+    if (/\b(?:cookie|cmplz|consent|meta)\b/i.test(detailClassAttr)) continue;
+    const tag = match[1];
+    const tags = new RegExp(`<\\/?${tag}\\b[^>]*>`, 'gi');
+    tags.lastIndex = openingRx.lastIndex;
+    let depth = 1;
+    let end;
+    let detailTagMatch;
+    while ((detailTagMatch = tags.exec(html))) {
+      if (new RegExp(`^<\\/${tag}\\b`, 'i').test(detailTagMatch[0])) depth--;
+      else if (!/\/\\s*>$/.test(detailTagMatch[0])) depth++;
+      if (depth === 0) { end = detailTagMatch.index; break; }
+    }
+    if (end !== undefined) blocks.push(textOf(html.slice(openingRx.lastIndex, end)));
+  }
+  const semanticRx = /<([a-z0-9]+)\b[^>]*itemprop\s*=\s*["']description["'][^>]*>([\s\S]*?)<\/\1>/i.exec(html);
+  if (semanticRx) blocks.push(textOf(semanticRx[2]));
+  // A detail page with no useful class still commonly puts the vacancy body
+  // in its main/article container. Use it only when it is materially larger
+  // than the page's structured teaser, avoiding a navigation-only shell.
+  const main = /<(main|article)\b[^>]*>([\s\S]*?)<\/\1>/i.exec(html);
+  if (!blocks.length && main) blocks.push(textOf(main[2]));
+  const descriptions = [...blocks, blocks.length > 1 ? blocks.join(' ') : '', structured.description || ''].filter(Boolean);
+  descriptions.sort((a, b) => b.length - a.length);
+  return {
+    title,
+    location,
+    description: descriptions[0] || '',
+    postedDate: structured.postedDate || '',
+    employmentType: structured.employmentType || '',
+  };
+}
+
+/**
  * @param {string} html
  * @param {string} pageUrl
  * @returns {Vacancy[]}
