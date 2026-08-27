@@ -71,8 +71,27 @@ interface FixedOverlap {
 async function readFollowCtaLayout(page: Page): Promise<FollowCtaLayout> {
   return page.evaluate(() => {
     const DOCUMENT_POSITION_PRECEDING = 2;
-    const hub = document.querySelector<HTMLElement>('a[href*="/aziende/"]');
-    const follow = hub?.nextElementSibling as HTMLElement | null;
+    // Scoped to `<main>`: the footer's "Tutte le aziende →" hub-index link
+    // (`hubs.companiesAll`, e.g. `/cerca-lavoro-ticino/aziende/`) also matches
+    // `a[href*="/aziende/"]` and always renders AFTER `<main>` in the DOM
+    // (App.tsx), so an unscoped query would silently swap in the footer link
+    // whenever EmployerHubCta itself does not render.
+    const hub = document.querySelector<HTMLElement>('main a[href*="/aziende/"]');
+    // Identity-based, not position-based: `hub?.nextElementSibling` made
+    // `hubPrecedesFollow` tautologically true (a `nextElementSibling` cannot
+    // NOT follow its reference node) and silently pointed at whatever
+    // happened to sit next to the hub link, not necessarily the follow CTA
+    // (flagged in the #6146 PR review). CompanyFollowButton renders one of
+    // several DOM shapes depending on `status`, so match on what is actually
+    // on screen: the reserving placeholder's own testid, or the CTA's visible
+    // label (idle/follow and following states, all four locales — see
+    // `jobAlert.companyFollow.cta`/`.following` in services/locales/*-core.ts).
+    const FOLLOW_TEXT_RE =
+      /Segui questa azienda|Stai seguendo questa azienda|Follow this company|You are following this company|Diesem Unternehmen folgen|Du folgst diesem Unternehmen|Suivre cette entreprise|Vous suivez cette entreprise/;
+    const follow =
+      Array.from(document.querySelectorAll<HTMLElement>('main [data-testid="company-follow-placeholder"], main button')).find(
+        (el) => el.matches('[data-testid="company-follow-placeholder"]') || FOLLOW_TEXT_RE.test(el.textContent || ''),
+      ) ?? null;
     const gate = document.getElementById('job-auth-gate');
     return {
       hasHub: !!hub,
