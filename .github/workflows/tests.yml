@@ -249,6 +249,9 @@ jobs:
             /packages/articles/content/blogImageCdnMirror.ts
             /packages/articles/content/blog-meta-*.ts
             /packages/articles/content/seo/seo-blog*.ts
+            # Type-only dependency imported by the SEO modules above; keep it
+            # file-scoped so the article corpus remains excluded.
+            /packages/articles/content/seo/seoMetadataType.ts
             /packages/articles/index.ts
             /packages/articles/articleSections.ts
             /data/
