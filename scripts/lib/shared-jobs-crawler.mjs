@@ -64,6 +64,7 @@ import {
   isJobPortalRelevant as _isJobPortalRelevant,
   isExplicitlyOutsideTarget as _isExplicitlyOutsideTarget,
   isLocationExplicitlyForeign as _isLocationExplicitlyForeign,
+  isForeignAtsUrlLocation as _isForeignAtsUrlLocation,
   isExplicitlyOutsideTargetCantons as _isExplicitlyOutsideTargetCantons,
   recencyTs as _recencyTs,
   mergeRequirements as _mergeRequirements,
@@ -4120,7 +4121,7 @@ function toJobFromJsonLd(node, fallbackCompany, sourcePageUrl, options = {}) {
   // an EXPLICIT foreign signal is strong enough to reject regardless of
   // seed trust. Keep the seedMetaRelevant rescue only for the ambiguous
   // "no explicit signal either way" case below.
-  if (isLocationExplicitlyForeign(location) || isLocationExplicitlyForeign(urlPathForLocationChecks(url))) {
+  if (isLocationExplicitlyForeign(location) || _isForeignAtsUrlLocation(url)) {
     return { job: null, reason: 'jsonld_location_explicitly_foreign' };
   }
   if (isExplicitlyOutsideTarget(mergedLocText) || isExplicitlyOutsideTargetCantons(mergedLocText)) {
@@ -4338,7 +4339,7 @@ function toJobFromHtmlFallback(html, pageUrl, companyName, companyCity, options 
   // mentions Switzerland, so an EXPLICIT foreign signal here is strong
   // enough to reject regardless of seed trust. Keep the seedMetaRelevant
   // rescue only for the ambiguous "no explicit signal either way" case below.
-  if (isLocationExplicitlyForeign(locationMatch) || isLocationExplicitlyForeign(urlPathForLocationChecks(pageUrl))) {
+  if (isLocationExplicitlyForeign(locationMatch) || _isForeignAtsUrlLocation(pageUrl)) {
     return { job: null, reason: 'html_location_explicitly_foreign' };
   }
   if (isExplicitlyOutsideTarget(geoSignal) || isExplicitlyOutsideTargetCantons(geoSignal)) {
@@ -4404,15 +4405,6 @@ function toJobFromHtmlFallback(html, pageUrl, companyName, companyCity, options 
     } : {}),
   };
   return { job, reason: null };
-}
-
-/** Employer domains can contain place names; only inspect the posting path. */
-function urlPathForLocationChecks(rawUrl = '') {
-  try {
-    return new URL(String(rawUrl)).pathname;
-  } catch {
-    return String(rawUrl || '');
-  }
 }
 
 // FRO-231: fingerprint, slug registry, dedup → moved to top of file (FRO-359)

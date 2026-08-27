@@ -6037,7 +6037,8 @@ export function isLocationExplicitlyForeign(locationField) {
     'napoli', 'naples', 'torino', 'turin', 'bologna', 'genova', 'palermo',
     'venezia', 'venice', 'forte dei marmi', 'toscana', 'lombardia',
     // Western Europe
-    'paris', 'lyon', 'marseille', 'london', 'berlin', 'munich', 'münchen',
+    'paris', 'lyon', 'marseille', 'london', 'birmingham', 'sutton coldfield',
+    'berlin', 'munich', 'münchen',
     'frankfurt', 'hamburg', 'köln', 'koeln', 'cologne', 'vienna', 'wien', 'madrid', 'barcelona',
     'amsterdam', 'brussels', 'bruxelles', 'stockholm', 'oslo', 'copenhagen',
     'lisbon', 'dublin', 'helsinki', 'athens',
@@ -7245,7 +7246,7 @@ export function getMergeExclusionReasons(job, qualityCfg) {
   // the actual posting location (e.g. Zurich's `.../job/Birmingham-...`).
   // Inspect only the pathname: the employer hostname may itself contain a
   // place name (e.g. careers.zurich.com).
-  if (isLocationExplicitlyForeign(job.location) || isLocationExplicitlyForeign(urlPathForLocationChecks(job.url))) {
+  if (isLocationExplicitlyForeign(job.location) || isForeignAtsUrlLocation(job.url)) {
     reasons.push('location_explicitly_foreign');
   }
   // Structured ATS job-location block names a non-Swiss country: authoritative
@@ -7274,6 +7275,20 @@ function urlPathForLocationChecks(rawUrl = '') {
   } catch {
     return String(rawUrl || '');
   }
+}
+
+// Zurich's career URLs put the posting location at the start of the slug,
+// before the job title. Inspect that location prefix only: checking the full
+// slug can mistake title/company words for Swiss municipalities and cancel a
+// genuine foreign-location signal.
+export function isForeignAtsUrlLocation(rawUrl = '') {
+  const pathname = urlPathForLocationChecks(rawUrl);
+  const segments = pathname.split('/').filter(Boolean);
+  const slug = segments.length >= 2 ? segments[segments.length - 2] : '';
+  if (!slug) return false;
+  const decoded = decodeURIComponent(slug).replace(/[-_]+/g, ' ');
+  const locationPrefix = decoded.split(/\s+/).slice(0, 8).join(' ');
+  return isLocationExplicitlyForeign(locationPrefix);
 }
 
 // Pick the sourced posting date for a merged duplicate pair (#3843 item 3).
