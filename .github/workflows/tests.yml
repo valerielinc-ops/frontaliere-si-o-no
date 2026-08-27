@@ -1127,7 +1127,7 @@ jobs:
         # loosen a threshold or delete the passage to get the gate green.
         run: node scripts/audit-article-factuality.mjs --changed origin/${{ github.base_ref || 'main' }}
 
-      - name: Corpus-wide gates delegated to frontaliere-articles
+      - name: Collect changed paths (corpus gates delegated to frontaliere-articles)
         # ─── LO SPLIT CORPUS-WIDE (registro: scripts/ci/corpus-wide-tests.mjs)
         #
         # Sette file di test costano 201,4s misurati (run 32172467043): il 20,1%
@@ -1173,9 +1173,12 @@ jobs:
         id: corpus
         # I gate che scansionano l'intero corpus appartengono al repository
         # `nanakokyobashi-rgb/frontaliere-articles`, che li esegue nel proprio
-        # workflow post-merge. Non devono essere rivalutati nel CI applicativo
-        # di questo repository.
-        if: ${{ false }}
+        # workflow post-merge. Questo step non li esegue: raccoglie il diff e
+        # calcola soltanto la lista di test da escludere dal related run.
+        # Deve restare attivo perché `run-related-tests.mjs` consuma sempre
+        # `changed-paths.txt`, anche quando tutti i gate corpus-wide sono
+        # delegati.
+        if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
