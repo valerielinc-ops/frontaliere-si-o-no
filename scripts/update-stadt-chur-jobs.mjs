@@ -74,8 +74,23 @@ const FEED_URL = 'https://jobs.chur.ch/rss_generator-rss0.php?unit=chur&lang=de'
 // so it's IP-reputation, not a JA3 block). morss is an open-source (AGPL) feed
 // reader/proxy (https://git.pictuga.com/pictuga/morss) whose public instance
 // fetches the feed from its own clean IP; verified live to return all real
-// Stadt Chur jobs. For hardening, self-host morss on a clean-IP free tier and
-// point STADT_CHUR_FEED_PROXY at it.
+// Stadt Chur jobs.
+//
+// Self-hosting a dedicated morss instance (the original hardening idea here)
+// is NOT a viable path with the hosting this project actually holds
+// credentials for: verified live 2026-08-27 by deploying a throwaway
+// serverless edge worker on the one edge-compute account this project has
+// access to, doing nothing but proxying a fetch to this same feed URL —
+// jobs.chur.ch answered with an edge-origin connection timeout, the same
+// class of failure as the direct CI fetch above and as a live probe through
+// the Jina Reader proxy this repo already uses elsewhere for IP-blocked
+// sources (its own headless-browser egress timed out on navigation, 3/3
+// attempts). The block is on cloud/datacenter IP reputation broadly, not one
+// specific network, and this project holds no OTHER hosting-provider
+// credential to try instead. The three-tier fallback below (direct →
+// morss.it → rss2json.com, #6560) is the resilience ceiling until a hosting
+// provider with different IP reputation is provisioned — that remains a
+// genuine external blocker, not a config gap.
 const FEED_PROXY_BASE = process.env.STADT_CHUR_FEED_PROXY || 'https://morss.it/:proxy/';
 // Tertiary fallback (#6560): morss.it itself went unreachable for 7 straight
 // days (2026-08-20 → 2026-08-26, every direct connection AND every
