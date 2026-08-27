@@ -201,6 +201,9 @@ jobs:
     # disabilitato anche se il runner conserva la directory.
     env:
       NODE_COMPILE_CACHE: node_modules/.cache/node-compile
+      # Keep review classification aligned with the former pr-review-loop.
+      # This is consumed by both the re-review guard and tier selection.
+      NONCODE_RE: '^(data/|public/|reports/|_newsletter_variants/|docs/)|(^|/)(package-lock\\.json|pnpm-lock\\.yaml|yarn\\.lock)$|\\.(snap|png|jpe?g|webp|gif|svg|ico|woff2?)$'
     steps:
       # `git checkout` scrive l'albero con un thread solo per default (issue
       # #6152). Misurato in locale sull'albero pieno di questo repo: 51,0s ->
