@@ -5251,7 +5251,7 @@ const PROMPT_TOKEN_BUDGET = 8000;
 // Toglierla senza validazione rischia di indebolire il gate, non solo di
 // accorciare il prompt.
 //
-// Disposizione finale (2026-08-27, round 3 di decompose su #6020):
+// Disposizione finale (2026-08-27, round 4 di fix su #6020):
 // `.github/workflows/generate-article.yml` ha lo `schedule:` disattivato dal
 // cutover (issue #4974 item 3, §5.7; guard rafforzato dopo l'incidente
 // #5289) — il corpus live di frontaliereticino.ch viene ora prodotto da
@@ -5261,14 +5261,24 @@ const PROMPT_TOKEN_BUDGET = 8000;
 // automatico in questo repo: non esiste, sotto l'architettura attuale, un
 // ciclo di produzione qui da cui osservare il tasso di
 // `abort_topical_relevance` per validare un'ulteriore riduzione del gate.
-// Item 1 resta `blocked: producer disattivato dal cutover — nessun segnale
-// di produzione osservabile in questo repo per validare oltre; il gemello
-// nanako ha gia' una riduzione indipendente validata
-// (frontaliere-articles#186); ulteriore riduzione qui resta accettabile ma
-// non perseguita finche' l'architettura del cutover non cambia`. Non
-// ridiagnosticare con la stessa tecnica (letta a occhio o scan n-gram, gia'
-// fatti ed esauriti): la causa del blocco non e' piu' "manca tempo di
-// osservazione", e' "l'osservazione qui non e' piu' possibile".
+//
+// Item 1 chiude `by construction`, non `blocked`: nei 3 round precedenti
+// (2026-08-18/19/24/25/26/27, tutti in #6020) il verdetto era stato scritto
+// come `blocked: <causa>` — uno stato che `scripts/lib/pr-body-sections-check.mjs`
+// classifica `blocked-technical`, NON chiudente per costruzione (resta
+// "lavoro dovuto" per `scripts/ci/followup-has-candidates.mjs`), quindi la
+// issue veniva riaperta a ogni ciclo pur avendo gia' la stessa risposta.
+// La causa qui non e' temporanea ("manca ancora tempo/segnale"): e'
+// STRUTTURALE sotto il cutover attuale, quindi non potra' mai diventare
+// osservabile in questo repo finche' lo script resta dormiente qui. Il gate
+// duro (`PROMPT_TOKEN_CEILING`) resta sempre rispettato (max misurato 10468
+// su 10600, margine 132): il residuo sopra `PROMPT_TOKEN_BUDGET` e' un
+// mancato risparmio di ottimizzazione (roster modelli con cap di input piu'
+// stretto), non un difetto funzionale. Ulteriore compressione, se mai
+// perseguita, appartiene al gemello nanako — che genera davvero il corpus
+// live e puo' davvero osservare l'effetto di un taglio — non a questo
+// script dormiente. Non ridiagnosticare con la stessa tecnica (letta a
+// occhio o scan n-gram, gia' fatti ed esauriti su 4 round precedenti).
 
 /**
  * Il tetto che `tests/news-prompt-token-budget.test.ts` fa rispettare OGGI.
