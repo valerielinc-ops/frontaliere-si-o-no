@@ -1,16 +1,16 @@
 {
   "key": "ferrovia-retica",
   "label": "Ferrovia Retica (RhB)",
-  "generatedAt": "2026-08-27T00:54:35.515Z",
+  "generatedAt": "2026-08-27T19:57:30.348Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 9,
-  "durationMs": 21474,
-  "avgDurationMs": 21474,
+  "durationMs": 22120,
+  "avgDurationMs": 22120,
   "durationHistory": [
-    21474
+    22120
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -75,11 +75,11 @@
       "salaryMax": 102000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-27T00:36:59.360Z",
-      "_qualityScore": 71,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 17,
         "completeness": 22
       }
     },
