@@ -1,16 +1,16 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-08-27T00:57:28.288Z",
+  "generatedAt": "2026-08-27T20:12:41.240Z",
   "total": 16,
   "newCount": 0,
   "updatedCount": 14,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 8002,
-  "avgDurationMs": 8002,
+  "durationMs": 11159,
+  "avgDurationMs": 11159,
   "durationHistory": [
-    8002
+    11159
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -122,41 +122,6 @@
       }
     },
     {
-      "title": "SERVICETECHNIKER/IN ÖL - OBERWALLIS",
-      "slug": "servicetechniker-in-ol-oberwallis-ariston-group-brig-glis-ch-3902",
-      "url": "https://careers.aristongroup.com/job/Maerstetten-SERVICETECHNIKERIN-%C3%96L-OBERWALLIS-Brig-3902/1185843001/",
-      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1185843001/?locale=en_US",
-      "company": "Ariston Group",
-      "companyKey": "ariston-group",
-      "companyDomain": "aristongroup.com",
-      "location": "Brig-Glis, CH, 3902",
-      "addressLocality": "Brig-Glis, CH, 3902",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "canton": "VS",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Energia & Riscaldamento",
-      "source": "ariston-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-29",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2026-08-29",
-      "id": "ariston-group-ee0aa5576140",
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-28T11:28:49.175Z",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
       "title": "SERVICETECHNIKER WÄRMEPUMPEN (M/W)",
       "slug": "servicetechniker-warmepumpen-m-w-ariston-group-bern-ch-3004",
       "url": "https://careers.aristongroup.com/job/Bern-SERVICETECHNIKER-W%C3%84RMEPUMPEN-%28MW%29-Bern-3004/1402868933/",
@@ -184,6 +149,7 @@
       "currency": "CHF",
       "postalCode": "3001",
       "firstSeenAt": "2026-06-10T11:36:36.719Z",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -257,6 +223,7 @@
       "currency": "CHF",
       "postalCode": "3001",
       "firstSeenAt": "2026-05-17T09:38:09.822Z",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -472,7 +439,6 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-08T22:10:49.488Z",
-      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -516,6 +482,41 @@
         "richness": 18,
         "translation": 25,
         "completeness": 22
+      }
+    },
+    {
+      "title": "SERVICETECHNIKER/IN ÖL - OBERWALLIS",
+      "slug": "servicetechniker-in-ol-oberwallis-ariston-group-brig-glis-ch-3902",
+      "url": "https://careers.aristongroup.com/job/Maerstetten-SERVICETECHNIKERIN-%C3%96L-OBERWALLIS-Brig-3902/1185843001/",
+      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1185843001/?locale=en_US",
+      "company": "Ariston Group",
+      "companyKey": "ariston-group",
+      "companyDomain": "aristongroup.com",
+      "location": "Brig-Glis, CH, 3902",
+      "addressLocality": "Brig-Glis, CH, 3902",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "canton": "VS",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Energia & Riscaldamento",
+      "source": "ariston-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-27",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-08-29",
+      "id": "ariston-group-ee0aa5576140",
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-07-28T11:28:49.175Z",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 19
       }
     }
   ],
