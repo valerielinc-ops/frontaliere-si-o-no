@@ -4205,7 +4205,6 @@
       "jobReqId": "jr129843",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "fr": [
           "finances-internationales-a-p-controleur-principal-cartier-meyrin",
@@ -4215,7 +4214,8 @@
         "it": [
           "international-finance-a-p-senior-controller-richemont-meyrin",
           "international-senior-finanzen-controller-cartier-meyrin",
-          "international-finanza-a-p-senior-controller-cartier-meyrin"
+          "international-finanza-a-p-senior-controller-cartier-meyrin",
+          "international-senior-finanza-controller-cartier-meyrin"
         ],
         "de": [
           "international-finance-a-p-senior-controller-richemont-meyrin"
@@ -4226,7 +4226,8 @@
         "international-senior-finanzen-controller-cartier-meyrin",
         "finances-internationales-a-p-controleur-principal-cartier-meyrin",
         "international-finance-a-p-senior-controller-cartier-meyrin",
-        "international-finanza-a-p-senior-controller-cartier-meyrin"
+        "international-finanza-a-p-senior-controller-cartier-meyrin",
+        "international-senior-finanza-controller-cartier-meyrin"
       ],
       "firstSeenAt": "2026-07-17T11:30:23.929Z",
       "salaryMin": 174500,
@@ -4240,7 +4241,8 @@
           "maxValue": 306000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "richemont-33fa20377d72",
@@ -8448,7 +8450,6 @@
       "jobReqId": "jr131290",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "general-accountant-internal-control-12-months-richemont-meyrin",
@@ -8473,7 +8474,10 @@
           "maxValue": 183500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 5021
     },
     {
       "id": "richemont-cc2c05858dcd",
