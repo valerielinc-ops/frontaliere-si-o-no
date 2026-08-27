@@ -10843,6 +10843,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.consiglio-stato-deputazione-ticino-agosto.title': 'Ticino and Bern: the crucial issue of refreshments',
     'blog.article.consiglio-stato-deputazione-ticino-agosto.excerpt': 'On 27 August in Bellinzona, discussion on the suspension of refreshments and negotiation with the Confederation and the Lombardy Region',
     'blog.article.consiglio-stato-deputazione-ticino-agosto.imageAlt': 'Bellinzona, Ticino State Council seat, where the Parliament delegation met on August 27, 2026',
+    'blog.article.coordinamento-sanitario-frontaliere.title': 'Border health costs: reimbursements between Switzerland and Italy',
+    'blog.article.coordinamento-sanitario-frontaliere.excerpt': 'Health rights for border workers Ticino-Italy: LAMal and INPS in comparison, reimbursement procedures and how to choose the most convenient insurance.',
+    'blog.article.coordinamento-sanitario-frontaliere.imageAlt': 'Serene view of Monte San Salvatore at sunset overlooking Lake Lugano, Ticino',
 };
 
 export default blogMetaEn;

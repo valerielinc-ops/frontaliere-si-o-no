@@ -10845,6 +10845,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.consiglio-stato-deputazione-ticino-agosto.title': 'Tessin et Berne : la question cruciale des restaurants',
     'blog.article.consiglio-stato-deputazione-ticino-agosto.excerpt': 'Le 27 août à Bellinzone, discussion sur la suspension des restaurations et négociation avec la Confédération et la Région Lombardie',
     'blog.article.consiglio-stato-deputazione-ticino-agosto.imageAlt': 'Bellinzona, siège du Conseil d\'État du Tessin, réunion avec délégation parlementaire le 27 août 2026',
+    'blog.article.coordinamento-sanitario-frontaliere.title': 'Frais de santé frontaliers : remboursements entre la Suisse et l\'Italie',
+    'blog.article.coordinamento-sanitario-frontaliere.excerpt': 'Droits sanitaires pour les frontaliers Tessin-Italie : LAMal et INPS en comparaison, procédures de remboursement et comment choisir l\'assurance la moins chère.',
+    'blog.article.coordinamento-sanitario-frontaliere.imageAlt': 'Vue sereine du Monte San Salvatore au coucher du soleil surplombant le lac de Lugano, Tessin',
 };
 
 export default blogMetaFr;

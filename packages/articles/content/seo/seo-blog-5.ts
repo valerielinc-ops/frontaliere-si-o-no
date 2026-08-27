@@ -79241,6 +79241,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-coordinamento-sanitario-frontaliere': {
+    title: 'Spese sanitarie frontaliere: rimborsi tra Svizzera e Italia',
+    description: 'Scopri come funziona il rimborso delle spese sanitarie per i frontalieri Ticino-Italia con LAMal e INPS: procedure, diritto d\'opzione, franchige',
+    keywords: 'frontalieri, ticino, svizzera, italia, spese, sanitarie, rimborsi, diritti',
+    ogTitle: 'Spese sanitarie frontaliere: rimborsi tra Svizzera e Italia',
+    ogDescription: 'Guida pratica ai rimborsi sanitari per chi lavora in Svizzera e risiede in Italia. Scopri il diritto d\'opzione tra LAMal e INPS, le franchige, le procedure di rimborso e come contattare gli enti competenti.',
+    canonicalPath: '/articoli-frontaliere/coordinamento-sanitario-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Spese sanitarie frontaliere: rimborsi tra Svizzera e Italia",
+      "description": "Scopri come funziona il rimborso delle spese sanitarie per i frontalieri Ticino-Italia con LAMal e INPS: procedure, diritto d'opzione, franchige",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/coordinamento-sanitario-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista serena di Monte San Salvatore al tramonto sul Lago di Lugano, Ticino"
+      },
+      "datePublished": "2026-08-27T00:48:00+00:00",
+      "dateModified": "2026-08-27T00:48:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/coordinamento-sanitario-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -4447,6 +4447,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.glarner-dimissioni-consiglio-nazionale.title': 'Glarner leaves the National Council at the end of the year',
     'blog.article.glarner-dimissioni-consiglio-nazionale.excerpt': 'Andreas Glarner (UDC/AG) announces his resignation from the Federal Parliament on 31 December 2026. He also leaves the presidency of the Argosino party.',
     'blog.article.glarner-dimissioni-consiglio-nazionale.imageAlt': 'Swiss National Council chamber at the Federal Palace in Bern',
+    'blog.article.danni-parcheggio-rincari-2025.title': 'Stagnation on parking damage: price increases of up to 50%',
+    'blog.article.danni-parcheggio-rincari-2025.excerpt': 'Comparis study: rear door repair from CHF 92 to 134 in two years. Car technology and workshop rates behind the prices.',
+    'blog.article.danni-parcheggio-rincari-2025.imageAlt': 'Car with parking damage at a Swiss repair workshop',
 };
 
 export default blogMetaChEn;

@@ -1508,6 +1508,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'credito-federale-ambiente-2027-2030': { it: 'credito-federale-ambiente-2027-2030', en: 'federal-credit-global-environment-2027-2030', de: 'bundeskredit-umwelt-2027-2030', fr: 'credit-federal-environnement-global-2027-2030' },
  'chronext-fallimento-zugo': { it: 'chronext-fallimento-zugo', en: 'chronext-bankruptcy-zug', de: 'chronext-konkurs-zug', fr: 'chronext-faillite-zoug' },
  'glarner-dimissioni-consiglio-nazionale': { it: 'glarner-dimissioni-consiglio-nazionale', en: 'glarner-resigns-national-council', de: 'glarner-traegt-nationalrat-nieder', fr: 'glarner-demission-conseil-national' },
+ 'danni-parcheggio-rincari-2025': { it: 'danni-parcheggio-rincari-2025', en: 'parking-damage-costs-2025', de: 'parkplatz-schaden-kosten-2025', fr: 'dommages-parking-augmentation-2025' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
