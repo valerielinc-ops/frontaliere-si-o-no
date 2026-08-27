@@ -4453,6 +4453,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assegni-familiari-lucerna-come-richiedere.title': 'Family allowances Lucerne: amounts and procedure',
     'blog.article.assegni-familiari-lucerna-come-richiedere.excerpt': 'How to apply for family allowances in Lucerne: who is entitled, monthly amounts per child, necessary documents and application procedure at the compensation fund.',
     'blog.article.assegni-familiari-lucerna-come-richiedere.imageAlt': 'Interior of a Swiss cantonal administrative office where a family receives information about family allowances.',
+    'blog.article.naturalizzazione-ordinaria-lucerna-guida.title': 'Lucerne naturalisation: 10 years and double counting',
+    'blog.article.naturalizzazione-ordinaria-lucerna-guida.excerpt': 'Permit C and 10 years of residency are the federal requirement. Periods between 8–18 years count double. Discover procedures, times and costs for naturalisation in Lucerne.',
+    'blog.article.naturalizzazione-ordinaria-lucerna-guida.imageAlt': 'Lucerne cantonal administrative office with naturalization documents and residence certificates',
 };
 
 export default blogMetaChEn;

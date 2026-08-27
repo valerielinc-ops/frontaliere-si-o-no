@@ -4453,6 +4453,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assegni-familiari-lucerna-come-richiedere.title': 'Assegni familiari Lucerna: importi e procedura',
     'blog.article.assegni-familiari-lucerna-come-richiedere.excerpt': 'Come richiedere gli assegni familiari a Lucerna: chi ha diritto, importi mensili per figlio, documenti necessari e procedura di domanda presso la cassa di compensazione.',
     'blog.article.assegni-familiari-lucerna-come-richiedere.imageAlt': 'Interno di un ufficio amministrativo cantonale svizzero dove una famiglia riceve informazioni su assegni familiari.',
+    'blog.article.naturalizzazione-ordinaria-lucerna-guida.title': 'Naturalizzazione Lucerna: 10 anni e doppio conteggio',
+    'blog.article.naturalizzazione-ordinaria-lucerna-guida.excerpt': 'Permesso C e 10 anni di residenza sono il requisito federale. Periodi tra 8–18 anni contano doppio. Scopri procedure, tempi e costi per la naturalizzazione a Lucerna.',
+    'blog.article.naturalizzazione-ordinaria-lucerna-guida.imageAlt': 'Ufficio amministrativo del canton Lucerna con documenti di naturalizzazione e certificati di residenza',
 };
 
 export default blogMetaChIt;
