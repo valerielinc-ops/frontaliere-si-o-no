@@ -99,6 +99,8 @@ describe('il rilevatore', () => {
 
   it('mantiene il test meta della partizione nel gate', () => {
     expect(listLiveDataTestsForCi()).not.toContain('tests/corpus-wide-test-partition.test.ts');
+    expect(listLiveDataTestsForCi()).not.toContain('tests/evergreen-pool-consumption.test.ts');
     expect(listLiveDataTestsForCi()).toContain('tests/article-body-wordcount.test.ts');
+    expect(listLiveDataTestsForCi()).not.toContain('tests/job-locale-consistency.test.ts');
   });
 });

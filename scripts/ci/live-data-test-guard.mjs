@@ -140,6 +140,8 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   { file: 'tests/article-review-overrides.test.ts', roots: ['packages/articles/'] },
   { file: 'tests/article-slug-prompt-leak-guard.test.ts', roots: ['packages/articles/content/'] },
   { file: 'tests/articles-sync-pin.test.ts', roots: ['packages/articles/content/'] },
+  // Reaches the live article corpus transitively through create-article.mjs.
+  { file: 'tests/evergreen-pool-consumption.test.ts', roots: ['packages/articles/content/'], transitive: true },
   { file: 'tests/blog-headline-validation.test.ts', roots: ['services/locales/'] },
   { file: 'tests/bridge-canton-aware.test.ts', roots: ['data/jobs/'] },
   { file: 'tests/build-emit-skip-gate.test.ts', roots: ['packages/articles/'] },
@@ -154,6 +156,9 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   { file: 'tests/google-news-compliance.test.ts', roots: ['services/locales/'] },
   { file: 'tests/i18n-completeness.test.ts', roots: ['services/locales/'] },
   { file: 'tests/it-microcopy-guard.test.ts', roots: ['packages/articles/content/'] },
+  // Reads the assembled live jobs corpus; its rate changes with crawler
+  // output, so it is not a deterministic PR gate.
+  { file: 'tests/job-locale-consistency.test.ts', roots: ['data/jobs/'], transitive: true },
   { file: 'tests/job-locale-mark-persistence.test.ts', roots: ['data/jobs/'] },
   { file: 'tests/news-ticker-data.test.ts', roots: ['packages/articles/'] },
   { file: 'tests/packages-articles-confinement.test.ts', roots: ['packages/articles/'] },
@@ -181,6 +186,8 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
 /** Test esclusi dal gate PR perché leggono il corpus riscritto dai crawler. */
 const CI_LIVE_DATA_META_TESTS = new Set([
   'tests/corpus-wide-test-partition.test.ts',
+  'tests/evergreen-pool-consumption.test.ts',
+  'tests/job-locale-consistency.test.ts',
 ]);
 
 export function listLiveDataTestsForCi() {
@@ -239,8 +246,13 @@ export function diffAgainstInventory(root = ROOT) {
   const found = scanLiveDataTests(root);
   const known = new Set(KNOWN_LIVE_DATA_TESTS.map((e) => e.file));
   const foundFiles = new Set(found.map((e) => e.file));
+  const explicitlyTransitive = new Set(
+    KNOWN_LIVE_DATA_TESTS
+      .filter((e) => e.transitive && fs.existsSync(path.join(root, e.file)))
+      .map((e) => e.file),
+  );
   return {
     added: found.filter((e) => !known.has(e.file)),
-    removed: [...known].filter((f) => !foundFiles.has(f)).sort(),
+    removed: [...known].filter((f) => !foundFiles.has(f) && !explicitlyTransitive.has(f)).sort(),
   };
 }
