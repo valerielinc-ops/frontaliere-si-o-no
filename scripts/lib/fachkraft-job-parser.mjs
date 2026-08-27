@@ -138,14 +138,18 @@ export async function fetchAllFachkraftJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const location = listing.location || 'Lugano'; // TODO: extract actual location
-    const canton = inferSwissTargetCanton(location) || 'TI';
+    const location = normalizeSpace(listing.location || '');
+    // Fachkraft publishes nationwide positions. Missing source data is not a
+    // valid reason to claim Lugano/TI; the prospector detail pass filters such
+    // rows that cannot be verified.
+    if (!location) continue;
+    const canton = inferSwissTargetCanton(location) || '';
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = listing.url || CAREER_URL;
 
     const sourceLang = detectLang(descriptionText || title, 'de');
-    const jobSlug = slugify(`${title} fachkraft ch`);
+    const jobSlug = slugify(`${title} ${location} fachkraft ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
     const job = {
@@ -158,8 +162,8 @@ export async function fetchAllFachkraftJobs() {
       companyDomain: FACHKRAFT_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || `${title} — fachkraft.ch GmbH`,
-      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — fachkraft.ch GmbH` },
+      description: descriptionText,
+      descriptionByLocale: { [sourceLang]: descriptionText },
       location,
       canton,
       url: publicUrl,
@@ -173,7 +177,7 @@ export async function fetchAllFachkraftJobs() {
       country: 'CH',
       category: detectCategory(title),
       contract: 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || title),
+      employmentType: detectEmploymentType(listing.employmentType || listing.timeType || title),
       experienceLevel: detectExperienceLevel(title),
       sector: 'Altro', // TODO: Set appropriate sector
       currency: 'CHF',

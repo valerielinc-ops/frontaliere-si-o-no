@@ -109,6 +109,12 @@ export function evaluatePromotion(candidate, ctx = {}, opts = {}) {
   mark('hasCrawlerKey', Boolean(candidate.crawlerKey),
     'nessuna chiave crawler: la spec non e\' stata sintetizzata');
 
+  // A template spec only knows title/URL from the index. Without the detail
+  // pass it can silently publish an employer default (historically Lugano)
+  // and a teaser as if they were per-job facts.
+  mark('detailEnrichment', candidate.mode !== 'template' || candidate.detailEnrichment === true,
+    'spec template senza arricchimento del dettaglio: localita\' e descrizione non sono verificate');
+
   mark('keyFree', !candidate.crawlerKey || !(ctx.existingKeys || new Set()).has(candidate.crawlerKey),
     `la chiave ${candidate.crawlerKey} esiste gia' in produzione`);
 

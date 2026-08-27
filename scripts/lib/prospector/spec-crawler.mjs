@@ -21,7 +21,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fetchHtml } from '../crawler-template.mjs';
-import { extractVacancies } from './extract.mjs';
+import { extractVacancies, extractDetailFields } from './extract.mjs';
 import { extractLinks } from './careers-trail.mjs';
 import { PROSPECTOR_DIR } from './config.mjs';
 
@@ -45,7 +45,7 @@ export function loadSpec(companyKey, dir = path.join(PROSPECTOR_DIR, 'crawlers')
  * a published fake vacancy.
  *
  * @param {import('./synthesize.mjs').CrawlerSpec} spec
- * @returns {Promise<{ title: string, url: string, location: string, postedAt: string|null, company: string }[]>}
+ * @returns {Promise<{ title: string, url: string, location: string, description: string, postedAt: string|null, company: string }[]>}
  */
 export async function runSpecInProduction(spec) {
   /** @type {Map<string, any>} */
@@ -76,12 +76,40 @@ export async function runSpecInProduction(spec) {
         title: v.title,
         url: v.url,
         location: v.location || '',
+        description: v.description || '',
         postedAt: v.postedDate || null,
         company: v.company || spec.companyName,
       });
     }
   }
-  return [...bySlug.values()];
+  const rows = [...bySlug.values()];
+  if (!spec.detailEnrichment) return rows;
+
+  // Template extraction has no per-row semantics. Visit the detail pages with
+  // a bounded pool so location and full descriptions are source-backed.
+  const enriched = [];
+  let next = 0;
+  const worker = async () => {
+    while (next < rows.length) {
+      const row = rows[next++];
+      try {
+        const detail = extractDetailFields(await fetchHtml(row.url), row.url);
+        const location = detail.location || row.location;
+        const description = detail.description || row.description;
+        if (!location || !description) continue;
+        enriched.push({ ...row, title: detail.title || row.title, location, description,
+          postedAt: detail.postedDate || row.postedAt,
+          employmentType: detail.employmentType || row.employmentType });
+      } catch (err) {
+        // A row without both source-backed fields must not be published with a
+        // fabricated employer default. Keep already complete index rows only.
+        if (row.location && row.description) enriched.push(row);
+      }
+    }
+  };
+  const concurrency = Math.max(1, Math.min(8, Number(spec.detailFetchWorkers) || 4));
+  await Promise.all(Array.from({ length: concurrency }, worker));
+  return enriched;
 }
 
 /**

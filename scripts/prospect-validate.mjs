@@ -166,6 +166,7 @@ for (const spec of specs) {
       logoFound: report.logoFound,
     });
     setStatus(store, candidate.key, next, {
+      detailEnrichment: spec.detailEnrichment === true,
       qualityScore: report.score,
       qualityVerdict: report.verdict,
       qualityProblems: report.problems,
