@@ -5,6 +5,7 @@ import {
   isMature,
   decideGoalAction,
   runCampaignGoalCheck,
+  isJobIntentBrandQuery,
 } from '../scripts/campaign-goal-check.mjs';
 
 // Maturation must gate on real elapsed time (14/30/90-day windows), so
@@ -59,6 +60,38 @@ describe('decideGoalAction', () => {
     expect(decideGoalAction({ matureAt: isoDaysAgo(1), now: NOW, priorState: 'failing' })).toBe('evaluate');
     expect(decideGoalAction({ matureAt: isoDaysAgo(1), now: NOW, priorState: 'error' })).toBe('evaluate');
     expect(decideGoalAction({ matureAt: isoDaysAgo(1), now: NOW, priorState: 'observing' })).toBe('evaluate');
+  });
+});
+
+describe('isJobIntentBrandQuery', () => {
+  // #5953: the brand_query_ctr goal (#4306) must only aggregate queries the
+  // site can actually act on — a brand mention paired with job intent — not
+  // retail/consumer brand queries (store promos, plain brand name) that no
+  // job listing can ever win a click on regardless of content.
+  it('matches a tracked brand paired with a job-intent term, any locale', () => {
+    expect(isJobIntentBrandQuery('coop lavoro ticino')).toBe(true);
+    expect(isJobIntentBrandQuery('jysk jobs')).toBe(true);
+    expect(isJobIntentBrandQuery('coop emploi valais')).toBe(true);
+    expect(isJobIntentBrandQuery('interdiscount stellen')).toBe(true);
+    expect(isJobIntentBrandQuery('fielmann karriere')).toBe(true);
+    expect(isJobIntentBrandQuery('coop praktikum')).toBe(true);
+  });
+
+  it('rejects a bare or retail-intent brand query with no job signal', () => {
+    expect(isJobIntentBrandQuery('interdiscount')).toBe(false);
+    expect(isJobIntentBrandQuery('fielmann promozione')).toBe(false);
+    expect(isJobIntentBrandQuery('jysk schlieren')).toBe(false);
+    expect(isJobIntentBrandQuery('offerta fielmann')).toBe(false);
+    expect(isJobIntentBrandQuery('coop')).toBe(false);
+  });
+
+  it('rejects a job-intent term with no tracked brand', () => {
+    expect(isJobIntentBrandQuery('offerte di lavoro ticino')).toBe(false);
+  });
+
+  it('handles missing/empty input without throwing', () => {
+    expect(isJobIntentBrandQuery('')).toBe(false);
+    expect(isJobIntentBrandQuery(undefined)).toBe(false);
   });
 });
 
