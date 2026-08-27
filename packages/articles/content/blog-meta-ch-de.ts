@@ -4456,6 +4456,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.naturalizzazione-ordinaria-lucerna-guida.title': 'Einbürgerung Luzern: 10 Jahre und Doppelzählung',
     'blog.article.naturalizzazione-ordinaria-lucerna-guida.excerpt': 'C-Bewilligung und 10 Jahre Aufenthalt sind die Bundesvoraussetzung. Perioden zwischen 8 und 18 Jahren zählen doppelt. Entdecken Sie Verfahren, Zeiten und Kosten für die Einbürgerung in Luzern.',
     'blog.article.naturalizzazione-ordinaria-lucerna-guida.imageAlt': 'Verwaltungsbüro des Kantons Luzern mit Einbürgerungsdokumenten und Wohnbescheinigungen',
+    'blog.article.salari-appenzello-interno-settori.title': 'Löhne und Arbeitsmarkt in Appenzell Innerrhoden',
+    'blog.article.salari-appenzello-interno-settori.excerpt': 'Leitfaden zur Lohnhöhe nach Bildungsabschluss, Berufsfeldern, AHV/BVG/KVG-BEITRÄGEN, gesetzlichen Stundenplänen und Instrumenten zur Berechnung des Nettolohns im Kanton Appenzell Innerrhoden.',
+    'blog.article.salari-appenzello-interno-settori.imageAlt': 'Büro- und Fabrikarbeiter in einer modernen Schweizer Arbeitsumgebung, die verschiedene Qualifikationsstufen und Branchen darstellt.',
 };
 
 export default blogMetaChDe;

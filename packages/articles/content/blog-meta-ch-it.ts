@@ -4456,6 +4456,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.naturalizzazione-ordinaria-lucerna-guida.title': 'Naturalizzazione Lucerna: 10 anni e doppio conteggio',
     'blog.article.naturalizzazione-ordinaria-lucerna-guida.excerpt': 'Permesso C e 10 anni di residenza sono il requisito federale. Periodi tra 8–18 anni contano doppio. Scopri procedure, tempi e costi per la naturalizzazione a Lucerna.',
     'blog.article.naturalizzazione-ordinaria-lucerna-guida.imageAlt': 'Ufficio amministrativo del canton Lucerna con documenti di naturalizzazione e certificati di residenza',
+    'blog.article.salari-appenzello-interno-settori.title': 'Salari e mercato del lavoro in Appenzello Interno',
+    'blog.article.salari-appenzello-interno-settori.excerpt': 'Guida ai livelli salariali per grado di formazione, settori occupazionali, contributi AVS/LPP/LAMal, orari legali e strumenti per calcolare lo stipendio netto nel canton Appenzello Interno.',
+    'blog.article.salari-appenzello-interno-settori.imageAlt': 'Lavoratori in ufficio e in fabbrica in un ambiente lavorativo svizzero moderno rappresentante diversi livelli di qualifica e settori.',
 };
 
 export default blogMetaChIt;
