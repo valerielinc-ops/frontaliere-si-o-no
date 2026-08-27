@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abraxas",
-  "assembledAt": "2026-08-26T10:24:19.513Z",
+  "assembledAt": "2026-08-27T01:00:16.241Z",
   "jobs": [
     {
       "id": "abraxas-162b4d32f534",
@@ -33,7 +33,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/solution-architektin-querschnittservices-80-100-6399",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:16.277Z",
+      "crawledAt": "2026-08-27T01:00:12.853Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -57,11 +57,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "solution-architekt-in-querschnittservices-80-100-abraxas-st-gallen"
+        "solution-architekt-in-querschnittservices-80-100-abraxas-st-gallen",
+        "soluzione-architetto-nei-servizi-di-sezione-trasversale-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "solution-architekt-in-querschnittservices-80-100-abraxas-st-gallen"
+          "solution-architekt-in-querschnittservices-80-100-abraxas-st-gallen",
+          "soluzione-architetto-nei-servizi-di-sezione-trasversale-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "solution-architekt-in-querschnittservices-80-100-abraxas-st-gallen"
@@ -99,7 +101,7 @@
       "title": "Software-Engineer 80–100 %",
       "titleByLocale": {
         "it": "Software-Ingegnere 80–100 %",
-        "en": "Software Engineer 80-100%",
+        "en": "Software-Engineer 80–100 %",
         "de": "Software-Ingenieur 80–100 %",
         "fr": "Software-Ingénieur 80–100 %"
       },
@@ -115,7 +117,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-80-100-3988",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:15.816Z",
+      "crawledAt": "2026-08-27T01:00:12.345Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -138,11 +141,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "software-engineer-80-100-abraxas-st-gallen"
+        "software-engineer-80-100-abraxas-st-gallen",
+        "software-ingegnere-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-engineer-80-100-abraxas-st-gallen"
+          "software-engineer-80-100-abraxas-st-gallen",
+          "software-ingegnere-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "software-engineer-80-100-abraxas-st-gallen"
@@ -161,6 +166,76 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "abraxas-4186cb192b04",
+      "slug": "software-solution-architekt-in-80-100-mit-schwerpunkt-pre-sales-abraxas-st-gallen",
+      "slugByLocale": {
+        "de": "software-solution-architekt-in-80-100-mit-schwerpunkt-pre-sales-abraxas-st-gallen",
+        "it": "software-solution-architekt-in-80-100-mit-schwerpunkt-pre-sales-abraxas-st-gallen",
+        "en": "software-solution-architekt-in-80-100-mit-schwerpunkt-pre-sales-abraxas-st-gallen",
+        "fr": "software-solution-architekt-in-80-100-mit-schwerpunkt-pre-sales-abraxas-st-gallen"
+      },
+      "company": "Abraxas Informatik AG",
+      "companyKey": "abraxas",
+      "companyDomain": "abraxas.ch",
+      "title": "Software Solution Architekt:in 80–100 % mit Schwerpunkt Pre-Sales",
+      "titleByLocale": {
+        "de": "Software Solution Architekt:in 80–100 % mit Schwerpunkt Pre-Sales",
+        "en": "Software Solution Architekt:in 80–100 % mit Schwerpunkt Pre-Sales",
+        "it": "Software Solution Architekt:in 80–100 % con Schwerpunkt Pre-Sales",
+        "fr": "Software Solution Architekt:in 80–100 % mit Schwerpunkt Pre-Sales"
+      },
+      "description": "Digitalisierung ist deine Leidenschaft! Du bist ein:e Macher:in, der/die sich aktiv einbringt und eine moderne Software-Architektur vorantreibt? Dann bist du bei uns genau richtig! Unterstütze uns tatkräftig bei der Definition und Umsetzung geplanter technischer Vorhaben.\nWir sind ein motiviertes und dynamisches Team aus Product und Project Managern und suchen DICH als technisches Solution-Bindeglied zu unseren Entwicklungsteams.\nDeine Rolle\n• Mitverantwortung für die Solution Architektur unserer Software-Gesamtlösung TAXA für Schweizer Steuerämter und zentrale Rolle im Pre-Sales durch Definition und Vertretung des technischen Solution Designs beim Kunden\n• Präsentation der Lösung und Integration in bestehende IT-Landschaften sowie Vertretung des Steuerbereichs in internen Architektur-Gremien\n• Leitung von Lösungsdesign und Koordination von Technologie- und Entwicklungspartnern bei Innovationsprojekten (Proof-of-Concepts)\n• Verantwortlich für den Teil Architektur bei Ausschreibungen der kantonalen und kommunalen Steuerämter\nDein Profil\n• Mindestens fünf Jahre Erfahrung als Solution Architekt:in oder Technical Lead in der agilen Softwareentwicklung komplexer Softwarelösungen mit fundiertem Kundenkontakt (Presales, Projektpräsentationen), idealerweise auch in der öffentlichen Hand\n• Sicheres Auftreten in Kundengesprächen, Präsentationsstärke auf Stufe C-Level und die Fähigkeit, technische Argumente in Verkaufsargumente zu übersetzen\n• Teamplayer mit offener, kommunikativer Persönlichkeit, der gern in kleinen Teams Lösungen erarbeitet und intern wie extern vertritt\n• Analytisch, schnell in der Auffassung, strukturiert und lösungsorientiert mit hohem Durchsetzungs- und Durchhaltevermögen\n• Sehr gute Deutsch- und Englischkenntnisse sowie abgeschlossenes Informatikstudium oder gleichwertige Berufserfahrung\n• Vertieftes Wissen in den Bereichen Microservice- und Microfrontend-orientierter Architektur, SaaS, Kubernetes, Container und verwandte Aktivierungssysteme, sowie Erfahren im Umgang mit den Technologien Java, Quarkus, Kafka, Maven, Hibernate, Liquibase und PostgreSQL; IAM Kenntnisse (OAuth 2.0 und OpenID) sind von Vorteil\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+      "descriptionByLocale": {
+        "de": "Digitalisierung ist deine Leidenschaft! Du bist ein:e Macher:in, der/die sich aktiv einbringt und eine moderne Software-Architektur vorantreibt? Dann bist du bei uns genau richtig! Unterstütze uns tatkräftig bei der Definition und Umsetzung geplanter technischer Vorhaben.\nWir sind ein motiviertes und dynamisches Team aus Product und Project Managern und suchen DICH als technisches Solution-Bindeglied zu unseren Entwicklungsteams.\nDeine Rolle\n• Mitverantwortung für die Solution Architektur unserer Software-Gesamtlösung TAXA für Schweizer Steuerämter und zentrale Rolle im Pre-Sales durch Definition und Vertretung des technischen Solution Designs beim Kunden\n• Präsentation der Lösung und Integration in bestehende IT-Landschaften sowie Vertretung des Steuerbereichs in internen Architektur-Gremien\n• Leitung von Lösungsdesign und Koordination von Technologie- und Entwicklungspartnern bei Innovationsprojekten (Proof-of-Concepts)\n• Verantwortlich für den Teil Architektur bei Ausschreibungen der kantonalen und kommunalen Steuerämter\nDein Profil\n• Mindestens fünf Jahre Erfahrung als Solution Architekt:in oder Technical Lead in der agilen Softwareentwicklung komplexer Softwarelösungen mit fundiertem Kundenkontakt (Presales, Projektpräsentationen), idealerweise auch in der öffentlichen Hand\n• Sicheres Auftreten in Kundengesprächen, Präsentationsstärke auf Stufe C-Level und die Fähigkeit, technische Argumente in Verkaufsargumente zu übersetzen\n• Teamplayer mit offener, kommunikativer Persönlichkeit, der gern in kleinen Teams Lösungen erarbeitet und intern wie extern vertritt\n• Analytisch, schnell in der Auffassung, strukturiert und lösungsorientiert mit hohem Durchsetzungs- und Durchhaltevermögen\n• Sehr gute Deutsch- und Englischkenntnisse sowie abgeschlossenes Informatikstudium oder gleichwertige Berufserfahrung\n• Vertieftes Wissen in den Bereichen Microservice- und Microfrontend-orientierter Architektur, SaaS, Kubernetes, Container und verwandte Aktivierungssysteme, sowie Erfahren im Umgang mit den Technologien Java, Quarkus, Kafka, Maven, Hibernate, Liquibase und PostgreSQL; IAM Kenntnisse (OAuth 2.0 und OpenID) sind von Vorteil\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "it": "Digitalisierung ist deine Leidenschaft! Du bist ein:e Macher:in, der/die sich aktiv einbringt und eine moderne Software-Architektur vorantreibt? Dann bist du bei uns genau richtig! Unterstütze uns tatkräftig bei der Definition und Umsetzung geplanter technischer Vorhaben.\nWir sind ein motiviertes und dynamisches Team aus Product und Project Managern und suchen DICH als technisches Solution-Bindeglied zu unseren Entwicklungsteams.\nDeine Rolle\n• Mitverantwortung für die Solution Architektur unserer Software-Gesamtlösung TAXA für Schweizer Steuerämter und zentrale Rolle im Pre-Sales durch Definition und Vertretung des technischen Solution Designs beim Kunden\n• Präsentation der Lösung und Integration in bestehende IT-Landschaften sowie Vertretung des Steuerbereichs in internen Architektur-Gremien\n• Leitung von Lösungsdesign und Koordination von Technologie- und Entwicklungspartnern bei Innovationsprojekten (Proof-of-Concepts)\n• Verantwortlich für den Teil Architektur bei Ausschreibungen der kantonalen und kommunalen Steuerämter\nDein Profil\n• Mindestens fünf Jahre Erfahrung als Solution Architekt:in oder Technical Lead in der agilen Softwareentwicklung komplexer Softwarelösungen mit fundiertem Kundenkontakt (Presales, Projektpräsentationen), idealerweise auch in der öffentlichen Hand\n• Sicheres Auftreten in Kundengesprächen, Präsentationsstärke auf Stufe C-Level und die Fähigkeit, technische Argumente in Verkaufsargumente zu übersetzen\n• Teamplayer mit offener, kommunikativer Persönlichkeit, der gern in kleinen Teams Lösungen erarbeitet und intern wie extern vertritt\n• Analytisch, schnell in der Auffassung, strukturiert und lösungsorientiert mit hohem Durchsetzungs- und Durchhaltevermögen\n• Sehr gute Deutsch- und Englischkenntnisse sowie abgeschlossenes Informatikstudium oder gleichwertige Berufserfahrung\n• Vertieftes Wissen in den Bereichen Microservice- und Microfrontend-orientierter Architektur, SaaS, Kubernetes, Container und verwandte Aktivierungssysteme, sowie Erfahren im Umgang mit den Technologien Java, Quarkus, Kafka, Maven, Hibernate, Liquibase und PostgreSQL; IAM Kenntnisse (OAuth 2.0 und OpenID) sind von Vorteil\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "en": "Digitalisierung ist deine Leidenschaft! Du bist ein:e Macher:in, der/die sich aktiv einbringt und eine moderne Software-Architektur vorantreibt? Dann bist du bei uns genau richtig! Unterstütze uns tatkräftig bei der Definition und Umsetzung geplanter technischer Vorhaben.\nWir sind ein motiviertes und dynamisches Team aus Product und Project Managern und suchen DICH als technisches Solution-Bindeglied zu unseren Entwicklungsteams.\nDeine Rolle\n• Mitverantwortung für die Solution Architektur unserer Software-Gesamtlösung TAXA für Schweizer Steuerämter und zentrale Rolle im Pre-Sales durch Definition und Vertretung des technischen Solution Designs beim Kunden\n• Präsentation der Lösung und Integration in bestehende IT-Landschaften sowie Vertretung des Steuerbereichs in internen Architektur-Gremien\n• Leitung von Lösungsdesign und Koordination von Technologie- und Entwicklungspartnern bei Innovationsprojekten (Proof-of-Concepts)\n• Verantwortlich für den Teil Architektur bei Ausschreibungen der kantonalen und kommunalen Steuerämter\nDein Profil\n• Mindestens fünf Jahre Erfahrung als Solution Architekt:in oder Technical Lead in der agilen Softwareentwicklung komplexer Softwarelösungen mit fundiertem Kundenkontakt (Presales, Projektpräsentationen), idealerweise auch in der öffentlichen Hand\n• Sicheres Auftreten in Kundengesprächen, Präsentationsstärke auf Stufe C-Level und die Fähigkeit, technische Argumente in Verkaufsargumente zu übersetzen\n• Teamplayer mit offener, kommunikativer Persönlichkeit, der gern in kleinen Teams Lösungen erarbeitet und intern wie extern vertritt\n• Analytisch, schnell in der Auffassung, strukturiert und lösungsorientiert mit hohem Durchsetzungs- und Durchhaltevermögen\n• Sehr gute Deutsch- und Englischkenntnisse sowie abgeschlossenes Informatikstudium oder gleichwertige Berufserfahrung\n• Vertieftes Wissen in den Bereichen Microservice- und Microfrontend-orientierter Architektur, SaaS, Kubernetes, Container und verwandte Aktivierungssysteme, sowie Erfahren im Umgang mit den Technologien Java, Quarkus, Kafka, Maven, Hibernate, Liquibase und PostgreSQL; IAM Kenntnisse (OAuth 2.0 und OpenID) sind von Vorteil\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "fr": "Digitalisierung ist deine Leidenschaft! Du bist ein:e Macher:in, der/die sich aktiv einbringt und eine moderne Software-Architektur vorantreibt? Dann bist du bei uns genau richtig! Unterstütze uns tatkräftig bei der Definition und Umsetzung geplanter technischer Vorhaben.\nWir sind ein motiviertes und dynamisches Team aus Product und Project Managern und suchen DICH als technisches Solution-Bindeglied zu unseren Entwicklungsteams.\nDeine Rolle\n• Mitverantwortung für die Solution Architektur unserer Software-Gesamtlösung TAXA für Schweizer Steuerämter und zentrale Rolle im Pre-Sales durch Definition und Vertretung des technischen Solution Designs beim Kunden\n• Präsentation der Lösung und Integration in bestehende IT-Landschaften sowie Vertretung des Steuerbereichs in internen Architektur-Gremien\n• Leitung von Lösungsdesign und Koordination von Technologie- und Entwicklungspartnern bei Innovationsprojekten (Proof-of-Concepts)\n• Verantwortlich für den Teil Architektur bei Ausschreibungen der kantonalen und kommunalen Steuerämter\nDein Profil\n• Mindestens fünf Jahre Erfahrung als Solution Architekt:in oder Technical Lead in der agilen Softwareentwicklung komplexer Softwarelösungen mit fundiertem Kundenkontakt (Presales, Projektpräsentationen), idealerweise auch in der öffentlichen Hand\n• Sicheres Auftreten in Kundengesprächen, Präsentationsstärke auf Stufe C-Level und die Fähigkeit, technische Argumente in Verkaufsargumente zu übersetzen\n• Teamplayer mit offener, kommunikativer Persönlichkeit, der gern in kleinen Teams Lösungen erarbeitet und intern wie extern vertritt\n• Analytisch, schnell in der Auffassung, strukturiert und lösungsorientiert mit hohem Durchsetzungs- und Durchhaltevermögen\n• Sehr gute Deutsch- und Englischkenntnisse sowie abgeschlossenes Informatikstudium oder gleichwertige Berufserfahrung\n• Vertieftes Wissen in den Bereichen Microservice- und Microfrontend-orientierter Architektur, SaaS, Kubernetes, Container und verwandte Aktivierungssysteme, sowie Erfahren im Umgang mit den Technologien Java, Quarkus, Kafka, Maven, Hibernate, Liquibase und PostgreSQL; IAM Kenntnisse (OAuth 2.0 und OpenID) sind von Vorteil\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken."
+      },
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-solution-architektin-80-100-mit-schwerpunkt-pre-sales-1974",
+      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-27T01:00:11.845Z",
+      "needsRetranslation": true,
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9001",
+      "streetAddress": "St. Leonhard-Strasse 80",
+      "category": "IT / Sicurezza",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / Informatica per la pubblica amministrazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://apply.refline.ch/215876/2066/index.html?lang=de&cid=1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "215876-2066",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "salaryMin": 60000,
+      "salaryMax": 102000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60000,
+          "maxValue": 102000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-27T01:00:11.845Z"
     },
     {
       "id": "abraxas-3a4bb14ac442",
@@ -193,7 +268,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-data-migration-80-100-9034",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:15.353Z",
+      "crawledAt": "2026-08-27T01:00:11.349Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -260,7 +336,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-architektin-im-steuerbereich-80-100-2052",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:14.893Z",
+      "crawledAt": "2026-08-27T01:00:10.851Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -283,6 +359,22 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
+      "previousSlugs": [
+        "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen",
+        "software-architetto-nell-area-fiscale-80-100-abraxas-informatik-ag-st-gallen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen",
+          "software-architetto-nell-area-fiscale-80-100-abraxas-informatik-ag-st-gallen"
+        ],
+        "en": [
+          "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen"
+        ],
+        "fr": [
+          "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen"
+        ]
+      },
       "firstSeenAt": "2026-08-25T20:16:00.058Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -295,21 +387,7 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen"
-        ],
-        "en": [
-          "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen"
-        ],
-        "fr": [
-          "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen"
-        ]
-      },
-      "previousSlugs": [
-        "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen"
-      ]
+      }
     },
     {
       "id": "abraxas-b69666f6a186",
@@ -342,7 +420,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-architekt-mit-fokus-ki-im-ssdlc-80-100-4924",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:14.431Z",
+      "crawledAt": "2026-08-27T01:00:10.356Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -418,7 +496,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/servicenow-ki-solutions-engineer-80-100-3109",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:13.970Z",
+      "crawledAt": "2026-08-27T01:00:09.851Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -441,11 +520,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen"
+        "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
+        "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen"
+          "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
+          "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
         ],
         "fr": [
           "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen"
@@ -496,7 +577,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-software-engineer-80-100-8049",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:13.510Z",
+      "crawledAt": "2026-08-27T01:00:09.348Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -525,7 +607,8 @@
         "senior-openstack-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen",
         "senior-cyber-security-analista-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
         "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen",
-        "senior-cyber-security-analyste-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen"
+        "senior-cyber-security-analyste-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen",
+        "senior-software-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -535,7 +618,8 @@
           "senior-openstack-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen",
           "senior-cyber-security-analista-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
           "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen",
-          "senior-cyber-security-analyste-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen"
+          "senior-cyber-security-analyste-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen",
+          "senior-software-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
         ],
         "de": [
           "senior-openstack-engineer-80-100-abraxas-zurich-flughafen"
@@ -590,7 +674,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-servicenow-ki-engineer-80-100-1142",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:13.049Z",
+      "crawledAt": "2026-08-27T01:00:08.843Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -613,11 +698,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen"
+        "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen",
+        "senior-servicenow-ki-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen"
+          "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen",
+          "senior-servicenow-ki-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
         ],
         "fr": [
           "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen"
@@ -668,7 +755,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-openstack-engineer-80-100-6985",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:12.587Z",
+      "crawledAt": "2026-08-27T01:00:08.351Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -691,11 +779,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "senior-openstack-engineer-80-100-abraxas-zurich-flughafen"
+        "senior-openstack-engineer-80-100-abraxas-zurich-flughafen",
+        "senior-openstack-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-openstack-engineer-80-100-abraxas-zurich-flughafen"
+          "senior-openstack-engineer-80-100-abraxas-zurich-flughafen",
+          "senior-openstack-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
         ],
         "fr": [
           "senior-openstack-engineer-80-100-abraxas-zurich-flughafen"
@@ -746,7 +836,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-linux-engineer-9441",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:12.127Z",
+      "crawledAt": "2026-08-27T01:00:07.858Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -769,11 +860,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "senior-linux-engineer-abraxas-zurich-flughafen"
+        "senior-linux-engineer-abraxas-zurich-flughafen",
+        "senior-linux-ingegnere-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-linux-engineer-abraxas-zurich-flughafen"
+          "senior-linux-engineer-abraxas-zurich-flughafen",
+          "senior-linux-ingegnere-abraxas-informatik-ag-zurich-flughafen"
         ],
         "fr": [
           "senior-linux-engineer-abraxas-zurich-flughafen"
@@ -824,7 +917,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/leiterin-solution-architektur-80-100-7399",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:11.652Z",
+      "crawledAt": "2026-08-27T01:00:07.363Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -852,7 +945,8 @@
         "junior-solution-architetto-80-100-abraxas-informatik-ag-st-gallen",
         "junior-solution-architect-80-100-abraxas-informatik-ag-st-gallen",
         "junior-solution-architekt-80-100-abraxas-st-gallen",
-        "solution-junior-architecte-80-100-abraxas-informatik-ag-st-gallen"
+        "solution-junior-architecte-80-100-abraxas-informatik-ag-st-gallen",
+        "responsabile-solution-architektur-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -860,7 +954,8 @@
           "junior-solution-architetto-80-100-abraxas-informatik-ag-st-gallen",
           "junior-solution-architect-80-100-abraxas-informatik-ag-st-gallen",
           "junior-solution-architekt-80-100-abraxas-st-gallen",
-          "solution-junior-architecte-80-100-abraxas-informatik-ag-st-gallen"
+          "solution-junior-architecte-80-100-abraxas-informatik-ag-st-gallen",
+          "responsabile-solution-architektur-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "leiter-in-solution-architektur-80-100-abraxas-st-gallen",
@@ -919,7 +1014,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/lehrstelle-als-fachfrau-fachmann-kundendialog-efz-6830",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:11.190Z",
+      "crawledAt": "2026-08-27T01:00:06.865Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -943,11 +1038,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "lehrstelle-als-fachfrau-fachmann-kundendialog-efz-abraxas-zurich-flughafen"
+        "lehrstelle-als-fachfrau-fachmann-kundendialog-efz-abraxas-zurich-flughafen",
+        "apprendistato-come-fachfrau-fachmann-kundendialog-cfc-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachfrau-fachmann-kundendialog-efz-abraxas-zurich-flughafen"
+          "lehrstelle-als-fachfrau-fachmann-kundendialog-efz-abraxas-zurich-flughafen",
+          "apprendistato-come-fachfrau-fachmann-kundendialog-cfc-abraxas-informatik-ag-zurich-flughafen"
         ],
         "en": [
           "lehrstelle-als-fachfrau-fachmann-kundendialog-efz-abraxas-zurich-flughafen"
@@ -985,7 +1082,7 @@
       "title": "Lead Software Engineer – Data Migration 80 - 100%",
       "titleByLocale": {
         "it": "Lead Software Ingegnere – Data Migration 80 - 100%",
-        "en": "Lead Software Engineer – Data Migration 80 – 100%",
+        "en": "Lead Software Engineer – Data Migration 80 - 100%",
         "de": "Lead Software Ingenieur – Data Migration 80 - 100%",
         "fr": "Lead Software Ingénieur – Data Migration 80 - 100%"
       },
@@ -1001,7 +1098,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/lead-software-engineer-data-migration-80-100-6215",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:10.731Z",
+      "crawledAt": "2026-08-27T01:00:06.360Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1068,7 +1166,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ims-praktikum-12-monate-4196",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:10.269Z",
+      "crawledAt": "2026-08-27T01:00:05.698Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1092,11 +1190,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "ims-praktikum-12-monate-abraxas-st-gallen"
+        "ims-praktikum-12-monate-abraxas-st-gallen",
+        "ims-stage-12-mesi-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ims-praktikum-12-monate-abraxas-st-gallen"
+          "ims-praktikum-12-monate-abraxas-st-gallen",
+          "ims-stage-12-mesi-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "ims-praktikum-12-monate-abraxas-st-gallen"
@@ -1150,7 +1250,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-citrix-80-100-3914",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:09.812Z",
+      "crawledAt": "2026-08-27T01:00:05.038Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1212,7 +1313,7 @@
       "title": "ICT-System Engineer Betrieb 80–100 %",
       "titleByLocale": {
         "it": "ICT-System Ingegnere Betrieb 80–100 %",
-        "en": "ICT System Engineer Operation 80-100%",
+        "en": "ICT-System Engineer Betrieb 80–100 %",
         "de": "ICT-System Ingenieur Betrieb 80–100 %",
         "fr": "ICT-System Ingénieur Betrieb 80–100 %"
       },
@@ -1228,7 +1329,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-betrieb-80-100-3478",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:09.352Z",
+      "crawledAt": "2026-08-27T01:00:02.839Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1252,11 +1353,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "ict-system-engineer-betrieb-80-100-abraxas-st-gallen"
+        "ict-system-engineer-betrieb-80-100-abraxas-st-gallen",
+        "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ict-system-engineer-betrieb-80-100-abraxas-st-gallen"
+          "ict-system-engineer-betrieb-80-100-abraxas-st-gallen",
+          "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "ict-system-engineer-betrieb-80-100-abraxas-st-gallen"
@@ -1291,7 +1394,7 @@
       "title": "ICT-System Engineer Betrieb 80–100 %",
       "titleByLocale": {
         "it": "ICT-System Ingegnere Betrieb 80–100 %",
-        "en": "ICT System Engineer Operation 80-100%",
+        "en": "ICT-System Engineer Betrieb 80–100 %",
         "de": "ICT-System Ingenieur Betrieb 80–100 %",
         "fr": "ICT-System Ingénieur Betrieb 80–100 %"
       },
@@ -1307,7 +1410,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-betrieb-80-100-9116",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:08.891Z",
+      "crawledAt": "2026-08-27T01:00:02.345Z",
       "needsRetranslation": true,
       "addressLocality": "Bern",
       "addressRegion": "BE",
@@ -1337,7 +1440,8 @@
         "ict-system-ingenieur-80-100-abraxas-informatik-ag-bern",
         "system-ingegnere-devops-deutsch-80-100-abraxas-informatik-ag-bern",
         "system-engineer-devops-deutsch-80-100-abraxas-bern",
-        "system-ingenieur-devops-deutsch-80-100-abraxas-informatik-ag-bern"
+        "system-ingenieur-devops-deutsch-80-100-abraxas-informatik-ag-bern",
+        "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1347,7 +1451,8 @@
           "ict-system-ingenieur-80-100-abraxas-informatik-ag-bern",
           "system-ingegnere-devops-deutsch-80-100-abraxas-informatik-ag-bern",
           "system-engineer-devops-deutsch-80-100-abraxas-bern",
-          "system-ingenieur-devops-deutsch-80-100-abraxas-informatik-ag-bern"
+          "system-ingenieur-devops-deutsch-80-100-abraxas-informatik-ag-bern",
+          "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-bern"
         ],
         "de": [
           "ict-system-engineer-80-100-abraxas-bern"
@@ -1402,7 +1507,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-mit-projektleitungserfahrung-80-100-7205",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:08.431Z",
+      "crawledAt": "2026-08-27T01:00:01.853Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -1470,7 +1575,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-devops-80-100-6206",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:07.966Z",
+      "crawledAt": "2026-08-27T01:00:01.360Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1537,7 +1643,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-iam-wafidp-80-100-9599",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:07.502Z",
+      "crawledAt": "2026-08-27T01:00:00.865Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1604,7 +1711,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/cybersecurity-engineer-im-oeffentlichen-sektor-80-100-9583",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:07.036Z",
+      "crawledAt": "2026-08-27T01:00:00.358Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1628,11 +1735,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen"
+        "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen",
+        "cybersecurity-ingegnere-im-offentlichen-sektor-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen"
+          "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen",
+          "cybersecurity-ingegnere-im-offentlichen-sektor-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen"
@@ -1683,7 +1792,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/business-analyst-im-bereich-steuern-80-100-2625",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:06.555Z",
+      "crawledAt": "2026-08-27T00:59:59.862Z",
       "needsRetranslation": true,
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
@@ -1707,11 +1816,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "business-analyst-im-bereich-steuern-80-100-abraxas-frauenfeld"
+        "business-analyst-im-bereich-steuern-80-100-abraxas-frauenfeld",
+        "business-analista-im-bereich-steuern-80-100-abraxas-informatik-ag-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-analyst-im-bereich-steuern-80-100-abraxas-frauenfeld"
+          "business-analyst-im-bereich-steuern-80-100-abraxas-frauenfeld",
+          "business-analista-im-bereich-steuern-80-100-abraxas-informatik-ag-frauenfeld"
         ],
         "fr": [
           "business-analyst-im-bereich-steuern-80-100-abraxas-frauenfeld"
@@ -1762,7 +1873,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/bereichscontrollerin-60-80-7514",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:06.091Z",
+      "crawledAt": "2026-08-27T00:59:59.364Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1807,7 +1918,8 @@
         "senior-software-ingegnere-c-net-80-100-abraxas-informatik-ag-st-gallen",
         "senior-software-engineer-c-net-80-100-abraxas-st-gallen",
         "software-engineer-80-100-abraxas-st-gallen",
-        "software-ingenieur-80-100-abraxas-informatik-ag-st-gallen"
+        "software-ingenieur-80-100-abraxas-informatik-ag-st-gallen",
+        "area-controller-in-60-80-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1829,7 +1941,8 @@
           "software-ingegnere-c-net-80-100-abraxas-informatik-ag-st-gallen",
           "software-engineer-c-net-80-100-abraxas-st-gallen",
           "software-ingenieur-c-net-80-100-abraxas-informatik-ag-st-gallen",
-          "senior-software-ingegnere-c-net-80-100-abraxas-informatik-ag-st-gallen"
+          "senior-software-ingegnere-c-net-80-100-abraxas-informatik-ag-st-gallen",
+          "area-controller-in-60-80-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "senior-software-engineer-c-net-80-100-abraxas-st-gallen",
@@ -1891,7 +2004,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/applikations-supporterin-epsipol-ordnungsbussen-deutsch-amp-franzoesisch-80-100-5077",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:05.618Z",
+      "crawledAt": "2026-08-27T00:59:58.867Z",
       "needsRetranslation": true,
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
@@ -1915,11 +2028,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas"
+        "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas",
+        "supporto-per-l-applicazione-in-epsipol-ordnungsbussen-tedesco-e-francese-80-100-abraxas-informatik-ag-munchenstein"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas"
+          "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas",
+          "supporto-per-l-applicazione-in-epsipol-ordnungsbussen-tedesco-e-francese-80-100-abraxas-informatik-ag-munchenstein"
         ],
         "en": [
           "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas"
@@ -1957,7 +2072,7 @@
       "title": "Applikations-Manager:in 80–100 %",
       "titleByLocale": {
         "it": "Gestione delle applicazioni: in 80-100%",
-        "en": "Application Manager: in 80-100%",
+        "en": "Applikations-Manager:in 80–100 %",
         "de": "Applikations-Manager:in 80–100 %",
         "fr": "Gestionnaire d'applications : en 80-100%"
       },
@@ -1973,7 +2088,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/applikations-managerin-80-100-4224",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:05.147Z",
+      "crawledAt": "2026-08-27T00:59:58.363Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1996,6 +2111,19 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
+      "previousSlugs": [
+        "applikations-manager-in-80-100-abraxas-st-gallen",
+        "gestione-delle-applicazioni-in-80-100-abraxas-informatik-ag-st-gallen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "applikations-manager-in-80-100-abraxas-st-gallen",
+          "gestione-delle-applicazioni-in-80-100-abraxas-informatik-ag-st-gallen"
+        ],
+        "fr": [
+          "applikations-manager-in-80-100-abraxas-st-gallen"
+        ]
+      },
       "firstSeenAt": "2026-08-25T10:09:09.773Z",
       "salaryMin": 92000,
       "salaryMax": 156500,
@@ -2008,18 +2136,7 @@
           "maxValue": 156500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "applikations-manager-in-80-100-abraxas-st-gallen"
-        ],
-        "fr": [
-          "applikations-manager-in-80-100-abraxas-st-gallen"
-        ]
-      },
-      "previousSlugs": [
-        "applikations-manager-in-80-100-abraxas-st-gallen"
-      ]
+      }
     },
     {
       "id": "abraxas-03c9719271b6",
@@ -2052,7 +2169,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-teamleiterin-80-100-3906",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:04.685Z",
+      "crawledAt": "2026-08-27T00:59:57.871Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2075,11 +2193,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "abacus-teamleiter-in-80-100-abraxas-st-gallen"
+        "abacus-teamleiter-in-80-100-abraxas-st-gallen",
+        "abacus-team-leader-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abacus-teamleiter-in-80-100-abraxas-st-gallen"
+          "abacus-teamleiter-in-80-100-abraxas-st-gallen",
+          "abacus-team-leader-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "abacus-teamleiter-in-80-100-abraxas-st-gallen"
@@ -2133,7 +2253,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-kundenbetreuer-finanzen-debitoren-kreditoren-und-electronic-banking-80-100-8245",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:04.225Z",
+      "crawledAt": "2026-08-27T00:59:57.369Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -2217,7 +2337,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-svm-amp-proj-80-100-3900",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:03.755Z",
+      "crawledAt": "2026-08-27T00:59:56.870Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -2241,11 +2361,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
+        "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen",
+        "consulente-abacus-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
+          "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen",
+          "consulente-abacus-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
@@ -2299,7 +2421,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-finanzen-80-100-5481",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:03.293Z",
+      "crawledAt": "2026-08-27T00:59:56.368Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -2323,11 +2445,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "abacus-berater-in-finanzen-80-100-abraxas-st-gallen"
+        "abacus-berater-in-finanzen-80-100-abraxas-st-gallen",
+        "consulente-abacus-in-finanza-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abacus-berater-in-finanzen-80-100-abraxas-st-gallen"
+          "abacus-berater-in-finanzen-80-100-abraxas-st-gallen",
+          "consulente-abacus-in-finanza-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "abacus-berater-in-finanzen-80-100-abraxas-st-gallen"
@@ -2381,7 +2505,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-bpe-rest-amp-abareport-80-100-2411",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:24:02.698Z",
+      "crawledAt": "2026-08-27T00:59:55.710Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
