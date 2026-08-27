@@ -10853,6 +10853,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vecchi-nuovi-frontalieri-tassazione.title': 'Frontalieri 2026: tassazione, nuovo accordo e franchigia',
     'blog.article.vecchi-nuovi-frontalieri-tassazione.excerpt': 'Dal 2024 il nuovo accordo Italia-Svizzera riduce le tasse ai frontalieri: €7.500 di esenzione per i vecchi, €10.000 per i nuovi. Ecco come funziona.',
     'blog.article.vecchi-nuovi-frontalieri-tassazione.imageAlt': 'Ufficio fiscale con documenti sulla tassazione frontalieri e simboli di valuta CHF/EUR',
+    'blog.article.webcam-traffico-valichi-ticino-guida.title': 'Webcam traffico ai valichi Ticino: guida completa per frontalieri',
+    'blog.article.webcam-traffico-valichi-ticino-guida.excerpt': 'Dove trovare le webcam ufficiali del Canton Ticino per controllare code e rallentamenti ai valichi di Chiasso, Brogeda, Stabio e Gaggiolo prima di partire.',
+    'blog.article.webcam-traffico-valichi-ticino-guida.imageAlt': 'Auto in coda al valico di Chiasso-Brogeda tra Italia e Svizzera',
 };
 
 export default blogMetaIt;

@@ -10851,6 +10851,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vecchi-nuovi-frontalieri-tassazione.title': 'Grenzgänger 2026: Besteuerung, neues Abkommen und Selbstbehalt',
     'blog.article.vecchi-nuovi-frontalieri-tassazione.excerpt': 'Ab 2024 reduziert das neue Abkommen Italien-Schweiz die Steuern für Grenzgänger: 7.500 € Befreiung für alte, 10.000 € für neue Grenzgänger. So funktioniert es.',
     'blog.article.vecchi-nuovi-frontalieri-tassazione.imageAlt': 'Steuerbüro mit Dokumenten zur Besteuerung von Grenzgängern und CHF/EUR-Währungssymbolen',
+    'blog.article.webcam-traffico-valichi-ticino-guida.title': 'Webcam Verkehr an den Tessiner Pässen: Kompletter Leitfaden für Grenzgänger',
+    'blog.article.webcam-traffico-valichi-ticino-guida.excerpt': 'Hier finden Sie die offiziellen Webcams des Kantons Tessin, um Staus und Verzögerungen an den Pässen Chiasso, Brogeda, Stabio und Gaggiolo vor der Abreise zu überprüfen.',
+    'blog.article.webcam-traffico-valichi-ticino-guida.imageAlt': 'Autos stauen sich am Grenzübergang Chiasso-Brogeda zwischen Italien und der Schweiz',
 };
 
 export default blogMetaDe;

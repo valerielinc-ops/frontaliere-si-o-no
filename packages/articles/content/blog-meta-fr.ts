@@ -10854,6 +10854,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vecchi-nuovi-frontalieri-tassazione.title': 'Frontaliers 2026 : fiscalité, nouvel accord et franchise',
     'blog.article.vecchi-nuovi-frontalieri-tassazione.excerpt': 'Depuis 2024, le nouvel accord Italie-Suisse réduit les taxes pour les frontaliers : 7 500 € d\' exonération pour les anciens, 10 000 € pour les nouveaux. Voici comment cela fonctionne.',
     'blog.article.vecchi-nuovi-frontalieri-tassazione.imageAlt': 'Bureau fiscal avec documents sur la fiscalité frontalière et symboles de devises CHF/EUR',
+    'blog.article.webcam-traffico-valichi-ticino-guida.title': 'Webcam trafic aux valico du Tessin : guide frontalier',
+    'blog.article.webcam-traffico-valichi-ticino-guida.excerpt': 'Où trouver les webcams officielles du canton du Tessin pour vérifier les files d\'attente et les ralentissements aux cols de Chiasso, Brogeda, Stabio et Gaggiolo avant de partir.',
+    'blog.article.webcam-traffico-valichi-ticino-guida.imageAlt': 'Voitures en file au poste-frontière de Chiasso-Brogeda entre l\'Italie et la Suisse',
 };
 
 export default blogMetaFr;

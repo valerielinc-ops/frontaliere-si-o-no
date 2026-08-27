@@ -32466,6 +32466,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'webcam-traffico-valichi-ticino-guida',
+ category: 'pratico',
+ date: '2026-08-27T14:33:41.916Z',
+ image: '/images/blog/webcam-traffico-valichi-ticino-guida.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

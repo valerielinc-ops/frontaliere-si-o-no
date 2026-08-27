@@ -79358,6 +79358,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-webcam-traffico-valichi-ticino-guida': {
+    title: 'Webcam traffico ai valichi Ticino: guida completa per frontalieri',
+    description: 'Webcam traffico ai valichi Ticino-Lombardia: dove trovarle (ti.ch/webcam), quali valichi coprono, come leggere le immagini e quando controllarle prima',
+    keywords: 'frontalieri, ticino, svizzera, italia, webcam, traffico, valichi, completa',
+    ogTitle: 'Webcam traffico valichi Ticino: guida completa',
+    ogDescription: 'Guida alle webcam ufficiali per controllare il traffico ai valichi Ticino-Lombardia: portale ti.ch/webcam, valichi coperti e orari critici.',
+    canonicalPath: '/articoli-frontaliere/webcam-traffico-valichi-ticino-guida',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Webcam traffico ai valichi Ticino: guida completa per frontalieri",
+      "description": "Webcam traffico ai valichi Ticino-Lombardia: dove trovarle (ti.ch/webcam), quali valichi coprono, come leggere le immagini e quando controllarle prima",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/webcam-traffico-valichi-ticino-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Auto in coda al valico di Chiasso-Brogeda tra Italia e Svizzera"
+      },
+      "datePublished": "2026-08-27T14:33:41+00:00",
+      "dateModified": "2026-08-27T14:33:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/webcam-traffico-valichi-ticino-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -10852,6 +10852,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vecchi-nuovi-frontalieri-tassazione.title': 'Frontier 2026: taxation, new agreement and exemption',
     'blog.article.vecchi-nuovi-frontalieri-tassazione.excerpt': 'From 2024, the new Italy-Switzerland agreement reduces taxes for border workers: €7,500 exemption for the old, €10,000 for the new. Here\'s how it works.',
     'blog.article.vecchi-nuovi-frontalieri-tassazione.imageAlt': 'Tax office workspace with cross-border taxation documents and CHF/EUR currency symbols',
+    'blog.article.webcam-traffico-valichi-ticino-guida.title': 'Traffic webcam at Ticino crossings: complete guide for border crossers',
+    'blog.article.webcam-traffico-valichi-ticino-guida.excerpt': 'Where to find the official webcams of the Canton of Ticino to check queues and slowdowns at the Chiasso, Brogeda, Stabio and Gaggiolo crossings before leaving.',
+    'blog.article.webcam-traffico-valichi-ticino-guida.imageAlt': 'Cars queuing at the Chiasso-Brogeda border crossing between Italy and Switzerland',
 };
 
 export default blogMetaEn;
