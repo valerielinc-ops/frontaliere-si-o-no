@@ -4462,6 +4462,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-successione-appenzello.title': 'Erbschaftssteuern Appenzell: Sätze und Verfahren',
     'blog.article.imposta-successione-appenzello.excerpt': 'Erbschaftssteuer in Appenzell: kantonale Zuständigkeit, Verwandtschaftssätze, Freistellungen für Ehegatten. Erklärung innerhalb von 30-90 Tagen. 6-stufiges Verfahren.',
     'blog.article.imposta-successione-appenzello.imageAlt': 'Schweizer Verwaltungsgebäude für die kantonale Steuerbehörde bei Erbschaften und Schenkungen',
+    'blog.article.imposte-cantonali-san-gallo-aliquote-deduzioni.title': 'Steuern St. Gallen: Steuersätze, Staffeln und Abzüge',
+    'blog.article.imposte-cantonali-san-gallo-aliquote-deduzioni.excerpt': 'Wie die Kantons- und Gemeindesteuern im Kanton St. Gallen funktionieren: Sätze, Stufen, zulässige Abzüge und Fristen für die Deklaration.',
+    'blog.article.imposte-cantonali-san-gallo-aliquote-deduzioni.imageAlt': 'Luftaufnahme der Altstadt Sankt Gallen mit Zunfthäusern und traditioneller Schweizer Architektur',
 };
 
 export default blogMetaChDe;

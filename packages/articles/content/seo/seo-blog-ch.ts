@@ -57896,6 +57896,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposte-cantonali-san-gallo-aliquote-deduzioni': {
+    title: 'Imposte San Gallo: aliquote, scaglioni e deduzioni',
+    description: 'Imposte cantonali e comunali nel Cantone di San Gallo: aliquote, scaglioni, deduzioni ammesse, moltiplicatori comunali e dichiarazione fiscale annuale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposte, gallo, aliquote, scaglioni',
+    ogTitle: 'Imposte San Gallo: aliquote, scaglioni e deduzioni',
+    ogDescription: 'Nel Cantone di San Gallo le imposte si articolano su tre livelli: federale, cantonale e comunale. Scopri come funzionano aliquote progressive, deduzioni, moltiplicatori comunali e come presentare la dichiarazione fiscale annuale.',
+    canonicalPath: '/articoli-svizzera/imposte-cantonali-san-gallo-aliquote-deduzioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposte San Gallo: aliquote, scaglioni e deduzioni",
+      "description": "Imposte cantonali e comunali nel Cantone di San Gallo: aliquote, scaglioni, deduzioni ammesse, moltiplicatori comunali e dichiarazione fiscale annuale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposte-cantonali-san-gallo-aliquote-deduzioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del centro storico di San Gallo con architettura svizzera tradizionale e case d'arte"
+      },
+      "datePublished": "2026-08-27T05:18:13+00:00",
+      "dateModified": "2026-08-27T05:18:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposte-cantonali-san-gallo-aliquote-deduzioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
