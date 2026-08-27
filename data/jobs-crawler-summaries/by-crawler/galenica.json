@@ -1,52 +1,55 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-08-24T10:02:08.003Z",
-  "total": 379,
+  "generatedAt": "2026-08-27T00:34:33.695Z",
+  "total": 385,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 170690,
-  "avgDurationMs": 170690,
+  "unchangedCount": 1,
+  "durationMs": 78745,
+  "avgDurationMs": 78745,
   "durationHistory": [
-    170690
+    78745
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "title": "Assistente di farmacia AFC",
-      "company": "Sun Store Apotheke (Galenica)",
+      "title": "Junior Space and Assortment Manager (w/m/d)",
+      "company": "Galenica AG (Galenica)",
       "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=12692536",
-      "location": "Chêne-Bourg",
-      "canton": "GE",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=3125760.4044808",
+      "location": "Bern",
+      "canton": "BE",
       "country": "CH",
       "category": "healthcare",
-      "descriptionIt": "Assistente di farmacia AFC presso Sun Store Apotheke (Gruppo Galenica), con sede a Chêne-Bourg, Centre Commercial Migros Chêne-Vert, Place de la Gare 6, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
-      "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12692536-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-chene-bourg-ge-sun-store-apotheke?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d",
-      "postedDate": "",
+      "descriptionIt": "Junior Space and Assortment Manager (w/m/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+      "applyUrl": "",
+      "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-chene-bourg",
-      "id": "galenica-48519f3a9585",
+      "slug": "junior-responsabile-spazi-e-assortimento-w-m-d-galenica-ag-galenica-bern",
+      "id": "galenica-cac5282a9bdd",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
+      "salaryMin": 76000,
+      "salaryMax": 106000,
       "currency": "CHF",
-      "addressLocality": "Chêne-Bourg",
-      "addressRegion": "GE",
+      "streetAddress": "Untermattweg 8",
+      "postalCode": "3027",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 78,
+      "crawlerMissStreak": 2,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
         "translation": 25,
-        "completeness": 14
+        "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

@@ -28,6 +28,15 @@ on:
   workflow_run:
     workflows: ['tests'] # name: del workflow tests.yml (check-run vitest)
     types: [completed]
+    # I push diretti dei crawler non attivano più `tests.yml`, ma il filtro
+    # resta difensivo per eventuali dispatch/manual run su `main`: quelle run
+    # non hanno mai una PR da mergiare. `branches-ignore` filtra sul branch
+    # della run che ha GENERATO l'evento: `main` per un push/dispatch diretto,
+    # il branch della PR per `pull_request` E per il
+    # `workflow_dispatch` dell'autorebase integrato in `tests.yml` (che dispatcha esplicitamente
+    # sul ref della PR, mai su `main`) — quindi questo esclude solo i push
+    # diretti, non tocca nessun percorso che porta a un merge vero.
+    branches-ignore: [main]
 
 permissions:
   contents: write
@@ -43,8 +52,16 @@ jobs:
     #     startsWith 'claude'), state 'commented', body con `## LGTM`, PR non
     #     draft. NON filtra su `🔴 Important` qui (vedi commento header) — se il
     #     body ha un 🔴 reale, auto-merge-eval.mjs lo blocca comunque a valle.
-    #   - workflow_run: solo se la run di `tests` è conclusa con success (vitest
-    #     verde) — altrimenti inutile valutare.
+    #   - workflow_run: qualunque conclusione di `tests` — auto-merge-eval.mjs
+    #     legge il check-run `vitest (unit + integration)` REALE sull'head
+    #     (VITEST_CHECK_NAME / latestCompletedVitestConclusion), non il rollup
+    #     della run. `github.event.workflow_run.conclusion == 'success'`
+    #     viveva qui fino a quando non si è misurato (2026-08-25) che un job
+    #     scorrelato (`collision` in tests.yml, lock GLOBALE condiviso con lo
+    #     scan periodico, `cancel-in-progress: false`) cancellato per contesa
+    #     trascina l'intera run a `cancelled` anche quando vitest è `success`
+    #     — su ~1/3 delle PR aperte in quel momento. Stesso difetto, stessa
+    #     fix, di pr-review-loop.yml (vedi lì per la misura per esteso).
     if: |
       (github.event_name == 'pull_request_review' &&
         github.event.review.user.type == 'Bot' &&
@@ -53,8 +70,7 @@ jobs:
         contains(github.event.review.body, '## LGTM') &&
         github.event.pull_request.draft == false)
       ||
-      (github.event_name == 'workflow_run' &&
-        github.event.workflow_run.conclusion == 'success')
+      github.event_name == 'workflow_run'
     runs-on: ubuntu-latest
     steps:
       # ── Perché tutto questo setup per un semplice merge ──────────────────

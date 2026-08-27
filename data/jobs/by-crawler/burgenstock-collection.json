@@ -1,7 +1,140 @@
 {
   "crawlerKey": "burgenstock-collection",
-  "assembledAt": "2026-08-24T10:24:24.423Z",
+  "assembledAt": "2026-08-27T01:09:33.547Z",
   "jobs": [
+    {
+      "id": "burgenstock-collection-1fbeb32f2253",
+      "slug": "le-specialita-persiane-cucinano-100-m-f-i-burgenstock-hotels-ag-obburgen",
+      "slugByLocale": {
+        "it": "le-specialita-persiane-cucinano-100-m-f-i-burgenstock-hotels-ag-obburgen",
+        "en": "persian-specialties-cook-100-m-f-i-burgenstock-hotels-ag-obburgen",
+        "de": "persischer-spezialitaten-koch-100-m-w-i-buergenstock-hotels-obburgen",
+        "fr": "specialites-persanes-cuisson-100-m-f-i-burgenstock-hotels-ag-obburgen"
+      },
+      "company": "Bürgenstock Collection",
+      "companyKey": "burgenstock-collection",
+      "companyDomain": "recruitingapp-2850.umantis.com",
+      "title": "Persischer Spezialitäten Koch 100% (m/w/i)",
+      "titleByLocale": {
+        "it": "Persischer Spezialitäten Koch 100% (m/w/i)",
+        "en": "Persischer Spezialitäten Koch 100% (m/w/i)",
+        "de": "Persischer Spezialitäten Koch 100% (m/w/i)",
+        "fr": "Persischer Spezialitäten Koch 100% (m/w/i)"
+      },
+      "description": "Persischer Spezialitäten Koch 100% (m/w/i) — Bürgenstock Collection",
+      "descriptionByLocale": {
+        "de": "Persischer Spezialitäten Koch 100% (m/w/i) — Bürgenstock Collection"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://recruitingapp-2850.umantis.com/Vacancies/1563/Description/1",
+      "source": "Bürgenstock Collection Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-27T01:09:29.677Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1563/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "de": [
+          "persischer-spezialitaten-koch-100-m-w-i-burgenstock-collection-ch",
+          "persischer-spezialitaten-koch-100-m-w-i-buergenstock-hotels-obburgen"
+        ],
+        "it": [
+          "persischer-spezialitaten-koch-100-m-w-i-burgenstock-collection-ch",
+          "le-specialita-persiane-cucinano-100-m-f-i-burgenstock-hotels-ag-obburgen"
+        ]
+      },
+      "previousSlugs": [
+        "persischer-spezialitaten-koch-100-m-w-i-burgenstock-collection-ch",
+        "persischer-spezialitaten-koch-100-m-w-i-buergenstock-hotels-obburgen",
+        "le-specialita-persiane-cucinano-100-m-f-i-burgenstock-hotels-ag-obburgen"
+      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-27T00:46:01.219Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
+    },
+    {
+      "id": "burgenstock-collection-cf20ce93b8df",
+      "slug": "demi-chef-de-partie-im-burgenstock-resort-100-w-m-i-burgenstock-collection-ch",
+      "slugByLocale": {
+        "it": "demi-chef-de-partie-im-burgenstock-resort-100-w-m-i-burgenstock-collection-ch",
+        "en": "demi-chef-de-partie-im-burgenstock-resort-100-w-m-i-burgenstock-collection-ch",
+        "de": "demi-chef-de-partie-im-burgenstock-resort-100-w-m-i-buergenstock-hotels-obburgen",
+        "fr": "demi-chef-de-partie-im-burgenstock-resort-100-w-m-i-burgenstock-collection-ch"
+      },
+      "company": "Bürgenstock Collection",
+      "companyKey": "burgenstock-collection",
+      "companyDomain": "recruitingapp-2850.umantis.com",
+      "title": "Demi Chef de Partie im Bürgenstock Resort 100% (w/m/i)",
+      "titleByLocale": {
+        "it": "Demi Chef de Partie im Bürgenstock Resort 100% (w/m/i)",
+        "en": "Demi Chef de Partie im Bürgenstock Resort 100% (w/m/i)",
+        "de": "Demi Chef de Partie im Bürgenstock Resort 100% (w/m/i)",
+        "fr": "Demi Chef de Partie im Bürgenstock Resort 100% (w/m/i)"
+      },
+      "description": "Demi Chef de Partie im Bürgenstock Resort 100% (w/m/i) — Bürgenstock Collection",
+      "descriptionByLocale": {
+        "fr": "Demi Chef de Partie im Bürgenstock Resort 100% (w/m/i) — Bürgenstock Collection"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://recruitingapp-2850.umantis.com/Vacancies/1562/Description/1",
+      "source": "Bürgenstock Collection Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-27T01:09:29.372Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-26",
+      "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1562/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-26T10:07:56.809Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
+    },
     {
       "id": "burgenstock-collection-9c944e2fa95f",
       "slug": "collaboratore-trice-gebaudeunterhalt-100-m-w-i-burgenstock-hotels-ag-obburgen",
@@ -30,7 +163,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1566/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:24:22.006Z",
+      "crawledAt": "2026-08-27T01:09:29.061Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -77,65 +210,6 @@
       "addressRegion": "TI"
     },
     {
-      "id": "burgenstock-collection-27f776f8effe",
-      "slug": "spa-wellness-manager-100-w-m-i-burgenstock-collection-ch",
-      "slugByLocale": {
-        "it": "spa-wellness-manager-100-w-m-i-burgenstock-collection-ch",
-        "en": "spa-wellness-manager-100-w-m-i-burgenstock-collection-ch",
-        "de": "spa-wellness-manager-100-w-m-i-buergenstock-hotels-obburgen",
-        "fr": "spa-wellness-manager-100-w-m-i-burgenstock-collection-ch"
-      },
-      "company": "Bürgenstock Collection",
-      "companyKey": "burgenstock-collection",
-      "companyDomain": "recruitingapp-2850.umantis.com",
-      "title": "Spa & Wellness Manager 100% (w/m/i)",
-      "titleByLocale": {
-        "it": "Spa & Wellness Manager 100% (w/m/i)",
-        "en": "Spa & Wellness Manager 100% (w/m/i)",
-        "de": "Spa & Wellness Manager 100% (w/m/i)",
-        "fr": "Spa & Wellness Manager 100% (w/m/i)"
-      },
-      "description": "Spa & Wellness Manager 100% (w/m/i) — Bürgenstock Collection",
-      "descriptionByLocale": {
-        "it": "Spa & Wellness Manager 100% (w/m/i) — Bürgenstock Collection"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://recruitingapp-2850.umantis.com/Vacancies/1488/Description/1",
-      "source": "Bürgenstock Collection Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-24T10:24:21.703Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-23",
-      "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1488/Description/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T21:38:22.992Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI"
-    },
-    {
       "id": "burgenstock-collection-296a84d3bc06",
       "slug": "f-b-supervisor-100-w-m-i-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
@@ -163,7 +237,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1564/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T10:24:21.400Z",
+      "crawledAt": "2026-08-27T01:09:28.752Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -245,7 +319,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1482/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T10:24:21.097Z",
+      "crawledAt": "2026-08-27T01:09:28.441Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -296,7 +370,7 @@
       "slug": "sommelier-100-m-w-i-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
         "it": "sommelier-100-m-w-i-burgenstock-hotels-ag-obburgen",
-        "en": "sommelier-100-m-w-i-burgenstock-hotels-ag-obburgen",
+        "en": "100-sommelier-w-m-i-burgenstock-collection-lugano",
         "de": "sommelier-100-m-w-i-buergenstock-hotels-obburgen",
         "fr": "sommelier-100-m-w-i-burgenstock-hotels-ag-obburgen"
       },
@@ -306,7 +380,7 @@
       "title": "Sommelier 100% (w/m/i)",
       "titleByLocale": {
         "it": "Sommelier 100% (w/m/i)",
-        "en": "Sommelier 100% (w/m/i)",
+        "en": "100% Sommelier (w/m/i)",
         "de": "Sommelier 100% (w/m/i)",
         "fr": "Sommelier 100% (w/m/i)"
       },
@@ -319,7 +393,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1521/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T10:24:20.793Z",
+      "crawledAt": "2026-08-27T01:09:28.129Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -393,7 +467,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1512/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T10:24:20.490Z",
+      "crawledAt": "2026-08-27T01:09:27.826Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -460,7 +534,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1492/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T10:24:20.188Z",
+      "crawledAt": "2026-08-27T01:09:27.520Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -507,80 +581,6 @@
       "addressRegion": "TI"
     },
     {
-      "id": "burgenstock-collection-765f994f1d12",
-      "slug": "ristorante-manager-100-f-m-i-burgenstock-hotels-ag-obburgen",
-      "slugByLocale": {
-        "it": "ristorante-manager-100-f-m-i-burgenstock-hotels-ag-obburgen",
-        "en": "ristorante-manager-100-f-m-i-burgenstock-hotels-ag-obburgen",
-        "de": "restaurant-manager-100-w-m-i-buergenstock-hotels-obburgen",
-        "fr": "directeur-du-restaurant-100-f-m-i-burgenstock-hotels-ag-obburgen"
-      },
-      "company": "Bürgenstock Collection",
-      "companyKey": "burgenstock-collection",
-      "companyDomain": "recruitingapp-2850.umantis.com",
-      "title": "Restaurant Manager 100 % (w/m/i)",
-      "titleByLocale": {
-        "it": "Ristorante Manager 100% (w/m/i)",
-        "en": "Restaurant Manager 100% (w/m/i)",
-        "de": "Restaurant Manager 100% (w/m/i)",
-        "fr": "Restaurant Manager 100 % (w/m/i)"
-      },
-      "description": "Restaurant Manager 100 % (w/m/i) — Bürgenstock Collection",
-      "descriptionByLocale": {
-        "fr": "Restaurant Manager 100 % (w/m/i) — Bürgenstock Collection"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://recruitingapp-2850.umantis.com/Vacancies/1534/Description/1",
-      "source": "Bürgenstock Collection Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-24T10:24:19.886Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-23",
-      "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1534/Description/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "fr": [
-          "restaurant-manager-100-w-m-i-burgenstock-collection-ch",
-          "directeur-du-restaurant-100-f-m-i-burgenstock-hotels-ag-obburgen"
-        ],
-        "it": [
-          "restaurant-manager-100-w-m-i-burgenstock-collection-ch",
-          "ristorante-manager-100-f-m-i-burgenstock-hotels-ag-obburgen"
-        ]
-      },
-      "previousSlugs": [
-        "restaurant-manager-100-w-m-i-burgenstock-collection-ch",
-        "directeur-du-restaurant-100-f-m-i-burgenstock-hotels-ag-obburgen",
-        "ristorante-manager-100-f-m-i-burgenstock-hotels-ag-obburgen"
-      ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T21:38:21.176Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI"
-    },
-    {
       "id": "burgenstock-collection-880b8b640527",
       "slug": "assistente-manager-ristorante-100-w-m-i-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
@@ -608,7 +608,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1438/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T10:24:19.582Z",
+      "crawledAt": "2026-08-27T01:09:27.214Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -682,7 +682,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1560/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:24:19.261Z",
+      "crawledAt": "2026-08-27T01:09:26.887Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -727,6 +727,91 @@
         }
       },
       "addressRegion": "TI"
+    },
+    {
+      "id": "burgenstock-collection-e50af4ad3c66",
+      "slug": "testa-di-partito-ottone-di-jack-100-m-f-d-burgenstock-collection-lugano",
+      "slugByLocale": {
+        "it": "testa-di-partito-ottone-di-jack-100-m-f-d-burgenstock-collection-lugano",
+        "en": "head-of-party-jack-s-brasserie-100-m-f-d-burgenstock-collection-lugano",
+        "de": "chef-de-partie-saucier-jack-s-brasserie-80-100-m-w-d-buergenstock-hotels-obburgen",
+        "fr": "chef-de-partie-saucier-jack-s-brasserie-80-100-lunedi-mercoledi-d-burgenstock-hotels-ag-obburgen"
+      },
+      "company": "Bürgenstock Collection",
+      "companyKey": "burgenstock-collection",
+      "companyDomain": "recruitingapp-2850.umantis.com",
+      "title": "Chef de Partie - Jack's Brasserie 100% (m/w/d)",
+      "titleByLocale": {
+        "it": "Testa di partito - Ottone di Jack 100% (m/f/d)",
+        "en": "Head of Party - Jack's Brasserie 100% (m/f/d)",
+        "de": "Head of Party - Jack's Brasserie 100% (m/w/d)",
+        "fr": "Chef de Partie - Jack's Brasserie 100% (m/w/d)"
+      },
+      "description": "Chef de Partie - Jack's Brasserie 100% (m/w/d) — Bürgenstock Collection",
+      "descriptionByLocale": {
+        "de": "Chef de Partie - Jack's Brasserie 100% (m/w/d) — Bürgenstock Collection",
+        "fr": "Chef de Partie - Jack's Brasserie 100% (m/w/d) — Bürgenstock Collection"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://recruitingapp-2850.umantis.com/Vacancies/1514/Description/1",
+      "source": "Bürgenstock Collection Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-26T10:07:54.067Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-25",
+      "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1514/Description/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "de": [
+          "chef-de-partie-jack-s-brasserie-100-m-w-d-burgenstock-collection-ch"
+        ],
+        "it": [
+          "chef-de-partie-jack-s-brasserie-100-m-w-d-chef-de-partie-jack-burgenstock-collection-ch",
+          "chef-de-partie-jack-s-brasserie-100-m-w-d-burgenstock-collection-ch",
+          "chef-de-partie-saucier-jack-s-brasserie-80-100-lunedi-mercoledi-d-burgenstock-hotels-ag-obburgen",
+          "chef-de-partie-jack-s-brasserie-100-m-w-d-chef-de-partie-jack-burgenstock-collection-lugano"
+        ],
+        "fr": [
+          "chef-de-partie-jack-s-brasserie-100-m-w-d-chef-de-partie-jack-burgenstock-collection-ch"
+        ],
+        "en": [
+          "chef-de-partie-saucier-jack-s-brasserie-80-100-lunedi-mercoledi-d-burgenstock-hotels-ag-obburgen",
+          "chef-de-partie-jack-s-brasserie-100-m-w-d-chef-de-partie-jack-burgenstock-collection-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-partie-jack-s-brasserie-100-m-w-d-chef-de-partie-jack-burgenstock-collection-ch",
+        "chef-de-partie-jack-s-brasserie-100-m-w-d-burgenstock-collection-ch",
+        "chef-de-partie-saucier-jack-s-brasserie-80-100-lunedi-mercoledi-d-burgenstock-hotels-ag-obburgen",
+        "chef-de-partie-jack-s-brasserie-100-m-w-d-chef-de-partie-jack-burgenstock-collection-lugano"
+      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-25T10:16:19.729Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "crawlerMissStreak": 2
     }
   ]
 }

@@ -27,7 +27,7 @@ const EVENT_TYPE_WEIGHTS = { open: 1, click: 2.5 };
 const RECENCY_HALF_LIFE_DAYS = 4;
 
 export const PREFERRED_SEND_MIN_EVENTS = 3;
-export const PREFERRED_SEND_WINDOW_DAYS = 90;
+export const PREFERRED_SEND_WINDOW_DAYS = 180;
 // Staleness-gate window for refreshPreferredSendHour (see below): once a
 // subscriber has enough samples to trust the circular mean, re-derive it at
 // most this often instead of on every single open/click.
@@ -87,7 +87,8 @@ export function computePreferredSendHour(events, now = new Date()) {
   if (!occurredAt) continue;
 
   const daysSince = (now.getTime() - occurredAt.getTime()) / (1000 * 60 * 60 * 24);
-  // Outside the 90-day lookback window (or a bogus future timestamp) — skip.
+  // Outside the lookback window (PREFERRED_SEND_WINDOW_DAYS, 180 days) or a
+  // bogus future timestamp — skip.
   if (daysSince < 0 || daysSince >= PREFERRED_SEND_WINDOW_DAYS) continue;
 
   const weight = EVENT_TYPE_WEIGHTS[event.type] * recencyWeight(daysSince);

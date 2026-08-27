@@ -13,6 +13,7 @@
  */
 
 import fs from 'node:fs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { freeTranslateWithRetry, logCascadeSummary } from './lib/free-translate.mjs';
@@ -27,7 +28,7 @@ const DRY_RUN = process.argv.includes('--dry-run');
 function readJson(p) { return JSON.parse(fs.readFileSync(p, 'utf-8')); }
 
 async function main() {
-  const files = fs.readdirSync(BY_CRAWLER_DIR).filter(f => f.endsWith('.json')).sort();
+  const files = listSliceFileNames(BY_CRAWLER_DIR).sort();
   let totalFixed = 0;
   let totalSkipped = 0;
   let totalFailed = 0;
@@ -47,7 +48,12 @@ async function main() {
     for (const job of jobs) {
       const sl = job.sourceLang || 'it';
       const sourceTitle = (job.title || '').trim();
-      if (!sourceTitle || sourceTitle.length < 3) continue;
+      // No floor on sourceTitle length here: titleLooksUntranslated() below is
+      // lexical and handles short/empty sourceTitle safely (returns idle, never
+      // throws) — gating the whole per-job loop on a source-length floor would
+      // silently exempt any job with a very short source title from the
+      // source-copy check too (same class as issue #6539).
+      if (!sourceTitle) continue;
 
       const tbl = job.titleByLocale || {};
 

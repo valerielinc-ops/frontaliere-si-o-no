@@ -297,6 +297,50 @@ if (!shipped.length) {
   process.exit(1);
 }
 
+// ── Il registro pubblico delle aziende, rigenerato QUI e non altrove ──────
+//
+// `data/crawler-companies-auto.json` alimenta la directory aziende del sito, e
+// si costruisce leggendo `scripts/update-*-jobs.mjs`. Cioe': e' una funzione
+// dell'insieme dei crawler in produzione, e cambia esattamente quando cambia
+// quell'insieme — che e' qui, in questo stadio, e in nessun altro punto del
+// repo.
+//
+// Non era agganciato a niente. `npm run companies:generate` esisteva e nessuno
+// lo chiamava: misurato sulla issue #6481, il file era fermo a 213 voci contro
+// 614 runner reali, cioe' 401 datori con un crawler dedicato che non comparivano
+// nella directory pubblica. La PR #6527 ha corretto la QUALITA' di cio' che il
+// generatore produce quando gira; questa riga e' cio' che lo fa girare.
+//
+// Sta DOPO il guard `!shipped.length` apposta: un giro che non promuove nessuno
+// non ha cambiato l'insieme dei crawler, quindi non ha niente da rigenerare — e
+// un file riscritto identico e' comunque un commit vuoto in piu' da spiegare.
+// Sta PRIMA del blocco `git add`/`commit`/`gh pr create` piu' sotto, cosi' il
+// diff rigenerato viaggia nello stesso commit dei runner che l'hanno causato,
+// invece di lasciare `main` incoerente fino al prossimo intervento a mano.
+//
+// Non e' agganciato a `audit-duplicate-crawlers.yml`: quello e' un audit
+// giornaliero in sola lettura, e un dataset che deve stare sincrono con OGNI
+// promozione non puo' dipendere da un ciclo di 24 ore.
+let companiesRegenerated = false;
+try {
+  execFileSync('node', ['scripts/generate-crawler-companies.mjs'], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] });
+  companiesRegenerated = true;
+  console.log('\nregistro aziende rigenerato (data/crawler-companies-auto.json)');
+} catch (err) {
+  // NON si interrompe la promozione: i crawler scaffoldati sono lavoro valido e
+  // gia' sul disco, e buttarli via perche' un file di dati derivato non si e'
+  // rigenerato sarebbe sproporzionato — il registro si riallinea al giro dopo.
+  //
+  // Ma il file NON entra nel commit (vedi `paths`), e questo e' l'unico motivo
+  // per cui il ramo e' sicuro: la scrittura del generatore e' atomica
+  // (tmp + rename, vedi `generate-crawler-companies.mjs`), quindi «fallita» qui
+  // significa davvero «il file precedente e' intatto», non «meta' file sul
+  // disco». Senza quella garanzia questo `catch` committerebbe un JSON troncato
+  // dentro una PR che nessuno legge.
+  console.log(`\n⚠️ rigenerazione del registro aziende fallita: ${String(err.stderr || err.message).slice(0, 200)}`);
+  console.log('   I crawler entrano comunque; la directory aziende resta alla versione precedente.');
+}
+
 // Rigenerare i gruppi tocca `.github/workflows/**`, e GitHub rifiuta per
 // progetto che una App scriva li' senza il permesso `workflows`. Il permesso
 // non si deduce dalla PRESENZA del token: il conio riesce lo stesso quando
@@ -373,12 +417,23 @@ const relaxedNote = relaxed
   ? `\n- **in questa PR** — ⚠️ **giro di verifica a gate ridotto**: stabilita' richiesta ${minDays} giorno/i invece di ${GATE_DEFAULTS.minDistinctDays}. Serviva a eseguire il percorso di promozione senza attendere il secondo giorno; tutte le altre condizioni del gate sono quelle normali. Il cron non usa mai questa leva.`
   : '';
 
+// Il registro aziende e' un file di dati PUBBLICO che questo diff modifica: se
+// il body non lo nomina, e' esattamente il gap di #6301/#6279 — un file
+// funnel-critical nel diff e mai citato nel corpo. Il ramo negativo non e'
+// silenzio: dice che il file resta alla versione precedente, cosi' chi legge la
+// PR sa che la directory aziende e' indietro di questi crawler.
+const companiesNote = companiesRegenerated
+  ? `
+- **in questa PR** — \`data/crawler-companies-auto.json\` rigenerato nello stesso commit dei runner: la directory aziende del sito resta allineata all'insieme dei crawler realmente in produzione, invece di dipendere da un \`npm run companies:generate\` lanciato a mano (era fermo a 213 voci su 614 runner, issue #6481).`
+  : `
+- **blocked: la rigenerazione del registro aziende e' fallita in questo giro** — \`data/crawler-companies-auto.json\` resta alla versione precedente e non copre questi crawler; la scrittura del generatore e' atomica, quindi il file NON e' troncato. La causa e' nel log dello stadio PROMOTE e \`npm run companies:generate\` la riproduce.`;
+
 const body = `## Implementato
 
 - **in questa PR** — ${shipped.length} crawler promossi dal prospector, per **${totalVacancies} annunci** di datori che non coprivamo. Ognuno ha superato il gate di \`scripts/lib/prospector/promotion-gate.mjs\`: qualita' >= ${GATE_DEFAULTS.minScore} contro la pagina ufficiale del datore, su almeno ${GATE_DEFAULTS.minSampled} pagine di dettaglio, con **${GATE_DEFAULTS.minRuns} validazioni buone su ${GATE_DEFAULTS.minDistinctDays} giorni distinti** — la condizione che una singola run, per quanto buona, non puo' soddisfare — e con almeno il ${Math.round(GATE_DEFAULTS.minJobLike * 100)}% delle pagine di dettaglio che **legge come un annuncio di lavoro** e non come contenuto promozionale o editoriale.
 ${bullets}${relaxedNote}
 - **in questa PR** — voci nel manifest${groupsRegenerated ? ' e gruppi di workflow rigenerati, quindi i crawler entrano nella schedulazione esistente' : ''}.${groupsRegenerated ? '' : `
-- **blocked: manca il permesso \`workflows\` sul token** — i gruppi non sono stati rigenerati, quindi questi crawler esistono ma non sono ancora schedulati. Basta un \`node scripts/generate-crawler-group-workflows.mjs\` da un'identita' che possa scrivere in \`.github/workflows/\`.`}
+- **blocked: manca il permesso \`workflows\` sul token** — i gruppi non sono stati rigenerati, quindi questi crawler esistono ma non sono ancora schedulati. Basta un \`node scripts/generate-crawler-group-workflows.mjs\` da un'identita' che possa scrivere in \`.github/workflows/\`.`}${companiesNote}
 
 ## Non implementato (ancora)
 
@@ -425,7 +480,16 @@ try {
   // gia' su main (le committa lo stadio precedente), e includerle qui aggiunge
   // solo righe che main muove sotto i piedi della PR.
   const paths = ['scripts', 'tests', 'data/crawler-manifest.json'];
-  if (groupsRegenerated) paths.push('.github/workflows');
+  // Il registro aziende entra solo se la rigenerazione e' RIUSCITA. Vedi il
+  // `catch` piu' sopra: un fallimento deve lasciare nel diff il file vecchio
+  // intatto, non trascinarcene dentro uno a meta'.
+  if (companiesRegenerated) paths.push('data/crawler-companies-auto.json');
+  // `data/crawler-group-assignments.json` va nello STESSO commit dei .yml, non
+  // e' opzionale: dal #6482 e' li' che vive l'assegnazione crawler->gruppo, e i
+  // .yml ne sono la resa. Committare i .yml senza i pin lascia il nuovo crawler
+  // "mai visto" al giro dopo, che lo riassegna a un gruppo qualunque — cioe'
+  // esattamente il rimescolamento che i pin esistono per impedire.
+  if (groupsRegenerated) paths.push('.github/workflows', 'data/crawler-group-assignments.json');
   git('add', ...paths);
   git('commit', '-m', `prospector: promuove ${shipped.length} crawler validati (${totalVacancies} annunci)`);
   git('push', '-u', 'origin', branch);

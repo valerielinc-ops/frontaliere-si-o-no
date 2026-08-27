@@ -41,7 +41,6 @@
  * on the second slot can never cause the first to be reposted tomorrow.
  */
 
-import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -49,24 +48,32 @@ import {
   SITE_URL,
   loadLedger,
   appendLedger,
-  truncateBody,
+  loadJobSections,
+  loadJobIndex,
 } from './lib/social-post-utils.mjs';
 import {
   linkedinUrl,
   LINKEDIN_MEMBER_CAMPAIGN_ARTICLE,
   LINKEDIN_MEMBER_CAMPAIGN_JOB,
+  LINKEDIN_REST_VERSION,
 } from './lib/linkedin-links.mjs';
 import {
   previousReportDay,
   rankCandidates,
   pickFirstUnposted,
 } from './lib/daily-top-content.mjs';
+import { fetchGa4PageReport } from './lib/ga4-service-account.mjs';
 import {
-  DEFAULT_GA4_PROPERTY_ID,
-  getServiceAccountToken,
-  fetchRetry,
-} from './lib/ga4-service-account.mjs';
-import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/cantonResolvers.mjs';
+  buildArticleContent,
+  buildMemberCommentary,
+  buildMemberPostPayload,
+  inferArticleLocation,
+  resolveJobCompany,
+  resolveJobDescription,
+  resolveJobLocation,
+  resolveOrganizationUrn,
+} from './lib/linkedin-member-copy.mjs';
+import { fetchPageOg, uploadLinkedInImage } from './lib/linkedin-member-media.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -84,12 +91,7 @@ const POSTED_TRIM_LIMIT = 1000;
 const DEDUP_WINDOW_DAYS = 30;
 
 const LINKEDIN_API = 'https://api.linkedin.com/rest/posts';
-const LINKEDIN_VERSION = '202401';
-/** LinkedIn hard-rejects commentary over 3000 chars; stay under it. */
-const COMMENTARY_MAX = 2900;
-
-const HASHTAGS_ARTICLE = '#frontalieri #ticino #svizzera #italia #lavoro';
-const HASHTAGS_JOB = '#frontalieri #ticino #lavoro #svizzera #offertedilavoro';
+const LINKEDIN_VERSION = LINKEDIN_REST_VERSION;
 
 // ─────────────────────────── credentials ───────────────────────────
 
@@ -145,187 +147,22 @@ function getAuthorUrn() {
 }
 
 // ─────────────────────────── GA4 ───────────────────────────
+// loadJobSections/loadJobIndex moved to scripts/lib/social-post-utils.mjs —
+// the Instagram/TikTok carousel posters need the identical logic (project
+// rule: a helper duplicated literally in ≥2 files MUST live in ONE shared
+// module).
 
-/**
- * Italian job-board section slugs: the 24 canton sections, the legacy Ticino
- * one, and the AGGREGATE section.
- *
- * `_AGGREGATE_` resolves to `cerca-lavoro-svizzera` and is easy to forget
- * because it is not in the `cantons` table — omitting it silently dropped every
- * job living under the Swiss-wide board from the ranking.
- */
-function loadJobSections() {
-  try {
-    const cantonSlugFile = JSON.parse(
-      fs.readFileSync(path.join(ROOT, 'data', 'canton-url-slugs.json'), 'utf-8'),
-    );
-    const municipalitiesFile = JSON.parse(
-      fs.readFileSync(path.join(ROOT, 'data', 'canton-municipalities.json'), 'utf-8'),
-    );
-    const { resolveCantonSection } = createCantonResolvers({
-      cantonSlugFile,
-      municipalitiesFile,
-    });
-    const out = new Set();
-    const codes = [...Object.keys(cantonSlugFile.cantons || {}), 'TI', AGGREGATE_KEY];
-    for (const code of codes) {
-      const section = resolveCantonSection('it', code);
-      if (section) out.add(section);
-    }
-    return out;
-  } catch (err) {
-    console.warn(`⚠️  could not build the job-section set: ${err.message}`);
-    return new Set();
-  }
-}
+// fetchGa4Day moved to scripts/lib/ga4-service-account.mjs#fetchGa4PageReport
+// — Instagram/TikTok posters need the identical report (project rule: a
+// helper duplicated literally in ≥2 files MUST live in ONE shared module).
 
-/**
- * slug → job record, across every locale slug variant.
- *
- * WHY this is mandatory and not a nicety: under a canton section the URL shape
- * of a job detail page and of a generated SEO landing page are identical.
- * `/cerca-lavoro-ticino/infermieri/` topped 2026-08-23 with 271 views and is a
- * "37 offerte" profession page, not an offer — posting it as "the most clicked
- * job" would be simply false. Membership in the real dataset is the only
- * non-rotting way to tell them apart, so when the dataset is unavailable this
- * returns an empty Map and the caller SKIPS the job slot rather than guessing.
- *
- * @returns {Map<string, object>}
- */
-function loadJobIndex() {
-  /** @type {Map<string, object>} */
-  const index = new Map();
-  const add = (slug, job) => {
-    const s = String(slug || '').trim();
-    if (s) index.set(s, job);
-  };
-
-  const ingest = (jobs) => {
-    for (const job of jobs || []) {
-      add(job?.slug, job);
-      for (const v of Object.values(job?.slugByLocale || {})) add(v, job);
-    }
-  };
-
-  try {
-    const assembled = path.join(ROOT, 'data', 'jobs.json');
-    if (fs.existsSync(assembled)) {
-      const parsed = JSON.parse(fs.readFileSync(assembled, 'utf-8'));
-      ingest(Array.isArray(parsed) ? parsed : parsed.jobs);
-      return index;
-    }
-    const dir = path.join(ROOT, 'data', 'jobs', 'by-crawler');
-    if (fs.existsSync(dir)) {
-      for (const file of fs.readdirSync(dir)) {
-        if (!file.endsWith('.json')) continue;
-        try {
-          ingest(JSON.parse(fs.readFileSync(path.join(dir, file), 'utf-8')).jobs);
-        } catch {
-          /* one unreadable crawler file must not void the whole index */
-        }
-      }
-    }
-  } catch (err) {
-    console.warn(`⚠️  could not build the job index: ${err.message}`);
-  }
-  return index;
-}
-
-async function fetchGa4Day(day) {
-  const token = await getServiceAccountToken([
-    'https://www.googleapis.com/auth/analytics.readonly',
-  ]);
-  if (!token) return null;
-
-  const raw = process.env.GA4_PROPERTY_ID || DEFAULT_GA4_PROPERTY_ID;
-  const property = raw.startsWith('properties/') ? raw : `properties/${raw}`;
-
-  const res = await fetchRetry(
-    `https://analyticsdata.googleapis.com/v1beta/${property}:runReport`,
-    {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        dateRanges: [{ startDate: day, endDate: day }],
-        dimensions: [{ name: 'pagePath' }, { name: 'pageTitle' }],
-        metrics: [{ name: 'screenPageViews' }],
-        orderBys: [{ metric: { metricName: 'screenPageViews' }, desc: true }],
-        limit: 10000,
-      }),
-    },
-  );
-  if (!res?.ok) {
-    console.warn(`⚠️  GA4 runReport failed (${res?.status}) — nothing to post`);
-    return null;
-  }
-  const data = await res.json();
-  if (data.error) {
-    console.warn(`⚠️  GA4 error: ${JSON.stringify(data.error).slice(0, 200)}`);
-    return null;
-  }
-  return (data.rows || []).map((r) => ({
-    path: r.dimensionValues?.[0]?.value || '',
-    title: r.dimensionValues?.[1]?.value || '',
-    views: parseInt(r.metricValues?.[0]?.value || '0', 10),
-  }));
-}
-
-// ─────────────────────────── copy ───────────────────────────
-
-function buildCommentary({ kind, title, url, views, day, location }) {
-  const isJob = kind === 'job';
-  const emoji = isJob ? '💼' : '📰';
-  const lead = isJob
-    ? "L'offerta di lavoro più cliccata di ieri su frontaliereticino.ch:"
-    : "L'articolo più letto di ieri su frontaliereticino.ch:";
-  const hashtags = isJob ? HASHTAGS_JOB : HASHTAGS_ARTICLE;
-  const counter =
-    Number(views) > 0
-      ? `📊 ${views} visualizzazioni il ${formatDayIt(day)}.`
-      : '';
-  const place = isJob && location ? `📍 ${location}` : '';
-
-  const body = [
-    `${emoji} ${lead}`,
-    '',
-    truncateBody(title, 200),
-    place,
-    counter,
-    '',
-    `👉 ${url}`,
-    '',
-    hashtags,
-  ]
-    .filter((line) => line !== null && line !== undefined)
-    .join('\n')
-    .replace(/\n{3,}/g, '\n\n')
-    .trim();
-
-  return truncateBody(body, COMMENTARY_MAX);
-}
-
-/** '2026-08-23' → '23/08/2026' (the post copy is Italian). */
-function formatDayIt(day) {
-  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(day || ''));
-  return m ? `${m[3]}/${m[2]}/${m[1]}` : String(day || '');
-}
+// Commentary, mentions and article-card payload live in
+// scripts/lib/linkedin-member-copy.mjs so vitest can drive them with fixtures.
 
 // ─────────────────────────── posting ───────────────────────────
 
-async function publish({ accessToken, authorUrn, commentary, url, title }) {
-  const payload = {
-    author: authorUrn,
-    commentary,
-    visibility: 'PUBLIC',
-    distribution: {
-      feedDistribution: 'MAIN_FEED',
-      targetEntities: [],
-      thirdPartyDistributionChannels: [],
-    },
-    content: { article: { source: url, title: truncateBody(title, 180) } },
-    lifecycleState: 'PUBLISHED',
-    isReshareDisabledByAuthor: false,
-  };
+async function publish({ accessToken, authorUrn, commentary, article }) {
+  const payload = buildMemberPostPayload({ author: authorUrn, commentary, article });
 
   const res = await fetch(LINKEDIN_API, {
     method: 'POST',
@@ -363,7 +200,7 @@ async function main() {
 
   console.log(`─── LinkedIn member daily — day ${day}${dryRun ? ' (dry run)' : ''} ───`);
 
-  const rows = await fetchGa4Day(day);
+  const rows = await fetchGa4PageReport(day);
   if (!rows) {
     console.log('ℹ️  no GA4 data available — nothing to do');
     return;
@@ -437,25 +274,62 @@ async function main() {
     // For a job the dataset is a better title source than GA4's pageTitle: it
     // carries the employer, which the page title often drops.
     const job = slot.kind === 'job' ? jobIndex.get(pick.slug) : null;
+    const company = resolveJobCompany(job);
+    const jobTitle = job
+      ? String(job.titleByLocale?.it || job.title || '').trim()
+      : '';
     const title = job
-      ? [job.title, job.company].filter(Boolean).join(' — ')
+      ? [jobTitle, company].filter(Boolean).join(' — ')
       : pick.title || pick.slug.replace(/-/g, ' ');
-    const commentary = buildCommentary({
+    const location = job
+      ? resolveJobLocation(job)
+      : inferArticleLocation({ title, path: pick.path });
+
+    // Live page OG: excerpt for the body + og:image for the card thumbnail.
+    // Posts API does not scrape OG; without a thumbnail URN the card is text-only.
+    const pageMeta = await fetchPageOg(canonical);
+    const excerpt =
+      slot.kind === 'job' ? resolveJobDescription(job) : pageMeta.ogDescription;
+
+    const commentary = buildMemberCommentary({
       kind: slot.kind,
-      title,
+      title: job ? jobTitle || title : title,
       url,
-      views: pick.views,
       day,
-      location: job?.location || '',
+      excerpt,
+      company,
+      organizationUrn: resolveOrganizationUrn(job),
+      location,
+      canton: job?.canton || '',
+    });
+
+    let thumbnail = null;
+    if (!dryRun && accessToken && authorUrn && pageMeta.ogImage) {
+      thumbnail = await uploadLinkedInImage({
+        accessToken,
+        ownerUrn: authorUrn,
+        imageUrl: pageMeta.ogImage,
+      });
+      if (thumbnail) console.log(`🖼  thumbnail ${thumbnail}`);
+      else console.log('⚠️  posting article card without thumbnail (upload fail-soft)');
+    }
+
+    const article = buildArticleContent({
+      source: url,
+      title,
+      description: excerpt || pageMeta.ogDescription,
+      thumbnail,
     });
 
     console.log(`\n─── ${slot.kind} pick: ${pick.slug} (${pick.views} views) ───`);
     console.log(commentary);
+    console.log('─── article card ───');
+    console.log(JSON.stringify(article, null, 2));
     console.log('───');
 
     if (dryRun) continue;
 
-    const res = await publish({ accessToken, authorUrn, commentary, url, title });
+    const res = await publish({ accessToken, authorUrn, commentary, article });
     if (res.ok) {
       console.log(`✅ posted — ${res.postId}`);
       // Append per successful post, never batched: a throw on the next slot

@@ -87,6 +87,11 @@ export const SF_J2W_WIDGET_PATTERNS = Object.freeze([
   // Le Mont-sur-Lausanne". Same family as the widgets — the string did not
   // come from the posting — so it belongs behind the same predicate.
   // Measured over all 151'598 live titles this matches exactly those two.
+  // Also swept against every description/descriptionByLocale field this
+  // guard is wired to (2'345 records, 31 crawlers, 2026-08-24, issue #6393):
+  // zero matches, so the wholesale field wipe below has never fired on a
+  // real description. See the corpus-sweep describe block in
+  // tests/successfactors-jobs2web-widget-guard.test.ts for the swept set.
   /\[\[[^\]]{1,40}\]?\]/,
 
   // NOTE: deliberately NO /Talent Community/ pattern. It reads like an obvious

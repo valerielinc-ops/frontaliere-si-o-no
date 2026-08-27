@@ -15,6 +15,7 @@
  */
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { KNOWN_AGGREGATOR_DOMAINS } from '../known-aggregator-domains.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -84,10 +85,13 @@ export const CAREER_TOKEN_RX =
  * national job boards. A careers link pointing here says nothing about where
  * the employer actually publishes, so it must not seed a platform candidate.
  *
- * The national boards (jobs.ch, jobup.ch, indeed) are excluded on purpose: they
- * are aggregators we already read, and treating them as a "platform" would make
- * the loop rediscover the coverage we already have instead of the coverage we
- * lack.
+ * The national boards (jobs.ch, jobup.ch, indeed, ...) are excluded on
+ * purpose: they are aggregators we already read, and treating them as a
+ * "platform" would make the loop rediscover the coverage we already have
+ * instead of the coverage we lack. That domain list is shared with the
+ * dedicated-crawler source-integrity gate — see
+ * `scripts/lib/known-aggregator-domains.mjs` — so a board added here is also
+ * a board a hand-written `*-job-parser.mjs` cannot source from silently.
  */
 export const NON_PLATFORM_HOSTS = new Set([
   'facebook.com', 'instagram.com', 'linkedin.com', 'twitter.com', 'x.com',
@@ -95,19 +99,13 @@ export const NON_PLATFORM_HOSTS = new Set([
   'google.com', 'googleapis.com', 'gstatic.com', 'googletagmanager.com',
   'gmpg.org', 'w3.org', 'schema.org', 'wordpress.org', 'wp.com',
   'office.com', 'microsoft.com', 'sharepoint.com', 'adobe.com',
-  'jobs.ch', 'jobup.ch', 'indeed.com', 'indeed.ch', 'stepstone.ch',
-  'monster.ch', 'jobscout24.ch', 'ostjob.ch', 'jobagent.ch',
-  'job-room.ch', 'arbeit.swiss', 'eures.europa.eu',
   'youtu.be', 'issuu.com', 'vimeo.com', 'cookiebot.com', 'cloudflare.com',
   // App stores: a careers page that advertises the employer's own app links
   // here, and the store listing scores as a vacancy page because it repeats a
   // templated URL under job-ish copy. Measured false positive (itunes.apple.com
   // scored 5.2 for jobup.ch).
   'apple.com', 'itunes.apple.com', 'apps.apple.com', 'play.google.com',
-  // Further aggregators and staffing marketplaces: real vacancy pages, but
-  // coverage we already have or intend to reach as a source, not as a platform.
-  'jobscout24.ch', 'jobwinner.ch', 'topjobs.ch', 'jobsuchmaschine.ch',
-  'glassdoor.com', 'glassdoor.ch', 'karriere.at', 'stepstone.de',
+  ...KNOWN_AGGREGATOR_DOMAINS,
 ]);
 
 /**

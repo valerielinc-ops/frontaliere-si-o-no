@@ -1,63 +1,63 @@
 {
-  "generatedFor": "2026-08-24",
+  "generatedFor": "2026-08-26",
   "windowDays": 7,
   "current": {
-    "weekStart": "2026-08-17",
-    "weekEnd": "2026-08-23",
+    "weekStart": "2026-08-19",
+    "weekEnd": "2026-08-25",
     "perCrossing": {
       "campione-d-italia-bissone": {
-        "weightedAvgMinutes": 0.7659574468085106,
-        "totalSamples": 94
+        "weightedAvgMinutes": 0.7191011235955056,
+        "totalSamples": 89
       },
       "chiasso-brogeda": {
-        "weightedAvgMinutes": 1.4105263157894736,
-        "totalSamples": 95
+        "weightedAvgMinutes": 1.4157303370786516,
+        "totalSamples": 89
       },
       "chiasso-centro": {
-        "weightedAvgMinutes": 1.7708333333333333,
-        "totalSamples": 96
+        "weightedAvgMinutes": 2.3777777777777778,
+        "totalSamples": 90
       },
       "chiasso-strada": {
-        "weightedAvgMinutes": 1.7708333333333333,
-        "totalSamples": 96
+        "weightedAvgMinutes": 2.3777777777777778,
+        "totalSamples": 90
       },
       "gaggiolo": {
-        "weightedAvgMinutes": 2.6526315789473682,
-        "totalSamples": 95
+        "weightedAvgMinutes": 3.6292134831460676,
+        "totalSamples": 89
       },
       "san-pietro": {
-        "weightedAvgMinutes": 2.625,
-        "totalSamples": 96
+        "weightedAvgMinutes": 3.588888888888889,
+        "totalSamples": 90
       }
     }
   },
   "previous": {
-    "weekStart": "2026-08-10",
-    "weekEnd": "2026-08-16",
+    "weekStart": "2026-08-12",
+    "weekEnd": "2026-08-18",
     "perCrossing": {
       "campione-d-italia-bissone": {
-        "weightedAvgMinutes": 0.5797101449275363,
-        "totalSamples": 69
+        "weightedAvgMinutes": 0.6829268292682927,
+        "totalSamples": 82
       },
       "chiasso-brogeda": {
-        "weightedAvgMinutes": 1.2941176470588236,
-        "totalSamples": 68
+        "weightedAvgMinutes": 1.2530120481927711,
+        "totalSamples": 83
       },
       "chiasso-centro": {
-        "weightedAvgMinutes": 1.5147058823529411,
-        "totalSamples": 68
+        "weightedAvgMinutes": 1.1728395061728396,
+        "totalSamples": 81
       },
       "chiasso-strada": {
-        "weightedAvgMinutes": 1.4927536231884058,
-        "totalSamples": 69
+        "weightedAvgMinutes": 1.144578313253012,
+        "totalSamples": 83
       },
       "gaggiolo": {
-        "weightedAvgMinutes": 2.4714285714285715,
-        "totalSamples": 70
+        "weightedAvgMinutes": 2.0120481927710845,
+        "totalSamples": 83
       },
       "san-pietro": {
-        "weightedAvgMinutes": 2.4714285714285715,
-        "totalSamples": 70
+        "weightedAvgMinutes": 2.0120481927710845,
+        "totalSamples": 83
       }
     }
   }

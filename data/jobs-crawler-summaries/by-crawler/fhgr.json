@@ -1,18 +1,18 @@
 {
   "key": "fhgr",
   "label": "Fachhochschule Graubünden",
-  "generatedAt": "2026-08-24T10:23:12.118Z",
-  "total": 2,
+  "generatedAt": "2026-08-27T00:47:03.005Z",
+  "total": 1,
   "discovered": null,
-  "written": 2,
+  "written": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5928,
-  "avgDurationMs": 5928,
+  "unchangedCount": 0,
+  "durationMs": 5849,
+  "avgDurationMs": 5849,
   "durationHistory": [
-    5928
+    5849
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:23:08.696Z",
+      "crawledAt": "2026-08-27T00:46:59.624Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -55,47 +55,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "fhgr-e0b13eea1efe",
-      "slug": "assistenza-organizzativa-fachhochschule-graubunden-zurich",
-      "company": "Fachhochschule Graubünden",
-      "companyKey": "fhgr",
-      "companyDomain": "fhgr.ch",
-      "title": "Organisationsassistenz",
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.fhgr.ch/Vacancies/803/Description/1",
-      "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-23T21:45:26.364Z",
-      "addressLocality": "Zürich",
-      "postalCode": "7000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Formazione / Ricerca",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-17",
-      "applyUrl": "https://jobs.fhgr.ch/Vacancies/803/Application/CheckLogin/1",
-      "department": "Administration",
-      "contractDuration": "permanent",
-      "firstSeenAt": "2026-08-17T21:51:40.448Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "addressRegion": "ZH",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ]
+  "unchangedJobs": []
 }

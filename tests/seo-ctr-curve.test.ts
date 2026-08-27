@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+import { readFileSync } from 'node:fs';
 import {
   expectedCtrForPosition,
   ctrGapRatio,
@@ -375,5 +376,71 @@ describe('seo-ctr-curve (issue #4300)', () => {
       expect(agg.avgPosition).toBeNull();
       expect(agg.belowCurveCount).toBe(0);
     });
+  });
+});
+
+describe('registro famiglie — il punto cieco degli alias di locale (follow-up #5964)', () => {
+  // #5961: una famiglia `template` esiste in quattro URL, uno per locale. Se
+  // il registro ne conosce solo lo slug italiano, gli altri tre rotolano su
+  // come «famiglia non registrata» appena superano la soglia di volume, e la
+  // misura CTR della famiglia e' fatta su un quarto del suo traffico.
+  //
+  // L'audit richiesto dal follow-up e' questo, e vale piu' di una risposta
+  // scritta una volta: `guida-frontaliere`/`tasse-e-pensione` erano gli unici
+  // due nominati, ma la domanda era se ALTRE entry avessero la stessa forma.
+  // Qui la domanda si ripone da sola a ogni run.
+  it('ogni famiglia `template` dichiara gli alias di locale', () => {
+    const senzaAlias = SEO_CTR_FAMILIES
+      .filter((f) => f.kind === 'template')
+      .filter((f) => !(Array.isArray(f.pathAliases) && f.pathAliases.length > 0))
+      .map((f) => f.id);
+    expect(senzaAlias, 'famiglia template senza pathAliases: i locale non-IT rotoleranno su come famiglia nuova').toEqual([]);
+  });
+
+  it('le famiglie senza alias non sono template, e il motivo e nel registro', () => {
+    // Il verso opposto dell'invariante sopra: cio' che NON ha alias deve avere
+    // una ragione strutturale per non averne, non una dimenticanza.
+    //  - `listing`: pagine editoriali indipendenti, nessun generator condiviso
+    //    e nessuna variante di locale emessa;
+    //  - `locale`: `/de/` e' un PREFISSO, non un template — un alias non
+    //    vorrebbe dire niente.
+    for (const f of SEO_CTR_FAMILIES) {
+      if (Array.isArray(f.pathAliases) && f.pathAliases.length) continue;
+      expect(['listing', 'locale'], `${f.id}: senza alias ma di kind ${f.kind}`).toContain(f.kind);
+    }
+  });
+
+  it('nessun alias duplica il pathContains di un altra famiglia', () => {
+    // Due famiglie che rivendicano lo stesso prefisso renderebbero
+    // l'attribuzione delle impression dipendente dall'ordine dell'array.
+    const visti = new Map();
+    for (const f of SEO_CTR_FAMILIES) {
+      for (const p of familyPathPrefixes(f)) {
+        expect(visti.has(p), `prefisso ${p} rivendicato sia da ${visti.get(p)} sia da ${f.id}`).toBe(false);
+        visti.set(p, f.id);
+      }
+    }
+  });
+});
+
+describe('LOCALE_PATH_PREFIXES — la locale di default non ha prefisso (follow-up #5964)', () => {
+  it('nessun prefisso `it` compare fra gli alias registrati', () => {
+    // Il reviewer chiedeva se esista un URL con prefisso `it`.
+    // `localePrefix()` in services/router.ts rende '' per 'it' e `/${locale}`
+    // per gli altri tre: un `/it/…` non e' producibile by construction.
+    // L'assunzione e' quindi corretta — e questo test e' cio' che se ne
+    // accorgerebbe se il router cambiasse idea, perche' il primo sintomo
+    // sarebbe un alias `/it/…` che entra nel registro.
+    for (const f of SEO_CTR_FAMILIES) {
+      for (const p of familyPathPrefixes(f)) {
+        expect(p.startsWith('/it/'), `${f.id}: alias con prefisso it — LOCALE_PATH_PREFIXES non lo strippa`).toBe(false);
+      }
+    }
+  });
+
+  it('il router non emette prefisso per la locale di default', () => {
+    const src = readFileSync(new URL('../services/router.ts', import.meta.url), 'utf-8');
+    // Se questa riga cambia, `LOCALE_PATH_PREFIXES` va riaperta insieme.
+    expect(src).toMatch(/function localePrefix\([^)]*\)[^{]*\{\s*return locale === 'it' \? '' : `\/\$\{locale\}`;/);
   });
 });

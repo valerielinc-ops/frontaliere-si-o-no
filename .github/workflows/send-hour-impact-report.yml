@@ -9,14 +9,20 @@ name: Send-Time Impact Report
 
 on:
   schedule:
-    # Weekly, Monday 02:20 UTC. Weekly cadence tracks the slow-growing
-    # `personal` cohort (subscribers need 3+ post-feature events before they get
-    # a personal hour) into the backlog without spamming it.
-    # The slot is not load-bearing for a read-only report, and the "quiet
-    # 01:00-04:00 UTC concurrency window" this comment used to cite does not
-    # exist — see the corrected audit in send-job-alerts.yml (#3798 Fase 1).
-    # Effective start is ~05:54 UTC (median 214m of GitHub dispatch backlog).
-    - cron: '20 2 * * 1'
+    # Monthly, 1st of the month, 02:20 UTC (changed from weekly 2026-08-25).
+    # computeQueryFloor anchors the query floor to a FIXED point (`--since`
+    # minus `--days`, see report-send-hour-impact.mjs) so the `before` baseline
+    # never vanishes — but that also means the floor never advances either, so
+    # every run rescans the ENTIRE range from that fixed floor to "now", and
+    # that range grows every week `now` does. Measured 2026-08-24: this was the
+    # single largest Firestore scan in the project, ~630k docs/run (~11% of the
+    # monthly Firestore bill). The comparison itself is no longer in question —
+    # the 2026-08-24 run found personal vs immediate significant at p=0.000 on
+    # 7191 deliveries — so a monthly cadence is enough to keep tracking the
+    # slow-growing `personal` cohort into the #3798 backlog while cutting this
+    # scan's cost ~4x. workflow_dispatch below still allows an on-demand rerun
+    # any time a fresher read is actually needed.
+    - cron: '20 2 1 * *'
   workflow_dispatch:
     inputs:
       days:

@@ -14695,19 +14695,19 @@
       },
       "queries": [
         {
-          "query": "\"it card\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
+          "query": "job chiasso",
           "clicks": 0,
-          "impressions": 1
+          "impressions": 3
         },
         {
-          "query": "job chiasso",
+          "query": "\"it card\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
           "clicks": 0,
           "impressions": 1
         }
       ],
-      "totalImpressions": 2,
+      "totalImpressions": 4,
       "totalClicks": 0,
-      "topQuery": "\"it card\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
+      "topQuery": "job chiasso",
       "title": "chiasso",
       "titleByLocale": {
         "it": "",
@@ -14752,7 +14752,7 @@
         {
           "query": "lavoro a chiasso",
           "clicks": 0,
-          "impressions": 358
+          "impressions": 373
         },
         {
           "query": "lavoro chiasso",
@@ -14772,12 +14772,12 @@
         {
           "query": "lavoro svizzera chiasso",
           "clicks": 0,
-          "impressions": 17
+          "impressions": 19
         },
         {
           "query": "offerte di lavoro chiasso",
           "clicks": 0,
-          "impressions": 17
+          "impressions": 19
         },
         {
           "query": "lavorare a chiasso",
@@ -14790,24 +14790,24 @@
           "impressions": 16
         },
         {
+          "query": "lavora con noi chiasso",
+          "clicks": 1,
+          "impressions": 14
+        },
+        {
           "query": "cerco lavoro a chiasso",
           "clicks": 0,
           "impressions": 14
         },
         {
-          "query": "lavora con noi chiasso",
-          "clicks": 1,
-          "impressions": 13
+          "query": "annunci chiasso",
+          "clicks": 0,
+          "impressions": 11
         },
         {
           "query": "job chiasso",
           "clicks": 0,
           "impressions": 11
-        },
-        {
-          "query": "annunci chiasso",
-          "clicks": 0,
-          "impressions": 10
         },
         {
           "query": "offerte lavoro chiasso per italiani",
@@ -14850,7 +14850,7 @@
           "impressions": 6
         }
       ],
-      "totalImpressions": 684,
+      "totalImpressions": 707,
       "totalClicks": 3,
       "topQuery": "lavoro a chiasso",
       "title": "chiasso",
@@ -22109,10 +22109,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-augenklinik-ambulatorium-universitatsspital-basel-basel",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-augenklinik-ambulatorium-universitatsspital-basel-basel",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-augenklinik-ambulatorium-universitatsspital-basel-basel",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-augenklinik-ambulatorium-universitatsspital-basel-basel"
+        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-augenklinik-ambulatorium-unispital-basel-ch",
+        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-augenklinik-ambulatorium-unispital-basel-ch",
+        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-augenklinik-ambulatorium-unispital-basel-ch"
       },
       "localePaths": {
         "it": "/cerca-lavoro-basilea/dipl-pflegefachfrau-pflegefachmann-hf-fh-augenklinik-ambulatorium-universitatsspital-basel-basel",
@@ -22126,6 +22126,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -23873,12 +23874,12 @@
         {
           "query": "educatore sociale offerte lavoro ticino",
           "clicks": 13,
-          "impressions": 78
+          "impressions": 80
         },
         {
           "query": "offerte di lavoro educatrice svizzera italiana",
           "clicks": 21,
-          "impressions": 58
+          "impressions": 59
         },
         {
           "query": "lavoro insegnante canton ticino",
@@ -23886,14 +23887,14 @@
           "impressions": 36
         },
         {
-          "query": "offerte lavoro educatore ticino",
-          "clicks": 2,
-          "impressions": 31
-        },
-        {
           "query": "offerte di lavoro educatore svizzera italiana",
           "clicks": 5,
-          "impressions": 30
+          "impressions": 33
+        },
+        {
+          "query": "offerte lavoro educatore ticino",
+          "clicks": 2,
+          "impressions": 32
         },
         {
           "query": "psicologo italiano online sciaffusa",
@@ -23911,14 +23912,14 @@
           "impressions": 23
         },
         {
-          "query": "educatore canton ticino",
-          "clicks": 4,
+          "query": "lavoro educatrice ticino",
+          "clicks": 5,
           "impressions": 22
         },
         {
-          "query": "lavoro educatrice ticino",
-          "clicks": 5,
-          "impressions": 21
+          "query": "educatore canton ticino",
+          "clicks": 4,
+          "impressions": 22
         },
         {
           "query": "offerte lavoro educatore svizzera",
@@ -23928,7 +23929,7 @@
         {
           "query": "educatrice ticino lavoro",
           "clicks": 1,
-          "impressions": 20
+          "impressions": 21
         },
         {
           "query": "offerte lavoro educatore canton ticino",
@@ -23941,14 +23942,14 @@
           "impressions": 20
         },
         {
-          "query": "offerte di lavoro educatrice ticino",
-          "clicks": 0,
+          "query": "educatore svizzera canton ticino",
+          "clicks": 2,
           "impressions": 19
         },
         {
-          "query": "educatore svizzera canton ticino",
-          "clicks": 2,
-          "impressions": 18
+          "query": "offerte di lavoro educatrice ticino",
+          "clicks": 0,
+          "impressions": 19
         },
         {
           "query": "educatore ticino",
@@ -23958,7 +23959,7 @@
         {
           "query": "lavoro educatore ticino",
           "clicks": 0,
-          "impressions": 16
+          "impressions": 17
         },
         {
           "query": "offerte lavoro educatore",
@@ -23971,8 +23972,8 @@
           "impressions": 14
         }
       ],
-      "totalImpressions": 908,
-      "totalClicks": 88,
+      "totalImpressions": 922,
+      "totalClicks": 89,
       "topQuery": "educatore sociale offerte lavoro ticino",
       "title": "Educatori",
       "titleByLocale": {
@@ -58486,10 +58487,10 @@
         "fr": "scrum-master-m-w-d-coopers-bern"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-grigioni/scrum-master-m-w-d-coopers-bern",
-        "en": "/en/find-jobs-graubunden/scrum-master-m-w-d-coopers-bern",
+        "it": "/cerca-lavoro-berna/scrum-master-m-w-d-coopers-bern",
+        "en": "/en/find-jobs-bern/scrum-master-m-w-d-coopers-bern",
         "de": "/de/jobs-im-graubunden/scrum-master-m-w-d-coopers-bern",
-        "fr": "/fr/trouver-emploi-grisons/scrum-master-m-w-d-coopers-bern"
+        "fr": "/fr/trouver-emploi-berne/scrum-master-m-w-d-coopers-bern"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

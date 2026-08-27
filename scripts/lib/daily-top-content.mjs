@@ -61,16 +61,26 @@ export const GA4_REPORT_TIMEZONE = 'Europe/Zurich';
  */
 export function previousReportDay(now = Date.now(), timeZone = GA4_REPORT_TIMEZONE) {
   const ms = now instanceof Date ? now.getTime() : Number(now);
-  // en-CA renders as YYYY-MM-DD, which is the format GA4 wants.
-  const fmt = new Intl.DateTimeFormat('en-CA', {
+  // Read the local calendar date in the property timezone, then subtract one
+  // *calendar* day. Subtracting 86400000ms first is wrong on DST transition
+  // days: the fall-back day is 25h, so the last local hour of that day minus
+  // 24h lands on the same calendar date (issue 6391). UTC date arithmetic
+  // has no DST, so Y-M-D → previous Y-M-D is always one calendar day.
+  const parts = new Intl.DateTimeFormat('en-CA', {
     timeZone,
     year: 'numeric',
     month: '2-digit',
     day: '2-digit',
-  });
-  // Shift by a day first, then render in the target zone: rendering first and
-  // subtracting from the string would need calendar arithmetic by hand.
-  return fmt.format(new Date(ms - 86400000));
+  }).formatToParts(new Date(ms));
+  const num = (type) => Number(parts.find((p) => p.type === type)?.value);
+  const y = num('year');
+  const m = num('month');
+  const d = num('day');
+  const prev = new Date(Date.UTC(y, m - 1, d) - 86400000);
+  const py = prev.getUTCFullYear();
+  const pm = String(prev.getUTCMonth() + 1).padStart(2, '0');
+  const pd = String(prev.getUTCDate()).padStart(2, '0');
+  return `${py}-${pm}-${pd}`;
 }
 
 /**
@@ -276,4 +286,34 @@ export function pickFirstUnposted(candidates, postedSet) {
     return { pick: candidate, skipped, exhausted: false };
   }
   return { pick: null, skipped, exhausted: list.length > 0 };
+}
+
+/**
+ * First `limit` candidates whose slug is not already in the ledger — the
+ * carousel-format sibling of pickFirstUnposted (single item vs Instagram/
+ * TikTok's "top N of the day" carousel). Same fall-through rule: an
+ * already-posted candidate is skipped, not dropped from the count, so the
+ * carousel still fills to `limit` from further down the ranking instead of
+ * shipping short.
+ *
+ * @param {Array<{slug: string}>} candidates ranked desc
+ * @param {Set<string>} postedSet slugs already posted
+ * @param {number} limit max picks to return
+ * @returns {{ picks: object[], skipped: number }}
+ */
+export function pickTopNUnposted(candidates, postedSet, limit) {
+  const list = candidates || [];
+  const posted = postedSet instanceof Set ? postedSet : new Set(postedSet || []);
+  const max = Math.max(0, limit | 0);
+  const picks = [];
+  let skipped = 0;
+  for (const candidate of list) {
+    if (picks.length >= max) break;
+    if (posted.has(candidate.slug)) {
+      skipped += 1;
+      continue;
+    }
+    picks.push(candidate);
+  }
+  return { picks, skipped };
 }

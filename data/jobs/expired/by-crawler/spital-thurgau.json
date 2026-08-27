@@ -25,7 +25,7 @@
       "it": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-r136ul"
     },
     "sector": "Sanità / Ospedali",
-    "expiredAt": "2026-08-24T10:08:11.020Z",
+    "expiredAt": "2026-08-27T00:42:21.833Z",
     "previousSlugs": [
       "dipl-pflegefachmann-frau-forensik-stgag-ch",
       "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen"
@@ -41,6 +41,61 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "dedupArchive": true
+  },
+  {
+    "slug": "apprendistato-come-koch-kochin-cfc-spital-thurgau-stgag-munsterlingen",
+    "title": "Lehrstelle als Koch/Köchin EFZ",
+    "titleByLocale": {
+      "it": "Apprendistato come Koch/Köchin CFC",
+      "en": "Apprenticeship as cook/chef EFZ",
+      "de": "Lehrstelle als Koch/Köchin EFZ",
+      "fr": "Apprentissage en tant que cuisinier/chef EFZ"
+    },
+    "company": "Spital Thurgau (STGAG)",
+    "companyKey": "spital-thurgau",
+    "location": "Münsterlingen",
+    "addressLocality": "Münsterlingen",
+    "descriptionByLocale": {
+      "it": "Apprendistato come Koch/Köchin EFZ — Spital Thurgau (STGAG).\n• Ubicazione: Clinica Psichiatrica, Münsterlingen\n• Dipartimento: Istruzione\n• Divisione: Spital Thurgau AG\n• Pensum: a tempo pieno\n• Occupazione: Formazione\n• Data di entrata: 01.08.2027",
+      "en": "Apprenticeship as Koch/Köchin EFZ — Spital Thurgau (STGAG).\n• Location: Psychiatric Clinic, Münsterlingen\n• Department: Education\n• Division: Spital Thurgau AG\n• Pensum: Full-time\n• Employment: Training\n• Date of entry: 01.08.2027",
+      "de": "Lehrstelle als Koch/Köchin EFZ — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Bildung\n• Bereich: Spital Thurgau AG\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Ausbildung\n• Eintrittsdatum: 01.08.2027",
+      "fr": "Apprentissage en tant que Koch/Köchin EFZ — Spital Thurgau (STGAG).\n• Lieu: Clinique psychiatrique, Münsterlingen\n• Département: Éducation\n• Division: Spital Thurgau AG\n• Pensum: Temps plein\n• Emploi: formation\n• Date d'entrée: 01.08.2027"
+    },
+    "slugByLocale": {
+      "it": "apprendistato-come-koch-kochin-cfc-spital-thurgau-stgag-munsterlingen",
+      "en": "apprenticeship-as-cook-chef-efz-spital-thurgau-stgag-munsterlingen",
+      "de": "lehrstelle-als-koch-kochin-efz-stgag-ch",
+      "fr": "apprentissage-en-tant-que-cuisinier-chef-efz-spital-thurgau-stgag-munsterlingen"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-08-27T00:41:57.338Z",
+    "previousSlugs": [
+      "lehrstelle-als-koch-kochin-efz-stgag-ch",
+      "lehrstelle-als-koch-kochin-efz-stgag-ch-2",
+      "apprenticeship-as-cook-chef-efz-spital-thurgau-stgag-munsterlingen-c66b76",
+      "apprentissage-en-tant-que-cuisinier-chef-efz-spital-thurgau-stgag-munsterlingen-c66b76",
+      "lehrstelle-als-koch-kochin-efz-stgag-munsterlingen"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "lehrstelle-als-koch-kochin-efz-stgag-ch",
+        "lehrstelle-als-koch-kochin-efz-stgag-ch-2",
+        "apprenticeship-as-cook-chef-efz-spital-thurgau-stgag-munsterlingen-c66b76",
+        "apprentissage-en-tant-que-cuisinier-chef-efz-spital-thurgau-stgag-munsterlingen-c66b76",
+        "lehrstelle-als-koch-kochin-efz-stgag-munsterlingen"
+      ],
+      "en": [
+        "lehrstelle-als-koch-kochin-efz-stgag-ch"
+      ],
+      "fr": [
+        "lehrstelle-als-koch-kochin-efz-stgag-ch"
+      ]
+    },
+    "postalCode": "8596",
+    "salaryMin": 49500,
+    "salaryMax": 62000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
   },
   {
     "slug": "sozialarbeiter-in-fh-stgag-munsterlingen",

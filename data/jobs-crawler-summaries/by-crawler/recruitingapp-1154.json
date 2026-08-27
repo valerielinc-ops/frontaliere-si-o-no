@@ -1,20 +1,21 @@
 {
   "key": "recruitingapp-1154",
   "label": "SGKB Bewerbermanagement Stellen",
-  "generatedAt": "2026-08-24T10:32:10.003Z",
-  "total": 9,
+  "generatedAt": "2026-08-27T00:47:54.102Z",
+  "total": 8,
   "discovered": null,
-  "written": 9,
-  "newCount": 2,
-  "updatedCount": 6,
+  "written": 8,
+  "newCount": 0,
+  "updatedCount": 8,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6772,
-  "avgDurationMs": 6772,
+  "unchangedCount": 0,
+  "durationMs": 6446,
+  "avgDurationMs": 6446,
   "durationHistory": [
-    6772
+    6446
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "recruitingapp-1154-6a3824e3d042",
       "slug": "kundenberater-in-beratungszentrum-digitale-zahlungslosungen-kmu-60-100-recruitingapp-1154",
@@ -27,7 +28,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3795/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:32:04.542Z",
+      "crawledAt": "2026-08-27T00:47:48.887Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -40,11 +41,13 @@
       "featured": false,
       "postedDate": "2026-08-24",
       "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3795/Description/1",
-      "_qualityScore": 46,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T10:32:04.542Z",
+      "_qualityScore": 57,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 3,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -60,7 +63,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3794/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T10:32:04.862Z",
+      "crawledAt": "2026-08-27T00:47:49.210Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -73,16 +76,16 @@
       "featured": false,
       "postedDate": "2026-08-24",
       "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3794/Description/1",
-      "_qualityScore": 43,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T10:32:04.862Z",
+      "_qualityScore": 49,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 10,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "recruitingapp-1154-14f3ec04181f",
       "slug": "teamleiter-in-sicherheit-100-recruitingapp-1154-ch",
@@ -95,7 +98,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3793/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:32:05.164Z",
+      "crawledAt": "2026-08-27T00:47:49.514Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -130,7 +133,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3790/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T10:32:05.468Z",
+      "crawledAt": "2026-08-27T00:47:49.816Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -165,7 +168,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3792/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:32:05.775Z",
+      "crawledAt": "2026-08-27T00:47:50.118Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -200,7 +203,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3791/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:32:06.080Z",
+      "crawledAt": "2026-08-27T00:47:50.421Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -235,7 +238,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3787/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T10:32:06.384Z",
+      "crawledAt": "2026-08-27T00:47:50.722Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -250,11 +253,11 @@
       "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3787/Description/1",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T09:39:21.364Z",
-      "_qualityScore": 54,
+      "_qualityScore": 52,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 15,
+        "translation": 13,
         "completeness": 14
       }
     },
@@ -270,7 +273,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3780/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:32:06.686Z",
+      "crawledAt": "2026-08-27T00:47:51.024Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -295,45 +298,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "recruitingapp-1154-853b0bc5a292",
-      "slug": "fachspezialist-in-servizi-operativi-70-80-sgkb-bewerbermanagement-stellen-lugano",
-      "company": "SGKB Bewerbermanagement Stellen",
-      "companyKey": "recruitingapp-1154",
-      "companyDomain": "recruitingapp-1154.umantis.com",
-      "title": "Fachspezialist*in Operations Services 70 – 80%",
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://recruitingapp-1154.umantis.com/Vacancies/3786/Description/1",
-      "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-23T21:51:33.930Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Produzione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-23",
-      "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3786/Description/1",
-      "needsRetranslation": true,
-      "salaryMin": 44400,
-      "salaryMax": 60000,
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-23T09:39:21.667Z",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 61,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 0,
-        "translation": 17,
-        "completeness": 19
-      }
-    }
-  ]
+  "unchangedJobs": []
 }

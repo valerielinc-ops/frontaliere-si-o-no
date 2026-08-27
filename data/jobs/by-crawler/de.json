@@ -1,25 +1,25 @@
 {
   "crawlerKey": "de",
-  "assembledAt": "2026-08-24T10:28:20.482Z",
+  "assembledAt": "2026-08-27T00:42:38.663Z",
   "jobs": [
     {
       "id": "de-a1b65c3223c4",
       "slug": "anlagenmechaniker-m-w-d-schwerpunkt-sanitar-e-gastechnik-mpi-age-lugano",
       "slugByLocale": {
-        "de": "anlagenmechaniker-m-w-d-schwerpunkt-sanitar-und-gastechnik-de-ch",
         "it": "anlagenmechaniker-m-w-d-schwerpunkt-sanitar-e-gastechnik-mpi-age-lugano",
-        "en": "anlagenmechaniker-m-w-d-schwerpunkt-sanitar-und-gastechnik-de-ch",
-        "fr": "anlagenmechaniker-m-w-d-schwerpunkt-sanitar-und-gastechnik-de-ch"
+        "en": "plant-mechanic-m-f-d-focus-on-sanitary-and-gas-technology-mpi-age-lugano",
+        "de": "anlagenmechaniker-m-w-d-schwerpunkt-sanitar-und-gastechnik-de-ch",
+        "fr": "mecanicien-d-usine-h-f-d-focus-sur-la-technologie-sanitaire-et-gaziere-mpi-age-lugano"
       },
       "company": "MPI AGE",
       "companyKey": "de",
       "companyDomain": "mpi-age.de.umantis.com",
       "title": "Anlagenmechaniker (m/w/d) - Schwerpunkt Sanitär- und Gastechnik",
       "titleByLocale": {
-        "de": "Anlagenmechaniker (m/w/d) - Schwerpunkt Sanitär- und Gastechnik",
         "it": "Anlagenmechaniker (m/w/d) - Schwerpunkt Sanitär- e Gastechnik",
-        "en": "Anlagenmechaniker (m/w/d) - Schwerpunkt Sanitär- und Gastechnik",
-        "fr": "Anlagenmechaniker (m/w/d) - Schwerpunkt Sanitär- und Gastechnik"
+        "en": "Plant mechanic (m/f/d) - Focus on sanitary and gas technology",
+        "de": "Anlagenmechaniker (m/w/d) - Schwerpunkt Sanitär- und Gastechnik",
+        "fr": "Mécanicien d'usine (h/f/d) - Focus sur la technologie sanitaire et gazière"
       },
       "description": "Anlagenmechaniker (m/w/d) - Schwerpunkt Sanitär- und Gastechnik — MPI AGE",
       "descriptionByLocale": {
@@ -30,7 +30,7 @@
       "url": "https://mpi-age.de.umantis.com/Vacancies/505/Description/1",
       "source": "MPI AGE Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:28:17.522Z",
+      "crawledAt": "2026-08-27T00:42:35.352Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -44,18 +44,23 @@
       "postedDate": "2026-08-24",
       "applyUrl": "https://mpi-age.de.umantis.com/Vacancies/505/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "anlagenmechaniker-m-w-d-schwerpunkt-sanitar-und-gastechnik-de-ch"
-        ]
-      },
+      "requirementsByLocale": {},
       "previousSlugs": [
         "anlagenmechaniker-m-w-d-schwerpunkt-sanitar-und-gastechnik-de-ch"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagenmechaniker-m-w-d-schwerpunkt-sanitar-und-gastechnik-de-ch"
+        ],
+        "en": [
+          "anlagenmechaniker-m-w-d-schwerpunkt-sanitar-und-gastechnik-de-ch"
+        ],
+        "fr": [
+          "anlagenmechaniker-m-w-d-schwerpunkt-sanitar-und-gastechnik-de-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T10:28:17.522Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -68,27 +73,26 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T10:28:17.522Z"
+      "addressRegion": "TI"
     },
     {
       "id": "de-dfc4921b55ae",
-      "slug": "elektroniker-betriebstechnik-energieanlagen-m-w-d-schwerpunkt-raumlufttechnik-rlt-de-ch",
+      "slug": "ingegneria-dell-elettronica-sistemi-energetici-m-f-d-focus-on-indoor-air-technology-rlt-mpi-age-lugano",
       "slugByLocale": {
+        "it": "ingegneria-dell-elettronica-sistemi-energetici-m-f-d-focus-on-indoor-air-technology-rlt-mpi-age-lugano",
+        "en": "electronics-engineer-operating-engineering-energy-systems-m-f-d-focus-on-indoor-air-technology-rlt-mpi-age-lugano",
         "de": "elektroniker-betriebstechnik-energieanlagen-m-w-d-schwerpunkt-raumlufttechnik-rlt-de-ch",
-        "it": "elektroniker-betriebstechnik-energieanlagen-m-w-d-schwerpunkt-raumlufttechnik-rlt-de-ch",
-        "en": "elektroniker-betriebstechnik-energieanlagen-m-w-d-schwerpunkt-raumlufttechnik-rlt-de-ch",
-        "fr": "elektroniker-betriebstechnik-energieanlagen-m-w-d-schwerpunkt-raumlufttechnik-rlt-de-ch"
+        "fr": "ingenieur-en-electronique-genie-d-exploitation-systemes-energetiques-h-f-d-focus-sur-la-technologie-de-l-air-interieur"
       },
       "company": "MPI AGE",
       "companyKey": "de",
       "companyDomain": "mpi-age.de.umantis.com",
       "title": "Elektroniker Betriebstechnik / Energieanlagen (m/w/d) - Schwerpunkt Raumlufttechnik (RLT)",
       "titleByLocale": {
+        "it": "Ingegneria dell'elettronica / Sistemi energetici (m/f/d) - Focus on Indoor Air Technology (RLT)",
+        "en": "Electronics engineer Operating Engineering / Energy Systems (m/f/d) - Focus on Indoor Air Technology (RLT)",
         "de": "Elektroniker Betriebstechnik / Energieanlagen (m/w/d) - Schwerpunkt Raumlufttechnik (RLT)",
-        "it": "Elektroniker Betriebstechnik / Energieanlagen (m/w/d) - Schwerpunkt Raumlufttechnik (RLT)",
-        "en": "Elektroniker Betriebstechnik / Energieanlagen (m/w/d) - Schwerpunkt Raumlufttechnik (RLT)",
-        "fr": "Elektroniker Betriebstechnik / Energieanlagen (m/w/d) - Schwerpunkt Raumlufttechnik (RLT)"
+        "fr": "Ingénieur en électronique Génie d'exploitation / Systèmes énergétiques (h/f/d) - Focus sur la technologie de l'air intérieur (RLT)"
       },
       "description": "Elektroniker Betriebstechnik / Energieanlagen (m/w/d) - Schwerpunkt Raumlufttechnik (RLT) — MPI AGE",
       "descriptionByLocale": {
@@ -99,7 +103,7 @@
       "url": "https://mpi-age.de.umantis.com/Vacancies/504/Description/1",
       "source": "MPI AGE Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-24T10:28:17.192Z",
+      "crawledAt": "2026-08-27T00:42:35.049Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -113,10 +117,25 @@
       "postedDate": "2026-08-24",
       "applyUrl": "https://mpi-age.de.umantis.com/Vacancies/504/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "elektroniker-betriebstechnik-energieanlagen-m-w-d-schwerpunkt-raumlufttechnik-rlt-de-ch",
+        "ingegneria-dell-elettronica-sistemi-energetici-m-f-d-focus-on-indoor-air-technology-rlt-mpi-age-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "elektroniker-betriebstechnik-energieanlagen-m-w-d-schwerpunkt-raumlufttechnik-rlt-de-ch",
+          "ingegneria-dell-elettronica-sistemi-energetici-m-f-d-focus-on-indoor-air-technology-rlt-mpi-age-lugano"
+        ],
+        "en": [
+          "elektroniker-betriebstechnik-energieanlagen-m-w-d-schwerpunkt-raumlufttechnik-rlt-de-ch"
+        ],
+        "fr": [
+          "elektroniker-betriebstechnik-energieanlagen-m-w-d-schwerpunkt-raumlufttechnik-rlt-de-ch"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T10:28:17.192Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "baseSalary": {
@@ -129,8 +148,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-24T10:28:17.192Z"
+      "addressRegion": "TI"
     }
   ]
 }

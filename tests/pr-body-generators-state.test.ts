@@ -373,8 +373,12 @@ describe('generatori del body PR — keyword di chiusura', () => {
     // Il gate porta una COPIA di isAggregate() dentro `actions/github-script`.
     // Due copie divergono al primo ritocco, e divergerebbero in silenzio: qui
     // la copia del workflow viene estratta ed eseguita sugli stessi input.
-    const wf = sources.find((s) => s.rel === '.github/workflows/pr-body-contract.yml');
-    expect(wf, 'pr-body-contract.yml non trovato — il confronto sarebbe vacuo').toBeTruthy();
+    // `pr-body-contract.yml` was deleted (its `contract` job moved into
+    // `tests.yml` to sequentialise the 4 per-PR gate jobs — see the "Four
+    // jobs, one after another" note atop that file); same job id, same
+    // inline script, new home.
+    const wf = sources.find((s) => s.rel === '.github/workflows/tests.yml');
+    expect(wf, 'tests.yml non trovato — il confronto sarebbe vacuo').toBeTruthy();
     const m = /const isAggregateTitleBody = \(t, b\) => \{([\s\S]*?)\n\s*\};/.exec(wf!.text);
     expect(m, 'blocco isAggregateTitleBody non estratto — il confronto sarebbe vacuo').toBeTruthy();
     // eslint-disable-next-line no-new-func

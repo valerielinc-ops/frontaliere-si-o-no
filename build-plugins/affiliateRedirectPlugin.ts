@@ -11,8 +11,36 @@
 import path from 'node:path';
 import type { Plugin } from 'vite';
 import { PARTNERS, buildAffiliateUrl, partnerRelAttr } from '../services/affiliateService';
-import { ANALYTICS_SNIPPET, BASE_URL, SEO_STATIC_CSS_LINK } from './constants';
+import {
+ ADSENSE_SNIPPET,
+ BASE_URL,
+ CF_BEACON_SNIPPET,
+ GA4_MEASUREMENT_ID,
+ GTAG_LOADER_SNIPPET,
+ POSTHOG_SNIPPET,
+ SEO_STATIC_CSS_LINK,
+} from './constants';
 import { WriteCollector } from './batchWrite';
+
+/**
+ * How long the redirect waits for the GA4 pageview beacon before firing
+ * anyway. The shared `ANALYTICS_SNIPPET`/`GTAG_SNIPPET` load gtag.js `async`
+ * and their config bootstrap `defer` (build-plugins/constants.ts), so a plain
+ * `location.replace()` right after used to navigate away before either
+ * script got a chance to run — the pageview never queued, let alone sent.
+ * This bootstraps gtag inline and synchronously (queueing works regardless
+ * of load order) and gates the redirect on the pageview's `event_callback`,
+ * with this timeout as the ceiling so a blocked/slow/absent gtag.js never
+ * delays a real user.
+ *
+ * This page deliberately uses `GTAG_LOADER_SNIPPET` (library only) instead of
+ * the shared `GTAG_SNIPPET`/`ANALYTICS_SNIPPET`, which also queue a SECOND,
+ * deferred `gtag('config', ...)` call (`gtag-init.js`) — a second config call
+ * for the same measurement ID fires its own automatic page_view (config's
+ * `send_page_view:false` isn't sticky across calls), which would double-count
+ * every redirect on top of the explicit page_view below.
+ */
+const REDIRECT_TRACKING_TIMEOUT_MS = 400;
 
 function buildRedirectPage(partner: typeof PARTNERS[number]): string {
  const targetUrl = buildAffiliateUrl(partner, 'go-redirect');
@@ -28,8 +56,21 @@ function buildRedirectPage(partner: typeof PARTNERS[number]): string {
  <meta name="robots" content="noindex,nofollow">
  <link rel="canonical" href="${BASE_URL}/go/${partner.id}/">
  ${SEO_STATIC_CSS_LINK}
- ${ANALYTICS_SNIPPET}
- <script>window.location.replace(${JSON.stringify(targetUrl)})</script>
+ ${GTAG_LOADER_SNIPPET}
+ ${CF_BEACON_SNIPPET}
+ ${POSTHOG_SNIPPET}
+ ${ADSENSE_SNIPPET}
+ <script>(function(){
+var u=${JSON.stringify(targetUrl)};
+var redirected=false;
+function go(){if(redirected)return;redirected=true;window.location.replace(u);}
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)}
+gtag('js',new Date());
+gtag('config',${JSON.stringify(GA4_MEASUREMENT_ID)},{transport_type:'beacon',send_page_view:false});
+gtag('event','page_view',{event_callback:go,event_timeout:${REDIRECT_TRACKING_TIMEOUT_MS}});
+setTimeout(go,${REDIRECT_TRACKING_TIMEOUT_MS});
+})();</script>
  </head>
  <body>
  <main class="s-9MsAg7">

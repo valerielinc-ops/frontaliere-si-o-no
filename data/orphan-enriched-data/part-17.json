@@ -23550,6 +23550,11 @@
           "impressions": 1
         },
         {
+          "query": "job market switzerland",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "junior",
           "clicks": 0,
           "impressions": 1
@@ -23590,7 +23595,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 34,
+      "totalImpressions": 35,
       "totalClicks": 1,
       "topQuery": "find a job as an electrician in the canton of vaud",
       "title": "Engineers",
@@ -24473,10 +24478,10 @@
         "fr": "facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-swiss-medical-network-schaffhausen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-sciaffusa/facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-swiss-medical-network-schaffhausen",
-        "en": "/en/find-jobs-schaffhausen/facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-swiss-medical-network-schaffhausen",
+        "it": "/cerca-lavoro-lucerna/facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-swiss-medical-network-schaffhausen",
+        "en": "/en/find-jobs-lucerne/facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-swiss-medical-network-schaffhausen",
         "de": "/de/jobs-im-schaffhausen/facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-swiss-medical-network-schaffhausen",
-        "fr": "/fr/trouver-emploi-schaffhouse/facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-swiss-medical-network-schaffhausen"
+        "fr": "/fr/trouver-emploi-lucerne/facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-swiss-medical-network-schaffhausen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -31803,10 +31808,10 @@
         "fr": "ingenieur-devops-nextcloud-coopers-group-ag-bern"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/ingenieur-devops-nextcloud-coopers-group-ag-bern",
-        "en": "/en/find-jobs-ticino/ingenieur-devops-nextcloud-coopers-group-ag-bern",
-        "de": "/de/jobs-im-tessin/ingenieur-devops-nextcloud-coopers-group-ag-bern",
-        "fr": "/fr/trouver-emploi-tessin/ingenieur-devops-nextcloud-coopers-group-ag-bern"
+        "it": "/cerca-lavoro-berna/ingenieur-devops-nextcloud-coopers-group-ag-bern",
+        "en": "/en/find-jobs-bern/ingenieur-devops-nextcloud-coopers-group-ag-bern",
+        "de": "/de/jobs-in-bern/ingenieur-devops-nextcloud-coopers-group-ag-bern",
+        "fr": "/fr/trouver-emploi-berne/ingenieur-devops-nextcloud-coopers-group-ag-bern"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -32196,6 +32201,64 @@
         "en": "/en/find-jobs-zug/installateur-electricien-h-f-bkw-montreux",
         "de": "/de/jobs-im-zug/installateur-electricien-h-f-bkw-montreux",
         "fr": "/fr/trouver-emploi-zoug/installateur-electricien-h-f-bkw-montreux"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "installateur-electrique-cfc-polyvalent-100-sedelec-la-vallee-succursale-de-sedelec-sa-lausanne-lausanne",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-vaud/installateur-electrique-cfc-polyvalent-100-sedelec-la-vallee-succursale-de-sedelec-sa-lausanne-lausanne/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-vaud/installateur-electrique-cfc-polyvalent-100-sedelec-la-vallee-succursale-de-sedelec-sa-lausanne-lausanne/"
+      },
+      "queries": [
+        {
+          "query": "commune lausanne emploi",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "commune lausanne emploi",
+      "title": "Installateur electrique cfc polyvalent sedelec la vallee succursale de sedelec sa lausanne",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Lausanne",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "installateur-electrique-cfc-polyvalent-100-sedelec-la-vallee-succursale-de-sedelec-sa-lausanne-lausanne",
+        "en": "installateur-electrique-cfc-polyvalent-100-sedelec-la-vallee-succursale-de-sedelec-sa-lausanne-lausanne",
+        "de": "installateur-electrique-cfc-polyvalent-100-sedelec-la-vallee-succursale-de-sedelec-sa-lausanne-lausanne",
+        "fr": "installateur-electrique-cfc-polyvalent-100-sedelec-la-vallee-succursale-de-sedelec-sa-lausanne-lausanne"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-vaud/installateur-electrique-cfc-polyvalent-100-sedelec-la-vallee-succursale-de-sedelec-sa-lausanne-lausanne",
+        "en": "/en/find-jobs-vaud/installateur-electrique-cfc-polyvalent-100-sedelec-la-vallee-succursale-de-sedelec-sa-lausanne-lausanne",
+        "de": "/de/jobs-im-waadt/installateur-electrique-cfc-polyvalent-100-sedelec-la-vallee-succursale-de-sedelec-sa-lausanne-lausanne",
+        "fr": "/fr/trouver-emploi-vaud/installateur-electrique-cfc-polyvalent-100-sedelec-la-vallee-succursale-de-sedelec-sa-lausanne-lausanne"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -74840,10 +74903,10 @@
         "fr": "verkaufer-in-im-stundenlohn-denner-7"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/verkaufer-in-im-stundenlohn-denner-7",
-        "en": "/en/find-jobs-basel/verkaufer-in-im-stundenlohn-denner-7",
-        "de": "/de/jobs-in-basel/verkaufer-in-im-stundenlohn-denner-7",
-        "fr": "/fr/trouver-emploi-bale/verkaufer-in-im-stundenlohn-denner-7"
+        "it": "/cerca-lavoro-zurigo/verkaufer-in-im-stundenlohn-denner-7",
+        "en": "/en/find-jobs-zurich/verkaufer-in-im-stundenlohn-denner-7",
+        "de": "/de/jobs-in-zurich/verkaufer-in-im-stundenlohn-denner-7",
+        "fr": "/fr/trouver-emploi-zurich/verkaufer-in-im-stundenlohn-denner-7"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -74895,10 +74958,10 @@
         "fr": "verkaufer-in-im-stundenlohn-denner-ag-frutigen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/verkaufer-in-im-stundenlohn-denner-ag-frutigen",
-        "en": "/en/find-jobs-aargau/verkaufer-in-im-stundenlohn-denner-ag-frutigen",
-        "de": "/de/jobs-im-aargau/verkaufer-in-im-stundenlohn-denner-ag-frutigen",
-        "fr": "/fr/trouver-emploi-argovie/verkaufer-in-im-stundenlohn-denner-ag-frutigen"
+        "it": "/cerca-lavoro-zurigo/verkaufer-in-im-stundenlohn-denner-ag-frutigen",
+        "en": "/en/find-jobs-zurich/verkaufer-in-im-stundenlohn-denner-ag-frutigen",
+        "de": "/de/jobs-in-zurich/verkaufer-in-im-stundenlohn-denner-ag-frutigen",
+        "fr": "/fr/trouver-emploi-zurich/verkaufer-in-im-stundenlohn-denner-ag-frutigen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -75718,10 +75781,10 @@
         "fr": "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-oftringen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
-        "en": "/en/find-jobs-aargau/verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
-        "de": "/de/jobs-im-aargau/verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
-        "fr": "/fr/trouver-emploi-argovie/verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-oftringen"
+        "it": "/cerca-lavoro-zurigo/verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
+        "en": "/en/find-jobs-zurich/verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
+        "de": "/de/jobs-in-zurich/verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
+        "fr": "/fr/trouver-emploi-zurich/verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-oftringen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

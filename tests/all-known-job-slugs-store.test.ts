@@ -116,8 +116,26 @@ function walkSources(dir: string, out: string[] = []): string[] {
  * `data/all-known-job-slugs.json` in prose — and there are many, legitimately.
  * Comments are not AST nodes, so parsing removes that whole class of false
  * positive: only a literal a program can actually pass to `fs` is reported.
+ *
+ * PRE-FILTRO (2026-08-26, mirrors tests/orphan-enriched-store.test.ts). Il
+ * parse AST e' la parte cara, e la si pagava su OGNI file dell'albero
+ * scansionato anche quando il nome del monolite non vi compare nemmeno una
+ * volta. Un `String.prototype.includes` sul sorgente e' il filtro piu'
+ * economico che esiste (nessuna regex, nessun backtracking) e scarta la
+ * quasi totalita' dei candidati prima di `ts.createSourceFile`.
+ *
+ * E' un SUPERSTRINGA di cio' che il matcher cerca
+ * (`all-known-job-slugs` ⊂ `all-known-job-slugs.json`), quindi non puo'
+ * nascondere un hit — con una sola eccezione teorica: un literal che scriva
+ * un carattere del nome come escape unicode invece che alla lettera. Li' il
+ * testo COTTO dall'AST conterrebbe la stringa mentre il sorgente grezzo no, e
+ * il pre-filtro scarterebbe il file. E' evasione deliberata, non un errore in
+ * cui si inciampa, e questo guard esiste per intercettare la re-introduzione
+ * ACCIDENTALE di un path morto.
  */
 function monolithLiterals(filePath: string, source: string): string[] {
+  // Vedi il docblock: scarto economico prima del parse, superstringa del match.
+  if (!source.includes('all-known-job-slugs')) return [];
   const sf = ts.createSourceFile(filePath, source, ts.ScriptTarget.Latest, true);
   const hits: string[] = [];
   const visit = (node: ts.Node): void => {
@@ -134,7 +152,34 @@ function monolithLiterals(filePath: string, source: string): string[] {
 }
 
 describe('all-known-job-slugs store — no direct monolith access', () => {
-  it('no source outside the store names data/all-known-job-slugs.json in a string literal', () => {
+  // Override SOLO di questo test, non del `testTimeout` globale
+  // (`vitest.config.ts`, 15000 ms) che vale per tutti gli altri test: alzarlo
+  // ovunque toglierebbe il segnale «test appeso» a tutta la suite per colpa di
+  // uno che scansiona l'albero.
+  //
+  // Perche' serve, e perche' QUESTO numero — stessa causa e stessa cura di
+  // tests/orphan-enriched-store.test.ts (v. commit 6ff599fd083, run
+  // 32948270917): questo e' l'unico test del file che tocca il filesystem su
+  // scala (~4.900 file in scripts/build-plugins/tests/services/components),
+  // quindi l'unico esposto alla contesa sulle 4 vCPU del runner quando i due
+  // gruppi vitest (independent + dependent) girano sovrapposti per
+  // costruzione (tests.yml, step "vitest run (test che leggono il dataset)").
+  // MEASURED, not estimated: run 32952024949 e' scaduto proprio a 15000 ms
+  // dentro questo scan, mai arrivato all'assert — e quel numero e' CENSURATO,
+  // non misurato: il test e' stato ucciso alla soglia. In isolamento, con il
+  // pre-filtro sopra, questo albero: ~7.5s (invariato rispetto a prima del
+  // pre-filtro, perche' qui gli hit sono pochi ma i file toccati dal prefiltro
+  // erano gia' pochi; il costo dominante resta l'I/O di 4.900 `readFileSync`).
+  // Il margine sul default (15000ms contro ~7.500ms misurati) e' 2,0x —
+  // esattamente il margine che si e' gia' rivelato troppo sottile sul sibling
+  // sotto la stessa contesa.
+  //
+  // 180_000 non e' un numero a caso: e' la stessa soglia che questo repo da'
+  // gia' agli altri test che scansionano un albero (tests/url-max-length.test.ts,
+  // tests/job-locale-consistency.test.ts, tests/orphan-enriched-store.test.ts).
+  // E' una rete di sicurezza per la coda sotto contesa, non un bersaglio — se
+  // questo test ci arriva davvero vicino, il problema non e' la soglia.
+  it('no source outside the store names data/all-known-job-slugs.json in a string literal', { timeout: 180_000 }, () => {
     const offenders: string[] = [];
     for (const dir of SCANNED_DIRS) {
       for (const file of walkSources(path.join(REPO_ROOT, dir))) {

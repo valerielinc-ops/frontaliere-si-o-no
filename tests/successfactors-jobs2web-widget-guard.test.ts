@@ -168,4 +168,117 @@ describe('SuccessFactors jobs2web widget guard', () => {
       });
     }
   });
+
+  /**
+   * Follow-up of #6370 (tracked as #6393): the 151'598-record corpus sweep in
+   * that PR body validated the pattern set only against title/titleByLocale.
+   * `sanitizeSuccessFactorsField` wipes the ENTIRE field on any match, and it
+   * is wired to `description`/`descriptionByLocale` in every parser below —
+   * a genuine posting whose description legitimately contains a matched
+   * phrase (e.g. a DPO/privacy role mentioning "Cookie-Einstellungen", or
+   * footnote-style `[[1]]` markup) would lose its whole body, not just the
+   * offending sentence.
+   *
+   * Swept the live `data/jobs/by-crawler/*.json` slices (which, unlike the
+   * assembled `data/jobs.json`, are checked in and always present) for every
+   * crawler whose parser routes description/descriptionByLocale through
+   * `sanitizeSuccessFactorsField` — found via `grep -n
+   * "sanitizeSuccessFactorsField" scripts/lib/*.mjs | grep -i descri` plus
+   * the 15 tenants sharing `successfactors-shared-job-parser-common.mjs`
+   * (`parseCsbDetailPage`, which applies the same guard to `descriptionText`).
+   *
+   * Result on 2026-08-24: 2'345 records across 31 crawlers (`benteler` has
+   * zero live jobs), 2'345 with a non-empty description, 0 empty. An empty
+   * description is the only observable signature of a wipe having fired —
+   * sanitizeSuccessFactorsField returns '' on a match, nothing else does for
+   * these fields — so zero empties means the wipe has never fired on this
+   * corpus: no false positive to fix, and the claim "verified" becomes true
+   * instead of presumed. This test pins that finding as a regression anchor:
+   * if a future pattern addition starts wiping real descriptions, existing
+   * records flip from non-empty to empty and this test goes red.
+   */
+  describe('description-field corpus sweep (issue #6393)', () => {
+    const dataDir = join(__dirname, '..', 'data', 'jobs', 'by-crawler');
+
+    // Every crawlerKey whose parser applies sanitizeSuccessFactorsField to
+    // description/descriptionByLocale (title-only wiring, e.g. aldi-suisse,
+    // is out of scope — its fallback to listing.title makes a title wipe
+    // safe by design, per the module's own doc comment).
+    const descriptionGuardedKeys = [
+      'benteler', 'clariant', 'constellium', 'epfl', 'hirslanden', 'holcim',
+      'liebherr', 'patek-philippe', 'rolex', 'schindler', 'sonova',
+      'stadler-rail', 'stadt-zuerich', 'damiani-group', 'prada', 'rapelli',
+      'skyguide-sa',
+      // Tenants on the shared successfactors-shared-job-parser-common.mjs
+      // CSB parser (parseCsbDetailPage), same guard wiring.
+      'bachem', 'breitling', 'etat-de-fribourg', 'endress-hauser', 'helsana',
+      'groupe-e', 'hoch-health', 'idorsia', 'medartis', 'octapharma',
+      'sicpa', 'six-group', 'tecan', 'tl-lausanne', 'zurzach-care',
+    ];
+
+    it('has zero empty descriptions across the description-guarded crawlers', () => {
+      let recordsWithDescription = 0;
+      let emptyDescriptionFields = 0;
+      let recordsSeen = 0;
+
+      for (const key of descriptionGuardedKeys) {
+        const file = join(dataDir, `${key}.json`);
+        let raw;
+        try {
+          raw = readFileSync(file, 'utf8');
+        } catch {
+          continue; // A crawler with zero current jobs writes no slice file.
+        }
+        const parsed = JSON.parse(raw);
+        const jobs = Array.isArray(parsed) ? parsed : parsed.jobs;
+        if (!Array.isArray(jobs)) continue;
+
+        for (const job of jobs) {
+          recordsSeen++;
+          const fields = [job.description, ...Object.values(job.descriptionByLocale || {})];
+          for (const value of fields) {
+            if (typeof value !== 'string') continue;
+            if (value.trim()) recordsWithDescription++;
+            else emptyDescriptionFields++;
+          }
+        }
+      }
+
+      // Sanity: the sweep actually covered a meaningful corpus, not an
+      // accidentally-empty data directory.
+      expect(recordsSeen).toBeGreaterThan(1000);
+      expect(recordsWithDescription).toBeGreaterThan(1000);
+      expect(emptyDescriptionFields).toBe(0);
+    });
+
+    it('has no residual widget-pattern match in a live description field', () => {
+      // Defence in depth alongside the empty-field check above: even if a
+      // future refactor made sanitizeSuccessFactorsField non-idempotent (or
+      // a caller stopped routing description through it), no description
+      // currently shipped should still contain page chrome.
+      let checked = 0;
+      for (const key of descriptionGuardedKeys) {
+        const file = join(dataDir, `${key}.json`);
+        let raw;
+        try {
+          raw = readFileSync(file, 'utf8');
+        } catch {
+          continue;
+        }
+        const parsed = JSON.parse(raw);
+        const jobs = Array.isArray(parsed) ? parsed : parsed.jobs;
+        if (!Array.isArray(jobs)) continue;
+
+        for (const job of jobs) {
+          const fields = [job.description, ...Object.values(job.descriptionByLocale || {})];
+          for (const value of fields) {
+            if (typeof value !== 'string' || !value.trim()) continue;
+            checked++;
+            expect(isSuccessFactorsWidgetText(value)).toBe(false);
+          }
+        }
+      }
+      expect(checked).toBeGreaterThan(1000);
+    });
+  });
 });

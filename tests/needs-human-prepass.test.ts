@@ -71,9 +71,20 @@ describe('prepassDecision — ciò che NON deve toccare', () => {
     }).action).toBe('keep');
   });
 
-  it.each(['agent:fix', 'agent:fix-queued', 'agent:decompose', 'agent:decompose-queued', 'agent:in-progress'])(
-    'già in lavorazione (%s) → keep, mai un doppio instradamento', (label) => {
-      expect(prepassDecision({ title: 'CI Failure: tests', labels: [label] }).action).toBe('keep');
+  it('agent:in-progress → keep, mai un doppio instradamento (claim mutex reale)', () => {
+    expect(prepassDecision({ title: 'CI Failure: tests', labels: ['agent:in-progress'] }).action).toBe('keep');
+  });
+
+  it.each(['agent:fix', 'agent:fix-queued', 'agent:decompose', 'agent:decompose-queued'])(
+    'regressione #6427: needs-human + %s + titolo monitor → requeue, non keep', (label) => {
+      // Prima della fix, queste 4 label facevano tornare `keep` per la guardia
+      // "già in lavorazione". Ma la query a monte filtra già su `needs-human`, e
+      // nessuno di questi 4 stadi aggiunge `needs-human` restando `agent:fix*`/
+      // `agent:decompose*` mentre è davvero in coda: è lo stato morto lasciato
+      // dall'escalation VERDICT-EXIT (che prima non rimuoveva le label), non
+      // un'issue in volo. La guardia va ristretta ad `agent:in-progress` — vedi
+      // caso #6427 sul sito, misurato il 2026-08-25.
+      expect(prepassDecision({ title: 'CI Failure: tests', labels: [label] }).action).toBe('requeue');
     });
 
   it('il default è keep: «non so dirlo» non è un ramo di errore', () => {
@@ -99,9 +110,18 @@ describe('prepassDecision — verdetti superati dalla decisione sui secret', () 
     }
   });
 
-  it('il verdetto batte il titolo non riconosciuto, non le label di lavorazione', () => {
+  it('il verdetto batte il titolo non riconosciuto, e (post-#6427) anche agent:fix', () => {
+    // Prima della fix #6427, `agent:fix` intercettava PRIMA del check sul
+    // verdetto e tornava `keep`. Ora solo `agent:in-progress` intercetta, quindi
+    // qui il verdetto superato decide: requeue.
     expect(prepassDecision({
       title: 'una cosa qualunque', labels: ['agent:fix'], verdict: 'blocked-secrets',
+    }).action).toBe('requeue');
+  });
+
+  it('agent:in-progress resta più forte del verdetto superato', () => {
+    expect(prepassDecision({
+      title: 'una cosa qualunque', labels: ['agent:in-progress'], verdict: 'blocked-secrets',
     }).action).toBe('keep');
   });
 });

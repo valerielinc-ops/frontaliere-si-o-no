@@ -25,9 +25,14 @@ import {
   resolveTelegramCredentials,
   hasTelegramCredentials,
   sendMessage,
+  getChatMemberCount,
   TELEGRAM_MESSAGE_MAX,
 } from '../scripts/lib/telegram-client.mjs';
-import { buildDailyJobsDigest } from '../scripts/lib/telegram-templates.mjs';
+import {
+  buildDailyJobsDigest,
+  buildPreferredSourceAnnouncement,
+  PREFERRED_SOURCE_ANNOUNCEMENT_ID,
+} from '../scripts/lib/telegram-templates.mjs';
 import { buildWeeklyBorderDigest } from '../scripts/lib/telegram-border-digest.mjs';
 import { formatJobSalaryLabel, formatSwissThousands, withUtm } from '../scripts/lib/social-post-utils.mjs';
 import {
@@ -36,6 +41,7 @@ import {
   TELEGRAM_UTM_MEDIUM,
   TELEGRAM_CAMPAIGN_JOBS,
   TELEGRAM_CAMPAIGN_BORDER,
+  TELEGRAM_CAMPAIGN_PREFERRED_SOURCE,
 } from '../scripts/lib/telegram-links.mjs';
 
 // ── telegram-client ──────────────────────────────────────────
@@ -113,6 +119,45 @@ describe('sendMessage', () => {
   });
 });
 
+describe('getChatMemberCount', () => {
+  it('GETs the endpoint and maps a successful envelope', async () => {
+    let capturedUrl = '';
+    const fetchImpl = (async (url: string) => {
+      capturedUrl = url;
+      return { ok: true, status: 200, json: async () => ({ ok: true, result: 42 }) };
+    }) as unknown as typeof fetch;
+
+    const res = await getChatMemberCount({ token: 'TKN', chatId: '@c', fetchImpl });
+    expect(res).toEqual({ ok: true, count: 42, error: null });
+    expect(capturedUrl).toBe('https://api.telegram.org/botTKN/getChatMemberCount?chat_id=%40c');
+  });
+
+  it('maps an API error envelope to a soft failure', async () => {
+    const fetchImpl = (async () => ({
+      ok: false,
+      status: 400,
+      json: async () => ({ ok: false, description: 'chat not found' }),
+    })) as unknown as typeof fetch;
+    const res = await getChatMemberCount({ token: 'T', chatId: '@c', fetchImpl });
+    expect(res.ok).toBe(false);
+    expect(res.error).toContain('chat not found');
+  });
+
+  it('never throws on a network error', async () => {
+    const fetchImpl = (async () => {
+      throw new Error('boom');
+    }) as unknown as typeof fetch;
+    const res = await getChatMemberCount({ token: 'T', chatId: '@c', fetchImpl });
+    expect(res.ok).toBe(false);
+    expect(res.error).toContain('boom');
+  });
+
+  it('fails soft when credentials are missing', async () => {
+    const res = await getChatMemberCount({ token: '', chatId: '@c' });
+    expect(res.ok).toBe(false);
+  });
+});
+
 // ── shared salary formatter ──────────────────────────────────
 
 describe('formatJobSalaryLabel', () => {
@@ -175,6 +220,27 @@ describe('buildDailyJobsDigest', () => {
   it('respects the limit cap', () => {
     const many = Array.from({ length: 8 }, (_, i) => ({ ...JOB_A, id: `j${i}`, slug: `s${i}` }));
     expect(buildDailyJobsDigest(many, { limit: 3 }).count).toBe(3);
+  });
+});
+
+// ── telegram-templates (preferred-source announcement) ───────
+
+describe('buildPreferredSourceAnnouncement', () => {
+  it('links the canonical Google preferred-source deep link, UTM-tagged', () => {
+    const { text } = buildPreferredSourceAnnouncement();
+    expect(text).toContain(
+      'href="https://www.google.com/preferences/source?q=frontaliereticino.ch' +
+        '&amp;utm_source=telegram&amp;utm_medium=social' +
+        '&amp;utm_campaign=preferred_source_announcement&amp;utm_content=announcement"',
+    );
+  });
+
+  it('has a stable, never-repeating ledger id', () => {
+    expect(PREFERRED_SOURCE_ANNOUNCEMENT_ID).toBeTruthy();
+  });
+
+  it('carries the preferred-source UTM campaign identity', () => {
+    expect(TELEGRAM_CAMPAIGN_PREFERRED_SOURCE).toBe('preferred_source_announcement');
   });
 });
 

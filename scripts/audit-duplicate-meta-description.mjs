@@ -52,11 +52,41 @@
 
 import { readFile, stat } from 'node:fs/promises';
 import { relative } from 'node:path';
-import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
+import { walkHtmlFiles, ROOT, DEFAULT_DIST, sharedExtract } from './lib/audit-runner.mjs';
 import { writeAuditReport } from './lib/auditReport.mjs';
 import { extractMetaDescriptionRaw } from './lib/meta-description-extract.mjs';
+import { evaluateCeiling, familyEntry, readLedgerOrNull } from './lib/seoDefectRatchet.mjs';
 
 export const MAX_DUPLICATE_PAGES_PER_DESCRIPTION = 2;
+
+/** Ledger family name (#6222 item 1). See scripts/lib/seoDefectRatchet.mjs. */
+export const DUPLICATE_META_FAMILY = 'duplicate-meta-description';
+
+/**
+ * RECALIBRATION NOTE (issue #5943, follow-up to #5939 which introduced the
+ * sampling semantics documented in the header above): the per-run recall
+ * loss described there ("a group of 3-8 pages split across buckets may go
+ * unseen in a given run") understates the effect for the NARROW end of that
+ * range, because bucket membership is DETERMINISTIC on file path
+ * (`scripts/lib/audit-runner.mjs::sampleFiles` hashes the path), not
+ * re-rolled per run — a given page falls in the same bucket on every run,
+ * forever, until the salt (`AUDIT_SAMPLE_SALT`) itself changes. Flagging a
+ * group requires `count > maxPages` WITHIN one active bucket, i.e. for a
+ * 3-page group, all 3 pages must share a bucket. Whether they do is decided
+ * ONCE per salt, by where their paths hash to — not re-drawn per run. So a
+ * 3-page group is either detectable under the CURRENT salt (all 3 share a
+ * bucket) or blind under it (split across ≥2 buckets) — never a fresh
+ * per-run coin flip. At `AUDIT_SAMPLE_RATE=0.25` (4 buckets) the fraction of
+ * 3-page groups that land in the detectable case is `rate^(n-1) = 0.25² ≈
+ * 6%`; the other ~94% stay invisible to this gate for as long as the salt
+ * does not rotate them into the same bucket. This is the accepted design
+ * trade-off restated, not a bug: the gate exists to catch WIDE fallback
+ * families (a 14-page group only needs 3 of its pages to share a bucket,
+ * which is far likelier), and narrow near-threshold groups were already the
+ * stated cost. Recorded here, next to the threshold, so the next reader does
+ * not have to re-derive why a green run on a narrow duplicate can stay green
+ * for many runs in a row.
+ */
 
 /**
  * Description prefixes duplicated BY DESIGN (404 / soft-404 stubs share one
@@ -98,7 +128,26 @@ export function createAuditor(opts = {}) {
    * distinct-description count, and no single-pass duplicate detector can
    * avoid that. `PATHS_PER_DESCRIPTION_CAP` bounds only the path list, which
    * was never the dominant term.
+   *
+   * The `sample` string is deferred to the SECOND occurrence (issue #5943): a
+   * description seen once can never become an offender (`count > maxPages`,
+   * and `maxPages` starts at 2), yet it was the majority shape of this Map —
+   * near-unique descriptions on job/article pages mean most entries never see
+   * a second occurrence. Not allocating the 100-char sample for those removes
+   * the new dominant term the fold's own review measured at ~950k entries ×
+   * ~400-600 B ≈ 0.4-0.6 GB on a 25% sample — inside the 4096 MB budget, but
+   * the largest single accumulator left once the OOM-causing ones (see the
+   * sibling fold auditors) were capped.
    */
+  // Descending ceiling (#6222 item 1). Read once, synchronously — `report()`
+  // below is sync. FAIL-CLOSED in the same direction as
+  // scripts/audit-link-anchor-text.mjs: a missing or malformed ledger yields a
+  // null entry, `evaluateCeiling` reports `ratcheted: false`, and the verdict
+  // falls back to the original `offenders.length === 0`. Losing the ledger
+  // tightens this gate; it can never loosen it.
+  const ledger = opts.ledger !== undefined ? opts.ledger : readLedgerOrNull(opts.ledgerPath);
+  const ceilingEntry = familyEntry(ledger, DUPLICATE_META_FAMILY);
+
   const byDescription = new Map();
   const PATHS_PER_DESCRIPTION_CAP = 5;
   const DESCRIPTION_SAMPLE_CHARS = 100;
@@ -167,18 +216,25 @@ export function createAuditor(opts = {}) {
       const desc = extractMetaDescriptionRaw(html);
       if (!desc) return;
       if (ALLOWLIST_PREFIXES.some((p) => desc.startsWith(p))) return;
+      // `noindex,follow` bridge/tombstone pages (below-floor, legacy-redirect,
+      // self-heal) share a templated description by design and never compete
+      // for a SERP snippet — same reasoning as `isNoindex()` in
+      // audit-cannibalization.mjs, reused here via the shared extractor
+      // instead of a second copy of the regex (#6501).
+      if (sharedExtract(html).isNoindex) return;
       const path = relative(ROOT, file).replace(/^dist\//, '');
       const key = hashKey(desc);
       const entry = byDescription.get(key);
       if (entry) {
         entry.count += 1;
         if (entry.paths.length < PATHS_PER_DESCRIPTION_CAP) entry.paths.push(path);
+        // Deferred to the second occurrence — see the class header comment
+        // above `byDescription`. `maxPages` starts at 2, so `sample` is
+        // always populated well before an entry can become a real offender
+        // (`count > maxPages`).
+        if (entry.sample === undefined) entry.sample = flatten(desc.slice(0, DESCRIPTION_SAMPLE_CHARS));
       } else {
-        byDescription.set(key, {
-          count: 1,
-          paths: [path],
-          sample: flatten(desc.slice(0, DESCRIPTION_SAMPLE_CHARS)),
-        });
+        byDescription.set(key, { count: 1, paths: [path], sample: undefined });
       }
     },
     report() {
@@ -194,7 +250,22 @@ export function createAuditor(opts = {}) {
         }
       }
       offenders.sort((a, b) => b.metric - a.metric);
-      const passed = offenders.length === 0;
+
+      // CEILING, not zero. `MAX_DUPLICATE_PAGES_PER_DESCRIPTION = 2` is the
+      // per-GROUP quality threshold and is untouched — a description on three
+      // pages is still an offender. What changes is the corpus-level verdict:
+      // the rehydrated dist/ carries ~197'000 offender pages emitted over
+      // months, so `offenders.length === 0` made this auditor report an
+      // unchanging red regardless of whether anyone was fixing it. See
+      // scripts/lib/seoDefectRatchet.mjs for the reassembled-corpus exception
+      // this sits inside.
+      const ratchet = evaluateCeiling({
+        family: DUPLICATE_META_FAMILY,
+        offenders: offenders.length,
+        filesScanned,
+        entry: ceilingEntry,
+      });
+      const passed = ratchet.ratcheted ? ratchet.passed : offenders.length === 0;
       return {
         passed,
         offendersTotal: offenders.length,
@@ -215,10 +286,21 @@ export function createAuditor(opts = {}) {
             sampleRate < 1
               ? `group sizes are counted WITHIN the ${(sampleRate * 100).toFixed(0)}% sampled slice: no false positives (a sampled group is a real group), reduced recall (a real group may be split across buckets and never seen whole). A green run is not proof the corpus is clean.`
               : 'full walk: group sizes are corpus-exact.',
+          // Full ledger verdict into the artifact — see the identical field in
+          // scripts/audit-link-anchor-text.mjs and the reason there.
+          ratchet,
         },
+        // The measured rate is printed on EVERY run, pass or fail. That is not
+        // decoration: it is the condition the reassembled-corpus exception
+        // attaches to using a rate at all (AGENTS.md #1, owner 2026-08-20) —
+        // the next ceiling has to tighten on a datum, and a datum nobody prints
+        // is not one.
         humanSummary: passed
-          ? `duplicate meta-description gate: 0 description(s) on more than ${maxPages} of ${filesScanned} scanned page(s)`
-          : `${offenders.length} description(s) shared by more than ${maxPages} pages (worst: ${offenders[0].metric} pages)`,
+          ? `duplicate meta-description gate: ${offenders.length} description(s) on more than ${maxPages} of ` +
+            `${filesScanned} scanned page(s)${offenders.length > 0 ? ` (worst group: ${offenders[0].metric} pages)` : ''} — ${ratchet.humanSummary}`
+          : ratchet.ratcheted
+            ? `${ratchet.humanSummary} — worst group: ${offenders[0].metric} pages sharing "${offenders[0].description}"`
+            : `${offenders.length} description(s) shared by more than ${maxPages} pages (worst: ${offenders[0].metric} pages)`,
       };
     },
   };

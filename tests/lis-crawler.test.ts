@@ -162,6 +162,31 @@ const DETAIL_HTML = `
 </html>
 `;
 
+// ── Fixture: detail page reproducing the real view-job.php layout, where
+// `itemprop="description"` appears THREE times — a void `<meta>` in the
+// head, the real `<div>` container, and a `<p>` inside the login modal —
+// same Arca24 template/tenant order as PKB (#6363/#6395: verified live on
+// lavoraconnoi.lugano-lis.ch that the real `<div>` always precedes the
+// modal `<p>`, across multiple job pages).
+
+const DETAIL_HTML_VOID_META_COLLISION = `
+<html><head>
+<meta itemprop="description" content="Luogo: Svizzera Ticino Pregassona | Settore: Ospedaliero/Medicale">
+<script>var alertM = { wrongFileSize: "Il file che stai cercando di caricare e troppo grande." };</script>
+<style>.descriptionContainer { padding: 12px; margin: 0 auto; display: block; }</style>
+</head><body>
+<h1 itemprop="title">Capireparto <a>Invia</a></h1>
+<span itemprop="addressLocality">Pregassona</span>
+<span itemprop="datePosted">26/01/2026</span>
+<div itemprop="description">
+  <p>Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico per capireparto.</p>
+  <p>alle condizioni del Regolamento Organico dei Collaboratori (ROCIS) e del capitolato di concorso.</p>
+</div>
+<div class="loginModal">
+  <p itemprop="description">Inserisci il tuo indirizzo mail e la tua password per accedere al tuo profilo</p>
+</div>
+</body></html>`;
+
 // ── Fixture: detail page with HTML entities (common in Arca24) ──
 
 const DETAIL_HTML_ENTITIES = `
@@ -288,6 +313,21 @@ describe('LIS Arca24 parser — detail page', () => {
     expect(parsed!.description.length).toBeGreaterThan(200);
     // Must NOT contain the short snippet from descriptionContainer
     expect(parsed!.description).not.toContain('Short snippet from related jobs');
+  });
+
+  it('reads description from the real <div>, skipping the void <meta> and the login modal (#6395)', () => {
+    const parsed = parseArca24DetailPage(
+      DETAIL_HTML_VOID_META_COLLISION,
+      'https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=25-capireparto-pregassona',
+    );
+    expect(parsed).not.toBeNull();
+    // The real role text wins...
+    expect(parsed!.description).toContain('concorso pubblico per capireparto');
+    expect(parsed!.description).toContain('Regolamento Organico dei Collaboratori');
+    // ...never the void <meta> content or the login-modal snippet.
+    expect(parsed!.description).not.toContain('alertM');
+    expect(parsed!.description).not.toContain('descriptionContainer');
+    expect(parsed!.description).not.toContain('Inserisci il tuo indirizzo mail');
   });
 
   it('falls back to descriptionContainer when itemprop="description" is absent', () => {

@@ -23,7 +23,9 @@ import {
   urlPathOf,
   extractVisibleText,
   segmentsFromText,
+  INFORMATION_GAIN_TUNABLES,
 } from '@/scripts/lib/informationGain.mjs';
+import { factory as createInformationGainAuditor } from '@/scripts/audit-information-gain.mjs';
 
 /** A mail-merge page: same prose, place name and figure substituted. */
 const mailMergePage = (name: string, rate: string): string => `<!doctype html>
@@ -149,6 +151,47 @@ describe('information-gain: utility di percorso', () => {
     expect(commonPathPrefix(['/lavoro-ticino-infermiere/', '/lavoro-ticino-muratore/'])).toBe('/lavoro-ticino-');
   });
 
+  it('due famiglie flat-slug DISTINTE che collidono sul prefisso di caratteri non finiscono con la stessa etichetta', () => {
+    // `commonPathPrefix` calcola l'etichetta di ogni coorte in isolamento, senza
+    // vedere le coorti sorelle: due template realmente diversi (skeletonHash
+    // diverso) possono ridursi allo stesso prefisso di caratteri se i loro slug
+    // condividono un tratto iniziale abbastanza lungo. La collisione non è
+    // cosmetica: `audit-information-gain.mjs` indicizza `KNOWN_LOW_GAIN_COHORTS`
+    // per etichetta, quindi due coorti con la stessa etichetta condividerebbero
+    // silenziosamente una baseline registrata per la famiglia sbagliata.
+    const professionPage = (job: string): string => `<!doctype html>
+<html lang="it"><head><title>Lavoro Ticino ${job}</title></head>
+<body>
+  <h1>Offerte di lavoro come ${job} in Ticino</h1>
+  <p>Cerchi lavoro come ${job} in Ticino? Consulta le offerte aperte oggi.</p>
+</body></html>`;
+    const comparisonPage = (thing: string): string => `<!doctype html>
+<html lang="it"><head><title>Confronto Ticino ${thing}</title></head>
+<body>
+  <h1>Confronto ${thing} tra i comuni del Ticino</h1>
+  <p>Ecco come cambia ${thing} da un comune all'altro del cantone.</p>
+</body></html>`;
+
+    const professionFingerprints = [
+      ['lavoro-ticino-infermiere/index.html', professionPage('infermiere')],
+      ['lavoro-ticino-muratore/index.html', professionPage('muratore')],
+    ].map(([path, html]) => fingerprintPage(path, html));
+    const comparisonFingerprints = [
+      ['lavoro-ticino-affitti/index.html', comparisonPage('gli affitti')],
+      ['lavoro-ticino-stipendi/index.html', comparisonPage('gli stipendi')],
+    ].map(([path, html]) => fingerprintPage(path, html));
+
+    const { cohorts } = scoreCohorts([...professionFingerprints, ...comparisonFingerprints], { minCohortPages: 2 });
+
+    expect(cohorts).toHaveLength(2);
+    const [labelA, labelB] = cohorts.map((c) => c.label);
+    expect(labelA).not.toBe(labelB);
+    // Entrambe restano riconoscibili come la famiglia flat-slug che erano:
+    // il disambiguatore è un suffisso, non una sostituzione dell'etichetta.
+    expect(labelA.startsWith('it:/lavoro-ticino-')).toBe(true);
+    expect(labelB.startsWith('it:/lavoro-ticino-')).toBe(true);
+  });
+
   it('riconosce il locale dal prefisso, con it come default non prefissato', () => {
     expect(localeOfPath('de/leben-im-tessin/x/index.html')).toBe('de');
     expect(localeOfPath('vivere-in-ticino/x/index.html')).toBe('it');
@@ -177,5 +220,45 @@ describe('information-gain: estrazione del testo', () => {
     );
     expect(text).not.toContain('dentro uno script');
     expect(text).toContain('Testo visibile');
+  });
+
+  it('sopra il cap, campiona a passo costante invece di tagliare ai primi N', () => {
+    // Una pagina più lunga del cap con un template boilerplate ripetuto in
+    // testa e un blocco page-specific dopo il cap: il taglio ai primi N
+    // (il comportamento vecchio) lo avrebbe perso sempre, sottostimando
+    // l'IGS proprio sulle pagine più ricche (rif. reviewer #6330).
+    const { MAX_SEGMENTS_PER_PAGE } = INFORMATION_GAIN_TUNABLES;
+    const boilerplateCount = MAX_SEGMENTS_PER_PAGE + 50;
+    const boilerplate = Array.from(
+      { length: boilerplateCount },
+      (_, i) => `<p>Frase generica del template numero ${i} ripetuta su ogni pagina della famiglia.</p>`,
+    ).join('');
+    const html = `<body>${boilerplate}<p>Questo paragrafo finale contiene il MARCATORE unico di questa pagina.</p></body>`;
+
+    const segments = segmentsFromText(extractVisibleText(html));
+
+    expect(segments.length).toBe(MAX_SEGMENTS_PER_PAGE);
+    expect(segments.some((s) => s.includes('MARCATORE'))).toBe(true);
+  });
+});
+
+describe('information-gain: le pagine noindex sono escluse anche senza apici (issue #6585)', () => {
+  // htmlMinify's unquoteSafeAttributes() strips quotes from HTML5-safe
+  // attribute values on every emitted page, so a served noindex page reads
+  // `<meta name=robots content=noindex,follow>`, not the quoted form. A
+  // quote-mandatory regex in collect() would silently score these bridge
+  // pages as indexable and drag their family's median down.
+  it('non aggiunge una pagina noindex non quotata alle pagine misurate', () => {
+    const auditor = createInformationGainAuditor();
+    const noindexHtml = '<!doctype html><html><head><meta name=robots content=noindex,follow>'
+      + '<title>Bridge</title></head><body><p>Poche parole di raccordo.</p></body></html>';
+    const indexableHtml = '<!doctype html><html><head><title>Pagina</title></head>'
+      + '<body><p>Un paragrafo di contenuto indicizzabile.</p></body></html>';
+
+    auditor.collect('dist/noindex-bridge/index.html', noindexHtml);
+    auditor.collect('dist/pagina-indicizzabile/index.html', indexableHtml);
+
+    const { extra } = auditor.report();
+    expect(extra.pagesScored + extra.pagesUncohorted).toBe(1);
   });
 });

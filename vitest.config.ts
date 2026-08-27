@@ -13,6 +13,7 @@ import {
   listNonCorpusWideTests,
   parseCorpusSkipList,
 } from './scripts/ci/corpus-wide-tests.mjs';
+import { listLiveDataTestsForCi } from './scripts/ci/live-data-test-guard.mjs';
 
 // Partizione dataset (usata SOLO da tests.yml, via VITEST_DATASET_GROUP): il
 // job CI lancia `scripts/assemble-jobs-dataset.mjs` come step `background:` e
@@ -76,6 +77,10 @@ const CORPUS_WIDE_EXCLUDE: string[] =
   CORPUS_GROUP === 'only'
     ? listNonCorpusWideTests()
     : parseCorpusSkipList(process.env.VITEST_CORPUS_SKIP);
+
+// Opt-in per tests.yml: i run locali e i gate post-merge conservano la suite.
+const LIVE_DATA_EXCLUDE: string[] =
+  process.env.VITEST_SKIP_LIVE_DATA === 'true' ? listLiveDataTestsForCi() : [];
 
 // Custom shard distribution: balance `--shard=i/N` by estimated per-file
 // duration (tests/shard-weights.json) via LPT bin-packing instead of vitest's
@@ -264,6 +269,21 @@ const sharedTest = {
 };
 
 export default defineConfig({
+  // Cache dir isolabile per PROCESSO, e serve a una cosa sola: in `tests.yml`
+  // i due gruppi di test (dataset-dipendenti e non) girano SOVRAPPOSTI, cioe'
+  // due processi `vitest run` insieme sullo stesso checkout. Vite scrive la
+  // sua cache con la sequenza «scrivi in `node_modules/.vite-temp`, poi
+  // rinomina su `node_modules/.vite`»: due processi che la eseguono insieme si
+  // trovano la temp dell'altro sotto i piedi e falliscono con
+  // EEXIST/ENOTEMPTY, in modo intermittente e proprio sul check-run che
+  // governa l'auto-merge. Non e' teorico: `.vite-temp` e `.vite/vitest/`
+  // esistono entrambi in questo repo, quindi la cache e' davvero scritta a
+  // ogni run.
+  //
+  // Default INVARIATO quando la variabile non c'e': in locale, e per ogni
+  // altro consumatore di questo config, il comportamento e' identico a prima.
+  // Solo il workflow, che sa di lanciarne due insieme, da' a ciascuno la sua.
+  cacheDir: process.env.VITEST_CACHE_DIR || 'node_modules/.vite',
  plugins: [react()],
  resolve: {
  alias: {
@@ -313,7 +333,7 @@ export default defineConfig({
  name: 'dom',
  environment: 'jsdom',
  include: ['tests/**/*.test.tsx', ...JSDOM_TS_FILES],
- exclude: [...COMMON_EXCLUDE, ...DATASET_SPLIT_EXCLUDE, ...CORPUS_WIDE_EXCLUDE],
+ exclude: [...COMMON_EXCLUDE, ...DATASET_SPLIT_EXCLUDE, ...CORPUS_WIDE_EXCLUDE, ...LIVE_DATA_EXCLUDE],
  },
  },
  {
@@ -326,7 +346,7 @@ export default defineConfig({
  // matcher jest-dom (~48ms per file × ~1240 file). Vedi tests/setup.tsx.
  setupFiles: ['./tests/setup-node.ts'],
  include: ['tests/**/*.test.ts'],
- exclude: [...COMMON_EXCLUDE, ...JSDOM_TS_FILES, ...DATASET_SPLIT_EXCLUDE, ...CORPUS_WIDE_EXCLUDE],
+ exclude: [...COMMON_EXCLUDE, ...JSDOM_TS_FILES, ...DATASET_SPLIT_EXCLUDE, ...CORPUS_WIDE_EXCLUDE, ...LIVE_DATA_EXCLUDE],
  },
  },
  ],

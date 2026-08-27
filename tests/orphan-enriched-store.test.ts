@@ -128,8 +128,36 @@ function walkSources(dir: string, out: string[] = []): string[] {
  * legitimately, because the size incident is worth explaining where it bit.
  * Comments are not AST nodes, so parsing removes that whole class of false
  * positive: only a literal a program can actually pass to `fs` is reported.
+ *
+ * PRE-FILTRO (2026-08-26). Il parse AST e' la parte cara, e la si pagava su
+ * OGNI file dell'albero scansionato anche quando il nome del monolite non vi
+ * compare nemmeno una volta. Un `String.prototype.includes` sul sorgente e' il
+ * filtro piu' economico che esiste (nessuna regex, nessun backtracking) e
+ * scarta la quasi totalita' dei candidati prima di `ts.createSourceFile`.
+ *
+ * MEASURED, not estimated (2026-08-26, questo albero): 4.918 file scansionati,
+ * di cui solo 7 contengono la stringa — l'AST si costruisce 7 volte invece di
+ * 4.918. La scansione passa da 3.802 ms a 208 ms (18,3x), e il test intero da
+ * 7.363 ms a ~300-980 ms (vedi il commento sul suo `timeout` sotto).
+ *
+ * NON cambia cosa il test rileva, ed e' verificato in due direzioni, non
+ * assunto: (a) sull'albero vero i due rami producono lo stesso identico set di
+ * offender (vuoto in entrambi); (b) su un fixture sintetico che nomina davvero
+ * il monolite, i due rami producono gli stessi due hit (literal + template),
+ * mentre il file innocente accanto salta il parse.
+ *
+ * Il pre-filtro e' un SUPERSTRINGA di cio' che il matcher cerca
+ * (`orphan-enriched-data` ⊂ `orphan-enriched-data.json`), quindi non puo'
+ * nascondere un hit — con una sola eccezione teorica: un literal che scriva il
+ * trattino (o qualunque altro carattere del nome) come escape unicode invece
+ * che alla lettera. Li' il testo COTTO dall'AST conterrebbe la stringa mentre
+ * il sorgente grezzo no, e il pre-filtro scarterebbe il file. E' evasione
+ * deliberata, non un errore in cui si inciampa, e questo guard esiste per
+ * intercettare la re-introduzione ACCIDENTALE di un path morto.
  */
 function monolithLiterals(filePath: string, source: string): string[] {
+  // Vedi il docblock: scarto economico prima del parse, superstringa del match.
+  if (!source.includes('orphan-enriched-data')) return [];
   const sf = ts.createSourceFile(filePath, source, ts.ScriptTarget.Latest, true);
   const hits: string[] = [];
   const visit = (node: ts.Node): void => {
@@ -146,7 +174,32 @@ function monolithLiterals(filePath: string, source: string): string[] {
 }
 
 describe('orphan-enriched store — no direct monolith access', () => {
-  it('no source outside the store names data/orphan-enriched-data.json in a string literal', () => {
+  // Override SOLO di questo test, non del `testTimeout` globale
+  // (`vitest.config.ts`, 15000 ms) che vale per tutti i 1.358 test: alzarlo
+  // ovunque toglierebbe il segnale «test appeso» a tutta la suite per colpa di
+  // uno che scansiona l'albero.
+  //
+  // Perche' serve, e perche' QUESTO numero. Questo e' l'unico test del file
+  // che tocca il filesystem su scala (4.918 file), quindi e' l'unico esposto
+  // alla contesa sulle 4 vCPU del runner quando i due gruppi vitest girano
+  // sovrapposti. MEASURED, not estimated: sul run 32948270917 e' scaduto
+  // proprio a 15000 ms sotto quella contesa — e quel numero e' CENSURATO, non
+  // misurato: il test e' stato ucciso alla soglia, quindi quanto avrebbe
+  // impiegato davvero resta ignoto e non si puo' tarare una soglia su di esso.
+  // In isolamento, sempre misurato oggi su questo albero: 7.363 ms prima del
+  // pre-filtro; 979 / 864 / 301 / 305 ms su quattro run dopo (la varianza e' la
+  // cache del filesystem — ~1s a freddo, ~300 ms a caldo). Il margine sul
+  // default era 2,0x: troppo sottile per assorbire un fattore di contesa di cui
+  // sappiamo solo che e' >2x.
+  //
+  // 180_000 non e' un numero a caso ne' il massimo possibile: e' la stessa
+  // soglia che questo repo da' gia' agli altri test che scansionano un albero
+  // (`tests/url-max-length.test.ts`, `tests/job-locale-consistency.test.ts`; i
+  // test che scansionano `dist/` stanno anche piu' su, a `SCAN_TEST_TIMEOUT_MS`
+  // = 300_000). Sono ~180x la misura post-pre-filtro a freddo: una rete di
+  // sicurezza per la coda sotto contesa, non un bersaglio — se questo test ci
+  // arriva davvero vicino, il problema non e' la soglia.
+  it('no source outside the store names data/orphan-enriched-data.json in a string literal', { timeout: 180_000 }, () => {
     const offenders: string[] = [];
     for (const dir of SCANNED_DIRS) {
       for (const file of walkSources(path.join(REPO_ROOT, dir))) {

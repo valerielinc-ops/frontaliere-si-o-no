@@ -1,6 +1,6 @@
 {
   "crawlerKey": "clinique-cic",
-  "assembledAt": "2026-08-24T10:05:40.868Z",
+  "assembledAt": "2026-08-27T00:37:42.243Z",
   "jobs": [
     {
       "id": "clinique-cic-d9a123e27f17",
@@ -34,7 +34,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/3f59d17e-ea2c-4bd5-b104-d535d593bd57/",
       "source": "Clinique CIC (Saxon & Clarens) Dedicated Parser (jobup.ch mask)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T10:05:36.957Z",
+      "crawledAt": "2026-08-27T00:37:40.750Z",
       "addressLocality": "Saxon",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -84,7 +84,7 @@
       "slugByLocale": {
         "it": "infermiera-clinique-cic-clarens-clarens",
         "en": "nurse-clinique-cic-clarens-clarens",
-        "de": "infirmier-ere-clinique-cic-clarens-clarens",
+        "de": "infirmier-ere-clinique-cic-clarens",
         "fr": "infirmier-ere-clinique-cic-clarens"
       },
       "company": "Clinique CIC Clarens",
@@ -110,7 +110,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/edd1a294-691b-4581-97e5-75c2519cab4e/",
       "source": "Clinique CIC (Saxon & Clarens) Dedicated Parser (jobup.ch mask)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-24T10:05:36.135Z",
+      "crawledAt": "2026-08-27T00:37:40.486Z",
       "addressLocality": "Clarens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -129,6 +129,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "infirmier-ere-clinique-cic-clarens",
+        "infirmier-ere-clinique-cic-clarens-clarens",
         "krankenschwester-clinique-cic-clarens-clarens",
         "infermiera-clinique-cic-clarens-clarens"
       ],
@@ -141,8 +142,9 @@
           "infirmier-ere-clinique-cic-clarens"
         ],
         "de": [
-          "infirmier-ere-clinique-cic-clarens",
-          "krankenschwester-clinique-cic-clarens-clarens"
+          "infirmier-ere-clinique-cic-clarens-clarens",
+          "krankenschwester-clinique-cic-clarens-clarens",
+          "infirmier-ere-clinique-cic-clarens"
         ]
       },
       "firstSeenAt": "2026-08-18T10:27:23.677Z",

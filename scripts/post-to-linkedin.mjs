@@ -14,7 +14,10 @@
  *   2. LINKEDIN_POST_ACCESS_TOKEN
  *      → uses token directly (expires in 60 days — manual renewal needed)
  *
- * LinkedIn REST API (version 202401):
+ * LinkedIn REST API (version 202608 — bump periodically, LinkedIn sunsets each
+ * YYYYMM version ~1 year after release and 426s a deprecated one outright;
+ * see the identical fix/comment in post-to-linkedin-member.mjs, measured live
+ * 2026-08-24):
  *   POST https://api.linkedin.com/rest/posts
  *
  * Exit code is always 0 (soft failure) — this script should never block CI.
@@ -23,7 +26,9 @@
 import {
   linkedinUrl,
   LINKEDIN_COMPANY_CAMPAIGN_ARTICLE,
+  LINKEDIN_REST_VERSION,
 } from './lib/linkedin-links.mjs';
+import { buildArticleContent } from './lib/linkedin-member-copy.mjs';
 
 const CATEGORY_HASHTAGS = {
   fiscale:  '#frontalieri #ticino #tasse #fisco #svizzera #italia',
@@ -156,11 +161,11 @@ async function main() {
         thirdPartyDistributionChannels: [],
       },
       content: {
-        article: {
+        article: buildArticleContent({
           source: taggedUrl,
           title: ogTitle,
-          ...(description && { description }),
-        },
+          description,
+        }),
       },
       lifecycleState: 'PUBLISHED',
       isReshareDisabledByAuthor: false,
@@ -171,7 +176,7 @@ async function main() {
       headers: {
         'Authorization': `Bearer ${accessToken}`,
         'Content-Type': 'application/json',
-        'LinkedIn-Version': '202401',
+        'LinkedIn-Version': LINKEDIN_REST_VERSION,
         'X-Restli-Protocol-Version': '2.0.0',
       },
       body: JSON.stringify(payload),

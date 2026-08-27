@@ -130,6 +130,16 @@ describe('Auto Ads are ad delivery (AGENTS.md #7 — ~95% of revenue)', () => {
     const page = auditPage('https://frontaliereticino.ch/x/', '', html);
     expect(page.issues.some((i) => i.startsWith('ads_below_indexed_content_floor'))).toBe(false);
   });
+
+  it('does not apply the indexed floor to a noindex page whose meta attributes were unquoted by htmlMinify (issue #6585)', () => {
+    // htmlMinify's unquoteSafeAttributes() drops quotes from HTML5-safe
+    // attribute values on every emitted page, so the meta tag actually served
+    // reads `<meta name=robots content=noindex,follow>`, not the quoted form
+    // above. A quote-mandatory regex never matches it.
+    const html = `<html><head><meta name=robots content=noindex,follow></head><body><p>${'parola '.repeat(10)}</p>${AUTO_ADS}</body></html>`;
+    const page = auditPage('https://frontaliereticino.ch/x/', '', html);
+    expect(page.issues.some((i) => i.startsWith('ads_below_indexed_content_floor'))).toBe(false);
+  });
 });
 
 describe('error-page detection must not fire on job-listing text', () => {

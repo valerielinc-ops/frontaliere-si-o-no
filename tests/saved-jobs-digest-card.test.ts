@@ -9,6 +9,7 @@
 // These tests are the regression guard: reverting renderJobCard to the old
 // title/company/canton/CTA shape should turn every "field present" test red.
 import { describe, expect, it } from 'vitest';
+import { readFileSync } from 'node:fs';
 import { renderJobCard, formatPostedDate, getStrings } from '../scripts/send-saved-jobs-digest.mjs';
 
 const s = getStrings('it');
@@ -135,5 +136,58 @@ describe('saved-jobs digest — formatPostedDate (#5536)', () => {
     const label = formatPostedDate('05/06/26', 'it');
     expect(label).not.toBe('');
     expect(label.toLowerCase()).toContain('giu'); // "giu" (giugno) not "mag" (maggio)
+  });
+});
+
+describe('blocco recommended + badge NUOVA (follow-up #6336)', () => {
+  const ROOT = new URL('../', import.meta.url);
+  const digestSrc = readFileSync(new URL('scripts/send-saved-jobs-digest.mjs', ROOT), 'utf-8');
+
+  it('senza partner attivo renderRecommendedBlock rende stringa vuota, non una <tr> monca', async () => {
+    // Il dubbio del reviewer: in `send-saved-jobs-digest.mjs` il blocco sta in
+    // uno slot di `<tr>` fratelli. Se la funzione rendesse una `<tr>`
+    // incompleta (o `undefined`) senza partner, la tabella si romperebbe in
+    // ogni client email, per TUTTI i destinatari — non solo per chi ha un
+    // partner. Era assunto safe per analogia col job-alert, mai verificato.
+    const { renderRecommendedBlock } = await import('../services/newsletter/recommendedBlock.mjs');
+    const out = renderRecommendedBlock({ locale: 'it', interest: 'jobs', acquisitionSource: null, campaign: 'saved-jobs' });
+    expect(typeof out).toBe('string');
+    if (out === '') return; // nessun partner attivo: il caso in questione
+    // Con un partner attivo deve essere una `<tr>` bilanciata e di livello top.
+    expect(out.trim().startsWith('<tr')).toBe(true);
+    expect((out.match(/<tr/g) || []).length).toBe((out.match(/<\/tr>/g) || []).length);
+  });
+
+  it('il blocco e interpolato in uno slot di <tr> fratelli, dove la stringa vuota e innocua', () => {
+    // Se un giorno finisse DENTRO una `<td>`, la stringa vuota resterebbe
+    // innocua ma una `<tr>` piena romperebbe: e' l'accoppiata a dover reggere.
+    const slot = digestSrc.match(/<\/td><\/tr>\s*\n\s*\n?\s*\$\{recommendedBlockHtml\}/);
+    expect(slot, 'lo slot del blocco recommended non e piu fra due <tr>').not.toBeNull();
+  });
+
+  it('le recommendations passano dallo STESSO renderJobCard delle salvate', () => {
+    // E' il motivo per cui il badge NUOVA vale anche li': non e' una scelta
+    // separata, e' la stessa funzione. Il follow-up chiedeva se fosse
+    // intenzionale — lo e' per costruzione, e questo test lo pinna.
+    expect(digestSrc).toMatch(/recommendations\.map\(\(e\) => renderJobCard\(e, locale, s, \{ expired: false \}\)\)/);
+  });
+
+  it('le recommendations portano firstSeenAt, altrimenti il badge non potrebbe mai accendersi', () => {
+    expect(digestSrc).toMatch(/firstSeenAt: job\.firstSeenAt \|\| null/);
+  });
+
+  it('badge NUOVA acceso sotto le 48h e spento sopra, anche su una card recommended', () => {
+    const s = getStrings('it');
+    const base = { id: 'x1', title: 'Impiegato', company: 'ACME', url: 'https://frontaliereticino.ch/j/x1/' };
+    const fresco = renderJobCard({ ...base, firstSeenAt: new Date(Date.now() - 3 * 3600 * 1000).toISOString() }, 'it', s, { expired: false });
+    const vecchio = renderJobCard({ ...base, firstSeenAt: new Date(Date.now() - 5 * 86400 * 1000).toISOString() }, 'it', s, { expired: false });
+    expect(fresco).toContain(s.newBadge);
+    expect(vecchio).not.toContain(s.newBadge);
+  });
+
+  it('senza firstSeenAt nessun badge: un dato assente non e una novita', () => {
+    const s = getStrings('it');
+    const out = renderJobCard({ id: 'x2', title: 'T', company: 'C', url: 'https://frontaliereticino.ch/j/x2/' }, 'it', s, { expired: false });
+    expect(out).not.toContain(s.newBadge);
   });
 });

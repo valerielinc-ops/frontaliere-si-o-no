@@ -23,6 +23,14 @@ import { withUtm } from './social-post-utils.mjs';
 export const LINKEDIN_UTM_SOURCE = 'linkedin';
 export const LINKEDIN_UTM_MEDIUM = 'social';
 
+/**
+ * Posts API + Images API version header. LinkedIn sunsets each YYYYMM ~1 year
+ * after release and 426s a deprecated one (measured 2026-08-24: 202401 →
+ * NONEXISTENT_VERSION). One constant so member, company, and image-upload
+ * cannot drift.
+ */
+export const LINKEDIN_REST_VERSION = '202608';
+
 /** Daily "most read article of yesterday" post, personal profile. */
 export const LINKEDIN_MEMBER_CAMPAIGN_ARTICLE = 'linkedin_member_daily_article';
 /** Daily "most clicked job of yesterday" post, personal profile. */
