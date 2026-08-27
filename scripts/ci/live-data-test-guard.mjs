@@ -185,18 +185,9 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   { file: 'tests/whats-new-localization-guard.test.ts', roots: ['services/locales/'] },
 ]);
 
-/** Test esclusi dal gate PR perché leggono il corpus riscritto dai crawler. */
-const CI_LIVE_DATA_META_TESTS = new Set([
-  'tests/corpus-wide-test-partition.test.ts',
-  'tests/evergreen-pool-consumption.test.ts',
-  'tests/job-locale-consistency.test.ts',
-]);
-
+/** Tutti i test dell'inventario live sono esclusi dal gate deterministico PR. */
 export function listLiveDataTestsForCi() {
-  return KNOWN_LIVE_DATA_TESTS
-    .map(({ file }) => file)
-    .filter((file) => !CI_LIVE_DATA_META_TESTS.has(file))
-    .sort();
+  return KNOWN_LIVE_DATA_TESTS.map(({ file }) => file).sort();
 }
 
 /**

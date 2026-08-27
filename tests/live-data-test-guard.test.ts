@@ -97,10 +97,10 @@ describe('il rilevatore', () => {
     expect(LIVE_DATA_ROOTS.some((r) => r.includes('baseline'))).toBe(false);
   });
 
-  it('mantiene il test meta della partizione nel gate', () => {
-    expect(listLiveDataTestsForCi()).not.toContain('tests/corpus-wide-test-partition.test.ts');
-    expect(listLiveDataTestsForCi()).not.toContain('tests/evergreen-pool-consumption.test.ts');
+  it('esclude dal gate PR anche i test meta che leggono dati live', () => {
+    expect(listLiveDataTestsForCi()).toContain('tests/corpus-wide-test-partition.test.ts');
+    expect(listLiveDataTestsForCi()).toContain('tests/evergreen-pool-consumption.test.ts');
     expect(listLiveDataTestsForCi()).toContain('tests/article-body-wordcount.test.ts');
-    expect(listLiveDataTestsForCi()).not.toContain('tests/job-locale-consistency.test.ts');
+    expect(listLiveDataTestsForCi()).toContain('tests/job-locale-consistency.test.ts');
   });
 });
