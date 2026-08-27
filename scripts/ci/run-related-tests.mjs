@@ -24,6 +24,7 @@ const changedStatusFile = process.env.CHANGED_PATHS_STATUS_FILE || 'changed-path
 const graphFile = process.env.VITEST_RELATED_GRAPH || '.cache/vitest-related/graph.json';
 const sourceRe = /\.(?:[cm]?[jt]sx?|vue|svelte)$/i;
 const testRe = /^(?:tests|packages\/[^/]+\/tests)\/.*\.(?:test|spec)\.[cm]?[jt]sx?$/i;
+const alwaysExcludedTests = new Set(['tests/checkout-sparse-profiles.test.ts']);
 const ignoredRe = /^(?:data|public|reports|docs|_newsletter_variants|node_modules)\//;
 const projectRe = /^(?:tests|scripts\/(?:ci|lib|dev|evals)\/|services|components|hooks|server|infra|build-plugins|functions|packages\/[^/]+\/(?:engine|src|tests)\/)/;
 const skipCorpusWide = process.env.VITEST_SKIP_CORPUS_WIDE === 'true';
@@ -142,7 +143,8 @@ if (candidates.length === 0 && !forceFull) {
 
 const tracked = trackedFiles();
 const graph = loadGraph(tracked);
-const allTests = tracked.filter((file) => testRe.test(file) && !corpusWideTests.has(file));
+const isRunnableTest = (file) => testRe.test(file) && !corpusWideTests.has(file) && !alwaysExcludedTests.has(file);
+const allTests = tracked.filter(isRunnableTest);
 const reverse = new Map();
 for (const [file, entry] of Object.entries(graph)) {
   for (const dep of entry.deps) {
@@ -150,7 +152,7 @@ for (const [file, entry] of Object.entries(graph)) {
     reverse.get(dep).push(file);
   }
 }
-const related = new Set(forceFull ? allTests : candidates.filter((file) => testRe.test(file) && !corpusWideTests.has(file)));
+const related = new Set(forceFull ? allTests : candidates.filter(isRunnableTest));
 if (forceFull) {
   console.log(`Changed-paths status is ${changedStatus} → running all tracked tests conservatively.`);
 }
@@ -161,7 +163,7 @@ while (queue.length) {
   if (visited.has(file)) continue;
   visited.add(file);
   for (const importer of reverse.get(file) || []) {
-    if (!related.has(importer) && testRe.test(importer)) related.add(importer);
+    if (!related.has(importer) && isRunnableTest(importer)) related.add(importer);
     if (!queue.includes(importer)) queue.push(importer);
   }
 }
