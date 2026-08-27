@@ -1,6 +1,6 @@
 {
   "crawlerKey": "srg-ssr",
-  "assembledAt": "2026-08-26T10:13:38.436Z",
+  "assembledAt": "2026-08-27T00:39:37.937Z",
   "jobs": [
     {
       "id": "srg-ssr-25dd75af254b",
@@ -33,7 +33,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/fufragnadi-emprendissadi-da-prova/b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-26T10:13:24.619Z",
+      "crawledAt": "2026-08-27T00:39:34.811Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -76,7 +76,7 @@
         "it": "praticanta-praticant-srg-ssr-cuira",
         "en": "intern-srg-ssr-cuira",
         "de": "praktikant-srg-ssr-cuira",
-        "fr": "pratique-pratique-srg-ssr-cuira"
+        "fr": "praticanta-praticant-srg-ssr-cuira"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -86,7 +86,7 @@
         "it": "Praticanta / praticant",
         "en": "Intern",
         "de": "Praktikant",
-        "fr": "Pratique / Pratique"
+        "fr": "Praticanta / praticant"
       },
       "description": "Vulessas ti daventar schurnalista u schurnalist? Ubain far ina lavur da tecnicist u tecnicista? Has ti mirveglias ed es ti gugent là nua che las chaussas capitan - t'interessas per la Rumantschia, il Grischun, il mund - lavuras ti gugent cun la lingua, purtrets e tun ubain la tecnica? Nus sustegnain e scolain tai! Ti pos frequentar tar nus in praticum da 3 fin 6 mais. En quest temp emprendas ti d'enconuscher la branscha da medias e nossa chasa cun sias vastas purschidas. Gia davent da l'entschatta fas ti part dal team e pos ta sviluppar en la pratica cun sustegn e scolaziuns internas. Tge spetgain nus? Vegliadetgna: da circa 18 onns fin 30 onns Scolaziun: emprendissadi, matura gimnasiala u professiunala, studi u scolaziun equivalenta Durada: ideal 6 mais; las plazzas èn limitadas, per regla 1 practicantA per mez onn. E suenter il praticum? davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
       "descriptionByLocale": {
@@ -100,7 +100,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/praticanta-praticant/4a660497-3bdc-452a-ab3f-d9b8493cc46f",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-26T10:13:23.774Z",
+      "crawledAt": "2026-08-27T00:39:33.953Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -141,6 +141,15 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-29T11:35:50.122Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "fr": [
+          "pratique-pratique-srg-ssr-cuira"
+        ]
+      },
+      "previousSlugs": [
+        "pratique-pratique-srg-ssr-cuira"
+      ],
       "salaryMin": 42640,
       "salaryMax": 61000,
       "baseSalary": {
@@ -158,7 +167,7 @@
       "id": "srg-ssr-d9ec5b9a657a",
       "slug": "service-operator-srg-ssr-bern",
       "slugByLocale": {
-        "it": "operatore-di-servizio-srg-ssr-bern",
+        "it": "service-operator-srg-ssr-bern",
         "en": "service-operator-srg-ssr-bern",
         "de": "service-operator-srg-ssr-bern",
         "fr": "operateur-de-service-srg-ssr-bern"
@@ -168,7 +177,7 @@
       "companyDomain": "srgssr.ch",
       "title": "Service Operator",
       "titleByLocale": {
-        "it": "Operatore di servizio",
+        "it": "Service Operator",
         "en": "Service",
         "de": "Service Operator",
         "fr": "Opérateur de Service"
@@ -185,7 +194,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/service-operator/b7aea4ab-5915-4645-a639-79a98c2543ff",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:13:22.950Z",
+      "crawledAt": "2026-08-27T00:39:33.093Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -249,6 +258,15 @@
         "pensumMax": 80
       },
       "firstSeenAt": "2026-06-29T11:35:27.904Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operatore-di-servizio-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "operatore-di-servizio-srg-ssr-bern"
+      ],
+      "needsRetranslation": true,
       "salaryMin": 71500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -294,7 +312,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/emprendista-commerziala-emprendist-commerzial/c7a3bf5e-4660-4325-baee-e0cc14f79df0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-26T10:13:22.092Z",
+      "crawledAt": "2026-08-27T00:39:32.164Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -393,7 +411,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistente-finanze/7d7fc044-dae7-4d32-a1b3-da4e2848ad33",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-26T10:13:21.220Z",
+      "crawledAt": "2026-08-27T00:39:31.101Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -433,6 +451,7 @@
         "pensumMax": 80
       },
       "firstSeenAt": "2026-06-30T23:26:53.483Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -478,7 +497,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/assistent-in-finanzen/c68706e7-6382-4b0a-8976-cc7fa737e98e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:13:20.378Z",
+      "crawledAt": "2026-08-27T00:39:30.251Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -519,11 +538,13 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "assistent-in-finanzen-srg-ssr-bern"
+        "assistent-in-finanzen-srg-ssr-bern",
+        "assistente-in-finanza-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-finanzen-srg-ssr-bern"
+          "assistent-in-finanzen-srg-ssr-bern",
+          "assistente-in-finanza-srg-ssr-bern"
         ],
         "en": [
           "assistent-in-finanzen-srg-ssr-bern"
@@ -579,7 +600,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/geschaeftsfuehrer-in-srg-bern-freiburg-wallis/ae1a3c73-c6e0-46fe-b28d-c26344b65afe",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:13:19.491Z",
+      "crawledAt": "2026-08-27T00:39:29.372Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -613,11 +634,13 @@
         "pensumMax": 70
       },
       "previousSlugs": [
-        "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
+        "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich",
+        "amministratore-delegato-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
+          "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich",
+          "amministratore-delegato-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
         ],
         "en": [
           "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
@@ -673,7 +696,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-veranstaltungsfachmann-fachfrau-efz/6ceb5b23-a763-4947-88be-2df9ce20cca3",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:13:18.588Z",
+      "crawledAt": "2026-08-27T00:39:28.348Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -709,14 +732,18 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
+          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+          "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich"
         ],
         "it": [
-          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
+          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+          "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich"
         ]
       },
       "previousSlugs": [
-        "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
+        "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+        "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich",
+        "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T21:37:04.179Z",
@@ -765,7 +792,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz/91370784-d240-4500-8efe-5f54893b9dfa",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:13:17.767Z",
+      "crawledAt": "2026-08-27T00:39:27.478Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -800,11 +827,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
+        "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
+        "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
+          "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
+          "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich"
         ],
         "de": [
           "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
@@ -841,7 +870,7 @@
       "title": "Stage Digital Marketing Specialist",
       "titleByLocale": {
         "it": "Stage Digital Marketing Specialista",
-        "en": "Digital Marketing Specialist",
+        "en": "Stage Digital Marketing Specialist",
         "de": "Stage Digital Marketing Spezialist",
         "fr": "Stage Digital Marketing Spécialiste"
       },
@@ -857,7 +886,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-digital-marketing-specialist/1e879fb8-8d71-4bac-a620-735a66901ba8",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-26T10:13:16.911Z",
+      "crawledAt": "2026-08-27T00:39:26.581Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -900,6 +929,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-08-24T21:34:39.952Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -945,7 +975,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/praktikant-in-digitale-kanaele-unterhaltung-gesellschaft/33a25346-6b53-400e-87f8-97e7f8bb01a3",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:13:16.013Z",
+      "crawledAt": "2026-08-27T00:39:25.689Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -980,11 +1010,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "praktikant-in-digitale-kanale-unterhaltung-amp-gesellschaft-srg-ssr-zurich"
+        "praktikant-in-digitale-kanale-unterhaltung-amp-gesellschaft-srg-ssr-zurich",
+        "interno-in-canali-digitali-intrattenimento-e-societa-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-digitale-kanale-unterhaltung-amp-gesellschaft-srg-ssr-zurich"
+          "praktikant-in-digitale-kanale-unterhaltung-amp-gesellschaft-srg-ssr-zurich",
+          "interno-in-canali-digitali-intrattenimento-e-societa-srg-ssr-zurich"
         ],
         "en": [
           "praktikant-in-digitale-kanale-unterhaltung-amp-gesellschaft-srg-ssr-zurich"
@@ -1040,7 +1072,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/projekt-und-investitionscontroller-in-mit-fokus-strategische-projekte/c19f548f-3961-4b5a-9ad8-a4d3d9ad42a4",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:13:15.113Z",
+      "crawledAt": "2026-08-27T00:39:24.762Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1138,7 +1170,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/controleur-se-strategique-de-projets-et-d-investissements/e949b34a-1f5a-49f0-8b9a-3bee723d0545",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-26T10:13:12.579Z",
+      "crawledAt": "2026-08-27T00:39:17.314Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1175,11 +1207,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
+        "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern",
+        "controllore-strategico-del-progetto-e-degli-investimenti-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
+          "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern",
+          "controllore-strategico-del-progetto-e-degli-investimenti-srg-ssr-bern"
         ],
         "en": [
           "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
@@ -1189,6 +1223,7 @@
         ]
       },
       "firstSeenAt": "2026-08-13T21:48:14.284Z",
+      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "baseSalary": {
@@ -1234,7 +1269,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/responsable-marketing-rts/1450473c-6543-418d-82f5-a4ef2dcfc0b9",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-26T10:13:03.035Z",
+      "crawledAt": "2026-08-27T00:39:09.214Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1321,7 +1356,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel/3e3fcff3-e194-4a1b-831f-f105b491094e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:13:02.128Z",
+      "crawledAt": "2026-08-27T00:39:08.339Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -1360,11 +1395,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
+        "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16",
+        "apprendistato-come-informatiker-in-cfc-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
+          "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16",
+          "apprendistato-come-informatiker-in-cfc-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
         ],
         "en": [
           "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
@@ -1420,7 +1457,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern/0d740af4-8667-4a66-a530-ccc338291c67",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:13:01.193Z",
+      "crawledAt": "2026-08-27T00:39:07.493Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -1459,11 +1496,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
+        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16",
+        "apprendistato-come-informatiker-in-cfc-plattformentwicklung-2027-bern-srg-ssr-bern-16"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
+          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16",
+          "apprendistato-come-informatiker-in-cfc-plattformentwicklung-2027-bern-srg-ssr-bern-16"
         ],
         "en": [
           "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
@@ -1519,7 +1558,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/praktikant-in-news-inland/1e86685a-44f9-4f3b-8a07-c7e65b35428d",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:13:00.110Z",
+      "crawledAt": "2026-08-27T00:39:06.631Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1601,7 +1640,7 @@
       "url": "https://jobs.srgssr.ch/swi/offene-stellen/fachverantwortliche-r-produktentwicklung-swissinfo/62bdb575-3d14-49e3-a8ab-e8c69e6e5425",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:12:59.042Z",
+      "crawledAt": "2026-08-27T00:39:05.610Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1638,11 +1677,13 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
+        "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern",
+        "responsabile-per-lo-sviluppo-del-prodotto-swissinfo-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
+          "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern",
+          "responsabile-per-lo-sviluppo-del-prodotto-swissinfo-srg-ssr-bern"
         ],
         "en": [
           "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
@@ -1652,6 +1693,7 @@
         ]
       },
       "firstSeenAt": "2026-08-21T09:46:05.638Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1697,7 +1739,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/hostess-steward-servizio-eventi/3e7ba70d-5105-4c69-a753-d1a91815a68b",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-26T10:12:57.809Z",
+      "crawledAt": "2026-08-27T00:39:04.568Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1746,6 +1788,7 @@
         "orgLabel": "RSI"
       },
       "firstSeenAt": "2026-08-24T10:00:42.039Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -1791,7 +1834,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/hr-partner-in/1432cf4e-143c-4306-901f-03755cdb69ad",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:12:56.692Z",
+      "crawledAt": "2026-08-27T00:39:03.601Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1858,6 +1901,89 @@
         }
       },
       "addressRegion": "ZH"
+    },
+    {
+      "id": "srg-ssr-c7f5a87d3e4b",
+      "slug": "hms-praktikum-kauffrau-kaufmann-srg-ssr-zurich",
+      "slugByLocale": {
+        "de": "hms-praktikum-kauffrau-kaufmann-srg-ssr-zurich",
+        "it": "hms-praktikum-kauffrau-kaufmann-srg-ssr-zurich",
+        "en": "hms-praktikum-kauffrau-kaufmann-srg-ssr-zurich",
+        "fr": "hms-praktikum-kauffrau-kaufmann-srg-ssr-zurich"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "HMS-Praktikum Kauffrau/Kaufmann",
+      "titleByLocale": {
+        "de": "HMS-Praktikum Kauffrau/Kaufmann",
+        "it": "HMS-Praktikum Kauffrau/Kaufmann",
+        "en": "HMS-Praktikum Kauffrau/Kaufmann",
+        "fr": "HMS-Praktikum Kauffrau/Kaufmann"
+      },
+      "description": "Was sind deine Aufgaben? Du sammelst praktische Erfahrungen und engagierst dich für folgende Aufgaben:\n• Einblick in die vielfältige Welt des Human Resources\n• Du unterstützt das Team Leadership & Weiterbildung und übernimmst Aufgaben und Projekte bei Nachwuchs & Laufbahn.\n• Du organisierst einige Anlässe für die Lernenden und Berufsbildner:innen\n• Du arbeitest in verschiedenen Personalsystemen und lernst diese anzuwenden Was bringst du mit?\n• Organisations-, Team- und Kommunikationsfähigkeit\n• Verantwortungsbewusstes und selbstständiges Arbeiten\n• Motivation und Zuverlässigkeit\n• Interesse an einer vielfältigen Medienwelt Worauf kannst du dich freuen?\n• Einblicke und Mitarbeit in spannende Arbeitsbereiche\n• Lockere Berufsbildner, die dich bei allen Anliegen unterstützen\n• Aufgestellte Lernende, regelmässige Teamevents\n• 6 Wochen Ferien Noch Fragen? zur Stelle Claudia Hirt Fachspezialistin Berufsbildung +41 58 135 15 07 Die Ausbildung erfolgt innerhalb der SRG SSR und findet in der Regionaleinheit SRF in Zürich statt. Die SRG SSR ist das grösste Medienunternehmen der Schweiz. Mit ihren Unternehmenseinheiten SRF, RTS, RSI und RTR produziert und verbreitet sie Inhalte in den Bereichen Information, Bildung, Kultur, Unterhaltung und Sport. Als Lernende:r wirst du Teil eines vielfältigen und zukunftsorientierten Unternehmens, das Menschen in der ganzen Schweiz verbindet und täglich Millionen von Nutzer:innen auf unterschiedlichen Plattformen erreicht. Dieses Praktikum ist Bestandteil der Grundausbildung zum Kaufmann/Kauffrau (schulisch organisiert). Als Absolventin/Absolvent der Handelsmittelschule kannst du ein einjähriges Praktikum bei uns absolvieren und mit dem EFZ als Kauffrau/Kaufmann mit Berufsmaturität abschliessen.",
+      "descriptionByLocale": {
+        "de": "Was sind deine Aufgaben? Du sammelst praktische Erfahrungen und engagierst dich für folgende Aufgaben:\n• Einblick in die vielfältige Welt des Human Resources\n• Du unterstützt das Team Leadership & Weiterbildung und übernimmst Aufgaben und Projekte bei Nachwuchs & Laufbahn.\n• Du organisierst einige Anlässe für die Lernenden und Berufsbildner:innen\n• Du arbeitest in verschiedenen Personalsystemen und lernst diese anzuwenden Was bringst du mit?\n• Organisations-, Team- und Kommunikationsfähigkeit\n• Verantwortungsbewusstes und selbstständiges Arbeiten\n• Motivation und Zuverlässigkeit\n• Interesse an einer vielfältigen Medienwelt Worauf kannst du dich freuen?\n• Einblicke und Mitarbeit in spannende Arbeitsbereiche\n• Lockere Berufsbildner, die dich bei allen Anliegen unterstützen\n• Aufgestellte Lernende, regelmässige Teamevents\n• 6 Wochen Ferien Noch Fragen? zur Stelle Claudia Hirt Fachspezialistin Berufsbildung +41 58 135 15 07 Die Ausbildung erfolgt innerhalb der SRG SSR und findet in der Regionaleinheit SRF in Zürich statt. Die SRG SSR ist das grösste Medienunternehmen der Schweiz. Mit ihren Unternehmenseinheiten SRF, RTS, RSI und RTR produziert und verbreitet sie Inhalte in den Bereichen Information, Bildung, Kultur, Unterhaltung und Sport. Als Lernende:r wirst du Teil eines vielfältigen und zukunftsorientierten Unternehmens, das Menschen in der ganzen Schweiz verbindet und täglich Millionen von Nutzer:innen auf unterschiedlichen Plattformen erreicht. Dieses Praktikum ist Bestandteil der Grundausbildung zum Kaufmann/Kauffrau (schulisch organisiert). Als Absolventin/Absolvent der Handelsmittelschule kannst du ein einjähriges Praktikum bei uns absolvieren und mit dem EFZ als Kauffrau/Kaufmann mit Berufsmaturität abschliessen.",
+        "it": "Was sind deine Aufgaben? Du sammelst praktische Erfahrungen und engagierst dich für folgende Aufgaben:\n• Einblick in die vielfältige Welt des Human Resources\n• Du unterstützt das Team Leadership & Weiterbildung und übernimmst Aufgaben und Projekte bei Nachwuchs & Laufbahn.\n• Du organisierst einige Anlässe für die Lernenden und Berufsbildner:innen\n• Du arbeitest in verschiedenen Personalsystemen und lernst diese anzuwenden Was bringst du mit?\n• Organisations-, Team- und Kommunikationsfähigkeit\n• Verantwortungsbewusstes und selbstständiges Arbeiten\n• Motivation und Zuverlässigkeit\n• Interesse an einer vielfältigen Medienwelt Worauf kannst du dich freuen?\n• Einblicke und Mitarbeit in spannende Arbeitsbereiche\n• Lockere Berufsbildner, die dich bei allen Anliegen unterstützen\n• Aufgestellte Lernende, regelmässige Teamevents\n• 6 Wochen Ferien Noch Fragen? zur Stelle Claudia Hirt Fachspezialistin Berufsbildung +41 58 135 15 07 Die Ausbildung erfolgt innerhalb der SRG SSR und findet in der Regionaleinheit SRF in Zürich statt. Die SRG SSR ist das grösste Medienunternehmen der Schweiz. Mit ihren Unternehmenseinheiten SRF, RTS, RSI und RTR produziert und verbreitet sie Inhalte in den Bereichen Information, Bildung, Kultur, Unterhaltung und Sport. Als Lernende:r wirst du Teil eines vielfältigen und zukunftsorientierten Unternehmens, das Menschen in der ganzen Schweiz verbindet und täglich Millionen von Nutzer:innen auf unterschiedlichen Plattformen erreicht. Dieses Praktikum ist Bestandteil der Grundausbildung zum Kaufmann/Kauffrau (schulisch organisiert). Als Absolventin/Absolvent der Handelsmittelschule kannst du ein einjähriges Praktikum bei uns absolvieren und mit dem EFZ als Kauffrau/Kaufmann mit Berufsmaturität abschliessen.",
+        "en": "Was sind deine Aufgaben? Du sammelst praktische Erfahrungen und engagierst dich für folgende Aufgaben:\n• Einblick in die vielfältige Welt des Human Resources\n• Du unterstützt das Team Leadership & Weiterbildung und übernimmst Aufgaben und Projekte bei Nachwuchs & Laufbahn.\n• Du organisierst einige Anlässe für die Lernenden und Berufsbildner:innen\n• Du arbeitest in verschiedenen Personalsystemen und lernst diese anzuwenden Was bringst du mit?\n• Organisations-, Team- und Kommunikationsfähigkeit\n• Verantwortungsbewusstes und selbstständiges Arbeiten\n• Motivation und Zuverlässigkeit\n• Interesse an einer vielfältigen Medienwelt Worauf kannst du dich freuen?\n• Einblicke und Mitarbeit in spannende Arbeitsbereiche\n• Lockere Berufsbildner, die dich bei allen Anliegen unterstützen\n• Aufgestellte Lernende, regelmässige Teamevents\n• 6 Wochen Ferien Noch Fragen? zur Stelle Claudia Hirt Fachspezialistin Berufsbildung +41 58 135 15 07 Die Ausbildung erfolgt innerhalb der SRG SSR und findet in der Regionaleinheit SRF in Zürich statt. Die SRG SSR ist das grösste Medienunternehmen der Schweiz. Mit ihren Unternehmenseinheiten SRF, RTS, RSI und RTR produziert und verbreitet sie Inhalte in den Bereichen Information, Bildung, Kultur, Unterhaltung und Sport. Als Lernende:r wirst du Teil eines vielfältigen und zukunftsorientierten Unternehmens, das Menschen in der ganzen Schweiz verbindet und täglich Millionen von Nutzer:innen auf unterschiedlichen Plattformen erreicht. Dieses Praktikum ist Bestandteil der Grundausbildung zum Kaufmann/Kauffrau (schulisch organisiert). Als Absolventin/Absolvent der Handelsmittelschule kannst du ein einjähriges Praktikum bei uns absolvieren und mit dem EFZ als Kauffrau/Kaufmann mit Berufsmaturität abschliessen.",
+        "fr": "Was sind deine Aufgaben? Du sammelst praktische Erfahrungen und engagierst dich für folgende Aufgaben:\n• Einblick in die vielfältige Welt des Human Resources\n• Du unterstützt das Team Leadership & Weiterbildung und übernimmst Aufgaben und Projekte bei Nachwuchs & Laufbahn.\n• Du organisierst einige Anlässe für die Lernenden und Berufsbildner:innen\n• Du arbeitest in verschiedenen Personalsystemen und lernst diese anzuwenden Was bringst du mit?\n• Organisations-, Team- und Kommunikationsfähigkeit\n• Verantwortungsbewusstes und selbstständiges Arbeiten\n• Motivation und Zuverlässigkeit\n• Interesse an einer vielfältigen Medienwelt Worauf kannst du dich freuen?\n• Einblicke und Mitarbeit in spannende Arbeitsbereiche\n• Lockere Berufsbildner, die dich bei allen Anliegen unterstützen\n• Aufgestellte Lernende, regelmässige Teamevents\n• 6 Wochen Ferien Noch Fragen? zur Stelle Claudia Hirt Fachspezialistin Berufsbildung +41 58 135 15 07 Die Ausbildung erfolgt innerhalb der SRG SSR und findet in der Regionaleinheit SRF in Zürich statt. Die SRG SSR ist das grösste Medienunternehmen der Schweiz. Mit ihren Unternehmenseinheiten SRF, RTS, RSI und RTR produziert und verbreitet sie Inhalte in den Bereichen Information, Bildung, Kultur, Unterhaltung und Sport. Als Lernende:r wirst du Teil eines vielfältigen und zukunftsorientierten Unternehmens, das Menschen in der ganzen Schweiz verbindet und täglich Millionen von Nutzer:innen auf unterschiedlichen Plattformen erreicht. Dieses Praktikum ist Bestandteil der Grundausbildung zum Kaufmann/Kauffrau (schulisch organisiert). Als Absolventin/Absolvent der Handelsmittelschule kannst du ein einjähriges Praktikum bei uns absolvieren und mit dem EFZ als Kauffrau/Kaufmann mit Berufsmaturität abschliessen."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.srgssr.ch/srg/offene-stellen/hms-praktikum-kauffrau-kaufmann/810e9f92-64d4-46d6-8bf9-c0cb4dcd151c",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-27T00:39:02.729Z",
+      "addressLocality": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8052",
+      "streetAddress": "Fernsehstrasse 1-4",
+      "category": "Produzione Media",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/hms-praktikum-kauffrau-kaufmann/810e9f92-64d4-46d6-8bf9-c0cb4dcd151c",
+      "requirements": [
+        "Organisations-, Team- und Kommunikationsfähigkeit",
+        "Verantwortungsbewusstes und selbstständiges Arbeiten",
+        "Motivation und Zuverlässigkeit",
+        "Interesse an einer vielfältigen Medienwelt"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Organisations-, Team- und Kommunikationsfähigkeit",
+          "Verantwortungsbewusstes und selbstständiges Arbeiten",
+          "Motivation und Zuverlässigkeit",
+          "Interesse an einer vielfältigen Medienwelt"
+        ]
+      },
+      "_srgMeta": {
+        "uuid": "810e9f92-64d4-46d6-8bf9-c0cb4dcd151c",
+        "org": "srg",
+        "orgLabel": "SRG SSR",
+        "pensumMin": 100,
+        "pensumMax": 100
+      },
+      "needsRetranslation": true,
+      "salaryMin": 77000,
+      "salaryMax": 136000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77000,
+          "maxValue": 136000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-08-27T00:39:02.729Z"
     }
   ]
 }
