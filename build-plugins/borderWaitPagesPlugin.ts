@@ -476,6 +476,7 @@ interface Copy {
   webcamLabel: string;
   webcamNote: string;
   webcamSource: string;
+  webcamDisclaimer: (sourceName: string) => string;
   webcamUnavailable: string;
   faqTitle: string;
   breadcrumbHome: string;
@@ -561,6 +562,8 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     webcamNote:
       "Immagini aggiornate automaticamente ogni minuto quando la pagina è aperta. Usa il link \"Fonte\" per la versione ufficiale live.",
     webcamSource: 'Fonte',
+    webcamDisclaimer: (sourceName) =>
+      `Webcam gestita da ${sourceName}. Frontaliereticino.ch non è responsabile per disponibilità o contenuto.`,
     webcamUnavailable: 'Webcam non disponibile per questo valico. Nessuna immagine live è pubblicata al momento per questa frontiera.',
     faqTitle: 'Domande frequenti',
     breadcrumbHome: 'Home',
@@ -662,6 +665,8 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     webcamNote:
       'Images refresh automatically every minute while the page is open. Use the "Source" link for the official live feed.',
     webcamSource: 'Source',
+    webcamDisclaimer: (sourceName) =>
+      `Webcam operated by ${sourceName}. Frontaliereticino.ch is not responsible for its availability or content.`,
     webcamUnavailable: 'No webcam available for this crossing. No live images are currently published for this border.',
     faqTitle: 'Frequently asked questions',
     breadcrumbHome: 'Home',
@@ -763,6 +768,8 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     webcamNote:
       'Bilder aktualisieren sich automatisch jede Minute, solange die Seite geöffnet ist. Klicken Sie auf „Quelle" für den offiziellen Feed.',
     webcamSource: 'Quelle',
+    webcamDisclaimer: (sourceName) =>
+      `Webcam betrieben von ${sourceName}. Frontaliereticino.ch ist nicht verantwortlich für Verfügbarkeit oder Inhalt.`,
     webcamUnavailable: 'Keine Webcam für diesen Grenzübergang verfügbar. Für diese Grenze werden derzeit keine Live-Bilder veröffentlicht.',
     faqTitle: 'Häufige Fragen',
     breadcrumbHome: 'Startseite',
@@ -864,6 +871,8 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     webcamNote:
       "Les images se rafraîchissent automatiquement chaque minute tant que la page est ouverte. Cliquez sur « Source » pour la version officielle.",
     webcamSource: 'Source',
+    webcamDisclaimer: (sourceName) =>
+      `Webcam gérée par ${sourceName}. Frontaliereticino.ch n'est pas responsable de la disponibilité ou du contenu.`,
     webcamUnavailable: "Webcam non disponible pour ce poste frontière. Aucune image en direct n'est actuellement publiée pour cette frontière.",
     faqTitle: 'Questions fréquentes',
     breadcrumbHome: 'Accueil',
@@ -1354,6 +1363,7 @@ function renderWebcamSection(
       <strong>${esc(w.label)}</strong> — ${esc(copy.webcamSource)}:
       <a href="${esc(w.sourceUrl)}" rel="nofollow noopener" target="_blank" style="${LINK_ACCENT_STYLE};text-decoration:underline">${esc(w.sourceName)}</a>
       ${licenseHtml}
+      <div class="s-DEr6hT">${esc(copy.webcamDisclaimer(w.sourceName))}</div>
     </figcaption>
   </figure>`;
     })
