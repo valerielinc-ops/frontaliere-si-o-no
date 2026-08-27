@@ -141,6 +141,8 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   { file: 'tests/article-slug-prompt-leak-guard.test.ts', roots: ['packages/articles/content/'] },
   { file: 'tests/articles-sync-pin.test.ts', roots: ['packages/articles/content/'] },
   // Reaches the live article corpus transitively through create-article.mjs.
+  // The source scanner intentionally does not execute imported modules while
+  // building the inventory, so this dependency stays explicit.
   { file: 'tests/evergreen-pool-consumption.test.ts', roots: ['packages/articles/content/'], transitive: true },
   { file: 'tests/blog-headline-validation.test.ts', roots: ['services/locales/'] },
   { file: 'tests/bridge-canton-aware.test.ts', roots: ['data/jobs/'] },
