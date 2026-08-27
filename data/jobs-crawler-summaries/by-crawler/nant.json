@@ -1,18 +1,18 @@
 {
   "key": "nant",
   "label": "Fondation de Nant",
-  "generatedAt": "2026-08-26T10:10:11.361Z",
-  "total": 6,
+  "generatedAt": "2026-08-27T00:34:46.043Z",
+  "total": 5,
   "discovered": null,
-  "written": 6,
+  "written": 5,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5263,
-  "avgDurationMs": 5263,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5289,
+  "avgDurationMs": 5289,
   "durationHistory": [
-    5263
+    5289
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "url": "https://app.beehire.com/invite/fOJGPwwF3",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-26T10:10:06.488Z",
+      "crawledAt": "2026-08-27T00:34:41.337Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -67,7 +67,7 @@
       "url": "https://app.beehire.com/invite/0IEYXiSqR",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-26T10:10:06.494Z",
+      "crawledAt": "2026-08-27T00:34:41.348Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -105,7 +105,7 @@
       "url": "https://app.beehire.com/invite/62T5zjL5K",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-26T10:10:06.498Z",
+      "crawledAt": "2026-08-27T00:34:41.359Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -143,7 +143,7 @@
       "url": "https://app.beehire.com/invite/R8D2jUAXI",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-26T10:10:06.508Z",
+      "crawledAt": "2026-08-27T00:34:41.369Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -175,13 +175,13 @@
       "companyKey": "nant",
       "companyDomain": "nant.ch",
       "title": "Infirmier·ère en CDI à 100% DMPC",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Corsier-sur-Vevey",
       "canton": "VD",
       "url": "https://app.beehire.com/invite/Uhll2GDVq",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-26T10:10:06.504Z",
+      "crawledAt": "2026-08-27T00:34:41.361Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -207,8 +207,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "nant-443ebdb017d3",
       "slug": "apprentissage-de-cuisinier-ere-fondation-de-nant-corsier-sur-vevey",
@@ -241,7 +240,6 @@
       "salaryMin": 77500,
       "salaryMax": 108000,
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -250,5 +248,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
