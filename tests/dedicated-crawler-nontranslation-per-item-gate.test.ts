@@ -59,7 +59,11 @@ function richDescriptionEn(): string {
   );
 }
 
-function makeJob(slug: string, n: number, opts: { badDomain?: boolean; untranslated?: boolean } = {}) {
+function makeJob(
+  slug: string,
+  n: number,
+  opts: { badDomain?: boolean; untranslated?: boolean; crawlerMissStreak?: number } = {},
+) {
   const title = `Collaboratore Operativo ${n}`;
   const host = opts.badDomain ? BAD_HOST : 'https://trusted-source.test';
   return {
@@ -71,6 +75,7 @@ function makeJob(slug: string, n: number, opts: { badDomain?: boolean; untransla
     titleByLocale: { it: title, en: `Operations Associate ${n}` },
     descriptionByLocale: { it: richDescriptionIt(), en: opts.untranslated ? '' : richDescriptionEn() },
     slugByLocale: { it: slug, en: `${slug}-en` },
+    ...(opts.crawlerMissStreak ? { crawlerMissStreak: opts.crawlerMissStreak } : {}),
   };
 }
 
@@ -184,6 +189,19 @@ describe('validateDedicatedLocaleCoverage — per-item gate for non-translation 
 
     expect(() => runGuard(jobsPath, { maxToleratedMissingDescriptions: 0 }))
       .toThrow(/localization validation failed/);
+  });
+
+  it('a grace-period-retained job (crawlerMissStreak > 0) with an untrusted domain is NOT quarantined: it was carried over, not freshly fetched, and is already scheduled to age out on its own (#6598)', () => {
+    const { jobsPath } = writeJobs([
+      makeJob('valid-job-1', 1),
+      makeJob('valid-job-2', 2),
+      makeJob('retained-bad-domain-job', 3, { badDomain: true, crawlerMissStreak: 1 }),
+    ]);
+
+    expect(() => runGuard(jobsPath)).not.toThrow();
+    expect(readJobIds(jobsPath)).toEqual([
+      'retained-bad-domain-job', 'valid-job-1', 'valid-job-2',
+    ]);
   });
 
   it('a fully valid batch still passes untouched', () => {
