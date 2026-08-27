@@ -82,6 +82,7 @@ import { blogContextualLinksPlugin } from './build-plugins/blogContextualLinksPl
 import { borderWaitPagesPlugin } from './build-plugins/borderWaitPagesPlugin';
 import { marketReportPlugin } from './build-plugins/marketReportPlugin';
 import { selfCertificationFormsPlugin } from './build-plugins/selfCertificationFormsPlugin';
+import { plateAuctionHubPlugin } from './build-plugins/plateAuctionHubPlugin';
 import { communicationsPagePlugin } from './build-plugins/communicationsPagePlugin';
 import { annualReportPlugin } from './build-plugins/annualReportPlugin';
 import { borderWaitMapPlugin } from './build-plugins/borderWaitMapPlugin';
@@ -240,6 +241,7 @@ export default defineConfig(({ mode }) => {
  weatherBorderWaitFusionPlugin(__dirname),
  marketReportPlugin(__dirname),
  selfCertificationFormsPlugin(__dirname),
+ plateAuctionHubPlugin(__dirname),
  communicationsPagePlugin(__dirname),
  // Sprint 5.1 — annual salary report. Must run AFTER jobMarketSnapshotPlugin
  // so the job-market hub HTML is already on disk when we patch it with a

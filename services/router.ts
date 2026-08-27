@@ -2560,6 +2560,17 @@ export function parsePath(pathname: string): ParseResult {
    }
  }
 
+ // Plate-auction national hub — /aste-targhe-svizzera/ (#4854 → "Pagine e UX
+ // → Hub nazionale", scorporata in #6359). IT-only, emitted by
+ // build-plugins/plateAuctionHubPlugin.ts outside #root; without
+ // staticOverlay this path is unmatched anywhere else in parsePath and the
+ // SPA hides `main.seo-static-content` + renders NotFoundSuggestions on
+ // hydrate. Routed to `guida` (no subtab) for back-nav — no existing tab
+ // owns the plate-auction vertical yet.
+ if (pathname === '/aste-targhe-svizzera/' || pathname === '/aste-targhe-svizzera') {
+   return { route: { activeTab: 'guida', staticOverlay: true }, locale: 'it' };
+ }
+
  // Self-certification forms guide — /moduli/autocertificazione-candidatura/
  // (IT-only, source of truth: build-plugins/selfCertificationFormsPlugin.ts
  // LANDING_URL_PATH). Emitted via buildSeoPageHtml (seoContentOutsideRoot:
