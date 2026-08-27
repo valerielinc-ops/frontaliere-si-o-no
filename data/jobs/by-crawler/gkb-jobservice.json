@@ -1,14 +1,14 @@
 {
   "crawlerKey": "gkb-jobservice",
-  "assembledAt": "2026-08-27T00:38:54.610Z",
+  "assembledAt": "2026-08-27T19:54:17.417Z",
   "jobs": [
     {
       "id": "gkb-jobservice-8b9dd4131c30",
       "slug": "senior-responsabile-di-progetto-80-100-gkb-jobservice-lugano",
       "slugByLocale": {
-        "de": "senior-projektleiter-in-80-100-gkb-jobservice-ch",
         "it": "senior-responsabile-di-progetto-80-100-gkb-jobservice-lugano",
         "en": "senior-project-manager-80-100-gkb-jobservice-lugano",
+        "de": "senior-projektleiter-in-80-100-gkb-jobservice-ch",
         "fr": "senior-chef-de-projet-80-100-gkb-jobservice-lugano"
       },
       "company": "GKB JobService",
@@ -16,9 +16,9 @@
       "companyDomain": "recruitingapp-2607.umantis.com",
       "title": "Senior Projektleiter:in (80-100%)",
       "titleByLocale": {
-        "de": "Senior Projektleiter:in (80-100%)",
         "it": "Senior Responsabile di progetto (80-100%)",
         "en": "Senior Project Manager (80-100%)",
+        "de": "Senior Projektleiter:in (80-100%)",
         "fr": "Senior Chef de projet (80-100%)"
       },
       "description": "Senior Projektleiter:in (80-100%) — GKB JobService",
@@ -30,7 +30,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1914/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:38:50.293Z",
+      "crawledAt": "2026-08-27T19:54:13.530Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -44,13 +44,15 @@
       "postedDate": "2026-08-27",
       "applyUrl": "https://recruitingapp-2607.umantis.com/Vacancies/1914/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-projektleiter-in-80-100-gkb-jobservice-ch",
+        "senior-responsabile-di-progetto-80-100-gkb-jobservice-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-projektleiter-in-80-100-gkb-jobservice-ch"
+          "senior-projektleiter-in-80-100-gkb-jobservice-ch",
+          "senior-responsabile-di-progetto-80-100-gkb-jobservice-lugano"
         ],
         "en": [
           "senior-projektleiter-in-80-100-gkb-jobservice-ch"
@@ -59,9 +61,8 @@
           "senior-projektleiter-in-80-100-gkb-jobservice-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-projektleiter-in-80-100-gkb-jobservice-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-27T00:38:50.293Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -74,8 +75,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-27T00:38:50.293Z"
+      "addressRegion": "TI"
     },
     {
       "id": "gkb-jobservice-b4942cd30f0e",
@@ -105,7 +105,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1917/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:38:49.991Z",
+      "crawledAt": "2026-08-27T19:54:13.229Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -121,11 +121,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-jobservice-ch"
+        "senior-specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-jobservice-ch",
+        "senior-specialista-geschaftsfuhrung-beratung-stiftungen-80-gkb-jobservice-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-jobservice-ch"
+          "senior-specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-jobservice-ch",
+          "senior-specialista-geschaftsfuhrung-beratung-stiftungen-80-gkb-jobservice-lugano"
         ],
         "fr": [
           "senior-specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-jobservice-ch"
@@ -175,7 +177,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1920/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:38:49.689Z",
+      "crawledAt": "2026-08-27T19:54:12.927Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -234,7 +236,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1919/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:38:49.388Z",
+      "crawledAt": "2026-08-27T19:54:12.625Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -250,11 +252,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kauffrau-kaufmann-bank-in-arosa-lehrbeginn-2027-gkb-jobservice-ch"
+        "kauffrau-kaufmann-bank-in-arosa-lehrbeginn-2027-gkb-jobservice-ch",
+        "kauffrau-kaufmann-bank-in-arosa-inizio-dell-insegnamento-2027-gkb-jobservice-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kauffrau-kaufmann-bank-in-arosa-lehrbeginn-2027-gkb-jobservice-ch"
+          "kauffrau-kaufmann-bank-in-arosa-lehrbeginn-2027-gkb-jobservice-ch",
+          "kauffrau-kaufmann-bank-in-arosa-inizio-dell-insegnamento-2027-gkb-jobservice-lugano"
         ],
         "en": [
           "kauffrau-kaufmann-bank-in-arosa-lehrbeginn-2027-gkb-jobservice-ch"
@@ -307,7 +311,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1921/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:38:49.086Z",
+      "crawledAt": "2026-08-27T19:54:12.321Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -323,11 +327,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kauffrau-kaufmann-bank-in-scuol-lehrbeginn-2027-gkb-jobservice-ch"
+        "kauffrau-kaufmann-bank-in-scuol-lehrbeginn-2027-gkb-jobservice-ch",
+        "kauffrau-kaufmann-bank-in-scuol-inizio-dell-insegnamento-2027-gkb-jobservice-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kauffrau-kaufmann-bank-in-scuol-lehrbeginn-2027-gkb-jobservice-ch"
+          "kauffrau-kaufmann-bank-in-scuol-lehrbeginn-2027-gkb-jobservice-ch",
+          "kauffrau-kaufmann-bank-in-scuol-inizio-dell-insegnamento-2027-gkb-jobservice-lugano"
         ],
         "en": [
           "kauffrau-kaufmann-bank-in-scuol-lehrbeginn-2027-gkb-jobservice-ch"
@@ -380,7 +386,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1922/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:38:48.782Z",
+      "crawledAt": "2026-08-27T19:54:12.016Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -396,11 +402,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kauffrau-kaufmann-bank-in-st-moritz-lehrbeginn-2027-gkb-jobservice-ch"
+        "kauffrau-kaufmann-bank-in-st-moritz-lehrbeginn-2027-gkb-jobservice-ch",
+        "kauffrau-kaufmann-bank-a-st-moritz-inizio-dell-insegnamento-2027-gkb-jobservice-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kauffrau-kaufmann-bank-in-st-moritz-lehrbeginn-2027-gkb-jobservice-ch"
+          "kauffrau-kaufmann-bank-in-st-moritz-lehrbeginn-2027-gkb-jobservice-ch",
+          "kauffrau-kaufmann-bank-a-st-moritz-inizio-dell-insegnamento-2027-gkb-jobservice-lugano"
         ],
         "en": [
           "kauffrau-kaufmann-bank-in-st-moritz-lehrbeginn-2027-gkb-jobservice-ch"
@@ -453,7 +461,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1929/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T00:38:48.480Z",
+      "crawledAt": "2026-08-27T19:54:11.713Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -469,11 +477,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-specialist-asset-servicing-80-100-gkb-jobservice-ch"
+        "senior-specialist-asset-servicing-80-100-gkb-jobservice-ch",
+        "senior-specialista-asset-servicing-80-100-gkb-jobservice-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-asset-servicing-80-100-gkb-jobservice-ch"
+          "senior-specialist-asset-servicing-80-100-gkb-jobservice-ch",
+          "senior-specialista-asset-servicing-80-100-gkb-jobservice-lugano"
         ],
         "de": [
           "senior-specialist-asset-servicing-80-100-gkb-jobservice-ch"
@@ -526,7 +536,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1904/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T00:38:48.176Z",
+      "crawledAt": "2026-08-27T19:54:11.410Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -543,12 +553,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikant-in-bem-banking-arosa-ab-august-2027-gkb-ch",
-        "praktikant-in-bem-banking-arosa-ab-august-2027-gkb-jobservice-ch"
+        "praktikant-in-bem-banking-arosa-ab-august-2027-gkb-jobservice-ch",
+        "praktikant-in-bem-banking-arosa-ab-agosto-2027-gkb-jobservice-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-bem-banking-arosa-ab-august-2027-gkb-ch",
-          "praktikant-in-bem-banking-arosa-ab-august-2027-gkb-jobservice-ch"
+          "praktikant-in-bem-banking-arosa-ab-august-2027-gkb-jobservice-ch",
+          "praktikant-in-bem-banking-arosa-ab-agosto-2027-gkb-jobservice-lugano"
         ],
         "de": [
           "praktikant-in-bem-banking-arosa-ab-august-2027-gkb-ch"
@@ -601,7 +613,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1905/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T00:38:47.874Z",
+      "crawledAt": "2026-08-27T19:54:11.108Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -617,11 +629,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikant-in-bem-banking-scuol-ab-august-2027-gkb-jobservice-ch"
+        "praktikant-in-bem-banking-scuol-ab-august-2027-gkb-jobservice-ch",
+        "praktikant-in-bem-banking-scuol-ab-agosto-2027-gkb-jobservice-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-bem-banking-scuol-ab-august-2027-gkb-jobservice-ch"
+          "praktikant-in-bem-banking-scuol-ab-august-2027-gkb-jobservice-ch",
+          "praktikant-in-bem-banking-scuol-ab-agosto-2027-gkb-jobservice-lugano"
         ],
         "fr": [
           "praktikant-in-bem-banking-scuol-ab-august-2027-gkb-jobservice-ch"
@@ -671,7 +685,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1906/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T00:38:47.572Z",
+      "crawledAt": "2026-08-27T19:54:10.806Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -687,11 +701,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikant-in-bem-banking-st-moritz-ab-august-2027-gkb-jobservice-ch"
+        "praktikant-in-bem-banking-st-moritz-ab-august-2027-gkb-jobservice-ch",
+        "praktikant-in-bem-banking-st-moritz-ab-agosto-2027-gkb-jobservice-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-bem-banking-st-moritz-ab-august-2027-gkb-jobservice-ch"
+          "praktikant-in-bem-banking-st-moritz-ab-august-2027-gkb-jobservice-ch",
+          "praktikant-in-bem-banking-st-moritz-ab-agosto-2027-gkb-jobservice-lugano"
         ],
         "fr": [
           "praktikant-in-bem-banking-st-moritz-ab-august-2027-gkb-jobservice-ch"
@@ -741,7 +757,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1892/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T00:38:47.269Z",
+      "crawledAt": "2026-08-27T19:54:10.504Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -757,11 +773,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikant-in-bem-banking-chur-ab-august-2027-gkb-jobservice-ch"
+        "praktikant-in-bem-banking-chur-ab-august-2027-gkb-jobservice-ch",
+        "praktikant-in-bem-banking-chur-ab-agosto-2027-gkb-jobservice-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-bem-banking-chur-ab-august-2027-gkb-jobservice-ch"
+          "praktikant-in-bem-banking-chur-ab-august-2027-gkb-jobservice-ch",
+          "praktikant-in-bem-banking-chur-ab-agosto-2027-gkb-jobservice-lugano"
         ],
         "fr": [
           "praktikant-in-bem-banking-chur-ab-august-2027-gkb-jobservice-ch"
@@ -811,7 +829,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1871/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:38:46.966Z",
+      "crawledAt": "2026-08-27T19:54:10.202Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -827,11 +845,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "business-analyst-in-payments-fokus-geschaftskunden-60-100-gkb-jobservice-ch"
+        "business-analyst-in-payments-fokus-geschaftskunden-60-100-gkb-jobservice-ch",
+        "business-analista-in-payments-fokus-geschaftskunden-60-100-gkb-jobservice-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-analyst-in-payments-fokus-geschaftskunden-60-100-gkb-jobservice-ch"
+          "business-analyst-in-payments-fokus-geschaftskunden-60-100-gkb-jobservice-ch",
+          "business-analista-in-payments-fokus-geschaftskunden-60-100-gkb-jobservice-lugano"
         ],
         "en": [
           "business-analyst-in-payments-fokus-geschaftskunden-60-100-gkb-jobservice-ch"
@@ -884,7 +904,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1925/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-27T00:38:46.663Z",
+      "crawledAt": "2026-08-27T19:54:09.898Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -900,11 +920,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "legal-advisor-regulatory-relations-80-100-gkb-jobservice-ch"
+        "legal-advisor-regulatory-relations-80-100-gkb-jobservice-ch",
+        "legal-consulente-regulatory-relations-80-100-gkb-jobservice-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "legal-advisor-regulatory-relations-80-100-gkb-jobservice-ch"
+          "legal-advisor-regulatory-relations-80-100-gkb-jobservice-ch",
+          "legal-consulente-regulatory-relations-80-100-gkb-jobservice-lugano"
         ],
         "fr": [
           "legal-advisor-regulatory-relations-80-100-gkb-jobservice-ch"
@@ -954,7 +976,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1941/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:38:46.360Z",
+      "crawledAt": "2026-08-27T19:54:09.595Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -970,11 +992,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-document-lifecycle-processing-80-100-gkb-jobservice-ch"
+        "mitarbeiter-in-document-lifecycle-processing-80-100-gkb-jobservice-ch",
+        "collaboratore-trice-document-lifecycle-processing-80-100-graubundner-kantonalbank-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-document-lifecycle-processing-80-100-gkb-jobservice-ch"
+          "mitarbeiter-in-document-lifecycle-processing-80-100-gkb-jobservice-ch",
+          "collaboratore-trice-document-lifecycle-processing-80-100-graubundner-kantonalbank-chur"
         ],
         "de": [
           "mitarbeiter-in-document-lifecycle-processing-80-100-gkb-jobservice-ch"
@@ -1024,7 +1048,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1936/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:38:46.057Z",
+      "crawledAt": "2026-08-27T19:54:09.291Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1040,11 +1064,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "berater-in-digital-business-80-100-gkb-jobservice-ch"
+        "berater-in-digital-business-80-100-gkb-jobservice-ch",
+        "consulente-in-digital-business-80-100-graubundner-kantonalbank-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berater-in-digital-business-80-100-gkb-jobservice-ch"
+          "berater-in-digital-business-80-100-gkb-jobservice-ch",
+          "consulente-in-digital-business-80-100-graubundner-kantonalbank-chur"
         ],
         "de": [
           "berater-in-digital-business-80-100-gkb-jobservice-ch"
@@ -1082,7 +1108,7 @@
       "titleByLocale": {
         "it": "Fachspezialist: in Rechtsdienst/Compliance (80-100%)",
         "en": "Fachspezialist:in Rechtsdienst/Compliance (80-100%)",
-        "de": "Facharzt: im Rechtsdienst/Compliance (80-100%)",
+        "de": "Fachspezialist:in Rechtsdienst/Compliance (80-100%)",
         "fr": "Fachspezialist:in Rechtsdienst/Compliance (80-100%)"
       },
       "description": "Fachspezialist:in Rechtsdienst/Compliance (80-100%) — GKB JobService",
@@ -1094,7 +1120,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1930/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-27T00:38:45.753Z",
+      "crawledAt": "2026-08-27T19:54:08.989Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1109,8 +1135,9 @@
       "applyUrl": "https://recruitingapp-2607.umantis.com/Vacancies/1930/Description/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T21:29:48.494Z",
+      "previousSlugs": [
+        "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-jobservice-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-jobservice-ch"
@@ -1119,9 +1146,8 @@
           "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-jobservice-ch"
         ]
       },
-      "previousSlugs": [
-        "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-jobservice-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T21:29:48.494Z",
       "salaryMin": 56000,
       "salaryMax": 96000,
       "baseSalary": {
@@ -1164,7 +1190,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1948/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:38:45.451Z",
+      "crawledAt": "2026-08-27T19:54:08.687Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1180,11 +1206,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-jobservice-ch"
+        "specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-jobservice-ch",
+        "specialista-geschaftsfuhrung-beratung-stiftungen-80-graubundner-kantonalbank-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-jobservice-ch"
+          "specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-jobservice-ch",
+          "specialista-geschaftsfuhrung-beratung-stiftungen-80-graubundner-kantonalbank-chur"
         ],
         "de": [
           "specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-jobservice-ch"
@@ -1234,7 +1262,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1945/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:38:45.149Z",
+      "crawledAt": "2026-08-27T19:54:08.381Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1251,16 +1279,20 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "fachleiter-in-client-lifecycle-management-80-100-gkb-jobservice-ch"
+          "fachleiter-in-client-lifecycle-management-80-100-gkb-jobservice-ch",
+          "abteilungsleitung-pflegeheim-seora-laufenburg-w-m-d-gesundheitszentrum-fricktal"
         ],
         "it": [
           "fachleiter-in-client-lifecycle-management-80-100-gkb-jobservice-ch",
-          "abteilungsleitung-pflegeheim-seora-rheinfelden-m-w-d-gesundheitszentrum-fricktal"
+          "abteilungsleitung-pflegeheim-seora-rheinfelden-m-w-d-gesundheitszentrum-fricktal",
+          "responsabile-del-reparto-casa-di-cura-seora-laufenburg-uomo-donna-gesundheitszentrum-fricktal-rheinfelden"
         ]
       },
       "previousSlugs": [
         "fachleiter-in-client-lifecycle-management-80-100-gkb-jobservice-ch",
-        "abteilungsleitung-pflegeheim-seora-rheinfelden-m-w-d-gesundheitszentrum-fricktal"
+        "abteilungsleitung-pflegeheim-seora-rheinfelden-m-w-d-gesundheitszentrum-fricktal",
+        "abteilungsleitung-pflegeheim-seora-laufenburg-w-m-d-gesundheitszentrum-fricktal",
+        "responsabile-del-reparto-casa-di-cura-seora-laufenburg-uomo-donna-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T21:29:47.882Z",
@@ -1306,7 +1338,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1946/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-27T00:38:44.847Z",
+      "crawledAt": "2026-08-27T19:54:08.078Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1323,14 +1355,18 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "senior-specialist-client-lifecycle-management-80-100-gkb-jobservice-ch"
+          "senior-specialist-client-lifecycle-management-80-100-gkb-jobservice-ch",
+          "senior-specialiste-client-lifecycle-management-80-100-graubundner-kantonalbank-chur"
         ],
         "it": [
-          "senior-specialist-client-lifecycle-management-80-100-gkb-jobservice-ch"
+          "senior-specialist-client-lifecycle-management-80-100-gkb-jobservice-ch",
+          "senior-specialista-client-lifecycle-management-80-100-graubundner-kantonalbank-chur"
         ]
       },
       "previousSlugs": [
-        "senior-specialist-client-lifecycle-management-80-100-gkb-jobservice-ch"
+        "senior-specialist-client-lifecycle-management-80-100-gkb-jobservice-ch",
+        "senior-specialiste-client-lifecycle-management-80-100-graubundner-kantonalbank-chur",
+        "senior-specialista-client-lifecycle-management-80-100-graubundner-kantonalbank-chur"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T21:29:47.577Z",
@@ -1376,7 +1412,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1949/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T00:38:44.544Z",
+      "crawledAt": "2026-08-27T19:54:07.774Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1393,14 +1429,18 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "junior-specialist-asset-servicing-80-100-gkb-jobservice-ch"
+          "junior-specialist-asset-servicing-80-100-gkb-jobservice-ch",
+          "junior-specialist-asset-servicing-80-100-graubundner-kantonalbank-chur"
         ],
         "it": [
-          "junior-specialist-asset-servicing-80-100-gkb-jobservice-ch"
+          "junior-specialist-asset-servicing-80-100-gkb-jobservice-ch",
+          "junior-specialista-asset-servicing-80-100-graubundner-kantonalbank-chur"
         ]
       },
       "previousSlugs": [
-        "junior-specialist-asset-servicing-80-100-gkb-jobservice-ch"
+        "junior-specialist-asset-servicing-80-100-gkb-jobservice-ch",
+        "junior-specialist-asset-servicing-80-100-graubundner-kantonalbank-chur",
+        "junior-specialista-asset-servicing-80-100-graubundner-kantonalbank-chur"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T21:29:47.274Z",
@@ -1446,7 +1486,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1950/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:38:44.241Z",
+      "crawledAt": "2026-08-27T19:54:07.472Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1462,11 +1502,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "trainee-finanzieren-80-100-gkb-jobservice-ch"
+        "trainee-finanzieren-80-100-gkb-jobservice-ch",
+        "apprendista-finanzieren-80-100-graubundner-kantonalbank-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "trainee-finanzieren-80-100-gkb-jobservice-ch"
+          "trainee-finanzieren-80-100-gkb-jobservice-ch",
+          "apprendista-finanzieren-80-100-graubundner-kantonalbank-chur"
         ],
         "de": [
           "trainee-finanzieren-80-100-gkb-jobservice-ch"
@@ -1503,7 +1545,7 @@
       "title": "Studentenstelle Marketing (60%)",
       "titleByLocale": {
         "it": "Posizione degli studenti di marketing (60%)",
-        "en": "Marketing student position (60%)",
+        "en": "Studentenstelle Marketing (60%)",
         "de": "Studentenstelle Marketing (60%)",
         "fr": "Position étudiante en marketing (60%)"
       },
@@ -1516,7 +1558,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1954/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:38:43.937Z",
+      "crawledAt": "2026-08-27T19:54:07.169Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1533,14 +1575,18 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "studentenstelle-marketing-60-gkb-jobservice-ch"
+          "studentenstelle-marketing-60-gkb-jobservice-ch",
+          "studentenstelle-marketing-60-gkb-ch"
         ],
         "it": [
-          "studentenstelle-marketing-60-gkb-jobservice-ch"
+          "studentenstelle-marketing-60-gkb-jobservice-ch",
+          "posizione-degli-studenti-di-marketing-60-graubundner-kantonalbank-chur"
         ]
       },
       "previousSlugs": [
-        "studentenstelle-marketing-60-gkb-jobservice-ch"
+        "studentenstelle-marketing-60-gkb-jobservice-ch",
+        "studentenstelle-marketing-60-gkb-ch",
+        "posizione-degli-studenti-di-marketing-60-graubundner-kantonalbank-chur"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T21:29:46.360Z",
@@ -1586,7 +1632,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1955/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:38:43.629Z",
+      "crawledAt": "2026-08-27T19:54:06.865Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1602,11 +1648,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-berater-in-spezialfinanzierungen-80-100-gkb-jobservice-ch"
+        "senior-berater-in-spezialfinanzierungen-80-100-gkb-jobservice-ch",
+        "senior-consulente-in-finanziamento-speciale-80-100-graubundner-kantonalbank-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-berater-in-spezialfinanzierungen-80-100-gkb-jobservice-ch"
+          "senior-berater-in-spezialfinanzierungen-80-100-gkb-jobservice-ch",
+          "senior-consulente-in-finanziamento-speciale-80-100-graubundner-kantonalbank-chur"
         ],
         "de": [
           "senior-berater-in-spezialfinanzierungen-80-100-gkb-jobservice-ch"
@@ -1656,7 +1704,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1937/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:38:43.307Z",
+      "crawledAt": "2026-08-27T19:54:06.561Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1672,11 +1720,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistent-in-hypotheken-lenzerheide-80-gkb-jobservice-ch"
+        "assistent-in-hypotheken-lenzerheide-80-gkb-jobservice-ch",
+        "assistente-in-mortgage-lenzerheide-80-graubundner-kantonalbank-lenzerheide"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-hypotheken-lenzerheide-80-gkb-jobservice-ch"
+          "assistent-in-hypotheken-lenzerheide-80-gkb-jobservice-ch",
+          "assistente-in-mortgage-lenzerheide-80-graubundner-kantonalbank-lenzerheide"
         ],
         "de": [
           "assistent-in-hypotheken-lenzerheide-80-gkb-jobservice-ch"
@@ -1726,7 +1776,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1924/Description/1",
       "source": "GKB JobService Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:38:42.973Z",
+      "crawledAt": "2026-08-27T19:54:06.235Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1742,11 +1792,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistent-in-hypotheken-thusis-40-gkb-jobservice-ch"
+        "assistent-in-hypotheken-thusis-40-gkb-jobservice-ch",
+        "assistente-in-mortgage-sois-40-graubundner-kantonalbank-thusis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-hypotheken-thusis-40-gkb-jobservice-ch"
+          "assistent-in-hypotheken-thusis-40-gkb-jobservice-ch",
+          "assistente-in-mortgage-sois-40-graubundner-kantonalbank-thusis"
         ],
         "de": [
           "assistent-in-hypotheken-thusis-40-gkb-jobservice-ch"
@@ -1834,7 +1886,7 @@
         }
       },
       "addressRegion": "TI",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
