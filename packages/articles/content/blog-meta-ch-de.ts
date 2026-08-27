@@ -4459,6 +4459,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salari-appenzello-interno-settori.title': 'Löhne und Arbeitsmarkt in Appenzell Innerrhoden',
     'blog.article.salari-appenzello-interno-settori.excerpt': 'Leitfaden zur Lohnhöhe nach Bildungsabschluss, Berufsfeldern, AHV/BVG/KVG-BEITRÄGEN, gesetzlichen Stundenplänen und Instrumenten zur Berechnung des Nettolohns im Kanton Appenzell Innerrhoden.',
     'blog.article.salari-appenzello-interno-settori.imageAlt': 'Büro- und Fabrikarbeiter in einer modernen Schweizer Arbeitsumgebung, die verschiedene Qualifikationsstufen und Branchen darstellt.',
+    'blog.article.imposta-successione-appenzello.title': 'Erbschaftssteuern Appenzell: Sätze und Verfahren',
+    'blog.article.imposta-successione-appenzello.excerpt': 'Erbschaftssteuer in Appenzell: kantonale Zuständigkeit, Verwandtschaftssätze, Freistellungen für Ehegatten. Erklärung innerhalb von 30-90 Tagen. 6-stufiges Verfahren.',
+    'blog.article.imposta-successione-appenzello.imageAlt': 'Schweizer Verwaltungsgebäude für die kantonale Steuerbehörde bei Erbschaften und Schenkungen',
 };
 
 export default blogMetaChDe;
