@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "savedAt": "2026-08-27T20:01:14.335Z",
+  "savedAt": "2026-08-27T20:10:39.407Z",
   "entries": [
     {
       "key": "1f3f64b1be272c0a823064b6de0e9fc08f0147501d6610d89ad6c31c5d345919",
@@ -249324,16 +249324,16 @@
     },
     {
       "key": "4fc00f420d2bac9b723ee6f0289d439f75ff9ab7d90b3314ebec14129de3a998",
-      "touchedAt": 1787791904909,
+      "touchedAt": 1787861374920,
       "value": {
         "isJob": true,
-        "confidence": 0.95,
-        "reason": "Concrete single job posting with specific role title (Responsable d'équipe Broker Account Management West), detailed responsibilities section (Ce que tu fais), specific requirements (Ce que tu apportes), job ID (135086), location (Lausanne/Crissier), employment terms (80-100%, hybrid up to 40%), contact person for application (Manuela Trezzini), and multiple call-to-action buttons. All hallmarks of a dedicated job detail page, not a generic careers listing or company overview."
+        "confidence": 0.97,
+        "reason": "Concrete role title with specific position (Team Lead Broker Account Management West at 80-100%), detailed responsibilities section ('Ce que tu fais'), comprehensive requirements section ('Ce que tu apportes'), application instructions with contact person (Manuela Trezzini), specific location (Lausanne, Crissier), employment terms (hybrid work up to 40%), and job ID (135086). This is a complete single-job posting, not a generic careers page or listing."
       }
     },
     {
       "key": "8bfe89095c446577f001e822de93f4e4c1c5be7503214904c9d33127d4a64a48",
-      "touchedAt": 1787791905266,
+      "touchedAt": 1787861375234,
       "value": {
         "isJob": true,
         "confidence": 0.97,
@@ -251159,6 +251159,150 @@
         "isJob": true,
         "confidence": 0.98,
         "reason": "Concrete single job posting with specific role title (Watchmaker - Milano), detailed responsibilities (movement revision, waterproofing repairs, bracelet repairs), explicit requirements (4-5 years watchmaker experience), location (Via Giorgio Washington 70, Milano), contact person (Marzia Di Maio), and clear application CTA (Fai domanda per questo lavoro)"
+      }
+    },
+    {
+      "key": "4ddc73144f51c7491bd7f8e4a321dcf01e22a4ea6d726925b090fdc0daffb635",
+      "touchedAt": 1787861386024,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "Concrete single job posting with specific role title (Backoffice Mitarbeiter im Broker Account Management Privatkundengeschäft), detailed responsibilities section (Was du tust: processing subscriptions, handling broker inquiries, process optimization), specific requirements section (Was du mitbringst: commercial training, insurance experience, language skills), employment terms (60-100%, Zurich Oerlikon location, hybrid 40%), unique job ID (136270), named contact person (Victor Sale), and active application mechanism (Jetzt bewerben buttons)."
+      }
+    },
+    {
+      "key": "4439acecf35a02388ca77b9c52c7e7b83b5863d173a08c25b38bb070dd909dac",
+      "touchedAt": 1787861411058,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "Concrete role title (Head Technical Underwriting & Academy Schweiz m/w/d) with detailed responsibilities section (Was du tust), comprehensive requirements section (Was du mitbringst), specific employment details (70-100%, Zurich Oerlikon, hybrid 40%), job reference number (136148), contact person (Philippe Frutiger), and application instructions. All hallmarks of a single job detail page, not a generic careers listing or category page."
+      }
+    },
+    {
+      "key": "b5d74e6f5c22815df04cb112fa3aba4cfa1ec04629a5f1c1e6e7b5f10fe5ef5d",
+      "touchedAt": 1787861412091,
+      "value": {
+        "isJob": true,
+        "confidence": 98,
+        "reason": "Contains concrete role title (IT Software & License Management Specialist 80-100%), detailed responsibilities section (Was du tust) covering software asset lifecycle management, licensing, cost optimization, and compliance, comprehensive requirements section (Was du mitbringst) with specific skills and experience expectations, application context with contact information (Marco Stettler), location (Zürich Oerlikon), employment type (80-100%), and hybrid work details. All indicators of a real individual job posting, not a generic careers page."
+      }
+    },
+    {
+      "key": "9c26311d12514c04c1cd9bbdcc75609cbb903e2867ddbc50c8161f45e0430e7e",
+      "touchedAt": 1787861417514,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "This is a concrete single job posting for a Senior Data Scientist role at Zurich Insurance. It contains: specific job title, job ID (135041), detailed responsibilities section (What you will do - 10+ specific tasks), comprehensive requirements section (What you bring - 6+ years experience, specific skills like Python/R/SQL, degree requirements), location (Ljubljana, hybrid model), team context (ZCAM), and application functionality. Clear indicators of a real job detail page, not a generic careers listing."
+      }
+    },
+    {
+      "key": "1b3ce5e534ac12ef5cc1ca012e6c5258da2720114808f5ccee659575aa6fd732",
+      "touchedAt": 1787861417740,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "Contains concrete job title (Underwriter IV), specific location (Monterrey), unique job ID (134487), detailed responsibilities (risk analysis, team leadership, compliance), specific requirements (5+ years experience, relevant degree), and application mechanisms. This is a complete, actionable job posting, not a generic careers listing or category page."
+      }
+    },
+    {
+      "key": "383f858dd415209e9b0638ffa25863068f98015e68d519aefb8095daa9f9b38f",
+      "touchedAt": 1787861418118,
+      "value": {
+        "isJob": true,
+        "confidence": 0.96,
+        "reason": "Concrete job posting with specific role title (Junior Credit Analyst), comprehensive responsibilities (financial analysis, risk assessment, monitoring), clear requirements (degree in Finance/Economics, 1+ years experience, MS Office, English), location (Bratislava), job ID (134197), salary range (1900 EUR Gross), and application functionality. No generic career page or listing markers."
+      }
+    },
+    {
+      "key": "135ef1c84b8fa884c6e20e815badb7f72ec844cd71410ecaf1abd4ca4bfed553",
+      "touchedAt": 1787861418395,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "Contains concrete role title (Executive Underwriter - Professional Liability & Cyber), detailed responsibilities (underwriting, portfolio management, broker relations, etc.), specific qualifications with education/experience requirements for multiple levels, unique job ID (134821), specific location (Philadelphia), reporting structure, and explicit 'Apply now' call-to-action. This is a complete job posting, not a generic careers page or listing."
+      }
+    },
+    {
+      "key": "1b897a3b39de71c375e74128958f77743cb5fdea0140f0a8bb8a312c54ff1484",
+      "touchedAt": 1787861418649,
+      "value": {
+        "isJob": true,
+        "confidence": 0.95,
+        "reason": "Concrete role title (Sr. Liability Trial Attorney - Colorado), detailed responsibilities (litigation, case preparation, discovery, mentoring), specific requirements (JD, 7+ years experience, Colorado State Bar membership), salary range ($160k-$180k), benefits, and application context all present. This is a dedicated job posting, not a generic careers page or listing."
+      }
+    },
+    {
+      "key": "97a425967c4097a029c0fa6b3953d4f2d885a32578fdcc439f8f53ba71388bd8",
+      "touchedAt": 1787861418881,
+      "value": {
+        "isJob": true,
+        "confidence": 0.95,
+        "reason": "Concrete role title (Technical Lead), specific location (North Sydney), detailed responsibilities (solution design, DevOps, team coaching), explicit requirements (software engineering leadership, cloud/CI-CD expertise, AI experience), application context, and unique job ID (135711). URL structure confirms single job pattern."
+      }
+    },
+    {
+      "key": "d7ceafe73516bffe96e8308c798677f04be792224872acea81b0c018fc100b57",
+      "touchedAt": 1787861419090,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "Definitive job detail page. Contains concrete role title (Internal Controls Testing Specialist, 6-month fixed-term contract), specific location (Krakow), detailed responsibilities section with 8+ specific tasks, comprehensive candidate profile with education/experience/language/certification requirements, contract type, job ID (135865), and benefits/offer section. All hallmarks of a single job posting, not a generic careers listing."
+      }
+    },
+    {
+      "key": "ca11424e91b2ad38c828741ff2f43ca33b875a7f5cf3c26221056d4c53fccefd",
+      "touchedAt": 1787861419310,
+      "value": {
+        "isJob": true,
+        "confidence": 0.96,
+        "reason": "Page contains concrete job title (UNDERWRITER II), specific location (Mérida), unique job ID (1368049057), detailed requirements (Bachelor's degree + 6 months underwriting experience), specific technical knowledge requirements (underwriting principles, risk assessment, tariffing), explicit responsibilities (quota analysis, negotiation, portfolio management), benefits (wellness program, flexible schedule, development), and active application functionality. URL structure with job ID confirms single position posting."
+      }
+    },
+    {
+      "key": "99bfada8ba60d156c7595da8f1c512286e82eb0433485d87a8a85ee2da63d65e",
+      "touchedAt": 1787861420313,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "Contains concrete job title (Corporate Counsel), specific location (Schaumburg, IL), detailed key accountabilities section, explicit basic and preferred qualifications (JD, 6+ years legal experience, bar membership), salary range ($115,200-$155,000), employment details (Full Time, Hybrid, no sponsorship), and application mechanism. All markers of a specific job posting rather than generic careers page."
+      }
+    },
+    {
+      "key": "bc51cbd5a9e4358593950bba968518e74c3efad2611bf4b32aea86023a3e4666",
+      "touchedAt": 1787861420583,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "Contains concrete role title (Claims Handler), specific location (Glasgow), salary range (£25,000-£29,000), closing date (9th September 2026), comprehensive responsibilities (claims handling, negotiation, compliance, third-party management), detailed requirements (communication skills, case management, customer service focus), working hours (35 hours/week, Mon-Fri), contract types (full-time/part-time/job-share), training details (5 weeks classroom + 4 weeks buddy support), and application mechanism. All hallmarks of a dedicated job detail page, not a generic careers listing or informational page."
+      }
+    },
+    {
+      "key": "3101b536a2deb3165cd9031e016efdfe1fcb72a539a61063e4b6f2e0ea73bfe9",
+      "touchedAt": 1787861420856,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "Concrete role title ('Especialista de Diseño y Transformacion'), specific job ID (135878), detailed responsibilities listed (process design, organizational transformation, stakeholder management), application mechanism present ('Enviar candidatura ahora'), and specific location (Bogotá). All indicators of a real single job detail page, not a generic careers listing."
+      }
+    },
+    {
+      "key": "4c73871776f038f58f57b11c327609e1dbcbc1d5d99e4ae16ffe8ce416346de8",
+      "touchedAt": 1787861421096,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "Page contains concrete role title (Senior Legal Claims Handler), detailed responsibilities (manage commercial surety claims, analyze liability, negotiate settlements, coach team members), specific qualifications (JD + 5+ years legal/insurance experience, adjuster license required), and clear application context. Job ID 135702 provided. Location (remote US) and reporting structure specified. All hallmarks of a single job detail page, not a generic careers listing."
+      }
+    },
+    {
+      "key": "286bd43460034679538f9c65f87f122de3dc26a1e524f10847eef633cee7a673",
+      "touchedAt": 1787861421353,
+      "value": {
+        "isJob": true,
+        "confidence": 0.96,
+        "reason": "Page contains a concrete, single job opening with: specific role title (Business Analyst), position ID (135851 #ZCC), precise locations (México City and Guadalajara), detailed responsibilities (collaborate with stakeholders, requirements gathering, process improvements), specific requirements (analytical skills, SQL familiarity, Agile/Scrum, Microsoft Office, English fluency), and application mechanism. All hallmarks of a real job detail page, not a generic careers listing."
       }
     }
   ]
