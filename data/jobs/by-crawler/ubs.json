@@ -166,8 +166,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "ubs-d9fb8dfc1dba",
@@ -397,7 +396,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-17T21:59:53.752Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -481,7 +479,6 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:05:53.306Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -739,7 +736,6 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:05:53.306Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2525,18 +2521,31 @@
       },
       "previousSlugs": [
         "2027-banklehre-kaufmannische-grundbildung-kv-zurich-ubs-zurich",
-        "2027-apprendistato-bancario-formazione-commerciale-di-base-kv-zurigo-ubs-zurich"
+        "2027-apprendistato-bancario-formazione-commerciale-di-base-kv-zurigo-ubs-zurich",
+        "2027-apprendistato-bancario-formazione-commerciale-di-base-kv-schaffhausen-ubs-zurich",
+        "2027-banking-commercial-basic-education-kv-schaffhausen-ubs-zurich",
+        "2027-banklehre-kaufmannische-grundbildung-kv-schaffhausen-ubs-zurich",
+        "2027-banque-education-de-base-commerciale-kv-schaffhausen-ubs-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "2027-banklehre-kaufmannische-grundbildung-kv-zurich-ubs-zurich",
-          "2027-apprendistato-bancario-formazione-commerciale-di-base-kv-zurigo-ubs-zurich"
+          "2027-apprendistato-bancario-formazione-commerciale-di-base-kv-zurigo-ubs-zurich",
+          "2027-apprendistato-bancario-formazione-commerciale-di-base-kv-schaffhausen-ubs-zurich",
+          "2027-banking-commercial-basic-education-kv-schaffhausen-ubs-zurich",
+          "2027-banklehre-kaufmannische-grundbildung-kv-schaffhausen-ubs-zurich",
+          "2027-banque-education-de-base-commerciale-kv-schaffhausen-ubs-zurich"
         ],
         "en": [
-          "2027-banklehre-kaufmannische-grundbildung-kv-zurich-ubs-zurich"
+          "2027-banklehre-kaufmannische-grundbildung-kv-zurich-ubs-zurich",
+          "2027-banking-commercial-basic-education-kv-schaffhausen-ubs-zurich"
         ],
         "fr": [
-          "2027-banklehre-kaufmannische-grundbildung-kv-zurich-ubs-zurich"
+          "2027-banklehre-kaufmannische-grundbildung-kv-zurich-ubs-zurich",
+          "2027-banque-education-de-base-commerciale-kv-schaffhausen-ubs-zurich"
+        ],
+        "de": [
+          "2027-banklehre-kaufmannische-grundbildung-kv-schaffhausen-ubs-zurich"
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.789Z",
@@ -2766,7 +2775,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-03T12:37:47.777Z",
-      "needsRetranslation": true,
       "salaryMin": 59500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2939,7 +2947,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.783Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 129000,
       "baseSalary": {
@@ -3026,7 +3033,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.793Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 128000,
       "baseSalary": {
@@ -3113,7 +3119,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.791Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 128000,
       "baseSalary": {
@@ -3200,7 +3205,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.785Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 128000,
       "baseSalary": {
@@ -3287,7 +3291,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.785Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 128000,
       "baseSalary": {
@@ -3374,7 +3377,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.795Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 128000,
       "baseSalary": {
@@ -3461,7 +3463,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:37:47.787Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 128000,
       "baseSalary": {
@@ -3749,7 +3750,7 @@
         "it": "2027 BEM – Ingresso in banca dopo la maturità – Ticino – Settembre",
         "en": "2027 BEM – Bank entry after maturity – Ticino – September",
         "de": "2027 BEM – Bankeintritt nach Fälligkeit – Tessin – September",
-        "fr": "2027 BEM – Ingresso in banca dopo la maturità – Ticino – Settembre"
+        "fr": "2027 BEM – Entrée bancaire après échéance – Tessin – Septembre"
       },
       "description": "Il tuo ruolo\nVuoi entrare direttamente nel mondo del lavoro dopo la maturità, assumerti responsabilità e scoprire da vicino il settore bancario?\n\nIn qualità di Junior Talent, inizi il tuo percorso professionale in UBS.\nFin dall’inizio sei coinvolto/a nell’operatività quotidiana, supporti le attività legate a clienti e prodotti, analizzi casi e prepari colloqui. Grazie ai diversi inserimenti acquisisci rapidamente una visione completa del nostro business.\n\nCosa ti aspetta da noi:\n• una formazione di 18 mesi con interessanti approfondimenti nei nostri diversi settori e in differenti sedi\n• tre inserimenti di sei mesi in ambiti che si occupano principalmente di consulenza alla clientela e sui prodotti (in presenza e digitale) dove approfondirai temi come investimenti, crediti, ipoteche e pagamenti\n• in ogni rotazione il supporto di un/una Practical Advisor che ti accompagna e sostiene nel tuo sviluppo\n• un ottimo punto di partenza nel settore bancario, con prospettive concrete per il tuo futuro professionale\n\nLa tua formazione\nLa tua formazione è pratica, varia e orientata al tuo sviluppo personale. Parallelamente al lavoro in team, frequenterai i corsi presso il CYP (cyp.ch), insieme a diplomate e diplomati di altre banche, dove acquisirai le basi teoriche del settore bancario.\nQueste conoscenze vengono approfondite attraverso formazioni specialistiche interne. In questo modo conoscerai nel dettaglio i nostri prodotti e servizi e potrai applicare fin da subito quanto appreso nella tua attività quotidiana – preparandoti in modo ottimale all’esame finale.\n\nAl termine della formazione conseguirai il certificato «Ingresso in banca dopo la maturità (BEM)», rilasciato dall’Associazione Svizzera dei Banchieri (ASB). Molti dei nostri diplomati e delle nostre diplomate BEM continuano successivamente in UBS con un impiego fisso oppure proseguono il loro sviluppo nel nostro programma di perfezionamento biennale (JUNA).\n\nSe desideri saperne di più sul programma BEM e sui documenti necessari per la tua candidatura, fai clic qui.\n\nIl tuo team\nEntrando a far parte della community UBS BEM, diventerai parte di una rete dinamica. Vi incontrerete regolarmente durante formazioni interne ed esterne, eventi di più giorni e attività comuni. Spesso nascono amicizie e relazioni professionali che vanno oltre il periodo di formazione.\nUBS si affida a tecnologie moderne come l'intelligenza artificiale (AI) al fine di migliorare costantemente i propri servizi, anche all'interno del nostro team. In questo modo, rendiamo i processi più efficienti, utilizziamo i dati in modo più intelligente e semplifichiamo il lavoro quotidiano, sia per i dipendenti che per i clienti.\n\nLe tue conoscenze ed esperienze\nCerchiamo giovani persone curiose e autonome, che abbiano voglia di imparare, di assumersi responsabilità e di confrontarsi con gli altri – sia all’interno del team che nel contatto con la clientela.\nÈ importante che tu disponga di uno dei seguenti titoli di studio:\n• Attestato di maturità (preferibilmente in ambito economico)\n• AFC come impiegato/a di commercio con maturità professionale tramite apprendistato in un settore diverso dalla banca\n• AFC come impiegato/a di commercio con maturità professionale tramite stage di 52 settimane - scuola media di commercio (SMC) o in un settore diverso dalla banca\n• Attestato di maturità specializzata (solo nella Svizzera tedesca)\n\nTi riconosci in questo profilo? Allora sei nel posto giusto!\n\nInoltre, ti distingui per:\n\n• piacere nel contatto con le persone e forte spirito di squadra\n• motivazione e atteggiamento positivo\n• grande voglia di imparare e apertura alle novità\n• interesse per il mondo della finanza, per l’utilizzo dell’intelligenza artificiale (AI) e dei moderni strumenti digitali\n\nForse stai già frequentando un percorso di studi e senti la mancanza di esperienza pratica? Oppure hai maturato le prime esperienze nella vendita o in attività a contatto con la clientela? Rifletti su come le tue esperienze e i tuoi successi possano essere in linea con le competenze che cerchiamo.\n\nLa data di assunzione per il nostro programma BEM in Ticino è il 1° settembre (nelle altre regioni sono previste due date: 1° marzo e 1° settembre). Ti ricordiamo che puoi candidarti solo per una data e una regione all’anno.",
       "descriptionByLocale": {
@@ -3788,7 +3789,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-08-01T10:47:00.190Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "baseSalary": {
@@ -3875,7 +3875,6 @@
         ]
       },
       "firstSeenAt": "2026-08-01T10:47:00.188Z",
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "baseSalary": {
@@ -4047,7 +4046,6 @@
         ]
       },
       "firstSeenAt": "2026-08-01T10:47:00.184Z",
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "baseSalary": {
@@ -4134,7 +4132,6 @@
         ]
       },
       "firstSeenAt": "2026-08-01T10:47:00.184Z",
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "baseSalary": {
@@ -4221,7 +4218,6 @@
         ]
       },
       "firstSeenAt": "2026-08-01T10:47:00.182Z",
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "baseSalary": {
@@ -4308,7 +4304,6 @@
         ]
       },
       "firstSeenAt": "2026-08-01T10:47:00.180Z",
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "baseSalary": {
@@ -4395,7 +4390,6 @@
         ]
       },
       "firstSeenAt": "2026-08-01T10:47:00.178Z",
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "baseSalary": {
@@ -5083,7 +5077,6 @@
         ]
       },
       "firstSeenAt": "2026-08-01T10:47:00.162Z",
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500,
       "baseSalary": {
@@ -5413,7 +5406,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:47.999Z",
-      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -6233,7 +6225,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T23:34:49.523Z",
-      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -6474,7 +6465,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-14T11:04:55.875Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "baseSalary": {
@@ -6504,7 +6494,7 @@
       "title": "BANK-now - Head Software Development",
       "titleByLocale": {
         "it": "BANK-now - Capo dello sviluppo del software",
-        "en": "BANK-now - Head Software Development",
+        "en": "BANK-now - Head of Software Development",
         "de": "BANK-now - Head Software Development",
         "fr": "BANQUE-maintenant - Chef du développement logiciel"
       },
@@ -6877,7 +6867,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-08-05T11:33:43.924Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "baseSalary": {
@@ -7354,7 +7343,6 @@
         ]
       },
       "firstSeenAt": "2026-08-12T10:16:17.679Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "baseSalary": {
@@ -7457,7 +7445,7 @@
         "it": "Addetto agli eventi (pagato a ore)",
         "en": "Event Attendant (hourly paid)",
         "de": "Veranstaltungsmitarbeiter (stundenweise bezahlt)",
-        "fr": "Event Attendant (hourly paid)"
+        "fr": "Participant à l'événement (payé en heures)"
       },
       "description": "Do you always put clients at the center of everything you do? Are you passionate about creating a welcoming and positive atmosphere?\nAs additional support for our team in Geneva, we are looking for a new colleague (female or male) to join us as an Event Attendant on an hourly, on-call basis (on average, approximately 65 hours per year).\nIn this role, you will be responsible for welcoming guests and providing excellent client service at a variety of events, including client gatherings, press conferences, and third-party events involving UBS. You will support the event manager and play a key role in ensuring each event runs smoothly and safely.",
       "descriptionByLocale": {
@@ -7511,7 +7499,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:48.362Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "baseSalary": {
@@ -7847,7 +7834,6 @@
         ]
       },
       "firstSeenAt": "2026-08-13T21:53:00.347Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "baseSalary": {
@@ -7934,7 +7920,6 @@
         ]
       },
       "firstSeenAt": "2026-08-14T21:27:57.189Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -8487,7 +8472,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-08-19T09:45:01.242Z",
-      "needsRetranslation": true,
       "salaryMin": 29500,
       "salaryMax": 45300,
       "baseSalary": {
@@ -8557,7 +8541,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-08-19T09:45:01.238Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -8676,7 +8659,7 @@
       "title": "Remote Advisor Mortgage – Remote Sales & Advice Basel, 80-100%",
       "titleByLocale": {
         "it": "Consulente Ipotechario Remoto – Vendite e Consulenza a Distanza",
-        "en": "Remote Advisor Mortgage – Remote Sales & Advice Basel, 80-100%",
+        "en": "Remote Advisor Mortgage – Remote Sales & Advice Basel, 80-100 %",
         "de": "Remote Berater Mortgage – Remote Sales & Advice Basel, 80-100%",
         "fr": "Conseiller Hypothécaire à Distance – Ventes et Conseils à Distance"
       },
@@ -8727,7 +8710,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:48.239Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -9252,7 +9234,6 @@
         "jobType": ""
       },
       "firstSeenAt": "2026-07-21T11:19:29.685Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "baseSalary": {
@@ -10029,8 +10010,7 @@
         }
       },
       "addressRegion": "ZH",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "ubs-aacdca0879f7",
@@ -10200,8 +10180,7 @@
         }
       },
       "addressRegion": "ZH",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "ubs-8f7d9c143f2e",

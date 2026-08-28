@@ -1920,7 +1920,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T10:08:41.102Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "baseSalary": {
@@ -2760,7 +2759,7 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Stellvertretung Klassenehrperson Mittelstufe (24.33 Lektionen)",
       "titleByLocale": {
-        "it": "Stellvertretung Klassenehrperson Mittelstufe (24.33 Lektionen)",
+        "it": "Vice Classe Honor Person Intermediate (24.33 lezioni)",
         "en": "Deputy Class Honor Person Intermediate (24.33 lessons)",
         "de": "Stellvertretung Klassenehrperson Mittelstufe (24.33 Lektionen)",
         "fr": "Vice-classe Personne d'honneur Intermédiaire (24,33 leçons)"
@@ -2819,7 +2818,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T10:15:30.851Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "baseSalary": {
@@ -3507,7 +3505,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T22:10:05.758Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "baseSalary": {
@@ -4616,7 +4613,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T10:33:47.002Z",
-      "needsRetranslation": true,
       "salaryMin": 61600,
       "salaryMax": 113800,
       "baseSalary": {
@@ -4774,7 +4770,6 @@
         ]
       },
       "firstSeenAt": "2026-08-24T21:51:00.893Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "baseSalary": {
@@ -5611,7 +5606,6 @@
         ]
       },
       "firstSeenAt": "2026-08-17T21:58:35.222Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "baseSalary": {
@@ -6474,7 +6468,7 @@
         "it": "speech-terapeuta-16-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-arch-leuzigen",
         "en": "speech-therapist-16-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-arch-leuzigen-38896",
         "de": "logopadin-logopade-16-lektionen-schulverband-arch-leuzigen-arch-leuzigen-38896",
-        "fr": "logopadin-logopade-16-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-arch-leuzigen"
+        "fr": "orthophoniste-16-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-arch-leuzigen-38896"
       },
       "slugDisambiguator": "38896",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -6519,17 +6513,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "logopadin-logopade-16-lektionen-schulverband-arch-leuzigen-arch-leuzigen-38896",
-        "orthophoniste-16-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-arch-leuzigen-38896",
-        "speech-terapeuta-16-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-arch-leuzigen",
         "logopadin-logopade-16-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-arch-leuzigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logopadin-logopade-16-lektionen-schulverband-arch-leuzigen-arch-leuzigen-38896",
-          "speech-terapeuta-16-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-arch-leuzigen"
+          "logopadin-logopade-16-lektionen-schulverband-arch-leuzigen-arch-leuzigen-38896"
         ],
         "fr": [
-          "orthophoniste-16-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-arch-leuzigen-38896",
           "logopadin-logopade-16-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-arch-leuzigen"
         ]
       },
@@ -6767,7 +6757,6 @@
         "mr-lp-da-sj-2026-27-12-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-sumiswald"
       ],
       "firstSeenAt": "2026-08-13T10:41:32.761Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "baseSalary": {
@@ -7871,7 +7860,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.466Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "baseSalary": {
@@ -8626,7 +8614,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T10:15:30.836Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "baseSalary": {
@@ -8883,7 +8870,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-28T05:29:37.658Z"
+      "firstSeenAt": "2026-08-28T05:29:37.658Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "classe-4-3l-tedesco-5l-math-4l-nmg-2l-bg-2l-tcg-1l-coaching-talks-17-lezioni-a-lungo-termine-vice-ksml-kantonaler-37758"
+        ],
+        "en": [
+          "class-4-3l-german-5l-math-4l-nmg-2l-bg-2l-tcg-1l-coaching-talks-17-lessons-long-term-deputy-ksml-kantonaler-37758"
+        ],
+        "de": [
+          "klasssenlehrperson-4-klasse-3l-deutsch-5l-math-4l-nmg-2l-bg-2l-tcg-1l-coachinggesprache-17-37758"
+        ],
+        "fr": [
+          "classe-4-3l-allemand-5l-math-4l-nmg-2l-bg-2l-tcg-1l-coaching-talks-17-lecons-adjoint-a-long-terme-ksml-kantonaler-37758"
+        ]
+      },
+      "previousSlugs": [
+        "classe-4-3l-tedesco-5l-math-4l-nmg-2l-bg-2l-tcg-1l-coaching-talks-17-lezioni-a-lungo-termine-vice-ksml-kantonaler-37758",
+        "class-4-3l-german-5l-math-4l-nmg-2l-bg-2l-tcg-1l-coaching-talks-17-lessons-long-term-deputy-ksml-kantonaler-37758",
+        "klasssenlehrperson-4-klasse-3l-deutsch-5l-math-4l-nmg-2l-bg-2l-tcg-1l-coachinggesprache-17-37758",
+        "classe-4-3l-allemand-5l-math-4l-nmg-2l-bg-2l-tcg-1l-coaching-talks-17-lecons-adjoint-a-long-terme-ksml-kantonaler-37758"
+      ]
     },
     {
       "id": "ksml-5f8089823e34",
@@ -11310,7 +11317,6 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:50:26.085Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "baseSalary": {
@@ -12352,7 +12358,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T10:15:30.830Z",
-      "needsRetranslation": true,
       "salaryMin": 79200,
       "salaryMax": 146300,
       "baseSalary": {
@@ -12382,7 +12387,7 @@
       "title": "Das Weissenheim sucht: Klassenlehrperson, Zyklus 2, 14 Lektionen",
       "titleByLocale": {
         "it": "Das Weissenheim cerca: Insegnante di classe, Ciclo 2, 14 lezioni",
-        "en": "Das Weissenheim sucht: Klassenlehrperson, Zyklus 2, 14 Lektionen",
+        "en": "The Weissenheim is looking for: class teacher, cycle 2, 14 lessons",
         "de": "Das Weissenheim sucht: Klassenlehrperson, Zyklus 2, 14 Lektionen",
         "fr": "Das Weissenheim recherche : Enseignant·e de classe, Cycle 2, 14 leçons"
       },
@@ -13492,7 +13497,6 @@
         ]
       },
       "firstSeenAt": "2026-08-18T22:21:46.841Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "baseSalary": {
@@ -14180,7 +14184,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T10:15:30.829Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "baseSalary": {
@@ -14627,8 +14630,8 @@
       "slugByLocale": {
         "de": "18-lektionen-logopadie-primarschule-schonau-hohmad-thun-39654",
         "it": "18-lektionen-logopala-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun",
-        "en": "18-lektionen-logopadie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun",
-        "fr": "18-lektionen-logopadie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun"
+        "en": "18-lessons-in-speech-medicine-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun-39654",
+        "fr": "18-lecons-de-medecine-vocale-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun-39654"
       },
       "slugDisambiguator": "39654",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -14638,15 +14641,15 @@
       "titleByLocale": {
         "de": "18 Lektionen Logopädie",
         "it": "18 Lektionen Logopäla",
-        "en": "18 Lektionen Logopädie",
-        "fr": "18 Lektionen Logopädie"
+        "en": "18 Lessons in Speech Medicine",
+        "fr": "18 leçons de médecine vocale"
       },
       "description": "Porträt\nZur Stärkung unseres Teams suchen wir eine Logopädin/einen Logopäden. Wir sind eine vielfältige, dezentral organisierte Primarschule mit 7 Kindergärten, 20 Regelklassen und 2 Klassen zur besonderen Förderung (KbF). In den insgesamt 29 Klassen werden rund 540 Schülerinnen und Schüler von 65 Lehrpersonen unterrichtet.\n\nAufgaben\nAls Logopädin, Logopäde arbeiten Sie am Schulstandort Schönau.\nIhre Aufgaben umfassen:\n- Abklärung des Förder- bzw. Therapiebedarfs (Erfassen und Diagnostik)\n- Logopädische Förderung (Einzeltherapie und Kleingruppenarbeit)\n- Beratung von Eltern und Lehrpersonen\n- Interdisziplinäre Zusammenarbeit im Rahmen des Berufsauftrages\n- regelmässiger Fachaustausch der Logopädinnen der Stadt Thun\nSie können auf die Unterstützung und Hilfe der Kolleginnen und Kollegen zählen.\nDie Mutterschaftsvertretung startet voraussichtlich Mitte November 26 und wird nach dem Mutterschaftsurlaub in eine unbefristete Anstellung übergehen.\n\nAnforderungen\nSie verfügen über ein anerkanntes Diplom oder Bachelor in Logopädie oder befinden sich in Ausbildung zur Logopädin oder zum Logopäden. Zusätzlich entspricht Ihnen die Arbeit mit Kindern aus dem Zyklus 1 und 2.\n\nWir bieten\nWir bieten eine unbefristete Anstellung nach den kantonalen Vorgaben.\nIhnen steht ein sehr gut eingerichteter Therapieraum wie auch eine zeitgemässe Infrastruktur zur Verfügung.\nZwei erfahrene, motivierte Logopädinnen freuen sich auf die Erweiterung des Teams.\nVon den 18 Lektionen begleiten Sie auch einige Kinder mit Sonderschulstatus im Einzelunterricht.",
       "descriptionByLocale": {
         "de": "Porträt\nZur Stärkung unseres Teams suchen wir eine Logopädin/einen Logopäden. Wir sind eine vielfältige, dezentral organisierte Primarschule mit 7 Kindergärten, 20 Regelklassen und 2 Klassen zur besonderen Förderung (KbF). In den insgesamt 29 Klassen werden rund 540 Schülerinnen und Schüler von 65 Lehrpersonen unterrichtet.\n\nAufgaben\nAls Logopädin, Logopäde arbeiten Sie am Schulstandort Schönau.\nIhre Aufgaben umfassen:\n- Abklärung des Förder- bzw. Therapiebedarfs (Erfassen und Diagnostik)\n- Logopädische Förderung (Einzeltherapie und Kleingruppenarbeit)\n- Beratung von Eltern und Lehrpersonen\n- Interdisziplinäre Zusammenarbeit im Rahmen des Berufsauftrages\n- regelmässiger Fachaustausch der Logopädinnen der Stadt Thun\nSie können auf die Unterstützung und Hilfe der Kolleginnen und Kollegen zählen.\nDie Mutterschaftsvertretung startet voraussichtlich Mitte November 26 und wird nach dem Mutterschaftsurlaub in eine unbefristete Anstellung übergehen.\n\nAnforderungen\nSie verfügen über ein anerkanntes Diplom oder Bachelor in Logopädie oder befinden sich in Ausbildung zur Logopädin oder zum Logopäden. Zusätzlich entspricht Ihnen die Arbeit mit Kindern aus dem Zyklus 1 und 2.\n\nWir bieten\nWir bieten eine unbefristete Anstellung nach den kantonalen Vorgaben.\nIhnen steht ein sehr gut eingerichteter Therapieraum wie auch eine zeitgemässe Infrastruktur zur Verfügung.\nZwei erfahrene, motivierte Logopädinnen freuen sich auf die Erweiterung des Teams.\nVon den 18 Lektionen begleiten Sie auch einige Kinder mit Sonderschulstatus im Einzelunterricht.",
-        "it": "Porträt\nZur Stärkung unseres Teams suchen wir eine Logopädin/einen Logopäden. Wir sind eine vielfältige, dezentral organisierte Primarschule mit 7 Kindergärten, 20 Regelklassen und 2 Klassen zur besonderen Förderung (KbF). In den insgesamt 29 Klassen werden rund 540 Schülerinnen und Schüler von 65 Lehrpersonen unterrichtet.\n\nAufgaben\nAls Logopädin, Logopäde arbeiten Sie am Schulstandort Schönau.\nIhre Aufgaben umfassen:\n- Abklärung des Förder- bzw. Therapiebedarfs (Erfassen und Diagnostik)\n- Logopädische Förderung (Einzeltherapie und Kleingruppenarbeit)\n- Beratung von Eltern und Lehrpersonen\n- Interdisziplinäre Zusammenarbeit im Rahmen des Berufsauftrages\n- regelmässiger Fachaustausch der Logopädinnen der Stadt Thun\nSie können auf die Unterstützung und Hilfe der Kolleginnen und Kollegen zählen.\nDie Mutterschaftsvertretung startet voraussichtlich Mitte November 26 und wird nach dem Mutterschaftsurlaub in eine unbefristete Anstellung übergehen.\n\nAnforderungen\nSie verfügen über ein anerkanntes Diplom oder Bachelor in Logopädie oder befinden sich in Ausbildung zur Logopädin oder zum Logopäden. Zusätzlich entspricht Ihnen die Arbeit mit Kindern aus dem Zyklus 1 und 2.\n\nWir bieten\nWir bieten eine unbefristete Anstellung nach den kantonalen Vorgaben.\nIhnen steht ein sehr gut eingerichteter Therapieraum wie auch eine zeitgemässe Infrastruktur zur Verfügung.\nZwei erfahrene, motivierte Logopädinnen freuen sich auf die Erweiterung des Teams.\nVon den 18 Lektionen begleiten Sie auch einige Kinder mit Sonderschulstatus im Einzelunterricht.",
-        "en": "Porträt\nZur Stärkung unseres Teams suchen wir eine Logopädin/einen Logopäden. Wir sind eine vielfältige, dezentral organisierte Primarschule mit 7 Kindergärten, 20 Regelklassen und 2 Klassen zur besonderen Förderung (KbF). In den insgesamt 29 Klassen werden rund 540 Schülerinnen und Schüler von 65 Lehrpersonen unterrichtet.\n\nAufgaben\nAls Logopädin, Logopäde arbeiten Sie am Schulstandort Schönau.\nIhre Aufgaben umfassen:\n- Abklärung des Förder- bzw. Therapiebedarfs (Erfassen und Diagnostik)\n- Logopädische Förderung (Einzeltherapie und Kleingruppenarbeit)\n- Beratung von Eltern und Lehrpersonen\n- Interdisziplinäre Zusammenarbeit im Rahmen des Berufsauftrages\n- regelmässiger Fachaustausch der Logopädinnen der Stadt Thun\nSie können auf die Unterstützung und Hilfe der Kolleginnen und Kollegen zählen.\nDie Mutterschaftsvertretung startet voraussichtlich Mitte November 26 und wird nach dem Mutterschaftsurlaub in eine unbefristete Anstellung übergehen.\n\nAnforderungen\nSie verfügen über ein anerkanntes Diplom oder Bachelor in Logopädie oder befinden sich in Ausbildung zur Logopädin oder zum Logopäden. Zusätzlich entspricht Ihnen die Arbeit mit Kindern aus dem Zyklus 1 und 2.\n\nWir bieten\nWir bieten eine unbefristete Anstellung nach den kantonalen Vorgaben.\nIhnen steht ein sehr gut eingerichteter Therapieraum wie auch eine zeitgemässe Infrastruktur zur Verfügung.\nZwei erfahrene, motivierte Logopädinnen freuen sich auf die Erweiterung des Teams.\nVon den 18 Lektionen begleiten Sie auch einige Kinder mit Sonderschulstatus im Einzelunterricht.",
-        "fr": "Porträt\nZur Stärkung unseres Teams suchen wir eine Logopädin/einen Logopäden. Wir sind eine vielfältige, dezentral organisierte Primarschule mit 7 Kindergärten, 20 Regelklassen und 2 Klassen zur besonderen Förderung (KbF). In den insgesamt 29 Klassen werden rund 540 Schülerinnen und Schüler von 65 Lehrpersonen unterrichtet.\n\nAufgaben\nAls Logopädin, Logopäde arbeiten Sie am Schulstandort Schönau.\nIhre Aufgaben umfassen:\n- Abklärung des Förder- bzw. Therapiebedarfs (Erfassen und Diagnostik)\n- Logopädische Förderung (Einzeltherapie und Kleingruppenarbeit)\n- Beratung von Eltern und Lehrpersonen\n- Interdisziplinäre Zusammenarbeit im Rahmen des Berufsauftrages\n- regelmässiger Fachaustausch der Logopädinnen der Stadt Thun\nSie können auf die Unterstützung und Hilfe der Kolleginnen und Kollegen zählen.\nDie Mutterschaftsvertretung startet voraussichtlich Mitte November 26 und wird nach dem Mutterschaftsurlaub in eine unbefristete Anstellung übergehen.\n\nAnforderungen\nSie verfügen über ein anerkanntes Diplom oder Bachelor in Logopädie oder befinden sich in Ausbildung zur Logopädin oder zum Logopäden. Zusätzlich entspricht Ihnen die Arbeit mit Kindern aus dem Zyklus 1 und 2.\n\nWir bieten\nWir bieten eine unbefristete Anstellung nach den kantonalen Vorgaben.\nIhnen steht ein sehr gut eingerichteter Therapieraum wie auch eine zeitgemässe Infrastruktur zur Verfügung.\nZwei erfahrene, motivierte Logopädinnen freuen sich auf die Erweiterung des Teams.\nVon den 18 Lektionen begleiten Sie auch einige Kinder mit Sonderschulstatus im Einzelunterricht."
+        "it": "Ritratto\nPer rafforzare il nostro team, stiamo cercando un terapeuta del discorso. Siamo una scuola primaria diversificata e decentralizzata con 7 asili, 20 classi di regola e 2 classi per la promozione speciale (KbF). In un totale di 29 classi, circa 540 studenti sono tenuti da 65 insegnanti.\n\nCompiti\nCome terapista del discorso, lavori nella scuola di Schönau.\nI suoi compiti comprendono:\n- Chiarificazione delle esigenze di finanziamento o terapia (detezione e diagnosi)\n- Supporto vocale-pediatrico (terapia individuale e lavoro di gruppo piccolo)\n- Consulenza per genitori e insegnanti\n- Cooperazione interdisciplinare nel quadro del mandato professionale\n- Scambio professionale regolare dei Dottori di Discorso della Città di Thun\nPuoi contare sul supporto e sull'aiuto dei tuoi colleghi.\nLa rappresentanza di maternità dovrebbe iniziare a metà novembre 26 e si trasferirà a un impiego permanente dopo il congedo di maternità.\n\nRequisiti\nHai un diploma riconosciuto o laurea in terapia vocale o sono in formazione come terapeuta del discorso. Inoltre, lavorare con i bambini dal ciclo 1 e 2 corrisponde a voi.\n\nOffriamo\nOffriamo un'occupazione permanente secondo i requisiti cantonali.\nA vostra disposizione una sala terapia molto ben attrezzata e un'infrastruttura moderna.\nDue pedagoghi di discorso esperti e motivati sono impazienti di espandere la squadra.\nDelle 18 lezioni, accompagnerete anche alcuni bambini con status di istruzione speciale nelle lezioni individuali.",
+        "en": "Portrait\nTo strengthen our team, we are looking for a speech therapist. We are a diverse, decentralized primary school with 7 kindergartens, 20 rule classes and 2 classes for special promotion (KbF). In a total of 29 classes, around 540 students are taught by 65 teachers.\n\nTasks\nAs a speech therapist, you work at the Schönau school location.\nIts tasks shall include:\n- Clarification of the funding or therapy needs (detection and diagnosis)\n- Speech-pediatric support (individual therapy and small group work)\n- Advice for parents and teachers\n- Interdisciplinary cooperation within the framework of the professional mandate\n- Regular professional exchange of the Speech Doctors of the City of Thun\nYou can count on the support and help of your colleagues.\nMaternity representation is expected to start in mid-November 26 and will move to permanent employment after maternity leave.\n\nRequirements\nYou have a recognised diploma or bachelor’s degree in speech therapy or are in training as a speech therapist. In addition, working with children from cycle 1 and 2 corresponds to you.\n\nWe offer\nWe offer permanent employment in accordance with the cantonal requirements.\nYou have a very well-equipped therapy room as well as a modern infrastructure at your disposal.\nTwo experienced, motivated speech pedagogues are looking forward to expanding the team.\nOf the 18 lessons, you will also accompany some children with special education status in individual lessons.",
+        "fr": "Portrait\nPour renforcer notre équipe, nous cherchons un orthophoniste. Nous sommes une école primaire diversifiée et décentralisée avec 7 jardins d'enfants, 20 classes de règles et 2 classes de promotion spéciale (KbF). Sur un total de 29 classes, environ 540 élèves sont enseignés par 65 enseignants.\n\nTâches\nEn tant que orthophoniste, vous travaillez à l'école Schönau.\nSes tâches comprennent:\n- Clarification des besoins en financement ou en thérapie (détection et diagnostic)\n- Soutien à la parole et à la pédiatrie (thérapie individuelle et travail en petit groupe)\n- Conseils aux parents et aux enseignants\n- Coopération interdisciplinaire dans le cadre du mandat professionnel\n- Échange professionnel régulier des médecins du discours de la ville de Thun\nVous pouvez compter sur le soutien et l'aide de vos collègues.\nLa représentation de la maternité devrait commencer à la mi-novembre 26 et passer à un emploi permanent après le congé de maternité.\n\nExigences\nVous avez un diplôme reconnu ou un baccalauréat en orthophonie ou êtes en formation comme orthophoniste. De plus, travailler avec des enfants des cycles 1 et 2 correspond à vous.\n\nNous offrons\nNous offrons un emploi permanent selon les exigences cantonales.\nVous avez une salle de thérapie très bien équipée ainsi qu'une infrastructure moderne à votre disposition.\nDeux pédagogues expérimentés et motivés sont impatients d'élargir l'équipe.\nSur les 18 leçons, vous accompagnerez également certains enfants ayant un statut éducatif spécial dans des leçons individuelles."
       },
       "location": "Thun",
       "canton": "BE",
@@ -14678,16 +14681,15 @@
           "18-lektionen-logopadie-primarschule-schonau-hohmad-thun-39654"
         ],
         "en": [
-          "18-lessons-in-speech-medicine-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun-39654"
+          "18-lektionen-logopadie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun"
         ],
         "fr": [
-          "18-lecons-de-medecine-vocale-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun-39654"
+          "18-lektionen-logopadie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun"
         ]
       },
       "previousSlugs": [
         "18-lektionen-logopadie-primarschule-schonau-hohmad-thun-39654",
-        "18-lessons-in-speech-medicine-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun-39654",
-        "18-lecons-de-medecine-vocale-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun-39654"
+        "18-lektionen-logopadie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun"
       ],
       "needsRetranslation": true,
       "salaryMin": 59000,
@@ -14842,27 +14844,43 @@
         "10-lektionen-stellvertretung-4-6-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-morigen",
         "10-lektionen-stellvertretung-4-6-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-morige-39940",
         "10-lezioni-aggiunto-4-6-categoria-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-morigen-39940",
-        "10-lezioni-aggiunto-4-6-categoria-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-morigen"
+        "10-lezioni-aggiunto-4-6-categoria-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-morigen",
+        "deputato-al-4-6-grado-4-5-lezioni-partita-di-maternita-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-linden",
+        "deputy-at-4th-6th-grade-4-5-lessons-maternity-leave-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-40019",
+        "stellvertretung-an-4-6-klasse-4-5-lektionen-mutterschaftsurlaub-schule-linden-linden-40019",
+        "adjoint-a-la-4e-6e-annee-4-a-5-lecons-conge-de-maternite-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40019",
+        "stellvertretung-an-4-6-klasse-4-5-lektionen-mutterschaftsurlaub-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-linden",
+        "stellvertretung-an-4-6-klasse-4-5-lektionen-mutterschaftsurlaub-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-l-40019",
+        "deputato-al-4-6-grado-4-5-lezioni-partita-di-maternita-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40019"
       ],
       "previousSlugsByLocale": {
         "it": [
           "10-lektionen-stellvertretung-4-6-klasse-primarschule-sutz-lattrigen-morigen-morigen-39940",
           "10-lektionen-stellvertretung-4-6-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-morigen",
           "10-lezioni-aggiunto-4-6-categoria-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-morigen-39940",
-          "10-lezioni-aggiunto-4-6-categoria-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-morigen"
+          "10-lezioni-aggiunto-4-6-categoria-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-morigen",
+          "deputato-al-4-6-grado-4-5-lezioni-partita-di-maternita-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-linden",
+          "deputy-at-4th-6th-grade-4-5-lessons-maternity-leave-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-40019",
+          "stellvertretung-an-4-6-klasse-4-5-lektionen-mutterschaftsurlaub-schule-linden-linden-40019",
+          "adjoint-a-la-4e-6e-annee-4-a-5-lecons-conge-de-maternite-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40019",
+          "stellvertretung-an-4-6-klasse-4-5-lektionen-mutterschaftsurlaub-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-linden",
+          "stellvertretung-an-4-6-klasse-4-5-lektionen-mutterschaftsurlaub-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-l-40019",
+          "deputato-al-4-6-grado-4-5-lezioni-partita-di-maternita-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40019"
         ],
         "en": [
-          "10-lektionen-stellvertretung-4-6-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-morige-39940"
+          "10-lektionen-stellvertretung-4-6-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-morige-39940",
+          "deputy-at-4th-6th-grade-4-5-lessons-maternity-leave-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-40019"
         ],
         "de": [
-          "10-lektionen-stellvertretung-4-6-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-morige-39940"
+          "10-lektionen-stellvertretung-4-6-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-morige-39940",
+          "stellvertretung-an-4-6-klasse-4-5-lektionen-mutterschaftsurlaub-schule-linden-linden-40019"
         ],
         "fr": [
-          "10-lektionen-stellvertretung-4-6-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-morige-39940"
+          "10-lektionen-stellvertretung-4-6-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-morige-39940",
+          "adjoint-a-la-4e-6e-annee-4-a-5-lecons-conge-de-maternite-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40019"
         ]
       },
       "firstSeenAt": "2026-08-19T09:49:52.335Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "baseSalary": {
@@ -15289,7 +15307,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.450Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "baseSalary": {
@@ -15719,8 +15736,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "ksml-337406b71d01",
@@ -16041,8 +16057,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

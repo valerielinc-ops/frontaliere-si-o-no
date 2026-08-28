@@ -78,7 +78,6 @@
         ]
       },
       "firstSeenAt": "2026-06-16T13:54:31.670Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -156,7 +155,6 @@
         ]
       },
       "firstSeenAt": "2026-06-18T23:17:52.498Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -309,7 +307,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T12:42:23.844Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -567,7 +564,6 @@
         ]
       },
       "firstSeenAt": "2026-06-11T23:11:53.198Z",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 151000,
       "baseSalary": {
@@ -1436,7 +1432,6 @@
         ]
       },
       "firstSeenAt": "2026-07-29T22:15:39.357Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -1514,7 +1509,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:12:19.310Z",
-      "needsRetranslation": true,
       "salaryMin": 109000,
       "salaryMax": 187000,
       "baseSalary": {
@@ -1586,7 +1580,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:51:06.473Z",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "baseSalary": {
@@ -1891,7 +1884,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T21:45:17.523Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -2199,7 +2191,6 @@
         ]
       },
       "firstSeenAt": "2026-08-12T10:21:48.445Z",
-      "needsRetranslation": true,
       "salaryMin": 123000,
       "salaryMax": 165500,
       "baseSalary": {
@@ -2277,7 +2268,6 @@
         ]
       },
       "firstSeenAt": "2026-08-12T21:54:22.412Z",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 151000,
       "baseSalary": {
@@ -2447,8 +2437,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS",
-      "needsRetranslation": true
+      "addressRegion": "BS"
     },
     {
       "id": "novartis-ed3a346c9b37",
@@ -2528,7 +2517,7 @@
         "it": "direttore-ai-enablement-corporate-affairs-novartis-basel-city",
         "en": "director-ai-enablement-corporate-affairs-novartis-ch",
         "de": "direktor-ai-enablement-corporate-affairs-novartis-basel-city",
-        "fr": "director-ai-enablement-corporate-affairs-novartis-basel-city"
+        "fr": "directeur-ai-activement-affaires-generales-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -2569,20 +2558,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "director-ai-enablement-corporate-affairs-novartis-ch",
-        "directeur-ai-activement-affaires-generales-novartis-basel-city",
-        "direttore-ai-enablement-corporate-affairs-novartis-basel-city",
         "director-ai-enablement-corporate-affairs-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "director-ai-enablement-corporate-affairs-novartis-ch",
-          "direttore-ai-enablement-corporate-affairs-novartis-basel-city"
+          "director-ai-enablement-corporate-affairs-novartis-ch"
         ],
         "de": [
           "director-ai-enablement-corporate-affairs-novartis-ch"
         ],
         "fr": [
-          "directeur-ai-activement-affaires-generales-novartis-basel-city",
           "director-ai-enablement-corporate-affairs-novartis-basel-city"
         ]
       },
@@ -2667,7 +2652,6 @@
         ]
       },
       "firstSeenAt": "2026-08-18T21:55:20.419Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -2745,7 +2729,6 @@
         ]
       },
       "firstSeenAt": "2026-08-18T21:55:19.613Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -2897,7 +2880,6 @@
         ]
       },
       "firstSeenAt": "2026-08-19T21:43:52.854Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2995,7 +2977,7 @@
       "slugByLocale": {
         "it": "leader-del-programma-clinico-novartis-basel-city",
         "en": "clinical-program-leader-novartis-ch",
-        "de": "clinical-program-leader-novartis-basel-city",
+        "de": "leiter-des-klinischen-programms-novartis-basel-city",
         "fr": "chef-de-programme-clinique-novartis-basel-city"
       },
       "company": "Novartis",
@@ -3037,17 +3019,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "clinical-program-leader-novartis-ch",
-        "clinical-program-leader-novartis-basel-city",
-        "leiter-des-klinischen-programms-novartis-basel-city",
-        "leader-del-programma-clinico-novartis-basel-city"
+        "clinical-program-leader-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "clinical-program-leader-novartis-ch",
-          "leader-del-programma-clinico-novartis-basel-city"
+          "clinical-program-leader-novartis-ch"
         ],
         "de": [
-          "leiter-des-klinischen-programms-novartis-basel-city",
           "clinical-program-leader-novartis-basel-city"
         ],
         "fr": [
@@ -3133,7 +3111,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T21:44:29.846Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -3211,7 +3188,6 @@
         ]
       },
       "firstSeenAt": "2026-08-10T10:40:48.786Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3289,7 +3265,6 @@
         ]
       },
       "firstSeenAt": "2026-08-10T10:40:47.939Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3679,7 +3654,7 @@
         "it": "International Value & Access Direttore - Cardio Pipeline",
         "en": "International Value & Access Director - Cardio Pipeline",
         "de": "International Value & Access Direktor - Cardio Pipeline",
-        "fr": "International Value & Access Director - Cardio Pipeline"
+        "fr": "Directeur de la valeur internationale et de l'accès - Cardio Pipeline"
       },
       "description": "Salary Range:\nCHF159,600.00 - CHF296,400.00\n\nJob Description Summary\n#LI-Hybrid\n\nLocation: Basel, Switzerland\n\nStep into a pivotal role where your leadership can directly shape how breakthrough cardiovascular innovations reach patients worldwide.\n\nInternational Value & Access Director - Cardio Pipeline, you will set a bold strategic direction, transforming scientific advances into clear, compelling value for payers and healthcare systems. You’ll inspire and unite cross‑functional and country teams, championing access solutions that accelerate affordability, broaden impact, and redefine what’s possible for patients and health systems.\n\nHere, your vision, influence, and enterprise mindset will help build an integrated access strategy that truly moves the needle — for Novartis, for partners, and most importantly, for the people we serve.\n\nThis position reports into the Executive Director, V&A CRM.\n\nJob Description\nKey Responsibilities:\n\n• Lead creation and execution of integrated international access strategies across the full development‑to‑commercial continuum.\n\n• Shape compelling payer and healthcare‑system value propositions grounded in strong scientific and access‑relevant evidence.\n\n• Represent Access internally and externally, influencing strategic discussions and strengthening Novartis’ international access agenda.\n\n• Embed access insights into Target Product Profiles, clinical plans, and integrated evidence plans to guide asset decision‑making.\n\n• Partner with Commercial Launch Strategy, Pricing, and Therapeutic Areas to co‑create robust international pricing strategies and guidance.\n\n• Ensure timely, high‑quality access input into Integrated Product Strategy, business development assessments, and indication sequencing.\n\n• Collaborate with Health Economics and cross‑franchise teams to align evidence priorities with key market needs.\n\n• Anticipate shifts in priority markets and health‑technology‑assessment archetypes to model future access assumptions and recommendations.\n\n• Build strong cross‑functional and external partnerships to enable innovative, scalable access solutions.\n\n• Champion an enterprise approach, connecting countries and functions to deliver consistent, high‑impact access strategies.\n\nEssential Requirements:\n\n• 5+ years of experience in market access roles, including 2+ years global or ex-US regional experience.\n\n• CRM product launch experience.\n\n• 2+ years of experience in the relevant therapeutic area.\n\n• Cross functional leadership experience across matrix organization.\n\n• Strong communication skills and ability to influence across a range of diverse stakeholders to drive change.\n\n• Competitive and entrepreneurial mindset with proven track record of fostering innovation.\n\nDesirable Requirements:\n\n• 7+ years of experience in market access roles, including 5+ years global or ex-US regional experience.\n\n• Strong external network with thought leaders and influencers in the payer and HTA environment.\n\nAccessibility and accommodation\nNovartis is committed to working with and providing reasonable accommodation to all individuals. If, because of a medical condition or disability, you need a reasonable accommodation for any part of the recruitment process, or in order to receive more detailed information about the essential functions of a position, please send an e-mail to diversity.inclusion_ch@novartis.com and let us know the nature of your request and your contact information. Please include the job requisition number in your message.\n\nBenefits: Read our handbook to learn about all the ways we’ll help you thrive personally and professionally: Novartis Life Handbook\n\nExpected Annual Base Salary Range for role: 159,600 - 296,400 CHF\n\nThe base salary offered is determined based on gender-neutral objectives, such as relevant skills, competencies and experience in accordance with the Novartis pay setting policy and upon joining Novartis will be reviewed periodically.\n\nIn addition to your b",
       "descriptionByLocale": {
@@ -3733,8 +3708,7 @@
         }
       },
       "addressRegion": "BS",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

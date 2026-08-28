@@ -1,119 +1,5 @@
 [
   {
-    "timestamp": "2026-08-03T18:14:33.611Z",
-    "label": "before",
-    "total": 26203,
-    "needsRetranslation": 9534,
-    "suppressed": 40,
-    "incomplete": 433,
-    "complete": 25770,
-    "missingByLocale": {
-      "it": 333,
-      "en": 274,
-      "de": 157,
-      "fr": 293
-    },
-    "topPending": [
-      {
-        "company": "Jaeger-LeCoultre",
-        "pending": 89
-      },
-      {
-        "company": "Rolex",
-        "pending": 36
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 36
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 25
-      },
-      {
-        "company": "Universitätsspital Basel",
-        "pending": 21
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 19
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 18
-      },
-      {
-        "company": "LANDI Graubünden AG",
-        "pending": 16
-      },
-      {
-        "company": "Swiss Re",
-        "pending": 12
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 11
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-08-03T18:22:04.138Z",
-    "label": "after",
-    "total": 26203,
-    "needsRetranslation": 869,
-    "suppressed": 40,
-    "incomplete": 419,
-    "complete": 25784,
-    "missingByLocale": {
-      "it": 319,
-      "en": 261,
-      "de": 156,
-      "fr": 279
-    },
-    "topPending": [
-      {
-        "company": "Jaeger-LeCoultre",
-        "pending": 89
-      },
-      {
-        "company": "Rolex",
-        "pending": 36
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 36
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 25
-      },
-      {
-        "company": "Universitätsspital Basel",
-        "pending": 21
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 18
-      },
-      {
-        "company": "LANDI Graubünden AG",
-        "pending": 16
-      },
-      {
-        "company": "Swiss Re",
-        "pending": 12
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 11
-      },
-      {
-        "company": "IKEA",
-        "pending": 10
-      }
-    ]
-  },
-  {
     "timestamp": "2026-08-03T23:05:40.008Z",
     "label": "before",
     "total": 26230,
@@ -13518,6 +13404,162 @@
       {
         "company": "Sulzer",
         "pending": 205
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-28T06:25:34.835Z",
+    "label": "before",
+    "total": 30435,
+    "needsRetranslation": 17927,
+    "suppressed": 57,
+    "incomplete": 16587,
+    "complete": 13848,
+    "slotsPresent": 13848,
+    "flaggedAmongSlotsPresent": 2536,
+    "verifiedTranslated": 11312,
+    "sourceCopyExcused": 622,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 5584,
+      "en": 5179,
+      "de": 1060,
+      "fr": 5346
+    },
+    "queueAge": {
+      "count": 17927,
+      "withTimestamp": 17927,
+      "oldestAgeDays": 136.9,
+      "p50AgeDays": 16.3,
+      "p90AgeDays": 76.8,
+      "buckets": {
+        "0-7d": 6723,
+        "7-30d": 5724,
+        "30-90d": 4271,
+        "90-180d": 1209,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 3661
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1396
+      },
+      {
+        "company": "Roche",
+        "pending": 697
+      },
+      {
+        "company": "Denner SA",
+        "pending": 393
+      },
+      {
+        "company": "TRAVECO Transporte AG",
+        "pending": 333
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 283
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 274
+      },
+      {
+        "company": "BKW",
+        "pending": 227
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 215
+      },
+      {
+        "company": "Sulzer",
+        "pending": 203
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-08-28T08:36:33.930Z",
+    "label": "after",
+    "total": 30435,
+    "needsRetranslation": 15434,
+    "suppressed": 57,
+    "incomplete": 16549,
+    "complete": 13886,
+    "slotsPresent": 13886,
+    "flaggedAmongSlotsPresent": 0,
+    "verifiedTranslated": 13886,
+    "sourceCopyExcused": 625,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 5542,
+      "en": 5138,
+      "de": 1048,
+      "fr": 5313
+    },
+    "queueAge": {
+      "count": 15434,
+      "withTimestamp": 15434,
+      "oldestAgeDays": 136.9,
+      "p50AgeDays": 10.9,
+      "p90AgeDays": 57.8,
+      "buckets": {
+        "0-7d": 6569,
+        "7-30d": 4975,
+        "30-90d": 3295,
+        "90-180d": 595,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 3661
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1383
+      },
+      {
+        "company": "Roche",
+        "pending": 697
+      },
+      {
+        "company": "Denner SA",
+        "pending": 381
+      },
+      {
+        "company": "TRAVECO Transporte AG",
+        "pending": 333
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 283
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 274
+      },
+      {
+        "company": "BKW",
+        "pending": 227
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 215
+      },
+      {
+        "company": "Sulzer",
+        "pending": 203
       }
     ]
   }
