@@ -4579,6 +4579,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mirabaud-processo-corruzione-tpf.title': 'Mirabaud vor Gericht gegen TPF wegen Korruption: 82 Millionen beanstandet',
     'blog.article.mirabaud-processo-corruzione-tpf.excerpt': 'Der ehemalige Präsident der Schweizer Bankiers (2003-2009) wegen angeblicher Retrozessionen zum PIFSS von Kuwait wegen Korruption und Geldwäsche angeklagt.',
     'blog.article.mirabaud-processo-corruzione-tpf.imageAlt': 'Bundesstrafgericht in Bellinzona, Ort des Mirabaud-Prozesses',
+    'blog.article.cdf-budget-campagne-voto-settembre.title': 'CDF: 7,86 Millionen für Kampagnen Abstimmung 27. September',
+    'blog.article.cdf-budget-campagne-voto-settembre.excerpt': 'Die Eidgenössische Finanzkontrolle veröffentlicht die Budgets: 5,51 Mio. für Neutralität, 2,35 Mio. für Ernährung. Blocher 2+ Mio., Economiesuisse 1,2 Mio.',
+    'blog.article.cdf-budget-campagne-voto-settembre.imageAlt': 'Lugano-Panorama mit Schweizer Fahnen und Abstimmungsinfotafeln',
 };
 
 export default blogMetaChDe;

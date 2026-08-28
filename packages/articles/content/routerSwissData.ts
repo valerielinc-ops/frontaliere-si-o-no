@@ -1552,6 +1552,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'assegni-familiari-uri-importi-domanda': { it: 'assegni-familiari-uri-importi-domanda', en: 'family-allowances-uri-amounts-application', de: 'familienzulagen-uri-betraege-antrag', fr: 'allocations-familiales-uri-montants-demande' },
  'banconote-svizzere-decima-serie-2030': { it: 'banconote-svizzere-decima-serie-2030', en: 'swiss-banknotes-tenth-series-2030', de: 'schweizer-banknoten-zehnte-serie-2030', fr: 'billets-suisses-dixieme-serie-2030' },
  'mirabaud-processo-corruzione-tpf': { it: 'mirabaud-processo-corruzione-tpf', en: 'mirabaud-corruption-trial-federal-court', de: 'mirabaud-korruptionsprozess-bundesstrafgericht', fr: 'mirabaud-proces-corruption-tribunal-federal' },
+ 'cdf-budget-campagne-voto-settembre': { it: 'cdf-budget-campagne-voto-settembre', en: 'cdf-campaign-budgets-september-vote', de: 'cdf-kampagnenbudgets-september-abstimmung', fr: 'cdf-budgets-campagnes-votation-septembre' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -13735,6 +13735,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'cdf-budget-campagne-voto-settembre',
+    category: 'novita',
+    date: '2026-08-28T12:14:59.616Z',
+    image: '/images/blog/cdf-budget-campagne-voto-settembre.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

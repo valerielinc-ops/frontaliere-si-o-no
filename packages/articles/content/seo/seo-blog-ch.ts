@@ -59417,6 +59417,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cdf-budget-campagne-voto-settembre': {
+    title: 'CDF: 7,86 milioni per campagne voto 27 settembre',
+    description: 'Il CDF rende noti i budget delle campagne per le votazioni federali del 27 settembre: 7,86 milioni totali, con asimmetrie marcate su neutralità e alimentazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, milioni, campagne, voto, settembre',
+    ogTitle: 'Quasi 8 milioni per le campagne di voto del 27 settembre',
+    ogDescription: 'Il Controllo federale delle finanze ha pubblicato i budget dichiarati dai comitati referendari per le votazioni del 27 settembre. Totale 7,86 milioni: 5,51 mln concentrati sull\'iniziativa neutralità (fronte sì 3,84 mln con Blocher 2+ mln, fronte no',
+    canonicalPath: '/articoli-svizzera/cdf-budget-campagne-voto-settembre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "CDF: 7,86 milioni per campagne voto 27 settembre",
+      "description": "Il CDF rende noti i budget delle campagne per le votazioni federali del 27 settembre: 7,86 milioni totali, con asimmetrie marcate su neutralità e alimentazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cdf-budget-campagne-voto-settembre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Lugano con bandiere svizzere e bacheche informative per votazioni federali"
+      },
+      "datePublished": "2026-08-28T12:14:59+00:00",
+      "dateModified": "2026-08-28T12:14:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cdf-budget-campagne-voto-settembre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
