@@ -4588,6 +4588,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.grigioni-luce-risparmio-20-franchi-optima.title': 'Grigioni, luce -1,4%: risparmio 20 franchi, arriva tariffa Optima',
     'blog.article.grigioni-luce-risparmio-20-franchi-optima.excerpt': 'Repower (Poschiavo) abbassa le tariffe domestiche nei Grigioni per il 2027. Risparmio annuo di 20 franchi per famiglia tipo. Novità: tariffa Optima con fasce verde, giallo e rosso dal 1° gennaio 2027.',
     'blog.article.grigioni-luce-risparmio-20-franchi-optima.imageAlt': 'Casa svizzera con contatore intelligente e veicolo elettrico in carica al crepuscolo nei Grigioni',
+    'blog.article.transizione-energetica-svizzera-ses-2025.title': 'Transizione energetica, la Svizzera è quinta in Europa ma l\'eolico resta debole',
+    'blog.article.transizione-energetica-svizzera-ses-2025.excerpt': 'Studio SES 2025: 4872 kWh pro capite da rinnovabili, solare a 878 kWh. Eolico fermo a 18 kWh, 25esimo posto su 28 Paesi.',
+    'blog.article.transizione-energetica-svizzera-ses-2025.imageAlt': 'Panorama alpino svizzero con impianti solari ed eolici sullo sfondo',
 };
 
 export default blogMetaChIt;

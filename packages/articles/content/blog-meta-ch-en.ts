@@ -4588,6 +4588,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.grigioni-luce-risparmio-20-franchi-optima.title': 'Graubünden, light -1.4%: savings of 20 francs, Optima rate arrives',
     'blog.article.grigioni-luce-risparmio-20-franchi-optima.excerpt': 'Repower (Poschiavo) lowers domestic rates in Graubünden by 2027. Annual savings of 20 francs per typical family. New: Optima rate with green, yellow and red bands from 1 January 2027.',
     'blog.article.grigioni-luce-risparmio-20-franchi-optima.imageAlt': 'Swiss home with smart electricity meter and EV charging at dusk in Graubünden',
+    'blog.article.transizione-energetica-svizzera-ses-2025.title': 'Energy transition, Switzerland is fifth in Europe but wind remains weak',
+    'blog.article.transizione-energetica-svizzera-ses-2025.excerpt': 'Study SES 2025: 4872 kWh per capita from renewables, solar at 878 kWh. Wind stopped at 18 kWh, 25th place out of 28 countries.',
+    'blog.article.transizione-energetica-svizzera-ses-2025.imageAlt': 'Swiss alpine panorama with solar panels and wind turbines in the background',
 };
 
 export default blogMetaChEn;
