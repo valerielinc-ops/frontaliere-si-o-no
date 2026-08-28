@@ -79,6 +79,25 @@ jobs:
         with:
           node-version: 22
 
+      # Queue commit below is a direct push to this repo's main (bare `git push`
+      # on the scheduled ref). The ambient GITHUB_TOKEN extraheader is rejected
+      # with GH013; load the long-lived PAT (this job can run for hours, so an
+      # App installation token minted here would be the wrong identity).
+      # load-rc-env.mjs uses the stdlib REST path — no npm ci.
+      - name: Prepare Firebase credentials for push auth
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load GITHUB_PAT for a direct main push"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load push credentials from Remote Config
+        run: node scripts/load-rc-env.mjs
+
       - name: Discover
         # continue-on-error: DISCOVER esce con exit-code 1 se TUTTE le fonti
         # esterne richieste (SECO+OSM+WEB) sono fallite nello stesso giro — un
@@ -118,6 +137,7 @@ jobs:
             exit 0
           fi
           git commit -m 'prospector: aggiorna coda candidati, registro piattaforme e report qualita'
+          bash scripts/lib/configure-main-push-auth.sh
           for attempt in 1 2 3; do
             if git push; then
               echo "push riuscito al tentativo $attempt"
@@ -171,11 +191,10 @@ jobs:
           # file di workflow — e il gate APP_TOKEN_WORKFLOWS lo sa gia', quindi
           # in quel caso i gruppi non vengono nemmeno rigenerati.
           #
-          # Niente fallback a GITHUB_PAT: questo job non carica Remote Config,
-          # quindi quella variabile sarebbe sempre vuota. Un fallback morto che
-          # sembra vivo e' peggio di nessun fallback — nasconde quale identita'
-          # stia davvero pushando, che e' esattamente l'errore diagnostico che
-          # questa PR corregge.
+          # Niente fallback a GITHUB_PAT qui: lo step di commit della coda ha
+          # gia' caricato Remote Config per il push a main. La promozione tocca
+          # `.github/workflows/**` e vuole lo scope `workflows` del token App,
+          # non il PAT.
           GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           PROMOTE_MAX: ${{ github.event.inputs.promote_max || '10' }}
