@@ -4594,6 +4594,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-formazione-uri-guida.title': 'Apprendistato e formazione professionale nel Canton Uri',
     'blog.article.apprendistato-formazione-uri-guida.excerpt': 'Come trovare un posto di tirocinio nel Canton Uri: contratto, retribuzione, maturità professionale e passi concreti per candidarsi.',
     'blog.article.apprendistato-formazione-uri-guida.imageAlt': 'Giovane apprendista al lavoro in un\'officina nel Canton Uri con vista sulle Alpi svizzere',
+    'blog.article.grigioni-repower-tariffe-stagionali-2027.title': 'Repower Grigioni: tariffe stagionali e 20 franchi in meno per le famiglie',
+    'blog.article.grigioni-repower-tariffe-stagionali-2027.excerpt': 'Dal 2027 nel comprensorio Repower una famiglia tipo spenderà 1.449 franchi l\'anno, -1,4% rispetto al 2026. In arrivo tariffe differenziate estate/inverno e la nuova opzione variabile Optima.',
+    'blog.article.grigioni-repower-tariffe-stagionali-2027.imageAlt': 'Stazione elettrica alpina nei Grigioni con linee ad alta tensione',
 };
 
 export default blogMetaChIt;

@@ -59612,6 +59612,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-grigioni-repower-tariffe-stagionali-2027': {
+    title: 'Repower Grigioni: tariffe stagionali e 20 franchi in meno per le famiglie',
+    description: 'Dal 2027 nel comprensorio Repower una famiglia tipo spenderà 1.449 franchi l\'anno, -1,4% rispetto al 2026. In arrivo tariffe differenziate estate/inverno',
+    keywords: 'frontalieri, ticino, svizzera, italia, repower, grigioni, tariffe, stagionali',
+    ogTitle: 'Repower Grigioni: tariffe stagionali e 20 franchi in meno',
+    ogDescription: 'Dal 2027 nel comprensorio Repower una famiglia tipo spenderà 1.449 franchi l\'anno, -1,4% rispetto al 2026. In arrivo tariffe differenziate estate/inverno e la nuova opzione variabile Optima.',
+    canonicalPath: '/articoli-svizzera/grigioni-repower-tariffe-stagionali-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Repower Grigioni: tariffe stagionali e 20 franchi in meno per le famiglie",
+      "description": "Dal 2027 nel comprensorio Repower una famiglia tipo spenderà 1.449 franchi l'anno, -1,4% rispetto al 2026. In arrivo tariffe differenziate estate/inverno",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/grigioni-repower-tariffe-stagionali-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione elettrica alpina nei Grigioni con linee ad alta tensione"
+      },
+      "datePublished": "2026-08-28T13:21:11+00:00",
+      "dateModified": "2026-08-28T13:21:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/grigioni-repower-tariffe-stagionali-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
