@@ -710,6 +710,7 @@ jobs:
           git config user.email "build-history-bot@frontaliereticino.ch"
           git add data/build-history/memory-peaks.jsonl
           git commit -m "chore(build-history): append ${ROW_LOCALE} leg run ${ROW_RUN_ID}"
+          bash scripts/lib/configure-main-push-auth.sh
           # Stesso retry-con-rebase di "Commit dist-size-history row" sopra
           # (5 tentativi, backoff 5/10/15/25/40s): 4 leg concorrenti + gli
           # altri produttori su main (crawlers/thin-promotions/fuel/weather)
@@ -1512,6 +1513,7 @@ jobs:
             'node scripts/ci/merge-json-first-seen.mjs %O %A %B'
           git add data/dist-size-history.jsonl data/url-first-seen.json
           git commit -m "chore(dist-history): append run ${GITHUB_RUN_ID} (${GITHUB_SHA::8})"
+          bash scripts/lib/configure-main-push-auth.sh
           # The build job leaves dist/ and other generated files dirty
           # in the working tree. `git pull --rebase` refuses to run
           # while unstaged changes exist (`cannot pull with rebase: You
