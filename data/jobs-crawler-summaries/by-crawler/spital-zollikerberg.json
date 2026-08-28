@@ -1,21 +1,23 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-08-27T00:33:10.635Z",
+  "generatedAt": "2026-08-28T05:14:16.932Z",
   "total": 7,
   "discovered": null,
   "written": 7,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 34195,
-  "avgDurationMs": 34195,
+  "unchangedCount": 1,
+  "durationMs": 37550,
+  "avgDurationMs": 37550,
   "durationHistory": [
-    34195
+    37550
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "spital-zollikerberg-5049e05f5ea4",
       "slug": "formazione-professionale-formazione-professionale-stazione-chirurgia-ginecologia-spital-zollikerberg-zollikerberg",
@@ -47,7 +49,7 @@
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -56,7 +58,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
