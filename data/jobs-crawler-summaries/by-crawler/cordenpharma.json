@@ -1,20 +1,21 @@
 {
   "key": "cordenpharma",
   "label": "CordenPharma",
-  "generatedAt": "2026-08-27T00:33:30.958Z",
+  "generatedAt": "2026-08-28T05:16:39.384Z",
   "total": 5,
   "discovered": null,
   "written": 5,
-  "newCount": 1,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6538,
-  "avgDurationMs": 6538,
+  "durationMs": 6466,
+  "avgDurationMs": 6466,
   "durationHistory": [
-    6538
+    6466
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "cordenpharma-9b691725a838",
       "slug": "gruppenleiter-m-w-d-2-schicht-cordenpharma-ettingen",
@@ -27,7 +28,7 @@
       "url": "https://career.cordenpharma.com/de/p/ettingen/jobs/20956/gruppenleiter-mwd-2-schicht-ettingen-basel-land-schweiz",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:33:27.059Z",
+      "crawledAt": "2026-08-28T05:16:36.717Z",
       "addressLocality": "Ettingen",
       "addressRegion": "BL",
       "streetAddress": "Brühlstrasse 50",
@@ -43,16 +44,16 @@
       "featured": false,
       "postedDate": "2026-08-20",
       "applyUrl": "https://career.cordenpharma.com/de/p/ettingen/jobs/20956/gruppenleiter-mwd-2-schicht-ettingen-basel-land-schweiz",
-      "_qualityScore": 67,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-27T00:33:27.059Z",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 18,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "cordenpharma-77912a33aefd",
       "slug": "anlagenfuhrer-m-w-d-3-schicht-cordenpharma-ettingen",
@@ -65,7 +66,7 @@
       "url": "https://career.cordenpharma.com/de/p/ettingen/jobs/20928/anlagenfuhrer-mwd-3-schicht-ettingen-schweiz",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:33:26.595Z",
+      "crawledAt": "2026-08-28T05:16:36.046Z",
       "addressLocality": "Ettingen",
       "addressRegion": "BL",
       "streetAddress": "Brühlstrasse 50",
@@ -102,7 +103,7 @@
       "url": "https://career.cordenpharma.com/de/p/ettingen/jobs/20929/technischer-mitarbeitender-infrastruktur-projekte-80-mwd",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:33:27.560Z",
+      "crawledAt": "2026-08-28T05:16:37.283Z",
       "addressLocality": "Ettingen",
       "addressRegion": "BL",
       "streetAddress": "Brühlstrasse 50",
@@ -139,7 +140,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20925/laborant-100-mwd-fachrichtung-chemie-prozessforschung-entwicklung-schwerpunkt-synthese",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:33:26.129Z",
+      "crawledAt": "2026-08-28T05:16:35.372Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -176,7 +177,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20922/analytical-project-leader-apl-100-mwd",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:33:25.683Z",
+      "crawledAt": "2026-08-28T05:16:34.704Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
