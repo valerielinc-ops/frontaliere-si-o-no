@@ -1,7 +1,7 @@
 {
   "key": "fondation-domus",
   "label": "Fondation Domus",
-  "generatedAt": "2026-08-28T05:22:24.977Z",
+  "generatedAt": "2026-08-28T05:39:18.753Z",
   "total": 1,
   "discovered": null,
   "written": 1,
@@ -9,10 +9,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4711,
-  "avgDurationMs": 4711,
+  "durationMs": 4239,
+  "avgDurationMs": 4239,
   "durationHistory": [
-    4711
+    4239
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/5c523a8f-69e1-437e-9137-58d38ab67258/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:22:21.934Z",
+      "crawledAt": "2026-08-28T05:39:16.427Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -42,6 +42,7 @@
       "featured": false,
       "postedDate": "2026-08-18",
       "applyUrl": "https://www.jobup.ch/fr/emplois/detail/5c523a8f-69e1-437e-9137-58d38ab67258/?source=[platform]",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-18T09:51:18.113Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
