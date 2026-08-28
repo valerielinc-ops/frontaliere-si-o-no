@@ -4579,6 +4579,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mirabaud-processo-corruzione-tpf.title': 'Mirabaud on trial at the TPF for corruption: 82 million disputed',
     'blog.article.mirabaud-processo-corruzione-tpf.excerpt': 'The former president of the Swiss bankers (2003-2009) accused of corruption and money laundering for alleged demotions to the PIFSS of Kuwait.',
     'blog.article.mirabaud-processo-corruzione-tpf.imageAlt': 'Federal Criminal Court in Bellinzona, venue of the Mirabaud trial',
+    'blog.article.cdf-budget-campagne-voto-settembre.title': 'CDF: 7.86 million for voting campaigns 27 September',
+    'blog.article.cdf-budget-campagne-voto-settembre.excerpt': 'The Federal Financial Controller publishes the budgets: 5.51 million for neutrality, 2.35 million for food. Blocker 2+ mln, Economiesuisse 1.2 mln.',
+    'blog.article.cdf-budget-campagne-voto-settembre.imageAlt': 'Lugano panorama with Swiss flags and federal voting information boards',
 };
 
 export default blogMetaChEn;

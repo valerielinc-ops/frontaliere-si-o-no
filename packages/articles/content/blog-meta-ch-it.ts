@@ -4579,6 +4579,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.mirabaud-processo-corruzione-tpf.title': 'Mirabaud a processo al TPF per corruzione: 82 milioni contestati',
     'blog.article.mirabaud-processo-corruzione-tpf.excerpt': 'L\'ex presidente dei banchieri svizzeri (2003-2009) accusato di corruzione e riciclaggio per presunte retrocessioni al PIFSS del Kuwait.',
     'blog.article.mirabaud-processo-corruzione-tpf.imageAlt': 'Tribunale penale federale di Bellinzona, sede del processo a Pierre Mirabaud',
+    'blog.article.cdf-budget-campagne-voto-settembre.title': 'CDF: 7,86 milioni per campagne voto 27 settembre',
+    'blog.article.cdf-budget-campagne-voto-settembre.excerpt': 'Il Controllo federale delle finanze pubblica i budget: 5,51 mln per neutralità, 2,35 mln per alimentazione. Blocher 2+ mln, Economiesuisse 1,2 mln.',
+    'blog.article.cdf-budget-campagne-voto-settembre.imageAlt': 'Veduta di Lugano con bandiere svizzere e bacheche informative per votazioni federali',
 };
 
 export default blogMetaChIt;
