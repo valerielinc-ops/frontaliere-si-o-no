@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stadt-chur",
-  "assembledAt": "2026-08-27T20:22:42.705Z",
+  "assembledAt": "2026-08-28T05:42:14.061Z",
   "jobs": [
     {
       "title": "Leitende/r Mechaniker/in und Stv. Bereichsleiter/in Werkstatt und Flottenmanagement",
@@ -44,7 +44,7 @@
         "de": "leitende-r-mechaniker-in-und-stv-bereichsleiter-in-werkstatt-und-flottenmanagement-stadt-chur-1704",
         "fr": "mecanicien-chef-et-directeur-de-division-stv-dans-l-atelier-et-la-gestion-de-la-flotte-stadt-chur-chur"
       },
-      "crawledAt": "2026-08-27T20:12:41.596Z",
+      "crawledAt": "2026-08-28T05:32:12.926Z",
       "id": "stadt-chur-74fdc42733da",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -118,7 +118,7 @@
         "de": "stellvertretung-klassenlehrperson-zweisprachiger-klassenzug-3-4-klasse-italienisch-93-stadt-chur-1712",
         "fr": "stellvertretung-klassenlehrperson-zweisprachiger-klassenzug-3-4-klasse-italienisch-93-stadt-chur-1712"
       },
-      "crawledAt": "2026-08-27T20:13:48.361Z",
+      "crawledAt": "2026-08-28T05:33:19.688Z",
       "id": "stadt-chur-236d71791b5d",
       "needsRetranslation": true,
       "salaryMin": 45100,
@@ -178,7 +178,7 @@
         "de": "lehrstelle-als-kauffrau-kaufmann-offentliche-verwaltung-efz-stadt-chur-1713",
         "fr": "lehrstelle-als-kauffrau-kaufmann-offentliche-verwaltung-efz-stadt-chur-1713"
       },
-      "crawledAt": "2026-08-27T20:14:55.119Z",
+      "crawledAt": "2026-08-28T05:34:26.450Z",
       "id": "stadt-chur-820b8f6a45d2",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -246,7 +246,7 @@
         "de": "stellvertretung-klassenlehrperson-se-monatlin-stadt-chur-1714",
         "fr": "stellvertretung-klassenlehrperson-se-monatlin-stadt-chur-1714"
       },
-      "crawledAt": "2026-08-27T20:16:01.881Z",
+      "crawledAt": "2026-08-28T05:35:33.212Z",
       "id": "stadt-chur-9b274f8d3400",
       "needsRetranslation": true,
       "salaryMin": 48500,
@@ -306,7 +306,7 @@
         "de": "bereichsleiter-in-friedhofe-bestattungen-und-stv-leiter-in-stadtgartnerei-80-100-stadt-chur-1694",
         "fr": "gestionnaire-de-secteur-dans-les-cimetieres-bureaux-et-directeur-de-stv-dans-stadtgartnerei-80-100-stadt-chur-chur"
       },
-      "crawledAt": "2026-08-27T20:17:08.641Z",
+      "crawledAt": "2026-08-28T05:36:39.974Z",
       "id": "stadt-chur-1f1f55884c3a",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -378,13 +378,14 @@
         "it": "coffin-portatore-stadt-chur-chur",
         "en": "coffin-bearer-stadt-chur-chur",
         "de": "sargtrager-in-stadt-chur-chur",
-        "fr": "porte-cercueil-stadt-chur-chur"
+        "fr": "transporteur-de-wagons-stadt-chur"
       },
-      "crawledAt": "2026-08-27T20:18:15.400Z",
+      "crawledAt": "2026-08-28T05:37:46.736Z",
       "id": "stadt-chur-4309d92c4ac7",
       "previousSlugsByLocale": {
         "fr": [
           "sargtrager-in-stadt-chur",
+          "porte-cercueil-stadt-chur-chur",
           "transporteur-de-wagons-stadt-chur"
         ],
         "it": [
@@ -394,6 +395,7 @@
       "previousSlugs": [
         "sargtrager-in-stadt-chur",
         "sargtrager-in-stadt-chur-1669",
+        "porte-cercueil-stadt-chur-chur",
         "transporteur-de-wagons-stadt-chur"
       ],
       "salaryMin": 57500,
@@ -453,7 +455,7 @@
         "de": "lehrstelle-als-fachfrau-fachmann-betreuung-efz-fachrichtung-kinderbetreuung-stadt-chur-1705",
         "fr": "apprentissage-en-tant-que-specialiste-soins-specialises-efz-garderie-specialisee-stadt-chur-chur"
       },
-      "crawledAt": "2026-08-27T20:19:22.161Z",
+      "crawledAt": "2026-08-28T05:38:53.496Z",
       "id": "stadt-chur-6baf9a5642b8",
       "salaryMin": 41600,
       "salaryMax": 76000,
@@ -526,7 +528,7 @@
         "de": "vorarbeiter-in-betrieblicher-unterhalt-mit-stellvertre-tungsfunktion-bereichsleiter-100-stadt-chur-1702",
         "fr": "maintenance-des-contremaitres-dans-l-entreprise-avec-gestionnaire-de-poste-100-stadt-chur-chur"
       },
-      "crawledAt": "2026-08-27T20:20:28.920Z",
+      "crawledAt": "2026-08-28T05:40:00.259Z",
       "id": "stadt-chur-00c100636c42",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -569,7 +571,7 @@
       "description": "Die Stadt Chur ist Amtssitz des Zivilstandsamtes, welches für die Region Plessur mit rund 44‘000 Einwohnerinnen und Einwohnern zuständig ist. Unser Amt befindet sich im Rathaus mitten in der wunderschönen Altstadt.Infolge Wechsels der Stelleninhaberin in ein anderes Ziv...",
       "titleByLocale": {
         "it": "Ufficiale di stato civile",
-        "en": "Civil status officer",
+        "en": "Zivilstandsbeamtin / Zivilstandsbeamter",
         "de": "Zivilstandsbeamtin / Zivilstandsbeamter",
         "fr": "Spécialiste de l ' état civil"
       },
@@ -585,7 +587,7 @@
         "de": "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-1699",
         "fr": "specialiste-de-l-etat-civil-stadt-chur-chur"
       },
-      "crawledAt": "2026-08-27T20:21:35.683Z",
+      "crawledAt": "2026-08-28T05:41:07.022Z",
       "id": "stadt-chur-8181a7de3772",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -616,7 +618,8 @@
       "previousSlugs": [
         "civil-status-officer-stadt-chur-chur",
         "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-1699"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Badmeister/in Saison (100%)",
@@ -660,7 +663,7 @@
         "de": "badmeister-in-saison-100-stadt-chur-1695",
         "fr": "badmaster-en-saison-100-stadt-chur-chur"
       },
-      "crawledAt": "2026-08-27T20:22:42.443Z",
+      "crawledAt": "2026-08-28T05:42:13.787Z",
       "id": "stadt-chur-8abd0783429f",
       "salaryMin": 57500,
       "salaryMax": 87000,
