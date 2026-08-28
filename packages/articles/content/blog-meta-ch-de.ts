@@ -4585,6 +4585,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.votazioni-settembre-8-milioni-franchi.title': 'September: 8 Millionen Franken für eidgenössische Abstimmungen',
     'blog.article.votazioni-settembre-8-milioni-franchi.excerpt': 'Zwei Initiativen, über die am 27. September abgestimmt wird: Neutralität und Ernährung. Die Eidgenössische Finanzkontrolle verbucht ein Budget von 7,88 Millionen Franken.',
     'blog.article.votazioni-settembre-8-milioni-franchi.imageAlt': 'Schweizer Bundesgebäude mit Schweizer Fahnen, Symbol der nationalen Abstimmungen',
+    'blog.article.grigioni-luce-risparmio-20-franchi-optima.title': 'Graubünden, Strom -1,4%: 20 Franken sparen, Optima-Tarif kommt',
+    'blog.article.grigioni-luce-risparmio-20-franchi-optima.excerpt': 'Repower (Poschiavo) senkt die Inlandstarife in Graubünden für das Jahr 2027. Jährliche Ersparnis von 20 Franken pro typischer Familie. Neu: Optima-Tarif mit grüner, gelber und roter Bandbreite ab 1. Januar 2027.',
+    'blog.article.grigioni-luce-risparmio-20-franchi-optima.imageAlt': 'Schweizer Haus mit intelligentem Stromzähler und E-Auto beim Laden in der Dämmerung in Graubünden',
 };
 
 export default blogMetaChDe;

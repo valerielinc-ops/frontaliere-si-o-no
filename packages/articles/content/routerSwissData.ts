@@ -1554,6 +1554,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'mirabaud-processo-corruzione-tpf': { it: 'mirabaud-processo-corruzione-tpf', en: 'mirabaud-corruption-trial-federal-court', de: 'mirabaud-korruptionsprozess-bundesstrafgericht', fr: 'mirabaud-proces-corruption-tribunal-federal' },
  'cdf-budget-campagne-voto-settembre': { it: 'cdf-budget-campagne-voto-settembre', en: 'cdf-campaign-budgets-september-vote', de: 'cdf-kampagnenbudgets-september-abstimmung', fr: 'cdf-budgets-campagnes-votation-septembre' },
  'votazioni-settembre-8-milioni-franchi': { it: 'votazioni-settembre-8-milioni-franchi', en: 'september-votes-8-million-francs', de: 'september-abstimmungen-8-millionen-franken', fr: 'votations-septembre-8-millions-francs' },
+ 'grigioni-luce-risparmio-20-franchi-optima': { it: 'grigioni-luce-risparmio-20-franchi-optima', en: 'graubunden-electricity-20-francs-savings-optima', de: 'graubuenden-strom-20-franken-ersparnis-optima', fr: 'grisons-electricite-20-francs-epargne-optima' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

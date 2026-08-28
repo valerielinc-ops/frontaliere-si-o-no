@@ -4585,6 +4585,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.votazioni-settembre-8-milioni-franchi.title': 'Settembre: 8 milioni di franchi per le votazioni federali',
     'blog.article.votazioni-settembre-8-milioni-franchi.excerpt': 'Due iniziative in votazione il 27 settembre: neutralità e alimentazione. Il Controllo federale delle finanze registra budget per 7,88 milioni di franchi.',
     'blog.article.votazioni-settembre-8-milioni-franchi.imageAlt': 'Edifici federali svizzeri con bandiere elvetiche, simbolo delle votazioni nazionali',
+    'blog.article.grigioni-luce-risparmio-20-franchi-optima.title': 'Grigioni, luce -1,4%: risparmio 20 franchi, arriva tariffa Optima',
+    'blog.article.grigioni-luce-risparmio-20-franchi-optima.excerpt': 'Repower (Poschiavo) abbassa le tariffe domestiche nei Grigioni per il 2027. Risparmio annuo di 20 franchi per famiglia tipo. Novità: tariffa Optima con fasce verde, giallo e rosso dal 1° gennaio 2027.',
+    'blog.article.grigioni-luce-risparmio-20-franchi-optima.imageAlt': 'Casa svizzera con contatore intelligente e veicolo elettrico in carica al crepuscolo nei Grigioni',
 };
 
 export default blogMetaChIt;
