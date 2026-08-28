@@ -177,6 +177,8 @@
       "sourceLang": "de",
       "needsRetranslation": true,
       "addressRegion": "ZH",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -192,8 +194,7 @@
           "venditore-in-food-coop-genossenschaft-zurich-b14a6a",
           "seller-in-food-coop-genossenschaft-zurich-b14a6a",
           "verkaufer-in-food-coop-genossenschaft-zurich-iamsdx",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-zurich-b14a6a",
-          "verkaufer-in-food-coop-genossenschaft-zurich"
+          "vendeur-dans-la-nourriture-coop-genossenschaft-zurich-b14a6a"
         ],
         "en": [
           "seller-in-food-coop-genossenschaft-zurich-b14a6a"
@@ -216,9 +217,7 @@
         "type": "adapter_seed_meta",
         "location": "Zurigo",
         "canton": "ZH"
-      },
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      }
     },
     {
       "id": "company-ltjyzj",
@@ -336,6 +335,8 @@
       "addressLocality": "Basel",
       "sourceLang": "de",
       "addressRegion": "BS",
+      "salaryMin": 107000,
+      "salaryMax": 187500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -347,9 +348,6 @@
         }
       },
       "previousSlugsByLocale": {
-        "it": [
-          "informatiker-in-efz-plattformenentwicklung-coop-basel"
-        ],
         "en": [
           "informatiker-in-efz-plattformenentwicklung-coop-basel-bpn57e"
         ],
@@ -358,16 +356,14 @@
         ]
       },
       "previousSlugs": [
-        "informatiker-in-efz-plattformenentwicklung-coop-basel",
-        "informatiker-in-efz-plattformenentwicklung-coop-basel-bpn57e"
+        "informatiker-in-efz-plattformenentwicklung-coop-basel-bpn57e",
+        "informatiker-in-efz-plattformenentwicklung-coop-basel"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
         "location": "Regione di Basilea",
         "canton": "BL"
-      },
-      "salaryMin": 107000,
-      "salaryMax": 187500
+      }
     },
     {
       "id": "company-wuuw69",
@@ -878,7 +874,7 @@
     },
     {
       "id": "company-yf8ssx",
-      "slug": "verkaufer-in-food-coop-unterseen-bern-yf8ssx",
+      "slug": "addetto-a-vendita-food-coop-genossenschaft-unterseen",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Unterseen, Bern",
@@ -924,10 +920,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-unterseen-bern-yf8ssx",
-        "en": "verkaufer-in-food-coop-unterseen-bern-yf8ssx",
+        "it": "addetto-a-vendita-food-coop-genossenschaft-unterseen",
+        "en": "food-sales-assistant-coop-genossenschaft-unterseen",
         "de": "verkaufer-in-food-coop-unterseen-bern-yf8ssx",
-        "fr": "verkaufer-in-food-coop-unterseen-bern-yf8ssx"
+        "fr": "vendeur-vendeuse-food-coop-genossenschaft-unterseen"
       },
       "addressLocality": "Unterseen",
       "sourceLang": "de",
@@ -945,17 +941,25 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-unterseen-bern"
+        "verkaufer-in-food-coop-unterseen-bern",
+        "verkaufer-in-food-coop-unterseen-bern-yf8ssx"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-unterseen-bern"
+          "verkaufer-in-food-coop-unterseen-bern",
+          "verkaufer-in-food-coop-unterseen-bern-yf8ssx"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-unterseen-bern-yf8ssx"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-unterseen-bern-yf8ssx"
         ]
       }
     },
     {
       "id": "company-gecsj0",
-      "slug": "verkaufer-in-food-brot-backwaren-coop-lenk-bern-gecsj0",
+      "slug": "addetto-a-vendita-food-pane-prodotti-da-forno-coop-genossenschaft-lenk",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food (Brot & Backwaren)",
       "location": "Lenk, Bern",
@@ -1001,10 +1005,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-brot-backwaren-coop-lenk-bern-gecsj0",
-        "en": "verkaufer-in-food-brot-backwaren-coop-lenk-bern-gecsj0",
+        "it": "addetto-a-vendita-food-pane-prodotti-da-forno-coop-genossenschaft-lenk",
+        "en": "sales-assistant-food-bread-bakery-coop-genossenschaft-lenk",
         "de": "verkaufer-in-food-brot-backwaren-coop-lenk-bern-gecsj0",
-        "fr": "verkaufer-in-food-brot-backwaren-coop-lenk-bern-gecsj0"
+        "fr": "vendeur-vendeuse-food-pain-boulangerie-coop-genossenschaft-lenk"
       },
       "addressLocality": "Lenk",
       "sourceLang": "de",
@@ -1022,11 +1026,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-food-brot-backwaren-coop-lenk-bern"
+        "verkaufer-in-food-brot-backwaren-coop-lenk-bern",
+        "verkaufer-in-food-brot-backwaren-coop-lenk-bern-gecsj0"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-brot-backwaren-coop-lenk-bern"
+          "verkaufer-in-food-brot-backwaren-coop-lenk-bern",
+          "verkaufer-in-food-brot-backwaren-coop-lenk-bern-gecsj0"
+        ],
+        "en": [
+          "verkaufer-in-food-brot-backwaren-coop-lenk-bern-gecsj0"
+        ],
+        "fr": [
+          "verkaufer-in-food-brot-backwaren-coop-lenk-bern-gecsj0"
         ]
       }
     },
@@ -1178,7 +1190,7 @@
     },
     {
       "id": "company-2bsomg",
-      "slug": "verkaufer-in-food-coop-koniz-bern-2bsomg",
+      "slug": "addetto-a-vendita-food-coop-genossenschaft-koniz",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Köniz, Bern",
@@ -1224,10 +1236,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-koniz-bern-2bsomg",
-        "en": "verkaufer-in-food-coop-koniz-bern-2bsomg",
+        "it": "addetto-a-vendita-food-coop-genossenschaft-koniz",
+        "en": "sales-assistant-food-coop-genossenschaft-koniz",
         "de": "verkaufer-in-food-coop-koniz-bern-2bsomg",
-        "fr": "verkaufer-in-food-coop-koniz-bern-2bsomg"
+        "fr": "vendeur-vendeuse-food-coop-genossenschaft-koniz"
       },
       "addressLocality": "Köniz",
       "sourceLang": "de",
@@ -1245,17 +1257,25 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-koniz-bern"
+        "verkaufer-in-food-coop-koniz-bern",
+        "verkaufer-in-food-coop-koniz-bern-2bsomg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-koniz-bern"
+          "verkaufer-in-food-coop-koniz-bern",
+          "verkaufer-in-food-coop-koniz-bern-2bsomg"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-koniz-bern-2bsomg"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-koniz-bern-2bsomg"
         ]
       }
     },
     {
       "id": "company-nf52q4",
-      "slug": "verkaufer-in-food-kiosk-coop-bern-nf52q4",
+      "slug": "addetto-a-vendita-food-chiosco-coop-genossenschaft-bern",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food (Kiosk)",
       "location": "Bern",
@@ -1301,10 +1321,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-kiosk-coop-bern-nf52q4",
-        "en": "verkaufer-in-food-kiosk-coop-bern-nf52q4",
+        "it": "addetto-a-vendita-food-chiosco-coop-genossenschaft-bern",
+        "en": "food-sales-assistant-kiosk-coop-genossenschaft-bern",
         "de": "verkaufer-in-food-kiosk-coop-bern-nf52q4",
-        "fr": "verkaufer-in-food-kiosk-coop-bern-nf52q4"
+        "fr": "vendeur-euse-food-kiosque-coop-genossenschaft-bern"
       },
       "addressLocality": "Bern",
       "sourceLang": "de",
@@ -1322,11 +1342,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-food-kiosk-coop-bern"
+        "verkaufer-in-food-kiosk-coop-bern",
+        "verkaufer-in-food-kiosk-coop-bern-nf52q4"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-kiosk-coop-bern"
+          "verkaufer-in-food-kiosk-coop-bern",
+          "verkaufer-in-food-kiosk-coop-bern-nf52q4"
+        ],
+        "en": [
+          "verkaufer-in-food-kiosk-coop-bern-nf52q4"
+        ],
+        "fr": [
+          "verkaufer-in-food-kiosk-coop-bern-nf52q4"
         ]
       }
     },
@@ -1560,7 +1588,7 @@
     },
     {
       "id": "company-5fxa4u",
-      "slug": "verkaufer-in-food-getranke-coop-sankt-moritz-graubunden-5fxa4u",
+      "slug": "addetto-a-vendita-food-bevande-coop-genossenschaft-sankt-moritz",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food (Getränke)",
       "location": "Sankt Moritz, Graubünden",
@@ -1606,10 +1634,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-getranke-coop-sankt-moritz-graubunden-5fxa4u",
-        "en": "verkaufer-in-food-getranke-coop-sankt-moritz-graubunden-5fxa4u",
+        "it": "addetto-a-vendita-food-bevande-coop-genossenschaft-sankt-moritz",
+        "en": "sales-assistant-food-beverages-coop-genossenschaft-sankt-moritz",
         "de": "verkaufer-in-food-getranke-coop-sankt-moritz-graubunden-5fxa4u",
-        "fr": "verkaufer-in-food-getranke-coop-sankt-moritz-graubunden-5fxa4u"
+        "fr": "vendeur-vendeuse-food-boissons-coop-genossenschaft-sankt-moritz"
       },
       "addressLocality": "Sankt Moritz",
       "sourceLang": "de",
@@ -1627,11 +1655,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-food-getranke-coop-sankt-moritz-graubunden"
+        "verkaufer-in-food-getranke-coop-sankt-moritz-graubunden",
+        "verkaufer-in-food-getranke-coop-sankt-moritz-graubunden-5fxa4u"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-getranke-coop-sankt-moritz-graubunden"
+          "verkaufer-in-food-getranke-coop-sankt-moritz-graubunden",
+          "verkaufer-in-food-getranke-coop-sankt-moritz-graubunden-5fxa4u"
+        ],
+        "en": [
+          "verkaufer-in-food-getranke-coop-sankt-moritz-graubunden-5fxa4u"
+        ],
+        "fr": [
+          "verkaufer-in-food-getranke-coop-sankt-moritz-graubunden-5fxa4u"
         ]
       }
     },
@@ -1722,7 +1758,7 @@
     },
     {
       "id": "company-bf9vd1",
-      "slug": "verkaufer-in-food-coop-chur-graubunden-bf9vd1",
+      "slug": "addetto-a-vendita-food-coop-genossenschaft-chur",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Chur, Graubünden",
@@ -1768,10 +1804,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-chur-graubunden-bf9vd1",
-        "en": "verkaufer-in-food-coop-chur-graubunden-bf9vd1",
+        "it": "addetto-a-vendita-food-coop-genossenschaft-chur",
+        "en": "food-sales-assistant-coop-genossenschaft-chur",
         "de": "verkaufer-in-food-coop-chur-graubunden-bf9vd1",
-        "fr": "verkaufer-in-food-coop-chur-graubunden-bf9vd1"
+        "fr": "vendeur-vendeuse-food-coop-genossenschaft-chur"
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
@@ -1789,17 +1825,25 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-chur-graubunden"
+        "verkaufer-in-food-coop-chur-graubunden",
+        "verkaufer-in-food-coop-chur-graubunden-bf9vd1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-chur-graubunden"
+          "verkaufer-in-food-coop-chur-graubunden",
+          "verkaufer-in-food-coop-chur-graubunden-bf9vd1"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-chur-graubunden-bf9vd1"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-chur-graubunden-bf9vd1"
         ]
       }
     },
     {
       "id": "company-whz3yh",
-      "slug": "verkaufer-in-food-frische-insel-coop-chur-graubunden-whz3yh",
+      "slug": "addetto-a-vendita-isola-freschi-food-coop-genossenschaft-chur",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food Frische-Insel",
       "location": "Chur, Graubünden",
@@ -1845,10 +1889,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-frische-insel-coop-chur-graubunden-whz3yh",
-        "en": "verkaufer-in-food-frische-insel-coop-chur-graubunden-whz3yh",
+        "it": "addetto-a-vendita-isola-freschi-food-coop-genossenschaft-chur",
+        "en": "sales-assistant-food-fresh-island-coop-genossenschaft-chur",
         "de": "verkaufer-in-food-frische-insel-coop-chur-graubunden-whz3yh",
-        "fr": "verkaufer-in-food-frische-insel-coop-chur-graubunden-whz3yh"
+        "fr": "vendeur-euse-ilot-frais-food-coop-genossenschaft-chur"
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
@@ -1866,11 +1910,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-food-frische-insel-coop-chur-graubunden"
+        "verkaufer-in-food-frische-insel-coop-chur-graubunden",
+        "verkaufer-in-food-frische-insel-coop-chur-graubunden-whz3yh"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-frische-insel-coop-chur-graubunden"
+          "verkaufer-in-food-frische-insel-coop-chur-graubunden",
+          "verkaufer-in-food-frische-insel-coop-chur-graubunden-whz3yh"
+        ],
+        "en": [
+          "verkaufer-in-food-frische-insel-coop-chur-graubunden-whz3yh"
+        ],
+        "fr": [
+          "verkaufer-in-food-frische-insel-coop-chur-graubunden-whz3yh"
         ]
       }
     },
@@ -2131,11 +2183,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-verkauf-food-06-00-bis-10-00-uhr-auffuller-in-coop-willisau-luzern"
-        ]
-      },
       "previousSlugs": [
         "mitarbeiter-in-verkauf-food-06-00-bis-10-00-uhr-auffuller-in-coop-willisau-luzern"
       ]
@@ -2305,7 +2352,7 @@
     },
     {
       "id": "company-1ymfag",
-      "slug": "verkaufer-in-food-coop-chur-graubunden-1ymfag",
+      "slug": "addetto-a-vendita-food-coop-genossenschaft-chur-fcf376",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Chur, Graubünden",
@@ -2351,10 +2398,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-chur-graubunden-1ymfag",
-        "en": "verkaufer-in-food-coop-chur-graubunden-1ymfag",
+        "it": "addetto-a-vendita-food-coop-genossenschaft-chur-fcf376",
+        "en": "sales-assistant-food-coop-genossenschaft-chur",
         "de": "verkaufer-in-food-coop-chur-graubunden-1ymfag",
-        "fr": "verkaufer-in-food-coop-chur-graubunden-1ymfag"
+        "fr": "vendeur-vendeuse-food-coop-genossenschaft-chur-fcf376"
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
@@ -2372,17 +2419,25 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-chur-graubunden-2"
+        "verkaufer-in-food-coop-chur-graubunden-2",
+        "verkaufer-in-food-coop-chur-graubunden-1ymfag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-chur-graubunden-2"
+          "verkaufer-in-food-coop-chur-graubunden-2",
+          "verkaufer-in-food-coop-chur-graubunden-1ymfag"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-chur-graubunden-1ymfag"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-chur-graubunden-1ymfag"
         ]
       }
     },
     {
       "id": "company-4dpw73",
-      "slug": "verkaufer-in-food-coop-sargans-sankt-gallen-4dpw73",
+      "slug": "addetto-a-vendita-food-coop-genossenschaft-sargans",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Sargans, Sankt Gallen",
@@ -2428,10 +2483,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-sargans-sankt-gallen-4dpw73",
-        "en": "verkaufer-in-food-coop-sargans-sankt-gallen-4dpw73",
+        "it": "addetto-a-vendita-food-coop-genossenschaft-sargans",
+        "en": "food-sales-assistant-coop-genossenschaft-sargans",
         "de": "verkaufer-in-food-coop-sargans-sankt-gallen-4dpw73",
-        "fr": "verkaufer-in-food-coop-sargans-sankt-gallen-4dpw73"
+        "fr": "vendeur-vendeuse-food-coop-genossenschaft-sargans"
       },
       "addressLocality": "Sargans",
       "sourceLang": "de",
@@ -2449,17 +2504,25 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-sargans-sankt-gallen"
+        "verkaufer-in-food-coop-sargans-sankt-gallen",
+        "verkaufer-in-food-coop-sargans-sankt-gallen-4dpw73"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-sargans-sankt-gallen"
+          "verkaufer-in-food-coop-sargans-sankt-gallen",
+          "verkaufer-in-food-coop-sargans-sankt-gallen-4dpw73"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-sargans-sankt-gallen-4dpw73"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-sargans-sankt-gallen-4dpw73"
         ]
       }
     },
     {
       "id": "company-vcbbke",
-      "slug": "verkaufer-in-food-coop-laufenburg-aargau-vcbbke",
+      "slug": "venditore-venditrice-food-coop-genossenschaft-laufenburg",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Laufenburg, Aargau",
@@ -2505,10 +2568,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-laufenburg-aargau-vcbbke",
-        "en": "verkaufer-in-food-coop-laufenburg-aargau-vcbbke",
+        "it": "venditore-venditrice-food-coop-genossenschaft-laufenburg",
+        "en": "food-sales-assistant-coop-genossenschaft-laufenburg",
         "de": "verkaufer-in-food-coop-laufenburg-aargau-vcbbke",
-        "fr": "verkaufer-in-food-coop-laufenburg-aargau-vcbbke"
+        "fr": "vendeur-vendeuse-food-coop-genossenschaft-laufenburg"
       },
       "addressLocality": "Laufenburg",
       "sourceLang": "de",
@@ -2526,11 +2589,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-laufenburg-aargau"
+        "verkaufer-in-food-coop-laufenburg-aargau",
+        "verkaufer-in-food-coop-laufenburg-aargau-vcbbke"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-laufenburg-aargau"
+          "verkaufer-in-food-coop-laufenburg-aargau",
+          "verkaufer-in-food-coop-laufenburg-aargau-vcbbke"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-laufenburg-aargau-vcbbke"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-laufenburg-aargau-vcbbke"
         ]
       }
     },
@@ -2693,7 +2764,7 @@
     },
     {
       "id": "company-xqtzqg",
-      "slug": "verkaufer-in-food-coop-rapperswil-jona-sankt-gallen-xqtzqg",
+      "slug": "addetto-a-vendita-food-coop-genossenschaft-rapperswil-jona",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Rapperswil-Jona, Sankt Gallen",
@@ -2739,10 +2810,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-rapperswil-jona-sankt-gallen-xqtzqg",
-        "en": "verkaufer-in-food-coop-rapperswil-jona-sankt-gallen-xqtzqg",
+        "it": "addetto-a-vendita-food-coop-genossenschaft-rapperswil-jona",
+        "en": "sales-assistant-food-coop-genossenschaft-rapperswil-jona",
         "de": "verkaufer-in-food-coop-rapperswil-jona-sankt-gallen-xqtzqg",
-        "fr": "verkaufer-in-food-coop-rapperswil-jona-sankt-gallen-xqtzqg"
+        "fr": "vendeur-euse-food-coop-genossenschaft-rapperswil-jona"
       },
       "addressLocality": "Rapperswil-Jona",
       "sourceLang": "de",
@@ -2760,11 +2831,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-rapperswil-jona-sankt-gallen"
+        "verkaufer-in-food-coop-rapperswil-jona-sankt-gallen",
+        "verkaufer-in-food-coop-rapperswil-jona-sankt-gallen-xqtzqg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-rapperswil-jona-sankt-gallen"
+          "verkaufer-in-food-coop-rapperswil-jona-sankt-gallen",
+          "verkaufer-in-food-coop-rapperswil-jona-sankt-gallen-xqtzqg"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-rapperswil-jona-sankt-gallen-xqtzqg"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-rapperswil-jona-sankt-gallen-xqtzqg"
         ]
       }
     },
@@ -3567,7 +3646,7 @@
     },
     {
       "id": "company-z71fgu",
-      "slug": "verkaufer-in-food-coop-mannedorf-zurich-z71fgu",
+      "slug": "addetto-a-vendita-settore-alimentare-coop-genossenschaft-mannedorf",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Männedorf, Zürich",
@@ -3613,10 +3692,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-mannedorf-zurich-z71fgu",
-        "en": "verkaufer-in-food-coop-mannedorf-zurich-z71fgu",
+        "it": "addetto-a-vendita-settore-alimentare-coop-genossenschaft-mannedorf",
+        "en": "food-sales-assistant-coop-genossenschaft-mannedorf",
         "de": "verkaufer-in-food-coop-mannedorf-zurich-z71fgu",
-        "fr": "verkaufer-in-food-coop-mannedorf-zurich-z71fgu"
+        "fr": "vendeur-vendeuse-food-coop-genossenschaft-mannedorf"
       },
       "addressLocality": "Männedorf",
       "sourceLang": "de",
@@ -3634,11 +3713,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-mannedorf-zurich"
+        "verkaufer-in-food-coop-mannedorf-zurich",
+        "verkaufer-in-food-coop-mannedorf-zurich-z71fgu"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-mannedorf-zurich"
+          "verkaufer-in-food-coop-mannedorf-zurich",
+          "verkaufer-in-food-coop-mannedorf-zurich-z71fgu"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-mannedorf-zurich-z71fgu"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-mannedorf-zurich-z71fgu"
         ]
       }
     },
@@ -5061,6 +5148,8 @@
       "sourceLang": "de",
       "needsRetranslation": true,
       "addressRegion": "SO",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -5081,8 +5170,7 @@
           "seller-in-food-coop-genossenschaft-arlesheim",
           "verkaufer-in-food-coop-arlesheim-solothurn-j27jvx",
           "vendeur-dans-la-nourriture-coop-genossenschaft-arlesheim",
-          "venditore-food-coop-genossenschaft-arlesheim",
-          "verkaufer-in-food-coop-arlesheim-solothurn"
+          "venditore-food-coop-genossenschaft-arlesheim"
         ],
         "en": [
           "food-sales-assistant-coop-genossenschaft-arlesheim-mn7xht",
@@ -5108,9 +5196,7 @@
         "vendeur-dans-la-nourriture-coop-genossenschaft-arlesheim",
         "venditore-food-coop-genossenschaft-arlesheim",
         "verkaufer-in-food-coop-arlesheim-solothurn"
-      ],
-      "salaryMin": 68500,
-      "salaryMax": 104000
+      ]
     },
     {
       "id": "company-eousq0",
@@ -5901,8 +5987,7 @@
           "verkaufer-in-food-fruchte-und-gemuse-coop-schonenwerd-solothurn-92hr14",
           "vendeur-euse-en-alimentation-fruits-et-legumes-coop-genossenschaft-schonenwerd",
           "verkaufer-in-food-fruchte-e-gemuse-coop-schonenwerd-solothurn-92hr14",
-          "verkaufer-in-food-fruchte-und-gemuse-coop-genossenschaft-schonenwerd",
-          "verkaufer-in-food-fruchte-und-gemuse-coop-schonenwerd-solothurn"
+          "verkaufer-in-food-fruchte-und-gemuse-coop-genossenschaft-schonenwerd"
         ],
         "en": [
           "food-sales-assistant-fruits-and-vegetables-coop-genossenschaft-schonenwerd"

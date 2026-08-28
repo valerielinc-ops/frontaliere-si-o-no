@@ -8267,8 +8267,8 @@
       },
       "slugByLocale": {
         "it": "gestionnaire-de-vente-secteur-non-food-m-w-d-societe-cooperative-migros-vaud-vevey",
-        "en": "gestionnaire-de-vente-secteur-non-food-m-w-d-societe-cooperative-migros-vaud-vevey-sa36hk",
-        "de": "gestionnaire-de-vente-secteur-non-food-m-w-d-societe-cooperative-migros-vaud-vevey-sa36hk",
+        "en": "sales-manager-sector-non-food-m-f-d-societe-cooperative-migros-vaud-vevey",
+        "de": "vertriebsleiter-bereich-non-food-m-w-d-societe-cooperative-migros-vaud-vevey",
         "fr": "gestionnaire-de-vente-secteur-non-food-m-w-d-societe-cooperative-migros-vaud-vevey-sa36hk"
       },
       "requirementsByLocale": {
@@ -8288,6 +8288,12 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-de-vente-secteur-non-food-m-w-d-societe-cooperative-migros-vaud-vevey-sa36hk"
+        ],
+        "en": [
+          "gestionnaire-de-vente-secteur-non-food-m-w-d-societe-cooperative-migros-vaud-vevey-sa36hk"
+        ],
+        "de": [
           "gestionnaire-de-vente-secteur-non-food-m-w-d-societe-cooperative-migros-vaud-vevey-sa36hk"
         ]
       },
@@ -8368,8 +8374,8 @@
       },
       "slugByLocale": {
         "it": "gestionnaire-de-vente-food-non-food-m-w-d-societe-cooperative-migros-vaud-la-tour-de-peilz",
-        "en": "gestionnaire-de-vente-food-non-food-m-w-d-societe-cooperative-migros-vaud-la-tour-de-peilz-ruoasy",
-        "de": "gestionnaire-de-vente-food-non-food-m-w-d-societe-cooperative-migros-vaud-la-tour-de-peilz-ruoasy",
+        "en": "food-non-food-sales-manager-m-f-d-societe-cooperative-migros-vaud-la-tour-de-peilz",
+        "de": "verkaufsleiter-food-non-food-m-w-d-societe-cooperative-migros-vaud-la-tour-de-peilz",
         "fr": "gestionnaire-de-vente-food-non-food-m-w-d-societe-cooperative-migros-vaud-la-tour-de-peilz-ruoasy"
       },
       "requirementsByLocale": {
@@ -8390,6 +8396,12 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-de-vente-food-non-food-m-w-d-societe-cooperative-migros-vaud-la-tour-de-peilz-ruoasy"
+        ],
+        "en": [
+          "gestionnaire-de-vente-food-non-food-m-w-d-societe-cooperative-migros-vaud-la-tour-de-peilz-ruoasy"
+        ],
+        "de": [
           "gestionnaire-de-vente-food-non-food-m-w-d-societe-cooperative-migros-vaud-la-tour-de-peilz-ruoasy"
         ]
       },
@@ -8520,7 +8532,7 @@
     },
     {
       "id": "company-xcr4yi",
-      "slug": "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-etoy-xcr4yi",
+      "slug": "cassiere-polivalente-m-f-d-societe-cooperative-migros-vaud-etoy",
       "company": "Société coopérative Migros Vaud",
       "title": "Caissier Polyvalent (H/F/D)",
       "location": "Etoy",
@@ -8567,9 +8579,9 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-etoy-xcr4yi",
-        "en": "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-etoy-xcr4yi",
-        "de": "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-etoy-xcr4yi",
+        "it": "cassiere-polivalente-m-f-d-societe-cooperative-migros-vaud-etoy",
+        "en": "versatile-cashier-m-f-d-societe-cooperative-migros-vaud-etoy",
+        "de": "polyvalenter-kassierer-m-f-d-societe-cooperative-migros-vaud-etoy",
         "fr": "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-etoy-xcr4yi"
       },
       "requirementsByLocale": {
@@ -8594,13 +8606,16 @@
           "multivalent-collaborator-h-f-d-societe-cooperative-migros-vaud-etoy",
           "multivalenter-mitarbeiter-h-f-d-societe-cooperative-migros-vaud-etoy",
           "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-etoy-0hu5vv",
-          "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-etoy"
+          "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-etoy",
+          "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-etoy-xcr4yi"
         ],
         "en": [
-          "multivalent-collaborator-h-f-d-societe-cooperative-migros-vaud-etoy"
+          "multivalent-collaborator-h-f-d-societe-cooperative-migros-vaud-etoy",
+          "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-etoy-xcr4yi"
         ],
         "de": [
-          "multivalenter-mitarbeiter-h-f-d-societe-cooperative-migros-vaud-etoy"
+          "multivalenter-mitarbeiter-h-f-d-societe-cooperative-migros-vaud-etoy",
+          "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-etoy-xcr4yi"
         ],
         "fr": [
           "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-etoy-0hu5vv",
@@ -8613,7 +8628,8 @@
         "multivalent-collaborator-h-f-d-societe-cooperative-migros-vaud-etoy",
         "multivalenter-mitarbeiter-h-f-d-societe-cooperative-migros-vaud-etoy",
         "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-etoy-0hu5vv",
-        "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-etoy"
+        "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-etoy",
+        "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-etoy-xcr4yi"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -11101,19 +11117,26 @@
       },
       "slugByLocale": {
         "it": "collaboratore-trice-in-warenausgang-migros-logistics-suhr-ujjb5h",
-        "en": "mitarbeiter-in-warenausgang-migros-logistics-suhr-ujjb5h",
+        "en": "goods-outbound-associate-migros-logistics-suhr",
         "de": "mitarbeiter-in-warenausgang-migros-logistics-suhr-ujjb5h",
-        "fr": "mitarbeiter-in-warenausgang-migros-logistics-suhr-ujjb5h"
+        "fr": "collaborateur-trice-sortie-de-marchandises-migros-logistics-suhr"
       },
       "sourceLang": "de",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-warenausgang-migros-logistics-suhr"
+        ],
+        "en": [
+          "mitarbeiter-in-warenausgang-migros-logistics-suhr-ujjb5h"
+        ],
+        "fr": [
+          "mitarbeiter-in-warenausgang-migros-logistics-suhr-ujjb5h"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-warenausgang-migros-logistics-suhr"
+        "mitarbeiter-in-warenausgang-migros-logistics-suhr",
+        "mitarbeiter-in-warenausgang-migros-logistics-suhr-ujjb5h"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -11203,19 +11226,26 @@
       },
       "slugByLocale": {
         "it": "collaboratore-trice-in-office-migros-take-away-steinhausen-6cpx8s",
-        "en": "mitarbeiter-in-office-migros-take-away-steinhausen-6cpx8s",
+        "en": "office-employee-migros-take-away-steinhausen",
         "de": "mitarbeiter-in-office-migros-take-away-steinhausen-6cpx8s",
-        "fr": "mitarbeiter-in-office-migros-take-away-steinhausen-6cpx8s"
+        "fr": "collaborateur-trice-office-migros-take-away-steinhausen"
       },
       "sourceLang": "de",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-office-migros-take-away-steinhausen"
+        ],
+        "en": [
+          "mitarbeiter-in-office-migros-take-away-steinhausen-6cpx8s"
+        ],
+        "fr": [
+          "mitarbeiter-in-office-migros-take-away-steinhausen-6cpx8s"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-office-migros-take-away-steinhausen"
+        "mitarbeiter-in-office-migros-take-away-steinhausen",
+        "mitarbeiter-in-office-migros-take-away-steinhausen-6cpx8s"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -11592,7 +11622,7 @@
     },
     {
       "id": "company-a28yx9",
-      "slug": "collaborateur-trice-logistique-groupe-micarna-courtepin-a28yx9",
+      "slug": "collaboratore-trice-logistica-groupe-micarna-courtepin",
       "company": "groupe Micarna",
       "title": "Collaborateur*trice Logistique",
       "location": "Courtepin",
@@ -11650,9 +11680,9 @@
         "de": "Ein führender Hersteller von Fleisch, Geflügel, Eiern und Fisch und als Mitglied der M-Industry, Micarna s, hat sich das Ziel gesetzt, immer \"nur besser\". Sie teilen diese Vision? Begleiten Sie uns und tragen Sie zum Erfolg von Migros, einem Unternehmen, bei.\n\nMansioni - Sie sichern die Qualifizierung der Waren aus der Produktion sowie der für die Bestellungen vorbereiteten Waren. - Sie bereiten die Aufträge für die Kunden Migros und Drittkunden vor. - Sie führen das Wiegen und Beschriften der Warenkästen durch. - Sie gewährleisten den internen Transport der Waren. - Sie arbeiten in einer gekühlten Umgebung (zwischen 0 °C und 2 °C) mit dem Tragen von mittleren Lasten. - Sie sind bereit, in Teams nach unterschiedlichen Zeitplänen (morgens / Nachmittag / Nacht) zu arbeiten.\n\nErforderlich - Berufserfahrung: 3 Jahre Erfahrung in der Logistik. Ideal im Bereich der Agrar-Lebensmittel. - Abgeschlossenes professionelles Lernen (CFC): Logistiker*ne oder Ausbildung als gleichwertig. - Haben Sie gute Beherrschung der üblichen Computer-Tools. - Haben Sie Nachweis der Präzision, Methode und, guter Geist des Teams. - Französisch (Sehr gute Kenntnisse)\n\nCosa offriamo - Flexibel/Telearbeitsplatz: Bis zu 2 Tage Telearbeit möglich - Mutterschafts-/Vaterschaftsurlaub: 18 Wochen bezahlter Mutterschaftsurlaub / 8 Wochen Vaterschaftsurlaub (4 Wochen bezahlt und 4 Wochen unbezahlt) - Berufliche Versorgung: Volle Deckung aus dem Migros Pensionsfonds – mit erster und direkter Leistung - Sozialleistungen: 730 Tage Krankengeld mit voller Aufrechterhaltung des Nettogehalts - Verpflegung: Ausgewogenes Mittags-/Essbuffet im Personalrestaurant für maximal 7 Tage\n\nCHF 7.- - Cum Points (2008): Cum Points (2008) werden auf Lebensmitteln und fünf Mal auf Nicht-Lebensmittel-Artikeln verdoppelt.\n\n- Migros Bank: Migros bietet seinen Mitarbeitern höhere Zinsen auf Privatkonten und Investmentkonten an. - Migros Club School: 70% Erstattung der Kursgebühren, bis zu maximal CHF 1.000 pro Kalenderjahr - Freizeit- und Kulturangebot: Sie profitieren von ermäßigten Eintrittskarten für ausgewählte Kulturveranstaltungen - Sport- und Fitnessangebote: Beitrag zu Fitnessabos: maximal CHF 200.- pro Abonnement pro Jahr\n\nContatto Anwendung und Kontakt Florian Makangilu\n\nGrado di occup (1): 549%"
       },
       "slugByLocale": {
-        "it": "collaborateur-trice-logistique-groupe-micarna-courtepin-a28yx9",
-        "en": "collaborateur-trice-logistique-groupe-micarna-courtepin-a28yx9",
-        "de": "collaborateur-trice-logistique-groupe-micarna-courtepin-a28yx9",
+        "it": "collaboratore-trice-logistica-groupe-micarna-courtepin",
+        "en": "logistics-collaborator-groupe-micarna-courtepin",
+        "de": "mitarbeiter-in-logistik-groupe-micarna-courtepin",
         "fr": "collaborateur-trice-logistique-groupe-micarna-courtepin-a28yx9"
       },
       "requirementsByLocale": {
@@ -11670,11 +11700,19 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-logistique-groupe-micarna-courtepin"
+          "collaborateur-trice-logistique-groupe-micarna-courtepin",
+          "collaborateur-trice-logistique-groupe-micarna-courtepin-a28yx9"
+        ],
+        "en": [
+          "collaborateur-trice-logistique-groupe-micarna-courtepin-a28yx9"
+        ],
+        "de": [
+          "collaborateur-trice-logistique-groupe-micarna-courtepin-a28yx9"
         ]
       },
       "previousSlugs": [
-        "collaborateur-trice-logistique-groupe-micarna-courtepin"
+        "collaborateur-trice-logistique-groupe-micarna-courtepin",
+        "collaborateur-trice-logistique-groupe-micarna-courtepin-a28yx9"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -12516,8 +12554,8 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "vendeur-se-polyvalent-patisserie-boulangerie-m-w-d-societe-cooperative-migros-vaud-vevey",
-        "en": "vendeur-se-polyvalent-patisserie-boulangerie-m-w-d-societe-cooperative-migros-vaud-vevey-elqd3q",
-        "de": "vendeur-se-polyvalent-patisserie-boulangerie-m-w-d-societe-cooperative-migros-vaud-vevey-elqd3q",
+        "en": "all-round-sales-assistant-pastry-bakery-m-f-d-societe-cooperative-migros-vaud-vevey",
+        "de": "polyvalente-r-verkaufer-in-backerei-konditorei-m-f-d-societe-cooperative-migros-vaud-vevey",
         "fr": "vendeur-se-polyvalent-patisserie-boulangerie-m-w-d-societe-cooperative-migros-vaud-vevey-elqd3q"
       },
       "requirementsByLocale": {
@@ -12537,6 +12575,12 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
+          "vendeur-se-polyvalent-patisserie-boulangerie-m-w-d-societe-cooperative-migros-vaud-vevey-elqd3q"
+        ],
+        "en": [
+          "vendeur-se-polyvalent-patisserie-boulangerie-m-w-d-societe-cooperative-migros-vaud-vevey-elqd3q"
+        ],
+        "de": [
           "vendeur-se-polyvalent-patisserie-boulangerie-m-w-d-societe-cooperative-migros-vaud-vevey-elqd3q"
         ]
       },
@@ -12613,8 +12657,8 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "vendeur-polyvalent-fruits-et-legumes-m-w-d-societe-cooperative-migros-vaud-vevey",
-        "en": "vendeur-polyvalent-fruits-et-legumes-m-w-d-societe-cooperative-migros-vaud-vevey-hhpph1",
-        "de": "vendeur-polyvalent-fruits-et-legumes-m-w-d-societe-cooperative-migros-vaud-vevey-hhpph1",
+        "en": "versatile-sales-assistant-fruits-and-vegetables-m-f-d-societe-cooperative-migros-vaud-vevey",
+        "de": "vielseitiger-verkaufer-obst-und-gemuse-m-f-d-societe-cooperative-migros-vaud-vevey",
         "fr": "vendeur-polyvalent-fruits-et-legumes-m-w-d-societe-cooperative-migros-vaud-vevey-hhpph1"
       },
       "requirementsByLocale": {
@@ -12635,6 +12679,12 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
+          "vendeur-polyvalent-fruits-et-legumes-m-w-d-societe-cooperative-migros-vaud-vevey-hhpph1"
+        ],
+        "en": [
+          "vendeur-polyvalent-fruits-et-legumes-m-w-d-societe-cooperative-migros-vaud-vevey-hhpph1"
+        ],
+        "de": [
           "vendeur-polyvalent-fruits-et-legumes-m-w-d-societe-cooperative-migros-vaud-vevey-hhpph1"
         ]
       },
@@ -12713,8 +12763,8 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "collaborateur-halte-jeux-m-w-d-societe-cooperative-migros-vaud-crissier-ot6t2g",
-        "en": "collaborateur-halte-jeux-m-w-d-societe-cooperative-migros-vaud-crissier-ot6t2g",
-        "de": "collaborateur-halte-jeux-m-w-d-societe-cooperative-migros-vaud-crissier-ot6t2g",
+        "en": "playroom-assistant-m-f-d-societe-cooperative-migros-vaud-crissier",
+        "de": "mitarbeiter-in-spielecke-m-f-d-societe-cooperative-migros-vaud-crissier",
         "fr": "collaborateur-halte-jeux-m-w-d-societe-cooperative-migros-vaud-crissier-ot6t2g"
       },
       "requirementsByLocale": {
@@ -12758,7 +12808,7 @@
     },
     {
       "id": "company-8wiuwe",
-      "slug": "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-morges-8wiuwe",
+      "slug": "cassiere-polivalente-m-f-d-societe-cooperative-migros-vaud-morges",
       "company": "Société coopérative Migros Vaud",
       "title": "Caissier Polyvalent (H/F/D)",
       "location": "Morges",
@@ -12805,9 +12855,9 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-morges-8wiuwe",
-        "en": "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-morges-8wiuwe",
-        "de": "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-morges-8wiuwe",
+        "it": "cassiere-polivalente-m-f-d-societe-cooperative-migros-vaud-morges",
+        "en": "versatile-cashier-m-f-d-societe-cooperative-migros-vaud-morges",
+        "de": "polyvalente-m-w-d-datei-societe-cooperative-migros-vaud-morges",
         "fr": "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-morges-8wiuwe"
       },
       "requirementsByLocale": {
@@ -12827,11 +12877,19 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-morges"
+          "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-morges",
+          "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-morges-8wiuwe"
+        ],
+        "en": [
+          "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-morges-8wiuwe"
+        ],
+        "de": [
+          "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-morges-8wiuwe"
         ]
       },
       "previousSlugs": [
-        "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-morges"
+        "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-morges",
+        "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-morges-8wiuwe"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -12949,7 +13007,7 @@
     },
     {
       "id": "company-pj5bot",
-      "slug": "responsable-de-rayon-food-et-non-food-m-w-d-societe-cooperative-migros-vaud-lausanne-pj5bot",
+      "slug": "responsabile-di-reparto-food-e-non-food-m-f-d-societe-cooperative-migros-vaud-lausanne",
       "company": "Société coopérative Migros Vaud",
       "title": "Responsable de rayon Food et Non Food (H/F/D)",
       "location": "Lausanne",
@@ -13004,9 +13062,9 @@
         "de": "Ihr Engagement und Ihre Persönlichkeit machen einen Unterschied! Leidenschaftlich für den Einzelhandel sind Sie bereit, die Abteilung des Ladens zu koordinieren und ein Team um ehrgeizige Ziele zu vereinen. Wahre Botschafterin der, unterzeichnen Sie, Sie tragen zur Leistung Ihres Ladens, zur Zufriedenheit unserer Kunden und zur Entwicklung Ihres Teams bei.\n\nMansioni - Gewährleistung einer warmen Kundenerfahrung und vorbildlicher Instandhaltung der Abteilung - Koordinierung der täglichen operativen Tätigkeit: Radiusmanagement, Waren und Ströme - Entwicklung der kommerziellen Leistung und Beitrag zur Erreichung der Ziele - Budgetierung und Kostenanalyse\n\nRequisiti - Erfahrung im Einzelhandel und vor allem im Lebensmittel- und Nicht-Lebensmittelsektor bestätigt: erwartet - Professionelles Lernen abgeschlossen (CFC): als Spezialist im Einzelhandel - Handelssinn und Kundenorientierung - Bedeutung der Organisation, Autonomie und Beherrschung von Computer-Tools. - Aktives Zuhören, konstruktives Feedback und Kultur der Zusammenarbeit. - Fähigkeit, sich in einem sich verändernden Umfeld anzupassen (digital) - Geist der Analyse und Warenmanagement - Französisch (Sehr gutes Wissen)\n\nCosa offriamo - Berufliche Pensionskasse: Pensionsfonds finanziert durch 17% vom Arbeitgeber. - Verpflegung: 20% Rabatt in Migros Waadt Restaurants. - Cum Points (2008): Multiplikation von Cum Points für unsere Mitarbeiter - Migros Bank: Vorzugstarife bei Migros Bank - Feiertage: 5 bis 7 Wochen Urlaub pro Jahr, je nach Alter oder Alter. - Migros Club School: Finanzielle Unterstützung für Kurse und Schulungen an Migros Club School.\n\nContatto Bewerbung und Kontakt Migros Vaud Rekrutierungszentrum\n\nGrado di occup (1): 80-100%"
       },
       "slugByLocale": {
-        "it": "responsable-de-rayon-food-et-non-food-m-w-d-societe-cooperative-migros-vaud-lausanne-pj5bot",
-        "en": "responsable-de-rayon-food-et-non-food-m-w-d-societe-cooperative-migros-vaud-lausanne-pj5bot",
-        "de": "responsable-de-rayon-food-et-non-food-m-w-d-societe-cooperative-migros-vaud-lausanne-pj5bot",
+        "it": "responsabile-di-reparto-food-e-non-food-m-f-d-societe-cooperative-migros-vaud-lausanne",
+        "en": "department-manager-food-and-non-food-m-f-d-societe-cooperative-migros-vaud-lausanne",
+        "de": "abteilungsleiter-food-und-non-food-m-w-d-societe-cooperative-migros-vaud-lausanne",
         "fr": "responsable-de-rayon-food-et-non-food-m-w-d-societe-cooperative-migros-vaud-lausanne-pj5bot"
       },
       "requirementsByLocale": {
@@ -13026,11 +13084,19 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "responsable-de-rayon-food-et-non-food-m-w-d-societe-cooperative-migros-vaud-lausanne"
+          "responsable-de-rayon-food-et-non-food-m-w-d-societe-cooperative-migros-vaud-lausanne",
+          "responsable-de-rayon-food-et-non-food-m-w-d-societe-cooperative-migros-vaud-lausanne-pj5bot"
+        ],
+        "en": [
+          "responsable-de-rayon-food-et-non-food-m-w-d-societe-cooperative-migros-vaud-lausanne-pj5bot"
+        ],
+        "de": [
+          "responsable-de-rayon-food-et-non-food-m-w-d-societe-cooperative-migros-vaud-lausanne-pj5bot"
         ]
       },
       "previousSlugs": [
-        "responsable-de-rayon-food-et-non-food-m-w-d-societe-cooperative-migros-vaud-lausanne"
+        "responsable-de-rayon-food-et-non-food-m-w-d-societe-cooperative-migros-vaud-lausanne",
+        "responsable-de-rayon-food-et-non-food-m-w-d-societe-cooperative-migros-vaud-lausanne-pj5bot"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -13154,7 +13220,7 @@
     },
     {
       "id": "company-bcqi2g",
-      "slug": "responsable-de-rayon-admin-caisse-fleurs-m-w-d-societe-cooperative-migros-vaud-epalinges-bcqi2g",
+      "slug": "responsabile-di-reparto-amministrazione-cassa-fiori-m-f-d-societe-cooperative-migros-vaud-epalinges",
       "company": "Société coopérative Migros Vaud",
       "title": "Responsable de rayon Admin/Caisse/Fleurs (H/F/D)",
       "location": "Epalinges",
@@ -13209,9 +13275,9 @@
         "de": "Ihr Engagement und Ihre Persönlichkeit machen einen Unterschied! Leidenschaftlich für den Einzelhandel sind Sie bereit, die Abteilung des Ladens zu koordinieren und ein Team um ehrgeizige Ziele zu vereinen. Wahre Botschafterin der, unterzeichnen Sie, Sie tragen zur Leistung Ihres Ladens, zur Zufriedenheit unserer Kunden und zur Entwicklung Ihres Teams bei.\n\nMansioni - Gewährleistung einer warmen Kundenerfahrung und vorbildlicher Instandhaltung der Abteilung - Koordinierung der täglichen operativen Tätigkeit: Radiusmanagement, Waren und Ströme - Entwicklung der kommerziellen Leistung und Beitrag zur Erreichung der Ziele - Budgetierung und Kostenanalyse\n\nRequisiti - Erfahrung im Einzelhandel bestätigt: als Teamleiter und in der Caisse- und/oder Blumenabteilung - Professional Learning Completed (CFC): als Spezialist für Einzelhandel - Handelssinn und Kundenorientierung - Bedeutung der Organisation, Autonomie und Beherrschung von IT-Tools. - Aktives Zuhören, konstruktives Feedback und Kultur der Zusammenarbeit. - Fähigkeit, sich in einem sich verändernden Umfeld (digital) anzupassen - Geist der Analyse und Warenmanagement - Französisch (Sehr gutes Wissen)\n\nCosa offriamo - Berufliche Pensionskasse: Pensionsfonds finanziert durch 17% vom Arbeitgeber. - Verpflegung: 20% Rabatt in Migros Waadt Restaurants. - Cum Points (2008): Multiplikation von Cum Points für unsere Mitarbeiter - Migros Bank: Vorzugstarife bei Migros Bank - Feiertage: 5 bis 7 Wochen Urlaub pro Jahr, je nach Alter oder Alter. - Migros Club School: Finanzielle Unterstützung für Kurse und Schulungen an Migros Club School.\n\nContatto Bewerbung und Kontakt Migros Vaud Rekrutierungszentrum\n\nGrado di occup (1): 80%"
       },
       "slugByLocale": {
-        "it": "responsable-de-rayon-admin-caisse-fleurs-m-w-d-societe-cooperative-migros-vaud-epalinges-bcqi2g",
-        "en": "responsable-de-rayon-admin-caisse-fleurs-m-w-d-societe-cooperative-migros-vaud-epalinges-bcqi2g",
-        "de": "responsable-de-rayon-admin-caisse-fleurs-m-w-d-societe-cooperative-migros-vaud-epalinges-bcqi2g",
+        "it": "responsabile-di-reparto-amministrazione-cassa-fiori-m-f-d-societe-cooperative-migros-vaud-epalinges",
+        "en": "department-manager-admin-checkout-flowers-m-f-d-societe-cooperative-migros-vaud-epalinges",
+        "de": "abteilungsleitung-admin-kasse-blumen-m-f-d-societe-cooperative-migros-vaud-epalinges",
         "fr": "responsable-de-rayon-admin-caisse-fleurs-m-w-d-societe-cooperative-migros-vaud-epalinges-bcqi2g"
       },
       "requirementsByLocale": {
@@ -13232,11 +13298,19 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "responsable-de-rayon-admin-caisse-fleurs-m-w-d-societe-cooperative-migros-vaud-epalinges"
+          "responsable-de-rayon-admin-caisse-fleurs-m-w-d-societe-cooperative-migros-vaud-epalinges",
+          "responsable-de-rayon-admin-caisse-fleurs-m-w-d-societe-cooperative-migros-vaud-epalinges-bcqi2g"
+        ],
+        "en": [
+          "responsable-de-rayon-admin-caisse-fleurs-m-w-d-societe-cooperative-migros-vaud-epalinges-bcqi2g"
+        ],
+        "de": [
+          "responsable-de-rayon-admin-caisse-fleurs-m-w-d-societe-cooperative-migros-vaud-epalinges-bcqi2g"
         ]
       },
       "previousSlugs": [
-        "responsable-de-rayon-admin-caisse-fleurs-m-w-d-societe-cooperative-migros-vaud-epalinges"
+        "responsable-de-rayon-admin-caisse-fleurs-m-w-d-societe-cooperative-migros-vaud-epalinges",
+        "responsable-de-rayon-admin-caisse-fleurs-m-w-d-societe-cooperative-migros-vaud-epalinges-bcqi2g"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -13256,7 +13330,7 @@
     },
     {
       "id": "company-sclpbf",
-      "slug": "allrounder-in-personalrestaurant-migros-logistics-neuendorf-sclpbf",
+      "slug": "tuttofare-per-ristorante-aziendale-migros-logistics-neuendorf",
       "company": "Migros Logistics",
       "title": "Allrounder*in Personalrestaurant",
       "location": "Neuendorf",
@@ -13314,10 +13388,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "allrounder-in-personalrestaurant-migros-logistics-neuendorf-sclpbf",
+        "it": "tuttofare-per-ristorante-aziendale-migros-logistics-neuendorf",
         "en": "allrounder-in-personalrestaurant-migros-logistics-neuendorf-sclpbf",
         "de": "allrounder-in-personalrestaurant-migros-logistics-neuendorf-sclpbf",
-        "fr": "allrounder-in-personalrestaurant-migros-logistics-neuendorf-sclpbf"
+        "fr": "polyvalent-e-restaurant-du-personnel-migros-logistics-neuendorf"
       },
       "requirementsByLocale": {
         "it": [],
@@ -13335,11 +13409,16 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "allrounder-in-personalrestaurant-migros-logistics-neuendorf"
+          "allrounder-in-personalrestaurant-migros-logistics-neuendorf",
+          "allrounder-in-personalrestaurant-migros-logistics-neuendorf-sclpbf"
+        ],
+        "fr": [
+          "allrounder-in-personalrestaurant-migros-logistics-neuendorf-sclpbf"
         ]
       },
       "previousSlugs": [
-        "allrounder-in-personalrestaurant-migros-logistics-neuendorf"
+        "allrounder-in-personalrestaurant-migros-logistics-neuendorf",
+        "allrounder-in-personalrestaurant-migros-logistics-neuendorf-sclpbf"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -13360,7 +13439,7 @@
     },
     {
       "id": "company-6ym8gd",
-      "slug": "lehrperson-fitnessboxen-m-w-d-klubschule-bern-klubschule-migros-bern-6ym8gd",
+      "slug": "insegnante-di-fitness-boxing-f-m-d-klubschule-berna-klubschule-migros-bern",
       "company": "Klubschule Migros",
       "title": "Lehrperson Fitnessboxen (w/m/d) - Klubschule Bern",
       "location": "Bern",
@@ -13424,19 +13503,27 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "lehrperson-fitnessboxen-m-w-d-klubschule-bern-klubschule-migros-bern-6ym8gd",
-        "en": "lehrperson-fitnessboxen-m-w-d-klubschule-bern-klubschule-migros-bern-6ym8gd",
+        "it": "insegnante-di-fitness-boxing-f-m-d-klubschule-berna-klubschule-migros-bern",
+        "en": "fitness-boxing-teacher-f-m-d-klubschule-bern-klubschule-migros-bern",
         "de": "lehrperson-fitnessboxen-m-w-d-klubschule-bern-klubschule-migros-bern-6ym8gd",
-        "fr": "lehrperson-fitnessboxen-m-w-d-klubschule-bern-klubschule-migros-bern-6ym8gd"
+        "fr": "enseignant-e-fitness-boxing-f-m-d-klubschule-berne-klubschule-migros-bern"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "lehrperson-fitnessboxen-m-w-d-klubschule-bern-klubschule-migros-bern"
+          "lehrperson-fitnessboxen-m-w-d-klubschule-bern-klubschule-migros-bern",
+          "lehrperson-fitnessboxen-m-w-d-klubschule-bern-klubschule-migros-bern-6ym8gd"
+        ],
+        "en": [
+          "lehrperson-fitnessboxen-m-w-d-klubschule-bern-klubschule-migros-bern-6ym8gd"
+        ],
+        "fr": [
+          "lehrperson-fitnessboxen-m-w-d-klubschule-bern-klubschule-migros-bern-6ym8gd"
         ]
       },
       "previousSlugs": [
-        "lehrperson-fitnessboxen-m-w-d-klubschule-bern-klubschule-migros-bern"
+        "lehrperson-fitnessboxen-m-w-d-klubschule-bern-klubschule-migros-bern",
+        "lehrperson-fitnessboxen-m-w-d-klubschule-bern-klubschule-migros-bern-6ym8gd"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -13562,7 +13649,7 @@
     },
     {
       "id": "company-a4fdhj",
-      "slug": "data-scientist-search-retrieval-m-w-d-galaxus-zurich-a4fdhj",
+      "slug": "data-scienziato-ricerca-recupero-m-f-d-galaxus-zurich",
       "company": "Galaxus",
       "title": "Data Scientist - Search Retrieval (f/m/d)",
       "location": "Zürich",
@@ -13634,19 +13721,27 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "data-scientist-search-retrieval-m-w-d-galaxus-zurich-a4fdhj",
+        "it": "data-scienziato-ricerca-recupero-m-f-d-galaxus-zurich",
         "en": "data-scientist-search-retrieval-m-w-d-galaxus-zurich-a4fdhj",
-        "de": "data-scientist-search-retrieval-m-w-d-galaxus-zurich-a4fdhj",
-        "fr": "data-scientist-search-retrieval-m-w-d-galaxus-zurich-a4fdhj"
+        "de": "datenwissenschaftler-suche-nach-m-w-d-galaxus-zurich",
+        "fr": "chercheur-de-donnees-recherche-retrieval-h-f-d-galaxus-zurich"
       },
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "data-scientist-search-retrieval-m-w-d-galaxus-zurich"
+          "data-scientist-search-retrieval-m-w-d-galaxus-zurich",
+          "data-scientist-search-retrieval-m-w-d-galaxus-zurich-a4fdhj"
+        ],
+        "de": [
+          "data-scientist-search-retrieval-m-w-d-galaxus-zurich-a4fdhj"
+        ],
+        "fr": [
+          "data-scientist-search-retrieval-m-w-d-galaxus-zurich-a4fdhj"
         ]
       },
       "previousSlugs": [
-        "data-scientist-search-retrieval-m-w-d-galaxus-zurich"
+        "data-scientist-search-retrieval-m-w-d-galaxus-zurich",
+        "data-scientist-search-retrieval-m-w-d-galaxus-zurich-a4fdhj"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -25512,9 +25607,9 @@
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-xrkezx",
@@ -29077,9 +29172,9 @@
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-l6qqjc",
@@ -87805,21 +87900,17 @@
         "it": [
           "verkaufsstellenplaner-in-cad-migrolino-suhr",
           "pianificatore-point-of-sale-cad-migrolino-suhr",
-          "verkaufsstellenplaner-in-cad-zeichner-in-migrolino-suhr",
-          "cad-planer-in-zeichner-in-migrolino-suhr"
+          "verkaufsstellenplaner-in-cad-zeichner-in-migrolino-suhr"
         ],
         "de": [
           "verkaufsstellenplaner-in-cad-migrolino-suhr",
-          "verkaufsstellenplaner-in-cad-zeichner-in-migrolino-suhr",
-          "cad-planer-in-zeichner-in-migrolino-suhr-p5fkjr"
+          "verkaufsstellenplaner-in-cad-zeichner-in-migrolino-suhr"
         ]
       },
       "previousSlugs": [
         "verkaufsstellenplaner-in-cad-migrolino-suhr",
         "pianificatore-point-of-sale-cad-migrolino-suhr",
-        "verkaufsstellenplaner-in-cad-zeichner-in-migrolino-suhr",
-        "cad-planer-in-zeichner-in-migrolino-suhr",
-        "cad-planer-in-zeichner-in-migrolino-suhr-p5fkjr"
+        "verkaufsstellenplaner-in-cad-zeichner-in-migrolino-suhr"
       ],
       "firstSeenAt": "2026-07-04T11:29:00.801Z",
       "baseSalary": {
