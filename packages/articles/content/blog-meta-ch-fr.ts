@@ -4588,6 +4588,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.grigioni-luce-risparmio-20-franchi-optima.title': 'Grisons, lumière -1,4 % : économie de 20 francs, tarif Optima',
     'blog.article.grigioni-luce-risparmio-20-franchi-optima.excerpt': 'Repower (Poschiavo) abaisse les tarifs domestiques dans les Grisons pour 2027. Économie annuelle de 20 francs par famille type. Nouveau : tarif Optima avec bandes vertes, jaunes et rouges à partir du 1er janvier 2027.',
     'blog.article.grigioni-luce-risparmio-20-franchi-optima.imageAlt': 'Maison suisse avec compteur intelligent et véhicule électrique en charge au crépuscule dans les Grisons',
+    'blog.article.transizione-energetica-svizzera-ses-2025.title': 'Transition énergétique: la Suisse 5ᵉ en Europe, l\'éolien faible',
+    'blog.article.transizione-energetica-svizzera-ses-2025.excerpt': 'Etude ses 2025: 4872 kWh par habitant d\'énergies renouvelables, solaire à 878 kWh. Éolien arrêté à 18 kWh, 25ème place sur 28 pays.',
+    'blog.article.transizione-energetica-svizzera-ses-2025.imageAlt': 'Panorama alpin suisse avec panneaux solaires et éoliennes en arrière-plan',
 };
 
 export default blogMetaChFr;

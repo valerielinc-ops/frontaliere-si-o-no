@@ -13762,6 +13762,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'transizione-energetica-svizzera-ses-2025',
+    category: 'novita',
+    date: '2026-08-28T13:09:10.727Z',
+    image: '/images/blog/transizione-energetica-svizzera-ses-2025.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -4588,6 +4588,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.grigioni-luce-risparmio-20-franchi-optima.title': 'Graubünden, Strom -1,4%: 20 Franken sparen, Optima-Tarif kommt',
     'blog.article.grigioni-luce-risparmio-20-franchi-optima.excerpt': 'Repower (Poschiavo) senkt die Inlandstarife in Graubünden für das Jahr 2027. Jährliche Ersparnis von 20 Franken pro typischer Familie. Neu: Optima-Tarif mit grüner, gelber und roter Bandbreite ab 1. Januar 2027.',
     'blog.article.grigioni-luce-risparmio-20-franchi-optima.imageAlt': 'Schweizer Haus mit intelligentem Stromzähler und E-Auto beim Laden in der Dämmerung in Graubünden',
+    'blog.article.transizione-energetica-svizzera-ses-2025.title': 'Energiewende: Schweiz auf Platz 5 – Windkraft bleibt schwach',
+    'blog.article.transizione-energetica-svizzera-ses-2025.excerpt': 'Studie ses 2025: 4872 kWh pro Kopf aus erneuerbaren Energien, Solar bei 878 kWh. Windstille bei 18 kWh, 25. von 28 Ländern.',
+    'blog.article.transizione-energetica-svizzera-ses-2025.imageAlt': 'Schweizer Alpenpanorama mit Solaranlagen und Windkraftanlagen im Hintergrund',
 };
 
 export default blogMetaChDe;
