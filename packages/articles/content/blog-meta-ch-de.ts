@@ -4582,6 +4582,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cdf-budget-campagne-voto-settembre.title': 'CDF: 7,86 Millionen für Kampagnen Abstimmung 27. September',
     'blog.article.cdf-budget-campagne-voto-settembre.excerpt': 'Die Eidgenössische Finanzkontrolle veröffentlicht die Budgets: 5,51 Mio. für Neutralität, 2,35 Mio. für Ernährung. Blocher 2+ Mio., Economiesuisse 1,2 Mio.',
     'blog.article.cdf-budget-campagne-voto-settembre.imageAlt': 'Lugano-Panorama mit Schweizer Fahnen und Abstimmungsinfotafeln',
+    'blog.article.votazioni-settembre-8-milioni-franchi.title': 'September: 8 Millionen Franken für eidgenössische Abstimmungen',
+    'blog.article.votazioni-settembre-8-milioni-franchi.excerpt': 'Zwei Initiativen, über die am 27. September abgestimmt wird: Neutralität und Ernährung. Die Eidgenössische Finanzkontrolle verbucht ein Budget von 7,88 Millionen Franken.',
+    'blog.article.votazioni-settembre-8-milioni-franchi.imageAlt': 'Schweizer Bundesgebäude mit Schweizer Fahnen, Symbol der nationalen Abstimmungen',
 };
 
 export default blogMetaChDe;

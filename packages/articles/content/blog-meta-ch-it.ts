@@ -4582,6 +4582,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cdf-budget-campagne-voto-settembre.title': 'CDF: 7,86 milioni per campagne voto 27 settembre',
     'blog.article.cdf-budget-campagne-voto-settembre.excerpt': 'Il Controllo federale delle finanze pubblica i budget: 5,51 mln per neutralità, 2,35 mln per alimentazione. Blocher 2+ mln, Economiesuisse 1,2 mln.',
     'blog.article.cdf-budget-campagne-voto-settembre.imageAlt': 'Veduta di Lugano con bandiere svizzere e bacheche informative per votazioni federali',
+    'blog.article.votazioni-settembre-8-milioni-franchi.title': 'Settembre: 8 milioni di franchi per le votazioni federali',
+    'blog.article.votazioni-settembre-8-milioni-franchi.excerpt': 'Due iniziative in votazione il 27 settembre: neutralità e alimentazione. Il Controllo federale delle finanze registra budget per 7,88 milioni di franchi.',
+    'blog.article.votazioni-settembre-8-milioni-franchi.imageAlt': 'Edifici federali svizzeri con bandiere elvetiche, simbolo delle votazioni nazionali',
 };
 
 export default blogMetaChIt;

@@ -4582,6 +4582,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cdf-budget-campagne-voto-settembre.title': 'CDF: 7.86 million for voting campaigns 27 September',
     'blog.article.cdf-budget-campagne-voto-settembre.excerpt': 'The Federal Financial Controller publishes the budgets: 5.51 million for neutrality, 2.35 million for food. Blocker 2+ mln, Economiesuisse 1.2 mln.',
     'blog.article.cdf-budget-campagne-voto-settembre.imageAlt': 'Lugano panorama with Swiss flags and federal voting information boards',
+    'blog.article.votazioni-settembre-8-milioni-franchi.title': 'September: 8 million francs for federal votes',
+    'blog.article.votazioni-settembre-8-milioni-franchi.excerpt': 'Two initiatives on the ballot on 27 September: neutrality and nutrition. The Federal Financial Controller records a budget of CHF 7.88 million.',
+    'blog.article.votazioni-settembre-8-milioni-franchi.imageAlt': 'Swiss federal buildings with Swiss flags, symbolizing national voting',
 };
 
 export default blogMetaChEn;
