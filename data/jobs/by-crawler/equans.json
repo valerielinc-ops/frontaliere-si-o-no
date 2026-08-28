@@ -1459,14 +1459,16 @@
       "firstSeenAt": "2026-08-27T19:57:22.298Z",
       "previousSlugsByLocale": {
         "it": [
-          "payroll-specialist-80-100-de-fr-equans-zurich"
+          "payroll-specialist-80-100-de-fr-equans-zurich",
+          "payroll-specialista-80-100-de-fr-equans-switzerland-zurich-kc6ybh"
         ],
         "de": [
           "payroll-specialist-80-100-de-fr-equans-zurich"
         ]
       },
       "previousSlugs": [
-        "payroll-specialist-80-100-de-fr-equans-zurich"
+        "payroll-specialist-80-100-de-fr-equans-zurich",
+        "payroll-specialista-80-100-de-fr-equans-switzerland-zurich-kc6ybh"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2478,7 +2480,8 @@
       "previousSlugsByLocale": {
         "it": [
           "emsr-engineer-equans-olten",
-          "emsr-ingegnere-equans-switzerland-olten"
+          "emsr-ingegnere-equans-switzerland-olten",
+          "emsr-ingegnere-equans-switzerland-olten-w83x6j"
         ],
         "fr": [
           "emsr-engineer-equans-olten"
@@ -2486,7 +2489,8 @@
       },
       "previousSlugs": [
         "emsr-engineer-equans-olten",
-        "emsr-ingegnere-equans-switzerland-olten"
+        "emsr-ingegnere-equans-switzerland-olten",
+        "emsr-ingegnere-equans-switzerland-olten-w83x6j"
       ]
     },
     {
@@ -2554,14 +2558,23 @@
       "firstSeenAt": "2026-08-27T19:57:22.284Z",
       "previousSlugsByLocale": {
         "it": [
-          "system-engineer-leittechnik-equans-olten"
+          "system-engineer-leittechnik-equans-olten",
+          "system-ingegnere-leittechnik-equans-switzerland-olten-nimswp",
+          "system-engineer-control-technology-equans-switzerland-olten",
+          "system-engineer-leittechnik-equans-switzerland-olten"
         ],
         "fr": [
           "system-engineer-leittechnik-equans-olten"
+        ],
+        "en": [
+          "system-engineer-control-technology-equans-switzerland-olten"
         ]
       },
       "previousSlugs": [
-        "system-engineer-leittechnik-equans-olten"
+        "system-engineer-leittechnik-equans-olten",
+        "system-ingegnere-leittechnik-equans-switzerland-olten-nimswp",
+        "system-engineer-control-technology-equans-switzerland-olten",
+        "system-engineer-leittechnik-equans-switzerland-olten"
       ]
     },
     {
@@ -2617,14 +2630,16 @@
       "firstSeenAt": "2026-08-27T19:57:22.282Z",
       "previousSlugsByLocale": {
         "it": [
-          "senior-system-engineer-in-consulting-equans-zurich"
+          "senior-system-engineer-in-consulting-equans-zurich",
+          "senior-system-ingegnere-in-consulting-equans-switzerland-zurich-pd2qsx"
         ],
         "fr": [
           "senior-system-engineer-in-consulting-equans-zurich"
         ]
       },
       "previousSlugs": [
-        "senior-system-engineer-in-consulting-equans-zurich"
+        "senior-system-engineer-in-consulting-equans-zurich",
+        "senior-system-ingegnere-in-consulting-equans-switzerland-zurich-pd2qsx"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -2692,14 +2707,16 @@
       "firstSeenAt": "2026-08-27T19:57:22.283Z",
       "previousSlugsByLocale": {
         "it": [
-          "senior-system-engineer-equans-zurich"
+          "senior-system-engineer-equans-zurich",
+          "senior-system-ingegnere-equans-switzerland-zurich-rbtv1k"
         ],
         "fr": [
           "senior-system-engineer-equans-zurich"
         ]
       },
       "previousSlugs": [
-        "senior-system-engineer-equans-zurich"
+        "senior-system-engineer-equans-zurich",
+        "senior-system-ingegnere-equans-switzerland-zurich-rbtv1k"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -3184,7 +3201,7 @@
       "title": "CAD/CAE-Tools Specialist",
       "titleByLocale": {
         "it": "CAD/CAE-Tools Specialista",
-        "en": "CAD/CAE-Tools Specialist",
+        "en": "CAD/CAE Tools Specialist",
         "de": "CAD/CAE-Tools Spezialist",
         "fr": "CAD/CAE-Tools Spécialiste"
       },
@@ -3222,14 +3239,22 @@
       "firstSeenAt": "2026-08-27T19:57:22.279Z",
       "previousSlugsByLocale": {
         "it": [
-          "cad-cae-tools-specialist-equans-basel"
+          "cad-cae-tools-specialist-equans-basel",
+          "cad-cae-tools-specialista-equans-switzerland-basel-mwph6j",
+          "cad-cae-tools-specialista-equans-switzerland-basel-79tmyp",
+          "cad-cae-tools-specialist-equans-switzerland-basel",
+          "cad-cae-tools-specialist-equans-basel-79tmyp"
         ],
         "fr": [
           "cad-cae-tools-specialist-equans-basel"
         ]
       },
       "previousSlugs": [
-        "cad-cae-tools-specialist-equans-basel"
+        "cad-cae-tools-specialist-equans-basel",
+        "cad-cae-tools-specialista-equans-switzerland-basel-mwph6j",
+        "cad-cae-tools-specialista-equans-switzerland-basel-79tmyp",
+        "cad-cae-tools-specialist-equans-switzerland-basel",
+        "cad-cae-tools-specialist-equans-basel-79tmyp"
       ],
       "salaryMin": 64500,
       "salaryMax": 110000,
@@ -5278,7 +5303,29 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "installatore-sanitario-in-piccola-costruzione-equans-switzerland-olten",
+          "sanitary-installer-in-small-plant-construction-equans-switzerland-olten",
+          "installation-sanitaire-dans-la-construction-de-petites-installations-equans-switzerland-olten",
+          "installatore-idraulico-nella-costruzione-di-piccoli-impianti-equans-switzerland-olten",
+          "sanitarinstallateur-in-kleinanlagenbau-equans-olten-zapqvy"
+        ],
+        "en": [
+          "sanitary-installer-in-small-plant-construction-equans-switzerland-olten"
+        ],
+        "fr": [
+          "installation-sanitaire-dans-la-construction-de-petites-installations-equans-switzerland-olten"
+        ]
+      },
+      "previousSlugs": [
+        "installatore-sanitario-in-piccola-costruzione-equans-switzerland-olten",
+        "sanitary-installer-in-small-plant-construction-equans-switzerland-olten",
+        "installation-sanitaire-dans-la-construction-de-petites-installations-equans-switzerland-olten",
+        "installatore-idraulico-nella-costruzione-di-piccoli-impianti-equans-switzerland-olten",
+        "sanitarinstallateur-in-kleinanlagenbau-equans-olten-zapqvy"
+      ]
     },
     {
       "id": "equans-1301ce7458f1",
@@ -6874,17 +6921,17 @@
       "companyDomain": "equans.ch",
       "title": "Sicherheitsmitarbeiter:in",
       "titleByLocale": {
-        "it": "Sicherheitsmitarbeiter:in",
-        "en": "Sicherheitsmitarbeiter:in",
+        "it": "Agente di sicurezza:in",
+        "en": "Security Officer:in",
         "de": "Sicherheitsmitarbeiter:in",
-        "fr": "Sicherheitsmitarbeiter:in"
+        "fr": "Agent de sécurité :"
       },
       "description": "Wir suchen per sofort oder nach Vereinbarung für unser Mandat, die Mall of Switzerland, eine dienstleistungsorientierte, motivierte und unternehmerisch denkende Persönlichkeit.\n\nAufgaben:\n• Überwachung der Mall\n\n• Aktiver Ordnungsdienst\n\n• Kontrollrundgänge\n\n• Schliess- und Öﬀnungsrunden\n\n• Überwachung- und Wartung der Parkinganlage\n\n• Interventionselement vor Ort bei Brand, Diebstahl, EVAK, Erste-Hilfe etc.\n\n• Koordination und Einweisung von Behördeneinsätzen in der Mall (Polizei, Sanität, Feuerwehr)\n\nAnforderungen:\nDu bezeichnest dich als Dienstleister:in aus innerster Überzeugung. Ein positives Feedback zu deinen\nLeistungen motiviert dich und spornt dich zu weiteren Topleistungen an. Du bringst folgende Voraussetzungen mit:\n• Beruﬂiche Grundausbildung mit Weiterbildung und/oder Erfahrung im Bereich\n\n• Bewachung/Sicherheit\n\n• Führerausweis Kat. B\n\n• Einwandfreier Leumund\n\n• Bereitschaft zu unregelmässigen Arbeitszeiten (auch Nachteinsätze)\n\n• CH Bürger oder Niederlassung C\n\n• Mündliche Englisch-Kenntnisse\n\nWir sind auf ganzheitliche Dienstleistungen im Bereich Facility Management für jede Phase des Lebenszyklus von Geschäftsimmobilien und Arealen spezialisiert. Gebäude und Infrastrukturen sind komplexe Systeme. Ob technischer Betrieb, strategische Planung oder infrastrukturelle Services – wir stellen maximale Verfügbarkeit sicher, erhöhen die Betriebssicherheit und verbessern den Komfort in Gebäuden. So minimieren wir Kosten und schaffen optimale Bedingungen, damit sich unsere Kund:innen auf ihr Kerngeschäft konzentrieren können.\n\nAls Unternehmen von Equans Switzerland, der führenden Komplettanbieterin für ganzheitliche Gebäude- und Energielösungen in der Schweiz, treiben wir zudem die Transformation und Digitalisierung unserer Kund:innen voran und arbeiten gemeinsam an der Energiewende.",
       "descriptionByLocale": {
-        "it": "Wir suchen per sofort oder nach Vereinbarung für unser Mandat, die Mall of Switzerland, eine dienstleistungsorientierte, motivierte und unternehmerisch denkende Persönlichkeit.\n\nAufgaben:\n• Überwachung der Mall\n\n• Aktiver Ordnungsdienst\n\n• Kontrollrundgänge\n\n• Schliess- und Öﬀnungsrunden\n\n• Überwachung- und Wartung der Parkinganlage\n\n• Interventionselement vor Ort bei Brand, Diebstahl, EVAK, Erste-Hilfe etc.\n\n• Koordination und Einweisung von Behördeneinsätzen in der Mall (Polizei, Sanität, Feuerwehr)\n\nAnforderungen:\nDu bezeichnest dich als Dienstleister:in aus innerster Überzeugung. Ein positives Feedback zu deinen\nLeistungen motiviert dich und spornt dich zu weiteren Topleistungen an. Du bringst folgende Voraussetzungen mit:\n• Beruﬂiche Grundausbildung mit Weiterbildung und/oder Erfahrung im Bereich\n\n• Bewachung/Sicherheit\n\n• Führerausweis Kat. B\n\n• Einwandfreier Leumund\n\n• Bereitschaft zu unregelmässigen Arbeitszeiten (auch Nachteinsätze)\n\n• CH Bürger oder Niederlassung C\n\n• Mündliche Englisch-Kenntnisse\n\nWir sind auf ganzheitliche Dienstleistungen im Bereich Facility Management für jede Phase des Lebenszyklus von Geschäftsimmobilien und Arealen spezialisiert. Gebäude und Infrastrukturen sind komplexe Systeme. Ob technischer Betrieb, strategische Planung oder infrastrukturelle Services – wir stellen maximale Verfügbarkeit sicher, erhöhen die Betriebssicherheit und verbessern den Komfort in Gebäuden. So minimieren wir Kosten und schaffen optimale Bedingungen, damit sich unsere Kund:innen auf ihr Kerngeschäft konzentrieren können.\n\nAls Unternehmen von Equans Switzerland, der führenden Komplettanbieterin für ganzheitliche Gebäude- und Energielösungen in der Schweiz, treiben wir zudem die Transformation und Digitalisierung unserer Kund:innen voran und arbeiten gemeinsam an der Energiewende.",
-        "en": "Wir suchen per sofort oder nach Vereinbarung für unser Mandat, die Mall of Switzerland, eine dienstleistungsorientierte, motivierte und unternehmerisch denkende Persönlichkeit.\n\nAufgaben:\n• Überwachung der Mall\n\n• Aktiver Ordnungsdienst\n\n• Kontrollrundgänge\n\n• Schliess- und Öﬀnungsrunden\n\n• Überwachung- und Wartung der Parkinganlage\n\n• Interventionselement vor Ort bei Brand, Diebstahl, EVAK, Erste-Hilfe etc.\n\n• Koordination und Einweisung von Behördeneinsätzen in der Mall (Polizei, Sanität, Feuerwehr)\n\nAnforderungen:\nDu bezeichnest dich als Dienstleister:in aus innerster Überzeugung. Ein positives Feedback zu deinen\nLeistungen motiviert dich und spornt dich zu weiteren Topleistungen an. Du bringst folgende Voraussetzungen mit:\n• Beruﬂiche Grundausbildung mit Weiterbildung und/oder Erfahrung im Bereich\n\n• Bewachung/Sicherheit\n\n• Führerausweis Kat. B\n\n• Einwandfreier Leumund\n\n• Bereitschaft zu unregelmässigen Arbeitszeiten (auch Nachteinsätze)\n\n• CH Bürger oder Niederlassung C\n\n• Mündliche Englisch-Kenntnisse\n\nWir sind auf ganzheitliche Dienstleistungen im Bereich Facility Management für jede Phase des Lebenszyklus von Geschäftsimmobilien und Arealen spezialisiert. Gebäude und Infrastrukturen sind komplexe Systeme. Ob technischer Betrieb, strategische Planung oder infrastrukturelle Services – wir stellen maximale Verfügbarkeit sicher, erhöhen die Betriebssicherheit und verbessern den Komfort in Gebäuden. So minimieren wir Kosten und schaffen optimale Bedingungen, damit sich unsere Kund:innen auf ihr Kerngeschäft konzentrieren können.\n\nAls Unternehmen von Equans Switzerland, der führenden Komplettanbieterin für ganzheitliche Gebäude- und Energielösungen in der Schweiz, treiben wir zudem die Transformation und Digitalisierung unserer Kund:innen voran und arbeiten gemeinsam an der Energiewende.",
+        "it": "Siamo alla ricerca di una personalità orientata al servizio, motivata e imprenditoriale per il nostro mandato, il Mall of Switzerland, immediatamente o con accordo.\n\nCompiti:\n• Monitoraggio del centro commerciale\n\n• Servizio d'ordine pubblico attivo\n\n• Visite di controllo\n\n• Chiusura e apertura\n\n• Monitoraggio e manutenzione degli impianti di parcheggio\n\n• Elemento di intervento in loco in caso di incendio, furto, EVAK, pronto soccorso, ecc.\n\n• Coordinamento e briefing delle autorità del centro commerciale (polizia, medicina, vigili del fuoco)\n\nRequisiti\nTi descrivi come fornitore di servizi: nella convinzione più interna. feedback positivo sul tuo\nI servizi ti motivano e ti ispirano a ulteriori prestazioni di prima qualità. È necessario fornire i seguenti requisiti:\n• Formazione professionale di base con ulteriore istruzione e/o esperienza nel settore\n\n• Guardia/sicurezza\n\n• Patente di guida Cat. B\n\n• Gomma affidabile\n\n• Volontà di lavorare ore irregolari (comprese le assegnazioni notturne)\n\n• CH Cittadino o stabilimento C\n\n• Oral Inglese competenze\n\nSiamo specializzati in servizi di gestione di strutture olistiche per ogni fase del business real estate e area ciclo di vita. Gli edifici e le infrastrutture sono sistemi complessi. Sia il funzionamento tecnico, la pianificazione strategica o i servizi infrastrutturali – garantiamo la massima disponibilità, aumentiamo la sicurezza operativa e miglioriamo il comfort degli edifici. In questo modo, minimizziamo i costi e creiamo condizioni ottimali in modo che i nostri clienti possano concentrarsi sul loro core business.\n\nIn qualità di azienda di Equans Svizzera, il principale fornitore di servizi completi per soluzioni olistiche ed energetiche in Svizzera, stiamo anche guidando la trasformazione e la digitalizzazione dei nostri clienti e lavorando insieme alla transizione energetica.",
+        "en": "We are looking for a service-oriented, motivated and entrepreneurial personality for our mandate, the Mall of Switzerland, immediately or by agreement.\n\nTasks:\n• Mall monitoring\n\n• Active public order service\n\n• Checking tours\n\n• Closing and opening rounds\n\n• Parking facility monitoring and maintenance\n\n• Intervention element on site in case of fire, theft, EVAK, first aid, etc.\n\n• Coordination and briefing of authorities in the mall (police, medical, fire brigade)\n\nRequirements\nYou describe yourself as a service provider: in the innermost conviction. Positive feedback on yours\nServices motivate you and inspire you to further top performances. You bring the following requirements:\n• Basic vocational training with further education and/or experience in the field\n\n• Guard/security\n\n• Driving licence Cat. B\n\n• Reliable gum\n\n• Willingness to work irregular hours (including night assignments)\n\n• CH Citizen or establishment C\n\n• Oral English skills\n\nWe specialize in holistic facilities management services for every phase of the business real estate and area lifecycle. Buildings and infrastructures are complex systems. Whether technical operation, strategic planning or infrastructural services – we ensure maximum availability, increase operational safety and improve comfort in buildings. In this way, we minimize costs and create optimal conditions so that our customers can concentrate on their core business.\n\nAs a company of Equans Switzerland, the leading full-service provider for holistic building and energy solutions in Switzerland, we are also driving the transformation and digitalization of our customers and working together on the energy transition.",
         "de": "Wir suchen per sofort oder nach Vereinbarung für unser Mandat, die Mall of Switzerland, eine dienstleistungsorientierte, motivierte und unternehmerisch denkende Persönlichkeit.\n\nAufgaben:\n• Überwachung der Mall\n\n• Aktiver Ordnungsdienst\n\n• Kontrollrundgänge\n\n• Schliess- und Öﬀnungsrunden\n\n• Überwachung- und Wartung der Parkinganlage\n\n• Interventionselement vor Ort bei Brand, Diebstahl, EVAK, Erste-Hilfe etc.\n\n• Koordination und Einweisung von Behördeneinsätzen in der Mall (Polizei, Sanität, Feuerwehr)\n\nAnforderungen:\nDu bezeichnest dich als Dienstleister:in aus innerster Überzeugung. Ein positives Feedback zu deinen\nLeistungen motiviert dich und spornt dich zu weiteren Topleistungen an. Du bringst folgende Voraussetzungen mit:\n• Beruﬂiche Grundausbildung mit Weiterbildung und/oder Erfahrung im Bereich\n\n• Bewachung/Sicherheit\n\n• Führerausweis Kat. B\n\n• Einwandfreier Leumund\n\n• Bereitschaft zu unregelmässigen Arbeitszeiten (auch Nachteinsätze)\n\n• CH Bürger oder Niederlassung C\n\n• Mündliche Englisch-Kenntnisse\n\nWir sind auf ganzheitliche Dienstleistungen im Bereich Facility Management für jede Phase des Lebenszyklus von Geschäftsimmobilien und Arealen spezialisiert. Gebäude und Infrastrukturen sind komplexe Systeme. Ob technischer Betrieb, strategische Planung oder infrastrukturelle Services – wir stellen maximale Verfügbarkeit sicher, erhöhen die Betriebssicherheit und verbessern den Komfort in Gebäuden. So minimieren wir Kosten und schaffen optimale Bedingungen, damit sich unsere Kund:innen auf ihr Kerngeschäft konzentrieren können.\n\nAls Unternehmen von Equans Switzerland, der führenden Komplettanbieterin für ganzheitliche Gebäude- und Energielösungen in der Schweiz, treiben wir zudem die Transformation und Digitalisierung unserer Kund:innen voran und arbeiten gemeinsam an der Energiewende.",
-        "fr": "Wir suchen per sofort oder nach Vereinbarung für unser Mandat, die Mall of Switzerland, eine dienstleistungsorientierte, motivierte und unternehmerisch denkende Persönlichkeit.\n\nAufgaben:\n• Überwachung der Mall\n\n• Aktiver Ordnungsdienst\n\n• Kontrollrundgänge\n\n• Schliess- und Öﬀnungsrunden\n\n• Überwachung- und Wartung der Parkinganlage\n\n• Interventionselement vor Ort bei Brand, Diebstahl, EVAK, Erste-Hilfe etc.\n\n• Koordination und Einweisung von Behördeneinsätzen in der Mall (Polizei, Sanität, Feuerwehr)\n\nAnforderungen:\nDu bezeichnest dich als Dienstleister:in aus innerster Überzeugung. Ein positives Feedback zu deinen\nLeistungen motiviert dich und spornt dich zu weiteren Topleistungen an. Du bringst folgende Voraussetzungen mit:\n• Beruﬂiche Grundausbildung mit Weiterbildung und/oder Erfahrung im Bereich\n\n• Bewachung/Sicherheit\n\n• Führerausweis Kat. B\n\n• Einwandfreier Leumund\n\n• Bereitschaft zu unregelmässigen Arbeitszeiten (auch Nachteinsätze)\n\n• CH Bürger oder Niederlassung C\n\n• Mündliche Englisch-Kenntnisse\n\nWir sind auf ganzheitliche Dienstleistungen im Bereich Facility Management für jede Phase des Lebenszyklus von Geschäftsimmobilien und Arealen spezialisiert. Gebäude und Infrastrukturen sind komplexe Systeme. Ob technischer Betrieb, strategische Planung oder infrastrukturelle Services – wir stellen maximale Verfügbarkeit sicher, erhöhen die Betriebssicherheit und verbessern den Komfort in Gebäuden. So minimieren wir Kosten und schaffen optimale Bedingungen, damit sich unsere Kund:innen auf ihr Kerngeschäft konzentrieren können.\n\nAls Unternehmen von Equans Switzerland, der führenden Komplettanbieterin für ganzheitliche Gebäude- und Energielösungen in der Schweiz, treiben wir zudem die Transformation und Digitalisierung unserer Kund:innen voran und arbeiten gemeinsam an der Energiewende."
+        "fr": "Nous recherchons une personnalité de service, motivée et entrepreneuriale pour notre mandat, le Mall de Suisse, immédiatement ou d'un commun accord.\n\nTâches :\n• Surveillance des centres commerciaux\n\n• Service actif de l ' ordre public\n\n• Contrôle des visites\n\n• Cycles de fermeture et d ' ouverture\n\n• Surveillance et entretien des installations de stationnement\n\n• Élément d'intervention sur place en cas d'incendie, vol, EVAK, premiers soins, etc.\n\n• Coordination et information des autorités du centre commercial (police, brigade médicale, pompiers)\n\nExigences\nVous vous décrivez comme un prestataire de services : dans la conviction la plus intime. Commentaires positifs sur le vôtre\nLes services vous motivent et vous inspirent à d'autres performances. Vous apportez les exigences suivantes:\n• Formation professionnelle de base avec formation continue et/ou expérience dans le domaine\n\n• Garde/sécurité\n\n• Permis de conduire Cat. B\n\n• Gomme fiable\n\n• Volonté de travailler des heures irrégulières (y compris les affectations de nuit)\n\n• CH Citoyen ou établissement C\n\n• Compétences en anglais oral\n\nNous nous spécialisons dans les services de gestion d'installations holistiques pour chaque phase de l'immobilier d'affaires et le cycle de vie de la région. Les bâtiments et les infrastructures sont des systèmes complexes. Qu'il s'agisse d'opérations techniques, de planification stratégique ou de services d'infrastructure, nous garantissons une disponibilité maximale, accroissons la sécurité opérationnelle et améliorons le confort des bâtiments. De cette façon, nous minimisons les coûts et créons des conditions optimales pour que nos clients puissent se concentrer sur leur activité principale.\n\nEn tant qu'entreprise d'Equans Suisse, premier fournisseur de services complets pour des solutions de construction et d'énergie holistiques en Suisse, nous sommes également à l'origine de la transformation et de la numérisation de nos clients et travaillons ensemble sur la transition énergétique."
       },
       "needsRetranslation": true,
       "location": "Ebikon",
@@ -7009,7 +7056,8 @@
           "hauswart-in-equans-zug"
         ],
         "en": [
-          "hauswart-in-equans-zug"
+          "hauswart-in-equans-zug",
+          "housekeeper-in-equans-switzerland-zug"
         ],
         "fr": [
           "hauswart-in-equans-zug"
@@ -7017,7 +7065,8 @@
       },
       "previousSlugs": [
         "hauswart-in-equans-switzerland-zug",
-        "hauswart-in-equans-zug"
+        "hauswart-in-equans-zug",
+        "housekeeper-in-equans-switzerland-zug"
       ]
     },
     {

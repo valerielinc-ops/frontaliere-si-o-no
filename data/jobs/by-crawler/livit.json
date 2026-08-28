@@ -2128,7 +2128,7 @@
       "slugByLocale": {
         "it": "collaboratore-trice-kunden-service-center-livit-ag-zurich",
         "en": "mitarbeiter-in-kunden-service-center-livit-zurich",
-        "de": "kunden-service-agent-in-livit-zurich",
+        "de": "mitarbeiter-in-kunden-service-center-livit-zurich",
         "fr": "mitarbeiter-in-kunden-service-center-livit-zurich"
       },
       "company": "Livit AG",
@@ -2174,18 +2174,16 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "mitarbeiter-in-kunden-service-center-livit-zurich"
+          "kunden-service-agent-in-livit-zurich"
         ],
         "it": [
           "mitarbeiter-in-kunden-service-center-livit-zurich",
-          "kunden-service-agent-in-livit-zurich",
-          "collaboratore-trice-kunden-service-center-livit-ag-zurich"
+          "kunden-service-agent-in-livit-zurich"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-kunden-service-center-livit-zurich",
-        "kunden-service-agent-in-livit-zurich",
-        "collaboratore-trice-kunden-service-center-livit-ag-zurich"
+        "kunden-service-agent-in-livit-zurich"
       ],
       "firstSeenAt": "2026-08-27T00:58:56.821Z",
       "salaryMin": 91500,

@@ -13566,25 +13566,44 @@
         "consultant-commercial-en-jardin-jumbo-jumbo-st-gallen",
         "consulente-vendite-in-jumbo-garden-jumbo-st-gallen",
         "garden-sales-consultant-jumbo-division-der-coop-genossenschaft-schenkon",
-        "sales-consultant-garden-jumbo-division-der-coop-genossenschaft-schenkon"
+        "sales-consultant-garden-jumbo-division-der-coop-genossenschaft-schenkon",
+        "consulente-di-vendita-jumbo-jumbo-division-der-coop-genossenschaft-st-gallen",
+        "consulente-vendite-jumbo-jumbo-division-der-coop-genossenschaft-st-gallen",
+        "garden-sales-consultant-jumbo-eyholz",
+        "sales-consultant-garden-jumbo-eyholz",
+        "verkaufsberater-in-garten-jumbo-eyholz",
+        "conseiller-e-des-ventes-jardin-jumbo-eyholz",
+        "consulente-vendite-giardino-jumbo-eyholz",
+        "sales-consultant-garden-jumbo-grigioni"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-jumbo-garten-jumbo-st-gallen",
           "consulente-vendite-in-jumbo-garden-jumbo-st-gallen",
           "garden-sales-consultant-jumbo-division-der-coop-genossenschaft-schenkon",
-          "sales-consultant-garden-jumbo-division-der-coop-genossenschaft-schenkon"
+          "sales-consultant-garden-jumbo-division-der-coop-genossenschaft-schenkon",
+          "consulente-di-vendita-jumbo-jumbo-division-der-coop-genossenschaft-st-gallen",
+          "consulente-vendite-jumbo-jumbo-division-der-coop-genossenschaft-st-gallen",
+          "garden-sales-consultant-jumbo-eyholz",
+          "sales-consultant-garden-jumbo-eyholz",
+          "verkaufsberater-in-garten-jumbo-eyholz",
+          "conseiller-e-des-ventes-jardin-jumbo-eyholz",
+          "consulente-vendite-giardino-jumbo-eyholz",
+          "sales-consultant-garden-jumbo-grigioni"
         ],
         "en": [
           "verkaufsberater-in-jumbo-garten-jumbo-st-gallen",
-          "sales-consultant-in-jumbo-garden-jumbo-st-gallen"
+          "sales-consultant-in-jumbo-garden-jumbo-st-gallen",
+          "sales-consultant-garden-jumbo-eyholz"
         ],
         "de": [
-          "verkaufsberater-in-jumbo-garten-jumbo-st-gallen"
+          "verkaufsberater-in-jumbo-garten-jumbo-st-gallen",
+          "verkaufsberater-in-garten-jumbo-eyholz"
         ],
         "fr": [
           "verkaufsberater-in-jumbo-garten-jumbo-st-gallen",
-          "consultant-commercial-en-jardin-jumbo-jumbo-st-gallen"
+          "consultant-commercial-en-jardin-jumbo-jumbo-st-gallen",
+          "conseiller-e-des-ventes-jardin-jumbo-eyholz"
         ]
       },
       "needsRetranslation": true,
@@ -16299,11 +16318,13 @@
       },
       "previousSlugs": [
         "marketing-assistant-controlling-planung-jumbo-dietlikon",
-        "assistant-marketing-controle-planification-jumbo-dietlikon"
+        "assistant-marketing-controle-planification-jumbo-dietlikon",
+        "marketing-assistant-controllo-pianificazione-jumbo-dietlikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "marketing-assistant-controlling-planung-jumbo-dietlikon"
+          "marketing-assistant-controlling-planung-jumbo-dietlikon",
+          "marketing-assistant-controllo-pianificazione-jumbo-dietlikon"
         ],
         "en": [
           "marketing-assistant-controlling-planung-jumbo-dietlikon"
@@ -16326,7 +16347,8 @@
           "maxValue": 136000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "jumbo-74083118-23c",
@@ -17317,7 +17339,16 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "rayonleiter-in-deco-inklusive-stellvertetung-der-geschaftsfuhrung-jumbo-schenkon"
+        ]
+      },
+      "previousSlugs": [
+        "rayonleiter-in-deco-inklusive-stellvertetung-der-geschaftsfuhrung-jumbo-schenkon"
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "jumbo-6a324b2b-31c",
@@ -17479,7 +17510,7 @@
       "id": "jumbo-58e1e389-fd5",
       "slug": "verkaufer-in-kassen-services-f-h-d-jumbo-biel",
       "slugByLocale": {
-        "de": "verkaufer-in-kassen-services-f-h-d-jumbo-biel",
+        "de": "verkaufer-in-kassen-services-m-w-d-jumbo-biel-bern-7x0xzj",
         "it": "verkaufer-in-kassen-services-f-h-d-jumbo-biel",
         "en": "verkaufer-in-kassen-services-f-h-d-jumbo-biel",
         "fr": "verkaufer-in-kassen-services-f-h-d-jumbo-biel"

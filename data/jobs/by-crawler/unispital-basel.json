@@ -7101,7 +7101,6 @@
           "dipl-specialiste-des-soins-infirmiers-hf-fh-unite-de-soins-intensifs-universitatsspital-basel-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-06T11:40:59.660Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -7115,7 +7114,9 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1425
     },
     {
       "id": "unispital-basel-f660d3774f57",

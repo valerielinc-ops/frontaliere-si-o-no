@@ -393,7 +393,6 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "80-100%",
-      "needsRetranslation": true,
       "_targetScope": {
         "canton": "AG",
         "location": "Zofingen"
@@ -431,7 +430,9 @@
       },
       "addressLocality": "Zofingen",
       "addressRegion": "AG",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2257
     },
     {
       "url": "https://jobs.postfinance.ch/job/Embedded-Tester-Test-Automation-Engineer-Chatbot-&-Voicebot-%28wmd%29/74589-de_DE",
