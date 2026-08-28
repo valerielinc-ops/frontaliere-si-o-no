@@ -1,7 +1,7 @@
 {
   "key": "hrc",
   "label": "Hôpital Riviera-Chablais (HRC)",
-  "generatedAt": "2026-08-27T20:09:14.587Z",
+  "generatedAt": "2026-08-28T05:32:50.681Z",
   "total": 2,
   "discovered": null,
   "written": 2,
@@ -9,10 +9,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4548,
-  "avgDurationMs": 4548,
+  "durationMs": 4272,
+  "avgDurationMs": 4272,
   "durationHistory": [
-    4548
+    4272
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/specialiste-en-activite-physique-adaptee-hf-a-100",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-27T20:09:12.022Z",
+      "crawledAt": "2026-08-28T05:32:48.268Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -66,7 +66,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/nos-offres/physiotherapeute-hf-a-100",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-27T20:09:12.043Z",
+      "crawledAt": "2026-08-28T05:32:48.287Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
