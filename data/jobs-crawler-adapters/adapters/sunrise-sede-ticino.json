@@ -12,7 +12,7 @@
     "https://careers.sunrise.ch/it/it/search-results"
   ],
   "notes": "Dedicated Sunrise crawler parses the Phenom search pages and keeps CH-wide jobs (all 26 cantons) from the Sunrise careers portal; per-job canton inferred from the clean city signal, foreign/unresolved postings dropped.",
-  "updatedAt": "2026-08-27T00:40:35.627Z",
+  "updatedAt": "2026-08-28T05:23:05.782Z",
   "seedMetaByUrl": {
     "https://careers.sunrise.ch/it/it/job/REQ_30036338/ott-platforms-specialist-full-stack-engineer-80-100": {
       "location": "Zurich",
@@ -121,6 +121,30 @@
       "canton": "ZH",
       "company": "Sunrise Communications AG",
       "postedDate": "2026-08-24"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036868/detailhandelsfachmann-frau-efz-wil-sg": {
+      "location": "Wil SG",
+      "canton": "SG",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-08-27"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036870/detailhandelsfachmann-frau-efz-zug-bundesplatz": {
+      "location": "Zug Bundesplatz",
+      "canton": "ZG",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-08-27"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036869/detailhandelsfachmann-frau-efz-sursee": {
+      "location": "Sursee",
+      "canton": "LU",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-08-27"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036866/detailhandelsfachmann-frau-efz-schaffhausen-fronwegplatz": {
+      "location": "Schaffhausen Fronwegplatz",
+      "canton": "SH",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-08-27"
     }
   }
 }
