@@ -4591,6 +4591,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.transizione-energetica-svizzera-ses-2025.title': 'Transizione energetica, la Svizzera è quinta in Europa ma l\'eolico resta debole',
     'blog.article.transizione-energetica-svizzera-ses-2025.excerpt': 'Studio SES 2025: 4872 kWh pro capite da rinnovabili, solare a 878 kWh. Eolico fermo a 18 kWh, 25esimo posto su 28 Paesi.',
     'blog.article.transizione-energetica-svizzera-ses-2025.imageAlt': 'Panorama alpino svizzero con impianti solari ed eolici sullo sfondo',
+    'blog.article.apprendistato-formazione-uri-guida.title': 'Apprendistato e formazione professionale nel Canton Uri',
+    'blog.article.apprendistato-formazione-uri-guida.excerpt': 'Come trovare un posto di tirocinio nel Canton Uri: contratto, retribuzione, maturità professionale e passi concreti per candidarsi.',
+    'blog.article.apprendistato-formazione-uri-guida.imageAlt': 'Giovane apprendista al lavoro in un\'officina nel Canton Uri con vista sulle Alpi svizzere',
 };
 
 export default blogMetaChIt;

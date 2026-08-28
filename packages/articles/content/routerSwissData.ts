@@ -1556,6 +1556,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'votazioni-settembre-8-milioni-franchi': { it: 'votazioni-settembre-8-milioni-franchi', en: 'september-votes-8-million-francs', de: 'september-abstimmungen-8-millionen-franken', fr: 'votations-septembre-8-millions-francs' },
  'grigioni-luce-risparmio-20-franchi-optima': { it: 'grigioni-luce-risparmio-20-franchi-optima', en: 'graubunden-electricity-20-francs-savings-optima', de: 'graubuenden-strom-20-franken-ersparnis-optima', fr: 'grisons-electricite-20-francs-epargne-optima' },
  'transizione-energetica-svizzera-ses-2025': { it: 'transizione-energetica-svizzera-ses-2025', en: 'energy-transition-switzerland-ses-2025', de: 'energiewende-schweiz-ses-2025', fr: 'transition-energetique-suisse-ses-2025' },
+ 'apprendistato-formazione-uri-guida': { it: 'apprendistato-formazione-uri-guida', en: 'apprenticeship-training-uri-guide', de: 'lehre-berufsbildung-uri-leitfaden', fr: 'apprentissage-formation-uri-guide' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -4591,6 +4591,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.transizione-energetica-svizzera-ses-2025.title': 'Energy transition, Switzerland is fifth in Europe but wind remains weak',
     'blog.article.transizione-energetica-svizzera-ses-2025.excerpt': 'Study SES 2025: 4872 kWh per capita from renewables, solar at 878 kWh. Wind stopped at 18 kWh, 25th place out of 28 countries.',
     'blog.article.transizione-energetica-svizzera-ses-2025.imageAlt': 'Swiss alpine panorama with solar panels and wind turbines in the background',
+    'blog.article.apprendistato-formazione-uri-guida.title': 'Apprenticeship and vocational training in Canton Uri',
+    'blog.article.apprendistato-formazione-uri-guida.excerpt': 'How to find an internship in Canton Uri: contract, salary, professional maturity and concrete steps to apply.',
+    'blog.article.apprendistato-formazione-uri-guida.imageAlt': 'Young apprentice at work in a workshop in Canton Uri with view of Swiss Alps',
 };
 
 export default blogMetaChEn;

@@ -4591,6 +4591,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.transizione-energetica-svizzera-ses-2025.title': 'Transition énergétique: la Suisse 5ᵉ en Europe, l\'éolien faible',
     'blog.article.transizione-energetica-svizzera-ses-2025.excerpt': 'Etude ses 2025: 4872 kWh par habitant d\'énergies renouvelables, solaire à 878 kWh. Éolien arrêté à 18 kWh, 25ème place sur 28 pays.',
     'blog.article.transizione-energetica-svizzera-ses-2025.imageAlt': 'Panorama alpin suisse avec panneaux solaires et éoliennes en arrière-plan',
+    'blog.article.apprendistato-formazione-uri-guida.title': 'Apprentissage et formation professionnelle dans le canton d\'Uri',
+    'blog.article.apprendistato-formazione-uri-guida.excerpt': 'Comment trouver un poste de stagiaire dans le canton d\'Uri : contrat, rémunération, maturité professionnelle et démarches concrètes pour postuler.',
+    'blog.article.apprendistato-formazione-uri-guida.imageAlt': 'Jeune apprenti au travail dans un atelier du canton d\'Uri avec vue sur les Alpes suisses',
 };
 
 export default blogMetaChFr;
