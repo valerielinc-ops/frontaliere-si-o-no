@@ -13753,6 +13753,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'grigioni-luce-risparmio-20-franchi-optima',
+    category: 'fiscale',
+    date: '2026-08-28T13:02:21.590Z',
+    image: '/images/blog/grigioni-luce-risparmio-20-franchi-optima.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

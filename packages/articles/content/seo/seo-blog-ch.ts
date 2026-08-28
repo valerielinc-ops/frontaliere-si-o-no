@@ -59495,6 +59495,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-grigioni-luce-risparmio-20-franchi-optima': {
+    title: 'Grigioni, luce -1,4%: risparmio 20 franchi, arriva tariffa Optima',
+    description: 'Repower (Poschiavo) abbassa le tariffe domestiche nei Grigioni per il 2027: famiglia tipo risparmia 20 franchi. Novità Optima con fasce verde, giallo e rosso',
+    keywords: 'frontalieri, ticino, svizzera, italia, grigioni, luce, risparmio, franchi',
+    ogTitle: 'Grigioni, luce -1,4%: risparmio 20 franchi, arriva tariffa Optima',
+    ogDescription: 'Repower (Poschiavo) riduce le tariffe domestiche nei Grigioni per il 2027. Famiglia tipo risparmia 20 franchi annui. Dal 1° gennaio 2027 arriva la tariffa Optima con fasce verde, giallo e rosso basate su disponibilità di rinnovabili e carico di rete.',
+    canonicalPath: '/articoli-svizzera/grigioni-luce-risparmio-20-franchi-optima/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grigioni, luce -1,4%: risparmio 20 franchi, arriva tariffa Optima",
+      "description": "Repower (Poschiavo) abbassa le tariffe domestiche nei Grigioni per il 2027: famiglia tipo risparmia 20 franchi. Novità Optima con fasce verde, giallo e rosso",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/grigioni-luce-risparmio-20-franchi-optima.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Casa svizzera con contatore intelligente e veicolo elettrico in carica al crepuscolo nei Grigioni"
+      },
+      "datePublished": "2026-08-28T13:02:21+00:00",
+      "dateModified": "2026-08-28T13:02:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/grigioni-luce-risparmio-20-franchi-optima/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

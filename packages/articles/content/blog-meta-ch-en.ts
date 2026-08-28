@@ -4585,6 +4585,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.votazioni-settembre-8-milioni-franchi.title': 'September: 8 million francs for federal votes',
     'blog.article.votazioni-settembre-8-milioni-franchi.excerpt': 'Two initiatives on the ballot on 27 September: neutrality and nutrition. The Federal Financial Controller records a budget of CHF 7.88 million.',
     'blog.article.votazioni-settembre-8-milioni-franchi.imageAlt': 'Swiss federal buildings with Swiss flags, symbolizing national voting',
+    'blog.article.grigioni-luce-risparmio-20-franchi-optima.title': 'Graubünden, light -1.4%: savings of 20 francs, Optima rate arrives',
+    'blog.article.grigioni-luce-risparmio-20-franchi-optima.excerpt': 'Repower (Poschiavo) lowers domestic rates in Graubünden by 2027. Annual savings of 20 francs per typical family. New: Optima rate with green, yellow and red bands from 1 January 2027.',
+    'blog.article.grigioni-luce-risparmio-20-franchi-optima.imageAlt': 'Swiss home with smart electricity meter and EV charging at dusk in Graubünden',
 };
 
 export default blogMetaChEn;
