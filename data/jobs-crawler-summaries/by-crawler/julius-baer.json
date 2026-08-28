@@ -1,22 +1,22 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-08-27T19:53:09.172Z",
-  "total": 64,
+  "generatedAt": "2026-08-28T05:18:47.340Z",
+  "total": 65,
   "newCount": 3,
-  "updatedCount": 60,
-  "removedCount": 3,
+  "updatedCount": 61,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 38481,
-  "avgDurationMs": 38481,
+  "durationMs": 38525,
+  "avgDurationMs": 38525,
   "durationHistory": [
-    38481
+    38525
   ],
   "newJobs": [
     {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Junior-Test-Data-Engineer---CLM-100---f-m-d---Contract-through-our-external-payroll-partner-with-immediate-start-until-31032027--possible-extension-_r-19540-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Junior-Test-Data-Engineer---CLM-100---f-m-d---Contract-through-our-external-payroll-partner-with-immediate-start-until-31032027--possible-extension-_r-19540-1",
-      "title": "Junior Test Data Engineer - CLM 100% (f/m/d) (Contract through our external payroll partner with immediate start until 31.03.2027, possible extension)",
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Asset---Liability-Manager---Finance-Treasury-and-Credit-100---f-m-d-_r-19491-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Asset---Liability-Manager---Finance-Treasury-and-Credit-100---f-m-d-_r-19491-1",
+      "title": "Asset & Liability Manager - Finance Treasury and Credit 100% (f/m/d)",
       "company": "Julius Baer",
       "companyKey": "julius-baer",
       "location": "Zurich",
@@ -27,21 +27,21 @@
       "addressCountry": "CH",
       "postalCode": "",
       "streetAddress": "",
-      "slug": "junior-test-data-engineer-clm-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-until-31-03-2027-possible-extension-julius-baer",
+      "slug": "asset-liability-manager-finance-treasury-and-credit-100-f-m-d-julius-baer",
       "category": "technology",
       "datePosted": "2026-08-27",
       "source": "julius-baer-workday-crawler",
       "employmentType": "FULL_TIME",
       "sourceLang": "en",
-      "experienceLevel": "ENTRY",
+      "experienceLevel": "SENIOR",
       "sector": "Banking / Wealth Management",
       "_targetScope": {
         "canton": "ZH",
         "location": "Zurich"
       },
-      "_qualityScore": 60,
+      "_qualityScore": 55,
       "_qualityBreakdown": {
-        "cleanliness": 25,
+        "cleanliness": 20,
         "richness": 20,
         "translation": 6,
         "completeness": 9
@@ -150,6 +150,41 @@
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
+        "completeness": 9
+      }
+    },
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Junior-Test-Data-Engineer---CLM-100---f-m-d---Contract-through-our-external-payroll-partner-with-immediate-start-until-31032027--possible-extension-_r-19540-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Junior-Test-Data-Engineer---CLM-100---f-m-d---Contract-through-our-external-payroll-partner-with-immediate-start-until-31032027--possible-extension-_r-19540-1",
+      "title": "Junior Test Data Engineer - CLM 100% (f/m/d) (Contract through our external payroll partner with immediate start until 31.03.2027, possible extension)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "junior-test-data-engineer-clm-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-until-31-03-2027-possible-extension-julius-baer",
+      "category": "technology",
+      "datePosted": "2026-08-27",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "ENTRY",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "firstSeenAt": "2026-08-27T19:53:09.116Z",
+      "_qualityScore": 60,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 6,
         "completeness": 9
       }
     },
@@ -882,7 +917,6 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-06-29T22:17:29.935Z",
       "_qualityScore": 74,
       "_qualityBreakdown": {
@@ -953,7 +987,6 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-06-29T22:17:29.935Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
@@ -1137,162 +1170,9 @@
         "translation": 25,
         "completeness": 9
       }
-    },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Geneva/Business-Manager-Intermediaries--Geneva--100---f-m-d-_r-19332-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Geneva/Business-Manager-Intermediaries--Geneva--100---f-m-d-_r-19332-1",
-      "title": "Business Manager Intermediaries, Geneva, 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Geneva",
-      "canton": "GE",
-      "country": "CH",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "business-manager-intermediaries-geneva-100-f-m-d-julius-baer",
-      "category": "management",
-      "datePosted": "2026-08-03",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "SENIOR",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "GE",
-        "location": "Geneva"
-      },
-      "firstSeenAt": "2026-08-03T12:34:37.273Z",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 9
-      }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Head-of-Group-External-Communications-100---f-m-d-_r-19350-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Head-of-Group-External-Communications-100---f-m-d-_r-19350-1",
-      "title": "Head of Group External Communications 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "head-of-group-external-communications-100-f-m-d-julius-baer",
-      "category": "sales",
-      "datePosted": "2026-08-14",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "SENIOR",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-08-14T10:13:11.304Z",
-      "salaryMin": 117000,
-      "salaryMax": 180000,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Procurement-Data-Manager---Analyst--EMEA--100---f-m-d---Contract-through-our-external-payroll-partner-with-immediate-start-until-31122026--possible-extension-_r-19273-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Procurement-Data-Manager---Analyst--EMEA--100---f-m-d---Contract-through-our-external-payroll-partner-with-immediate-start-until-31122026--possible-extension-_r-19273-1",
-      "title": "Procurement Data Manager / Analyst (EMEA) 100% (f/m/d) (Contract through our external payroll partner with immediate start until 31.12.2026, possible extension)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "procurement-data-manager-analyst-emea-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-until-31-12-2026-possible-extension-julius-baer",
-      "category": "technology",
-      "datePosted": "2026-07-17",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "SENIOR",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-07-17T10:54:38.510Z",
-      "salaryMin": 121500,
-      "salaryMax": 206500,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Execution-Management-Support-Specialist---Trading---Saas---Vendors-100---f-m-d-----Contract-through-our-external-payroll-partner-with-immediate-start-for-12-months-with-possible-extension-_r-18296-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Execution-Management-Support-Specialist---Trading---Saas---Vendors-100---f-m-d-----Contract-through-our-external-payroll-partner-with-immediate-start-for-12-months-with-possible-extension-_r-18296-1",
-      "title": "Execution Management Support Specialist - Trading / Saas & Vendors 100% (f/m/d) - (Contract through our external payroll partner with immediate start for 12 months with possible extension)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "execution-management-support-specialist-trading-saas-vendors-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-for-12-months-with-possible-extension-julius-baer",
-      "category": "hr",
-      "datePosted": "2026-06-11",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "MID",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-06-29T22:17:29.935Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 14
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/T24-Application-Support---Operation-Engineer-100---f-m-d-_r-18252-2",
@@ -1324,7 +1204,7 @@
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
