@@ -1,14 +1,14 @@
 {
   "crawlerKey": "michaelpage",
-  "assembledAt": "2026-08-27T20:13:28.861Z",
+  "assembledAt": "2026-08-28T05:37:08.247Z",
   "jobs": [
     {
       "id": "michaelpage-68e5dff578d0",
       "slug": "associate-energy-infrastructure-and-natural-resources-michael-page-lugano",
       "slugByLocale": {
         "en": "associate-energy-infrastructure-and-natural-resources-michaelpage-ch",
-        "it": "associati-energia-infrastrutture-e-risorse-naturali-michael-page-lugano",
-        "de": "partner-energie-infrastruktur-und-naturliche-ressourcen-michael-page-lugano",
+        "it": "associate-energy-infrastructure-and-natural-resources-michael-page-lugano",
+        "de": "associate-energy-infrastructure-and-natural-resources-michael-page-lugano",
         "fr": "associe-energie-infrastructure-et-ressources-naturelles-michael-page-lugano"
       },
       "company": "Michael Page",
@@ -17,9 +17,9 @@
       "title": "Associate, Energy, Infrastructure and Natural Resources",
       "titleByLocale": {
         "en": "Associate, Energy, Infrastructure and Natural Resources",
-        "it": "Associati, energia, infrastrutture e risorse naturali",
-        "de": "Partner, Energie, Infrastruktur und natürliche Ressourcen",
-        "fr": "Associé, Énergie, Infrastructure et Ressources naturelles"
+        "it": "Associate, Energy, Infrastructure and Natural Resources",
+        "de": "Associate, Energy, Infrastructure and Natural Resources",
+        "fr": "Associate, Energy, Infrastructure and Natural Resources"
       },
       "description": "Associate, Energy, Infrastructure and Natural Resources — Michael Page",
       "descriptionByLocale": {
@@ -30,7 +30,7 @@
       "url": "https://www.pageexecutive.com/job-detail/associate-energy-infrastructure-and-natural-resources/ref/jn-082026-7088309",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:13:26.004Z",
+      "crawledAt": "2026-08-28T05:37:05.661Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -41,12 +41,32 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-27",
+      "postedDate": "2026-08-28",
       "applyUrl": "https://www.pageexecutive.com/job-detail/associate-energy-infrastructure-and-natural-resources/ref/jn-082026-7088309",
       "requirements": [],
       "requirementsByLocale": {
         "en": []
       },
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-energy-infrastructure-and-natural-resources-michaelpage-ch",
+          "associati-energia-infrastrutture-e-risorse-naturali-michael-page-lugano",
+          "associate-energy-infrastructure-and-natural-resources-michael-page-lugano"
+        ],
+        "de": [
+          "partner-energie-infrastruktur-und-naturliche-ressourcen-michael-page-lugano"
+        ],
+        "fr": [
+          "associe-energie-infrastructure-et-ressources-naturelles-michael-page-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "associate-energy-infrastructure-and-natural-resources-michaelpage-ch",
+        "associati-energia-infrastrutture-e-risorse-naturali-michael-page-lugano",
+        "partner-energie-infrastruktur-und-naturliche-ressourcen-michael-page-lugano",
+        "associate-energy-infrastructure-and-natural-resources-michael-page-lugano",
+        "associe-energie-infrastructure-et-ressources-naturelles-michael-page-lugano"
+      ],
       "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -61,24 +81,7 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-27T20:13:26.004Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "associate-energy-infrastructure-and-natural-resources-michaelpage-ch",
-          "associati-energia-infrastrutture-e-risorse-naturali-michael-page-lugano",
-          "partner-energie-infrastruktur-und-naturliche-ressourcen-michael-page-lugano",
-          "associe-energie-infrastructure-et-ressources-naturelles-michael-page-lugano",
-          "associate-energy-infrastructure-and-natural-resources-michael-page-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "associate-energy-infrastructure-and-natural-resources-michaelpage-ch",
-        "associati-energia-infrastrutture-e-risorse-naturali-michael-page-lugano",
-        "partner-energie-infrastruktur-und-naturliche-ressourcen-michael-page-lugano",
-        "associe-energie-infrastructure-et-ressources-naturelles-michael-page-lugano",
-        "associate-energy-infrastructure-and-natural-resources-michael-page-lugano"
-      ],
-      "retranslationAttempts": 1
+      "firstSeenAt": "2026-08-28T05:37:05.661Z"
     },
     {
       "id": "michaelpage-ba003a0d255a",
@@ -86,8 +89,8 @@
       "slugByLocale": {
         "fr": "regional-finance-director-manufacturing-houston-michaelpage-ch",
         "it": "regional-finanza-direttore-manufacturing-houston-michael-page-lugano",
-        "en": "regional-finanza-direttore-manufacturing-houston-michael-page-lugano",
-        "de": "regional-finanzen-direktor-manufacturing-houston-michael-page-lugano"
+        "de": "regional-finanzen-direktor-manufacturing-houston-michael-page-lugano",
+        "en": "regional-finanza-direttore-manufacturing-houston-michael-page-lugano"
       },
       "company": "Michael Page",
       "companyKey": "michaelpage",
@@ -108,7 +111,7 @@
       "url": "https://www.pageexecutive.com/job-detail/regional-finance-director-manufacturing-houston/ref/jn-082026-7077383",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-27T20:13:25.700Z",
+      "crawledAt": "2026-08-28T05:37:05.359Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -119,12 +122,26 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-27",
+      "postedDate": "2026-08-28",
       "applyUrl": "https://www.pageexecutive.com/job-detail/regional-finance-director-manufacturing-houston/ref/jn-082026-7077383",
       "requirements": [],
       "requirementsByLocale": {
         "fr": []
       },
+      "previousSlugsByLocale": {
+        "it": [
+          "regional-finance-director-manufacturing-houston-michaelpage-ch",
+          "regional-finanza-direttore-manufacturing-houston-michael-page-lugano"
+        ],
+        "de": [
+          "regional-finanzen-direktor-manufacturing-houston-michael-page-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "regional-finance-director-manufacturing-houston-michaelpage-ch",
+        "regional-finanza-direttore-manufacturing-houston-michael-page-lugano",
+        "regional-finanzen-direktor-manufacturing-houston-michael-page-lugano"
+      ],
       "needsRetranslation": true,
       "salaryMin": 98000,
       "salaryMax": 132000,
@@ -139,23 +156,7 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-27T20:13:25.700Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "regional-finance-director-manufacturing-houston-michaelpage-ch",
-          "regional-finanza-direttore-manufacturing-houston-michael-page-lugano",
-          "regional-finanzen-direktor-manufacturing-houston-michael-page-lugano"
-        ],
-        "de": [
-          "regional-finance-director-manufacturing-houston-michaelpage-ch"
-        ]
-      },
-      "previousSlugs": [
-        "regional-finance-director-manufacturing-houston-michaelpage-ch",
-        "regional-finanza-direttore-manufacturing-houston-michael-page-lugano",
-        "regional-finanzen-direktor-manufacturing-houston-michael-page-lugano"
-      ],
-      "retranslationAttempts": 1
+      "firstSeenAt": "2026-08-28T05:37:05.359Z"
     },
     {
       "id": "michaelpage-07835af1bcc4",
@@ -185,7 +186,7 @@
       "url": "https://www.pageexecutive.com/job-detail/finance-manager-us-manufacturing-houston-tx/ref/jn-072026-7062467",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:13:25.397Z",
+      "crawledAt": "2026-08-28T05:37:05.057Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -196,7 +197,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-27",
+      "postedDate": "2026-08-28",
       "applyUrl": "https://www.pageexecutive.com/job-detail/finance-manager-us-manufacturing-houston-tx/ref/jn-072026-7062467",
       "requirements": [],
       "requirementsByLocale": {
@@ -216,16 +217,16 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-27T20:13:25.397Z",
+      "firstSeenAt": "2026-08-28T05:37:05.057Z",
       "previousSlugsByLocale": {
         "it": [
-          "finanza-manager-us-manufacturing-houston-tx-michael-page-lugano",
-          "gestionnaire-des-finances-e-u-fabrication-houston-tx-michael-page-lugano"
+          "gestionnaire-des-finances-e-u-fabrication-houston-tx-michael-page-lugano",
+          "finanza-manager-us-manufacturing-houston-tx-michael-page-lugano"
         ]
       },
       "previousSlugs": [
-        "finanza-manager-us-manufacturing-houston-tx-michael-page-lugano",
-        "gestionnaire-des-finances-e-u-fabrication-houston-tx-michael-page-lugano"
+        "gestionnaire-des-finances-e-u-fabrication-houston-tx-michael-page-lugano",
+        "finanza-manager-us-manufacturing-houston-tx-michael-page-lugano"
       ]
     },
     {
@@ -256,7 +257,7 @@
       "url": "https://www.pageexecutive.com/job-detail/director-senior-counsel-esoteric-abs-tx/ref/jn-082026-7085935",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-27T20:13:24.792Z",
+      "crawledAt": "2026-08-28T05:37:04.755Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -267,7 +268,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-27",
+      "postedDate": "2026-08-28",
       "applyUrl": "https://www.pageexecutive.com/job-detail/director-senior-counsel-esoteric-abs-tx/ref/jn-082026-7085935",
       "requirements": [],
       "requirementsByLocale": {
@@ -275,11 +276,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "director-senior-legal-counsel-asset-backed-securitizations-michaelpage-ch"
+          "director-senior-legal-counsel-asset-backed-securitizations-michaelpage-ch",
+          "director-senior-legal-counsel-asset-backed-securitizations-michael-page-lugano"
         ]
       },
       "previousSlugs": [
-        "director-senior-legal-counsel-asset-backed-securitizations-michaelpage-ch"
+        "director-senior-legal-counsel-asset-backed-securitizations-michaelpage-ch",
+        "director-senior-legal-counsel-asset-backed-securitizations-michael-page-lugano"
       ],
       "needsRetranslation": true,
       "salaryMin": 87000,
@@ -295,7 +298,7 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-27T20:13:24.792Z"
+      "firstSeenAt": "2026-08-28T05:37:04.755Z"
     },
     {
       "id": "michaelpage-037dcb49d8a6",
@@ -325,7 +328,7 @@
       "url": "https://www.pageexecutive.com/job-detail/head-de-marketing-y-business-strategy-filial-uruguay-adium/ref/jn-082026-7085958",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:13:24.490Z",
+      "crawledAt": "2026-08-28T05:37:04.150Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -336,7 +339,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-27",
+      "postedDate": "2026-08-28",
       "applyUrl": "https://www.pageexecutive.com/job-detail/head-de-marketing-y-business-strategy-filial-uruguay-adium/ref/jn-082026-7085958",
       "requirements": [],
       "requirementsByLocale": {
@@ -356,7 +359,7 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-27T20:13:24.490Z"
+      "firstSeenAt": "2026-08-28T05:37:04.150Z"
     },
     {
       "id": "michaelpage-ee3e538d3740",
@@ -386,7 +389,7 @@
       "url": "https://www.pageexecutive.com/job-detail/senior-human-resources-manager/ref/jn-082026-7087617",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:13:24.187Z",
+      "crawledAt": "2026-08-28T05:37:03.848Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -397,12 +400,31 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-27",
+      "postedDate": "2026-08-28",
       "applyUrl": "https://www.pageexecutive.com/job-detail/senior-human-resources-manager/ref/jn-082026-7087617",
       "requirements": [],
       "requirementsByLocale": {
         "fr": []
       },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-human-resources-manager-michaelpage-ch",
+          "senior-risorse-umane-manager-michael-page-lugano"
+        ],
+        "fr": [
+          "senior-human-resources-manager-michaelpage-ch",
+          "senior-ressources-humaines-manager-michael-page-lugano"
+        ],
+        "en": [
+          "senior-human-resources-manager-michael-page-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "senior-human-resources-manager-michaelpage-ch",
+        "senior-risorse-umane-manager-michael-page-lugano",
+        "senior-human-resources-manager-michael-page-lugano",
+        "senior-ressources-humaines-manager-michael-page-lugano"
+      ],
       "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -417,94 +439,7 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-27T20:13:24.187Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-human-resources-manager-michaelpage-ch",
-          "senior-risorse-umane-manager-michael-page-lugano",
-          "senior-ressources-humaines-manager-michael-page-lugano"
-        ],
-        "fr": [
-          "senior-human-resources-manager-michaelpage-ch"
-        ]
-      },
-      "previousSlugs": [
-        "senior-human-resources-manager-michaelpage-ch",
-        "senior-human-resources-manager-michael-page-lugano",
-        "senior-risorse-umane-manager-michael-page-lugano",
-        "senior-ressources-humaines-manager-michael-page-lugano"
-      ],
-      "retranslationAttempts": 1
-    },
-    {
-      "id": "michaelpage-d0f54d4a8718",
-      "slug": "diretore-geral-unidade-de-negocio-michael-page-lugano",
-      "slugByLocale": {
-        "it": "diretore-geral-unidade-de-negocio-michael-page-lugano",
-        "en": "diretor-geral-unidade-de-negocio-michael-page-lugano",
-        "de": "diretor-geral-unidade-de-negocio-michaelpage-ch",
-        "fr": "diretor-geral-unidade-de-negocio-michaelpage-ch"
-      },
-      "company": "Michael Page",
-      "companyKey": "michaelpage",
-      "companyDomain": "pageexecutive.com",
-      "title": "Diretor Geral - Unidade de Negócio",
-      "titleByLocale": {
-        "it": "Diretore Geral — Unidade de Negócio",
-        "en": "Diretor Geral — Unidade de Negócio",
-        "de": "Diretor Geral - Unidade de Negócio",
-        "fr": "Diretor Geral - Unidade de Negócio"
-      },
-      "description": "Diretor Geral - Unidade de Negócio — Michael Page",
-      "descriptionByLocale": {
-        "fr": "Diretor Geral - Unidade de Negócio — Michael Page"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://www.pageexecutive.com/job-detail/diretor-geral-unidade-de-neg%C3%B3cio/ref/jn-042026-7001533",
-      "source": "Michael Page Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:13:23.883Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-23",
-      "applyUrl": "https://www.pageexecutive.com/job-detail/diretor-geral-unidade-de-neg%C3%B3cio/ref/jn-042026-7001533",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "diretor-geral-unidade-de-negocio-michaelpage-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "diretor-geral-unidade-de-negocio-michaelpage-ch"
-        ],
-        "en": [
-          "diretor-geral-unidade-de-negocio-michaelpage-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-23T09:40:12.248Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI"
+      "firstSeenAt": "2026-08-28T05:37:03.848Z"
     },
     {
       "id": "michaelpage-a5e9a61862e7",
@@ -534,7 +469,7 @@
       "url": "https://www.pageexecutive.com/job-detail/managing-director-real-estate-corporate-banking/ref/jn-082026-7091139",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:13:23.581Z",
+      "crawledAt": "2026-08-28T05:37:03.546Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -545,7 +480,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-27",
+      "postedDate": "2026-08-28",
       "applyUrl": "https://www.pageexecutive.com/job-detail/managing-director-real-estate-corporate-banking/ref/jn-082026-7091139",
       "requirements": [],
       "requirementsByLocale": {
@@ -565,7 +500,79 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-27T20:13:23.581Z"
+      "firstSeenAt": "2026-08-28T05:37:03.546Z"
+    },
+    {
+      "id": "michaelpage-d0f54d4a8718",
+      "slug": "diretore-geral-unidade-de-negocio-michael-page-lugano",
+      "slugByLocale": {
+        "it": "diretore-geral-unidade-de-negocio-michael-page-lugano",
+        "en": "diretor-geral-unidade-de-negocio-michael-page-lugano",
+        "de": "diretor-geral-unidade-de-negocio-michaelpage-ch",
+        "fr": "diretor-geral-unidade-de-negocio-michaelpage-ch"
+      },
+      "company": "Michael Page",
+      "companyKey": "michaelpage",
+      "companyDomain": "pageexecutive.com",
+      "title": "Diretor Geral - Unidade de Negócio",
+      "titleByLocale": {
+        "it": "Diretore Geral — Unidade de Negócio",
+        "en": "Diretor Geral — Unidade de Negócio",
+        "de": "Diretor Geral - Unidade de Negócio",
+        "fr": "Diretor Geral - Unidade de Negócio"
+      },
+      "description": "Diretor Geral - Unidade de Negócio — Michael Page",
+      "descriptionByLocale": {
+        "fr": "Diretor Geral - Unidade de Negócio — Michael Page"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.pageexecutive.com/job-detail/diretor-geral-unidade-de-neg%C3%B3cio/ref/jn-042026-7001533",
+      "source": "Michael Page Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-28T05:37:03.244Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-23",
+      "applyUrl": "https://www.pageexecutive.com/job-detail/diretor-geral-unidade-de-neg%C3%B3cio/ref/jn-042026-7001533",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "diretor-geral-unidade-de-negocio-michaelpage-ch",
+        "diretore-geral-unidade-de-negocio-michael-page-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "diretor-geral-unidade-de-negocio-michaelpage-ch",
+          "diretore-geral-unidade-de-negocio-michael-page-lugano"
+        ],
+        "en": [
+          "diretor-geral-unidade-de-negocio-michaelpage-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:40:12.248Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
     },
     {
       "id": "michaelpage-03bdc40e6afc",
@@ -595,7 +602,7 @@
       "url": "https://www.pageexecutive.com/job-detail/senior-knowledge-management-attorney-private-funds/ref/jn-082026-7090935",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:13:23.279Z",
+      "crawledAt": "2026-08-28T05:37:02.942Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -606,7 +613,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-27",
+      "postedDate": "2026-08-28",
       "applyUrl": "https://www.pageexecutive.com/job-detail/senior-knowledge-management-attorney-private-funds/ref/jn-082026-7090935",
       "requirements": [],
       "requirementsByLocale": {
@@ -626,7 +633,7 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-27T20:13:23.279Z"
+      "firstSeenAt": "2026-08-28T05:37:02.942Z"
     },
     {
       "id": "michaelpage-6f47d51540e8",
@@ -656,7 +663,7 @@
       "url": "https://www.pageexecutive.com/job-detail/knowledge-management-attorney-registered-funds/ref/jn-082026-7091112",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:13:22.977Z",
+      "crawledAt": "2026-08-28T05:37:02.640Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -667,7 +674,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-27",
+      "postedDate": "2026-08-28",
       "applyUrl": "https://www.pageexecutive.com/job-detail/knowledge-management-attorney-registered-funds/ref/jn-082026-7091112",
       "requirements": [],
       "requirementsByLocale": {
@@ -687,7 +694,7 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-27T20:13:22.977Z"
+      "firstSeenAt": "2026-08-28T05:37:02.640Z"
     },
     {
       "id": "michaelpage-90be0c440929",
@@ -717,7 +724,7 @@
       "url": "https://www.pageexecutive.com/job-detail/diretor-de-rela%C3%A7%C3%B5es-governamentais/ref/jn-082026-7084101",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:13:22.675Z",
+      "crawledAt": "2026-08-28T05:37:02.338Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -728,7 +735,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-27",
+      "postedDate": "2026-08-28",
       "applyUrl": "https://www.pageexecutive.com/job-detail/diretor-de-rela%C3%A7%C3%B5es-governamentais/ref/jn-082026-7084101",
       "requirements": [],
       "requirementsByLocale": {
@@ -748,7 +755,7 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-27T20:13:22.675Z",
+      "firstSeenAt": "2026-08-28T05:37:02.338Z",
       "previousSlugsByLocale": {
         "it": [
           "diretor-de-relacoes-governmentais-michael-page-lugano"
@@ -786,7 +793,7 @@
       "url": "https://www.pageexecutive.com/job-detail/senior-manager-commercial-finance-fpa-norwood-ma/ref/jn-082026-7090273",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:13:22.373Z",
+      "crawledAt": "2026-08-28T05:37:02.035Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -797,7 +804,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-27",
+      "postedDate": "2026-08-28",
       "applyUrl": "https://www.pageexecutive.com/job-detail/senior-manager-commercial-finance-fpa-norwood-ma/ref/jn-082026-7090273",
       "requirements": [],
       "requirementsByLocale": {
@@ -817,7 +824,15 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-27T20:13:22.373Z"
+      "firstSeenAt": "2026-08-28T05:37:02.035Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "senior-manager-commercial-finance-fp-a-norwood-ma-michael-page-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "senior-manager-commercial-finance-fp-a-norwood-ma-michael-page-lugano"
+      ]
     },
     {
       "id": "michaelpage-f5bff3e2268e",
@@ -847,7 +862,7 @@
       "url": "https://www.pageexecutive.com/job-detail/vice-president-global-strategic-sourcing-chemicals/ref/jn-022026-6936290",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:13:22.071Z",
+      "crawledAt": "2026-08-28T05:37:01.733Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -858,7 +873,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-27",
+      "postedDate": "2026-08-28",
       "applyUrl": "https://www.pageexecutive.com/job-detail/vice-president-global-strategic-sourcing-chemicals/ref/jn-022026-6936290",
       "requirements": [],
       "requirementsByLocale": {
@@ -878,7 +893,7 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-27T20:13:22.071Z"
+      "firstSeenAt": "2026-08-28T05:37:01.733Z"
     },
     {
       "id": "michaelpage-652236dd8c8f",
@@ -908,7 +923,7 @@
       "url": "https://www.pageexecutive.com/job-detail/business-development-director-industrial-north-america/ref/jn-062026-7040890",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:13:21.465Z",
+      "crawledAt": "2026-08-28T05:37:01.128Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -919,7 +934,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-27",
+      "postedDate": "2026-08-28",
       "applyUrl": "https://www.pageexecutive.com/job-detail/business-development-director-industrial-north-america/ref/jn-062026-7040890",
       "requirements": [],
       "requirementsByLocale": {
@@ -939,16 +954,16 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-27T20:13:21.465Z",
+      "firstSeenAt": "2026-08-28T05:37:01.128Z",
       "previousSlugsByLocale": {
         "it": [
-          "business-development-director-industrial-north-america-michael-page-lugano",
-          "directeur-du-developpement-des-affaires-industriel-amerique-du-nord-michael-page-lugano"
+          "directeur-du-developpement-des-affaires-industriel-amerique-du-nord-michael-page-lugano",
+          "business-development-director-industrial-north-america-michael-page-lugano"
         ]
       },
       "previousSlugs": [
-        "business-development-director-industrial-north-america-michael-page-lugano",
-        "directeur-du-developpement-des-affaires-industriel-amerique-du-nord-michael-page-lugano"
+        "directeur-du-developpement-des-affaires-industriel-amerique-du-nord-michael-page-lugano",
+        "business-development-director-industrial-north-america-michael-page-lugano"
       ]
     },
     {
@@ -979,7 +994,7 @@
       "url": "https://www.pageexecutive.com/job-detail/diretor-de-manuten%C3%A7%C3%A3o-e-opera%C3%A7%C3%B5es-t%C3%A9cnicas-am%C3%A9rica-latina/ref/jn-072026-7054376",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-27T20:13:21.162Z",
+      "crawledAt": "2026-08-28T05:37:00.825Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -990,7 +1005,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-27",
+      "postedDate": "2026-08-28",
       "applyUrl": "https://www.pageexecutive.com/job-detail/diretor-de-manuten%C3%A7%C3%A3o-e-opera%C3%A7%C3%B5es-t%C3%A9cnicas-am%C3%A9rica-latina/ref/jn-072026-7054376",
       "requirements": [],
       "requirementsByLocale": {
@@ -1010,7 +1025,7 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-27T20:13:21.162Z"
+      "firstSeenAt": "2026-08-28T05:37:00.825Z"
     },
     {
       "id": "michaelpage-3c48fdc2eadb",
@@ -1040,7 +1055,7 @@
       "url": "https://www.pageexecutive.com/job-detail/vice-president-hr-north-america/ref/jn-062026-7043980",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:13:20.860Z",
+      "crawledAt": "2026-08-28T05:37:00.522Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1051,7 +1066,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-27",
+      "postedDate": "2026-08-28",
       "applyUrl": "https://www.pageexecutive.com/job-detail/vice-president-hr-north-america/ref/jn-062026-7043980",
       "requirements": [],
       "requirementsByLocale": {
@@ -1071,10 +1086,13 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-27T20:13:20.860Z",
+      "firstSeenAt": "2026-08-28T05:37:00.522Z",
       "previousSlugsByLocale": {
         "it": [
           "vice-president-risorse-umane-north-america-michael-page-lugano"
+        ],
+        "de": [
+          "vice-president-hr-north-america-michael-page-lugano"
         ]
       },
       "previousSlugs": [
@@ -1110,7 +1128,7 @@
       "url": "https://www.pageexecutive.com/job-detail/business-unit-vice-president-americas-chemicals/ref/jn-062026-7048915",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-27T20:13:20.557Z",
+      "crawledAt": "2026-08-28T05:37:00.214Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1121,7 +1139,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-27",
+      "postedDate": "2026-08-28",
       "applyUrl": "https://www.pageexecutive.com/job-detail/business-unit-vice-president-americas-chemicals/ref/jn-062026-7048915",
       "requirements": [],
       "requirementsByLocale": {
@@ -1141,7 +1159,7 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-27T20:13:20.557Z",
+      "firstSeenAt": "2026-08-28T05:37:00.214Z",
       "previousSlugsByLocale": {
         "it": [
           "vice-president-ameriques-produits-chimiques-michael-page-lugano"
@@ -1179,7 +1197,7 @@
       "url": "https://www.pageexecutive.com/job-detail/managing-director-south-america/ref/jn-072026-7055192",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:13:20.253Z",
+      "crawledAt": "2026-08-28T05:36:59.910Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1190,7 +1208,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-27",
+      "postedDate": "2026-08-28",
       "applyUrl": "https://www.pageexecutive.com/job-detail/managing-director-south-america/ref/jn-072026-7055192",
       "requirements": [],
       "requirementsByLocale": {
@@ -1210,7 +1228,7 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-27T20:13:20.253Z"
+      "firstSeenAt": "2026-08-28T05:36:59.910Z"
     },
     {
       "id": "michaelpage-f7cdbe0a80d1",
@@ -1228,8 +1246,8 @@
       "titleByLocale": {
         "en": "Divisional Controller - Americas",
         "it": "Divisional Controller - Americas",
-        "de": "Divisional Controller - Amerika",
-        "fr": "Contrôleur divisionnaire - Amériques"
+        "de": "Divisional Controller - Americas",
+        "fr": "Divisional Controller - Americas"
       },
       "description": "Divisional Controller - Americas — Michael Page",
       "descriptionByLocale": {
@@ -1240,7 +1258,7 @@
       "url": "https://www.pageexecutive.com/job-detail/divisional-controller-americas/ref/jn-072026-7066374",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-27T20:13:19.930Z",
+      "crawledAt": "2026-08-28T05:36:59.591Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1251,7 +1269,7 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-27",
+      "postedDate": "2026-08-28",
       "applyUrl": "https://www.pageexecutive.com/job-detail/divisional-controller-americas/ref/jn-072026-7066374",
       "requirements": [],
       "requirementsByLocale": {
@@ -1260,15 +1278,15 @@
       "previousSlugsByLocale": {
         "it": [
           "divisional-controller-americas-michaelpage-ch",
-          "controleur-divisionnaire-ameriques-michael-page-lugano",
           "divisional-controller-amerika-michael-page-lugano",
+          "controleur-divisionnaire-ameriques-michael-page-lugano",
           "divisional-controller-americas-michael-page-lugano"
         ]
       },
       "previousSlugs": [
         "divisional-controller-americas-michaelpage-ch",
-        "controleur-divisionnaire-ameriques-michael-page-lugano",
         "divisional-controller-amerika-michael-page-lugano",
+        "controleur-divisionnaire-ameriques-michael-page-lugano",
         "divisional-controller-americas-michael-page-lugano"
       ],
       "needsRetranslation": true,
@@ -1285,7 +1303,7 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-27T20:13:19.930Z"
+      "firstSeenAt": "2026-08-28T05:36:59.591Z"
     }
   ]
 }
