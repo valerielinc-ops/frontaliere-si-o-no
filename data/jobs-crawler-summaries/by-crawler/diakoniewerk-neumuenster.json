@@ -1,21 +1,23 @@
 {
   "key": "diakoniewerk-neumuenster",
   "label": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)",
-  "generatedAt": "2026-08-27T00:48:11.912Z",
+  "generatedAt": "2026-08-28T05:30:49.633Z",
   "total": 7,
   "discovered": null,
   "written": 7,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 36042,
-  "avgDurationMs": 36042,
+  "unchangedCount": 1,
+  "durationMs": 37285,
+  "avgDurationMs": 37285,
   "durationHistory": [
-    36042
+    37285
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "diakoniewerk-neumuenster-8d65c7f39612",
       "slug": "formazione-professionale-formazione-professionale-stazione-chirurgia-ginecologia-diakoniewerk-neumunster-gesundheitswelt",
@@ -47,7 +49,7 @@
       "firstSeenAt": "2026-05-19T15:19:47.620Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -56,7 +58,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
