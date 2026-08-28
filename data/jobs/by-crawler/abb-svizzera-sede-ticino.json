@@ -195,7 +195,7 @@
         "it": "service-capo-squadra-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau-ugqodv",
         "en": "service-team-leader-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau-ugqodv",
         "de": "service-team-leader-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau-ugqodv",
-        "fr": "service-team-leader-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau-ugqodv"
+        "fr": "service-capo-squadra-f-m-d-80-100-abb-svizzera-sede-ticino-baden-aargau"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -203,10 +203,14 @@
       "previousSlugsByLocale": {
         "it": [
           "service-team-leader-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau"
+        ],
+        "fr": [
+          "service-team-leader-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau-ugqodv"
         ]
       },
       "previousSlugs": [
-        "service-team-leader-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau"
+        "service-team-leader-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau",
+        "service-team-leader-m-w-d-80-100-abb-svizzera-sede-ticino-baden-aargau-ugqodv"
       ],
       "salaryMin": 107000,
       "salaryMax": 187500,
