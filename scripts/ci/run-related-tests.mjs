@@ -137,7 +137,7 @@ function loadGraph(files) {
 
 const candidates = [...new Set(changed.filter((file) =>
   file !== 'scripts/ci/run-related-tests.mjs' && !ignoredRe.test(file)
-    && sourceRe.test(file)))];
+    && sourceRe.test(file) && !alwaysExcludedTests.has(file)))];
 const forceFull = changedStatus !== 'complete';
 if (candidates.length === 0 && !forceFull) {
   console.log('No existing source/test files in the diff → related-only run has no tests.');
