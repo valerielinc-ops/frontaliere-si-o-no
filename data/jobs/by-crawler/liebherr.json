@@ -4163,12 +4163,12 @@
     },
     {
       "id": "liebherr-3a31a93060ef",
-      "slug": "pricing-analyst-specialist-m-f-x-liebherr-bulle",
+      "slug": "pricing-analista-specialista-m-f-x-liebherr-bulle",
       "slugByLocale": {
         "en": "pricing-analyst-specialist-m-f-x-liebherr-bulle",
-        "it": "pricing-analyst-specialist-m-f-x-liebherr-bulle",
+        "it": "pricing-analista-specialista-m-f-x-liebherr-bulle",
         "de": "pricing-analyst-specialist-m-f-x-liebherr-bulle",
-        "fr": "pricing-analyst-specialist-m-f-x-liebherr-bulle"
+        "fr": "pricing-analyste-specialiste-m-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -4224,7 +4224,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-27T20:14:23.177Z"
+      "firstSeenAt": "2026-08-27T20:14:23.177Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pricing-analyst-specialist-m-f-x-liebherr-bulle"
+        ],
+        "fr": [
+          "pricing-analyst-specialist-m-f-x-liebherr-bulle"
+        ]
+      },
+      "previousSlugs": [
+        "pricing-analyst-specialist-m-f-x-liebherr-bulle"
+      ]
     },
     {
       "id": "liebherr-6301c72cfc83",

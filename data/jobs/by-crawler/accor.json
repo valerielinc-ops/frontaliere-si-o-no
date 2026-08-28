@@ -139,12 +139,12 @@
     },
     {
       "id": "accor-3723b9873277",
-      "slug": "people-culture-coordinator-12-months-maternity-cover-accor-ch",
+      "slug": "people-culture-coordinatore-12-months-sostituzione-maternita-ibis-budget-lugano",
       "slugByLocale": {
         "de": "people-culture-coordinator-12-months-maternity-cover-accor-ch",
-        "it": "people-culture-coordinator-12-months-maternity-cover-accor-ch",
+        "it": "people-culture-coordinatore-12-months-sostituzione-maternita-ibis-budget-lugano",
         "en": "people-culture-coordinator-12-months-maternity-cover-ibis-budget-lugano",
-        "fr": "people-culture-coordinator-12-months-maternity-cover-accor-ch"
+        "fr": "people-culture-coordinateur-12-months-remplacement-maternite-ibis-budget-lugano"
       },
       "company": "Ibis Budget",
       "companyKey": "accor",
@@ -196,7 +196,18 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-27T20:08:40.292Z"
+      "firstSeenAt": "2026-08-27T20:08:40.292Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "people-culture-coordinator-12-months-maternity-cover-accor-ch"
+        ],
+        "fr": [
+          "people-culture-coordinator-12-months-maternity-cover-accor-ch"
+        ]
+      },
+      "previousSlugs": [
+        "people-culture-coordinator-12-months-maternity-cover-accor-ch"
+      ]
     },
     {
       "id": "accor-2ff35e8c21ac",
@@ -205,7 +216,7 @@
         "fr": "assistant-housekeeping-manager-accor-ch",
         "it": "assistant-housekeeping-manager-accor-ch",
         "en": "assistant-housekeeping-manager-ibis-budget-lugano",
-        "de": "assistant-housekeeping-manager-accor-ch"
+        "de": "assistent-housekeeping-manager-ibis-budget-lugano"
       },
       "company": "Ibis Budget",
       "companyKey": "accor",
@@ -335,7 +346,7 @@
         "fr": "assistant-director-of-people-culture-accor-ch",
         "it": "assistant-director-of-people-culture-accor-ch",
         "en": "assistant-director-of-people-culture-accor-ch",
-        "de": "assistant-director-of-people-culture-accor-ch"
+        "de": "assistent-direktor-of-people-culture-ibis-budget-lugano"
       },
       "company": "Ibis Budget",
       "companyKey": "accor",
