@@ -1051,24 +1051,14 @@ git config user.name  "github-actions[bot]"
 git config user.email "github-actions[bot]@users.noreply.github.com"
 
 # ── 2b. Keep Git auth explicit across retry/rebase paths ───────────────────
-# actions/checkout normally persists an HTTP extraheader, but the crawler
-# commit loop does several fetch/pull/push retries after long-running jobs. Make
-# the token source explicit so retries do not depend on checkout's implicit
-# credential state.
-CHECKOUT_GIT_EXTRAHEADER="$(git config --local --get http.https://github.com/.extraheader 2>/dev/null || true)"
+# Direct pushes to this repo's `main` must use GITHUB_PAT or APP_TOKEN
+# (ruleset bypass identities). The ambient GITHUB_TOKEN / GH_TOKEN extraheader
+# that actions/checkout persists is rejected with GH013; restoring it on
+# retry was the old helper's fallback and is now forbidden. Origin URLs that
+# are not github.com (local helper tests) are left alone by the configure
+# script so in-repo merge/push tests keep their temp remotes.
 ensure_git_auth() {
-  local token="${GH_TOKEN:-${GITHUB_TOKEN:-}}"
-  local encoded
-
-  if [ -n "$token" ]; then
-    encoded="$(printf 'x-access-token:%s' "$token" | base64 | tr -d '\n')"
-    git config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ${encoded}"
-    return 0
-  fi
-
-  if [ -n "$CHECKOUT_GIT_EXTRAHEADER" ]; then
-    git config --local http.https://github.com/.extraheader "$CHECKOUT_GIT_EXTRAHEADER"
-  fi
+  bash "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/configure-main-push-auth.sh"
 }
 
 # `git fetch` inside the retry loop below is otherwise unguarded under

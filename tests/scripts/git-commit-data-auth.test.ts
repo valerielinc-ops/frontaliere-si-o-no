@@ -5,7 +5,7 @@ import { describe, expect, it } from 'vitest';
 const SCRIPT = resolve('scripts/lib/git-commit-data.sh');
 
 describe('scripts/lib/git-commit-data.sh authentication', () => {
-  it('configures GitHub auth before fetch/push operations without stale Remote Config PATs', () => {
+  it('configures GitHub auth before fetch/push operations with ruleset bypass credentials', () => {
     const source = readFileSync(SCRIPT, 'utf8');
     const configureIndex = source.indexOf('ensure_git_auth()');
     const callIndex = source.indexOf('ensure_git_auth', configureIndex + 1);
@@ -20,10 +20,9 @@ describe('scripts/lib/git-commit-data.sh authentication', () => {
     const pushIndex = source.indexOf('git push origin main');
 
     expect(configureIndex).toBeGreaterThan(-1);
-    expect(source).toContain('GH_TOKEN:-${GITHUB_TOKEN:-}');
-    expect(source).toContain('CHECKOUT_GIT_EXTRAHEADER=');
-    expect(source).not.toContain('GITHUB_PAT:-');
-    expect(source).toContain('git config --local http.https://github.com/.extraheader');
+    expect(source).toContain('configure-main-push-auth.sh');
+    expect(source).not.toContain('GH_TOKEN:-${GITHUB_TOKEN:-}');
+    expect(source).not.toContain('CHECKOUT_GIT_EXTRAHEADER=');
     expect(callIndex).toBeGreaterThan(configureIndex);
     expect(callIndex).toBeLessThan(fetchCallIndex);
     expect(callIndex).toBeLessThan(pushIndex);

@@ -40,11 +40,11 @@ function findCrawlerBlock(slug: string): string {
 }
 
 describe('git-commit-data.sh GitHub auth hardening', () => {
-  it('prefers workflow/checkout auth over stale Remote Config GITHUB_PAT values', () => {
-    expect(GIT_COMMIT_DATA).toContain('local token="${GH_TOKEN:-${GITHUB_TOKEN:-}}"');
-    expect(GIT_COMMIT_DATA).toContain('CHECKOUT_GIT_EXTRAHEADER=');
-    expect(GIT_COMMIT_DATA).not.toContain('GITHUB_PAT:-');
-    expect(GIT_COMMIT_DATA).toContain('git config --local http.https://github.com/.extraheader');
+  it('fail-closes on GITHUB_PAT/APP_TOKEN via configure-main-push-auth.sh (ruleset-era)', () => {
+    expect(GIT_COMMIT_DATA).toContain('configure-main-push-auth.sh');
+    expect(GIT_COMMIT_DATA).not.toContain('local token="${GH_TOKEN:-${GITHUB_TOKEN:-}}"');
+    expect(GIT_COMMIT_DATA).not.toContain('token="${GH_TOKEN:-${GITHUB_TOKEN:-}}"');
+    expect(GIT_COMMIT_DATA).not.toContain('CHECKOUT_GIT_EXTRAHEADER=');
   });
 
   it('refreshes git auth before every network operation in the retry loop', () => {
@@ -159,6 +159,188 @@ describe('git-commit-data.sh stale .git/index.lock recovery (group-06 incident)'
 
       const log = execFileSync('git', ['log', '--oneline'], { cwd: repoDir }).toString();
       expect(log).toContain('next crawler commit');
+    } finally {
+      rmSync(repoDir, { recursive: true, force: true });
+    }
+  });
+});
+
+const CONFIGURE_AUTH = resolve(ROOT, 'scripts/lib/configure-main-push-auth.sh');
+const ACTIONS_TOKEN = 'ghs_dummy_actions_token_must_not_be_used';
+const PAT_TOKEN = 'ghp_dummy_pat_bypass_identity';
+const APP_TOKEN = 'ghs_dummy_app_installation_token';
+const REPO = 'valerielinc-ops/frontaliere-si-o-no';
+
+function initGithubLookingRepo(): string {
+  const repoDir = mkdtempSync(join(tmpdir(), 'main-push-auth-'));
+  execFileSync('git', ['init', '-q'], { cwd: repoDir });
+  execFileSync('git', ['config', 'user.email', 'test@example.com'], { cwd: repoDir });
+  execFileSync('git', ['config', 'user.name', 'Test'], { cwd: repoDir });
+  writeFileSync(join(repoDir, 'seed.txt'), 'seed\n');
+  execFileSync('git', ['add', 'seed.txt'], { cwd: repoDir });
+  execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
+  execFileSync(
+    'git',
+    ['remote', 'add', 'origin', `https://github.com/${REPO}.git`],
+    { cwd: repoDir },
+  );
+  const encoded = Buffer.from(`x-access-token:${ACTIONS_TOKEN}`).toString('base64');
+  execFileSync(
+    'git',
+    ['config', '--local', 'http.https://github.com/.extraheader', `AUTHORIZATION: basic ${encoded}`],
+    { cwd: repoDir },
+  );
+  return repoDir;
+}
+
+function runConfigure(
+  cwd: string,
+  env: NodeJS.ProcessEnv,
+): { status: number; stderr: string; stdout: string } {
+  try {
+    const stdout = execFileSync('bash', [CONFIGURE_AUTH], {
+      cwd,
+      env: { ...process.env, ...env },
+      encoding: 'utf8',
+    });
+    return { status: 0, stdout, stderr: '' };
+  } catch (err) {
+    const e = err as { status?: number; stderr?: string | Buffer; stdout?: string | Buffer };
+    return {
+      status: typeof e.status === 'number' ? e.status : 1,
+      stdout: String(e.stdout || ''),
+      stderr: String(e.stderr || ''),
+    };
+  }
+}
+
+describe('configure-main-push-auth.sh (shipped fail-closed main-push auth)', () => {
+  it('exits non-zero on GITHUB_TOKEN/GH_TOKEN alone and does not write them into origin or extraheader', () => {
+    const repoDir = initGithubLookingRepo();
+    try {
+      const beforeUrl = execFileSync('git', ['remote', 'get-url', 'origin'], {
+        cwd: repoDir,
+        encoding: 'utf8',
+      }).trim();
+      const beforeHeader = execFileSync(
+        'git',
+        ['config', '--local', '--get', 'http.https://github.com/.extraheader'],
+        { cwd: repoDir, encoding: 'utf8' },
+      ).trim();
+
+      const result = runConfigure(repoDir, {
+        GITHUB_TOKEN: ACTIONS_TOKEN,
+        GH_TOKEN: ACTIONS_TOKEN,
+        GITHUB_REPOSITORY: REPO,
+        GITHUB_PAT: '',
+        APP_TOKEN: '',
+      });
+
+      expect(result.status).toBeGreaterThan(0);
+      expect(`${result.stderr}${result.stdout}`).toMatch(/GITHUB_PAT|APP_TOKEN|GH013/);
+
+      const afterUrl = execFileSync('git', ['remote', 'get-url', 'origin'], {
+        cwd: repoDir,
+        encoding: 'utf8',
+      }).trim();
+      const afterHeader = execFileSync(
+        'git',
+        ['config', '--local', '--get', 'http.https://github.com/.extraheader'],
+        { cwd: repoDir, encoding: 'utf8' },
+      ).trim();
+      expect(afterUrl).toBe(beforeUrl);
+      expect(afterUrl).not.toContain(ACTIONS_TOKEN);
+      expect(afterHeader).toBe(beforeHeader);
+    } finally {
+      rmSync(repoDir, { recursive: true, force: true });
+    }
+  });
+
+  it('with GITHUB_PAT: clears checkout extraheader and rewrites origin to that token', () => {
+    const repoDir = initGithubLookingRepo();
+    try {
+      const result = runConfigure(repoDir, {
+        GITHUB_TOKEN: ACTIONS_TOKEN,
+        GH_TOKEN: ACTIONS_TOKEN,
+        GITHUB_PAT: PAT_TOKEN,
+        APP_TOKEN: '',
+        GITHUB_REPOSITORY: REPO,
+      });
+      expect(result.status).toBe(0);
+
+      const url = execFileSync('git', ['remote', 'get-url', 'origin'], {
+        cwd: repoDir,
+        encoding: 'utf8',
+      }).trim();
+      expect(url).toBe(`https://x-access-token:${PAT_TOKEN}@github.com/${REPO}.git`);
+      expect(url).not.toContain(ACTIONS_TOKEN);
+
+      expect(() =>
+        execFileSync(
+          'git',
+          ['config', '--local', '--get', 'http.https://github.com/.extraheader'],
+          { cwd: repoDir, encoding: 'utf8' },
+        ),
+      ).toThrow();
+    } finally {
+      rmSync(repoDir, { recursive: true, force: true });
+    }
+  });
+
+  it('with APP_TOKEN only: same extraheader clear + origin rewrite; PAT wins when both are set', () => {
+    const repoDir = initGithubLookingRepo();
+    try {
+      const appOnly = runConfigure(repoDir, {
+        GITHUB_TOKEN: ACTIONS_TOKEN,
+        APP_TOKEN,
+        GITHUB_PAT: '',
+        GITHUB_REPOSITORY: REPO,
+      });
+      expect(appOnly.status).toBe(0);
+      expect(
+        execFileSync('git', ['remote', 'get-url', 'origin'], { cwd: repoDir, encoding: 'utf8' }).trim(),
+      ).toBe(`https://x-access-token:${APP_TOKEN}@github.com/${REPO}.git`);
+
+      execFileSync(
+        'git',
+        ['remote', 'set-url', 'origin', `https://github.com/${REPO}.git`],
+        { cwd: repoDir },
+      );
+      const encoded = Buffer.from(`x-access-token:${ACTIONS_TOKEN}`).toString('base64');
+      execFileSync(
+        'git',
+        ['config', '--local', 'http.https://github.com/.extraheader', `AUTHORIZATION: basic ${encoded}`],
+        { cwd: repoDir },
+      );
+
+      const both = runConfigure(repoDir, {
+        GITHUB_TOKEN: ACTIONS_TOKEN,
+        APP_TOKEN,
+        GITHUB_PAT: PAT_TOKEN,
+        GITHUB_REPOSITORY: REPO,
+      });
+      expect(both.status).toBe(0);
+      expect(
+        execFileSync('git', ['remote', 'get-url', 'origin'], { cwd: repoDir, encoding: 'utf8' }).trim(),
+      ).toBe(`https://x-access-token:${PAT_TOKEN}@github.com/${REPO}.git`);
+    } finally {
+      rmSync(repoDir, { recursive: true, force: true });
+    }
+  });
+
+  it('leaves a non-github origin alone so local helper tests keep their temp remotes', () => {
+    const repoDir = mkdtempSync(join(tmpdir(), 'main-push-auth-local-'));
+    try {
+      execFileSync('git', ['init', '-q'], { cwd: repoDir });
+      execFileSync('git', ['remote', 'add', 'origin', repoDir], { cwd: repoDir });
+      const result = runConfigure(repoDir, {
+        GITHUB_TOKEN: ACTIONS_TOKEN,
+        GITHUB_REPOSITORY: REPO,
+      });
+      expect(result.status).toBe(0);
+      expect(
+        execFileSync('git', ['remote', 'get-url', 'origin'], { cwd: repoDir, encoding: 'utf8' }).trim(),
+      ).toBe(repoDir);
     } finally {
       rmSync(repoDir, { recursive: true, force: true });
     }

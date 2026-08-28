@@ -100,7 +100,22 @@ jobs:
 
       # Nessun `npm ci`: gli unici moduli importati sono scripts/lib/*.mjs del
       # repo (nessuna dipendenza esterna oltre quelle gia' in node_modules per
-      # gli altri due script invocati piu' sotto).
+      # gli altri due script invocati piu' sotto). load-rc-env.mjs uses the
+      # stdlib REST path (no firebase-admin) to fetch GITHUB_PAT.
+      - name: Prepare Firebase credentials for push auth
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load GITHUB_PAT for a direct main push"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load push credentials from Remote Config
+        run: node scripts/load-rc-env.mjs
+
       - name: Measure drift
         env:
           DRIFT_DAYS: ${{ inputs.days || '7' }}

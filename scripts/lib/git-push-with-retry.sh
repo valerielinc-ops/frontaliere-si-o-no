@@ -139,29 +139,13 @@ while [ $# -gt 0 ]; do
   esac
 done
 
-# App-installation identity for the push (issue #6259): `main`'s ruleset
-# "main required CI checks" (added 2026-08-27, required_status_check `vitest
-# (unit + integration)`) lists `github-actions[bot]` in its bypass_actors,
-# but a raw `git push` authenticated via the ambient GITHUB_TOKEN (the
-# credential actions/checkout persists by default) was still rejected with
-# GH013 — the bypass evidently only takes effect for PR-merge-shaped ref
-# updates (confirmed: `frontaliere-automation[bot]` PR merges landed fine
-# post-ruleset the same morning), not a direct push. `frontaliere-automation[bot]`
-# IS honoured on direct pushes too — every data-refresh workflow that mints
-# an App token via scripts/ci/mint-app-token.mjs (APP_ID/APP_PRIVATE_KEY,
-# written to $GITHUB_ENV as APP_TOKEN) already authenticates as that
-# identity. If the caller minted one (or loaded GITHUB_PAT from Remote
-# Config), reconfigure `origin` to push as that identity instead of
-# whatever actions/checkout persisted — opt-in and backward compatible: a
-# caller that set neither env var pushes exactly as before.
-PUSH_TOKEN="${APP_TOKEN:-${GITHUB_PAT:-}}"
-if [ -n "$PUSH_TOKEN" ] && [ -n "${GITHUB_REPOSITORY:-}" ]; then
-  # Clear the extraheader actions/checkout persists (GITHUB_TOKEN) — it takes
-  # priority over URL-embedded credentials and would silently push back as
-  # github-actions[bot] otherwise.
-  git config --local --unset-all http.https://github.com/.extraheader 2>/dev/null || true
-  git remote set-url origin "https://x-access-token:${PUSH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-fi
+# Direct pushes to this repo's `main` must authenticate as GITHUB_PAT or
+# APP_TOKEN (ruleset bypass identities). Falling back to the ambient
+# GITHUB_TOKEN is how GH013 still landed after the opt-in rewrite: a mint
+# with continue-on-error left APP_TOKEN unset and the push retried as
+# github-actions[bot]. Fail closed instead. Origin URLs that are not
+# github.com (local helper tests) are left alone by the configure script.
+bash "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/configure-main-push-auth.sh"
 
 # --no-verify: skip the .githooks/pre-push sibling-patterns gate. Every caller
 # of this helper is a data-refresh workflow pushing generated content to main —
