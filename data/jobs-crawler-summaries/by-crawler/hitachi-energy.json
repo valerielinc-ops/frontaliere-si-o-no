@@ -1,16 +1,16 @@
 {
   "key": "hitachi-energy",
   "label": "Hitachi Energy",
-  "generatedAt": "2026-08-27T20:17:53.559Z",
+  "generatedAt": "2026-08-28T05:17:42.998Z",
   "total": 69,
   "newCount": 0,
-  "updatedCount": 67,
+  "updatedCount": 68,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 283387,
-  "avgDurationMs": 283387,
+  "unchangedCount": 1,
+  "durationMs": 268408,
+  "avgDurationMs": 268408,
   "durationHistory": [
-    283387
+    268408
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -122,6 +122,41 @@
       }
     },
     {
+      "title": "Secondary Design Engineer 80 – 100% (f/m/d)",
+      "slug": "secondary-design-engineer-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+      "url": "https://www.hitachienergy.com/careers/open-jobs/details/JID3-212655",
+      "applyUrl": "https://hitachi.wd1.myworkdayjobs.com/hitachi/job/Zurich-Zurich-Switzerland/Secondary-Design-Engineer-80---100---f-m-d-_R0133741/apply",
+      "company": "Hitachi Energy",
+      "companyKey": "hitachi-energy",
+      "companyDomain": "hitachienergy.com",
+      "location": "Zurich, Switzerland",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Ingegneria Energetica",
+      "source": "hitachi-energy-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-08-26",
+      "employmentType": "full-time",
+      "contractType": "regular",
+      "validThrough": "",
+      "id": "hitachi-energy-79daebc115f1",
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-27T19:59:10.655Z",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
       "title": "Field Service Engineer (w/m/d)",
       "slug": "field-service-engineer-w-m-d-hitachi-energy-zurich-switzerland",
       "url": "https://www.hitachienergy.com/careers/open-jobs/details/JID3-212616",
@@ -148,6 +183,7 @@
       "salaryMax": 126000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-27T19:59:10.655Z",
+      "needsRetranslation": true,
       "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -360,7 +396,6 @@
       "salaryMax": 120500,
       "currency": "CHF",
       "firstSeenAt": "2026-08-20T21:36:20.596Z",
-      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1038,41 +1073,6 @@
         "translation": 25,
         "completeness": 19
       }
-    },
-    {
-      "title": "Internship in Electrical Design Applications 80 - 100% (f/m/d)",
-      "slug": "internship-in-electrical-design-applications-80-100-f-m-d-hitachi-energy-wettingen-switzerland",
-      "url": "https://www.hitachienergy.com/careers/open-jobs/details/JID3-209257",
-      "applyUrl": "https://hitachi.wd1.myworkdayjobs.com/hitachi/job/Wettingen-Aargau-Switzerland/Internship-in-Electrical-Design-Applications-80---100---f-m-d-_R0137399/apply",
-      "company": "Hitachi Energy",
-      "companyKey": "hitachi-energy",
-      "companyDomain": "hitachienergy.com",
-      "location": "Wettingen, Switzerland",
-      "addressLocality": "Wettingen",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "canton": "AG",
-      "country": "CH",
-      "category": "internship",
-      "sector": "Stage & Formazione",
-      "source": "hitachi-energy-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-08-04",
-      "employmentType": "internship",
-      "contractType": "intern (fixed term) (trainee)",
-      "validThrough": "",
-      "id": "hitachi-energy-4954784d4fe5",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-08-04T11:38:48.998Z",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 19
-      }
     }
   ],
   "removedJobs": [],
@@ -1110,41 +1110,6 @@
         "cleanliness": 25,
         "richness": 20,
         "translation": 16,
-        "completeness": 19
-      }
-    },
-    {
-      "title": "Secondary Design Engineer 80 – 100% (f/m/d)",
-      "slug": "secondary-design-engineer-80-100-f-m-d-hitachi-energy-zurich-switzerland",
-      "url": "https://www.hitachienergy.com/careers/open-jobs/details/JID3-212655",
-      "applyUrl": "https://hitachi.wd1.myworkdayjobs.com/hitachi/job/Zurich-Zurich-Switzerland/Secondary-Design-Engineer-80---100---f-m-d-_R0133741/apply",
-      "company": "Hitachi Energy",
-      "companyKey": "hitachi-energy",
-      "companyDomain": "hitachienergy.com",
-      "location": "Zurich, Switzerland",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Ingegneria Energetica",
-      "source": "hitachi-energy-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-08-26",
-      "employmentType": "full-time",
-      "contractType": "regular",
-      "validThrough": "",
-      "id": "hitachi-energy-79daebc115f1",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-08-27T19:59:10.655Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 21,
         "completeness": 19
       }
     }
