@@ -4591,6 +4591,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.transizione-energetica-svizzera-ses-2025.title': 'Energiewende: Schweiz auf Platz 5 – Windkraft bleibt schwach',
     'blog.article.transizione-energetica-svizzera-ses-2025.excerpt': 'Studie ses 2025: 4872 kWh pro Kopf aus erneuerbaren Energien, Solar bei 878 kWh. Windstille bei 18 kWh, 25. von 28 Ländern.',
     'blog.article.transizione-energetica-svizzera-ses-2025.imageAlt': 'Schweizer Alpenpanorama mit Solaranlagen und Windkraftanlagen im Hintergrund',
+    'blog.article.apprendistato-formazione-uri-guida.title': 'Lehrstellen und Berufsausbildung im Kanton Uri',
+    'blog.article.apprendistato-formazione-uri-guida.excerpt': 'So finden Sie eine Lehrstelle im Kanton Uri: Vertrag, Entgelt, Berufsmaturität und konkrete Bewerbungsschritte.',
+    'blog.article.apprendistato-formazione-uri-guida.imageAlt': 'Junger Lehrling bei der Arbeit in einer Werkstatt im Kanton Uri mit Blick auf die Schweizer Alpen',
 };
 
 export default blogMetaChDe;

@@ -59573,6 +59573,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-apprendistato-formazione-uri-guida': {
+    title: 'Apprendistato e formazione professionale nel Canton Uri',
+    description: 'Guida pratica all\'apprendistato in Canton Uri: contratto di tirocinio, retribuzione, maturità professionale e passi per candidarsi. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, formazione, professionale, canton',
+    ogTitle: 'Apprendistato e formazione professionale nel Canton Uri',
+    ogDescription: 'Tutto sull\'apprendistato in Canton Uri: come trovare un posto di tirocinio, il contratto, la retribuzione dell\'apprendista e la maturità professionale federale. Guida pratica.',
+    canonicalPath: '/articoli-svizzera/apprendistato-formazione-uri-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato e formazione professionale nel Canton Uri",
+      "description": "Guida pratica all'apprendistato in Canton Uri: contratto di tirocinio, retribuzione, maturità professionale e passi per candidarsi. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apprendistato-formazione-uri-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giovane apprendista al lavoro in un'officina nel Canton Uri con vista sulle Alpi svizzere"
+      },
+      "datePublished": "2026-08-28T13:15:29+00:00",
+      "dateModified": "2026-08-28T13:15:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendistato-formazione-uri-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
