@@ -56,6 +56,9 @@ jobs:
             exit 1
           fi
 
+      - name: Load push credentials from Remote Config
+        run: node scripts/load-rc-env.mjs
+
       - name: Update exchange rate history
         run: node scripts/update-exchange-history.mjs
 

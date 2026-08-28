@@ -44,6 +44,21 @@ jobs:
       - name: Install dependencies
         run: npm ci --ignore-scripts
 
+      - name: Prepare Firebase credentials for push auth
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load GITHUB_PAT for a direct main push"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load push credentials from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+
       - name: Measure evergreen pool
         run: node scripts/evergreen-pool-consumption.mjs --json > /tmp/pool.json
 
@@ -65,6 +80,7 @@ jobs:
             git commit -m "🌲 Evergreen pool history snapshot $(date -u +%Y-%m-%d)"
             # Abort any conflicting rebase before retrying, otherwise the loop
             # wedges on "unmerged files" until the job is canceled.
+            bash scripts/lib/configure-main-push-auth.sh
             for i in 1 2 3; do
               git pull --rebase origin main && git push && exit 0
               git rebase --abort 2>/dev/null || true
