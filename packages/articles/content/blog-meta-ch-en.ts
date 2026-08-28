@@ -4594,6 +4594,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-formazione-uri-guida.title': 'Apprenticeship and vocational training in Canton Uri',
     'blog.article.apprendistato-formazione-uri-guida.excerpt': 'How to find an internship in Canton Uri: contract, salary, professional maturity and concrete steps to apply.',
     'blog.article.apprendistato-formazione-uri-guida.imageAlt': 'Young apprentice at work in a workshop in Canton Uri with view of Swiss Alps',
+    'blog.article.grigioni-repower-tariffe-stagionali-2027.title': 'Repower Grisons: seasonal rates and 20 francs less for families',
+    'blog.article.grigioni-repower-tariffe-stagionali-2027.excerpt': 'From 2027 in the Repower area, a typical family will spend 1,449 francs a year, -1.4% compared to 2026. Differentiated summer/winter rates and the new Optima variable option are coming soon.',
+    'blog.article.grigioni-repower-tariffe-stagionali-2027.imageAlt': 'Alpine power substation in Graubünden with high-voltage lines',
 };
 
 export default blogMetaChEn;

@@ -4594,6 +4594,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-formazione-uri-guida.title': 'Lehrstellen und Berufsausbildung im Kanton Uri',
     'blog.article.apprendistato-formazione-uri-guida.excerpt': 'So finden Sie eine Lehrstelle im Kanton Uri: Vertrag, Entgelt, Berufsmaturität und konkrete Bewerbungsschritte.',
     'blog.article.apprendistato-formazione-uri-guida.imageAlt': 'Junger Lehrling bei der Arbeit in einer Werkstatt im Kanton Uri mit Blick auf die Schweizer Alpen',
+    'blog.article.grigioni-repower-tariffe-stagionali-2027.title': 'Repower Graubünden: Saisontarife und 20 Franken weniger für Familien',
+    'blog.article.grigioni-repower-tariffe-stagionali-2027.excerpt': 'Ab 2027 wird eine typische Familie im Repower-Gebiet 1.449 Franken pro Jahr ausgeben, -1,4% im Vergleich zu 2026. Es gibt differenzierte Sommer-/Winterpreise und die neue variable Option Optima.',
+    'blog.article.grigioni-repower-tariffe-stagionali-2027.imageAlt': 'Alpine Stromstation in Graubünden mit Hochspannungsleitungen',
 };
 
 export default blogMetaChDe;

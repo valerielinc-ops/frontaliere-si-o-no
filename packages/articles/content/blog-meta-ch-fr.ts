@@ -4594,6 +4594,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-formazione-uri-guida.title': 'Apprentissage et formation professionnelle dans le canton d\'Uri',
     'blog.article.apprendistato-formazione-uri-guida.excerpt': 'Comment trouver un poste de stagiaire dans le canton d\'Uri : contrat, rémunération, maturité professionnelle et démarches concrètes pour postuler.',
     'blog.article.apprendistato-formazione-uri-guida.imageAlt': 'Jeune apprenti au travail dans un atelier du canton d\'Uri avec vue sur les Alpes suisses',
+    'blog.article.grigioni-repower-tariffe-stagionali-2027.title': 'Repower Grisons : tarifs saisonniers et 20 francs de moins pour les familles',
+    'blog.article.grigioni-repower-tariffe-stagionali-2027.excerpt': 'À partir de 2027, dans le domaine Repower, une famille type dépensera 1 449 francs par an, -1,4 % par rapport à 2026. Des tarifs différenciés été/hiver et la nouvelle option variable Optima arrivent.',
+    'blog.article.grigioni-repower-tariffe-stagionali-2027.imageAlt': 'Sous-station électrique alpine dans les Grisons avec lignes haute tension',
 };
 
 export default blogMetaChFr;
