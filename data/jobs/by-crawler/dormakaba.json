@@ -895,11 +895,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "coordinatore-del-comando-m-f-d-dormakaba-le-mont-sur-lausanne",
-        "m-f-d-command-coordinator-dormakaba-le-mont-sur-lausanne",
-        "m-w-d-kommandokoordinator-dormakaba-le-mont-sur-lausanne",
-        "coordinateur-de-commandes-f-m-d-dormakaba-ch",
-        "coordinateur-de-commandes-f-m-d-dormakaba-le-mont-sur-lausanne"
+        "coordinateur-de-commandes-f-m-d-dormakaba-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1403,11 +1399,11 @@
     },
     {
       "id": "dormakaba-11911",
-      "slug": "responsable-service-montage-modernisation-m-f-d-dormakaba-ch",
+      "slug": "service-manager-montaggio-e-modernizzazione-m-f-d-dormakaba-le-mont-sur-lausanne",
       "slugByLocale": {
-        "it": "responsable-service-montage-modernisation-m-f-d-dormakaba-ch",
-        "en": "responsable-service-montage-modernisation-m-f-d-dormakaba-ch",
-        "de": "responsable-service-montage-modernisation-m-f-d-dormakaba-ch",
+        "it": "service-manager-montaggio-e-modernizzazione-m-f-d-dormakaba-le-mont-sur-lausanne",
+        "en": "service-manager-assembly-modernization-m-f-d-dormakaba-le-mont-sur-lausanne",
+        "de": "service-manager-montage-modernisierung-m-w-d-dormakaba-le-mont-sur-lausanne",
         "fr": "responsable-service-montage-modernisation-m-f-d-dormakaba-ch"
       },
       "company": "dormakaba",
@@ -1452,20 +1448,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "service-manager-assemblaggio-e-modernizzazione-m-f-d-dormakaba-le-mont-sur-lausanne",
-        "service-manager-montaggio-e-modernizzazione-m-f-d-dormakaba-le-mont-sur-lausanne",
-        "service-manager-assembly-modernization-m-f-d-dormakaba-le-mont-sur-lausanne",
-        "service-manager-montage-modernisierung-m-w-d-dormakaba-le-mont-sur-lausanne"
+        "responsable-service-montage-modernisation-m-f-d-dormakaba-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "service-manager-assemblaggio-e-modernizzazione-m-f-d-dormakaba-le-mont-sur-lausanne",
-          "service-manager-montaggio-e-modernizzazione-m-f-d-dormakaba-le-mont-sur-lausanne"
+          "responsable-service-montage-modernisation-m-f-d-dormakaba-ch"
         ],
         "en": [
-          "service-manager-assembly-modernization-m-f-d-dormakaba-le-mont-sur-lausanne"
+          "responsable-service-montage-modernisation-m-f-d-dormakaba-ch"
         ],
         "de": [
-          "service-manager-montage-modernisierung-m-w-d-dormakaba-le-mont-sur-lausanne"
+          "responsable-service-montage-modernisation-m-f-d-dormakaba-ch"
         ]
       },
       "needsRetranslation": true,

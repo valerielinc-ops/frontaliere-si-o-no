@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-xdsoo9",
-      "slug": "call-agent-m-w-d-kundendienst-coop-ch-40-stundenlohn-coop-ch-spreitenbach-aargau",
+      "slug": "call-agent-m-f-d-servizio-clienti-coop-ch-40-salario-orario-coop-genossenschaft-spreitenbach-aargau",
       "company": "Coop Genossenschaft",
       "title": "Call Agent (w/m/d) Kundendienst coop.ch, 40% (Stundenlohn)",
       "location": "Spreitenbach, Aargau",
@@ -36,10 +36,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "call-agent-m-w-d-kundendienst-coop-ch-40-stundenlohn-coop-genossenschaft-spreitenbach-aargau-xdsoo9",
-        "en": "call-agent-m-w-d-kundendienst-coop-ch-40-stundenlohn-coop-genossenschaft-spreitenbach-aargau-xdsoo9",
+        "it": "call-agent-m-f-d-servizio-clienti-coop-ch-40-salario-orario-coop-genossenschaft-spreitenbach-aargau",
+        "en": "call-agent-m-f-d-customer-service-coop-ch-40-hourly-wage-coop-genossenschaft-spreitenbach-aargau",
         "de": "call-agent-m-w-d-kundendienst-coop-ch-40-stundenlohn-coop-genossenschaft-spreitenbach-aargau-xdsoo9",
-        "fr": "call-agent-m-w-d-kundendienst-coop-ch-40-stundenlohn-coop-genossenschaft-spreitenbach-aargau-xdsoo9"
+        "fr": "appelez-l-agent-h-f-d-service-a-la-clientele-coop-ch-40-salaire-horaire-coop-genossenschaft-spreitenbach-aargau"
       },
       "addressLocality": "Spreitenbach",
       "sourceLang": "de",
@@ -60,11 +60,21 @@
         "canton": "AG"
       },
       "previousSlugs": [
-        "call-agent-m-w-d-kundendienst-coop-ch-40-stundenlohn-coop-genossenschaft-spreitenbach-aargau"
+        "call-agent-m-w-d-kundendienst-coop-ch-40-stundenlohn-coop-genossenschaft-spreitenbach-aargau",
+        "call-agent-m-w-d-kundendienst-coop-ch-40-stundenlohn-coop-genossenschaft-spreitenbach-aargau-xdsoo9",
+        "call-agent-m-w-d-kundendienst-coop-ch-40-stundenlohn-coop-ch-spreitenbach-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "call-agent-m-w-d-kundendienst-coop-ch-40-stundenlohn-coop-genossenschaft-spreitenbach-aargau"
+          "call-agent-m-w-d-kundendienst-coop-ch-40-stundenlohn-coop-genossenschaft-spreitenbach-aargau",
+          "call-agent-m-w-d-kundendienst-coop-ch-40-stundenlohn-coop-genossenschaft-spreitenbach-aargau-xdsoo9",
+          "call-agent-m-w-d-kundendienst-coop-ch-40-stundenlohn-coop-ch-spreitenbach-aargau"
+        ],
+        "en": [
+          "call-agent-m-w-d-kundendienst-coop-ch-40-stundenlohn-coop-genossenschaft-spreitenbach-aargau-xdsoo9"
+        ],
+        "fr": [
+          "call-agent-m-w-d-kundendienst-coop-ch-40-stundenlohn-coop-genossenschaft-spreitenbach-aargau-xdsoo9"
         ]
       },
       "salaryMin": 24800,
@@ -250,9 +260,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "informatiker-in-cfc-plattformenentwicklung-coop-basel-bpn57e",
-        "en": "informatiker-in-efz-plattformenentwicklung-coop-basel-bpn57e",
+        "en": "it-specialist-efz-platform-development-coop-basel",
         "de": "informatiker-in-efz-plattformenentwicklung-coop-basel-bpn57e",
-        "fr": "informatiker-in-efz-plattformenentwicklung-coop-basel-bpn57e"
+        "fr": "informaticien-ne-cfc-developpement-de-plateformes-coop-basel"
       },
       "addressLocality": "Basel",
       "sourceLang": "de",
@@ -272,15 +282,22 @@
       "previousSlugsByLocale": {
         "it": [
           "informatiker-in-efz-plattformenentwicklung-coop-basel"
+        ],
+        "en": [
+          "informatiker-in-efz-plattformenentwicklung-coop-basel-bpn57e"
+        ],
+        "fr": [
+          "informatiker-in-efz-plattformenentwicklung-coop-basel-bpn57e"
         ]
       },
       "previousSlugs": [
-        "informatiker-in-efz-plattformenentwicklung-coop-basel"
+        "informatiker-in-efz-plattformenentwicklung-coop-basel",
+        "informatiker-in-efz-plattformenentwicklung-coop-basel-bpn57e"
       ]
     },
     {
       "id": "company-wuuw69",
-      "slug": "backer-in-konditor-in-coop-genossenschaft-volketswil-zurich",
+      "slug": "panettiere-pasticciere-coop-genossenschaft-volketswil",
       "company": "Coop Genossenschaft",
       "title": "Bäcker:in - Konditor:in",
       "location": "Volketswil",
@@ -321,10 +338,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "backer-in-konditor-in-coop-genossenschaft-volketswil-zurich-wuuw69",
-        "en": "backer-in-konditor-in-coop-genossenschaft-volketswil-zurich-wuuw69",
+        "it": "panettiere-pasticciere-coop-genossenschaft-volketswil",
+        "en": "baker-confectioner-pastry-chef-coop-genossenschaft-volketswil",
         "de": "backer-in-konditor-in-coop-genossenschaft-volketswil-zurich-wuuw69",
-        "fr": "backer-in-konditor-in-coop-genossenschaft-volketswil-zurich-wuuw69"
+        "fr": "boulanger-patissier-coop-genossenschaft-volketswil"
       },
       "addressLocality": "Volketswil",
       "sourceLang": "de",
@@ -340,7 +357,23 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "backer-in-konditor-in-coop-genossenschaft-volketswil-zurich-wuuw69",
+          "backer-in-konditor-in-coop-genossenschaft-volketswil-zurich"
+        ],
+        "en": [
+          "backer-in-konditor-in-coop-genossenschaft-volketswil-zurich-wuuw69"
+        ],
+        "fr": [
+          "backer-in-konditor-in-coop-genossenschaft-volketswil-zurich-wuuw69"
+        ]
+      },
+      "previousSlugs": [
+        "backer-in-konditor-in-coop-genossenschaft-volketswil-zurich-wuuw69",
+        "backer-in-konditor-in-coop-genossenschaft-volketswil-zurich"
+      ]
     },
     {
       "id": "company-1jrrx1",
@@ -510,7 +543,7 @@
     },
     {
       "id": "company-2t0m1o",
-      "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-uster-zurich",
+      "slug": "macellaio-macellaia-specialista-in-carne-coop-genossenschaft-uster",
       "company": "Coop Genossenschaft",
       "title": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
       "location": "Uster",
@@ -556,10 +589,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-uster-zurich-2t0m1o",
-        "en": "metzger-in-fleischfachfrau-fleischfachmann-coop-uster-zurich-2t0m1o",
+        "it": "macellaio-macellaia-specialista-in-carne-coop-genossenschaft-uster",
+        "en": "butcher-meat-specialist-coop-genossenschaft-uster",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-uster-zurich-2t0m1o",
-        "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-uster-zurich-2t0m1o"
+        "fr": "boucher-bouchere-specialiste-de-la-viande-coop-genossenschaft-uster"
       },
       "addressLocality": "Uster",
       "sourceLang": "de",
@@ -575,7 +608,23 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-uster-zurich-2t0m1o",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-uster-zurich"
+        ],
+        "en": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-uster-zurich-2t0m1o"
+        ],
+        "fr": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-uster-zurich-2t0m1o"
+        ]
+      },
+      "previousSlugs": [
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-uster-zurich-2t0m1o",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-uster-zurich"
+      ]
     },
     {
       "id": "company-185u5n",
@@ -645,7 +694,7 @@
     },
     {
       "id": "company-g373wb",
-      "slug": "backer-in-konditor-in-coop-burgdorf-bern",
+      "slug": "panettiere-pasticcere-coop-genossenschaft-burgdorf",
       "company": "Coop Genossenschaft",
       "title": "Bäcker:in - Konditor:in",
       "location": "Burgdorf",
@@ -691,10 +740,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "backer-in-konditor-in-coop-burgdorf-bern-g373wb",
-        "en": "backer-in-konditor-in-coop-burgdorf-bern-g373wb",
+        "it": "panettiere-pasticcere-coop-genossenschaft-burgdorf",
+        "en": "baker-confectioner-coop-genossenschaft-burgdorf",
         "de": "backer-in-konditor-in-coop-burgdorf-bern-g373wb",
-        "fr": "backer-in-konditor-in-coop-burgdorf-bern-g373wb"
+        "fr": "boulanger-ere-patissier-ere-coop-genossenschaft-burgdorf"
       },
       "addressLocality": "Burgdorf",
       "sourceLang": "de",
@@ -710,7 +759,23 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "backer-in-konditor-in-coop-burgdorf-bern-g373wb",
+          "backer-in-konditor-in-coop-burgdorf-bern"
+        ],
+        "en": [
+          "backer-in-konditor-in-coop-burgdorf-bern-g373wb"
+        ],
+        "fr": [
+          "backer-in-konditor-in-coop-burgdorf-bern-g373wb"
+        ]
+      },
+      "previousSlugs": [
+        "backer-in-konditor-in-coop-burgdorf-bern-g373wb",
+        "backer-in-konditor-in-coop-burgdorf-bern"
+      ]
     },
     {
       "id": "company-yf8ssx",
@@ -1241,7 +1306,7 @@
     },
     {
       "id": "company-5plkvp",
-      "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-luzern",
+      "slug": "macellaio-macellaia-specialista-in-macelleria-coop-genossenschaft-luzern",
       "company": "Coop Genossenschaft",
       "title": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
       "location": "Luzern",
@@ -1278,10 +1343,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-luzern-5plkvp",
-        "en": "metzger-in-fleischfachfrau-fleischfachmann-coop-luzern-5plkvp",
+        "it": "macellaio-macellaia-specialista-in-macelleria-coop-genossenschaft-luzern",
+        "en": "butcher-meat-specialist-coop-genossenschaft-luzern",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-luzern-5plkvp",
-        "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-luzern-5plkvp"
+        "fr": "boucher-bouchere-specialiste-en-boucherie-coop-genossenschaft-luzern"
       },
       "addressLocality": "Luzern",
       "sourceLang": "de",
@@ -1297,7 +1362,23 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-luzern-5plkvp",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-luzern"
+        ],
+        "en": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-luzern-5plkvp"
+        ],
+        "fr": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-luzern-5plkvp"
+        ]
+      },
+      "previousSlugs": [
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-luzern-5plkvp",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-luzern"
+      ]
     },
     {
       "id": "company-5fxa4u",
@@ -1365,7 +1446,7 @@
     },
     {
       "id": "company-w0aii4",
-      "slug": "rayonleiter-in-convenience-fleisch-coop-chur-graubunden",
+      "slug": "responsabile-di-reparto-convenience-carne-coop-genossenschaft-chur",
       "company": "Coop Genossenschaft",
       "title": "Rayonleiter:in Convenience / Fleisch",
       "location": "Chur",
@@ -1411,10 +1492,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "rayonleiter-in-convenience-fleisch-coop-chur-graubunden-w0aii4",
-        "en": "rayonleiter-in-convenience-fleisch-coop-chur-graubunden-w0aii4",
+        "it": "responsabile-di-reparto-convenience-carne-coop-genossenschaft-chur",
+        "en": "department-manager-convenience-meat-coop-genossenschaft-chur",
         "de": "rayonleiter-in-convenience-fleisch-coop-chur-graubunden-w0aii4",
-        "fr": "rayonleiter-in-convenience-fleisch-coop-chur-graubunden-w0aii4"
+        "fr": "responsable-de-rayon-convenience-viande-coop-genossenschaft-chur"
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
@@ -1430,7 +1511,23 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "rayonleiter-in-convenience-fleisch-coop-chur-graubunden-w0aii4",
+          "rayonleiter-in-convenience-fleisch-coop-chur-graubunden"
+        ],
+        "en": [
+          "rayonleiter-in-convenience-fleisch-coop-chur-graubunden-w0aii4"
+        ],
+        "fr": [
+          "rayonleiter-in-convenience-fleisch-coop-chur-graubunden-w0aii4"
+        ]
+      },
+      "previousSlugs": [
+        "rayonleiter-in-convenience-fleisch-coop-chur-graubunden-w0aii4",
+        "rayonleiter-in-convenience-fleisch-coop-chur-graubunden"
+      ]
     },
     {
       "id": "company-bf9vd1",
@@ -1626,7 +1723,7 @@
     },
     {
       "id": "company-pk18zl",
-      "slug": "verkaufer-in-blumen-kiosk-coop-klosters-serneus-graubunden",
+      "slug": "addetto-a-vendita-fiori-chiosco-coop-genossenschaft-klosters-serneus",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Blumen/Kiosk",
       "location": "Klosters-Serneus",
@@ -1672,10 +1769,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-blumen-kiosk-coop-klosters-serneus-graubunden-pk18zl",
-        "en": "verkaufer-in-blumen-kiosk-coop-klosters-serneus-graubunden-pk18zl",
+        "it": "addetto-a-vendita-fiori-chiosco-coop-genossenschaft-klosters-serneus",
+        "en": "sales-clerk-flowers-kiosk-coop-genossenschaft-klosters-serneus",
         "de": "verkaufer-in-blumen-kiosk-coop-klosters-serneus-graubunden-pk18zl",
-        "fr": "verkaufer-in-blumen-kiosk-coop-klosters-serneus-graubunden-pk18zl"
+        "fr": "vendeur-vendeuse-fleurs-kiosque-coop-genossenschaft-klosters-serneus"
       },
       "addressLocality": "Klosters-Serneus",
       "sourceLang": "de",
@@ -1697,23 +1794,29 @@
           "venditore-di-fiori-kiosco-coop-genossenschaft-klosters-serneus",
           "verkaufer-in-blumen-kiosk-coop-genossenschaft-klosters-serneus-graubunden-y16ar3",
           "flower-kiosk-salesperson-coop-genossenschaft-klosters-serneus-y16ar3",
-          "vendeur-de-fleurs-kiosque-coop-genossenschaft-klosters-serneus-y16ar3"
+          "vendeur-de-fleurs-kiosque-coop-genossenschaft-klosters-serneus-y16ar3",
+          "verkaufer-in-blumen-kiosk-coop-klosters-serneus-graubunden-pk18zl",
+          "verkaufer-in-blumen-kiosk-coop-klosters-serneus-graubunden"
         ],
         "en": [
-          "flower-kiosk-salesperson-coop-genossenschaft-klosters-serneus-y16ar3"
+          "flower-kiosk-salesperson-coop-genossenschaft-klosters-serneus-y16ar3",
+          "verkaufer-in-blumen-kiosk-coop-klosters-serneus-graubunden-pk18zl"
         ],
         "de": [
           "verkaufer-in-blumen-kiosk-coop-genossenschaft-klosters-serneus-graubunden-y16ar3"
         ],
         "fr": [
-          "vendeur-de-fleurs-kiosque-coop-genossenschaft-klosters-serneus-y16ar3"
+          "vendeur-de-fleurs-kiosque-coop-genossenschaft-klosters-serneus-y16ar3",
+          "verkaufer-in-blumen-kiosk-coop-klosters-serneus-graubunden-pk18zl"
         ]
       },
       "previousSlugs": [
         "venditore-di-fiori-kiosco-coop-genossenschaft-klosters-serneus",
         "verkaufer-in-blumen-kiosk-coop-genossenschaft-klosters-serneus-graubunden-y16ar3",
         "flower-kiosk-salesperson-coop-genossenschaft-klosters-serneus-y16ar3",
-        "vendeur-de-fleurs-kiosque-coop-genossenschaft-klosters-serneus-y16ar3"
+        "vendeur-de-fleurs-kiosque-coop-genossenschaft-klosters-serneus-y16ar3",
+        "verkaufer-in-blumen-kiosk-coop-klosters-serneus-graubunden-pk18zl",
+        "verkaufer-in-blumen-kiosk-coop-klosters-serneus-graubunden"
       ]
     },
     {
@@ -2231,7 +2334,7 @@
     },
     {
       "id": "company-b7ga6s",
-      "slug": "rayonleiter-in-wein-getranke-coop-basel-landschaft",
+      "slug": "responsabile-di-reparto-vino-bevande-coop-genossenschaft-basel",
       "company": "Coop Genossenschaft",
       "title": "Rayonleiter:in Wein /Getränke",
       "location": "Basel",
@@ -2277,10 +2380,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "rayonleiter-in-wein-getranke-coop-basel-landschaft-b7ga6s",
-        "en": "rayonleiter-in-wein-getranke-coop-basel-landschaft-b7ga6s",
+        "it": "responsabile-di-reparto-vino-bevande-coop-genossenschaft-basel",
+        "en": "department-manager-wine-beverages-coop-genossenschaft-basel",
         "de": "rayonleiter-in-wein-getranke-coop-basel-landschaft-b7ga6s",
-        "fr": "rayonleiter-in-wein-getranke-coop-basel-landschaft-b7ga6s"
+        "fr": "responsable-de-rayon-vin-boissons-coop-genossenschaft-basel"
       },
       "addressLocality": "Basel",
       "sourceLang": "de",
@@ -2296,7 +2399,23 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "rayonleiter-in-wein-getranke-coop-basel-landschaft-b7ga6s",
+          "rayonleiter-in-wein-getranke-coop-basel-landschaft"
+        ],
+        "en": [
+          "rayonleiter-in-wein-getranke-coop-basel-landschaft-b7ga6s"
+        ],
+        "fr": [
+          "rayonleiter-in-wein-getranke-coop-basel-landschaft-b7ga6s"
+        ]
+      },
+      "previousSlugs": [
+        "rayonleiter-in-wein-getranke-coop-basel-landschaft-b7ga6s",
+        "rayonleiter-in-wein-getranke-coop-basel-landschaft"
+      ]
     },
     {
       "id": "company-254go2",
@@ -2428,7 +2547,7 @@
     },
     {
       "id": "company-cxitlp",
-      "slug": "rayonleiter-in-grundnahrungsmittel-coop-wettingen-aargau",
+      "slug": "responsabile-reparto-alimentari-di-base-coop-genossenschaft-wettingen",
       "company": "Coop Genossenschaft",
       "title": "Rayonleiter:in Grundnahrungsmittel",
       "location": "Wettingen",
@@ -2474,10 +2593,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "rayonleiter-in-grundnahrungsmittel-coop-wettingen-aargau-cxitlp",
-        "en": "rayonleiter-in-grundnahrungsmittel-coop-wettingen-aargau-cxitlp",
+        "it": "responsabile-reparto-alimentari-di-base-coop-genossenschaft-wettingen",
+        "en": "department-manager-basic-foodstuffs-coop-genossenschaft-wettingen",
         "de": "rayonleiter-in-grundnahrungsmittel-coop-wettingen-aargau-cxitlp",
-        "fr": "rayonleiter-in-grundnahrungsmittel-coop-wettingen-aargau-cxitlp"
+        "fr": "responsable-de-rayon-denrees-alimentaires-de-base-coop-genossenschaft-wettingen"
       },
       "addressLocality": "Wettingen",
       "sourceLang": "de",
@@ -2500,16 +2619,20 @@
           "rayon-conductor-in-staple-food-coop-genossenschaft-wettingen",
           "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-wettingen-aargau-oyfxzn",
           "rayon-conducteur-dans-les-aliments-de-base-coop-genossenschaft-wettingen",
-          "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-wettingen-aargau"
+          "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-wettingen-aargau",
+          "rayonleiter-in-grundnahrungsmittel-coop-wettingen-aargau-cxitlp",
+          "rayonleiter-in-grundnahrungsmittel-coop-wettingen-aargau"
         ],
         "en": [
-          "rayon-conductor-in-staple-food-coop-genossenschaft-wettingen"
+          "rayon-conductor-in-staple-food-coop-genossenschaft-wettingen",
+          "rayonleiter-in-grundnahrungsmittel-coop-wettingen-aargau-cxitlp"
         ],
         "de": [
           "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-wettingen-aargau-oyfxzn"
         ],
         "fr": [
-          "rayon-conducteur-dans-les-aliments-de-base-coop-genossenschaft-wettingen"
+          "rayon-conducteur-dans-les-aliments-de-base-coop-genossenschaft-wettingen",
+          "rayonleiter-in-grundnahrungsmittel-coop-wettingen-aargau-cxitlp"
         ]
       },
       "previousSlugs": [
@@ -2517,7 +2640,9 @@
         "rayon-conductor-in-staple-food-coop-genossenschaft-wettingen",
         "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-wettingen-aargau-oyfxzn",
         "rayon-conducteur-dans-les-aliments-de-base-coop-genossenschaft-wettingen",
-        "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-wettingen-aargau"
+        "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-wettingen-aargau",
+        "rayonleiter-in-grundnahrungsmittel-coop-wettingen-aargau-cxitlp",
+        "rayonleiter-in-grundnahrungsmittel-coop-wettingen-aargau"
       ]
     },
     {
@@ -2726,7 +2851,7 @@
     },
     {
       "id": "company-hvelsn",
-      "slug": "auffuller-in-food-06-00-bis-10-00-uhr-coop-zurich",
+      "slug": "addetto-a-rifornimento-food-06-00-10-00-coop-genossenschaft-zurich",
       "company": "Coop Genossenschaft",
       "title": "Auffüller:in Food (06:00 bis 10:00 Uhr)",
       "location": "Zürich",
@@ -2763,10 +2888,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "auffuller-in-food-06-00-bis-10-00-uhr-coop-zurich-hvelsn",
-        "en": "auffuller-in-food-06-00-bis-10-00-uhr-coop-zurich-hvelsn",
+        "it": "addetto-a-rifornimento-food-06-00-10-00-coop-genossenschaft-zurich",
+        "en": "food-replenisher-06-00-10-00-coop-genossenschaft-zurich",
         "de": "auffuller-in-food-06-00-bis-10-00-uhr-coop-zurich-hvelsn",
-        "fr": "auffuller-in-food-06-00-bis-10-00-uhr-coop-zurich-hvelsn"
+        "fr": "reapprovisionneur-euse-food-06h00-10h00-coop-genossenschaft-zurich"
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
@@ -2782,11 +2907,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "auffuller-in-food-06-00-bis-10-00-uhr-coop-zurich-hvelsn",
+          "auffuller-in-food-06-00-bis-10-00-uhr-coop-zurich"
+        ],
+        "en": [
+          "auffuller-in-food-06-00-bis-10-00-uhr-coop-zurich-hvelsn"
+        ],
+        "fr": [
+          "auffuller-in-food-06-00-bis-10-00-uhr-coop-zurich-hvelsn"
+        ]
+      },
+      "previousSlugs": [
+        "auffuller-in-food-06-00-bis-10-00-uhr-coop-zurich-hvelsn",
+        "auffuller-in-food-06-00-bis-10-00-uhr-coop-zurich"
+      ]
     },
     {
       "id": "company-qhyidd",
-      "slug": "kochin-koch-m-w-d-coop-ristorante-zurich",
+      "slug": "cuoca-cuoco-f-m-d-coop-genossenschaft-zurich",
       "company": "Coop Genossenschaft",
       "title": "Köchin / Koch (w/m/d)",
       "location": "Zürich",
@@ -2832,10 +2973,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "kochin-koch-m-w-d-coop-ristorante-zurich-qhyidd",
+        "it": "cuoca-cuoco-f-m-d-coop-genossenschaft-zurich",
         "en": "kochin-koch-m-w-d-coop-ristorante-zurich-qhyidd",
         "de": "kochin-koch-m-w-d-coop-ristorante-zurich-qhyidd",
-        "fr": "kochin-koch-m-w-d-coop-ristorante-zurich-qhyidd"
+        "fr": "cuisiniere-cuisinier-f-m-d-coop-genossenschaft-zurich"
       },
       "needsRetranslation": true,
       "addressLocality": "Zürich",
@@ -2853,7 +2994,20 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "kochin-koch-m-w-d-coop-ristorante-zurich-qhyidd",
+          "kochin-koch-m-w-d-coop-ristorante-zurich"
+        ],
+        "fr": [
+          "kochin-koch-m-w-d-coop-ristorante-zurich-qhyidd"
+        ]
+      },
+      "previousSlugs": [
+        "kochin-koch-m-w-d-coop-ristorante-zurich-qhyidd",
+        "kochin-koch-m-w-d-coop-ristorante-zurich"
+      ]
     },
     {
       "id": "company-1rthd8",
@@ -2923,7 +3077,7 @@
     },
     {
       "id": "company-rhbunz",
-      "slug": "rayonleiter-in-molkerei-eier-kase-coop-kusnacht-zurich",
+      "slug": "responsabile-di-reparto-latticini-uova-formaggi-coop-genossenschaft-kusnacht",
       "company": "Coop Genossenschaft",
       "title": "Rayonleiter:in Molkerei / Eier / Käse",
       "location": "Küsnacht",
@@ -2969,10 +3123,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "rayonleiter-in-molkerei-eier-kase-coop-kusnacht-zurich-rhbunz",
-        "en": "rayonleiter-in-molkerei-eier-kase-coop-kusnacht-zurich-rhbunz",
+        "it": "responsabile-di-reparto-latticini-uova-formaggi-coop-genossenschaft-kusnacht",
+        "en": "department-manager-dairy-eggs-cheese-coop-genossenschaft-kusnacht",
         "de": "rayonleiter-in-molkerei-eier-kase-coop-kusnacht-zurich-rhbunz",
-        "fr": "rayonleiter-in-molkerei-eier-kase-coop-kusnacht-zurich-rhbunz"
+        "fr": "chef-fe-de-rayon-cremerie-ufs-fromage-coop-genossenschaft-kusnacht"
       },
       "addressLocality": "Küsnacht",
       "sourceLang": "de",
@@ -2988,11 +3142,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "rayonleiter-in-molkerei-eier-kase-coop-kusnacht-zurich-rhbunz",
+          "rayonleiter-in-molkerei-eier-kase-coop-kusnacht-zurich"
+        ],
+        "en": [
+          "rayonleiter-in-molkerei-eier-kase-coop-kusnacht-zurich-rhbunz"
+        ],
+        "fr": [
+          "rayonleiter-in-molkerei-eier-kase-coop-kusnacht-zurich-rhbunz"
+        ]
+      },
+      "previousSlugs": [
+        "rayonleiter-in-molkerei-eier-kase-coop-kusnacht-zurich-rhbunz",
+        "rayonleiter-in-molkerei-eier-kase-coop-kusnacht-zurich"
+      ]
     },
     {
       "id": "company-v1yby9",
-      "slug": "kochin-koch-m-w-d-coop-ristorante-olten-solothurn",
+      "slug": "cuoca-cuoco-f-m-d-coop-genossenschaft-olten",
       "company": "Coop Genossenschaft",
       "title": "Köchin / Koch (w/m/d)",
       "location": "Olten",
@@ -3038,10 +3208,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "kochin-koch-m-w-d-coop-ristorante-olten-solothurn-v1yby9",
+        "it": "cuoca-cuoco-f-m-d-coop-genossenschaft-olten",
         "en": "kochin-koch-m-w-d-coop-ristorante-olten-solothurn-v1yby9",
         "de": "kochin-koch-m-w-d-coop-ristorante-olten-solothurn-v1yby9",
-        "fr": "kochin-koch-m-w-d-coop-ristorante-olten-solothurn-v1yby9"
+        "fr": "cuisinier-cuisiniere-f-h-d-coop-genossenschaft-olten"
       },
       "needsRetranslation": true,
       "addressLocality": "Olten",
@@ -3059,7 +3229,20 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "kochin-koch-m-w-d-coop-ristorante-olten-solothurn-v1yby9",
+          "kochin-koch-m-w-d-coop-ristorante-olten-solothurn"
+        ],
+        "fr": [
+          "kochin-koch-m-w-d-coop-ristorante-olten-solothurn-v1yby9"
+        ]
+      },
+      "previousSlugs": [
+        "kochin-koch-m-w-d-coop-ristorante-olten-solothurn-v1yby9",
+        "kochin-koch-m-w-d-coop-ristorante-olten-solothurn"
+      ]
     },
     {
       "id": "company-hy7rne",
@@ -159137,15 +159320,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-dietlikon"
-        ]
-      },
-      "previousSlugs": [
-        "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-dietlikon"
-      ]
+      }
     },
     {
       "id": "company-1wzfo0",
@@ -159196,15 +159371,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-dietlikon-2"
-        ]
-      },
-      "previousSlugs": [
-        "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-dietlikon-2"
-      ]
+      }
     },
     {
       "id": "company-2eanta",
@@ -159426,16 +159593,14 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-verkauf-und-marketing-retail-steinfels-swiss-winterthur-80-100-coop-genossenschaft-winterthur",
-          "leiter-in-verkauf-und-marketing-retail-steinfels-swiss-winterthur-80-100-coop-genossenschaft-winterthur-zurich"
+          "leiter-in-verkauf-und-marketing-retail-steinfels-swiss-winterthur-80-100-coop-genossenschaft-winterthur"
         ],
         "de": [
           "leiter-in-verkauf-und-marketing-retail-steinfels-swiss-winterthur-80-100-coop-genossenschaft-winterthur"
         ]
       },
       "previousSlugs": [
-        "leiter-in-verkauf-und-marketing-retail-steinfels-swiss-winterthur-80-100-coop-genossenschaft-winterthur",
-        "leiter-in-verkauf-und-marketing-retail-steinfels-swiss-winterthur-80-100-coop-genossenschaft-winterthur-zurich"
+        "leiter-in-verkauf-und-marketing-retail-steinfels-swiss-winterthur-80-100-coop-genossenschaft-winterthur"
       ],
       "retranslationAttempts": 1
     },
@@ -160441,7 +160606,6 @@
         "allrounder-m-w-d-livique-frauenfeld-thurgau",
         "allrounder-m-w-d-livique-frauenfeld-thurgau-esobko",
         "m-w-d-polyvalent-livique-frauenfeld-thurgau-esobko",
-        "h-f-d-polyvalent-coop-genossenschaft-frauenfeld-thurgau",
         "m-w-d-polyvalent-coop-genossenschaft-frauenfeld-thurgau-esobko"
       ],
       "previousSlugsByLocale": {
@@ -160458,7 +160622,6 @@
           "tout-terrain-h-f-d-coop-genossenschaft-frauenfeld-thurgau",
           "allrounder-m-w-d-livique-frauenfeld-thurgau-esobko",
           "m-w-d-polyvalent-livique-frauenfeld-thurgau-esobko",
-          "h-f-d-polyvalent-coop-genossenschaft-frauenfeld-thurgau",
           "m-w-d-polyvalent-coop-genossenschaft-frauenfeld-thurgau-esobko"
         ]
       },
