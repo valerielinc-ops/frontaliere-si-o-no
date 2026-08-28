@@ -4597,6 +4597,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.grigioni-repower-tariffe-stagionali-2027.title': 'Repower Grisons: seasonal rates and 20 francs less for families',
     'blog.article.grigioni-repower-tariffe-stagionali-2027.excerpt': 'From 2027 in the Repower area, a typical family will spend 1,449 francs a year, -1.4% compared to 2026. Differentiated summer/winter rates and the new Optima variable option are coming soon.',
     'blog.article.grigioni-repower-tariffe-stagionali-2027.imageAlt': 'Alpine power substation in Graubünden with high-voltage lines',
+    'blog.article.paralberghiero-progression-trimestre-2026.title': 'Paralympic sector, slight progression in the second trimester',
+    'blog.article.paralberghiero-progression-trimestre-2026.excerpt': '3.9 million overnight stays between April and June (+0.4%). Decreasing in the semester (-3.1%). UST DATA',
+    'blog.article.paralberghiero-progression-trimestre-2026.imageAlt': 'Vacation apartments and campsites in a Swiss valley near Locarno, summer',
 };
 
 export default blogMetaChEn;

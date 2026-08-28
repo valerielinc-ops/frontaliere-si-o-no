@@ -1558,6 +1558,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'transizione-energetica-svizzera-ses-2025': { it: 'transizione-energetica-svizzera-ses-2025', en: 'energy-transition-switzerland-ses-2025', de: 'energiewende-schweiz-ses-2025', fr: 'transition-energetique-suisse-ses-2025' },
  'apprendistato-formazione-uri-guida': { it: 'apprendistato-formazione-uri-guida', en: 'apprenticeship-training-uri-guide', de: 'lehre-berufsbildung-uri-leitfaden', fr: 'apprentissage-formation-uri-guide' },
  'grigioni-repower-tariffe-stagionali-2027': { it: 'grigioni-repower-tariffe-stagionali-2027', en: 'graubunden-repower-seasonal-tariffs-2027', de: 'graubuenden-repower-saisontarife-2027', fr: 'grisons-repower-tarifs-saisonniers-2027' },
+ 'paralberghiero-progression-trimestre-2026': { it: 'paralberghiero-progression-trimestre-2026', en: 'parahotellerie-progression-trimestre-2026', de: 'parahotellerie-progression-quartal-2026', fr: 'parahotellerie-progression-trimestre-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

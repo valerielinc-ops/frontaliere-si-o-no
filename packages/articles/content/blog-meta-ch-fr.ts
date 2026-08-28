@@ -4597,6 +4597,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.grigioni-repower-tariffe-stagionali-2027.title': 'Repower Grisons : tarifs saisonniers et 20 francs de moins pour les familles',
     'blog.article.grigioni-repower-tariffe-stagionali-2027.excerpt': 'À partir de 2027, dans le domaine Repower, une famille type dépensera 1 449 francs par an, -1,4 % par rapport à 2026. Des tarifs différenciés été/hiver et la nouvelle option variable Optima arrivent.',
     'blog.article.grigioni-repower-tariffe-stagionali-2027.imageAlt': 'Sous-station électrique alpine dans les Grisons avec lignes haute tension',
+    'blog.article.paralberghiero-progression-trimestre-2026.title': 'Secteur hors hôtelerie, légère hausse au deuxième trimestre',
+    'blog.article.paralberghiero-progression-trimestre-2026.excerpt': '3,9 millions de nuitées entre avril et juin (+0,4%). Baisse du semestre (-3,1%). Données UST.',
+    'blog.article.paralberghiero-progression-trimestre-2026.imageAlt': 'Appartements de vacances et campings dans une vallée suisse près de Locarno, été',
 };
 
 export default blogMetaChFr;

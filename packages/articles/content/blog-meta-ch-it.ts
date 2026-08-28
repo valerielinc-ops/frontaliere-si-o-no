@@ -4597,6 +4597,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.grigioni-repower-tariffe-stagionali-2027.title': 'Repower Grigioni: tariffe stagionali e 20 franchi in meno per le famiglie',
     'blog.article.grigioni-repower-tariffe-stagionali-2027.excerpt': 'Dal 2027 nel comprensorio Repower una famiglia tipo spenderà 1.449 franchi l\'anno, -1,4% rispetto al 2026. In arrivo tariffe differenziate estate/inverno e la nuova opzione variabile Optima.',
     'blog.article.grigioni-repower-tariffe-stagionali-2027.imageAlt': 'Stazione elettrica alpina nei Grigioni con linee ad alta tensione',
+    'blog.article.paralberghiero-progression-trimestre-2026.title': 'Settore paralberghiero, lieve progressione nel secondo trimestre',
+    'blog.article.paralberghiero-progression-trimestre-2026.excerpt': '3,9 milioni di pernottamenti tra aprile e giugno (+0,4%). In calo il semestre (-3,1%). Dati UST.',
+    'blog.article.paralberghiero-progression-trimestre-2026.imageAlt': 'Appartamenti di vacanza e campeggi in una valle svizzera vicino a Locarno, estate',
 };
 
 export default blogMetaChIt;
