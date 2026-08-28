@@ -2898,7 +2898,6 @@
           "manor-collaborateur-trice-caisse-food-60-nyon-collaborateurtrice-caisse-food"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-18T10:15:44.805Z",
       "crawledAt": "",
       "salaryMin": 43200,
@@ -2917,7 +2916,9 @@
       "addressLocality": "Nyon Collaborateurtrice caisse (Food)",
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 138
     },
     {
       "title": "Mitarbeiter*in Verkauf 20%",
@@ -6346,7 +6347,7 @@
         "it": "Polydesigner*in 3D 80%",
         "en": "Polydesigner*in 3D 80%",
         "de": "Polydesigner*in 3D 80%",
-        "fr": "Polydesigner*in 3D 80%"
+        "fr": "Polydesigner* en 3D 80%"
       },
       "sourceLang": "it",
       "id": "manor-3629c012450f",
@@ -6623,7 +6624,7 @@
         "fr": "manor-collaborateur-trice-vente-parfumerie-100-yverdon-collaborateurtrice-vente-parfumerie"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice vente (Parfumerie) 100%",
+        "it": "Collaboratore di vendita (Parfumerie) 100%",
         "en": "Sales Collaborator (Parfumerie) 100%",
         "de": "Vertriebsmitarbeiter (Parfumerie) 100%",
         "fr": "Collaborateur/trice vente (Parfumerie) 100%"
@@ -6648,7 +6649,6 @@
           "manor-collaborateur-trice-vente-parfumerie-100-yverdon-collaborateurtrice-vente-parfumerie"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-21T12:42:21.972Z",
       "crawledAt": "",
       "salaryMin": 72000,
@@ -6752,7 +6752,7 @@
         "it": "Ristorante aggiunto 100%",
         "en": "Assistant restaurant 100%",
         "de": "Assistent*in Restaurant 100%",
-        "fr": "Assistent*in Restaurant 100%"
+        "fr": "Restaurant adjoint 100%"
       },
       "sourceLang": "de",
       "id": "manor-db2c3bdf35e4",
@@ -6772,7 +6772,6 @@
           "assistent-in-restaurant-100-manor-ag-baden-assistentin-restaurant-100"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-21T12:42:21.972Z",
       "crawledAt": "",
       "salaryMin": 74000,
@@ -7456,7 +7455,7 @@
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in vendita 40%",
-        "de": "Mitarbeiter*in Verkauf 40%",
+        "de": "Mitarbeiter im Verkauf 40%",
         "en": "Mitarbeiter*in Sales 40%",
         "fr": "Mitarbeiter*in Vente 40%"
       },
