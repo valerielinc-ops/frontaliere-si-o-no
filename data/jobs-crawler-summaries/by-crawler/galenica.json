@@ -1,55 +1,52 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-08-27T00:34:33.695Z",
-  "total": 385,
+  "generatedAt": "2026-08-28T05:18:18.247Z",
+  "total": 382,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 78745,
-  "avgDurationMs": 78745,
+  "unchangedCount": 0,
+  "durationMs": 115045,
+  "avgDurationMs": 115045,
   "durationHistory": [
-    78745
+    115045
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "title": "Junior Space and Assortment Manager (w/m/d)",
-      "company": "Galenica AG (Galenica)",
+      "title": "Assistente di farmacia AFC",
+      "company": "Amavita (Galenica)",
       "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=3125760.4044808",
-      "location": "Bern",
-      "canton": "BE",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=12724740",
+      "location": "Dottikon",
+      "canton": "AG",
       "country": "CH",
       "category": "healthcare",
-      "descriptionIt": "Junior Space and Assortment Manager (w/m/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
-      "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "descriptionIt": "Assistente di farmacia AFC presso Amavita (Gruppo Galenica), con sede a Dottikon, Bahnhofstrasse 23, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+      "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12724740-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-dottikon-ag-amavita?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d",
+      "postedDate": "",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "junior-responsabile-spazi-e-assortimento-w-m-d-galenica-ag-galenica-bern",
-      "id": "galenica-cac5282a9bdd",
-      "needsRetranslation": true,
+      "slug": "galenica-amavita-assistente-di-farmacia-afc-dottikon",
+      "id": "galenica-f55784659b88",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "salaryMin": 76000,
-      "salaryMax": 106000,
+      "salaryMin": 88000,
+      "salaryMax": 123000,
       "currency": "CHF",
-      "streetAddress": "Untermattweg 8",
-      "postalCode": "3027",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
+      "addressLocality": "Dottikon",
+      "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "crawlerMissStreak": 2,
-      "_qualityScore": 86,
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
         "translation": 25,
-        "completeness": 22
+        "completeness": 14
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
