@@ -1,20 +1,21 @@
 {
   "key": "microsoft",
   "label": "Microsoft",
-  "generatedAt": "2026-08-27T00:33:14.712Z",
-  "total": 12,
+  "generatedAt": "2026-08-28T05:14:15.495Z",
+  "total": 10,
   "discovered": null,
-  "written": 12,
-  "newCount": 1,
-  "updatedCount": 7,
-  "removedCount": 1,
-  "unchangedCount": 4,
-  "durationMs": 14743,
-  "avgDurationMs": 14743,
+  "written": 10,
+  "newCount": 0,
+  "updatedCount": 8,
+  "removedCount": 2,
+  "unchangedCount": 2,
+  "durationMs": 13792,
+  "avgDurationMs": 13792,
   "durationHistory": [
-    14743
+    13792
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "microsoft-200050322",
       "slug": "solution-engineer-data-microsoft-zurich",
@@ -27,7 +28,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556978892",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T00:33:11.950Z",
+      "crawledAt": "2026-08-28T05:14:12.035Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -41,16 +42,16 @@
       "featured": false,
       "postedDate": "2026-08-26",
       "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556978892",
-      "_qualityScore": 61,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-08-27T00:33:11.950Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "microsoft-200050315",
       "slug": "manager-critical-infrastructure-healthcare-education-microsoft-zurich",
@@ -63,7 +64,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556978844",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T00:33:11.946Z",
+      "crawledAt": "2026-08-28T05:14:12.034Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -99,7 +100,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556961724",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T00:33:11.947Z",
+      "crawledAt": "2026-08-28T05:14:12.040Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -134,7 +135,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556943701",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T00:33:11.945Z",
+      "crawledAt": "2026-08-28T05:14:12.038Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -169,7 +170,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556933021",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T00:33:11.940Z",
+      "crawledAt": "2026-08-28T05:14:12.029Z",
       "addressLocality": "Switzerland",
       "addressRegion": "",
       "addressCountry": "CH",
@@ -204,7 +205,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556946093",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T00:33:11.944Z",
+      "crawledAt": "2026-08-28T05:14:12.037Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -240,7 +241,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556939162",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T00:33:11.948Z",
+      "crawledAt": "2026-08-28T05:14:12.036Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -275,7 +276,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556933034",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T00:33:11.943Z",
+      "crawledAt": "2026-08-28T05:14:12.031Z",
       "addressLocality": "Switzerland",
       "addressRegion": "",
       "addressCountry": "CH",
@@ -300,48 +301,6 @@
     }
   ],
   "removedJobs": [
-    {
-      "id": "microsoft-200049084",
-      "slug": "scienziato-applicato-microsoft-zurich",
-      "company": "Microsoft",
-      "companyKey": "microsoft",
-      "companyDomain": "microsoft.com",
-      "title": "Applied Scientist",
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://apply.careers.microsoft.com/careers/job/1970393556965485",
-      "source": "Microsoft Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-25T09:43:08.579Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-18",
-      "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556965485",
-      "firstSeenAt": "2026-08-18T22:20:34.910Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "streetAddress": "The Circle 02",
-      "postalCode": "8058",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
-  "unchangedJobs": [
     {
       "id": "microsoft-200041250",
       "slug": "partner-solutions-architetto-microsoft-switzerland",
@@ -419,7 +378,9 @@
         "translation": 23,
         "completeness": 19
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "id": "microsoft-200043897",
       "slug": "principal-account-aligned-fde-software-engineer-german-speaking-microsoft-zurich",
@@ -452,7 +413,7 @@
       "salaryMax": 172000,
       "streetAddress": "The Circle 02",
       "postalCode": "8058",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -493,7 +454,7 @@
       "salaryMax": 172000,
       "streetAddress": "The Circle 02",
       "postalCode": "8058",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
