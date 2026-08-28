@@ -10,6 +10,16 @@
     "jsonld"
   ],
   "seedUrls": [
+    "https://jobs.sbb.ch/v2/offene-stellen/unterhaltsfachmann-frau-von-gleisanlagen/8966ef70-b3b8-4700-9dc9-70daf86850a1",
+    "https://jobs.sbb.ch/v2/offene-stellen/specialiste-technique-pour-les-infrastructures-ferroviaires-h-f-d/7b22fee5-73c5-4f0f-9e4f-822b3380ff6a",
+    "https://jobs.sbb.ch/v2/offene-stellen/key-account-manager-m-w-d/1d08e34c-d6ae-4406-abed-b5e39ed165eb",
+    "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-spezialist-in-bahnrettung/ff0ec9a0-7c1e-40cd-846b-d0e4887f9750",
+    "https://jobs.sbb.ch/v2/offene-stellen/leiter-in-datenmanagement-transport/084cde14-dcd4-4f8e-9bf8-37612c09d09a",
+    "https://jobs.sbb.ch/v2/offene-stellen/responsable-de-la-gestion-des-donnees-de-base-des-materiaux-h-f-d/a74ccce9-ee82-4948-9bb8-82825cbbf9c4",
+    "https://jobs.sbb.ch/v2/offene-stellen/responsabile-gestione-dei-dati-dei-materiali-m-f-d/4221ed94-0b14-497f-91aa-d06baf9433ef",
+    "https://jobs.sbb.ch/v2/offene-stellen/diagnostiker-in-fahrzeugdiagnostiker-in-stoerungssuche/254e7fac-04dd-44db-8168-eb816993fd01",
+    "https://jobs.sbb.ch/v2/offene-stellen/projektleiter-in-geschaeftssteuerung/66f58d54-b178-4be8-9012-ae59726a7978",
+    "https://jobs.sbb.ch/v2/offene-stellen/teamleiter-in-cleaning/d1fa0fc5-3110-4585-b336-8d7b9255775f",
     "https://jobs.sbb.ch/v2/offene-stellen/contremaitre-voies-ferrees-h-f-d/416cd994-fa4c-43ca-9293-c1359b5b6d26",
     "https://jobs.sbb.ch/v2/offene-stellen/product-architect-microsoft-365-m-w-d/13ac9640-3062-4651-92bd-9765c9bc9b0e",
     "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-rangier/9aba6330-e7ba-47a7-9d5b-fd6f3577aa7b",
@@ -43,7 +53,6 @@
     "https://jobs.sbb.ch/v2/offene-stellen/mecanicienne-installations-de-securite-ferroviaires/ec9cb54f-08ec-457a-8644-53e513f72c36",
     "https://jobs.sbb.ch/v2/offene-stellen/specialiste-de-la-manuvre-en-reconversion-professionnelle/92c798be-e5ec-4d51-a3db-2e8ae3fc0a35",
     "https://jobs.sbb.ch/v2/offene-stellen/sap-consultant-invoice-to-pay-m-w-d/69e449e1-ea2b-417e-9441-8ac173d517bf",
-    "https://jobs.sbb.ch/v2/offene-stellen/mitarbeiter-in-debitoren-und-kreditorenmanagement-m-w-d/86ba30cf-6927-4a51-be19-16d8337b1970",
     "https://jobs.sbb.ch/v2/offene-stellen/abteilungsleiter-in-entwicklung-bei-der-bahnsteuerung/71fe07e4-289e-4b29-b782-b5df81fa3600",
     "https://jobs.sbb.ch/v2/offene-stellen/schichtleiter-in-fachtechniker-in-industrie/831158b7-c0ce-431d-9cae-fcbecd8ae61b",
     "https://jobs.sbb.ch/v2/offene-stellen/lokfuehrer-in-kat-a40/97a912b5-76a7-4f46-a550-e895c36c6270",
@@ -81,8 +90,6 @@
     "https://jobs.sbb.ch/v2/offene-stellen/leiter-in-accounting-m-w-d/14372da2-ad87-46f8-bad3-cbaf8da9c0d0",
     "https://jobs.sbb.ch/v2/offene-stellen/personaldisponent-in-fahrbahn/e912fcd5-db60-4d3a-a4ee-6b8b3364c21e",
     "https://jobs.sbb.ch/v2/offene-stellen/betriebskoordinator-in-80-in-stansstad/32908248-9cbc-418c-ba49-41162a18e158",
-    "https://jobs.sbb.ch/v2/offene-stellen/bauingenieur-in-im-konstruktiven-tiefbau/9e7602b0-f3e1-459d-8cb4-d7da634da5cd",
-    "https://jobs.sbb.ch/v2/offene-stellen/ingenieure-genie-civil-ouvrages-geotechnique/73be7968-569f-4117-a458-26c2d8a9b8c7",
     "https://jobs.sbb.ch/v2/offene-stellen/lehrperson-berufskunde-fachfrau-fachmann-bahntransport-efz-5-lektionen-woche/ea6a67c3-846b-449c-b0bc-9f18cc2a6f40",
     "https://jobs.sbb.ch/v2/offene-stellen/fahrzeugdiagnostiker-in-schienenfahrzeuge/45ba4b39-eb3a-413e-ba6e-ec61d6937bdd",
     "https://jobs.sbb.ch/v2/offene-stellen/diagnosticiene/3c16811e-e8d9-482a-aa12-9b550dccc910",
@@ -96,9 +103,6 @@
     "https://jobs.sbb.ch/v2/offene-stellen/elektroinstallateur-in/5ef089fc-36a2-4143-9d13-a2873562a2c6",
     "https://jobs.sbb.ch/v2/offene-stellen/mechaniker-in-automatiker-in-elektroinstallateur-in-im-wasserkraftwerk-etzelwerk/5c7cb136-82c5-44f9-bc71-0fd23226dca0",
     "https://jobs.sbb.ch/v2/offene-stellen/werkmitarbeiter-in-im-kraft-und-frequenzumformerwerk-massaboden-bitsch/f8476c63-19dc-4191-9a55-ac2e8623908a",
-    "https://jobs.sbb.ch/v2/offene-stellen/fachbereichsleiter-in-geomatik/6a00f165-09ed-47e6-b623-a5016d6809d4",
-    "https://jobs.sbb.ch/v2/offene-stellen/responsable-de-l-unite-specialisee-geomatique-h-f-d/8ae1968b-171b-486a-9981-3385ae8e7322",
-    "https://jobs.sbb.ch/v2/offene-stellen/responsabile-dell-ambito-specialistico-geomatica-m-f-d/0544075c-88a3-48cd-946b-7708b2e97050",
     "https://jobs.sbb.ch/v2/offene-stellen/fachtechniker-in-industrie/1d06af8b-81a6-4f68-ac2f-3f4a10f74b62",
     "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-rangier/c27dd8b2-a9ee-494c-8c6c-d81531879e6f",
     "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-rangier/4e8754c7-1122-4cc0-b301-dcbb260bbcbd",
@@ -129,7 +133,6 @@
     "https://jobs.sbb.ch/v2/offene-stellen/responsable-de-mandats-entretien-voie-ferree-h-f/16a60b45-67a6-43bb-a100-6c7e99dc9460",
     "https://jobs.sbb.ch/v2/offene-stellen/techniker-in-sicherungsanlagen-innen-elektroinstallateur-in-automatiker-in/615a1b67-f79b-4e0a-98de-7ffffd309378",
     "https://jobs.sbb.ch/v2/offene-stellen/landschaftsgaertner-in-maurer-in-oder-strassenbauer-in-fuer-den-bereich-kabel-tiefbau/835be5a2-bcc2-4afc-ad95-1d36486d9307",
-    "https://jobs.sbb.ch/v2/offene-stellen/logistiker-in-80/0b4e174c-f555-409c-8743-feb3e14fee31",
     "https://jobs.sbb.ch/v2/offene-stellen/berufsbildner-in-gleisbau/d5f26978-0802-4886-a588-575942b85f55",
     "https://jobs.sbb.ch/v2/offene-stellen/fahrleitungsmonteur-in-schlosser-in-mechaniker-in-netzelektriker-in-elektroinstallateur-in/d26025bf-b71a-449c-b74a-f5a49942d33f",
     "https://jobs.sbb.ch/v2/offene-stellen/elektriker-in-automatiker-in-fuer-den-einstieg-in-den-bereich-bahnsicherungsanlagen/1535df5b-6256-4f29-8aa4-e70925b6ca64",
@@ -179,5 +182,5 @@
     "https://jobs.sbb.ch/v2/offene-stellen/responsable-des-cie-pour-les-agentes-de-transport-ferroviaire-cfc/9afa011e-3030-492b-a1d5-6fa693f6d017"
   ],
   "notes": "SBB dedicated seeds from company.sbb.ch AEM JSON API + login.org apprenticeship listing (partner SBB CFF FFS, canton Ticino).",
-  "updatedAt": "2026-08-27T00:46:39.066Z"
+  "updatedAt": "2026-08-28T05:26:30.539Z"
 }
