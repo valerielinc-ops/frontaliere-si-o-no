@@ -529,7 +529,6 @@
         ]
       },
       "firstSeenAt": "2026-08-26T09:55:09.268Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "baseSalary": {
@@ -725,7 +724,6 @@
         ]
       },
       "firstSeenAt": "2026-08-26T09:55:08.620Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "baseSalary": {
@@ -1292,21 +1290,26 @@
         "verkaufer-in-denner-interlaken",
         "salesperson-denner-ag-interlaken",
         "verkaufer-in-denner-ag-interlaken-vz3gdz",
-        "sales-associate-denner-ag-interlaken"
+        "sales-associate-denner-ag-interlaken",
+        "seller-denner-ag-interlaken-075a65",
+        "vendeur-denner-ag-interlaken-c59906",
+        "venditore-denner-interlaken"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
           "verkaufer-in-denner-interlaken",
           "salesperson-denner-ag-interlaken",
-          "verkaufer-in-denner-ag-interlaken-vz3gdz"
+          "verkaufer-in-denner-ag-interlaken-vz3gdz",
+          "seller-denner-ag-interlaken-075a65",
+          "vendeur-denner-ag-interlaken-c59906",
+          "venditore-denner-interlaken"
         ],
         "en": [
           "sales-associate-denner-ag-interlaken"
         ]
       },
       "firstSeenAt": "2026-08-27T00:39:46.806Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "baseSalary": {
@@ -1851,16 +1854,17 @@
       "crawledAt": "2026-08-27T19:53:00.563Z",
       "previousSlugs": [
         "verkaufer-in-denner",
-        "verkaufer-in-denner-sulgen"
+        "verkaufer-in-denner-sulgen",
+        "venditore-a-denner-ag-sulgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
-          "verkaufer-in-denner-sulgen"
+          "verkaufer-in-denner-sulgen",
+          "venditore-a-denner-ag-sulgen"
         ]
       },
       "firstSeenAt": "2026-08-27T00:39:45.217Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "baseSalary": {
@@ -2437,7 +2441,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:39:43.741Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "baseSalary": {
@@ -2720,7 +2723,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:39:42.997Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "baseSalary": {
@@ -2801,11 +2803,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner-2"
+          "verkaufer-in-denner-2",
+          "verkaufer-in-denner-4",
+          "verkaufer-in-denner-5",
+          "verkaufer-in-denner-6",
+          "verkaufer-in-denner-zug"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner-2"
+        "verkaufer-in-denner-2",
+        "verkaufer-in-denner-4",
+        "verkaufer-in-denner-5",
+        "verkaufer-in-denner-6",
+        "verkaufer-in-denner-zug"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -3078,12 +3088,76 @@
         "assistent-in-filialleitung-denner",
         "assistente-nella-gestione-delle-branche-denner-ag-zurich",
         "assistant-in-branch-management-denner-ag-zurich",
-        "assistant-dans-la-gestion-des-succursales-denner-ag-zurich"
+        "assistant-dans-la-gestion-des-succursales-denner-ag-zurich",
+        "assistente-nella-gestione-delle-branche-denner-wadenswil",
+        "assistente-nella-gestione-delle-branche-denner-zurich",
+        "assistant-dans-la-gestion-des-succursales-denner-bellach",
+        "assistant-dans-la-gestion-des-succursales-denner-biberist",
+        "assistant-dans-la-gestion-des-succursales-denner-buchs-ag",
+        "assistant-dans-la-gestion-des-succursales-denner-buchs-sg",
+        "assistant-dans-la-gestion-des-succursales-denner-ebikon",
+        "assistant-dans-la-gestion-des-succursales-denner-flawil",
+        "assistant-dans-la-gestion-des-succursales-denner-langwiesen",
+        "assistant-dans-la-gestion-des-succursales-denner-lenzburg",
+        "assistant-dans-la-gestion-des-succursales-denner-luzern",
+        "assistant-dans-la-gestion-des-succursales-denner-rotkreuz",
+        "assistant-dans-la-gestion-des-succursales-denner-spreitenbach",
+        "assistant-dans-la-gestion-des-succursales-denner-wadenswil",
+        "assistant-dans-la-gestion-des-succursales-denner-wilderswil",
+        "assistant-dans-la-gestion-des-succursales-denner-zurich",
+        "assistant-in-branch-management-denner-arlesheim",
+        "assistant-in-branch-management-denner-bellach",
+        "assistant-in-branch-management-denner-bubendorf",
+        "assistent-in-filialleitung-denner-zurich-uhzj3j",
+        "assistent-in-filialleitung-denner-uhzj3j",
+        "assistent-in-filialleitung-denner-kicwog",
+        "assistent-in-filialleitung-denner-2",
+        "assistent-in-filialleitung-denner-4",
+        "assistent-in-filialleitung-denner-5",
+        "assistent-in-filialleitung-denner-6",
+        "assistent-in-filialleitung-denner-pfaffokon-sz",
+        "assistent-in-filialleitung-denner-wadenswil",
+        "assistant-in-branch-management-denner-buchs-ag",
+        "assistant-in-branch-management-denner-buchs-sg",
+        "assistant-in-branch-management-denner-flawil",
+        "assistant-in-branch-management-denner-langwiesen",
+        "assistant-in-branch-management-denner-lenzburg",
+        "assistant-in-branch-management-denner-luzern",
+        "assistant-in-branch-management-denner-rotkreuz",
+        "assistant-in-branch-management-denner-spreitenbach",
+        "assistant-in-branch-management-denner-steinhausen",
+        "assistant-in-branch-management-denner-wadenswil",
+        "assistant-in-branch-management-denner-zurich",
+        "assistente-nella-gestione-delle-branche-denner-bubendorf",
+        "assistente-nella-gestione-delle-branche-denner-buchs-ag",
+        "assistente-nella-gestione-delle-branche-denner-buchs-sg",
+        "assistente-nella-gestione-delle-branche-denner-langwiesen",
+        "assistente-nella-gestione-delle-branche-denner-luzern",
+        "assistente-nella-gestione-delle-branche-denner-rotkreuz",
+        "assistente-nella-gestione-delle-branche-denner-steinhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-filialleitung-denner",
-          "assistente-nella-gestione-delle-branche-denner-ag-zurich"
+          "assistente-nella-gestione-delle-branche-denner-wadenswil",
+          "assistente-nella-gestione-delle-branche-denner-zurich",
+          "assistant-dans-la-gestion-des-succursales-denner-bellach",
+          "assistant-dans-la-gestion-des-succursales-denner-biberist",
+          "assistant-dans-la-gestion-des-succursales-denner-buchs-ag",
+          "assistant-dans-la-gestion-des-succursales-denner-buchs-sg",
+          "assistant-dans-la-gestion-des-succursales-denner-ebikon",
+          "assistant-dans-la-gestion-des-succursales-denner-flawil",
+          "assistant-dans-la-gestion-des-succursales-denner-langwiesen",
+          "assistant-dans-la-gestion-des-succursales-denner-lenzburg",
+          "assistant-dans-la-gestion-des-succursales-denner-luzern",
+          "assistant-dans-la-gestion-des-succursales-denner-rotkreuz",
+          "assistant-dans-la-gestion-des-succursales-denner-spreitenbach",
+          "assistant-dans-la-gestion-des-succursales-denner-wadenswil",
+          "assistant-dans-la-gestion-des-succursales-denner-wilderswil",
+          "assistant-dans-la-gestion-des-succursales-denner-zurich",
+          "assistant-in-branch-management-denner-arlesheim",
+          "assistant-in-branch-management-denner-bellach",
+          "assistant-in-branch-management-denner-bubendorf",
+          "assistent-in-filialleitung-denner-zurich-uhzj3j"
         ],
         "en": [
           "assistant-in-branch-management-denner-ag-zurich"

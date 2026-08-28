@@ -384,22 +384,32 @@
         "sales-staff-migrolino-bern-6b2379",
         "personnel-de-vente-migrolino-bern-6b2379",
         "personale-di-vendita-migrolino-bern-6b2379",
-        "personale-di-vendita-migrolino-bern-89f77e"
+        "personale-di-vendita-migrolino-bern-89f77e",
+        "personale-di-vendita-migrolino-bern",
+        "sales-staff-migrolino-bern",
+        "personnel-de-vente-migrolino-bern",
+        "verkaufsmitarbeiter-in-migrolino-bern-tk36gc"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-bern",
           "verkaufsmitarbeiter-in-migrolino-bern-2",
           "personale-di-vendita-migrolino-bern-6b2379",
-          "personale-di-vendita-migrolino-bern-89f77e"
+          "personale-di-vendita-migrolino-bern-89f77e",
+          "personale-di-vendita-migrolino-bern",
+          "sales-staff-migrolino-bern",
+          "personnel-de-vente-migrolino-bern",
+          "verkaufsmitarbeiter-in-migrolino-bern-tk36gc"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-bern-2",
-          "sales-staff-migrolino-bern-6b2379"
+          "sales-staff-migrolino-bern-6b2379",
+          "sales-staff-migrolino-bern"
         ],
         "fr": [
           "verkaufsmitarbeiter-in-migrolino-bern-2",
-          "personnel-de-vente-migrolino-bern-6b2379"
+          "personnel-de-vente-migrolino-bern-6b2379",
+          "personnel-de-vente-migrolino-bern"
         ]
       },
       "firstSeenAt": "2026-07-28T11:29:01.587Z",
@@ -1166,7 +1176,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T21:53:16.894Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {

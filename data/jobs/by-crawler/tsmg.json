@@ -1343,11 +1343,13 @@
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
       "previousSlugsByLocale": {
         "it": [
-          "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern-1af674c1"
+          "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern-1af674c1",
+          "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern"
         ]
       },
       "previousSlugs": [
-        "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern-1af674c1"
+        "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern-1af674c1",
+        "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern"
       ]
     },
     {
@@ -5063,7 +5065,8 @@
         }
       },
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "title": "Self-Driving Systems Specialist (SDS Specialist) - Autonomous Vehicle Diagnostics & Calibration",
@@ -5122,7 +5125,8 @@
         }
       },
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "title": "Senior Autonomous Vehicle Technician - Robotaxi Fleet Maintenance & Technical Operations",
