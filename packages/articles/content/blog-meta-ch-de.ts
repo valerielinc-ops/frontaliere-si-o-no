@@ -4597,6 +4597,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.grigioni-repower-tariffe-stagionali-2027.title': 'Repower Graubünden: Saisontarife und 20 Franken weniger für Familien',
     'blog.article.grigioni-repower-tariffe-stagionali-2027.excerpt': 'Ab 2027 wird eine typische Familie im Repower-Gebiet 1.449 Franken pro Jahr ausgeben, -1,4% im Vergleich zu 2026. Es gibt differenzierte Sommer-/Winterpreise und die neue variable Option Optima.',
     'blog.article.grigioni-repower-tariffe-stagionali-2027.imageAlt': 'Alpine Stromstation in Graubünden mit Hochspannungsleitungen',
+    'blog.article.paralberghiero-progression-trimestre-2026.title': 'Hotelparadies, leichte Progression im zweiten Quartal',
+    'blog.article.paralberghiero-progression-trimestre-2026.excerpt': '3,9 Millionen Logiernächte zwischen April und Juni (+0,4%). Rückgang im Halbjahr (-3,1%). USt.',
+    'blog.article.paralberghiero-progression-trimestre-2026.imageAlt': 'Ferienwohnungen und Campingplätze in einem Schweizer Tal bei Locarno, Sommer',
 };
 
 export default blogMetaChDe;
