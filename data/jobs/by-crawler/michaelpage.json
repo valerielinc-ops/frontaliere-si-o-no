@@ -17,9 +17,9 @@
       "title": "Associate, Energy, Infrastructure and Natural Resources",
       "titleByLocale": {
         "en": "Associate, Energy, Infrastructure and Natural Resources",
-        "it": "Associate, Energy, Infrastructure and Natural Resources",
-        "de": "Associate, Energy, Infrastructure and Natural Resources",
-        "fr": "Associate, Energy, Infrastructure and Natural Resources"
+        "it": "Associati, energia, infrastrutture e risorse naturali",
+        "de": "Partner, Energie, Infrastruktur und natürliche Ressourcen",
+        "fr": "Associé, Énergie, Infrastructure et Ressources naturelles"
       },
       "description": "Associate, Energy, Infrastructure and Natural Resources — Michael Page",
       "descriptionByLocale": {
@@ -47,6 +47,21 @@
       "requirementsByLocale": {
         "en": []
       },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-27T20:13:26.004Z",
       "previousSlugsByLocale": {
         "it": [
           "associate-energy-infrastructure-and-natural-resources-michaelpage-ch",
@@ -63,22 +78,7 @@
         "associati-energia-infrastrutture-e-risorse-naturali-michael-page-lugano",
         "partner-energie-infrastruktur-und-naturliche-ressourcen-michael-page-lugano",
         "associe-energie-infrastructure-et-ressources-naturelles-michael-page-lugano"
-      ],
-      "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-27T20:13:26.004Z"
+      ]
     },
     {
       "id": "michaelpage-ba003a0d255a",
@@ -86,8 +86,8 @@
       "slugByLocale": {
         "fr": "regional-finance-director-manufacturing-houston-michaelpage-ch",
         "it": "regional-finanza-direttore-manufacturing-houston-michael-page-lugano",
-        "de": "regional-finanzen-direktor-manufacturing-houston-michael-page-lugano",
-        "en": "regional-finanza-direttore-manufacturing-houston-michael-page-lugano"
+        "en": "regional-finanza-direttore-manufacturing-houston-michael-page-lugano",
+        "de": "regional-finanzen-direktor-manufacturing-houston-michael-page-lugano"
       },
       "company": "Michael Page",
       "companyKey": "michaelpage",
@@ -125,18 +125,6 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "regional-finance-director-manufacturing-houston-michaelpage-ch",
-          "regional-finanza-direttore-manufacturing-houston-michael-page-lugano",
-          "regional-finanzen-direktor-manufacturing-houston-michael-page-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "regional-finance-director-manufacturing-houston-michaelpage-ch",
-        "regional-finanza-direttore-manufacturing-houston-michael-page-lugano",
-        "regional-finanzen-direktor-manufacturing-houston-michael-page-lugano"
-      ],
       "needsRetranslation": true,
       "salaryMin": 98000,
       "salaryMax": 132000,
@@ -151,7 +139,23 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-27T20:13:25.700Z"
+      "firstSeenAt": "2026-08-27T20:13:25.700Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "regional-finance-director-manufacturing-houston-michaelpage-ch",
+          "regional-finanza-direttore-manufacturing-houston-michael-page-lugano",
+          "regional-finanzen-direktor-manufacturing-houston-michael-page-lugano"
+        ],
+        "de": [
+          "regional-finance-director-manufacturing-houston-michaelpage-ch"
+        ]
+      },
+      "previousSlugs": [
+        "regional-finance-director-manufacturing-houston-michaelpage-ch",
+        "regional-finanza-direttore-manufacturing-houston-michael-page-lugano",
+        "regional-finanzen-direktor-manufacturing-houston-michael-page-lugano"
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "michaelpage-07835af1bcc4",
@@ -401,25 +405,6 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-human-resources-manager-michaelpage-ch",
-          "senior-risorse-umane-manager-michael-page-lugano",
-          "senior-ressources-humaines-manager-michael-page-lugano"
-        ],
-        "fr": [
-          "senior-human-resources-manager-michaelpage-ch"
-        ],
-        "en": [
-          "senior-human-resources-manager-michael-page-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "senior-human-resources-manager-michaelpage-ch",
-        "senior-human-resources-manager-michael-page-lugano",
-        "senior-risorse-umane-manager-michael-page-lugano",
-        "senior-ressources-humaines-manager-michael-page-lugano"
-      ],
       "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -434,7 +419,24 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-27T20:13:24.187Z"
+      "firstSeenAt": "2026-08-27T20:13:24.187Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-human-resources-manager-michaelpage-ch",
+          "senior-risorse-umane-manager-michael-page-lugano",
+          "senior-ressources-humaines-manager-michael-page-lugano"
+        ],
+        "fr": [
+          "senior-human-resources-manager-michaelpage-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-human-resources-manager-michaelpage-ch",
+        "senior-human-resources-manager-michael-page-lugano",
+        "senior-risorse-umane-manager-michael-page-lugano",
+        "senior-ressources-humaines-manager-michael-page-lugano"
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "michaelpage-d0f54d4a8718",
@@ -1241,8 +1243,8 @@
       "titleByLocale": {
         "en": "Divisional Controller - Americas",
         "it": "Divisional Controller - Americas",
-        "de": "Divisional Controller - Americas",
-        "fr": "Divisional Controller - Americas"
+        "de": "Divisional Controller - Amerika",
+        "fr": "Contrôleur divisionnaire - Amériques"
       },
       "description": "Divisional Controller - Americas — Michael Page",
       "descriptionByLocale": {

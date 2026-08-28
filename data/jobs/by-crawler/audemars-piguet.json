@@ -53,16 +53,32 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "responsable-laboratoire-audemars-piguet-le-locle-ne-switzerland",
-        "responsabile-laboratorio-audemars-piguet-le-locle"
+        "responsabile-laboratorio-audemars-piguet-le-locle",
+        "polimacchinista-audemars-piguet-le-locle",
+        "polymechanic-audemars-piguet-le-locle",
+        "polymechaniker-audemars-piguet-le-locle",
+        "polymecanicien-audemars-piguet-le-locle-ne-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsable-laboratoire-audemars-piguet-le-locle-ne-switzerland",
-          "responsabile-laboratorio-audemars-piguet-le-locle"
+          "responsabile-laboratorio-audemars-piguet-le-locle",
+          "polimacchinista-audemars-piguet-le-locle",
+          "polymechanic-audemars-piguet-le-locle",
+          "polymechaniker-audemars-piguet-le-locle",
+          "polymecanicien-audemars-piguet-le-locle-ne-switzerland"
+        ],
+        "en": [
+          "polymechanic-audemars-piguet-le-locle"
+        ],
+        "de": [
+          "polymechaniker-audemars-piguet-le-locle"
+        ],
+        "fr": [
+          "polymecanicien-audemars-piguet-le-locle-ne-switzerland"
         ]
       },
       "firstSeenAt": "2026-06-10T07:54:34.951Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "baseSalary": {
@@ -74,7 +90,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "audemars-piguet-b7b2cc9b983f",
@@ -782,7 +799,11 @@
         "manager-receiving-shipping-audemars-piguet-le-brassus-vd-switzerland",
         "manager-empfang-versand-audemars-piguet-le-brassus-vd-switzerland",
         "manager-reception-expedition-audemars-piguet-le-brassus-vd-switzerland",
-        "base-dati-esperto-audemars-piguet-le-brassus-vd-switzerland"
+        "base-dati-esperto-audemars-piguet-le-brassus-vd-switzerland",
+        "ottimizzazione-interna-audemars-piguet-le-brassus-vd-switzerland",
+        "intern-optimization-audemars-piguet-le-brassus-vd-switzerland",
+        "interne-optimierung-audemars-piguet-le-brassus-vd-switzerland",
+        "stagiaire-optimisation-audemars-piguet-le-brassus-vd-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -805,24 +826,28 @@
           "manager-receiving-shipping-audemars-piguet-le-brassus-vd-switzerland",
           "manager-empfang-versand-audemars-piguet-le-brassus-vd-switzerland",
           "manager-reception-expedition-audemars-piguet-le-brassus-vd-switzerland",
-          "base-dati-esperto-audemars-piguet-le-brassus-vd-switzerland"
+          "base-dati-esperto-audemars-piguet-le-brassus-vd-switzerland",
+          "ottimizzazione-interna-audemars-piguet-le-brassus-vd-switzerland"
         ],
         "en": [
           "moderator-quality-suppliers-audemars-piguet-le-brassus-vd-switzerland",
-          "confirmed-angler-audemars-piguet-le-brassus-vd-switzerland"
+          "confirmed-angler-audemars-piguet-le-brassus-vd-switzerland",
+          "intern-optimization-audemars-piguet-le-brassus-vd-switzerland"
         ],
         "de": [
           "expert-data-base-audemars-piguet-le-brassus-vd-switzerland",
           "moderator-qualitatslieferanten-audemars-piguet-le-brassus-vd-switzerland",
           "bestatigt-angler-audemars-piguet-le-brassus-vd-switzerland",
           "pmo-leiter-audemars-piguet-le-brassus-vd-switzerland",
-          "it-portfoliomanager-audemars-piguet-le-brassus-vd-switzerland"
+          "it-portfoliomanager-audemars-piguet-le-brassus-vd-switzerland",
+          "interne-optimierung-audemars-piguet-le-brassus-vd-switzerland"
         ],
         "fr": [
           "animateur-qualite-fournisseurs-audemars-piguet-le-brassus-vd-switzerland",
           "angleur-confirme-audemars-piguet-le-brassus-vd-switzerland",
           "pmo-lead-audemars-piguet-le-brassus-vd-switzerland",
-          "it-portfolio-manager-audemars-piguet-le-brassus-vd-switzerland"
+          "it-portfolio-manager-audemars-piguet-le-brassus-vd-switzerland",
+          "stagiaire-optimisation-audemars-piguet-le-brassus-vd-switzerland"
         ]
       },
       "needsRetranslation": true,
