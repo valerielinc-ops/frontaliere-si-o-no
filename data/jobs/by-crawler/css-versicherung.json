@@ -386,7 +386,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:41.538Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -476,7 +475,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:22:54.283Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -938,7 +936,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:12.650Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1283,7 +1280,7 @@
       "title": "Senior Identity- und Access Management Engineer (w/m) 80-100%",
       "titleByLocale": {
         "it": "Senior Identity- e Access Management Ingegnere (w/m) 80-100%",
-        "en": "Senior Identity- und Access Management Engineer (w/m) 80-100%",
+        "en": "Senior Identity and Access Management Engineer (m/f) 80-100 %",
         "de": "Senior Identity- und Access Management Ingenieur (w/m) 80-100%",
         "fr": "Senior Identity- und Access Management Ingénieur (w/m) 80-100%"
       },
@@ -1428,7 +1425,7 @@
       "title": "Product Owner Data Warehouse (DWH) (w/m) 100%",
       "titleByLocale": {
         "it": "Product Owner Data Warehouse (DWH) (f/m) al 100%",
-        "en": "Product Owner Data Warehouse (DWH) (w/m) 100%",
+        "en": "Product Owner Data Warehouse (DWH) (m/f) 100%",
         "de": "Product Owner Data Warehouse (DWH) (w/m) 100%",
         "fr": "Entrepôt de données du propriétaire du produit (DHH) (f/m) 100%"
       },
@@ -1492,7 +1489,7 @@
       "title": "Spezialist/in Operations Leben 60-100%",
       "titleByLocale": {
         "it": "Specialista/in Operazioni Vita 60-100 %",
-        "en": "Spezialist/in Operations Leben 60-100%",
+        "en": "Specialist/in Operations Life 60-100 %",
         "de": "Spezialist/in Operations Leben 60-100%",
         "fr": "Spécialiste/dans la vie opérationnelle 60-100 %"
       },
@@ -1677,7 +1674,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T22:35:40.988Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1784,7 +1780,7 @@
       "title": "Senior Java & Integration Engineer (w/m)",
       "titleByLocale": {
         "it": "Senior Java & Integration Ingegnere (w/m)",
-        "en": "Senior Java & Integration Engineer (w/m)",
+        "en": "Senior Java and Integration Engineer (m/f)",
         "de": "Senior Java & Integration Ingenieur (w/m)",
         "fr": "Senior Java & Integration Ingénieur (w/m)"
       },
@@ -2012,7 +2008,6 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:34:15.944Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -3319,7 +3314,7 @@
       "title": "Datenbank Engineer (w/m) 80-100%",
       "titleByLocale": {
         "it": "Datenbank Ingegnere (w/m) 80-100%",
-        "en": "Datenbank Engineer (w/m) 80-100%",
+        "en": "Database Engineer (m/f) 80-100 %",
         "de": "Datenbank Ingenieur (w/m) 80-100%",
         "fr": "Datenbank Ingénieur (w/m) 80-100%"
       },
@@ -3354,7 +3349,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-08-19T10:02:56.631Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -3801,7 +3795,30 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "esperta-o-previdenziale-f-m-agenzia-generale-bellinzona-100-css-versicherung-bellinzona",
+          "expert-or-social-security-f-m-bellinzona-general-agency-100-css-versicherung-bellinzona",
+          "experte-oder-sozialversicherung-m-m-bellinzona-general-agency-100-css-versicherung-bellinzona",
+          "expert-ou-securite-sociale-f-m-bellinzona-agence-generale-100-css-versicherung-bellinzona"
+        ],
+        "en": [
+          "expert-or-social-security-f-m-bellinzona-general-agency-100-css-versicherung-bellinzona"
+        ],
+        "de": [
+          "experte-oder-sozialversicherung-m-m-bellinzona-general-agency-100-css-versicherung-bellinzona"
+        ],
+        "fr": [
+          "expert-ou-securite-sociale-f-m-bellinzona-agence-generale-100-css-versicherung-bellinzona"
+        ]
+      },
+      "previousSlugs": [
+        "esperta-o-previdenziale-f-m-agenzia-generale-bellinzona-100-css-versicherung-bellinzona",
+        "expert-or-social-security-f-m-bellinzona-general-agency-100-css-versicherung-bellinzona",
+        "experte-oder-sozialversicherung-m-m-bellinzona-general-agency-100-css-versicherung-bellinzona",
+        "expert-ou-securite-sociale-f-m-bellinzona-agence-generale-100-css-versicherung-bellinzona"
+      ]
     },
     {
       "id": "css-versicherung-1cfa889a5eff",
@@ -3881,8 +3898,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     }
   ]
 }
