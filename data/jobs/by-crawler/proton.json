@@ -1,6 +1,6 @@
 {
   "crawlerKey": "proton",
-  "assembledAt": "2026-08-27T20:04:46.910Z",
+  "assembledAt": "2026-08-28T05:32:20.629Z",
   "jobs": [
     {
       "id": "proton-86014680b084",
@@ -33,7 +33,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4836677101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:42.679Z",
+      "crawledAt": "2026-08-28T05:32:16.477Z",
       "addressLocality": "London UK, Geneva CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -123,7 +123,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4892444101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:42.376Z",
+      "crawledAt": "2026-08-28T05:32:16.175Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -157,6 +157,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:16:34.622Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "baseSalary": {
@@ -202,7 +203,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4953188101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:42.074Z",
+      "crawledAt": "2026-08-28T05:32:15.873Z",
       "addressLocality": "Geneva, Switzerland, Paris, France",
       "addressCountry": "CH",
       "country": "CH",
@@ -234,6 +235,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T21:43:03.076Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "baseSalary": {
@@ -279,7 +281,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4897535101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:41.772Z",
+      "crawledAt": "2026-08-28T05:32:15.571Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -313,6 +315,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:16:34.320Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "baseSalary": {
@@ -358,7 +361,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4848439101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:41.470Z",
+      "crawledAt": "2026-08-28T05:32:15.269Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -392,6 +395,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:16:34.020Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "baseSalary": {
@@ -437,7 +441,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4612377101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:41.167Z",
+      "crawledAt": "2026-08-28T05:32:14.967Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -483,7 +487,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "needsRetranslation": true
     },
     {
       "id": "proton-388def4c9118",
@@ -516,7 +521,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4666726101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:40.865Z",
+      "crawledAt": "2026-08-28T05:32:14.664Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -594,7 +599,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4588886101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:40.559Z",
+      "crawledAt": "2026-08-28T05:32:14.362Z",
       "addressLocality": "Barcelona",
       "addressCountry": "CH",
       "country": "CH",
@@ -626,6 +631,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:16:33.114Z",
+      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 148000,
       "baseSalary": {
@@ -671,7 +677,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4766179101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:40.257Z",
+      "crawledAt": "2026-08-28T05:32:14.059Z",
       "addressLocality": "London",
       "addressCountry": "CH",
       "country": "CH",
@@ -715,7 +721,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "needsRetranslation": true
     },
     {
       "id": "proton-00d3aff6de32",
@@ -748,7 +755,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4777667101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:39.954Z",
+      "crawledAt": "2026-08-28T05:32:13.756Z",
       "addressLocality": "London",
       "addressCountry": "CH",
       "country": "CH",
@@ -825,7 +832,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4725157101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:39.652Z",
+      "crawledAt": "2026-08-28T05:32:13.454Z",
       "addressLocality": "Barcelona",
       "addressCountry": "CH",
       "country": "CH",
@@ -879,8 +886,8 @@
       "id": "proton-4a8c0ac3123a",
       "slug": "senior-product-manager-b2b-vpn-proton-ch",
       "slugByLocale": {
-        "en": "senior-product-manager-b2b-vpn-proton-ch",
         "it": "senior-product-manager-b2b-vpn-proton-ch",
+        "en": "senior-product-manager-b2b-vpn-proton-ch",
         "de": "senior-product-manager-b2b-vpn-proton-ch",
         "fr": "senior-product-manager-b2b-vpn-proton-ch"
       },
@@ -889,15 +896,15 @@
       "companyDomain": "proton.me",
       "title": "Senior Product Manager B2B (VPN)",
       "titleByLocale": {
-        "en": "Senior Product Manager B2B (VPN)",
         "it": "Senior Product Manager B2B (VPN)",
+        "en": "Senior Product Manager B2B (VPN)",
         "de": "Senior Product Manager B2B (VPN)",
         "fr": "Senior Product Manager B2B (VPN)"
       },
       "description": "<p class=\"Lexical__paragraph\"> </p>\n<h3>Join Proton and build a better internet where privacy is the default</h3>\n<p>Proton was founded in 2014 by scientists from CERN on a simple truth: <strong>privacy is a fundamental human right</strong>. Since then, we've built the world's largest encrypted email service (Proton Mail) and expanded into Proton VPN, Proton Drive, Proton Pass, and Proton Calendar — tools used by millions globally to protect their freedom, fight censorship, and keep their data safe. In some situations, Proton has literally helped save lives.</p>\n<p>We are profitable, independent (no VC control), and selectively hire from the top ~1% of applicants. Our 700+ team members across 50+ countries come from leading organizations and elite academic backgrounds. We move fast, keep hierarchy light, and prioritize impact over optics. If you want to do meaningful work with exceptionally high-caliber people, this is it. Check our open-source projects <a href=\"https://proton.me/community/open-source\">here</a>.</p>\n<p class=\"Lexical__paragraph\"> </p>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">The Team and impact</strong></strong></p>\n• <p class=\"Lexical__paragraph\">You're going to work with squad of and will be a part of bigger cross organizational team driving the future of B2B for VPN.</p>\n• <ul>\n• <li>Work on projects impacting both B2C and B2B, although your main focus is going to be on the B2B.\n• <ul class=\"Lexical__ul\">\n<li class=\"Lexical__listItem\" value=\"1\">Currently working on network segmentation, observability, and security but in the future we plan to build firewall and device posture capabilities for our high profiles customers.Currently working on things like firewall service for the VPN, in the future we want to work on a device posture and many more!</li>\n</ul>\n• </li>\n• <li class=\"Lexical__listItem\" value=\"1\">Have an impact on a new business segment of Proton, by driving the development of new features and building a long term strategy.</li>\n• </ul>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">What you will do:</strong></strong></p>\n<p class=\"Lexical__paragraph\">We are looking for a Senior Product Manager to lead the development of Proton VPN in the B2B market space.<br>Product at Proton sits at the intersection of Engineering, Growth, Data and Design. Your responsibility will be to participate in developing the product features from scratch with huge potential while Proton is entering a new market. You will be working cross-functionally together with R&D, Security, Back-End teams and others.</p>\n<ul class=\"Lexical__ul\">\n• <li class=\"Lexical__listItem\" value=\"1\">Work with the senior leadership team to define a strategic vision and roadmap for B2B aspect of Proton VPN.</li>\n• <li class=\"Lexical__listItem\" value=\"2\">Ensure that we are building, shipping and supporting the right features that deliver impactful value creation over time.</li>\n<li class=\"Lexical__listItem\" value=\"3\">Drive product innovation, develop novel, game-changing product features that expand our value proposition to new user segments and increase our defensibility.</li>\n<li class=\"Lexical__listItem\" value=\"4\">Define and own what success looks like in terms of adoption, activation and retention.</li>\n<li class=\"Lexical__listItem\" value=\"5\">Facilitate hand-in-hand collaboration between product, engineering, growth and marketing to align on the vision and the execution.</li>\n<li class=\"Lexical__listItem\" value=\"6\">Lead the teams through execution. See through the fog of war and know where to go and what needs to be done quickly and decisively. Troubleshoot and solve problems involving multiple teams inside and outside of product.</li>\n<li class=\"Lexical__listItem\" value=\"7\">Conduct market research, competitive analysis, and gather customer feedback to inform product decisions.</li>\n<li class=\"Lexical__listItem\" value=\"8\">Anticipate growth ceilings and define scaling strategies to prevent them, that include managing projects beyond pure-product work, and include foundational technology, tools, and processes, such as a customer engagement platform.</li>\n• <li class=\"Lexical__listItem\" value=\"9\">Set a fast pace for the team, help them to overcome blockers and execute faster.</li>\n• </ul>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">What we are looking for</strong></strong></p>\n• <p class=\"Lexical__paragraph\">We need you to have:</p>\n• <ul class=\"Lexical__ul\">\n<li class=\"Lexical__listItem\" value=\"1\"><strong><strong class=\"Lexical__textBold\">7-10 years</strong></strong> of experience in product management in <strong><strong class=\"Lexical__textBold\">B2B SaaS, </strong></strong>preferably in<strong><strong class=\"Lexical__textBold\"> security </strong></strong>and/or <strong><strong class=\"Lexical__textBold\">productivity </strong></strong>contexts.</li>\n• <li class=\"Lexical__listItem\" value=\"2\">Proven track-record in successful product and major feature launches in fast-paced environments.</li>\n• <li class=\"Lexical__listItem\" value=\"3\">Strategic leader with an analytical and data-driven mindset, with a track record for delivering products and features on time and with commercial success.</li>\n• <li class=\"Lexical__listItem\" value=\"4\">Strong empathy for the customer, user-centric mindset, and an unwillingness to lower standards.</li>\n• <li class=\"Lexical__listItem\" value=\"5\">A strong innate sense for good UX, with a love for design.</li>\n• <li class=\"Lexical__listItem\" value=\"6\">Experience building and managing high-performing teams.</li>\n• <li class=\"Lexical__listItem\" value=\"7\">A work ethic of going above and beyond to make things happen. Ability to be hands-on and thrive in a fast-paced environment.</li>\n• <li class=\"Lexical__listItem\" value=\"8\">Deep technical acumen, able to contribute to technical decisions.</li>\n<li class=\"Lexical__listItem\" value=\"9\">Technical background (ideally a<strong><strong class=\"Lexical__textBold\"> Computer Science degree </strong></strong>with specialization in<strong><strong class=\"Lexical__textBold\"> Security)</strong></strong></li>\n</ul>\n• <p class=\"Lexical__paragraph\">Even if you don’t meet all the requirements listed above, but feel you could still be a great fit, please still apply.</p>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">What We Offer</strong></strong></p>\n• <ul class=\"Lexical__ul\">\n<li class=\"Lexical__listItem\" value=\"1\"><strong><strong class=\"Lexical__textBold\">Office First:</strong></strong> Collaboration is easier and more effective in person, which is why we have offices in Geneva, Zurich, Prague, Barcelona, Paris, London, Vilnius, Skopje, and Taipei. You can also enjoy working from home up to 30% of the time, while enjoying great company during our three core days in the office.</li>\n<li class=\"Lexical__listItem\" value=\"2\"><strong><strong class=\"Lexical__textBold\">Technology:</strong></strong> We provide all the devices and software you need to excel in your role, ensuring you have the best tools at your disposal to achieve your goals.</li>\n<li class=\"Lexical__listItem\" value=\"3\"><strong><strong class=\"Lexical__textBold\">Food:</strong></strong> Lunch and snacks are provided by Proton every day at our offices.</li>\n<li class=\"Lexical__listItem\" value=\"4\"><strong><strong class=\"Lexical__textBold\">Transport: </strong></strong>We will always support our employees with transport costs through subsidizing public transport, bike allowances, or parking spaces based on your office location.</li>\n<li class=\"Lexical__listItem\" value=\"5\"><strong><strong class=\"Lexical__textBold\">Stock Options:</strong></strong> At Proton, we are all owners of the company and you get stock options when you join us.</li>\n<li class=\"Lexical__listItem\" value=\"6\"><strong><strong class=\"Lexical__textBold\">Flexible Working: </strong></strong>You can define your own working hours as long as it works with team meetings.</li>\n<li class=\"Lexical__listItem\" value=\"7\"><strong><strong class=\"Lexical__textBold\">Learning and Development:</strong></strong> We are committed to your professional growth. Proton offers various learning opportunities, including training programs, conferences and events, and continual learning.</li>\n<li class=\"Lexical__listItem\" value=\"8\"><strong><strong class=\"Lexical__textBold\">Employee Benefits:</strong></strong> Comprehensive health insurance plans, competitive retirement savings options, generous vacation and leave policies, and wellness programs.</li>\n<li class=\"Lexical__listItem\" value=\"9\"><strong><strong class=\"Lexical__textBold\">Work that Matters:</strong></strong> Proton is a community-first organization, started with the support of a crowdfunding campaign and built with community input. To this day, Proton’s only source of revenue is user subscriptions. Over 100 million people trust and support Proton, and we put our users and community first in everything we do. Read more about our impact<a class=\"Lexical__link\" href=\"https://proton.me/impact\"> here</a>.</li>\n<li class=\"Lexical__listItem\" value=\"9\"><strong>Compensation range</strong><br>Barcelona: 50.000 - 95.000 EUR gross annually*<br>Other locations: Compensation will be discussed during the interview process<br>*Final compensation will be determined based on the candidate's qualifications, skills, and previous experience</li>\n</ul>\n• <p class=\"Lexical__paragraph\"> </p>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">Our Commitment to Diversity and Inclusion</strong></strong></p>\n<p class=\"Lexical__paragraph\">At Proton, we believe diversity drives innovation and strengthens our mission to provide privacy as a default for all. We are committed to fostering an inclusive environment where all individuals, regardless of race, ethnicity, gender, age, sexual orientation, physical ability, or socio-economic background, feel valued and empowered. We strive to create equal opportunities, promote open dialogue, and support continuous learning to ensure every voice is heard and respected.</p>\n<p class=\"Lexical__paragraph\">If you need any extra support or reasonable adjustments during the hiring process, please let your talent partner know.</p>\n<p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">Candidate Privacy Notice</strong></strong></p>\n<p class=\"Lexical__paragraph\">When you apply for a position, refer a candidate, or are considered for a role at Proton Technologies AG (Proton, we, us, or our), your information is stored in Greenhouse, in accordance with their <a class=\"Lexical__link\" href=\"https://www.greenhouse.com/privacy-policy\">Service Privacy Policy.</a> This information is used to evaluate your suitability for the posted position. We also retain this information for consideration for future roles that you may apply for or that we believe may align with your background and skills.</p>\n<p class=\"Lexical__paragraph\">If we no longer have a legitimate business need to process your information, we will either delete or anonymize it. Should you have any inquiries about how we use or manage your information, or if you wish to access, correct, or delete your data, please contact our privacy team at careers@proton.ch.</p>\n<p class=\"Lexical__paragraph\"><em><em class=\"Lexical__textItalic\">Proton does not accept unsolicited resumes from any sources other than directly from candidates. We will not pay a fee for any placement resulting from an unsolicited offer, even if the candidate is subsequently hired by Proton.</em></em></p>\n<p class=\"Lexical__paragraph\"><em><em class=\"Lexical__textItalic\">To learn more about our privacy policy, please visit </em></em><a class=\"Lexical__link\" href=\"https://boards.eu.greenhouse.io/protongdpr\"><em><em class=\"Lexical__textItalic\">our privacy policy page</em></em></a><em><em class=\"Lexical__textItalic\">.</em></em></p>\n<p class=\"Lexical__paragraph\">#LI-Onsite</p>",
       "descriptionByLocale": {
-        "en": "<p class=\"Lexical__paragraph\"> </p>\n<h3>Join Proton and build a better internet where privacy is the default</h3>\n<p>Proton was founded in 2014 by scientists from CERN on a simple truth: <strong>privacy is a fundamental human right</strong>. Since then, we've built the world's largest encrypted email service (Proton Mail) and expanded into Proton VPN, Proton Drive, Proton Pass, and Proton Calendar — tools used by millions globally to protect their freedom, fight censorship, and keep their data safe. In some situations, Proton has literally helped save lives.</p>\n<p>We are profitable, independent (no VC control), and selectively hire from the top ~1% of applicants. Our 700+ team members across 50+ countries come from leading organizations and elite academic backgrounds. We move fast, keep hierarchy light, and prioritize impact over optics. If you want to do meaningful work with exceptionally high-caliber people, this is it. Check our open-source projects <a href=\"https://proton.me/community/open-source\">here</a>.</p>\n<p class=\"Lexical__paragraph\"> </p>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">The Team and impact</strong></strong></p>\n• <p class=\"Lexical__paragraph\">You're going to work with squad of and will be a part of bigger cross organizational team driving the future of B2B for VPN.</p>\n• <ul>\n• <li>Work on projects impacting both B2C and B2B, although your main focus is going to be on the B2B.\n• <ul class=\"Lexical__ul\">\n<li class=\"Lexical__listItem\" value=\"1\">Currently working on network segmentation, observability, and security but in the future we plan to build firewall and device posture capabilities for our high profiles customers.Currently working on things like firewall service for the VPN, in the future we want to work on a device posture and many more!</li>\n</ul>\n• </li>\n• <li class=\"Lexical__listItem\" value=\"1\">Have an impact on a new business segment of Proton, by driving the development of new features and building a long term strategy.</li>\n• </ul>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">What you will do:</strong></strong></p>\n<p class=\"Lexical__paragraph\">We are looking for a Senior Product Manager to lead the development of Proton VPN in the B2B market space.<br>Product at Proton sits at the intersection of Engineering, Growth, Data and Design. Your responsibility will be to participate in developing the product features from scratch with huge potential while Proton is entering a new market. You will be working cross-functionally together with R&D, Security, Back-End teams and others.</p>\n<ul class=\"Lexical__ul\">\n• <li class=\"Lexical__listItem\" value=\"1\">Work with the senior leadership team to define a strategic vision and roadmap for B2B aspect of Proton VPN.</li>\n• <li class=\"Lexical__listItem\" value=\"2\">Ensure that we are building, shipping and supporting the right features that deliver impactful value creation over time.</li>\n<li class=\"Lexical__listItem\" value=\"3\">Drive product innovation, develop novel, game-changing product features that expand our value proposition to new user segments and increase our defensibility.</li>\n<li class=\"Lexical__listItem\" value=\"4\">Define and own what success looks like in terms of adoption, activation and retention.</li>\n<li class=\"Lexical__listItem\" value=\"5\">Facilitate hand-in-hand collaboration between product, engineering, growth and marketing to align on the vision and the execution.</li>\n<li class=\"Lexical__listItem\" value=\"6\">Lead the teams through execution. See through the fog of war and know where to go and what needs to be done quickly and decisively. Troubleshoot and solve problems involving multiple teams inside and outside of product.</li>\n<li class=\"Lexical__listItem\" value=\"7\">Conduct market research, competitive analysis, and gather customer feedback to inform product decisions.</li>\n<li class=\"Lexical__listItem\" value=\"8\">Anticipate growth ceilings and define scaling strategies to prevent them, that include managing projects beyond pure-product work, and include foundational technology, tools, and processes, such as a customer engagement platform.</li>\n• <li class=\"Lexical__listItem\" value=\"9\">Set a fast pace for the team, help them to overcome blockers and execute faster.</li>\n• </ul>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">What we are looking for</strong></strong></p>\n• <p class=\"Lexical__paragraph\">We need you to have:</p>\n• <ul class=\"Lexical__ul\">\n<li class=\"Lexical__listItem\" value=\"1\"><strong><strong class=\"Lexical__textBold\">7-10 years</strong></strong> of experience in product management in <strong><strong class=\"Lexical__textBold\">B2B SaaS, </strong></strong>preferably in<strong><strong class=\"Lexical__textBold\"> security </strong></strong>and/or <strong><strong class=\"Lexical__textBold\">productivity </strong></strong>contexts.</li>\n• <li class=\"Lexical__listItem\" value=\"2\">Proven track-record in successful product and major feature launches in fast-paced environments.</li>\n• <li class=\"Lexical__listItem\" value=\"3\">Strategic leader with an analytical and data-driven mindset, with a track record for delivering products and features on time and with commercial success.</li>\n• <li class=\"Lexical__listItem\" value=\"4\">Strong empathy for the customer, user-centric mindset, and an unwillingness to lower standards.</li>\n• <li class=\"Lexical__listItem\" value=\"5\">A strong innate sense for good UX, with a love for design.</li>\n• <li class=\"Lexical__listItem\" value=\"6\">Experience building and managing high-performing teams.</li>\n• <li class=\"Lexical__listItem\" value=\"7\">A work ethic of going above and beyond to make things happen. Ability to be hands-on and thrive in a fast-paced environment.</li>\n• <li class=\"Lexical__listItem\" value=\"8\">Deep technical acumen, able to contribute to technical decisions.</li>\n<li class=\"Lexical__listItem\" value=\"9\">Technical background (ideally a<strong><strong class=\"Lexical__textBold\"> Computer Science degree </strong></strong>with specialization in<strong><strong class=\"Lexical__textBold\"> Security)</strong></strong></li>\n</ul>\n• <p class=\"Lexical__paragraph\">Even if you don’t meet all the requirements listed above, but feel you could still be a great fit, please still apply.</p>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">What We Offer</strong></strong></p>\n• <ul class=\"Lexical__ul\">\n<li class=\"Lexical__listItem\" value=\"1\"><strong><strong class=\"Lexical__textBold\">Office First:</strong></strong> Collaboration is easier and more effective in person, which is why we have offices in Geneva, Zurich, Prague, Barcelona, Paris, London, Vilnius, Skopje, and Taipei. You can also enjoy working from home up to 30% of the time, while enjoying great company during our three core days in the office.</li>\n<li class=\"Lexical__listItem\" value=\"2\"><strong><strong class=\"Lexical__textBold\">Technology:</strong></strong> We provide all the devices and software you need to excel in your role, ensuring you have the best tools at your disposal to achieve your goals.</li>\n<li class=\"Lexical__listItem\" value=\"3\"><strong><strong class=\"Lexical__textBold\">Food:</strong></strong> Lunch and snacks are provided by Proton every day at our offices.</li>\n<li class=\"Lexical__listItem\" value=\"4\"><strong><strong class=\"Lexical__textBold\">Transport: </strong></strong>We will always support our employees with transport costs through subsidizing public transport, bike allowances, or parking spaces based on your office location.</li>\n<li class=\"Lexical__listItem\" value=\"5\"><strong><strong class=\"Lexical__textBold\">Stock Options:</strong></strong> At Proton, we are all owners of the company and you get stock options when you join us.</li>\n<li class=\"Lexical__listItem\" value=\"6\"><strong><strong class=\"Lexical__textBold\">Flexible Working: </strong></strong>You can define your own working hours as long as it works with team meetings.</li>\n<li class=\"Lexical__listItem\" value=\"7\"><strong><strong class=\"Lexical__textBold\">Learning and Development:</strong></strong> We are committed to your professional growth. Proton offers various learning opportunities, including training programs, conferences and events, and continual learning.</li>\n<li class=\"Lexical__listItem\" value=\"8\"><strong><strong class=\"Lexical__textBold\">Employee Benefits:</strong></strong> Comprehensive health insurance plans, competitive retirement savings options, generous vacation and leave policies, and wellness programs.</li>\n<li class=\"Lexical__listItem\" value=\"9\"><strong><strong class=\"Lexical__textBold\">Work that Matters:</strong></strong> Proton is a community-first organization, started with the support of a crowdfunding campaign and built with community input. To this day, Proton’s only source of revenue is user subscriptions. Over 100 million people trust and support Proton, and we put our users and community first in everything we do. Read more about our impact<a class=\"Lexical__link\" href=\"https://proton.me/impact\"> here</a>.</li>\n<li class=\"Lexical__listItem\" value=\"9\"><strong>Compensation range</strong><br>Barcelona: 50.000 - 95.000 EUR gross annually*<br>Other locations: Compensation will be discussed during the interview process<br>*Final compensation will be determined based on the candidate's qualifications, skills, and previous experience</li>\n</ul>\n• <p class=\"Lexical__paragraph\"> </p>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">Our Commitment to Diversity and Inclusion</strong></strong></p>\n<p class=\"Lexical__paragraph\">At Proton, we believe diversity drives innovation and strengthens our mission to provide privacy as a default for all. We are committed to fostering an inclusive environment where all individuals, regardless of race, ethnicity, gender, age, sexual orientation, physical ability, or socio-economic background, feel valued and empowered. We strive to create equal opportunities, promote open dialogue, and support continuous learning to ensure every voice is heard and respected.</p>\n<p class=\"Lexical__paragraph\">If you need any extra support or reasonable adjustments during the hiring process, please let your talent partner know.</p>\n<p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">Candidate Privacy Notice</strong></strong></p>\n<p class=\"Lexical__paragraph\">When you apply for a position, refer a candidate, or are considered for a role at Proton Technologies AG (Proton, we, us, or our), your information is stored in Greenhouse, in accordance with their <a class=\"Lexical__link\" href=\"https://www.greenhouse.com/privacy-policy\">Service Privacy Policy.</a> This information is used to evaluate your suitability for the posted position. We also retain this information for consideration for future roles that you may apply for or that we believe may align with your background and skills.</p>\n<p class=\"Lexical__paragraph\">If we no longer have a legitimate business need to process your information, we will either delete or anonymize it. Should you have any inquiries about how we use or manage your information, or if you wish to access, correct, or delete your data, please contact our privacy team at careers@proton.ch.</p>\n<p class=\"Lexical__paragraph\"><em><em class=\"Lexical__textItalic\">Proton does not accept unsolicited resumes from any sources other than directly from candidates. We will not pay a fee for any placement resulting from an unsolicited offer, even if the candidate is subsequently hired by Proton.</em></em></p>\n<p class=\"Lexical__paragraph\"><em><em class=\"Lexical__textItalic\">To learn more about our privacy policy, please visit </em></em><a class=\"Lexical__link\" href=\"https://boards.eu.greenhouse.io/protongdpr\"><em><em class=\"Lexical__textItalic\">our privacy policy page</em></em></a><em><em class=\"Lexical__textItalic\">.</em></em></p>\n<p class=\"Lexical__paragraph\">#LI-Onsite</p>",
         "it": "<p class=\"Lexical__paragraph\"> </p>\n<h3>Join Proton and build a better internet where privacy is the default</h3>\n<p>Proton was founded in 2014 by scientists from CERN on a simple truth: <strong>privacy is a fundamental human right</strong>. Since then, we've built the world's largest encrypted email service (Proton Mail) and expanded into Proton VPN, Proton Drive, Proton Pass, and Proton Calendar — tools used by millions globally to protect their freedom, fight censorship, and keep their data safe. In some situations, Proton has literally helped save lives.</p>\n<p>We are profitable, independent (no VC control), and selectively hire from the top ~1% of applicants. Our 700+ team members across 50+ countries come from leading organizations and elite academic backgrounds. We move fast, keep hierarchy light, and prioritize impact over optics. If you want to do meaningful work with exceptionally high-caliber people, this is it. Check our open-source projects <a href=\"https://proton.me/community/open-source\">here</a>.</p>\n<p class=\"Lexical__paragraph\"> </p>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">The Team and impact</strong></strong></p>\n• <p class=\"Lexical__paragraph\">You're going to work with squad of and will be a part of bigger cross organizational team driving the future of B2B for VPN.</p>\n• <ul>\n• <li>Work on projects impacting both B2C and B2B, although your main focus is going to be on the B2B.\n• <ul class=\"Lexical__ul\">\n<li class=\"Lexical__listItem\" value=\"1\">Currently working on network segmentation, observability, and security but in the future we plan to build firewall and device posture capabilities for our high profiles customers.Currently working on things like firewall service for the VPN, in the future we want to work on a device posture and many more!</li>\n</ul>\n• </li>\n• <li class=\"Lexical__listItem\" value=\"1\">Have an impact on a new business segment of Proton, by driving the development of new features and building a long term strategy.</li>\n• </ul>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">What you will do:</strong></strong></p>\n<p class=\"Lexical__paragraph\">We are looking for a Senior Product Manager to lead the development of Proton VPN in the B2B market space.<br>Product at Proton sits at the intersection of Engineering, Growth, Data and Design. Your responsibility will be to participate in developing the product features from scratch with huge potential while Proton is entering a new market. You will be working cross-functionally together with R&D, Security, Back-End teams and others.</p>\n<ul class=\"Lexical__ul\">\n• <li class=\"Lexical__listItem\" value=\"1\">Work with the senior leadership team to define a strategic vision and roadmap for B2B aspect of Proton VPN.</li>\n• <li class=\"Lexical__listItem\" value=\"2\">Ensure that we are building, shipping and supporting the right features that deliver impactful value creation over time.</li>\n<li class=\"Lexical__listItem\" value=\"3\">Drive product innovation, develop novel, game-changing product features that expand our value proposition to new user segments and increase our defensibility.</li>\n<li class=\"Lexical__listItem\" value=\"4\">Define and own what success looks like in terms of adoption, activation and retention.</li>\n<li class=\"Lexical__listItem\" value=\"5\">Facilitate hand-in-hand collaboration between product, engineering, growth and marketing to align on the vision and the execution.</li>\n<li class=\"Lexical__listItem\" value=\"6\">Lead the teams through execution. See through the fog of war and know where to go and what needs to be done quickly and decisively. Troubleshoot and solve problems involving multiple teams inside and outside of product.</li>\n<li class=\"Lexical__listItem\" value=\"7\">Conduct market research, competitive analysis, and gather customer feedback to inform product decisions.</li>\n<li class=\"Lexical__listItem\" value=\"8\">Anticipate growth ceilings and define scaling strategies to prevent them, that include managing projects beyond pure-product work, and include foundational technology, tools, and processes, such as a customer engagement platform.</li>\n• <li class=\"Lexical__listItem\" value=\"9\">Set a fast pace for the team, help them to overcome blockers and execute faster.</li>\n• </ul>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">What we are looking for</strong></strong></p>\n• <p class=\"Lexical__paragraph\">We need you to have:</p>\n• <ul class=\"Lexical__ul\">\n<li class=\"Lexical__listItem\" value=\"1\"><strong><strong class=\"Lexical__textBold\">7-10 years</strong></strong> of experience in product management in <strong><strong class=\"Lexical__textBold\">B2B SaaS, </strong></strong>preferably in<strong><strong class=\"Lexical__textBold\"> security </strong></strong>and/or <strong><strong class=\"Lexical__textBold\">productivity </strong></strong>contexts.</li>\n• <li class=\"Lexical__listItem\" value=\"2\">Proven track-record in successful product and major feature launches in fast-paced environments.</li>\n• <li class=\"Lexical__listItem\" value=\"3\">Strategic leader with an analytical and data-driven mindset, with a track record for delivering products and features on time and with commercial success.</li>\n• <li class=\"Lexical__listItem\" value=\"4\">Strong empathy for the customer, user-centric mindset, and an unwillingness to lower standards.</li>\n• <li class=\"Lexical__listItem\" value=\"5\">A strong innate sense for good UX, with a love for design.</li>\n• <li class=\"Lexical__listItem\" value=\"6\">Experience building and managing high-performing teams.</li>\n• <li class=\"Lexical__listItem\" value=\"7\">A work ethic of going above and beyond to make things happen. Ability to be hands-on and thrive in a fast-paced environment.</li>\n• <li class=\"Lexical__listItem\" value=\"8\">Deep technical acumen, able to contribute to technical decisions.</li>\n<li class=\"Lexical__listItem\" value=\"9\">Technical background (ideally a<strong><strong class=\"Lexical__textBold\"> Computer Science degree </strong></strong>with specialization in<strong><strong class=\"Lexical__textBold\"> Security)</strong></strong></li>\n</ul>\n• <p class=\"Lexical__paragraph\">Even if you don’t meet all the requirements listed above, but feel you could still be a great fit, please still apply.</p>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">What We Offer</strong></strong></p>\n• <ul class=\"Lexical__ul\">\n<li class=\"Lexical__listItem\" value=\"1\"><strong><strong class=\"Lexical__textBold\">Office First:</strong></strong> Collaboration is easier and more effective in person, which is why we have offices in Geneva, Zurich, Prague, Barcelona, Paris, London, Vilnius, Skopje, and Taipei. You can also enjoy working from home up to 30% of the time, while enjoying great company during our three core days in the office.</li>\n<li class=\"Lexical__listItem\" value=\"2\"><strong><strong class=\"Lexical__textBold\">Technology:</strong></strong> We provide all the devices and software you need to excel in your role, ensuring you have the best tools at your disposal to achieve your goals.</li>\n<li class=\"Lexical__listItem\" value=\"3\"><strong><strong class=\"Lexical__textBold\">Food:</strong></strong> Lunch and snacks are provided by Proton every day at our offices.</li>\n<li class=\"Lexical__listItem\" value=\"4\"><strong><strong class=\"Lexical__textBold\">Transport: </strong></strong>We will always support our employees with transport costs through subsidizing public transport, bike allowances, or parking spaces based on your office location.</li>\n<li class=\"Lexical__listItem\" value=\"5\"><strong><strong class=\"Lexical__textBold\">Stock Options:</strong></strong> At Proton, we are all owners of the company and you get stock options when you join us.</li>\n<li class=\"Lexical__listItem\" value=\"6\"><strong><strong class=\"Lexical__textBold\">Flexible Working: </strong></strong>You can define your own working hours as long as it works with team meetings.</li>\n<li class=\"Lexical__listItem\" value=\"7\"><strong><strong class=\"Lexical__textBold\">Learning and Development:</strong></strong> We are committed to your professional growth. Proton offers various learning opportunities, including training programs, conferences and events, and continual learning.</li>\n<li class=\"Lexical__listItem\" value=\"8\"><strong><strong class=\"Lexical__textBold\">Employee Benefits:</strong></strong> Comprehensive health insurance plans, competitive retirement savings options, generous vacation and leave policies, and wellness programs.</li>\n<li class=\"Lexical__listItem\" value=\"9\"><strong><strong class=\"Lexical__textBold\">Work that Matters:</strong></strong> Proton is a community-first organization, started with the support of a crowdfunding campaign and built with community input. To this day, Proton’s only source of revenue is user subscriptions. Over 100 million people trust and support Proton, and we put our users and community first in everything we do. Read more about our impact<a class=\"Lexical__link\" href=\"https://proton.me/impact\"> here</a>.</li>\n<li class=\"Lexical__listItem\" value=\"9\"><strong>Compensation range</strong><br>Barcelona: 50.000 - 95.000 EUR gross annually*<br>Other locations: Compensation will be discussed during the interview process<br>*Final compensation will be determined based on the candidate's qualifications, skills, and previous experience</li>\n</ul>\n• <p class=\"Lexical__paragraph\"> </p>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">Our Commitment to Diversity and Inclusion</strong></strong></p>\n<p class=\"Lexical__paragraph\">At Proton, we believe diversity drives innovation and strengthens our mission to provide privacy as a default for all. We are committed to fostering an inclusive environment where all individuals, regardless of race, ethnicity, gender, age, sexual orientation, physical ability, or socio-economic background, feel valued and empowered. We strive to create equal opportunities, promote open dialogue, and support continuous learning to ensure every voice is heard and respected.</p>\n<p class=\"Lexical__paragraph\">If you need any extra support or reasonable adjustments during the hiring process, please let your talent partner know.</p>\n<p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">Candidate Privacy Notice</strong></strong></p>\n<p class=\"Lexical__paragraph\">When you apply for a position, refer a candidate, or are considered for a role at Proton Technologies AG (Proton, we, us, or our), your information is stored in Greenhouse, in accordance with their <a class=\"Lexical__link\" href=\"https://www.greenhouse.com/privacy-policy\">Service Privacy Policy.</a> This information is used to evaluate your suitability for the posted position. We also retain this information for consideration for future roles that you may apply for or that we believe may align with your background and skills.</p>\n<p class=\"Lexical__paragraph\">If we no longer have a legitimate business need to process your information, we will either delete or anonymize it. Should you have any inquiries about how we use or manage your information, or if you wish to access, correct, or delete your data, please contact our privacy team at careers@proton.ch.</p>\n<p class=\"Lexical__paragraph\"><em><em class=\"Lexical__textItalic\">Proton does not accept unsolicited resumes from any sources other than directly from candidates. We will not pay a fee for any placement resulting from an unsolicited offer, even if the candidate is subsequently hired by Proton.</em></em></p>\n<p class=\"Lexical__paragraph\"><em><em class=\"Lexical__textItalic\">To learn more about our privacy policy, please visit </em></em><a class=\"Lexical__link\" href=\"https://boards.eu.greenhouse.io/protongdpr\"><em><em class=\"Lexical__textItalic\">our privacy policy page</em></em></a><em><em class=\"Lexical__textItalic\">.</em></em></p>\n<p class=\"Lexical__paragraph\">#LI-Onsite</p>",
+        "en": "<p class=\"Lexical__paragraph\"> </p>\n<h3>Join Proton and build a better internet where privacy is the default</h3>\n<p>Proton was founded in 2014 by scientists from CERN on a simple truth: <strong>privacy is a fundamental human right</strong>. Since then, we've built the world's largest encrypted email service (Proton Mail) and expanded into Proton VPN, Proton Drive, Proton Pass, and Proton Calendar — tools used by millions globally to protect their freedom, fight censorship, and keep their data safe. In some situations, Proton has literally helped save lives.</p>\n<p>We are profitable, independent (no VC control), and selectively hire from the top ~1% of applicants. Our 700+ team members across 50+ countries come from leading organizations and elite academic backgrounds. We move fast, keep hierarchy light, and prioritize impact over optics. If you want to do meaningful work with exceptionally high-caliber people, this is it. Check our open-source projects <a href=\"https://proton.me/community/open-source\">here</a>.</p>\n<p class=\"Lexical__paragraph\"> </p>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">The Team and impact</strong></strong></p>\n• <p class=\"Lexical__paragraph\">You're going to work with squad of and will be a part of bigger cross organizational team driving the future of B2B for VPN.</p>\n• <ul>\n• <li>Work on projects impacting both B2C and B2B, although your main focus is going to be on the B2B.\n• <ul class=\"Lexical__ul\">\n<li class=\"Lexical__listItem\" value=\"1\">Currently working on network segmentation, observability, and security but in the future we plan to build firewall and device posture capabilities for our high profiles customers.Currently working on things like firewall service for the VPN, in the future we want to work on a device posture and many more!</li>\n</ul>\n• </li>\n• <li class=\"Lexical__listItem\" value=\"1\">Have an impact on a new business segment of Proton, by driving the development of new features and building a long term strategy.</li>\n• </ul>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">What you will do:</strong></strong></p>\n<p class=\"Lexical__paragraph\">We are looking for a Senior Product Manager to lead the development of Proton VPN in the B2B market space.<br>Product at Proton sits at the intersection of Engineering, Growth, Data and Design. Your responsibility will be to participate in developing the product features from scratch with huge potential while Proton is entering a new market. You will be working cross-functionally together with R&D, Security, Back-End teams and others.</p>\n<ul class=\"Lexical__ul\">\n• <li class=\"Lexical__listItem\" value=\"1\">Work with the senior leadership team to define a strategic vision and roadmap for B2B aspect of Proton VPN.</li>\n• <li class=\"Lexical__listItem\" value=\"2\">Ensure that we are building, shipping and supporting the right features that deliver impactful value creation over time.</li>\n<li class=\"Lexical__listItem\" value=\"3\">Drive product innovation, develop novel, game-changing product features that expand our value proposition to new user segments and increase our defensibility.</li>\n<li class=\"Lexical__listItem\" value=\"4\">Define and own what success looks like in terms of adoption, activation and retention.</li>\n<li class=\"Lexical__listItem\" value=\"5\">Facilitate hand-in-hand collaboration between product, engineering, growth and marketing to align on the vision and the execution.</li>\n<li class=\"Lexical__listItem\" value=\"6\">Lead the teams through execution. See through the fog of war and know where to go and what needs to be done quickly and decisively. Troubleshoot and solve problems involving multiple teams inside and outside of product.</li>\n<li class=\"Lexical__listItem\" value=\"7\">Conduct market research, competitive analysis, and gather customer feedback to inform product decisions.</li>\n<li class=\"Lexical__listItem\" value=\"8\">Anticipate growth ceilings and define scaling strategies to prevent them, that include managing projects beyond pure-product work, and include foundational technology, tools, and processes, such as a customer engagement platform.</li>\n• <li class=\"Lexical__listItem\" value=\"9\">Set a fast pace for the team, help them to overcome blockers and execute faster.</li>\n• </ul>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">What we are looking for</strong></strong></p>\n• <p class=\"Lexical__paragraph\">We need you to have:</p>\n• <ul class=\"Lexical__ul\">\n<li class=\"Lexical__listItem\" value=\"1\"><strong><strong class=\"Lexical__textBold\">7-10 years</strong></strong> of experience in product management in <strong><strong class=\"Lexical__textBold\">B2B SaaS, </strong></strong>preferably in<strong><strong class=\"Lexical__textBold\"> security </strong></strong>and/or <strong><strong class=\"Lexical__textBold\">productivity </strong></strong>contexts.</li>\n• <li class=\"Lexical__listItem\" value=\"2\">Proven track-record in successful product and major feature launches in fast-paced environments.</li>\n• <li class=\"Lexical__listItem\" value=\"3\">Strategic leader with an analytical and data-driven mindset, with a track record for delivering products and features on time and with commercial success.</li>\n• <li class=\"Lexical__listItem\" value=\"4\">Strong empathy for the customer, user-centric mindset, and an unwillingness to lower standards.</li>\n• <li class=\"Lexical__listItem\" value=\"5\">A strong innate sense for good UX, with a love for design.</li>\n• <li class=\"Lexical__listItem\" value=\"6\">Experience building and managing high-performing teams.</li>\n• <li class=\"Lexical__listItem\" value=\"7\">A work ethic of going above and beyond to make things happen. Ability to be hands-on and thrive in a fast-paced environment.</li>\n• <li class=\"Lexical__listItem\" value=\"8\">Deep technical acumen, able to contribute to technical decisions.</li>\n<li class=\"Lexical__listItem\" value=\"9\">Technical background (ideally a<strong><strong class=\"Lexical__textBold\"> Computer Science degree </strong></strong>with specialization in<strong><strong class=\"Lexical__textBold\"> Security)</strong></strong></li>\n</ul>\n• <p class=\"Lexical__paragraph\">Even if you don’t meet all the requirements listed above, but feel you could still be a great fit, please still apply.</p>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">What We Offer</strong></strong></p>\n• <ul class=\"Lexical__ul\">\n<li class=\"Lexical__listItem\" value=\"1\"><strong><strong class=\"Lexical__textBold\">Office First:</strong></strong> Collaboration is easier and more effective in person, which is why we have offices in Geneva, Zurich, Prague, Barcelona, Paris, London, Vilnius, Skopje, and Taipei. You can also enjoy working from home up to 30% of the time, while enjoying great company during our three core days in the office.</li>\n<li class=\"Lexical__listItem\" value=\"2\"><strong><strong class=\"Lexical__textBold\">Technology:</strong></strong> We provide all the devices and software you need to excel in your role, ensuring you have the best tools at your disposal to achieve your goals.</li>\n<li class=\"Lexical__listItem\" value=\"3\"><strong><strong class=\"Lexical__textBold\">Food:</strong></strong> Lunch and snacks are provided by Proton every day at our offices.</li>\n<li class=\"Lexical__listItem\" value=\"4\"><strong><strong class=\"Lexical__textBold\">Transport: </strong></strong>We will always support our employees with transport costs through subsidizing public transport, bike allowances, or parking spaces based on your office location.</li>\n<li class=\"Lexical__listItem\" value=\"5\"><strong><strong class=\"Lexical__textBold\">Stock Options:</strong></strong> At Proton, we are all owners of the company and you get stock options when you join us.</li>\n<li class=\"Lexical__listItem\" value=\"6\"><strong><strong class=\"Lexical__textBold\">Flexible Working: </strong></strong>You can define your own working hours as long as it works with team meetings.</li>\n<li class=\"Lexical__listItem\" value=\"7\"><strong><strong class=\"Lexical__textBold\">Learning and Development:</strong></strong> We are committed to your professional growth. Proton offers various learning opportunities, including training programs, conferences and events, and continual learning.</li>\n<li class=\"Lexical__listItem\" value=\"8\"><strong><strong class=\"Lexical__textBold\">Employee Benefits:</strong></strong> Comprehensive health insurance plans, competitive retirement savings options, generous vacation and leave policies, and wellness programs.</li>\n<li class=\"Lexical__listItem\" value=\"9\"><strong><strong class=\"Lexical__textBold\">Work that Matters:</strong></strong> Proton is a community-first organization, started with the support of a crowdfunding campaign and built with community input. To this day, Proton’s only source of revenue is user subscriptions. Over 100 million people trust and support Proton, and we put our users and community first in everything we do. Read more about our impact<a class=\"Lexical__link\" href=\"https://proton.me/impact\"> here</a>.</li>\n<li class=\"Lexical__listItem\" value=\"9\"><strong>Compensation range</strong><br>Barcelona: 50.000 - 95.000 EUR gross annually*<br>Other locations: Compensation will be discussed during the interview process<br>*Final compensation will be determined based on the candidate's qualifications, skills, and previous experience</li>\n</ul>\n• <p class=\"Lexical__paragraph\"> </p>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">Our Commitment to Diversity and Inclusion</strong></strong></p>\n<p class=\"Lexical__paragraph\">At Proton, we believe diversity drives innovation and strengthens our mission to provide privacy as a default for all. We are committed to fostering an inclusive environment where all individuals, regardless of race, ethnicity, gender, age, sexual orientation, physical ability, or socio-economic background, feel valued and empowered. We strive to create equal opportunities, promote open dialogue, and support continuous learning to ensure every voice is heard and respected.</p>\n<p class=\"Lexical__paragraph\">If you need any extra support or reasonable adjustments during the hiring process, please let your talent partner know.</p>\n<p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">Candidate Privacy Notice</strong></strong></p>\n<p class=\"Lexical__paragraph\">When you apply for a position, refer a candidate, or are considered for a role at Proton Technologies AG (Proton, we, us, or our), your information is stored in Greenhouse, in accordance with their <a class=\"Lexical__link\" href=\"https://www.greenhouse.com/privacy-policy\">Service Privacy Policy.</a> This information is used to evaluate your suitability for the posted position. We also retain this information for consideration for future roles that you may apply for or that we believe may align with your background and skills.</p>\n<p class=\"Lexical__paragraph\">If we no longer have a legitimate business need to process your information, we will either delete or anonymize it. Should you have any inquiries about how we use or manage your information, or if you wish to access, correct, or delete your data, please contact our privacy team at careers@proton.ch.</p>\n<p class=\"Lexical__paragraph\"><em><em class=\"Lexical__textItalic\">Proton does not accept unsolicited resumes from any sources other than directly from candidates. We will not pay a fee for any placement resulting from an unsolicited offer, even if the candidate is subsequently hired by Proton.</em></em></p>\n<p class=\"Lexical__paragraph\"><em><em class=\"Lexical__textItalic\">To learn more about our privacy policy, please visit </em></em><a class=\"Lexical__link\" href=\"https://boards.eu.greenhouse.io/protongdpr\"><em><em class=\"Lexical__textItalic\">our privacy policy page</em></em></a><em><em class=\"Lexical__textItalic\">.</em></em></p>\n<p class=\"Lexical__paragraph\">#LI-Onsite</p>",
         "de": "<p class=\"Lexical__paragraph\"> </p>\n<h3>Join Proton and build a better internet where privacy is the default</h3>\n<p>Proton was founded in 2014 by scientists from CERN on a simple truth: <strong>privacy is a fundamental human right</strong>. Since then, we've built the world's largest encrypted email service (Proton Mail) and expanded into Proton VPN, Proton Drive, Proton Pass, and Proton Calendar — tools used by millions globally to protect their freedom, fight censorship, and keep their data safe. In some situations, Proton has literally helped save lives.</p>\n<p>We are profitable, independent (no VC control), and selectively hire from the top ~1% of applicants. Our 700+ team members across 50+ countries come from leading organizations and elite academic backgrounds. We move fast, keep hierarchy light, and prioritize impact over optics. If you want to do meaningful work with exceptionally high-caliber people, this is it. Check our open-source projects <a href=\"https://proton.me/community/open-source\">here</a>.</p>\n<p class=\"Lexical__paragraph\"> </p>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">The Team and impact</strong></strong></p>\n• <p class=\"Lexical__paragraph\">You're going to work with squad of and will be a part of bigger cross organizational team driving the future of B2B for VPN.</p>\n• <ul>\n• <li>Work on projects impacting both B2C and B2B, although your main focus is going to be on the B2B.\n• <ul class=\"Lexical__ul\">\n<li class=\"Lexical__listItem\" value=\"1\">Currently working on network segmentation, observability, and security but in the future we plan to build firewall and device posture capabilities for our high profiles customers.Currently working on things like firewall service for the VPN, in the future we want to work on a device posture and many more!</li>\n</ul>\n• </li>\n• <li class=\"Lexical__listItem\" value=\"1\">Have an impact on a new business segment of Proton, by driving the development of new features and building a long term strategy.</li>\n• </ul>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">What you will do:</strong></strong></p>\n<p class=\"Lexical__paragraph\">We are looking for a Senior Product Manager to lead the development of Proton VPN in the B2B market space.<br>Product at Proton sits at the intersection of Engineering, Growth, Data and Design. Your responsibility will be to participate in developing the product features from scratch with huge potential while Proton is entering a new market. You will be working cross-functionally together with R&D, Security, Back-End teams and others.</p>\n<ul class=\"Lexical__ul\">\n• <li class=\"Lexical__listItem\" value=\"1\">Work with the senior leadership team to define a strategic vision and roadmap for B2B aspect of Proton VPN.</li>\n• <li class=\"Lexical__listItem\" value=\"2\">Ensure that we are building, shipping and supporting the right features that deliver impactful value creation over time.</li>\n<li class=\"Lexical__listItem\" value=\"3\">Drive product innovation, develop novel, game-changing product features that expand our value proposition to new user segments and increase our defensibility.</li>\n<li class=\"Lexical__listItem\" value=\"4\">Define and own what success looks like in terms of adoption, activation and retention.</li>\n<li class=\"Lexical__listItem\" value=\"5\">Facilitate hand-in-hand collaboration between product, engineering, growth and marketing to align on the vision and the execution.</li>\n<li class=\"Lexical__listItem\" value=\"6\">Lead the teams through execution. See through the fog of war and know where to go and what needs to be done quickly and decisively. Troubleshoot and solve problems involving multiple teams inside and outside of product.</li>\n<li class=\"Lexical__listItem\" value=\"7\">Conduct market research, competitive analysis, and gather customer feedback to inform product decisions.</li>\n<li class=\"Lexical__listItem\" value=\"8\">Anticipate growth ceilings and define scaling strategies to prevent them, that include managing projects beyond pure-product work, and include foundational technology, tools, and processes, such as a customer engagement platform.</li>\n• <li class=\"Lexical__listItem\" value=\"9\">Set a fast pace for the team, help them to overcome blockers and execute faster.</li>\n• </ul>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">What we are looking for</strong></strong></p>\n• <p class=\"Lexical__paragraph\">We need you to have:</p>\n• <ul class=\"Lexical__ul\">\n<li class=\"Lexical__listItem\" value=\"1\"><strong><strong class=\"Lexical__textBold\">7-10 years</strong></strong> of experience in product management in <strong><strong class=\"Lexical__textBold\">B2B SaaS, </strong></strong>preferably in<strong><strong class=\"Lexical__textBold\"> security </strong></strong>and/or <strong><strong class=\"Lexical__textBold\">productivity </strong></strong>contexts.</li>\n• <li class=\"Lexical__listItem\" value=\"2\">Proven track-record in successful product and major feature launches in fast-paced environments.</li>\n• <li class=\"Lexical__listItem\" value=\"3\">Strategic leader with an analytical and data-driven mindset, with a track record for delivering products and features on time and with commercial success.</li>\n• <li class=\"Lexical__listItem\" value=\"4\">Strong empathy for the customer, user-centric mindset, and an unwillingness to lower standards.</li>\n• <li class=\"Lexical__listItem\" value=\"5\">A strong innate sense for good UX, with a love for design.</li>\n• <li class=\"Lexical__listItem\" value=\"6\">Experience building and managing high-performing teams.</li>\n• <li class=\"Lexical__listItem\" value=\"7\">A work ethic of going above and beyond to make things happen. Ability to be hands-on and thrive in a fast-paced environment.</li>\n• <li class=\"Lexical__listItem\" value=\"8\">Deep technical acumen, able to contribute to technical decisions.</li>\n<li class=\"Lexical__listItem\" value=\"9\">Technical background (ideally a<strong><strong class=\"Lexical__textBold\"> Computer Science degree </strong></strong>with specialization in<strong><strong class=\"Lexical__textBold\"> Security)</strong></strong></li>\n</ul>\n• <p class=\"Lexical__paragraph\">Even if you don’t meet all the requirements listed above, but feel you could still be a great fit, please still apply.</p>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">What We Offer</strong></strong></p>\n• <ul class=\"Lexical__ul\">\n<li class=\"Lexical__listItem\" value=\"1\"><strong><strong class=\"Lexical__textBold\">Office First:</strong></strong> Collaboration is easier and more effective in person, which is why we have offices in Geneva, Zurich, Prague, Barcelona, Paris, London, Vilnius, Skopje, and Taipei. You can also enjoy working from home up to 30% of the time, while enjoying great company during our three core days in the office.</li>\n<li class=\"Lexical__listItem\" value=\"2\"><strong><strong class=\"Lexical__textBold\">Technology:</strong></strong> We provide all the devices and software you need to excel in your role, ensuring you have the best tools at your disposal to achieve your goals.</li>\n<li class=\"Lexical__listItem\" value=\"3\"><strong><strong class=\"Lexical__textBold\">Food:</strong></strong> Lunch and snacks are provided by Proton every day at our offices.</li>\n<li class=\"Lexical__listItem\" value=\"4\"><strong><strong class=\"Lexical__textBold\">Transport: </strong></strong>We will always support our employees with transport costs through subsidizing public transport, bike allowances, or parking spaces based on your office location.</li>\n<li class=\"Lexical__listItem\" value=\"5\"><strong><strong class=\"Lexical__textBold\">Stock Options:</strong></strong> At Proton, we are all owners of the company and you get stock options when you join us.</li>\n<li class=\"Lexical__listItem\" value=\"6\"><strong><strong class=\"Lexical__textBold\">Flexible Working: </strong></strong>You can define your own working hours as long as it works with team meetings.</li>\n<li class=\"Lexical__listItem\" value=\"7\"><strong><strong class=\"Lexical__textBold\">Learning and Development:</strong></strong> We are committed to your professional growth. Proton offers various learning opportunities, including training programs, conferences and events, and continual learning.</li>\n<li class=\"Lexical__listItem\" value=\"8\"><strong><strong class=\"Lexical__textBold\">Employee Benefits:</strong></strong> Comprehensive health insurance plans, competitive retirement savings options, generous vacation and leave policies, and wellness programs.</li>\n<li class=\"Lexical__listItem\" value=\"9\"><strong><strong class=\"Lexical__textBold\">Work that Matters:</strong></strong> Proton is a community-first organization, started with the support of a crowdfunding campaign and built with community input. To this day, Proton’s only source of revenue is user subscriptions. Over 100 million people trust and support Proton, and we put our users and community first in everything we do. Read more about our impact<a class=\"Lexical__link\" href=\"https://proton.me/impact\"> here</a>.</li>\n<li class=\"Lexical__listItem\" value=\"9\"><strong>Compensation range</strong><br>Barcelona: 50.000 - 95.000 EUR gross annually*<br>Other locations: Compensation will be discussed during the interview process<br>*Final compensation will be determined based on the candidate's qualifications, skills, and previous experience</li>\n</ul>\n• <p class=\"Lexical__paragraph\"> </p>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">Our Commitment to Diversity and Inclusion</strong></strong></p>\n<p class=\"Lexical__paragraph\">At Proton, we believe diversity drives innovation and strengthens our mission to provide privacy as a default for all. We are committed to fostering an inclusive environment where all individuals, regardless of race, ethnicity, gender, age, sexual orientation, physical ability, or socio-economic background, feel valued and empowered. We strive to create equal opportunities, promote open dialogue, and support continuous learning to ensure every voice is heard and respected.</p>\n<p class=\"Lexical__paragraph\">If you need any extra support or reasonable adjustments during the hiring process, please let your talent partner know.</p>\n<p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">Candidate Privacy Notice</strong></strong></p>\n<p class=\"Lexical__paragraph\">When you apply for a position, refer a candidate, or are considered for a role at Proton Technologies AG (Proton, we, us, or our), your information is stored in Greenhouse, in accordance with their <a class=\"Lexical__link\" href=\"https://www.greenhouse.com/privacy-policy\">Service Privacy Policy.</a> This information is used to evaluate your suitability for the posted position. We also retain this information for consideration for future roles that you may apply for or that we believe may align with your background and skills.</p>\n<p class=\"Lexical__paragraph\">If we no longer have a legitimate business need to process your information, we will either delete or anonymize it. Should you have any inquiries about how we use or manage your information, or if you wish to access, correct, or delete your data, please contact our privacy team at careers@proton.ch.</p>\n<p class=\"Lexical__paragraph\"><em><em class=\"Lexical__textItalic\">Proton does not accept unsolicited resumes from any sources other than directly from candidates. We will not pay a fee for any placement resulting from an unsolicited offer, even if the candidate is subsequently hired by Proton.</em></em></p>\n<p class=\"Lexical__paragraph\"><em><em class=\"Lexical__textItalic\">To learn more about our privacy policy, please visit </em></em><a class=\"Lexical__link\" href=\"https://boards.eu.greenhouse.io/protongdpr\"><em><em class=\"Lexical__textItalic\">our privacy policy page</em></em></a><em><em class=\"Lexical__textItalic\">.</em></em></p>\n<p class=\"Lexical__paragraph\">#LI-Onsite</p>",
         "fr": "<p class=\"Lexical__paragraph\"> </p>\n<h3>Join Proton and build a better internet where privacy is the default</h3>\n<p>Proton was founded in 2014 by scientists from CERN on a simple truth: <strong>privacy is a fundamental human right</strong>. Since then, we've built the world's largest encrypted email service (Proton Mail) and expanded into Proton VPN, Proton Drive, Proton Pass, and Proton Calendar — tools used by millions globally to protect their freedom, fight censorship, and keep their data safe. In some situations, Proton has literally helped save lives.</p>\n<p>We are profitable, independent (no VC control), and selectively hire from the top ~1% of applicants. Our 700+ team members across 50+ countries come from leading organizations and elite academic backgrounds. We move fast, keep hierarchy light, and prioritize impact over optics. If you want to do meaningful work with exceptionally high-caliber people, this is it. Check our open-source projects <a href=\"https://proton.me/community/open-source\">here</a>.</p>\n<p class=\"Lexical__paragraph\"> </p>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">The Team and impact</strong></strong></p>\n• <p class=\"Lexical__paragraph\">You're going to work with squad of and will be a part of bigger cross organizational team driving the future of B2B for VPN.</p>\n• <ul>\n• <li>Work on projects impacting both B2C and B2B, although your main focus is going to be on the B2B.\n• <ul class=\"Lexical__ul\">\n<li class=\"Lexical__listItem\" value=\"1\">Currently working on network segmentation, observability, and security but in the future we plan to build firewall and device posture capabilities for our high profiles customers.Currently working on things like firewall service for the VPN, in the future we want to work on a device posture and many more!</li>\n</ul>\n• </li>\n• <li class=\"Lexical__listItem\" value=\"1\">Have an impact on a new business segment of Proton, by driving the development of new features and building a long term strategy.</li>\n• </ul>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">What you will do:</strong></strong></p>\n<p class=\"Lexical__paragraph\">We are looking for a Senior Product Manager to lead the development of Proton VPN in the B2B market space.<br>Product at Proton sits at the intersection of Engineering, Growth, Data and Design. Your responsibility will be to participate in developing the product features from scratch with huge potential while Proton is entering a new market. You will be working cross-functionally together with R&D, Security, Back-End teams and others.</p>\n<ul class=\"Lexical__ul\">\n• <li class=\"Lexical__listItem\" value=\"1\">Work with the senior leadership team to define a strategic vision and roadmap for B2B aspect of Proton VPN.</li>\n• <li class=\"Lexical__listItem\" value=\"2\">Ensure that we are building, shipping and supporting the right features that deliver impactful value creation over time.</li>\n<li class=\"Lexical__listItem\" value=\"3\">Drive product innovation, develop novel, game-changing product features that expand our value proposition to new user segments and increase our defensibility.</li>\n<li class=\"Lexical__listItem\" value=\"4\">Define and own what success looks like in terms of adoption, activation and retention.</li>\n<li class=\"Lexical__listItem\" value=\"5\">Facilitate hand-in-hand collaboration between product, engineering, growth and marketing to align on the vision and the execution.</li>\n<li class=\"Lexical__listItem\" value=\"6\">Lead the teams through execution. See through the fog of war and know where to go and what needs to be done quickly and decisively. Troubleshoot and solve problems involving multiple teams inside and outside of product.</li>\n<li class=\"Lexical__listItem\" value=\"7\">Conduct market research, competitive analysis, and gather customer feedback to inform product decisions.</li>\n<li class=\"Lexical__listItem\" value=\"8\">Anticipate growth ceilings and define scaling strategies to prevent them, that include managing projects beyond pure-product work, and include foundational technology, tools, and processes, such as a customer engagement platform.</li>\n• <li class=\"Lexical__listItem\" value=\"9\">Set a fast pace for the team, help them to overcome blockers and execute faster.</li>\n• </ul>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">What we are looking for</strong></strong></p>\n• <p class=\"Lexical__paragraph\">We need you to have:</p>\n• <ul class=\"Lexical__ul\">\n<li class=\"Lexical__listItem\" value=\"1\"><strong><strong class=\"Lexical__textBold\">7-10 years</strong></strong> of experience in product management in <strong><strong class=\"Lexical__textBold\">B2B SaaS, </strong></strong>preferably in<strong><strong class=\"Lexical__textBold\"> security </strong></strong>and/or <strong><strong class=\"Lexical__textBold\">productivity </strong></strong>contexts.</li>\n• <li class=\"Lexical__listItem\" value=\"2\">Proven track-record in successful product and major feature launches in fast-paced environments.</li>\n• <li class=\"Lexical__listItem\" value=\"3\">Strategic leader with an analytical and data-driven mindset, with a track record for delivering products and features on time and with commercial success.</li>\n• <li class=\"Lexical__listItem\" value=\"4\">Strong empathy for the customer, user-centric mindset, and an unwillingness to lower standards.</li>\n• <li class=\"Lexical__listItem\" value=\"5\">A strong innate sense for good UX, with a love for design.</li>\n• <li class=\"Lexical__listItem\" value=\"6\">Experience building and managing high-performing teams.</li>\n• <li class=\"Lexical__listItem\" value=\"7\">A work ethic of going above and beyond to make things happen. Ability to be hands-on and thrive in a fast-paced environment.</li>\n• <li class=\"Lexical__listItem\" value=\"8\">Deep technical acumen, able to contribute to technical decisions.</li>\n<li class=\"Lexical__listItem\" value=\"9\">Technical background (ideally a<strong><strong class=\"Lexical__textBold\"> Computer Science degree </strong></strong>with specialization in<strong><strong class=\"Lexical__textBold\"> Security)</strong></strong></li>\n</ul>\n• <p class=\"Lexical__paragraph\">Even if you don’t meet all the requirements listed above, but feel you could still be a great fit, please still apply.</p>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">What We Offer</strong></strong></p>\n• <ul class=\"Lexical__ul\">\n<li class=\"Lexical__listItem\" value=\"1\"><strong><strong class=\"Lexical__textBold\">Office First:</strong></strong> Collaboration is easier and more effective in person, which is why we have offices in Geneva, Zurich, Prague, Barcelona, Paris, London, Vilnius, Skopje, and Taipei. You can also enjoy working from home up to 30% of the time, while enjoying great company during our three core days in the office.</li>\n<li class=\"Lexical__listItem\" value=\"2\"><strong><strong class=\"Lexical__textBold\">Technology:</strong></strong> We provide all the devices and software you need to excel in your role, ensuring you have the best tools at your disposal to achieve your goals.</li>\n<li class=\"Lexical__listItem\" value=\"3\"><strong><strong class=\"Lexical__textBold\">Food:</strong></strong> Lunch and snacks are provided by Proton every day at our offices.</li>\n<li class=\"Lexical__listItem\" value=\"4\"><strong><strong class=\"Lexical__textBold\">Transport: </strong></strong>We will always support our employees with transport costs through subsidizing public transport, bike allowances, or parking spaces based on your office location.</li>\n<li class=\"Lexical__listItem\" value=\"5\"><strong><strong class=\"Lexical__textBold\">Stock Options:</strong></strong> At Proton, we are all owners of the company and you get stock options when you join us.</li>\n<li class=\"Lexical__listItem\" value=\"6\"><strong><strong class=\"Lexical__textBold\">Flexible Working: </strong></strong>You can define your own working hours as long as it works with team meetings.</li>\n<li class=\"Lexical__listItem\" value=\"7\"><strong><strong class=\"Lexical__textBold\">Learning and Development:</strong></strong> We are committed to your professional growth. Proton offers various learning opportunities, including training programs, conferences and events, and continual learning.</li>\n<li class=\"Lexical__listItem\" value=\"8\"><strong><strong class=\"Lexical__textBold\">Employee Benefits:</strong></strong> Comprehensive health insurance plans, competitive retirement savings options, generous vacation and leave policies, and wellness programs.</li>\n<li class=\"Lexical__listItem\" value=\"9\"><strong><strong class=\"Lexical__textBold\">Work that Matters:</strong></strong> Proton is a community-first organization, started with the support of a crowdfunding campaign and built with community input. To this day, Proton’s only source of revenue is user subscriptions. Over 100 million people trust and support Proton, and we put our users and community first in everything we do. Read more about our impact<a class=\"Lexical__link\" href=\"https://proton.me/impact\"> here</a>.</li>\n<li class=\"Lexical__listItem\" value=\"9\"><strong>Compensation range</strong><br>Barcelona: 50.000 - 95.000 EUR gross annually*<br>Other locations: Compensation will be discussed during the interview process<br>*Final compensation will be determined based on the candidate's qualifications, skills, and previous experience</li>\n</ul>\n• <p class=\"Lexical__paragraph\"> </p>\n• <p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">Our Commitment to Diversity and Inclusion</strong></strong></p>\n<p class=\"Lexical__paragraph\">At Proton, we believe diversity drives innovation and strengthens our mission to provide privacy as a default for all. We are committed to fostering an inclusive environment where all individuals, regardless of race, ethnicity, gender, age, sexual orientation, physical ability, or socio-economic background, feel valued and empowered. We strive to create equal opportunities, promote open dialogue, and support continuous learning to ensure every voice is heard and respected.</p>\n<p class=\"Lexical__paragraph\">If you need any extra support or reasonable adjustments during the hiring process, please let your talent partner know.</p>\n<p class=\"Lexical__paragraph\"><strong><strong class=\"Lexical__textBold\">Candidate Privacy Notice</strong></strong></p>\n<p class=\"Lexical__paragraph\">When you apply for a position, refer a candidate, or are considered for a role at Proton Technologies AG (Proton, we, us, or our), your information is stored in Greenhouse, in accordance with their <a class=\"Lexical__link\" href=\"https://www.greenhouse.com/privacy-policy\">Service Privacy Policy.</a> This information is used to evaluate your suitability for the posted position. We also retain this information for consideration for future roles that you may apply for or that we believe may align with your background and skills.</p>\n<p class=\"Lexical__paragraph\">If we no longer have a legitimate business need to process your information, we will either delete or anonymize it. Should you have any inquiries about how we use or manage your information, or if you wish to access, correct, or delete your data, please contact our privacy team at careers@proton.ch.</p>\n<p class=\"Lexical__paragraph\"><em><em class=\"Lexical__textItalic\">Proton does not accept unsolicited resumes from any sources other than directly from candidates. We will not pay a fee for any placement resulting from an unsolicited offer, even if the candidate is subsequently hired by Proton.</em></em></p>\n<p class=\"Lexical__paragraph\"><em><em class=\"Lexical__textItalic\">To learn more about our privacy policy, please visit </em></em><a class=\"Lexical__link\" href=\"https://boards.eu.greenhouse.io/protongdpr\"><em><em class=\"Lexical__textItalic\">our privacy policy page</em></em></a><em><em class=\"Lexical__textItalic\">.</em></em></p>\n<p class=\"Lexical__paragraph\">#LI-Onsite</p>"
       },
@@ -906,7 +913,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4962235101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:39.350Z",
+      "crawledAt": "2026-08-28T05:32:13.151Z",
       "addressLocality": "Barcelona",
       "addressCountry": "CH",
       "country": "CH",
@@ -920,10 +927,9 @@
       "postedDate": "2026-08-27",
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4962235101",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-27T20:04:39.350Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -936,8 +942,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE",
-      "firstSeenAt": "2026-08-27T20:04:39.350Z"
+      "addressRegion": "GE"
     },
     {
       "id": "proton-6565c2255033",
@@ -970,7 +975,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4864462101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:39.048Z",
+      "crawledAt": "2026-08-28T05:32:12.848Z",
       "addressLocality": "Geneva, Switzerland, Paris, France",
       "addressCountry": "CH",
       "country": "CH",
@@ -1053,7 +1058,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4908174101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:38.746Z",
+      "crawledAt": "2026-08-28T05:32:12.546Z",
       "addressLocality": "Paris",
       "addressCountry": "CH",
       "country": "CH",
@@ -1115,7 +1120,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4947375101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:38.421Z",
+      "crawledAt": "2026-08-28T05:32:12.215Z",
       "addressLocality": "London, Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1177,7 +1182,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4877317101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:38.119Z",
+      "crawledAt": "2026-08-28T05:32:11.913Z",
       "addressLocality": "Geneva, Paris",
       "addressCountry": "CH",
       "country": "CH",
@@ -1249,7 +1254,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4652948101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:37.817Z",
+      "crawledAt": "2026-08-28T05:32:11.611Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1332,7 +1337,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4870234101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:37.515Z",
+      "crawledAt": "2026-08-28T05:32:11.308Z",
       "addressLocality": "Paris",
       "addressCountry": "CH",
       "country": "CH",
@@ -1409,7 +1414,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4881699101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:37.207Z",
+      "crawledAt": "2026-08-28T05:32:10.998Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1441,6 +1446,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:16:31.304Z",
+      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 148000,
       "baseSalary": {
@@ -1469,7 +1475,7 @@
       "companyDomain": "proton.me",
       "title": "Senior Hardware Buyer",
       "titleByLocale": {
-        "it": "Comprare hardware senior",
+        "it": "Senior Hardware Buyer",
         "en": "Senior Hardware Buyer",
         "de": "Senior Hardware Käufer",
         "fr": "Acheteur principal de matériel"
@@ -1486,7 +1492,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4849865101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:36.903Z",
+      "crawledAt": "2026-08-28T05:32:10.695Z",
       "addressLocality": "Paris",
       "addressCountry": "CH",
       "country": "CH",
@@ -1502,6 +1508,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-03T23:16:31.002Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1547,7 +1554,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4630103101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:36.595Z",
+      "crawledAt": "2026-08-28T05:32:10.393Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1626,7 +1633,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4936072101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:36.291Z",
+      "crawledAt": "2026-08-28T05:32:10.089Z",
       "addressLocality": "Geneva, Switzerland, Paris, France",
       "addressCountry": "CH",
       "country": "CH",
@@ -1688,7 +1695,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4953832101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:35.983Z",
+      "crawledAt": "2026-08-28T05:32:09.785Z",
       "addressLocality": "Paris",
       "addressCountry": "CH",
       "country": "CH",
@@ -1765,7 +1772,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4826396101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:35.679Z",
+      "crawledAt": "2026-08-28T05:32:09.483Z",
       "addressLocality": "Paris",
       "addressCountry": "CH",
       "country": "CH",
@@ -1842,7 +1849,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4929052101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:35.377Z",
+      "crawledAt": "2026-08-28T05:32:09.180Z",
       "addressLocality": "Paris",
       "addressCountry": "CH",
       "country": "CH",
@@ -1874,6 +1881,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:50:14.708Z",
+      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 148000,
       "baseSalary": {
@@ -1919,7 +1927,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4932186101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:35.074Z",
+      "crawledAt": "2026-08-28T05:32:08.873Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1996,7 +2004,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4936160101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:34.772Z",
+      "crawledAt": "2026-08-28T05:32:08.567Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -2076,7 +2084,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4928995101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:34.468Z",
+      "crawledAt": "2026-08-28T05:32:08.262Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -2110,6 +2118,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:50:13.800Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "baseSalary": {
@@ -2155,7 +2164,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4823205101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:34.163Z",
+      "crawledAt": "2026-08-28T05:32:07.953Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -2191,6 +2200,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:16:29.492Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "baseSalary": {
@@ -2236,7 +2246,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4903325101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:33.860Z",
+      "crawledAt": "2026-08-28T05:32:07.650Z",
       "addressLocality": "Paris, Geneva, London",
       "addressCountry": "CH",
       "country": "CH",
@@ -2271,6 +2281,7 @@
         "piombo-di-vendita-del-prodotto-proton-paris-geneva-london"
       ],
       "firstSeenAt": "2026-07-03T23:16:29.794Z",
+      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 163000,
       "baseSalary": {
@@ -2316,7 +2327,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4941983101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:33.559Z",
+      "crawledAt": "2026-08-28T05:32:07.347Z",
       "addressLocality": "London",
       "addressCountry": "CH",
       "country": "CH",
@@ -2393,7 +2404,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4555348101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:33.257Z",
+      "crawledAt": "2026-08-28T05:32:07.041Z",
       "addressLocality": "London, Paris, Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -2470,7 +2481,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4848724101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:32.954Z",
+      "crawledAt": "2026-08-28T05:32:06.738Z",
       "addressLocality": "Geneva, Switzerland, London, England, United Kingdom",
       "addressCountry": "CH",
       "country": "CH",
@@ -2551,7 +2562,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4183145101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:32.652Z",
+      "crawledAt": "2026-08-28T05:32:06.429Z",
       "addressLocality": "Geneva, London, Barcelona",
       "addressCountry": "CH",
       "country": "CH",
@@ -2589,6 +2600,7 @@
         "piombo-di-vendita-del-prodotto-b2b-proton-paris-geneva-london"
       ],
       "firstSeenAt": "2026-07-03T23:16:30.096Z",
+      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 163000,
       "baseSalary": {
@@ -2634,7 +2646,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4392372101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:32.347Z",
+      "crawledAt": "2026-08-28T05:32:06.122Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -2716,7 +2728,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4857528101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:32.045Z",
+      "crawledAt": "2026-08-28T05:32:05.819Z",
       "addressLocality": "Taipei",
       "addressCountry": "CH",
       "country": "CH",
@@ -2748,6 +2760,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:16:28.587Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "baseSalary": {
@@ -2793,7 +2806,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4814505101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:31.741Z",
+      "crawledAt": "2026-08-28T05:32:05.511Z",
       "addressLocality": "Taipei",
       "addressCountry": "CH",
       "country": "CH",
@@ -2880,7 +2893,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4926609101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:31.439Z",
+      "crawledAt": "2026-08-28T05:32:05.206Z",
       "addressLocality": "Paris",
       "addressCountry": "CH",
       "country": "CH",
@@ -2962,7 +2975,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4868059101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:04:31.135Z",
+      "crawledAt": "2026-08-28T05:32:04.892Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
