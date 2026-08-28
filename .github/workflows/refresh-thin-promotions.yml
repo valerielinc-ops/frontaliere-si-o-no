@@ -84,7 +84,11 @@ jobs:
           # history for the rebase-retry loop above while deferring blob
           # content download until a file is actually touched.
           filter: blob:none
-          token: ${{ secrets.GITHUB_TOKEN }}
+          # The repository ruleset requires the vitest check for ordinary
+          # pushes. This scheduled writer uses the owner PAT, which is an
+          # explicit ruleset bypass actor; do not leave checkout's
+          # GITHUB_TOKEN extraheader in front of it.
+          persist-credentials: false
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
             /*
@@ -180,6 +184,11 @@ jobs:
           git config user.email "thin-promotions-bot@frontaliereticino.ch"
           git add data/thin-page-promotions-active.json data/thin-page-promotions.jsonl
           git commit -m "chore(thin-promotions): refresh self-heal feedback (last hour)"
+          if [ -z "${GITHUB_PAT:-}" ]; then
+            echo "::error::GITHUB_PAT missing from Remote Config — cannot bypass the main CI ruleset for this scheduled writer"
+            exit 1
+          fi
+          git remote set-url origin "https://x-access-token:${GITHUB_PAT}@github.com/${GITHUB_REPOSITORY}.git"
           # Centralized rebase-retry helper (survives concurrent pushes from other
           # workflows) instead of a bespoke inline loop — see
           # scripts/lib/git-push-with-retry.sh, already used by
