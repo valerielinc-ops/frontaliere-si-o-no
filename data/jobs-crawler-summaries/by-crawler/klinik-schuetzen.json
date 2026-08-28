@@ -1,21 +1,23 @@
 {
   "key": "klinik-schuetzen",
   "label": "Klinik Schützen Rheinfelden",
-  "generatedAt": "2026-08-27T19:50:05.373Z",
+  "generatedAt": "2026-08-28T05:16:38.962Z",
   "total": 10,
   "discovered": null,
   "written": 10,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 6274,
-  "avgDurationMs": 6274,
+  "unchangedCount": 1,
+  "durationMs": 6911,
+  "avgDurationMs": 6911,
   "durationHistory": [
-    6274
+    6911
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "klinik-schuetzen-09cc96dfb83a",
       "slug": "dipl-specialista-di-cura-hf-fh-klinik-schutzen-rheinfelden-rheinfelden",
@@ -46,7 +48,7 @@
       "firstSeenAt": "2026-05-19T12:20:46.878Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -55,7 +57,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
