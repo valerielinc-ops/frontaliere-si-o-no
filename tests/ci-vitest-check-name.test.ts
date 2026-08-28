@@ -209,10 +209,11 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
 
   it('include tutti i root applicativi nel grafo related', () => {
     expect(RELATED_RUNNER).toContain('const projectRe');
+    expect(RELATED_RUNNER).toContain('!alwaysExcludedTests.has(file)');
     expect(RELATED_RUNNER).toContain("!file.startsWith('.github/')");
     expect(RELATED_RUNNER).toContain("!file.includes('/')");
     expect(RELATED_RUNNER).toContain('file !== \'scripts/ci/run-related-tests.mjs\'');
-    expect(RELATED_RUNNER).toContain('sourceRe.test(file)))');
+    expect(RELATED_RUNNER).toContain('sourceRe.test(file)');
     expect(RELATED_RUNNER).not.toContain('implicitTestDependencyRe');
     expect(RELATED_RUNNER).toContain('No static related edge found');
     expect(RELATED_RUNNER).toContain('const visited = new Set()');
