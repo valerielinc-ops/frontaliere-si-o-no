@@ -1,6 +1,6 @@
 {
   "crawlerKey": "marriott",
-  "assembledAt": "2026-08-27T20:13:05.805Z",
+  "assembledAt": "2026-08-28T05:32:50.624Z",
   "jobs": [
     {
       "id": "marriott-b6da655d02d1",
@@ -18,7 +18,7 @@
       "titleByLocale": {
         "it": "Cameriera/tress Mattina (inverno 26/27) - W VERBIER",
         "en": "Waiter/tress Morning (Winter 26/27) - W VERBIER",
-        "de": "Kellner/Tress Morgen (Winter 26/27) - W VERBIER",
+        "de": "Waiter/tress Morning (Winter 26/27) - W VERBIER",
         "fr": "Garçon/mère Matin (Hiver 26/27) - W VERBIER"
       },
       "description": "JOB DESCRIPTION\n\nBecome a W Talent and be the W Art of Living!\n\nAs a ‘Talent’, you are the essence of W for our guests. You bring a playful, warm and welcoming touch that makes all the difference in our W hotels. You are unique, passionate, and your personality shines through in every interaction.\n\nA UNIQUE OPPORTUNITY TO JOIN THE W VERBIER TEAM\n\nJoin us as Waiter/tress and our Breakfast, In Room Dining & Banqueting team and shine as soon as our guests wake up! You will take orders and serve our guests with a cheerful, enthusiastic and professional attitude, using effective sales techniques. You'll play a key role in our customers' day, and your warm welcome will set the tone.\n\nA true salesperson at heart, you'll be committed to achieving your targets. You'll be responsible for keeping tables clean during service, and for checking and paying bills. You know all about tableware design: you'll make sure it's perfect and respond to the various requests of your Talent Coach. As part of the IRD team, you will be responsible for room service and checking the Mixbars in the guest rooms.\n\nPROFILE\n\nSuper motivated: Your energy and enthusiasm are contagious.\n\nPassionate about Brand W: You share our values of taste, sound, scene, body and taking a stand.\n\nAttention to Detail: You have meticulous attention to detail and love delivering a memorable customer experience.\n\nOutgoing and sociable personality: You are cheerful, a good listener, helpful and available.\n\nFluency in languages: You are fluent in French and English.\n\nTeam spirit: You enjoy working as part of a daring international team.\n\nImpeccable presentation: You represent the W brand image with elegance.\n\nEducation and experience: BAC PRO/CFC/BTS Catering or 2 years' experience in a similar role.\n\nPosition to be filled for the Winter season : December 2026 to March 2027\n\nImportant Note: Due to visa restrictions, only applications from Switzerland and the European Union will be considered.\n\nReady to shine at W Verbier? Join us and bring your touch of magic to every breakfast! 🌟\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nW Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
@@ -33,7 +33,7 @@
       "url": "https://careers.marriott.com/waiter-tress-morning-winter-26-27-w-verbier/job/B6E914F28A18CC7B48C4729D73A6A896",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:12:58.997Z",
+      "crawledAt": "2026-08-28T05:32:43.939Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -61,10 +61,12 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "waiter-tress-morning-winter-26-27-w-verbier-marriott-verbier"
+          "waiter-tress-morning-winter-26-27-w-verbier-marriott-verbier",
+          "morning-waiter-waitress-winter-26-27-w-verbier-marriott-international-verbier"
         ],
         "it": [
-          "waiter-tress-morning-winter-26-27-w-verbier-marriott-verbier"
+          "waiter-tress-morning-winter-26-27-w-verbier-marriott-verbier",
+          "cameriere-maestra-mattina-inverno-26-27-w-verbier-marriott-international-verbier"
         ],
         "fr": [
           "waiter-tress-morning-winter-26-27-w-verbier-marriott-international-verbier"
@@ -72,9 +74,12 @@
       },
       "previousSlugs": [
         "waiter-tress-morning-winter-26-27-w-verbier-marriott-verbier",
-        "waiter-tress-morning-winter-26-27-w-verbier-marriott-international-verbier"
+        "waiter-tress-morning-winter-26-27-w-verbier-marriott-international-verbier",
+        "morning-waiter-waitress-winter-26-27-w-verbier-marriott-international-verbier",
+        "cameriere-maestra-mattina-inverno-26-27-w-verbier-marriott-international-verbier"
       ],
       "firstSeenAt": "2026-07-23T22:27:08.332Z",
+      "needsRetranslation": true,
       "salaryMin": 65500,
       "salaryMax": 82500,
       "baseSalary": {
@@ -103,7 +108,7 @@
       "companyDomain": "marriott.com",
       "title": "Waiter/tress Brasserie & U-Yama (Winter 26/27) - W VERBIER",
       "titleByLocale": {
-        "it": "Cameriera/tress Brasserie & U-Yama (inverno 26/27) - W VERBIER",
+        "it": "Waiter/tress Brasserie & U-Yama (Winter 26/27) - W VERBIER",
         "en": "Waiter/tress Brasserie & U-Yama (Winter 26/27) - W VERBIER",
         "de": "Kellner/Tress Brasserie & U-Yama (Winter 26/27) - W VERBIER",
         "fr": "Serveur/tress Brasserie & U-Yama (Hiver 26/27) - W VERBIER"
@@ -120,7 +125,7 @@
       "url": "https://careers.marriott.com/waiter-tress-brasserie-u-yama-winter-26-27-w-verbier/job/C052454AD38407D9CFAEF4C3FAA13254",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:12:58.996Z",
+      "crawledAt": "2026-08-28T05:32:43.938Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -150,14 +155,16 @@
         "kellner-baum-brasserie-u-yama-winter-26-27-w-verbier-marriott-international-verbier",
         "garcon-chaine-brasserie-u-yama-hiver-26-27-w-verbier-marriott-international-verbier",
         "cameriere-tress-brasserie-u-yama-inverno-26-27-w-verbier-marriott-international-verbier",
-        "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier"
+        "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
+        "cameriera-tress-brasserie-u-yama-inverno-26-27-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kellner-baum-brasserie-u-yama-winter-26-27-w-verbier-marriott-international-verbier",
           "garcon-chaine-brasserie-u-yama-hiver-26-27-w-verbier-marriott-international-verbier",
           "cameriere-tress-brasserie-u-yama-inverno-26-27-w-verbier-marriott-international-verbier",
-          "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier"
+          "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
+          "cameriera-tress-brasserie-u-yama-inverno-26-27-w-verbier-marriott-international-verbier"
         ],
         "de": [
           "kellner-baum-brasserie-u-yama-winter-26-27-w-verbier-marriott-international-verbier"
@@ -168,6 +175,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T22:36:11.370Z",
+      "needsRetranslation": true,
       "salaryMin": 65500,
       "salaryMax": 82500,
       "baseSalary": {
@@ -213,7 +221,7 @@
       "url": "https://careers.marriott.com/w-verbier-le-spa-intern-6-months-w-verbier/job/229185A49A7BA262D7C845EC24E37546",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:12:58.996Z",
+      "crawledAt": "2026-08-28T05:32:43.937Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -240,11 +248,13 @@
         "publishEndDate": "2026-09-06T08:39:00.000Z"
       },
       "previousSlugs": [
-        "w-verbier-le-spa-intern-6-months-w-verbier-marriott-verbier"
+        "w-verbier-le-spa-intern-6-months-w-verbier-marriott-verbier",
+        "w-verbier-le-spa-tirocinante-6-months-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "w-verbier-le-spa-intern-6-months-w-verbier-marriott-verbier"
+          "w-verbier-le-spa-intern-6-months-w-verbier-marriott-verbier",
+          "w-verbier-le-spa-tirocinante-6-months-w-verbier-marriott-international-verbier"
         ],
         "de": [
           "w-verbier-le-spa-intern-6-months-w-verbier-marriott-verbier"
@@ -254,6 +264,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T12:18:41.634Z",
+      "needsRetranslation": true,
       "salaryMin": 52500,
       "salaryMax": 66000,
       "baseSalary": {
@@ -299,7 +310,7 @@
       "url": "https://careers.marriott.com/university-intern-europe/job/1E4FD36D17B06C69384293E3A86B938E",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:12:58.995Z",
+      "crawledAt": "2026-08-28T05:32:43.935Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -328,13 +339,15 @@
       "previousSlugs": [
         "technicien-de-maintenance-marriott-geneva",
         "whatever-whenever-agent-guest-relations-winter-26-27-w-verbier-marriott-verbier",
-        "university-intern-europe-marriott-zurich"
+        "university-intern-europe-marriott-zurich",
+        "internship-universitario-europa-marriott-international-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technicien-de-maintenance-marriott-geneva",
           "whatever-whenever-agent-guest-relations-winter-26-27-w-verbier-marriott-verbier",
-          "university-intern-europe-marriott-zurich"
+          "university-intern-europe-marriott-zurich",
+          "internship-universitario-europa-marriott-international-zurich"
         ],
         "en": [
           "technicien-de-maintenance-marriott-geneva",
@@ -371,7 +384,7 @@
       "title": "Style Agent / Room attendant (Winter 26/27) - W VERBIER",
       "titleByLocale": {
         "it": "Agente di Stile / Addetto alle Camere (Inverno 26/27) - W VERBIER",
-        "en": "Style Agent / Room (Winter 26.27) - W VERBIER",
+        "en": "Style Agent / Room attendant (Winter 26/27) - W VERBIER",
         "de": "Style Agent / Room attendant (Winter 26/27) - W VERBIER",
         "fr": "Agent de Style / Employé(e) aux Chambres (Hiver 26/27) - W VERBIER"
       },
@@ -379,15 +392,15 @@
       "descriptionByLocale": {
         "it": "DESCRIZIONE DEL LAVORO\n\nCome \"Talento\", rappresenti lo stile di vita W per i nostri ospiti. Sei l'anima del marchio e lo porti in vita. W I talenti sono unici come il marchio stesso e sono personalmente coinvolti dal punto di vista dello stile di vita nell'ambiente caldo, spiritoso e accogliente del marchio.\n\nUN'ENTUSIASMANTE OPPORTUNITÀ DI ENTRARE A FAR PARTE DEL TEAM W VERBIER\n\n• Modella l'esperienza W dei nostri ospiti.\n• Pulire le camere degli ospiti in conformità con gli standard di qualità e prestazioni stabiliti per consentire la vendita di una quantità sufficiente di camere vuote e pulite.\n• Pulire le camere occupate.\n• Pulire e ripristinare le aree della camera da letto e del bagno degli ospiti secondo gli standard stabiliti.\n• Organizzare e stoccare il carrello delle pulizie e organizzare gli armadi della biancheria sui piani assegnati.\n\nPROFILO\n\n• Hai una precedente esperienza in un hotel a 5* nel settore delle pulizie.\n• Sei molto motivato\n• Fluente in francese e inglese\n• Essere attenti ai dettagli e avere la passione di offrire agli ospiti un'esperienza eccezionale.\n• Interesse reale per il mondo del gusto, del suono, del corpo, della scena e della postura\n• A causa delle restrizioni sui visti, saranno prese in considerazione solo le domande provenienti dalla Svizzera e dall'Unione Europea\n\nPosizione da ricoprire per la stagione invernale, da dicembre 2026 a marzo 2027\n\nIn Marriott International, ci impegniamo a essere un datore di lavoro con pari opportunità, accogliendo tutti e fornendo accesso alle opportunità. Promuoviamo attivamente un ambiente in cui i background unici dei nostri collaboratori siano apprezzati e celebrati. La nostra più grande forza risiede nei ricchi",
         "en": "JOB DESCRIPTION\n\nAs \"Talent\", you represent W lifestyle to our guests. You are the soul behind the brand and you bring it to life. W Talents are as unique as the brand itself and are personally engaged from a lifestyle standpoint to the warm, witty, welcoming environment of the brand.\n\nAN EXCITING CHANCE TO JOIN THE W VERBIER TEAM\n\n• Style our Guests' W Experience.\n• Clean guest rooms in accordance with established quality and performance standards to allow a sufficient quantity of vacant and clean guest rooms for sale.\n• Clean occupied guest rooms.\n• Clean and reset guest bedroom and bathroom areas according to established standards.\n• Organize and stock cleaning cart and organize linen closets on floors assigned.\n\nPROFILE\n\n• You have a prior experience in a 5* hotel in housekeeping.\n• You are highly motivated\n• Fluent in French and English\n• Be detail oriented and have a passion for giving guests an exceptional experience.\n• Real interest in the worlds of taste, sound, body, scene and stance\n• Due to visa restrictions, only applications from Switzerland and the European Union will be considered\n\nPosition to be filled for the Winter season, from December 2026 to March 2027\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nW Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
-        "de": "BESCHREIBUNG DER ARBEIT\n\nAls \"Talent\" repräsentieren Sie unseren Gästen W Lifestyle. Sie sind die Seele hinter der Marke und Sie bringen sie zum Leben. W Talents sind so einzigartig wie die Marke selbst und sind persönlich vom Lifestyle-Sichtpunkt zum warmen, witzigen, einladenden Umfeld der Marke engagiert.\n\nEIN EXZITIERTER CHANCE, DAS W VERBIER TEAM ZU MELDEN\n\n• Style unsere Gäste W Erfahrung. • Saubere Gästezimmer nach den festgelegten Qualität und Leistungsstandards, um eine ausreichende Anzahl von freien und sauberen Gästezimmern zum Verkauf zu ermöglichen. • Saubere besetzte Gästezimmer. • Saubere und reset Gäste Schlafzimmer und Badezimmer Bereiche nach den festgelegten Standards. • Organisieren und Lager Reinigungswagen und organisieren Wäscheschränke auf Etagen zugeordnet.\n\nPROFIL\n\n• Sie haben eine Vorerfahrung in einem 5* Hotel in der Haushaltsführung. • Sie sind hoch motiviert • Fließend in Französisch und Englisch • Seien Sie detailorientiert und haben Sie die Leidenschaft, den Gästen ein außergewöhnliches Erlebnis zu geben. • Echtes Interesse an den Welten von Geschmack, Klang, Körper, Szene und Haltung • Aufgrund von Visabeschränkungen werden nur Anträge aus der Schweiz und der Europäischen Union berücksichtigt.\n\nFür die Wintersaison von Dezember 2026 bis März 2027 auszufüllende Position\n\nBei Marriott International sind wir bestrebt, Arbeitgeber mit gleicher Chancenstellung zu sein, alle zu begrüßen und Zugang zu Möglichkeiten zu bieten. Wir fördern aktiv ein Umfeld, in dem die einzigartigen Hintergründe unserer Mitarbeiter geschätzt und gefeiert werden. Unsere größte Stärke liegt in der reichen Mischung aus Kultur, Talent und Erfahrungen unserer Mitarbeiter. Wir verpflichten uns, auf jeder geschützten Basis, einschließlich Behinderung, Veteranstatus oder anderen durch geltendes Recht geschützten Grundlagen, nicht zu diskriminieren.\n\nW Hotels, Mission ist es, Neugierde zu zünden, Welten zu erweitern. Wir sind ein Ort, um das Leben zu erleben. Wir, sind hier, um Türen und offene Köpfe zu öffnen. Wir sind ständig von neuen Gesichtern und neuen Erfahrungen inspiriert. Ein abgestimmter, up-for-jeder Geist ist unser Kern und hat uns bekannt gemacht, die Standards des Luxus auf der ganzen Welt neu zu erfinden. Was auch immer / Wann ist unsere Kultur-und Dienstleistungsphilosophie, die unsere Gäste, Leidenschaften zum Leben bringt. Wenn Sie originell, innovativ sind und immer auf die Zukunft schauen, was, möglich, willkommen in W Hotels.\n\nMit dem Eintritt in W Hotels schliessen Sie sich Marriott International an, wo Sie Ihr Bestes tun, Ihren Zweck beginnen, einem erstaunlichen globalen Team angehören und die beste Version von Ihnen werden können.",
-        "fr": "DESCRIPTION DE L'EMPLOI\n\nEn tant que \"TaENT\", vous représentez le style de vie W pour nos clients. Vous êtes l'âme derrière la marque et vous la mettez en vie. Les talents W sont aussi uniques que la marque elle-même et sont personnellement engagés du point de vue du style de vie dans l'environnement chaleureux, spirituel et accueillant de la marque.\n\nUNE CHANCE EXCITIVE POUR JOINDRE L'ÉQUIPE VÉRIBIÈRE\n\n• Styler l'expérience W de nos clients. • Nettoyer les chambres d'hôtes selon les normes de qualité et de performance établies pour permettre une quantité suffisante de chambres d'hôtes vides et propres à la vente. • Nettoyer les chambres d'hôtes occupées. • Nettoyer et réinitialiser les chambres d'hôtes et les salles de bains selon les normes établies. • Organisez et stockez votre panier de nettoyage et organisez des placards de linge sur les étages assignés.\n\nPROFIL\n\n• Vous avez une expérience préalable dans un hôtel 5* en ménage. • Vous êtes très motivé • Fluent en français et en anglais • Soyez orienté vers le détail et avez une passion pour donner aux clients une expérience exceptionnelle. • Un véritable intérêt pour les mondes du goût, du son, du corps, de la scène et de la position • En raison des restrictions de visa, seules les demandes de Suisse et de l'Union européenne seront prises en considération\n\nPosition à pourvoir pour la saison hivernale, de décembre 2026 à mars 2027\n\nNous nous engageons à favoriser un environnement où les origines uniques de nos associés sont appréciées et célébrées. Notre plus grande force réside dans le riche mélange de culture, de talent et d'expérience de nos associés. Nous sommes engagés à la non-discrimination sur toute base protégée, y compris le handicap, le statut de vétéran, ou toute autre base protégée par la loi applicable.\n\nNous sommes ici pour ouvrir les portes et ouvrir les esprits. Nous sommes constamment inspirés par de nouveaux visages et de nouvelles expériences. Un esprit de mise en forme et de pointe est au cœur de notre quotidien et nous a fait renommées pour réinventer les normes du luxe dans le monde entier. Quoi que soit notre culture et notre philosophie de service qui mettent nos clients, nos passions à la vie. Si vous êtes original, innovant et toujours en train de regarder vers l'avenir de quoi, possible, bienvenue à W Hotels.\n\nEn rejoignant W Hotels, vous rejoignez un portefeuille de marques avec Marriott International. Soyez là où vous pouvez faire votre meilleur travail, commencer votre objectif, appartenir à une équipe mondiale étonnante, et devenir la meilleure version de vous."
+        "de": "BESCHREIBUNG DER ARBEIT\n\nAls \"Talent\" repräsentieren Sie unseren Gästen W Lifestyle. Sie sind die Seele hinter der Marke und Sie bringen sie zum Leben. W Talents sind so einzigartig wie die Marke selbst und sind persönlich vom Lifestyle-Sichtpunkt zum warmen, witzigen, einladenden Umfeld der Marke engagiert.\n\nEIN EXZITIERTER CHANCE, DAS W VERBIER TEAM ZU MELDEN\n\n• Style unsere Gäste W Erfahrung.\n• Saubere Gästezimmer nach den festgelegten Qualität und Leistungsstandards, um eine ausreichende Anzahl von freien und sauberen Gästezimmern zum Verkauf zu ermöglichen.\n• Saubere besetzte Gästezimmer.\n• Saubere und reset Gäste Schlafzimmer und Badezimmer Bereiche nach den festgelegten Standards.\n• Organisieren und Lager Reinigungswagen und organisieren Wäscheschränke auf Etagen zugeordnet.\n\nPROFIL\n\n• Sie haben eine Vorerfahrung in einem 5* Hotel in der Haushaltsführung.\n• Sie sind hoch motiviert\n• Fließend in Französisch und Englisch\n• Seien Sie detailorientiert und haben Sie die Leidenschaft, den Gästen ein außergewöhnliches Erlebnis zu geben.\n• Echtes Interesse an den Welten von Geschmack, Klang, Körper, Szene und Haltung\n• Aufgrund von Visabeschränkungen werden nur Anträge aus der Schweiz und der Europäischen Union berücksichtigt.\n\nFür die Wintersaison von Dezember 2026 bis März 2027 auszufüllende Position\n\nBei Marriott International sind wir bestrebt, Arbeitgeber mit gleicher Chancenstellung zu sein, alle zu begrüßen und Zugang zu Möglichkeiten zu bieten. Wir fördern aktiv ein Umfeld, in dem die einzigartigen Hintergründe unserer Mitarbeiter geschätzt und gefeiert werden. Unsere größte Stärke liegt in der reichen Mischung aus Kultur, Talent und Erfahrungen unserer Mitarbeiter. Wir verpflichten uns, auf jeder geschützten Basis, einschließlich Behinderung, Veteranstatus oder anderen durch geltendes Recht geschützten Grundlagen, nicht zu diskriminieren.\n\nW Hotels, Mission ist es, Neugierde zu zünden, Welten zu erweitern. Wir sind ein Ort, um das Leben zu erleben. Wir, sind hier, um Türen und offene Köpfe zu öffnen. Wir sind ständig von neuen Gesichtern und neuen Erfahrungen inspiriert. Ein abgestimmter, up-for-jeder Geist ist unser Kern und hat uns bekannt gemacht, die Standards des Luxus auf der ganzen Welt neu zu erfinden. Was auch immer / Wann ist unsere Kultur-und Dienstleistungsphilosophie, die unsere Gäste, Leidenschaften zum Leben bringt. Wenn Sie originell, innovativ sind und immer auf die Zukunft schauen, was, möglich, willkommen in W Hotels.\n\nMit dem Eintritt in W Hotels schliessen Sie sich Marriott International an, wo Sie Ihr Bestes tun, Ihren Zweck beginnen, einem erstaunlichen globalen Team angehören und die beste Version von Ihnen werden können.",
+        "fr": "DESCRIPTION DE L'EMPLOI\n\nEn tant que \"TaENT\", vous représentez le style de vie W pour nos clients. Vous êtes l'âme derrière la marque et vous la mettez en vie. Les talents W sont aussi uniques que la marque elle-même et sont personnellement engagés du point de vue du style de vie dans l'environnement chaleureux, spirituel et accueillant de la marque.\n\nUNE CHANCE EXCITIVE POUR JOINDRE L'ÉQUIPE VÉRIBIÈRE\n\n• Styler l'expérience W de nos clients.\n• Nettoyer les chambres d'hôtes selon les normes de qualité et de performance établies pour permettre une quantité suffisante de chambres d'hôtes vides et propres à la vente.\n• Nettoyer les chambres d'hôtes occupées.\n• Nettoyer et réinitialiser les chambres d'hôtes et les salles de bains selon les normes établies.\n• Organisez et stockez votre panier de nettoyage et organisez des placards de linge sur les étages assignés.\n\nPROFIL\n\n• Vous avez une expérience préalable dans un hôtel 5* en ménage.\n• Vous êtes très motivé\n• Fluent en français et en anglais\n• Soyez orienté vers le détail et avez une passion pour donner aux clients une expérience exceptionnelle.\n• Un véritable intérêt pour les mondes du goût, du son, du corps, de la scène et de la position\n• En raison des restrictions de visa, seules les demandes de Suisse et de l'Union européenne seront prises en considération\n\nPosition à pourvoir pour la saison hivernale, de décembre 2026 à mars 2027\n\nNous nous engageons à favoriser un environnement où les origines uniques de nos associés sont appréciées et célébrées. Notre plus grande force réside dans le riche mélange de culture, de talent et d'expérience de nos associés. Nous sommes engagés à la non-discrimination sur toute base protégée, y compris le handicap, le statut de vétéran, ou toute autre base protégée par la loi applicable.\n\nNous sommes ici pour ouvrir les portes et ouvrir les esprits. Nous sommes constamment inspirés par de nouveaux visages et de nouvelles expériences. Un esprit de mise en forme et de pointe est au cœur de notre quotidien et nous a fait renommées pour réinventer les normes du luxe dans le monde entier. Quoi que soit notre culture et notre philosophie de service qui mettent nos clients, nos passions à la vie. Si vous êtes original, innovant et toujours en train de regarder vers l'avenir de quoi, possible, bienvenue à W Hotels.\n\nEn rejoignant W Hotels, vous rejoignez un portefeuille de marques avec Marriott International. Soyez là où vous pouvez faire votre meilleur travail, commencer votre objectif, appartenir à une équipe mondiale étonnante, et devenir la meilleure version de vous."
       },
       "location": "Verbier",
       "canton": "VS",
       "url": "https://careers.marriott.com/style-agent-room-attendant-winter-26-27-w-verbier/job/CBCF560B0E9421284AFA5686DB3C8EDE",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:12:58.994Z",
+      "crawledAt": "2026-08-28T05:32:43.934Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -414,11 +427,13 @@
         "publishEndDate": "2026-09-06T12:31:00.000Z"
       },
       "previousSlugs": [
-        "style-agent-room-attendant-winter-26-27-w-verbier-marriott-verbier"
+        "style-agent-room-attendant-winter-26-27-w-verbier-marriott-verbier",
+        "agente-di-stile-in-camera-inverno-26-27-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "style-agent-room-attendant-winter-26-27-w-verbier-marriott-verbier"
+          "style-agent-room-attendant-winter-26-27-w-verbier-marriott-verbier",
+          "agente-di-stile-in-camera-inverno-26-27-w-verbier-marriott-international-verbier"
         ],
         "fr": [
           "style-agent-room-attendant-winter-26-27-w-verbier-marriott-verbier"
@@ -428,6 +443,7 @@
       "localeMismatchSuppressedLen": 2433,
       "retranslationAttempts": 11,
       "firstSeenAt": "2026-07-23T22:27:08.327Z",
+      "needsRetranslation": true,
       "salaryMin": 65500,
       "salaryMax": 82500,
       "baseSalary": {
@@ -458,7 +474,7 @@
       "titleByLocale": {
         "it": "Spa terapeuta & Welcome Agent Spa (inverno 26/27) - W VERBIER",
         "en": "Spa therapist & Welcome Agent Spa (Winter 26/27) - W VERBIER",
-        "de": "Spa Therapeut & Welcome Agent Spa (Winter 26/27) - W VERBIER",
+        "de": "Spa therapist & Welcome Agent Spa (Winter 26/27) - W VERBIER",
         "fr": "Spa thérapeute et agent de bienvenue Spa (hiver 26/27) - W VERBIER"
       },
       "description": "JOB DESCRIPTION\n\nVisit in live here : W VERBIER Home\n\nBecome a W Talent and Embody the W Art of Living!\n\nAs a ‘Talent’, you are the essence of W for our guests. You bring a playful, warm and welcoming touch that makes all the difference in our W hotels. You are unique, passionate, and your personality shines through in every interaction.\n\nAN EXCEPTIONAL OPPORTUNITY TO JOIN THE W VERBIER TEAM!\n\nThe Welcome Agent & Spa therapist administers professional massage and body treatments to the guests. Must have thorough knowledge of numerous massage modalities, possess a general understanding of body treatments and be willing to train in a specific massage and body treatment offerings. Excellent communication skills. Ensure a high level of customer care to the guests.\n\nA true chameleon of the spa and wellness world, you will carry out treatments booked by clients in a professional manner and according to the standards and protocols of the different brands, Dr Burgener & Esse : massages, facials & body treatments. You will attract customers' attention to the Spa and its facilities (Wet, Jacuzzi, hammam, sauna, FITness) thanks to your audacious welcome. You will encourage clients' curiosity about the Spa's treatments and a la carte products and position yourself as a salesperson. You will be responsible for greeting clients and making appointments in accordance with W Verbier standards; preparing the treatment room and keeping the Spa and rooms clean.\n\nPROFILE\n • Outgoing, cheerful, sociable, good listener, helpful and available\n • Fluent in French and English\n • Enjoy working in an international and adventurous team\n • Excellent presentation and representative of the W brand image\n • BTS// CFC Esthetics/ cosmetics or equivalent\n • You have a prior experience in a 5* hotel\n • You are highly motivated\n • Be detail oriented and have a passion for giving guests an exceptional experience.\n • Real interest in the worlds of taste, sound, body, scene and stance\n\nPosition to be filled for the Winter season : December 2026 to March 2027\n\nDue to visa restrictions only applicants from Switzerland and European Union can be considered.\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nW Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
@@ -473,7 +489,7 @@
       "url": "https://careers.marriott.com/spa-therapist-welcome-agent-spa-winter-26-27-w-verbier/job/B4D31364295A972DAB8B20B01D0163F4",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:12:58.994Z",
+      "crawledAt": "2026-08-28T05:32:43.933Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -503,14 +519,16 @@
         "spa-therapist-welcome-agent-spa-winter-26-27-w-verbier-marriott-verbier",
         "terapista-del-benessere-e-addetto-all-accoglienza-spa-stagione-estiva-e-invernale-26-27-w-verbier-marriott-international",
         "spa-therapist-welcome-agent-spa-summer-winter-26-27-w-verbier-marriott-verbier",
-        "therapeute-spa-et-agent-d-accueil-spa-saison-d-ete-et-d-hiver-26-27-w-verbier-marriott-international-verbier"
+        "therapeute-spa-et-agent-d-accueil-spa-saison-d-ete-et-d-hiver-26-27-w-verbier-marriott-international-verbier",
+        "terapeuta-spa-welcome-agent-spa-inverno-26-27-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spa-therapist-welcome-agent-spa-winter-26-27-w-verbier-marriott-verbier",
           "terapista-del-benessere-e-addetto-all-accoglienza-spa-stagione-estiva-e-invernale-26-27-w-verbier-marriott-international",
           "spa-therapist-welcome-agent-spa-summer-winter-26-27-w-verbier-marriott-verbier",
-          "therapeute-spa-et-agent-d-accueil-spa-saison-d-ete-et-d-hiver-26-27-w-verbier-marriott-international-verbier"
+          "therapeute-spa-et-agent-d-accueil-spa-saison-d-ete-et-d-hiver-26-27-w-verbier-marriott-international-verbier",
+          "terapeuta-spa-welcome-agent-spa-inverno-26-27-w-verbier-marriott-international-verbier"
         ],
         "de": [
           "spa-therapist-welcome-agent-spa-summer-winter-26-27-w-verbier-marriott-verbier"
@@ -520,6 +538,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:32:57.246Z",
+      "needsRetranslation": true,
       "salaryMin": 65500,
       "salaryMax": 82500,
       "baseSalary": {
@@ -550,7 +569,7 @@
       "titleByLocale": {
         "it": "Spa hostess 50% (inverno 26/27) - W VERBIER",
         "en": "Spa attendant 50% (winter 26/27) - W VERBIER",
-        "de": "Kurbegleiter 50% (Winter 26/27) - W VERBIER",
+        "de": "Spa attendant 50% (winter 26/27) - W VERBIER",
         "fr": "Porteur de spa 50% (hiver 26/27) - W VERBIER"
       },
       "description": "JOB DESCRIPTION\n Visit in live here : W VERBIER Home\n\nBecome a W Talent and Embody the W Art of Living!\n As a ‘Talent’, you are the essence of W for our guests. You bring a playful, warm and welcoming touch that makes all the difference in our W hotels. You are unique, passionate, and your personality shines through in every interaction.\n AN EXCEPTIONAL OPPORTUNITY TO JOIN THE W VERBIER TEAM!\n\nAs a Spa attendant 50% you will Style our Guests' W Verbier Le Spa Experience. You will work only 4 hours per day and mainly during afternoons\n\nClean spa area in accordance with established quality and performance standards to allow a sufficient clean and relaxing spa experience for the guests.\n\nOrganize and stock spa amenities.\n\nHandle and replenish towels, bathrobes and slippers.\n\nClean and reset spa bathroom areas according to established standards.\n\nPROFILE\n\nPrevious experience as a Spa attendant\n\nPrevious hospitality experience required\n\nFluent in French and English\n\nYou are highly motivated\n • Be detail oriented and have a passion for giving guests an exceptional experience.\n • Real interest in the worlds of taste, sound, body, scene and stance\n\nPosition to be filled for the Winter season : December 2026 to March 2027\n Due to visa restrictions, only applications from Switzerland and the European Union will be considered.\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nW Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
@@ -565,7 +584,7 @@
       "url": "https://careers.marriott.com/spa-attendant-50-winter-26-27-w-verbier/job/DB31F33B87DABA5BF1AFD72F058E0693",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:12:58.993Z",
+      "crawledAt": "2026-08-28T05:32:43.932Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -595,14 +614,16 @@
         "kurbesucher-50-winter-26-27-w-verbier-marriott-international-verbier",
         "accompagneur-de-spa-50-hiver-26-27-w-verbier-marriott-international-verbier",
         "kurbegleiter-50-winter-26-27-w-verbier-marriott-international-verbier",
-        "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier"
+        "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier",
+        "spa-hostess-50-inverno-26-27-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kurbesucher-50-winter-26-27-w-verbier-marriott-international-verbier",
           "accompagneur-de-spa-50-hiver-26-27-w-verbier-marriott-international-verbier",
           "kurbegleiter-50-winter-26-27-w-verbier-marriott-international-verbier",
-          "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier"
+          "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier",
+          "spa-hostess-50-inverno-26-27-w-verbier-marriott-international-verbier"
         ],
         "de": [
           "kurbesucher-50-winter-26-27-w-verbier-marriott-international-verbier",
@@ -614,6 +635,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:27:08.326Z",
+      "needsRetranslation": true,
       "salaryMin": 32800,
       "salaryMax": 41300,
       "baseSalary": {
@@ -659,7 +681,7 @@
       "url": "https://careers.marriott.com/spa-supervisor-head-therapist-long-term-w-verbier/job/D1D63B5A2F6FE54592ECAAA07E6368AD",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:12:58.992Z",
+      "crawledAt": "2026-08-28T05:32:43.931Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -688,12 +710,14 @@
       "previousSlugs": [
         "spa-supervisor-long-term-w-verbier-marriott-verbier",
         "spa-supervisor-langfristig-w-verbier-marriott-international-verbier",
-        "spa-supervisor-head-therapist-long-term-w-verbier-marriott-verbier"
+        "spa-supervisor-head-therapist-long-term-w-verbier-marriott-verbier",
+        "spa-supervisore-long-term-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spa-supervisor-long-term-w-verbier-marriott-verbier",
-          "spa-supervisor-head-therapist-long-term-w-verbier-marriott-verbier"
+          "spa-supervisor-head-therapist-long-term-w-verbier-marriott-verbier",
+          "spa-supervisore-long-term-w-verbier-marriott-international-verbier"
         ],
         "de": [
           "spa-supervisor-langfristig-w-verbier-marriott-international-verbier"
@@ -733,7 +757,7 @@
       "titleByLocale": {
         "it": "Spa Direttore (Long Term) - W VERBIER",
         "en": "Spa Director (Long Term) - W VERBIER",
-        "de": "Spa Director (Langfristig) - W VERBIER",
+        "de": "Spa Director (Long Term) - W VERBIER",
         "fr": "Spa Directeur (Long Term) - W VERBIER"
       },
       "description": "JOB SUMMARY\n Your Role as a “Talent” at W Verbier Le Spa\n\nAs a Talent, you embody the W way of life for our guests. You are the very essence of the brand — passionate, playful, warm, and welcoming in personality.\n\nWhy Join Us?\n\nA GREAT OPPORTUNITY AT W VERBIER LE SPA – OPEN 365 DAYS A YEAR\n\nKey Responsibilities\n\n• Take full responsibility for the operational and financial results of the Spa, ensuring profitability and driving development.\n\n• Ensure the W experience in accordance with brand standards and with the LQA and FORBES standards.\n\n• Develop marketing strategy, build member loyalty, enrich the programming, maintain customer relationships.\n\n• Create and develop treatment concepts, partnerships, and innovative offers.\n\n• Analyze sales and financial reports monthly; propose recommendations based on market, seasonality, competition, and trends.\n\n• Build an effective Talent structure to maintain productivity and efficiency ratios.\n\n• Collaborate with the marketing leadership to develop the annual plan, coordinate promotional offers. Ensure internal and external visibility.\n\n• Ensure strict compliance with Swiss hygiene and safety regulations as well as group standards. Guarantee maintenance of equipment and facilities.\n\n• Handle guest requests and complaints professionally.\n\n• Implement a structured training program for Talents (permanent staff, seasonal, extras), conduct performance reviews, manage scheduling, attendance, leave, and absences.\n\nOur Five Passions point @ W\n\n• Sound: the acoustic ambiance, music & sound at the Spa, to soothe, energize, elevate\n\n• Taste: gustatory sensations, wellness beverages, healthy snacks; a refined menu to awaken the palate\n\n• Body: physical well‑being — treatments, fitness, massages, body rituals\n\n• Scene: décor, style, the spectacle — alpine surroundings, design, WET® spaces, the attention to detail\n\n• Stance: attitude, commitment — to the environment, to service, to human experience, to authenticity\n\nRequired Criteria\n\nMinimum 3 years’ experience in an equivalent role in a luxury Spa.\n\nExperience in luxury hospitality.\n\nFluent in French and English.\n\nExperience in a seasonal establishment is an advantage.\n\nGreat attention to detail and a real passion for delivering a memorable experience.\n\nDue to visa regulations, only applications from Switzerland and the European Union will be considered.\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nW Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
@@ -748,7 +772,7 @@
       "url": "https://careers.marriott.com/spa-director-long-term-w-verbier/job/F6F0CF4382BDA65787BB967BF130D631",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:12:58.992Z",
+      "crawledAt": "2026-08-28T05:32:43.931Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -775,17 +799,20 @@
         "publishEndDate": "2026-09-04T13:01:00.000Z"
       },
       "previousSlugs": [
-        "spa-director-long-term-w-verbier-marriott-verbier"
+        "spa-director-long-term-w-verbier-marriott-verbier",
+        "spa-direttore-long-term-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spa-director-long-term-w-verbier-marriott-verbier"
+          "spa-director-long-term-w-verbier-marriott-verbier",
+          "spa-direttore-long-term-w-verbier-marriott-international-verbier"
         ],
         "fr": [
           "spa-director-long-term-w-verbier-marriott-verbier"
         ]
       },
       "firstSeenAt": "2026-07-21T22:51:52.293Z",
+      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 110500,
       "baseSalary": {
@@ -831,7 +858,7 @@
       "url": "https://careers.marriott.com/revenue-manager/job/90B8C5A925E4FF06689F0FC7BF6A01F7",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:12:58.991Z",
+      "crawledAt": "2026-08-28T05:32:43.929Z",
       "addressLocality": "Zurich",
       "streetAddress": "Turbinenstrasse 20",
       "postalCode": "8005",
@@ -858,11 +885,13 @@
         "publishEndDate": "2026-09-20T03:59:00.000Z"
       },
       "previousSlugs": [
-        "revenue-manager-marriott-zurich"
+        "revenue-manager-marriott-zurich",
+        "responsabile-delle-entrate-marriott-international-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "revenue-manager-marriott-zurich"
+          "revenue-manager-marriott-zurich",
+          "responsabile-delle-entrate-marriott-international-zurich"
         ],
         "de": [
           "revenue-manager-marriott-zurich"
@@ -917,7 +946,7 @@
       "url": "https://careers.marriott.com/reservations-and-revenue-coordinator-long-term-w-verbier/job/E21E2AC79C481444847FA8154B78E07E",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:12:58.990Z",
+      "crawledAt": "2026-08-28T05:32:43.928Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -945,12 +974,14 @@
       },
       "previousSlugs": [
         "reservations-and-revenue-coordinator-marriott-verbier",
-        "reservations-and-revenue-coordinator-long-term-w-verbier-marriott-verbier"
+        "reservations-and-revenue-coordinator-long-term-w-verbier-marriott-verbier",
+        "reservations-and-revenue-coordinatore-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "reservations-and-revenue-coordinator-marriott-verbier",
-          "reservations-and-revenue-coordinator-long-term-w-verbier-marriott-verbier"
+          "reservations-and-revenue-coordinator-long-term-w-verbier-marriott-verbier",
+          "reservations-and-revenue-coordinatore-marriott-international-verbier"
         ],
         "de": [
           "reservations-and-revenue-coordinator-marriott-verbier"
@@ -978,10 +1009,10 @@
       "id": "marriott-edb9d3c489e2",
       "slug": "agente-prenotazioni-lungo-termine-w-verbier-marriott-international-verbier",
       "slugByLocale": {
-        "it": "commissione-a-la-carte-marriott-international-zurich",
+        "it": "agente-prenotazioni-lungo-termine-w-verbier-marriott-international-verbier",
         "en": "reservations-agent-long-term-w-verbier-marriott-international-verbier",
-        "de": "reservierung-agent-marriott-international-verbier",
-        "fr": "commission-a-la-carte-marriott-international-zurich"
+        "de": "reservierungsmitarbeiter-in-langzeitstelle-w-verbier-marriott-international-verbier",
+        "fr": "reservations-agent-long-term-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -1005,7 +1036,7 @@
       "url": "https://careers.marriott.com/reservations-agent-long-term-w-verbier/job/7ED57351900E09C86F45B317F7654BF3",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:12:58.989Z",
+      "crawledAt": "2026-08-28T05:32:43.927Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -1038,6 +1069,9 @@
         "reservations-agent-marriott-verbier",
         "reservations-agent-long-term-w-verbier-marriott-verbier",
         "prenotazione-agente-marriott-international-verbier",
+        "reservierung-agent-marriott-international-verbier",
+        "commission-a-la-carte-marriott-international-zurich",
+        "agente-prenotazioni-lungo-termine-w-verbier-marriott-international-verbier",
         "reservierungsmitarbeiter-in-langzeitstelle-w-verbier-marriott-international-verbier",
         "reservations-agent-long-term-w-verbier-marriott-international-verbier"
       ],
@@ -1047,7 +1081,9 @@
           "reservations-agent-marriott-international-verbier",
           "reservations-agent-marriott-verbier",
           "reservations-agent-long-term-w-verbier-marriott-verbier",
-          "prenotazione-agente-marriott-international-verbier"
+          "prenotazione-agente-marriott-international-verbier",
+          "commissione-a-la-carte-marriott-international-zurich",
+          "agente-prenotazioni-lungo-termine-w-verbier-marriott-international-verbier"
         ],
         "en": [
           "commis-a-la-carte-marriott-zurich",
@@ -1058,14 +1094,17 @@
         "de": [
           "commis-a-la-carte-marriott-zurich",
           "commissione-a-la-carte-marriott-international-zurich",
+          "reservierung-agent-marriott-international-verbier",
           "reservierungsmitarbeiter-in-langzeitstelle-w-verbier-marriott-international-verbier"
         ],
         "fr": [
           "commis-a-la-carte-marriott-zurich",
           "reservations-agent-marriott-international-verbier",
+          "commission-a-la-carte-marriott-international-zurich",
           "reservations-agent-long-term-w-verbier-marriott-international-verbier"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T22:02:55.118Z",
       "salaryMin": 104500,
       "salaryMax": 183500,
@@ -1079,8 +1118,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS",
-      "needsRetranslation": true
+      "addressRegion": "VS"
     },
     {
       "id": "marriott-9602896187d4",
@@ -1113,7 +1151,7 @@
       "url": "https://careers.marriott.com/polyvalent-equipier-winter-26-27-w-verbier/job/D525744F937689D3E7437FC821EBF7B6",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:12:58.988Z",
+      "crawledAt": "2026-08-28T05:32:43.926Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -1142,12 +1180,14 @@
       "previousSlugs": [
         "polyvalent-equipier-winter-26-27-w-verbier-marriott-verbier",
         "polyvalent-equipier-inverno-26-27-w-verbier-marriott-international-verbier",
-        "allrounder-winter-26-27-w-verbier-marriott-international-verbier"
+        "allrounder-winter-26-27-w-verbier-marriott-international-verbier",
+        "addetto-polivalente-inverno-26-27-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "polyvalent-equipier-winter-26-27-w-verbier-marriott-verbier",
-          "polyvalent-equipier-inverno-26-27-w-verbier-marriott-international-verbier"
+          "polyvalent-equipier-inverno-26-27-w-verbier-marriott-international-verbier",
+          "addetto-polivalente-inverno-26-27-w-verbier-marriott-international-verbier"
         ],
         "de": [
           "polyvalent-equipier-winter-26-27-w-verbier-marriott-verbier",
@@ -1155,6 +1195,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T21:48:30.756Z",
+      "needsRetranslation": true,
       "salaryMin": 65500,
       "salaryMax": 82500,
       "baseSalary": {
@@ -1191,7 +1232,7 @@
       "description": "JOB DESCRIPTION\n\nVisit in live here : W VERBIER Home\n\nBecome a W Talent and Embody the W Art of Living!\n\nAs a ‘Talent’, you are the essence of W for our guests. You bring a playful, warm and welcoming touch that makes all the difference in our W hotels. You are unique, passionate, and your personality shines through in every interaction.\n\nAN EXCEPTIONAL OPPORTUNITY TO JOIN THE W VERBIER TEAM!\n\nGet ready for an unforgettable professional adventure by joining our maintenance team at W Verbier! As a maintenance technician, you will have the privilege of being involved in every moment of our clients' memorable experiences.\n\nYour day will be a mix of action and problem-solving. From flickering lights to plumbing to snow removal to paint touch-ups, no challenge is too big for you. You are the Swiss knife of maintenance, ready to dive into any situation to ensure the smooth operation of our establishment.\n\nYour discretion and efficiency will be your master assets. You will act with grace and speed to solve problems before they even become visible to our clients.\n\nAnd speaking of skills, your ability to work independently is your strong suit.\n\nBut what truly sets you apart is your eye for detail. Like an artist perfecting their masterpiece, you will ensure that every aspect of our building is presented with a perfection worthy of day one, providing our clients with a flawless visual experience.\n\nIf you are ready to take on the challenge and be part of a team where every day is a new adventure, then join us today and make your mark in the history of our establishment!\n\nPROFILE\n\nPrevious experience in a technical/maintenance role, preferably in hospitality\n\nEnjoy working in an international and daring team.\n\nExcellent and representative presentation of the W brand image.\n\nYou are versatile\n\nFluency in French, English is a plus.\n\nKnowledge of plumbing and electricity is a plus\n\nHAVC\n\nReal interest in the worlds of taste, sound, body, scene and stance\n\nYou have great attention to detail and are passionate about delivering a memorable customer experience\n\nDue to visa restrictions, only candidates from Switzerland and the European Union can be considered.\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nW Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
       "descriptionByLocale": {
         "it": "Posizione: Tecnico di manutenzione presso W Verbier\n\nVisita in diretta qui : W VERBIER HOME\n\nDiventa un talento W e incarna l'arte di vivere W!\n\nCome \"Talento\", sei l'essenza di W per i nostri ospiti. Nei nostri hotel W porti un tocco giocoso, caldo e accogliente che fa la differenza. Sei unico, appassionato e la tua personalità traspare in ogni interazione.\n\nUn'opportunità eccezionale\n\nPreparati per un'avventura professionale indimenticabile unendoti al nostro team di manutenzione di W Verbier! Come manutentore avrai il privilegio di essere coinvolto in ogni momento delle esperienze memorabili dei nostri clienti.\n\nResponsabilità\n\n- La tua giornata sarà un mix di azione e risoluzione dei problemi.\n- Dalle luci tremolanti all'impianto idraulico, dalla rimozione della neve ai ritocchi della vernice, nessuna sfida è troppo grande per te.\n- Sei il coltellino svizzero della manutenzione, pronto a tuffarti in qualsiasi situazione per garantire il buon funzionamento del nostro stabilimento.\n- La tua discrezione ed efficienza saranno le tue risorse principali.\n- Agirete con grazia e velocità per risolvere i problemi prima ancora che diventino visibili ai nostri clienti.\n- E a proposito di competenze, la tua capacità di lavorare in modo indipendente è il tuo forte.\n- Ma ciò che ti distingue davvero è il tuo occhio per i dettagli.\n- Come un artista che perfeziona il suo capolavoro, ti assicurerai che ogni aspetto del nostro edificio sia presentato con una perfezione degna del primo giorno, offrendo ai nostri clienti un'esperienza visiva impeccabile.\n- Se sei pronto ad affrontare la sfida e a farne parte",
-        "en": "Position: Maintenance Technician at W Verbier\n\nVisit in live here : W VERBIER Home\n\nBecome a W Talent and Embody the W Art of Living!\n\nAs a 'Talent', you are the essence of W for our guests. You bring a playful, warm and welcoming touch that makes all the difference in our W hotels. You are unique, passionate, and your personality shines through in every interaction.\n\nAn Exceptional Opportunity\n\nGet ready for an unforgettable professional adventure by joining our maintenance team at W Verbier! As a maintenance technician, you will have the privilege of being involved in every moment of our clients' memorable experiences.\n\nResponsibilities\n\n- Your day will be a mix of action and problem-solving.\n- From flickering lights to plumbing to snow removal to paint touch-ups, no challenge is too big for you.\n- You are the Swiss knife of maintenance, ready to dive into any situation to ensure the smooth operation of our establishment.\n- Your discretion and efficiency will be your master assets.\n- You will act with grace and speed to solve problems before they even become visible to our clients.\n- And speaking of skills, your ability to work independently is your strong suit.\n- But what truly sets you apart is your eye for detail.\n- Like an artist perfecting their masterpiece, you will ensure that every aspect of our building is presented with a perfection worthy of day one, providing our clients with a flawless visual experience.\n- If you are ready to take on the challenge and be part of a team where every day is a new adventure, then join us today and make your mark in the history of our establishment!\n\nProfile\n\n- Previous experience in a technical/maintenance role, preferably in hospitality\n- Enjoy working in an international and daring team.\n- Excellent and representative presentation of the W brand image.\n- You are versatile\n- Fluency in French, English is a plus.\n- Knowledge of plumbing and electricity is a plus\n\nHAVC\n\n- Real interest in the worlds of taste, sound, body, scene and stance\n- You have great attention to detail and are passionate about delivering a memorable customer experience\n\nAbout W Hotels\n\nW Hotels' mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We're here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests' passions to life. If you are original, innovative, and always looking towards the future of what's possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.\n\nEqual Opportunities and Visa Requirements\n\nDue to visa restrictions, only candidates from Switzerland and the European Union can be considered.\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.",
+        "en": "JOB DESCRIPTION\n\nVisit in live here : W VERBIER Home\n\nBecome a W Talent and Embody the W Art of Living!\n\nAs a ‘Talent’, you are the essence of W for our guests. You bring a playful, warm and welcoming touch that makes all the difference in our W hotels. You are unique, passionate, and your personality shines through in every interaction.\n\nAN EXCEPTIONAL OPPORTUNITY TO JOIN THE W VERBIER TEAM!\n\nGet ready for an unforgettable professional adventure by joining our maintenance team at W Verbier! As a maintenance technician, you will have the privilege of being involved in every moment of our clients' memorable experiences.\n\nYour day will be a mix of action and problem-solving. From flickering lights to plumbing to snow removal to paint touch-ups, no challenge is too big for you. You are the Swiss knife of maintenance, ready to dive into any situation to ensure the smooth operation of our establishment.\n\nYour discretion and efficiency will be your master assets. You will act with grace and speed to solve problems before they even become visible to our clients.\n\nAnd speaking of skills, your ability to work independently is your strong suit.\n\nBut what truly sets you apart is your eye for detail. Like an artist perfecting their masterpiece, you will ensure that every aspect of our building is presented with a perfection worthy of day one, providing our clients with a flawless visual experience.\n\nIf you are ready to take on the challenge and be part of a team where every day is a new adventure, then join us today and make your mark in the history of our establishment!\n\nPROFILE\n\nPrevious experience in a technical/maintenance role, preferably in hospitality\n\nEnjoy working in an international and daring team.\n\nExcellent and representative presentation of the W brand image.\n\nYou are versatile\n\nFluency in French, English is a plus.\n\nKnowledge of plumbing and electricity is a plus\n\nHAVC\n\nReal interest in the worlds of taste, sound, body, scene and stance\n\nYou have great attention to detail and are passionate about delivering a memorable customer experience\n\nDue to visa restrictions, only candidates from Switzerland and the European Union can be considered.\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nW Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
         "de": "Position: Wartungstechniker bei W Verbier\n\nBesuchen Sie hier live : W VERBIER Home\n\nWerde ein W Talent und stifte die W Kunst des Lebens!\n\nAls \"Talent\" sind Sie die Essenz von W für unsere Gäste. Sie bringen eine spielerische, warme und einladende Note, die den Unterschied in unseren W Hotels macht. Sie sind einzigartig, leidenschaftlich, und Ihre Persönlichkeit strahlt durch in jeder Interaktion.\n\nEine außergewöhnliche Gelegenheit\n\nMachen Sie sich bereit für ein unvergessliches professionelles Abenteuer, indem Sie sich unserem Wartungsteam bei W Verbier anschließen! Als Wartungstechniker haben Sie das Privileg, in jedem Moment der unvergesslichen Erlebnisse unserer Kunden mitzuwirken.\n\nZuständigkeiten\n\n- Ihr Tag wird eine Mischung aus Action und Problemlösung sein. - Von flimmernden Lichtern über Sanitär-und Schneeentfernung bis zu Lackierung Touch-ups, keine Herausforderung ist zu groß für Sie. - Sie sind das Schweizer Messer der Wartung, bereit, in jede Situation zu tauchen, um den reibungslosen Betrieb unseres Establishments zu gewährleisten. - Ihre Diskretion und Effizienz wird Ihr Hauptvermögen sein. - Sie werden mit Gnade und Geschwindigkeit zu handeln, um Probleme zu lösen, bevor sie sogar sichtbar für unsere Kunden. - Und apropos Fähigkeiten, Ihre Fähigkeit, unabhängig zu arbeiten, ist Ihr starker Anzug. - Aber was wirklich unterscheidet Sie Ihr Auge für Details.\n\n- Wie ein Künstler, der sein Meisterwerk perfektioniert, werden Sie sicherstellen, dass jeder Aspekt unseres Gebäudes mit einer Perfektion präsentiert wird, die dem ersten Tag würdig ist, und unseren Kunden ein makelloses visuelles Erlebnis bietet. - Wenn Sie bereit sind, die Herausforderung anzunehmen und Teil eines Teams zu sein, in dem jeder Tag ein neues Abenteuer ist, dann kommen Sie heute zu uns und machen Sie Ihren Stempel in der Geschichte unseres Establishments!\n\nProfil\n\n- Frühere Erfahrung in einer technischen/maintenance Rolle, vorzugsweise in der Gastfreundschaft - Genießen Sie die Arbeit in einem internationalen und gewagten Team. - Ausgezeichnete und repräsentative Präsentation des W-Markenbildes. - Sie sind vielseitig - Fluency in Französisch, Englisch ist ein Plus. - Kenntnisse der Sanitär-und Stromversorgung ist ein Plus\n\nHAVC\n\n- Echtes Interesse an den Welten von Geschmack, Klang, Körper, Szene und Haltung - Sie haben große Liebe zum Detail und sind leidenschaftlich für die Bereitstellung eines unvergesslichen Kundenerlebnisses\n\nÜber W Hotels\n\nW Hotels' Mission ist es, Neugierde, Welten zu zünden. Wir sind ein Ort, um das Leben zu erleben. Wir sind hier, um Türen und offene Köpfe zu öffnen. Wir sind ständig von neuen Gesichtern und neuen Erfahrungen inspiriert. Ein abgestimmter, up-for-jeder Geist ist unser Kern und hat uns bekannt gemacht, die Normen des Luxus rund um den Globus neu zu erfinden. Was auch immer / Wann ist unsere Kultur-und Dienstleistungsphilosophie, die unsere Gäste Leidenschaften zum Leben erweckt. Wenn Sie originell, innovativ sind und immer in Richtung der Zukunft des Möglichen schauen, willkommen in W Hotels.\n\nMit dem Eintritt in W Hotels schliessen Sie sich Marriott International an, wo Sie Ihr Bestes tun, Ihren Zweck beginnen, einem erstaunlichen globalen Team angehören und die beste Version von Ihnen werden können.\n\nChancengleichheit und Visaanforderungen\n\nAufgrund von Visabeschränkungen können nur Bewerber aus der Schweiz und der Europäischen Union berücksichtigt werden.\n\nBei Marriott International sind wir bestrebt, Arbeitgeber mit gleicher Chancenstellung zu sein, alle zu begrüßen und Zugang zu Möglichkeiten zu bieten. Wir fördern aktiv ein Umfeld, in dem die einzigartigen Hintergründe unserer Mitarbeiter geschätzt und gefeiert werden. Unsere größte Stärke liegt in der reichen Mischung aus Kultur, Talent und Erfahrungen unserer Mitarbeiter. Wir verpflichten uns, auf jeder geschützten Basis, einschließlich Behinderung, Veteranstatus oder andere durch geltendes Recht geschützte Grundlagen, nicht zu diskriminieren.",
         "fr": "Fonction: Technicien de maintenance à W Verbier\n\nVisitez en direct ici : W VERBIER Accueil\n\nDevenez un talent W et imaginez l'art de vivre W!\n\nEn tant que 'TaENT', vous êtes l'essence de W pour nos clients. Vous apportez une touche ludique, chaleureuse et accueillante qui fait toute la différence dans nos hôtels W. Vous êtes unique, passionné, et votre personnalité brille à travers chaque interaction.\n\nUne occasion exceptionnelle\n\nPréparez-vous à une aventure professionnelle inoubliable en rejoignant notre équipe de maintenance chez W Verbier! En tant que technicien de maintenance, vous aurez le privilège de participer à chaque moment de l'expérience mémorable de nos clients.\n\nResponsabilités\n\n- Votre journée sera un mélange d'action et de résolution de problèmes. - Des lumières de mouillage à la plomberie à la déneigement à la peinture, aucun défi n'est trop grand pour vous. - Vous êtes le couteau suisse de maintenance, prêt à plonger dans n'importe quelle situation pour assurer le bon fonctionnement de notre établissement. - Votre discrétion et votre efficacité seront vos atouts principaux. - Vous agirez avec grâce et rapidité pour résoudre les problèmes avant même qu'ils deviennent visibles pour nos clients. - Et en parlant de compétences, votre capacité de travailler indépendamment est votre combinaison forte. - Mais ce qui vous distingue vraiment est votre œil pour les détails.\n\n- Comme un artiste perfectionnant leur chef-d'œuvre, vous vous assurerez que chaque aspect de notre bâtiment est présenté avec une perfection digne de la première journée, fournissant à nos clients une expérience visuelle impeccable. - Si vous êtes prêt à relever le défi et faire partie d'une équipe où chaque jour est une nouvelle aventure, alors rejoignez-nous aujourd'hui et faites votre marque dans l'histoire de notre établissement!\n\nProfil\n\n- Expérience antérieure dans un rôle technique/entretien, de préférence dans l'hospitalité - Profitez de travailler dans une équipe internationale et audacieuse. - Excellente et représentative présentation de l'image de marque W. - Vous êtes polyvalent - Fluence en français, anglais est un plus. - Connaissance de la plomberie et de l'électricité est un plus\n\nHAVC\n\n- Un véritable intérêt pour les mondes du goût, du son, du corps, de la scène et de la position - Vous avez une grande attention aux détails et êtes passionné par la prestation d'une expérience client mémorable\n\nÀ propos des hôtels W\n\nNous sommes là pour ouvrir les portes et ouvrir les esprits. Nous sommes constamment inspirés par de nouveaux visages et de nouvelles expériences. Un esprit de pointe et de haut en haut est à notre cœur et nous a fait renommées pour réinventer les normes du luxe dans le monde entier. Quelle que soit notre culture et notre philosophie de service qui fait vivre nos passions. Si vous êtes original, innovant et toujours en train de regarder vers l'avenir de ce qui est possible, bienvenue à W Hotels.\n\nEn rejoignant W Hotels, vous rejoignez un portefeuille de marques avec Marriott International. Soyez là où vous pouvez faire votre meilleur travail, commencer votre objectif, appartenir à une équipe mondiale étonnante, et devenir la meilleure version de vous.\n\nÉgalité des chances et exigences en matière de visas\n\nEn raison des restrictions imposées aux visas, seuls les candidats de la Suisse et de l'Union européenne peuvent être pris en considération.\n\nNous nous engageons à favoriser un environnement où les origines uniques de nos associés sont appréciées et célébrées. Notre plus grande force réside dans le riche mélange de culture, de talent et d'expérience de nos associés. Nous sommes engagés à la non-discrimination sur toute base protégée, y compris le handicap, le statut de vétéran, ou toute autre base protégée par la loi applicable."
       },
@@ -1200,7 +1241,7 @@
       "url": "https://careers.marriott.com/maintenance-agent-long-term-w-verbier/job/733C0CE581FD950F869F9F4D69898022",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:12:58.987Z",
+      "crawledAt": "2026-08-28T05:32:43.924Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -1232,7 +1273,8 @@
         "welcome-agent-rezeptionist-langfristig-w-verbier-marriott-international-verbier",
         "agent-de-bienvenue-receptionniste-long-terme-w-verbier-marriott-international-verbier",
         "welcome-agent-receptionist-long-term-w-verbier-marriott-international-verbier",
-        "maintenance-agent-long-term-w-verbier-marriott-verbier"
+        "maintenance-agent-long-term-w-verbier-marriott-verbier",
+        "agente-di-manutenzione-lungo-termine-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1241,7 +1283,8 @@
           "welcome-agent-rezeptionist-langfristig-w-verbier-marriott-international-verbier",
           "agent-de-bienvenue-receptionniste-long-terme-w-verbier-marriott-international-verbier",
           "welcome-agent-receptionist-long-term-w-verbier-marriott-international-verbier",
-          "maintenance-agent-long-term-w-verbier-marriott-verbier"
+          "maintenance-agent-long-term-w-verbier-marriott-verbier",
+          "agente-di-manutenzione-lungo-termine-w-verbier-marriott-international-verbier"
         ],
         "en": [
           "welcome-agent-receptionist-long-term-w-verbier-marriott-verbier"
@@ -1267,8 +1310,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS",
-      "retranslationAttempts": 1
+      "addressRegion": "VS"
     },
     {
       "id": "marriott-56a407733f85",
@@ -1285,7 +1327,7 @@
       "title": "Lenox Bar Shiftleader",
       "titleByLocale": {
         "it": "Responsabile del Turno - Lenox Bar",
-        "en": "Lenox Bar Shift L.",
+        "en": "Lenox Bar Shiftleader",
         "de": "Lenox Bar Shiftleader",
         "fr": "Responsable d'Équipe - Lenox Bar"
       },
@@ -1301,7 +1343,7 @@
       "url": "https://careers.marriott.com/lenox-bar-shiftleader/job/5691728F680BFEE1D3CC5CCD770BF06D",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:12:58.987Z",
+      "crawledAt": "2026-08-28T05:32:43.923Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -1329,12 +1371,14 @@
       },
       "previousSlugs": [
         "lenox-bar-shiftleader-marriott-zurich",
-        "supervisore-lenox-bar-marriott-international-zurich"
+        "supervisore-lenox-bar-marriott-international-zurich",
+        "caposervizio-bar-lenox-marriott-international-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lenox-bar-shiftleader-marriott-zurich",
-          "supervisore-lenox-bar-marriott-international-zurich"
+          "supervisore-lenox-bar-marriott-international-zurich",
+          "caposervizio-bar-lenox-marriott-international-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -1351,8 +1395,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "retranslationAttempts": 1
+      "addressRegion": "ZH"
     },
     {
       "id": "marriott-9ed3f031b50c",
@@ -1368,15 +1411,15 @@
       "companyDomain": "marriott.com",
       "title": "Hotel Cleanliness Supervisor",
       "titleByLocale": {
-        "en": "Hotel Cleanliness Supervisor",
         "it": "Hotel Cleanliness Supervisor",
+        "en": "Hotel Cleanliness Supervisor",
         "de": "Supervisor für Hotelreinigung",
         "fr": "Superviseur du Nettoyage Hôtelier"
       },
       "description": "PLEASE NOTE\n ONLY SWISS NATIONALS AND EU NATIONALS WILL BE TAKEN INTO ACCOUNT. OTHER NATIONALITIES WILL LEGALLY NOT BE ABLE TO OBTAIN A WORK PERMIT FOR SWITZERLAND.\n Applications from non Swiss or non EU nationals will not be able to be considered.\n\nPREREQUISITE\n\n• SWISS PASSPORT\n\n• EU PASSPORT\n\nHOTEL CLEANLINESS SUPERVISOR\n\nThis position is exclusively for daily late shift.\n\nMain tasks and competencies:\n The Hotel Cleanliness Supervisor – Late Shift is responsible for overseeing evening housekeeping operations to ensure cleanliness, safety, and readiness of all assigned rooms, cleanliness of all public area’s extra requests, organization of all housekeeping designated offices and storage rooms.\n This role supervises housekeeping staff during evening hours, inspects completed work, coordinates shift assignments, and responds to urgent cleaning and delivery requests. Ensure a smooth, detailed and all preparations for handover to shift operations is prepared.\n\nKey Responsibilities\n\n• Supervise housekeeping staff during late shift operations.\n\n• Assign nightly cleaning schedules, priorities, and work areas.\n\n• Inspect guest rooms, public spaces, restrooms, hallways, and assigned areas for cleanliness and presentation.\n\n• Ensure all cleaning tasks are completed according to company standards and timelines.\n\n• Respond to urgent housekeeping requests, spills, sanitation issues, special cleaning needs and office checks.\n\n• Monitor attendance, productivity, and staff performance during shift hours.\n\n• Train and coach staff on cleaning procedures, equipment usage, and safety practices.\n\n• Maintain adequate stock of linen, cleaning supplies, and housekeeping equipment for the next shift.\n\n• Report maintenance concerns, hazards, or repair issues promptly.\n\n• Ensure compliance with sanitation, infection control, and workplace safety standards.\n\n• Complete shift reports, document handover notes, collect delivery notes, and if incident documentation.\n\n• Support emergency cleaning needs with other departments if needed in the public area\n\n• Foster teamwork, accountability, and quality service.\n\nThe primary responsibility of this role is to maintain impeccably clean guest rooms and public areas, support smooth hotel operations during each late shift, and contribute to an exceptional guest experience that ensures guest satisfaction.\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nMarriott Hotels strive to elevate the art of hospitality, innovating at every opportunity while keeping the comfort of the oh-so-familiar all around the globe. As a host with Marriott Hotels, you will help keep the promise of “Wonderful Hospitality. Always.” by delivering thoughtful, heartfelt, forward-thinking service that upholds and builds upon this living legacy. With the name that’s synonymous with hospitality the world over, we are proud to welcome you to explore a career with Marriott Hotels. In joining Marriott Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work, begin your purpose, belong to an amazing global team, and become the best version of you.\n JW Marriott is part of Marriott International's luxury portfolio and consists of more than 100 beautiful properties in gateway cities and distinctive resort locations around the world. JW believes our associates come first. Because if you’re happy, our guests will be happy. JW Marriott associates are confident, innovative, genuine, intuitive, and carry on the legacy of the brand’s namesake and company founder, J.Willard Marriott. Our hotels offer a work experience unlike any other, where you’ll be part of a community and enjoy true camaraderie with a diverse group of co-workers. JW creates opportunities for training, development, recognition and most importantly, a place where you can pursue your passions in a luxury environment with a focus on holistic well-being. Treating guests exceptionally starts with the way we take care of our associates. That’s The JW Treatment™. In joining JW Marriott, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
       "descriptionByLocale": {
-        "en": "Important Notice\n\nONLY SWISS NATIONALS AND EU NATIONALS WILL BE TAKEN INTO ACCOUNT. OTHER NATIONALITIES WILL LEGALLY NOT BE ABLE TO OBTAIN A WORK PERMIT FOR SWITZERLAND.\nApplications from non Swiss or non EU nationals will not be able to be considered.\n\nPrerequisites\n\n- SWISS PASSPORT\n- EU PASSPORT\n\nHotel Cleanliness Supervisor\n\nThis position is exclusively for daily late shift.\n\nMain Tasks and Competencies\n\nThe Hotel Cleanliness Supervisor – Late Shift is responsible for overseeing evening housekeeping operations to ensure cleanliness, safety, and readiness of all assigned rooms, cleanliness of all public area's extra requests, organization of all housekeeping designated offices and storage rooms.\nThis role supervises housekeeping staff during evening hours, inspects completed work, coordinates shift assignments, and responds to urgent cleaning and delivery requests. Ensure a smooth, detailed and all preparations for handover to shift operations is prepared.\n\nKey Responsibilities\n\n- Supervise housekeeping staff during late shift operations.\n- Assign nightly cleaning schedules, priorities, and work areas.\n- Inspect guest rooms, public spaces, restrooms, hallways, and assigned areas for cleanliness and presentation.\n- Ensure all cleaning tasks are completed according to company standards and timelines.\n- Respond to urgent housekeeping requests, spills, sanitation issues, special cleaning needs and office checks.\n- Monitor attendance, productivity, and staff performance during shift hours.\n- Train and coach staff on cleaning procedures, equipment usage, and safety practices.\n- Maintain adequate stock of linen, cleaning supplies, and housekeeping equipment for the next shift.\n- Report maintenance concerns, hazards, or repair issues promptly.\n- Ensure compliance with sanitation, infection control, and workplace safety standards.\n- Complete shift reports, document handover notes, collect delivery notes, and if incident documentation.\n- Support emergency cleaning needs with other departments if needed in the public area\n- Foster teamwork, accountability, and quality service.\n\nThe primary responsibility of this role is to maintain impeccably clean guest rooms and public areas, support smooth hotel operations during each late shift, and contribute to an exceptional guest experience that ensures guest satisfaction.\n\nAbout Marriott International\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nMarriott Hotels strive to elevate the art of hospitality, innovating at every opportunity while keeping the comfort of the oh-so-familiar all around the globe. As a host with Marriott Hotels, you will help keep the promise of \"Wonderful Hospitality. Always.\" by delivering thoughtful, heartfelt, forward-thinking service that upholds and builds upon this living legacy. With the name that's synonymous with hospitality the world over, we are proud to welcome you to explore a career with Marriott Hotels. In joining Marriott Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work, begin your purpose, belong to an amazing global team, and become the best version of you.\n\nJW Marriott is part of Marriott International's luxury portfolio and consists of more than 100 beautiful properties in gateway cities and distinctive resort locations around the world. JW believes our associates come first. Because if you're happy, our guests will be happy. JW Marriott associates are confident, innovative, genuine, intuitive, and carry on the legacy of the brand's namesake and company founder, J.Willard Marriott. Our hotels offer a work experience unlike any other, where you'll be part of a community and enjoy true camaraderie with a diverse group of co-workers. JW creates opportunities for training, development, recognition and most importantly, a place where you can pursue your passions in a luxury environment with a focus on holistic well-being. Treating guests exceptionally starts with the way we take care of our associates. That's The JW Treatment™. In joining JW Marriott, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
         "it": "Avviso importante\n\nSARANNO PRESI IN CONSIDERAZIONE SOLO CITTADINI SVIZZERI E CITTADINI DELL'UE. LE ALTRE NAZIONALITÀ NON SARANNO LEGALMENTE IN GRADO DI OTTENERE UN PERMESSO DI LAVORO PER LA SVIZZERA.\nLe domande di cittadini non svizzeri o non comunitari non potranno essere prese in considerazione.\n\nPrerequisiti\n\n- PASSAPORTO SVIZZERO\n- PASSAPORTO UE\n\nSupervisore della pulizia dell'hotel\n\nQuesta posizione è esclusivamente per il turno tardivo giornaliero.\n\nPrincipali mansioni e competenze\n\nIl supervisore della pulizia dell'hotel – Late Shift è responsabile della supervisione delle operazioni di pulizia serali per garantire la pulizia, la sicurezza e la prontezza di tutte le camere assegnate, la pulizia di tutte le richieste extra dell'area pubblica, l'organizzazione di tutti gli uffici e i magazzini designati per la pulizia.\nQuesto ruolo supervisiona il personale addetto alle pulizie durante le ore serali, ispeziona il lavoro completato, coordina le assegnazioni dei turni e risponde alle richieste urgenti di pulizia e consegna. Garantire una preparazione fluida, dettagliata e preparata per il passaggio alle operazioni di turno.\n\nResponsabilità principali\n\n- Supervisionare il personale addetto alle pulizie durante le operazioni di turno tardivo.\n- Assegna programmi di pulizia serali, priorità e aree di lavoro.\n- Ispeziona le camere degli ospiti, gli spazi pubblici, i servizi igienici, i corridoi e le aree assegnate per verificarne la pulizia e la presentazione.\n- Assicurarsi che tutte le attività di pulizia siano completate secondo gli standard e le tempistiche aziendali.\n- Rispondere a richieste urgenti di pulizia, sversamenti, problemi igienico-sanitari, esigenze di pulizia speciali e controlli in ufficio.\n- Monitorare le presenze, la produttività e le prestazioni del personale",
+        "en": "PLEASE NOTE\nONLY SWISS NATIONALS AND EU NATIONALS WILL BE TAKEN INTO ACCOUNT. OTHER NATIONALITIES WILL LEGALLY NOT BE ABLE TO OBTAIN A WORK PERMIT FOR SWITZERLAND.\nApplications from non Swiss or non EU nationals will not be able to be considered.\n\nPREREQUISITE\n\n• SWISS PASSPORT\n\n• EU PASSPORT\n\nHOTEL CLEANLINESS SUPERVISOR\n\nThis position is exclusively for daily late shift.\n\nMain tasks and competencies:\nThe Hotel Cleanliness Supervisor – Late Shift is responsible for overseeing evening housekeeping operations to ensure cleanliness, safety, and readiness of all assigned rooms, cleanliness of all public area’s extra requests, organization of all housekeeping designated offices and storage rooms.\nThis role supervises housekeeping staff during evening hours, inspects completed work, coordinates shift assignments, and responds to urgent cleaning and delivery requests. Ensure a smooth, detailed and all preparations for handover to shift operations is prepared.\n\nKey Responsibilities\n\n• Supervise housekeeping staff during late shift operations.\n\n• Assign nightly cleaning schedules, priorities, and work areas.\n\n• Inspect guest rooms, public spaces, restrooms, hallways, and assigned areas for cleanliness and presentation.\n\n• Ensure all cleaning tasks are completed according to company standards and timelines.\n\n• Respond to urgent housekeeping requests, spills, sanitation issues, special cleaning needs and office checks.\n\n• Monitor attendance, productivity, and staff performance during shift hours.\n\n• Train and coach staff on cleaning procedures, equipment usage, and safety practices.\n\n• Maintain adequate stock of linen, cleaning supplies, and housekeeping equipment for the next shift.\n\n• Report maintenance concerns, hazards, or repair issues promptly.\n\n• Ensure compliance with sanitation, infection control, and workplace safety standards.\n\n• Complete shift reports, document handover notes, collect delivery notes, and if incident documentation.\n\n• Support emergency cleaning needs with other departments if needed in the public area\n\n• Foster teamwork, accountability, and quality service.\n\nThe primary responsibility of this role is to maintain impeccably clean guest rooms and public areas, support smooth hotel operations during each late shift, and contribute to an exceptional guest experience that ensures guest satisfaction.\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nMarriott Hotels strive to elevate the art of hospitality, innovating at every opportunity while keeping the comfort of the oh-so-familiar all around the globe. As a host with Marriott Hotels, you will help keep the promise of “Wonderful Hospitality. Always.” by delivering thoughtful, heartfelt, forward-thinking service that upholds and builds upon this living legacy. With the name that’s synonymous with hospitality the world over, we are proud to welcome you to explore a career with Marriott Hotels. In joining Marriott Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work, begin your purpose, belong to an amazing global team, and become the best version of you.\nJW Marriott is part of Marriott International's luxury portfolio and consists of more than 100 beautiful properties in gateway cities and distinctive resort locations around the world. JW believes our associates come first. Because if you’re happy, our guests will be happy. JW Marriott associates are confident, innovative, genuine, intuitive, and carry on the legacy of the brand’s namesake and company founder, J.Willard Marriott. Our hotels offer a work experience unlike any other, where you’ll be part of a community and enjoy true camaraderie with a diverse group of co-workers. JW creates opportunities for training, development, recognition and most importantly, a place where you can pursue your passions in a luxury environment with a focus on holistic well-being. Treating guests exceptionally starts with the way we take care of our associates. That’s The JW Treatment™. In joining JW Marriott, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
         "de": "Wichtige Hinweise\n\nNUR SCHWEISSE NATIONALE UND EU NATIONALE WERDEN IN DIE GESAMTRECHNUNG EINGEFÜHRT. ANDERE NATIONALE RECHTE WERDEN NICHT RECHTSTRÄGER GEWÄHRT, EINE ARBEIT FÜR SCHWEIZERLAND ZU BEWÄHREN. Anträge von Nicht-Schweizern oder Nicht-EU-Bürgern können nicht berücksichtigt werden.\n\nVoraussetzungen\n\n- SWISS-Passagierverkehr - EU-Passagierverkehr\n\nHotel-Residency-Supervisor\n\nDiese Position gilt ausschließlich für die tägliche Spätschicht.\n\nWichtigste Aufgaben und Kompetenzen\n\nDer Hotel-Reinigungs-Betreuer – Spätschicht ist für die Überwachung Abend-Hauswirtschaft Operationen, um Sauberkeit, Sicherheit und Bereitschaft aller zugewiesenen Zimmer, Sauberkeit aller öffentlichen Bereiche zusätzliche Anfragen, Organisation aller Zimmerreinigung bezeichnet Büros und Lagerräume. Diese Rolle überwacht Hauswirtschaft Personal während der Abendstunden, Inspektionen abgeschlossene Arbeit, koordiniert Schichtzuweisungen und reagiert auf dringende Reinigungs-und Lieferanfragen. Stellen Sie sicher, eine reibungslose, detaillierte und alle Vorbereitungen für die Übergabe zu Schicht Operationen vorbereitet.\n\nWichtige Aufgaben\n\n- Überwachung des Reinigungspersonals während des späten Schichtbetriebs. - Zuweisung von Reinigungszeiten, Prioritäten und Arbeitsbereichen für die Nacht. - Überprüfung von Gästezimmern, öffentlichen Räumen, Toiletten, Fluren und zugewiesenen Bereichen für Sauberkeit und Präsentation. - Gewährleistung aller Reinigungsaufgaben nach den Standards und Zeitplänen des Unternehmens abgeschlossen werden. - Reaktion auf dringende Hausreinigungsanfragen, Ausschläge, Sanitärprobleme, spezielle Reinigungsbedürfnisse und Bürokontrollen. - Überwachung der Anwesenheit, Produktivität und Leistung des Personals während der Schichtstunden.\n\n- Train and Coach Personal über Reinigungsverfahren, Gerätenutzung und Sicherheitspraktiken. - Pflege ausreichender Bestand an Wäsche, Reinigungsmaterial und Haushaltsgeräte für die nächste Schicht. - Bericht Wartungs-Bedenken, Gefahren oder Reparatur Probleme sofort. - Gewährleistung der Einhaltung von Sanitär-, Infektionsbekämpfung und Sicherheitsstandards am Arbeitsplatz. - Vollständige Schichtberichte, Dokument Übergabe Notizen, Lieferscheine sammeln und wenn Zwischenfälle Dokumentation. - Unterstützung Notfallreinigung Bedürfnisse mit anderen Abteilungen, wenn im öffentlichen Bereich erforderlich - Förderung Teamarbeit, Rechenschaftspflicht und Qualität Service.\n\nDie Hauptaufgabe dieser Aufgabe besteht darin, unausweichlich saubere Gästezimmer und öffentliche Bereiche zu erhalten, den reibungslosen Hotelbetrieb während jeder Spätschicht zu unterstützen und zu einem außergewöhnlichen Gasterlebnis beizutragen, das die Zufriedenheit der Gäste gewährleistet.\n\nÜber Marriott International\n\nBei Marriott International sind wir bestrebt, Arbeitgeber mit gleicher Chancenstellung zu sein, alle zu begrüßen und Zugang zu Möglichkeiten zu bieten. Wir fördern aktiv ein Umfeld, in dem die einzigartigen Hintergründe unserer Mitarbeiter geschätzt und gefeiert werden. Unsere größte Stärke liegt in der reichen Mischung aus Kultur, Talent und Erfahrungen unserer Mitarbeiter. Wir verpflichten uns, auf jeder geschützten Basis, einschließlich Behinderung, Veteranstatus oder anderen durch geltendes Recht geschützten Grundlagen, nicht zu diskriminieren.\n\nMarriott Hotels bemühen sich, die Kunst der Gastfreundschaft zu erhöhen, und innovativ bei jeder Gelegenheit, während die Bequemlichkeit der oh-so-Familie rund um den Globus. Als Gastgeber mit Marriott Hotels, Sie werden das Versprechen der halten \"Wunderbare Gastfreundschaft. Immer.\" durch die Bereitstellung durchdachte, herzliche, zukunftsweisende Service, die auf diesem lebendigen Erbe aufrechterhält und baut. Mit dem Namen, der gleichbedeutend mit Gastfreundschaft der Welt ist, sind wir stolz, Sie zu begrüßen, um eine Karriere mit Marriott Hotels zu erkunden.\n\nSei, wo du dein Bestes tun kannst, beginne deinen Zweck, gehöre zu einem erstaunlichen globalen Team und werde die beste Version von dir.\n\nJW Marriott ist Teil des Luxus-Portfolios von Marriott International und besteht aus mehr als 100 schönen Immobilien in Torstädten und unverwechselbaren Ferienorten auf der ganzen Welt. JW glaubt, dass unsere Mitarbeiter an erster Stelle kommen. Denn wenn Sie glücklich sind, werden unsere Gäste glücklich sein. JW Marriott Mitarbeiter sind zuversichtlich, innovativ, echt, intuitiv und tragen das Erbe des Markennamens und Firmengründers J.Willard Marriott. Unsere Hotels bieten ein Arbeitserlebnis, wie jedes andere, wo Sie Teil einer Gemeinschaft sein und genießen wahre Kameradschaft mit einer Vielzahl von Mitarbeitern.\n\nJW bietet Möglichkeiten für Training, Entwicklung, Anerkennung und vor allem, einen Ort, wo Sie Ihre Leidenschaften in einem luxuriösen Umfeld mit einem Fokus auf ganzheitliches Wohlbefinden verfolgen können. Gäste ausnahmsweise zu behandeln beginnt mit der Art und Weise, wie wir uns um unsere Mitarbeiter kümmern. Das ist The JW TreatmentTM. Mit JW Marriott gesellen Sie sich zu einem Portfolio von Marken mit Marriott International. Seien Sie, wo Sie Ihre beste Arbeit tun, Ihren Zweck beginnen, einem erstaunlichen globalen Team angehören und die beste Version von Ihnen werden.",
         "fr": "Avis important\n\nSeuls les ressortissants suisses et les ressortissants de l'UE seront pris en compte. D'AUTRES NATIONALITÉS NE POURRA PAS JURIDIQUEMENT OBTENIR UN PERMIS DE TRAVAIL POUR LA SUISSE. Les demandes émanant de ressortissants non suisses ou non européens ne pourront pas être prises en considération.\n\nPréalables\n\n- SWISS PASSPORT - EU PASSPORT\n\nSuperviseur de la propreté de l'hôtel\n\nCette position est réservée aux équipes quotidiennes en retard.\n\nPrincipales tâches et compétences\n\nLe surveillant de la propreté de l'hôtel – Late Shift est chargé de superviser les opérations de ménage du soir pour assurer la propreté, la sécurité et la préparation de toutes les chambres assignées, la propreté de toutes les demandes supplémentaires de la zone publique, l'organisation de tous les bureaux désignés de ménage et les salles de stockage.\n\nPrincipales responsabilités\n\n- Superviser le personnel de ménage pendant les quarts de travail tardifs. - Affecter les horaires de nettoyage nocturne, les priorités et les zones de travail. - Inspecter les chambres, les espaces publics, les toilettes, les couloirs et les zones affectées pour la propreté et la présentation. - Veiller à ce que toutes les tâches de nettoyage soient effectuées conformément aux normes et aux délais de l'entreprise. - Resserrer les demandes urgentes de ménage, les déversements, les problèmes d'assainissement, les besoins spéciaux de nettoyage et les vérifications de bureau. - Surveiller la présence, la productivité et les performances du personnel pendant les quarts de travail.\n\n- Former et entraîner le personnel sur les procédures de nettoyage, l'utilisation de l'équipement et les pratiques de sécurité. - Maintenir un stock adéquat de linge, de fournitures de nettoyage et de matériel de ménage pour le prochain quart de travail. - Signaler rapidement les problèmes d'entretien, les dangers ou les réparations. - Veiller au respect des normes d'hygiène, de contrôle des infections et de sécurité au travail. - Remplir les rapports de travail, documenter les notes de remise, recueillir les notes de livraison et, le cas échéant, les documents d'incident. - Appuyer les besoins de nettoyage d'urgence auprès d'autres ministères si nécessaire dans la zone publique.\n\nLa responsabilité première de ce rôle est de maintenir des chambres et des espaces publics parfaitement propres, de soutenir des opérations hôtelières en douceur pendant chaque quart de travail tardif et de contribuer à une expérience exceptionnelle des clients qui assure la satisfaction des clients.\n\nÀ propos de Marriot International\n\nNous nous engageons à favoriser un environnement où les origines uniques de nos associés sont appréciées et célébrées. Notre plus grande force réside dans le riche mélange de culture, de talent et d'expérience de nos associés. Nous sommes engagés à la non-discrimination sur toute base protégée, y compris le handicap, le statut de vétéran, ou toute autre base protégée par la loi applicable.\n\nLes hôtels Marriot s'efforcent d'élever l'art de l'hospitalité, en innover à chaque occasion tout en gardant le confort de l'oh-so-familiar partout dans le monde. En tant qu'hôte avec les hôtels Marriot, vous aiderez à tenir la promesse de «Wonderful Hospitality. Always.\" en offrant un service réfléchi, sincère et avant-gardiste qui soutient et construit sur ce legs vivant. Avec le nom qui est synonyme d'hospitalité dans le monde entier, nous sommes fiers de vous accueillir pour explorer une carrière avec les hôtels Marriot. En vous joignant à Marriott Hotels, vous rejoignez un portefeuille de marques avec Marriott International.\n\nSoyez là où vous pouvez faire votre meilleur travail, commencer votre but, appartenir à une équipe mondiale étonnante, et devenir la meilleure version de vous.\n\nJW Marriott fait partie du portefeuille de luxe de Marriott International et se compose de plus de 100 belles propriétés dans des villes portes et des stations balnéaires distinctives dans le monde entier. JW croit que nos associés viennent en premier. Parce que si vous êtes heureux, nos clients seront heureux. JW Marriott associés sont confiants, innovants, authentiques, intuitifs, et de poursuivre l'héritage de la marque nominative et fondateur de l'entreprise, J.Willard Marriott. Nos hôtels offrent une expérience de travail différente de toute autre, où vous serez membre d'une communauté et profiterez d'une véritable amitié avec un groupe de collaborateurs diversifié.\n\nJW crée des opportunités de formation, de développement, de reconnaissance et surtout, un lieu où vous pourrez poursuivre vos passions dans un environnement de luxe en mettant l'accent sur le bien-être holistique. Le traitement des clients commence exceptionnellement par la façon dont nous prenons soin de nos associés. C'est le traitement JWTM. En rejoignant JW Marriott, vous rejoignez un portefeuille de marques avec Marriott International. Soyez là où vous pouvez faire votre meilleur travail, commencer votre objectif, appartenir à une équipe mondiale étonnante, et devenir la meilleure version de vous."
       },
@@ -1385,7 +1428,7 @@
       "url": "https://careers.marriott.com/hotel-cleanliness-supervisor/job/0DBB805ECD142AE133CCAAED81A9438D",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:12:58.986Z",
+      "crawledAt": "2026-08-28T05:32:43.922Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -1427,6 +1470,7 @@
         "welcome-ambassador-bellboy-winter-26-27-w-verbier-marriott-verbier"
       ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-27T00:52:41.642Z",
       "salaryMin": 73000,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1439,9 +1483,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "firstSeenAt": "2026-08-27T00:52:41.642Z",
-      "retranslationAttempts": 1
+      "addressRegion": "ZH"
     },
     {
       "id": "marriott-ed543fc31e2d",
@@ -1474,7 +1516,7 @@
       "url": "https://careers.marriott.com/hotel-cleanliness-expert-casual-work-on-demand/job/481D2030E60DA9B37992BB6F5DA29DA8",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:12:58.985Z",
+      "crawledAt": "2026-08-28T05:32:43.921Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -1547,7 +1589,7 @@
       "url": "https://careers.marriott.com/f-b-service-expert/job/45214FB03CFA7F41A04564570634859F",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:12:58.985Z",
+      "crawledAt": "2026-08-28T05:32:43.920Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -1577,14 +1619,16 @@
         "ristorante-speciale-thai-servizio-esperto-di-ristoranti-specializzati-60-marriott-international-zurich",
         "thai-specialty-restaurant-f-b-service-expert-60-marriott-zurich",
         "thai-spezialitat-restaurant-f-b-service-experte-60-marriott-international-zurich",
-        "f-b-service-expert-marriott-zurich"
+        "f-b-service-expert-marriott-zurich",
+        "esperto-di-servizio-f-b-marriott-international-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ristorante-speciale-thai-servizio-esperto-di-ristoranti-specializzati-60-marriott-international-zurich",
           "thai-specialty-restaurant-f-b-service-expert-60-marriott-zurich",
           "thai-spezialitat-restaurant-f-b-service-experte-60-marriott-international-zurich",
-          "f-b-service-expert-marriott-zurich"
+          "f-b-service-expert-marriott-zurich",
+          "esperto-di-servizio-f-b-marriott-international-zurich"
         ],
         "de": [
           "thai-spezialitat-restaurant-f-b-service-experte-60-marriott-international-zurich"
@@ -1640,7 +1684,7 @@
       "url": "https://careers.marriott.com/event-service-shiftleader/job/BFBD92656F2154B7B1928794C8BE6ED5",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:12:58.984Z",
+      "crawledAt": "2026-08-28T05:32:43.919Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -1667,11 +1711,13 @@
         "publishEndDate": ""
       },
       "previousSlugs": [
-        "event-service-shiftleader-marriott-zurich"
+        "event-service-shiftleader-marriott-zurich",
+        "servizio-eventi-shiftleader-marriott-international-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "event-service-shiftleader-marriott-zurich"
+          "event-service-shiftleader-marriott-zurich",
+          "servizio-eventi-shiftleader-marriott-international-zurich"
         ],
         "fr": [
           "event-service-shiftleader-marriott-zurich"
@@ -1724,7 +1770,7 @@
       "url": "https://careers.marriott.com/event-manager/job/6113FC1F970900B0BA13527F50509351",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:12:58.983Z",
+      "crawledAt": "2026-08-28T05:32:43.917Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -1751,11 +1797,13 @@
         "publishEndDate": ""
       },
       "previousSlugs": [
-        "event-manager-marriott-zurich"
+        "event-manager-marriott-zurich",
+        "gestione-eventi-marriott-international-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "event-manager-marriott-zurich"
+          "event-manager-marriott-zurich",
+          "gestione-eventi-marriott-international-zurich"
         ],
         "de": [
           "event-manager-marriott-zurich"
@@ -1810,7 +1858,7 @@
       "url": "https://careers.marriott.com/demi-chef-de-partie-winter-26-27-w-verbier/job/ED5438B95DC8FA50D602C06807877131",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:12:58.981Z",
+      "crawledAt": "2026-08-28T05:32:43.916Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -1837,11 +1885,13 @@
         "publishEndDate": "2026-09-15T09:16:00.000Z"
       },
       "previousSlugs": [
-        "demi-chef-de-partie-winter-26-27-w-verbier-marriott-verbier"
+        "demi-chef-de-partie-winter-26-27-w-verbier-marriott-verbier",
+        "demi-chef-de-partie-inverno-26-27-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "demi-chef-de-partie-winter-26-27-w-verbier-marriott-verbier"
+          "demi-chef-de-partie-winter-26-27-w-verbier-marriott-verbier",
+          "demi-chef-de-partie-inverno-26-27-w-verbier-marriott-international-verbier"
         ],
         "fr": [
           "demi-chef-de-partie-winter-26-27-w-verbier-marriott-verbier"
@@ -1894,7 +1944,7 @@
       "url": "https://careers.marriott.com/commis-de-cuisine-a-la-carte-echo/job/70BB3B1CCEF6F0D2B1B75A13E21DB302",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:12:58.980Z",
+      "crawledAt": "2026-08-28T05:32:43.910Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -1921,11 +1971,13 @@
         "publishEndDate": ""
       },
       "previousSlugs": [
-        "commis-de-cuisine-a-la-carte-echo-marriott-zurich"
+        "commis-de-cuisine-a-la-carte-echo-marriott-zurich",
+        "commissione-di-cucina-a-la-carte-marriott-international-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "commis-de-cuisine-a-la-carte-echo-marriott-zurich"
+          "commis-de-cuisine-a-la-carte-echo-marriott-zurich",
+          "commissione-di-cucina-a-la-carte-marriott-international-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -1958,7 +2010,7 @@
       "companyDomain": "marriott.com",
       "title": "Chef de rang Brasserie 1519 (Winter 26/27) - W VERBIER",
       "titleByLocale": {
-        "it": "Chef de rang Brasserie 1519 (inverno 26/27) - W VERBIER",
+        "it": "Chef de rang Brasserie 1519 (Winter 26/27) - W VERBIER",
         "en": "Chef de rang Brasserie 1519 (Winter 26/27) - W VERBIER",
         "de": "Chef de rang Brasserie 1519 (Winter 26/27) - W VERBIER",
         "fr": "Chef de rang Brasserie 1519 (Hiver 26/27) - W VERBIER"
@@ -1975,7 +2027,7 @@
       "url": "https://careers.marriott.com/chef-de-rang-brasserie-1519-winter-26-27-w-verbier/job/CB864D6EC4EA909A8676BDA04A2E2DC3",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:12:58.979Z",
+      "crawledAt": "2026-08-28T05:32:43.909Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -2048,7 +2100,7 @@
       "url": "https://careers.marriott.com/chef-de-rang-sommelier-long-term-w-verbier/job/3D3F373925180FCAE9315E38A40C3111",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:12:58.977Z",
+      "crawledAt": "2026-08-28T05:32:43.904Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -2097,7 +2149,7 @@
         "it": "esperto-di-supporto-per-eventi-setup-banquet-marriott-international-zurich",
         "en": "event-support-expert-banquet-setup-marriott-zurich",
         "de": "event-support-expert-banquet-setup-marriott-zurich",
-        "fr": "configuration-des-banquets-marriott-international-zurich"
+        "fr": "banquet-setup-marriott-international-zurich"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -2107,7 +2159,7 @@
         "it": "Esperto di supporto per eventi (setup Banquet)",
         "en": "Banquet Setup",
         "de": "Event Support Expert (Banquet Setup)",
-        "fr": "Configuration des banquets"
+        "fr": "Banquet Setup"
       },
       "description": "Is this you?\n\n• You enjoy communicating in English.\n\n• You’re able to successfully complete physically challenging tasks even under stress and time pressure over the course of several days. You’re flexible and fit in well with a young, dedicated team; you’re helpful and cooperative\n\n• Taking on responsibility comes naturally to you\n\n• It’s not just in mission statements on paper, but in practice and in our day-to-day work that the guest is at the center of our business philosophy and actions\n\n• Our team is highly innovative and eager to experiment. If you also enjoy new things and challenges and approach them with curiosity and a drive to get things done, you’ll be a perfect fit for our team\n\n• You hold a Category B driver’s license\n\n• Working in Switzerland: You either have a Swiss B or C permit or EU citizenship\n\nYour Responsibilities\n\n• Setting up and arranging conference rooms according to customer requests\n\n• Responsible for inventory management and logistics of banquet, catering, and F&B supplies\n\n• Ensuring order, cleanliness, and organization in all storage areas\n\n• Checking incoming goods for completeness and quality\n\n• Issuing and collecting rental and event equipment\n\n• Working closely with banquet, events, kitchen, stewarding, and other F&B departments\n\n• Coordinating and developing a standardized warehouse and inventory management system\n\n• Conducting regular inspection rounds in warehouse, kitchen, and event areas\n\n• Delivering customer orders and transporting catering and event equipment\n\n• Participation in training sessions, meetings, and relevant informational events\n\n• Ensuring a smooth flow of information between the departments involved\n\n• Driving company vehicles in compliance with applicable traffic regulations\n\nWhat We Offer You\n\n• A dynamic and young team of more than 200 bright minds who never forget to have fun at work\n\n• In-house training\n\n• Banquet services have no curfew\n\n• An open and transparent corporate culture that centers on the values of a passion for excellence, guest-oriented service, and a spirit of innovation.\n\n• Fair and accurate tracking of working hours\n\n• Solid benefits from an international hotel chain, such as employee rates at 10,000+ hotels worldwide, heavily discounted stays at the Zurich Marriott Hotel, SBB annual pass discounts, and much more.\n\n• The position offers an attractive challenge with opportunities for growth and learning for the incumbent\n\n• a permanent position that requires independence and personal responsibility\n\n• The work schedule offers flexibility, as we allow for longer, consecutive vacations and the use of compensatory days during the quiet low season—days that are accrued during the high season\n\n• You can expect a diverse role in a very lively and structured environment, progressive and dynamic employee policies, and the benefits of an international hotel group\n\nMarriott Hotels strive to elevate the art of hospitality, innovating at every opportunity while keeping the comfort of the oh-so-familiar all around the globe. As a host with Marriott Hotels, you will help keep the promise of “Wonderful Hospitality. Always.” by delivering thoughtful, heartfelt, forward-thinking service that upholds and builds upon this living legacy. With the name that’s synonymous with hospitality the world over, we are proud to welcome you to explore a career with Marriott Hotels. In joining Marriott Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work, begin your purpose, belong to an amazing global team, and become the best version of you.\n JW Marriott is part of Marriott International's luxury portfolio and consists of more than 100 beautiful properties in gateway cities and distinctive resort locations around the world. JW believes our associates come first. Because if you’re happy, our guests will be happy. JW Marriott associates are confident, innovative, genuine, intuitive, and carry on the legacy of the brand’s namesake and company founder, J.Willard Marriott. Our hotels offer a work experience unlike any other, where you’ll be part of a community and enjoy true camaraderie with a diverse group of co-workers. JW creates opportunities for training, development, recognition and most importantly, a place where you can pursue your passions in a luxury environment with a focus on holistic well-being. Treating guests exceptionally starts with the way we take care of our associates. That’s The JW Treatment™. In joining JW Marriott, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
       "descriptionByLocale": {
@@ -2121,7 +2173,7 @@
       "url": "https://careers.marriott.com/banquet-setup/job/BB4B64E30B597ABC20B1B8267CE5689B",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:12:58.975Z",
+      "crawledAt": "2026-08-28T05:32:43.897Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -2154,6 +2206,7 @@
         "event-support-experte-marriott-international-zurich",
         "expert-en-soutien-a-l-evenement-marriott-international-zurich",
         "expert-en-soutien-a-l-evenement-configuration-de-bancet-marriott-international-zurich",
+        "configuration-des-banquets-marriott-international-zurich",
         "banquet-setup-marriott-international-zurich"
       ],
       "previousSlugsByLocale": {
@@ -2174,10 +2227,12 @@
           "event-support-expert-banquet-setup-marriott-zurich",
           "expert-en-soutien-a-l-evenement-marriott-international-zurich",
           "expert-en-soutien-a-l-evenement-configuration-de-bancet-marriott-international-zurich",
+          "configuration-des-banquets-marriott-international-zurich",
           "banquet-setup-marriott-international-zurich"
         ]
       },
       "firstSeenAt": "2026-07-31T11:54:42.256Z",
+      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2223,7 +2278,7 @@
       "url": "https://careers.marriott.com/b-f-intern-service-6-months-w-verbier/job/63736DD59DCB0805E1E2E77BE0B25B21",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-27T20:12:58.973Z",
+      "crawledAt": "2026-08-28T05:32:43.891Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -2255,7 +2310,8 @@
         "b-f-praktikant-july-6-months-w-verbier-marriott-international-verbier",
         "b-f-stagiaire-july-6-months-w-verbier-marriott-international-verbier",
         "b-f-intern-service-6-months-w-verbier-marriott-verbier",
-        "pastry-tirocinante-6-months-w-verbier-marriott-international-verbier"
+        "pastry-tirocinante-6-months-w-verbier-marriott-international-verbier",
+        "b-f-tirocinante-service-6-months-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2264,7 +2320,8 @@
           "b-f-praktikant-july-6-months-w-verbier-marriott-international-verbier",
           "b-f-stagiaire-july-6-months-w-verbier-marriott-international-verbier",
           "b-f-intern-service-6-months-w-verbier-marriott-verbier",
-          "pastry-tirocinante-6-months-w-verbier-marriott-international-verbier"
+          "pastry-tirocinante-6-months-w-verbier-marriott-international-verbier",
+          "b-f-tirocinante-service-6-months-w-verbier-marriott-international-verbier"
         ],
         "en": [
           "b-f-intern-july-6-months-w-verbier-marriott-verbier"
@@ -2378,7 +2435,7 @@
         }
       },
       "addressRegion": "ZH",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "marriott-e4cfff5e9403",
@@ -2394,7 +2451,7 @@
       "companyDomain": "marriott.com",
       "title": "Floor Supervisor (Style Captain) (Winter 26/27) - W VERBIER",
       "titleByLocale": {
-        "it": "Supervisore del pavimento (Style Captain) (inverno 26/27) - W VERBIER",
+        "it": "Floor Supervisor (Style Captain) (Winter 26/27) - W VERBIER",
         "en": "Floor Supervisor (Style Captain) (Winter 26/27) - W VERBIER",
         "de": "Floor Vorgesetzter (Style Captain) (Winter 26/27) - W VERBIER",
         "fr": "Floor Superviseur (Style Captain) (Winter 26/27) - W VERBIER"
@@ -2464,173 +2521,8 @@
         }
       },
       "addressRegion": "VS",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "marriott-22fcb56da769",
-      "slug": "kitchen-tirocinante-w-verbier-marriott-international-verbier",
-      "slugByLocale": {
-        "it": "kitchen-tirocinante-w-verbier-marriott-international-verbier",
-        "en": "kitchen-intern-w-verbier-marriott-verbier",
-        "de": "kitchen-praktikant-w-verbier-marriott-international-verbier",
-        "fr": "kitchen-stagiaire-w-verbier-marriott-international-verbier"
-      },
-      "company": "Marriott International",
-      "companyKey": "marriott",
-      "companyDomain": "marriott.com",
-      "title": "Kitchen intern - W Verbier",
-      "titleByLocale": {
-        "it": "Kitchen Tirocinante - W Verbier",
-        "en": "Kitchen intern - W Verbier",
-        "de": "Kitchen Praktikant - W Verbier",
-        "fr": "Kitchen Stagiaire - W Verbier"
-      },
-      "description": "JOB DESCRIPTION\n\nBecome a W Talent and Embody the W Art of Living!\n\nAs a ‘Talent’, you are the essence of W for our guests. You bring a playful, warm and welcoming touch that makes all the difference in our W hotels. You are unique, passionate, and your personality shines through in every interaction.\n\nAN EXCEPTIONAL OPPORTUNITY TO JOIN THE W VERBIER TEAM!\n\nWe are looking for a highly motivated, enthusiastic, skilled Kitchen Intern to rock the kitchen scene! As a Kitchen Intern you will prepare food items for customers using a quality predetermined method in a timely and consistent manner.\n\nSet up station with predetermined mise en place required to service all outlets and banquet functions.\n\nPractice sanitation and safety daily to ensure the total customer satisfaction.\n\nWe have one main kitchen for all our venues : Brasserie 1519, Living Room, In room Dining, Banqueting & Breakfast.\n\nPROFILE\n\nMust be currently enrolled in a Hospitality school / Culinary school (renown by CCNT)\n\nYou are highly motivated\n\nBe detail oriented and have a passion for giving guests an exceptional experience.\n\nReal interest in the worlds of taste, sound, body, scene and stance\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nW Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
-      "descriptionByLocale": {
-        "it": "DESCRIZIONE DELLA JOB\n\nDiventa un talento W e incarna l'arte W di vivere!\n\nCome ‘Talent’, siete l’essenza di W per i nostri ospiti. Porti un tocco giocoso, caldo e accogliente che fa la differenza nei nostri hotel W. Siete unici, appassionati e la vostra personalità brilla in ogni interazione.\n\nUNA OPPORTUNITÀ ESEPIZIONALE PER IL TEAM VERBIER W!\n\nSiamo alla ricerca di una cucina altamente motivata, entusiasta, esperto tirocinante per rock la scena della cucina! Come Cucina Intern preparerai prodotti alimentari per i clienti utilizzando un metodo predeterminato di qualità in modo tempestivo e coerente.\n\nImpostare la stazione con predeterminata mise en place necessario per servire tutti i punti vendita e le funzioni di banchetto.\n\nPraticare i servizi igienici e la sicurezza ogni giorno per garantire la totale soddisfazione del cliente.\n\nAbbiamo una cucina principale per tutte le nostre sedi: Brasserie 1519, Living Room, In sala da pranzo, Banqueting & Breakfast.\n\nPROFESSIONALE\n\nDeve essere attualmente iscritto in una scuola di ospitalità / scuola culinaria (renown by CCNT)\n\nSei molto motivato.\n\nEssere orientati al dettaglio e avere una passione per dare agli ospiti un'esperienza eccezionale.\n\nInteresse reale nei mondi del gusto, del suono, del corpo, della scena e della posizione\n\nA Marriott International, siamo dedicati ad essere un datore di lavoro pari opportunità, accogliendo tutti e fornendo l'accesso alle opportunità. Promuoviamo attivamente un ambiente in cui gli sfondi unici dei nostri associati sono apprezzati e celebrati. La nostra più grande forza risiede nella ricca miscela di cultura, talento ed esperienze dei nostri associati. Ci impegniamo a non discriminazione su base protetta, tra cui disabilità, status di veterano, o altre basi protette dalla legge applicabile.\n\nLa missione degli hotel è quella di accendere la curiosità, i mondi esplosi. Siamo un posto dove vivere la vita. Siamo qui per aprire porte e menti aperte. Siamo costantemente ispirati a nuovi volti e nuove esperienze. Uno spirito sintonizzato, up-for-anything è al nostro centro e ci ha resi noti per reinventare le norme del lusso in tutto il mondo. Qualunque sia la nostra cultura e la nostra filosofia di servizio che anima le passioni dei nostri ospiti. Se siete originali, innovativi e sempre alla ricerca del futuro di ciò che è possibile, benvenuti a W Hotels. Nell'unione di W Hotels, unisciti a un portafoglio di marchi con Marriott International. Essere dove si può fare il vostro lavoro migliore, iniziare il vostro scopo, appartengono a un team globale incredibile, e diventare la migliore versione di voi.",
-        "en": "JOB DESCRIPTION\n\nBecome a W Talent and Embody the W Art of Living!\n\nAs a ‘Talent’, you are the essence of W for our guests. You bring a playful, warm and welcoming touch that makes all the difference in our W hotels. You are unique, passionate, and your personality shines through in every interaction.\n\nAN EXCEPTIONAL OPPORTUNITY TO JOIN THE W VERBIER TEAM!\n\nWe are looking for a highly motivated, enthusiastic, skilled Kitchen Intern to rock the kitchen scene! As a Kitchen Intern you will prepare food items for customers using a quality predetermined method in a timely and consistent manner.\n\nSet up station with predetermined mise en place required to service all outlets and banquet functions.\n\nPractice sanitation and safety daily to ensure the total customer satisfaction.\n\nWe have one main kitchen for all our venues : Brasserie 1519, Living Room, In room Dining, Banqueting & Breakfast.\n\nPROFILE\n\nMust be currently enrolled in a Hospitality school / Culinary school (renown by CCNT)\n\nYou are highly motivated\n\nBe detail oriented and have a passion for giving guests an exceptional experience.\n\nReal interest in the worlds of taste, sound, body, scene and stance\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nW Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
-        "de": "BESCHREIBUNG\n\nWerde ein W Talent und verkörpere die W Art of Living!\n\nAls „Talent sind Sie die Essenz von W für unsere Gäste. Sie bringen eine spielerische, warme und einladende Note, die den Unterschied in unseren W Hotels macht. Du bist einzigartig, leidenschaftlich und deine Persönlichkeit scheint in jeder Interaktion durch.\n\nEINE AUSSERGEWÖHNLICHE Gelegenheit, am W VERBIER-TEAM teilzunehmen!\n\nWir suchen einen hoch motivierten, enthusiastischen, erfahrenen Kitchen Intern, um die Küchenszene zu rocken! Als Kitchen Intern bereiten Sie Lebensmittel zeitnah und konsistent mit einer qualitätsvorgegebenen Methode für Ihre Kunden zu.\n\nRichten Sie die Station mit einem vorbestimmten Mise-en-Platz ein, der für die Wartung aller Outlets und Bankettfunktionen erforderlich ist.\n\nÜben Sie täglich Hygiene und Sicherheit, um die absolute Kundenzufriedenheit zu gewährleisten.\n\nWir haben eine Hauptküche für alle unsere Veranstaltungsorte: Brasserie 1519, Wohnzimmer, In Room Dining, Bankett & Frühstück.\n\nPROFIL\n\nMuss derzeit in einer Hospitality School / Culinary School eingeschrieben sein (bekannt durch CCNT)\n\nDu bist hoch motiviert\n\nSeien Sie detailorientiert und haben Sie eine Leidenschaft dafür, Ihren Gästen ein außergewöhnliches Erlebnis zu bieten.\n\nEchtes Interesse an den Welten von Geschmack, Klang, Körper, Szene und Haltung\n\nBei Marriott International sind wir bestrebt, ein Arbeitgeber für Chancengleichheit zu sein, alle willkommen zu heißen und Zugang zu Chancen zu bieten. Wir fördern aktiv ein Umfeld, in dem die einzigartigen Hintergründe unserer Mitarbeiter geschätzt und gefeiert werden. Unsere größte Stärke liegt in der reichen Mischung aus Kultur, Talent und Erfahrungen unserer Mitarbeiter. Wir verpflichten uns zur Nichtdiskriminierung auf jeder geschützten Grundlage, einschließlich Behinderung, Veteranenstatus oder einer anderen durch geltendes Recht geschützten Grundlage.\n\nDie Mission von W Hotels ist es, Curiosity zu entzünden, Welten zu erweitern. Wir sind ein Ort, um das Leben zu erleben. Wir sind hier, um Türen und offene Köpfe zu öffnen. Wir werden ständig von neuen Gesichtern und neuen Erfahrungen inspiriert. Ein abgestimmter, up-for-anything-geist ist in unserem kern und hat uns dafür bekannt gemacht, die normen des luxus auf der ganzen welt neu zu erfinden. Was auch immer unsere Kultur und Servicephilosophie ist, die die Leidenschaften unserer Gäste zum Leben erweckt. Wenn Sie originell, innovativ und immer auf die Zukunft des Möglichen ausgerichtet sind, willkommen in W Hotels. Wenn Sie W Hotels beitreten, schließen Sie sich einem Markenportfolio mit Marriott International an. Seien Sie dort, wo Sie Ihre beste Arbeit leisten, Ihren Zweck beginnen, zu einem erstaunlichen globalen Team gehören und die beste Version von Ihnen werden können.",
-        "fr": "DESCRIPTION DE L'EMPLOI\n\nDevenez un W Talent et imaginez l'art de vivre!\n\nEn tant que « Talent », vous êtes l'essence de W pour nos invités. Vous apportez une touche ludique, chaleureuse et accueillante qui fait toute la différence dans nos hôtels W. Vous êtes unique, passionné, et votre personnalité brille à travers chaque interaction.\n\nUNE POSSIBILITÉ EXCEPTIONNELLE DE S'INSCRIRE DANS L'ÉQUIPE W VERBIER !\n\nNous sommes à la recherche d'un stagiaire de cuisine très motivé, enthousiaste et compétent pour rocker la scène de la cuisine! En tant que stagiaire de cuisine, vous préparerez les aliments pour les clients en utilisant une méthode prédéterminée de qualité de manière opportune et cohérente.\n\nInstallation d'une station avec mise en place prédéterminée nécessaire pour assurer tous les points de vente et les banquets.\n\nPratiquez l'assainissement et la sécurité quotidiennement pour assurer la satisfaction totale du client.\n\nNous avons une cuisine principale pour tous nos lieux : Brasserie 1519, Salon, Salle à manger, Banquet & Petit déjeuner.\n\nPROFIL\n\nDoit être actuellement inscrit dans une école d'accueil / école culinaire (reconnue par le CCNT)\n\nVous êtes très motivé\n\nÊtre orienté vers le détail et avoir une passion pour donner aux invités une expérience exceptionnelle.\n\nUn véritable intérêt pour les mondes du goût, du son, du corps, de la scène et de la position\n\nChez Marriott International, nous nous engageons à être un employeur à égalité des chances, accueillant tous et offrant l'accès aux possibilités. Nous favorisons activement un environnement où les origines uniques de nos associés sont appréciées et célébrées. Notre plus grande force réside dans le riche mélange de culture, de talent et d'expériences de nos associés. Nous sommes attachés à la non-discrimination sur toute base protégée, y compris le handicap, le statut d'ancien combattant ou toute autre base protégée par la loi applicable.\n\nW Hotels est la mission d'Ignite Curiosity, Expand Worlds. Nous sommes un endroit où vivre. Nous sommes ici pour ouvrir les portes et ouvrir les esprits. Nous sommes constamment inspirés par de nouveaux visages et de nouvelles expériences. Un esprit à la hauteur de tout est à notre cœur et nous a rendus réputés pour avoir réinventé les normes du luxe à travers le monde. Quoi qu'il en soit, notre philosophie de la culture et du service apporte à nos hôtes des passions. Si vous êtes original, innovant et toujours regardant vers l'avenir de ce qui est possible, bienvenue à W Hotels. En rejoignant W Hotels, vous rejoignez un portefeuille de marques avec Marriott International. Soyez là où vous pouvez faire votre meilleur travail, commencer votre objectif, appartenir à une équipe mondiale incroyable, et devenir la meilleure version de vous."
-      },
-      "location": "Verbier",
-      "canton": "VS",
-      "url": "https://careers.marriott.com/kitchen-intern-w-verbier/job/55214B641EBEB65101F85E005BC31CA1",
-      "source": "Marriott International Dedicated Parser (Paradox API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-26T10:12:41.410Z",
-      "addressLocality": "Verbier",
-      "streetAddress": "Rue de Medran 70",
-      "postalCode": "1936",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "hospitality-food-beverage",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Hôtellerie / Hospitality",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-21",
-      "applyUrl": "https://ejwl.fa.us2.oraclecloud.com:443/hcmUI/CandidateExperience/en/sites/MI_CS_1/job/26106308/apply/email",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "_marriottMeta": {
-        "requisitionID": "26106308",
-        "uniqueID": "55214B641EBEB65101F85E005BC31CA1",
-        "brandName": "W Hotels",
-        "locationName": "W Verbier",
-        "jobField": "College/University",
-        "accountName": "Non-Management",
-        "publishEndDate": "2026-08-31T09:33:00.000Z"
-      },
-      "previousSlugs": [
-        "kitchen-intern-w-verbier-marriott-verbier",
-        "kitchen-praktikant-6-months-w-verbier-marriott-international-verbier",
-        "kitchen-stagiaire-6-months-w-verbier-marriott-international-verbier"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kitchen-intern-w-verbier-marriott-verbier",
-          "kitchen-praktikant-6-months-w-verbier-marriott-international-verbier",
-          "kitchen-stagiaire-6-months-w-verbier-marriott-international-verbier"
-        ],
-        "de": [
-          "kitchen-intern-w-verbier-marriott-verbier",
-          "kitchen-praktikant-6-months-w-verbier-marriott-international-verbier"
-        ],
-        "fr": [
-          "kitchen-intern-w-verbier-marriott-verbier"
-        ]
-      },
-      "firstSeenAt": "2026-08-21T21:55:16.466Z",
-      "salaryMin": 52500,
-      "salaryMax": 66000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 52500,
-          "maxValue": 66000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VS",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "marriott-79d0261a5fa1",
-      "slug": "hotel-cleanliness-supervisor-marriott-zurich",
-      "slugByLocale": {
-        "it": "hotel-cleanliness-supervisor-marriott-zurich",
-        "en": "hotel-cleanliness-supervisor-marriott-zurich",
-        "de": "hotel-cleanliness-vorgesetzter-marriott-international-zurich",
-        "fr": "hotel-cleanliness-superviseur-marriott-international-zurich"
-      },
-      "company": "Marriott International",
-      "companyKey": "marriott",
-      "companyDomain": "marriott.com",
-      "title": "Hotel Cleanliness Supervisor",
-      "titleByLocale": {
-        "it": "Hotel Cleanliness Supervisor",
-        "en": "Hotel Cleanliness Supervisor",
-        "de": "Housekeeping-Supervisor",
-        "fr": "Superviseur du Ménage"
-      },
-      "description": "Main tasks and competencies:\n The Hotel Cleanliness Supervisor – Late Shift is responsible for overseeing evening housekeeping operations to ensure cleanliness, safety, and readiness of all assigned rooms, cleanliness of all public area’s extra requests, organization of all housekeeping designated offices and storage rooms.\n This role supervises housekeeping staff during evening hours, inspects completed work, coordinates shift assignments, and responds to urgent cleaning and delivery requests. Ensure a smooth, detailed and all preparations for handover to shift operations is prepared.\n Key Responsibilities\n\n• Supervise housekeeping staff during late shift operations.\n\n• Assign nightly cleaning schedules, priorities, and work areas.\n\n• Inspect guest rooms, public spaces, restrooms, hallways, and assigned areas for cleanliness and presentation.\n\n• Ensure all cleaning tasks are completed according to company standards and timelines.\n\n• Respond to urgent housekeeping requests, spills, sanitation issues, special cleaning needs and office checks.\n\n• Monitor attendance, productivity, and staff performance during shift hours.\n\n• Train and coach staff on cleaning procedures, equipment usage, and safety practices.\n\n• Maintain adequate stock of linen, cleaning supplies, and housekeeping equipment for the next shift.\n\n• Report maintenance concerns, hazards, or repair issues promptly.\n\n• Ensure compliance with sanitation, infection control, and workplace safety standards.\n\n• Complete shift reports, document handover notes, collect delivery notes, and if incident documentation.\n\n• Support emergency cleaning needs with other departments if needed in the public area\n\n• Foster teamwork, accountability, and quality service.\n The primary responsibility of this role is to maintain impeccably clean guest rooms and public areas, support smooth hotel operations during each shift, and contribute to an exceptional guest experience that ensures guest satisfaction.\n Important:\n\n• This position is for daily late shift\n\n• High level in German (B2)\n\n• Swiss B or C permit OR EU citizenship\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nMarriott Hotels strive to elevate the art of hospitality, innovating at every opportunity while keeping the comfort of the oh-so-familiar all around the globe. As a host with Marriott Hotels, you will help keep the promise of “Wonderful Hospitality. Always.” by delivering thoughtful, heartfelt, forward-thinking service that upholds and builds upon this living legacy. With the name that’s synonymous with hospitality the world over, we are proud to welcome you to explore a career with Marriott Hotels. In joining Marriott Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work, begin your purpose, belong to an amazing global team, and become the best version of you.\n JW Marriott is part of Marriott International's luxury portfolio and consists of more than 100 beautiful properties in gateway cities and distinctive resort locations around the world. JW believes our associates come first. Because if you’re happy, our guests will be happy. JW Marriott associates are confident, innovative, genuine, intuitive, and carry on the legacy of the brand’s namesake and company founder, J.Willard Marriott. Our hotels offer a work experience unlike any other, where you’ll be part of a community and enjoy true camaraderie with a diverse group of co-workers. JW creates opportunities for training, development, recognition and most importantly, a place where you can pursue your passions in a luxury environment with a focus on holistic well-being. Treating guests exceptionally starts with the way we take care of our associates. That’s The JW Treatment™. In joining JW Marriott, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
-      "descriptionByLocale": {
-        "it": "Principali mansioni e competenze\n\nIl supervisore della pulizia dell'hotel – Late Shift è responsabile della supervisione delle operazioni di pulizia serali per garantire la pulizia, la sicurezza e la prontezza di tutte le camere assegnate, la pulizia di tutte le richieste extra dell'area pubblica, l'organizzazione di tutti gli uffici e i magazzini designati per la pulizia.\n\nQuesto ruolo supervisiona il personale addetto alle pulizie durante le ore serali, ispeziona il lavoro completato, coordina le assegnazioni dei turni e risponde alle richieste urgenti di pulizia e consegna. Garantire una preparazione fluida, dettagliata e preparata per il passaggio alle operazioni di turno.\n\nResponsabilità principali\n\n- Supervisionare il personale addetto alle pulizie durante le operazioni di turno tardivo.\n- Assegna programmi di pulizia serali, priorità e aree di lavoro.\n- Ispeziona le camere degli ospiti, gli spazi pubblici, i servizi igienici, i corridoi e le aree assegnate per verificarne la pulizia e la presentazione.\n- Assicurarsi che tutte le attività di pulizia siano completate secondo gli standard e le tempistiche aziendali.\n- Rispondere a richieste urgenti di pulizia, sversamenti, problemi igienico-sanitari, esigenze di pulizia speciali e controlli in ufficio.\n- Monitorare le presenze, la produttività e le prestazioni del personale durante l'orario di lavoro.\n- Formare e istruire il personale sulle procedure di pulizia, l'uso delle attrezzature e le pratiche di sicurezza.\n- Mantenere uno stock adeguato di biancheria, prodotti per la pulizia e attrezzature per la pulizia per il turno successivo.\n- Segnalare tempestivamente problemi di manutenzione, pericoli o problemi di riparazione.\n- Garantire la conformità agli standard igienico-sanitari, di controllo delle infezioni e di sicurezza sul posto di lavoro.\n- Turno completo",
-        "en": "Main tasks and competencies:\nThe Hotel Cleanliness Supervisor – Late Shift is responsible for overseeing evening housekeeping operations to ensure cleanliness, safety, and readiness of all assigned rooms, cleanliness of all public area’s extra requests, organization of all housekeeping designated offices and storage rooms.\nThis role supervises housekeeping staff during evening hours, inspects completed work, coordinates shift assignments, and responds to urgent cleaning and delivery requests. Ensure a smooth, detailed and all preparations for handover to shift operations is prepared.\nKey Responsibilities\n\n• Supervise housekeeping staff during late shift operations.\n\n• Assign nightly cleaning schedules, priorities, and work areas.\n\n• Inspect guest rooms, public spaces, restrooms, hallways, and assigned areas for cleanliness and presentation.\n\n• Ensure all cleaning tasks are completed according to company standards and timelines.\n\n• Respond to urgent housekeeping requests, spills, sanitation issues, special cleaning needs and office checks.\n\n• Monitor attendance, productivity, and staff performance during shift hours.\n\n• Train and coach staff on cleaning procedures, equipment usage, and safety practices.\n\n• Maintain adequate stock of linen, cleaning supplies, and housekeeping equipment for the next shift.\n\n• Report maintenance concerns, hazards, or repair issues promptly.\n\n• Ensure compliance with sanitation, infection control, and workplace safety standards.\n\n• Complete shift reports, document handover notes, collect delivery notes, and if incident documentation.\n\n• Support emergency cleaning needs with other departments if needed in the public area\n\n• Foster teamwork, accountability, and quality service.\nThe primary responsibility of this role is to maintain impeccably clean guest rooms and public areas, support smooth hotel operations during each shift, and contribute to an exceptional guest experience that ensures guest satisfaction.\nImportant:\n\n• This position is for daily late shift\n\n• High level in German (B2)\n\n• Swiss B or C permit OR EU citizenship\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nMarriott Hotels strive to elevate the art of hospitality, innovating at every opportunity while keeping the comfort of the oh-so-familiar all around the globe. As a host with Marriott Hotels, you will help keep the promise of “Wonderful Hospitality. Always.” by delivering thoughtful, heartfelt, forward-thinking service that upholds and builds upon this living legacy. With the name that’s synonymous with hospitality the world over, we are proud to welcome you to explore a career with Marriott Hotels. In joining Marriott Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work, begin your purpose, belong to an amazing global team, and become the best version of you.\nJW Marriott is part of Marriott International's luxury portfolio and consists of more than 100 beautiful properties in gateway cities and distinctive resort locations around the world. JW believes our associates come first. Because if you’re happy, our guests will be happy. JW Marriott associates are confident, innovative, genuine, intuitive, and carry on the legacy of the brand’s namesake and company founder, J.Willard Marriott. Our hotels offer a work experience unlike any other, where you’ll be part of a community and enjoy true camaraderie with a diverse group of co-workers. JW creates opportunities for training, development, recognition and most importantly, a place where you can pursue your passions in a luxury environment with a focus on holistic well-being. Treating guests exceptionally starts with the way we take care of our associates. That’s The JW Treatment™. In joining JW Marriott, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
-        "de": "Hauptaufgaben und Kompetenzen\n\nDer Hotel-Resinace-Supervisor – Late Shift ist für die Überwachung der Abend-Hauswirtschaft Operationen, um Sauberkeit, Sicherheit und Bereitschaft aller zugewiesenen Zimmer, Sauberkeit der gesamten öffentlichen Bereich zusätzliche Anfragen, Organisation aller Zimmerreinigung bezeichnet Büros und Lagerräume zu gewährleisten.\n\nDiese Aufgabe überwacht das Personal der Hauswirtschaft während der Abendstunden, überprüft die abgeschlossene Arbeit, koordiniert die Schichteinsätze und reagiert auf dringende Reinigungs- und Lieferanfragen. Es wird eine reibungslose, detaillierte und alle Vorbereitungen für die Übergabe an den Schichtbetrieb vorbereitet.\n\nWichtige Aufgaben\n\n- Überwachung des Reinigungspersonals während des späten Schichtbetriebs. - Zuweisung von Reinigungszeiten, Prioritäten und Arbeitsbereichen für die Nacht. - Überprüfung von Gästezimmern, öffentlichen Räumen, Toiletten, Fluren und zugewiesenen Bereichen für Sauberkeit und Präsentation. - Gewährleistung aller Reinigungsaufgaben nach den Standards und Zeitplänen des Unternehmens abgeschlossen werden. - Reaktion auf dringende Hausreinigungsanfragen, Ausschläge, Sanitärprobleme, spezielle Reinigungsbedürfnisse und Bürokontrollen. - Überwachung der Anwesenheit, Produktivität und Leistung des Personals während der Schichtstunden.\n\n- Train and Coach Personal über Reinigungsverfahren, Gerätenutzung und Sicherheitspraktiken. - Pflege ausreichender Bestand an Wäsche, Reinigungsmaterial und Haushaltsgeräte für die nächste Schicht. - Bericht Wartungs-Bedenken, Gefahren oder Reparatur Probleme sofort. - Gewährleistung der Einhaltung von Sanitär-, Infektionsbekämpfung und Sicherheitsstandards am Arbeitsplatz. - Vollständige Schichtberichte, Dokument Übergabe Notizen, Lieferscheine sammeln und wenn Zwischenfälle Dokumentation. - Unterstützung Notfallreinigung Bedürfnisse mit anderen Abteilungen, wenn im öffentlichen Bereich erforderlich - Förderung Teamarbeit, Rechenschaftspflicht und Qualität Service.\n\nPrimäre Verantwortung\n\nDie Hauptverantwortung für diese Aufgabe liegt darin, unausweichlich saubere Gästezimmer und öffentliche Bereiche zu erhalten, den reibungslosen Betrieb des Hotels während jeder Schicht zu unterstützen und zu einem außergewöhnlichen Gasterlebnis beizutragen, das die Zufriedenheit der Gäste gewährleistet.\n\nAnforderungen\n\n- Diese Position gilt für die tägliche Spätschicht - Hohes Niveau in Deutsch (B2) - Schweizer B oder C erlauben ODER EU-Bürgerschaft\n\nÜber Marriott International\n\nBei Marriott International sind wir bestrebt, Arbeitgeber mit gleicher Chancenstellung zu sein, alle zu begrüßen und Zugang zu Möglichkeiten zu bieten. Wir fördern aktiv ein Umfeld, in dem die einzigartigen Hintergründe unserer Mitarbeiter geschätzt und gefeiert werden. Unsere größte Stärke liegt in der reichen Mischung aus Kultur, Talent und Erfahrungen unserer Mitarbeiter. Wir verpflichten uns, auf jeder geschützten Basis, einschließlich Behinderung, Veteranstatus oder anderen durch geltendes Recht geschützten Grundlagen, nicht zu diskriminieren.\n\nÜber Marriott Hotels\n\nMarriott Hotels bemühen sich, die Kunst der Gastfreundschaft zu erhöhen, und innovativ bei jeder Gelegenheit, während die Bequemlichkeit der oh-so-Familie rund um den Globus. Als Gastgeber mit Marriott Hotels, Sie werden das Versprechen der halten \"Wunderbare Gastfreundschaft. Immer.\" durch die Bereitstellung durchdachte, herzliche, zukunftsweisende Service, die auf diesem lebendigen Erbe aufrechterhält und baut. Mit dem Namen, der gleichbedeutend mit Gastfreundschaft der Welt ist, sind wir stolz, Sie zu begrüßen, um eine Karriere mit Marriott Hotels zu erkunden.\n\nSei, wo du dein Bestes tun kannst, beginne deinen Zweck, gehöre zu einem erstaunlichen globalen Team und werde die beste Version von dir.\n\nÜber JW Marriott\n\nJW Marriott ist Teil des Luxus-Portfolios von Marriott International und besteht aus mehr als 100 schönen Immobilien in Torstädten und unverwechselbaren Ferienorten auf der ganzen Welt. JW glaubt, dass unsere Mitarbeiter an erster Stelle kommen. Denn wenn Sie glücklich sind, werden unsere Gäste glücklich sein. JW Marriott Mitarbeiter sind zuversichtlich, innovativ, echt, intuitiv und tragen das Erbe des Markennamens und Firmengründers J.Willard Marriott. Unsere Hotels bieten ein Arbeitserlebnis, wie jedes andere, wo Sie Teil einer Gemeinschaft sein und genießen wahre Kameradschaft mit einer Vielzahl von Mitarbeitern.\n\nJW bietet Möglichkeiten für Training, Entwicklung, Anerkennung und vor allem, einen Ort, wo Sie Ihre Leidenschaften in einem luxuriösen Umfeld mit einem Fokus auf ganzheitliches Wohlbefinden verfolgen können. Gäste ausnahmsweise zu behandeln beginnt mit der Art und Weise, wie wir uns um unsere Mitarbeiter kümmern. Das ist The JW TreatmentTM. Mit JW Marriott gesellen Sie sich zu einem Portfolio von Marken mit Marriott International. Seien Sie, wo Sie Ihre beste Arbeit tun, Ihren Zweck beginnen, einem erstaunlichen globalen Team angehören und die beste Version von Ihnen werden.",
-        "fr": "Principales tâches et compétences\n\nLe surveillant de la propreté de l'hôtel – Late Shift est chargé de superviser les opérations de ménage du soir pour assurer la propreté, la sécurité et la préparation de toutes les chambres assignées, la propreté de toutes les demandes supplémentaires de la zone publique, l'organisation de tous les bureaux de ménage désignés et les salles de stockage.\n\nCe rôle supervise le personnel d'entretien pendant les heures du soir, inspecte le travail terminé, coordonne les affectations de postes et répond aux demandes urgentes de nettoyage et de livraison.\n\nPrincipales responsabilités\n\n- Superviser le personnel de ménage pendant les quarts de travail tardifs. - Affecter les horaires de nettoyage nocturne, les priorités et les zones de travail. - Inspecter les chambres, les espaces publics, les toilettes, les couloirs et les zones affectées pour la propreté et la présentation. - Veiller à ce que toutes les tâches de nettoyage soient effectuées conformément aux normes et aux délais de l'entreprise. - Resserrer les demandes urgentes de ménage, les déversements, les problèmes d'assainissement, les besoins spéciaux de nettoyage et les vérifications de bureau. - Surveiller la présence, la productivité et les performances du personnel pendant les quarts de travail.\n\n- Former et entraîner le personnel sur les procédures de nettoyage, l'utilisation de l'équipement et les pratiques de sécurité. - Maintenir un stock adéquat de linge, de fournitures de nettoyage et de matériel de ménage pour le prochain quart de travail. - Signaler rapidement les problèmes d'entretien, les dangers ou les réparations. - Veiller au respect des normes d'hygiène, de contrôle des infections et de sécurité au travail. - Remplir les rapports de travail, documenter les notes de remise, recueillir les notes de livraison et, le cas échéant, les documents d'incident. - Appuyer les besoins de nettoyage d'urgence auprès d'autres ministères si nécessaire dans la zone publique.\n\nResponsabilité principale\n\nLa responsabilité première de ce rôle est de maintenir des chambres et des espaces publics parfaitement propres, de soutenir des opérations hôtelières en douceur pendant chaque quart de travail et de contribuer à une expérience exceptionnelle des clients qui assure la satisfaction des clients.\n\nBesoins\n\n- Cette position est pour le travail journalier tardif - Niveau élevé en allemand (B2) - Permis B ou C suisse OU citoyenneté européenne\n\nÀ propos de Marriot International\n\nNous nous engageons à favoriser un environnement où les origines uniques de nos associés sont appréciées et célébrées. Notre plus grande force réside dans le riche mélange de culture, de talent et d'expérience de nos associés. Nous sommes engagés à la non-discrimination sur toute base protégée, y compris le handicap, le statut de vétéran, ou toute autre base protégée par la loi applicable.\n\nÀ propos des hôtels Marriott\n\nLes hôtels Marriot s'efforcent d'élever l'art de l'hospitalité, en innover à chaque occasion tout en gardant le confort de l'oh-so-familiar partout dans le monde. En tant qu'hôte avec les hôtels Marriot, vous aiderez à tenir la promesse de «Wonderful Hospitality. Always.\" en offrant un service réfléchi, sincère et avant-gardiste qui soutient et construit sur ce legs vivant. Avec le nom qui est synonyme d'hospitalité dans le monde entier, nous sommes fiers de vous accueillir pour explorer une carrière avec les hôtels Marriot. En vous joignant à Marriott Hotels, vous rejoignez un portefeuille de marques avec Marriott International.\n\nSoyez là où vous pouvez faire votre meilleur travail, commencer votre but, appartenir à une équipe mondiale étonnante, et devenir la meilleure version de vous.\n\nÀ propos de JW Marriott\n\nJW Marriott fait partie du portefeuille de luxe de Marriott International et se compose de plus de 100 belles propriétés dans des villes portes et des stations balnéaires distinctives dans le monde entier. JW croit que nos associés viennent en premier. Parce que si vous êtes heureux, nos clients seront heureux. JW Marriott associés sont confiants, innovants, authentiques, intuitifs, et de poursuivre l'héritage de la marque nominative et fondateur de l'entreprise, J.Willard Marriott. Nos hôtels offrent une expérience de travail différente de toute autre, où vous serez membre d'une communauté et profiterez d'une véritable amitié avec un groupe de collaborateurs diversifié.\n\nJW crée des opportunités de formation, de développement, de reconnaissance et surtout, un lieu où vous pourrez poursuivre vos passions dans un environnement de luxe en mettant l'accent sur le bien-être holistique. Le traitement des clients commence exceptionnellement par la façon dont nous prenons soin de nos associés. C'est le traitement JWTM. En rejoignant JW Marriott, vous rejoignez un portefeuille de marques avec Marriott International. Soyez là où vous pouvez faire votre meilleur travail, commencer votre objectif, appartenir à une équipe mondiale étonnante, et devenir la meilleure version de vous."
-      },
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://careers.marriott.com/hotel-cleanliness-supervisor/job/831E774E9FCD040C504144C0AD0684A8",
-      "source": "Marriott International Dedicated Parser (Paradox API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-26T10:12:41.410Z",
-      "addressLocality": "Zurich",
-      "streetAddress": "Neumuehlequai 42",
-      "postalCode": "8006",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "hospitality-housekeeping",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Hôtellerie / Hospitality",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-29",
-      "applyUrl": "https://ejwl.fa.us2.oraclecloud.com:443/hcmUI/CandidateExperience/en/sites/MI_CS_1/job/26094452/apply/email",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "_marriottMeta": {
-        "requisitionID": "26094452",
-        "uniqueID": "831E774E9FCD040C504144C0AD0684A8",
-        "brandName": "Marriott Hotels & Resorts",
-        "locationName": "Zurich Marriott Hotel",
-        "jobField": "Housekeeping",
-        "accountName": "Non-Management",
-        "publishEndDate": ""
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-29T22:38:15.936Z",
-      "salaryMin": 73000,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73000,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
