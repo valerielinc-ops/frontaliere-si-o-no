@@ -4645,6 +4645,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.grigioni-attesa-modello-birsfelden.title': 'Graubünden: Grand Council halted pending Birsfelden case',
     'blog.article.grigioni-attesa-modello-birsfelden.excerpt': 'Vote 67-41: the Grison Parliament follows the Government and postpones any decision on diverted traffic until the ruling on the BL model.',
     'blog.article.grigioni-attesa-modello-birsfelden.imageAlt': 'Alpine road in the Grisons with traffic jams and cars diverting into a mountain village',
+    'blog.article.acquisto-casa-svitto-mutuo-fondi-propri.title': 'Buying a house in Svitto: prices, mortgage and own funds',
+    'blog.article.acquisto-casa-svitto-mutuo-fondi-propri.excerpt': 'Complete guide to buying a house in Svitto: own funds required, mortgage loan, transfer taxes, notary fees and legal procedure.',
+    'blog.article.acquisto-casa-svitto-mutuo-fondi-propri.imageAlt': 'Traditional Swiss house surrounded by Alpine meadows, mountain range in background',
 };
 
 export default blogMetaChEn;

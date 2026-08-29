@@ -4645,6 +4645,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.grigioni-attesa-modello-birsfelden.title': 'Grigioni: Gran Consiglio fermo in attesa del caso Birsfelden',
     'blog.article.grigioni-attesa-modello-birsfelden.excerpt': 'Voto 67-41: il Parlamento grigionese segue il Governo e rinvia ogni decisione sul traffico deviato fino alla sentenza sul modello BL.',
     'blog.article.grigioni-attesa-modello-birsfelden.imageAlt': 'Strada alpine nei Grigioni con colonne di auto e deviazioni verso un villaggio di montagna',
+    'blog.article.acquisto-casa-svitto-mutuo-fondi-propri.title': 'Comprare casa in Svitto: prezzi, mutuo e fondi propri',
+    'blog.article.acquisto-casa-svitto-mutuo-fondi-propri.excerpt': 'Guida completa all\'acquisto di una casa in Svitto: fondi propri richiesti, mutuo ipotecario, imposte sui trapassi, spese notarili e procedura legale.',
+    'blog.article.acquisto-casa-svitto-mutuo-fondi-propri.imageAlt': 'Casa tradizionale svizzera circondata da prati alpini con catena montuosa sullo sfondo',
 };
 
 export default blogMetaChIt;
