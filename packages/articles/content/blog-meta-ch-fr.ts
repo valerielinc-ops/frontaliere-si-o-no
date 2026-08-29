@@ -4615,6 +4615,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.grigioni-diritto-pagamento-contanti.title': 'Grisons : le paiement en espèces des services est garanti',
     'blog.article.grigioni-diritto-pagamento-contanti.excerpt': 'Le Grand Conseil approuve le contre-projet Bettinaglio : les taxes et les transports dans les Grisons pourront être payés en espèces, malgré la numérisation.',
     'blog.article.grigioni-diritto-pagamento-contanti.imageAlt': 'Le Grand Conseil des Grisons lors d\'une session législative à Coire.',
+    'blog.article.ubs-panda-bond-cina-mercato.title': 'UBS émet le premier Panda bond de 2 milliards de yuans',
+    'blog.article.ubs-panda-bond-cina-mercato.excerpt': 'UBS débarque sur le marché obligataire chinois en collectant 2 milliards de yuans avec un Panda bond quinquennal à taux fixe à 1,78 %.',
+    'blog.article.ubs-panda-bond-cina-mercato.imageAlt': 'Bâtiments d\'affaires représentant le secteur bancaire et financier suisse',
 };
 
 export default blogMetaChFr;
