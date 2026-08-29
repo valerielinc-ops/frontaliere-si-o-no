@@ -4621,6 +4621,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.grigioni-traffico-sviamento-attesa.title': 'Graubünden: no new fines for detour traffic',
     'blog.article.grigioni-traffico-sviamento-attesa.excerpt': 'The Grand Council of Grisons rejects the UDC motion by 67 votes to 41: no anti-divert project until a ruling on the Birsfelden model.',
     'blog.article.grigioni-traffico-sviamento-attesa.imageAlt': 'Mountain road in Graubünden with a weekend traffic jam',
+    'blog.article.scuola-ticino-vpod-condizioni-docenti.title': 'School in Ticino: VPOD asks for staff, time and resources',
+    'blog.article.scuola-ticino-vpod-condizioni-docenti.excerpt': 'At the opening of the schools, the VPOD Ticino teachers\' committee led by Matteo Finali relaunches the request to invest in the working conditions of school staff.',
+    'blog.article.scuola-ticino-vpod-condizioni-docenti.imageAlt': 'Ticino school classroom ready for the new school year',
 };
 
 export default blogMetaChEn;

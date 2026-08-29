@@ -1566,6 +1566,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'grigioni-diritto-pagamento-contanti': { it: 'grigioni-diritto-pagamento-contanti', en: 'graubunden-right-to-pay-cash', de: 'graubunden-recht-auf-bargeldzahlung', fr: 'grisons-droit-paiement-en-especes' },
  'ubs-panda-bond-cina-mercato': { it: 'ubs-panda-bond-cina-mercato', en: 'ubs-panda-bond-china-market', de: 'ubs-panda-bond-china-markt', fr: 'ubs-panda-bond-chine-marche' },
  'grigioni-traffico-sviamento-attesa': { it: 'grigioni-traffico-sviamento-attesa', en: 'graubunden-detour-traffic-wait', de: 'graubuenden-umleitungsverkehr-warten', fr: 'grisons-trafic-detour-attente' },
+ 'scuola-ticino-vpod-condizioni-docenti': { it: 'scuola-ticino-vpod-condizioni-docenti', en: 'ticino-school-vpod-teachers-conditions', de: 'tessin-schule-vpod-lehrpersonen-bedingungen', fr: 'tessin-ecole-vpod-conditions-enseignants' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

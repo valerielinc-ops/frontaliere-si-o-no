@@ -4621,6 +4621,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.grigioni-traffico-sviamento-attesa.title': 'Grigioni: niente nuove multe al traffico di deviazione',
     'blog.article.grigioni-traffico-sviamento-attesa.excerpt': 'Il Gran Consiglio grigionese boccia la mozione UDC con 67 voti contro 41: niente progetto anti-sviamento fino a sentenza sul modello Birsfelden.',
     'blog.article.grigioni-traffico-sviamento-attesa.imageAlt': 'Strada di montagna nei Grigioni con coda di auto durante il fine settimana',
+    'blog.article.scuola-ticino-vpod-condizioni-docenti.title': 'Scuola in Ticino: VPOD chiede organici, tempo e risorse',
+    'blog.article.scuola-ticino-vpod-condizioni-docenti.excerpt': 'All\'apertura delle scuole, il comitato docenti VPOD Ticino guidato da Matteo Finali rilancia la richiesta di investire nelle condizioni di lavoro del personale scolastico.',
+    'blog.article.scuola-ticino-vpod-condizioni-docenti.imageAlt': 'Aula scolastica in Ticino pronta per l\'inizio dell\'anno scolastico',
 };
 
 export default blogMetaChIt;
