@@ -10918,6 +10918,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-verbania-lavorare-ticino-frontaliere.title': 'Living in Verbania and working in Ticino as a border worker',
     'blog.article.vivere-verbania-lavorare-ticino-frontaliere.excerpt': 'What to know before moving to Verbania and commuting to Canton Ticino: connections, taxation, G Permit and transitional regime.',
     'blog.article.vivere-verbania-lavorare-ticino-frontaliere.imageAlt': 'Lake Maggiore view from Verbania toward Switzerland, cars queuing at border',
+    'blog.article.vivere-carate-urio-lavorare-ticino-frontaliere.title': 'Living in Carate Urio and working in Ticino as a border worker',
+    'blog.article.vivere-carate-urio-lavorare-ticino-frontaliere.excerpt': 'Carate Urio on Lake Como, commuting to the Canton of Ticino: taxation, border agreements, contributions and connections.',
+    'blog.article.vivere-carate-urio-lavorare-ticino-frontaliere.imageAlt': 'View of Lake Como near Carate Urio, with the Swiss border area in the background.',
 };
 
 export default blogMetaEn;

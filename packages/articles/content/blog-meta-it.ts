@@ -10919,6 +10919,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-verbania-lavorare-ticino-frontaliere.title': 'Vivere a Verbania e lavorare in Ticino da frontaliere',
     'blog.article.vivere-verbania-lavorare-ticino-frontaliere.excerpt': 'Cosa sapere prima di trasferirsi a Verbania e fare il pendolare in Canton Ticino: collegamenti, fiscalità, Permesso G e regime transitorio.',
     'blog.article.vivere-verbania-lavorare-ticino-frontaliere.imageAlt': 'Vista del Lago Maggiore da Verbania verso la Svizzera, con auto in coda al valico',
+    'blog.article.vivere-carate-urio-lavorare-ticino-frontaliere.title': 'Vivere a Carate Urio e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-carate-urio-lavorare-ticino-frontaliere.excerpt': 'Carate Urio sul lago di Como, pendolarismo verso il Canton Ticino: fiscalità, accordo frontalieri, contributi e collegamenti.',
+    'blog.article.vivere-carate-urio-lavorare-ticino-frontaliere.imageAlt': 'Scorcio del lago di Como vicino a Carate Urio, sullo sfondo l\'inizio della Svizzera.',
 };
 
 export default blogMetaIt;

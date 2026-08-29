@@ -10917,6 +10917,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-verbania-lavorare-ticino-frontaliere.title': 'Leben in Verbania und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-verbania-lavorare-ticino-frontaliere.excerpt': 'Was Sie wissen sollten, bevor Sie nach Verbania ziehen und im Kanton Tessin pendeln: Verbindungen, Steuern, G-Genehmigung und Übergangsregelung.',
     'blog.article.vivere-verbania-lavorare-ticino-frontaliere.imageAlt': 'Blick vom Lago Maggiore aus Verbania Richtung Schweiz, Autos am Grenzübergang',
+    'blog.article.vivere-carate-urio-lavorare-ticino-frontaliere.title': 'Leben in Carate Urio und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-carate-urio-lavorare-ticino-frontaliere.excerpt': 'Carate Urio am Comer See, Pendeln in Richtung Kanton Tessin: Steuern, Grenzabkommen, Beiträge und Verbindungen.',
+    'blog.article.vivere-carate-urio-lavorare-ticino-frontaliere.imageAlt': 'Blick auf den Comer See bei Carate Urio, im Hintergrund der Beginn der Schweiz.',
 };
 
 export default blogMetaDe;
