@@ -4606,6 +4606,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.opportunita-lavoro-amministrazione-ticino.title': '580 fewer places in the administration: a risk to residents\' jobs?',
     'blog.article.opportunita-lavoro-amministrazione-ticino.excerpt': 'A cantonal initiative proposes to reduce the workforce of the Ticino Administration by 580 units. The question goes beyond mere savings: what implications for the local labour market?',
     'blog.article.opportunita-lavoro-amministrazione-ticino.imageAlt': 'Castelgrande in Bellinzona, symbol of the Ticino cantonal administration',
+    'blog.article.incentivi-risanamento-energetico-immobili-svizzera.title': 'Energy rehabilitation, new financing model',
+    'blog.article.incentivi-risanamento-energetico-immobili-svizzera.excerpt': 'The Confederation and the Cantons are launching a new joint model to boost the energy efficiency of Swiss buildings. Consultation in the autumn.',
+    'blog.article.incentivi-risanamento-energetico-immobili-svizzera.imageAlt': 'Modern Swiss energy-efficient building with solar panels.',
 };
 
 export default blogMetaChEn;

@@ -4606,6 +4606,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.opportunita-lavoro-amministrazione-ticino.title': '580 Stellen weniger in der Verwaltung - eine Gefahr für die Arbeit der Anwohner?',
     'blog.article.opportunita-lavoro-amministrazione-ticino.excerpt': 'Eine kantonale Initiative schlägt vor, den Personalbestand der Tessiner Verwaltung um 580 zu reduzieren. Die Frage geht über das reine Sparen hinaus: Welche Auswirkungen hat das auf den lokalen Arbeitsmarkt?',
     'blog.article.opportunita-lavoro-amministrazione-ticino.imageAlt': 'Castelgrande in Bellinzona, Symbol der kantonalen Verwaltung des Tessins',
+    'blog.article.incentivi-risanamento-energetico-immobili-svizzera.title': 'Energetische Sanierung, neues Finanzierungsmodell',
+    'blog.article.incentivi-risanamento-energetico-immobili-svizzera.excerpt': 'Bund und Kantone lancieren ein neues gemeinsames Modell zur Förderung der energetischen Gebäudesanierung in der Schweiz. Konsultation im Herbst.',
+    'blog.article.incentivi-risanamento-energetico-immobili-svizzera.imageAlt': 'Modernes Schweizer energieeffizientes Gebäude mit Solarpaneelen.',
 };
 
 export default blogMetaChDe;

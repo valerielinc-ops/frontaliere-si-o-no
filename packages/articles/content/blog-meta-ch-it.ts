@@ -4606,6 +4606,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.opportunita-lavoro-amministrazione-ticino.title': '580 posti in meno nell\'amministrazione: un rischio per il lavoro dei residenti?',
     'blog.article.opportunita-lavoro-amministrazione-ticino.excerpt': 'Un\'iniziativa cantonale propone di ridurre l\'organico dell\'Amministrazione ticinese di 580 unità. La questione va oltre il mero risparmio: quali implicazioni per il mercato del lavoro locale?',
     'blog.article.opportunita-lavoro-amministrazione-ticino.imageAlt': 'Castelgrande a Bellinzona, simbolo dell\'amministrazione cantonale ticinese',
+    'blog.article.incentivi-risanamento-energetico-immobili-svizzera.title': 'Risanamento energetico, nuovo modello di finanziamento',
+    'blog.article.incentivi-risanamento-energetico-immobili-svizzera.excerpt': 'Confederazione e Cantoni lanciano un nuovo modello congiunto per incentivare il risanamento energetico degli edifici svizzeri. Consultazione in autunno.',
+    'blog.article.incentivi-risanamento-energetico-immobili-svizzera.imageAlt': 'Edificio svizzero moderno efficiente dal punto di vista energetico con pannelli solari.',
 };
 
 export default blogMetaChIt;
