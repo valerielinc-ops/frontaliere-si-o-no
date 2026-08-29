@@ -4636,6 +4636,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.startup-uri-registro-commercio.title': 'Opening a business in Canton Uri: registration and costs',
     'blog.article.startup-uri-registro-commercio.excerpt': 'Practical guide to starting a business in Canton Uri: from the choice of legal form to registration in the trade and insurance obligations register.',
     'blog.article.startup-uri-registro-commercio.imageAlt': 'Professional Swiss office with documents for starting a business',
+    'blog.article.imposta-successione-donazione-uri-guida.title': 'Inheritance and gift tax in Canton Uri: guide',
+    'blog.article.imposta-successione-donazione-uri-guida.excerpt': 'How inheritance and gift taxation works in Canton Uri: rates by degree of kinship, municipal multiplier and declaratory obligations.',
+    'blog.article.imposta-successione-donazione-uri-guida.imageAlt': 'Notary documents on a wooden desk in Canton Uri with Alpine village view',
 };
 
 export default blogMetaChEn;

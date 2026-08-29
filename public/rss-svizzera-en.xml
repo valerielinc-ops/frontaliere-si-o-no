@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Sat, 29 Aug 2026 19:03:45 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 29 Aug 2026 19:27:10 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -16,6 +16,59 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Inheritance and gift tax in Canton Uri: guide</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/inheritance-gift-tax-uri-guide/</link>
+      <description><![CDATA[How inheritance and gift taxation works in Canton Uri: rates by degree of kinship, municipal multiplier and declaratory obligations.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- Inheritance and gift tax: cantonal and municipal level in Switzerland
+- Uri applies its own rates by degree of kinship, defined by cantonal law
+- The municipal multiplier affects the final amount due to the tax
+- Declaration and deadlines are set by the cantonal tax administration
+
+## Key facts
+- **What**: Taxation of successions and donations in Canton Uri
+- When: current regulations, to be verified year by year
+- Where: Canton Uri, with payment to the Municipalities by means of a multiplier
+- Who: cantonal administration Uri (cantonal and municipal taxes)
+- Amount: rates by degree of kinship not specified in the source
+- How: declaration within the deadlines set by the cantonal tax office
+- Base: cantonal law uri on inheritance and gift taxes
+- Level: IFD not applicable (federal tax does not affect successions)
+
+The inheritance and gift tax in Switzerland is not part of the direct federal tax: it is a tax of exclusive cantonal and municipal competence. Each Canton independently regulates rates, deductibles, exemptions and declaratory obligations in its own law, and the Municipalities add a multiplier that can vary significantly from one municipality to another. The Uri Canton is one of those that tax both transfers mortis causa and donations between the living, applying separate rates according to the degree of kinship between settlor and beneficiary.
+
+### Legal framework and
+### Degrees of kinship and logic of rates
+The logic followed by the Uranian cantonal legislator mirrors that of many other Swiss cantons: the tax burden grows as the family bond weakens. Specifically, the categories of beneficiaries are divided into groups (spouse and registered partner, direct descendants, parents and brothers/sisters, other relatives, people without kinship ties). Each band has its own percentage rate, which can be expressed as progressive steps depending on the amount transferred. For the Uri Canton, the source does not report the specific percentages of each tier: it merely confirms the existence of a system by degree of kinship, modulated by the cantonal law.
+
+### Municipal multiplier and impact on final load
+Unlike the DFI, where the federal multiplier is unique, the Uranian cantonal tax is multiplied by the municipal coefficient. This means that with the same amount transferred and degree of kinship, two heirs residing in different municipalities of the Canton of Uri can pay different amounts. It is an element to keep in mind when comparing apparently similar regimes between Cantons: the municipal component can have a non-negligible impact on the final balance.
+
+### Donations: assets advance and declaratory obligation
+Interliving donations follow their own regime. Cantonal Uranian law requires the grantee (or donor) to submit a declaration within
+
+## Useful tools for your case
+To verify your within/over 20 km tax scenario, use the [net salary calculator](nav:calculator) and the [tax return guide](nav:tax-return).
+### Practical procedure for the filing
+In general, the procedure for the Canton of Uri requires that the heirs or beneficiaries of a donation submit the tax return within the deadlines set by cantonal law. The return must be filed with the competent tax administration, accompanied by identification documents of the deceased or donor, the beneficiaries, and the assets involved (real estate, bank accounts, corporate shareholdings, valuables). The office then settles the tax by applying the rates provided for the degree of relationship and the municipal multiplier of the beneficiary.
+
+### Typically required documents
+Although the source does not list them in detail, the documents normally required by the tax administration in this type of procedure include: death certificate or deed of donation, identification of heirs/recipients with degree of relationship, inventory of the deceased's or donor's assets, any real estate valuations, bank statements, and attestations of corporate shareholdings. Complete documentation reduces settlement times and the risk of disputes.
+
+### Deadlines and time limits
+The cantonal law of Uri sets specific deadlines for filing the return: failure to comply results in the application of default interest or fines. To avoid penalties, it is advisable to inquire with the cantonal tax office of Uri regarding the applicable deadlines in the specific case (inheritance or donation). In some Cantons, the terms run from the date of death, in others from the opening of the succession or from the notice of acceptance of the inheritance.
+
+### Site tools
+For those wishing to delve deeper into the calculation of the tax due, the Frontaliere Ticino tax calculator is available, which allows you to estimate the burden based on the Canton and the degree of relationship. For those instead considering the overall weight of the cost of living in Switzerland, including the tax pressure on wealth transfers, it is useful to consult the page on [cost of living](nav:cost-of-living). Finally, to navigate job opportunities and contractual aspects that impact the net income subject to inheritance taxation, you can consult the [job listings](nav:jobs) section.
+
+### Final verification and consultation
+To avoid errors in the return, it is advisable to verify the rates and multipliers in effect at the time of the transfer: the data changes on a regular basis. The cantonal administration of Uri provides updated information and forms. For complex situations (articulated assets, real estate in multiple Cantons, international donations), consulting a tax advisor registered with the professional register is the prudent choice.]]></content:encoded>
+      <pubDate>Sat, 29 Aug 2026 19:27:10 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/imposta-successione-donazione-uri-guida</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/imposta-successione-donazione-uri-guida.webp" medium="image"/>
+    </item>
     <item>
       <title>Opening a business in Canton Uri: registration and costs</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/startup-uri-commercial-register/</link>
@@ -2772,70 +2825,6 @@ If you are an employee in Switzerland or self-employed worker, public budget dat
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/bilancio-eccedenza-debito-2025</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/bilancio-eccedenza-debito-2025.webp" medium="image"/>
-    </item>
-    <item>
-      <title>US duty reimbursement: administrative fear</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/usa-tariffs-refund-bureaucracy-fear/</link>
-      <description><![CDATA[Only a third of Swiss companies ask for reimbursement of improperly collected US duties. The others give up for fear of excessive administrative burdens.]]></description>
-      <content:encoded><![CDATA[## In brief
-- Only 1/3 of Swiss companies request reimbursement of improperly collected US tariffs
-- They fear administrative costs exceeding financial gains
-- Online form available, but Swissmem should promote it better
-- Expected decline in overseas business activity for most companies
-
-## Key facts
-- **What**: Reimbursement of US tariffs on machinery, electronics, metals sector
-- Who: Swissmem (Swiss industry association), Martin Hirzel (president)
-- Percentage of applicants: Only 1/3 of companies have requested reimbursement
-- Main obstacle: Fear of administrative costs vs. modest financial gain
-- Procedure: Online form available but 'rather complicated'
-- Communication: Swissmem does not adequately promote the procedure
-- Outlook: Majority of companies expect declining activity in the United States
-
-Only one-third of Swiss companies active in the machinery, electronics, and metals sector have requested reimbursement from the United States for improperly collected tariffs. This was revealed by Martin Hirzel, president of the industry association Swissmem, in an interview with financial agency AWP. This data illuminates a significant discrepancy: two out of three companies formally forgo recovering amounts owed, despite the right being established and the procedure being technically accessible.
-
-The reasons for this massive abstention are primarily administrative. Companies fear excessive bureaucratic costs in the face of modest financial gain. This creates a scenario in which the perceived cost of the request exceeds the expected benefit, discouraging action.
-
-### The procedural transparency issue
-
-Hirzel openly acknowledges that companies must fill out a 'rather complicated' form, although the procedure can be completed online. The paradox is evident: the digital channel exists, but the perception of complexity hinders participation. More significantly, the president does not exclude the association's own responsibility: 'Perhaps Swissmem should also promote this procedure more clearly', he stated.
-
-This admission reveals a communication gap. If Swissmem could offer transparent guidance, support in document collection, and specific training on form completion, the participation rate would presumably increase. The gap between formal right and actual exercise is thus bridgeable, but requires active advocacy from the industry association.
-
-In the broader context, companies have 'learned to coexist with customs tariffs', according to Hirzel. However, the distance from normalizing the commercial situation with the United States remains real. Tariff volatility and continual regulatory adjustments keep companies in a state of permanent adaptation. Those wishing to delve deeper into the tax implications of international business operations can consult [resources on tax returns and compliance](nav:tax-return).
-The administrative burden resulting from tariffs and constantly changing regulations exerts direct pressure on the profitability and operational capacity of companies. Companies do not only face the immediate economic problem of tariffs, but also the hidden costs associated with compliance, management of international documentation, and continuous updating of internal processes.
-
-A concrete consequence is the uncertainty transmitted to international customers. American buyers of Swiss products in the machinery, electronic components, and metal goods sectors operate in a precarious situation. Profit margins remain uncertain, delivery times undergo variations due to administrative obstacles, final prices remain exposed to tariff volatility. This creates a spiral of risks that discourages volume orders and long-term contracts.
-
-### Predictions of Contraction and Communication Failure
-
-The majority of interviewed Swissmem companies predict a decline in overseas activity. This is not a marginal forecast: the American market remains strategic for the Swiss precision industry. A widespread contraction in exports to the USA would entail cascading repercussions on employment, research and development investments, and overall sector competitiveness.
-
-The problem of inadequate communication emerges clearly from Hirzel's statement. If the reimbursement procedure remains poorly known and underutilized, the economic loss for companies accumulates over time, year after year. This is not a single recovery, but a series of missed reimbursements that progressively erode operating margins and investment capacity.
-
-Constantly changing regulations further amplify the damage. Every change in customs rules or tariff rates entails the need for internal updates, staff training, and process revision. For small and medium-sized companies, these administrative costs can be significant and difficult to absorb, especially if they simultaneously lose market share due to tariff instability. Companies thus find themselves trapped in a cycle of increasing administrative costs facing increasingly uncertain revenues.
-
-For those operating in the international commercial field and needing to understand currency dynamics in real time, [the CHF/EUR exchange rate comparator provides current data](nav:exchange).
-
-## Useful tools to protect your net income
-To reduce FX leakage, compare [CHF-EUR exchange options](nav:exchange) and [banks for cross-border workers](nav:banks).
-Companies interested in recovering duties improperly collected have access to a formal procedure with the American customs authorities. Although the form is complex, online filing remains the only effective way to recover the amounts owed and should not discourage initiative. The first operational step is to contact the American customs authorities (U.S. Customs and Border Protection) directly, or to contact Swissmem to obtain initial informational support on the procedure and required documentation.
-
-The procedure requires: precise identification of duties paid in excess; collection of commercial documentation (invoices, licenses, certificates of origin, original customs declarations); accurate completion of the specific form according to American criteria. Although the process can be completed online, it is essential to devote sufficient time to collecting documentation and verifying data accuracy. Procedural errors result in rejection of the request and loss of the right to reimbursement.
-
-### How to proceed effectively
-
-Swissmem could develop a crucial role in providing technical assistance to members: step-by-step guides, training webinars on completion, referrals to customs tariff experts, standardized document templates. Currently, President Hirzel has explicitly acknowledged that this support function is insufficient. Companies proceeding independently must nevertheless evaluate the cost-benefit: if the expected reimbursement is less than CHF 5,000–10,000 (not specified in the source, but realistic for average amounts), spending on external consulting could erode the entire net gain.
-
-A strategic element is timing. Duty recovery is not immediate and requires administrative patience and following specific procedures. Interested companies must proceed without delay, as there are presumably time limits for claims under American regulations (although not explicitly stated in Hirzel's communication).
-
-Furthermore, exporting companies should comprehensively evaluate their commercial strategy towards the USA in a strategic perspective. If customs regulations remain unstable and administrative costs high, geographic diversification of markets, reconsideration of price margins, or negotiation of contracts with tariff adjustment clauses could prove strategic. For those managing small and medium-sized enterprises and wishing to evaluate the economic impact of commercial decisions on the Swiss corporate structure and financial planning, [the salary and tax calculator offers a basis for modeling scenarios](nav:calculator).
-
-*Source: [cdt.ch](https://www.cdt.ch/news/le-aziende-svizzere-non-chiedono-il-rimborso-dei-dazi-statunitensi-437427)*]]></content:encoded>
-      <pubDate>Thu, 27 Aug 2026 10:24:34 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/rimborso-dazi-paura-amministrativa</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/rimborso-dazi-paura-amministrativa.webp" medium="image"/>
     </item>
   </channel>
 </rss>

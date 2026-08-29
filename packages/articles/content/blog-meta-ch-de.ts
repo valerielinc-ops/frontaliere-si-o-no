@@ -4636,6 +4636,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.startup-uri-registro-commercio.title': 'Geschäft im Kanton Uri eröffnen: Register und Kosten',
     'blog.article.startup-uri-registro-commercio.excerpt': 'Praktischer Leitfaden zur Unternehmensgründung im Kanton Uri: von der Wahl der Rechtsform über die Handelsregistereintragung bis hin zu Versicherungspflichten.',
     'blog.article.startup-uri-registro-commercio.imageAlt': 'Professionelles Schweizer Büro mit Dokumenten zur Geschäftsgründung',
+    'blog.article.imposta-successione-donazione-uri-guida.title': 'Erbschafts- und Schenkungssteuer im Kanton Uri: Leitfaden',
+    'blog.article.imposta-successione-donazione-uri-guida.excerpt': 'Wie funktioniert die Erbschafts- und Schenkungsbesteuerung im Kanton Uri: Sätze pro Verwandtschaftsgrad, kommunaler Multiplikator und Meldepflichten.',
+    'blog.article.imposta-successione-donazione-uri-guida.imageAlt': 'Notarielle Dokumente auf einem Schreibtisch im Kanton Uri mit Bergblick',
 };
 
 export default blogMetaChDe;
