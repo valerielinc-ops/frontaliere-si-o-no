@@ -4612,6 +4612,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.grigioni-contanti-servizi-pubblici.title': 'Espèces dans les Grisons : ok pour le contre-projet',
     'blog.article.grigioni-contanti-servizi-pubblici.excerpt': 'Le Parlement grison approuve un contre-projet qui garantit le paiement en espèces des taxes et des services publics, anticipant une initiative populaire.',
     'blog.article.grigioni-contanti-servizi-pubblici.imageAlt': 'Le parlement grison discute du maintien des paiements en espèces pour les services publics à Coire.',
+    'blog.article.grigioni-diritto-pagamento-contanti.title': 'Grisons : le paiement en espèces des services est garanti',
+    'blog.article.grigioni-diritto-pagamento-contanti.excerpt': 'Le Grand Conseil approuve le contre-projet Bettinaglio : les taxes et les transports dans les Grisons pourront être payés en espèces, malgré la numérisation.',
+    'blog.article.grigioni-diritto-pagamento-contanti.imageAlt': 'Le Grand Conseil des Grisons lors d\'une session législative à Coire.',
 };
 
 export default blogMetaChFr;

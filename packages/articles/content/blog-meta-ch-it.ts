@@ -4612,6 +4612,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.grigioni-contanti-servizi-pubblici.title': 'Contanti nei Grigioni: ok al controprogetto',
     'blog.article.grigioni-contanti-servizi-pubblici.excerpt': 'Il Parlamento grigionese approva un controprogetto che garantisce il pagamento in contanti per tasse e servizi pubblici, anticipando un\'iniziativa popolare.',
     'blog.article.grigioni-contanti-servizi-pubblici.imageAlt': 'Parlamento grigionese discute il mantenimento del contante per i servizi pubblici a Coira.',
+    'blog.article.grigioni-diritto-pagamento-contanti.title': 'Grigioni: garantito il pagamento in contanti dei servizi',
+    'blog.article.grigioni-diritto-pagamento-contanti.excerpt': 'Il Gran Consiglio approva il controprogetto Bettinaglio: tasse e trasporti nei Grigioni si potranno pagare in contanti, nonostante la digitalizzazione.',
+    'blog.article.grigioni-diritto-pagamento-contanti.imageAlt': 'Il Gran Consiglio dei Grigioni durante una sessione legislativa a Coira.',
 };
 
 export default blogMetaChIt;

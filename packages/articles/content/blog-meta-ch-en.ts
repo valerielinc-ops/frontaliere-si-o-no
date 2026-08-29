@@ -4612,6 +4612,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.grigioni-contanti-servizi-pubblici.title': 'Cash in Graubünden: OK to the counterproject',
     'blog.article.grigioni-contanti-servizi-pubblici.excerpt': 'The Grison Parliament approves a counter-project that guarantees payment in cash for taxes and public services, anticipating a popular initiative.',
     'blog.article.grigioni-contanti-servizi-pubblici.imageAlt': 'Graubünden parliament discusses maintaining cash payments for public services in Chur.',
+    'blog.article.grigioni-diritto-pagamento-contanti.title': 'Graubünden: guaranteed cash payment for services',
+    'blog.article.grigioni-diritto-pagamento-contanti.excerpt': 'The Grand Council approves the Bettinaglio counter-project: taxes and transport in Graubünden can be paid in cash, despite digitalisation.',
+    'blog.article.grigioni-diritto-pagamento-contanti.imageAlt': 'The Grand Council of Graubünden during a legislative session in Chur.',
 };
 
 export default blogMetaChEn;

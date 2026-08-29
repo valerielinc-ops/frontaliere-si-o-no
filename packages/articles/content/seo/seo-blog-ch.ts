@@ -59846,6 +59846,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-grigioni-diritto-pagamento-contanti': {
+    title: 'Grigioni: garantito il pagamento in contanti dei servizi',
+    description: 'Il Gran Consiglio dei Grigioni approva l\'uso del contante per imposte e servizi pubblici. Scopri le nuove regole e le eccezioni previste dalla normativa.',
+    keywords: 'frontalieri, ticino, svizzera, italia, grigioni, garantito, pagamento, contanti',
+    ogTitle: 'Grigioni: il contante resta un diritto per i servizi pubblici',
+    ogDescription: 'Decisione a Coira: il Gran Consiglio tutela l\'uso del denaro fisico per imposte, parcheggi e trasporti. Approvato il controprogetto Bettinaglio con 83 voti favorevoli dopo la raccolta di 16.000 firme.',
+    canonicalPath: '/articoli-svizzera/grigioni-diritto-pagamento-contanti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grigioni: garantito il pagamento in contanti dei servizi",
+      "description": "Il Gran Consiglio dei Grigioni approva l'uso del contante per imposte e servizi pubblici. Scopri le nuove regole e le eccezioni previste dalla normativa.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/grigioni-diritto-pagamento-contanti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Gran Consiglio dei Grigioni durante una sessione legislativa a Coira."
+      },
+      "datePublished": "2026-08-29T02:53:47+00:00",
+      "dateModified": "2026-08-29T02:53:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/grigioni-diritto-pagamento-contanti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

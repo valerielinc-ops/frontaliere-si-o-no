@@ -4612,6 +4612,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.grigioni-contanti-servizi-pubblici.title': 'Bargeld in Graubünden: OK zum Gegenentwurf',
     'blog.article.grigioni-contanti-servizi-pubblici.excerpt': 'Das Bündner Parlament verabschiedet einen Gegenvorschlag, der die Barauszahlung von Steuern und öffentlichen Dienstleistungen garantiert und eine Volksinitiative vorwegnimmt.',
     'blog.article.grigioni-contanti-servizi-pubblici.imageAlt': 'Bündner Kantonsparlament diskutiert die Beibehaltung von Bargeldzahlungen für öffentliche Dienstleistungen in Chur.',
+    'blog.article.grigioni-diritto-pagamento-contanti.title': 'Graubünden: Barzahlung der Dienstleistungen garantiert',
+    'blog.article.grigioni-diritto-pagamento-contanti.excerpt': 'Der Grosse Rat stimmt dem Gegenvorschlag Bettinaglio zu: Steuern und Transporte in Graubünden können trotz Digitalisierung bar bezahlt werden.',
+    'blog.article.grigioni-diritto-pagamento-contanti.imageAlt': 'Der Grosse Rat von Graubünden während einer Legislatursitzung in Chur.',
 };
 
 export default blogMetaChDe;
