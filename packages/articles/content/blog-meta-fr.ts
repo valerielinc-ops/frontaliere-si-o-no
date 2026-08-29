@@ -10917,6 +10917,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-29.imageAlt': 'Les chiffres du jour pour les frontaliers – 29 août 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-08-29.seoDescription': 'Bulletin du frontalier du 29 août 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-08-29.ogDescription': 'Les chiffres du 29 août 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.vivere-verbania-lavorare-ticino-frontaliere.title': 'Vivre à Verbania et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-verbania-lavorare-ticino-frontaliere.excerpt': 'Que savoir avant de déménager à Verbania et de se déplacer dans le canton du Tessin : liaisons, fiscalité, permis G et régime transitoire.',
+    'blog.article.vivere-verbania-lavorare-ticino-frontaliere.imageAlt': 'Vue du Lac Majeur depuis Verbania vers la Suisse, voitures au poste-frontière',
 };
 
 export default blogMetaFr;
