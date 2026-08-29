@@ -4603,6 +4603,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.fed-warsh-tassi-interesse.title': 'FED : l\'annonce de Kevin Warsh sur les taux d\'intérêt',
     'blog.article.fed-warsh-tassi-interesse.excerpt': 'Kevin Warsh intervient à Jackson Hole et ouvre à une possible hausse des taux d\'intérêt en raison de l\'inflation à 3,7% en juillet.',
     'blog.article.fed-warsh-tassi-interesse.imageAlt': 'Marchés financiers et taux d\'intérêt à Jackson Hole',
+    'blog.article.opportunita-lavoro-amministrazione-ticino.title': '580 postes en moins : un risque pour les résidents ?',
+    'blog.article.opportunita-lavoro-amministrazione-ticino.excerpt': 'Une initiative cantonale propose de réduire les effectifs de l\'Administration tessinoise de 580 unités. La question va au-delà de la simple épargne : quelles implications pour le marché du travail local ?',
+    'blog.article.opportunita-lavoro-amministrazione-ticino.imageAlt': 'Castelgrande à Bellinzona, symbole de l\'administration cantonale tessinoise',
 };
 
 export default blogMetaChFr;
