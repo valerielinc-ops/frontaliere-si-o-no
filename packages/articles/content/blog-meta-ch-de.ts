@@ -4624,6 +4624,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.scuola-ticino-vpod-condizioni-docenti.title': 'Schule im Tessin: VPOD fordert Personal, Zeit und Ressourcen',
     'blog.article.scuola-ticino-vpod-condizioni-docenti.excerpt': 'Bei der Eröffnung der Schulen erneuert der von Matteo Finali geleitete Tessiner Lehrerausschuss VPOD die Forderung nach Investitionen in die Arbeitsbedingungen des Schulpersonals.',
     'blog.article.scuola-ticino-vpod-condizioni-docenti.imageAlt': 'Schulzimmer im Tessin bereit für den Schulbeginn',
+    'blog.article.avs-prestazioni-complementari-uri-cassa.title': 'AHV im Kanton Uri: Leitfaden zur Ausgleichskasse',
+    'blog.article.avs-prestazioni-complementari-uri-cassa.excerpt': 'So funktioniert die erste Säule im Kanton Uri: Ausgleichskasse, AHV-Rentenberechnung und Ergänzungsleistungen für Personen, die das Existenzminimum nicht erreichen.',
+    'blog.article.avs-prestazioni-complementari-uri-cassa.imageAlt': 'Blick auf den Kanton Uri mit Verwaltungsbüro und AHV-Dokument',
 };
 
 export default blogMetaChDe;

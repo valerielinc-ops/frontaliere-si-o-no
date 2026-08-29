@@ -32628,6 +32628,15 @@ const RAW_ARTICLES = [
  authorSlug: 'samuele-valente',
  authorName: 'Samuele Valente',
  },
+ {
+ id: 'bollettino-frontaliere-2026-08-29',
+ category: 'novita',
+ date: '2026-08-29T11:31:45.745Z',
+ image: '/images/blog/bollettino-frontaliere-2026-08-29.webp',
+ hasCalculator: false,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
