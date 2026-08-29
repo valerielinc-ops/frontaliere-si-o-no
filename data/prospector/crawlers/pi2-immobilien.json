@@ -1,0 +1,20 @@
+{
+  "companyKey": "pi2-immobilien",
+  "companyName": "pi2-immobilien",
+  "companyHost": "pi2-immobilien.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.pi2-immobilien.ch/jobs"
+  ],
+  "detailTemplate": "/images/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Immobilien-BewirtschafterIn mit eidg. Fachausweis",
+    "SachbearbeiterIn Immobilien-Bewirtschaftung"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-29T10:37:49.190Z"
+}

@@ -1,0 +1,23 @@
+{
+  "companyKey": "mueller-frauenfeld",
+  "companyName": "mueller-frauenfeld",
+  "companyHost": "mueller-frauenfeld.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.mueller-frauenfeld.ch/fr/karriere/freie-stellen.html"
+  ],
+  "detailTemplate": "/karriere/freie-stellen/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Lesen",
+    "Lesen",
+    "Lesen",
+    "Lesen",
+    "Lesen"
+  ],
+  "sourceLang": "fr",
+  "learnedAt": "2026-08-29T10:37:28.648Z"
+}
