@@ -13807,6 +13807,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'opportunita-lavoro-amministrazione-ticino',
+    category: 'fiscale',
+    date: '2026-08-29T02:21:33.805Z',
+    image: '/images/blog/opportunita-lavoro-amministrazione-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

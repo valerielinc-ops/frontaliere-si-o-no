@@ -4603,6 +4603,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.fed-warsh-tassi-interesse.title': 'FED: l\'annuncio di Kevin Warsh sui tassi d\'interesse',
     'blog.article.fed-warsh-tassi-interesse.excerpt': 'Kevin Warsh interviene a Jackson Hole e apre a un possibile aumento dei tassi d\'interesse a causa dell\'inflazione al 3,7% a luglio.',
     'blog.article.fed-warsh-tassi-interesse.imageAlt': 'Mercati finanziari e tassi d\'interesse a Jackson Hole',
+    'blog.article.opportunita-lavoro-amministrazione-ticino.title': '580 posti in meno nell\'amministrazione: un rischio per il lavoro dei residenti?',
+    'blog.article.opportunita-lavoro-amministrazione-ticino.excerpt': 'Un\'iniziativa cantonale propone di ridurre l\'organico dell\'Amministrazione ticinese di 580 unità. La questione va oltre il mero risparmio: quali implicazioni per il mercato del lavoro locale?',
+    'blog.article.opportunita-lavoro-amministrazione-ticino.imageAlt': 'Castelgrande a Bellinzona, simbolo dell\'amministrazione cantonale ticinese',
 };
 
 export default blogMetaChIt;

@@ -4603,6 +4603,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.fed-warsh-tassi-interesse.title': 'FED: Kevin Warsh\'s Interest Rate Announcement',
     'blog.article.fed-warsh-tassi-interesse.excerpt': 'Kevin Warsh intervenes in Jackson Hole and opens to a possible increase in interest rates due to inflation to 3.7% in July.',
     'blog.article.fed-warsh-tassi-interesse.imageAlt': 'Financial markets and interest rates at Jackson Hole',
+    'blog.article.opportunita-lavoro-amministrazione-ticino.title': '580 fewer places in the administration: a risk to residents\' jobs?',
+    'blog.article.opportunita-lavoro-amministrazione-ticino.excerpt': 'A cantonal initiative proposes to reduce the workforce of the Ticino Administration by 580 units. The question goes beyond mere savings: what implications for the local labour market?',
+    'blog.article.opportunita-lavoro-amministrazione-ticino.imageAlt': 'Castelgrande in Bellinzona, symbol of the Ticino cantonal administration',
 };
 
 export default blogMetaChEn;
