@@ -10923,6 +10923,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.guida-frontaliere-menaggio-ticino.title': 'Leben in Menaggio, Arbeiten im Tessin: Grenzgänger',
     'blog.article.guida-frontaliere-menaggio-ticino.excerpt': 'So ziehen Sie nach Menaggio und arbeiten als Grenzgänger im Tessin: G-Bewilligung, Steuern, Doppelbesteuerung, Erstattungen und Schweizer Sozialbeiträge.',
     'blog.article.guida-frontaliere-menaggio-ticino.imageAlt': 'Blick auf den Comer See von Menaggio aus mit Schweizer Bergen im Hintergrund, Grenzlandschaft Como-Tessin',
+    'blog.article.vivere-cassano-valcuvia-lavorare-ticino.title': 'Cassano Valcuvia–Ticino: Grenzüberschreitung 2024',
+    'blog.article.vivere-cassano-valcuvia-lavorare-ticino.excerpt': 'Pendeln, Steuern und Lebenshaltungskosten für diejenigen, die Cassano Valcuvia als Grundlage für die Arbeit im Kanton Tessin mit der Genehmigung G bewerten.',
+    'blog.article.vivere-cassano-valcuvia-lavorare-ticino.imageAlt': 'Hügellandschaft zwischen Cassano Valcuvia und der Grenze zum Kanton Tessin',
 };
 
 export default blogMetaDe;
