@@ -32646,6 +32646,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-carate-urio-lavorare-ticino-frontaliere',
+ category: 'pratico',
+ date: '2026-08-29T19:45:37.522Z',
+ image: '/images/blog/vivere-carate-urio-lavorare-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

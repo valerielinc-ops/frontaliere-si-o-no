@@ -80138,6 +80138,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-carate-urio-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Carate Urio e lavorare in Ticino da frontaliere',
+    description: 'Carate Urio e lavoro in Ticino da frontaliere: accordo 2024, imposta alla fonte, permesso G, collegamenti e costo della vita. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, carate, urio, lavorare',
+    ogTitle: 'Carate Urio: vivere sul lago di Como e lavorare in Ticino',
+    ogDescription: 'Da Carate Urio al Canton Ticino: permesso G, Nuovo Accordo Frontalieri 2024, fiscalità, collegamenti e costo della vita raccontati in modo pratico per chi valuta il trasferimento.',
+    canonicalPath: '/articoli-frontaliere/vivere-carate-urio-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Carate Urio e lavorare in Ticino da frontaliere",
+      "description": "Carate Urio e lavoro in Ticino da frontaliere: accordo 2024, imposta alla fonte, permesso G, collegamenti e costo della vita. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-carate-urio-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scorcio del lago di Como vicino a Carate Urio, sullo sfondo l'inizio della Svizzera."
+      },
+      "datePublished": "2026-08-29T19:45:37+00:00",
+      "dateModified": "2026-08-29T19:45:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-carate-urio-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

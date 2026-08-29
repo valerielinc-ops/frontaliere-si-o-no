@@ -10920,6 +10920,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-verbania-lavorare-ticino-frontaliere.title': 'Vivre à Verbania et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-verbania-lavorare-ticino-frontaliere.excerpt': 'Que savoir avant de déménager à Verbania et de se déplacer dans le canton du Tessin : liaisons, fiscalité, permis G et régime transitoire.',
     'blog.article.vivere-verbania-lavorare-ticino-frontaliere.imageAlt': 'Vue du Lac Majeur depuis Verbania vers la Suisse, voitures au poste-frontière',
+    'blog.article.vivere-carate-urio-lavorare-ticino-frontaliere.title': 'Vivre à Carate Urio et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-carate-urio-lavorare-ticino-frontaliere.excerpt': 'Carate Urio sur le lac de Côme, déplacement vers le canton du Tessin : fiscalité, accords frontaliers, cotisations et liaisons.',
+    'blog.article.vivere-carate-urio-lavorare-ticino-frontaliere.imageAlt': 'Vue du lac de Côme près de Carate Urio, avec le début de la Suisse en arrière-plan.',
 };
 
 export default blogMetaFr;
