@@ -13960,6 +13960,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'aprire-attivita-svitto-costi-registro',
+    category: 'pratico',
+    date: '2026-08-29T23:01:22.253Z',
+    image: '/images/blog/aprire-attivita-svitto-costi-registro.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

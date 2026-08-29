@@ -4654,6 +4654,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-svitto-diritto-locazione.title': 'Loyers dans le canton de Schwyz : droit fédéral et règles clés',
     'blog.article.affitti-svitto-diritto-locazione.excerpt': 'Caution jusqu\'à 3 mois, résiliation avec formulaire officiel et 30 jours pour contester le loyer initial à Schwyz.',
     'blog.article.affitti-svitto-diritto-locazione.imageAlt': 'Maisons résidentielles dans le canton de Schwytz avec vue sur les Préalpes',
+    'blog.article.aprire-attivita-svitto-costi-registro.title': 'Ouvrir une entreprise dans le canton de Schwyz : guide du registre et des coûts',
+    'blog.article.aprire-attivita-svitto-costi-registro.excerpt': 'Inscription au registre du commerce, formes juridiques, impôts à trois niveaux et obligations d\'assurance pour démarrer une activité dans le canton de Schwyz.',
+    'blog.article.aprire-attivita-svitto-costi-registro.imageAlt': 'Vue aérienne du village de Schwyz avec les mythiques sommets des Mythen en arrière-plan',
 };
 
 export default blogMetaChFr;

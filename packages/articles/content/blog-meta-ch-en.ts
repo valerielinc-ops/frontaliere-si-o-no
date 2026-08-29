@@ -4654,6 +4654,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-svitto-diritto-locazione.title': 'Rentals in the Canton of Schwyz: federal law and key rules',
     'blog.article.affitti-svitto-diritto-locazione.excerpt': 'Security deposit up to 3 months, cancellation with official form and 30 days to dispute the initial fee at Svitto.',
     'blog.article.affitti-svitto-diritto-locazione.imageAlt': 'Residential houses in Canton Schwyz with view of the Swiss pre-Alps',
+    'blog.article.aprire-attivita-svitto-costi-registro.title': 'Starting a business in Canton Schwyz: registration & costs',
+    'blog.article.aprire-attivita-svitto-costi-registro.excerpt': 'Registration in the commercial register, legal forms, three-level taxes and insurance obligations to start a business in the Canton of Schwyz.',
+    'blog.article.aprire-attivita-svitto-costi-registro.imageAlt': 'Aerial view of Schwyz village with the iconic Mythen mountains in the background',
 };
 
 export default blogMetaChEn;
