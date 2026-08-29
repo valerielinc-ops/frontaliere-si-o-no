@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides sur la Suisse : économie, travail, fiscalité et vie quotidienne</description>
     <language>fr</language>
-    <lastBuildDate>Sat, 29 Aug 2026 19:03:45 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 29 Aug 2026 19:27:10 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Suisse</title>
@@ -16,6 +16,59 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Droits de succession et de donation dans le canton d&apos;Uri : guide</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/impot-succession-donation-uri-guide/</link>
+      <description><![CDATA[Comment fonctionne la fiscalité des successions et donations dans le canton d'Uri : taux par degré de parenté, multiplicateur communal et obligations déclaratives.]]></description>
+      <content:encoded><![CDATA[## En bref
+- Droits de succession et de donation : niveau cantonal et communal en Suisse
+- URI applique des taux propres par degré de parenté, définis par la loi cantonale
+- Le multiplicateur communal influe sur le montant final dû au fisc
+- Déclaration et délais sont fixés par l'administration fiscale cantonale
+
+## Faits clés
+- **Quoi** : taxation des successions et des donations dans le canton d'Uri
+- Quand : discipline en vigueur, à vérifier année après année
+- Où : Canton d'Uri, avec versement aux communes via un multiplicateur
+- Qui : administration cantonale URI (impôts cantonaux et communaux)
+- Montant : taux par degré de parenté non spécifiés dans la source
+- Comment : déclaration dans les délais impartis par le bureau cantonal des impôts
+- Base : loi cantonale URI sur les droits de succession et de donation
+- Niveau : IFD non applicable (l'impôt fédéral n'affecte pas les successions)
+
+L'impôt de succession et de donation en Suisse ne relève pas de l'impôt fédéral direct : il s'agit d'une taxe relevant exclusivement de la compétence cantonale et communale. Chaque canton règle lui-même les taux, les franchises, les exemptions et les obligations déclaratives dans sa loi, et les communes y ajoutent un multiplicateur qui peut varier considérablement d'une commune à l'autre. Le canton d'Uri fait partie de ceux qui taxent à la fois les transferts mortis causa et les dons entre vifs, en appliquant des taux distincts en fonction du degré de parenté entre le disposant et le bénéficiaire.
+
+### Cadre juridique et
+### Degrés de parenté et logique des taux
+La logique suivie par le législateur cantonal uranais reflète celle de nombreux autres cantons suisses : la charge fiscale augmente à mesure que le lien familial s'affaiblit. Concrètement, les catégories de bénéficiaires sont divisées en groupes (conjoint et partenaire enregistré, descendants directs, parents et frères/sœurs, autres parents, personnes sans lien de parenté). Chaque tranche a son propre taux de pourcentage, qui peut être exprimé en tranches progressives en fonction du montant transféré. Pour le canton d'Uri, la source ne mentionne pas les pourcentages ponctuels de chaque échelon : elle se limite à confirmer l'existence d'un système par degré de parenté, modulé par la loi cantonale.
+
+### Multiplicateur municipal et impact sur la charge finale
+Contrairement à l'IFD, où le multiplicateur fédéral est unique, l'impôt cantonal uranais est multiplié par le coefficient communal. Cela signifie qu'à égalité de montant transféré et de degré de parenté, deux héritiers résidant dans des communes différentes du canton d'Uri peuvent verser des montants différents. C'est un élément à prendre en compte lors de la comparaison de régimes apparemment similaires entre cantons : la composante municipale peut avoir une incidence non négligeable sur le solde final.
+
+### Dons : avance sur patrimoine et obligation déclarative
+Les dons entre vifs suivent un régime propre. La loi cantonale uranaise prévoit que le donataire (ou le donateur) dépose une déclaration avant
+
+## Outils utiles pour votre cas
+Pour vérifier votre scénario fiscal dans/hors des 20 km, utilisez le [calculateur de salaire net](nav:calculator) et le [guide déclaration fiscale](nav:tax-return).
+### Procédure pratique pour la déclaration
+En règle générale, la procédure pour le canton d'Uri prévoit que les héritiers ou les bénéficiaires d'une donation présentent la déclaration fiscale dans les délais établis par la loi cantonale. La déclaration doit être envoyée à l'administration fiscale compétente, accompagnée des documents d'identification du défunt ou du donateur, des bénéficiaires et des biens concernés (immeubles, comptes bancaires, participations sociétaires, objets de valeur). Le bureau procède ensuite à la liquidation de l'impôt en appliquant les taux prévus selon le degré de parenté et le multiplicateur communal du bénéficiaire.
+
+### Documents typiquement demandés
+Même si la source ne les énumère pas en détail, les documents normalement requis par l'administration fiscale dans ce type de procédure comprennent : acte de décès ou acte de donation, identification des héritiers/donataires avec indication du degré de parenté, inventaire des biens du défunt ou du donateur, éventuelles estimations immobilières, relevés de comptes bancaires et attestations de participations sociétaires. Une documentation complète réduit les délais de liquidation et le risque de contestations.
+
+### Délais et échéances
+La loi cantonale uranaise fixe des délais précis pour la présentation de la déclaration : leur non-respect entraîne l'application d'intérêts moratoires ou d'amendes. Pour éviter toute sanction, il est conseillé de se renseigner auprès de l'office cantonal des impôts d'Uri quant aux échéances applicables au cas spécifique (succession ou donation). Dans certains cantons, les délais courent à partir de la date du décès, dans d'autres à partir de l'ouverture de la succession ou de la notification de l'acceptation de l'héritage.
+
+### Outils du site
+Pour ceux qui souhaitent approfondir le calcul de l'impôt dû, le calculateur fiscal de Frontaliere Ticino est disponible, qui permet d'estimer la charge en fonction du canton et du degré de parenté. Pour ceux qui évaluent le poids global du coût de la vie en Suisse, y compris la pression fiscale sur les transferts patrimoniaux, il est utile de consulter la page sur le [coût de la vie](nav:cost-of-living). Enfin, pour s'orienter parmi les opportunités professionnelles et les aspects contractuels qui impactent le revenu net soumis ensuite à l'imposition successorale, on peut consulter la section [offres d'emploi](nav:jobs).
+
+### Vérification finale et conseil
+Pour éviter les erreurs dans la déclaration, il convient de vérifier les taux et les multiplicateurs en vigueur au moment du transfert : la donnée change à un rythme régulier. L'administration cantonale d'Uri fournit des informations à jour et les formulaires nécessaires. Pour les situations complexes (patrimoines articulés, immeubles dans plusieurs cantons, donations internationales), le recours à un conseiller fiscal inscrit au registre est le choix prudent.]]></content:encoded>
+      <pubDate>Sat, 29 Aug 2026 19:27:10 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/imposta-successione-donazione-uri-guida</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/imposta-successione-donazione-uri-guida.webp" medium="image"/>
+    </item>
     <item>
       <title>Ouvrir une entreprise dans le canton d&apos;Uri : registre et coûts</title>
       <link>https://frontaliereticino.ch/fr/articles-suisse/startup-uri-registre-commerce/</link>
@@ -2790,72 +2843,6 @@ Si vous êtes un salarié en Suisse ou un travailleur indépendant, les données
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/bilancio-eccedenza-debito-2025</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/bilancio-eccedenza-debito-2025.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Remboursement des droits de douane américains : la crainte administrative</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/tarifs-usa-remboursement-crainte-bureaucratique/</link>
-      <description><![CDATA[Seulement un tiers des entreprises suisses demandent le remboursement des droits de douane américains indûment perçus. Les autres renoncent par crainte de charges administratives excessives.]]></description>
-      <content:encoded><![CDATA[## In breve
-- Solo 1/3 delle aziende svizzere chiede rimborso dazi USA indebitamente riscossi
-- Temono oneri amministrativi superiori al guadagno finanziario
-- Modulo online disponibile, ma Swissmem dovrebbe promuoverlo meglio
-- Calo previsto attività oltreoceano per la maggioranza imprese
-
-## Fatti chiave
-- **Cosa**: Rimborso dazi USA su settore macchinari, elettronica, metalli
-- Chi: Swissmem (associazione categoria svizzera), Martin Hirzel (presidente)
-- Percentuale richiedenti: Solo 1/3 delle aziende ha richiesto rimborso
-- Ostacolo principale: Paura oneri amministrativi vs. guadagno modesto
-- Procedura: Modulo online disponibile ma "piuttosto complicato"
-- Comunicazione: Swissmem non promuove sufficientemente la procedura
-- Outlook: Maggioranza aziende prevede calo attività negli Stati Uniti
-
-Solo un terzo delle aziende svizzere attive nel settore dei macchinari, dell'elettronica e dei metalli ha richiesto agli Stati Uniti il rimborso dei dazi indebitamente riscossi. Lo ha rivelato Martin Hirzel, presidente dell'associazione di categoria Swissmem, in un'intervista all'agenzia finanziaria AWP. Questo dato illumina una dissonanza significativa: due aziende su tre rinunciano formalmente a recuperare importi dovuti, nonostante il diritto sia acquisito e la procedura tecnicamente accessibile.
-
-Le ragioni di questa astensione massiccia sono principalmente amministrative. Le imprese temono oneri burocratici eccessivi a fronte di un guadagno finanziario modesto. Si configura cioè uno scenario in cui il costo percepito della domanda supera il beneficio atteso, scoraggiando l'azione.
-
-### Il nodo della trasparenza procedurale
-
-Hirzel riconosce apertamente che le aziende devono compilare un modulo "piuttosto complicato", sebbene la procedura possa essere espletata online. Il paradosso è evidente: il canale digitale esiste, ma la percezione della complessità frena l'adesione. Più significativamente, il presidente non esclude responsabilità dell'associazione medesima: "Forse spetterebbe anche a Swissmem promuovere in modo più chiaro questa procedura", ha dichiarato.
-
-Questa ammissione rivela un vuoto comunicativo. Se Swissmem potesse offrire guidance trasparente, supporto nella raccolta documentale e formazione specifica sulla compilazione, il tasso di partecipazione aumenterebbe presumibilmente. Il divario tra diritto formale e esercizio effettivo è dunque colmabile, ma richiede advocacy attiva dell'associazione di categoria.
-
-Nel contesto generale, le imprese hanno "imparato a convivere con i dazi doganali", secondo Hirzel. Tuttavia, rimane reale la distanza da una normalizzazione della situazione commerciale con gli Stati Uniti. La volatilità tariffaria e i continui aggiustamenti normativi mantengono le aziende in uno stato di adattamento permanente. Chi intende approfondire le implications fiscali delle operazioni commerciali internazionali può consultare [le risorse su dichiarazione e compliance](nav:tax-return).
-Il carico amministrativo derivante dai dazi e dalla normativa in continuo mutamento esercita pressione diretta sulla redditività e sulla capacità operativa delle aziende. Le imprese non affrontano soltanto il problema economico immediato dei dazi, ma anche i costi nascosti legati alla conformità, alla gestione della documentazione internazionale, e all'aggiornamento continuo dei processi interni.
-
-Una conseguenza concreta è l'incertezza trasmessa ai clienti internazionali. I compratori americani di prodotti svizzeri nel settore macchinari, componenti elettronici e articoli metallici operano in una situazione di precarietà. I margini di profitto rimangono incerti, i tempi di consegna subiscono variazioni dovute agli ostacoli amministrativi, i prezzi finali restano esposti a volatilità tariffaria. Questo crea una spirale di rischi che scoraggia ordini di volume e contratti a lungo termine.
-
-### Previsioni di contrazione e fallimento della comunicazione
-
-La maggioranza delle aziende Swissmem intervistate prevede un calo dell'attività oltreoceano. Non si tratta di una previsione marginale: il mercato americano rimane strategico per l'industria svizzera di precisione. Una contrazione diffusa dell'export verso gli USA comporterebbe ripercussioni a cascata su occupazione, investimenti in ricerca e sviluppo, e competitività complessiva del settore.
-
-Il problema della comunicazione inadeguata emerge chiaramente dalla dichiarazione di Hirzel. Se la procedura di rimborso rimane poco conosciuta e poco utilizzata, la perdita economica per le imprese si accumula nel tempo, anno dopo anno. Non si tratta di un recupero singolo, ma di una serie di mancati rimborsi che erodono progressivamente i margini operativi e la capacità di investimento.
-
-La normativa in continuo mutamento amplifica ulteriormente il danno. Ogni cambiamento nelle regole doganali o nelle aliquote tariffarie comporta necessità di aggiornamento interno, formazione del personale, revisione dei processi. Per aziende di piccola e media dimensione, questi costi amministrativi possono essere rilevanti e difficili da assorbire, specialmente se simultaneamente perdono quote di mercato per effetto dell'instabilità tariffaria. Le aziende si trovano dunque intrappolate in un ciclo di costi amministrativi crescenti a fronte di ricavi sempre più incerti.
-
-Per chi opera in ambito commerciale internazionale e necessita di comprendere le dinamiche valutarie in tempo reale, [il comparatore di cambio CHF/EUR fornisce dati attuali](nav:exchange).
-
-## Outils utiles pour protéger votre net
-Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
-Le aziende interessate al rimborso dei dazi indebitamente riscossi hanno a disposizione una procedura formale presso le autorità doganali americane. Sebbene il modulo sia complesso, la compilazione online rimane l'unica via efficace per recuperare le somme dovute e non deve scoraggiare l'iniziativa. Il primo passo operativo consiste nel contattare le autorità doganali americane (U.S. Customs and Border Protection) direttamente, oppure rivolgersi a Swissmem per ottenere supporto informativo iniziale sulla procedura e sulla documentazione richiesta.
-
-La procedura richiede: identificazione precisa dei dazi pagati in eccesso; raccolta della documentazione commerciale (fatture, licenze, certificati di origine, dichiarazioni doganali originali); compilazione accurata del modulo specifico secondo i criteri americani. Sebbene il processo sia erogabile online, è essenziale dedicare tempo sufficiente alla raccolta della documentazione e alla verifica della correttezza dei dati. Gli errori procedurali comportano rigetto della richiesta e perdita del diritto al rimborso.
-
-### Come procedere efficacemente
-
-Swissmem potrebbe sviluppare un ruolo cruciale nel fornire assistenza tecnica agli associati: guide passo-passo, webinar di formazione sulla compilazione, referral verso esperti di tariffe doganali, template documentali standardizzati. Attualmente, il presidente Hirzel ha riconosciuto esplicitamente che questa funzione di supporto è insufficiente. Le aziende che procedono autonomamente devono comunque valutare il costo-beneficio: se il rimborso atteso è inferiore a CHF 5.000–10.000 (non specificato nella fonte, ma realistico per importi medi), la spesa in consulenza esterna potrebbe erodere interamente il guadagno netto.
-
-Un elemento strategico è la tempistica. Il recupero dei dazi non è immediato e richiede pazienza amministrativa e seguire iter specifici. Le aziende intenzionate devono procedere senza indugi, poiché presumibilmente esistono termini di prescrizione per le rivendicazioni secondo le normative americane (anche se non esplicitati nella comunicazione di Hirzel).
-
-Inoltre, le aziende esportatrici dovrebbero valutare complessivamente la loro strategia commerciale verso gli USA in prospettiva strategica. Se la normativa doganale rimane instabile e i costi amministrativi elevati, diversificazione geografica dei mercati, riconsiderazione dei margini di prezzo, o negoziazione di contratti con clausole di adattamento tariffario potrebbero rivelarsi strategici. Per chi gestisce piccole e medie imprese e desidera valutare l'impatto economico delle decisioni commerciali sulla struttura aziendale svizzera e sulla pianificazione finanziaria, [il calcolatore di stipendio e imposte offre una base per modellare scenari](nav:calculator).
-
-Offre d'emploi au Tessin? Simulez votre [fiche de paie nette](nav:payslip) : salaire brut, état civil et commune de résidence.
-
-*Source: [cdt.ch](https://www.cdt.ch/news/le-aziende-svizzere-non-chiedono-il-rimborso-dei-dazi-statunitensi-437427)*]]></content:encoded>
-      <pubDate>Thu, 27 Aug 2026 10:24:34 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/rimborso-dazi-paura-amministrativa</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/rimborso-dazi-paura-amministrativa.webp" medium="image"/>
     </item>
   </channel>
 </rss>

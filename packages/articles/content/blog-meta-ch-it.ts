@@ -4636,6 +4636,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.startup-uri-registro-commercio.title': 'Aprire un\'attività nel Canton Uri: registro e costi',
     'blog.article.startup-uri-registro-commercio.excerpt': 'Guida pratica per avviare un\'impresa nel Canton Uri: dalla scelta della forma giuridica all\'iscrizione al registro di commercio e obblighi assicurativi.',
     'blog.article.startup-uri-registro-commercio.imageAlt': 'Ufficio professionale svizzero con documenti per l\'apertura di un\'attività',
+    'blog.article.imposta-successione-donazione-uri-guida.title': 'Imposta di successione e donazione nel Cantone Uri: guida',
+    'blog.article.imposta-successione-donazione-uri-guida.excerpt': 'Come funziona la tassazione di successioni e donazioni nel Cantone Uri: aliquote per grado di parentela, moltiplicatore comunale e obblighi dichiarativi.',
+    'blog.article.imposta-successione-donazione-uri-guida.imageAlt': 'Documenti su una scrivania di uno studio notarile nel Cantone Uri, con vista sulle Alpi',
 };
 
 export default blogMetaChIt;

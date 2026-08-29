@@ -13906,6 +13906,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'imposta-successione-donazione-uri-guida',
+    category: 'fiscale',
+    date: '2026-08-29T19:27:10.119Z',
+    image: '/images/blog/imposta-successione-donazione-uri-guida.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -4636,6 +4636,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.startup-uri-registro-commercio.title': 'Ouvrir une entreprise dans le canton d\'Uri : registre et coûts',
     'blog.article.startup-uri-registro-commercio.excerpt': 'Guide pratique pour démarrer une entreprise dans le canton d\'Uri : du choix de la forme juridique à l\'inscription au registre du commerce et des assurances.',
     'blog.article.startup-uri-registro-commercio.imageAlt': 'Bureau professionnel suisse avec documents pour créer une entreprise',
+    'blog.article.imposta-successione-donazione-uri-guida.title': 'Droits de succession et de donation dans le canton d\'Uri : guide',
+    'blog.article.imposta-successione-donazione-uri-guida.excerpt': 'Comment fonctionne la fiscalité des successions et donations dans le canton d\'Uri : taux par degré de parenté, multiplicateur communal et obligations déclaratives.',
+    'blog.article.imposta-successione-donazione-uri-guida.imageAlt': 'Documents notariaux sur un bureau dans le canton d\'Uri avec vue alpine',
 };
 
 export default blogMetaChFr;
