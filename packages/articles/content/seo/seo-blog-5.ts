@@ -80216,6 +80216,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-cassano-valcuvia-lavorare-ticino': {
+    title: 'Cassano Valcuvia–Ticino: guida frontaliere 2024',
+    description: 'Vivere a Cassano Valcuvia e lavorare in Ticino da frontaliere: nuove regole fiscali 2024, permesso G, costi e tempi di percorrenza. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, cassano, valcuvia, pendolarismo, fiscalità',
+    ogTitle: 'Cassano Valcuvia–Ticino: guida frontaliere 2024',
+    ogDescription: 'Pendolarismo, nuovo Accordo Frontalieri in vigore dal 1° gennaio 2024, permesso G, franchigia €10\'000 per i nuovi frontalieri, esenzione €7\'500 per i vecchi: tutto quello che serve a chi vive nella Valcuvia e lavora in Canton Ticino.',
+    canonicalPath: '/articoli-frontaliere/vivere-cassano-valcuvia-lavorare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cassano Valcuvia–Ticino: guida frontaliere 2024",
+      "description": "Vivere a Cassano Valcuvia e lavorare in Ticino da frontaliere: nuove regole fiscali 2024, permesso G, costi e tempi di percorrenza. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-cassano-valcuvia-lavorare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scenografia collinare tra Cassano Valcuvia e il confine con il Canton Ticino"
+      },
+      "datePublished": "2026-08-29T22:16:53+00:00",
+      "dateModified": "2026-08-29T22:16:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-cassano-valcuvia-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -10925,6 +10925,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.guida-frontaliere-menaggio-ticino.title': 'Vivere a Menaggio, lavorare in Ticino: frontaliere',
     'blog.article.guida-frontaliere-menaggio-ticino.excerpt': 'Come trasferirsi a Menaggio e lavorare in Ticino da frontaliere: Permesso G, fiscalità, doppia imposizione, ristorni e contributi sociali svizzeri.',
     'blog.article.guida-frontaliere-menaggio-ticino.imageAlt': 'Vista del Lago di Como da Menaggio con le montagne svizzere sullo sfondo, paesaggio frontaliero Como-Ticino',
+    'blog.article.vivere-cassano-valcuvia-lavorare-ticino.title': 'Cassano Valcuvia–Ticino: guida frontaliere 2024',
+    'blog.article.vivere-cassano-valcuvia-lavorare-ticino.excerpt': 'Pendolarismo, fiscalità e costo della vita per chi valuta Cassano Valcuvia come base per lavorare in Canton Ticino con il permesso G.',
+    'blog.article.vivere-cassano-valcuvia-lavorare-ticino.imageAlt': 'Scenografia collinare tra Cassano Valcuvia e il confine con il Canton Ticino',
 };
 
 export default blogMetaIt;

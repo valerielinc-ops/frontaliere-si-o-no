@@ -10926,6 +10926,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.guida-frontaliere-menaggio-ticino.title': 'Vivre à Menaggio, travailler au Tessin : frontalier',
     'blog.article.guida-frontaliere-menaggio-ticino.excerpt': 'Comment déménager à Menaggio et travailler au Tessin en tant que frontalier : permis G, fiscalité, double imposition, restauration et cotisations sociales suisses.',
     'blog.article.guida-frontaliere-menaggio-ticino.imageAlt': 'Vue du Lac de Côme depuis Menaggio avec les montagnes suisses en arrière-plan, paysage frontalier Côme-Tessin',
+    'blog.article.vivere-cassano-valcuvia-lavorare-ticino.title': 'Cassano Valcuvia–Ticino : guide frontalier 2024',
+    'blog.article.vivere-cassano-valcuvia-lavorare-ticino.excerpt': 'Pendularisme, fiscalité et coût de la vie pour ceux qui évaluent Cassano Valcuvia comme base pour travailler dans le canton du Tessin avec le permis G.',
+    'blog.article.vivere-cassano-valcuvia-lavorare-ticino.imageAlt': 'Paysage vallonné entre Cassano Valcuvia et la frontière du Canton Tessin',
 };
 
 export default blogMetaFr;

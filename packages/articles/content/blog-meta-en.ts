@@ -10924,6 +10924,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.guida-frontaliere-menaggio-ticino.title': 'Living in Menaggio, working in Ticino: border workers',
     'blog.article.guida-frontaliere-menaggio-ticino.excerpt': 'How to move to Menaggio and work in Ticino as a border worker: G Permit, taxation, double taxation, refunds and Swiss social contributions.',
     'blog.article.guida-frontaliere-menaggio-ticino.imageAlt': 'Lake Como viewed from Menaggio with Swiss mountains in the background, Como-Ticino frontier landscape',
+    'blog.article.vivere-cassano-valcuvia-lavorare-ticino.title': 'Cassano Valcuvia–Ticino: 2024 border guide',
+    'blog.article.vivere-cassano-valcuvia-lavorare-ticino.excerpt': 'Commuting, taxation and cost of living for those who evaluate Cassano Valcuvia as a base to work in Canton Ticino with the G permit.',
+    'blog.article.vivere-cassano-valcuvia-lavorare-ticino.imageAlt': 'Hillside scenery between Cassano Valcuvia and the Canton Ticino border',
 };
 
 export default blogMetaEn;
