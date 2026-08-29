@@ -1575,6 +1575,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'assegni-familiari-svitto-domanda': { it: 'assegni-familiari-svitto-domanda', en: 'family-allowances-schwyz-application', de: 'familienzulagen-schwyz-antrag', fr: 'allocations-familiales-schwytz-demande' },
  'grigioni-attesa-modello-birsfelden': { it: 'grigioni-attesa-modello-birsfelden', en: 'grisons-waiting-birsfelden-model', de: 'graubuenden-warten-birsfelden-modell', fr: 'grisons-attente-modele-birsfelden' },
  'acquisto-casa-svitto-mutuo-fondi-propri': { it: 'acquisto-casa-svitto-mutuo-fondi-propri', en: 'buying-property-svitto-mortgage-equity', de: 'hauskauf-svitto-hypothek-eigenkapital', fr: 'achat-maison-svitto-hypotheque-fonds-propres' },
+ 'casa-svitto-comprare-mutuo-fondi': { it: 'casa-svitto-comprare-mutuo-fondi', en: 'buy-house-schwyz-mortgage-down-payment', de: 'haus-schwyz-kauf-hypothek', fr: 'acheter-maison-schwytz-hypotheque' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

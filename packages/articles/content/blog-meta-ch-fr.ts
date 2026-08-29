@@ -4648,6 +4648,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.acquisto-casa-svitto-mutuo-fondi-propri.title': 'Acheter une maison à Schwyz : prix, hypothèque et fonds propres',
     'blog.article.acquisto-casa-svitto-mutuo-fondi-propri.excerpt': 'Guide complet pour l\'achat d\'une maison à Schwyz : fonds propres requis, hypothèque, taxes de passage, frais de notaire et procédure judiciaire.',
     'blog.article.acquisto-casa-svitto-mutuo-fondi-propri.imageAlt': 'Maison suisse traditionnelle entourée de pâturages alpins, chaîne de montagnes en arrière-plan',
+    'blog.article.casa-svitto-comprare-mutuo-fondi.title': 'Acheter une maison à Schwyz : prix et prêt hypothécaire',
+    'blog.article.casa-svitto-comprare-mutuo-fondi.excerpt': 'Guide pratique : l\'acquisition d\'un bien immobilier dans le canton de Schwyz nécessite des fonds propres, un prêt durable, une taxe de passage et des frais de notaire. Procédure complète.',
+    'blog.article.casa-svitto-comprare-mutuo-fondi.imageAlt': 'Quartier résidentiel du canton de Schwytz avec bâtiments résidentiels typiques.',
 };
 
 export default blogMetaChFr;

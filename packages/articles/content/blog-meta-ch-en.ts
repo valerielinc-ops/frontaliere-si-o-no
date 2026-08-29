@@ -4648,6 +4648,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.acquisto-casa-svitto-mutuo-fondi-propri.title': 'Buying a house in Svitto: prices, mortgage and own funds',
     'blog.article.acquisto-casa-svitto-mutuo-fondi-propri.excerpt': 'Complete guide to buying a house in Svitto: own funds required, mortgage loan, transfer taxes, notary fees and legal procedure.',
     'blog.article.acquisto-casa-svitto-mutuo-fondi-propri.imageAlt': 'Traditional Swiss house surrounded by Alpine meadows, mountain range in background',
+    'blog.article.casa-svitto-comprare-mutuo-fondi.title': 'Buying a Svitto home: prices and mortgage',
+    'blog.article.casa-svitto-comprare-mutuo-fondi.excerpt': 'Practical guide: acquiring a property in the canton of Schwyz requires own funds, a sustainable mortgage, a transfer tax and notary fees. Complete procedure.',
+    'blog.article.casa-svitto-comprare-mutuo-fondi.imageAlt': 'Residential neighborhood in Schwyz canton with Swiss-style buildings.',
 };
 
 export default blogMetaChEn;

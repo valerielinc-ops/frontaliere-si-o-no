@@ -60314,6 +60314,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-casa-svitto-comprare-mutuo-fondi': {
+    title: 'Comprare casa Svitto: prezzi e mutuo ipotecario',
+    description: 'Guida pratica: acquisire un immobile nel canton Svitto richiede fondi propri, mutuo sostenibile, imposta sui trapassi e spese notarili. Procedura completa.',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, svitto, prezzi',
+    ogTitle: 'Comprare casa Svitto: prezzi e mutuo ipotecario',
+    ogDescription: 'Guida pratica: acquisire un immobile nel canton Svitto richiede fondi propri, mutuo sostenibile, imposta sui trapassi e spese notarili. Procedura completa.',
+    canonicalPath: '/articoli-svizzera/casa-svitto-comprare-mutuo-fondi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa Svitto: prezzi e mutuo ipotecario",
+      "description": "Guida pratica: acquisire un immobile nel canton Svitto richiede fondi propri, mutuo sostenibile, imposta sui trapassi e spese notarili. Procedura completa.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/casa-svitto-comprare-mutuo-fondi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Quartiere residenziale del canton Svitto con abitazioni in stile svizzero."
+      },
+      "datePublished": "2026-08-29T22:05:10+00:00",
+      "dateModified": "2026-08-29T22:05:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/casa-svitto-comprare-mutuo-fondi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -4648,6 +4648,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.acquisto-casa-svitto-mutuo-fondi-propri.title': 'Haus kaufen in Schwyz: Preise, Darlehen und Eigenmittel',
     'blog.article.acquisto-casa-svitto-mutuo-fondi-propri.excerpt': 'Vollständiger Leitfaden zum Kauf eines Hauses in Schwyz: beantragte Eigenmittel, Hypothekendarlehen, Ablösesummen, Notarkosten und Gerichtsverfahren.',
     'blog.article.acquisto-casa-svitto-mutuo-fondi-propri.imageAlt': 'Traditionelles Schweizer Haus umgeben von Alpweiden, Bergkette im Hintergrund',
+    'blog.article.casa-svitto-comprare-mutuo-fondi.title': 'Haus kaufen Schwyz: Preise und Hypothekendarlehen',
+    'blog.article.casa-svitto-comprare-mutuo-fondi.excerpt': 'Praktischer Leitfaden: Der Erwerb einer Immobilie im Kanton Schwyz erfordert Eigenmittel, ein nachhaltiges Darlehen, eine Ablösesumme und Notargebühren. Vollständiges Verfahren.',
+    'blog.article.casa-svitto-comprare-mutuo-fondi.imageAlt': 'Wohnquartier im Kanton Schwyz mit typischen Schweizer Wohnhäusern.',
 };
 
 export default blogMetaChDe;

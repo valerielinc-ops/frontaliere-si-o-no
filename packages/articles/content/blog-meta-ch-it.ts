@@ -4648,6 +4648,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.acquisto-casa-svitto-mutuo-fondi-propri.title': 'Comprare casa in Svitto: prezzi, mutuo e fondi propri',
     'blog.article.acquisto-casa-svitto-mutuo-fondi-propri.excerpt': 'Guida completa all\'acquisto di una casa in Svitto: fondi propri richiesti, mutuo ipotecario, imposte sui trapassi, spese notarili e procedura legale.',
     'blog.article.acquisto-casa-svitto-mutuo-fondi-propri.imageAlt': 'Casa tradizionale svizzera circondata da prati alpini con catena montuosa sullo sfondo',
+    'blog.article.casa-svitto-comprare-mutuo-fondi.title': 'Comprare casa Svitto: prezzi e mutuo ipotecario',
+    'blog.article.casa-svitto-comprare-mutuo-fondi.excerpt': 'Guida pratica: acquisire un immobile nel canton Svitto richiede fondi propri, mutuo sostenibile, imposta sui trapassi e spese notarili. Procedura completa.',
+    'blog.article.casa-svitto-comprare-mutuo-fondi.imageAlt': 'Quartiere residenziale del canton Svitto con abitazioni in stile svizzero.',
 };
 
 export default blogMetaChIt;
