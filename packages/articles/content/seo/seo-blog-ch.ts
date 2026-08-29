@@ -60236,6 +60236,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-grigioni-attesa-modello-birsfelden': {
+    title: 'Grigioni: Gran Consiglio fermo in attesa del caso Birsfelden',
+    description: 'Voto 67-41 nei Grigioni: il Parlamento segue il Governo e rinvia la decisione sul traffico deviato fino alla sentenza sul modello Birsfelden (BL).',
+    keywords: 'frontalieri, ticino, svizzera, italia, grigioni, gran, consiglio, fermo',
+    ogTitle: 'Grigioni: Gran Consiglio attende il caso Birsfelden',
+    ogDescription: 'Con 67 voti contro 41 il Parlamento grigionese ha scelto la linea del Governo: niente studio di fattibilità sul modello Birsfelden fino alla sentenza sui procedimenti giudiziari pendenti in Canton Basilea Campagna.',
+    canonicalPath: '/articoli-svizzera/grigioni-attesa-modello-birsfelden/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grigioni: Gran Consiglio fermo in attesa del caso Birsfelden",
+      "description": "Voto 67-41 nei Grigioni: il Parlamento segue il Governo e rinvia la decisione sul traffico deviato fino alla sentenza sul modello Birsfelden (BL).",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/grigioni-attesa-modello-birsfelden.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada alpine nei Grigioni con colonne di auto e deviazioni verso un villaggio di montagna"
+      },
+      "datePublished": "2026-08-29T21:08:21+00:00",
+      "dateModified": "2026-08-29T21:08:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/grigioni-attesa-modello-birsfelden/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

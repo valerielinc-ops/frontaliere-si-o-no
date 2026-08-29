@@ -4642,6 +4642,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assegni-familiari-svitto-domanda.title': 'Allocations familiales dans le canton de Schwyz : guide pratique',
     'blog.article.assegni-familiari-svitto-domanda.excerpt': 'Cadre fédéral LAFam appliqué dans le canton de Schwyz : droit, documents, rôle de l\'employeur et procédure étape par étape pour la demande.',
     'blog.article.assegni-familiari-svitto-domanda.imageAlt': 'Famille dans un village alpin du canton de Schwytz',
+    'blog.article.grigioni-attesa-modello-birsfelden.title': 'Grisons : Grand Conseil arrêté dans l\'attente de l\'affaire Birsfelden',
+    'blog.article.grigioni-attesa-modello-birsfelden.excerpt': 'Vote 67-41 : le Parlement grison suit le Gouvernement et renvoie toute décision sur le trafic détourné jusqu\'à l\'arrêt sur le modèle BL.',
+    'blog.article.grigioni-attesa-modello-birsfelden.imageAlt': 'Route alpine aux Grisons avec embouteillages et voitures déviées vers un village de montagne',
 };
 
 export default blogMetaChFr;

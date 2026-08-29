@@ -4642,6 +4642,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assegni-familiari-svitto-domanda.title': 'Assegni familiari nel Canton Svitto: guida pratica',
     'blog.article.assegni-familiari-svitto-domanda.excerpt': 'Quadro federale LAFam applicato in Canton Svitto: diritto, documenti, ruolo del datore di lavoro e procedura step-by-step per la domanda.',
     'blog.article.assegni-familiari-svitto-domanda.imageAlt': 'Famiglia in un villaggio alpino del Canton Svitto',
+    'blog.article.grigioni-attesa-modello-birsfelden.title': 'Grigioni: Gran Consiglio fermo in attesa del caso Birsfelden',
+    'blog.article.grigioni-attesa-modello-birsfelden.excerpt': 'Voto 67-41: il Parlamento grigionese segue il Governo e rinvia ogni decisione sul traffico deviato fino alla sentenza sul modello BL.',
+    'blog.article.grigioni-attesa-modello-birsfelden.imageAlt': 'Strada alpine nei Grigioni con colonne di auto e deviazioni verso un villaggio di montagna',
 };
 
 export default blogMetaChIt;

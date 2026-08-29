@@ -4642,6 +4642,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assegni-familiari-svitto-domanda.title': 'Familienzulagen im Kanton Schwyz: Praxisleitfaden',
     'blog.article.assegni-familiari-svitto-domanda.excerpt': 'Bundesrahmen FamZG im Kanton Schwyz angewendet: Recht, Dokumente, Rolle des Arbeitgebers und Schritt-für-Schritt-Verfahren für den Antrag.',
     'blog.article.assegni-familiari-svitto-domanda.imageAlt': 'Familie in einem alpinen Dorf im Kanton Schwyz',
+    'blog.article.grigioni-attesa-modello-birsfelden.title': 'Graubünden: Grossrat wartet auf den Fall Birsfelden',
+    'blog.article.grigioni-attesa-modello-birsfelden.excerpt': 'Abstimmung 67-41: Das Bündner Parlament folgt der Regierung und vertagt jede Entscheidung über den umgeleiteten Verkehr bis zum Urteil nach Modell BL.',
+    'blog.article.grigioni-attesa-modello-birsfelden.imageAlt': 'Alpenstrasse in Graubünden mit Stau und Autos, die in ein Bergdorf ausweichen',
 };
 
 export default blogMetaChDe;
