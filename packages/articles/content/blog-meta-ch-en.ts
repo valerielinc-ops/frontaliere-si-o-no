@@ -4633,6 +4633,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-uri-zone-tariffe.title': 'Uri subscriptions: zones, rates and national offers',
     'blog.article.abbonamenti-trasporti-uri-zone-tariffe.excerpt': 'How the URI pricing community works: zones, annual and monthly subscriptions, student discounts, and combinations with Halbtax and AG.',
     'blog.article.abbonamenti-trasporti-uri-zone-tariffe.imageAlt': 'Regional train arriving at an alpine station in Canton Uri with passengers using SwissPass',
+    'blog.article.startup-uri-registro-commercio.title': 'Opening a business in Canton Uri: registration and costs',
+    'blog.article.startup-uri-registro-commercio.excerpt': 'Practical guide to starting a business in Canton Uri: from the choice of legal form to registration in the trade and insurance obligations register.',
+    'blog.article.startup-uri-registro-commercio.imageAlt': 'Professional Swiss office with documents for starting a business',
 };
 
 export default blogMetaChEn;

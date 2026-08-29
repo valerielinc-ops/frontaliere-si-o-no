@@ -60119,6 +60119,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-startup-uri-registro-commercio': {
+    title: 'Aprire un\'attività nel Canton Uri: registro e costi',
+    description: 'Guida all\'apertura di un\'attività nel Canton Uri: requisiti registro di commercio, capitale minimo, tasse, contributi AVS/LPP e obblighi assicurativi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, canton, registro',
+    ogTitle: 'Avviare un\'impresa nel Canton Uri: guida a costi e registro',
+    ogDescription: 'Scopri i passaggi per aprire un\'attività nel Canton Uri: dall\'iscrizione al registro di commercio alla gestione di tasse e contributi sociali obbligatori.',
+    canonicalPath: '/articoli-svizzera/startup-uri-registro-commercio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire un'attività nel Canton Uri: registro e costi",
+      "description": "Guida all'apertura di un'attività nel Canton Uri: requisiti registro di commercio, capitale minimo, tasse, contributi AVS/LPP e obblighi assicurativi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/startup-uri-registro-commercio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio professionale svizzero con documenti per l'apertura di un'attività"
+      },
+      "datePublished": "2026-08-29T19:03:45+00:00",
+      "dateModified": "2026-08-29T19:03:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/startup-uri-registro-commercio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

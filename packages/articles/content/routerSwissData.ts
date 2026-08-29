@@ -1570,6 +1570,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'avs-prestazioni-complementari-uri-cassa': { it: 'avs-prestazioni-complementari-uri-cassa', en: 'avs-complementary-benefits-uri-compensation', de: 'ahv-ergaenzungsleistungen-uri-kasse', fr: 'avs-prestations-complementaires-uri-caisse' },
  'abbonamenti-trasporti-uri-zone': { it: 'abbonamenti-trasporti-uri-zone', en: 'uri-canton-transport-zones', de: 'abos-nahverkehr-kanton-uri-zonen', fr: 'abonnements-transports-uri-zones' },
  'abbonamenti-trasporti-uri-zone-tariffe': { it: 'abbonamenti-trasporti-uri-zone-tariffe', en: 'uri-public-transport-zone-fares', de: 'uri-oeffentliche-verkehrszonen-tarife', fr: 'abonnements-transports-uri-zones-tarifs' },
+ 'startup-uri-registro-commercio': { it: 'startup-uri-registro-commercio', en: 'startup-uri-commercial-register', de: 'startup-uri-handelsregister', fr: 'startup-uri-registre-commerce' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
