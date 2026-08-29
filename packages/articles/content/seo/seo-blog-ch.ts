@@ -59924,6 +59924,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-grigioni-traffico-sviamento-attesa': {
+    title: 'Grigioni: niente nuove multe al traffico di deviazione',
+    description: 'Gran Consiglio grigionese boccia la mozione UDC con 67 voti contro 41: niente nuove sanzioni anti-traffico di deviazione fino alla sentenza sul modello',
+    keywords: 'frontalieri, ticino, svizzera, italia, grigioni, niente, nuove, multe',
+    ogTitle: 'Grigioni: niente nuove multe anti-sviamento per ora',
+    ogDescription: 'Il Gran Consiglio grigionese ha bocciato con 67 voti contro 41 la mozione UDC che chiedeva di replicare il modello Birsfelden contro il traffico di deviazione su asse nord-sud e N28. Si attende la sentenza.',
+    canonicalPath: '/articoli-svizzera/grigioni-traffico-sviamento-attesa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grigioni: niente nuove multe al traffico di deviazione",
+      "description": "Gran Consiglio grigionese boccia la mozione UDC con 67 voti contro 41: niente nuove sanzioni anti-traffico di deviazione fino alla sentenza sul modello",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/grigioni-traffico-sviamento-attesa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada di montagna nei Grigioni con coda di auto durante il fine settimana"
+      },
+      "datePublished": "2026-08-29T09:26:39+00:00",
+      "dateModified": "2026-08-29T09:26:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/grigioni-traffico-sviamento-attesa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

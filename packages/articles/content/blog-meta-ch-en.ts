@@ -4618,6 +4618,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ubs-panda-bond-cina-mercato.title': 'UBS issues first 2 billion yuan Panda bond',
     'blog.article.ubs-panda-bond-cina-mercato.excerpt': 'UBS lands on the Chinese bond market by raising 2 billion yuan with a five-year Panda bond at a fixed rate of 1.78%.',
     'blog.article.ubs-panda-bond-cina-mercato.imageAlt': 'Corporate buildings representing the Swiss banking and financial sector',
+    'blog.article.grigioni-traffico-sviamento-attesa.title': 'Graubünden: no new fines for detour traffic',
+    'blog.article.grigioni-traffico-sviamento-attesa.excerpt': 'The Grand Council of Grisons rejects the UDC motion by 67 votes to 41: no anti-divert project until a ruling on the Birsfelden model.',
+    'blog.article.grigioni-traffico-sviamento-attesa.imageAlt': 'Mountain road in Graubünden with a weekend traffic jam',
 };
 
 export default blogMetaChEn;
