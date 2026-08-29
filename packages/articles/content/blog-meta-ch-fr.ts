@@ -4606,6 +4606,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.opportunita-lavoro-amministrazione-ticino.title': '580 postes en moins : un risque pour les résidents ?',
     'blog.article.opportunita-lavoro-amministrazione-ticino.excerpt': 'Une initiative cantonale propose de réduire les effectifs de l\'Administration tessinoise de 580 unités. La question va au-delà de la simple épargne : quelles implications pour le marché du travail local ?',
     'blog.article.opportunita-lavoro-amministrazione-ticino.imageAlt': 'Castelgrande à Bellinzona, symbole de l\'administration cantonale tessinoise',
+    'blog.article.incentivi-risanamento-energetico-immobili-svizzera.title': 'Assainissement énergétique, nouveau modèle de financement',
+    'blog.article.incentivi-risanamento-energetico-immobili-svizzera.excerpt': 'La Confédération et les cantons lancent un nouveau modèle conjoint pour encourager l\'assainissement énergétique des bâtiments suisses. Consultation en automne.',
+    'blog.article.incentivi-risanamento-energetico-immobili-svizzera.imageAlt': 'Bâtiment suisse moderne économe en énergie avec panneaux solaires.',
 };
 
 export default blogMetaChFr;

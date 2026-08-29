@@ -1561,6 +1561,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'paralberghiero-progression-trimestre-2026': { it: 'paralberghiero-progression-trimestre-2026', en: 'parahotellerie-progression-trimestre-2026', de: 'parahotellerie-progression-quartal-2026', fr: 'parahotellerie-progression-trimestre-2026' },
  'fed-warsh-tassi-interesse': { it: 'fed-warsh-tassi-interesse', en: 'fed-warsh-interest-rates', de: 'fed-warsh-zinssaetze', fr: 'fed-warsh-taux-interet' },
  'opportunita-lavoro-amministrazione-ticino': { it: 'opportunita-lavoro-amministrazione-ticino', en: 'job-opportunities-ticino-administration', de: 'arbeitsmoeglichkeiten-tes-verwaltung', fr: 'opportunites-emploi-administration-tessin' },
+ 'incentivi-risanamento-energetico-immobili-svizzera': { it: 'incentivi-risanamento-energetico-immobili-svizzera', en: 'energy-efficiency-building-renovation-incentives-switzerland', de: 'energieeffizienz-gebaeudessanierung-anreize-schweiz', fr: 'incitations-renovation-energetique-immobiliere-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

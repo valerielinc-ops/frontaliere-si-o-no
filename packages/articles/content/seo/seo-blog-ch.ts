@@ -59768,6 +59768,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incentivi-risanamento-energetico-immobili-svizzera': {
+    title: 'Risanamento energetico, nuovo modello di finanziamento',
+    description: 'Confederazione e Cantoni introducono un nuovo modello congiunto per incentivare il risanamento energetico degli edifici svizzeri. Consultazione pubblica',
+    keywords: 'frontalieri, ticino, svizzera, italia, risanamento, energetico, nuovo, modello',
+    ogTitle: 'Nuovo modello di finanziamento per il risanamento energetico degli edifici',
+    ogDescription: 'Confederazione e Cantoni uniscono le forze per incentivare il risanamento energetico degli immobili svizzeri. Un nuovo modello di finanziamento, in consultazione questo autunno, mira a ridurre consumi, emissioni e migliorare la protezione dal caldo.',
+    canonicalPath: '/articoli-svizzera/incentivi-risanamento-energetico-immobili-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Risanamento energetico, nuovo modello di finanziamento",
+      "description": "Confederazione e Cantoni introducono un nuovo modello congiunto per incentivare il risanamento energetico degli edifici svizzeri. Consultazione pubblica",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/incentivi-risanamento-energetico-immobili-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio svizzero moderno efficiente dal punto di vista energetico con pannelli solari."
+      },
+      "datePublished": "2026-08-29T02:30:07+00:00",
+      "dateModified": "2026-08-29T02:30:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/incentivi-risanamento-energetico-immobili-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

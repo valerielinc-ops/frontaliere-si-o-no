@@ -13816,6 +13816,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'incentivi-risanamento-energetico-immobili-svizzera',
+    category: 'fiscale',
+    date: '2026-08-29T02:30:07.186Z',
+    image: '/images/blog/incentivi-risanamento-energetico-immobili-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
