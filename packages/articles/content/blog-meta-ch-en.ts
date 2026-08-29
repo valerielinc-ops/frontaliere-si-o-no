@@ -4630,6 +4630,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-uri-zone.title': 'Public transport in Canton Uri: zones and season tickets',
     'blog.article.abbonamenti-trasporti-uri-zone.excerpt': 'Passepartout system in Canton Uri: how the SBB zones, annual and monthly subscriptions, half-price and AG work.',
     'blog.article.abbonamenti-trasporti-uri-zone.imageAlt': 'Regional train arriving at a Canton Uri station with a tariff zone map on the platform',
+    'blog.article.abbonamenti-trasporti-uri-zone-tariffe.title': 'Uri subscriptions: zones, rates and national offers',
+    'blog.article.abbonamenti-trasporti-uri-zone-tariffe.excerpt': 'How the URI pricing community works: zones, annual and monthly subscriptions, student discounts, and combinations with Halbtax and AG.',
+    'blog.article.abbonamenti-trasporti-uri-zone-tariffe.imageAlt': 'Regional train arriving at an alpine station in Canton Uri with passengers using SwissPass',
 };
 
 export default blogMetaChEn;

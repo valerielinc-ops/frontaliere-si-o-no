@@ -4630,6 +4630,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-uri-zone.title': 'Trasporti pubblici nel Cantone Uri: zone e abbonamenti',
     'blog.article.abbonamenti-trasporti-uri-zone.excerpt': 'Sistema Passepartout nel Cantone Uri: come funzionano le zone, gli abbonamenti annuali e mensili, la metà-prezzo e l\'AG delle FFS.',
     'blog.article.abbonamenti-trasporti-uri-zone.imageAlt': 'Treno regionale in arrivo in una stazione del Cantone Uri con cartina delle zone tariffarie',
+    'blog.article.abbonamenti-trasporti-uri-zone-tariffe.title': 'Abbonamenti Uri: zone, tariffe e offerte nazionali',
+    'blog.article.abbonamenti-trasporti-uri-zone-tariffe.excerpt': 'Come funziona la comunità tariffaria Uri: zone, abbonamenti annuali e mensili, sconti per studenti e combinazioni con Halbtax e AG.',
+    'blog.article.abbonamenti-trasporti-uri-zone-tariffe.imageAlt': 'Treno regionale in arrivo in una stazione alpina del Cantone Uri con passeggeri e SwissPass',
 };
 
 export default blogMetaChIt;

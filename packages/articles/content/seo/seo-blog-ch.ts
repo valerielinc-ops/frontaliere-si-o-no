@@ -60080,6 +60080,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-abbonamenti-trasporti-uri-zone-tariffe': {
+    title: 'Abbonamenti Uri: zone, tariffe e offerte nazionali',
+    description: 'Comunità tariffaria Uri: sistema a zone, abbonamenti annuali e mensili, sconti per studenti e combinazioni con Halbtax e AG sullo SwissPass. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, abbonamenti, zone, tariffe, offerte',
+    ogTitle: 'Abbonamenti Uri: zone, tariffe e offerte',
+    ogDescription: 'Come funziona la comunità tariffaria Uri: sistema a zone, abbonamenti annuali e mensili sullo SwissPass, sconti per studenti e apprendisti, e come combinarli con Halbtax e AG. Guida pratica per residenti e pendolari.',
+    canonicalPath: '/articoli-svizzera/abbonamenti-trasporti-uri-zone-tariffe/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Abbonamenti Uri: zone, tariffe e offerte nazionali",
+      "description": "Comunità tariffaria Uri: sistema a zone, abbonamenti annuali e mensili, sconti per studenti e combinazioni con Halbtax e AG sullo SwissPass. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/abbonamenti-trasporti-uri-zone-tariffe.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno regionale in arrivo in una stazione alpina del Cantone Uri con passeggeri e SwissPass"
+      },
+      "datePublished": "2026-08-29T18:28:00+00:00",
+      "dateModified": "2026-08-29T18:28:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/abbonamenti-trasporti-uri-zone-tariffe/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -4630,6 +4630,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-uri-zone.title': 'Öffentlicher Verkehr im Kanton Uri: Zonen und Abos',
     'blog.article.abbonamenti-trasporti-uri-zone.excerpt': 'Passepartout-System im Kanton Uri: Funktionsweise der Zonen, Jahres- und Monatsabos, Halbtax und GA der SBB.',
     'blog.article.abbonamenti-trasporti-uri-zone.imageAlt': 'Regionalzug im Bahnhof des Kantons Uri mit Tarifzonenplan auf dem Perron',
+    'blog.article.abbonamenti-trasporti-uri-zone-tariffe.title': 'URI-Abonnements: Zonen, Tarife und nationale Angebote',
+    'blog.article.abbonamenti-trasporti-uri-zone-tariffe.excerpt': 'So funktioniert die URI-Tarifgemeinschaft: Zonen, Jahres- und Monatsabonnements, Studentenrabatte und Kombinationen mit Halbtax und AG.',
+    'blog.article.abbonamenti-trasporti-uri-zone-tariffe.imageAlt': 'Regionalzug ankommt an einem alpinen Bahnhof im Kanton Uri mit Fahrgaesten und SwissPass',
 };
 
 export default blogMetaChDe;
