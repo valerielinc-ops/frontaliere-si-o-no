@@ -4618,6 +4618,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ubs-panda-bond-cina-mercato.title': 'UBS gibt den ersten 2 Milliarden Yuan Panda Bond heraus',
     'blog.article.ubs-panda-bond-cina-mercato.excerpt': 'UBS landet auf dem chinesischen Anleihemarkt und sammelt 2 Milliarden Yuan mit einer fünfjährigen Panda-Anleihe mit einem festen Zinssatz von 1,78%.',
     'blog.article.ubs-panda-bond-cina-mercato.imageAlt': 'Bürogebäude des Schweizer Banken- und Finanzsektors',
+    'blog.article.grigioni-traffico-sviamento-attesa.title': 'Graubünden: Keine neuen Umleitungsstrafen',
+    'blog.article.grigioni-traffico-sviamento-attesa.excerpt': 'Der Bündner Grosse Rat lehnt die SVP-Motion mit 67 zu 41 Stimmen ab: Keine Anti-Umlenkungsvorlage bis zum Urteil nach dem Birsfelden-Modell.',
+    'blog.article.grigioni-traffico-sviamento-attesa.imageAlt': 'Bergstrasse in Graubünden mit Stau am Wochenende',
 };
 
 export default blogMetaChDe;

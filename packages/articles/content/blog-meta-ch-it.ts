@@ -4618,6 +4618,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ubs-panda-bond-cina-mercato.title': 'UBS emette il primo Panda bond da 2 miliardi di yuan',
     'blog.article.ubs-panda-bond-cina-mercato.excerpt': 'UBS sbarca sul mercato obbligazionario cinese raccogliendo 2 miliardi di yuan con un Panda bond quinquennale a tasso fisso all\'1,78%.',
     'blog.article.ubs-panda-bond-cina-mercato.imageAlt': 'Palazzi direzionali del settore bancario e finanziario elvetico',
+    'blog.article.grigioni-traffico-sviamento-attesa.title': 'Grigioni: niente nuove multe al traffico di deviazione',
+    'blog.article.grigioni-traffico-sviamento-attesa.excerpt': 'Il Gran Consiglio grigionese boccia la mozione UDC con 67 voti contro 41: niente progetto anti-sviamento fino a sentenza sul modello Birsfelden.',
+    'blog.article.grigioni-traffico-sviamento-attesa.imageAlt': 'Strada di montagna nei Grigioni con coda di auto durante il fine settimana',
 };
 
 export default blogMetaChIt;
