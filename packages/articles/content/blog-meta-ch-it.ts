@@ -4609,6 +4609,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.incentivi-risanamento-energetico-immobili-svizzera.title': 'Risanamento energetico, nuovo modello di finanziamento',
     'blog.article.incentivi-risanamento-energetico-immobili-svizzera.excerpt': 'Confederazione e Cantoni lanciano un nuovo modello congiunto per incentivare il risanamento energetico degli edifici svizzeri. Consultazione in autunno.',
     'blog.article.incentivi-risanamento-energetico-immobili-svizzera.imageAlt': 'Edificio svizzero moderno efficiente dal punto di vista energetico con pannelli solari.',
+    'blog.article.grigioni-contanti-servizi-pubblici.title': 'Contanti nei Grigioni: ok al controprogetto',
+    'blog.article.grigioni-contanti-servizi-pubblici.excerpt': 'Il Parlamento grigionese approva un controprogetto che garantisce il pagamento in contanti per tasse e servizi pubblici, anticipando un\'iniziativa popolare.',
+    'blog.article.grigioni-contanti-servizi-pubblici.imageAlt': 'Parlamento grigionese discute il mantenimento del contante per i servizi pubblici a Coira.',
 };
 
 export default blogMetaChIt;

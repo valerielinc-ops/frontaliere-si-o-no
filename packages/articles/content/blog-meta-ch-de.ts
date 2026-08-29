@@ -4609,6 +4609,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.incentivi-risanamento-energetico-immobili-svizzera.title': 'Energetische Sanierung, neues Finanzierungsmodell',
     'blog.article.incentivi-risanamento-energetico-immobili-svizzera.excerpt': 'Bund und Kantone lancieren ein neues gemeinsames Modell zur Förderung der energetischen Gebäudesanierung in der Schweiz. Konsultation im Herbst.',
     'blog.article.incentivi-risanamento-energetico-immobili-svizzera.imageAlt': 'Modernes Schweizer energieeffizientes Gebäude mit Solarpaneelen.',
+    'blog.article.grigioni-contanti-servizi-pubblici.title': 'Bargeld in Graubünden: OK zum Gegenentwurf',
+    'blog.article.grigioni-contanti-servizi-pubblici.excerpt': 'Das Bündner Parlament verabschiedet einen Gegenvorschlag, der die Barauszahlung von Steuern und öffentlichen Dienstleistungen garantiert und eine Volksinitiative vorwegnimmt.',
+    'blog.article.grigioni-contanti-servizi-pubblici.imageAlt': 'Bündner Kantonsparlament diskutiert die Beibehaltung von Bargeldzahlungen für öffentliche Dienstleistungen in Chur.',
 };
 
 export default blogMetaChDe;

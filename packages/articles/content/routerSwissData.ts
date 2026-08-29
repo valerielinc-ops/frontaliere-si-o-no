@@ -1562,6 +1562,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'fed-warsh-tassi-interesse': { it: 'fed-warsh-tassi-interesse', en: 'fed-warsh-interest-rates', de: 'fed-warsh-zinssaetze', fr: 'fed-warsh-taux-interet' },
  'opportunita-lavoro-amministrazione-ticino': { it: 'opportunita-lavoro-amministrazione-ticino', en: 'job-opportunities-ticino-administration', de: 'arbeitsmoeglichkeiten-tes-verwaltung', fr: 'opportunites-emploi-administration-tessin' },
  'incentivi-risanamento-energetico-immobili-svizzera': { it: 'incentivi-risanamento-energetico-immobili-svizzera', en: 'energy-efficiency-building-renovation-incentives-switzerland', de: 'energieeffizienz-gebaeudessanierung-anreize-schweiz', fr: 'incitations-renovation-energetique-immobiliere-suisse' },
+ 'grigioni-contanti-servizi-pubblici': { it: 'grigioni-contanti-servizi-pubblici', en: 'graubunden-cash-public-services', de: 'graubunden-bargeld-offentliche-dienste', fr: 'grisons-especes-services-publics' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
