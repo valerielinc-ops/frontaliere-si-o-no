@@ -4630,6 +4630,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-uri-zone.title': 'Transports publics dans le canton d\'Uri : zones et abonnements',
     'blog.article.abbonamenti-trasporti-uri-zone.excerpt': 'Système Passepartout dans le canton d\'Uri : fonctionnement des zones, abonnements annuels et mensuels, demi-tarif et AG des CFF.',
     'blog.article.abbonamenti-trasporti-uri-zone.imageAlt': 'Train regional entrant en gare dans le canton d\'Uri avec plan des zones tarifaires',
+    'blog.article.abbonamenti-trasporti-uri-zone-tariffe.title': 'Abonnements URI : zones, tarifs et offres nationales',
+    'blog.article.abbonamenti-trasporti-uri-zone-tariffe.excerpt': 'Comment fonctionne la communauté tarifaire URI : zones, abonnements annuels et mensuels, réductions pour étudiants et combinaisons avec Halbtax et AG.',
+    'blog.article.abbonamenti-trasporti-uri-zone-tariffe.imageAlt': 'Train regional arrivant dans une gare alpine du canton d\'Uri avec voyageurs et SwissPass',
 };
 
 export default blogMetaChFr;
