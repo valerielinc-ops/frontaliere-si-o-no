@@ -4639,6 +4639,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-successione-donazione-uri-guida.title': 'Erbschafts- und Schenkungssteuer im Kanton Uri: Leitfaden',
     'blog.article.imposta-successione-donazione-uri-guida.excerpt': 'Wie funktioniert die Erbschafts- und Schenkungsbesteuerung im Kanton Uri: Sätze pro Verwandtschaftsgrad, kommunaler Multiplikator und Meldepflichten.',
     'blog.article.imposta-successione-donazione-uri-guida.imageAlt': 'Notarielle Dokumente auf einem Schreibtisch im Kanton Uri mit Bergblick',
+    'blog.article.assegni-familiari-svitto-domanda.title': 'Familienzulagen im Kanton Schwyz: Praxisleitfaden',
+    'blog.article.assegni-familiari-svitto-domanda.excerpt': 'Bundesrahmen FamZG im Kanton Schwyz angewendet: Recht, Dokumente, Rolle des Arbeitgebers und Schritt-für-Schritt-Verfahren für den Antrag.',
+    'blog.article.assegni-familiari-svitto-domanda.imageAlt': 'Familie in einem alpinen Dorf im Kanton Schwyz',
 };
 
 export default blogMetaChDe;

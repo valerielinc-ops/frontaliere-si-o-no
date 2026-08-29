@@ -13915,6 +13915,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'assegni-familiari-svitto-domanda',
+    category: 'pratico',
+    date: '2026-08-29T20:08:34.403Z',
+    image: '/images/blog/assegni-familiari-svitto-domanda.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
