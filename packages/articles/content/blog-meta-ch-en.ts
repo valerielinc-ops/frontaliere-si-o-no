@@ -4600,6 +4600,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.paralberghiero-progression-trimestre-2026.title': 'Paralympic sector, slight progression in the second trimester',
     'blog.article.paralberghiero-progression-trimestre-2026.excerpt': '3.9 million overnight stays between April and June (+0.4%). Decreasing in the semester (-3.1%). UST DATA',
     'blog.article.paralberghiero-progression-trimestre-2026.imageAlt': 'Vacation apartments and campsites in a Swiss valley near Locarno, summer',
+    'blog.article.fed-warsh-tassi-interesse.title': 'FED: Kevin Warsh\'s Interest Rate Announcement',
+    'blog.article.fed-warsh-tassi-interesse.excerpt': 'Kevin Warsh intervenes in Jackson Hole and opens to a possible increase in interest rates due to inflation to 3.7% in July.',
+    'blog.article.fed-warsh-tassi-interesse.imageAlt': 'Financial markets and interest rates at Jackson Hole',
 };
 
 export default blogMetaChEn;

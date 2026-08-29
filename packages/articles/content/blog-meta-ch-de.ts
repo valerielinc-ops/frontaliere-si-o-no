@@ -4600,6 +4600,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.paralberghiero-progression-trimestre-2026.title': 'Hotelparadies, leichte Progression im zweiten Quartal',
     'blog.article.paralberghiero-progression-trimestre-2026.excerpt': '3,9 Millionen Logiernächte zwischen April und Juni (+0,4%). Rückgang im Halbjahr (-3,1%). USt.',
     'blog.article.paralberghiero-progression-trimestre-2026.imageAlt': 'Ferienwohnungen und Campingplätze in einem Schweizer Tal bei Locarno, Sommer',
+    'blog.article.fed-warsh-tassi-interesse.title': 'FED: Kevin Warshs Ankündigung zu den Zinssätzen',
+    'blog.article.fed-warsh-tassi-interesse.excerpt': 'Kevin Warsh interveniert in Jackson Hole und öffnet sich für eine mögliche Zinserhöhung aufgrund der Inflation auf 3,7% im Juli.',
+    'blog.article.fed-warsh-tassi-interesse.imageAlt': 'Finanzmärkte und Zinssätze in Jackson Hole',
 };
 
 export default blogMetaChDe;
