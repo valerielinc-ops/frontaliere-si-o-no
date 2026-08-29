@@ -4624,6 +4624,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.scuola-ticino-vpod-condizioni-docenti.title': 'Scuola in Ticino: VPOD chiede organici, tempo e risorse',
     'blog.article.scuola-ticino-vpod-condizioni-docenti.excerpt': 'All\'apertura delle scuole, il comitato docenti VPOD Ticino guidato da Matteo Finali rilancia la richiesta di investire nelle condizioni di lavoro del personale scolastico.',
     'blog.article.scuola-ticino-vpod-condizioni-docenti.imageAlt': 'Aula scolastica in Ticino pronta per l\'inizio dell\'anno scolastico',
+    'blog.article.avs-prestazioni-complementari-uri-cassa.title': 'AVS nel Canton Uri: guida alla cassa di compensazione',
+    'blog.article.avs-prestazioni-complementari-uri-cassa.excerpt': 'Come funziona il primo pilastro nel Canton Uri: cassa di compensazione, calcolo della rendita AVS e prestazioni complementari per chi non raggiunge il minimo vitale.',
+    'blog.article.avs-prestazioni-complementari-uri-cassa.imageAlt': 'Veduta del Canton Uri con ufficio amministrativo e documento AVS',
 };
 
 export default blogMetaChIt;

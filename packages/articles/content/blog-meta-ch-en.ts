@@ -4624,6 +4624,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.scuola-ticino-vpod-condizioni-docenti.title': 'School in Ticino: VPOD asks for staff, time and resources',
     'blog.article.scuola-ticino-vpod-condizioni-docenti.excerpt': 'At the opening of the schools, the VPOD Ticino teachers\' committee led by Matteo Finali relaunches the request to invest in the working conditions of school staff.',
     'blog.article.scuola-ticino-vpod-condizioni-docenti.imageAlt': 'Ticino school classroom ready for the new school year',
+    'blog.article.avs-prestazioni-complementari-uri-cassa.title': 'AVS in Canton Uri: clearing house guide',
+    'blog.article.avs-prestazioni-complementari-uri-cassa.excerpt': 'How the first pillar works in Canton Uri: compensation fund, calculation of the AVS annuity and supplementary benefits for those who do not reach the minimum living wage.',
+    'blog.article.avs-prestazioni-complementari-uri-cassa.imageAlt': 'Canton Uri view with administrative office and AVS document',
 };
 
 export default blogMetaChEn;

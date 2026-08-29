@@ -4624,6 +4624,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.scuola-ticino-vpod-condizioni-docenti.title': 'École au Tessin : VPOD demande du personnel, du temps et des ressources',
     'blog.article.scuola-ticino-vpod-condizioni-docenti.excerpt': 'À l\'ouverture des écoles, le comité des enseignants VPOD Tessin dirigé par Matteo Finali relance la demande d\'investir dans les conditions de travail du personnel scolaire.',
     'blog.article.scuola-ticino-vpod-condizioni-docenti.imageAlt': 'Salle de classe tessinoise prête pour la rentrée',
+    'blog.article.avs-prestazioni-complementari-uri-cassa.title': 'AVS dans le canton d\'Uri : guide de la caisse de compensation',
+    'blog.article.avs-prestazioni-complementari-uri-cassa.excerpt': 'Comment fonctionne le premier pilier dans le canton d\'Uri : caisse de compensation, calcul de la rente AVS et prestations complémentaires pour ceux qui n\'atteignent pas le minimum vital.',
+    'blog.article.avs-prestazioni-complementari-uri-cassa.imageAlt': 'Vue du canton d\'Uri avec bureau administratif et document AVS',
 };
 
 export default blogMetaChFr;
