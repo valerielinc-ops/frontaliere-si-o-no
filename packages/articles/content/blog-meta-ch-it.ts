@@ -4639,6 +4639,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposta-successione-donazione-uri-guida.title': 'Imposta di successione e donazione nel Cantone Uri: guida',
     'blog.article.imposta-successione-donazione-uri-guida.excerpt': 'Come funziona la tassazione di successioni e donazioni nel Cantone Uri: aliquote per grado di parentela, moltiplicatore comunale e obblighi dichiarativi.',
     'blog.article.imposta-successione-donazione-uri-guida.imageAlt': 'Documenti su una scrivania di uno studio notarile nel Cantone Uri, con vista sulle Alpi',
+    'blog.article.assegni-familiari-svitto-domanda.title': 'Assegni familiari nel Canton Svitto: guida pratica',
+    'blog.article.assegni-familiari-svitto-domanda.excerpt': 'Quadro federale LAFam applicato in Canton Svitto: diritto, documenti, ruolo del datore di lavoro e procedura step-by-step per la domanda.',
+    'blog.article.assegni-familiari-svitto-domanda.imageAlt': 'Famiglia in un villaggio alpino del Canton Svitto',
 };
 
 export default blogMetaChIt;

@@ -1572,6 +1572,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'abbonamenti-trasporti-uri-zone-tariffe': { it: 'abbonamenti-trasporti-uri-zone-tariffe', en: 'uri-public-transport-zone-fares', de: 'uri-oeffentliche-verkehrszonen-tarife', fr: 'abonnements-transports-uri-zones-tarifs' },
  'startup-uri-registro-commercio': { it: 'startup-uri-registro-commercio', en: 'startup-uri-commercial-register', de: 'startup-uri-handelsregister', fr: 'startup-uri-registre-commerce' },
  'imposta-successione-donazione-uri-guida': { it: 'imposta-successione-donazione-uri-guida', en: 'inheritance-gift-tax-uri-guide', de: 'erbschafts-schenkungssteuer-uri-leitfaden', fr: 'impot-succession-donation-uri-guide' },
+ 'assegni-familiari-svitto-domanda': { it: 'assegni-familiari-svitto-domanda', en: 'family-allowances-schwyz-application', de: 'familienzulagen-schwyz-antrag', fr: 'allocations-familiales-schwytz-demande' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

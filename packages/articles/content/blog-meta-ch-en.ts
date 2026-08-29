@@ -4639,6 +4639,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-successione-donazione-uri-guida.title': 'Inheritance and gift tax in Canton Uri: guide',
     'blog.article.imposta-successione-donazione-uri-guida.excerpt': 'How inheritance and gift taxation works in Canton Uri: rates by degree of kinship, municipal multiplier and declaratory obligations.',
     'blog.article.imposta-successione-donazione-uri-guida.imageAlt': 'Notary documents on a wooden desk in Canton Uri with Alpine village view',
+    'blog.article.assegni-familiari-svitto-domanda.title': 'Family allowances in the canton of Svitto: a practical guide',
+    'blog.article.assegni-familiari-svitto-domanda.excerpt': 'Federal LAFam framework applied in Canton Svitto: law, documents, role of the employer and step-by-step procedure for the application.',
+    'blog.article.assegni-familiari-svitto-domanda.imageAlt': 'Family in an alpine village in Canton Schwyz',
 };
 
 export default blogMetaChEn;

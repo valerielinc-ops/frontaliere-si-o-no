@@ -4639,6 +4639,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-successione-donazione-uri-guida.title': 'Droits de succession et de donation dans le canton d\'Uri : guide',
     'blog.article.imposta-successione-donazione-uri-guida.excerpt': 'Comment fonctionne la fiscalité des successions et donations dans le canton d\'Uri : taux par degré de parenté, multiplicateur communal et obligations déclaratives.',
     'blog.article.imposta-successione-donazione-uri-guida.imageAlt': 'Documents notariaux sur un bureau dans le canton d\'Uri avec vue alpine',
+    'blog.article.assegni-familiari-svitto-domanda.title': 'Allocations familiales dans le canton de Schwyz : guide pratique',
+    'blog.article.assegni-familiari-svitto-domanda.excerpt': 'Cadre fédéral LAFam appliqué dans le canton de Schwyz : droit, documents, rôle de l\'employeur et procédure étape par étape pour la demande.',
+    'blog.article.assegni-familiari-svitto-domanda.imageAlt': 'Famille dans un village alpin du canton de Schwytz',
 };
 
 export default blogMetaChFr;
