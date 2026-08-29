@@ -4627,6 +4627,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-uri-cassa.title': 'AVS nel Canton Uri: guida alla cassa di compensazione',
     'blog.article.avs-prestazioni-complementari-uri-cassa.excerpt': 'Come funziona il primo pilastro nel Canton Uri: cassa di compensazione, calcolo della rendita AVS e prestazioni complementari per chi non raggiunge il minimo vitale.',
     'blog.article.avs-prestazioni-complementari-uri-cassa.imageAlt': 'Veduta del Canton Uri con ufficio amministrativo e documento AVS',
+    'blog.article.abbonamenti-trasporti-uri-zone.title': 'Trasporti pubblici nel Cantone Uri: zone e abbonamenti',
+    'blog.article.abbonamenti-trasporti-uri-zone.excerpt': 'Sistema Passepartout nel Cantone Uri: come funzionano le zone, gli abbonamenti annuali e mensili, la metà-prezzo e l\'AG delle FFS.',
+    'blog.article.abbonamenti-trasporti-uri-zone.imageAlt': 'Treno regionale in arrivo in una stazione del Cantone Uri con cartina delle zone tariffarie',
 };
 
 export default blogMetaChIt;

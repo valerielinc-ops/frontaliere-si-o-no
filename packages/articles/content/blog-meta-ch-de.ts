@@ -4627,6 +4627,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-uri-cassa.title': 'AHV im Kanton Uri: Leitfaden zur Ausgleichskasse',
     'blog.article.avs-prestazioni-complementari-uri-cassa.excerpt': 'So funktioniert die erste Säule im Kanton Uri: Ausgleichskasse, AHV-Rentenberechnung und Ergänzungsleistungen für Personen, die das Existenzminimum nicht erreichen.',
     'blog.article.avs-prestazioni-complementari-uri-cassa.imageAlt': 'Blick auf den Kanton Uri mit Verwaltungsbüro und AHV-Dokument',
+    'blog.article.abbonamenti-trasporti-uri-zone.title': 'Öffentlicher Verkehr im Kanton Uri: Zonen und Abos',
+    'blog.article.abbonamenti-trasporti-uri-zone.excerpt': 'Passepartout-System im Kanton Uri: Funktionsweise der Zonen, Jahres- und Monatsabos, Halbtax und GA der SBB.',
+    'blog.article.abbonamenti-trasporti-uri-zone.imageAlt': 'Regionalzug im Bahnhof des Kantons Uri mit Tarifzonenplan auf dem Perron',
 };
 
 export default blogMetaChDe;

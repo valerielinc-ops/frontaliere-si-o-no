@@ -4627,6 +4627,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-uri-cassa.title': 'AVS in Canton Uri: clearing house guide',
     'blog.article.avs-prestazioni-complementari-uri-cassa.excerpt': 'How the first pillar works in Canton Uri: compensation fund, calculation of the AVS annuity and supplementary benefits for those who do not reach the minimum living wage.',
     'blog.article.avs-prestazioni-complementari-uri-cassa.imageAlt': 'Canton Uri view with administrative office and AVS document',
+    'blog.article.abbonamenti-trasporti-uri-zone.title': 'Public transport in Canton Uri: zones and season tickets',
+    'blog.article.abbonamenti-trasporti-uri-zone.excerpt': 'Passepartout system in Canton Uri: how the SBB zones, annual and monthly subscriptions, half-price and AG work.',
+    'blog.article.abbonamenti-trasporti-uri-zone.imageAlt': 'Regional train arriving at a Canton Uri station with a tariff zone map on the platform',
 };
 
 export default blogMetaChEn;
