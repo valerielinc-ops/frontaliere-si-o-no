@@ -4654,6 +4654,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-svitto-diritto-locazione.title': 'Affitti nel Cantone di Svitto: diritto federale e regole chiave',
     'blog.article.affitti-svitto-diritto-locazione.excerpt': 'Deposito cauzionale fino a 3 mensilità, disdetta con modulo ufficiale e 30 giorni per contestare il canone iniziale a Svitto.',
     'blog.article.affitti-svitto-diritto-locazione.imageAlt': 'Case residenziali nel Cantone di Svitto con vista sulle prealpi svizzere',
+    'blog.article.aprire-attivita-svitto-costi-registro.title': 'Aprire un\'attività nel Canton Svitto: guida a registro e costi',
+    'blog.article.aprire-attivita-svitto-costi-registro.excerpt': 'Iscrizione al registro di commercio, forme giuridiche, imposte a tre livelli e obblighi assicurativi per avviare un\'attività nel Canton Svitto.',
+    'blog.article.aprire-attivita-svitto-costi-registro.imageAlt': 'Veduta aerea del villaggio di Svitto con il paesaggio alpino dei Mythen sullo sfondo',
 };
 
 export default blogMetaChIt;

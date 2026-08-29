@@ -4654,6 +4654,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-svitto-diritto-locazione.title': 'Mieten im Kanton Schwyz: Bundesrecht und Schlüsselregeln',
     'blog.article.affitti-svitto-diritto-locazione.excerpt': 'Kaution bis zu 3 Monatsraten, Kündigung mit offiziellem Formular und 30 Tage, um die anfängliche Miete in Schwyz anzufechten.',
     'blog.article.affitti-svitto-diritto-locazione.imageAlt': 'Wohnhäuser im Kanton Schwyz mit Blick auf die Schweizer Voralpen',
+    'blog.article.aprire-attivita-svitto-costi-registro.title': 'Geschäft im Kanton Schwyz eröffnen: Registerführung und Kosten',
+    'blog.article.aprire-attivita-svitto-costi-registro.excerpt': 'Handelsregistereintrag, Rechtsformen, dreistufige Steuern und Versicherungspflichten zur Aufnahme einer Tätigkeit im Kanton Schwyz.',
+    'blog.article.aprire-attivita-svitto-costi-registro.imageAlt': 'Luftaufnahme des Dorfes Schwyz mit den Mythen-Bergen im Hintergrund',
 };
 
 export default blogMetaChDe;

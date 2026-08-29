@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Sat, 29 Aug 2026 22:31:21 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 29 Aug 2026 23:01:22 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -16,6 +16,75 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Starting a business in Canton Schwyz: registration &amp; costs</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/start-business-schwyz-trade-register-costs/</link>
+      <description><![CDATA[Registration in the commercial register, legal forms, three-level taxes and insurance obligations to start a business in the Canton of Schwyz.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- Opening a business in Canton Schwyz requires registration in the commercial register
+- The choice of legal form affects minimum capital and liability
+- Taxes follow the Swiss three-tier model (federal, cantonal, municipal)
+- Insurance obligations and salary contributions apply throughout the Swiss territory
+
+## Key facts
+- **What**: Start-up of a self-employed or corporate activity in the Canton of Schwyz
+- When: the source does not indicate a specific date; the procedure is permanent
+- Where: Canton of Schwyz, central Switzerland
+- Who: future entrepreneur, cantonal trade register, tax authorities
+- Amount: minimum capital variable according to the legal form (the source does not specify amounts)
+- Tax authorities: AFC/ESTV for IFD and VAT; cantonal administrations for cantonal and municipal taxes
+- Pension: UFAS/BSV for AVS, AI and LPP
+- Health insurance: mandatory within 3 months of arrival or start of activity
+
+Starting a business in the Canton of Swiss requires compliance with a series of requirements that cross federal and cantonal law. The first step is to choose the legal form, which determines the minimum capital, the corporate structure and the degree of personal responsibility.
+
+In Switzerland the most common legal forms are the individual activity, the partnership (Kollektivgesellschaft according to the German denomination), the limited partnership (Kommanditgesellschaft), the
+### Capital, responsibility and strategic choice
+
+The choice of legal form is not just a bureaucratic matter: it affects property liability, the ability to raise capital and the tax burden. An individual activity does not require minimum capital but exposes the holder to unlimited liability. The Kollektivgesellschaft (joint venture) operates with at least two shareholders who are jointly and severally liable; the Kommanditgesellschaft instead provides for at least one general partner, whose liability is limited to the contribution.
+
+Särl/Sàrl and AG/SA are joint-stock companies: liability is limited to the capital contributed. The main difference lies in the minimum capital — higher for AG/SA according to Swiss practice — and in the possibility of issuing shares. The source confirms that Särl/Sàrl and AG/SA belong to the category of limited liability companies, without however indicating the exact amounts of the minimum capital.
+
+### Insurance and social security obligations
+
+Those who start a business with employees must register with a compensation fund for the payment of AVS/AI/IPG contributions (10.6% total, of which 5.3% paid by the employee) and AD/AC contributions (1.1% up to the annual ceiling, which the source indicates as indexed annually). Compulsory accident insurance (LAINF/LAA) requires contributions between 0.7% and 1.5% depending on the sector of activity, to be paid to SUVA
+
+## Useful planning tools
+To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
+### Step-by-step procedure for starting a business
+
+1. Choose the right legal form. Assess liability, required capital and administrative complexity. For low-risk activities with no employees, a sole proprietorship may be sufficient; for activities with asset risk, a GmbH/Sàrl or AG/SA offer protection.
+
+2. Check the availability of the name. Before registration, you must ensure that the chosen name is not already registered. The search service is available at the commercial register office.
+
+3. Draft the founding deed and articles of association. For GmbH/Sàrl and AG/SA a public deed is required; for partnerships, a written contract between the partners may suffice.
+
+4. Pay in the minimum capital and open a bank account. The payment must be certified by the bank and the amount deposited in the business account.
+
+5. Register with the commercial register. The application is submitted to the cantonal office, with all required documents. The source notes the existence of registration fees, but the specific amount is not indicated: to be requested directly from the office.
+
+6. Register with the tax authorities. Distinguish between direct federal tax/VAT (FTA/ESTV) and cantonal/municipal taxes (tax administration of Canton Schwyz). The source clarifies the respective competences: the FTA/ESTV handles direct federal tax and VAT, cantonal administrations handle the rest.
+
+7. Register with a compensation fund. For OASI/DI/IC contributions and, if you hire employees, also unemployment insurance and LAINF (occupational accident insurance).
+
+8. Take out the mandatory insurances. LAMal (health insurance) within 3 months of starting the activity for the owner and family members; LAINF for employees.
+
+### Deadlines and recurring obligations
+
+- VAT return: usually quarterly, with rates defined by the FTA.
+- Tax return: annual, with cantonal deadlines.
+- Payment of social security contributions: monthly or quarterly depending on the compensation fund.
+
+### Useful tools
+
+To simulate the tax and social security impact on income, the Frontaliere Ticino [salary calculator](nav:calculator) is available. To compare the cost of living between cantons, also with a view to choosing where to locate the business, see the page on [cost of living in Switzerland](nav:cost-of-living). For those considering complementary pension solutions, the [third pillar 3a](nav:pillar3) offers an up-to-date overview.
+
+Planning the start-up is a strategic phase: capital, legal form, tax regime and insurance coverage must be decided before registration, not after. Anticipating these steps reduces bureaucratic times and the risk of unexpected costs.]]></content:encoded>
+      <pubDate>Sat, 29 Aug 2026 23:01:22 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/aprire-attivita-svitto-costi-registro</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/aprire-attivita-svitto-costi-registro.webp" medium="image"/>
+    </item>
     <item>
       <title>Rentals in the Canton of Schwyz: federal law and key rules</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/rentals-schwyz-tenancy-law/</link>
@@ -2849,66 +2918,6 @@ Compare the [CHF/EUR exchange rate](nav:exchange) in real time across providers:
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/kremlin-voto-neutralita-svizzera</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/kremlin-voto-neutralita-svizzera.webp" medium="image"/>
-    </item>
-    <item>
-      <title>BancaStati Ticino: revenues -6%, weighing rates</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/bancasto-revenues-decline-semester/</link>
-      <description><![CDATA[In the first half of 2026, BancaStati Ticino's revenues fell by 6% to CHF 153 million. The result for the year fell by 22%, while net profit remained stable thanks to extraordinary income.]]></description>
-      <content:encoded><![CDATA[## In brief
-- BancaStato Ticino revenue: -6% to CHF 153 million in the first half of 2026
-- Operating result -22%, but net profit stable (+1% to CHF 48 million)
-- Growth continues: mortgage loans +1.9%, managed assets +4.1% (CHF 25.1 billion)
-
-## Key facts
-- **What**: BancaStato Ticino financial results for the first half
-- When: H1 2026
-- Where: Ticino Canton
-- Who: Cantonal State Bank of Ticino
-- Revenue: CHF 153 million (-6% year-on-year)
-- Operating result: CHF 97 million (-22%)
-- Net profit: CHF 48 million (+1%)
-- Managed assets: CHF 25.1 billion (+4.1%)
-
-The Cantonal State Bank of Ticino recorded a 6% contraction in revenue on a year-on-year basis in the first half of 2026, falling to CHF 153 million. The operating result decline was more pronounced, contracting by 22% to CHF 97 million. Despite these declines, net profit maintained substantial stability thanks to extraordinary income, registering a slight increase of 1% to CHF 48 million.
-
-### What held back results
-
-The institution attributes the revenue decline to current reference rate levels and a challenging macroeconomic environment. In this scenario, trading margins compressed. However, the bank's management emphasizes that revenues remain, from a historical perspective, 'at an excellent level'. The chief executive officer, Fabrizio Cieslakiewicz, describes the results as 'certainly positive' and worthy of 'genuine satisfaction', considering the competitive environment of minimal trading margins.
-
-### Growth on other fronts
-
-Looking at assets and loans, the news is more positive. Mortgage loans increased by 1.9%, reaching CHF 13.1 billion, and assets managed by the bank recorded an increase of 4.1% to CHF 25.1 billion. Net inflows amounted to CHF 554 million, a sign of the trust placed by customers in the institution. These dynamics show how deposits and wealth management services remain elements of strength for [BancaStato](nav:banks), despite headwinds on intermediation margins.
-### The Impact of Rates on Savings Choices
-
-In the context of low benchmark rates, returns on traditional deposits are significantly reduced. For Ticino and Swiss savers, this means that income from interest-bearing current accounts or term deposits is compressed. At the same time, the institution must adapt while maintaining the competitiveness of the service portfolio. The growth in assets under management (+4.1% to 25.1 billion) suggests that clients continue to seek investment and asset management solutions to compensate for the low return on liquid savings. This behaviour reflects a national trend: when rates fall, households diversify towards complementary investment instruments.
-
-# ## Mortgage loans that are resilient in the real estate market
-
-The growth in mortgage loans of 1.9% to 13.1 billion reflects stable residual demand in the Ticino real estate market, despite the context of theoretically less favourable rates. This is consistent with the national trend, where mortgages remain a central tool of family financial management and housing planning. The bank, as a historical regional institution, therefore maintains a consolidated position in the mortgage credit segment, which continues to represent a significant component of the balance sheet and a stable source of revenue.
-
-### Cautionary forecasts and business model
-
-The bank expects that the
-
-## Useful tools to protect your net income
-To reduce FX leakage, compare [CHF-EUR exchange options](nav:exchange) and [banks for cross-border workers](nav:banks).
-### What it means for BancaStato customers
-
-If you hold an account with BancaStato Ticino, the bank's results reflect the institution's ability to maintain operational soundness in a competitive and pressured environment. The stability of net profit (+1%), despite declining revenues, indicates that the institution is able to manage margin erosion without compromising overall profitability. For customers who entrust the bank with their assets and supplementary pension solutions, the growth in managed assets (+4.1%) represents a signal of confidence and attractiveness of the services offered. This means that, even in difficult times, your money is managed by an institution that maintains operational capacity and revenue diversification.
-
-### A story of reliability since its founding in 1915
-
-The Banca dello Stato del Cantone Ticino (Bank of the State of the Canton of Ticino) has deep and significant roots in Swiss economic history. It was established in 1915 precisely to respond to the great turmoil in the Ticino banking market, when several institutions were in difficulty and forced to close their doors. In those dramatic years, Ticino savers lost approximately 40 million francs, almost half of the savings deposited in the canton's credit institutions. The public institution was created as an anchor of solidarity. In 1961, BancaStato opened to unsecured credit, expanding its offering beyond the mortgage sector alone. The transformation into a true universal bank was completed only in 2003, consolidating a range of modern services. This historical path underscores how BancaStato has always been part of financial stability and the protection of territorial savings.
-
-### Next steps: compare and choose the right solution
-
-If you want to verify the terms and conditions of [deposits, current accounts or banking services](nav:banks) with BancaStato or compare them with other options available in Switzerland, you can access our comparison tools to choose the solutions most suited to your savings and investment needs. The search for a reliable bank, with solid asset management and diversified offering, is central to your medium and long-term financial planning.
-
-*Source: [swissinfo.ch](https://www.swissinfo.ch/ita/bancastato%3a-ricavi-in-calo%2c-pesano-tassi-e-contesto-macro/91965179)*]]></content:encoded>
-      <pubDate>Thu, 27 Aug 2026 14:24:35 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/bancasto-ricavi-calo-semestre</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/bancasto-ricavi-calo-semestre.webp" medium="image"/>
     </item>
   </channel>
 </rss>
