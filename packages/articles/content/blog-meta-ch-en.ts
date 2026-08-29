@@ -4642,6 +4642,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assegni-familiari-svitto-domanda.title': 'Family allowances in the canton of Svitto: a practical guide',
     'blog.article.assegni-familiari-svitto-domanda.excerpt': 'Federal LAFam framework applied in Canton Svitto: law, documents, role of the employer and step-by-step procedure for the application.',
     'blog.article.assegni-familiari-svitto-domanda.imageAlt': 'Family in an alpine village in Canton Schwyz',
+    'blog.article.grigioni-attesa-modello-birsfelden.title': 'Graubünden: Grand Council halted pending Birsfelden case',
+    'blog.article.grigioni-attesa-modello-birsfelden.excerpt': 'Vote 67-41: the Grison Parliament follows the Government and postpones any decision on diverted traffic until the ruling on the BL model.',
+    'blog.article.grigioni-attesa-modello-birsfelden.imageAlt': 'Alpine road in the Grisons with traffic jams and cars diverting into a mountain village',
 };
 
 export default blogMetaChEn;
