@@ -4600,6 +4600,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.paralberghiero-progression-trimestre-2026.title': 'Secteur hors hôtelerie, légère hausse au deuxième trimestre',
     'blog.article.paralberghiero-progression-trimestre-2026.excerpt': '3,9 millions de nuitées entre avril et juin (+0,4%). Baisse du semestre (-3,1%). Données UST.',
     'blog.article.paralberghiero-progression-trimestre-2026.imageAlt': 'Appartements de vacances et campings dans une vallée suisse près de Locarno, été',
+    'blog.article.fed-warsh-tassi-interesse.title': 'FED : l\'annonce de Kevin Warsh sur les taux d\'intérêt',
+    'blog.article.fed-warsh-tassi-interesse.excerpt': 'Kevin Warsh intervient à Jackson Hole et ouvre à une possible hausse des taux d\'intérêt en raison de l\'inflation à 3,7% en juillet.',
+    'blog.article.fed-warsh-tassi-interesse.imageAlt': 'Marchés financiers et taux d\'intérêt à Jackson Hole',
 };
 
 export default blogMetaChFr;

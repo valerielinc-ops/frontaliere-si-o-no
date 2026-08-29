@@ -59690,6 +59690,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fed-warsh-tassi-interesse': {
+    title: 'FED: l\'annuncio di Kevin Warsh sui tassi d\'interesse',
+    description: 'Kevin Warsh interviene a Jackson Hole segnalando un possibile aumento dei tassi d\'interesse per frenare l\'inflazione al 3,7%. Scopri tutti i dettagli.',
+    keywords: 'frontalieri, ticino, svizzera, italia, annuncio, kevin, warsh, tassi',
+    ogTitle: 'FED: l\'annuncio a sorpresa di Warsh sui tassi d\'interesse',
+    ogDescription: 'Durante gli incontri annuali a Jackson Hole nel Wyoming, Kevin Warsh ha sorpreso i mercati con un discorso che anticipa un possibile aumento dei tassi d\'interesse per combattere l\'inflazione al 3,7% registrata a luglio.',
+    canonicalPath: '/articoli-svizzera/fed-warsh-tassi-interesse/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "FED: l'annuncio di Kevin Warsh sui tassi d'interesse",
+      "description": "Kevin Warsh interviene a Jackson Hole segnalando un possibile aumento dei tassi d'interesse per frenare l'inflazione al 3,7%. Scopri tutti i dettagli.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/fed-warsh-tassi-interesse.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Mercati finanziari e tassi d'interesse a Jackson Hole"
+      },
+      "datePublished": "2026-08-29T02:12:21+00:00",
+      "dateModified": "2026-08-29T02:12:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/fed-warsh-tassi-interesse/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

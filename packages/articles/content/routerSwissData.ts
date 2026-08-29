@@ -1559,6 +1559,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'apprendistato-formazione-uri-guida': { it: 'apprendistato-formazione-uri-guida', en: 'apprenticeship-training-uri-guide', de: 'lehre-berufsbildung-uri-leitfaden', fr: 'apprentissage-formation-uri-guide' },
  'grigioni-repower-tariffe-stagionali-2027': { it: 'grigioni-repower-tariffe-stagionali-2027', en: 'graubunden-repower-seasonal-tariffs-2027', de: 'graubuenden-repower-saisontarife-2027', fr: 'grisons-repower-tarifs-saisonniers-2027' },
  'paralberghiero-progression-trimestre-2026': { it: 'paralberghiero-progression-trimestre-2026', en: 'parahotellerie-progression-trimestre-2026', de: 'parahotellerie-progression-quartal-2026', fr: 'parahotellerie-progression-trimestre-2026' },
+ 'fed-warsh-tassi-interesse': { it: 'fed-warsh-tassi-interesse', en: 'fed-warsh-interest-rates', de: 'fed-warsh-zinssaetze', fr: 'fed-warsh-taux-interet' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

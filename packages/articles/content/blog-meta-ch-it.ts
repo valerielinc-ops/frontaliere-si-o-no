@@ -4600,6 +4600,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.paralberghiero-progression-trimestre-2026.title': 'Settore paralberghiero, lieve progressione nel secondo trimestre',
     'blog.article.paralberghiero-progression-trimestre-2026.excerpt': '3,9 milioni di pernottamenti tra aprile e giugno (+0,4%). In calo il semestre (-3,1%). Dati UST.',
     'blog.article.paralberghiero-progression-trimestre-2026.imageAlt': 'Appartamenti di vacanza e campeggi in una valle svizzera vicino a Locarno, estate',
+    'blog.article.fed-warsh-tassi-interesse.title': 'FED: l\'annuncio di Kevin Warsh sui tassi d\'interesse',
+    'blog.article.fed-warsh-tassi-interesse.excerpt': 'Kevin Warsh interviene a Jackson Hole e apre a un possibile aumento dei tassi d\'interesse a causa dell\'inflazione al 3,7% a luglio.',
+    'blog.article.fed-warsh-tassi-interesse.imageAlt': 'Mercati finanziari e tassi d\'interesse a Jackson Hole',
 };
 
 export default blogMetaChIt;
