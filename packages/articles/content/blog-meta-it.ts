@@ -10916,6 +10916,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-29.imageAlt': 'I numeri del giorno per i frontalieri – 29 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-08-29.seoDescription': 'Bollettino frontalieri del 29 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-08-29.ogDescription': 'I numeri del 29 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.vivere-verbania-lavorare-ticino-frontaliere.title': 'Vivere a Verbania e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-verbania-lavorare-ticino-frontaliere.excerpt': 'Cosa sapere prima di trasferirsi a Verbania e fare il pendolare in Canton Ticino: collegamenti, fiscalità, Permesso G e regime transitorio.',
+    'blog.article.vivere-verbania-lavorare-ticino-frontaliere.imageAlt': 'Vista del Lago Maggiore da Verbania verso la Svizzera, con auto in coda al valico',
 };
 
 export default blogMetaIt;

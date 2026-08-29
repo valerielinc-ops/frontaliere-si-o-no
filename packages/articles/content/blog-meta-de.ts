@@ -10914,6 +10914,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-29.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 29. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-08-29.seoDescription': 'Grenzgänger-Bulletin vom 29. August 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-08-29.ogDescription': 'Die Zahlen vom 29. August 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.vivere-verbania-lavorare-ticino-frontaliere.title': 'Leben in Verbania und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-verbania-lavorare-ticino-frontaliere.excerpt': 'Was Sie wissen sollten, bevor Sie nach Verbania ziehen und im Kanton Tessin pendeln: Verbindungen, Steuern, G-Genehmigung und Übergangsregelung.',
+    'blog.article.vivere-verbania-lavorare-ticino-frontaliere.imageAlt': 'Blick vom Lago Maggiore aus Verbania Richtung Schweiz, Autos am Grenzübergang',
 };
 
 export default blogMetaDe;
