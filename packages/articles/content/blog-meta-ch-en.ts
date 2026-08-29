@@ -4651,6 +4651,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.casa-svitto-comprare-mutuo-fondi.title': 'Buying a Svitto home: prices and mortgage',
     'blog.article.casa-svitto-comprare-mutuo-fondi.excerpt': 'Practical guide: acquiring a property in the canton of Schwyz requires own funds, a sustainable mortgage, a transfer tax and notary fees. Complete procedure.',
     'blog.article.casa-svitto-comprare-mutuo-fondi.imageAlt': 'Residential neighborhood in Schwyz canton with Swiss-style buildings.',
+    'blog.article.affitti-svitto-diritto-locazione.title': 'Rentals in the Canton of Schwyz: federal law and key rules',
+    'blog.article.affitti-svitto-diritto-locazione.excerpt': 'Security deposit up to 3 months, cancellation with official form and 30 days to dispute the initial fee at Svitto.',
+    'blog.article.affitti-svitto-diritto-locazione.imageAlt': 'Residential houses in Canton Schwyz with view of the Swiss pre-Alps',
 };
 
 export default blogMetaChEn;

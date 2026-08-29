@@ -4651,6 +4651,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.casa-svitto-comprare-mutuo-fondi.title': 'Comprare casa Svitto: prezzi e mutuo ipotecario',
     'blog.article.casa-svitto-comprare-mutuo-fondi.excerpt': 'Guida pratica: acquisire un immobile nel canton Svitto richiede fondi propri, mutuo sostenibile, imposta sui trapassi e spese notarili. Procedura completa.',
     'blog.article.casa-svitto-comprare-mutuo-fondi.imageAlt': 'Quartiere residenziale del canton Svitto con abitazioni in stile svizzero.',
+    'blog.article.affitti-svitto-diritto-locazione.title': 'Affitti nel Cantone di Svitto: diritto federale e regole chiave',
+    'blog.article.affitti-svitto-diritto-locazione.excerpt': 'Deposito cauzionale fino a 3 mensilità, disdetta con modulo ufficiale e 30 giorni per contestare il canone iniziale a Svitto.',
+    'blog.article.affitti-svitto-diritto-locazione.imageAlt': 'Case residenziali nel Cantone di Svitto con vista sulle prealpi svizzere',
 };
 
 export default blogMetaChIt;

@@ -4651,6 +4651,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.casa-svitto-comprare-mutuo-fondi.title': 'Haus kaufen Schwyz: Preise und Hypothekendarlehen',
     'blog.article.casa-svitto-comprare-mutuo-fondi.excerpt': 'Praktischer Leitfaden: Der Erwerb einer Immobilie im Kanton Schwyz erfordert Eigenmittel, ein nachhaltiges Darlehen, eine Ablösesumme und Notargebühren. Vollständiges Verfahren.',
     'blog.article.casa-svitto-comprare-mutuo-fondi.imageAlt': 'Wohnquartier im Kanton Schwyz mit typischen Schweizer Wohnhäusern.',
+    'blog.article.affitti-svitto-diritto-locazione.title': 'Mieten im Kanton Schwyz: Bundesrecht und Schlüsselregeln',
+    'blog.article.affitti-svitto-diritto-locazione.excerpt': 'Kaution bis zu 3 Monatsraten, Kündigung mit offiziellem Formular und 30 Tage, um die anfängliche Miete in Schwyz anzufechten.',
+    'blog.article.affitti-svitto-diritto-locazione.imageAlt': 'Wohnhäuser im Kanton Schwyz mit Blick auf die Schweizer Voralpen',
 };
 
 export default blogMetaChDe;

@@ -4651,6 +4651,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.casa-svitto-comprare-mutuo-fondi.title': 'Acheter une maison à Schwyz : prix et prêt hypothécaire',
     'blog.article.casa-svitto-comprare-mutuo-fondi.excerpt': 'Guide pratique : l\'acquisition d\'un bien immobilier dans le canton de Schwyz nécessite des fonds propres, un prêt durable, une taxe de passage et des frais de notaire. Procédure complète.',
     'blog.article.casa-svitto-comprare-mutuo-fondi.imageAlt': 'Quartier résidentiel du canton de Schwytz avec bâtiments résidentiels typiques.',
+    'blog.article.affitti-svitto-diritto-locazione.title': 'Loyers dans le canton de Schwyz : droit fédéral et règles clés',
+    'blog.article.affitti-svitto-diritto-locazione.excerpt': 'Caution jusqu\'à 3 mois, résiliation avec formulaire officiel et 30 jours pour contester le loyer initial à Schwyz.',
+    'blog.article.affitti-svitto-diritto-locazione.imageAlt': 'Maisons résidentielles dans le canton de Schwytz avec vue sur les Préalpes',
 };
 
 export default blogMetaChFr;
