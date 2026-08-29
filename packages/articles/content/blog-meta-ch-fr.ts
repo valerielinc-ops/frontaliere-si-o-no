@@ -4627,6 +4627,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-uri-cassa.title': 'AVS dans le canton d\'Uri : guide de la caisse de compensation',
     'blog.article.avs-prestazioni-complementari-uri-cassa.excerpt': 'Comment fonctionne le premier pilier dans le canton d\'Uri : caisse de compensation, calcul de la rente AVS et prestations complémentaires pour ceux qui n\'atteignent pas le minimum vital.',
     'blog.article.avs-prestazioni-complementari-uri-cassa.imageAlt': 'Vue du canton d\'Uri avec bureau administratif et document AVS',
+    'blog.article.abbonamenti-trasporti-uri-zone.title': 'Transports publics dans le canton d\'Uri : zones et abonnements',
+    'blog.article.abbonamenti-trasporti-uri-zone.excerpt': 'Système Passepartout dans le canton d\'Uri : fonctionnement des zones, abonnements annuels et mensuels, demi-tarif et AG des CFF.',
+    'blog.article.abbonamenti-trasporti-uri-zone.imageAlt': 'Train regional entrant en gare dans le canton d\'Uri avec plan des zones tarifaires',
 };
 
 export default blogMetaChFr;

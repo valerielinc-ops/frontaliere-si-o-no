@@ -1568,6 +1568,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'grigioni-traffico-sviamento-attesa': { it: 'grigioni-traffico-sviamento-attesa', en: 'graubunden-detour-traffic-wait', de: 'graubuenden-umleitungsverkehr-warten', fr: 'grisons-trafic-detour-attente' },
  'scuola-ticino-vpod-condizioni-docenti': { it: 'scuola-ticino-vpod-condizioni-docenti', en: 'ticino-school-vpod-teachers-conditions', de: 'tessin-schule-vpod-lehrpersonen-bedingungen', fr: 'tessin-ecole-vpod-conditions-enseignants' },
  'avs-prestazioni-complementari-uri-cassa': { it: 'avs-prestazioni-complementari-uri-cassa', en: 'avs-complementary-benefits-uri-compensation', de: 'ahv-ergaenzungsleistungen-uri-kasse', fr: 'avs-prestations-complementaires-uri-caisse' },
+ 'abbonamenti-trasporti-uri-zone': { it: 'abbonamenti-trasporti-uri-zone', en: 'uri-canton-transport-zones', de: 'abos-nahverkehr-kanton-uri-zonen', fr: 'abonnements-transports-uri-zones' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
