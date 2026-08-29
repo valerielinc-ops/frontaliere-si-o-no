@@ -10923,6 +10923,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-carate-urio-lavorare-ticino-frontaliere.title': 'Vivre à Carate Urio et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-carate-urio-lavorare-ticino-frontaliere.excerpt': 'Carate Urio sur le lac de Côme, déplacement vers le canton du Tessin : fiscalité, accords frontaliers, cotisations et liaisons.',
     'blog.article.vivere-carate-urio-lavorare-ticino-frontaliere.imageAlt': 'Vue du lac de Côme près de Carate Urio, avec le début de la Suisse en arrière-plan.',
+    'blog.article.guida-frontaliere-menaggio-ticino.title': 'Vivre à Menaggio, travailler au Tessin : frontalier',
+    'blog.article.guida-frontaliere-menaggio-ticino.excerpt': 'Comment déménager à Menaggio et travailler au Tessin en tant que frontalier : permis G, fiscalité, double imposition, restauration et cotisations sociales suisses.',
+    'blog.article.guida-frontaliere-menaggio-ticino.imageAlt': 'Vue du Lac de Côme depuis Menaggio avec les montagnes suisses en arrière-plan, paysage frontalier Côme-Tessin',
 };
 
 export default blogMetaFr;

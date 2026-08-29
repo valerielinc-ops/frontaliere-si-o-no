@@ -10922,6 +10922,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-carate-urio-lavorare-ticino-frontaliere.title': 'Vivere a Carate Urio e lavorare in Ticino da frontaliere',
     'blog.article.vivere-carate-urio-lavorare-ticino-frontaliere.excerpt': 'Carate Urio sul lago di Como, pendolarismo verso il Canton Ticino: fiscalità, accordo frontalieri, contributi e collegamenti.',
     'blog.article.vivere-carate-urio-lavorare-ticino-frontaliere.imageAlt': 'Scorcio del lago di Como vicino a Carate Urio, sullo sfondo l\'inizio della Svizzera.',
+    'blog.article.guida-frontaliere-menaggio-ticino.title': 'Vivere a Menaggio, lavorare in Ticino: frontaliere',
+    'blog.article.guida-frontaliere-menaggio-ticino.excerpt': 'Come trasferirsi a Menaggio e lavorare in Ticino da frontaliere: Permesso G, fiscalità, doppia imposizione, ristorni e contributi sociali svizzeri.',
+    'blog.article.guida-frontaliere-menaggio-ticino.imageAlt': 'Vista del Lago di Como da Menaggio con le montagne svizzere sullo sfondo, paesaggio frontaliero Como-Ticino',
 };
 
 export default blogMetaIt;

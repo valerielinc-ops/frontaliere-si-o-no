@@ -10920,6 +10920,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-carate-urio-lavorare-ticino-frontaliere.title': 'Leben in Carate Urio und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-carate-urio-lavorare-ticino-frontaliere.excerpt': 'Carate Urio am Comer See, Pendeln in Richtung Kanton Tessin: Steuern, Grenzabkommen, Beiträge und Verbindungen.',
     'blog.article.vivere-carate-urio-lavorare-ticino-frontaliere.imageAlt': 'Blick auf den Comer See bei Carate Urio, im Hintergrund der Beginn der Schweiz.',
+    'blog.article.guida-frontaliere-menaggio-ticino.title': 'Leben in Menaggio, Arbeiten im Tessin: Grenzgänger',
+    'blog.article.guida-frontaliere-menaggio-ticino.excerpt': 'So ziehen Sie nach Menaggio und arbeiten als Grenzgänger im Tessin: G-Bewilligung, Steuern, Doppelbesteuerung, Erstattungen und Schweizer Sozialbeiträge.',
+    'blog.article.guida-frontaliere-menaggio-ticino.imageAlt': 'Blick auf den Comer See von Menaggio aus mit Schweizer Bergen im Hintergrund, Grenzlandschaft Como-Tessin',
 };
 
 export default blogMetaDe;

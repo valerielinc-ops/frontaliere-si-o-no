@@ -80177,6 +80177,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-guida-frontaliere-menaggio-ticino': {
+    title: 'Vivere a Menaggio, lavorare in Ticino: frontaliere',
+    description: 'Guida completa per vivere a Menaggio (Como) e lavorare in Ticino da frontaliere: Permesso G, fiscalità, doppia imposizione, ristorni, contributi AVS/LPP, costo',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, menaggio, lavorare, trasferirsi',
+    ogTitle: 'Vivere a Menaggio, lavorare in Ticino: frontaliere',
+    ogDescription: 'Scopri come trasferirsi a Menaggio e lavorare in Ticino da frontaliere. Guida pratica con Permesso G, fiscalità, contributi sociali svizzeri, ristorni e procedura di trasferimento.',
+    canonicalPath: '/articoli-frontaliere/guida-frontaliere-menaggio-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Menaggio, lavorare in Ticino: frontaliere",
+      "description": "Guida completa per vivere a Menaggio (Como) e lavorare in Ticino da frontaliere: Permesso G, fiscalità, doppia imposizione, ristorni, contributi AVS/LPP, costo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/guida-frontaliere-menaggio-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Como da Menaggio con le montagne svizzere sullo sfondo, paesaggio frontaliero Como-Ticino"
+      },
+      "datePublished": "2026-08-29T21:31:27+00:00",
+      "dateModified": "2026-08-29T21:31:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guida-frontaliere-menaggio-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
