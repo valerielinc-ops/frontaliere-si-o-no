@@ -4645,6 +4645,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.grigioni-attesa-modello-birsfelden.title': 'Graubünden: Grossrat wartet auf den Fall Birsfelden',
     'blog.article.grigioni-attesa-modello-birsfelden.excerpt': 'Abstimmung 67-41: Das Bündner Parlament folgt der Regierung und vertagt jede Entscheidung über den umgeleiteten Verkehr bis zum Urteil nach Modell BL.',
     'blog.article.grigioni-attesa-modello-birsfelden.imageAlt': 'Alpenstrasse in Graubünden mit Stau und Autos, die in ein Bergdorf ausweichen',
+    'blog.article.acquisto-casa-svitto-mutuo-fondi-propri.title': 'Haus kaufen in Schwyz: Preise, Darlehen und Eigenmittel',
+    'blog.article.acquisto-casa-svitto-mutuo-fondi-propri.excerpt': 'Vollständiger Leitfaden zum Kauf eines Hauses in Schwyz: beantragte Eigenmittel, Hypothekendarlehen, Ablösesummen, Notarkosten und Gerichtsverfahren.',
+    'blog.article.acquisto-casa-svitto-mutuo-fondi-propri.imageAlt': 'Traditionelles Schweizer Haus umgeben von Alpweiden, Bergkette im Hintergrund',
 };
 
 export default blogMetaChDe;

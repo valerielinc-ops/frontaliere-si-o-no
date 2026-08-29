@@ -4645,6 +4645,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.grigioni-attesa-modello-birsfelden.title': 'Grisons : Grand Conseil arrêté dans l\'attente de l\'affaire Birsfelden',
     'blog.article.grigioni-attesa-modello-birsfelden.excerpt': 'Vote 67-41 : le Parlement grison suit le Gouvernement et renvoie toute décision sur le trafic détourné jusqu\'à l\'arrêt sur le modèle BL.',
     'blog.article.grigioni-attesa-modello-birsfelden.imageAlt': 'Route alpine aux Grisons avec embouteillages et voitures déviées vers un village de montagne',
+    'blog.article.acquisto-casa-svitto-mutuo-fondi-propri.title': 'Acheter une maison à Schwyz : prix, hypothèque et fonds propres',
+    'blog.article.acquisto-casa-svitto-mutuo-fondi-propri.excerpt': 'Guide complet pour l\'achat d\'une maison à Schwyz : fonds propres requis, hypothèque, taxes de passage, frais de notaire et procédure judiciaire.',
+    'blog.article.acquisto-casa-svitto-mutuo-fondi-propri.imageAlt': 'Maison suisse traditionnelle entourée de pâturages alpins, chaîne de montagnes en arrière-plan',
 };
 
 export default blogMetaChFr;

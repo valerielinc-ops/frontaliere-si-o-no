@@ -60275,6 +60275,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-acquisto-casa-svitto-mutuo-fondi-propri': {
+    title: 'Comprare casa in Svitto: prezzi, mutuo e fondi propri',
+    description: 'Guida completa all\'acquisto di una casa in Svitto: fondi propri richiesti (20-30%), mutuo ipotecario, imposte sui trapassi variane, spese notarili e procedura',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, svitto, prezzi',
+    ogTitle: 'Comprare casa in Svitto: guida al mutuo e fondi propri',
+    ogDescription: 'Scopri come comprare una casa in Svitto: requisiti di finanziamento, fondi propri (20-30%), mutuo ipotecario, imposte sui trapassi, spese notarili e procedura step-by-step per acquirenti svizzeri.',
+    canonicalPath: '/articoli-svizzera/acquisto-casa-svitto-mutuo-fondi-propri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa in Svitto: prezzi, mutuo e fondi propri",
+      "description": "Guida completa all'acquisto di una casa in Svitto: fondi propri richiesti (20-30%), mutuo ipotecario, imposte sui trapassi variane, spese notarili e procedura",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/acquisto-casa-svitto-mutuo-fondi-propri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Casa tradizionale svizzera circondata da prati alpini con catena montuosa sullo sfondo"
+      },
+      "datePublished": "2026-08-29T21:44:45+00:00",
+      "dateModified": "2026-08-29T21:44:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/acquisto-casa-svitto-mutuo-fondi-propri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
