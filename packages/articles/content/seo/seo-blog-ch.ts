@@ -59807,6 +59807,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-grigioni-contanti-servizi-pubblici': {
+    title: 'Contanti nei Grigioni: ok al controprogetto | Frontaliere Ticino',
+    description: 'Il Parlamento grigionese approva un controprogetto che mantiene il pagamento in contanti per tasse, prestazioni e infrastrutture pubbliche, anticipando',
+    keywords: 'frontalieri, ticino, svizzera, italia, contanti, grigioni, controprogetto, parlamento',
+    ogTitle: 'Grigioni: Contante garantito per tasse e servizi pubblici',
+    ogDescription: 'Il Parlamento grigionese ha deciso di mantenere il pagamento in contanti per tasse, prestazioni e infrastrutture pubbliche, approvando un controprogetto che anticipa un\'iniziativa popolare. Scopri i dettagli e le implicazioni.',
+    canonicalPath: '/articoli-svizzera/grigioni-contanti-servizi-pubblici/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Contanti nei Grigioni: ok al controprogetto",
+      "description": "Il Parlamento grigionese approva un controprogetto che mantiene il pagamento in contanti per tasse, prestazioni e infrastrutture pubbliche, anticipando",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/grigioni-contanti-servizi-pubblici.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Parlamento grigionese discute il mantenimento del contante per i servizi pubblici a Coira."
+      },
+      "datePublished": "2026-08-29T02:37:01+00:00",
+      "dateModified": "2026-08-29T02:37:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/grigioni-contanti-servizi-pubblici/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

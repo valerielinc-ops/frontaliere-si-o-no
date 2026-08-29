@@ -4609,6 +4609,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.incentivi-risanamento-energetico-immobili-svizzera.title': 'Energy rehabilitation, new financing model',
     'blog.article.incentivi-risanamento-energetico-immobili-svizzera.excerpt': 'The Confederation and the Cantons are launching a new joint model to boost the energy efficiency of Swiss buildings. Consultation in the autumn.',
     'blog.article.incentivi-risanamento-energetico-immobili-svizzera.imageAlt': 'Modern Swiss energy-efficient building with solar panels.',
+    'blog.article.grigioni-contanti-servizi-pubblici.title': 'Cash in Graubünden: OK to the counterproject',
+    'blog.article.grigioni-contanti-servizi-pubblici.excerpt': 'The Grison Parliament approves a counter-project that guarantees payment in cash for taxes and public services, anticipating a popular initiative.',
+    'blog.article.grigioni-contanti-servizi-pubblici.imageAlt': 'Graubünden parliament discusses maintaining cash payments for public services in Chur.',
 };
 
 export default blogMetaChEn;
