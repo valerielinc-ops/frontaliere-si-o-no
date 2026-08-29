@@ -4621,6 +4621,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.grigioni-traffico-sviamento-attesa.title': 'Graubünden: Keine neuen Umleitungsstrafen',
     'blog.article.grigioni-traffico-sviamento-attesa.excerpt': 'Der Bündner Grosse Rat lehnt die SVP-Motion mit 67 zu 41 Stimmen ab: Keine Anti-Umlenkungsvorlage bis zum Urteil nach dem Birsfelden-Modell.',
     'blog.article.grigioni-traffico-sviamento-attesa.imageAlt': 'Bergstrasse in Graubünden mit Stau am Wochenende',
+    'blog.article.scuola-ticino-vpod-condizioni-docenti.title': 'Schule im Tessin: VPOD fordert Personal, Zeit und Ressourcen',
+    'blog.article.scuola-ticino-vpod-condizioni-docenti.excerpt': 'Bei der Eröffnung der Schulen erneuert der von Matteo Finali geleitete Tessiner Lehrerausschuss VPOD die Forderung nach Investitionen in die Arbeitsbedingungen des Schulpersonals.',
+    'blog.article.scuola-ticino-vpod-condizioni-docenti.imageAlt': 'Schulzimmer im Tessin bereit für den Schulbeginn',
 };
 
 export default blogMetaChDe;

@@ -13861,6 +13861,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'scuola-ticino-vpod-condizioni-docenti',
+    category: 'novita',
+    date: '2026-08-29T10:10:52.994Z',
+    image: '/images/blog/scuola-ticino-vpod-condizioni-docenti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

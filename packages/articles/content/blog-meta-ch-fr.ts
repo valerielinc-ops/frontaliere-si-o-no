@@ -4621,6 +4621,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.grigioni-traffico-sviamento-attesa.title': 'Grisons : pas de nouvelles amendes au trafic de détournement',
     'blog.article.grigioni-traffico-sviamento-attesa.excerpt': 'Le Grand Conseil grison rejette la motion UDC par 67 voix contre 41 : pas de projet anti-détournement jusqu\'à arrêt sur le modèle Birsfelden.',
     'blog.article.grigioni-traffico-sviamento-attesa.imageAlt': 'Route de montagne aux Grisons avec embouteillage le week-end',
+    'blog.article.scuola-ticino-vpod-condizioni-docenti.title': 'École au Tessin : VPOD demande du personnel, du temps et des ressources',
+    'blog.article.scuola-ticino-vpod-condizioni-docenti.excerpt': 'À l\'ouverture des écoles, le comité des enseignants VPOD Tessin dirigé par Matteo Finali relance la demande d\'investir dans les conditions de travail du personnel scolaire.',
+    'blog.article.scuola-ticino-vpod-condizioni-docenti.imageAlt': 'Salle de classe tessinoise prête pour la rentrée',
 };
 
 export default blogMetaChFr;

@@ -59963,6 +59963,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-scuola-ticino-vpod-condizioni-docenti': {
+    title: 'Scuola in Ticino: VPOD chiede organici, tempo e risorse',
+    description: 'All\'avvio dell\'anno scolastico la VPOD Ticino chiede organici adeguati, tempi di coordinamento e servizi dotati: l\'appello del co-presidente Matteo Finali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, scuola, vpod, chiede, organici',
+    ogTitle: 'Scuola Ticino: VPOD chiede organici e tempo',
+    ogDescription: 'All\'apertura delle scuole il comitato docenti VPOD Ticino, guidato dal co-presidente Matteo Finali, chiede di investire su organici, tempi di coordinamento e inclusione per migliorare le condizioni di lavoro nella scuola pubblica cantonale.',
+    canonicalPath: '/articoli-svizzera/scuola-ticino-vpod-condizioni-docenti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scuola in Ticino: VPOD chiede organici, tempo e risorse",
+      "description": "All'avvio dell'anno scolastico la VPOD Ticino chiede organici adeguati, tempi di coordinamento e servizi dotati: l'appello del co-presidente Matteo Finali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/scuola-ticino-vpod-condizioni-docenti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aula scolastica in Ticino pronta per l'inizio dell'anno scolastico"
+      },
+      "datePublished": "2026-08-29T10:10:53+00:00",
+      "dateModified": "2026-08-29T10:10:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/scuola-ticino-vpod-condizioni-docenti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
