@@ -13843,6 +13843,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ubs-panda-bond-cina-mercato',
+    category: 'novita',
+    date: '2026-08-29T03:12:13.188Z',
+    image: '/images/blog/ubs-panda-bond-cina-mercato.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

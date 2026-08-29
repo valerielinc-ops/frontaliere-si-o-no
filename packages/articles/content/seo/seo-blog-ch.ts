@@ -59885,6 +59885,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ubs-panda-bond-cina-mercato': {
+    title: 'UBS emette il primo Panda bond da 2 miliardi di yuan',
+    description: 'UBS colloca il suo primo Panda bond per 2 miliardi di yuan a tasso 1,78%: svolta per la finanza svizzera sul mercato obbligazionario cinese. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, emette, primo, panda, bond',
+    ogTitle: 'UBS emette il primo Panda bond da 2 miliardi di yuan',
+    ogDescription: 'Svolta per la finanza elvetica: UBS colloca un Panda bond a cinque anni per 2 miliardi di yuan (240 milioni di franchi) con cedola all\'1,78%, espandendo la raccolta direttamente nella Cina continentale.',
+    canonicalPath: '/articoli-svizzera/ubs-panda-bond-cina-mercato/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "UBS emette il primo Panda bond da 2 miliardi di yuan",
+      "description": "UBS colloca il suo primo Panda bond per 2 miliardi di yuan a tasso 1,78%: svolta per la finanza svizzera sul mercato obbligazionario cinese. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ubs-panda-bond-cina-mercato.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzi direzionali del settore bancario e finanziario elvetico"
+      },
+      "datePublished": "2026-08-29T03:12:13+00:00",
+      "dateModified": "2026-08-29T03:12:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ubs-panda-bond-cina-mercato/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

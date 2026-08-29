@@ -4615,6 +4615,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.grigioni-diritto-pagamento-contanti.title': 'Graubünden: guaranteed cash payment for services',
     'blog.article.grigioni-diritto-pagamento-contanti.excerpt': 'The Grand Council approves the Bettinaglio counter-project: taxes and transport in Graubünden can be paid in cash, despite digitalisation.',
     'blog.article.grigioni-diritto-pagamento-contanti.imageAlt': 'The Grand Council of Graubünden during a legislative session in Chur.',
+    'blog.article.ubs-panda-bond-cina-mercato.title': 'UBS issues first 2 billion yuan Panda bond',
+    'blog.article.ubs-panda-bond-cina-mercato.excerpt': 'UBS lands on the Chinese bond market by raising 2 billion yuan with a five-year Panda bond at a fixed rate of 1.78%.',
+    'blog.article.ubs-panda-bond-cina-mercato.imageAlt': 'Corporate buildings representing the Swiss banking and financial sector',
 };
 
 export default blogMetaChEn;

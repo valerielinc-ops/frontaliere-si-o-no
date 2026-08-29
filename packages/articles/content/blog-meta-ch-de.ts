@@ -4615,6 +4615,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.grigioni-diritto-pagamento-contanti.title': 'Graubünden: Barzahlung der Dienstleistungen garantiert',
     'blog.article.grigioni-diritto-pagamento-contanti.excerpt': 'Der Grosse Rat stimmt dem Gegenvorschlag Bettinaglio zu: Steuern und Transporte in Graubünden können trotz Digitalisierung bar bezahlt werden.',
     'blog.article.grigioni-diritto-pagamento-contanti.imageAlt': 'Der Grosse Rat von Graubünden während einer Legislatursitzung in Chur.',
+    'blog.article.ubs-panda-bond-cina-mercato.title': 'UBS gibt den ersten 2 Milliarden Yuan Panda Bond heraus',
+    'blog.article.ubs-panda-bond-cina-mercato.excerpt': 'UBS landet auf dem chinesischen Anleihemarkt und sammelt 2 Milliarden Yuan mit einer fünfjährigen Panda-Anleihe mit einem festen Zinssatz von 1,78%.',
+    'blog.article.ubs-panda-bond-cina-mercato.imageAlt': 'Bürogebäude des Schweizer Banken- und Finanzsektors',
 };
 
 export default blogMetaChDe;
