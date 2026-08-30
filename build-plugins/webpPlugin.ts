@@ -72,8 +72,9 @@ export function webpPlugin(rootDir: string): Plugin {
  let entries: import('node:fs').Dirent[];
  try {
  entries = fs.readdirSync(dir, { withFileTypes: true });
- } catch {
- return results;
+ } catch (err) {
+ if ((err as NodeJS.ErrnoException)?.code === 'ENOENT') return results;
+ throw err;
  }
  for (const entry of entries) {
  if (entry.isDirectory()) {
