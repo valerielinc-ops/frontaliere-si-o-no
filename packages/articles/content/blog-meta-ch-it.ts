@@ -4687,6 +4687,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-formazione-professionale-san-gallo.title': 'Apprendistato e formazione professionale San Gallo',
     'blog.article.apprendistato-formazione-professionale-san-gallo.excerpt': 'Guida pratica all\'apprendistato nel Canton San Gallo: contratto di tirocinio, retribuzione, ferie, diritti e procedura per trovare un posto secondo le norme federali svizzere.',
     'blog.article.apprendistato-formazione-professionale-san-gallo.imageAlt': 'Vista panoramica di Lugano che rappresenta l\'ambiente svizzero della formazione professionale',
+    'blog.article.borse-studio-san-gallo-requisiti-importi.title': 'Borse di studio San Gallo: requisiti e importi',
+    'blog.article.borse-studio-san-gallo-requisiti-importi.excerpt': 'Il Cantone di San Gallo eroga borse di studio e prestiti agli studi tramite l\'ufficio cantonale competente. Ecco cosa dice la fonte su requisiti, importi e termini.',
+    'blog.article.borse-studio-san-gallo-requisiti-importi.imageAlt': 'Campus dell\'Università di San Gallo con studenti',
 };
 
 export default blogMetaChIt;

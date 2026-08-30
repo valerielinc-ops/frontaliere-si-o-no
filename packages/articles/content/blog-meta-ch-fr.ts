@@ -4687,6 +4687,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-formazione-professionale-san-gallo.title': 'Apprentissage et formation professionnelle Saint-Gall',
     'blog.article.apprendistato-formazione-professionale-san-gallo.excerpt': 'Guide pratique de l\'apprentissage dans le canton de Saint-Gall : contrat d\'apprentissage, rémunération, congés, droits et procédure pour trouver une place selon les règles fédérales suisses.',
     'blog.article.apprendistato-formazione-professionale-san-gallo.imageAlt': 'Vue panoramique de Lugano représentant l\'environnement suisse de la formation professionnelle',
+    'blog.article.borse-studio-san-gallo-requisiti-importi.title': 'Bourses Saint-Gall : exigences et montants',
+    'blog.article.borse-studio-san-gallo-requisiti-importi.excerpt': 'Le canton de Saint-Gall accorde des bourses et des prêts d\'études par l\'intermédiaire du bureau cantonal compétent. Voici ce que la source dit sur les exigences, les montants et les termes.',
+    'blog.article.borse-studio-san-gallo-requisiti-importi.imageAlt': 'Campus de l\'Université de Saint-Gall avec étudiants',
 };
 
 export default blogMetaChFr;
