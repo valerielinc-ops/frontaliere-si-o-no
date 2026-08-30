@@ -54,6 +54,13 @@ const RAW_CREATE_ALLOWED: Record<string, string> = {
   //    stable across runs inside the dedup window.
   'refresh-thin-promotions.yml':
     'label-state machine (pending→confirmed→auto-close) that rewrites the title on promotion; deduped by label, with an early exit before create',
+  // Same mechanism, verified against the same `Debounce push-retry-exhausted
+  // alert` step shape (issue #6667 follow-up of #6648): early-returns on both
+  // `publisher-jobs-push-exhausted{,-pending}` labels before reaching `gh
+  // issue create`, promotion rewrites the title in place, and the created
+  // title carries no date/timestamp/counter.
+  'publisher-jobs-sync.yml':
+    'label-state machine (pending→confirmed→auto-close) that rewrites the title on promotion; deduped by label, with an early exit before create',
 };
 
 function workflowFiles(): string[] {
