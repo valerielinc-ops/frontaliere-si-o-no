@@ -1625,6 +1625,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'comprare-casa-zugo-guida': { it: 'comprare-casa-zugo-guida', en: 'buying-property-zugo-guide', de: 'haus-kaufen-zug-leitfaden', fr: 'acheter-maison-zoug-guide' },
  'premi-cassa-malati-grigioni': { it: 'premi-cassa-malati-grigioni', en: 'health-insurance-premiums-grisons', de: 'krankenkasse-praemien-graubuenden', fr: 'primes-assurance-maladie-grisons' },
  'naturalizzazione-canton-zugo-requisiti-procedura': { it: 'naturalizzazione-canton-zugo-requisiti-procedura', en: 'naturalization-canton-zug-requirements-procedure', de: 'einbuergerung-kanton-zug-voraussetzungen-verfahren', fr: 'naturalisation-canton-zoug-exigences-procedure' },
+ 'permesso-domicilio-c-grigioni-requisiti': { it: 'permesso-domicilio-c-grigioni-requisiti', en: 'residence-permit-c-graubunden-requirements', de: 'aufenthaltserlaubnis-c-graubuenden-anforderungen', fr: 'permis-sejour-c-grisons-conditions' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -4798,6 +4798,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.naturalizzazione-canton-zugo-requisiti-procedura.title': 'Naturalisation du canton de Zoug : exigences et procédure complète',
     'blog.article.naturalizzazione-canton-zugo-requisiti-procedura.excerpt': 'Permis C, 10 ans de résidence (années 8-18 comptent double) et parcours à trois niveaux : communal, cantonal et fédéral. Voici comment cela fonctionne à Zoug.',
     'blog.article.naturalizzazione-canton-zugo-requisiti-procedura.imageAlt': 'Hôtel de ville du canton de Zoug avec lac et montagnes',
+    'blog.article.permesso-domicilio-c-grigioni-requisiti.title': 'Permis domicile C Grisons : exigences et demande',
+    'blog.article.permesso-domicilio-c-grigioni-requisiti.excerpt': 'Le permis C est le permis de résidence permanente en Suisse. Découvrez comment le demander dans le canton des Grisons, les années de résidence requises, les implications fiscales, l\'AVS/LPP et le parcours vers la naturalisation ordinaire.',
+    'blog.article.permesso-domicilio-c-grigioni-requisiti.imageAlt': 'Vallée alpine des Grisons avec bâtiment cantonal et drapeaux suisses',
 };
 
 export default blogMetaChFr;

@@ -4798,6 +4798,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.naturalizzazione-canton-zugo-requisiti-procedura.title': 'Naturalizzazione Canton Zugo: requisiti e procedura completa',
     'blog.article.naturalizzazione-canton-zugo-requisiti-procedura.excerpt': 'Permesso C, 10 anni di residenza (anni 8-18 contano doppio) e iter a tre livelli: comunale, cantonale e federale. Ecco come funziona a Zugo.',
     'blog.article.naturalizzazione-canton-zugo-requisiti-procedura.imageAlt': 'Municipio del Canton Zugo con lago e montagne sullo sfondo',
+    'blog.article.permesso-domicilio-c-grigioni-requisiti.title': 'Permesso domicilio C Grigioni: requisiti e domanda',
+    'blog.article.permesso-domicilio-c-grigioni-requisiti.excerpt': 'Il permesso C è la licenza di residenza permanente in Svizzera. Scopri come richiederlo nel canton Grigioni, gli anni di residenza richiesti, le implicazioni fiscali, AVS/LPP e il percorso verso la naturalizzazione ordinaria.',
+    'blog.article.permesso-domicilio-c-grigioni-requisiti.imageAlt': 'Valle grigionese con edificio amministrativo cantonale e bandiere svizzere in paesaggio alpino',
 };
 
 export default blogMetaChIt;

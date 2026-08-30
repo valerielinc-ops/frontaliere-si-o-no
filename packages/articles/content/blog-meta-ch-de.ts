@@ -4798,6 +4798,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.naturalizzazione-canton-zugo-requisiti-procedura.title': 'Einbürgerung Kanton Zug: Voraussetzungen und vollständiges Verfahren',
     'blog.article.naturalizzazione-canton-zugo-requisiti-procedura.excerpt': 'Ausweis C, 10 Jahre Aufenthalt (8-18 Jahre zählen doppelt) und dreistufiges Verfahren: kommunal, kantonal und bundesstaatlich. So funktioniert es in Zug.',
     'blog.article.naturalizzazione-canton-zugo-requisiti-procedura.imageAlt': 'Rathaus des Kantons Zug mit See und Bergen',
+    'blog.article.permesso-domicilio-c-grigioni-requisiti.title': 'Niederlassungsbewilligung C Graubünden: Voraussetzungen und Antrag',
+    'blog.article.permesso-domicilio-c-grigioni-requisiti.excerpt': 'Die Bewilligung C ist die Daueraufenthaltsbewilligung in der Schweiz. Erfahren Sie, wie Sie es im Kanton Graubünden beantragen können, welche Aufenthaltsjahre erforderlich sind, welche steuerlichen Auswirkungen es hat, AHV/BVG und den Weg zur ordentlichen Einbürgerung.',
+    'blog.article.permesso-domicilio-c-grigioni-requisiti.imageAlt': 'Graubünder Alpental mit Kantonsgebäude und Schweizer Flaggen',
 };
 
 export default blogMetaChDe;
