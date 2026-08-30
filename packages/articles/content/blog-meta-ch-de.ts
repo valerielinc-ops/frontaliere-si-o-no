@@ -4795,6 +4795,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-cassa-malati-grigioni.title': 'KVG-Prämien Kanton Graubünden: Franchisen und Reduktionen',
     'blog.article.premi-cassa-malati-grigioni.excerpt': 'Leitfaden zu den Krankenkassenprämien im Kanton Graubünden: Franchisen von CHF 300 bis 2500, alternative Modelle, Reduktionsbeiträge und Antragsverfahren.',
     'blog.article.premi-cassa-malati-grigioni.imageAlt': 'Bündner Alpental mit Berggemeinde und Gesundheitseinrichtung',
+    'blog.article.naturalizzazione-canton-zugo-requisiti-procedura.title': 'Einbürgerung Kanton Zug: Voraussetzungen und vollständiges Verfahren',
+    'blog.article.naturalizzazione-canton-zugo-requisiti-procedura.excerpt': 'Ausweis C, 10 Jahre Aufenthalt (8-18 Jahre zählen doppelt) und dreistufiges Verfahren: kommunal, kantonal und bundesstaatlich. So funktioniert es in Zug.',
+    'blog.article.naturalizzazione-canton-zugo-requisiti-procedura.imageAlt': 'Rathaus des Kantons Zug mit See und Bergen',
 };
 
 export default blogMetaChDe;

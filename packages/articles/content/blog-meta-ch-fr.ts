@@ -4795,6 +4795,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.premi-cassa-malati-grigioni.title': 'Primes LAMal Canton des Grisons : franchises et réductions',
     'blog.article.premi-cassa-malati-grigioni.excerpt': 'Guide des primes d’assurance maladie dans le canton des Grisons : franchises de 300 CHF à 2500, modèles alternatifs, subventions de réduction et processus de demande.',
     'blog.article.premi-cassa-malati-grigioni.imageAlt': 'Vallée alpine des Grisons avec village de montagne et établissement de santé',
+    'blog.article.naturalizzazione-canton-zugo-requisiti-procedura.title': 'Naturalisation du canton de Zoug : exigences et procédure complète',
+    'blog.article.naturalizzazione-canton-zugo-requisiti-procedura.excerpt': 'Permis C, 10 ans de résidence (années 8-18 comptent double) et parcours à trois niveaux : communal, cantonal et fédéral. Voici comment cela fonctionne à Zoug.',
+    'blog.article.naturalizzazione-canton-zugo-requisiti-procedura.imageAlt': 'Hôtel de ville du canton de Zoug avec lac et montagnes',
 };
 
 export default blogMetaChFr;

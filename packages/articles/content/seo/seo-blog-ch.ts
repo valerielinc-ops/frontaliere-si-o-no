@@ -62225,6 +62225,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-naturalizzazione-canton-zugo-requisiti-procedura': {
+    title: 'Naturalizzazione Canton Zugo: requisiti e procedura completa',
+    description: 'Permesso C, 10 anni di residenza (anni 8-18 contano doppio) e iter a tre livelli. Tutti i requisiti federali, cantonali e comunali a Zugo. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, naturalizzazione, canton, zugo, requisiti',
+    ogTitle: 'Naturalizzazione Canton Zugo: requisiti e procedura',
+    ogDescription: 'Permesso C, 10 anni di residenza (anni tra 8 e 18 anni compiuti contano doppio) e iter a tre livelli: comunale, cantonale e federale. Scopri come funziona la naturalizzazione ordinaria nel Canton Zugo, dai documenti alle tasse.',
+    canonicalPath: '/articoli-svizzera/naturalizzazione-canton-zugo-requisiti-procedura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Naturalizzazione Canton Zugo: requisiti e procedura completa",
+      "description": "Permesso C, 10 anni di residenza (anni 8-18 contano doppio) e iter a tre livelli. Tutti i requisiti federali, cantonali e comunali a Zugo. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/naturalizzazione-canton-zugo-requisiti-procedura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Municipio del Canton Zugo con lago e montagne sullo sfondo"
+      },
+      "datePublished": "2026-08-30T20:48:49+00:00",
+      "dateModified": "2026-08-30T20:48:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/naturalizzazione-canton-zugo-requisiti-procedura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

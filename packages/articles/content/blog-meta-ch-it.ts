@@ -4795,6 +4795,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.premi-cassa-malati-grigioni.title': 'Premi LAMal Canton Grigioni: franchigie e riduzione',
     'blog.article.premi-cassa-malati-grigioni.excerpt': 'Guida ai premi dell\'assicurazione malattia nel Canton Grigioni: franchigie da CHF 300 a 2500, modelli alternativi, sussidi riduzione e procedura di richiesta.',
     'blog.article.premi-cassa-malati-grigioni.imageAlt': 'Valle alpina del Canton Grigioni con villaggio montano e struttura sanitaria',
+    'blog.article.naturalizzazione-canton-zugo-requisiti-procedura.title': 'Naturalizzazione Canton Zugo: requisiti e procedura completa',
+    'blog.article.naturalizzazione-canton-zugo-requisiti-procedura.excerpt': 'Permesso C, 10 anni di residenza (anni 8-18 contano doppio) e iter a tre livelli: comunale, cantonale e federale. Ecco come funziona a Zugo.',
+    'blog.article.naturalizzazione-canton-zugo-requisiti-procedura.imageAlt': 'Municipio del Canton Zugo con lago e montagne sullo sfondo',
 };
 
 export default blogMetaChIt;
