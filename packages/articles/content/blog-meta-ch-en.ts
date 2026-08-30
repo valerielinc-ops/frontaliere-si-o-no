@@ -4744,6 +4744,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.acquisto-casa-nidvaldo-guida.title': 'Buying a house in Nidvaldo: a guide to mortgages and costs',
     'blog.article.acquisto-casa-nidvaldo-guida.excerpt': 'A Practical Guide to Buying a Home in Nidwalden: Down Payment, Transfer Taxes, Mortgage Options, and Seven Practical Steps from Budgeting to Receiving the Keys.',
     'blog.article.acquisto-casa-nidvaldo-guida.imageAlt': 'Traditional village in Nidwalden canton with Alpine view',
+    'blog.article.casa-nidvaldo-mutuo-fondi-propri.title': 'Buying a Home in Nidwalden: Prices, Mortgages, and Down Payment',
+    'blog.article.casa-nidvaldo-mutuo-fondi-propri.excerpt': 'A Practical Guide to Buying a Home in the Canton of Nidwalden: Niche Market, Equity Requirements, and Closing Costs.',
+    'blog.article.casa-nidvaldo-mutuo-fondi-propri.imageAlt': 'Traditional chalet village on the green Alpine hills of Nidwald, central Switzerland',
 };
 
 export default blogMetaChEn;
