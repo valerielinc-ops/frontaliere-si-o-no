@@ -238,8 +238,11 @@ const BRAND_LOGO_BY_SLUG = (() => {
       if (m) map.set(m[1].toLowerCase(), filename);
     }
     return map;
-  } catch {
-    return new Map();
+  } catch (err) {
+    if (err && /** @type {NodeJS.ErrnoException} */ (err).code === 'ENOENT') {
+      return new Map();
+    }
+    throw err;
   }
 })();
 

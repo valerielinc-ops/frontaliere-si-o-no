@@ -2694,8 +2694,9 @@ function listEmittedHubPagePaths(distDir: string, locale: Locale): string[] {
   let entries: string[] = [];
   try {
     entries = fs.readdirSync(rootDir);
-  } catch {
-    return out;
+  } catch (err) {
+    if ((err as NodeJS.ErrnoException)?.code === 'ENOENT') return out;
+    throw err;
   }
   const pages = entries
     .map((entry) => /^page-(\d+)$/.exec(entry)?.[1])

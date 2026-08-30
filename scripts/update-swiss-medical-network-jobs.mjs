@@ -109,7 +109,12 @@ function loadDedicatedClinicPostingIds() {
   const ids = new Set();
   const dir = path.resolve(ROOT, 'data', 'jobs', 'by-crawler');
   let files = [];
-  try { files = fs.readdirSync(dir).filter((f) => f.endsWith('.json')); } catch { return ids; }
+  try {
+    files = fs.readdirSync(dir).filter((f) => f.endsWith('.json'));
+  } catch (err) {
+    if (err && err.code === 'ENOENT') return ids;
+    throw err;
+  }
   for (const f of files) {
     if (f === `${COMPANY_KEY}.json`) continue; // skip the umbrella's own slice
     let data;

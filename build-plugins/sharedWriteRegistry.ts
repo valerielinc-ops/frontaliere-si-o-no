@@ -451,8 +451,9 @@ export function pruneDumpToCollidingHashes(): { kept: number; removed: number } 
   let entries: string[] = [];
   try {
     entries = fs.readdirSync(dumpContentDir);
-  } catch {
-    return { kept: 0, removed: 0 };
+  } catch (err) {
+    if ((err as NodeJS.ErrnoException)?.code === 'ENOENT') return { kept: 0, removed: 0 };
+    throw err;
   }
 
   for (const entry of entries) {
