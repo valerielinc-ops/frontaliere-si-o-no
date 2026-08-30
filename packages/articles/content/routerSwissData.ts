@@ -1609,6 +1609,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'acquisto-casa-nidvaldo-guida': { it: 'acquisto-casa-nidvaldo-guida', en: 'buy-house-nidwalden-guide', de: 'hauskauf-nidwalden-leitfaden', fr: 'acheter-maison-nidwald-guide' },
  'casa-nidvaldo-mutuo-fondi-propri': { it: 'casa-nidvaldo-mutuo-fondi-propri', en: 'buy-house-nidwalden-mortgage-funds', de: 'haus-kaufen-nidwalden-hypothek', fr: 'acheter-maison-nidwald-hypotheque' },
  'comprare-casa-nidvaldo-mutuo-guida': { it: 'comprare-casa-nidvaldo-mutuo-guida', en: 'buy-house-nidwalden-mortgage-guide', de: 'haus-kaufen-nidwalden-hypothek-leitfaden', fr: 'acheter-maison-nidwald-hypotheque-guide' },
+ 'esercito-droni-svizzera-2026': { it: 'esercito-droni-svizzera-2026', en: 'swiss-army-drones-2026-strategy', de: 'armee-dronen-schweiz-2026', fr: 'armee-drones-suisse-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

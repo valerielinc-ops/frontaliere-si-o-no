@@ -4750,6 +4750,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.comprare-casa-nidvaldo-mutuo-guida.title': 'Haus kaufen in Nidwalden: Hypotheken, Steuern und Verfahren',
     'blog.article.comprare-casa-nidvaldo-mutuo-guida.excerpt': 'Umfassender Leitfaden zum Immobilienkauf im Kanton Nidwalden: notarielles Verfahren, Handänderungssteuer, Kosten und Nachhaltigkeitskriterien für Hypothekendarlehen in der Schweiz.',
     'blog.article.comprare-casa-nidvaldo-mutuo-guida.imageAlt': 'Panoramablick auf Schweizer Wohnimmobilien in Bergkanton mit Seeblick, Symbol des Immobilienmarkts.',
+    'blog.article.esercito-droni-svizzera-2026.title': 'Die Schweizer Armee setzt auf Drohnen: die Strategie 2026',
+    'blog.article.esercito-droni-svizzera-2026.excerpt': 'Neues Kompetenzzentrum für Drohnen, ein Bataillon und eine Rekrutenschule ab 2028. Der Experte Gilli: Der richtige Weg mit Skalierungsgrenzen und schnellen Innovationszyklen.',
+    'blog.article.esercito-droni-svizzera-2026.imageAlt': 'Militärische Drohne über Schweizer Alpenlandschaft im Flug, Symbol für fortgeschrittene nationale Technologieforschung',
 };
 
 export default blogMetaChDe;
