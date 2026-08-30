@@ -61640,6 +61640,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-esercito-droni-svizzera-2026': {
+    title: 'L\'esercito svizzero punta sui droni: la strategia 2026',
+    description: 'Esercito svizzero sviluppa nuovo centro competenze droni e battaglione specializzato dal 2028. Analista Gilli: direzione corretta con limiti di scala e cicli',
+    keywords: 'frontalieri, ticino, svizzera, italia, esercito, svizzero, punta, droni',
+    ogTitle: 'Esercito svizzero: la strategia dei droni al 2026',
+    ogDescription: 'La Svizzera investe in droni militari e tecnologie di difesa avanzate. Nuovo centro competenze, battaglione dal 2028, ricerca in IA e laser ad alta potenza a Zurigo e Losanna.',
+    canonicalPath: '/articoli-svizzera/esercito-droni-svizzera-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "L'esercito svizzero punta sui droni: la strategia 2026",
+      "description": "Esercito svizzero sviluppa nuovo centro competenze droni e battaglione specializzato dal 2028. Analista Gilli: direzione corretta con limiti di scala e cicli",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/esercito-droni-svizzera-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Prototipo di drone militare in volo su paesaggio alpino svizzero, rappresentativo della ricerca tecnologica nazionale"
+      },
+      "datePublished": "2026-08-30T12:45:50+00:00",
+      "dateModified": "2026-08-30T12:45:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/esercito-droni-svizzera-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

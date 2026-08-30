@@ -4750,6 +4750,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.comprare-casa-nidvaldo-mutuo-guida.title': 'Acheter une maison à Nidwald : hypothèques, taxes et procédure',
     'blog.article.comprare-casa-nidvaldo-mutuo-guida.excerpt': 'Guide complet pour l\'achat d\'un logement dans le canton de Nidwald : procédure notariale, taxe de passage, frais et critères de viabilité du prêt hypothécaire en Suisse.',
     'blog.article.comprare-casa-nidvaldo-mutuo-guida.imageAlt': 'Vue panoramique de proprietés résidentielles suisses en canton montagneux avec vue sur le lac, représentant le marché immobilier.',
+    'blog.article.esercito-droni-svizzera-2026.title': 'L\'armée suisse mise sur les drones : la stratégie 2026',
+    'blog.article.esercito-droni-svizzera-2026.excerpt': 'Nouveau centre d\'expertise sur les drones, un bataillon et une école de recrues à partir de 2028. L\'expert Gilli : une orientation pertinente, avec des limites d\'échelle et des cycles d\'innovation rapides.',
+    'blog.article.esercito-droni-svizzera-2026.imageAlt': 'Prototype de drone militaire en vol au-dessus du paysage alpin suisse, représentant la recherche technologique nationale avancée',
 };
 
 export default blogMetaChFr;

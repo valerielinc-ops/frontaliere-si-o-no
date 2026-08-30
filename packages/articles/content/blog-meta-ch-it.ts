@@ -4750,6 +4750,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.comprare-casa-nidvaldo-mutuo-guida.title': 'Comprare casa a Nidvaldo: mutui, imposte e procedura',
     'blog.article.comprare-casa-nidvaldo-mutuo-guida.excerpt': 'Guida completa all\'acquisto abitazione nel Cantone di Nidvaldo: procedura notarile, imposta sui trapassi, spese e criteri di sostenibilità del mutuo ipotecario in Svizzera.',
     'blog.article.comprare-casa-nidvaldo-mutuo-guida.imageAlt': 'Vista panoramica di proprietà residenziali svizzere in cantone montagnoso, simbolo del mercato immobiliare nazionale.',
+    'blog.article.esercito-droni-svizzera-2026.title': 'L\'esercito svizzero punta sui droni: la strategia 2026',
+    'blog.article.esercito-droni-svizzera-2026.excerpt': 'Nuovo centro competenze droni, battaglione e scuola reclute dal 2028. L\'esperto Gilli: direzione corretta con limiti di scala e cicli di innovazione rapidi.',
+    'blog.article.esercito-droni-svizzera-2026.imageAlt': 'Prototipo di drone militare in volo su paesaggio alpino svizzero, rappresentativo della ricerca tecnologica nazionale',
 };
 
 export default blogMetaChIt;
