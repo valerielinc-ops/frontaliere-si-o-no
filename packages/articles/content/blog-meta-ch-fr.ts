@@ -4678,6 +4678,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-dimora-b-obvaldo-rinnovo.title': 'Permis de séjour B à Obwald : exigences et renouvellement',
     'blog.article.permesso-dimora-b-obvaldo-rinnovo.excerpt': 'Le permis B permet de vivre et de travailler en Suisse de manière renouvelable. Découvrez les exigences, les documents, la procédure de renouvellement dans le canton Obwald.',
     'blog.article.permesso-dimora-b-obvaldo-rinnovo.imageAlt': 'Bureau cantonal de migration d\'une administration suisse avec paysage alpin en arrière-plan.',
+    'blog.article.borse-studio-canton-obvaldo-requisiti.title': 'Bourses d\'études dans le canton d\'Obwald : exigences et montants',
+    'blog.article.borse-studio-canton-obvaldo-requisiti.excerpt': 'Qui peut demander des bourses et des prêts dans le canton Obwald, comment calculer les besoins et comment présenter une demande au Département de l\'éducation.',
+    'blog.article.borse-studio-canton-obvaldo-requisiti.imageAlt': 'Étudiant suisse consultant des documents de bourse dans le canton d\'Obwald',
 };
 
 export default blogMetaChFr;

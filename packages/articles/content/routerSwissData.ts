@@ -1585,6 +1585,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'patente-guida-svitto-conversione-ed-esami': { it: 'patente-guida-svitto-conversione-ed-esami', en: 'driving-licence-schwyz-conversion-and-exams', de: 'fuehrerschein-schwyz-umschreibung-und-pruefungen', fr: 'permis-conduire-schwyz-conversion-et-examens' },
  'permesso-l-canton-san-gallo-validita-proroga': { it: 'permesso-l-canton-san-gallo-validita-proroga', en: 'l-permit-canton-st-gallen-validity-renewal', de: 'l-bewilligung-kanton-st-gallen-gueltigkeit-verlaengerung', fr: 'permis-l-canton-saint-gall-validite-prorogation' },
  'permesso-dimora-b-obvaldo-rinnovo': { it: 'permesso-dimora-b-obvaldo-rinnovo', en: 'residence-permit-b-obwalden-renewal', de: 'aufenthaltserlaubnis-b-obwalden-verlaengerung', fr: 'permis-de-sejour-b-obwald-renouvellement' },
+ 'borse-studio-canton-obvaldo-requisiti': { it: 'borse-studio-canton-obvaldo-requisiti', en: 'scholarships-canton-obwalden-requirements', de: 'stipendien-kanton-obwalden-voraussetzungen', fr: 'bourses-etudes-canton-obwald' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

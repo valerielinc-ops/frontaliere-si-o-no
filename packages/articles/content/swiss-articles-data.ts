@@ -14032,6 +14032,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'borse-studio-canton-obvaldo-requisiti',
+    category: 'pratico',
+    date: '2026-08-30T02:25:38.178Z',
+    image: '/images/blog/borse-studio-canton-obvaldo-requisiti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

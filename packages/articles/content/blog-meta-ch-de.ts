@@ -4678,6 +4678,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-dimora-b-obvaldo-rinnovo.title': 'Aufenthaltsbewilligung B in Obwalden: Voraussetzungen und Verlängerung',
     'blog.article.permesso-dimora-b-obvaldo-rinnovo.excerpt': 'Die Bewilligung B ermöglicht es Ihnen, in der Schweiz erneuerbar zu leben und zu arbeiten. Entdecken Sie die Anforderungen, die Dokumente, das Erneuerungsverfahren im Kanton Obwalden.',
     'blog.article.permesso-dimora-b-obvaldo-rinnovo.imageAlt': 'Kantonsamt für Migration eines Schweizer Kantons mit Alpenlandschaft im Hintergrund.',
+    'blog.article.borse-studio-canton-obvaldo-requisiti.title': 'Stipendien im Kanton Obwalden: Voraussetzungen und Beträge',
+    'blog.article.borse-studio-canton-obvaldo-requisiti.excerpt': 'Wer im Kanton Obwalden Stipendien und Darlehen beantragen kann, wie der Bedarf berechnet wird und wie man sich beim Erziehungsdepartement bewerben kann.',
+    'blog.article.borse-studio-canton-obvaldo-requisiti.imageAlt': 'Schweizer Student prüft Stipendiendokumente im Kanton Obwalden',
 };
 
 export default blogMetaChDe;

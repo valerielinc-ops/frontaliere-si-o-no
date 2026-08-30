@@ -4678,6 +4678,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-dimora-b-obvaldo-rinnovo.title': 'Residence permit B in Obvaldo: requirements and renewal',
     'blog.article.permesso-dimora-b-obvaldo-rinnovo.excerpt': 'Permit B allows you to live and work in Switzerland on a renewable basis. Learn about the requirements, documents, and renewal procedure in the Obvaldo Canton.',
     'blog.article.permesso-dimora-b-obvaldo-rinnovo.imageAlt': 'Swiss cantonal immigration office building with Alpine landscape background and official signage.',
+    'blog.article.borse-studio-canton-obvaldo-requisiti.title': 'Scholarships in the Canton of Obvaldo: requirements and amounts',
+    'blog.article.borse-studio-canton-obvaldo-requisiti.excerpt': 'Who can apply for scholarships and loans in the Obvaldo Canton, how the needs are calculated and how to apply to the Department of Education.',
+    'blog.article.borse-studio-canton-obvaldo-requisiti.imageAlt': 'Swiss student reviewing scholarship documents in Canton Obwalden',
 };
 
 export default blogMetaChEn;
