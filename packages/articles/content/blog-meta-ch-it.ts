@@ -4666,6 +4666,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.droni-esercito-battaglione-2028.title': 'Esercito, nasce il battaglione di droni: operativo dal 2028',
     'blog.article.droni-esercito-battaglione-2028.excerpt': 'Centro di competenza presentato a Thun da Pfister, Roos e Loher: ricognizione e difesa, più una scuola reclute dedicata.',
     'blog.article.droni-esercito-battaglione-2028.imageAlt': 'Piazza d\'armi di Thun con un drone da ricognizione dell\'esercito svizzero',
+    'blog.article.svitto-salari-formazione-settori.title': 'Salari e mercato del lavoro Canton Svitto: settori e livelli',
+    'blog.article.svitto-salari-formazione-settori.excerpt': 'Il mercato del lavoro nel Cantone di Svitto: struttura salariale per grado di formazione, contratti collettivi, contributi obbligatori e diritti minimi.',
+    'blog.article.svitto-salari-formazione-settori.imageAlt': 'Ambiente di lavoro moderno svizzero con professionisti che collaborano in ufficio con vista sulle Alpi.',
 };
 
 export default blogMetaChIt;

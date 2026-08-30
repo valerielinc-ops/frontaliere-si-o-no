@@ -4666,6 +4666,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.droni-esercito-battaglione-2028.title': 'Armee, das Drohnenbataillon wird geboren: operativ seit 2028',
     'blog.article.droni-esercito-battaglione-2028.excerpt': 'Kompetenzzentrum präsentiert in Thun von Pfister, Roos und Loher: Aufklärung und Verteidigung sowie eine eigene Rekrutenschule.',
     'blog.article.droni-esercito-battaglione-2028.imageAlt': 'Waffenplatz Thun mit einer Aufklärungsdrohne der Schweizer Armee',
+    'blog.article.svitto-salari-formazione-settori.title': 'Löhne und Arbeitsmarkt Kanton Schwyz: Branchen und Niveaus',
+    'blog.article.svitto-salari-formazione-settori.excerpt': 'Der Arbeitsmarkt im Kanton Schwyz: Lohnstruktur nach Bildungsgrad, Tarifverträge, Pflichtbeiträge und Mindestansprüche.',
+    'blog.article.svitto-salari-formazione-settori.imageAlt': 'Modernes Schweizer Arbeitsumfeld mit Fachleuten, die in einem Büro zusammenarbeiten, mit Blick auf die Alpen.',
 };
 
 export default blogMetaChDe;
