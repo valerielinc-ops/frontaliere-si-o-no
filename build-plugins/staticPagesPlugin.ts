@@ -2112,7 +2112,12 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const out: Record<string, { body1?: string; body2?: string; body3?: string }> = {};
  const dir = np.resolve(rootDir, 'services', 'locales', 'blog-body', locale);
  let files: string[] = [];
- try { files = fs.readdirSync(dir); } catch { return out; }
+ try {
+ files = fs.readdirSync(dir);
+ } catch (err) {
+ if ((err as NodeJS.ErrnoException)?.code === 'ENOENT') return out;
+ throw err;
+ }
  const rx = /'blog\.article\.([^']+)\.(body1|body2|body3)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
  // Single-pass decode via the shared helper (#5632 item 1: the old chain
  // resolved `\\` last, so a literal `\\n` in the source came out as a
