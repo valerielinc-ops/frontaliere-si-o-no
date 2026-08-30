@@ -32781,6 +32781,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'guida-conto-bancario-svizzera',
+ category: 'pratico',
+ date: '2026-08-30T16:42:17.803Z',
+ image: '/images/blog/guida-conto-bancario-svizzera.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

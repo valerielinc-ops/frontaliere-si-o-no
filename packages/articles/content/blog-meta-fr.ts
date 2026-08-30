@@ -10967,6 +10967,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavoro-remoto-terzo-paese-vacanza.title': 'Travail à distance en vacances : fiscalité et droits du frontalier',
     'blog.article.lavoro-remoto-terzo-paese-vacanza.excerpt': 'Lorsque le frontalier travaille à distance depuis un pays tiers pendant les vacances : ce qui change pour les taxes, LAMal et AVS. Tout ce que vous devez communiquer à l\'employeur.',
     'blog.article.lavoro-remoto-terzo-paese-vacanza.imageAlt': 'Travailleur frontalier en télétravail depuis une terrasse de vacances à l\'étranger avec vue montagne.',
+    'blog.article.guida-conto-bancario-svizzera.title': 'Ouvrir un compte bancaire en Suisse : guide pour les résidents',
+    'blog.article.guida-conto-bancario-svizzera.excerpt': 'Documents requis, procédures, coûts de gestion et conseils pratiques pour les frontaliers travaillant au-delà des frontières.',
+    'blog.article.guida-conto-bancario-svizzera.imageAlt': 'Bâtiment bancaire moderne au centre-ville de Lugano, symbole de la place financière tessinoise',
 };
 
 export default blogMetaFr;
