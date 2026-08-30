@@ -4762,6 +4762,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.patente-guida-san-gallo-conversione.title': 'Ausländischer Führerschein in St. Gallen: Umschreibung und Prüfungen',
     'blog.article.patente-guida-san-gallo-conversione.excerpt': 'So lassen Sie Ihren ausländischen Führerschein im Kanton St. Gallen umschreiben: Unterschiedliche Verfahren für EU-/EFTA-Länder und Drittstaaten, erforderliche Unterlagen und zuständige Behörde.',
     'blog.article.patente-guida-san-gallo-conversione.imageAlt': 'Führerschein-Umschreibung in St. Gallen',
+    'blog.article.neutralita-voto-27-settembre-amato.title': 'Neutralität: Amato weist Russland-Propaganda-Vorwurf zurück',
+    'blog.article.neutralita-voto-27-settembre-amato.excerpt': 'Im Hinblick auf die Abstimmung vom 27. September über die Neutralitätsinitiative lehnt Corrado Amato das Label «russische Propaganda» ab und zitiert den isländischen Präzedenzfall vom 29. August (52,8% Nein, 82,5% Wahlbeteiligung).',
+    'blog.article.neutralita-voto-27-settembre-amato.imageAlt': 'Bundeshaus in Bern mit Schweizer Flagge, Editorialbild zur Abstimmung vom 27. September',
 };
 
 export default blogMetaChDe;

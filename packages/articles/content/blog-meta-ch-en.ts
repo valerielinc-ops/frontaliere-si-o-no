@@ -4762,6 +4762,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.patente-guida-san-gallo-conversione.title': 'Foreign license in St. Gallen: conversion and examinations',
     'blog.article.patente-guida-san-gallo-conversione.excerpt': 'How to convert the foreign driver\'s license in the canton of St. Gallen: differentiated procedure by EU/EFTA country and third countries, documents and competent office.',
     'blog.article.patente-guida-san-gallo-conversione.imageAlt': 'Foreign driving license conversion document in St. Gallen',
+    'blog.article.neutralita-voto-27-settembre-amato.title': 'Neutrality Vote: September 27, Amato Denies Russian Propaganda',
+    'blog.article.neutralita-voto-27-settembre-amato.excerpt': 'In view of the vote on September 27 on the Neutrality Initiative, Corrado Amato rejects the label of "Russian propaganda" and cites the previous Icelandic of August 29 (52.8% no, 82.5% turnout).',
+    'blog.article.neutralita-voto-27-settembre-amato.imageAlt': 'Swiss Parliament building in Bern with Swiss flag, editorial image on the September 27 vote',
 };
 
 export default blogMetaChEn;
