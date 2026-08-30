@@ -10936,6 +10936,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-senna-comasco-lavorare-ticino-frontaliere.title': 'Senna Comasco and border crossing work in Ticino: a practical guide',
     'blog.article.vivere-senna-comasco-lavorare-ticino-frontaliere.excerpt': 'Senna Comasco is just a few kilometres from the Ponte Tresa crossing and Chiasso: connections, taxation and cost of living for border crossers.',
     'blog.article.vivere-senna-comasco-lavorare-ticino-frontaliere.imageAlt': 'Italian-Swiss border near Lake Como with commuters heading to Ticino at dawn',
+    'blog.article.vivere-solbiate-cagno-frontaliere-ticino.title': 'Living in Solbiate and working in Ticino as a border worker',
+    'blog.article.vivere-solbiate-cagno-frontaliere-ticino.excerpt': 'From 2024 new tax agreement: €10,000 deductible for new frontier workers. Travel times, AVS/LPP rights, LAMal and how to apply for the G permit.',
+    'blog.article.vivere-solbiate-cagno-frontaliere-ticino.imageAlt': 'Aerial view of Como province at morning light showing small border town with church steeple and green hills toward Swiss border from Italian side',
 };
 
 export default blogMetaEn;
