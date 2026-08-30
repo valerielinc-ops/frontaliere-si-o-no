@@ -61679,6 +61679,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-casa-nidvaldo-mutuo-costi-acquisto': {
+    title: 'Comprare casa in Nidvaldo: prezzi, mutuo e costi accessori',
+    description: 'Guida all\'acquisto casa nel Canton Nidvaldo: fondi propri, regola del 33%, imposte sui trapassi, spese notarili e procedura passo per passo. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, nidvaldo, prezzi',
+    ogTitle: 'Comprare casa in Nidvaldo: guida a prezzi e mutuo',
+    ogDescription: 'Tutto quello che serve sapere per comprare un\'abitazione nel Canton Nidvaldo: fondi propri al 20%, regola del 33% del reddito lordo, costi notarili e imposta sui trapassi disciplinata dalla legge tributaria cantonale.',
+    canonicalPath: '/articoli-svizzera/casa-nidvaldo-mutuo-costi-acquisto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa in Nidvaldo: prezzi, mutuo e costi accessori",
+      "description": "Guida all'acquisto casa nel Canton Nidvaldo: fondi propri, regola del 33%, imposte sui trapassi, spese notarili e procedura passo per passo. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/casa-nidvaldo-mutuo-costi-acquisto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Casa tradizionale svizzera con vista sul lago nel Canton Nidvaldo"
+      },
+      "datePublished": "2026-08-30T12:56:00+00:00",
+      "dateModified": "2026-08-30T12:56:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/casa-nidvaldo-mutuo-costi-acquisto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
