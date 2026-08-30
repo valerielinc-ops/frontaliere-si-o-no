@@ -4747,6 +4747,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.casa-nidvaldo-mutuo-fondi-propri.title': 'Acheter une maison à Nidwald : prix, hypothèque et fonds propres',
     'blog.article.casa-nidvaldo-mutuo-fondi-propri.excerpt': 'Guide pratique pour l\'achat d\'une maison dans le canton de Nidwald : marché de niche, règles sur les fonds propres et frais de déménagement.',
     'blog.article.casa-nidvaldo-mutuo-fondi-propri.imageAlt': 'Village de chalets traditionnels sur les collines alpines de Nidwald, Suisse centrale',
+    'blog.article.comprare-casa-nidvaldo-mutuo-guida.title': 'Acheter une maison à Nidwald : hypothèques, taxes et procédure',
+    'blog.article.comprare-casa-nidvaldo-mutuo-guida.excerpt': 'Guide complet pour l\'achat d\'un logement dans le canton de Nidwald : procédure notariale, taxe de passage, frais et critères de viabilité du prêt hypothécaire en Suisse.',
+    'blog.article.comprare-casa-nidvaldo-mutuo-guida.imageAlt': 'Vue panoramique de proprietés résidentielles suisses en canton montagneux avec vue sur le lac, représentant le marché immobilier.',
 };
 
 export default blogMetaChFr;

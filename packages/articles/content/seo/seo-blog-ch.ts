@@ -61601,6 +61601,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comprare-casa-nidvaldo-mutuo-guida': {
+    title: 'Comprare casa a Nidvaldo: mutui, imposte e procedura',
+    description: 'Guida completa all\'acquisto abitazione nel Cantone di Nidvaldo: procedura notarile, imposta sui trapassi, spese e criteri di sostenibilità del mutuo ipotecario',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, nidvaldo, mutui',
+    ogTitle: 'Comprare casa a Nidvaldo: mutui, imposte e procedura',
+    ogDescription: 'Guida completa all\'acquisto abitazione nel Cantone di Nidvaldo: procedura notarile, imposta sui trapassi, spese e criteri di sostenibilità del mutuo ipotecario in Svizzera.',
+    canonicalPath: '/articoli-svizzera/comprare-casa-nidvaldo-mutuo-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa a Nidvaldo: mutui, imposte e procedura",
+      "description": "Guida completa all'acquisto abitazione nel Cantone di Nidvaldo: procedura notarile, imposta sui trapassi, spese e criteri di sostenibilità del mutuo ipotecario",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/comprare-casa-nidvaldo-mutuo-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di proprietà residenziali svizzere in cantone montagnoso, simbolo del mercato immobiliare nazionale."
+      },
+      "datePublished": "2026-08-30T12:36:04+00:00",
+      "dateModified": "2026-08-30T12:36:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/comprare-casa-nidvaldo-mutuo-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
