@@ -4741,6 +4741,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.casa-nidvaldo-mutuo-pratico.title': 'Maison à Nidwald : guide pratique pour le prêt hypothécaire',
     'blog.article.casa-nidvaldo-mutuo-pratico.excerpt': 'Cadre de référence pour ceux qui évaluent l\'achat d\'un bien immobilier dans le canton de Nidwald : fiscalité suisse, cotisations salariales et procédures bureaucratiques.',
     'blog.article.casa-nidvaldo-mutuo-pratico.imageAlt': 'Maison résidentielle dans le canton de Nidwald avec lac alpin',
+    'blog.article.acquisto-casa-nidvaldo-guida.title': 'Acheter une maison à Nidwald : guide hypothécaire et coûts',
+    'blog.article.acquisto-casa-nidvaldo-guida.excerpt': 'Guide pratique pour l\'achat d\'une maison à Nidwald : fonds propres, taxes sur les transferts, options d\'hypothèque et sept étapes opérationnelles du budget à la remise des clés.',
+    'blog.article.acquisto-casa-nidvaldo-guida.imageAlt': 'Village traditionnel du canton de Nidwald avec vue alpine',
 };
 
 export default blogMetaChFr;
