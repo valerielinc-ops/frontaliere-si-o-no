@@ -4681,6 +4681,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.borse-studio-canton-obvaldo-requisiti.title': 'Bourses d\'études dans le canton d\'Obwald : exigences et montants',
     'blog.article.borse-studio-canton-obvaldo-requisiti.excerpt': 'Qui peut demander des bourses et des prêts dans le canton Obwald, comment calculer les besoins et comment présenter une demande au Département de l\'éducation.',
     'blog.article.borse-studio-canton-obvaldo-requisiti.imageAlt': 'Étudiant suisse consultant des documents de bourse dans le canton d\'Obwald',
+    'blog.article.assegni-familiari-san-gallo-domanda.title': 'Allocations familiales Saint-Gall : montants et demande',
+    'blog.article.assegni-familiari-san-gallo-domanda.excerpt': 'Régime cantonal de Saint-Gall pour les prestations familiales et éducatives : qui est éligible, quel fonds contacter et comment faire la demande.',
+    'blog.article.assegni-familiari-san-gallo-domanda.imageAlt': 'Documents suisses et fiche de paie pour les allocations familiales dans le canton de Saint-Gall',
 };
 
 export default blogMetaChFr;

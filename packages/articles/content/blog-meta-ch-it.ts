@@ -4681,6 +4681,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.borse-studio-canton-obvaldo-requisiti.title': 'Borse di studio nel Canton Obvaldo: requisiti e importi',
     'blog.article.borse-studio-canton-obvaldo-requisiti.excerpt': 'Chi può chiedere borse e prestiti nel Canton Obvaldo, come si calcola il fabbisogno e come presentare domanda al Dipartimento dell\'educazione.',
     'blog.article.borse-studio-canton-obvaldo-requisiti.imageAlt': 'Studente svizzero consulta documenti per borsa di studio nel Canton Obvaldo',
+    'blog.article.assegni-familiari-san-gallo-domanda.title': 'Assegni familiari San Gallo: importi e domanda',
+    'blog.article.assegni-familiari-san-gallo-domanda.excerpt': 'Regime cantonale di San Gallo su prestazioni familiari e di formazione: chi ha diritto, quale cassa contattare e come presentare la domanda.',
+    'blog.article.assegni-familiari-san-gallo-domanda.imageAlt': 'Documenti e busta paga svizzera per la richiesta degli assegni familiari nel Cantone di San Gallo',
 };
 
 export default blogMetaChIt;

@@ -4681,6 +4681,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.borse-studio-canton-obvaldo-requisiti.title': 'Stipendien im Kanton Obwalden: Voraussetzungen und Beträge',
     'blog.article.borse-studio-canton-obvaldo-requisiti.excerpt': 'Wer im Kanton Obwalden Stipendien und Darlehen beantragen kann, wie der Bedarf berechnet wird und wie man sich beim Erziehungsdepartement bewerben kann.',
     'blog.article.borse-studio-canton-obvaldo-requisiti.imageAlt': 'Schweizer Student prüft Stipendiendokumente im Kanton Obwalden',
+    'blog.article.assegni-familiari-san-gallo-domanda.title': 'Familienzulagen St. Gallen: Beträge und Antrag',
+    'blog.article.assegni-familiari-san-gallo-domanda.excerpt': 'St. Gallen-Kantonsprogramm für Familien- und Bildungsleistungen: wer berechtigt ist, welcher Fonds kontaktiert werden und wie man sich bewirbt.',
+    'blog.article.assegni-familiari-san-gallo-domanda.imageAlt': 'Schweizer Dokumente und Lohnabrechnung für Familienzulagen im Kanton St. Gallen',
 };
 
 export default blogMetaChDe;

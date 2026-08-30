@@ -14041,6 +14041,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'assegni-familiari-san-gallo-domanda',
+    category: 'pratico',
+    date: '2026-08-30T03:10:14.585Z',
+    image: '/images/blog/assegni-familiari-san-gallo-domanda.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

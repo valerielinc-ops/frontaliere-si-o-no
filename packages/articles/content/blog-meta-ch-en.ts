@@ -4681,6 +4681,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.borse-studio-canton-obvaldo-requisiti.title': 'Scholarships in the Canton of Obvaldo: requirements and amounts',
     'blog.article.borse-studio-canton-obvaldo-requisiti.excerpt': 'Who can apply for scholarships and loans in the Obvaldo Canton, how the needs are calculated and how to apply to the Department of Education.',
     'blog.article.borse-studio-canton-obvaldo-requisiti.imageAlt': 'Swiss student reviewing scholarship documents in Canton Obwalden',
+    'blog.article.assegni-familiari-san-gallo-domanda.title': 'Family allowances St. Gallen: amounts and application',
+    'blog.article.assegni-familiari-san-gallo-domanda.excerpt': 'St. Gallen cantonal scheme on family benefits and training: who is entitled, which fund to contact and how to submit the application.',
+    'blog.article.assegni-familiari-san-gallo-domanda.imageAlt': 'Swiss documents and salary slip for family allowances application in Canton St. Gallen',
 };
 
 export default blogMetaChEn;
