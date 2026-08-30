@@ -963,15 +963,52 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
     hasDiscoveredSignal && observation.discovered > 0 && lastObservedJobs === 0;
 
   const emptyOk = EMPTY_OK_CRAWLERS.has(observation.slug) || autoFilteredEmpty;
-  const consecutiveEmptyRuns =
-    lastObservedJobs > 0 || emptyOk ? 0 : (previous.consecutiveEmptyRuns ?? 0) + 1;
+
+  // Back-compat: legacy callers (older tests) pass `{ assembledAt, jobCount }`
+  // directly. Resolve a freshness timestamp from whichever field is present.
+  const freshnessAt =
+    observation.freshnessAt !== undefined
+      ? observation.freshnessAt
+      : (observation.assembledAt ?? null);
+  const freshnessSource = observation.freshnessSource ?? 'by-crawler';
+
+  // The monitor's own cadence (daily cron + manual workflow_dispatch) can run
+  // MORE often than a given crawler actually re-crawls (crawler workflows
+  // vary: cross-repo dispatch, disabled/migrated groups, backlog delays). If
+  // this tick's freshness timestamp is IDENTICAL to the one already counted
+  // on the previous tick, no new crawl happened between checks — it is the
+  // same run being observed twice, not a second empty attempt. Without this
+  // guard, N stale re-observations of a SINGLE genuine empty run inflate
+  // `consecutiveEmptyRuns` to the `broken` threshold in N ticks instead of N
+  // actual crawl attempts (#6694: giardino crawled once on 2026-08-27,
+  // returned 0 jobs, then its crawl workflow stopped running entirely for
+  // days — 3 unrelated daily health-check ticks over that same frozen
+  // summary still counted "3 consecutive runs returned 0 jobs"). A crawl
+  // that has genuinely stopped running is still caught by the `stale` gate
+  // above once `freshnessAt` ages past `STALE_AFTER_DAYS` — that is the
+  // correct signal for "the workflow stopped", not a fabricated empty streak.
+  const isRepeatObservation =
+    hadPriorState &&
+    freshnessAt !== null &&
+    freshnessAt !== undefined &&
+    freshnessAt === previous._lastObservedFreshnessAt;
+
+  const consecutiveEmptyRuns = isRepeatObservation
+    ? (previous.consecutiveEmptyRuns ?? 0)
+    : lastObservedJobs > 0 || emptyOk
+      ? 0
+      : (previous.consecutiveEmptyRuns ?? 0) + 1;
 
   // Unlike `consecutiveEmptyRuns` above, this counts EVERY empty observation
   // — emptyOk included — resetting only when jobs actually come back. It is
   // the only thing that keeps growing while emptyOk masks a source that has
-  // gone from "legitimate lull" to "dead" (#6496).
-  const consecutiveEmptyOkRuns =
-    lastObservedJobs > 0 ? 0 : (previous.consecutiveEmptyOkRuns ?? 0) + 1;
+  // gone from "legitimate lull" to "dead" (#6496). Same repeat-observation
+  // guard applies: a re-observed stale summary is not a new empty-ok run.
+  const consecutiveEmptyOkRuns = isRepeatObservation
+    ? (previous.consecutiveEmptyOkRuns ?? 0)
+    : lastObservedJobs > 0
+      ? 0
+      : (previous.consecutiveEmptyOkRuns ?? 0) + 1;
   const advisory =
     lastObservedJobs === 0 &&
     emptyOk &&
@@ -982,14 +1019,6 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
 
   const lastNonZeroJobs =
     lastObservedJobs > 0 ? lastObservedJobs : (previous.lastNonZeroJobs ?? 0);
-
-  // Back-compat: legacy callers (older tests) pass `{ assembledAt, jobCount }`
-  // directly. Resolve a freshness timestamp from whichever field is present.
-  const freshnessAt =
-    observation.freshnessAt !== undefined
-      ? observation.freshnessAt
-      : (observation.assembledAt ?? null);
-  const freshnessSource = observation.freshnessSource ?? 'by-crawler';
 
   // "Successful" = slice carries non-zero jobs. We use the freshness timestamp
   // (summary preferred, by-crawler fallback) so the value survives CI
