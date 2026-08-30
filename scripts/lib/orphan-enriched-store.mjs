@@ -335,7 +335,8 @@ export function writeOrphanEnriched(records, rootDir = process.cwd()) {
     let existing;
     try {
       existing = fs.readFileSync(file, 'utf-8');
-    } catch {
+    } catch (err) {
+      if (err.code !== 'ENOENT') throw err;
       /* shard doesn't exist yet on disk — must write */
     }
     if (existing === content) continue;
