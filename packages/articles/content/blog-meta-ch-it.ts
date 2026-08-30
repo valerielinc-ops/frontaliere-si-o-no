@@ -4699,6 +4699,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.capo-esercito-lugano-minacce-2025.title': 'Capo dell’esercito a Lugano: cybersecurity e baltico',
     'blog.article.capo-esercito-lugano-minacce-2025.excerpt': 'Roos davanti al mondo politico-economico ticinese: attacchi cyber quotidiani, escalation nei Baltici entro fine decennio e appello alla priorità sicurezza.',
     'blog.article.capo-esercito-lugano-minacce-2025.imageAlt': 'Il capo dell\'esercito svizzero Benedikt Roos in conferenza a Lugano',
+    'blog.article.asilo-nido-custodia-san-gallo-tariffe.title': 'Asilo nido a San Gallo: tariffe, sussidi e procedura',
+    'blog.article.asilo-nido-custodia-san-gallo-tariffe.excerpt': 'Custodia dei bambini nel Cantone di San Gallo: asili nido, famiglie diurne e doposcuola, tariffe legate al reddito e sussidi cantonali.',
+    'blog.article.asilo-nido-custodia-san-gallo-tariffe.imageAlt': 'Ingresso di un asilo nido nel Cantone di San Gallo, Svizzera',
 };
 
 export default blogMetaChIt;

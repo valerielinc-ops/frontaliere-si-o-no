@@ -4699,6 +4699,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.capo-esercito-lugano-minacce-2025.title': 'Oberbefehlshaber der Armee in Lugano: Cybersicherheit und Ostsee',
     'blog.article.capo-esercito-lugano-minacce-2025.excerpt': 'Roos vor der politischen und wirtschaftlichen Welt des Tessins: Tägliche Cyberangriffe, Eskalation im Baltikum bis zum Ende des Jahrzehnts und Appell an die Priorität Sicherheit.',
     'blog.article.capo-esercito-lugano-minacce-2025.imageAlt': 'Armeechef Benedikt Roos spricht auf einer Konferenz in Lugano',
+    'blog.article.asilo-nido-custodia-san-gallo-tariffe.title': 'Kindertagesstätte St. Gallen: Tarife, Zuschüsse und Verfahren',
+    'blog.article.asilo-nido-custodia-san-gallo-tariffe.excerpt': 'Kinderbetreuung im Kanton St. Gallen: Kindergärten, Tages- und Nachschulfamilien, einkommensabhängige Tarife und Kantonsbeiträge.',
+    'blog.article.asilo-nido-custodia-san-gallo-tariffe.imageAlt': 'Eingang einer Kindertagesstätte im Kanton St. Gallen, Schweiz',
 };
 
 export default blogMetaChDe;
