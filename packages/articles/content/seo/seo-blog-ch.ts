@@ -61835,6 +61835,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lamal-zurigo-come-scegliere': {
+    title: 'LAMal 2026: come scegliere in Svizzera | Frontaliere Ticino',
+    description: 'Guida LAMal 2026: obbligo, franchigie (CHF 300–2500), scelta della cassa, sussidi cantonali e procedura di registrazione entro 3 mesi. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, lamal, scegliere, assicurazione, malattia',
+    ogTitle: 'LAMal 2026: come scegliere in Svizzera',
+    ogDescription: 'L\'assicurazione malattia LAMal è obbligatoria. Scopri le franchigie disponibili (CHF 300–2500), come scegliere la cassa, accedere ai sussidi cantonali e registrarsi entro 3 mesi dall\'arrivo in Svizzera.',
+    canonicalPath: '/articoli-svizzera/lamal-zurigo-come-scegliere/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "LAMal 2026: come scegliere in Svizzera",
+      "description": "Guida LAMal 2026: obbligo, franchigie (CHF 300–2500), scelta della cassa, sussidi cantonali e procedura di registrazione entro 3 mesi. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lamal-zurigo-come-scegliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ambulatorio medico con reception moderna, paziente in consulenza con medico di base"
+      },
+      "datePublished": "2026-08-30T15:28:04+00:00",
+      "dateModified": "2026-08-30T15:28:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lamal-zurigo-come-scegliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

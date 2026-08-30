@@ -4765,6 +4765,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.neutralita-voto-27-settembre-amato.title': 'Neutrality Vote: September 27, Amato Denies Russian Propaganda',
     'blog.article.neutralita-voto-27-settembre-amato.excerpt': 'In view of the vote on September 27 on the Neutrality Initiative, Corrado Amato rejects the label of "Russian propaganda" and cites the previous Icelandic of August 29 (52.8% no, 82.5% turnout).',
     'blog.article.neutralita-voto-27-settembre-amato.imageAlt': 'Swiss Parliament building in Bern with Swiss flag, editorial image on the September 27 vote',
+    'blog.article.lamal-zurigo-come-scegliere.title': 'LAMal 2026: how to choose in Switzerland',
+    'blog.article.lamal-zurigo-come-scegliere.excerpt': 'LAMal health insurance is mandatory for all residents. Here\'s how to navigate between deductibles (CHF 300–2500), choice of cash and cantonal subsidies in 2026.',
+    'blog.article.lamal-zurigo-come-scegliere.imageAlt': 'Modern medical clinic reception with patient consulting with GP in professional setting',
 };
 
 export default blogMetaChEn;
