@@ -10953,6 +10953,11 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.azzio-confine-guida-frontaliere.title': 'Leben in Azzio, Arbeiten im Tessin: Leitfaden für Grenzgänger',
     'blog.article.azzio-confine-guida-frontaliere.excerpt': 'Azzio für diejenigen, die im Tessin arbeiten: G-Genehmigung, Schweizer Steuern, AHV, Rückerstattungen und Umzug.',
     'blog.article.azzio-confine-guida-frontaliere.imageAlt': 'Grenzübergang Chiasso zwischen Tessin und Italien mit Pendlerverkehr und Alpengipfeln',
+    'blog.article.bollettino-frontaliere-2026-08-30.title': 'Grenzgänger-Tagesbulletin – 30. August 2026: 33 neue Stellenangebote gestern',
+    'blog.article.bollettino-frontaliere-2026-08-30.excerpt': 'Die Zahlen von heute, 30. August 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-08-30.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 30. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-08-30.seoDescription': 'Grenzgänger-Bulletin vom 30. August 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-08-30.ogDescription': 'Die Zahlen vom 30. August 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
 };
 
 export default blogMetaDe;

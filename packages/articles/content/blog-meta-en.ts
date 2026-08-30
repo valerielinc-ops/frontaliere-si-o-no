@@ -10954,6 +10954,11 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.azzio-confine-guida-frontaliere.title': 'Living in Azzio, working in Ticino: a guide to the border crossing',
     'blog.article.azzio-confine-guida-frontaliere.excerpt': 'Azzio for those who work in Ticino: G permit, Swiss tax, AVS, refreshments and how to move.',
     'blog.article.azzio-confine-guida-frontaliere.imageAlt': 'Chiasso border crossing between Ticino and Italy with morning commute traffic and Alpine mountains',
+    'blog.article.bollettino-frontaliere-2026-08-30.title': 'Cross-border daily brief – August 30, 2026: 33 new job listings yesterday',
+    'blog.article.bollettino-frontaliere-2026-08-30.excerpt': 'Today\'s numbers, August 30, 2026, for cross-border commuters: the waits measured at every crossing this morning, the municipalities where fuel is cheapest, the franc-euro rate at yesterday\'s close and the jobs newly posted in Switzerland. Measured daily by our own monitoring.',
+    'blog.article.bollettino-frontaliere-2026-08-30.imageAlt': 'The day\'s numbers for cross-border commuters – August 30, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
+    'blog.article.bollettino-frontaliere-2026-08-30.seoDescription': 'Cross-border brief, August 30, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
+    'blog.article.bollettino-frontaliere-2026-08-30.ogDescription': 'The numbers for August 30, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
 };
 
 export default blogMetaEn;
