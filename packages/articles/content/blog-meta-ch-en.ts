@@ -4756,6 +4756,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.casa-nidvaldo-mutuo-costi-acquisto.title': 'Buying a Home in Nidwalden: Prices, Mortgages, and Additional Costs',
     'blog.article.casa-nidvaldo-mutuo-costi-acquisto.excerpt': 'Purchase Guide in Canton Nidvaldo: 20% own funds, 33% rule on gross income, transfer taxes and notary fees.',
     'blog.article.casa-nidvaldo-mutuo-costi-acquisto.imageAlt': 'Traditional Swiss house overlooking the lake in Nidwalden canton',
+    'blog.article.aprire-attivita-nidvaldo-costi-registro.title': 'Opening business in Nidvaldo: legal forms and costs',
+    'blog.article.aprire-attivita-nidvaldo-costi-registro.excerpt': 'From a sole proprietorship to a corporation (SA): capital, commercial registry, social security contributions, and taxes at three levels for those starting a business in Nidwalden.',
+    'blog.article.aprire-attivita-nidvaldo-costi-registro.imageAlt': 'Aerial view of Nidwalden canton with mountains and lake',
 };
 
 export default blogMetaChEn;

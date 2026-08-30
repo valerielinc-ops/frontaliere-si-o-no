@@ -4756,6 +4756,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.casa-nidvaldo-mutuo-costi-acquisto.title': 'Comprare casa in Nidvaldo: prezzi, mutuo e costi accessori',
     'blog.article.casa-nidvaldo-mutuo-costi-acquisto.excerpt': 'Guida all\'acquisto nel Canton Nidvaldo: fondi propri al 20%, regola del 33% sul reddito lordo, imposte sui trapassi e spese notarili.',
     'blog.article.casa-nidvaldo-mutuo-costi-acquisto.imageAlt': 'Casa tradizionale svizzera con vista sul lago nel Canton Nidvaldo',
+    'blog.article.aprire-attivita-nidvaldo-costi-registro.title': 'Aprire attività a Nidvaldo: forme giuridiche e costi',
+    'blog.article.aprire-attivita-nidvaldo-costi-registro.excerpt': 'Dalla ditta individuale alla SA: capitale, registro di commercio, oneri sociali e imposte su tre livelli per chi avvia un\'impresa a Nidwaldo.',
+    'blog.article.aprire-attivita-nidvaldo-costi-registro.imageAlt': 'Vista aerea del Cantone di Nidvaldo con montagne e lago',
 };
 
 export default blogMetaChIt;
