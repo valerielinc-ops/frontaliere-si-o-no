@@ -4759,6 +4759,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-attivita-nidvaldo-costi-registro.title': 'Ein Unternehmen in Nidwalden gründen: Rechtsformen und Kosten',
     'blog.article.aprire-attivita-nidvaldo-costi-registro.excerpt': 'Vom Einzelunternehmen zur AG: Kapital, Handelsregister, Sozialabgaben und Steuern auf drei Ebenen für Unternehmensgründer in Nidwalden.',
     'blog.article.aprire-attivita-nidvaldo-costi-registro.imageAlt': 'Luftaufnahme des Kantons Nidwalden mit Bergen und See',
+    'blog.article.patente-guida-san-gallo-conversione.title': 'Ausländischer Führerschein in St. Gallen: Umschreibung und Prüfungen',
+    'blog.article.patente-guida-san-gallo-conversione.excerpt': 'So lassen Sie Ihren ausländischen Führerschein im Kanton St. Gallen umschreiben: Unterschiedliche Verfahren für EU-/EFTA-Länder und Drittstaaten, erforderliche Unterlagen und zuständige Behörde.',
+    'blog.article.patente-guida-san-gallo-conversione.imageAlt': 'Führerschein-Umschreibung in St. Gallen',
 };
 
 export default blogMetaChDe;

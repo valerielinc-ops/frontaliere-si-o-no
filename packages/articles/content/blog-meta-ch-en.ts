@@ -4759,6 +4759,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-attivita-nidvaldo-costi-registro.title': 'Opening business in Nidvaldo: legal forms and costs',
     'blog.article.aprire-attivita-nidvaldo-costi-registro.excerpt': 'From a sole proprietorship to a corporation (SA): capital, commercial registry, social security contributions, and taxes at three levels for those starting a business in Nidwalden.',
     'blog.article.aprire-attivita-nidvaldo-costi-registro.imageAlt': 'Aerial view of Nidwalden canton with mountains and lake',
+    'blog.article.patente-guida-san-gallo-conversione.title': 'Foreign license in St. Gallen: conversion and examinations',
+    'blog.article.patente-guida-san-gallo-conversione.excerpt': 'How to convert the foreign driver\'s license in the canton of St. Gallen: differentiated procedure by EU/EFTA country and third countries, documents and competent office.',
+    'blog.article.patente-guida-san-gallo-conversione.imageAlt': 'Foreign driving license conversion document in St. Gallen',
 };
 
 export default blogMetaChEn;

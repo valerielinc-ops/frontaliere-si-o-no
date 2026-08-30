@@ -4759,6 +4759,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-attivita-nidvaldo-costi-registro.title': 'Aprire attività a Nidvaldo: forme giuridiche e costi',
     'blog.article.aprire-attivita-nidvaldo-costi-registro.excerpt': 'Dalla ditta individuale alla SA: capitale, registro di commercio, oneri sociali e imposte su tre livelli per chi avvia un\'impresa a Nidwaldo.',
     'blog.article.aprire-attivita-nidvaldo-costi-registro.imageAlt': 'Vista aerea del Cantone di Nidvaldo con montagne e lago',
+    'blog.article.patente-guida-san-gallo-conversione.title': 'Patente estera a San Gallo: conversione ed esami',
+    'blog.article.patente-guida-san-gallo-conversione.excerpt': 'Come convertire la patente straniera nel canton San Gallo: iter differenziato per paese UE/AELS e paesi terzi, documenti e ufficio competente.',
+    'blog.article.patente-guida-san-gallo-conversione.imageAlt': 'Documento per la conversione della patente estera a San Gallo',
 };
 
 export default blogMetaChIt;

@@ -61757,6 +61757,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-patente-guida-san-gallo-conversione': {
+    title: 'Patente estera a San Gallo: conversione ed esami',
+    description: 'Conversione patente estera nel canton San Gallo: iter differenziato per paesi UE/AELS e paesi terzi, documenti richiesti e ufficio competente. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, patente, estera, gallo, conversione',
+    ogTitle: 'Patente estera San Gallo: conversione ed esami',
+    ogDescription: 'Chi si trasferisce a San Gallo e vuole continuare a guidare deve convertire la patente estera. Iter diverso per titolari UE/AELS e paesi terzi: ecco documenti e ufficio competente.',
+    canonicalPath: '/articoli-svizzera/patente-guida-san-gallo-conversione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Patente estera a San Gallo: conversione ed esami",
+      "description": "Conversione patente estera nel canton San Gallo: iter differenziato per paesi UE/AELS e paesi terzi, documenti richiesti e ufficio competente. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/patente-guida-san-gallo-conversione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documento per la conversione della patente estera a San Gallo"
+      },
+      "datePublished": "2026-08-30T14:01:40+00:00",
+      "dateModified": "2026-08-30T14:01:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/patente-guida-san-gallo-conversione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
