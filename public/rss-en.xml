@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides for cross-border workers in Ticino</description>
     <language>en</language>
-    <lastBuildDate>Sun, 30 Aug 2026 05:00:15 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 30 Aug 2026 06:23:39 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — English</title>
@@ -16,6 +16,75 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Living in Corrido and working in Ticino as a border worker</title>
+      <link>https://frontaliereticino.ch/en/cross-border-articles/living-corrido-working-ticino-crossborder/</link>
+      <description><![CDATA[Practical guide for those who evaluate commuting from Corridor to the Canton of Ticino: taxation, time, costs and what to know before the transfer.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- Corridor borders Switzerland: short journey times to Ticino
+- New Frontier Agreement in force from 1 January 2024
+- Old frontier workers: exemption up to €7,500, transitional regime 2024–2033
+- Tax at source withheld only in Switzerland, no double taxation
+
+## Key facts
+- **What**: New Agreement between Italy and Switzerland on border workers
+- When: Signed on 23 December 2020, effective from 1 January 2024
+- Where: Canton of Ticino and Italian border regions
+- Who: Border workers, employers, AFC/ESTV, Revenue Agency
+- Amount: Old frontier workers exemption €7,500; new frontier workers exemption €10,000
+- Threshold: 17 July 2023 for the definition of "old border crossing"
+- Reference: Law 83 of 13 June 2023 (Italian ratification)
+- Convention: Italy-Switzerland Double Taxation Agreement of 9 December 1976
+
+Corrido is a small Italian town in the province of Como that lies close to the Swiss border, in a position that makes it potentially interesting for those considering commuting to the Canton of Ticino. The geographical proximity to Switzerland significantly reduces travel times compared to those who live further inland, but the mountain road network still requires a careful evaluation of the routes and means available.
+
+For workers who cross the border on a daily basis, the tax regime for frontier workers governed by the New Agreement signed on
+### How much you pay in payroll
+
+On the Swiss side, several mandatory contributions are levied on the gross salary of the border worker. AVS/AI/IPG is worth 5.3% at the employee's expense, while AD/AC (unemployment) weighs 1.1% with a ceiling of CHF 148'200. LAINF (accident insurance) varies between 0.7% and 1.5% depending on the sector, and LPP (occupational pension) starts from the age of 25 with rates between 7% and 18% depending on the age group.
+
+On the Italian front, declared income remains subject to personal income tax, with brackets of 23% up to €28,000, 35% from €28,001 to €50,000 and 43% over €50,000. The tax credit recognized in the EC framework of 730 serves to prevent income from being taxed twice: the main taxation remains in Switzerland through the source tax.
+
+### Costs and daily life from the border
+
+Those who reside in Corrido and work in Lugano or Mendrisiotto must balance some recurring items. LAMal health insurance is mandatory: for G-permit holders there is a right of option, and the annual adult deductible varies from CHF 300 to CHF 2,500 depending on the policy chosen. The cost of living in Ticino is on average higher than in the Italian border areas, in particular for food, rent and services, while on the Italian side the purchasing power is favoured by lower prices.
+
+For the passes closest to the Corridor area, the options
+
+## Useful planning tools
+To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
+### What to do before starting to commute
+
+Before accepting a job in Canton Ticino, residents of Corrido must verify several operational steps.
+
+**Required documents**:
+- G permit for cross-border commuters, issued by the competent cantonal authorities
+- Swiss employment contract and registration with the employer
+- Italian tax code and registration with the ANPR (National Registry of the Resident Population) of the municipality of residence
+- LAMal insurance coverage or European equivalent
+
+Tax obligations:
+- Withholding tax is operated directly by the Swiss employer and paid to the cantonal and federal tax authorities (AFC/ESTV)
+- In the Italian income tax return (Form 730), foreign income must be indicated in the CE section, entering the tax credit to avoid double taxation
+- The Swiss withholding agent issues the annual salary certificate, an essential document for completing the 730 form
+
+Timelines and deadlines:
+- The G permit must be requested before starting the work activity
+- The Italian income tax return follows the ordinary deadlines (Form 730 within the terms set by the Italian Revenue Agency)
+- For old cross-border commuters, the transitional regime with a €7'500 exemption applies from 2024 to 2033
+
+### Useful tools on the site
+
+To simulate the fiscal impact of the switch to the new regime, the [cross-border commuter salary calculator](nav:calculator) is available, which allows you to estimate the net pay starting from the Swiss gross salary, taking into account AVS, AD, LAINF, LPP and withholding tax deductions. For a comparison between the cost of living in Ticino and Italy, the dedicated page on the [cost of living Ticino vs Italy](nav:cost-of-living) is also useful, especially for those considering transferring their residence.
+
+For those who need to choose between a G permit and other options, the [G vs B permit comparator](nav:permit-compare) helps you navigate between the two solutions based on your personal situation. Finally, to keep track of [reimbursements to border municipalities](nav:ristorni) and waiting times at border crossings, the thematic sections of the site offer updated data useful for daily planning.
+
+Subscribe to the Frontaliere Ticino newsletter to receive updates on fiscal news, border crossing times and deadlines.]]></content:encoded>
+      <pubDate>Sun, 30 Aug 2026 06:23:39 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/vivere-corrido-frontaliere-ticino</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/vivere-corrido-frontaliere-ticino.webp" medium="image"/>
+    </item>
     <item>
       <title>Living in Gurro and working in Ticino as a border worker</title>
       <link>https://frontaliereticino.ch/en/cross-border-articles/living-gurro-working-ticino-cross-border/</link>
@@ -2953,69 +3022,6 @@ To verify your within/over 20 km tax scenario, use the [net salary calculator](n
       <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/bionaz-lavorare-vallese-frontaliere</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/bionaz-lavorare-vallese-frontaliere.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Living in Quart and working in Valais as a border worker</title>
-      <link>https://frontaliereticino.ch/en/cross-border-articles/live-quart-work-valais-cross-border/</link>
-      <description><![CDATA[Practical guide for Italy-Switzerland border workers: G permit, taxation, AVS, LAMal, administrative procedures and costs to be considered before the transfer.]]></description>
-      <content:encoded><![CDATA[## In a nutshell
-- New Frontier Agreement in force from 1 January 2024
-- G border guards are entitled to Swiss LAMal option
-- Exemption €10,000 per year for new frontier workers on Swiss incomes
-- Mandatory G permit to work permanently in Switzerland
-
-## Key facts
-- **What**: New tax regime for Italy-Switzerland border workers with elimination of double taxation
-- When: From 1 January 2024 (signed 23 December 2020)
-- Where: Valais (Switzerland) and Valle d 'Aosta (Italy)
-- Who: Frontier workers resident in Italy, permanently employed in Switzerland
-- Regulations: Law 83 of 13 June 2023 (Italian ratification)
-- Exemption: €10,000 per year for new frontier workers, €7,500 for previous frontier workers (transitional 2024–2033)
-- Convention: Italian-Swiss of 9 December 1976
-
-Those who live in Quart and work in Valais access the G permit regime, a document that regulates cross-border work for European citizens residing in Italy less than 15 km from the Swiss border. This status implies a new tax and social security architecture, which came into force on 1 January 2024, which completely changes the calculation of taxes and contributions compared to the past.
-
-The regulatory context has been revolutionised by the New Frontier Agreement, signed on 23 December 2020 and ratified by Italy with Law 83 of 13 June 2023. As of 2024, employee income generated in Switzerland is taxed exclusively in Swiss territory: there is no longer a double
-### Contributions and Swiss Taxation for Border Employee
-
-Working in Valais means paying Swiss social contributions on your paycheck. An employee in Switzerland is:
-
-- **AVS/AI/IPG** (basic pension and disability insurance): 5.3% of gross salary
-- AD/AC (unemployment and short-term insurance): 1.1% up to an annual ceiling of CHF 148,200
-- LAINF (non-occupational accident insurance): 0.7-1.5% depending on the professional category
-- LPP (occupational pension fund/ second pillar): 7–18% depending on the age group (the worker normally covers 7–9% of the total amount, the employer the rest)
-
-The Swiss federal and cantonal source tax is calculated on the gross annual salary. In Valais, the cantonal rate varies by municipality. Switzerland is not an EU member, so it applies its bilateral agreement with Italy (signed 9 December 1976), updated by the New Frontier Agreement.
-
-### Health insurance: Swiss LAMal or Italian INPS
-
-Border workers resident in Italy have the right to choose: to be subject to the obligation of LAMal (Swiss health insurance) or to maintain registration with the Italian National Health System (INPS). This choice is relevant because it affects healthcare costs and access to services.
-
-If they choose Swiss LAMal, G border workers have the right to opt for an insurer among Swiss companies. Adult deductibles in LAMal range from CHF 300 to
-
-## Useful planning tools
-To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
-### Checklist to move in and start work
-
-Before settling in Quart and starting work in Valais, the border worker must complete a series of administrative requirements in a logical sequence.
-
-1. Job offer and permit request G
-Obtain a job offer signed by an employer registered with the Swiss authorities in Valais. The company and the worker jointly submit the application for a G permit to the competent cantonal authorities. Approval times range from 2 to 6 weeks. While waiting, work cannot legally begin.
-
-**2. Registered residence in Italy**
-Register with the municipality of Quart as a permanent resident. This act is an administrative prerequisite for the recognition of the right to the G permit with the Swiss authorities. The Italian master registration must precede or accompany the application for a G permit.
-
-3. Opening a Swiss bank account (optional but usual)
-Many Swiss employers require a local bank account for the payment of salary. Swiss banks (Canton, UBS, Crédit Suisse, cantonal banks) operate in border areas. Bring passport, proof of recent Italian domicile, and certificate of residence.
-
-4. Subscription to AVS and LPP
-The Swiss company provides the registration forms. The worker fills out the form and returns it. Registration with AVS is mandatory and automatic; the LPP (pension fund) is mandatory for employees with
-
-Evaluating a Ticino job offer? Simulate your [net payslip](nav:payslip): enter gross salary, marital status and municipality for a detailed breakdown.]]></content:encoded>
-      <pubDate>Tue, 25 Aug 2026 22:08:05 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/vivere-quart-lavorare-vallese-frontaliere</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/vivere-quart-lavorare-vallese-frontaliere.webp" medium="image"/>
     </item>
   </channel>
 </rss>

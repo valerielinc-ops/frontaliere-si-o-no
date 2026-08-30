@@ -10944,6 +10944,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-gurro-lavorare-ticino-frontaliere.title': 'Leben in Gurro und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-gurro-lavorare-ticino-frontaliere.excerpt': 'Umzug nach Gurro und Pendeln in den Kanton Tessin: Entfernungen, Übergänge, Steuerregelung Genehmigung G, Kosten und praktische Szenarien.',
     'blog.article.vivere-gurro-lavorare-ticino-frontaliere.imageAlt': 'Panoramastrasse zwischen Gurro und Val Cannobina Richtung Tessin',
+    'blog.article.vivere-corrido-frontaliere-ticino.title': 'Leben in Corrido und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-corrido-frontaliere-ticino.excerpt': 'Praktischer Leitfaden für diejenigen, die das Pendeln von Corrido in den Kanton Tessin bewerten: Steuern, Zeiten, Kosten und was Sie vor dem Umzug wissen müssen.',
+    'blog.article.vivere-corrido-frontaliere-ticino.imageAlt': 'Blick auf ein kleines italienisches Grenzdorf nahe dem Tessin',
 };
 
 export default blogMetaDe;
