@@ -4702,6 +4702,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.asilo-nido-custodia-san-gallo-tariffe.title': 'Kindertagesstätte St. Gallen: Tarife, Zuschüsse und Verfahren',
     'blog.article.asilo-nido-custodia-san-gallo-tariffe.excerpt': 'Kinderbetreuung im Kanton St. Gallen: Kindergärten, Tages- und Nachschulfamilien, einkommensabhängige Tarife und Kantonsbeiträge.',
     'blog.article.asilo-nido-custodia-san-gallo-tariffe.imageAlt': 'Eingang einer Kindertagesstätte im Kanton St. Gallen, Schweiz',
+    'blog.article.casa-sangallo-mutuo-fondi-propri.title': 'Haus im Kanton St. Gallen: Preise, Hypothek und Spesen',
+    'blog.article.casa-sangallo-mutuo-fondi-propri.excerpt': 'Der Kauf eines Hauses im Kanton St. Gallen erfordert Eigenmittel, ein tragfähiges Hypothekardarlehen und die Beachtung von Abgaben und Notargebühren. Praktische Anleitung zu den grundlegenden Schritten.',
+    'blog.article.casa-sangallo-mutuo-fondi-propri.imageAlt': 'Modernes Wohnhaus im Kanton St. Gallen mit Alpenpanorama, zeitgenössische Schweizer Architektur',
 };
 
 export default blogMetaChDe;
