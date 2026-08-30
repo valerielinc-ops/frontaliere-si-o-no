@@ -18,6 +18,7 @@ import { createHash } from 'node:crypto';
 import { execFileSync, spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { listCorpusWideTests } from './corpus-wide-tests.mjs';
+import { shouldSkipFullSuiteFallback } from './lib/orphan-fallback.mjs';
 import { selectMaxWorkers } from './lib/select-max-workers.mjs';
 
 const changedPathFile = process.env.CHANGED_PATHS_FILE || 'changed-paths.txt';
@@ -173,11 +174,18 @@ while (queue.length) {
   }
 }
 // Never report success with zero tests for a source change: an unmodelled
-// dependency is safer as a full run than as a silent no-op.
+// dependency is safer as a full run than as a silent no-op — UNLESS every
+// changed file is a genuine leaf (zero importers anywhere in the repo, not
+// just no test importer), in which case nothing could ever reach it through
+// an import and the full run protects nothing (see lib/orphan-fallback.mjs).
 if (related.size === 0 && candidates.length > 0) {
-  for (const test of allTests) related.add(test);
-  usedFullFallback = true;
-  console.log('No static related edge found → running all tracked tests conservatively.');
+  if (shouldSkipFullSuiteFallback(candidates, reverse)) {
+    console.log('No static related edge found, and every changed file has zero importers anywhere in the repo (standalone CLI script) → nothing to run, as expected.');
+  } else {
+    for (const test of allTests) related.add(test);
+    usedFullFallback = true;
+    console.log('No static related edge found → running all tracked tests conservatively.');
+  }
 }
 const tests = [...related].filter((file) => existsSync(file)).sort();
 console.log(`Running Vitest related to ${candidates.length} changed source/test file(s): ${tests.length} test file(s)`);
