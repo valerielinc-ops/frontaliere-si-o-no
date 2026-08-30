@@ -1588,6 +1588,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'borse-studio-canton-obvaldo-requisiti': { it: 'borse-studio-canton-obvaldo-requisiti', en: 'scholarships-canton-obwalden-requirements', de: 'stipendien-kanton-obwalden-voraussetzungen', fr: 'bourses-etudes-canton-obwald' },
  'assegni-familiari-san-gallo-domanda': { it: 'assegni-familiari-san-gallo-domanda', en: 'family-allowances-st-gallen-application', de: 'familienzulagen-st-gallen-antrag', fr: 'allocations-familiales-saint-gall-demande' },
  'apprendistato-formazione-professionale-san-gallo': { it: 'apprendistato-formazione-professionale-san-gallo', en: 'apprenticeship-vocational-training-canton-st-gallen', de: 'lehre-berufsausbildung-kanton-st-gallen', fr: 'apprentissage-formation-professionnelle-canton-saint-gall' },
+ 'borse-studio-san-gallo-requisiti-importi': { it: 'borse-studio-san-gallo-requisiti-importi', en: 'stipends-canton-st-gallen-requirements-amounts', de: 'stipendien-kanton-st-gallen-voraussetzungen-betraege', fr: 'bourses-etudes-saint-gall-conditions-montants' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

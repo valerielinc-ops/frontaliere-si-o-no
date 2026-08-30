@@ -4687,6 +4687,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-formazione-professionale-san-gallo.title': 'Apprenticeship and Vocational Training St. Gallen',
     'blog.article.apprendistato-formazione-professionale-san-gallo.excerpt': 'Practical guide to apprenticeship in the Canton of St. Gallen: internship contract, salary, holidays, rights and procedure to find a place according to Swiss federal rules.',
     'blog.article.apprendistato-formazione-professionale-san-gallo.imageAlt': 'Panoramic view of Lugano representing the Swiss vocational training environment',
+    'blog.article.borse-studio-san-gallo-requisiti-importi.title': 'St. Gallen Scholarships: Requirements and Amounts',
+    'blog.article.borse-studio-san-gallo-requisiti-importi.excerpt': 'The Canton of St. Gallen provides scholarships and loans for studies through the competent cantonal office. Here\'s what the source says about requirements, amounts, and terms.',
+    'blog.article.borse-studio-san-gallo-requisiti-importi.imageAlt': 'St. Gallen University campus with students',
 };
 
 export default blogMetaChEn;

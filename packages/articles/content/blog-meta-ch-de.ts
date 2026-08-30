@@ -4687,6 +4687,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-formazione-professionale-san-gallo.title': 'Lehre und Berufsausbildung St. Gallen',
     'blog.article.apprendistato-formazione-professionale-san-gallo.excerpt': 'Praktischer Leitfaden für die Lehre im Kanton St. Gallen: Lehrvertrag, Entgelt, Urlaub, Rechte und Verfahren zur Stellensuche nach den schweizerischen Bundesvorschriften.',
     'blog.article.apprendistato-formazione-professionale-san-gallo.imageAlt': 'Panoramablick auf Lugano, der die Schweizer Berufsausbildungsumgebung darstellt',
+    'blog.article.borse-studio-san-gallo-requisiti-importi.title': 'Stipendien St. Gallen: Voraussetzungen und Beträge',
+    'blog.article.borse-studio-san-gallo-requisiti-importi.excerpt': 'Der Kanton St. Gallen vergibt Stipendien und Studiendarlehen über das zuständige kantonale Amt. Das sagt die Quelle über Anforderungen, Beträge und Fristen.',
+    'blog.article.borse-studio-san-gallo-requisiti-importi.imageAlt': 'Campus der Universität St. Gallen mit Studierenden',
 };
 
 export default blogMetaChDe;
