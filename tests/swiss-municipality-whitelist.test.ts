@@ -4,7 +4,9 @@ import {
   isCantonOnlyLabel,
   findSwissCityInText,
   isKnownSwissMunicipality,
+  normalizeSwissTargetLocationText,
 } from '../scripts/lib/target-swiss-locations.mjs';
+import MUNICIPALITY_DATA from '../data/canton-municipalities.json' with { type: 'json' };
 
 describe('Swiss municipality whitelist (BFS)', () => {
   describe('isKnownSwissCity', () => {
@@ -101,6 +103,41 @@ describe('Swiss municipality whitelist (BFS)', () => {
       expect(findSwissCityInText('Sales Assistant role')).toBe('');
       expect(findSwissCityInText('a concise summary of duties')).toBe('');
       expect(findSwissCityInText('basketball court maintenance')).toBe('');
+    });
+  });
+
+  describe('getCantonScopedBareTokens intra-canton collision (#6621)', () => {
+    it('has zero BFS municipalities sharing a disambiguated bare name within the same canton', () => {
+      // `getCantonScopedBareTokens` (target-swiss-locations.mjs) keys a Set by
+      // the bare (parenthetical-stripped) form of every "<City> (XX)" BFS
+      // entry, scoped per canton. If two DIFFERENT municipalities in the SAME
+      // canton ever shared a bare name, the Set could not tell them apart and
+      // the ambiguous token is excluded rather than silently resolved to
+      // either one (see the guard in getCantonScopedBareTokens). This test
+      // pins the current BFS snapshot as collision-free across all cantons —
+      // a future data refresh that introduces a collision fails here instead
+      // of silently degrading structured-data locality resolution.
+      const collisions: string[] = [];
+
+      for (const [code, entry] of Object.entries(
+        MUNICIPALITY_DATA.cantons as Record<string, { municipalities?: string[]; aliases?: string[] }>,
+      )) {
+        const all = [...new Set([...(entry.municipalities || []), ...(entry.aliases || [])])];
+        const sourcesByToken = new Map<string, Set<string>>();
+        for (const city of all) {
+          const disambiguated = city.match(/^(.+?)\s*\([a-z]{2}\)$/i);
+          if (!disambiguated) continue;
+          const bareToken = normalizeSwissTargetLocationText(disambiguated[1]);
+          if (!bareToken) continue;
+          if (!sourcesByToken.has(bareToken)) sourcesByToken.set(bareToken, new Set());
+          sourcesByToken.get(bareToken)!.add(city);
+        }
+        for (const [token, sources] of sourcesByToken) {
+          if (sources.size > 1) collisions.push(`${code}:${token} -> ${[...sources].join(', ')}`);
+        }
+      }
+
+      expect(collisions).toEqual([]);
     });
   });
 });
