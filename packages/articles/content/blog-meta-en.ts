@@ -10965,6 +10965,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavoro-remoto-terzo-paese-vacanza.title': 'Remote Work While on Vacation: Taxation and Rights of Cross-Border Workers',
     'blog.article.lavoro-remoto-terzo-paese-vacanza.excerpt': 'When the border worker works remotely from a third country during the holidays: what changes for taxes, LAMal and AVS. Everything you need to communicate to the employer.',
     'blog.article.lavoro-remoto-terzo-paese-vacanza.imageAlt': 'Frontier worker doing remote work from a holiday terrace abroad with a mountain view.',
+    'blog.article.guida-conto-bancario-svizzera.title': 'Opening a bank account in Switzerland: a guide for residents',
+    'blog.article.guida-conto-bancario-svizzera.excerpt': 'Required documents, procedures, management costs and practical advice for border workers working across borders.',
+    'blog.article.guida-conto-bancario-svizzera.imageAlt': 'Modern bank building in downtown Lugano, symbol of Ticino\'s financial center',
 };
 
 export default blogMetaEn;

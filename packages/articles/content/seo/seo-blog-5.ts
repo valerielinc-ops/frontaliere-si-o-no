@@ -80723,6 +80723,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-guida-conto-bancario-svizzera': {
+    title: 'Aprire un conto bancario in Svizzera: guida per residenti',
+    description: 'Come aprire un conto bancario in Svizzera da residente italiano: documenti richiesti, procedure, costi di gestione e consigli pratici per frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, conto, bancario, residenti',
+    ogTitle: 'Aprire un conto bancario in Svizzera: guida per residenti',
+    ogDescription: 'Guida completa per frontalieri: come aprire un conto bancario in Svizzera, quali documenti preparare, procedure step-by-step, costi di gestione e servizi transfrontalieri. Tutto ciò che devi sapere per operare nel sistema bancario elvetico.',
+    canonicalPath: '/articoli-frontaliere/guida-conto-bancario-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire un conto bancario in Svizzera: guida per residenti",
+      "description": "Come aprire un conto bancario in Svizzera da residente italiano: documenti richiesti, procedure, costi di gestione e consigli pratici per frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/guida-conto-bancario-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio bancario moderno nel centro di Lugano, simbolo della piazza finanziaria ticinese"
+      },
+      "datePublished": "2026-08-30T16:42:17+00:00",
+      "dateModified": "2026-08-30T16:42:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guida-conto-bancario-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

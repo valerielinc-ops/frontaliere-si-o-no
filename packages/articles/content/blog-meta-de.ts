@@ -10964,6 +10964,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavoro-remoto-terzo-paese-vacanza.title': 'Telearbeit im Urlaub: Steuerliche Behandlung und Rechte von Grenzgängern',
     'blog.article.lavoro-remoto-terzo-paese-vacanza.excerpt': 'Wenn der Grenzgänger während der Ferien aus der Ferne aus einem Drittland arbeitet: Was ändert sich bei Steuern, KVG und AHV? Alles, was Sie dem Arbeitgeber mitteilen müssen.',
     'blog.article.lavoro-remoto-terzo-paese-vacanza.imageAlt': 'Grenzgänger arbeitet von einer Urlaubsterrasse im Ausland mit Bergblick.',
+    'blog.article.guida-conto-bancario-svizzera.title': 'Eröffnung eines Bankkontos in der Schweiz: Leitfaden für Gebietsansässige',
+    'blog.article.guida-conto-bancario-svizzera.excerpt': 'Erforderliche Dokumente, Verfahren, Verwaltungskosten und praktische Ratschläge für Grenzgänger, die grenzüberschreitend arbeiten.',
+    'blog.article.guida-conto-bancario-svizzera.imageAlt': 'Modernes Bankgebäude im Zentrum von Lugano, Symbol des Tessiner Finanzplatzes',
 };
 
 export default blogMetaDe;
