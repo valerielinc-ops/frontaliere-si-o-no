@@ -4699,6 +4699,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.capo-esercito-lugano-minacce-2025.title': 'Head of the army in Lugano: cybersecurity and Baltic',
     'blog.article.capo-esercito-lugano-minacce-2025.excerpt': 'Roos in front of the Ticino political-economic world: daily cyber attacks, escalation in the Baltics by the end of the decade and appeal to the security priority.',
     'blog.article.capo-esercito-lugano-minacce-2025.imageAlt': 'Swiss Army Chief Benedikt Roos speaking at a conference in Lugano',
+    'blog.article.asilo-nido-custodia-san-gallo-tariffe.title': 'Nursery in St. Gallen: fees, subsidies and procedure',
+    'blog.article.asilo-nido-custodia-san-gallo-tariffe.excerpt': 'Childcare in the Canton of St. Gallen: nurseries, day and after-school families, income-related fees and cantonal subsidies.',
+    'blog.article.asilo-nido-custodia-san-gallo-tariffe.imageAlt': 'Entrance of a daycare center in the Canton of St. Gallen, Switzerland',
 };
 
 export default blogMetaChEn;

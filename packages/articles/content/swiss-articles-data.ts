@@ -14095,6 +14095,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'asilo-nido-custodia-san-gallo-tariffe',
+    category: 'pratico',
+    date: '2026-08-30T05:20:41.202Z',
+    image: '/images/blog/asilo-nido-custodia-san-gallo-tariffe.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
