@@ -10976,6 +10976,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.busta-paga-frontalieri-2026-oltre-20km.title': 'Bulletin de paie frontaliers 2026 sur 20 km : guide complet',
     'blog.article.busta-paga-frontalieri-2026-oltre-20km.excerpt': 'Bulletin de paie suisse 2026 pour les frontaliers de plus de 20 km : retenues, cotisations et solde réel après le Nouvel Accord en vigueur depuis le 1er janvier 2024.',
     'blog.article.busta-paga-frontalieri-2026-oltre-20km.imageAlt': 'Fiche de paie suisse 2026 avec vue sur le lac de Lugano',
+    'blog.article.credito-2026-famiglia-calcolo-limiti.title': 'Crédit d\'impôt 2026 : calcul pour famille avec enfants',
+    'blog.article.credito-2026-famiglia-calcolo-limiti.excerpt': 'Frontaliers avec enfants : cadre CE de 730, franchise 10 000 € neufs et 7 500 € anciens. Calcul crédit d\'impôt, impôt à la source retenu en Suisse, échéances déclaration 2026.',
+    'blog.article.credito-2026-famiglia-calcolo-limiti.imageAlt': 'Famille de frontaliers avec enfants examinant documents fiscaux à la frontière Tessin-Italie',
 };
 
 export default blogMetaFr;

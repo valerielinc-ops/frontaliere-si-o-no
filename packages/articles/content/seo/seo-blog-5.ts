@@ -80840,6 +80840,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-credito-2026-famiglia-calcolo-limiti': {
+    title: 'Credito d\'imposta 2026: calcolo per famiglia con figli',
+    description: 'Guida al credito d\'imposta per frontalieri con figli nel 2026. Quadro CE 730, franchigie €10.000 (nuovi) e €7.500 (vecchi), calcolo imposta alla fonte, scadenze',
+    keywords: 'frontalieri, ticino, svizzera, italia, credito, imposta, calcolo, famiglia',
+    ogTitle: 'Credito d\'imposta 2026: calcolo per famiglia con figli',
+    ogDescription: 'Come calcolare il credito d\'imposta nel quadro CE della dichiarazione italiana per frontalieri con figli nel 2026? Franchigie €10.000 (nuovi) vs €7.500 (vecchi), imposta trattenuta solo in Svizzera, procedure step-by-step e scadenze.',
+    canonicalPath: '/articoli-frontaliere/credito-2026-famiglia-calcolo-limiti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Credito d'imposta 2026: calcolo per famiglia con figli",
+      "description": "Guida al credito d'imposta per frontalieri con figli nel 2026. Quadro CE 730, franchigie €10.000 (nuovi) e €7.500 (vecchi), calcolo imposta alla fonte, scadenze",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/credito-2026-famiglia-calcolo-limiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Famiglia frontaliere con figli esamina documenti fiscali presso confine Ticino-Italia"
+      },
+      "datePublished": "2026-08-30T21:27:46+00:00",
+      "dateModified": "2026-08-30T21:27:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/credito-2026-famiglia-calcolo-limiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

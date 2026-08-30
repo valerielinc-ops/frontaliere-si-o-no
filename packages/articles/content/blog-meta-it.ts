@@ -10975,6 +10975,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.busta-paga-frontalieri-2026-oltre-20km.title': 'Busta paga frontalieri 2026 oltre 20 km: guida completa',
     'blog.article.busta-paga-frontalieri-2026-oltre-20km.excerpt': 'Busta paga svizzera 2026 per frontalieri oltre 20 km: trattenute, contributi e netto reale dopo il Nuovo Accordo in vigore dal 1° gennaio 2024.',
     'blog.article.busta-paga-frontalieri-2026-oltre-20km.imageAlt': 'Busta paga svizzera 2026 con vista sul Lago di Lugano',
+    'blog.article.credito-2026-famiglia-calcolo-limiti.title': 'Credito d\'imposta 2026: calcolo per famiglia con figli',
+    'blog.article.credito-2026-famiglia-calcolo-limiti.excerpt': 'Frontalieri con figli: quadro CE del 730, franchigia €10.000 nuovi e €7.500 vecchi. Calcolo credito d\'imposta, imposta alla fonte trattenuta in Svizzera, scadenze dichiarazione 2026.',
+    'blog.article.credito-2026-famiglia-calcolo-limiti.imageAlt': 'Famiglia frontaliere con figli esamina documenti fiscali presso confine Ticino-Italia',
 };
 
 export default blogMetaIt;
