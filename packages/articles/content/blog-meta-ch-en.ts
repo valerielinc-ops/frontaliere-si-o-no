@@ -4738,6 +4738,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-san-gallo.title': 'Wages and the labour market in the Canton of St Gallen',
     'blog.article.salari-mercato-lavoro-san-gallo.excerpt': 'St. Gallen: Diversified economy between industry, services and trade, no federal minimum wage and wages related to training, experience and responsibility.',
     'blog.article.salari-mercato-lavoro-san-gallo.imageAlt': 'Modern offices in St. Gallen canton with mountains in the background',
+    'blog.article.casa-nidvaldo-mutuo-pratico.title': 'Buying a Home in Nidwalden: A Practical Guide to Mortgages',
+    'blog.article.casa-nidvaldo-mutuo-pratico.excerpt': 'A guide for those considering the purchase of real estate in the Canton of Nidwalden: Swiss taxation, payroll taxes, and the bureaucratic process.',
+    'blog.article.casa-nidvaldo-mutuo-pratico.imageAlt': 'Residential house in Canton Nidwalden with Alpine lake background',
 };
 
 export default blogMetaChEn;

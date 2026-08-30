@@ -4738,6 +4738,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-san-gallo.title': 'Salari e mercato del lavoro nel Cantone di San Gallo',
     'blog.article.salari-mercato-lavoro-san-gallo.excerpt': 'San Gallo: economia diversificata tra industria, servizi e commercio, nessun salario minimo federale e salari legati a formazione, esperienza e responsabilità.',
     'blog.article.salari-mercato-lavoro-san-gallo.imageAlt': 'Veduta di moderni uffici nel Cantone di San Gallo con montagne sullo sfondo',
+    'blog.article.casa-nidvaldo-mutuo-pratico.title': 'Casa in Nidvaldo: guida pratica al mutuo ipotecario',
+    'blog.article.casa-nidvaldo-mutuo-pratico.excerpt': 'Quadro di riferimento per chi valuta l\'acquisto di un immobile in Canton Nidvaldo: fiscalità svizzera, contributi sul salario e iter burocratico.',
+    'blog.article.casa-nidvaldo-mutuo-pratico.imageAlt': 'Casa residenziale in Canton Nidvaldo con sfondo alpino e lago',
 };
 
 export default blogMetaChIt;
