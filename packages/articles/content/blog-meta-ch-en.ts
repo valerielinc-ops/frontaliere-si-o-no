@@ -4732,6 +4732,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-attivita-san-gallo-registro-costi.title': 'Opening a business in St. Gallen: registration, capital and costs',
     'blog.article.aprire-attivita-san-gallo-registro-costi.excerpt': 'Sagl CHF 20,000, SA CHF100,000: capital, registration in the cantonal register, LAMal from the first day and wage costs AVS, LPP and LAINF.',
     'blog.article.aprire-attivita-san-gallo-registro-costi.imageAlt': 'Cantonal commercial register office in St. Gallen',
+    'blog.article.aprire-attivita-san-gallo-procedura-costi.title': 'Open a business in St. Gallen: procedure and costs',
+    'blog.article.aprire-attivita-san-gallo-procedura-costi.excerpt': 'Legal forms, minimum capital, registration in the commercial register and insurance obligations in the Canton of St. Gallen.',
+    'blog.article.aprire-attivita-san-gallo-procedura-costi.imageAlt': 'View of St. Gallen old town with Abbey library',
 };
 
 export default blogMetaChEn;

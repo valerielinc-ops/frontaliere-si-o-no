@@ -1603,6 +1603,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'neutralita-svizzera-voto-settembre': { it: 'neutralita-svizzera-voto-settembre', en: 'swiss-neutrality-vote-september', de: 'schweiz-neutralitaet-abstimmung-september', fr: 'neutralite-suisse-vote-septembre' },
  'abbonamenti-trasporti-san-gallo': { it: 'abbonamenti-trasporti-san-gallo', en: 'st-gallen-public-transport-passes', de: 'san-gallen-abonnementsverkehr', fr: 'abonnements-transports-saint-gall' },
  'aprire-attivita-san-gallo-registro-costi': { it: 'aprire-attivita-san-gallo-registro-costi', en: 'open-business-st-gallen-register-costs', de: 'geschaeft-eroeffnen-st-gallen-register-kosten', fr: 'ouvrir-activite-saint-gall-registre-couts' },
+ 'aprire-attivita-san-gallo-procedura-costi': { it: 'aprire-attivita-san-gallo-procedura-costi', en: 'start-business-st-gallen-procedure-costs', de: 'geschaeft-gruenden-st-gallen-verfahren-kosten', fr: 'ouvrir-activite-saint-gall-procedure-couts' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
