@@ -1583,6 +1583,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'droni-esercito-battaglione-2028': { it: 'droni-esercito-battaglione-2028', en: 'drones-army-battalion-2028', de: 'drohnen-armee-bataillon-2028', fr: 'drones-armee-bataillon-2028' },
  'svitto-salari-formazione-settori': { it: 'svitto-salari-formazione-settori', en: 'svitto-salaries-labor-market-education', de: 'schwyz-lohne-arbeitsmarkt-bildung', fr: 'schwyz-salaires-marche-travail-formation' },
  'patente-guida-svitto-conversione-ed-esami': { it: 'patente-guida-svitto-conversione-ed-esami', en: 'driving-licence-schwyz-conversion-and-exams', de: 'fuehrerschein-schwyz-umschreibung-und-pruefungen', fr: 'permis-conduire-schwyz-conversion-et-examens' },
+ 'permesso-l-canton-san-gallo-validita-proroga': { it: 'permesso-l-canton-san-gallo-validita-proroga', en: 'l-permit-canton-st-gallen-validity-renewal', de: 'l-bewilligung-kanton-st-gallen-gueltigkeit-verlaengerung', fr: 'permis-l-canton-saint-gall-validite-prorogation' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

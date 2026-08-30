@@ -4672,6 +4672,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.patente-guida-svitto-conversione-ed-esami.title': 'Führerschein im Kanton Schwyz: Verfahren und Prüfungen',
     'blog.article.patente-guida-svitto-conversione-ed-esami.excerpt': 'So erhalten oder umwandeln Sie Ihren Führerschein im Kanton Schwyz: Einschreibung, theoretische und praktische Prüfungen und Pflichtkurse gemäss Bundesgesetzgebung.',
     'blog.article.patente-guida-svitto-conversione-ed-esami.imageAlt': 'Fuehrerschein und Dokumente fuer den Strassenverkehr in der Schweiz',
+    'blog.article.permesso-l-canton-san-gallo-validita-proroga.title': 'Ausweis L im Kanton St. Gallen: Gültigkeit 12 Monate und Verlängerungsregeln',
+    'blog.article.permesso-l-canton-san-gallo-validita-proroga.excerpt': 'Die Kurzzeitbewilligung L im Kanton St. Gallen hat eine Höchstdauer von 12 Monaten, ist an den Arbeitgeber gebunden und sieht eine Verlängerung nur in Ausnahmefällen vor. So funktioniert es.',
+    'blog.article.permesso-l-canton-san-gallo-validita-proroga.imageAlt': 'Kantonales Migrationsamt im Kanton St. Gallen, Eingang mit ausländischem Arbeitnehmer',
 };
 
 export default blogMetaChDe;

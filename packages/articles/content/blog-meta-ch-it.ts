@@ -4672,6 +4672,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.patente-guida-svitto-conversione-ed-esami.title': 'Patente di guida nel Canton Svitto: procedura ed esami',
     'blog.article.patente-guida-svitto-conversione-ed-esami.excerpt': 'Come ottenere o convertire la patente nel Cantone di Svitto: iscrizione, esami teorico e pratico e corsi obbligatori secondo la normativa federale.',
     'blog.article.patente-guida-svitto-conversione-ed-esami.imageAlt': 'Patente di guida e documenti per la circolazione in Svizzera',
+    'blog.article.permesso-l-canton-san-gallo-validita-proroga.title': 'Permesso L nel Canton San Gallo: validità 12 mesi e regole di proroga',
+    'blog.article.permesso-l-canton-san-gallo-validita-proroga.excerpt': 'Il permesso L di breve durata nel Canton San Gallo ha durata massima di 12 mesi, è legato al datore di lavoro e prevede la proroga solo in casi eccezionali. Ecco come funziona.',
+    'blog.article.permesso-l-canton-san-gallo-validita-proroga.imageAlt': 'Ufficio cantonale per la migrazione nel Canton San Gallo, ingresso con lavoratore straniero',
 };
 
 export default blogMetaChIt;
