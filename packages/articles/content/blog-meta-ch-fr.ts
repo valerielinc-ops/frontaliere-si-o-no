@@ -4693,6 +4693,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.custodia-bambini-san-gallo-tariffe-sussidi.title': 'Garde d\'enfants en Suisse : structures, tarifs et subventions',
     'blog.article.custodia-bambini-san-gallo-tariffe-sussidi.excerpt': 'Comment fonctionnent les crèches, les tarifs et les subventions pour la garde des enfants. Modèles de financement et déductions fiscales.',
     'blog.article.custodia-bambini-san-gallo-tariffe-sussidi.imageAlt': 'Centre de garde d\'enfants suisse avec espace d\'apprentissage coloré et enfants qui jouent à la lumière naturelle.',
+    'blog.article.asilo-nido-custodia-bambini-san-gallo.title': 'Garderie dans le canton de Saint-Gall : coûts et subventions',
+    'blog.article.asilo-nido-custodia-bambini-san-gallo.excerpt': 'Tarifs décidés par les communes, allocations cantonales, familles de jour et après l\'école : guide pratique de la garde extrafamiliale dans le canton de Saint-Gall.',
+    'blog.article.asilo-nido-custodia-bambini-san-gallo.imageAlt': 'Entrée d\'une crèche dans une commune du canton de Saint-Gall avec parents et enfants',
 };
 
 export default blogMetaChFr;

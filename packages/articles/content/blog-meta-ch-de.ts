@@ -4693,6 +4693,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.custodia-bambini-san-gallo-tariffe-sussidi.title': 'Kinderbetreuung in der Schweiz: Einrichtungen, Tarife und Leistungen',
     'blog.article.custodia-bambini-san-gallo-tariffe-sussidi.excerpt': 'Wie Kindergärten, Tarife und Kinderbetreuungsbeihilfen funktionieren. Finanzierungsmodelle und Steuerabzüge.',
     'blog.article.custodia-bambini-san-gallo-tariffe-sussidi.imageAlt': 'Schweizer Kinderbetreuungszentrum mit farbenfrohem Lernbereich und spielenden Kindern im Tageslicht.',
+    'blog.article.asilo-nido-custodia-bambini-san-gallo.title': 'Kindertagesstätte im Kanton St. Gallen: Kosten und Zuschüsse',
+    'blog.article.asilo-nido-custodia-bambini-san-gallo.excerpt': 'Von den Gemeinden beschlossene Tarife, Kantonsbeiträge, Tages- und Nachschulfamilien: Praktischer Leitfaden zur ausserfamiliären Obhut im Kanton St. Gallen.',
+    'blog.article.asilo-nido-custodia-bambini-san-gallo.imageAlt': 'Eingang einer Kindertagesstätte in einer St. Galler Gemeinde mit Eltern und Kindern',
 };
 
 export default blogMetaChDe;
