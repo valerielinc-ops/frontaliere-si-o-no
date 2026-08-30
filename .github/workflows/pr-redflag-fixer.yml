@@ -387,6 +387,44 @@ jobs:
           n=$(gh api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --jq 'length' 2>/dev/null || echo 0)
           echo "comments=${n:-0}" >> "$GITHUB_OUTPUT"
 
+      # Prefetch zero-Claude (token-lever, stesso bundle di tests.yml/pr-review-loop):
+      # il prompt sotto (Bootstrap 2) faceva rifare a Claude `gh pr view` + `gh api
+      # .../files --paginate` + `gh api .../reviews` come primi tool-call del run —
+      # dati che qui si possono raccogliere senza spendere un turno. Fail-open: un
+      # fetch fallito lascia la sezione vuota e il prompt sa rifare la chiamata
+      # diretta se il bundle risulta incompleto.
+      - name: Prefetch 🔴-fix context (zero-Claude)
+        if: steps.guard.outputs.proceed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          CTX_DIR: ${{ runner.temp }}/redflag-ctx
+        run: |
+          set -uo pipefail
+          mkdir -p "$CTX_DIR"
+          gh pr view "$PR_NUMBER" --repo "$REPO" --json title,body,headRefName \
+            > "$CTX_DIR/pr.json" 2>/dev/null || echo '{}' > "$CTX_DIR/pr.json"
+          gh api "repos/$REPO/pulls/$PR_NUMBER/files" --paginate --jq '.[].filename' \
+            > "$CTX_DIR/files.txt" 2>/dev/null || : > "$CTX_DIR/files.txt"
+          gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" \
+            --jq '[.[] | select(.user.login|test("claude";"i"))] | last | .body' \
+            > "$CTX_DIR/latest-review.md" 2>/dev/null || echo "(nessuna review trovata)" > "$CTX_DIR/latest-review.md"
+          {
+            echo "# 🔴-fix context bundle"
+            echo
+            echo "## PR metadata (title/body/headRefName)"
+            cat "$CTX_DIR/pr.json"
+            echo
+            echo "## Changed file list"
+            cat "$CTX_DIR/files.txt"
+            echo
+            echo "## Latest Claude review body"
+            cat "$CTX_DIR/latest-review.md"
+          } > "$CTX_DIR/redflag-bundle.md"
+          echo "Prefetched redflag-fix context in $CTX_DIR:"
+          ls -la "$CTX_DIR"
+
       - name: Setup Headroom compression proxy
         if: steps.guard.outputs.proceed == 'true'
         uses: ./.github/actions/setup-headroom
@@ -444,7 +482,7 @@ jobs:
 
             **Bootstrap:**
             1. Leggi `REVIEW.md` (severity/scopo) + `AGENTS.md` (non-negotiables + Privacy). VINCOLANTI.
-            2. Carica la PR + le review: `gh pr view $PR_NUMBER --json title,body,headRefName` + `gh api repos/$REPO/pulls/$PR_NUMBER/files --paginate --jq '.[].filename'` per l'elenco file (NON `--json files`: tronca a 100 in silenzio), `gh api repos/$REPO/pulls/$PR_NUMBER/reviews --jq '[.[] | select(.user.login|test("claude";"i"))] | last | .body'`. Il branch è già checkoutato sulla head della PR.
+            2. Il contesto è già prefetchato (zero-Claude, token-lever) in `${{ runner.temp }}/redflag-ctx/redflag-bundle.md`: leggilo con `Read` come prima cosa — contiene PR metadata (title/body/headRefName), l'elenco file completo, e il body dell'ultima review Claude. Non ripetere `gh pr view`/`gh api .../files`/`gh api .../reviews` a meno che la sezione relativa risulti vuota/incompleta. Il branch è già checkoutato sulla head della PR.
 
             **Obiettivo:** applica un fix CLASS-COMPLETE ai SOLI findings `🔴 Important` della review più recente su QUESTO branch. NON mergiare.
 
@@ -469,6 +507,7 @@ jobs:
             **Constraint:**
             - SOLO i 🔴 della review corrente. Non rifare l'intera PR, non drive-by.
             - Se i 🔴 non sono fixabili con confidenza (root cause non chiara / serve giudizio umano) → commenta "🔴 non auto-fixabile: <motivo>" e TERMINA senza commit (il round cap + needs-human gestiranno l'escalation).
+            - **Token-lever:** chiamate `gh`/lettura indipendenti vanno emesse in parallelo nello stesso messaggio, mai una per turno — un messaggio con più tool-call resta 1 turno.
             - Una sola passata: applica, valida, committa, pusha, aggiorna body, STOP.
 
       - name: Claude usage metrics

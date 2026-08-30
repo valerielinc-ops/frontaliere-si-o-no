@@ -576,6 +576,7 @@ jobs:
             **Constraint:**
             - SOLO il check rosso. Non rifare la PR, non drive-by, non "già che ci sono".
             - Se non è fixabile con confidenza (root cause non chiara, serve giudizio umano, o l'unica via sarebbe indebolire un gate) → commenta «❌ check non auto-fixabile: <motivo>» e TERMINA senza commit. Il round cap porta a `needs-human` da solo: è l'esito giusto, non una sconfitta.
+            - **Token-lever:** chiamate `gh`/lettura indipendenti vanno emesse in parallelo nello stesso messaggio, mai una per turno — un messaggio con più tool-call resta 1 turno.
             - Una sola passata: diagnostica, fixa, valida, committa, pusha, aggiorna il body, STOP.
       - name: Claude usage metrics
         if: always() && steps.guard.outputs.proceed == 'true'
