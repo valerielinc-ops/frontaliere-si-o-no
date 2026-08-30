@@ -4753,6 +4753,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.esercito-droni-svizzera-2026.title': 'Die Schweizer Armee setzt auf Drohnen: die Strategie 2026',
     'blog.article.esercito-droni-svizzera-2026.excerpt': 'Neues Kompetenzzentrum für Drohnen, ein Bataillon und eine Rekrutenschule ab 2028. Der Experte Gilli: Der richtige Weg mit Skalierungsgrenzen und schnellen Innovationszyklen.',
     'blog.article.esercito-droni-svizzera-2026.imageAlt': 'Militärische Drohne über Schweizer Alpenlandschaft im Flug, Symbol für fortgeschrittene nationale Technologieforschung',
+    'blog.article.casa-nidvaldo-mutuo-costi-acquisto.title': 'Hauskauf in Nidwalden: Preise, Hypothek und Nebenkosten',
+    'blog.article.casa-nidvaldo-mutuo-costi-acquisto.excerpt': 'Leitfaden zum Immobilienkauf im Kanton Nidwalden: Eigenkapitalanteil von 20 %, 33-Prozent-Regel bezogen auf das Bruttoeinkommen, Grunderwerbssteuer und Notarkosten.',
+    'blog.article.casa-nidvaldo-mutuo-costi-acquisto.imageAlt': 'Traditionelles Schweizer Haus mit Seeblick im Kanton Nidwalden',
 };
 
 export default blogMetaChDe;

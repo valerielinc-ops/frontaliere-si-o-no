@@ -4753,6 +4753,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.esercito-droni-svizzera-2026.title': 'L\'armée suisse mise sur les drones : la stratégie 2026',
     'blog.article.esercito-droni-svizzera-2026.excerpt': 'Nouveau centre d\'expertise sur les drones, un bataillon et une école de recrues à partir de 2028. L\'expert Gilli : une orientation pertinente, avec des limites d\'échelle et des cycles d\'innovation rapides.',
     'blog.article.esercito-droni-svizzera-2026.imageAlt': 'Prototype de drone militaire en vol au-dessus du paysage alpin suisse, représentant la recherche technologique nationale avancée',
+    'blog.article.casa-nidvaldo-mutuo-costi-acquisto.title': 'Acheter une maison à Nidwald : prix, hypothèque et coûts accessoires',
+    'blog.article.casa-nidvaldo-mutuo-costi-acquisto.excerpt': 'Guide d\'achat dans le canton de Nidwald : fonds propres à 20 %, règle de 33 % sur le revenu brut, taxes de passage et frais de notaire.',
+    'blog.article.casa-nidvaldo-mutuo-costi-acquisto.imageAlt': 'Maison suisse traditionnelle avec vue sur le lac dans le canton de Nidwald',
 };
 
 export default blogMetaChFr;

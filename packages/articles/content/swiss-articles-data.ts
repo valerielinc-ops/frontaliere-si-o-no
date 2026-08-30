@@ -14257,6 +14257,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'casa-nidvaldo-mutuo-costi-acquisto',
+    category: 'pratico',
+    date: '2026-08-30T12:56:00.381Z',
+    image: '/images/blog/casa-nidvaldo-mutuo-costi-acquisto.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
