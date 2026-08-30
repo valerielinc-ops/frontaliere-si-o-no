@@ -4660,6 +4660,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svitto-ditta-registro-commercio-capitale.title': 'Opening a business in Svitto: registration and costs',
     'blog.article.svitto-ditta-registro-commercio-capitale.excerpt': 'Practical guide to registration in the Commercial Register in the Canton of Schwyz: legal forms, minimum capital, registration fees and insurance obligations for employees.',
     'blog.article.svitto-ditta-registro-commercio-capitale.imageAlt': 'Business desk with registration documents, calculator and computer representing startup',
+    'blog.article.aprire-ditta-svitto-costi-e-adempimenti.title': 'Starting a business in the Canton of Schwyz: a practical guide',
+    'blog.article.aprire-ditta-svitto-costi-e-adempimenti.excerpt': 'Complete procedure in the Canton of Schwyz: trade register, minimum capital for Sagl and SA, AVS, AD, LPP and LAMal obligations.',
+    'blog.article.aprire-ditta-svitto-costi-e-adempimenti.imageAlt': 'Storefront in a Canton Schwyz town with the Alps in the background',
 };
 
 export default blogMetaChEn;

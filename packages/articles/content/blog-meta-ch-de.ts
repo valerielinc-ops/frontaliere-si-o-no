@@ -4660,6 +4660,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svitto-ditta-registro-commercio-capitale.title': 'Geschäft in Schwyz eröffnen: Register und Kosten',
     'blog.article.svitto-ditta-registro-commercio-capitale.excerpt': 'Praktischer Leitfaden für die Eintragung in das Handelsregister im Kanton Schwyz: Rechtsformen, Mindestkapital, Eintragungsgebühren und Versicherungsverpflichtungen für Arbeitnehmer.',
     'blog.article.svitto-ditta-registro-commercio-capitale.imageAlt': 'Geschäftsschreibtisch mit Handelsakten, Rechner und Computer, Unternehmensstart',
+    'blog.article.aprire-ditta-svitto-costi-e-adempimenti.title': 'Ein Geschäft im Kanton Schwyz eröffnen: praktischer Leitfaden',
+    'blog.article.aprire-ditta-svitto-costi-e-adempimenti.excerpt': 'Vollständiges Verfahren im Kanton Schwyz: Handelsregister, Mindestkapital für GmbH und AG, AHV-, ALV-, BVG- UND KVG-Verpflichtungen.',
+    'blog.article.aprire-ditta-svitto-costi-e-adempimenti.imageAlt': 'Geschäft in einer Gemeinde im Kanton Schwyz mit Alpen im Hintergrund',
 };
 
 export default blogMetaChDe;

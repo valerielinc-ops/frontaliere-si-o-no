@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Sun, 30 Aug 2026 00:27:53 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 30 Aug 2026 00:39:55 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -16,6 +16,90 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Starting a business in the Canton of Schwyz: a practical guide</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/open-business-schwyz-costs-and-requirements/</link>
+      <description><![CDATA[Complete procedure in the Canton of Schwyz: trade register, minimum capital for Sagl and SA, AVS, AD, LPP and LAMal obligations.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- Opening a business in Switzerland requires registration in the cantonal trade register
+- The choice of legal form determines minimum capital and liability
+- Canton of Svitto: own tax laws and municipal multipliers
+- Insurance obligations (AVS, AD, LAINF, LPP) start from the first employee
+
+## Key facts
+- **What**: procedure to start a business in the Canton of Schwyz
+- When: Fulfilments to be completed before the start of activities
+- Where: Canton of Schwyz, German-speaking Switzerland
+- Who: future entrepreneur, cantonal trade register, tax offices
+- Amount: minimum variable capital according to the legal form
+- Taxes: registration fees in the commercial register
+- Insurance: LAMal within 3 months, AVS/AI/IPG 5.3% employee, AD 1.1%
+- Pension: coordinated PPI for age groups 25-34, 35-44, 45-54, 55+
+
+### Why Swivel
+The Canton of Swabia is one of the twelve jurisdictions of central Switzerland. Those who intend to open a business in this Canton must interface with the cantonal and municipal authorities for local taxation, while direct federal tax (DFT) and value added tax (VAT) follow federal law. Registration with the cantonal office of the trade register is the first formal step.
+
+Svitto applies a cantonal tax law and a municipal multiplier that varies from one municipality to another, as is the case in the rest of Switzerland: each municipality multiplies the cantonal tax with a
+### Registration and tax obligations
+After registration in the trade register, the new entrepreneur receives an IDI (business identification) number and is registered ex officio in the VAT and AVS registers. If the annual turnover exceeds the threshold of CHF 2,500 (taxable services), registration in the VAT register is mandatory. VAT registration is always mandatory for legal entities.
+
+The IFD is a federal tax, managed by the AFC with progressive rates. Cantonal and municipal taxes are levied by cantonal tax administrations: in the case of Swift, by the Cantonal Tax Administration of the Swift Canton. The three levels (federal, cantonal, municipal) are summed up in the annual declaration.
+
+### Personnel costs
+Employees must register as an employer with the AVS Compensation Funds and the Unemployment Fund. Compulsory wage contributions in Switzerland are:
+
+| Contribution | Employee Rate | Employer Rate | Total |
+|------------|--------------------|-----------------|--------|
+| AVS/AI/IPG | 5.3% | 5.3% | 10.6% |
+| AD (unemployment) | 1.1% | 1.1% | up to the annual ceiling |
+| LAINF/LAA | – | 0.7–1.5% | second sector |
+
+For occupational pension (LPP), the minimum contributions on the coordinated salary are:
+
+| Age | Minimum contribution |
+|-----|-------------------|
+| 25–34 years | 7% |
+| 35–44 years | 10% |
+| 45–54 years | 15% |
+| 55 years up to the reference age | 18% |
+
+### Operating costs
+
+## Useful planning tools
+To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
+### Step-by-step procedure
+To open a business in the Canton of Schwyz, the aspiring entrepreneur must follow this procedure:
+
+1. **Choice of legal form**: evaluate between sole proprietorship, GmbH (Sagl), AG (SA) or partnership, considering capital, liability and administrative costs.
+
+2. Name and articles of association check: for GmbH and AG, a notarised deed of incorporation and articles of association are required, authenticated by a public notary. For GmbH, the minimum initial capital must be paid into a blocked bank account.
+
+3. Entry in the commercial register: the application is submitted to the Commercial Register Office of the Canton of Schwyz (Handelsregisteramt). The articles of association, deed of incorporation, proof of capital payment and, for GmbH, bank confirmation are required. Cantonal registration fees vary; consult the official tariff schedule on the Canton's website.
+
+4. VAT registration: with the Federal Tax Administration (FTA), if taxable turnover exceeds CHF 2,500 or for all legal entities.
+
+5. Social fund registration: AHV compensation fund, unemployment fund, SUVA for accidents (mandatory from the first employee). Employers must affiliate with a compensation fund and pay contributions.
+
+6. Health insurance (LAMal/KVG): every resident — owner and family members — must take out a basic policy within three months of arrival or start of business. Standard annual deductibles range from CHF 300 to CHF 2,500.
+
+7. Sector-specific authorisations: some activities (catering, healthcare, construction, transport) require additional cantonal or federal permits.
+
+### Deadlines and obligations
+After starting up, the entrepreneur must:
+- pay VAT advances quarterly (or monthly above a certain threshold);
+- file federal, cantonal and municipal tax returns every year;
+- pay salary contributions within the deadlines set by the compensation funds;
+- keep accounts in accordance with the Code of Obligations and Swiss GAAP FER standards where applicable.
+
+### Useful tools
+To simulate the tax and contribution impact on your salary or income statement, the [salary calculator](nav:calculator) is useful. To estimate the overall cost of living in Switzerland, including LAMal/KVG premiums and rent, see the page on [cost of living](nav:cost-of-living). To compare health insurance premiums in the Canton of Schwyz, the [LAMal/KVG](nav:health) tool allows a direct comparison between insurers.
+
+Subscribe to the Frontaliere Ticino newsletter to stay updated on tax and administrative news.]]></content:encoded>
+      <pubDate>Sun, 30 Aug 2026 00:39:55 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/aprire-ditta-svitto-costi-e-adempimenti</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/aprire-ditta-svitto-costi-e-adempimenti.webp" medium="image"/>
+    </item>
     <item>
       <title>Opening a business in Svitto: registration and costs</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/sv-company-registration-capital/</link>
@@ -2891,71 +2975,6 @@ For those who wish to better understand how the overall economic situation of th
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/formazione-musicale-rette-2026</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/formazione-musicale-rette-2026.webp" medium="image"/>
-    </item>
-    <item>
-      <title>The sticky highway vignette will disappear, but not right away</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/vignette-highway-not-immediately/</link>
-      <description><![CDATA[The Federal Council confirms: vignette still stuck for years. Abolition only when it falls below 10% of sales. In 2026, digital share at 50%.]]></description>
-      <content:encoded><![CDATA[## In a nutshell
-- The sticker vignette will remain for several more years in Switzerland
-- Abolition will only happen when it falls below 10% of sales
-- For 2026 there is a 50% share of electronic markings
-
-## Key facts
-- **What**: Motion to abolish the sticky highway vignette
-- Who: National Councillor Thomas de Courten (UDC/BS) and Federal Council
-- When: 2026 (50% digital share); abolition in the future (years not specified)
-- Where: Switzerland
-- Abolition threshold: Less than 10% of total sales
-- Potential savings: Approximately CHF 20 million per year with digital-only system
-- International comparison: Austria will go digital from 2027
-
-The Federal Council responded to a motion by National Councillor Thomas de Courten (UDC/BS) calling for the abolition of the sticky motorway vignette. The decision is clear: the adhesive version will remain available for several more years, despite the growing preference for the electronic one.
-
-The adhesive vignette involves considerable costs related to production, distribution, sales and accounting. An exclusively electronic system would represent an annual saving of about 20 million francs — given that it fueled Courten's motion. Austria has already decided to take this step from 2027, following an international trend towards complete digitisation.
-
-### The dual system and the abolition threshold
-
-However, the Swiss Parliament opted for a dual system.
-### The dynamics of the digital transition
-
-The 50% share of electronic vignettes planned for 2026 represents an important reference point on the path towards the abolition of the adhesive version. However, the Government does not specify a precise date to reach 10%, limiting itself to observing that it will have to wait "several more years". The exact timeline will depend on the speed with which Swiss motorists will spontaneously adopt the digital mark.
-
-In parallel, Austria will proceed with the total elimination of the sticker vignette from 2027. This creates an asymmetrical scenario: those who move between Switzerland and Austria will have freedom of choice on the one hand (Switzerland) and will be obliged to go digital on the other (Austria). An asymmetry that could affect purchasing habits during the Swiss transition phase, especially for those who frequently cross borders.
-
-### The economic impact of digital choice
-
-The saving of about CHF 20 million per year is a considerable figure in the budget of the Federal Administration. These amounts reflect the costs that the sticker vignette entails today in terms of production, distribution, sales and accounting. The Government recognises that digital-only management could bring these efficiencies, although the transition remains gradual and controlled.
-
-For those living in Switzerland, this optimisation of public spending contributes to a [gestione più efficiente delle risorse che impatta il costo della vita complessivo](nav:cost-of-living) of residents. A
-
-## Useful tools to protect your net income
-To reduce FX leakage, compare [CHF-EUR exchange options](nav:exchange) and [banks for cross-border workers](nav:banks).
-### Navigating between the two options today
-
-Until the completion of the transition to digital (still years away), the choice remains in the hands of those traveling on Swiss highways. Both versions remain valid, available, and legally accepted.
-
-**Adhesive sticker**: You can continue to purchase it online or at gas stations. It is still widespread and easily available at authorized retail outlets. Once purchased, it remains affixed to the windshield of the specific vehicle.
-
-Electronic sticker: The digital version represents an alternative already chosen by 50% of motorists expected in 2026. This growing share confirms an adoption trend that the Government monitors to determine when to abolish the adhesive version.
-
-### The reference data for 2026
-
-Almost half of the vignettes sold in 2026 will be in digital form. This means that over 50% of Swiss motorists will have already chosen the electronic solution, confirming a transition trend that will continue in the following years. The Federal Administration uses this data to assess when the adhesive version will drop below the critical threshold of 10%.
-
-There are no urgent deadlines at the moment. The adhesive vignette will continue to be valid and available. It is advisable to monitor announcements from the Federal Administration when the moment of complete transition approaches — an event still several years away from 2026.
-
-### How to act in the coming months
-
-If you decide to switch to the electronic version, you can purchase it directly online or at authorized retail outlets. If you prefer to keep the adhesive version, it continues to be a completely valid and available option for the coming years.
-
-Discover all the legal ways to travel in Switzerland and the means available in our [complete guide to transportation](nav:transport).
-
-*Source: [rsi.ch](https://www.rsi.ch/s/4017883)*]]></content:encoded>
-      <pubDate>Thu, 27 Aug 2026 15:40:33 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/vignetta-autostradale-non-subito</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/vignetta-autostradale-non-subito.webp" medium="image"/>
     </item>
   </channel>
 </rss>
