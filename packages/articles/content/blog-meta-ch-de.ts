@@ -4708,6 +4708,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-obvaldo-cassa.title': 'AHV und Ergänzungsleistungen im Kanton Obwalden: Funktionsweise der Kasse',
     'blog.article.avs-prestazioni-complementari-obvaldo-cassa.excerpt': 'AHV-Ausgleichskasse des Kantons Obwalden: Beiträge, Rentenberechnung, Lückenrückkauf und Ergänzungsleistungen für das Existenzminimum.',
     'blog.article.avs-prestazioni-complementari-obvaldo-cassa.imageAlt': 'Kantonales Verwaltungsgebäude in Sarnen, Kanton Obwalden',
+    'blog.article.avs-prestazioni-complementari-obvaldo-guida.title': 'AHV und Ergänzungsleistungen im Kanton Obwalden: der Leitfaden',
+    'blog.article.avs-prestazioni-complementari-obvaldo-guida.excerpt': 'Wie die erste AHV-Säule im Kanton Obwalden funktioniert: Rolle der Ausgleichskasse, Beitragslücken und Ergänzungsleistungen zur Deckung des Existenzminimums im Jahr 2026.',
+    'blog.article.avs-prestazioni-complementari-obvaldo-guida.imageAlt': 'Verwaltungsgebäude im Kanton Obwalden mit der AHV-Ausgleichskasse',
 };
 
 export default blogMetaChDe;

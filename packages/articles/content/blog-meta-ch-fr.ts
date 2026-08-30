@@ -4708,6 +4708,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-obvaldo-cassa.title': 'AVS et prestations complémentaires à Obwald',
     'blog.article.avs-prestazioni-complementari-obvaldo-cassa.excerpt': 'Caisse de compensation AVS du canton Obwald : cotisations, calcul de la rente, rachat des lacunes et prestations complémentaires pour le minimum vital.',
     'blog.article.avs-prestazioni-complementari-obvaldo-cassa.imageAlt': 'Bâtiment administratif cantonal à Sarnen, canton d\'Obwald',
+    'blog.article.avs-prestazioni-complementari-obvaldo-guida.title': 'AVS et prestations complémentaires dans le canton d\'Obwald : le guide',
+    'blog.article.avs-prestazioni-complementari-obvaldo-guida.excerpt': 'Comment fonctionne le premier pilier AVS dans le canton d\'Obwald : rôle de la caisse de compensation, lacunes de cotisation et prestations complémentaires pour couvrir le minimum vital en 2026.',
+    'blog.article.avs-prestazioni-complementari-obvaldo-guida.imageAlt': 'Bâtiment administratif du canton d\'Obwald abritant la caisse de compensation AVS',
 };
 
 export default blogMetaChFr;
