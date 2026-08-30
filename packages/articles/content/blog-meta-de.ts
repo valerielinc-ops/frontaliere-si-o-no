@@ -10973,6 +10973,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.busta-paga-frontalieri-2026-oltre-20km.title': 'Lohnabrechnung Grenzgänger 2026 über 20 km: Komplette Anleitung',
     'blog.article.busta-paga-frontalieri-2026-oltre-20km.excerpt': 'Schweizer Lohnabrechnung 2026 für Grenzgänger über 20 km: Einbehalte, Beiträge und Realnetto nach dem am 1. Januar 2024 in Kraft getretenen Neuen Abkommen.',
     'blog.article.busta-paga-frontalieri-2026-oltre-20km.imageAlt': 'Schweizer Lohnabrechnung 2026 mit Blick auf den Luganersee',
+    'blog.article.credito-2026-famiglia-calcolo-limiti.title': 'Steuergutschrift 2026: Berechnung pro Familie mit Kindern',
+    'blog.article.credito-2026-famiglia-calcolo-limiti.excerpt': 'Grenzgänger mit Kindern: Rahmen EG 730, Selbstbehalt € 10.000 neu und € 7.500 alt. Berechnung Steuergutschrift, einbehaltene Quellensteuer in der Schweiz, Fristen Erklärung 2026.',
+    'blog.article.credito-2026-famiglia-calcolo-limiti.imageAlt': 'Grenzgänger-Familie mit Kindern überprüft Steuerdokumente an der Grenze Tessin-Italien',
 };
 
 export default blogMetaDe;

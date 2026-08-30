@@ -32808,6 +32808,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'credito-2026-famiglia-calcolo-limiti',
+ category: 'fiscale',
+ date: '2026-08-30T21:27:46.507Z',
+ image: '/images/blog/credito-2026-famiglia-calcolo-limiti.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

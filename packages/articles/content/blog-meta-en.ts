@@ -10974,6 +10974,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.busta-paga-frontalieri-2026-oltre-20km.title': 'Border payroll 2026 over 20 km: complete guide',
     'blog.article.busta-paga-frontalieri-2026-oltre-20km.excerpt': 'Swiss paycheck 2026 for border workers over 20 km: withholdings, contributions and real net after the New Agreement in force from 1 January 2024.',
     'blog.article.busta-paga-frontalieri-2026-oltre-20km.imageAlt': 'Swiss payslip 2026 with view of Lake Lugano',
+    'blog.article.credito-2026-famiglia-calcolo-limiti.title': '2026 tax credit: calculation for family with children',
+    'blog.article.credito-2026-famiglia-calcolo-limiti.excerpt': 'Frontier workers with children: CE framework of 730, deductible €10,000 new and €7,500 old. Calculation of tax credit, withholding tax withheld in Switzerland, return deadlines 2026.',
+    'blog.article.credito-2026-famiglia-calcolo-limiti.imageAlt': 'Frontalier family with children reviewing tax documents at Ticino-Italy border checkpoint',
 };
 
 export default blogMetaEn;
