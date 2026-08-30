@@ -320,6 +320,20 @@ describe('all-known-job-slugs store — shard layout', () => {
     expect(manifest.totalSlugs).toBe(123);
     expect(manifest.shardCount).toBe(KNOWN_SLUGS_SHARD_COUNT);
   });
+
+  it('re-writing an unchanged registry does not touch any shard file on disk (issue #6384)', () => {
+    // Byte-identical content isn't enough — a naive writer still calls
+    // writeFileSync on all 32 shards every persist, which is the actual git
+    // churn issue #6384 fixes. Assert no shard's mtime changes.
+    const root = mkTmp();
+    const registry = sampleRegistry(300);
+    writeAllKnownJobSlugs(registry, root);
+    const files = listKnownSlugsShardFiles(root);
+    const mtimesBefore = files.map((f) => fs.statSync(f).mtimeMs);
+    writeAllKnownJobSlugs(readAllKnownJobSlugs(root), root);
+    const mtimesAfter = files.map((f) => fs.statSync(f).mtimeMs);
+    expect(mtimesAfter).toEqual(mtimesBefore);
+  });
 });
 
 /* ── 3. The committed registry must stay pushable ──────────────────────── */

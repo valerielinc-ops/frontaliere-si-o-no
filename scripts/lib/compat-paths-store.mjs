@@ -140,7 +140,17 @@ export function readCompatPaths(rootDir = process.cwd()) {
  * `data` is `{ ...meta, paths }`; `paths` is de-duped, distributed by
  * `compatShardIndex`, each shard sorted for a stable diff. Meta (everything
  * except `paths`) goes to the manifest. The legacy monolith is removed if
- * present (it cannot be pushed). Returns `{ totalPaths, shardCount }`.
+ * present (it cannot be pushed). Returns `{ totalPaths, shardCount,
+ * shardsWritten }`.
+ *
+ * Only shards whose serialized content actually differs from what's on disk
+ * are written (2026-08-30, issue #6384): with 146 commits/30d touching this
+ * directory and most persists changing a handful of paths, unconditionally
+ * rewriting all 16 shards every call inflated every commit's diff (and the
+ * repo's git history weight) 16x beyond the real change. Comparing the
+ * about-to-be-written bytes against the existing file before writing keeps
+ * the shard set byte-identical run to run wherever nothing changed, with no
+ * change to the logical read/write contract.
  */
 export function writeCompatPaths(data, rootDir = process.cwd()) {
   const { paths: rawPaths, ...meta } = data || {};
@@ -153,9 +163,20 @@ export function writeCompatPaths(data, rootDir = process.cwd()) {
 
   const dir = path.resolve(rootDir, COMPAT_SHARD_DIR);
   fs.mkdirSync(dir, { recursive: true });
+  let shardsWritten = 0;
   for (let i = 0; i < COMPAT_SHARD_COUNT; i++) {
     buckets[i].sort();
-    fs.writeFileSync(compatShardFile(i, rootDir), JSON.stringify({ paths: buckets[i] }, null, 2) + '\n', 'utf-8');
+    const content = JSON.stringify({ paths: buckets[i] }, null, 2) + '\n';
+    const file = compatShardFile(i, rootDir);
+    let existing;
+    try {
+      existing = fs.readFileSync(file, 'utf-8');
+    } catch {
+      /* shard doesn't exist yet on disk — must write */
+    }
+    if (existing === content) continue;
+    fs.writeFileSync(file, content, 'utf-8');
+    shardsWritten++;
   }
   fs.writeFileSync(
     compatManifestFile(rootDir),
@@ -171,5 +192,5 @@ export function writeCompatPaths(data, rootDir = process.cwd()) {
     /* best-effort */
   }
 
-  return { totalPaths: uniq.length, shardCount: COMPAT_SHARD_COUNT };
+  return { totalPaths: uniq.length, shardCount: COMPAT_SHARD_COUNT, shardsWritten };
 }
