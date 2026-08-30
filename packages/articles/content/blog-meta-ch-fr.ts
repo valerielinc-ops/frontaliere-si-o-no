@@ -4726,6 +4726,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.neutralita-svizzera-voto-settembre.title': 'Neutralité dans la Constitution : le 27 septembre, le vote fédéral',
     'blog.article.neutralita-svizzera-voto-settembre.excerpt': 'Initiative déposée en avril 2024 avec plus de 132\'000 signatures valables. Sanctions de l\'UE et coopération militaire dans le collimateur des promoteurs.',
     'blog.article.neutralita-svizzera-voto-settembre.imageAlt': 'Enveloppe de votation fédérale suisse sur une table d\'appartement',
+    'blog.article.abbonamenti-trasporti-san-gallo.title': 'Abonnements transports Saint-Gall : zones et tarifs',
+    'blog.article.abbonamenti-trasporti-san-gallo.excerpt': 'Découvrez la structure tarifaire du canton de Saint-Gall : communauté tarifaire, zones, abonnements annuels et mensuels, demi-tarif et AG, réductions pour étudiants.',
+    'blog.article.abbonamenti-trasporti-san-gallo.imageAlt': 'Transports publics dans le canton de Saint-Gall avec passagers à la gare',
 };
 
 export default blogMetaChFr;
