@@ -4801,6 +4801,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-domicilio-c-grigioni-requisiti.title': 'Permesso domicilio C Grigioni: requisiti e domanda',
     'blog.article.permesso-domicilio-c-grigioni-requisiti.excerpt': 'Il permesso C è la licenza di residenza permanente in Svizzera. Scopri come richiederlo nel canton Grigioni, gli anni di residenza richiesti, le implicazioni fiscali, AVS/LPP e il percorso verso la naturalizzazione ordinaria.',
     'blog.article.permesso-domicilio-c-grigioni-requisiti.imageAlt': 'Valle grigionese con edificio amministrativo cantonale e bandiere svizzere in paesaggio alpino',
+    'blog.article.permesso-l-breve-durata-grigioni-validita.title': 'Permesso L nei Grigioni: durata, proroga e cambio datore',
+    'blog.article.permesso-l-breve-durata-grigioni-validita.excerpt': 'Nel Cantone dei Grigioni il permesso L ha durata fino a 12 mesi, proroghe solo in casi eccezionali e cambio datore subordinato a nuova domanda cantonale.',
+    'blog.article.permesso-l-breve-durata-grigioni-validita.imageAlt': 'Cantone dei Grigioni: borgo alpino con lavoratori stagionali',
 };
 
 export default blogMetaChIt;

@@ -4801,6 +4801,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-domicilio-c-grigioni-requisiti.title': 'Niederlassungsbewilligung C Graubünden: Voraussetzungen und Antrag',
     'blog.article.permesso-domicilio-c-grigioni-requisiti.excerpt': 'Die Bewilligung C ist die Daueraufenthaltsbewilligung in der Schweiz. Erfahren Sie, wie Sie es im Kanton Graubünden beantragen können, welche Aufenthaltsjahre erforderlich sind, welche steuerlichen Auswirkungen es hat, AHV/BVG und den Weg zur ordentlichen Einbürgerung.',
     'blog.article.permesso-domicilio-c-grigioni-requisiti.imageAlt': 'Graubünder Alpental mit Kantonsgebäude und Schweizer Flaggen',
+    'blog.article.permesso-l-breve-durata-grigioni-validita.title': 'L-Bewilligung in Graubünden: Dauer, Verlängerung und Wechsel des Arbeitgebers',
+    'blog.article.permesso-l-breve-durata-grigioni-validita.excerpt': 'Im Kanton Graubünden ist die L-Bewilligung bis zu 12 Monate gültig, Verlängerungen nur in Ausnahmefällen und Arbeitgeberwechsel nur auf erneutes kantonales Gesuch.',
+    'blog.article.permesso-l-breve-durata-grigioni-validita.imageAlt': 'Kanton Graubünden: Bergdorf mit Saisonarbeitern',
 };
 
 export default blogMetaChDe;

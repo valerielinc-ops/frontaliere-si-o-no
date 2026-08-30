@@ -1626,6 +1626,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'premi-cassa-malati-grigioni': { it: 'premi-cassa-malati-grigioni', en: 'health-insurance-premiums-grisons', de: 'krankenkasse-praemien-graubuenden', fr: 'primes-assurance-maladie-grisons' },
  'naturalizzazione-canton-zugo-requisiti-procedura': { it: 'naturalizzazione-canton-zugo-requisiti-procedura', en: 'naturalization-canton-zug-requirements-procedure', de: 'einbuergerung-kanton-zug-voraussetzungen-verfahren', fr: 'naturalisation-canton-zoug-exigences-procedure' },
  'permesso-domicilio-c-grigioni-requisiti': { it: 'permesso-domicilio-c-grigioni-requisiti', en: 'residence-permit-c-graubunden-requirements', de: 'aufenthaltserlaubnis-c-graubuenden-anforderungen', fr: 'permis-sejour-c-grisons-conditions' },
+ 'permesso-l-breve-durata-grigioni-validita': { it: 'permesso-l-breve-durata-grigioni-validita', en: 'short-term-l-permit-graubunden-validity', de: 'kurzaufenthaltsbewilligung-l-graubuenden-gueltigkeit', fr: 'permis-l-courte-duree-grisons-validite' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
