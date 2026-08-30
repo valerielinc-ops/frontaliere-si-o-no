@@ -4798,6 +4798,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.naturalizzazione-canton-zugo-requisiti-procedura.title': 'Naturalization Canton Zug: requirements and complete procedure',
     'blog.article.naturalizzazione-canton-zugo-requisiti-procedura.excerpt': 'Permit C, 10 years of residence (ages 8-18 count double) and ITER at three levels: municipal, cantonal and federal. Here\'s how it works in Zug.',
     'blog.article.naturalizzazione-canton-zugo-requisiti-procedura.imageAlt': 'Canton Zugo town hall with lake and mountains',
+    'blog.article.permesso-domicilio-c-grigioni-requisiti.title': 'Residence permit C Graubünden: requirements and application',
+    'blog.article.permesso-domicilio-c-grigioni-requisiti.excerpt': 'The C permit is the permanent residence permit in Switzerland. Find out how to apply in the canton of Graubünden, the years of residence required, the tax implications, AVS/LPP and the path to ordinary naturalisation.',
+    'blog.article.permesso-domicilio-c-grigioni-requisiti.imageAlt': 'Graubünden alpine valley with cantonal administration building and Swiss flags',
 };
 
 export default blogMetaChEn;

@@ -62264,6 +62264,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-domicilio-c-grigioni-requisiti': {
+    title: 'Permesso domicilio C Grigioni: requisiti e domanda',
+    description: 'Permesso di domicilio C nel canton Grigioni: anni residenza, requisiti integrazione, procedura domanda, implicazioni fiscali AVS/LPP e naturalizzazione',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, domicilio, grigioni, requisiti',
+    ogTitle: 'Permesso domicilio C Grigioni: come richiederlo',
+    ogDescription: 'Il permesso di domicilio C consente residenza permanente in Svizzera dopo 10 anni (5 per UE/AELS). Scopri i requisiti nel canton Grigioni, implicazioni fiscali, AVS/LPP, LAMal e il percorso verso naturalizzazione ordinaria.',
+    canonicalPath: '/articoli-svizzera/permesso-domicilio-c-grigioni-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso domicilio C Grigioni: requisiti e domanda",
+      "description": "Permesso di domicilio C nel canton Grigioni: anni residenza, requisiti integrazione, procedura domanda, implicazioni fiscali AVS/LPP e naturalizzazione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-domicilio-c-grigioni-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Valle grigionese con edificio amministrativo cantonale e bandiere svizzere in paesaggio alpino"
+      },
+      "datePublished": "2026-08-30T21:37:04+00:00",
+      "dateModified": "2026-08-30T21:37:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-domicilio-c-grigioni-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
