@@ -4780,6 +4780,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-attivita-glarona-tassazione-previdenza.title': 'Open Glarus business: costs and obligations',
     'blog.article.aprire-attivita-glarona-tassazione-previdenza.excerpt': 'Complete practical guide on legal form, three-level taxation, AVS/LPP contributions and LAMal for those starting a business in the Canton of Glarus.',
     'blog.article.aprire-attivita-glarona-tassazione-previdenza.imageAlt': 'Entrepreneur reviewing business registration documents at a modern office in Switzerland',
+    'blog.article.aprire-attivita-glarona-registro-costi.title': 'Opening a business in Glarus: trade register and costs',
+    'blog.article.aprire-attivita-glarona-registro-costi.excerpt': 'Practical guide to legal forms, registration in the commercial register and tax and insurance obligations for those who start a business in the Canton of Glarus.',
+    'blog.article.aprire-attivita-glarona-registro-costi.imageAlt': 'View of Canton Glarona with commercial register office',
 };
 
 export default blogMetaChEn;

@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Sun, 30 Aug 2026 17:13:54 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 30 Aug 2026 17:28:28 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -16,6 +16,72 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Opening a business in Glarus: trade register and costs</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/open-business-glarus-register-costs/</link>
+      <description><![CDATA[Practical guide to legal forms, registration in the commercial register and tax and insurance obligations for those who start a business in the Canton of Glarus.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- Glarus: legal form, minimum capital and registration in the commercial register
+- Registration fees and notary fees variable at cantonal level
+- Insurance obligations: AVS, LPP and LAMal also for employers
+- Swiss tax system at 3 levels: federal, cantonal and municipal
+
+## Key facts
+- **What**: Opening a business in the Canton of Glarus requires the choice of a legal form, registration in the trade register and compliance with federal and cantonal insurance and tax obligations.
+- When: Registration must be made before the start of the activity; individual companies without an obligation to register must be registered for VAT purposes if they exceed the established thresholds.
+- Where: Canton of Glarus; cantonal office of the trade register and competent tax authorities.
+- Who: Future entrepreneur or founder; cantonal trade register office; AFC/ESTV for IFD and VAT; UFAS/BSV for AVS and LPP.
+- Amount: Minimum capital for Sagl/GmbH established by federal law; registration fees and notary fees defined at cantonal level.
+
+Starting a business in Switzerland is a choice that always goes through the commercial register: every company based in Swiss territory must in fact be registered with the competent cantonal office, and in some cases also with a central federal register. In the Canton of Glarus, the procedure follows the federal rules of the Code of Bonds, but the rates, forms and aspects
+## Practical analysis: costs and operational choices
+
+### Minimum capital and incorporation costs
+The minimum capital for joint-stock companies is set by federal law (Code of Bonds) and does not vary from canton to canton: what changes, from Glarus to Zurich, are notary fees and registration fees in the cantonal register. The latter are determined by the commercial register office of the Canton of Glarus and depend on the legal form and complexity of the deed of incorporation.
+
+For a sole proprietorship, the upfront costs are generally lower: no minimum capital or public deed is required. For a SAGL or an SA, in addition to the federal minimum capital, notary fees, cantonal registration fees and the possible establishment of a occupational pension fund for employees must be provided for.
+
+### Tax obligations: three levels
+The Swiss tax system is divided into three levels: direct federal tax (DFI), cantonal tax and municipal tax. The IFD is a progressive federal tax, administered under the rules of the AFC and collected by the cantons under federal supervision. The cantonal tax is governed by the tax law of the Canton of Glarus, with a municipal multiplier that varies from municipality to municipality. This means that two companies with the same turnover may have a different tax burden depending on their location.
+
+On the VAT side, registration is mandatory when exceeding the thresholds provided for by
+
+## Useful planning tools
+To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
+## Step-by-step procedure to open a business in Glarus
+
+### Before registration
+1. **Choose the right legal form**: sole proprietorship, Sagl (GmbH), AG (SA) or another form provided by the Code of Obligations. The choice affects minimum capital, liability and accounting obligations.
+2. Check the cantonal requirements: each canton may require specific authorizations for certain activities (professional regulations, licences, permits).
+3. Define the registered office: the address must be in Glarus in order to be registered in the cantonal register.
+
+### Registration in the Commercial Register
+4. Prepare the founding deed: for capital companies a public deed drawn up by a notary is required. For a sole proprietorship, a registration declaration with the required data.
+5. Deposit the minimum capital: with a Swiss bank, with issuance of the payment confirmation required for registration.
+6. Submit the application to the Commercial Register Office of the Canton of Glarus: with articles of association, founding deed, bank confirmation and identity documents of the founders.
+7. Receive the UID number: necessary to operate with federal authorities and for subsequent registrations (VAT, compensation funds, etc.).
+
+### Subsequent obligations
+8. Registration for VAT purposes (if mandatory or optional) through the competent federal portal.
+9. Registration as an employer with the AVS compensation fund, unemployment insurance and SUVA or other LAINF insurer.
+10. Registration with the occupational pension scheme if you hire personnel subject to the BVG/LPP.
+11. Registration with the cantonal tax office for cantonal and municipal tax, and filing of the DFI/IFD according to federal deadlines.
+
+### Deadlines and updates
+The threshold figures (3rd pillar 3a maximums, LPP coordination deduction, UI/AL maximum, average LAMal premiums, median salary) are indexed every year: for updated amounts it is advisable to consult official federal and cantonal sources.
+
+### Costs to budget
+- Commercial Register registration fees: variable at cantonal level.
+- Notary fees: depending on the complexity of the founding deed.
+- Minimum capital: for Sagl and AG/SA, defined by federal law.
+- Any costs for tax and legal advice.
+
+To simulate the tax and contribution impact of the new business on your income, use the Frontaliere Ticino [salary calculator](nav:calculator): it allows you to estimate the IFD, cantonal tax and social security contributions based on the chosen canton.]]></content:encoded>
+      <pubDate>Sun, 30 Aug 2026 17:28:28 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/aprire-attivita-glarona-registro-costi</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/aprire-attivita-glarona-registro-costi.webp" medium="image"/>
+    </item>
     <item>
       <title>Open Glarus business: costs and obligations</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/open-business-glarus-taxation-pension/</link>
@@ -3386,70 +3452,6 @@ To make the activity operational in the Canton of Uri, it is necessary to follow
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/startup-uri-registro-commercio</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/startup-uri-registro-commercio.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Uri subscriptions: zones, rates and national offers</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/uri-public-transport-zone-fares/</link>
-      <description><![CDATA[How the URI pricing community works: zones, annual and monthly subscriptions, student discounts, and combinations with Halbtax and AG.]]></description>
-      <content:encoded><![CDATA[## In a nutshell
-- Canton Uri: fare community 'Uri' with zoned system for public transport
-- Annual and monthly subscriptions available for residents and commuters
-- Halbtax and AG national offers that can be combined with cantonal securities
-- Specific discounts for students and apprentices in the cantonal territory
-
-## Key facts
-- **What**: Zone tariff system in Canton Uri with annual, monthly and combinable subscriptions with national offers
-- When: A reference year is not yet specified in the source
-- Where: Uri Canton (Uri tariff community)
-- Who: Uri Tariff Community, PostBus, SBB (SBB/CFF/FFS), SwissPass holders
-- Amount: Not yet specified in the source
-- Type of qualifications: Annual subscription, monthly subscription, single tickets, discounts for students and apprentices
-- Complementary offers: Halbtax (half-price), AG (general subscription)
-
-In Canton Uri, public transport revolves around the Uri fare community, which brings together the services of different companies, including PostBus and SBB (SBB/CFF/SBB), under a single zone fare system. The system allows residents, commuters and visitors to move around the cantonal territory with a single ticket, which can be purchased in the form of a single ticket, a monthly subscription or an annual subscription, generally uploaded to the SwissPass.
-
-## # Zone system architecture
-The Uri tariff community divides its territory into concentric zones, each with its own
-## In a nutshell
-- Halbtax applied to individual tickets, not directly to zone subscriptions
-- AG makes the zonal subscription for the covered network superfluous
-- Students and apprentices can accumulate cantonal discounts and national reductions
-
-### Combination with national offers
-An important practical junction is the interaction between the securities of the URI tariff community and the national Halbtax and AG offers. The source indicates that both solutions can be combined with cantonal subscriptions, but does not specify in which technical form the combination takes place. In general, at national level, Halbtax gives the right to purchase individual tickets at a reduced price, while the AG (general subscription) covers almost the entire Swiss network and makes the de facto zonal subscription unnecessary for trips covered by the perimeter of the AG itself.
-
-For a commuter who only uses routes within the Uri Canton, the zonal subscription is therefore often the most economical solution. For a commuter who continues to other cantons or who uses the national network intensively, the AG may be more convenient for the same use.
-
-### Scenario for a hypothetical commuter
-A commuter who commutes from a municipality in the Uri Canton to another municipality in the same canton every day could consider three options: the annual zonal subscription of the Uri tariff community, the monthly subscription for one or more zones, or — if its
-
-## Recommended tools
-For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).
-## At a glance
-- Purchase at ticket counters, authorised sales points and digital channels
-- Documents required: Swiss identity document or valid permit for students/apprentices
-- CTA: use the salary calculator to plan your transport budget
-
-### Step-by-step procedure to buy the pass
-1. **Identify the zones needed**: before purchasing, it is useful to establish how many zones of the Uri system your daily route crosses. The number of zones determines the fare of the annual or monthly pass.
-2. Choose the pass type: depending on how frequently you travel, you can opt for the annual pass (maximum savings for regular use) or the monthly pass (flexibility for temporary needs).
-3. Buy through an authorised channel: options include SBB ticket counters, PostBus sales points, official sales apps and ticket machines. The pass is loaded onto your SwissPass.
-4. Verify discount documents: to access reductions for students and apprentices, you must present a valid school or training document at the time of purchase and keep it for any inspections.
-5. Manage renewal: once loaded onto the SwissPass, the pass can be renewed through the same purchase channels. Renewal conditions and the actual duration of the pass are governed by the Uri tariff community and partner transport companies, and must be verified at the time of initial purchase.
-
-### Required documents
-- Swiss identity document or valid residence permit
-- For students and apprentices: certificate of registration or training contract
-- Personal SwissPass (to register the pass)
-
-### What to do in case of loss
-In case of loss or theft of the SwissPass containing the pass, you should contact the SwissPass customer service to block and reissue the card, in order to avoid improper use of the loaded pass.
-
-To plan your monthly budget also taking transport costs into account, use the [salary calculator](nav:calculator) from Frontaliere Ticino and compare the cost of the pass with your net salary.]]></content:encoded>
-      <pubDate>Sat, 29 Aug 2026 18:28:00 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/abbonamenti-trasporti-uri-zone-tariffe</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/abbonamenti-trasporti-uri-zone-tariffe.webp" medium="image"/>
     </item>
   </channel>
 </rss>

@@ -1619,6 +1619,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'imposta-successione-san-gallo-aliquote': { it: 'imposta-successione-san-gallo-aliquote', en: 'succession-tax-saint-gall-rates-exemptions', de: 'erbschaftsteuer-st-gallen-saetze-befreiungen', fr: 'impot-succession-saint-gall-tarifs-exemptions' },
  'lamal-guida-2026-canton-vaud': { it: 'lamal-guida-2026-canton-vaud', en: 'lamal-guide-2026-canton-vaud', de: 'lamal-leitfaden-2026-kanton-waadt', fr: 'guide-lamal-2026-canton-vaud' },
  'aprire-attivita-glarona-tassazione-previdenza': { it: 'aprire-attivita-glarona-tassazione-previdenza', en: 'open-business-glarus-taxation-pension', de: 'unternehmen-glarus-steuern-vorsorge', fr: 'ouverture-entreprise-glaris-fiscalite-retraite' },
+ 'aprire-attivita-glarona-registro-costi': { it: 'aprire-attivita-glarona-registro-costi', en: 'open-business-glarus-register-costs', de: 'geschaeft-eroeffnen-glarus-handelsregister-kosten', fr: 'ouvrir-activite-glaris-registre-commerce-couts' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

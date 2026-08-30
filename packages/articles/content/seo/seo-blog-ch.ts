@@ -62030,6 +62030,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aprire-attivita-glarona-registro-costi': {
+    title: 'Aprire un\'attività a Glarona: registro di commercio e costi',
+    description: 'Forme giuridiche, capitale minimo, iscrizione al registro di commercio e obblighi fiscali e assicurativi per avviare un\'impresa nel Cantone di Glarona.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, glarona, registro',
+    ogTitle: 'Aprire un\'attività a Glarona: guida a costi e registro',
+    ogDescription: 'Tutto su forme giuridiche, capitale minimo, iscrizione al registro di commercio, sistema fiscale a tre livelli e obblighi AVS, LPP e LAMal per nuove imprese nel Cantone di Glarona.',
+    canonicalPath: '/articoli-svizzera/aprire-attivita-glarona-registro-costi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire un'attività a Glarona: registro di commercio e costi",
+      "description": "Forme giuridiche, capitale minimo, iscrizione al registro di commercio e obblighi fiscali e assicurativi per avviare un'impresa nel Cantone di Glarona.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aprire-attivita-glarona-registro-costi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta del Cantone di Glarona con ufficio del registro di commercio"
+      },
+      "datePublished": "2026-08-30T17:28:28+00:00",
+      "dateModified": "2026-08-30T17:28:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aprire-attivita-glarona-registro-costi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
