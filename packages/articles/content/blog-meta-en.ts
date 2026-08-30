@@ -10959,6 +10959,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-30.imageAlt': 'The day\'s numbers for cross-border commuters – August 30, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-08-30.seoDescription': 'Cross-border brief, August 30, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-08-30.ogDescription': 'The numbers for August 30, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.frontaliere-remoto-vacanza-estero-tasse.title': 'Remote from holiday abroad: tax guide for border workers',
+    'blog.article.frontaliere-remoto-vacanza-estero-tasse.excerpt': 'Working remotely while on holiday abroad does not change Swiss taxes and LAMal coverage remains active. Here\'s what you need to check and communicate to the employer.',
+    'blog.article.frontaliere-remoto-vacanza-estero-tasse.imageAlt': 'Frontier worker doing remote work from a seaside vacation spot with laptop and Mediterranean view during a working vacation.',
 };
 
 export default blogMetaEn;

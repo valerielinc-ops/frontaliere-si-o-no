@@ -10958,6 +10958,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-30.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 30. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-08-30.seoDescription': 'Grenzgänger-Bulletin vom 30. August 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-08-30.ogDescription': 'Die Zahlen vom 30. August 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.frontaliere-remoto-vacanza-estero-tasse.title': 'Remote aus dem Ausland: Steuerführer für Grenzgänger',
+    'blog.article.frontaliere-remoto-vacanza-estero-tasse.excerpt': 'Das Arbeiten aus der Ferne während eines Auslandsurlaubs ändert nichts an den Schweizer Steuern und die KVG-Versicherung bleibt aktiv. Hier ist, was Sie überprüfen und dem Arbeitgeber mitteilen müssen.',
+    'blog.article.frontaliere-remoto-vacanza-estero-tasse.imageAlt': 'Grenzgänger arbeitet remote von einem Ferienort mit Meerblick, Laptop und Urlaubsatmosphäre während einer Arbeitsvakanz.',
 };
 
 export default blogMetaDe;

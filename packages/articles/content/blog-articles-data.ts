@@ -32763,6 +32763,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'frontaliere-remoto-vacanza-estero-tasse',
+ category: 'fiscale',
+ date: '2026-08-30T10:42:20.576Z',
+ image: '/images/blog/frontaliere-remoto-vacanza-estero-tasse.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

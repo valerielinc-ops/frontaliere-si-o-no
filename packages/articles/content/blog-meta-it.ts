@@ -10960,6 +10960,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-30.imageAlt': 'I numeri del giorno per i frontalieri – 30 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-08-30.seoDescription': 'Bollettino frontalieri del 30 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-08-30.ogDescription': 'I numeri del 30 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.frontaliere-remoto-vacanza-estero-tasse.title': 'Remoto da vacanza all\'estero: guida fiscale per frontalieri',
+    'blog.article.frontaliere-remoto-vacanza-estero-tasse.excerpt': 'Lavorare da remoto durante una vacanza all\'estero non cambia le tasse svizzere e la copertura LAMal rimane attiva. Ecco cosa devi verificare e comunicare al datore.',
+    'blog.article.frontaliere-remoto-vacanza-estero-tasse.imageAlt': 'Frontaliere che lavora in remoto da una location estiva con vista mare e portatile, durante una vacanza lavorativa.',
 };
 
 export default blogMetaIt;
