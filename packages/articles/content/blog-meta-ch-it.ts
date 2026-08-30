@@ -4729,6 +4729,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-san-gallo.title': 'Abbonamenti trasporti San Gallo: zone e tariffe',
     'blog.article.abbonamenti-trasporti-san-gallo.excerpt': 'Scopri la struttura tariffaria del Canton San Gallo: comunità tariffaria, zone, abbonamenti annuali e mensili, Metà-prezzo e AG, sconti per studenti.',
     'blog.article.abbonamenti-trasporti-san-gallo.imageAlt': 'Autobus e treni regionali dei trasporti pubblici nel Canton San Gallo con passeggeri alla stazione',
+    'blog.article.aprire-attivita-san-gallo-registro-costi.title': 'Aprire attività a San Gallo: registro, capitale e costi',
+    'blog.article.aprire-attivita-san-gallo-registro-costi.excerpt': 'Sagl CHF 20\'000, SA CHF 100\'000: capitale, iscrizione al registro cantonale, LAMal dal primo giorno e costi salariali AVS, LPP e LAINF.',
+    'blog.article.aprire-attivita-san-gallo-registro-costi.imageAlt': 'Ufficio cantonale del registro di commercio a San Gallo',
 };
 
 export default blogMetaChIt;

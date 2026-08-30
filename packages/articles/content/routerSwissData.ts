@@ -1602,6 +1602,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'aprire-attivita-canton-obvaldo-registro': { it: 'aprire-attivita-canton-obvaldo-registro', en: 'start-business-canton-obwalden-registry', de: 'geschaeft-gruenden-kanton-obwalden-handelsregister', fr: 'creer-entreprise-canton-obwald-registre' },
  'neutralita-svizzera-voto-settembre': { it: 'neutralita-svizzera-voto-settembre', en: 'swiss-neutrality-vote-september', de: 'schweiz-neutralitaet-abstimmung-september', fr: 'neutralite-suisse-vote-septembre' },
  'abbonamenti-trasporti-san-gallo': { it: 'abbonamenti-trasporti-san-gallo', en: 'st-gallen-public-transport-passes', de: 'san-gallen-abonnementsverkehr', fr: 'abonnements-transports-saint-gall' },
+ 'aprire-attivita-san-gallo-registro-costi': { it: 'aprire-attivita-san-gallo-registro-costi', en: 'open-business-st-gallen-register-costs', de: 'geschaeft-eroeffnen-st-gallen-register-kosten', fr: 'ouvrir-activite-saint-gall-registre-couts' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
