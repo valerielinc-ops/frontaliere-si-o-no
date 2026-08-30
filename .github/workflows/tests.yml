@@ -1482,6 +1482,17 @@ jobs:
           NODE_OPTIONS: --max-old-space-size=8192
           VITEST_SKIP_LIVE_DATA: 'true'
           VITEST_MAX_WORKERS: 1
+          # Un file sorgente senza edge di import statico verso nessun test
+          # (script CLI mai `import`-ato, es. scripts/prospect-validate.mjs)
+          # fa scattare in run-related-tests.mjs il fallback "nessun edge →
+          # tutta la suite": ~1900 file invece di pochi. Il cap a 1 worker
+          # sopra era tarato sul caso comune (grafo related piccolo, poche
+          # decine di file); su ~1900 file indipendenti lo stesso cap li
+          # serializza su un solo core (osservato: >30 min, PR #6661,
+          # 2026-08-30). VITEST_MAX_WORKERS_FALLBACK si applica SOLO quando
+          # run-related-tests.mjs segnala di aver usato quel fallback — il
+          # percorso related-only comune resta invariato a 1 worker.
+          VITEST_MAX_WORKERS_FALLBACK: 3
           VITEST_POOL: forks
           VITEST_CACHE_DIR: node_modules/.vite-related
           CHANGED_PATHS_STATUS_FILE: changed-paths-status.txt
