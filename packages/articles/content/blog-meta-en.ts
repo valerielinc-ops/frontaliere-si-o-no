@@ -10933,6 +10933,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-binago-lavorare-ticino-frontaliere.title': 'Living in Binago and working in Ticino as a border worker',
     'blog.article.vivere-binago-lavorare-ticino-frontaliere.excerpt': 'Binago, in the province of Como, is a few kilometres from the passes towards the Canton of Ticino: costs, taxation and commuting times for commuters.',
     'blog.article.vivere-binago-lavorare-ticino-frontaliere.imageAlt': 'Italian cross-border commuter driving to Ticino with Lake Lugano in background',
+    'blog.article.vivere-senna-comasco-lavorare-ticino-frontaliere.title': 'Senna Comasco and border crossing work in Ticino: a practical guide',
+    'blog.article.vivere-senna-comasco-lavorare-ticino-frontaliere.excerpt': 'Senna Comasco is just a few kilometres from the Ponte Tresa crossing and Chiasso: connections, taxation and cost of living for border crossers.',
+    'blog.article.vivere-senna-comasco-lavorare-ticino-frontaliere.imageAlt': 'Italian-Swiss border near Lake Como with commuters heading to Ticino at dawn',
 };
 
 export default blogMetaEn;

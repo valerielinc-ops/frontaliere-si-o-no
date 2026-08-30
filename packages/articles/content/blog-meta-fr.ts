@@ -10935,6 +10935,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-binago-lavorare-ticino-frontaliere.title': 'Vivre à Binago et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-binago-lavorare-ticino-frontaliere.excerpt': 'Binago, dans la province de Côme, est à quelques kilomètres des points de passage vers le canton du Tessin : coûts, fiscalité et temps de trajet pour les navetteurs.',
     'blog.article.vivere-binago-lavorare-ticino-frontaliere.imageAlt': 'Frontalier italien en voiture vers le Tessin avec le lac de Lugano en arrière-plan',
+    'blog.article.vivere-senna-comasco-lavorare-ticino-frontaliere.title': 'Seine Comasco et travail dans le Tessin en tant que frontalier : guide pratique',
+    'blog.article.vivere-senna-comasco-lavorare-ticino-frontaliere.excerpt': 'Seine Comasco est à quelques kilomètres du point de passage de Ponte Tresa et de Chiasso : liaisons, fiscalité et coût de la vie pour les frontaliers.',
+    'blog.article.vivere-senna-comasco-lavorare-ticino-frontaliere.imageAlt': 'Frontière italo-suisse près du lac de Côme avec navetteurs vers le Tessin à l\'aube',
 };
 
 export default blogMetaFr;
