@@ -14167,6 +14167,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'neutralita-svizzera-voto-settembre',
+    category: 'novita',
+    date: '2026-08-30T08:52:23.001Z',
+    image: '/images/blog/neutralita-svizzera-voto-settembre.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
