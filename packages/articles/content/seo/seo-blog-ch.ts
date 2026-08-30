@@ -61211,6 +61211,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avs-prestazioni-complementari-san-gallo-guida': {
+    title: 'AVS e prestazioni complementari nel Canton San Gallo',
+    description: 'Primo pilastro nel Canton San Gallo: cassa di compensazione, calcolo rendita AVS, lacune contributive e prestazioni complementari a copertura del minimo vitale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, canton, gallo',
+    ogTitle: 'AVS e prestazioni complementari nel Canton San Gallo',
+    ogDescription: 'Guida completa al primo pilastro nel Canton San Gallo: cassa di compensazione, calcolo della rendita AVS, lacune contributive e prestazioni complementari per residenti e lavoratori.',
+    canonicalPath: '/articoli-svizzera/avs-prestazioni-complementari-san-gallo-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e prestazioni complementari nel Canton San Gallo",
+      "description": "Primo pilastro nel Canton San Gallo: cassa di compensazione, calcolo rendita AVS, lacune contributive e prestazioni complementari a copertura del minimo vitale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-prestazioni-complementari-san-gallo-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di una città svizzera con sede della cassa di compensazione cantonale"
+      },
+      "datePublished": "2026-08-30T07:41:15+00:00",
+      "dateModified": "2026-08-30T07:41:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-prestazioni-complementari-san-gallo-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

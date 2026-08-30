@@ -4717,6 +4717,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-san-gallo-cassa.title': 'AVS et PC dans le canton de Saint-Gall : la caisse de compensation',
     'blog.article.avs-prestazioni-complementari-san-gallo-cassa.excerpt': 'Caisse AVS et bureau PC sont deux entités distinctes : voici comment fonctionne le premier pilier à Saint-Gall et quand demander les prestations complémentaires.',
     'blog.article.avs-prestazioni-complementari-san-gallo-cassa.imageAlt': 'Caisse de compensation AVS et office PC du canton de Saint-Gall',
+    'blog.article.avs-prestazioni-complementari-san-gallo-guida.title': 'AVS et prestations complémentaires dans le canton de Saint-Gall',
+    'blog.article.avs-prestazioni-complementari-san-gallo-guida.excerpt': 'Comment fonctionne le premier pilier dans le canton de Saint-Gall : caisse de compensation, calcul de la rente et PC pour couvrir le minimum vital.',
+    'blog.article.avs-prestazioni-complementari-san-gallo-guida.imageAlt': 'Vue urbaine suisse avec caisse de compensation cantonale',
 };
 
 export default blogMetaChFr;

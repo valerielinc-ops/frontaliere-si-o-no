@@ -4717,6 +4717,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-san-gallo-cassa.title': 'AVS and PC in the Canton of St. Gallen: the clearing house',
     'blog.article.avs-prestazioni-complementari-san-gallo-cassa.excerpt': 'AVS cashier and PC office are two separate entities: this is how the first pillar works in St. Gallen and when to ask for complementary services.',
     'blog.article.avs-prestazioni-complementari-san-gallo-cassa.imageAlt': 'AVS compensation fund and supplementary benefits office in St. Gallen',
+    'blog.article.avs-prestazioni-complementari-san-gallo-guida.title': 'AVS and complementary services in the Canton of St. Gallen',
+    'blog.article.avs-prestazioni-complementari-san-gallo-guida.excerpt': 'How the first pillar works in the Canton of St. Gallen: compensation fund, pension calculation and PC to cover the living minimum.',
+    'blog.article.avs-prestazioni-complementari-san-gallo-guida.imageAlt': 'Swiss cityscape with cantonal compensation office building',
 };
 
 export default blogMetaChEn;

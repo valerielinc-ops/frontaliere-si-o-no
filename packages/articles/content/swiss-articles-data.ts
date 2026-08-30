@@ -14149,6 +14149,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'avs-prestazioni-complementari-san-gallo-guida',
+    category: 'pensione',
+    date: '2026-08-30T07:41:15.131Z',
+    image: '/images/blog/avs-prestazioni-complementari-san-gallo-guida.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
