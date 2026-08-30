@@ -8,15 +8,15 @@ import {
 import { doc, setDoc } from 'firebase/firestore';
 import { afterAll, beforeAll, beforeEach, describe, it } from 'vitest';
 
-// Baseline RED for #6377/#5928: `firestore.rules` has zero automated coverage
-// today. `newsletter_subscribers/{email}` carries `allow write: if true`, so
-// these tests document — with a running emulator, not an assumption — that an
-// unauthenticated or mismatched-identity client can currently forge
-// `consent_*` fields on an existing subscriber document. The RED assertions
-// below are expected to flip to `assertFails` once the sibling "field guard"
-// issue lands a callable-gated write; until then this file is the observer
-// that proves the gap is real and catches any accidental narrowing regression
-// on the still-legitimate non-consent write path.
+// #6378 (phase 4 of #5928): `newsletter_subscribers/{email}` now splits
+// `create` (unchanged, still anonymous) from `update`, which is gated by
+// `consentFieldsTouched()` — a write may only change `consent_*` on an
+// existing document if it comes from a session whose email matches the
+// document id. These tests exercise that guard against an emulator, not an
+// assumption: the two cases below document that forging consent is now
+// rejected, and the regression-net case proves the still-legitimate
+// non-consent write path (name, preferences, engagement counters) keeps
+// working unauthenticated.
 const SUBSCRIBER_EMAIL = 'existing-subscriber@example.com';
 const EXISTING_DOC = {
   email: SUBSCRIBER_EMAIL,
@@ -26,7 +26,7 @@ const EXISTING_DOC = {
   name: 'Original Name',
 };
 
-describe('firestore.rules — newsletter_subscribers consent forgeability (RED baseline)', () => {
+describe('firestore.rules — newsletter_subscribers consent field guard', () => {
   let testEnv: RulesTestEnvironment;
 
   beforeAll(async () => {
@@ -54,9 +54,9 @@ describe('firestore.rules — newsletter_subscribers consent forgeability (RED b
     });
   });
 
-  it('RED: an unauthenticated client can currently overwrite consent_text on an existing doc', async () => {
+  it('an unauthenticated client can no longer overwrite consent_text on an existing doc', async () => {
     const unauthed = testEnv.unauthenticatedContext();
-    await assertSucceeds(
+    await assertFails(
       setDoc(
         doc(unauthed.firestore(), 'newsletter_subscribers', SUBSCRIBER_EMAIL),
         { ...EXISTING_DOC, consent_text: 'forged by anonymous client' },
@@ -75,15 +75,29 @@ describe('firestore.rules — newsletter_subscribers consent forgeability (RED b
     );
   });
 
-  it('RED: an authenticated client with a mismatched email can currently overwrite consent_text', async () => {
+  it('an authenticated client with a mismatched email can no longer overwrite consent_text', async () => {
     const mismatched = testEnv.authenticatedContext('some-uid', {
       email: 'someone-else@example.com',
       email_verified: true,
     });
-    await assertSucceeds(
+    await assertFails(
       setDoc(
         doc(mismatched.firestore(), 'newsletter_subscribers', SUBSCRIBER_EMAIL),
         { ...EXISTING_DOC, consent_text: 'forged by mismatched identity' },
+        { merge: true },
+      ),
+    );
+  });
+
+  it('an authenticated client whose own email matches the doc id can still update its own consent_text', async () => {
+    const owner = testEnv.authenticatedContext('owner-uid', {
+      email: SUBSCRIBER_EMAIL,
+      email_verified: true,
+    });
+    await assertSucceeds(
+      setDoc(
+        doc(owner.firestore(), 'newsletter_subscribers', SUBSCRIBER_EMAIL),
+        { ...EXISTING_DOC, consent_text: 're-consented by the subscriber themselves' },
         { merge: true },
       ),
     );

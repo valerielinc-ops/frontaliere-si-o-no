@@ -25,6 +25,20 @@ service cloud.firestore {
         && request.auth.token.email.lower() == 'valerielinc@gmail.com';
     }
 
+    // Consent-field guard for newsletter_subscribers (#6378, phase 4 of
+    // #5928). True if the incoming write touches any of the fields that
+    // together form the art. 25 consent record — a change here is what an
+    // unauthenticated forger would need to falsify.
+    function consentFieldsTouched(newData, oldData) {
+      return newData.diff(oldData).affectedKeys().hasAny([
+        'consent_text', 'consent_text_version', 'consent_text_displayed',
+        'consent_page_version', 'consent_act', 'consent_origin',
+        'consent_method', 'consent_given', 'consent_given_at',
+        'consent_source_url', 'consent_user_agent', 'consent_ip',
+        'consent_ip_recorded_at',
+      ]);
+    }
+
     // Social proof counter — public increment (#5792).
     //
     // The only reader/writer is `counters/simulations`: SocialProofBadge.tsx
@@ -108,7 +122,20 @@ service cloud.firestore {
       // reads many subscribers — scripts/send-newsletter.mjs and its siblings, the
       // ESP webhook cores — is Admin SDK and never evaluates this file.
       allow list: if isSiteAdmin();
-      allow write: if true;
+      allow create: if true;
+
+      // Field guard (#6378, phase 4 of #5928): `write: if true` let anyone who
+      // knew a subscriber's email forge or overwrite `consent_*` on an
+      // EXISTING document — falsifying the art. 25 consent record for a real
+      // person, no session required. Non-consent fields (name, isActive, the
+      // engagement counters) still update freely; a write only needs to pass
+      // through the auth clause when it actually touches a consent_* key.
+      // `request.auth.token.email.lower() == email` matches the identity
+      // check already used for job_alert_subscribers (line ~243) and the
+      // alerts subcollection below — the subscriber's own signed-in session
+      // is always allowed to touch their own consent record.
+      allow update: if !consentFieldsTouched(request.resource.data, resource.data)
+        || (request.auth != null && request.auth.token.email.lower() == email);
 
       // Engagement events (subscribe, confirm, click, open) — append-only, and
       // never readable by a client.
