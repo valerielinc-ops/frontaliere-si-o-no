@@ -61874,6 +61874,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lamal-obbligatoria-scelta-cassa-zurigo': {
+    title: 'Guida LAMal 2026: obbligo, cassa e franchigia | Frontaliere Ticino',
+    description: 'Assicurazione malattia obbligatoria per chi risiede in Svizzera: come iscriversi a LAMal, scegliere la cassa e capire franchigie nel 2026. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, lamal, obbligo, cassa, franchigia',
+    ogTitle: 'Guida LAMal 2026: obbligo, cassa e franchigia',
+    ogDescription: 'Assicurazione malattia obbligatoria per chi risiede in Svizzera: come iscriversi a LAMal, scegliere la cassa e capire franchigie nel 2026.',
+    canonicalPath: '/articoli-svizzera/lamal-obbligatoria-scelta-cassa-zurigo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Guida LAMal 2026: obbligo, cassa e franchigia",
+      "description": "Assicurazione malattia obbligatoria per chi risiede in Svizzera: come iscriversi a LAMal, scegliere la cassa e capire franchigie nel 2026. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lamal-obbligatoria-scelta-cassa-zurigo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Consulto medico in uno studio svizzero, rappresentazione del sistema sanitario nazionale"
+      },
+      "datePublished": "2026-08-30T15:54:18+00:00",
+      "dateModified": "2026-08-30T15:54:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lamal-obbligatoria-scelta-cassa-zurigo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
