@@ -23,6 +23,7 @@ import path from 'node:path';
 import { fetchHtml } from '../crawler-template.mjs';
 import { extractVacancies, extractDetailFields } from './extract.mjs';
 import { extractLinks } from './careers-trail.mjs';
+import { normalizeHost } from './registrable.mjs';
 import { PROSPECTOR_DIR } from './config.mjs';
 
 /**
@@ -33,6 +34,41 @@ import { PROSPECTOR_DIR } from './config.mjs';
 export function loadSpec(companyKey, dir = path.join(PROSPECTOR_DIR, 'crawlers')) {
   const file = path.join(dir, `${companyKey}.json`);
   return JSON.parse(fs.readFileSync(file, 'utf8'));
+}
+
+/**
+ * Match links directly against an already-learned detail template.
+ *
+ * `extractByTemplate` (the generic discovery cascade) refuses any cluster
+ * with fewer than two same-shaped links, because when the template itself is
+ * unknown a lone link is as likely to be chrome as a vacancy. In production
+ * the template was already learned from a real, graded sample — it is
+ * evidence, not a guess — so a single matching link is exactly as
+ * trustworthy as two. Without this, a company whose listing drops to one
+ * open role reports zero jobs forever, purely from the size-2 floor, not
+ * because anything on the page changed shape (observed on
+ * recruitingapp-2563, #6660).
+ *
+ * @param {{ url: string, text: string }[]} links
+ * @param {RegExp} templateRx
+ * @param {string} host
+ * @returns {{ title: string, url: string, via: 'known-template' }[]}
+ */
+function matchKnownTemplate(links, templateRx, host) {
+  const seen = new Set();
+  const out = [];
+  for (const l of links) {
+    let u;
+    try { u = new URL(l.url); } catch { continue; }
+    if (normalizeHost(u.hostname) !== host) continue;
+    if (!templateRx.test(u.pathname)) continue;
+    if (seen.has(l.url)) continue;
+    seen.add(l.url);
+    const title = (l.text || '').replace(/\s+/g, ' ').trim();
+    if (title.length <= 3) continue;
+    out.push({ title: title.slice(0, 180), url: l.url, via: 'known-template' });
+  }
+  return out;
 }
 
 /**
@@ -64,7 +100,17 @@ export async function runSpecInProduction(spec) {
     if (!html) continue;
     const links = extractLinks(html, seed);
     const { vacancies } = extractVacancies(html, seed, links);
-    for (const v of vacancies) {
+    // jsonld/microdata are stronger evidence than any link-shape guess, so
+    // only override when the generic cascade fell back to (or below) its own
+    // template heuristic and we hold a better one already vetted for this spec.
+    let candidates = vacancies;
+    if (templateRx && vacancies.every((v) => v.via !== 'jsonld' && v.via !== 'microdata')) {
+      let host = '';
+      try { host = normalizeHost(new URL(seed).hostname); } catch { /* skip override */ }
+      const direct = host ? matchKnownTemplate(links, templateRx, host) : [];
+      if (direct.length) candidates = direct;
+    }
+    for (const v of candidates) {
       if (!v.title || !v.url) continue;
       if (templateRx) {
         let pathname = '';
