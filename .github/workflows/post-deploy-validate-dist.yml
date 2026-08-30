@@ -1615,11 +1615,19 @@ jobs:
           # Grep it out here, same "no failure branch by construction"
           # pattern as the Discover/job-title-locale/meta-description reports
           # right below.
+          #
+          # vitest's `--reporter=dot` prefixes captured console.log lines
+          # with ANSI reset codes (\x1b[22m\x1b[39m) even when stdout is
+          # redirected to a file — the `[related-search-clusters]` text is
+          # no longer the first byte on the line, so an anchored grep
+          # matches nothing (0 lines on every real CI run, verified on run
+          # 33323140437 job 99288522527 despite dist:quality-tests rc=0).
+          # Strip ANSI escapes before grepping.
           echo ""
           echo "══════════════════════════════════════════════════════════════════════"
           echo "related-search-clusters rate — dist:quality-tests, printed every run"
           echo "══════════════════════════════════════════════════════════════════════"
-          grep '^\[related-search-clusters\]' /tmp/g-dist-quality.log 2>/dev/null || true
+          sed -E 's/\x1b\[[0-9;]*m//g' /tmp/g-dist-quality.log 2>/dev/null | grep '^\[related-search-clusters\]' || true
           echo "══════════════════════════════════════════════════════════════════════"
 
           # The Discover report's own output. spawn_capped-style logs are only
