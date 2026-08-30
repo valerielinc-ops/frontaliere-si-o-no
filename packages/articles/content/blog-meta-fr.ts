@@ -10979,6 +10979,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.credito-2026-famiglia-calcolo-limiti.title': 'Crédit d\'impôt 2026 : calcul pour famille avec enfants',
     'blog.article.credito-2026-famiglia-calcolo-limiti.excerpt': 'Frontaliers avec enfants : cadre CE de 730, franchise 10 000 € neufs et 7 500 € anciens. Calcul crédit d\'impôt, impôt à la source retenu en Suisse, échéances déclaration 2026.',
     'blog.article.credito-2026-famiglia-calcolo-limiti.imageAlt': 'Famille de frontaliers avec enfants examinant documents fiscaux à la frontière Tessin-Italie',
+    'blog.article.credito-imposta-frontalieri-2026-errori-comuni.title': 'Crédit d\'impôt frontalier 2026 : erreurs courantes',
+    'blog.article.credito-imposta-frontalieri-2026-errori-comuni.excerpt': 'Cadre CE de 730, nouvel accord en vigueur depuis 2024 et régime transitoire : les erreurs les plus fréquentes des frontaliers.',
+    'blog.article.credito-imposta-frontalieri-2026-errori-comuni.imageAlt': 'Bulletin de salaire suisse et formulaire 730 italien, arrière-plan Mendrisio',
 };
 
 export default blogMetaFr;

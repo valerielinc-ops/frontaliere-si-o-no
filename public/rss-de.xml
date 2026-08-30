@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Nachrichten und Leitfaden für Grenzgänger im Tessin</description>
     <language>de</language>
-    <lastBuildDate>Sun, 30 Aug 2026 21:27:46 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 30 Aug 2026 21:53:33 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Deutsch</title>
@@ -16,6 +16,86 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-de.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Grenzsteuergutschrift 2026: Häufige Fehler</title>
+      <link>https://frontaliereticino.ch/de/grenzgaenger-artikel/grenzgaenger-steuerabzug-2026-haeufige-fehler/</link>
+      <description><![CDATA[EG-Rahmen von 730, neues Abkommen, das seit 2024 in Kraft ist, und Übergangsregelung: die häufigsten Fehler von Grenzgängern.]]></description>
+      <content:encoded><![CDATA[## In Kürze
+- Neue Frontalieri-Vereinbarung unterzeichnet am 23.12.2020, gültig ab 1. Januar 2024
+- Alte Grenzgänger: Befreiung € 7'500, Übergangsregelung 2024–2033
+- Neue Grenzgänger: Selbstbehalt € 10'000
+- Quellensteuer nur in der Schweiz einbehalten, Gutschrift im EG-Rahmen von 730
+
+## Eckdaten
+- **Was**: Steuergutschrift zur Vermeidung der Doppelbesteuerung von Einkünften aus unselbständiger Arbeit in der Schweiz
+- Wann: Steuererklärung 2026 (Einkommen 2025), zweites Jahr der vollen Funktionsfähigkeit des neuen Systems
+- Wo: Kanton Tessin und Rest der Schweiz, Erklärung in Italien
+- Wer: Grenzgänger mit Genehmigung G, INPS, Finanzamt
+- Betrag: Befreiung € 7'500 (alte Grenzgänger), Selbstbehalt € 10'000 (neue Grenzgänger)
+- Normative Bezugnahme: Gesetz 83 vom 13.6.2023 (italienische Ratifizierung), Übereinkommen vom 9. Dezember 1976
+- Erklärungstafel: CE des Modells 730
+
+Die Steuergutschrift für Grenzgänger, die im Kanton Tessin — oder allgemeiner in der Schweiz — arbeiten, ist der Mechanismus, mit dem Italien die Doppelbesteuerung von jenseits der Grenze erzielten Einkünften vermeidet. Seit dem 1. Januar 2024 ist das neue Abkommen zwischen Rom und Bern in Kraft, das am 23. Dezember 2020 unterzeichnet und von Italien mit dem Gesetz 83 vom 13. Juni 2023 ratifiziert wurde. Die Steuererklärung 2026, die sich auf die Einnahmen 2025 bezieht, stellt das zweite Jahr der vollen Funktionsfähigkeit des aktualisierten Systems dar.
+
+### So funktioniert der Kredit im CE-Rahmen
+Bei Grenzgängern wird die Quellensteuer einbehalten
+## Praktische Analyse: Wo häufen sich die Fehler
+
+Die Erfahrung der letzten beiden Steuererklärungskampagnen — 2024 (für die Einkünfte 2023, Startjahr) und 2025 (für die Einkünfte 2024, erstes volles Jahr) — hat eine Reihe wiederkehrender Kritikpunkte aufgezeigt. Es handelt sich nicht um Daten aus einer einzelnen Studie, sondern um verfestigte Muster, die die italienische Steuerbehörde (Agenzia delle Entrate) und die Grenzgänger-CAFs in ihren operativen Mitteilungen melden.
+
+### Fehler 1 — Verwechslung von Steuergutschrift und Erstattung
+Viele Steuerpflichtige glauben, dass die Sektion CE eine Geldgutschrift vom italienischen Fiskus erzeugt. In Wirklichkeit funktioniert der Mechanismus anders: Die Steuergutschrift absorbiert die italienische IRPEF bis zur Höhe der bereits in der Schweiz gezahlten Steuer. Übersteigt die ausländische Steuer die italienische, erhält der Steuerpflichtige keinen zusätzlichen Betrag; ist die italienische Steuer höher, zahlt er nur die Differenz. Wird dieser Mechanismus verwechselt, führt dies zu falschen Beträgen im 730-Modell oder zu unbegründeten Erstattungsanträgen.
+
+### Fehler 2 — Vergessen der Schweizer Lohnabrechnung
+Die Schweizer Quellensteuern sind keine Daten, die die Agenzia delle Entrate automatisch erhält. Sie müssen vom Steuerpflichtigen auf Grundlage der vom Schweizer Arbeitgeber ausgestellten Lohnbescheinigung (certificato di salario) eingetragen werden. Wird diese Position weggelassen — oder ein Betrag eingefügt, der nicht der tatsächlich einbehaltenen Steuer entspricht — ergibt sich eine Steuergutschrift, die nicht zum erklärten Einkommen passt, was zu einer Anomalie-Meldung führen kann.
+
+### Fehler 3 — Den Grenzgängerstatus nicht aktualisieren
+Wer 2025 vom alten zum neuen Grenzgängerstatus gewechselt hat (oder umgekehrt), muss die Steuerbemessungsgrundlage unter Berücksichtigung der unterschiedlichen Freibeträge (€7'500 gegenüber €10'000) neu berechnen. Dasselbe gilt für den Fall, dass der Arbeitgeber oder Kanton gewechselt wurde: Der Quellensteuersatz variiert, und die Sektion CE muss mit den korrekten Daten ausgefüllt werden.
+
+### Vergleich der Szenarien
+| Regime | Freibetrag/Befreiung | Erklärungsformular | Fehlerrisiko |
+|---|---|---|---|
+| Alter Grenzgänger (vor 17.7.2023) | €7'500 | CE mit Übergangsregelung 2024–2033 | Mittel |
+| Neuer Grenzgänger (nach 17.7.2023) | €10'000 | CE Standard | Hoch, wenn der Stichtag nicht bekannt ist |
+| Pendler über 20 km | Kein spezieller Freibetrag | CE + Prüfung Doppelbesteuerung | Hoch |
+
+Die Tabelle ist nicht abschliessend: Jede Situation muss mit dem eigenen CAF oder Berater bewertet werden, sie zeigt jedoch die drei häufigsten Szenarien unter den Arbeitnehmern im Kanton Tessin. Für Details zur Berechnung ist der [Steuerrechner für Grenzgänger](nav:calculator) hilfreich, der die Schweizer Bruttosteuer und die italienische Gutschrift simuliert.
+
+## Nützliche Tools für Ihren Fall
+Um Ihr Steuer-Szenario innerhalb/außerhalb von 20 km zu prüfen, nutzen Sie den [Nettolohnrechner](nav:calculator) und den [Leitfaden zur Steuererklärung](nav:tax-return).
+## Was konkret zu tun ist: das Schritt-für-Schritt-Verfahren
+
+### Schritt 1 — Dokumentation sammeln
+Bevor der Grenzgänger die 730-Erklärung öffnet, muss er sich mit Folgendem ausstatten: Schweizer Lohnausweis, monatliche Lohnabrechnungen, Bescheinigung über die AHV/IV/EO-Beiträge (5,3% zulasten des Arbeitnehmers) und ALV/Arbeitslosenversicherung (1,1% mit Höchstbetrag CHF 148'200), eventuelle BVG-Beiträge (7–18% nach Altersstufe, ab 25 Jahren) und UVG (0,7–1,5%). Ohne diese Dokumente kann die CE-Rubrik nicht korrekt ausgefüllt werden.
+
+### Schritt 2 — Die Grenzgängerkategorie überprüfen
+Alter oder neuer Grenzgänger – die Unterscheidung macht den Unterschied: €7'500 Befreiung gegenüber €10'000 Freigrenze. Die Angabe muss mit dem Datum des Beginns des Arbeitsverhältnisses in der Schweiz abgeglichen werden.
+
+### Schritt 3 — Die CE-Rubrik ausfüllen
+In Zeile CE3 ist das Schweizer Bruttoeinkommen anzugeben, in der folgenden Zeile die einbehaltene ausländische Steuer. Die Software berechnet die zustehende Gutschrift. ⚠️ Ein häufiger Fehler ist die Angabe des Schweizer Netto- statt des Bruttoeinkommens: Die Gutschrift würde dadurch zu niedrig ausfallen.
+
+### Schritt 4 — Erklärung einreichen und Dokumente aufbewahren
+Die reguläre Frist für die 730-Erklärung ist der 30. September (vorausgefülltes Modell) oder Ende November (mit CAF). Der Lohnausweis muss mindestens fünf Jahre aufbewahrt werden, für den Fall einer Steuerprüfung.
+
+### Operative Checkliste
+- Lohnausweis 2025 vom Arbeitgeber erhalten
+- Lohnabrechnungen mit dem Jahresbruttolohn abgeglichen
+- AHV-, BVG-, UVG-Beiträge überprüft
+- Status als alter/neuer Grenzgänger bestätigt
+- CE-Rubrik mit Bruttoeinkommen (nicht Netto) ausgefüllt
+- Ausländische Steuer entsprechend dem Lohnausweis
+
+### Wann sich eine vorbeugende Simulation lohnt
+Für alle, die 2025 die Regelung gewechselt haben oder mehrere Schweizer Arbeitgeber haben, empfiehlt sich eine Simulation mit dem [Nettolohnrechner](nav:payslip) vor der Einreichung. Damit lassen sich Fehler bei Kategorie und Steuersatz aufdecken.
+
+Für Steuerpflichtige, die die Auswirkung der Vorsorgebeiträge – AHV, BVG und eventuell die Säule 3a – überprüfen möchten, steht auch die Seite zur [Säule 3a](nav:pillar3) zur Verfügung. Auf der Versicherungsseite klärt der [LAMal-Leitfaden für Grenzgänger](nav:health) die Krankenversicherungsoptionen.
+
+Um die häufigsten Fallen der CE-Rubrik zu vermeiden und eine für 2026 aktualisierte Simulation zu erhalten, nutze den [Lohnrechner für Grenzgänger](nav:calculator) vor dem Einreichen der Erklärung.]]></content:encoded>
+      <pubDate>Sun, 30 Aug 2026 21:53:33 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/de/grenzgaenger-artikel/credito-imposta-frontalieri-2026-errori-comuni</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/credito-imposta-frontalieri-2026-errori-comuni.webp" medium="image"/>
+    </item>
     <item>
       <title>Steuergutschrift 2026: Berechnung pro Familie mit Kindern</title>
       <link>https://frontaliereticino.ch/de/grenzgaenger-artikel/steuerguthaben-2026-familie-berechnung-grenzen/</link>
@@ -2919,43 +2999,6 @@ Erster Tag als Grenzgänger? Unser [praktischer Leitfaden](nav:first-day) beglei
       <guid isPermaLink="false">https://frontaliereticino.ch/de/grenzgaenger-artikel/san-gottardo-code-20-km-luglio</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/san-gottardo-code-20-km-luglio.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Grenzgänger 2026: Befreiung vs. Selbstbehalt nach Vereinbarung</title>
-      <link>https://frontaliereticino.ch/de/grenzgaenger-artikel/grenzgaenger-freibetrag-franchigia-2026/</link>
-      <description><![CDATA[Betriebsregeln 2026 für Grenzgänger: Unterschiede zwischen dem alten System (Befreiung von 7.500 €) und dem neuen (Selbstbehalt von 10.000 €). Steuergutschrift und Erklärungsverfahren.]]></description>
-      <content:encoded><![CDATA[## In Kürze
-- Neue Frontalieri-Vereinbarung in Kraft seit dem 1. Januar 2024
-- Befreiung € 7.500 (alte Grenzgänger) vs. Selbstbehalt € 10.000 (neu)
-- Quellensteuer in der Schweiz, Steuergutschrift in Italien
-- Doppelbesteuerung vermieden durch italienisch-schweizerisches Abkommen 1976
-
-## Eckdaten
-- **Was**: Neues Steuersystem für Grenzgänger Tessin-Italien
-- Wann: In Kraft getreten am 1. Januar 2024
-- Wo: Grenzgänger, die in der Schweiz arbeiten und in Italien wohnen
-- Wer: Grenzgänger mit G-Bewilligung, Angestellte von Schweizer Arbeitgebern
-- Befreiung: 7.500 € pro Jahr für alte Grenzgänger (bis 2033)
-- Selbstbehalt: 10.000 € pro Jahr für neue Grenzgänger (ab 17. Juli 2023)
-- Quellensteuer: 5.3% AHV/IV/EO + 1.1% ALV/VZ (Arbeitnehmer)
-
-Am 1. Januar 2024 ist das neue Grenzgängerabkommen zwischen der Schweiz und Italien in Kraft getreten, das am 23. Dezember 2020 unterzeichnet und von Italien mit dem Gesetz 83 vom 13. Juni 2023 ratifiziert wurde. Dies ist die erste strukturelle Änderung der Besteuerungsregeln für Grenzgänger im Tessin und in den italienischen Grenzprovinzen nach dem italienisch-schweizerischen Abkommen vom 9. Dezember 1976. Für das Jahr 2026 schaffen die konsolidierten Betriebsregeln eine klare Differenzierung zwischen Grenzgängern anhand des Startdatums der grenzüberschreitenden Tätigkeit. Dieses System zu verstehen ist unerlässlich, um die Steuererklärung in Italien zu planen und die Steuergutschrift vorherzusagen.
-
-### Alte und neue Grenzgänger: zwei Systeme im Vergleich
-Grenzgänger, die bereits vor dem 17.
-### Schweizer Steuersätze und Beitragslasten
-Im Jahr 2026 bleiben die schweizerischen Beitragssätze nach eidgenössischen und kantonalen Parametern stabil. Der Abzug für AHV (Altersversicherung), IV (Invalidität) und EO (Mutterschaftsentschädigung) beträgt 5.3% vom Bruttolohn des Arbeitnehmers. Der Beitrag für die Arbeitslosenversicherung (ALV) und die Zusatzversicherung (ZV) beträgt 1.1%, wobei eine Obergrenze von CHF 148.200 gilt. Die Unfallversicherung (UVG) variiert je nach Branche und betrieblichem Risikoprofil zwischen 0.7% und 1.5%, während der Beitrag zur zweiten Säule (BVG) je nach Altersgruppe des Arbeitnehmers (ab dem 25. Lebensjahr) zwischen 7% und 18% variiert. Diese Sätze werden auf Bundesebene von der Eidgenössischen Steuerverwaltung (ESTV) verwaltet und in allen Kantonen einheitlich angewendet.
-
-### Italienische Besteuerung und Verpflegung
-In Italien ist die Einkommensteuer (IRPEF) nach progressiven Sätzen strukturiert: 23% auf Einkommen bis zu 28.000 €, 35% auf Einkommen zwischen 28.001 € und 50.000 € und 43% über 50.000 €. Der Grenzgänger, der das in der Schweiz erzielte Einkommen deklariert, hat jedoch ein Recht auf Steuerausgleich: Die italienische Steuer erkennt eine Steuergutschrift an, die den in der Schweiz gezahlten Einbehaltungen entspricht. Der Mechanismus der Rückerstattung (Rückforderung überhöhter Steuern) hängt vom effektiven Steuersatz ab, der in der Schweiz im Vergleich zu dem italienischen Steuersatz gezahlt wird, der auf denselben anwendbar wäre
-
-## Nützliche Tools für Ihren Fall
-Um Ihr Steuer-Szenario innerhalb/außerhalb von 20 km zu prüfen, nutzen Sie den [Nettolohnrechner](nav:calculator) und den [Leitfaden zur Steuererklärung](nav:tax-return).
-### Verfahrensverfahren und Meldepflichten 2026 Für den Grenzarbeiter, der in der Schweiz arbeitet und in Italien wohnt, bleibt die italienische Einkommensteuererklärung das Zentrum der fiskalischen Pflichten. Das Modell 730 oder das Modell Redditi PF (Persone Fisiche) muss das Bruttogehalt aus dem Arbeitnehmerverhältnis in der Schweiz einschließen, auch wenn die Quellenabzüge bereits angewendet wurden. Im CE-Rahmen des 730 ("Ausländische Arbeitseinkünfte") erkläre der Grenzarbeiter den Bruttobetrag und den entsprechenden Steuerabzug für die schweizerischen Quellenabzüge. Die Finanzverwaltung überprüft die Konsistenz zwischen der erklärten Quellenabzug und den tatsächlichen schweizerischen Tarifen, berechnet gegebenenfalls Rückerstattungen oder Zusatzbeträge. Die erforderlichen Dokumente umfassen das schweizerische Quellenabzugszertifikat, das das Bruttogehalt, die Abzüge für AVS/AI/IPG, AD/AC und LAINF aufweist. Dieses Zertifikat muss dem Grenzarbeiter in Kopie zugestellt und der Finanzverwaltung als Anlage zur Erklärung übermittelt werden. ### Termine und verfügbare Werkzeuge Für 2026 bleibt die Frist für das Modell 730 beim 31. Mai für die Einreichung über CAF oder über Deklarationssoftware. Die schweizerischen Arbeitgeber übermitteln die Daten an die schweizerische Quelle (AFC) nach den Bundeskalendern; die Synchronisierung zwischen dem schweizerischen System und der italienischen Finanzverwaltung erfolgt über bilaterale Verwaltungsaufträge. Um den fiskalischen Einfluss Ihres Bruttogehalts, des Arbeitskantons und des italienischen Wohnsitzes konkreter zu schätzen, ermöglicht der [Berechnungsasistent für die Lohnabrechnung](nav:calculator) die Anzeige der tatsächlichen schweizerischen Quellenabzüge, der Beiträge AVS/LPP und des monatlichen Nettobetrags. Durch Eingabe des jährlichen Bruttogehalts und des Tessiner Kantons simuliert das Werkzeug auch den Einfluss der italienischen Erklärung und die Schätzung des Steuerabzugs. So können Sie Ihr persönliches Budget planen und gegebenenfalls Rückerstattungen vorhersagen. Es wird dringend empfohlen, die Simulation jedes Jahres nach Änderungen der Tarife, Freibeträge und Kantonsregime zu aktualisieren. Für weitere Informationen zur [Gesundheitsversicherungsverwaltung](nav:health) und die Wahlrechte zwischen schweizerischen und italienischen Abdeckungen konsultieren Sie die spezifischen Anleitungen.]]></content:encoded>
-      <pubDate>Wed, 26 Aug 2026 07:34:09 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/de/grenzgaenger-artikel/frontaliere-esenzione-franchigia-2026</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/frontaliere-esenzione-franchigia-2026.webp" medium="image"/>
     </item>
   </channel>
 </rss>

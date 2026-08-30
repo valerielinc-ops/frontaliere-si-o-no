@@ -10976,6 +10976,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.credito-2026-famiglia-calcolo-limiti.title': 'Steuergutschrift 2026: Berechnung pro Familie mit Kindern',
     'blog.article.credito-2026-famiglia-calcolo-limiti.excerpt': 'Grenzgänger mit Kindern: Rahmen EG 730, Selbstbehalt € 10.000 neu und € 7.500 alt. Berechnung Steuergutschrift, einbehaltene Quellensteuer in der Schweiz, Fristen Erklärung 2026.',
     'blog.article.credito-2026-famiglia-calcolo-limiti.imageAlt': 'Grenzgänger-Familie mit Kindern überprüft Steuerdokumente an der Grenze Tessin-Italien',
+    'blog.article.credito-imposta-frontalieri-2026-errori-comuni.title': 'Grenzsteuergutschrift 2026: Häufige Fehler',
+    'blog.article.credito-imposta-frontalieri-2026-errori-comuni.excerpt': 'EG-Rahmen von 730, neues Abkommen, das seit 2024 in Kraft ist, und Übergangsregelung: die häufigsten Fehler von Grenzgängern.',
+    'blog.article.credito-imposta-frontalieri-2026-errori-comuni.imageAlt': 'Schweizer Lohnabrechnung und italienisches 730-Formular, Mendrisio im Hintergrund',
 };
 
 export default blogMetaDe;
