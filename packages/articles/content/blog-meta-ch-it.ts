@@ -4789,6 +4789,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lam-grigioni-premi-riduzione.title': 'LAMal Grigioni: premi, franchigie e riduzione',
     'blog.article.lam-grigioni-premi-riduzione.excerpt': 'Scopri come funziona l\'assicurazione malattia LAMal nel canton Grigioni, quali franchigie scegliere e come accedere ai sussidi cantonali di riduzione dei premi.',
     'blog.article.lam-grigioni-premi-riduzione.imageAlt': 'Ufficio amministrativo svizzero dove viene assistita una persona nella richiesta di sussidio per l\'assicurazione malattia LAMal',
+    'blog.article.comprare-casa-zugo-guida.title': 'Comprare casa Zugo: prezzi, mutuo e costi',
+    'blog.article.comprare-casa-zugo-guida.excerpt': 'Guida completa all\'acquisto immobiliare nel Cantone Zugo: costi di trasferimento, fondi propri, mutuo ipotecario e imposte cantonali.',
+    'blog.article.comprare-casa-zugo-guida.imageAlt': 'Edificio residenziale moderno nel Cantone Zugo con architettura svizzera e illuminazione pomeridiana',
 };
 
 export default blogMetaChIt;

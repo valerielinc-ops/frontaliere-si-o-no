@@ -1622,6 +1622,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'aprire-attivita-glarona-registro-costi': { it: 'aprire-attivita-glarona-registro-costi', en: 'open-business-glarus-register-costs', de: 'geschaeft-eroeffnen-glarus-handelsregister-kosten', fr: 'ouvrir-activite-glaris-registre-commerce-couts' },
  'permesso-dimora-b-zugo-requisiti-rinnovo': { it: 'permesso-dimora-b-zugo-requisiti-rinnovo', en: 'zug-b-residence-permit-requirements-renewal', de: 'aufenthaltsbewilligung-b-zug-voraussetzungen-verlaengerung', fr: 'permis-sejour-b-zoug-exigences-renouvellement' },
  'lam-grigioni-premi-riduzione': { it: 'lam-grigioni-premi-riduzione', en: 'lamal-grisons-premiums-reduction', de: 'lamal-graubuenden-praemien-reduktion', fr: 'lamal-grisons-primes-reduction' },
+ 'comprare-casa-zugo-guida': { it: 'comprare-casa-zugo-guida', en: 'buying-property-zugo-guide', de: 'haus-kaufen-zug-leitfaden', fr: 'acheter-maison-zoug-guide' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

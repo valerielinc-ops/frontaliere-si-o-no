@@ -4789,6 +4789,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lam-grigioni-premi-riduzione.title': 'LAMal Grisioni: premiums, deductibles and reduction',
     'blog.article.lam-grigioni-premi-riduzione.excerpt': 'Find out how LAMal health insurance works in the canton of Graubünden, which deductibles to choose and how to access cantonal premium reduction subsidies.',
     'blog.article.lam-grigioni-premi-riduzione.imageAlt': 'Swiss administrative office where a person receives assistance with health insurance LAMal subsidy application',
+    'blog.article.comprare-casa-zugo-guida.title': 'Buying Zug house: prices, mortgage and costs',
+    'blog.article.comprare-casa-zugo-guida.excerpt': 'Complete guide to buying real estate in the Canton of Zug: transfer costs, own funds, mortgage loan and cantonal taxes.',
+    'blog.article.comprare-casa-zugo-guida.imageAlt': 'Modern residential building in Zugo canton with Swiss architecture, afternoon sunlight',
 };
 
 export default blogMetaChEn;

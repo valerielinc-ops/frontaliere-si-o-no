@@ -4789,6 +4789,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lam-grigioni-premi-riduzione.title': 'LAMal Grisons : primes, franchises et réduction',
     'blog.article.lam-grigioni-premi-riduzione.excerpt': 'Découvrez comment fonctionne l\'assurance maladie LAMal dans le canton des Grisons, quelles franchises choisir et comment accéder aux allocations cantonales de réduction des primes.',
     'blog.article.lam-grigioni-premi-riduzione.imageAlt': 'Bureau administratif suisse où une personne est aidée pour la demande de subvention d\'assurance maladie LAMal',
+    'blog.article.comprare-casa-zugo-guida.title': 'Acheter maison Zoug : prix, hypothèque et coûts',
+    'blog.article.comprare-casa-zugo-guida.excerpt': 'Guide complet de l\'achat immobilier dans le canton de Zoug : coûts de transfert, fonds propres, hypothèque et impôts cantonaux.',
+    'blog.article.comprare-casa-zugo-guida.imageAlt': 'Immeuble résidentiel moderne dans le canton de Zoug avec architecture suisse, lumière de l\'après-midi',
 };
 
 export default blogMetaChFr;
