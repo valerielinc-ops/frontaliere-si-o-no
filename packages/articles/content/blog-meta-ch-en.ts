@@ -4693,6 +4693,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.custodia-bambini-san-gallo-tariffe-sussidi.title': 'Child Custody in Switzerland: Facilities, Fees and Subsidies',
     'blog.article.custodia-bambini-san-gallo-tariffe-sussidi.excerpt': 'How kindergartens work, childcare fees and subsidies. Financing models and tax deductions.',
     'blog.article.custodia-bambini-san-gallo-tariffe-sussidi.imageAlt': 'Swiss daycare center with colorful learning area and children playing in natural light.',
+    'blog.article.asilo-nido-custodia-bambini-san-gallo.title': 'Nursery in the Canton of St. Gallen: costs and subsidies',
+    'blog.article.asilo-nido-custodia-bambini-san-gallo.excerpt': 'Rates decided by the Municipalities, cantonal subsidies, day families and after-school: practical guide to extra-family custody in the Canton of St. Gallen.',
+    'blog.article.asilo-nido-custodia-bambini-san-gallo.imageAlt': 'Entrance of a daycare center in a St. Gallen municipality with parents and children',
 };
 
 export default blogMetaChEn;

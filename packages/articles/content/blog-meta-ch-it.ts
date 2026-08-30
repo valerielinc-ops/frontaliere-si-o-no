@@ -4693,6 +4693,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.custodia-bambini-san-gallo-tariffe-sussidi.title': 'Custodia bambini in Svizzera: strutture, tariffe e sussidi',
     'blog.article.custodia-bambini-san-gallo-tariffe-sussidi.excerpt': 'Come funzionano asili, tariffe e sussidi per la custodia dei bambini. Modelli di finanziamento e deduzioni fiscali.',
     'blog.article.custodia-bambini-san-gallo-tariffe-sussidi.imageAlt': 'Centro diurno svizzero con area colorata per l\'apprendimento e bambini che giocano in luce naturale.',
+    'blog.article.asilo-nido-custodia-bambini-san-gallo.title': 'Asilo nido nel Canton San Gallo: costi e sussidi',
+    'blog.article.asilo-nido-custodia-bambini-san-gallo.excerpt': 'Tariffe decise dai Comuni, sussidi cantonali, famiglie diurne e doposcuola: guida pratica alla custodia extrafamiliare nel Canton San Gallo.',
+    'blog.article.asilo-nido-custodia-bambini-san-gallo.imageAlt': 'Ingresso di un asilo nido in un Comune del Canton San Gallo con genitori e bambini',
 };
 
 export default blogMetaChIt;
