@@ -32691,6 +32691,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-senna-comasco-lavorare-ticino-frontaliere',
+ category: 'pratico',
+ date: '2026-08-30T03:43:23.625Z',
+ image: '/images/blog/vivere-senna-comasco-lavorare-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

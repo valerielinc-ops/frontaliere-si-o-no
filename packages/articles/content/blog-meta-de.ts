@@ -10932,6 +10932,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-binago-lavorare-ticino-frontaliere.title': 'Leben in Binago und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-binago-lavorare-ticino-frontaliere.excerpt': 'Binago in der Provinz Como ist nur wenige Kilometer von den Pässen in Richtung Kanton Tessin entfernt: Kosten, Steuern und Reisezeiten für Pendler.',
     'blog.article.vivere-binago-lavorare-ticino-frontaliere.imageAlt': 'Italienischer Grenzgänger im Auto Richtung Tessin mit Blick auf den Luganersee',
+    'blog.article.vivere-senna-comasco-lavorare-ticino-frontaliere.title': 'Senna Comasco und Grenzgängerarbeit im Tessin: Praktischer Leitfaden',
+    'blog.article.vivere-senna-comasco-lavorare-ticino-frontaliere.excerpt': 'Seine Comasco ist nur wenige Kilometer vom Grenzübergang Ponte Tresa und Chiasso entfernt: Verbindungen, Steuern und Lebenshaltungskosten für Grenzgänger.',
+    'blog.article.vivere-senna-comasco-lavorare-ticino-frontaliere.imageAlt': 'Italienisch-Schweizer Grenze bei Comer See mit Pendlern Richtung Tessin im Morgengrauen',
 };
 
 export default blogMetaDe;

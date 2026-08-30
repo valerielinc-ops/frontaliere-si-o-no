@@ -10934,6 +10934,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-binago-lavorare-ticino-frontaliere.title': 'Vivere a Binago e lavorare in Ticino da frontaliere',
     'blog.article.vivere-binago-lavorare-ticino-frontaliere.excerpt': 'Binago, in provincia di Como, dista pochi chilometri dai valichi verso il Canton Ticino: costi, fiscalità e tempi di percorrenza per chi fa il pendolare.',
     'blog.article.vivere-binago-lavorare-ticino-frontaliere.imageAlt': 'Frontaliere italiano in auto verso il Ticino sullo sfondo del Lago di Lugano',
+    'blog.article.vivere-senna-comasco-lavorare-ticino-frontaliere.title': 'Senna Comasco e lavoro in Ticino da frontaliere: guida pratica',
+    'blog.article.vivere-senna-comasco-lavorare-ticino-frontaliere.excerpt': 'Senna Comasco dista pochi km dal valico di Ponte Tresa e da Chiasso: collegamenti, fiscalità e costo della vita per chi fa il frontaliere.',
+    'blog.article.vivere-senna-comasco-lavorare-ticino-frontaliere.imageAlt': 'Frontiera italo-svizzera vicino al lago di Como con pendolari diretti in Ticino all\'alba',
 };
 
 export default blogMetaIt;

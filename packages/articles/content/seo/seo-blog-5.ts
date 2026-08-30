@@ -80333,6 +80333,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-senna-comasco-lavorare-ticino-frontaliere': {
+    title: 'Senna Comasco e lavoro in Ticino da frontaliere: guida pratica',
+    description: 'Vivere a Senna Comasco e lavorare in Ticino da frontaliere: permesso G, imposta alla fonte, Nuovo Accordo 2024, contributi e collegamenti dai valichi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, senna, comasco, lavoro, pratica',
+    ogTitle: 'Senna Comasco frontaliere Ticino: guida completa 2024',
+    ogDescription: 'Trasferirsi a Senna Comasco per lavorare in Ticino da frontaliere: permesso G, imposta alla fonte, Nuovo Accordo 2024 in vigore dal 1° gennaio, contributi svizzeri, collegamenti e costo della vita. Tutto ciò che serve sapere prima di partire.',
+    canonicalPath: '/articoli-frontaliere/vivere-senna-comasco-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Senna Comasco e lavoro in Ticino da frontaliere: guida pratica",
+      "description": "Vivere a Senna Comasco e lavorare in Ticino da frontaliere: permesso G, imposta alla fonte, Nuovo Accordo 2024, contributi e collegamenti dai valichi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-senna-comasco-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontiera italo-svizzera vicino al lago di Como con pendolari diretti in Ticino all'alba"
+      },
+      "datePublished": "2026-08-30T03:43:23+00:00",
+      "dateModified": "2026-08-30T03:43:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-senna-comasco-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
