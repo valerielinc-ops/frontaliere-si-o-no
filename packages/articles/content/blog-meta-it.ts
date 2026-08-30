@@ -10963,6 +10963,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-remoto-vacanza-estero-tasse.title': 'Remoto da vacanza all\'estero: guida fiscale per frontalieri',
     'blog.article.frontaliere-remoto-vacanza-estero-tasse.excerpt': 'Lavorare da remoto durante una vacanza all\'estero non cambia le tasse svizzere e la copertura LAMal rimane attiva. Ecco cosa devi verificare e comunicare al datore.',
     'blog.article.frontaliere-remoto-vacanza-estero-tasse.imageAlt': 'Frontaliere che lavora in remoto da una location estiva con vista mare e portatile, durante una vacanza lavorativa.',
+    'blog.article.lavoro-remoto-terzo-paese-vacanza.title': 'Lavoro remoto in vacanza: fiscalità e diritti del frontaliere',
+    'blog.article.lavoro-remoto-terzo-paese-vacanza.excerpt': 'Quando il frontaliere lavora in remoto da un terzo paese durante le ferie: cosa cambia per imposte, LAMal e AVS. Tutto quello che devi comunicare al datore.',
+    'blog.article.lavoro-remoto-terzo-paese-vacanza.imageAlt': 'Frontaliere al lavoro remoto da una terrazza di vacanza all\'estero con vista su montagne.',
 };
 
 export default blogMetaIt;

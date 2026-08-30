@@ -10961,6 +10961,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-remoto-vacanza-estero-tasse.title': 'Remote aus dem Ausland: Steuerführer für Grenzgänger',
     'blog.article.frontaliere-remoto-vacanza-estero-tasse.excerpt': 'Das Arbeiten aus der Ferne während eines Auslandsurlaubs ändert nichts an den Schweizer Steuern und die KVG-Versicherung bleibt aktiv. Hier ist, was Sie überprüfen und dem Arbeitgeber mitteilen müssen.',
     'blog.article.frontaliere-remoto-vacanza-estero-tasse.imageAlt': 'Grenzgänger arbeitet remote von einem Ferienort mit Meerblick, Laptop und Urlaubsatmosphäre während einer Arbeitsvakanz.',
+    'blog.article.lavoro-remoto-terzo-paese-vacanza.title': 'Telearbeit im Urlaub: Steuerliche Behandlung und Rechte von Grenzgängern',
+    'blog.article.lavoro-remoto-terzo-paese-vacanza.excerpt': 'Wenn der Grenzgänger während der Ferien aus der Ferne aus einem Drittland arbeitet: Was ändert sich bei Steuern, KVG und AHV? Alles, was Sie dem Arbeitgeber mitteilen müssen.',
+    'blog.article.lavoro-remoto-terzo-paese-vacanza.imageAlt': 'Grenzgänger arbeitet von einer Urlaubsterrasse im Ausland mit Bergblick.',
 };
 
 export default blogMetaDe;

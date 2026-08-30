@@ -80683,6 +80683,46 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
+
+  'blog-lavoro-remoto-terzo-paese-vacanza': {
+    title: 'Lavoro remoto in vacanza: fiscalità e diritti del frontaliere',
+    description: 'Frontaliere che lavora in remoto da estero durante vacanza: come funziona l\'imposta alla fonte, LAMal, AVS. Cosa comunicare al datore. Guida pratica 2024.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoro, remoto, vacanza, fiscalità',
+    ogTitle: 'Lavoro remoto in vacanza estero: tasse del frontaliere',
+    ogDescription: 'Frontaliere in vacanza remota all\'estero? Scopri imposta alla fonte, LAMal, AVS, AVS. Cosa comunicare al datore e come evitare sorprese fiscali con la normativa 2024.',
+    canonicalPath: '/articoli-frontaliere/lavoro-remoto-terzo-paese-vacanza',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavoro remoto in vacanza: fiscalità e diritti del frontaliere",
+      "description": "Frontaliere che lavora in remoto da estero durante vacanza: come funziona l'imposta alla fonte, LAMal, AVS. Cosa comunicare al datore. Guida pratica 2024.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavoro-remoto-terzo-paese-vacanza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere al lavoro remoto da una terrazza di vacanza all'estero con vista su montagne."
+      },
+      "datePublished": "2026-08-30T11:25:42+00:00",
+      "dateModified": "2026-08-30T11:25:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavoro-remoto-terzo-paese-vacanza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
