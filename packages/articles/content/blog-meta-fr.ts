@@ -10944,6 +10944,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-schignano-lavorare-ticino.title': 'Vivre à Schignano et travailler au Tessin : guide pratique',
     'blog.article.vivere-schignano-lavorare-ticino.excerpt': 'Frontière de Schignano : réglementation fiscale, AVS/LPP, permis G. Ce que vous devez savoir sur les impôts, les contributions et les procédures administratives.',
     'blog.article.vivere-schignano-lavorare-ticino.imageAlt': 'Paysage frontalier entre Schignano et le Tessin suisse avec panorama alpin',
+    'blog.article.vivere-gurro-lavorare-ticino-frontaliere.title': 'Vivre à Gurro et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-gurro-lavorare-ticino-frontaliere.excerpt': 'Se déplacer à Gurro et faire le trajet vers le canton du Tessin : distances, cols, régime fiscal Permis G, coûts et scénarios pratiques.',
+    'blog.article.vivere-gurro-lavorare-ticino-frontaliere.imageAlt': 'Route panoramique entre Gurro et Val Cannobina vers le Tessin',
 };
 
 export default blogMetaFr;

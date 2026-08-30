@@ -80450,6 +80450,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-gurro-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Gurro e lavorare in Ticino da frontaliere',
+    description: 'Trasferirsi a Gurro e fare il pendolare verso il Canton Ticino: Permesso G, Nuovo Accordo 2024, busta paga, LAMal, costi e tempi di percorrenza. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, gurro, lavorare, trasferirsi',
+    ogTitle: 'Vivere a Gurro e lavorare in Ticino da frontaliere',
+    ogDescription: 'Guida pratica per chi valuta di trasferirsi a Gurro e fare il frontaliere in Canton Ticino: Permesso G, Nuovo Accordo in vigore dal 2024, busta paga, LAMal, costi e tempi di percorrenza.',
+    canonicalPath: '/articoli-frontaliere/vivere-gurro-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Gurro e lavorare in Ticino da frontaliere",
+      "description": "Trasferirsi a Gurro e fare il pendolare verso il Canton Ticino: Permesso G, Nuovo Accordo 2024, busta paga, LAMal, costi e tempi di percorrenza. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-gurro-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada panoramica tra Gurro e la Val Cannobina verso il Ticino"
+      },
+      "datePublished": "2026-08-30T05:00:15+00:00",
+      "dateModified": "2026-08-30T05:00:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-gurro-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

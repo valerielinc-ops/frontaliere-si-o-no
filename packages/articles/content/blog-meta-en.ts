@@ -10942,6 +10942,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-schignano-lavorare-ticino.title': 'Living in Schignano and working in Ticino: a practical guide',
     'blog.article.vivere-schignano-lavorare-ticino.excerpt': 'Border from Schignano: tax legislation, AVS/LPP, permit G. What you need to know about taxes, contributions and administrative procedures.',
     'blog.article.vivere-schignano-lavorare-ticino.imageAlt': 'Border landscape between Schignano and Swiss Ticino with alpine scenery',
+    'blog.article.vivere-gurro-lavorare-ticino-frontaliere.title': 'Living in Gurro and working in Ticino as a border worker',
+    'blog.article.vivere-gurro-lavorare-ticino-frontaliere.excerpt': 'Move to Gurro and commute to the Canton of Ticino: distances, crossings, tax regime Permit G, costs and practical scenarios.',
+    'blog.article.vivere-gurro-lavorare-ticino-frontaliere.imageAlt': 'Panoramic road between Gurro and Val Cannobina heading to Ticino',
 };
 
 export default blogMetaEn;
