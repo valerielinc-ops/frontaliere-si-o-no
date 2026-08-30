@@ -4663,6 +4663,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-ditta-svitto-costi-e-adempimenti.title': 'Ein Geschäft im Kanton Schwyz eröffnen: praktischer Leitfaden',
     'blog.article.aprire-ditta-svitto-costi-e-adempimenti.excerpt': 'Vollständiges Verfahren im Kanton Schwyz: Handelsregister, Mindestkapital für GmbH und AG, AHV-, ALV-, BVG- UND KVG-Verpflichtungen.',
     'blog.article.aprire-ditta-svitto-costi-e-adempimenti.imageAlt': 'Geschäft in einer Gemeinde im Kanton Schwyz mit Alpen im Hintergrund',
+    'blog.article.droni-esercito-battaglione-2028.title': 'Armee, das Drohnenbataillon wird geboren: operativ seit 2028',
+    'blog.article.droni-esercito-battaglione-2028.excerpt': 'Kompetenzzentrum präsentiert in Thun von Pfister, Roos und Loher: Aufklärung und Verteidigung sowie eine eigene Rekrutenschule.',
+    'blog.article.droni-esercito-battaglione-2028.imageAlt': 'Waffenplatz Thun mit einer Aufklärungsdrohne der Schweizer Armee',
 };
 
 export default blogMetaChDe;
