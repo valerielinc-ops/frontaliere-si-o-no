@@ -4732,6 +4732,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-attivita-san-gallo-registro-costi.title': 'Ouvrir une entreprise à Saint-Gall : registre, capital et coûts',
     'blog.article.aprire-attivita-san-gallo-registro-costi.excerpt': 'Sagl CHF 20\'000, SA CHF 100\'000 : capital, inscription au registre cantonal, LAMal dès le premier jour et coûts salariaux AVS, LPP et LAA.',
     'blog.article.aprire-attivita-san-gallo-registro-costi.imageAlt': 'Office cantonal du registre du commerce à Saint-Gall',
+    'blog.article.aprire-attivita-san-gallo-procedura-costi.title': 'Ouvrir une entreprise à Saint-Gall : guide pratique',
+    'blog.article.aprire-attivita-san-gallo-procedura-costi.excerpt': 'Formes juridiques, capital minimum, inscription au registre du commerce et obligations d\'assurance dans le canton de Saint-Gall.',
+    'blog.article.aprire-attivita-san-gallo-procedura-costi.imageAlt': 'Vue de la vieille ville de Saint-Gall avec la bibliothèque abbatiale',
 };
 
 export default blogMetaChFr;

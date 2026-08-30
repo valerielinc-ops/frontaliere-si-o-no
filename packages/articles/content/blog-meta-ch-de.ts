@@ -4732,6 +4732,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-attivita-san-gallo-registro-costi.title': 'Geschäft in St. Gallen eröffnen: Register, Kapital und Kosten',
     'blog.article.aprire-attivita-san-gallo-registro-costi.excerpt': 'Sagl CHF 20\'000, AG CHF 100\'000: Kapital, Eintragung ins kantonale Register, KVG ab dem ersten Tag und Lohnkosten AHV, BVG und UVG.',
     'blog.article.aprire-attivita-san-gallo-registro-costi.imageAlt': 'Kantonales Handelsregisteramt in St. Gallen',
+    'blog.article.aprire-attivita-san-gallo-procedura-costi.title': 'Geschäft im Kanton St. Gallen eröffnen: Verfahren, Register und Kosten',
+    'blog.article.aprire-attivita-san-gallo-procedura-costi.excerpt': 'Rechtsformen, Mindestkapital, Handelsregistereintragung und Versicherungspflichten im Kanton St. Gallen.',
+    'blog.article.aprire-attivita-san-gallo-procedura-costi.imageAlt': 'Blick auf die Altstadt von St. Gallen mit Stiftsbibliothek',
 };
 
 export default blogMetaChDe;
