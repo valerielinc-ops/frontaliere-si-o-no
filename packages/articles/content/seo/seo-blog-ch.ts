@@ -61562,6 +61562,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-casa-nidvaldo-mutuo-fondi-propri': {
+    title: 'Comprare casa a Nidvaldo: prezzi, mutuo e fondi propri',
+    description: 'Acquisto casa in Canton Nidvaldo: mercato immobiliare di nicchia, regole su mutuo ipotecario, fondi propri minimi del 20% e spese di trapasso. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, nidvaldo, prezzi',
+    ogTitle: 'Comprare casa a Nidvaldo: prezzi e mutuo ipotecario',
+    ogDescription: 'Guida pratica all\'acquisto di un\'abitazione nel Canton Nidvaldo: come si articolano i fondi propri (almeno 20%), la regola del 35% delle banche, le imposte sui trapassi, i costi notarili e l\'iscrizione al registro fondiario. Scenario di riferimento',
+    canonicalPath: '/articoli-svizzera/casa-nidvaldo-mutuo-fondi-propri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa a Nidvaldo: prezzi, mutuo e fondi propri",
+      "description": "Acquisto casa in Canton Nidvaldo: mercato immobiliare di nicchia, regole su mutuo ipotecario, fondi propri minimi del 20% e spese di trapasso. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/casa-nidvaldo-mutuo-fondi-propri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Villaggio di chalet tradizionali sulle colline di Nidvaldo, Svizzera centrale, con vista alpina"
+      },
+      "datePublished": "2026-08-30T12:25:42+00:00",
+      "dateModified": "2026-08-30T12:25:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/casa-nidvaldo-mutuo-fondi-propri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

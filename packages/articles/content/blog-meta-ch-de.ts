@@ -4744,6 +4744,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.acquisto-casa-nidvaldo-guida.title': 'Hauskauf in Nidwalden: Leitfaden zu Hypotheken und Kosten',
     'blog.article.acquisto-casa-nidvaldo-guida.excerpt': 'Praktischer Leitfaden zum Kauf einer Wohnung in Nidwalden: Eigenmittel, Transfersteuern, Hypothekenoptionen und sieben operative Schritte vom Budget bis zur Schlüsselübergabe.',
     'blog.article.acquisto-casa-nidvaldo-guida.imageAlt': 'Traditionelles Dorf im Kanton Nidwalden mit Alpenblick',
+    'blog.article.casa-nidvaldo-mutuo-fondi-propri.title': 'Haus kaufen in Nidwalden: Preise, Darlehen und Eigenmittel',
+    'blog.article.casa-nidvaldo-mutuo-fondi-propri.excerpt': 'Praktischer Leitfaden zum Kauf einer Immobilie im Kanton Nidwalden: Nischenmarkt, Eigenkapitalvorschriften und Übertragungskosten.',
+    'blog.article.casa-nidvaldo-mutuo-fondi-propri.imageAlt': 'Traditionelles Chaletdorf in den grünen Alpenhügeln von Nidwalden, Zentralschweiz',
 };
 
 export default blogMetaChDe;
