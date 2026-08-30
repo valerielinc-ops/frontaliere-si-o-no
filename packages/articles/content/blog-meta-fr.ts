@@ -10961,6 +10961,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-30.imageAlt': 'Les chiffres du jour pour les frontaliers – 30 août 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-08-30.seoDescription': 'Bulletin du frontalier du 30 août 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-08-30.ogDescription': 'Les chiffres du 30 août 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.frontaliere-remoto-vacanza-estero-tasse.title': 'À distance de vacances à l\'étranger : guide fiscal pour les frontaliers',
+    'blog.article.frontaliere-remoto-vacanza-estero-tasse.excerpt': 'Travailler à distance pendant des vacances à l\'étranger ne change pas les taxes suisses et la couverture LAMal reste active. Voici ce que vous devez vérifier et communiquer à l\'employeur.',
+    'blog.article.frontaliere-remoto-vacanza-estero-tasse.imageAlt': 'Travailleur frontalier travaillant à distance depuis une location de vacances avec vue sur la mer et ordinateur portable.',
 };
 
 export default blogMetaFr;

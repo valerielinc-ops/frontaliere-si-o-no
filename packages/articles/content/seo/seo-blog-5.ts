@@ -80645,6 +80645,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-remoto-vacanza-estero-tasse': {
+    title: 'Remoto da vacanza all\'estero: guida fiscale per frontalieri',
+    description: 'Lavorare da remoto durante una vacanza all\'estero come frontaliere: imposta alla fonte, LAMal, contributi AVS/LPP rimangono ordinari. Guida pratica e verifiche',
+    keywords: 'frontalieri, ticino, svizzera, italia, remoto, vacanza, estero, fiscale',
+    ogTitle: 'Remoto da vacanza: le tasse del frontaliere',
+    ogDescription: 'Frontaliere che lavora in remoto durante una vacanza all\'estero? L\'imposta alla fonte rimane svizzera, LAMal garantisce copertura, e i contributi continuano normalmente. Scopri le implicazioni pratiche.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-remoto-vacanza-estero-tasse',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Remoto da vacanza all'estero: guida fiscale per frontalieri",
+      "description": "Lavorare da remoto durante una vacanza all'estero come frontaliere: imposta alla fonte, LAMal, contributi AVS/LPP rimangono ordinari. Guida pratica e verifiche",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-remoto-vacanza-estero-tasse.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere che lavora in remoto da una location estiva con vista mare e portatile, durante una vacanza lavorativa."
+      },
+      "datePublished": "2026-08-30T10:42:20+00:00",
+      "dateModified": "2026-08-30T10:42:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-remoto-vacanza-estero-tasse/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
 };
 
 export default BLOG_SEO_METADATA_5;
