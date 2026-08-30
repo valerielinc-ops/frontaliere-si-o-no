@@ -127,6 +127,9 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node scripts/ci/mint-app-token.mjs
 
+      - name: Setup Headroom compression proxy
+        uses: ./.github/actions/setup-headroom
+
       - name: Run Claude sweep
         id: claude_sweep
         continue-on-error: true

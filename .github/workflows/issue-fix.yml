@@ -313,6 +313,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
+          CTX_DIR: ${{ runner.temp }}/issue-fix-ctx
         # Tier high (claude-sonnet-5, max-turns alti): issue funnel-critical — crawler/parser/
         # build-plugin/workflow CI/test gate, o uno script che MUTA/emette dati
         # indicizzati (backfill/migrate/assemble/sitemap/canonical/slug/
@@ -339,7 +340,13 @@ jobs:
         # stesso principio anti-tier-breadth-waste della nota sopra.
         run: |
           set -euo pipefail
-          body=$(gh issue view "$ISSUE_NUMBER" --json title,body,labels --jq '.title + "\n" + .body + "\n" + (.labels[].name)')
+          # Prefetch bundle (token-lever, stesso pattern di tests.yml/pr-review-loop
+          # "review-ctx"): questa issue serve qui per il tier E al prompt Claude
+          # (step 3, "Carica la issue") come sua prima azione a pagamento — un solo
+          # `gh issue view` invece di due, zero costo qui, un turno risparmiato là.
+          mkdir -p "$CTX_DIR"
+          gh issue view "$ISSUE_NUMBER" --json number,title,body,labels,comments > "$CTX_DIR/issue.json"
+          body=$(jq -r '.title + "\n" + .body + "\n" + (.labels[].name)' "$CTX_DIR/issue.json")
           if echo "$body" | grep -qiE 'crawler|parser|build-plugin|\.github/workflows/|test gate|validator|migrator' \
              || echo "$body" | grep -qiE 'scripts/[a-z0-9_./-]*(backfill|migrate|assemble|sitemap|canonical|slug|structured-data|seo|index)' \
              || echo "$body" | grep -qiE 'seo-[a-z0-9]|audit-dist|validate-dist'; then
@@ -583,7 +590,7 @@ jobs:
             1. Leggi `ISSUES.md` → "Fix flow" — contratto operativo del fixer.
             2. Leggi `AGENTS.md` — non-negotiables + Privacy + architettura. VINCOLANTE.
             2b. Leggi `VISION.md` — driver di decisione: quando un driver copre una scelta (D1-D8), DECIDI e procedi citandolo nel body della PR. La sezione «Sempre umano» è stata RIMOSSA il 2026-08-24 (istruzione diretta del proprietario): nessuna categoria di business — LPD, denaro, invii massivi, ritiro editoriale, scope, infra irreversibile inclusi — richiede più un'approvazione preventiva. Scala a `needs-human` SOLO un blocco di capacità reale (credenziale davvero assente, scope insufficiente, causa non trovata dopo indagine) — mai più per una decisione che il ciclo può prendere da sé. Il registro delle decisioni del proprietario già prese è lì: non ri-chiedere ciò che è già deciso.
-            3. Carica la issue: `gh issue view $ISSUE_NUMBER --json number,title,body,labels,comments`.
+            3. Carica la issue con `Read` da `${{ runner.temp }}/issue-fix-ctx/issue.json` — prefetchata zero-Claude dallo step "Determine fix tier" con gli stessi campi (`number,title,body,labels,comments`). Non rieseguire `gh issue view` per questo: solo se il file manca/è vuoto, fallback a `gh issue view $ISSUE_NUMBER --json number,title,body,labels,comments`.
 
             **Pre-condizioni (abort se falliscono):**
             - Se esiste già una PR aperta che cita "#$ISSUE_NUMBER" (`gh pr list --state open --search "$ISSUE_NUMBER in:body" --json number`) → posta commento "PR già in volo: #<n>, skip." e TERMINA. No doppioni.
