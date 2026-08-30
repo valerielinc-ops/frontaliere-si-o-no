@@ -4774,6 +4774,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-successione-san-gallo-aliquote.title': 'Impôt succession Saint-Gall : taux et exonérations',
     'blog.article.imposta-successione-san-gallo-aliquote.excerpt': 'Comment fonctionne l\'impôt sur les successions et les donations dans le canton de Saint-Gall : taux par degré de parenté, exonérations pour conjoint et descendants, procédure de déclaration et délais légaux.',
     'blog.article.imposta-successione-san-gallo-aliquote.imageAlt': 'Bâtiment d\'administration fiscale du canton de Saint-Gall',
+    'blog.article.lamal-guida-2026-canton-vaud.title': 'LAMal 2026 dans le canton de Vaud : guide opérationnel',
+    'blog.article.lamal-guida-2026-canton-vaud.excerpt': 'Obligation dans les 3 mois suivant l\'arrivée, six tranches de franchise de 300 CHF à 2500 CHF et allocation cantonale : comment s\'orienter.',
+    'blog.article.lamal-guida-2026-canton-vaud.imageAlt': 'Table avec documents LAMal et vue sur le lac Léman',
 };
 
 export default blogMetaChFr;

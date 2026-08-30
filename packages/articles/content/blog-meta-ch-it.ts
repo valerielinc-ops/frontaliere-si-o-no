@@ -4774,6 +4774,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposta-successione-san-gallo-aliquote.title': 'Imposta successione San Gallo: aliquote e esenzioni',
     'blog.article.imposta-successione-san-gallo-aliquote.excerpt': 'Come funziona l\'imposta di successione e donazione nel Canton San Gallo: aliquote per grado di parentela, esenzioni per coniuge e discendenti, procedura di dichiarazione e termini di legge.',
     'blog.article.imposta-successione-san-gallo-aliquote.imageAlt': 'Sede amministrativa fiscale del Canton San Gallo: imposta di successione e donazione',
+    'blog.article.lamal-guida-2026-canton-vaud.title': 'LAMal 2026 nel Canton Vaud: guida operativa',
+    'blog.article.lamal-guida-2026-canton-vaud.excerpt': 'Obbligo entro 3 mesi dall\'arrivo, sei scaglioni di franchigia da CHF 300 a 2500 e sussidio cantonale: come orientarsi.',
+    'blog.article.lamal-guida-2026-canton-vaud.imageAlt': 'Tavolo con documenti LAMal e vista sul lago di Ginevra',
 };
 
 export default blogMetaChIt;

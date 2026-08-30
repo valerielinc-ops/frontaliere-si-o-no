@@ -61952,6 +61952,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lamal-guida-2026-canton-vaud': {
+    title: 'LAMal 2026 nel Canton Vaud: guida operativa | Frontaliere Ticino',
+    description: 'LAMal 2026 nel Canton Vaud: obbligo entro 3 mesi, franchigie CHF 300-2500, premio pro capite e sussidio cantonale. Procedura e scadenze. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, lamal, canton, vaud, operativa',
+    ogTitle: 'LAMal 2026 nel Canton Vaud: guida operativa',
+    ogDescription: 'Tutto sulla LAMal per chi vive nel Canton Vaud: obbligo entro 3 mesi dall\'arrivo, sei franchigie da CHF 300 a 2500, modelli assicurativi alternativi e procedura per il sussidio cantonale. Guida pratica 2026.',
+    canonicalPath: '/articoli-svizzera/lamal-guida-2026-canton-vaud/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "LAMal 2026 nel Canton Vaud: guida operativa",
+      "description": "LAMal 2026 nel Canton Vaud: obbligo entro 3 mesi, franchigie CHF 300-2500, premio pro capite e sussidio cantonale. Procedura e scadenze. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lamal-guida-2026-canton-vaud.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Tavolo con documenti LAMal e vista sul lago di Ginevra"
+      },
+      "datePublished": "2026-08-30T16:50:09+00:00",
+      "dateModified": "2026-08-30T16:50:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lamal-guida-2026-canton-vaud/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
