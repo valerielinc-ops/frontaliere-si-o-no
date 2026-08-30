@@ -84,6 +84,9 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node scripts/ci/mint-app-token.mjs
 
+      - name: Setup Headroom compression proxy
+        uses: ./.github/actions/setup-headroom
+
       - name: Run Claude growth report
         id: claude_growth
         continue-on-error: true

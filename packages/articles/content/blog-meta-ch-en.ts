@@ -4720,6 +4720,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-san-gallo-guida.title': 'AVS and complementary services in the Canton of St. Gallen',
     'blog.article.avs-prestazioni-complementari-san-gallo-guida.excerpt': 'How the first pillar works in the Canton of St. Gallen: compensation fund, pension calculation and PC to cover the living minimum.',
     'blog.article.avs-prestazioni-complementari-san-gallo-guida.imageAlt': 'Swiss cityscape with cantonal compensation office building',
+    'blog.article.aprire-attivita-canton-obvaldo-registro.title': 'Opening a business in Obvaldo: trade register and costs',
+    'blog.article.aprire-attivita-canton-obvaldo-registro.excerpt': 'Practical guide to legal form, registration in the commercial register, minimum capital and charges for starting a business in the Canton of Obvaldo.',
+    'blog.article.aprire-attivita-canton-obvaldo-registro.imageAlt': 'Alpine village in Canton Obwalden with lake and traditional chalets',
+    'blog.article.neutralita-svizzera-voto-settembre.title': 'Neutrality in the Constitution: on September 27 the federal vote',
+    'blog.article.neutralita-svizzera-voto-settembre.excerpt': 'Initiative filed in April 2024 with over 132,000 valid signatures. EU sanctions and military cooperation in the sights of the promoters.',
+    'blog.article.neutralita-svizzera-voto-settembre.imageAlt': 'Swiss federal ballot envelope on an apartment table in Switzerland',
 };
 
 export default blogMetaChEn;
