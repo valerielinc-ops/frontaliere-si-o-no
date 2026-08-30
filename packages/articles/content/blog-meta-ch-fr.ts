@@ -4762,6 +4762,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.patente-guida-san-gallo-conversione.title': 'Permis étranger à Saint-Gall : conversion et examens',
     'blog.article.patente-guida-san-gallo-conversione.excerpt': 'Comment faire reconnaître son permis de conduire étranger dans le canton de Saint-Gall : procédure différente selon qu’il s’agit d’un pays de l’UE/AELE ou d’un pays tiers, documents requis et service compétent.',
     'blog.article.patente-guida-san-gallo-conversione.imageAlt': 'Conversion du permis étranger à Saint-Gall',
+    'blog.article.neutralita-voto-27-settembre-amato.title': 'Neutralité : Amato rejette l\'accusation de propagande russe',
+    'blog.article.neutralita-voto-27-settembre-amato.excerpt': 'En vue du vote du 27 septembre sur l\'Initiative pour la neutralité, Corrado Amato rejette l\'étiquette de « propagande russe » et cite le précédent islandais du 29 août (52,8% non, 82,5% de participation).',
+    'blog.article.neutralita-voto-27-settembre-amato.imageAlt': 'Palais fédéral à Berne avec drapeau suisse, image éditoriale sur le vote du 27 septembre',
 };
 
 export default blogMetaChFr;

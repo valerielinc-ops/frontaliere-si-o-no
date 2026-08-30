@@ -4762,6 +4762,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.patente-guida-san-gallo-conversione.title': 'Patente estera a San Gallo: conversione ed esami',
     'blog.article.patente-guida-san-gallo-conversione.excerpt': 'Come convertire la patente straniera nel canton San Gallo: iter differenziato per paese UE/AELS e paesi terzi, documenti e ufficio competente.',
     'blog.article.patente-guida-san-gallo-conversione.imageAlt': 'Documento per la conversione della patente estera a San Gallo',
+    'blog.article.neutralita-voto-27-settembre-amato.title': 'Neutralità, il 27 settembre si vota: Amato respinge l\'accusa di propaganda russa',
+    'blog.article.neutralita-voto-27-settembre-amato.excerpt': 'In vista del voto del 27 settembre sull\'Iniziativa per la neutralità, Corrado Amato rigetta l\'etichetta di «propaganda russa» e cita il precedente islandese del 29 agosto (52,8% no, 82,5% affluenza).',
+    'blog.article.neutralita-voto-27-settembre-amato.imageAlt': 'Palazzo federale di Berna con bandiera svizzera, immagine editoriale sul voto del 27 settembre',
 };
 
 export default blogMetaChIt;
