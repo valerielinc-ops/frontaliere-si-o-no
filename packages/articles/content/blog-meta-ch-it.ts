@@ -4657,6 +4657,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-attivita-svitto-costi-registro.title': 'Aprire un\'attività nel Canton Svitto: guida a registro e costi',
     'blog.article.aprire-attivita-svitto-costi-registro.excerpt': 'Iscrizione al registro di commercio, forme giuridiche, imposte a tre livelli e obblighi assicurativi per avviare un\'attività nel Canton Svitto.',
     'blog.article.aprire-attivita-svitto-costi-registro.imageAlt': 'Veduta aerea del villaggio di Svitto con il paesaggio alpino dei Mythen sullo sfondo',
+    'blog.article.svitto-ditta-registro-commercio-capitale.title': 'Aprire un\'attività a Svitto: registro e costi',
+    'blog.article.svitto-ditta-registro-commercio-capitale.excerpt': 'Guida pratica all\'iscrizione al Registro di Commercio nel Cantone di Svitto: forme giuridiche, capitali minimi, tasse di iscrizione e obblighi assicurativi per dipendenti.',
+    'blog.article.svitto-ditta-registro-commercio-capitale.imageAlt': 'Scrivania con documenti di registrazione commerciale, calcolatrice e computer, simbolo dell\'avvio di attività',
 };
 
 export default blogMetaChIt;

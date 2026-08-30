@@ -4657,6 +4657,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-attivita-svitto-costi-registro.title': 'Geschäft im Kanton Schwyz eröffnen: Registerführung und Kosten',
     'blog.article.aprire-attivita-svitto-costi-registro.excerpt': 'Handelsregistereintrag, Rechtsformen, dreistufige Steuern und Versicherungspflichten zur Aufnahme einer Tätigkeit im Kanton Schwyz.',
     'blog.article.aprire-attivita-svitto-costi-registro.imageAlt': 'Luftaufnahme des Dorfes Schwyz mit den Mythen-Bergen im Hintergrund',
+    'blog.article.svitto-ditta-registro-commercio-capitale.title': 'Geschäft in Schwyz eröffnen: Register und Kosten',
+    'blog.article.svitto-ditta-registro-commercio-capitale.excerpt': 'Praktischer Leitfaden für die Eintragung in das Handelsregister im Kanton Schwyz: Rechtsformen, Mindestkapital, Eintragungsgebühren und Versicherungsverpflichtungen für Arbeitnehmer.',
+    'blog.article.svitto-ditta-registro-commercio-capitale.imageAlt': 'Geschäftsschreibtisch mit Handelsakten, Rechner und Computer, Unternehmensstart',
 };
 
 export default blogMetaChDe;

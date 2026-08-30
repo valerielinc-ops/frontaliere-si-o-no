@@ -60431,6 +60431,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svitto-ditta-registro-commercio-capitale': {
+    title: 'Aprire un\'attività a Svitto: registro e costi | Frontaliere Ticino',
+    description: 'Guida completa per aprire un\'attività nel Cantone di Svitto: iscrizione al registro commercio, scelta forma giuridica, capitali minimi e obblighi assicurativi',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, svitto, registro',
+    ogTitle: 'Aprire un\'attività a Svitto: registro e costi',
+    ogDescription: 'Procedura completa per avviare un\'attività nel Cantone di Svitto: iscrizione al registro, scelta della forma giuridica, capitali minimi, tasse e obblighi legali secondo la legge svizzera.',
+    canonicalPath: '/articoli-svizzera/svitto-ditta-registro-commercio-capitale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire un'attività a Svitto: registro e costi",
+      "description": "Guida completa per aprire un'attività nel Cantone di Svitto: iscrizione al registro commercio, scelta forma giuridica, capitali minimi e obblighi assicurativi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svitto-ditta-registro-commercio-capitale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scrivania con documenti di registrazione commerciale, calcolatrice e computer, simbolo dell'avvio di attività"
+      },
+      "datePublished": "2026-08-30T00:27:53+00:00",
+      "dateModified": "2026-08-30T00:27:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svitto-ditta-registro-commercio-capitale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

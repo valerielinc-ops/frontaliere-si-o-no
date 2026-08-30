@@ -4657,6 +4657,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-attivita-svitto-costi-registro.title': 'Ouvrir une entreprise dans le canton de Schwyz : guide du registre et des coûts',
     'blog.article.aprire-attivita-svitto-costi-registro.excerpt': 'Inscription au registre du commerce, formes juridiques, impôts à trois niveaux et obligations d\'assurance pour démarrer une activité dans le canton de Schwyz.',
     'blog.article.aprire-attivita-svitto-costi-registro.imageAlt': 'Vue aérienne du village de Schwyz avec les mythiques sommets des Mythen en arrière-plan',
+    'blog.article.svitto-ditta-registro-commercio-capitale.title': 'Ouvrir une entreprise à Schwyz : registre et coûts',
+    'blog.article.svitto-ditta-registro-commercio-capitale.excerpt': 'Guide pratique pour l\'inscription au Registre du Commerce dans le canton de Schwyz : formes juridiques, capitaux minimaux, frais d\'inscription et obligations d\'assurance pour les employés.',
+    'blog.article.svitto-ditta-registro-commercio-capitale.imageAlt': 'Bureau d\'affaires avec documents commerciaux, calculatrice et ordinateur',
 };
 
 export default blogMetaChFr;
