@@ -4732,6 +4732,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-attivita-san-gallo-registro-costi.title': 'Opening a business in St. Gallen: registration, capital and costs',
     'blog.article.aprire-attivita-san-gallo-registro-costi.excerpt': 'Sagl CHF 20,000, SA CHF100,000: capital, registration in the cantonal register, LAMal from the first day and wage costs AVS, LPP and LAINF.',
     'blog.article.aprire-attivita-san-gallo-registro-costi.imageAlt': 'Cantonal commercial register office in St. Gallen',
+    'blog.article.aprire-attivita-san-gallo-procedura-costi.title': 'Open a business in St. Gallen: procedure and costs',
+    'blog.article.aprire-attivita-san-gallo-procedura-costi.excerpt': 'Legal forms, minimum capital, registration in the commercial register and insurance obligations in the Canton of St. Gallen.',
+    'blog.article.aprire-attivita-san-gallo-procedura-costi.imageAlt': 'View of St. Gallen old town with Abbey library',
+    'blog.article.salari-mercato-lavoro-san-gallo.title': 'Wages and the labour market in the Canton of St Gallen',
+    'blog.article.salari-mercato-lavoro-san-gallo.excerpt': 'St. Gallen: Diversified economy between industry, services and trade, no federal minimum wage and wages related to training, experience and responsibility.',
+    'blog.article.salari-mercato-lavoro-san-gallo.imageAlt': 'Modern offices in St. Gallen canton with mountains in the background',
+    'blog.article.casa-nidvaldo-mutuo-pratico.title': 'Buying a Home in Nidwalden: A Practical Guide to Mortgages',
+    'blog.article.casa-nidvaldo-mutuo-pratico.excerpt': 'A guide for those considering the purchase of real estate in the Canton of Nidwalden: Swiss taxation, payroll taxes, and the bureaucratic process.',
+    'blog.article.casa-nidvaldo-mutuo-pratico.imageAlt': 'Residential house in Canton Nidwalden with Alpine lake background',
 };
 
 export default blogMetaChEn;

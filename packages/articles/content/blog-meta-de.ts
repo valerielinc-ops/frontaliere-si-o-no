@@ -10953,6 +10953,17 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.azzio-confine-guida-frontaliere.title': 'Leben in Azzio, Arbeiten im Tessin: Leitfaden für Grenzgänger',
     'blog.article.azzio-confine-guida-frontaliere.excerpt': 'Azzio für diejenigen, die im Tessin arbeiten: G-Genehmigung, Schweizer Steuern, AHV, Rückerstattungen und Umzug.',
     'blog.article.azzio-confine-guida-frontaliere.imageAlt': 'Grenzübergang Chiasso zwischen Tessin und Italien mit Pendlerverkehr und Alpengipfeln',
+    'blog.article.bollettino-frontaliere-2026-08-30.title': 'Grenzgänger-Tagesbulletin – 30. August 2026: 33 neue Stellenangebote gestern',
+    'blog.article.bollettino-frontaliere-2026-08-30.excerpt': 'Die Zahlen von heute, 30. August 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-08-30.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 30. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-08-30.seoDescription': 'Grenzgänger-Bulletin vom 30. August 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-08-30.ogDescription': 'Die Zahlen vom 30. August 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.frontaliere-remoto-vacanza-estero-tasse.title': 'Remote aus dem Ausland: Steuerführer für Grenzgänger',
+    'blog.article.frontaliere-remoto-vacanza-estero-tasse.excerpt': 'Das Arbeiten aus der Ferne während eines Auslandsurlaubs ändert nichts an den Schweizer Steuern und die KVG-Versicherung bleibt aktiv. Hier ist, was Sie überprüfen und dem Arbeitgeber mitteilen müssen.',
+    'blog.article.frontaliere-remoto-vacanza-estero-tasse.imageAlt': 'Grenzgänger arbeitet remote von einem Ferienort mit Meerblick, Laptop und Urlaubsatmosphäre während einer Arbeitsvakanz.',
+    'blog.article.lavoro-remoto-terzo-paese-vacanza.title': 'Telearbeit im Urlaub: Steuerliche Behandlung und Rechte von Grenzgängern',
+    'blog.article.lavoro-remoto-terzo-paese-vacanza.excerpt': 'Wenn der Grenzgänger während der Ferien aus der Ferne aus einem Drittland arbeitet: Was ändert sich bei Steuern, KVG und AHV? Alles, was Sie dem Arbeitgeber mitteilen müssen.',
+    'blog.article.lavoro-remoto-terzo-paese-vacanza.imageAlt': 'Grenzgänger arbeitet von einer Urlaubsterrasse im Ausland mit Bergblick.',
 };
 
 export default blogMetaDe;

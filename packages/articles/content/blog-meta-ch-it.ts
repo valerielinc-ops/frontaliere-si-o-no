@@ -4732,6 +4732,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-attivita-san-gallo-registro-costi.title': 'Aprire attività a San Gallo: registro, capitale e costi',
     'blog.article.aprire-attivita-san-gallo-registro-costi.excerpt': 'Sagl CHF 20\'000, SA CHF 100\'000: capitale, iscrizione al registro cantonale, LAMal dal primo giorno e costi salariali AVS, LPP e LAINF.',
     'blog.article.aprire-attivita-san-gallo-registro-costi.imageAlt': 'Ufficio cantonale del registro di commercio a San Gallo',
+    'blog.article.aprire-attivita-san-gallo-procedura-costi.title': 'Aprire un\'attività nel Cantone di San Gallo: procedura, registro e costi',
+    'blog.article.aprire-attivita-san-gallo-procedura-costi.excerpt': 'Forme giuridiche, capitale minimo, iscrizione al registro di commercio e obblighi assicurativi nel Cantone di San Gallo.',
+    'blog.article.aprire-attivita-san-gallo-procedura-costi.imageAlt': 'Veduta del centro storico di San Gallo con la biblioteca dell\'abbazia',
+    'blog.article.salari-mercato-lavoro-san-gallo.title': 'Salari e mercato del lavoro nel Cantone di San Gallo',
+    'blog.article.salari-mercato-lavoro-san-gallo.excerpt': 'San Gallo: economia diversificata tra industria, servizi e commercio, nessun salario minimo federale e salari legati a formazione, esperienza e responsabilità.',
+    'blog.article.salari-mercato-lavoro-san-gallo.imageAlt': 'Veduta di moderni uffici nel Cantone di San Gallo con montagne sullo sfondo',
+    'blog.article.casa-nidvaldo-mutuo-pratico.title': 'Casa in Nidvaldo: guida pratica al mutuo ipotecario',
+    'blog.article.casa-nidvaldo-mutuo-pratico.excerpt': 'Quadro di riferimento per chi valuta l\'acquisto di un immobile in Canton Nidvaldo: fiscalità svizzera, contributi sul salario e iter burocratico.',
+    'blog.article.casa-nidvaldo-mutuo-pratico.imageAlt': 'Casa residenziale in Canton Nidvaldo con sfondo alpino e lago',
 };
 
 export default blogMetaChIt;

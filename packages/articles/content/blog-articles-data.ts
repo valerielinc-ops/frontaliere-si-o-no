@@ -32754,6 +32754,33 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'bollettino-frontaliere-2026-08-30',
+ category: 'novita',
+ date: '2026-08-30T10:23:12.153Z',
+ image: '/images/blog/bollettino-frontaliere-2026-08-30.webp',
+ hasCalculator: false,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+ {
+ id: 'frontaliere-remoto-vacanza-estero-tasse',
+ category: 'fiscale',
+ date: '2026-08-30T10:42:20.576Z',
+ image: '/images/blog/frontaliere-remoto-vacanza-estero-tasse.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+ {
+ id: 'lavoro-remoto-terzo-paese-vacanza',
+ category: 'fiscale',
+ date: '2026-08-30T11:25:42.813Z',
+ image: '/images/blog/lavoro-remoto-terzo-paese-vacanza.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
