@@ -4738,6 +4738,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-san-gallo.title': 'Löhne und Arbeitsmarkt im Kanton St. Gallen',
     'blog.article.salari-mercato-lavoro-san-gallo.excerpt': 'St. Gallen: Diversifizierte Wirtschaft zwischen Industrie, Dienstleistungen und Handel, kein eidgenössischer Mindestlohn und Löhne nach Ausbildung, Erfahrung und Verantwortung.',
     'blog.article.salari-mercato-lavoro-san-gallo.imageAlt': 'Moderne Büros im Kanton St. Gallen mit Bergen im Hintergrund',
+    'blog.article.casa-nidvaldo-mutuo-pratico.title': 'Haus in Nidwalden: Praktischer Leitfaden zur Hypothek',
+    'blog.article.casa-nidvaldo-mutuo-pratico.excerpt': 'Bezugsrahmen für diejenigen, die den Kauf einer Immobilie im Kanton Nidwalden bewerten: Schweizer Steuern, Lohnbeiträge und bürokratische Verfahren.',
+    'blog.article.casa-nidvaldo-mutuo-pratico.imageAlt': 'Wohnhaus im Kanton Nidwalden mit Alpen- und Seeblick',
 };
 
 export default blogMetaChDe;

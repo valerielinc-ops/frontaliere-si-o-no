@@ -4738,6 +4738,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-san-gallo.title': 'Salaires et marché du travail dans le canton de Saint-Gall',
     'blog.article.salari-mercato-lavoro-san-gallo.excerpt': 'Saint-Gall : économie diversifiée entre industrie, services et commerce, pas de salaire minimum fédéral et salaires liés à la formation, à l\'expérience et aux responsabilités.',
     'blog.article.salari-mercato-lavoro-san-gallo.imageAlt': 'Bureaux modernes dans le canton de Saint-Gall avec montagnes en arrière-plan',
+    'blog.article.casa-nidvaldo-mutuo-pratico.title': 'Maison à Nidwald : guide pratique pour le prêt hypothécaire',
+    'blog.article.casa-nidvaldo-mutuo-pratico.excerpt': 'Cadre de référence pour ceux qui évaluent l\'achat d\'un bien immobilier dans le canton de Nidwald : fiscalité suisse, cotisations salariales et procédures bureaucratiques.',
+    'blog.article.casa-nidvaldo-mutuo-pratico.imageAlt': 'Maison résidentielle dans le canton de Nidwald avec lac alpin',
 };
 
 export default blogMetaChFr;
