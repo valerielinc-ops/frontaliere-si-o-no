@@ -10937,6 +10937,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-senna-comasco-lavorare-ticino-frontaliere.title': 'Senna Comasco e lavoro in Ticino da frontaliere: guida pratica',
     'blog.article.vivere-senna-comasco-lavorare-ticino-frontaliere.excerpt': 'Senna Comasco dista pochi km dal valico di Ponte Tresa e da Chiasso: collegamenti, fiscalità e costo della vita per chi fa il frontaliere.',
     'blog.article.vivere-senna-comasco-lavorare-ticino-frontaliere.imageAlt': 'Frontiera italo-svizzera vicino al lago di Como con pendolari diretti in Ticino all\'alba',
+    'blog.article.vivere-solbiate-cagno-frontaliere-ticino.title': 'Vivere a Solbiate e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-solbiate-cagno-frontaliere-ticino.excerpt': 'Dal 2024 nuovo accordo fiscale: franchigia €10mila per nuovi frontalieri. Tempi di viaggio, diritti AVS/LPP, LAMal e come richiedere il permesso G.',
+    'blog.article.vivere-solbiate-cagno-frontaliere-ticino.imageAlt': 'Veduta aerea della provincia di Como al mattino, piccolo paese frontaliero con chiesa e colline verdi, vista dal lato italiano verso confine svizzero',
 };
 
 export default blogMetaIt;

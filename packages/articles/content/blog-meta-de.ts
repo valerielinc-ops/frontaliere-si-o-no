@@ -10935,6 +10935,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-senna-comasco-lavorare-ticino-frontaliere.title': 'Senna Comasco und Grenzgängerarbeit im Tessin: Praktischer Leitfaden',
     'blog.article.vivere-senna-comasco-lavorare-ticino-frontaliere.excerpt': 'Seine Comasco ist nur wenige Kilometer vom Grenzübergang Ponte Tresa und Chiasso entfernt: Verbindungen, Steuern und Lebenshaltungskosten für Grenzgänger.',
     'blog.article.vivere-senna-comasco-lavorare-ticino-frontaliere.imageAlt': 'Italienisch-Schweizer Grenze bei Comer See mit Pendlern Richtung Tessin im Morgengrauen',
+    'blog.article.vivere-solbiate-cagno-frontaliere-ticino.title': 'Leben in Solbiate und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-solbiate-cagno-frontaliere-ticino.excerpt': 'Ab 2024 neue Steuervereinbarung: 10.000 € Selbstbehalt für neue Grenzgänger. Reisezeiten, AHV/BVG-Rechte, KVG und wie man die Bewilligung G beantragt.',
+    'blog.article.vivere-solbiate-cagno-frontaliere-ticino.imageAlt': 'Luftaufnahme der Provinz Como im Morgenlicht, kleine Grenzstadt mit Kirchturm und grünen Hügeln mit Blick zur Schweizer Grenze von der italienischen Seite',
 };
 
 export default blogMetaDe;

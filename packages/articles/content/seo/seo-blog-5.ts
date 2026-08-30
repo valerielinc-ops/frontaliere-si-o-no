@@ -80372,6 +80372,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-solbiate-cagno-frontaliere-ticino': {
+    title: 'Vivere a Solbiate e lavorare in Ticino da frontaliere',
+    description: 'Vivere a Solbiate con Cagno e lavorare in Ticino: nuovo accordo 2024, franchigia €10\'000, permesso G, tassazione, AVS/LPP/LAMal, procedura passo dopo passo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, solbiate, lavorare, nuovo',
+    ogTitle: 'Vivere a Solbiate e lavorare in Ticino da frontaliere',
+    ogDescription: 'Solbiate con Cagno ideale per frontalieri in Ticino: nuovo accordo 2024 con franchigia €10\'000, tassazione sostitutiva, permesso G. Scopri tutti i dettagli su AVS/LPP/LAMal, procedura step-by-step e scadenze fiscali.',
+    canonicalPath: '/articoli-frontaliere/vivere-solbiate-cagno-frontaliere-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Solbiate e lavorare in Ticino da frontaliere",
+      "description": "Vivere a Solbiate con Cagno e lavorare in Ticino: nuovo accordo 2024, franchigia €10'000, permesso G, tassazione, AVS/LPP/LAMal, procedura passo dopo passo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-solbiate-cagno-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea della provincia di Como al mattino, piccolo paese frontaliero con chiesa e colline verdi, vista dal lato italiano verso confine svizzero"
+      },
+      "datePublished": "2026-08-30T04:14:04+00:00",
+      "dateModified": "2026-08-30T04:14:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-solbiate-cagno-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

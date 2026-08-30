@@ -10938,6 +10938,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-senna-comasco-lavorare-ticino-frontaliere.title': 'Seine Comasco et travail dans le Tessin en tant que frontalier : guide pratique',
     'blog.article.vivere-senna-comasco-lavorare-ticino-frontaliere.excerpt': 'Seine Comasco est à quelques kilomètres du point de passage de Ponte Tresa et de Chiasso : liaisons, fiscalité et coût de la vie pour les frontaliers.',
     'blog.article.vivere-senna-comasco-lavorare-ticino-frontaliere.imageAlt': 'Frontière italo-suisse près du lac de Côme avec navetteurs vers le Tessin à l\'aube',
+    'blog.article.vivere-solbiate-cagno-frontaliere-ticino.title': 'Vivre à Solbiate et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-solbiate-cagno-frontaliere-ticino.excerpt': 'À partir de 2024, nouvel accord fiscal : franchise de 10 000 € pour les nouveaux frontaliers. Temps de voyage, droits AVS/LPP, LAMal et comment demander le permis G.',
+    'blog.article.vivere-solbiate-cagno-frontaliere-ticino.imageAlt': 'Vue aérienne de la province de Côme au lever du soleil, petit village frontalier avec clocher d\'église et collines vertes direction frontière suisse depuis côté italien',
 };
 
 export default blogMetaFr;
