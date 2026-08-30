@@ -1587,6 +1587,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-dimora-b-obvaldo-rinnovo': { it: 'permesso-dimora-b-obvaldo-rinnovo', en: 'residence-permit-b-obwalden-renewal', de: 'aufenthaltserlaubnis-b-obwalden-verlaengerung', fr: 'permis-de-sejour-b-obwald-renouvellement' },
  'borse-studio-canton-obvaldo-requisiti': { it: 'borse-studio-canton-obvaldo-requisiti', en: 'scholarships-canton-obwalden-requirements', de: 'stipendien-kanton-obwalden-voraussetzungen', fr: 'bourses-etudes-canton-obwald' },
  'assegni-familiari-san-gallo-domanda': { it: 'assegni-familiari-san-gallo-domanda', en: 'family-allowances-st-gallen-application', de: 'familienzulagen-st-gallen-antrag', fr: 'allocations-familiales-saint-gall-demande' },
+ 'apprendistato-formazione-professionale-san-gallo': { it: 'apprendistato-formazione-professionale-san-gallo', en: 'apprenticeship-vocational-training-canton-st-gallen', de: 'lehre-berufsausbildung-kanton-st-gallen', fr: 'apprentissage-formation-professionnelle-canton-saint-gall' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

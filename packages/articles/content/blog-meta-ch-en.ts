@@ -4684,6 +4684,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assegni-familiari-san-gallo-domanda.title': 'Family allowances St. Gallen: amounts and application',
     'blog.article.assegni-familiari-san-gallo-domanda.excerpt': 'St. Gallen cantonal scheme on family benefits and training: who is entitled, which fund to contact and how to submit the application.',
     'blog.article.assegni-familiari-san-gallo-domanda.imageAlt': 'Swiss documents and salary slip for family allowances application in Canton St. Gallen',
+    'blog.article.apprendistato-formazione-professionale-san-gallo.title': 'Apprenticeship and Vocational Training St. Gallen',
+    'blog.article.apprendistato-formazione-professionale-san-gallo.excerpt': 'Practical guide to apprenticeship in the Canton of St. Gallen: internship contract, salary, holidays, rights and procedure to find a place according to Swiss federal rules.',
+    'blog.article.apprendistato-formazione-professionale-san-gallo.imageAlt': 'Panoramic view of Lugano representing the Swiss vocational training environment',
 };
 
 export default blogMetaChEn;

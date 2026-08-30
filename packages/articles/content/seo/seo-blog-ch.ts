@@ -60782,6 +60782,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-apprendistato-formazione-professionale-san-gallo': {
+    title: 'Apprendistato e formazione professionale San Gallo',
+    description: 'Guida pratica all\'apprendistato nel Canton San Gallo: contratto di tirocinio, retribuzione, ferie, diritti e procedura per trovare un posto secondo le norme',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, formazione, professionale, gallo',
+    ogTitle: 'Apprendistato e formazione professionale San Gallo',
+    ogDescription: 'Guida pratica all\'apprendistato nel Canton San Gallo: contratto di tirocinio, retribuzione, ferie, diritti e procedura per trovare un posto secondo le norme federali svizzere.',
+    canonicalPath: '/articoli-svizzera/apprendistato-formazione-professionale-san-gallo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato e formazione professionale San Gallo",
+      "description": "Guida pratica all'apprendistato nel Canton San Gallo: contratto di tirocinio, retribuzione, ferie, diritti e procedura per trovare un posto secondo le norme",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apprendistato-formazione-professionale-san-gallo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano che rappresenta l'ambiente svizzero della formazione professionale"
+      },
+      "datePublished": "2026-08-30T03:28:09+00:00",
+      "dateModified": "2026-08-30T03:28:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendistato-formazione-professionale-san-gallo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
