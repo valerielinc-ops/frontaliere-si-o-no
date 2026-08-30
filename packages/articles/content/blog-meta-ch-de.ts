@@ -4726,6 +4726,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.neutralita-svizzera-voto-settembre.title': 'Neutralität in der Verfassung: am 27. September die eidgenössische Abstimmung',
     'blog.article.neutralita-svizzera-voto-settembre.excerpt': 'Initiative eingereicht im April 2024 mit über 132\'000 gültigen Unterschriften. EU-Sanktionen und militärische Zusammenarbeit im Visier der Promotoren.',
     'blog.article.neutralita-svizzera-voto-settembre.imageAlt': 'Schweizer Bundeswahlcouvert auf einem Tisch in einer Wohnung',
+    'blog.article.abbonamenti-trasporti-san-gallo.title': 'Verkehrstickets St. Gallen: Zonen und Tarife',
+    'blog.article.abbonamenti-trasporti-san-gallo.excerpt': 'Entdecken Sie die Tarifstruktur des Kantons St. Gallen: Tarifgemeinschaft, Zonen, Jahres- und Monatsabonnements, Halbtax und GA, Studentenrabatte.',
+    'blog.article.abbonamenti-trasporti-san-gallo.imageAlt': 'Öffentliche Verkehrsmittel im Kanton St. Gallen mit Fahrgästen am Bahnhof',
 };
 
 export default blogMetaChDe;

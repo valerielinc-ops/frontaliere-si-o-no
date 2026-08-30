@@ -61328,6 +61328,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-abbonamenti-trasporti-san-gallo': {
+    title: 'Abbonamenti trasporti San Gallo: zone e tariffe',
+    description: 'Sistema tariffario del Canton San Gallo: comunità tariffaria, zone, abbonamenti annuali e mensili, Metà-prezzo, AG, sconti studenti e apprendisti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, abbonamenti, trasporti, gallo, zone',
+    ogTitle: 'Abbonamenti trasporti San Gallo: zone e tariffe',
+    ogDescription: 'Guida pratica ai trasporti pubblici nel Canton San Gallo: abbonamenti annuali e mensili, comunità tariffaria, zone, Metà-prezzo, AG e sconti per studenti e apprendisti.',
+    canonicalPath: '/articoli-svizzera/abbonamenti-trasporti-san-gallo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Abbonamenti trasporti San Gallo: zone e tariffe",
+      "description": "Sistema tariffario del Canton San Gallo: comunità tariffaria, zone, abbonamenti annuali e mensili, Metà-prezzo, AG, sconti studenti e apprendisti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/abbonamenti-trasporti-san-gallo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Autobus e treni regionali dei trasporti pubblici nel Canton San Gallo con passeggeri alla stazione"
+      },
+      "datePublished": "2026-08-30T09:09:21+00:00",
+      "dateModified": "2026-08-30T09:09:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/abbonamenti-trasporti-san-gallo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
