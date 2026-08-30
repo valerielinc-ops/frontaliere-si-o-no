@@ -10950,6 +10950,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-corrido-frontaliere-ticino.title': 'Vivre à Corrido et travailler au Tessin en tant que frontalière',
     'blog.article.vivere-corrido-frontaliere-ticino.excerpt': 'Guide pratique pour ceux qui évaluent le trajet de Corrido au canton du Tessin : fiscalité, délais, coûts et ce qu\'il faut savoir avant le transfert.',
     'blog.article.vivere-corrido-frontaliere-ticino.imageAlt': 'Vue d\'un petit village italien frontalier proche du Tessin',
+    'blog.article.vivere-lomazzo-lavorare-ticino-frontaliere.title': 'Vivre à Lomazzo et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-lomazzo-lavorare-ticino-frontaliere.excerpt': 'Frontière à Lomazzo ? Découvrez les cols de Brogeda et Chiasso, les temps de trajet, le coût de la vie et les taxes. Guide pratique pour se déplacer de Côme au Tessin.',
+    'blog.article.vivere-lomazzo-lavorare-ticino-frontaliere.imageAlt': 'Paysage frontalier entre le Tessin et la Lombardie avec montagnes et routes alpines',
 };
 
 export default blogMetaFr;
