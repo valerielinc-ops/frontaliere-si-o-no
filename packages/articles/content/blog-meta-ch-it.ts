@@ -4711,6 +4711,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-obvaldo-guida.title': 'AVS e prestazioni complementari in Canton Obvaldo: la guida',
     'blog.article.avs-prestazioni-complementari-obvaldo-guida.excerpt': 'Come funziona il primo pilastro AVS nel Canton Obvaldo: ruolo della cassa di compensazione, lacune contributive e prestazioni complementari a copertura del minimo vitale nel 2026.',
     'blog.article.avs-prestazioni-complementari-obvaldo-guida.imageAlt': 'Edificio amministrativo del Canton Obvaldo dove ha sede la cassa di compensazione AVS',
+    'blog.article.affitti-san-gallo-diritto-locazione.title': 'Affitti in Canton San Gallo: diritto di locazione e mercato',
+    'blog.article.affitti-san-gallo-diritto-locazione.excerpt': 'Diritto di locazione uniforme in tutta la Svizzera (CO art. 253 segg.): cauzione max 3 mensilità, contestazione del canone entro 30 giorni.',
+    'blog.article.affitti-san-gallo-diritto-locazione.imageAlt': 'Quartiere residenziale tipico della città di San Gallo con edifici tradizionali',
 };
 
 export default blogMetaChIt;

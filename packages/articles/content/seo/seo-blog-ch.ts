@@ -61133,6 +61133,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-affitti-san-gallo-diritto-locazione': {
+    title: 'Affitti in Canton San Gallo: diritto di locazione e mercato',
+    description: 'Mercato degli affitti in Canton San Gallo: legge uniforme (CO art. 253), cauzione max 3 mensilità, contestazione entro 30 giorni. Guida operativa.',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, canton, gallo, diritto',
+    ogTitle: 'Affitti Canton San Gallo: diritto di locazione e canoni',
+    ogDescription: 'Quanto è regolato il mercato degli affitti a San Gallo? Il diritto federale (CO art. 253) vale in tutta la Svizzera: cauzione max 3 mensilità, contestazione del canone entro 30 giorni, procedura davanti all\'autorità di conciliazione cantonale. Ecco',
+    canonicalPath: '/articoli-svizzera/affitti-san-gallo-diritto-locazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti in Canton San Gallo: diritto di locazione e mercato",
+      "description": "Mercato degli affitti in Canton San Gallo: legge uniforme (CO art. 253), cauzione max 3 mensilità, contestazione entro 30 giorni. Guida operativa.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitti-san-gallo-diritto-locazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Quartiere residenziale tipico della città di San Gallo con edifici tradizionali"
+      },
+      "datePublished": "2026-08-30T06:09:04+00:00",
+      "dateModified": "2026-08-30T06:09:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affitti-san-gallo-diritto-locazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

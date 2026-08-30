@@ -14131,6 +14131,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'affitti-san-gallo-diritto-locazione',
+    category: 'pratico',
+    date: '2026-08-30T06:09:04.732Z',
+    image: '/images/blog/affitti-san-gallo-diritto-locazione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
