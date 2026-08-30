@@ -4678,6 +4678,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-dimora-b-obvaldo-rinnovo.title': 'Permesso di dimora B in Obvaldo: requisiti e rinnovo',
     'blog.article.permesso-dimora-b-obvaldo-rinnovo.excerpt': 'Il permesso B consente di vivere e lavorare in Svizzera in modo rinnovabile. Scopri i requisiti, i documenti, la procedura di rinnovo nel Cantone Obvaldo.',
     'blog.article.permesso-dimora-b-obvaldo-rinnovo.imageAlt': 'Ufficio della migrazione cantonale svizzero con paesaggio alpino sullo sfondo.',
+    'blog.article.borse-studio-canton-obvaldo-requisiti.title': 'Borse di studio nel Canton Obvaldo: requisiti e importi',
+    'blog.article.borse-studio-canton-obvaldo-requisiti.excerpt': 'Chi può chiedere borse e prestiti nel Canton Obvaldo, come si calcola il fabbisogno e come presentare domanda al Dipartimento dell\'educazione.',
+    'blog.article.borse-studio-canton-obvaldo-requisiti.imageAlt': 'Studente svizzero consulta documenti per borsa di studio nel Canton Obvaldo',
 };
 
 export default blogMetaChIt;

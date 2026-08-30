@@ -60704,6 +60704,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-borse-studio-canton-obvaldo-requisiti': {
+    title: 'Borse di studio nel Canton Obvaldo: requisiti e importi',
+    description: 'Borse di studio e prestiti nel Canton Obvaldo: chi può richiederli, come si calcola il fabbisogno e la procedura per presentare domanda. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, borse, studio, canton, obvaldo',
+    ogTitle: 'Borse di studio Canton Obvaldo: requisiti e importi',
+    ogDescription: 'Tutto sulle borse di studio e i prestiti agli studi nel Canton Obvaldo: requisiti di residenza, calcolo del fabbisogno, documenti necessari e procedura passo per passo per presentare la domanda.',
+    canonicalPath: '/articoli-svizzera/borse-studio-canton-obvaldo-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Borse di studio nel Canton Obvaldo: requisiti e importi",
+      "description": "Borse di studio e prestiti nel Canton Obvaldo: chi può richiederli, come si calcola il fabbisogno e la procedura per presentare domanda. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/borse-studio-canton-obvaldo-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studente svizzero consulta documenti per borsa di studio nel Canton Obvaldo"
+      },
+      "datePublished": "2026-08-30T02:25:38+00:00",
+      "dateModified": "2026-08-30T02:25:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/borse-studio-canton-obvaldo-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
