@@ -4741,6 +4741,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.casa-nidvaldo-mutuo-pratico.title': 'Casa in Nidvaldo: guida pratica al mutuo ipotecario',
     'blog.article.casa-nidvaldo-mutuo-pratico.excerpt': 'Quadro di riferimento per chi valuta l\'acquisto di un immobile in Canton Nidvaldo: fiscalità svizzera, contributi sul salario e iter burocratico.',
     'blog.article.casa-nidvaldo-mutuo-pratico.imageAlt': 'Casa residenziale in Canton Nidvaldo con sfondo alpino e lago',
+    'blog.article.acquisto-casa-nidvaldo-guida.title': 'Comprare casa a Nidvaldo: guida a mutuo e costi',
+    'blog.article.acquisto-casa-nidvaldo-guida.excerpt': 'Guida pratica all\'acquisto di un\'abitazione in Nidvaldo: fondi propri, imposte sui trasferimenti, opzioni di ipoteca e sette passi operativi dal budget alla consegna delle chiavi.',
+    'blog.article.acquisto-casa-nidvaldo-guida.imageAlt': 'Villaggio tradizionale nel Canton Nidvaldo con vista sulle Alpi',
 };
 
 export default blogMetaChIt;

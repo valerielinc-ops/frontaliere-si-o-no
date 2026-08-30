@@ -1606,6 +1606,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'aprire-attivita-san-gallo-procedura-costi': { it: 'aprire-attivita-san-gallo-procedura-costi', en: 'start-business-st-gallen-procedure-costs', de: 'geschaeft-gruenden-st-gallen-verfahren-kosten', fr: 'ouvrir-activite-saint-gall-procedure-couts' },
  'salari-mercato-lavoro-san-gallo': { it: 'salari-mercato-lavoro-san-gallo', en: 'salaries-labour-market-st-gallen', de: 'loehne-arbeitsmarkt-st-gallen', fr: 'salaires-marche-travail-saint-gall' },
  'casa-nidvaldo-mutuo-pratico': { it: 'casa-nidvaldo-mutuo-pratico', en: 'nidwalden-home-mortgage-practical', de: 'haus-nidwalden-hypothek-praxis', fr: 'maison-nidwald-hypotheque-pratique' },
+ 'acquisto-casa-nidvaldo-guida': { it: 'acquisto-casa-nidvaldo-guida', en: 'buy-house-nidwalden-guide', de: 'hauskauf-nidwalden-leitfaden', fr: 'acheter-maison-nidwald-guide' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
