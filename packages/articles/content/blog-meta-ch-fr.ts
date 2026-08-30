@@ -4675,6 +4675,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-l-canton-san-gallo-validita-proroga.title': 'Permis L à Saint-Gall : validité et prolongation en 12 mois',
     'blog.article.permesso-l-canton-san-gallo-validita-proroga.excerpt': 'Le permis L de courte durée dans le canton de Saint-Gall a une durée maximale de 12 mois, est lié à l\'employeur et ne peut être prolongé que dans des cas exceptionnels. Voici comment cela fonctionne.',
     'blog.article.permesso-l-canton-san-gallo-validita-proroga.imageAlt': 'Office cantonal des migrations du canton de Saint-Gall, entrée avec travailleur étranger',
+    'blog.article.permesso-dimora-b-obvaldo-rinnovo.title': 'Permis de séjour B à Obwald : exigences et renouvellement',
+    'blog.article.permesso-dimora-b-obvaldo-rinnovo.excerpt': 'Le permis B permet de vivre et de travailler en Suisse de manière renouvelable. Découvrez les exigences, les documents, la procédure de renouvellement dans le canton Obwald.',
+    'blog.article.permesso-dimora-b-obvaldo-rinnovo.imageAlt': 'Bureau cantonal de migration d\'une administration suisse avec paysage alpin en arrière-plan.',
 };
 
 export default blogMetaChFr;

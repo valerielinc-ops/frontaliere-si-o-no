@@ -4675,6 +4675,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-l-canton-san-gallo-validita-proroga.title': 'Ausweis L im Kanton St. Gallen: Gültigkeit 12 Monate und Verlängerungsregeln',
     'blog.article.permesso-l-canton-san-gallo-validita-proroga.excerpt': 'Die Kurzzeitbewilligung L im Kanton St. Gallen hat eine Höchstdauer von 12 Monaten, ist an den Arbeitgeber gebunden und sieht eine Verlängerung nur in Ausnahmefällen vor. So funktioniert es.',
     'blog.article.permesso-l-canton-san-gallo-validita-proroga.imageAlt': 'Kantonales Migrationsamt im Kanton St. Gallen, Eingang mit ausländischem Arbeitnehmer',
+    'blog.article.permesso-dimora-b-obvaldo-rinnovo.title': 'Aufenthaltsbewilligung B in Obwalden: Voraussetzungen und Verlängerung',
+    'blog.article.permesso-dimora-b-obvaldo-rinnovo.excerpt': 'Die Bewilligung B ermöglicht es Ihnen, in der Schweiz erneuerbar zu leben und zu arbeiten. Entdecken Sie die Anforderungen, die Dokumente, das Erneuerungsverfahren im Kanton Obwalden.',
+    'blog.article.permesso-dimora-b-obvaldo-rinnovo.imageAlt': 'Kantonsamt für Migration eines Schweizer Kantons mit Alpenlandschaft im Hintergrund.',
 };
 
 export default blogMetaChDe;

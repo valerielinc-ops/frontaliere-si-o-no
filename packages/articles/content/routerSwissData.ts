@@ -1584,6 +1584,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'svitto-salari-formazione-settori': { it: 'svitto-salari-formazione-settori', en: 'svitto-salaries-labor-market-education', de: 'schwyz-lohne-arbeitsmarkt-bildung', fr: 'schwyz-salaires-marche-travail-formation' },
  'patente-guida-svitto-conversione-ed-esami': { it: 'patente-guida-svitto-conversione-ed-esami', en: 'driving-licence-schwyz-conversion-and-exams', de: 'fuehrerschein-schwyz-umschreibung-und-pruefungen', fr: 'permis-conduire-schwyz-conversion-et-examens' },
  'permesso-l-canton-san-gallo-validita-proroga': { it: 'permesso-l-canton-san-gallo-validita-proroga', en: 'l-permit-canton-st-gallen-validity-renewal', de: 'l-bewilligung-kanton-st-gallen-gueltigkeit-verlaengerung', fr: 'permis-l-canton-saint-gall-validite-prorogation' },
+ 'permesso-dimora-b-obvaldo-rinnovo': { it: 'permesso-dimora-b-obvaldo-rinnovo', en: 'residence-permit-b-obwalden-renewal', de: 'aufenthaltserlaubnis-b-obwalden-verlaengerung', fr: 'permis-de-sejour-b-obwald-renouvellement' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

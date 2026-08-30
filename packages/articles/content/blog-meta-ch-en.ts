@@ -4675,6 +4675,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-l-canton-san-gallo-validita-proroga.title': 'Permit L in the Canton of St. Gallen: validity 12 months and extension rules',
     'blog.article.permesso-l-canton-san-gallo-validita-proroga.excerpt': 'The short-term L permit in the Canton of St. Gallen has a maximum duration of 12 months, is linked to the employer and provides for extension only in exceptional cases. Here\'s how it works.',
     'blog.article.permesso-l-canton-san-gallo-validita-proroga.imageAlt': 'Cantonal migration office in Canton St. Gallen, entrance with foreign worker',
+    'blog.article.permesso-dimora-b-obvaldo-rinnovo.title': 'Residence permit B in Obvaldo: requirements and renewal',
+    'blog.article.permesso-dimora-b-obvaldo-rinnovo.excerpt': 'Permit B allows you to live and work in Switzerland on a renewable basis. Learn about the requirements, documents, and renewal procedure in the Obvaldo Canton.',
+    'blog.article.permesso-dimora-b-obvaldo-rinnovo.imageAlt': 'Swiss cantonal immigration office building with Alpine landscape background and official signage.',
 };
 
 export default blogMetaChEn;
