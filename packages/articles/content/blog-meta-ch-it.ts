@@ -4684,6 +4684,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assegni-familiari-san-gallo-domanda.title': 'Assegni familiari San Gallo: importi e domanda',
     'blog.article.assegni-familiari-san-gallo-domanda.excerpt': 'Regime cantonale di San Gallo su prestazioni familiari e di formazione: chi ha diritto, quale cassa contattare e come presentare la domanda.',
     'blog.article.assegni-familiari-san-gallo-domanda.imageAlt': 'Documenti e busta paga svizzera per la richiesta degli assegni familiari nel Cantone di San Gallo',
+    'blog.article.apprendistato-formazione-professionale-san-gallo.title': 'Apprendistato e formazione professionale San Gallo',
+    'blog.article.apprendistato-formazione-professionale-san-gallo.excerpt': 'Guida pratica all\'apprendistato nel Canton San Gallo: contratto di tirocinio, retribuzione, ferie, diritti e procedura per trovare un posto secondo le norme federali svizzere.',
+    'blog.article.apprendistato-formazione-professionale-san-gallo.imageAlt': 'Vista panoramica di Lugano che rappresenta l\'ambiente svizzero della formazione professionale',
 };
 
 export default blogMetaChIt;

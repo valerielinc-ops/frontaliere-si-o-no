@@ -14050,6 +14050,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'apprendistato-formazione-professionale-san-gallo',
+    category: 'pratico',
+    date: '2026-08-30T03:28:09.631Z',
+    image: '/images/blog/apprendistato-formazione-professionale-san-gallo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
