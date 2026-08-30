@@ -1618,6 +1618,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'lamal-obbligatoria-scelta-cassa-zurigo': { it: 'lamal-obbligatoria-scelta-cassa-zurigo', en: 'mandatory-lamal-choosing-health-insurance-zurich', de: 'krankenversicherung-kassenwahl-zuerich', fr: 'assurance-maladie-obligatoire-choix-caisse-zurich' },
  'imposta-successione-san-gallo-aliquote': { it: 'imposta-successione-san-gallo-aliquote', en: 'succession-tax-saint-gall-rates-exemptions', de: 'erbschaftsteuer-st-gallen-saetze-befreiungen', fr: 'impot-succession-saint-gall-tarifs-exemptions' },
  'lamal-guida-2026-canton-vaud': { it: 'lamal-guida-2026-canton-vaud', en: 'lamal-guide-2026-canton-vaud', de: 'lamal-leitfaden-2026-kanton-waadt', fr: 'guide-lamal-2026-canton-vaud' },
+ 'aprire-attivita-glarona-tassazione-previdenza': { it: 'aprire-attivita-glarona-tassazione-previdenza', en: 'open-business-glarus-taxation-pension', de: 'unternehmen-glarus-steuern-vorsorge', fr: 'ouverture-entreprise-glaris-fiscalite-retraite' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

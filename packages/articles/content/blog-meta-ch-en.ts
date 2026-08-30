@@ -4777,6 +4777,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lamal-guida-2026-canton-vaud.title': 'LAMal 2026 in the Canton of Vaud: operational guide',
     'blog.article.lamal-guida-2026-canton-vaud.excerpt': 'Obligation within 3 months of arrival, six tiers of deductible from CHF 300 to 2500 and cantonal subsidy: how to orient yourself.',
     'blog.article.lamal-guida-2026-canton-vaud.imageAlt': 'Table with LAMal documents and Lake Geneva view',
+    'blog.article.aprire-attivita-glarona-tassazione-previdenza.title': 'Open Glarus business: costs and obligations',
+    'blog.article.aprire-attivita-glarona-tassazione-previdenza.excerpt': 'Complete practical guide on legal form, three-level taxation, AVS/LPP contributions and LAMal for those starting a business in the Canton of Glarus.',
+    'blog.article.aprire-attivita-glarona-tassazione-previdenza.imageAlt': 'Entrepreneur reviewing business registration documents at a modern office in Switzerland',
 };
 
 export default blogMetaChEn;
