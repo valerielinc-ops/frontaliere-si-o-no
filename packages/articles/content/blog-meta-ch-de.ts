@@ -4729,6 +4729,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-san-gallo.title': 'Verkehrstickets St. Gallen: Zonen und Tarife',
     'blog.article.abbonamenti-trasporti-san-gallo.excerpt': 'Entdecken Sie die Tarifstruktur des Kantons St. Gallen: Tarifgemeinschaft, Zonen, Jahres- und Monatsabonnements, Halbtax und GA, Studentenrabatte.',
     'blog.article.abbonamenti-trasporti-san-gallo.imageAlt': 'Öffentliche Verkehrsmittel im Kanton St. Gallen mit Fahrgästen am Bahnhof',
+    'blog.article.aprire-attivita-san-gallo-registro-costi.title': 'Geschäft in St. Gallen eröffnen: Register, Kapital und Kosten',
+    'blog.article.aprire-attivita-san-gallo-registro-costi.excerpt': 'Sagl CHF 20\'000, AG CHF 100\'000: Kapital, Eintragung ins kantonale Register, KVG ab dem ersten Tag und Lohnkosten AHV, BVG und UVG.',
+    'blog.article.aprire-attivita-san-gallo-registro-costi.imageAlt': 'Kantonales Handelsregisteramt in St. Gallen',
 };
 
 export default blogMetaChDe;
