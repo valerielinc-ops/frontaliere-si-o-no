@@ -4720,6 +4720,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-san-gallo-guida.title': 'AHV und Ergänzungsleistungen im Kanton St. Gallen',
     'blog.article.avs-prestazioni-complementari-san-gallo-guida.excerpt': 'So funktioniert die erste Säule im Kanton St. Gallen: Ausgleichskasse, Rentenberechnung und PC zur Deckung des Existenzminimums.',
     'blog.article.avs-prestazioni-complementari-san-gallo-guida.imageAlt': 'Schweizer Stadtbild mit kantonaler Ausgleichskasse',
+    'blog.article.aprire-attivita-canton-obvaldo-registro.title': 'Geschäft in Obwalden eröffnen: Handelsregister und Kosten',
+    'blog.article.aprire-attivita-canton-obvaldo-registro.excerpt': 'Praktischer Leitfaden zur Rechtsform, Handelsregistereintragung, Mindestkapital und Gebühren für die Unternehmensgründung im Kanton Obwalden.',
+    'blog.article.aprire-attivita-canton-obvaldo-registro.imageAlt': 'Alpendorf im Kanton Obwalden mit See und traditionellen Chalets',
 };
 
 export default blogMetaChDe;

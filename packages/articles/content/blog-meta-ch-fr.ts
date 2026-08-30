@@ -4720,6 +4720,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-san-gallo-guida.title': 'AVS et prestations complémentaires dans le canton de Saint-Gall',
     'blog.article.avs-prestazioni-complementari-san-gallo-guida.excerpt': 'Comment fonctionne le premier pilier dans le canton de Saint-Gall : caisse de compensation, calcul de la rente et PC pour couvrir le minimum vital.',
     'blog.article.avs-prestazioni-complementari-san-gallo-guida.imageAlt': 'Vue urbaine suisse avec caisse de compensation cantonale',
+    'blog.article.aprire-attivita-canton-obvaldo-registro.title': 'Ouvrir une entreprise à Obwald : registre du commerce et des coûts',
+    'blog.article.aprire-attivita-canton-obvaldo-registro.excerpt': 'Guide pratique sur la forme juridique, l\'inscription au registre du commerce, le capital minimum et les frais de démarrage d\'une entreprise dans le canton d\'Obwald.',
+    'blog.article.aprire-attivita-canton-obvaldo-registro.imageAlt': 'Village alpin dans le canton d\'Obwald avec lac et chalets traditionnels',
 };
 
 export default blogMetaChFr;
