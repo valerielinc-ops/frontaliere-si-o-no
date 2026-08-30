@@ -109,7 +109,15 @@ export function referencedIssueNumbers(prs) {
     const mBranch = /^fix\/issue-(\d+)$/.exec(branch);
     if (mBranch) out.add(Number(mBranch[1]));
     for (const m of String(pr.title || '').matchAll(/\(#(\d+)\)/g)) out.add(Number(m[1]));
-    for (const m of String(pr.body || '').matchAll(/\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\b[:\s]+#(\d+)/gi)) {
+    // Italian forms (issue #567 twin sweep, see followup-resolution-match.mjs
+    // CLOSE_KW_LIST): `chiud[eo]`/`risolv[eo]`/`super[ae]` plus the same
+    // bridge words ("anche", "la"/"le", "issue") between verb and `#N`. This
+    // detector is deliberately generous — an extra match means a claim is
+    // NOT released — so under-recognizing an Italian "Chiude anche #N" body
+    // is the unsafe direction: it would let a live claim look orphaned.
+    for (const m of String(pr.body || '').matchAll(
+      /\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?|chiud[eo]|risolv[eo]|super[ae])\b[:\s]+(?:anche\s+)?(?:l[ae]\s+)?(?:issue\s+)?#(\d+)/gi,
+    )) {
       out.add(Number(m[1]));
     }
   }
