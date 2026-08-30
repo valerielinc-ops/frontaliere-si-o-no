@@ -277,6 +277,17 @@ jobs:
             # questi due file (osservato su PR #6661/#6662, 2026-08-29).
             /public/
             !/public/images/
+            # Stesso punto cieco di related-search-candidates.json/slug-registry.json
+            # sopra: send-job-alerts.mjs (usato dal test email di alert lavoro)
+            # fa fs.readdirSync('public/images/brands') a module-load per
+            # costruire la mappa slug->logo — un path runtime,
+            # invisibile a verify-checkout-profiles.mjs. Con la directory esclusa il
+            # readdirSync fallisce (try/catch silenzioso -> Map vuota) e OGNI test
+            # "brand logo" del file fallisce, indipendentemente dal diff (osservato
+            # su #6682 e #6686, 2026-08-30, nessuno dei due tocca questo codice).
+            # Piccolo: 483 file, ~1.2 MB — nulla a che vedere con le decine di GB
+            # di public/images/ escluse per il resto.
+            /public/images/brands/
             /*.cjs
             /*.js
             /*.json
