@@ -10931,6 +10931,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.brienno-ticino-frontaliere-guida.title': 'Da Brienno a Ticino: vivere da frontaliere, guida pratica',
     'blog.article.brienno-ticino-frontaliere-guida.excerpt': 'Frontaliere da Brienno a Ticino: Nuovo Accordo 2024, esenzione €10k, imposta alla fonte, AVS, LPP, LAMal, permesso G e ristorni. Scopri come calcolare il netto.',
     'blog.article.brienno-ticino-frontaliere-guida.imageAlt': 'Vista del Lago di Como verso la Svizzera e il Ticino, con Alpi sullo sfondo e barca a vela',
+    'blog.article.vivere-binago-lavorare-ticino-frontaliere.title': 'Vivere a Binago e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-binago-lavorare-ticino-frontaliere.excerpt': 'Binago, in provincia di Como, dista pochi chilometri dai valichi verso il Canton Ticino: costi, fiscalità e tempi di percorrenza per chi fa il pendolare.',
+    'blog.article.vivere-binago-lavorare-ticino-frontaliere.imageAlt': 'Frontaliere italiano in auto verso il Ticino sullo sfondo del Lago di Lugano',
 };
 
 export default blogMetaIt;

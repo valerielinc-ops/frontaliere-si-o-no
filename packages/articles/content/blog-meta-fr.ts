@@ -10932,6 +10932,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.brienno-ticino-frontaliere-guida.title': 'De Brienno au Tessin : vivre en frontalier, guide pratique',
     'blog.article.brienno-ticino-frontaliere-guida.excerpt': 'Frontière de Brienno au Tessin : nouvel accord 2024, exonération de 10 000 € , impôt à la source, AVS, LPP, LAMal, permis G et restaurations. Découvrez comment calculer le net.',
     'blog.article.brienno-ticino-frontaliere-guida.imageAlt': 'Vue du lac de Côme vers la Suisse et le Tessin, avec Alpes en arrière-plan et voilier',
+    'blog.article.vivere-binago-lavorare-ticino-frontaliere.title': 'Vivre à Binago et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-binago-lavorare-ticino-frontaliere.excerpt': 'Binago, dans la province de Côme, est à quelques kilomètres des points de passage vers le canton du Tessin : coûts, fiscalité et temps de trajet pour les navetteurs.',
+    'blog.article.vivere-binago-lavorare-ticino-frontaliere.imageAlt': 'Frontalier italien en voiture vers le Tessin avec le lac de Lugano en arrière-plan',
 };
 
 export default blogMetaFr;
