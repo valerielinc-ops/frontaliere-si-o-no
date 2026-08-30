@@ -242,14 +242,31 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REASON: ${{ steps.check.outputs.REASON }}
         run: |
-          CONFIRMED=$(gh issue list --label "traffic-stale" --state open --json number --jq '.[0].number')
+          # Issue #6667 item 3 (follow-up of #6648, same idiom as
+          # publisher-jobs-sync.yml): "at most one open issue per label"
+          # isn't enforced by anything here — unlike publisher-jobs-sync.yml/
+          # refresh-thin-promotions.yml, this workflow has NO `concurrency:`
+          # group at all, so a manual dispatch racing the hourly cron could
+          # actually create two. Fetch the full set once and warn if the
+          # invariant doesn't hold, instead of picking .[0] silently.
+          CONFIRMED_JSON=$(gh issue list --label "traffic-stale" --state open --json number)
+          CONFIRMED_COUNT=$(echo "$CONFIRMED_JSON" | jq 'length')
+          if [ "$CONFIRMED_COUNT" -gt 1 ]; then
+            echo "::warning::${CONFIRMED_COUNT} open issues share label 'traffic-stale' — this workflow has no concurrency group, so the ≤1 invariant isn't guaranteed anywhere. Updating only the first."
+          fi
+          CONFIRMED=$(echo "$CONFIRMED_JSON" | jq -r '.[0].number // empty')
           if [ -n "$CONFIRMED" ]; then
             gh issue comment "$CONFIRMED" --body "Still stale at $(date -u +%FT%TZ) — ${REASON}. Self-heal dispatch attempted."
             echo "Updated existing confirmed issue #$CONFIRMED"
             exit 0
           fi
 
-          PENDING=$(gh issue list --label "traffic-stale-pending" --state open --json number --jq '.[0].number')
+          PENDING_JSON=$(gh issue list --label "traffic-stale-pending" --state open --json number)
+          PENDING_COUNT=$(echo "$PENDING_JSON" | jq 'length')
+          if [ "$PENDING_COUNT" -gt 1 ]; then
+            echo "::warning::${PENDING_COUNT} open issues share label 'traffic-stale-pending' — this workflow has no concurrency group, so the ≤1 invariant isn't guaranteed anywhere. Promoting only the first."
+          fi
+          PENDING=$(echo "$PENDING_JSON" | jq -r '.[0].number // empty')
           if [ -n "$PENDING" ]; then
             # 2nd consecutive stale → promote.
             gh issue edit "$PENDING" \
