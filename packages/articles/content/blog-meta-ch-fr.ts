@@ -4696,6 +4696,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-san-gallo.title': 'Garderie dans le canton de Saint-Gall : coûts et subventions',
     'blog.article.asilo-nido-custodia-bambini-san-gallo.excerpt': 'Tarifs décidés par les communes, allocations cantonales, familles de jour et après l\'école : guide pratique de la garde extrafamiliale dans le canton de Saint-Gall.',
     'blog.article.asilo-nido-custodia-bambini-san-gallo.imageAlt': 'Entrée d\'une crèche dans une commune du canton de Saint-Gall avec parents et enfants',
+    'blog.article.capo-esercito-lugano-minacce-2025.title': 'Chef de l\'armée à Lugano : cybersécurité et Baltique',
+    'blog.article.capo-esercito-lugano-minacce-2025.excerpt': 'Roos face au monde politico-économique tessinois : cyberattaques quotidiennes, escalade dans les Baltiques d\'ici la fin de la décennie et appel à la priorité sécurité.',
+    'blog.article.capo-esercito-lugano-minacce-2025.imageAlt': 'Le chef de l\'armée suisse Benedikt Roos s\'exprime à Lugano',
 };
 
 export default blogMetaChFr;

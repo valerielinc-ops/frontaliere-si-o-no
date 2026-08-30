@@ -1591,6 +1591,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'borse-studio-san-gallo-requisiti-importi': { it: 'borse-studio-san-gallo-requisiti-importi', en: 'stipends-canton-st-gallen-requirements-amounts', de: 'stipendien-kanton-st-gallen-voraussetzungen-betraege', fr: 'bourses-etudes-saint-gall-conditions-montants' },
  'custodia-bambini-san-gallo-tariffe-sussidi': { it: 'custodia-bambini-san-gallo-tariffe-sussidi', en: 'daycare-san-gallo-rates-subsidies', de: 'kinderbetreuung-sankt-gallen-kosten-zuschusse', fr: 'garde-enfants-saint-gall-tarifs-subventions' },
  'asilo-nido-custodia-bambini-san-gallo': { it: 'asilo-nido-custodia-bambini-san-gallo', en: 'childcare-daycare-st-gallen-costs', de: 'kita-kinderbetreuung-st-gallen-kosten', fr: 'creche-garde-enfants-saint-gall-couts' },
+ 'capo-esercito-lugano-minacce-2025': { it: 'capo-esercito-lugano-minacce-2025', en: 'army-chief-lugano-threats-2025', de: 'armeechef-lugano-bedrohungen-2025', fr: 'chef-armee-lugano-menaces-2025' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
