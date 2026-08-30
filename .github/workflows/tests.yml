@@ -258,14 +258,23 @@ jobs:
             !/data/translation-cache/
             !/data/orphan-enriched-data/
             !/data/jobs-snapshots-history/
-            !/data/related-search-candidates.json
             !/data/cf-hot-404s.json
             !/data/jobs-ai-cache.json
             !/data/dist-size-history.jsonl
             !/data/jobs-stats-history.json
             !/data/url-first-seen.json
-            !/data/slug-registry.json
             !/data/evidence-index.json
+            # related-search-candidates.json e slug-registry.json restano IN
+            # checkout: due test del suite blocking li leggono da filesystem
+            # con un path runtime (resolve(__dirname, ...)), invisibile
+            # all'analisi statica degli import di verify-checkout-profiles.mjs
+            # (lo stesso "punto cieco" gia' documentato per npm-run-chain in
+            # checkout-profile-analyzer.mjs:199-205, issue #6234). Escluderli
+            # qui fa fallire SEMPRE tests/seo/related-search-clusters-emitted.test.ts
+            # e tests/seo/cathedral-slug-registry-canton-backfill.test.ts non
+            # appena il selettore related li sceglie — indipendentemente dal
+            # contenuto del diff — bloccando PR che non c'entrano nulla con
+            # questi due file (osservato su PR #6661/#6662, 2026-08-29).
             /public/
             !/public/images/
             /*.cjs
