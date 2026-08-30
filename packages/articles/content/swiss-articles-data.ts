@@ -13969,6 +13969,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'svitto-ditta-registro-commercio-capitale',
+    category: 'pratico',
+    date: '2026-08-30T00:27:53.839Z',
+    image: '/images/blog/svitto-ditta-registro-commercio-capitale.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

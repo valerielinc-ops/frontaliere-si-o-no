@@ -1578,6 +1578,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'casa-svitto-comprare-mutuo-fondi': { it: 'casa-svitto-comprare-mutuo-fondi', en: 'buy-house-schwyz-mortgage-down-payment', de: 'haus-schwyz-kauf-hypothek', fr: 'acheter-maison-schwytz-hypotheque' },
  'affitti-svitto-diritto-locazione': { it: 'affitti-svitto-diritto-locazione', en: 'rentals-schwyz-tenancy-law', de: 'mietrecht-kanton-schwyz', fr: 'locations-schwyz-droit-bail' },
  'aprire-attivita-svitto-costi-registro': { it: 'aprire-attivita-svitto-costi-registro', en: 'start-business-schwyz-trade-register-costs', de: 'geschaeft-eroeffnen-schwyz-handelsregister-kosten', fr: 'ouvrir-activite-schwyz-registre-commerce-couts' },
+ 'svitto-ditta-registro-commercio-capitale': { it: 'svitto-ditta-registro-commercio-capitale', en: 'sv-company-registration-capital', de: 'sv-firma-gewerberegister-kapital', fr: 'sv-entreprise-registre-capital' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
