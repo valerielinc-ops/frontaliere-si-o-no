@@ -4669,6 +4669,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.svitto-salari-formazione-settori.title': 'Salaires et marché du travail Canton de Schwyz : secteurs et niveaux',
     'blog.article.svitto-salari-formazione-settori.excerpt': 'Le marché du travail dans le canton de Schwyz : structure des salaires par niveau de formation, conventions collectives, cotisations obligatoires et droits minimaux.',
     'blog.article.svitto-salari-formazione-settori.imageAlt': 'Environnement de travail suisse moderne avec professionnels collaborant dans un bureau avec vue sur les Alpes.',
+    'blog.article.patente-guida-svitto-conversione-ed-esami.title': 'Permis de conduire dans le canton de Schwyz : procédure et examens',
+    'blog.article.patente-guida-svitto-conversione-ed-esami.excerpt': 'Comment obtenir ou convertir le permis dans le canton de Schwyz : inscription, examens théoriques et pratiques et cours obligatoires selon la réglementation fédérale.',
+    'blog.article.patente-guida-svitto-conversione-ed-esami.imageAlt': 'Permis de conduire et documents pour la circulation en Suisse',
 };
 
 export default blogMetaChFr;

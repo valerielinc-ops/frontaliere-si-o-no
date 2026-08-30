@@ -4669,6 +4669,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svitto-salari-formazione-settori.title': 'Löhne und Arbeitsmarkt Kanton Schwyz: Branchen und Niveaus',
     'blog.article.svitto-salari-formazione-settori.excerpt': 'Der Arbeitsmarkt im Kanton Schwyz: Lohnstruktur nach Bildungsgrad, Tarifverträge, Pflichtbeiträge und Mindestansprüche.',
     'blog.article.svitto-salari-formazione-settori.imageAlt': 'Modernes Schweizer Arbeitsumfeld mit Fachleuten, die in einem Büro zusammenarbeiten, mit Blick auf die Alpen.',
+    'blog.article.patente-guida-svitto-conversione-ed-esami.title': 'Führerschein im Kanton Schwyz: Verfahren und Prüfungen',
+    'blog.article.patente-guida-svitto-conversione-ed-esami.excerpt': 'So erhalten oder umwandeln Sie Ihren Führerschein im Kanton Schwyz: Einschreibung, theoretische und praktische Prüfungen und Pflichtkurse gemäss Bundesgesetzgebung.',
+    'blog.article.patente-guida-svitto-conversione-ed-esami.imageAlt': 'Fuehrerschein und Dokumente fuer den Strassenverkehr in der Schweiz',
 };
 
 export default blogMetaChDe;

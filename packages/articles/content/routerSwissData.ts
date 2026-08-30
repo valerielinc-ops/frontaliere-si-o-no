@@ -1582,6 +1582,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'aprire-ditta-svitto-costi-e-adempimenti': { it: 'aprire-ditta-svitto-costi-e-adempimenti', en: 'open-business-schwyz-costs-and-requirements', de: 'geschaeft-eroeffnen-schwyz-kosten-pflichten', fr: 'ouvrir-activite-schwytz-couts-et-demarches' },
  'droni-esercito-battaglione-2028': { it: 'droni-esercito-battaglione-2028', en: 'drones-army-battalion-2028', de: 'drohnen-armee-bataillon-2028', fr: 'drones-armee-bataillon-2028' },
  'svitto-salari-formazione-settori': { it: 'svitto-salari-formazione-settori', en: 'svitto-salaries-labor-market-education', de: 'schwyz-lohne-arbeitsmarkt-bildung', fr: 'schwyz-salaires-marche-travail-formation' },
+ 'patente-guida-svitto-conversione-ed-esami': { it: 'patente-guida-svitto-conversione-ed-esami', en: 'driving-licence-schwyz-conversion-and-exams', de: 'fuehrerschein-schwyz-umschreibung-und-pruefungen', fr: 'permis-conduire-schwyz-conversion-et-examens' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
