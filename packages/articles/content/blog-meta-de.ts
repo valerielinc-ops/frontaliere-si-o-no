@@ -10967,6 +10967,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.guida-conto-bancario-svizzera.title': 'Eröffnung eines Bankkontos in der Schweiz: Leitfaden für Gebietsansässige',
     'blog.article.guida-conto-bancario-svizzera.excerpt': 'Erforderliche Dokumente, Verfahren, Verwaltungskosten und praktische Ratschläge für Grenzgänger, die grenzüberschreitend arbeiten.',
     'blog.article.guida-conto-bancario-svizzera.imageAlt': 'Modernes Bankgebäude im Zentrum von Lugano, Symbol des Tessiner Finanzplatzes',
+    'blog.article.settori-crescita-lavoro-ticino-2026.title': 'Wachsende Branchen auf dem Tessiner Arbeitsmarkt im Jahr 2026',
+    'blog.article.settori-crescita-lavoro-ticino-2026.excerpt': 'Gesundheit, IKT, Bauwesen und Ausbildung gehören zu den Bereichen mit der höchsten Personalnachfrage: Was ändert sich für Grenzgänger?',
+    'blog.article.settori-crescita-lavoro-ticino-2026.imageAlt': 'Luftaufnahme von Lugano mit Bürogebäuden und See, Symbol für den Tessiner Arbeitsmarkt',
 };
 
 export default blogMetaDe;

@@ -10970,6 +10970,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.guida-conto-bancario-svizzera.title': 'Ouvrir un compte bancaire en Suisse : guide pour les résidents',
     'blog.article.guida-conto-bancario-svizzera.excerpt': 'Documents requis, procédures, coûts de gestion et conseils pratiques pour les frontaliers travaillant au-delà des frontières.',
     'blog.article.guida-conto-bancario-svizzera.imageAlt': 'Bâtiment bancaire moderne au centre-ville de Lugano, symbole de la place financière tessinoise',
+    'blog.article.settori-crescita-lavoro-ticino-2026.title': 'Secteurs en croissance sur le marché du travail tessinois en 2026',
+    'blog.article.settori-crescita-lavoro-ticino-2026.excerpt': 'Santé, TIC, construction et formation parmi les secteurs où la demande de personnel est la plus élevée : ce qui change pour les frontaliers.',
+    'blog.article.settori-crescita-lavoro-ticino-2026.imageAlt': 'Vue aérienne de Lugano avec immeubles de bureaux et lac, symbole du marché du travail tessinois',
 };
 
 export default blogMetaFr;

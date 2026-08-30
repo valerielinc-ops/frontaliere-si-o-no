@@ -10969,6 +10969,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.guida-conto-bancario-svizzera.title': 'Aprire un conto bancario in Svizzera: guida per residenti',
     'blog.article.guida-conto-bancario-svizzera.excerpt': 'Documenti richiesti, procedure, costi di gestione e consigli pratici per frontalieri che lavorano oltre confine.',
     'blog.article.guida-conto-bancario-svizzera.imageAlt': 'Edificio bancario moderno nel centro di Lugano, simbolo della piazza finanziaria ticinese',
+    'blog.article.settori-crescita-lavoro-ticino-2026.title': 'Settori in crescita nel mercato del lavoro ticinese nel 2026',
+    'blog.article.settori-crescita-lavoro-ticino-2026.excerpt': 'Sanità, ICT, edilizia e formazione tra i comparti con maggiore domanda di personale: cosa cambia per i frontalieri.',
+    'blog.article.settori-crescita-lavoro-ticino-2026.imageAlt': 'Veduta aerea di Lugano con edifici direzionali e lago, simbolo del mercato del lavoro ticinese',
 };
 
 export default blogMetaIt;
