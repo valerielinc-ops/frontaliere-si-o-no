@@ -4804,6 +4804,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-grigioni-validita.title': 'Permis L dans les Grisons : durée, prolongation et changement d\'employeur',
     'blog.article.permesso-l-breve-durata-grigioni-validita.excerpt': 'Dans le canton des Grisons, le permis L a une durée maximale de 12 mois, prorogation uniquement dans des cas exceptionnels et changement d\'employeur subordonné à une nouvelle demande cantonale.',
     'blog.article.permesso-l-breve-durata-grigioni-validita.imageAlt': 'Canton des Grisons: village alpin avec travailleurs saisonniers',
+    'blog.article.apprendistato-formazione-grigioni.title': 'Apprentissage et formation professionnelle dans les Grisons : guide complet',
+    'blog.article.apprendistato-formazione-grigioni.excerpt': 'Modèle dual école-entreprise dans les Grisons : contrat de stage, rémunération à l\'année, maturité professionnelle et coût de la vie pour l\'apprenti.',
+    'blog.article.apprendistato-formazione-grigioni.imageAlt': 'Apprenti travaillant dans une entreprise formatrice aux Grisons',
 };
 
 export default blogMetaChFr;

@@ -4804,6 +4804,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-grigioni-validita.title': 'Permit L in Graubünden: duration, extension and change of employer',
     'blog.article.permesso-l-breve-durata-grigioni-validita.excerpt': 'In the Canton of Graubünden, the L permit lasts up to 12 months, extensions only in exceptional cases and change of employer subject to new cantonal application.',
     'blog.article.permesso-l-breve-durata-grigioni-validita.imageAlt': 'Graubünden canton: alpine village with seasonal workers',
+    'blog.article.apprendistato-formazione-grigioni.title': 'Apprenticeship and vocational training in Graubünden: a complete guide',
+    'blog.article.apprendistato-formazione-grigioni.excerpt': 'Dual school-company model in the Graubünden: internship contract, salary per year, professional maturity and living costs for the apprentice.',
+    'blog.article.apprendistato-formazione-grigioni.imageAlt': 'Apprentice working in a training company in Graubünden',
 };
 
 export default blogMetaChEn;
