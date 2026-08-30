@@ -10926,6 +10926,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-cassano-valcuvia-lavorare-ticino.title': 'Cassano Valcuvia–Ticino: Grenzüberschreitung 2024',
     'blog.article.vivere-cassano-valcuvia-lavorare-ticino.excerpt': 'Pendeln, Steuern und Lebenshaltungskosten für diejenigen, die Cassano Valcuvia als Grundlage für die Arbeit im Kanton Tessin mit der Genehmigung G bewerten.',
     'blog.article.vivere-cassano-valcuvia-lavorare-ticino.imageAlt': 'Hügellandschaft zwischen Cassano Valcuvia und der Grenze zum Kanton Tessin',
+    'blog.article.brienno-ticino-frontaliere-guida.title': 'Von Brienno ins Tessin: Leben als Grenzgänger, praktischer Leitfaden',
+    'blog.article.brienno-ticino-frontaliere-guida.excerpt': 'Grenzgänger von Brienn bis Tessin: Neues Abkommen 2024, Befreiung € 10k, Quellensteuer, AHV, BVG, KVG, G-Genehmigung und Rückerstattungen. Erfahren Sie, wie Sie das Netto berechnen.',
+    'blog.article.brienno-ticino-frontaliere-guida.imageAlt': 'Blick auf den Comer See Richtung Schweiz und Tessin, mit Alpen im Hintergrund und Segelboot',
 };
 
 export default blogMetaDe;

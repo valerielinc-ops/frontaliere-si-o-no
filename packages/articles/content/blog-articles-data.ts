@@ -32673,6 +32673,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'brienno-ticino-frontaliere-guida',
+ category: 'pratico',
+ date: '2026-08-30T00:17:23.140Z',
+ image: '/images/blog/brienno-ticino-frontaliere-guida.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
