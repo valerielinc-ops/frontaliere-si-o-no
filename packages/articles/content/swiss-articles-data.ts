@@ -14275,6 +14275,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'patente-guida-san-gallo-conversione',
+    category: 'pratico',
+    date: '2026-08-30T14:01:40.347Z',
+    image: '/images/blog/patente-guida-san-gallo-conversione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

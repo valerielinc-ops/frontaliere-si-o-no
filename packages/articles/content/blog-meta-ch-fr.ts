@@ -4759,6 +4759,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-attivita-nidvaldo-costi-registro.title': 'Ouvrir une entreprise à Nidwald : formes juridiques et coûts',
     'blog.article.aprire-attivita-nidvaldo-costi-registro.excerpt': 'De la société individuelle à la SA : capital, registre du commerce, charges sociales et impôts sur trois niveaux pour ceux qui créent une entreprise à Nidwaldo.',
     'blog.article.aprire-attivita-nidvaldo-costi-registro.imageAlt': 'Vue aérienne du canton de Nidwald avec montagnes et lac',
+    'blog.article.patente-guida-san-gallo-conversione.title': 'Permis étranger à Saint-Gall : conversion et examens',
+    'blog.article.patente-guida-san-gallo-conversione.excerpt': 'Comment faire reconnaître son permis de conduire étranger dans le canton de Saint-Gall : procédure différente selon qu’il s’agit d’un pays de l’UE/AELE ou d’un pays tiers, documents requis et service compétent.',
+    'blog.article.patente-guida-san-gallo-conversione.imageAlt': 'Conversion du permis étranger à Saint-Gall',
 };
 
 export default blogMetaChFr;
