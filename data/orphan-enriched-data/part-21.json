@@ -22477,10 +22477,10 @@
         "fr": "directeur-de-succursale-stv-denner-emmenbrucke"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/directeur-de-succursale-stv-denner-emmenbrucke",
-        "en": "/en/find-jobs-ticino/directeur-de-succursale-stv-denner-emmenbrucke",
-        "de": "/de/jobs-im-tessin/directeur-de-succursale-stv-denner-emmenbrucke",
-        "fr": "/fr/trouver-emploi-tessin/directeur-de-succursale-stv-denner-emmenbrucke"
+        "it": "/cerca-lavoro-appenzello/directeur-de-succursale-stv-denner-emmenbrucke",
+        "en": "/en/find-jobs-appenzell/directeur-de-succursale-stv-denner-emmenbrucke",
+        "de": "/de/jobs-in-appenzell/directeur-de-succursale-stv-denner-emmenbrucke",
+        "fr": "/fr/trouver-emploi-appenzell/directeur-de-succursale-stv-denner-emmenbrucke"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -24396,6 +24396,79 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "employe-administration-spitex-100-senevita-bern",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-berne/employe-administration-spitex-100-senevita-bern/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-berne/employe-administration-spitex-100-senevita-bern/"
+      },
+      "queries": [
+        {
+          "query": "spitex jobs administration",
+          "clicks": 0,
+          "impressions": 5
+        },
+        {
+          "query": "spitex administration jobs",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "canton de berne",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "spitex jobs bern",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 10,
+      "totalClicks": 0,
+      "topQuery": "spitex jobs administration",
+      "title": "Employe administration spitex senevita",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Bern",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "employe-administration-spitex-100-senevita-bern",
+        "en": "employe-administration-spitex-100-senevita-bern",
+        "de": "employe-administration-spitex-100-senevita-bern",
+        "fr": "employe-administration-spitex-100-senevita-bern"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/employe-administration-spitex-100-senevita-bern",
+        "en": "/en/find-jobs-bern/employe-administration-spitex-100-senevita-bern",
+        "de": "/de/jobs-im-bern/employe-administration-spitex-100-senevita-bern",
+        "fr": "/fr/trouver-emploi-berne/employe-administration-spitex-100-senevita-bern"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
@@ -43417,6 +43490,69 @@
       ]
     },
     {
+      "slug": "mitarbeiter-in-vente-40-manor-ag-aarau",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-argovie/mitarbeiter-in-vente-40-manor-ag-aarau/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-argovie/mitarbeiter-in-vente-40-manor-ag-aarau/"
+      },
+      "queries": [
+        {
+          "query": "manor aarau jobs",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "job manor",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 3,
+      "totalClicks": 0,
+      "topQuery": "manor aarau jobs",
+      "title": "Mitarbeiter in vente 40",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Manor AG",
+      "companyKey": "manor-ag",
+      "location": "Aarau",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "mitarbeiter-in-vente-40-manor-ag-aarau",
+        "en": "mitarbeiter-in-vente-40-manor-ag-aarau",
+        "de": "mitarbeiter-in-vente-40-manor-ag-aarau",
+        "fr": "mitarbeiter-in-vente-40-manor-ag-aarau"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-argovia/mitarbeiter-in-vente-40-manor-ag-aarau",
+        "en": "/en/find-jobs-aargau/mitarbeiter-in-vente-40-manor-ag-aarau",
+        "de": "/de/jobs-im-aargau/mitarbeiter-in-vente-40-manor-ag-aarau",
+        "fr": "/fr/trouver-emploi-argovie/mitarbeiter-in-vente-40-manor-ag-aarau"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "mitarbeiter-in-visual-merchandising-80-manor-ag-st-gallen",
       "locale": "de",
       "path": "/de/jobs-in-st-gallen/mitarbeiter-in-visual-merchandising-80-manor-ag-st-gallen/",
@@ -52151,10 +52287,7 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "rangiermitarbeiter-in-50-100-ferrovia-retica-rhb-chur",
-        "en": "rangiermitarbeiter-in-50-100-ferrovia-retica-rhb-chur",
-        "de": "rangiermitarbeiter-in-50-100-ferrovia-retica-rhb-chur",
-        "fr": "rangiermitarbeiter-in-50-100-ferrovia-retica-rhb-chur"
+        "it": "rangiermitarbeiter-in-50-100-ferrovia-retica-rhb-chur"
       },
       "localePaths": {
         "it": "/cerca-lavoro-grigioni/rangiermitarbeiter-in-50-100-ferrovia-retica-rhb-chur",
@@ -52162,7 +52295,7 @@
         "de": "/de/jobs-in-graubunden/rangiermitarbeiter-in-50-100-ferrovia-retica-rhb-chur",
         "fr": "/fr/trouver-emploi-grisons/rangiermitarbeiter-in-50-100-ferrovia-retica-rhb-chur"
       },
-      "sourceUrl": "https://www.rhb.ch/it/job/rangiermitarbeiter-in-50-100_2026-2125",
+      "sourceUrl": "https://www.rhb.ch/it/job/rangiermitarbeiter-in-50-100_2026-2249",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
@@ -53675,6 +53808,94 @@
         "en": "/en/find-jobs-neuchatel/responsabile-logistica-servizi-clienti-m-f-x-cartier-manufacture-le-locle",
         "de": "/de/jobs-im-neuenburg/responsabile-logistica-servizi-clienti-m-f-x-cartier-manufacture-le-locle",
         "fr": "/fr/trouver-emploi-neuchatel/responsabile-logistica-servizi-clienti-m-f-x-cartier-manufacture-le-locle"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "responsabile-marketing-business-strategy-adium-uruguay-michael-page-lugano",
+      "locale": "it",
+      "path": "/cerca-lavoro-ticino/responsabile-marketing-business-strategy-adium-uruguay-michael-page-lugano/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-ticino/responsabile-marketing-business-strategy-adium-uruguay-michael-page-lugano/"
+      },
+      "queries": [
+        {
+          "query": "marketing lavoro ticino",
+          "clicks": 1,
+          "impressions": 13
+        },
+        {
+          "query": "lavoro marketing ticino",
+          "clicks": 2,
+          "impressions": 11
+        },
+        {
+          "query": "offerte di lavoro ticino negli ultimi 3 giorni",
+          "clicks": 0,
+          "impressions": 6
+        },
+        {
+          "query": "frontaliere ticino offerte di lavoro",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "\"michael page\"",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offerte di lavoro nel settore pubblicitario in svizzera",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offerte di lavoro nelle vicinanze negli ultimi 3 giorni",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 35,
+      "totalClicks": 3,
+      "topQuery": "marketing lavoro ticino",
+      "title": "Responsabile marketing business strategy adium uruguay michael page",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Lugano",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "responsabile-marketing-business-strategy-adium-uruguay-michael-page-lugano",
+        "en": "responsabile-marketing-business-strategy-adium-uruguay-michael-page-lugano",
+        "de": "responsabile-marketing-business-strategy-adium-uruguay-michael-page-lugano",
+        "fr": "responsabile-marketing-business-strategy-adium-uruguay-michael-page-lugano"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/responsabile-marketing-business-strategy-adium-uruguay-michael-page-lugano",
+        "en": "/en/find-jobs-ticino/responsabile-marketing-business-strategy-adium-uruguay-michael-page-lugano",
+        "de": "/de/jobs-im-tessin/responsabile-marketing-business-strategy-adium-uruguay-michael-page-lugano",
+        "fr": "/fr/trouver-emploi-tessin/responsabile-marketing-business-strategy-adium-uruguay-michael-page-lugano"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -66271,10 +66492,10 @@
         "fr": "stv-filialleiter-in-denner-frauenfeld"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/stv-filialleiter-in-denner-frauenfeld",
-        "en": "/en/find-jobs-zurich/stv-filialleiter-in-denner-frauenfeld",
-        "de": "/de/jobs-in-zurich/stv-filialleiter-in-denner-frauenfeld",
-        "fr": "/fr/trouver-emploi-zurich/stv-filialleiter-in-denner-frauenfeld"
+        "it": "/cerca-lavoro-berna/stv-filialleiter-in-denner-frauenfeld",
+        "en": "/en/find-jobs-bern/stv-filialleiter-in-denner-frauenfeld",
+        "de": "/de/jobs-in-bern/stv-filialleiter-in-denner-frauenfeld",
+        "fr": "/fr/trouver-emploi-berne/stv-filialleiter-in-denner-frauenfeld"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -75291,7 +75512,7 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "de": "verkaufer-in-kassen-services-coop-genossenschaft-zurich-08ih5z"
+        "de": "verkaufer-in-kassen-services-coop-genossenschaft-zurich-ltjyzj"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/verkaufer-in-kassen-services-coop-genossenschaft-zurich",

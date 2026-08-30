@@ -7345,10 +7345,10 @@
         "fr": "assistent-in-filialleitung-denner-buchs-ag"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-san-gallo/assistent-in-filialleitung-denner-buchs-ag",
-        "en": "/en/find-jobs-st-gallen/assistent-in-filialleitung-denner-buchs-ag",
-        "de": "/de/jobs-in-st-gallen/assistent-in-filialleitung-denner-buchs-ag",
-        "fr": "/fr/trouver-emploi-saint-gall/assistent-in-filialleitung-denner-buchs-ag"
+        "it": "/cerca-lavoro-argovia/assistent-in-filialleitung-denner-buchs-ag",
+        "en": "/en/find-jobs-aargau/assistent-in-filialleitung-denner-buchs-ag",
+        "de": "/de/jobs-im-aargau/assistent-in-filialleitung-denner-buchs-ag",
+        "fr": "/fr/trouver-emploi-argovie/assistent-in-filialleitung-denner-buchs-ag"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -36336,15 +36336,15 @@
         {
           "query": "frontaliere ticino offerte di lavoro",
           "clicks": 0,
+          "impressions": 21
+        },
+        {
+          "query": "lavoro ingegneri svizzera",
+          "clicks": 0,
           "impressions": 9
         },
         {
           "query": "lavoro in svizzera per italiani",
-          "clicks": 0,
-          "impressions": 8
-        },
-        {
-          "query": "lavoro ingegneri svizzera",
           "clicks": 0,
           "impressions": 8
         },
@@ -36356,7 +36356,7 @@
         {
           "query": "svizzera lavoro ingegnere",
           "clicks": 0,
-          "impressions": 5
+          "impressions": 6
         },
         {
           "query": "offerte di lavoro canton ticino",
@@ -36369,7 +36369,22 @@
           "impressions": 5
         },
         {
+          "query": "ingegnere svizzera lavoro",
+          "clicks": 0,
+          "impressions": 5
+        },
+        {
           "query": "svizzera lavoro ingegnere",
+          "clicks": 0,
+          "impressions": 5
+        },
+        {
+          "query": "lavorare in svizzera ingegnere",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "lavoro ingegneri svizzera",
           "clicks": 0,
           "impressions": 4
         },
@@ -36379,17 +36394,12 @@
           "impressions": 3
         },
         {
-          "query": "lavoro ingegneri svizzera",
-          "clicks": 0,
-          "impressions": 3
-        },
-        {
           "query": "disegnatore genio civile",
           "clicks": 0,
           "impressions": 3
         },
         {
-          "query": "ingegnere svizzera lavoro",
+          "query": "lavorare in svizzera ingegnere",
           "clicks": 0,
           "impressions": 3
         },
@@ -36402,6 +36412,11 @@
           "query": "offerte di lavoro ingegnere svizzera",
           "clicks": 0,
           "impressions": 3
+        },
+        {
+          "query": "buyer lecco",
+          "clicks": 1,
+          "impressions": 2
         },
         {
           "query": "ingegnere in svizzera",
@@ -36417,24 +36432,9 @@
           "query": "lombard odier",
           "clicks": 0,
           "impressions": 2
-        },
-        {
-          "query": "ingegnere svizzera lavoro",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "lavorare in svizzera ingegnere",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "lavoro ingegnere svizzera",
-          "clicks": 0,
-          "impressions": 2
         }
       ],
-      "totalImpressions": 138,
+      "totalImpressions": 162,
       "totalClicks": 3,
       "topQuery": "frontaliere ticino offerte di lavoro",
       "title": "Ingegneri",
@@ -37131,6 +37131,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "installatore-trice-elettrico-a-in-per-industrielle-elektromontage-con-qualitatsbewusstsein-fachkraft-ch-gmbh-zofingen",
+      "locale": "it",
+      "path": "/cerca-lavoro-argovia/installatore-trice-elettrico-a-in-per-industrielle-elektromontage-con-qualitatsbewusstsein-fachkraft-ch-gmbh-zofingen/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-argovia/installatore-trice-elettrico-a-in-per-industrielle-elektromontage-con-qualitatsbewusstsein-fachkraft-ch-gmbh-zofingen/"
+      },
+      "queries": [
+        {
+          "query": "elektromontage",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "elektromontage",
+      "title": "Installatore trice elettrico in per industrielle elektromontage con qualitatsbewusstsein fachkraft ch gmbh zofingen",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "installatore-trice-elettrico-a-in-per-industrielle-elektromontage-con-qualitatsbewusstsein-fachkraft-ch-gmbh-zofingen",
+        "en": "installatore-trice-elettrico-a-in-per-industrielle-elektromontage-con-qualitatsbewusstsein-fachkraft-ch-gmbh-zofingen",
+        "de": "installatore-trice-elettrico-a-in-per-industrielle-elektromontage-con-qualitatsbewusstsein-fachkraft-ch-gmbh-zofingen",
+        "fr": "installatore-trice-elettrico-a-in-per-industrielle-elektromontage-con-qualitatsbewusstsein-fachkraft-ch-gmbh-zofingen"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-argovia/installatore-trice-elettrico-a-in-per-industrielle-elektromontage-con-qualitatsbewusstsein-fachkraft-ch-gmbh-zofingen",
+        "en": "/en/find-jobs-aargau/installatore-trice-elettrico-a-in-per-industrielle-elektromontage-con-qualitatsbewusstsein-fachkraft-ch-gmbh-zofingen",
+        "de": "/de/jobs-im-aargau/installatore-trice-elettrico-a-in-per-industrielle-elektromontage-con-qualitatsbewusstsein-fachkraft-ch-gmbh-zofingen",
+        "fr": "/fr/trouver-emploi-argovie/installatore-trice-elettrico-a-in-per-industrielle-elektromontage-con-qualitatsbewusstsein-fachkraft-ch-gmbh-zofingen"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -41185,10 +41242,10 @@
         "fr": "logistiker-in-filiale-denner-buchs-ag"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/logistiker-in-filiale-denner-buchs-ag",
-        "en": "/en/find-jobs-ticino/logistiker-in-filiale-denner-buchs-ag",
-        "de": "/de/jobs-im-tessin/logistiker-in-filiale-denner-buchs-ag",
-        "fr": "/fr/trouver-emploi-tessin/logistiker-in-filiale-denner-buchs-ag"
+        "it": "/cerca-lavoro-argovia/logistiker-in-filiale-denner-buchs-ag",
+        "en": "/en/find-jobs-aargau/logistiker-in-filiale-denner-buchs-ag",
+        "de": "/de/jobs-im-aargau/logistiker-in-filiale-denner-buchs-ag",
+        "fr": "/fr/trouver-emploi-argovie/logistiker-in-filiale-denner-buchs-ag"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -51523,6 +51580,64 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "praticanti-legali-al-100-citta-di-mendrisio-mendrisio",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-tessin/praticanti-legali-al-100-citta-di-mendrisio-mendrisio/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-tessin/praticanti-legali-al-100-citta-di-mendrisio-mendrisio/"
+      },
+      "queries": [
+        {
+          "query": "sintetica mendrisio",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "sintetica mendrisio",
+      "title": "Praticanti legali al",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Città di Mendrisio",
+      "companyKey": "citta-di-mendrisio",
+      "location": "Mendrisio",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "praticanti-legali-al-100-citta-di-mendrisio-mendrisio",
+        "en": "praticanti-legali-al-100-citta-di-mendrisio-mendrisio",
+        "de": "praticanti-legali-al-100-citta-di-mendrisio-mendrisio",
+        "fr": "praticanti-legali-al-100-citta-di-mendrisio-mendrisio"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/praticanti-legali-al-100-citta-di-mendrisio-mendrisio",
+        "en": "/en/find-jobs-ticino/praticanti-legali-al-100-citta-di-mendrisio-mendrisio",
+        "de": "/de/jobs-im-tessin/praticanti-legali-al-100-citta-di-mendrisio-mendrisio",
+        "fr": "/fr/trouver-emploi-tessin/praticanti-legali-al-100-citta-di-mendrisio-mendrisio"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
@@ -68397,10 +68512,10 @@
         "fr": "stv-filialleiter-in-denner-luzern"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/stv-filialleiter-in-denner-luzern",
-        "en": "/en/find-jobs-zurich/stv-filialleiter-in-denner-luzern",
-        "de": "/de/jobs-in-zurich/stv-filialleiter-in-denner-luzern",
-        "fr": "/fr/trouver-emploi-zurich/stv-filialleiter-in-denner-luzern"
+        "it": "/cerca-lavoro-berna/stv-filialleiter-in-denner-luzern",
+        "en": "/en/find-jobs-bern/stv-filialleiter-in-denner-luzern",
+        "de": "/de/jobs-in-bern/stv-filialleiter-in-denner-luzern",
+        "fr": "/fr/trouver-emploi-berne/stv-filialleiter-in-denner-luzern"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -68562,10 +68677,10 @@
         "fr": "stv-rayonleiter-in-getranke-wein-coop-genossenschaft-muri-bei-bern-72zuvf"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/stv-rayonleiter-in-getranke-wein-coop-genossenschaft-muri-bei-bern-72zuvf",
-        "en": "/en/find-jobs-aargau/stv-rayonleiter-in-getranke-wein-coop-genossenschaft-muri-bei-bern-72zuvf",
-        "de": "/de/jobs-im-aargau/stv-rayonleiter-in-getranke-wein-coop-genossenschaft-muri-bei-bern-72zuvf",
-        "fr": "/fr/trouver-emploi-argovie/stv-rayonleiter-in-getranke-wein-coop-genossenschaft-muri-bei-bern-72zuvf"
+        "it": "/cerca-lavoro-berna/stv-rayonleiter-in-getranke-wein-coop-genossenschaft-muri-bei-bern-72zuvf",
+        "en": "/en/find-jobs-bern/stv-rayonleiter-in-getranke-wein-coop-genossenschaft-muri-bei-bern-72zuvf",
+        "de": "/de/jobs-in-bern/stv-rayonleiter-in-getranke-wein-coop-genossenschaft-muri-bei-bern-72zuvf",
+        "fr": "/fr/trouver-emploi-berne/stv-rayonleiter-in-getranke-wein-coop-genossenschaft-muri-bei-bern-72zuvf"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
