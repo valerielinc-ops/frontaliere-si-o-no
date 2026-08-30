@@ -80567,6 +80567,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-azzio-confine-guida-frontaliere': {
+    title: 'Vivere a Azzio, lavorare in Ticino: guida al frontaliere',
+    description: 'Azzio per frontalieri Ticino: permesso G, imposta alla fonte, AVS, ristorni e procedura di trasferimento. Guida pratica. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, azzio, lavorare, lavora',
+    ogTitle: 'Azzio & Ticino: Guida per Frontalieri',
+    ogDescription: 'Scopri come vivere a Azzio e lavorare in Ticino: permesso G, fiscalità svizzera, AVS, LAMal e ristorni. Tutto quello che serve prima di trasferirsi.',
+    canonicalPath: '/articoli-frontaliere/azzio-confine-guida-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Azzio, lavorare in Ticino: guida al frontaliere",
+      "description": "Azzio per frontalieri Ticino: permesso G, imposta alla fonte, AVS, ristorni e procedura di trasferimento. Guida pratica. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/azzio-confine-guida-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il valico di frontiera di Chiasso al confine tra Ticino e Italia, con traffico pendolare mattutino"
+      },
+      "datePublished": "2026-08-30T09:54:44+00:00",
+      "dateModified": "2026-08-30T09:54:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/azzio-confine-guida-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

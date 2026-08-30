@@ -10953,6 +10953,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-lomazzo-lavorare-ticino-frontaliere.title': 'Vivre à Lomazzo et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-lomazzo-lavorare-ticino-frontaliere.excerpt': 'Frontière à Lomazzo ? Découvrez les cols de Brogeda et Chiasso, les temps de trajet, le coût de la vie et les taxes. Guide pratique pour se déplacer de Côme au Tessin.',
     'blog.article.vivere-lomazzo-lavorare-ticino-frontaliere.imageAlt': 'Paysage frontalier entre le Tessin et la Lombardie avec montagnes et routes alpines',
+    'blog.article.azzio-confine-guida-frontaliere.title': 'Vivre à Azzio, travailler au Tessin : guide du frontalier',
+    'blog.article.azzio-confine-guida-frontaliere.excerpt': 'Azzio pour ceux qui travaillent au Tessin : permis G, fiscalité suisse, AVS, restaurations et comment déménager.',
+    'blog.article.azzio-confine-guida-frontaliere.imageAlt': 'Poste frontière de Chiasso entre le Tessin et l\'Italie avec le trafic matinal et les Alpes',
 };
 
 export default blogMetaFr;
