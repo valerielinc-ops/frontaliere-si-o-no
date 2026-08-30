@@ -4801,6 +4801,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-domicilio-c-grigioni-requisiti.title': 'Residence permit C Graubünden: requirements and application',
     'blog.article.permesso-domicilio-c-grigioni-requisiti.excerpt': 'The C permit is the permanent residence permit in Switzerland. Find out how to apply in the canton of Graubünden, the years of residence required, the tax implications, AVS/LPP and the path to ordinary naturalisation.',
     'blog.article.permesso-domicilio-c-grigioni-requisiti.imageAlt': 'Graubünden alpine valley with cantonal administration building and Swiss flags',
+    'blog.article.permesso-l-breve-durata-grigioni-validita.title': 'Permit L in Graubünden: duration, extension and change of employer',
+    'blog.article.permesso-l-breve-durata-grigioni-validita.excerpt': 'In the Canton of Graubünden, the L permit lasts up to 12 months, extensions only in exceptional cases and change of employer subject to new cantonal application.',
+    'blog.article.permesso-l-breve-durata-grigioni-validita.imageAlt': 'Graubünden canton: alpine village with seasonal workers',
 };
 
 export default blogMetaChEn;

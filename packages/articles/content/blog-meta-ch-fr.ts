@@ -4801,6 +4801,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-domicilio-c-grigioni-requisiti.title': 'Permis domicile C Grisons : exigences et demande',
     'blog.article.permesso-domicilio-c-grigioni-requisiti.excerpt': 'Le permis C est le permis de résidence permanente en Suisse. Découvrez comment le demander dans le canton des Grisons, les années de résidence requises, les implications fiscales, l\'AVS/LPP et le parcours vers la naturalisation ordinaire.',
     'blog.article.permesso-domicilio-c-grigioni-requisiti.imageAlt': 'Vallée alpine des Grisons avec bâtiment cantonal et drapeaux suisses',
+    'blog.article.permesso-l-breve-durata-grigioni-validita.title': 'Permis L dans les Grisons : durée, prolongation et changement d\'employeur',
+    'blog.article.permesso-l-breve-durata-grigioni-validita.excerpt': 'Dans le canton des Grisons, le permis L a une durée maximale de 12 mois, prorogation uniquement dans des cas exceptionnels et changement d\'employeur subordonné à une nouvelle demande cantonale.',
+    'blog.article.permesso-l-breve-durata-grigioni-validita.imageAlt': 'Canton des Grisons: village alpin avec travailleurs saisonniers',
 };
 
 export default blogMetaChFr;

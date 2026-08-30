@@ -62303,6 +62303,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-l-breve-durata-grigioni-validita': {
+    title: 'Permesso L nei Grigioni: durata, proroga e cambio datore',
+    description: 'Permesso L nel Canton Grigioni: durata fino a 12 mesi, proroghe solo in casi eccezionali, cambio datore con nuova domanda cantonale e passaggio a B.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, grigioni, durata, proroga',
+    ogTitle: 'Permesso L nei Grigioni: durata, proroga e cambio datore',
+    ogDescription: 'Nel Canton Grigioni il permesso L di breve durata ha durata massima di 12 mesi, non rinnovabile di norma. La proroga è ammessa solo in casi eccezionali previsti dal diritto federale, e qualsiasi cambio di datore di lavoro richiede una nuova domanda',
+    canonicalPath: '/articoli-svizzera/permesso-l-breve-durata-grigioni-validita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso L nei Grigioni: durata, proroga e cambio datore",
+      "description": "Permesso L nel Canton Grigioni: durata fino a 12 mesi, proroghe solo in casi eccezionali, cambio datore con nuova domanda cantonale e passaggio a B.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-l-breve-durata-grigioni-validita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cantone dei Grigioni: borgo alpino con lavoratori stagionali"
+      },
+      "datePublished": "2026-08-30T22:08:30+00:00",
+      "dateModified": "2026-08-30T22:08:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-l-breve-durata-grigioni-validita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
