@@ -4705,6 +4705,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.casa-sangallo-mutuo-fondi-propri.title': 'House in the Canton of St. Gallen: prices, mortgage and expenses',
     'blog.article.casa-sangallo-mutuo-fondi-propri.excerpt': 'Buying a home in the Canton of St. Gallen requires own funds, a sustainable mortgage and attention to transfer taxes and notary fees. Practical guide to the basic steps.',
     'blog.article.casa-sangallo-mutuo-fondi-propri.imageAlt': 'Modern residential property in Canton St. Gallen with Alpine mountain views, contemporary Swiss architecture',
+    'blog.article.avs-prestazioni-complementari-obvaldo-cassa.title': 'AVS and complementary services in the Canton of Obvaldo: how the cashier works',
+    'blog.article.avs-prestazioni-complementari-obvaldo-cassa.excerpt': 'AVS Compensation Fund of the Canton of Obvaldo: contributions, calculation of the annuity, redemption of gaps and complementary benefits for the minimum living.',
+    'blog.article.avs-prestazioni-complementari-obvaldo-cassa.imageAlt': 'Cantonal administration building in Sarnen, Canton Obwalden',
 };
 
 export default blogMetaChEn;

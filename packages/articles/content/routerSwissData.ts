@@ -1594,6 +1594,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'capo-esercito-lugano-minacce-2025': { it: 'capo-esercito-lugano-minacce-2025', en: 'army-chief-lugano-threats-2025', de: 'armeechef-lugano-bedrohungen-2025', fr: 'chef-armee-lugano-menaces-2025' },
  'asilo-nido-custodia-san-gallo-tariffe': { it: 'asilo-nido-custodia-san-gallo-tariffe', en: 'childcare-st-gallen-daycare-costs', de: 'kinderbetreuung-st-gallen-kosten', fr: 'garde-enfants-saint-gall-tarifs' },
  'casa-sangallo-mutuo-fondi-propri': { it: 'casa-sangallo-mutuo-fondi-propri', en: 'buy-house-sangallo-mortgage-down-payment', de: 'haus-sangallo-hypothek-eigenkapital', fr: 'maison-sangallo-hypotheque-capital-propre' },
+ 'avs-prestazioni-complementari-obvaldo-cassa': { it: 'avs-prestazioni-complementari-obvaldo-cassa', en: 'avs-supplementary-benefits-obwalden-fund', de: 'avs-ergaenzungsleistungen-obwalden-kasse', fr: 'avs-prestations-complementaires-obwald-caisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

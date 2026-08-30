@@ -4705,6 +4705,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.casa-sangallo-mutuo-fondi-propri.title': 'Haus im Kanton St. Gallen: Preise, Hypothek und Spesen',
     'blog.article.casa-sangallo-mutuo-fondi-propri.excerpt': 'Der Kauf eines Hauses im Kanton St. Gallen erfordert Eigenmittel, ein tragfähiges Hypothekardarlehen und die Beachtung von Abgaben und Notargebühren. Praktische Anleitung zu den grundlegenden Schritten.',
     'blog.article.casa-sangallo-mutuo-fondi-propri.imageAlt': 'Modernes Wohnhaus im Kanton St. Gallen mit Alpenpanorama, zeitgenössische Schweizer Architektur',
+    'blog.article.avs-prestazioni-complementari-obvaldo-cassa.title': 'AHV und Ergänzungsleistungen im Kanton Obwalden: Funktionsweise der Kasse',
+    'blog.article.avs-prestazioni-complementari-obvaldo-cassa.excerpt': 'AHV-Ausgleichskasse des Kantons Obwalden: Beiträge, Rentenberechnung, Lückenrückkauf und Ergänzungsleistungen für das Existenzminimum.',
+    'blog.article.avs-prestazioni-complementari-obvaldo-cassa.imageAlt': 'Kantonales Verwaltungsgebäude in Sarnen, Kanton Obwalden',
 };
 
 export default blogMetaChDe;
