@@ -14005,6 +14005,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'patente-guida-svitto-conversione-ed-esami',
+    category: 'pratico',
+    date: '2026-08-30T01:23:24.295Z',
+    image: '/images/blog/patente-guida-svitto-conversione-ed-esami.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

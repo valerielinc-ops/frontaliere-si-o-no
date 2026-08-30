@@ -4669,6 +4669,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svitto-salari-formazione-settori.title': 'Wages and labour market Canton of Switzerland: sectors and levels',
     'blog.article.svitto-salari-formazione-settori.excerpt': 'The labour market in the Canton of Schwyz: wage structure by degree of training, collective agreements, compulsory contributions and minimum rights.',
     'blog.article.svitto-salari-formazione-settori.imageAlt': 'Modern Swiss workplace with professionals collaborating in an office setting with Swiss Alps views.',
+    'blog.article.patente-guida-svitto-conversione-ed-esami.title': 'Driving licence in the Canton of Svitto: procedure and examinations',
+    'blog.article.patente-guida-svitto-conversione-ed-esami.excerpt': 'How to obtain or convert your driver\'s license in the Canton of Schwyz: registration, theoretical and practical exams and compulsory courses according to federal regulations.',
+    'blog.article.patente-guida-svitto-conversione-ed-esami.imageAlt': 'Driving licence and documents for Swiss road traffic',
 };
 
 export default blogMetaChEn;

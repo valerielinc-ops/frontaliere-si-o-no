@@ -4669,6 +4669,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svitto-salari-formazione-settori.title': 'Salari e mercato del lavoro Canton Svitto: settori e livelli',
     'blog.article.svitto-salari-formazione-settori.excerpt': 'Il mercato del lavoro nel Cantone di Svitto: struttura salariale per grado di formazione, contratti collettivi, contributi obbligatori e diritti minimi.',
     'blog.article.svitto-salari-formazione-settori.imageAlt': 'Ambiente di lavoro moderno svizzero con professionisti che collaborano in ufficio con vista sulle Alpi.',
+    'blog.article.patente-guida-svitto-conversione-ed-esami.title': 'Patente di guida nel Canton Svitto: procedura ed esami',
+    'blog.article.patente-guida-svitto-conversione-ed-esami.excerpt': 'Come ottenere o convertire la patente nel Cantone di Svitto: iscrizione, esami teorico e pratico e corsi obbligatori secondo la normativa federale.',
+    'blog.article.patente-guida-svitto-conversione-ed-esami.imageAlt': 'Patente di guida e documenti per la circolazione in Svizzera',
 };
 
 export default blogMetaChIt;
