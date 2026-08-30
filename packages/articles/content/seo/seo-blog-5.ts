@@ -80177,6 +80177,357 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-guida-frontaliere-menaggio-ticino': {
+    title: 'Vivere a Menaggio, lavorare in Ticino: frontaliere',
+    description: 'Guida completa per vivere a Menaggio (Como) e lavorare in Ticino da frontaliere: Permesso G, fiscalità, doppia imposizione, ristorni, contributi AVS/LPP, costo',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, menaggio, lavorare, trasferirsi',
+    ogTitle: 'Vivere a Menaggio, lavorare in Ticino: frontaliere',
+    ogDescription: 'Scopri come trasferirsi a Menaggio e lavorare in Ticino da frontaliere. Guida pratica con Permesso G, fiscalità, contributi sociali svizzeri, ristorni e procedura di trasferimento.',
+    canonicalPath: '/articoli-frontaliere/guida-frontaliere-menaggio-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Menaggio, lavorare in Ticino: frontaliere",
+      "description": "Guida completa per vivere a Menaggio (Como) e lavorare in Ticino da frontaliere: Permesso G, fiscalità, doppia imposizione, ristorni, contributi AVS/LPP, costo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/guida-frontaliere-menaggio-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Como da Menaggio con le montagne svizzere sullo sfondo, paesaggio frontaliero Como-Ticino"
+      },
+      "datePublished": "2026-08-29T21:31:27+00:00",
+      "dateModified": "2026-08-29T21:31:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guida-frontaliere-menaggio-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-cassano-valcuvia-lavorare-ticino': {
+    title: 'Cassano Valcuvia–Ticino: guida frontaliere 2024',
+    description: 'Vivere a Cassano Valcuvia e lavorare in Ticino da frontaliere: nuove regole fiscali 2024, permesso G, costi e tempi di percorrenza. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, cassano, valcuvia, pendolarismo, fiscalità',
+    ogTitle: 'Cassano Valcuvia–Ticino: guida frontaliere 2024',
+    ogDescription: 'Pendolarismo, nuovo Accordo Frontalieri in vigore dal 1° gennaio 2024, permesso G, franchigia €10\'000 per i nuovi frontalieri, esenzione €7\'500 per i vecchi: tutto quello che serve a chi vive nella Valcuvia e lavora in Canton Ticino.',
+    canonicalPath: '/articoli-frontaliere/vivere-cassano-valcuvia-lavorare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cassano Valcuvia–Ticino: guida frontaliere 2024",
+      "description": "Vivere a Cassano Valcuvia e lavorare in Ticino da frontaliere: nuove regole fiscali 2024, permesso G, costi e tempi di percorrenza. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-cassano-valcuvia-lavorare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scenografia collinare tra Cassano Valcuvia e il confine con il Canton Ticino"
+      },
+      "datePublished": "2026-08-29T22:16:53+00:00",
+      "dateModified": "2026-08-29T22:16:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-cassano-valcuvia-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-brienno-ticino-frontaliere-guida': {
+    title: 'Da Brienno a Ticino: vivere da frontaliere, guida pratica',
+    description: 'Frontaliere da Brienno a Ticino: Nuovo Accordo 2024, esenzione €10k, imposta alla fonte, AVS, LPP, LAMal, permesso G e ristorni. Scopri come calcolare il netto.',
+    keywords: 'frontalieri, ticino, svizzera, italia, brienno, vivere, pratica, nuovo',
+    ogTitle: 'Brienno-Ticino frontaliere: la guida completa 2024',
+    ogDescription: 'Scopri come vivere a Brienno e lavorare in Ticino da frontaliere con il Nuovo Accordo 2024: esenzione fiscale €10k, permesso G, imposta alla fonte, AVS/LPP, LAMal e ristorni. Procedura, tempi e strumenti pratici.',
+    canonicalPath: '/articoli-frontaliere/brienno-ticino-frontaliere-guida',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Da Brienno a Ticino: vivere da frontaliere, guida pratica",
+      "description": "Frontaliere da Brienno a Ticino: Nuovo Accordo 2024, esenzione €10k, imposta alla fonte, AVS, LPP, LAMal, permesso G e ristorni. Scopri come calcolare il netto.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/brienno-ticino-frontaliere-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Como verso la Svizzera e il Ticino, con Alpi sullo sfondo e barca a vela"
+      },
+      "datePublished": "2026-08-30T00:17:23+00:00",
+      "dateModified": "2026-08-30T00:17:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/brienno-ticino-frontaliere-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-binago-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Binago e lavorare in Ticino da frontaliere',
+    description: 'Binago (Como) come base per frontalieri in Ticino: distanze dai valichi, imposta alla fonte, Nuovo Accordo 2024, costi e procedura per il permesso G.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, binago, lavorare, provincia',
+    ogTitle: 'Binago frontaliere Ticino: guida pratica completa',
+    ogDescription: 'Da Binago al Canton Ticino: distanze dai valichi, regime fiscale alla fonte, Nuovo Accordo 2024 (Legge 83/2023), contributi AVS/LPP, LAMal e costi reali per un frontaliere italiano.',
+    canonicalPath: '/articoli-frontaliere/vivere-binago-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Binago e lavorare in Ticino da frontaliere",
+      "description": "Binago (Como) come base per frontalieri in Ticino: distanze dai valichi, imposta alla fonte, Nuovo Accordo 2024, costi e procedura per il permesso G.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-binago-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere italiano in auto verso il Ticino sullo sfondo del Lago di Lugano"
+      },
+      "datePublished": "2026-08-30T03:19:16+00:00",
+      "dateModified": "2026-08-30T03:19:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-binago-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-senna-comasco-lavorare-ticino-frontaliere': {
+    title: 'Senna Comasco e lavoro in Ticino da frontaliere: guida pratica',
+    description: 'Vivere a Senna Comasco e lavorare in Ticino da frontaliere: permesso G, imposta alla fonte, Nuovo Accordo 2024, contributi e collegamenti dai valichi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, senna, comasco, lavoro, pratica',
+    ogTitle: 'Senna Comasco frontaliere Ticino: guida completa 2024',
+    ogDescription: 'Trasferirsi a Senna Comasco per lavorare in Ticino da frontaliere: permesso G, imposta alla fonte, Nuovo Accordo 2024 in vigore dal 1° gennaio, contributi svizzeri, collegamenti e costo della vita. Tutto ciò che serve sapere prima di partire.',
+    canonicalPath: '/articoli-frontaliere/vivere-senna-comasco-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Senna Comasco e lavoro in Ticino da frontaliere: guida pratica",
+      "description": "Vivere a Senna Comasco e lavorare in Ticino da frontaliere: permesso G, imposta alla fonte, Nuovo Accordo 2024, contributi e collegamenti dai valichi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-senna-comasco-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontiera italo-svizzera vicino al lago di Como con pendolari diretti in Ticino all'alba"
+      },
+      "datePublished": "2026-08-30T03:43:23+00:00",
+      "dateModified": "2026-08-30T03:43:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-senna-comasco-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-solbiate-cagno-frontaliere-ticino': {
+    title: 'Vivere a Solbiate e lavorare in Ticino da frontaliere',
+    description: 'Vivere a Solbiate con Cagno e lavorare in Ticino: nuovo accordo 2024, franchigia €10\'000, permesso G, tassazione, AVS/LPP/LAMal, procedura passo dopo passo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, solbiate, lavorare, nuovo',
+    ogTitle: 'Vivere a Solbiate e lavorare in Ticino da frontaliere',
+    ogDescription: 'Solbiate con Cagno ideale per frontalieri in Ticino: nuovo accordo 2024 con franchigia €10\'000, tassazione sostitutiva, permesso G. Scopri tutti i dettagli su AVS/LPP/LAMal, procedura step-by-step e scadenze fiscali.',
+    canonicalPath: '/articoli-frontaliere/vivere-solbiate-cagno-frontaliere-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Solbiate e lavorare in Ticino da frontaliere",
+      "description": "Vivere a Solbiate con Cagno e lavorare in Ticino: nuovo accordo 2024, franchigia €10'000, permesso G, tassazione, AVS/LPP/LAMal, procedura passo dopo passo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-solbiate-cagno-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea della provincia di Como al mattino, piccolo paese frontaliero con chiesa e colline verdi, vista dal lato italiano verso confine svizzero"
+      },
+      "datePublished": "2026-08-30T04:14:04+00:00",
+      "dateModified": "2026-08-30T04:14:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-solbiate-cagno-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-schignano-lavorare-ticino': {
+    title: 'Vivere a Schignano e lavorare in Ticino: guida pratica',
+    description: 'Frontaliere da Schignano: normativa fiscale, AVS/LPP, permesso G. Cosa devi sapere su imposte, contributi e procedure amministrative. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, schignano, lavorare, pratica',
+    ogTitle: 'Vivere a Schignano e lavorare in Ticino: guida pratica',
+    ogDescription: 'Frontaliere da Schignano: normativa fiscale, AVS/LPP, permesso G. Cosa devi sapere su imposte, contributi e procedure amministrative.',
+    canonicalPath: '/articoli-frontaliere/vivere-schignano-lavorare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Schignano e lavorare in Ticino: guida pratica",
+      "description": "Frontaliere da Schignano: normativa fiscale, AVS/LPP, permesso G. Cosa devi sapere su imposte, contributi e procedure amministrative. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-schignano-lavorare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama della zona di confine fra Schignano e il Ticino, con paesaggio alpino e territorio svizzero"
+      },
+      "datePublished": "2026-08-30T04:40:44+00:00",
+      "dateModified": "2026-08-30T04:40:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-schignano-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-gurro-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Gurro e lavorare in Ticino da frontaliere',
+    description: 'Trasferirsi a Gurro e fare il pendolare verso il Canton Ticino: Permesso G, Nuovo Accordo 2024, busta paga, LAMal, costi e tempi di percorrenza. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, gurro, lavorare, trasferirsi',
+    ogTitle: 'Vivere a Gurro e lavorare in Ticino da frontaliere',
+    ogDescription: 'Guida pratica per chi valuta di trasferirsi a Gurro e fare il frontaliere in Canton Ticino: Permesso G, Nuovo Accordo in vigore dal 2024, busta paga, LAMal, costi e tempi di percorrenza.',
+    canonicalPath: '/articoli-frontaliere/vivere-gurro-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Gurro e lavorare in Ticino da frontaliere",
+      "description": "Trasferirsi a Gurro e fare il pendolare verso il Canton Ticino: Permesso G, Nuovo Accordo 2024, busta paga, LAMal, costi e tempi di percorrenza. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-gurro-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada panoramica tra Gurro e la Val Cannobina verso il Ticino"
+      },
+      "datePublished": "2026-08-30T05:00:15+00:00",
+      "dateModified": "2026-08-30T05:00:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-gurro-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-corrido-frontaliere-ticino': {
+    title: 'Vivere a Corrido e lavorare in Ticino da frontaliere',
+    description: 'Guida pratica per chi valuta il pendolarismo da Corrido al Canton Ticino: fiscalità, tempi, costi e cosa sapere prima del trasferimento. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, corrido, lavorare, pratica',
+    ogTitle: 'Vivere a Corrido e lavorare in Ticino da frontaliere',
+    ogDescription: 'Guida pratica per chi valuta il pendolarismo da Corrido al Canton Ticino: fiscalità, tempi, costi e cosa sapere prima del trasferimento.',
+    canonicalPath: '/articoli-frontaliere/vivere-corrido-frontaliere-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Corrido e lavorare in Ticino da frontaliere",
+      "description": "Guida pratica per chi valuta il pendolarismo da Corrido al Canton Ticino: fiscalità, tempi, costi e cosa sapere prima del trasferimento. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-corrido-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di un piccolo comune italiano di confine vicino al Ticino"
+      },
+      "datePublished": "2026-08-30T06:23:39+00:00",
+      "dateModified": "2026-08-30T06:23:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-corrido-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

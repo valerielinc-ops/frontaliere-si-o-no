@@ -60236,6 +60236,1059 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-grigioni-attesa-modello-birsfelden': {
+    title: 'Grigioni: Gran Consiglio fermo in attesa del caso Birsfelden',
+    description: 'Voto 67-41 nei Grigioni: il Parlamento segue il Governo e rinvia la decisione sul traffico deviato fino alla sentenza sul modello Birsfelden (BL).',
+    keywords: 'frontalieri, ticino, svizzera, italia, grigioni, gran, consiglio, fermo',
+    ogTitle: 'Grigioni: Gran Consiglio attende il caso Birsfelden',
+    ogDescription: 'Con 67 voti contro 41 il Parlamento grigionese ha scelto la linea del Governo: niente studio di fattibilità sul modello Birsfelden fino alla sentenza sui procedimenti giudiziari pendenti in Canton Basilea Campagna.',
+    canonicalPath: '/articoli-svizzera/grigioni-attesa-modello-birsfelden/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grigioni: Gran Consiglio fermo in attesa del caso Birsfelden",
+      "description": "Voto 67-41 nei Grigioni: il Parlamento segue il Governo e rinvia la decisione sul traffico deviato fino alla sentenza sul modello Birsfelden (BL).",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/grigioni-attesa-modello-birsfelden.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada alpine nei Grigioni con colonne di auto e deviazioni verso un villaggio di montagna"
+      },
+      "datePublished": "2026-08-29T21:08:21+00:00",
+      "dateModified": "2026-08-29T21:08:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/grigioni-attesa-modello-birsfelden/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-acquisto-casa-svitto-mutuo-fondi-propri': {
+    title: 'Comprare casa in Svitto: prezzi, mutuo e fondi propri',
+    description: 'Guida completa all\'acquisto di una casa in Svitto: fondi propri richiesti (20-30%), mutuo ipotecario, imposte sui trapassi variane, spese notarili e procedura',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, svitto, prezzi',
+    ogTitle: 'Comprare casa in Svitto: guida al mutuo e fondi propri',
+    ogDescription: 'Scopri come comprare una casa in Svitto: requisiti di finanziamento, fondi propri (20-30%), mutuo ipotecario, imposte sui trapassi, spese notarili e procedura step-by-step per acquirenti svizzeri.',
+    canonicalPath: '/articoli-svizzera/acquisto-casa-svitto-mutuo-fondi-propri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa in Svitto: prezzi, mutuo e fondi propri",
+      "description": "Guida completa all'acquisto di una casa in Svitto: fondi propri richiesti (20-30%), mutuo ipotecario, imposte sui trapassi variane, spese notarili e procedura",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/acquisto-casa-svitto-mutuo-fondi-propri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Casa tradizionale svizzera circondata da prati alpini con catena montuosa sullo sfondo"
+      },
+      "datePublished": "2026-08-29T21:44:45+00:00",
+      "dateModified": "2026-08-29T21:44:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/acquisto-casa-svitto-mutuo-fondi-propri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-casa-svitto-comprare-mutuo-fondi': {
+    title: 'Comprare casa Svitto: prezzi e mutuo ipotecario',
+    description: 'Guida pratica: acquisire un immobile nel canton Svitto richiede fondi propri, mutuo sostenibile, imposta sui trapassi e spese notarili. Procedura completa.',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, svitto, prezzi',
+    ogTitle: 'Comprare casa Svitto: prezzi e mutuo ipotecario',
+    ogDescription: 'Guida pratica: acquisire un immobile nel canton Svitto richiede fondi propri, mutuo sostenibile, imposta sui trapassi e spese notarili. Procedura completa.',
+    canonicalPath: '/articoli-svizzera/casa-svitto-comprare-mutuo-fondi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa Svitto: prezzi e mutuo ipotecario",
+      "description": "Guida pratica: acquisire un immobile nel canton Svitto richiede fondi propri, mutuo sostenibile, imposta sui trapassi e spese notarili. Procedura completa.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/casa-svitto-comprare-mutuo-fondi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Quartiere residenziale del canton Svitto con abitazioni in stile svizzero."
+      },
+      "datePublished": "2026-08-29T22:05:10+00:00",
+      "dateModified": "2026-08-29T22:05:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/casa-svitto-comprare-mutuo-fondi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-affitti-svitto-diritto-locazione': {
+    title: 'Affitti nel Cantone di Svitto: diritto federale e regole chiave',
+    description: 'Deposito max 3 mensilità, disdetta con modulo ufficiale e 30 giorni per contestare il canone nel Cantone di Svitto. Ecco come funziona. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, cantone, svitto, diritto',
+    ogTitle: 'Affitti a Svitto: diritto federale e regole pratiche',
+    ogDescription: 'Nel Cantone di Svitto vale il diritto federale di locazione: deposito fino a 3 mensilità, disdetta con modulo ufficiale cantonale e 30 giorni per contestare il canone iniziale presso l\'autorità di conciliazione. Ecco come funziona la procedura.',
+    canonicalPath: '/articoli-svizzera/affitti-svitto-diritto-locazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti nel Cantone di Svitto: diritto federale e regole chiave",
+      "description": "Deposito max 3 mensilità, disdetta con modulo ufficiale e 30 giorni per contestare il canone nel Cantone di Svitto. Ecco come funziona. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitti-svitto-diritto-locazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Case residenziali nel Cantone di Svitto con vista sulle prealpi svizzere"
+      },
+      "datePublished": "2026-08-29T22:31:21+00:00",
+      "dateModified": "2026-08-29T22:31:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affitti-svitto-diritto-locazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-aprire-attivita-svitto-costi-registro': {
+    title: 'Aprire un\'attività nel Canton Svitto: guida a registro e costi',
+    description: 'Guida all\'avvio di un\'attività nel Canton Svitto: forme giuridiche, iscrizione al registro di commercio, imposte su tre livelli e obblighi assicurativi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, canton, svitto',
+    ogTitle: 'Aprire un\'attività nel Canton Svitto: guida pratica',
+    ogDescription: 'Dal registro di commercio alle imposte cantonali e comunali, dagli obblighi AVS alla LAMal: tutti i passaggi chiave per avviare un\'attività autonoma o societaria nel Canton Svitto, con i riferimenti alle autorità competenti.',
+    canonicalPath: '/articoli-svizzera/aprire-attivita-svitto-costi-registro/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire un'attività nel Canton Svitto: guida a registro e costi",
+      "description": "Guida all'avvio di un'attività nel Canton Svitto: forme giuridiche, iscrizione al registro di commercio, imposte su tre livelli e obblighi assicurativi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aprire-attivita-svitto-costi-registro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea del villaggio di Svitto con il paesaggio alpino dei Mythen sullo sfondo"
+      },
+      "datePublished": "2026-08-29T23:01:22+00:00",
+      "dateModified": "2026-08-29T23:01:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aprire-attivita-svitto-costi-registro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-svitto-ditta-registro-commercio-capitale': {
+    title: 'Aprire un\'attività a Svitto: registro e costi | Frontaliere Ticino',
+    description: 'Guida completa per aprire un\'attività nel Cantone di Svitto: iscrizione al registro commercio, scelta forma giuridica, capitali minimi e obblighi assicurativi',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, svitto, registro',
+    ogTitle: 'Aprire un\'attività a Svitto: registro e costi',
+    ogDescription: 'Procedura completa per avviare un\'attività nel Cantone di Svitto: iscrizione al registro, scelta della forma giuridica, capitali minimi, tasse e obblighi legali secondo la legge svizzera.',
+    canonicalPath: '/articoli-svizzera/svitto-ditta-registro-commercio-capitale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire un'attività a Svitto: registro e costi",
+      "description": "Guida completa per aprire un'attività nel Cantone di Svitto: iscrizione al registro commercio, scelta forma giuridica, capitali minimi e obblighi assicurativi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svitto-ditta-registro-commercio-capitale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scrivania con documenti di registrazione commerciale, calcolatrice e computer, simbolo dell'avvio di attività"
+      },
+      "datePublished": "2026-08-30T00:27:53+00:00",
+      "dateModified": "2026-08-30T00:27:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svitto-ditta-registro-commercio-capitale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-aprire-ditta-svitto-costi-e-adempimenti': {
+    title: 'Aprire un\'attività nel Cantone di Svitto: guida pratica',
+    description: 'Cantone di Svitto: procedura per aprire un\'attività, capitale minimo Sagl/SA, iscrizione al registro di commercio, obblighi IVA, AVS, AD, LPP e LAMal.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, cantone, svitto',
+    ogTitle: 'Aprire un\'attività nel Cantone di Svitto: guida',
+    ogDescription: 'Tutti i passaggi per avviare un\'attività nel Cantone di Svitto: forma giuridica, capitale minimo, registro di commercio, iscrizioni IVA, AVS/AD e LAMal. Costi e adempimenti spiegati passo per passo.',
+    canonicalPath: '/articoli-svizzera/aprire-ditta-svitto-costi-e-adempimenti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire un'attività nel Cantone di Svitto: guida pratica",
+      "description": "Cantone di Svitto: procedura per aprire un'attività, capitale minimo Sagl/SA, iscrizione al registro di commercio, obblighi IVA, AVS, AD, LPP e LAMal.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aprire-ditta-svitto-costi-e-adempimenti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Negozio in un Comune del Cantone di Svitto con le Alpi sullo sfondo"
+      },
+      "datePublished": "2026-08-30T00:39:55+00:00",
+      "dateModified": "2026-08-30T00:39:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aprire-ditta-svitto-costi-e-adempimenti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-droni-esercito-battaglione-2028': {
+    title: 'Esercito, nasce il battaglione di droni: operativo dal 2028',
+    description: 'A Thun Pfister, Roos e Loher presentano il centro di competenza sui droni: battaglione operativo dal 2028 e scuola reclute dedicata. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, esercito, nasce, battaglione, droni',
+    ogTitle: 'Droni, esercito: battaglione operativo dal 2028',
+    ogDescription: 'Il ministro della difesa Martin Pfister, il capo dell\'esercito Benedikt Roos e il direttore di armasuisse Urs Loher hanno presentato a Thun il nuovo centro di competenza sui droni: dal 2028 operativo un battaglione per ricognizione e difesa',
+    canonicalPath: '/articoli-svizzera/droni-esercito-battaglione-2028/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Esercito, nasce il battaglione di droni: operativo dal 2028",
+      "description": "A Thun Pfister, Roos e Loher presentano il centro di competenza sui droni: battaglione operativo dal 2028 e scuola reclute dedicata. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/droni-esercito-battaglione-2028.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Piazza d'armi di Thun con un drone da ricognizione dell'esercito svizzero"
+      },
+      "datePublished": "2026-08-30T00:50:26+00:00",
+      "dateModified": "2026-08-30T00:50:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/droni-esercito-battaglione-2028/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-svitto-salari-formazione-settori': {
+    title: 'Salari e mercato del lavoro Canton Svitto: settori e livelli',
+    description: 'Scopri come funziona il mercato del lavoro nel Canton Svitto: livelli salariali per formazione, contributi obbligatori, contratti collettivi e diritti minimi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, mercato, lavoro, canton',
+    ogTitle: 'Salari e mercato del lavoro Canton Svitto: settori e livelli',
+    ogDescription: 'Nel Canton Svitto i salari dipendono da formazione, esperienza e contratti collettivi. Scopri la struttura salariale svizzera, i contributi obbligatori (AVS, LPP, LAMal), gli orari di lavoro e come calcolare il netto dal lordo.',
+    canonicalPath: '/articoli-svizzera/svitto-salari-formazione-settori/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari e mercato del lavoro Canton Svitto: settori e livelli",
+      "description": "Scopri come funziona il mercato del lavoro nel Canton Svitto: livelli salariali per formazione, contributi obbligatori, contratti collettivi e diritti minimi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svitto-salari-formazione-settori.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ambiente di lavoro moderno svizzero con professionisti che collaborano in ufficio con vista sulle Alpi."
+      },
+      "datePublished": "2026-08-30T01:06:57+00:00",
+      "dateModified": "2026-08-30T01:06:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svitto-salari-formazione-settori/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-patente-guida-svitto-conversione-ed-esami': {
+    title: 'Patente di guida nel Canton Svitto: procedura ed esami',
+    description: 'Procedura per ottenere o convertire la patente nel Canton Svitto: documenti, esami teorico e pratico, Nothelferkurs e riferimenti normativi federali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, patente, canton, svitto, procedura',
+    ogTitle: 'Patente di guida Canton Svitto: procedura e esami',
+    ogDescription: 'Come ottenere o convertire la patente nel Canton Svitto: iscrizione, documenti richiesti, esami teorico e pratico e corsi obbligatori secondo la normativa federale sulla circolazione stradale.',
+    canonicalPath: '/articoli-svizzera/patente-guida-svitto-conversione-ed-esami/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Patente di guida nel Canton Svitto: procedura ed esami",
+      "description": "Procedura per ottenere o convertire la patente nel Canton Svitto: documenti, esami teorico e pratico, Nothelferkurs e riferimenti normativi federali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/patente-guida-svitto-conversione-ed-esami.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Patente di guida e documenti per la circolazione in Svizzera"
+      },
+      "datePublished": "2026-08-30T01:23:24+00:00",
+      "dateModified": "2026-08-30T01:23:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/patente-guida-svitto-conversione-ed-esami/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-permesso-l-canton-san-gallo-validita-proroga': {
+    title: 'Permesso L nel Canton San Gallo: validità 12 mesi e regole di proroga',
+    description: 'Permesso L nel Canton San Gallo: durata massima 12 mesi, legame col datore di lavoro, proroga solo in casi eccezionali e passaggio al permesso B.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, canton, gallo, validità',
+    ogTitle: 'Permesso L Canton San Gallo: durata e proroga',
+    ogDescription: 'Il permesso L di breve durata nel Canton San Gallo ha validità massima di 12 mesi ed è legato al datore di lavoro. La proroga è ammessa solo in casi eccezionali previsti dalla legge federale. Scopri procedura, documenti e passaggio al permesso B.',
+    canonicalPath: '/articoli-svizzera/permesso-l-canton-san-gallo-validita-proroga/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso L nel Canton San Gallo: validità 12 mesi e regole di proroga",
+      "description": "Permesso L nel Canton San Gallo: durata massima 12 mesi, legame col datore di lavoro, proroga solo in casi eccezionali e passaggio al permesso B.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-l-canton-san-gallo-validita-proroga.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio cantonale per la migrazione nel Canton San Gallo, ingresso con lavoratore straniero"
+      },
+      "datePublished": "2026-08-30T01:38:51+00:00",
+      "dateModified": "2026-08-30T01:38:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-l-canton-san-gallo-validita-proroga/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-permesso-dimora-b-obvaldo-rinnovo': {
+    title: 'Permesso di dimora B in Obvaldo: requisiti e rinnovo',
+    description: 'Il permesso B consente di vivere e lavorare in Svizzera in modo rinnovabile. Scopri i requisiti, i documenti, la procedura di rinnovo nel Cantone Obvaldo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, dimora, obvaldo, requisiti',
+    ogTitle: 'Permesso di dimora B in Obvaldo: requisiti e rinnovo',
+    ogDescription: 'Guida completa al permesso di dimora B svizzero: come richiederlo, quali documenti servono, come rinnovarlo nel Cantone Obvaldo. Procedure step-by-step e contatti ufficio cantonale della migrazione.',
+    canonicalPath: '/articoli-svizzera/permesso-dimora-b-obvaldo-rinnovo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso di dimora B in Obvaldo: requisiti e rinnovo",
+      "description": "Il permesso B consente di vivere e lavorare in Svizzera in modo rinnovabile. Scopri i requisiti, i documenti, la procedura di rinnovo nel Cantone Obvaldo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-dimora-b-obvaldo-rinnovo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio della migrazione cantonale svizzero con paesaggio alpino sullo sfondo."
+      },
+      "datePublished": "2026-08-30T01:58:39+00:00",
+      "dateModified": "2026-08-30T01:58:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-dimora-b-obvaldo-rinnovo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-borse-studio-canton-obvaldo-requisiti': {
+    title: 'Borse di studio nel Canton Obvaldo: requisiti e importi',
+    description: 'Borse di studio e prestiti nel Canton Obvaldo: chi può richiederli, come si calcola il fabbisogno e la procedura per presentare domanda. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, borse, studio, canton, obvaldo',
+    ogTitle: 'Borse di studio Canton Obvaldo: requisiti e importi',
+    ogDescription: 'Tutto sulle borse di studio e i prestiti agli studi nel Canton Obvaldo: requisiti di residenza, calcolo del fabbisogno, documenti necessari e procedura passo per passo per presentare la domanda.',
+    canonicalPath: '/articoli-svizzera/borse-studio-canton-obvaldo-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Borse di studio nel Canton Obvaldo: requisiti e importi",
+      "description": "Borse di studio e prestiti nel Canton Obvaldo: chi può richiederli, come si calcola il fabbisogno e la procedura per presentare domanda. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/borse-studio-canton-obvaldo-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studente svizzero consulta documenti per borsa di studio nel Canton Obvaldo"
+      },
+      "datePublished": "2026-08-30T02:25:38+00:00",
+      "dateModified": "2026-08-30T02:25:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/borse-studio-canton-obvaldo-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-assegni-familiari-san-gallo-domanda': {
+    title: 'Assegni familiari San Gallo: importi e domanda',
+    description: 'Assegni familiari nel Cantone di San Gallo: chi ha diritto, importi previsti dalla legge cantonale, casse competenti e procedura per la domanda. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, assegni, familiari, gallo, importi',
+    ogTitle: 'Assegni familiari San Gallo: importi e domanda',
+    ogDescription: 'Tutto sul regime degli assegni familiari nel Cantone di San Gallo: chi ne ha diritto, come funzionano le casse di compensazione familiari e quali documenti servono per presentare la domanda, con riferimento alla LAFam federale.',
+    canonicalPath: '/articoli-svizzera/assegni-familiari-san-gallo-domanda/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assegni familiari San Gallo: importi e domanda",
+      "description": "Assegni familiari nel Cantone di San Gallo: chi ha diritto, importi previsti dalla legge cantonale, casse competenti e procedura per la domanda. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assegni-familiari-san-gallo-domanda.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti e busta paga svizzera per la richiesta degli assegni familiari nel Cantone di San Gallo"
+      },
+      "datePublished": "2026-08-30T03:10:14+00:00",
+      "dateModified": "2026-08-30T03:10:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assegni-familiari-san-gallo-domanda/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-apprendistato-formazione-professionale-san-gallo': {
+    title: 'Apprendistato e formazione professionale San Gallo',
+    description: 'Guida pratica all\'apprendistato nel Canton San Gallo: contratto di tirocinio, retribuzione, ferie, diritti e procedura per trovare un posto secondo le norme',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, formazione, professionale, gallo',
+    ogTitle: 'Apprendistato e formazione professionale San Gallo',
+    ogDescription: 'Guida pratica all\'apprendistato nel Canton San Gallo: contratto di tirocinio, retribuzione, ferie, diritti e procedura per trovare un posto secondo le norme federali svizzere.',
+    canonicalPath: '/articoli-svizzera/apprendistato-formazione-professionale-san-gallo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato e formazione professionale San Gallo",
+      "description": "Guida pratica all'apprendistato nel Canton San Gallo: contratto di tirocinio, retribuzione, ferie, diritti e procedura per trovare un posto secondo le norme",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apprendistato-formazione-professionale-san-gallo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano che rappresenta l'ambiente svizzero della formazione professionale"
+      },
+      "datePublished": "2026-08-30T03:28:09+00:00",
+      "dateModified": "2026-08-30T03:28:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendistato-formazione-professionale-san-gallo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-borse-studio-san-gallo-requisiti-importi': {
+    title: 'Borse di studio San Gallo: requisiti e importi',
+    description: 'Borse di studio e prestiti agli studi nel Cantone di San Gallo: ufficio competente, requisiti di accesso, importi disponibili e come presentare domanda. Guida',
+    keywords: 'frontalieri, ticino, svizzera, italia, borse, studio, gallo, requisiti',
+    ogTitle: 'Borse di studio San Gallo: requisiti e importi',
+    ogDescription: 'Il Cantone di San Gallo prevede borse di studio e prestiti agli studi gestiti dall\'ufficio cantonale. La fonte analizza requisiti, importi, termini di presentazione e differenze tra borse e prestiti, rinviando al sito ufficiale del cantone per i dati',
+    canonicalPath: '/articoli-svizzera/borse-studio-san-gallo-requisiti-importi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Borse di studio San Gallo: requisiti e importi",
+      "description": "Borse di studio e prestiti agli studi nel Cantone di San Gallo: ufficio competente, requisiti di accesso, importi disponibili e come presentare domanda. Guida",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/borse-studio-san-gallo-requisiti-importi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Campus dell'Università di San Gallo con studenti"
+      },
+      "datePublished": "2026-08-30T03:53:58+00:00",
+      "dateModified": "2026-08-30T03:53:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/borse-studio-san-gallo-requisiti-importi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-custodia-bambini-san-gallo-tariffe-sussidi': {
+    title: 'Custodia bambini in Svizzera: strutture, tariffe e sussidi',
+    description: 'Come funzionano asili, tariffe e sussidi per la custodia dei bambini. Modelli di finanziamento e deduzioni fiscali. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, custodia, bambini, strutture, tariffe',
+    ogTitle: 'Custodia bambini in Svizzera: strutture, tariffe',
+    ogDescription: 'Come funzionano asili, tariffe e sussidi per la custodia dei bambini. Modelli di finanziamento e deduzioni fiscali.',
+    canonicalPath: '/articoli-svizzera/custodia-bambini-san-gallo-tariffe-sussidi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Custodia bambini in Svizzera: strutture, tariffe e sussidi",
+      "description": "Come funzionano asili, tariffe e sussidi per la custodia dei bambini. Modelli di finanziamento e deduzioni fiscali. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/custodia-bambini-san-gallo-tariffe-sussidi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro diurno svizzero con area colorata per l'apprendimento e bambini che giocano in luce naturale."
+      },
+      "datePublished": "2026-08-30T04:22:39+00:00",
+      "dateModified": "2026-08-30T04:22:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/custodia-bambini-san-gallo-tariffe-sussidi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-asilo-nido-custodia-bambini-san-gallo': {
+    title: 'Asilo nido nel Canton San Gallo: costi e sussidi',
+    description: 'Custodia bambini nel Canton San Gallo: tariffe comunali, sussidi cantonali, asili nido, famiglie diurne e doposcuola. Guida operativa per le famiglie.',
+    keywords: 'frontalieri, ticino, svizzera, italia, asilo, nido, canton, gallo',
+    ogTitle: 'Asilo nido e custodia bambini nel Canton San Gallo: costi',
+    ogDescription: 'Nel Canton San Gallo le tariffe degli asili nido sono decise dai Comuni, mentre il Cantone eroga sussidi per ridurre i costi a carico delle famiglie. Ecco come funziona il sistema tra Kitas, famiglie diurne e doposcuola, e quali passi compiere',
+    canonicalPath: '/articoli-svizzera/asilo-nido-custodia-bambini-san-gallo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Asilo nido nel Canton San Gallo: costi e sussidi",
+      "description": "Custodia bambini nel Canton San Gallo: tariffe comunali, sussidi cantonali, asili nido, famiglie diurne e doposcuola. Guida operativa per le famiglie.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/asilo-nido-custodia-bambini-san-gallo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ingresso di un asilo nido in un Comune del Canton San Gallo con genitori e bambini"
+      },
+      "datePublished": "2026-08-30T04:49:56+00:00",
+      "dateModified": "2026-08-30T04:49:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/asilo-nido-custodia-bambini-san-gallo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-capo-esercito-lugano-minacce-2025': {
+    title: 'Capo dell’esercito a Lugano: cybersecurity e baltico',
+    description: 'Benedikt Roos a Lugano: attacchi cyber quotidiani, escalation nei Baltici entro fine decennio, priorità sicurezza come base per economia e coesione sociale',
+    keywords: 'frontalieri, ticino, svizzera, italia, capo, dell, esercito, lugano',
+    ogTitle: 'Roos a Lugano: cybersecurity e baltico',
+    ogDescription: 'Il capo dell’esercito Benedikt Roos ha parlato venerdì a Lugano davanti al mondo politico-economico ticinese: attacchi cyber quotidiani, escalation nei Baltici entro fine decennio, nuove rampe per droni ai confini finlandesi. Priorità sicurezza',
+    canonicalPath: '/articoli-svizzera/capo-esercito-lugano-minacce-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Capo dell’esercito a Lugano: cybersecurity e baltico",
+      "description": "Benedikt Roos a Lugano: attacchi cyber quotidiani, escalation nei Baltici entro fine decennio, priorità sicurezza come base per economia e coesione sociale",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/capo-esercito-lugano-minacce-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il capo dell'esercito svizzero Benedikt Roos in conferenza a Lugano"
+      },
+      "datePublished": "2026-08-30T05:10:30+00:00",
+      "dateModified": "2026-08-30T05:10:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/capo-esercito-lugano-minacce-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-asilo-nido-custodia-san-gallo-tariffe': {
+    title: 'Asilo nido a San Gallo: tariffe, sussidi e procedura',
+    description: 'Custodia bambini nel Cantone di San Gallo: asili nido, famiglie diurne e doposcuola. Tariffe legate al reddito e sussidi cantonali e comunali. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, asilo, nido, gallo, tariffe',
+    ogTitle: 'Asilo nido San Gallo: tariffe, sussidi e procedura',
+    ogDescription: 'Come funziona la custodia extrafamiliare dei bambini nel Cantone di San Gallo: asili nido, famiglie diurne e doposcuola, tariffe calcolate sul reddito e sussidi cantonali e comunali disponibili per le famiglie.',
+    canonicalPath: '/articoli-svizzera/asilo-nido-custodia-san-gallo-tariffe/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Asilo nido a San Gallo: tariffe, sussidi e procedura",
+      "description": "Custodia bambini nel Cantone di San Gallo: asili nido, famiglie diurne e doposcuola. Tariffe legate al reddito e sussidi cantonali e comunali. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/asilo-nido-custodia-san-gallo-tariffe.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ingresso di un asilo nido nel Cantone di San Gallo, Svizzera"
+      },
+      "datePublished": "2026-08-30T05:20:41+00:00",
+      "dateModified": "2026-08-30T05:20:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/asilo-nido-custodia-san-gallo-tariffe/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-casa-sangallo-mutuo-fondi-propri': {
+    title: 'Casa nel Canton San Gallo: prezzi, mutuo e spese',
+    description: 'Acquistare casa nel Canton San Gallo: fondi propri, mutuo ipotecario, imposta sui trapassi e spese notarili. Guida pratica e procedura passo dopo passo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, casa, canton, gallo, prezzi',
+    ogTitle: 'Casa nel Canton San Gallo: prezzi, mutuo e spese',
+    ogDescription: 'Acquistare una casa nel Canton San Gallo richiede pianificazione. Scopri come calcolare fondi propri, scegliere il mutuo ipotecario giusto, gestire imposta sui trapassi e spese notarili. Procedura passo dopo passo e checklist finale.',
+    canonicalPath: '/articoli-svizzera/casa-sangallo-mutuo-fondi-propri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Casa nel Canton San Gallo: prezzi, mutuo e spese",
+      "description": "Acquistare casa nel Canton San Gallo: fondi propri, mutuo ipotecario, imposta sui trapassi e spese notarili. Guida pratica e procedura passo dopo passo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/casa-sangallo-mutuo-fondi-propri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Moderno immobile residenziale nel Canton San Gallo con vista su montagne alpine, architettura svizzera contemporanea"
+      },
+      "datePublished": "2026-08-30T05:31:26+00:00",
+      "dateModified": "2026-08-30T05:31:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/casa-sangallo-mutuo-fondi-propri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-avs-prestazioni-complementari-obvaldo-cassa': {
+    title: 'AVS e prestazioni complementari nel Canton Obvaldo: come funziona la cassa',
+    description: 'Cassa AVS Obvaldo: contributi, calcolo rendita, riscatto lacune e prestazioni complementari per residenti e lavoratori in Canton Obvaldo. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, canton, obvaldo',
+    ogTitle: 'AVS e PC nel Canton Obvaldo: guida alla cassa cantonale',
+    ogDescription: 'Come funziona il primo pilastro nel Canton Obvaldo: cassa di compensazione, calcolo della rendita, riscatto delle lacune contributive e prestazioni complementari per il minimo vitale.',
+    canonicalPath: '/articoli-svizzera/avs-prestazioni-complementari-obvaldo-cassa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e prestazioni complementari nel Canton Obvaldo: come funziona la cassa",
+      "description": "Cassa AVS Obvaldo: contributi, calcolo rendita, riscatto lacune e prestazioni complementari per residenti e lavoratori in Canton Obvaldo. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-prestazioni-complementari-obvaldo-cassa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio amministrativo cantonale a Sarnen, Canton Obvaldo"
+      },
+      "datePublished": "2026-08-30T05:42:46+00:00",
+      "dateModified": "2026-08-30T05:42:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-prestazioni-complementari-obvaldo-cassa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-avs-prestazioni-complementari-obvaldo-guida': {
+    title: 'AVS e prestazioni complementari in Canton Obvaldo: la guida',
+    description: 'Come funziona l\'AVS primo pilastro e le prestazioni complementari nel Canton Obvaldo: ruolo della cassa di compensazione, calcolo rendita e lacune contributive.',
+    keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, canton, obvaldo',
+    ogTitle: 'AVS e prestazioni complementari nel Canton Obvaldo',
+    ogDescription: 'Primo pilastro AVS nel Canton Obvaldo: come la cassa di compensazione cantonale gestisce contributi, rendita e prestazioni complementari. Ruolo di UFAS, lacune contributive e procedura per il conto individuale.',
+    canonicalPath: '/articoli-svizzera/avs-prestazioni-complementari-obvaldo-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e prestazioni complementari in Canton Obvaldo: la guida",
+      "description": "Come funziona l'AVS primo pilastro e le prestazioni complementari nel Canton Obvaldo: ruolo della cassa di compensazione, calcolo rendita e lacune contributive.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-prestazioni-complementari-obvaldo-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio amministrativo del Canton Obvaldo dove ha sede la cassa di compensazione AVS"
+      },
+      "datePublished": "2026-08-30T05:56:32+00:00",
+      "dateModified": "2026-08-30T05:56:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-prestazioni-complementari-obvaldo-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-affitti-san-gallo-diritto-locazione': {
+    title: 'Affitti in Canton San Gallo: diritto di locazione e mercato',
+    description: 'Mercato degli affitti in Canton San Gallo: legge uniforme (CO art. 253), cauzione max 3 mensilità, contestazione entro 30 giorni. Guida operativa.',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, canton, gallo, diritto',
+    ogTitle: 'Affitti Canton San Gallo: diritto di locazione e canoni',
+    ogDescription: 'Quanto è regolato il mercato degli affitti a San Gallo? Il diritto federale (CO art. 253) vale in tutta la Svizzera: cauzione max 3 mensilità, contestazione del canone entro 30 giorni, procedura davanti all\'autorità di conciliazione cantonale. Ecco',
+    canonicalPath: '/articoli-svizzera/affitti-san-gallo-diritto-locazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti in Canton San Gallo: diritto di locazione e mercato",
+      "description": "Mercato degli affitti in Canton San Gallo: legge uniforme (CO art. 253), cauzione max 3 mensilità, contestazione entro 30 giorni. Guida operativa.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitti-san-gallo-diritto-locazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Quartiere residenziale tipico della città di San Gallo con edifici tradizionali"
+      },
+      "datePublished": "2026-08-30T06:09:04+00:00",
+      "dateModified": "2026-08-30T06:09:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affitti-san-gallo-diritto-locazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-avs-prestazioni-complementari-san-gallo-cassa': {
+    title: 'AVS e PC nel Canton San Gallo: la cassa di compensazione',
+    description: 'Cassa AVS di San Gallo e ufficio PC: come funziona il primo pilastro, contributi 10,6%, lacune contributive e domanda di prestazioni complementari.',
+    keywords: 'frontalieri, ticino, svizzera, italia, canton, gallo, cassa, compensazione',
+    ogTitle: 'AVS e PC nel Canton San Gallo: guida pratica',
+    ogDescription: 'Nel Canton San Gallo il primo pilastro si articola su due enti distinti: la Ausgleichskasse St. Gallen per AVS e la Kantonsstelle für Ergänzungsleistungen per le PC. Ecco come funzionano contributi, rendita, lacune contributive e domanda',
+    canonicalPath: '/articoli-svizzera/avs-prestazioni-complementari-san-gallo-cassa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e PC nel Canton San Gallo: la cassa di compensazione",
+      "description": "Cassa AVS di San Gallo e ufficio PC: come funziona il primo pilastro, contributi 10,6%, lacune contributive e domanda di prestazioni complementari.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-prestazioni-complementari-san-gallo-cassa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cassa di compensazione AVS e ufficio PC nel Canton San Gallo"
+      },
+      "datePublished": "2026-08-30T06:52:34+00:00",
+      "dateModified": "2026-08-30T06:52:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-prestazioni-complementari-san-gallo-cassa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-avs-prestazioni-complementari-san-gallo-guida': {
+    title: 'AVS e prestazioni complementari nel Canton San Gallo',
+    description: 'Primo pilastro nel Canton San Gallo: cassa di compensazione, calcolo rendita AVS, lacune contributive e prestazioni complementari a copertura del minimo vitale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, canton, gallo',
+    ogTitle: 'AVS e prestazioni complementari nel Canton San Gallo',
+    ogDescription: 'Guida completa al primo pilastro nel Canton San Gallo: cassa di compensazione, calcolo della rendita AVS, lacune contributive e prestazioni complementari per residenti e lavoratori.',
+    canonicalPath: '/articoli-svizzera/avs-prestazioni-complementari-san-gallo-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e prestazioni complementari nel Canton San Gallo",
+      "description": "Primo pilastro nel Canton San Gallo: cassa di compensazione, calcolo rendita AVS, lacune contributive e prestazioni complementari a copertura del minimo vitale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-prestazioni-complementari-san-gallo-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di una città svizzera con sede della cassa di compensazione cantonale"
+      },
+      "datePublished": "2026-08-30T07:41:15+00:00",
+      "dateModified": "2026-08-30T07:41:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-prestazioni-complementari-san-gallo-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-aprire-attivita-canton-obvaldo-registro': {
+    title: 'Aprire un\'attività in Obvaldo: registro di commercio e costi',
+    description: 'Guida pratica alla forma giuridica, iscrizione al registro di commercio, capitale minimo e oneri per avviare un\'impresa nel Cantone Obvaldo. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, obvaldo, registro',
+    ogTitle: 'Aprire un\'attività in Obvaldo: registro di commercio',
+    ogDescription: 'Guida pratica alla forma giuridica, iscrizione al registro di commercio, capitale minimo e oneri per avviare un\'impresa nel Cantone Obvaldo.',
+    canonicalPath: '/articoli-svizzera/aprire-attivita-canton-obvaldo-registro/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire un'attività in Obvaldo: registro di commercio e costi",
+      "description": "Guida pratica alla forma giuridica, iscrizione al registro di commercio, capitale minimo e oneri per avviare un'impresa nel Cantone Obvaldo. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aprire-attivita-canton-obvaldo-registro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Villaggio alpino nel Canton Obvaldo con lago e chalet tradizionali"
+      },
+      "datePublished": "2026-08-30T08:32:44+00:00",
+      "dateModified": "2026-08-30T08:32:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aprire-attivita-canton-obvaldo-registro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
