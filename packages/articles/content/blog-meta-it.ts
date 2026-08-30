@@ -10943,6 +10943,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-schignano-lavorare-ticino.title': 'Vivere a Schignano e lavorare in Ticino: guida pratica',
     'blog.article.vivere-schignano-lavorare-ticino.excerpt': 'Frontaliere da Schignano: normativa fiscale, AVS/LPP, permesso G. Cosa devi sapere su imposte, contributi e procedure amministrative.',
     'blog.article.vivere-schignano-lavorare-ticino.imageAlt': 'Panorama della zona di confine fra Schignano e il Ticino, con paesaggio alpino e territorio svizzero',
+    'blog.article.vivere-gurro-lavorare-ticino-frontaliere.title': 'Vivere a Gurro e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-gurro-lavorare-ticino-frontaliere.excerpt': 'Trasferirsi a Gurro e fare il pendolare verso il Canton Ticino: distanze, valichi, regime fiscale Permesso G, costi e scenari pratici.',
+    'blog.article.vivere-gurro-lavorare-ticino-frontaliere.imageAlt': 'Strada panoramica tra Gurro e la Val Cannobina verso il Ticino',
 };
 
 export default blogMetaIt;
