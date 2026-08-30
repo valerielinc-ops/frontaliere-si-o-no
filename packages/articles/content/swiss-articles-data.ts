@@ -13996,6 +13996,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'svitto-salari-formazione-settori',
+    category: 'pratico',
+    date: '2026-08-30T01:06:57.873Z',
+    image: '/images/blog/svitto-salari-formazione-settori.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -4666,6 +4666,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.droni-esercito-battaglione-2028.title': 'Armée, le bataillon de drones est né : opérationnel depuis 2028',
     'blog.article.droni-esercito-battaglione-2028.excerpt': 'Centre de compétences présenté à Thoune par Pfister, Roos et Loher : reconnaissance et défense, plus une école de recrues dédiée.',
     'blog.article.droni-esercito-battaglione-2028.imageAlt': 'Place d\'armes de Thoune avec un drone de reconnaissance de l\'armée suisse',
+    'blog.article.svitto-salari-formazione-settori.title': 'Salaires et marché du travail Canton de Schwyz : secteurs et niveaux',
+    'blog.article.svitto-salari-formazione-settori.excerpt': 'Le marché du travail dans le canton de Schwyz : structure des salaires par niveau de formation, conventions collectives, cotisations obligatoires et droits minimaux.',
+    'blog.article.svitto-salari-formazione-settori.imageAlt': 'Environnement de travail suisse moderne avec professionnels collaborant dans un bureau avec vue sur les Alpes.',
 };
 
 export default blogMetaChFr;

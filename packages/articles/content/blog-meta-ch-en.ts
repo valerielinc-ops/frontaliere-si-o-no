@@ -4666,6 +4666,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.droni-esercito-battaglione-2028.title': 'Army, the drone battalion is born: operational since 2028',
     'blog.article.droni-esercito-battaglione-2028.excerpt': 'Competence center presented to Thun by Pfister, Roos and Loher: reconnaissance and defense, plus a dedicated recruit school.',
     'blog.article.droni-esercito-battaglione-2028.imageAlt': 'Thun military parade ground with a Swiss army reconnaissance drone',
+    'blog.article.svitto-salari-formazione-settori.title': 'Wages and labour market Canton of Switzerland: sectors and levels',
+    'blog.article.svitto-salari-formazione-settori.excerpt': 'The labour market in the Canton of Schwyz: wage structure by degree of training, collective agreements, compulsory contributions and minimum rights.',
+    'blog.article.svitto-salari-formazione-settori.imageAlt': 'Modern Swiss workplace with professionals collaborating in an office setting with Swiss Alps views.',
 };
 
 export default blogMetaChEn;

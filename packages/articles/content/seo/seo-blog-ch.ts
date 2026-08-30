@@ -60548,6 +60548,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svitto-salari-formazione-settori': {
+    title: 'Salari e mercato del lavoro Canton Svitto: settori e livelli',
+    description: 'Scopri come funziona il mercato del lavoro nel Canton Svitto: livelli salariali per formazione, contributi obbligatori, contratti collettivi e diritti minimi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, mercato, lavoro, canton',
+    ogTitle: 'Salari e mercato del lavoro Canton Svitto: settori e livelli',
+    ogDescription: 'Nel Canton Svitto i salari dipendono da formazione, esperienza e contratti collettivi. Scopri la struttura salariale svizzera, i contributi obbligatori (AVS, LPP, LAMal), gli orari di lavoro e come calcolare il netto dal lordo.',
+    canonicalPath: '/articoli-svizzera/svitto-salari-formazione-settori/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari e mercato del lavoro Canton Svitto: settori e livelli",
+      "description": "Scopri come funziona il mercato del lavoro nel Canton Svitto: livelli salariali per formazione, contributi obbligatori, contratti collettivi e diritti minimi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svitto-salari-formazione-settori.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ambiente di lavoro moderno svizzero con professionisti che collaborano in ufficio con vista sulle Alpi."
+      },
+      "datePublished": "2026-08-30T01:06:57+00:00",
+      "dateModified": "2026-08-30T01:06:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svitto-salari-formazione-settori/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
