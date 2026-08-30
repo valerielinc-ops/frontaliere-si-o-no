@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Sun, 30 Aug 2026 06:52:34 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 30 Aug 2026 07:41:15 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -16,6 +16,80 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>AVS and complementary services in the Canton of St. Gallen</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/avs-and-complementary-services-in-the-canton-of-st-gallen/</link>
+      <description><![CDATA[How the first pillar works in the Canton of St. Gallen: compensation fund, pension calculation and PC to cover the living minimum.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- Canton of St. Gallen Compensation Fund manages AVS contributions and annuities
+- Supplementary benefits (PC) cover the minimum living allowance of those entitled
+- Contribution gaps can reduce the AVS income proportionally
+- LUFAS/BSV coordinates social security at the federal level
+
+## Key facts
+- **What**: Cantonal Clearing House of St. Gallen (Ausgleichskasse St. Gallen)
+- When: Not yet specified in source
+- Where: Canton of St. Gallen, Switzerland
+- Who: UFAS/BSV (Confederation) + cantonal clearing houses
+- Amount: Specific data on annuities and PC thresholds not reported in the source
+- Legal basis: AVS/AHV managed by the first pillar of Swiss social security
+- Tools: AVS annuity calculator on the official federal website
+- Reference: UST/BFS publishes statistics on pensions and PC beneficiaries
+
+Swiss social security is divided into three pillars: the first is the AVS/AHV, which is mandatory for anyone who carries out a gainful activity in Switzerland. In the Canton of St. Gallen, as in all the Cantons, the collection of contributions and the payment of AVS annuities are entrusted to the cantonal compensation fund, which operates under the supervision of the UFAS/BSV at the federal level. The compensation fund is the first point of contact for workers, employers and recipients of annuities.
+
+Registration with the compensation fund generally takes place through the employer, who pays the contributions
+## Key facts
+- **What**: Complementary services (PC) as a safety net of the first pillar
+- When: Entitlement assessed year by year based on income and substance
+- Where: Canton of St. Gallen, cantonal PC office
+- Who: Confederation (UFAS/BSV) + Canton for financing
+- Amount: Specific amounts and substance thresholds not reported in the source
+- Procedure: Request at the PC office of the Canton of St. Gallen
+
+When the AVS annuity, possibly added to other benefits of the first and second pillar, is not sufficient to cover the minimum living allowance recognized by law, the supplementary benefits (PC) intervene. It is a benefit subject to conditions of income and substance, financed in part by the Confederation and in part by the Cantons. The UFAS/BSV defines the regulatory framework, while the operational management is entrusted to the cantonal offices of the PCs — also in the Canton of St. Gallen.
+
+### Who is entitled to PCs and how they are calculated
+
+Persons who receive an AVS or AI annuity and whose determining income, net of recognized expenses, does not exceed the recognized expenses for vital needs are potentially entitled to PCs. The expenses recognized include an amount for vital needs (distinguished by single, couple, family), actual rental expenses within a maximum, compulsory health insurance premiums (LAMal/KVG) up to an average cantonal amount, and additional items for particular situations such as
+
+## Useful planning tools
+To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
+## Key facts
+- **What**: Operational procedure for claiming AVS pensions and supplementary benefits
+- When: Applications at any time, with effect from the date of submission
+- Where: Compensation fund + PC office of the Canton of St. Gallen
+- Who: Insured person, employer, cantonal office
+- Documents: AVS account statement, salary certificates, asset documentation
+
+Obtaining the AVS pension and, if necessary, supplementary benefits is a path that may seem bureaucratic but follows clear steps. Here is how to proceed concretely in the Canton of St. Gallen.
+
+### Step 1: Verify your AVS account
+
+The first step is to request the individual AVS account statement, which lists all recorded earnings and credits for childcare or care tasks. The statement can be obtained online via the federal portal or at the cantonal compensation fund. Any missing income must be reported with supporting documentation (salary certificates, employer attestations).
+
+### Step 2: Apply for the AVS pension
+
+The AVS pension is not paid automatically: it must be formally requested from the compensation fund of the Canton of St. Gallen approximately three to six months before reaching reference age. The application can be submitted online or in paper form and requires personal and bank details as attachments.
+
+### Step 3: Consider redeeming contribution gaps
+
+If the account statement shows contribution gaps in the last five years, a redemption can be considered. However, the redemption is only partly tax-deductible and must be assessed case by case: for people with high incomes, it is often better to leave the gap and compensate through PC; for people with substantial assets, redemption may be more efficient.
+
+### Step 4: Apply for supplementary benefits
+
+If the AVS pension (plus LPP) does not cover the recognised vital needs, a PC application must be submitted to the competent office of the Canton of St. Gallen. Income, asset, rental expense, and LAMal premium documentation are required. The PC is recalculated annually based on the financial situation.
+
+### Step 5: Coordination with other instruments
+
+PC does not exclude other benefits: it cumulates with the reduction of LAMal premiums (cantonal subsidy) and can be supplemented by social assistance benefits for those who still do not reach the minimum subsistence level. It is advisable to also check any entitlement to family supplementary benefits and other cantonal reductions.
+
+To estimate the expected AVS pension amount, the [AVS pension calculator](nav:pension) is useful. To assess the tax impact of a possible redemption, the [salary calculator](nav:calculator) provides an initial indication of net income and applicable deductions in the Canton of St. Gallen.]]></content:encoded>
+      <pubDate>Sun, 30 Aug 2026 07:41:15 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/avs-prestazioni-complementari-san-gallo-guida</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/avs-prestazioni-complementari-san-gallo-guida.webp" medium="image"/>
+    </item>
     <item>
       <title>AVS and PC in the Canton of St. Gallen: the clearing house</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/avs-supplementary-benefits-st-gallen-fund/</link>
@@ -3069,70 +3143,6 @@ For those who want to simulate the impact of family allowances on the family bud
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/assegni-familiari-uri-importi-domanda</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/assegni-familiari-uri-importi-domanda.webp" medium="image"/>
-    </item>
-    <item>
-      <title>National exhibitions: yes to the message, no co-financing until 2040</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/national-exhibitions-message-2026/</link>
-      <description><![CDATA[The Federal Council approves on 26 August 2026 the message on the new law: maximum federal contribution at 30% and parliamentary decision no earlier than 2035.]]></description>
-      <content:encoded><![CDATA[## In a nutshell
-- Law on National Exhibitions: message approved on 26 August 2026
-- No federal co-financing before 2040, confirmed by the Federal Council
-- Maximum federal contribution: 30% of eligible costs
-- Parliament may decide whether and when to co-finance, but not before 2035
-
-## Key facts
-- **What**: Approval of the message on the new federal law on national exhibitions
-- When: 26 August 2026
-- Where: Bern
-- Who: Federal Council
-- Mandate: CSEC-S Motion 23.3966, approved by Parliament in March 2024
-- Time limit: Federal co-financing excluded before 2040
-- Maximum federal share: 30% of eligible costs
-- Opinions collected in consultation: 52
-
-### The decision of August 26, 2026
-The Federal Council approved on 26 August 2026 the message regarding the new Federal Law on the Promotion of National Exhibitions. The text of the law lays the foundations for possible financial support by the Confederation for future national exhibitions, thus fulfilling the mandate of a motion approved by Parliament.
-
-At the same time, the Executive confirmed its decision, taken in June 2025, not to co-finance such an exposure before 2040. The choice reflects the current spending priorities of the Confederation: in the coming years there are no resources to commit to a major event of this magnitude, even if the legal framework conditions are still defined.
-
-### The role of
-### What concretely changes for Cantons and Municipalities
-The new law redraws the perimeter of who can apply for federal funds for a national exposure and under what conditions. Before this message, the rules were not codified in a single text: each initiative was based on political decisions on a case-by-case basis. With the new federal law on the promotion of national exhibitions, the picture becomes explicit: no federal money without a concrete project, without a cantonal and municipal quota at least equivalent, and without a decision in principle of Parliament.
-
-For a Canton wishing to apply to host a national exhibition, the message clarifies three operational aspects. First, the project must be sufficiently mature before applying for federal co-financing. Second: Cantons and Municipalities must guarantee at least 30% of the eligible costs, equal to the maximum federal share, so in fact the required co-financing ratio is one to one. Third: the Confederation does not issue deficit guarantees, exposing the promoters to the risk of covering any budget holes.
-
-### The calendar that comes out of the message
-The roadmap set by the message is clear. The decision of parliamentary principle cannot be proposed before 2035. Federal co-financing, therefore, cannot materialize before 2040. For those who today think about the next national exhibition, it means taking into account a horizon
-
-## Recommended tools
-For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).
-### What happens now: the institutional roadmap
-After the approval of the dispatch of 26 August 2026, the text goes to the Federal Assembly. The relevant parliamentary committees will examine it, and then the plenary of each Chamber will vote on it. Only after the law's possible entry into force will the Federal Council be able to propose, not before 2035, a principle decision to Parliament on a single national exposition project.
-
-For the promoting bodies, the operational path is structured as follows:
-
-1. Define a concrete project with costs, timelines, and territorial impact.
-2. Ensure the formal involvement of the host Cantons and Municipalities, with a co-financing share at least equivalent to the federal contribution requested.
-3. Submit the application when the project is sufficiently mature, at a time when the political and economic framework makes a principle decision by Parliament plausible.
-4. Plan in the financial framework for the absence of a deficit guarantee from the Confederation: any shortfalls remain the responsibility of the promoting bodies, the Cantons, and the Municipalities.
-
-### What to watch in the coming months
-The first concrete milestone is the start of the parliamentary process. The Science, Education and Culture Committees (CSEC) and the Finance Committees will be called upon to examine the dispatch. The umbrella associations of the Municipalities and Cantons, which took part in the consultation, will follow the dossier to see whether the criticisms of the funding model will lead to amendments.
-
-Another aspect to monitor is Parliament's position on the 2035 date as the threshold for the principle decision. The constraint is currently in the Federal Council's dispatch: it is up to the Chambers to modify it, but the Executive has made clear that its intention is to hold firm on 2040 as the minimum horizon.
-
-### Useful tools on Frontaliere Ticino
-For those who want to closely follow the next steps of the dossier and understand how they intersect with federal taxation, it's useful to start with the Frontaliere Ticino salary calculator, which allows you to simulate the effect of salary deductions on paychecks in Switzerland. It is the most direct tool to orient yourself when it comes to public co-financing and new charges borne by the Confederation, the Cantons, or the Municipalities.
-
-Those thinking in terms of cost of living and personal financial planning can consult the section dedicated to the [cost of living in Switzerland](nav:cost-of-living), useful for understanding the real pressure on family budgets even when major infrastructure projects are postponed. For those who instead want to simulate the impact of a change in the perimeter of public spending on their paycheck, the [Frontaliere Ticino salary calculator](nav:calculator) is the starting point.
-
-Subscribing to the Frontaliere Ticino newsletter remains the quickest way to receive updates on the parliamentary process of the law and on federal decisions that directly affect those who live and work in Switzerland.
-
-*Source: [seco.admin.ch](https://www.seco.admin.ch/it/newnsb/m0QCD0qSTXT6A_ARjS6U0)*]]></content:encoded>
-      <pubDate>Fri, 28 Aug 2026 04:51:43 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/esposizioni-nazionali-messaggio-2026</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/esposizioni-nazionali-messaggio-2026.webp" medium="image"/>
     </item>
   </channel>
 </rss>

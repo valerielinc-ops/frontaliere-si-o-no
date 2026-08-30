@@ -4717,6 +4717,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-san-gallo-cassa.title': 'AHV und EL im Kanton St. Gallen: die Ausgleichskasse',
     'blog.article.avs-prestazioni-complementari-san-gallo-cassa.excerpt': 'AHV-Kasse und PC-Büro sind zwei getrennte Körperschaften: So funktioniert die erste Säule in St. Gallen und wann Sie Ergänzungsleistungen beantragen sollten.',
     'blog.article.avs-prestazioni-complementari-san-gallo-cassa.imageAlt': 'AHV-Ausgleichskasse und Ergänzungsleistungen-Stelle im Kanton St. Gallen',
+    'blog.article.avs-prestazioni-complementari-san-gallo-guida.title': 'AHV und Ergänzungsleistungen im Kanton St. Gallen',
+    'blog.article.avs-prestazioni-complementari-san-gallo-guida.excerpt': 'So funktioniert die erste Säule im Kanton St. Gallen: Ausgleichskasse, Rentenberechnung und PC zur Deckung des Existenzminimums.',
+    'blog.article.avs-prestazioni-complementari-san-gallo-guida.imageAlt': 'Schweizer Stadtbild mit kantonaler Ausgleichskasse',
 };
 
 export default blogMetaChDe;

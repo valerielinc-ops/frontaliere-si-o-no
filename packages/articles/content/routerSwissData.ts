@@ -1598,6 +1598,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'avs-prestazioni-complementari-obvaldo-guida': { it: 'avs-prestazioni-complementari-obvaldo-guida', en: 'avs-supplementary-benefits-obwalden-guide', de: 'ahs-ergaenzungsleistungen-obwalden-leitfaden', fr: 'avs-prestations-complementaires-obwald-guide' },
  'affitti-san-gallo-diritto-locazione': { it: 'affitti-san-gallo-diritto-locazione', en: 'rent-st-gallen-tenancy-law', de: 'mieten-st-gallen-mietrecht', fr: 'locations-saint-gall-droit-bail' },
  'avs-prestazioni-complementari-san-gallo-cassa': { it: 'avs-prestazioni-complementari-san-gallo-cassa', en: 'avs-supplementary-benefits-st-gallen-fund', de: 'ahv-ergaenzungsleistungen-st-gallen-kasse', fr: 'avs-prestations-complementaires-saint-gall-caisse' },
+ 'avs-prestazioni-complementari-san-gallo-guida': { it: 'avs-prestazioni-complementari-san-gallo-guida', en: 'avs-and-complementary-services-in-the-canton-of-st-gallen', de: 'ahv-und-erganzungsleistungen-im-kanton-st-gallen', fr: 'avs-et-prestations-complementaires-dans-le-canton-de-saint-gall' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
