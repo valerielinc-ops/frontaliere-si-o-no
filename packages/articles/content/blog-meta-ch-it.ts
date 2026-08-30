@@ -4771,6 +4771,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lamal-obbligatoria-scelta-cassa-zurigo.title': 'Guida LAMal 2026: obbligo, cassa e franchigia',
     'blog.article.lamal-obbligatoria-scelta-cassa-zurigo.excerpt': 'Assicurazione malattia obbligatoria per chi risiede in Svizzera: come iscriversi a LAMal, scegliere la cassa e capire franchigie nel 2026.',
     'blog.article.lamal-obbligatoria-scelta-cassa-zurigo.imageAlt': 'Consulto medico in uno studio svizzero, rappresentazione del sistema sanitario nazionale',
+    'blog.article.imposta-successione-san-gallo-aliquote.title': 'Imposta successione San Gallo: aliquote e esenzioni',
+    'blog.article.imposta-successione-san-gallo-aliquote.excerpt': 'Come funziona l\'imposta di successione e donazione nel Canton San Gallo: aliquote per grado di parentela, esenzioni per coniuge e discendenti, procedura di dichiarazione e termini di legge.',
+    'blog.article.imposta-successione-san-gallo-aliquote.imageAlt': 'Sede amministrativa fiscale del Canton San Gallo: imposta di successione e donazione',
 };
 
 export default blogMetaChIt;

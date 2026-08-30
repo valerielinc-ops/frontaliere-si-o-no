@@ -4771,6 +4771,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lamal-obbligatoria-scelta-cassa-zurigo.title': 'LAMal Guide 2026: obligation, cash and deductible',
     'blog.article.lamal-obbligatoria-scelta-cassa-zurigo.excerpt': 'Compulsory health insurance for those residing in Switzerland: how to enroll in LAMal, choose the cashier and understand deductibles in 2026.',
     'blog.article.lamal-obbligatoria-scelta-cassa-zurigo.imageAlt': 'Medical consultation in a Swiss healthcare office, representation of national healthcare system',
+    'blog.article.imposta-successione-san-gallo-aliquote.title': 'St Gallen Inheritance Tax: Rates and Exemptions',
+    'blog.article.imposta-successione-san-gallo-aliquote.excerpt': 'How inheritance and gift tax works in the Canton of St. Gallen: rates for degree of kinship, exemptions for spouse and descendants, declaration procedure and legal terms.',
+    'blog.article.imposta-successione-san-gallo-aliquote.imageAlt': 'Tax administration building in St. Gallen Canton, Switzerland',
 };
 
 export default blogMetaChEn;

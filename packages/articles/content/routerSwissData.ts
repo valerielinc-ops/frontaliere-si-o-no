@@ -1616,6 +1616,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'neutralita-voto-27-settembre-amato': { it: 'neutralita-voto-27-settembre-amato', en: 'swiss-neutrality-vote-september-amato', de: 'schweiz-neutralitaet-abstimmung-september-amato', fr: 'suisse-neutralite-vote-septembre-amato' },
  'lamal-zurigo-come-scegliere': { it: 'lamal-zurigo-come-scegliere', en: 'lamal-2026-how-to-choose-switzerland', de: 'kvg-2026-krankenkasse-waehlen-schweiz', fr: 'lamal-2026-comment-choisir-suisse' },
  'lamal-obbligatoria-scelta-cassa-zurigo': { it: 'lamal-obbligatoria-scelta-cassa-zurigo', en: 'mandatory-lamal-choosing-health-insurance-zurich', de: 'krankenversicherung-kassenwahl-zuerich', fr: 'assurance-maladie-obligatoire-choix-caisse-zurich' },
+ 'imposta-successione-san-gallo-aliquote': { it: 'imposta-successione-san-gallo-aliquote', en: 'succession-tax-saint-gall-rates-exemptions', de: 'erbschaftsteuer-st-gallen-saetze-befreiungen', fr: 'impot-succession-saint-gall-tarifs-exemptions' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
