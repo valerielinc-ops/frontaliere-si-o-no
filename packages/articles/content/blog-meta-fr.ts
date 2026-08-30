@@ -10973,6 +10973,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.settori-crescita-lavoro-ticino-2026.title': 'Secteurs en croissance sur le marché du travail tessinois en 2026',
     'blog.article.settori-crescita-lavoro-ticino-2026.excerpt': 'Santé, TIC, construction et formation parmi les secteurs où la demande de personnel est la plus élevée : ce qui change pour les frontaliers.',
     'blog.article.settori-crescita-lavoro-ticino-2026.imageAlt': 'Vue aérienne de Lugano avec immeubles de bureaux et lac, symbole du marché du travail tessinois',
+    'blog.article.busta-paga-frontalieri-2026-oltre-20km.title': 'Bulletin de paie frontaliers 2026 sur 20 km : guide complet',
+    'blog.article.busta-paga-frontalieri-2026-oltre-20km.excerpt': 'Bulletin de paie suisse 2026 pour les frontaliers de plus de 20 km : retenues, cotisations et solde réel après le Nouvel Accord en vigueur depuis le 1er janvier 2024.',
+    'blog.article.busta-paga-frontalieri-2026-oltre-20km.imageAlt': 'Fiche de paie suisse 2026 avec vue sur le lac de Lugano',
 };
 
 export default blogMetaFr;

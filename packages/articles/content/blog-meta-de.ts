@@ -10970,6 +10970,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.settori-crescita-lavoro-ticino-2026.title': 'Wachsende Branchen auf dem Tessiner Arbeitsmarkt im Jahr 2026',
     'blog.article.settori-crescita-lavoro-ticino-2026.excerpt': 'Gesundheit, IKT, Bauwesen und Ausbildung gehören zu den Bereichen mit der höchsten Personalnachfrage: Was ändert sich für Grenzgänger?',
     'blog.article.settori-crescita-lavoro-ticino-2026.imageAlt': 'Luftaufnahme von Lugano mit Bürogebäuden und See, Symbol für den Tessiner Arbeitsmarkt',
+    'blog.article.busta-paga-frontalieri-2026-oltre-20km.title': 'Lohnabrechnung Grenzgänger 2026 über 20 km: Komplette Anleitung',
+    'blog.article.busta-paga-frontalieri-2026-oltre-20km.excerpt': 'Schweizer Lohnabrechnung 2026 für Grenzgänger über 20 km: Einbehalte, Beiträge und Realnetto nach dem am 1. Januar 2024 in Kraft getretenen Neuen Abkommen.',
+    'blog.article.busta-paga-frontalieri-2026-oltre-20km.imageAlt': 'Schweizer Lohnabrechnung 2026 mit Blick auf den Luganersee',
 };
 
 export default blogMetaDe;

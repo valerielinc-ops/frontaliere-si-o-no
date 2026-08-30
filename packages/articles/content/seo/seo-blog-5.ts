@@ -80801,6 +80801,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-busta-paga-frontalieri-2026-oltre-20km': {
+    title: 'Busta paga frontalieri 2026 oltre 20 km: guida completa',
+    description: 'Busta paga svizzera 2026 per frontalieri oltre 20 km: trattenute, contributi AVS/AD/LPP e netto reale dopo il Nuovo Accordo in vigore dal 2024. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, busta, paga, oltre, completa',
+    ogTitle: 'Busta paga frontalieri 2026 oltre 20 km',
+    ogDescription: 'Tutto sulla busta paga 2026 del frontaliere oltre i 20 km: imposta alla fonte, contributi AVS/AD/LPP, franchigia e credito d\'imposta in Italia dopo il Nuovo Accordo in vigore dal 1° gennaio 2024.',
+    canonicalPath: '/articoli-frontaliere/busta-paga-frontalieri-2026-oltre-20km',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Busta paga frontalieri 2026 oltre 20 km: guida completa",
+      "description": "Busta paga svizzera 2026 per frontalieri oltre 20 km: trattenute, contributi AVS/AD/LPP e netto reale dopo il Nuovo Accordo in vigore dal 2024. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/busta-paga-frontalieri-2026-oltre-20km.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Busta paga svizzera 2026 con vista sul Lago di Lugano"
+      },
+      "datePublished": "2026-08-30T19:19:14+00:00",
+      "dateModified": "2026-08-30T19:19:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/busta-paga-frontalieri-2026-oltre-20km/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -10971,6 +10971,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.settori-crescita-lavoro-ticino-2026.title': 'Sectors growing in the Ticino labour market in 2026',
     'blog.article.settori-crescita-lavoro-ticino-2026.excerpt': 'Health, ICT, construction and training among the sectors with the highest demand for personnel: what changes for border workers.',
     'blog.article.settori-crescita-lavoro-ticino-2026.imageAlt': 'Aerial view of Lugano with office buildings and lake, symbol of the Ticino job market',
+    'blog.article.busta-paga-frontalieri-2026-oltre-20km.title': 'Border payroll 2026 over 20 km: complete guide',
+    'blog.article.busta-paga-frontalieri-2026-oltre-20km.excerpt': 'Swiss paycheck 2026 for border workers over 20 km: withholdings, contributions and real net after the New Agreement in force from 1 January 2024.',
+    'blog.article.busta-paga-frontalieri-2026-oltre-20km.imageAlt': 'Swiss payslip 2026 with view of Lake Lugano',
 };
 
 export default blogMetaEn;
