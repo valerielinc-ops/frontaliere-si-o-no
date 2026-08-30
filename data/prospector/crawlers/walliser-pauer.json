@@ -1,0 +1,21 @@
+{
+  "companyKey": "walliser-pauer",
+  "companyName": "walliser-pauer",
+  "companyHost": "walliser-pauer.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.walliser-pauer.ch/jobs"
+  ],
+  "detailTemplate": "/offene-jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "JETZT BEWERBEN",
+    "JETZT BEWERBEN",
+    "JETZT BEWERBEN"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-30T09:50:16.577Z"
+}
