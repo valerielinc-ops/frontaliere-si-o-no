@@ -4690,6 +4690,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.borse-studio-san-gallo-requisiti-importi.title': 'Bourses Saint-Gall : exigences et montants',
     'blog.article.borse-studio-san-gallo-requisiti-importi.excerpt': 'Le canton de Saint-Gall accorde des bourses et des prêts d\'études par l\'intermédiaire du bureau cantonal compétent. Voici ce que la source dit sur les exigences, les montants et les termes.',
     'blog.article.borse-studio-san-gallo-requisiti-importi.imageAlt': 'Campus de l\'Université de Saint-Gall avec étudiants',
+    'blog.article.custodia-bambini-san-gallo-tariffe-sussidi.title': 'Garde d\'enfants en Suisse : structures, tarifs et subventions',
+    'blog.article.custodia-bambini-san-gallo-tariffe-sussidi.excerpt': 'Comment fonctionnent les crèches, les tarifs et les subventions pour la garde des enfants. Modèles de financement et déductions fiscales.',
+    'blog.article.custodia-bambini-san-gallo-tariffe-sussidi.imageAlt': 'Centre de garde d\'enfants suisse avec espace d\'apprentissage coloré et enfants qui jouent à la lumière naturelle.',
 };
 
 export default blogMetaChFr;
