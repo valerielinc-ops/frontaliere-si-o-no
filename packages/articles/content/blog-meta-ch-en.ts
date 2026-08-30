@@ -4795,6 +4795,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.premi-cassa-malati-grigioni.title': 'LAMal Canton Grisons Awards: deductibles and reduction',
     'blog.article.premi-cassa-malati-grigioni.excerpt': 'Guide to health insurance premiums in the Canton of Graubünden: deductibles from CHF 300 to 2500, alternative models, reduction subsidies and application procedure.',
     'blog.article.premi-cassa-malati-grigioni.imageAlt': 'Grisons Alpine valley with mountain village and healthcare facility',
+    'blog.article.naturalizzazione-canton-zugo-requisiti-procedura.title': 'Naturalization Canton Zug: requirements and complete procedure',
+    'blog.article.naturalizzazione-canton-zugo-requisiti-procedura.excerpt': 'Permit C, 10 years of residence (ages 8-18 count double) and ITER at three levels: municipal, cantonal and federal. Here\'s how it works in Zug.',
+    'blog.article.naturalizzazione-canton-zugo-requisiti-procedura.imageAlt': 'Canton Zugo town hall with lake and mountains',
 };
 
 export default blogMetaChEn;

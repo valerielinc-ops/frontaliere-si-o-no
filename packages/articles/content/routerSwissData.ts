@@ -1624,6 +1624,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'lam-grigioni-premi-riduzione': { it: 'lam-grigioni-premi-riduzione', en: 'lamal-grisons-premiums-reduction', de: 'lamal-graubuenden-praemien-reduktion', fr: 'lamal-grisons-primes-reduction' },
  'comprare-casa-zugo-guida': { it: 'comprare-casa-zugo-guida', en: 'buying-property-zugo-guide', de: 'haus-kaufen-zug-leitfaden', fr: 'acheter-maison-zoug-guide' },
  'premi-cassa-malati-grigioni': { it: 'premi-cassa-malati-grigioni', en: 'health-insurance-premiums-grisons', de: 'krankenkasse-praemien-graubuenden', fr: 'primes-assurance-maladie-grisons' },
+ 'naturalizzazione-canton-zugo-requisiti-procedura': { it: 'naturalizzazione-canton-zugo-requisiti-procedura', en: 'naturalization-canton-zug-requirements-procedure', de: 'einbuergerung-kanton-zug-voraussetzungen-verfahren', fr: 'naturalisation-canton-zoug-exigences-procedure' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -14383,6 +14383,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'naturalizzazione-canton-zugo-requisiti-procedura',
+    category: 'pratico',
+    date: '2026-08-30T20:48:49.398Z',
+    image: '/images/blog/naturalizzazione-canton-zugo-requisiti-procedura.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
