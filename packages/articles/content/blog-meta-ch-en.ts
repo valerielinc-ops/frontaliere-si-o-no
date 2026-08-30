@@ -4735,6 +4735,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-attivita-san-gallo-procedura-costi.title': 'Open a business in St. Gallen: procedure and costs',
     'blog.article.aprire-attivita-san-gallo-procedura-costi.excerpt': 'Legal forms, minimum capital, registration in the commercial register and insurance obligations in the Canton of St. Gallen.',
     'blog.article.aprire-attivita-san-gallo-procedura-costi.imageAlt': 'View of St. Gallen old town with Abbey library',
+    'blog.article.salari-mercato-lavoro-san-gallo.title': 'Wages and the labour market in the Canton of St Gallen',
+    'blog.article.salari-mercato-lavoro-san-gallo.excerpt': 'St. Gallen: Diversified economy between industry, services and trade, no federal minimum wage and wages related to training, experience and responsibility.',
+    'blog.article.salari-mercato-lavoro-san-gallo.imageAlt': 'Modern offices in St. Gallen canton with mountains in the background',
 };
 
 export default blogMetaChEn;

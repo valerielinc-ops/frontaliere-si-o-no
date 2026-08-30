@@ -4735,6 +4735,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-attivita-san-gallo-procedura-costi.title': 'Ouvrir une entreprise à Saint-Gall : guide pratique',
     'blog.article.aprire-attivita-san-gallo-procedura-costi.excerpt': 'Formes juridiques, capital minimum, inscription au registre du commerce et obligations d\'assurance dans le canton de Saint-Gall.',
     'blog.article.aprire-attivita-san-gallo-procedura-costi.imageAlt': 'Vue de la vieille ville de Saint-Gall avec la bibliothèque abbatiale',
+    'blog.article.salari-mercato-lavoro-san-gallo.title': 'Salaires et marché du travail dans le canton de Saint-Gall',
+    'blog.article.salari-mercato-lavoro-san-gallo.excerpt': 'Saint-Gall : économie diversifiée entre industrie, services et commerce, pas de salaire minimum fédéral et salaires liés à la formation, à l\'expérience et aux responsabilités.',
+    'blog.article.salari-mercato-lavoro-san-gallo.imageAlt': 'Bureaux modernes dans le canton de Saint-Gall avec montagnes en arrière-plan',
 };
 
 export default blogMetaChFr;

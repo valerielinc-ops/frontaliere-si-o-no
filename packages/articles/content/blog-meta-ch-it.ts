@@ -4735,6 +4735,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-attivita-san-gallo-procedura-costi.title': 'Aprire un\'attività nel Cantone di San Gallo: procedura, registro e costi',
     'blog.article.aprire-attivita-san-gallo-procedura-costi.excerpt': 'Forme giuridiche, capitale minimo, iscrizione al registro di commercio e obblighi assicurativi nel Cantone di San Gallo.',
     'blog.article.aprire-attivita-san-gallo-procedura-costi.imageAlt': 'Veduta del centro storico di San Gallo con la biblioteca dell\'abbazia',
+    'blog.article.salari-mercato-lavoro-san-gallo.title': 'Salari e mercato del lavoro nel Cantone di San Gallo',
+    'blog.article.salari-mercato-lavoro-san-gallo.excerpt': 'San Gallo: economia diversificata tra industria, servizi e commercio, nessun salario minimo federale e salari legati a formazione, esperienza e responsabilità.',
+    'blog.article.salari-mercato-lavoro-san-gallo.imageAlt': 'Veduta di moderni uffici nel Cantone di San Gallo con montagne sullo sfondo',
 };
 
 export default blogMetaChIt;
