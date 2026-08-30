@@ -4714,6 +4714,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-san-gallo-diritto-locazione.title': 'Mieten im Kanton St. Gallen: Mietrecht und Markt',
     'blog.article.affitti-san-gallo-diritto-locazione.excerpt': 'Einheitliches Mietrecht in der ganzen Schweiz (OR Art. 253 ff.): Kaution max. 3 Monatsraten, Mietzinsbeanstandung innert 30 Tagen.',
     'blog.article.affitti-san-gallo-diritto-locazione.imageAlt': 'Typisches Wohnviertel in St. Gallen mit traditionellen Wohnhäusern',
+    'blog.article.avs-prestazioni-complementari-san-gallo-cassa.title': 'AHV und EL im Kanton St. Gallen: die Ausgleichskasse',
+    'blog.article.avs-prestazioni-complementari-san-gallo-cassa.excerpt': 'AHV-Kasse und PC-Büro sind zwei getrennte Körperschaften: So funktioniert die erste Säule in St. Gallen und wann Sie Ergänzungsleistungen beantragen sollten.',
+    'blog.article.avs-prestazioni-complementari-san-gallo-cassa.imageAlt': 'AHV-Ausgleichskasse und Ergänzungsleistungen-Stelle im Kanton St. Gallen',
 };
 
 export default blogMetaChDe;

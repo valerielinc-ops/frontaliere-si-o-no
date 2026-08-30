@@ -4714,6 +4714,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-san-gallo-diritto-locazione.title': 'Rentals in the Canton of St. Gallen: lease and market rights',
     'blog.article.affitti-san-gallo-diritto-locazione.excerpt': 'Uniform rental right throughout Switzerland (CO art. 253 et seq.): maximum deposit of 3 months, dispute of the rent within 30 days.',
     'blog.article.affitti-san-gallo-diritto-locazione.imageAlt': 'Typical residential neighborhood in St. Gallen with traditional apartment buildings',
+    'blog.article.avs-prestazioni-complementari-san-gallo-cassa.title': 'AVS and PC in the Canton of St. Gallen: the clearing house',
+    'blog.article.avs-prestazioni-complementari-san-gallo-cassa.excerpt': 'AVS cashier and PC office are two separate entities: this is how the first pillar works in St. Gallen and when to ask for complementary services.',
+    'blog.article.avs-prestazioni-complementari-san-gallo-cassa.imageAlt': 'AVS compensation fund and supplementary benefits office in St. Gallen',
 };
 
 export default blogMetaChEn;

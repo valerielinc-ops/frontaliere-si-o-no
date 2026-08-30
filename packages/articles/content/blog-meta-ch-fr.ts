@@ -4714,6 +4714,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-san-gallo-diritto-locazione.title': 'Location dans le canton de Saint-Gall : droit de location et marché',
     'blog.article.affitti-san-gallo-diritto-locazione.excerpt': 'Droit de location uniforme dans toute la Suisse (CO art. 253 s.) : cautionnement maximum 3 mois, contestation du loyer dans les 30 jours.',
     'blog.article.affitti-san-gallo-diritto-locazione.imageAlt': 'Quartier résidentiel typique de Saint-Gall avec immeubles traditionnels',
+    'blog.article.avs-prestazioni-complementari-san-gallo-cassa.title': 'AVS et PC dans le canton de Saint-Gall : la caisse de compensation',
+    'blog.article.avs-prestazioni-complementari-san-gallo-cassa.excerpt': 'Caisse AVS et bureau PC sont deux entités distinctes : voici comment fonctionne le premier pilier à Saint-Gall et quand demander les prestations complémentaires.',
+    'blog.article.avs-prestazioni-complementari-san-gallo-cassa.imageAlt': 'Caisse de compensation AVS et office PC du canton de Saint-Gall',
 };
 
 export default blogMetaChFr;

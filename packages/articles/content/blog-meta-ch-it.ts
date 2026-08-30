@@ -4714,6 +4714,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-san-gallo-diritto-locazione.title': 'Affitti in Canton San Gallo: diritto di locazione e mercato',
     'blog.article.affitti-san-gallo-diritto-locazione.excerpt': 'Diritto di locazione uniforme in tutta la Svizzera (CO art. 253 segg.): cauzione max 3 mensilità, contestazione del canone entro 30 giorni.',
     'blog.article.affitti-san-gallo-diritto-locazione.imageAlt': 'Quartiere residenziale tipico della città di San Gallo con edifici tradizionali',
+    'blog.article.avs-prestazioni-complementari-san-gallo-cassa.title': 'AVS e PC nel Canton San Gallo: la cassa di compensazione',
+    'blog.article.avs-prestazioni-complementari-san-gallo-cassa.excerpt': 'Cassa AVS e ufficio PC sono due enti distinti: ecco come funziona il primo pilastro a San Gallo e quando chiedere le prestazioni complementari.',
+    'blog.article.avs-prestazioni-complementari-san-gallo-cassa.imageAlt': 'Cassa di compensazione AVS e ufficio PC nel Canton San Gallo',
 };
 
 export default blogMetaChIt;
