@@ -23520,6 +23520,11 @@
           "impressions": 1
         },
         {
+          "query": "ich kann kein französisch",
+          "clicks": 1,
+          "impressions": 1
+        },
+        {
           "query": "\"medacta\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
           "clicks": 0,
           "impressions": 1
@@ -23595,8 +23600,8 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 35,
-      "totalClicks": 1,
+      "totalImpressions": 36,
+      "totalClicks": 2,
       "topQuery": "find a job as an electrician in the canton of vaud",
       "title": "Engineers",
       "titleByLocale": {
@@ -64848,10 +64853,10 @@
         "fr": "system-catering-specialist-efz-marche-dietlikon"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-grigioni/system-catering-specialist-efz-marche-dietlikon",
-        "en": "/en/find-jobs-graubunden/system-catering-specialist-efz-marche-dietlikon",
+        "it": "/cerca-lavoro-zurigo/system-catering-specialist-efz-marche-dietlikon",
+        "en": "/en/find-jobs-zurich/system-catering-specialist-efz-marche-dietlikon",
         "de": "/de/jobs-im-graubunden/system-catering-specialist-efz-marche-dietlikon",
-        "fr": "/fr/trouver-emploi-grisons/system-catering-specialist-efz-marche-dietlikon"
+        "fr": "/fr/trouver-emploi-zurich/system-catering-specialist-efz-marche-dietlikon"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -72576,10 +72581,10 @@
         "it": "venditore-di-prodotti-freschi-pane-prodotti-da-forno-coop-genossenschaft-emmen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/venditore-di-prodotti-freschi-pane-prodotti-da-forno-coop-genossenschaft-emmen",
-        "en": "/en/find-jobs-zurich/venditore-di-prodotti-freschi-pane-prodotti-da-forno-coop-genossenschaft-emmen",
+        "it": "/cerca-lavoro-lucerna/venditore-di-prodotti-freschi-pane-prodotti-da-forno-coop-genossenschaft-emmen",
+        "en": "/en/find-jobs-lucerne/venditore-di-prodotti-freschi-pane-prodotti-da-forno-coop-genossenschaft-emmen",
         "de": "/de/jobs-im-zurich/venditore-di-prodotti-freschi-pane-prodotti-da-forno-coop-genossenschaft-emmen",
-        "fr": "/fr/trouver-emploi-zurich/venditore-di-prodotti-freschi-pane-prodotti-da-forno-coop-genossenschaft-emmen"
+        "fr": "/fr/trouver-emploi-lucerne/venditore-di-prodotti-freschi-pane-prodotti-da-forno-coop-genossenschaft-emmen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

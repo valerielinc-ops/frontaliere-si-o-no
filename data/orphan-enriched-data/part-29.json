@@ -9658,10 +9658,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-dietlikon",
-        "en": "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-dietlikon",
+        "it": "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-dietlikon",
+        "en": "elevator-installation-modernization-and-replacement-equipment-m-f-d-otis-sa-dietlikon",
         "de": "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-dietlikon",
-        "fr": "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-dietlikon"
+        "fr": "materiel-de-modernisation-et-de-remplacement-de-l-installation-d-ascenseur-h-f-d-otis-sa-dietlikon"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-dietlikon",
@@ -9675,6 +9675,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -30227,6 +30228,69 @@
       ]
     },
     {
+      "slug": "front-desk-manager-100-m-f-d-burgenstock-hotels-ag-bern",
+      "locale": "it",
+      "path": "/cerca-lavoro-berna/front-desk-manager-100-m-f-d-burgenstock-hotels-ag-bern/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-berna/front-desk-manager-100-m-f-d-burgenstock-hotels-ag-bern/"
+      },
+      "queries": [
+        {
+          "query": "hotel bern jobs",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "hotel schweizerhof bern jobs",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "hotel bern jobs",
+      "title": "Front desk manager burgenstock hotels ag",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Bern",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "front-desk-manager-100-m-f-d-burgenstock-hotels-ag-bern",
+        "en": "front-desk-manager-100-m-f-d-burgenstock-hotels-ag-bern",
+        "de": "front-desk-manager-100-m-f-d-burgenstock-hotels-ag-bern",
+        "fr": "front-desk-manager-100-m-f-d-burgenstock-hotels-ag-bern"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/front-desk-manager-100-m-f-d-burgenstock-hotels-ag-bern",
+        "en": "/en/find-jobs-bern/front-desk-manager-100-m-f-d-burgenstock-hotels-ag-bern",
+        "de": "/de/jobs-im-bern/front-desk-manager-100-m-f-d-burgenstock-hotels-ag-bern",
+        "fr": "/fr/trouver-emploi-berne/front-desk-manager-100-m-f-d-burgenstock-hotels-ag-bern"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "furniture-consultant-and-deputy-manager-coop-genossenschaft-hinwil",
       "locale": "en",
       "path": "/en/find-jobs-zug/furniture-consultant-and-deputy-manager-coop-genossenschaft-hinwil",
@@ -42682,10 +42746,10 @@
         "fr": "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-stein-am-rhein"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-sciaffusa/medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-stein-am-rhein",
-        "en": "/en/find-jobs-schaffhausen/medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-stein-am-rhein",
+        "it": "/cerca-lavoro-lucerna/medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-stein-am-rhein",
+        "en": "/en/find-jobs-lucerne/medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-stein-am-rhein",
         "de": "/de/jobs-im-genf/medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-stein-am-rhein",
-        "fr": "/fr/trouver-emploi-schaffhouse/medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-stein-am-rhein"
+        "fr": "/fr/trouver-emploi-lucerne/medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-stein-am-rhein"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -63044,10 +63108,10 @@
         "fr": "specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-egerkingen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/specialist-specialist-for-general-internal-medicine-swiss-medical-network-egerkingen",
-        "en": "/en/find-jobs-bern/specialist-specialist-for-general-internal-medicine-swiss-medical-network-egerkingen",
+        "it": "/cerca-lavoro-sciaffusa/specialist-specialist-for-general-internal-medicine-swiss-medical-network-egerkingen",
+        "en": "/en/find-jobs-schaffhausen/specialist-specialist-for-general-internal-medicine-swiss-medical-network-egerkingen",
         "de": "/de/jobs-im-solothurn/specialist-specialist-for-general-internal-medicine-swiss-medical-network-egerkingen",
-        "fr": "/fr/trouver-emploi-berne/specialist-specialist-for-general-internal-medicine-swiss-medical-network-egerkingen"
+        "fr": "/fr/trouver-emploi-schaffhouse/specialist-specialist-for-general-internal-medicine-swiss-medical-network-egerkingen"
       },
       "sourceUrl": "https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000136025409-facharztin-facharzt-fur-allgemeine-innere-medizin",
       "googleStatus": "unknown",
@@ -67015,10 +67079,10 @@
         "fr": "stv-branch-manager-in-denner-emmenbrucke"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/stv-branch-manager-in-denner-emmenbrucke",
-        "en": "/en/find-jobs-ticino/stv-branch-manager-in-denner-emmenbrucke",
-        "de": "/de/jobs-im-tessin/stv-branch-manager-in-denner-emmenbrucke",
-        "fr": "/fr/trouver-emploi-tessin/stv-branch-manager-in-denner-emmenbrucke"
+        "it": "/cerca-lavoro-appenzello/stv-branch-manager-in-denner-emmenbrucke",
+        "en": "/en/find-jobs-appenzell/stv-branch-manager-in-denner-emmenbrucke",
+        "de": "/de/jobs-in-appenzell/stv-branch-manager-in-denner-emmenbrucke",
+        "fr": "/fr/trouver-emploi-appenzell/stv-branch-manager-in-denner-emmenbrucke"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -75988,10 +76052,7 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "de": "verkaufer-in-food-coop-genossenschaft-bern-2gmv2k",
-        "it": "venditore-in-food-coop-genossenschaft-bern-589c15",
-        "en": "seller-in-food-coop-genossenschaft-bern-589c15",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-bern-589c15"
+        "de": "verkaufer-in-food-coop-genossenschaft-bern-t8dx7q"
       },
       "localePaths": {
         "it": "/cerca-lavoro-berna/verkaufer-in-food-coop-genossenschaft-bern",
