@@ -4780,6 +4780,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-attivita-glarona-tassazione-previdenza.title': 'Geschäft eröffnen Glarus: Kosten und Erfüllung',
     'blog.article.aprire-attivita-glarona-tassazione-previdenza.excerpt': 'Umfassender Praxisleitfaden zur Rechtsform, dreistufigen Besteuerung, AHV/BVG- und KVG-Beiträgen für Unternehmensgründer im Kanton Glarus.',
     'blog.article.aprire-attivita-glarona-tassazione-previdenza.imageAlt': 'Unternehmer überprüft Unternehmensregistrierungsdokumente in modernem Büro in der Schweiz',
+    'blog.article.aprire-attivita-glarona-registro-costi.title': 'Geschäft in Glarus eröffnen: Handelsregister und Kosten',
+    'blog.article.aprire-attivita-glarona-registro-costi.excerpt': 'Praktischer Leitfaden zu Rechtsformen, Handelsregistereintragung sowie Steuer- und Versicherungspflichten für Unternehmensgründer im Kanton Glarus.',
+    'blog.article.aprire-attivita-glarona-registro-costi.imageAlt': 'Blick auf den Kanton Glarus mit Handelsregisteramt',
 };
 
 export default blogMetaChDe;

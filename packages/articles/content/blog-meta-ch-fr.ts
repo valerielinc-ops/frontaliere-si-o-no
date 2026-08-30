@@ -4780,6 +4780,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-attivita-glarona-tassazione-previdenza.title': 'Ouvrir une activité Glaris : coûts et obligations',
     'blog.article.aprire-attivita-glarona-tassazione-previdenza.excerpt': 'Guide pratique complet sur la forme juridique, la fiscalité à trois niveaux, les cotisations AVS/LPP et LAMal pour ceux qui démarrent une activité dans le canton de Glaris.',
     'blog.article.aprire-attivita-glarona-tassazione-previdenza.imageAlt': 'Entrepreneur examinant des documents d\'enregistrement commercial dans un bureau moderne en Suisse',
+    'blog.article.aprire-attivita-glarona-registro-costi.title': 'Ouvrir une entreprise à Glaris : registre du commerce et des coûts',
+    'blog.article.aprire-attivita-glarona-registro-costi.excerpt': 'Guide pratique sur les formes juridiques, l\'inscription au registre du commerce et les obligations fiscales et d\'assurance pour ceux qui créent une entreprise dans le canton de Glaris.',
+    'blog.article.aprire-attivita-glarona-registro-costi.imageAlt': 'Vue du canton de Glaris avec office du registre du commerce',
 };
 
 export default blogMetaChFr;

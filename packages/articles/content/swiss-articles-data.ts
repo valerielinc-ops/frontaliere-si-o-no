@@ -14338,6 +14338,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'aprire-attivita-glarona-registro-costi',
+    category: 'pratico',
+    date: '2026-08-30T17:28:28.396Z',
+    image: '/images/blog/aprire-attivita-glarona-registro-costi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

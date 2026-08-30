@@ -4780,6 +4780,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-attivita-glarona-tassazione-previdenza.title': 'Aprire attività Glarona: costi e adempimenti',
     'blog.article.aprire-attivita-glarona-tassazione-previdenza.excerpt': 'Guida pratica completa su forma giuridica, tassazione a tre livelli, contributi AVS/LPP e LAMal per chi avvia un\'attività nel Cantone di Glarona.',
     'blog.article.aprire-attivita-glarona-tassazione-previdenza.imageAlt': 'Imprenditore che esamina documenti di registrazione aziendale in ufficio moderno in Svizzera',
+    'blog.article.aprire-attivita-glarona-registro-costi.title': 'Aprire un\'attività a Glarona: registro di commercio e costi',
+    'blog.article.aprire-attivita-glarona-registro-costi.excerpt': 'Guida pratica a forme giuridiche, iscrizione al registro di commercio e obblighi fiscali e assicurativi per chi avvia un\'impresa nel Cantone di Glarona.',
+    'blog.article.aprire-attivita-glarona-registro-costi.imageAlt': 'Veduta del Cantone di Glarona con ufficio del registro di commercio',
 };
 
 export default blogMetaChIt;
