@@ -4675,6 +4675,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-l-canton-san-gallo-validita-proroga.title': 'Permesso L nel Canton San Gallo: validità 12 mesi e regole di proroga',
     'blog.article.permesso-l-canton-san-gallo-validita-proroga.excerpt': 'Il permesso L di breve durata nel Canton San Gallo ha durata massima di 12 mesi, è legato al datore di lavoro e prevede la proroga solo in casi eccezionali. Ecco come funziona.',
     'blog.article.permesso-l-canton-san-gallo-validita-proroga.imageAlt': 'Ufficio cantonale per la migrazione nel Canton San Gallo, ingresso con lavoratore straniero',
+    'blog.article.permesso-dimora-b-obvaldo-rinnovo.title': 'Permesso di dimora B in Obvaldo: requisiti e rinnovo',
+    'blog.article.permesso-dimora-b-obvaldo-rinnovo.excerpt': 'Il permesso B consente di vivere e lavorare in Svizzera in modo rinnovabile. Scopri i requisiti, i documenti, la procedura di rinnovo nel Cantone Obvaldo.',
+    'blog.article.permesso-dimora-b-obvaldo-rinnovo.imageAlt': 'Ufficio della migrazione cantonale svizzero con paesaggio alpino sullo sfondo.',
 };
 
 export default blogMetaChIt;

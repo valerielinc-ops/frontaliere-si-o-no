@@ -14023,6 +14023,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'permesso-dimora-b-obvaldo-rinnovo',
+    category: 'pratico',
+    date: '2026-08-30T01:58:39.120Z',
+    image: '/images/blog/permesso-dimora-b-obvaldo-rinnovo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
