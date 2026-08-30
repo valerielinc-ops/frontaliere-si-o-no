@@ -10938,6 +10938,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-solbiate-cagno-frontaliere-ticino.title': 'Leben in Solbiate und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-solbiate-cagno-frontaliere-ticino.excerpt': 'Ab 2024 neue Steuervereinbarung: 10.000 € Selbstbehalt für neue Grenzgänger. Reisezeiten, AHV/BVG-Rechte, KVG und wie man die Bewilligung G beantragt.',
     'blog.article.vivere-solbiate-cagno-frontaliere-ticino.imageAlt': 'Luftaufnahme der Provinz Como im Morgenlicht, kleine Grenzstadt mit Kirchturm und grünen Hügeln mit Blick zur Schweizer Grenze von der italienischen Seite',
+    'blog.article.vivere-schignano-lavorare-ticino.title': 'Leben in Schignano und Arbeiten im Tessin: Praktischer Leitfaden',
+    'blog.article.vivere-schignano-lavorare-ticino.excerpt': 'Grenzgänger aus Schignano: Steuergesetzgebung, AHV/BVG, Genehmigung G. Was Sie über Steuern, Beiträge und Verwaltungsverfahren wissen müssen.',
+    'blog.article.vivere-schignano-lavorare-ticino.imageAlt': 'Grenzgebiet zwischen Schignano und Schweizer Tessin mit Alpenpanorama',
 };
 
 export default blogMetaDe;

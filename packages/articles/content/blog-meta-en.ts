@@ -10939,6 +10939,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-solbiate-cagno-frontaliere-ticino.title': 'Living in Solbiate and working in Ticino as a border worker',
     'blog.article.vivere-solbiate-cagno-frontaliere-ticino.excerpt': 'From 2024 new tax agreement: €10,000 deductible for new frontier workers. Travel times, AVS/LPP rights, LAMal and how to apply for the G permit.',
     'blog.article.vivere-solbiate-cagno-frontaliere-ticino.imageAlt': 'Aerial view of Como province at morning light showing small border town with church steeple and green hills toward Swiss border from Italian side',
+    'blog.article.vivere-schignano-lavorare-ticino.title': 'Living in Schignano and working in Ticino: a practical guide',
+    'blog.article.vivere-schignano-lavorare-ticino.excerpt': 'Border from Schignano: tax legislation, AVS/LPP, permit G. What you need to know about taxes, contributions and administrative procedures.',
+    'blog.article.vivere-schignano-lavorare-ticino.imageAlt': 'Border landscape between Schignano and Swiss Ticino with alpine scenery',
 };
 
 export default blogMetaEn;
