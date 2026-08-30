@@ -291,12 +291,21 @@ jobs:
             /*.cjs
             /*.js
             /*.json
+            /*.md
             /*.mjs
             /*.ts
             /*.tsx
             /*.yaml
             /*.yml
             /*.config.*
+            # Stesso punto cieco di related-search-candidates.json sopra: due test
+            # leggono un doc sotto /docs/ (bucket escluso, 108 MB/706 file) con un
+            # path runtime — invisibile a verify-checkout-profiles.mjs. `/*.md`
+            # sopra copre i doc di root (ISSUES.md, REVIEW.md, ecc., osservato
+            # rosso su #6699 2026-08-30: readFileSync ISSUES.md ENOENT), ma
+            # docs/FIX-ISSUE-COMMAND.md resta sotto il bucket escluso senza
+            # questo carve-out puntuale.
+            /docs/FIX-ISSUE-COMMAND.md
             # Runtime `fs.readFileSync(ROOT, 'index.html'/'index.css')` reads in
             # tests/bfs-depth-hub-link-coverage.test.ts and tests/events-card-atoms.test.ts
             # — invisible to verifyCheckoutProfiles' import-graph analysis (it only
