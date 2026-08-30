@@ -10948,6 +10948,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-corrido-frontaliere-ticino.title': 'Living in Corrido and working in Ticino as a border worker',
     'blog.article.vivere-corrido-frontaliere-ticino.excerpt': 'Practical guide for those who evaluate commuting from Corridor to the Canton of Ticino: taxation, time, costs and what to know before the transfer.',
     'blog.article.vivere-corrido-frontaliere-ticino.imageAlt': 'View of a small Italian border village near Ticino',
+    'blog.article.vivere-lomazzo-lavorare-ticino-frontaliere.title': 'Living in Lomazzo and working in Ticino as a border worker',
+    'blog.article.vivere-lomazzo-lavorare-ticino-frontaliere.excerpt': 'Border crossing in Lomazzo? Discover the Brogeda and Chiasso crossings, travel times, cost of living and taxes. Practical guide to moving from Como to Ticino.',
+    'blog.article.vivere-lomazzo-lavorare-ticino-frontaliere.imageAlt': 'Border landscape between Ticino and Lombardy with mountains and mountain roads',
+    'blog.article.azzio-confine-guida-frontaliere.title': 'Living in Azzio, working in Ticino: a guide to the border crossing',
+    'blog.article.azzio-confine-guida-frontaliere.excerpt': 'Azzio for those who work in Ticino: G permit, Swiss tax, AVS, refreshments and how to move.',
+    'blog.article.azzio-confine-guida-frontaliere.imageAlt': 'Chiasso border crossing between Ticino and Italy with morning commute traffic and Alpine mountains',
 };
 
 export default blogMetaEn;

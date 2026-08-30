@@ -18,6 +18,7 @@ import { createHash } from 'node:crypto';
 import { execFileSync, spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { listCorpusWideTests } from './corpus-wide-tests.mjs';
+import { selectMaxWorkers } from './lib/select-max-workers.mjs';
 
 const changedPathFile = process.env.CHANGED_PATHS_FILE || 'changed-paths.txt';
 const changedStatusFile = process.env.CHANGED_PATHS_STATUS_FILE || 'changed-paths-status.txt';
@@ -159,6 +160,7 @@ const related = new Set(forceFull ? allTests : candidates.filter(isRunnableTest)
 if (forceFull) {
   console.log(`Changed-paths status is ${changedStatus} → running all tracked tests conservatively.`);
 }
+let usedFullFallback = forceFull;
 const queue = [...candidates];
 const visited = new Set();
 while (queue.length) {
@@ -174,6 +176,7 @@ while (queue.length) {
 // dependency is safer as a full run than as a silent no-op.
 if (related.size === 0 && candidates.length > 0) {
   for (const test of allTests) related.add(test);
+  usedFullFallback = true;
   console.log('No static related edge found → running all tracked tests conservatively.');
 }
 const tests = [...related].filter((file) => existsSync(file)).sort();
@@ -182,7 +185,12 @@ console.log(tests.join('\n'));
 if (tests.length === 0) process.exit(0);
 
 const args = ['node_modules/vitest/vitest.mjs', 'run', '--passWithNoTests'];
-if (process.env.VITEST_MAX_WORKERS) args.push(`--maxWorkers=${process.env.VITEST_MAX_WORKERS}`);
+const maxWorkers = selectMaxWorkers({
+  usedFullFallback,
+  maxWorkers: process.env.VITEST_MAX_WORKERS,
+  maxWorkersFallback: process.env.VITEST_MAX_WORKERS_FALLBACK,
+});
+if (maxWorkers) args.push(`--maxWorkers=${maxWorkers}`);
 if (process.env.VITEST_POOL) args.push(`--pool=${process.env.VITEST_POOL}`);
 args.push(...tests, ...process.argv.slice(2));
 const result = spawnSync(process.execPath, args, { stdio: 'inherit' });

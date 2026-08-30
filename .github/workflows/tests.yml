@@ -277,6 +277,17 @@ jobs:
             # questi due file (osservato su PR #6661/#6662, 2026-08-29).
             /public/
             !/public/images/
+            # Stesso punto cieco di related-search-candidates.json/slug-registry.json
+            # sopra: send-job-alerts.mjs (usato dal test email di alert lavoro)
+            # fa fs.readdirSync('public/images/brands') a module-load per
+            # costruire la mappa slug->logo — un path runtime,
+            # invisibile a verify-checkout-profiles.mjs. Con la directory esclusa il
+            # readdirSync fallisce (try/catch silenzioso -> Map vuota) e OGNI test
+            # "brand logo" del file fallisce, indipendentemente dal diff (osservato
+            # su #6682 e #6686, 2026-08-30, nessuno dei due tocca questo codice).
+            # Piccolo: 483 file, ~1.2 MB — nulla a che vedere con le decine di GB
+            # di public/images/ escluse per il resto.
+            /public/images/brands/
             /*.cjs
             /*.js
             /*.json
@@ -1482,6 +1493,17 @@ jobs:
           NODE_OPTIONS: --max-old-space-size=8192
           VITEST_SKIP_LIVE_DATA: 'true'
           VITEST_MAX_WORKERS: 1
+          # Un file sorgente senza edge di import statico verso nessun test
+          # (script CLI mai `import`-ato, es. scripts/prospect-validate.mjs)
+          # fa scattare in run-related-tests.mjs il fallback "nessun edge →
+          # tutta la suite": ~1900 file invece di pochi. Il cap a 1 worker
+          # sopra era tarato sul caso comune (grafo related piccolo, poche
+          # decine di file); su ~1900 file indipendenti lo stesso cap li
+          # serializza su un solo core (osservato: >30 min, PR #6661,
+          # 2026-08-30). VITEST_MAX_WORKERS_FALLBACK si applica SOLO quando
+          # run-related-tests.mjs segnala di aver usato quel fallback — il
+          # percorso related-only comune resta invariato a 1 worker.
+          VITEST_MAX_WORKERS_FALLBACK: 3
           VITEST_POOL: forks
           VITEST_CACHE_DIR: node_modules/.vite-related
           CHANGED_PATHS_STATUS_FILE: changed-paths-status.txt

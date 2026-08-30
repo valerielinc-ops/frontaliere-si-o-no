@@ -4729,6 +4729,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-san-gallo.title': 'St. Gallen Transportation Subscriptions: Zones and Rates',
     'blog.article.abbonamenti-trasporti-san-gallo.excerpt': 'Discover the tariff structure of the Canton of St. Gallen: tariff community, zones, annual and monthly subscriptions, Half-price and AG, discounts for students.',
     'blog.article.abbonamenti-trasporti-san-gallo.imageAlt': 'Public transport buses and regional trains in St. Gallen canton with passengers at station',
+    'blog.article.aprire-attivita-san-gallo-registro-costi.title': 'Opening a business in St. Gallen: registration, capital and costs',
+    'blog.article.aprire-attivita-san-gallo-registro-costi.excerpt': 'Sagl CHF 20,000, SA CHF100,000: capital, registration in the cantonal register, LAMal from the first day and wage costs AVS, LPP and LAINF.',
+    'blog.article.aprire-attivita-san-gallo-registro-costi.imageAlt': 'Cantonal commercial register office in St. Gallen',
 };
 
 export default blogMetaChEn;

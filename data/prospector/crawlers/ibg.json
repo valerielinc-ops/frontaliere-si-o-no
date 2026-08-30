@@ -1,0 +1,21 @@
+{
+  "companyKey": "ibg",
+  "companyName": "IBG Engineering AG",
+  "companyHost": "zhaw.ch",
+  "platform": "zhaw.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.zhaw.ch/de/engineering/studium/bachelorstudium/praxisintegriertes-bachelorstudium"
+  ],
+  "detailTemplate": "/de/engineering/studium/bachelorstudium/*/karriere",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Karriere",
+    "Karriere"
+  ],
+  "canton": "GL",
+  "sourceLang": "de",
+  "learnedAt": "2026-08-30T09:49:41.463Z"
+}

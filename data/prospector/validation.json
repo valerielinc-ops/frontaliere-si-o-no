@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-29T10:41:02.872Z",
+  "generatedAt": "2026-08-30T09:54:12.434Z",
   "tally": {
-    "good": 22,
-    "weak": 6,
+    "good": 24,
+    "weak": 5,
     "bad": 0,
-    "insufficient": 8
+    "insufficient": 7
   },
-  "promotedVacancies": 4020,
+  "promotedVacancies": 3917,
   "reports": [
     {
       "companyKey": "115west",
@@ -85,11 +85,11 @@
       "problems": [],
       "samples": [
         {
-          "url": "https://careers.accor.com/fr/fr/job/night-auditor-in-fairmont-la-marina-rabat-sale-hotel-and-residences-jid-104095",
+          "url": "https://careers.accor.com/fr/fr/job/commis-de-salle-h-f-abbaye-des-vaux-de-cernay-in-abbaye-des-vaux-de-cernay-cernay-la-ville-france-jid-99210",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1933,
+          "words": 2263,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -98,30 +98,6 @@
             "workload",
             "requirements",
             "duties",
-            "gender-tag",
-            "hr"
-          ],
-          "notJobSignals": [
-            "booking",
-            "stay",
-            "checkin"
-          ]
-        },
-        {
-          "url": "https://careers.accor.com/fr/fr/job/director-of-marketing-and-communications-in-fairmont-orchid-hawaii-kohala-coast-united-states-jid-102027",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 3381,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "pay",
-            "workload",
-            "requirements",
-            "duties",
-            "offer",
             "gender-tag",
             "hr"
           ],
@@ -132,11 +108,32 @@
           ]
         },
         {
-          "url": "https://careers.accor.com/fr/fr/job/guest-service-ambassador-full-time-in-fairmont-orchid-hawaii-kohala-coast-united-states-jid-80954",
+          "url": "https://careers.accor.com/fr/fr/job/kids-club-animator-in-rixos-premium-seagate-sharm-el-sheikh-egypt-jid-108131",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 2570,
+          "words": 1924,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "pay",
+            "workload",
+            "requirements",
+            "gender-tag",
+            "hr"
+          ],
+          "notJobSignals": [
+            "stay",
+            "amenities"
+          ]
+        },
+        {
+          "url": "https://careers.accor.com/fr/fr/job/greek-chef-in-rixos-radamis-sharm-el-sheikh-rixos-radamis-sharm--jid-108127",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "words": 2224,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -145,8 +142,6 @@
             "workload",
             "requirements",
             "duties",
-            "offer",
-            "gender-tag",
             "hr"
           ],
           "notJobSignals": [
@@ -221,12 +216,12 @@
     },
     {
       "companyKey": "anker-swiss",
-      "vacancyCount": 272,
+      "vacancyCount": 269,
       "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
       "contentfulRate": 1,
-      "distinctRate": 0.257,
+      "distinctRate": 0.26,
       "jobLikeRate": 1,
       "score": 0.937,
       "verdict": "good",
@@ -254,7 +249,7 @@
           ]
         },
         {
-          "url": "https://anker-swiss.ch/stellen/gipserpraktiker-1151270/",
+          "url": "https://anker-swiss.ch/stellen/gipser-trockenbauer-1151536/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
@@ -273,11 +268,11 @@
           ]
         },
         {
-          "url": "https://anker-swiss.ch/stellen/heizungsinstallateur-1173039/",
+          "url": "https://anker-swiss.ch/stellen/maler-1173405/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 553,
+          "words": 578,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -676,17 +671,50 @@
     },
     {
       "companyKey": "careers",
-      "vacancyCount": 0,
-      "sampled": 0,
-      "reachableRate": 0,
-      "titleMatchRate": 0,
-      "contentfulRate": 0,
-      "distinctRate": 0,
-      "jobLikeRate": null,
-      "score": 0,
-      "verdict": "insufficient",
+      "vacancyCount": 2,
+      "sampled": 2,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 1,
+      "distinctRate": 1,
+      "jobLikeRate": 1,
+      "score": 1,
+      "verdict": "good",
       "problems": [],
-      "samples": [],
+      "samples": [
+        {
+          "url": "https://careers.orior.ch/job/B%C3%B6ckten-Spontanbewerbung-Le-Patron-BL/838726301/",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "words": 356,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "offer",
+            "hr"
+          ],
+          "notJobSignals": []
+        },
+        {
+          "url": "https://careers.orior.ch/job/B%C3%B6ckten-Betriebsmechaniker-in-Instandhaltung%2C-80-100-BL/1402889733/",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "words": 546,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "requirements",
+            "duties",
+            "hr"
+          ],
+          "notJobSignals": []
+        }
+      ],
       "companyName": "lepatron",
       "companyHost": "careers.orior.ch",
       "platform": "orior.ch",
@@ -908,7 +936,7 @@
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1746,
+          "words": 1745,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -929,7 +957,7 @@
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1691,
+          "words": 1688,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -947,7 +975,7 @@
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1662,
+          "words": 1659,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -972,12 +1000,12 @@
     },
     {
       "companyKey": "fachkraft",
-      "vacancyCount": 3534,
+      "vacancyCount": 3430,
       "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
       "contentfulRate": 1,
-      "distinctRate": 0.904,
+      "distinctRate": 0.906,
       "jobLikeRate": 1,
       "score": 0.992,
       "verdict": "good",
@@ -999,27 +1027,26 @@
           "notJobSignals": []
         },
         {
-          "url": "https://www.fachkraft.ch/stellen/heizungsinstallateur-in-luzern-temporaer-292605/",
+          "url": "https://www.fachkraft.ch/stellen/heizungsinstallateur-in-aarau-dauerstelle-292565/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 458,
+          "words": 513,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
             "apply",
-            "pay",
             "requirements",
             "duties"
           ],
           "notJobSignals": []
         },
         {
-          "url": "https://www.fachkraft.ch/stellen/polymechaniker-in-instandhaltung-zuerich-dauerstelle-293603/",
+          "url": "https://www.fachkraft.ch/stellen/polymechaniker-in-instandhaltung-solothurn-dauerstelle-282635/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 525,
+          "words": 572,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -1359,6 +1386,59 @@
       "logoFound": true
     },
     {
+      "companyKey": "ibg",
+      "vacancyCount": 2,
+      "sampled": 2,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 1,
+      "distinctRate": 0.5,
+      "jobLikeRate": 1,
+      "score": 0.958,
+      "verdict": "good",
+      "problems": [],
+      "samples": [
+        {
+          "url": "https://www.zhaw.ch/de/engineering/studium/bachelorstudium/energie-und-umwelttechnik/karriere",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "words": 3482,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "pay",
+            "workload",
+            "duties",
+            "offer"
+          ],
+          "notJobSignals": []
+        },
+        {
+          "url": "https://www.zhaw.ch/de/engineering/studium/bachelorstudium/wirtschaftsingenieurwesen/karriere",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "words": 3189,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "pay",
+            "workload",
+            "duties",
+            "offer"
+          ],
+          "notJobSignals": []
+        }
+      ],
+      "companyName": "IBG Engineering AG",
+      "companyHost": "zhaw.ch",
+      "platform": "zhaw.ch",
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": true
+    },
+    {
       "companyKey": "ige",
       "vacancyCount": 1,
       "sampled": 1,
@@ -1448,11 +1528,11 @@
       "problems": [],
       "samples": [
         {
-          "url": "https://med-ipersonal.ch/jobs/pflegefachfrau-mann-advance-practice-nurse-master-of-science-in-pflege-80-100-fuer-rorschach-gesucht-pflege-auf-hoechstem-niveau/",
+          "url": "https://med-ipersonal.ch/jobs/hebamme-fuer-geburtsklinik-80-100-in-otelfingen-gesucht/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1355,
+          "words": 1086,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -1468,31 +1548,32 @@
           "notJobSignals": []
         },
         {
-          "url": "https://med-ipersonal.ch/jobs/dipl-pflegefachfrau-mann-hf-80-100-speicher-gesucht-verantwortung-uebernehmen-in-der-pflege/",
+          "url": "https://med-ipersonal.ch/jobs/anaesthesiepflege-experte-m-w-d-fuer-die-schweiz-arbeiten-in-dietikon-mit-unterstuetzung-bei-der-relocation/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1173,
+          "words": 1063,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
             "apply",
             "cv",
-            "workload",
+            "pay",
             "requirements",
             "duties",
             "offer",
+            "gender-tag",
             "workplace",
             "hr"
           ],
           "notJobSignals": []
         },
         {
-          "url": "https://med-ipersonal.ch/jobs/dipl-pflegefachfrau-mann-hf-80-100-binningen-gesucht-jetzt-bewerben/",
+          "url": "https://med-ipersonal.ch/jobs/dipl-pflegefachperson-hf-fh-teamleiter-in-pflegeabteilung-80-100-in-zumikon-gestalten-sie-mit-uns-die-zukunft-der-pflege/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1144,
+          "words": 1128,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -1797,11 +1878,32 @@
       "problems": [],
       "samples": [
         {
-          "url": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-in-der-region-obfelden-gesucht-jetzt-bewerben/",
+          "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-in-administration-50-100-100-in-der-region-regensdorf-gesucht-jetzt-bewerben/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1453,
+          "words": 1415,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "pay",
+            "workload",
+            "requirements",
+            "duties",
+            "offer",
+            "workplace",
+            "hr"
+          ],
+          "notJobSignals": []
+        },
+        {
+          "url": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-in-der-region-gossau-zh-freie-stelle/",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "words": 1473,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -1820,34 +1922,11 @@
           "notJobSignals": []
         },
         {
-          "url": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-fuer-die-region-pfaeffikon-zh-freie-stelle/",
+          "url": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-fuer-die-region-bassersdorf-stellenangebot/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1506,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "pay",
-            "workload",
-            "contract",
-            "requirements",
-            "duties",
-            "offer",
-            "gender-tag",
-            "workplace",
-            "hr"
-          ],
-          "notJobSignals": []
-        },
-        {
-          "url": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-fuer-die-region-volketswil-stellenangebot/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "words": 1461,
+          "words": 1423,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -1968,7 +2047,7 @@
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "words": 1174,
+          "words": 1177,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -2028,85 +2107,6 @@
       ],
       "companyName": "muehle-tiefenbrunnen",
       "companyHost": "en.muehle-tiefenbrunnen.ch",
-      "platform": null,
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": true
-    },
-    {
-      "companyKey": "mueller-frauenfeld",
-      "vacancyCount": 10,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 0,
-      "contentfulRate": 1,
-      "distinctRate": 0.1,
-      "jobLikeRate": 1,
-      "score": 0.626,
-      "verdict": "weak",
-      "problems": [
-        "titoli ripetuti: il selettore ha agganciato un elemento ricorrente",
-        "i titoli estratti non corrispondono alla pagina ufficiale"
-      ],
-      "samples": [
-        {
-          "url": "https://www.mueller-frauenfeld.ch/karriere/freie-stellen/instandhaltungsmechaniker-schienenfahrzeuge-mwd-80-100-125.html",
-          "reachable": true,
-          "titleMatch": 0,
-          "contentful": true,
-          "words": 636,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "workload",
-            "duties",
-            "offer",
-            "gender-tag",
-            "workplace"
-          ],
-          "notJobSignals": []
-        },
-        {
-          "url": "https://www.mueller-frauenfeld.ch/karriere/freie-stellen/sicherheitswaerter-sicherheitschef-mw-120.html",
-          "reachable": true,
-          "titleMatch": 0,
-          "contentful": true,
-          "words": 574,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "duties",
-            "offer",
-            "gender-tag",
-            "workplace"
-          ],
-          "notJobSignals": []
-        },
-        {
-          "url": "https://www.mueller-frauenfeld.ch/karriere/freie-stellen/tief-hoch-oder-gleisbauer-mw-115.html",
-          "reachable": true,
-          "titleMatch": 0,
-          "contentful": true,
-          "words": 537,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "duties",
-            "offer",
-            "gender-tag",
-            "workplace"
-          ],
-          "notJobSignals": []
-        }
-      ],
-      "companyName": "mueller-frauenfeld",
-      "companyHost": "mueller-frauenfeld.ch",
       "platform": null,
       "mode": "template",
       "runErrors": [],
