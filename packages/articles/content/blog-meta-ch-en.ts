@@ -4786,6 +4786,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-dimora-b-zugo-requisiti-rinnovo.title': 'Permit B to Zug: requirements, procedure and renewal',
     'blog.article.permesso-dimora-b-zugo-requisiti-rinnovo.excerpt': 'How to obtain and renew the residence permit B in the Canton of Zug: documents, duration up to 5 years for EU/EFTA and bureaucratic steps.',
     'blog.article.permesso-dimora-b-zugo-requisiti-rinnovo.imageAlt': 'Canton Zug lakefront and offices with B permit documents',
+    'blog.article.lam-grigioni-premi-riduzione.title': 'LAMal Grisioni: premiums, deductibles and reduction',
+    'blog.article.lam-grigioni-premi-riduzione.excerpt': 'Find out how LAMal health insurance works in the canton of Graubünden, which deductibles to choose and how to access cantonal premium reduction subsidies.',
+    'blog.article.lam-grigioni-premi-riduzione.imageAlt': 'Swiss administrative office where a person receives assistance with health insurance LAMal subsidy application',
 };
 
 export default blogMetaChEn;

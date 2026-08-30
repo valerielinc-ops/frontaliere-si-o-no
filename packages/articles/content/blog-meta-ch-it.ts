@@ -4786,6 +4786,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-dimora-b-zugo-requisiti-rinnovo.title': 'Permesso B a Zugo: requisiti, procedura e rinnovo',
     'blog.article.permesso-dimora-b-zugo-requisiti-rinnovo.excerpt': 'Come ottenere e rinnovare il permesso di dimora B nel Canton Zugo: documenti, durata fino a 5 anni per UE/AELS e passi burocratici.',
     'blog.article.permesso-dimora-b-zugo-requisiti-rinnovo.imageAlt': 'Canton Zugo, lago e uffici con documenti per permesso B',
+    'blog.article.lam-grigioni-premi-riduzione.title': 'LAMal Grigioni: premi, franchigie e riduzione',
+    'blog.article.lam-grigioni-premi-riduzione.excerpt': 'Scopri come funziona l\'assicurazione malattia LAMal nel canton Grigioni, quali franchigie scegliere e come accedere ai sussidi cantonali di riduzione dei premi.',
+    'blog.article.lam-grigioni-premi-riduzione.imageAlt': 'Ufficio amministrativo svizzero dove viene assistita una persona nella richiesta di sussidio per l\'assicurazione malattia LAMal',
 };
 
 export default blogMetaChIt;

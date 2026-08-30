@@ -14356,6 +14356,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'lam-grigioni-premi-riduzione',
+    category: 'pratico',
+    date: '2026-08-30T18:10:50.603Z',
+    image: '/images/blog/lam-grigioni-premi-riduzione.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

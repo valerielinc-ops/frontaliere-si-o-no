@@ -1621,6 +1621,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'aprire-attivita-glarona-tassazione-previdenza': { it: 'aprire-attivita-glarona-tassazione-previdenza', en: 'open-business-glarus-taxation-pension', de: 'unternehmen-glarus-steuern-vorsorge', fr: 'ouverture-entreprise-glaris-fiscalite-retraite' },
  'aprire-attivita-glarona-registro-costi': { it: 'aprire-attivita-glarona-registro-costi', en: 'open-business-glarus-register-costs', de: 'geschaeft-eroeffnen-glarus-handelsregister-kosten', fr: 'ouvrir-activite-glaris-registre-commerce-couts' },
  'permesso-dimora-b-zugo-requisiti-rinnovo': { it: 'permesso-dimora-b-zugo-requisiti-rinnovo', en: 'zug-b-residence-permit-requirements-renewal', de: 'aufenthaltsbewilligung-b-zug-voraussetzungen-verlaengerung', fr: 'permis-sejour-b-zoug-exigences-renouvellement' },
+ 'lam-grigioni-premi-riduzione': { it: 'lam-grigioni-premi-riduzione', en: 'lamal-grisons-premiums-reduction', de: 'lamal-graubuenden-praemien-reduktion', fr: 'lamal-grisons-primes-reduction' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

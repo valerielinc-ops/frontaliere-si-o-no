@@ -4786,6 +4786,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-dimora-b-zugo-requisiti-rinnovo.title': 'Permis B à Zoug : exigences, procédure et renouvellement',
     'blog.article.permesso-dimora-b-zugo-requisiti-rinnovo.excerpt': 'Comment obtenir et renouveler le permis de séjour B dans le canton de Zoug : documents, durée jusqu\'à 5 ans pour l\'UE/AELE et démarches administratives.',
     'blog.article.permesso-dimora-b-zugo-requisiti-rinnovo.imageAlt': 'Canton de Zoug, lac et bureaux avec documents de permis B',
+    'blog.article.lam-grigioni-premi-riduzione.title': 'LAMal Grisons : primes, franchises et réduction',
+    'blog.article.lam-grigioni-premi-riduzione.excerpt': 'Découvrez comment fonctionne l\'assurance maladie LAMal dans le canton des Grisons, quelles franchises choisir et comment accéder aux allocations cantonales de réduction des primes.',
+    'blog.article.lam-grigioni-premi-riduzione.imageAlt': 'Bureau administratif suisse où une personne est aidée pour la demande de subvention d\'assurance maladie LAMal',
 };
 
 export default blogMetaChFr;
