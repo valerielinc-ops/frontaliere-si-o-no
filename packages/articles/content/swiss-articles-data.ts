@@ -14068,6 +14068,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'custodia-bambini-san-gallo-tariffe-sussidi',
+    category: 'pratico',
+    date: '2026-08-30T04:22:39.522Z',
+    image: '/images/blog/custodia-bambini-san-gallo-tariffe-sussidi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

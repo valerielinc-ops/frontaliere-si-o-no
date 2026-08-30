@@ -4690,6 +4690,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.borse-studio-san-gallo-requisiti-importi.title': 'Borse di studio San Gallo: requisiti e importi',
     'blog.article.borse-studio-san-gallo-requisiti-importi.excerpt': 'Il Cantone di San Gallo eroga borse di studio e prestiti agli studi tramite l\'ufficio cantonale competente. Ecco cosa dice la fonte su requisiti, importi e termini.',
     'blog.article.borse-studio-san-gallo-requisiti-importi.imageAlt': 'Campus dell\'Università di San Gallo con studenti',
+    'blog.article.custodia-bambini-san-gallo-tariffe-sussidi.title': 'Custodia bambini in Svizzera: strutture, tariffe e sussidi',
+    'blog.article.custodia-bambini-san-gallo-tariffe-sussidi.excerpt': 'Come funzionano asili, tariffe e sussidi per la custodia dei bambini. Modelli di finanziamento e deduzioni fiscali.',
+    'blog.article.custodia-bambini-san-gallo-tariffe-sussidi.imageAlt': 'Centro diurno svizzero con area colorata per l\'apprendimento e bambini che giocano in luce naturale.',
 };
 
 export default blogMetaChIt;

@@ -4690,6 +4690,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.borse-studio-san-gallo-requisiti-importi.title': 'St. Gallen Scholarships: Requirements and Amounts',
     'blog.article.borse-studio-san-gallo-requisiti-importi.excerpt': 'The Canton of St. Gallen provides scholarships and loans for studies through the competent cantonal office. Here\'s what the source says about requirements, amounts, and terms.',
     'blog.article.borse-studio-san-gallo-requisiti-importi.imageAlt': 'St. Gallen University campus with students',
+    'blog.article.custodia-bambini-san-gallo-tariffe-sussidi.title': 'Child Custody in Switzerland: Facilities, Fees and Subsidies',
+    'blog.article.custodia-bambini-san-gallo-tariffe-sussidi.excerpt': 'How kindergartens work, childcare fees and subsidies. Financing models and tax deductions.',
+    'blog.article.custodia-bambini-san-gallo-tariffe-sussidi.imageAlt': 'Swiss daycare center with colorful learning area and children playing in natural light.',
 };
 
 export default blogMetaChEn;

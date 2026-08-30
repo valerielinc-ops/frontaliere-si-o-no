@@ -4690,6 +4690,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.borse-studio-san-gallo-requisiti-importi.title': 'Stipendien St. Gallen: Voraussetzungen und Beträge',
     'blog.article.borse-studio-san-gallo-requisiti-importi.excerpt': 'Der Kanton St. Gallen vergibt Stipendien und Studiendarlehen über das zuständige kantonale Amt. Das sagt die Quelle über Anforderungen, Beträge und Fristen.',
     'blog.article.borse-studio-san-gallo-requisiti-importi.imageAlt': 'Campus der Universität St. Gallen mit Studierenden',
+    'blog.article.custodia-bambini-san-gallo-tariffe-sussidi.title': 'Kinderbetreuung in der Schweiz: Einrichtungen, Tarife und Leistungen',
+    'blog.article.custodia-bambini-san-gallo-tariffe-sussidi.excerpt': 'Wie Kindergärten, Tarife und Kinderbetreuungsbeihilfen funktionieren. Finanzierungsmodelle und Steuerabzüge.',
+    'blog.article.custodia-bambini-san-gallo-tariffe-sussidi.imageAlt': 'Schweizer Kinderbetreuungszentrum mit farbenfrohem Lernbereich und spielenden Kindern im Tageslicht.',
 };
 
 export default blogMetaChDe;

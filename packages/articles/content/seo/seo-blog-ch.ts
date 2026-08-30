@@ -60860,6 +60860,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-custodia-bambini-san-gallo-tariffe-sussidi': {
+    title: 'Custodia bambini in Svizzera: strutture, tariffe e sussidi',
+    description: 'Come funzionano asili, tariffe e sussidi per la custodia dei bambini. Modelli di finanziamento e deduzioni fiscali. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, custodia, bambini, strutture, tariffe',
+    ogTitle: 'Custodia bambini in Svizzera: strutture, tariffe',
+    ogDescription: 'Come funzionano asili, tariffe e sussidi per la custodia dei bambini. Modelli di finanziamento e deduzioni fiscali.',
+    canonicalPath: '/articoli-svizzera/custodia-bambini-san-gallo-tariffe-sussidi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Custodia bambini in Svizzera: strutture, tariffe e sussidi",
+      "description": "Come funzionano asili, tariffe e sussidi per la custodia dei bambini. Modelli di finanziamento e deduzioni fiscali. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/custodia-bambini-san-gallo-tariffe-sussidi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro diurno svizzero con area colorata per l'apprendimento e bambini che giocano in luce naturale."
+      },
+      "datePublished": "2026-08-30T04:22:39+00:00",
+      "dateModified": "2026-08-30T04:22:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/custodia-bambini-san-gallo-tariffe-sussidi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
