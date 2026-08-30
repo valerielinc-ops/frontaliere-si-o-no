@@ -4789,6 +4789,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lam-grigioni-premi-riduzione.title': 'KVG Graubünden: Prämien, Franchisen und Reduktionen',
     'blog.article.lam-grigioni-premi-riduzione.excerpt': 'Erfahren Sie, wie die KVG-Krankenversicherung im Kanton Graubünden funktioniert, welche Franchisen Sie wählen und wie Sie auf kantonale Prämienverbilligungsbeiträge zugreifen können.',
     'blog.article.lam-grigioni-premi-riduzione.imageAlt': 'Schweizer Verwaltungsbüro, in dem eine Person bei der Antragstellung für LAMal-Versicherungszuschuss unterstützt wird',
+    'blog.article.comprare-casa-zugo-guida.title': 'Haus Zug kaufen: Preise, Hypothek und Kosten',
+    'blog.article.comprare-casa-zugo-guida.excerpt': 'Umfassender Leitfaden zum Immobilienkauf im Kanton Zug: Transferkosten, Eigenmittel, Hypothekendarlehen und Kantonssteuern.',
+    'blog.article.comprare-casa-zugo-guida.imageAlt': 'Modernes Wohnhaus im Kanton Zug mit Schweizer Architektur, Nachmittagslicht',
 };
 
 export default blogMetaChDe;
