@@ -220,6 +220,28 @@ export const TRANSLATION_GLOSSARY = [
       ],
     },
   },
+  {
+    // Italian "frontaliere/frontalieri" (cross-border commuter) is a false
+    // friend for a border GUARD in every target locale — same failure class
+    // documented in FALSE_FRIEND_PATTERNS (article-locale-lexicon.mjs), here
+    // fixed at the translation step itself instead of only flagged after the
+    // fact. The bad renderings are all multi-word compounds ("border guard(s)",
+    // "Grenzwächter", "garde(s)-frontière(s)"), so they are body-safe: no
+    // legitimate prose about frontalieri ever contains them.
+    trigger: /\bfrontalier\w*\b/i,
+    fixes: {
+      en: [
+        [/\bborder\s+guards?\b/gi, 'cross-border commuters'],
+        [/\bfrontier\s+guards?\b/gi, 'cross-border commuters'],
+      ],
+      de: [
+        [/\bGrenzw(?:ä|ae)chter\w*/gi, 'Grenzgänger'],
+        [/\bGrenzsch(?:ü|ue)tzer\w*/gi, 'Grenzgänger'],
+        [/\bGrenzbeamt\w*/gi, 'Grenzgänger'],
+      ],
+      fr: [[/\bgardes?[-\s]fronti(?:è|e)res?\b/gi, 'travailleurs frontaliers']],
+    },
+  },
 ];
 
 /**

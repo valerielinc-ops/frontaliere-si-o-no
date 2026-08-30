@@ -277,6 +277,13 @@ jobs:
             /*.yaml
             /*.yml
             /*.config.*
+            # Runtime `fs.readFileSync(ROOT, 'index.html'/'index.css')` reads in
+            # tests/bfs-depth-hub-link-coverage.test.ts and tests/events-card-atoms.test.ts
+            # — invisible to verifyCheckoutProfiles' import-graph analysis (it only
+            # resolves static imports, not runtime path strings), so this gap
+            # shipped silently until the sparse profile actually excluded them.
+            /index.html
+            /index.css
             /.gitignore
             /.npmrc
             /package-lock.json
