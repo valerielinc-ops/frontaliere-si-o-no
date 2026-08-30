@@ -86,10 +86,16 @@ describe('issue-fix.yml wiring — gates on capability, never on token presence 
   });
 
   it('the agent capability-guard prompt branches on APP_TOKEN_WORKFLOWS, not on APP_TOKEN', () => {
+    // 2026-08-30: the branch moved out of the inline `${{ cond && 'A' || 'B' }}`
+    // prompt expression into the "Determine fix tier" step's bash script — see
+    // issue-fix-app-token-wiring.test.ts for why (prompt scalar size limit).
+    // The prompt line now just references the computed output.
     const line = yml.split('\n').find((l) => l.includes('**Capability guard'));
     expect(line).toBeDefined();
-    expect(line).toContain("env.APP_TOKEN_WORKFLOWS == 'true'");
-    expect(line).not.toContain("env.APP_TOKEN != ''");
+    expect(line).toContain('${{ steps.tier.outputs.capability_guard }}');
+
+    expect(yml).toMatch(/APP_TOKEN_WORKFLOWS:-\}"\s*=\s*"true"/);
+    expect(yml).not.toContain("env.APP_TOKEN != ''");
   });
 
   it('no step decides workflows capability from the mere presence of APP_TOKEN', () => {
