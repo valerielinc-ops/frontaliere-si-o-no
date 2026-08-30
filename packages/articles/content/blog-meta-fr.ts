@@ -10941,6 +10941,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-solbiate-cagno-frontaliere-ticino.title': 'Vivre à Solbiate et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-solbiate-cagno-frontaliere-ticino.excerpt': 'À partir de 2024, nouvel accord fiscal : franchise de 10 000 € pour les nouveaux frontaliers. Temps de voyage, droits AVS/LPP, LAMal et comment demander le permis G.',
     'blog.article.vivere-solbiate-cagno-frontaliere-ticino.imageAlt': 'Vue aérienne de la province de Côme au lever du soleil, petit village frontalier avec clocher d\'église et collines vertes direction frontière suisse depuis côté italien',
+    'blog.article.vivere-schignano-lavorare-ticino.title': 'Vivre à Schignano et travailler au Tessin : guide pratique',
+    'blog.article.vivere-schignano-lavorare-ticino.excerpt': 'Frontière de Schignano : réglementation fiscale, AVS/LPP, permis G. Ce que vous devez savoir sur les impôts, les contributions et les procédures administratives.',
+    'blog.article.vivere-schignano-lavorare-ticino.imageAlt': 'Paysage frontalier entre Schignano et le Tessin suisse avec panorama alpin',
 };
 
 export default blogMetaFr;

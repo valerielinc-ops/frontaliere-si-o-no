@@ -10940,6 +10940,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-solbiate-cagno-frontaliere-ticino.title': 'Vivere a Solbiate e lavorare in Ticino da frontaliere',
     'blog.article.vivere-solbiate-cagno-frontaliere-ticino.excerpt': 'Dal 2024 nuovo accordo fiscale: franchigia €10mila per nuovi frontalieri. Tempi di viaggio, diritti AVS/LPP, LAMal e come richiedere il permesso G.',
     'blog.article.vivere-solbiate-cagno-frontaliere-ticino.imageAlt': 'Veduta aerea della provincia di Como al mattino, piccolo paese frontaliero con chiesa e colline verdi, vista dal lato italiano verso confine svizzero',
+    'blog.article.vivere-schignano-lavorare-ticino.title': 'Vivere a Schignano e lavorare in Ticino: guida pratica',
+    'blog.article.vivere-schignano-lavorare-ticino.excerpt': 'Frontaliere da Schignano: normativa fiscale, AVS/LPP, permesso G. Cosa devi sapere su imposte, contributi e procedure amministrative.',
+    'blog.article.vivere-schignano-lavorare-ticino.imageAlt': 'Panorama della zona di confine fra Schignano e il Ticino, con paesaggio alpino e territorio svizzero',
 };
 
 export default blogMetaIt;
