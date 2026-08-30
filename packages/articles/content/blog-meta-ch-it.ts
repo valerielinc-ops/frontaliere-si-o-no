@@ -4804,6 +4804,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-grigioni-validita.title': 'Permesso L nei Grigioni: durata, proroga e cambio datore',
     'blog.article.permesso-l-breve-durata-grigioni-validita.excerpt': 'Nel Cantone dei Grigioni il permesso L ha durata fino a 12 mesi, proroghe solo in casi eccezionali e cambio datore subordinato a nuova domanda cantonale.',
     'blog.article.permesso-l-breve-durata-grigioni-validita.imageAlt': 'Cantone dei Grigioni: borgo alpino con lavoratori stagionali',
+    'blog.article.apprendistato-formazione-grigioni.title': 'Apprendistato e formazione professionale nei Grigioni: guida completa',
+    'blog.article.apprendistato-formazione-grigioni.excerpt': 'Modello duale scuola-azienda nei Grigioni: contratto di tirocinio, retribuzione per anno, maturità professionale e costi di vita per l\'apprendista.',
+    'blog.article.apprendistato-formazione-grigioni.imageAlt': 'Apprendista al lavoro in un\'azienda formatrice nei Grigioni',
 };
 
 export default blogMetaChIt;

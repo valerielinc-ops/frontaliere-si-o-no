@@ -4804,6 +4804,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-grigioni-validita.title': 'L-Bewilligung in Graubünden: Dauer, Verlängerung und Wechsel des Arbeitgebers',
     'blog.article.permesso-l-breve-durata-grigioni-validita.excerpt': 'Im Kanton Graubünden ist die L-Bewilligung bis zu 12 Monate gültig, Verlängerungen nur in Ausnahmefällen und Arbeitgeberwechsel nur auf erneutes kantonales Gesuch.',
     'blog.article.permesso-l-breve-durata-grigioni-validita.imageAlt': 'Kanton Graubünden: Bergdorf mit Saisonarbeitern',
+    'blog.article.apprendistato-formazione-grigioni.title': 'Lehre und Berufsausbildung in Graubünden: Kompletter Leitfaden',
+    'blog.article.apprendistato-formazione-grigioni.excerpt': 'Duales Schulbetriebsmodell in Graubünden: Lehrvertrag, Jahreslohn, Berufsmaturität und Lebenshaltungskosten für den Lernenden.',
+    'blog.article.apprendistato-formazione-grigioni.imageAlt': 'Lehrling bei der Arbeit in einem Ausbildungsbetrieb in Graubünden',
 };
 
 export default blogMetaChDe;
