@@ -32817,6 +32817,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'credito-imposta-frontalieri-2026-errori-comuni',
+ category: 'fiscale',
+ date: '2026-08-30T21:53:33.249Z',
+ image: '/images/blog/credito-imposta-frontalieri-2026-errori-comuni.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

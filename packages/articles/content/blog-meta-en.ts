@@ -10977,6 +10977,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.credito-2026-famiglia-calcolo-limiti.title': '2026 tax credit: calculation for family with children',
     'blog.article.credito-2026-famiglia-calcolo-limiti.excerpt': 'Frontier workers with children: CE framework of 730, deductible €10,000 new and €7,500 old. Calculation of tax credit, withholding tax withheld in Switzerland, return deadlines 2026.',
     'blog.article.credito-2026-famiglia-calcolo-limiti.imageAlt': 'Frontalier family with children reviewing tax documents at Ticino-Italy border checkpoint',
+    'blog.article.credito-imposta-frontalieri-2026-errori-comuni.title': 'Border tax credit 2026: common errors',
+    'blog.article.credito-imposta-frontalieri-2026-errori-comuni.excerpt': 'Framework EC of 730, new Agreement in force since 2024 and transitional regime: the most frequent errors of border workers.',
+    'blog.article.credito-imposta-frontalieri-2026-errori-comuni.imageAlt': 'Swiss payslip and Italian 730 form on a desk, Mendrisio background',
 };
 
 export default blogMetaEn;

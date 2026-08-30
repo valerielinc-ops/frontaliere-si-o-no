@@ -10978,6 +10978,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.credito-2026-famiglia-calcolo-limiti.title': 'Credito d\'imposta 2026: calcolo per famiglia con figli',
     'blog.article.credito-2026-famiglia-calcolo-limiti.excerpt': 'Frontalieri con figli: quadro CE del 730, franchigia €10.000 nuovi e €7.500 vecchi. Calcolo credito d\'imposta, imposta alla fonte trattenuta in Svizzera, scadenze dichiarazione 2026.',
     'blog.article.credito-2026-famiglia-calcolo-limiti.imageAlt': 'Famiglia frontaliere con figli esamina documenti fiscali presso confine Ticino-Italia',
+    'blog.article.credito-imposta-frontalieri-2026-errori-comuni.title': 'Credito imposta frontalieri 2026: errori comuni',
+    'blog.article.credito-imposta-frontalieri-2026-errori-comuni.excerpt': 'Quadro CE del 730, nuovo Accordo in vigore dal 2024 e regime transitorio: gli errori più frequenti dei frontalieri.',
+    'blog.article.credito-imposta-frontalieri-2026-errori-comuni.imageAlt': 'Busta paga svizzera e modello 730 sul tavolo, sfondo Mendrisio',
 };
 
 export default blogMetaIt;
