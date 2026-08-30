@@ -7,17 +7,21 @@ name: Close Recovered Failure Issues
 # issue closed on recovery, without wiring a per-workflow step into ~300 YAML files.
 # See scripts/ci/close-recovered-failure-issues.mjs.
 #
-# Immediate close (same outcome as a per-job `--resolve`): `workflow_run` fires
-# when ANY workflow in this repo completes. The job then no-ops unless that run
-# was a success on `main` and was not this closer itself. The hourly cron stays
-# as the safety net for GitHub's schedule-dispatch delay and for reusable
-# workflows that complete in another repo (crawler-group-*-logic called from
-# nanako). `workflows:` is omitted on purpose so a newly added writer is covered
-# without a YAML edit here.
+# NOT `workflow_run` (reverted #6656, 2026-08-30): GitHub Actions rejects a
+# `workflow_run` trigger with no `workflows:` list as an INVALID workflow file
+# — not just "unfiltered", the whole file stops parsing. Every trigger in this
+# file (including this hourly cron and workflow_dispatch) was silently dead
+# from 2026-08-28 09:17 until this revert, because a broken workflow file
+# can't fire on ANY event. actionlint flags the exact construct:
+# "no workflow is configured for 'workflow_run' event [events]". Listing all
+# ~220 workflow display names in `workflows:` would "work" but defeats the
+# entire point (present-and-future coverage with zero per-file maintenance)
+# and silently stops covering any workflow added later — the same trap #6656
+# was trying to avoid. The hourly cron below is the only mechanism GitHub
+# actually lets us use for "any workflow, present and future" without a
+# per-file allowlist; it's a safety net, not an optimization to route around.
 
 on:
-  workflow_run:
-    types: [completed]
   schedule:
     # Hourly: failures recover within a workflow's own cadence (fuel ~2h, crawlers daily);
     # an hourly sweep closes the recovered issue without hammering the API.
@@ -32,10 +36,7 @@ on:
 
 concurrency:
   group: close-recovered-failure-issues
-  # A burst of green writers (the GH013 recovery case) should collapse to one
-  # reconcile, not queue N closer runs. The cron is the same group: a green
-  # burst may cancel an in-flight hourly pass, then redo the full list.
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 permissions:
   contents: read
@@ -43,13 +44,6 @@ permissions:
 
 jobs:
   reconcile:
-    if: >
-      github.event_name != 'workflow_run'
-      || (
-        github.event.workflow_run.conclusion == 'success'
-        && github.event.workflow_run.head_branch == 'main'
-        && github.event.workflow_run.name != 'Close Recovered Failure Issues'
-      )
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:

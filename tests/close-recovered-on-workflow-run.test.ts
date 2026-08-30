@@ -1,9 +1,12 @@
 /**
- * The closer must run when a workflow goes green, not only on the hourly cron.
- * Wiring `--resolve` into every opener is the 300-file churn this reconciler
- * exists to avoid; `workflow_run` is that close-on-green for every current and
- * future writer, including the three GH013 recoveries (#6627/#6630/#6633)
- * that stayed open until the delayed :17 cron.
+ * `workflow_run` without a `workflows:` allowlist looks like "listen to any
+ * workflow completing", but GitHub Actions rejects that as an INVALID
+ * workflow file — not a filtered/no-op trigger, the whole file stops
+ * parsing (actionlint: "no workflow is configured for 'workflow_run' event").
+ * #6656 added it on 2026-08-28 to close recovery issues faster than the
+ * hourly cron; it silently killed every trigger in this file (cron included)
+ * for ~2.5 days before being reverted. This test locks in the reverted,
+ * working shape so `workflow_run` doesn't come back the same way.
  */
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
@@ -14,36 +17,32 @@ const YML = resolve(import.meta.dirname, '../.github/workflows/close-recovered-f
 const raw = readFileSync(YML, 'utf8');
 const wf = parse(raw);
 
-describe('close-recovered-failure-issues.yml closes on the green run itself', () => {
-  it('listens for any repo workflow completing, not a named allowlist', () => {
-    expect(wf.on.workflow_run, 'workflow_run trigger must exist').toBeTruthy();
-    expect(wf.on.workflow_run.types).toEqual(['completed']);
-    // An allowlist would miss the next scheduled writer the same way the
-    // copypaste `--resolve` would. Omit `workflows:` so coverage is total.
-    expect(wf.on.workflow_run.workflows).toBeUndefined();
+describe('close-recovered-failure-issues.yml stays parseable by GitHub Actions', () => {
+  it('does not use workflow_run without an explicit workflows: allowlist', () => {
+    // Either absent, or present with a non-empty `workflows:` list — both are
+    // valid. `workflow_run` with no `workflows:` is the one shape GitHub
+    // rejects outright.
+    if (wf.on.workflow_run) {
+      expect(
+        Array.isArray(wf.on.workflow_run.workflows) && wf.on.workflow_run.workflows.length > 0,
+        'workflow_run without workflows: is an invalid workflow file on GitHub Actions',
+      ).toBe(true);
+    }
   });
 
-  it('keeps the hourly cron as the safety net', () => {
+  it('relies on the hourly cron + manual dispatch as the only triggers', () => {
     expect(wf.on.schedule).toEqual([{ cron: '17 * * * *' }]);
     expect(wf.on.workflow_dispatch).toBeTruthy();
   });
 
-  it('on workflow_run, only a successful main run that is not this closer starts the job', () => {
-    const jobIf = String(wf.jobs.reconcile.if);
-    expect(jobIf).toContain("github.event_name != 'workflow_run'");
-    expect(jobIf).toContain("github.event.workflow_run.conclusion == 'success'");
-    expect(jobIf).toContain("github.event.workflow_run.head_branch == 'main'");
-    expect(jobIf).toContain("github.event.workflow_run.name != 'Close Recovered Failure Issues'");
-  });
-
-  it('collapses a burst of green writers onto one reconcile', () => {
+  it('does not cancel-in-progress (single hourly run, nothing to collapse)', () => {
     expect(wf.concurrency.group).toBe('close-recovered-failure-issues');
-    expect(wf.concurrency['cancel-in-progress']).toBe(true);
+    expect(wf.concurrency['cancel-in-progress']).toBe(false);
   });
 
   it('still invokes the shipped closer script (not a reimplementation)', () => {
     const step = (wf.jobs.reconcile.steps as Array<{ name?: string; run?: string }>).find((s) =>
-      /Close recovered failure issues/.test(String(s.name || '')),
+      /close-recovered-failure-issues\.mjs/.test(String(s.run || '')),
     );
     expect(step?.run).toContain('scripts/ci/close-recovered-failure-issues.mjs');
   });
