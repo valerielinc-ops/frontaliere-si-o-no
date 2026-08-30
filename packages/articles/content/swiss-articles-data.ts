@@ -13978,6 +13978,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'aprire-ditta-svitto-costi-e-adempimenti',
+    category: 'pratico',
+    date: '2026-08-30T00:39:55.550Z',
+    image: '/images/blog/aprire-ditta-svitto-costi-e-adempimenti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

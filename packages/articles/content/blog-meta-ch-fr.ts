@@ -4660,6 +4660,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.svitto-ditta-registro-commercio-capitale.title': 'Ouvrir une entreprise à Schwyz : registre et coûts',
     'blog.article.svitto-ditta-registro-commercio-capitale.excerpt': 'Guide pratique pour l\'inscription au Registre du Commerce dans le canton de Schwyz : formes juridiques, capitaux minimaux, frais d\'inscription et obligations d\'assurance pour les employés.',
     'blog.article.svitto-ditta-registro-commercio-capitale.imageAlt': 'Bureau d\'affaires avec documents commerciaux, calculatrice et ordinateur',
+    'blog.article.aprire-ditta-svitto-costi-e-adempimenti.title': 'Ouvrir une entreprise dans le canton de Schwyz : guide pratique',
+    'blog.article.aprire-ditta-svitto-costi-e-adempimenti.excerpt': 'Procédure complète dans le canton de Schwyz : registre du commerce, capital minimum pour Sàrl et SA, obligations AVS, AD, LPP et LAMal.',
+    'blog.article.aprire-ditta-svitto-costi-e-adempimenti.imageAlt': 'Commerce dans une commune du canton de Schwytz avec les Alpes en arrière-plan',
 };
 
 export default blogMetaChFr;

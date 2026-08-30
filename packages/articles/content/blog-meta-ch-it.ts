@@ -4660,6 +4660,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svitto-ditta-registro-commercio-capitale.title': 'Aprire un\'attività a Svitto: registro e costi',
     'blog.article.svitto-ditta-registro-commercio-capitale.excerpt': 'Guida pratica all\'iscrizione al Registro di Commercio nel Cantone di Svitto: forme giuridiche, capitali minimi, tasse di iscrizione e obblighi assicurativi per dipendenti.',
     'blog.article.svitto-ditta-registro-commercio-capitale.imageAlt': 'Scrivania con documenti di registrazione commerciale, calcolatrice e computer, simbolo dell\'avvio di attività',
+    'blog.article.aprire-ditta-svitto-costi-e-adempimenti.title': 'Aprire un\'attività nel Cantone di Svitto: guida pratica',
+    'blog.article.aprire-ditta-svitto-costi-e-adempimenti.excerpt': 'Procedura completa nel Cantone di Svitto: registro di commercio, capitale minimo per Sagl e SA, obblighi AVS, AD, LPP e LAMal.',
+    'blog.article.aprire-ditta-svitto-costi-e-adempimenti.imageAlt': 'Negozio in un Comune del Cantone di Svitto con le Alpi sullo sfondo',
 };
 
 export default blogMetaChIt;

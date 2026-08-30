@@ -1579,6 +1579,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'affitti-svitto-diritto-locazione': { it: 'affitti-svitto-diritto-locazione', en: 'rentals-schwyz-tenancy-law', de: 'mietrecht-kanton-schwyz', fr: 'locations-schwyz-droit-bail' },
  'aprire-attivita-svitto-costi-registro': { it: 'aprire-attivita-svitto-costi-registro', en: 'start-business-schwyz-trade-register-costs', de: 'geschaeft-eroeffnen-schwyz-handelsregister-kosten', fr: 'ouvrir-activite-schwyz-registre-commerce-couts' },
  'svitto-ditta-registro-commercio-capitale': { it: 'svitto-ditta-registro-commercio-capitale', en: 'sv-company-registration-capital', de: 'sv-firma-gewerberegister-kapital', fr: 'sv-entreprise-registre-capital' },
+ 'aprire-ditta-svitto-costi-e-adempimenti': { it: 'aprire-ditta-svitto-costi-e-adempimenti', en: 'open-business-schwyz-costs-and-requirements', de: 'geschaeft-eroeffnen-schwyz-kosten-pflichten', fr: 'ouvrir-activite-schwytz-couts-et-demarches' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
