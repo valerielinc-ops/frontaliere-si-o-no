@@ -4672,6 +4672,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.patente-guida-svitto-conversione-ed-esami.title': 'Permis de conduire dans le canton de Schwyz : procédure et examens',
     'blog.article.patente-guida-svitto-conversione-ed-esami.excerpt': 'Comment obtenir ou convertir le permis dans le canton de Schwyz : inscription, examens théoriques et pratiques et cours obligatoires selon la réglementation fédérale.',
     'blog.article.patente-guida-svitto-conversione-ed-esami.imageAlt': 'Permis de conduire et documents pour la circulation en Suisse',
+    'blog.article.permesso-l-canton-san-gallo-validita-proroga.title': 'Permis L à Saint-Gall : validité et prolongation en 12 mois',
+    'blog.article.permesso-l-canton-san-gallo-validita-proroga.excerpt': 'Le permis L de courte durée dans le canton de Saint-Gall a une durée maximale de 12 mois, est lié à l\'employeur et ne peut être prolongé que dans des cas exceptionnels. Voici comment cela fonctionne.',
+    'blog.article.permesso-l-canton-san-gallo-validita-proroga.imageAlt': 'Office cantonal des migrations du canton de Saint-Gall, entrée avec travailleur étranger',
 };
 
 export default blogMetaChFr;

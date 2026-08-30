@@ -14014,6 +14014,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'permesso-l-canton-san-gallo-validita-proroga',
+    category: 'pratico',
+    date: '2026-08-30T01:38:51.813Z',
+    image: '/images/blog/permesso-l-canton-san-gallo-validita-proroga.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

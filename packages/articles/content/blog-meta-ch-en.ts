@@ -4672,6 +4672,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.patente-guida-svitto-conversione-ed-esami.title': 'Driving licence in the Canton of Svitto: procedure and examinations',
     'blog.article.patente-guida-svitto-conversione-ed-esami.excerpt': 'How to obtain or convert your driver\'s license in the Canton of Schwyz: registration, theoretical and practical exams and compulsory courses according to federal regulations.',
     'blog.article.patente-guida-svitto-conversione-ed-esami.imageAlt': 'Driving licence and documents for Swiss road traffic',
+    'blog.article.permesso-l-canton-san-gallo-validita-proroga.title': 'Permit L in the Canton of St. Gallen: validity 12 months and extension rules',
+    'blog.article.permesso-l-canton-san-gallo-validita-proroga.excerpt': 'The short-term L permit in the Canton of St. Gallen has a maximum duration of 12 months, is linked to the employer and provides for extension only in exceptional cases. Here\'s how it works.',
+    'blog.article.permesso-l-canton-san-gallo-validita-proroga.imageAlt': 'Cantonal migration office in Canton St. Gallen, entrance with foreign worker',
 };
 
 export default blogMetaChEn;

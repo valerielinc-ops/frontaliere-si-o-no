@@ -60626,6 +60626,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-l-canton-san-gallo-validita-proroga': {
+    title: 'Permesso L nel Canton San Gallo: validità 12 mesi e regole di proroga',
+    description: 'Permesso L nel Canton San Gallo: durata massima 12 mesi, legame col datore di lavoro, proroga solo in casi eccezionali e passaggio al permesso B.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, canton, gallo, validità',
+    ogTitle: 'Permesso L Canton San Gallo: durata e proroga',
+    ogDescription: 'Il permesso L di breve durata nel Canton San Gallo ha validità massima di 12 mesi ed è legato al datore di lavoro. La proroga è ammessa solo in casi eccezionali previsti dalla legge federale. Scopri procedura, documenti e passaggio al permesso B.',
+    canonicalPath: '/articoli-svizzera/permesso-l-canton-san-gallo-validita-proroga/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso L nel Canton San Gallo: validità 12 mesi e regole di proroga",
+      "description": "Permesso L nel Canton San Gallo: durata massima 12 mesi, legame col datore di lavoro, proroga solo in casi eccezionali e passaggio al permesso B.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-l-canton-san-gallo-validita-proroga.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio cantonale per la migrazione nel Canton San Gallo, ingresso con lavoratore straniero"
+      },
+      "datePublished": "2026-08-30T01:38:51+00:00",
+      "dateModified": "2026-08-30T01:38:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-l-canton-san-gallo-validita-proroga/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
