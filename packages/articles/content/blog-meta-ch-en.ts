@@ -4708,6 +4708,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-obvaldo-cassa.title': 'AVS and complementary services in the Canton of Obvaldo: how the cashier works',
     'blog.article.avs-prestazioni-complementari-obvaldo-cassa.excerpt': 'AVS Compensation Fund of the Canton of Obvaldo: contributions, calculation of the annuity, redemption of gaps and complementary benefits for the minimum living.',
     'blog.article.avs-prestazioni-complementari-obvaldo-cassa.imageAlt': 'Cantonal administration building in Sarnen, Canton Obwalden',
+    'blog.article.avs-prestazioni-complementari-obvaldo-guida.title': 'AVS and complementary services in Canton Obvaldo: the guide',
+    'blog.article.avs-prestazioni-complementari-obvaldo-guida.excerpt': 'How the first AVS pillar works in the Obvaldo Canton: role of the compensation fund, contribution gaps and complementary benefits to cover the minimum living wage in 2026.',
+    'blog.article.avs-prestazioni-complementari-obvaldo-guida.imageAlt': 'Administrative building in Canton Obwalden housing the AVS compensation office',
 };
 
 export default blogMetaChEn;

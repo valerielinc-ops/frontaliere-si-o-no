@@ -4708,6 +4708,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-obvaldo-cassa.title': 'AVS e prestazioni complementari nel Canton Obvaldo: come funziona la cassa',
     'blog.article.avs-prestazioni-complementari-obvaldo-cassa.excerpt': 'Cassa di compensazione AVS del Canton Obvaldo: contributi, calcolo della rendita, riscatto delle lacune e prestazioni complementari per il minimo vitale.',
     'blog.article.avs-prestazioni-complementari-obvaldo-cassa.imageAlt': 'Edificio amministrativo cantonale a Sarnen, Canton Obvaldo',
+    'blog.article.avs-prestazioni-complementari-obvaldo-guida.title': 'AVS e prestazioni complementari in Canton Obvaldo: la guida',
+    'blog.article.avs-prestazioni-complementari-obvaldo-guida.excerpt': 'Come funziona il primo pilastro AVS nel Canton Obvaldo: ruolo della cassa di compensazione, lacune contributive e prestazioni complementari a copertura del minimo vitale nel 2026.',
+    'blog.article.avs-prestazioni-complementari-obvaldo-guida.imageAlt': 'Edificio amministrativo del Canton Obvaldo dove ha sede la cassa di compensazione AVS',
 };
 
 export default blogMetaChIt;

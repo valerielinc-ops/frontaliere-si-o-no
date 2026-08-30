@@ -14122,6 +14122,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'avs-prestazioni-complementari-obvaldo-guida',
+    category: 'pensione',
+    date: '2026-08-30T05:56:32.507Z',
+    image: '/images/blog/avs-prestazioni-complementari-obvaldo-guida.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
