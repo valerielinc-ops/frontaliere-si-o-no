@@ -10949,6 +10949,23 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-corrido-frontaliere-ticino.title': 'Vivere a Corrido e lavorare in Ticino da frontaliere',
     'blog.article.vivere-corrido-frontaliere-ticino.excerpt': 'Guida pratica per chi valuta il pendolarismo da Corrido al Canton Ticino: fiscalità, tempi, costi e cosa sapere prima del trasferimento.',
     'blog.article.vivere-corrido-frontaliere-ticino.imageAlt': 'Veduta di un piccolo comune italiano di confine vicino al Ticino',
+    'blog.article.vivere-lomazzo-lavorare-ticino-frontaliere.title': 'Vivere a Lomazzo e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-lomazzo-lavorare-ticino-frontaliere.excerpt': 'Frontaliere a Lomazzo? Scopri i valichi Brogeda e Chiasso, tempi di percorrenza, costo della vita e le imposte. Guida pratica per trasferirsi da Como a Ticino.',
+    'blog.article.vivere-lomazzo-lavorare-ticino-frontaliere.imageAlt': 'Vista del paesaggio di confine tra Ticino e Lombardia, con colline e valichi stradali',
+    'blog.article.azzio-confine-guida-frontaliere.title': 'Vivere a Azzio, lavorare in Ticino: guida al frontaliere',
+    'blog.article.azzio-confine-guida-frontaliere.excerpt': 'Azzio per chi lavora in Ticino: permesso G, fiscalità svizzera, AVS, ristorni e come trasferirsi.',
+    'blog.article.azzio-confine-guida-frontaliere.imageAlt': 'Il valico di frontiera di Chiasso al confine tra Ticino e Italia, con traffico pendolare mattutino',
+    'blog.article.bollettino-frontaliere-2026-08-30.title': 'Bollettino del frontaliere – 30 agosto 2026: 33 nuovi annunci di lavoro ieri',
+    'blog.article.bollettino-frontaliere-2026-08-30.excerpt': 'I numeri di oggi, 30 agosto 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-08-30.imageAlt': 'I numeri del giorno per i frontalieri – 30 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-08-30.seoDescription': 'Bollettino frontalieri del 30 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-08-30.ogDescription': 'I numeri del 30 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.frontaliere-remoto-vacanza-estero-tasse.title': 'Remoto da vacanza all\'estero: guida fiscale per frontalieri',
+    'blog.article.frontaliere-remoto-vacanza-estero-tasse.excerpt': 'Lavorare da remoto durante una vacanza all\'estero non cambia le tasse svizzere e la copertura LAMal rimane attiva. Ecco cosa devi verificare e comunicare al datore.',
+    'blog.article.frontaliere-remoto-vacanza-estero-tasse.imageAlt': 'Frontaliere che lavora in remoto da una location estiva con vista mare e portatile, durante una vacanza lavorativa.',
+    'blog.article.lavoro-remoto-terzo-paese-vacanza.title': 'Lavoro remoto in vacanza: fiscalità e diritti del frontaliere',
+    'blog.article.lavoro-remoto-terzo-paese-vacanza.excerpt': 'Quando il frontaliere lavora in remoto da un terzo paese durante le ferie: cosa cambia per imposte, LAMal e AVS. Tutto quello che devi comunicare al datore.',
+    'blog.article.lavoro-remoto-terzo-paese-vacanza.imageAlt': 'Frontaliere al lavoro remoto da una terrazza di vacanza all\'estero con vista su montagne.',
 };
 
 export default blogMetaIt;

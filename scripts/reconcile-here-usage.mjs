@@ -302,6 +302,12 @@ async function main() {
         priority: 1,
         labels: ['revenue'],
         workflow: 'Reconcile HERE Usage Budget',
+        signals: {
+          cosa: `budget mensile HERE (${monthKey}) superato — routing runs sospesi`,
+          metrica: { osservato: reconciled, atteso: budget },
+          comando: 'node scripts/reconcile-here-usage.mjs --dry-run',
+          evidenza: [`source=${source}`, `realBilled=${realBilled}`],
+        },
       });
     } catch (e) {
       console.warn(`⚠️ alert issue failed: ${e.message}`);

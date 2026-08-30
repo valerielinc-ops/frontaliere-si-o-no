@@ -10950,6 +10950,23 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-corrido-frontaliere-ticino.title': 'Vivre à Corrido et travailler au Tessin en tant que frontalière',
     'blog.article.vivere-corrido-frontaliere-ticino.excerpt': 'Guide pratique pour ceux qui évaluent le trajet de Corrido au canton du Tessin : fiscalité, délais, coûts et ce qu\'il faut savoir avant le transfert.',
     'blog.article.vivere-corrido-frontaliere-ticino.imageAlt': 'Vue d\'un petit village italien frontalier proche du Tessin',
+    'blog.article.vivere-lomazzo-lavorare-ticino-frontaliere.title': 'Vivre à Lomazzo et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-lomazzo-lavorare-ticino-frontaliere.excerpt': 'Frontière à Lomazzo ? Découvrez les cols de Brogeda et Chiasso, les temps de trajet, le coût de la vie et les taxes. Guide pratique pour se déplacer de Côme au Tessin.',
+    'blog.article.vivere-lomazzo-lavorare-ticino-frontaliere.imageAlt': 'Paysage frontalier entre le Tessin et la Lombardie avec montagnes et routes alpines',
+    'blog.article.azzio-confine-guida-frontaliere.title': 'Vivre à Azzio, travailler au Tessin : guide du frontalier',
+    'blog.article.azzio-confine-guida-frontaliere.excerpt': 'Azzio pour ceux qui travaillent au Tessin : permis G, fiscalité suisse, AVS, restaurations et comment déménager.',
+    'blog.article.azzio-confine-guida-frontaliere.imageAlt': 'Poste frontière de Chiasso entre le Tessin et l\'Italie avec le trafic matinal et les Alpes',
+    'blog.article.bollettino-frontaliere-2026-08-30.title': 'Bulletin du frontalier – 30 août 2026 : 33 nouvelles offres d\'emploi hier',
+    'blog.article.bollettino-frontaliere-2026-08-30.excerpt': 'Les chiffres du jour, 30 août 2026, pour les frontaliers : les attentes relevées ce matin à chaque douane, les communes où l\'essence coûte le moins cher, le taux franc-euro à la clôture et les offres d\'emploi parues en Suisse. Des données de notre suivi, relevées chaque jour.',
+    'blog.article.bollettino-frontaliere-2026-08-30.imageAlt': 'Les chiffres du jour pour les frontaliers – 30 août 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
+    'blog.article.bollettino-frontaliere-2026-08-30.seoDescription': 'Bulletin du frontalier du 30 août 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
+    'blog.article.bollettino-frontaliere-2026-08-30.ogDescription': 'Les chiffres du 30 août 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.frontaliere-remoto-vacanza-estero-tasse.title': 'À distance de vacances à l\'étranger : guide fiscal pour les frontaliers',
+    'blog.article.frontaliere-remoto-vacanza-estero-tasse.excerpt': 'Travailler à distance pendant des vacances à l\'étranger ne change pas les taxes suisses et la couverture LAMal reste active. Voici ce que vous devez vérifier et communiquer à l\'employeur.',
+    'blog.article.frontaliere-remoto-vacanza-estero-tasse.imageAlt': 'Travailleur frontalier travaillant à distance depuis une location de vacances avec vue sur la mer et ordinateur portable.',
+    'blog.article.lavoro-remoto-terzo-paese-vacanza.title': 'Travail à distance en vacances : fiscalité et droits du frontalier',
+    'blog.article.lavoro-remoto-terzo-paese-vacanza.excerpt': 'Lorsque le frontalier travaille à distance depuis un pays tiers pendant les vacances : ce qui change pour les taxes, LAMal et AVS. Tout ce que vous devez communiquer à l\'employeur.',
+    'blog.article.lavoro-remoto-terzo-paese-vacanza.imageAlt': 'Travailleur frontalier en télétravail depuis une terrasse de vacances à l\'étranger avec vue montagne.',
 };
 
 export default blogMetaFr;

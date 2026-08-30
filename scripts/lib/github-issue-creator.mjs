@@ -792,6 +792,31 @@ export function commentOnGithubIssue(issueNumber, body) {
 }
 
 /**
+ * Formats the `signals` option (see `createGithubIssue`) into a `## Segnali`
+ * block — the zero-Claude equivalent of issue-decompose's `## Scheda` (see
+ * ISSUES.md → "Contratto minimo per issue auto-generate"). NOT a diagnosis:
+ * these reporters are deterministic monitors with no root-cause judgment,
+ * this is only the facts they already have in hand — the fixer would
+ * otherwise spend a turn re-discovering exactly this (what failed, how to
+ * reproduce it, where the evidence is) before it can start on the real fix.
+ * Every field optional; an empty/absent `signals` renders nothing.
+ */
+export function formatSignalsBlock(signals) {
+  if (!signals || typeof signals !== 'object') return '';
+  const lines = [];
+  if (signals.cosa) lines.push(`- Cosa: ${signals.cosa}`);
+  if (signals.metrica && (signals.metrica.osservato !== undefined || signals.metrica.atteso !== undefined)) {
+    const { osservato = '?', atteso = '?' } = signals.metrica;
+    lines.push(`- Metrica: osservato=${osservato} atteso=${atteso}`);
+  }
+  if (signals.comando) lines.push(`- Comando di riproduzione: \`${signals.comando}\``);
+  const evidenza = Array.isArray(signals.evidenza) ? signals.evidenza.filter(Boolean) : [];
+  if (evidenza.length > 0) lines.push(`- Evidenza: ${evidenza.join(' · ')}`);
+  if (lines.length === 0) return '';
+  return ['## Segnali (raccolti automaticamente)', ...lines].join('\n');
+}
+
+/**
  * Create a GitHub issue, or comment on an existing open duplicate.
  */
 export async function createGithubIssue({
@@ -827,6 +852,10 @@ export async function createGithubIssue({
   // CLI: --consecutive-gate N --gate-window-hours H.
   consecutiveGate = 0,
   gateWindowHours = DEFAULT_CRAWLER_GATE_WINDOW_HOURS,
+  // Optional structured facts — see `formatSignalsBlock` above. Opt-in: omit
+  // for the unchanged free-form `description` behaviour every existing caller
+  // already has.
+  signals = null,
   // `project` accepted for backward compatibility but not used (GH issues
   // don't have a free-form project field; the workflow name is preserved
   // in the body for grouping instead).
@@ -926,9 +955,14 @@ export async function createGithubIssue({
     ].filter(Boolean)),
   );
 
-  // Body: workflow name + description, truncated to GH limit.
+  // Body: workflow name + Segnali (if supplied) + description, truncated to
+  // GH limit. Segnali comes BEFORE the free-form description so the fixer
+  // reads the structured facts first — same ordering issue-decompose uses
+  // for `## Scheda` on its sub-issues.
   const bodyLines = [];
   if (workflow) bodyLines.push(`**Workflow:** ${workflow}`);
+  const signalsBlock = formatSignalsBlock(signals);
+  if (signalsBlock) bodyLines.push(signalsBlock);
   if (bodyLines.length > 0) bodyLines.push('');
   bodyLines.push(description || '_no details provided_');
   let body = bodyLines.join('\n');
@@ -1099,9 +1133,27 @@ if (process.argv[1]?.endsWith('github-issue-creator.mjs')) {
 
   const title = get('--title');
   if (!title) {
-    console.error('Usage: node github-issue-creator.mjs --title "..." [--description "..."] [--priority N] [--label Bug] [--workflow "Update Coop"] [--reopen-within-hours N | --no-reopen] [--build-sha SHA] [--consecutive-gate N] [--gate-window-hours H] [--resolve]');
+    console.error('Usage: node github-issue-creator.mjs --title "..." [--description "..."] [--priority N] [--label Bug] [--workflow "Update Coop"] [--reopen-within-hours N | --no-reopen] [--build-sha SHA] [--consecutive-gate N] [--gate-window-hours H] [--signal-cosa "..."] [--signal-osservato V] [--signal-atteso V] [--signal-comando "..."] [--signal-evidenza "..."]* [--resolve]');
     process.exit(1);
   }
+
+  // --signal-*: opt-in structured facts, see `formatSignalsBlock`. Absent →
+  // `signals` stays null → unchanged free-form `--description` behaviour.
+  const signals = (() => {
+    const cosa = get('--signal-cosa');
+    const osservato = get('--signal-osservato');
+    const atteso = get('--signal-atteso');
+    const comando = get('--signal-comando');
+    const evidenza = collect('--signal-evidenza');
+    const hasAny = cosa || osservato !== undefined || atteso !== undefined || comando || evidenza.length > 0;
+    if (!hasAny) return null;
+    return {
+      cosa,
+      metrica: (osservato !== undefined || atteso !== undefined) ? { osservato, atteso } : undefined,
+      comando,
+      evidenza,
+    };
+  })();
 
   // --resolve: close the OPEN canonical issue with this stable title (green run).
   // Mirror of the failure reporter; runs from `if: success()` steps so a recovered
@@ -1149,6 +1201,7 @@ if (process.argv[1]?.endsWith('github-issue-creator.mjs')) {
     buildSha: get('--build-sha') || null,
     consecutiveGate: Number.isFinite(consecutiveGate) ? consecutiveGate : 0,
     gateWindowHours: Number(get('--gate-window-hours') || DEFAULT_CRAWLER_GATE_WINDOW_HOURS),
+    signals,
   }).then(() => {
     // Why: this CLI is a best-effort reporter invoked from `if: failure()`
     // steps after the real failure has already been recorded. Exiting non-zero

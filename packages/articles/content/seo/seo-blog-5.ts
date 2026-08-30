@@ -80528,6 +80528,201 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-lomazzo-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Lomazzo e lavorare in Ticino da frontaliere',
+    description: 'Frontaliere a Lomazzo: guida completa su valichi, costo della vita, imposte, permesso G e franchigia €10.000. Come trasferirsi da Como a Ticino. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, lomazzo, lavorare, scopri',
+    ogTitle: 'Vivere a Lomazzo e lavorare in Ticino da frontaliere',
+    ogDescription: 'Vivere a Lomazzo come frontaliere in Ticino: scopri i valichi Brogeda e Chiasso, tempi di percorrenza, costo della vita, permesso G, franchigia €10.000 dal 2024 e tasse. Guida pratica e strumenti.',
+    canonicalPath: '/articoli-frontaliere/vivere-lomazzo-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Lomazzo e lavorare in Ticino da frontaliere",
+      "description": "Frontaliere a Lomazzo: guida completa su valichi, costo della vita, imposte, permesso G e franchigia €10.000. Come trasferirsi da Como a Ticino. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-lomazzo-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del paesaggio di confine tra Ticino e Lombardia, con colline e valichi stradali"
+      },
+      "datePublished": "2026-08-30T09:18:33+00:00",
+      "dateModified": "2026-08-30T09:18:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-lomazzo-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-azzio-confine-guida-frontaliere': {
+    title: 'Vivere a Azzio, lavorare in Ticino: guida al frontaliere',
+    description: 'Azzio per frontalieri Ticino: permesso G, imposta alla fonte, AVS, ristorni e procedura di trasferimento. Guida pratica. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, azzio, lavorare, lavora',
+    ogTitle: 'Azzio & Ticino: Guida per Frontalieri',
+    ogDescription: 'Scopri come vivere a Azzio e lavorare in Ticino: permesso G, fiscalità svizzera, AVS, LAMal e ristorni. Tutto quello che serve prima di trasferirsi.',
+    canonicalPath: '/articoli-frontaliere/azzio-confine-guida-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Azzio, lavorare in Ticino: guida al frontaliere",
+      "description": "Azzio per frontalieri Ticino: permesso G, imposta alla fonte, AVS, ristorni e procedura di trasferimento. Guida pratica. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/azzio-confine-guida-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il valico di frontiera di Chiasso al confine tra Ticino e Italia, con traffico pendolare mattutino"
+      },
+      "datePublished": "2026-08-30T09:54:44+00:00",
+      "dateModified": "2026-08-30T09:54:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/azzio-confine-guida-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bollettino-frontaliere-2026-08-30': {
+    title: 'Bollettino del frontaliere – 30 agosto 2026: 33 nuovi annunci di lavoro ieri',
+    description: 'Bollettino frontalieri del 30 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    keywords: 'bollettino frontaliere, dogana, attesa dogana, code valichi ticino, prezzi benzina confine, cambio franco euro, lavoro svizzera, frontalieri ticino',
+    ogTitle: 'Bollettino del frontaliere – 30 agosto 2026: 33 nuovi annunci di lavoro ieri',
+    ogDescription: 'I numeri del 30 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/bollettino-frontaliere-2026-08-30',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bollettino del frontaliere – 30 agosto 2026: 33 nuovi annunci di lavoro ieri",
+      "description": "Bollettino frontalieri del 30 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bollettino-frontaliere-2026-08-30.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I numeri del giorno per i frontalieri – 30 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro"
+      },
+      "datePublished": "2026-08-30T10:23:12+00:00",
+      "dateModified": "2026-08-30T10:23:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollettino-frontaliere-2026-08-30/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-remoto-vacanza-estero-tasse': {
+    title: 'Remoto da vacanza all\'estero: guida fiscale per frontalieri',
+    description: 'Lavorare da remoto durante una vacanza all\'estero come frontaliere: imposta alla fonte, LAMal, contributi AVS/LPP rimangono ordinari. Guida pratica e verifiche',
+    keywords: 'frontalieri, ticino, svizzera, italia, remoto, vacanza, estero, fiscale',
+    ogTitle: 'Remoto da vacanza: le tasse del frontaliere',
+    ogDescription: 'Frontaliere che lavora in remoto durante una vacanza all\'estero? L\'imposta alla fonte rimane svizzera, LAMal garantisce copertura, e i contributi continuano normalmente. Scopri le implicazioni pratiche.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-remoto-vacanza-estero-tasse',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Remoto da vacanza all'estero: guida fiscale per frontalieri",
+      "description": "Lavorare da remoto durante una vacanza all'estero come frontaliere: imposta alla fonte, LAMal, contributi AVS/LPP rimangono ordinari. Guida pratica e verifiche",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-remoto-vacanza-estero-tasse.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere che lavora in remoto da una location estiva con vista mare e portatile, durante una vacanza lavorativa."
+      },
+      "datePublished": "2026-08-30T10:42:20+00:00",
+      "dateModified": "2026-08-30T10:42:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-remoto-vacanza-estero-tasse/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lavoro-remoto-terzo-paese-vacanza': {
+    title: 'Lavoro remoto in vacanza: fiscalità e diritti del frontaliere',
+    description: 'Frontaliere che lavora in remoto da estero durante vacanza: come funziona l\'imposta alla fonte, LAMal, AVS. Cosa comunicare al datore. Guida pratica 2024.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoro, remoto, vacanza, fiscalità',
+    ogTitle: 'Lavoro remoto in vacanza estero: tasse del frontaliere',
+    ogDescription: 'Frontaliere in vacanza remota all\'estero? Scopri imposta alla fonte, LAMal, AVS, AVS. Cosa comunicare al datore e come evitare sorprese fiscali con la normativa 2024.',
+    canonicalPath: '/articoli-frontaliere/lavoro-remoto-terzo-paese-vacanza',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavoro remoto in vacanza: fiscalità e diritti del frontaliere",
+      "description": "Frontaliere che lavora in remoto da estero durante vacanza: come funziona l'imposta alla fonte, LAMal, AVS. Cosa comunicare al datore. Guida pratica 2024.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavoro-remoto-terzo-paese-vacanza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere al lavoro remoto da una terrazza di vacanza all'estero con vista su montagne."
+      },
+      "datePublished": "2026-08-30T11:25:42+00:00",
+      "dateModified": "2026-08-30T11:25:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavoro-remoto-terzo-paese-vacanza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

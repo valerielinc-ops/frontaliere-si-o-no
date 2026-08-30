@@ -1,0 +1,21 @@
+{
+  "companyKey": "walker-bedachungen",
+  "companyName": "walker-bedachungen",
+  "companyHost": "walker-bedachungen.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://walker-bedachungen.ch/jobs/vermittlung-dachdecker"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "INFOS",
+    "INFOS",
+    "INFOS"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-30T09:50:11.522Z"
+}

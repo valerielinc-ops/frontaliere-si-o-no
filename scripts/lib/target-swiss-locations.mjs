@@ -135,12 +135,32 @@ function getCantonScopedBareTokens(cantonCode) {
   const municipalities = entry?.municipalities || [];
   const aliases = entry?.aliases || [];
   const all = [...new Set([...municipalities, ...aliases])];
-  const tokens = new Set();
+  // Track which distinct BFS entries produce each bare token before
+  // committing anything to the returned Set. Two DIFFERENT municipalities
+  // in the SAME canton could in principle share a bare name (BFS
+  // disambiguates "<City> (XX)" against homonyms elsewhere in the country,
+  // not against siblings in the same canton) — a plain `tokens.add()` would
+  // silently collapse that onto "exists" with no way to tell which comune a
+  // caller meant. No such collision exists in the current BFS snapshot
+  // (verified one-shot across all 26 cantons, #6621), but if one is ever
+  // introduced by a future data refresh, exclude the ambiguous token rather
+  // than let it resolve to an arbitrary one of the two — same discipline as
+  // AMBIGUOUS_LOCATION_WORD_TOKENS above. Regression-guarded by
+  // tests/swiss-municipality-whitelist.test.ts.
+  const sourcesByToken = new Map();
   for (const city of all) {
     const disambiguated = city.match(/^(.+?)\s*\([a-z]{2}\)$/i);
     if (!disambiguated) continue;
     const bareToken = normalizeToken(disambiguated[1]);
-    if (bareToken && !AMBIGUOUS_LOCATION_WORD_TOKENS.has(bareToken)) tokens.add(bareToken);
+    if (!bareToken || AMBIGUOUS_LOCATION_WORD_TOKENS.has(bareToken)) continue;
+    if (!sourcesByToken.has(bareToken)) sourcesByToken.set(bareToken, new Set());
+    sourcesByToken.get(bareToken).add(city);
+  }
+
+  const tokens = new Set();
+  for (const [bareToken, sources] of sourcesByToken) {
+    if (sources.size > 1) continue; // ambiguous within this canton — no safe single match
+    tokens.add(bareToken);
   }
 
   _cantonScopedBareTokensCache.set(cantonCode, tokens);

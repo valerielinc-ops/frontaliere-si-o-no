@@ -61289,6 +61289,240 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-neutralita-svizzera-voto-settembre': {
+    title: 'Neutralità in Costituzione: il 27 settembre il voto federale',
+    description: 'Voto del 27 settembre: iniziativa depositata ad aprile 2024 con 132\'000 firme per blindare la neutralità nella Costituzione federale. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, neutralità, costituzione, settembre, voto',
+    ogTitle: 'Neutralità in Costituzione: il 27 settembre si vota',
+    ogDescription: 'Il 27 settembre la Svizzera vota sull\'iniziativa per blindare la neutralità nella Costituzione federale. Depositata ad aprile 2024 con oltre 132\'000 firme valide, propone di vietare sanzioni non ONU e cooperazioni militari, con eccezione in caso',
+    canonicalPath: '/articoli-svizzera/neutralita-svizzera-voto-settembre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Neutralità in Costituzione: il 27 settembre il voto federale",
+      "description": "Voto del 27 settembre: iniziativa depositata ad aprile 2024 con 132'000 firme per blindare la neutralità nella Costituzione federale. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/neutralita-svizzera-voto-settembre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Busta elettorale federale sul tavolo di un appartamento svizzero"
+      },
+      "datePublished": "2026-08-30T08:52:23+00:00",
+      "dateModified": "2026-08-30T08:52:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/neutralita-svizzera-voto-settembre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-abbonamenti-trasporti-san-gallo': {
+    title: 'Abbonamenti trasporti San Gallo: zone e tariffe',
+    description: 'Sistema tariffario del Canton San Gallo: comunità tariffaria, zone, abbonamenti annuali e mensili, Metà-prezzo, AG, sconti studenti e apprendisti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, abbonamenti, trasporti, gallo, zone',
+    ogTitle: 'Abbonamenti trasporti San Gallo: zone e tariffe',
+    ogDescription: 'Guida pratica ai trasporti pubblici nel Canton San Gallo: abbonamenti annuali e mensili, comunità tariffaria, zone, Metà-prezzo, AG e sconti per studenti e apprendisti.',
+    canonicalPath: '/articoli-svizzera/abbonamenti-trasporti-san-gallo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Abbonamenti trasporti San Gallo: zone e tariffe",
+      "description": "Sistema tariffario del Canton San Gallo: comunità tariffaria, zone, abbonamenti annuali e mensili, Metà-prezzo, AG, sconti studenti e apprendisti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/abbonamenti-trasporti-san-gallo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Autobus e treni regionali dei trasporti pubblici nel Canton San Gallo con passeggeri alla stazione"
+      },
+      "datePublished": "2026-08-30T09:09:21+00:00",
+      "dateModified": "2026-08-30T09:09:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/abbonamenti-trasporti-san-gallo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-aprire-attivita-san-gallo-registro-costi': {
+    title: 'Aprire attività a San Gallo: registro, capitale e costi',
+    description: 'Sagl e SA in San Gallo: capitale minimo CHF 20\'000 e CHF 100\'000, iscrizione al registro cantonale, LAMal dal primo giorno, AVS, LPP e LAINF. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, gallo, registro',
+    ogTitle: 'Aprire attività a San Gallo: registro, capitale e costi',
+    ogDescription: 'Come avviare un\'attività nel Cantone di San Gallo: forma giuridica, capitale minimo Sagl CHF 20\'000 e SA CHF 100\'000, iscrizione al registro di commercio, LAMal dal primo giorno e costi salariali AVS, AD, LPP e LAINF.',
+    canonicalPath: '/articoli-svizzera/aprire-attivita-san-gallo-registro-costi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire attività a San Gallo: registro, capitale e costi",
+      "description": "Sagl e SA in San Gallo: capitale minimo CHF 20'000 e CHF 100'000, iscrizione al registro cantonale, LAMal dal primo giorno, AVS, LPP e LAINF. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aprire-attivita-san-gallo-registro-costi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio cantonale del registro di commercio a San Gallo"
+      },
+      "datePublished": "2026-08-30T09:31:37+00:00",
+      "dateModified": "2026-08-30T09:31:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aprire-attivita-san-gallo-registro-costi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-aprire-attivita-san-gallo-procedura-costi': {
+    title: 'Aprire un\'attività nel Cantone di San Gallo: procedura, registro e costi',
+    description: 'Guida alla procedura per aprire un\'attività nel Cantone di San Gallo: forme giuridiche, capitale, registro di commercio e obblighi assicurativi. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, cantone, gallo',
+    ogTitle: 'Aprire un\'attività a San Gallo: procedura e costi',
+    ogDescription: 'Dalla scelta della forma giuridica all\'iscrizione al registro di commercio del Cantone di San Gallo: passi operativi, capitale, costi e obblighi AVS, LPP e IVA per la nuova impresa in Svizzera.',
+    canonicalPath: '/articoli-svizzera/aprire-attivita-san-gallo-procedura-costi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire un'attività nel Cantone di San Gallo: procedura, registro e costi",
+      "description": "Guida alla procedura per aprire un'attività nel Cantone di San Gallo: forme giuridiche, capitale, registro di commercio e obblighi assicurativi. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aprire-attivita-san-gallo-procedura-costi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta del centro storico di San Gallo con la biblioteca dell'abbazia"
+      },
+      "datePublished": "2026-08-30T10:18:20+00:00",
+      "dateModified": "2026-08-30T10:18:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aprire-attivita-san-gallo-procedura-costi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-salari-mercato-lavoro-san-gallo': {
+    title: 'Salari e mercato del lavoro nel Cantone di San Gallo',
+    description: 'Mercato del lavoro nel Cantone di San Gallo: settori, CCL con obbligatorietà generale, salari per formazione e contributi sociali. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, mercato, lavoro, cantone',
+    ogTitle: 'Salari e mercato del lavoro a San Gallo: guida',
+    ogDescription: 'Come funziona il mercato del lavoro nel Cantone di San Gallo: settori che assumono, CCL di settore con o senza obbligatorietà generale, salari legati a formazione ed esperienza e contributi sociali obbligatori.',
+    canonicalPath: '/articoli-svizzera/salari-mercato-lavoro-san-gallo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari e mercato del lavoro nel Cantone di San Gallo",
+      "description": "Mercato del lavoro nel Cantone di San Gallo: settori, CCL con obbligatorietà generale, salari per formazione e contributi sociali. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salari-mercato-lavoro-san-gallo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di moderni uffici nel Cantone di San Gallo con montagne sullo sfondo"
+      },
+      "datePublished": "2026-08-30T11:09:27+00:00",
+      "dateModified": "2026-08-30T11:09:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salari-mercato-lavoro-san-gallo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-casa-nidvaldo-mutuo-pratico': {
+    title: 'Casa in Nidvaldo: guida pratica al mutuo ipotecario',
+    description: 'Acquisto casa in Canton Nidvaldo: quadro fiscale svizzero, contributi sul salario, iter burocratico per il mutuo ipotecario. Dossier di riferimento.',
+    keywords: 'frontalieri, ticino, svizzera, italia, casa, nidvaldo, pratica, mutuo',
+    ogTitle: 'Casa in Nidvaldo: guida pratica al mutuo ipotecario',
+    ogDescription: 'Quadro di riferimento per l\'acquisto di un immobile in Canton Nidvaldo: fiscalità federale, cantonale e comunale, contributi AVS e LPP sul salario, ruolo di AFC, UFAS e FINMA, iter burocratico dal notaio al registro fondiario.',
+    canonicalPath: '/articoli-svizzera/casa-nidvaldo-mutuo-pratico/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Casa in Nidvaldo: guida pratica al mutuo ipotecario",
+      "description": "Acquisto casa in Canton Nidvaldo: quadro fiscale svizzero, contributi sul salario, iter burocratico per il mutuo ipotecario. Dossier di riferimento.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/casa-nidvaldo-mutuo-pratico.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Casa residenziale in Canton Nidvaldo con sfondo alpino e lago"
+      },
+      "datePublished": "2026-08-30T11:34:45+00:00",
+      "dateModified": "2026-08-30T11:34:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/casa-nidvaldo-mutuo-pratico/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
