@@ -4663,6 +4663,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-ditta-svitto-costi-e-adempimenti.title': 'Starting a business in the Canton of Schwyz: a practical guide',
     'blog.article.aprire-ditta-svitto-costi-e-adempimenti.excerpt': 'Complete procedure in the Canton of Schwyz: trade register, minimum capital for Sagl and SA, AVS, AD, LPP and LAMal obligations.',
     'blog.article.aprire-ditta-svitto-costi-e-adempimenti.imageAlt': 'Storefront in a Canton Schwyz town with the Alps in the background',
+    'blog.article.droni-esercito-battaglione-2028.title': 'Army, the drone battalion is born: operational since 2028',
+    'blog.article.droni-esercito-battaglione-2028.excerpt': 'Competence center presented to Thun by Pfister, Roos and Loher: reconnaissance and defense, plus a dedicated recruit school.',
+    'blog.article.droni-esercito-battaglione-2028.imageAlt': 'Thun military parade ground with a Swiss army reconnaissance drone',
 };
 
 export default blogMetaChEn;

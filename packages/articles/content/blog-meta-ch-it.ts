@@ -4663,6 +4663,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-ditta-svitto-costi-e-adempimenti.title': 'Aprire un\'attività nel Cantone di Svitto: guida pratica',
     'blog.article.aprire-ditta-svitto-costi-e-adempimenti.excerpt': 'Procedura completa nel Cantone di Svitto: registro di commercio, capitale minimo per Sagl e SA, obblighi AVS, AD, LPP e LAMal.',
     'blog.article.aprire-ditta-svitto-costi-e-adempimenti.imageAlt': 'Negozio in un Comune del Cantone di Svitto con le Alpi sullo sfondo',
+    'blog.article.droni-esercito-battaglione-2028.title': 'Esercito, nasce il battaglione di droni: operativo dal 2028',
+    'blog.article.droni-esercito-battaglione-2028.excerpt': 'Centro di competenza presentato a Thun da Pfister, Roos e Loher: ricognizione e difesa, più una scuola reclute dedicata.',
+    'blog.article.droni-esercito-battaglione-2028.imageAlt': 'Piazza d\'armi di Thun con un drone da ricognizione dell\'esercito svizzero',
 };
 
 export default blogMetaChIt;

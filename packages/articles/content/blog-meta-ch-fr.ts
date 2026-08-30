@@ -4663,6 +4663,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-ditta-svitto-costi-e-adempimenti.title': 'Ouvrir une entreprise dans le canton de Schwyz : guide pratique',
     'blog.article.aprire-ditta-svitto-costi-e-adempimenti.excerpt': 'Procédure complète dans le canton de Schwyz : registre du commerce, capital minimum pour Sàrl et SA, obligations AVS, AD, LPP et LAMal.',
     'blog.article.aprire-ditta-svitto-costi-e-adempimenti.imageAlt': 'Commerce dans une commune du canton de Schwytz avec les Alpes en arrière-plan',
+    'blog.article.droni-esercito-battaglione-2028.title': 'Armée, le bataillon de drones est né : opérationnel depuis 2028',
+    'blog.article.droni-esercito-battaglione-2028.excerpt': 'Centre de compétences présenté à Thoune par Pfister, Roos et Loher : reconnaissance et défense, plus une école de recrues dédiée.',
+    'blog.article.droni-esercito-battaglione-2028.imageAlt': 'Place d\'armes de Thoune avec un drone de reconnaissance de l\'armée suisse',
 };
 
 export default blogMetaChFr;

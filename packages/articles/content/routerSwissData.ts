@@ -1580,6 +1580,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'aprire-attivita-svitto-costi-registro': { it: 'aprire-attivita-svitto-costi-registro', en: 'start-business-schwyz-trade-register-costs', de: 'geschaeft-eroeffnen-schwyz-handelsregister-kosten', fr: 'ouvrir-activite-schwyz-registre-commerce-couts' },
  'svitto-ditta-registro-commercio-capitale': { it: 'svitto-ditta-registro-commercio-capitale', en: 'sv-company-registration-capital', de: 'sv-firma-gewerberegister-kapital', fr: 'sv-entreprise-registre-capital' },
  'aprire-ditta-svitto-costi-e-adempimenti': { it: 'aprire-ditta-svitto-costi-e-adempimenti', en: 'open-business-schwyz-costs-and-requirements', de: 'geschaeft-eroeffnen-schwyz-kosten-pflichten', fr: 'ouvrir-activite-schwytz-couts-et-demarches' },
+ 'droni-esercito-battaglione-2028': { it: 'droni-esercito-battaglione-2028', en: 'drones-army-battalion-2028', de: 'drohnen-armee-bataillon-2028', fr: 'drones-armee-bataillon-2028' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
