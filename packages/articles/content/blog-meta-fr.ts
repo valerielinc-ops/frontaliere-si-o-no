@@ -10929,6 +10929,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-cassano-valcuvia-lavorare-ticino.title': 'Cassano Valcuvia–Ticino : guide frontalier 2024',
     'blog.article.vivere-cassano-valcuvia-lavorare-ticino.excerpt': 'Pendularisme, fiscalité et coût de la vie pour ceux qui évaluent Cassano Valcuvia comme base pour travailler dans le canton du Tessin avec le permis G.',
     'blog.article.vivere-cassano-valcuvia-lavorare-ticino.imageAlt': 'Paysage vallonné entre Cassano Valcuvia et la frontière du Canton Tessin',
+    'blog.article.brienno-ticino-frontaliere-guida.title': 'De Brienno au Tessin : vivre en frontalier, guide pratique',
+    'blog.article.brienno-ticino-frontaliere-guida.excerpt': 'Frontière de Brienno au Tessin : nouvel accord 2024, exonération de 10 000 € , impôt à la source, AVS, LPP, LAMal, permis G et restaurations. Découvrez comment calculer le net.',
+    'blog.article.brienno-ticino-frontaliere-guida.imageAlt': 'Vue du lac de Côme vers la Suisse et le Tessin, avec Alpes en arrière-plan et voilier',
 };
 
 export default blogMetaFr;

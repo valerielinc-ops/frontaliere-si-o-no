@@ -10928,6 +10928,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-cassano-valcuvia-lavorare-ticino.title': 'Cassano Valcuvia–Ticino: guida frontaliere 2024',
     'blog.article.vivere-cassano-valcuvia-lavorare-ticino.excerpt': 'Pendolarismo, fiscalità e costo della vita per chi valuta Cassano Valcuvia come base per lavorare in Canton Ticino con il permesso G.',
     'blog.article.vivere-cassano-valcuvia-lavorare-ticino.imageAlt': 'Scenografia collinare tra Cassano Valcuvia e il confine con il Canton Ticino',
+    'blog.article.brienno-ticino-frontaliere-guida.title': 'Da Brienno a Ticino: vivere da frontaliere, guida pratica',
+    'blog.article.brienno-ticino-frontaliere-guida.excerpt': 'Frontaliere da Brienno a Ticino: Nuovo Accordo 2024, esenzione €10k, imposta alla fonte, AVS, LPP, LAMal, permesso G e ristorni. Scopri come calcolare il netto.',
+    'blog.article.brienno-ticino-frontaliere-guida.imageAlt': 'Vista del Lago di Como verso la Svizzera e il Ticino, con Alpi sullo sfondo e barca a vela',
 };
 
 export default blogMetaIt;

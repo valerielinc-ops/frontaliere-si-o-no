@@ -10927,6 +10927,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-cassano-valcuvia-lavorare-ticino.title': 'Cassano Valcuvia–Ticino: 2024 border guide',
     'blog.article.vivere-cassano-valcuvia-lavorare-ticino.excerpt': 'Commuting, taxation and cost of living for those who evaluate Cassano Valcuvia as a base to work in Canton Ticino with the G permit.',
     'blog.article.vivere-cassano-valcuvia-lavorare-ticino.imageAlt': 'Hillside scenery between Cassano Valcuvia and the Canton Ticino border',
+    'blog.article.brienno-ticino-frontaliere-guida.title': 'From Brienno to Ticino: living as a border worker, practical guide',
+    'blog.article.brienno-ticino-frontaliere-guida.excerpt': 'Border crossing from Brienno to Ticino: New 2024 Agreement, €10k exemption, tax at source, AVS, LPP, LAMal, G permit and refunds. Learn how to calculate net.',
+    'blog.article.brienno-ticino-frontaliere-guida.imageAlt': 'View of Lake Como towards Switzerland and Ticino, with Alps in background and sailboat',
 };
 
 export default blogMetaEn;
