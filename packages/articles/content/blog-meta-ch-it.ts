@@ -4702,6 +4702,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.asilo-nido-custodia-san-gallo-tariffe.title': 'Asilo nido a San Gallo: tariffe, sussidi e procedura',
     'blog.article.asilo-nido-custodia-san-gallo-tariffe.excerpt': 'Custodia dei bambini nel Cantone di San Gallo: asili nido, famiglie diurne e doposcuola, tariffe legate al reddito e sussidi cantonali.',
     'blog.article.asilo-nido-custodia-san-gallo-tariffe.imageAlt': 'Ingresso di un asilo nido nel Cantone di San Gallo, Svizzera',
+    'blog.article.casa-sangallo-mutuo-fondi-propri.title': 'Casa nel Canton San Gallo: prezzi, mutuo e spese',
+    'blog.article.casa-sangallo-mutuo-fondi-propri.excerpt': 'Acquistare una casa nel Canton San Gallo richiede fondi propri, mutuo ipotecario sostenibile e attenzione a imposte sui trapassi e spese notarili. Guida pratica ai passi fondamentali.',
+    'blog.article.casa-sangallo-mutuo-fondi-propri.imageAlt': 'Moderno immobile residenziale nel Canton San Gallo con vista su montagne alpine, architettura svizzera contemporanea',
 };
 
 export default blogMetaChIt;

@@ -4702,6 +4702,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.asilo-nido-custodia-san-gallo-tariffe.title': 'Nursery in St. Gallen: fees, subsidies and procedure',
     'blog.article.asilo-nido-custodia-san-gallo-tariffe.excerpt': 'Childcare in the Canton of St. Gallen: nurseries, day and after-school families, income-related fees and cantonal subsidies.',
     'blog.article.asilo-nido-custodia-san-gallo-tariffe.imageAlt': 'Entrance of a daycare center in the Canton of St. Gallen, Switzerland',
+    'blog.article.casa-sangallo-mutuo-fondi-propri.title': 'House in the Canton of St. Gallen: prices, mortgage and expenses',
+    'blog.article.casa-sangallo-mutuo-fondi-propri.excerpt': 'Buying a home in the Canton of St. Gallen requires own funds, a sustainable mortgage and attention to transfer taxes and notary fees. Practical guide to the basic steps.',
+    'blog.article.casa-sangallo-mutuo-fondi-propri.imageAlt': 'Modern residential property in Canton St. Gallen with Alpine mountain views, contemporary Swiss architecture',
 };
 
 export default blogMetaChEn;

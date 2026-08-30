@@ -4702,6 +4702,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.asilo-nido-custodia-san-gallo-tariffe.title': 'Garderie à Saint-Gall : tarifs, subventions et procédure',
     'blog.article.asilo-nido-custodia-san-gallo-tariffe.excerpt': 'Garde d\'enfants dans le canton de Saint-Gall : crèches, familles de jour et après l\'école, tarifs liés au revenu et allocations cantonales.',
     'blog.article.asilo-nido-custodia-san-gallo-tariffe.imageAlt': 'Entrée d\'une crèche dans le canton de Saint-Gall, Suisse',
+    'blog.article.casa-sangallo-mutuo-fondi-propri.title': 'Maison dans le canton de Saint-Gall : prix, hypothèque et frais',
+    'blog.article.casa-sangallo-mutuo-fondi-propri.excerpt': 'L\'achat d\'une maison dans le canton de Saint-Gall nécessite des fonds propres, un prêt hypothécaire durable et une attention aux taxes de passage et aux frais de notaire. Guide pratique des étapes fondamentales.',
+    'blog.article.casa-sangallo-mutuo-fondi-propri.imageAlt': 'Propriété résidentielle moderne dans le canton de Saint-Gall avec vue sur les Alpes, architecture suisse contemporaine',
 };
 
 export default blogMetaChFr;

@@ -61016,6 +61016,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-casa-sangallo-mutuo-fondi-propri': {
+    title: 'Casa nel Canton San Gallo: prezzi, mutuo e spese',
+    description: 'Acquistare casa nel Canton San Gallo: fondi propri, mutuo ipotecario, imposta sui trapassi e spese notarili. Guida pratica e procedura passo dopo passo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, casa, canton, gallo, prezzi',
+    ogTitle: 'Casa nel Canton San Gallo: prezzi, mutuo e spese',
+    ogDescription: 'Acquistare una casa nel Canton San Gallo richiede pianificazione. Scopri come calcolare fondi propri, scegliere il mutuo ipotecario giusto, gestire imposta sui trapassi e spese notarili. Procedura passo dopo passo e checklist finale.',
+    canonicalPath: '/articoli-svizzera/casa-sangallo-mutuo-fondi-propri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Casa nel Canton San Gallo: prezzi, mutuo e spese",
+      "description": "Acquistare casa nel Canton San Gallo: fondi propri, mutuo ipotecario, imposta sui trapassi e spese notarili. Guida pratica e procedura passo dopo passo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/casa-sangallo-mutuo-fondi-propri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Moderno immobile residenziale nel Canton San Gallo con vista su montagne alpine, architettura svizzera contemporanea"
+      },
+      "datePublished": "2026-08-30T05:31:26+00:00",
+      "dateModified": "2026-08-30T05:31:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/casa-sangallo-mutuo-fondi-propri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
