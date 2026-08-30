@@ -4783,6 +4783,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-attivita-glarona-registro-costi.title': 'Aprire un\'attività a Glarona: registro di commercio e costi',
     'blog.article.aprire-attivita-glarona-registro-costi.excerpt': 'Guida pratica a forme giuridiche, iscrizione al registro di commercio e obblighi fiscali e assicurativi per chi avvia un\'impresa nel Cantone di Glarona.',
     'blog.article.aprire-attivita-glarona-registro-costi.imageAlt': 'Veduta del Cantone di Glarona con ufficio del registro di commercio',
+    'blog.article.permesso-dimora-b-zugo-requisiti-rinnovo.title': 'Permesso B a Zugo: requisiti, procedura e rinnovo',
+    'blog.article.permesso-dimora-b-zugo-requisiti-rinnovo.excerpt': 'Come ottenere e rinnovare il permesso di dimora B nel Canton Zugo: documenti, durata fino a 5 anni per UE/AELS e passi burocratici.',
+    'blog.article.permesso-dimora-b-zugo-requisiti-rinnovo.imageAlt': 'Canton Zugo, lago e uffici con documenti per permesso B',
 };
 
 export default blogMetaChIt;

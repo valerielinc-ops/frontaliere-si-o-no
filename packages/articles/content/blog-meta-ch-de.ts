@@ -4783,6 +4783,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-attivita-glarona-registro-costi.title': 'Geschäft in Glarus eröffnen: Handelsregister und Kosten',
     'blog.article.aprire-attivita-glarona-registro-costi.excerpt': 'Praktischer Leitfaden zu Rechtsformen, Handelsregistereintragung sowie Steuer- und Versicherungspflichten für Unternehmensgründer im Kanton Glarus.',
     'blog.article.aprire-attivita-glarona-registro-costi.imageAlt': 'Blick auf den Kanton Glarus mit Handelsregisteramt',
+    'blog.article.permesso-dimora-b-zugo-requisiti-rinnovo.title': 'Führerschein B in Zug: Voraussetzungen, Verfahren und Erneuerung',
+    'blog.article.permesso-dimora-b-zugo-requisiti-rinnovo.excerpt': 'So erhalten und verlängern Sie die Aufenthaltsbewilligung B im Kanton Zug: Dokumente, Dauer bis zu 5 Jahren für EU/EFTA und bürokratische Schritte.',
+    'blog.article.permesso-dimora-b-zugo-requisiti-rinnovo.imageAlt': 'Kanton Zug Seeufer und Büros mit B-Bewilligungsunterlagen',
 };
 
 export default blogMetaChDe;
