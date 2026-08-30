@@ -314,6 +314,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           CTX_DIR: ${{ runner.temp }}/issue-fix-ctx
+          APP_TOKEN_WORKFLOWS: ${{ env.APP_TOKEN_WORKFLOWS }}
         # Tier high (claude-sonnet-5, max-turns alti): issue funnel-critical — crawler/parser/
         # build-plugin/workflow CI/test gate, o uno script che MUTA/emette dati
         # indicizzati (backfill/migrate/assemble/sitemap/canonical/slug/
@@ -347,6 +348,32 @@ jobs:
           mkdir -p "$CTX_DIR"
           gh issue view "$ISSUE_NUMBER" --json number,title,body,labels,comments > "$CTX_DIR/issue.json"
           body=$(jq -r '.title + "\n" + .body + "\n" + (.labels[].name)' "$CTX_DIR/issue.json")
+          # Capability guard text (spostato qui da un ternario inline nel
+          # prompt, #6688-followup 2026-08-30): lo stesso ternario espanso in YAML
+          # gonfiava lo scalar `prompt:` di ~2000 char, e quel singolo step scalar
+          # ha un tetto reale imposto da GitHub Actions — misurato empiricamente
+          # tra 21.253 e 21.514 char (actionlint/PyYAML lo leggono come valido,
+          # GitHub lo rifiuta come "workflow file issue" con ZERO job schedulati,
+          # niente annotazione, solo il banner generico). Stesso testo, calcolato
+          # in bash invece che nell'espressione: il prompt lo legge da un output.
+          if [ "${APP_TOKEN_WORKFLOWS:-}" = "true" ]; then
+            GUARD_TEXT='il push di questo run usa il token della GitHub App, e la risposta API del conio ha CONFERMATO `permissions.workflows == write` (letto, non dedotto dalla presenza del token): modificare file in `.github/workflows/**` è consentito e il `git push` passa. Trattali come qualunque altro file — non auto-bloccarti su quel path.'
+          else
+            GUARD_TEXT='il push di questo run NON ha lo scope `workflows`: o non esiste un token App, o il token è stato coniato ma il permesso `workflows` non risulta concesso sulla installazione (verificato leggendo `permissions` dalla risposta API). Dai path target estratti dal body: se il fix richiederebbe di modificare file in `.github/workflows/**` → il `git push` fallirebbe sempre (push di workflow rifiutato senza scope `workflows`) → niente PR. Allora NON implementare: posta un commento col diff/azione proposta + "blocco scope `workflows`: serve la GitHub App abilitata o mano umana" e TERMINA SUBITO.'
+          fi
+          {
+            echo "capability_guard<<CAPABILITY_GUARD_EOF"
+            echo "$GUARD_TEXT"
+            echo "CAPABILITY_GUARD_EOF"
+          } >> "$GITHUB_OUTPUT"
+          # Stessa mossa, testo statico (nessun ternario): anche questo pezzo
+          # viveva inline nel prompt e contribuiva al totale del blocco.
+          SECRETS_NOTE='**I SEGRETI CI SONO** (decisione del proprietario del 2026-08-24, registro in VISION.md): questo run carica Remote Config prima di partire, quindi `CF_API_TOKEN`, `POSTHOG_*`, `GEMINI_API_KEY`, `GITHUB_PAT` e gli altri ~90 parametri sono in `process.env`. Un fix che richiede una credenziale va IMPLEMENTATO, non documentato: `blocked-secrets` non è più un verdetto strutturale e va usato SOLO se leggi la variabile e la trovi davvero vuota — in quel caso dillo con il nome esatto della variabile mancante, perché è un difetto della mappa `RC_TO_ENV`, non un limite di capacità. Resta valido il freno sulle **repo-setting/branch-protection/admin-API** (es. `gh api .../branches/main/protection` → 403): là il PAT c'\''è ma il permesso è un'\''altra cosa, e vale ancora `blocked-admin-settings`. Razionale invariato: fare il fix completo per poi scoprire il blocco al push spreca ~1M token/run (vedi #983), quindi le capability si valutano a turno 1 — solo che ora la risposta sui segreti è «sì».'
+          {
+            echo "secrets_note<<SECRETS_NOTE_EOF"
+            echo "$SECRETS_NOTE"
+            echo "SECRETS_NOTE_EOF"
+          } >> "$GITHUB_OUTPUT"
           if echo "$body" | grep -qiE 'crawler|parser|build-plugin|\.github/workflows/|test gate|validator|migrator' \
              || echo "$body" | grep -qiE 'scripts/[a-z0-9_./-]*(backfill|migrate|assemble|sitemap|canonical|slug|structured-data|seo|index)' \
              || echo "$body" | grep -qiE 'seo-[a-z0-9]|audit-dist|validate-dist'; then
@@ -590,12 +617,12 @@ jobs:
             1. Leggi `ISSUES.md` → "Fix flow" — contratto operativo del fixer.
             2. Leggi `AGENTS.md` — non-negotiables + Privacy + architettura. VINCOLANTE.
             2b. Leggi `VISION.md` — driver di decisione: quando un driver copre una scelta (D1-D8), DECIDI e procedi citandolo nel body della PR. La sezione «Sempre umano» è stata RIMOSSA il 2026-08-24 (istruzione diretta del proprietario): nessuna categoria di business — LPD, denaro, invii massivi, ritiro editoriale, scope, infra irreversibile inclusi — richiede più un'approvazione preventiva. Scala a `needs-human` SOLO un blocco di capacità reale (credenziale davvero assente, scope insufficiente, causa non trovata dopo indagine) — mai più per una decisione che il ciclo può prendere da sé. Il registro delle decisioni del proprietario già prese è lì: non ri-chiedere ciò che è già deciso.
-            3. Carica la issue con `Read` da `${{ runner.temp }}/issue-fix-ctx/issue.json` — prefetchata zero-Claude dallo step "Determine fix tier" con gli stessi campi (`number,title,body,labels,comments`). Non rieseguire `gh issue view` per questo: solo se il file manca/è vuoto, fallback a `gh issue view $ISSUE_NUMBER --json number,title,body,labels,comments`.
+            3. Carica la issue con `Read` da `${{ runner.temp }}/issue-fix-ctx/issue.json` (prefetchata dallo step "Determine fix tier", stessi campi). Solo se manca/è vuoto: fallback `gh issue view $ISSUE_NUMBER --json number,title,body,labels,comments`.
 
             **Pre-condizioni (abort se falliscono):**
             - Se esiste già una PR aperta che cita "#$ISSUE_NUMBER" (`gh pr list --state open --search "$ISSUE_NUMBER in:body" --json number`) → posta commento "PR già in volo: #<n>, skip." e TERMINA. No doppioni.
             - **Overlap-file** (no race su lavoro in corso): estrai i path target dal body della issue (file citati in `## Suggested action` / `## Item` / blocchi codice). Per ogni PR aperta (`gh pr list --state open --json number,title`) confronta i suoi file (`gh pr diff <n> --name-only`) coi target: se una PR aperta **modifica già** uno dei file target → posta commento "File `<path>` già in volo nella PR #<n> (<title>) — skip per evitare conflitto/duplicazione; riaprire l'auto-fix dopo il merge se ancora pertinente." e TERMINA. Razionale: un'altra PR può riscrivere quel file rendendo il fix moot o conflittuale (es. #934 hardening vs #943 rewrite di `submit-indexnow-batch.yml`). Nel dubbio (issue non file-specifica) → procedi.
-            - **Capability guard (valuta SUBITO, prima di implementare — risparmio token):** ${{ env.APP_TOKEN_WORKFLOWS == 'true' && 'il push di questo run usa il token della GitHub App, e la risposta API del conio ha CONFERMATO `permissions.workflows == write` (letto, non dedotto dalla presenza del token): modificare file in `.github/workflows/**` è consentito e il `git push` passa. Trattali come qualunque altro file — non auto-bloccarti su quel path.' || 'il push di questo run NON ha lo scope `workflows`: o non esiste un token App, o il token è stato coniato ma il permesso `workflows` non risulta concesso sulla installazione (verificato leggendo `permissions` dalla risposta API). Dai path target estratti dal body: se il fix richiederebbe di modificare file in `.github/workflows/**` → il `git push` fallirebbe sempre (push di workflow rifiutato senza scope `workflows`) → niente PR. Allora NON implementare: posta un commento col diff/azione proposta + "blocco scope `workflows`: serve la GitHub App abilitata o mano umana" e TERMINA SUBITO.' }} **I SEGRETI CI SONO** (decisione del proprietario del 2026-08-24, registro in VISION.md): questo run carica Remote Config prima di partire, quindi `CF_API_TOKEN`, `POSTHOG_*`, `GEMINI_API_KEY`, `GITHUB_PAT` e gli altri ~90 parametri sono in `process.env`. Un fix che richiede una credenziale va IMPLEMENTATO, non documentato: `blocked-secrets` non è più un verdetto strutturale e va usato SOLO se leggi la variabile e la trovi davvero vuota — in quel caso dillo con il nome esatto della variabile mancante, perché è un difetto della mappa `RC_TO_ENV`, non un limite di capacità. Resta valido il freno sulle **repo-setting/branch-protection/admin-API** (es. `gh api .../branches/main/protection` → 403): là il PAT c'è ma il permesso è un'altra cosa, e vale ancora `blocked-admin-settings`. Razionale invariato: fare il fix completo per poi scoprire il blocco al push spreca ~1M token/run (vedi #983), quindi le capability si valutano a turno 1 — solo che ora la risposta sui segreti è «sì».
+            - **Capability guard (valuta SUBITO, prima di implementare — risparmio token):** ${{ steps.tier.outputs.capability_guard }} ${{ steps.tier.outputs.secrets_note }}
 
             - **Stati già dichiarati nei residui (leggi PRIMA di implementare):** se questa issue nasce da una PR (follow-up, `Addresses`/`da PR #N` nel body, o una qualunque PR citata come origine), leggi il body di quella PR e classificane i residui. In quest'ordine:
               1. `gh pr view <N> --json body -q .body > /tmp/pr-body.md`
