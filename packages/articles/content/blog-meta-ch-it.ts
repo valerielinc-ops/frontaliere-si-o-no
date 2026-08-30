@@ -4768,6 +4768,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lamal-zurigo-come-scegliere.title': 'LAMal 2026: come scegliere in Svizzera',
     'blog.article.lamal-zurigo-come-scegliere.excerpt': 'L\'assicurazione malattia LAMal è obbligatoria per tutti i residenti. Ecco come orientarsi tra franchigie (CHF 300–2500), scelta della cassa e sussidi cantonali nel 2026.',
     'blog.article.lamal-zurigo-come-scegliere.imageAlt': 'Ambulatorio medico con reception moderna, paziente in consulenza con medico di base',
+    'blog.article.lamal-obbligatoria-scelta-cassa-zurigo.title': 'Guida LAMal 2026: obbligo, cassa e franchigia',
+    'blog.article.lamal-obbligatoria-scelta-cassa-zurigo.excerpt': 'Assicurazione malattia obbligatoria per chi risiede in Svizzera: come iscriversi a LAMal, scegliere la cassa e capire franchigie nel 2026.',
+    'blog.article.lamal-obbligatoria-scelta-cassa-zurigo.imageAlt': 'Consulto medico in uno studio svizzero, rappresentazione del sistema sanitario nazionale',
 };
 
 export default blogMetaChIt;

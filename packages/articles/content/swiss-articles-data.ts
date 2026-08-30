@@ -14302,6 +14302,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'lamal-obbligatoria-scelta-cassa-zurigo',
+    category: 'pratico',
+    date: '2026-08-30T15:54:18.734Z',
+    image: '/images/blog/lamal-obbligatoria-scelta-cassa-zurigo.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

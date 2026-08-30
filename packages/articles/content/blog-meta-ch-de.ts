@@ -4768,6 +4768,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lamal-zurigo-come-scegliere.title': 'KVG 2026: So wählen Sie in der Schweiz',
     'blog.article.lamal-zurigo-come-scegliere.excerpt': 'Die KVG-Krankenversicherung ist für alle Bewohner obligatorisch. So orientieren Sie sich zwischen Franchisen (CHF 300–2500), Kassenwahl und Kantonsbeiträgen im Jahr 2026.',
     'blog.article.lamal-zurigo-come-scegliere.imageAlt': 'Moderne medizinische Klinikrezeption mit Patient im Gespräch mit Hausarzt',
+    'blog.article.lamal-obbligatoria-scelta-cassa-zurigo.title': 'KVG-Leitfaden 2026: Pflicht, Kasse und Franchise',
+    'blog.article.lamal-obbligatoria-scelta-cassa-zurigo.excerpt': 'Obligatorische Krankenversicherung für Personen mit Wohnsitz in der Schweiz: Wie man sich im KVG anmeldet, die Kasse auswählt und die Franchisen im Jahr 2026 versteht.',
+    'blog.article.lamal-obbligatoria-scelta-cassa-zurigo.imageAlt': 'Arztkonsultation in Schweizer Praxis, Repräsentation des nationalen Gesundheitssystems',
 };
 
 export default blogMetaChDe;

@@ -4768,6 +4768,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lamal-zurigo-come-scegliere.title': 'LAMal 2026: how to choose in Switzerland',
     'blog.article.lamal-zurigo-come-scegliere.excerpt': 'LAMal health insurance is mandatory for all residents. Here\'s how to navigate between deductibles (CHF 300–2500), choice of cash and cantonal subsidies in 2026.',
     'blog.article.lamal-zurigo-come-scegliere.imageAlt': 'Modern medical clinic reception with patient consulting with GP in professional setting',
+    'blog.article.lamal-obbligatoria-scelta-cassa-zurigo.title': 'LAMal Guide 2026: obligation, cash and deductible',
+    'blog.article.lamal-obbligatoria-scelta-cassa-zurigo.excerpt': 'Compulsory health insurance for those residing in Switzerland: how to enroll in LAMal, choose the cashier and understand deductibles in 2026.',
+    'blog.article.lamal-obbligatoria-scelta-cassa-zurigo.imageAlt': 'Medical consultation in a Swiss healthcare office, representation of national healthcare system',
 };
 
 export default blogMetaChEn;
