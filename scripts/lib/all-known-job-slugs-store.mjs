@@ -207,7 +207,16 @@ export function writeAllKnownJobSlugs(registry, rootDir = process.cwd()) {
     const slugs = {};
     for (const slug of buckets[i]) slugs[slug] = src[slug];
     total += buckets[i].length;
-    fs.writeFileSync(knownSlugsShardFile(i, rootDir), JSON.stringify({ slugs }, null, 2) + '\n', 'utf-8');
+    const content = JSON.stringify({ slugs }, null, 2) + '\n';
+    const file = knownSlugsShardFile(i, rootDir);
+    let existing;
+    try {
+      existing = fs.readFileSync(file, 'utf-8');
+    } catch {
+      /* shard doesn't exist yet on disk — must write */
+    }
+    if (existing === content) continue;
+    fs.writeFileSync(file, content, 'utf-8');
   }
 
   fs.writeFileSync(
