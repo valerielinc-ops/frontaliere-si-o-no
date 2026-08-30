@@ -14266,6 +14266,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'aprire-attivita-nidvaldo-costi-registro',
+    category: 'pratico',
+    date: '2026-08-30T13:37:59.082Z',
+    image: '/images/blog/aprire-attivita-nidvaldo-costi-registro.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

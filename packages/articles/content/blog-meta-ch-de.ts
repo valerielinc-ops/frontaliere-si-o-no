@@ -4756,6 +4756,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.casa-nidvaldo-mutuo-costi-acquisto.title': 'Hauskauf in Nidwalden: Preise, Hypothek und Nebenkosten',
     'blog.article.casa-nidvaldo-mutuo-costi-acquisto.excerpt': 'Leitfaden zum Immobilienkauf im Kanton Nidwalden: Eigenkapitalanteil von 20 %, 33-Prozent-Regel bezogen auf das Bruttoeinkommen, Grunderwerbssteuer und Notarkosten.',
     'blog.article.casa-nidvaldo-mutuo-costi-acquisto.imageAlt': 'Traditionelles Schweizer Haus mit Seeblick im Kanton Nidwalden',
+    'blog.article.aprire-attivita-nidvaldo-costi-registro.title': 'Ein Unternehmen in Nidwalden gründen: Rechtsformen und Kosten',
+    'blog.article.aprire-attivita-nidvaldo-costi-registro.excerpt': 'Vom Einzelunternehmen zur AG: Kapital, Handelsregister, Sozialabgaben und Steuern auf drei Ebenen für Unternehmensgründer in Nidwalden.',
+    'blog.article.aprire-attivita-nidvaldo-costi-registro.imageAlt': 'Luftaufnahme des Kantons Nidwalden mit Bergen und See',
 };
 
 export default blogMetaChDe;
