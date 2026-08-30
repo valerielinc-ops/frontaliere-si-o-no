@@ -14311,6 +14311,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'imposta-successione-san-gallo-aliquote',
+    category: 'fiscale',
+    date: '2026-08-30T16:16:46.912Z',
+    image: '/images/blog/imposta-successione-san-gallo-aliquote.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

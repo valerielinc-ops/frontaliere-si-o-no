@@ -4771,6 +4771,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lamal-obbligatoria-scelta-cassa-zurigo.title': 'Guide LAMal 2026 : obligation, caisse et franchise',
     'blog.article.lamal-obbligatoria-scelta-cassa-zurigo.excerpt': 'Assurance maladie obligatoire pour les personnes résidant en Suisse : comment s\'inscrire à LAMal, choisir la caisse et comprendre les franchises en 2026.',
     'blog.article.lamal-obbligatoria-scelta-cassa-zurigo.imageAlt': 'Consultation médicale dans un cabinet suisse, représentation du système de santé national',
+    'blog.article.imposta-successione-san-gallo-aliquote.title': 'Impôt succession Saint-Gall : taux et exonérations',
+    'blog.article.imposta-successione-san-gallo-aliquote.excerpt': 'Comment fonctionne l\'impôt sur les successions et les donations dans le canton de Saint-Gall : taux par degré de parenté, exonérations pour conjoint et descendants, procédure de déclaration et délais légaux.',
+    'blog.article.imposta-successione-san-gallo-aliquote.imageAlt': 'Bâtiment d\'administration fiscale du canton de Saint-Gall',
 };
 
 export default blogMetaChFr;

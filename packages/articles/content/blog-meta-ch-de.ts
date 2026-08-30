@@ -4771,6 +4771,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lamal-obbligatoria-scelta-cassa-zurigo.title': 'KVG-Leitfaden 2026: Pflicht, Kasse und Franchise',
     'blog.article.lamal-obbligatoria-scelta-cassa-zurigo.excerpt': 'Obligatorische Krankenversicherung für Personen mit Wohnsitz in der Schweiz: Wie man sich im KVG anmeldet, die Kasse auswählt und die Franchisen im Jahr 2026 versteht.',
     'blog.article.lamal-obbligatoria-scelta-cassa-zurigo.imageAlt': 'Arztkonsultation in Schweizer Praxis, Repräsentation des nationalen Gesundheitssystems',
+    'blog.article.imposta-successione-san-gallo-aliquote.title': 'Erbschaftssteuer St. Gallen: Steuersätze und Befreiungen',
+    'blog.article.imposta-successione-san-gallo-aliquote.excerpt': 'Wie funktioniert die Erbschafts- und Schenkungssteuer im Kanton St. Gallen: Sätze pro Verwandtschaftsgrad, Befreiungen für Ehegatten und Nachkommen, Meldeverfahren und gesetzliche Fristen.',
+    'blog.article.imposta-successione-san-gallo-aliquote.imageAlt': 'Steuerverwaltungsgebäude Kanton St. Gallen mit Alpenblick',
 };
 
 export default blogMetaChDe;
