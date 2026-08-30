@@ -120,6 +120,21 @@ jobs:
             # convoy overlap — git-push-with-retry.sh's own header notes this
             # exact retry-budget-bump class was already tried 4x for #5568
             # without ending the recurrence there either.
+            #
+            # Snapshot this run's already-built + already-validated slice
+            # (issue #6667 item 2, follow-up of #6648): --regenerate-cmd fires
+            # on EVERY rebase-conflict retry, and re-running
+            # build-publisher-jobs.mjs there re-queries Firestore AND re-runs
+            # its publicUrl/projectedAt writeback batch — both redundant, and
+            # both compounding per-attempt latency toward the 40-attempt
+            # budget under convoy contention. Worse, a fresh requery at
+            # conflict time was never re-run through the "Validate — dataset
+            # assembles" gate above, unlike the file already on disk here.
+            # Restoring this cached copy on conflict avoids the Firestore
+            # round-trip entirely and always pushes exactly the validated
+            # content; any paid-ad change that lands after this snapshot is
+            # picked up by the next scheduled run 30min later either way.
+            cp data/jobs/by-crawler/publisher-submitted.json /tmp/publisher-submitted-cache.json
             set +e
             if [ -z "${GITHUB_PAT:-}" ]; then
               echo "::error::GITHUB_PAT missing from Remote Config — cannot bypass the main CI ruleset for this scheduled writer"
@@ -127,7 +142,7 @@ jobs:
             fi
             git remote set-url origin "https://x-access-token:${GITHUB_PAT}@github.com/${GITHUB_REPOSITORY}.git"
             PUSH_LOG=$(bash scripts/lib/git-push-with-retry.sh --soft-fail-exhausted \
-              --regenerate-cmd 'node scripts/build-publisher-jobs.mjs && git add -f data/jobs/by-crawler/publisher-submitted.json' 2>&1)
+              --regenerate-cmd 'cp /tmp/publisher-submitted-cache.json data/jobs/by-crawler/publisher-submitted.json && git add -f data/jobs/by-crawler/publisher-submitted.json' 2>&1)
             rc=$?
             set -e
             echo "$PUSH_LOG"
