@@ -4786,6 +4786,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-dimora-b-zugo-requisiti-rinnovo.title': 'Führerschein B in Zug: Voraussetzungen, Verfahren und Erneuerung',
     'blog.article.permesso-dimora-b-zugo-requisiti-rinnovo.excerpt': 'So erhalten und verlängern Sie die Aufenthaltsbewilligung B im Kanton Zug: Dokumente, Dauer bis zu 5 Jahren für EU/EFTA und bürokratische Schritte.',
     'blog.article.permesso-dimora-b-zugo-requisiti-rinnovo.imageAlt': 'Kanton Zug Seeufer und Büros mit B-Bewilligungsunterlagen',
+    'blog.article.lam-grigioni-premi-riduzione.title': 'KVG Graubünden: Prämien, Franchisen und Reduktionen',
+    'blog.article.lam-grigioni-premi-riduzione.excerpt': 'Erfahren Sie, wie die KVG-Krankenversicherung im Kanton Graubünden funktioniert, welche Franchisen Sie wählen und wie Sie auf kantonale Prämienverbilligungsbeiträge zugreifen können.',
+    'blog.article.lam-grigioni-premi-riduzione.imageAlt': 'Schweizer Verwaltungsbüro, in dem eine Person bei der Antragstellung für LAMal-Versicherungszuschuss unterstützt wird',
 };
 
 export default blogMetaChDe;
