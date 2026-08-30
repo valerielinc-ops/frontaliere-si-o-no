@@ -4720,6 +4720,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-san-gallo-guida.title': 'AVS e prestazioni complementari nel Canton San Gallo',
     'blog.article.avs-prestazioni-complementari-san-gallo-guida.excerpt': 'Come funziona il primo pilastro nel Canton San Gallo: cassa di compensazione, calcolo della rendita e PC a copertura del minimo vitale.',
     'blog.article.avs-prestazioni-complementari-san-gallo-guida.imageAlt': 'Veduta di una città svizzera con sede della cassa di compensazione cantonale',
+    'blog.article.aprire-attivita-canton-obvaldo-registro.title': 'Aprire un\'attività in Obvaldo: registro di commercio e costi',
+    'blog.article.aprire-attivita-canton-obvaldo-registro.excerpt': 'Guida pratica alla forma giuridica, iscrizione al registro di commercio, capitale minimo e oneri per avviare un\'impresa nel Cantone Obvaldo.',
+    'blog.article.aprire-attivita-canton-obvaldo-registro.imageAlt': 'Villaggio alpino nel Canton Obvaldo con lago e chalet tradizionali',
 };
 
 export default blogMetaChIt;
