@@ -61172,6 +61172,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avs-prestazioni-complementari-san-gallo-cassa': {
+    title: 'AVS e PC nel Canton San Gallo: la cassa di compensazione',
+    description: 'Cassa AVS di San Gallo e ufficio PC: come funziona il primo pilastro, contributi 10,6%, lacune contributive e domanda di prestazioni complementari.',
+    keywords: 'frontalieri, ticino, svizzera, italia, canton, gallo, cassa, compensazione',
+    ogTitle: 'AVS e PC nel Canton San Gallo: guida pratica',
+    ogDescription: 'Nel Canton San Gallo il primo pilastro si articola su due enti distinti: la Ausgleichskasse St. Gallen per AVS e la Kantonsstelle für Ergänzungsleistungen per le PC. Ecco come funzionano contributi, rendita, lacune contributive e domanda',
+    canonicalPath: '/articoli-svizzera/avs-prestazioni-complementari-san-gallo-cassa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e PC nel Canton San Gallo: la cassa di compensazione",
+      "description": "Cassa AVS di San Gallo e ufficio PC: come funziona il primo pilastro, contributi 10,6%, lacune contributive e domanda di prestazioni complementari.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-prestazioni-complementari-san-gallo-cassa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cassa di compensazione AVS e ufficio PC nel Canton San Gallo"
+      },
+      "datePublished": "2026-08-30T06:52:34+00:00",
+      "dateModified": "2026-08-30T06:52:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-prestazioni-complementari-san-gallo-cassa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
