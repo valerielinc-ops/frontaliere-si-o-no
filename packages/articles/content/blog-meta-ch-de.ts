@@ -4792,6 +4792,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.comprare-casa-zugo-guida.title': 'Haus Zug kaufen: Preise, Hypothek und Kosten',
     'blog.article.comprare-casa-zugo-guida.excerpt': 'Umfassender Leitfaden zum Immobilienkauf im Kanton Zug: Transferkosten, Eigenmittel, Hypothekendarlehen und Kantonssteuern.',
     'blog.article.comprare-casa-zugo-guida.imageAlt': 'Modernes Wohnhaus im Kanton Zug mit Schweizer Architektur, Nachmittagslicht',
+    'blog.article.premi-cassa-malati-grigioni.title': 'KVG-Prämien Kanton Graubünden: Franchisen und Reduktionen',
+    'blog.article.premi-cassa-malati-grigioni.excerpt': 'Leitfaden zu den Krankenkassenprämien im Kanton Graubünden: Franchisen von CHF 300 bis 2500, alternative Modelle, Reduktionsbeiträge und Antragsverfahren.',
+    'blog.article.premi-cassa-malati-grigioni.imageAlt': 'Bündner Alpental mit Berggemeinde und Gesundheitseinrichtung',
 };
 
 export default blogMetaChDe;
