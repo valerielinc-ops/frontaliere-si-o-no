@@ -512,6 +512,15 @@ describe('orphan-enriched store — shard layout', () => {
     expect(manifest.totalSlugs).toBe(123);
     expect(manifest.shardCount).toBe(ORPHAN_ENRICHED_SHARD_COUNT);
   });
+
+  it('propagates a non-ENOENT error reading a shard instead of silently forcing a write (issue #6696)', () => {
+    // A directory where a shard file is expected makes readFileSync throw
+    // EISDIR, not ENOENT — the write-skip comparison used to swallow any
+    // error here, masking a real disk condition as "shard doesn't exist yet".
+    const root = mkTmp();
+    fs.mkdirSync(orphanEnrichedShardFile(0, root), { recursive: true });
+    expect(() => writeOrphanEnriched(sampleLedger(5), root)).toThrow();
+  });
 });
 
 /* ── 5. The committed ledger must stay pushable ────────────────────────── */

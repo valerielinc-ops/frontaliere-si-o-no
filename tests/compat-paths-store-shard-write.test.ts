@@ -70,4 +70,12 @@ describe('writeCompatPaths — shard write minimization', () => {
     const read = readCompatPaths(rootDir);
     expect(new Set(read.paths)).toEqual(new Set(['/x/', '/y/', '/z/']));
   });
+
+  it('propagates a non-ENOENT error reading a shard instead of silently forcing a write (issue #6696)', () => {
+    // A directory where a shard file is expected makes readFileSync throw
+    // EISDIR, not ENOENT — the write-skip comparison used to swallow any
+    // error here, masking a real disk condition as "shard doesn't exist yet".
+    fs.mkdirSync(compatShardFile(0, rootDir), { recursive: true });
+    expect(() => writeCompatPaths({ paths: ['/a/'] }, rootDir)).toThrow();
+  });
 });

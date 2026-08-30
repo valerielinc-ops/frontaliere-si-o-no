@@ -334,6 +334,15 @@ describe('all-known-job-slugs store — shard layout', () => {
     const mtimesAfter = files.map((f) => fs.statSync(f).mtimeMs);
     expect(mtimesAfter).toEqual(mtimesBefore);
   });
+
+  it('propagates a non-ENOENT error reading a shard instead of silently forcing a write (issue #6696)', () => {
+    // A directory where a shard file is expected makes readFileSync throw
+    // EISDIR, not ENOENT — the write-skip comparison used to swallow any
+    // error here, masking a real disk condition as "shard doesn't exist yet".
+    const root = mkTmp();
+    fs.mkdirSync(knownSlugsShardFile(0, root), { recursive: true });
+    expect(() => writeAllKnownJobSlugs(sampleRegistry(5), root)).toThrow();
+  });
 });
 
 /* ── 3. The committed registry must stay pushable ──────────────────────── */
