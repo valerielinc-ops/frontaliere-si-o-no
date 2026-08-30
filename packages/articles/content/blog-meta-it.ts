@@ -10946,6 +10946,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-gurro-lavorare-ticino-frontaliere.title': 'Vivere a Gurro e lavorare in Ticino da frontaliere',
     'blog.article.vivere-gurro-lavorare-ticino-frontaliere.excerpt': 'Trasferirsi a Gurro e fare il pendolare verso il Canton Ticino: distanze, valichi, regime fiscale Permesso G, costi e scenari pratici.',
     'blog.article.vivere-gurro-lavorare-ticino-frontaliere.imageAlt': 'Strada panoramica tra Gurro e la Val Cannobina verso il Ticino',
+    'blog.article.vivere-corrido-frontaliere-ticino.title': 'Vivere a Corrido e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-corrido-frontaliere-ticino.excerpt': 'Guida pratica per chi valuta il pendolarismo da Corrido al Canton Ticino: fiscalità, tempi, costi e cosa sapere prima del trasferimento.',
+    'blog.article.vivere-corrido-frontaliere-ticino.imageAlt': 'Veduta di un piccolo comune italiano di confine vicino al Ticino',
 };
 
 export default blogMetaIt;

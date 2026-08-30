@@ -10945,6 +10945,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-gurro-lavorare-ticino-frontaliere.title': 'Living in Gurro and working in Ticino as a border worker',
     'blog.article.vivere-gurro-lavorare-ticino-frontaliere.excerpt': 'Move to Gurro and commute to the Canton of Ticino: distances, crossings, tax regime Permit G, costs and practical scenarios.',
     'blog.article.vivere-gurro-lavorare-ticino-frontaliere.imageAlt': 'Panoramic road between Gurro and Val Cannobina heading to Ticino',
+    'blog.article.vivere-corrido-frontaliere-ticino.title': 'Living in Corrido and working in Ticino as a border worker',
+    'blog.article.vivere-corrido-frontaliere-ticino.excerpt': 'Practical guide for those who evaluate commuting from Corridor to the Canton of Ticino: taxation, time, costs and what to know before the transfer.',
+    'blog.article.vivere-corrido-frontaliere-ticino.imageAlt': 'View of a small Italian border village near Ticino',
 };
 
 export default blogMetaEn;
