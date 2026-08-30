@@ -10972,6 +10972,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.settori-crescita-lavoro-ticino-2026.title': 'Settori in crescita nel mercato del lavoro ticinese nel 2026',
     'blog.article.settori-crescita-lavoro-ticino-2026.excerpt': 'Sanità, ICT, edilizia e formazione tra i comparti con maggiore domanda di personale: cosa cambia per i frontalieri.',
     'blog.article.settori-crescita-lavoro-ticino-2026.imageAlt': 'Veduta aerea di Lugano con edifici direzionali e lago, simbolo del mercato del lavoro ticinese',
+    'blog.article.busta-paga-frontalieri-2026-oltre-20km.title': 'Busta paga frontalieri 2026 oltre 20 km: guida completa',
+    'blog.article.busta-paga-frontalieri-2026-oltre-20km.excerpt': 'Busta paga svizzera 2026 per frontalieri oltre 20 km: trattenute, contributi e netto reale dopo il Nuovo Accordo in vigore dal 1° gennaio 2024.',
+    'blog.article.busta-paga-frontalieri-2026-oltre-20km.imageAlt': 'Busta paga svizzera 2026 con vista sul Lago di Lugano',
 };
 
 export default blogMetaIt;
