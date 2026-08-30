@@ -10930,6 +10930,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.brienno-ticino-frontaliere-guida.title': 'From Brienno to Ticino: living as a border worker, practical guide',
     'blog.article.brienno-ticino-frontaliere-guida.excerpt': 'Border crossing from Brienno to Ticino: New 2024 Agreement, €10k exemption, tax at source, AVS, LPP, LAMal, G permit and refunds. Learn how to calculate net.',
     'blog.article.brienno-ticino-frontaliere-guida.imageAlt': 'View of Lake Como towards Switzerland and Ticino, with Alps in background and sailboat',
+    'blog.article.vivere-binago-lavorare-ticino-frontaliere.title': 'Living in Binago and working in Ticino as a border worker',
+    'blog.article.vivere-binago-lavorare-ticino-frontaliere.excerpt': 'Binago, in the province of Como, is a few kilometres from the passes towards the Canton of Ticino: costs, taxation and commuting times for commuters.',
+    'blog.article.vivere-binago-lavorare-ticino-frontaliere.imageAlt': 'Italian cross-border commuter driving to Ticino with Lake Lugano in background',
 };
 
 export default blogMetaEn;

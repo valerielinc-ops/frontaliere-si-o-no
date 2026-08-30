@@ -10929,6 +10929,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.brienno-ticino-frontaliere-guida.title': 'Von Brienno ins Tessin: Leben als Grenzgänger, praktischer Leitfaden',
     'blog.article.brienno-ticino-frontaliere-guida.excerpt': 'Grenzgänger von Brienn bis Tessin: Neues Abkommen 2024, Befreiung € 10k, Quellensteuer, AHV, BVG, KVG, G-Genehmigung und Rückerstattungen. Erfahren Sie, wie Sie das Netto berechnen.',
     'blog.article.brienno-ticino-frontaliere-guida.imageAlt': 'Blick auf den Comer See Richtung Schweiz und Tessin, mit Alpen im Hintergrund und Segelboot',
+    'blog.article.vivere-binago-lavorare-ticino-frontaliere.title': 'Leben in Binago und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-binago-lavorare-ticino-frontaliere.excerpt': 'Binago in der Provinz Como ist nur wenige Kilometer von den Pässen in Richtung Kanton Tessin entfernt: Kosten, Steuern und Reisezeiten für Pendler.',
+    'blog.article.vivere-binago-lavorare-ticino-frontaliere.imageAlt': 'Italienischer Grenzgänger im Auto Richtung Tessin mit Blick auf den Luganersee',
 };
 
 export default blogMetaDe;
