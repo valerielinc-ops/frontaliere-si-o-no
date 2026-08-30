@@ -14374,6 +14374,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'premi-cassa-malati-grigioni',
+    category: 'pratico',
+    date: '2026-08-30T19:32:40.110Z',
+    image: '/images/blog/premi-cassa-malati-grigioni.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

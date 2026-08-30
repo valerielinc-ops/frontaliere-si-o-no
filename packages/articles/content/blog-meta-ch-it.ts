@@ -4792,6 +4792,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.comprare-casa-zugo-guida.title': 'Comprare casa Zugo: prezzi, mutuo e costi',
     'blog.article.comprare-casa-zugo-guida.excerpt': 'Guida completa all\'acquisto immobiliare nel Cantone Zugo: costi di trasferimento, fondi propri, mutuo ipotecario e imposte cantonali.',
     'blog.article.comprare-casa-zugo-guida.imageAlt': 'Edificio residenziale moderno nel Cantone Zugo con architettura svizzera e illuminazione pomeridiana',
+    'blog.article.premi-cassa-malati-grigioni.title': 'Premi LAMal Canton Grigioni: franchigie e riduzione',
+    'blog.article.premi-cassa-malati-grigioni.excerpt': 'Guida ai premi dell\'assicurazione malattia nel Canton Grigioni: franchigie da CHF 300 a 2500, modelli alternativi, sussidi riduzione e procedura di richiesta.',
+    'blog.article.premi-cassa-malati-grigioni.imageAlt': 'Valle alpina del Canton Grigioni con villaggio montano e struttura sanitaria',
 };
 
 export default blogMetaChIt;

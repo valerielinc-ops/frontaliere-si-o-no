@@ -4792,6 +4792,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.comprare-casa-zugo-guida.title': 'Acheter maison Zoug : prix, hypothèque et coûts',
     'blog.article.comprare-casa-zugo-guida.excerpt': 'Guide complet de l\'achat immobilier dans le canton de Zoug : coûts de transfert, fonds propres, hypothèque et impôts cantonaux.',
     'blog.article.comprare-casa-zugo-guida.imageAlt': 'Immeuble résidentiel moderne dans le canton de Zoug avec architecture suisse, lumière de l\'après-midi',
+    'blog.article.premi-cassa-malati-grigioni.title': 'Primes LAMal Canton des Grisons : franchises et réductions',
+    'blog.article.premi-cassa-malati-grigioni.excerpt': 'Guide des primes d’assurance maladie dans le canton des Grisons : franchises de 300 CHF à 2500, modèles alternatifs, subventions de réduction et processus de demande.',
+    'blog.article.premi-cassa-malati-grigioni.imageAlt': 'Vallée alpine des Grisons avec village de montagne et établissement de santé',
 };
 
 export default blogMetaChFr;

@@ -4792,6 +4792,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.comprare-casa-zugo-guida.title': 'Buying Zug house: prices, mortgage and costs',
     'blog.article.comprare-casa-zugo-guida.excerpt': 'Complete guide to buying real estate in the Canton of Zug: transfer costs, own funds, mortgage loan and cantonal taxes.',
     'blog.article.comprare-casa-zugo-guida.imageAlt': 'Modern residential building in Zugo canton with Swiss architecture, afternoon sunlight',
+    'blog.article.premi-cassa-malati-grigioni.title': 'LAMal Canton Grisons Awards: deductibles and reduction',
+    'blog.article.premi-cassa-malati-grigioni.excerpt': 'Guide to health insurance premiums in the Canton of Graubünden: deductibles from CHF 300 to 2500, alternative models, reduction subsidies and application procedure.',
+    'blog.article.premi-cassa-malati-grigioni.imageAlt': 'Grisons Alpine valley with mountain village and healthcare facility',
 };
 
 export default blogMetaChEn;
