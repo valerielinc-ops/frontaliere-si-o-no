@@ -4711,6 +4711,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-obvaldo-guida.title': 'AHV und Ergänzungsleistungen im Kanton Obwalden: der Leitfaden',
     'blog.article.avs-prestazioni-complementari-obvaldo-guida.excerpt': 'Wie die erste AHV-Säule im Kanton Obwalden funktioniert: Rolle der Ausgleichskasse, Beitragslücken und Ergänzungsleistungen zur Deckung des Existenzminimums im Jahr 2026.',
     'blog.article.avs-prestazioni-complementari-obvaldo-guida.imageAlt': 'Verwaltungsgebäude im Kanton Obwalden mit der AHV-Ausgleichskasse',
+    'blog.article.affitti-san-gallo-diritto-locazione.title': 'Mieten im Kanton St. Gallen: Mietrecht und Markt',
+    'blog.article.affitti-san-gallo-diritto-locazione.excerpt': 'Einheitliches Mietrecht in der ganzen Schweiz (OR Art. 253 ff.): Kaution max. 3 Monatsraten, Mietzinsbeanstandung innert 30 Tagen.',
+    'blog.article.affitti-san-gallo-diritto-locazione.imageAlt': 'Typisches Wohnviertel in St. Gallen mit traditionellen Wohnhäusern',
 };
 
 export default blogMetaChDe;

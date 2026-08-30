@@ -4711,6 +4711,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-obvaldo-guida.title': 'AVS et prestations complémentaires dans le canton d\'Obwald : le guide',
     'blog.article.avs-prestazioni-complementari-obvaldo-guida.excerpt': 'Comment fonctionne le premier pilier AVS dans le canton d\'Obwald : rôle de la caisse de compensation, lacunes de cotisation et prestations complémentaires pour couvrir le minimum vital en 2026.',
     'blog.article.avs-prestazioni-complementari-obvaldo-guida.imageAlt': 'Bâtiment administratif du canton d\'Obwald abritant la caisse de compensation AVS',
+    'blog.article.affitti-san-gallo-diritto-locazione.title': 'Location dans le canton de Saint-Gall : droit de location et marché',
+    'blog.article.affitti-san-gallo-diritto-locazione.excerpt': 'Droit de location uniforme dans toute la Suisse (CO art. 253 s.) : cautionnement maximum 3 mois, contestation du loyer dans les 30 jours.',
+    'blog.article.affitti-san-gallo-diritto-locazione.imageAlt': 'Quartier résidentiel typique de Saint-Gall avec immeubles traditionnels',
 };
 
 export default blogMetaChFr;

@@ -4711,6 +4711,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-obvaldo-guida.title': 'AVS and complementary services in Canton Obvaldo: the guide',
     'blog.article.avs-prestazioni-complementari-obvaldo-guida.excerpt': 'How the first AVS pillar works in the Obvaldo Canton: role of the compensation fund, contribution gaps and complementary benefits to cover the minimum living wage in 2026.',
     'blog.article.avs-prestazioni-complementari-obvaldo-guida.imageAlt': 'Administrative building in Canton Obwalden housing the AVS compensation office',
+    'blog.article.affitti-san-gallo-diritto-locazione.title': 'Rentals in the Canton of St. Gallen: lease and market rights',
+    'blog.article.affitti-san-gallo-diritto-locazione.excerpt': 'Uniform rental right throughout Switzerland (CO art. 253 et seq.): maximum deposit of 3 months, dispute of the rent within 30 days.',
+    'blog.article.affitti-san-gallo-diritto-locazione.imageAlt': 'Typical residential neighborhood in St. Gallen with traditional apartment buildings',
 };
 
 export default blogMetaChEn;
