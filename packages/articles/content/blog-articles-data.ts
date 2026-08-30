@@ -32736,6 +32736,24 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-lomazzo-lavorare-ticino-frontaliere',
+ category: 'pratico',
+ date: '2026-08-30T09:18:33.665Z',
+ image: '/images/blog/vivere-lomazzo-lavorare-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'azzio-confine-guida-frontaliere',
+ category: 'pratico',
+ date: '2026-08-30T09:54:44.275Z',
+ image: '/images/blog/azzio-confine-guida-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

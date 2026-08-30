@@ -4720,6 +4720,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-san-gallo-guida.title': 'AVS e prestazioni complementari nel Canton San Gallo',
     'blog.article.avs-prestazioni-complementari-san-gallo-guida.excerpt': 'Come funziona il primo pilastro nel Canton San Gallo: cassa di compensazione, calcolo della rendita e PC a copertura del minimo vitale.',
     'blog.article.avs-prestazioni-complementari-san-gallo-guida.imageAlt': 'Veduta di una città svizzera con sede della cassa di compensazione cantonale',
+    'blog.article.aprire-attivita-canton-obvaldo-registro.title': 'Aprire un\'attività in Obvaldo: registro di commercio e costi',
+    'blog.article.aprire-attivita-canton-obvaldo-registro.excerpt': 'Guida pratica alla forma giuridica, iscrizione al registro di commercio, capitale minimo e oneri per avviare un\'impresa nel Cantone Obvaldo.',
+    'blog.article.aprire-attivita-canton-obvaldo-registro.imageAlt': 'Villaggio alpino nel Canton Obvaldo con lago e chalet tradizionali',
+    'blog.article.neutralita-svizzera-voto-settembre.title': 'Neutralità in Costituzione: il 27 settembre il voto federale',
+    'blog.article.neutralita-svizzera-voto-settembre.excerpt': 'Iniziativa depositata ad aprile 2024 con oltre 132\'000 firme valide. Sanzioni UE e cooperazione militare nel mirino dei promotori.',
+    'blog.article.neutralita-svizzera-voto-settembre.imageAlt': 'Busta elettorale federale sul tavolo di un appartamento svizzero',
+    'blog.article.abbonamenti-trasporti-san-gallo.title': 'Abbonamenti trasporti San Gallo: zone e tariffe',
+    'blog.article.abbonamenti-trasporti-san-gallo.excerpt': 'Scopri la struttura tariffaria del Canton San Gallo: comunità tariffaria, zone, abbonamenti annuali e mensili, Metà-prezzo e AG, sconti per studenti.',
+    'blog.article.abbonamenti-trasporti-san-gallo.imageAlt': 'Autobus e treni regionali dei trasporti pubblici nel Canton San Gallo con passeggeri alla stazione',
+    'blog.article.aprire-attivita-san-gallo-registro-costi.title': 'Aprire attività a San Gallo: registro, capitale e costi',
+    'blog.article.aprire-attivita-san-gallo-registro-costi.excerpt': 'Sagl CHF 20\'000, SA CHF 100\'000: capitale, iscrizione al registro cantonale, LAMal dal primo giorno e costi salariali AVS, LPP e LAINF.',
+    'blog.article.aprire-attivita-san-gallo-registro-costi.imageAlt': 'Ufficio cantonale del registro di commercio a San Gallo',
 };
 
 export default blogMetaChIt;

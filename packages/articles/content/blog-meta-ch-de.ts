@@ -4720,6 +4720,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-san-gallo-guida.title': 'AHV und Ergänzungsleistungen im Kanton St. Gallen',
     'blog.article.avs-prestazioni-complementari-san-gallo-guida.excerpt': 'So funktioniert die erste Säule im Kanton St. Gallen: Ausgleichskasse, Rentenberechnung und PC zur Deckung des Existenzminimums.',
     'blog.article.avs-prestazioni-complementari-san-gallo-guida.imageAlt': 'Schweizer Stadtbild mit kantonaler Ausgleichskasse',
+    'blog.article.aprire-attivita-canton-obvaldo-registro.title': 'Geschäft in Obwalden eröffnen: Handelsregister und Kosten',
+    'blog.article.aprire-attivita-canton-obvaldo-registro.excerpt': 'Praktischer Leitfaden zur Rechtsform, Handelsregistereintragung, Mindestkapital und Gebühren für die Unternehmensgründung im Kanton Obwalden.',
+    'blog.article.aprire-attivita-canton-obvaldo-registro.imageAlt': 'Alpendorf im Kanton Obwalden mit See und traditionellen Chalets',
+    'blog.article.neutralita-svizzera-voto-settembre.title': 'Neutralität in der Verfassung: am 27. September die eidgenössische Abstimmung',
+    'blog.article.neutralita-svizzera-voto-settembre.excerpt': 'Initiative eingereicht im April 2024 mit über 132\'000 gültigen Unterschriften. EU-Sanktionen und militärische Zusammenarbeit im Visier der Promotoren.',
+    'blog.article.neutralita-svizzera-voto-settembre.imageAlt': 'Schweizer Bundeswahlcouvert auf einem Tisch in einer Wohnung',
+    'blog.article.abbonamenti-trasporti-san-gallo.title': 'Verkehrstickets St. Gallen: Zonen und Tarife',
+    'blog.article.abbonamenti-trasporti-san-gallo.excerpt': 'Entdecken Sie die Tarifstruktur des Kantons St. Gallen: Tarifgemeinschaft, Zonen, Jahres- und Monatsabonnements, Halbtax und GA, Studentenrabatte.',
+    'blog.article.abbonamenti-trasporti-san-gallo.imageAlt': 'Öffentliche Verkehrsmittel im Kanton St. Gallen mit Fahrgästen am Bahnhof',
+    'blog.article.aprire-attivita-san-gallo-registro-costi.title': 'Geschäft in St. Gallen eröffnen: Register, Kapital und Kosten',
+    'blog.article.aprire-attivita-san-gallo-registro-costi.excerpt': 'Sagl CHF 20\'000, AG CHF 100\'000: Kapital, Eintragung ins kantonale Register, KVG ab dem ersten Tag und Lohnkosten AHV, BVG und UVG.',
+    'blog.article.aprire-attivita-san-gallo-registro-costi.imageAlt': 'Kantonales Handelsregisteramt in St. Gallen',
 };
 
 export default blogMetaChDe;

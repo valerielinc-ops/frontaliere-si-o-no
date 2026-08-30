@@ -114,6 +114,10 @@ jobs:
           QUOTA_LBL_REQUEUE: agent:decompose-queued
         run: node scripts/ci/check-quota-backoff.mjs
 
+      - name: Setup Headroom compression proxy
+        if: steps.quota.outputs.quota_blocked != 'true'
+        uses: ./.github/actions/setup-headroom
+
       - name: Run Claude decompose
         id: claude_decompose
         if: steps.quota.outputs.quota_blocked != 'true'

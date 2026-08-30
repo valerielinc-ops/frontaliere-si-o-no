@@ -10947,6 +10947,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-corrido-frontaliere-ticino.title': 'Leben in Corrido und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-corrido-frontaliere-ticino.excerpt': 'Praktischer Leitfaden für diejenigen, die das Pendeln von Corrido in den Kanton Tessin bewerten: Steuern, Zeiten, Kosten und was Sie vor dem Umzug wissen müssen.',
     'blog.article.vivere-corrido-frontaliere-ticino.imageAlt': 'Blick auf ein kleines italienisches Grenzdorf nahe dem Tessin',
+    'blog.article.vivere-lomazzo-lavorare-ticino-frontaliere.title': 'Wohnen in Lomazzo und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-lomazzo-lavorare-ticino-frontaliere.excerpt': 'Grenzgänger in Lomazzo? Entdecken Sie die Pässe Brogeda und Chiasso, die Fahrzeiten, die Lebenshaltungskosten und die Steuern. Praktischer Leitfaden für den Umzug von Como nach Tessin.',
+    'blog.article.vivere-lomazzo-lavorare-ticino-frontaliere.imageAlt': 'Grenzlandschaft zwischen Tessin und der Lombardei mit Bergen und Bergstraßen',
+    'blog.article.azzio-confine-guida-frontaliere.title': 'Leben in Azzio, Arbeiten im Tessin: Leitfaden für Grenzgänger',
+    'blog.article.azzio-confine-guida-frontaliere.excerpt': 'Azzio für diejenigen, die im Tessin arbeiten: G-Genehmigung, Schweizer Steuern, AHV, Rückerstattungen und Umzug.',
+    'blog.article.azzio-confine-guida-frontaliere.imageAlt': 'Grenzübergang Chiasso zwischen Tessin und Italien mit Pendlerverkehr und Alpengipfeln',
 };
 
 export default blogMetaDe;

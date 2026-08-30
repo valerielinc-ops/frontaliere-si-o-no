@@ -1599,6 +1599,10 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'affitti-san-gallo-diritto-locazione': { it: 'affitti-san-gallo-diritto-locazione', en: 'rent-st-gallen-tenancy-law', de: 'mieten-st-gallen-mietrecht', fr: 'locations-saint-gall-droit-bail' },
  'avs-prestazioni-complementari-san-gallo-cassa': { it: 'avs-prestazioni-complementari-san-gallo-cassa', en: 'avs-supplementary-benefits-st-gallen-fund', de: 'ahv-ergaenzungsleistungen-st-gallen-kasse', fr: 'avs-prestations-complementaires-saint-gall-caisse' },
  'avs-prestazioni-complementari-san-gallo-guida': { it: 'avs-prestazioni-complementari-san-gallo-guida', en: 'avs-and-complementary-services-in-the-canton-of-st-gallen', de: 'ahv-und-erganzungsleistungen-im-kanton-st-gallen', fr: 'avs-et-prestations-complementaires-dans-le-canton-de-saint-gall' },
+ 'aprire-attivita-canton-obvaldo-registro': { it: 'aprire-attivita-canton-obvaldo-registro', en: 'start-business-canton-obwalden-registry', de: 'geschaeft-gruenden-kanton-obwalden-handelsregister', fr: 'creer-entreprise-canton-obwald-registre' },
+ 'neutralita-svizzera-voto-settembre': { it: 'neutralita-svizzera-voto-settembre', en: 'swiss-neutrality-vote-september', de: 'schweiz-neutralitaet-abstimmung-september', fr: 'neutralite-suisse-vote-septembre' },
+ 'abbonamenti-trasporti-san-gallo': { it: 'abbonamenti-trasporti-san-gallo', en: 'st-gallen-public-transport-passes', de: 'san-gallen-abonnementsverkehr', fr: 'abonnements-transports-saint-gall' },
+ 'aprire-attivita-san-gallo-registro-costi': { it: 'aprire-attivita-san-gallo-registro-costi', en: 'open-business-st-gallen-register-costs', de: 'geschaeft-eroeffnen-st-gallen-register-kosten', fr: 'ouvrir-activite-saint-gall-registre-couts' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

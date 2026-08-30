@@ -4720,6 +4720,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-san-gallo-guida.title': 'AVS and complementary services in the Canton of St. Gallen',
     'blog.article.avs-prestazioni-complementari-san-gallo-guida.excerpt': 'How the first pillar works in the Canton of St. Gallen: compensation fund, pension calculation and PC to cover the living minimum.',
     'blog.article.avs-prestazioni-complementari-san-gallo-guida.imageAlt': 'Swiss cityscape with cantonal compensation office building',
+    'blog.article.aprire-attivita-canton-obvaldo-registro.title': 'Opening a business in Obvaldo: trade register and costs',
+    'blog.article.aprire-attivita-canton-obvaldo-registro.excerpt': 'Practical guide to legal form, registration in the commercial register, minimum capital and charges for starting a business in the Canton of Obvaldo.',
+    'blog.article.aprire-attivita-canton-obvaldo-registro.imageAlt': 'Alpine village in Canton Obwalden with lake and traditional chalets',
+    'blog.article.neutralita-svizzera-voto-settembre.title': 'Neutrality in the Constitution: on September 27 the federal vote',
+    'blog.article.neutralita-svizzera-voto-settembre.excerpt': 'Initiative filed in April 2024 with over 132,000 valid signatures. EU sanctions and military cooperation in the sights of the promoters.',
+    'blog.article.neutralita-svizzera-voto-settembre.imageAlt': 'Swiss federal ballot envelope on an apartment table in Switzerland',
+    'blog.article.abbonamenti-trasporti-san-gallo.title': 'St. Gallen Transportation Subscriptions: Zones and Rates',
+    'blog.article.abbonamenti-trasporti-san-gallo.excerpt': 'Discover the tariff structure of the Canton of St. Gallen: tariff community, zones, annual and monthly subscriptions, Half-price and AG, discounts for students.',
+    'blog.article.abbonamenti-trasporti-san-gallo.imageAlt': 'Public transport buses and regional trains in St. Gallen canton with passengers at station',
+    'blog.article.aprire-attivita-san-gallo-registro-costi.title': 'Opening a business in St. Gallen: registration, capital and costs',
+    'blog.article.aprire-attivita-san-gallo-registro-costi.excerpt': 'Sagl CHF 20,000, SA CHF100,000: capital, registration in the cantonal register, LAMal from the first day and wage costs AVS, LPP and LAINF.',
+    'blog.article.aprire-attivita-san-gallo-registro-costi.imageAlt': 'Cantonal commercial register office in St. Gallen',
 };
 
 export default blogMetaChEn;
