@@ -4765,6 +4765,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.neutralita-voto-27-settembre-amato.title': 'Neutralität: Amato weist Russland-Propaganda-Vorwurf zurück',
     'blog.article.neutralita-voto-27-settembre-amato.excerpt': 'Im Hinblick auf die Abstimmung vom 27. September über die Neutralitätsinitiative lehnt Corrado Amato das Label «russische Propaganda» ab und zitiert den isländischen Präzedenzfall vom 29. August (52,8% Nein, 82,5% Wahlbeteiligung).',
     'blog.article.neutralita-voto-27-settembre-amato.imageAlt': 'Bundeshaus in Bern mit Schweizer Flagge, Editorialbild zur Abstimmung vom 27. September',
+    'blog.article.lamal-zurigo-come-scegliere.title': 'KVG 2026: So wählen Sie in der Schweiz',
+    'blog.article.lamal-zurigo-come-scegliere.excerpt': 'Die KVG-Krankenversicherung ist für alle Bewohner obligatorisch. So orientieren Sie sich zwischen Franchisen (CHF 300–2500), Kassenwahl und Kantonsbeiträgen im Jahr 2026.',
+    'blog.article.lamal-zurigo-come-scegliere.imageAlt': 'Moderne medizinische Klinikrezeption mit Patient im Gespräch mit Hausarzt',
 };
 
 export default blogMetaChDe;

@@ -1614,6 +1614,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'aprire-attivita-nidvaldo-costi-registro': { it: 'aprire-attivita-nidvaldo-costi-registro', en: 'start-business-nidwalden-costs-register', de: 'geschaeft-gruenden-nidwalden-kosten-handelsregister', fr: 'ouvrir-activite-nidwald-couts-registre' },
  'patente-guida-san-gallo-conversione': { it: 'patente-guida-san-gallo-conversione', en: 'driving-license-st-gallen-conversion', de: 'fuehrerschein-st-gallen-umschreibung', fr: 'permis-conduire-saint-gall-conversion' },
  'neutralita-voto-27-settembre-amato': { it: 'neutralita-voto-27-settembre-amato', en: 'swiss-neutrality-vote-september-amato', de: 'schweiz-neutralitaet-abstimmung-september-amato', fr: 'suisse-neutralite-vote-septembre-amato' },
+ 'lamal-zurigo-come-scegliere': { it: 'lamal-zurigo-come-scegliere', en: 'lamal-2026-how-to-choose-switzerland', de: 'kvg-2026-krankenkasse-waehlen-schweiz', fr: 'lamal-2026-comment-choisir-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

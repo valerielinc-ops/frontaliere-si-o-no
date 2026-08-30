@@ -4765,6 +4765,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.neutralita-voto-27-settembre-amato.title': 'Neutralité : Amato rejette l\'accusation de propagande russe',
     'blog.article.neutralita-voto-27-settembre-amato.excerpt': 'En vue du vote du 27 septembre sur l\'Initiative pour la neutralité, Corrado Amato rejette l\'étiquette de « propagande russe » et cite le précédent islandais du 29 août (52,8% non, 82,5% de participation).',
     'blog.article.neutralita-voto-27-settembre-amato.imageAlt': 'Palais fédéral à Berne avec drapeau suisse, image éditoriale sur le vote du 27 septembre',
+    'blog.article.lamal-zurigo-come-scegliere.title': 'LAMal 2026 : comment choisir en Suisse',
+    'blog.article.lamal-zurigo-come-scegliere.excerpt': 'L\'assurance maladie LAMal est obligatoire pour tous les résidents. Voici comment vous orienter entre franchises (CHF 300–2500), choix de la caisse et subventions cantonales en 2026.',
+    'blog.article.lamal-zurigo-come-scegliere.imageAlt': 'Réception de clinique médicale moderne avec patient en consultation avec médecin généraliste',
 };
 
 export default blogMetaChFr;

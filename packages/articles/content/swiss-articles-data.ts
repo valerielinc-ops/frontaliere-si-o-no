@@ -14293,6 +14293,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'lamal-zurigo-come-scegliere',
+    category: 'pratico',
+    date: '2026-08-30T15:28:04.349Z',
+    image: '/images/blog/lamal-zurigo-come-scegliere.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
