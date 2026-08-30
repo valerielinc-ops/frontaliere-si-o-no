@@ -4735,6 +4735,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-attivita-san-gallo-procedura-costi.title': 'Geschäft im Kanton St. Gallen eröffnen: Verfahren, Register und Kosten',
     'blog.article.aprire-attivita-san-gallo-procedura-costi.excerpt': 'Rechtsformen, Mindestkapital, Handelsregistereintragung und Versicherungspflichten im Kanton St. Gallen.',
     'blog.article.aprire-attivita-san-gallo-procedura-costi.imageAlt': 'Blick auf die Altstadt von St. Gallen mit Stiftsbibliothek',
+    'blog.article.salari-mercato-lavoro-san-gallo.title': 'Löhne und Arbeitsmarkt im Kanton St. Gallen',
+    'blog.article.salari-mercato-lavoro-san-gallo.excerpt': 'St. Gallen: Diversifizierte Wirtschaft zwischen Industrie, Dienstleistungen und Handel, kein eidgenössischer Mindestlohn und Löhne nach Ausbildung, Erfahrung und Verantwortung.',
+    'blog.article.salari-mercato-lavoro-san-gallo.imageAlt': 'Moderne Büros im Kanton St. Gallen mit Bergen im Hintergrund',
 };
 
 export default blogMetaChDe;
