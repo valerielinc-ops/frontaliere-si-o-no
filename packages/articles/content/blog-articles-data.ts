@@ -32772,6 +32772,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'lavoro-remoto-terzo-paese-vacanza',
+ category: 'fiscale',
+ date: '2026-08-30T11:25:42.813Z',
+ image: '/images/blog/lavoro-remoto-terzo-paese-vacanza.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

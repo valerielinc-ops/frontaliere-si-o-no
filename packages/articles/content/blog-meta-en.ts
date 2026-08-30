@@ -10962,6 +10962,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-remoto-vacanza-estero-tasse.title': 'Remote from holiday abroad: tax guide for border workers',
     'blog.article.frontaliere-remoto-vacanza-estero-tasse.excerpt': 'Working remotely while on holiday abroad does not change Swiss taxes and LAMal coverage remains active. Here\'s what you need to check and communicate to the employer.',
     'blog.article.frontaliere-remoto-vacanza-estero-tasse.imageAlt': 'Frontier worker doing remote work from a seaside vacation spot with laptop and Mediterranean view during a working vacation.',
+    'blog.article.lavoro-remoto-terzo-paese-vacanza.title': 'Remote Work While on Vacation: Taxation and Rights of Cross-Border Workers',
+    'blog.article.lavoro-remoto-terzo-paese-vacanza.excerpt': 'When the border worker works remotely from a third country during the holidays: what changes for taxes, LAMal and AVS. Everything you need to communicate to the employer.',
+    'blog.article.lavoro-remoto-terzo-paese-vacanza.imageAlt': 'Frontier worker doing remote work from a holiday terrace abroad with a mountain view.',
 };
 
 export default blogMetaEn;

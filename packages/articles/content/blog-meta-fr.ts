@@ -10964,6 +10964,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-remoto-vacanza-estero-tasse.title': 'À distance de vacances à l\'étranger : guide fiscal pour les frontaliers',
     'blog.article.frontaliere-remoto-vacanza-estero-tasse.excerpt': 'Travailler à distance pendant des vacances à l\'étranger ne change pas les taxes suisses et la couverture LAMal reste active. Voici ce que vous devez vérifier et communiquer à l\'employeur.',
     'blog.article.frontaliere-remoto-vacanza-estero-tasse.imageAlt': 'Travailleur frontalier travaillant à distance depuis une location de vacances avec vue sur la mer et ordinateur portable.',
+    'blog.article.lavoro-remoto-terzo-paese-vacanza.title': 'Travail à distance en vacances : fiscalité et droits du frontalier',
+    'blog.article.lavoro-remoto-terzo-paese-vacanza.excerpt': 'Lorsque le frontalier travaille à distance depuis un pays tiers pendant les vacances : ce qui change pour les taxes, LAMal et AVS. Tout ce que vous devez communiquer à l\'employeur.',
+    'blog.article.lavoro-remoto-terzo-paese-vacanza.imageAlt': 'Travailleur frontalier en télétravail depuis une terrasse de vacances à l\'étranger avec vue montagne.',
 };
 
 export default blogMetaFr;
