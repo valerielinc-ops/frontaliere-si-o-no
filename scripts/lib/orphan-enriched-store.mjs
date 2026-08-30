@@ -330,11 +330,16 @@ export function writeOrphanEnriched(records, rootDir = process.cwd()) {
   for (let i = 0; i < ORPHAN_ENRICHED_SHARD_COUNT; i++) {
     const orphans = buckets[i].sort(compareCanonical);
     total += orphans.length;
-    fs.writeFileSync(
-      orphanEnrichedShardFile(i, rootDir),
-      `${JSON.stringify({ orphans }, null, 2)}\n`,
-      'utf-8',
-    );
+    const content = `${JSON.stringify({ orphans }, null, 2)}\n`;
+    const file = orphanEnrichedShardFile(i, rootDir);
+    let existing;
+    try {
+      existing = fs.readFileSync(file, 'utf-8');
+    } catch {
+      /* shard doesn't exist yet on disk — must write */
+    }
+    if (existing === content) continue;
+    fs.writeFileSync(file, content, 'utf-8');
   }
 
   fs.writeFileSync(
