@@ -4705,6 +4705,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.casa-sangallo-mutuo-fondi-propri.title': 'Casa nel Canton San Gallo: prezzi, mutuo e spese',
     'blog.article.casa-sangallo-mutuo-fondi-propri.excerpt': 'Acquistare una casa nel Canton San Gallo richiede fondi propri, mutuo ipotecario sostenibile e attenzione a imposte sui trapassi e spese notarili. Guida pratica ai passi fondamentali.',
     'blog.article.casa-sangallo-mutuo-fondi-propri.imageAlt': 'Moderno immobile residenziale nel Canton San Gallo con vista su montagne alpine, architettura svizzera contemporanea',
+    'blog.article.avs-prestazioni-complementari-obvaldo-cassa.title': 'AVS e prestazioni complementari nel Canton Obvaldo: come funziona la cassa',
+    'blog.article.avs-prestazioni-complementari-obvaldo-cassa.excerpt': 'Cassa di compensazione AVS del Canton Obvaldo: contributi, calcolo della rendita, riscatto delle lacune e prestazioni complementari per il minimo vitale.',
+    'blog.article.avs-prestazioni-complementari-obvaldo-cassa.imageAlt': 'Edificio amministrativo cantonale a Sarnen, Canton Obvaldo',
 };
 
 export default blogMetaChIt;

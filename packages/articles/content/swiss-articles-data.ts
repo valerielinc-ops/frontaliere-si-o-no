@@ -14113,6 +14113,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'avs-prestazioni-complementari-obvaldo-cassa',
+    category: 'pensione',
+    date: '2026-08-30T05:42:46.372Z',
+    image: '/images/blog/avs-prestazioni-complementari-obvaldo-cassa.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -4705,6 +4705,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.casa-sangallo-mutuo-fondi-propri.title': 'Maison dans le canton de Saint-Gall : prix, hypothèque et frais',
     'blog.article.casa-sangallo-mutuo-fondi-propri.excerpt': 'L\'achat d\'une maison dans le canton de Saint-Gall nécessite des fonds propres, un prêt hypothécaire durable et une attention aux taxes de passage et aux frais de notaire. Guide pratique des étapes fondamentales.',
     'blog.article.casa-sangallo-mutuo-fondi-propri.imageAlt': 'Propriété résidentielle moderne dans le canton de Saint-Gall avec vue sur les Alpes, architecture suisse contemporaine',
+    'blog.article.avs-prestazioni-complementari-obvaldo-cassa.title': 'AVS et prestations complémentaires à Obwald',
+    'blog.article.avs-prestazioni-complementari-obvaldo-cassa.excerpt': 'Caisse de compensation AVS du canton Obwald : cotisations, calcul de la rente, rachat des lacunes et prestations complémentaires pour le minimum vital.',
+    'blog.article.avs-prestazioni-complementari-obvaldo-cassa.imageAlt': 'Bâtiment administratif cantonal à Sarnen, canton d\'Obwald',
 };
 
 export default blogMetaChFr;
