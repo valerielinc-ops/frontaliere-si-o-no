@@ -4783,6 +4783,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-attivita-glarona-registro-costi.title': 'Opening a business in Glarus: trade register and costs',
     'blog.article.aprire-attivita-glarona-registro-costi.excerpt': 'Practical guide to legal forms, registration in the commercial register and tax and insurance obligations for those who start a business in the Canton of Glarus.',
     'blog.article.aprire-attivita-glarona-registro-costi.imageAlt': 'View of Canton Glarona with commercial register office',
+    'blog.article.permesso-dimora-b-zugo-requisiti-rinnovo.title': 'Permit B to Zug: requirements, procedure and renewal',
+    'blog.article.permesso-dimora-b-zugo-requisiti-rinnovo.excerpt': 'How to obtain and renew the residence permit B in the Canton of Zug: documents, duration up to 5 years for EU/EFTA and bureaucratic steps.',
+    'blog.article.permesso-dimora-b-zugo-requisiti-rinnovo.imageAlt': 'Canton Zug lakefront and offices with B permit documents',
 };
 
 export default blogMetaChEn;

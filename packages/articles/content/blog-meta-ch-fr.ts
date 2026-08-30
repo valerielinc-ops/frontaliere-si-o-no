@@ -4783,6 +4783,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-attivita-glarona-registro-costi.title': 'Ouvrir une entreprise à Glaris : registre du commerce et des coûts',
     'blog.article.aprire-attivita-glarona-registro-costi.excerpt': 'Guide pratique sur les formes juridiques, l\'inscription au registre du commerce et les obligations fiscales et d\'assurance pour ceux qui créent une entreprise dans le canton de Glaris.',
     'blog.article.aprire-attivita-glarona-registro-costi.imageAlt': 'Vue du canton de Glaris avec office du registre du commerce',
+    'blog.article.permesso-dimora-b-zugo-requisiti-rinnovo.title': 'Permis B à Zoug : exigences, procédure et renouvellement',
+    'blog.article.permesso-dimora-b-zugo-requisiti-rinnovo.excerpt': 'Comment obtenir et renouveler le permis de séjour B dans le canton de Zoug : documents, durée jusqu\'à 5 ans pour l\'UE/AELE et démarches administratives.',
+    'blog.article.permesso-dimora-b-zugo-requisiti-rinnovo.imageAlt': 'Canton de Zoug, lac et bureaux avec documents de permis B',
 };
 
 export default blogMetaChFr;
