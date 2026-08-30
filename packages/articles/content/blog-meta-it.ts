@@ -10952,6 +10952,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-lomazzo-lavorare-ticino-frontaliere.title': 'Vivere a Lomazzo e lavorare in Ticino da frontaliere',
     'blog.article.vivere-lomazzo-lavorare-ticino-frontaliere.excerpt': 'Frontaliere a Lomazzo? Scopri i valichi Brogeda e Chiasso, tempi di percorrenza, costo della vita e le imposte. Guida pratica per trasferirsi da Como a Ticino.',
     'blog.article.vivere-lomazzo-lavorare-ticino-frontaliere.imageAlt': 'Vista del paesaggio di confine tra Ticino e Lombardia, con colline e valichi stradali',
+    'blog.article.azzio-confine-guida-frontaliere.title': 'Vivere a Azzio, lavorare in Ticino: guida al frontaliere',
+    'blog.article.azzio-confine-guida-frontaliere.excerpt': 'Azzio per chi lavora in Ticino: permesso G, fiscalità svizzera, AVS, ristorni e come trasferirsi.',
+    'blog.article.azzio-confine-guida-frontaliere.imageAlt': 'Il valico di frontiera di Chiasso al confine tra Ticino e Italia, con traffico pendolare mattutino',
 };
 
 export default blogMetaIt;
