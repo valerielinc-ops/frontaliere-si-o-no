@@ -10968,6 +10968,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.guida-conto-bancario-svizzera.title': 'Opening a bank account in Switzerland: a guide for residents',
     'blog.article.guida-conto-bancario-svizzera.excerpt': 'Required documents, procedures, management costs and practical advice for border workers working across borders.',
     'blog.article.guida-conto-bancario-svizzera.imageAlt': 'Modern bank building in downtown Lugano, symbol of Ticino\'s financial center',
+    'blog.article.settori-crescita-lavoro-ticino-2026.title': 'Sectors growing in the Ticino labour market in 2026',
+    'blog.article.settori-crescita-lavoro-ticino-2026.excerpt': 'Health, ICT, construction and training among the sectors with the highest demand for personnel: what changes for border workers.',
+    'blog.article.settori-crescita-lavoro-ticino-2026.imageAlt': 'Aerial view of Lugano with office buildings and lake, symbol of the Ticino job market',
 };
 
 export default blogMetaEn;
