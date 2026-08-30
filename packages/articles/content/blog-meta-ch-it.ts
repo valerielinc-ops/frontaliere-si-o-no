@@ -4747,6 +4747,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.casa-nidvaldo-mutuo-fondi-propri.title': 'Comprare casa a Nidvaldo: prezzi, mutuo e fondi propri',
     'blog.article.casa-nidvaldo-mutuo-fondi-propri.excerpt': 'Guida pratica all\'acquisto di un\'abitazione nel Canton Nidvaldo: mercato di nicchia, regole sui fondi propri e spese di trapasso.',
     'blog.article.casa-nidvaldo-mutuo-fondi-propri.imageAlt': 'Villaggio di chalet tradizionali sulle colline di Nidvaldo, Svizzera centrale, con vista alpina',
+    'blog.article.comprare-casa-nidvaldo-mutuo-guida.title': 'Comprare casa a Nidvaldo: mutui, imposte e procedura',
+    'blog.article.comprare-casa-nidvaldo-mutuo-guida.excerpt': 'Guida completa all\'acquisto abitazione nel Cantone di Nidvaldo: procedura notarile, imposta sui trapassi, spese e criteri di sostenibilità del mutuo ipotecario in Svizzera.',
+    'blog.article.comprare-casa-nidvaldo-mutuo-guida.imageAlt': 'Vista panoramica di proprietà residenziali svizzere in cantone montagnoso, simbolo del mercato immobiliare nazionale.',
 };
 
 export default blogMetaChIt;

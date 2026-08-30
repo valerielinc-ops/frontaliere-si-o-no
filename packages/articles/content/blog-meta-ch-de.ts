@@ -4747,6 +4747,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.casa-nidvaldo-mutuo-fondi-propri.title': 'Haus kaufen in Nidwalden: Preise, Darlehen und Eigenmittel',
     'blog.article.casa-nidvaldo-mutuo-fondi-propri.excerpt': 'Praktischer Leitfaden zum Kauf einer Immobilie im Kanton Nidwalden: Nischenmarkt, Eigenkapitalvorschriften und Übertragungskosten.',
     'blog.article.casa-nidvaldo-mutuo-fondi-propri.imageAlt': 'Traditionelles Chaletdorf in den grünen Alpenhügeln von Nidwalden, Zentralschweiz',
+    'blog.article.comprare-casa-nidvaldo-mutuo-guida.title': 'Haus kaufen in Nidwalden: Hypotheken, Steuern und Verfahren',
+    'blog.article.comprare-casa-nidvaldo-mutuo-guida.excerpt': 'Umfassender Leitfaden zum Immobilienkauf im Kanton Nidwalden: notarielles Verfahren, Handänderungssteuer, Kosten und Nachhaltigkeitskriterien für Hypothekendarlehen in der Schweiz.',
+    'blog.article.comprare-casa-nidvaldo-mutuo-guida.imageAlt': 'Panoramablick auf Schweizer Wohnimmobilien in Bergkanton mit Seeblick, Symbol des Immobilienmarkts.',
 };
 
 export default blogMetaChDe;

@@ -14239,6 +14239,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'comprare-casa-nidvaldo-mutuo-guida',
+    category: 'pratico',
+    date: '2026-08-30T12:36:04.705Z',
+    image: '/images/blog/comprare-casa-nidvaldo-mutuo-guida.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
