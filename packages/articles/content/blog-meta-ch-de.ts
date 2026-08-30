@@ -4774,6 +4774,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-successione-san-gallo-aliquote.title': 'Erbschaftssteuer St. Gallen: Steuersätze und Befreiungen',
     'blog.article.imposta-successione-san-gallo-aliquote.excerpt': 'Wie funktioniert die Erbschafts- und Schenkungssteuer im Kanton St. Gallen: Sätze pro Verwandtschaftsgrad, Befreiungen für Ehegatten und Nachkommen, Meldeverfahren und gesetzliche Fristen.',
     'blog.article.imposta-successione-san-gallo-aliquote.imageAlt': 'Steuerverwaltungsgebäude Kanton St. Gallen mit Alpenblick',
+    'blog.article.lamal-guida-2026-canton-vaud.title': 'KVG 2026 im Kanton Waadt: Einsatzleitfaden',
+    'blog.article.lamal-guida-2026-canton-vaud.excerpt': 'Pflicht innert 3 Monaten vor Anreise, sechs Franchisestaffeln von CHF 300 bis 2500 und Kantonsbeitrag: Orientierung.',
+    'blog.article.lamal-guida-2026-canton-vaud.imageAlt': 'Tisch mit LAMal-Unterlagen und Genfersee-Blick',
 };
 
 export default blogMetaChDe;

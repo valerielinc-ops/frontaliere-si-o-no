@@ -4774,6 +4774,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-successione-san-gallo-aliquote.title': 'St Gallen Inheritance Tax: Rates and Exemptions',
     'blog.article.imposta-successione-san-gallo-aliquote.excerpt': 'How inheritance and gift tax works in the Canton of St. Gallen: rates for degree of kinship, exemptions for spouse and descendants, declaration procedure and legal terms.',
     'blog.article.imposta-successione-san-gallo-aliquote.imageAlt': 'Tax administration building in St. Gallen Canton, Switzerland',
+    'blog.article.lamal-guida-2026-canton-vaud.title': 'LAMal 2026 in the Canton of Vaud: operational guide',
+    'blog.article.lamal-guida-2026-canton-vaud.excerpt': 'Obligation within 3 months of arrival, six tiers of deductible from CHF 300 to 2500 and cantonal subsidy: how to orient yourself.',
+    'blog.article.lamal-guida-2026-canton-vaud.imageAlt': 'Table with LAMal documents and Lake Geneva view',
 };
 
 export default blogMetaChEn;
