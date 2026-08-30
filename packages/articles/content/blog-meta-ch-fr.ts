@@ -4777,6 +4777,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lamal-guida-2026-canton-vaud.title': 'LAMal 2026 dans le canton de Vaud : guide opérationnel',
     'blog.article.lamal-guida-2026-canton-vaud.excerpt': 'Obligation dans les 3 mois suivant l\'arrivée, six tranches de franchise de 300 CHF à 2500 CHF et allocation cantonale : comment s\'orienter.',
     'blog.article.lamal-guida-2026-canton-vaud.imageAlt': 'Table avec documents LAMal et vue sur le lac Léman',
+    'blog.article.aprire-attivita-glarona-tassazione-previdenza.title': 'Ouvrir une activité Glaris : coûts et obligations',
+    'blog.article.aprire-attivita-glarona-tassazione-previdenza.excerpt': 'Guide pratique complet sur la forme juridique, la fiscalité à trois niveaux, les cotisations AVS/LPP et LAMal pour ceux qui démarrent une activité dans le canton de Glaris.',
+    'blog.article.aprire-attivita-glarona-tassazione-previdenza.imageAlt': 'Entrepreneur examinant des documents d\'enregistrement commercial dans un bureau moderne en Suisse',
 };
 
 export default blogMetaChFr;

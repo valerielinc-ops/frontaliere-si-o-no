@@ -14329,6 +14329,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'aprire-attivita-glarona-tassazione-previdenza',
+    category: 'pratico',
+    date: '2026-08-30T17:13:54.928Z',
+    image: '/images/blog/aprire-attivita-glarona-tassazione-previdenza.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

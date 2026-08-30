@@ -4777,6 +4777,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lamal-guida-2026-canton-vaud.title': 'LAMal 2026 nel Canton Vaud: guida operativa',
     'blog.article.lamal-guida-2026-canton-vaud.excerpt': 'Obbligo entro 3 mesi dall\'arrivo, sei scaglioni di franchigia da CHF 300 a 2500 e sussidio cantonale: come orientarsi.',
     'blog.article.lamal-guida-2026-canton-vaud.imageAlt': 'Tavolo con documenti LAMal e vista sul lago di Ginevra',
+    'blog.article.aprire-attivita-glarona-tassazione-previdenza.title': 'Aprire attività Glarona: costi e adempimenti',
+    'blog.article.aprire-attivita-glarona-tassazione-previdenza.excerpt': 'Guida pratica completa su forma giuridica, tassazione a tre livelli, contributi AVS/LPP e LAMal per chi avvia un\'attività nel Cantone di Glarona.',
+    'blog.article.aprire-attivita-glarona-tassazione-previdenza.imageAlt': 'Imprenditore che esamina documenti di registrazione aziendale in ufficio moderno in Svizzera',
 };
 
 export default blogMetaChIt;

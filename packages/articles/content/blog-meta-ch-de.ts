@@ -4777,6 +4777,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lamal-guida-2026-canton-vaud.title': 'KVG 2026 im Kanton Waadt: Einsatzleitfaden',
     'blog.article.lamal-guida-2026-canton-vaud.excerpt': 'Pflicht innert 3 Monaten vor Anreise, sechs Franchisestaffeln von CHF 300 bis 2500 und Kantonsbeitrag: Orientierung.',
     'blog.article.lamal-guida-2026-canton-vaud.imageAlt': 'Tisch mit LAMal-Unterlagen und Genfersee-Blick',
+    'blog.article.aprire-attivita-glarona-tassazione-previdenza.title': 'Geschäft eröffnen Glarus: Kosten und Erfüllung',
+    'blog.article.aprire-attivita-glarona-tassazione-previdenza.excerpt': 'Umfassender Praxisleitfaden zur Rechtsform, dreistufigen Besteuerung, AHV/BVG- und KVG-Beiträgen für Unternehmensgründer im Kanton Glarus.',
+    'blog.article.aprire-attivita-glarona-tassazione-previdenza.imageAlt': 'Unternehmer überprüft Unternehmensregistrierungsdokumente in modernem Büro in der Schweiz',
 };
 
 export default blogMetaChDe;
