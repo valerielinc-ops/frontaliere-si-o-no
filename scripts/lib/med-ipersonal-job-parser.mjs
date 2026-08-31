@@ -110,7 +110,9 @@ function detectEmploymentType(text = '') {
  */
 async function fetchJobListings() {
   const spec = loadSpec(MED_IPERSONAL_KEY);
-  return runIpersonalSpecInProduction(spec);
+  return /** @type {Promise<Array<Record<string, any>> & { discoveredCount: number, expectedSeedCount: number, loadedSeedCount: number }>} */ (
+    runIpersonalSpecInProduction(spec)
+  );
 }
 
 /**
@@ -195,5 +197,17 @@ export async function fetchAllMedIpersonalJobs() {
   }
 
   console.log(`\n📋 Total MediPersonal jobs discovered: ${jobs.length}`);
+  Object.defineProperty(jobs, 'discoveredCount', {
+    value: Number(listings.discoveredCount),
+    enumerable: false,
+  });
+  Object.defineProperty(jobs, 'expectedSeedCount', {
+    value: Number(listings.expectedSeedCount),
+    enumerable: false,
+  });
+  Object.defineProperty(jobs, 'loadedSeedCount', {
+    value: Number(listings.loadedSeedCount),
+    enumerable: false,
+  });
   return jobs;
 }

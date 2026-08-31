@@ -791,6 +791,7 @@ export async function verifyUrlNoRedirect(url, options = {}) {
  * @property {Function} [isTrustedDomain]   — (url) => boolean. For URL validation.
  * @property {Function} [matchKey]          — Custom URL matching for merge dedup
  * @property {boolean}  [preserveExistingSlugs] — Keep every existing active slug for matched stable IDs
+ * @property {Function} [validateAuthoritativeSnapshot] — Throws unless the fresh batch proves a complete source snapshot
  * @property {Object}   [baseCrawlerOpts]   — Extra options for runDedicatedBaseCrawler
  */
 
@@ -886,6 +887,7 @@ export async function runStandardCrawlerPipeline(config) {
     isTrustedDomain,
     matchKey,
     preserveExistingSlugs = false,
+    validateAuthoritativeSnapshot,
     baseCrawlerOpts = {},
   } = config;
 
@@ -962,6 +964,18 @@ export async function runStandardCrawlerPipeline(config) {
     counts.discovered = parsedJobs.discoveredCount;
   }
 
+  // Only source-specific crawlers with an explicit completeness proof may
+  // retire every unmatched record immediately. Validation runs before the
+  // zero-job soft exit and before any scratch/archive write, so a partial or
+  // degraded crawl fails closed with the existing slice untouched.
+  let authoritativeSnapshotVerified = false;
+  if (validateAuthoritativeSnapshot) {
+    if (validateAuthoritativeSnapshot(parsedJobs) !== true) {
+      throw new Error(`${companyLabel}: authoritative snapshot validator did not return true`);
+    }
+    authoritativeSnapshotVerified = true;
+  }
+
   if (!parsedJobs || parsedJobs.length === 0) {
     console.log(`\n⚠️ No ${companyLabel} jobs discovered. Keeping existing jobs.`);
     return;
@@ -973,7 +987,10 @@ export async function runStandardCrawlerPipeline(config) {
   // mergePreserveLocaleData preserves translations, slugByLocale, and previousSlugs
   // from previous crawl runs. This is the KEY to slug stability — without it,
   // every crawl would regenerate slugs and orphan indexed URLs.
-  const mergeOpts = matchKey ? { matchKey } : {};
+  const mergeOpts = {
+    ...(matchKey ? { matchKey } : {}),
+    ...(authoritativeSnapshotVerified ? { retainMissingJobs: false } : {}),
+  };
   const merged = mergePreserveLocaleData(companyExisting, parsedJobs, mergeOpts);
   const slugStableMerge = preserveExistingSlugs
     ? restoreExistingSlugIdentity(companyExisting, merged).jobs
@@ -1081,6 +1098,11 @@ export async function runStandardCrawlerPipeline(config) {
   await writeJobsCrawlerSliceVerified(companyKey, sliceJobs, {
     isTargetJob: isCompanyJob,
     preserveExistingSlugs,
+    // The source-specific validator has already proven that every attempted
+    // detail became one rich, unique published row. URL probes are weaker for
+    // WordPress archives that keep retired detail pages reachable with HTTP
+    // 200, so this verified snapshot is the evidence for the one write.
+    skipShrinkGuard: authoritativeSnapshotVerified,
   });
   writeSummaryCrawlerSlice({
     key: companyKey,

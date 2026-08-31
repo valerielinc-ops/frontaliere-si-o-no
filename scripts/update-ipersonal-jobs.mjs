@@ -15,6 +15,7 @@ import {
   IPERSONAL_KEY,
   IPERSONAL_COMPANY_NAME,
 } from './lib/ipersonal-job-parser.mjs';
+import { assertCompleteIpersonalSnapshot } from './lib/ipersonal-spec-runtime.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -27,6 +28,7 @@ runStandardCrawlerPipeline({
   isCompanyJob: isIpersonalJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  validateAuthoritativeSnapshot: assertCompleteIpersonalSnapshot,
 }).catch((err) => {
   console.error(`❌ iPersonal AG crawler failed: ${err?.message || err}`);
   process.exit(1);

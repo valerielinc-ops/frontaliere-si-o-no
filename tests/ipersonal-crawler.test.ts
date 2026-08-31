@@ -7,6 +7,7 @@ import {
 } from '../scripts/lib/ipersonal-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 import {
+  assertCompleteIpersonalSnapshot,
   extractIpersonalDescription,
   runIpersonalSpecInProduction,
 } from '../scripts/lib/ipersonal-spec-runtime.mjs';
@@ -104,6 +105,14 @@ describe('iPersonal AG crawler parser', () => {
       const second = await runIpersonalSpecInProduction(spec, runtime);
       expect(second).toEqual(first);
       expect(first).toHaveLength(1);
+      const evidence = first as typeof first & {
+        discoveredCount: number;
+        expectedSeedCount: number;
+        loadedSeedCount: number;
+      };
+      expect(evidence.discoveredCount).toBe(1);
+      expect(evidence.expectedSeedCount).toBe(1);
+      expect(evidence.loadedSeedCount).toBe(1);
       expect(first[0]).toMatchObject({
         title: 'Pflegefachperson Zürich', url: detailUrl,
         location: 'Zuzwil SG, St. Gallen', canton: 'SG',
@@ -111,6 +120,62 @@ describe('iPersonal AG crawler parser', () => {
       expect(first[0].description).toContain('\n• Patientinnen kompetent betreuen');
       expect(acceptedEncodings.length).toBeGreaterThan(0);
       expect(acceptedEncodings.every((value) => value === 'identity')).toBe(true);
+    });
+
+    it('records an empty configured listing seed and rejects the batch as partial', async () => {
+      const seedUrl = 'https://ipersonal-seeds.example/';
+      const emptySeedUrl = `${seedUrl}empty/`;
+      const detailUrl = `${seedUrl}jobs/elettricista/`;
+      const fetchImpl = async (input: string | URL | Request) => {
+        const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
+        if (url.endsWith('/robots.txt') || url === emptySeedUrl) return new Response('', { status: 200 });
+        if (url === seedUrl) {
+          return new Response(`<a href="${detailUrl}">Elettricista</a>`, { status: 200 });
+        }
+        return new Response(`
+          <script type="application/ld+json">${JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'JobPosting',
+            title: 'Elettricista',
+            url: detailUrl,
+            description: 'Attività professionale con responsabilità tecniche e collaborazione continuativa in un team qualificato.',
+            jobLocation: {
+              '@type': 'Place',
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Zürich',
+                addressRegion: 'ZH',
+                addressCountry: 'CH',
+              },
+            },
+          })}</script>
+          <section class="job-profile-section"><div id="Jobdetails">
+            <p>Attività professionale con responsabilità tecniche e collaborazione continuativa in un team qualificato.</p>
+            <h3>Deine Aufgaben</h3><ul><li>Impianti tecnici verificare e documentare accuratamente</li></ul>
+          </div></section>`, { status: 200 });
+      };
+      const jobs = await runIpersonalSpecInProduction({
+        companyKey: 'ipersonal',
+        companyName: 'iPersonal AG',
+        platform: 'med-ipersonal.ch',
+        seedUrls: [seedUrl, emptySeedUrl],
+        mode: 'template',
+        detailTemplate: '/jobs/*/',
+        detailFetchWorkers: 1,
+      } as any, {
+        fetchImpl: fetchImpl as typeof fetch,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => undefined,
+        retries: 0,
+      });
+      const evidence = jobs as typeof jobs & {
+        discoveredCount: number;
+        expectedSeedCount: number;
+        loadedSeedCount: number;
+      };
+      expect(evidence.expectedSeedCount).toBe(2);
+      expect(evidence.loadedSeedCount).toBe(1);
+      expect(() => assertCompleteIpersonalSnapshot(evidence)).toThrow(/loaded 1\/2 listing seeds/);
     });
   });
 
