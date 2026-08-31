@@ -32889,6 +32889,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'aumento-tasso-interesse-lpp',
+ category: 'pensione',
+ date: '2026-08-31T16:56:09.733Z',
+ image: '/images/blog/aumento-tasso-interesse-lpp.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

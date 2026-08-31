@@ -81191,6 +81191,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aumento-tasso-interesse-lpp': {
+    title: 'Commissione LPP: aumento tasso minimo a 1,75% | Frontaliere Ticino',
+    description: 'La Commissione LPP chiede incremento tasso minimo dal 1,25% all\'1,75%. Cosa cambia per i frontalieri che lavorano in Svizzera. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, commissione, aumento, tasso, minimo',
+    ogTitle: 'Commissione LPP: aumenta tasso minimo previdenza',
+    ogDescription: 'La Commissione federale della previdenza professionale raccomanda aumento del tasso d\'interesse minimo dal 1,25% all\'1,75% nei fondi previdenziali obbligatori svizzeri. Scopri l\'impatto per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/aumento-tasso-interesse-lpp',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Commissione LPP: aumento tasso minimo a 1,75%",
+      "description": "La Commissione LPP chiede incremento tasso minimo dal 1,25% all'1,75%. Cosa cambia per i frontalieri che lavorano in Svizzera. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aumento-tasso-interesse-lpp.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Consulenza previdenziale in ufficio moderno a Lugano con vista sul lago di Lugano"
+      },
+      "datePublished": "2026-08-31T16:56:09+00:00",
+      "dateModified": "2026-08-31T16:56:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aumento-tasso-interesse-lpp/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

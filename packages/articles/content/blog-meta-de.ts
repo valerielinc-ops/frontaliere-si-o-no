@@ -11002,6 +11002,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cirimido-frontaliere-ticino-lavoro.title': 'Leben in Cirimido, Arbeiten im Tessin: Grenzführer',
     'blog.article.cirimido-frontaliere-ticino-lavoro.excerpt': 'Erfahren Sie, wie Sie als Grenzgänger nach Cirimido ziehen und im Tessin arbeiten können: Bewilligung G, Quellensteuer, AHV/BVG, Lebenshaltungskosten, Grenzübergänge.',
     'blog.article.cirimido-frontaliere-ticino-lavoro.imageAlt': 'Luftaufnahme von Mendrisio, Tessin, mit Hügellandschaft, Rebbergen und Schweizer-Italienischer Grenze bei Sonnenuntergang.',
+    'blog.article.aumento-tasso-interesse-lpp.title': 'BVG-Kommission: Erhöhung des Mindestzinssatzes auf 1,75%',
+    'blog.article.aumento-tasso-interesse-lpp.excerpt': 'Die Eidgenössische Kommission für berufliche Vorsorge fordert eine Erhöhung von 1,25% auf 1,75%. Beschluss des Bundesrates. Direkte Auswirkungen für Grenzgänger, die in der Schweiz arbeiten.',
+    'blog.article.aumento-tasso-interesse-lpp.imageAlt': 'Finanzberater berät Grenzgänger zu Rentenfragen in modernem Lugano-Büro mit Seeblick',
 };
 
 export default blogMetaDe;
