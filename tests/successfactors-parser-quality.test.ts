@@ -129,6 +129,18 @@ describe('SuccessFactors parser-quality boundary', () => {
     expect(normalizeIbsaRow(normalized, { [listings[0].url]: listings[0] })).toEqual(normalized);
   });
 
+  it('does not promote the city to canton when an IBSA tile omits the canton segment', () => {
+    const html = fixture('ibsa').replace("Collina d'Oro, TI, CH, 6926", "Collina d'Oro, CH, 6926");
+
+    expect(extractIbsaListingsFromTileHtml(html)).toEqual([{
+      url: "https://career.ibsagroup.com/job/Collina-d'Oro-Industrial-Controlling-Manager-TI-6926/1348512955/",
+      location: "Collina d'Oro",
+      canton: '',
+      country: 'CH',
+      postalCode: '6926',
+    }]);
+  });
+
   it('does not treat IT in a Swiss job title as geographic Italy', () => {
     const parsed = sharedCrawlerTestables.toJobFromHtmlFallback(
       fixture('ibsa-grancia'),

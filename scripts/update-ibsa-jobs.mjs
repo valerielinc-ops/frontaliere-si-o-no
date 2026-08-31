@@ -196,7 +196,7 @@ export function extractIbsaListingsFromTileHtml(html = '') {
     const parts = rawLocation.split(',').map((part) => part.trim()).filter(Boolean);
     const countryIndex = parts.findIndex((part) => /^[A-Z]{2}$/.test(part) && part === 'CH');
     const city = countryIndex >= 2 ? parts.slice(0, countryIndex - 1).join(', ') : (parts[0] || '');
-    const canton = countryIndex >= 1 ? parts[countryIndex - 1] : '';
+    const canton = countryIndex >= 2 ? parts[countryIndex - 1] : '';
     const postalCode = countryIndex >= 0 ? (parts[countryIndex + 1] || '') : '';
     return { url, location: city, canton, country: countryIndex >= 0 ? 'CH' : '', postalCode };
   });
