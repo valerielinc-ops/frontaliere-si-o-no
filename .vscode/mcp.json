@@ -1,9 +1,5 @@
 {
 	"servers": {
-		"my-mcp-server-61b2529a": {
-			"url": "https://mcp.linear.app/mcp",
-			"type": "http"
-		},
 		"playwright": {
 			"command": "npx",
 			"args": [
