@@ -32,6 +32,15 @@ const JOB_SEARCH_INTENT_QUALIFIER_RE =
   /\b(lavoro|lavori|jobs?|assunzion\w*|impieg\w*|occupazion\w*|carrier\w*|candidat\w*|recruit\w*)\b/i;
 
 /**
+ * Job phrases observed in GSC where the weak token is disambiguated by a
+ * vocational term. Keep the terms adjacent instead of adding them to the
+ * general qualifier: a query such as "posti auto vicino allo stage" is still
+ * about parking, not vacancies.
+ */
+const JOB_SEARCH_INTENT_WEAK_JOB_PHRASE_RE =
+  /\b(?:offert[ae]\s+(?:di\s+)?(?:stage|tirocin\w*|apprendistat\w*)|post[oi]\s+(?:di\s+)?(?:stage|tirocin\w*|apprendistat\w*|vacant\w*)|apprendistat\w*(?:\s+\w+){0,3}\s+post[oi])\b/i;
+
+/**
  * Whether a query reads as job-search intent.
  *
  * @param {string} query
@@ -39,6 +48,7 @@ const JOB_SEARCH_INTENT_QUALIFIER_RE =
  */
 function hasJobSearchIntent(query) {
   if (JOB_SEARCH_INTENT_STRONG_RE.test(query)) return true;
+  if (JOB_SEARCH_INTENT_WEAK_JOB_PHRASE_RE.test(query)) return true;
   return JOB_SEARCH_INTENT_WEAK_RE.test(query) && JOB_SEARCH_INTENT_QUALIFIER_RE.test(query);
 }
 
