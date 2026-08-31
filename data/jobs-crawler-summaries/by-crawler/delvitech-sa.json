@@ -1,16 +1,16 @@
 {
   "key": "delvitech-sa",
   "label": "Delvitech SA",
-  "generatedAt": "2026-08-28T05:28:01.201Z",
-  "total": 10,
+  "generatedAt": "2026-08-31T17:17:01.058Z",
+  "total": 7,
   "newCount": 0,
-  "updatedCount": 10,
-  "removedCount": 0,
+  "updatedCount": 7,
+  "removedCount": 3,
   "unchangedCount": 0,
-  "durationMs": 20048,
-  "avgDurationMs": 20048,
+  "durationMs": 43504,
+  "avgDurationMs": 43504,
   "durationHistory": [
-    20048
+    43504
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "sector": "Tecnologia & IT",
       "source": "delvitech-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-08-28",
+      "postedDate": "2026-08-31",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -68,7 +68,7 @@
       "sector": "Tecnologia & IT",
       "source": "delvitech-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-08-28",
+      "postedDate": "2026-08-31",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -104,7 +104,7 @@
       "sector": "Tecnologia & IT",
       "source": "delvitech-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-08-28",
+      "postedDate": "2026-08-31",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -140,7 +140,7 @@
       "sector": "Tecnologia & IT",
       "source": "delvitech-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-08-28",
+      "postedDate": "2026-08-31",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -176,7 +176,7 @@
       "sector": "Tecnologia & IT",
       "source": "delvitech-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-08-28",
+      "postedDate": "2026-08-31",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -212,7 +212,7 @@
       "sector": "Tecnologia & IT",
       "source": "delvitech-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-08-28",
+      "postedDate": "2026-08-31",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -248,7 +248,7 @@
       "sector": "Tecnologia & IT",
       "source": "delvitech-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-08-28",
+      "postedDate": "2026-08-31",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -265,10 +265,12 @@
         "translation": 25,
         "completeness": 19
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Mechanical Engineer",
-      "slug": "mechanical-engineer-delvitech-mendrisio",
+      "slug": "mechanical-ingegnere-delvitech-sa-mendrisio",
       "url": "https://legacy.delvi.tech/mechanical-engineer-2/",
       "applyUrl": "mailto:career@delvi.tech?subject=Application%20-%20Mechanical%20Engineer",
       "company": "Delvitech SA",
@@ -284,7 +286,7 @@
       "sector": "Tecnologia & IT",
       "source": "delvitech-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-08-28",
+      "postedDate": "2026-07-08",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -320,7 +322,7 @@
       "sector": "Tecnologia & IT",
       "source": "delvitech-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-08-28",
+      "postedDate": "2026-07-08",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -340,7 +342,7 @@
     },
     {
       "title": "Customer Support Manager",
-      "slug": "customer-support-manager-delvitech-mendrisio",
+      "slug": "responsabile-del-supporto-clienti-delvitech-sa-mendrisio",
       "url": "https://legacy.delvi.tech/customer-support-manager/",
       "applyUrl": "mailto:career@delvi.tech?subject=Application%20-%20Customer%20Support%20Manager",
       "company": "Delvitech SA",
@@ -356,7 +358,7 @@
       "sector": "Tecnologia & IT",
       "source": "delvitech-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-08-28",
+      "postedDate": "2026-07-08",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -375,6 +377,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
