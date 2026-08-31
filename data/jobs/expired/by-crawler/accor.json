@@ -1,5 +1,209 @@
 [
   {
+    "slug": "assistente-responsabile-ufficio-accettazione-ibis-budget-lugano",
+    "title": "Assistant Front Office Manager",
+    "titleByLocale": {
+      "fr": "Directeur adjoint de la réception",
+      "en": "Assistant Front Office Manager",
+      "it": "Assistente Responsabile ufficio accettazione",
+      "de": "Assistent Front Office Manager"
+    },
+    "company": "Ibis Budget",
+    "companyKey": "accor",
+    "location": "Lugano",
+    "addressLocality": "Lugano",
+    "descriptionByLocale": {
+      "fr": "Assistant Front Office Manager — Ibis Budget"
+    },
+    "slugByLocale": {
+      "fr": "directeur-adjoint-de-la-reception-ibis-budget-lugano",
+      "it": "assistente-responsabile-ufficio-accettazione-ibis-budget-lugano",
+      "en": "assistant-front-office-manager-ibis-budget-lugano",
+      "de": "assistant-front-office-manager-accor-ch"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-08-31T23:39:19.824Z",
+    "previousSlugs": [
+      "assistant-front-office-manager-accor-ch-jgn3jb",
+      "assistant-front-office-manager-accor-ch-2",
+      "assistant-front-office-manager-accor-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "assistant-front-office-manager-accor-ch-jgn3jb",
+        "assistant-front-office-manager-accor-ch-2",
+        "assistant-front-office-manager-accor-ch"
+      ],
+      "fr": [
+        "assistant-front-office-manager-accor-ch-jgn3jb"
+      ]
+    },
+    "salaryMin": 68000,
+    "salaryMax": 103000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "assistente-direttore-esecutivo-alimentazione-bevande-ibis-budget-lugano",
+    "title": "Executive Assistant Manager - Food & Beverage",
+    "titleByLocale": {
+      "fr": "Gestionnaire adjoint exécutif - Aliments et boissons",
+      "en": "Executive Assistant Manager - Food & Beverage",
+      "de": "Executive Assistent Manager - Food & Beverage",
+      "it": "Assistente Direttore Esecutivo - Alimentazione & Bevande"
+    },
+    "company": "Ibis Budget",
+    "companyKey": "accor",
+    "location": "Lugano",
+    "addressLocality": "Lugano",
+    "descriptionByLocale": {
+      "fr": "Executive Assistant Manager - Food & Beverage — Ibis Budget"
+    },
+    "slugByLocale": {
+      "fr": "gestionnaire-adjoint-executif-aliments-et-boissons-ibis-budget-lugano",
+      "it": "assistente-direttore-esecutivo-alimentazione-bevande-ibis-budget-lugano",
+      "en": "executive-assistant-manager-food-beverage-ibis-budget-lugano",
+      "de": "executive-assistant-manager-food-beverage-accor-ch"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-08-31T23:39:19.824Z",
+    "previousSlugs": [
+      "executive-assistant-manager-food-beverage-accor-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "executive-assistant-manager-food-beverage-accor-ch"
+      ],
+      "fr": [
+        "executive-assistant-manager-food-beverage-accor-ch"
+      ]
+    },
+    "salaryMin": 68000,
+    "salaryMax": 103000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "people-culture-coordinatore-12-months-sostituzione-maternita-ibis-budget-lugano",
+    "title": "People & Culture Coordinator ( 12 Months Maternity Cover )",
+    "titleByLocale": {
+      "de": "People & Culture Koordinator ( 12 Months Mutterschaftsvertretung )",
+      "en": "People & Culture Coordinator (12 Months Maternity Cover)",
+      "it": "People & Culture Coordinatore ( 12 Months Sostituzione maternità )",
+      "fr": "People & Culture Coordinateur ( 12 Months Remplacement maternité )"
+    },
+    "company": "Ibis Budget",
+    "companyKey": "accor",
+    "location": "Lugano",
+    "addressLocality": "Lugano",
+    "descriptionByLocale": {
+      "de": "People & Culture Coordinator ( 12 Months Maternity Cover ) — Ibis Budget"
+    },
+    "slugByLocale": {
+      "de": "people-culture-coordinator-12-months-maternity-cover-accor-ch",
+      "it": "people-culture-coordinatore-12-months-sostituzione-maternita-ibis-budget-lugano",
+      "en": "people-culture-coordinator-12-months-maternity-cover-ibis-budget-lugano",
+      "fr": "people-culture-coordinateur-12-months-remplacement-maternite-ibis-budget-lugano"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-08-31T23:39:19.824Z",
+    "previousSlugs": [
+      "people-culture-coordinator-12-months-maternity-cover-accor-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "people-culture-coordinator-12-months-maternity-cover-accor-ch"
+      ],
+      "fr": [
+        "people-culture-coordinator-12-months-maternity-cover-accor-ch"
+      ]
+    },
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "assistente-housekeeping-manager-ibis-budget-lugano",
+    "title": "Assistant Housekeeping Manager",
+    "titleByLocale": {
+      "fr": "Assistant Housekeeping Manager",
+      "en": "Assistant Housekeeping Manager",
+      "it": "Assistente Housekeeping Manager",
+      "de": "Assistent Housekeeping Manager"
+    },
+    "company": "Ibis Budget",
+    "companyKey": "accor",
+    "location": "Lugano",
+    "addressLocality": "Lugano",
+    "descriptionByLocale": {
+      "fr": "Assistant Housekeeping Manager — Ibis Budget"
+    },
+    "slugByLocale": {
+      "fr": "assistant-housekeeping-manager-accor-ch",
+      "it": "assistente-housekeeping-manager-ibis-budget-lugano",
+      "en": "assistant-housekeeping-manager-ibis-budget-lugano",
+      "de": "assistent-housekeeping-manager-ibis-budget-lugano"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-08-31T23:39:19.824Z",
+    "previousSlugs": [
+      "assistant-housekeeping-manager-accor-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "assistant-housekeeping-manager-accor-ch"
+      ]
+    },
+    "salaryMin": 68000,
+    "salaryMax": 103000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "superviseur-e-de-la-restauration-temporaire-m-w-d-ibis-budget-lugano",
+    "title": "Superviseur.e de la restauration, temporaire (H/F/D)",
+    "titleByLocale": {
+      "fr": "Superviseur.e de la restauration, temporaire (H/F/D)",
+      "it": "Superviseur.e de la restauration, temporaire (f/m/d)",
+      "en": "Catering Supervisor, Temporary (M/F/D)",
+      "de": "Restaurationsbetreuer/in, temporär (M/W/D)"
+    },
+    "company": "Ibis Budget",
+    "companyKey": "accor",
+    "location": "Lugano",
+    "addressLocality": "Lugano",
+    "descriptionByLocale": {
+      "fr": "Superviseur.e de la restauration, temporaire (H/F/D) — Ibis Budget"
+    },
+    "slugByLocale": {
+      "fr": "superviseur-e-de-la-restauration-temporaire-h-f-d-accor-ch",
+      "it": "superviseur-e-de-la-restauration-temporaire-m-w-d-ibis-budget-lugano",
+      "en": "catering-supervisor-temporary-m-f-d-ibis-budget-lugano",
+      "de": "restaurationsbetreuer-in-temporar-m-w-d-ibis-budget-lugano"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-08-31T23:39:19.824Z",
+    "previousSlugs": [
+      "superviseur-e-de-la-restauration-temporaire-h-f-d-accor-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "superviseur-e-de-la-restauration-temporaire-h-f-d-accor-ch"
+      ],
+      "en": [
+        "superviseur-e-de-la-restauration-temporaire-h-f-d-accor-ch"
+      ],
+      "de": [
+        "superviseur-e-de-la-restauration-temporaire-h-f-d-accor-ch"
+      ]
+    },
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "sales-manager-conference-groups-events-accor-ch",
     "title": "Sales Manager – Conference, Groups & Events",
     "titleByLocale": {
