@@ -7494,7 +7494,9 @@
         }
       },
       "firstSeenAt": "2026-08-17T21:36:04.826Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Lattoniere",
@@ -8157,7 +8159,7 @@
         "it": "Idraulico impianti Riscaldamento",
         "en": "Heating Systems Installer",
         "de": "Heizungsanlageninstallateur",
-        "fr": "Idraulico impianti Riscaldamento"
+        "fr": "Installations hydrauliques Chauffage"
       },
       "descriptionByLocale": {
         "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Idraulico impianti Riscaldamento\n\n## Missione :\n• Posa impianti riscaldamento\n• Supporto installazione centrali termiche\n• Supporto installazione di pompe di calore\n\n## Profilo :\n• Comprovata esperienza nel settore termoidraulico di almeno 4 anni\n• AFC costituirà titolo preferenziale\n• Ottima conoscenza dei materiali usati in Svizzera\n• Approfondita conoscenza delle norme di sicurezza vigenti\n• Persona automunita\n• Residenza al massimo di 40 km da luogo d’incarico",
@@ -8200,8 +8202,8 @@
         "installations-hydrauliques-chauffage-pemsa-agno",
         "heizungsanlageninstallateur-pemsa-agno"
       ],
-      "salarySource": "reported",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "salarySource": "reported"
     },
     {
       "title": "Installatore Idraulico",

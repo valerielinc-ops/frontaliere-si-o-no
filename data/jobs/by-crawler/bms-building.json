@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bms-building",
-  "assembledAt": "2026-08-31T17:04:23.496Z",
+  "assembledAt": "2026-08-31T15:08:08.592Z",
   "jobs": [
     {
       "id": "bms-building-05778ef4ed31",
@@ -3115,19 +3115,28 @@
       },
       "previousSlugs": [
         "sachbearbeitung-innendienst-sanitar-w-m-d-100-bms-building-ch",
-        "sachbearbeitung-servizio-interno-sanitar-m-w-d-100-bms-building-materials-kriens"
+        "sachbearbeitung-servizio-interno-sanitar-m-w-d-100-bms-building-materials-kriens",
+        "sachbearbeitung-servizio-interno-sanitar-offerten-m-w-d-100-bms-building-materials-buchs",
+        "sachbearbeitung-innendienst-sanitar-offerten-w-m-d-100-bms-building-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeitung-innendienst-sanitar-w-m-d-100-bms-building-ch",
-          "sachbearbeitung-servizio-interno-sanitar-m-w-d-100-bms-building-materials-kriens"
+          "sachbearbeitung-servizio-interno-sanitar-m-w-d-100-bms-building-materials-kriens",
+          "sachbearbeitung-servizio-interno-sanitar-offerten-m-w-d-100-bms-building-materials-buchs",
+          "sachbearbeitung-innendienst-sanitar-offerten-w-m-d-100-bms-building-ch"
+        ],
+        "de": [
+          "sachbearbeitung-innendienst-sanitar-offerten-w-m-d-100-bms-building-ch"
+        ],
+        "fr": [
+          "sachbearbeitung-servizio-interno-sanitar-offerten-m-w-d-100-bms-building-materials-buchs"
         ]
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T12:58:04.292Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3138,7 +3147,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "LU"
+      "addressRegion": "LU",
+      "salarySource": "estimated"
     },
     {
       "id": "bms-building-17912ab10ad3",

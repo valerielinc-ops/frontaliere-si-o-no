@@ -3926,22 +3926,6 @@
       "applyUrl": "https://bewerben.lindenhofgruppe.ch/dipl-experte-expertin-notfallpflege-de-f2921.html?agid=20",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-ch",
-        "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-lindenhofspital-e25896"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-ch",
-          "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-lindenhofspital-e25896"
-        ],
-        "en": [
-          "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-ch"
-        ],
-        "fr": [
-          "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-ch"
-        ]
-      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T07:35:50.015Z",
       "salaryMin": 85000,
@@ -3956,7 +3940,25 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-ch",
+          "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-lindenhofspital-e25896"
+        ],
+        "en": [
+          "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-ch",
+          "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-lindenhofspital"
+        ],
+        "fr": [
+          "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-ch",
+        "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-lindenhofspital-e25896",
+        "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-lindenhofspital"
+      ]
     }
   ]
 }

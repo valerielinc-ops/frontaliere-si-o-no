@@ -1,6 +1,6 @@
 {
   "crawlerKey": "css-versicherung",
-  "assembledAt": "2026-08-31T17:18:56.647Z",
+  "assembledAt": "2026-08-31T15:32:06.450Z",
   "jobs": [
     {
       "id": "css-versicherung-b3eb37f0ac8f",
@@ -1016,20 +1016,47 @@
       "previousSlugs": [
         "mitarbeiter-in-kundenservice-center-mit-digitaler-affinitat-100-css-versicherung-root",
         "kundenbetreuer-in-kundenservice-center-mit-digitaler-affinitat-100-css-versicherung-root",
-        "collaboratore-trice-kundenservice-center-con-digitaler-affinitat-100-css-versicherung-root-hybrid"
+        "collaboratore-trice-kundenservice-center-con-digitaler-affinitat-100-css-versicherung-root-hybrid",
+        "collaboratore-trice-kundenservice-center-con-erfahrung-in-der-kundenberatung-80-100-css-versicherung-root-hybrid",
+        "customer-service-center-with-experience-in-customer-service-80-100-css-versicherung-root-hybrid",
+        "mitarbeiter-in-kundenservice-center-mit-erfahrung-in-der-kundenberatung-80-100-css",
+        "centre-de-service-a-la-clientele-avec-experience-en-service-a-la-clientele-80-100-css-versicherung-root-hybrid",
+        "collaboratore-trice-kundenservice-center-con-erfahrung-in-der-kundenbetreuung-80-100-css-versicherung-root-hybrid",
+        "customer-service-center-with-experience-in-customer-service-80-100-css-versicherung-root-hybrid-c7453e",
+        "mitarbeiter-in-kundenservice-center-mit-erfahrung-in-der-kundenbetreuung-80-100-css",
+        "centre-de-service-a-la-clientele-avec-experience-en-service-a-la-clientele-80-100-css-versicherung-root-hybrid-c7453e",
+        "kundenbetreuer-in-kundenservice-center-mit-erfahrung-in-der-kundenbetreuung-80-100-css"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-kundenservice-center-mit-digitaler-affinitat-100-css-versicherung-root",
           "kundenbetreuer-in-kundenservice-center-mit-digitaler-affinitat-100-css-versicherung-root",
-          "collaboratore-trice-kundenservice-center-con-digitaler-affinitat-100-css-versicherung-root-hybrid"
+          "collaboratore-trice-kundenservice-center-con-digitaler-affinitat-100-css-versicherung-root-hybrid",
+          "collaboratore-trice-kundenservice-center-con-erfahrung-in-der-kundenberatung-80-100-css-versicherung-root-hybrid",
+          "customer-service-center-with-experience-in-customer-service-80-100-css-versicherung-root-hybrid",
+          "mitarbeiter-in-kundenservice-center-mit-erfahrung-in-der-kundenberatung-80-100-css",
+          "centre-de-service-a-la-clientele-avec-experience-en-service-a-la-clientele-80-100-css-versicherung-root-hybrid",
+          "collaboratore-trice-kundenservice-center-con-erfahrung-in-der-kundenbetreuung-80-100-css-versicherung-root-hybrid",
+          "customer-service-center-with-experience-in-customer-service-80-100-css-versicherung-root-hybrid-c7453e",
+          "mitarbeiter-in-kundenservice-center-mit-erfahrung-in-der-kundenbetreuung-80-100-css",
+          "centre-de-service-a-la-clientele-avec-experience-en-service-a-la-clientele-80-100-css-versicherung-root-hybrid-c7453e",
+          "kundenbetreuer-in-kundenservice-center-mit-erfahrung-in-der-kundenbetreuung-80-100-css"
+        ],
+        "en": [
+          "customer-service-center-with-experience-in-customer-service-80-100-css-versicherung-root-hybrid"
+        ],
+        "de": [
+          "mitarbeiter-in-kundenservice-center-mit-erfahrung-in-der-kundenberatung-80-100-css",
+          "mitarbeiter-in-kundenservice-center-mit-erfahrung-in-der-kundenbetreuung-80-100-css"
+        ],
+        "fr": [
+          "centre-de-service-a-la-clientele-avec-experience-en-service-a-la-clientele-80-100-css-versicherung-root-hybrid"
         ]
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T10:45:09.683Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1039,7 +1066,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "css-versicherung-988779bd9d31",
@@ -1094,24 +1122,46 @@
         "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-luzern-root",
         "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-luzern-hauptsitz",
         "apprendistato-kauffrau-mann-cfc-100-august-2027-css-luzern-hauptsitz",
-        "apprendistato-kauffrau-mann-cfc-100-august-2027-css-luzern-root"
+        "apprendistato-kauffrau-mann-cfc-100-august-2027-css-luzern-root",
+        "apprendistato-kauffrau-mann-cfc-100-august-2027-css-alle",
+        "apprendistato-businesswoman-uomo-efz-100-agosto-2027-css-luzern-af79cb",
+        "apprenticeship-businesswoman-man-efz-100-august-2027-css-luzern-af79cb",
+        "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-luzern",
+        "apprentissage-femme-d-affaires-homme-efz-100-aout-2027-css-luzern-af79cb",
+        "apprendistato-kauffrau-mann-cfc-100-august-2027-css-luzern",
+        "apprenticeship-businesswoman-man-efz-100-august-2027-css-luzern",
+        "apprentissage-femme-d-affaires-homme-efz-100-aout-2027-css-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-luzern-root",
           "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-luzern-hauptsitz",
           "apprendistato-kauffrau-mann-cfc-100-august-2027-css-luzern-hauptsitz",
-          "apprendistato-kauffrau-mann-cfc-100-august-2027-css-luzern-root"
+          "apprendistato-kauffrau-mann-cfc-100-august-2027-css-luzern-root",
+          "apprendistato-kauffrau-mann-cfc-100-august-2027-css-alle",
+          "apprendistato-businesswoman-uomo-efz-100-agosto-2027-css-luzern-af79cb",
+          "apprenticeship-businesswoman-man-efz-100-august-2027-css-luzern-af79cb",
+          "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-luzern",
+          "apprentissage-femme-d-affaires-homme-efz-100-aout-2027-css-luzern-af79cb",
+          "apprendistato-kauffrau-mann-cfc-100-august-2027-css-luzern",
+          "apprenticeship-businesswoman-man-efz-100-august-2027-css-luzern",
+          "apprentissage-femme-d-affaires-homme-efz-100-aout-2027-css-luzern"
         ],
         "de": [
-          "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-luzern-root"
+          "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-luzern-root",
+          "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-luzern"
+        ],
+        "en": [
+          "apprenticeship-businesswoman-man-efz-100-august-2027-css-luzern-af79cb"
+        ],
+        "fr": [
+          "apprentissage-femme-d-affaires-homme-efz-100-aout-2027-css-luzern-af79cb"
         ]
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T10:45:08.327Z",
       "salaryMin": 58500,
       "salaryMax": 89000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1121,7 +1171,8 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "css-versicherung-99995c1c08fe",

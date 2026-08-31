@@ -266,7 +266,7 @@
       "title": "Ergotherapeut/in 80-100%",
       "titleByLocale": {
         "it": "Terapista/in 80-100 %",
-        "en": "Ergotherapeut/in 80-100%",
+        "en": "Occupational therapist/in 80-100 %",
         "de": "Ergotherapeut/in 80-100%",
         "fr": "Ergothérapie/en 80-100 %"
       },
@@ -316,7 +316,6 @@
       "salaryMin": 81000,
       "salaryMax": 135000,
       "currency": "CHF",
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -327,7 +326,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "salarySource": "estimated"
     },
     {
       "id": "hopital-du-valais-e43935c58911",

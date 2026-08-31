@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kanton-basel-landschaft",
-  "assembledAt": "2026-08-31T17:02:45.178Z",
+  "assembledAt": "2026-08-31T15:52:52.674Z",
   "jobs": [
     {
       "id": "kanton-basel-landschaft-f65f18a09463",
@@ -1027,7 +1027,11 @@
         "soc-managerin-manager-kantonale-verwaltung-basel-landschaft-liestal",
         "soc-managerin-manager-kanton-basel-landschaft-liestal",
         "gestionnaire-soc-kantonale-verwaltung-basel-landschaft-liestal",
-        "projektleiterin-projektleiter-raum-e-verkehrsplanung-kantonale-verwaltung-basel-landschaft-liestal"
+        "projektleiterin-projektleiter-raum-e-verkehrsplanung-kantonale-verwaltung-basel-landschaft-liestal",
+        "case-handler-case-handler-segreteria-contabilita-kantonale-verwaltung-basel-landschaft-liestal",
+        "case-handler-case-handler-secretariat-accounting-kantonale-verwaltung-basel-landschaft-liestal",
+        "sachbearbeiterin-sachbearbeiter-sekretariat-rechnungswesen-kanton-basel-landschaft-liestal",
+        "gestionnaire-de-cas-gestionnaire-secretariat-comptabilite-kantonale-verwaltung-basel-landschaft-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1036,24 +1040,30 @@
           "soc-managerin-manager-kantonale-verwaltung-basel-landschaft-liestal",
           "soc-managerin-manager-kanton-basel-landschaft-liestal",
           "gestionnaire-soc-kantonale-verwaltung-basel-landschaft-liestal",
-          "projektleiterin-projektleiter-raum-e-verkehrsplanung-kantonale-verwaltung-basel-landschaft-liestal"
+          "projektleiterin-projektleiter-raum-e-verkehrsplanung-kantonale-verwaltung-basel-landschaft-liestal",
+          "case-handler-case-handler-segreteria-contabilita-kantonale-verwaltung-basel-landschaft-liestal",
+          "case-handler-case-handler-secretariat-accounting-kantonale-verwaltung-basel-landschaft-liestal",
+          "sachbearbeiterin-sachbearbeiter-sekretariat-rechnungswesen-kanton-basel-landschaft-liestal",
+          "gestionnaire-de-cas-gestionnaire-secretariat-comptabilite-kantonale-verwaltung-basel-landschaft-liestal"
         ],
         "en": [
           "projektleiterin-projektleiter-raum-und-verkehrsplanung-kanton-basel-landschaft-liestal",
-          "soc-managerin-manager-kantonale-verwaltung-basel-landschaft-liestal"
+          "soc-managerin-manager-kantonale-verwaltung-basel-landschaft-liestal",
+          "case-handler-case-handler-secretariat-accounting-kantonale-verwaltung-basel-landschaft-liestal"
         ],
         "de": [
-          "soc-managerin-manager-kanton-basel-landschaft-liestal"
+          "soc-managerin-manager-kanton-basel-landschaft-liestal",
+          "sachbearbeiterin-sachbearbeiter-sekretariat-rechnungswesen-kanton-basel-landschaft-liestal"
         ],
         "fr": [
           "projektleiterin-projektleiter-raum-und-verkehrsplanung-kanton-basel-landschaft-liestal",
-          "gestionnaire-soc-kantonale-verwaltung-basel-landschaft-liestal"
+          "gestionnaire-soc-kantonale-verwaltung-basel-landschaft-liestal",
+          "gestionnaire-de-cas-gestionnaire-secretariat-comptabilite-kantonale-verwaltung-basel-landschaft-liestal"
         ]
       },
       "firstSeenAt": "2026-08-05T11:34:18.655Z",
       "salaryMin": 119000,
       "salaryMax": 166000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1063,7 +1073,8 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "kanton-basel-landschaft-5be9446c8849",
@@ -3855,27 +3866,39 @@
       "previousSlugs": [
         "vertretungslehrperson-fur-textiles-gestalten-kanton-basel-landschaft-holstein",
         "vertretungslehrperson-fur-textiles-gestalten-kantonale-verwaltung-basel-landschaft-holstein",
-        "vertretungslehrperson-per-textiles-gestalten-kantonale-verwaltung-basel-landschaft-holstein"
+        "vertretungslehrperson-per-textiles-gestalten-kantonale-verwaltung-basel-landschaft-holstein",
+        "vertretungslehrperson-per-textiles-gestalten-kantonale-verwaltung-basel-landschaft-aesch",
+        "representative-instructor-for-textiles-gestalten-kantonale-verwaltung-basel-landschaft-aesch",
+        "vertretungslehrperson-fur-textiles-gestalten-kanton-basel-landschaft-aesch",
+        "instructeur-representant-pour-textiles-gestalten-kantonale-verwaltung-basel-landschaft-aesch",
+        "vertretungslehrperson-fur-textiles-gestalten-kantonale-verwaltung-basel-landschaft-aesch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "vertretungslehrperson-fur-textiles-gestalten-kanton-basel-landschaft-holstein",
-          "vertretungslehrperson-per-textiles-gestalten-kantonale-verwaltung-basel-landschaft-holstein"
+          "vertretungslehrperson-per-textiles-gestalten-kantonale-verwaltung-basel-landschaft-holstein",
+          "vertretungslehrperson-per-textiles-gestalten-kantonale-verwaltung-basel-landschaft-aesch",
+          "representative-instructor-for-textiles-gestalten-kantonale-verwaltung-basel-landschaft-aesch",
+          "vertretungslehrperson-fur-textiles-gestalten-kanton-basel-landschaft-aesch",
+          "instructeur-representant-pour-textiles-gestalten-kantonale-verwaltung-basel-landschaft-aesch",
+          "vertretungslehrperson-fur-textiles-gestalten-kantonale-verwaltung-basel-landschaft-aesch"
         ],
         "en": [
-          "vertretungslehrperson-fur-textiles-gestalten-kantonale-verwaltung-basel-landschaft-holstein"
+          "vertretungslehrperson-fur-textiles-gestalten-kantonale-verwaltung-basel-landschaft-holstein",
+          "representative-instructor-for-textiles-gestalten-kantonale-verwaltung-basel-landschaft-aesch"
         ],
         "de": [
-          "vertretungslehrperson-fur-textiles-gestalten-kantonale-verwaltung-basel-landschaft-holstein"
+          "vertretungslehrperson-fur-textiles-gestalten-kantonale-verwaltung-basel-landschaft-holstein",
+          "vertretungslehrperson-fur-textiles-gestalten-kanton-basel-landschaft-aesch"
         ],
         "fr": [
-          "vertretungslehrperson-fur-textiles-gestalten-kantonale-verwaltung-basel-landschaft-holstein"
+          "vertretungslehrperson-fur-textiles-gestalten-kantonale-verwaltung-basel-landschaft-holstein",
+          "instructeur-representant-pour-textiles-gestalten-kantonale-verwaltung-basel-landschaft-aesch"
         ]
       },
       "firstSeenAt": "2026-08-24T21:35:01.389Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3885,7 +3908,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "kanton-basel-landschaft-a6ef62ed2222",

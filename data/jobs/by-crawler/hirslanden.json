@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hirslanden",
-  "assembledAt": "2026-08-31T17:21:16.789Z",
+  "assembledAt": "2026-08-31T15:45:07.682Z",
   "jobs": [
     {
       "id": "hirslanden-884fe67c1daa",
@@ -1304,25 +1304,37 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-a-hirslanden-zurich",
-        "apprendistato-come-fachfrau-fachmann-gesundheit-fage-cfc-a-hirslanden-klinik-zurich"
+        "apprendistato-come-fachfrau-fachmann-gesundheit-fage-cfc-a-hirslanden-klinik-zurich",
+        "apprendistato-fachfrau-fachmann-gesundheit-fage-cfc-a-hirslanden-klinik-zurich",
+        "apprenticeship-professional-health-fage-efz-a-hirslanden-klinik-zurich",
+        "lehrstelle-fachfrau-fachmann-gesundheit-fage-efz-a-hirslanden-zurich",
+        "sante-professionnelle-des-apprentis-fage-efz-a-hirslanden-klinik-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-a-hirslanden-zurich",
-          "apprendistato-come-fachfrau-fachmann-gesundheit-fage-cfc-a-hirslanden-klinik-zurich"
+          "apprendistato-come-fachfrau-fachmann-gesundheit-fage-cfc-a-hirslanden-klinik-zurich",
+          "apprendistato-fachfrau-fachmann-gesundheit-fage-cfc-a-hirslanden-klinik-zurich",
+          "apprenticeship-professional-health-fage-efz-a-hirslanden-klinik-zurich",
+          "lehrstelle-fachfrau-fachmann-gesundheit-fage-efz-a-hirslanden-zurich",
+          "sante-professionnelle-des-apprentis-fage-efz-a-hirslanden-klinik-zurich"
         ],
         "en": [
-          "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-a-hirslanden-zurich"
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-a-hirslanden-zurich",
+          "apprenticeship-professional-health-fage-efz-a-hirslanden-klinik-zurich"
         ],
         "fr": [
-          "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-a-hirslanden-zurich"
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-a-hirslanden-zurich",
+          "sante-professionnelle-des-apprentis-fage-efz-a-hirslanden-klinik-zurich"
+        ],
+        "de": [
+          "lehrstelle-fachfrau-fachmann-gesundheit-fage-efz-a-hirslanden-zurich"
         ]
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T13:59:57.576Z",
       "salaryMin": 82000,
       "salaryMax": 114500,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1332,7 +1344,8 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "hirslanden-b05896b86a72",
@@ -7667,26 +7680,37 @@
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-a-60-hirslanden-munchenstein-kt-basel-land",
         "occupational-therapist-a-60-hirslanden-klinik-munchenstein-kt",
-        "terapista-a-60-hirslanden-klinik-munchenstein-kt"
+        "terapista-a-60-hirslanden-klinik-munchenstein-kt",
+        "conservazione-maintenant-a-100-hirslanden-klinik-munchenstein-kt",
+        "storage-maintenant-a-100-hirslanden-klinik-munchenstein-kt",
+        "lagerungspflegerin-lagerungspfleger-a-100-hirslanden-munchenstein-kt-basel-land",
+        "entretien-a-100-hirslanden-klinik-munchenstein-kt"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ergotherapeutin-ergotherapeut-a-60-hirslanden-munchenstein-kt-basel-land",
-          "terapista-a-60-hirslanden-klinik-munchenstein-kt"
+          "terapista-a-60-hirslanden-klinik-munchenstein-kt",
+          "conservazione-maintenant-a-100-hirslanden-klinik-munchenstein-kt",
+          "storage-maintenant-a-100-hirslanden-klinik-munchenstein-kt",
+          "lagerungspflegerin-lagerungspfleger-a-100-hirslanden-munchenstein-kt-basel-land",
+          "entretien-a-100-hirslanden-klinik-munchenstein-kt"
         ],
         "en": [
           "ergotherapeutin-ergotherapeut-a-60-hirslanden-munchenstein-kt-basel-land",
-          "occupational-therapist-a-60-hirslanden-klinik-munchenstein-kt"
+          "occupational-therapist-a-60-hirslanden-klinik-munchenstein-kt",
+          "storage-maintenant-a-100-hirslanden-klinik-munchenstein-kt"
         ],
         "fr": [
-          "ergotherapeutin-ergotherapeut-a-60-hirslanden-munchenstein-kt-basel-land"
+          "ergotherapeutin-ergotherapeut-a-60-hirslanden-munchenstein-kt-basel-land",
+          "entretien-a-100-hirslanden-klinik-munchenstein-kt"
+        ],
+        "de": [
+          "lagerungspflegerin-lagerungspfleger-a-100-hirslanden-munchenstein-kt-basel-land"
         ]
       },
       "firstSeenAt": "2026-07-14T10:57:21.727Z",
-      "needsRetranslation": true,
       "salaryMin": 52800,
       "salaryMax": 73800,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -7696,7 +7720,9 @@
           "maxValue": 73800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "salarySource": "estimated"
     },
     {
       "id": "hirslanden-8fe6e65d0ab3",
@@ -28662,30 +28688,42 @@
         "apprentissage-apprentissage-en-tant-que-specialiste-en-sante-cfc-2027-hirslanden-klinik-search",
         "lehrstelle-lehre-als-fachfrau-fachmann-gesundheit-efz-2027-hirslanden-search",
         "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-2027-hirslanden-klinik-search",
-        "mansioni-richieste-hirslanden-klinik-search-acd952"
+        "mansioni-richieste-hirslanden-klinik-search-acd952",
+        "apprendistato-lehre-fachfrau-fachmann-gesundheit-cfc-2027-hirslanden-klinik-cham-kt-zug",
+        "apprenticeship-teaching-professional-health-efz-2027-hirslanden-klinik-cham-kt",
+        "lehrstelle-lehre-fachfrau-fachmann-gesundheit-efz-2027-hirslanden-cham-kt-zug",
+        "apprentissage-enseignement-de-la-sante-professionnelle-efz-2027-hirslanden-klinik-cham-kt",
+        "apprendistato-lehre-fachfrau-fachmann-gesundheit-cfc-2027-hirslanden-klinik-cham-kt"
       ],
       "previousSlugsByLocale": {
         "it": [
           "deine-aufgaben-hirslanden-search-210",
           "deine-aufgaben-hirslanden-search-205",
           "lehrstelle-lehre-als-fachfrau-fachmann-gesundheit-efz-2027-hirslanden-luzern",
-          "mansioni-richieste-hirslanden-klinik-search-acd952"
+          "mansioni-richieste-hirslanden-klinik-search-acd952",
+          "apprendistato-lehre-fachfrau-fachmann-gesundheit-cfc-2027-hirslanden-klinik-cham-kt-zug",
+          "apprenticeship-teaching-professional-health-efz-2027-hirslanden-klinik-cham-kt",
+          "lehrstelle-lehre-fachfrau-fachmann-gesundheit-efz-2027-hirslanden-cham-kt-zug",
+          "apprentissage-enseignement-de-la-sante-professionnelle-efz-2027-hirslanden-klinik-cham-kt",
+          "apprendistato-lehre-fachfrau-fachmann-gesundheit-cfc-2027-hirslanden-klinik-cham-kt"
         ],
         "en": [
-          "deine-aufgaben-hirslanden-search-210"
+          "deine-aufgaben-hirslanden-search-210",
+          "apprenticeship-teaching-professional-health-efz-2027-hirslanden-klinik-cham-kt"
         ],
         "de": [
-          "deine-aufgaben-hirslanden-search"
+          "deine-aufgaben-hirslanden-search",
+          "lehrstelle-lehre-fachfrau-fachmann-gesundheit-efz-2027-hirslanden-cham-kt-zug"
         ],
         "fr": [
-          "deine-aufgaben-hirslanden-search-210"
+          "deine-aufgaben-hirslanden-search-210",
+          "apprentissage-enseignement-de-la-sante-professionnelle-efz-2027-hirslanden-klinik-cham-kt"
         ]
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T12:17:17.510Z",
       "salaryMin": 77500,
       "salaryMax": 108000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -28695,7 +28733,8 @@
           "maxValue": 108000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "hirslanden-7b0ac44a526d",

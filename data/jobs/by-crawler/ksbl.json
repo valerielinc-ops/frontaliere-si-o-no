@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksbl",
-  "assembledAt": "2026-08-31T17:20:34.094Z",
+  "assembledAt": "2026-08-31T15:57:59.900Z",
   "jobs": [
     {
       "id": "ksbl-c5f32826ffb7",
@@ -6167,7 +6167,7 @@
       "title": "Arztsekretärin/Arztsekretär ZAR (a)",
       "titleByLocale": {
         "it": "Segretario medico ZAR (a)",
-        "en": "Arztsekretärin/Arztsekretär ZAR (a)",
+        "en": "Medical Secretary ZAR (a)",
         "de": "Arztsekretärin/Arztsekretär ZAR (a)",
         "fr": "Secrétaire médical ZAR (a)"
       },
@@ -6178,7 +6178,6 @@
         "de": "Eintritt per 1. November 2026 oder nach Vereinbarung · Bruderholz, Altersmedizin & Rehabilitation · Stellenreferenz 13170 · Festanstellung\n\nAufgaben:\n• Bearbeiten, Schreiben und Versand des kompletten Berichtwesens (Austritts-, Sprechstunden-, Versicherungsberichte, div. Berichtswesen)\n• Protokollieren des interdisziplinären Rapports\n• Telefonischer und schriftlicher Kontakt mit Patientinnen und Patienten, Zuweisenden, Krankenkassen und Versicherungen sowie interner interdisziplinärer Kontakt\n• Erledigen allgemeiner Sekretariatsarbeiten auf der Station\n• Bestellwesen Büromaterialien\n• Administrative Abwicklung aller Ein- und Austritte\n• Validierung medizinischer Patientendokumente\n\nAnforderungen:\n• Erfahrene/r Arztsekretär/in oder kaufmännische Grundausbildung mit äquivalenter Weiterbildung\n• Erfahrung im Schreiben von Berichten ab Diktat und sichere Anwendung der medizinischen Terminologie\n• Stilsicheres Deutsch, Kenntnisse in Englisch und Französisch von Vorteil\n• Selbstständige und effiziente Arbeitsweise\n• Gute organisatorische Fähigkeiten sowie gute PC-Anwenderkenntnisse\n• Teamfähigkeit, Flexibilität, Belastbarkeit und ausgeprägte Dienstleistungsmentalität\n\nBenefits:\nFlexible Arbeitsmodelle: Gleitzeitmodell, Jahresarbeitszeiten, Home Office\n\nBereich: Altersmedizin & Rehabilitation\n\nBeschäftigungsgrad: 60%\n\nKSBL Kantonsspital Baselland — Standorte Bruderholz, Liestal, Laufen. ~4'500 Mitarbeitende auf 3 Standorten in der Region Basel.",
         "fr": "Entrée par 1. Novembre 2026 ou par nomination · Bruderholz, Altermedizin & Rehabilitation · Référence emploi 13170 · Emploi permanent\n\nTâches :\n• Édition, rédaction et envoi du rapport complet (sortie, heures de bureau, rapports d'assurance, rapports div.)\n• Exploitation du rapport interdisciplinaire\n• Contact téléphonique et écrit avec les patients, les cessionnaires, les compagnies d'assurance maladie et les compagnies d'assurance ainsi que contact interdisciplinaire interne\n• Achèvement des travaux généraux de secrétariat de la station\n• Commande de matériel de bureau\n• Traitement administratif de toutes les entrées et retraits\n• Validation des documents médicaux du patient\n\nExigences\n• Secrétaire médical expérimenté ou formation commerciale de base avec formation équivalente\n• Expérience dans la rédaction de rapports à partir des prescriptions et l'application sûre de la terminologie médicale\n• Allemand styliste, connaissance en anglais et en français est avantageux\n• Travailleurs indépendants et méthodes de travail efficaces\n• Bonnes compétences organisationnelles et bonne connaissance des utilisateurs de PC\n• Travail d'équipe, flexibilité, résilience et forte mentalité de service\n\nAvantages:\nModèles de travail flexibles: modèle de temps de travail flexible, heures de travail annuelles, bureau à domicile\n\nDomaine : Vieillissement Médecine et réadaptation\n\nNiveau d'emploi: 60%\n\nKSBL Kantonsspital Baselland — Orten Bruderholz, Liestal, Laufen. ~4'500 employés dans 3 sites de la région de Bâle."
       },
-      "needsRetranslation": true,
       "location": "Liestal",
       "canton": "BL",
       "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/arztsekretaerin-arztsekretaer-zar-a/5d1f5dc8-b7ae-409b-aff3-6f2ab348bef7",
@@ -6233,7 +6232,6 @@
       "firstSeenAt": "2026-07-30T22:27:18.613Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -6243,7 +6241,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "ksbl-bdbdc71bb615",

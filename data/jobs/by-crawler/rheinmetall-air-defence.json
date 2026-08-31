@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rheinmetall-air-defence",
-  "assembledAt": "2026-08-31T17:32:55.376Z",
+  "assembledAt": "2026-08-31T16:13:40.145Z",
   "jobs": [
     {
       "id": "rheinmetall-air-defence-308c37c7d3c2",
@@ -1521,7 +1521,10 @@
         "assemblee-de-planification-des-processus-m-f-d-rheinmetall-air-defence-ag-zurich",
         "assemblee-des-chefs-d-equipe-m-f-d-rheinmetall-air-defence-ag-zurich",
         "preassemblage-de-l-assemblage-m-f-d-rheinmetall-air-defence-ag-zurich",
-        "saldi-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "saldi-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "importazione-esportazione-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "sachbearbeiter-import-export-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "import-exportation-m-f-d-rheinmetall-air-defence-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1544,7 +1547,8 @@
           "pianificatore-di-produzione-project-business-m-f-d-rheinmetall-air-defence-ag-zurich",
           "production-planner-project-business-m-f-d-rheinmetall-air-defence-ag-zurich",
           "planificateur-de-production-activite-du-projet-m-f-d-rheinmetall-air-defence-ag-zurich",
-          "saldi-m-w-d-rheinmetall-air-defence-ag-zurich"
+          "saldi-m-w-d-rheinmetall-air-defence-ag-zurich",
+          "importazione-esportazione-m-f-d-rheinmetall-air-defence-ag-zurich"
         ],
         "en": [
           "schweisser-m-w-d-rheinmetall-air-defence-ag-zurich",
@@ -1560,7 +1564,8 @@
           "leiter-operations-excellence-m-w-d-rheinmetall-air-defence-ag-zurich",
           "teamleiter-arbeitsvorbereitung-m-w-d-rheinmetall-air-defence-ag-zurich",
           "teamleiter-montage-m-w-d-rheinmetall-air-defence-ag-zurich",
-          "baugruppenmonteur-vormontage-m-w-d-rheinmetall-air-defence-ag-zurich"
+          "baugruppenmonteur-vormontage-m-w-d-rheinmetall-air-defence-ag-zurich",
+          "sachbearbeiter-import-export-m-w-d-rheinmetall-air-defence-ag-zurich"
         ],
         "fr": [
           "schweisser-m-w-d-rheinmetall-air-defence-ag-zurich",
@@ -1568,13 +1573,13 @@
           "chef-de-la-production-m-f-d-rheinmetall-air-defence-ag-zurich",
           "assemblee-de-planification-des-processus-m-f-d-rheinmetall-air-defence-ag-zurich",
           "assemblee-des-chefs-d-equipe-m-f-d-rheinmetall-air-defence-ag-zurich",
-          "preassemblage-de-l-assemblage-m-f-d-rheinmetall-air-defence-ag-zurich"
+          "preassemblage-de-l-assemblage-m-f-d-rheinmetall-air-defence-ag-zurich",
+          "import-exportation-m-f-d-rheinmetall-air-defence-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:45:55.964Z",
       "salaryMin": 76000,
       "salaryMax": 102500,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1584,7 +1589,8 @@
           "maxValue": 102500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "rheinmetall-air-defence-c8e7e266cac3",
@@ -2306,25 +2312,37 @@
       "previousSlugs": [
         "praktikant-engineering-m-w-d-rheinmetall-air-defence-ag-zurich",
         "ingenieur-stagiaire-m-f-d-rheinmetall-air-defence-ag-zurich",
-        "ingegneria-interna-m-f-d-rheinmetall-air-defence-ag-zurich"
+        "ingegneria-interna-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "gestione-del-team-logistica-interna-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "team-management-internal-logistics-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "teamleitung-interne-logistik-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "logistique-interne-de-la-gestion-de-l-equipe-m-f-d-rheinmetall-air-defence-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikant-engineering-m-w-d-rheinmetall-air-defence-ag-zurich",
           "ingenieur-stagiaire-m-f-d-rheinmetall-air-defence-ag-zurich",
-          "ingegneria-interna-m-f-d-rheinmetall-air-defence-ag-zurich"
+          "ingegneria-interna-m-f-d-rheinmetall-air-defence-ag-zurich",
+          "gestione-del-team-logistica-interna-m-f-d-rheinmetall-air-defence-ag-zurich",
+          "team-management-internal-logistics-m-f-d-rheinmetall-air-defence-ag-zurich",
+          "teamleitung-interne-logistik-m-w-d-rheinmetall-air-defence-ag-zurich",
+          "logistique-interne-de-la-gestion-de-l-equipe-m-f-d-rheinmetall-air-defence-ag-zurich"
         ],
         "en": [
-          "praktikant-engineering-m-w-d-rheinmetall-air-defence-ag-zurich"
+          "praktikant-engineering-m-w-d-rheinmetall-air-defence-ag-zurich",
+          "team-management-internal-logistics-m-f-d-rheinmetall-air-defence-ag-zurich"
         ],
         "fr": [
-          "praktikant-engineering-m-w-d-rheinmetall-air-defence-ag-zurich"
+          "praktikant-engineering-m-w-d-rheinmetall-air-defence-ag-zurich",
+          "logistique-interne-de-la-gestion-de-l-equipe-m-f-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "de": [
+          "teamleitung-interne-logistik-m-w-d-rheinmetall-air-defence-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-08-22T09:54:04.715Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2334,7 +2352,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "rheinmetall-air-defence-17084e01e6d8",
@@ -3475,30 +3494,34 @@
         "operazioni-di-project-manager-m-f-d-rheinmetall-air-defence-ag-zurich",
         "project-manager-operations-m-f-d-rheinmetall-air-defence-ag-zurich",
         "projektleiter-operations-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "gestionnaire-des-operations-m-f-d-rheinmetall-air-defence-ag-zurich"
+        "gestionnaire-des-operations-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "senior-project-manager-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "gestionnaire-principal-de-projet-m-f-d-rheinmetall-air-defence-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "operazioni-di-project-manager-m-f-d-rheinmetall-air-defence-ag-zurich",
           "project-manager-operations-m-f-d-rheinmetall-air-defence-ag-zurich",
           "projektleiter-operations-m-w-d-rheinmetall-air-defence-ag-zurich",
-          "gestionnaire-des-operations-m-f-d-rheinmetall-air-defence-ag-zurich"
+          "gestionnaire-des-operations-m-f-d-rheinmetall-air-defence-ag-zurich",
+          "senior-project-manager-m-w-d-rheinmetall-air-defence-ag-zurich",
+          "gestionnaire-principal-de-projet-m-f-d-rheinmetall-air-defence-ag-zurich"
         ],
         "en": [
           "project-manager-operations-m-f-d-rheinmetall-air-defence-ag-zurich"
         ],
         "de": [
-          "projektleiter-operations-m-w-d-rheinmetall-air-defence-ag-zurich"
+          "projektleiter-operations-m-w-d-rheinmetall-air-defence-ag-zurich",
+          "senior-project-manager-m-w-d-rheinmetall-air-defence-ag-zurich"
         ],
         "fr": [
-          "gestionnaire-des-operations-m-f-d-rheinmetall-air-defence-ag-zurich"
+          "gestionnaire-des-operations-m-f-d-rheinmetall-air-defence-ag-zurich",
+          "gestionnaire-principal-de-projet-m-f-d-rheinmetall-air-defence-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:06.717Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3508,7 +3531,9 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "salarySource": "estimated"
     },
     {
       "id": "rheinmetall-air-defence-88250db0f3a9",

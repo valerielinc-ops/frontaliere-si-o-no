@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sro",
-  "assembledAt": "2026-08-31T17:06:59.201Z",
+  "assembledAt": "2026-08-31T16:25:35.477Z",
   "jobs": [
     {
       "id": "sro-6abd7add22f4",
@@ -462,7 +462,11 @@
         "oberarztin-oberarzt-stationare-psychiatrie-80-100-sro-langenthal",
         "senior-physician-inpatient-psychiatry-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "medico-capo-medica-capo-psichiatria-stazionaria-80-100-sro-ag-spital-region-oberaargau-langenthal",
-        "medico-senior-adulto-psichiatria-80-100-sro-ag-spital-region-oberaargau-langenthal"
+        "medico-senior-adulto-psichiatria-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "assistente-medico-psichiatria-per-adulti-ambulatorium-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "assistant-physician-adult-psychiatry-ambulatorium-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-ambulatorium-80-100-sro-langenthal",
+        "medecin-adjoint-psychiatrie-adulte-ambulatoire-80-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -471,24 +475,30 @@
           "oberarztin-oberarzt-stationare-psychiatrie-80-100-sro-langenthal",
           "senior-physician-inpatient-psychiatry-80-100-sro-ag-spital-region-oberaargau-langenthal",
           "medico-capo-medica-capo-psichiatria-stazionaria-80-100-sro-ag-spital-region-oberaargau-langenthal",
-          "medico-senior-adulto-psichiatria-80-100-sro-ag-spital-region-oberaargau-langenthal"
+          "medico-senior-adulto-psichiatria-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "assistente-medico-psichiatria-per-adulti-ambulatorium-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "assistant-physician-adult-psychiatry-ambulatorium-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-ambulatorium-80-100-sro-langenthal",
+          "medecin-adjoint-psychiatrie-adulte-ambulatoire-80-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "oberarztin-oberarzt-erwachsenenpsychiatrie-80-100-sro-langenthal",
-          "senior-physician-inpatient-psychiatry-80-100-sro-ag-spital-region-oberaargau-langenthal"
+          "senior-physician-inpatient-psychiatry-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "assistant-physician-adult-psychiatry-ambulatorium-80-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "de": [
-          "oberarztin-oberarzt-stationare-psychiatrie-80-100-sro-langenthal"
+          "oberarztin-oberarzt-stationare-psychiatrie-80-100-sro-langenthal",
+          "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-ambulatorium-80-100-sro-langenthal"
         ],
         "fr": [
           "oberarztin-oberarzt-erwachsenenpsychiatrie-80-100-sro-langenthal",
-          "medecin-chef-medecin-cheffe-psychiatrie-hospitaliere-80-100-sro-ag-spital-region-oberaargau-langenthal"
+          "medecin-chef-medecin-cheffe-psychiatrie-hospitaliere-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "medecin-adjoint-psychiatrie-adulte-ambulatoire-80-100-sro-ag-spital-region-oberaargau-langenthal"
         ]
       },
       "firstSeenAt": "2026-08-21T09:47:47.688Z",
       "salaryMin": 115000,
       "salaryMax": 160000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -498,7 +508,8 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "sro-8160b05f9061",
@@ -526,7 +537,6 @@
         "de": "Das Zentrum für Essstörungen und Adipositas (ZESA) ist eine spezialisierte Sprechstunde im SRO Langenthal, die sich auf die Behandlung von Adipositas sowie Essstörungen und damit verbundenen psychischen Erkrankungen konzentriert. Wir bieten eine interdisziplinäre Behandlung, die auf den neuesten wissenschaftlichen Erkenntnissen basiert. Unser Team sorgt für eine individuelle und ganzheitliche Betreuung unserer Patientinnen und Patienten, mit dem Ziel, ein gesundes Verhältnis zu Essen und Körper zu fördern. Wir suchen zur Ergänzung unseres Teams per 1. Januar 2027 oder nach Vereinbarung eine/n Das bewirken Sie bei uns\n• Leitung und Durchführung von diagnostischen und therapeutischen Prozessen, Verantwortung für die medizinische Betreuung und Beratung\n• Enge Zusammenarbeit mit unserem Team von PsychologInnen, ErnährungsberaterInnen, ÄrztInnen und Administration\n• Mitwirkung an der Weiterentwicklung des Zentrums inklusive Vernetzung mit internen und externen Partners\n• Teilnahme an Supervision- und Intervisionstätigkeiten und fachlicher Weiterbildung\n• Sicherstellung einer hohen Behandlungsqualität und fortlaufender Evaluation der therapeutischen Ansätze Das bringen Sie mit\n• Abgeschlossene Facharztausbildung in Psychiatrie oder Innere Medizin oder kurz davor, das ambulante A Jahr muss bereits absolviert worden sein\n• Besonderes Interesse an Psychosomatik, Konsiliarpsychiatrie und Essstörungen\n• Führungserfahrung, Mitgliedschaft SAPPM von Vorteil\n• Empathie, Teamgeist und exzellente Kommunikationsfähigkeiten\n• Interesse an fachlicher Weiterentwicklung und Teilnahme an regelmäßigen Supervisionen\n• Fortgeschrittene schriftliche und mündliche Deutschkentnisse, C1 Sprachnachweis Bei uns arbeiten\n• Eine abwechslungsreiche ambulante Tätigkeit mit geregelten Arbeitszeiten\n• Ein engagiertes, interdisziplinäres und sehr kollegiales Team\n• Unterstützung zur fachlichen und persönlichen Weiterentwicklung\n• Einen modernen Arbeitsplatz in einer innovativen und gut vernetzten Einrichtung\n• Zeitgemässe Anstellungsbedingungen nach GAV SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nAufgaben:\n• Leitung und Durchführung von diagnostischen und therapeutischen Prozessen, Verantwortung für die medizinische Betreuung und Beratung\n• Enge Zusammenarbeit mit unserem Team von PsychologInnen, ErnährungsberaterInnen, ÄrztInnen und Administration\n• Mitwirkung an der Weiterentwicklung des Zentrums inklusive Vernetzung mit internen und externen Partners\n• Teilnahme an Supervision- und Intervisionstätigkeiten und fachlicher Weiterbildung\n• Sicherstellung einer hohen Behandlungsqualität und fortlaufender Evaluation der therapeutischen Ansätze\n\nAnforderungen:\n• Abgeschlossene Facharztausbildung in Psychiatrie oder Innere Medizin oder kurz davor, das ambulante A Jahr muss bereits absolviert worden sein\n• Besonderes Interesse an Psychosomatik, Konsiliarpsychiatrie und Essstörungen\n• Führungserfahrung, Mitgliedschaft SAPPM von Vorteil\n• Empathie, Teamgeist und exzellente Kommunikationsfähigkeiten\n• Interesse an fachlicher Weiterentwicklung und Teilnahme an regelmäßigen Supervisionen\n• Fortgeschrittene schriftliche und mündliche Deutschkentnisse, C1 Sprachnachweis",
         "fr": "Le Centre pour les troubles de l'alimentation et l'obésité (ZESA) est une séance de consultation spécialisée au SRO Langenthal axée sur le traitement de l'obésité ainsi que des troubles de l'alimentation et des maladies mentales connexes. Nous offrons un traitement interdisciplinaire basé sur les dernières connaissances scientifiques. Notre équipe fournit des soins individuels et holistiques à nos patients dans le but de promouvoir une relation saine avec la nourriture et le corps. Nous recherchons un supplément à notre équipe le 1er janvier 2027 ou par accord Ils le font avec nous.\n• Gestion et mise en œuvre des processus diagnostiques et thérapeutiques, responsabilité des soins et conseils médicaux\n• Coopération étroite avec notre équipe de psychologues, nutritionnistes, médecins et administration\n• Participation à la poursuite du développement du centre, y compris la mise en réseau avec des partenaires internes et externes\n• Participation aux activités de supervision et d ' intervision et à la formation professionnelle\n• Assurer une qualité de traitement élevée et une évaluation continue des approches thérapeutiques\n• Formation spécialisée en psychiatrie ou en médecine interne terminée ou peu de temps avant, le patient externe Une année doit avoir déjà été terminée\n• Intérêt particulier pour les troubles psychosomatiques, psychiatriques et alimentaires\n• Expérience de leadership, l'adhésion à SAPPM est bénéfique\n• Empathie, esprit d'équipe et excellentes compétences en communication\n• Intérêt pour le perfectionnement professionnel et la participation à la supervision régulière\n• Connaissance écrite et orale avancée de l'allemand, preuve de la langue C1\n• Une activité ambulatoire variée avec des horaires de travail réglementés\n• Une équipe dédiée, interdisciplinaire et très collaborative\n• Soutien au développement professionnel et personnel\n• Un lieu de travail moderne dans une institution innovante et bien connectée\n• Conditions d'emploi contemporaines selon GAV SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nTâches :\n• Gestion et mise en œuvre des processus diagnostiques et thérapeutiques, responsabilité des soins et conseils médicaux\n• Coopération étroite avec notre équipe de psychologues, nutritionnistes, médecins et administration\n• Participation à la poursuite du développement du centre, y compris la mise en réseau avec des partenaires internes et externes\n• Participation aux activités de supervision et d ' intervision et à la formation professionnelle\n• Assurer une qualité de traitement élevée et une évaluation continue des approches thérapeutiques\n\nExigences\n• Formation spécialisée en psychiatrie ou en médecine interne terminée ou peu de temps avant, le patient externe Une année doit avoir déjà été terminée\n• Intérêt particulier pour les troubles psychosomatiques, psychiatriques et alimentaires\n• Expérience de leadership, l'adhésion à SAPPM est bénéfique\n• Empathie, esprit d'équipe et excellentes compétences en communication\n• Intérêt pour le perfectionnement professionnel et la participation à la supervision régulière\n• Connaissance écrite et orale avancée de l'allemand, preuve de la langue C1"
       },
-      "needsRetranslation": true,
       "location": "Langenthal",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/jobs/98553343-8920-4daa-afd4-4fa56cf425a1",
@@ -571,7 +581,8 @@
         "senior-physician-adult-psychiatry-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "medecin-principal-psychiatrie-des-adultes-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "oberarztin-oberarzt-erwachsenenpsychiatrie-80-100-sro-psychiatrische-dienste-marktgasse-18",
-        "medico-senior-zesa-60-sro-ag-spital-region-oberaargau-langenthal"
+        "medico-senior-zesa-60-sro-ag-spital-region-oberaargau-langenthal",
+        "senior-physician-orthopaedia-80-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -591,7 +602,8 @@
           "senior-physician-adult-psychiatry-80-100-sro-ag-spital-region-oberaargau-langenthal",
           "medecin-principal-psychiatrie-des-adultes-80-100-sro-ag-spital-region-oberaargau-langenthal",
           "oberarztin-oberarzt-erwachsenenpsychiatrie-80-100-sro-psychiatrische-dienste-marktgasse-18",
-          "medico-senior-zesa-60-sro-ag-spital-region-oberaargau-langenthal"
+          "medico-senior-zesa-60-sro-ag-spital-region-oberaargau-langenthal",
+          "senior-physician-orthopaedia-80-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "senior-physician-zesa-60-sro-ag-spital-region-oberaargau-langenthal-27f03a",
@@ -610,7 +622,6 @@
       "firstSeenAt": "2026-08-07T01:07:31.553Z",
       "salaryMin": 69000,
       "salaryMax": 96000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -620,7 +631,9 @@
           "maxValue": 96000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "salarySource": "estimated"
     },
     {
       "id": "sro-375e0209622e",
@@ -1944,21 +1957,35 @@
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "dipl-physiotherapeut-in-ambulatorium-40-100-sro-langenthal",
-        "dipl-fisioterapista-ambulatorium-40-100-sro-ag-spital-region-oberaargau-langenthal"
+        "dipl-fisioterapista-ambulatorium-40-100-sro-ag-spital-region-oberaargau-langenthal",
+        "psicologo-psicologo-ambulatorium-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "psychologist-psychologist-ambulatorium-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "psychologin-psychologen-ambulatorium-80-100-sro-langenthal",
+        "psychologue-psychologue-ambulatoire-80-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-physiotherapeut-in-ambulatorium-40-100-sro-langenthal",
-          "dipl-fisioterapista-ambulatorium-40-100-sro-ag-spital-region-oberaargau-langenthal"
+          "dipl-fisioterapista-ambulatorium-40-100-sro-ag-spital-region-oberaargau-langenthal",
+          "psicologo-psicologo-ambulatorium-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "psychologist-psychologist-ambulatorium-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "psychologin-psychologen-ambulatorium-80-100-sro-langenthal",
+          "psychologue-psychologue-ambulatoire-80-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
-          "dipl-physiotherapeut-in-ambulatorium-40-100-sro-langenthal"
+          "dipl-physiotherapeut-in-ambulatorium-40-100-sro-langenthal",
+          "psychologist-psychologist-ambulatorium-80-100-sro-ag-spital-region-oberaargau-langenthal"
+        ],
+        "de": [
+          "psychologin-psychologen-ambulatorium-80-100-sro-langenthal"
+        ],
+        "fr": [
+          "psychologue-psychologue-ambulatoire-80-100-sro-ag-spital-region-oberaargau-langenthal"
         ]
       },
       "firstSeenAt": "2026-08-21T09:47:33.604Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1968,7 +1995,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "sro-ad0a183a64c8",

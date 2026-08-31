@@ -1,6 +1,6 @@
 {
   "crawlerKey": "volg-fenaco",
-  "assembledAt": "2026-08-31T17:18:47.362Z",
+  "assembledAt": "2026-08-31T16:39:28.504Z",
   "jobs": [
     {
       "title": "Facharbeiterin / Facharbeiter Produktion w/m/d",
@@ -7227,15 +7227,24 @@
           "sachbearbeitung-transportdisposition-w-m-d-traveco-transporte-ag-nebikon-sejttj",
           "sachbearbeitung-transportdisposition-w-m-d-traveco-transporte-ag-nebikon-qnzut5",
           "disposizione-di-trasporto-m-f-d-traveco-transporte-ag-nebikon-7d947f",
-          "sachbearbeitung-transportdisposition-w-m-d-traveco-transporte-ag-nebikon"
+          "sachbearbeitung-transportdisposition-w-m-d-traveco-transporte-ag-nebikon",
+          "sachbearbeitung-transport-e-logistikadministration-m-w-d-traveco-transporte-ag-nebikon",
+          "transport-and-logistics-administration-m-f-d-traveco-transporte-ag-nebikon",
+          "sachbearbeitung-transport-und-logistikadministration-w-m-d-traveco-transporte-ag-nebikon",
+          "administration-des-transports-et-de-la-logistique-h-f-d-traveco-transporte-ag-nebikon"
         ],
         "en": [
           "transport-disposition-m-f-d-traveco-transporte-ag-nebikon-7d947f",
-          "sachbearbeitung-transportdisposition-w-m-d-traveco-transporte-ag-nebikon"
+          "sachbearbeitung-transportdisposition-w-m-d-traveco-transporte-ag-nebikon",
+          "transport-and-logistics-administration-m-f-d-traveco-transporte-ag-nebikon"
         ],
         "fr": [
           "transport-disposition-h-f-d-traveco-transporte-ag-nebikon",
-          "sachbearbeitung-transportdisposition-w-m-d-traveco-transporte-ag-nebikon"
+          "sachbearbeitung-transportdisposition-w-m-d-traveco-transporte-ag-nebikon",
+          "administration-des-transports-et-de-la-logistique-h-f-d-traveco-transporte-ag-nebikon"
+        ],
+        "de": [
+          "sachbearbeitung-transport-und-logistikadministration-w-m-d-traveco-transporte-ag-nebikon"
         ]
       },
       "previousSlugs": [
@@ -7249,7 +7258,11 @@
         "sachbearbeitung-transportdisposition-w-m-d-traveco-transporte-ag-nebikon-qnzut5",
         "disposizione-di-trasporto-m-f-d-traveco-transporte-ag-nebikon-7d947f",
         "transport-disposition-m-f-d-traveco-transporte-ag-nebikon-7d947f",
-        "sachbearbeitung-transportdisposition-w-m-d-traveco-transporte-ag-nebikon"
+        "sachbearbeitung-transportdisposition-w-m-d-traveco-transporte-ag-nebikon",
+        "sachbearbeitung-transport-e-logistikadministration-m-w-d-traveco-transporte-ag-nebikon",
+        "transport-and-logistics-administration-m-f-d-traveco-transporte-ag-nebikon",
+        "sachbearbeitung-transport-und-logistikadministration-w-m-d-traveco-transporte-ag-nebikon",
+        "administration-des-transports-et-de-la-logistique-h-f-d-traveco-transporte-ag-nebikon"
       ],
       "salarySource": "estimated"
     },
@@ -9423,17 +9436,30 @@
       "firstSeenAt": "2026-08-19T10:24:33.248Z",
       "previousSlugsByLocale": {
         "it": [
-          "aussendienstmitarbeiter-saatgut-80-100-m-w-d-ufa-samen-winterthur"
+          "aussendienstmitarbeiter-saatgut-80-100-m-w-d-ufa-samen-winterthur",
+          "dipendente-del-servizio-sul-campo-seed-m-f-d-ufa-samen-winterthur",
+          "field-service-employee-seed-m-f-d-ufa-samen-winterthur",
+          "aussendienstmitarbeiterin-saatgut-m-w-d-ufa-samen-winterthur",
+          "employes-du-service-mobile-ufa-samen-winterthur"
         ],
         "en": [
-          "aussendienstmitarbeiter-saatgut-80-100-m-w-d-ufa-samen-winterthur"
+          "aussendienstmitarbeiter-saatgut-80-100-m-w-d-ufa-samen-winterthur",
+          "field-service-employee-seed-m-f-d-ufa-samen-winterthur"
         ],
         "fr": [
-          "aussendienstmitarbeiter-saatgut-80-100-m-w-d-ufa-samen-winterthur"
+          "aussendienstmitarbeiter-saatgut-80-100-m-w-d-ufa-samen-winterthur",
+          "employes-du-service-mobile-ufa-samen-winterthur"
+        ],
+        "de": [
+          "aussendienstmitarbeiterin-saatgut-m-w-d-ufa-samen-winterthur"
         ]
       },
       "previousSlugs": [
-        "aussendienstmitarbeiter-saatgut-80-100-m-w-d-ufa-samen-winterthur"
+        "aussendienstmitarbeiter-saatgut-80-100-m-w-d-ufa-samen-winterthur",
+        "dipendente-del-servizio-sul-campo-seed-m-f-d-ufa-samen-winterthur",
+        "field-service-employee-seed-m-f-d-ufa-samen-winterthur",
+        "aussendienstmitarbeiterin-saatgut-m-w-d-ufa-samen-winterthur",
+        "employes-du-service-mobile-ufa-samen-winterthur"
       ],
       "salarySource": "reported"
     },
@@ -10414,17 +10440,30 @@
       "firstSeenAt": "2026-08-17T21:32:35.307Z",
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-stuckgut-kategorie-c-w-m-d-landi-hendschiken"
+          "chauffeur-stuckgut-kategorie-c-w-m-d-landi-hendschiken",
+          "chauffeurin-chauffeur-kategorie-c-per-stuckgut-m-w-d-landi-unterwalden-ag-alpnach",
+          "chauffeur-chauffeur-category-c-for-general-cargo-m-f-d-landi-unterwalden-ag-alpnach",
+          "chauffeurin-chauffeur-kategorie-c-fur-stuckgut-w-m-d-landi-unterwalden-ag-alpnach",
+          "chauffeur-chauffeur-categorie-c-pour-fret-general-h-f-d-landi-unterwalden-ag-alpnach"
         ],
         "en": [
-          "chauffeur-stuckgut-kategorie-c-w-m-d-landi-hendschiken"
+          "chauffeur-stuckgut-kategorie-c-w-m-d-landi-hendschiken",
+          "chauffeur-chauffeur-category-c-for-general-cargo-m-f-d-landi-unterwalden-ag-alpnach"
         ],
         "fr": [
-          "chauffeur-stuckgut-kategorie-c-w-m-d-landi-hendschiken"
+          "chauffeur-stuckgut-kategorie-c-w-m-d-landi-hendschiken",
+          "chauffeur-chauffeur-categorie-c-pour-fret-general-h-f-d-landi-unterwalden-ag-alpnach"
+        ],
+        "de": [
+          "chauffeurin-chauffeur-kategorie-c-fur-stuckgut-w-m-d-landi-unterwalden-ag-alpnach"
         ]
       },
       "previousSlugs": [
-        "chauffeur-stuckgut-kategorie-c-w-m-d-landi-hendschiken"
+        "chauffeur-stuckgut-kategorie-c-w-m-d-landi-hendschiken",
+        "chauffeurin-chauffeur-kategorie-c-per-stuckgut-m-w-d-landi-unterwalden-ag-alpnach",
+        "chauffeur-chauffeur-category-c-for-general-cargo-m-f-d-landi-unterwalden-ag-alpnach",
+        "chauffeurin-chauffeur-kategorie-c-fur-stuckgut-w-m-d-landi-unterwalden-ag-alpnach",
+        "chauffeur-chauffeur-categorie-c-pour-fret-general-h-f-d-landi-unterwalden-ag-alpnach"
       ],
       "salarySource": "reported"
     },
@@ -14997,7 +15036,30 @@
         }
       },
       "firstSeenAt": "2026-08-13T21:53:20.873Z",
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "previousSlugsByLocale": {
+        "it": [
+          "driver-cat-c-ce-driver-del-veicolo-pesante-palette-traveco-transporte-ag-puidoux",
+          "driver-cat-c-ce-heavy-vehicle-driver-palettes-traveco-transporte-ag-puidoux",
+          "fahrer-katze-c-ce-fahrer-schwerer-nutzfahrzeuge-palletten-traveco-transporte-ag-puidoux",
+          "conductrice-conducteur-de-vehicules-lourds-cat-c-ce-palettes-traveco-transporte-ag-puidoux"
+        ],
+        "en": [
+          "driver-cat-c-ce-heavy-vehicle-driver-palettes-traveco-transporte-ag-puidoux"
+        ],
+        "de": [
+          "fahrer-katze-c-ce-fahrer-schwerer-nutzfahrzeuge-palletten-traveco-transporte-ag-puidoux"
+        ],
+        "fr": [
+          "conductrice-conducteur-de-vehicules-lourds-cat-c-ce-palettes-traveco-transporte-ag-puidoux"
+        ]
+      },
+      "previousSlugs": [
+        "driver-cat-c-ce-driver-del-veicolo-pesante-palette-traveco-transporte-ag-puidoux",
+        "driver-cat-c-ce-heavy-vehicle-driver-palettes-traveco-transporte-ag-puidoux",
+        "fahrer-katze-c-ce-fahrer-schwerer-nutzfahrzeuge-palletten-traveco-transporte-ag-puidoux",
+        "conductrice-conducteur-de-vehicules-lourds-cat-c-ce-palettes-traveco-transporte-ag-puidoux"
+      ]
     },
     {
       "title": "Lebensmittelprofi mit Eidg. Meisterdiplom oder Lebensmittelingenieur/in FH w/m/d",
@@ -18368,17 +18430,43 @@
       "firstSeenAt": "2026-08-10T10:28:16.808Z",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-detailhandelsfachfrau-detailhandelsfachmann-efz-w-m-d-landi-bippgauthal-ag-oensingen"
+          "lehrstelle-als-detailhandelsfachfrau-detailhandelsfachmann-efz-w-m-d-landi-bippgauthal-ag-oensingen",
+          "apprendistato-come-detailhandelsfachfrau-detailhandelsfachmann-cfc-2027-m-w-d-br-landi-winznau-landi-aarau-west-ag-winznau",
+          "apprenticeship-as-a-retail-specialist-retail-specialist-efz-2027-f-m-d-br-landi-winznau-landi-aarau-west-ag-winznau",
+          "lehrstelle-als-detailhandelsfachfrau-detailhandelsfachmann-efz-2027-w-m-d-br-landi-winznau-landi-aarau-west-ag-winznau",
+          "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-specialiste-du-commerce-de-detail-efz-2027-f-m-d-br-landi",
+          "apprendistato-come-detailhandelsfachfrau-detailhandelsfachmann-cfc-buchs-2027-m-w-d-landi-aarau-west-ag-buchs",
+          "apprenticeship-as-a-retail-specialist-retail-specialist-efz-buchs-2027-f-m-d-landi-aarau-west-ag-buchs",
+          "lehrstelle-als-detailhandelsfachfrau-detailhandelsfachmann-efz-buchs-2027-w-m-d-landi-aarau-west-ag-buchs",
+          "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-specialiste-du-commerce-de-detail-efz-buchs-2027-f-m-d-landi",
+          "lehrstelle-als-detailhandelsfachfrau-detailhandelsfachmann-efz-2027-w-m-d-br-landi-buchs-landi-aarau-west-ag-buchs"
         ],
         "en": [
-          "lehrstelle-als-detailhandelsfachfrau-detailhandelsfachmann-efz-w-m-d-landi-bippgauthal-ag-oensingen"
+          "lehrstelle-als-detailhandelsfachfrau-detailhandelsfachmann-efz-w-m-d-landi-bippgauthal-ag-oensingen",
+          "apprenticeship-as-a-retail-specialist-retail-specialist-efz-2027-f-m-d-br-landi-winznau-landi-aarau-west-ag-winznau",
+          "apprenticeship-as-a-retail-specialist-retail-specialist-efz-buchs-2027-f-m-d-landi-aarau-west-ag-buchs"
         ],
         "fr": [
-          "lehrstelle-als-detailhandelsfachfrau-detailhandelsfachmann-efz-w-m-d-landi-bippgauthal-ag-oensingen"
+          "lehrstelle-als-detailhandelsfachfrau-detailhandelsfachmann-efz-w-m-d-landi-bippgauthal-ag-oensingen",
+          "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-specialiste-du-commerce-de-detail-efz-2027-f-m-d-br-landi",
+          "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-specialiste-du-commerce-de-detail-efz-buchs-2027-f-m-d-landi"
+        ],
+        "de": [
+          "lehrstelle-als-detailhandelsfachfrau-detailhandelsfachmann-efz-2027-w-m-d-br-landi-winznau-landi-aarau-west-ag-winznau",
+          "lehrstelle-als-detailhandelsfachfrau-detailhandelsfachmann-efz-buchs-2027-w-m-d-landi-aarau-west-ag-buchs"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-detailhandelsfachfrau-detailhandelsfachmann-efz-w-m-d-landi-bippgauthal-ag-oensingen"
+        "lehrstelle-als-detailhandelsfachfrau-detailhandelsfachmann-efz-w-m-d-landi-bippgauthal-ag-oensingen",
+        "apprendistato-come-detailhandelsfachfrau-detailhandelsfachmann-cfc-2027-m-w-d-br-landi-winznau-landi-aarau-west-ag-winznau",
+        "apprenticeship-as-a-retail-specialist-retail-specialist-efz-2027-f-m-d-br-landi-winznau-landi-aarau-west-ag-winznau",
+        "lehrstelle-als-detailhandelsfachfrau-detailhandelsfachmann-efz-2027-w-m-d-br-landi-winznau-landi-aarau-west-ag-winznau",
+        "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-specialiste-du-commerce-de-detail-efz-2027-f-m-d-br-landi",
+        "apprendistato-come-detailhandelsfachfrau-detailhandelsfachmann-cfc-buchs-2027-m-w-d-landi-aarau-west-ag-buchs",
+        "apprenticeship-as-a-retail-specialist-retail-specialist-efz-buchs-2027-f-m-d-landi-aarau-west-ag-buchs",
+        "lehrstelle-als-detailhandelsfachfrau-detailhandelsfachmann-efz-buchs-2027-w-m-d-landi-aarau-west-ag-buchs",
+        "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-specialiste-du-commerce-de-detail-efz-buchs-2027-f-m-d-landi",
+        "lehrstelle-als-detailhandelsfachfrau-detailhandelsfachmann-efz-2027-w-m-d-br-landi-buchs-landi-aarau-west-ag-buchs"
       ],
       "salarySource": "reported"
     },
@@ -37480,17 +37568,25 @@
       "firstSeenAt": "2026-06-10T23:47:14.710Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-verkaufer-volg-illnau-zh-w-m-d-volg-illnau-effretikon"
+          "verkauferin-verkaufer-volg-illnau-zh-w-m-d-volg-illnau-effretikon",
+          "venditore-venditore-volg-illnau-zh-w-m-d-volg-illnau-effretikon",
+          "seller-seller-volg-illnau-zh-w-m-d-volg-illnau-effretikon",
+          "vendeur-vendeur-volg-illnau-zh-w-m-d-volg-illnau-effretikon"
         ],
         "fr": [
-          "verkauferin-verkaufer-volg-illnau-zh-w-m-d-volg-illnau-effretikon"
+          "verkauferin-verkaufer-volg-illnau-zh-w-m-d-volg-illnau-effretikon",
+          "vendeur-vendeur-volg-illnau-zh-w-m-d-volg-illnau-effretikon"
         ],
         "en": [
-          "verkauferin-verkaufer-volg-illnau-zh-w-m-d-volg-illnau-effretikon"
+          "verkauferin-verkaufer-volg-illnau-zh-w-m-d-volg-illnau-effretikon",
+          "seller-seller-volg-illnau-zh-w-m-d-volg-illnau-effretikon"
         ]
       },
       "previousSlugs": [
-        "verkauferin-verkaufer-volg-illnau-zh-w-m-d-volg-illnau-effretikon"
+        "verkauferin-verkaufer-volg-illnau-zh-w-m-d-volg-illnau-effretikon",
+        "venditore-venditore-volg-illnau-zh-w-m-d-volg-illnau-effretikon",
+        "seller-seller-volg-illnau-zh-w-m-d-volg-illnau-effretikon",
+        "vendeur-vendeur-volg-illnau-zh-w-m-d-volg-illnau-effretikon"
       ],
       "salarySource": "reported"
     },

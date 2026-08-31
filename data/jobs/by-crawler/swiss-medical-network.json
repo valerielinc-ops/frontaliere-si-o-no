@@ -2383,12 +2383,10 @@
           "analista-di-business-it-sanita-swiss-medical-network-echandens"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-22T22:09:02.216Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "currency": "CHF",
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2398,7 +2396,11 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 3,
+      "salarySource": "estimated",
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3861
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139058930-gynakologe-in-und-geburtshelfer-in",

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kulm-hotel",
-  "assembledAt": "2026-08-31T17:11:39.286Z",
+  "assembledAt": "2026-08-31T15:58:43.397Z",
   "jobs": [
     {
       "id": "kulm-hotel-6d5358fd2a15",
@@ -56,25 +56,34 @@
       "previousSlugs": [
         "technician-m-w-d-kulm-hotel-st-moritz",
         "zimmerdame-kulm-hotel-st-moritz-pontresina",
-        "tecnico-m-w-d-kulm-hotel-st-moritz-pontresina"
+        "tecnico-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "florist-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "fiorista-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "florist-m-w-d-kulm-hotel-st-moritz",
+        "fleuriste-m-w-d-kulm-hotel-st-moritz-pontresina"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technician-m-w-d-kulm-hotel-st-moritz",
           "zimmerdame-kulm-hotel-st-moritz-pontresina",
-          "tecnico-m-w-d-kulm-hotel-st-moritz-pontresina"
+          "tecnico-m-w-d-kulm-hotel-st-moritz-pontresina",
+          "florist-m-w-d-kulm-hotel-st-moritz-pontresina",
+          "fiorista-m-w-d-kulm-hotel-st-moritz-pontresina",
+          "florist-m-w-d-kulm-hotel-st-moritz",
+          "fleuriste-m-w-d-kulm-hotel-st-moritz-pontresina"
         ],
         "de": [
-          "technician-m-w-d-kulm-hotel-st-moritz"
+          "technician-m-w-d-kulm-hotel-st-moritz",
+          "florist-m-w-d-kulm-hotel-st-moritz"
         ],
         "fr": [
-          "technician-m-w-d-kulm-hotel-st-moritz"
+          "technician-m-w-d-kulm-hotel-st-moritz",
+          "florist-m-w-d-kulm-hotel-st-moritz-pontresina"
         ]
       },
       "firstSeenAt": "2026-07-29T11:39:18.612Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -84,7 +93,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "kulm-hotel-f9c858b2c7e5",

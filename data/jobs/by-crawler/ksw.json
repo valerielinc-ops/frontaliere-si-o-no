@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksw",
-  "assembledAt": "2026-08-31T16:59:19.644Z",
+  "assembledAt": "2026-08-31T15:58:34.769Z",
   "jobs": [
     {
       "id": "ksw-1ff4e15327eb",
@@ -3143,22 +3143,26 @@
       "department": "Klinik für Radio-Onkologie",
       "previousSlugs": [
         "physician-associate-ksw-ch",
-        "medico-associato-kantonsspital-winterthur-ksw-winterthur-85881d"
+        "medico-associato-kantonsspital-winterthur-ksw-winterthur-85881d",
+        "medico-associato-kantonsspital-winterthur-ksw-winterthur",
+        "medecin-associe-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "physician-associate-ksw-ch",
-          "medico-associato-kantonsspital-winterthur-ksw-winterthur-85881d"
+          "medico-associato-kantonsspital-winterthur-ksw-winterthur-85881d",
+          "medico-associato-kantonsspital-winterthur-ksw-winterthur",
+          "medecin-associe-kantonsspital-winterthur-ksw-winterthur"
         ],
         "fr": [
-          "physician-associate-ksw-ch"
+          "physician-associate-ksw-ch",
+          "medecin-associe-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-15T10:57:14.364Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3168,7 +3172,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "ksw-dbfe0616409b",

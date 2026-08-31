@@ -1,6 +1,6 @@
 {
   "crawlerKey": "c-and-a-schweiz",
-  "assembledAt": "2026-08-31T17:29:22.854Z",
+  "assembledAt": "2026-08-31T15:10:30.672Z",
   "jobs": [
     {
       "id": "c-and-a-schweiz-b54051f8450f",
@@ -203,21 +203,41 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "store-leader-assistant-f-m-d-100-fur-frauenfeld-c-and-a-schweiz-ch"
+        "store-leader-assistant-f-m-d-100-fur-frauenfeld-c-and-a-schweiz-ch",
+        "store-leader-assistant-m-w-d-100-per-thun-c-a-schweiz-thun",
+        "store-leader-assistant-f-m-d-100-fur-thun-c-and-a-schweiz-ch",
+        "assistant-chef-de-magasin-f-m-j-100-pour-thun-c-a-schweiz-thun-ch",
+        "store-leader-assistant-m-w-d-100-per-bern-c-a-schweiz-bern",
+        "store-leader-assistant-w-m-d-100-fur-bern-c-and-a-schweiz-ch",
+        "assistant-chef-de-magasin-f-m-d-100-pour-berne-c-a-schweiz-bern-ch",
+        "store-leader-assistant-m-w-d-100-im-letzipark-c-and-a-schweiz-ch",
+        "assistant-chef-de-magasin-m-f-d-100-a-letzipark-c-a-schweiz-zurich-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "store-leader-assistant-f-m-d-100-fur-frauenfeld-c-and-a-schweiz-ch"
+          "store-leader-assistant-f-m-d-100-fur-frauenfeld-c-and-a-schweiz-ch",
+          "store-leader-assistant-m-w-d-100-per-thun-c-a-schweiz-thun",
+          "store-leader-assistant-f-m-d-100-fur-thun-c-and-a-schweiz-ch",
+          "assistant-chef-de-magasin-f-m-j-100-pour-thun-c-a-schweiz-thun-ch",
+          "store-leader-assistant-m-w-d-100-per-bern-c-a-schweiz-bern",
+          "store-leader-assistant-w-m-d-100-fur-bern-c-and-a-schweiz-ch",
+          "assistant-chef-de-magasin-f-m-d-100-pour-berne-c-a-schweiz-bern-ch",
+          "store-leader-assistant-m-w-d-100-im-letzipark-c-and-a-schweiz-ch",
+          "assistant-chef-de-magasin-m-f-d-100-a-letzipark-c-a-schweiz-zurich-ch"
         ],
         "fr": [
-          "store-leader-assistant-f-m-d-100-fur-frauenfeld-c-and-a-schweiz-ch"
+          "store-leader-assistant-f-m-d-100-fur-frauenfeld-c-and-a-schweiz-ch",
+          "assistant-chef-de-magasin-f-m-j-100-pour-thun-c-a-schweiz-thun-ch",
+          "assistant-chef-de-magasin-f-m-d-100-pour-berne-c-a-schweiz-bern-ch"
+        ],
+        "de": [
+          "store-leader-assistant-f-m-d-100-fur-thun-c-and-a-schweiz-ch",
+          "store-leader-assistant-w-m-d-100-fur-bern-c-and-a-schweiz-ch"
         ]
       },
       "firstSeenAt": "2026-07-03T21:31:44.162Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -228,7 +248,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TG"
+      "addressRegion": "TG",
+      "needsRetranslation": true,
+      "salarySource": "estimated"
     },
     {
       "id": "c-and-a-schweiz-af8ca323b18c",
@@ -2471,25 +2493,48 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-im-verkauf-m-w-d-40-in-tivoli-spreitenbach-c-and-a-schweiz-ch",
-        "collaboratore-trice-im-vendita-m-w-d-40-in-tivoli-spreitenbach-c-a-schweiz-spreitenbach"
+        "collaboratore-trice-im-vendita-m-w-d-40-in-tivoli-spreitenbach-c-a-schweiz-spreitenbach",
+        "collaboratore-trice-im-vendita-m-w-d-25-in-tivoli-spreitenbach-c-a-schweiz-spreitenbach",
+        "mitarbeiter-im-sales-w-m-d-25-in-tivoli-spreitenbach-c-a-schweiz-spreitenbach",
+        "mitarbeiter-im-verkauf-w-m-d-25-in-tivoli-spreitenbach-c-and-a-schweiz-ch",
+        "mitarbeiter-im-vente-w-m-d-25-in-tivoli-spreitenbach-c-a-schweiz-spreitenbach",
+        "collaboratore-trice-im-vendita-m-w-d-20-per-tivoli-spreitenbach-c-a-schweiz-spreitenbach",
+        "mitarbeiter-im-sales-m-w-d-20-fur-tivoli-spreitenbach-c-a-schweiz-spreitenbach",
+        "mitarbeiter-im-verkauf-m-w-d-20-fur-tivoli-spreitenbach-c-and-a-schweiz-ch",
+        "mitarbeiter-im-vente-m-w-d-20-fur-tivoli-spreitenbach-c-a-schweiz-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-im-verkauf-m-w-d-40-in-tivoli-spreitenbach-c-and-a-schweiz-ch",
-          "collaboratore-trice-im-vendita-m-w-d-40-in-tivoli-spreitenbach-c-a-schweiz-spreitenbach"
+          "collaboratore-trice-im-vendita-m-w-d-40-in-tivoli-spreitenbach-c-a-schweiz-spreitenbach",
+          "collaboratore-trice-im-vendita-m-w-d-25-in-tivoli-spreitenbach-c-a-schweiz-spreitenbach",
+          "mitarbeiter-im-sales-w-m-d-25-in-tivoli-spreitenbach-c-a-schweiz-spreitenbach",
+          "mitarbeiter-im-verkauf-w-m-d-25-in-tivoli-spreitenbach-c-and-a-schweiz-ch",
+          "mitarbeiter-im-vente-w-m-d-25-in-tivoli-spreitenbach-c-a-schweiz-spreitenbach",
+          "collaboratore-trice-im-vendita-m-w-d-20-per-tivoli-spreitenbach-c-a-schweiz-spreitenbach",
+          "mitarbeiter-im-sales-m-w-d-20-fur-tivoli-spreitenbach-c-a-schweiz-spreitenbach",
+          "mitarbeiter-im-verkauf-m-w-d-20-fur-tivoli-spreitenbach-c-and-a-schweiz-ch",
+          "mitarbeiter-im-vente-m-w-d-20-fur-tivoli-spreitenbach-c-a-schweiz-spreitenbach"
         ],
         "en": [
-          "mitarbeiter-im-verkauf-m-w-d-40-in-tivoli-spreitenbach-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-m-w-d-40-in-tivoli-spreitenbach-c-and-a-schweiz-ch",
+          "mitarbeiter-im-sales-w-m-d-25-in-tivoli-spreitenbach-c-a-schweiz-spreitenbach"
         ],
         "fr": [
-          "mitarbeiter-im-verkauf-m-w-d-40-in-tivoli-spreitenbach-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-m-w-d-40-in-tivoli-spreitenbach-c-and-a-schweiz-ch",
+          "mitarbeiter-im-vente-w-m-d-25-in-tivoli-spreitenbach-c-a-schweiz-spreitenbach"
+        ],
+        "de": [
+          "mitarbeiter-im-verkauf-w-m-d-25-in-tivoli-spreitenbach-c-and-a-schweiz-ch",
+          "mitarbeiter-im-sales-m-w-d-20-fur-tivoli-spreitenbach-c-a-schweiz-spreitenbach",
+          "mitarbeiter-im-verkauf-m-w-d-20-fur-tivoli-spreitenbach-c-and-a-schweiz-ch",
+          "mitarbeiter-im-vente-m-w-d-20-fur-tivoli-spreitenbach-c-a-schweiz-spreitenbach"
         ]
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-21T11:23:53.392Z",
       "salaryMin": 29600,
       "salaryMax": 45400,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2500,7 +2545,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "salarySource": "estimated"
     },
     {
       "id": "c-and-a-schweiz-a46088b4b590",
@@ -2555,7 +2601,11 @@
         "mitarbeiter-im-sales-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-ab-september2026-c-a-schweiz-kriens",
         "mitarbeiter-im-verkauf-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-ab",
         "mitarbeiter-im-vente-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-ab-september2026-c-a-schweiz-kriens",
-        "collaboratore-trice-im-vendita-m-w-d-40-per-pilatusmarkt-befristet-bis-februar-2027-c-a-schweiz-kriens"
+        "collaboratore-trice-im-vendita-m-w-d-40-per-pilatusmarkt-befristet-bis-februar-2027-c-a-schweiz-kriens",
+        "collaboratore-trice-im-vendita-m-w-d-30-per-pilatusmarkt-c-a-schweiz-kriens",
+        "mitarbeiter-im-sales-m-w-d-30-fur-pilatusmarkt-c-a-schweiz-kriens",
+        "mitarbeiter-im-verkauf-m-w-d-30-fur-pilatusmarkt-c-and-a-schweiz-ch",
+        "mitarbeiter-im-vente-m-w-d-30-fur-pilatusmarkt-c-a-schweiz-kriens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2564,25 +2614,31 @@
           "mitarbeiter-im-sales-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-ab-september2026-c-a-schweiz-kriens",
           "mitarbeiter-im-verkauf-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-ab",
           "mitarbeiter-im-vente-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-ab-september2026-c-a-schweiz-kriens",
-          "collaboratore-trice-im-vendita-m-w-d-40-per-pilatusmarkt-befristet-bis-februar-2027-c-a-schweiz-kriens"
+          "collaboratore-trice-im-vendita-m-w-d-40-per-pilatusmarkt-befristet-bis-februar-2027-c-a-schweiz-kriens",
+          "collaboratore-trice-im-vendita-m-w-d-30-per-pilatusmarkt-c-a-schweiz-kriens",
+          "mitarbeiter-im-sales-m-w-d-30-fur-pilatusmarkt-c-a-schweiz-kriens",
+          "mitarbeiter-im-verkauf-m-w-d-30-fur-pilatusmarkt-c-and-a-schweiz-ch",
+          "mitarbeiter-im-vente-m-w-d-30-fur-pilatusmarkt-c-a-schweiz-kriens"
         ],
         "en": [
           "mitarbeiter-im-sales-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-ab-september2026-c-a-schweiz-kriens",
-          "mitarbeiter-im-verkauf-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-c-and-a"
+          "mitarbeiter-im-verkauf-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-c-and-a",
+          "mitarbeiter-im-sales-m-w-d-30-fur-pilatusmarkt-c-a-schweiz-kriens"
         ],
         "de": [
-          "mitarbeiter-im-verkauf-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-ab"
+          "mitarbeiter-im-verkauf-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-ab",
+          "mitarbeiter-im-verkauf-m-w-d-30-fur-pilatusmarkt-c-and-a-schweiz-ch"
         ],
         "fr": [
           "mitarbeiter-im-vente-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-ab-september2026-c-a-schweiz-kriens",
-          "mitarbeiter-im-verkauf-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-c-and-a"
+          "mitarbeiter-im-verkauf-m-w-d-40-fur-pilatusmarkt-befristet-bis-februar-2027-c-and-a",
+          "mitarbeiter-im-vente-m-w-d-30-fur-pilatusmarkt-c-a-schweiz-kriens"
         ]
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-20T21:32:29.636Z",
       "salaryMin": 31600,
       "salaryMax": 48600,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2593,7 +2649,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "LU"
+      "addressRegion": "LU",
+      "salarySource": "estimated"
     },
     {
       "id": "c-and-a-schweiz-9ba5b1c742be",

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-emmental",
-  "assembledAt": "2026-08-31T17:05:27.125Z",
+  "assembledAt": "2026-08-31T16:22:44.340Z",
   "jobs": [
     {
       "id": "spital-emmental-c7165fb4c776",
@@ -2024,7 +2024,14 @@
         "medical-practice-assistant-a-spital-emmental-burgdorf",
         "assistente-assistente-di-medicina-di-base-a-spital-emmental-burgdorf",
         "medical-practice-assistant-spital-emmental-burgdorf",
-        "senior-r-medical-r-assistente-di-pratica-in-a-spital-emmental-burgdorf"
+        "senior-r-medical-r-assistente-di-pratica-in-a-spital-emmental-burgdorf",
+        "medico-n-assistente-di-pratica-in-a-spital-emmental-burgdorf",
+        "medical-n-practice-assistant-in-a-spital-emmental-burgdorf",
+        "medizinische-n-praxisassistent-in-a-spital-emmental-burgdorf",
+        "medecin-assistant-de-pratique-en-a-spital-emmental-burgdorf",
+        "assistente-di-studio-medico-spital-emmental-burgdorf",
+        "assistente-medico-assistente-medico-alterpsychiatrie-a-spital-emmental-burgdorf",
+        "medecin-n-assistant-pratique-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2034,24 +2041,33 @@
           "medical-practice-assistant-a-spital-emmental-burgdorf",
           "assistente-assistente-di-medicina-di-base-a-spital-emmental-burgdorf",
           "medical-practice-assistant-spital-emmental-burgdorf",
-          "senior-r-medical-r-assistente-di-pratica-in-a-spital-emmental-burgdorf"
+          "senior-r-medical-r-assistente-di-pratica-in-a-spital-emmental-burgdorf",
+          "medico-n-assistente-di-pratica-in-a-spital-emmental-burgdorf",
+          "medical-n-practice-assistant-in-a-spital-emmental-burgdorf",
+          "medizinische-n-praxisassistent-in-a-spital-emmental-burgdorf",
+          "medecin-assistant-de-pratique-en-a-spital-emmental-burgdorf",
+          "assistente-di-studio-medico-spital-emmental-burgdorf",
+          "assistente-medico-assistente-medico-alterpsychiatrie-a-spital-emmental-burgdorf",
+          "medecin-n-assistant-pratique-spital-emmental-burgdorf"
         ],
         "en": [
           "leitende-r-medizinische-r-praxisassistent-in-a-spital-emmental-burgdorf",
-          "medical-practice-assistant-a-spital-emmental-burgdorf"
+          "medical-practice-assistant-a-spital-emmental-burgdorf",
+          "medical-n-practice-assistant-in-a-spital-emmental-burgdorf"
         ],
         "de": [
-          "medizinische-n-praxisassistentin-praxisassistenten-a-spital-emmental-burgdorf"
+          "medizinische-n-praxisassistentin-praxisassistenten-a-spital-emmental-burgdorf",
+          "medizinische-n-praxisassistent-in-a-spital-emmental-burgdorf"
         ],
         "fr": [
           "leitende-r-medizinische-r-praxisassistent-in-a-spital-emmental-burgdorf",
-          "assistant-e-medical-e-en-cabinet-medical-spital-emmental-burgdorf"
+          "assistant-e-medical-e-en-cabinet-medical-spital-emmental-burgdorf",
+          "medecin-assistant-de-pratique-en-a-spital-emmental-burgdorf"
         ]
       },
       "firstSeenAt": "2026-08-12T10:18:35.601Z",
       "salaryMin": 115000,
       "salaryMax": 160000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2061,7 +2077,8 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "spital-emmental-a81ae95bd284",

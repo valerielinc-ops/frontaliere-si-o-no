@@ -3653,7 +3653,7 @@
       "companyDomain": "home.cern",
       "title": "Accelerator Physicist (BE-ABP-LNO-2026-138-GRAP)",
       "titleByLocale": {
-        "it": "Accelerator Physicist (BE-ABP-LNO-2026-138-GRAP)",
+        "it": "Acceleratore medico (BE-ABP-LNO-2026-138-GRAP)",
         "en": "Accelerator Physicist (BE-ABP-LNO-2026-138-GRAP)",
         "de": "Beschleunigerphysiker (BE-ABP-LNO-2026-138-GRAP)",
         "fr": "Physicien accélérateur (BE-ABP-LNO-2026-138-GRAP)"
@@ -3693,7 +3693,6 @@
       "firstSeenAt": "2026-08-19T21:51:38.663Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3703,7 +3702,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "cern-c1be31e3e00f",

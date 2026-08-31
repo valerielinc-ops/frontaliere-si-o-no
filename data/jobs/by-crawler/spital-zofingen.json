@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-zofingen",
-  "assembledAt": "2026-08-31T20:23:11.979Z",
+  "assembledAt": "2026-08-31T16:24:51.622Z",
   "jobs": [
     {
       "id": "spital-zofingen-768c4c040563",
@@ -1115,21 +1115,35 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-palliative-care-spital-zofingen-zofingen",
-        "dipl-pflegefachperson-hf-fh-cura-pallitiva-spital-zofingen-zofingen"
+        "dipl-pflegefachperson-hf-fh-cura-pallitiva-spital-zofingen-zofingen",
+        "dipl-infermiera-hf-fh-dipartimento-di-demenza-spital-zofingen-zofingen",
+        "dipl-nurse-hf-fh-dementia-department-spital-zofingen-zofingen",
+        "dipl-pflegefachperson-hf-fh-demenzabteilung-spital-zofingen-zofingen",
+        "dipl-infirmiere-hf-fh-departement-de-demence-spital-zofingen-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-palliative-care-spital-zofingen-zofingen",
-          "dipl-pflegefachperson-hf-fh-cura-pallitiva-spital-zofingen-zofingen"
+          "dipl-pflegefachperson-hf-fh-cura-pallitiva-spital-zofingen-zofingen",
+          "dipl-infermiera-hf-fh-dipartimento-di-demenza-spital-zofingen-zofingen",
+          "dipl-nurse-hf-fh-dementia-department-spital-zofingen-zofingen",
+          "dipl-pflegefachperson-hf-fh-demenzabteilung-spital-zofingen-zofingen",
+          "dipl-infirmiere-hf-fh-departement-de-demence-spital-zofingen-zofingen"
         ],
         "fr": [
-          "dipl-pflegefachperson-hf-fh-palliative-care-spital-zofingen-zofingen"
+          "dipl-pflegefachperson-hf-fh-palliative-care-spital-zofingen-zofingen",
+          "dipl-infirmiere-hf-fh-departement-de-demence-spital-zofingen-zofingen"
+        ],
+        "en": [
+          "dipl-nurse-hf-fh-dementia-department-spital-zofingen-zofingen"
+        ],
+        "de": [
+          "dipl-pflegefachperson-hf-fh-demenzabteilung-spital-zofingen-zofingen"
         ]
       },
       "firstSeenAt": "2026-06-05T22:50:33.442Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1139,7 +1153,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "spital-zofingen-d55d9a53cdd5",

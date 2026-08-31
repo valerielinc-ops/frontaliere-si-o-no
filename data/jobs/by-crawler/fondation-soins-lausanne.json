@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fondation-soins-lausanne",
-  "assembledAt": "2026-08-31T17:16:07.840Z",
+  "assembledAt": "2026-08-31T15:39:57.970Z",
   "jobs": [
     {
       "id": "fondation-soins-lausanne-043e22611f0d",
@@ -55,25 +55,61 @@
       "previousSlugs": [
         "ergotherapeute-h-f-fondation-soins-lausanne-lausanne",
         "ergotherapist-m-f-fondation-soins-lausanne-lausanne",
-        "ergoterapist-m-f-fondation-soins-lausanne-lausanne"
+        "ergoterapist-m-f-fondation-soins-lausanne-lausanne",
+        "assistente-sanitario-m-f-fondation-soins-lausanne-lausanne",
+        "health-assistant-m-f-fondation-soins-lausanne-lausanne",
+        "gesundheitsassistent-m-w-fondation-soins-lausanne-lausanne",
+        "auxiliaire-de-sante-h-f-fondation-soins-lausanne-lausanne",
+        "auxiliaire-de-sante-m-w-d-fondation-soins-lausanne",
+        "ausiliari-sanitari-m-f-fondation-soins-lausanne-lausanne",
+        "health-auxiliaries-m-f-fondation-soins-lausanne-lausanne",
+        "gesundheitsdienstleister-m-w-fondation-soins-lausanne-lausanne",
+        "auxiliaires-de-sante-h-f-fondation-soins-lausanne-lausanne",
+        "coordinatore-dell-infermiera-m-f-fondation-soins-lausanne-lausanne",
+        "nurse-coordinator-m-f-fondation-soins-lausanne-lausanne",
+        "pflegekoordinator-m-w-fondation-soins-lausanne-lausanne",
+        "infirmier-coordinateur-h-f-fondation-soins-lausanne-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ergotherapeute-h-f-fondation-soins-lausanne-lausanne",
-          "ergoterapist-m-f-fondation-soins-lausanne-lausanne"
+          "ergoterapist-m-f-fondation-soins-lausanne-lausanne",
+          "assistente-sanitario-m-f-fondation-soins-lausanne-lausanne",
+          "health-assistant-m-f-fondation-soins-lausanne-lausanne",
+          "gesundheitsassistent-m-w-fondation-soins-lausanne-lausanne",
+          "auxiliaire-de-sante-h-f-fondation-soins-lausanne-lausanne",
+          "auxiliaire-de-sante-m-w-d-fondation-soins-lausanne",
+          "ausiliari-sanitari-m-f-fondation-soins-lausanne-lausanne",
+          "health-auxiliaries-m-f-fondation-soins-lausanne-lausanne",
+          "gesundheitsdienstleister-m-w-fondation-soins-lausanne-lausanne",
+          "auxiliaires-de-sante-h-f-fondation-soins-lausanne-lausanne",
+          "coordinatore-dell-infermiera-m-f-fondation-soins-lausanne-lausanne",
+          "nurse-coordinator-m-f-fondation-soins-lausanne-lausanne",
+          "pflegekoordinator-m-w-fondation-soins-lausanne-lausanne",
+          "infirmier-coordinateur-h-f-fondation-soins-lausanne-lausanne"
         ],
         "en": [
           "ergotherapeute-h-f-fondation-soins-lausanne-lausanne",
-          "ergotherapist-m-f-fondation-soins-lausanne-lausanne"
+          "ergotherapist-m-f-fondation-soins-lausanne-lausanne",
+          "health-assistant-m-f-fondation-soins-lausanne-lausanne",
+          "health-auxiliaries-m-f-fondation-soins-lausanne-lausanne",
+          "nurse-coordinator-m-f-fondation-soins-lausanne-lausanne"
         ],
         "de": [
-          "ergotherapeute-h-f-fondation-soins-lausanne-lausanne"
+          "ergotherapeute-h-f-fondation-soins-lausanne-lausanne",
+          "gesundheitsassistent-m-w-fondation-soins-lausanne-lausanne",
+          "gesundheitsdienstleister-m-w-fondation-soins-lausanne-lausanne",
+          "pflegekoordinator-m-w-fondation-soins-lausanne-lausanne"
+        ],
+        "fr": [
+          "auxiliaire-de-sante-h-f-fondation-soins-lausanne-lausanne",
+          "auxiliaires-de-sante-h-f-fondation-soins-lausanne-lausanne",
+          "infirmier-coordinateur-h-f-fondation-soins-lausanne-lausanne"
         ]
       },
       "firstSeenAt": "2026-08-11T10:17:34.096Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -83,7 +119,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "fondation-soins-lausanne-bda866d65353",
