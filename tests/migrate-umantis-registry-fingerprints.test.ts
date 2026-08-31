@@ -167,4 +167,34 @@ describe('buildUmantisJobIndex', () => {
     }
     fs.rmSync(dir, { recursive: true, force: true });
   });
+
+  it('ignores cache and cleanup-orphan JSON files', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'umantis-idx-orphans-'));
+    const job = (vacancy: string) => ({
+      jobs: [{
+        url: `https://recruitingapp-122706.umantis.com/Vacancies/${vacancy}`,
+        company: 'Kantonsspital Aarau',
+        slug: `orphan-${vacancy}`,
+      }],
+    });
+    fs.writeFileSync(path.join(dir, 'ksa-locale-cache.json'), JSON.stringify(job('2001')));
+    fs.writeFileSync(path.join(dir, 'ksa.json.cleanup-tmp.json'), JSON.stringify(job('2002')));
+
+    try {
+      expect(buildUmantisJobIndex([dir]).size).toBe(0);
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('treats a missing slice directory as empty', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'umantis-idx-missing-'));
+    const missingDir = path.join(root, 'not-materialised');
+
+    try {
+      expect(buildUmantisJobIndex([missingDir]).size).toBe(0);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
 });

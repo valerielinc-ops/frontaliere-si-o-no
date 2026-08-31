@@ -363,7 +363,7 @@ let totalFiles = 0;
 
 // Active slices
 if (fs.existsSync(SLICES_DIR)) {
-  const sliceFiles = listSliceFileNames(SLICES_DIR).sort();
+  const sliceFiles = listSliceFileNames(SLICES_DIR);
   for (const file of sliceFiles) {
     const result = processSliceFile(path.join(SLICES_DIR, file));
     if (result.recovered > 0 || result.migrated > 0) {
@@ -377,7 +377,7 @@ if (fs.existsSync(SLICES_DIR)) {
 
 // Expired slices
 if (fs.existsSync(EXPIRED_DIR)) {
-  const expiredFiles = fs.readdirSync(EXPIRED_DIR).filter(f => f.endsWith('.json')).sort();
+  const expiredFiles = listSliceFileNames(EXPIRED_DIR);
   for (const file of expiredFiles) {
     const result = processExpiredSlice(path.join(EXPIRED_DIR, file));
     if (result.recovered > 0 || result.migrated > 0) {

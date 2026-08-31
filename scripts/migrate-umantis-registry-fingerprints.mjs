@@ -41,6 +41,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -72,9 +73,7 @@ function slugTokens(value = '') {
 export function buildUmantisJobIndex(dirs = [ACTIVE_DIR, EXPIRED_DIR]) {
   const byVacancy = new Map();
   for (const dir of dirs) {
-    if (!fs.existsSync(dir)) continue;
-    for (const f of fs.readdirSync(dir)) {
-      if (!f.endsWith('.json')) continue;
+    for (const f of listSliceFileNames(dir)) {
       let parsed;
       try {
         parsed = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8'));
