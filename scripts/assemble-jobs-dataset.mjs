@@ -611,7 +611,7 @@ function readJson(filePath, fallback) {
 // step in the same job picked up as a slice and refused to parse).
 export function listSliceFiles(dir) {
   // Predicato in scripts/lib/crawler-slice-files.mjs: era duplicato in tre
-  // copie divergenti, e le due piu' magre non escludevano ne' `-cache` ne'
+  // copie divergenti, e le due piu' magre non escludevano ne' `-locale-cache` ne'
   // `.cleanup-tmp` — cioe' proprio il file che ha fatto fallire questa
   // assembly nella run 28783188549.
   return listSliceFilePaths(dir);
