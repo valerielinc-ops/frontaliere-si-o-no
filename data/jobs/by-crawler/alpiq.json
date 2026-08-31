@@ -13,7 +13,7 @@
       "companyDomain": "alpiq.com",
       "title": "Enterprise Architect - ETRM",
       "titleByLocale": {
-        "it": "Enterprise Architect - ETRM"
+        "it": "Enterprise Architect"
       },
       "description": "Enterprise Architect - ETRM\n\nD&C Technology is a functional unit that supports Alpiq&rsquo;s Business Area Digital & Commerce with management systems for the trading, origination and energy sales businesses, including the delivery of digital solutions for customers from the industrial, commerce and energy sectors.We are hiring an&hellip;\n\nOlten - 100%\nPermanent",
       "descriptionByLocale": {
@@ -42,7 +42,6 @@
       "firstSeenAt": "2026-08-26T10:14:57.161Z",
       "salaryMin": 68000,
       "salaryMax": 104000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -52,7 +51,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "alpiq-2337a63af6bb",
@@ -133,7 +133,7 @@
       "companyDomain": "alpiq.com",
       "title": "Senior Asset Trader",
       "titleByLocale": {
-        "it": "Senior Asset Trader"
+        "it": "Commerciante di asset senior"
       },
       "description": "Senior Asset Trader\n\nIn this role, you help bring our value &ldquo;We learn and grow together&rdquo; into everyday practice by continuously challenging trading approaches, strengthening risk capabilities, and learning from outcomes. By sharing the steering wheel with Assets and taking clear ownership of risk, performance, and&hellip;\n\nLausanne - 100%\nPermanent",
       "descriptionByLocale": {
@@ -162,7 +162,6 @@
       "firstSeenAt": "2026-08-25T10:28:09.340Z",
       "salaryMin": 96000,
       "salaryMax": 146500,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -172,7 +171,8 @@
           "maxValue": 146500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "alpiq-c0ef4d9c8b9f",

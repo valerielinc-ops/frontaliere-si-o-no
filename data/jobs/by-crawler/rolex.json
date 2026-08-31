@@ -11124,11 +11124,11 @@
     },
     {
       "id": "rolex-cefa842b6557",
-      "slug": "apprentissage-de-logisticien-ne-cfc-rolex-geneve",
+      "slug": "logistician-learning-cfc-rolex-geneve",
       "slugByLocale": {
-        "it": "apprentissage-de-logisticien-ne-cfc-rolex-geneve",
+        "it": "logistician-learning-cfc-rolex-geneve",
         "en": "apprentissage-de-logisticien-ne-cfc-rolex-ch-2",
-        "de": "apprentissage-de-logisticien-ne-cfc-rolex-ch-2",
+        "de": "logistiker-lernen-cfc-rolex-geneve",
         "fr": "apprentissage-de-logisticien-ne-cfc-rolex-ch"
       },
       "company": "Rolex",
@@ -11171,12 +11171,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "apprentissage-de-logisticien-ne-cfc-rolex-ch-2",
-        "apprentissage-de-logisticien-ne-cfc-rolex-ch"
+        "apprentissage-de-logisticien-ne-cfc-rolex-ch",
+        "apprentissage-de-logisticien-ne-cfc-rolex-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-de-logisticien-ne-cfc-rolex-ch-2",
-          "apprentissage-de-logisticien-ne-cfc-rolex-ch"
+          "apprentissage-de-logisticien-ne-cfc-rolex-ch",
+          "apprentissage-de-logisticien-ne-cfc-rolex-geneve"
+        ],
+        "de": [
+          "apprentissage-de-logisticien-ne-cfc-rolex-ch-2"
         ]
       },
       "needsRetranslation": true,

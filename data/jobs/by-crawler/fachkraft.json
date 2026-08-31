@@ -8827,9 +8827,9 @@
       "slug": "zimmermann-zimmerin-per-fassadenbau-fachkraft-ch-gmbh-lugano",
       "slugByLocale": {
         "it": "zimmermann-zimmerin-per-fassadenbau-fachkraft-ch-gmbh-lugano",
-        "en": "zimmermann-zimmerin-fur-fassadenbau-fachkraft-ch",
+        "en": "zimmermann-room-for-facade-construction-fachkraft-ch-gmbh-lenzburg-aargau",
         "de": "zimmermann-zimmerin-fur-fassadenbau-fachkraft-ch",
-        "fr": "zimmermann-zimmerin-fur-fassadenbau-fachkraft-ch"
+        "fr": "zimmermann-salle-pour-la-construction-de-facade-fachkraft-ch-gmbh-lenzburg-aargau"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -8886,13 +8886,15 @@
           "zimmermann-zimmerin-per-fassadenbau-fachkraft-ch-gmbh-lugano"
         ],
         "en": [
-          "zimmermann-room-for-facade-construction-fachkraft-ch-gmbh-lugano"
+          "zimmermann-room-for-facade-construction-fachkraft-ch-gmbh-lugano",
+          "zimmermann-zimmerin-fur-fassadenbau-fachkraft-ch"
         ],
         "de": [
           "zimmermann-zimmerin-fur-fassadenbau-lenzburg-aargau-fachkraft-ch"
         ],
         "fr": [
-          "zimmermann-salle-pour-la-construction-de-facade-fachkraft-ch-gmbh-lugano"
+          "zimmermann-salle-pour-la-construction-de-facade-fachkraft-ch-gmbh-lugano",
+          "zimmermann-zimmerin-fur-fassadenbau-fachkraft-ch"
         ]
       },
       "needsRetranslation": true,
@@ -214674,7 +214676,6 @@
       "firstSeenAt": "2026-08-27T00:45:41.899Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -214685,7 +214686,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "salarySource": "estimated"
     },
     {
       "id": "fachkraft-779d5d016c4a",
@@ -222678,7 +222680,6 @@
       "firstSeenAt": "2026-08-27T00:45:09.877Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -222689,7 +222690,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "salarySource": "estimated"
     },
     {
       "id": "fachkraft-6a7fb652b51a",
@@ -291966,9 +291968,9 @@
       "slug": "sanitarinstallateur-in-con-erfahrung-in-neu-e-umbauten-fachkraft-ch-gmbh-lugano",
       "slugByLocale": {
         "it": "sanitarinstallateur-in-con-erfahrung-in-neu-e-umbauten-fachkraft-ch-gmbh-lugano",
-        "en": "sanitarinstallateur-in-mit-erfahrung-in-neu-und-umbauten-fachkraft-ch",
+        "en": "sanitary-installer-with-experience-in-new-and-conversions-fachkraft-ch-gmbh-luzern-luzern",
         "de": "sanitarinstallateur-in-mit-erfahrung-in-neu-und-umbauten-fachkraft-ch",
-        "fr": "sanitarinstallateur-in-mit-erfahrung-in-neu-und-umbauten-fachkraft-ch"
+        "fr": "installateur-sanitaire-avec-experience-dans-les-nouvelles-et-les-conversions-fachkraft-ch-gmbh-luzern-luzern"
       },
       "company": "fachkraft.ch GmbH",
       "companyKey": "fachkraft",
@@ -292026,11 +292028,13 @@
           "sanitarinstallateur-in-mit-erfahrung-in-neu-und-umbauten-luzern-luzern-fachkraft-ch"
         ],
         "en": [
-          "sanitary-installer-with-experience-in-new-and-conversions-fachkraft-ch-gmbh-lugano"
+          "sanitary-installer-with-experience-in-new-and-conversions-fachkraft-ch-gmbh-lugano",
+          "sanitarinstallateur-in-mit-erfahrung-in-neu-und-umbauten-fachkraft-ch"
         ],
         "fr": [
           "installateur-sanitaire-avec-experience-dans-les-nouvelles-et-les-conversions-fachkraft-ch-gmbh-lugano",
-          "sanitarinstallateur-in-mit-erfahrung-in-neu-und-umbauprojekten-fachkraft-ch"
+          "sanitarinstallateur-in-mit-erfahrung-in-neu-und-umbauprojekten-fachkraft-ch",
+          "sanitarinstallateur-in-mit-erfahrung-in-neu-und-umbauten-fachkraft-ch"
         ]
       },
       "previousSlugs": [

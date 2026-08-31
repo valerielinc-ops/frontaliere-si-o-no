@@ -644,7 +644,7 @@
       "companyDomain": "adullam.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann HF",
+        "it": "Infermiere dipl./ Infermiere SSS",
         "en": "Dipl. Nurse / Nurse specialist HF",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann HF",
         "fr": "Dipl. Infirmière / Infirmière spécialiste HF"
@@ -705,7 +705,6 @@
       "firstSeenAt": "2026-08-05T11:41:50.414Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -715,7 +714,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "adullam-bdf3187d4fe6",

@@ -4143,12 +4143,12 @@
     },
     {
       "id": "spital-buelach-ed50035cf8b0",
-      "slug": "op-lagerungsassistenz-spital-bulach-bulach",
+      "slug": "assistenza-di-stoccaggio-operativa-spital-bulach-bulach",
       "slugByLocale": {
-        "it": "op-lagerungsassistenz-spital-bulach-bulach",
-        "en": "op-lagerungsassistenz-spital-bulach-bulach",
+        "it": "assistenza-di-stoccaggio-operativa-spital-bulach-bulach",
+        "en": "operational-storage-assistance-spital-bulach-bulach",
         "de": "op-lagerungsassistenz-spital-buelach-bulach",
-        "fr": "op-lagerungsassistenz-spital-bulach-bulach"
+        "fr": "aide-au-stockage-operationnel-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -4197,6 +4197,12 @@
       "previousSlugsByLocale": {
         "it": [
           "op-lagerungsassistenz-spital-buelach-bulach",
+          "op-lagerungsassistenz-spital-bulach-bulach"
+        ],
+        "en": [
+          "op-lagerungsassistenz-spital-bulach-bulach"
+        ],
+        "fr": [
           "op-lagerungsassistenz-spital-bulach-bulach"
         ]
       },
