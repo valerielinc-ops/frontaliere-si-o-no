@@ -8,6 +8,7 @@ import {
   recoverFromStaleChunk,
   bustAssetHttpCache,
   isChunkLoadError,
+  isModuleParseError,
 } from '../../services/resilientImport';
 import { fetchBuildId, fetchCommitHash } from '../../services/buildInfo';
 import { AD_SLOTS } from '../../services/adsenseSlots';
@@ -521,7 +522,19 @@ export class SilentErrorBoundary extends Component<SilentBoundaryProps, SilentBo
  // its manual-reload button. Bust the HTTP cache only — no reload — so a
  // future fetch (this session or the next) picks up the fresh chunk
  // without disrupting whatever the user is doing right now.
- if (isChunkLoadError(error) || isVersionSkewError(error)) {
+ //
+ // isModuleParseError included (#5531/#6778): a stale SafeLazy widget chunk
+ // can resolve as SPA-fallback HTML parsed as a module ("Unexpected
+ // identifier '<word>'") the same way a primary lazyRetry()-wrapped chunk
+ // can — see resilientImport.ts. Unlike the isVersionSkewError widening the
+ // top-level ErrorBoundary/ChunkLoadErrorBoundary deliberately don't take
+ // (by construction, PR #5535: those paths RELOAD the page on a match, so a
+ // generic SyntaxError there could mask a genuine bug under a reload), this
+ // boundary's action is a background cache-bust only — no reload, no change
+ // to what's rendered — so the same false-positive costs nothing beyond a
+ // redundant fetch, while a true positive stops the widget from re-throwing
+ // the identical parse error on every subsequent SPA navigation this session.
+ if (isChunkLoadError(error) || isVersionSkewError(error) || isModuleParseError(error)) {
  void bustAssetHttpCache();
  }
  }
