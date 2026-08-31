@@ -1,6 +1,6 @@
 {
   "crawlerKey": "arosa-lenzerheide",
-  "assembledAt": "2026-08-28T05:14:36.727Z",
+  "assembledAt": "2026-08-31T17:05:12.997Z",
   "jobs": [
     {
       "id": "arosa-lenzerheide-011d6c33fa9a",
@@ -34,7 +34,7 @@
       "url": "https://app.reflinejobs.io/3316/0045/pub/29/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:14:34.381Z",
+      "crawledAt": "2026-08-31T17:05:10.212Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -71,6 +71,7 @@
       "firstSeenAt": "2026-08-12T10:20:12.754Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -114,7 +115,7 @@
       "url": "https://app.reflinejobs.io/3316/0021/pub/16/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:14:33.732Z",
+      "crawledAt": "2026-08-31T17:05:09.507Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -151,6 +152,7 @@
       "firstSeenAt": "2026-07-12T22:16:26.830Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -194,7 +196,7 @@
       "url": "https://app.reflinejobs.io/3316/0012/pub/9/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:14:33.143Z",
+      "crawledAt": "2026-08-31T17:05:08.751Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -235,6 +237,7 @@
       "firstSeenAt": "2026-07-12T22:16:25.136Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
