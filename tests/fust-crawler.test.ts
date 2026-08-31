@@ -10,6 +10,7 @@ import {
   fetchFustJobUrls,
   handleFustEmptyDiscovery,
   isCanonicalFustDetailUrl,
+  readFustSummarySlice,
   reconcileFustJobsWithDiscovery,
   writeFustPublishPlan,
 } from '../scripts/update-fust-jobs.mjs';
@@ -454,6 +455,34 @@ describe('Fust post-crawl reconciliation', () => {
     });
     expect(summaryState).not.toHaveProperty('authoritativeEmptyConsecutiveRuns');
     expect(summaryState).not.toHaveProperty('authoritativeEmptyPending');
+  });
+
+  it('degrades to "no prior confirmation" instead of crashing on an unreadable summary slice', () => {
+    const summaryPath = path.resolve(import.meta.dirname, '..', 'data', 'jobs-crawler-summaries', 'by-crawler', 'fust.json');
+    const originalExistsSync = fs.existsSync.bind(fs);
+    const originalReadFileSync = fs.readFileSync.bind(fs);
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const exists = vi.spyOn(fs, 'existsSync').mockImplementation((p) => (p === summaryPath ? true : originalExistsSync(p)));
+    const readFile = vi.spyOn(fs, 'readFileSync').mockImplementation(((p: fs.PathOrFileDescriptor, enc?: unknown) => {
+      if (p === summaryPath) return '{not valid json';
+      return (originalReadFileSync as unknown as (p: fs.PathOrFileDescriptor, enc?: unknown) => unknown)(p, enc);
+    }) as typeof fs.readFileSync);
+    try {
+      expect(readFustSummarySlice()).toBeNull();
+      expect(warn).toHaveBeenCalledWith(expect.stringContaining('unreadable'));
+
+      warn.mockClear();
+      readFile.mockImplementation(((p: fs.PathOrFileDescriptor, enc?: unknown) => {
+        if (p === summaryPath) return JSON.stringify(['not', 'an', 'object']);
+        return (originalReadFileSync as unknown as (p: fs.PathOrFileDescriptor, enc?: unknown) => unknown)(p, enc);
+      }) as typeof fs.readFileSync);
+      expect(readFustSummarySlice()).toBeNull();
+      expect(warn).toHaveBeenCalledWith(expect.stringContaining('not a JSON object'));
+    } finally {
+      readFile.mockRestore();
+      exists.mockRestore();
+      warn.mockRestore();
+    }
   });
 
   it('routes an uncaught Fust invariant failure to exit code 1', () => {
