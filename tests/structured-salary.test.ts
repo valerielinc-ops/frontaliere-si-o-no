@@ -154,9 +154,13 @@ describe('structured salary hardening', () => {
     ]);
 
     expect(hardened.total).toBe(2);
-    expect(hardened.updated).toBe(1);
+    // Both records change: job 0 gains an estimated band, job 1 keeps its
+    // declared bounds but newly gains a 'reported' salarySource.
+    expect(hardened.updated).toBe(2);
     expect(hardened.changed).toBe(true);
     expect(hardened.jobs[0].baseSalary?.value?.minValue).toBeGreaterThan(0);
+    expect(hardened.jobs[0].salarySource).toBe('estimated');
     expect(hardened.jobs[1].baseSalary?.value?.minValue).toBe(90000);
+    expect(hardened.jobs[1].salarySource).toBe('reported');
   });
 });
