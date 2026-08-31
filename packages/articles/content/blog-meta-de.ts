@@ -10993,6 +10993,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.traffico-ferroviario-bloccato-ticino.title': 'Stillstehende Züge zwischen Arbedo-Castione und Biasca: Unannehmlichkeiten',
     'blog.article.traffico-ferroviario-bloccato-ticino.excerpt': 'Unterbrechung am Montag gegen Mittag auf der Strecke Arbedo-Castione-Biasca: SBB meldet «Unfall pro Person», Züge gestrichen.',
     'blog.article.traffico-ferroviario-bloccato-ticino.imageAlt': 'Bahnhof mit Betriebsunterbrechung auf der Tessiner Strecke',
+    'blog.article.frontaliere-pensione-2026-famiglia-figli.title': 'Rente Grenzgänger 2026: Planen mit Familie und Kindern',
+    'blog.article.frontaliere-pensione-2026-famiglia-figli.excerpt': 'AHV-Reform 21, neue Frontalieri-Vereinbarung, die seit 2024 in Kraft ist, und Vorruhestands-Szenarien für diejenigen, die mit ihrer Familie im Tessin arbeiten.',
+    'blog.article.frontaliere-pensione-2026-famiglia-figli.imageAlt': 'Grenzgänger-Ehepaar plant den Ruhestand am Luganersee',
 };
 
 export default blogMetaDe;

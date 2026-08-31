@@ -1638,6 +1638,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'scorte-mangimi-proteici-svizzera': { it: 'scorte-mangimi-proteici-svizzera', en: 'swiss-protein-feed-reserves-released', de: 'schweiz-protein-futter-reserven-freigegeben', fr: 'suisse-stocks-aliments-proteiques-libres' },
  'swatch-samsung-risarcimento-marchi': { it: 'swatch-samsung-risarcimento-marchi', en: 'swatch-samsung-settlement-trademark', de: 'swatch-samsung-schadensersatz-marken', fr: 'swatch-samsung-indemnisation-marques' },
  'divario-salariale-svizzera-ust-640': { it: 'divario-salariale-svizzera-ust-640', en: 'swiss-gender-pay-gap-ust-640', de: 'geschlechterlohngefalle-schweiz-bfs-640', fr: 'ecart-salarial-suisse-ofs-640' },
+ 'commissione-lpp-tasso-minimo-2027': { it: 'commissione-lpp-tasso-minimo-2027', en: 'oak-bv-commission-minimum-rate-2027', de: 'bvg-kommission-mindestzinssatz-2027', fr: 'commission-lpp-taux-minimum-2027' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

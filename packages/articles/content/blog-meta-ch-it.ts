@@ -4837,6 +4837,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.divario-salariale-svizzera-ust-640.title': 'Divario salariale uomo-donna in Svizzera: 640 CHF di parte non spiegata',
     'blog.article.divario-salariale-svizzera-ust-640.excerpt': 'Nel 2024 il gap scende al 15,7% ma la componente non spiegata resta 640 CHF lordi al mese. La finanza tocca il 30,6%.',
     'blog.article.divario-salariale-svizzera-ust-640.imageAlt': 'Distretto finanziario di Zurigo con grattacieli in vetro',
+    'blog.article.commissione-lpp-tasso-minimo-2027.title': 'Previdenza professionale: tasso minimo LPP proposto all\'1,75% per il 2027',
+    'blog.article.commissione-lpp-tasso-minimo-2027.excerpt': 'La Commissione LPP raccomanda di portare il tasso minimo dall\'1,25% all\'1,75% (+0,50 punti). Voto 10 a 4, decisione finale al Consiglio federale.',
+    'blog.article.commissione-lpp-tasso-minimo-2027.imageAlt': 'Palazzo federale a Berna, sede del Consiglio federale',
 };
 
 export default blogMetaChIt;

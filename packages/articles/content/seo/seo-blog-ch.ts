@@ -62771,6 +62771,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-commissione-lpp-tasso-minimo-2027': {
+    title: 'Previdenza professionale: tasso minimo LPP proposto all\'1,75% per il 2027',
+    description: 'Commissione LPP raccomanda tasso minimo LPP all\'1,75% per il 2027 (+0,50%): voto 10 a 4, decisione finale al Consiglio federale. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, previdenza, professionale, tasso, minimo',
+    ogTitle: 'Tasso minimo LPP 2027 proposto all\'1,75% dalla Commissione',
+    ogDescription: 'La Commissione federale della previdenza professionale raccomanda di portare il tasso minimo LPP dall\'1,25% all\'1,75% per il 2027 (+0,50 punti). Voto 10 a 4 il 31 agosto 2026 a Berna. Decisione finale al Consiglio federale.',
+    canonicalPath: '/articoli-svizzera/commissione-lpp-tasso-minimo-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Previdenza professionale: tasso minimo LPP proposto all'1,75% per il 2027",
+      "description": "Commissione LPP raccomanda tasso minimo LPP all'1,75% per il 2027 (+0,50%): voto 10 a 4, decisione finale al Consiglio federale. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/commissione-lpp-tasso-minimo-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna, sede del Consiglio federale"
+      },
+      "datePublished": "2026-08-31T14:33:27+00:00",
+      "dateModified": "2026-08-31T14:33:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/commissione-lpp-tasso-minimo-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
