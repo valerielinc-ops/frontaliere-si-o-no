@@ -140,6 +140,14 @@ describe('Läderach job parser', () => {
       expect(new Set(urls).size).toBe(urls.length);
     });
 
+    it("keeps an apostrophe inside a double-quoted fallback href", () => {
+      const [job] = parseLaderachListingHtml(`
+        <a href="/jobs/7654321/Chef-d'equipe/">Chef d'équipe</a>
+        <small>Locations: <!-- -->Bilten</small>
+      `);
+      expect(job.url).toBe("https://laderach.career.softgarden.de/jobs/7654321/Chef-d'equipe/");
+    });
+
     it('returns empty for null/empty input', () => {
       expect(parseLaderachListingHtml(null)).toEqual([]);
       expect(parseLaderachListingHtml('')).toEqual([]);

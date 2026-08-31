@@ -1,4 +1,4 @@
-/**
+/*
  * Quote-balanced HTML attribute reader.
  *
  * Exists because the idiom this repo had copy-pasted into a dozen parsers —
@@ -24,27 +24,76 @@
  * character to close the value. Unquoted values are supported as a fallback
  * because SME markup emits them.
  *
- * @param {string} attrs   Attribute soup (the inside of a start tag) or raw HTML.
- * @param {string|string[]} names  Attribute name(s), tried in order; first hit wins.
+ */
+/**
+ * Tokenize attribute assignments while respecting quoted and unquoted value
+ * boundaries, so attribute-shaped text inside a value is never rediscovered.
+ *
+ * @param {string} input Attribute soup, a start tag, or raw HTML.
+ * @returns {Array<{name: string, value: string}>}
+ */
+function scanAttributes(input = '') {
+  const source = String(input || '');
+  const out = [];
+  let i = 0;
+
+  while (i < source.length) {
+    // Attribute names are delimiter-based in HTML, not ASCII identifiers:
+    // framework markup legitimately uses `[action]`, `(click)`, `@submit`, …
+    // Consume the full token so attribute-shaped text inside its value stays
+    // inside that value instead of being rediscovered as a sibling attribute.
+    if (/[\s=\/<>"'`]/.test(source[i])) {
+      i += 1;
+      continue;
+    }
+
+    const nameStart = i;
+    i += 1;
+    while (i < source.length && !/[\s=\/<>"'`]/.test(source[i])) i += 1;
+    const name = source.slice(nameStart, i);
+    while (i < source.length && /\s/.test(source[i])) i += 1;
+    if (source[i] !== '=') continue;
+
+    i += 1;
+    while (i < source.length && /\s/.test(source[i])) i += 1;
+    if (i >= source.length) break;
+
+    const quote = source[i] === '"' || source[i] === "'" ? source[i] : '';
+    if (quote) {
+      i += 1;
+      const valueStart = i;
+      while (i < source.length && source[i] !== quote && source[i] !== '<') i += 1;
+      if (source[i] !== quote) continue;
+      out.push({ name: name.toLowerCase(), value: source.slice(valueStart, i) });
+      i += 1;
+      continue;
+    }
+
+    const valueStart = i;
+    // HTML tokenizers keep `=` inside an unquoted value (as a parse error), and
+    // real SME pages rely on that for query strings such as `href=/jobs?a=1`.
+    while (i < source.length && !/[\s"'<>`]/.test(source[i])) i += 1;
+    if (i > valueStart) {
+      out.push({ name: name.toLowerCase(), value: source.slice(valueStart, i) });
+    }
+  }
+
+  return out;
+}
+
+/**
+ * Read the first requested HTML attribute without crossing another value.
+ *
+ * @param {string} attrs Attribute soup (the inside of a start tag) or raw HTML.
+ * @param {string|string[]} names Attribute name(s), tried in order; first hit wins.
  * @returns {string} The raw (still entity-encoded) value, or '' when absent.
  */
 export function readAttr(attrs = '', names = []) {
-  const list = Array.isArray(names) ? names : [names];
-  const hay = String(attrs || '');
+  const values = scanAttributes(attrs);
+  const list = (Array.isArray(names) ? names : [names]).map((name) => String(name).toLowerCase());
   for (const name of list) {
-    const n = String(name).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    // (?<![\w-]) keeps `title` from matching inside `data-title` / `x-title`.
-    // `[^<]` rather than `[\s\S]`: on malformed markup with an unterminated
-    // attribute, a fully permissive class would run past `>` and swallow the
-    // rest of the document up to the next stray quote. An attribute value can
-    // legitimately contain `>`, but never `<`, so this bounds the damage to the
-    // current element without rejecting any valid value.
-    const quoted = new RegExp(`(?<![\\w-])${n}\\s*=\\s*(["'])([^<]*?)\\1`, 'i');
-    const hit = quoted.exec(hay);
-    if (hit) return hit[2];
-    const bare = new RegExp(`(?<![\\w-])${n}\\s*=\\s*([^\\s"'>\`=]+)`, 'i');
-    const hitBare = bare.exec(hay);
-    if (hitBare) return hitBare[1];
+    const hit = values.find((attr) => attr.name === name);
+    if (hit) return hit.value;
   }
   return '';
 }
@@ -64,10 +113,9 @@ export function readAttr(attrs = '', names = []) {
  * @returns {string} The whole start tag, or '' when not found.
  */
 export function readTagByAttr(html = '', name = '', value = '') {
-  const n = String(name).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const v = String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const rx = new RegExp(`<[a-z][^>]*?(?<![\\w-])${n}\\s*=\\s*(["'])${v}\\1[^>]*>`, 'i');
-  return rx.exec(String(html || ''))?.[0] ?? '';
+  const tags = String(html || '').match(/<[a-z][^>]*>/gi) ?? [];
+  const target = String(value).toLowerCase();
+  return tags.find((tag) => readAttr(tag, name).toLowerCase() === target) ?? '';
 }
 
 /**
@@ -82,12 +130,10 @@ export function readTagByAttr(html = '', name = '', value = '') {
  * @returns {string[]}
  */
 export function readAllAttr(html = '', name = '') {
-  const n = String(name).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const rx = new RegExp(`(?<![\\w-])${n}\\s*=\\s*(["'])([^<]*?)\\1`, 'gi');
-  const out = [];
-  let m;
-  while ((m = rx.exec(String(html || '')))) out.push(m[2]);
-  return out;
+  const target = String(name).toLowerCase();
+  return scanAttributes(html)
+    .filter((attr) => attr.name === target)
+    .map((attr) => attr.value);
 }
 
 /**
@@ -101,12 +147,11 @@ export function readAllAttr(html = '', name = '') {
  * @returns {string} Raw (still entity-encoded) content value, or ''.
  */
 export function readMetaContent(html = '', key = '') {
-  const k = String(key).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const tag = new RegExp(
-    `<meta\\b[^>]*(?:property|name)\\s*=\\s*(["'])${k}\\1[^>]*>`,
-    'i',
-  );
-  const hit = tag.exec(String(html || ''));
-  if (!hit) return '';
-  return readAttr(hit[0], 'content');
+  const target = String(key).toLowerCase();
+  const tags = String(html || '').match(/<meta\b[^>]*>/gi) ?? [];
+  const tag = tags.find((candidate) => {
+    const declaredKeys = [readAttr(candidate, 'property'), readAttr(candidate, 'name')];
+    return declaredKeys.some((declaredKey) => declaredKey.toLowerCase() === target);
+  });
+  return tag ? readAttr(tag, 'content') : '';
 }

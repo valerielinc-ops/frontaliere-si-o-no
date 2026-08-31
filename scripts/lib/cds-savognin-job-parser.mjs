@@ -53,6 +53,7 @@ import {
   USER_AGENT,
 } from './hospital-custom-html-helpers.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { readAttr } from './html-attr.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -193,9 +194,14 @@ export function parseCdsSavogninNewsItems(html = '') {
   while ((m = itemRe.exec(html)) !== null) {
     const block = m[1];
 
-    const linkMatch = block.match(/<a[^>]*class="[^"]*\bmehrLesen\b[^"]*"[^>]*href="([^"]*\/aktuelles\/(\d+)\.html)"/i);
-    if (!linkMatch) continue;
-    const id = linkMatch[2];
+    const linkTag = (block.match(/<a\b[^>]*>/gi) ?? []).find((tag) => {
+      const classes = readAttr(tag, 'class').split(/\s+/);
+      return classes.some((value) => value.toLowerCase() === 'mehrlesen') &&
+        /\/aktuelles\/\d+\.html/i.test(readAttr(tag, 'href'));
+    });
+    const detailHref = readAttr(linkTag, 'href');
+    const id = detailHref.match(/\/aktuelles\/(\d+)\.html/i)?.[1] ?? '';
+    if (!id) continue;
     if (seen.has(id)) continue;
 
     const titleMatch = block.match(/<h4[^>]*>([\s\S]*?)<\/h4>/i);
@@ -207,9 +213,9 @@ export function parseCdsSavogninNewsItems(html = '') {
 
     seen.add(id);
 
-    const detailUrl = linkMatch[1].startsWith('http')
-      ? linkMatch[1]
-      : `${SITE_ORIGIN}${linkMatch[1].startsWith('/') ? '' : '/'}${linkMatch[1]}`;
+    const detailUrl = detailHref.startsWith('http')
+      ? detailHref
+      : `${SITE_ORIGIN}${detailHref.startsWith('/') ? '' : '/'}${detailHref}`;
 
     // Short summary that follows the <h4> (best-effort fallback body).
     const summaryMatch = block.match(/<\/h4>\s*<div[^>]*>([\s\S]*?)<\/div>/i);

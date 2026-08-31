@@ -20,6 +20,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { readAttr } from './html-attr.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -149,11 +150,12 @@ export function parseListingHtml(html) {
   const jobs = [];
 
   // Match all <a> tags whose href points to the detail pages
-  const linkRegex = /<a[^>]+href=["']([^"']*\/offene-stellen\/detail\/[^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+  const linkRegex = /(<a\b[^>]*>)([\s\S]*?)<\/a>/gi;
   let match;
 
   while ((match = linkRegex.exec(html)) !== null) {
-    const rawHref = match[1].trim();
+    const rawHref = readAttr(match[1], 'href').trim();
+    if (!/\/offene-stellen\/detail\//i.test(rawHref)) continue;
     const innerHtml = match[2];
 
     // Build full URL
@@ -228,9 +230,11 @@ export function parseDetailHtml(html) {
   }
 
   // Extract PDF link for the Stelleninserat
-  const pdfMatch = html.match(/<a[^>]+href=["']([^"']*\/fileadmin\/[^"']*\.pdf)["'][^>]*>/i);
-  if (pdfMatch) {
-    const pdfHref = pdfMatch[1].trim();
+  const pdfLink = [...html.matchAll(/<a\b[^>]*>/gi)]
+    .map((match) => readAttr(match[0], 'href'))
+    .find((href) => /\/fileadmin\/.*\.pdf(?:[?#]|$)/i.test(href));
+  if (pdfLink) {
+    const pdfHref = pdfLink.trim();
     result.pdfUrl = pdfHref.startsWith('http') ? pdfHref : `${BASE_URL}${pdfHref}`;
   }
 

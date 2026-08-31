@@ -35,6 +35,7 @@ import {
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { readAttr } from './html-attr.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -94,13 +95,20 @@ export function isTrustedDomain(rawUrl = '') {
 export function parseJobListHtml(html = '') {
   const out = [];
   const seen = new Set();
-  // Match each `<a class="job" href="https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/…">…</a>`
-  const blockRe =
-    /<a\s+[^>]*class="job"[^>]*href="(https:\/\/jobs\.psychiatrie-sg\.ch\/karriere\/offene-stellen\/[^"]+)"[^>]*>([\s\S]*?)<\/a>/g;
+  // Match anchors first, then read class/href independently so attribute order
+  // and the quote style chosen by the upstream renderer cannot affect discovery.
+  const blockRe = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
   let m;
   while ((m = blockRe.exec(html))) {
-    const detailHref = m[1];
+    const attrs = m[1];
     const body = m[2];
+    const classes = readAttr(attrs, 'class').split(/\s+/).filter(Boolean);
+    if (!classes.includes('job')) continue;
+
+    const detailHref = readAttr(attrs, 'href');
+    if (!/^https:\/\/jobs\.psychiatrie-sg\.ch\/karriere\/offene-stellen\//.test(detailHref)) {
+      continue;
+    }
 
     // Viewkey = trailing UUID segment in the URL.
     const vk = detailHref.match(/\/([a-f0-9-]{36})(?:[/?#]|$)/i);

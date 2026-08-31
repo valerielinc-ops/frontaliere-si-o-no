@@ -4,6 +4,7 @@
  */
 
 import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { readAttr } from './html-attr.mjs';
 
 const HQ = getCompanyDefaults('cedes');
 
@@ -55,11 +56,12 @@ export function parseCedesListingHtml(html) {
   const jobs = [];
 
   // Match job links — pattern: /en/career/jobs/{slug} or /career/jobs/{slug}
-  const pattern = /<a[^>]+href=["']([^"']*?\/career\/jobs\/[^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+  const pattern = /(<a\b[^>]*>)([\s\S]*?)<\/a>/gi;
   let m;
 
   while ((m = pattern.exec(html)) !== null) {
-    const rawUrl = m[1].trim();
+    const rawUrl = readAttr(m[1], 'href').trim();
+    if (!/\/career\/jobs\//i.test(rawUrl)) continue;
     // Skip the listing page itself
     if (/\/career\/jobs\/?$/.test(rawUrl)) continue;
     const url = rawUrl.startsWith('http') ? rawUrl : `${CAREERS_BASE}${rawUrl}`;
@@ -85,10 +87,12 @@ export function parseCedesListingHtml(html) {
 
   // Fallback: generic job link pattern for card-based layouts
   if (jobs.length === 0) {
-    const genericPattern = /<a[^>]+href=["']([^"']+)["'][^>]*class="[^"]*job[^"]*"[^>]*>([\s\S]*?)<\/a>/gi;
+    const genericPattern = /(<a\b[^>]*>)([\s\S]*?)<\/a>/gi;
     let gm;
     while ((gm = genericPattern.exec(html)) !== null) {
-      const rawUrl = gm[1].trim();
+      if (!/job/i.test(readAttr(gm[1], 'class'))) continue;
+      const rawUrl = readAttr(gm[1], 'href').trim();
+      if (!rawUrl) continue;
       const url = rawUrl.startsWith('http') ? rawUrl : `${CAREERS_BASE}${rawUrl}`;
       if (seen.has(url)) continue;
       seen.add(url);

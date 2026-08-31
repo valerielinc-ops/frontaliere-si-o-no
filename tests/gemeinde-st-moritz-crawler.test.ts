@@ -142,6 +142,15 @@ describe('Gemeinde St. Moritz crawler parser', () => {
       expect(jobs[1].url).toBe('https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/gemeindepolizist-100-m-w-1');
     });
 
+    it("keeps an apostrophe inside a double-quoted detail href", () => {
+      const [job] = parseListingHtml(`
+        <a href="/aktuelles/offene-stellen/detail/d'Oberengadin">
+          <h3>Chef d'équipe</h3>
+        </a>
+      `);
+      expect(job.url).toBe("https://www.gemeinde-stmoritz.ch/aktuelles/offene-stellen/detail/d'Oberengadin");
+    });
+
     it('extracts dates from card content', () => {
       const jobs = parseListingHtml(SAMPLE_LISTING_HTML);
       expect(jobs[0].date).toBe('2026-04-07');
@@ -193,6 +202,15 @@ describe('Gemeinde St. Moritz crawler parser', () => {
     it('extracts PDF download URL', () => {
       const result = parseDetailHtml(SAMPLE_DETAIL_HTML);
       expect(result.pdfUrl).toBe('https://www.gemeinde-stmoritz.ch/fileadmin/user_upload/dokumente/pdf/stellenausschreibungen/Mitarbeiter_Wasserversorgung.pdf');
+    });
+
+    it("keeps an apostrophe inside a double-quoted PDF href", () => {
+      const result = parseDetailHtml(`
+        <h1>Chef d'équipe</h1>
+        <p>Descrizione sufficientemente lunga per mantenere la pagina valida durante il parsing.</p>
+        <a href="/fileadmin/jobs/d'Oberengadin.pdf">PDF</a>
+      `);
+      expect(result.pdfUrl).toBe("https://www.gemeinde-stmoritz.ch/fileadmin/jobs/d'Oberengadin.pdf");
     });
 
     it('parses police job detail correctly', () => {

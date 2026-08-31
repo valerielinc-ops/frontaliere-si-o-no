@@ -28,6 +28,7 @@
  * structure so existing callers keep working.
  */
 import { stripScriptsAndStyles } from './crawler-template.mjs';
+import { readMetaContent } from './html-attr.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -73,13 +74,7 @@ function extractJsonLd(html = '') {
  * Extract a meta tag content value from HTML.
  */
 function extractMeta(html, name) {
-  const re = new RegExp(`<meta[^>]+(?:name|property)\\s*=\\s*["']${name}["'][^>]+content\\s*=\\s*["']([^"']*)["']`, 'i');
-  const match = html.match(re);
-  if (match) return decodeHtml(normalizeSpace(match[1]));
-  // Try reversed attribute order
-  const re2 = new RegExp(`<meta[^>]+content\\s*=\\s*["']([^"']*)["'][^>]+(?:name|property)\\s*=\\s*["']${name}["']`, 'i');
-  const match2 = html.match(re2);
-  return match2 ? decodeHtml(normalizeSpace(match2[1])) : '';
+  return decodeHtml(normalizeSpace(readMetaContent(html, name)));
 }
 
 /**

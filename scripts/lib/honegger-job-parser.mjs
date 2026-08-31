@@ -55,6 +55,7 @@
  */
 import { createHash } from 'node:crypto';
 import { fetchHtml, slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
+import { readAttr, readMetaContent } from './html-attr.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -231,8 +232,9 @@ export function parseHoneggerListingPage(html = '') {
     const title = titleMatch ? normalizeSpace(stripHtml(decodeWpEntities(titleMatch[1]))) : '';
     if (!title) continue;
 
-    const linkMatch = block.match(/<a class="wp-block-post-excerpt__more-link" href="([^"]+)"/);
-    const detailUrl = linkMatch ? linkMatch[1] : '';
+    const linkTag = (block.match(/<a\b[^>]*>/gi) ?? []).find((tag) =>
+      readAttr(tag, 'class').split(/\s+/).includes('wp-block-post-excerpt__more-link'));
+    const detailUrl = readAttr(linkTag, 'href');
     if (!detailUrl) continue;
 
     const excerptMatch = block.match(/<p class="wp-block-post-excerpt__excerpt">([\s\S]*?)<\/p>/);
@@ -309,9 +311,9 @@ export function parseHoneggerDetailPage(html = '', fallbackTitle = '') {
   const requirements = extractHeadingSection(html, 'Das bringst du mit');
   const employerBenefits = extractHeadingSection(html, 'Wir als Arbeitgeber');
 
-  const modifiedMatch = html.match(/<meta property="article:modified_time" content="([^"]+)"/);
-  const publishedMatch = html.match(/<meta property="article:published_time" content="([^"]+)"/);
-  const postedDate = (modifiedMatch?.[1] || publishedMatch?.[1] || '').split('T')[0] || '';
+  const modifiedTime = readMetaContent(html, 'article:modified_time');
+  const publishedTime = readMetaContent(html, 'article:published_time');
+  const postedDate = (modifiedTime || publishedTime).split('T')[0] || '';
 
   return {
     title,

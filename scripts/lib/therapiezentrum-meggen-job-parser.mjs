@@ -23,6 +23,7 @@ import { createHash } from 'node:crypto';
 import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './pdf-job-content.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
+import { readAttr } from './html-attr.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -101,16 +102,16 @@ export function parseTzmListing(html = '') {
   const out = [];
   const seen = new Set();
 
-  // Capture: full <a …>inner</a>, href, title-attr, inner.
-  const anchorRe =
-    /<a\s+href="([^"]*\/app\/download\/[^"]+?\.pdf[^"]*)"([^>]*)>([\s\S]*?)<\/a>/gi;
+  // Capture the attribute soup independently from its order, then select PDF
+  // anchors through the quote-balanced reader.
+  const anchorRe = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
   let m;
   while ((m = anchorRe.exec(html)) !== null) {
-    let href = m[1];
-    const attrs = m[2] || '';
-    const inner = m[3] || '';
+    const attrs = m[1] || '';
+    let href = readAttr(attrs, 'href');
+    const inner = m[2] || '';
 
-    if (!href) continue;
+    if (!/\/app\/download\/[^?#]+?\.pdf(?:[?#]|$)/i.test(href)) continue;
     // Normalise to absolute https.
     if (href.startsWith('//')) href = `https:${href}`;
     else if (href.startsWith('/')) href = `https://www.tzm.ch${href}`;
@@ -118,8 +119,7 @@ export function parseTzmListing(html = '') {
     href = href.replace(/ /g, '%20');
 
     const innerText = normalizeSpace(stripTags(inner));
-    const titleAttrMatch = attrs.match(/title="([^"]+)"/i);
-    let titleFromAttr = titleAttrMatch ? decodeEntities(titleAttrMatch[1]) : '';
+    let titleFromAttr = decodeEntities(readAttr(attrs, 'title'));
     // Trim " (<filename>.pdf)" suffix that Jimdo appends.
     titleFromAttr = titleFromAttr.replace(/\s*\([^)]*\.pdf\)\s*$/i, '').trim();
 
