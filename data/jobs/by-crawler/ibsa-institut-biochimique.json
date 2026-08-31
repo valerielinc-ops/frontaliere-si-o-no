@@ -1,13 +1,13 @@
 {
   "crawlerKey": "ibsa-institut-biochimique",
-  "assembledAt": "2026-08-31T17:15:47.803Z",
+  "assembledAt": "2026-08-31T21:32:03.596Z",
   "jobs": [
     {
       "id": "company-um2f7f",
       "slug": "industrial-controlling-manager-ibsa-institut-biochimique-6926-working-area-um2f7f",
       "company": "IBSA Institut Biochimique",
       "title": "Industrial Controlling Manager",
-      "location": "6926 Working Area",
+      "location": "Collina d'Oro",
       "canton": "TI",
       "category": "finance",
       "contract": "internship",
@@ -22,12 +22,12 @@
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
-        "location": "Ticino",
+        "location": "Collina d'Oro",
         "canton": "TI"
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-08-31T17:15:45.224Z",
+      "crawledAt": "2026-08-31T21:32:03.438Z",
       "firstSeenAt": "2026-08-31T17:15:45.224Z",
       "slugByLocale": {
         "de": "industrial-controlling-manager-delle-technical-operations-nella-realizzazione-dei-programmi-di-efficientamento-industriale-responsabilita-co-um2f7f",
@@ -71,8 +71,99 @@
           "unitText": "YEAR"
         }
       },
-      "addressLocality": "6926 Working Area",
+      "addressLocality": "Collina d'Oro",
       "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "postalCode": "6926"
+    },
+    {
+      "id": "company-pt8y8b",
+      "slug": "it-category-manager-ibsa-institut-biochimique-grancia-ti-pt8y8b",
+      "company": "IBSA Institut Biochimique",
+      "title": "IT Category Manager",
+      "location": "Grancia",
+      "canton": "TI",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "description": "The IT Category Manager is responsible for the end-to-end procurement strategy and operational management of all Information Technology spend at IBSA, including software, hardware and IT consultancy services.\n\nA core principle of this role is the adoption of a Total Cost of Ownership (TCO) approach to all sourcing decisions, prioritising long-term value and holistic risk management\n\nThe Category Manager must be able to articulate and share this perspective to internal stakeholders and ensure it is embedded in all category strategies and supplier evaluations.\n\nThe position acts as the strategic interface between the Procurement function and the Enterprise Technology & Transformation (ET&T) function, ensuring that IT sourcing decisions deliver value for money, minimise risk, and align with IBSA's digital transformation agenda. Category strategy is defined in close collaboration with ET&T leadership, ensuring full alignment between technology direction and procurement execution.\n\nKey Responsibilities\n\nCategory Strategy\n\n- Develop and implement a comprehensive IT category strategy covering software (licences, SaaS, ERP), hardware (infrastructure, devices, network) and IT consulting and managed services — defined in concert with the Enterprise Technology & Transformation (ET&T) function to ensure full alignment with the technology roadmap.\n\n- Conduct regular market analysis to identify sourcing opportunities, emerging vendors and technology trends relevant to IBSA's business.\n\n- Define and maintain a supplier segmentation model and category roadmap aligned with business priorities.\n\n- Embed a Total Cost of Ownership (TCO) methodology in all category decisions, ensuring that short-term price savings are never pursued at the expense of long-term value, service continuity or operational risk.\n\n- Maintain an IT supply risk register, proactively identifying and mitigating concentration risk, vendor dependency, cybersecurity exposure, and contract lock-in.\n\nSourcing & Contracting\n\n- Lead competitive tender processes (RFI, RFQ, RFP) for IT categories in full compliance with IBSA procurement policy.\n\n- Negotiate contracts, SLAs, pricing structures and commercial terms with IT vendors, ensuring best Total Cost of Ownership (TCO) — with explicit consideration of implementation, integration, maintenance, training and exit costs, not only licence or purchase price.\n\n- Manage contract lifecycle including renewals, amendments and exit strategies.\n\n- Work closely with Legal to ensure contractual protection on data security, IP, liability and GDPR compliance.\n\nSupplier Relationship Management\n\n- Build and maintain strategic relationships with key IT suppliers, conducting regular business reviews and performance evaluations.\n\n- Monitor supplier performance against agreed KPIs and SLAs; escalate issues and drive corrective action plans where necessary.\n\n- Identify and develop alternative sources to reduce supply risk.\n\nStakeholder Management\n\n- Act as the primary procurement business partner for the ET&T function and other internal stakeholders with IT spend.\n\n- Collaborate with ET&T leadership to understand demand forecasts, project pipelines and technology roadmaps.\n\nFinancial, Compliance & Governance Management\n\n- Deliver measurable added value within the IT category on an annual basis.\n\n- Manage category spend transparency, providing accurate and timely reporting on committed and forecast expenditure.\n\n- Support the annual budget process by providing market intelligence and benchmark data to IT stakeholders.\n\n- Ensure all IT procurement activities comply with IBSA internal policies, procedures and applicable regulations.\n\nRequired Qualifications & Experience\n\n- Master's degree or equivalent in Business, Engineering, Computer Science or related field\n\n- Minimum 10 years of experience in procurement, with at least 5 years in IT category management in a multinational environment.\n\n- Demonstrated track record of managing complex IT contracts (software licensing, cloud services, hardware, consulting).\n\n- Strong negotiation skills with experience in large-scale vendor negotiations.\n\n- Solid understanding of IT market dynamics, licensing models (perpetual, subscription, SaaS) and managed service structures.\n\n- Experience with P2P platforms and e-procurement tools; familiarity with Jaggaer is a plus.\n\n- Fluent in English and Italian; French or German is an advantage.\n\nKey Competencies\n\n- Strategic thinking: ability to develop category strategies that align with business objectives and deliver long-term value.\n\n- Commercial acumen: strong analytical skills and financial literacy; ability to model TCO across the full asset lifecycle and evaluate complex commercial proposals beyond headline price.\n\n- Risk management: proactive identification and mitigation of supply, contractual, cybersecurity and operational risk in the IT category; ability to balance risk appetite with commercial opportunity.\n\n- Influencing skills: Effective at building relationships and influencing without formal authority across functions and seniority levels.\n\n- Results orientation: proactive, ownership mindset with a track record of delivering against targets in complex environments.\n\n- Integrity & compliance: uncompromising ethical standards; ensures all procurement activity is conducted with full transparency.\n\nTechnical & Domain Knowledge\n\n- Knowledge of major enterprise ecosystems and their licensing models: SAP (incl. S/4HANA), Microsoft (Microsoft 365, Enterprise Agreement, Azure), Oracle, Salesforce, ServiceNow.\n\n- Experience sourcing and negotiating cloud services (AWS, Azure, GCP), including consumption-based pricing models and data residency clauses.\n\n- Familiarity with sourcing cybersecurity solutions (e.g. identity management, EDR, SIEM) and the related contractual security clauses.\n\n- Knowledge of compliance requirements in regulated environments (GxP, Computer System Validation - CSV, 21 CFR Part 11 / Annex 11), relevant to the pharmaceutical sector and to the purchase of systems impacting validated processes).",
+      "requirements": [
+        "Strong negotiation skills with experience in large-scale vendor negotiations.",
+        "Experience with P2P platforms and e-procurement tools;",
+        "Fluent in English and Italian;",
+        "strong analytical skills and financial literacy;",
+        "Influencing skills:"
+      ],
+      "featured": false,
+      "postedDate": "2026-08-31",
+      "url": "https://career.ibsagroup.com/job/Grancia-IT-Category-Manager-TI-6916/1365742755/",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grancia",
+        "canton": "TI"
+      },
+      "companyKey": "ibsa-institut-biochimique",
+      "companyDomain": "ibsa.ch",
+      "crawledAt": "2026-08-31T21:32:03.438Z",
+      "firstSeenAt": "2026-08-31T21:29:17.361Z",
+      "titleByLocale": {
+        "en": "IT Category Manager",
+        "it": "IT Category Manager",
+        "de": "IT Category Manager",
+        "fr": "IT Category Manager"
+      },
+      "descriptionByLocale": {
+        "en": "The IT Category Manager is responsible for the end-to-end procurement strategy and operational management of all Information Technology spend at IBSA, including software, hardware and IT consultancy services.\n\nA core principle of this role is the adoption of a Total Cost of Ownership (TCO) approach to all sourcing decisions, prioritising long-term value and holistic risk management\n\nThe Category Manager must be able to articulate and share this perspective to internal stakeholders and ensure it is embedded in all category strategies and supplier evaluations.\n\nThe position acts as the strategic interface between the Procurement function and the Enterprise Technology & Transformation (ET&T) function, ensuring that IT sourcing decisions deliver value for money, minimise risk, and align with IBSA's digital transformation agenda. Category strategy is defined in close collaboration with ET&T leadership, ensuring full alignment between technology direction and procurement execution.\n\nKey Responsibilities\n\nCategory Strategy\n\n- Develop and implement a comprehensive IT category strategy covering software (licences, SaaS, ERP), hardware (infrastructure, devices, network) and IT consulting and managed services — defined in concert with the Enterprise Technology & Transformation (ET&T) function to ensure full alignment with the technology roadmap.\n\n- Conduct regular market analysis to identify sourcing opportunities, emerging vendors and technology trends relevant to IBSA's business.\n\n- Define and maintain a supplier segmentation model and category roadmap aligned with business priorities.\n\n- Embed a Total Cost of Ownership (TCO) methodology in all category decisions, ensuring that short-term price savings are never pursued at the expense of long-term value, service continuity or operational risk.\n\n- Maintain an IT supply risk register, proactively identifying and mitigating concentration risk, vendor dependency, cybersecurity exposure, and contract lock-in.\n\nSourcing & Contracting\n\n- Lead competitive tender processes (RFI, RFQ, RFP) for IT categories in full compliance with IBSA procurement policy.\n\n- Negotiate contracts, SLAs, pricing structures and commercial terms with IT vendors, ensuring best Total Cost of Ownership (TCO) — with explicit consideration of implementation, integration, maintenance, training and exit costs, not only licence or purchase price.\n\n- Manage contract lifecycle including renewals, amendments and exit strategies.\n\n- Work closely with Legal to ensure contractual protection on data security, IP, liability and GDPR compliance.\n\nSupplier Relationship Management\n\n- Build and maintain strategic relationships with key IT suppliers, conducting regular business reviews and performance evaluations.\n\n- Monitor supplier performance against agreed KPIs and SLAs; escalate issues and drive corrective action plans where necessary.\n\n- Identify and develop alternative sources to reduce supply risk.\n\nStakeholder Management\n\n- Act as the primary procurement business partner for the ET&T function and other internal stakeholders with IT spend.\n\n- Collaborate with ET&T leadership to understand demand forecasts, project pipelines and technology roadmaps.\n\nFinancial, Compliance & Governance Management\n\n- Deliver measurable added value within the IT category on an annual basis.\n\n- Manage category spend transparency, providing accurate and timely reporting on committed and forecast expenditure.\n\n- Support the annual budget process by providing market intelligence and benchmark data to IT stakeholders.\n\n- Ensure all IT procurement activities comply with IBSA internal policies, procedures and applicable regulations.\n\nRequired Qualifications & Experience\n\n- Master's degree or equivalent in Business, Engineering, Computer Science or related field\n\n- Minimum 10 years of experience in procurement, with at least 5 years in IT category management in a multinational environment.\n\n- Demonstrated track record of managing complex IT contracts (software licensing, cloud services, hardware, consulting).\n\n- Strong negotiation skills with experience in large-scale vendor negotiations.\n\n- Solid understanding of IT market dynamics, licensing models (perpetual, subscription, SaaS) and managed service structures.\n\n- Experience with P2P platforms and e-procurement tools; familiarity with Jaggaer is a plus.\n\n- Fluent in English and Italian; French or German is an advantage.\n\nKey Competencies\n\n- Strategic thinking: ability to develop category strategies that align with business objectives and deliver long-term value.\n\n- Commercial acumen: strong analytical skills and financial literacy; ability to model TCO across the full asset lifecycle and evaluate complex commercial proposals beyond headline price.\n\n- Risk management: proactive identification and mitigation of supply, contractual, cybersecurity and operational risk in the IT category; ability to balance risk appetite with commercial opportunity.\n\n- Influencing skills: Effective at building relationships and influencing without formal authority across functions and seniority levels.\n\n- Results orientation: proactive, ownership mindset with a track record of delivering against targets in complex environments.\n\n- Integrity & compliance: uncompromising ethical standards; ensures all procurement activity is conducted with full transparency.\n\nTechnical & Domain Knowledge\n\n- Knowledge of major enterprise ecosystems and their licensing models: SAP (incl. S/4HANA), Microsoft (Microsoft 365, Enterprise Agreement, Azure), Oracle, Salesforce, ServiceNow.\n\n- Experience sourcing and negotiating cloud services (AWS, Azure, GCP), including consumption-based pricing models and data residency clauses.\n\n- Familiarity with sourcing cybersecurity solutions (e.g. identity management, EDR, SIEM) and the related contractual security clauses.\n\n- Knowledge of compliance requirements in regulated environments (GxP, Computer System Validation - CSV, 21 CFR Part 11 / Annex 11), relevant to the pharmaceutical sector and to the purchase of systems impacting validated processes).",
+        "it": "The IT Category Manager is responsible for the end-to-end procurement strategy and operational management of all Information Technology spend at IBSA, including software, hardware and IT consultancy services.\n\nA core principle of this role is the adoption of a Total Cost of Ownership (TCO) approach to all sourcing decisions, prioritising long-term value and holistic risk management\n\nThe Category Manager must be able to articulate and share this perspective to internal stakeholders and ensure it is embedded in all category strategies and supplier evaluations.\n\nThe position acts as the strategic interface between the Procurement function and the Enterprise Technology & Transformation (ET&T) function, ensuring that IT sourcing decisions deliver value for money, minimise risk, and align with IBSA's digital transformation agenda. Category strategy is defined in close collaboration with ET&T leadership, ensuring full alignment between technology direction and procurement execution.\n\nKey Responsibilities\n\nCategory Strategy\n\n- Develop and implement a comprehensive IT category strategy covering software (licences, SaaS, ERP), hardware (infrastructure, devices, network) and IT consulting and managed services — defined in concert with the Enterprise Technology & Transformation (ET&T) function to ensure full alignment with the technology roadmap.\n\n- Conduct regular market analysis to identify sourcing opportunities, emerging vendors and technology trends relevant to IBSA's business.\n\n- Define and maintain a supplier segmentation model and category roadmap aligned with business priorities.\n\n- Embed a Total Cost of Ownership (TCO) methodology in all category decisions, ensuring that short-term price savings are never pursued at the expense of long-term value, service continuity or operational risk.\n\n- Maintain an IT supply risk register, proactively identifying and mitigating concentration risk, vendor dependency, cybersecurity exposure, and contract lock-in.\n\nSourcing & Contracting\n\n- Lead competitive tender processes (RFI, RFQ, RFP) for IT categories in full compliance with IBSA procurement policy.\n\n- Negotiate contracts, SLAs, pricing structures and commercial terms with IT vendors, ensuring best Total Cost of Ownership (TCO) — with explicit consideration of implementation, integration, maintenance, training and exit costs, not only licence or purchase price.\n\n- Manage contract lifecycle including renewals, amendments and exit strategies.\n\n- Work closely with Legal to ensure contractual protection on data security, IP, liability and GDPR compliance.\n\nSupplier Relationship Management\n\n- Build and maintain strategic relationships with key IT suppliers, conducting regular business reviews and performance evaluations.\n\n- Monitor supplier performance against agreed KPIs and SLAs; escalate issues and drive corrective action plans where necessary.\n\n- Identify and develop alternative sources to reduce supply risk.\n\nStakeholder Management\n\n- Act as the primary procurement business partner for the ET&T function and other internal stakeholders with IT spend.\n\n- Collaborate with ET&T leadership to understand demand forecasts, project pipelines and technology roadmaps.\n\nFinancial, Compliance & Governance Management\n\n- Deliver measurable added value within the IT category on an annual basis.\n\n- Manage category spend transparency, providing accurate and timely reporting on committed and forecast expenditure.\n\n- Support the annual budget process by providing market intelligence and benchmark data to IT stakeholders.\n\n- Ensure all IT procurement activities comply with IBSA internal policies, procedures and applicable regulations.\n\nRequired Qualifications & Experience\n\n- Master's degree or equivalent in Business, Engineering, Computer Science or related field\n\n- Minimum 10 years of experience in procurement, with at least 5 years in IT category management in a multinational environment.\n\n- Demonstrated track record of managing complex IT contracts (software licensing, cloud services, hardware, consulting).\n\n- Strong negotiation skills with experience in large-scale vendor negotiations.\n\n- Solid understanding of IT market dynamics, licensing models (perpetual, subscription, SaaS) and managed service structures.\n\n- Experience with P2P platforms and e-procurement tools; familiarity with Jaggaer is a plus.\n\n- Fluent in English and Italian; French or German is an advantage.\n\nKey Competencies\n\n- Strategic thinking: ability to develop category strategies that align with business objectives and deliver long-term value.\n\n- Commercial acumen: strong analytical skills and financial literacy; ability to model TCO across the full asset lifecycle and evaluate complex commercial proposals beyond headline price.\n\n- Risk management: proactive identification and mitigation of supply, contractual, cybersecurity and operational risk in the IT category; ability to balance risk appetite with commercial opportunity.\n\n- Influencing skills: Effective at building relationships and influencing without formal authority across functions and seniority levels.\n\n- Results orientation: proactive, ownership mindset with a track record of delivering against targets in complex environments.\n\n- Integrity & compliance: uncompromising ethical standards; ensures all procurement activity is conducted with full transparency.\n\nTechnical & Domain Knowledge\n\n- Knowledge of major enterprise ecosystems and their licensing models: SAP (incl. S/4HANA), Microsoft (Microsoft 365, Enterprise Agreement, Azure), Oracle, Salesforce, ServiceNow.\n\n- Experience sourcing and negotiating cloud services (AWS, Azure, GCP), including consumption-based pricing models and data residency clauses.\n\n- Familiarity with sourcing cybersecurity solutions (e.g. identity management, EDR, SIEM) and the related contractual security clauses.\n\n- Knowledge of compliance requirements in regulated environments (GxP, Computer System Validation - CSV, 21 CFR Part 11 / Annex 11), relevant to the pharmaceutical sector and to the purchase of systems impacting validated processes).",
+        "de": "The IT Category Manager is responsible for the end-to-end procurement strategy and operational management of all Information Technology spend at IBSA, including software, hardware and IT consultancy services.\n\nA core principle of this role is the adoption of a Total Cost of Ownership (TCO) approach to all sourcing decisions, prioritising long-term value and holistic risk management\n\nThe Category Manager must be able to articulate and share this perspective to internal stakeholders and ensure it is embedded in all category strategies and supplier evaluations.\n\nThe position acts as the strategic interface between the Procurement function and the Enterprise Technology & Transformation (ET&T) function, ensuring that IT sourcing decisions deliver value for money, minimise risk, and align with IBSA's digital transformation agenda. Category strategy is defined in close collaboration with ET&T leadership, ensuring full alignment between technology direction and procurement execution.\n\nKey Responsibilities\n\nCategory Strategy\n\n- Develop and implement a comprehensive IT category strategy covering software (licences, SaaS, ERP), hardware (infrastructure, devices, network) and IT consulting and managed services — defined in concert with the Enterprise Technology & Transformation (ET&T) function to ensure full alignment with the technology roadmap.\n\n- Conduct regular market analysis to identify sourcing opportunities, emerging vendors and technology trends relevant to IBSA's business.\n\n- Define and maintain a supplier segmentation model and category roadmap aligned with business priorities.\n\n- Embed a Total Cost of Ownership (TCO) methodology in all category decisions, ensuring that short-term price savings are never pursued at the expense of long-term value, service continuity or operational risk.\n\n- Maintain an IT supply risk register, proactively identifying and mitigating concentration risk, vendor dependency, cybersecurity exposure, and contract lock-in.\n\nSourcing & Contracting\n\n- Lead competitive tender processes (RFI, RFQ, RFP) for IT categories in full compliance with IBSA procurement policy.\n\n- Negotiate contracts, SLAs, pricing structures and commercial terms with IT vendors, ensuring best Total Cost of Ownership (TCO) — with explicit consideration of implementation, integration, maintenance, training and exit costs, not only licence or purchase price.\n\n- Manage contract lifecycle including renewals, amendments and exit strategies.\n\n- Work closely with Legal to ensure contractual protection on data security, IP, liability and GDPR compliance.\n\nSupplier Relationship Management\n\n- Build and maintain strategic relationships with key IT suppliers, conducting regular business reviews and performance evaluations.\n\n- Monitor supplier performance against agreed KPIs and SLAs; escalate issues and drive corrective action plans where necessary.\n\n- Identify and develop alternative sources to reduce supply risk.\n\nStakeholder Management\n\n- Act as the primary procurement business partner for the ET&T function and other internal stakeholders with IT spend.\n\n- Collaborate with ET&T leadership to understand demand forecasts, project pipelines and technology roadmaps.\n\nFinancial, Compliance & Governance Management\n\n- Deliver measurable added value within the IT category on an annual basis.\n\n- Manage category spend transparency, providing accurate and timely reporting on committed and forecast expenditure.\n\n- Support the annual budget process by providing market intelligence and benchmark data to IT stakeholders.\n\n- Ensure all IT procurement activities comply with IBSA internal policies, procedures and applicable regulations.\n\nRequired Qualifications & Experience\n\n- Master's degree or equivalent in Business, Engineering, Computer Science or related field\n\n- Minimum 10 years of experience in procurement, with at least 5 years in IT category management in a multinational environment.\n\n- Demonstrated track record of managing complex IT contracts (software licensing, cloud services, hardware, consulting).\n\n- Strong negotiation skills with experience in large-scale vendor negotiations.\n\n- Solid understanding of IT market dynamics, licensing models (perpetual, subscription, SaaS) and managed service structures.\n\n- Experience with P2P platforms and e-procurement tools; familiarity with Jaggaer is a plus.\n\n- Fluent in English and Italian; French or German is an advantage.\n\nKey Competencies\n\n- Strategic thinking: ability to develop category strategies that align with business objectives and deliver long-term value.\n\n- Commercial acumen: strong analytical skills and financial literacy; ability to model TCO across the full asset lifecycle and evaluate complex commercial proposals beyond headline price.\n\n- Risk management: proactive identification and mitigation of supply, contractual, cybersecurity and operational risk in the IT category; ability to balance risk appetite with commercial opportunity.\n\n- Influencing skills: Effective at building relationships and influencing without formal authority across functions and seniority levels.\n\n- Results orientation: proactive, ownership mindset with a track record of delivering against targets in complex environments.\n\n- Integrity & compliance: uncompromising ethical standards; ensures all procurement activity is conducted with full transparency.\n\nTechnical & Domain Knowledge\n\n- Knowledge of major enterprise ecosystems and their licensing models: SAP (incl. S/4HANA), Microsoft (Microsoft 365, Enterprise Agreement, Azure), Oracle, Salesforce, ServiceNow.\n\n- Experience sourcing and negotiating cloud services (AWS, Azure, GCP), including consumption-based pricing models and data residency clauses.\n\n- Familiarity with sourcing cybersecurity solutions (e.g. identity management, EDR, SIEM) and the related contractual security clauses.\n\n- Knowledge of compliance requirements in regulated environments (GxP, Computer System Validation - CSV, 21 CFR Part 11 / Annex 11), relevant to the pharmaceutical sector and to the purchase of systems impacting validated processes).",
+        "fr": "The IT Category Manager is responsible for the end-to-end procurement strategy and operational management of all Information Technology spend at IBSA, including software, hardware and IT consultancy services.\n\nA core principle of this role is the adoption of a Total Cost of Ownership (TCO) approach to all sourcing decisions, prioritising long-term value and holistic risk management\n\nThe Category Manager must be able to articulate and share this perspective to internal stakeholders and ensure it is embedded in all category strategies and supplier evaluations.\n\nThe position acts as the strategic interface between the Procurement function and the Enterprise Technology & Transformation (ET&T) function, ensuring that IT sourcing decisions deliver value for money, minimise risk, and align with IBSA's digital transformation agenda. Category strategy is defined in close collaboration with ET&T leadership, ensuring full alignment between technology direction and procurement execution.\n\nKey Responsibilities\n\nCategory Strategy\n\n- Develop and implement a comprehensive IT category strategy covering software (licences, SaaS, ERP), hardware (infrastructure, devices, network) and IT consulting and managed services — defined in concert with the Enterprise Technology & Transformation (ET&T) function to ensure full alignment with the technology roadmap.\n\n- Conduct regular market analysis to identify sourcing opportunities, emerging vendors and technology trends relevant to IBSA's business.\n\n- Define and maintain a supplier segmentation model and category roadmap aligned with business priorities.\n\n- Embed a Total Cost of Ownership (TCO) methodology in all category decisions, ensuring that short-term price savings are never pursued at the expense of long-term value, service continuity or operational risk.\n\n- Maintain an IT supply risk register, proactively identifying and mitigating concentration risk, vendor dependency, cybersecurity exposure, and contract lock-in.\n\nSourcing & Contracting\n\n- Lead competitive tender processes (RFI, RFQ, RFP) for IT categories in full compliance with IBSA procurement policy.\n\n- Negotiate contracts, SLAs, pricing structures and commercial terms with IT vendors, ensuring best Total Cost of Ownership (TCO) — with explicit consideration of implementation, integration, maintenance, training and exit costs, not only licence or purchase price.\n\n- Manage contract lifecycle including renewals, amendments and exit strategies.\n\n- Work closely with Legal to ensure contractual protection on data security, IP, liability and GDPR compliance.\n\nSupplier Relationship Management\n\n- Build and maintain strategic relationships with key IT suppliers, conducting regular business reviews and performance evaluations.\n\n- Monitor supplier performance against agreed KPIs and SLAs; escalate issues and drive corrective action plans where necessary.\n\n- Identify and develop alternative sources to reduce supply risk.\n\nStakeholder Management\n\n- Act as the primary procurement business partner for the ET&T function and other internal stakeholders with IT spend.\n\n- Collaborate with ET&T leadership to understand demand forecasts, project pipelines and technology roadmaps.\n\nFinancial, Compliance & Governance Management\n\n- Deliver measurable added value within the IT category on an annual basis.\n\n- Manage category spend transparency, providing accurate and timely reporting on committed and forecast expenditure.\n\n- Support the annual budget process by providing market intelligence and benchmark data to IT stakeholders.\n\n- Ensure all IT procurement activities comply with IBSA internal policies, procedures and applicable regulations.\n\nRequired Qualifications & Experience\n\n- Master's degree or equivalent in Business, Engineering, Computer Science or related field\n\n- Minimum 10 years of experience in procurement, with at least 5 years in IT category management in a multinational environment.\n\n- Demonstrated track record of managing complex IT contracts (software licensing, cloud services, hardware, consulting).\n\n- Strong negotiation skills with experience in large-scale vendor negotiations.\n\n- Solid understanding of IT market dynamics, licensing models (perpetual, subscription, SaaS) and managed service structures.\n\n- Experience with P2P platforms and e-procurement tools; familiarity with Jaggaer is a plus.\n\n- Fluent in English and Italian; French or German is an advantage.\n\nKey Competencies\n\n- Strategic thinking: ability to develop category strategies that align with business objectives and deliver long-term value.\n\n- Commercial acumen: strong analytical skills and financial literacy; ability to model TCO across the full asset lifecycle and evaluate complex commercial proposals beyond headline price.\n\n- Risk management: proactive identification and mitigation of supply, contractual, cybersecurity and operational risk in the IT category; ability to balance risk appetite with commercial opportunity.\n\n- Influencing skills: Effective at building relationships and influencing without formal authority across functions and seniority levels.\n\n- Results orientation: proactive, ownership mindset with a track record of delivering against targets in complex environments.\n\n- Integrity & compliance: uncompromising ethical standards; ensures all procurement activity is conducted with full transparency.\n\nTechnical & Domain Knowledge\n\n- Knowledge of major enterprise ecosystems and their licensing models: SAP (incl. S/4HANA), Microsoft (Microsoft 365, Enterprise Agreement, Azure), Oracle, Salesforce, ServiceNow.\n\n- Experience sourcing and negotiating cloud services (AWS, Azure, GCP), including consumption-based pricing models and data residency clauses.\n\n- Familiarity with sourcing cybersecurity solutions (e.g. identity management, EDR, SIEM) and the related contractual security clauses.\n\n- Knowledge of compliance requirements in regulated environments (GxP, Computer System Validation - CSV, 21 CFR Part 11 / Annex 11), relevant to the pharmaceutical sector and to the purchase of systems impacting validated processes)."
+      },
+      "requirementsByLocale": {
+        "it": [],
+        "en": [
+          "Strong negotiation skills with experience in large-scale vendor negotiations.",
+          "Experience with P2P platforms and e-procurement tools;",
+          "Fluent in English and Italian;",
+          "strong analytical skills and financial literacy;",
+          "Influencing skills:"
+        ],
+        "de": [],
+        "fr": []
+      },
+      "slugByLocale": {
+        "it": "it-category-manager-ibsa-institut-biochimique-grancia-ti-pt8y8b",
+        "en": "it-category-manager-ibsa-institut-biochimique-grancia-ti-pt8y8b",
+        "de": "it-category-manager-ibsa-institut-biochimique-grancia-ti-pt8y8b",
+        "fr": "it-category-manager-ibsa-institut-biochimique-grancia-ti-pt8y8b"
+      },
+      "sourceLang": "en",
+      "addressLocality": "Grancia",
+      "addressRegion": "TI",
+      "postalCode": "6916",
+      "country": "CH",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "it-category-manager-ibsa-institut-biochimique-grancia-ti"
+        ]
+      },
+      "previousSlugs": [
+        "it-category-manager-ibsa-institut-biochimique-grancia-ti"
+      ],
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79500,
+          "maxValue": 135000,
+          "unitText": "YEAR"
+        }
+      },
       "employmentType": "FULL_TIME"
     },
     {
@@ -80,7 +171,7 @@
       "slug": "lead-risorse-umane-operations-officer-ibsa-institut-biochimique-6926-working-area-ro7hf5",
       "company": "IBSA Institut Biochimique",
       "title": "Lead HR Operations Officer",
-      "location": "6926 Working Area",
+      "location": "Collina d'Oro",
       "canton": "TI",
       "category": "finance",
       "contract": "internship",
@@ -97,12 +188,12 @@
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
-        "location": "Ticino",
+        "location": "Collina d'Oro",
         "canton": "TI"
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-08-31T17:15:45.224Z",
+      "crawledAt": "2026-08-31T21:32:03.438Z",
       "firstSeenAt": "2026-08-24T10:28:44.645Z",
       "titleByLocale": {
         "en": "Lead HR Operations Officer",
@@ -154,18 +245,19 @@
           "unitText": "YEAR"
         }
       },
-      "addressLocality": "6926 Working Area",
+      "addressLocality": "Collina d'Oro",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "postalCode": "6926"
     },
     {
       "id": "company-u7vkyi",
       "slug": "clinical-ricerca-officer-e-il-mantenimento-del-trial-master-file-tmf-attraverso-la-gestione-e-l-archiviazione-della-documentazione-di-studio-u7vkyi",
       "company": "IBSA Institut Biochimique",
       "title": "Clinical Research Officer",
-      "location": "6926 Working Area",
+      "location": "Collina d'Oro",
       "canton": "TI",
       "category": "admin",
       "contract": "full-time",
@@ -181,12 +273,12 @@
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
-        "location": "Ticino",
+        "location": "Collina d'Oro",
         "canton": "TI"
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-08-31T17:15:45.224Z",
+      "crawledAt": "2026-08-31T21:32:03.438Z",
       "firstSeenAt": "2026-08-07T01:12:42.852Z",
       "slugByLocale": {
         "it": "clinical-ricerca-officer-e-il-mantenimento-del-trial-master-file-tmf-attraverso-la-gestione-e-l-archiviazione-della-documentazione-di-studio-u7vkyi",
@@ -237,19 +329,20 @@
           "unitText": "YEAR"
         }
       },
-      "addressLocality": "6926 Working Area",
+      "addressLocality": "Collina d'Oro",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "postalCode": "6926"
     },
     {
       "id": "company-toyw1a",
       "slug": "accounting-officer-sost-maternita-e-collaborazione-persona-responsabile-ed-affidabile-abituata-a-gestire-scadenze-a-breve-termine-luogo-di-l-toyw1a",
       "company": "IBSA Institut Biochimique",
       "title": "Accounting Officer",
-      "location": "6926 Working Area",
+      "location": "Collina d'Oro",
       "canton": "TI",
       "category": "finance",
       "contract": "temporary",
@@ -262,12 +355,12 @@
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
-        "location": "Ticino",
+        "location": "Collina d'Oro",
         "canton": "TI"
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-08-31T17:15:45.224Z",
+      "crawledAt": "2026-08-31T21:32:03.438Z",
       "firstSeenAt": "2026-08-04T11:42:43.269Z",
       "slugByLocale": {
         "it": "accounting-officer-sost-maternita-e-collaborazione-persona-responsabile-ed-affidabile-abituata-a-gestire-scadenze-a-breve-termine-luogo-di-l-toyw1a",
@@ -316,19 +409,20 @@
           "unitText": "YEAR"
         }
       },
-      "addressLocality": "6926 Working Area",
+      "addressLocality": "Collina d'Oro",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "postalCode": "6926"
     },
     {
       "id": "company-d2v3bw",
       "slug": "jr-clinical-safety-compliance-specialista-ibsa-institut-biochimique-ticino",
       "company": "IBSA Institut Biochimique",
       "title": "Jr Clinical & Safety Compliance Specialist",
-      "location": "6926 Working Area",
+      "location": "Collina d'Oro",
       "canton": "TI",
       "category": "health",
       "contract": "internship",
@@ -346,12 +440,12 @@
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
-        "location": "Ticino",
+        "location": "Collina d'Oro",
         "canton": "TI"
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-08-31T17:15:45.224Z",
+      "crawledAt": "2026-08-31T21:32:03.438Z",
       "firstSeenAt": "2026-07-22T11:43:57.748Z",
       "titleByLocale": {
         "en": "Jr Clinical & Safety Compliance Specialist",
@@ -412,19 +506,20 @@
           "unitText": "YEAR"
         }
       },
-      "addressLocality": "Ticino",
+      "addressLocality": "Collina d'Oro",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "postalCode": "6926"
     },
     {
       "id": "company-d18wk3",
       "slug": "pharmaceutical-technology-technician-ibsa-institut-biochimique-all-area-all-clear-apply-now-pharmaceutical-technology-technician-location-ma-d18wk3",
       "company": "IBSA Institut Biochimique",
       "title": "Pharmaceutical Technology Technician",
-      "location": "6928 Working Area",
+      "location": "Manno",
       "canton": "TI",
       "category": "engineering",
       "contract": "full-time",
@@ -441,12 +536,12 @@
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
-        "location": "Ticino",
+        "location": "Manno",
         "canton": "TI"
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-08-31T17:15:45.224Z",
+      "crawledAt": "2026-08-31T21:32:03.438Z",
       "firstSeenAt": "2026-07-22T22:26:29.099Z",
       "titleByLocale": {
         "en": "Pharmaceutical Technology Technician",
@@ -508,19 +603,20 @@
           "unitText": "YEAR"
         }
       },
-      "addressLocality": "Ma",
+      "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "postalCode": "6928"
     },
     {
       "id": "company-tngyfi",
       "slug": "jr-medical-writing-specialista-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-medical-writing-specialist-location-collina-d-tngyfi",
       "company": "IBSA Institut Biochimique",
       "title": "Jr Medical Writing Specialist",
-      "location": "6926 Working Area",
+      "location": "Collina d'Oro",
       "canton": "TI",
       "category": "health",
       "contract": "full-time",
@@ -537,12 +633,12 @@
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
-        "location": "Ticino",
+        "location": "Collina d'Oro",
         "canton": "TI"
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-08-31T17:15:45.224Z",
+      "crawledAt": "2026-08-31T21:32:03.438Z",
       "firstSeenAt": "2026-07-14T22:10:56.599Z",
       "titleByLocale": {
         "en": "Jr Medical Writing Specialist",
@@ -608,12 +704,13 @@
           "unitText": "YEAR"
         }
       },
-      "addressLocality": "Collina d",
+      "addressLocality": "Collina d'Oro",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "postalCode": "6926"
     }
   ]
 }

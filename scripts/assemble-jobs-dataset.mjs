@@ -49,7 +49,7 @@ import { carryForwardMarks, dedupeByIdentityPreservingMarks } from './lib/job-ma
 import { supersedeCrawledByPublisher } from './lib/publisher-supersede.mjs';
 import { assembleUrlKey } from './lib/job-url-key.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
-import { normalizeDescriptionBullets, cleanCrawlerArtifacts } from './lib/crawler-template.mjs';
+import { normalizeDescriptionBullets, cleanCrawlerArtifacts, restoreExistingSlugIdentity } from './lib/crawler-template.mjs';
 import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities, addPreviousSlugForLocale, captureLostSlugs, DEFAULT_PREV_SLUG_CAP, stableSlugHash, appendSlugDisambiguator } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, swissCityFromLocationField, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
 import { getCantonDisplayName } from './lib/crawler-location-config.mjs';
@@ -1690,6 +1690,9 @@ export function isNearDuplicateLocalizedTitle(candidate, source) {
  * @param {string} crawlerKey   - Normalised company key (e.g. 'coop', 'galenica')
  * @param {object[]} jobs       - Array of job objects discovered in this run
  * @param {object} [options]
+ * @param {boolean} [options.preserveExistingSlugs] - Re-pin active slug fields
+ *   and their history after every writer hardening pass. Use only when a
+ *   metadata correction must not rename already-published vacancy URLs.
  * @param {boolean} [options.skipShrinkGuard] - Bypass the anti-shrink guard
  *   for THIS write only. Reserved for callers that have already verified,
  *   deterministically, that a shrink (including to zero) is a real
@@ -1961,10 +1964,13 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
     }
   }
 
+  const finalJobs = options.preserveExistingSlugs && Array.isArray(existingSlice?.jobs)
+    ? restoreExistingSlugIdentity(existingSlice.jobs, hardened.jobs).jobs
+    : hardened.jobs;
   const payload = {
     crawlerKey,
     assembledAt: new Date().toISOString(),
-    jobs: hardened.jobs,
+    jobs: finalJobs,
   };
   writeJson(slicePath, payload);
   const hardeningSuffix = hardened.updated > 0 ? `, salary hardened ${hardened.updated}` : '';

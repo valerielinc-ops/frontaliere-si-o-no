@@ -27,6 +27,7 @@ runStandardCrawlerPipeline({
   isCompanyJob: isHirslandenJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  preserveExistingSlugs: true,
 }).catch((err) => {
   console.error(`❌ Hirslanden Klinik crawler failed: ${err?.message || err}`);
   process.exit(1);
