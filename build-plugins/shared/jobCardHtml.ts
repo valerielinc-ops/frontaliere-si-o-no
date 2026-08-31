@@ -212,7 +212,7 @@ const ICON_SPARKLES = '<svg width="10" height="10" fill="none" stroke="currentCo
  * Per-locale suffix appended to the salary range when `salarySource` is
  * `'estimated'` — declares the band as a sector estimate, not a real offer.
  */
-const SALARY_ESTIMATE_SUFFIX: Record<JobCardLocale, string> = {
+export const SALARY_ESTIMATE_SUFFIX: Record<JobCardLocale, string> = {
   it: '(stima)',
   en: '(est.)',
   de: '(Schätzung)',
