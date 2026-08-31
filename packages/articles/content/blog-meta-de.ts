@@ -10985,6 +10985,11 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.unia-pause-calore-cantieri.title': 'Hitzewelle auf Baustellen: Unia fordert Zwangspausen',
     'blog.article.unia-pause-calore-cantieri.excerpt': 'Nur 18% erhalten systematische Pausen über 33°C. Von den 984 befragten Arbeitnehmern ignorieren 82% der Baustellen die vorgesehenen Schutzmaßnahmen. Das fordert die Gewerkschaft.',
     'blog.article.unia-pause-calore-cantieri.imageAlt': 'Baustelle in Tessin bei Sommerhitze: Arbeiter befolgen Sicherheitsverfahren mit schattierten Bereichen und Schutzausrüstung.',
+    'blog.article.bollettino-frontaliere-2026-08-31.title': 'Grenzgänger-Tagesbulletin – 31. August 2026: 33 neue Stellenangebote gestern',
+    'blog.article.bollettino-frontaliere-2026-08-31.excerpt': 'Die Zahlen von heute, 31. August 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-08-31.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 31. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-08-31.seoDescription': 'Grenzgänger-Bulletin vom 31. August 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-08-31.ogDescription': 'Die Zahlen vom 31. August 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
 };
 
 export default blogMetaDe;
