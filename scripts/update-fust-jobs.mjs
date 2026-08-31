@@ -56,6 +56,7 @@ import {
   runDedicatedBaseCrawler,
   translateMissingJobLocales,
   validateDedicatedLocaleCoverage,
+  replaceActiveSlug,
   detectLang,
   normalize,
   normalizeKey,
@@ -815,9 +816,17 @@ export function ensureUniqueFustSlugs(jobs, priorJobs = []) {
       for (const job of colliding) {
         if (job === keeper) continue;
         if (scope === 'slug') {
-          job.slug = appendStableSlugSuffix(job.slug, job);
+          replaceActiveSlug(job, appendStableSlugSuffix(job.slug, job), {
+            // The un-suffixed collision remains live on the keeper, so it is
+            // not this job's redirect history.
+            capturePrevious: false,
+          });
         } else {
-          job.slugByLocale[scope] = appendStableSlugSuffix(job.slugByLocale[scope], job);
+          replaceActiveSlug(job, appendStableSlugSuffix(job.slugByLocale[scope], job), {
+            locale: scope,
+            // See the canonical collision rationale above.
+            capturePrevious: false,
+          });
         }
       }
     }
