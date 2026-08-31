@@ -62576,6 +62576,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bollette-ses-2027-riduzione': {
+    title: 'Bollette SES più leggere per il terzo anno consecutivo',
+    description: 'SES riduce le tariffe elettriche nel 2027: -4% in Ticino, -5,5% in Mesolcina. Costi energetici in calo grazie a gestione efficiente del portafoglio energetico.',
+    keywords: 'frontalieri, ticino, svizzera, italia, bollette, leggere, terzo, anno',
+    ogTitle: 'SES: bollette giù nel 2027 per il terzo anno',
+    ogDescription: 'Nel 2027 le bollette SES scendono di nuovo. In Ticino una famiglia media con 4.500 kWh risparmia 53 CHF (4%), in Mesolcina 73 CHF (5,5%). Costi energetici riducono l\'impatto sul bilancio domestico.',
+    canonicalPath: '/articoli-svizzera/bollette-ses-2027-riduzione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bollette SES più leggere per il terzo anno consecutivo",
+      "description": "SES riduce le tariffe elettriche nel 2027: -4% in Ticino, -5,5% in Mesolcina. Costi energetici in calo grazie a gestione efficiente del portafoglio energetico.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bollette-ses-2027-riduzione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Abitazione svizzera con pannelli solari e linee elettriche nel paesaggio ticinese"
+      },
+      "datePublished": "2026-08-31T10:35:26+00:00",
+      "dateModified": "2026-08-31T10:35:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bollette-ses-2027-riduzione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

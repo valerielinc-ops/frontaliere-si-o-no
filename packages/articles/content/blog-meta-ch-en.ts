@@ -4822,6 +4822,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.finanziamenti-partiti-ps-2025.title': 'Party funding: the PS has the most money',
     'blog.article.finanziamenti-partiti-ps-2025.excerpt': 'In 2025 the PS raised 7.9 million francs, the highest among the federal parties. Nine parties declare a total of 24.6 million, down by one million compared to 2024.',
     'blog.article.finanziamenti-partiti-ps-2025.imageAlt': 'Swiss Federal Parliament building in Bern, center of Switzerland\'s national political arena',
+    'blog.article.bollette-ses-2027-riduzione.title': 'Lighter SES bills for the third consecutive year',
+    'blog.article.bollette-ses-2027-riduzione.excerpt': 'In 2027, the SES electricity tariff falls for the third year. An average household in Ticino saves CHF 53. Reductions of up to 5.5% in Mesolcina.',
+    'blog.article.bollette-ses-2027-riduzione.imageAlt': 'Swiss residential property with solar panels and power lines in Ticino landscape',
 };
 
 export default blogMetaChEn;
