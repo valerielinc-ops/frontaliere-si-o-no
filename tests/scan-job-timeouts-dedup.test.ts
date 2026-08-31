@@ -58,7 +58,7 @@ describe('scan-job-timeouts — two timed-out jobs of one run ⇒ ONE issue', ()
     { message: 'The job running on runner ubuntu-latest has exceeded the maximum execution time of 45 minutes.' },
   ];
 
-  it('opens one issue and COMMENTS the second job onto it (index fully blind)', async () => {
+  it('opens one atomic issue containing both jobs (index fully blind)', async () => {
     execFileSync.mockImplementation((_cmd: string, args: string[]) => {
       if (args[0] === 'api') {
         const path = args[1];
@@ -82,16 +82,16 @@ describe('scan-job-timeouts — two timed-out jobs of one run ⇒ ONE issue', ()
     const created = callsFor('create')[0];
     expect(created[created.indexOf('--title') + 1]).toBe('CI Failure: Lighthouse CI');
 
-    // The second job is not silently dropped — it lands as a comment on #5305.
-    const comments = callsFor('comment');
-    expect(comments).toHaveLength(1);
-    expect(comments[0][2]).toBe('5305');
-    const body = comments[0][comments[0].indexOf('--body') + 1];
+    // Both jobs land in the create body. There is no best-effort secondary
+    // comment that could fail after the run URL has already been persisted.
+    expect(callsFor('comment')).toHaveLength(0);
+    const body = created[created.indexOf('--body') + 1];
+    expect(body).toContain('lighthouse');
     expect(body).toContain('lighthouse-probe');
     expect(body).toContain('exceeded the maximum execution time');
   });
 
-  it('reports each job once — the memo comments, it does not swallow', async () => {
+  it('reports every job in one write — no partial multi-job state is possible', async () => {
     execFileSync.mockImplementation((_cmd: string, args: string[]) => {
       if (args[0] === 'api') {
         const path = args[1];
@@ -108,13 +108,14 @@ describe('scan-job-timeouts — two timed-out jobs of one run ⇒ ONE issue', ()
     const { main } = await import('../scripts/ci/scan-job-timeouts.mjs');
     await main();
 
-    // 2 timed-out jobs ⇒ 2 GitHub writes total, exactly one of them a create.
-    expect(callsFor('create').length + callsFor('comment').length).toBe(JOBS.length);
+    expect(callsFor('create')).toHaveLength(1);
+    expect(callsFor('comment')).toHaveLength(0);
     const createdBody = (() => {
       const c = callsFor('create')[0];
       return c[c.indexOf('--body') + 1];
     })();
     expect(createdBody).toContain('lighthouse');
+    expect(createdBody).toContain('lighthouse-probe');
   });
 });
 
