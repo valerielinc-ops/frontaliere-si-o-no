@@ -914,33 +914,34 @@ export async function verifyShrinkAgainstSource(priorJobs, newJobs, options = {}
     return { corroborated: true, checked: 0, dead: 0, alive: 0, unverifiable: 0, evidence: [], survivors: [], disappearedJobs: [] };
   }
 
-  // Off-target first, before the probe budget: a job the crawler's own
-  // predicate already rejects is corroborated straight from the record it
-  // held, no network round-trip involved, so it must not eat into the probe
-  // cap below (a large contamination cleanup could otherwise trip
-  // probe-budget-exceeded on volume alone even though most of it needs no
-  // probing at all).
+  // Off-target: a job the crawler's own predicate already rejects is
+  // corroborated straight from the record it held, no network round-trip
+  // involved. It still needs no PROBE budget for that reason, but it must not
+  // bypass the VOLUME cap below: `isTargetJob` misclassifying real drops as
+  // off-target (e.g. a recruiting-agency `company` value) would otherwise let
+  // an unbounded mass-expiry through at zero cost and zero human look.
   const offTarget = isTargetJob ? disappeared.filter((job) => !isTargetJob(job)) : [];
   const onTarget = isTargetJob ? disappeared.filter((job) => isTargetJob(job)) : disappeared;
 
   // Bound the probe budget. A legitimately huge drop is possible, but probing
   // it unbounded inside the crawl step is not: at DEFAULT_CONCURRENCY=10 and a
-  // 7s timeout the worst case grows linearly. Above the cap we REFUSE (the
-  // guard stands, prior slice kept) rather than accept on partial evidence —
-  // the conservative direction, and the drop can still be applied deliberately
-  // via SKIP_SHRINK_GUARD=1 after a human look.
+  // 7s timeout the worst case grows linearly. The same cap also bounds
+  // `offTarget`, which needs no network probe but still needs a volume limit:
+  // above the cap we REFUSE (the guard stands, prior slice kept) rather than
+  // accept on partial evidence — the conservative direction, and the drop can
+  // still be applied deliberately via SKIP_SHRINK_GUARD=1 after a human look.
   const maxProbes = Number(process.env.SHRINK_VERIFY_MAX_PROBES) || options.maxProbes || 500;
-  if (onTarget.length > maxProbes) {
+  if (disappeared.length > maxProbes) {
     return {
       corroborated: false,
       checked: onTarget.length,
       dead: 0,
       alive: 0,
-      unverifiable: onTarget.length,
+      unverifiable: disappeared.length,
       evidence: [],
       survivors: [],
       disappearedJobs: disappeared,
-      reason: `probe-budget-exceeded: ${onTarget.length} disappearing jobs > cap ${maxProbes}`,
+      reason: `probe-budget-exceeded: ${disappeared.length} disappearing jobs (${onTarget.length} on-target, ${offTarget.length} off-target) > cap ${maxProbes}`,
     };
   }
 
