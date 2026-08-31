@@ -1,6 +1,6 @@
 {
   "crawlerKey": "oerlikon",
-  "assembledAt": "2026-08-31T07:36:28.730Z",
+  "assembledAt": "2026-08-31T10:05:48.013Z",
   "jobs": [
     {
       "id": "oerlikon-623eccb0a7a7",
@@ -33,7 +33,7 @@
       "url": "https://careers.oerlikon.com/job/Customer-Service-Specialist-Riri-Zippers-WM/104205-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T07:36:24.110Z",
+      "crawledAt": "2026-08-31T10:05:44.135Z",
       "addressLocality": "Mendrisio, TI",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -71,6 +71,7 @@
       "firstSeenAt": "2026-07-08T22:12:59.888Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -113,7 +114,7 @@
       "url": "https://careers.oerlikon.com/job/Project-Contract-Manager-%28gn%29/104392-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T07:36:23.568Z",
+      "crawledAt": "2026-08-31T10:05:43.494Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -134,6 +135,7 @@
       "firstSeenAt": "2026-08-25T10:10:41.061Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -176,7 +178,7 @@
       "url": "https://careers.oerlikon.com/job/Konstruktionsingenieur-%28gn%29/104256-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T07:36:23.013Z",
+      "crawledAt": "2026-08-31T10:05:42.812Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -217,6 +219,7 @@
       "firstSeenAt": "2026-07-08T22:12:54.230Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -259,7 +262,7 @@
       "url": "https://careers.oerlikon.com/job/Export-Verpacker-%28gn%29/103043-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T07:36:22.437Z",
+      "crawledAt": "2026-08-31T10:05:42.101Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -304,6 +307,7 @@
       "firstSeenAt": "2026-08-08T09:48:05.653Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -346,7 +350,7 @@
       "url": "https://careers.oerlikon.com/job/Sales-Engineer-f%C3%BCr-Upgrades-%28gn%29/104242-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T07:36:21.899Z",
+      "crawledAt": "2026-08-31T10:05:41.400Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -377,6 +381,7 @@
       "firstSeenAt": "2026-08-03T12:54:34.438Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -419,7 +424,7 @@
       "url": "https://careers.oerlikon.com/job/Elektrotechniker-f%C3%BCr-Produktionsanlagen-%28inhouse%29-%28gn%29/104492-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T07:36:21.322Z",
+      "crawledAt": "2026-08-31T10:05:40.735Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -462,6 +467,7 @@
       "firstSeenAt": "2026-07-08T22:12:58.275Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -504,7 +510,7 @@
       "url": "https://careers.oerlikon.com/job/Industrial-Software-&-Automation-Engineer-%28gn%29/104476-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T07:36:20.750Z",
+      "crawledAt": "2026-08-31T10:05:40.068Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -551,6 +557,7 @@
       "firstSeenAt": "2026-08-10T21:46:49.353Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -593,7 +600,7 @@
       "url": "https://careers.oerlikon.com/job/Konstrukteur-%28gn%29/104474-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T07:36:20.167Z",
+      "crawledAt": "2026-08-31T10:05:39.376Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -624,10 +631,11 @@
           "konstrukteur-gn-oerlikon-wohlen"
         ]
       },
-      "firstSeenAt": "2026-08-19T21:44:21.938Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-19T21:44:21.938Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -670,7 +678,7 @@
       "url": "https://careers.oerlikon.com/job/Automatiker-%28gn%29-im-Anlagenbau/103438-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T07:36:19.349Z",
+      "crawledAt": "2026-08-31T10:05:38.700Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -710,6 +718,7 @@
       "firstSeenAt": "2026-07-23T11:18:20.994Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -752,7 +761,7 @@
       "url": "https://careers.oerlikon.com/job/Projektingenieur-%28gn%29-Electrical-Engineering/104461-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T07:36:18.487Z",
+      "crawledAt": "2026-08-31T10:05:37.793Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -790,6 +799,7 @@
       "firstSeenAt": "2026-08-19T09:48:37.612Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
