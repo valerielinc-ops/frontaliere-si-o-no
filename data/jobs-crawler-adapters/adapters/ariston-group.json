@@ -13,43 +13,13 @@
     "https://careers.aristongroup.com/sitemap_index.xml"
   ],
   "notes": "Dedicated Ariston Group crawler parses the careers RSS feed and SuccessFactors job detail pages, then keeps only jobs carrying the authoritative CH country marker and a source-backed Swiss location.",
-  "updatedAt": "2026-08-31T22:22:22.830Z",
+  "updatedAt": "2026-08-31T23:28:42.961Z",
   "seedMetaByUrl": {
     "https://careers.aristongroup.com/job/Brig-VERKAUFSBERATERIN-AUSSENDIENST-%28WM%29-REGION-OBERWALLIS-Brig-1070/1187004201/": {
       "location": "Brig, CH, 1070",
       "canton": "VS",
       "company": "Ariston Group",
       "postedDate": "2026-08-14"
-    },
-    "https://careers.aristongroup.com/job/Gerlafingen-TEAMLEITER-SERVICE-GAS-%28MW%29-Gerl-4563/1383520233/": {
-      "location": "Gerlafingen, CH, 4563",
-      "canton": "SO",
-      "company": "Ariston Group",
-      "postedDate": "2026-08-08"
-    },
-    "https://careers.aristongroup.com/job/Thun-SERVICETECHNIKER-GAS-Thun-3600/1151381101/": {
-      "location": "Thun, CH, 3600",
-      "canton": "BE",
-      "company": "Ariston Group",
-      "postedDate": "2026-08-19"
-    },
-    "https://careers.aristongroup.com/job/Biel-SERVICETECHNIKER-GAS-%28MW%29-Biel-2502/1405657733/": {
-      "location": "Biel, CH, 2502",
-      "canton": "BE",
-      "company": "Ariston Group",
-      "postedDate": "2026-08-14"
-    },
-    "https://careers.aristongroup.com/job/Gerlafingen-SERVICETECHNIKER-GAS-%28MW%29-Gerl-4563/1405660433/": {
-      "location": "Gerlafingen, CH, 4563",
-      "canton": "SO",
-      "company": "Ariston Group",
-      "postedDate": "2026-08-14"
-    },
-    "https://careers.aristongroup.com/job/Grosses-Fontaines-TECHNICIENNE-DE-SERVICE-MAZOUT-R%C3%89GION-NEUCH%C3%82TEL-Font-2046/1403021733/": {
-      "location": "Fontaines, CH, 2046",
-      "canton": "NE",
-      "company": "Ariston Group",
-      "postedDate": "2026-08-07"
     },
     "https://careers.aristongroup.com/job/Maerstetten-TECNICO-DI-SERVIZIO-PER-IMPIANTI-DI-RISCALDAMENTO-A-GASOLIO-Beda-6930/1420717933/": {
       "location": "Bedano, CH, 6930",
@@ -63,11 +33,41 @@
       "company": "Ariston Group",
       "postedDate": "2026-08-13"
     },
+    "https://careers.aristongroup.com/job/Gerlafingen-SERVICETECHNIKER-GAS-%28MW%29-Gerl-4563/1405660433/": {
+      "location": "Gerlafingen, CH, 4563",
+      "canton": "SO",
+      "company": "Ariston Group",
+      "postedDate": "2026-08-14"
+    },
     "https://careers.aristongroup.com/job/Bern-SERVICETECHNIKER-W%C3%84RMEPUMPEN-%28MW%29-Bern-3004/1402868933/": {
       "location": "Bern, CH, 3004",
       "canton": "BE",
       "company": "Ariston Group",
       "postedDate": "2026-08-07"
+    },
+    "https://careers.aristongroup.com/job/Thun-SERVICETECHNIKER-GAS-Thun-3600/1151381101/": {
+      "location": "Thun, CH, 3600",
+      "canton": "BE",
+      "company": "Ariston Group",
+      "postedDate": "2026-08-19"
+    },
+    "https://careers.aristongroup.com/job/Grosses-Fontaines-TECHNICIENNE-DE-SERVICE-MAZOUT-R%C3%89GION-NEUCH%C3%82TEL-Font-2046/1403021733/": {
+      "location": "Fontaines, CH, 2046",
+      "canton": "NE",
+      "company": "Ariston Group",
+      "postedDate": "2026-08-07"
+    },
+    "https://careers.aristongroup.com/job/Gerlafingen-TEAMLEITER-SERVICE-GAS-%28MW%29-Gerl-4563/1383520233/": {
+      "location": "Gerlafingen, CH, 4563",
+      "canton": "SO",
+      "company": "Ariston Group",
+      "postedDate": "2026-08-08"
+    },
+    "https://careers.aristongroup.com/job/Biel-SERVICETECHNIKER-GAS-%28MW%29-Biel-2502/1405657733/": {
+      "location": "Biel, CH, 2502",
+      "canton": "BE",
+      "company": "Ariston Group",
+      "postedDate": "2026-08-14"
     }
   }
 }
