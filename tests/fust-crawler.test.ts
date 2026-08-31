@@ -253,7 +253,12 @@ describe('Fust post-crawl reconciliation', () => {
   });
 
   it('suffixes only newcomers on flat/locale collisions and is idempotent', () => {
-    const stable = ensureUniqueFustSlugs(crawled, [crawled[0]]);
+    const withHistory = crawled.map((job, index) => index === 1 ? {
+      ...job,
+      previousSlugs: ['already-retired-fust-slug'],
+      previousSlugsByLocale: { it: ['already-retired-it-fust-slug'] },
+    } : job);
+    const stable = ensureUniqueFustSlugs(withHistory, [withHistory[0]]);
     expect(stable[0].slug).toBe(commonSlug);
     expect(stable[1].slug).toBe(`${commonSlug}-new002`);
     expect(stable[2].slug).toBe(`${commonSlug}-new003`);
@@ -263,6 +268,8 @@ describe('Fust post-crawl reconciliation', () => {
         : job.slugByLocale[scope as keyof typeof job.slugByLocale]);
       expect(new Set(values).size).toBe(values.length);
     }
+    expect(stable[1].previousSlugs).toEqual(['already-retired-fust-slug']);
+    expect(stable[1].previousSlugsByLocale).toEqual({ it: ['already-retired-it-fust-slug'] });
     expect(ensureUniqueFustSlugs(stable, [stable[0]])).toEqual(stable);
   });
 

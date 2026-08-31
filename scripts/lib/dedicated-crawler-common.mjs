@@ -6857,6 +6857,40 @@ export function captureLostSlugs(job, prevSlugByLocale = {}, prevSlug = '', cap 
   return lost;
 }
 
+/**
+ * Replace one active slug through the shared history-preserving boundary.
+ *
+ * A normal replacement retires an indexed URL, so its former value is
+ * captured immediately. Callers handling a known duplicate may opt out only
+ * when that old value remains active on the collision keeper and therefore
+ * must not become a redirect for both identities.
+ */
+export function replaceActiveSlug(job, nextSlug, {
+  locale = null,
+  capturePrevious = true,
+} = {}) {
+  if (!job) return false;
+  const normalizedNext = normalizeSpace(String(nextSlug || ''));
+  if (!normalizedNext) return false;
+
+  const beforeSlug = normalizeSpace(String(job.slug || ''));
+  const beforeSlugByLocale = { ...(job.slugByLocale || {}) };
+  const current = locale
+    ? normalizeSpace(String(job.slugByLocale?.[locale] || ''))
+    : beforeSlug;
+  if (current === normalizedNext) return false;
+
+  if (locale) {
+    if (!job.slugByLocale || typeof job.slugByLocale !== 'object') job.slugByLocale = {};
+    job.slugByLocale[locale] = normalizedNext;
+  } else {
+    job.slug = normalizedNext;
+  }
+
+  if (capturePrevious) captureLostSlugs(job, beforeSlugByLocale, beforeSlug);
+  return true;
+}
+
 // ── previousSlugsByLocale helpers ─────────────────────────────────────────
 // These helpers abstract locale-aware slug history so bridge pages are
 // generated under the correct locale prefix (e.g. /fr/trouver-emploi-tessin/old-slug)
