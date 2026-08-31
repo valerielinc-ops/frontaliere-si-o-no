@@ -1,6 +1,6 @@
 {
   "crawlerKey": "colin-cie",
-  "assembledAt": "2026-08-28T05:24:59.982Z",
+  "assembledAt": "2026-08-31T17:11:35.974Z",
   "jobs": [
     {
       "title": "Mitarbeiter (m/w/d) im Business Management am Standort Zürich (60-80%)",
@@ -72,6 +72,7 @@
       "previousSlugs": [
         "mitarbeiter-m-w-d-im-business-management-am-standort-zurich-60-80-colin-cie-zurich"
       ],
+      "salarySource": "estimated",
       "needsRetranslation": true
     },
     {
@@ -157,6 +158,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:24:59.848Z",
+      "salarySource": "reported",
       "needsRetranslation": true
     },
     {
@@ -237,6 +239,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:24:59.848Z",
+      "salarySource": "reported",
       "needsRetranslation": true
     },
     {
@@ -321,7 +324,7 @@
       },
       "firstSeenAt": "2026-04-13T21:24:59.848Z",
       "retranslationAttempts": 0,
-      "needsRetranslation": true
+      "salarySource": "reported"
     },
     {
       "title": "Berater (m/w/d) im Wealth Management am Standort Luxemburg mit Fokus deutsche Kunden",
@@ -392,7 +395,8 @@
         "it": [
           "berater-m-w-d-im-wealth-management-am-standort-luxemburg-mit-fokus-deutsche-kunden-colin-cie-munsbach"
         ]
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "title": "Berater (m/w/d) im Wealth Management am Standort Luxemburg mit Fokus  Benelux-Kunden",
@@ -459,7 +463,8 @@
       },
       "previousSlugs": [
         "berater-m-w-d-im-wealth-management-am-standort-luxemburg-mit-fokus-benelux-kunden-colin-cie-munsbach"
-      ]
+      ],
+      "salarySource": "estimated"
     },
     {
       "title": "Berater (m/w/d) im Wealth Management am Standort Luxemburg mit Fokus  regionale Kunden",
@@ -526,7 +531,8 @@
       },
       "previousSlugs": [
         "berater-m-w-d-im-wealth-management-am-standort-luxemburg-mit-fokus-regionale-kunden-colin-cie-munsbach"
-      ]
+      ],
+      "salarySource": "estimated"
     },
     {
       "title": "Berater (m/w/d) im Wealth Management am Standort Zürich mit Fokus niederländische Kunden",
@@ -616,7 +622,7 @@
       },
       "firstSeenAt": "2026-04-13T21:24:59.848Z",
       "retranslationAttempts": 0,
-      "needsRetranslation": true
+      "salarySource": "reported"
     },
     {
       "title": "Berater (m/w/d) im Wealth Management am Standort Lugano mit Fokus norditalienische Kunden",
@@ -703,7 +709,7 @@
       },
       "firstSeenAt": "2026-04-13T21:24:59.848Z",
       "retranslationAttempts": 0,
-      "needsRetranslation": true
+      "salarySource": "reported"
     },
     {
       "title": "Berater (m/w/d) im Wealth Management am Standort Zürich mit Fokus deutsche Kunden",
@@ -782,7 +788,7 @@
       },
       "firstSeenAt": "2026-04-13T21:24:59.848Z",
       "retranslationAttempts": 0,
-      "needsRetranslation": true
+      "salarySource": "reported"
     }
   ]
 }
