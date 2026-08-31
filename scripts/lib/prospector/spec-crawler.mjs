@@ -29,6 +29,12 @@ import { normalizeHost } from './registrable.mjs';
 import { resolveDetailOrListingSwissGeography } from './location-evidence.mjs';
 import { PROSPECTOR_DIR } from './config.mjs';
 import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
+import {
+  extractUmantisDetailFields,
+  extractUmantisListingEvidence,
+  umantisDetailFallbackUrl,
+  umantisVacancyIdentity,
+} from './umantis-detail.mjs';
 export { createPublicConnectionLookup, createSpecUrlPolicy } from './public-fetch-policy.mjs';
 
 /**
@@ -194,6 +200,9 @@ export async function runSpecInProduction(spec, runtime = {}) {
     const html = page.body;
     if (!html) continue;
     const effectiveSeedUrl = page.url || seed;
+    const umantisListingEvidence = spec.platform === 'umantis.com'
+      ? extractUmantisListingEvidence(html, effectiveSeedUrl)
+      : new Map();
     const links = extractLinks(html, effectiveSeedUrl);
     const { vacancies } = extractVacancies(html, effectiveSeedUrl, links);
     // jsonld/microdata are stronger evidence than any link-shape guess, so
@@ -215,15 +224,24 @@ export async function runSpecInProduction(spec, runtime = {}) {
         if (!templateRx.test(pathname)) continue;
       }
       if (bySlug.has(v.url)) continue;
+      const vacancy = /** @type {any} */ (v);
+      const listingEvidence = umantisListingEvidence.get(umantisVacancyIdentity(v.url));
       bySlug.set(v.url, {
         title: v.title,
         url: v.url,
-        location: v.location || '',
-        addressCountry: v.addressCountry || '',
-        locationCandidates: v.locationCandidates || [],
-        description: v.description || '',
-        postedAt: v.postedDate || null,
-        company: v.company || spec.companyName,
+        location: vacancy.location || listingEvidence?.location || '',
+        addressLocality: vacancy.addressLocality || listingEvidence?.addressLocality || '',
+        addressRegion: vacancy.addressRegion || listingEvidence?.addressRegion || '',
+        addressCountry: vacancy.addressCountry || listingEvidence?.addressCountry || '',
+        postalCode: vacancy.postalCode || listingEvidence?.postalCode || '',
+        streetAddress: vacancy.streetAddress || listingEvidence?.streetAddress || '',
+        locationCandidates: [
+          ...(vacancy.locationCandidates || []),
+          ...(listingEvidence ? [listingEvidence] : []),
+        ],
+        description: vacancy.description || '',
+        postedAt: vacancy.postedDate || null,
+        company: vacancy.company || spec.companyName,
       });
     }
   }
@@ -252,11 +270,33 @@ export async function runSpecInProduction(spec, runtime = {}) {
       const index = next++;
       const row = rows[index];
       try {
-        const page = await fetchRuntimePage(row.url, validateUrl, runtime);
+        let page;
+        try {
+          page = await fetchRuntimePage(row.url, validateUrl, runtime);
+        } catch (error) {
+          const fallbackUrl = spec.platform === 'umantis.com'
+            && Number(error?.status) >= 300 && Number(error?.status) < 400
+            ? umantisDetailFallbackUrl(row.url)
+            : '';
+          if (!fallbackUrl) throw error;
+          page = await fetchRuntimePage(fallbackUrl, validateUrl, runtime);
+        }
         const detail = extractDetailFields(
           page.body,
           page.url || row.url,
         );
+        if (spec.platform === 'umantis.com') {
+          const umantisDetail = extractUmantisDetailFields(page.body);
+          if (isSufficientVacancyDescription(umantisDetail.description)) {
+            detail.description = umantisDetail.description;
+          }
+          if (!detail.locationCandidates.length && umantisDetail.locationCandidates.length) {
+            detail.locationCandidates = umantisDetail.locationCandidates;
+            const [candidate] = umantisDetail.locationCandidates;
+            detail.location = candidate.location;
+            detail.addressCountry = candidate.addressCountry;
+          }
+        }
         const decision = resolveDetailOrListingSwissGeography(detail, row);
         const geography = geographyFieldsForDecision(decision);
         const description = isSufficientVacancyDescription(detail.description)
