@@ -280,6 +280,26 @@ for path_item in "${ALL_FILES[@]}"; do
   expand_path_to_files "$path_item"
 done
 
+# Optional shadow-only generation receipt. Disabled callers execute only the
+# empty-env guard below; enabled callers receive a best-effort observation of
+# the exact private-index tree. Receipt failure must never change this helper's
+# push, stdout contract or exit code: the group finalizer treats a missing or
+# corrupt receipt as invalid instead.
+emit_crawler_generation_receipt() {
+  local outcome="${1:-}"
+  local commit_sha="${2:-}"
+  local remote_base_sha="${3:-}"
+  [ -n "${CRAWLER_GENERATION_RECEIPT_DIR:-}" ] || return 0
+
+  if ! CRAWLER_GENERATION_RECEIPT_OUTCOME="$outcome" \
+    CRAWLER_GENERATION_RECEIPT_COMMIT="$commit_sha" \
+    CRAWLER_GENERATION_RECEIPT_REMOTE_BASE="$remote_base_sha" \
+    node "$(dirname "$0")/crawler-generation-receipt.mjs" "${RESOLVED_FILES[@]}"; then
+    echo "::warning::crawler generation receipt failed (shadow only); push outcome remains unchanged"
+  fi
+  return 0
+}
+
 create_rebase_snapshot() {
   local base_sha="$1"
   local snapshot_dir
@@ -1217,6 +1237,7 @@ commit_isolated_from_worktree() {
 
     new_tree="$(GIT_INDEX_FILE="$tmp_index" git write-tree)"
     if [ "$new_tree" = "$remote_tree" ]; then
+      emit_crawler_generation_receipt "noop" "$remote_sha" "$remote_sha"
       echo "ℹ️ No effective changes for this crawler's files vs origin/main — nothing to commit"
       [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=false" >> "$GITHUB_OUTPUT"
       return 0
@@ -1231,6 +1252,7 @@ commit_isolated_from_worktree() {
     push_out=""
     if push_out="$(git push origin "${new_commit}:refs/heads/main" 2>&1)"; then
       printf '%s\n' "$push_out"
+      emit_crawler_generation_receipt "pushed" "$new_commit" "$remote_sha"
       echo "✅ Pushed successfully (grouped-isolated commit ${new_commit})"
       [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=true" >> "$GITHUB_OUTPUT"
       # Deliberately do NOT fast-forward refs/heads/main after the push:
@@ -1252,6 +1274,7 @@ commit_isolated_from_worktree() {
 
     if [ "$push_attempt" -ge "$MAX_PUSH_ATTEMPTS" ]; then
       if is_push_contention_output "$push_out"; then
+        emit_crawler_generation_receipt "push_contention" "$new_commit" "$remote_sha"
         echo "❌ Push failed after $MAX_PUSH_ATTEMPTS attempts (contention loss — crawl data was fine, the ref race was lost)"
         # 42 = PUSH_CONTENTION_EXHAUSTED: distinct from generic failure (1) so the
         # grouped failure-report can skip the per-crawler issue for this systemic
@@ -1259,6 +1282,7 @@ commit_isolated_from_worktree() {
         # surfaces via the crawler-health staleness monitor).
         return 42
       fi
+      emit_crawler_generation_receipt "failed" "$new_commit" "$remote_sha"
       echo "❌ Push failed after $MAX_PUSH_ATTEMPTS attempts and the LAST failure is NOT a ref rejection/race (outage/auth/hook?) — exiting 1 so it surfaces as a real failure."
       return 1
     fi
