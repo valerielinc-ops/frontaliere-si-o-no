@@ -1,18 +1,18 @@
 {
   "key": "gavi",
   "label": "Gavi, the Vaccine Alliance",
-  "generatedAt": "2026-08-31T22:20:33.541Z",
-  "total": 2,
+  "generatedAt": "2026-08-31T23:29:30.421Z",
+  "total": 1,
   "discovered": null,
-  "written": 2,
+  "written": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4757,
-  "avgDurationMs": 4757,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4326,
+  "avgDurationMs": 4326,
   "durationHistory": [
-    4757
+    4326
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2524&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T22:20:30.973Z",
+      "crawledAt": "2026-08-31T23:29:28.030Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -56,8 +56,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "gavi-f73d2990abc8",
       "slug": "gestione-progettazione-strategica-e-tempi-di-consegna-gavi-the-vaccine-alliance-le-grand-saconnex",
@@ -101,5 +100,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
