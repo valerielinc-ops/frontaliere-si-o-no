@@ -84,8 +84,9 @@ export function ensureStructuredSalary(job) {
 
   const existingMin = toFiniteNumber(job.salaryMin) ?? toFiniteNumber(job?.baseSalary?.value?.minValue);
   const existingMax = toFiniteNumber(job.salaryMax) ?? toFiniteNumber(job?.baseSalary?.value?.maxValue);
+  const hasExisting = existingMin != null && existingMin > 0;
   const estimated = inferSalaryRange(job);
-  let minValue = existingMin && existingMin > 0 ? existingMin : estimated.min;
+  let minValue = hasExisting ? existingMin : estimated.min;
   let maxValue = existingMax && existingMax >= minValue ? existingMax : null;
 
   if (!maxValue) {
@@ -97,13 +98,29 @@ export function ensureStructuredSalary(job) {
   // salary reported in the posting (which already reflects the real pay). This
   // also keeps the pass idempotent: once scaled, the bounds no longer equal the
   // full-time estimate, so a re-run leaves them untouched.
+  let reduced = null;
   if (minValue === estimated.min) {
-    const reduced = reduceSalaryToPartTime(estimated.min, estimated.max, job);
+    reduced = reduceSalaryToPartTime(estimated.min, estimated.max, job);
     if (reduced) {
       minValue = reduced.min;
       maxValue = reduced.max;
     }
   }
+
+  // Salary provenance. jobs.json persists across assemble runs, so a job
+  // hardened yesterday re-enters today already carrying the estimate this
+  // function wrote as salaryMin/salaryMax — that must classify as 'estimated'
+  // again, not flip to 'reported' just because the fields are now populated.
+  // Fingerprint existingMin/Max against today's estimator output (full-time or
+  // part-time-reduced, whichever applies) to tell a persisted estimate apart
+  // from a real declared/structured salary. Same fingerprint idea as the
+  // 'existing' vs 'estimated' split in re-enrich-jobs.mjs:978-1014, simplified
+  // to two states here since this chokepoint never parses posting text.
+  const estimatedFingerprintMin = reduced ? reduced.min : estimated.min;
+  const estimatedFingerprintMax = reduced ? reduced.max : estimated.max;
+  const isEstimateFingerprint =
+    hasExisting && existingMin === estimatedFingerprintMin && existingMax === estimatedFingerprintMax;
+  const salarySource = hasExisting && !isEstimateFingerprint ? 'reported' : 'estimated';
 
   const currency = normalizeCurrency(job);
   const next = {
@@ -111,6 +128,7 @@ export function ensureStructuredSalary(job) {
     salaryMin: minValue,
     salaryMax: maxValue,
     currency,
+    salarySource,
     baseSalary: {
       '@type': 'MonetaryAmount',
       currency,
@@ -127,12 +145,14 @@ export function ensureStructuredSalary(job) {
     salaryMin: job.salaryMin,
     salaryMax: job.salaryMax,
     currency: job.currency,
+    salarySource: job.salarySource,
     baseSalary: job.baseSalary,
   });
   const afterSig = JSON.stringify({
     salaryMin: next.salaryMin,
     salaryMax: next.salaryMax,
     currency: next.currency,
+    salarySource: next.salarySource,
     baseSalary: next.baseSalary,
   });
 

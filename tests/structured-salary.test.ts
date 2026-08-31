@@ -37,6 +37,44 @@ describe('structured salary hardening', () => {
     expect(result.job.baseSalary?.value?.maxValue).toBe(118000);
   });
 
+  it('classifies a job with no salary fields as an estimated salarySource', () => {
+    const result = ensureStructuredSalary({
+      title: 'Tecnico di servizio Fossile Regione Ticino (m/f/div.) REF280202G',
+      company: 'Bosch Thermotechnik AG',
+      category: 'sales',
+      employmentType: 'full-time',
+      location: 'Rivera',
+    });
+
+    expect(result.job.salarySource).toBe('estimated');
+  });
+
+  it('classifies a job with a declared salary as a reported salarySource', () => {
+    const result = ensureStructuredSalary({
+      title: 'Software Engineer',
+      category: 'tech',
+      salaryMin: 91000,
+      salaryMax: 118000,
+      currency: 'CHF',
+    });
+
+    expect(result.job.salarySource).toBe('reported');
+  });
+
+  it('keeps salarySource as estimated across repeated harden passes on a persisted estimate', () => {
+    const first = ensureStructuredSalary({
+      title: 'Sales Associate',
+      category: 'Commerciale',
+      canton: 'ZH',
+      employmentType: 'FULL_TIME',
+    });
+    const second = ensureStructuredSalary(first.job);
+
+    expect(first.job.salarySource).toBe('estimated');
+    expect(second.job.salarySource).toBe('estimated');
+    expect(second.changed).toBe(false);
+  });
+
   it('reduces an estimated salary to the stated part-time workload', () => {
     const fullTime = ensureStructuredSalary({
       title: 'Sales Associate',
