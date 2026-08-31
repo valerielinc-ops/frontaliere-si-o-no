@@ -11,8 +11,14 @@
     "https://ohws.prospective.ch/public/v1/medium/1000311/jobs?lang=en&offset=0&limit=500"
   ],
   "notes": "Dedicated PwC Switzerland crawler. Uses Prospective.ch API (medium 1000311). Full job data in API response, no detail page fetching needed. Crawls ALL jobs; canton filter in frontend handles geographic filtering.",
-  "updatedAt": "2026-08-28T05:26:24.162Z",
+  "updatedAt": "2026-08-31T17:10:03.234Z",
   "seedMetaByUrl": {
+    "https://jobs.pwc.ch/job-vacancies/associate-senior-assosciate-interne-beratung-risikomanagement-qualitaet-compliance-80/27a4f32b-8d5a-481f-a5d7-386567fe0b18": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "PwC Switzerland",
+      "postedDate": "2026-08-31"
+    },
     "https://jobs.pwc.ch/job-vacancies/regulatory-audit-specialist-banking/4b09702c-0387-43c5-b7d1-92e34845d1d7": {
       "location": "Zurich",
       "canton": "ZH",
@@ -97,12 +103,6 @@
       "company": "PwC Switzerland",
       "postedDate": "2026-08-11"
     },
-    "https://jobs.pwc.ch/job-vacancies/associate-senior-associate-cloud-data-ai-data-engineering/54c4e9eb-43d9-4789-87b9-5f55b4eb88ef": {
-      "location": "Zurich",
-      "canton": "ZH",
-      "company": "PwC Switzerland",
-      "postedDate": "2026-08-11"
-    },
     "https://jobs.pwc.ch/job-vacancies/manager-senior-manager-sap-business-transformation-architecture/98495a25-14b4-43ac-92af-fd233db47d86": {
       "location": "Zürich",
       "canton": "ZH",
@@ -170,7 +170,7 @@
       "postedDate": "2026-08-03"
     },
     "https://jobs.pwc.ch/job-vacancies/lehrstelle-als-kaufmann-kauffrau-dienstleistung-administration-efz/ad8b1080-01a5-4221-87c9-469380d167d3": {
-      "location": "Luzern",
+      "location": "Lucerne",
       "canton": "LU",
       "company": "PwC Switzerland",
       "postedDate": "2026-08-03"
