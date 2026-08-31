@@ -31,6 +31,14 @@ describe('JUMBO crawler parser', () => {
       expect(isJumboJob({ companyKey: 'jumbo' })).toBe(true);
     });
 
+    it('treats the scraped company as authoritative on the shared Coop board', () => {
+      expect(isJumboJob({
+        companyKey: 'jumbo',
+        company: 'Coop Genossenschaft',
+        url: 'https://jobs.coopjobs.ch/offene-stellen/example/123',
+      })).toBe(false);
+    });
+
     it('matches by company name', () => {
       expect(isJumboJob({ company: 'JUMBO' })).toBe(true);
     });

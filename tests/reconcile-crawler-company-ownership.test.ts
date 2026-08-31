@@ -1,0 +1,172 @@
+import { describe, expect, it } from 'vitest';
+import { execFileSync } from 'node:child_process';
+import {
+  ISSUE_6759_COVERAGE,
+  mergeRetiredCrawlerJobs,
+  RETIREMENTS,
+  SHARED_BOARD_TRANSFERS,
+  transferSlugHistory,
+  transferOwnedJobs,
+  transferOverlappingJobs,
+} from '../scripts/reconcile-crawler-company-ownership.mjs';
+import { getPreviousSlugsForLocale } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { resolveBrandCanonical } from '../build-plugins/shared/brandCanonicalMap.mjs';
+
+interface FixtureJob {
+  id: string;
+  company: string;
+  companyKey: string;
+  companyDomain: string;
+  url: string;
+  slug: string;
+  slugByLocale: Record<string, string>;
+  previousSlugs: string[];
+  previousSlugsByLocale: Record<string, string[]>;
+}
+
+function job(key: string, id: string, slug: string): FixtureJob {
+  return {
+    id: `${key}-${id}`,
+    company: key,
+    companyKey: key,
+    companyDomain: `${key}.ch`,
+    url: `https://jobs.example/${id}/00000000-0000-4000-8000-${id.padStart(12, '0')}`,
+    slug,
+    slugByLocale: { it: slug, de: `${slug}-de` },
+    previousSlugs: [`${slug}-legacy`],
+    previousSlugsByLocale: { de: [`${slug}-alt-de`] },
+  };
+}
+
+describe('issue #6759 reconciliation', () => {
+  it('covers all 18 live duplicate pairs exactly once', () => {
+    expect(RETIREMENTS).toHaveLength(10);
+    expect(SHARED_BOARD_TRANSFERS).toHaveLength(8);
+    expect(ISSUE_6759_COVERAGE).toHaveLength(18);
+    const pairs = ISSUE_6759_COVERAGE.map((entry) =>
+      entry.retired ? `${entry.retired}->${entry.canonical}` : `${entry.broad}->${entry.dedicated}`,
+    );
+    expect(new Set(pairs).size).toBe(18);
+  });
+
+  it('keeps every retired company hub as an alias of the canonical hub', () => {
+    for (const { retired, canonical } of RETIREMENTS) {
+      expect(resolveBrandCanonical(retired)).toBe(canonical);
+    }
+  });
+
+  it('does not leave retired summary slices discoverable by crawler health', () => {
+    const trackedSummaries = new Set(
+      execFileSync('git', ['ls-files', 'data/jobs-crawler-summaries/by-crawler/*.json'], {
+        encoding: 'utf8',
+      }).trim().split('\n').filter(Boolean),
+    );
+    for (const { retired } of RETIREMENTS) {
+      expect(trackedSummaries.has(`data/jobs-crawler-summaries/by-crawler/${retired}.json`)).toBe(false);
+    }
+  });
+
+  it('collapses matching aliases while preserving active and historical routes', () => {
+    const canonical = job('canonical', '1', 'canonical-slug');
+    const retired = job('retired', '1', 'retired-slug');
+    const result = mergeRetiredCrawlerJobs([canonical], [retired], 'canonical');
+
+    expect(result.jobs).toHaveLength(1);
+    expect(result.collapsed).toBe(1);
+    expect(result.jobs[0].previousSlugs).toEqual(expect.arrayContaining([
+      'retired-slug',
+      'retired-slug-de',
+      'retired-slug-legacy',
+      'retired-slug-alt-de',
+    ]));
+  });
+
+  it('preserves flat legacy routes under every locale prefix', () => {
+    const canonical = job('canonical', '1', 'canonical-slug');
+    const retired = job('retired', '1', 'retired-slug');
+    retired.previousSlugs = ['unattributed-legacy-slug'];
+    retired.previousSlugsByLocale = {};
+    const result = mergeRetiredCrawlerJobs([canonical], [retired], 'canonical');
+
+    for (const locale of ['it', 'en', 'de', 'fr']) {
+      expect(getPreviousSlugsForLocale(result.jobs[0], locale)).toContain('unattributed-legacy-slug');
+    }
+  });
+
+  it('keeps locale-route parity when a merged history exceeds a locale cap', () => {
+    const canonical = job('canonical', '1', 'canonical-slug');
+    canonical.previousSlugs = [];
+    canonical.previousSlugsByLocale = {
+      it: Array.from({ length: 20 }, (_, index) => `canonical-it-${index}`),
+    };
+    const removed = job('retired', '1', 'retired-slug');
+    removed.slugByLocale = Object.fromEntries(
+      ['it', 'en', 'de', 'fr'].map((locale) => [locale, `retired-active-${locale}`]),
+    );
+    removed.previousSlugs = ['retired-flat-legacy'];
+    removed.previousSlugsByLocale = Object.fromEntries(
+      ['it', 'en', 'de', 'fr'].map((locale) => [locale, [`retired-history-${locale}`]]),
+    );
+    const locales = ['it', 'en', 'de', 'fr'];
+    const expected = Object.fromEntries(locales.map((locale) => [locale, new Set([
+      canonical.slugByLocale[locale],
+      ...getPreviousSlugsForLocale(canonical, locale),
+      removed.slugByLocale[locale],
+      ...getPreviousSlugsForLocale(removed, locale),
+    ])]));
+
+    transferSlugHistory(canonical, removed);
+
+    for (const locale of locales) {
+      const actual = new Set([
+        canonical.slugByLocale[locale],
+        ...getPreviousSlugsForLocale(canonical, locale),
+      ]);
+      expect([...expected[locale]].filter((route) => !actual.has(route))).toEqual([]);
+      expect(canonical.previousSlugsByLocale[locale].length).toBeLessThanOrEqual(20);
+    }
+    expect(canonical.previousSlugs.length).toBeLessThanOrEqual(80);
+  });
+
+  it('rehomes alias-only jobs without changing their active slug', () => {
+    const result = mergeRetiredCrawlerJobs(
+      [job('canonical', '1', 'canonical-slug')],
+      [job('retired', '2', 'indexed-retired-slug')],
+      'canonical',
+    );
+    expect(result.rehomed).toBe(1);
+    expect(result.jobs[1]).toMatchObject({
+      companyKey: 'canonical',
+      company: 'canonical',
+      slug: 'indexed-retired-slug',
+    });
+  });
+
+  it('moves shared-board duplicates to the dedicated owner and transfers slugs', () => {
+    const broad = job('broad', '1', 'broad-slug');
+    const dedicated = job('dedicated', '1', 'dedicated-slug');
+    const result = transferOverlappingJobs([broad], [dedicated]);
+
+    expect(result.sourceJobs).toEqual([]);
+    expect(result.targetJobs).toHaveLength(1);
+    expect(result.targetJobs[0].previousSlugs).toContain('broad-slug');
+  });
+
+  it('rehomes predicate-owned unique shared-board jobs without changing their route', () => {
+    const broad = job('broad', '2', 'indexed-broad-slug');
+    const result = transferOwnedJobs(
+      [broad],
+      [job('dedicated', '1', 'dedicated-slug')],
+      'dedicated',
+      () => true,
+    );
+
+    expect(result.sourceJobs).toEqual([]);
+    expect(result.rehomed).toBe(1);
+    expect(result.targetJobs[1]).toMatchObject({
+      companyKey: 'dedicated',
+      company: 'dedicated',
+      slug: 'indexed-broad-slug',
+    });
+  });
+});

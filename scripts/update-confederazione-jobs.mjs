@@ -183,11 +183,6 @@ function isTargetJob(job = {}) {
 /** Company keys whose jobs we skip to avoid duplicates. */
 const COVERED_KEYS = new Set(['vtg', 'agroscope', 'agroscope-defr']);
 
-function isAlreadyCovered(job = {}) {
-  const key = normalizeKey(job.companyKey || '');
-  return COVERED_KEYS.has(key);
-}
-
 /**
  * Extract the UUID viewkey from a jobs.admin.ch URL.
  * URLs have the form: https://jobs.admin.ch/{locale-path}/{slug}/{uuid}
@@ -462,10 +457,12 @@ function buildJob(row) {
 function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
 
-  // Collect viewkeys already covered by VTG / Agroscope
+  // Collect viewkeys from the dedicated slices themselves. Reading only the
+  // Confederazione slice here made this set permanently empty and let the
+  // broad crawler republish VTG/Agroscope vacancies under a second company.
   const coveredViewkeys = new Set();
-  for (const job of existing) {
-    if (isAlreadyCovered(job)) {
+  for (const coveredKey of COVERED_KEYS) {
+    for (const job of readExistingCrawlerJobs(coveredKey)) {
       const vk = extractViewkey(job.url);
       if (vk) coveredViewkeys.add(vk);
     }

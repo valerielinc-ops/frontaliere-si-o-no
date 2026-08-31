@@ -215254,7 +215254,8 @@
       "qualityScore": 1,
       "qualityVerdict": "duplicate",
       "qualityProblems": [
-        "duplica tschuggen: 9/14 annunci gia' presenti in data/jobs/by-crawler/tschuggen.json"
+        "duplica tschuggen: 9/14 annunci gia' presenti in data/jobs/by-crawler/tschuggen.json",
+        "duplica tschuggen: identità ritirata da #6759"
       ],
       "validationHistory": [
         {
@@ -215377,7 +215378,8 @@
       "qualityScore": 1,
       "qualityVerdict": "duplicate",
       "qualityProblems": [
-        "duplica buergenstock-hotels: 10/10 annunci gia' presenti in data/jobs/by-crawler/buergenstock-hotels.json"
+        "duplica buergenstock-hotels: 10/10 annunci gia' presenti in data/jobs/by-crawler/buergenstock-hotels.json",
+        "duplica buergenstock-hotels: identità ritirata da #6759"
       ],
       "validationHistory": [
         {
@@ -215455,7 +215457,7 @@
     },
     "recruitingapp-2607@umantis.com": {
       "key": "recruitingapp-2607@umantis.com",
-      "status": "production",
+      "status": "rejected",
       "sources": [
         "tenant:umantis.com"
       ],
@@ -215475,8 +215477,10 @@
       "mode": "template",
       "sourceLang": "de",
       "qualityScore": 1,
-      "qualityVerdict": "good",
-      "qualityProblems": [],
+      "qualityVerdict": "duplicate",
+      "qualityProblems": [
+        "duplica gkb: identità ritirata da #6759"
+      ],
       "validationHistory": [
         {
           "at": "2026-08-22T16:22:26.265Z",
@@ -215579,7 +215583,8 @@
       "promotionPr": "6297",
       "promotionBranch": "prospector/promote-2026-08-23",
       "promotedAt": "2026-08-24T04:52:45.975Z",
-      "detailEnrichment": false
+      "detailEnrichment": false,
+      "duplicateOf": "gkb"
     },
     "recruitingapp-2736@umantis.com": {
       "key": "recruitingapp-2736@umantis.com",
@@ -215628,7 +215633,8 @@
       "qualityScore": 1,
       "qualityVerdict": "duplicate",
       "qualityProblems": [
-        "duplica spital-davos: 10/10 annunci gia' presenti in data/jobs/by-crawler/spital-davos.json"
+        "duplica spital-davos: 10/10 annunci gia' presenti in data/jobs/by-crawler/spital-davos.json",
+        "duplica spital-davos: identità ritirata da #6759"
       ],
       "validationHistory": [
         {
@@ -215984,7 +215990,8 @@
       "qualityScore": 1,
       "qualityVerdict": "duplicate",
       "qualityProblems": [
-        "duplica kzu: 8/8 annunci gia' presenti in data/jobs/by-crawler/kzu.json"
+        "duplica kzu: 8/8 annunci gia' presenti in data/jobs/by-crawler/kzu.json",
+        "duplica kzu: identità ritirata da #6759"
       ],
       "validationHistory": [
         {

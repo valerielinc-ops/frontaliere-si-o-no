@@ -155,11 +155,16 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
     expect(fs.readFileSync(ASSIGNMENTS)).toEqual(before);
   });
 
-  it('derives 607 identities and emits inherited receipt env plus terminal shadow steps for all 23 groups', () => {
+  it('derives every registered identity and emits inherited receipt env plus terminal shadow steps for all 23 groups', () => {
     const results: any = generate({ outDir: WORKFLOWS, assignmentsPath: ASSIGNMENTS, write: false });
     const committedRoster = JSON.parse(fs.readFileSync(ROSTER, 'utf8'));
+    const assignedCrawlerIds = Object.values(committedRoster.groups).flat() as string[];
     expect(results.generationRoster).toEqual(committedRoster);
-    expect(results.generationRoster.crawlerCount).toBe(607);
+    expect(results.generationRoster.crawlerCount).toBe(assignedCrawlerIds.length);
+    expect(new Set(assignedCrawlerIds).size).toBe(assignedCrawlerIds.length);
+    expect(Object.keys(results.generationRoster.primarySlices).sort()).toEqual(
+      [...assignedCrawlerIds].sort(),
+    );
     expect(validateCrawlerGenerationRoster(results.generationRoster)).toEqual({ valid: true, errors: [] });
 
     for (const group of GROUP_IDS) {
@@ -199,7 +204,7 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
     }
   }, 30_000);
 
-  it('keeps a realistic 607-receipt cycle below the explicit 1 MiB report cap', () => {
+  it('keeps a realistic full-roster receipt cycle below the explicit 1 MiB report cap', () => {
     const roster = JSON.parse(fs.readFileSync(ROSTER, 'utf8'));
     let aggregateBytes = 0;
     let largestBytes = 0;

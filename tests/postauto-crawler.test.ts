@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import {
   POSTAUTO_KEY,
   POSTAUTO_COMPANY_NAME,
+  isPostAutoRecord,
   isPostAutoJob,
   isTrustedDomain,
 } from '../scripts/lib/postauto-job-parser.mjs';
@@ -12,6 +13,15 @@ describe('PostAuto crawler parser', () => {
   it('exports valid company key and name', () => {
     expect(POSTAUTO_KEY).toBe('postauto');
     expect(POSTAUTO_COMPANY_NAME).toBe('PostAuto AG');
+  });
+
+  it('uses one multilingual owner predicate for the shared Post feed', () => {
+    const tagged = (brand: string) => ({ cust_brandCompanyJobSearch: [brand] });
+    for (const brand of ['PostAuto', 'CarPostal', 'PostBus Ltd', 'AutoPostale SA']) {
+      expect(isPostAutoRecord(tagged(brand))).toBe(true);
+    }
+    expect(isPostAutoRecord(tagged('PostFinance'))).toBe(false);
+    expect(isPostAutoRecord(tagged('Die Schweizerische Post'))).toBe(false);
   });
 
   // ── isCompanyJob ──

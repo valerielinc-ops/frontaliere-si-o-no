@@ -35,7 +35,10 @@ export const TSCHUGGEN_COMPANY_NAME = 'Tschuggen Collection';
 export const TSCHUGGEN_COMPANY_DOMAIN = 'tschuggencollection.ch';
 
 const BASE_URL = 'https://recruitingapp-2904.umantis.com';
-const LISTING_URL = `${BASE_URL}/Jobs/All?lang=ger`;
+export const LISTING_URLS = [
+  `${BASE_URL}/Jobs/All?lang=ger`,
+  `${BASE_URL}/Jobs/1?lang=ger&ContentOnly=&message=`,
+];
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -52,6 +55,18 @@ const LOCATION_POSTAL_CODES = {
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
+}
+
+/** Merge duplicate Umantis rows without letting a sparse view erase metadata. */
+export function mergeTschuggenListing(existing = {}, incoming = {}) {
+  const merged = { ...existing };
+  for (const [key, value] of Object.entries(incoming)) {
+    const current = merged[key];
+    const currentMissing = current == null || (typeof current === 'string' && current.trim() === '');
+    const incomingPresent = value != null && (typeof value !== 'string' || value.trim() !== '');
+    if (currentMissing && incomingPresent) merged[key] = value;
+  }
+  return merged;
 }
 
 /**
@@ -239,9 +254,10 @@ export function parseTschuggenListingPage(html = '') {
   while ((rowMatch = rowRegex.exec(html)) !== null) {
     const rowHtml = rowMatch[1];
 
-    // Extract title + link from element 1152488
+    // /Jobs/All and /Jobs/1 use different numeric element ids; the vacancy
+    // href remains stable and is the ownership-safe selector.
     const titleMatch = rowHtml.match(
-      /tableaslist_element_1152488[\s\S]*?<a\s+href="\/Vacancies\/(\d+)\/Description\/\d+"[^>]*>([^<]+)<\/a>/
+      /<a\s+[^>]*href="\/Vacancies\/(\d+)\/Description\/\d+"[^>]*>([^<]+)<\/a>/i,
     );
     if (!titleMatch) continue;
 
@@ -256,9 +272,9 @@ export function parseTschuggenListingPage(html = '') {
     if (/^(initiativbewerbung|spontanbewerbung|blindbewerbung)$/i.test(title.trim())) continue;
 
     // Extract other fields using element class IDs
-    const entryLevelRaw = extractSpanText(rowHtml, '1152493');
-    const departmentRaw = extractSpanText(rowHtml, '1152494');
-    const locationRaw = extractSpanText(rowHtml, '1152495');
+    const entryLevelRaw = extractSpanText(rowHtml, '1152493') || extractSpanText(rowHtml, '1151426');
+    const departmentRaw = extractSpanText(rowHtml, '1152494') || extractSpanText(rowHtml, '1151427');
+    const locationRaw = extractSpanText(rowHtml, '1152495') || extractSpanText(rowHtml, '26475');
 
     // Clean the prefix labels
     const entryLevel = normalizeSpace(entryLevelRaw.replace(/^\|?\s*Einstieg als:\s*/i, ''));
@@ -396,11 +412,26 @@ async function fetchPage(url) {
  */
 export async function fetchAllTschuggenJobs() {
   console.log(`🏨 Fetching Tschuggen Collection jobs`);
-  console.log(`   Source: ${LISTING_URL}\n`);
+  console.log(`   Sources: ${LISTING_URLS.join(', ')}\n`);
 
-  // Step 1: Fetch and parse listing page
-  const listingHtml = await fetchPage(LISTING_URL);
-  const listings = parseTschuggenListingPage(listingHtml);
+  // /Jobs/All and /Jobs/1 are not equivalent on this tenant. Union both by
+  // vacancy id so the canonical crawler keeps every listing found by either.
+  const listingsById = new Map();
+  for (const listingUrl of LISTING_URLS) {
+    try {
+      const listingHtml = await fetchPage(listingUrl);
+      for (const listing of parseTschuggenListingPage(listingHtml)) {
+        const existing = listingsById.get(listing.vacancyId);
+        listingsById.set(
+          listing.vacancyId,
+          existing ? mergeTschuggenListing(existing, listing) : listing,
+        );
+      }
+    } catch (err) {
+      console.warn(`  ⚠️ Failed to fetch listing ${listingUrl}: ${err?.message}`);
+    }
+  }
+  const listings = [...listingsById.values()];
 
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings found on the page.');
