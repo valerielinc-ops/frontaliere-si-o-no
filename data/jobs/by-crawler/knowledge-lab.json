@@ -1,6 +1,6 @@
 {
   "crawlerKey": "knowledge-lab",
-  "assembledAt": "2026-08-31T17:12:35.559Z",
+  "assembledAt": "2026-08-31T22:30:07.401Z",
   "jobs": [
     {
       "title": "Initiative Application",
@@ -60,6 +60,7 @@
       "streetAddress": "",
       "postalCode": "8001",
       "firstSeenAt": "2026-05-10T10:24:48.366Z",
+      "salarySource": "reported",
       "previousSlugsByLocale": {
         "it": [
           "initiative-application-knowledge-lab-zurich"
@@ -73,8 +74,7 @@
       },
       "previousSlugs": [
         "initiative-application-knowledge-lab-zurich"
-      ],
-      "salarySource": "reported"
+      ]
     }
   ]
 }
