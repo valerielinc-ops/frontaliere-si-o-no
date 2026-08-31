@@ -11004,6 +11004,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cirimido-frontaliere-ticino-lavoro.title': 'Vivere a Cirimido, lavorare in Ticino: guida frontaliere',
     'blog.article.cirimido-frontaliere-ticino-lavoro.excerpt': 'Scopri come trasferirsi a Cirimido e lavorare in Ticino da frontaliere: Permesso G, imposta alla fonte, AVS/LPP, costo della vita, valichi di confine.',
     'blog.article.cirimido-frontaliere-ticino-lavoro.imageAlt': 'Vista aerea di Mendrisio, Ticino, con paesaggio collinare, vigneti e confine svizzero-italiano al tramonto.',
+    'blog.article.aumento-tasso-interesse-lpp.title': 'Commissione LPP: aumento tasso minimo a 1,75%',
+    'blog.article.aumento-tasso-interesse-lpp.excerpt': 'La Commissione federale della previdenza professionale chiede incremento dal 1,25% all\'1,75%. Decisione al Consiglio federale. Impatto diretto per frontalieri che lavorano in Svizzera.',
+    'blog.article.aumento-tasso-interesse-lpp.imageAlt': 'Consulenza previdenziale in ufficio moderno a Lugano con vista sul lago di Lugano',
 };
 
 export default blogMetaIt;

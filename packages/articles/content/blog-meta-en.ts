@@ -11003,6 +11003,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cirimido-frontaliere-ticino-lavoro.title': 'Living in Cirimido, working in Ticino: border guide',
     'blog.article.cirimido-frontaliere-ticino-lavoro.excerpt': 'Find out how to move to Cirimido and work in Ticino as a border worker: G Permit, tax at source, AVS/LPP, cost of living, border crossings.',
     'blog.article.cirimido-frontaliere-ticino-lavoro.imageAlt': 'Aerial view of Mendrisio, Ticino, with hillside, vineyards and Swiss-Italian border at sunset.',
+    'blog.article.aumento-tasso-interesse-lpp.title': 'LPP fee: minimum rate increase to 1.75%',
+    'blog.article.aumento-tasso-interesse-lpp.excerpt': 'The Federal Commission on Occupational Welfare is asking for an increase from 1.25% to 1.75%. Decision to the Federal Council. Direct impact for border workers working in Switzerland.',
+    'blog.article.aumento-tasso-interesse-lpp.imageAlt': 'Financial advisor consulting cross-border worker on pension matters in Lugano office with Lake Lugano view',
 };
 
 export default blogMetaEn;
