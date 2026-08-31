@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vaxcyte",
-  "assembledAt": "2026-08-28T05:16:39.057Z",
+  "assembledAt": "2026-08-31T17:01:40.876Z",
   "jobs": [
     {
       "id": "vaxcyte-f558683786d7",
@@ -33,7 +33,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5267677008?gh_jid=5267677008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:16:33.270Z",
+      "crawledAt": "2026-08-31T17:01:34.809Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -72,8 +72,10 @@
         ]
       },
       "firstSeenAt": "2026-06-25T23:32:47.249Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -116,7 +118,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5311536008?gh_jid=5311536008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:16:33.221Z",
+      "crawledAt": "2026-08-31T17:01:34.786Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -142,6 +144,7 @@
       "firstSeenAt": "2026-07-09T12:13:14.086Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -184,7 +187,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5263512008?gh_jid=5263512008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:16:33.214Z",
+      "crawledAt": "2026-08-31T17:01:34.780Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -225,6 +228,7 @@
       "firstSeenAt": "2026-06-22T23:49:52.547Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -267,7 +271,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5284887008?gh_jid=5284887008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:16:33.207Z",
+      "crawledAt": "2026-08-31T17:01:34.775Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -306,6 +310,7 @@
       "firstSeenAt": "2026-06-30T23:25:58.849Z",
       "salaryMin": 120000,
       "salaryMax": 162000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
