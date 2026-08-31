@@ -10995,6 +10995,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.traffico-ferroviario-bloccato-ticino.title': 'Treni fermi tra Arbedo-Castione e Biasca: disagi',
     'blog.article.traffico-ferroviario-bloccato-ticino.excerpt': 'Interruzione lunedì verso mezzogiorno sulla tratta Arbedo-Castione–Biasca: FFS segnalano «incidente a persona», treni cancellati.',
     'blog.article.traffico-ferroviario-bloccato-ticino.imageAlt': 'Stazione ferroviaria con avviso di interruzione del servizio sulla tratta ticinese',
+    'blog.article.frontaliere-pensione-2026-famiglia-figli.title': 'Pensione frontalieri 2026: pianificare con famiglia e figli',
+    'blog.article.frontaliere-pensione-2026-famiglia-figli.excerpt': 'Riforma AVS 21, nuovo Accordo Frontalieri in vigore dal 2024 e scenari di rendita anticipata per chi lavora in Ticino con famiglia.',
+    'blog.article.frontaliere-pensione-2026-famiglia-figli.imageAlt': 'Coppia di frontalieri anziani pianifica il pensionamento a Lugano',
 };
 
 export default blogMetaIt;

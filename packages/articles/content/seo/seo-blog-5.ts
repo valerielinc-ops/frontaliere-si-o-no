@@ -81074,6 +81074,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-pensione-2026-famiglia-figli': {
+    title: 'Pensione frontalieri 2026: pianificare con famiglia e figli',
+    description: 'Pensionamento anticipato frontalieri 2026: AVS, LPP, nuove regole fiscali dal 2024 e scenari per famiglie con figli. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensione, pianificare, famiglia, figli',
+    ogTitle: 'Pensione frontalieri 2026: guida alla pianificazione familiare',
+    ogDescription: 'Età di riferimento AVS a 65 anni dal 2024, nuove regole fiscali dal 2024 e scenari di pensionamento anticipato per frontalieri ticinesi con famiglia e figli a carico. Tutti i dettagli.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-pensione-2026-famiglia-figli',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pensione frontalieri 2026: pianificare con famiglia e figli",
+      "description": "Pensionamento anticipato frontalieri 2026: AVS, LPP, nuove regole fiscali dal 2024 e scenari per famiglie con figli. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-pensione-2026-famiglia-figli.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Coppia di frontalieri anziani pianifica il pensionamento a Lugano"
+      },
+      "datePublished": "2026-08-31T14:22:10+00:00",
+      "dateModified": "2026-08-31T14:22:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-pensione-2026-famiglia-figli/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

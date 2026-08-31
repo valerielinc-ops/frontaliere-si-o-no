@@ -4837,6 +4837,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.divario-salariale-svizzera-ust-640.title': 'Lohngefälle Schweiz: 640 CHF ungeklärter Frauenanteil',
     'blog.article.divario-salariale-svizzera-ust-640.excerpt': 'Im Jahr 2024 sinkt die Lücke auf 15,7%, aber die ungeklärte Komponente bleibt 640 CHF brutto pro Monat. Die Finanzlage liegt bei 30,6%.',
     'blog.article.divario-salariale-svizzera-ust-640.imageAlt': 'Finanzdistrikt Zürich mit Glas-Hochhäusern',
+    'blog.article.commissione-lpp-tasso-minimo-2027.title': 'Berufliche Vorsorge: VORGESCHLAGENER BVG-Mindestsatz von 1,75% für 2027',
+    'blog.article.commissione-lpp-tasso-minimo-2027.excerpt': 'Die BVG-Kommission EMPFIEHLT, den Mindestsatz von 1,25% auf 1,75% (+0,50 Punkte) zu erhöhen. 10: 4, endgültige Entscheidung im Bundesrat.',
+    'blog.article.commissione-lpp-tasso-minimo-2027.imageAlt': 'Bundeshaus in Bern, Sitz des Bundesrats',
 };
 
 export default blogMetaChDe;

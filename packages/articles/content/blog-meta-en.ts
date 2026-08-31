@@ -10994,6 +10994,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.traffico-ferroviario-bloccato-ticino.title': 'Trains stopped between Arbedo-Castione and Biasca: inconvenience',
     'blog.article.traffico-ferroviario-bloccato-ticino.excerpt': 'Interruption on Monday around noon on the Arbedo-Castione–Biasca route: SBB report "accident per person", trains cancelled.',
     'blog.article.traffico-ferroviario-bloccato-ticino.imageAlt': 'Railway station with service interruption notice on the Ticino line',
+    'blog.article.frontaliere-pensione-2026-famiglia-figli.title': 'Border guesthouse 2026: plan with family and children',
+    'blog.article.frontaliere-pensione-2026-famiglia-figli.excerpt': 'AVS 21 reform, new Frontier Agreement in force since 2024 and early retirement scenarios for those who work in Ticino with a family.',
+    'blog.article.frontaliere-pensione-2026-famiglia-figli.imageAlt': 'Cross-border worker couple planning retirement by Lake Lugano',
 };
 
 export default blogMetaEn;

@@ -4837,6 +4837,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.divario-salariale-svizzera-ust-640.title': 'Wage gap man-woman in Switzerland: CHF 640 from unexplained party',
     'blog.article.divario-salariale-svizzera-ust-640.excerpt': 'In 2024 the gap drops to 15.7% but the unexplained component remains 640 CHF gross per month. Finance reaches 30.6%.',
     'blog.article.divario-salariale-svizzera-ust-640.imageAlt': 'Zurich financial district with glass skyscrapers',
+    'blog.article.commissione-lpp-tasso-minimo-2027.title': 'Occupational pension: minimum LPP rate proposed at 1.75% for 2027',
+    'blog.article.commissione-lpp-tasso-minimo-2027.excerpt': 'The LPP Commission recommends raising the minimum rate from 1.25% to 1.75% (+0.50 points). Vote 10 to 4, final decision in the Federal Council.',
+    'blog.article.commissione-lpp-tasso-minimo-2027.imageAlt': 'Federal Palace in Bern, seat of the Swiss Federal Council',
 };
 
 export default blogMetaChEn;

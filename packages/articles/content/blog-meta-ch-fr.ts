@@ -4837,6 +4837,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.divario-salariale-svizzera-ust-640.title': 'Écart salarial homme-femme en Suisse : 640 CHF de part non expliquée',
     'blog.article.divario-salariale-svizzera-ust-640.excerpt': 'En 2024, l\'écart tombe à 15,7 % mais la composante non expliquée reste à 640 CHF bruts par mois. La finance touche 30,6 %.',
     'blog.article.divario-salariale-svizzera-ust-640.imageAlt': 'Quartier financier de Zurich avec gratte-ciels en verre',
+    'blog.article.commissione-lpp-tasso-minimo-2027.title': 'Prévoyance professionnelle : taux minimum LPP proposé à 1,75% pour 2027',
+    'blog.article.commissione-lpp-tasso-minimo-2027.excerpt': 'La Commission LPP recommande de porter le taux minimum de 1,25% à 1,75% (+0,50 point). Vote 10 à 4, décision finale au Conseil fédéral.',
+    'blog.article.commissione-lpp-tasso-minimo-2027.imageAlt': 'Palais fédéral à Berne, siège du Conseil fédéral',
 };
 
 export default blogMetaChFr;
