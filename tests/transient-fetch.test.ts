@@ -49,6 +49,17 @@ describe('isTransientFetchError', () => {
   it('honours an explicit retryable=true tag', () => {
     expect(isTransientFetchError(Object.assign(new Error('whatever'), { retryable: true }))).toBe(true);
   });
+
+  it('lets a wrapped DNS policy rejection override TypeError fetch-failed', () => {
+    const policy = Object.assign(new Error('unsafe prospector DNS target: x.test'), {
+      code: 'ERR_PUBLIC_FETCH_POLICY',
+      retryable: false,
+    });
+    const wrapped = Object.assign(new TypeError('fetch failed'), {
+      cause: Object.assign(new Error('connector error'), { cause: policy }),
+    });
+    expect(isTransientFetchError(wrapped)).toBe(false);
+  });
 });
 
 describe('isConnectionLevelFetchError (Jina egress fallback gate)', () => {
@@ -100,6 +111,16 @@ describe('fetchWithRetry', () => {
   it('does NOT retry a persistent (404-like) error', async () => {
     const attempt = vi.fn().mockRejectedValue(Object.assign(new Error('HTTP 404'), { status: 404 }));
     await expect(fetchWithRetry(attempt, { retryBaseMs: 0 })).rejects.toThrow(/404/);
+    expect(attempt).toHaveBeenCalledTimes(1);
+  });
+
+  it('does NOT retry an Undici-wrapped DNS policy rejection', async () => {
+    const policy = Object.assign(new Error('unsafe prospector DNS target: x.test'), {
+      code: 'ERR_PUBLIC_FETCH_POLICY',
+      retryable: false,
+    });
+    const attempt = vi.fn().mockRejectedValue(Object.assign(new TypeError('fetch failed'), { cause: policy }));
+    await expect(fetchWithRetry(attempt, { retries: 4, retryBaseMs: 0 })).rejects.toThrow(/fetch failed/);
     expect(attempt).toHaveBeenCalledTimes(1);
   });
 

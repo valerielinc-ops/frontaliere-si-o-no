@@ -4,8 +4,10 @@ import {
   SIKA_COMPANY_NAME,
   isSikaJob,
   isTrustedDomain,
+  resolveSikaListingGeography,
 } from '../scripts/lib/sika-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { schemaJobLocationCandidates } from '../scripts/lib/prospector/location-evidence.mjs';
 
 describe('Sika crawler parser', () => {
   // ── Constants ──
@@ -77,6 +79,40 @@ describe('Sika crawler parser', () => {
     it('respects max length', () => {
       const long = 'a'.repeat(200);
       expect(slugify(long).length).toBeLessThanOrEqual(90);
+    });
+  });
+
+  describe('structured location evidence', () => {
+    it('blocks listing fallback when detail is explicitly foreign', () => {
+      const locationCandidates = schemaJobLocationCandidates({
+        address: { addressLocality: 'Geneva', addressRegion: 'NY', addressCountry: 'US' },
+      });
+      expect(resolveSikaListingGeography(
+        { location: 'Geneva' },
+        { locationCandidates },
+      ).geography).toBeNull();
+    });
+
+    it('falls back to a valid listing only when detail is unresolved', () => {
+      expect(resolveSikaListingGeography(
+        { location: 'Baar' },
+        { locationCandidates: [{ location: 'Remote', addressCountry: '' }] },
+      ).geography).toMatchObject({ location: 'Baar', canton: 'ZG' });
+    });
+
+    it('preserves address metadata from the selected non-HQ Swiss candidate', () => {
+      const locationCandidates = schemaJobLocationCandidates([
+        { address: { addressLocality: 'Paris', addressCountry: 'FR' } },
+        { address: {
+          addressLocality: 'Widen', addressRegion: 'AG', addressCountry: 'CH',
+          postalCode: '8967', streetAddress: 'Industriestrasse 1',
+        } },
+      ]);
+      const decision = resolveSikaListingGeography({ location: 'Multiple locations' }, { locationCandidates });
+      expect(decision.geography).toMatchObject({ location: 'Widen, AG', canton: 'AG' });
+      expect(decision.candidate).toMatchObject({
+        addressLocality: 'Widen', addressRegion: 'AG', postalCode: '8967', streetAddress: 'Industriestrasse 1',
+      });
     });
   });
 

@@ -14,6 +14,13 @@
  */
 import { UA, HOST_DELAY_MS, FETCH_TIMEOUT_MS } from './config.mjs';
 import { normalizeHost } from './registrable.mjs';
+import { RETRYABLE_STATUS } from '../transient-fetch.mjs';
+import {
+  createSpecUrlPolicy,
+  fetchFollowingValidatedRedirectsWithUrl,
+  isPublicFetchPolicyError,
+  PublicFetchPolicyError,
+} from './public-fetch-policy.mjs';
 
 /** @type {Map<string, number>} host -> timestamp of the last request */
 const lastHit = new Map();
@@ -26,14 +33,14 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
  * Wait out the per-host cooldown, then stamp the host as hit.
  * @param {string} host
  */
-async function throttle(host) {
+async function throttle(host, sleepImpl = sleep) {
   const now = Date.now();
   const prev = lastHit.get(host) || 0;
   const wait = prev + HOST_DELAY_MS - now;
   // Stamp BEFORE awaiting so concurrent callers on the same host queue behind
   // each other instead of all reading the same stale timestamp and firing together.
   lastHit.set(host, Math.max(now, prev + HOST_DELAY_MS));
-  if (wait > 0) await sleep(wait);
+  if (wait > 0) await sleepImpl(wait);
 }
 
 /**
@@ -95,22 +102,50 @@ export function robotsAllows(robots, pathname) {
 /**
  * @param {string} origin e.g. `https://example.ch`
  */
-function loadRobots(origin) {
+function loadRobots(origin, transport) {
   if (!robotsCache.has(origin)) {
     robotsCache.set(origin, (async () => {
       try {
-        const ac = new AbortController();
-        const t = setTimeout(() => ac.abort(), 8000);
-        const r = await fetch(`${origin}/robots.txt`, { signal: ac.signal, headers: { 'User-Agent': UA } });
-        clearTimeout(t);
+        const robotsUrlPolicy = async (rawUrl) => {
+          const validated = await transport.urlPolicy(rawUrl);
+          if (new URL(validated).origin !== origin) {
+            throw new PublicFetchPolicyError(`prospector robots origin not allowed: ${new URL(validated).origin}`);
+          }
+          return validated;
+        };
+        const r = await fetchOnce(`${origin}/robots.txt`, {
+          ...transport,
+          timeoutMs: Math.min(8000, transport.timeoutMs || 8000),
+          method: 'GET',
+          body: undefined,
+          urlPolicy: robotsUrlPolicy,
+          ignoreRobots: true,
+        });
         if (!r.ok) return { disallow: [], allow: [] };
-        return parseRobots(await r.text());
-      } catch {
+        return parseRobots(r.body);
+      } catch (error) {
+        // A transient robots failure remains fail-open as documented, but a
+        // deterministic URL/DNS policy rejection must stop the whole request.
+        // Otherwise the main fetch repeats the unsafe lookup after robots has
+        // already proved the origin forbidden.
+        if (isPublicFetchPolicyError(error)) {
+          robotsCache.delete(origin);
+          throw error;
+        }
         return { disallow: [], allow: [] };
       }
     })());
   }
   return robotsCache.get(origin);
+}
+
+class RobotsDeniedError extends Error {
+  /** @param {string} url */
+  constructor(url) {
+    super(`robots.txt disallows prospector URL: ${url}`);
+    this.name = 'RobotsDeniedError';
+    this.url = url;
+  }
 }
 
 /**
@@ -119,8 +154,8 @@ function loadRobots(origin) {
  * every run into an error-handling exercise instead of a discovery run.
  *
  * @param {string} url
- * @param {{ timeoutMs?: number, accept?: string, ignoreRobots?: boolean, method?: string, body?: string, contentType?: string, headers?: Record<string,string>, retries?: number }} [opts]
- * @returns {Promise<{ ok: boolean, status: number, url: string, body: string, host: string, blockedByRobots?: boolean }>}
+ * @param {{ timeoutMs?: number, accept?: string, ignoreRobots?: boolean, method?: string, body?: string, contentType?: string, headers?: Record<string,string|undefined>, retries?: number, retryBaseMs?: number, maxRedirects?: number, fetchImpl?: typeof fetch, lookupImpl?: any, urlPolicy?: any, dispatcher?: unknown, sleepImpl?: (ms: number) => Promise<unknown> }} [opts]
+ * @returns {Promise<{ ok: boolean, status: number, url: string, body: string, host: string, blockedByRobots?: boolean, policyBlocked?: boolean, error?: string }>}
  */
 export async function politeFetch(url, opts = {}) {
   let parsed;
@@ -128,25 +163,71 @@ export async function politeFetch(url, opts = {}) {
     return { ok: false, status: 0, url, body: '', host: '' };
   }
   const host = normalizeHost(parsed.hostname);
-  const origin = `${parsed.protocol}//${parsed.host}`;
+  let policy;
+  let ownsPolicy = false;
+  try {
+    policy = opts.urlPolicy || createSpecUrlPolicy(
+      { seedUrls: [url] },
+      { lookupImpl: opts.lookupImpl },
+    );
+    ownsPolicy = !opts.urlPolicy;
+    await policy(url);
 
-  if (!opts.ignoreRobots) {
-    const robots = await loadRobots(origin);
-    if (!robotsAllows(robots, parsed.pathname)) {
-      return { ok: false, status: 0, url, body: '', host, blockedByRobots: true };
+    const transport = {
+      ...opts,
+      host,
+      urlPolicy: policy,
+      dispatcher: opts.dispatcher || policy.dispatcher,
+    };
+    // Keep the shared fetch contract: `retries` counts attempts AFTER the
+    // first request. The old runtime used the shared default of three retries
+    // (four attempts total); treating the option as an attempt count silently
+    // removed resilience from every promoted crawler.
+    const configuredRetries = Number(opts.retries ?? 3);
+    const retryCount = Number.isFinite(configuredRetries)
+      ? Math.max(0, Math.floor(configuredRetries))
+      : 3;
+    const attempts = retryCount + 1;
+    let last = { ok: false, status: 0, url, body: '', host };
+    for (let attempt = 0; attempt < attempts; attempt++) {
+      if (attempt > 0) {
+        await (opts.sleepImpl || sleep)((opts.retryBaseMs ?? 1500) * attempt);
+      }
+      try {
+        last = await fetchOnce(url, transport);
+      } catch (error) {
+        last = {
+          ok: false,
+          status: 0,
+          url: error instanceof RobotsDeniedError ? error.url : url,
+          body: '',
+          host,
+          ...(error instanceof RobotsDeniedError ? { blockedByRobots: true } : {}),
+          ...(isPublicFetchPolicyError(error)
+            ? { policyBlocked: true, error: String(error?.message || error) }
+            : {}),
+        };
+      }
+      // Retry only what a retry can fix. Policy failures, 4xx and successful
+      // responses are final; connection failures/5xx retain bounded retries.
+      if (last.ok || last.policyBlocked || last.blockedByRobots
+        || (last.status > 0 && !RETRYABLE_STATUS.has(last.status))) return last;
     }
+    return last;
+  } catch (error) {
+    return {
+      ok: false,
+      status: 0,
+      url,
+      body: '',
+      host,
+      ...(isPublicFetchPolicyError(error)
+        ? { policyBlocked: true, error: String(error?.message || error) }
+        : {}),
+    };
+  } finally {
+    if (ownsPolicy) await policy?.dispatcher?.close?.();
   }
-
-  const attempts = Math.max(1, opts.retries ?? 1);
-  let last = { ok: false, status: 0, url, body: '', host };
-  for (let attempt = 0; attempt < attempts; attempt++) {
-    if (attempt > 0) await sleep(1500 * attempt);
-    last = await once(url, opts, host);
-    // Retry only what a retry can fix: a connection-level failure or a 5xx.
-    // A 404 or a 403 is an answer, and asking again is just rudeness.
-    if (last.ok || (last.status > 0 && last.status < 500)) return last;
-  }
-  return last;
 }
 
 /**
@@ -155,10 +236,8 @@ export async function politeFetch(url, opts = {}) {
  *
  * @param {string} url
  * @param {Record<string, any>} opts
- * @param {string} host
  */
-async function once(url, opts, host) {
-  await throttle(host);
+async function fetchOnce(url, opts) {
   const ac = new AbortController();
   const timer = setTimeout(() => ac.abort(), opts.timeoutMs || FETCH_TIMEOUT_MS);
   try {
@@ -175,20 +254,49 @@ async function once(url, opts, host) {
     for (const [k, v] of Object.entries(opts.headers || {})) {
       if (v === undefined) delete headers[k]; else headers[k] = v;
     }
-    const res = await fetch(url, {
-      method,
-      redirect: 'follow',
-      signal: ac.signal,
-      headers,
-      ...(opts.body ? { body: opts.body } : {}),
+    const { response: res, effectiveUrl } = await fetchFollowingValidatedRedirectsWithUrl(url, {
+      fetchImpl: opts.fetchImpl || fetch,
+      validateUrl: opts.urlPolicy,
+      maxRedirects: opts.maxRedirects ?? 5,
+      beforeRequest: async (hopUrl) => {
+        const hop = new URL(hopUrl);
+        const hopHost = normalizeHost(hop.hostname);
+        if (!opts.ignoreRobots) {
+          const robots = await loadRobots(hop.origin, {
+            ...opts,
+            host: hopHost,
+          });
+          if (!robotsAllows(robots, `${hop.pathname}${hop.search}`)) {
+            throw new RobotsDeniedError(hopUrl);
+          }
+        }
+        // Every actual request — including every redirect and robots fetch —
+        // consumes the destination host's slot. Cross-origin allowlisted hops
+        // therefore cannot borrow the seed host's throttle budget. Robots is
+        // loaded first so a policy/DNS rejection does not reserve a phantom
+        // target request or create what looks like retry backoff.
+        await throttle(hopHost, opts.sleepImpl || sleep);
+      },
+      requestOptions: {
+        method,
+        signal: ac.signal,
+        headers,
+        ...(opts.dispatcher ? { dispatcher: opts.dispatcher } : {}),
+        ...(opts.body ? { body: opts.body } : {}),
+      },
     });
     const body = method === 'HEAD' ? '' : await res.text();
-    return { ok: res.ok, status: res.status, url: res.url, body, host };
-  } catch {
-    return { ok: false, status: 0, url, body: '', host };
+    const effectiveHost = normalizeHost(new URL(effectiveUrl).hostname);
+    return { ok: res.ok, status: res.status, url: effectiveUrl, body, host: effectiveHost };
   } finally {
     clearTimeout(timer);
   }
+}
+
+/** Test-only state reset: avoids cross-test robots/throttle cache coupling. */
+export function clearPoliteFetchStateForTests() {
+  lastHit.clear();
+  robotsCache.clear();
 }
 
 /**

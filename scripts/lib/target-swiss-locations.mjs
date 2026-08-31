@@ -116,9 +116,10 @@ function getCantonCityTokens(cantonCode) {
   return result;
 }
 
-// Bare (parenthesis-stripped) form of every "<City> (XX)" BFS entry that
-// belongs to canton `cantonCode`, keyed by that canton alone — NOT folded
-// into the global token sets above. Registering "küsnacht" globally would
+// Normalized form of every raw BFS municipality/alias that belongs to canton
+// `cantonCode`; a "<City> (XX)" suffix is stripped when present. These tokens
+// are keyed by that canton alone — NOT folded into the global sets above.
+// Registering "küsnacht" globally would
 // reopen the cross-canton collision class DISAMBIGUATED_BARE_CITY_ALIASES
 // exists to avoid (Roche/Berg/Stein/Au/... colliding across cantons or with
 // common words in free text). But once a caller already knows the job's
@@ -150,9 +151,10 @@ function getCantonScopedBareTokens(cantonCode) {
   const sourcesByToken = new Map();
   for (const city of all) {
     const disambiguated = city.match(/^(.+?)\s*\([a-z]{2}\)$/i);
-    if (!disambiguated) continue;
-    const bareToken = normalizeToken(disambiguated[1]);
-    if (!bareToken || AMBIGUOUS_LOCATION_WORD_TOKENS.has(bareToken)) continue;
+    const bareToken = normalizeToken(disambiguated?.[1] || city);
+    // A raw municipality that is ambiguous in prose is authoritative here:
+    // the caller already supplied the canton and therefore disambiguated it.
+    if (!bareToken) continue;
     if (!sourcesByToken.has(bareToken)) sourcesByToken.set(bareToken, new Set());
     sourcesByToken.get(bareToken).add(city);
   }
@@ -493,6 +495,32 @@ export function isKnownSwissMunicipality(cityName = '', cantonHint = '') {
   if (_allSwissCityTokens.has(token)) return true;
   const canton = normalizeCantonCode(cantonHint);
   return canton ? getCantonScopedBareTokens(canton).has(token) : false;
+}
+
+/**
+ * Strict canton-scoped municipality lookup. Unlike `isKnownSwissMunicipality`,
+ * a city known in another canton does not pass: this is the disambiguator for
+ * source values such as `Buchs AG` (also Buchs SG) and must not turn
+ * `Baden DE` into a Swiss canton marker merely because Baden exists in AG.
+ */
+export function isKnownSwissMunicipalityInCanton(cityName = '', cantonHint = '') {
+  const token = normalizeToken(cityName);
+  const canton = normalizeCantonCode(cantonHint);
+  if (!token || token.length < 2 || !canton) return false;
+  return getCantonCityTokens(canton).includes(token)
+    || getCantonScopedBareTokens(canton).has(token);
+}
+
+/**
+ * Canton memberships for an exact BFS municipality/alias. This deliberately
+ * uses the raw canton-scoped snapshot, including disambiguated and otherwise
+ * prose-ambiguous names, because callers use the cardinality to reject a bare
+ * homonym (`Buchs`, `Reinach`) until the source supplies a canton.
+ */
+export function swissMunicipalityCantons(cityName = '') {
+  const token = normalizeToken(String(cityName || '').replace(/\s*\([a-z]{2}\)\s*$/i, ''));
+  if (!token) return [];
+  return Object.keys(SWISS_CANTONS).filter((code) => getCantonScopedBareTokens(code).has(token));
 }
 
 /**

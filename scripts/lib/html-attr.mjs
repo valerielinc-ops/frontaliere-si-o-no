@@ -82,6 +82,90 @@ function scanAttributes(input = '') {
 }
 
 /**
+ * Scan HTML tags without treating `>` inside a quoted attribute as the end of
+ * a start tag. Malformed tags containing a new `<` before their close are
+ * abandoned rather than allowed to consume the following element. The result
+ * is ordered, so callers can build balanced-container indexes in one pass.
+ *
+ * @param {string} html
+ * @returns {Array<{
+ *   raw: string,
+ *   name: string,
+ *   index: number,
+ *   end: number,
+ *   closing: boolean,
+ *   selfClosing: boolean,
+ * }>}
+ */
+export function scanHtmlTags(html = '') {
+  const source = String(html || '');
+  const out = [];
+  let cursor = 0;
+
+  while (cursor < source.length) {
+    const index = source.indexOf('<', cursor);
+    if (index === -1) break;
+    let i = index + 1;
+    const closing = source[i] === '/';
+    if (closing) i += 1;
+    if (!/[a-z]/i.test(source[i] || '')) {
+      cursor = i;
+      continue;
+    }
+    const nameStart = i;
+    i += 1;
+    while (i < source.length && /[a-z0-9:-]/i.test(source[i])) i += 1;
+    const name = source.slice(nameStart, i).toLowerCase();
+    let quote = '';
+    let end = -1;
+    let recovery = -1;
+    for (; i < source.length; i += 1) {
+      const char = source[i];
+      if (quote) {
+        if (char === quote) quote = '';
+        else if (char === '<') {
+          // Browsers abandon a malformed start tag when a new element begins.
+          // Recover at that delimiter even when the author forgot to close an
+          // attribute quote; otherwise the valid following JobPosting can be
+          // swallowed until an unrelated quote much later in the document.
+          recovery = i;
+          break;
+        }
+        continue;
+      }
+      if (char === '"' || char === "'") {
+        quote = char;
+        continue;
+      }
+      if (char === '<') break;
+      if (char === '>') {
+        end = i + 1;
+        break;
+      }
+    }
+    if (end === -1) {
+      cursor = recovery >= 0 ? recovery : Math.max(index + 1, i);
+      continue;
+    }
+    const raw = source.slice(index, end);
+    out.push({ raw, name, index, end, closing, selfClosing: !closing && /\/\s*>$/.test(raw) });
+    cursor = end;
+  }
+
+  return out;
+}
+
+/**
+ * @param {string} html
+ * @param {string} [tagName]
+ * @returns {ReturnType<typeof scanHtmlTags>}
+ */
+export function scanStartTags(html = '', tagName = '') {
+  const target = String(tagName || '').toLowerCase();
+  return scanHtmlTags(html).filter((tag) => !tag.closing && (!target || tag.name === target));
+}
+
+/**
  * Read the first requested HTML attribute without crossing another value.
  *
  * @param {string} attrs Attribute soup (the inside of a start tag) or raw HTML.
@@ -113,9 +197,8 @@ export function readAttr(attrs = '', names = []) {
  * @returns {string} The whole start tag, or '' when not found.
  */
 export function readTagByAttr(html = '', name = '', value = '') {
-  const tags = String(html || '').match(/<[a-z][^>]*>/gi) ?? [];
   const target = String(value).toLowerCase();
-  return tags.find((tag) => readAttr(tag, name).toLowerCase() === target) ?? '';
+  return scanStartTags(html).find(({ raw }) => readAttr(raw, name).toLowerCase() === target)?.raw ?? '';
 }
 
 /**
@@ -148,10 +231,9 @@ export function readAllAttr(html = '', name = '') {
  */
 export function readMetaContent(html = '', key = '') {
   const target = String(key).toLowerCase();
-  const tags = String(html || '').match(/<meta\b[^>]*>/gi) ?? [];
-  const tag = tags.find((candidate) => {
-    const declaredKeys = [readAttr(candidate, 'property'), readAttr(candidate, 'name')];
+  const tag = scanStartTags(html, 'meta').find(({ raw }) => {
+    const declaredKeys = [readAttr(raw, 'property'), readAttr(raw, 'name')];
     return declaredKeys.some((declaredKey) => declaredKey.toLowerCase() === target);
   });
-  return tag ? readAttr(tag, 'content') : '';
+  return tag ? readAttr(tag.raw, 'content') : '';
 }
