@@ -990,11 +990,18 @@ export async function writeFustPublishPlan(plan, options = {}) {
  */
 export function readFustSummarySlice() {
   if (!fs.existsSync(FUST_SUMMARY_SLICE)) return null;
+  let raw;
+  try {
+    raw = fs.readFileSync(FUST_SUMMARY_SLICE, 'utf8');
+  } catch (error) {
+    console.warn(`⚠️ Fust empty-snapshot confirmation state could not be read (${error.message}) — treating as no prior confirmation.`);
+    return null;
+  }
   let parsed;
   try {
-    parsed = JSON.parse(fs.readFileSync(FUST_SUMMARY_SLICE, 'utf8'));
+    parsed = JSON.parse(raw);
   } catch (error) {
-    console.warn(`⚠️ Fust empty-snapshot confirmation state is unreadable (${error.message}) — treating as no prior confirmation.`);
+    console.warn(`⚠️ Fust empty-snapshot confirmation state is not valid JSON (${error.message}) — treating as no prior confirmation.`);
     return null;
   }
   if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {

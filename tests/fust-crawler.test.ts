@@ -464,12 +464,20 @@ describe('Fust post-crawl reconciliation', () => {
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
     const exists = vi.spyOn(fs, 'existsSync').mockImplementation((p) => (p === summaryPath ? true : originalExistsSync(p)));
     const readFile = vi.spyOn(fs, 'readFileSync').mockImplementation(((p: fs.PathOrFileDescriptor, enc?: unknown) => {
-      if (p === summaryPath) return '{not valid json';
+      if (p === summaryPath) throw Object.assign(new Error('EACCES: permission denied'), { code: 'EACCES' });
       return (originalReadFileSync as unknown as (p: fs.PathOrFileDescriptor, enc?: unknown) => unknown)(p, enc);
     }) as typeof fs.readFileSync);
     try {
       expect(readFustSummarySlice()).toBeNull();
-      expect(warn).toHaveBeenCalledWith(expect.stringContaining('unreadable'));
+      expect(warn).toHaveBeenCalledWith(expect.stringContaining('could not be read'));
+
+      warn.mockClear();
+      readFile.mockImplementation(((p: fs.PathOrFileDescriptor, enc?: unknown) => {
+        if (p === summaryPath) return '{not valid json';
+        return (originalReadFileSync as unknown as (p: fs.PathOrFileDescriptor, enc?: unknown) => unknown)(p, enc);
+      }) as typeof fs.readFileSync);
+      expect(readFustSummarySlice()).toBeNull();
+      expect(warn).toHaveBeenCalledWith(expect.stringContaining('not valid JSON'));
 
       warn.mockClear();
       readFile.mockImplementation(((p: fs.PathOrFileDescriptor, enc?: unknown) => {
