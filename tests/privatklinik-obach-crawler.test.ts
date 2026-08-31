@@ -4,6 +4,7 @@ import {
   PRIVATKLINIK_OBACH_COMPANY_NAME,
   isPrivatklinikObachJob,
   isTrustedDomain,
+  matchesPrivatklinikObachPosting,
 } from '../scripts/lib/privatklinik-obach-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -12,6 +13,25 @@ describe('Privatklinik Obach crawler parser', () => {
   it('exports valid company key and name', () => {
     expect(PRIVATKLINIK_OBACH_KEY).toBe('privatklinik-obach');
     expect(PRIVATKLINIK_OBACH_COMPANY_NAME).toBe('Privatklinik Obach');
+  });
+
+  describe('matchesPrivatklinikObachPosting', () => {
+    it('owns postings carrying the exact Obach department label', () => {
+      expect(matchesPrivatklinikObachPosting({
+        id: '744000146478439',
+        location: { city: 'Solothurn' },
+        department: { label: 'Privatklinik Obach' },
+        customField: [{ fieldLabel: 'Department', valueLabel: 'Privatklinik Obach' }],
+      })).toBe(true);
+    });
+
+    it('does not claim other SMN clinics sharing the tenant', () => {
+      expect(matchesPrivatklinikObachPosting({
+        id: '744000100000000',
+        location: { city: 'Genolier' },
+        department: { label: 'Clinique de Genolier' },
+      })).toBe(false);
+    });
   });
 
   // ── isCompanyJob ──

@@ -31,5 +31,6 @@ const parser = createSmnClinicParser({
 
 export const fetchAllCliniqueDeValereJobs = parser.fetchAllJobs;
 export const isCliniqueDeValereJob = parser.isCompanyJob;
+export const matchesCliniqueDeValerePosting = parser.matchesClinicPosting;
 export const isTrustedDomain = parser.isTrustedDomain;
 export const CLINIQUE_DE_VALERE_LISTING_URL = parser.LISTING_URL;
