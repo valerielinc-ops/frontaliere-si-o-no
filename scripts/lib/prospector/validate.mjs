@@ -44,6 +44,7 @@ import {
 import { resolveDetailOrListingSwissGeography } from './location-evidence.mjs';
 import { gradeJobLike } from '../job-like.mjs';
 import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
+import { extractPageExecutiveDetailFields } from './pageexecutive-detail.mjs';
 
 /**
  * Whether a fetched body is text we can actually read.
@@ -95,7 +96,7 @@ export function tokenOverlap(needle, haystack) {
  * Grade ONE vacancy against its own detail page.
  *
  * @param {{ title: string, url: string, location?: string, description?: string }} vacancy
- * @param {{ urlPolicy?: any, dispatcher?: unknown, fetchImpl?: typeof fetch, lookupImpl?: any, sleepImpl?: (ms: number) => Promise<unknown> }} [fetchOptions]
+ * @param {{ urlPolicy?: any, dispatcher?: unknown, fetchImpl?: typeof fetch, lookupImpl?: any, sleepImpl?: (ms: number) => Promise<unknown>, headers?: Record<string,string>, detailExtractor?: typeof extractDetailFields }} [fetchOptions]
  * @returns {Promise<{ url: string, reachable: boolean, titleMatch: number, contentful: boolean, sourceBackedLocation: boolean, words: number, status: number, jobLike: boolean|null, jobSignals: string[], notJobSignals: string[] }>}
  */
 export async function gradeVacancy(vacancy, fetchOptions = {}) {
@@ -127,7 +128,10 @@ export async function gradeVacancy(vacancy, fetchOptions = {}) {
   const heading = `${textOf(h1)} ${textOf(title)}`;
   const bodyText = textOf(res.body);
   out.titleMatch = Math.max(tokenOverlap(vacancy.title, heading), tokenOverlap(vacancy.title, bodyText.slice(0, 4000)));
-  const detail = extractDetailFields(res.body, res.url || vacancy.url);
+  const detail = (fetchOptions.detailExtractor || extractDetailFields)(
+    res.body,
+    res.url || vacancy.url,
+  );
   out.sourceBackedLocation = Boolean(resolveDetailOrListingSwissGeography(detail, vacancy).geography);
 
   const words = bodyText.split(/\s+/).filter(Boolean).length;
@@ -192,6 +196,7 @@ export async function gradeExtraction(spec, vacancies, opts = {}) {
 
   const graded = [];
   const urlPolicy = createSpecUrlPolicy(/** @type {any} */ (spec), { lookupImpl: opts.lookupImpl });
+  const isPageExecutive = /** @type {any} */ (spec).platform === 'pageexecutive.com';
   try {
     for (const v of picks) {
       graded.push(await gradeVacancy(v, {
@@ -199,6 +204,10 @@ export async function gradeExtraction(spec, vacancies, opts = {}) {
         dispatcher: urlPolicy.dispatcher,
         fetchImpl: opts.fetchImpl,
         sleepImpl: opts.sleepImpl,
+        ...(isPageExecutive ? {
+          headers: { 'Accept-Encoding': 'identity' },
+          detailExtractor: extractPageExecutiveDetailFields,
+        } : {}),
       }));
     }
   } finally {
