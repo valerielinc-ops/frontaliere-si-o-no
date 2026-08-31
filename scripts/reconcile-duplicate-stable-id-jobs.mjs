@@ -37,6 +37,7 @@ import { fileURLToPath } from 'node:url';
 import { addPreviousSlugForLocale, LOCALES, DEFAULT_PREV_SLUG_CAP } from './lib/dedicated-crawler-common.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { carryForwardMarks } from './lib/job-mark-persistence.mjs';
+import { isSliceFile } from './lib/crawler-slice-files.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -72,7 +73,7 @@ export function pickWinner(jobs) {
 
 function main() {
   const files = fs.readdirSync(DIR)
-    .filter((f) => f.endsWith('.json'))
+    .filter(isSliceFile)
     .filter((f) => ONLY_FILES.size === 0 || ONLY_FILES.has(f));
 
   let totalGroups = 0;

@@ -75,6 +75,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { titleLooksUntranslated, DEFAULT_JOB_LOCALES } from './lib/job-locale-utils.mjs';
 import { localizeGenderTrigraphs } from './lib/translation-glossary.mjs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -296,7 +297,7 @@ export function loadJobs({ root = ROOT, fromSlices = false } = {}) {
   const sliceDir = path.join(root, 'data', 'jobs', 'by-crawler');
   if (!fs.existsSync(sliceDir)) return { jobs: [], source: null };
   const jobs = [];
-  for (const file of fs.readdirSync(sliceDir).filter((f) => f.endsWith('.json'))) {
+  for (const file of listSliceFileNames(sliceDir)) {
     try {
       const parsed = JSON.parse(fs.readFileSync(path.join(sliceDir, file), 'utf8'));
       const rows = Array.isArray(parsed) ? parsed : parsed?.jobs;
