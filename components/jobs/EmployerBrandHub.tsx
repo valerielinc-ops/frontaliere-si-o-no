@@ -17,6 +17,7 @@
 import { useMemo } from 'react';
 import type { Locale } from '@/services/i18n';
 import type { EmployerBrand } from '@/services/employerBrands';
+import { SALARY_ESTIMATE_SUFFIX } from '@/build-plugins/shared/jobCardHtml';
 
 interface EmployerBrandJob {
   readonly id: string;
@@ -34,6 +35,7 @@ interface EmployerBrandJob {
   readonly salaryMin?: number;
   readonly salaryMax?: number;
   readonly currency?: string;
+  readonly salarySource?: 'reported' | 'existing' | 'estimated';
 }
 
 export interface EmployerBrandHubProps {
@@ -130,16 +132,18 @@ export function buildEmployerBrandStructuredData(input: StructuredDataInput): {
   };
 }
 
-function formatSalary(job: EmployerBrandJob): string {
+function formatSalary(job: EmployerBrandJob, locale: Locale): string {
   const min = Number(job.salaryMin);
   const max = Number(job.salaryMax);
   const currency = job.currency || 'CHF';
   if (!Number.isFinite(min) || min <= 0) return '';
   const fmt = (n: number): string => Math.round(n / 1000).toString();
-  if (Number.isFinite(max) && max > min) {
-    return `${currency} ${fmt(min)}k – ${fmt(max)}k`;
-  }
-  return `${currency} ${fmt(min)}k+`;
+  const range = Number.isFinite(max) && max > min
+    ? `${currency} ${fmt(min)}k – ${fmt(max)}k`
+    : `${currency} ${fmt(min)}k+`;
+  // Estimated bands are declared as such, same convention as the SSG job
+  // cards (`SALARY_ESTIMATE_SUFFIX` in build-plugins/shared/jobCardHtml.ts).
+  return job.salarySource === 'estimated' ? `${range} ${SALARY_ESTIMATE_SUFFIX[locale]}` : range;
 }
 
 export function EmployerBrandHub({
@@ -243,7 +247,7 @@ export function EmployerBrandHub({
             {topJobs.map((job) => {
               const href = buildJobHref(job, locale);
               const title = localizedJobTitle(job, locale);
-              const salary = formatSalary(job);
+              const salary = formatSalary(job, locale);
               return (
                 <li key={job.id}>
                   <a
