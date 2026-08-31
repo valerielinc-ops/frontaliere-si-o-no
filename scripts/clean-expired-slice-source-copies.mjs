@@ -42,6 +42,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { pruneSourceCopySlots, normalizeSpace } from './lib/dedicated-crawler-common.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DEFAULT_SLICES_DIR = path.resolve(__dirname, '..', 'data', 'jobs', 'expired', 'by-crawler');
@@ -103,7 +104,7 @@ function main() {
     process.exit(1);
   }
 
-  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.json')).sort();
+  const files = listSliceFileNames(dir);
   const totals = {
     filesScanned: 0,
     filesChanged: 0,
