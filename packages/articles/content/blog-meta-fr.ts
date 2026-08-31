@@ -10999,6 +10999,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-pensione-2026-famiglia-figli.title': 'Pension frontalière 2026 : planifier avec famille et enfants',
     'blog.article.frontaliere-pensione-2026-famiglia-figli.excerpt': 'Réforme de l\'AVS 21, nouvel accord frontalier en vigueur à partir de 2024 et scénarios de rente anticipée pour ceux qui travaillent au Tessin avec leur famille.',
     'blog.article.frontaliere-pensione-2026-famiglia-figli.imageAlt': 'Couple de frontaliers planifiant la retraite au bord du lac de Lugano',
+    'blog.article.lavoro-transfrontaliero-ticino-q2-2026.title': 'Frontières Tessin Q2 2026: 79 121 (+0,64 %)',
+    'blog.article.lavoro-transfrontaliero-ticino-q2-2026.excerpt': 'Office fédéral de la statistique : 79 121 frontaliers dans le canton du Tessin au Q2 2026, en hausse de 505 unités (+0,64 %) par rapport au Q1. Analyse des données BFS trimestrielle.',
+    'blog.article.lavoro-transfrontaliero-ticino-q2-2026.imageAlt': 'Lac de Lugano avec district commercial moderne et professionnels au matin',
 };
 
 export default blogMetaFr;

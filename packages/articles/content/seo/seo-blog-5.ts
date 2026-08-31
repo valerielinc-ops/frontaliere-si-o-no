@@ -81113,6 +81113,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavoro-transfrontaliero-ticino-q2-2026': {
+    title: 'Frontalieri Ticino Q2 2026: 79.121 (+0,64%) | Frontaliere Ticino',
+    description: 'Ufficio Federale di Statistica: 79.121 frontalieri nel Canton Ticino al Q2 2026, in crescita di 505 unità (+0,64%) rispetto al Q1. Analisi dati BFS trimestrale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ufficio, federale, statistica, canton',
+    ogTitle: 'Frontalieri Ticino Q2 2026: crescita trimestrale +0,64%',
+    ogDescription: 'Q2 2026: 79.121 frontalieri nel Ticino secondo BFS. Crescita di 505 unità vs trimestre precedente (+0,64%), ma calo annuale di 457 (-0,57%). Distribuzione: 61,6% uomini, 38,4% donne.',
+    canonicalPath: '/articoli-frontaliere/lavoro-transfrontaliero-ticino-q2-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri Ticino Q2 2026: 79.121 (+0,64%)",
+      "description": "Ufficio Federale di Statistica: 79.121 frontalieri nel Canton Ticino al Q2 2026, in crescita di 505 unità (+0,64%) rispetto al Q1. Analisi dati BFS trimestrale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavoro-transfrontaliero-ticino-q2-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Lugano con grattacieli del distretto finanziario e professionisti al lavoro al mattino"
+      },
+      "datePublished": "2026-08-31T15:36:22+00:00",
+      "dateModified": "2026-08-31T15:36:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavoro-transfrontaliero-ticino-q2-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
