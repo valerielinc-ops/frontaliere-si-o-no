@@ -11010,6 +11010,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trenord-rincaro-388-linee-ticino.title': 'Trenord, rincaro del 3,88% sulle linee con il Ticino',
     'blog.article.trenord-rincaro-388-linee-ticino.excerpt': 'Dal 1° settembre biglietti e abbonamenti Trenord più cari del 3,88%: rincaro disposto dalla Giunta di Regione Lombardia, con eccezioni per Malpensa Express e Como-Malpensa via Chiasso e Mendrisio.',
     'blog.article.trenord-rincaro-388-linee-ticino.imageAlt': 'Treno regionale Trenord in stazione al confine con il Canton Ticino',
+    'blog.article.como-crisi-abitativa-alloggi-sfitti.title': 'Crisi casa a Como: 1.302 alloggi sfitti, giovani in fuga',
+    'blog.article.como-crisi-abitativa-alloggi-sfitti.excerpt': 'Nel luglio 2025, provincia di Como ha 1.302 alloggi pubblici sfitti. Sindacati denunciano: lavoratori e giovani non trovano case sostenibili. Costi abitativi spingono alcuni verso il mercato del lavoro svizzero.',
+    'blog.article.como-crisi-abitativa-alloggi-sfitti.imageAlt': 'Vista del lago di Como con edifici residenziali, simbolo della provincia attrattiva ma con costi abitativi elevati',
 };
 
 export default blogMetaIt;

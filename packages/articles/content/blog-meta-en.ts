@@ -11009,6 +11009,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trenord-rincaro-388-linee-ticino.title': 'Trenord, 3.88% increase on lines with Ticino',
     'blog.article.trenord-rincaro-388-linee-ticino.excerpt': 'From 1 September, tickets and Trenord subscriptions are 3.88% more expensive: an increase ordered by the Lombardy Regional Government, with exceptions for Malpensa Express and Como-Malpensa via Chiasso and Mendrisio.',
     'blog.article.trenord-rincaro-388-linee-ticino.imageAlt': 'Trenord regional train at the border station with Canton Ticino',
+    'blog.article.como-crisi-abitativa-alloggi-sfitti.title': 'Home crisis in Como: 1,302 vacant homes, young people on the run',
+    'blog.article.como-crisi-abitativa-alloggi-sfitti.excerpt': 'In July 2025, the province of Como had 1,302 vacant public accommodations. Unions denounce: workers and young people do not find sustainable homes. Housing costs push some into the Swiss labour market.',
+    'blog.article.como-crisi-abitativa-alloggi-sfitti.imageAlt': 'Lake Como waterfront with residential buildings, representing the attractive but expensive housing market in Como province',
 };
 
 export default blogMetaEn;

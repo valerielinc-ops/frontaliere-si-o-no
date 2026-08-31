@@ -11011,6 +11011,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trenord-rincaro-388-linee-ticino.title': 'Trenord, renchérissement de 3,88 % sur les lignes avec le Tessin',
     'blog.article.trenord-rincaro-388-linee-ticino.excerpt': 'Depuis le 1er septembre, les billets et les abonnements Trenord sont plus chers de 3,88 % : renchérissement ordonné par le Conseil de la Région Lombardie, à l\'exception de Malpensa Express et de Como-Malpensa via Chiasso et Mendrisio.',
     'blog.article.trenord-rincaro-388-linee-ticino.imageAlt': 'Train régional Trenord à la gare frontalière avec le Canton Tessin',
+    'blog.article.como-crisi-abitativa-alloggi-sfitti.title': 'Crise de la maison à Côme : 1 302 logements vacants, jeunes en fuite',
+    'blog.article.como-crisi-abitativa-alloggi-sfitti.excerpt': 'En juillet 2025, la province de Côme compte 1 302 logements publics vacants. Les syndicats dénoncent : les travailleurs et les jeunes ne trouvent pas de logements durables. Les coûts de logement poussent certains vers le marché du travail suisse.',
+    'blog.article.como-crisi-abitativa-alloggi-sfitti.imageAlt': 'Vue du lac de Côme avec immeubles résidentiels, symbole du marché du logement attractif mais coûteux de la province de Côme',
 };
 
 export default blogMetaFr;

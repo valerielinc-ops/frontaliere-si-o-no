@@ -11008,6 +11008,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trenord-rincaro-388-linee-ticino.title': 'Trenord, 3,88% Teuerung auf den Strecken mit dem Tessin',
     'blog.article.trenord-rincaro-388-linee-ticino.excerpt': 'Ab dem 1. September teurere Trenord-Tickets und -Abonnements von 3,88%: Preiserhöhung durch die Regionalregierung der Lombardei, mit Ausnahme von Malpensa Express und Como-Malpensa über Chiasso und Mendrisio.',
     'blog.article.trenord-rincaro-388-linee-ticino.imageAlt': 'Regionalzug von Trenord am Grenzbahnhof zum Kanton Tessin',
+    'blog.article.como-crisi-abitativa-alloggi-sfitti.title': 'Krise Haus in Como: 1.302 leere Wohnungen, Jugendliche auf der Flucht',
+    'blog.article.como-crisi-abitativa-alloggi-sfitti.excerpt': 'Im Juli 2025 stehen in der Provinz Como 1.302 öffentliche Wohnungen leer. Gewerkschaften beklagen: Arbeiter und Jugendliche finden keine nachhaltigen Häuser. Die Wohnkosten treiben einige auf den Schweizer Arbeitsmarkt.',
+    'blog.article.como-crisi-abitativa-alloggi-sfitti.imageAlt': 'Blick auf den Comer See mit Wohngebäuden, das Symbol für den teuren Wohnungsmarkt der Provinz Como',
 };
 
 export default blogMetaDe;
