@@ -27,6 +27,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { isSliceFile } from './crawler-slice-files.mjs';
+import { crawlerJobActivity } from './crawler-job-activity.mjs';
 
 export { isSliceFile };
 
@@ -158,7 +159,7 @@ export function loadSourceHostOwnership(root, opts = {}) {
           if (!u) continue;
           jobCount += 1;
           mine.add(u);
-          if (!(Number(job?.crawlerMissStreak) > 0)) activeMine.add(u);
+          if (crawlerJobActivity(job) === 'active') activeMine.add(u);
           let owners = byUrl.get(u);
           if (!owners) byUrl.set(u, (owners = new Set()));
           owners.add(key);

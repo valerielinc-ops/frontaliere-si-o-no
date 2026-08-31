@@ -1,0 +1,74 @@
+<!--
+  Synthetic multi-tab page shape, built from the real tab-widget structure of
+  https://ecari.vs.ch/ecari-auction/ (captured 2026-08-31, issue #6801,
+  follow-up of #6775). Real capture showed all tab panels
+  (`<div id="tabContentN">`) embedded in the SAME response, only the active
+  one visible — tabContent1 ("Enchères en cours") has the real row markup
+  below (same plates/values as `vs-ecari-auction-sample.html`); tabContent2
+  ("Inscription pour les futures enchères") and tabContent4 ("Plaques
+  souhaitées") are reproduced with their real, currently-empty
+  "Plaques indisponibles" state — no fabricated row data for tabs that have
+  none live. This fixture exists to test `extractTabSection()` isolates one
+  panel from the others and that an empty tab legitimately parses to `[]`.
+-->
+<div id="tabContent1" style="width:100%;margin: 0px;margin-top:10px;">
+    <div class="carContent">
+        <table border="0" style="padding:10px;width:100%;" align="center">
+            <thead>
+            <tr class="L">
+                <th class="colHead2" width="90px">&nbsp;</th>
+                <th class="colHead2"><label>Prix initial</label></th>
+                <th class="colHead2">Incrément minimal</th>
+                <th class="colHead2"><label>Prix actuel</label></th>
+                <th class="colHead2">Fin de l&#39;enchère</th>
+                <th class="colHead2">Nombre d&#39;offres</th>
+                <th style="width:120px;text-align:left;padding-left:2px;" class="colHead2">Dernier offrant</th>
+                <th class="colHead2" style="min-width:24px;max-width:24px; border-radius: 0 10px 0 0;">&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr class="L"  style="border-style:solid;border-color:#a0a0a0;border-width:0 0 1px 0;">
+                    <td>
+                        <a onclick="openDetails(929)" href="#">
+                            <div class="plaqueAuto">
+                                <div class="number">766</div>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="amount">3000</td>
+                    <td class="amount">100</td>
+                    <td class="amount">6500</td>
+                    <td class="closingTime" style="text-align: center">2026/09/15 15:00:00</td>
+                    <td>7</td>
+                    <td style="text-align:left;padding-left:2px;">Tig99</td>
+                    <td>
+                        <a onclick="openDetails(929)" href="#">
+                            <img src="/ecari-auction/resources/images/auctionplate/search.gif" class="icon" align="center"></img>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div id="tabContent2" style="width:100%;margin: 0px;margin-top:10px; display:none">
+    <div class="carContent">
+        <label class="noPlateLabel">Plaques indisponibles</label>
+    </div>
+    <div class="bikeContent" style="display: none">
+        <label class="noPlateLabel">Plaques indisponibles</label>
+    </div>
+</div>
+<div id="tabContent3" style="width:100%;margin: 0px;margin-top:10px; display:none">
+    <div class="carContent">
+        <label class="noPlateLabel">Plaques indisponibles</label>
+    </div>
+</div>
+<div id="tabContent4" style="width:100%;margin: 0px;margin-top:10px; display:none">
+    <div class="carContent">
+        <label class="noPlateLabel">Plaques indisponibles</label>
+    </div>
+    <div class="bikeContent" style="display: none">
+        <label class="noPlateLabel">Plaques indisponibles</label>
+    </div>
+</div>

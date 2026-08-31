@@ -4873,6 +4873,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-attivita-zugo-registro-commercio.title': 'Geschäft in Zug eröffnen: Handelsregister und Kosten',
     'blog.article.aprire-attivita-zugo-registro-commercio.excerpt': 'Kanton Zug: Rechtsformen, Bundesmindestkapital, kantonale Einschreibegebühren, AHV, UVG und operative Schritte zur Unternehmensgründung.',
     'blog.article.aprire-attivita-zugo-registro-commercio.imageAlt': 'Blick auf die Zuger Seepromenade mit Bürogebäuden und Geschäftssitz',
+    'blog.article.premi-lamal-friburgo-2026.title': 'Krankenkassenprämien Freiburg: Kürzung und Zuschüsse',
+    'blog.article.premi-lamal-friburgo-2026.excerpt': 'Prämienleitfaden für die obligatorische Krankenversicherung im Kanton Freiburg: Franchisen, alternative Modelle und Verfahren zur Erlangung der Prämienverbilligung',
+    'blog.article.premi-lamal-friburgo-2026.imageAlt': 'Schweizer Krankenversicherungsformular mit Dokumenten und Taschenrechner auf Schreibtisch',
 };
 
 export default blogMetaChDe;

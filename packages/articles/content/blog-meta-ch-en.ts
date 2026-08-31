@@ -4873,6 +4873,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-attivita-zugo-registro-commercio.title': 'Opening a business in Zug: trade register and costs',
     'blog.article.aprire-attivita-zugo-registro-commercio.excerpt': 'Canton of Zug: legal forms, federal minimum capital, cantonal registration fees, AVS, LAINF and operational steps to start a business.',
     'blog.article.aprire-attivita-zugo-registro-commercio.imageAlt': 'View of Zug lakefront with commercial offices and business headquarters',
+    'blog.article.premi-lamal-friburgo-2026.title': 'Sick pay premiums Freiburg: reduction and subsidies',
+    'blog.article.premi-lamal-friburgo-2026.excerpt': 'Guide to compulsory health insurance premiums in the Canton of Fribourg: deductibles, alternative models and procedure for obtaining premium reductions',
+    'blog.article.premi-lamal-friburgo-2026.imageAlt': 'Swiss health insurance enrollment form with medical documents and calculator on desk',
 };
 
 export default blogMetaChEn;
