@@ -102,7 +102,7 @@
       "description": "Hospitality Manager – Luxury Hospitality",
       "titleByLocale": {
         "it": "Hospitality Manager – Luxury Hospitality",
-        "en": "Hospitality Manager – Luxury Hospitality",
+        "en": "Hospitalit Manager",
         "de": "Hospitality Manager – Luxus-Hospitality",
         "fr": "Responsable de l'accueil – Luxury Hospitality"
       },
@@ -111,11 +111,12 @@
       },
       "slugByLocale": {
         "it": "hospitality-manager-luxury-hospitality-a-plus-plus-group-massagno",
-        "en": "hospitality-manager-luxury-hospitality-a-plus-plus-group-massagno",
+        "en": "hospitalit-manager-a-group-massagno",
         "de": "hospitality-manager-luxus-hospitality-a-group-massagno",
         "fr": "responsable-de-l-accueil-luxury-hospitality-a-group-massagno"
       },
       "id": "a-group-555f4c55dbc7",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -130,8 +131,7 @@
         }
       },
       "firstSeenAt": "2026-08-28T05:26:25.994Z",
-      "salarySource": "estimated",
-      "needsRetranslation": true
+      "salarySource": "estimated"
     }
   ]
 }

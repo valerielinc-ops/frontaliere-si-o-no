@@ -260,12 +260,12 @@
     },
     {
       "id": "accor-d3a1f08d497d",
-      "slug": "food-and-beverage-all-rounder-accor-ch",
+      "slug": "cibo-e-bevande-tutto-rounder-ibis-budget-lugano",
       "slugByLocale": {
         "de": "food-and-beverage-all-rounder-accor-ch",
-        "it": "food-and-beverage-all-rounder-accor-ch",
+        "it": "cibo-e-bevande-tutto-rounder-ibis-budget-lugano",
         "en": "food-and-beverage-all-rounder-ibis-budget-lugano",
-        "fr": "food-and-beverage-all-rounder-accor-ch"
+        "fr": "aliments-et-boissons-all-rounder-ibis-budget-lugano"
       },
       "company": "Ibis Budget",
       "companyKey": "accor",
@@ -273,7 +273,7 @@
       "title": "Food and Beverage All Rounder",
       "titleByLocale": {
         "de": "Food and Beverage All Rounder",
-        "en": "Food and Beverage All Rounder",
+        "en": "Food and Beverage All-Rounder",
         "it": "Cibo e bevande Tutto Rounder",
         "fr": "Aliments et boissons All Rounder"
       },
@@ -319,7 +319,18 @@
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-28T05:32:02.339Z",
       "crawlerMissStreak": 1,
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "previousSlugsByLocale": {
+        "it": [
+          "food-and-beverage-all-rounder-accor-ch"
+        ],
+        "fr": [
+          "food-and-beverage-all-rounder-accor-ch"
+        ]
+      },
+      "previousSlugs": [
+        "food-and-beverage-all-rounder-accor-ch"
+      ]
     },
     {
       "id": "accor-761c3064eb41",
@@ -336,9 +347,9 @@
       "title": "Royal Service Associate - Fairmont Mumbai and Roswyn, A Morgans Originals Hotel",
       "titleByLocale": {
         "en": "Royal Service Associate - Fairmont Mumbai and Roswyn, A Morgans Originals Hotel",
-        "it": "Royal Service Associate - Fairmont Mumbai and Roswyn, A Morgans Originals Hotel",
-        "de": "Royal Service Associate - Fairmont Mumbai and Roswyn, A Morgans Originals Hotel",
-        "fr": "Royal Service Associate - Fairmont Mumbai and Roswyn, A Morgans Originals Hotel"
+        "it": "Royal Service Associate - Fairmont Mumbai e Roswyn, un Morgans Originals Hotel",
+        "de": "Royal Service Associate - Fairmont Mumbai und Roswyn, ein Morgans Originals Hotel",
+        "fr": "Royal Service Associate - Fairmont Mumbai et Roswyn, A Morgans Originals Hotel"
       },
       "description": "Royal Service Associate - Fairmont Mumbai and Roswyn, A Morgans Originals Hotel — Ibis Budget",
       "descriptionByLocale": {
@@ -386,10 +397,10 @@
     },
     {
       "id": "accor-36d3b924f996",
-      "slug": "people-culture-manager-ibis-thane-accor-ch",
+      "slug": "responsabile-persone-e-cultura-ibis-thane-ibis-budget-lugano",
       "slugByLocale": {
-        "fr": "people-culture-manager-ibis-thane-accor-ch",
-        "it": "people-culture-manager-ibis-thane-accor-ch",
+        "fr": "responsable-des-ressources-humaines-et-de-la-culture-ibis-thane-ibis-budget-lugano",
+        "it": "responsabile-persone-e-cultura-ibis-thane-ibis-budget-lugano",
         "en": "people-culture-manager-ibis-thane-ibis-budget-lugano",
         "de": "people-culture-manager-ibis-thane-accor-ch"
       },
@@ -398,10 +409,10 @@
       "companyDomain": "careers.accor.com",
       "title": "People & Culture Manager @ ibis Thane",
       "titleByLocale": {
-        "fr": "People & Culture Manager @ ibis Thane",
+        "fr": "Responsable des ressources humaines et de la culture @ ibis Thane",
         "en": "People & Culture Manager @ ibis Thane",
-        "it": "People & Culture Manager @ ibis Thane",
-        "de": "People & Culture Manager @ ibis Thane"
+        "it": "Responsabile Persone e Cultura @ ibis Thane",
+        "de": "People & Culture Manager @ibis Thane"
       },
       "description": "People & Culture Manager @ ibis Thane — Ibis Budget",
       "descriptionByLocale": {
@@ -445,14 +456,25 @@
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-28T05:31:59.915Z",
       "crawlerMissStreak": 1,
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "previousSlugsByLocale": {
+        "it": [
+          "people-culture-manager-ibis-thane-accor-ch"
+        ],
+        "fr": [
+          "people-culture-manager-ibis-thane-accor-ch"
+        ]
+      },
+      "previousSlugs": [
+        "people-culture-manager-ibis-thane-accor-ch"
+      ]
     },
     {
       "id": "accor-862994418aaa",
-      "slug": "assistant-front-office-manager-accor-ch",
+      "slug": "assistente-responsabile-ufficio-accettazione-ibis-budget-lugano",
       "slugByLocale": {
         "fr": "directeur-adjoint-de-la-reception-ibis-budget-lugano",
-        "it": "assistant-front-office-manager-accor-ch",
+        "it": "assistente-responsabile-ufficio-accettazione-ibis-budget-lugano",
         "en": "assistant-front-office-manager-ibis-budget-lugano",
         "de": "assistant-front-office-manager-accor-ch"
       },
@@ -463,7 +485,7 @@
       "titleByLocale": {
         "fr": "Directeur adjoint de la réception",
         "en": "Assistant Front Office Manager",
-        "it": "Assistant Front Office Manager",
+        "it": "Assistente Responsabile ufficio accettazione",
         "de": "Assistent Front Office Manager"
       },
       "description": "Assistant Front Office Manager — Ibis Budget",
@@ -510,7 +532,8 @@
       "previousSlugsByLocale": {
         "it": [
           "assistant-front-office-manager-accor-ch-jgn3jb",
-          "assistant-front-office-manager-accor-ch-2"
+          "assistant-front-office-manager-accor-ch-2",
+          "assistant-front-office-manager-accor-ch"
         ],
         "fr": [
           "assistant-front-office-manager-accor-ch-jgn3jb"
@@ -518,17 +541,18 @@
       },
       "previousSlugs": [
         "assistant-front-office-manager-accor-ch-jgn3jb",
-        "assistant-front-office-manager-accor-ch-2"
+        "assistant-front-office-manager-accor-ch-2",
+        "assistant-front-office-manager-accor-ch"
       ],
       "crawlerMissStreak": 2,
       "salarySource": "estimated"
     },
     {
       "id": "accor-09ba7a79bd13",
-      "slug": "executive-assistant-manager-food-beverage-accor-ch",
+      "slug": "assistente-direttore-esecutivo-alimentazione-bevande-ibis-budget-lugano",
       "slugByLocale": {
-        "fr": "executive-assistant-manager-food-beverage-accor-ch",
-        "it": "executive-assistant-manager-food-beverage-accor-ch",
+        "fr": "gestionnaire-adjoint-executif-aliments-et-boissons-ibis-budget-lugano",
+        "it": "assistente-direttore-esecutivo-alimentazione-bevande-ibis-budget-lugano",
         "en": "executive-assistant-manager-food-beverage-ibis-budget-lugano",
         "de": "executive-assistant-manager-food-beverage-accor-ch"
       },
@@ -540,7 +564,7 @@
         "fr": "Gestionnaire adjoint exécutif - Aliments et boissons",
         "en": "Executive Assistant Manager - Food & Beverage",
         "de": "Executive Assistent Manager - Food & Beverage",
-        "it": "Executive Assistant Manager - Food & Beverage"
+        "it": "Assistente Direttore Esecutivo - Alimentazione & Bevande"
       },
       "description": "Executive Assistant Manager - Food & Beverage — Ibis Budget",
       "descriptionByLocale": {
@@ -584,7 +608,18 @@
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-27T20:08:40.595Z",
       "crawlerMissStreak": 2,
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "previousSlugsByLocale": {
+        "it": [
+          "executive-assistant-manager-food-beverage-accor-ch"
+        ],
+        "fr": [
+          "executive-assistant-manager-food-beverage-accor-ch"
+        ]
+      },
+      "previousSlugs": [
+        "executive-assistant-manager-food-beverage-accor-ch"
+      ]
     },
     {
       "id": "accor-3723b9873277",
@@ -601,7 +636,7 @@
       "title": "People & Culture Coordinator ( 12 Months Maternity Cover )",
       "titleByLocale": {
         "de": "People & Culture Koordinator ( 12 Months Mutterschaftsvertretung )",
-        "en": "People & Culture Coordinator ( 12 Months Maternity Cover )",
+        "en": "People & Culture Coordinator (12 Months Maternity Cover)",
         "it": "People & Culture Coordinatore ( 12 Months Sostituzione maternità )",
         "fr": "People & Culture Coordinateur ( 12 Months Remplacement maternité )"
       },
@@ -662,10 +697,10 @@
     },
     {
       "id": "accor-2ff35e8c21ac",
-      "slug": "assistant-housekeeping-manager-accor-ch",
+      "slug": "assistente-housekeeping-manager-ibis-budget-lugano",
       "slugByLocale": {
         "fr": "assistant-housekeeping-manager-accor-ch",
-        "it": "assistant-housekeeping-manager-accor-ch",
+        "it": "assistente-housekeeping-manager-ibis-budget-lugano",
         "en": "assistant-housekeeping-manager-ibis-budget-lugano",
         "de": "assistent-housekeeping-manager-ibis-budget-lugano"
       },
@@ -676,7 +711,7 @@
       "titleByLocale": {
         "fr": "Assistant Housekeeping Manager",
         "en": "Assistant Housekeeping Manager",
-        "it": "Assistant Housekeeping Manager",
+        "it": "Assistente Housekeeping Manager",
         "de": "Assistent Housekeeping Manager"
       },
       "description": "Assistant Housekeeping Manager — Ibis Budget",
@@ -721,7 +756,15 @@
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-27T20:08:39.385Z",
       "crawlerMissStreak": 2,
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-housekeeping-manager-accor-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-housekeeping-manager-accor-ch"
+      ]
     },
     {
       "id": "accor-1579d221bbfc",
@@ -729,8 +772,8 @@
       "slugByLocale": {
         "fr": "superviseur-e-de-la-restauration-temporaire-h-f-d-accor-ch",
         "it": "superviseur-e-de-la-restauration-temporaire-m-w-d-ibis-budget-lugano",
-        "en": "superviseur-e-de-la-restauration-temporaire-h-f-d-accor-ch",
-        "de": "superviseur-e-de-la-restauration-temporaire-h-f-d-accor-ch"
+        "en": "catering-supervisor-temporary-m-f-d-ibis-budget-lugano",
+        "de": "restaurationsbetreuer-in-temporar-m-w-d-ibis-budget-lugano"
       },
       "company": "Ibis Budget",
       "companyKey": "accor",
@@ -739,8 +782,8 @@
       "titleByLocale": {
         "fr": "Superviseur.e de la restauration, temporaire (H/F/D)",
         "it": "Superviseur.e de la restauration, temporaire (f/m/d)",
-        "en": "Superviseur.e de la restauration, temporaire (H/F/D)",
-        "de": "Superviseur.e de la restauration, temporaire (H/F/D)"
+        "en": "Catering Supervisor, Temporary (M/F/D)",
+        "de": "Restaurationsbetreuer/in, temporär (M/W/D)"
       },
       "description": "Superviseur.e de la restauration, temporaire (H/F/D) — Ibis Budget",
       "descriptionByLocale": {
@@ -771,6 +814,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "superviseur-e-de-la-restauration-temporaire-h-f-d-accor-ch"
+        ],
+        "en": [
+          "superviseur-e-de-la-restauration-temporaire-h-f-d-accor-ch"
+        ],
+        "de": [
           "superviseur-e-de-la-restauration-temporaire-h-f-d-accor-ch"
         ]
       },

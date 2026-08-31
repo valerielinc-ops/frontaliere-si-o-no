@@ -17,7 +17,7 @@
       "title": "Software Engineer 80-100%, Zürich",
       "titleByLocale": {
         "it": "Software Ingegnere 80-100%, Zürich",
-        "en": "Software Engineer 80-100%, Zürich",
+        "en": "Software Engineer 80-100%, Zurich",
         "de": "Software Ingenieur 80-100%, Zürich",
         "fr": "Software Ingénieur 80-100%, Zürich"
       },
@@ -64,10 +64,8 @@
         ]
       },
       "firstSeenAt": "2026-07-30T22:32:51.344Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -77,7 +75,9 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "salarySource": "estimated"
     },
     {
       "id": "apg-sga-e2d7f5f4d041",

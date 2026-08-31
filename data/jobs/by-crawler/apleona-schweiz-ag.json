@@ -241,9 +241,9 @@
       "slug": "collaboratore-trice-hauswartung-m-w-d-apleona-schweiz-ag-lugano",
       "slugByLocale": {
         "it": "collaboratore-trice-hauswartung-m-w-d-apleona-schweiz-ag-lugano",
-        "en": "mitarbeiter-hauswartung-m-w-d-apleona-schweiz-ag-ch",
+        "en": "staff-house-maintenance-m-f-d-apleona-schweiz-ag-lugano",
         "de": "mitarbeiter-hauswartung-m-w-d-apleona-schweiz-ag-ch",
-        "fr": "mitarbeiter-hauswartung-m-w-d-apleona-schweiz-ag-ch"
+        "fr": "entretien-de-la-maison-du-personnel-h-f-d-apleona-schweiz-ag-lugano"
       },
       "company": "Apleona Schweiz AG",
       "companyKey": "apleona-schweiz-ag",
@@ -251,9 +251,9 @@
       "title": "Mitarbeiter Hauswartung (m/w/d)",
       "titleByLocale": {
         "it": "Collaboratore/trice Hauswartung (m/w/d)",
-        "en": "Mitarbeiter Hauswartung (m/w/d)",
+        "en": "Staff House Maintenance (m/f/d)",
         "de": "Mitarbeiter Hauswartung (m/w/d)",
-        "fr": "Mitarbeiter Hauswartung (m/w/d)"
+        "fr": "Entretien de la maison du personnel (h/f/d)"
       },
       "description": "Mitarbeiter Hauswartung (m/w/d) — Apleona Schweiz AG",
       "descriptionByLocale": {
@@ -287,13 +287,18 @@
         "it": [
           "mitarbeiter-hauswartung-m-w-d-apleona-schweiz-ag-ch",
           "collaboratore-trice-hauswartung-m-w-d-apleona-schweiz-ag-lugano"
+        ],
+        "en": [
+          "mitarbeiter-hauswartung-m-w-d-apleona-schweiz-ag-ch"
+        ],
+        "fr": [
+          "mitarbeiter-hauswartung-m-w-d-apleona-schweiz-ag-ch"
         ]
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-26T10:17:04.910Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -304,7 +309,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "salarySource": "estimated"
     },
     {
       "id": "apleona-schweiz-ag-21ed34e2373b",
@@ -380,22 +386,22 @@
     },
     {
       "id": "apleona-schweiz-ag-a6bb82c47598",
-      "slug": "teamleiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-ch",
+      "slug": "capo-squadra-gestione-immobiliare-m-f-d-apleona-schweiz-ag-lugano",
       "slugByLocale": {
-        "it": "teamleiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-ch",
-        "en": "teamleiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-ch",
+        "it": "capo-squadra-gestione-immobiliare-m-f-d-apleona-schweiz-ag-lugano",
+        "en": "team-leader-real-estate-management-m-f-d-apleona-schweiz-ag-lugano",
         "de": "teamleiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-ch",
-        "fr": "teamleiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-ch"
+        "fr": "chef-d-equipe-gestion-immobiliere-h-f-d-apleona-schweiz-ag-lugano"
       },
       "company": "Apleona Schweiz AG",
       "companyKey": "apleona-schweiz-ag",
       "companyDomain": "recruitingapp-2765.umantis.com",
       "title": "Teamleiter Immobilienbewirtschaftung / Senior Immobilienbewirtschafter (m/w/d)",
       "titleByLocale": {
-        "it": "Teamleiter Immobilienbewirtschaftung (m/w/d)",
-        "en": "Teamleiter Immobilienbewirtschaftung (m/w/d)",
+        "it": "Capo Squadra Gestione Immobiliare (m/f/d)",
+        "en": "Team Leader Real Estate Management (m/f/d)",
         "de": "Teamleiter Immobilienbewirtschaftung / Senior Immobilienbewirtschafter (m/w/d)",
-        "fr": "Teamleiter Immobilienbewirtschaftung (m/w/d)"
+        "fr": "Chef d'équipe Gestion immobilière (h/f/d)"
       },
       "description": "Teamleiter Immobilienbewirtschaftung / Senior Immobilienbewirtschafter (m/w/d) — Apleona Schweiz AG",
       "descriptionByLocale": {
@@ -425,7 +431,6 @@
       "firstSeenAt": "2026-08-26T10:17:04.294Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -436,26 +441,41 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "salarySource": "estimated",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-ch"
+        ],
+        "en": [
+          "teamleiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-ch"
+        ],
+        "fr": [
+          "teamleiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-immobilienbewirtschaftung-m-w-d-apleona-schweiz-ag-ch"
+      ]
     },
     {
       "id": "apleona-schweiz-ag-019220954ade",
-      "slug": "sachbearbeiter-immobilienbewirtschaftung-wohnen-gewerbe-m-w-d-apleona-schweiz-ag-ch",
+      "slug": "impiegato-nella-gestione-immobiliare-residenziali-commerciale-m-f-d-apleona-schweiz-ag-lugano",
       "slugByLocale": {
-        "it": "sachbearbeiter-immobilienbewirtschaftung-wohnen-gewerbe-m-w-d-apleona-schweiz-ag-ch",
-        "en": "sachbearbeiter-immobilienbewirtschaftung-wohnen-gewerbe-m-w-d-apleona-schweiz-ag-ch",
         "de": "sachbearbeiter-immobilienbewirtschaftung-wohnen-gewerbe-m-w-d-apleona-schweiz-ag-ch",
-        "fr": "sachbearbeiter-immobilienbewirtschaftung-wohnen-gewerbe-m-w-d-apleona-schweiz-ag-ch"
+        "it": "impiegato-nella-gestione-immobiliare-residenziali-commerciale-m-f-d-apleona-schweiz-ag-lugano",
+        "en": "real-estate-management-clerk-residential-commercial-m-f-d-apleona-schweiz-ag-lugano",
+        "fr": "commis-en-gestion-immobiliere-residentielle-commerciale-h-f-d-apleona-schweiz-ag-lugano"
       },
       "company": "Apleona Schweiz AG",
       "companyKey": "apleona-schweiz-ag",
       "companyDomain": "recruitingapp-2765.umantis.com",
       "title": "Sachbearbeiter Immobilienbewirtschaftung Wohnen/Gewerbe (m/w/d)",
       "titleByLocale": {
-        "it": "Sachbearbeiter Immobilienbewirtschaftung Wohnen/Gewerbe (m/w/d)",
-        "en": "Sachbearbeiter Immobilienbewirtschaftung Wohnen/Gewerbe (m/w/d)",
         "de": "Sachbearbeiter Immobilienbewirtschaftung Wohnen/Gewerbe (m/w/d)",
-        "fr": "Sachbearbeiter Immobilienbewirtschaftung Wohnen/Gewerbe (m/w/d)"
+        "it": "Impiegato nella Gestione Immobiliare Residenziali/Commerciale (m/f/d)",
+        "en": "Real Estate Management Clerk Residential/Commercial (m/f/d)",
+        "fr": "Commis en gestion immobilière résidentielle/commerciale (h/f/d)"
       },
       "description": "Sachbearbeiter Immobilienbewirtschaftung Wohnen/Gewerbe (m/w/d) — Apleona Schweiz AG",
       "descriptionByLocale": {
@@ -482,10 +502,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-28T05:31:44.046Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -496,15 +514,31 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-28T05:31:44.046Z",
+      "salarySource": "estimated",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-immobilienbewirtschaftung-wohnen-gewerbe-m-w-d-apleona-schweiz-ag-ch"
+        ],
+        "en": [
+          "sachbearbeiter-immobilienbewirtschaftung-wohnen-gewerbe-m-w-d-apleona-schweiz-ag-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-immobilienbewirtschaftung-wohnen-gewerbe-m-w-d-apleona-schweiz-ag-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-immobilienbewirtschaftung-wohnen-gewerbe-m-w-d-apleona-schweiz-ag-ch"
+      ]
     },
     {
       "id": "apleona-schweiz-ag-a7c1145530c4",
       "slug": "hr-business-partner-mit-schwerpunkt-aus-weiterbildung-m-w-d-80-100-apleona-schweiz-ag-ch",
       "slugByLocale": {
-        "it": "hr-business-partner-mit-schwerpunkt-aus-weiterbildung-m-w-d-80-100-apleona-schweiz-ag-ch",
-        "en": "hr-business-partner-mit-schwerpunkt-aus-weiterbildung-m-w-d-80-100-apleona-schweiz-ag-ch",
         "de": "hr-business-partner-mit-schwerpunkt-aus-weiterbildung-m-w-d-80-100-apleona-schweiz-ag-ch",
+        "it": "hr-business-partner-mit-schwerpunkt-aus-weiterbildung-m-w-d-80-100-apleona-schweiz-ag-ch",
+        "en": "hr-business-partner-with-a-focus-on-training-and-further-education-m-f-d-80-100-apleona-schweiz-ag-lugano",
         "fr": "hr-business-partner-mit-schwerpunkt-aus-weiterbildung-m-w-d-80-100-apleona-schweiz-ag-ch"
       },
       "company": "Apleona Schweiz AG",
@@ -512,9 +546,9 @@
       "companyDomain": "recruitingapp-2765.umantis.com",
       "title": "HR Business Partner mit Schwerpunkt Aus- & Weiterbildung (m/w/d) 80–100 %",
       "titleByLocale": {
-        "it": "Risorse Umane Business Partner con Schwerpunkt Aus- & Weiterbildung (m/w/d) 80–100 %",
-        "en": "HR Business Partner mit Schwerpunkt Aus- & Weiterbildung (m/w/d) 80–100 %",
         "de": "HR Business Partner mit Schwerpunkt Aus- & Weiterbildung (m/w/d) 80–100 %",
+        "it": "Risorse Umane Business Partner con Schwerpunkt Aus- & Weiterbildung (m/w/d) 80–100 %",
+        "en": "HR Business Partner with a focus on training and further education (m/f/d) 80-100%",
         "fr": "Ressources Humaines Business Partner mit Schwerpunkt Aus- & Weiterbildung (m/w/d) 80–100 %"
       },
       "description": "HR Business Partner mit Schwerpunkt Aus- & Weiterbildung (m/w/d) 80–100 % — Apleona Schweiz AG",
@@ -542,10 +576,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-28T05:31:43.730Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -556,7 +588,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-28T05:31:43.730Z",
+      "salarySource": "estimated"
     },
     {
       "id": "apleona-schweiz-ag-7624a62c6ea1",
@@ -704,8 +738,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-kauffrau-kaufmann-efz-fachrichtung-treuhand-immobilien-per-1-august-2027",
         "it": "apprendistato-come-kauffrau-kaufmann-cfc-specializzazione-treuhand-immobilien-per-1-august-2027-apleona-schweiz-ag-lugano",
-        "en": "lehrstelle-als-kauffrau-kaufmann-efz-fachrichtung-treuhand-immobilien-per-1-august-2027",
-        "fr": "lehrstelle-als-kauffrau-kaufmann-efz-fachrichtung-treuhand-immobilien-per-1-august-2027"
+        "en": "apprenticeship-as-a-commercial-clerk-efz-specialising-in-trust-real-estate-as-of-1-august-2027-apleona-schweiz-ag-lugano",
+        "fr": "apprentissage-en-tant-que-commis-commercial-efz-specialise-en-fiducie-immobilier-a-compter-du-1er-aout-2027-apleona"
       },
       "company": "Apleona Schweiz AG",
       "companyKey": "apleona-schweiz-ag",
@@ -714,8 +748,8 @@
       "titleByLocale": {
         "de": "Lehrstelle als Kauffrau / Kaufmann EFZ, Fachrichtung Treuhand / Immobilien per 1. August 2027",
         "it": "Apprendistato come Kauffrau / Kaufmann CFC, specializzazione Treuhand / Immobilien per 1. August 2027",
-        "en": "Lehrstelle als Kauffrau / Kaufmann EFZ, Fachrichtung Treuhand / Immobilien per 1. August 2027",
-        "fr": "Lehrstelle als Kauffrau / Kaufmann EFZ, Fachrichtung Treuhand / Immobilien per 1. August 2027"
+        "en": "Apprenticeship as a commercial clerk EFZ, specialising in trust / real estate as of 1 August 2027",
+        "fr": "Apprentissage en tant que commis commercial EFZ, spécialisé en fiducie / immobilier à compter du 1er août 2027"
       },
       "description": "Lehrstelle als Kauffrau / Kaufmann EFZ, Fachrichtung Treuhand / Immobilien per 1. August 2027 — Apleona Schweiz AG",
       "descriptionByLocale": {
@@ -746,6 +780,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-kauffrau-kaufmann-efz-fachrichtung-treuhand-immobilien-per-1-august-2027"
+        ],
+        "en": [
+          "lehrstelle-als-kauffrau-kaufmann-efz-fachrichtung-treuhand-immobilien-per-1-august-2027"
+        ],
+        "fr": [
           "lehrstelle-als-kauffrau-kaufmann-efz-fachrichtung-treuhand-immobilien-per-1-august-2027"
         ]
       },
@@ -849,9 +889,9 @@
       "slug": "apprendistato-come-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-per-1-august-2027-apleona-schweiz-ag-lugano",
       "slugByLocale": {
         "it": "apprendistato-come-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-per-1-august-2027-apleona-schweiz-ag-lugano",
-        "en": "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst-per-1-august",
+        "en": "apprenticeship-as-a-specialist-in-business-maintenance-efz-specialising-in-domestic-service-as-of-1-august-2027-apleona",
         "de": "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst-per-1-august",
-        "fr": "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst-per-1-august"
+        "fr": "apprentissage-en-tant-que-specialiste-en-maintenance-d-entreprise-efz-specialise-dans-le-service-domestique-depuis-le"
       },
       "company": "Apleona Schweiz AG",
       "companyKey": "apleona-schweiz-ag",
@@ -859,9 +899,9 @@
       "title": "Lehrstelle als Fachmann/-frau Betriebsunterhalt EFZ - Fachrichtung Hausdienst per 1. August 2027",
       "titleByLocale": {
         "it": "Apprendistato come Fachmann/-frau Betriebsunterhalt CFC - specializzazione Hausdienst per 1. August 2027",
-        "en": "Lehrstelle als Fachmann/-frau Betriebsunterhalt EFZ - Fachrichtung Hausdienst per 1. August 2027",
+        "en": "Apprenticeship as a specialist in business maintenance EFZ - specialising in domestic service as of 1 August 2027",
         "de": "Lehrstelle als Fachmann/-frau Betriebsunterhalt EFZ - Fachrichtung Hausdienst per 1. August 2027",
-        "fr": "Lehrstelle als Fachmann/-frau Betriebsunterhalt EFZ - Fachrichtung Hausdienst per 1. August 2027"
+        "fr": "Apprentissage en tant que spécialiste en maintenance d'entreprise EFZ - spécialisé dans le service domestique depuis le 1er août 2027"
       },
       "description": "Lehrstelle als Fachmann/-frau Betriebsunterhalt EFZ - Fachrichtung Hausdienst per 1. August 2027 — Apleona Schweiz AG",
       "descriptionByLocale": {
@@ -899,6 +939,12 @@
           "apprendistato-come-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-kh0tqa",
           "apprendistato-come-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-kh0tpo",
           "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst-per-1-august-2"
+        ],
+        "en": [
+          "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst-per-1-august"
+        ],
+        "fr": [
+          "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst-per-1-august"
         ]
       },
       "needsRetranslation": true,

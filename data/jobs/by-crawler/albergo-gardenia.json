@@ -66,9 +66,9 @@
     },
     {
       "id": "albergo-gardenia-bf0d61d0f1cd",
-      "slug": "previdenza-per-la-vecchiaia-albergo-gardenia-ch",
+      "slug": "previsione-per-la-vecchia-albergo-gardenia-lugano",
       "slugByLocale": {
-        "it": "previdenza-per-la-vecchiaia-albergo-gardenia-ch",
+        "it": "previsione-per-la-vecchia-albergo-gardenia-lugano",
         "en": "previdenza-per-la-vecchiaa-albergo-gardenia-lugano",
         "de": "altersrente-albergo-gardenia-lugano",
         "fr": "previdenza-par-la-vecchiaa-albergo-gardenia-lugano"
@@ -78,7 +78,7 @@
       "companyDomain": "hotelleriesuisse.ch",
       "title": "Previdenza per la vecchiaia",
       "titleByLocale": {
-        "it": "Previdenza per la vecchiaia",
+        "it": "Previsione per la vecchia",
         "en": "Previdenza per la vecchiaa’",
         "de": "Altersrente",
         "fr": "Prévidenza par la vecchiaa"
@@ -108,12 +108,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "previsione-per-la-vecchia-albergo-gardenia-lugano",
         "previdenza-per-la-vecchiaia-albergo-gardenia-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "previsione-per-la-vecchia-albergo-gardenia-lugano",
           "previdenza-per-la-vecchiaia-albergo-gardenia-ch"
         ]
       },
@@ -121,7 +119,6 @@
       "firstSeenAt": "2026-08-24T10:32:28.546Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -132,7 +129,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "salarySource": "estimated"
     },
     {
       "id": "albergo-gardenia-a58372a459dc",
