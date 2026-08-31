@@ -1,6 +1,6 @@
 {
   "crawlerKey": "debiopharm",
-  "assembledAt": "2026-08-27T00:59:51.145Z",
+  "assembledAt": "2026-08-31T17:29:08.655Z",
   "jobs": [
     {
       "title": "P2623 - Private Investment Accountant",
@@ -102,7 +102,8 @@
           "p2623-private-investment-accountant-debiopharm-lausanne-vd-switzerland"
         ]
       },
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "salarySource": "estimated"
     },
     {
       "title": "P2624 - Global Regulatory Affairs Specialist/Manager",
@@ -182,7 +183,9 @@
         "fr": [
           "p2624-global-regulatory-affairs-specialist-manager-debiopharm-lausanne-vd-switzerland"
         ]
-      }
+      },
+      "needsRetranslation": true,
+      "salarySource": "estimated"
     },
     {
       "title": "T2608 - Personalised Medicine Intern (12-months assignment)",
@@ -288,7 +291,9 @@
       },
       "previousSlugs": [
         "t2608-personalised-medicine-intern-12-months-assignment-debiopharm-lausanne-vd-switzerland"
-      ]
+      ],
+      "needsRetranslation": true,
+      "salarySource": "estimated"
     },
     {
       "title": "P2622 - Audit & CAPA Lead",
@@ -386,7 +391,9 @@
         "it": [
           "p2622-audit-capa-lead-debiopharm-lausanne-vd-switzerland"
         ]
-      }
+      },
+      "needsRetranslation": true,
+      "salarySource": "estimated"
     },
     {
       "title": "P2621 - (Senior) Pharmacometrician",
@@ -489,7 +496,9 @@
       "previousSlugs": [
         "p2621-senior-pharmacometrician-debiopharm-lausanne-vd-switzerland",
         "p2621-senior-pharmacometrician-debiopharm-lausanne"
-      ]
+      ],
+      "needsRetranslation": true,
+      "salarySource": "estimated"
     },
     {
       "title": "P2620 - Safety Physician Oncology",
@@ -563,7 +572,9 @@
       },
       "previousSlugs": [
         "p2620-safety-physician-oncology-debiopharm-lausanne-vd-switzerland"
-      ]
+      ],
+      "needsRetranslation": true,
+      "salarySource": "estimated"
     },
     {
       "title": "P2612 - Senior Manager Statistical Programming",
@@ -638,7 +649,9 @@
         "fr": [
           "p2612-senior-manager-statistical-programming-debiopharm-lausanne-vd-switzerland"
         ]
-      }
+      },
+      "needsRetranslation": true,
+      "salarySource": "reported"
     },
     {
       "title": "P2617 - Senior Clinical Data Manager",
@@ -736,7 +749,8 @@
           "p2617-senior-clinical-data-manager-debiopharm-lausanne-vd-switzerland"
         ]
       },
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "salarySource": "reported"
     },
     {
       "title": "P2608 - Head of Biostatistics & Data Management",
@@ -811,7 +825,9 @@
         "fr": [
           "p2608-head-of-biostatistics-data-management-debiopharm-lausanne-vd-switzerland"
         ]
-      }
+      },
+      "needsRetranslation": true,
+      "salarySource": "reported"
     }
   ]
 }
