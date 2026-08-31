@@ -16354,7 +16354,6 @@
           "assistant-marketing-controle-planification-jumbo-dietlikon"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-20T10:08:24.041Z",
       "salaryMin": 77000,
       "salaryMax": 136000,
@@ -16368,7 +16367,9 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1897
     },
     {
       "id": "jumbo-74083118-23c",

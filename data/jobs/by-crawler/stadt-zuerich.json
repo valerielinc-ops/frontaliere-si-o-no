@@ -12601,7 +12601,7 @@
       "title": "Direktor*in Support Sozialdepartement",
       "titleByLocale": {
         "it": "Dipartimento Sociale",
-        "en": "Direktor*in Support Sozialdepartement",
+        "en": "Director Support Social Department",
         "de": "Direktor*in Support Sozialdepartement",
         "fr": "Directeur du Département de l ' appui social"
       },
@@ -12656,11 +12656,9 @@
           "direktor-in-support-sozialdepartement-stadt-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-26T22:25:39.083Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -12670,7 +12668,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "stadt-zuerich-e598cf2e7876",

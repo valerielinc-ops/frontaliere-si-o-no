@@ -47,7 +47,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -64,13 +63,17 @@
       "firstSeenAt": "2026-08-28T05:37:05.661Z",
       "previousSlugsByLocale": {
         "it": [
-          "associate-energy-infrastructure-and-natural-resources-michaelpage-ch"
+          "associate-energy-infrastructure-and-natural-resources-michaelpage-ch",
+          "associate-energy-infrastructure-and-natural-resources-michael-page-lugano"
         ]
       },
       "previousSlugs": [
-        "associate-energy-infrastructure-and-natural-resources-michaelpage-ch"
+        "associate-energy-infrastructure-and-natural-resources-michaelpage-ch",
+        "associate-energy-infrastructure-and-natural-resources-michael-page-lugano"
       ],
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 70
     },
     {
       "id": "michaelpage-ba003a0d255a",
