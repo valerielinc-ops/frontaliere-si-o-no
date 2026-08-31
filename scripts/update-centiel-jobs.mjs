@@ -73,6 +73,9 @@ const COMPANY_HOST = 'www.centiel.com';
 const COMPANY_DOMAIN = 'centiel.com';
 const CAREERS_URL = 'https://www.centiel.com/careers/';
 const LOCALES = ['it', 'en', 'de', 'fr'];
+// Same minimum used when preserving locale descriptions in mergeJobs(): below
+// this threshold an inline-only block is page chrome/placeholder, not a job body.
+const MIN_INLINE_DESCRIPTION_WORDS = 30;
 
 const UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
@@ -157,26 +160,47 @@ async function fetchCareersHtml() {
  * pre-2026 regex parser leaked all of that into the After-Sales
  * Technician description).
  */
-function parseCareersPage(html) {
+export function parseCareersPage(html) {
   const jobs = [];
   const dom = new JSDOM(html);
   const doc = dom.window.document;
 
-  const items = doc.querySelectorAll('div.accordion-item');
-  for (const item of items) {
+  const items = [...doc.querySelectorAll('div.accordion-item')];
+  for (const [index, item] of items.entries()) {
+    const candidateLabel = `accordion ${index + 1}`;
     const titleEl = item.querySelector('h3.block-title, .block-title');
     const title = (titleEl?.textContent || '').trim();
-    if (!title) continue;
+    if (!title) {
+      throw new Error(`Centiel ${candidateLabel} is missing a job title; refusing a partial crawl.`);
+    }
 
     const block = item.querySelector('.block-content');
-    if (!block) continue;
+    if (!block) {
+      throw new Error(`Centiel ${candidateLabel} (${title}) is missing .block-content; refusing a partial crawl.`);
+    }
 
     // PDF link (Learn more) — bounded to this accordion only.
     const pdfAnchor = [...block.querySelectorAll('a[href]')]
-      .find((a) => /\.pdf(\?|$)/i.test(a.getAttribute('href') || ''));
-    const pdfUrl = pdfAnchor
-      ? new URL(pdfAnchor.getAttribute('href'), CAREERS_URL).href
-      : '';
+      .find((a) => /\.pdf(?:[?#]|$)/i.test(a.getAttribute('href') || ''));
+    let pdfUrl = '';
+    if (pdfAnchor) {
+      let parsedPdfUrl;
+      try {
+        parsedPdfUrl = new URL(pdfAnchor.getAttribute('href'), CAREERS_URL);
+      } catch {
+        throw new Error(`Centiel ${candidateLabel} (${title}) has an invalid PDF URL; refusing a partial crawl.`);
+      }
+      if (parsedPdfUrl.protocol !== 'https:') {
+        throw new Error(`Centiel ${candidateLabel} (${title}) PDF URL must use HTTPS; refusing a partial crawl.`);
+      }
+      if (!isTrustedDomain(parsedPdfUrl.href)) {
+        throw new Error(`Centiel ${candidateLabel} (${title}) has an untrusted PDF URL; refusing a partial crawl.`);
+      }
+      if (!/\.pdf$/i.test(parsedPdfUrl.pathname)) {
+        throw new Error(`Centiel ${candidateLabel} (${title}) PDF URL path must end in .pdf; refusing a partial crawl.`);
+      }
+      pdfUrl = parsedPdfUrl.href;
+    }
 
     // Pull labelled metadata from the block content. The page mixes
     // <strong>Workplace:</strong> and <strong>Reporting to:</strong>
@@ -204,6 +228,12 @@ function parseCareersPage(html) {
         .replace(/\bLearn more\b/i, '')
         .trim(),
     );
+    const inlineWords = inlineSummary.split(/\s+/).filter(Boolean).length;
+    if (!pdfUrl && inlineWords < MIN_INLINE_DESCRIPTION_WORDS) {
+      throw new Error(
+        `Centiel ${candidateLabel} (${title}) has neither a trusted PDF nor substantial inline content; refusing a partial crawl.`,
+      );
+    }
 
     jobs.push({
       title,
@@ -213,6 +243,12 @@ function parseCareersPage(html) {
       workingRate,
       pdfUrl,
     });
+  }
+
+  if (jobs.length === 0) {
+    throw new Error(
+      'Centiel careers page returned zero valid accordion listings; refusing to publish an empty crawl.',
+    );
   }
 
   return jobs;
@@ -423,14 +459,14 @@ function validateLocales() {
     locales: LOCALES,
     isTrustedDomain,
     untrustedDomainReason: 'url_not_centiel_domain',
-    failWhenNoJobs: false,
+    failWhenNoJobs: true,
     noJobsMessage: 'No Centiel jobs found after dedicated crawl.',
     detectSourceLang: () => 'en',
   });
 }
 
 /* ── Main ──────────────────────────────────────────────────── */
-async function main() {
+export async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(COMPANY_KEY, 'centiel');
   console.log('═══════════════════════════════════════════════');
@@ -447,17 +483,19 @@ async function main() {
     console.log(`  📄 ${l.title} (${l.workplace})`);
   }
 
-  if (listings.length === 0) {
-    console.log('ℹ️ No job listings found on the Centiel careers page.');
-    return;
-  }
-
   // 2. Fetch each PDF for the full role description (sequential to be
   //    polite to centiel.com — 5 PDFs typical).
   console.log('\n📄 Fetching role PDFs for full descriptions...');
   for (const l of listings) {
     l.pdfText = await fetchPdfText(l.pdfUrl);
     const pdfWords = (l.pdfText || '').split(/\s+/).filter(Boolean).length;
+    const selectedBody = selectDescriptionBody(l.pdfText, l.inlineSummary);
+    const selectedWords = selectedBody.split(/\s+/).filter(Boolean).length;
+    if (selectedWords < MIN_INLINE_DESCRIPTION_WORDS) {
+      throw new Error(
+        `Centiel listing (${l.title}) selected description has only ${selectedWords} words; refusing a partial crawl.`,
+      );
+    }
     console.log(`  ${pdfWords > 0 ? '✓' : '∅'} ${l.title} → PDF ${pdfWords} words`);
   }
 
@@ -508,4 +546,7 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((error) => exitCrawlerOnError(error, 'Centiel'));
+const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (isMain) {
+  main().catch((error) => exitCrawlerOnError(error, 'Centiel'));
+}
