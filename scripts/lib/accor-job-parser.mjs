@@ -11,8 +11,13 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import {
+  extractDetailFields,
+  isSufficientVacancyDescription,
+} from './prospector/extract.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 
@@ -22,7 +27,13 @@ export const ACCOR_KEY = 'accor';
 export const ACCOR_COMPANY_NAME = 'Ibis Budget';
 export const ACCOR_COMPANY_DOMAIN = 'careers.accor.com';
 
-const CAREER_URL = 'https://careers.accor.com/fr/fr/';
+const CAREER_URL = 'https://careers.accor.com/fr/fr/jobs?ln=Switzerland&li=CH&page=1';
+const ACCOR_REQUEST_HEADERS = {
+  // Node's custom public-DNS dispatcher currently exposes Attrax's Brotli body
+  // as compressed bytes instead of decoded HTML. Identity encoding keeps the
+  // SSRF-safe socket binding and the shared identifying User-Agent intact.
+  'Accept-Encoding': 'identity',
+};
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -32,6 +43,31 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * Accor/Attrax renders several `job-details__job` widgets around the vacancy.
+ * The generic extractor deliberately considers all of them, but joining those
+ * candidates makes navigation, metadata and share controls longer than the
+ * actual description. Accor exposes one exact semantic boundary, so publish
+ * only that body. A missing or degraded widget stays empty and is quarantined
+ * by the shared detail-enrichment floor instead of falling back to a teaser.
+ *
+ * @param {string} html
+ * @param {string} pageUrl
+ */
+export function extractAccorDetailFields(html = '', pageUrl = '') {
+  const detail = extractDetailFields(html, pageUrl);
+  const dom = new JSDOM(html);
+  const descriptionNode = dom.window.document.querySelector(
+    '[data-type="DescriptionWidget"] [aria-label="Job description"]',
+  );
+  const description = normalizeSpace(descriptionNode?.textContent || '');
+  dom.window.close();
+  return {
+    ...detail,
+    description: isSufficientVacancyDescription(description) ? description : '',
+  };
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -109,7 +145,10 @@ function detectEmploymentType(text = '') {
  */
 async function fetchJobListings() {
   const spec = loadSpec(ACCOR_KEY);
-  return runSpecInProduction(spec);
+  return runSpecInProduction(spec, {
+    headers: ACCOR_REQUEST_HEADERS,
+    detailExtractor: extractAccorDetailFields,
+  });
 }
 
 /**
