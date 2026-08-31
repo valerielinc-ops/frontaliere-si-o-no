@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ricola",
-  "assembledAt": "2026-08-28T05:37:00.852Z",
+  "assembledAt": "2026-08-31T17:31:55.192Z",
   "jobs": [
     {
       "id": "ricola-2c30adc9413a",
@@ -34,7 +34,7 @@
       "url": "https://career.ricola.com/Vacancies/1048/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:36:58.789Z",
+      "crawledAt": "2026-08-31T17:31:52.482Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -71,6 +71,7 @@
       "firstSeenAt": "2026-07-04T12:16:40.503Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -114,7 +115,7 @@
       "url": "https://career.ricola.com/Vacancies/1062/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:36:58.419Z",
+      "crawledAt": "2026-08-31T17:31:52.260Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -151,6 +152,7 @@
       "firstSeenAt": "2026-07-09T12:27:34.476Z",
       "salaryMin": 68400,
       "salaryMax": 103600,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -194,7 +196,7 @@
       "url": "https://career.ricola.com/Vacancies/1063/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:36:58.011Z",
+      "crawledAt": "2026-08-31T17:31:52.045Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -231,6 +233,7 @@
       "firstSeenAt": "2026-07-29T11:45:13.958Z",
       "salaryMin": 31000,
       "salaryMax": 47000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
