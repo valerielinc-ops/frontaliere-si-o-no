@@ -1,9 +1,10 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   NORD_ANGLIA_KEY,
   NORD_ANGLIA_COMPANY_NAME,
   NORD_ANGLIA_COMPANY_DOMAIN,
   canonicalizeNordAngliaJobUrl,
+  fetchAllNordAngliaJobs,
   isNordAngliaJob,
   isTrustedDomain,
   parseNordAngliaRss,
@@ -17,6 +18,10 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
     description = '<description><![CDATA[<p>Teach biology in Aubonne.</p>]]></description>',
     pubDate = '<pubDate>Mon, 01 Apr 2026 12:00:00 +0000</pubDate>',
   } = {}) => `<rss><channel><item>${title}${link}${description}${pubDate}</item></channel></rss>`;
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
 
   // ── Constants ──
   it('exports valid company key, name and domain', () => {
@@ -110,6 +115,15 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
       'https://careers.nordangliaeducation.com/job/Aubonne-Teacher-of-Biology/1399902133/?feedId=null&utm_source=J2WRSS&utm_medium=rss&utm_campaign=J2W_RSS',
     )).toBe('https://careers.nordangliaeducation.com/job/Aubonne-Teacher-of-Biology/1399902133/');
     expect(canonicalizeNordAngliaJobUrl('https://example.com/job/Aubonne-Teacher/1/?utm_source=rss')).toBe('');
+  });
+
+  it('fails loudly instead of shrinking when an Aubonne link moves off the trusted ATS host', async () => {
+    const driftedFeed = validRssItem({
+      link: '<link>https://example.com/job/Aubonne-Teacher-of-Biology/1399902133/?utm_source=rss</link>',
+    });
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(driftedFeed, { status: 200 })));
+
+    await expect(fetchAllNordAngliaJobs()).rejects.toThrow(/non-canonical Aubonne job URL/);
   });
 
   describe('RSS parser guards', () => {

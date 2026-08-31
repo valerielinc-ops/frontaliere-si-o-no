@@ -205,13 +205,14 @@ function mergeJobs(discoveredJobs) {
     return merged;
   });
 
+  const afterSnapshot = snapshotJobSlugs(mergedTarget);
+  const diff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
+  archiveRemovedJobsToSlice(diff.removedJobs, COMPANY_KEY);
+
   const allJobs = [...nonTargetJobs, ...mergedTarget];
   writeJson(DATA_JOBS, allJobs);
   writeJson(PUBLIC_JOBS, allJobs);
 
-  const afterSnapshot = snapshotJobSlugs(mergedTarget);
-  const diff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
-  archiveRemovedJobsToSlice(diff.removedJobs, COMPANY_KEY);
   printCrawlChangeSummary(diff, 'Ariston Group');
   writeCrawlChangeSummaryToGH(diff, 'Ariston Group');
   writeJobsSummary(mergedTarget, 'Ariston Group');

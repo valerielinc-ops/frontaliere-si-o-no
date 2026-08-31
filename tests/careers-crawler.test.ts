@@ -197,6 +197,9 @@ describe('lepatron crawler parser', () => {
 
     it('filters generic applications without filtering a concrete role', () => {
       const jobs = parseCareersRss(RSS_FIXTURE);
+      const incompleteGeneric = parseCareersRss(validRssItem({
+        title: '<title>Spontanbewerbung - Le Patron</title>',
+      }));
       const concrete = parseCareersRss(validRssItem({
         title: '<title>Recruiter Spontanbewerbungen (Böckten, BL)</title>',
       }));
@@ -206,6 +209,7 @@ describe('lepatron crawler parser', () => {
         'Betriebsmechaniker: in Instandhaltung, 80-100%',
       ]);
       expect(jobs.some((job) => /spontanbewerbung/i.test(job.title))).toBe(false);
+      expect(incompleteGeneric).toEqual([]);
       expect(concrete).toHaveLength(1);
       expect(concrete[0].title).toBe('Recruiter Spontanbewerbungen');
     });

@@ -346,7 +346,9 @@ export async function fetchAllNordAngliaJobs() {
     if (isGenericOffer(title)) continue; // evergreen "share your profile" placeholder
 
     const publicUrl = canonicalizeNordAngliaJobUrl(link);
-    if (!publicUrl) continue;
+    if (!publicUrl) {
+      throw new Error(`Nord Anglia RSS item has a non-canonical Aubonne job URL: ${link}`);
+    }
     if (seen.has(publicUrl)) continue;
     seen.add(publicUrl);
 

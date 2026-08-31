@@ -217,6 +217,8 @@ export function parseCareersRss(xml = '') {
     const rawTitle = normalizeSpace(stripHtml(readCareersRssScalar(item, 'title', itemNumber)));
     const parsedTitleLocation = rawTitle.match(/^(.*?)\s+\(([^,()]+),\s*([A-Z]{2})\)\s*$/u);
     const title = normalizeSpace(parsedTitleLocation?.[1] || rawTitle);
+    if (isGenericCareersApplication(title)) return null;
+
     const location = normalizeSpace(parsedTitleLocation?.[2] || '');
     const locationWithRegion = `${location}, ${parsedTitleLocation?.[3] || ''}`;
     const canton = inferSwissTargetCanton(locationWithRegion) || '';
@@ -237,9 +239,7 @@ export function parseCareersRss(xml = '') {
       throw new Error(`Le Patron RSS item ${itemNumber} is missing ${missing.join(', ')}`);
     }
 
-    return isGenericCareersApplication(title)
-      ? null
-      : { title, url, location, canton, description, postedDate };
+    return { title, url, location, canton, description, postedDate };
   }).filter(Boolean);
 }
 
