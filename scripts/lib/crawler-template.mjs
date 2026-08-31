@@ -790,8 +790,79 @@ export async function verifyUrlNoRedirect(url, options = {}) {
  * @property {string}   [defaultSourceLang] — Fallback source language (default: 'it')
  * @property {Function} [isTrustedDomain]   — (url) => boolean. For URL validation.
  * @property {Function} [matchKey]          — Custom URL matching for merge dedup
+ * @property {boolean}  [preserveExistingSlugs] — Keep every existing active slug for matched stable IDs
  * @property {Object}   [baseCrawlerOpts]   — Extra options for runDedicatedBaseCrawler
  */
+
+/**
+ * Restore the active slug identity of jobs already present in the crawler
+ * slice. This is intentionally opt-in: most crawlers should let a material
+ * title/location correction mint a new slug and retain the old one as a
+ * redirect. A crawler can use this stricter policy when the corrected field is
+ * display metadata and changing an already-published URL would be needless.
+ *
+ * Matching is by the stable job ID which mergePreserveLocaleData has already
+ * carried forward. Fresh jobs are untouched. Existing history is restored
+ * verbatim so an intermediate hardening pass cannot turn a transient derived
+ * slug into a permanent redirect.
+ *
+ * @param {object[]} existingJobs
+ * @param {object[]} currentJobs
+ * @returns {{ jobs: object[], restored: number }}
+ */
+export function restoreExistingSlugIdentity(existingJobs = [], currentJobs = []) {
+  const counts = new Map();
+  for (const job of existingJobs) {
+    const id = String(job?.id || '').trim();
+    if (id) counts.set(id, (counts.get(id) || 0) + 1);
+  }
+  const existingById = new Map();
+  for (const job of existingJobs) {
+    const id = String(job?.id || '').trim();
+    if (id && counts.get(id) === 1) existingById.set(id, job);
+  }
+
+  let restored = 0;
+  const jobs = currentJobs.map((job) => {
+    const id = String(job?.id || '').trim();
+    const old = id ? existingById.get(id) : null;
+    if (!old) return job;
+
+    const next = { ...job };
+    const oldSlug = String(old.slug || '').trim();
+    if (oldSlug && oldSlug !== String(next.slug || '').trim()) {
+      next.slug = oldSlug;
+      restored++;
+    }
+    if (old.slugByLocale && typeof old.slugByLocale === 'object') {
+      const currentByLocale = next.slugByLocale && typeof next.slugByLocale === 'object'
+        ? next.slugByLocale
+        : {};
+      const restoredByLocale = { ...old.slugByLocale };
+      for (const [locale, slug] of Object.entries(currentByLocale)) {
+        if (!(locale in restoredByLocale)) restoredByLocale[locale] = slug;
+      }
+      if (JSON.stringify(restoredByLocale) !== JSON.stringify(currentByLocale)) restored++;
+      next.slugByLocale = restoredByLocale;
+    }
+
+    if (Array.isArray(old.previousSlugs)) next.previousSlugs = [...old.previousSlugs];
+    else delete next.previousSlugs;
+    if (old.previousSlugsByLocale && typeof old.previousSlugsByLocale === 'object') {
+      next.previousSlugsByLocale = Object.fromEntries(
+        Object.entries(old.previousSlugsByLocale).map(([locale, slugs]) => [
+          locale,
+          Array.isArray(slugs) ? [...slugs] : slugs,
+        ]),
+      );
+    } else {
+      delete next.previousSlugsByLocale;
+    }
+    return next;
+  });
+
+  return { jobs, restored };
+}
 
 /* ── Pipeline ───────────────────────────────────────────────────────── */
 
@@ -814,6 +885,7 @@ export async function runStandardCrawlerPipeline(config) {
     defaultSourceLang = 'it',
     isTrustedDomain,
     matchKey,
+    preserveExistingSlugs = false,
     baseCrawlerOpts = {},
   } = config;
 
@@ -903,7 +975,10 @@ export async function runStandardCrawlerPipeline(config) {
   // every crawl would regenerate slugs and orphan indexed URLs.
   const mergeOpts = matchKey ? { matchKey } : {};
   const merged = mergePreserveLocaleData(companyExisting, parsedJobs, mergeOpts);
-  const clean = merged.sort((a, b) =>
+  const slugStableMerge = preserveExistingSlugs
+    ? restoreExistingSlugIdentity(companyExisting, merged).jobs
+    : merged;
+  const clean = slugStableMerge.sort((a, b) =>
     String(b.postedDate || '').localeCompare(String(a.postedDate || ''))
   );
 
@@ -973,6 +1048,24 @@ export async function runStandardCrawlerPipeline(config) {
   }
   validateDedicatedLocaleCoverage(validateOpts);
 
+  // Validation performs its own locale hardening and can re-derive slugs from
+  // corrected metadata. Restore the published identity once more at the
+  // definitive boundary, immediately before slice publication.
+  if (preserveExistingSlugs && fs.existsSync(DATA_JOBS)) {
+    const validatedRaw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+    const validatedJobs = Array.isArray(validatedRaw)
+      ? validatedRaw
+      : (Array.isArray(validatedRaw?.jobs) ? validatedRaw.jobs : []);
+    const restored = restoreExistingSlugIdentity(companyExisting, validatedJobs);
+    const restoredPayload = Array.isArray(validatedRaw)
+      ? restored.jobs
+      : { ...validatedRaw, jobs: restored.jobs };
+    writeJsonAtomic(DATA_JOBS, restoredPayload);
+    if (restored.restored > 0) {
+      console.log(`  Re-pinned ${restored.restored} existing slug slot(s) after validation.`);
+    }
+  }
+
   // ─── Step 7: Slice + Assemble ───────────────────────────────
   // writeJobsCrawlerSlice has a FINAL safety net that strips any
   // previousSlug matching an active slug — defense against all upstream bugs.
@@ -985,7 +1078,10 @@ export async function runStandardCrawlerPipeline(config) {
   // at their own source URLs and the smaller slice is accepted ONLY if every
   // one of them is provably gone. A degraded/blocked source still fails here
   // exactly as before — the threshold is unchanged, the proof is the addition.
-  await writeJobsCrawlerSliceVerified(companyKey, sliceJobs, { isTargetJob: isCompanyJob });
+  await writeJobsCrawlerSliceVerified(companyKey, sliceJobs, {
+    isTargetJob: isCompanyJob,
+    preserveExistingSlugs,
+  });
   writeSummaryCrawlerSlice({
     key: companyKey,
     label: companyLabel,

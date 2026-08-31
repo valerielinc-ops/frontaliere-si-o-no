@@ -34,6 +34,7 @@ import { isConnectionLevelFetchError, WAF_IP_BLOCK_STATUS } from './transient-fe
 import { inferSwissTargetCanton, isKnownSwissCity } from './target-swiss-locations.mjs';
 import { stripContactPII } from './strip-contact-pii.mjs';
 import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
+import { parseSuccessFactorsMicrodataLocation } from './successfactors-shared-job-parser-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -394,16 +395,30 @@ export function parseDetailPage(html) {
     ? (applyMatch[1].startsWith('http') ? applyMatch[1] : `${BASE_URL}${applyMatch[1]}`)
     : '';
 
-  // Canonical location: prefer the SF "Arbeitsort: <Klinik> | <City>" line that
-  // opens the description body, else the customfield microdata.
-  let location = '';
-  const arbeitsort = description.match(/Arbeitsort:\s*[^|\n]*\|\s*([^|\n]+)/i);
-  if (arbeitsort) {
-    location = normalizeSpace(arbeitsort[1]).replace(/^"|"$/g, '').trim();
+  // SuccessFactors publishes the authoritative facility in PostalAddress
+  // microdata. Prefer it over the free-text Arbeitsort line, whose shape
+  // varies between "clinic | city", "city – clinic" and plain prose.
+  const structuredLocation = parseSuccessFactorsMicrodataLocation(html);
+  let location = structuredLocation?.city || '';
+  let locationEvidence = location ? 'microdata' : '';
+  if (!location) {
+    const arbeitsort = description.match(/Arbeitsort:\s*[^|\n]*\|\s*([^|\n]+)/i);
+    if (arbeitsort) {
+      location = normalizeSpace(arbeitsort[1]).replace(/^"|"$/g, '').trim();
+      locationEvidence = 'description';
+    }
   }
   if (location && /[<="']|viewport|content|width|home-?office/i.test(location)) location = '';
 
-  return { title, description, location, applyUrl };
+  return {
+    title,
+    description,
+    location,
+    locationEvidence,
+    region: structuredLocation?.region || '',
+    postalCode: structuredLocation?.postalCode || '',
+    applyUrl,
+  };
 }
 
 /* ── Fallback description ─────────────────────────────────── */
@@ -566,14 +581,19 @@ export async function fetchAllHirslandenJobs() {
       const title = detail?.title || listing.title;
       const { city, postalCode: parsedPostal } = parseLocation(listing.location);
       const realLocationText = normalizeSpace(detail?.location || '') || normalizeSpace(listing.location || '');
-      const location = resolveHirslandenLocation(realLocationText, city);
-      const inferredCanton = inferSwissTargetCanton(location) || null;
+      const location = detail?.locationEvidence === 'microdata'
+        ? realLocationText
+        : resolveHirslandenLocation(realLocationText, city);
+      const inferredCanton = inferSwissTargetCanton(location)
+        || inferSwissTargetCanton(detail?.region || '')
+        || inferSwissTargetCanton(city)
+        || null;
       if (realLocationText && !inferredCanton) {
         console.warn(`  ⚠️ Hirslanden: skipping unresolvable location "${realLocationText}" (${title})`);
         continue;
       }
       const canton = inferredCanton || 'ZH';
-      const postalCode = parsedPostal || '8008';
+      const postalCode = detail?.postalCode || parsedPostal || '8008';
 
       let description = '';
       if (detail?.description && detail.description.split(/\s+/).length >= 50) {

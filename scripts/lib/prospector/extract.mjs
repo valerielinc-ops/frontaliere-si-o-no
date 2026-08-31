@@ -384,8 +384,22 @@ export function extractDetailFields(html = '', pageUrl = '') {
     }
     if (end !== undefined) blocks.push(textOf(html.slice(openingRx.lastIndex, end)));
   }
-  const semanticRx = /<([a-z0-9]+)\b[^>]*itemprop\s*=\s*["']description["'][^>]*>([\s\S]*?)<\/\1>/i.exec(html);
-  if (semanticRx) blocks.push(textOf(semanticRx[2]));
+  // Read the description element to its matching close tag. SuccessFactors
+  // nests many same-name spans inside itemprop="description"; the former
+  // non-greedy regex stopped at the first inner </span>, making a correct
+  // published body appear unrelated to its source in the quality audit.
+  const semanticIndex = indexHtmlTags(html);
+  const semanticOpening = semanticIndex.openings.find((candidate) =>
+    !candidate.selfClosing
+    && !VOID_HTML_TAGS.has(candidate.name)
+    && readAttr(candidate.raw, 'itemprop').split(/\s+/).includes('description')
+  );
+  const semanticBounds = semanticOpening
+    ? semanticIndex.boundsByStart.get(semanticOpening.index)
+    : null;
+  if (semanticOpening && semanticBounds) {
+    blocks.push(textOf(html.slice(semanticOpening.end, semanticBounds.contentEnd)));
+  }
   // A detail page with no useful class still commonly puts the vacancy body
   // in its main/article container. Use it only when it is materially larger
   // than the page's structured teaser, avoiding a navigation-only shell.
