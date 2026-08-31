@@ -17,6 +17,30 @@ import {
   TICINO_CLINICS,
   CLINIC_ADDRESSES,
 } from '@/scripts/lib/swiss-medical-network-job-parser.mjs';
+import { isDedicatedClinicOwnedPosting } from '@/scripts/update-swiss-medical-network-jobs.mjs';
+
+describe('Swiss Medical Network umbrella ownership', () => {
+  const obachPosting = {
+    id: '744000146478439',
+    location: { city: 'Solothurn' },
+    department: { label: 'Privatklinik Obach' },
+    customField: [{ fieldLabel: 'Department', valueLabel: 'Privatklinik Obach' }],
+  };
+
+  it('excludes Obach postings even before the dedicated slice contains the id', () => {
+    expect(isDedicatedClinicOwnedPosting(obachPosting, new Set())).toBe(true);
+  });
+
+  it('keeps unrelated SMN postings unless a dedicated slice owns the id', () => {
+    const networkPosting = {
+      id: '744000100000000',
+      department: { label: 'Swiss Medical Network' },
+      location: { city: 'Genolier' },
+    };
+    expect(isDedicatedClinicOwnedPosting(networkPosting, new Set())).toBe(false);
+    expect(isDedicatedClinicOwnedPosting(networkPosting, new Set(['744000100000000']))).toBe(true);
+  });
+});
 
 // ─── Fixture: Ticino job listings with SmartRecruiters links ──────────────────
 
