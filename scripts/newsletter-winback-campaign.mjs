@@ -98,7 +98,7 @@ function resolveStage1Articles(interest, locale) {
  * @param {Array<{email:string, locale:string, interest:string}>} items
  * @returns {Promise<Set<string>>} lowercased emails that FAILED to send
  */
-async function sendStage1(items) {
+export async function sendStage1(items) {
   const { sendEmailCascade, logProviderSummary } = await import('./lib/email-cascade.mjs');
   const cascade = items.map((w) => {
     const articles = resolveStage1Articles(w.interest, w.locale);
@@ -140,7 +140,7 @@ async function sendStage1(items) {
  * @param {Array<{email:string, locale:string}>} items
  * @returns {Promise<Set<string>>} lowercased emails that FAILED to send
  */
-async function sendStage2(items) {
+export async function sendStage2(items) {
   const { sendEmailCascade, logProviderSummary } = await import('./lib/email-cascade.mjs');
   const cascade = items.map((w) => {
     const { subject, html, text, unsubscribeUrl } = buildWinbackEmail({ email: w.email, locale: w.locale });

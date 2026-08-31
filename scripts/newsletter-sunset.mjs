@@ -61,7 +61,7 @@ async function initFirebase() {
  * @param {Array<{email:string, locale:string}>} items
  * @returns {Promise<Set<string>>} lowercased emails that FAILED to send
  */
-async function sendWinbacks(items) {
+export async function sendWinbacks(items) {
   const { sendEmailCascade, logProviderSummary } = await import('./lib/email-cascade.mjs');
   const cascade = items.map((w) => {
     const { subject, html, text, unsubscribeUrl } = buildWinbackEmail({ email: w.email, locale: w.locale });
