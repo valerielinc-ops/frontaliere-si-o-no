@@ -1,6 +1,6 @@
 {
   "crawlerKey": "med-ipersonal",
-  "assembledAt": "2026-08-31T07:36:16.710Z",
+  "assembledAt": "2026-08-31T10:05:34.164Z",
   "jobs": [
     {
       "id": "med-ipersonal-ee46f6c4b1e5",
@@ -31,7 +31,7 @@
       "url": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-fuer-die-region-opfikon-temporaerbuero-ipersonal/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T07:36:13.260Z",
+      "crawledAt": "2026-08-31T10:05:30.445Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -77,6 +77,7 @@
       "firstSeenAt": "2026-08-27T00:56:17.381Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -117,7 +118,7 @@
       "url": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-in-der-region-regensdorf-gesucht/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T07:36:12.957Z",
+      "crawledAt": "2026-08-31T10:05:30.137Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -146,6 +147,7 @@
       "firstSeenAt": "2026-08-27T00:56:17.078Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -186,7 +188,7 @@
       "url": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-fuer-die-region-volketswil-stellenangebot/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T07:36:12.636Z",
+      "crawledAt": "2026-08-31T10:05:29.830Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -215,6 +217,7 @@
       "firstSeenAt": "2026-08-27T00:56:16.776Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -256,7 +259,7 @@
       "url": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-fuer-die-region-ruemlang-temporaerbuero-ipersonal/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T07:36:12.329Z",
+      "crawledAt": "2026-08-31T10:05:29.524Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -285,6 +288,7 @@
       "firstSeenAt": "2026-08-27T00:56:16.473Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -325,7 +329,7 @@
       "url": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-fuer-die-region-bassersdorf-stellenangebot/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T07:36:12.025Z",
+      "crawledAt": "2026-08-31T10:05:29.218Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -366,6 +370,7 @@
       "firstSeenAt": "2026-08-27T00:56:16.171Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -406,7 +411,7 @@
       "url": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-in-der-region-meilen-offene-stelle/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T07:36:11.718Z",
+      "crawledAt": "2026-08-31T10:05:28.910Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -447,6 +452,7 @@
       "firstSeenAt": "2026-08-27T00:56:15.868Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -487,7 +493,7 @@
       "url": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-in-der-region-maennedorf-freie-stelle/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T07:36:11.415Z",
+      "crawledAt": "2026-08-31T10:05:28.607Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -516,6 +522,7 @@
       "firstSeenAt": "2026-08-27T00:56:15.564Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -556,7 +563,7 @@
       "url": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-fuer-die-region-pfaeffikon-zh-freie-stelle/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T07:36:11.111Z",
+      "crawledAt": "2026-08-31T10:05:28.303Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -585,6 +592,7 @@
       "firstSeenAt": "2026-08-27T00:56:15.262Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -625,7 +633,7 @@
       "url": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-in-der-region-waedenswil-freie-stelle/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T07:36:10.806Z",
+      "crawledAt": "2026-08-31T10:05:27.999Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -654,6 +662,7 @@
       "firstSeenAt": "2026-08-27T00:56:14.960Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -694,7 +703,7 @@
       "url": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-in-der-region-gossau-zh-freie-stelle/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T07:36:10.501Z",
+      "crawledAt": "2026-08-31T10:05:27.695Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -723,6 +732,7 @@
       "firstSeenAt": "2026-08-27T00:56:14.658Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -763,7 +773,7 @@
       "url": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-fuer-die-region-weisslingen-freie-stelle/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T07:36:10.197Z",
+      "crawledAt": "2026-08-31T10:05:27.392Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -792,6 +802,7 @@
       "firstSeenAt": "2026-08-27T00:56:14.356Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -832,7 +843,7 @@
       "url": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-fuer-die-region-neerach-gesucht-jetzt-bewerben/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T07:36:09.885Z",
+      "crawledAt": "2026-08-31T10:05:27.089Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -861,6 +872,7 @@
       "firstSeenAt": "2026-08-27T00:56:14.055Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -901,7 +913,7 @@
       "url": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-in-der-region-obfelden-gesucht-jetzt-bewerben/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T07:36:09.581Z",
+      "crawledAt": "2026-08-31T10:05:26.785Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -928,6 +940,7 @@
       "firstSeenAt": "2026-08-27T00:56:13.742Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -944,9 +957,9 @@
       "id": "med-ipersonal-0ca6b32b27da",
       "slug": "sachbearbeiter-in-administration-50-100-per-la-region-opfikon-gesucht-jetzt-bewerben-medipersonal-lugano",
       "slugByLocale": {
-        "de": "sachbearbeiter-in-administration-50-100-100-fur-die-region-opfikon-gesucht-jetzt-bewerben",
         "it": "sachbearbeiter-in-administration-50-100-per-la-region-opfikon-gesucht-jetzt-bewerben-medipersonal-lugano",
         "en": "sachbearbeiter-in-administration-50-100-100-fur-die-region-opfikon-gesucht-jetzt-bewerben",
+        "de": "sachbearbeiter-in-administration-50-100-100-fur-die-region-opfikon-gesucht-jetzt-bewerben",
         "fr": "sachbearbeiter-in-administration-50-100-100-fur-die-region-opfikon-gesucht-jetzt-bewerben"
       },
       "company": "MediPersonal",
@@ -954,22 +967,22 @@
       "companyDomain": "ipersonal.ch",
       "title": "Sachbearbeiter/in Administration (50-100%) 100% für die Region Opfikon gesucht – jetzt bewerben",
       "titleByLocale": {
-        "de": "Sachbearbeiter/in Administration (50-100%) 100% für die Region Opfikon gesucht – jetzt bewerben",
-        "en": "Sachbearbeiter/in Administration (50-100%) 100% für die Region Opfikon gesucht – jetzt bewerben",
         "it": "Sachbearbeiter/in Administration (50-100%) 100% per la Region Opfikon gesucht – jetzt bewerben",
+        "en": "Sachbearbeiter/in Administration (50-100%) 100% für die Region Opfikon gesucht – jetzt bewerben",
+        "de": "Sachbearbeiter/in Administration (50-100%) 100% für die Region Opfikon gesucht – jetzt bewerben",
         "fr": "Sachbearbeiter/in Administration (50-100%) 100% für die Region Opfikon gesucht – jetzt bewerben"
       },
       "description": "Sachbearbeiter/in Administration (50-100%) 100% für die Region Opfikon gesucht – jetzt bewerben — MediPersonal",
       "descriptionByLocale": {
-        "de": "Sachbearbeiter/in Administration (50-100%) 100% für die Region Opfikon gesucht – jetzt bewerben — MediPersonal",
-        "en": "Sachbearbeiter/in Administration (50-100%) 100% für die Region Opfikon gesucht – jetzt bewerben — MediPersonal"
+        "en": "Sachbearbeiter/in Administration (50-100%) 100% für die Region Opfikon gesucht – jetzt bewerben — MediPersonal",
+        "de": "Sachbearbeiter/in Administration (50-100%) 100% für die Region Opfikon gesucht – jetzt bewerben — MediPersonal"
       },
       "location": "Lugano",
       "canton": "TI",
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-in-administration-50-100-100-fuer-die-region-opfikon-gesucht-jetzt-bewerben/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T07:36:09.275Z",
+      "crawledAt": "2026-08-31T10:05:26.481Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -983,20 +996,22 @@
       "postedDate": "2026-08-31",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-in-administration-50-100-100-fuer-die-region-opfikon-gesucht-jetzt-bewerben/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-in-administration-50-100-100-fur-die-region-opfikon-gesucht-jetzt-bewerben",
+        "sachbearbeiter-in-administration-50-100-per-la-region-opfikon-gesucht-jetzt-bewerben-medipersonal-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-administration-50-100-100-fur-die-region-opfikon-gesucht-jetzt-bewerben"
+          "sachbearbeiter-in-administration-50-100-100-fur-die-region-opfikon-gesucht-jetzt-bewerben",
+          "sachbearbeiter-in-administration-50-100-per-la-region-opfikon-gesucht-jetzt-bewerben-medipersonal-lugano"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiter-in-administration-50-100-100-fur-die-region-opfikon-gesucht-jetzt-bewerben"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T07:36:09.275Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1007,16 +1022,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-31T07:36:09.275Z"
+      "addressRegion": "TI"
     },
     {
       "id": "med-ipersonal-a94a8876cd0b",
       "slug": "sachbearbeiter-in-administration-50-100-100-in-der-region-regensdorf-gesucht-jetzt",
       "slugByLocale": {
-        "de": "sachbearbeiter-in-administration-50-100-100-in-der-region-regensdorf-gesucht-jetzt",
         "it": "sachbearbeiter-in-administration-50-100-100-in-der-region-regensdorf-gesucht-jetzt",
         "en": "sachbearbeiter-in-administration-50-100-100-in-der-region-regensdorf-gesucht-jetzt",
+        "de": "sachbearbeiter-in-administration-50-100-100-in-der-region-regensdorf-gesucht-jetzt",
         "fr": "sachbearbeiter-in-administration-50-100-100-in-der-region-regensdorf-gesucht-jetzt"
       },
       "company": "MediPersonal",
@@ -1024,9 +1038,9 @@
       "companyDomain": "ipersonal.ch",
       "title": "Sachbearbeiter/in Administration (50-100%) 100% in der Region Regensdorf gesucht – jetzt bewerben",
       "titleByLocale": {
-        "de": "Sachbearbeiter/in Administration (50-100%) 100% in der Region Regensdorf gesucht – jetzt bewerben",
         "it": "Sachbearbeiter/in Administration (50-100%) 100% in der Region Regensdorf gesucht – jetzt bewerben",
         "en": "Sachbearbeiter/in Administration (50-100%) 100% in der Region Regensdorf gesucht – jetzt bewerben",
+        "de": "Sachbearbeiter/in Administration (50-100%) 100% in der Region Regensdorf gesucht – jetzt bewerben",
         "fr": "Sachbearbeiter/in Administration (50-100%) 100% in der Region Regensdorf gesucht – jetzt bewerben"
       },
       "description": "Sachbearbeiter/in Administration (50-100%) 100% in der Region Regensdorf gesucht – jetzt bewerben — MediPersonal",
@@ -1038,7 +1052,7 @@
       "url": "https://www.ipersonal.ch/jobs/sachbearbeiter-in-administration-50-100-100-in-der-region-regensdorf-gesucht-jetzt-bewerben/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T07:36:08.943Z",
+      "crawledAt": "2026-08-31T10:05:26.163Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1052,12 +1066,12 @@
       "postedDate": "2026-08-31",
       "applyUrl": "https://www.ipersonal.ch/jobs/sachbearbeiter-in-administration-50-100-100-in-der-region-regensdorf-gesucht-jetzt-bewerben/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T07:36:08.943Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1068,8 +1082,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-31T07:36:08.943Z"
+      "addressRegion": "TI"
     },
     {
       "id": "med-ipersonal-334a4bb9652f",
@@ -1139,7 +1152,8 @@
         }
       },
       "addressRegion": "TI",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "salarySource": "estimated"
     },
     {
       "id": "med-ipersonal-87298da2f7bb",
@@ -1209,7 +1223,8 @@
         }
       },
       "addressRegion": "TI",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "salarySource": "estimated"
     }
   ]
 }
