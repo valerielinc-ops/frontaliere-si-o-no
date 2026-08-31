@@ -4,10 +4,11 @@ name: Email Quota Check
 # (functions/src/emailCascade.js). syncQuotasFromAPIs() already hits every
 # provider's real usage endpoint and the cascade's own dynamic daily cap
 # (computeResendDynamicDailyLimit, cycle anchored on the 6th of each month)
-# already THROTTLES future Resend sends to land at/under the 50k/mo quota by
-# renewal — but a cap only slows down what happens next, it does not tell a
-# human the burn rate already looks wrong (a send bypassing the cascade, the
-# provider reorder not absorbing enough volume, or a genuine demand spike).
+# already THROTTLES future Resend sends to stay within both free-plan limits
+# (100/day and 3000/month) — but a cap only slows down what happens next; it
+# does not tell a human the burn rate already looks wrong (a send bypassing the
+# cascade, the provider reorder not absorbing enough volume, or a genuine
+# demand spike).
 #
 # This workflow runs scripts/check-email-quotas.mjs, which additionally
 # compares Resend's cycle-to-date usage ratio against the expected pace and

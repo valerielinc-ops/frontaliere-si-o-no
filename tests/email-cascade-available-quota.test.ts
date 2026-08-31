@@ -112,10 +112,9 @@ describe('getAvailableCascadeQuota', () => {
 
   it('clamps at 0 once the configured provider is fully used, never negative', async () => {
     process.env.RESEND_API_KEY = 'test-key';
-    // Comfortably exceeds resend's 50000/mo cycle budget even in the best
-    // case (1 day left in the billing cycle), so remainingQuota() must clamp
-    // to 0 rather than go negative.
-    mockResendUsage(resendEntries(51000, today));
+    // The free plan allows at most 100/day, so exactly 100 already sent leaves
+    // no local quota even when the monthly budget has room left.
+    mockResendUsage(resendEntries(100, today));
     const { getAvailableCascadeQuota } = await loadCascade();
     expect(await getAvailableCascadeQuota()).toBe(0);
   });

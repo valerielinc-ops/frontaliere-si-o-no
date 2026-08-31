@@ -2857,6 +2857,9 @@ Regole:
  'consultingCta.article.button': 'Prenota una consulenza',
 
  // v3.71.0 — potenziamento calcolatore
+ 'whatsNew.v3951.title': 'Miglioramenti interni e stabilità',
+ 'whatsNew.v3951.email.title': 'Invio email più affidabile',
+ 'whatsNew.v3951.email.desc': 'Abbiamo rafforzato i controlli sulle quote del provider email, evitando invii oltre i limiti anche quando più notifiche partono insieme.',
  'whatsNew.v3710.title': 'Calcolatore potenziato: alert, imposta comunale, confronto cantoni',
  'whatsNew.v3710.salaryAlert.title': 'Alert stipendio dal calcolatore',
  'whatsNew.v3710.salaryAlert.desc': 'Dopo la simulazione attivi in un tap un avviso via email quando escono offerte con netto pari o superiore al tuo.',
