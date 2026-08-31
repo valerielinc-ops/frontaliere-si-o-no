@@ -4846,6 +4846,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.skyguide-licenziamenti-consultazione.title': 'Skyguide, es wird 50 Entlassungen geben',
     'blog.article.skyguide-licenziamenti-consultazione.excerpt': 'Skyguide kündigt 50 Entlassungen im Umbau an. Die Gewerkschaftskonsultation reduzierte die Zahl von 220 Initialen. Erste Welle: 14., zweiter Frühling 2027: ca. 35.',
     'blog.article.skyguide-licenziamenti-consultazione.imageAlt': 'Schweizer Alpenlandschaft mit Flughäfen und Luftverkehrskorridoren, die Skyguides Flugsicherung darstellt.',
+    'blog.article.divieto-velo-cellulari-scuole.title': 'Zürich verbietet Kopftücher und Mobiltelefone in Schulen',
+    'blog.article.divieto-velo-cellulari-scuole.excerpt': 'Der Zürcher Grossrat billigt das Kopftuch- und Handyverbot mit knapper Mehrheit. Der Aargau hatte sich bereits für den Schleier entschieden. Zeitrahmen: zwei Jahre für Gesetze.',
+    'blog.article.divieto-velo-cellulari-scuole.imageAlt': 'Klassenzimmer an einer öffentlichen Schule in Zürich mit Schülern in modernem Umfeld',
 };
 
 export default blogMetaChDe;

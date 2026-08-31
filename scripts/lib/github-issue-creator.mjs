@@ -210,7 +210,7 @@ function stripUnbalancedBracketTail(s) {
 // Takes the FULL title (not a pre-sliced prefix) so it can tell whether
 // slice(0,LEN) actually split a word — the only reliable signal for whether the
 // trailing token is a fragment that must be dropped.
-function searchSafePrefix(fullTitle) {
+export function searchSafePrefix(fullTitle) {
   const LEN = DEDUP_TITLE_PREFIX_LEN;
   const full = String(fullTitle);
   let p = full.slice(0, LEN);
@@ -818,6 +818,9 @@ export function formatSignalsBlock(signals) {
 
 /**
  * Create a GitHub issue, or comment on an existing open duplicate.
+ * Successful write paths return `persisted: true`; a known comment failure on
+ * an existing/reopened issue returns `persisted: false`. Callers that cannot
+ * tolerate best-effort loss can therefore fail their own workflow and retry.
  */
 export async function createGithubIssue({
   title,
@@ -990,10 +993,15 @@ export async function createGithubIssue({
         console.log(`[github-issue-creator] Escalated #${existing.number} → ${targetLabel}`);
       }
       console.log(`[github-issue-creator] Commented on existing #${existing.number} — ${existing.title}`);
-      return { number: existing.number, title: existing.title, url: existing.url };
+      return {
+        number: existing.number,
+        title: existing.title,
+        url: existing.url,
+        persisted: true,
+      };
     } catch (err) {
       console.error(`[github-issue-creator] Failed to comment on #${existing.number}: ${err.message}`);
-      return existing;
+      return { ...existing, persisted: false };
     }
   }
 
@@ -1067,17 +1075,35 @@ export async function createGithubIssue({
           '— riaperta invece di aprire una issue nuova, così la storia della',
           'condizione resta in un solo thread.',
         ].filter(Boolean).join(' ');
-        gh([
+        const recurrenceComment = gh([
           'issue', 'comment', String(recentlyClosed.number),
           '--body', `${header}\n\n**Misura corrente:**\n\n${body}`,
           ...repoFlag(),
         ], { allowFailure: true });
+        if (recurrenceComment === null) {
+          console.error(
+            `[github-issue-creator] Reopened #${recentlyClosed.number}, but failed to persist recurrence context.`,
+          );
+          return {
+            number: recentlyClosed.number,
+            title: recentlyClosed.title,
+            url: recentlyClosed.url,
+            reopened: true,
+            persisted: false,
+          };
+        }
         appendStepSummary(
           `${RECURRENCE_MARKER} **Riaperta #${recentlyClosed.number}** — ricorrenza della stessa `
           + 'condizione, nessuna issue nuova aperta.',
         );
         console.log(`[github-issue-creator] Reopened #${recentlyClosed.number} — ${recentlyClosed.title}`);
-        return { number: recentlyClosed.number, title: recentlyClosed.title, url: recentlyClosed.url, reopened: true };
+        return {
+          number: recentlyClosed.number,
+          title: recentlyClosed.title,
+          url: recentlyClosed.url,
+          reopened: true,
+          persisted: true,
+        };
       }
       // Reopen failed (e.g. closed-as-duplicate locked) → fall through to create.
       console.error(`[github-issue-creator] Could not reopen #${recentlyClosed.number}; creating fresh issue.`);
@@ -1098,7 +1124,7 @@ export async function createGithubIssue({
     console.log(`[github-issue-creator] Created: ${url}`);
     // Parse issue number from URL for return value
     const m = url.match(/\/issues\/(\d+)/);
-    return { number: m ? Number(m[1]) : null, title, url };
+    return { number: m ? Number(m[1]) : null, title, url, persisted: true };
   } catch (err) {
     // Why: this helper runs in `if: failure()` reporter steps. If posting to
     // GH fails (missing GH_TOKEN, API outage, perms), we must NOT lose the
@@ -1213,4 +1239,3 @@ if (process.argv[1]?.endsWith('github-issue-creator.mjs')) {
     process.exit(0);
   });
 }
-

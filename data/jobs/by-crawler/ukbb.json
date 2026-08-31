@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ukbb",
-  "assembledAt": "2026-08-28T05:13:21.491Z",
+  "assembledAt": "2026-08-31T16:29:36.196Z",
   "jobs": [
     {
       "id": "ukbb-e7925ffef938",
@@ -63,92 +63,6 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:22:50.245Z",
-      "salaryMin": 88000,
-      "salaryMax": 123000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 88000,
-          "maxValue": 123000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ukbb-95b135d028d1",
-      "slug": "ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-padiatrie-universitats-kinderspital-beider-basel-basel",
-      "slugByLocale": {
-        "it": "ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-padiatrie-universitats-kinderspital-beider-basel-basel",
-        "en": "ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-padiatrie-universitats-kinderspital-beider-basel-basel",
-        "de": "ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-padiatrie-ukbb-basel",
-        "fr": "ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-padiatrie-universitats-kinderspital-beider-basel-basel"
-      },
-      "company": "Universitäts-Kinderspital beider Basel",
-      "companyKey": "ukbb",
-      "companyDomain": "ukbb.ch",
-      "title": "Ausbildung Fachfrau/Fachmann Gesundheit EFZ (Schwerpunkt Pädiatrie)",
-      "titleByLocale": {
-        "it": "Ausbildung Fachfrau/Fachmann Gesundheit CFC (Schwerpunkt Pädiatrie)",
-        "en": "Training professional/health EFZ (focus on paediatrics)",
-        "de": "Ausbildung Fachfrau/Fachmann Gesundheit EFZ (Schwerpunkt Pädiatrie)",
-        "fr": "Formation professionnelle/santé EFZ (accent sur la pédiatrie)"
-      },
-      "description": "• Unterstützung bei der Pflege und Betreuung von Kindern und Jugendlichen\n\n• Durchführung von therapeutischen und medizinischen Massnahmen nach Anweisung\n\n• Beobachtung und Dokumentation des Gesundheitszustandes der Patient*innen\n\n• Zusammenarbeit im interdisziplinären Team\n\n• Förderung der Mobilität und des Wohlbefindens der Patient*innen",
-      "descriptionByLocale": {
-        "it": "• Sostegno alla cura e alla cura dei bambini e dei giovani\n\n• Attuazione delle misure terapeutiche e mediche\n\n• Osservazione e documentazione dello stato di salute dei pazienti\n\n• Cooperazione in un team interdisciplinare\n\n• Promuovere la mobilità e il benessere dei pazienti",
-        "en": "• Support for the care and care of children and young people\n\n• Implementation of therapeutic and medical measures as directed\n\n• Observation and documentation of patients’ health status\n\n• Cooperation in an interdisciplinary team\n\n• Promoting patient mobility and well-being",
-        "de": "• Unterstützung bei der Pflege und Betreuung von Kindern und Jugendlichen\n\n• Durchführung von therapeutischen und medizinischen Massnahmen nach Anweisung\n\n• Beobachtung und Dokumentation des Gesundheitszustandes der Patient*innen\n\n• Zusammenarbeit im interdisziplinären Team\n\n• Förderung der Mobilität und des Wohlbefindens der Patient*innen",
-        "fr": "• Soutien à la prise en charge des enfants et des jeunes\n\n• Mise en œuvre des mesures thérapeutiques et médicales\n\n• Observation et documentation de l'état de santé des patients\n\n• Coopération dans une équipe interdisciplinaire\n\n• Promouvoir la mobilité et le bien-être des patients"
-      },
-      "needsRetranslation": true,
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://jobs.ukbb.ch/jobs/ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-paediatrie/e845655a-2d2e-47e1-930e-eef715f2a440",
-      "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:17.758Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4056",
-      "streetAddress": "Spitalstrasse 33",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-01",
-      "applyUrl": "https://jobs.ukbb.ch/jobs/ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-paediatrie/e845655a-2d2e-47e1-930e-eef715f2a440",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-padiatrie-ukbb-basel",
-        "ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-padiatrie-universitats-kind-ruh9x9",
-        "training-specialist-health-efz-focus-on-pediatrics-universitats-kinderspital-beider-basel-basel",
-        "formation-de-specialistes-de-la-sante-efz-accent-sur-la-pediatrie-universitats-kinderspital-beider-basel-basel",
-        "ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-padiatrie-universitats-kinderspital-beider-basel-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-padiatrie-ukbb-basel",
-          "ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-padiatrie-universitats-kind-ruh9x9",
-          "training-specialist-health-efz-focus-on-pediatrics-universitats-kinderspital-beider-basel-basel",
-          "formation-de-specialistes-de-la-sante-efz-accent-sur-la-pediatrie-universitats-kinderspital-beider-basel-basel",
-          "ausbildung-fachfrau-fachmann-gesundheit-efz-schwerpunkt-padiatrie-universitats-kinderspital-beider-basel-basel"
-        ],
-        "en": [
-          "training-specialist-health-efz-focus-on-pediatrics-universitats-kinderspital-beider-basel-basel"
-        ],
-        "fr": [
-          "formation-de-specialistes-de-la-sante-efz-accent-sur-la-pediatrie-universitats-kinderspital-beider-basel-basel"
-        ]
-      },
-      "firstSeenAt": "2026-07-23T11:16:47.699Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "baseSalary": {

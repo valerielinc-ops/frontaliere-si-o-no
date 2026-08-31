@@ -14536,6 +14536,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'divieto-velo-cellulari-scuole',
+    category: 'novita',
+    date: '2026-08-31T16:44:29.295Z',
+    image: '/images/blog/divieto-velo-cellulari-scuole.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

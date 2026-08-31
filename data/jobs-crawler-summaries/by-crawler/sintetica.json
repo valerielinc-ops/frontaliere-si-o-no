@@ -1,16 +1,16 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-08-28T05:13:52.142Z",
+  "generatedAt": "2026-08-31T16:58:29.005Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 11359,
-  "avgDurationMs": 11359,
+  "durationMs": 11255,
+  "avgDurationMs": 11255,
   "durationHistory": [
-    11359
+    11255
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -411,6 +411,7 @@
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
+      "salarySource": "estimated",
       "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -453,6 +454,7 @@
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
+      "salarySource": "estimated",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -494,6 +496,7 @@
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
+      "salarySource": "estimated",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -534,6 +537,7 @@
       "salaryMin": 71000,
       "salaryMax": 107500,
       "currency": "CHF",
+      "salarySource": "estimated",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -575,6 +579,7 @@
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
+      "salarySource": "estimated",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -615,6 +620,7 @@
       "salaryMin": 66500,
       "salaryMax": 110500,
       "currency": "CHF",
+      "salarySource": "estimated",
       "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -656,6 +662,7 @@
       "salaryMin": 101500,
       "salaryMax": 169000,
       "currency": "CHF",
+      "salarySource": "estimated",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -696,6 +703,7 @@
       "salaryMin": 66500,
       "salaryMax": 110500,
       "currency": "CHF",
+      "salarySource": "estimated",
       "needsRetranslation": true,
       "_qualityScore": 80,
       "_qualityBreakdown": {
@@ -737,6 +745,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
+      "salarySource": "estimated",
       "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -777,6 +786,7 @@
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
+      "salarySource": "estimated",
       "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
