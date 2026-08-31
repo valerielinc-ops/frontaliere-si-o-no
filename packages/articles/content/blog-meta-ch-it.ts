@@ -4825,6 +4825,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.bollette-ses-2027-riduzione.title': 'Bollette SES più leggere per il terzo anno consecutivo',
     'blog.article.bollette-ses-2027-riduzione.excerpt': 'Nel 2027 la tariffa elettrica SES scende per il terzo anno. Un\'economia domestica media in Ticino risparmia 53 CHF. Riduzioni fino al 5,5% in Mesolcina.',
     'blog.article.bollette-ses-2027-riduzione.imageAlt': 'Abitazione svizzera con pannelli solari e linee elettriche nel paesaggio ticinese',
+    'blog.article.divario-salariale-ust-2024-157.title': 'Divario salariale UST 2024: cala al 15,7% in Svizzera',
+    'blog.article.divario-salariale-ust-2024-157.excerpt': 'UST: nel 2024 il divario salariale tra donne e uomini è sceso al 15,7% dal 16,2% del 2022. Nel privato resta al 17,2%, nel pubblico al 12,8%. Componente non spiegata a 640 CHF lordi.',
+    'blog.article.divario-salariale-ust-2024-157.imageAlt': 'Ufficio moderno in Svizzera con impiegati davanti all\'ingresso',
 };
 
 export default blogMetaChIt;

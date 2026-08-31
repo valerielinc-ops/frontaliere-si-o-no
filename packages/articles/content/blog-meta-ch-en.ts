@@ -4825,6 +4825,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.bollette-ses-2027-riduzione.title': 'Lighter SES bills for the third consecutive year',
     'blog.article.bollette-ses-2027-riduzione.excerpt': 'In 2027, the SES electricity tariff falls for the third year. An average household in Ticino saves CHF 53. Reductions of up to 5.5% in Mesolcina.',
     'blog.article.bollette-ses-2027-riduzione.imageAlt': 'Swiss residential property with solar panels and power lines in Ticino landscape',
+    'blog.article.divario-salariale-ust-2024-157.title': 'Wage gap UST 2024: fall to 15.7% in Switzerland',
+    'blog.article.divario-salariale-ust-2024-157.excerpt': 'UST: in 2024 the wage gap between women and men fell to 15.7% from 16.2% in 2022. In the private sector it remains at 17.2%, in the public sector at 12.8%. Component not explained at 640 CHF gross.',
+    'blog.article.divario-salariale-ust-2024-157.imageAlt': 'Modern Swiss office building with employees at the entrance',
 };
 
 export default blogMetaChEn;
