@@ -3,7 +3,7 @@
 # scripts/lib/shard-git-helpers.sh — shared git-plumbing helpers for the
 # section/locale/article shard push scripts (push-section-shard.sh,
 # push-locale-shard.sh, compact-article-shard-history.sh). SOURCED, not
-# executed (mirrors scripts/lib/github-api-version.sh's `source` convention).
+# executed (the standard shared-shell-library `source` convention).
 #
 # Issue #4881 (shard safety rails). Extracted because push-section-shard.sh
 # and push-locale-shard.sh had two independent, byte-for-byte-duplicated

@@ -1,5 +1,6 @@
 import { canonicalJson, digestDocument } from './canonical-json-digest.mjs';
 import { validateCrawlerGenerationReceipt } from './crawler-generation-receipt.mjs';
+import { GITHUB_WORKFLOW_DISPATCH_API_VERSION } from '../../functions/src/githubApiHeaders.js';
 
 export { canonicalJson, digestDocument };
 
@@ -52,6 +53,7 @@ export const CRAWLER_GENERATION_NONTERMINAL_RUN_STATUSES = Object.freeze([
 export const SITE_REPOSITORY = 'valerielinc-ops/frontaliere-si-o-no';
 export const SITE_MAIN_REF = 'refs/heads/main';
 export const CALLER_REPOSITORY = 'nanakokyobashi-rgb/frontaliere-articles';
+export const CRAWLER_GENERATION_GITHUB_API_VERSION = GITHUB_WORKFLOW_DISPATCH_API_VERSION;
 // 44 KiB × 23 groups = 1,036,288 bytes: the complete shadow cycle stays
 // below 1 MiB by construction, before artifact/container overhead.
 export const MAX_GROUP_MANIFEST_BYTES = 44 * 1024;
@@ -101,11 +103,21 @@ export function crawlerGenerationWorkflowName(group) {
   return `Crawler Group ${group} (sparse cross-repo execution)`;
 }
 
+export function isCrawlerGenerationToken(value) {
+  return typeof value === 'string' && GENERATION_TOKEN_RE.test(value);
+}
+
 export function crawlerGenerationRunName(group, generationToken) {
   return `crawler-generation-${generationToken}-group-${group}`;
 }
 
-export function crawlerGenerationWorkflowIdentity(group, generationToken, runId) {
+export function parseCrawlerGenerationRunName(value) {
+  const match = /^crawler-generation-([1-9][0-9]*-[1-9][0-9]*)-group-(\d{2})$/.exec(value ?? '');
+  if (!match || !GROUP_ID_SET.has(match[2])) return null;
+  return Object.freeze({ generationToken: match[1], group: match[2] });
+}
+
+export function crawlerGenerationWorkflowIdentity(group, generationToken, runId, corpusCodeCommit = null) {
   const boundRunId = validRunId(runId) ? runId : null;
   return {
     workflowFile: `crawler-group-${group}.yml`,
@@ -113,6 +125,77 @@ export function crawlerGenerationWorkflowIdentity(group, generationToken, runId)
     runId: boundRunId,
     runName: crawlerGenerationRunName(group, generationToken),
     artifactName: boundRunId === null ? null : `crawler-group-${group}-terminal-${boundRunId}`,
+    corpusCodeCommit: COMMIT_RE.test(corpusCodeCommit ?? '') ? corpusCodeCommit : null,
+  };
+}
+
+export function crawlerGenerationLegacyWorkflowIdentity(group, runId) {
+  return {
+    ...crawlerGenerationWorkflowIdentity(group, '1-1', runId),
+    runName: `crawler-generation--group-${group}`,
+  };
+}
+
+export function crawlerGenerationSentinelWorkflowIdentity(generationToken, runId, corpusCodeCommit = null) {
+  return {
+    workflowFile: 'crawler-generation-observer-shadow.yml',
+    workflowName: 'Crawler Generation Observer (shadow)',
+    runId: validRunId(String(runId ?? '')) ? String(runId) : null,
+    runName: `crawler-generation-sentinel-${generationToken}`,
+    artifactName: validRunId(String(runId ?? ''))
+      ? `crawler-generation-sentinel-${generationToken}`
+      : null,
+    corpusCodeCommit: COMMIT_RE.test(corpusCodeCommit ?? '') ? corpusCodeCommit : null,
+  };
+}
+
+function exactWorkflowRunPath(value, workflowFile) {
+  return value === `.github/workflows/${workflowFile}`;
+}
+
+/**
+ * Pure exact-ID Actions run binding shared by the dispatcher and observer.
+ * It never infers identity from timestamps or a workflow's newest run.
+ */
+export function validateCrawlerGenerationWorkflowRun(
+  run,
+  binding,
+  repository = CALLER_REPOSITORY,
+  { requireLifecycle = true } = {},
+) {
+  const errors = [];
+  const runId = String(run?.id ?? '');
+  const validStatus = run?.status === 'completed'
+    || CRAWLER_GENERATION_NONTERMINAL_RUN_STATUSES.includes(run?.status);
+  const validConclusion = run?.status === 'completed'
+    ? ['success', 'failure', 'cancelled', 'timed_out', 'action_required', 'neutral', 'skipped', 'stale', 'startup_failure']
+      .includes(run?.conclusion)
+    : run?.conclusion === null;
+  if (runId !== binding?.runId) errors.push('run_id_mismatch');
+  if (run?.repository?.full_name !== repository) errors.push('repository_mismatch');
+  if (run?.name !== binding?.runName) errors.push('workflow_name_mismatch');
+  if (run?.display_title !== binding?.runName) errors.push('run_name_mismatch');
+  if (!exactWorkflowRunPath(run?.path, binding?.workflowFile)) errors.push('workflow_path_mismatch');
+  if (run?.event !== 'workflow_dispatch') errors.push('event_mismatch');
+  if (run?.head_branch !== 'main') errors.push('head_branch_mismatch');
+  if (binding?.corpusCodeCommit !== null && binding?.corpusCodeCommit !== undefined) {
+    if (!COMMIT_RE.test(binding.corpusCodeCommit)) errors.push('expected_corpus_commit_invalid');
+    else if (run?.head_sha !== binding.corpusCodeCommit) errors.push('head_sha_mismatch');
+  }
+  if (requireLifecycle && (!Number.isInteger(run?.run_attempt) || run.run_attempt < 1)) errors.push('run_attempt_invalid');
+  if (requireLifecycle && !validStatus) errors.push('run_status_invalid');
+  if (requireLifecycle && !validConclusion) errors.push('run_conclusion_invalid');
+  return {
+    valid: errors.length === 0,
+    errors: normalizeReasons(errors),
+    observation: errors.length === 0 ? {
+      repository,
+      runId,
+      runAttempt: requireLifecycle ? run.run_attempt : null,
+      runName: binding.runName,
+      status: requireLifecycle ? run.status : null,
+      conclusion: requireLifecycle ? run.conclusion : null,
+    } : null,
   };
 }
 
@@ -437,6 +520,7 @@ export function validateCrawlerGenerationRoster(roster) {
 export function createCrawlerGenerationSentinel(input) {
   if (!GENERATION_TOKEN_RE.test(input.generationToken ?? '')) throw new TypeError('Invalid generation token');
   if (!COMMIT_RE.test(input.siteCodeCommit ?? '')) throw new TypeError('Invalid site code commit');
+  if (!COMMIT_RE.test(input.corpusCodeCommit ?? '')) throw new TypeError('Invalid corpus code commit');
   if (!input.groupRunIds || typeof input.groupRunIds !== 'object' || Array.isArray(input.groupRunIds)
       || canonicalJson(Object.keys(input.groupRunIds).sort(compareCodePoint)) !== canonicalJson(GROUP_IDS)) {
     throw new TypeError('Sentinel must bind exactly 23 groups');
@@ -451,7 +535,7 @@ export function createCrawlerGenerationSentinel(input) {
   }
   const groups = Object.fromEntries(GROUP_IDS.map((group, index) => [
     group,
-    crawlerGenerationWorkflowIdentity(group, input.generationToken, runIds[index]),
+    crawlerGenerationWorkflowIdentity(group, input.generationToken, runIds[index], input.corpusCodeCommit),
   ]));
   const diagnosticsInput = input.dispatchDiagnostics ?? Object.fromEntries(GROUP_IDS.map((group, index) => [
     group,
@@ -486,6 +570,7 @@ export function createCrawlerGenerationSentinel(input) {
     schemaVersion: 1,
     generationToken: input.generationToken,
     siteCodeCommit: input.siteCodeCommit,
+    corpusCodeCommit: input.corpusCodeCommit,
     callerRepository: CALLER_REPOSITORY,
     groups,
     dispatchDiagnostics,
@@ -500,11 +585,12 @@ export function createCrawlerGenerationSentinel(input) {
 export function validateCrawlerGenerationSentinel(sentinel) {
   const errors = [];
   if (!exactKeys(sentinel, [
-    'schemaVersion', 'generationToken', 'siteCodeCommit', 'callerRepository', 'groups', 'dispatchDiagnostics', 'digest',
+    'schemaVersion', 'generationToken', 'siteCodeCommit', 'corpusCodeCommit', 'callerRepository', 'groups', 'dispatchDiagnostics', 'digest',
   ])) return { valid: false, errors: ['unsupported_schema'] };
   if (sentinel.schemaVersion !== 1) errors.push('unsupported_schema_version');
   if (!GENERATION_TOKEN_RE.test(sentinel.generationToken ?? '')) errors.push('invalid_generation_token');
   if (!COMMIT_RE.test(sentinel.siteCodeCommit ?? '')) errors.push('invalid_site_code_commit');
+  if (!COMMIT_RE.test(sentinel.corpusCodeCommit ?? '')) errors.push('invalid_corpus_code_commit');
   if (sentinel.callerRepository !== CALLER_REPOSITORY) errors.push('invalid_caller_repository');
   if (!HASH_RE.test(sentinel.digest ?? '')) errors.push('invalid_digest');
   if (!sentinel.groups || typeof sentinel.groups !== 'object' || Array.isArray(sentinel.groups)
@@ -514,12 +600,14 @@ export function validateCrawlerGenerationSentinel(sentinel) {
     const runIds = [];
     for (const group of GROUP_IDS) {
       const entry = sentinel.groups[group];
-      if (!exactKeys(entry, ['workflowFile', 'workflowName', 'runId', 'runName', 'artifactName'])) {
+      if (!exactKeys(entry, ['workflowFile', 'workflowName', 'runId', 'runName', 'artifactName', 'corpusCodeCommit'])) {
         errors.push('invalid_group_binding_schema');
         continue;
       }
       runIds.push(entry.runId);
-      const expected = crawlerGenerationWorkflowIdentity(group, sentinel.generationToken, entry.runId);
+      const expected = crawlerGenerationWorkflowIdentity(
+        group, sentinel.generationToken, entry.runId, sentinel.corpusCodeCommit,
+      );
       if ((entry.runId !== null && !validRunId(entry.runId))
           || canonicalJson(entry) !== canonicalJson(expected)) {
         errors.push('invalid_group_binding');

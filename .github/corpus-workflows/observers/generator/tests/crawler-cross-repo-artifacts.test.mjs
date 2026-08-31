@@ -41,7 +41,7 @@ test('il contratto censisce 23 gruppi + translate-pending e tutti i crawler unic
   assert.equal(CONTRACT.schemaVersion, 1);
   assert.equal(CONTRACT.groupCount, 23);
   assert.equal(CONTRACT.artifactCount, 24);
-  assert.equal(CONTRACT.observerCount, 2);
+  assert.equal(CONTRACT.observerCount, 6);
   assert.equal(CONTRACT.artifacts.length, 24);
 
   const groups = CONTRACT.artifacts.filter((artifact) => /^crawler-group-\d{2}\.yml$/.test(artifact.file));
@@ -52,7 +52,9 @@ test('il contratto censisce 23 gruppi + translate-pending e tutti i crawler unic
   assert.ok(CONTRACT.crawlerCount > 0);
   assert.ok(CONTRACT.siteRuntimePaths.length > 0);
   assert.deepEqual(CONTRACT.siteRuntimePaths, [...new Set(CONTRACT.siteRuntimePaths)].sort());
-  assert.ok(CONTRACT.siteRuntimePaths.every((runtimePath) => runtimePath.startsWith('scripts/')));
+  assert.ok(CONTRACT.siteRuntimePaths.every((runtimePath) =>
+    runtimePath.startsWith('scripts/') || runtimePath === 'functions/src/githubApiHeaders.js'));
+  assert.ok(CONTRACT.siteRuntimePaths.includes('functions/src/githubApiHeaders.js'));
   assert.ok(CONTRACT.artifacts.some((artifact) => artifact.file === 'translate-pending.yml'));
   for (const observer of CONTRACT.observers) {
     assert.equal(sha256(readFileSync(path.join(ROOT, observer.target), 'utf8')), observer.sha256);
@@ -61,13 +63,34 @@ test('il contratto censisce 23 gruppi + translate-pending e tutti i crawler unic
     path.join(WORKFLOWS, 'crawler-generation-observer-shadow.yml'),
     'utf8',
   );
-  assert.match(observerWorkflow, /^run-name: crawler-generation-sentinel-\$\{\{ inputs\.generation_token \}\}$/m);
+  assert.match(observerWorkflow, /format\('crawler-generation-sentinel-\{0\}', inputs\.generation_token\)/);
+  assert.match(observerWorkflow, /format\('crawler-generation-observer-event-\{0\}', github\.event\.workflow_run\.id\)/);
   assert.match(observerWorkflow, /^  workflow_dispatch:$/m);
-  assert.doesNotMatch(observerWorkflow, /^  workflow_run:$/m);
+  assert.match(observerWorkflow, /^  workflow_run:$/m);
+  assert.match(observerWorkflow, /^  schedule:$/m);
+  assert.match(observerWorkflow, /cron: '23 2,8,14,20 \* \* \*'/);
+  assert.match(observerWorkflow, /max-parallel: 2/);
+  assert.match(observerWorkflow, /group: crawler-generation-observer-\$\{\{ matrix\.generation\.generation_token \}\}/);
+  assert.match(observerWorkflow, /name: crawler-generation-observer-\$\{\{ matrix\.generation\.generation_token \}\}/);
+  assert.match(observerWorkflow, /crawler-generation-observer-selector\.mjs/);
+  assert.deepEqual(
+    [...observerWorkflow.matchAll(/^      - (Crawler Group \d{2} \(sparse cross-repo execution\))$/gm)]
+      .map((match) => match[1]),
+    Array.from(
+      { length: 23 },
+      (_, index) => `Crawler Group ${String(index + 1).padStart(2, '0')} (sparse cross-repo execution)`,
+    ),
+  );
+  assert.match(
+    observerWorkflow,
+    /!startsWith\(github\.event\.workflow_run\.display_title, 'crawler-generation--group-'\)/,
+  );
+  assert.match(observerWorkflow, /TRIGGER_RUN_ID: \$\{\{ github\.event\.workflow_run\.id \}\}/);
   assert.match(observerWorkflow, /^  actions: read$/m);
   assert.match(observerWorkflow, /^  contents: read$/m);
   assert.doesNotMatch(observerWorkflow, /^\s+(?:actions|contents): write$/m);
   assert.doesNotMatch(observerWorkflow, /translate-pending|repository_dispatch|git push|secrets\./);
+  assert.doesNotMatch(observerWorkflow, /\b(?:POST|issues: write|contents: write)\b/);
 });
 
 test('ogni artifact coincide con lo hash emesso dal generatore del sito', () => {
