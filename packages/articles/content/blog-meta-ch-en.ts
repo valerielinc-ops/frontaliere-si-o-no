@@ -4870,6 +4870,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cooperazione-polizia-confini.title': 'Jans and Dobrindt: CH-Germany border cooperation',
     'blog.article.cooperazione-polizia-confini.excerpt': 'August 31, 2026: Chiasso. Federal Councillor and German Minister agree on strengthening cross-border cooperation. Proposal for a Police-Doganale Cooperation Centre. Asylum and stops are decreasing.',
     'blog.article.cooperazione-polizia-confini.imageAlt': 'Swiss-German border crossing with customs control and Alpine landscape',
+    'blog.article.aprire-attivita-zugo-registro-commercio.title': 'Opening a business in Zug: trade register and costs',
+    'blog.article.aprire-attivita-zugo-registro-commercio.excerpt': 'Canton of Zug: legal forms, federal minimum capital, cantonal registration fees, AVS, LAINF and operational steps to start a business.',
+    'blog.article.aprire-attivita-zugo-registro-commercio.imageAlt': 'View of Zug lakefront with commercial offices and business headquarters',
 };
 
 export default blogMetaChEn;

@@ -14608,6 +14608,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'aprire-attivita-zugo-registro-commercio',
+    category: 'pratico',
+    date: '2026-08-31T22:42:08.783Z',
+    image: '/images/blog/aprire-attivita-zugo-registro-commercio.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

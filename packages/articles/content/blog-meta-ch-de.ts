@@ -4870,6 +4870,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cooperazione-polizia-confini.title': 'Jans und Dobrindt: Grenzkooperation CH-Deutschland',
     'blog.article.cooperazione-polizia-confini.excerpt': '31. August 2026: Chiasso. Bundesrat und Bundesminister einigen sich auf eine Stärkung der grenzüberschreitenden Zusammenarbeit. Vorschlag Zentrum für die Zusammenarbeit von Polizei und Kanal. Asyl und Verhaftungen sinken.',
     'blog.article.cooperazione-polizia-confini.imageAlt': 'Grenzübergang zwischen der Schweiz und Deutschland mit Zollkontrolle',
+    'blog.article.aprire-attivita-zugo-registro-commercio.title': 'Geschäft in Zug eröffnen: Handelsregister und Kosten',
+    'blog.article.aprire-attivita-zugo-registro-commercio.excerpt': 'Kanton Zug: Rechtsformen, Bundesmindestkapital, kantonale Einschreibegebühren, AHV, UVG und operative Schritte zur Unternehmensgründung.',
+    'blog.article.aprire-attivita-zugo-registro-commercio.imageAlt': 'Blick auf die Zuger Seepromenade mit Bürogebäuden und Geschäftssitz',
 };
 
 export default blogMetaChDe;
