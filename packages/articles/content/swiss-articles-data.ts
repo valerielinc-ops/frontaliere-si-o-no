@@ -14563,6 +14563,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'svizzeri-risparmiano-piu-che-mai',
+    category: 'novita',
+    date: '2026-08-31T21:13:26.032Z',
+    image: '/images/blog/svizzeri-risparmiano-piu-che-mai.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

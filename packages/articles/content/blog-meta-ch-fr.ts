@@ -4855,6 +4855,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.commissione-cst-copertura-banche-svizzere.title': 'Banques suisses, la cet-S freine le Conseil fédéral sur les capitaux propres',
     'blog.article.commissione-cst-copertura-banche-svizzere.excerpt': 'La Commission du Conseil des Etats modifie la proposition du gouvernement : jusqu\'à la moitié de la couverture pourra provenir d\'obligations AT1, et pas seulement de CET-1.',
     'blog.article.commissione-cst-copertura-banche-svizzere.imageAlt': 'Palais fédéral à Berne au crépuscule, siège du Conseil des États',
+    'blog.article.svizzeri-risparmiano-piu-che-mai.title': 'Revenu et épargne record en Suisse en 2025',
+    'blog.article.svizzeri-risparmiano-piu-che-mai.excerpt': 'En 2025, le revenu disponible par habitant dépasse 65 000 francs. Taux d\'épargne volontaire à 19,3 %, maximum historique. Les données OFS révèlent le bien-être économique le plus élevé de tous les temps.',
+    'blog.article.svizzeri-risparmiano-piu-che-mai.imageAlt': 'Une famille suisse planifie l\'épargne domestique autour d\'une table, symbole de la prospérité économique nationale',
 };
 
 export default blogMetaChFr;
