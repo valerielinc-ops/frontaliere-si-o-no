@@ -7,9 +7,9 @@
 # generate-article.yml's 30-min cron). Concurrency groups already prevent
 # overlap, so it's safe to fire-and-forget.
 #
-# Delegates the actual ref-wait + dispatch-retry + output contract to
+# Delegates the actual ref-wait + single-dispatch + output contract to
 # scripts/lib/trigger-workflow.sh (issue #4837). This file used to hand-roll a
-# byte-for-byte copy of trigger-deploy.sh's curl/retry loop; once
+# byte-for-byte copy of trigger-deploy.sh's curl loop; once
 # trigger-deploy.sh became a thin wrapper over the shared engine, keeping a
 # third copy here was exactly the drift AGENTS.md Non-Negotiable #6 forbids.
 # What legitimately stays here is self-trigger-specific: the pre-dispatch
@@ -110,7 +110,6 @@ NODE
 # (the cron schedule is the safety net), so the engine's exit 1 is swallowed
 # here. The engine already wrote dispatch_sent=true|false to GITHUB_OUTPUT.
 if TRIGGER_REF="$REF" \
-   TRIGGER_DISPATCH_ATTEMPTS="${SELF_DISPATCH_ATTEMPTS:-3}" \
    bash "$(dirname "${BASH_SOURCE[0]}")/trigger-workflow.sh" "$WORKFLOW_FILE" "$INPUTS_JSON"; then
   echo "✅ trigger-self.sh: ${WORKFLOW_FILE} dispatched (reason=${REASON})"
 else

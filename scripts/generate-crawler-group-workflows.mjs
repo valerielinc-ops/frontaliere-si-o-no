@@ -105,9 +105,16 @@ const CHECKOUT_BUCKETS_PATH = path.join(REPO_ROOT, 'scripts/ci/checkout-buckets.
 const TRANSLATE_LOGIC_PATH = path.join(WORKFLOWS_DIR, 'translate-pending-logic.yml');
 const PORTABLE_CORPUS_DIR = path.join(REPO_ROOT, '.github/corpus-workflows');
 const PORTABLE_CONTRACT_PATH = path.join(PORTABLE_CORPUS_DIR, 'contract.json');
+const CORPUS_OBSERVER_SITE_SOURCES = new Map([
+  ['observers/scripts/crawler-generation-observer-selector.mjs', 'scripts/crawler-generation-observer-selector.mjs'],
+  ['observers/scripts/lib/canonical-json-digest.mjs', 'scripts/lib/canonical-json-digest.mjs'],
+  ['observers/scripts/lib/crawler-generation-observer-report.mjs', 'scripts/lib/crawler-generation-observer-report.mjs'],
+  ['observers/scripts/lib/github-actions-read-client.mjs', 'scripts/lib/github-actions-read-client.mjs'],
+]);
 const CRAWLER_GENERATION_ROSTER_PATH = path.join(REPO_ROOT, 'scripts/ci/crawler-generation-roster.json');
 const CRAWLER_GENERATION_ARTIFACT_RETENTION_DAYS = 14;
 const CRAWLER_GENERATION_RUNTIME_PATHS = Object.freeze([
+  'functions/src/githubApiHeaders.js',
   'scripts/crawler-group-generation-finalizer.mjs',
   'scripts/lib/atomic-write-json.mjs',
   'scripts/lib/canonical-json-digest.mjs',
@@ -919,7 +926,10 @@ export function crossRepoCrawlerSparsePatterns({ bucketsPath = CHECKOUT_BUCKETS_
   return ['/*', ...excluded.map((id) => `!/${id}`)];
 }
 
-const SITE_RUNTIME_PATH_RE = /\bscripts\/[A-Za-z0-9._/-]+\.(?:cjs|js|json|jsonc|mjs|sh|ts|yaml|yml)\b/g;
+const SITE_RUNTIME_PATH_RE = /\b(?:scripts\/[A-Za-z0-9._/-]+\.(?:cjs|js|json|jsonc|mjs|sh|ts|yaml|yml)|functions\/src\/githubApiHeaders\.js)\b/g;
+const CORPUS_OBSERVER_RUNTIME_TARGETS = new Set(
+  CORPUS_OBSERVER_FILES.map(({ target }) => target).filter((target) => target.startsWith('scripts/')),
+);
 
 /**
  * Estrae il confine runtime del sito citato dagli artifact e lo valida prima
@@ -935,7 +945,7 @@ export function collectSiteRuntimePaths(artifactContents, { repoRoot = REPO_ROOT
     ...artifactContents.flatMap((content) =>
       [...content.matchAll(SITE_RUNTIME_PATH_RE)].map((match) => match[0]),
     ),
-  ])].sort();
+  ])].filter((runtimePath) => !CORPUS_OBSERVER_RUNTIME_TARGETS.has(runtimePath)).sort();
   const missing = runtimePaths.filter((runtimePath) =>
     !fs.existsSync(path.join(repoRoot, runtimePath)),
   );
@@ -1499,7 +1509,10 @@ export function generateCrossRepoExecutionArtifacts({
   const crawlerMembers = artifacts.flatMap((artifact) => artifact.members);
   const observerPayloads = [];
   const observers = CORPUS_OBSERVER_FILES.map(({ source, target }) => {
-    const canonicalPath = path.join(PORTABLE_CORPUS_DIR, source);
+    const siteSource = CORPUS_OBSERVER_SITE_SOURCES.get(source);
+    const canonicalPath = siteSource
+      ? path.join(REPO_ROOT, siteSource)
+      : path.join(PORTABLE_CORPUS_DIR, source);
     const content = fs.readFileSync(canonicalPath);
     observerPayloads.push({ source, content });
     return { source, target, sha256: sha256(content) };
@@ -1552,7 +1565,13 @@ export function generateCrossRepoExecutionArtifacts({
     }
     writeJsonAtomic(contractPath, contract);
   }
-  return { artifacts, contract, translateContent, workflowContents: Object.fromEntries(workflowPayloads) };
+  return {
+    artifacts,
+    contract,
+    translateContent,
+    workflowContents: Object.fromEntries(workflowPayloads),
+    observerContents: Object.fromEntries(observerPayloads.map(({ source, content }) => [source, content])),
+  };
 }
 
 /** Render every generated artifact without writing and report committed drift. */
@@ -1576,6 +1595,10 @@ export function checkGeneratedArtifacts({ profileRenderer = computeProfiledText 
   for (const [fileName, content] of Object.entries(cross.workflowContents)) {
     const filePath = path.join(PORTABLE_CORPUS_DIR, fileName);
     if (fs.readFileSync(filePath, 'utf8') !== content) changed.push(filePath);
+  }
+  for (const [source, content] of Object.entries(cross.observerContents)) {
+    const filePath = path.join(PORTABLE_CORPUS_DIR, source);
+    if (!fs.existsSync(filePath) || !fs.readFileSync(filePath).equals(content)) changed.push(filePath);
   }
   if (canonicalJson(loadJson(CRAWLER_GENERATION_ROSTER_PATH)) !== canonicalJson(groupResults.generationRoster)) {
     changed.push(CRAWLER_GENERATION_ROSTER_PATH);

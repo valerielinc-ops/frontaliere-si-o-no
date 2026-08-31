@@ -26,6 +26,22 @@ export const CORPUS_OBSERVER_FILES = [
     source: 'observers/workflows/crawler-generation-observer-shadow.yml',
     target: '.github/workflows/crawler-generation-observer-shadow.yml',
   },
+  {
+    source: 'observers/scripts/crawler-generation-observer-selector.mjs',
+    target: 'scripts/ci/crawler-generation-observer-selector.mjs',
+  },
+  {
+    source: 'observers/scripts/lib/canonical-json-digest.mjs',
+    target: 'scripts/ci/lib/canonical-json-digest.mjs',
+  },
+  {
+    source: 'observers/scripts/lib/crawler-generation-observer-report.mjs',
+    target: 'scripts/ci/lib/crawler-generation-observer-report.mjs',
+  },
+  {
+    source: 'observers/scripts/lib/github-actions-read-client.mjs',
+    target: 'scripts/ci/lib/github-actions-read-client.mjs',
+  },
 ];
 
 function sha16(content) {

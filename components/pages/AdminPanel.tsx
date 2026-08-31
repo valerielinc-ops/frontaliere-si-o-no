@@ -19,6 +19,17 @@ import { ARTICLES } from '@/data/blog-articles-data';
 import { buildSequence } from '../../scripts/lib/cold-email-sequence.mjs';
 import { githubApiHeaders } from '../../scripts/lib/githubApiHeaders.mjs';
 import {
+ classifyWorkflowRunUiOutcome,
+ createGitHubWorkflowDispatchRequester,
+ dispatchWorkflowOnce,
+ isWorkflowRunDispatchLocked,
+ mergeWorkflowSnapshotState,
+ planWorkflowSnapshotRead,
+ validateWorkflowDispatchRun,
+ workflowDispatchErrorIdentity,
+ WorkflowDispatchError,
+} from '../../scripts/lib/githubWorkflowDispatch.mjs';
+import {
  Shield, Copy, Check, ExternalLink,
  AlertTriangle, CheckCircle2, Eye,
  Mail, Users, Send, RefreshCw, ToggleLeft, ToggleRight, Database, Activity, Calendar, Terminal,
@@ -72,6 +83,25 @@ interface JobsCrawlerConfigState {
  companyPriorityByName: Record<string, number>;
  sourceSeedsByDomain: Record<string, string[]>;
  sourceSeedsByName: Record<string, string[]>;
+}
+
+class AdminWorkflowDispatchError extends Error {
+ ambiguous: boolean;
+ runId: number | null;
+ htmlUrl: string | null;
+
+ constructor(
+ message: string,
+ ambiguous: boolean,
+ runId: number | null = null,
+ htmlUrl: string | null = null,
+ ) {
+ super(message);
+ this.name = 'AdminWorkflowDispatchError';
+ this.ambiguous = ambiguous;
+ this.runId = runId;
+ this.htmlUrl = htmlUrl;
+ }
 }
 
 interface CrawlerSummaryLinkRow {
@@ -331,6 +361,7 @@ export default function AdminPanel() {
  const [activeSection, setActiveSection] = useState<'newsletter' | 'owner' | 'insights' | 'journalists' | 'redazione' | WorkflowContext>('jobs');
  const [ownerTab] = useState<'overview'>('overview');
  const [workflowStates, setWorkflowStates] = useState<Record<string, WorkflowRunState>>({});
+ const workflowStatesRef = useRef<Record<string, WorkflowRunState>>({});
  const [copiedAiPromptFor, setCopiedAiPromptFor] = useState<string | null>(null);
  const [ownerStats, setOwnerStats] = useState<OwnerStats>({
  loading: false,
@@ -382,6 +413,7 @@ export default function AdminPanel() {
  const [parserCompanyKey, setParserCompanyKey] = useState('');
  const [parserApplyConfig, setParserApplyConfig] = useState(false);
  const [parserDispatchLoading, setParserDispatchLoading] = useState(false);
+ const [parserDispatchLocked, setParserDispatchLocked] = useState(false);
  const [parserDispatchMessage, setParserDispatchMessage] = useState<string | null>(null);
  // Insights Aziende (employer traffic) state
  const [insightsRows, setInsightsRows] = useState<EmployerInsightsRow[]>([]);
@@ -434,8 +466,7 @@ export default function AdminPanel() {
  return [...STATIC_WORKFLOW_ACTIONS, ...dynamic];
  }, [dynamicCrawlerWorkflows]);
 
- const getWorkflowState = (workflowId: string): WorkflowRunState => {
- return workflowStates[workflowId] || {
+ const emptyWorkflowState = (): WorkflowRunState => ({
  loading: false,
  runId: null,
  runNumber: null,
@@ -451,35 +482,40 @@ export default function AdminPanel() {
  jobs: [],
  logExcerpt: null,
  aiPrompt: null,
+ });
+
+ const getWorkflowState = (workflowId: string): WorkflowRunState => {
+ return workflowStates[workflowId] || emptyWorkflowState();
  };
+
+ const updateWorkflowState = (
+ workflowId: string,
+ updater: (current: WorkflowRunState) => WorkflowRunState,
+ ) => {
+ const eagerCurrent = workflowStatesRef.current[workflowId] || emptyWorkflowState();
+ workflowStatesRef.current = {
+ ...workflowStatesRef.current,
+ [workflowId]: updater(eagerCurrent),
+ };
+ setWorkflowStates((prev) => {
+ const current = prev[workflowId] || emptyWorkflowState();
+ const next = {
+ ...prev,
+ [workflowId]: updater(current),
+ };
+ workflowStatesRef.current = next;
+ return next;
+ });
  };
 
  const setWorkflowState = (workflowId: string, patch: Partial<WorkflowRunState>) => {
- setWorkflowStates((prev) => {
- const current = prev[workflowId] || {
- loading: false,
- runId: null,
- runNumber: null,
- status: 'idle',
- conclusion: null,
- htmlUrl: null,
- startedAt: null,
- updatedAt: null,
- completedAt: null,
- durationSeconds: null,
- message: null,
- error: null,
- jobs: [],
- logExcerpt: null,
- aiPrompt: null,
+ updateWorkflowState(workflowId, (current) => ({ ...current, ...patch }));
  };
- return {
- ...prev,
- [workflowId]: {
- ...current,
- ...patch,
- },
- };
+
+ const setWorkflowSnapshotState = (workflowId: string, patch: Partial<WorkflowRunState>) => {
+ updateWorkflowState(workflowId, (current) => {
+ const snapshot = { ...current, ...patch };
+ return mergeWorkflowSnapshotState(current, snapshot);
  });
  };
 
@@ -1062,6 +1098,7 @@ export default function AdminPanel() {
 
  // Send test newsletter
  const sendTestNewsletter = async () => {
+ if (nlSending || isWorkflowRunDispatchLocked(getWorkflowState('send-newsletter.yml'))) return;
  if (!user?.email) {
  setNlSendResult('✗ Nessuna email admin disponibile nella sessione corrente.');
  return;
@@ -1074,7 +1111,10 @@ export default function AdminPanel() {
  target_email: String(user.email).trim().toLowerCase(),
  subject: nlSubject.trim() || 'Frontaliere Weekly',
  });
- if (state.conclusion === 'success') {
+ const outcome = classifyWorkflowRunUiOutcome(state);
+ if (outcome === 'unknown') {
+ setNlSendResult(`⚠️ Run newsletter avviato, esito da verificare in GitHub Actions: ${state.error || state.message || 'non ricliccare.'}`);
+ } else if (outcome === 'success' && state.conclusion === 'success') {
  setNlSendResult(`✓ Email test inviata a ${String(user.email).trim().toLowerCase()}.`);
  } else {
  setNlSendResult(`✗ Invio test non riuscito: ${state.error || state.message || 'controlla il workflow GitHub.'}`);
@@ -1296,11 +1336,11 @@ export default function AdminPanel() {
  </button>
  <button
  onClick={runGenerateParserNow}
- disabled={parserDispatchLoading}
+ disabled={parserDispatchLoading || parserDispatchLocked}
  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-accent hover:bg-accent-hover disabled:opacity-60 text-on-accent text-xs font-semibold transition-colors"
  >
  <Terminal size={13} className={parserDispatchLoading ? 'animate-pulse' : ''} />
- {parserDispatchLoading ? 'Generazione…' : 'Genera parser AI'}
+ {parserDispatchLoading ? 'Generazione…' : parserDispatchLocked ? 'Verifica su GitHub' : 'Genera parser AI'}
  </button>
  </div>
  </div>
@@ -1709,7 +1749,7 @@ export default function AdminPanel() {
  {isJobsContext && (
  <button
  onClick={runCrawlerNow}
- disabled={crawlerDispatchLoading}
+ disabled={crawlerDispatchLoading || isWorkflowRunDispatchLocked(getWorkflowState('update-jobs.yml'))}
  className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-success-strong hover:bg-success-strong-hover disabled:opacity-60 text-on-accent text-sm font-medium transition-colors"
  >
  <Send size={14} className={crawlerDispatchLoading ? 'animate-pulse' : ''} />
@@ -1786,7 +1826,7 @@ export default function AdminPanel() {
  const wfState = row.wf ? getWorkflowState(row.wf.id) : null;
  const isSuccess = wfState?.status === 'completed' && wfState.conclusion === 'success';
  const isFailure = wfState?.status === 'completed' && wfState.conclusion != null && wfState.conclusion !== 'success';
- const isRunning = wfState?.loading || wfState?.status === 'queued' || wfState?.status === 'in_progress';
+ const isRunning = isWorkflowRunDispatchLocked(wfState);
  if (isFailure) return 0;
  if (isRunning) return 1;
  if (isSuccess) return 2;
@@ -1986,6 +2026,7 @@ export default function AdminPanel() {
  const seenIds = new Set<string>();
  const toRetry = failedCrawlers.filter((row) => {
  const id = row.wf!.id;
+ if (isWorkflowRunDispatchLocked(getWorkflowState(id))) return false;
  if (seenIds.has(id)) return false;
  seenIds.add(id);
  return true;
@@ -2050,7 +2091,7 @@ export default function AdminPanel() {
  {/* Orchestrator dispatch button */}
  {(() => {
  const orchState = getWorkflowState('orchestrate-crawlers.yml');
- const orchRunning = orchState.status === 'in_progress' || orchState.status === 'queued' || orchState.loading;
+ const orchRunning = isWorkflowRunDispatchLocked(orchState);
  return (
  <button
  onClick={() => void runWorkflowAction('orchestrate-crawlers.yml', { group: 'all', delay_seconds: '60', dry_run: 'false' })}
@@ -2133,7 +2174,7 @@ export default function AdminPanel() {
  const wfState = row.wf ? getWorkflowState(row.wf.id) : null;
  const isSuccess = wfState?.status === 'completed' && wfState.conclusion === 'success';
  const isFailure = wfState?.status === 'completed' && wfState.conclusion != null && wfState.conclusion !== 'success';
- const isRunning = wfState?.loading || wfState?.status === 'queued' || wfState?.status === 'in_progress';
+ const isRunning = isWorkflowRunDispatchLocked(wfState);
  // Post-consolidation (2026-07): `wfState` reflects the whole GROUP
  // workflow run (crawler-group-*.yml), shared by every crawler in that
  // group — `failedSteps` therefore includes sibling crawlers' failures
@@ -2486,26 +2527,19 @@ export default function AdminPanel() {
  options: RequestInit = {},
  asText = false,
  ) => {
+ const headers = new Headers(githubApiHeaders(connection.token, {
+ 'Content-Type': 'application/json',
+ }));
+ new Headers(options.headers).forEach((value, key) => headers.set(key, value));
  const res = await fetch(`https://api.github.com/repos/${connection.owner}/${connection.repo}${endpoint}`, {
  ...options,
- headers: githubApiHeaders(connection.token, {
- 'Content-Type': 'application/json',
- ...(options.headers || {}),
- }),
+ headers,
  });
 
  const isDispatch = endpoint.includes('/dispatches');
 
  if (!res.ok) {
  const txt = await res.text().catch(() => '');
-
- // GitHub dispatch API sometimes returns 500 even though the workflow was
- // accepted and will run. When this happens, don't treat it as fatal —
- // return null and let the polling logic verify the run was created.
- if (isDispatch && res.status >= 500) {
- console.warn(`⚠️ GitHub dispatch returned ${res.status} (likely transient). Proceeding to poll for run.`);
- return null;
- }
 
  if (res.status === 403 && txt.includes('not accessible by personal access token')) {
  const isFineGrained = connection.token.startsWith('github_pat_');
@@ -2528,13 +2562,87 @@ export default function AdminPanel() {
  throw new Error(`GitHub API ${res.status}${txt ? `: ${txt.slice(0, 260)}` : ''}`);
  }
 
- // HTTP 204 No Content — GitHub returns this for successful dispatch calls.
- // Don't try to parse JSON from an empty body.
- // 204 No Content (e.g. workflow dispatch success) has no body
+ // Some non-dispatch GitHub endpoints legitimately return no body.
  if (res.status === 204 || res.headers.get('content-length') === '0') return null;
 
  if (asText) return await res.text();
  return await res.json();
+ };
+
+ const adminWorkflowDispatchError = (
+ error: unknown,
+ workflowId: string,
+ token: string,
+ ): Error => {
+ if (!(error instanceof WorkflowDispatchError)) {
+ return error instanceof Error ? error : new Error('Errore workflow_dispatch sconosciuto.');
+ }
+ const identity = workflowDispatchErrorIdentity(error);
+ if (identity.runId !== null && identity.htmlUrl !== null) {
+ return new AdminWorkflowDispatchError(
+ `GitHub ha creato il run ${identity.runId}, ma non è stato possibile verificarne il binding. `
+ + `Non ricliccare: controlla il run in Actions (${identity.htmlUrl}).`,
+ true,
+ identity.runId,
+ identity.htmlUrl,
+ );
+ }
+ if (error.status === 403) {
+ const hint = token.startsWith('github_pat_')
+ ? 'Il token fine-grained richiede Actions (Read & Write) e Contents (Read & Write).'
+ : 'Il token classic richiede lo scope "repo", che include Actions write.';
+ return new AdminWorkflowDispatchError(
+ `GitHub API 403: il PAT non ha i permessi per avviare workflow. ${hint}`,
+ false,
+ );
+ }
+ if (error.status === 404 && error.code.startsWith('workflow_dispatch_rejected_')) {
+ return new AdminWorkflowDispatchError(
+ `Workflow GitHub non trovato: ${workflowId}. `
+ + 'Verifica che il file sia presente su origin/main.',
+ false,
+ );
+ }
+ const rejectedClientRequest = error.code.startsWith('workflow_dispatch_rejected_')
+ && error.status !== null
+ && error.status >= 400
+ && error.status < 500
+ && error.status !== 429;
+ if (rejectedClientRequest) {
+ return new AdminWorkflowDispatchError(
+ `GitHub ha rifiutato il dispatch (HTTP ${error.status}). Controlla configurazione e permessi.`,
+ false,
+ );
+ }
+ return new AdminWorkflowDispatchError(
+ 'GitHub non ha confermato il risultato del dispatch: il workflow potrebbe essere partito. '
+ + 'Non ricliccare; controlla GitHub Actions prima di riprovare.',
+ true,
+ );
+ };
+
+ const dispatchAdminWorkflow = async (
+ connection: { token: string; owner: string; repo: string },
+ workflowId: string,
+ inputs: Record<string, string>,
+ ) => {
+ const repository = `${connection.owner}/${connection.repo}`;
+ const request = createGitHubWorkflowDispatchRequester({
+ repository,
+ token: connection.token,
+ });
+ try {
+ return await dispatchWorkflowOnce({
+ repository,
+ workflowFile: workflowId,
+ ref: 'main',
+ inputs,
+ request,
+ sleep,
+ });
+ } catch (error) {
+ throw adminWorkflowDispatchError(error, workflowId, connection.token);
+ }
  };
 
  const listWorkflowRuns = async (
@@ -2613,68 +2721,52 @@ export default function AdminPanel() {
 
  const runWorkflowAction = async (workflowId: string, overrideInputs: Record<string, string> = {}): Promise<WorkflowRunState> => {
  const workflow = getWorkflowDef(workflowId);
- setWorkflowState(workflowId, {
+ let knownRunId: number | null = null;
+ let knownRunHtmlUrl: string | null = null;
+ let latestRunStatus = 'dispatching';
+ let latestState: WorkflowRunState = {
  loading: true,
+ runId: null,
+ runNumber: null,
  status: 'dispatching',
  conclusion: null,
+ htmlUrl: null,
+ startedAt: null,
+ updatedAt: null,
+ completedAt: null,
+ durationSeconds: null,
  error: null,
  message: 'Invio richiesta a GitHub Actions…',
+ jobs: [],
  logExcerpt: null,
  aiPrompt: null,
- });
+ };
+ const updateLocalRunState = (patch: Partial<WorkflowRunState>): WorkflowRunState => {
+ latestState = { ...latestState, ...patch };
+ setWorkflowState(workflowId, patch);
+ return latestState;
+ };
+ setWorkflowState(workflowId, latestState);
 
  try {
  const connection = await getGitHubConnection();
- const beforeRuns = await listWorkflowRuns(connection, workflowId);
- const beforeIds = new Set<number>(beforeRuns.map((r: any) => Number(r?.id || 0)));
-
- await githubRequest(
+ const { runId: directRunId, run: matchedRun } = await dispatchAdminWorkflow(
  connection,
- `/actions/workflows/${workflowId}/dispatches`,
+ workflowId,
  {
- method: 'POST',
- body: JSON.stringify({
- ref: 'main',
- inputs: {
  ...(workflow.defaultInputs || {}),
  ...(overrideInputs || {}),
  },
- }),
- },
  );
-
- setWorkflowState(workflowId, {
- message: 'Workflow avviato. Cerco il run creato…',
- });
-
- const dispatchedAt = Date.now();
- let matchedRun: any = null;
- for (let i = 0; i < 18; i += 1) {
- const runs = await listWorkflowRuns(connection, workflowId);
- matchedRun = runs.find((run: any) => {
- const id = Number(run?.id || 0);
- const createdAt = Date.parse(String(run?.created_at || '')) || 0;
- return !beforeIds.has(id) && createdAt >= (dispatchedAt - 2 * 60 * 1000);
- }) || null;
- if (matchedRun) break;
- await sleep(4000);
- }
-
- if (!matchedRun) {
- const runs = await listWorkflowRuns(connection, workflowId);
- matchedRun = runs[0] || null;
- }
-
- if (!matchedRun || !Number(matchedRun?.id)) {
- throw new Error('Run non trovato dopo il dispatch. Verifica GitHub Actions e riprova.');
- }
-
- const runId = Number(matchedRun.id);
- setWorkflowState(workflowId, {
+ const runId = Number(directRunId);
+ knownRunId = runId;
+ knownRunHtmlUrl = String(matchedRun?.html_url || '');
+ latestRunStatus = String(matchedRun?.status || 'queued');
+ updateLocalRunState({
  runId,
  runNumber: Number(matchedRun?.run_number || 0) || null,
- htmlUrl: String(matchedRun?.html_url || ''),
- status: String(matchedRun?.status || 'queued'),
+ htmlUrl: knownRunHtmlUrl,
+ status: latestRunStatus,
  message: 'Run identificato. Monitoraggio in corso…',
  });
 
@@ -2692,10 +2784,12 @@ export default function AdminPanel() {
  const completedJobs = jobs.filter((j) => String(j.status) === 'completed').length;
  const summary = `Job completati ${completedJobs}/${jobs.length}${failedJobs.length ? ` · falliti ${failedJobs.length}` : ''}`;
 
- setWorkflowState(workflowId, {
- status: String(run?.status || 'unknown'),
+ latestRunStatus = String(run?.status || 'unknown');
+ knownRunHtmlUrl = String(run?.html_url || knownRunHtmlUrl || '');
+ updateLocalRunState({
+ status: latestRunStatus,
  conclusion: run?.conclusion ? String(run.conclusion) : null,
- htmlUrl: String(run?.html_url || ''),
+ htmlUrl: knownRunHtmlUrl,
  startedAt,
  updatedAt: String(run?.updated_at || '') || null,
  completedAt: run?.status === 'completed' ? (String(run?.updated_at || '') || null) : null,
@@ -2720,57 +2814,57 @@ export default function AdminPanel() {
  error: errorMessage,
  logExcerpt,
  };
- const finalState = { ...getWorkflowState(workflowId), ...nextState };
+ const finalState = { ...latestState, ...nextState };
  nextState.aiPrompt = errorMessage ? buildAiPromptForWorkflow(workflow, finalState) : null;
- setWorkflowState(workflowId, nextState);
- return finalState;
+ return updateLocalRunState(nextState);
  }
 
  await sleep(6000);
  }
 
- setWorkflowState(workflowId, {
+ const timeoutError = 'Run avviato, ma monitoraggio scaduto: esito da verificare in GitHub Actions.';
+ latestRunStatus = 'unknown';
+ return updateLocalRunState({
  loading: false,
- error: 'Timeout monitoraggio: run avviato ma ancora in esecuzione. Apri GitHub per i dettagli.',
+ status: latestRunStatus,
+ runId: knownRunId,
+ htmlUrl: knownRunHtmlUrl,
+ error: timeoutError,
+ message: 'Run avviato, esito da verificare in GitHub Actions',
  });
- return {
- ...getWorkflowState(workflowId),
- loading: false,
- error: 'Timeout monitoraggio: run avviato ma ancora in esecuzione. Apri GitHub per i dettagli.',
- };
  } catch (err) {
  const msg = err instanceof Error ? err.message : 'Errore sconosciuto';
+ if (err instanceof AdminWorkflowDispatchError && err.runId !== null) {
+ knownRunId = err.runId;
+ knownRunHtmlUrl = err.htmlUrl;
+ }
+ const knownRun = knownRunId !== null;
+ const dispatchAmbiguous = knownRun || (err instanceof AdminWorkflowDispatchError && err.ambiguous);
+ const visibleError = knownRun
+ ? `Run ${knownRunId} avviato, ma il monitoraggio non è verificabile. Non ricliccare; controlla GitHub Actions${knownRunHtmlUrl ? ` (${knownRunHtmlUrl})` : ''}. Dettaglio: ${msg}`
+ : msg;
  const failedState = {
- ...getWorkflowState(workflowId),
+ ...latestState,
  loading: false,
- status: 'error',
- error: msg,
- message: 'Avvio non riuscito',
+ status: dispatchAmbiguous ? 'unknown' : 'error',
+ error: visibleError,
+ message: dispatchAmbiguous ? 'Esito dispatch da verificare in GitHub Actions' : 'Avvio non riuscito',
  };
- setWorkflowState(workflowId, {
+ return updateLocalRunState({
  loading: false,
- status: 'error',
- error: msg,
- message: 'Avvio non riuscito',
+ status: dispatchAmbiguous ? 'unknown' : 'error',
+ runId: knownRunId,
+ htmlUrl: knownRunHtmlUrl,
+ error: visibleError,
+ message: dispatchAmbiguous ? 'Esito dispatch da verificare in GitHub Actions' : 'Avvio non riuscito',
  aiPrompt: buildAiPromptForWorkflow(workflow, failedState),
  });
- return failedState;
  }
  };
 
  const dispatchGitHubWorkflow = async (workflowId: string, inputs: Record<string, string> = {}) => {
  const connection = await getGitHubConnection();
- await githubRequest(
- connection,
- `/actions/workflows/${workflowId}/dispatches`,
- {
- method: 'POST',
- body: JSON.stringify({
- ref: 'main',
- inputs,
- }),
- },
- );
+ await dispatchAdminWorkflow(connection, workflowId, inputs);
  return true;
  };
 
@@ -2779,8 +2873,15 @@ export default function AdminPanel() {
  setCrawlerDispatchLoading(true);
  setCrawlerDispatchMessage(null);
  try {
- await runWorkflowAction('update-jobs.yml');
+ const result = await runWorkflowAction('update-jobs.yml');
+ const outcome = classifyWorkflowRunUiOutcome(result);
+ if (outcome === 'unknown') {
+ setCrawlerDispatchMessage(`⚠️ ${result.error || 'Esito dispatch da verificare in GitHub Actions.'}`);
+ } else if (outcome === 'error') {
+ setCrawlerDispatchMessage(`❌ Run crawler failed: ${result.error || 'Errore sconosciuto'}`);
+ } else {
  setCrawlerDispatchMessage('✅ Avvio inviato. Vedi avanzamento e output nel tab workflow della categoria corrispondente.');
+ }
  } catch (err) {
  const msg = err instanceof Error ? err.message : 'Errore sconosciuto';
  setCrawlerDispatchMessage(`❌ Run crawler failed: ${msg}`);
@@ -2825,7 +2926,7 @@ export default function AdminPanel() {
  const wfState = getWorkflowState(wf.id);
  const isSuccess = wfState.status === 'completed' && wfState.conclusion === 'success';
  const isFailure = wfState.status === 'completed' && wfState.conclusion && wfState.conclusion !== 'success';
- const isRunning = wfState.loading || wfState.status === 'queued' || wfState.status === 'in_progress';
+ const isRunning = isWorkflowRunDispatchLocked(wfState);
  const failedSteps = wfState.jobs.flatMap((j) => j.failedSteps.map((s) => `${j.name}: ${s}`));
 
  // Relative time helper
@@ -3035,10 +3136,23 @@ export default function AdminPanel() {
  });
  await Promise.all(distinctWorkflows.map(async (workflow) => {
  try {
- const runs = await listWorkflowRuns(connection, workflow.id);
- const run = runs[0];
+ const current = workflowStatesRef.current[workflow.id] || emptyWorkflowState();
+ const snapshotRead = planWorkflowSnapshotRead(current);
+ if (snapshotRead.mode === 'skip') return;
+ const run = snapshotRead.mode === 'exact'
+ ? await githubRequest(connection, `/actions/runs/${snapshotRead.runId}`, { method: 'GET' })
+ : (await listWorkflowRuns(connection, workflow.id))[0];
  if (!run) return;
  const runId = Number(run?.id || 0);
+ if (snapshotRead.mode === 'exact') {
+ const validation = validateWorkflowDispatchRun(run, {
+ repository: `${connection.owner}/${connection.repo}`,
+ workflowFile: workflow.id,
+ ref: 'main',
+ runId: snapshotRead.runId,
+ });
+ if (!validation.valid) return;
+ }
  const jobs = runId ? await listRunJobs(connection, runId) : [];
  const startedAt = String(run?.run_started_at || run?.created_at || '') || null;
  const completedAt = String(run?.updated_at || '') || null;
@@ -3058,7 +3172,7 @@ export default function AdminPanel() {
  ? `Step critici: ${failedJobDetails.flatMap((j) => j.failedSteps).slice(0, 6).join(' | ') || 'vedi log run'}`
  : `Conclusione workflow: ${String(run?.conclusion || 'failure')}`;
  }
- setWorkflowState(workflow.id, {
+ setWorkflowSnapshotState(workflow.id, {
  runId: runId || null,
  runNumber: Number(run?.run_number || 0) || null,
  htmlUrl: String(run?.html_url || ''),
@@ -3083,7 +3197,7 @@ export default function AdminPanel() {
  };
 
  const runGenerateParserNow = async () => {
- if (parserDispatchLoading) return;
+ if (parserDispatchLoading || parserDispatchLocked) return;
  const companyName = parserCompanyName.trim();
  const companyWebsite = parserCompanyWebsite.trim();
  if (!companyName || !companyWebsite) {
@@ -3105,7 +3219,13 @@ export default function AdminPanel() {
  );
  } catch (err) {
  const msg = err instanceof Error ? err.message : 'Errore sconosciuto';
- setParserDispatchMessage(`❌ Generazione parser fallita: ${msg}`);
+ const dispatchAmbiguous = err instanceof AdminWorkflowDispatchError && err.ambiguous;
+ if (dispatchAmbiguous) setParserDispatchLocked(true);
+ setParserDispatchMessage(
+ dispatchAmbiguous
+ ? `⚠️ Esito generazione parser da verificare in GitHub Actions: ${msg}`
+ : `❌ Generazione parser fallita: ${msg}`,
+ );
  } finally {
  setParserDispatchLoading(false);
  }
@@ -4275,7 +4395,7 @@ export default function AdminPanel() {
  </button>
  <button
  onClick={sendTestNewsletter}
- disabled={nlSending || !nlPreviewHtml || !user?.email}
+ disabled={nlSending || isWorkflowRunDispatchLocked(getWorkflowState('send-newsletter.yml')) || !nlPreviewHtml || !user?.email}
  className="flex items-center gap-2 px-4 py-2 rounded-lg bg-accent hover:bg-accent-hover disabled:opacity-50 disabled:cursor-not-allowed text-on-accent text-sm font-medium transition-colors"
  aria-label="Invia test newsletter all'admin loggato"
  >
@@ -4288,6 +4408,8 @@ export default function AdminPanel() {
  <div className={`text-sm px-3 py-2 rounded-lg ${
  nlSendResult.startsWith('✓')
  ? 'bg-success-subtle text-success'
+ : nlSendResult.startsWith('⚠️')
+ ? 'bg-warning-subtle text-warning'
  : 'bg-danger-subtle text-danger'
  }`}>
  {nlSendResult}

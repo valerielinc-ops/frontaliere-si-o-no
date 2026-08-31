@@ -2,12 +2,15 @@ import { describe, expect, it } from 'vitest';
 import {
   GROUP_IDS,
   createCrawlerGenerationSentinel,
+  crawlerGenerationSentinelWorkflowIdentity,
   deriveCrawlerGenerationSourceCommit,
+  parseCrawlerGenerationRunName,
   resolveCrawlerGenerationSentinels,
   validateCrawlerGenerationSentinel,
 } from '../scripts/lib/crawler-generation-contract.mjs';
 
 const SITE_CODE_COMMIT = 'a'.repeat(40);
+const CORPUS_CODE_COMMIT = 'b'.repeat(40);
 
 function runIds(offset = 10_000) {
   return Object.fromEntries(GROUP_IDS.map((group, index) => [group, String(offset + index)]));
@@ -17,6 +20,7 @@ function sentinel(offset = 10_000) {
   return createCrawlerGenerationSentinel({
     generationToken: '9001-2',
     siteCodeCommit: SITE_CODE_COMMIT,
+    corpusCodeCommit: CORPUS_CODE_COMMIT,
     groupRunIds: runIds(offset),
   });
 }
@@ -29,6 +33,22 @@ function manifests(commits: Record<string, string>) {
 }
 
 describe('crawler generation sentinel contract', () => {
+  it('parses only the complete generation run-name grammar and exports sentinel identity', () => {
+    expect(parseCrawlerGenerationRunName('crawler-generation-9001-2-group-01')).toEqual({
+      generationToken: '9001-2', group: '01',
+    });
+    expect(parseCrawlerGenerationRunName('crawler-generation--group-01')).toBeNull();
+    expect(parseCrawlerGenerationRunName('crawler-generation-9001-2-group-24')).toBeNull();
+    expect(parseCrawlerGenerationRunName('crawler-generation-09001-2-group-01')).toBeNull();
+    expect(crawlerGenerationSentinelWorkflowIdentity('9001-2', '777', CORPUS_CODE_COMMIT)).toMatchObject({
+      workflowFile: 'crawler-generation-observer-shadow.yml',
+      workflowName: 'Crawler Generation Observer (shadow)',
+      runId: '777',
+      runName: 'crawler-generation-sentinel-9001-2',
+      corpusCodeCommit: CORPUS_CODE_COMMIT,
+    });
+  });
+
   it('binds the immutable site code pin to exactly 23 canonical workflow/run/artifact identities', () => {
     const value = sentinel();
     expect(validateCrawlerGenerationSentinel(value)).toEqual({ valid: true, errors: [] });
@@ -41,6 +61,7 @@ describe('crawler generation sentinel contract', () => {
         runId: runIds()[group],
         runName: `crawler-generation-9001-2-group-${group}`,
         artifactName: `crawler-group-${group}-terminal-${runIds()[group]}`,
+        corpusCodeCommit: CORPUS_CODE_COMMIT,
       });
     }
     expect(value).not.toHaveProperty('sourceCommit');
@@ -83,7 +104,7 @@ describe('crawler generation sentinel contract', () => {
     missing['07'] = null as any;
     missing['19'] = null as any;
     const value = createCrawlerGenerationSentinel({
-      generationToken: '9001-2', siteCodeCommit: SITE_CODE_COMMIT, groupRunIds: missing,
+      generationToken: '9001-2', siteCodeCommit: SITE_CODE_COMMIT, corpusCodeCommit: CORPUS_CODE_COMMIT, groupRunIds: missing,
     });
     expect(validateCrawlerGenerationSentinel(value)).toEqual({ valid: true, errors: [] });
     expect(value.groups['07']).toMatchObject({ runId: null, artifactName: null });
@@ -102,6 +123,7 @@ describe('crawler generation sentinel contract', () => {
     const value = createCrawlerGenerationSentinel({
       generationToken: '9001-2',
       siteCodeCommit: SITE_CODE_COMMIT,
+      corpusCodeCommit: CORPUS_CODE_COMMIT,
       groupRunIds: ids,
       dispatchDiagnostics: diagnostics,
     });
