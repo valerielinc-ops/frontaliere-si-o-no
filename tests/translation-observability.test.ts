@@ -124,7 +124,12 @@ describe('translation observability', () => {
       const persisted = fs.readFileSync(statePath, 'utf8');
       expect(JSON.parse(persisted)).toMatchObject({ generation: 1, active: { count: 1 }, retired: { count: 0 } });
 
-      fs.writeFileSync(jobsPath, '[]');
+      fs.writeFileSync(beforePath, JSON.stringify(snapshot([job(), job({ url: 'https://example.invalid/jobs/second' })])));
+      fs.writeFileSync(jobsPath, JSON.stringify([job()]));
+      const truncated = runTranslationObservabilityCollector([...baseArgs, '--outcome', 'success', '--advance-state', 'true']);
+      expect(fs.readFileSync(statePath, 'utf8')).toBe(persisted);
+      expect(truncated).toMatchObject({ stateTransition: { advanced: false }, continuity: { deleteReaddEvidence: { observable: false, reason: 'same_run_population_changed' } } });
+
       const failure = runTranslationObservabilityCollector([...baseArgs, '--outcome', 'failure', '--advance-state', 'true']);
       expect(fs.readFileSync(statePath, 'utf8')).toBe(persisted);
       expect(failure).toMatchObject({ stateTransition: { advanced: false }, continuity: { deleteReaddEvidence: { observable: false, reason: 'true_final_outcome_not_success' } } });
@@ -132,6 +137,39 @@ describe('translation observability', () => {
       const dryRun = runTranslationObservabilityCollector([...baseArgs, '--outcome', 'success', '--advance-state', 'false']);
       expect(fs.readFileSync(statePath, 'utf8')).toBe(persisted);
       expect(dryRun).toMatchObject({ stateTransition: { advanced: false }, continuity: { deleteReaddEvidence: { observable: false, reason: 'state_advance_not_requested' } } });
+    } finally {
+      fs.rmSync(directory, { recursive: true, force: true });
+    }
+  });
+
+  it('rebootstraps corrupt persisted state and keeps subsequent evidence observably incomplete', () => {
+    const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'translation-observability-reset-'));
+    try {
+      const jobsPath = path.join(directory, 'jobs.json');
+      const beforePath = path.join(directory, 'before.json');
+      const reportPath = path.join(directory, 'report.json');
+      const statePath = path.join(directory, 'state.json');
+      fs.writeFileSync(jobsPath, JSON.stringify([job()]));
+      fs.writeFileSync(beforePath, JSON.stringify(snapshot([job()])));
+      fs.writeFileSync(statePath, JSON.stringify({ schemaVersion: 2, digest: 'sha256:corrupt' }));
+      const args = [
+        '--mode', 'finish', '--jobs', jobsPath, '--before', beforePath, '--output', reportPath,
+        '--run-id', '2', '--started-at', '2026-08-31T00:00:00Z', '--finished-at', '2026-08-31T00:01:00Z',
+        '--source-commit', 'abc', '--state', statePath, '--state-output', statePath,
+        '--outcome', 'success', '--advance-state', 'true',
+      ];
+      const reset = runTranslationObservabilityCollector(args);
+      expect(reset).toMatchObject({
+        stateTransition: { advanced: true, reason: 'persisted_state_invalid_rebootstrap' },
+        continuity: { deleteReaddEvidence: { observable: false, complete: false, proven: 0, reason: 'persisted_state_invalid_rebootstrap' } },
+      });
+      expect(unpackTranslationObservabilityState(JSON.parse(fs.readFileSync(statePath, 'utf8')))).toMatchObject({ evidenceLoss: { stateResets: 1 } });
+
+      const next = runTranslationObservabilityCollector([...args, '--run-id', '3']);
+      expect(next).toMatchObject({
+        stateTransition: { advanced: true, reason: 'valid_true_final' },
+        continuity: { deleteReaddEvidence: { observable: true, complete: false, proven: 0, reason: 'prior_persisted_state_was_reset' } },
+      });
     } finally {
       fs.rmSync(directory, { recursive: true, force: true });
     }
@@ -156,17 +194,16 @@ describe('translation observability', () => {
 
   it('caps retired evidence and expires it with explicit incomplete-evidence reasons', () => {
     const jobs = [job({ url: 'https://example.invalid/jobs/a' }), job({ url: 'https://example.invalid/jobs/b' })];
-    const cappedN = generation(null, jobs, { policy: { retiredCap: 1, retentionGenerations: 2 } });
-    const cappedN1 = generation(cappedN.state, []);
+    const cappedN = generation(null, jobs, { policy: { retiredCap: 1, retentionDays: 2 }, now: NOW });
+    const cappedN1 = generation(cappedN.state, [], { now: NOW });
     expect(cappedN1.continuity).toMatchObject({
       retired: 1,
       deleteReaddEvidence: { complete: false, reason: 'retired_evidence_evicted_by_cap', evictedThisGeneration: { cap: 1 } },
     });
 
-    const retainedN = generation(null, [jobs[0]], { policy: { retiredCap: 5, retentionGenerations: 1 } });
-    const retainedN1 = generation(retainedN.state, []);
-    const retainedN2 = generation(retainedN1.state, []);
-    const expired = generation(retainedN2.state, []);
+    const retainedN = generation(null, [jobs[0]], { policy: { retiredCap: 5, retentionDays: 1 }, now: NOW });
+    const retainedN1 = generation(retainedN.state, [], { now: NOW });
+    const expired = generation(retainedN1.state, [], { now: NOW + (2 * 86_400_000) });
     expect(expired.continuity).toMatchObject({
       retired: 0,
       deleteReaddEvidence: { observable: true, complete: false, reason: 'retired_evidence_evicted_by_retention', evictedThisGeneration: { retention: 1 } },

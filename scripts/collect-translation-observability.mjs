@@ -30,7 +30,9 @@ function run(argv) {
     return snapshot;
   }
   if (value.mode === 'finish') {
+    const before = json(value.before);
     const final = createTranslationObservabilitySnapshot(json(value.jobs));
+    const finishedAt = value.finishedAt || new Date().toISOString();
     let previousState = null;
     let stateIssue = null;
     try {
@@ -41,17 +43,26 @@ function run(argv) {
       stateIssue = 'persisted_state_invalid';
     }
     const requestedAdvance = value.advanceState === 'true';
-    const validFinal = requestedAdvance && value.outcome === 'success' && !stateIssue;
+    const sameRunPopulation = before.metrics?.total === final.metrics.total && before.jobSetDigest === final.jobSetDigest;
+    const validFinal = requestedAdvance && value.outcome === 'success' && sameRunPopulation;
+    const skipReason = stateIssue
+      ? stateIssue
+      : !requestedAdvance
+        ? 'state_advance_not_requested'
+        : value.outcome !== 'success'
+          ? 'true_final_outcome_not_success'
+          : 'same_run_population_changed';
     const observation = advanceTranslationObservabilityState({
       previousState,
       final,
       validFinal,
       stateIssue,
-      skipReason: requestedAdvance ? 'true_final_outcome_not_success' : 'state_advance_not_requested',
+      skipReason,
+      now: Date.parse(finishedAt),
     });
     const report = buildTranslationObservabilityReport({
-      before: json(value.before), final, runId: value.runId,
-      startedAt: value.startedAt, finishedAt: value.finishedAt || new Date().toISOString(), sourceCommit: value.sourceCommit, outcome: value.outcome,
+      before, final, runId: value.runId,
+      startedAt: value.startedAt, finishedAt, sourceCommit: value.sourceCommit, outcome: value.outcome,
       generationObservation: observation,
     });
     const finalized = finalizeTranslationObservabilityReport(report, null);

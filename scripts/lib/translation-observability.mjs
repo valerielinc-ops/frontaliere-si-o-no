@@ -9,11 +9,11 @@ const MAX_FINGERPRINTS = 100;
 const HASH_BYTES = 32;
 const ACTIVE_ROW_BYTES = 65;
 const RETIRED_ROW_BYTES = 69;
-const STATE_ENCODING = 'identity-content-state-base64-v1';
+const STATE_ENCODING = 'identity-content-state-retired-day-base64-v2';
 const STATE_NAMES = ['complete', 'flagged', 'incomplete'];
 const HASH_PATTERN = /^[a-f0-9]{64}$/;
 
-export const TRANSLATION_OBSERVABILITY_LIMITS = Object.freeze({ retiredCap: 50_000, retentionGenerations: 90 });
+export const TRANSLATION_OBSERVABILITY_LIMITS = Object.freeze({ retiredCap: 50_000, retentionDays: 90 });
 
 function sha256(value) {
   return createHash('sha256').update(String(value)).digest('hex');
@@ -148,8 +148,8 @@ export function packTranslationObservabilityRows(rows, { retired = false } = {})
     Buffer.from(row.contentHash, 'hex').copy(buffer, offset + HASH_BYTES);
     buffer[offset + (HASH_BYTES * 2)] = stateCode(row.state);
     if (retired) {
-      if (!Number.isInteger(row.retiredGeneration) || row.retiredGeneration < 1 || row.retiredGeneration > 0xffff_ffff) throw new TypeError('Invalid retired generation');
-      buffer.writeUInt32BE(row.retiredGeneration, offset + ACTIVE_ROW_BYTES);
+      if (!Number.isInteger(row.retiredDay) || row.retiredDay < 1 || row.retiredDay > 0xffff_ffff) throw new TypeError('Invalid retired day');
+      buffer.writeUInt32BE(row.retiredDay, offset + ACTIVE_ROW_BYTES);
     }
   });
   return buffer.toString('base64');
@@ -170,7 +170,7 @@ export function unpackTranslationObservabilityRows(packed, count, { retired = fa
       contentHash: buffer.subarray(offset + HASH_BYTES, offset + (HASH_BYTES * 2)).toString('hex'),
       state: STATE_NAMES[code],
     };
-    if (retired) row.retiredGeneration = buffer.readUInt32BE(offset + ACTIVE_ROW_BYTES);
+    if (retired) row.retiredDay = buffer.readUInt32BE(offset + ACTIVE_ROW_BYTES);
     rows.push(row);
   }
   return rows;
@@ -184,21 +184,26 @@ function stateDigest(document) {
 
 function boundedPolicy(policy = TRANSLATION_OBSERVABILITY_LIMITS) {
   const retiredCap = Number(policy.retiredCap);
-  const retentionGenerations = Number(policy.retentionGenerations);
+  const retentionDays = Number(policy.retentionDays);
   if (!Number.isInteger(retiredCap) || retiredCap < 1 || retiredCap > TRANSLATION_OBSERVABILITY_LIMITS.retiredCap) throw new TypeError('Invalid retired registry cap');
-  if (!Number.isInteger(retentionGenerations) || retentionGenerations < 1 || retentionGenerations > TRANSLATION_OBSERVABILITY_LIMITS.retentionGenerations) throw new TypeError('Invalid retired registry retention');
-  return { retiredCap, retentionGenerations };
+  if (!Number.isInteger(retentionDays) || retentionDays < 1 || retentionDays > TRANSLATION_OBSERVABILITY_LIMITS.retentionDays) throw new TypeError('Invalid retired registry retention');
+  return { retiredCap, retentionDays };
 }
 
-function buildPersistedState({ generation, activeRows, retiredRows, policy, evidenceLoss }) {
+function buildPersistedState({ generation, observedDay, activeRows, retiredRows, policy, evidenceLoss }) {
   const document = {
-    schemaVersion: 1,
+    schemaVersion: 2,
     encoding: STATE_ENCODING,
     generation,
+    observedDay,
     policy: boundedPolicy(policy),
     active: { count: activeRows.length, packed: packTranslationObservabilityRows(activeRows) },
     retired: { count: retiredRows.length, packed: packTranslationObservabilityRows(retiredRows, { retired: true }) },
-    evidenceLoss: { retentionEvictions: evidenceLoss?.retentionEvictions || 0, capEvictions: evidenceLoss?.capEvictions || 0 },
+    evidenceLoss: {
+      retentionEvictions: evidenceLoss?.retentionEvictions || 0,
+      capEvictions: evidenceLoss?.capEvictions || 0,
+      stateResets: evidenceLoss?.stateResets || 0,
+    },
   };
   document.digest = stateDigest(document);
   return document;
@@ -206,8 +211,9 @@ function buildPersistedState({ generation, activeRows, retiredRows, policy, evid
 
 /** Validate the state digest and enumerate its packed hash-only population. */
 export function unpackTranslationObservabilityState(document) {
-  if (!document || document.schemaVersion !== 1 || document.encoding !== STATE_ENCODING) throw new TypeError('Unsupported translation observability state');
+  if (!document || document.schemaVersion !== 2 || document.encoding !== STATE_ENCODING) throw new TypeError('Unsupported translation observability state');
   if (!Number.isInteger(document.generation) || document.generation < 1 || document.generation >= 0xffff_ffff) throw new TypeError('Invalid state generation');
+  if (!Number.isInteger(document.observedDay) || document.observedDay < 1 || document.observedDay > 0xffff_ffff) throw new TypeError('Invalid observed day');
   if (document.digest !== stateDigest(document)) throw new TypeError('Translation observability state digest mismatch');
   const policy = boundedPolicy(document.policy);
   const activeRows = unpackTranslationObservabilityRows(document.active?.packed, document.active?.count);
@@ -221,12 +227,12 @@ export function unpackTranslationObservabilityState(document) {
   const retiredIds = new Set();
   for (const row of retiredRows) {
     if (retiredIds.has(row.identityHash) || activeIds.has(row.identityHash)) throw new TypeError('Duplicate or active retired identity hash');
-    if (row.retiredGeneration > document.generation) throw new TypeError('Retired generation is in the future');
+    if (row.retiredDay > document.observedDay) throw new TypeError('Retired day is in the future');
     retiredIds.add(row.identityHash);
   }
   const evidenceLoss = document.evidenceLoss || {};
-  if (![evidenceLoss.retentionEvictions, evidenceLoss.capEvictions].every((value) => Number.isSafeInteger(value) && value >= 0)) throw new TypeError('Invalid evidence-loss counters');
-  return { generation: document.generation, policy, activeRows, retiredRows, evidenceLoss: { ...evidenceLoss } };
+  if (![evidenceLoss.retentionEvictions, evidenceLoss.capEvictions, evidenceLoss.stateResets].every((value) => Number.isSafeInteger(value) && value >= 0)) throw new TypeError('Invalid evidence-loss counters');
+  return { generation: document.generation, observedDay: document.observedDay, policy, activeRows, retiredRows, evidenceLoss: { ...evidenceLoss } };
 }
 
 function uniqueRows(snapshot) {
@@ -253,7 +259,7 @@ function unavailableContinuity(reason, state) {
       complete: false,
       proven: 0,
       reason,
-      retentionGenerations: state?.policy?.retentionGenerations || TRANSLATION_OBSERVABILITY_LIMITS.retentionGenerations,
+      retentionDays: state?.policy?.retentionDays || TRANSLATION_OBSERVABILITY_LIMITS.retentionDays,
       retiredCap: state?.policy?.retiredCap || TRANSLATION_OBSERVABILITY_LIMITS.retiredCap,
       evictedThisGeneration: { retention: 0, cap: 0 },
     },
@@ -261,8 +267,8 @@ function unavailableContinuity(reason, state) {
 }
 
 /** Advance one valid true-final generation and derive cross-generation evidence. */
-export function advanceTranslationObservabilityState({ previousState = null, final, validFinal = true, skipReason = 'true_final_not_valid', stateIssue = null, policy = TRANSLATION_OBSERVABILITY_LIMITS } = {}) {
-  if (stateIssue) return { advanced: false, state: previousState, continuity: unavailableContinuity(stateIssue, previousState), identityHashes: [] };
+export function advanceTranslationObservabilityState({ previousState = null, final, validFinal = true, skipReason = 'true_final_not_valid', stateIssue = null, policy = TRANSLATION_OBSERVABILITY_LIMITS, now = Date.now() } = {}) {
+  if (stateIssue) previousState = null;
   if (!validFinal) return { advanced: false, state: previousState, continuity: unavailableContinuity(skipReason, previousState), identityHashes: [] };
   let current;
   try {
@@ -270,18 +276,38 @@ export function advanceTranslationObservabilityState({ previousState = null, fin
   } catch {
     return { advanced: false, state: previousState, continuity: unavailableContinuity('invalid_true_final_population', previousState), identityHashes: [] };
   }
+  const requestedDay = Math.floor(Number(now) / 86_400_000);
+  if (!Number.isSafeInteger(requestedDay) || requestedDay < 1 || requestedDay > 0xffff_ffff) {
+    return { advanced: false, state: previousState, continuity: unavailableContinuity('invalid_observation_time', previousState), identityHashes: [] };
+  }
   if (!previousState) {
-    const state = buildPersistedState({ generation: 1, activeRows: [...current.values()], retiredRows: [], policy, evidenceLoss: {} });
-    return { advanced: true, state, continuity: unavailableContinuity('bootstrap_first_valid_generation', state), identityHashes: [] };
+    const stateResets = stateIssue ? 1 : 0;
+    const reason = stateIssue ? 'persisted_state_invalid_rebootstrap' : 'bootstrap_first_valid_generation';
+    const state = buildPersistedState({
+      generation: 1,
+      observedDay: requestedDay,
+      activeRows: [...current.values()],
+      retiredRows: [],
+      policy,
+      evidenceLoss: { stateResets },
+    });
+    return {
+      advanced: true,
+      state,
+      transitionReason: stateIssue ? reason : 'valid_true_final',
+      continuity: unavailableContinuity(reason, state),
+      identityHashes: [],
+    };
   }
 
   const previous = unpackTranslationObservabilityState(previousState);
   const generation = previous.generation + 1;
+  const observedDay = Math.max(requestedDay, previous.observedDay);
   const active = new Map(previous.activeRows.map((row) => [row.identityHash, row]));
   const retainedRetired = [];
   let retentionEvictions = 0;
   for (const row of previous.retiredRows) {
-    if (generation - row.retiredGeneration > previous.policy.retentionGenerations) retentionEvictions++;
+    if (observedDay - row.retiredDay > previous.policy.retentionDays) retentionEvictions++;
     else retainedRetired.push(row);
   }
   const eligibleRetired = new Map(retainedRetired.map((row) => [row.identityHash, row]));
@@ -322,29 +348,33 @@ export function advanceTranslationObservabilityState({ previousState = null, fin
   const nextRetired = [...eligibleRetired.values()];
   for (const row of active.values()) {
     if (!current.has(row.identityHash)) {
-      nextRetired.push({ ...row, retiredGeneration: generation });
+      nextRetired.push({ ...row, retiredDay: observedDay });
       identityHashes.push(row.identityHash);
     }
   }
-  nextRetired.sort((left, right) => right.retiredGeneration - left.retiredGeneration || left.identityHash.localeCompare(right.identityHash));
+  nextRetired.sort((left, right) => right.retiredDay - left.retiredDay || left.identityHash.localeCompare(right.identityHash));
   const capEvictions = Math.max(0, nextRetired.length - previous.policy.retiredCap);
   if (capEvictions) nextRetired.splice(previous.policy.retiredCap);
   const evidenceLoss = {
     retentionEvictions: previous.evidenceLoss.retentionEvictions + retentionEvictions,
     capEvictions: previous.evidenceLoss.capEvictions + capEvictions,
+    stateResets: previous.evidenceLoss.stateResets,
   };
-  const complete = evidenceLoss.retentionEvictions === 0 && evidenceLoss.capEvictions === 0;
+  const complete = evidenceLoss.retentionEvictions === 0 && evidenceLoss.capEvictions === 0 && evidenceLoss.stateResets === 0;
   const reason = capEvictions > 0
     ? 'retired_evidence_evicted_by_cap'
     : retentionEvictions > 0
       ? 'retired_evidence_evicted_by_retention'
       : complete
         ? 'valid_intergenerational_comparison'
-        : 'prior_retired_evidence_was_evicted';
-  const state = buildPersistedState({ generation, activeRows: [...current.values()], retiredRows: nextRetired, policy: previous.policy, evidenceLoss });
+        : evidenceLoss.stateResets > 0
+          ? 'prior_persisted_state_was_reset'
+          : 'prior_retired_evidence_was_evicted';
+  const state = buildPersistedState({ generation, observedDay, activeRows: [...current.values()], retiredRows: nextRetired, policy: previous.policy, evidenceLoss });
   return {
     advanced: true,
     state,
+    transitionReason: 'valid_true_final',
     identityHashes,
     continuity: {
       activePersisted,
@@ -357,7 +387,7 @@ export function advanceTranslationObservabilityState({ previousState = null, fin
         complete,
         proven,
         reason,
-        retentionGenerations: previous.policy.retentionGenerations,
+        retentionDays: previous.policy.retentionDays,
         retiredCap: previous.policy.retiredCap,
         evictedThisGeneration: { retention: retentionEvictions, cap: capEvictions },
       },
@@ -417,7 +447,7 @@ export function buildTranslationObservabilityReport({ before, final, runId, star
       advanced: observation.advanced,
       generation: observation.state?.generation || null,
       stateDigest: observation.state?.digest || null,
-      reason: observation.advanced ? 'valid_true_final' : observation.continuity.deleteReaddEvidence.reason,
+      reason: observation.transitionReason || observation.continuity.deleteReaddEvidence.reason,
     },
     before: { ...before.metrics, jobSetDigest: before.jobSetDigest },
     final: { ...final.metrics, jobSetDigest: final.jobSetDigest },
