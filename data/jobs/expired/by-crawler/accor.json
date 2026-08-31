@@ -1,5 +1,103 @@
 [
   {
+    "slug": "sales-manager-conference-groups-events-accor-ch",
+    "title": "Sales Manager – Conference, Groups & Events",
+    "titleByLocale": {
+      "fr": "Sales Manager – Conference, Groups & Events",
+      "en": "Sales Manager – Conference, Groups & Events",
+      "it": "Sales Manager – Conference, Groups & Events",
+      "de": "Sales Manager – Conference, Groups & Events"
+    },
+    "company": "Ibis Budget",
+    "companyKey": "accor",
+    "location": "Lugano",
+    "addressLocality": "Lugano",
+    "descriptionByLocale": {
+      "fr": "Sales Manager – Conference, Groups & Events — Ibis Budget"
+    },
+    "slugByLocale": {
+      "fr": "sales-manager-conference-groups-events-accor-ch",
+      "it": "sales-manager-conference-groups-events-accor-ch",
+      "en": "sales-manager-conference-groups-events-ibis-budget-lugano",
+      "de": "sales-manager-conference-groups-events-accor-ch"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-08-31T17:21:51.603Z",
+    "salaryMin": 82500,
+    "salaryMax": 127000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "directeur-trice-des-ventes-et-marketing-accor-ch",
+    "title": "Directeur(trice) des ventes et marketing",
+    "titleByLocale": {
+      "fr": "Directeur(trice) des ventes et marketing",
+      "en": "Directeur(trice) des ventes et marketing",
+      "it": "Directeur(trice) des ventes et marketing",
+      "de": "Directeur(trice) des ventes et marketing"
+    },
+    "company": "Ibis Budget",
+    "companyKey": "accor",
+    "location": "Lugano",
+    "addressLocality": "Lugano",
+    "descriptionByLocale": {
+      "fr": "Directeur(trice) des ventes et marketing — Ibis Budget"
+    },
+    "slugByLocale": {
+      "fr": "directeur-trice-des-ventes-et-marketing-accor-ch",
+      "it": "directeur-trice-des-ventes-et-marketing-accor-ch",
+      "en": "directeur-trice-des-ventes-et-marketing-ibis-budget-lugano",
+      "de": "directeur-trice-des-ventes-et-marketing-accor-ch"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-08-31T17:21:51.603Z",
+    "salaryMin": 50500,
+    "salaryMax": 89000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "housekeeping-villa-attendant-tempo-pieno-ibis-budget-lugano",
+    "title": "Housekeeping Villa Attendant | Full-Time",
+    "titleByLocale": {
+      "fr": "Housekeeping Villa Attendant | Full-Time",
+      "it": "Housekeeping Villa Attendant | Tempo pieno",
+      "en": "Housekeeping Villa Attendant | Full-Time",
+      "de": "Housekeeping Villa Attendant | Vollzeit"
+    },
+    "company": "Ibis Budget",
+    "companyKey": "accor",
+    "location": "Lugano",
+    "addressLocality": "Lugano",
+    "descriptionByLocale": {
+      "fr": "Housekeeping Villa Attendant | Full-Time — Ibis Budget"
+    },
+    "slugByLocale": {
+      "fr": "housekeeping-villa-attendant-full-time-accor-ch",
+      "it": "housekeeping-villa-attendant-tempo-pieno-ibis-budget-lugano",
+      "en": "housekeeping-villa-attendant-full-time-accor-ch",
+      "de": "housekeeping-villa-attendant-vollzeit-ibis-budget-lugano"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-08-31T17:21:51.603Z",
+    "previousSlugs": [
+      "housekeeping-villa-attendant-full-time-accor-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "housekeeping-villa-attendant-full-time-accor-ch"
+      ],
+      "de": [
+        "housekeeping-villa-attendant-full-time-accor-ch"
+      ]
+    },
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "assistant-direttore-of-people-culture-ibis-budget-lugano",
     "title": "Assistant Director of People & Culture",
     "titleByLocale": {
