@@ -317,8 +317,9 @@
       "addressLocality": "Oberbüren, Sankt Gallen",
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2516
     },
     {
       "id": "company-uqr3aa",
@@ -366,7 +367,8 @@
           "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-swiss-household-services-ag-oberburen-uqr3aa",
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen",
           "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-20"
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-20",
+          "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-swiss-household-services-ag-oberburen"
         ],
         "en": [
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-swiss-household-services-ag-oberburen-uqr3aa"
@@ -384,7 +386,8 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-swiss-household-services-ag-oberburen-uqr3aa",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-20"
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-20",
+        "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-swiss-household-services-ag-oberburen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -406,8 +409,9 @@
       },
       "salaryMin": 99000,
       "salaryMax": 174000,
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1273
     },
     {
       "id": "company-w326lr",
@@ -1238,7 +1242,6 @@
         "de": "Le tue mansioni\n\n- Produci e prepari menu allettanti.\n\n- Sei la prima persona di contatto e ti occupi di offrire consulenza e di servire la clientela.\n\n- Aiutate a ordinare il alimentari.\n\nCosa porti con te nell'azienda\n\n- Predisposizione al contatto con la gente e al lavoro di squadra\n\n- Capacità organizzativa e flessibilità\n\n- Volontà di lavorare autonomamente e di assumersi responsabilità\n\n- Voglia di perfezionarsi in un'azienda dinamica\n\n- Interesse per gli alimenti\n\n- Predisposizione al contatto con la clientela\n\nCosa ti offriamo\n\n- Abbonamento annuale Update-Fitness\n\n- Buono del valore di 500 franchi per l'aquisto di un notebook, tablet ecc.\n\n- 50% di sconto sul primo abbonamento di telefonia mobile Coop Mobile\n\n- 6 settimane di vacanze\n\n- Lunch-Check di 100 franchi al mese\n\n- Sconti in tutte le aziende partner della Coop\n\n- Abbonamento metà-prezzo / contributo di 650 franchi all'abbonamento generale FFS\n\nChrista Niederberger\nRU Formazione professionale\n\nChoose Your Character:\nCreate Your Future\nDai forma al tuo futuro con una formazione interessante. Da Coop trovi un'ampia offerta di posti di tirocinio e ulteriori possibilità di formazione continua.",
         "fr": "Le tue mansioni\n\n- Produci e prepari menu allettanti.\n\n- Sei la prima persona di contatto e ti occupi di offrire consulenza e di servire la clientela.\n\n- Aiutate a ordinare il alimentari.\n\nCosa porti con te nell'azienda\n\n- Predisposizione al contatto con la gente e al lavoro di squadra\n\n- Capacità organizzativa e flessibilità\n\n- Volontà di lavorare autonomamente e di assumersi responsabilità\n\n- Voglia di perfezionarsi in un'azienda dinamica\n\n- Interesse per gli alimenti\n\n- Predisposizione al contatto con la clientela\n\nCosa ti offriamo\n\n- Abbonamento annuale Update-Fitness\n\n- Buono del valore di 500 franchi per l'aquisto di un notebook, tablet ecc.\n\n- 50% di sconto sul primo abbonamento di telefonia mobile Coop Mobile\n\n- 6 settimane di vacanze\n\n- Lunch-Check di 100 franchi al mese\n\n- Sconti in tutte le aziende partner della Coop\n\n- Abbonamento metà-prezzo / contributo di 650 franchi all'abbonamento generale FFS\n\nChrista Niederberger\nRU Formazione professionale\n\nChoose Your Character:\nCreate Your Future\nDai forma al tuo futuro con una formazione interessante. Da Coop trovi un'ampia offerta di posti di tirocinio e ulteriori possibilità di formazione continua."
       },
-      "needsRetranslation": true,
       "slugByLocale": {
         "it": "addetta-o-di-gastronomia-standardizzata-cfp-marche-dietlikon-ya0ygj",
         "en": "addetta-o-di-gastronomia-standardizzata-cfp-marche-dietlikon-ya0ygj",
@@ -1272,7 +1275,9 @@
       "addressLocality": "Dietlikon",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1174
     },
     {
       "id": "company-8i0doo",
@@ -1384,7 +1389,8 @@
           "kauffrau-mann-efz-fust-swiss-household-services-ag-oberburen",
           "kauffrau-mann-cfc-fust-swiss-household-services-ag-oberburen-hs6cxs",
           "kauffrau-mann-efz-fust-oberburen",
-          "apprendistato-kauffrau-kaufmann-cfc-e-profil-fust-swiss-household-services-ag-oberburen"
+          "apprendistato-kauffrau-kaufmann-cfc-e-profil-fust-swiss-household-services-ag-oberburen",
+          "kauffrau-mann-cfc-fust-swiss-household-services-ag-oberburen"
         ],
         "en": [
           "kauffrau-mann-efz-fust-swiss-household-services-ag-oberburen-hs6cxs"
@@ -1401,7 +1407,8 @@
         "kauffrau-mann-cfc-fust-swiss-household-services-ag-oberburen-hs6cxs",
         "kauffrau-mann-efz-fust-swiss-household-services-ag-oberburen-hs6cxs",
         "kauffrau-mann-efz-fust-oberburen",
-        "apprendistato-kauffrau-kaufmann-cfc-e-profil-fust-swiss-household-services-ag-oberburen"
+        "apprendistato-kauffrau-kaufmann-cfc-e-profil-fust-swiss-household-services-ag-oberburen",
+        "kauffrau-mann-cfc-fust-swiss-household-services-ag-oberburen"
       ],
       "salaryMin": 99000,
       "salaryMax": 174000,
@@ -1418,8 +1425,9 @@
       "addressLocality": "Oberbüren",
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1210
     },
     {
       "id": "company-fpey5u",
@@ -1493,8 +1501,9 @@
       "addressLocality": "Oberbüren",
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1209
     },
     {
       "id": "company-1qhdfi",
@@ -2757,10 +2766,10 @@
         "fr": "2nd Level Support Ingénieur"
       },
       "descriptionByLocale": {
-        "it": "Bei Fust kauft die Schweiz ein! Wir sind stolz darauf, führende Anbieterin in den Bereichen Elektrohaushaltgeräte, Multimedia/Unterhaltungselektronik sowie Küchen- und Badumbau zu sein und mit unserem umfassenden Serviceangebot und unseren einzigartigen Dienstleistungen schaffen wir echten Mehrwert! Werde Teil unseres Teams und hilf uns, weiterhin Kundenerlebnisse zu schaffen! Ein Job bei Fust, und es läuft!\n\nAufgaben\n\n- Selbstständige Bearbeitung von Störungsmeldungen via Remote-Zugriff\n\n- Analyse und Behebung komplexer Störungen (Hardware, Software, Netzwerk) in Zusammenarbeit mit internen und externen Spezialisten\n\n- Unterstützung des Level 1 Supports sowie Eskalation an Level 3 Support bei Bedarf\n\n- Installation, Wartung und Migration von Servern, Netzwerken und Peripheriegeräten\n\n- Erstellung und Pflege von technischer Dokumentation sowie Reporting über Supportstatus\n\nAnforderungen\n\n- Abgeschlossene technische Grundausbildung\n\n- Fundierte IT-Kenntnisse (Hardware, Software, Netzwerke)\n\n- Erfahrung im Bereich Beschallungsanlagen oder Videoüberwachung von Vorteil\n\n- Hohes Qualitätsbewusstsein, zuverlässige Arbeitsweise und Kommunikationsstärke\n\n- Französisch- oder Italienischkenntnisse von Vorteil\n\nWas wir bieten\n\n- Anstellungsbedingungen : Weitgehend flexible Arbeitszeiten, Gratisparkplätze, Internes Coop-Restaurant mit reichaltiger Auswahl zu Vorzugspreisen, Moderne und helle Räumlichkeiten\n\n- Vergünstigungen : Vergünstigungen in verschiedenen Coop-Formaten, 5-fache Anzahl Coop-Superpunkte, Bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, Günstige Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigungen bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Rabatt auf das Reiseangebot ITS Coop Travel, CHF 650.- Gutschein für den Kauf eines SBB GA's\n\n- Weiterbildung : Interne Weiterbildungen, Unterstützung für externe Aus- und Weiterbildungen, Entwicklungsmöglichkeiten\n\n- Kommunikation & Kultur : DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n\n- Versicherungen : Pensionskasse: 2/3 wird von Coop einbezahlt (Basis), Verschiedene Sparpläne bei der Pensionskasse, Grosszügige und überobligatorische Versicherungsleistungen bei Unfall und Krankheit\n\n- Ferien : Mindestens 25 Tage Ferien oder gemäss gültigem GAV, Nach Möglichkeit Unterstützung bei unbezahltem Urlaub\n\n- Gesundheit : Update-Fitness: CHF 200.- Rabatt auf Jahresabonnement, Kostenlose und anonyme betriebliche Sozialberatung 24/7\n\nDeine Ansprechpersonen bei Fust\n\nBanu Vatansever\nHR Business Partner\n\nSteven Wohnlich\nRecruiting Specialist",
-        "en": "Bei Fust kauft die Schweiz ein! Wir sind stolz darauf, führende Anbieterin in den Bereichen Elektrohaushaltgeräte, Multimedia/Unterhaltungselektronik sowie Küchen- und Badumbau zu sein und mit unserem umfassenden Serviceangebot und unseren einzigartigen Dienstleistungen schaffen wir echten Mehrwert! Werde Teil unseres Teams und hilf uns, weiterhin Kundenerlebnisse zu schaffen! Ein Job bei Fust, und es läuft!\n\nAufgaben\n\n- Selbstständige Bearbeitung von Störungsmeldungen via Remote-Zugriff\n\n- Analyse und Behebung komplexer Störungen (Hardware, Software, Netzwerk) in Zusammenarbeit mit internen und externen Spezialisten\n\n- Unterstützung des Level 1 Supports sowie Eskalation an Level 3 Support bei Bedarf\n\n- Installation, Wartung und Migration von Servern, Netzwerken und Peripheriegeräten\n\n- Erstellung und Pflege von technischer Dokumentation sowie Reporting über Supportstatus\n\nAnforderungen\n\n- Abgeschlossene technische Grundausbildung\n\n- Fundierte IT-Kenntnisse (Hardware, Software, Netzwerke)\n\n- Erfahrung im Bereich Beschallungsanlagen oder Videoüberwachung von Vorteil\n\n- Hohes Qualitätsbewusstsein, zuverlässige Arbeitsweise und Kommunikationsstärke\n\n- Französisch- oder Italienischkenntnisse von Vorteil\n\nWas wir bieten\n\n- Anstellungsbedingungen : Weitgehend flexible Arbeitszeiten, Gratisparkplätze, Internes Coop-Restaurant mit reichaltiger Auswahl zu Vorzugspreisen, Moderne und helle Räumlichkeiten\n\n- Vergünstigungen : Vergünstigungen in verschiedenen Coop-Formaten, 5-fache Anzahl Coop-Superpunkte, Bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, Günstige Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigungen bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Rabatt auf das Reiseangebot ITS Coop Travel, CHF 650.- Gutschein für den Kauf eines SBB GA's\n\n- Weiterbildung : Interne Weiterbildungen, Unterstützung für externe Aus- und Weiterbildungen, Entwicklungsmöglichkeiten\n\n- Kommunikation & Kultur : DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n\n- Versicherungen : Pensionskasse: 2/3 wird von Coop einbezahlt (Basis), Verschiedene Sparpläne bei der Pensionskasse, Grosszügige und überobligatorische Versicherungsleistungen bei Unfall und Krankheit\n\n- Ferien : Mindestens 25 Tage Ferien oder gemäss gültigem GAV, Nach Möglichkeit Unterstützung bei unbezahltem Urlaub\n\n- Gesundheit : Update-Fitness: CHF 200.- Rabatt auf Jahresabonnement, Kostenlose und anonyme betriebliche Sozialberatung 24/7\n\nDeine Ansprechpersonen bei Fust\n\nBanu Vatansever\nHR Business Partner\n\nSteven Wohnlich\nRecruiting Specialist",
+        "it": "La Svizzera compra a Fust! Siamo orgogliosi di essere leader in elettrodomestici, elettronica multimediale/entertainment e rimodellamento cucina e bagno, e con la nostra gamma completa di servizi e servizi unici creiamo un valore aggiunto reale! Diventa parte del nostro team e aiutaci a continuare a creare esperienze dei clienti! Un lavoro a Fust, ed è in esecuzione!\n\nCompiti\n\n- Elaborazione indipendente di messaggi di errore tramite accesso remoto\n\n- Analisi e risoluzione di difetti complessi (hardware, software, rete) in collaborazione con specialisti interni ed esterni\n\n- Supporto per il supporto di livello 1 e l'escalation del supporto di livello 3 come necessario\n\n- Installazione, manutenzione e migrazione di server, reti e periferiche\n\n- Preparazione e manutenzione della documentazione tecnica e della segnalazione sullo stato di supporto\n\nRequisiti\n\n- Formazione tecnica di base\n\n- Abilità IT sonore (hardware, software, reti)\n\n- L'esperienza nei sistemi di indirizzo pubblico o la videosorveglianza è vantaggiosa\n\n- Sensibilizzazione di alta qualità, metodi di lavoro affidabili e forza di comunicazione\n\n- La conoscenza del francese o italiano è vantaggiosa\n\nCosa offriamo\n\n- Condizioni di lavoro: Ore di lavoro estremamente flessibili, parcheggio gratuito, ristorante interno con una gamma di prezzi premium, camere moderne e luminose\n\n- Sconti: Sconti in vari formati di coop, 5 volte il numero di coop super points, Fino a 20% di sconto su vari servizi assicurativi, Abbonamenti mobili e prepagati a Coop Mobile, Reka Card: Sconti su abbonamento, sconto personale anche per i partner: in (vivere nella stessa famiglia), sconto sull'offerta di viaggio ITS Coop Travel, CHF 650.- Buono per l'acquisto di un GA FFS\n\n- Formazione: Formazione interna, sostegno all'istruzione e alla formazione esterna, opportunità di sviluppo\n\n- Comunicazione e cultura: cultura DU in tutta l'azienda, orientamento verso valori comuni, applicazione interna per la comunicazione con i dipendenti\n\n- Assicurazione: Fondo pensione: 2/3 è pagato da Coop (base), vari piani di risparmio presso il fondo pensione, generose e superobbligatorie prestazioni di assicurazione in caso di incidente e malattia\n\n- Vacanze: almeno 25 giorni di vacanza o secondo GAV valido, se possibile supporto per vacanze non pagate\n\n- Salute: Aggiornamento Fitness: CHF 200.- Sconto su abbonamento annuale, consulenza sociale aziendale gratuita e anonima 24/7\n\nI tuoi contatti a Fust\n\nBanu Vatansever\nHR Business Partner\n\nSteven Living\nSpecialista di reclutamento",
+        "en": "Switzerland buys at Fust! We are proud to be a leader in electrical household appliances, multimedia/entertainment electronics and kitchen and bathroom remodeling, and with our comprehensive range of services and unique services we create real added value! Become part of our team and help us continue to create customer experiences! A job at Fust, and it’s running!\n\nTasks\n\n- Independent processing of fault messages via remote access\n\n- Analysis and resolution of complex faults (hardware, software, network) in cooperation with internal and external specialists\n\n- Support for Level 1 support and escalation of Level 3 support as needed\n\n- Installation, maintenance and migration of servers, networks and peripherals\n\n- Preparation and maintenance of technical documentation and reporting on support status\n\nRequirements\n\n- Basic technical training completed\n\n- Sound IT skills (hardware, software, networks)\n\n- Experience in public address systems or video surveillance is advantageous\n\n- High quality awareness, reliable working methods and communication strength\n\n- Knowledge of French or Italian is advantageous\n\nWhat we offer\n\n- Conditions of employment : Largely flexible working hours, free parking, internal co-op restaurant with a range of premium prices, modern and bright rooms\n\n- Discounts : Discounts in various coop formats, 5 times the number of coop super points, Up to 20% discount on various insurance services, Cheap mobile and prepaid subscriptions at Coop Mobile, Reka Card: Discounts on subscription, staff discount also for partners: in (living in the same household), discount on the travel offer ITS Coop Travel, CHF 650.- Voucher for the purchase of an SBB GA's\n\n- Training : Internal training, support for external education and training, development opportunities\n\n- Communication & culture: DU culture throughout the company, orientation towards common values, internal app for communication with employees\n\n- Insurance : Pension Fund: 2/3 is paid by Coop (base), various savings plans at the pension fund, generous and super-compulsory insurance benefits in case of accident and illness\n\n- Holidays : At least 25 days of holiday or according to valid GAV, if possible support for unpaid holidays\n\n- Health : Update Fitness: CHF 200.- Discount on annual subscription, free and anonymous company social consulting 24/7\n\nYour contact persons at Fust\n\nBanu Vatansever\nHR Business Partner\n\nSteven Living\nRecruitment Specialist",
         "de": "## 2nd Level Support Engineer\n\n**Fust | Swiss Household Services AG** — Otelfingen, Zürich, Svizzera\n\n## Bei Fust kauft die Schweiz ein! Wir sind stolz darauf, führende Anbieterin in den Bereichen Elektrohaushaltgeräte, Multimedia/Unterhaltungselektronik sowie Küchen- und Badumbau zu sein und mit unserem umfassenden Serviceangebot und unseren einzigartigen Dienstleistungen schaffen wir echten Mehrwert! Werde Teil unseres Teams und hilf uns, weiterhin Kundenerlebnisse zu schaffen! Ein Job bei Fust, und es läuft!\n\n## Aufgaben\n- Selbstständige Bearbeitung von Störungsmeldungen via Remote-Zugriff\n- Analyse und Behebung komplexer Störungen (Hardware, Software, Netzwerk) in Zusammenarbeit mit internen und externen Spezialisten\n- Unterstützung des Level 1 Supports sowie Eskalation an Level 3 Support bei Bedarf\n- Installation, Wartung und Migration von Servern, Netzwerken und Peripheriegeräten\n- Erstellung und Pflege von technischer Dokumentation sowie Reporting über Supportstatus\n\n## Anforderungen\n- Abgeschlossene technische Grundausbildung\n- Fundierte IT-Kenntnisse (Hardware, Software, Netzwerke)\n- Erfahrung im Bereich Beschallungsanlagen oder Videoüberwachung von Vorteil\n- Hohes Qualitätsbewusstsein, zuverlässige Arbeitsweise und Kommunikationsstärke\n- Französisch- oder Italienischkenntnisse von Vorteil\n\n## Was wir bieten\n- Anstellungsbedingungen: Weitgehend flexible Arbeitszeiten, Gratisparkplätze, Internes Coop-Restaurant mit reichaltiger Auswahl zu Vorzugspreisen, Moderne und helle Räumlichkeiten\n- Vergünstigungen: Vergünstigungen in verschiedenen Coop-Formaten, 5-fache Anzahl Coop-Superpunkte, Bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, Günstige Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigungen bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Rabatt auf das Reiseangebot ITS Coop Travel, CHF 650.- Gutschein für den Kauf eines SBB GA's\n- Weiterbildung: Interne Weiterbildungen, Unterstützung für externe Aus- und Weiterbildungen, Entwicklungsmöglichkeiten\n- Kommunikation & Kultur: DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n- Versicherungen: Pensionskasse: 2/3 wird von Coop einbezahlt (Basis), Verschiedene Sparpläne bei der Pensionskasse, Grosszügige und überobligatorische Versicherungsleistungen bei Unfall und Krankheit\n- Ferien: Mindestens 25 Tage Ferien oder gemäss gültigem GAV, Nach Möglichkeit Unterstützung bei unbezahltem Urlaub\n- Gesundheit: Update-Fitness: CHF 200.- Rabatt auf Jahresabonnement, Kostenlose und anonyme betriebliche Sozialberatung 24/7\nDeine Ansprechpersonen bei Fust\nBanu Vatansever\nHR Business Partner\nSteven Wohnlich\nRecruiting Specialist\n\n**Tipo:** Full-time\n**Sede:** Otelfingen",
-        "fr": "Bei Fust kauft die Schweiz ein! Wir sind stolz darauf, führende Anbieterin in den Bereichen Elektrohaushaltgeräte, Multimedia/Unterhaltungselektronik sowie Küchen- und Badumbau zu sein und mit unserem umfassenden Serviceangebot und unseren einzigartigen Dienstleistungen schaffen wir echten Mehrwert! Werde Teil unseres Teams und hilf uns, weiterhin Kundenerlebnisse zu schaffen! Ein Job bei Fust, und es läuft!\n\nAufgaben\n\n- Selbstständige Bearbeitung von Störungsmeldungen via Remote-Zugriff\n\n- Analyse und Behebung komplexer Störungen (Hardware, Software, Netzwerk) in Zusammenarbeit mit internen und externen Spezialisten\n\n- Unterstützung des Level 1 Supports sowie Eskalation an Level 3 Support bei Bedarf\n\n- Installation, Wartung und Migration von Servern, Netzwerken und Peripheriegeräten\n\n- Erstellung und Pflege von technischer Dokumentation sowie Reporting über Supportstatus\n\nAnforderungen\n\n- Abgeschlossene technische Grundausbildung\n\n- Fundierte IT-Kenntnisse (Hardware, Software, Netzwerke)\n\n- Erfahrung im Bereich Beschallungsanlagen oder Videoüberwachung von Vorteil\n\n- Hohes Qualitätsbewusstsein, zuverlässige Arbeitsweise und Kommunikationsstärke\n\n- Französisch- oder Italienischkenntnisse von Vorteil\n\nWas wir bieten\n\n- Anstellungsbedingungen : Weitgehend flexible Arbeitszeiten, Gratisparkplätze, Internes Coop-Restaurant mit reichaltiger Auswahl zu Vorzugspreisen, Moderne und helle Räumlichkeiten\n\n- Vergünstigungen : Vergünstigungen in verschiedenen Coop-Formaten, 5-fache Anzahl Coop-Superpunkte, Bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, Günstige Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigungen bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Rabatt auf das Reiseangebot ITS Coop Travel, CHF 650.- Gutschein für den Kauf eines SBB GA's\n\n- Weiterbildung : Interne Weiterbildungen, Unterstützung für externe Aus- und Weiterbildungen, Entwicklungsmöglichkeiten\n\n- Kommunikation & Kultur : DU-Kultur in der gesamten Unternehmung, Orientierung an gemeinsamen Werten, interne App für Kommunikation mit den Mitarbeitenden\n\n- Versicherungen : Pensionskasse: 2/3 wird von Coop einbezahlt (Basis), Verschiedene Sparpläne bei der Pensionskasse, Grosszügige und überobligatorische Versicherungsleistungen bei Unfall und Krankheit\n\n- Ferien : Mindestens 25 Tage Ferien oder gemäss gültigem GAV, Nach Möglichkeit Unterstützung bei unbezahltem Urlaub\n\n- Gesundheit : Update-Fitness: CHF 200.- Rabatt auf Jahresabonnement, Kostenlose und anonyme betriebliche Sozialberatung 24/7\n\nDeine Ansprechpersonen bei Fust\n\nBanu Vatansever\nHR Business Partner\n\nSteven Wohnlich\nRecruiting Specialist"
+        "fr": "La Suisse achète chez Fust ! Nous sommes fiers d'être un leader dans les appareils électroménagers, l'électronique multimédia / divertissement et la rénovation de la cuisine et de la salle de bains, et grâce à notre gamme complète de services et de services uniques, nous créons une réelle valeur ajoutée! Faites partie de notre équipe et aidez-nous à continuer à créer des expériences client! Un boulot à Fust, et il court !\n\nTâches\n\n- Traitement indépendant des messages de défaillance via l'accès à distance\n\n- Analyse et résolution de défauts complexes (matériel, logiciel, réseau) en coopération avec des spécialistes internes et externes\n\n- Appui au niveau 1 et escalade du niveau 3 au besoin\n\n- Installation, maintenance et migration de serveurs, réseaux et périphériques\n\n- Préparation et tenue à jour de la documentation technique et établissement de rapports sur l ' état de l ' appui\n\nExigences\n\n- Formation technique de base terminée\n\n- Compétences informatiques (matériel, logiciels, réseaux)\n\n- L'expérience des systèmes d'adresses publiques ou de surveillance vidéo est avantageuse\n\n- Sensibilisation de haute qualité, méthodes de travail fiables et force de communication\n\n- La connaissance du français ou de l'italien est avantageuse\n\nCe que nous offrons\n\n- Conditions d'emploi : Horaires de travail très flexibles, parking gratuit, restaurant coop interne avec une gamme de prix haut de gamme, chambres modernes et lumineuses\n\n- Réductions : Réductions dans différents formats de coop, 5 fois le nombre de super points de coop, Jusqu'à 20% de réduction sur différents services d'assurance, Abonnements mobiles et prépayés à bas prix chez Coop Mobile, Reka Card: Réductions sur abonnement, réduction personnel également pour les partenaires: en (habitant dans le même ménage), réduction sur l'offre voyage ITS Coop Travel, CHF 650.- Bon pour l'achat d'un CFF GA\n\n- Formation : formation interne, soutien à l'éducation et à la formation externes, possibilités de développement\n\n- Communication & culture: culture DU dans toute l'entreprise, orientation vers des valeurs communes, application interne de communication avec les salariés\n\n- Assurance : Caisse de retraite : 2/3 est versée par Coop (base), divers plans d'épargne à la caisse de retraite, prestations d'assurance généreuses et super-obligatoires en cas d'accident et de maladie\n\n- Jours fériés : Au moins 25 jours de vacances ou selon GAV valide, si possible soutien pour des vacances non rémunérées\n\n- Santé : Mise à jour Fitness : CHF 200.- Réduction sur abonnement annuel, conseil social gratuit et anonyme 24/7\n\nVos contacts chez Fust\n\nBanu Vatansever\nPartenaire d'affaires RH\n\nSteven Vivre\nSpécialiste du recrutement"
       },
       "slugByLocale": {
         "it": "2nd-level-support-ingegnere-fust-otelfingen-zurich-gktcfr",
@@ -2792,8 +2801,7 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salaryMin": 79000,
-      "salaryMax": 134500,
-      "needsRetranslation": true
+      "salaryMax": 134500
     },
     {
       "id": "company-vcavfl",
@@ -7653,9 +7661,9 @@
       },
       "descriptionByLocale": {
         "de": "## Mitarbeiter:in Logistik\n\n**Jumbo, Division der Coop Genossenschaft** — Schwyz, Schwyz, Svizzera\n\n## Aufgaben\n- Die Regalpflege sowie das Einräumen der Lieferungen liegen in deiner Verantwortung.\n- Dank dir sind Ordnung und Sauberkeit auf der Verkaufsfläche garantiert.\n- Du packst die Ware aus und führst Zählungen sowie Qualitätskontrollen durch.\n\n## Anforderungen\n- Du bringst eine abgeschlossene Grundausbildung mit.\n- Deine Deutschkenntnisse sind gut – in Wort und Schrift.\n- Flexibilität hinsichtlich der Einsatzzeiten ist für dich selbstverständlich (Mo–Sa).\n- Teamarbeit bereitet dir Freude.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Nachhaltigkeit:\n- Kommunikation:\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nYves Sanarica\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Schwyz",
-        "it": "Aufgaben\n\n- Die Regalpflege sowie das Einräumen der Lieferungen liegen in deiner Verantwortung.\n\n- Dank dir sind Ordnung und Sauberkeit auf der Verkaufsfläche garantiert.\n\n- Du packst die Ware aus und führst Zählungen sowie Qualitätskontrollen durch.\n\nAnforderungen\n\n- Du bringst eine abgeschlossene Grundausbildung mit.\n\n- Deine Deutschkenntnisse sind gut – in Wort und Schrift.\n\n- Flexibilität hinsichtlich der Einsatzzeiten ist für dich selbstverständlich (Mo–Sa).\n\n- Teamarbeit bereitet dir Freude.\n\nWas wir bieten\n\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)\n\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr\n\n- Arbeitszeit: 5 Wochen Ferien\n\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n\n- Nachhaltigkeit:\n\n- Kommunikation:\n\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\nDeine Ansprechperson\nYves Sanarica\nHR Marketing",
-        "en": "Aufgaben\n\n- Die Regalpflege sowie das Einräumen der Lieferungen liegen in deiner Verantwortung.\n\n- Dank dir sind Ordnung und Sauberkeit auf der Verkaufsfläche garantiert.\n\n- Du packst die Ware aus und führst Zählungen sowie Qualitätskontrollen durch.\n\nAnforderungen\n\n- Du bringst eine abgeschlossene Grundausbildung mit.\n\n- Deine Deutschkenntnisse sind gut – in Wort und Schrift.\n\n- Flexibilität hinsichtlich der Einsatzzeiten ist für dich selbstverständlich (Mo–Sa).\n\n- Teamarbeit bereitet dir Freude.\n\nWas wir bieten\n\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)\n\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr\n\n- Arbeitszeit: 5 Wochen Ferien\n\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n\n- Nachhaltigkeit:\n\n- Kommunikation:\n\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\nDeine Ansprechperson\nYves Sanarica\nHR Marketing",
-        "fr": "Aufgaben\n\n- Die Regalpflege sowie das Einräumen der Lieferungen liegen in deiner Verantwortung.\n\n- Dank dir sind Ordnung und Sauberkeit auf der Verkaufsfläche garantiert.\n\n- Du packst die Ware aus und führst Zählungen sowie Qualitätskontrollen durch.\n\nAnforderungen\n\n- Du bringst eine abgeschlossene Grundausbildung mit.\n\n- Deine Deutschkenntnisse sind gut – in Wort und Schrift.\n\n- Flexibilität hinsichtlich der Einsatzzeiten ist für dich selbstverständlich (Mo–Sa).\n\n- Teamarbeit bereitet dir Freude.\n\nWas wir bieten\n\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)\n\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr\n\n- Arbeitszeit: 5 Wochen Ferien\n\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n\n- Nachhaltigkeit:\n\n- Kommunikation:\n\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\nDeine Ansprechperson\nYves Sanarica\nHR Marketing"
+        "it": "Compiti\n\n- La mensola e la fornitura delle consegne sono vostra responsabilità.\n\n- Grazie a voi, ordine e pulizia sono garantiti sul piano di vendita.\n\n- Si disfare le merci e effettuare conteggi e controlli di qualità.\n\nRequisiti\n\n- Porti un'istruzione di base completa.\n\n- La vostra conoscenza del tedesco è buona – nella parola e nella scrittura.\n\n- La flessibilità in termini di tempi di implementazione è una questione ovviamente per voi (Mo–Sa).\n\n- Il lavoro di squadra ti dà piacere.\n\nCosa offriamo\n\n- Sconti: Sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino al 20% di sconto su vari servizi assicurativi, fino al 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti più economici mobili e prepagati a Coop Mobile, Reka Card: sconto su abbonamento, sconto personale anche per i partner:in (vivere nella stessa famiglia)\n\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, contratto collettivo di lavoro (GAV), 18 settimane di congedo di maternità retribuito e 4 settimane di congedo di paternità retribuito, bonus di lealtà, piano di risparmio presso il fondo pensionistico, regime flessibile e attraente per la pensione anticipata dal 58 completato. Età anno\n\n- Ore lavorative: 5 week-end\n\n- Formazione: oltre 600 corsi di formazione interna, supporto per l'istruzione e la formazione esterna, gestione del talento con una vasta gamma di opportunità di sviluppo\n\n- Sostenibilità:\n\n- Comunicazione:\n\n- Salute: Aggiornamento Fitness: Fr. 200.– Sconto su abbonamento annuale\n\nLa persona di contatto\nYves Sanarica\nHR Marketing",
+        "en": "Tasks\n\n- The shelf care and the provision of the deliveries are your responsibility.\n\n- Thanks to you, order and cleanliness are guaranteed on the sales floor.\n\n- You unpack the goods and carry out counts and quality controls.\n\nRequirements\n\n- You bring a completed basic education.\n\n- Your knowledge of German is good – in word and writing.\n\n- Flexibility in terms of deployment times is a matter of course for you (Mo–Sa).\n\n- Teamwork gives you pleasure.\n\nWhat we offer\n\n- Discounts: Discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all formats of the Coop Group, cheaper mobile and prepaid subscriptions at Coop Mobile, Reka Card: discount on subscription, personnel discount also for partners:in (living in the same household)\n\n- Conditions of employment: Pension fund: 2/3 is paid by Coop, collective employment contract (GAV), 18 weeks paid maternity leave and 4 weeks paid paternity leave, loyalty bonuses, savings plan at the pension fund, flexible and attractive scheme for early retirement pension from the completed 58. Age year\n\n- Working hours: 5 weeks holidays\n\n- Training: More than 600 internal training courses, support for external education and training, talent management with a wide range of development opportunities\n\n- Sustainability:\n\n- Communication:\n\n- Health: Update Fitness: Fr. 200.– Discount on annual subscription\n\nYour contact person\nYves Sanarica\nHR Marketing",
+        "fr": "Tâches\n\n- Le soin des étagères et la fourniture des livraisons sont de votre responsabilité.\n\n- Grâce à vous, la commande et la propreté sont garanties sur le plancher de vente.\n\n- Vous déballez les marchandises et effectuez des comptages et des contrôles de qualité.\n\nExigences\n\n- Vous apportez une éducation de base complète.\n\n- Votre connaissance de l'allemand est bonne – en paroles et en écriture.\n\n- La flexibilité en termes de temps de déploiement est bien sûr une question pour vous (Mo–Sa).\n\n- Le travail d'équipe vous fait plaisir.\n\nCe que nous offrons\n\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers chez Coop Mobile, Reka Card: remise sur l'abonnement, rabais personnel également pour les partenaires:in (habitant dans le même ménage)\n\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, contrat de travail collectif (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de retraite, régime flexible et attrayant de retraite anticipée à partir de 58. Année\n\n- Heures de travail: 5 semaines de congés\n\n- Formation: plus de 600 cours de formation interne, soutien à l'éducation et à la formation externes, gestion des talents avec un large éventail de possibilités de développement\n\n- Durabilité :\n\n- Communication:\n\n- Santé : Mise à jour de la condition physique : 200.– Réduction sur abonnement annuel\n\nVotre personne à contacter\nYves Sanarica\nMarketing des ressources humaines"
       },
       "slugByLocale": {
         "it": "addetto-a-alla-logistica-jumbo-schwyz",
@@ -9676,7 +9684,8 @@
           "kommissionierer-in-coop-genossenschaft-schafisheim-aargau-92z0a4",
           "picker-d-ordine-in-coop-genossenschaft-schafisheim-aargau",
           "kommissionierer-in-coop-genossenschaft-schafisheim-aargau",
-          "commissionista-coop-genossenschaft-schafisheim"
+          "commissionista-coop-genossenschaft-schafisheim",
+          "addetto-al-picking-coop-genossenschaft-schafisheim"
         ],
         "en": [
           "kommissionierer-in-coop-genossenschaft-schafisheim-aargau-92z0a4",
@@ -9699,7 +9708,8 @@
         "commissionista-coop-genossenschaft-schafisheim",
         "order-picker-coop-genossenschaft-schafisheim",
         "preparateur-de-commandes-coop-genossenschaft-schafisheim",
-        "preparateur-de-commandes-coop-genossenschaft-schafisheim-aargau"
+        "preparateur-de-commandes-coop-genossenschaft-schafisheim-aargau",
+        "addetto-al-picking-coop-genossenschaft-schafisheim"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000
@@ -9771,7 +9781,8 @@
           "kochin-koch-m-w-d-coop-genossenschaft-kriens-luzern-172wz6",
           "chef-chef-m-f-d-coop-genossenschaft-kriens-luzern",
           "kochin-koch-m-w-d-coop-genossenschaft-kriens-luzern",
-          "cuoca-cuoco-f-m-d-coop-genossenschaft-kriens"
+          "cuoca-cuoco-f-m-d-coop-genossenschaft-kriens",
+          "cuoca-cuoco-m-w-d-coop-genossenschaft-kriens-luzern"
         ],
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-kriens-luzern-172wz6",
@@ -9791,7 +9802,8 @@
         "kochin-koch-m-w-d-coop-genossenschaft-kriens-luzern",
         "cuoca-cuoco-f-m-d-coop-genossenschaft-kriens",
         "cuisiniere-cuisinier-f-m-d-coop-genossenschaft-kriens",
-        "cuisinier-cuisiniere-m-w-d-coop-genossenschaft-kriens-luzern"
+        "cuisinier-cuisiniere-m-w-d-coop-genossenschaft-kriens-luzern",
+        "cuoca-cuoco-m-w-d-coop-genossenschaft-kriens-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -10726,7 +10738,8 @@
           "kochin-koch-m-w-d-coop-genossenschaft-seewen-schwyz-yjd50j",
           "chef-chef-m-f-d-coop-genossenschaft-seewen-schwyz",
           "kochin-koch-m-w-d-coop-genossenschaft-seewen-schwyz",
-          "cuoca-cuoco-coop-genossenschaft-seewen"
+          "cuoca-cuoco-coop-genossenschaft-seewen",
+          "cuoca-cuoco-donna-uomo-altro-coop-genossenschaft-seewen-schwyz"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-genossenschaft-seewen-schwyz-yjd50j",
@@ -10746,7 +10759,8 @@
         "kochin-koch-m-w-d-coop-genossenschaft-seewen-schwyz",
         "cuoca-cuoco-coop-genossenschaft-seewen",
         "cuisinier-cuisiniere-coop-genossenschaft-seewen",
-        "cuisinier-cuisiniere-h-f-autre-coop-genossenschaft-seewen-schwyz"
+        "cuisinier-cuisiniere-h-f-autre-coop-genossenschaft-seewen-schwyz",
+        "cuoca-cuoco-donna-uomo-altro-coop-genossenschaft-seewen-schwyz"
       ],
       "needsRetranslation": true
     },
@@ -12676,7 +12690,8 @@
           "ladendetektiv-in-coop-schafisheim-aargau-6xv2hw",
           "ladendetektiv-in-coop-schafisheim-aargau",
           "ladendetektiv-in-coop-genossenschaft-schafisheim-aargau",
-          "addetto-a-alla-sorveglianza-negozi-coop-genossenschaft-schafisheim"
+          "addetto-a-alla-sorveglianza-negozi-coop-genossenschaft-schafisheim",
+          "addetto-a-alla-sorveglianza-negozi-coop-genossenschaft-schafisheim-aargau"
         ],
         "en": [
           "ladendetektiv-in-coop-schafisheim-aargau-6xv2hw"
@@ -12691,7 +12706,8 @@
         "ladendetektiv-in-coop-schafisheim-aargau",
         "ladendetektiv-in-coop-genossenschaft-schafisheim-aargau",
         "addetto-a-alla-sorveglianza-negozi-coop-genossenschaft-schafisheim",
-        "detective-magasin-coop-genossenschaft-schafisheim-aargau"
+        "detective-magasin-coop-genossenschaft-schafisheim-aargau",
+        "addetto-a-alla-sorveglianza-negozi-coop-genossenschaft-schafisheim-aargau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -15317,7 +15333,8 @@
         "it": [
           "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau",
           "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau-0pl416",
-          "cuoca-cuoco-m-w-d-coop-genossenschaft-oftringen"
+          "cuoca-cuoco-m-w-d-coop-genossenschaft-oftringen",
+          "cuoca-cuoco-m-w-d-coop-genossenschaft-oftringen-aargau"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau",
@@ -15333,7 +15350,8 @@
         "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau",
         "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau-0pl416",
         "cuoca-cuoco-m-w-d-coop-genossenschaft-oftringen",
-        "cuisiniere-cuisinier-m-w-d-coop-genossenschaft-oftringen-aargau"
+        "cuisiniere-cuisinier-m-w-d-coop-genossenschaft-oftringen-aargau",
+        "cuoca-cuoco-m-w-d-coop-genossenschaft-oftringen-aargau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -15569,7 +15587,8 @@
         "it": [
           "kommissionierer-in-coop-genossenschaft-bern",
           "kommissionierer-in-coop-genossenschaft-bern-xs2tsd",
-          "kommissionierer-in-coop-bern"
+          "kommissionierer-in-coop-bern",
+          "addetto-a-al-picking-coop-genossenschaft-bern"
         ],
         "en": [
           "kommissionierer-in-coop-genossenschaft-bern-xs2tsd",
@@ -15589,7 +15608,8 @@
         "kommissionierer-in-coop-bern",
         "order-picker-in-coop-genossenschaft-bern-65fc45",
         "kommissionierer-in-coop-bern-xs2tsd",
-        "commandeur-in-coop-genossenschaft-bern-65fc45"
+        "commandeur-in-coop-genossenschaft-bern-65fc45",
+        "addetto-a-al-picking-coop-genossenschaft-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -18043,8 +18063,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "addetto-a-alle-vendite-food-coop-genossenschaft-winterthur",
-          "commesso-a-alimentari-coop-genossenschaft-bellach",
           "food-sales-assistant-coop-genossenschaft-andermatt",
           "food-sales-assistant-coop-genossenschaft-andermatt-096451",
           "food-sales-assistant-coop-genossenschaft-dietikon",
@@ -18062,7 +18080,9 @@
           "venditore-in-food-coop-genossenschaft-winterthur-zurich",
           "verkaufer-in-food-coop-winterthur-zurich",
           "addetto-a-alla-vendita-food-coop-genossenschaft-menzingen",
-          "addetto-a-alla-vendita-food-coop-genossenschaft-seuzach"
+          "addetto-a-alla-vendita-food-coop-genossenschaft-seuzach",
+          "vendeur-in-coop-genossenschaft-winterthur",
+          "addetto-a-alla-vendita-food-coop-genossenschaft-suhr"
         ],
         "en": [
           "verkaufer-in-food-coop-genossenschaft-winterthur-zurich-kmw0i5",
@@ -18319,7 +18339,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "addetto-a-alle-vendite-di-prodotti-freschi-coop-genossenschaft-murten",
           "addetto-a-alle-vendite-prodotti-freschi-coop-genossenschaft-niederrohrdorf",
           "addetto-a-vendite-prodotti-freschi-coop-genossenschaft-engelberg",
           "addetto-a-vendite-prodotti-freschi-coop-genossenschaft-pfaffikon",
@@ -18338,7 +18357,8 @@
           "vendeur-se-produits-frais-coop-genossenschaft-zurich-sysm6p",
           "addetto-alle-vendite-prodotti-freschi-coop-genossenschaft-alpnach",
           "addetto-alle-vendite-prodotti-freschi-coop-genossenschaft-bettlach",
-          "addetto-a-alle-vendite-di-prodotti-freschi-coop-genossenschaft-engelberg"
+          "addetto-a-alle-vendite-di-prodotti-freschi-coop-genossenschaft-engelberg",
+          "addetto-a-alle-vendite-di-prodotti-freschi-coop-genossenschaft-kleinandelfingen"
         ],
         "en": [
           "verkaufer-in-frischprodukte-coop-genossenschaft-zurich-57i3h4",
@@ -18729,7 +18749,8 @@
           "sales-consultant-coop-genossenschaft-winterthur-nglq8d",
           "sales-consultant-in-coop-genossenschaft-winterthur",
           "consulente-commerciale-in-coop-genossenschaft-winterthur",
-          "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur"
+          "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur",
+          "venditore-a-coop-genossenschaft-winterthur-zurich"
         ],
         "en": [
           "verkaufsberater-in-coop-genossenschaft-winterthur-zurich-4x3rhq",
@@ -18750,7 +18771,8 @@
         "sales-consultant-in-coop-genossenschaft-winterthur",
         "consulente-commerciale-in-coop-genossenschaft-winterthur",
         "verkaufsberater-in-grossraum-zurich-coop-genossenschaft-winterthur",
-        "vendeur-vendeuse-coop-genossenschaft-winterthur-zurich"
+        "vendeur-vendeuse-coop-genossenschaft-winterthur-zurich",
+        "venditore-a-coop-genossenschaft-winterthur-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -21283,8 +21305,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "stv-gruppo-leader-in-produzione-panofina-coop-genossenschaft-schafisheim-aargau",
-          "leader-del-gruppo-in-turno-notturno-di-produzione-panofina-coop-genossenschaft-schafisheim",
           "chef-de-groupe-en-production-de-nuit-panofina-coop-genossenschaft-schafisheim-aargau",
           "gruppenleiter-in-produktion-nachtschicht-panofina-coop-genossenschaft-schafisheim-aargau",
           "group-leader-production-night-shift-panofina-coop-genossenschaft-schafisheim",
@@ -21302,7 +21322,9 @@
           "stv-gruppenleiter-in-produktion-panofina-coop-genossenschaft-schafisheim-aargau",
           "deputy-group-leader-production-panofina-coop-genossenschaft-schafisheim-w1h09l",
           "stv-gruppenleiter-in-produktion-panofina-coop-genossenschaft-schafisheim-aargau-mstpxv",
-          "stv-group-leader-in-pastry-sales-dough-panofina-coop-genossenschaft-schafisheim-aargau"
+          "stv-group-leader-in-pastry-sales-dough-panofina-coop-genossenschaft-schafisheim-aargau",
+          "stv-leader-del-gruppo-in-pasta-sfoglia-panofina-coop-genossenschaft-schafisheim-aargau",
+          "stv-chef-de-groupe-en-pate-a-pate-coop-genossenschaft-schafisheim-aargau"
         ],
         "en": [
           "stv-gruppenleiter-in-produktion-panofina-coop-genossenschaft-schafisheim-aargau-mstpxv",
@@ -21955,7 +21977,7 @@
       },
       "titleByLocale": {
         "it": "Cuoco/a Asiatico/a 80-100%",
-        "en": "Asia-Koch/Köchin 80-100%",
+        "en": "Asian cook/chef 80-100 %",
         "de": "Asia-Koch/Köchin 80-100%",
         "fr": "Cuisinier/ère Asiatique 80-100%"
       },
@@ -21999,8 +22021,7 @@
         "asia-koch-kochin-80-100-two-spice-ag-dietlikon"
       ],
       "salaryMin": 73500,
-      "salaryMax": 111500,
-      "needsRetranslation": true
+      "salaryMax": 111500
     },
     {
       "id": "company-8or41l",
@@ -23256,7 +23277,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-de-vente-textile-et-maison-coop-genossenschaft-st-gallen",
           "verkaufsberater-in-textil-e-haushalt-coop-city-st-gallen-sankt-gallen-c9vtsc",
           "consultant-en-ventes-textile-et-menager-coop-genossenschaft-st-gallen",
           "sales-consultant-textile-and-home-coop-genossenschaft-st-gallen",
@@ -23275,7 +23295,8 @@
           "verkaufsberater-in-coop-genossenschaft-st-gallen-sankt-gallen-4vd1hg",
           "verkaufsberater-in-textil-und-haushalt-coop-genossenschaft-st-gallen-sankt-gallen",
           "sales-consultant-in-textile-and-household-coop-genossenschaft-st-gallen-sankt-gallen",
-          "consultant-en-ventes-textile-coop-genossenschaft-st-gallen"
+          "consultant-en-ventes-textile-coop-genossenschaft-st-gallen",
+          "sales-consultant-textile-and-household-coop-genossenschaft-st-gallen"
         ],
         "en": [
           "verkaufsberater-in-coop-genossenschaft-st-gallen-sankt-gallen-9r4q30",
@@ -25532,7 +25553,8 @@
           "kochin-koch-m-w-d-coop-genossenschaft-chur-4j1lnt",
           "kochin-koch-m-w-d-coop-genossenschaft-chur-b9c935",
           "kochin-koch-w-m-d-coop-genossenschaft-chur-46pqaj",
-          "cuisiniere-en-poids-m-j-coop-genossenschaft-chur"
+          "cuisiniere-en-poids-m-j-coop-genossenschaft-chur",
+          "chef-m-w-d-coop-genossenschaft-chur-graubunden"
         ],
         "de": [
           "kochin-koch-m-w-d-coop-chur-graubunden-g9vlif"
@@ -25563,7 +25585,8 @@
         "kochin-koch-m-w-d-coop-genossenschaft-chur-b9c935",
         "kochin-koch-w-m-d-coop-genossenschaft-chur-46pqaj",
         "cuisiniere-en-poids-m-j-coop-genossenschaft-chur",
-        "cuisiniere-en-poids-m-j-coop-genossenschaft-chur-graubunden"
+        "cuisiniere-en-poids-m-j-coop-genossenschaft-chur-graubunden",
+        "chef-m-w-d-coop-genossenschaft-chur-graubunden"
       ]
     },
     {
@@ -27948,7 +27971,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "kiosk-salesperson-coop-genossenschaft-zurich",
           "kiosk-salesperson-coop-genossenschaft-zurich-v9hmee",
           "verkaufer-in-kiosk-coop-zurich-v9hmee",
           "vendeur-vendeuse-kiosque-coop-genossenschaft-zurich",
@@ -27967,7 +27989,8 @@
           "verkaufer-in-kiosk-coop-zurich-vkcw6q",
           "vendeur-euse-kiosk-coop-genossenschaft-zurich-vkcw6q",
           "verkaufer-a-kiosk-coop-genossenschaft-zurich-vkcw6q",
-          "verkaufer-in-kiosk-coop-genossenschaft-zurich-vkcw6q"
+          "verkaufer-in-kiosk-coop-genossenschaft-zurich-vkcw6q",
+          "venditore-food-to-go-coop-genossenschaft-st-gallen"
         ],
         "en": [
           "food-to-go-sales-associate-coop-genossenschaft-zurich-b2vbcd",
@@ -27975,10 +27998,12 @@
           "verkaufer-in-food-to-go-coop-genossenschaft-zurich-dazs6g",
           "food-to-go-sales-associate-coop-genossenschaft-zurich-b2vbcd",
           "food-to-go-sales-associate-coop-genossenschaft-zurich-b2vbcd",
-          "verkaufer-in-food-to-go-coop-genossenschaft-zurich-dazs6g"
+          "verkaufer-in-food-to-go-coop-genossenschaft-zurich-dazs6g",
+          "food-to-go-salesperson-coop-genossenschaft-st-gallen-jdrcm0"
         ],
         "de": [
-          "verkaufer-in-food-to-go-coop-genossenschaft-zurich-b2vbcd"
+          "verkaufer-in-food-to-go-coop-genossenschaft-zurich-b2vbcd",
+          "verkaufer-in-food-to-go-coop-genossenschaft-st-gallen-sankt-gallen-jdrcm0"
         ],
         "fr": [
           "vendeur-se-food-to-go-coop-genossenschaft-zurich-b2vbcd",
@@ -27986,7 +28011,8 @@
           "verkaufer-in-food-to-go-coop-genossenschaft-zurich-dazs6g",
           "vendeur-se-food-to-go-coop-genossenschaft-zurich-b2vbcd",
           "vendeur-se-food-to-go-coop-genossenschaft-zurich-b2vbcd",
-          "verkaufer-in-food-to-go-coop-genossenschaft-zurich-dazs6g"
+          "verkaufer-in-food-to-go-coop-genossenschaft-zurich-dazs6g",
+          "vendeur-food-to-go-coop-genossenschaft-st-gallen-jdrcm0"
         ]
       },
       "previousSlugs": [
@@ -28045,7 +28071,11 @@
         "vendeur-euse-kiosk-coop-genossenschaft-zurich",
         "sales-assistant-kiosk-coop-genossenschaft-zurich-855717",
         "vendeur-euse-kiosk-coop-genossenschaft-zurich-855717",
-        "sales-assistant-kiosk-coop-genossenschaft-zurich-v9hmee"
+        "sales-assistant-kiosk-coop-genossenschaft-zurich-v9hmee",
+        "venditore-food-to-go-coop-genossenschaft-st-gallen",
+        "food-to-go-salesperson-coop-genossenschaft-st-gallen-jdrcm0",
+        "verkaufer-in-food-to-go-coop-genossenschaft-st-gallen-sankt-gallen-jdrcm0",
+        "vendeur-food-to-go-coop-genossenschaft-st-gallen-jdrcm0"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -28253,7 +28283,8 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern"
+          "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
+          "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
         ],
         "en": [
           "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j"
@@ -28261,7 +28292,8 @@
       },
       "previousSlugs": [
         "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern",
-        "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j"
+        "facility-technician-m-w-d-bergquellfisch-frutigen-bern-4xmp5j",
+        "tecnico-di-facility-m-f-d-coop-genossenschaft-frutigen-bern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
