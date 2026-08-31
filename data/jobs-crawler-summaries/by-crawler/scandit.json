@@ -1,21 +1,58 @@
 {
   "key": "scandit",
   "label": "Scandit AG",
-  "generatedAt": "2026-08-31T07:35:55.140Z",
+  "generatedAt": "2026-08-31T10:04:42.711Z",
   "total": 2,
   "discovered": null,
   "written": 2,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 6190,
-  "avgDurationMs": 6190,
+  "unchangedCount": 1,
+  "durationMs": 6468,
+  "avgDurationMs": 6468,
   "durationHistory": [
-    6190
+    6468
   ],
   "newJobs": [],
   "updatedJobs": [
+    {
+      "id": "scandit-11d5976f7463",
+      "slug": "senior-computer-vision-engineer-action-recognition-scandit-ch",
+      "company": "Scandit AG",
+      "companyKey": "scandit",
+      "companyDomain": "scandit.com",
+      "title": "Senior Computer Vision Engineer (Action Recognition)",
+      "location": "Zurich",
+      "canton": "ZH",
+      "url": "https://www.scandit.com/careers/job-description/?gh_jid=7588975",
+      "source": "Scandit AG Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-31T10:04:36.627Z",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "IT",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-03",
+      "applyUrl": "https://www.scandit.com/careers/job-description/?gh_jid=7588975",
+      "firstSeenAt": "2026-07-03T23:25:08.449Z",
+      "_qualityScore": 71,
+      "_qualityBreakdown": {
+        "cleanliness": 12,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 14
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "scandit-fd9be409e48d",
       "slug": "senior-product-manager-shelfview-scandit-ch",
@@ -41,51 +78,19 @@
       "featured": false,
       "postedDate": "2026-07-29",
       "applyUrl": "https://www.scandit.com/careers/job-description/?gh_jid=8093936",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-29T11:51:58.923Z",
-      "_qualityScore": 74,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "addressRegion": "ZH",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 23,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "scandit-11d5976f7463",
-      "slug": "senior-computer-vision-engineer-action-recognition-scandit-ch",
-      "company": "Scandit AG",
-      "companyKey": "scandit",
-      "companyDomain": "scandit.com",
-      "title": "Senior Computer Vision Engineer (Action Recognition)",
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://www.scandit.com/careers/job-description/?gh_jid=7588975",
-      "source": "Scandit AG Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-31T07:35:49.436Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "IT",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-03",
-      "applyUrl": "https://www.scandit.com/careers/job-description/?gh_jid=7588975",
-      "firstSeenAt": "2026-07-03T23:25:08.449Z",
-      "_qualityScore": 71,
-      "_qualityBreakdown": {
-        "cleanliness": 12,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
+        "completeness": 19
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
