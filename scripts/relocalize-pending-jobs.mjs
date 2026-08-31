@@ -306,6 +306,20 @@ export function changedSlugsSince(snapshot, jobs, companyKey) {
 }
 
 /**
+ * Decide whether the per-company cascade loop should abort after a company
+ * failed, given how many companies failed in a row so far (including this
+ * one). A single/isolated failure returns false (continue to the next
+ * company); MAX_CONSECUTIVE_COMPANY_FAILURES in a row is treated as a
+ * systemic signal (e.g. AI quota exhausted on every tier) and returns true.
+ */
+export function shouldStopAfterConsecutiveFailures(
+  consecutiveFailures,
+  max = MAX_CONSECUTIVE_COMPANY_FAILURES,
+) {
+  return consecutiveFailures >= max;
+}
+
+/**
  * Check if a job has incomplete locale coverage.
  * Returns true if any locale is missing an adequate title or description.
  */
@@ -1254,7 +1268,7 @@ async function main() {
       consecutiveFailures++;
       console.error(`   ❌ ${key} failed: ${err.message}`);
       console.log(`   💾 Progress saved: ${totalFixed} jobs translated before failure`);
-      if (consecutiveFailures >= MAX_CONSECUTIVE_COMPANY_FAILURES) {
+      if (shouldStopAfterConsecutiveFailures(consecutiveFailures)) {
         // N failures in a row is a systemic signal (e.g. AI quota exhausted on
         // every tier) — stop to avoid burning more quota on companies that
         // would fail too. A single/isolated failure continues to the next
