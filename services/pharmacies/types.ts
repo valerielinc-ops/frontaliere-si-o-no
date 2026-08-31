@@ -130,6 +130,65 @@ export function validatePharmacySourceEntry(key: string, entry: unknown): string
   return errors;
 }
 
+const REQUIRED_PHARMACY_STRING_FIELDS: readonly (keyof Pharmacy)[] = [
+  'id',
+  'name',
+  'slug',
+  'address',
+  'postalCode',
+  'city',
+  'canton',
+  'country',
+  'sourceUrl',
+  'sourceType',
+  'lastVerifiedAt',
+];
+
+/**
+ * Validates a `Pharmacy` shape, returning the list of problems found (empty
+ * = valid). Deliberately permissive on unknown extra fields.
+ */
+export function validatePharmacy(index: number | string, entry: unknown): string[] {
+  const errors: string[] = [];
+  if (typeof entry !== 'object' || entry === null || Array.isArray(entry)) {
+    return [`pharmacy[${index}]: entry is not an object`];
+  }
+  const e = entry as Record<string, unknown>;
+
+  for (const field of REQUIRED_PHARMACY_STRING_FIELDS) {
+    if (typeof e[field] !== 'string' || (e[field] as string).trim() === '') {
+      errors.push(`pharmacy[${index}]: missing or empty required field "${field}"`);
+    }
+  }
+
+  if (typeof e.country === 'string' && e.country !== 'CH') {
+    errors.push(`pharmacy[${index}]: invalid country "${e.country}" (expected "CH")`);
+  }
+
+  return errors;
+}
+
+/**
+ * Validates a full list of `Pharmacy` records, returning the list of
+ * problems found across every entry (empty = valid).
+ */
+export function validatePharmacyList(pharmacies: unknown): string[] {
+  if (!Array.isArray(pharmacies)) {
+    return ['pharmacies: expected an array'];
+  }
+  const errors: string[] = [];
+  const seenIds = new Set<string>();
+  pharmacies.forEach((entry, index) => {
+    errors.push(...validatePharmacy(index, entry));
+    const id = (entry as Record<string, unknown> | null)?.id;
+    if (typeof id === 'string' && id) {
+      if (seenIds.has(id)) errors.push(`pharmacy[${index}]: duplicate id "${id}"`);
+      seenIds.add(id);
+    }
+  });
+  return errors;
+}
+
 /**
  * Validates a full `PharmacySourcesRegistry` file, returning the list of
  * problems found across every entry (empty = valid).
