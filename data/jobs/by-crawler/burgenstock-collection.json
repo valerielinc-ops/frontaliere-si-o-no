@@ -1,6 +1,6 @@
 {
   "crawlerKey": "burgenstock-collection",
-  "assembledAt": "2026-08-28T05:27:33.499Z",
+  "assembledAt": "2026-08-31T17:16:01.885Z",
   "jobs": [
     {
       "id": "burgenstock-collection-1fbeb32f2253",
@@ -18,7 +18,7 @@
       "titleByLocale": {
         "it": "Persischer Spezialitäten Koch 100% (m/w/i)",
         "en": "Persischer Spezialitäten Koch 100% (m/w/i)",
-        "de": "Persische Spezialitäten Koch 100% (m/w/i)",
+        "de": "Persischer Spezialitäten Koch 100% (m/w/i)",
         "fr": "Persischer Spezialitäten Koch 100% (m/w/i)"
       },
       "description": "Persischer Spezialitäten Koch 100% (m/w/i) — Bürgenstock Collection",
@@ -30,7 +30,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1563/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-28T05:27:29.713Z",
+      "crawledAt": "2026-08-31T17:15:59.119Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -47,19 +47,24 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "persischer-spezialitaten-koch-100-m-w-i-burgenstock-collection-ch"
+          "persischer-spezialitaten-koch-100-m-w-i-burgenstock-collection-ch",
+          "persischer-spezialitaten-koch-100-m-w-i-buergenstock-hotels-obburgen"
         ],
         "it": [
-          "persischer-spezialitaten-koch-100-m-w-i-burgenstock-collection-ch"
+          "persischer-spezialitaten-koch-100-m-w-i-burgenstock-collection-ch",
+          "le-specialita-persiane-cucinano-100-m-f-i-burgenstock-hotels-ag-obburgen"
         ]
       },
       "previousSlugs": [
-        "persischer-spezialitaten-koch-100-m-w-i-burgenstock-collection-ch"
+        "persischer-spezialitaten-koch-100-m-w-i-burgenstock-collection-ch",
+        "persischer-spezialitaten-koch-100-m-w-i-buergenstock-hotels-obburgen",
+        "le-specialita-persiane-cucinano-100-m-f-i-burgenstock-hotels-ag-obburgen"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-27T00:46:01.219Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -86,7 +91,7 @@
       "companyDomain": "recruitingapp-2850.umantis.com",
       "title": "Demi Chef de Partie im Bürgenstock Resort 100% (w/m/i)",
       "titleByLocale": {
-        "it": "Mezza testata del Party im Bürgenstock Resort 100% (w/m/i)",
+        "it": "Demi Chef de Partie im Bürgenstock Resort 100% (w/m/i)",
         "en": "Half Head of Party im Bürgenstock Resort 100% (w/m/i)",
         "de": "Halbe Leiterin Party im Bürgenstock Resort 100% (w/m/i)",
         "fr": "Demi Chef de Partie im Bürgenstock Resort 100% (w/m/i)"
@@ -100,7 +105,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1562/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:27:29.409Z",
+      "crawledAt": "2026-08-31T17:15:58.817Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -115,32 +120,35 @@
       "applyUrl": "https://recruitingapp-2850.umantis.com/Vacancies/1562/Description/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-26T10:07:56.809Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
+      "previousSlugs": [
+        "demi-chef-de-partie-im-burgenstock-resort-100-w-m-i-burgenstock-collection-ch",
+        "mezza-testata-del-party-im-burgenstock-resort-100-w-m-i-burgenstock-collection-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "demi-chef-de-partie-im-burgenstock-resort-100-w-m-i-burgenstock-collection-ch"
+          "demi-chef-de-partie-im-burgenstock-resort-100-w-m-i-burgenstock-collection-ch",
+          "mezza-testata-del-party-im-burgenstock-resort-100-w-m-i-burgenstock-collection-lugano"
         ],
         "en": [
           "demi-chef-de-partie-im-burgenstock-resort-100-w-m-i-burgenstock-collection-ch"
         ]
       },
-      "previousSlugs": [
-        "demi-chef-de-partie-im-burgenstock-resort-100-w-m-i-burgenstock-collection-ch"
-      ]
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-26T10:07:56.809Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI"
     },
     {
       "id": "burgenstock-collection-9c944e2fa95f",
@@ -170,7 +178,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1566/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:27:29.105Z",
+      "crawledAt": "2026-08-31T17:15:58.514Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -187,19 +195,24 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "mitarbeiter-gebaudeunterhalt-100-m-w-i-burgenstock-collection-ch"
+          "mitarbeiter-gebaudeunterhalt-100-m-w-i-burgenstock-collection-ch",
+          "mitarbeiter-gebaudeunterhalt-100-m-w-i-buergenstock-hotels-obburgen"
         ],
         "it": [
-          "mitarbeiter-gebaudeunterhalt-100-m-w-i-burgenstock-collection-ch"
+          "mitarbeiter-gebaudeunterhalt-100-m-w-i-burgenstock-collection-ch",
+          "collaboratore-trice-gebaudeunterhalt-100-m-w-i-burgenstock-hotels-ag-obburgen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-gebaudeunterhalt-100-m-w-i-burgenstock-collection-ch"
+        "mitarbeiter-gebaudeunterhalt-100-m-w-i-burgenstock-collection-ch",
+        "mitarbeiter-gebaudeunterhalt-100-m-w-i-buergenstock-hotels-obburgen",
+        "collaboratore-trice-gebaudeunterhalt-100-m-w-i-burgenstock-hotels-ag-obburgen"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T21:38:23.295Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -240,7 +253,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1564/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:27:28.801Z",
+      "crawledAt": "2026-08-31T17:15:58.210Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -257,14 +270,16 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "f-b-supervisor-100-w-m-i-burgenstock-collection-ch"
+          "f-b-supervisor-100-w-m-i-burgenstock-collection-ch",
+          "f-b-supervisor-100-w-m-i-buergenstock-hotels-obburgen"
         ],
         "it": [
           "f-b-supervisor-100-w-m-i-burgenstock-collection-ch",
           "f-b-supervisor-100-m-f-d-burgenstock-hotels-ag-obburgen",
           "f-b-supervisor-zu-100-w-m-i-burgenstock-hotels-ag-obburgen",
           "superviseur-de-chambre-100-w-m-i-burgenstock-hotels-ag-obburgen",
-          "superviseur-f-b-100-h-f-d-burgenstock-hotels-ag-obburgen"
+          "superviseur-f-b-100-h-f-d-burgenstock-hotels-ag-obburgen",
+          "f-b-supervisor-100-w-m-i-burgenstock-hotels-ag-obburgen"
         ]
       },
       "previousSlugs": [
@@ -272,12 +287,15 @@
         "f-b-supervisor-100-m-f-d-burgenstock-hotels-ag-obburgen",
         "f-b-supervisor-zu-100-w-m-i-burgenstock-hotels-ag-obburgen",
         "superviseur-de-chambre-100-w-m-i-burgenstock-hotels-ag-obburgen",
-        "superviseur-f-b-100-h-f-d-burgenstock-hotels-ag-obburgen"
+        "superviseur-f-b-100-h-f-d-burgenstock-hotels-ag-obburgen",
+        "f-b-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
+        "f-b-supervisor-100-w-m-i-burgenstock-hotels-ag-obburgen"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T21:38:22.689Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -318,7 +336,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1482/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:27:28.499Z",
+      "crawledAt": "2026-08-31T17:15:57.908Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -335,19 +353,24 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "head-sommelier-100-w-m-i-burgenstock-collection-ch"
+          "head-sommelier-100-w-m-i-burgenstock-collection-ch",
+          "head-sommelier-100-w-m-i-buergenstock-hotels-obburgen"
         ],
         "it": [
-          "head-sommelier-100-w-m-i-burgenstock-collection-ch"
+          "head-sommelier-100-w-m-i-burgenstock-collection-ch",
+          "sommelier-capo-100-w-m-i-burgenstock-hotels-ag-obburgen"
         ]
       },
       "previousSlugs": [
-        "head-sommelier-100-w-m-i-burgenstock-collection-ch"
+        "head-sommelier-100-w-m-i-burgenstock-collection-ch",
+        "head-sommelier-100-w-m-i-buergenstock-hotels-obburgen",
+        "sommelier-capo-100-w-m-i-burgenstock-hotels-ag-obburgen"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T21:38:22.386Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -388,7 +411,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1521/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:27:28.196Z",
+      "crawledAt": "2026-08-31T17:15:57.605Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -405,19 +428,24 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "sommelier-100-w-m-i-burgenstock-collection-ch"
+          "sommelier-100-w-m-i-burgenstock-collection-ch",
+          "sommelier-100-m-w-i-buergenstock-hotels-obburgen"
         ],
         "it": [
-          "sommelier-100-w-m-i-burgenstock-collection-ch"
+          "sommelier-100-w-m-i-burgenstock-collection-ch",
+          "sommelier-100-m-w-i-burgenstock-hotels-ag-obburgen"
         ]
       },
       "previousSlugs": [
-        "sommelier-100-w-m-i-burgenstock-collection-ch"
+        "sommelier-100-w-m-i-burgenstock-collection-ch",
+        "sommelier-100-m-w-i-buergenstock-hotels-obburgen",
+        "sommelier-100-m-w-i-burgenstock-hotels-ag-obburgen"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T21:38:22.083Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -458,7 +486,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1512/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:27:27.894Z",
+      "crawledAt": "2026-08-31T17:15:57.303Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -477,6 +505,7 @@
       "firstSeenAt": "2026-08-23T21:38:21.780Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -487,7 +516,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "previousSlugsByLocale": {
+        "fr": [
+          "assistant-manager-banquets-100-h-f-i-burgenstock-hotels-ag-obburgen"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-manager-banquets-100-h-f-i-burgenstock-hotels-ag-obburgen"
+      ]
     },
     {
       "id": "burgenstock-collection-ae532c990a52",
@@ -517,7 +554,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1492/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:27:27.591Z",
+      "crawledAt": "2026-08-31T17:15:56.999Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -534,19 +571,24 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "bankett-supervisor-100-w-m-i-burgenstock-collection-ch"
+          "bankett-supervisor-100-w-m-i-burgenstock-collection-ch",
+          "bankett-supervisor-100-w-m-i-buergenstock-hotels-obburgen"
         ],
         "it": [
-          "bankett-supervisor-100-w-m-i-burgenstock-collection-ch"
+          "bankett-supervisor-100-w-m-i-burgenstock-collection-ch",
+          "supervisore-banquet-100-f-m-i-burgenstock-hotels-ag-obburgen"
         ]
       },
       "previousSlugs": [
-        "bankett-supervisor-100-w-m-i-burgenstock-collection-ch"
+        "bankett-supervisor-100-w-m-i-burgenstock-collection-ch",
+        "bankett-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
+        "supervisore-banquet-100-f-m-i-burgenstock-hotels-ag-obburgen"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T21:38:21.478Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -587,7 +629,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1438/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:27:27.288Z",
+      "crawledAt": "2026-08-31T17:15:56.696Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -604,19 +646,24 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "assistant-restaurant-manager-100-w-m-i-burgenstock-collection-ch"
+          "assistant-restaurant-manager-100-w-m-i-burgenstock-collection-ch",
+          "chef-de-restaurant-adjoint-100-f-m-i-burgenstock-hotels-ag-obburgen"
         ],
         "it": [
-          "assistant-restaurant-manager-100-w-m-i-burgenstock-collection-ch"
+          "assistant-restaurant-manager-100-w-m-i-burgenstock-collection-ch",
+          "assistente-manager-ristorante-100-w-m-i-burgenstock-hotels-ag-obburgen"
         ]
       },
       "previousSlugs": [
-        "assistant-restaurant-manager-100-w-m-i-burgenstock-collection-ch"
+        "assistant-restaurant-manager-100-w-m-i-burgenstock-collection-ch",
+        "chef-de-restaurant-adjoint-100-f-m-i-burgenstock-hotels-ag-obburgen",
+        "assistente-manager-ristorante-100-w-m-i-burgenstock-hotels-ag-obburgen"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T21:38:20.873Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -657,7 +704,7 @@
       "url": "https://recruitingapp-2850.umantis.com/Vacancies/1560/Description/1",
       "source": "Bürgenstock Collection Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:27:26.970Z",
+      "crawledAt": "2026-08-31T17:15:56.378Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -674,19 +721,24 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "aushilfe-f-b-service-40-60-m-w-d-stundenlohn-burgenstock-collection-ch"
+          "aushilfe-f-b-service-40-60-m-w-d-stundenlohn-burgenstock-collection-ch",
+          "aushilfe-f-b-service-40-60-m-w-d-stundenlohn-buergenstock-hotels-obburgen"
         ],
         "it": [
-          "aushilfe-f-b-service-40-60-m-w-d-stundenlohn-burgenstock-collection-ch"
+          "aushilfe-f-b-service-40-60-m-w-d-stundenlohn-burgenstock-collection-ch",
+          "f-b-service-40-60-m-f-d-salario-orario-burgenstock-hotels-ag-obburgen"
         ]
       },
       "previousSlugs": [
-        "aushilfe-f-b-service-40-60-m-w-d-stundenlohn-burgenstock-collection-ch"
+        "aushilfe-f-b-service-40-60-m-w-d-stundenlohn-burgenstock-collection-ch",
+        "aushilfe-f-b-service-40-60-m-w-d-stundenlohn-buergenstock-hotels-obburgen",
+        "f-b-service-40-60-m-f-d-salario-orario-burgenstock-hotels-ag-obburgen"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T21:38:20.549Z",
       "salaryMin": 29700,
       "salaryMax": 45000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
