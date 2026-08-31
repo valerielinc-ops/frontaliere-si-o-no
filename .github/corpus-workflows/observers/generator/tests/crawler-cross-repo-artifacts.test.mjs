@@ -55,6 +55,26 @@ test('ogni artifact coincide con lo hash emesso dal generatore del sito', () => 
   }
 });
 
+test('le installazioni standalone usano il retry site-owned', () => {
+  assert.ok(CONTRACT.siteRuntimePaths.includes('scripts/ci/crawler-retry-cmd.sh'));
+  for (const artifact of CONTRACT.artifacts) {
+    const text = readFileSync(path.join(WORKFLOWS, artifact.file), 'utf8');
+    const lines = text.split('\n');
+    assert.deepEqual(
+      lines.filter((line) => /^\s*(run:\s*)?npm ci\b/.test(line)),
+      [],
+      `${artifact.file}: npm ci senza retry`,
+    );
+    assert.deepEqual(
+      lines.filter((line) =>
+        !/^\s*#/.test(line.trim()) && /(^|[\s;&|])npx\s/.test(line) &&
+        !line.includes('crawler-retry-cmd.sh')),
+      [],
+      `${artifact.file}: npx senza retry`,
+    );
+  }
+});
+
 test('loop-drift osserva live i 24 artifact portabili e il contratto del generatore', () => {
   const entries = new Map(
     LOOP_MANIFEST.files.map((entry) => [entry.path, entry]),

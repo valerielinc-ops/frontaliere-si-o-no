@@ -1119,6 +1119,30 @@ describe('cross-repo crawler execution artifacts', () => {
     }
   });
 
+  it('avvolge tutte le installazioni standalone nei retry site-owned', () => {
+    const { contract, outDir } = generateArtifacts();
+    expect(contract.siteRuntimePaths).toContain('scripts/ci/crawler-retry-cmd.sh');
+
+    for (const artifact of contract.artifacts) {
+      const text = fs.readFileSync(path.join(outDir, artifact.file), 'utf8');
+      const lines = text.split('\n');
+      expect(lines.filter((line) => /^\s*(run:\s*)?npm ci\b/.test(line)), artifact.file)
+        .toEqual([]);
+      expect(lines.filter((line) => (
+        !/^\s*#/.test(line.trim()) && /(^|[\s;&|])npx\s/.test(line) &&
+        !line.includes('crawler-retry-cmd.sh')
+      )), artifact.file).toEqual([]);
+      expect(text, artifact.file)
+        .toMatch(/run: bash scripts\/ci\/crawler-retry-cmd\.sh npm ci(?: --ignore-scripts)?/);
+
+      if (text.includes('playwright install --with-deps chromium')) {
+        expect(text, artifact.file).toContain(
+          'run: bash scripts/ci/crawler-retry-cmd.sh npx playwright install --with-deps chromium',
+        );
+      }
+    }
+  });
+
   it('ritenta soltanto il checkout sparse, con backoff prima di qualunque logica', () => {
     const { contract, outDir } = generateArtifacts();
     expect(contract.checkout).toMatchObject({
