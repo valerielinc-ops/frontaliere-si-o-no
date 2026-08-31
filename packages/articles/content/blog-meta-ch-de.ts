@@ -4807,6 +4807,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-formazione-grigioni.title': 'Lehre und Berufsausbildung in Graubünden: Kompletter Leitfaden',
     'blog.article.apprendistato-formazione-grigioni.excerpt': 'Duales Schulbetriebsmodell in Graubünden: Lehrvertrag, Jahreslohn, Berufsmaturität und Lebenshaltungskosten für den Lernenden.',
     'blog.article.apprendistato-formazione-grigioni.imageAlt': 'Lehrling bei der Arbeit in einem Ausbildungsbetrieb in Graubünden',
+    'blog.article.parmelin-siccita-prestiti-agricoltura-2025.title': 'Dürre 2025: 54 Millionen in Krediten an landwirtschaftliche Betriebe',
+    'blog.article.parmelin-siccita-prestiti-agricoltura-2025.excerpt': 'Parmelin verteidigt die Wahl von zinslosen Krediten anstelle von nicht rückzahlbaren Beihilfen: Ohne gesetzliche Grundlagen ist es unmöglich, das COVID-Modell zu wiederholen.',
+    'blog.article.parmelin-siccita-prestiti-agricoltura-2025.imageAlt': 'Trockene Schweizer Felder im Sommer 2025 mit Huegeln und Alpen im Hintergrund',
 };
 
 export default blogMetaChDe;

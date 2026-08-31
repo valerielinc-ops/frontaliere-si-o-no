@@ -4807,6 +4807,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-formazione-grigioni.title': 'Apprentissage et formation professionnelle dans les Grisons : guide complet',
     'blog.article.apprendistato-formazione-grigioni.excerpt': 'Modèle dual école-entreprise dans les Grisons : contrat de stage, rémunération à l\'année, maturité professionnelle et coût de la vie pour l\'apprenti.',
     'blog.article.apprendistato-formazione-grigioni.imageAlt': 'Apprenti travaillant dans une entreprise formatrice aux Grisons',
+    'blog.article.parmelin-siccita-prestiti-agricoltura-2025.title': 'Sécheresse 2025: 54 millions en prêts aux exploitations agricoles',
+    'blog.article.parmelin-siccita-prestiti-agricoltura-2025.excerpt': 'Parmelin défend le choix des prêts sans intérêt plutôt que des aides à fonds perdu : sans base légale, impossible de répéter le modèle Covid.',
+    'blog.article.parmelin-siccita-prestiti-agricoltura-2025.imageAlt': 'Champs agricoles suisses secs durant l\'ete 2025 avec collines et Alpes en arriere-plan',
 };
 
 export default blogMetaChFr;

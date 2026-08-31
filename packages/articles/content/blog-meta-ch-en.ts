@@ -4807,6 +4807,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-formazione-grigioni.title': 'Apprenticeship and vocational training in Graubünden: a complete guide',
     'blog.article.apprendistato-formazione-grigioni.excerpt': 'Dual school-company model in the Graubünden: internship contract, salary per year, professional maturity and living costs for the apprentice.',
     'blog.article.apprendistato-formazione-grigioni.imageAlt': 'Apprentice working in a training company in Graubünden',
+    'blog.article.parmelin-siccita-prestiti-agricoltura-2025.title': 'Drought 2025: 54 million in loans to farms',
+    'blog.article.parmelin-siccita-prestiti-agricoltura-2025.excerpt': 'Parmelin defends the choice of interest-free loans instead of non-repayable aid: without legal bases, it is impossible to repeat the Covid model.',
+    'blog.article.parmelin-siccita-prestiti-agricoltura-2025.imageAlt': 'Dry Swiss farmland during summer 2025 with rolling hills and Alps in the background',
 };
 
 export default blogMetaChEn;
