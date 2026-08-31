@@ -45,7 +45,7 @@ function normalizeKnownIpersonalLocalities(html = '') {
   // title/description, but give the strict geography gate its canonical
   // municipality so this real Swiss vacancy is not discarded.
   return String(html).replace(
-    /("addressLocality"\s*:\s*")Z(?:ü|u00fc)berwangen("[\s\S]{0,180}?"postalCode"\s*:\s*"9523")/gi,
+    /("addressLocality"\s*:\s*")Z(?:ü|\\u00fc)berwangen("[\s\S]{0,180}?"postalCode"\s*:\s*"9523")/gi,
     '$1Zuzwil SG$2',
   ).replace(
     /("addressLocality"\s*:\s*"Heiden"[\s\S]{0,180}?"addressRegion"\s*:\s*")Appenzell Ausserrhoden(")/gi,
@@ -82,6 +82,8 @@ export function extractIpersonalDescription(html = '') {
   // The shared stripper preserves real <li> elements. MediPersonal's older
   // posts instead use a typographic arrow inside paragraphs; normalize both
   // representations to the same source-backed bullet contract.
+  // Older MediPersonal posts contain entities escaped twice (`&amp;ouml;`).
+  // Two bounded passes decode those to text without touching arbitrary markup.
   const decoded = decodeEntities(decodeEntities(stripHtml(detail.innerHTML)))
     .replace(/\s*›\s*/g, '\n• ');
   const description = decoded

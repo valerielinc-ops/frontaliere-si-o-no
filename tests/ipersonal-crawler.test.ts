@@ -68,8 +68,7 @@ describe('iPersonal AG crawler parser', () => {
             status: 200, headers: { 'Content-Type': 'text/html' },
           });
         }
-        return new Response(`
-          <script type="application/ld+json">${JSON.stringify({
+        const escapedLocalitySchema = JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'JobPosting',
             title: 'Pflegefachperson Zürich',
@@ -77,9 +76,14 @@ describe('iPersonal AG crawler parser', () => {
             description: 'Eine langfristige Aufgabe in einem professionellen Team mit persönlicher Begleitung und klarer fachlicher Verantwortung im Pflegealltag.',
             jobLocation: {
               '@type': 'Place',
-              address: { '@type': 'PostalAddress', addressLocality: 'Zürich', addressRegion: 'ZH', addressCountry: 'CH' },
+              address: {
+                '@type': 'PostalAddress', addressLocality: 'Züberwangen', addressRegion: 'St. Gallen',
+                addressCountry: 'CH', postalCode: '9523',
+              },
             },
-          })}</script>
+          }).replace('Züberwangen', 'Z\\u00fcberwangen');
+        return new Response(`
+          <script type="application/ld+json">${escapedLocalitySchema}</script>
           <section class="job-profile-section"><div id="Jobdetails">
             <p>Eine langfristige Aufgabe in einem professionellen Team mit persönlicher Begleitung und klarer fachlicher Verantwortung im Pflegealltag.</p>
             <h3>Deine Aufgaben</h3><ul><li>Patientinnen kompetent betreuen</li><li>Pflege sorgfältig dokumentieren</li></ul>
@@ -101,7 +105,8 @@ describe('iPersonal AG crawler parser', () => {
       expect(second).toEqual(first);
       expect(first).toHaveLength(1);
       expect(first[0]).toMatchObject({
-        title: 'Pflegefachperson Zürich', url: detailUrl, canton: 'ZH',
+        title: 'Pflegefachperson Zürich', url: detailUrl,
+        location: 'Zuzwil SG, St. Gallen', canton: 'SG',
       });
       expect(first[0].description).toContain('\n• Patientinnen kompetent betreuen');
       expect(acceptedEncodings.length).toBeGreaterThan(0);
