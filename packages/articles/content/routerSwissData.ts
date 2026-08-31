@@ -1646,6 +1646,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'commissione-cst-copertura-banche-svizzere': { it: 'commissione-cst-copertura-banche-svizzere', en: 'cst-commission-coverage-swiss-banks', de: 'wako-ausschuss-eigenkapitaldeckung-banken', fr: 'commission-cst-couverture-banques-suisses' },
  'svizzeri-risparmiano-piu-che-mai': { it: 'svizzeri-risparmiano-piu-che-mai', en: 'swiss-save-more-than-ever', de: 'schweizer-sparen-mehr-denn-je', fr: 'les-suisses-economisent-plus-que-jamais' },
  'ubs-norme-bancarie-compromesso': { it: 'ubs-norme-bancarie-compromesso', en: 'ubs-banking-regulation-compromise', de: 'ubs-bankregulierung-kompromiss', fr: 'ubs-normes-bancaires-compromis' },
+ 'divario-salariale-genere-agosto-2026': { it: 'divario-salariale-genere-agosto-2026', en: 'wage-gap-gender-august-2026', de: 'lohnluecke-geschlecht-august-2026', fr: 'ecart-salaires-genre-aout-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

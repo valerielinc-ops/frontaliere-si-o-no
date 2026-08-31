@@ -63083,6 +63083,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-divario-salariale-genere-agosto-2026': {
+    title: 'Divario salariale tra i sessi: ridotto al 15,7%',
+    description: 'Il divario salariale tra i sessi scende al 15,7% secondo il rapporto UST 2024. Dati completi per settore, ruolo gerarchico e dimensione aziendale in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, divario, salariale, sessi, ridotto',
+    ogTitle: 'Divario salariale di genere: al 15,7% nel 2024',
+    ogDescription: 'L\'Ufficio federale di statistica pubblica i nuovi dati sul divario salariale tra donne e uomini in Svizzera. Nel 2024 si attesta al 15,7%, in calo dal 16,2% del 2022. Scopri le analisi per settore economico, ruolo gerarchico e dimensione aziendale.',
+    canonicalPath: '/articoli-svizzera/divario-salariale-genere-agosto-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Divario salariale tra i sessi: ridotto al 15,7%",
+      "description": "Il divario salariale tra i sessi scende al 15,7% secondo il rapporto UST 2024. Dati completi per settore, ruolo gerarchico e dimensione aziendale in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/divario-salariale-genere-agosto-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratori svizzeri che consultano documenti salariali in un ambiente di lavoro moderno"
+      },
+      "datePublished": "2026-08-31T21:48:54+00:00",
+      "dateModified": "2026-08-31T21:48:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/divario-salariale-genere-agosto-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
