@@ -870,10 +870,18 @@ function shrinkJobKey(job) {
  *   Defaults to the shared `validateJobUrls`.
  * @param {number} [options.concurrency]
  * @param {number} [options.timeoutMs]
+ * @param {(job: object) => boolean} [options.isTargetJob]
+ *   The crawler's own company predicate (e.g. `isFustJob`). A disappeared job
+ *   that fails it needs no network probe: its own stored `company` field
+ *   already proves it was never legitimately this crawler's job (shared
+ *   multi-brand medium contamination — e.g. a `company: "Coop Genossenschaft"`
+ *   entry stamped `companyKey: "fust"` before the source got a proper
+ *   per-company filter, #5975). Self-corroborated, zero network cost.
  * @returns {Promise<{corroborated: boolean, checked: number, dead: number, alive: number, unverifiable: number, evidence: Array<{url: string, reason: string}>, survivors: Array<{url: string, reason: string}>}>}
  */
 export async function verifyShrinkAgainstSource(priorJobs, newJobs, options = {}) {
   const validate = options.validate || validateJobUrls;
+  const isTargetJob = options.isTargetJob;
   const keptKeys = new Set((newJobs || []).map(shrinkJobKey));
   const disappeared = (priorJobs || []).filter((job) => !keptKeys.has(shrinkJobKey(job)));
 
@@ -906,31 +914,41 @@ export async function verifyShrinkAgainstSource(priorJobs, newJobs, options = {}
     return { corroborated: true, checked: 0, dead: 0, alive: 0, unverifiable: 0, evidence: [], survivors: [], disappearedJobs: [] };
   }
 
+  // Off-target: a job the crawler's own predicate already rejects is
+  // corroborated straight from the record it held, no network round-trip
+  // involved. It still needs no PROBE budget for that reason, but it must not
+  // bypass the VOLUME cap below: `isTargetJob` misclassifying real drops as
+  // off-target (e.g. a recruiting-agency `company` value) would otherwise let
+  // an unbounded mass-expiry through at zero cost and zero human look.
+  const offTarget = isTargetJob ? disappeared.filter((job) => !isTargetJob(job)) : [];
+  const onTarget = isTargetJob ? disappeared.filter((job) => isTargetJob(job)) : disappeared;
+
   // Bound the probe budget. A legitimately huge drop is possible, but probing
   // it unbounded inside the crawl step is not: at DEFAULT_CONCURRENCY=10 and a
-  // 7s timeout the worst case grows linearly. Above the cap we REFUSE (the
-  // guard stands, prior slice kept) rather than accept on partial evidence —
-  // the conservative direction, and the drop can still be applied deliberately
-  // via SKIP_SHRINK_GUARD=1 after a human look.
+  // 7s timeout the worst case grows linearly. The same cap also bounds
+  // `offTarget`, which needs no network probe but still needs a volume limit:
+  // above the cap we REFUSE (the guard stands, prior slice kept) rather than
+  // accept on partial evidence — the conservative direction, and the drop can
+  // still be applied deliberately via SKIP_SHRINK_GUARD=1 after a human look.
   const maxProbes = Number(process.env.SHRINK_VERIFY_MAX_PROBES) || options.maxProbes || 500;
   if (disappeared.length > maxProbes) {
     return {
       corroborated: false,
-      checked: disappeared.length,
+      checked: onTarget.length,
       dead: 0,
       alive: 0,
       unverifiable: disappeared.length,
       evidence: [],
       survivors: [],
       disappearedJobs: disappeared,
-      reason: `probe-budget-exceeded: ${disappeared.length} disappearing jobs > cap ${maxProbes}`,
+      reason: `probe-budget-exceeded: ${disappeared.length} disappearing jobs (${onTarget.length} on-target, ${offTarget.length} off-target) > cap ${maxProbes}`,
     };
   }
 
   // A job with no URL can never be proven dead — treat it as still-alive so
   // the shrink stays blocked rather than accepted on absent evidence.
-  const probeable = disappeared.filter((job) => typeof job?.url === 'string' && job.url.trim());
-  const unverifiable = disappeared.length - probeable.length;
+  const probeable = onTarget.filter((job) => typeof job?.url === 'string' && job.url.trim());
+  const unverifiable = onTarget.length - probeable.length;
 
   const results = probeable.length
     ? await validate(
@@ -939,7 +957,7 @@ export async function verifyShrinkAgainstSource(priorJobs, newJobs, options = {}
       )
     : [];
 
-  const evidence = [];
+  const evidence = offTarget.map((job) => ({ url: job?.url || '', reason: 'off-target-company' }));
   const survivors = [];
   results.forEach((result, i) => {
     const url = probeable[i]?.url || '';
@@ -955,7 +973,7 @@ export async function verifyShrinkAgainstSource(priorJobs, newJobs, options = {}
 
   return {
     corroborated: unverifiable === 0 && survivors.length === 0 && evidence.length === disappeared.length,
-    checked: disappeared.length,
+    checked: onTarget.length,
     dead: evidence.length,
     alive: survivors.length,
     unverifiable,
@@ -985,7 +1003,7 @@ export async function verifyShrinkAgainstSource(priorJobs, newJobs, options = {}
  *   accepts `validate` / `concurrency` / `timeoutMs` for the probe.
  */
 export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = {}) {
-  const { validate, concurrency, timeoutMs, ...writeOptions } = options;
+  const { validate, concurrency, timeoutMs, isTargetJob, ...writeOptions } = options;
   try {
     writeJobsCrawlerSlice(crawlerKey, jobs, writeOptions);
     return { written: true, shrinkAccepted: false };
@@ -1015,6 +1033,7 @@ export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = 
       concurrency,
       timeoutMs,
       expectedNewCount: measured.newCount,
+      isTargetJob,
     });
 
     if (!verdict.corroborated) {

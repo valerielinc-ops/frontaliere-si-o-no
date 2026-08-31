@@ -231,6 +231,37 @@ describe('verifyShrinkAgainstSource()', () => {
     expect(probed).toBe(0); // refused before spending any network budget
   });
 
+  it('REFUSES an off-target drop that exceeds the probe budget even though off-target needs no probing (reviewer 🔴, PR #6717)', async () => {
+    // isTargetJob misclassifying real drops as off-target must not let an
+    // unbounded mass-expiry through at zero network cost and zero cap.
+    const prior = Array.from({ length: 40 }, (_, i) => job(`o${i}`));
+    let probed = 0;
+    const verdict = await verifyShrinkAgainstSource(prior, [], {
+      maxProbes: 10,
+      isTargetJob: () => false, // every disappearing job is off-target
+      validate: async (jobs) => {
+        probed += jobs.length;
+        return jobs.map((j) => ({ id: j.id, valid: false, definitive: true, reason: 'http-404' }));
+      },
+    });
+    expect(verdict.corroborated).toBe(false);
+    expect(verdict.reason).toMatch(/probe-budget-exceeded/);
+    expect(probed).toBe(0);
+  });
+
+  it('still self-corroborates an off-target drop within the probe budget without probing it', async () => {
+    const prior = Array.from({ length: 5 }, (_, i) => job(`ok${i}`));
+    const verdict = await verifyShrinkAgainstSource(prior, [], {
+      maxProbes: 10,
+      isTargetJob: () => false,
+      validate: async () => {
+        throw new Error('must not probe off-target jobs');
+      },
+    });
+    expect(verdict.corroborated).toBe(true);
+    expect(verdict.evidence).toHaveLength(5);
+  });
+
   it('leaves the guard threshold itself untouched (no ratio was lowered)', () => {
     // Same expectations as tests/scripts/shrink-guard.test.ts — restated here
     // so a future edit to the acceptance path cannot quietly relax the gate.

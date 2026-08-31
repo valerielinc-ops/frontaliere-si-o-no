@@ -770,7 +770,7 @@ async function main() {
   // 403'd by hotelcareer.com's Cloudflare protection, so probing needs the
   // same Playwright browser this crawler already uses for the listing/detail
   // pages — see verifyGraceJobUrlsBrowser above.
-  await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, { validate: verifyGraceJobUrlsBrowser });
+  await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, { validate: verifyGraceJobUrlsBrowser, isTargetJob });
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY,
     label: 'grace',

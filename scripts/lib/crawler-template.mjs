@@ -971,7 +971,7 @@ export async function runStandardCrawlerPipeline(config) {
   // at their own source URLs and the smaller slice is accepted ONLY if every
   // one of them is provably gone. A degraded/blocked source still fails here
   // exactly as before — the threshold is unchanged, the proof is the addition.
-  await writeJobsCrawlerSliceVerified(companyKey, sliceJobs);
+  await writeJobsCrawlerSliceVerified(companyKey, sliceJobs, { isTargetJob: isCompanyJob });
   writeSummaryCrawlerSlice({
     key: companyKey,
     label: companyLabel,
