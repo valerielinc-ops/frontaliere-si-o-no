@@ -14,11 +14,12 @@
  * place-id lookup, API run loops) stays in the per-channel scripts.
  */
 
-import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createCantonResolvers, AGGREGATE_KEY } from '../../build-plugins/shared/cantonResolvers.mjs';
 import { peelDanglingClauseTail } from '../../build-plugins/shared/clauseTail.mjs';
+import { listSliceFileNames } from './crawler-slice-files.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..');
@@ -314,8 +315,7 @@ export function loadJobIndex() {
     }
     const dir = path.join(ROOT, 'data', 'jobs', 'by-crawler');
     if (existsSync(dir)) {
-      for (const file of readdirSync(dir)) {
-        if (!file.endsWith('.json')) continue;
+      for (const file of listSliceFileNames(dir)) {
         try {
           ingest(JSON.parse(readFileSync(path.join(dir, file), 'utf-8')).jobs);
         } catch {

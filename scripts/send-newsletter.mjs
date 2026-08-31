@@ -62,6 +62,7 @@ import { computeScheduledSendAt, resolveEffectivePreferredHour, computeGlobalPre
 // used for its locale-aware URL construction (tests/newsletter-locale-urls.test.ts
 // guards its presence here) — the implementation is the canonical shared helper.
 import { localePathPrefix as localePrefix, loadBlogMeta, localizeArticle, loadArticlePerformanceWinners } from './lib/articleContent.mjs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -1286,7 +1287,7 @@ function loadLocalJobsData() {
     // Fallback: assemble from per-crawler slices (handles CI when assembly step failed)
     try {
       const slicesDir = new URL('../data/jobs/by-crawler/', import.meta.url);
-      const sliceFiles = fs.readdirSync(slicesDir).filter((f) => f.endsWith('.json') && f !== '.gitkeep');
+      const sliceFiles = listSliceFileNames(fileURLToPath(slicesDir));
       for (const file of sliceFiles) {
         const slice = JSON.parse(fs.readFileSync(new URL(file, slicesDir), 'utf8'));
         if (Array.isArray(slice.jobs)) jobs.push(...slice.jobs);

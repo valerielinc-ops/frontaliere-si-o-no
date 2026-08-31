@@ -74,6 +74,7 @@
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isSliceFile } from './lib/crawler-slice-files.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -804,7 +805,7 @@ async function listJsonSlugs(dir) {
   try {
     const entries = await fs.readdir(dir);
     return entries
-      .filter((name) => name.endsWith('.json'))
+      .filter(isSliceFile)
       .map((name) => name.replace(/\.json$/, ''));
   } catch (err) {
     console.error(`[health] Cannot read ${dir}: ${err.message}`);

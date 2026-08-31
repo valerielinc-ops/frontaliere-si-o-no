@@ -77,6 +77,7 @@ import { adSlotHtml } from './lib/adSlotHtml';
 import { buildDayStampIso } from './shared/buildDayStamp';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { AGGREGATE_KEY, resolveCantonSection, resolveJobCanton } from './shared/cantonSection';
+import { listSliceFileNames } from '../scripts/lib/crawler-slice-files.mjs';
 
 const MIN_MATCHING_JOBS = 3;
 const DEFAULT_MAX_LANDINGS = 500;
@@ -139,8 +140,7 @@ function loadAllJobs(rootDir: string): OrphanCountableJob[] {
 
   const sliceDir = path.join(dataDir, 'jobs', 'by-crawler');
   if (fs.existsSync(sliceDir)) {
-    for (const file of fs.readdirSync(sliceDir)) {
-      if (!file.endsWith('.json')) continue;
+    for (const file of listSliceFileNames(sliceDir)) {
       try {
         const raw = JSON.parse(fs.readFileSync(path.join(sliceDir, file), 'utf-8'));
         const jobs: unknown = Array.isArray(raw) ? raw : raw?.jobs;

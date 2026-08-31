@@ -121,6 +121,7 @@ import { buildListItemJobPosting } from './shared/jobPostingListItem';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import { NOINDEX_BRIDGE } from './flatHtmlRedirectPlugin';
 import { employerCanonicalHref, loadKnownCompanySlugs, slugifyEmployer } from './shared/employerLinks';
+import { listSliceFileNames } from '../scripts/lib/crawler-slice-files.mjs';
 import {
   renderEmployerCardListHtml,
   type EmployerCardEmployer,
@@ -3936,8 +3937,7 @@ function loadAllJobs(rootDir: string): WeeklyCountableJob[] {
 
   const sliceDir = np.join(dataDir, 'jobs', 'by-crawler');
   if (fs.existsSync(sliceDir)) {
-    for (const file of fs.readdirSync(sliceDir)) {
-      if (!file.endsWith('.json')) continue;
+    for (const file of listSliceFileNames(sliceDir)) {
       try {
         const raw = JSON.parse(fs.readFileSync(np.join(sliceDir, file), 'utf-8'));
         const jobs: unknown = Array.isArray(raw) ? raw : raw?.jobs;

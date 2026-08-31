@@ -21,6 +21,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import {
   extractDeclaredIdentity,
   isNonEmployerSlug,
@@ -73,19 +74,8 @@ function resolveSlicePath(slug) {
   const exact = path.join(SLICES_DIR, `${slug}.json`);
   if (fs.existsSync(exact)) return exact;
 
-  let entries;
-  try {
-    entries = fs.readdirSync(SLICES_DIR);
-  } catch {
-    return null; // slices not materialised in a sparse checkout
-  }
-  const matches = entries.filter(
-    (f) =>
-      f.endsWith('.json') &&
-      f.startsWith(`${slug}-`) &&
-      // Scratch/cache companions are the same crawler's working files, not a
-      // second employer — they must not make a lookup look ambiguous.
-      !/-(locale-cache|cache|scratch|raw)\.json$/.test(f),
+  const matches = listSliceFileNames(SLICES_DIR).filter(
+    (f) => f.startsWith(`${slug}-`),
   );
   return matches.length === 1 ? path.join(SLICES_DIR, matches[0]) : null;
 }
