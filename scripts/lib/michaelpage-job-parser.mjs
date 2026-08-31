@@ -2,7 +2,7 @@
 /**
  * Michael Page job parser — Fetcher and job builder.
  *
- * Source: https://www.pageexecutive.com/jobs/americas
+ * Source: https://www.pageexecutive.com/jobs/switzerland
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllMichaelpageJobs()  — Fetch and parse all jobs
@@ -22,7 +22,7 @@ export const MICHAELPAGE_KEY = 'michaelpage';
 export const MICHAELPAGE_COMPANY_NAME = 'Michael Page';
 export const MICHAELPAGE_COMPANY_DOMAIN = 'pageexecutive.com';
 
-const CAREER_URL = 'https://www.pageexecutive.com/jobs/americas';
+const CAREER_URL = 'https://www.pageexecutive.com/jobs/switzerland';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -109,7 +109,11 @@ function detectEmploymentType(text = '') {
  */
 async function fetchJobListings() {
   const spec = loadSpec(MICHAELPAGE_KEY);
-  return runSpecInProduction(spec);
+  // PageExecutive currently serves a gzip body without a Content-Encoding
+  // header to the pinned public-only transport. Asking for identity encoding
+  // keeps the body parseable; transport, DNS, redirects and robots stay on the
+  // shared Prospector path.
+  return runSpecInProduction(spec, { headers: { 'Accept-Encoding': 'identity' } });
 }
 
 /**

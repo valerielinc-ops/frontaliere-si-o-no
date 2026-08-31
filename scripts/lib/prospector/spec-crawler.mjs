@@ -35,6 +35,7 @@ import {
   umantisDetailFallbackUrl,
   umantisVacancyIdentity,
 } from './umantis-detail.mjs';
+import { extractPageExecutiveDetailFields } from './pageexecutive-detail.mjs';
 export { createPublicConnectionLookup, createSpecUrlPolicy } from './public-fetch-policy.mjs';
 
 /**
@@ -100,6 +101,7 @@ async function fetchRuntimePage(url, urlPolicy, runtime) {
     retries: runtime.retries,
     retryBaseMs: runtime.retryBaseMs,
     timeoutMs: runtime.timeoutMs,
+    headers: runtime.headers,
   });
   if (result.ok) return result;
   const reason = result.blockedByRobots
@@ -281,10 +283,9 @@ export async function runSpecInProduction(spec, runtime = {}) {
           if (!fallbackUrl) throw error;
           page = await fetchRuntimePage(fallbackUrl, validateUrl, runtime);
         }
-        const detail = extractDetailFields(
-          page.body,
-          page.url || row.url,
-        );
+        const detail = spec.platform === 'pageexecutive.com'
+          ? extractPageExecutiveDetailFields(page.body, page.url || row.url)
+          : extractDetailFields(page.body, page.url || row.url);
         if (spec.platform === 'umantis.com') {
           const umantisDetail = extractUmantisDetailFields(page.body);
           if (isSufficientVacancyDescription(umantisDetail.description)) {

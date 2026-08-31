@@ -43,6 +43,32 @@ describe('mergeUrlKey (crawl-time merge key — was extractStableJobId)', () => 
   });
 });
 
+describe('mergeUrlKey PageExecutive requisition rule (#6785)', () => {
+  const first = 'https://www.pageexecutive.com/job-detail/head-legal/ref/jn-082026-7087025';
+  const second = 'https://www.pageexecutive.com/job-detail/chief-operating-officer/ref/jn-082026-7089682';
+
+  it('uses the final requisition, not the shared MMYYYY publication tag', () => {
+    expect(mergeUrlKey(first)).toBe('num:7087025');
+    expect(mergeUrlKey(second)).toBe('num:7089682');
+    expect(mergeUrlKey(first)).not.toBe(mergeUrlKey(second));
+  });
+
+  it('survives a PageExecutive title-slug rename', () => {
+    const renamed = 'https://www.pageexecutive.com/job-detail/renamed-role/ref/jn-082026-7087025';
+    expect(mergeUrlKey(renamed)).toBe(mergeUrlKey(first));
+  });
+
+  it('does not alter other hosts or non-canonical PageExecutive paths', () => {
+    expect(mergeUrlKey('https://example.com/job-detail/head-legal/ref/jn-082026-7087025'))
+      .toBe('num:082026');
+    expect(mergeUrlKey('https://www.pageexecutive.com/jobs/ref/jn-082026-7087025'))
+      .toBe('num:082026');
+    expect(mergeUrlKey('https://www.pageexecutive.com/job-detail/head-legal/ref/jn-132026-7087025'))
+      .toBe('num:132026');
+    expect(mergeUrlKey('https://example.com/jobs/123456/old')).toBe('num:123456');
+  });
+});
+
 describe('mergeUrlKey Workday requisition rule (Rule W — slug-drift class)', () => {
   // Workday URLs are `…/job/<Location>/<Title>_<req>`; the title is freely
   // re-slugged by the vendor, so the requisition (everything after the first
