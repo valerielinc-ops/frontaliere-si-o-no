@@ -1650,6 +1650,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'citta-clima-30-kmh-strade': { it: 'citta-clima-30-kmh-strade', en: 'cities-climate-30-kmh-roads', de: 'staedte-klima-30-kmh-strassen', fr: 'villes-climat-30-kmh-routes' },
  'cooperazione-polizia-confini': { it: 'cooperazione-polizia-confini', en: 'border-police-cooperation', de: 'grenzpolizei-kooperation', fr: 'cooperation-police-frontieres' },
  'aprire-attivita-zugo-registro-commercio': { it: 'aprire-attivita-zugo-registro-commercio', en: 'open-business-zug-commercial-register', de: 'geschaeft-eroeffnen-zug-handelsregister', fr: 'ouvrir-activite-zoug-registre-commerce' },
+ 'premi-lamal-friburgo-2026': { it: 'premi-lamal-friburgo-2026', en: 'fribourg-health-insurance-premiums-2026', de: 'praemien-krankenversicherung-freiburg-2026', fr: 'primes-assurance-maladie-fribourg-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
