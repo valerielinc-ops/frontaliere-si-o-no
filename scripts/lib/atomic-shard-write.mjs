@@ -6,13 +6,12 @@
  * Before this module each store wrote a shard with a plain
  * `fs.writeFileSync(file, content)`. That is not atomic: a process killed
  * mid-syscall (OOM, CI job timeout, SIGKILL) can leave the shard truncated on
- * disk. Every reader (`readCompatPaths`/`readOrphanEnriched`/
- * `readAllKnownJobSlugs`) treats an unparseable shard as "skip it" rather than
- * throwing — by design, so one corrupt shard doesn't take down the whole
- * accumulator — which means a torn write would silently drop that shard's
- * paths/records instead of surfacing an error. Writing to a temp file in the
- * SAME directory and `renameSync`-ing over the destination closes that gap:
- * `rename(2)` is a single atomic syscall on the same filesystem (true for the
+ * disk. Every reader of these three accumulators treats an unparseable shard
+ * as "skip it" rather than throwing — by design, so one corrupt shard doesn't
+ * take down the whole accumulator — which means a torn write would silently
+ * drop that shard's paths/records instead of surfacing an error. Writing to a
+ * temp file in the SAME directory and renaming it over the destination closes
+ * that gap: a same-filesystem rename is a single atomic syscall (true for the
  * CI runner and local dev), so the destination is always either the old
  * content or the new content, never a partial write.
  *
