@@ -61,11 +61,11 @@
  *                                — falls back to a conservative static pace when
  *                                unset (verified live 2026-07-20: the sending key
  *                                itself gets 401 against this endpoint).
- *   RESEND_API_KEY           — Resend API key (50000/mo paid plan since 2026-07-06).
+ *   RESEND_API_KEY           — Resend API key (free plan: 100/day, 3000/mo).
  *                                Last in cascade order since 2026-07-16 — now the
  *                                overflow valve once maileroo's much larger budget
- *                                is spent, dynamically capped to pace the 50k/mo
- *                                budget (never exceeded), see PROVIDERS[resend] below.
+ *                                is spent. The dynamic cap paces the monthly quota
+ *                                without ever exceeding 100/day; see PROVIDERS below.
  *   CF_API_TOKEN             — Cloudflare token used by default for Email Service:
  *                                it already carries Email Sending: Edit + Analytics
  *                                Read (verified live). 3000/mo included on the
@@ -146,37 +146,11 @@ const PROVIDERS = [
   // so raising the daily cap bought no real extra headroom — it only masked
   // the fact that resend now covers the bulk volume instead.
   { id: 'cloudflare', dailyLimit: 100, monthlyLimit: 3000 },
-  // resend: paid plan activated 2026-07-06 (50000/mo, owner request), bulk
-  // workhorse of the cascade. No self-imposed static dailyLimit (owner request
-  // 2026-07-07): the 1666/day floor (50000/30, months-average) was OUR OWN
-  // accounting, not a Resend-side cap, and it starved job-alerts on 2026-07-07
-  // — newsletter + ad-blast alone had already pushed the in-run counter to
-  // 1672/1666 by 11:06, so job-alerts found resend (and mailjet, separately
-  // maxed at its real 200/day free-tier cap) already "exhausted" for the rest
-  // of the day even though Resend's real monthly ceiling (50000) had ample
-  // room left. Real protection still stands: a genuine Resend-side 429/403
-  // still trips isRateLimitedError below and benches it for the run.
-  //
-  // Moved from 2nd to LAST in cascade order 2026-07-16: with no dailyLimit,
-  // resend used to intercept nearly all overflow before the other five
-  // providers' combined ~650/day free capacity was ever touched — the root
-  // cause of the monthly 50k quota running low well before renewal. Now the
-  // free providers absorb load first; resend only picks up what's left.
-  //
-  // Its effective daily cap is no longer this static `dailyLimit` field — it
-  // is read from `_dynamicDailyLimits.resend`, recomputed on every
-  // syncQuotasFromAPIs() run by computeResendDynamicDailyLimit() as
-  // (50000 − billing-cycle-to-date usage) ÷ days left until the next
-  // renewal (billing cycle anchored on the 6th of each month, paid plan
-  // activated 2026-07-06 — see RESEND_CYCLE_ANCHOR_DAY). `dailyLimit:
-  // Infinity` below is only the pre-sync fallback value — remainingQuota()
-  // never consults it in a real send path, since sendEmailCascade always
-  // awaits syncQuotasFromAPIs() first.
-  // 2026-07-20: no longer the bulk workhorse — maileroo's 100000/mo budget
-  // (see PROVIDERS[maileroo] above) now absorbs the volume resend used to
-  // carry. Kept last so its tightly-guarded 50k/mo (never to be exceeded,
-  // owner directive) is spent only as the true last resort.
-  { id: 'resend',   dailyLimit: Infinity, monthlyLimit: 50000,
+  // Resend returned to the free plan on 2026-08-31: 100/day and 3000/month.
+  // It stays last so the other providers absorb bulk volume first. The
+  // effective limit is recomputed by computeResendDynamicDailyLimit() to pace
+  // the monthly quota, but is always clamped to this hard 100/day ceiling.
+  { id: 'resend',   dailyLimit: 100, monthlyLimit: 3000,
     // scheduled_at in the JSON body, ISO 8601 UTC. 30-day lookahead (verified docs).
     scheduledSend: { param: 'scheduled_at', maxLookaheadMs: 30 * DAY_MS } },
 ];
@@ -216,7 +190,7 @@ function getCounter(providerId) {
 
 function incrementCounter(providerId, count) {
   getCounter(providerId); // ensure initialized
-  _counters[providerId] = (_counters[providerId] || 0) + count;
+  _counters[providerId] = Math.max(0, (_counters[providerId] || 0) + count);
 }
 
 function recordRealSent(providerId) {
@@ -479,12 +453,10 @@ async function fetchResendEntriesSince(sinceMs, maxPages) {
 async function fetchResendDailyUsage() {
   if (!process.env.RESEND_API_KEY) return 0;
   const todayStartMs = new Date(getTodayUTC() + 'T00:00:00.000Z').getTime();
-  // Paging cap raised to 60 pages (6000 entries) 2026-07-16 — the previous
-  // 20-page/2000-entry cap was comfortably above the old self-imposed
-  // 1666/day floor, but that floor is gone (see PROVIDERS[resend]) and real
-  // single-day volume now regularly exceeds 2000 once resend absorbs the
-  // job-alert/newsletter bulk load, which was silently undercounting today's
-  // usage on busy days — the exact bug this cap exists to prevent.
+  // Keep the established paging ceiling even though the free-plan daily cap
+  // is now 100. The early exit at today's boundary makes the normal request
+  // count small, while the higher safety ceiling still avoids undercounting
+  // usage if account history and plan state temporarily disagree.
   const { count, truncated } = await fetchResendEntriesSince(todayStartMs, 60);
   if (truncated) {
     console.warn('⚠️  [resend] today-usage paging truncated at 60 pages — real count may be higher than reported');
@@ -492,13 +464,9 @@ async function fetchResendDailyUsage() {
   return count;
 }
 
-// Resend's paid plan renews on the 6th of each month (activated 2026-07-06),
-// NOT the calendar month — this anchors the dynamic-cap billing cycle.
+// This account's Resend quota cycle is anchored on the 6th of each month,
+// not the calendar month.
 const RESEND_CYCLE_ANCHOR_DAY = 6;
-// Pre-2026-07-07 self-imposed floor (50000/30, months-average). Used only
-// when cycle usage is unverifiable (API error / paging truncated) — never
-// Infinity, since an unverifiable usage lookup must fail safe, not open.
-const RESEND_CYCLE_FALLBACK_DAILY = 1666;
 
 // Pure — handles year/month rollover for the day-6-anchored billing cycle.
 function resendCycleBounds(nowMs) {
@@ -530,22 +498,21 @@ export async function fetchResendCycleUsage(nowMs = Date.now()) {
 }
 
 /**
- * Dynamic per-day Resend send budget that paces the 50k/mo quota to land
- * at/under it by the next renewal: (50000 − cycle-to-date usage) ÷ days
- * left until renewal. Falls back to the conservative 1666/day floor when
- * cycle usage can't be verified — never to Infinity (over-send risk) or to
- * an unknown-usage-assumed-zero budget (also an over-send risk).
+ * Dynamic per-day Resend send budget for the free plan. It paces the 3000/mo
+ * quota across the days left in the account cycle and clamps the result to the
+ * provider's hard 100/day ceiling. If cycle usage cannot be verified, the
+ * same 100/day ceiling is the safe fallback.
  */
 async function computeResendDynamicDailyLimit(nowMs = Date.now()) {
   const provider = PROVIDERS.find(p => p.id === 'resend');
   const { count, truncated, cycleStart, cycleEnd } = await fetchResendCycleUsage(nowMs);
   if (truncated) {
-    console.warn(`⚠️  [resend] billing-cycle usage unverifiable — falling back to conservative ${RESEND_CYCLE_FALLBACK_DAILY}/day floor`);
-    return RESEND_CYCLE_FALLBACK_DAILY;
+    console.warn(`⚠️  [resend] quota-cycle usage unverifiable — falling back to the ${provider.dailyLimit}/day free-plan ceiling`);
+    return provider.dailyLimit;
   }
   const daysRemaining = Math.max(1, Math.ceil((cycleEnd.getTime() - nowMs) / DAY_MS));
   const remainingBudget = Math.max(0, provider.monthlyLimit - count);
-  const dynamicLimit = Math.floor(remainingBudget / daysRemaining);
+  const dynamicLimit = Math.min(provider.dailyLimit, Math.floor(remainingBudget / daysRemaining));
   console.log(`   [resend] cycle ${cycleStart.toISOString().slice(0, 10)}→${cycleEnd.toISOString().slice(0, 10)}: used=${count}/${provider.monthlyLimit}, daysRemaining=${daysRemaining}, dynamic dailyLimit=${dynamicLimit}`);
   return dynamicLimit;
 }
@@ -1363,6 +1330,12 @@ async function sendSingle(email, forceProvider, finalizeForProvider, signal) {
       continue;
     }
 
+    // Reserve one quota slot synchronously, before the first await in the send
+    // attempt. Without this reservation, concurrent workers can all observe
+    // the same final slot and overshoot a hard daily cap (101/100 was reproduced
+    // with concurrency=3). A definite rejection releases the slot; an ambiguous
+    // delivery keeps it consumed because the provider may have accepted it.
+    incrementCounter(provider.id, 1);
     try {
       // Optional hook: let the caller finalize the payload for the provider that
       // is actually about to send (e.g. swap the subject to that provider's A/B
@@ -1375,10 +1348,10 @@ async function sendSingle(email, forceProvider, finalizeForProvider, signal) {
       // different provider with a different scheduledSend capability/lookahead.
       const resolved = resolveScheduledAt(email, provider);
       const result = await SEND_FNS[provider.id](email, resolved, signal);
-      incrementCounter(provider.id, 1);
       recordRealSent(provider.id);
       return { ...result, scheduledFor: resolved ? resolved.toISOString() : null };
     } catch (err) {
+      if (!err.ambiguousDelivery) incrementCounter(provider.id, -1);
       errors.push(`[${provider.id}] ${err.message}`);
       if (err.ambiguousDelivery) {
         // The provider may have already accepted/delivered this message —

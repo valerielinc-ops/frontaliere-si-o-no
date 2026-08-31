@@ -2767,6 +2767,9 @@ Rules:
  'consultingCta.article.button': 'Book a consultation',
 
  // v3.71.0 — calculator boost
+ 'whatsNew.v3951.title': 'Internal improvements and stability',
+ 'whatsNew.v3951.email.title': 'More reliable email delivery',
+ 'whatsNew.v3951.email.desc': 'We strengthened email-provider quota controls, preventing sends above the limit even when several notifications start at once.',
  'whatsNew.v3710.title': 'Calculator boost: alerts, municipal tax, canton comparison',
  'whatsNew.v3710.salaryAlert.title': 'Salary alert from the calculator',
  'whatsNew.v3710.salaryAlert.desc': 'After a simulation, turn on an email alert in one tap for jobs with net pay at or above yours.',
