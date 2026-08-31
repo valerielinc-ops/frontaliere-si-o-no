@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   BARRIER_STATUSES,
+  CRAWLER_GENERATION_DISPATCH_STATUSES,
   GROUP_IDS,
   GROUP_MANIFEST_REASON_CODES,
   createCrawlerGenerationRoster,
@@ -87,6 +88,10 @@ describe('crawler generation contracts', () => {
     expect(BARRIER_STATUSES).toEqual([
       'waiting', 'ready', 'blocked_dispatch_missing', 'blocked_group_failed', 'blocked_group_cancelled',
       'blocked_group_timed_out', 'blocked_manifest_missing', 'blocked_manifest_invalid', 'blocked_timeout',
+    ]);
+    expect(CRAWLER_GENERATION_DISPATCH_STATUSES).toEqual([
+      'direct', 'reconciled_transport_error', 'reconciled_protocol_mismatch', 'rejected', 'missing',
+      'duplicate', 'invalid_200_response', 'binding_mismatch', 'duplicate_run_id', 'api_protocol_mismatch',
     ]);
   });
 

@@ -902,9 +902,13 @@ describe('cross-repo crawler execution artifacts', () => {
 
   it('pubblica soltanto runtime path del sito esistenti e fallisce su un typo citato', () => {
     const { contract, outDir } = generateArtifacts();
-    const contents = contract.artifacts.map((artifact: any) =>
-      fs.readFileSync(path.join(outDir, artifact.file), 'utf8'),
-    );
+    const contents = [
+      ...contract.artifacts.map((artifact: any) =>
+        fs.readFileSync(path.join(outDir, artifact.file), 'utf8')),
+      ...contract.observers
+        .filter((observer: any) => /\.ya?ml$/.test(observer.source))
+        .map((observer: any) => fs.readFileSync(path.join(outDir, observer.source), 'utf8')),
+    ];
     const citedRuntimePaths = [...new Set(contents.flatMap((content: string) =>
       [...content.matchAll(/\bscripts\/[A-Za-z0-9._/-]+\.(?:cjs|js|json|jsonc|mjs|sh|ts|yaml|yml)\b/g)]
         .map((match) => match[0]),
@@ -1016,7 +1020,7 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(fs.readFileSync(path.join(portableDir, 'contract.json'), 'utf8'))
       .toBe(fs.readFileSync(contractPath, 'utf8'));
     expect(contract.generatorSha256).toMatch(/^[a-f0-9]{64}$/);
-    expect(contract.observerCount).toBe(1);
+    expect(contract.observerCount).toBe(CORPUS_OBSERVER_FILES.length);
     expect(contract.observers.map(({ source, target }: any) => ({ source, target })))
       .toEqual(CORPUS_OBSERVER_FILES);
     for (const observer of contract.observers) {
@@ -1123,6 +1127,19 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(() => prepareCrawlerWorkflowCorpusSync({ sourceDir: outDir, corpusRoot }))
       .toThrow(/required crawler transport input missing/);
     expect(fs.readFileSync(sentinel, 'utf8')).toBe('sentinel\n');
+  });
+
+  it('un observer sorgente mancante fallisce prima di sostituire il workflow corpus', () => {
+    const { outDir } = generateArtifacts();
+    const observer = CORPUS_OBSERVER_FILES.find(({ source }) => /\.ya?ml$/.test(source))!;
+    fs.renameSync(path.join(outDir, observer.source), path.join(outDir, `${observer.source}.missing`));
+    const corpusRoot = path.join(tmp, 'truncated-observer-corpus');
+    const destination = path.join(corpusRoot, observer.target);
+    fs.mkdirSync(path.dirname(destination), { recursive: true });
+    fs.writeFileSync(destination, 'sentinel-workflow\n');
+    expect(() => prepareCrawlerWorkflowCorpusSync({ sourceDir: outDir, corpusRoot }))
+      .toThrow(/required crawler transport input missing/);
+    expect(fs.readFileSync(destination, 'utf8')).toBe('sentinel-workflow\n');
   });
 
   it('rifiuta qualunque mutazione non-owned nel loop-sync manifest condiviso', () => {

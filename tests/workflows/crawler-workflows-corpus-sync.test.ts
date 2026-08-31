@@ -48,8 +48,9 @@ describe('crawler workflow corpus transport', () => {
       .toBeLessThan(script.indexOf('git push -u origin "HEAD:$target_branch"'));
   });
 
-  it('allowlista esattamente 24 workflow, observer dedicato, contratto e manifest e rifiuta delete', () => {
+  it('allowlista esattamente 24 workflow esecutivi, observer shadow, contratto e manifest e rifiuta delete', () => {
     expect(script).toContain('crawler-group-(0[1-9]|1[0-9]|2[0-3])');
+    expect(script).toContain('crawler-generation-observer-shadow\\.yml');
     expect(script).toContain('generator/data/crawler-cross-repo-contract\\.json');
     expect(script).toContain('generator/tests/crawler-cross-repo-artifacts\\.test\\.mjs');
     expect(script).toContain('scripts/ci/loop-sync-manifest\\.json');
@@ -155,6 +156,12 @@ fi
         dispatchesTranslation: false,
       });
       expect(transportedContract.siteRuntimePaths).toContain('scripts/lib/crawler-generation-receipt.mjs');
+      expect(transportedContract.siteRuntimePaths).toContain('scripts/crawler-generation-observer.mjs');
+      expect(execFileSync('git', [
+        '--git-dir', remote,
+        'show',
+        'crawler-workflows-lockstep-0123456789ab:.github/workflows/crawler-generation-observer-shadow.yml',
+      ], { encoding: 'utf8' })).toContain('crawler-generation-sentinel-${{ inputs.generation_token }}');
       expect(execFileSync('git', [
         '--git-dir', remote,
         'show',

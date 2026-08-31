@@ -1497,7 +1497,6 @@ export function generateCrossRepoExecutionArtifacts({
   const bucketTable = loadJson(CHECKOUT_BUCKETS_PATH);
   const excluded = bucketTable.buckets.filter((bucket) => CROSS_REPO_SAFE_EXCLUDED_BUCKETS.has(bucket.id));
   const crawlerMembers = artifacts.flatMap((artifact) => artifact.members);
-  const siteRuntimePaths = collectSiteRuntimePaths(artifactContents);
   const observerPayloads = [];
   const observers = CORPUS_OBSERVER_FILES.map(({ source, target }) => {
     const canonicalPath = path.join(PORTABLE_CORPUS_DIR, source);
@@ -1505,6 +1504,12 @@ export function generateCrossRepoExecutionArtifacts({
     observerPayloads.push({ source, content });
     return { source, target, sha256: sha256(content) };
   });
+  const siteRuntimePaths = collectSiteRuntimePaths([
+    ...artifactContents,
+    ...observerPayloads
+      .filter(({ source }) => /\.ya?ml$/.test(source))
+      .map(({ content }) => content.toString('utf8')),
+  ]);
   const contract = {
     schemaVersion: 1,
     generatedBy: 'frontaliere-si-o-no/scripts/generate-crawler-group-workflows.mjs',

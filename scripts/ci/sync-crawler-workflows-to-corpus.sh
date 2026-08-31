@@ -84,12 +84,13 @@ git show origin/main:scripts/ci/loop-sync-manifest.json | \
     --assert-manifest-delta "$PWD/scripts/ci/loop-sync-manifest.json"
 git add -- \
   .github/workflows/crawler-group-*.yml \
+  .github/workflows/crawler-generation-observer-shadow.yml \
   .github/workflows/translate-pending.yml \
   generator/data/crawler-cross-repo-contract.json \
   generator/tests/crawler-cross-repo-artifacts.test.mjs \
   scripts/ci/loop-sync-manifest.json
 
-allowed='^(\.github/workflows/crawler-group-(0[1-9]|1[0-9]|2[0-3])\.yml|\.github/workflows/translate-pending\.yml|generator/data/crawler-cross-repo-contract\.json|generator/tests/crawler-cross-repo-artifacts\.test\.mjs|scripts/ci/loop-sync-manifest\.json)$'
+allowed='^(\.github/workflows/crawler-group-(0[1-9]|1[0-9]|2[0-3])\.yml|\.github/workflows/crawler-generation-observer-shadow\.yml|\.github/workflows/translate-pending\.yml|generator/data/crawler-cross-repo-contract\.json|generator/tests/crawler-cross-repo-artifacts\.test\.mjs|scripts/ci/loop-sync-manifest\.json)$'
 bad=$(git diff --cached --name-only | grep -vE "$allowed" || true)
 if [ -n "$bad" ]; then
   echo '::error::crawler transport staged a path outside its exact allowlist'
@@ -113,7 +114,7 @@ fi
 # questa run: una branch orfana/PR preesistente non può contrabbandare file che
 # il preparatore di oggi non ha toccato. Il test dedicato è un observer hashato
 # e trasportato; nessun file corpus-only o altro path corpus è ammesso.
-full_allowed='^(\.github/workflows/crawler-group-(0[1-9]|1[0-9]|2[0-3])\.yml|\.github/workflows/translate-pending\.yml|generator/data/crawler-cross-repo-contract\.json|generator/tests/crawler-cross-repo-artifacts\.test\.mjs|scripts/ci/loop-sync-manifest\.json)$'
+full_allowed='^(\.github/workflows/crawler-group-(0[1-9]|1[0-9]|2[0-3])\.yml|\.github/workflows/crawler-generation-observer-shadow\.yml|\.github/workflows/translate-pending\.yml|generator/data/crawler-cross-repo-contract\.json|generator/tests/crawler-cross-repo-artifacts\.test\.mjs|scripts/ci/loop-sync-manifest\.json)$'
 full_bad=$(git diff --name-only origin/main...HEAD | grep -vE "$full_allowed" || true)
 if [ -n "$full_bad" ]; then
   echo '::error::crawler transport branch contains paths outside its complete allowlist'
