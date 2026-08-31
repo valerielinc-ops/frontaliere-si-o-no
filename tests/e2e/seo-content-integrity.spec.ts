@@ -7,6 +7,7 @@ const SEO_URLS = [
   '/prezzi-benzina/oggi/',
   '/aziende-che-assumono/ticino/settimana-corrente/',
   '/premi-cassa-malati/',
+  '/farmacie/',
 ];
 
 for (const url of SEO_URLS) {
