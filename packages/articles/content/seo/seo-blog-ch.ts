@@ -62420,6 +62420,44 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comprare-casa-grigioni-mutuo-ipotecario': {
+    title: 'Casa in Grigioni: mutuo, fondi propri e imposte',
+    description: 'Guida all\'acquisto immobiliare nel Canton Grigioni: mutuo ipotecario, fondi propri, imposte acquisizione, spese notarili e procedura step-by-step.',
+    keywords: 'frontalieri, ticino, svizzera, italia, casa, grigioni, mutuo, fondi',
+    ogTitle: 'Casa in Grigioni: mutuo, fondi propri e imposte',
+    ogDescription: 'Guida all\'acquisto immobiliare nel Canton Grigioni: mutuo ipotecario, fondi propri, imposte acquisizione, spese notarili e procedura step-by-step.',
+    canonicalPath: '/articoli-svizzera/comprare-casa-grigioni-mutuo-ipotecario/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Casa in Grigioni: mutuo, fondi propri e imposte",
+      "description": "Guida all'acquisto immobiliare nel Canton Grigioni: mutuo ipotecario, fondi propri, imposte acquisizione, spese notarili e procedura step-by-step.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/comprare-casa-grigioni-mutuo-ipotecario.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Chalet svizzero tradizionale con balcone in legno sulle pendici alpine del Canton Grigioni"
+      },
+      "datePublished": "2026-08-31T06:47:21+00:00",
+      "dateModified": "2026-08-31T06:47:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/comprare-casa-grigioni-mutuo-ipotecario/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
 };
 
 export default BLOG_CH_SEO_METADATA;
