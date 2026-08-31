@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mistral-ai",
-  "assembledAt": "2026-08-31T07:36:02.457Z",
+  "assembledAt": "2026-08-31T10:05:17.417Z",
   "jobs": [
     {
       "id": "mistral-ai-213c6a7ec392",
@@ -33,7 +33,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/2ed434c7-2e1d-4acd-acb2-01edaa4a1208",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T07:35:58.628Z",
+      "crawledAt": "2026-08-31T10:05:15.003Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -67,6 +67,7 @@
       "firstSeenAt": "2026-08-07T01:17:08.511Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -110,7 +111,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/8c71b069-0eda-40d1-8cb1-4094fd9c81de",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T07:35:58.626Z",
+      "crawledAt": "2026-08-31T10:05:15.002Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -152,6 +153,7 @@
       "firstSeenAt": "2026-07-14T22:36:36.716Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -195,7 +197,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/6f5451cb-ecb6-45af-8a03-6bb658c6c5a1",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T07:35:58.624Z",
+      "crawledAt": "2026-08-31T10:05:15.001Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -225,10 +227,11 @@
           "applied-ai-technical-lead-forward-deployed-ai-engineer-mistral-ai-ch"
         ]
       },
-      "firstSeenAt": "2026-07-31T22:24:20.994Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-31T22:24:20.994Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -272,7 +275,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/0b0c3fab-5c79-43e7-b66c-de7fef7d28b7",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T07:35:58.620Z",
+      "crawledAt": "2026-08-31T10:05:15.000Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -303,9 +306,11 @@
           "applied-ai-engineer-ml-infrastructure-engineer-devops-emea-mistral-ai-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-05T22:48:49.497Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -316,8 +321,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "mistral-ai-e3c420a3b774",
@@ -350,7 +354,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/395b93c4-2185-4c83-990f-5325cd739e0e",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T07:35:58.615Z",
+      "crawledAt": "2026-08-31T10:05:14.999Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -381,9 +385,11 @@
           "applied-ai-engineer-site-reliability-engineer-emea-mistral-ai-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-05T22:48:49.496Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -394,8 +400,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "mistral-ai-4e88609166a7",
@@ -428,7 +433,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/0e578cff-741d-4870-9c2c-aac85f9de266",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T07:35:58.613Z",
+      "crawledAt": "2026-08-31T10:05:14.998Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -462,6 +467,7 @@
       "firstSeenAt": "2026-07-14T22:36:36.705Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -505,7 +511,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T07:35:58.608Z",
+      "crawledAt": "2026-08-31T10:05:14.997Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -546,6 +552,7 @@
       "firstSeenAt": "2026-07-14T22:36:36.714Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -589,7 +596,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/556595b2-d78b-486e-a3b2-14ad533f8caa",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T07:35:58.602Z",
+      "crawledAt": "2026-08-31T10:05:14.995Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -623,6 +630,7 @@
       "firstSeenAt": "2026-07-14T22:36:36.711Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -666,7 +674,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/e91d8785-a4a1-4fc5-b214-21d285005cd0",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T07:35:58.585Z",
+      "crawledAt": "2026-08-31T10:05:14.991Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -700,6 +708,7 @@
       "firstSeenAt": "2026-07-14T22:36:36.718Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
