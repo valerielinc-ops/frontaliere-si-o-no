@@ -27,6 +27,7 @@ import { normalizeHost, registrableDomain, tenantLabel } from './registrable.mjs
  * @property {string} platform            registrable domain of the ATS, '' when self-hosted
  * @property {'jsonld'|'microdata'|'template'} mode
  * @property {string[]} seedUrls
+ * @property {string[]} [allowedDetailOrigins] Exact extra origins reviewed for cross-origin ATS/CDN detail URLs
  * @property {string} [detailTemplate]    URL template shared by the vacancy links
  * @property {boolean} [detailEnrichment] Fetch detail pages for authoritative fields
  * @property {number} [detailFetchWorkers] Maximum concurrent detail fetches

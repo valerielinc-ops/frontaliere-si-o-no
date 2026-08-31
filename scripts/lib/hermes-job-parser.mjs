@@ -13,7 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -279,9 +279,9 @@ export async function fetchAllHermesJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const location = normalizeSpace(listing.location || '') || 'Genève';
-    // Canton from the job location; fall back to HQ canton (Genève / GE).
-    const canton = inferSwissTargetCanton(location) || 'GE';
+    const geography = resolveSourceBackedSwissGeography(listing.location);
+    if (!geography) continue;
+    const { location, canton } = geography;
     // The list endpoint carries no body; fetch the full ExternalDescriptionStr
     // from the ORC detail endpoint so jobs aren't thin → boilerplate-padded →
     // boilerplate-guard failure (#1718). Falls back to '' (then a title lede).

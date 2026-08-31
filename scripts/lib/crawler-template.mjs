@@ -540,20 +540,62 @@ export async function fetchJson(url, options = {}) {
 }
 
 /**
- * Fetch HTML with timeout and error handling.
+ * Follow redirects only after the caller has validated every requested and
+ * effective URL.
+ *
+ * @param {string} url
+ * @param {{ fetchImpl?: typeof fetch, validateUrl?: (url: string) => Promise<unknown>|unknown, requestOptions?: RequestInit, maxRedirects?: number }} [options]
  */
+export async function fetchFollowingValidatedRedirects(url, {
+  fetchImpl = fetch,
+  validateUrl,
+  requestOptions = {},
+  maxRedirects = 5,
+} = {}) {
+  let current = String(url || '');
+  for (let redirectCount = 0; redirectCount <= maxRedirects; redirectCount++) {
+    if (validateUrl) await validateUrl(current);
+    const res = await fetchImpl(current, { ...requestOptions, redirect: 'manual' });
+    const effectiveUrl = res.url || current;
+    if (validateUrl) await validateUrl(effectiveUrl);
+    if (res.status < 300 || res.status >= 400) return res;
+    const location = res.headers?.get?.('location');
+    if (!location) return res;
+    if (redirectCount >= maxRedirects) {
+      const err = new Error(`Too many redirects (>${maxRedirects}) fetching ${url}`);
+      err.retryable = false;
+      throw err;
+    }
+    await res.body?.cancel?.();
+    current = new URL(location, effectiveUrl).toString();
+    if (validateUrl) await validateUrl(current);
+  }
+  throw new Error(`Redirect validation failed for ${url}`);
+}
+
 export async function fetchHtml(url, options = {}) {
   const timeoutMs = options.timeoutMs || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
+  const redirectValidator = typeof options.validateRedirectUrl === 'function'
+    ? options.validateRedirectUrl
+    : null;
   try {
     const html = await fetchWithRetry(async () => {
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), timeoutMs);
       try {
-        const res = await fetch(url, {
+        const requestOptions = {
           method: 'GET',
           headers: { 'User-Agent': DEFAULT_UA, ...options.headers },
           signal: controller.signal,
-        });
+        };
+        const res = redirectValidator
+          ? await fetchFollowingValidatedRedirects(url, {
+              fetchImpl: options.fetchImpl || fetch,
+              validateUrl: redirectValidator,
+              requestOptions,
+              maxRedirects: options.maxRedirects ?? 5,
+            })
+          : await (options.fetchImpl || fetch)(url, requestOptions);
         if (!res.ok) {
           const err = new Error(`HTTP ${res.status} from ${url}`);
           err.status = res.status;
@@ -570,6 +612,9 @@ export async function fetchHtml(url, options = {}) {
     // datacenter egress IP. The fetch "succeeded" HTTP-wise so the connection
     // rescue below never fires — re-fetch the real page through Jina's clean IP.
     // Genuine pages pass through unchanged (zero cost).
+    // A proxy would hide its redirect chain and effective destination from the
+    // caller's URL policy. Restricted fetches therefore stay fail-closed.
+    if (redirectValidator) return html;
     return await rescueHtmlIfChallenged(html, url, { timeoutMs });
   } catch (err) {
     // Route to the Jina Reader proxy (reliable egress + real browser → raw HTML)
@@ -592,7 +637,7 @@ export async function fetchHtml(url, options = {}) {
     //
     // (fetchJson is intentionally NOT proxied — Jina returns HTML, which would
     // corrupt a JSON response.)
-    if (isConnectionLevelFetchError(err) || WAF_IP_BLOCK_STATUS.has(err?.status)) {
+    if (!redirectValidator && (isConnectionLevelFetchError(err) || WAF_IP_BLOCK_STATUS.has(err?.status))) {
       // Retry the proxy itself: Jina's egress IP can be transiently 429'd or
       // WAF-blocked (200 challenge/empty body) — a retry lands on a different
       // Jina IP and usually succeeds. Returns null on exhaustion → safe-fail by

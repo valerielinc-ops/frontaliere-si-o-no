@@ -14,7 +14,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson, fetchHtml } from './crawler-template.mjs';
 import { htmlToMarkdown } from './axpo-job-parser.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -151,7 +151,7 @@ function buildWidgetsBody(from) {
  */
 function pickSwissLocation(raw) {
   if (String(raw?.country || '').trim() === 'Switzerland') {
-    return raw.cityStateCountry || raw.location || raw.city || 'Vernier, Switzerland';
+    return raw.cityStateCountry || raw.location || raw.city || null;
   }
   const arr = Array.isArray(raw?.multi_location_array) ? raw.multi_location_array : [];
   const swiss = arr.find((m) => /,\s*Switzerland$/i.test(m?.location || ''));
@@ -161,7 +161,7 @@ function pickSwissLocation(raw) {
   return null;
 }
 
-/** The real, pre-HQ-fabrication location text (empty when nothing was scraped at all). */
+/** The real source location text (empty when nothing was scraped at all). */
 function pickRealLocationText(raw) {
   if (String(raw?.country || '').trim() === 'Switzerland') {
     return String(raw.cityStateCountry || raw.location || raw.city || '').trim();
@@ -303,16 +303,15 @@ export async function fetchAllGivaudanJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const realLocationText = normalizeSpace(listing.rawLocation || '');
-    const location = normalizeSpace(listing.location || '') || `${HQ.city}, Switzerland`;
-    const inferredCanton = inferSwissTargetCanton(realLocationText) || null;
-    if (realLocationText && !inferredCanton) {
-      console.warn(`  ⚠️ Givaudan: skipping unresolvable location "${realLocationText}" (${title})`);
+    const sourceLocation = normalizeSpace(listing.rawLocation || listing.location || '');
+    const geography = resolveSourceBackedSwissGeography(sourceLocation);
+    if (!geography) {
+      console.warn(`  ⚠️ Givaudan: skipping unresolvable location "${sourceLocation}" (${title})`);
       continue;
     }
-    const canton = inferredCanton || HQ.canton;
+    const { location, canton } = geography;
     // Locality = leading city token of the "City, Switzerland" string.
-    const addressLocality = normalizeSpace(location.split(',')[0]) || HQ.city;
+    const addressLocality = normalizeSpace(location.split(',')[0]);
     const publicUrl = listing.url || CAREER_URL;
     const applyUrl = listing.applyUrl || publicUrl;
 

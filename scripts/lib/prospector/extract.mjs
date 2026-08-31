@@ -147,6 +147,8 @@ function firstString(v) {
  * @property {string} url
  * @property {string} [company]
  * @property {string} [location]
+ * @property {string} [addressCountry]
+ * @property {{ location: string, addressCountry: string }[]} [locationCandidates]
  * @property {string} [description]
  * @property {string} [postedDate]
  * @property {string} [employmentType]
@@ -162,13 +164,24 @@ export function extractJsonLd(html, pageUrl) {
   const out = [];
   for (const node of jsonLdBlocks(html)) {
     if (!isJobPostingNode(node)) continue;
-    const loc = node.jobLocation;
-    const addr = (Array.isArray(loc) ? loc[0] : loc)?.address;
+    const locations = Array.isArray(node.jobLocation) ? node.jobLocation : [node.jobLocation];
+    const locationCandidates = locations
+      .map((place) => {
+        const addr = place?.address || place || {};
+        return {
+          location: [firstString(addr.addressLocality), firstString(addr.addressRegion)].filter(Boolean).join(', '),
+          addressCountry: firstString(addr.addressCountry),
+        };
+      })
+      .filter((candidate) => candidate.location || candidate.addressCountry);
+    const primaryLocation = locationCandidates[0] || {};
     out.push({
       title: firstString(node.title) || firstString(node.name),
       url: firstString(node.url) || firstString(node.sameAs) || pageUrl,
       company: firstString(node.hiringOrganization),
-      location: [firstString(addr?.addressLocality), firstString(addr?.addressRegion)].filter(Boolean).join(', '),
+      location: primaryLocation.location || '',
+      addressCountry: primaryLocation.addressCountry || '',
+      locationCandidates,
       description: textOf(firstString(node.description)).slice(0, 8000),
       postedDate: firstString(node.datePosted),
       employmentType: firstString(node.employmentType),
@@ -185,14 +198,21 @@ export function extractJsonLd(html, pageUrl) {
  *
  * @param {string} html
  * @param {string} pageUrl
- * @returns {{ title: string, location: string, description: string, postedDate: string, employmentType: string }}
+ * @returns {{ title: string, location: string, addressCountry: string, locationCandidates: { location: string, addressCountry: string }[], description: string, postedDate: string, employmentType: string }}
  */
 export function extractDetailFields(html = '', pageUrl = '') {
   const structured = extractJsonLd(html, pageUrl)[0] || {};
   const title = structured.title || textOf(/<h1\b[^>]*>([\s\S]{0,1000}?)<\/h1>/i.exec(html)?.[1] || '');
-  const location = structured.location || textOf(
+  const renderedLocation = textOf(
     /<(?:div|span|p|li)[^>]*(?:class|itemprop)\s*=\s*["'][^"']*(?:job[-_ ]?region|job[-_ ]?location|location|addressLocality)[^"']*["'][^>]*>([\s\S]{0,500}?)<\//i.exec(html)?.[1] || '',
   );
+  const locationCandidates = Array.isArray(structured.locationCandidates)
+    ? [...structured.locationCandidates]
+    : [];
+  if (!locationCandidates.length && renderedLocation) {
+    locationCandidates.push({ location: renderedLocation, addressCountry: '' });
+  }
+  const location = structured.location || renderedLocation;
   const blocks = [];
   // Extract balanced containers so nested lists/divs do not truncate the
   // vacancy at the first inner closing tag. The vocabulary is vendor-neutral;
@@ -227,6 +247,8 @@ export function extractDetailFields(html = '', pageUrl = '') {
   return {
     title,
     location,
+    addressCountry: structured.addressCountry || '',
+    locationCandidates,
     description: descriptions[0] || '',
     postedDate: structured.postedDate || '',
     employmentType: structured.employmentType || '',
@@ -292,11 +314,17 @@ export function extractMicrodata(html, pageUrl) {
     const href = anchor ? readAttr(anchor, 'href') : '';
     let url = pageUrl;
     try { if (href) url = new URL(href, pageUrl).toString(); } catch { /* keep page url */ }
+    const location = [prop('addressLocality') || prop('jobLocation'), prop('addressRegion')]
+      .filter(Boolean)
+      .join(', ');
+    const addressCountry = prop('addressCountry');
     out.push({
       title,
       url,
       company: prop('hiringOrganization'),
-      location: prop('addressLocality') || prop('jobLocation'),
+      location,
+      addressCountry,
+      locationCandidates: location || addressCountry ? [{ location, addressCountry }] : [],
       description: textOf(prop('description')).slice(0, 8000),
       postedDate: prop('datePosted'),
       employmentType: prop('employmentType'),

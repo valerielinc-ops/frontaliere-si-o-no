@@ -20,11 +20,82 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { lookup as dnsLookup } from 'node:dns/promises';
+import { isIP } from 'node:net';
 import { fetchHtml } from '../crawler-template.mjs';
 import { extractVacancies, extractDetailFields } from './extract.mjs';
 import { extractLinks } from './careers-trail.mjs';
 import { normalizeHost } from './registrable.mjs';
+import { resolveDetailOrListingSwissGeography } from './location-evidence.mjs';
 import { PROSPECTOR_DIR } from './config.mjs';
+
+function isPrivateOrLocalAddress(address = '') {
+  const value = String(address || '').toLowerCase().split('%')[0];
+  if (isIP(value) === 4) {
+    const octets = value.split('.').map(Number);
+    const [a, b] = octets;
+    return a === 0 || a === 10 || a === 127 || a >= 224
+      || (a === 100 && b >= 64 && b <= 127)
+      || (a === 169 && b === 254)
+      || (a === 172 && b >= 16 && b <= 31)
+      || (a === 192 && b === 168)
+      || (a === 198 && (b === 18 || b === 19));
+  }
+  if (isIP(value) === 6) {
+    if (value === '::' || value === '::1') return true;
+    if (/^(?:fc|fd|fe[89a-f]|ff)/i.test(value)) return true;
+    const mapped = /^::ffff:(\d+\.\d+\.\d+\.\d+)$/i.exec(value)?.[1];
+    return mapped ? isPrivateOrLocalAddress(mapped) : false;
+  }
+  return false;
+}
+
+/**
+ * URL policy for a promoted spec. Seeds define exact allowed origins; an ATS
+ * CDN/canonical host must be named explicitly in `allowedDetailOrigins`.
+ */
+export function createSpecUrlPolicy(spec, { lookupImpl = dnsLookup } = {}) {
+  const configured = [...(spec.seedUrls || []), ...(spec.allowedDetailOrigins || [])];
+  const allowedOrigins = new Set();
+  for (const raw of configured) {
+    try {
+      const url = new URL(raw);
+      if ((url.protocol === 'http:' || url.protocol === 'https:') && !url.username && !url.password) {
+        allowedOrigins.add(url.origin);
+      }
+    } catch { /* invalid configured URLs are rejected when requested */ }
+  }
+  const checkedHosts = new Map();
+  const assertPublicHost = async (hostname) => {
+    const host = String(hostname || '').toLowerCase().replace(/^\[|\]$/g, '').replace(/\.$/, '');
+    if (!host || host === 'localhost' || host.endsWith('.localhost') || isPrivateOrLocalAddress(host)) {
+      throw new Error(`unsafe prospector URL host: ${host || '[empty]'}`);
+    }
+    if (!checkedHosts.has(host)) {
+      const check = (async () => {
+        const resolved = await lookupImpl(host, { all: true, verbatim: true });
+        const addresses = (Array.isArray(resolved) ? resolved : [resolved])
+          .map((entry) => String(entry?.address || entry || ''))
+          .filter((address) => isIP(address));
+        if (!addresses.length || addresses.some((address) => isPrivateOrLocalAddress(address))) {
+          throw new Error(`unsafe prospector DNS target: ${host}`);
+        }
+      })();
+      checkedHosts.set(host, check);
+      check.catch(() => checkedHosts.delete(host));
+    }
+    await checkedHosts.get(host);
+  };
+  return async (rawUrl) => {
+    let url;
+    try { url = new URL(rawUrl); } catch { throw new Error('invalid prospector URL'); }
+    if (url.protocol !== 'http:' && url.protocol !== 'https:') throw new Error('unsafe prospector URL protocol');
+    if (url.username || url.password) throw new Error('credentials forbidden in prospector URL');
+    if (!allowedOrigins.has(url.origin)) throw new Error(`prospector URL origin not allowed: ${url.origin}`);
+    await assertPublicHost(url.hostname);
+    return url.toString();
+  };
+}
 
 /**
  * @param {string} companyKey
@@ -34,6 +105,22 @@ import { PROSPECTOR_DIR } from './config.mjs';
 export function loadSpec(companyKey, dir = path.join(PROSPECTOR_DIR, 'crawlers')) {
   const file = path.join(dir, `${companyKey}.json`);
   return JSON.parse(fs.readFileSync(file, 'utf8'));
+}
+
+/**
+ * Legacy template specs predate the explicit flag, but their index rows never
+ * carry authoritative per-job fields. Mode is therefore the invariant; the
+ * flag remains useful for non-template specs that opt into detail enrichment.
+ *
+ * @param {import('./synthesize.mjs').CrawlerSpec} spec
+ */
+export function needsDetailEnrichment(spec) {
+  return spec.mode === 'template' || spec.detailEnrichment === true;
+}
+
+function reportDroppedRows(spec, dropped, total, reason) {
+  if (!dropped) return;
+  console.warn(`[prospector:${spec.companyKey}] scartati ${dropped}/${total} annunci: ${reason}`);
 }
 
 /**
@@ -83,15 +170,16 @@ function matchKnownTemplate(links, templateRx, host) {
  * @param {import('./synthesize.mjs').CrawlerSpec} spec
  * @returns {Promise<{ title: string, url: string, location: string, description: string, postedAt: string|null, company: string }[]>}
  */
-export async function runSpecInProduction(spec) {
+export async function runSpecInProduction(spec, runtime = {}) {
   /** @type {Map<string, any>} */
   const bySlug = new Map();
   const templateRx = spec.detailTemplate ? templateToRegex(spec.detailTemplate) : null;
+  const validateUrl = createSpecUrlPolicy(spec, { lookupImpl: runtime.lookupImpl || dnsLookup });
 
   for (const seed of spec.seedUrls || []) {
     let html;
     try {
-      html = await fetchHtml(seed);
+      html = await fetchHtml(seed, { validateRedirectUrl: validateUrl });
     } catch (err) {
       // Let the standard pipeline classify it: a connection-level failure is
       // infra and must soft-exit, an HTTP status is a real break.
@@ -112,6 +200,7 @@ export async function runSpecInProduction(spec) {
     }
     for (const v of candidates) {
       if (!v.title || !v.url) continue;
+      try { await validateUrl(v.url); } catch { continue; }
       if (templateRx) {
         let pathname = '';
         try { pathname = new URL(v.url).pathname; } catch { continue; }
@@ -122,6 +211,8 @@ export async function runSpecInProduction(spec) {
         title: v.title,
         url: v.url,
         location: v.location || '',
+        addressCountry: v.addressCountry || '',
+        locationCandidates: v.locationCandidates || [],
         description: v.description || '',
         postedAt: v.postedDate || null,
         company: v.company || spec.companyName,
@@ -129,33 +220,58 @@ export async function runSpecInProduction(spec) {
     }
   }
   const rows = [...bySlug.values()];
-  if (!spec.detailEnrichment) return rows;
+  if (!needsDetailEnrichment(spec)) {
+    const safeRows = rows.flatMap((row) => {
+      const { geography } = resolveDetailOrListingSwissGeography({}, row);
+      return geography ? [{ ...row, ...geography }] : [];
+    });
+    reportDroppedRows(spec, rows.length - safeRows.length, rows.length,
+      'localita svizzera source-backed assente o non verificabile');
+    return safeRows;
+  }
 
   // Template extraction has no per-row semantics. Visit the detail pages with
   // a bounded pool so location and full descriptions are source-backed.
-  const enriched = [];
+  // Workers complete out of order; index-addressed writes keep the listing
+  // order deterministic so stable downstream sorts do not churn job slices.
+  const enriched = new Array(rows.length);
+  let geographyDrops = 0;
+  let descriptionDrops = 0;
   let next = 0;
   const worker = async () => {
     while (next < rows.length) {
-      const row = rows[next++];
+      const index = next++;
+      const row = rows[index];
       try {
-        const detail = extractDetailFields(await fetchHtml(row.url), row.url);
-        const location = detail.location || row.location;
+        const detail = extractDetailFields(
+          await fetchHtml(row.url, { validateRedirectUrl: validateUrl }),
+          row.url,
+        );
+        const decision = resolveDetailOrListingSwissGeography(detail, row);
+        const geography = decision.geography;
         const description = detail.description || row.description;
-        if (!location || !description) continue;
-        enriched.push({ ...row, title: detail.title || row.title, location, description,
+        if (!geography) { geographyDrops++; continue; }
+        if (!description) { descriptionDrops++; continue; }
+        enriched[index] = { ...row, ...geography, title: detail.title || row.title, description,
           postedAt: detail.postedDate || row.postedAt,
-          employmentType: detail.employmentType || row.employmentType });
+          employmentType: detail.employmentType || row.employmentType };
       } catch (err) {
         // A row without both source-backed fields must not be published with a
         // fabricated employer default. Keep already complete index rows only.
-        if (row.location && row.description) enriched.push(row);
+        const { geography } = resolveDetailOrListingSwissGeography({}, row);
+        if (!geography) geographyDrops++;
+        else if (!row.description) descriptionDrops++;
+        else enriched[index] = { ...row, ...geography };
       }
     }
   };
   const concurrency = Math.max(1, Math.min(8, Number(spec.detailFetchWorkers) || 4));
   await Promise.all(Array.from({ length: concurrency }, worker));
-  return enriched;
+  reportDroppedRows(spec, geographyDrops, rows.length,
+    'localita svizzera source-backed assente o non verificabile');
+  reportDroppedRows(spec, descriptionDrops, rows.length,
+    'descrizione source-backed assente o non verificabile');
+  return enriched.filter(Boolean);
 }
 
 /**

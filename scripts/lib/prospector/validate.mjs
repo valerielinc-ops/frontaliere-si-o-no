@@ -36,7 +36,8 @@
  * `insufficient` rather than given a number that reads as confidence.
  */
 import { politeFetch } from './polite-fetch.mjs';
-import { textOf } from './extract.mjs';
+import { extractDetailFields, textOf } from './extract.mjs';
+import { resolveDetailOrListingSwissGeography } from './location-evidence.mjs';
 import { gradeJobLike } from '../job-like.mjs';
 
 /**
@@ -88,8 +89,8 @@ export function tokenOverlap(needle, haystack) {
 /**
  * Grade ONE vacancy against its own detail page.
  *
- * @param {{ title: string, url: string, description?: string }} vacancy
- * @returns {Promise<{ url: string, reachable: boolean, titleMatch: number, contentful: boolean, words: number, status: number, jobLike: boolean|null, jobSignals: string[], notJobSignals: string[] }>}
+ * @param {{ title: string, url: string, location?: string, description?: string }} vacancy
+ * @returns {Promise<{ url: string, reachable: boolean, titleMatch: number, contentful: boolean, sourceBackedLocation: boolean, words: number, status: number, jobLike: boolean|null, jobSignals: string[], notJobSignals: string[] }>}
  */
 export async function gradeVacancy(vacancy) {
   const res = await politeFetch(vacancy.url);
@@ -98,6 +99,7 @@ export async function gradeVacancy(vacancy) {
     reachable: false,
     titleMatch: 0,
     contentful: false,
+    sourceBackedLocation: false,
     words: 0,
     status: res.status,
     /** `null` means "not measured", never "measured and fine". */
@@ -113,6 +115,8 @@ export async function gradeVacancy(vacancy) {
   const heading = `${textOf(h1)} ${textOf(title)}`;
   const bodyText = textOf(res.body);
   out.titleMatch = Math.max(tokenOverlap(vacancy.title, heading), tokenOverlap(vacancy.title, bodyText.slice(0, 4000)));
+  const detail = extractDetailFields(res.body, vacancy.url);
+  out.sourceBackedLocation = Boolean(resolveDetailOrListingSwissGeography(detail, vacancy).geography);
 
   const words = bodyText.split(/\s+/).filter(Boolean).length;
   out.words = words;
@@ -137,6 +141,7 @@ export async function gradeVacancy(vacancy) {
  * @property {number} reachableRate
  * @property {number} titleMatchRate
  * @property {number} contentfulRate
+ * @property {number} locationSourceRate
  * @property {number} distinctRate
  * @property {number|null} jobLikeRate  `null` when no sample was readable text
  * @property {number} score           0..1, the gate value
@@ -175,6 +180,7 @@ export async function gradeExtraction(spec, vacancies, opts = {}) {
   const rate = (fn) => (graded.length ? graded.filter(fn).length / graded.length : 0);
   const reachableRate = rate((g) => g.reachable);
   const contentfulRate = rate((g) => g.contentful);
+  const locationSourceRate = rate((g) => g.sourceBackedLocation);
   const titleMatchRate = graded.length
     ? graded.reduce((a, g) => a + g.titleMatch, 0) / graded.length
     : 0;
@@ -218,6 +224,7 @@ export async function gradeExtraction(spec, vacancies, opts = {}) {
     reachableRate: Number(reachableRate.toFixed(3)),
     titleMatchRate: Number(titleMatchRate.toFixed(3)),
     contentfulRate: Number(contentfulRate.toFixed(3)),
+    locationSourceRate: Number(locationSourceRate.toFixed(3)),
     distinctRate: Number(distinctRate.toFixed(3)),
     jobLikeRate: jobLikeRate === null ? null : Number(jobLikeRate.toFixed(3)),
     score: Number(score.toFixed(3)),

@@ -6,6 +6,8 @@
  * vacancy. A defect in any of them does not fail loudly — it quietly files
  * thousands of wrong candidates or drops a whole vendor's tenant base.
  */
+import fs from 'node:fs';
+import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { registrableDomain, tenantLabel, sameOrg, normalizeHost, safeDecodePath } from '../scripts/lib/prospector/registrable.mjs';
 import { parseRobots, robotsAllows } from '../scripts/lib/prospector/polite-fetch.mjs';
@@ -23,8 +25,13 @@ import { tokenOverlap, gradeExtraction, isReadableText } from '../scripts/lib/pr
 import { gradeJobLike, hasAnyJobSignal } from '../scripts/lib/job-like.mjs';
 import { commonUrlTemplate, crawlerKeyFor, detectPageLang, isExpectedSynthesisError } from '../scripts/lib/prospector/synthesize.mjs';
 import { evaluatePromotion, selectForPromotion, clampMinDays, findOpenPromotionPr, GATE_DEFAULTS } from '../scripts/lib/prospector/promotion-gate.mjs';
-import { templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
+import { createSpecUrlPolicy, needsDetailEnrichment, templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
+import {
+  resolveDetailOrListingSwissGeography,
+  resolveSourceBackedSwissGeography,
+} from '../scripts/lib/prospector/location-evidence.mjs';
 import { constPrefix, pascalIdentifier } from '../scripts/lib/crawler-identifier.mjs';
+import { fetchFollowingValidatedRedirects } from '../scripts/lib/crawler-template.mjs';
 
 const emptyRegistry = () => loadRegistry('/prospector/does-not-exist.json');
 
@@ -172,6 +179,17 @@ describe('vacancy extraction', () => {
     expect(job.postedDate).toBe('2026-08-01');
   });
 
+  it('propagates authoritative microdata country evidence', () => {
+    const html = '<div itemscope itemtype="https://schema.org/JobPosting">' +
+      '<span itemprop="title">Network Engineer</span>' +
+      '<span itemprop="addressLocality">Geneva</span>' +
+      '<span itemprop="addressRegion">NY</span>' +
+      '<meta itemprop="addressCountry" content="US"></div>';
+    const [job] = extractMicrodata(html, 'https://x.example/job/2');
+    expect(job).toMatchObject({ location: 'Geneva, NY', addressCountry: 'US' });
+    expect(resolveDetailOrListingSwissGeography(job).geography).toBeNull();
+  });
+
   it('collapses a slug+id path into a template', () => {
     expect(pathTemplate('/annunci-lavoro/Ocean-Freight-Specialist-662670289.htm')).toBe('/annunci-lavoro/*');
     expect(pathTemplate('/chi-siamo')).toBe('/chi-siamo');
@@ -207,6 +225,27 @@ describe('vacancy extraction', () => {
     })}</script>`;
     const [job] = extractJsonLd(html, 'https://x.example/');
     expect(job).toMatchObject({ title: 'Autista CE', company: 'Trasporti SA', location: 'Chiasso', via: 'jsonld' });
+  });
+
+  it('preserves country evidence and every JSON-LD job location', () => {
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Network Engineer',
+      jobLocation: [
+        { address: { addressLocality: 'Paris', addressCountry: 'FR' } },
+        { address: { addressLocality: 'Zürich', addressRegion: 'ZH', addressCountry: 'CH' } },
+      ],
+    })}</script>`;
+    const [job] = extractJsonLd(html, 'https://x.example/job/1');
+    expect(job.locationCandidates).toEqual([
+      { location: 'Paris', addressCountry: 'FR' },
+      { location: 'Zürich, ZH', addressCountry: 'CH' },
+    ]);
+    expect(resolveDetailOrListingSwissGeography(job).geography).toMatchObject({
+      location: 'Zürich, ZH',
+      canton: 'ZH',
+      addressCountry: 'CH',
+    });
   });
 
   it('recovers JSON-LD that a CMS entity-escaped', () => {
@@ -501,6 +540,8 @@ describe('promotion gate', () => {
     status: 'promoted',
     crawlerKey: 'acme',
     vacancyCount: 6,
+    mode: 'template',
+    detailEnrichment: true,
     qualityScore: 0.97,
     validationHistory: Array.from({ length: days }, (_, i) => ({
       at: `2026-08-${String(10 + i).padStart(2, '0')}T03:00:00Z`,
@@ -510,6 +551,7 @@ describe('promotion gate', () => {
       reachableRate: 1,
       titleMatchRate: 1,
       contentfulRate: 1,
+      locationSourceRate: 1,
       distinctRate: 1,
       jobLikeRate: 1,
       logoFound: true,
@@ -575,6 +617,32 @@ describe('promotion gate', () => {
     expect(res.passed).toBe(false);
     expect(res.checks.logo).toBe(false);
     expect(res.reasons.join(' ')).toMatch(/nuova validazione/);
+  });
+
+  it('rifiuta un template senza localita source-backed sull\'intero campione', () => {
+    const missingLocation = graded(2);
+    missingLocation.validationHistory.at(-1).locationSourceRate = 0.75;
+    const res = evaluatePromotion(missingLocation);
+    expect(res.passed).toBe(false);
+    expect(res.checks.sourceBackedLocation).toBe(false);
+    expect(res.reasons.join(' ')).toMatch(/source-backed/);
+  });
+
+  it('rifiuta un template legacy che non ha mai misurato la localita source-backed', () => {
+    const legacy = graded(2);
+    legacy.validationHistory.forEach((h) => { delete h.locationSourceRate; });
+    const res = evaluatePromotion(legacy);
+    expect(res.passed).toBe(false);
+    expect(res.reasons.join(' ')).toMatch(/nuova validazione/);
+  });
+
+  it('applica la prova source-backed anche a JSON-LD e microdata', () => {
+    const structured = graded(2, { mode: 'jsonld', detailEnrichment: false });
+    structured.validationHistory.at(-1).locationSourceRate = 0;
+    expect(evaluatePromotion(structured).checks.sourceBackedLocation).toBe(false);
+
+    structured.validationHistory.at(-1).locationSourceRate = 1;
+    expect(evaluatePromotion(structured).passed).toBe(true);
   });
 
   it('non punisce un datore che pubblica gli annunci in PDF', () => {
@@ -733,6 +801,178 @@ describe('promotion gate', () => {
 });
 
 describe('production spec runtime', () => {
+  it('arricchisce anche le spec template legacy prive del flag', () => {
+    expect(needsDetailEnrichment({ mode: 'template', detailEnrichment: false } as any)).toBe(true);
+    expect(needsDetailEnrichment({ mode: 'microdata', detailEnrichment: false } as any)).toBe(false);
+  });
+
+  it('accetta solo geografia svizzera estratta dalla sorgente', () => {
+    expect(resolveSourceBackedSwissGeography('  Winterthur  ')).toEqual({ location: 'Winterthur', canton: 'ZH' });
+    expect(resolveSourceBackedSwissGeography('Geneva, Switzerland; Paris, France')).toEqual({
+      location: 'Geneva, Switzerland; Paris, France',
+      canton: 'GE',
+    });
+    expect(resolveSourceBackedSwissGeography('Brügg BE, Bern, Switzerland')).toEqual({
+      location: 'Brügg BE, Bern, Switzerland',
+      canton: 'BE',
+    });
+    expect(resolveSourceBackedSwissGeography('Example Company AG, Zürich, Switzerland')).toEqual({
+      location: 'Example Company AG, Zürich, Switzerland',
+      canton: 'ZH',
+    });
+    for (const foreign of [
+      'Singapore (SG)',
+      'Tbilisi (GE)',
+      'Geneva NY US',
+      'Zurich ON CA',
+      'Baden DE',
+      'Brussels (BE)',
+      'Athens (GR)',
+      'Geneva ny us',
+      'Baden, DE 76530',
+    ]) expect(resolveSourceBackedSwissGeography(foreign), foreign).toBeNull();
+    expect(resolveSourceBackedSwissGeography('Geneva, NY', 'US')).toBeNull();
+    expect(resolveSourceBackedSwissGeography('Geneva GE', 'Switzerland (CH)')).toEqual({
+      location: 'Geneva GE',
+      canton: 'GE',
+      addressCountry: 'Switzerland (CH)',
+    });
+    expect(resolveSourceBackedSwissGeography('Geneva GE CH')).toEqual({ location: 'Geneva GE CH', canton: 'GE' });
+    expect(resolveSourceBackedSwissGeography('St. Gallen SG, CH')).toEqual({
+      location: 'St. Gallen SG, CH',
+      canton: 'SG',
+    });
+    expect(resolveSourceBackedSwissGeography('Brügg be')).toEqual({ location: 'Brügg be', canton: 'BE' });
+    expect(resolveSourceBackedSwissGeography('Brügg be, Bern, Switzerland')).toEqual({
+      location: 'Brügg be, Bern, Switzerland',
+      canton: 'BE',
+    });
+    expect(resolveSourceBackedSwissGeography('Baden, ag 5400')).toEqual({ location: 'Baden, ag 5400', canton: 'AG' });
+    expect(resolveSourceBackedSwissGeography('Example Company ag, Zürich')).toEqual({
+      location: 'Example Company ag, Zürich',
+      canton: 'ZH',
+    });
+    expect(resolveDetailOrListingSwissGeography(
+      { locationCandidates: [{ location: 'Geneva, NY', addressCountry: 'US' }] },
+      { location: 'Geneva' },
+    )).toEqual({ geography: null, explicitlyForeign: true });
+    expect(resolveDetailOrListingSwissGeography(
+      { location: 'Remote' },
+      { location: 'Chiasso' },
+    ).geography).toMatchObject({ location: 'Chiasso', canton: 'TI' });
+    expect(resolveSourceBackedSwissGeography('')).toBeNull();
+    expect(resolveSourceBackedSwissGeography('Paris')).toBeNull();
+    expect(resolveSourceBackedSwissGeography('Aix-en-Provence, France')).toBeNull();
+    expect(resolveSourceBackedSwissGeography('Mercure Aix en Provence Beaumanoir, Aix-en-Provence, France')).toBeNull();
+    expect(resolveSourceBackedSwissGeography('Como')).toBeNull();
+    expect(resolveSourceBackedSwissGeography('Varese')).toBeNull();
+    expect(resolveSourceBackedSwissGeography('Evian')).toBeNull();
+  });
+
+  it('enforces an exact public-origin policy before every spec fetch', async () => {
+    const publicLookup = async () => [{ address: '93.184.216.34', family: 4 }];
+    const policy = createSpecUrlPolicy(
+      { seedUrls: ['https://jobs.example.com/list'] } as any,
+      { lookupImpl: publicLookup as any },
+    );
+    await expect(policy('https://jobs.example.com/job/1')).resolves.toBe('https://jobs.example.com/job/1');
+    await expect(policy('https://evil.example/job/1')).rejects.toThrow(/origin not allowed/);
+    const credentialedUrl = ['https://user:pass', 'jobs.example.com/job/1'].join('@');
+    await expect(policy(credentialedUrl)).rejects.toThrow(/credentials forbidden/);
+    await expect(policy('file:///etc/passwd')).rejects.toThrow(/protocol/);
+
+    const explicitCdnPolicy = createSpecUrlPolicy({
+      seedUrls: ['https://jobs.example.com/list'],
+      allowedDetailOrigins: ['https://cdn.example.com'],
+    } as any, { lookupImpl: publicLookup as any });
+    await expect(explicitCdnPolicy('https://cdn.example.com/job/1')).resolves.toBe('https://cdn.example.com/job/1');
+
+    for (const seed of [
+      'http://127.0.0.1/jobs',
+      'http://169.254.169.254/latest/meta-data',
+      'http://[::1]/jobs',
+    ]) {
+      const privatePolicy = createSpecUrlPolicy({ seedUrls: [seed] } as any, { lookupImpl: publicLookup as any });
+      await expect(privatePolicy(seed), seed).rejects.toThrow(/unsafe prospector URL host/);
+    }
+    const privateDnsPolicy = createSpecUrlPolicy(
+      { seedUrls: ['https://jobs.example.com/list'] } as any,
+      { lookupImpl: (async () => [{ address: '10.0.0.7', family: 4 }]) as any },
+    );
+    await expect(privateDnsPolicy('https://jobs.example.com/job/1')).rejects.toThrow(/unsafe prospector DNS target/);
+  });
+
+  it('validates redirect and effective URLs without fetching a forbidden target', async () => {
+    const policy = createSpecUrlPolicy(
+      { seedUrls: ['https://jobs.example.com/list'] } as any,
+      { lookupImpl: (async () => [{ address: '93.184.216.34', family: 4 }]) as any },
+    );
+    const fetched = [] as string[];
+    const redirectingFetch = async (url: string) => {
+      fetched.push(url);
+      return {
+        ok: false,
+        status: 302,
+        url,
+        headers: { get: () => 'http://169.254.169.254/latest/meta-data' },
+      } as any;
+    };
+    await expect(fetchFollowingValidatedRedirects('https://jobs.example.com/list', {
+      fetchImpl: redirectingFetch as any,
+      validateUrl: policy,
+    })).rejects.toThrow(/origin not allowed|unsafe prospector URL host/);
+    expect(fetched).toEqual(['https://jobs.example.com/list']);
+
+    const forgedEffectiveFetch = async (url: string) => ({
+      ok: true,
+      status: 200,
+      url: 'https://evil.example/job/1',
+      headers: { get: () => null },
+      text: async () => '<h1>Job</h1>',
+    }) as any;
+    await expect(fetchFollowingValidatedRedirects('https://jobs.example.com/list', {
+      fetchImpl: forgedEffectiveFetch as any,
+      validateUrl: policy,
+    })).rejects.toThrow(/origin not allowed/);
+  });
+
+  it('non lascia fallback geografici nei parser prodotti dal prospector', () => {
+    const parserDir = path.resolve(process.cwd(), 'scripts/lib');
+    const parsers = fs.readdirSync(parserDir)
+      .filter((name) => name.endsWith('-job-parser.mjs'))
+      .map((name) => ({ name, source: fs.readFileSync(path.join(parserDir, name), 'utf8') }))
+      .filter(({ source }) => source.includes('runSpecInProduction(spec)'));
+    expect(parsers.length).toBeGreaterThan(0);
+    for (const { name, source } of parsers) {
+      expect(source, name).not.toMatch(/listing\.location\s*\|\|\s*['"]Lugano['"]/);
+      expect(source, name).toContain('resolveSourceBackedSwissGeography(listing.location)');
+    }
+  });
+
+  it('non lascia fallback HQ nei sibling dedicati con sorgenti multi-localita', () => {
+    const parserDir = path.resolve(process.cwd(), 'scripts/lib');
+    const forbiddenByParser = {
+      'givaudan-job-parser.mjs': ["raw.city || 'Vernier, Switzerland'", '|| `${HQ.city}, Switzerland`'],
+      'hermes-job-parser.mjs': ["|| 'Genève'", "|| 'GE'"],
+      'hilti-job-parser.mjs': ['location: location || HQ.addressLocality', 'inferredCanton || HQ.canton'],
+      'ikea-job-parser.mjs': ['|| HQ_CANTON', '|| HQ_CITY'],
+      'implenia-job-parser.mjs': ['|| HQ.city', '|| HQ.canton'],
+      'mabetex-job-parser.mjs': ["listing.location || 'Lugano'", "getCompanyDefaults('mabetex')"],
+      'proton-job-parser.mjs': ["listing.location || 'Geneva'", "|| 'TI'"],
+      'sika-job-parser.mjs': ['|| `${HQ.city}, ${HQ.addressRegion}, Switzerland`', '|| HQ.canton'],
+      'thermo-fisher-scientific-job-parser.mjs': ['raw?.city || HQ.city', '|| `${HQ.city}, Switzerland`'],
+    };
+
+    for (const [name, forbidden] of Object.entries(forbiddenByParser)) {
+      const source = fs.readFileSync(path.join(parserDir, name), 'utf8');
+      const resolverReferences = source.match(
+        /resolve(?:SourceBacked|DetailOrListing)SwissGeography/g,
+      )?.length || 0;
+      expect(resolverReferences, name).toBeGreaterThanOrEqual(2);
+      for (const fragment of forbidden) expect(source, `${name}: ${fragment}`).not.toContain(fragment);
+    }
+  });
+
   it('accepts only URLs the learned template matches', () => {
     const rx = templateToRegex('/annunci-lavoro/*');
     expect(rx.test('/annunci-lavoro/Autista-CE-111111.htm')).toBe(true);

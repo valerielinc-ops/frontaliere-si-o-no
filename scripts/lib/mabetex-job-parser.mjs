@@ -22,14 +22,12 @@ import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, buildJobSlug, stripHtml, normalizeSpace, fetchHtml } from './crawler-template.mjs';
-import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
 const BASE_URL = 'https://www.mabetex.com';
 const CAREERS_URL = 'https://www.mabetex.com/career/';
-const HQ = getCompanyDefaults('mabetex');
-
 export const MABETEX_KEY = 'mabetex';
 export const MABETEX_COMPANY_NAME = 'Mabetex Group';
 export const MABETEX_COMPANY_DOMAIN = 'mabetex.com';
@@ -222,8 +220,10 @@ export async function fetchAllMabetexJobs() {
 
   const jobs = [];
   for (const listing of listings) {
-    const description = listing.description || `${listing.title} — Mabetex Group, Lugano`;
-    const location = listing.location || 'Lugano';
+    const geography = resolveSourceBackedSwissGeography(listing.location);
+    if (!geography) continue;
+    const { location, canton } = geography;
+    const description = listing.description || `${listing.title} — Mabetex Group`;
     const sourceLang = detectLang(listing.title, 'en');
     const jobSlug = buildJobSlug(`${listing.title} Lugano`, 'mabetex');
     const urlHash = createHash('sha1').update(`${CAREERS_URL}#${listing.title}`).digest('hex').slice(0, 12);
@@ -241,12 +241,11 @@ export async function fetchAllMabetexJobs() {
       description,
       descriptionByLocale: { [sourceLang]: description },
       location,
-      canton: HQ.canton,
-      addressLocality: 'Lugano',
-      addressRegion: HQ.addressRegion,
+      canton,
+      addressLocality: location,
+      addressRegion: canton,
       addressCountry: 'CH',
       country: 'CH',
-      postalCode: HQ.postalCode,
       category: detectCategory(listing.title),
       sector: 'Edilizia / Costruzioni',
       contract: empType === 'PART_TIME' ? 'part-time' : 'full-time',

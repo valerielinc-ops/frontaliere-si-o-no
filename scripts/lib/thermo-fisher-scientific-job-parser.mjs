@@ -22,7 +22,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
 import { htmlToMarkdown } from './axpo-job-parser.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -156,7 +156,7 @@ function pickSwissLocation(raw) {
   const country = normalize(raw?.country || '');
   const location = normalizeSpace(raw?.location || raw?.cityStateCountry || '');
   if (country === 'switzerland' || /switzerland/i.test(location)) {
-    return location || `${raw?.city || HQ.city}, Switzerland`;
+    return location || normalizeSpace(raw?.city || '') || null;
   }
   return null;
 }
@@ -285,15 +285,14 @@ export async function fetchAllThermoFisherScientificJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const realLocationText = normalizeSpace(listing.rawLocation || '');
-    const location = normalizeSpace(listing.location || '') || `${HQ.city}, Switzerland`;
-    const inferredCanton = inferSwissTargetCanton(realLocationText) || null;
-    if (realLocationText && !inferredCanton) {
-      console.warn(`  ⚠️ Thermo Fisher Scientific: skipping unresolvable location "${realLocationText}" (${title})`);
+    const sourceLocation = normalizeSpace(listing.rawLocation || listing.location || '');
+    const geography = resolveSourceBackedSwissGeography(sourceLocation);
+    if (!geography) {
+      console.warn(`  ⚠️ Thermo Fisher Scientific: skipping unresolvable location "${sourceLocation}" (${title})`);
       continue;
     }
-    const canton = inferredCanton || HQ.canton;
-    const addressLocality = normalizeSpace(location.split(',')[0]) || HQ.city;
+    const { location, canton } = geography;
+    const addressLocality = normalizeSpace(location.split(',')[0]);
     const publicUrl = listing.url || CAREER_URL;
     const applyUrl = listing.applyUrl || publicUrl;
 

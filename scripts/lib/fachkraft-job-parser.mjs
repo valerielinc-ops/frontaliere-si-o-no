@@ -13,7 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -138,12 +138,9 @@ export async function fetchAllFachkraftJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const location = normalizeSpace(listing.location || '');
-    // Fachkraft publishes nationwide positions. Missing source data is not a
-    // valid reason to claim Lugano/TI; the prospector detail pass filters such
-    // rows that cannot be verified.
-    if (!location) continue;
-    const canton = inferSwissTargetCanton(location) || '';
+    const geography = resolveSourceBackedSwissGeography(listing.location);
+    if (!geography) continue;
+    const { location, canton } = geography;
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = listing.url || CAREER_URL;
