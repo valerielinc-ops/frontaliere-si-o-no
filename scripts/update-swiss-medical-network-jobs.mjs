@@ -26,6 +26,7 @@ import { smnPostingsApiUrl, smnPostingDetailApiUrl, normalizeSmnApiPosting, extr
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -108,13 +109,7 @@ async function fetchJson(url) {
 function loadDedicatedClinicPostingIds() {
   const ids = new Set();
   const dir = path.resolve(ROOT, 'data', 'jobs', 'by-crawler');
-  let files = [];
-  try {
-    files = fs.readdirSync(dir).filter((f) => f.endsWith('.json'));
-  } catch (err) {
-    if (err && err.code === 'ENOENT') return ids;
-    throw err;
-  }
+  const files = listSliceFileNames(dir);
   for (const f of files) {
     if (f === `${COMPANY_KEY}.json`) continue; // skip the umbrella's own slice
     let data;

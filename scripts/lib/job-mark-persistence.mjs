@@ -56,6 +56,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { writeJsonAtomic } from './atomic-write-json.mjs';
+import { listSliceFileNames } from './crawler-slice-files.mjs';
 
 /**
  * How many times a single slice write may be rebuilt on fresher bytes before
@@ -330,7 +331,7 @@ export function persistMarksToSlices(slugs, { root, dryRun = false } = {}) {
     };
   }
 
-  for (const file of fs.readdirSync(byCrawler).filter((f) => f.endsWith('.json'))) {
+  for (const file of listSliceFileNames(byCrawler)) {
     const filePath = path.join(byCrawler, file);
     const outcome = markSliceCompareAndSwap(filePath, slugs, { dryRun });
     if (outcome.unreadable) continue;
