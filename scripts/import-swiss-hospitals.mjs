@@ -294,7 +294,8 @@ async function main() {
         `[import-swiss-hospitals] Fetch failed — refusing to overwrite the existing ` +
           `${previousCount}-hospital dataset with an empty placeholder. Skipping write.`,
       );
-      process.exitCode = 1;
+      // exitCode stays 0: per the "Behaviour" note above, a transient
+      // fetch failure must not crash the autonomous orchestrator.
       return;
     }
     const minimal = {
@@ -329,7 +330,8 @@ async function main() {
         `[import-swiss-hospitals] Structure drift — 0 hospitals parsed, refusing to ` +
           `overwrite the existing ${previousCount}-hospital dataset. Skipping write.`,
       );
-      process.exitCode = 1;
+      // exitCode stays 0: per the "Behaviour" note above, structure drift
+      // (0 parsed) must not crash the autonomous orchestrator.
       return;
     }
   }

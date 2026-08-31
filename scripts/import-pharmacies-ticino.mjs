@@ -131,7 +131,8 @@ async function main() {
         `[import-pharmacies-ticino] All ${OFCT_REGIONS.length} regions failed (${errors.join('; ')}) — ` +
           `refusing to overwrite the existing ${previousCount}-pharmacy dataset with an empty one. Skipping write.`,
       );
-      process.exitCode = 1;
+      // exitCode stays 0: per the "Behaviour" note above, an all-regions
+      // transient failure must not crash the autonomous orchestrator.
       return;
     }
   }
