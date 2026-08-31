@@ -96,6 +96,7 @@ async function main() {
   const fetchedAt = new Date().toISOString();
   const pharmacies = [];
   const errors = [];
+  let skippedMalformedRows = 0;
 
   for (let i = 0; i < OFCT_REGIONS.length; i += 1) {
     const region = OFCT_REGIONS[i];
@@ -108,7 +109,12 @@ async function main() {
       continue;
     }
 
-    const records = buildPharmacyRecords(html, region, fetchedAt);
+    const { records, skipped } = buildPharmacyRecords(html, region, fetchedAt);
+    if (skipped > 0) {
+      skippedMalformedRows += skipped;
+      console.warn(`[import-pharmacies-ticino] ${region.key}: skipped ${skipped} malformed row(s)`);
+      errors.push(`${region.key}: skipped ${skipped} malformed row(s)`);
+    }
     if (records.length === 0) {
       console.warn(`[import-pharmacies-ticino] ${region.key}: no pharmacies found, structure may have changed`);
       errors.push(`${region.key}: zero pharmacies parsed`);
@@ -143,6 +149,7 @@ async function main() {
     _pharmacyCount: deduped.length,
     _errors: errors,
     _dedupCollisions: dedupCollisions,
+    _skippedMalformedRows: skippedMalformedRows,
     pharmacies: deduped,
   };
 
