@@ -15,7 +15,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, restoreExistingSlugIdentity } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import {
   snapshotJobSlugs,
@@ -152,20 +152,54 @@ function parseTotalFound(html = '') {
 function extractJobLinksFromTileHtml(html = '') {
   const source = String(html || '');
   const byKey = new Map();
-  const linkRe = /(data-url|href)=(["'])(\/job\/[^"']+)\2/gi;
-  let match = null;
-  while ((match = linkRe.exec(source)) !== null) {
-    const raw = decodeHtmlEntities(match[3] || '');
-    if (!raw) continue;
-    const canonical = canonicalizeIbsaUrl(raw);
-    if (!canonical) continue;
-    const id = extractIbsaJobId(canonical);
-    const key = id ? `id:${id}` : `url:${canonical.toLowerCase()}`;
-    if (!byKey.has(key)) {
-      byKey.set(key, canonical);
+  // Match each quote style separately: IBSA paths legitimately contain an
+  // apostrophe in "Collina d'Oro", even when the HTML attribute is double-
+  // quoted. A shared [^"'] class silently truncated those URLs.
+  const linkPatterns = [
+    /(?:data-url|href)="(\/job\/[^"]+)"/gi,
+    /(?:data-url|href)='(\/job\/[^']+)'/gi,
+  ];
+  for (const linkRe of linkPatterns) {
+    let match = null;
+    while ((match = linkRe.exec(source)) !== null) {
+      const raw = decodeHtmlEntities(match[1] || '');
+      if (!raw) continue;
+      const canonical = canonicalizeIbsaUrl(raw);
+      if (!canonical) continue;
+      const id = extractIbsaJobId(canonical);
+      const key = id ? `id:${id}` : `url:${canonical.toLowerCase()}`;
+      if (!byKey.has(key)) {
+        byKey.set(key, canonical);
+      }
     }
   }
   return [...byKey.values()];
+}
+
+/**
+ * Parse the stable SuccessFactors tile location field together with each
+ * canonical detail URL. The tile is the listing source of truth and avoids a
+ * second detail request solely to recover PostalAddress metadata.
+ */
+export function extractIbsaListingsFromTileHtml(html = '') {
+  return extractJobLinksFromTileHtml(html).map((url) => {
+    const jobId = extractIbsaJobId(url);
+    const valueMatch = jobId
+      ? String(html || '').match(new RegExp(
+        `id=["']job-${jobId}-(?:desktop|tablet)-section-location-value["'][^>]*>([\\s\\S]*?)<\\/div>`,
+        'i',
+      ))
+      : null;
+    const rawLocation = decodeHtmlEntities(
+      String(valueMatch?.[1] || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' '),
+    );
+    const parts = rawLocation.split(',').map((part) => part.trim()).filter(Boolean);
+    const countryIndex = parts.findIndex((part) => /^[A-Z]{2}$/.test(part) && part === 'CH');
+    const city = countryIndex >= 2 ? parts.slice(0, countryIndex - 1).join(', ') : (parts[0] || '');
+    const canton = countryIndex >= 1 ? parts[countryIndex - 1] : '';
+    const postalCode = countryIndex >= 0 ? (parts[countryIndex + 1] || '') : '';
+    return { url, location: city, canton, country: countryIndex >= 0 ? 'CH' : '', postalCode };
+  });
 }
 
 async function fetchTilePage({ startrow, baseParams, timeoutMs, userAgent }) {
@@ -235,13 +269,15 @@ async function fetchIbsaJobDetailUrls() {
       totalFound = currentTotal;
     }
 
-    const links = extractJobLinksFromTileHtml(html);
+    const listings = extractIbsaListingsFromTileHtml(html);
+    const links = listings.map((listing) => listing.url);
     let pageNew = 0;
-    for (const link of links) {
+    for (const listing of listings) {
+      const link = listing.url;
       const id = extractIbsaJobId(link);
       const key = id ? `id:${id}` : `url:${link.toLowerCase()}`;
       if (!detailByKey.has(key)) {
-        detailByKey.set(key, link);
+        detailByKey.set(key, listing);
         pageNew += 1;
       }
     }
@@ -261,12 +297,15 @@ async function fetchIbsaJobDetailUrls() {
     if (Number.isFinite(totalFound) && startrow >= totalFound) break;
   }
 
-  const seedUrls = [...detailByKey.values()];
-  for (const detailUrl of seedUrls) {
+  const listings = [...detailByKey.values()];
+  const seedUrls = listings.map((listing) => listing.url);
+  for (const listing of listings) {
+    const detailUrl = listing.url;
     seedMetaByUrl[detailUrl] = {
-      location: 'Ticino',
-      canton: DEFAULT_CANTON,
-      country: 'CH',
+      location: listing.location || 'Ticino',
+      canton: listing.canton || DEFAULT_CANTON,
+      country: listing.country || 'CH',
+      ...(listing.postalCode ? { postalCode: listing.postalCode } : {}),
       company: IBSA_COMPANY_NAME,
       companyDomain: IBSA_COMPANY_DOMAIN,
     };
@@ -404,9 +443,15 @@ function ensureLocaleFields(job) {
   return { titleByLocale, descriptionByLocale, slugByLocale };
 }
 
-function normalizeIbsaRow(job) {
+export function normalizeIbsaRow(job, seedMetaByUrl = {}) {
   const canonicalUrl = canonicalizeIbsaUrl(job?.url || '');
   const localeFields = ensureLocaleFields(job);
+  const sourceMeta = seedMetaByUrl[canonicalUrl]
+    || seedMetaByUrl[canonicalUrl.toLowerCase()]
+    || null;
+  const sourceLocation = String(sourceMeta?.location || '').trim();
+  const sourceCanton = String(sourceMeta?.canton || '').trim();
+  const sourcePostalCode = String(sourceMeta?.postalCode || '').trim();
   return {
     ...job,
     url: canonicalUrl || job?.url || '',
@@ -415,8 +460,11 @@ function normalizeIbsaRow(job) {
     companyDomain: IBSA_COMPANY_DOMAIN,
     source: 'Company Careers Crawler',
     sourceLang: detectLang((job?.description || job?.title || ''), 'it'),
-    location: String(job?.location || '').trim() || 'Ticino',
-    canton: String(job?.canton || '').trim() || DEFAULT_CANTON,
+    location: sourceLocation || String(job?.location || '').trim() || 'Ticino',
+    addressLocality: sourceLocation || String(job?.addressLocality || job?.location || '').trim() || 'Ticino',
+    canton: sourceCanton || String(job?.canton || '').trim() || DEFAULT_CANTON,
+    addressRegion: sourceCanton || String(job?.addressRegion || job?.canton || '').trim() || DEFAULT_CANTON,
+    ...(sourcePostalCode ? { postalCode: sourcePostalCode } : {}),
     country: String(job?.country || '').trim() || 'CH',
     ...localeFields,
   };
@@ -427,7 +475,7 @@ function writeJobsFiles(jobs) {
   writeJsonAtomic(PUBLIC_DATA_JOBS, jobs);
 }
 
-function postProcessIbsaJobs() {
+function postProcessIbsaJobs(seedMetaByUrl = {}) {
   if (!fs.existsSync(DATA_JOBS)) return { total: 0, ibsa: 0, deduped: 0 };
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   if (!Array.isArray(raw)) return { total: 0, ibsa: 0, deduped: 0 };
@@ -435,7 +483,7 @@ function postProcessIbsaJobs() {
   const bestByKey = new Map();
   for (const job of raw) {
     if (!isIbsaJob(job)) continue;
-    const normalizedRow = normalizeIbsaRow(job);
+    const normalizedRow = normalizeIbsaRow(job, seedMetaByUrl);
     const dedupeKey = buildIbsaDedupeKey(normalizedRow);
     const current = bestByKey.get(dedupeKey);
     if (!current || scoreIbsaCandidate(normalizedRow) > scoreIbsaCandidate(current)) {
@@ -453,7 +501,7 @@ function postProcessIbsaJobs() {
       next.push(job);
       continue;
     }
-    const normalizedRow = normalizeIbsaRow(job);
+    const normalizedRow = normalizeIbsaRow(job, seedMetaByUrl);
     const dedupeKey = buildIbsaDedupeKey(normalizedRow);
     if (seen.has(dedupeKey)) {
       droppedDuplicates += 1;
@@ -493,13 +541,14 @@ async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(IBSA_KEY, 'IBSA');
   console.log('🚀 IBSA dedicated crawler start');
-  const beforeSnapshot = snapshotJobSlugs(loadIbsaJobs());
+  const existingJobs = readExistingCrawlerJobs(IBSA_KEY, DATA_JOBS).filter(isIbsaJob);
+  const beforeSnapshot = snapshotJobSlugs(existingJobs);
 
   const { seedUrls, seedMetaByUrl } = await fetchIbsaJobDetailUrls();
   updateIbsaAdapter({ seedUrls, seedMetaByUrl });
 
   await runDedicatedIbsaCrawler();
-  const post = postProcessIbsaJobs();
+  const post = postProcessIbsaJobs(seedMetaByUrl);
   console.log(`🧹 Post-process IBSA: ${post.ibsa} active, ${post.deduped} duplicate(s) removed.`);
 
   validateDedicatedLocaleCoverage({
@@ -516,6 +565,17 @@ async function main() {
     noJobsMessage: 'No IBSA jobs found after crawl.',
   });
 
+  // Location corrections are display-data fixes and must not rename already
+  // published vacancy paths. Validation performs slug hardening, so re-pin the
+  // existing identity at this final boundary; newly discovered jobs remain
+  // untouched.
+  const validatedJobs = loadIbsaJobs();
+  const restored = restoreExistingSlugIdentity(existingJobs, validatedJobs);
+  if (restored.restored > 0) {
+    writeJsonAtomic(DATA_JOBS, restored.jobs);
+    console.log(`  Re-pinned ${restored.restored} existing IBSA slug slot(s) after validation.`);
+  }
+
   const afterSnapshot = snapshotJobSlugs(loadIbsaJobs());
   const diff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
   printCrawlChangeSummary(diff, 'IBSA');
@@ -527,7 +587,7 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isIbsaJob) : [];
-  writeJobsCrawlerSlice(IBSA_KEY, _sliceJobs);
+  writeJobsCrawlerSlice(IBSA_KEY, _sliceJobs, { preserveExistingSlugs: true });
   writeSummaryCrawlerSlice({
     key: IBSA_KEY,
     label: 'IBSA',
@@ -548,5 +608,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'IBSA'));
-
+const isMain = process.argv[1]
+  && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (isMain) main().catch((err) => exitCrawlerOnError(err, 'IBSA'));

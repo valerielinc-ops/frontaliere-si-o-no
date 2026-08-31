@@ -4194,6 +4194,30 @@ function toJobFromJsonLd(node, fallbackCompany, sourcePageUrl, options = {}) {
   return { job, reason: null };
 }
 
+/**
+ * Read schema.org PostalAddress metadata from HTML-only job pages. Some ATS
+ * tenants expose microdata but no JSON-LD, so the generic fallback otherwise
+ * judges geography from title/body tokens (where e.g. "IT" means Information
+ * Technology, not Italy).
+ */
+function extractHtmlMicrodataAddress(html = '') {
+  const content = (prop) => {
+    const tag = String(html).match(new RegExp(
+      `<[^>]*\\bitemprop=["']${prop}["'][^>]*>`,
+      'i',
+    ))?.[0] || '';
+    return normalizeSpace(decodeHtmlEntities(
+      tag.match(/\bcontent=["']([^"']*)["']/i)?.[1] || '',
+    ));
+  };
+  return {
+    locality: content('addressLocality'),
+    region: content('addressRegion'),
+    postalCode: content('postalCode'),
+    country: content('addressCountry'),
+  };
+}
+
 function extractTitleFromHtml(html) {
   return normalizeSpace(stripScriptsAndStyles(html).match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '');
 }
@@ -4308,8 +4332,13 @@ function toJobFromHtmlFallback(html, pageUrl, companyName, companyCity, options 
   if (isLikelyListingSummaryContent(title, description)) {
     return { job: null, reason: 'html_listing_summary_page' };
   }
+  const microdataAddress = extractHtmlMicrodataAddress(html);
+  const microdataLocation = [microdataAddress.locality, microdataAddress.region]
+    .filter(Boolean)
+    .join(', ');
   const locationMatch =
     supsiParsed?.location ||
+    microdataLocation ||
     extractLocationFromText(html, '') ||
     sanitizeLocation(normalizeSpace(extractMetaContent(html, 'property', 'jobLocation'))) ||
     (isTargetSwissLocation(description) ? companyCity : '') ||
@@ -4341,10 +4370,18 @@ function toJobFromHtmlFallback(html, pageUrl, companyName, companyCity, options 
   // mentions Switzerland, so an EXPLICIT foreign signal here is strong
   // enough to reject regardless of seed trust. Keep the seedMetaRelevant
   // rescue only for the ambiguous "no explicit signal either way" case below.
-  if (isLocationExplicitlyForeign(locationMatch) || _isForeignAtsUrlLocation(pageUrl)) {
+  const microdataCountryForeign = Boolean(microdataAddress.country)
+    && !isChCountry(microdataAddress.country)
+    && !normalizeCantonCode(microdataAddress.country);
+  if (microdataCountryForeign || isLocationExplicitlyForeign(locationMatch) || _isForeignAtsUrlLocation(pageUrl)) {
     return { job: null, reason: 'html_location_explicitly_foreign' };
   }
-  if (isExplicitlyOutsideTarget(geoSignal) || isExplicitlyOutsideTargetCantons(geoSignal)) {
+  const explicitSwissMicrodata = isChCountry(microdataAddress.country)
+    && isTargetSwissLocation(`${microdataAddress.locality} ${microdataAddress.region}`);
+  if (
+    !explicitSwissMicrodata
+    && (isExplicitlyOutsideTarget(geoSignal) || isExplicitlyOutsideTargetCantons(geoSignal))
+  ) {
     return { job: null, reason: 'html_explicitly_outside_target' };
   }
   if (!isTargetSwissLocation(geoSignalExplicit) && !seedMetaRelevant) return { job: null, reason: 'html_not_target_relevant' };
@@ -6076,6 +6113,8 @@ export const __testables = {
   // Canton mis-tagging guard: the JSON-LD → job mapper and the
   // addressCountry-vs-seedCanton precedence predicate it relies on.
   toJobFromJsonLd,
+  toJobFromHtmlFallback,
+  extractHtmlMicrodataAddress,
   isJsonLdCountryExplicitlyForeign,
   setCrawlerConfigForTests(cfg) { crawlerConfigGlobal = cfg; },
   clearAiResponseCacheForTests() { aiResponseCache.clear(); },
