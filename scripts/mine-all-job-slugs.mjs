@@ -30,6 +30,7 @@ import {
 } from './lib/all-known-job-slugs-store.mjs';
 import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { JOB_BOARD_SEGMENT_RX } from './lib/jobBoardSections.mjs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -141,10 +142,8 @@ function reuseLocalePathsForSlug(entry, newSlug) {
 function mineActiveJobs() {
   const slugs = new Map(); // slug → { locales: { it, en, de, fr } }
   const dir = dataPath('jobs', 'by-crawler');
-  if (!fs.existsSync(dir)) return slugs;
 
-  for (const f of fs.readdirSync(dir)) {
-    if (!f.endsWith('.json')) continue;
+  for (const f of listSliceFileNames(dir)) {
     try {
       const data = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf-8'));
       const jobs = Array.isArray(data) ? data : (data.jobs || []);
@@ -189,10 +188,8 @@ function mineActiveJobs() {
 function mineExpiredJobs() {
   const slugs = new Map();
   const dir = dataPath('jobs', 'expired', 'by-crawler');
-  if (!fs.existsSync(dir)) return slugs;
 
-  for (const f of fs.readdirSync(dir)) {
-    if (!f.endsWith('.json')) continue;
+  for (const f of listSliceFileNames(dir)) {
     try {
       const data = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf-8'));
       const jobs = Array.isArray(data) ? data : (data.jobs || []);
