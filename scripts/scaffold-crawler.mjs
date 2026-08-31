@@ -697,6 +697,7 @@ export async function fetchAll${pascalKey}Jobs() {
 ${locationBlock}
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
+    if (!descriptionText) continue;
     const publicUrl = listing.url || CAREER_URL;
 
     const sourceLang = detectLang(descriptionText || title, '${sourceLang}');
@@ -723,9 +724,14 @@ ${locationBlock}
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields ──
-      addressLocality: location,
-      addressCountry: 'CH',
-      country: 'CH',
+      // Prospected runtime rows retain the selected structured candidate;
+      // other ATS tiers use the same fields when their client exposes them.
+      addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
+      addressRegion: normalizeSpace(listing.addressRegion || canton),
+      addressCountry: normalizeSpace(listing.addressCountry || 'CH'),
+      country: normalizeSpace(listing.addressCountry || 'CH'),
+      ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
+      ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
       category: detectCategory(title),
       contract: 'full-time',
       employmentType: detectEmploymentType(listing.timeType || title),

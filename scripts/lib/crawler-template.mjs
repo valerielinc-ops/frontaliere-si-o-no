@@ -170,10 +170,12 @@ import {
   fetchWithRetry,
 } from './transient-fetch.mjs';
 import { fetchHtmlViaJinaWithRetry, rescueHtmlIfChallenged } from './jina-proxy.mjs';
+import { fetchFollowingValidatedRedirects } from './prospector/public-fetch-policy.mjs';
 
 // Re-export the shared transient-fetch primitives so existing importers of
 // crawler-template keep working and the ATS clients share one classifier.
 export { RETRYABLE_STATUS, WAF_IP_BLOCK_STATUS, isTransientFetchError, isConnectionLevelFetchError, fetchWithRetry };
+export { fetchFollowingValidatedRedirects } from './prospector/public-fetch-policy.mjs';
 
 /* ── Shared Utilities (re-exported for parser convenience) ──────────── */
 
@@ -539,40 +541,6 @@ export async function fetchJson(url, options = {}) {
   }, options);
 }
 
-/**
- * Follow redirects only after the caller has validated every requested and
- * effective URL.
- *
- * @param {string} url
- * @param {{ fetchImpl?: typeof fetch, validateUrl?: (url: string) => Promise<unknown>|unknown, requestOptions?: RequestInit, maxRedirects?: number }} [options]
- */
-export async function fetchFollowingValidatedRedirects(url, {
-  fetchImpl = fetch,
-  validateUrl,
-  requestOptions = {},
-  maxRedirects = 5,
-} = {}) {
-  let current = String(url || '');
-  for (let redirectCount = 0; redirectCount <= maxRedirects; redirectCount++) {
-    if (validateUrl) await validateUrl(current);
-    const res = await fetchImpl(current, { ...requestOptions, redirect: 'manual' });
-    const effectiveUrl = res.url || current;
-    if (validateUrl) await validateUrl(effectiveUrl);
-    if (res.status < 300 || res.status >= 400) return res;
-    const location = res.headers?.get?.('location');
-    if (!location) return res;
-    if (redirectCount >= maxRedirects) {
-      const err = new Error(`Too many redirects (>${maxRedirects}) fetching ${url}`);
-      err.retryable = false;
-      throw err;
-    }
-    await res.body?.cancel?.();
-    current = new URL(location, effectiveUrl).toString();
-    if (validateUrl) await validateUrl(current);
-  }
-  throw new Error(`Redirect validation failed for ${url}`);
-}
-
 export async function fetchHtml(url, options = {}) {
   const timeoutMs = options.timeoutMs || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   const redirectValidator = typeof options.validateRedirectUrl === 'function'
@@ -587,6 +555,7 @@ export async function fetchHtml(url, options = {}) {
           method: 'GET',
           headers: { 'User-Agent': DEFAULT_UA, ...options.headers },
           signal: controller.signal,
+          ...(options.dispatcher ? { dispatcher: options.dispatcher } : {}),
         };
         const res = redirectValidator
           ? await fetchFollowingValidatedRedirects(url, {

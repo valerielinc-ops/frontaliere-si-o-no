@@ -143,6 +143,7 @@ export async function fetchAllMichaelpageJobs() {
     const { location, canton } = geography;
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
+    if (!descriptionText) continue;
     const publicUrl = listing.url || CAREER_URL;
 
     const sourceLang = detectLang(descriptionText || title, 'en');
@@ -159,8 +160,8 @@ export async function fetchAllMichaelpageJobs() {
       companyDomain: MICHAELPAGE_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || `${title} — Michael Page`,
-      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — Michael Page` },
+      description: descriptionText,
+      descriptionByLocale: { [sourceLang]: descriptionText },
       location,
       canton,
       url: publicUrl,
@@ -169,9 +170,12 @@ export async function fetchAllMichaelpageJobs() {
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields ──
-      addressLocality: location,
-      addressCountry: 'CH',
-      country: 'CH',
+      addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
+      addressRegion: normalizeSpace(listing.addressRegion || canton),
+      addressCountry: normalizeSpace(listing.addressCountry || "CH"),
+      country: normalizeSpace(listing.addressCountry || "CH"),
+      ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
+      ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
       category: detectCategory(title),
       contract: 'full-time',
       employmentType: detectEmploymentType(listing.timeType || title),

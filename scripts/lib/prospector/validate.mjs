@@ -36,9 +36,14 @@
  * `insufficient` rather than given a number that reads as confidence.
  */
 import { politeFetch } from './polite-fetch.mjs';
-import { extractDetailFields, textOf } from './extract.mjs';
+import {
+  extractDetailFields,
+  isSufficientVacancyDescription,
+  textOf,
+} from './extract.mjs';
 import { resolveDetailOrListingSwissGeography } from './location-evidence.mjs';
 import { gradeJobLike } from '../job-like.mjs';
+import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
 
 /**
  * Whether a fetched body is text we can actually read.
@@ -90,10 +95,10 @@ export function tokenOverlap(needle, haystack) {
  * Grade ONE vacancy against its own detail page.
  *
  * @param {{ title: string, url: string, location?: string, description?: string }} vacancy
+ * @param {{ urlPolicy?: any, dispatcher?: unknown, fetchImpl?: typeof fetch, lookupImpl?: any, sleepImpl?: (ms: number) => Promise<unknown> }} [fetchOptions]
  * @returns {Promise<{ url: string, reachable: boolean, titleMatch: number, contentful: boolean, sourceBackedLocation: boolean, words: number, status: number, jobLike: boolean|null, jobSignals: string[], notJobSignals: string[] }>}
  */
-export async function gradeVacancy(vacancy) {
-  const res = await politeFetch(vacancy.url);
+export async function gradeVacancy(vacancy, fetchOptions = {}) {
   const out = {
     url: vacancy.url,
     reachable: false,
@@ -101,12 +106,19 @@ export async function gradeVacancy(vacancy) {
     contentful: false,
     sourceBackedLocation: false,
     words: 0,
-    status: res.status,
+    status: 0,
     /** `null` means "not measured", never "measured and fine". */
     jobLike: null,
     jobSignals: [],
     notJobSignals: [],
   };
+  try {
+    if (fetchOptions.urlPolicy) await fetchOptions.urlPolicy(vacancy.url);
+  } catch {
+    return out;
+  }
+  const res = await politeFetch(vacancy.url, fetchOptions);
+  out.status = res.status;
   if (!res.ok || res.body.length < 200) return out;
   out.reachable = true;
 
@@ -115,14 +127,18 @@ export async function gradeVacancy(vacancy) {
   const heading = `${textOf(h1)} ${textOf(title)}`;
   const bodyText = textOf(res.body);
   out.titleMatch = Math.max(tokenOverlap(vacancy.title, heading), tokenOverlap(vacancy.title, bodyText.slice(0, 4000)));
-  const detail = extractDetailFields(res.body, vacancy.url);
+  const detail = extractDetailFields(res.body, res.url || vacancy.url);
   out.sourceBackedLocation = Boolean(resolveDetailOrListingSwissGeography(detail, vacancy).geography);
 
   const words = bodyText.split(/\s+/).filter(Boolean).length;
   out.words = words;
-  // 120 words is the floor for a real vacancy in any of the four locales; below
-  // it the page is a shell, a cookie wall, or a client-rendered stub.
-  out.contentful = words >= 120;
+  // Grade the exact description the runtime would publish. Navigation/footer
+  // prose must not make a description-less shell pass validation only to be
+  // dropped by production under the shared sufficiency contract.
+  const publishableDescription = isSufficientVacancyDescription(detail.description)
+    ? detail.description
+    : (vacancy.description || '');
+  out.contentful = isSufficientVacancyDescription(publishableDescription);
 
   if (isReadableText(res.body)) {
     const jl = gradeJobLike(bodyText);
@@ -155,7 +171,7 @@ export async function gradeVacancy(vacancy) {
  *
  * @param {{ companyKey: string }} spec
  * @param {any[]} vacancies
- * @param {{ sampleSize?: number, goodAt?: number, weakAt?: number }} [opts]
+ * @param {{ sampleSize?: number, goodAt?: number, weakAt?: number, fetchImpl?: typeof fetch, lookupImpl?: any, sleepImpl?: (ms: number) => Promise<unknown> }} [opts]
  * @returns {Promise<QualityReport>}
  */
 export async function gradeExtraction(spec, vacancies, opts = {}) {
@@ -175,7 +191,19 @@ export async function gradeExtraction(spec, vacancies, opts = {}) {
   for (let i = 0; i < vacancies.length && picks.length < sampleSize; i += step) picks.push(vacancies[i]);
 
   const graded = [];
-  for (const v of picks) graded.push(await gradeVacancy(v));
+  const urlPolicy = createSpecUrlPolicy(/** @type {any} */ (spec), { lookupImpl: opts.lookupImpl });
+  try {
+    for (const v of picks) {
+      graded.push(await gradeVacancy(v, {
+        urlPolicy,
+        dispatcher: urlPolicy.dispatcher,
+        fetchImpl: opts.fetchImpl,
+        sleepImpl: opts.sleepImpl,
+      }));
+    }
+  } finally {
+    await urlPolicy.dispatcher.close();
+  }
 
   const rate = (fn) => (graded.length ? graded.filter(fn).length / graded.length : 0);
   const reachableRate = rate((g) => g.reachable);
@@ -214,6 +242,7 @@ export async function gradeExtraction(spec, vacancies, opts = {}) {
       : (base * (1 - JOB_LIKE_WEIGHT)) + (jobLikeRate * JOB_LIKE_WEIGHT))
     : 0;
 
+  /** @type {QualityReport['verdict']} */
   let verdict = 'insufficient';
   if (graded.length >= 2) verdict = score >= goodAt ? 'good' : (score >= weakAt ? 'weak' : 'bad');
 

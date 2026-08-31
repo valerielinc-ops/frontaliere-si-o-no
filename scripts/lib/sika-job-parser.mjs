@@ -192,15 +192,15 @@ async function fetchJobDetail(url) {
       const node = Array.isArray(parsed) ? parsed.find((n) => n?.['@type'] === 'JobPosting') : parsed;
       if (!node || node['@type'] !== 'JobPosting') continue;
       const locationCandidates = schemaJobLocationCandidates(node.jobLocation);
-      const primaryLocation = locationCandidates[0] || {};
+      const primaryLocation = locationCandidates[0];
       return {
         datePosted: node.datePosted || '',
         employmentType: node.employmentType || '',
-        addressLocality: primaryLocation.addressLocality || '',
-        addressCountry: primaryLocation.addressCountry || '',
-        postalCode: primaryLocation.postalCode || '',
-        streetAddress: primaryLocation.streetAddress || '',
-        addressRegion: primaryLocation.addressRegion || '',
+        addressLocality: primaryLocation?.addressLocality || '',
+        addressCountry: primaryLocation?.addressCountry || '',
+        postalCode: primaryLocation?.postalCode || '',
+        streetAddress: primaryLocation?.streetAddress || '',
+        addressRegion: primaryLocation?.addressRegion || '',
         locationCandidates,
       };
     }
@@ -255,7 +255,7 @@ export async function fetchAllSikaJobs() {
     const geography = decision.geography;
     if (!geography) continue;
     const { location, canton } = geography;
-    const evidence = decision.candidate || {};
+    const evidence = decision.candidate;
 
     // Resolve address fields from the detail JSON-LD or listing string only.
     const localityFromListing = location.split(',')[0]?.trim() || '';

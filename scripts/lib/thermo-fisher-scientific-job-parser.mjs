@@ -38,6 +38,12 @@ const JOB_DETAIL_BASE = 'https://jobs.thermofisher.com/global/en/job';
 const PAGE_SIZE = 50;
 
 const HQ = { city: 'Reinach', canton: 'BL', postalCode: '4153', addressRegion: 'Basel-Landschaft' };
+
+/** @param {string} locality @param {string} canton @param {string} [sourcePostalCode] */
+export function thermoFisherPostalCode(locality, canton, sourcePostalCode = '') {
+  return normalizeSpace(sourcePostalCode)
+    || (canton === HQ.canton && normalize(locality) === normalize(HQ.city) ? HQ.postalCode : '');
+}
 const SECTOR = 'Life Sciences — Pharma Manufacturing & Quality';
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 
@@ -329,7 +335,7 @@ export async function fetchAllThermoFisherScientificJobs() {
 
       // ── Recommended fields ──
       addressLocality,
-      postalCode: listing.postalCode || (/reinach/i.test(addressLocality) ? HQ.postalCode : ''),
+      postalCode: thermoFisherPostalCode(addressLocality, canton, listing.postalCode),
       addressRegion: canton,
       addressCountry: 'CH',
       country: 'CH',

@@ -318,7 +318,7 @@ export async function fetchAllIkeaJobs() {
     const geography = decision.geography;
     if (!geography) continue;
     const { location, canton } = geography;
-    const evidence = decision.candidate || {};
+    const evidence = decision.candidate;
     const addressLocality = evidence.addressLocality || location.split(',')[0].trim();
     const addressRegion = resolveIkeaAddressRegion(evidence.addressRegion, canton);
     // IKEA sometimes places its 4-digit Swiss postal code in streetAddress.

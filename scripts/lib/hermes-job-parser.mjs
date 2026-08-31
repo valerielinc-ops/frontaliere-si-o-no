@@ -51,6 +51,22 @@ function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
+/** @param {string} location @param {string} canton */
+export function hermesAddressFields(location, canton) {
+  const addressLocality = normalizeSpace(location.split(',')[0])
+    .replace(/\s+(?:GE|CH)$/i, '')
+    .trim();
+  const normalizedLocality = normalize(addressLocality)
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const isGenevaHq = canton === 'GE'
+    && new Set(['geneve', 'geneva', 'genf', 'ginevra']).has(normalizedLocality);
+  return {
+    addressLocality,
+    postalCode: isGenevaHq ? '1204' : undefined,
+    addressRegion: isGenevaHq ? 'Genève' : canton,
+  };
+}
+
 /** Coerce a date-ish value to an ISO YYYY-MM-DD string, or '' if unparseable. */
 function normalizeDate(value) {
   if (!value) return '';
@@ -282,6 +298,7 @@ export async function fetchAllHermesJobs() {
     const geography = resolveSourceBackedSwissGeography(listing.location);
     if (!geography) continue;
     const { location, canton } = geography;
+    const address = hermesAddressFields(location, canton);
     // The list endpoint carries no body; fetch the full ExternalDescriptionStr
     // from the ORC detail endpoint so jobs aren't thin → boilerplate-padded →
     // boilerplate-guard failure (#1718). Falls back to '' (then a title lede).
@@ -313,18 +330,19 @@ export async function fetchAllHermesJobs() {
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields ──
-      addressLocality: location,
-      // HQ postal/region fallback (Hermès Suisse SA, Genève) when not parseable.
-      postalCode: canton === 'GE' ? '1204' : undefined,
+      addressLocality: address.addressLocality,
+      // 1204 is the Genève HQ, not a canton-wide fallback: Meyrin/Carouge and
+      // other GE vacancies must retain their own source address or no CAP.
+      postalCode: address.postalCode,
       // Region = canton (not the city name). For non-GE jobs the old
       // `: location` branch leaked the city into addressRegion (#1720 item 3,
       // same class as decathlon). Keep the friendly 'Genève' label for the GE HQ.
-      addressRegion: canton === 'GE' ? 'Genève' : canton,
+      addressRegion: address.addressRegion,
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
       contract: 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || title),
+      employmentType: detectEmploymentType(title),
       experienceLevel: detectExperienceLevel(title),
       sector: 'Luxury goods / fashion / watchmaking',
       currency: 'CHF',

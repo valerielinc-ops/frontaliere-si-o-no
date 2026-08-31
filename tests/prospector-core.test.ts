@@ -8,7 +8,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, expectTypeOf, it } from 'vitest';
 import { registrableDomain, tenantLabel, sameOrg, normalizeHost, safeDecodePath } from '../scripts/lib/prospector/registrable.mjs';
 import { parseRobots, robotsAllows } from '../scripts/lib/prospector/polite-fetch.mjs';
 import {
@@ -25,13 +25,23 @@ import { tokenOverlap, gradeExtraction, isReadableText } from '../scripts/lib/pr
 import { gradeJobLike, hasAnyJobSignal } from '../scripts/lib/job-like.mjs';
 import { commonUrlTemplate, crawlerKeyFor, detectPageLang, isExpectedSynthesisError } from '../scripts/lib/prospector/synthesize.mjs';
 import { evaluatePromotion, selectForPromotion, clampMinDays, findOpenPromotionPr, GATE_DEFAULTS } from '../scripts/lib/prospector/promotion-gate.mjs';
-import { createSpecUrlPolicy, needsDetailEnrichment, templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
+import { createSpecUrlPolicy, geographyFieldsForDecision, needsDetailEnrichment, templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
 import {
   resolveDetailOrListingSwissGeography,
   resolveSourceBackedSwissGeography,
+  schemaJobLocationCandidates,
 } from '../scripts/lib/prospector/location-evidence.mjs';
+import {
+  COUNTRY_INVENTORY_VERSION,
+  FOREIGN_COUNTRY_NAME_LABELS,
+  ISO_ALPHA2_COUNTRY_CODES,
+} from '../scripts/lib/prospector/country-inventory.mjs';
+import {
+  FOREIGN_SUBDIVISION_CODES,
+  SUBDIVISION_INVENTORY_VERSION,
+} from '../scripts/lib/prospector/subdivision-inventory.mjs';
 import { constPrefix, pascalIdentifier } from '../scripts/lib/crawler-identifier.mjs';
-import { fetchFollowingValidatedRedirects } from '../scripts/lib/crawler-template.mjs';
+import { fetchFollowingValidatedRedirects, fetchHtml } from '../scripts/lib/crawler-template.mjs';
 
 const emptyRegistry = () => loadRegistry('/prospector/does-not-exist.json');
 
@@ -179,6 +189,181 @@ describe('vacancy extraction', () => {
     expect(job.postedDate).toBe('2026-08-01');
   });
 
+  it('does not end a microdata start tag at > inside a quoted attribute', () => {
+    const html = '<div data-label="A > B" itemscope itemtype="https://schema.org/JobPosting">' +
+      '<meta data-label="A > B" itemprop="title" content="Quote-aware Engineer">' +
+      '<div data-label="A > B" itemprop="jobLocation">' +
+        '<meta data-label="A > B" itemprop="addressLocality" content="Zürich">' +
+        '<meta itemprop="addressCountry" content="CH">' +
+      '</div></div>';
+    const [job] = extractMicrodata(html, 'https://x.example/job/quoted-angle');
+    expect(job).toMatchObject({
+      title: 'Quote-aware Engineer',
+      location: 'Zürich',
+      addressCountry: 'CH',
+    });
+  });
+
+  it('recovers a valid JobPosting after an unterminated quoted tag', () => {
+    const html = '<div data-label="unterminated><span>broken shell</span>' +
+      '<article itemscope itemtype="https://schema.org/JobPosting">' +
+      '<meta itemprop="title" content="Recovered Engineer">' +
+      '<div itemprop="jobLocation"><meta itemprop="addressLocality" content="Zürich">' +
+      '<meta itemprop="addressRegion" content="ZH"><meta itemprop="addressCountry" content="CH"></div>' +
+      '</article>';
+    expect(extractMicrodata(html, 'https://x.example/jobs')).toEqual([
+      expect.objectContaining({ title: 'Recovered Engineer', location: 'Zürich, ZH' }),
+    ]);
+  });
+
+  it('unifies JSON-LD and microdata detail evidence without losing a foreign negative', () => {
+    const html = '<h1>Sales Executive</h1><script type="application/ld+json">' + JSON.stringify({
+      '@type': 'JobPosting', title: 'Sales Executive', description: 'Teaser',
+    }) + '</script>' +
+      '<article itemscope itemtype="https://schema.org/JobPosting">' +
+      '<meta itemprop="title" content="Sales Executive">' +
+      '<div itemprop="jobLocation"><meta itemprop="addressLocality" content="Geneva">' +
+      '<meta itemprop="addressRegion" content="NY"><meta itemprop="addressCountry" content="US"></div>' +
+      '</article><div class="job-location">Geneva</div>';
+    const detail = extractDetailFields(html, 'https://x.example/job/foreign');
+    expect(detail.locationCandidates).toEqual([
+      expect.objectContaining({ location: 'Geneva, NY', addressCountry: 'US', addressRegion: 'NY' }),
+    ]);
+    expect(resolveDetailOrListingSwissGeography(detail, { location: 'Geneva' })).toMatchObject({
+      geography: null,
+      explicitlyForeign: true,
+    });
+  });
+
+  it('does not merge a Swiss recommended JobPosting into the foreign current vacancy', () => {
+    const pageUrl = 'https://x.example/job/primary';
+    const html = `<h1>Primary Sales Role</h1><script type="application/ld+json">${JSON.stringify([
+      {
+        '@type': 'JobPosting', title: 'Primary Sales Role', url: pageUrl,
+        jobLocation: { address: { addressLocality: 'Geneva', addressRegion: 'NY', addressCountry: 'US' } },
+      },
+      {
+        '@type': 'JobPosting', title: 'Recommended Sales Role', url: 'https://x.example/job/recommended',
+        jobLocation: { address: { addressLocality: 'Genève', addressRegion: 'GE', addressCountry: 'CH' } },
+      },
+    ])}</script>`;
+    const detail = extractDetailFields(html, pageUrl);
+    expect(detail.locationCandidates).toEqual([
+      expect.objectContaining({ location: 'Geneva, NY', addressCountry: 'US' }),
+    ]);
+    expect(resolveDetailOrListingSwissGeography(detail, { location: 'Genève' })).toMatchObject({
+      geography: null,
+      explicitlyForeign: true,
+    });
+  });
+
+  it('fails closed on sibling JobPosting records with no matching detail identity', () => {
+    const html = `<h1>Careers</h1><script type="application/ld+json">${JSON.stringify([
+      {
+        '@type': 'JobPosting', title: 'First Role',
+        jobLocation: { address: { addressLocality: 'Zürich', addressRegion: 'ZH', addressCountry: 'CH' } },
+      },
+      {
+        '@type': 'JobPosting', title: 'Second Role',
+        jobLocation: { address: { addressLocality: 'Genève', addressRegion: 'GE', addressCountry: 'CH' } },
+      },
+    ])}</script>`;
+    const detail = extractDetailFields(html, 'https://x.example/careers');
+    expect(detail.locationCandidates).toEqual([]);
+    expect(resolveDetailOrListingSwissGeography(detail, {})).toMatchObject({ geography: null });
+  });
+
+  it('fails closed on same-title URL-less JSON-LD siblings', () => {
+    const html = `<h1>Sales Engineer</h1><script type="application/ld+json">${JSON.stringify([
+      {
+        '@type': 'JobPosting', title: 'Sales Engineer',
+        jobLocation: { address: { addressLocality: 'Zürich', addressRegion: 'ZH', addressCountry: 'CH' } },
+      },
+      {
+        '@type': 'JobPosting', title: 'Sales Engineer',
+        jobLocation: { address: { addressLocality: 'Genève', addressRegion: 'GE', addressCountry: 'CH' } },
+      },
+    ])}</script>`;
+    const detail = extractDetailFields(html, 'https://x.example/job/current');
+    expect(detail.locationCandidates).toEqual([]);
+    expect(resolveDetailOrListingSwissGeography(detail, {})).toMatchObject({ geography: null });
+  });
+
+  it('resolves relative structured URLs before selecting the current JobPosting', () => {
+    const pageUrl = 'https://x.example/job/current';
+    const html = `<h1>Careers</h1><script type="application/ld+json">${JSON.stringify([
+      {
+        '@type': 'JobPosting', title: 'Current Role', url: '/job/current',
+        jobLocation: { address: { addressLocality: 'Zürich', addressRegion: 'ZH', addressCountry: 'CH' } },
+      },
+      {
+        '@type': 'JobPosting', title: 'Other Role', url: '/job/other',
+        jobLocation: { address: { addressLocality: 'Genève', addressRegion: 'GE', addressCountry: 'CH' } },
+      },
+    ])}</script>`;
+    const detail = extractDetailFields(html, pageUrl);
+    expect(detail.locationCandidates).toEqual([
+      expect.objectContaining({ location: 'Zürich, ZH', addressCountry: 'CH' }),
+    ]);
+  });
+
+  it('gives an exact structured URL precedence over a URL-less title match', () => {
+    const pageUrl = 'https://x.example/job/current';
+    const html = `<h1>Rendered Recommended Role</h1><script type="application/ld+json">${JSON.stringify([
+      {
+        '@type': 'JobPosting', title: 'Canonical Current Role', url: pageUrl,
+        jobLocation: { address: { addressLocality: 'Zürich', addressRegion: 'ZH', addressCountry: 'CH' } },
+      },
+      {
+        '@type': 'JobPosting', title: 'Rendered Recommended Role',
+        jobLocation: { address: { addressLocality: 'Geneva', addressRegion: 'NY', addressCountry: 'US' } },
+      },
+    ])}</script>`;
+    const detail = extractDetailFields(html, pageUrl);
+    expect(detail.locationCandidates).toEqual([
+      expect.objectContaining({ location: 'Zürich, ZH', addressCountry: 'CH' }),
+    ]);
+    expect(detail.authoritativeLocationConflict).toBe(false);
+  });
+
+  it('keeps complementary current-job microdata and fails closed on cross-format conflict', () => {
+    const pageUrl = 'https://x.example/job/current';
+    const html = `<h1>Current Engineer</h1><script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting', title: 'Current Engineer', url: pageUrl,
+      jobLocation: { address: { addressLocality: 'Zürich', addressRegion: 'ZH', addressCountry: 'CH' } },
+    })}</script>` +
+      '<article itemscope itemtype="https://schema.org/JobPosting">' +
+      '<meta itemprop="title" content="Current Engineer">' +
+      '<div itemprop="jobLocation"><meta itemprop="addressLocality" content="Geneva">' +
+      '<meta itemprop="addressRegion" content="NY"><meta itemprop="addressCountry" content="US"></div>' +
+      '</article>';
+    const detail = extractDetailFields(html, pageUrl);
+    expect(detail.locationCandidates).toHaveLength(2);
+    expect(detail.authoritativeLocationConflict).toBe(true);
+    expect(resolveDetailOrListingSwissGeography(detail, {})).toMatchObject({
+      geography: null,
+      explicitlyForeign: true,
+    });
+  });
+
+  it('detects authoritative foreign subdivision evidence without addressCountry', () => {
+    const pageUrl = 'https://x.example/job/current';
+    const html = `<h1>Current Engineer</h1><script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting', title: 'Current Engineer', url: pageUrl,
+      jobLocation: { address: { addressLocality: 'Zürich', addressRegion: 'ZH', addressCountry: 'CH' } },
+    })}</script>` +
+      '<article itemscope itemtype="https://schema.org/JobPosting">' +
+      '<meta itemprop="title" content="Current Engineer">' +
+      '<div itemprop="jobLocation"><meta itemprop="addressLocality" content="Berlin">' +
+      '<meta itemprop="addressRegion" content="Berlin"></div></article>';
+    const detail = extractDetailFields(html, pageUrl);
+    expect(detail.authoritativeLocationConflict).toBe(true);
+    expect(resolveDetailOrListingSwissGeography(detail, {})).toMatchObject({
+      geography: null,
+      explicitlyForeign: true,
+    });
+  });
+
   it('propagates authoritative microdata country evidence', () => {
     const html = '<div itemscope itemtype="https://schema.org/JobPosting">' +
       '<span itemprop="title">Network Engineer</span>' +
@@ -188,6 +373,61 @@ describe('vacancy extraction', () => {
     const [job] = extractMicrodata(html, 'https://x.example/job/2');
     expect(job).toMatchObject({ location: 'Geneva, NY', addressCountry: 'US' });
     expect(resolveDetailOrListingSwissGeography(job).geography).toBeNull();
+  });
+
+  it('keeps sibling microdata jobLocation containers independent', () => {
+    const html = '<div itemscope itemtype="https://schema.org/JobPosting">' +
+      '<span itemprop="title">Network Engineer</span>' +
+      '<div itemprop="jobLocation" itemscope itemtype="https://schema.org/Place">' +
+        '<span itemprop="addressLocality">Paris</span><meta itemprop="addressCountry" content="FR">' +
+      '</div>' +
+      '<div itemprop="jobLocation" itemscope itemtype="https://schema.org/Place">' +
+        '<span itemprop="addressLocality">Zürich</span><span itemprop="addressRegion">ZH</span>' +
+        '<meta itemprop="addressCountry" content="CH">' +
+      '</div>' +
+      '</div>';
+    const [job] = extractMicrodata(html, 'https://x.example/job/3');
+    expect(job.locationCandidates).toEqual([
+      expect.objectContaining({ location: 'Paris', addressCountry: 'FR', addressLocality: 'Paris' }),
+      expect.objectContaining({ location: 'Zürich, ZH', addressCountry: 'CH', addressLocality: 'Zürich', addressRegion: 'ZH' }),
+    ]);
+    expect(resolveDetailOrListingSwissGeography(job).geography).toMatchObject({
+      location: 'Zürich, ZH', canton: 'ZH', addressCountry: 'CH',
+    });
+  });
+
+  it('balances nested same-name microdata containers without crossing jobs', () => {
+    const html = [
+      '<article itemscope itemtype="https://schema.org/JobPosting">',
+      '<div><div itemprop="title"><span>First nested role</span></div></div>',
+      '<div itemprop="jobLocation"><div><span itemprop="addressLocality">Zürich</span></div></div>',
+      '</article>',
+      '<article itemscope itemtype="https://schema.org/JobPosting">',
+      '<div><div itemprop="title"><span>Second nested role</span></div></div>',
+      '<div itemprop="jobLocation"><div><span itemprop="addressLocality">Lausanne</span></div></div>',
+      '</article>',
+    ].join('');
+    expect(extractMicrodata(html, 'https://x.example/jobs')).toEqual([
+      expect.objectContaining({ title: 'First nested role', location: 'Zürich' }),
+      expect.objectContaining({ title: 'Second nested role', location: 'Lausanne' }),
+    ]);
+  });
+
+  it('indexes microdata in linear total input rather than rescanning the page per job', () => {
+    const count = 160;
+    const html = Array.from({ length: count }, (_, index) =>
+      `<article data-label="A > B" itemscope itemtype="https://schema.org/JobPosting">`
+      + `<div><div itemprop="title"><span>Role ${index}</span></div></div>`
+      + '<div itemprop="jobLocation"><span itemprop="addressLocality">Zürich</span></div>'
+      + '</article>').join('');
+    const scans: Array<{sourceLength: number, tagCount: number}> = [];
+    const jobs = extractMicrodata(html, 'https://x.example/jobs', {
+      onIndex: (metrics) => scans.push(metrics),
+    });
+    expect(jobs).toHaveLength(count);
+    expect(scans.length).toBeLessThanOrEqual((2 * count) + 1);
+    expect(scans.reduce((sum, scan) => sum + scan.sourceLength, 0))
+      .toBeLessThanOrEqual(html.length * 3);
   });
 
   it('collapses a slug+id path into a template', () => {
@@ -238,13 +478,35 @@ describe('vacancy extraction', () => {
     })}</script>`;
     const [job] = extractJsonLd(html, 'https://x.example/job/1');
     expect(job.locationCandidates).toEqual([
-      { location: 'Paris', addressCountry: 'FR' },
-      { location: 'Zürich, ZH', addressCountry: 'CH' },
+      expect.objectContaining({ location: 'Paris', addressCountry: 'FR', addressLocality: 'Paris' }),
+      expect.objectContaining({ location: 'Zürich, ZH', addressCountry: 'CH', addressLocality: 'Zürich', addressRegion: 'ZH' }),
     ]);
     expect(resolveDetailOrListingSwissGeography(job).geography).toMatchObject({
       location: 'Zürich, ZH',
       canton: 'ZH',
       addressCountry: 'CH',
+    });
+  });
+
+  it('preserves every address candidate inside one JSON-LD Place', () => {
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Platform Engineer',
+      jobLocation: {
+        '@type': 'Place',
+        address: [
+          { addressLocality: 'Paris', addressCountry: 'FR' },
+          { addressLocality: 'Zürich', addressRegion: 'ZH', addressCountry: 'CH' },
+        ],
+      },
+    })}</script>`;
+    const [job] = extractJsonLd(html, 'https://x.example/job/address-array');
+    expect(job.locationCandidates).toEqual([
+      expect.objectContaining({ location: 'Paris', addressCountry: 'FR' }),
+      expect.objectContaining({ location: 'Zürich, ZH', addressCountry: 'CH' }),
+    ]);
+    expect(resolveDetailOrListingSwissGeography(job).geography).toMatchObject({
+      location: 'Zürich, ZH', canton: 'ZH', addressCountry: 'CH',
     });
   });
 
@@ -830,8 +1092,10 @@ describe('production spec runtime', () => {
       'Athens (GR)',
       'Geneva ny us',
       'Baden, DE 76530',
+      'de 76530 Baden',
     ]) expect(resolveSourceBackedSwissGeography(foreign), foreign).toBeNull();
     expect(resolveSourceBackedSwissGeography('Geneva, NY', 'US')).toBeNull();
+    expect(resolveSourceBackedSwissGeography('Geneva NY', 'CH')).toBeNull();
     expect(resolveSourceBackedSwissGeography('Geneva GE', 'Switzerland (CH)')).toEqual({
       location: 'Geneva GE',
       canton: 'GE',
@@ -842,24 +1106,129 @@ describe('production spec runtime', () => {
       location: 'St. Gallen SG, CH',
       canton: 'SG',
     });
+    for (const [location, canton] of [
+      ['St. Gallen', 'SG'],
+      ['St Gallen', 'SG'],
+      ['St. Moritz', 'GR'],
+      ['St. Gallen Switzerland', 'SG'],
+      ['La Chaux-de-Fonds', 'NE'],
+      ['Le Locle', 'NE'],
+      ['La Tour-de-Peilz', 'VD'],
+    ]) {
+      expect(resolveSourceBackedSwissGeography(location), location).toMatchObject({ location, canton });
+    }
+    for (const [location, canton] of [
+      ['Zürich HQ', 'ZH'],
+      ['Zürich HO', 'ZH'],
+      ['Lausanne EP', 'VD'],
+    ]) {
+      expect(resolveSourceBackedSwissGeography(location), location).toEqual({ location, canton });
+    }
     expect(resolveSourceBackedSwissGeography('Brügg be')).toEqual({ location: 'Brügg be', canton: 'BE' });
     expect(resolveSourceBackedSwissGeography('Brügg be, Bern, Switzerland')).toEqual({
       location: 'Brügg be, Bern, Switzerland',
       canton: 'BE',
     });
     expect(resolveSourceBackedSwissGeography('Baden, ag 5400')).toEqual({ location: 'Baden, ag 5400', canton: 'AG' });
+    for (const [location, canton] of [
+      ['Buchs AG', 'AG'],
+      ['Stein AG', 'AG'],
+      ['Küsnacht ZH', 'ZH'],
+    ]) {
+      expect(resolveSourceBackedSwissGeography(location, 'CH'), location).toEqual({
+        location,
+        canton,
+        addressCountry: 'CH',
+      });
+    }
+    for (const [addressLocality, addressRegion] of [
+      ['Buchs', 'AG'],
+      ['Stein', 'AG'],
+      ['Küsnacht', 'ZH'],
+      ['Zürich', 'CH-ZH'],
+    ]) {
+      const locationCandidates = schemaJobLocationCandidates({
+        address: { addressLocality, addressRegion, addressCountry: 'CH' },
+      });
+      expect(locationCandidates).toEqual([expect.objectContaining({
+        location: `${addressLocality}, ${addressRegion}`,
+        addressCountry: 'CH',
+        addressLocality,
+        addressRegion,
+      })]);
+      expect(resolveDetailOrListingSwissGeography({ locationCandidates }, {}).geography).toEqual({
+        location: `${addressLocality}, ${addressRegion}`,
+        canton: addressRegion.replace(/^CH-/, ''),
+        addressCountry: 'CH',
+      });
+    }
+    for (const punctuation of ['.', ':', '!', '?']) {
+      expect(resolveSourceBackedSwissGeography(`Brügg be${punctuation}`)).toEqual({
+        location: `Brügg be${punctuation}`,
+        canton: 'BE',
+      });
+      expect(resolveSourceBackedSwissGeography(`Sika AG${punctuation}`)).toBeNull();
+    }
     expect(resolveSourceBackedSwissGeography('Example Company ag, Zürich')).toEqual({
       location: 'Example Company ag, Zürich',
       canton: 'ZH',
     });
+    for (const foreignSubdivision of [
+      'Geneva NY',
+      'Zurich ON',
+      'Geneva Illinois',
+      'Baden-Württemberg',
+      'Geneva NY14456',
+      'Zurich ON N0J1Z0',
+      'Geneva Illinois60134',
+      'Baden-Württemberg76530',
+      'Geneva NSW2000',
+      'Geneva HH20095',
+      'Geneva NY 14456-6789',
+      'Geneva New York 14456-6789',
+    ]) expect(resolveSourceBackedSwissGeography(foreignSubdivision), foreignSubdivision).toBeNull();
+    expect(resolveSourceBackedSwissGeography('Buchs')).toBeNull();
+    expect(resolveSourceBackedSwissGeography('Reinach')).toBeNull();
+    expect(resolveSourceBackedSwissGeography('Buchs, Switzerland')).toBeNull();
+    expect(resolveSourceBackedSwissGeography('Reinach, Switzerland')).toBeNull();
+    expect(resolveSourceBackedSwissGeography({
+      location: 'Buchs', addressLocality: 'Buchs', addressRegion: 'Buchs', addressCountry: 'CH',
+    })).toBeNull();
+    expect(SUBDIVISION_INVENTORY_VERSION).toMatch(/^ISO-3166-2:/);
+    expect([...`BW BY BE BB HB HH HE MV NI NW RP SL SN ST SH TH`.split(' ')].every(
+      (code) => FOREIGN_SUBDIVISION_CODES.has(code),
+    )).toBe(true);
     expect(resolveDetailOrListingSwissGeography(
       { locationCandidates: [{ location: 'Geneva, NY', addressCountry: 'US' }] },
       { location: 'Geneva' },
-    )).toEqual({ geography: null, explicitlyForeign: true });
+    )).toMatchObject({ geography: null, explicitlyForeign: true, candidate: { location: '', addressCountry: '' } });
     expect(resolveDetailOrListingSwissGeography(
       { location: 'Remote' },
       { location: 'Chiasso' },
     ).geography).toMatchObject({ location: 'Chiasso', canton: 'TI' });
+    const typedDecision = resolveDetailOrListingSwissGeography(
+      { locationCandidates: [{
+        location: 'Pratteln, BL', addressCountry: 'CH', addressLocality: 'Pratteln',
+        addressRegion: 'BL', postalCode: '4133', streetAddress: 'Grüssenweg 1',
+      }] },
+      {},
+    );
+    expectTypeOf(typedDecision.candidate).toMatchTypeOf<{
+      location: string;
+      addressCountry: string;
+      addressLocality: string;
+      addressRegion: string;
+      postalCode: string;
+      streetAddress: string;
+    }>();
+    expect(geographyFieldsForDecision(typedDecision)).toMatchObject({
+      location: 'Pratteln, BL',
+      canton: 'BL',
+      addressLocality: 'Pratteln',
+      addressRegion: 'BL',
+      postalCode: '4133',
+      streetAddress: 'Grüssenweg 1',
+    });
     expect(resolveSourceBackedSwissGeography('')).toBeNull();
     expect(resolveSourceBackedSwissGeography('Paris')).toBeNull();
     expect(resolveSourceBackedSwissGeography('Aix-en-Provence, France')).toBeNull();
@@ -867,6 +1236,35 @@ describe('production spec runtime', () => {
     expect(resolveSourceBackedSwissGeography('Como')).toBeNull();
     expect(resolveSourceBackedSwissGeography('Varese')).toBeNull();
     expect(resolveSourceBackedSwissGeography('Evian')).toBeNull();
+  });
+
+  it('usa un inventario ISO versionato e respinge nomi paese terminali non-CH', () => {
+    expect(COUNTRY_INVENTORY_VERSION).toMatch(/^ISO-3166-1:/);
+    expect(ISO_ALPHA2_COUNTRY_CODES.size).toBe(249);
+    expect(FOREIGN_COUNTRY_NAME_LABELS.size).toBeGreaterThan(700);
+    for (const location of [
+      'Zurich, Netherlands',
+      'Geneva, Czech Republic',
+      'Buchs, Liechtenstein',
+      'Basel, Luxembourg',
+      'Geneva, Hong Kong',
+      'Santiago, Chile',
+      'Swiss Employer, Geneva, Netherlands',
+      'Zürich, Paesi Bassi',
+      'Genève, République tchèque',
+      'Lugano, Fürstentum Liechtenstein',
+    ]) {
+      expect(resolveSourceBackedSwissGeography(location), location).toBeNull();
+    }
+    for (const location of [
+      'Zürich, Switzerland',
+      'Genève, Suisse',
+      'Lugano, Svizzera',
+      'Chur, Schweiz',
+      'Chur, Svizra',
+    ]) {
+      expect(resolveSourceBackedSwissGeography(location), location).not.toBeNull();
+    }
   });
 
   it('enforces an exact public-origin policy before every spec fetch', async () => {
@@ -887,19 +1285,161 @@ describe('production spec runtime', () => {
     } as any, { lookupImpl: publicLookup as any });
     await expect(explicitCdnPolicy('https://cdn.example.com/job/1')).resolves.toBe('https://cdn.example.com/job/1');
 
+    const nonPublicIpv4Cases = [
+      ['0.0.0.0/8', '0.0.0.1'],
+      ['10.0.0.0/8', '10.0.0.1'],
+      ['100.64.0.0/10', '100.64.0.1'],
+      ['127.0.0.0/8', '127.0.0.1'],
+      ['169.254.0.0/16', '169.254.169.254'],
+      ['172.16.0.0/12', '172.16.0.1'],
+      ['192.0.0.0/24', '192.0.0.1'],
+      ['192.0.2.0/24', '192.0.2.1'],
+      ['192.88.99.0/24', '192.88.99.1'],
+      ['192.168.0.0/16', '192.168.0.1'],
+      ['198.18.0.0/15', '198.18.0.1'],
+      ['198.51.100.0/24', '198.51.100.1'],
+      ['203.0.113.0/24', '203.0.113.1'],
+      ['224.0.0.0/4', '224.0.0.1'],
+      ['240.0.0.0/4', '240.0.0.1'],
+      ['240.0.0.0/4 broadcast', '255.255.255.255'],
+    ];
+    for (const [cidr, address] of nonPublicIpv4Cases) {
+      const seed = `http://${address}/jobs`;
+      const privatePolicy = createSpecUrlPolicy({ seedUrls: [seed] } as any, { lookupImpl: publicLookup as any });
+      await expect(privatePolicy(seed), cidr).rejects.toThrow(/unsafe prospector URL host/);
+    }
+    for (const address of ['192.0.0.9', '192.0.0.10']) {
+      const seed = `https://${address}/jobs`;
+      const publicExceptionPolicy = createSpecUrlPolicy({ seedUrls: [seed] } as any, { lookupImpl: publicLookup as any });
+      await expect(publicExceptionPolicy(seed), address).resolves.toBe(seed);
+    }
+
+    for (const [embeddedIpv4, address] of [
+      ['127.0.0.1', '64:ff9b::7f00:1'],
+      ['169.254.169.254', '64:ff9b::a9fe:a9fe'],
+      ['10.0.0.1', '64:ff9b::a00:1'],
+      ['192.0.2.1', '64:ff9b::c000:201'],
+    ]) {
+      const seed = `https://[${address}]/jobs`;
+      const nat64Policy = createSpecUrlPolicy({ seedUrls: [seed] } as any, { lookupImpl: publicLookup as any });
+      await expect(nat64Policy(seed), embeddedIpv4).rejects.toThrow(/unsafe prospector URL host/);
+    }
+
+    const nonPublicIpv6Cases = [
+      ['::/128', '::'],
+      ['::1/128', '::1'],
+      ['::ffff:0:0/96', '::ffff:7f00:1'],
+      ['64:ff9b:1::/48', '64:ff9b:1::1'],
+      ['100::/64', '100::1'],
+      ['100:0:0:1::/64', '100:0:0:1::1'],
+      ['2001::/32 TEREDO', '2001::1'],
+      ['2001:2::/48', '2001:2::1'],
+      ['2001:10::/28 deprecated ORCHID', '2001:10::1'],
+      ['2001::/23 unallocated gap', '2001:5::1'],
+      ['2001::/23 unallocated gap', '2001:40::1'],
+      ['2001::/23 unallocated gap', '2001:1ff::1'],
+      ['2001:db8::/32', '2001:db8::1'],
+      ['2002::/16 6to4', '2002::1'],
+      ['3fff::/20', '3fff::1'],
+      ['5f00::/16', '5f00::1'],
+      ['fc00::/7', 'fc00::1'],
+      ['fe80::/10', 'fe80::1'],
+      ['ff00::/8', 'ff02::1'],
+      ['deprecated site-local', 'fec0::1'],
+      ['deprecated site-local upper edge', 'fedf::1'],
+      ['unallocated top-level prefix', '4000::1'],
+      ['unallocated top-level prefix', '8000::1'],
+      ['legacy IPv4-compatible', '::7f00:1'],
+      ['unallocated GUA gap', '2001:1000::1'],
+      ['reserved GUA gap', '2b00::1'],
+    ];
+    for (const [cidr, address] of nonPublicIpv6Cases) {
+      const seed = `http://[${address}]/jobs`;
+      const privatePolicy = createSpecUrlPolicy({ seedUrls: [seed] } as any, { lookupImpl: publicLookup as any });
+      await expect(privatePolicy(seed), cidr).rejects.toThrow(/unsafe prospector URL host/);
+    }
+    // The two common textual forms of IPv4-mapped IPv6 must stay equivalent.
     for (const seed of [
-      'http://127.0.0.1/jobs',
-      'http://169.254.169.254/latest/meta-data',
-      'http://[::1]/jobs',
+      'http://[::ffff:127.0.0.1]/jobs',
+      'http://[::ffff:a9fe:a9fe]/jobs',
     ]) {
       const privatePolicy = createSpecUrlPolicy({ seedUrls: [seed] } as any, { lookupImpl: publicLookup as any });
       await expect(privatePolicy(seed), seed).rejects.toThrow(/unsafe prospector URL host/);
     }
-    const privateDnsPolicy = createSpecUrlPolicy(
+
+    const publicIpv6Cases = [
+      ['64:ff9b::/96 public 8.8.8.8', '64:ff9b::808:808'],
+      ['64:ff9b::/96 public IANA exception 192.0.0.9', '64:ff9b::c000:9'],
+      ['2001:1::1/128', '2001:1::1'],
+      ['2001:1::2/128', '2001:1::2'],
+      ['2001:1::3/128', '2001:1::3'],
+      ['2001:3::/32', '2001:3::1'],
+      ['2001:4:112::/48', '2001:4:112::1'],
+      ['2001:20::/28', '2001:20::1'],
+      ['2001:30::/28', '2001:30::1'],
+      ['2620:4f:8000::/48', '2620:4f:8000::1'],
+      ['allocated APNIC GUA', '2001:200::1'],
+      ['allocated APNIC GUA upper block', '2001:b000::1'],
+      ['allocated RIPE GUA', '2003::1'],
+      ['allocated APNIC 2024 block', '2410::1'],
+      ['allocated ARIN direct block', '2610::1'],
+      ['allocated ARIN direct block', '2620::1'],
+      ['allocated ARIN 2019 block', '2630::1'],
+      ['allocated LACNIC GUA', '2800::1'],
+      ['allocated RIPE 2019 block', '2a10::1'],
+      ['allocated ARIN GUA', '2606:4700:4700::1111'],
+      ['allocated RIPE GUA', '2a00:1450:4000::1'],
+      ['allocated AFRINIC GUA', '2c0f:f248::1'],
+    ];
+    for (const [cidr, address] of publicIpv6Cases) {
+      const seed = `https://[${address}]/jobs`;
+      const publicSpecialPolicy = createSpecUrlPolicy({ seedUrls: [seed] } as any, { lookupImpl: publicLookup as any });
+      await expect(publicSpecialPolicy(seed), cidr).resolves.toBe(seed);
+    }
+  });
+
+  it('vincola al socket la risoluzione pubblica e non riusa un pre-check DNS vulnerabile al rebinding', async () => {
+    const answers = [
+      [{ address: '93.184.216.34', family: 4 }],
+      [{ address: '10.0.0.7', family: 4 }],
+    ];
+    let calls = 0;
+    const policy = createSpecUrlPolicy(
       { seedUrls: ['https://jobs.example.com/list'] } as any,
-      { lookupImpl: (async () => [{ address: '10.0.0.7', family: 4 }]) as any },
-    );
-    await expect(privateDnsPolicy('https://jobs.example.com/job/1')).rejects.toThrow(/unsafe prospector DNS target/);
+      { lookupImpl: (async () => answers[Math.min(calls++, answers.length - 1)]) as any },
+    ) as any;
+    // Structural URL validation performs no separately cached DNS pre-check.
+    await expect(policy('https://jobs.example.com/job/1')).resolves.toBe('https://jobs.example.com/job/1');
+    expect(calls).toBe(0);
+
+    const connect = () => new Promise<{ address: string, family: number }>((resolve, reject) => {
+      policy.connectionLookup('jobs.example.com', { family: 4 }, (error: Error | null, address: string, family: number) => {
+        if (error) reject(error);
+        else resolve({ address, family });
+      });
+    });
+    await expect(connect()).resolves.toEqual({ address: '93.184.216.34', family: 4 });
+    await expect(connect()).rejects.toThrow(/unsafe prospector DNS target/);
+    expect(calls).toBe(2);
+    expect(policy.dispatcher?.constructor?.name).toBe('Agent');
+    await policy.dispatcher.close();
+
+    const privateTargetUrl = 'http://jobs.example.test/list';
+    const privateTargetPolicy = createSpecUrlPolicy(
+      { seedUrls: [privateTargetUrl] } as any,
+      { lookupImpl: (async () => [{ address: '127.0.0.1', family: 4 }]) as any },
+    ) as any;
+    try {
+      await fetchFollowingValidatedRedirects(privateTargetUrl, {
+        validateUrl: privateTargetPolicy,
+        requestOptions: { dispatcher: privateTargetPolicy.dispatcher } as any,
+      });
+      throw new Error('expected the connection-time DNS guard to reject loopback');
+    } catch (error: any) {
+      expect(error?.cause?.message || error?.message).toMatch(/unsafe prospector DNS target/);
+    } finally {
+      await privateTargetPolicy.dispatcher.close();
+    }
   });
 
   it('validates redirect and effective URLs without fetching a forbidden target', async () => {
@@ -934,6 +1474,25 @@ describe('production spec runtime', () => {
       fetchImpl: forgedEffectiveFetch as any,
       validateUrl: policy,
     })).rejects.toThrow(/origin not allowed/);
+
+    let observedDispatcher: unknown;
+    const html = await fetchHtml('https://jobs.example.com/list', {
+      fetchImpl: (async (url: string, options: any) => {
+        observedDispatcher = options.dispatcher;
+        return {
+          ok: true,
+          status: 200,
+          url,
+          headers: { get: () => null },
+          text: async () => '<h1>Job</h1>',
+        } as any;
+      }) as any,
+      validateRedirectUrl: policy,
+      dispatcher: (policy as any).dispatcher,
+    });
+    expect(html).toBe('<h1>Job</h1>');
+    expect(observedDispatcher).toBe((policy as any).dispatcher);
+    await (policy as any).dispatcher.close();
   });
 
   it('non lascia fallback geografici nei parser prodotti dal prospector', () => {
@@ -946,7 +1505,17 @@ describe('production spec runtime', () => {
     for (const { name, source } of parsers) {
       expect(source, name).not.toMatch(/listing\.location\s*\|\|\s*['"]Lugano['"]/);
       expect(source, name).toContain('resolveSourceBackedSwissGeography(listing.location)');
+      expect(source, name).toContain('listing.addressLocality');
+      expect(source, name).toContain('listing.addressRegion');
+      expect(source, name).toContain('listing.postalCode');
+      expect(source, name).toContain('listing.streetAddress');
+      expect(source, name).toContain('if (!descriptionText) continue;');
+      expect(source, name).not.toMatch(/description(?:ByLocale)?:.*descriptionText\s*\|\|/);
     }
+    const scaffold = fs.readFileSync(path.resolve(process.cwd(), 'scripts/scaffold-crawler.mjs'), 'utf8');
+    expect(scaffold).toContain('listing.addressLocality');
+    expect(scaffold).toContain('listing.streetAddress');
+    expect(scaffold).toContain('if (!descriptionText) continue;');
   });
 
   it('non lascia fallback HQ nei sibling dedicati con sorgenti multi-localita', () => {

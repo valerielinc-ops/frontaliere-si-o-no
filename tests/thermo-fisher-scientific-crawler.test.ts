@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import {
   THERMO_FISHER_SCIENTIFIC_KEY,
   THERMO_FISHER_SCIENTIFIC_COMPANY_NAME,
+  thermoFisherPostalCode,
   isThermoFisherScientificJob,
   isTrustedDomain,
 } from '../scripts/lib/thermo-fisher-scientific-job-parser.mjs';
@@ -12,6 +13,13 @@ describe('Thermo Fisher Scientific (Schweiz) AG crawler parser', () => {
   it('exports valid company key and name', () => {
     expect(THERMO_FISHER_SCIENTIFIC_KEY).toBe('thermo-fisher-scientific');
     expect(THERMO_FISHER_SCIENTIFIC_COMPANY_NAME).toBe('Thermo Fisher Scientific (Schweiz) AG');
+  });
+
+  it('uses postal code 4153 only for Reinach BL', () => {
+    expect(thermoFisherPostalCode('Reinach', 'BL')).toBe('4153');
+    expect(thermoFisherPostalCode('Reinach', 'AG')).toBe('');
+    expect(thermoFisherPostalCode('Allschwil', 'BL')).toBe('');
+    expect(thermoFisherPostalCode('Reinach', 'AG', '5734')).toBe('5734');
   });
 
   // ── isCompanyJob ──

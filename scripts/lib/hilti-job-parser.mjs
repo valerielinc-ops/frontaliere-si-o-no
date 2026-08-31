@@ -297,15 +297,15 @@ async function fetchDetailPage(context, url) {
     if (!jp) return null;
 
     const locationCandidates = schemaJobLocationCandidates(jp.jobLocation);
-    const primaryLocation = locationCandidates[0] || {};
+    const primaryLocation = locationCandidates[0];
     const description = normalizeDescriptionBullets(stripHtml(jp.description || ''));
 
     return {
       datePosted: toDateOnly(jp.datePosted || ''),
       employmentType: typeof jp.employmentType === 'string' ? jp.employmentType : '',
-      addressLocality: primaryLocation.addressLocality || '',
-      addressRegion: primaryLocation.addressRegion || '',
-      addressCountry: primaryLocation.addressCountry || '',
+      addressLocality: primaryLocation?.addressLocality || '',
+      addressRegion: primaryLocation?.addressRegion || '',
+      addressCountry: primaryLocation?.addressCountry || '',
       locationCandidates,
       description,
     };
@@ -405,7 +405,7 @@ export async function fetchAllHiltiJobs() {
       continue;
     }
     const { location, canton } = geography;
-    const evidence = decision.candidate || {};
+    const evidence = decision.candidate;
     const descriptionText = stripHtml(listing.description || '');
     const publicUrl = listing.url || CAREER_URL;
 

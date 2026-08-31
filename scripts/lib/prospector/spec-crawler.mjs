@@ -7,12 +7,9 @@
  * is a data fix, not a code fix — which is what makes hundreds of micro-employer
  * crawlers maintainable at all.
  *
- * Deliberately fetches through `fetchHtml` from crawler-template rather than the
- * prospector's own polite client: in production a crawler must inherit the
- * retry, anti-bot and clean-IP fallback behaviour the other 580 crawlers have.
- * The prospector's client is tuned for discovery — one request per host per
- * second across thousands of strangers — and would make a production run
- * needlessly slow and needlessly fragile.
+ * Production, discovery and validation deliberately share the same polite,
+ * public-network-only transport. Otherwise a spec can pass its gate with
+ * robots, redirect and DNS checks that the promoted crawler later bypasses.
  *
  * The extraction itself is the same cascade the prospector graded, so what runs
  * in production is what the quality gate measured. Anything else would make the
@@ -21,81 +18,18 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { lookup as dnsLookup } from 'node:dns/promises';
-import { isIP } from 'node:net';
-import { fetchHtml } from '../crawler-template.mjs';
-import { extractVacancies, extractDetailFields } from './extract.mjs';
+import {
+  extractVacancies,
+  extractDetailFields,
+  isSufficientVacancyDescription,
+} from './extract.mjs';
 import { extractLinks } from './careers-trail.mjs';
+import { politeFetch } from './polite-fetch.mjs';
 import { normalizeHost } from './registrable.mjs';
 import { resolveDetailOrListingSwissGeography } from './location-evidence.mjs';
 import { PROSPECTOR_DIR } from './config.mjs';
-
-function isPrivateOrLocalAddress(address = '') {
-  const value = String(address || '').toLowerCase().split('%')[0];
-  if (isIP(value) === 4) {
-    const octets = value.split('.').map(Number);
-    const [a, b] = octets;
-    return a === 0 || a === 10 || a === 127 || a >= 224
-      || (a === 100 && b >= 64 && b <= 127)
-      || (a === 169 && b === 254)
-      || (a === 172 && b >= 16 && b <= 31)
-      || (a === 192 && b === 168)
-      || (a === 198 && (b === 18 || b === 19));
-  }
-  if (isIP(value) === 6) {
-    if (value === '::' || value === '::1') return true;
-    if (/^(?:fc|fd|fe[89a-f]|ff)/i.test(value)) return true;
-    const mapped = /^::ffff:(\d+\.\d+\.\d+\.\d+)$/i.exec(value)?.[1];
-    return mapped ? isPrivateOrLocalAddress(mapped) : false;
-  }
-  return false;
-}
-
-/**
- * URL policy for a promoted spec. Seeds define exact allowed origins; an ATS
- * CDN/canonical host must be named explicitly in `allowedDetailOrigins`.
- */
-export function createSpecUrlPolicy(spec, { lookupImpl = dnsLookup } = {}) {
-  const configured = [...(spec.seedUrls || []), ...(spec.allowedDetailOrigins || [])];
-  const allowedOrigins = new Set();
-  for (const raw of configured) {
-    try {
-      const url = new URL(raw);
-      if ((url.protocol === 'http:' || url.protocol === 'https:') && !url.username && !url.password) {
-        allowedOrigins.add(url.origin);
-      }
-    } catch { /* invalid configured URLs are rejected when requested */ }
-  }
-  const checkedHosts = new Map();
-  const assertPublicHost = async (hostname) => {
-    const host = String(hostname || '').toLowerCase().replace(/^\[|\]$/g, '').replace(/\.$/, '');
-    if (!host || host === 'localhost' || host.endsWith('.localhost') || isPrivateOrLocalAddress(host)) {
-      throw new Error(`unsafe prospector URL host: ${host || '[empty]'}`);
-    }
-    if (!checkedHosts.has(host)) {
-      const check = (async () => {
-        const resolved = await lookupImpl(host, { all: true, verbatim: true });
-        const addresses = (Array.isArray(resolved) ? resolved : [resolved])
-          .map((entry) => String(entry?.address || entry || ''))
-          .filter((address) => isIP(address));
-        if (!addresses.length || addresses.some((address) => isPrivateOrLocalAddress(address))) {
-          throw new Error(`unsafe prospector DNS target: ${host}`);
-        }
-      })();
-      checkedHosts.set(host, check);
-      check.catch(() => checkedHosts.delete(host));
-    }
-    await checkedHosts.get(host);
-  };
-  return async (rawUrl) => {
-    let url;
-    try { url = new URL(rawUrl); } catch { throw new Error('invalid prospector URL'); }
-    if (url.protocol !== 'http:' && url.protocol !== 'https:') throw new Error('unsafe prospector URL protocol');
-    if (url.username || url.password) throw new Error('credentials forbidden in prospector URL');
-    if (!allowedOrigins.has(url.origin)) throw new Error(`prospector URL origin not allowed: ${url.origin}`);
-    await assertPublicHost(url.hostname);
-    return url.toString();
-  };
-}
+import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
+export { createPublicConnectionLookup, createSpecUrlPolicy } from './public-fetch-policy.mjs';
 
 /**
  * @param {string} companyKey
@@ -113,9 +47,66 @@ export function loadSpec(companyKey, dir = path.join(PROSPECTOR_DIR, 'crawlers')
  * flag remains useful for non-template specs that opt into detail enrichment.
  *
  * @param {import('./synthesize.mjs').CrawlerSpec} spec
+ * @param {any[]} [rows]
  */
-export function needsDetailEnrichment(spec) {
-  return spec.mode === 'template' || spec.detailEnrichment === true;
+export function needsDetailEnrichment(spec, rows = []) {
+  if (spec.mode === 'template' || spec.detailEnrichment === true) return true;
+  // Legacy structured specs may have been promoted before the synthesiser
+  // recorded this flag. If their listing carries no usable Swiss geography,
+  // runtime must visit the same detail page that validation graded.
+  return rows.some((row) => !resolveDetailOrListingSwissGeography({}, row).geography
+    || !isSufficientVacancyDescription(row.description));
+}
+
+/**
+ * Preserve structured address fields selected by the geography resolver.
+ * `location` remains the source display string; schema addressLocality should
+ * be the pure municipality whenever the source supplied it.
+ *
+ * @param {{ geography?: any, candidate?: any }} decision
+ */
+export function geographyFieldsForDecision(decision = {}) {
+  const geography = decision.geography;
+  if (!geography) return null;
+  const candidate = decision.candidate || {};
+  const addressLocality = String(candidate.addressLocality || '').trim()
+    || String(geography.location || '').split(/[,;/|]/)[0].trim();
+  const addressRegion = String(candidate.addressRegion || '').trim() || geography.canton;
+  const addressCountry = String(candidate.addressCountry || geography.addressCountry || 'CH').trim();
+  return {
+    ...geography,
+    addressLocality,
+    addressRegion,
+    addressCountry,
+    country: addressCountry,
+    ...(candidate.postalCode ? { postalCode: String(candidate.postalCode).trim() } : {}),
+    ...(candidate.streetAddress ? { streetAddress: String(candidate.streetAddress).trim() } : {}),
+  };
+}
+
+/** @param {string} url @param {any} urlPolicy @param {Record<string, any>} runtime */
+async function fetchRuntimePage(url, urlPolicy, runtime) {
+  const result = await politeFetch(url, {
+    urlPolicy,
+    dispatcher: urlPolicy.dispatcher,
+    fetchImpl: runtime.fetchImpl,
+    sleepImpl: runtime.sleepImpl,
+    retries: runtime.retries,
+    retryBaseMs: runtime.retryBaseMs,
+    timeoutMs: runtime.timeoutMs,
+  });
+  if (result.ok) return result;
+  const reason = result.blockedByRobots
+    ? 'blocked by robots.txt'
+    : result.policyBlocked ? (result.error || 'blocked by public URL policy') : `HTTP ${result.status}`;
+  const error = Object.assign(
+    new Error(`Prospector fetch failed for ${result.url || url}: ${reason}`),
+    {
+      status: result.status,
+      retryable: !result.blockedByRobots && !result.policyBlocked && (!result.status || result.status >= 500),
+    },
+  );
+  throw error;
 }
 
 function reportDroppedRows(spec, dropped, total, reason) {
@@ -143,6 +134,7 @@ function reportDroppedRows(spec, dropped, total, reason) {
  */
 function matchKnownTemplate(links, templateRx, host) {
   const seen = new Set();
+  /** @type {{ title: string, url: string, via: 'known-template' }[]} */
   const out = [];
   for (const l of links) {
     let u;
@@ -153,7 +145,7 @@ function matchKnownTemplate(links, templateRx, host) {
     seen.add(l.url);
     const title = (l.text || '').replace(/\s+/g, ' ').trim();
     if (title.length <= 3) continue;
-    out.push({ title: title.slice(0, 180), url: l.url, via: 'known-template' });
+    out.push({ title: title.slice(0, 180), url: l.url, via: /** @type {const} */ ('known-template') });
   }
   return out;
 }
@@ -168,7 +160,20 @@ function matchKnownTemplate(links, templateRx, host) {
  * a published fake vacancy.
  *
  * @param {import('./synthesize.mjs').CrawlerSpec} spec
- * @returns {Promise<{ title: string, url: string, location: string, description: string, postedAt: string|null, company: string }[]>}
+ * @returns {Promise<Array<Record<string, any> & {
+ *   title: string,
+ *   url: string,
+ *   location: string,
+ *   description: string,
+ *   postedAt: string|null,
+ *   company: string,
+ *   addressLocality?: string,
+ *   addressRegion?: string,
+ *   addressCountry?: string,
+ *   country?: string,
+ *   postalCode?: string,
+ *   streetAddress?: string,
+ * }>>}
  */
 export async function runSpecInProduction(spec, runtime = {}) {
   /** @type {Map<string, any>} */
@@ -177,24 +182,27 @@ export async function runSpecInProduction(spec, runtime = {}) {
   const validateUrl = createSpecUrlPolicy(spec, { lookupImpl: runtime.lookupImpl || dnsLookup });
 
   for (const seed of spec.seedUrls || []) {
-    let html;
+    let page;
     try {
-      html = await fetchHtml(seed, { validateRedirectUrl: validateUrl });
+      page = await fetchRuntimePage(seed, validateUrl, runtime);
     } catch (err) {
       // Let the standard pipeline classify it: a connection-level failure is
       // infra and must soft-exit, an HTTP status is a real break.
+      await validateUrl.dispatcher.close();
       throw err;
     }
+    const html = page.body;
     if (!html) continue;
-    const links = extractLinks(html, seed);
-    const { vacancies } = extractVacancies(html, seed, links);
+    const effectiveSeedUrl = page.url || seed;
+    const links = extractLinks(html, effectiveSeedUrl);
+    const { vacancies } = extractVacancies(html, effectiveSeedUrl, links);
     // jsonld/microdata are stronger evidence than any link-shape guess, so
     // only override when the generic cascade fell back to (or below) its own
     // template heuristic and we hold a better one already vetted for this spec.
     let candidates = vacancies;
     if (templateRx && vacancies.every((v) => v.via !== 'jsonld' && v.via !== 'microdata')) {
       let host = '';
-      try { host = normalizeHost(new URL(seed).hostname); } catch { /* skip override */ }
+      try { host = normalizeHost(new URL(effectiveSeedUrl).hostname); } catch { /* skip override */ }
       const direct = host ? matchKnownTemplate(links, templateRx, host) : [];
       if (direct.length) candidates = direct;
     }
@@ -220,13 +228,14 @@ export async function runSpecInProduction(spec, runtime = {}) {
     }
   }
   const rows = [...bySlug.values()];
-  if (!needsDetailEnrichment(spec)) {
+  if (!needsDetailEnrichment(spec, rows)) {
     const safeRows = rows.flatMap((row) => {
-      const { geography } = resolveDetailOrListingSwissGeography({}, row);
-      return geography ? [{ ...row, ...geography }] : [];
+      const fields = geographyFieldsForDecision(resolveDetailOrListingSwissGeography({}, row));
+      return fields ? [{ ...row, ...fields }] : [];
     });
     reportDroppedRows(spec, rows.length - safeRows.length, rows.length,
       'localita svizzera source-backed assente o non verificabile');
+    await validateUrl.dispatcher.close();
     return safeRows;
   }
 
@@ -243,24 +252,27 @@ export async function runSpecInProduction(spec, runtime = {}) {
       const index = next++;
       const row = rows[index];
       try {
+        const page = await fetchRuntimePage(row.url, validateUrl, runtime);
         const detail = extractDetailFields(
-          await fetchHtml(row.url, { validateRedirectUrl: validateUrl }),
-          row.url,
+          page.body,
+          page.url || row.url,
         );
         const decision = resolveDetailOrListingSwissGeography(detail, row);
-        const geography = decision.geography;
-        const description = detail.description || row.description;
+        const geography = geographyFieldsForDecision(decision);
+        const description = isSufficientVacancyDescription(detail.description)
+          ? detail.description
+          : row.description;
         if (!geography) { geographyDrops++; continue; }
-        if (!description) { descriptionDrops++; continue; }
+        if (!isSufficientVacancyDescription(description)) { descriptionDrops++; continue; }
         enriched[index] = { ...row, ...geography, title: detail.title || row.title, description,
           postedAt: detail.postedDate || row.postedAt,
           employmentType: detail.employmentType || row.employmentType };
       } catch (err) {
         // A row without both source-backed fields must not be published with a
         // fabricated employer default. Keep already complete index rows only.
-        const { geography } = resolveDetailOrListingSwissGeography({}, row);
+        const geography = geographyFieldsForDecision(resolveDetailOrListingSwissGeography({}, row));
         if (!geography) geographyDrops++;
-        else if (!row.description) descriptionDrops++;
+        else if (!isSufficientVacancyDescription(row.description)) descriptionDrops++;
         else enriched[index] = { ...row, ...geography };
       }
     }
@@ -271,6 +283,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
     'localita svizzera source-backed assente o non verificabile');
   reportDroppedRows(spec, descriptionDrops, rows.length,
     'descrizione source-backed assente o non verificabile');
+  await validateUrl.dispatcher.close();
   return enriched.filter(Boolean);
 }
 
