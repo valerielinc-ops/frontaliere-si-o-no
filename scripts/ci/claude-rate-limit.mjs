@@ -139,7 +139,11 @@ export function detectClaudeRateLimit(raw) {
 
     if (m.type === 'rate_limit_event' && m.rate_limit_info && typeof m.rate_limit_info === 'object') {
       const info = /** @type {Record<string, unknown>} */ (m.rate_limit_info);
-      if (info.status === 'rejected' || info.overageStatus === 'rejected') {
+      // `status` descrive la richiesta corrente; `overageStatus` dice soltanto
+      // se sarebbe possibile comprare capacità extra. Una run autorizzata può
+      // quindi avere status=allowed e overageStatus=rejected e proseguire fino
+      // a un result success: non è un 429 terminale.
+      if (info.status === 'rejected') {
         rateLimited = true;
         const r = Number(info.resetsAt);
         // Il payload usa epoch in SECONDI; accetta anche millisecondi per
