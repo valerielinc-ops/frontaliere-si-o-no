@@ -41,6 +41,7 @@ import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { parseCsbDetailPage } from './successfactors-shared-job-parser-common.mjs';
 import { decodeEntities } from './hospital-custom-html-helpers.mjs';
 import { isSuccessFactorsWidgetText } from './successfactors-jobs2web-widget-guard.mjs';
+import { isDedicatedFribourgEmployer } from './crawler-company-ownership.mjs';
 
 /* -- Constants ------------------------------------------------- */
 
@@ -70,6 +71,7 @@ function normalizeSpace(s = '') {
  * dedicated employers (HFR / hfr-hopital-fribourgeois, RFSM / rfsm-fribourg).
  */
 export function isEtatDeFribourgJob(job) {
+  if (isDedicatedFribourgEmployer(job)) return false;
   const key = normalize(job?.companyKey || '');
   const company = normalize(job?.company || '');
   const url = normalize(job?.url || '');
@@ -273,7 +275,7 @@ export async function fetchAllEtatDeFribourgJobs() {
   const uniqueRows = allRows.filter((row) => {
     if (seen.has(row.jobId)) return false;
     seen.add(row.jobId);
-    return true;
+    return !isDedicatedFribourgEmployer(row);
   });
 
   console.log(`\n  📋 Total unique listings: ${uniqueRows.length}`);

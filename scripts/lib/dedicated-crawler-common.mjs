@@ -6911,6 +6911,53 @@ export function addPreviousSlugForLocale(job, locale, slug, cap = DEFAULT_PREV_S
 }
 
 /**
+ * Preserve a previous slug whose locale provenance is unknown.
+ *
+ * Locale-aware bridge generation intentionally treats a flat-only slug as a
+ * route under every locale prefix. Remove the value from locale buckets first
+ * (locale-aware entries take precedence) and keep it in the wider legacy
+ * union without silently evicting another indexed route.
+ */
+export function promotePreviousSlugToLegacy(
+  job,
+  slug,
+  cap = LEGACY_PREV_SLUGS_CAP,
+  _source = 'promotePreviousSlugToLegacy',
+) {
+  if (!job || !slug) return false;
+  const norm = normalizeSpace(String(slug));
+  if (!norm) return false;
+
+  if (job.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object') {
+    for (const locale of LOCALES) {
+      const bucket = job.previousSlugsByLocale[locale];
+      if (!Array.isArray(bucket)) continue;
+      job.previousSlugsByLocale[locale] = bucket.filter((entry) => entry !== norm);
+      if (job.previousSlugsByLocale[locale].length === 0) delete job.previousSlugsByLocale[locale];
+    }
+  }
+
+  const flat = new Set(Array.isArray(job.previousSlugs) ? job.previousSlugs : []);
+  const added = !flat.has(norm);
+  flat.add(norm);
+  if (flat.size > cap) {
+    throw new Error(`Cannot preserve ${flat.size} legacy routes for ${job.id}; cap is ${cap}`);
+  }
+  job.previousSlugs = [...flat];
+  if (added) {
+    recordSlugMutation({
+      jobId: job.id,
+      locale: 'legacy',
+      slug: norm,
+      action: 'capture',
+      source: `dedicated-crawler-common.${_source}`,
+      reason: 'locale-provenance-unknown',
+    });
+  }
+  return added;
+}
+
+/**
  * Re-instate `slug` as the ACTIVE slug for `locale`, journaling the move.
  *
  * The authorized way to write `job.slugByLocale[locale]` from outside this

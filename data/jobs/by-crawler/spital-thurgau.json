@@ -10531,15 +10531,31 @@
       "previousSlugs": [
         "arztsekretar-in-orthopadie-stgag-ch",
         "arztsekretar-in-orthopadie-spital-thurgau-stgag-kantonsspital-frauenfeld",
-        "arztsekretar-in-orthopadie-stgag-munsterlingen"
+        "arztsekretar-in-orthopadie-stgag-munsterlingen",
+        "arztsekretar-in-orthopala-spital-thurgau-stgag-munsterlingen",
+        "medical-secretary-in-orthopaedics-spital-thurgau-stgag-munsterlingen",
+        "arztsekretar-in-orthopadie-stgag-munsterlingen-r134ks",
+        "secretaire-medical-en-orthopedie-spital-thurgau-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "arztsekretar-in-orthopadie-stgag-ch",
-          "arztsekretar-in-orthopadie-stgag-munsterlingen"
+          "arztsekretar-in-orthopadie-stgag-munsterlingen",
+          "arztsekretar-in-orthopala-spital-thurgau-stgag-munsterlingen"
         ],
         "de": [
-          "arztsekretar-in-orthopadie-spital-thurgau-stgag-kantonsspital-frauenfeld"
+          "arztsekretar-in-orthopadie-spital-thurgau-stgag-kantonsspital-frauenfeld",
+          "arztsekretar-in-orthopadie-stgag-munsterlingen-r134ks"
+        ],
+        "en": [
+          "arztsekretar-in-orthopadie-stgag-ch",
+          "medical-secretary-in-orthopaedics-spital-thurgau-stgag-munsterlingen",
+          "arztsekretar-in-orthopadie-stgag-munsterlingen-r134ks"
+        ],
+        "fr": [
+          "arztsekretar-in-orthopadie-stgag-ch",
+          "secretaire-medical-en-orthopedie-spital-thurgau-stgag-munsterlingen",
+          "arztsekretar-in-orthopadie-stgag-munsterlingen-r134ks"
         ]
       },
       "needsRetranslation": true,
@@ -10616,6 +10632,12 @@
         "it": [
           "hebamme-stgag-ch",
           "hebamme-stgag-munsterlingen"
+        ],
+        "en": [
+          "hebamme-stgag-ch"
+        ],
+        "fr": [
+          "hebamme-stgag-ch"
         ]
       },
       "firstSeenAt": "2026-08-17T21:36:28.401Z",
@@ -12583,12 +12605,25 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "logistiker-in-efz-stgag-ch",
-        "impiegato-a-in-logistica-cfc-spital-thurgau-stgag-kantonsspital-frauenfeld"
+        "impiegato-a-in-logistica-cfc-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "logistiker-in-efz-stgag-munsterlingen",
+        "impiegato-a-in-logistica-cfc-spital-thurgau-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-efz-stgag-ch",
-          "impiegato-a-in-logistica-cfc-spital-thurgau-stgag-kantonsspital-frauenfeld"
+          "impiegato-a-in-logistica-cfc-spital-thurgau-stgag-kantonsspital-frauenfeld",
+          "logistiker-in-efz-stgag-munsterlingen",
+          "impiegato-a-in-logistica-cfc-spital-thurgau-stgag-munsterlingen"
+        ],
+        "en": [
+          "logistiker-in-efz-stgag-munsterlingen"
+        ],
+        "de": [
+          "logistiker-in-efz-stgag-munsterlingen"
+        ],
+        "fr": [
+          "logistiker-in-efz-stgag-munsterlingen"
         ]
       },
       "needsRetranslation": true,
@@ -12658,17 +12693,22 @@
       "department": "Pflege (inkl. Hebamme)",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachmann-frau-station-fur-psychosespektrumstorung-stgag-ch"
+        "dipl-pflegefachmann-frau-station-fur-psychosespektrumstorung-stgag-ch",
+        "dipl-pflegefachmann-frau-station-fur-psychosespektrumstorung-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachmann-frau-station-fur-psychosespektrumstorung-stgag-ch"
+          "dipl-pflegefachmann-frau-station-fur-psychosespektrumstorung-stgag-ch",
+          "dipl-pflegefachmann-frau-station-fur-psychosespektrumstorung-stgag-munsterlingen"
         ],
         "en": [
           "dipl-pflegefachmann-frau-station-fur-psychosespektrumstorung-stgag-ch"
         ],
         "fr": [
           "dipl-pflegefachmann-frau-station-fur-psychosespektrumstorung-stgag-ch"
+        ],
+        "de": [
+          "dipl-pflegefachmann-frau-station-fur-psychosespektrumstorung-stgag-munsterlingen"
         ]
       },
       "needsRetranslation": true,
@@ -12743,6 +12783,12 @@
       "previousSlugsByLocale": {
         "it": [
           "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-ch"
+        ],
+        "en": [
+          "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-ch"
+        ],
+        "fr": [
+          "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-ch"
         ]
       },
       "firstSeenAt": "2026-08-24T21:41:02.878Z",
@@ -12815,19 +12861,24 @@
         "mitarbeiter-in-patientenservice-stgag-ch",
         "mitarbeiter-in-patientenservice-spital-thurgau-stgag-diessenhofen",
         "collaboratore-trice-in-patientenservice-spital-thurgau-stgag-diessenhofen",
-        "collaboratore-trice-in-patientenservice-spital-thurgau-stgag-munsterlingen"
+        "collaboratore-trice-in-patientenservice-spital-thurgau-stgag-munsterlingen",
+        "mitarbeiter-in-patientenservice-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-patientenservice-stgag-ch-3",
           "mitarbeiter-in-patientenservice-stgag-ch",
-          "collaboratore-trice-in-patientenservice-spital-thurgau-stgag-munsterlingen"
+          "collaboratore-trice-in-patientenservice-spital-thurgau-stgag-munsterlingen",
+          "mitarbeiter-in-patientenservice-stgag-munsterlingen"
         ],
         "en": [
           "mitarbeiter-in-patientenservice-spital-thurgau-stgag-diessenhofen"
         ],
         "fr": [
           "mitarbeiter-in-patientenservice-spital-thurgau-stgag-diessenhofen"
+        ],
+        "de": [
+          "mitarbeiter-in-patientenservice-stgag-munsterlingen"
         ]
       },
       "needsRetranslation": true,
@@ -12899,13 +12950,18 @@
       "previousSlugs": [
         "mitarbeiter-in-patientenservice-stgag-ch",
         "mitarbeiter-in-patientenservice-stgag-ch-2",
-        "collaboratore-trice-in-patientenservice-spital-thurgau-stgag-kantonsspital-frauenfeld"
+        "collaboratore-trice-in-patientenservice-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "mitarbeiter-in-patientenservice-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-patientenservice-stgag-ch",
           "mitarbeiter-in-patientenservice-stgag-ch-2",
-          "collaboratore-trice-in-patientenservice-spital-thurgau-stgag-kantonsspital-frauenfeld"
+          "collaboratore-trice-in-patientenservice-spital-thurgau-stgag-kantonsspital-frauenfeld",
+          "mitarbeiter-in-patientenservice-stgag-munsterlingen"
+        ],
+        "de": [
+          "mitarbeiter-in-patientenservice-stgag-munsterlingen"
         ]
       },
       "needsRetranslation": true,
@@ -12978,14 +13034,19 @@
         "mitarbeiter-in-patientenservice-stgag-ch-2",
         "mitarbeiter-in-patientenservice-stgag-ch",
         "mitarbeiter-in-patientenservice-stgag-ch-3",
-        "collaboratore-trice-in-patientenservice-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        "collaboratore-trice-in-patientenservice-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "mitarbeiter-in-patientenservice-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-patientenservice-stgag-ch-2",
           "mitarbeiter-in-patientenservice-stgag-ch",
           "mitarbeiter-in-patientenservice-stgag-ch-3",
-          "collaboratore-trice-in-patientenservice-spital-thurgau-stgag-kantonsspital-munsterlingen"
+          "collaboratore-trice-in-patientenservice-spital-thurgau-stgag-kantonsspital-munsterlingen",
+          "mitarbeiter-in-patientenservice-stgag-munsterlingen"
+        ],
+        "de": [
+          "mitarbeiter-in-patientenservice-stgag-munsterlingen"
         ]
       },
       "needsRetranslation": true,
@@ -13056,18 +13117,23 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-radiologiefachfrau-mann-hf-stgag-ch",
-        "dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-kantonsspital-frauenfeld"
+        "dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-radiologiefachfrau-mann-hf-stgag-ch",
-          "dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-kantonsspital-frauenfeld"
+          "dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-kantonsspital-frauenfeld",
+          "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen"
         ],
         "en": [
           "dipl-radiologiefachfrau-mann-hf-stgag-ch"
         ],
         "fr": [
           "dipl-radiologiefachfrau-mann-hf-stgag-ch"
+        ],
+        "de": [
+          "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen"
         ]
       },
       "needsRetranslation": true,
@@ -13138,18 +13204,23 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachmann-frau-im-pool-stgag-ch",
-        "dipl-pflegefachmann-frau-im-pool-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        "dipl-pflegefachmann-frau-im-pool-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "dipl-pflegefachmann-frau-im-pool-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachmann-frau-im-pool-stgag-ch",
-          "dipl-pflegefachmann-frau-im-pool-spital-thurgau-stgag-kantonsspital-munsterlingen"
+          "dipl-pflegefachmann-frau-im-pool-spital-thurgau-stgag-kantonsspital-munsterlingen",
+          "dipl-pflegefachmann-frau-im-pool-stgag-munsterlingen"
         ],
         "en": [
           "dipl-pflegefachmann-frau-im-pool-stgag-ch"
         ],
         "fr": [
           "dipl-pflegefachmann-frau-im-pool-stgag-ch"
+        ],
+        "de": [
+          "dipl-pflegefachmann-frau-im-pool-stgag-munsterlingen"
         ]
       },
       "firstSeenAt": "2026-08-28T05:24:15.114Z",
@@ -13226,10 +13297,18 @@
         ],
         "de": [
           "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-stgag-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-stgag-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-stgag-ch",
+          "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-stgag-munsterlingen-r134jq"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-stgag-ch"
+        "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-stgag-ch",
+        "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-stgag-munsterlingen-r134jq"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -13318,13 +13397,17 @@
           "assistenzarzte-innen-psychiatrie-und-psychotherapie-stgag-ch",
           "assistant-physicians-psychiatry-and-psychotherapy-spital-thurgau-stgag-munsterlingen",
           "assistant-physicians-psychiatry-and-psychotherapy-spital-thurgau-stgag-munsterlingen-22a717",
-          "assistant-doctors-psychiatry-and-psychotherapy-spital-thurgau-stgag-munsterlingen"
+          "assistant-doctors-psychiatry-and-psychotherapy-spital-thurgau-stgag-munsterlingen",
+          "assistenzarzte-innen-psychiatrie-und-psychotherapie-spital-thurgau-stgag-munsterlingen"
         ],
         "fr": [
           "assistenzarzte-innen-psychiatrie-und-psychotherapie-stgag-ch",
           "medecins-adjoints-en-psychiatrie-et-psychotherapie-spital-thurgau-stgag-munsterlingen",
           "medecins-adjoints-en-psychiatrie-et-psychotherapie-spital-thurgau-stgag-munsterlingen-22a717",
           "medecins-adjoints-psychiatrie-et-psychotherapie-spital-thurgau-stgag-munsterlingen"
+        ],
+        "de": [
+          "assistenzarzte-innen-psychiatrie-und-psychotherapie-stgag-munsterlingen"
         ]
       },
       "needsRetranslation": true,
@@ -13409,7 +13492,8 @@
         "medecin-assistant-en-formation-specialisee-en-psychiatrie-et-psychotherapie-de-l-enfant-et-de-l-adolescent-spital",
         "medecin-assistant-en-formation-specialisee-en-psychiatrie-et-psychotherapie-de-l-enfant-et-de-l-adolescent-spital-19b932",
         "medecin-assistant-en-formation-specialisee-psychiatrie-et-psychotherapie-des-enfants-et-des-adolescents-spital-thurgau",
-        "assistenzarzt-arztin-in-facharztweiterbildung-kinder-und-jugendpsychiatrie-und-psychothera"
+        "assistenzarzt-arztin-in-facharztweiterbildung-kinder-und-jugendpsychiatrie-und-psychothera",
+        "assistenzarzt-arztin-in-facharztweiterbildung-kinder-und-jugendpsychiatrie-und-psychotherapie-spital-thurgau-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13426,7 +13510,8 @@
           "assistant-physician-in-further-education-child-and-youth-psychiatry-and-psychotherapy-spital-thurgau-stgag-munsterlingen",
           "assistant-physician-in-specialist-training-in-child-and-adolescent-psychiatry-and-psychotherapy-spital-thurgau-stgag",
           "assistant-physician-in-specialist-training-in-child-and-adolescent-psychiatry-and-psychotherapy-spital-thurgau-19b932",
-          "assistant-doctor-in-specialist-training-child-and-adolescent-psychiatry-and-psychotherapy-spital-thurgau-stgag"
+          "assistant-doctor-in-specialist-training-child-and-adolescent-psychiatry-and-psychotherapy-spital-thurgau-stgag",
+          "assistenzarzt-arztin-in-facharztweiterbildung-kinder-und-jugendpsychiatrie-und-psychotherapie-spital-thurgau-stgag-munsterlingen"
         ],
         "fr": [
           "assistenzarzt-arztin-in-facharztweiterbildung-kinder-und-jugendpsychiatrie-und",
@@ -13508,11 +13593,24 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-hotellerie-services-stgag-ch"
+          "mitarbeiter-in-hotellerie-services-stgag-ch",
+          "collaboratore-trice-in-hotellerie-services-spital-thurgau-stgag-munsterlingen",
+          "mitarbeiter-in-hotellerie-services-stgag-munsterlingen"
+        ],
+        "en": [
+          "mitarbeiter-in-hotellerie-services-stgag-munsterlingen"
+        ],
+        "de": [
+          "mitarbeiter-in-hotellerie-services-stgag-munsterlingen"
+        ],
+        "fr": [
+          "mitarbeiter-in-hotellerie-services-stgag-munsterlingen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-hotellerie-services-stgag-ch"
+        "mitarbeiter-in-hotellerie-services-stgag-ch",
+        "collaboratore-trice-in-hotellerie-services-spital-thurgau-stgag-munsterlingen",
+        "mitarbeiter-in-hotellerie-services-stgag-munsterlingen"
       ],
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -13584,11 +13682,24 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachmann-frau-fur-die-demenzberatungsstelle-diessenhofen-stgag-ch"
+          "dipl-pflegefachmann-frau-fur-die-demenzberatungsstelle-diessenhofen-stgag-ch",
+          "dipl-pflegefachmann-frau-per-la-demenzberatungsstelle-diessenhofen-spital-thurgau-stgag-munsterlingen",
+          "dipl-pflegefachmann-frau-fur-die-demenzberatungsstelle-diessenhofen-stgag-munsterlingen"
+        ],
+        "en": [
+          "dipl-pflegefachmann-frau-fur-die-demenzberatungsstelle-diessenhofen-stgag-munsterlingen"
+        ],
+        "de": [
+          "dipl-pflegefachmann-frau-fur-die-demenzberatungsstelle-diessenhofen-stgag-munsterlingen"
+        ],
+        "fr": [
+          "dipl-pflegefachmann-frau-fur-die-demenzberatungsstelle-diessenhofen-stgag-munsterlingen"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachmann-frau-fur-die-demenzberatungsstelle-diessenhofen-stgag-ch"
+        "dipl-pflegefachmann-frau-fur-die-demenzberatungsstelle-diessenhofen-stgag-ch",
+        "dipl-pflegefachmann-frau-per-la-demenzberatungsstelle-diessenhofen-spital-thurgau-stgag-munsterlingen",
+        "dipl-pflegefachmann-frau-fur-die-demenzberatungsstelle-diessenhofen-stgag-munsterlingen"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -13659,11 +13770,16 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-fh-medizinische-diagnostik-stgag-ch"
+          "dipl-pflegefachfrau-mann-hf-fh-medizinische-diagnostik-stgag-ch",
+          "dipl-pflegefachfrau-mann-hf-fh-medizinische-diagnostik-stgag-munsterlingen"
+        ],
+        "de": [
+          "dipl-pflegefachfrau-mann-hf-fh-medizinische-diagnostik-stgag-munsterlingen"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-fh-medizinische-diagnostik-stgag-ch"
+        "dipl-pflegefachfrau-mann-hf-fh-medizinische-diagnostik-stgag-ch",
+        "dipl-pflegefachfrau-mann-hf-fh-medizinische-diagnostik-stgag-munsterlingen"
       ],
       "needsRetranslation": true,
       "salaryMin": 81500,
@@ -13736,11 +13852,24 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "oberarzt-arztin-gynakologie-und-geburtshilfe-stgag-ch"
+          "oberarzt-arztin-gynakologie-und-geburtshilfe-stgag-ch",
+          "oberarzt-arztin-gynakologie-e-geburtshilfe-spital-thurgau-stgag-munsterlingen",
+          "oberarzt-arztin-gynakologie-und-geburtshilfe-stgag-munsterlingen"
+        ],
+        "en": [
+          "oberarzt-arztin-gynakologie-und-geburtshilfe-stgag-munsterlingen"
+        ],
+        "de": [
+          "oberarzt-arztin-gynakologie-und-geburtshilfe-stgag-munsterlingen"
+        ],
+        "fr": [
+          "oberarzt-arztin-gynakologie-und-geburtshilfe-stgag-munsterlingen"
         ]
       },
       "previousSlugs": [
-        "oberarzt-arztin-gynakologie-und-geburtshilfe-stgag-ch"
+        "oberarzt-arztin-gynakologie-und-geburtshilfe-stgag-ch",
+        "oberarzt-arztin-gynakologie-e-geburtshilfe-spital-thurgau-stgag-munsterlingen",
+        "oberarzt-arztin-gynakologie-und-geburtshilfe-stgag-munsterlingen"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -13812,11 +13941,24 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachmann-frau-hf-fh-klinik-fur-kinder-und-jugendliche-stgag-ch"
+          "dipl-pflegefachmann-frau-hf-fh-klinik-fur-kinder-und-jugendliche-stgag-ch",
+          "dipl-pflegefachmann-frau-hf-fh-klinik-per-kinder-e-jugendliche-spital-thurgau-stgag-munsterlingen",
+          "dipl-pflegefachmann-frau-hf-fh-klinik-fur-kinder-und-jugendliche-stgag-munsterlingen"
+        ],
+        "en": [
+          "dipl-pflegefachmann-frau-hf-fh-klinik-fur-kinder-und-jugendliche-stgag-munsterlingen"
+        ],
+        "de": [
+          "dipl-pflegefachmann-frau-hf-fh-klinik-fur-kinder-und-jugendliche-stgag-munsterlingen"
+        ],
+        "fr": [
+          "dipl-pflegefachmann-frau-hf-fh-klinik-fur-kinder-und-jugendliche-stgag-munsterlingen"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachmann-frau-hf-fh-klinik-fur-kinder-und-jugendliche-stgag-ch"
+        "dipl-pflegefachmann-frau-hf-fh-klinik-fur-kinder-und-jugendliche-stgag-ch",
+        "dipl-pflegefachmann-frau-hf-fh-klinik-per-kinder-e-jugendliche-spital-thurgau-stgag-munsterlingen",
+        "dipl-pflegefachmann-frau-hf-fh-klinik-fur-kinder-und-jugendliche-stgag-munsterlingen"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
