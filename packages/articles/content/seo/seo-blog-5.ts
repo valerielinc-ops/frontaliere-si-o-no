@@ -80957,6 +80957,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-unia-pause-calore-cantieri': {
+    title: 'Canicola nei cantieri: Unia chiede pause obbligatorie',
+    description: 'Indagine Unia su 984 lavoratori edili: l\'82% dei cantieri non concede pause anti-calore. Richieste precise e il modello Ticino. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, canicola, cantieri, unia, chiede',
+    ogTitle: 'Canicola nei cantieri: la denuncia di Unia',
+    ogDescription: 'Solo il 18% dei lavoratori ha pause sistematiche quando la temperatura supera i 33°C. Unia intervista 984 edili in Svizzera e chiede sospensione obbligatoria. Ticino esempio con stop lavori dalle 14:00 nelle ondate di calore.',
+    canonicalPath: '/articoli-frontaliere/unia-pause-calore-cantieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Canicola nei cantieri: Unia chiede pause obbligatorie",
+      "description": "Indagine Unia su 984 lavoratori edili: l'82% dei cantieri non concede pause anti-calore. Richieste precise e il modello Ticino. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/unia-pause-calore-cantieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cantiere in Ticino con sole estivo: lavoratori edili seguono procedure di sicurezza con zone ombrate e attrezzature protettive."
+      },
+      "datePublished": "2026-08-31T11:05:48+00:00",
+      "dateModified": "2026-08-31T11:05:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/unia-pause-calore-cantieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

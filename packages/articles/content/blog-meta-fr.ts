@@ -10985,6 +10985,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-pensione-avs-inps-2026-famiglia-checklist.title': 'Pension frontalière 2026 avec enfants : guide AVS-INPS',
     'blog.article.frontaliere-pensione-avs-inps-2026-famiglia-checklist.excerpt': 'Nouvel accord en vigueur depuis le 1er janvier 2024, AVS à 5,3 % et coordination avec l\'INPS : ce qui change pour la famille frontalière avec enfants en 2026.',
     'blog.article.frontaliere-pensione-avs-inps-2026-famiglia-checklist.imageAlt': 'frontaliers traversant la gare de Bellinzona à l\'aube',
+    'blog.article.unia-pause-calore-cantieri.title': 'Canicule sur les chantiers : Unia demande des pauses obligatoires',
+    'blog.article.unia-pause-calore-cantieri.excerpt': 'Seulement 18% reçoivent des pauses systématiques supérieures à 33°C. Sur 984 travailleurs interrogés, 82% des chantiers ignorent les protections prévues. C\'est ce que demande le syndicat.',
+    'blog.article.unia-pause-calore-cantieri.imageAlt': 'Chantier au Tessin par chaleur estivale : travailleurs suivant les procédures de sécurité avec zones ombragées et équipements de protection.',
 };
 
 export default blogMetaFr;
