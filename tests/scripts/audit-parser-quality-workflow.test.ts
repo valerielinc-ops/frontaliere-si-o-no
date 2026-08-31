@@ -1,0 +1,19 @@
+// @vitest-environment node
+import fs from 'node:fs';
+import path from 'node:path';
+import { describe, expect, it } from 'vitest';
+
+const workflow = fs.readFileSync(
+  path.resolve(process.cwd(), '.github/workflows/audit-parser-quality.yml'),
+  'utf8',
+);
+
+describe('Audit Parser Quality workflow observability', () => {
+  it('uploads the complete JSON report even when the strict audit fails', () => {
+    expect(workflow).toContain('uses: actions/upload-artifact@v7');
+    expect(workflow).toMatch(/name: Run parser quality audit \(strict\)[\s\S]*?rm -f data\/parser-quality-report\.json[\s\S]*?node scripts\/audit-parser-quality\.mjs --strict --check-source-details/);
+    expect(workflow).toMatch(/name: Upload parser quality report[\s\S]*?if: always\(\) && steps\.parser-audit\.outcome != 'skipped'/);
+    expect(workflow).toMatch(/path: data\/parser-quality-report\.json/);
+    expect(workflow).toMatch(/if-no-files-found: error/);
+  });
+});

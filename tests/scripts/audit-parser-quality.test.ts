@@ -14,7 +14,10 @@
  * jobs (ratio unchanged) must NOT trigger CRITICAL either.
  */
 
-import { describe, it, expect } from 'vitest';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { describe, it, expect, vi } from 'vitest';
 import {
   applyNoStructureRatchet,
   applyDuplicateDescriptionRatchet,
@@ -24,7 +27,12 @@ import {
   largestDuplicateBucket,
   effectiveDescription,
   sourceLocationMatches,
+  extractSourceLocationObservation,
+  classifySourceLocationEvidence,
   compareSourceDetail,
+  checkSourceDetailsBatch,
+  applySourceDetailResults,
+  finishAudit,
 } from '../../scripts/audit-parser-quality.mjs';
 
 type Issue = {
@@ -195,17 +203,122 @@ describe('applyNoStructureRatchet', () => {
 });
 
 describe('source-detail fidelity checks', () => {
-  it('accepts a city plus canton from the detail page', () => {
+  it('accepts equivalent locality forms without accepting a canton-only overlap', () => {
     expect(sourceLocationMatches('Pfäffikon', 'Pfäffikon, Zürich')).toBe(true);
+    expect(sourceLocationMatches('Visp', 'CH - Visp')).toBe(true);
+    expect(sourceLocationMatches('St. Moritz', 'Sankt Moritz')).toBe(true);
+    expect(sourceLocationMatches('Ginevra', 'Geneva (GVA)')).toBe(true);
+    expect(sourceLocationMatches('Zürich', 'Klinik Lengg AG | Bleulerstrasse 60 | 8008 Zürich, Zürich')).toBe(true);
+    expect(sourceLocationMatches('Kriens', 'Kreuzstrasse 34 6010 Kriens')).toBe(true);
+    expect(sourceLocationMatches('Pfäffikon', 'Pfäffikon Zürich')).toBe(true);
+    expect(sourceLocationMatches('Lengghalde 2, Zürich', 'Zürich, Zürich')).toBe(true);
+    expect(sourceLocationMatches('Sede Stabio Svizzera', 'Stabio, 2106')).toBe(true);
+    expect(sourceLocationMatches('Bern', 'CHE-BE Bern')).toBe(true);
+    expect(sourceLocationMatches('Zürich', 'Winterthur, Zürich')).toBe(false);
+    expect(sourceLocationMatches('Bern', 'Lyss, Bern Grossraum')).toBe(false);
     expect(sourceLocationMatches('Lugano', 'Pfäffikon, Zürich')).toBe(false);
+    expect(sourceLocationMatches('Basel', 'Basel-Landschaft')).toBe(false);
+    expect(sourceLocationMatches('Appenzell', 'Appenzell Ausserrhoden')).toBe(false);
+  });
+
+  it('matches certain Swiss multilingual locality aliases bidirectionally', () => {
+    for (const aliases of [
+      ['Genève', 'Genf', 'Ginevra', 'Geneva'],
+      ['Fribourg', 'Freiburg', 'Friburgo'],
+      ['Biel', 'Bienne', 'Bienne-Biel'],
+      ['Chur', 'Coira', 'Cuira'],
+    ]) {
+      for (const left of aliases) {
+        for (const right of aliases) expect(sourceLocationMatches(left, right), `${left} ↔ ${right}`).toBe(true);
+      }
+    }
+    expect(sourceLocationMatches('Fribourg', 'Freiburg im Breisgau')).toBe(false);
+    expect(sourceLocationMatches('Biel', 'Biel-Benken')).toBe(false);
+    expect(sourceLocationMatches('Chur', 'Churwalden')).toBe(false);
+  });
+
+  it('distinguishes authoritative location markup from generic page chrome', () => {
+    const jsonLd = '<script type="application/ld+json">{"@type":"JobPosting","title":"Role","jobLocation":{"address":{"addressLocality":"Lugano","addressRegion":"Ticino"}}}</script>';
+    expect(classifySourceLocationEvidence(jsonLd, 'https://example.test/job')).toBe('jsonld');
+    for (const className of [
+      'job-location', 'job_location', 'job-detail-location', 'job_detail_location',
+      'job-region', 'job_region', 'job-detail-region', 'job_detail_region',
+      'vacancy-location', 'vacancy_location', 'vacancy-detail-location', 'vacancy_detail_location',
+      'vacancy-region', 'vacancy_region', 'vacancy-detail-region', 'vacancy_detail_region',
+    ]) {
+      expect(classifySourceLocationEvidence(`<div class="${className}">Lugano</div>`), className).toBe('strong-markup');
+    }
+    expect(classifySourceLocationEvidence('<article class="job-detail"><span itemprop="addressLocality">Geneva</span></article>')).toBe('strong-markup');
+    expect(classifySourceLocationEvidence('<footer><span itemprop="addressLocality">Zürich</span></footer>')).toBe('generic');
+    expect(classifySourceLocationEvidence('<div role="region"><span class="aria-jobDescRegionHeader-hidden">Stellenbeschreibung</span></div>')).toBe('generic');
+    expect(classifySourceLocationEvidence('<nav><div class="location">Search by Location</div></nav>')).toBe('generic');
+  });
+
+  it('binds addressLocality to its job-scoped container instead of a footer', () => {
+    const html = [
+      '<footer><span itemprop="addressLocality">Zürich</span></footer>',
+      '<article class="job-detail"><span itemprop="addressLocality">Geneva</span></article>',
+    ].join('');
+    expect(extractSourceLocationObservation(html)).toEqual({
+      location: 'Geneva',
+      evidence: 'strong-markup',
+    });
+    expect(extractSourceLocationObservation('<div class="job-detail-location">Lugano</div>')).toEqual({
+      location: 'Lugano',
+      evidence: 'strong-markup',
+    });
+  });
+
+  it('does not promote related cards or search results as the current vacancy location', () => {
+    for (const html of [
+      '<section class="job-search-results"><article><span class="job-location">Zürich</span></article></section>',
+      '<aside class="related-card"><span class="job-detail-location">Zürich</span></aside>',
+      '<div class="job-recommendations"><span itemprop="addressLocality">Zürich</span></div>',
+    ]) {
+      expect(extractSourceLocationObservation(html)).toEqual({ location: '', evidence: 'generic' });
+      const result = compareSourceDetail(
+        { location: 'Lugano', description: 'Descrizione completa '.repeat(20) },
+        { location: 'Zürich', description: 'Descrizione completa '.repeat(20) },
+        { locationEvidence: classifySourceLocationEvidence(html) },
+      );
+      expect(result.locationMismatch).toBe(false);
+      expect(result.locationInconclusive).toBe(true);
+    }
+  });
+
+  it('does not turn generic page labels into location contradictions', () => {
+    const result = compareSourceDetail(
+      { location: 'Lausanne', sourceLang: 'fr', description: 'Description complète '.repeat(20) },
+      { location: 'Rechercher par lieu', description: 'Description complète '.repeat(20) },
+      { locationEvidence: 'generic' },
+    );
+    expect(result.locationMismatch).toBe(false);
+    expect(result.locationInconclusive).toBe(true);
+  });
+
+  it('keeps authoritative organization-labelled locations as contradictions', () => {
+    for (const [publishedLocation, sourceLocation] of [
+      ['Geneva', 'Kantonsspital Aarau, Aarau'],
+      ['Lugano', 'HFR Fribourg / HFR Freiburg'],
+    ]) {
+      const result = compareSourceDetail(
+        { location: publishedLocation, sourceLang: 'de', description: 'Ausführliche Stellenbeschreibung '.repeat(20) },
+        { location: sourceLocation, description: 'Ausführliche Stellenbeschreibung '.repeat(20) },
+        { locationEvidence: 'jsonld' },
+      );
+      expect(result.locationMismatch, sourceLocation).toBe(true);
+      expect(result.locationInconclusive, sourceLocation).toBe(false);
+    }
   });
 
   it('flags a wrong published location and a thin published description', () => {
     const result = compareSourceDetail(
       { location: 'Lugano', sourceLang: 'de', description: 'Polymechaniker in Lugano' },
       { location: 'Pfäffikon, Zürich', description: 'Aufgaben Installation, Inbetriebnahme und Wartung von Maschinen. '.repeat(5) },
+      { locationEvidence: 'jsonld' },
     );
     expect(result.locationMismatch).toBe(true);
+    expect(result.locationInconclusive).toBe(false);
     expect(result.descriptionMismatch).toBe(true);
   });
 
@@ -217,6 +330,100 @@ describe('source-detail fidelity checks', () => {
     );
     expect(result.locationMismatch).toBe(false);
     expect(result.descriptionMismatch).toBe(false);
+  });
+
+  it('accounts for worker exceptions separately from network failures and makes strict fail', async () => {
+    const items = [
+      { crawlerKey: 'fixture', url: 'https://example.test/network', job: { location: 'Lugano' } },
+      { crawlerKey: 'fixture', url: 'https://example.test/processing', job: { location: 'Lugano' } },
+    ];
+    const results = await checkSourceDetailsBatch(items, 2, {
+      fetchPage: async (url: string) => {
+        if (url.endsWith('/network')) throw new TypeError('network unavailable');
+        return { ok: true, status: 200, url, body: '<main>fixture</main>', host: 'example.test' };
+      },
+      extractDetail: () => {
+        throw new Error('parser exploded at /sensitive/source/file and https://internal.invalid/token');
+      },
+    });
+
+    expect(results).toHaveLength(items.length);
+    expect(results[0]).toMatchObject({ crawlerKey: 'fixture', fetchFailed: true, status: 0 });
+    expect(results[0].processingFailed).not.toBe(true);
+    expect(results[1]).toMatchObject({ crawlerKey: 'fixture', processingFailed: true });
+    expect(results[1].fetchFailed).not.toBe(true);
+    expect(results[1].processingError).not.toMatch(/sensitive|internal\.invalid/);
+
+    const report = { fixture: { total: 2, issues: [], severity: 'OK' } };
+    const summary = applySourceDetailResults(report, results, items.length);
+    expect(summary.requested).toBe(summary.fetched + summary.fetchFailed + summary.processingFailed);
+    expect(summary).toMatchObject({ requested: 2, fetched: 0, fetchFailed: 1, processingFailed: 1 });
+    expect(report.fixture.severity).toBe('CRITICAL');
+    expect(report.fixture.issues).toEqual(expect.arrayContaining([
+      expect.objectContaining({ type: 'parse-error', count: 1, processingFailed: 1 }),
+    ]));
+
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'parser-quality-processing-'));
+    const outPath = path.join(dir, 'report.json');
+    const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    try {
+      expect(finishAudit(report, { strict: true, outPath, sourceDetailSummary: summary })).toBe(1);
+      expect(JSON.parse(fs.readFileSync(outPath, 'utf8'))).toMatchObject({
+        summary: { critical: 1 },
+        sourceDetailSummary: { requested: 2, fetchFailed: 1, processingFailed: 1 },
+        crawlers: { fixture: { severity: 'CRITICAL' } },
+      });
+    } finally {
+      consoleSpy.mockRestore();
+      errorSpy.mockRestore();
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('writes the complete JSON report before returning a strict failure', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'parser-quality-report-'));
+    const outPath = path.join(dir, 'report.json');
+    const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    try {
+      const report = {
+        broken: {
+          total: 1,
+          severity: 'CRITICAL',
+          issues: [{ type: 'parse-error', message: 'broken fixture' }],
+        },
+      };
+      const exitCode = finishAudit(report, {
+        strict: true,
+        outPath,
+        provenance: { repoHeadSha: 'fixture', datasetLastCommit: { sha: 'fixture', committedAt: null } },
+        urlChecksEnabled: false,
+        sourceDetailChecksEnabled: true,
+        sourceDetailSummary: {
+          requested: 1,
+          fetched: 1,
+          fetchFailed: 0,
+          authoritativeLocationChecks: 1,
+          locationMatches: 0,
+          locationMismatches: 1,
+          inconclusiveLocationObservations: 0,
+          descriptionMismatches: 0,
+        },
+      });
+
+      expect(exitCode).toBe(1);
+      expect(JSON.parse(fs.readFileSync(outPath, 'utf8'))).toMatchObject({
+        crawlersChecked: 1,
+        sourceDetailSummary: { locationMismatches: 1 },
+        summary: { critical: 1, warning: 0, ok: 0 },
+        crawlers: { broken: { severity: 'CRITICAL' } },
+      });
+    } finally {
+      consoleSpy.mockRestore();
+      errorSpy.mockRestore();
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
   });
 });
 

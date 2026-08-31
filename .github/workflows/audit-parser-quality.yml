@@ -102,7 +102,19 @@ jobs:
           node-version: 22
 
       - name: Run parser quality audit (strict)
-        run: node scripts/audit-parser-quality.mjs --strict --check-source-details
+        id: parser-audit
+        run: |
+          rm -f data/parser-quality-report.json
+          node scripts/audit-parser-quality.mjs --strict --check-source-details
+
+      - name: Upload parser quality report
+        if: always() && steps.parser-audit.outcome != 'skipped'
+        uses: actions/upload-artifact@v7
+        with:
+          name: parser-quality-report-${{ github.run_id }}-${{ github.run_attempt }}
+          path: data/parser-quality-report.json
+          if-no-files-found: error
+          retention-days: 30
 
       # Reporter diagnostico (#5437): il body dice QUALE step è fallito, con
       # quale comando, come si riproduce in locale e quali script guardare
