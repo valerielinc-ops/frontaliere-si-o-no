@@ -3123,10 +3123,11 @@ function extractSmartRecruitersListingUrls(html, baseUrl) {
 
 function absoluteLinks(html, baseUrl) {
   const links = new Set();
-  const regex = /<a[^>]*href=["']([^"'#]+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+  const regex = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
   let m;
   while ((m = regex.exec(html)) !== null) {
-    const href = m[1];
+    const href = readAttr(m[1], 'href').trim();
+    if (!href || href.startsWith('#')) continue;
     const url = tryUrl(href, baseUrl);
     if (url) links.add(url);
   }
@@ -3838,10 +3839,11 @@ async function crawlSmartRecruitersJobs(company, source) {
 
 function absoluteSameHostLinks(html, baseUrl, hintsRegex) {
   const links = new Set();
-  const regex = /<a[^>]*href=["']([^"'#]+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+  const regex = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
   let m;
   while ((m = regex.exec(html)) !== null) {
-    const href = m[1];
+    const href = readAttr(m[1], 'href').trim();
+    if (!href || href.startsWith('#')) continue;
     const text = stripHtml(m[2]).toLowerCase();
     const url = tryUrl(href, baseUrl);
     if (!url || !sameHost(url, baseUrl)) continue;
@@ -6069,6 +6071,8 @@ export const __testables = {
   aiValidateJobDetailPage,
   fetchWithTimeout,
   buildKnownJobUrlsSet,
+  absoluteLinks,
+  absoluteSameHostLinks,
   // Canton mis-tagging guard: the JSON-LD → job mapper and the
   // addressCountry-vs-seedCanton precedence predicate it relies on.
   toJobFromJsonLd,

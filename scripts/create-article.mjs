@@ -4590,7 +4590,19 @@ export function extractRssItems(xml, feedUrl) {
       const date = block.match(/<updated>([^<]+)<\/updated>/i)
         || block.match(/<published>([^<]+)<\/published>/i);
       const headline = (title?.[1] || title?.[2] || '').replace(/<[^>]+>/g, '').trim();
-      const href = (linkTags.map((tag) => readAttr(tag, 'href')).find(Boolean) || linkText?.[1] || '').trim();
+      const atomLinks = linkTags
+        .map((tag) => ({
+          href: readAttr(tag, 'href').trim(),
+          rel: readAttr(tag, 'rel').trim().toLowerCase(),
+        }))
+        .filter((link) => link.href);
+      // Atom defines an omitted rel as `alternate`. Prefer an explicit
+      // alternate, then the default/omitted form, before falling back to a
+      // self-only feed so metadata links cannot eclipse the article URL.
+      const preferredLink = atomLinks.find((link) => link.rel.split(/\s+/).includes('alternate'))
+        || atomLinks.find((link) => !link.rel)
+        || atomLinks[0];
+      const href = (preferredLink?.href || linkText?.[1] || '').trim();
       if (!headline || headline.length < 10 || !href) continue;
       let parsedDate = null;
       if (date?.[1]) { try { parsedDate = new Date(date[1]); if (isNaN(parsedDate.getTime())) parsedDate = null; } catch { parsedDate = null; } }

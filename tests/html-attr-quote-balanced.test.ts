@@ -65,6 +65,28 @@ describe('readAttr — quote balanced', () => {
     expect(readAttr(`data-title="wrong"`, 'title')).toBe('');
   });
 
+  it('does not read an attribute-shaped string inside another attribute value', () => {
+    expect(readAttr(
+      `onclick="window.location.href='/jobs/decoy'" href="/jobs/real"`,
+      'href',
+    )).toBe('/jobs/real');
+    expect(readAttr(
+      `href='/jobs/real' data-template='href="/jobs/decoy"'`,
+      'href',
+    )).toBe('/jobs/real');
+  });
+
+  it('skips values of framework-style attribute names before reading href', () => {
+    expect(readAttr(
+      `[action]="href='/jobs/decoy'" href="/jobs/real"`,
+      'href',
+    )).toBe('/jobs/real');
+    expect(readAttr(
+      `[action]=href=/jobs/decoy href=/jobs/real`,
+      'href',
+    )).toBe('/jobs/real');
+  });
+
   it('tries names in order and returns the first hit', () => {
     expect(readAttr(`title="t"`, ['aria-label', 'title'])).toBe('t');
     expect(readAttr(`aria-label="a" title="t"`, ['aria-label', 'title'])).toBe('a');
@@ -72,6 +94,11 @@ describe('readAttr — quote balanced', () => {
 
   it('reads an unquoted value', () => {
     expect(readAttr(`href=/jobs/12 class=x`, 'href')).toBe('/jobs/12');
+  });
+
+  it('keeps equals signs in an unquoted query value without consuming the next attribute', () => {
+    expect(readAttr(`href=/jobs/search?role=R&D&level=2 class=job`, 'href'))
+      .toBe('/jobs/search?role=R&D&level=2');
   });
 
   it('returns empty string when absent', () => {
@@ -92,6 +119,18 @@ describe('remaining attribute consumers — quote balanced (#6574)', () => {
 
     const [atom] = extractRssItems(
       `<feed><entry><title>Notizia importante per i frontalieri</title><link rel="self"/><link href="${articleUrl}"/><updated>2026-08-30T08:00:00Z</updated></entry></feed>`,
+      'https://example.ch/feed.xml',
+    );
+    expect(atom.url).toBe(articleUrl);
+  });
+
+  it('prefers an Atom alternate article link over an earlier self link', () => {
+    const articleUrl = "https://example.ch/notizie/d'oggi?edition=1&lang=it";
+    const [atom] = extractRssItems(
+      `<feed><entry><title>Notizia importante per i frontalieri</title>`
+        + `<link rel="self" href="https://example.ch/feed.xml?entry=42"/>`
+        + `<link href="${articleUrl}" rel="alternate"/>`
+        + `<updated>2026-08-30T08:00:00Z</updated></entry></feed>`,
       'https://example.ch/feed.xml',
     );
     expect(atom.url).toBe(articleUrl);
@@ -216,6 +255,23 @@ describe('readMetaContent — quote balanced', () => {
     expect(readMetaContent(html, 'og:title')).toBe("Chef de Partie - Jack's Brasserie");
   });
 
+  it('matches either name or property when a meta tag declares both', () => {
+    expect(readMetaContent(
+      `<meta name="description" property="og:title" content="shared">`,
+      'description',
+    )).toBe('shared');
+    expect(readMetaContent(
+      `<meta property="og:title" name="description" content="shared">`,
+      'description',
+    )).toBe('shared');
+  });
+
+  it('ignores property-shaped text inside another meta attribute value', () => {
+    const html = `<meta data-template="property='og:title' content='decoy'" property="og:description" content="wrong">`
+      + `<meta content="Titolo reale" property="OG:TITLE">`;
+    expect(readMetaContent(html, 'og:title')).toBe('Titolo reale');
+  });
+
   it('returns empty string for a missing key', () => {
     expect(readMetaContent(`<meta property="og:image" content="x">`, 'og:title')).toBe('');
   });
@@ -278,6 +334,12 @@ describe('readTagByAttr / readAllAttr — the two-attribute shapes', () => {
     expect(readAttr(readTagByAttr(block, 'itemprop', 'name'), 'content')).toBe('right');
   });
 
+  it('preserves case-insensitive value matching while ignoring nested decoys', () => {
+    const html = `<meta data-template="itemprop='title'" itemprop="other" content="wrong">`
+      + `<meta content="right" ITEMPROP="TITLE">`;
+    expect(readAttr(readTagByAttr(html, 'itemprop', 'title'), 'content')).toBe('right');
+  });
+
   it('collects every href, apostrophes intact, so filtering happens in JS', () => {
     const html = `<a href="/x/d'impiego/1">a</a><a href="/sfcareer/jobreqcareer?n=O'Brien">b</a>`;
     const hrefs = readAllAttr(html, 'href');
@@ -285,6 +347,12 @@ describe('readTagByAttr / readAllAttr — the two-attribute shapes', () => {
     expect(hrefs.find((h) => h.includes('sfcareer/jobreqcareer'))).toBe(
       "/sfcareer/jobreqcareer?n=O'Brien",
     );
+  });
+
+  it('collects only real href attributes, not href-shaped strings nested in values', () => {
+    const html = `<a onclick="location.href='/decoy-1'" href="/real-1">a</a>`
+      + `<a href='/real-2' data-template='href="/decoy-2"'>b</a>`;
+    expect(readAllAttr(html, 'href')).toEqual(['/real-1', '/real-2']);
   });
 
   it('an unterminated attribute cannot swallow the rest of the document', () => {
