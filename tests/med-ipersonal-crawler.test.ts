@@ -6,8 +6,31 @@ import {
   isTrustedDomain,
 } from '../scripts/lib/med-ipersonal-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { extractIpersonalDescription } from '../scripts/lib/ipersonal-spec-runtime.mjs';
 
 describe('MediPersonal crawler parser', () => {
+  describe('shared Simple Job Board detail boundary', () => {
+    it('preserves authored HTML lists without the application tail', () => {
+      const html = `
+        <header>Site chrome</header>
+        <section class="job-profile-section"><div id="Jobdetails">
+          <p>Wir vermitteln eine langfristige Stelle in einem eingespielten Team.</p>
+          <h3>Ihre Aufgaben</h3>
+          <ul><li>Kundenbeziehungen professionell aufbauen</li><li>Dossiers vollständig führen</li></ul>
+          <h3>Diese Punkte sind zwingend</h3>
+          <ul><li>Mehrjährige Berufserfahrung</li><li>Stilsicheres Deutsch</li></ul>
+          <h3>Bewerben Sie sich jetzt</h3>
+          <p>Unterlagen per Formular oder E-Mail senden.</p>
+        </div></section>`;
+
+      const description = extractIpersonalDescription(html);
+      expect(description).toContain('\n• Kundenbeziehungen professionell aufbauen');
+      expect(description).toContain('\n• Mehrjährige Berufserfahrung');
+      expect(description).not.toContain('Site chrome');
+      expect(description).not.toContain('Unterlagen per Formular');
+    });
+  });
+
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(MED_IPERSONAL_KEY).toBe('med-ipersonal');
