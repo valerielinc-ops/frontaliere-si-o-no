@@ -24,6 +24,9 @@ import path from 'node:path';
 import {
   TITLE_RE,
   CRAWLER_STEP_RE,
+  crawlerRunToken,
+  crawlerWorkflowReference,
+  findCrawlerGroupWorkflow,
   findCrawlerGroupWorkflowName,
 } from '../scripts/ci/close-recovered-failure-issues.mjs';
 
@@ -99,6 +102,29 @@ describe('findCrawlerGroupWorkflowName — resolves a crawler slug to its CURREN
     expect(findCrawlerGroupWorkflowName('roche', tmpDir)).toBe('Crawler Group 01 (2 crawlers)');
     expect(findCrawlerGroupWorkflowName('novartis', tmpDir)).toBe('Crawler Group 01 (2 crawlers)');
     expect(findCrawlerGroupWorkflowName('hoch-health', tmpDir)).toBe('Crawler Group 02 (1 crawlers)');
+    expect(findCrawlerGroupWorkflow('roche', tmpDir)).toEqual({
+      filename: 'crawler-group-01.yml',
+      name: 'Crawler Group 01 (2 crawlers)',
+    });
+  });
+
+  it('uses the filename when crawler runs live in a different repository', () => {
+    const group = {
+      filename: 'crawler-group-22.yml',
+      name: 'Crawler Group 22 (28 crawlers)',
+    };
+    expect(crawlerWorkflowReference(group, 'valerielinc-ops/frontaliere-si-o-no', 'nanakokyobashi-rgb/frontaliere-articles'))
+      .toBe('crawler-group-22.yml');
+    expect(crawlerWorkflowReference(group, 'valerielinc-ops/frontaliere-si-o-no', 'valerielinc-ops/frontaliere-si-o-no'))
+      .toBe('Crawler Group 22 (28 crawlers)');
+  });
+
+  it('uses the cross-repo token only for crawler run reads, never for local issue operations', () => {
+    const site = 'valerielinc-ops/frontaliere-si-o-no';
+    const corpus = 'nanakokyobashi-rgb/frontaliere-articles';
+    expect(crawlerRunToken(corpus, site, corpus, 'cross-repo-token')).toBe('cross-repo-token');
+    expect(crawlerRunToken(site, site, corpus, 'cross-repo-token')).toBeUndefined();
+    expect(crawlerRunToken(corpus, corpus, corpus, 'cross-repo-token')).toBeUndefined();
   });
 
   it('returns null for a crawler slug not present in any current group file (renamed/removed)', () => {
@@ -138,5 +164,13 @@ describe('findCrawlerGroupWorkflowName — resolves a crawler slug to its CURREN
     const name = findCrawlerGroupWorkflowName('roche', realWorkflowsDir);
     expect(name).not.toBeNull();
     expect(name).toMatch(/^Crawler Group \d+/);
+  });
+
+  it('wires the site reconciler to the repository that now hosts crawler runs', () => {
+    const workflowPath = path.resolve(import.meta.dirname, '..', '.github', 'workflows', 'close-recovered-failure-issues.yml');
+    const workflow = fs.readFileSync(workflowPath, 'utf8');
+    expect(workflow).toContain('CRAWLER_RUN_REPO: nanakokyobashi-rgb/frontaliere-articles');
+    expect(workflow).toContain('Load cross-repo token from Remote Config');
+    expect(workflow).toContain('GITHUB_PAT_NANAKO non caricato');
   });
 });

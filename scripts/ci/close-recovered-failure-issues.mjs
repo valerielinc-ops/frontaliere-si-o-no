@@ -177,6 +177,15 @@ const DRY_RUN = process.argv.includes('--dry-run');
 export const TITLE_RE = /^(?:Workflow|Crawler|CI) Failure: (.+)$/;
 export const CRAWLER_STEP_RE = /^Run (.+)$/;
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
+// I crawler vengono ancora definiti nel sito, ma dopo la migrazione cross-repo le
+// loro run possono vivere nel corpus. Il workflow del sito imposta questo override;
+// il gemello del corpus resta sul default locale.
+const CRAWLER_RUN_REPO = process.env.CRAWLER_RUN_REPO || REPO;
+// Separato dal token che modifica le issue del sito: GITHUB_TOKEN e' limitato
+// al repository della run e non puo' leggere Actions nel corpus.
+const CRAWLER_RUN_GH_TOKEN = process.env.CRAWLER_RUN_GH_TOKEN
+  || process.env.GITHUB_PAT_NANAKO
+  || '';
 
 // ── Structural hold (#5454) ───────────────────────────────────────────────────────────
 
@@ -755,17 +764,30 @@ export function decideChronicDeescalation({ comments, labels, decision } = {}) {
 
 // ──────────────────────────────────────────────────────────────────────────────────────
 
-function repoFlag() {
-  return REPO ? ['--repo', REPO] : [];
+function repoFlag(repo = REPO) {
+  return repo ? ['--repo', repo] : [];
 }
 
-function gh(args, { allowFailure = false } = {}) {
+function gh(args, { allowFailure = false, token } = {}) {
   try {
-    return execFileSync('gh', args, { encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 });
+    return execFileSync('gh', args, {
+      encoding: 'utf8',
+      maxBuffer: 32 * 1024 * 1024,
+      env: token ? { ...process.env, GH_TOKEN: token } : process.env,
+    });
   } catch (err) {
     if (allowFailure) return null;
     throw err;
   }
+}
+
+export function crawlerRunToken(
+  repo,
+  issueRepo = REPO,
+  runRepo = CRAWLER_RUN_REPO,
+  token = CRAWLER_RUN_GH_TOKEN,
+) {
+  return repo && runRepo && repo === runRepo && repo !== issueRepo ? token : undefined;
 }
 
 function listFailureIssues() {
@@ -851,10 +873,10 @@ const RUN_HISTORY_LIMIT = 100;
  * cieco all'unica famiglia di fallimento che stava osservando. `total_count === 0`
  * separa le due: uno scarto in coda non ha job, un timeout ne ha.
  */
-function hasNoJobs(databaseId) {
+function hasNoJobs(databaseId, repo = REPO, token) {
   const out = gh(
-    ['api', `repos/${REPO || '{owner}/{repo}'}/actions/runs/${databaseId}/jobs?per_page=1`],
-    { allowFailure: true },
+    ['api', `repos/${repo || '{owner}/{repo}'}/actions/runs/${databaseId}/jobs?per_page=1`],
+    { allowFailure: true, token },
   );
   if (out === null) return false;
   try {
@@ -896,11 +918,11 @@ export function dropPhantomCancellations(runs, isPhantom) {
 // Le run COMPLETATE più recenti del workflow su main, dalla più nuova alla più vecchia,
 // o null se il workflow non ha run (rinominato/cancellato) o il listing è fallito — nel
 // qual caso lasciamo conservativamente aperta la issue, come da sempre.
-function recentCompletedRuns(workflowName) {
+function recentCompletedRuns(workflowName, repo = REPO, token) {
   const out = gh([
     'run', 'list', '-w', workflowName, '-b', 'main', '-L', String(RUN_HISTORY_LIMIT),
-    '--json', 'databaseId,conclusion,status,createdAt', ...repoFlag(),
-  ], { allowFailure: true });
+    '--json', 'databaseId,conclusion,status,createdAt', ...repoFlag(repo),
+  ], { allowFailure: true, token });
   if (out === null) return null;
   let runs;
   try {
@@ -915,15 +937,15 @@ function recentCompletedRuns(workflowName) {
     runs
       .filter((r) => r.status === 'completed')
       .sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt)),
-    hasNoJobs,
+    (databaseId) => hasNoJobs(databaseId, repo, token),
   );
   return completed.length ? completed : null;
 }
 
 // Most-recent COMPLETED run of the named workflow on main, or null if the workflow has
 // no runs (e.g. renamed/deleted) — in which case we conservatively leave the issue open.
-function latestCompletedRun(workflowName) {
-  const runs = recentCompletedRuns(workflowName);
+function latestCompletedRun(workflowName, repo = REPO, token) {
+  const runs = recentCompletedRuns(workflowName, repo, token);
   return runs ? runs[0] : null;
 }
 
@@ -932,10 +954,10 @@ function latestCompletedRun(workflowName) {
 // scripts/generate-crawler-group-workflows.mjs re-runs, so this reads the CURRENT
 // workflow files directly each run (this script itself runs as a single short-lived
 // process per cron invocation, so a fresh checkout is picked up naturally on the next
-// scheduled run; no cross-invocation cache is kept). Returns the group workflow's
-// `name:` (the dispatchable display name `gh run list -w` needs), or null if the
-// crawler isn't found in any current group file.
-export function findCrawlerGroupWorkflowName(slug, workflowsDir = WORKFLOWS_DIR) {
+// scheduled run; no cross-invocation cache is kept). Returns both the group workflow's
+// `name:` and filename: the local repo resolves the display name, while the remote
+// cross-repo caller (which has no `name:`) is dispatchable through its filename.
+export function findCrawlerGroupWorkflow(slug, workflowsDir = WORKFLOWS_DIR) {
   const groupFiles = fs.existsSync(workflowsDir)
     ? fs.readdirSync(workflowsDir).filter((f) => /^crawler-group-\d+\.yml$/.test(f))
     : [];
@@ -950,10 +972,27 @@ export function findCrawlerGroupWorkflowName(slug, workflowsDir = WORKFLOWS_DIR)
     const content = fs.readFileSync(path.join(workflowsDir, file), 'utf8');
     if (idLineRe.test(content)) {
       const nameMatch = content.match(/^name:\s*(.+)$/m);
-      if (nameMatch) return nameMatch[1].trim().replace(/^["']|["']$/g, '');
+      if (nameMatch) {
+        return {
+          filename: file,
+          name: nameMatch[1].trim().replace(/^["']|["']$/g, ''),
+        };
+      }
     }
   }
   return null;
+}
+
+export function findCrawlerGroupWorkflowName(slug, workflowsDir = WORKFLOWS_DIR) {
+  return findCrawlerGroupWorkflow(slug, workflowsDir)?.name ?? null;
+}
+
+// Il display name e' corretto nel repo che contiene il workflow generato. Nel
+// repository remoto che ospita i caller minimali, invece, il file non dichiara
+// `name:` e GitHub lo risolve stabilmente tramite filename.
+export function crawlerWorkflowReference(group, issueRepo = REPO, runRepo = CRAWLER_RUN_REPO) {
+  if (!group) return null;
+  return runRepo && runRepo !== issueRepo ? group.filename : group.name;
 }
 
 // Most-recent COMPLETED run of the named GROUP workflow, then the conclusion of the
@@ -964,13 +1003,18 @@ export function findCrawlerGroupWorkflowName(slug, workflowsDir = WORKFLOWS_DIR)
 // (so the caller's existing green/afterFailure logic works unchanged), or null if the
 // run, job, or step can't be resolved.
 function latestCompletedCrawlerStepRun(slug) {
-  const groupWorkflowName = findCrawlerGroupWorkflowName(slug);
-  if (!groupWorkflowName) return null;
+  const group = findCrawlerGroupWorkflow(slug);
+  const workflowRef = crawlerWorkflowReference(group);
+  if (!workflowRef) return null;
 
-  const run = latestCompletedRun(groupWorkflowName);
+  const runToken = crawlerRunToken(CRAWLER_RUN_REPO);
+  const run = latestCompletedRun(workflowRef, CRAWLER_RUN_REPO, runToken);
   if (!run) return null;
 
-  const jobsOut = gh(['api', `repos/${REPO || '{owner}/{repo}'}/actions/runs/${run.databaseId}/jobs`], { allowFailure: true });
+  const jobsOut = gh(
+    ['api', `repos/${CRAWLER_RUN_REPO || '{owner}/{repo}'}/actions/runs/${run.databaseId}/jobs`],
+    { allowFailure: true, token: runToken },
+  );
   if (jobsOut === null) return null;
   let jobsData;
   try {
@@ -987,6 +1031,7 @@ function latestCompletedCrawlerStepRun(slug) {
         status: step.status,
         conclusion: step.conclusion,
         createdAt: run.createdAt,
+        repository: CRAWLER_RUN_REPO,
       };
     }
   }
@@ -1069,7 +1114,8 @@ function main() {
     const afterFailure = Date.parse(run.createdAt) >= Date.parse(it.createdAt);
 
     if (green && afterFailure) {
-      const runUrl = REPO ? `https://github.com/${REPO}/actions/runs/${run.databaseId}` : undefined;
+      const runRepo = run.repository || REPO;
+      const runUrl = runRepo ? `https://github.com/${runRepo}/actions/runs/${run.databaseId}` : undefined;
 
       // #5454: green answers "is the symptom back?", not "was the fault fixed?".
       const comments = fetchIssueComments(it.number);
