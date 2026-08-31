@@ -14,7 +14,8 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
-import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import { loadSpec } from './prospector/spec-crawler.mjs';
+import { runIpersonalSpecInProduction } from './ipersonal-spec-runtime.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -109,7 +110,7 @@ function detectEmploymentType(text = '') {
  */
 async function fetchJobListings() {
   const spec = loadSpec(MED_IPERSONAL_KEY);
-  return runSpecInProduction(spec);
+  return runIpersonalSpecInProduction(spec);
 }
 
 /**
