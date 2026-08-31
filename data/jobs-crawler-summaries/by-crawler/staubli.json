@@ -1,20 +1,21 @@
 {
   "key": "staubli",
   "label": "Stäubli",
-  "generatedAt": "2026-08-28T05:26:33.279Z",
+  "generatedAt": "2026-08-31T17:10:10.326Z",
   "total": 6,
   "discovered": null,
   "written": 6,
-  "newCount": 2,
-  "updatedCount": 3,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 10808,
-  "avgDurationMs": 10808,
+  "durationMs": 8659,
+  "avgDurationMs": 8659,
   "durationHistory": [
-    10808
+    8659
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "staubli-511444ee19f5",
       "slug": "lehre-als-kauffrau-oder-kaufmann-efz-staubli-allschwil-switzerland",
@@ -28,7 +29,7 @@
       "url": "https://jobs.smartrecruiters.com/StaubliGroup/744000145931140-lehre-als-kauffrau-oder-kaufmann-efz?oga=true",
       "source": "Stäubli Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:26:26.182Z",
+      "crawledAt": "2026-08-31T17:10:05.457Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "streetAddress": "Stockbrunnenrain 8",
@@ -45,11 +46,12 @@
       "postedDate": "2026-08-27",
       "applyUrl": "https://jobs.smartrecruiters.com/StaubliGroup/744000145931140-lehre-als-kauffrau-oder-kaufmann-efz?oga=true",
       "jobReqId": "744000145931140",
-      "_qualityScore": 62,
+      "firstSeenAt": "2026-08-28T05:26:26.182Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     },
@@ -66,7 +68,7 @@
       "url": "https://jobs.smartrecruiters.com/StaubliGroup/744000145658619-field-service-engineer-robotics?oga=true",
       "source": "Stäubli Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:26:26.194Z",
+      "crawledAt": "2026-08-31T17:10:05.454Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "streetAddress": "Rue du Tombet",
@@ -83,16 +85,15 @@
       "postedDate": "2026-08-26",
       "applyUrl": "https://jobs.smartrecruiters.com/StaubliGroup/744000145658619-field-service-engineer-robotics?oga=true",
       "jobReqId": "744000145658619",
-      "_qualityScore": 62,
+      "firstSeenAt": "2026-08-28T05:26:26.194Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "staubli-d51025d9a80b",
       "slug": "management-assistant-80-staubli-allschwil-switzerland",
@@ -106,7 +107,7 @@
       "url": "https://jobs.smartrecruiters.com/StaubliGroup/744000144288079-management-assistant-80-?oga=true",
       "source": "Stäubli Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:26:26.185Z",
+      "crawledAt": "2026-08-31T17:10:05.456Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "streetAddress": "Stockbrunnenrain 8",
@@ -145,7 +146,7 @@
       "url": "https://jobs.smartrecruiters.com/StaubliGroup/744000142111489-global-learning-development-lead?oga=true",
       "source": "Stäubli Dedicated Parser (SmartRecruiters)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:26:26.257Z",
+      "crawledAt": "2026-08-31T17:10:05.452Z",
       "addressLocality": "Pfaffikon",
       "addressRegion": "ZH",
       "streetAddress": "Poststrasse 5",
@@ -184,7 +185,7 @@
       "url": "https://jobs.smartrecruiters.com/StaubliGroup/744000135670729-division-procurement-controller?oga=true",
       "source": "Stäubli Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:26:26.259Z",
+      "crawledAt": "2026-08-31T17:10:05.399Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "streetAddress": "Stockbrunnenrain 8",
@@ -245,7 +246,7 @@
       "firstSeenAt": "2026-07-03T23:34:24.709Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
