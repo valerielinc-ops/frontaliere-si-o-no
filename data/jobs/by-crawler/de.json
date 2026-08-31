@@ -1,6 +1,6 @@
 {
   "crawlerKey": "de",
-  "assembledAt": "2026-08-28T05:25:49.418Z",
+  "assembledAt": "2026-08-31T17:12:23.610Z",
   "jobs": [
     {
       "id": "de-a1b65c3223c4",
@@ -30,7 +30,7 @@
       "url": "https://mpi-age.de.umantis.com/Vacancies/505/Description/1",
       "source": "MPI AGE Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:25:45.387Z",
+      "crawledAt": "2026-08-31T17:12:19.526Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -63,6 +63,7 @@
       "firstSeenAt": "2026-08-24T10:28:17.522Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -103,7 +104,7 @@
       "url": "https://mpi-age.de.umantis.com/Vacancies/504/Description/1",
       "source": "MPI AGE Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:25:45.083Z",
+      "crawledAt": "2026-08-31T17:12:19.220Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -138,6 +139,7 @@
       "firstSeenAt": "2026-08-24T10:28:17.192Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
