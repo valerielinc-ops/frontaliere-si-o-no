@@ -89,6 +89,7 @@ import { buildStableJobIdentity } from './lib/job-identity.mjs';
 import { splitJobLocation } from './lib/job-location-display.mjs';
 import { descriptionRepeatsRegion, implausibilityReasons } from './lib/job-location-plausibility.mjs';
 import { isLocationExplicitlyForeign, geocodeCountry } from './lib/dedicated-crawler-common.mjs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -171,8 +172,7 @@ function loadCrawlerRecords() {
   const dir = join(ROOT, 'data', 'jobs', 'by-crawler');
   const index = new Map();
   if (!existsSync(dir)) return index;
-  for (const file of readdirSync(dir)) {
-    if (!file.endsWith('.json')) continue;
+  for (const file of listSliceFileNames(dir)) {
     let doc;
     try { doc = JSON.parse(readFileSync(join(dir, file), 'utf8')); } catch { continue; }
     const slice = Array.isArray(doc) ? doc : (doc.jobs || []);

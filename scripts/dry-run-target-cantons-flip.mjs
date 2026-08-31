@@ -44,6 +44,7 @@ import { fileURLToPath } from 'node:url';
 
 import { applyCantonQuorumGate } from './lib/canton-quorum-gate.mjs';
 import { fingerprintJob } from './lib/dedicated-crawler-common.mjs';
+import { isSliceFile } from './lib/crawler-slice-files.mjs';
 
 // ─── Paths ────────────────────────────────────────────────────────────────
 
@@ -157,7 +158,7 @@ async function* streamByCrawlerJobs() {
     throw err;
   }
   const shardFiles = entries
-    .filter((e) => e.isFile() && e.name.endsWith('.json'))
+    .filter((e) => e.isFile() && isSliceFile(e.name))
     .map((e) => e.name)
     .sort();
 
