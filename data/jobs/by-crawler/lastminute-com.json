@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lastminute-com",
-  "assembledAt": "2026-08-28T05:34:56.882Z",
+  "assembledAt": "2026-08-31T17:34:07.020Z",
   "jobs": [
     {
       "id": "company-2oxpfe",
@@ -135,7 +135,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "6830",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "salarySource": "estimated"
     }
   ]
 }
