@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "savedAt": "2026-08-31T10:08:54.463Z",
+  "savedAt": "2026-08-31T10:21:26.859Z",
   "entries": [
     {
       "key": "cf96d0d2de6fe287430324c567a3b8529d9b53657cd330aacbf95da6ac4f5a7f",
@@ -252819,11 +252819,11 @@
     },
     {
       "key": "17547f0b6fc6a6b5ddc8202744dd70bc709fa0094e85dc500aeb64ef933b6158",
-      "touchedAt": 1788170878320,
+      "touchedAt": 1788171637715,
       "value": {
         "isJob": false,
-        "confidence": 0.85,
-        "reason": "This is a generic career program overview ('Quereinstieg' / career changers) listing multiple roles (baker, driver, meat/fish worker, cook) with general descriptions and links to individual openings, rather than a single specific job detail page with a concrete role title, specific requirements, and a direct application context for one position."
+        "confidence": 0.92,
+        "reason": "This is a general career landing page for Coop's 'Quereinstieg' (career changer) program, listing multiple program tracks (baker, driver, meat/fish worker, cook) with brief overviews. It is not a single job detail page for one specific role—it aggregates several programs and provides a contact form rather than a single job posting with responsibilities, requirements, and an application button for one position."
       }
     }
   ]
