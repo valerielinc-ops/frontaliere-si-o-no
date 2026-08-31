@@ -4813,6 +4813,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.comprare-casa-grigioni-mutuo-ipotecario.title': 'Haus in Graubünden: Darlehen, Eigenmittel und Steuern',
     'blog.article.comprare-casa-grigioni-mutuo-ipotecario.excerpt': 'Leitfaden zum Immobilienkauf im Kanton Graubünden: Hypothekendarlehen, Eigenmittel, Akquisitionssteuern, Notarkosten und Schritt-für-Schritt-Verfahren.',
     'blog.article.comprare-casa-grigioni-mutuo-ipotecario.imageAlt': 'Traditionelles Schweizer Alpenchalet mit Holzbalkon in den Bergvorbergen',
+    'blog.article.apprendistato-grigioni-percorso-duale.title': 'Lehre in Graubünden: dualer Studiengang, EFZ und CFK',
+    'blog.article.apprendistato-grigioni-percorso-duale.excerpt': 'Lehre in Graubünden: duales System Schule-Betrieb gemäss BBG, EFZ- und CFK-Titel, Vergütung und Berufsmaturität für den Zugang zu den SUPPL.',
+    'blog.article.apprendistato-grigioni-percorso-duale.imageAlt': 'Lehrling in einem Handwerksbetrieb in Graubunden',
 };
 
 export default blogMetaChDe;

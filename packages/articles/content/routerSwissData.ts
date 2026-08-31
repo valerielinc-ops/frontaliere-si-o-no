@@ -1630,6 +1630,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'apprendistato-formazione-grigioni': { it: 'apprendistato-formazione-grigioni', en: 'apprenticeship-vocational-training-graubunden', de: 'lehre-berufsbildung-graubuenden', fr: 'apprentissage-formation-professionnelle-grisons' },
  'parmelin-siccita-prestiti-agricoltura-2025': { it: 'parmelin-siccita-prestiti-agricoltura-2025', en: 'parmelin-drought-farm-loans-2025', de: 'parmelin-duerre-landwirtschaftskredite-2025', fr: 'parmelin-secheresse-prets-agricoles-2025' },
  'comprare-casa-grigioni-mutuo-ipotecario': { it: 'comprare-casa-grigioni-mutuo-ipotecario', en: 'buy-house-grisons-mortgage-procedure', de: 'haus-kauf-graubuenden-hypothek-verfahren', fr: 'acheter-maison-grisons-hypotheque-procedure' },
+ 'apprendistato-grigioni-percorso-duale': { it: 'apprendistato-grigioni-percorso-duale', en: 'apprenticeship-graubunden-dual-pathway', de: 'lehre-graubunden-dualer-bildungsweg', fr: 'apprentissage-grisons-voie-duale' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

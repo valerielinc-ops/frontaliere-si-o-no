@@ -4813,6 +4813,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.comprare-casa-grigioni-mutuo-ipotecario.title': 'Maison dans les Grisons : hypothèque, fonds propres et impôts',
     'blog.article.comprare-casa-grigioni-mutuo-ipotecario.excerpt': 'Guide d\'achat immobilier dans le canton des Grisons : hypothèque, fonds propres, taxes d\'acquisition, frais de notaire et procédure étape par étape.',
     'blog.article.comprare-casa-grigioni-mutuo-ipotecario.imageAlt': 'Chalet alpin suisse traditionnel avec balcon en bois dans les contreforts des montagnes',
+    'blog.article.apprendistato-grigioni-percorso-duale.title': 'Apprentissage dans les Grisons : parcours dual, AFC et CFC',
+    'blog.article.apprendistato-grigioni-percorso-duale.excerpt': 'Apprentissage dans les Grisons : système dual école-entreprise régi par la LFPr, titres AFC et CFC, rémunération et maturité professionnelle pour accéder aux SUPPL.',
+    'blog.article.apprendistato-grigioni-percorso-duale.imageAlt': 'Apprenti travaillant dans une entreprise artisanale aux Grisons',
 };
 
 export default blogMetaChFr;
