@@ -1,6 +1,6 @@
 {
   "crawlerKey": "alpiq",
-  "assembledAt": "2026-08-28T05:40:27.490Z",
+  "assembledAt": "2026-08-31T17:35:36.946Z",
   "jobs": [
     {
       "id": "alpiq-183e0087fef4",
@@ -38,10 +38,11 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9532&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:40:24.216Z",
+      "crawledAt": "2026-08-31T17:35:34.677Z",
       "firstSeenAt": "2026-08-26T10:14:57.161Z",
       "salaryMin": 68000,
       "salaryMax": 104000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -95,10 +96,11 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9632&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:40:24.215Z",
+      "crawledAt": "2026-08-31T17:35:34.676Z",
       "firstSeenAt": "2026-08-25T22:03:37.699Z",
       "salaryMin": 68000,
       "salaryMax": 104000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -156,10 +158,11 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=8855&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:40:24.216Z",
+      "crawledAt": "2026-08-31T17:35:34.677Z",
       "firstSeenAt": "2026-08-25T10:28:09.340Z",
       "salaryMin": 96000,
       "salaryMax": 146500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -216,10 +219,11 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:40:24.216Z",
+      "crawledAt": "2026-08-31T17:35:34.675Z",
       "firstSeenAt": "2026-07-17T11:43:13.714Z",
       "salaryMin": 96000,
       "salaryMax": 146500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
