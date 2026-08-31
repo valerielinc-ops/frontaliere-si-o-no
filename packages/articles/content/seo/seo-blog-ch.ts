@@ -62458,6 +62458,46 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
+
+  'blog-apprendistato-grigioni-percorso-duale': {
+    title: 'Apprendistato nei Grigioni: percorso duale, AFC e CFC',
+    description: 'Apprendistato nei Grigioni: sistema duale scuola-azienda secondo la LFPr, titoli AFC e CFC, retribuzione cantonale, maturità professionale e diritti',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, grigioni, percorso, duale',
+    ogTitle: 'Apprendistato nei Grigioni: guida al percorso duale',
+    ogDescription: 'Tutto sull\'apprendistato nei Grigioni: percorso duale scuola-azienda regolato dalla LFPr, titoli AFC e CFC, retribuzione per anno e settore, maturità professionale per le SUPPL e diritti contrattuali degli apprendisti secondo il diritto federale.',
+    canonicalPath: '/articoli-svizzera/apprendistato-grigioni-percorso-duale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato nei Grigioni: percorso duale, AFC e CFC",
+      "description": "Apprendistato nei Grigioni: sistema duale scuola-azienda secondo la LFPr, titoli AFC e CFC, retribuzione cantonale, maturità professionale e diritti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apprendistato-grigioni-percorso-duale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Apprendista al lavoro in un'azienda artigiana nei Grigioni"
+      },
+      "datePublished": "2026-08-31T07:38:12+00:00",
+      "dateModified": "2026-08-31T07:38:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendistato-grigioni-percorso-duale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

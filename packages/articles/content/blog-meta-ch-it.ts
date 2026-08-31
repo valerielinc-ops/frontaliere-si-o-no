@@ -4813,6 +4813,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.comprare-casa-grigioni-mutuo-ipotecario.title': 'Casa in Grigioni: mutuo, fondi propri e imposte',
     'blog.article.comprare-casa-grigioni-mutuo-ipotecario.excerpt': 'Guida all\'acquisto immobiliare nel Canton Grigioni: mutuo ipotecario, fondi propri, imposte acquisizione, spese notarili e procedura step-by-step.',
     'blog.article.comprare-casa-grigioni-mutuo-ipotecario.imageAlt': 'Chalet svizzero tradizionale con balcone in legno sulle pendici alpine del Canton Grigioni',
+    'blog.article.apprendistato-grigioni-percorso-duale.title': 'Apprendistato nei Grigioni: percorso duale, AFC e CFC',
+    'blog.article.apprendistato-grigioni-percorso-duale.excerpt': 'Apprendistato nei Grigioni: sistema duale scuola-azienda regolato dalla LFPr, titoli AFC e CFC, retribuzione e maturità professionale per accedere alle SUPPL.',
+    'blog.article.apprendistato-grigioni-percorso-duale.imageAlt': 'Apprendista al lavoro in un\'azienda artigiana nei Grigioni',
 };
 
 export default blogMetaChIt;

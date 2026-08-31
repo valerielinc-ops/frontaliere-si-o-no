@@ -4813,6 +4813,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.comprare-casa-grigioni-mutuo-ipotecario.title': 'House in Graubünden: mortgage, own funds and taxes',
     'blog.article.comprare-casa-grigioni-mutuo-ipotecario.excerpt': 'Guide to the purchase of real estate in the Canton of Graubünden: mortgage loan, own funds, acquisition taxes, notary fees and step-by-step procedure.',
     'blog.article.comprare-casa-grigioni-mutuo-ipotecario.imageAlt': 'Traditional Swiss alpine chalet with wooden balcony set in mountain foothills',
+    'blog.article.apprendistato-grigioni-percorso-duale.title': 'Apprenticeship in Graubünden: dual path, AFC and CFC',
+    'blog.article.apprendistato-grigioni-percorso-duale.excerpt': 'Apprenticeship in Graubünden: dual school-company system regulated by the LFPr, AFC and CFC qualifications, salary and professional maturity to access the SUPPL.',
+    'blog.article.apprendistato-grigioni-percorso-duale.imageAlt': 'Apprentice working in a craft business in Graubunden',
 };
 
 export default blogMetaChEn;
