@@ -36,6 +36,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fnv1a32Mod } from './fnv1a.mjs';
 import { shardFileName, listShardFilesIn } from './shard-file-naming.mjs';
+import { writeShardFileIfChanged, writeFileAtomic } from './atomic-shard-write.mjs';
 
 /** Legacy single-file location (kept for read-fallback during/after migration). */
 export const COMPAT_LEGACY_FILE = 'data/seo-404-compat-paths.json';
@@ -168,21 +169,11 @@ export function writeCompatPaths(data, rootDir = process.cwd()) {
     buckets[i].sort();
     const content = JSON.stringify({ paths: buckets[i] }, null, 2) + '\n';
     const file = compatShardFile(i, rootDir);
-    let existing;
-    try {
-      existing = fs.readFileSync(file, 'utf-8');
-    } catch (err) {
-      if (err.code !== 'ENOENT') throw err;
-      /* shard doesn't exist yet on disk — must write */
-    }
-    if (existing === content) continue;
-    fs.writeFileSync(file, content, 'utf-8');
-    shardsWritten++;
+    if (writeShardFileIfChanged(file, content)) shardsWritten++;
   }
-  fs.writeFileSync(
+  writeFileAtomic(
     compatManifestFile(rootDir),
     JSON.stringify({ ...meta, shardCount: COMPAT_SHARD_COUNT, totalPaths: uniq.length }, null, 2) + '\n',
-    'utf-8',
   );
 
   // The monolith is unpushable (>100 MB) and now superseded — drop it.
