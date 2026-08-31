@@ -11,7 +11,7 @@
     "https://ohws.prospective.ch/public/v1/medium/1000624/jobs?lang=it"
   ],
   "notes": "Dedicated Agroscope crawler — CH-wide (all 26 cantons). Uses Prospective.ch API (medium 1000624 — fixed 2026-07-27 for #4799, was stale 1000626 which silently returned {total:0,jobs:[]} for every query after a jobs.admin.ch platform migration). No server-side org-unit filter exists for Agroscope specifically (the old numeric verwaltungseinheit:1083812 filter no longer resolves anything); fetches the whole federal portal (~370 jobs) and filters client-side via isAgroscopeApiRecord matching the verwaltungseinheit_* sub-facet text \"Agroscope\" (see scripts/lib/agroscope-job-parser.mjs). Listing is already national since the whole portal is scanned. Swiss federal center of competence for agricultural research, part of DEFR. Research sites across CH: Posieux (FR), Reckenholz/Zürich (ZH), Changins/Nyon (VD), Conthey (VS), Cadenazzo (TI), Tänikon (TG), etc. Keeps every job that resolves to a Swiss canton (inferAnyCanton); drops foreign \"Estero\" postings. Full job data in API response, no detail page fetching needed.",
-  "updatedAt": "2026-08-31T17:03:52.110Z",
+  "updatedAt": "2026-08-31T22:20:47.391Z",
   "seedMetaByUrl": {
     "https://jobs.admin.ch/posti-vacanti/praktikum-waldrandbeweidung/483d4ace-8e57-4705-bccc-294e73dd2a00": {
       "location": "Zürich",
@@ -78,12 +78,6 @@
       "canton": "ZH",
       "company": "Agroscope",
       "postedDate": "2026-08-13"
-    },
-    "https://jobs.admin.ch/posti-vacanti/landwirtschaftliche-r-fachmitarbeiter-in-obstbau/2c6e2470-3c64-4370-8bfd-d7b026c8f271": {
-      "location": "Wädenswil, Schweiz",
-      "canton": "ZH",
-      "company": "Agroscope",
-      "postedDate": "2026-07-31"
     }
   }
 }
