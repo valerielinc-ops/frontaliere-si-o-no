@@ -251,6 +251,22 @@ jobs:
         if: inputs.skip_translate != true
         run: node scripts/log-translation-stats.mjs before
 
+      # Shadow-only baseline: hashes and aggregates only. The temporary snapshot
+      # is needed to calculate the final delta, but is never uploaded or committed.
+      - name: Capture translation observability baseline
+        id: translation_observability_before
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
+        run: |
+          test -f data/jobs.json
+          started_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          echo "started_at=$started_at" >> "$GITHUB_OUTPUT"
+          echo "source_commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          node scripts/collect-translation-observability.mjs \
+            --mode start --jobs data/jobs.json \
+            --output "$RUNNER_TEMP/translation-observability-before.json" \
+            --now "$started_at"
+          echo "ready=true" >> "$GITHUB_OUTPUT"
+
       - name: "Phase 2b: Translate pending jobs (cascade top-up)"
         if: inputs.skip_translate != true
         env:
@@ -287,9 +303,20 @@ jobs:
           INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
         run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
 
+      # Phase 2c mutates slices only. Re-assemble slice -> dataset; scattering
+      # the stale assembled file in this direction would erase its new fills.
+      - name: Re-assemble dataset after Phase 2c mop-up
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
+        run: node scripts/assemble-jobs-dataset.mjs
+
       - name: Commit translations
+        id: commit_translations
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && inputs.dry_run != true
-        run: bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs" data/jobs/by-crawler/ data/translation-cache/ data/jobs-crawler-config.json data/slug-registry.json data/translation-stats-history.json
+        run: |
+          before="$(git rev-parse HEAD)"
+          bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs" data/jobs/by-crawler/ data/translation-cache/ data/jobs-crawler-config.json data/slug-registry.json data/translation-stats-history.json
+          after="$(git rev-parse HEAD)"
+          if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
 
       # ── Phase 2d: Fix source-copy titles (daily 07:00 only) ──────────────
       - name: "Phase 2d: Fix untranslated titles (free cascade)"
@@ -297,8 +324,59 @@ jobs:
         run: node scripts/fix-untranslated-titles.mjs
 
       - name: Commit title fixes
+        id: commit_title_fixes
         if: steps.hk.outputs.run == 'true' && inputs.dry_run != true
-        run: bash scripts/lib/git-commit-data.sh --slice-only "🔤 Fix untranslated titles (free cascade)"
+        run: |
+          before="$(git rev-parse HEAD)"
+          bash scripts/lib/git-commit-data.sh --slice-only "🔤 Fix untranslated titles (free cascade)"
+          after="$(git rev-parse HEAD)"
+          if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
+
+      # Phase 2d also writes slices. This is the final translation-bearing
+      # persistence barrier; Phase 3 below changes only slugs.
+      - name: Re-assemble true-final translation dataset
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
+        run: node scripts/assemble-jobs-dataset.mjs
+
+      - name: Capture final translation observability (shadow)
+        if: always() && steps.translation_observability_before.outputs.ready == 'true'
+        env:
+          OBSERVABILITY_OUTCOME: ${{ job.status }}
+        run: |
+          node scripts/collect-translation-observability.mjs \
+            --mode finish --jobs data/jobs.json \
+            --before "$RUNNER_TEMP/translation-observability-before.json" \
+            --output "$RUNNER_TEMP/translation-observability.json" \
+            --run-id "${{ github.run_id }}" \
+            --started-at "${{ steps.translation_observability_before.outputs.started_at }}" \
+            --source-commit "${{ steps.translation_observability_before.outputs.source_commit }}" --outcome "$OBSERVABILITY_OUTCOME"
+
+      # A report only claims a commit after the commit step completed. A dry run
+      # and a failed/no-op commit deliberately keep this field null.
+      - name: Finalize translation observability report
+        if: always() && steps.translation_observability_before.outputs.ready == 'true'
+        run: |
+          node scripts/collect-translation-observability.mjs \
+            --mode finalize --report "$RUNNER_TEMP/translation-observability.json" \
+            --output "$RUNNER_TEMP/translation-observability.json" \
+            --final-commit "${{ steps.commit_title_fixes.outputs.final_commit || steps.commit_translations.outputs.final_commit }}"
+
+      - name: Roll up translation observability history
+        if: always() && steps.translation_observability_before.outputs.ready == 'true' && inputs.dry_run != true
+        run: node scripts/rollup-translation-observability.mjs "$RUNNER_TEMP/translation-observability.json" data/translation-observability-history.json
+
+      - name: Commit translation observability history
+        if: always() && steps.translation_observability_before.outputs.ready == 'true' && inputs.dry_run != true
+        run: bash scripts/lib/git-commit-data.sh --slice-only "📊 Roll up translation observability" data/translation-observability-history.json
+
+      - name: Upload translation observability report
+        if: always() && steps.translation_observability_before.outputs.ready == 'true'
+        uses: actions/upload-artifact@v7
+        with:
+          name: translation-observability-${{ github.run_id }}
+          path: ${{ runner.temp }}/translation-observability.json
+          retention-days: 14
+          if-no-files-found: error
 
       # ── Phase 3: Regenerate slugs from translated titles ──────────────────
       - name: "Phase 3: Regenerate locale slugs"
