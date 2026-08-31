@@ -4858,6 +4858,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.svizzeri-risparmiano-piu-che-mai.title': 'Revenu et épargne record en Suisse en 2025',
     'blog.article.svizzeri-risparmiano-piu-che-mai.excerpt': 'En 2025, le revenu disponible par habitant dépasse 65 000 francs. Taux d\'épargne volontaire à 19,3 %, maximum historique. Les données OFS révèlent le bien-être économique le plus élevé de tous les temps.',
     'blog.article.svizzeri-risparmiano-piu-che-mai.imageAlt': 'Une famille suisse planifie l\'épargne domestique autour d\'une table, symbole de la prospérité économique nationale',
+    'blog.article.ubs-norme-bancarie-compromesso.title': 'UBS : nouvelles règles bancaires, le compromis de la Commission',
+    'blog.article.ubs-norme-bancarie-compromesso.excerpt': '31 août 2026 : le cet-S approuve des règles plus strictes sur les participations étrangères des grandes banques, avec une couverture à 50 % en AT1 au lieu de 100 % comme proposé par le Conseil fédéral.',
+    'blog.article.ubs-norme-bancarie-compromesso.imageAlt': 'Bureau bancaire suisse avec écrans affichant les données de marché: nouvelles règles de réglementation financière',
 };
 
 export default blogMetaChFr;

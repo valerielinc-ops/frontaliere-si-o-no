@@ -4858,6 +4858,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svizzeri-risparmiano-piu-che-mai.title': 'Reddito e risparmio record in Svizzera nel 2025',
     'blog.article.svizzeri-risparmiano-piu-che-mai.excerpt': 'Nel 2025 il reddito disponibile per abitante supera 65.000 franchi. Tasso di risparmio volontario al 19,3%, massimo storico. I dati UST rivelano il benessere economico più elevato di sempre.',
     'blog.article.svizzeri-risparmiano-piu-che-mai.imageAlt': 'Una famiglia svizzera pianifica il risparmio domestico attorno a un tavolo, simbolo del benessere economico nazionale',
+    'blog.article.ubs-norme-bancarie-compromesso.title': 'UBS: nuove norme bancarie, il compromesso della Commissione',
+    'blog.article.ubs-norme-bancarie-compromesso.excerpt': '31 agosto 2026: la CET-S approva regole più stringenti sulle partecipazioni estere delle grandi banche, con copertura al 50% in AT1 anziché al 100% come proposto dal Consiglio federale.',
+    'blog.article.ubs-norme-bancarie-compromesso.imageAlt': 'Ufficio di una banca svizzera con schermi che mostrano dati di mercato: nuove norme sulla vigilanza finanziaria',
 };
 
 export default blogMetaChIt;

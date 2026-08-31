@@ -4858,6 +4858,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svizzeri-risparmiano-piu-che-mai.title': 'Rekordertrag und -ersparnis in der Schweiz im Jahr 2025',
     'blog.article.svizzeri-risparmiano-piu-che-mai.excerpt': '2025 übersteigt das verfügbare Einkommen pro Einwohner 65 \'000 Franken. Freiwillige Sparquote von 19,3%, historisches Maximum. Die BfS-Daten zeigen den höchsten wirtschaftlichen Wohlstand aller Zeiten.',
     'blog.article.svizzeri-risparmiano-piu-che-mai.imageAlt': 'Eine Schweizer Familie plant häusliche Ersparnisse am Tisch, Symbol für nationalen wirtschaftlichen Wohlstand',
+    'blog.article.ubs-norme-bancarie-compromesso.title': 'UBS: Neue Bankenregeln, der Kompromiss der Kommission',
+    'blog.article.ubs-norme-bancarie-compromesso.excerpt': '31. August 2026: Die WAK-S genehmigt strengere Regeln für ausländische Beteiligungen von Grossbanken, mit 50% Deckung in AT1 statt 100% wie vom Bundesrat vorgeschlagen.',
+    'blog.article.ubs-norme-bancarie-compromesso.imageAlt': 'Schweizer Bankbüro mit Bildschirmen, die Marktdaten anzeigen: neue Finanzregulierungsvorschriften',
 };
 
 export default blogMetaChDe;

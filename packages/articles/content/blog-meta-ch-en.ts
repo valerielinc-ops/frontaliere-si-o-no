@@ -4858,6 +4858,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svizzeri-risparmiano-piu-che-mai.title': 'Record income and savings in Switzerland in 2025',
     'blog.article.svizzeri-risparmiano-piu-che-mai.excerpt': 'In 2025, the disposable income per inhabitant exceeds CHF 65,000. Voluntary savings rate at 19.3%, all-time high. UST data reveals the highest economic well-being ever.',
     'blog.article.svizzeri-risparmiano-piu-che-mai.imageAlt': 'A Swiss family plans household savings around a table, symbolizing national economic well-being',
+    'blog.article.ubs-norme-bancarie-compromesso.title': 'UBS: new banking rules, the Commission\'s compromise',
+    'blog.article.ubs-norme-bancarie-compromesso.excerpt': '31 August 2026: CET-S approves stricter rules on foreign holdings of large banks, with 50% coverage in AT1 instead of 100% as proposed by the Federal Council.',
+    'blog.article.ubs-norme-bancarie-compromesso.imageAlt': 'Swiss bank office with screens displaying market data: new financial regulation rules',
 };
 
 export default blogMetaChEn;
