@@ -910,12 +910,15 @@ describe('cross-repo crawler execution artifacts', () => {
         .map((observer: any) => fs.readFileSync(path.join(outDir, observer.source), 'utf8')),
     ];
     const citedRuntimePaths = [...new Set(contents.flatMap((content: string) =>
-      [...content.matchAll(/\bscripts\/[A-Za-z0-9._/-]+\.(?:cjs|js|json|jsonc|mjs|sh|ts|yaml|yml)\b/g)]
+      [...content.matchAll(/\b(?:scripts\/[A-Za-z0-9._/-]+\.(?:cjs|js|json|jsonc|mjs|sh|ts|yaml|yml)|functions\/src\/githubApiHeaders\.js)\b/g)]
         .map((match) => match[0]),
-    ))].sort();
+    ))].filter((runtimePath) => !CORPUS_OBSERVER_FILES.some(
+      ({ target }) => target === runtimePath,
+    )).sort();
     expect(contract.siteRuntimePaths).toEqual(collectSiteRuntimePaths(contents));
     expect(contract.siteRuntimePaths).toEqual(citedRuntimePaths);
     expect(contract.siteRuntimePaths.length).toBeGreaterThan(0);
+    expect(contract.siteRuntimePaths).toContain('functions/src/githubApiHeaders.js');
     expect(() => collectSiteRuntimePaths([
       ...contents,
       'run: node scripts/typo-nonexistent.mjs\n',
@@ -929,7 +932,7 @@ describe('cross-repo crawler execution artifacts', () => {
 
     for (const artifact of contract.artifacts.filter((entry: any) => /^crawler-group-/.test(entry.file))) {
       const content = fs.readFileSync(path.join(outDir, artifact.file), 'utf8');
-      const declaredClosure = [...content.matchAll(/^# - (scripts\/[A-Za-z0-9._/-]+)$/gm)]
+      const declaredClosure = [...content.matchAll(/^# - ((?:scripts\/[A-Za-z0-9._/-]+|functions\/src\/githubApiHeaders\.js))$/gm)]
         .map((match) => match[1]);
       expect(declaredClosure, artifact.file).toEqual(expectedClosure);
     }

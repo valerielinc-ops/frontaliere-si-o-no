@@ -1,0 +1,815 @@
+import fs from 'node:fs';
+import crypto from 'node:crypto';
+import os from 'node:os';
+import path from 'node:path';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import {
+  GITHUB_API_VERSION,
+  createGitHubActionsRequester,
+  dispatchWorkflowOnce,
+  evaluateCrawlerGenerationPreflight,
+  runPreflight,
+  runCrawlerGenerationDispatchCli,
+  runCrawlerGenerationDispatchWave,
+} from '../scripts/crawler-generation-dispatch.mjs';
+import {
+  GROUP_IDS,
+  crawlerGenerationLegacyWorkflowIdentity,
+  crawlerGenerationWorkflowIdentity,
+} from '../scripts/lib/crawler-generation-contract.mjs';
+
+const repository = 'nanakokyobashi-rgb/frontaliere-articles';
+const generationToken = '9001-2';
+const siteCodeCommit = 'a'.repeat(40);
+const corpusCodeCommit = 'b'.repeat(40);
+const tempRoots: string[] = [];
+
+function boundRun(group = '01', id = 7001, corpusCommit: string | null = null) {
+  const binding = crawlerGenerationWorkflowIdentity(group, generationToken, String(id), corpusCommit);
+  return {
+    id,
+    repository: { full_name: repository },
+    name: binding.runName,
+    display_title: binding.runName,
+    path: `.github/workflows/${binding.workflowFile}`,
+    event: 'workflow_dispatch',
+    head_branch: 'main',
+    head_sha: corpusCommit ?? corpusCodeCommit,
+    run_attempt: 1,
+    status: 'queued',
+    conclusion: null,
+  };
+}
+
+afterEach(() => {
+  for (const root of tempRoots.splice(0)) fs.rmSync(root, { recursive: true, force: true });
+  vi.restoreAllMocks();
+});
+
+describe('crawler generation dispatch protocol', () => {
+  it('uses REST 2026-03-10, the exact dispatch body, one POST and direct-ID GET binding', async () => {
+    const requests: any[] = [];
+    const request = vi.fn(async (input: any) => {
+      requests.push(input);
+      if (input.method === 'POST') return {
+        status: 200,
+        body: {
+          workflow_run_id: 7001,
+          run_url: 'https://api.github.com/repos/nanakokyobashi-rgb/frontaliere-articles/actions/runs/7001',
+          html_url: 'https://github.com/nanakokyobashi-rgb/frontaliere-articles/actions/runs/7001',
+        },
+      };
+      return { status: 200, body: boundRun() };
+    });
+
+    const result = await dispatchWorkflowOnce({
+      repository,
+      workflowFile: 'crawler-group-01.yml',
+      group: '01',
+      generationToken,
+      inputs: { skip_ai_translation: '1', generation_token: generationToken },
+      request,
+    });
+
+    expect(result).toEqual({ status: 'direct', runId: '7001' });
+    expect(requests.filter(({ method }) => method === 'POST')).toHaveLength(1);
+    expect(requests[0]).toMatchObject({
+      method: 'POST',
+      apiVersion: GITHUB_API_VERSION,
+      body: {
+        ref: 'main',
+        inputs: { skip_ai_translation: '1', generation_token: generationToken },
+      },
+    });
+    expect(JSON.stringify(requests[0].body)).not.toContain('return_run_details');
+    expect(requests[1]).toMatchObject({
+      method: 'GET',
+      path: '/repos/nanakokyobashi-rgb/frontaliere-articles/actions/runs/7001',
+    });
+  });
+
+  it('rejects translate or a group/workflow mismatch before any POST', async () => {
+    const request = vi.fn();
+    await expect(dispatchWorkflowOnce({
+      repository,
+      workflowFile: 'translate-pending.yml',
+      group: '01',
+      generationToken,
+      inputs: { skip_ai_translation: '1' },
+      request,
+    })).rejects.toThrow(/outside the crawler generation dispatch domain/i);
+    await expect(dispatchWorkflowOnce({
+      repository,
+      workflowFile: 'crawler-group-02.yml',
+      group: '01',
+      generationToken,
+      inputs: { skip_ai_translation: '1' },
+      request,
+    })).rejects.toThrow(/outside the crawler generation dispatch domain/i);
+    expect(request).not.toHaveBeenCalled();
+  });
+
+  const invalidDispatchResponses: Array<[Record<string, unknown>, string]> = [
+    [{ workflow_run_id: 7001 }, 'missing URLs'],
+    [{
+      workflow_run_id: 7001,
+      run_url: 'https://api.github.com/repos/nanakokyobashi-rgb/frontaliere-articles/actions/runs/9999',
+      html_url: 'https://github.com/nanakokyobashi-rgb/frontaliere-articles/actions/runs/7001',
+    }, 'incoherent ID'],
+    [{
+      workflow_run_id: 7001,
+      run_url: 'https://api.github.com/repos/wrong/repository/actions/runs/7001',
+      html_url: 'https://github.com/wrong/repository/actions/runs/7001',
+    }, 'incoherent repository'],
+    [{
+      workflow_run_id: 7001,
+      run_url: 'https://api.github.com.attacker.invalid/repos/nanakokyobashi-rgb/frontaliere-articles/actions/runs/7001',
+      html_url: 'https://github.com.attacker.invalid/nanakokyobashi-rgb/frontaliere-articles/actions/runs/7001',
+    }, 'untrusted hosts'],
+  ];
+
+  it.each(invalidDispatchResponses)('rejects a malformed 200 response (%s)', async (body) => {
+    const request = vi.fn(async () => ({ status: 200, body }));
+    await expect(dispatchWorkflowOnce({
+      repository,
+      workflowFile: 'crawler-group-01.yml',
+      group: '01',
+      generationToken,
+      inputs: { skip_ai_translation: '1', generation_token: generationToken },
+      request,
+    })).resolves.toEqual({ status: 'invalid_200_response', runId: null });
+    expect(request).toHaveBeenCalledTimes(1);
+  });
+
+  it('sends the pinned API version as a real HTTP header', async () => {
+    const fetchImpl = vi.fn(async (_input: RequestInfo | URL, _init?: RequestInit) => (
+      new Response(null, { status: 204 })
+    ));
+    const request = createGitHubActionsRequester({
+      apiUrl: 'https://api.github.test',
+      token: 'test-token',
+      fetchImpl,
+    });
+    await request({ method: 'POST', path: '/dispatch', body: { ref: 'main', inputs: {} } });
+    const firstCall = fetchImpl.mock.calls.at(0);
+    if (!firstCall) throw new Error('fetch was not called');
+    const [, requestInit] = firstCall;
+    expect(requestInit?.headers).toMatchObject({
+      'x-github-api-version': '2026-03-10',
+    });
+    expect(requestInit?.body).toBe(JSON.stringify({ ref: 'main', inputs: {} }));
+  });
+
+  it('exposes Retry-After metadata for preflight read retries', async () => {
+    const fetchImpl = vi.fn(async () => new Response(null, {
+      status: 429,
+      headers: { 'retry-after': '3' },
+    }));
+    const request = createGitHubActionsRequester({
+      apiUrl: 'https://api.github.test', token: 'test-token', fetchImpl,
+    });
+
+    await expect(request({ method: 'GET', path: '/rate-limited' })).resolves.toMatchObject({
+      status: 429, retryAfter: '3',
+    });
+  });
+
+  it('streams and cancels a response that exceeds the byte cap without Content-Length', async () => {
+    let pulls = 0;
+    let cancelled = false;
+    const body = new ReadableStream({
+      pull(controller) {
+        pulls += 1;
+        controller.enqueue(new Uint8Array(64 * 1024));
+      },
+      cancel() {
+        cancelled = true;
+      },
+    });
+    const fetchImpl = vi.fn(async (_input: RequestInfo | URL, _init?: RequestInit) => (
+      new Response(body, { status: 200 })
+    ));
+    const request = createGitHubActionsRequester({
+      apiUrl: 'https://api.github.test',
+      token: 'test-token',
+      fetchImpl,
+    });
+    await expect(request({
+      method: 'GET',
+      path: '/oversized',
+      body: undefined,
+    })).rejects.toThrow('response_too_large');
+    expect(cancelled).toBe(true);
+    expect(pulls).toBeLessThan(32);
+  });
+
+  it('never retries POST after a transport failure and reconciles only one exact global run name', async () => {
+    let postCalls = 0;
+    const request = vi.fn(async (input: any) => {
+      if (input.method === 'POST') {
+        postCalls += 1;
+        throw new Error('timeout after server acceptance');
+      }
+      if (input.path.endsWith('/actions/runs?event=workflow_dispatch&per_page=100&page=1')) {
+        return { status: 200, body: { total_count: 1, workflow_runs: [boundRun()] } };
+      }
+      return { status: 200, body: boundRun() };
+    });
+
+    await expect(dispatchWorkflowOnce({
+      repository,
+      workflowFile: 'crawler-group-01.yml',
+      group: '01',
+      generationToken,
+      inputs: { skip_ai_translation: '1', generation_token: generationToken },
+      request,
+      sleep: async () => {},
+    })).resolves.toEqual({ status: 'reconciled_transport_error', runId: '7001' });
+    expect(postCalls).toBe(1);
+  });
+
+  it('polls read-only discovery until an accepted POST becomes visible without retrying POST', async () => {
+    let postCalls = 0;
+    let listCalls = 0;
+    const sleeps: number[] = [];
+    const request = vi.fn(async (input: any) => {
+      if (input.method === 'POST') {
+        postCalls += 1;
+        throw new Error('timeout after server acceptance');
+      }
+      if (input.path.includes('/actions/runs?')) {
+        listCalls += 1;
+        return {
+          status: 200,
+          body: { total_count: listCalls === 1 ? 0 : 1, workflow_runs: listCalls === 1 ? [] : [boundRun()] },
+        };
+      }
+      return { status: 200, body: boundRun() };
+    });
+    await expect(dispatchWorkflowOnce({
+      repository,
+      workflowFile: 'crawler-group-01.yml',
+      group: '01',
+      generationToken,
+      inputs: { skip_ai_translation: '1', generation_token: generationToken },
+      request,
+      sleep: async (milliseconds) => { sleeps.push(milliseconds); },
+    })).resolves.toEqual({ status: 'reconciled_transport_error', runId: '7001' });
+    expect(postCalls).toBe(1);
+    expect(listCalls).toBe(2);
+    expect(sleeps).toEqual([3_000]);
+  });
+
+  it('continues bounded reconciliation when a listed run is not yet readable by exact ID', async () => {
+    let postCalls = 0;
+    let listCalls = 0;
+    let exactGetCalls = 0;
+    const request = vi.fn(async (input: any) => {
+      if (input.method === 'POST') {
+        postCalls += 1;
+        throw new Error('timeout after server acceptance');
+      }
+      if (input.path.includes('/actions/runs?')) {
+        listCalls += 1;
+        return { status: 200, body: { total_count: 1, workflow_runs: [boundRun()] } };
+      }
+      exactGetCalls += 1;
+      return exactGetCalls <= 3
+        ? { status: 404, body: null }
+        : { status: 200, body: boundRun() };
+    });
+    await expect(dispatchWorkflowOnce({
+      repository,
+      workflowFile: 'crawler-group-01.yml',
+      group: '01',
+      generationToken,
+      inputs: { skip_ai_translation: '1', generation_token: generationToken },
+      request,
+      sleep: async () => {},
+    })).resolves.toEqual({ status: 'reconciled_transport_error', runId: '7001' });
+    expect(postCalls).toBe(1);
+    expect(listCalls).toBe(2);
+    expect(exactGetCalls).toBe(4);
+  });
+
+  it.each([
+    { runs: [], expected: { status: 'missing', runId: null }, listCalls: 6 },
+    {
+      runs: [boundRun('01', 7001), boundRun('01', 7002)],
+      expected: { status: 'duplicate', runId: null },
+      listCalls: 1,
+    },
+  ])('fails closed for zero or duplicate exact reconciliation matches', async ({ runs, expected, listCalls }) => {
+    let postCalls = 0;
+    let observedListCalls = 0;
+    const request = vi.fn(async (input: any) => {
+      if (input.method === 'POST') {
+        postCalls += 1;
+        throw new Error('ambiguous transport');
+      }
+      observedListCalls += 1;
+      return { status: 200, body: { total_count: runs.length, workflow_runs: runs } };
+    });
+    await expect(dispatchWorkflowOnce({
+      repository,
+      workflowFile: 'crawler-group-01.yml',
+      group: '01',
+      generationToken,
+      inputs: { skip_ai_translation: '1', generation_token: generationToken },
+      request,
+      sleep: async () => {},
+    })).resolves.toEqual(expected);
+    expect(postCalls).toBe(1);
+    expect(observedListCalls).toBe(listCalls);
+  });
+
+  it('retries only the direct-ID GET when propagation returns 404, never the POST', async () => {
+    let postCalls = 0;
+    let getCalls = 0;
+    const request = vi.fn(async (input: any) => {
+      if (input.method === 'POST') {
+        postCalls += 1;
+        return {
+          status: 200,
+          body: {
+            workflow_run_id: 7001,
+            run_url: 'https://api.github.com/repos/nanakokyobashi-rgb/frontaliere-articles/actions/runs/7001',
+            html_url: 'https://github.com/nanakokyobashi-rgb/frontaliere-articles/actions/runs/7001',
+          },
+        };
+      }
+      getCalls += 1;
+      return getCalls === 1 ? { status: 404, body: null } : { status: 200, body: boundRun() };
+    });
+    await expect(dispatchWorkflowOnce({
+      repository,
+      workflowFile: 'crawler-group-01.yml',
+      group: '01',
+      generationToken,
+      inputs: { skip_ai_translation: '1', generation_token: generationToken },
+      request,
+      sleep: async () => {},
+    })).resolves.toEqual({ status: 'direct', runId: '7001' });
+    expect(postCalls).toBe(1);
+    expect(getCalls).toBe(2);
+  });
+
+  it('fails shadow binding closed if corpus main advances between preflight and POST', async () => {
+    let postCalls = 0;
+    const request = vi.fn(async (input: any) => {
+      if (input.method === 'POST') {
+        postCalls += 1;
+        return {
+          status: 200,
+          body: {
+            workflow_run_id: 7001,
+            run_url: `https://api.github.com/repos/${repository}/actions/runs/7001`,
+            html_url: `https://github.com/${repository}/actions/runs/7001`,
+          },
+        };
+      }
+      return { status: 200, body: boundRun('01', 7001, 'c'.repeat(40)) };
+    });
+    await expect(dispatchWorkflowOnce({
+      repository,
+      workflowFile: 'crawler-group-01.yml',
+      group: '01',
+      generationToken,
+      corpusCodeCommit,
+      inputs: { skip_ai_translation: '1', generation_token: generationToken },
+      request,
+      sleep: async () => {},
+    })).resolves.toEqual({ status: 'binding_mismatch', runId: null });
+    expect(postCalls).toBe(1);
+    expect(request).toHaveBeenCalledTimes(2);
+  });
+
+  it('returns a negative status after bounded direct-ID GET propagation retries', async () => {
+    let postCalls = 0;
+    const request = vi.fn(async (input: any) => {
+      if (input.method === 'POST') {
+        postCalls += 1;
+        return {
+          status: 200,
+          body: {
+            workflow_run_id: 7001,
+            run_url: 'https://api.github.com/repos/nanakokyobashi-rgb/frontaliere-articles/actions/runs/7001',
+            html_url: 'https://github.com/nanakokyobashi-rgb/frontaliere-articles/actions/runs/7001',
+          },
+        };
+      }
+      return { status: 404, body: null };
+    });
+    await expect(dispatchWorkflowOnce({
+      repository,
+      workflowFile: 'crawler-group-01.yml',
+      group: '01',
+      generationToken,
+      inputs: { skip_ai_translation: '1', generation_token: generationToken },
+      request,
+      sleep: async () => {},
+    })).resolves.toEqual({ status: 'missing', runId: null });
+    expect(postCalls).toBe(1);
+    expect(request).toHaveBeenCalledTimes(4);
+  });
+
+  it('treats 204 as a protocol mismatch even when reconciliation finds a run', async () => {
+    const request = vi.fn(async (input: any) => {
+      if (input.method === 'POST') return { status: 204, body: null };
+      if (input.path.includes('/actions/runs?')) {
+        return { status: 200, body: { total_count: 1, workflow_runs: [boundRun()] } };
+      }
+      return { status: 200, body: boundRun() };
+    });
+    await expect(dispatchWorkflowOnce({
+      repository,
+      workflowFile: 'crawler-group-01.yml',
+      group: '01',
+      generationToken,
+      inputs: { skip_ai_translation: '1', generation_token: generationToken },
+      request,
+    })).resolves.toEqual({ status: 'reconciled_protocol_mismatch', runId: '7001' });
+    expect(request.mock.calls.filter(([input]) => input.method === 'POST')).toHaveLength(1);
+  });
+});
+
+describe('generation checkpoint and fallback', () => {
+  function groupArtifactFixture() {
+    return Object.fromEntries(GROUP_IDS.map((group) => [
+      `crawler-group-${group}.yml`,
+      Buffer.from(`name: crawler-group-${group}\n`),
+    ]));
+  }
+
+  function preflightFixture(observer: Buffer, groupArtifacts = groupArtifactFixture()) {
+    return {
+      schemaVersion: 1,
+      groupCount: 23,
+      artifactCount: 24,
+      artifacts: [
+        ...GROUP_IDS.map((group) => {
+          const file = `crawler-group-${group}.yml`;
+          return {
+            file,
+            artifactSha256: crypto.createHash('sha256').update(groupArtifacts[file]).digest('hex'),
+          };
+        }),
+        { file: 'translate-pending.yml' },
+      ],
+      observerCount: 1,
+      crawlerGeneration: { mode: 'shadow', dispatchesTranslation: false },
+      observers: [{
+        source: 'observers/workflows/crawler-generation-observer-shadow.yml',
+        target: '.github/workflows/crawler-generation-observer-shadow.yml',
+        sha256: crypto.createHash('sha256').update(observer).digest('hex'),
+      }],
+    };
+  }
+
+  function preflightResponse(input: any, contract: any, observer: Buffer, artifacts: Record<string, Buffer>) {
+    if (input.path.endsWith('/commits/main')) return { status: 200, body: { sha: corpusCodeCommit } };
+    if (input.path.includes('/actions/workflows/')) {
+      return { status: 200, body: { state: 'active', path: '.github/workflows/crawler-generation-observer-shadow.yml' } };
+    }
+    if (input.path.includes('/generator/data/crawler-cross-repo-contract.json?')) {
+      return { status: 200, body: { encoding: 'base64', content: Buffer.from(JSON.stringify(contract)).toString('base64') } };
+    }
+    if (input.path.includes('/crawler-generation-observer-shadow.yml?')) {
+      return { status: 200, body: { encoding: 'base64', content: observer.toString('base64') } };
+    }
+    const file = /\/contents\/\.github\/workflows\/([^?]+)/.exec(input.path)?.[1];
+    const bytes = file ? artifacts[file] : null;
+    return bytes
+      ? { status: 200, body: { encoding: 'base64', content: bytes.toString('base64') } }
+      : { status: 404, body: null };
+  }
+
+  it('accepts only an exact 23-group/24-artifact active hash-bound transport', () => {
+    const observer = Buffer.from('observer-workflow\n');
+    const remoteArtifacts = groupArtifactFixture();
+    const contract = preflightFixture(observer, remoteArtifacts);
+    const input = {
+      corpusCodeCommit,
+      localContract: contract,
+      remoteContract: structuredClone(contract),
+      localObserver: observer,
+      remoteObserver: observer,
+      remoteArtifacts,
+      remoteWorkflow: { state: 'active', path: '.github/workflows/crawler-generation-observer-shadow.yml' },
+    };
+    expect(evaluateCrawlerGenerationPreflight(input)).toEqual({
+      ready: true, dispatchMode: 'shadow', corpusCodeCommit, reasons: [],
+    });
+    const missingGroup = structuredClone(contract);
+    missingGroup.artifacts.splice(3, 1);
+    missingGroup.artifactCount -= 1;
+    expect(evaluateCrawlerGenerationPreflight({
+      ...input,
+      localContract: missingGroup,
+      remoteContract: structuredClone(missingGroup),
+    })).toMatchObject({ ready: false, dispatchMode: 'legacy' });
+  });
+
+  it('resolves one immutable corpus commit and hash-checks all 23 workflows at that exact ref', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-preflight-'));
+    tempRoots.push(root);
+    const observer = Buffer.from('observer-workflow\n');
+    const remoteArtifacts = groupArtifactFixture();
+    const contract = preflightFixture(observer, remoteArtifacts);
+    const contractPath = path.join(root, 'contract.json');
+    const observerPath = path.join(root, 'observer.yml');
+    fs.writeFileSync(contractPath, JSON.stringify(contract));
+    fs.writeFileSync(observerPath, observer);
+    const requests: any[] = [];
+    const request = vi.fn(async (input: any) => {
+      requests.push(input);
+      if (input.path.endsWith('/commits/main')) return { status: 200, body: { sha: corpusCodeCommit } };
+      if (input.path.includes('/actions/workflows/')) {
+        return {
+          status: 200,
+          body: { state: 'active', path: '.github/workflows/crawler-generation-observer-shadow.yml' },
+        };
+      }
+      let bytes: Buffer | null = null;
+      if (input.path.includes('/generator/data/crawler-cross-repo-contract.json?')) {
+        bytes = Buffer.from(JSON.stringify(contract));
+      } else if (input.path.includes('/crawler-generation-observer-shadow.yml?')) {
+        bytes = observer;
+      } else {
+        const file = /\/contents\/\.github\/workflows\/([^?]+)/.exec(input.path)?.[1];
+        bytes = file ? remoteArtifacts[file] : null;
+      }
+      return bytes
+        ? { status: 200, body: { encoding: 'base64', content: bytes.toString('base64') } }
+        : { status: 404, body: null };
+    });
+
+    await expect(runPreflight({ request, contractPath, observerPath })).resolves.toEqual({
+      ready: true, dispatchMode: 'shadow', corpusCodeCommit, reasons: [],
+    });
+    expect(requests[0]).toMatchObject({
+      method: 'GET', path: `/repos/${repository}/commits/main`,
+    });
+    const contentRequests = requests.filter(({ path: requestPath }) => requestPath.includes('/contents/'));
+    expect(contentRequests).toHaveLength(25);
+    expect(contentRequests.every(({ path: requestPath }) => (
+      requestPath.endsWith(`?ref=${corpusCodeCommit}`)
+    ))).toBe(true);
+  });
+
+  it('retries transient preflight GET reads, then succeeds without issuing a POST', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-preflight-retry-'));
+    tempRoots.push(root);
+    const observer = Buffer.from('observer-workflow\n');
+    const artifacts = groupArtifactFixture();
+    const contract = preflightFixture(observer, artifacts);
+    const contractPath = path.join(root, 'contract.json');
+    const observerPath = path.join(root, 'observer.yml');
+    fs.writeFileSync(contractPath, JSON.stringify(contract));
+    fs.writeFileSync(observerPath, observer);
+    let attempts = 0;
+    const request = vi.fn(async (input: any) => {
+      if (input.path.endsWith('/commits/main') && attempts++ === 0) return { status: 503, body: null };
+      return preflightResponse(input, contract, observer, artifacts);
+    });
+    const sleep = vi.fn(async () => {});
+
+    await expect(runPreflight({ request, contractPath, observerPath, sleep })).resolves.toMatchObject({ ready: true });
+    expect(sleep).toHaveBeenCalledWith(250);
+    expect(request.mock.calls.filter(([input]) => input.method !== 'GET')).toHaveLength(0);
+  });
+
+  it.each([
+    ['404', { status: 404, body: null }],
+    ['403 without Retry-After', { status: 403, body: null }],
+  ])('does not retry a non-retryable preflight %s response', async (_label, failure) => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-preflight-no-retry-'));
+    tempRoots.push(root);
+    const observer = Buffer.from('observer-workflow\n');
+    const artifacts = groupArtifactFixture();
+    const contract = preflightFixture(observer, artifacts);
+    const contractPath = path.join(root, 'contract.json');
+    const observerPath = path.join(root, 'observer.yml');
+    fs.writeFileSync(contractPath, JSON.stringify(contract));
+    fs.writeFileSync(observerPath, observer);
+    const request = vi.fn(async (input: any) => (
+      input.path.endsWith('/commits/main') ? failure : preflightResponse(input, contract, observer, artifacts)
+    ));
+    const sleep = vi.fn(async () => {});
+
+    await expect(runPreflight({ request, contractPath, observerPath, sleep })).rejects.toThrow('corpus_commit_response_invalid');
+    expect(request).toHaveBeenCalledTimes(1);
+    expect(sleep).not.toHaveBeenCalled();
+  });
+
+  it('caps concurrent immutable group reads at four', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-preflight-concurrency-'));
+    tempRoots.push(root);
+    const observer = Buffer.from('observer-workflow\n');
+    const artifacts = groupArtifactFixture();
+    const contract = preflightFixture(observer, artifacts);
+    const contractPath = path.join(root, 'contract.json');
+    const observerPath = path.join(root, 'observer.yml');
+    fs.writeFileSync(contractPath, JSON.stringify(contract));
+    fs.writeFileSync(observerPath, observer);
+    let active = 0;
+    let peak = 0;
+    const request = vi.fn(async (input: any) => {
+      if (input.path.includes('/contents/.github/workflows/crawler-group-')) {
+        active += 1;
+        peak = Math.max(peak, active);
+        await new Promise((resolve) => setTimeout(resolve, 1));
+        active -= 1;
+      }
+      return preflightResponse(input, contract, observer, artifacts);
+    });
+
+    await expect(runPreflight({ request, contractPath, observerPath, sleep: async () => {} })).resolves.toMatchObject({ ready: true });
+    expect(peak).toBeLessThanOrEqual(4);
+    expect(peak).toBe(4);
+  });
+
+  it('falls back to legacy when one immutable group artifact does not match its contract hash', () => {
+    const observer = Buffer.from('observer-workflow\n');
+    const remoteArtifacts = groupArtifactFixture();
+    const contract = preflightFixture(observer, remoteArtifacts);
+    const corrupted = { ...remoteArtifacts, 'crawler-group-07.yml': Buffer.from('corrupted\n') };
+    expect(evaluateCrawlerGenerationPreflight({
+      corpusCodeCommit,
+      localContract: contract,
+      remoteContract: structuredClone(contract),
+      localObserver: observer,
+      remoteObserver: observer,
+      remoteArtifacts: corrupted,
+      remoteWorkflow: { state: 'active', path: '.github/workflows/crawler-generation-observer-shadow.yml' },
+    })).toEqual({
+      ready: false,
+      dispatchMode: 'legacy',
+      corpusCodeCommit: null,
+      reasons: ['group_artifact_hash_mismatch'],
+    });
+  });
+
+  it('persists an all-missing checkpoint before the first POST and after every outcome', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-dispatch-'));
+    tempRoots.push(root);
+    const checkpointPath = path.join(root, 'checkpoint.json');
+    type Checkpoint = Awaited<ReturnType<typeof runCrawlerGenerationDispatchWave>>;
+    const snapshots: Checkpoint[] = [];
+    const result = await runCrawlerGenerationDispatchWave({
+      generationToken,
+      siteCodeCommit,
+      corpusCodeCommit,
+      shadowReady: true,
+      checkpointPath,
+      delayMs: 0,
+      dispatch: async ({ group }) => ({ status: 'direct', runId: String(8000 + Number(group)) }),
+      onCheckpoint: (checkpoint) => {
+        snapshots.push(structuredClone(checkpoint));
+      },
+    });
+
+    expect(snapshots).toHaveLength(GROUP_IDS.length + 1);
+    const firstSnapshot = snapshots[0];
+    if (!firstSnapshot) throw new Error('initial checkpoint was not persisted');
+    expect(Object.values(firstSnapshot.dispatchDiagnostics).every(
+      (entry) => entry.status === 'missing' && entry.runId === null,
+    )).toBe(true);
+    expect(snapshots.at(-1)).toEqual(result);
+    expect(JSON.parse(fs.readFileSync(checkpointPath, 'utf8'))).toEqual(result);
+  });
+
+  it('fails preflight closed but explicitly selects legacy inputs instead of blocking crawlers', () => {
+    const observer = Buffer.from('observer-workflow\n');
+    const contract = {
+      schemaVersion: 1,
+      artifactCount: 24,
+      observerCount: 1,
+      crawlerGeneration: { mode: 'shadow', dispatchesTranslation: false },
+      observers: [{
+        source: 'observers/workflows/crawler-generation-observer-shadow.yml',
+        target: '.github/workflows/crawler-generation-observer-shadow.yml',
+        sha256: '0'.repeat(64),
+      }],
+    };
+    expect(evaluateCrawlerGenerationPreflight({
+      corpusCodeCommit,
+      localContract: contract,
+      remoteContract: structuredClone(contract),
+      localObserver: observer,
+      remoteObserver: observer,
+      remoteArtifacts: groupArtifactFixture(),
+      remoteWorkflow: { state: 'active', path: '.github/workflows/crawler-generation-observer-shadow.yml' },
+    })).toMatchObject({ ready: false, dispatchMode: 'legacy' });
+  });
+
+  it('fails malformed observer schemas closed instead of throwing', () => {
+    const observer = Buffer.from('observer-workflow\n');
+    const contract = preflightFixture(observer);
+    const remoteArtifacts = groupArtifactFixture();
+    const malformed = { ...contract, observers: { find: 'not-a-function' } };
+    expect(evaluateCrawlerGenerationPreflight({
+      corpusCodeCommit,
+      localContract: malformed,
+      remoteContract: structuredClone(malformed),
+      localObserver: observer,
+      remoteObserver: observer,
+      remoteArtifacts,
+      remoteWorkflow: { state: 'active', path: '.github/workflows/crawler-generation-observer-shadow.yml' },
+    })).toMatchObject({ ready: false, dispatchMode: 'legacy' });
+  });
+
+  it('reports missing preflight API configuration as a legacy infrastructure fallback', async () => {
+    vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
+    await expect(runCrawlerGenerationDispatchCli([
+      'preflight', '--contract', 'not-read.json', '--observer', 'not-read.yml',
+    ], {})).resolves.toEqual({
+      ready: false,
+      dispatchMode: 'legacy',
+      corpusCodeCommit: null,
+      reasons: ['preflight_infrastructure_error'],
+    });
+  });
+
+  it('removes generation_token from every fallback dispatch input', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-legacy-'));
+    tempRoots.push(root);
+    const calls: any[] = [];
+    await runCrawlerGenerationDispatchWave({
+      generationToken,
+      siteCodeCommit,
+      shadowReady: false,
+      checkpointPath: path.join(root, 'checkpoint.json'),
+      delayMs: 0,
+      dispatch: async (input: any) => {
+        calls.push(input);
+        return { status: 'missing', runId: null };
+      },
+    });
+    expect(calls).toHaveLength(23);
+    expect(calls.every(({ inputs }) => (
+      JSON.stringify(inputs) === JSON.stringify({ skip_ai_translation: '1' })
+    ))).toBe(true);
+  });
+
+  it('accepts 23 direct-ID legacy runs after a failed preflight without dispatching a sentinel', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-legacy-direct-'));
+    tempRoots.push(root);
+    let nextRunId = 9000;
+    const postBodies: any[] = [];
+    const runs = new Map<number, any>();
+    const request = vi.fn(async (input: any) => {
+      if (input.method === 'POST') {
+        nextRunId += 1;
+        const group = String(nextRunId - 9000).padStart(2, '0');
+        postBodies.push(input.body);
+        const binding = crawlerGenerationLegacyWorkflowIdentity(group, String(nextRunId));
+        runs.set(nextRunId, {
+          id: nextRunId,
+          repository: { full_name: repository },
+          name: binding.runName,
+          display_title: binding.runName,
+          path: `.github/workflows/${binding.workflowFile}`,
+          event: 'workflow_dispatch',
+          head_branch: 'main',
+          run_attempt: 1,
+          status: 'queued',
+          conclusion: null,
+        });
+        return {
+          status: 200,
+          body: {
+            workflow_run_id: nextRunId,
+            run_url: `https://api.github.com/repos/${repository}/actions/runs/${nextRunId}`,
+            html_url: `https://github.com/${repository}/actions/runs/${nextRunId}`,
+          },
+        };
+      }
+      const runId = Number(input.path.split('/').at(-1));
+      return { status: 200, body: runs.get(runId) };
+    });
+    const checkpoint = await runCrawlerGenerationDispatchWave({
+      generationToken,
+      siteCodeCommit,
+      shadowReady: false,
+      checkpointPath: path.join(root, 'checkpoint.json'),
+      delayMs: 0,
+      dispatch: ({ group, workflowFile, inputs }: any) => dispatchWorkflowOnce({
+        repository,
+        workflowFile,
+        group,
+        generationToken,
+        inputs,
+        request,
+        allowReconciliation: false,
+        identityForRunId: (runId: string) => crawlerGenerationLegacyWorkflowIdentity(group, runId),
+      }),
+    });
+    expect(Object.values(checkpoint.dispatchDiagnostics).every(
+      (entry: any) => entry.status === 'direct',
+    )).toBe(true);
+    expect(postBodies).toHaveLength(23);
+    expect(postBodies.every((body) => !('generation_token' in body.inputs))).toBe(true);
+    expect(checkpoint).not.toHaveProperty('groups');
+  });
+});

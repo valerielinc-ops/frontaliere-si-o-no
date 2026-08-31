@@ -10,4 +10,8 @@
  * Non-Negotiable #6).
  */
 
-export { GITHUB_API_VERSION, githubApiHeaders } from '../../functions/src/githubApiHeaders.js';
+export {
+  GITHUB_API_VERSION,
+  GITHUB_WORKFLOW_DISPATCH_API_VERSION,
+  githubApiHeaders,
+} from '../../functions/src/githubApiHeaders.js';

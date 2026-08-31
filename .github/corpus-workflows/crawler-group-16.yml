@@ -2,6 +2,7 @@
 # Source logic stays in the site repo; this standalone artifact runs on the corpus pool.
 # Only pre-logic checkout/install setup is retryable, so a partial crawl is never replayed.
 # Hash-bound site runtime dependencies used transitively by this workflow:
+# - functions/src/githubApiHeaders.js
 # - scripts/crawler-group-generation-finalizer.mjs
 # - scripts/lib/atomic-write-json.mjs
 # - scripts/lib/canonical-json-digest.mjs

@@ -6,18 +6,28 @@ import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { assertSafeRunnerReportOutput } from './lib/crawler-generation-receipt.mjs';
 import {
+  createCrawlerGenerationObserverReport,
+  createSentinelSetBinding,
+} from './lib/crawler-generation-observer-report.mjs';
+import {
+  createGitHubActionsReadClient,
+  isMissingExactGitHubResource,
+} from './lib/github-actions-read-client.mjs';
+import {
   CALLER_REPOSITORY,
-  CRAWLER_GENERATION_NONTERMINAL_RUN_STATUSES,
+  CRAWLER_GENERATION_GITHUB_API_VERSION,
   GROUP_IDS,
   MAX_CYCLE_MANIFEST_BYTES,
   MAX_GROUP_MANIFEST_BYTES,
   MAX_SENTINEL_BYTES,
   SITE_REPOSITORY,
   canonicalJson,
+  crawlerGenerationSentinelWorkflowIdentity,
   deriveCrawlerGenerationSourceCommit,
   digestDocument,
   evaluateCrawlerGenerationBarrier,
   resolveCrawlerGenerationSentinels,
+  validateCrawlerGenerationWorkflowRun,
   validateCrawlerGenerationRoster,
   validateCrawlerGenerationSentinel,
   validateGroupTerminalManifest,
@@ -27,12 +37,8 @@ const SCRIPT_PATH = fileURLToPath(import.meta.url);
 const COMMIT_RE = /^(?:[a-f0-9]{40}|[a-f0-9]{64})$/;
 const RUN_ID_RE = /^[1-9][0-9]*$/;
 const GIT_TIMEOUT_MS = 30_000;
-const HTTP_TIMEOUT_MS = 30_000;
-const MAX_API_BYTES = 1024 * 1024;
 const MAX_REPLAY_SENTINELS = 16;
 export const MAX_ARTIFACT_ARCHIVE_BYTES = 64 * 1024;
-const OBSERVER_WORKFLOW_NAME = 'Crawler Generation Observer (shadow)';
-const OBSERVER_WORKFLOW_FILE = 'crawler-generation-observer-shadow.yml';
 
 class ObserverDataError extends Error {
   constructor(code, message) {
@@ -54,42 +60,12 @@ export function classifyObserverFailure(error) {
     : { status: 'infrastructure_error', reason: error?.code ?? 'observer_internal_error' };
 }
 
-function compareCodePoint(left, right) {
-  return left < right ? -1 : left > right ? 1 : 0;
-}
-
-function exactRunPath(value, workflowFile) {
-  return value === `.github/workflows/${workflowFile}`
-    || value === `.github/workflows/${workflowFile}@refs/heads/main`;
-}
-
 export function validateBoundCrawlerRun(run, binding) {
-  const runId = String(run?.id ?? '');
-  const validStatus = run?.status === 'completed'
-    || CRAWLER_GENERATION_NONTERMINAL_RUN_STATUSES.includes(run?.status);
-  const validConclusion = run?.status === 'completed'
-    ? ['success', 'failure', 'cancelled', 'timed_out', 'action_required', 'neutral', 'skipped', 'stale', 'startup_failure']
-      .includes(run?.conclusion)
-    : run?.conclusion === null;
-  if (runId !== binding.runId
-      || run?.repository?.full_name !== CALLER_REPOSITORY
-      || run?.name !== binding.workflowName
-      || run?.display_title !== binding.runName
-      || !exactRunPath(run?.path, binding.workflowFile)
-      || run?.event !== 'workflow_dispatch'
-      || run?.head_branch !== 'main'
-      || !Number.isInteger(run?.run_attempt) || run.run_attempt < 1
-      || !validStatus || !validConclusion) {
+  const validation = validateCrawlerGenerationWorkflowRun(run, binding);
+  if (!validation.valid) {
     throw new ObserverDataError('run_binding_invalid', 'Crawler run binding is invalid');
   }
-  return {
-    repository: CALLER_REPOSITORY,
-    runId,
-    runAttempt: run.run_attempt,
-    runName: binding.runName,
-    status: run.status,
-    conclusion: run.conclusion,
-  };
+  return validation.observation;
 }
 
 export function selectBoundArtifact(artifacts, binding) {
@@ -159,7 +135,9 @@ function createObserverReport({
   evaluatedAt,
   generationToken = null,
   siteCodeCommit = null,
+  corpusCodeCommit = null,
   sentinelDigest = null,
+  sentinelSetDigest = null,
   sentinelReplayCount = null,
   dispatchDiagnostics = null,
   evidenceDigest = null,
@@ -167,30 +145,29 @@ function createObserverReport({
   reasons,
   barrier,
 }) {
-  const payload = {
-    schemaVersion: 1,
+  return createCrawlerGenerationObserverReport({
     evaluatedAt,
     generationToken,
     siteCodeCommit,
+    corpusCodeCommit,
     sentinelDigest,
+    sentinelSetDigest,
     sentinelReplayCount,
     dispatchDiagnostics,
     evidenceDigest,
-    observer: {
-      status,
-      reasons: [...new Set(reasons)].sort(compareCodePoint),
-    },
-    barrier: barrier ?? null,
-    translation: barrier?.translation ?? { mode: 'shadow', wouldDispatch: false, dispatched: false },
-  };
-  return { ...payload, digest: digestDocument(payload) };
+    status,
+    reasons,
+    barrier,
+  });
 }
 
-function sentinelReportBinding(sentinel, replayCount) {
+function sentinelReportBinding(sentinel, replayCount, sentinelSet = null) {
   return {
     generationToken: sentinel?.generationToken ?? null,
     siteCodeCommit: sentinel?.siteCodeCommit ?? null,
+    corpusCodeCommit: sentinel?.corpusCodeCommit ?? null,
     sentinelDigest: sentinel?.digest ?? null,
+    sentinelSetDigest: sentinelSet?.sentinelSetDigest ?? null,
     sentinelReplayCount: Number.isInteger(replayCount) && replayCount >= 0 ? replayCount : null,
     dispatchDiagnostics: sentinel?.dispatchDiagnostics ?? null,
   };
@@ -212,6 +189,7 @@ function createEvidenceDigest({ sentinel, observations, manifests, sourceCommit,
     schemaVersion: 1,
     generationToken: sentinel.generationToken,
     siteCodeCommit: sentinel.siteCodeCommit,
+    corpusCodeCommit: sentinel.corpusCodeCommit,
     sentinelDigest: sentinel.digest,
     runObservations: observations,
     manifestDigests: Object.fromEntries(GROUP_IDS.map((group) => [group, manifests[group]?.digest ?? null])),
@@ -245,6 +223,8 @@ export async function observeCrawlerGeneration({
   readArtifact,
   prepareSource,
 }) {
+  let sentinelSet = null;
+  try { sentinelSet = createSentinelSetBinding(sentinels); } catch { /* malformed input remains fail-closed */ }
   const resolution = resolveCrawlerGenerationSentinels(sentinels);
   if (resolution.status !== 'accepted') {
     const candidate = Array.isArray(sentinels) && validateCrawlerGenerationSentinel(sentinels[0]).valid
@@ -252,14 +232,14 @@ export async function observeCrawlerGeneration({
       : null;
     return createObserverReport({
       evaluatedAt,
-      ...sentinelReportBinding(candidate, resolution.replayCount),
+      ...sentinelReportBinding(candidate, resolution.replayCount, sentinelSet),
       status: 'blocked',
       reasons: [resolution.reason],
       barrier: null,
     });
   }
   const sentinel = resolution.sentinel;
-  const reportBinding = sentinelReportBinding(sentinel, resolution.replayCount);
+  const reportBinding = sentinelReportBinding(sentinel, resolution.replayCount, sentinelSet);
   if (GROUP_IDS.some((group) => sentinel.groups[group].runId === null)) {
     return createObserverReport({
       evaluatedAt,
@@ -467,58 +447,9 @@ async function prepareGitSource(repository, manifests, sentinel) {
   }
 }
 
-async function readResponseBounded(response, maxBytes) {
-  const declared = Number(response.headers.get('content-length'));
-  if (Number.isFinite(declared) && declared > maxBytes) {
-    throw new ObserverInfrastructureError('github_response_too_large', 'GitHub response exceeds byte limit');
-  }
-  const chunks = [];
-  let size = 0;
-  for await (const chunk of response.body) {
-    size += chunk.length;
-    if (size > maxBytes) throw new ObserverInfrastructureError('github_response_too_large', 'GitHub response exceeds byte limit');
-    chunks.push(chunk);
-  }
-  return Buffer.concat(chunks, size);
-}
-
-function githubClient({ apiUrl, token }) {
-  const request = async (pathname, maxBytes) => {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), HTTP_TIMEOUT_MS);
-    try {
-      const response = await fetch(`${apiUrl}${pathname}`, {
-        headers: {
-          accept: 'application/vnd.github+json',
-          authorization: `Bearer ${token}`,
-          'x-github-api-version': '2022-11-28',
-        },
-        redirect: 'follow',
-        signal: controller.signal,
-      });
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      return await readResponseBounded(response, maxBytes);
-    } catch (error) {
-      if (error instanceof ObserverInfrastructureError) throw error;
-      throw new ObserverInfrastructureError('github_api_failed', 'GitHub API request failed');
-    } finally {
-      clearTimeout(timer);
-    }
-  };
-  return {
-    json: async (pathname) => {
-      try { return JSON.parse((await request(pathname, MAX_API_BYTES)).toString('utf8')); } catch (error) {
-        if (error instanceof ObserverInfrastructureError) throw error;
-        throw new ObserverInfrastructureError('github_api_invalid', 'GitHub API JSON is invalid');
-      }
-    },
-    bytes: (pathname) => request(pathname, MAX_ARTIFACT_ARCHIVE_BYTES),
-  };
-}
-
 function parseArguments(argv) {
   const mode = argv[0];
-  if (!['prepare-sentinel', 'observe'].includes(mode)) throw new TypeError('Invalid observer mode');
+  if (!['prepare-sentinel', 'observe', 'observe-event'].includes(mode)) throw new TypeError('Invalid observer mode');
   const values = {};
   for (let index = 1; index < argv.length; index += 2) {
     const flag = argv[index];
@@ -530,9 +461,17 @@ function parseArguments(argv) {
   }
   const required = mode === 'prepare-sentinel'
     ? ['--input', '--expected-generation-token', '--expected-site-code-commit', '--runner-temp', '--output']
-    : ['--sentinel', '--roster', '--repository', '--runner-temp', '--output'];
-  if (Object.keys(values).some((flag) => !required.includes(flag))) throw new TypeError('Unsupported observer argument');
+    : mode === 'observe-event'
+      ? ['--generation-token', '--sentinel-run-id', '--roster', '--repository', '--runner-temp', '--output']
+      : ['--sentinel', '--roster', '--repository', '--runner-temp', '--output'];
+  const optional = mode === 'observe-event' ? ['--timed-out'] : [];
+  if (Object.keys(values).some((flag) => !required.includes(flag) && !optional.includes(flag))) {
+    throw new TypeError('Unsupported observer argument');
+  }
   for (const flag of required) if (!(flag in values)) throw new TypeError(`Missing ${flag}`);
+  if (values['--timed-out'] !== undefined && !['true', 'false'].includes(values['--timed-out'])) {
+    throw new TypeError('Invalid --timed-out value');
+  }
   return { mode, values };
 }
 
@@ -581,14 +520,13 @@ export function selectSentinelReplayArtifacts(artifacts, generationToken, curren
   return { artifacts: replayArtifacts, replayCount: replayArtifacts.length + 1 };
 }
 
-export function validateBoundSentinelRun(run, generationToken, runId) {
-  if (String(run?.id ?? '') !== String(runId)
-      || run?.repository?.full_name !== CALLER_REPOSITORY
-      || run?.name !== OBSERVER_WORKFLOW_NAME
-      || run?.display_title !== `crawler-generation-sentinel-${generationToken}`
-      || !exactRunPath(run?.path, OBSERVER_WORKFLOW_FILE)
-      || run?.event !== 'workflow_dispatch'
-      || run?.head_branch !== 'main') {
+export function validateBoundSentinelRun(run, generationToken, runId, corpusCodeCommit = null) {
+  const binding = crawlerGenerationSentinelWorkflowIdentity(
+    generationToken,
+    String(runId),
+    corpusCodeCommit,
+  );
+  if (!validateCrawlerGenerationWorkflowRun(run, binding, CALLER_REPOSITORY).valid) {
     throw new ObserverDataError('sentinel_run_invalid', 'Sentinel workflow run binding is invalid');
   }
 }
@@ -602,6 +540,7 @@ async function downloadJsonArtifact(client, artifact, expectedName, maxBytes, re
   fs.mkdirSync(path.dirname(archivePath), { recursive: true });
   fs.writeFileSync(archivePath, await client.bytes(
     `/repos/${CALLER_REPOSITORY}/actions/artifacts/${artifact.id}/zip`,
+    MAX_ARTIFACT_ARCHIVE_BYTES,
   ));
   try {
     return readBoundedArtifactJson(archivePath, expectedName, maxBytes);
@@ -627,21 +566,68 @@ async function discoverSentinelReplays({ client, sentinel, currentRunId, reposit
   let aggregateBytes = Buffer.byteLength(canonicalJson(sentinel));
   for (const artifact of selected.artifacts) {
     const run = await client.json(`/repos/${CALLER_REPOSITORY}/actions/runs/${artifact.workflow_run.id}`);
-    validateBoundSentinelRun(run, sentinel.generationToken, artifact.workflow_run.id);
     aggregateBytes += artifact.size_in_bytes;
     if (aggregateBytes > MAX_CYCLE_MANIFEST_BYTES) {
       throw new ObserverDataError('sentinel_replay_overflow', 'Sentinel replay bytes exceed cycle byte limit');
     }
-    values.push(await downloadJsonArtifact(
+    const replay = await downloadJsonArtifact(
       client, artifact, 'crawler-generation-sentinel.json', MAX_SENTINEL_BYTES, repository, runnerTemp,
-    ));
+    );
+    if (!validateCrawlerGenerationSentinel(replay).valid
+        || replay.generationToken !== sentinel.generationToken) {
+      throw new ObserverDataError('sentinel_invalid', 'Replay sentinel is invalid');
+    }
+    validateBoundSentinelRun(
+      run,
+      replay.generationToken,
+      artifact.workflow_run.id,
+      replay.corpusCodeCommit,
+    );
+    values.push(replay);
   }
   return values;
 }
 
+async function loadEventSentinel({ client, generationToken, sentinelRunId, repository, runnerTemp }) {
+  const name = `crawler-generation-sentinel-${generationToken}`;
+  const response = await client.json(
+    `/repos/${CALLER_REPOSITORY}/actions/artifacts?name=${encodeURIComponent(name)}&per_page=100`,
+  );
+  if (!Number.isInteger(response.total_count) || !Array.isArray(response.artifacts)
+      || response.total_count !== response.artifacts.length || response.total_count > 100) {
+    throw new ObserverDataError('sentinel_replay_overflow', 'Sentinel artifact set is invalid');
+  }
+  const exact = response.artifacts.filter(
+    (artifact) => String(artifact?.workflow_run?.id ?? '') === sentinelRunId,
+  );
+  if (exact.length !== 1) throw new ObserverDataError('sentinel_artifact_invalid', 'Sentinel owner artifact is not unique');
+  validateSentinelArtifactMetadata(exact[0], generationToken);
+  const run = await client.json(`/repos/${CALLER_REPOSITORY}/actions/runs/${sentinelRunId}`);
+  validateBoundSentinelRun(run, generationToken, sentinelRunId);
+  const sentinel = await downloadJsonArtifact(
+    client, exact[0], 'crawler-generation-sentinel.json', MAX_SENTINEL_BYTES, repository, runnerTemp,
+  );
+  if (!validateCrawlerGenerationSentinel(sentinel).valid || sentinel.generationToken !== generationToken) {
+    throw new ObserverDataError('sentinel_invalid', 'Event sentinel is invalid');
+  }
+  validateBoundSentinelRun(run, generationToken, sentinelRunId, sentinel.corpusCodeCommit);
+  return sentinel;
+}
+
+export async function getBoundGroupRun(client, runId) {
+  try {
+    return await client.json(`/repos/${CALLER_REPOSITORY}/actions/runs/${runId}`);
+  } catch (error) {
+    if (isMissingExactGitHubResource(error)) {
+      throw new ObserverDataError('run_binding_invalid', 'Bound crawler run is permanently unavailable');
+    }
+    throw error;
+  }
+}
+
 export async function runCrawlerGenerationObserverCli(argv = process.argv.slice(2), env = process.env) {
   const { mode, values } = parseArguments(argv);
-  const repository = path.resolve(mode === 'observe' ? values['--repository'] : process.cwd());
+  const repository = path.resolve(mode === 'prepare-sentinel' ? process.cwd() : values['--repository']);
   const runnerTemp = fs.realpathSync(values['--runner-temp']);
   const output = safeOutput(repository, runnerTemp, values['--output']);
   if (mode === 'prepare-sentinel') {
@@ -655,30 +641,68 @@ export async function runCrawlerGenerationObserverCli(argv = process.argv.slice(
     return sentinel;
   }
 
-  const currentSentinel = readJsonFile(path.resolve(values['--sentinel']), MAX_SENTINEL_BYTES);
-  if (!validateCrawlerGenerationSentinel(currentSentinel).valid) throw new TypeError('Invalid current sentinel');
-  if (runGit(repository, ['rev-parse', 'HEAD']).trim() !== currentSentinel.siteCodeCommit) {
-    throw new TypeError('Observer checkout is not pinned to sentinel siteCodeCommit');
-  }
   const token = env.GH_TOKEN;
   const apiUrl = env.GITHUB_API_URL;
   if (typeof token !== 'string' || token.length === 0 || typeof apiUrl !== 'string' || !/^https?:\/\//.test(apiUrl)) {
     throw new TypeError('Missing GitHub observer API environment');
   }
-  const client = githubClient({ apiUrl: apiUrl.replace(/\/$/, ''), token });
-  const currentRunId = String(env.GITHUB_RUN_ID ?? '');
+  const client = createGitHubActionsReadClient({
+    apiUrl: apiUrl.replace(/\/$/, ''),
+    token,
+    apiVersion: CRAWLER_GENERATION_GITHUB_API_VERSION,
+  });
+  const currentRunId = mode === 'observe-event'
+    ? String(values['--sentinel-run-id'] ?? '')
+    : String(env.GITHUB_RUN_ID ?? '');
   if (!RUN_ID_RE.test(currentRunId)) throw new TypeError('Missing current GitHub observer run ID');
-  let report;
+  let currentSentinel;
   try {
-    const sentinels = await discoverSentinelReplays({
+    currentSentinel = mode === 'observe-event'
+      ? await loadEventSentinel({
+        client,
+        generationToken: values['--generation-token'],
+        sentinelRunId: currentRunId,
+        repository,
+        runnerTemp,
+      })
+      : readJsonFile(path.resolve(values['--sentinel']), MAX_SENTINEL_BYTES);
+    if (!validateCrawlerGenerationSentinel(currentSentinel).valid) {
+      throw new ObserverDataError('sentinel_invalid', 'Current sentinel is invalid');
+    }
+    if (runGit(repository, ['rev-parse', 'HEAD']).trim() !== currentSentinel.siteCodeCommit) {
+      throw new ObserverInfrastructureError(
+        'observer_checkout_mismatch',
+        'Observer checkout is not pinned to sentinel siteCodeCommit',
+      );
+    }
+  } catch (error) {
+    if (mode !== 'observe-event') throw error;
+    const failure = classifyObserverFailure(error);
+    const report = createObserverReport({
+      evaluatedAt: env.CRAWLER_GENERATION_EVALUATED_AT || new Date().toISOString(),
+      generationToken: values['--generation-token'],
+      ...createSentinelSetBinding([]),
+      status: failure.status,
+      reasons: [failure.reason],
+      barrier: null,
+    });
+    writeJsonAtomic(output, report, { compact: true });
+    process.stdout.write(`${JSON.stringify({ status: report.observer.status, reasons: report.observer.reasons })}\n`);
+    return report;
+  }
+  let report;
+  let observedSentinels = [currentSentinel];
+  try {
+    observedSentinels = await discoverSentinelReplays({
       client, sentinel: currentSentinel, currentRunId, repository, runnerTemp,
     });
     const roster = readJsonFile(path.resolve(values['--roster']), MAX_CYCLE_MANIFEST_BYTES);
     report = await observeCrawlerGeneration({
-      sentinels,
+      sentinels: observedSentinels,
       roster,
       evaluatedAt: env.CRAWLER_GENERATION_EVALUATED_AT || new Date().toISOString(),
-      getRun: (runId) => client.json(`/repos/${CALLER_REPOSITORY}/actions/runs/${runId}`),
+      timedOut: values['--timed-out'] === 'true',
+      getRun: (runId) => getBoundGroupRun(client, runId),
       listRunArtifacts: async (runId) => {
         const response = await client.json(`/repos/${CALLER_REPOSITORY}/actions/runs/${runId}/artifacts?per_page=100`);
         if (!Number.isInteger(response.total_count) || !Array.isArray(response.artifacts)
@@ -696,7 +720,11 @@ export async function runCrawlerGenerationObserverCli(argv = process.argv.slice(
     const failure = classifyObserverFailure(error);
     report = createObserverReport({
       evaluatedAt: env.CRAWLER_GENERATION_EVALUATED_AT || new Date().toISOString(),
-      ...sentinelReportBinding(currentSentinel, null),
+      ...sentinelReportBinding(
+        currentSentinel,
+        observedSentinels.length,
+        createSentinelSetBinding(observedSentinels),
+      ),
       status: failure.status,
       reasons: [failure.reason],
       barrier: null,

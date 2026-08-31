@@ -13,6 +13,7 @@ import {
 import {
   MAX_ARTIFACT_ARCHIVE_BYTES,
   classifyObserverFailure,
+  getBoundGroupRun,
   loadCrawlerGenerationSourceTree,
   observeCrawlerGeneration,
   readBoundedArtifactJson,
@@ -22,8 +23,10 @@ import {
   validateBoundSentinelRun,
   validateBoundCrawlerRun,
 } from '../scripts/crawler-generation-observer.mjs';
+import { GitHubActionsReadError } from '../scripts/lib/github-actions-read-client.mjs';
 
 const roots: string[] = [];
+const CORPUS_CODE_COMMIT = 'b'.repeat(40);
 afterEach(() => {
   for (const root of roots.splice(0)) fs.rmSync(root, { recursive: true, force: true });
 });
@@ -32,6 +35,7 @@ function sentinel() {
   return createCrawlerGenerationSentinel({
     generationToken: '9001-2',
     siteCodeCommit: 'a'.repeat(40),
+    corpusCodeCommit: CORPUS_CODE_COMMIT,
     groupRunIds: Object.fromEntries(Array.from({ length: 23 }, (_, index) => [
       String(index + 1).padStart(2, '0'), String(10_000 + index),
     ])),
@@ -51,11 +55,12 @@ function boundRun(group: string, status = 'in_progress', conclusion: string | nu
   return {
     id: Number(binding.runId),
     run_attempt: 1,
-    name: binding.workflowName,
+    name: binding.runName,
     display_title: binding.runName,
-    path: `.github/workflows/${binding.workflowFile}@refs/heads/main`,
+    path: `.github/workflows/${binding.workflowFile}`,
     event: 'workflow_dispatch',
     head_branch: 'main',
+    head_sha: CORPUS_CODE_COMMIT,
     status,
     conclusion,
     repository: { full_name: 'nanakokyobashi-rgb/frontaliere-articles' },
@@ -112,16 +117,23 @@ function zipFixture(entries: Record<string, string>, symlinks: Record<string, st
 }
 
 describe('crawler observer GitHub binding', () => {
+  it('maps an authoritative exact-run 404 to terminalizable invalid binding evidence', async () => {
+    await expect(getBoundGroupRun({
+      json: async () => { throw new GitHubActionsReadError('github_api_failed', 'HTTP 404', 404); },
+    }, '10000')).rejects.toMatchObject({ code: 'run_binding_invalid' });
+  });
+
   it('accepts only the exact repository, workflow, run id and generation run-name', () => {
     const binding = sentinel().groups['01'];
     const run = {
       id: 10_000,
       run_attempt: 2,
-      name: binding.workflowName,
+      name: binding.runName,
       display_title: binding.runName,
-      path: `.github/workflows/${binding.workflowFile}@refs/heads/main`,
+      path: `.github/workflows/${binding.workflowFile}`,
       event: 'workflow_dispatch',
       head_branch: 'main',
+      head_sha: CORPUS_CODE_COMMIT,
       status: 'completed',
       conclusion: 'failure',
       repository: { full_name: 'nanakokyobashi-rgb/frontaliere-articles' },
@@ -136,10 +148,16 @@ describe('crawler observer GitHub binding', () => {
     });
     expect(() => validateBoundCrawlerRun({ ...run, display_title: 'crawler-generation--group-01' }, binding))
       .toThrow(/run binding/i);
-    expect(() => validateBoundCrawlerRun({ ...run, name: 'Crawler Group 02 (sparse cross-repo execution)' }, binding))
+    expect(() => validateBoundCrawlerRun({ ...run, name: 'crawler-generation-9001-2-group-02' }, binding))
       .toThrow(/run binding/i);
+    expect(() => validateBoundCrawlerRun({
+      ...run,
+      path: `.github/workflows/${binding.workflowFile}@refs/heads/main`,
+    }, binding)).toThrow(/run binding/i);
     expect(() => validateBoundCrawlerRun({ ...run, event: 'schedule' }, binding)).toThrow(/run binding/i);
     expect(() => validateBoundCrawlerRun({ ...run, head_branch: 'feature' }, binding)).toThrow(/run binding/i);
+    expect(() => validateBoundCrawlerRun({ ...run, head_sha: 'c'.repeat(40) }, binding))
+      .toThrow(/run binding/i);
   });
 
   it('selects one exact, live, bounded artifact and rejects ambiguity/expiry', () => {
@@ -164,7 +182,10 @@ describe('crawler observer GitHub binding', () => {
     ]));
     groupRunIds['23'] = null as any;
     const value = createCrawlerGenerationSentinel({
-      generationToken: '9001-2', siteCodeCommit: 'a'.repeat(40), groupRunIds,
+      generationToken: '9001-2',
+      siteCodeCommit: 'a'.repeat(40),
+      corpusCodeCommit: CORPUS_CODE_COMMIT,
+      groupRunIds,
     });
     let queried = false;
     const report = await observeCrawlerGeneration({
@@ -284,19 +305,23 @@ describe('crawler observer GitHub binding', () => {
       evaluatedAt: '2026-08-31T09:00:00.000Z',
       generationToken: value.generationToken,
       siteCodeCommit: value.siteCodeCommit,
+      corpusCodeCommit: value.corpusCodeCommit,
       sentinelDigest: value.digest,
+      sentinelSetDigest: expect.stringMatching(/^sha256:[a-f0-9]{64}$/),
       sentinelReplayCount: 1,
     });
     expect(report.evidenceDigest).toMatch(/^sha256:[a-f0-9]{64}$/);
     expect(Object.keys(report).sort()).toEqual([
-      'barrier', 'digest', 'dispatchDiagnostics', 'evaluatedAt', 'evidenceDigest', 'generationToken',
-      'observer', 'schemaVersion', 'sentinelDigest', 'sentinelReplayCount', 'siteCodeCommit', 'translation',
+      'barrier', 'corpusCodeCommit', 'digest', 'dispatchDiagnostics', 'evaluatedAt', 'evidenceDigest', 'generationToken',
+      'observer', 'schemaVersion', 'sentinelDigest', 'sentinelReplayCount', 'sentinelSetDigest', 'siteCodeCommit', 'translation',
     ]);
     expect(replay).toMatchObject({
       evaluatedAt: '2026-08-31T11:00:00.000Z',
       generationToken: value.generationToken,
       siteCodeCommit: value.siteCodeCommit,
+      corpusCodeCommit: value.corpusCodeCommit,
       sentinelDigest: value.digest,
+      sentinelSetDigest: expect.stringMatching(/^sha256:[a-f0-9]{64}$/),
       sentinelReplayCount: 2,
       evidenceDigest: report.evidenceDigest,
     });
@@ -306,18 +331,33 @@ describe('crawler observer GitHub binding', () => {
   it('accepts sentinel replay evidence only from the exact manual workflow on main', () => {
     const run = {
       id: 90_001,
-      name: 'Crawler Generation Observer (shadow)',
+      name: 'crawler-generation-sentinel-9001-2',
       display_title: 'crawler-generation-sentinel-9001-2',
-      path: '.github/workflows/crawler-generation-observer-shadow.yml@refs/heads/main',
+      path: '.github/workflows/crawler-generation-observer-shadow.yml',
       event: 'workflow_dispatch',
       head_branch: 'main',
+      head_sha: CORPUS_CODE_COMMIT,
+      run_attempt: 1,
+      status: 'in_progress',
+      conclusion: null,
       repository: { full_name: 'nanakokyobashi-rgb/frontaliere-articles' },
     };
-    expect(() => validateBoundSentinelRun(run, '9001-2', 90_001)).not.toThrow();
-    expect(() => validateBoundSentinelRun({ ...run, head_branch: 'feature' }, '9001-2', 90_001))
+    expect(() => validateBoundSentinelRun(run, '9001-2', 90_001, CORPUS_CODE_COMMIT)).not.toThrow();
+    expect(() => validateBoundSentinelRun(
+      { ...run, head_sha: 'c'.repeat(40) }, '9001-2', 90_001, CORPUS_CODE_COMMIT,
+    )).toThrow(/sentinel workflow run binding/i);
+    expect(() => validateBoundSentinelRun({ ...run, head_branch: 'feature' }, '9001-2', 90_001, CORPUS_CODE_COMMIT))
       .toThrow(/sentinel workflow run binding/i);
-    expect(() => validateBoundSentinelRun({ ...run, event: 'workflow_run' }, '9001-2', 90_001))
+    expect(() => validateBoundSentinelRun({ ...run, event: 'workflow_run' }, '9001-2', 90_001, CORPUS_CODE_COMMIT))
       .toThrow(/sentinel workflow run binding/i);
+    expect(() => validateBoundSentinelRun({
+      ...run,
+      name: 'Crawler Generation Observer (shadow)',
+    }, '9001-2', 90_001, CORPUS_CODE_COMMIT)).toThrow(/sentinel workflow run binding/i);
+    expect(() => validateBoundSentinelRun({
+      ...run,
+      run_attempt: 0,
+    }, '9001-2', 90_001, CORPUS_CODE_COMMIT)).toThrow(/sentinel workflow run binding/i);
   });
 
   it('counts unique sentinel runs independently of current-artifact API visibility', () => {
