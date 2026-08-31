@@ -586,9 +586,9 @@
       "slug": "manor-collaborateur-trice-cuisine-manora-60-vevey-collaborateurtrice-cuisine-manora",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-cuisine-manora-60-vevey-collaborateurtrice-cuisine-manora",
-        "en": "manor-collaborateur-trice-cuisine-manora-60-vevey-collaborateurtrice-cuisine-manora",
-        "de": "manor-collaborateur-trice-cuisine-manora-60-vevey-collaborateurtrice-cuisine-manora",
-        "fr": "manor-collaborateur-trice-cuisine-manora-60-vevey-collaborateurtrice-cuisine-manora"
+        "en": "kitchen-collaborator-manora-60-manor-ag-vevey-collaborateurtrice-cuisine-manora",
+        "de": "kuchenmitarbeiter-in-manora-60-manor-ag-vevey-collaborateurtrice-cuisine-manora",
+        "fr": "tel-44-0-2-544-744-manor-ag-vevey-collaborateurtrice-cuisine-manora"
       },
       "titleByLocale": {
         "it": "Collaborateur/trice cuisine (Manora) 60%",
@@ -814,9 +814,9 @@
       "slug": "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen-mitarbeiterin-kasse-parfumerie",
       "slugByLocale": {
         "it": "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen-mitarbeiterin-kasse-parfumerie",
-        "en": "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen-mitarbeiterin-kasse-parfumerie",
+        "en": "perfumery-cashier-40-manor-ag-schaffhausen-mitarbeiterin-kasse-parfumerie",
         "de": "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen-mitarbeiterin-kasse-parfumerie",
-        "fr": "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen-mitarbeiterin-kasse-parfumerie"
+        "fr": "caissier-ere-parfumerie-40-manor-ag-schaffhausen-mitarbeiterin-kasse-parfumerie"
       },
       "titleByLocale": {
         "it": "Dipendenti in cassa profumeria 40%",
@@ -1257,9 +1257,9 @@
       "slug": "manor-collaborateur-trice-vente-sport-30-geneve-1-collaborateurtrice-vente",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-vente-sport-30-geneve-1-collaborateurtrice-vente",
-        "en": "manor-collaborateur-trice-vente-sport-30-geneve-1-collaborateurtrice-vente",
-        "de": "manor-collaborateur-trice-vente-sport-30-geneve-1-collaborateurtrice-vente",
-        "fr": "manor-collaborateur-trice-vente-sport-30-geneve-1-collaborateurtrice-vente"
+        "en": "sales-associate-sport-30-manor-ag-geneve-1-collaborateurtrice-vente",
+        "de": "verkaufer-in-sport-30-manor-ag-geneve-1-collaborateurtrice-vente",
+        "fr": "travailleur-sport-30-manor-ag-geneve-1-collaborateurtrice-vente"
       },
       "titleByLocale": {
         "it": "Collaborateur/trice vente (Sport) 30%",
@@ -1393,8 +1393,8 @@
       "slug": "manor-collaborateur-trice-service-manora-50-chavannes-de-bogis-collaborateurtrice",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-service-manora-50-chavannes-de-bogis-collaborateurtrice",
-        "en": "manor-collaborateur-trice-service-manora-50-chavannes-de-bogis-collaborateurtrice",
-        "de": "manor-collaborateur-trice-service-manora-50-chavannes-de-bogis-collaborateurtrice",
+        "en": "service-collaborator-manora-50-manor-ag-chavannes-de-bogis-collaborateurtrice-0ec0d4",
+        "de": "servicemitarbeiter-in-manora-50-manor-ag-chavannes-de-bogis-collaborateurtrice",
         "fr": "manor-collaborateur-trice-service-manora-50-chavannes-de-bogis-collaborateurtrice"
       },
       "titleByLocale": {
@@ -1453,12 +1453,12 @@
       },
       "postedDate": "2026-08-24",
       "source": "company-website",
-      "slug": "manor-polydesigner-in-3d-efz-basel-polydesignerin-3d-efz",
+      "slug": "poliprogettista-3d-efz-manor-ag-basel-polydesignerin-3d-efz",
       "slugByLocale": {
-        "it": "manor-polydesigner-in-3d-efz-basel-polydesignerin-3d-efz",
+        "it": "poliprogettista-3d-efz-manor-ag-basel-polydesignerin-3d-efz",
         "en": "manor-polydesigner-in-3d-efz-basel-polydesignerin-3d-efz",
         "de": "manor-polydesigner-in-3d-efz-basel-polydesignerin-3d-efz",
-        "fr": "manor-polydesigner-in-3d-efz-basel-polydesignerin-3d-efz"
+        "fr": "polyconcepteur-trice-3d-efz-manor-ag-basel-polydesignerin-3d-efz"
       },
       "titleByLocale": {
         "it": "Poliprogettista 3D EFZ",
@@ -1487,7 +1487,18 @@
       "addressLocality": "Basel Polydesignerin 3D EFZ",
       "addressRegion": "BS",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-polydesigner-in-3d-efz-basel-polydesignerin-3d-efz"
+        ],
+        "fr": [
+          "manor-polydesigner-in-3d-efz-basel-polydesignerin-3d-efz"
+        ]
+      },
+      "previousSlugs": [
+        "manor-polydesigner-in-3d-efz-basel-polydesignerin-3d-efz"
+      ]
     },
     {
       "title": "Responsable secteur (Cuisine Manora) 100%",
@@ -2298,13 +2309,11 @@
       "sourceLang": "fr",
       "id": "manor-13d50d7e4bdc",
       "previousSlugs": [
-        "manor-collaborateur-trice-vente-confection-enfants-80-delemont-collaborateurtrice-vente-confection",
-        "collaborateur-trice-vente-confection-enfants-80-manor-ag-delemont-collaborateurtrice-vente-confection"
+        "manor-collaborateur-trice-vente-confection-enfants-80-delemont-collaborateurtrice-vente-confection"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-collaborateur-trice-vente-confection-enfants-80-delemont-collaborateurtrice-vente-confection",
-          "collaborateur-trice-vente-confection-enfants-80-manor-ag-delemont-collaborateurtrice-vente-confection"
+          "manor-collaborateur-trice-vente-confection-enfants-80-delemont-collaborateurtrice-vente-confection"
         ],
         "en": [
           "manor-collaborateur-trice-vente-confection-enfants-80-delemont-collaborateurtrice-vente-confection"
@@ -3259,13 +3268,11 @@
       "sourceLang": "fr",
       "id": "manor-4b2841d3763e",
       "previousSlugs": [
-        "manor-collaborateur-trice-caisse-food-60-nyon-collaborateurtrice-caisse-food",
-        "collaborateur-trice-caisse-food-60-manor-ag-nyon-collaborateurtrice-caisse-food"
+        "manor-collaborateur-trice-caisse-food-60-nyon-collaborateurtrice-caisse-food"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-collaborateur-trice-caisse-food-60-nyon-collaborateurtrice-caisse-food",
-          "collaborateur-trice-caisse-food-60-manor-ag-nyon-collaborateurtrice-caisse-food"
+          "manor-collaborateur-trice-caisse-food-60-nyon-collaborateurtrice-caisse-food"
         ],
         "en": [
           "manor-collaborateur-trice-caisse-food-60-nyon-collaborateurtrice-caisse-food"
