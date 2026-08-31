@@ -42,6 +42,12 @@ import {
   extractRssItems,
 } from '../scripts/create-article.mjs';
 import { extractAlliboConnectorUrl } from '../scripts/update-medacta-jobs.mjs';
+import { parseCdsSavogninNewsItems } from '../scripts/lib/cds-savognin-job-parser.mjs';
+import { parsePostJobDetail } from '../scripts/lib/postch-job-parser.mjs';
+import { parseTzmListing } from '../scripts/lib/therapiezentrum-meggen-job-parser.mjs';
+import { parsePostFinanceMetaPage } from '../scripts/update-postfinance-jobs.mjs';
+import { parseJobBlocks as parseUsiJobBlocks } from '../scripts/update-usi-jobs.mjs';
+import { parseJobLinks as parseZegnaJobLinks } from '../scripts/update-zegna-jobs.mjs';
 
 describe('readAttr — quote balanced', () => {
   it('keeps an apostrophe inside a double-quoted value (the #6480 root cause)', () => {
@@ -97,6 +103,57 @@ describe('remaining attribute consumers — quote balanced (#6574)', () => {
     )).toBe(connectorUrl);
   });
 
+  it('keeps apostrophes in PostFinance meta and canonical attributes', () => {
+    const parsed = parsePostFinanceMetaPage(`
+      <meta property="og:title" content="Responsabile dell'economia">
+      <meta property="og:description" content="Un'opportunità per guidare il team PostFinance.">
+      <link href="https://job.post.ch/PostFinance/job/d'Oggi/42/" rel="canonical">
+    `, 'https://fallback.example/');
+    expect(parsed.title).toBe("Responsabile dell'economia");
+    expect(parsed.description).toBe("Un'opportunità per guidare il team PostFinance.");
+    expect(parsed.canonical).toBe("https://job.post.ch/PostFinance/job/d'Oggi/42/");
+  });
+
+  it('keeps apostrophes in PostCH meta attributes in either order', () => {
+    const parsed = parsePostJobDetail(`
+      <meta content="Specialista dell'economia" property="og:title">
+      <meta name="description" content="Un'opportunità nella logistica svizzera.">
+    `, 'https://job.post.ch/default/job/specialista/12345-it_IT');
+    expect(parsed.title).toBe("Specialista dell'economia");
+    expect(parsed.description).toBe("Un'opportunità nella logistica svizzera.");
+  });
+
+  it('selects CDS and TZM links independently from attribute order', () => {
+    const [cds] = parseCdsSavogninNewsItems(`
+      <div class="news-item">
+        <h4>Responsabile dell'economia</h4><div><p>80-100%</p></div>
+        <a href="/DE/aktuelles/42.html?team=O'Brien" data-role="job" class="cta mehrLesen">Apri</a>
+      </div>
+    `);
+    expect(cds.detailUrl).toBe("https://cds-savognin.ch/DE/aktuelles/42.html?team=O'Brien");
+
+    const [tzm] = parseTzmListing(`
+      <a title="Psychologische Psychotherapeutin d'équipe (stelle.pdf)"
+         data-role="job" href="/app/download/42/stelle.pdf?t=1"><span></span></a>
+    `);
+    expect(tzm.title).toBe("Psychologische Psychotherapeutin d'équipe");
+    expect(tzm.pdfUrl).toBe('https://www.tzm.ch/app/download/42/stelle.pdf?t=1');
+  });
+
+  it('keeps apostrophes in USI and Zegna job hrefs', () => {
+    const [usi] = parseUsiJobBlocks(`
+      <p><strong>Università della Svizzera italiana<br/>Dipartimento ricerca</strong><br/>
+      Ricercatore dell'economia<br/>
+      <a href="https://content.usi.ch/sites/default/files/storage/attachments/dell'offerta.pdf">Bando</a></p>
+    `);
+    expect(usi.pdfUrl).toBe("https://content.usi.ch/sites/default/files/storage/attachments/dell'offerta.pdf");
+
+    const [zegna] = parseZegnaJobLinks(
+      `<a href="/jobs/job-details?JobID=42&amp;Team=Men's">Sales Associate Stabio, Switzerland</a>`,
+    );
+    expect(zegna.url).toBe("https://careers.zegnagroup.com/jobs/job-details?JobID=42&Team=Men's");
+  });
+
   it('leaves only the six classified false positives in the ratified file set', () => {
     const files = [
       'scripts/lib/fondation-domus-job-parser.mjs',
@@ -104,7 +161,11 @@ describe('remaining attribute consumers — quote balanced (#6574)', () => {
       'scripts/lib/gemeinde-st-moritz-job-parser.mjs',
       'scripts/lib/cedes-job-parser.mjs',
       'scripts/lib/davos-klosters-bergbahnen-job-parser.mjs',
+      'scripts/lib/postch-job-parser.mjs',
+      'scripts/lib/cds-savognin-job-parser.mjs',
+      'scripts/lib/honegger-job-parser.mjs',
       'scripts/lib/tertianum-job-parser.mjs',
+      'scripts/lib/therapiezentrum-meggen-job-parser.mjs',
       'scripts/import-swiss-hospitals.mjs',
       'scripts/update-medacta-jobs.mjs',
       'scripts/create-article.mjs',
