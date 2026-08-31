@@ -40,6 +40,37 @@ describe('Swiss Medical Network umbrella ownership', () => {
     expect(isDedicatedClinicOwnedPosting(networkPosting, new Set())).toBe(false);
     expect(isDedicatedClinicOwnedPosting(networkPosting, new Set(['744000100000000']))).toBe(true);
   });
+
+  it('applies every dedicated clinic matcher before any slice snapshot exists', () => {
+    const clinicDepartments = [
+      ['Clinique de Genolier', 'Genolier'],
+      ['Clinique de Montchoisi', 'Lausanne'],
+      ['Clinique de Valère', 'Sion'],
+      ['Clinique Générale-Beaulieu', 'Genève'],
+      ['Clinique Générale Ste-Anne', 'Fribourg'],
+      ['Hôpital de Moutier', 'Moutier'],
+      ['Privatklinik Siloah', 'Gümligen'],
+      ['Privatklinik Bethanien', 'Zürich'],
+      ['Privatklinik Obach', 'Solothurn'],
+    ];
+    for (const [department, city] of clinicDepartments) {
+      expect(isDedicatedClinicOwnedPosting({
+        id: `posting-${department}`,
+        department: { label: department },
+        location: { city },
+      }, new Set()), department).toBe(true);
+    }
+  });
+
+  it('respects city-scoped shared departments from dedicated clinic matchers', () => {
+    const reseauPosting = (city: string) => ({
+      id: `reseau-${city}`,
+      department: { label: "Réseau de l'Arc" },
+      location: { city },
+    });
+    expect(isDedicatedClinicOwnedPosting(reseauPosting('Moutier'), new Set())).toBe(true);
+    expect(isDedicatedClinicOwnedPosting(reseauPosting('Saint-Imier'), new Set())).toBe(false);
+  });
 });
 
 // ─── Fixture: Ticino job listings with SmartRecruiters links ──────────────────

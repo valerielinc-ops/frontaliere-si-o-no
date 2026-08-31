@@ -23,6 +23,14 @@ import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserve
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { smnPostingsApiUrl, smnPostingDetailApiUrl, normalizeSmnApiPosting, extractSmnApiDescription, extractSmnPostingId, SMN_POSTINGS_API, slugify, normalizeSpace } from './lib/swiss-medical-network-job-parser.mjs';
+import { matchesCliniqueDeGenolierPosting } from './lib/clinique-de-genolier-job-parser.mjs';
+import { matchesCliniqueDeMontchoisiPosting } from './lib/clinique-de-montchoisi-job-parser.mjs';
+import { matchesCliniqueDeValerePosting } from './lib/clinique-de-valere-job-parser.mjs';
+import { matchesCliniqueGeneraleBeaulieuPosting } from './lib/clinique-generale-beaulieu-job-parser.mjs';
+import { matchesCliniqueGeneraleSteAnnePosting } from './lib/clinique-generale-ste-anne-job-parser.mjs';
+import { matchesHopitalDeMoutierPosting } from './lib/hopital-de-moutier-job-parser.mjs';
+import { matchesKlinikSiloahPosting } from './lib/klinik-siloah-job-parser.mjs';
+import { matchesPrivatklinikBethanienPosting } from './lib/privatklinik-bethanien-job-parser.mjs';
 import { matchesPrivatklinikObachPosting } from './lib/privatklinik-obach-job-parser.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -45,6 +53,17 @@ const COMPANY_NAME = 'Swiss Medical Network';
 const COMPANY_HOST = 'www.swissmedical.net';
 const CAREERS_URL = 'https://www.swissmedical.net/en/career/job-offers';
 const LOCALES = ['it', 'en', 'de', 'fr'];
+const DEDICATED_CLINIC_MATCHERS = [
+  matchesCliniqueDeGenolierPosting,
+  matchesCliniqueDeMontchoisiPosting,
+  matchesCliniqueDeValerePosting,
+  matchesCliniqueGeneraleBeaulieuPosting,
+  matchesCliniqueGeneraleSteAnnePosting,
+  matchesHopitalDeMoutierPosting,
+  matchesKlinikSiloahPosting,
+  matchesPrivatklinikBethanienPosting,
+  matchesPrivatklinikObachPosting,
+];
 
 function normalize(value = '') { return String(value || '').trim().toLowerCase(); }
 
@@ -125,16 +144,17 @@ function loadDedicatedClinicPostingIds() {
 }
 
 /**
- * The umbrella and dedicated Obach crawlers read the same SmartRecruiters
- * tenant. Snapshot ids remain a useful catch-all for the other clinics, but
- * cannot prevent a new Obach posting from leaking when both crawlers run in
- * parallel. Apply Obach's source predicate directly so ownership does not
- * depend on which slice finishes first.
+ * The umbrella and dedicated clinic crawlers read the same SmartRecruiters
+ * tenant. Snapshot ids remain a useful catch-all for legacy clinics, but
+ * cannot prevent a new clinic posting from leaking when the umbrella and a
+ * dedicated crawler run in parallel. Apply every dedicated clinic's source
+ * predicate directly so ownership does not depend on which slice finishes
+ * first.
  */
 export function isDedicatedClinicOwnedPosting(rawPosting, dedicatedIds = new Set()) {
   const id = String(rawPosting?.id || '');
   return (id !== '' && dedicatedIds.has(id))
-    || matchesPrivatklinikObachPosting(rawPosting);
+    || DEDICATED_CLINIC_MATCHERS.some((matches) => matches(rawPosting));
 }
 
 /** Fetch every SmartRecruiters posting (paginated), CH-wide. */
