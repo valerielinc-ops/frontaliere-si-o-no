@@ -1641,6 +1641,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'commissione-lpp-tasso-minimo-2027': { it: 'commissione-lpp-tasso-minimo-2027', en: 'oak-bv-commission-minimum-rate-2027', de: 'bvg-kommission-mindestzinssatz-2027', fr: 'commission-lpp-taux-minimum-2027' },
  'skyguide-licenziamenti-50-ristrutturazione': { it: 'skyguide-licenziamenti-50-ristrutturazione', en: 'skyguide-layoffs-50-restructuring', de: 'skyguide-entlassungen-50-restrukturierung', fr: 'skyguide-licenciements-50-restructuration' },
  'skyguide-licenziamenti-consultazione': { it: 'skyguide-licenziamenti-consultazione', en: 'skyguide-50-layoffs-consultation', de: 'skyguide-50-entlassungen-konsultation', fr: 'skyguide-50-licenciements-consultation' },
+ 'divieto-velo-cellulari-scuole': { it: 'divieto-velo-cellulari-scuole', en: 'ban-veil-phones-schools-zurich', de: 'kopftuch-handy-verbot-schulen-zuerich', fr: 'interdiction-voile-telephones-ecoles-zurich' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

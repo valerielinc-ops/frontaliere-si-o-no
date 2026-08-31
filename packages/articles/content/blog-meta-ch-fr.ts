@@ -4846,6 +4846,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.skyguide-licenziamenti-consultazione.title': 'Skyguide, il y aura 50 licenciements',
     'blog.article.skyguide-licenziamenti-consultazione.excerpt': 'Skyguide annonce 50 licenciements en cours de restructuration. La consultation syndicale a réduit le nombre de 220 initiales. Première vague : 14, deuxième printemps 2027 : environ 35.',
     'blog.article.skyguide-licenziamenti-consultazione.imageAlt': 'Paysage suisse avec aéroports et couloirs aériens, représentant le contrôle du trafic aérien de Skyguide.',
+    'blog.article.divieto-velo-cellulari-scuole.title': 'Zurich interdit le voile et les téléphones portables dans les écoles',
+    'blog.article.divieto-velo-cellulari-scuole.excerpt': 'Le Grand Conseil zurichois approuve en marge l\'interdiction du voile et des téléphones portables. Argovie avait déjà décidé pour le voile. Délais : deux ans pour les lois.',
+    'blog.article.divieto-velo-cellulari-scuole.imageAlt': 'Salle de classe d\'école publique à Zurich avec élèves dans un cadre éducatif contemporain',
 };
 
 export default blogMetaChFr;

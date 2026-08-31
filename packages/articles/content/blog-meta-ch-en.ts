@@ -4846,6 +4846,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.skyguide-licenziamenti-consultazione.title': 'Skyguide, there will be 50 redundancies',
     'blog.article.skyguide-licenziamenti-consultazione.excerpt': 'Skyguide announces 50 redundancies under restructuring. The trade union consultation reduced the number from 220 initials. First wave: 14, second spring 2027: about 35.',
     'blog.article.skyguide-licenziamenti-consultazione.imageAlt': 'Swiss landscape showing airports and air corridors, representing Skyguide\'s air traffic control role.',
+    'blog.article.divieto-velo-cellulari-scuole.title': 'Zurich bans headscarves and cell phones in schools',
+    'blog.article.divieto-velo-cellulari-scuole.excerpt': 'The Zurich Grand Council approves the ban on headscarves and mobile phones by a narrow margin. Aargau had already decided on the veil. Times: two years for laws.',
+    'blog.article.divieto-velo-cellulari-scuole.imageAlt': 'Zurich public school classroom with students in modern educational setting with natural light',
 };
 
 export default blogMetaChEn;
