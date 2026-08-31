@@ -63122,6 +63122,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-citta-clima-30-kmh-strade': {
+    title: 'Città svizzere: più margine per clima e 30 km/h sulle strade',
+    description: 'SKM e Unione delle città chiedono a Confederazione e Cantoni di non ostacolare le zone 30 e una strategia nazionale «chi inquina paga». Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, città, svizzere, margine, clima',
+    ogTitle: 'Città svizzere: più margine per clima e 30 km/h',
+    ogDescription: 'La Conferenza delle città per la mobilità (SKM) chiede a Berna e ai Cantoni di non ostacolare le zone 30 km/h e sollecita una strategia nazionale di tariffazione del traffico basata sul principio «chi inquina paga».',
+    canonicalPath: '/articoli-svizzera/citta-clima-30-kmh-strade/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Città svizzere: più margine per clima e 30 km/h sulle strade",
+      "description": "SKM e Unione delle città chiedono a Confederazione e Cantoni di non ostacolare le zone 30 e una strategia nazionale «chi inquina paga». Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/citta-clima-30-kmh-strade.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada urbana svizzera con verde e limite 30 km/h in contesto di adattamento climatico"
+      },
+      "datePublished": "2026-08-31T22:02:28+00:00",
+      "dateModified": "2026-08-31T22:02:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/citta-clima-30-kmh-strade/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

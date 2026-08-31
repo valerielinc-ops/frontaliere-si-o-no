@@ -4864,6 +4864,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.divario-salariale-genere-agosto-2026.title': 'Gender pay gap: reduced to 15.7%',
     'blog.article.divario-salariale-genere-agosto-2026.excerpt': 'The wage gap between women and men in Switzerland continues to narrow. In 2024 it stands at 15.7%, down from 16.2% in 2022. The UST report of August 31, 2026 analyzes the data by sector and role.',
     'blog.article.divario-salariale-genere-agosto-2026.imageAlt': 'Swiss workers reviewing salary documents in a modern workplace environment',
+    'blog.article.citta-clima-30-kmh-strade.title': 'Swiss cities: more margin for climate and 30 km/h on the roads',
+    'blog.article.citta-clima-30-kmh-strade.excerpt': 'SKM and the Union of Cities call on Bern and the Cantons not to obstruct zones 30 and call for a national "polluter pays" strategy.',
+    'blog.article.citta-clima-30-kmh-strade.imageAlt': 'Swiss urban street with greenery and 30 km/h sign in climate adaptation context',
 };
 
 export default blogMetaChEn;

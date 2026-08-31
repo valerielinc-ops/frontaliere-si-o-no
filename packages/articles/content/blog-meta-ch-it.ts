@@ -4864,6 +4864,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.divario-salariale-genere-agosto-2026.title': 'Divario salariale tra i sessi: ridotto al 15,7%',
     'blog.article.divario-salariale-genere-agosto-2026.excerpt': 'Il divario salariale tra donne e uomini in Svizzera continua a ridursi. Nel 2024 si attesta al 15,7%, in calo dal 16,2% del 2022. Il rapporto UST del 31 agosto 2026 analizza i dati per settore e ruolo.',
     'blog.article.divario-salariale-genere-agosto-2026.imageAlt': 'Lavoratori svizzeri che consultano documenti salariali in un ambiente di lavoro moderno',
+    'blog.article.citta-clima-30-kmh-strade.title': 'Città svizzere: più margine per clima e 30 km/h sulle strade',
+    'blog.article.citta-clima-30-kmh-strade.excerpt': 'SKM e Unione delle città chiedono a Berna e Cantoni di non ostacolare le zone 30 e sollecitano una strategia nazionale «chi inquina paga».',
+    'blog.article.citta-clima-30-kmh-strade.imageAlt': 'Strada urbana svizzera con verde e limite 30 km/h in contesto di adattamento climatico',
 };
 
 export default blogMetaChIt;

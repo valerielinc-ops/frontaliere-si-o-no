@@ -4864,6 +4864,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.divario-salariale-genere-agosto-2026.title': 'Écart de rémunération entre les sexes : réduit à 15,7 %',
     'blog.article.divario-salariale-genere-agosto-2026.excerpt': 'L\'écart salarial entre les femmes et les hommes en Suisse continue de se réduire. En 2024, il s\'établit à 15,7 %, en baisse par rapport à 16,2 % en 2022. Le rapport OFS du 31 août 2026 analyse les données par secteur et par rôle.',
     'blog.article.divario-salariale-genere-agosto-2026.imageAlt': 'Travailleurs suisses consultent des documents salariaux en milieu professionnel',
+    'blog.article.citta-clima-30-kmh-strade.title': 'Villes suisses : plus de marge pour le climat et 30 km/h sur les routes',
+    'blog.article.citta-clima-30-kmh-strade.excerpt': 'SKM et l\'Union des villes demandent à Berne et aux cantons de ne pas entraver les zones 30 et appellent à une stratégie nationale « pollueur-payeur ».',
+    'blog.article.citta-clima-30-kmh-strade.imageAlt': 'Rue urbaine suisse avec verdure et signal 30 km/h pour l\'adaptation climatique',
 };
 
 export default blogMetaChFr;
