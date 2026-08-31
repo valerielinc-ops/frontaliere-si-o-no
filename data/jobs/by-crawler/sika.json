@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sika",
-  "assembledAt": "2026-08-28T05:42:32.869Z",
+  "assembledAt": "2026-08-31T17:15:35.487Z",
   "jobs": [
     {
       "id": "sika-830dc4ea55aa",
@@ -33,7 +33,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-801917fc-80ba-4766-a2ec-8beac8c4bb54.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:29.804Z",
+      "crawledAt": "2026-08-31T17:15:31.777Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -62,8 +62,10 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:50.424Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -90,7 +92,7 @@
       "title": "Customer Service Representative 100% (m/w/d)",
       "titleByLocale": {
         "it": "Servizio Clienti Representative 100% (m/w/d)",
-        "en": "Customer Service Representative 100% (m/f/d)",
+        "en": "Customer Service Representative 100% (m/w/d)",
         "de": "Kundendienst Representative 100% (m/w/d)",
         "fr": "Service Client Representative 100% (m/w/d)"
       },
@@ -106,7 +108,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-940b711a-b652-4ad9-aef0-f29229b8a9d8.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:29.585Z",
+      "crawledAt": "2026-08-31T17:15:30.855Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -135,8 +137,10 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:40:53.416Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -163,7 +167,7 @@
       "title": "Automatiker/Elektriker Instandhaltung (m/w)",
       "titleByLocale": {
         "it": "Manutenzione automatica/elettrica (m/f)",
-        "en": "Automatic / Electrician Maintenance (m/f)",
+        "en": "Automatiker/Elektriker Instandhaltung (m/w)",
         "de": "Automatiker/Elektriker Instandhaltung (m/w)",
         "fr": "Maintenance de technicien/électricien en automatisation (m/f)"
       },
@@ -179,7 +183,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f1183c9e-17fe-4fdf-b9c9-94baffe60d35.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:29.366Z",
+      "crawledAt": "2026-08-31T17:15:30.521Z",
       "addressLocality": "Düdingen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -214,8 +218,10 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:38.750Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -258,7 +264,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-044292c9-b524-45f0-9eb3-903addfac2a1.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:42:29.044Z",
+      "crawledAt": "2026-08-31T17:15:29.412Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -293,8 +299,10 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:36.947Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -337,7 +345,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-1ebb94c2-698c-4541-a56f-c33e667c41f9.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:28.228Z",
+      "crawledAt": "2026-08-31T17:15:28.482Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -374,6 +382,7 @@
       "firstSeenAt": "2026-06-17T13:57:35.192Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -416,7 +425,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-5c159c3b-6f5e-407d-ac74-ef35ffc50d29.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:42:27.909Z",
+      "crawledAt": "2026-08-31T17:15:27.226Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -451,8 +460,10 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:32.932Z",
+      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -495,7 +506,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-a83ab262-97a6-4d10-a5a4-e2269c5bfc4a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:42:27.071Z",
+      "crawledAt": "2026-08-31T17:15:26.372Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -533,6 +544,7 @@
       "firstSeenAt": "2026-06-17T13:57:30.183Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -561,7 +573,7 @@
         "it": "Ingegnere di progettazione (m/f/d)",
         "en": "Design engineer (m/f/d)",
         "de": "Konstrukteur (m/w/d)",
-        "fr": "Ingénieur de conception (h/f/d)"
+        "fr": "Konstrukteur (m/w/d)"
       },
       "description": "Konstruktion von Spritzgusswerkzeugen und -artikel von der Entwicklung bis zur technischen Freigabe Technische Schnittstelle zwischen Produktion, Engineering und externen Partnern Entwicklung und Prüfung von Werkzeugkonzepten sowie Heisskanalauslegung mittels Moldflow Durchführung von Design-Reviews und Optimierungen anhand Füllsimulationen Umsetzung von Änderungs- und Korrekturaufträgen inklusive Kosten- und Qualitätsverfolgung Prozessverbesserungen und Standardisierung aktive Mitgestaltung von Abläufen und Normen Dokumentation und Know-how-Transfer",
       "descriptionByLocale": {
@@ -575,7 +587,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-c1fddc77-8f3c-4c3f-b470-7b0b7fb8e0d7.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:26.220Z",
+      "crawledAt": "2026-08-31T17:15:26.022Z",
       "addressLocality": "Romanshorn",
       "postalCode": "6341",
       "streetAddress": "",
@@ -611,8 +623,10 @@
         ]
       },
       "firstSeenAt": "2026-06-24T12:15:47.893Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -655,7 +669,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-a11659e3-20a3-4431-b3d4-d7f960b34916.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:42:25.898Z",
+      "crawledAt": "2026-08-31T17:15:25.216Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -692,6 +706,7 @@
       "firstSeenAt": "2026-07-14T11:11:30.125Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -734,7 +749,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-03295a71-729c-4904-8b5e-f2574649a9c0.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:42:25.569Z",
+      "crawledAt": "2026-08-31T17:15:23.970Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -769,8 +784,10 @@
         ]
       },
       "firstSeenAt": "2026-07-01T12:46:37.005Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -813,7 +830,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-14ec562b-e189-4f29-a2f7-af58ab74c7f4.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:42:25.251Z",
+      "crawledAt": "2026-08-31T17:15:22.855Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -848,8 +865,10 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:19.553Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -892,7 +911,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-5deb4953-a448-4e1f-8090-10c715bad5df.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:42:24.929Z",
+      "crawledAt": "2026-08-31T17:15:22.050Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -929,6 +948,7 @@
       "firstSeenAt": "2026-07-15T22:21:40.150Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -955,7 +975,7 @@
       "title": "Automatiker / SPS-Programmierer / Automatisierungstechniker (m/w/d)",
       "titleByLocale": {
         "it": "Automatico (m/f/d)",
-        "en": "Automatic engineer / PLC programmer / automation engineer (m/f/d)",
+        "en": "Automatiker / SPS-Programmierer / Automatisierungstechniker (m/w/d)",
         "de": "Automatiker / SPS-Programmierer / Automatisierungstechniker (m/w/d)",
         "fr": "Automatique (m/f/d)"
       },
@@ -971,7 +991,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f6406866-8261-42b2-b18c-75a219d69ce1.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:24.604Z",
+      "crawledAt": "2026-08-31T17:15:21.538Z",
       "addressLocality": "Romanshorn",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1012,8 +1032,10 @@
         "automatico-m-f-d-sika-romanshorn-thurgau-switzerland"
       ],
       "firstSeenAt": "2026-06-17T13:57:12.304Z",
+      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1056,7 +1078,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-e62349e4-b260-46b1-b5b1-558137b84dfa.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:23.791Z",
+      "crawledAt": "2026-08-31T17:15:20.752Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1094,6 +1116,7 @@
       "firstSeenAt": "2026-06-17T13:57:10.542Z",
       "salaryMin": 58500,
       "salaryMax": 89000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1136,7 +1159,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f60aaabf-46d6-48de-bd14-7b67aa95a9ba.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:42:23.462Z",
+      "crawledAt": "2026-08-31T17:15:19.612Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1168,6 +1191,7 @@
       "firstSeenAt": "2026-06-17T13:57:08.974Z",
       "salaryMin": 58500,
       "salaryMax": 89000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1210,7 +1234,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-465ec003-7a5e-4cd9-881a-2b492edbf36f.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:22.615Z",
+      "crawledAt": "2026-08-31T17:15:18.734Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1248,6 +1272,7 @@
       "firstSeenAt": "2026-06-17T13:57:07.963Z",
       "salaryMin": 58500,
       "salaryMax": 89000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1290,7 +1315,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-00070f8e-b43c-46c7-9d5d-94e7dab3912d.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:21.812Z",
+      "crawledAt": "2026-08-31T17:15:17.921Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1328,6 +1353,7 @@
       "firstSeenAt": "2026-06-17T13:57:05.923Z",
       "salaryMin": 58500,
       "salaryMax": 89000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1370,7 +1396,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-aaa2ca3a-8fad-44a2-9748-f838280ae5a4.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:20.923Z",
+      "crawledAt": "2026-08-31T17:15:17.094Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1408,6 +1434,7 @@
       "firstSeenAt": "2026-06-17T13:57:03.685Z",
       "salaryMin": 58500,
       "salaryMax": 89000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1434,7 +1461,7 @@
       "title": "Anlagenführer (m/w/d) Extrusionslinien - Process Operator (m/w/d)",
       "titleByLocale": {
         "it": "Anlagenführer (m/w/d) Extrusionslinien - Process Operatore (m/w/d)",
-        "en": "Plant Manager (m/f/d) Extrusion Lines - Process Operator (m/f/d)",
+        "en": "Anlagenführer (m/w/d) Extrusionslinien - Process Operator (m/w/d)",
         "de": "Anlagenführer (m/w/d) Extrusionslinien - Process Operator (m/w/d)",
         "fr": "Anlagenführer (m/w/d) Extrusionslinien - Process Opérateur (m/w/d)"
       },
@@ -1450,7 +1477,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-bdfb0e95-97e0-4a0d-af2c-174bfdd23681.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:20.006Z",
+      "crawledAt": "2026-08-31T17:15:16.141Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1489,6 +1516,7 @@
       "firstSeenAt": "2026-06-17T13:57:02.407Z",
       "salaryMin": 72000,
       "salaryMax": 97000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1515,7 +1543,7 @@
       "title": "Anlagenführer Recycling (m/w/d) - Process Operator Recycling (m/w/d)",
       "titleByLocale": {
         "it": "Anlagenführer Recycling (m/w/d) - Process Operatore Recycling (m/w/d)",
-        "en": "Plant Manager Recycling (m/f/d) - Process Operator Recycling (m/f/d)",
+        "en": "Anlagenführer Recycling (m/w/d) - Process Operator Recycling (m/w/d)",
         "de": "Anlagenführer Recycling (m/w/d) - Process Operator Recycling (m/w/d)",
         "fr": "Anlagenführer Recycling (m/w/d) - Process Opérateur Recycling (m/w/d)"
       },
@@ -1531,7 +1559,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-0923cb82-640a-4fe7-a00e-b8832c0307a9.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:19.684Z",
+      "crawledAt": "2026-08-31T17:15:15.522Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1566,6 +1594,7 @@
       "firstSeenAt": "2026-06-17T13:57:00.845Z",
       "salaryMin": 72000,
       "salaryMax": 97000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1608,7 +1637,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-132e0bae-d015-457d-a224-321c9ed67d15.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:18.663Z",
+      "crawledAt": "2026-08-31T17:15:14.577Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1646,6 +1675,7 @@
       "firstSeenAt": "2026-07-20T12:57:47.590Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1688,7 +1718,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-d49d212d-425b-4df8-b472-647e7f47b720.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:17.700Z",
+      "crawledAt": "2026-08-31T17:15:13.587Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1726,6 +1756,7 @@
       "firstSeenAt": "2026-07-20T22:36:50.859Z",
       "salaryMin": 58500,
       "salaryMax": 89000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1768,7 +1799,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-16cc041b-642b-405a-8c8b-1eb258ed05ba.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:16.864Z",
+      "crawledAt": "2026-08-31T17:15:12.769Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1808,6 +1839,7 @@
       "firstSeenAt": "2026-07-20T12:57:46.680Z",
       "salaryMin": 58500,
       "salaryMax": 89000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1833,7 +1865,7 @@
       "companyDomain": "sika.com",
       "title": "Palettierer",
       "titleByLocale": {
-        "it": "Palletizzatori",
+        "it": "Palettierer",
         "en": "Palletizers",
         "de": "Palettierer",
         "fr": "Palettisants"
@@ -1850,7 +1882,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-9b6bfb1d-bd31-45c4-ba52-1678901ee794.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:16.549Z",
+      "crawledAt": "2026-08-31T17:15:11.940Z",
       "addressLocality": "Altstätten",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1887,8 +1919,10 @@
         ]
       },
       "firstSeenAt": "2026-06-23T12:33:58.578Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1931,7 +1965,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-3e5739e9-cee4-4b47-92c7-67b01f151b2e.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:16.229Z",
+      "crawledAt": "2026-08-31T17:15:11.146Z",
       "addressLocality": "Widen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1970,6 +2004,7 @@
       "firstSeenAt": "2026-08-06T11:46:52.538Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2012,7 +2047,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-d60c6ce1-5511-421d-bb24-b7240688f0c5.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:15.912Z",
+      "crawledAt": "2026-08-31T17:15:10.199Z",
       "addressLocality": "Düdingen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2050,6 +2085,7 @@
       "firstSeenAt": "2026-06-17T13:56:50.007Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2092,7 +2128,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-6a2c4b22-d8ce-4c8f-a8ae-ebef8bb94bb6.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:15.112Z",
+      "crawledAt": "2026-08-31T17:15:09.344Z",
       "addressLocality": "Düdingen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2129,6 +2165,7 @@
       "firstSeenAt": "2026-06-17T13:56:48.470Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2147,7 +2184,7 @@
         "it": "international-traineeship-program-a-i-technical-department-sika-ch",
         "en": "international-traineeship-program-a-i-technical-department-sika-ch",
         "de": "international-traineeship-program-a-i-technische-abteilung-sika-widen-aargau-switzerland",
-        "fr": "programme-de-stages-internationaux-a-et-i-departement-technique-sika-widen-aargau-switzerland"
+        "fr": "international-traineeship-program-a-i-technical-department-sika-widen"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -2157,7 +2194,7 @@
         "it": "International Traineeship Program - A&I - Technical Department",
         "en": "International Traineeship Program - A&I - Technical Department",
         "de": "International Traineeship Program - A&I - Technische Abteilung",
-        "fr": "Programme de stages internationaux - A et I - Département technique"
+        "fr": "International Traineeship Program - A&I - Technical Department"
       },
       "description": "Sika is gearing up for the next edition of its International Traineeship Program 2026! This exciting journey lasts 12 months , starting in Switzerland—primarily at our hub in Widen . During this rotational program , you’ll gain hands-on experience across different areas, build a strong network, and prepare for your next big step: an international assignment. Ready to launch your international career with us? We are currently looking for at least one additional Trainee for our Business Unit Automotive & Industry to join the Technical Services / Market Field Engineering Team. This Traineeship will take place in Widen, Switzerland, for 12 months, before joining our Technical Team in Bad Urach, Germany . What could the job of such Engineer look like after the Traineeship? Providing technical advice and support independently of selected key accounts, engineering offices, consultants, etc. (including visits) for assigned product groups Technical interpretation of customer and market needs and initiation of new developments based on PCP Develop innovating solutions for new or existing applications Implementation of new products (including field tests) and solutions in close cooperation with sales and marketing and other involved departments Technical responsibility for the specific product portfolio including maintenance Identification of corresponding and competitive gaps, niches and opportunities Supporting local sales organizations and global key accounts in case of complaints/claims Arrange and support of trainings for customers and local SO’s Work out of technical argumentation for sales and marketing",
       "descriptionByLocale": {
@@ -2171,7 +2208,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-3cbc69e7-e55b-46ad-bd21-83adbb7da047.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:42:14.305Z",
+      "crawledAt": "2026-08-31T17:15:08.301Z",
       "addressLocality": "Widen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2190,10 +2227,12 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
+        "programme-de-stages-internationaux-a-et-i-departement-technique-sika-widen-aargau-switzerland",
         "international-traineeship-program-a-i-technical-department-sika-widen"
       ],
       "previousSlugsByLocale": {
         "fr": [
+          "programme-de-stages-internationaux-a-et-i-departement-technique-sika-widen-aargau-switzerland",
           "international-traineeship-program-a-i-technical-department-sika-widen"
         ]
       },
@@ -2201,6 +2240,7 @@
       "firstSeenAt": "2026-06-24T12:15:19.902Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2243,7 +2283,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-b26a7049-1fd2-4606-8870-548ed50bdbbe.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:13.980Z",
+      "crawledAt": "2026-08-31T17:15:07.973Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2278,6 +2318,7 @@
       "firstSeenAt": "2026-07-28T22:15:16.034Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2320,7 +2361,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-4f40f20f-63b6-4ab9-8a6b-5cacf7ed4132.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:42:13.652Z",
+      "crawledAt": "2026-08-31T17:15:07.183Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2355,6 +2396,7 @@
       "firstSeenAt": "2026-06-17T13:56:47.313Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2381,7 +2423,7 @@
       "title": "Anlagenführer (w/m) / Process Operator (f/m)",
       "titleByLocale": {
         "it": "Anlagenführer (w/m) / Process Operatore (f/m)",
-        "en": "System Manager (m/f) / Process Operator (m/f)",
+        "en": "Anlagenführer (w/m) / Process Operator (f/m)",
         "de": "Anlagenführer (w/m) / Process Operator (f/m)",
         "fr": "Anlagenführer (w/m) / Process Opérateur (f/m)"
       },
@@ -2397,7 +2439,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f6219ca1-f42f-4e64-8889-27137b4bfc59.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:12.697Z",
+      "crawledAt": "2026-08-31T17:15:06.011Z",
       "addressLocality": "Düdingen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2435,6 +2477,7 @@
       "firstSeenAt": "2026-07-13T22:33:55.431Z",
       "salaryMin": 71000,
       "salaryMax": 95500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2477,7 +2520,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-84394ce8-7a82-4266-a4ed-e5430c33a22c.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:42:11.872Z",
+      "crawledAt": "2026-08-31T17:15:05.489Z",
       "addressLocality": "Widen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2509,8 +2552,10 @@
         ]
       },
       "firstSeenAt": "2026-06-24T12:15:17.810Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2537,7 +2582,7 @@
       "title": "Betriebselektriker (m/w/d)",
       "titleByLocale": {
         "it": "Elettricisti di servizio (m/f/d)",
-        "en": "Business electrician (m/f/d)",
+        "en": "Betriebselektriker (m/w/d)",
         "de": "Betriebselektriker (m/w/d)",
         "fr": "Électriciens de service (m/f/d)"
       },
@@ -2553,7 +2598,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-cb1b006a-a18d-481f-973b-31615a51b9c3.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:11.559Z",
+      "crawledAt": "2026-08-31T17:15:04.529Z",
       "addressLocality": "Romanshorn",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2590,8 +2635,10 @@
         ]
       },
       "firstSeenAt": "2026-07-14T11:11:04.975Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2634,7 +2681,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-4c8be4c9-5540-4cd2-9ff3-d6d70466bad7.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:42:11.236Z",
+      "crawledAt": "2026-08-31T17:15:03.907Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2669,8 +2716,10 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:05:05.667Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2713,7 +2762,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-45904dda-5b8d-4a2b-b3fd-623a5dbddd43.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:42:10.903Z",
+      "crawledAt": "2026-08-31T17:15:02.908Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2750,6 +2799,7 @@
       "firstSeenAt": "2026-08-17T21:57:35.139Z",
       "salaryMin": 65500,
       "salaryMax": 100500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2792,7 +2842,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-9c76864a-9d47-46eb-af82-10893fcfc91e.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:42:10.042Z",
+      "crawledAt": "2026-08-31T17:15:02.583Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2826,6 +2876,7 @@
       "firstSeenAt": "2026-07-23T11:57:19.315Z",
       "salaryMin": 113500,
       "salaryMax": 172000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2868,7 +2919,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-bfefbf0c-3d35-4ba1-a6f6-aac1eac03c15.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:42:09.727Z",
+      "crawledAt": "2026-08-31T17:15:01.957Z",
       "addressLocality": "Baar",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2900,8 +2951,10 @@
         ]
       },
       "firstSeenAt": "2026-07-17T12:00:20.292Z",
+      "needsRetranslation": true,
       "salaryMin": 74500,
       "salaryMax": 127000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2944,7 +2997,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-134ed372-066e-4aa3-8b2a-97296865cf47.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:09.409Z",
+      "crawledAt": "2026-08-31T17:15:00.651Z",
       "addressLocality": "Widen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2977,6 +3030,7 @@
       "firstSeenAt": "2026-07-23T22:33:08.073Z",
       "salaryMin": 63000,
       "salaryMax": 112000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3019,7 +3073,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-b560e1d0-48fe-4f9d-8e78-f6e8e542baaa.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:42:09.083Z",
+      "crawledAt": "2026-08-31T17:15:00.296Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -3056,6 +3110,7 @@
       "firstSeenAt": "2026-07-17T12:00:19.377Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3098,7 +3153,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-de410b81-f519-49db-80e6-988453da3db1.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:42:08.292Z",
+      "crawledAt": "2026-08-31T17:14:58.876Z",
       "addressLocality": "Widen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -3130,8 +3185,10 @@
         ]
       },
       "firstSeenAt": "2026-08-10T22:04:22.447Z",
+      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3174,7 +3231,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-598b5ba4-0f88-44a2-a6f6-3f57a14b3489.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:07.348Z",
+      "crawledAt": "2026-08-31T17:14:58.013Z",
       "addressLocality": "Romanshorn",
       "postalCode": "6341",
       "streetAddress": "",
@@ -3212,6 +3269,7 @@
       "firstSeenAt": "2026-08-07T01:29:24.819Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3254,7 +3312,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-a59da0b4-eae8-4a6a-bbe8-eb7b46d5097a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:06.490Z",
+      "crawledAt": "2026-08-31T17:14:57.129Z",
       "addressLocality": "Romanshorn",
       "postalCode": "6341",
       "streetAddress": "",
@@ -3289,8 +3347,10 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:29:23.952Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3333,7 +3393,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-20c6a9ab-10e9-4574-b3da-f46b36088efb.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:05.564Z",
+      "crawledAt": "2026-08-31T17:14:56.197Z",
       "addressLocality": "Romanshorn",
       "postalCode": "6341",
       "streetAddress": "",
@@ -3368,8 +3428,10 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:29:22.601Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3412,7 +3474,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-40cd3de7-667b-42a1-8711-7f423ba87261.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:05.238Z",
+      "crawledAt": "2026-08-31T17:14:55.298Z",
       "addressLocality": "Arbon / Romanshorn",
       "postalCode": "6341",
       "streetAddress": "",
@@ -3449,8 +3511,10 @@
         ]
       },
       "firstSeenAt": "2026-08-05T11:43:39.273Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3493,7 +3557,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-fb414f0f-92ed-454d-b817-0ce5a4e49072.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:04.913Z",
+      "crawledAt": "2026-08-31T17:14:54.467Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -3531,6 +3595,7 @@
       "firstSeenAt": "2026-08-04T22:25:14.703Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3573,7 +3638,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f8c274e8-611d-4253-9602-49e5c5a31e35.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:42:04.575Z",
+      "crawledAt": "2026-08-31T17:14:53.671Z",
       "addressLocality": "Birr",
       "postalCode": "6341",
       "streetAddress": "",
@@ -3611,6 +3676,7 @@
       "firstSeenAt": "2026-08-11T22:27:27.990Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
